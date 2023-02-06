@@ -4,9 +4,7 @@
 	name = "room five";
 	initial_lock_value = "room_five"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
 "aK" = (
 /obj/structure/closet/crate/hydroponics,
@@ -54,7 +52,24 @@
 	name = "key - room six";
 	key_data = "room_six"
 	},
+/obj/item/key{
+	name = "key - storeroom";
+	key_data = "storeroom"
+	},
 /turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"bI" = (
+/obj/item/pocketwatch/adhomai,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"ch" = (
+/obj/machinery/washing_machine,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
 /area/adhomai_bar)
 "cs" = (
 /obj/structure/railing/fence{
@@ -82,14 +97,19 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
+"en" = (
+/obj/item/mop,
+/obj/item/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "eu" = (
 /obj/structure/simple_door/wood{
 	name = "room one";
 	initial_lock_value = "room_one"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
 "ev" = (
 /obj/structure/bed/stool/chair/wood{
@@ -109,9 +129,8 @@
 	pixel_x = -28;
 	pixel_y = -3
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
 "gm" = (
 /turf/simulated/floor/lino/grey{
@@ -149,6 +168,9 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
+"hY" = (
+/turf/simulated/floor/carpet/fancybrown,
+/area/adhomai_bar)
 "iw" = (
 /obj/machinery/chem_heater,
 /obj/effect/floor_decal/spline/plain{
@@ -166,9 +188,8 @@
 	pixel_x = 28;
 	pixel_y = -3
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
 "jp" = (
 /obj/structure/railing/fence,
@@ -213,11 +234,10 @@
 	},
 /area/adhomai_bar)
 "kI" = (
-/obj/item/material/hatchet/butch,
-/obj/structure/table/wood,
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/kitchenspike,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -265,6 +285,15 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
+"mb" = (
+/obj/structure/simple_door/wood{
+	name = "storeroom";
+	initial_lock_value = "storeroom"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "mw" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/wood{
@@ -305,9 +334,7 @@
 	name = "room four";
 	initial_lock_value = "room_four"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
 "nR" = (
 /turf/simulated/floor/exoplanet/snow{
@@ -417,9 +444,7 @@
 "sE" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
 "sS" = (
 /obj/structure/bed/stool/chair/wood{
@@ -506,6 +531,16 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
+"wE" = (
+/obj/structure/closet/cabinet,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/flame/lighter/adhomai,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "xc" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/wood{
@@ -518,9 +553,7 @@
 /area/adhomai_bar)
 "xE" = (
 /obj/structure/bed/stool,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
 "xS" = (
 /obj/machinery/atm{
@@ -630,9 +663,7 @@
 	name = "room six";
 	initial_lock_value = "room_six"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
 "Ez" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -698,6 +729,15 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
+"Hv" = (
+/obj/structure/closet/crate/trashcart,
+/obj/item/trash/can/adhomian_can,
+/obj/item/storage/bag/trash,
+/obj/item/storage/bag/trash,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "HM" = (
 /obj/structure/railing/fence{
 	dir = 1
@@ -723,9 +763,7 @@
 	name = "room two";
 	initial_lock_value = "room_two"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
 "In" = (
 /turf/simulated/floor/exoplanet/barren{
@@ -765,6 +803,16 @@
 	},
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Jq" = (
+/obj/structure/largecrate,
+/obj/item/reagent_containers/food/drinks/cans/adhomai_milk{
+	pixel_x = 8;
+	pixel_y = 17
+	},
+/turf/simulated/floor/wood{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -809,9 +857,7 @@
 /obj/item/paper_bin,
 /obj/item/pen/black,
 /obj/machinery/light/small,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
 "NA" = (
 /obj/machinery/appliance/cooker/fryer,
@@ -874,9 +920,7 @@
 	name = "room three";
 	initial_lock_value = "room_three"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
 "Rh" = (
 /turf/simulated/floor/exoplanet/barren{
@@ -884,11 +928,9 @@
 	},
 /area/exoplanet/adhomai)
 "Sp" = (
-/obj/structure/bed,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/obj/structure/bed/padded,
+/turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
 "SN" = (
 /obj/structure/table/stone/marble,
@@ -984,6 +1026,15 @@
 	temperature = 253.15
 	},
 /area/adhomai_bar)
+"UC" = (
+/obj/structure/table/wood,
+/obj/structure/bedsheetbin{
+	pixel_y = 10
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "UI" = (
 /obj/item/holder/monkey/farwa,
 /turf/simulated/floor/wood{
@@ -1010,9 +1061,7 @@
 /area/adhomai_bar)
 "Vi" = (
 /obj/structure/closet/cabinet,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
 "VS" = (
 /obj/structure/closet/crate/hydroponics,
@@ -1078,6 +1127,8 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/structure/table/wood,
+/obj/item/material/hatchet/butch,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -1110,6 +1161,14 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"XP" = (
+/obj/structure/closet/crate/bin,
+/obj/item/storage/bag/trash,
+/obj/item/trash/can/adhomian_can,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "Yn" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -1134,6 +1193,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"YJ" = (
+/obj/structure/coatrack,
+/obj/item/clothing/suit/storage/tajaran/hunting,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
 /area/adhomai_bar)
 "YY" = (
 /obj/structure/table/rack,
@@ -1221,8 +1287,18 @@ nR
 nR
 nR
 nR
+nR
+nR
+nR
+nR
+nR
 "}
 (2,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 nR
 nR
 nR
@@ -1257,6 +1333,11 @@ nR
 nR
 "}
 (3,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 nR
 nR
 nR
@@ -1323,8 +1404,18 @@ nR
 nR
 nR
 nR
+nR
+nR
+nR
+nR
+nR
 "}
 (5,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 Wm
 IM
 WU
@@ -1339,7 +1430,7 @@ Xv
 Xv
 Xv
 Xv
-nR
+Hv
 nR
 nR
 FM
@@ -1359,6 +1450,11 @@ nR
 nR
 "}
 (6,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 cs
 TA
 In
@@ -1393,6 +1489,11 @@ nR
 nR
 "}
 (7,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 cs
 TA
 In
@@ -1427,6 +1528,11 @@ nR
 nR
 "}
 (8,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 cs
 In
 In
@@ -1461,6 +1567,11 @@ nR
 nR
 "}
 (9,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 cs
 TA
 In
@@ -1495,6 +1606,11 @@ nR
 nR
 "}
 (10,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 cs
 TA
 In
@@ -1529,6 +1645,11 @@ nR
 NM
 "}
 (11,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 cs
 TA
 In
@@ -1563,6 +1684,11 @@ nR
 nR
 "}
 (12,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 cs
 TA
 In
@@ -1597,6 +1723,11 @@ nR
 nR
 "}
 (13,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 cs
 TA
 In
@@ -1631,6 +1762,11 @@ nR
 nR
 "}
 (14,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 HM
 TA
 In
@@ -1666,6 +1802,11 @@ nR
 "}
 (15,1,1) = {"
 nR
+nR
+nR
+nR
+nR
+nR
 Xv
 Xv
 Xv
@@ -1700,20 +1841,25 @@ nR
 "}
 (16,1,1) = {"
 nR
+nR
+nR
+nR
+nR
+nR
 Xv
 Sp
-eS
+hY
 Vi
 Xv
 Sp
-eS
+hY
 Vi
 Xv
 Sp
-eS
+hY
 Vi
 Xv
-eS
+XP
 eS
 xc
 Zc
@@ -1734,17 +1880,22 @@ nR
 "}
 (17,1,1) = {"
 nR
+nR
+nR
+nR
+bI
+nR
 Xv
 sE
-eS
+hY
 MM
 Xv
 sE
-eS
+hY
 MM
 Xv
 sE
-eS
+hY
 MM
 Xv
 eS
@@ -1768,17 +1919,22 @@ nR
 "}
 (18,1,1) = {"
 nR
+nR
+nR
+nR
+nR
+nR
 Xv
 xE
-eS
+hY
 ix
 Xv
 xE
-eS
+hY
 ix
 Xv
 xE
-eS
+hY
 ix
 Xv
 Wr
@@ -1802,6 +1958,11 @@ FM
 "}
 (19,1,1) = {"
 nR
+nR
+Xv
+Xv
+Xv
+Xv
 Xv
 Xv
 Qw
@@ -1836,6 +1997,11 @@ nR
 "}
 (20,1,1) = {"
 nR
+nR
+Xv
+ch
+eS
+UC
 Xv
 pr
 eS
@@ -1870,7 +2036,12 @@ nR
 "}
 (21,1,1) = {"
 nR
+nR
 Xv
+wE
+eS
+eS
+mb
 eS
 eS
 eS
@@ -1904,6 +2075,11 @@ nR
 "}
 (22,1,1) = {"
 nR
+nR
+Xv
+Jq
+YJ
+en
 Xv
 Xv
 Eg
@@ -1938,17 +2114,22 @@ Rh
 "}
 (23,1,1) = {"
 nR
+nR
+Xv
+Xv
+Xv
+Xv
 Xv
 xE
-eS
+hY
 fC
 Xv
 xE
-eS
+hY
 fC
 Xv
 xE
-eS
+hY
 fC
 Xv
 Tb
@@ -1972,17 +2153,22 @@ nR
 "}
 (24,1,1) = {"
 nR
+nR
+nR
+nR
+nR
+nR
 Xv
 sE
-eS
+hY
 MM
 Xv
 sE
-eS
+hY
 MM
 Xv
 sE
-eS
+hY
 MM
 Xv
 WS
@@ -2006,17 +2192,22 @@ nR
 "}
 (25,1,1) = {"
 nR
+nR
+nR
+nR
+nR
+nR
 Xv
 Sp
-eS
+hY
 Vi
 Xv
 Sp
-eS
+hY
 Vi
 Xv
 Sp
-eS
+hY
 Vi
 Xv
 zA
@@ -2039,6 +2230,11 @@ nR
 nR
 "}
 (26,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 nR
 Xv
 Xv
@@ -2080,6 +2276,11 @@ nR
 nR
 nR
 nR
+nR
+nR
+nR
+nR
+nR
 Xv
 eS
 mF
@@ -2114,6 +2315,11 @@ nR
 nR
 nR
 nR
+nR
+nR
+nR
+nR
+nR
 Xv
 zA
 Kt
@@ -2141,6 +2347,11 @@ nR
 nR
 "}
 (29,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 nR
 nR
 XG
@@ -2182,6 +2393,11 @@ nR
 nR
 nR
 nR
+nR
+nR
+nR
+nR
+nR
 Xv
 eS
 zA
@@ -2209,6 +2425,11 @@ nR
 nR
 "}
 (31,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 nR
 nR
 nR
@@ -2243,6 +2464,11 @@ nR
 nR
 "}
 (32,1,1) = {"
+nR
+nR
+nR
+nR
+nR
 nR
 nR
 nR
