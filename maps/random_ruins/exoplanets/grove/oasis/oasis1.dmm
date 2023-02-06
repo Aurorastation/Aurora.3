@@ -1,0 +1,37 @@
+"a" = (/turf/simulated/floor/exoplanet/grass/grove,/area/exoplanet/grass/grove)
+"b" = (/obj/structure/flora/ausbushes/sunnybush,/turf/simulated/floor/exoplanet/grass/grove,/area/exoplanet/grass/grove)
+"c" = (/turf/simulated/floor/exoplanet/water,/area/exoplanet/grass/grove)
+"d" = (/obj/structure/flora/tree/jungle/small,/turf/simulated/floor/exoplanet/grass/grove,/area/exoplanet/grass/grove)
+"e" = (/obj/structure/flora/tree/grove,/turf/simulated/floor/exoplanet/grass/grove,/area/exoplanet/grass/grove)
+"f" = (/mob/living/simple_animal/tindalos,/turf/simulated/floor/exoplanet/grass/grove,/area/exoplanet/grass/grove)
+"g" = (/turf/simulated/floor/exoplanet/water/shallow,/area/exoplanet/grass/grove)
+"h" = (/obj/structure/flora/ausbushes/reedbush,/turf/simulated/floor/exoplanet/water,/area/exoplanet/grass/grove)
+"i" = (/mob/living/carbon/human/stok,/turf/simulated/floor/exoplanet/grass/grove,/area/exoplanet/grass/grove)
+"j" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/grass/grove,/area/exoplanet/grass/grove)
+"k" = (/obj/structure/flora/ausbushes/fernybush,/turf/simulated/floor/exoplanet/grass/grove,/area/exoplanet/grass/grove)
+"l" = (/obj/structure/flora/tree/jungle,/turf/simulated/floor/exoplanet/grass/grove,/area/exoplanet/grass/grove)
+"m" = (/obj/structure/flora/rock/pile,/turf/simulated/floor/exoplanet/grass/grove,/area/exoplanet/grass/grove)
+"n" = (/obj/structure/flora/rock,/turf/simulated/floor/exoplanet/grass/grove,/area/exoplanet/grass/grove)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaa
+aaaaaabaaaacccaaaada
+adaeaaafaacggghcaaia
+aaaaaaaaacggggggcaaa
+aajjaaaaccgggggggcaa
+aajakiacgggggggggcaa
+ajjaaacggggggggggcaa
+aaaaahggggggggggggca
+aaaacgggggggggccccaa
+alaacggggggggcaaaaaa
+aamacgggggggcaaabaaa
+aaafcgggggggghaaaaaa
+ajaacggggggggcaaaeaa
+adjacggggggggcaiaaaa
+aajaahggggggcaaaaaja
+aaaaaaccccccaaajjjaa
+amaaaaaaaaaaaaajaaaa
+aakaeaajjaajaanaalaa
+aaaaaajjajjadaaafaaa
+aaaaaaaaaaaaaaaaaaaa
+"}
