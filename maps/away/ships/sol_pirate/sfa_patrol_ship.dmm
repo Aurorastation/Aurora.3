@@ -1199,6 +1199,8 @@
 	},
 /obj/item/device/radio/off,
 /obj/item/device/gps,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "eLQ" = (
