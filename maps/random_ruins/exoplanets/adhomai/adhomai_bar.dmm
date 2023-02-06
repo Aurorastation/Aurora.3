@@ -939,6 +939,7 @@
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/flame/lighter/adhomai,
 /obj/item/material/knife/trench,
+/obj/item/storage/box/fancy/candle_box,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
