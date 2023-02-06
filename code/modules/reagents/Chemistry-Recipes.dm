@@ -2372,7 +2372,7 @@
 /datum/chemical_reaction/drink/ration_coffee
     name = "Ration Coffee"
     id = "ration_coffee"
-    result = /singleton/reagent/drink/coffee/ration_coffee
+    result = /singleton/reagent/drink/coffee/ration
     required_reagents = list(/singleton/reagent/drink/coffee = 2, /singleton/reagent/water = 1)
     result_amount = 3
 
