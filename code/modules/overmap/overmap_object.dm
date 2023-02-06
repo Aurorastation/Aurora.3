@@ -1,6 +1,6 @@
 /obj/effect/overmap
 	name = "map object"
-	icon = 'icons/obj/overmap.dmi'
+	icon = 'icons/obj/overmap/overmap.dmi'
 	icon_state = "object"
 	color = "#fffffe"
 
@@ -109,7 +109,7 @@
 	if(do_after(usr, 5 SECONDS))
 		C.targeting = FALSE
 		targeting = O
-		O.targeted_overlay = icon('icons/obj/overmap_heads_up_display.dmi', "lock")
+		O.targeted_overlay = icon('icons/obj/overmap/.dmi', "lock")
 		O.add_overlay(O.targeted_overlay)
 		if(designation && class && !obfuscated)
 			if(!O.maptext)

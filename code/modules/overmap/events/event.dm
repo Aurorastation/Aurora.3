@@ -167,7 +167,7 @@
 //  And with them "existing" on the overmap Z-level things quickly get odd.
 /obj/effect/overmap/event
 	name = "event"
-	icon = 'icons/obj/overmap.dmi'
+	icon = 'icons/obj/overmap/overmap_effects.dmi'
 	icon_state = "blank"
 	opacity = 0
 	var/list/events

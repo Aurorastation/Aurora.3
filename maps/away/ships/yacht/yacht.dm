@@ -9,10 +9,11 @@
 
 /obj/effect/overmap/visitable/ship/yacht
 	name = "private yacht"
-	desc = "Sensor array is detecting a private pleasure yacht with unknown lifeforms dectected within. The design appears to be from the Idris Incorporated 'Starfarer' line." 
+	desc = "Sensor array is detecting a private pleasure yacht with unknown lifeforms dectected within. The design appears to be from the Idris Incorporated 'Starfarer' line."
 	class = "IPV"
-	icon_state = "ship_grey"
-	moving_state = "ship_grey_moving"
+	icon_state = "generic"
+	moving_state = "generic_moving"
+	colors = list("#3c3f59", "#252842")
 	vessel_mass = 3000
 	max_speed = 1/(2 SECONDS)
 	initial_generic_waypoints = list(
