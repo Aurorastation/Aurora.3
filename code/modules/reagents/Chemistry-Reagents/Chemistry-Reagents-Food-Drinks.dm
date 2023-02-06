@@ -1762,7 +1762,7 @@
 	glass_desc = "A strong coffee made by passing nearly boiling water through coffee seeds at high pressure."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
-/singleton/reagent/drink/coffee/ration_coffee
+/singleton/reagent/drink/coffee/ration
     name = "Ration Coffee"
     description = "Watered-down coffee. One cup now becomes four!"
     color = "#664300" // rgb: 102, 67, 0
