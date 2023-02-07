@@ -597,7 +597,9 @@
 		/obj/item/storage/box/fancy/med_pouch/trauma,
 		/obj/item/storage/box/fancy/med_pouch/burn,
 		/obj/item/storage/box/fancy/med_pouch/oxyloss,
-		/obj/item/storage/box/fancy/med_pouch/toxin
+		/obj/item/storage/box/fancy/med_pouch/toxin,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/device/breath_analyzer  = 1
 	)
 	contraband = list(
 		/obj/item/reagent_containers/syringe/dylovene = 4,
@@ -627,7 +629,9 @@
 		/obj/item/storage/box/fancy/med_pouch/burn,
 		/obj/item/storage/box/fancy/med_pouch/oxyloss,
 		/obj/item/storage/box/fancy/med_pouch/toxin,
-		/obj/item/storage/box/fancy/med_pouch/radiation
+		/obj/item/storage/box/fancy/med_pouch/radiation,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/device/breath_analyzer  = 1
 	)
 	contraband = list(
 		/obj/item/reagent_containers/pill/tox = 3
