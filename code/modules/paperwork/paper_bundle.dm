@@ -176,7 +176,7 @@
 			var/obj/P = pages[page]
 			page++
 			var/obj/A = pages[page]
-			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 			if(A.type != P.type)
 				usr << browse(null, "window=[name]")
 	if(href_list["prev_page"])
@@ -184,7 +184,7 @@
 			var/obj/P = pages[page]
 			page--
 			var/obj/A = pages[page]
-			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 			if(A.type != P.type)
 				usr << browse(null, "window=[name]")
 	if(href_list["remove"])

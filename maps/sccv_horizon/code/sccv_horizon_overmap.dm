@@ -3,7 +3,7 @@
 	designation = "Horizon"
 	desc = "A line without compare, the Venator-series consists of one vessel so far: the SCCV Horizon, the lead ship of its class. Designed to be an entirely self-sufficient general-purpose surveying ship and to carry multiple replacement crews simultaneously, the Venator is equipped with both a bluespace and a warp drive and two different engines. Defying typical cruiser dimensions, the Venator is home to a sizable residential deck below the operations deck of the ship, where the crew is housed. It also features weapon hardpoints in its prominent wing nacelles. This one's transponder identifies it, obviously, as the SCCV Horizon."
 	fore_dir = SOUTH
-	vessel_mass = 100000
+	vessel_mass = 70000
 	burn_delay = 2 SECONDS
 	base = TRUE
 
@@ -32,9 +32,10 @@
 	"deck_two_port_aft",
 	"deck_two_starboard_aft",
 	"deck_three_fore_of_horizon",
-	"deck_three_starboard_of_horizon",
-	"deck_three_port_of_horizon",
-	"deck_three_aft_of_horizon"
+	"deck_three_fore_starboard_of_horizon",
+	"deck_three_fore_port_of_horizon",
+	"deck_three_aft_of_horizon",
+	"deck_three_aft_port_of_horizon"
 	)
 
 /obj/effect/overmap/visitable/ship/landable/intrepid
@@ -182,12 +183,16 @@
 	name = "Deck Three, Fore of Horizon"
 	landmark_tag = "deck_three_fore_of_horizon"
 
-/obj/effect/shuttle_landmark/horizon/deckthree/starboard
+/obj/effect/shuttle_landmark/horizon/deckthree/starboardfore
 	name = "Deck Three, Starboard of Horizon"
-	landmark_tag = "deck_three_starboard_of_horizon"
+	landmark_tag = "deck_three_fore_starboard_of_horizon"
 
-/obj/effect/shuttle_landmark/horizon/deckthree/port
-	name = "Deck Three, Port of Horizon"
+/obj/effect/shuttle_landmark/horizon/deckthree/portfore
+	name = "Deck Three, Starboard of Horizon"
+	landmark_tag = "deck_three_port_fore_of_horizon"
+
+/obj/effect/shuttle_landmark/horizon/deckthree/portaft
+	name = "Deck Three, Aft Port of Horizon"
 	landmark_tag = "deck_three_port_of_horizon"
 
 /obj/effect/shuttle_landmark/horizon/deckthree/aft

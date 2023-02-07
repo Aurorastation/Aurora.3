@@ -442,7 +442,7 @@ Class Procs:
 	return 1
 
 /obj/machinery/proc/dismantle()
-	playsound(loc, /decl/sound_category/crowbar_sound, 50, 1)
+	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
 	M.state = 3
@@ -465,7 +465,7 @@ Class Procs:
 		message = "\The [src] rattles to life and spits out a paper titled [paper]."
 	visible_message(SPAN_NOTICE(message))
 
-	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
+	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper), print_delay)
 
 	return 1
 

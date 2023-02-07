@@ -9,7 +9,7 @@
 	if(isliving(A))
 		var/mob/living/L = A
 		if(!L.stat)
-			stance = HOSTILE_STANCE_ATTACK
+			change_stance(HOSTILE_STANCE_ATTACK)
 			return L
 		else
 			enemies -= L

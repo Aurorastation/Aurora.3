@@ -1415,6 +1415,10 @@
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "VS" = (
@@ -1528,10 +1532,10 @@
 /obj/item/clothing/accessory/poncho/unathimantle/mountain{
 	color = "#ba650b"
 	},
-/obj/item/clothing/suit/apron/colored{
+/obj/item/clothing/accessory/apron{
 	color = "#b97a57"
 	},
-/obj/item/clothing/suit/apron/colored{
+/obj/item/clothing/accessory/apron{
 	color = "#b97a57"
 	},
 /obj/item/clothing/accessory/poncho,

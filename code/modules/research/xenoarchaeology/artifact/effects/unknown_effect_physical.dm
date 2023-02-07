@@ -18,7 +18,7 @@
 					if(affecting && istype(affecting))
 						affecting.heal_damage(25 * weakness, 25 * weakness)
 				//H:heal_organ_damage(25, 25)
-				H.vessel.add_reagent(/decl/reagent/blood,5, temperature = H.species?.body_temperature)
+				H.vessel.add_reagent(/singleton/reagent/blood,5, temperature = H.species?.body_temperature)
 				H.adjustNutritionLoss(-50 * weakness)
 				H.adjustHydrationLoss(-50 * weakness)
 				H.adjustBrainLoss(-25 * weakness)

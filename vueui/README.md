@@ -75,7 +75,7 @@ In other words, var monitor is just one-way link between object's vars and ui da
 ```DM
 VUEUI_MONITOR_VARS(/datum/mydatum, mydatummonitor)
     watch_var("objects_var_name", "uis_var_name")
-    watch_var("other_datum", "has_other_datum", CALLBACK(null, .proc/transform_to_boolean, FALSE))
+    watch_var("other_datum", "has_other_datum", CALLBACK(null, PROC_REF(transform_to_boolean), FALSE))
 ```
 In this example it monitors `/datum/mydatum/var/objects_var_name` and presents it to ui as `uis_var_name`. On last line we define other watcher, that has transform (sanitizer) callback function set. In this case it's set to call `/datum/vueui_var_monitor/proc/transform_to_boolean` right before var is transferred to ui data list. It also allows us to pass additional options to call back function, in this case it's boolean that determines if conversion is inverting. Other parameters passed to callback right after those defined in `CALLBACK` are: value of source var, last value of ui var, user that is interacting with ui, ui datum. `callback(..., var/source, var/current, var/mob/user, var/datum/vueui/ui)`
 There is also plausibility to extend var monitors with other ways by extending default `vueui_data_change` proc. For example of this, you can look at `photocopier.dm`

@@ -1,817 +1,817 @@
 //These value assume that each unit is roughly a gram
 
-/decl/reagent
+/singleton/reagent
 	var/value = 1 //per unit
 
-/decl/reagent/blood
+/singleton/reagent/blood
 	value = 2
 
-/decl/reagent/water
+/singleton/reagent/water
 	value = 0
 
-/decl/reagent/fuel
+/singleton/reagent/fuel
 	value = 6.8
 
-/decl/reagent/acetone
+/singleton/reagent/acetone
 	value = 0.27
 
-/decl/reagent/aluminum
+/singleton/reagent/aluminum
 	value = 0.02
 
-/decl/reagent/ammonia
+/singleton/reagent/ammonia
 	value = 0.01
 
-/decl/reagent/carbon
+/singleton/reagent/carbon
 	value = 0.2
 
-/decl/reagent/copper
+/singleton/reagent/copper
 	value = 0.02
 
-/decl/reagent/alcohol
+/singleton/reagent/alcohol
 	value = 0.01
 
-/decl/reagent/alcohol/butanol
+/singleton/reagent/alcohol/butanol
 	value = 0.02
 
-/decl/reagent/alcohol/butanol/xuizijuice
+/singleton/reagent/alcohol/butanol/xuizijuice
 	value = 0.2
 
-/decl/reagent/alcohol/butanol/xuizijuice
+/singleton/reagent/alcohol/butanol/xuizijuice
 	value = 0.2
 
-/decl/reagent/alcohol/nmshaan_liquor/darmadhirbrew
+/singleton/reagent/alcohol/nmshaan_liquor/darmadhirbrew
 	value = 25
 
-/decl/reagent/hydrazine
+/singleton/reagent/hydrazine
 	value = 0.017
 
-/decl/reagent/iron
+/singleton/reagent/iron
 	value = 0.01
 
-/decl/reagent/lithium
+/singleton/reagent/lithium
 	value = 6
 
-/decl/reagent/mercury
+/singleton/reagent/mercury
 	value = 0.02
 
-/decl/reagent/phosphorus
+/singleton/reagent/phosphorus
 	value = 0.4
 
-/decl/reagent/potassium
+/singleton/reagent/potassium
 	value = 1
 
-/decl/reagent/radium
+/singleton/reagent/radium
 	value = 50 //Radium is crazy expensive, like 100k+ per gram. So probably a bit less expensive in the future.
 
-/decl/reagent/acid
+/singleton/reagent/acid
 	value = 0.2
 
-/decl/reagent/acid/stomach
+/singleton/reagent/acid/stomach
 	value = 0
 
-/decl/reagent/sodium
+/singleton/reagent/sodium
 	value = 0.1
 
-/decl/reagent/sugar
+/singleton/reagent/sugar
 	value = 0.1
 
-/decl/reagent/sulfur
+/singleton/reagent/sulfur
 	value = 2
 
-/decl/reagent/kois
+/singleton/reagent/kois
 	value = 0.5
 
-/decl/reagent/nutriment
+/singleton/reagent/nutriment
 	value = 0.1
 
-/decl/reagent/nutriment/virus_food
+/singleton/reagent/nutriment/virus_food
 	value = 0.15
 
-/decl/reagent/nutriment/sprinkles
+/singleton/reagent/nutriment/sprinkles
 	value = 0.05
 
-/decl/reagent/nutriment/mint
+/singleton/reagent/nutriment/mint
 	value = 0.14
 
-/decl/reagent/lipozine
+/singleton/reagent/lipozine
 	value = 0.11
 
-/decl/reagent/sodiumchloride
+/singleton/reagent/sodiumchloride
 	value = 0.11
 
-/decl/reagent/blackpepper
+/singleton/reagent/blackpepper
 	value = 0.1
 
-/decl/reagent/enzyme
+/singleton/reagent/enzyme
 	value = 0.2
 
-/decl/reagent/frostoil
+/singleton/reagent/frostoil
 	value = 0.2
 
-/decl/reagent/capsaicin
+/singleton/reagent/capsaicin
 	value = 0.2
 
-/decl/reagent/capsaicin/condensed
+/singleton/reagent/capsaicin/condensed
 	value = 0.5
 
-/decl/reagent/drink
+/singleton/reagent/drink
 	value = 0.1
 
-/decl/reagent/drink/milk/chocolate
+/singleton/reagent/drink/milk/chocolate
 	value = 0.11
 
-/decl/reagent/drink/milk/cream
+/singleton/reagent/drink/milk/cream
 	value = 0.12
 
-/decl/reagent/drink/coffee
+/singleton/reagent/drink/coffee
 	value = 0.12
 
-/decl/reagent/drink/coffee/soy_latte
+/singleton/reagent/drink/coffee/soy_latte
 	value = 0.13
 
-/decl/reagent/drink/hot_coco
+/singleton/reagent/drink/hot_coco
 	value = 0.11
 
-/decl/reagent/drink/milkshake
+/singleton/reagent/drink/milkshake
 	value = 0.12
 
-/decl/reagent/drink/rewriter
+/singleton/reagent/drink/rewriter
 	value = 0.11
 
-/decl/reagent/drink/nuka_cola
+/singleton/reagent/drink/nuka_cola
 	value = 0.13
 
-/decl/reagent/drink/doctorsdelight
+/singleton/reagent/drink/doctorsdelight
 	value = 0.3
 
-/decl/reagent/drink/ice
+/singleton/reagent/drink/ice
 	value = 0
 
-/decl/reagent/drink/nothing
+/singleton/reagent/drink/nothing
 	value = 0
 
-/decl/reagent/alcohol/absinthe
+/singleton/reagent/alcohol/absinthe
 	value = 0.13
 
-/decl/reagent/alcohol/ale
+/singleton/reagent/alcohol/ale
 	value = 0.13
 
-/decl/reagent/alcohol/beer
+/singleton/reagent/alcohol/beer
 	value = 0.12
 
-/decl/reagent/alcohol/bitters
+/singleton/reagent/alcohol/bitters
 	value = 0.15
 
-/decl/reagent/alcohol/bluecuracao
+/singleton/reagent/alcohol/bluecuracao
 	value = 0.16
 
-/decl/reagent/alcohol/champagne
+/singleton/reagent/alcohol/champagne
 	value = 0.2
 
-/decl/reagent/alcohol/cognac
+/singleton/reagent/alcohol/cognac
 	value = 0.2
 
-/decl/reagent/alcohol/deadrum
+/singleton/reagent/alcohol/deadrum
 	value = 0.15
 
-/decl/reagent/alcohol/gin
+/singleton/reagent/alcohol/gin
 	value = 0.1
 
-/decl/reagent/alcohol/coffee/kahlua
+/singleton/reagent/alcohol/coffee/kahlua
 	value = 0.14
 
-/decl/reagent/alcohol/melonliquor
+/singleton/reagent/alcohol/melonliquor
 	value = 0.13
 
-/decl/reagent/alcohol/rum
+/singleton/reagent/alcohol/rum
 	value = 0.1
 
-/decl/reagent/alcohol/sake
+/singleton/reagent/alcohol/sake
 	value = 0.11
 
-/decl/reagent/alcohol/tequila
+/singleton/reagent/alcohol/tequila
 	value = 0.1
 
-/decl/reagent/alcohol/thirteenloko
+/singleton/reagent/alcohol/thirteenloko
 	value = 0.15
 
-/decl/reagent/alcohol/vermouth
+/singleton/reagent/alcohol/vermouth
 	value = 0.1
 
-/decl/reagent/alcohol/vodka
+/singleton/reagent/alcohol/vodka
 	value = 0.1
 
-/decl/reagent/alcohol/whiskey
+/singleton/reagent/alcohol/whiskey
 	value = 0.1
 
-/decl/reagent/alcohol/wine
+/singleton/reagent/alcohol/wine
 	value = 0.1
 
-/decl/reagent/alcohol/wine/vintage
+/singleton/reagent/alcohol/wine/vintage
 	value = 15
 
-/decl/reagent/alcohol/acid_spit
+/singleton/reagent/alcohol/acid_spit
 	value = 0.15
 
-/decl/reagent/alcohol/alliescocktail
+/singleton/reagent/alcohol/alliescocktail
 	value = 0.16
 
-/decl/reagent/alcohol/aloe
+/singleton/reagent/alcohol/aloe
 	value = 0.17
 
-/decl/reagent/alcohol/amasec
+/singleton/reagent/alcohol/amasec
 	value = 0.16
 
-/decl/reagent/alcohol/andalusia
+/singleton/reagent/alcohol/andalusia
 	value = 0.15
 
-/decl/reagent/alcohol/antifreeze
+/singleton/reagent/alcohol/antifreeze
 	value = 0.16
 
-/decl/reagent/alcohol/atomicbomb
+/singleton/reagent/alcohol/atomicbomb
 	value = 0.21
 
-/decl/reagent/alcohol/coffee/b52
+/singleton/reagent/alcohol/coffee/b52
 	value = 0.17
 
-/decl/reagent/alcohol/bahama_mama
+/singleton/reagent/alcohol/bahama_mama
 	value = 0.15
 
-/decl/reagent/alcohol/bananahonk
+/singleton/reagent/alcohol/bananahonk
 	value = 0.15
 
-/decl/reagent/alcohol/barefoot
+/singleton/reagent/alcohol/barefoot
 	value = 0.14
 
-/decl/reagent/alcohol/beepsky_smash
+/singleton/reagent/alcohol/beepsky_smash
 	value = 0.2
 
-/decl/reagent/alcohol/bilk
+/singleton/reagent/alcohol/bilk
 	value = 0.12
 
-/decl/reagent/alcohol/blackrussian
+/singleton/reagent/alcohol/blackrussian
 	value = 0.14
 
-/decl/reagent/alcohol/bloodymary
+/singleton/reagent/alcohol/bloodymary
 	value = 0.14
 
-/decl/reagent/alcohol/booger
+/singleton/reagent/alcohol/booger
 	value = 0.13
 
-/decl/reagent/alcohol/coffee/brave_bull
+/singleton/reagent/alcohol/coffee/brave_bull
 	value = 0.16
 
-/decl/reagent/alcohol/cmojito
+/singleton/reagent/alcohol/cmojito
 	value = 0.14
 
-/decl/reagent/alcohol/gibsonpunch
+/singleton/reagent/alcohol/gibsonpunch
 	value = 0.19
 
-/decl/reagent/alcohol/classic
+/singleton/reagent/alcohol/classic
 	value = 0.14
 
-/decl/reagent/alcohol/martini
+/singleton/reagent/alcohol/martini
 	value = 0.16
 
-/decl/reagent/alcohol/corkpopper
+/singleton/reagent/alcohol/corkpopper
 	value = 0.13
 
-/decl/reagent/alcohol/rumandcola
+/singleton/reagent/alcohol/rumandcola
 	value = 0.15
 
-/decl/reagent/alcohol/cubalibre
+/singleton/reagent/alcohol/cubalibre
 	value = 0.16
 
-/decl/reagent/alcohol/demonsblood
+/singleton/reagent/alcohol/demonsblood
 	value = 0.15
 
-/decl/reagent/alcohol/devilskiss
+/singleton/reagent/alcohol/devilskiss
 	value = 0.14
 
-/decl/reagent/alcohol/driestmartini
+/singleton/reagent/alcohol/driestmartini
 	value = 0.16
 
-/decl/reagent/alcohol/ginfizz
+/singleton/reagent/alcohol/ginfizz
 	value = 0.13
 
-/decl/reagent/alcohol/french75
+/singleton/reagent/alcohol/french75
 	value = 0.17
 
-/decl/reagent/alcohol/grog
+/singleton/reagent/alcohol/grog
 	value = 0.11
 
-/decl/reagent/alcohol/erikasurprise
+/singleton/reagent/alcohol/erikasurprise
 	value = 0.16
 
-/decl/reagent/alcohol/gargleblaster
+/singleton/reagent/alcohol/gargleblaster
 	value = 0.21
 
-/decl/reagent/alcohol/gintonic
+/singleton/reagent/alcohol/gintonic
 	value = 0.15
 
-/decl/reagent/alcohol/goldschlager
+/singleton/reagent/alcohol/goldschlager
 	value = 0.2
 
-/decl/reagent/alcohol/hippiesdelight
+/singleton/reagent/alcohol/hippiesdelight
 	value = 0.12
 
-/decl/reagent/alcohol/hooch
+/singleton/reagent/alcohol/hooch
 	value = 0.11
 
-/decl/reagent/alcohol/iced_beer
+/singleton/reagent/alcohol/iced_beer
 	value = 0.13
 
-/decl/reagent/alcohol/irishcarbomb
+/singleton/reagent/alcohol/irishcarbomb
 	value = 0.14
 
-/decl/reagent/alcohol/coffee/irishcoffee
+/singleton/reagent/alcohol/coffee/irishcoffee
 	value = 0.12
 
-/decl/reagent/alcohol/irish_cream
+/singleton/reagent/alcohol/irish_cream
 	value = 0.13
 
-/decl/reagent/alcohol/longislandicedtea
+/singleton/reagent/alcohol/longislandicedtea
 	value = 0.13
 
-/decl/reagent/alcohol/manhattan
+/singleton/reagent/alcohol/manhattan
 	value = 0.14
 
-/decl/reagent/alcohol/manhattan_proj
+/singleton/reagent/alcohol/manhattan_proj
 	value = 0.2
 
-/decl/reagent/alcohol/manly_dorf
+/singleton/reagent/alcohol/manly_dorf
 	value = 0.13
 
-/decl/reagent/alcohol/margarita
+/singleton/reagent/alcohol/margarita
 	value = 0.15
 
-/decl/reagent/alcohol/mead
+/singleton/reagent/alcohol/mead
 	value = 0.13
 
-/decl/reagent/alcohol/moonshine
+/singleton/reagent/alcohol/moonshine
 	value = 0.11
 
-/decl/reagent/alcohol/muscmule
+/singleton/reagent/alcohol/muscmule
 	value = 0.14
 
-/decl/reagent/alcohol/neurotoxin
+/singleton/reagent/alcohol/neurotoxin
 	value = 0.2
 
-/decl/reagent/alcohol/omimosa
+/singleton/reagent/alcohol/omimosa
 	value = 0.18
 
-/decl/reagent/alcohol/patron
+/singleton/reagent/alcohol/patron
 	value = 0.16
 
-/decl/reagent/alcohol/pinkgin
+/singleton/reagent/alcohol/pinkgin
 	value = 0.11
 
-/decl/reagent/alcohol/pinkgintonic
+/singleton/reagent/alcohol/pinkgintonic
 	value = 0.13
 
-/decl/reagent/alcohol/piratepunch
+/singleton/reagent/alcohol/piratepunch
 	value = 0.14
 
-/decl/reagent/alcohol/planterpunch
+/singleton/reagent/alcohol/planterpunch
 	value = 0.13
 
-/decl/reagent/alcohol/pwine
+/singleton/reagent/alcohol/pwine
 	value = 0.19
 
-/decl/reagent/alcohol/red_mead
+/singleton/reagent/alcohol/red_mead
 	value = 0.14
 
-/decl/reagent/alcohol/sbiten
+/singleton/reagent/alcohol/sbiten
 	value = 0.13
 
-/decl/reagent/alcohol/screwdrivercocktail
+/singleton/reagent/alcohol/screwdrivercocktail
 	value = 0.13
 
-/decl/reagent/alcohol/sidewinderfang
+/singleton/reagent/alcohol/sidewinderfang
 	value = 0.14
 
-/decl/reagent/alcohol/silencer
+/singleton/reagent/alcohol/silencer
 	value = 0.135
 
-/decl/reagent/alcohol/singulo
+/singleton/reagent/alcohol/singulo
 	value = 0.2
 
-/decl/reagent/alcohol/snowwhite
+/singleton/reagent/alcohol/snowwhite
 	value = 0.125
 
-/decl/reagent/alcohol/ssroyale
+/singleton/reagent/alcohol/ssroyale
 	value = 0.14
 
-/decl/reagent/alcohol/suidream
+/singleton/reagent/alcohol/suidream
 	value = 0.12
 
-/decl/reagent/alcohol/gibsonhooch
+/singleton/reagent/alcohol/gibsonhooch
 	value = 0.21
 
-/decl/reagent/alcohol/tequila_sunrise
+/singleton/reagent/alcohol/tequila_sunrise
 	value = 0.13
 
-/decl/reagent/alcohol/threemileisland
+/singleton/reagent/alcohol/threemileisland
 	value = 0.2
 
-/decl/reagent/alcohol/toxins_special
+/singleton/reagent/alcohol/toxins_special
 	value = 0.2
 
-/decl/reagent/alcohol/vodkamartini
+/singleton/reagent/alcohol/vodkamartini
 	value = 0.135
 
-/decl/reagent/alcohol/vodkatonic
+/singleton/reagent/alcohol/vodkatonic
 	value = 0.145
 
-/decl/reagent/alcohol/white_russian
+/singleton/reagent/alcohol/white_russian
 	value = 0.125
 
-/decl/reagent/alcohol/whiskey_cola
+/singleton/reagent/alcohol/whiskey_cola
 	value = 0.15
 
-/decl/reagent/alcohol/whiskeysoda
+/singleton/reagent/alcohol/whiskeysoda
 	value = 0.15
 
-/decl/reagent/alcohol/specialwhiskey
+/singleton/reagent/alcohol/specialwhiskey
 	value = 0.3
 
-/decl/reagent/alcohol/daiquiri
+/singleton/reagent/alcohol/daiquiri
 	value = 0.15
 
-/decl/reagent/alcohol/icepick
+/singleton/reagent/alcohol/icepick
 	value = 0.15
 
-/decl/reagent/alcohol/poussecafe
+/singleton/reagent/alcohol/poussecafe
 	value = 0.17
 
-/decl/reagent/alcohol/mintjulep
+/singleton/reagent/alcohol/mintjulep
 	value = 0.15
 
-/decl/reagent/alcohol/johncollins
+/singleton/reagent/alcohol/johncollins
 	value = 0.17
 
-/decl/reagent/alcohol/gimlet
+/singleton/reagent/alcohol/gimlet
 	value = 0.13
 
-/decl/reagent/alcohol/starsandstripes
+/singleton/reagent/alcohol/starsandstripes
 	value = 0.15
 
-/decl/reagent/alcohol/metropolitan
+/singleton/reagent/alcohol/metropolitan
 	value = 0.13
 
-/decl/reagent/alcohol/caruso
+/singleton/reagent/alcohol/caruso
 	value = 0.18
 
-/decl/reagent/alcohol/aprilshower
+/singleton/reagent/alcohol/aprilshower
 	value = 0.15
 
-/decl/reagent/alcohol/carthusiansazerac
+/singleton/reagent/alcohol/carthusiansazerac
 	value = 0.17
 
-/decl/reagent/alcohol/deweycocktail
+/singleton/reagent/alcohol/deweycocktail
 	value = 0.15
 
-/decl/reagent/alcohol/chartreusegreen
+/singleton/reagent/alcohol/chartreusegreen
 	value = 0.18
 
-/decl/reagent/alcohol/chartreuseyellow
+/singleton/reagent/alcohol/chartreuseyellow
 	value = 0.18
 
-/decl/reagent/alcohol/cremewhite
+/singleton/reagent/alcohol/cremewhite
 	value = 0.14
 
-/decl/reagent/alcohol/cremeyvette
+/singleton/reagent/alcohol/cremeyvette
 	value = 0.17
 
-/decl/reagent/alcohol/brandy
+/singleton/reagent/alcohol/brandy
 	value = 0.2
 
-/decl/reagent/alcohol/guinness
+/singleton/reagent/alcohol/guinness
 	value = 0.1
 
-/decl/reagent/alcohol/drambuie
+/singleton/reagent/alcohol/drambuie
 	value = 0.18
 
-/decl/reagent/alcohol/oldfashioned
+/singleton/reagent/alcohol/oldfashioned
 	value = 0.15
 
-/decl/reagent/alcohol/blindrussian
+/singleton/reagent/alcohol/blindrussian
 	value = 0.16
 
-/decl/reagent/alcohol/rustynail
+/singleton/reagent/alcohol/rustynail
 	value = 0.13
 
-/decl/reagent/alcohol/tallrussian
+/singleton/reagent/alcohol/tallrussian
 	value = 0.15
 
-/decl/reagent/alcohol/solarian_white
+/singleton/reagent/alcohol/solarian_white
 	value = 0.125
 
-/decl/reagent/alcohol/solarian_marine
+/singleton/reagent/alcohol/solarian_marine
 	value = 0.2
 
-/decl/reagent/alcohol/cloudyeridani
+/singleton/reagent/alcohol/cloudyeridani
 	value = 0.12
 
-/decl/reagent/alcohol/djinntea
+/singleton/reagent/alcohol/djinntea
 	value = 0.12
 
-/decl/reagent/alcohol/permanentrevolution
+/singleton/reagent/alcohol/permanentrevolution
 	value = 0.13
 
-/decl/reagent/alcohol/internationale
+/singleton/reagent/alcohol/internationale
 	value = 0.13
 
-/decl/reagent/alcohol/dionamama
+/singleton/reagent/alcohol/dionamama
 	value = 0.2
 
-/decl/reagent/alcohol/jovianstorm
+/singleton/reagent/alcohol/jovianstorm
 	value = 0.13
 
-/decl/reagent/alcohol/primeminister
+/singleton/reagent/alcohol/primeminister
 	value = 0.13
 
-/decl/reagent/alcohol/peacetreaty
+/singleton/reagent/alcohol/peacetreaty
 	value = 0.15
 
-/decl/reagent/alcohol/fiscream
+/singleton/reagent/alcohol/fiscream
 	value = 0.14
 
-/decl/reagent/alcohol/coffee/fiscoffee
+/singleton/reagent/alcohol/coffee/fiscoffee
 	value = 0.13
 
-/decl/reagent/alcohol/fisfirebomb
+/singleton/reagent/alcohol/fisfirebomb
 	value = 0.15
 
-/decl/reagent/inaprovaline
+/singleton/reagent/inaprovaline
 	value = 2.5
 
-/decl/reagent/bicaridine
+/singleton/reagent/bicaridine
 	value = 4.9
 
-/decl/reagent/dermaline
+/singleton/reagent/dermaline
 	value = 3.9
 
-/decl/reagent/dylovene
+/singleton/reagent/dylovene
 	value = 2.1
 
-/decl/reagent/dexalin
+/singleton/reagent/dexalin
 	value = 2.4
 
-/decl/reagent/dexalin/plus
+/singleton/reagent/dexalin/plus
 	value = 3.6
 
-/decl/reagent/tricordrazine
+/singleton/reagent/tricordrazine
 	value = 6
 
-/decl/reagent/cryoxadone
+/singleton/reagent/cryoxadone
 	value = 3.9
 
-/decl/reagent/clonexadone
+/singleton/reagent/clonexadone
 	value = 5.5
 
-/decl/reagent/perconol
+/singleton/reagent/perconol
 	value = 3.3
 
-/decl/reagent/mortaphenyl
+/singleton/reagent/mortaphenyl
 	value = 3.1
 
-/decl/reagent/oxycomorphine
+/singleton/reagent/oxycomorphine
 	value = 3.3
 
-/decl/reagent/synaptizine
+/singleton/reagent/synaptizine
 	value = 4.6
 
-/decl/reagent/alkysine
+/singleton/reagent/alkysine
 	value = 5.9
 
-/decl/reagent/oculine
+/singleton/reagent/oculine
 	value = 4.2
 
-/decl/reagent/peridaxon
+/singleton/reagent/peridaxon
 	value = 6
 
-/decl/reagent/ryetalyn
+/singleton/reagent/ryetalyn
 	value = 3.6
 
-/decl/reagent/pneumalin
+/singleton/reagent/pneumalin
 	value = 3.2
 
-/decl/reagent/hyperzine
+/singleton/reagent/hyperzine
 	value = 3.9
 
-/decl/reagent/ethylredoxrazine
+/singleton/reagent/ethylredoxrazine
 	value = 3.1
 
-/decl/reagent/hyronalin
+/singleton/reagent/hyronalin
 	value = 2.3
 
-/decl/reagent/arithrazine
+/singleton/reagent/arithrazine
 	value = 2.7
 
-/decl/reagent/thetamycin
+/singleton/reagent/thetamycin
 	value = 2.5
 
-/decl/reagent/coughsyrup
+/singleton/reagent/coughsyrup
 	value = 1.5
 
-/decl/reagent/sterilizine
+/singleton/reagent/sterilizine
 	value = 2.2
 
-/decl/reagent/leporazine
+/singleton/reagent/leporazine
 	value = 2
 
-/decl/reagent/mental/corophenidate
+/singleton/reagent/mental/corophenidate
 	value = 6
 
-/decl/reagent/mental/parvosil
+/singleton/reagent/mental/parvosil
 	value = 6
 
-/decl/reagent/mental/neurostabin
+/singleton/reagent/mental/neurostabin
 	value = 6
 
-/decl/reagent/mental/minaphobin
+/singleton/reagent/mental/minaphobin
 	value = 6
 
-/decl/reagent/mental/emoxanyl
+/singleton/reagent/mental/emoxanyl
 	value = 6
 
-/decl/reagent/mental/orastabin
+/singleton/reagent/mental/orastabin
 	value = 6
 
-/decl/reagent/mental/neurapan
+/singleton/reagent/mental/neurapan
 	value = 6
 
-/decl/reagent/mental/nerospectan
+/singleton/reagent/mental/nerospectan
 	value = 6
 
-/decl/reagent/mental/truthserum
+/singleton/reagent/mental/truthserum
 	value = 8
 
-/decl/reagent/mental/nicotine
+/singleton/reagent/mental/nicotine
 	value = 2
 
-/decl/reagent/rezadone
+/singleton/reagent/rezadone
 	value = 5
 
-/decl/reagent/sanasomnum
+/singleton/reagent/sanasomnum
 	value = 5
 
-/decl/reagent/verunol
+/singleton/reagent/verunol
 	value = 2
 
-/decl/reagent/crayon_dust
+/singleton/reagent/crayon_dust
 	value = 0.001
 
-/decl/reagent/adminordrazine
+/singleton/reagent/adminordrazine
 	value = 1000
 
-/decl/reagent/gold
+/singleton/reagent/gold
 	value = 7
 
-/decl/reagent/silver
+/singleton/reagent/silver
 	value = 4
 
-/decl/reagent/uranium
+/singleton/reagent/uranium
 	value = 9
 
-/decl/reagent/platinum
+/singleton/reagent/platinum
 	value = 3
 
-/decl/reagent/adrenaline
+/singleton/reagent/adrenaline
 	value = 3
 
-/decl/reagent/diethylamine
+/singleton/reagent/diethylamine
 	value = 0.9
 
-/decl/reagent/surfactant
+/singleton/reagent/surfactant
 	value = 0.05
 
-/decl/reagent/thermite
+/singleton/reagent/thermite
 	value = 6
 
-/decl/reagent/spacecleaner
+/singleton/reagent/spacecleaner
 	value = 0.7
 
-/decl/reagent/lube
+/singleton/reagent/lube
 	value = 0.6
 
-/decl/reagent/glycerol
+/singleton/reagent/glycerol
 	value = 8
 
-/decl/reagent/nitroglycerin
+/singleton/reagent/nitroglycerin
 	value = 9
 
-/decl/reagent/coolant
+/singleton/reagent/coolant
 	value = 0.8
 
-/decl/reagent/woodpulp
+/singleton/reagent/woodpulp
 	value = 0.6
 
-/decl/reagent/luminol
+/singleton/reagent/luminol
 	value = 1.4
 
-/decl/reagent/toxin
+/singleton/reagent/toxin
 	value = 2
 
-/decl/reagent/toxin/plasticide
+/singleton/reagent/toxin/plasticide
 	value = 2.1
 
-/decl/reagent/toxin/amatoxin
+/singleton/reagent/toxin/amatoxin
 	value = 2.3
 
-/decl/reagent/toxin/carpotoxin
+/singleton/reagent/toxin/carpotoxin
 	value = 3
 
-/decl/reagent/toxin/phoron
+/singleton/reagent/toxin/phoron
 	value = 10
 
-/decl/reagent/toxin/cyanide
+/singleton/reagent/toxin/cyanide
 	value = 3.3
 
-/decl/reagent/toxin/potassium_chloride
+/singleton/reagent/toxin/potassium_chloride
 	value = 4.4
 
-/decl/reagent/toxin/potassium_chlorophoride
+/singleton/reagent/toxin/potassium_chlorophoride
 	value = 4.5
 
-/decl/reagent/toxin/zombiepowder
+/singleton/reagent/toxin/zombiepowder
 	value = 2.9
 
-/decl/reagent/toxin/fertilizer
+/singleton/reagent/toxin/fertilizer
 	value = 1.2
 
-/decl/reagent/toxin/plantbgone
+/singleton/reagent/toxin/plantbgone
 	value = 1.1
 
-/decl/reagent/acid/polyacid
+/singleton/reagent/acid/polyacid
 	value = 2
 
-/decl/reagent/lexorin
+/singleton/reagent/lexorin
 	value = 2.4
 
-/decl/reagent/mutagen
+/singleton/reagent/mutagen
 	value = 3.1
 
-/decl/reagent/slimejelly
+/singleton/reagent/slimejelly
 	value = 1.2
 
-/decl/reagent/soporific
+/singleton/reagent/soporific
 	value = 2.5
 
-/decl/reagent/polysomnine
+/singleton/reagent/polysomnine
 	value = 2.6
 
-/decl/reagent/polysomnine/beer2
+/singleton/reagent/polysomnine/beer2
 	value = 2.2
 
-/decl/reagent/space_drugs
+/singleton/reagent/space_drugs
 	value = 2.8
 
-/decl/reagent/serotrotium
+/singleton/reagent/serotrotium
 	value = 2.5
 
-/decl/reagent/cryptobiolin
+/singleton/reagent/cryptobiolin
 	value = 2
 
-/decl/reagent/impedrezene
+/singleton/reagent/impedrezene
 	value = 1.8
 
-/decl/reagent/mindbreaker
+/singleton/reagent/mindbreaker
 	value = 0.6
 
-/decl/reagent/psilocybin
+/singleton/reagent/psilocybin
 	value = 0.7
 
-/decl/reagent/aslimetoxin
+/singleton/reagent/aslimetoxin
 	value = 3
 
-/decl/reagent/toxin/nanites
+/singleton/reagent/toxin/nanites
 	value = 9
 
-/decl/reagent/estus
+/singleton/reagent/estus
 	value = 50
 
-/decl/reagent/liquid_fire
+/singleton/reagent/liquid_fire
 	value = 50
 
-/decl/reagent/black_matter
+/singleton/reagent/black_matter
 	value = 250
 
-/decl/reagent/bluespace_dust
+/singleton/reagent/bluespace_dust
 	value = 250
 
-/decl/reagent/philosopher_stone
+/singleton/reagent/philosopher_stone
 	value = 1000
 
-/decl/reagent/elixir
+/singleton/reagent/elixir
 	value = 1000
 
-/decl/reagent/azoth
+/singleton/reagent/azoth
 	value = 500
 
-/decl/reagent/toxin/undead
+/singleton/reagent/toxin/undead
 	value = 300
 
-/decl/reagent/ambrosia_extract
+/singleton/reagent/ambrosia_extract
 	value = 2.8

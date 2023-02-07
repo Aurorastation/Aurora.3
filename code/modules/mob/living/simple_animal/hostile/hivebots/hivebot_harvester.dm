@@ -42,7 +42,7 @@
 	mob_bump_flag = HEAVY
 	mob_swap_flags = ~HEAVY
 	mob_push_flags = 0
-	
+
 	psi_pingable = FALSE
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
@@ -83,7 +83,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/emp_act(severity)
 	LoseTarget()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
 	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 	var/turf/random_turf = get_turf(pick(orange(src,7)))
@@ -94,9 +94,9 @@
 	if(!stat)
 		if(stance == HOSTILE_STANCE_IDLE)
 			if(last_processed_turf == src.loc)
-				INVOKE_ASYNC(src, .proc/prospect)
+				INVOKE_ASYNC(src, PROC_REF(prospect))
 			else
-				INVOKE_ASYNC(src, .proc/process_turf)
+				INVOKE_ASYNC(src, PROC_REF(process_turf))
 		else if(busy)
 			busy = 0
 			update_icon()
@@ -209,7 +209,7 @@
 			update_icon()
 			if(do_after(src, 32))
 				src.visible_message(SPAN_WARNING("[src] rips up \the [T]."))
-				playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
+				playsound(src.loc, /singleton/sound_category/crowbar_sound, 100, 1)
 				T.make_plating(1)
 			busy = 0
 			update_icon()

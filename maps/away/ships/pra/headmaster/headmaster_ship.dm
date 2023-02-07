@@ -2,13 +2,13 @@
 	name = "Headmaster Ship"
 	id = "headmaster_ship"
 	description = "A People's Republic Orbital Fleet ship."
-	suffix = "ships/pra/headmaster/headmaster_ship.dmm"
+	suffixes = list("ships/pra/headmaster/headmaster_ship.dmm")
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/headmaster_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 
-/decl/submap_archetype/headmaster_ship
+/singleton/submap_archetype/headmaster_ship
 	map = "Headmaster Ship"
 	descriptor = "The second heaviest ship created by the People's Republic of Adhomai. As of now, it's the lightest heavy ship ever designed, barely staying above the classification of a cruiser."
 

@@ -212,7 +212,7 @@ var/list/slot_equipment_priority = list( \
 		. = drop_r_hand(Target)
 
 	if (istype(item_dropped) && !QDELETED(item_dropped))
-		addtimer(CALLBACK(src, .proc/make_item_drop_sound, item_dropped), 1)
+		addtimer(CALLBACK(src, PROC_REF(make_item_drop_sound), item_dropped), 1)
 
 /mob/proc/make_item_drop_sound(obj/item/I)
 	if(QDELETED(I))

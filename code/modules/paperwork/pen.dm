@@ -198,7 +198,7 @@
 /obj/item/pen/reagent/sleepy
 	desc = "It's a black ink pen with a sharp point and a carefully engraved \"Sleepy Co.\""
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/polysomnine = 22)
+	reagents_to_add = list(/singleton/reagent/polysomnine = 22)
 
 /*
  * Parapens
@@ -207,37 +207,37 @@
 	icon_state = "pen_red"
 	colour = "red"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/toxin/dextrotoxin = 10) // ~5 minutes worth of paralysis. Measured from falling over to getting up.
+	reagents_to_add = list(/singleton/reagent/toxin/dextrotoxin = 10) // ~5 minutes worth of paralysis. Measured from falling over to getting up.
 
 /obj/item/pen/reagent/purge
 	icon_state = "pen_green"
 	colour = "green"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/fluvectionem = 5)
+	reagents_to_add = list(/singleton/reagent/fluvectionem = 5)
  
 /obj/item/pen/reagent/healing
 	icon_state = "pen_green"
 	colour = "green"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/tricordrazine = 10, /decl/reagent/dermaline = 5, /decl/reagent/bicaridine = 5)
+	reagents_to_add = list(/singleton/reagent/tricordrazine = 10, /singleton/reagent/dermaline = 5, /singleton/reagent/bicaridine = 5)
 
 /obj/item/pen/reagent/pacifier
 	icon_state = "pen_blue"
 	colour = "blue"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/wulumunusha = 2, /decl/reagent/pacifier = 15, /decl/reagent/cryptobiolin = 10)
+	reagents_to_add = list(/singleton/reagent/wulumunusha = 2, /singleton/reagent/pacifier = 15, /singleton/reagent/cryptobiolin = 10)
 
 /obj/item/pen/reagent/hyperzine
 	icon_state = "pen_yellow"
 	colour = "yellow"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/hyperzine = 10)
+	reagents_to_add = list(/singleton/reagent/hyperzine = 10)
 
 /obj/item/pen/reagent/poison
 	icon_state = "pen_red"
 	colour = "red"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/toxin/cyanide = 1, /decl/reagent/lexorin = 20)
+	reagents_to_add = list(/singleton/reagent/toxin/cyanide = 1, /singleton/reagent/lexorin = 20)
 
 /*
  * Chameleon pen
@@ -307,7 +307,7 @@
 	var/shadeColour = "#220000" //RGB
 	var/instant = 0
 	var/colourName = "red" //for updateIcon purposes
-	reagents_to_add = list(/decl/reagent/crayon_dust = 10)
+	reagents_to_add = list(/singleton/reagent/crayon_dust = 10)
 
 /obj/item/pen/crayon/Initialize()
 	. = ..()

@@ -8,6 +8,14 @@
 
 	var/known = 0		//shows up on nav computers automatically
 	var/scannable       //if set to TRUE will show up on ship sensors for detailed scans
+	var/unknown_id                      // A unique identifier used when this entity is scanned. Assigned in Initialize().
+	var/requires_contact = TRUE //whether or not the effect must be identified by ship sensors before being seen.
+	var/instant_contact  = FALSE //do we instantly identify ourselves to any ship in sensors range?
+
+	var/sensor_visibility = 10	 //how likely it is to increase identification process each scan.
+	var/vessel_mass = 10000             // metric tonnes, very rough number, affects acceleration provided by engines
+
+
 	var/image/targeted_overlay
 
 //Overlay of how this object should look on other skyboxes
@@ -17,16 +25,40 @@
 /obj/effect/overmap/proc/get_scan_data(mob/user)
 	return desc
 
+/obj/effect/overmap/proc/handle_wraparound()
+	var/nx = x
+	var/ny = y
+	var/low_edge = 1
+	var/high_edge = current_map.overmap_size - 1
+
+	if((dir & WEST) && x == low_edge)
+		nx = high_edge
+	else if((dir & EAST) && x == high_edge)
+		nx = low_edge
+	if((dir & SOUTH)  && y == low_edge)
+		ny = high_edge
+	else if((dir & NORTH) && y == high_edge)
+		ny = low_edge
+	if((x == nx) && (y == ny))
+		return //we're not flying off anywhere
+
+	var/turf/T = locate(nx,ny,z)
+	if(T)
+		forceMove(T)
+
 /obj/effect/overmap/Initialize()
 	. = ..()
 	if(!current_map.use_overmap)
 		return INITIALIZE_HINT_QDEL
-	
+
 	if(known)
 		layer = EFFECTS_ABOVE_LIGHTING_LAYER
 		for(var/obj/machinery/computer/ship/helm/H in SSmachinery.machinery)
 			H.get_known_sectors()
 	update_icon()
+
+	if(requires_contact)
+		invisibility = INVISIBILITY_OVERMAP // Effects that require identification have their images cast to the client via sensors.
 
 /obj/effect/overmap/Crossed(var/obj/effect/overmap/visitable/other)
 	if(istype(other))

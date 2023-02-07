@@ -28,6 +28,7 @@
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
 	mob_size = 9
 	spawn_flags = CAN_JOIN
+	flags = CAN_SWEAT
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS | HAS_SKIN_PRESET
 	remains_type = /obj/effect/decal/remains/human
 	dust_remains_type = /obj/effect/decal/remains/human/burned
@@ -44,11 +45,11 @@
 		/mob/living/carbon/human/proc/tie_hair)
 
 	possible_cultures = list(
-		/decl/origin_item/culture/biesellite,
-		/decl/origin_item/culture/solarian,
-		/decl/origin_item/culture/dominia,
-		/decl/origin_item/culture/coalition,
-		/decl/origin_item/culture/elyran
+		/singleton/origin_item/culture/biesellite,
+		/singleton/origin_item/culture/solarian,
+		/singleton/origin_item/culture/dominia,
+		/singleton/origin_item/culture/coalition,
+		/singleton/origin_item/culture/elyran
 	)
 
 	zombie_type = SPECIES_ZOMBIE

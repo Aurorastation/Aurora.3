@@ -23,19 +23,19 @@
 
 /obj/item/reagent_containers/glass/beaker/vial/random
 	flags = 0
-	var/list/random_reagent_list = list(list(/decl/reagent/water = 15) = 1, list(/decl/reagent/spacecleaner = 15) = 1)
+	var/list/random_reagent_list = list(list(/singleton/reagent/water = 15) = 1, list(/singleton/reagent/spacecleaner = 15) = 1)
 
 /obj/item/reagent_containers/glass/beaker/vial/random/toxin
 	random_reagent_list = list(
-		list(/decl/reagent/mindbreaker = 10, /decl/reagent/space_drugs = 20)	= 3,
-		list(/decl/reagent/mercury = 15)										= 3,
-		list(/decl/reagent/toxin/carpotoxin = 15)								= 2,
-		list(/decl/reagent/impedrezene = 15)									= 2,
-		list(/decl/reagent/toxin/dextrotoxin = 10)								= 1,
-		list(/decl/reagent/toxin/spectrocybin = 15)								= 1,
-		list(/decl/reagent/joy = 10, /decl/reagent/water = 20)					= 1,
-		list(/decl/reagent/toxin/berserk = 10)                                  = 1,
-		list(/decl/reagent/ammonia = 15)										= 3)
+		list(/singleton/reagent/mindbreaker = 10, /singleton/reagent/space_drugs = 20)	= 3,
+		list(/singleton/reagent/mercury = 15)										= 3,
+		list(/singleton/reagent/toxin/carpotoxin = 15)								= 2,
+		list(/singleton/reagent/impedrezene = 15)									= 2,
+		list(/singleton/reagent/toxin/dextrotoxin = 10)								= 1,
+		list(/singleton/reagent/toxin/spectrocybin = 15)								= 1,
+		list(/singleton/reagent/joy = 10, /singleton/reagent/water = 20)					= 1,
+		list(/singleton/reagent/toxin/berserk = 10)                                  = 1,
+		list(/singleton/reagent/ammonia = 15)										= 3)
 
 /obj/item/reagent_containers/glass/beaker/vial/random/Initialize()
 	. = ..()
@@ -48,7 +48,7 @@
 
 	var/list/names = new
 	for(var/_R in reagents.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
+		var/singleton/reagent/R = GET_SINGLETON(_R)
 		names += R.name
 
 	desc = "Contains [english_list(names)]."
@@ -62,6 +62,6 @@
 	. = ..()
 	if(is_open_container())
 		flags ^= OPENCONTAINER
-	reagents.add_reagent(/decl/reagent/venenum,volume)
+	reagents.add_reagent(/singleton/reagent/venenum,volume)
 	desc = "Contains venenum."
 	update_icon()

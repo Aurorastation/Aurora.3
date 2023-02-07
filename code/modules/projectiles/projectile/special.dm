@@ -146,7 +146,7 @@
 	damage = 0
 	damage_type = TOX
 	nodamage = TRUE
-	var/decl/plantgene/gene = null
+	var/singleton/plantgene/gene = null
 
 /obj/item/projectile/energy/floramut/on_hit(var/atom/target, var/blocked = 0)
 	var/mob/living/M = target
@@ -265,7 +265,7 @@
 /obj/item/projectile/magic/teleport/on_hit(var/atom/hit_atom)
 	var/turf/T = get_turf(hit_atom)
 	single_spark(T)
-	playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
+	playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
 	if(isliving(hit_atom))
 		blink_mob(hit_atom)
 	return ..()

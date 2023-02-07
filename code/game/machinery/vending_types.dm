@@ -608,7 +608,7 @@
 	random_itemcount = 0
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
-
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed"
@@ -634,7 +634,7 @@
 	random_itemcount = 0
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
-
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 /obj/machinery/vending/security
 	name = "SecTech"
@@ -909,7 +909,7 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/food/drinks/pitcher = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
-		/obj/item/clothing/suit/chef/classic = 2,
+		/obj/item/clothing/accessory/apron/chef = 2,
 		/obj/item/material/kitchen/rollingpin = 2,
 		/obj/item/reagent_containers/cooking_container/oven = 5,
 		/obj/item/reagent_containers/cooking_container/fryer = 4,

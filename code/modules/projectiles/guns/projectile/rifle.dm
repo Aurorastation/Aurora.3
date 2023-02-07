@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/shotgun/pump/rifle
 	name = "bolt action rifle"
-	desc = "A cheap ballistic rifle often found in the hands of crooks and frontiersmen. Uses 7.62mm rounds."
+	desc = "A cheap ballistic rifle often found in the hands of Tajaran conscripts. Uses 7.62mm rounds."
 	icon = 'icons/obj/guns/moistnugget.dmi'
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
@@ -294,7 +294,7 @@
 	item_state = "gauss_thumper"
 	caliber = "gauss"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
-	fire_sound = /decl/sound_category/gauss_fire_sound
+	fire_sound = /singleton/sound_category/gauss_fire_sound
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
 
@@ -321,7 +321,7 @@
 	desc = "An outdated and power hungry gauss cannon, modified to deliver high explosive rounds at high velocities."
 	icon = 'icons/obj/guns/gauss_thumper.dmi'
 	icon_state = "gauss_thumper"
-	fire_sound = /decl/sound_category/gauss_fire_sound
+	fire_sound = /singleton/sound_category/gauss_fire_sound
 	fire_delay = 30
 	charge_meter = 0
 	max_shots = 3

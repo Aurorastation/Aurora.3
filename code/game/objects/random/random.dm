@@ -140,7 +140,7 @@
 /obj/random/medical
 	name = "Random Medicine"
 	desc = "This is a random medical item."
-	icon = 'icons/obj/stacks/medical.dmi'
+	icon = 'icons/obj/item/stacks/medical.dmi'
 	icon_state = "brutepack"
 	spawn_nothing_percentage = 25
 	problist = list(
@@ -1079,7 +1079,10 @@
 		/obj/random/toolbox = 1,
 		/obj/random_produce = 0.25,
 		/obj/random/watches = 1,
-		/obj/random/wizard_dressup = 0.25
+		/obj/random/wizard_dressup = 0.25,
+		/obj/item/device/synthesized_instrument/violin = 0.1,
+		/obj/item/device/synthesized_instrument/guitar = 1,
+		/obj/item/device/synthesized_instrument/trumpet = 0.25
 	)
 
 
@@ -1392,17 +1395,17 @@
 		/obj/item/toy/crossbow							= 11,
 		/obj/item/storage/box/fancy/crayons			= 11,
 		/obj/item/toy/spinningtoy						= 11,
-		/obj/item/toy/prize/ripley						= 1,
-		/obj/item/toy/prize/fireripley					= 1,
-		/obj/item/toy/prize/deathripley					= 1,
-		/obj/item/toy/prize/gygax						= 1,
-		/obj/item/toy/prize/durand						= 1,
-		/obj/item/toy/prize/honk						= 1,
-		/obj/item/toy/prize/marauder					= 1,
-		/obj/item/toy/prize/seraph						= 1,
-		/obj/item/toy/prize/mauler						= 1,
-		/obj/item/toy/prize/odysseus					= 1,
-		/obj/item/toy/prize/phazon						= 1,
+		/obj/item/toy/mech/ripley						= 1,
+		/obj/item/toy/mech/fireripley					= 1,
+		/obj/item/toy/mech/deathripley					= 1,
+		/obj/item/toy/mech/gygax						= 1,
+		/obj/item/toy/mech/durand						= 1,
+		/obj/item/toy/mech/honk						= 1,
+		/obj/item/toy/mech/marauder					= 1,
+		/obj/item/toy/mech/seraph						= 1,
+		/obj/item/toy/mech/mauler						= 1,
+		/obj/item/toy/mech/odysseus					= 1,
+		/obj/item/toy/mech/phazon						= 1,
 		/obj/item/reagent_containers/spray/waterflower						= 5,
 		/obj/random/action_figure						= 11,
 		/obj/random/plushie								= 44,
@@ -1463,7 +1466,7 @@
 	icon = 'icons/obj/kinetic_accelerators.dmi'
 	icon_state = "frame01"
 	spawnlist = list(
-		/obj/item/toy/prize/honk
+		/obj/item/toy/mech/honk
 	)
 	has_postspawn = TRUE
 	post_spawn(obj/thing)

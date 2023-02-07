@@ -16,6 +16,8 @@
 	buckle_movable = 1
 	buckle_lying = 0
 
+	var/buckling_sound = 'sound/effects/metal_close.ogg'
+
 	var/attack_log = null
 	var/on = 0
 	var/health = 0	//do not forget to set health for your vehicle!
@@ -160,7 +162,7 @@
 	if(on)
 		turn_off()
 
-	addtimer(CALLBACK(src, .proc/post_emp, was_on), severity * 300)
+	addtimer(CALLBACK(src, PROC_REF(post_emp), was_on), severity * 300)
 
 /obj/vehicle/proc/post_emp(was_on)
 	stat &= ~EMPED
@@ -284,10 +286,10 @@
 	if(load || C.anchored)
 		return 0
 
-	// if a create/closet, close before loading
-	var/obj/structure/closet/crate = C
-	if(istype(crate))
-		crate.close()
+	// if a crate/closet, close before loading
+	var/obj/structure/closet/closet = C
+	if(istype(closet))
+		closet.close()
 
 	C.forceMove(loc)
 	C.set_dir(dir)
@@ -295,20 +297,30 @@
 
 	load = C
 
+	C.layer = src.layer + 0.1
 	if(load_item_visible)
 		C.pixel_x += load_offset_x
 		if(ismob(C))
 			C.pixel_y += mob_offset_y
 		else
-			C.pixel_y += load_offset_y
+			if(istype(C, /obj/structure/closet/crate))
+				C.pixel_y += load_offset_y
+			else
+				C.pixel_y += 10
 
 	if(ismob(C))
-		buckle(C)
+		buckle(C, C)
 
 	return 1
 
-/obj/vehicle/user_unbuckle(var/mob/user)
-	unload(user)
+/obj/vehicle/buckle(var/atom/movable/C, mob/user)
+	. = ..()
+	if(. && buckling_sound)
+		playsound(src, buckling_sound, 20)
+
+/obj/vehicle/user_unbuckle(var/mob/user, var/direction)
+	..()
+	unload(user, direction)
 	return
 
 /obj/vehicle/proc/unload(var/mob/user, var/direction)
@@ -358,7 +370,7 @@
 	load.layer = initial(load.layer)
 
 	if(ismob(load))
-		unbuckle(load)
+		unbuckle(user)
 
 	load = null
 

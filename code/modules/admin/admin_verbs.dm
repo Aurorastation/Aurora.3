@@ -174,7 +174,6 @@ var/list/admin_verbs_server = list(
 	/client/proc/cmd_ss_panic,
 	/client/proc/configure_access_control,
 	/datum/admins/proc/togglehubvisibility, //toggles visibility on the BYOND Hub
-	/client/proc/dump_memory_usage,
 	/client/proc/force_away_mission
 	)
 var/list/admin_verbs_debug = list(
@@ -219,6 +218,9 @@ var/list/admin_verbs_debug = list(
 	/client/proc/cmd_ss_panic,
 	/client/proc/reset_openturf,
 	/datum/admins/proc/capture_map,
+	/datum/admins/proc/map_template_load,
+	/datum/admins/proc/map_template_load_new_z,
+	/datum/admins/proc/map_template_upload,
 	/client/proc/global_ao_regenerate,
 	/client/proc/add_client_color,
 	/client/proc/connect_ntsl,
@@ -1230,7 +1232,7 @@ var/list/admin_verbs_cciaa = list(
 		CC.client_color = list(rr,rg,rb, gr,gg,gb, br,bg,bb)
 		CC.priority = priority
 		C.client_colors |= CC
-		sortTim(C.client_colors, /proc/cmp_clientcolor_priority)
+		sortTim(C.client_colors, GLOBAL_PROC_REF(cmp_clientcolor_priority))
 		C.update_client_color()
 
 	log_and_message_admins("<span class='notice'>gave [key_name(C)] a new client color.</span>")
@@ -1257,33 +1259,6 @@ var/list/admin_verbs_cciaa = list(
 
 	to_chat(usr, "The sunlight system is disabled.")
 #endif
-
-/client/proc/dump_memory_usage()
-	set name = "Dump Server Memory Usage"
-	set category = "Server"
-
-	if (!check_rights(R_SERVER))
-		return
-
-	if (alert(usr, "This will momentarily block the server. Proceed?", "Alert", "Yes", "No") != "Yes")
-		return
-
-	var/fname = "[game_id]-[time2text(world.timeofday, "MM-DD-hhmm")].json"
-
-	to_world(SPAN_DANGER("The server will momentarily freeze in 2 seconds!"))
-	log_and_message_admins("has initiated a memory dump into \"[fname]\".", usr)
-
-	sleep(20)
-
-	if (!dump_memory_profile("data/logs/memory/[fname]"))
-		to_chat(usr, SPAN_WARNING("Dumping memory failed at dll call."))
-		return
-
-	if (!fexists("data/logs/memory/[fname]"))
-		to_chat(usr, SPAN_WARNING("File creation failed. Please check to see if the data/logs/memory folder actually exists."))
-	else
-		to_chat(usr, SPAN_NOTICE("Memory dump completed."))
-
 
 /client/proc/force_away_mission()
 	set category = "Server"

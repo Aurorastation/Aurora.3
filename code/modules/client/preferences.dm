@@ -48,6 +48,7 @@ datum/preferences
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 	var/primary_radio_slot = "Left Ear"
+	var/tail_style = null
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
@@ -440,6 +441,8 @@ datum/preferences
 	character.g_eyes = g_eyes
 	character.b_eyes = b_eyes
 
+	character.set_tail_style(tail_style)
+
 	character.h_style = h_style
 	character.r_hair = r_hair
 	character.g_hair = g_hair
@@ -465,8 +468,10 @@ datum/preferences
 	character.employer_faction = faction
 	character.religion = religion
 	character.accent = accent
-	character.origin = decls_repository.get_decl(text2path(origin))
-	character.culture = decls_repository.get_decl(text2path(culture))
+	character.origin = GET_SINGLETON(text2path(origin))
+	character.culture = GET_SINGLETON(text2path(culture))
+	character.origin.on_apply(character)
+	character.culture.on_apply(character)
 
 	character.skills = skills
 	character.used_skillpoints = used_skillpoints

@@ -62,7 +62,7 @@
 		desc += " It appears to be broken."
 		add_overlay("[icon_door_overlay]sparking")
 		CUT_OVERLAY_IN("[icon_door_overlay]sparking", 6)
-		playsound(loc, /decl/sound_category/spark_sound, 60, 1)
+		playsound(loc, /singleton/sound_category/spark_sound, 60, 1)
 		broken = TRUE
 		locked = FALSE
 		update_icon()

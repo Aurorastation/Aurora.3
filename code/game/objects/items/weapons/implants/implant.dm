@@ -217,7 +217,7 @@ Implant Specifics:<BR>"}
 	else if(ismob(imp_in))
 		imp_in.visible_message(SPAN_WARNING("Something beeps inside of [imp_in]..."))
 	playsound(loc, 'sound/items/countdown.ogg', 75, 1, -3)
-	addtimer(CALLBACK(src, .proc/small_boom), 25)
+	addtimer(CALLBACK(src, PROC_REF(small_boom)), 25)
 
 /obj/item/implant/explosive/proc/small_boom()
 	if(!imp_in)
@@ -279,7 +279,7 @@ Implant Specifics:<BR>"}
 						activate()	//50% chance of bye bye
 					else
 						meltdown()	//50% chance of implant disarming
-	addtimer(CALLBACK(src, .proc/self_correct), 20)
+	addtimer(CALLBACK(src, PROC_REF(self_correct)), 20)
 
 /obj/item/implant/explosive/proc/self_correct()
 	malfunction--

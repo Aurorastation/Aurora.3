@@ -32,7 +32,7 @@
 	set_listening(TRUE)
 	recalculateChannels(TRUE)
 	possibly_deactivate_in_loc()
-	moved_event.register(src, src, /obj/item/device/radio/headset/proc/possibly_deactivate_in_loc)
+	moved_event.register(src, src, PROC_REF(possibly_deactivate_in_loc))
 
 /obj/item/device/radio/headset/proc/possibly_deactivate_in_loc()
 	if(ismob(loc))

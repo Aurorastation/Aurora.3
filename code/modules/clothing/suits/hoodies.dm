@@ -64,11 +64,11 @@
 /obj/item/clothing/head/winterhood/Initialize(mapload, material_key)
 	. = ..()
 	if(isclothing(loc))
-		RegisterSignal(loc, COMSIG_ITEM_REMOVE, .proc/RemoveHood)
-		RegisterSignal(loc, COMSIG_PARENT_QDELETING, /datum/.proc/Destroy)
-		RegisterSignal(loc, COMSIG_ITEM_STATE_CHECK, .proc/hooded)
-		RegisterSignal(loc, COMSIG_ITEM_UPDATE_STATE, .proc/change_hood)
-		RegisterSignal(loc, COMSIG_ITEM_ICON_UPDATE, /atom/.proc/update_icon)
+		RegisterSignal(loc, COMSIG_ITEM_REMOVE, PROC_REF(RemoveHood))
+		RegisterSignal(loc, COMSIG_PARENT_QDELETING, TYPE_PROC_REF(/datum, Destroy))
+		RegisterSignal(loc, COMSIG_ITEM_STATE_CHECK, PROC_REF(hooded))
+		RegisterSignal(loc, COMSIG_ITEM_UPDATE_STATE, PROC_REF(change_hood))
+		RegisterSignal(loc, COMSIG_ITEM_ICON_UPDATE, TYPE_PROC_REF(/atom, update_icon))
 		color = loc.color
 		icon_state = "[loc.icon_state]_hood"
 		item_state = "[loc.icon_state]_hood"
@@ -183,6 +183,79 @@
 	name = "mining winter coat"
 	icon_state = "coatminer"
 	item_state = "coatminer"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/idris
+	name = "idris winter coat"
+	icon_state = "coatidris"
+	item_state = "coatidris"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/idris/alt
+	icon_state = "coatidris_alt"
+	item_state = "coatidris_alt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/zavod
+	name = "zavodskoi winter coat"
+	icon_state = "coatzavod"
+	item_state = "coatzavod"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/zavod/alt
+	icon_state = "coatzavod_alt"
+	item_state = "coatzavod_alt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/pmc
+	name = "pmcg winter coat"
+	icon_state = "coatpmc"
+	item_state = "coatpmc"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/pmc/alt
+	name = "epmc winter coat"
+	icon_state = "coatepmc"
+	item_state = "coatepmc"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/heph
+	name = "hephaestus winter coat"
+	icon_state = "coatheph"
+	item_state = "coatheph"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/heph/alt
+	icon_state = "coatheph_alt"
+	item_state = "coatheph_alt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/nt
+	name = "nanotrasen winter coat"
+	icon_state = "coatnt"
+	item_state = "coatnt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/nt/alt
+	icon_state = "coatnt_alt"
+	item_state = "coatnt_alt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/zeng
+	name = "zeng-hu winter coat"
+	icon_state = "coatzeng"
+	item_state = "coatzeng"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/zeng/alt
+	icon_state = "coatzeng_alt"
+	item_state = "coatzeng_alt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/orion
+	name = "orion winter coat"
+	icon_state = "coatorion"
+	item_state = "coatorion"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/orion/alt
+	icon_state = "coatorion_alt"
+	item_state = "coatorion_alt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/scc
+	name = "scc winter coat"
+	icon_state = "coatscc"
+	item_state = "coatscc"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/scc/alt
+	icon_state = "coatscc_alt"
+	item_state = "coatscc_alt"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/corgi
 	name = "corgi costume"

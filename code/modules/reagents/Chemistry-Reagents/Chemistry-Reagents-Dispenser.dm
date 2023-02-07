@@ -1,4 +1,4 @@
-/decl/reagent/acetone
+/singleton/reagent/acetone
 	name = "Acetone"
 	description = "A colorless liquid solvent used in chemical synthesis."
 	reagent_state = LIQUID
@@ -7,10 +7,10 @@
 	taste_description = "acid"
 	fallback_specific_heat = 0.567
 
-/decl/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustToxLoss(removed * 3)
 
-/decl/reagent/acetone/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)	//I copied this wholesale from ethanol and could likely be converted into a shared proc. ~Techhead
+/singleton/reagent/acetone/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)	//I copied this wholesale from ethanol and could likely be converted into a shared proc. ~Techhead
 	if(istype(O, /obj/item/paper))
 		var/obj/item/paper/paperaffected = O
 		paperaffected.clearpaper()
@@ -27,7 +27,7 @@
 		to_chat(usr, "<span class='notice'>The solution dissolves the ink on the book.</span>")
 	return
 
-/decl/reagent/aluminum
+/singleton/reagent/aluminum
 	name = "Aluminum"
 	description = "A silvery white and ductile member of the boron group of chemical elements."
 	reagent_state = SOLID
@@ -36,7 +36,7 @@
 	taste_mult = 1.1
 	fallback_specific_heat = 0.811
 
-/decl/reagent/ammonia
+/singleton/reagent/ammonia
 	name = "Ammonia"
 	description = "A caustic substance commonly used in fertilizer or household cleaners. Poisonous to most lifeforms, lingers for a while if inhaled."
 	reagent_state = LIQUID
@@ -48,14 +48,14 @@
 	breathe_met = REM * 0.25
 	fallback_specific_heat = 1.048
 
-/decl/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		M.adjustNutritionLoss(-removed*3)
 	else
 		if(prob(15))
 			M.add_chemical_effect(CE_NEPHROTOXIC, 1)
 
-/decl/reagent/ammonia/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/ammonia/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		M.adjustNutritionLoss(-removed*3)
 	else if(REAGENT_VOLUME(holder, type) > 15)
@@ -68,13 +68,13 @@
 		if(prob(5))
 			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something really digusting.", "Your chest doesn't feel so great.")))
 
-/decl/reagent/ammonia/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/ammonia/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!(alien == IS_DIONA))
 		M.adjustFireLoss(20)
 		to_chat(M, SPAN_WARNING(pick("Your skin burns!", "The chemical is melting your skin!", "Wash it off, wash it off!")))
 		remove_self(REAGENT_VOLUME(holder, type), holder)
 
-/decl/reagent/carbon
+/singleton/reagent/carbon
 	name = "Carbon"
 	description = "A chemical element, the building block of life."
 	reagent_state = SOLID
@@ -85,7 +85,7 @@
 	fallback_specific_heat = 0.018
 	scannable = TRUE
 
-/decl/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/datum/reagents/ingested = M.get_ingested_reagents()
 	if(ingested && LAZYLEN(ingested.reagent_volumes) > 1) // Need to have at least 2 reagents - cabon and something to remove
 		var/effect = 1 / (ingested.reagent_volumes.len - 1)
@@ -94,7 +94,7 @@
 				continue
 			ingested.remove_reagent(_R, removed * effect)
 
-/decl/reagent/carbon/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/carbon/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(!istype(T, /turf/space))
 		var/obj/effect/decal/cleanable/dirt/dirtoverlay = locate(/obj/effect/decal/cleanable/dirt, T)
 		if (!dirtoverlay)
@@ -103,7 +103,7 @@
 		else
 			dirtoverlay.alpha = min(dirtoverlay.alpha + amount * 30, 255)
 
-/decl/reagent/copper
+/singleton/reagent/copper
 	name = "Copper"
 	description = "A highly ductile metal."
 	color = "#6E3B08"
@@ -111,13 +111,13 @@
 	fallback_specific_heat = 1.148
 	scannable = TRUE
 
-/decl/reagent/copper/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/copper/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if (alien & IS_SKRELL)
 		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
-/decl/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
+/singleton/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
 	name = null	// This null name should prevent alcohol from being added to global lists.
-	description = "An abstract type you shouldn't be able to see."
+	description = DESC_PARENT
 	reagent_state = LIQUID
 	color = "#404030"
 	ingest_met = REM * 5
@@ -147,19 +147,19 @@
 
 	var/blood_to_ingest_scale = 2
 
-/decl/reagent/alcohol/touch_mob(mob/living/L, amount, var/datum/reagents/holder)
+/singleton/reagent/alcohol/touch_mob(mob/living/L, amount, var/datum/reagents/holder)
 	. = ..()
 	if (istype(L) && strength > 40)
 		L.adjust_fire_stacks((amount / (flammability_divisor || 1)) * (strength / 100))
 
-/decl/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed, var/datum/reagents/holder)
+/singleton/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed, var/datum/reagents/holder)
 	if(prob(10*(strength/100)))
 		to_chat(M, SPAN_DANGER("Your insides are burning!")) // it would be quite painful to inject alcohol or otherwise get it in your bloodstream directly, without metabolising any
 	M.adjustToxLoss(removed * blood_to_ingest_scale * (strength/100) )
 	affect_ingest(M,alien,removed * blood_to_ingest_scale, holder)
 	return
 
-/decl/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed, var/datum/reagents/holder)
+/singleton/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed, var/datum/reagents/holder)
 
 	if(alien != IS_DIONA)
 		M.intoxication += (strength / 100) * removed * 3.5
@@ -179,7 +179,7 @@
 	if (adj_temp < 0 && M.bodytemperature > targ_temp)
 		M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 
-/decl/reagent/alcohol
+/singleton/reagent/alcohol
 	name = "Ethanol"
 	description = "A well-known alcohol with a variety of applications."
 	flammability_divisor = 10
@@ -194,7 +194,7 @@
 
 	distillation_point = T0C + 78.37
 
-/decl/reagent/alcohol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/alcohol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
@@ -209,7 +209,7 @@
 
 	..()
 
-/decl/reagent/alcohol/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+/singleton/reagent/alcohol/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/item/paper))
 		var/obj/item/paper/paperaffected = O
 		paperaffected.clearpaper()
@@ -229,7 +229,7 @@
 
 // Butanol is a common alcohol that is fairly ineffective for humans and most other species, but highly intoxicating to unathi.
 // Most behavior is inherited from alcohol.
-/decl/reagent/alcohol/butanol
+/singleton/reagent/alcohol/butanol
 	name = "Butanol"
 	description = "A fairly harmless alcohol that has intoxicating effects on certain species."
 	reagent_state = LIQUID
@@ -247,7 +247,7 @@
 
 	distillation_point = T0C + 117.7
 
-/decl/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
@@ -262,7 +262,7 @@
 
 	..()
 
-/decl/reagent/hydrazine
+/singleton/reagent/hydrazine
 	name = "Hydrazine"
 	description = "A toxic, colorless, flammable liquid with a strong ammonia-like odor, in hydrate form."
 	reagent_state = LIQUID
@@ -273,27 +273,27 @@
 
 	fallback_specific_heat = 0.549 //Unknown
 
-/decl/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/obj/item/organ/internal/augment/fuel_cell/aug = M.internal_organs_by_name[BP_AUG_FUEL_CELL]
 	if(aug && !aug.is_broken())
 		M.adjustNutritionLoss(-12 * removed)
 	else
 		M.adjustToxLoss(4 * removed)
 
-/decl/reagent/hydrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) // Hydrazine is both toxic and flammable.
+/singleton/reagent/hydrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) // Hydrazine is both toxic and flammable.
 	M.adjust_fire_stacks(removed / 12)
 	M.adjustToxLoss(0.2 * removed)
 
-/decl/reagent/hydrazine/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/hydrazine/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, amount)
 	remove_self(amount, holder)
 	return
 
-/decl/reagent/hydrazine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/hydrazine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	H.add_chemical_effect(CE_PNEUMOTOXIC, removed * 0.5)
 
-/decl/reagent/iron
+/singleton/reagent/iron
 	name = "Iron"
 	description = "Pure iron is a metal."
 	reagent_state = SOLID
@@ -303,11 +303,11 @@
 
 	fallback_specific_heat = 1.181
 
-/decl/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if (!(alien & (IS_SKRELL | IS_VAURCA)))
 		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
-/decl/reagent/lithium
+/singleton/reagent/lithium
 	name = "Lithium"
 	description = "A chemical element, used as an antidepressant."
 	reagent_state = SOLID
@@ -316,13 +316,13 @@
 
 	fallback_specific_heat = 0.633
 
-/decl/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
 		step(M, pick(cardinal))
 	if(prob(5) && ishuman(M))
 		M.emote(pick("twitch", "drool", "moan"))
 
-/decl/reagent/mercury
+/singleton/reagent/mercury
 	name = "Mercury"
 	description = "A poisonous chemical element, one of two that is a liquid at human room temperature and pressure."
 	reagent_state = LIQUID
@@ -337,7 +337,7 @@
 
 	fallback_specific_heat = 0.631
 
-/decl/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_NEUROTOXIC, 1*removed)
 	var/dose = M.chem_doses[type]
 	if(dose > 1)
@@ -356,7 +356,7 @@
 		M.add_chemical_effect(CE_UNDEXTROUS, 1) //A budget dextrotoxin that's a tad more dangerous and slower to take effect.
 		M.Weaken(10)
 
-/decl/reagent/phosphorus
+/singleton/reagent/phosphorus
 	name = "Phosphorus"
 	description = "A chemical element, the backbone of biological energy carriers."
 	reagent_state = SOLID
@@ -365,7 +365,7 @@
 
 	fallback_specific_heat = 0.569
 
-/decl/reagent/potassium
+/singleton/reagent/potassium
 	name = "Potassium"
 	description = "A soft, low-melting solid that can easily be cut with a knife. Reacts violently with water."
 	reagent_state = SOLID
@@ -374,13 +374,13 @@
 
 	fallback_specific_heat = 0.214
 
-/decl/reagent/potassium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/potassium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(REAGENT_VOLUME(holder, type) > 3)
 		M.add_chemical_effect(CE_PULSE, 1)
 	if(REAGENT_VOLUME(holder, type) > 10)
 		M.add_chemical_effect(CE_PULSE, 1)
 
-/decl/reagent/radium
+/singleton/reagent/radium
 	name = "Radium"
 	description = "Radium is an alkaline earth metal. It is extremely radioactive."
 	reagent_state = SOLID
@@ -391,10 +391,10 @@
 	fallback_specific_heat = 0.220
 	var/message_shown = FALSE
 
-/decl/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
 
-/decl/reagent/radium/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/radium/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 3)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
@@ -402,7 +402,7 @@
 				new /obj/effect/decal/cleanable/greenglow(T)
 			return
 
-/decl/reagent/acid
+/singleton/reagent/acid
 	name = "Sulphuric Acid"
 	description = "A very corrosive mineral acid with the molecular formula H2SO4."
 	reagent_state = LIQUID
@@ -415,14 +415,14 @@
 
 	fallback_specific_heat = 0.815
 
-/decl/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.take_organ_damage(0, removed * power)
 
-/decl/reagent/acid/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/acid/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	H.add_chemical_effect(CE_PNEUMOTOXIC, removed * power * 0.5)
 
-/decl/reagent/acid/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) // This is the most interesting
+/singleton/reagent/acid/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) // This is the most interesting
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.head)
@@ -481,7 +481,7 @@
 		else
 			M.take_organ_damage(0, removed * power * 0.1) // Balance. The damage is instant, so it's weaker. 10 units -> 5 damage, double for pacid. 120 units beaker could deal 60, but a) it's burn, which is not as dangerous, b) it's a one-use weapon, c) missing with it will splash it over the ground and d) clothes give some protection, so not everything will hit
 
-/decl/reagent/acid/touch_obj(var/obj/O,  var/amount, var/datum/reagents/holder)
+/singleton/reagent/acid/touch_obj(var/obj/O,  var/amount, var/datum/reagents/holder)
 	if(O.unacidable)
 		return
 	if((istype(O, /obj/item) || istype(O, /obj/effect/plant)) && (amount > meltdose))
@@ -492,7 +492,7 @@
 		qdel(O)
 		remove_self(meltdose, holder) // 10 units of acid will not melt EVERYTHING on the tile
 
-/decl/reagent/acid/hydrochloric //Like sulfuric, but less toxic and more acidic.
+/singleton/reagent/acid/hydrochloric //Like sulfuric, but less toxic and more acidic.
 	name = "Hydrochloric Acid"
 	description = "A very corrosive mineral acid with the molecular formula HCl."
 	reagent_state = LIQUID
@@ -502,7 +502,7 @@
 	taste_description = "stomach acid"
 	fallback_specific_heat = 1.710
 
-/decl/reagent/acid/polyacid //Not in dispensers, but it should be here
+/singleton/reagent/acid/polyacid //Not in dispensers, but it should be here
 	name = "Polytrinic Acid"
 	description = "Polytrinic acid is a an extremely corrosive chemical substance."
 	reagent_state = LIQUID
@@ -511,13 +511,13 @@
 	meltdose = 4
 	taste_description = "acid"
 
-/decl/reagent/acid/stomach
+/singleton/reagent/acid/stomach
 	name = "Stomach Acid"
 	taste_description = "coppery foulness"
 	power = 2
 	color = "#d8ff00"
 
-/decl/reagent/silicon
+/singleton/reagent/silicon
 	name = "Silicon"
 	description = "A tetravalent metalloid, silicon is less reactive than its chemical analog carbon."
 	reagent_state = SOLID
@@ -525,7 +525,7 @@
 	taste_description = "metal"
 	fallback_specific_heat = 2.650
 
-/decl/reagent/sodium
+/singleton/reagent/sodium
 	name = "Sodium"
 	description = "A chemical element, readily reacts with water."
 	reagent_state = SOLID
@@ -533,7 +533,7 @@
 	taste_description = "salty metal"
 	fallback_specific_heat = 0.483
 
-/decl/reagent/sugar
+/singleton/reagent/sugar
 	name = "Sugar"
 	description = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 	reagent_state = SOLID
@@ -550,10 +550,10 @@
 	condiment_desc = "Tasty space sugar!"
 	condiment_icon_state = "sugar"
 
-/decl/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustNutritionLoss(-removed*3)
 
-/decl/reagent/sulfur
+/singleton/reagent/sulfur
 	name = "Sulfur"
 	description = "A chemical element with a pungent smell."
 	reagent_state = SOLID
@@ -563,11 +563,11 @@
 
 	fallback_specific_heat = 0.503
 
-/decl/reagent/sulfur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/sulfur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if (alien & IS_VAURCA)
 		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
-/decl/reagent/tungsten
+/singleton/reagent/tungsten
 	name = "Tungsten"
 	description = "A chemical element, and a strong oxidising agent."
 	reagent_state = SOLID

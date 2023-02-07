@@ -6,6 +6,7 @@
 	anchored = TRUE
 	density = FALSE
 	req_access = null
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/damage_threshold = 10 // Damage needed to break the glass.
 	var/open
@@ -25,7 +26,7 @@
 	shattered = TRUE
 	unlocked = TRUE
 	open = TRUE
-	playsound(user, /decl/sound_category/glass_break_sound, 100, 1)
+	playsound(user, /singleton/sound_category/glass_break_sound, 100, 1)
 	update_icon()
 
 /obj/structure/fireaxecabinet/update_icon()
