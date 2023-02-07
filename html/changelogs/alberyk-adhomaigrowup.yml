@@ -4,4 +4,5 @@ delete-after: True
 
 changes:
   - rscadd: "Added Adhomian flora."
-  - tweak: "Killed innocent kittens."
+  - tweak: "Added the orion and the independent freight to s'rand'marr."
+  - tweak: "Regular asteroids no longer spawn in s'rand'marr."
