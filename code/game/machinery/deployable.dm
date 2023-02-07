@@ -82,7 +82,7 @@ for reference:
 	if(!material)
 		qdel(src)
 		return
-	name = "[material.display_name] barricade"
+	name = "[material.display_name] [name]"
 	desc = "This space is blocked off by a barricade made of [material.display_name]."
 	color = material.icon_colour
 	maxhealth = material.integrity
@@ -167,6 +167,11 @@ for reference:
 
 /obj/structure/blocker/steel
 	force_material = MATERIAL_STEEL
+
+/obj/structure/blocker/steel/fence
+	name = "fence"
+	force_material = MATERIAL_STEEL
+	icon_state = "chainfence"
 
 //Actual Deployable machinery stuff
 /obj/machinery/deployable

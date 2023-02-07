@@ -168,13 +168,17 @@
 /obj/effect/overmap/event
 	name = "event"
 	icon = 'icons/obj/overmap.dmi'
-	icon_state = "event"
-	opacity = 1
+	icon_state = "blank"
+	opacity = 0
 	var/list/events
 	var/list/event_icon_states = list("event")
 	var/difficulty = EVENT_LEVEL_MODERATE
 	var/list/victims //basically cached events on which Z level
 	var/can_be_destroyed = TRUE //Can this event be destroyed by ship guns?
+
+	// Events must be detected by sensors, but are otherwise instantly visible.
+	requires_contact = TRUE
+	instant_contact = TRUE
 
 	// Vars that determine movability, current moving direction, and moving speed //
 	/// Whether this event can move or not

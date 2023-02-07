@@ -21,6 +21,9 @@
 		global_hud.holomap
 	)
 
+	// Populate global list of tips by category
+	populate_tip_list()
+
 	// Create robolimbs for chargen.
 	populate_robolimb_list()
 

@@ -94,7 +94,7 @@
 /mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()
 	..()
 	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
+	change_stance(HOSTILE_STANCE_TIRED)
 	stop_automated_movement = 1
 	wander = 0
 	if(!has_exploded)
@@ -167,7 +167,7 @@
 
 /mob/living/simple_animal/hostile/hivebot/emp_act(severity)
 	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
+	change_stance(HOSTILE_STANCE_TIRED)
 	addtimer(CALLBACK(src, PROC_REF(wakeup)), 50)
 	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
@@ -175,4 +175,4 @@
 	do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebot/proc/wakeup()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)

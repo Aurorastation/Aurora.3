@@ -123,6 +123,7 @@
 #define send_link(target, url)                              to_target(target, link(url))
 
 #define CanInteract(user, state) (CanUseTopic(user, state) == STATUS_INTERACTIVE)
+#define CanInteractWith(user, target, state) (target.CanUseTopic(user, state) == STATUS_INTERACTIVE)
 
 #define isopenturf(target) istype(target, /turf/simulated/open)
 #define isweakref(target) istype(target, /datum/weakref)

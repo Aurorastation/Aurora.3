@@ -8,8 +8,9 @@
 	deform = 'icons/mob/human_races/unathi/r_def_unathi.dmi'
 	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
-	tail = "unathtail"
+	tail = "Tail"
 	tail_animation = 'icons/mob/species/unathi/tail.dmi'
+	selectable_tails = list("Tail")
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
