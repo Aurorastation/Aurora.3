@@ -2,7 +2,7 @@
 	name = "bullet"
 	icon_state = "bullet"
 	damage = 60
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	nodamage = FALSE
 	check_armor = "bullet"
@@ -277,7 +277,7 @@
 	weaken = 0
 	drowsy = 0
 	eyeblur = 0
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	speed = 0.3
 
 /obj/item/projectile/bullet/rifle/tranq/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
@@ -301,7 +301,7 @@
 
 	if(isanimal(target))
 		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
-		L.apply_damage(35, TOX) //temporary until simple_animal paralysis actually works.
+		L.apply_damage(35, DAMAGE_TOXIN) //temporary until simple_animal paralysis actually works.
 	..()
 
 /* Miscellaneous */
@@ -328,7 +328,7 @@
 
 /obj/item/projectile/bullet/pistol/cap
 	name = "cap"
-	damage_type = PAIN
+	damage_type = DAMAGE_PAIN
 	damage = 0
 	nodamage = 1
 	embed = 0
@@ -343,7 +343,7 @@
 	icon = 'icons/obj/terminator.dmi'
 	icon_state = "flechette_bullet"
 	damage = 40
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	check_armor = "bullet"
 	embed = 1
 	sharp = 1
@@ -414,7 +414,7 @@
 		var/turf/T = get_turf(mob)
 		if(T && (loc.z == T.z))
 			if(ishuman(mob))
-				mob.apply_damage(250, IRRADIATE, damage_flags = DAM_DISPERSED)
+				mob.apply_damage(250, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 	new /obj/effect/temp_visual/nuke(A.loc)
 	explosion(A,2,5,9)
 	..()

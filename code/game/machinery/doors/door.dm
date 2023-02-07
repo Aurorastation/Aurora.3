@@ -248,10 +248,10 @@
 		if (destroy_hits <= 0)
 			visible_message("<span class='danger'>\The [src.name] disintegrates!</span>")
 			switch (Proj.damage_type)
-				if(BRUTE)
+				if(DAMAGE_BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
 					new /obj/item/stack/rods(src.loc, 3)
-				if(BURN)
+				if(DAMAGE_BURN)
 					new /obj/effect/decal/cleanable/ash(src.loc) // Turn it to ashes!
 			qdel(src)
 
@@ -361,7 +361,7 @@
 	if(src.density && istype(I, /obj/item) && user.a_intent == I_HURT && !istype(I, /obj/item/card))
 		var/obj/item/W = I
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(W.damtype == BRUTE || W.damtype == BURN)
+		if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
 			user.do_attack_animation(src)
 			if(W.force < min_force)
 				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [W] with no visible effect.</span>")

@@ -29,7 +29,7 @@
 			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [user.get_pronoun("his")] forehead!"), SPAN_NOTICE("You crush the can of [src.name] on your forehead."))
 		else
 			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [M]'s forehead!"), SPAN_NOTICE("You crush the can of [src.name] on [M]'s forehead."))
-		M.apply_damage(2,BRUTE,BP_HEAD) // ouch.
+		M.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // ouch.
 		playsound(M,'sound/items/soda_crush.ogg', rand(10,50), TRUE)
 		var/obj/item/trash/can/crushed_can = new /obj/item/trash/can(M.loc)
 		crushed_can.icon_state = icon_state

@@ -159,7 +159,7 @@
 /mob/living/simple_animal/cat/apply_radiation_effects()
 	. = ..()
 	if(.)
-		apply_effect((rand(30,60)),IRRADIATE,blocked=0)
+		apply_damage((rand(30,60)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /mob/living/simple_animal/cat/proc/handle_flee_target()
 	//see if we should stop fleeing
