@@ -93,7 +93,7 @@
 		var/list/contacts = list()
 		var/list/potential_contacts = list()
 
-		for(var/obj/effect/overmap/nearby in view(7,linked))
+		for(var/obj/effect/overmap/nearby in view(OVERMAP_FAR_SCAN_RANGE, linked))
 			if(nearby.requires_contact) // Some ships require.
 				continue
 			potential_contacts |= nearby

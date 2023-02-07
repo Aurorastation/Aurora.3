@@ -132,3 +132,41 @@
 	allow_borgs_to_leave = TRUE
 
 	warehouse_basearea = /area/operations/storage
+
+/datum/map/sccv_horizon/send_welcome()
+	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
+
+	var/welcome_text = "<center><img src = scclogo.png><br />[FONT_LARGE("<b>SCCV Horizon</b> Sensor Readings:")]<br>"
+	welcome_text += "Report generated on [worlddate2text()] at [worldtime2text()]</center><br /><br />"
+	welcome_text += "<hr>Current sector:<br /><b>[SSatlas.current_sector.name]</b><br /><br>"
+
+	if (horizon) //If the overmap is disabled, it's possible for there to be no torch.
+		var/list/space_things = list()
+		welcome_text += "Current Coordinates:<br /><b>[horizon.x]:[horizon.y]</b><br /><br>"
+		welcome_text += "Next system targeted for jump:<br /><b>[generate_system_name()]</b><br /><br>"
+		welcome_text += "Travel time to nearest port:<br /><b>[rand(2,45)] days</b><br /><br>"
+		welcome_text += "Scan results show the following points of interest:<br />"
+
+		for(var/zlevel in map_sectors)
+			var/obj/effect/overmap/visitable/O = map_sectors[zlevel]
+			if(O.name == horizon.name)
+				continue
+			if(istype(O, /obj/effect/overmap/visitable/ship/landable)) //Don't show shuttles
+				continue
+			if (O.hide_from_reports)
+				continue
+			space_things |= O
+
+		for(var/obj/effect/overmap/visitable/O in space_things)
+			var/location_desc = " at present co-ordinates."
+			if(O.loc != horizon.loc)
+				var/bearing = round(90 - Atan2(O.x - horizon.x, O.y - horizon.y),5) //fucking triangles how do they work
+				if(bearing < 0)
+					bearing += 360
+				location_desc = ", bearing [bearing]."
+			welcome_text += "<li>\A <b>[O.name]</b>[location_desc]</li>"
+
+		welcome_text += "<hr>"
+
+	post_comm_message("SCCV Horizon Sensor Readings", welcome_text)
+	priority_announcement.Announce(message = "New [current_map.company_name] Update available at all communication consoles.")

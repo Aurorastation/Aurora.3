@@ -16,6 +16,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	icon_state = "ship"
 	requires_contact = TRUE
 	obfuscated_name = "unidentified vessel"
+	sensor_range_override = FALSE
+	hide_from_reports = TRUE
 	var/moving_state = "ship_moving"
 
 	var/list/known_ships = list()		//List of ships known at roundstart - put types here.

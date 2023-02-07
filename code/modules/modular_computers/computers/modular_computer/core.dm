@@ -95,6 +95,7 @@
 	if(looping_sound)
 		soundloop = new(src, enabled)
 	initial_name = name
+	listener = new(LISTENER_MODULAR_COMPUTER, src)
 
 /obj/item/modular_computer/Destroy()
 	kill_program(TRUE)
@@ -105,6 +106,7 @@
 		qdel(CH)
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(soundloop)
+	QDEL_NULL(listener)
 	return ..()
 
 /obj/item/modular_computer/CouldUseTopic(var/mob/user)

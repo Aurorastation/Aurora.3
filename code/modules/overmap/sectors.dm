@@ -6,6 +6,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 /obj/effect/overmap/visitable
 	name = "map object"
 	scannable = TRUE
+	sensor_range_override = TRUE
 	var/designation //Actual name of the object.
 	var/class //Imagine a ship or station's class. "NTCC" Odin, "SCCV" Horizon, ...
 	unknown_id = "Bogey"
@@ -46,6 +47,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	var/list/datalink_requests = list()// A list of datalink requests that we received
 	var/list/datalinked        = list()// Other effects that we are datalinked with
+
+	var/hide_from_reports = FALSE
 
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
