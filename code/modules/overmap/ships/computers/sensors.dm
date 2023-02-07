@@ -187,7 +187,7 @@
 			var/nrange = text2num(href_list["range_choice"])
 			if(!CanInteract(usr, default_state))
 				return TOPIC_NOACTION
-			if (nrange)
+			if(nrange)
 				sensors.set_range(Clamp(nrange, 1, world.view))
 			return TOPIC_REFRESH
 		if (href_list["toggle"])
