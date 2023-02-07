@@ -1,7 +1,0 @@
-author: Alberyk, Kyres1, KingOfThePing
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a framework that allows space sector to have their custom lobby art, icon and sounds."
-  - rscadd: "Added unique lobby assets for Adhomai."
