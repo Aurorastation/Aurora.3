@@ -605,7 +605,7 @@
 	icon_state = "flag_hegemony0"
 	base_icon = "flag_hegemony"
 	contained_sprite = TRUE
-	damtype = BURN
+	damtype = DAMAGE_BURN
 
 /obj/item/material/twohanded/pike/silver/Initialize(newloc, material_key)
 	. = ..(newloc, MATERIAL_SILVER)
