@@ -24,6 +24,8 @@
 		"Orbital Fleet Fang" = list("nav_hangar_peoples_station_fang"),
 		"Intrepid" = list("nav_peoples_station_dockintrepid")
 	)
+	comms_support = TRUE
+	comms_name = "people's station"
 
 /obj/effect/shuttle_landmark/nav_peoples_station/dockintrepid
 	name = "People's Space Station Intrepid Docking"
