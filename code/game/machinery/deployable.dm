@@ -172,13 +172,12 @@ for reference:
 /obj/machinery/deployable
 	name = "deployable"
 	desc = "deployable"
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/machinery/deployable.dmi'
 	req_access = list(access_security)//I'm changing this until these are properly tested./N
 
 /obj/machinery/deployable/barrier
 	name = "deployable barrier"
 	desc = "A deployable barrier. Swipe your ID card to lock/unlock it."
-	icon = 'icons/obj/objects.dmi'
 	anchored = 0.0
 	density = 1.0
 	icon_state = "barrier"

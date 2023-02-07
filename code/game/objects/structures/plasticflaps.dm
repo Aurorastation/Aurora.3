@@ -1,7 +1,7 @@
 /obj/structure/plasticflaps //HOW DO YOU CALL THOSE THINGS ANYWAY
 	name = "\improper plastic flaps"
 	desc = "Completely impassable - or are they?"
-	icon = 'icons/obj/stationobjs.dmi' //Change this.
+	icon = 'icons/obj/structure/plasticflaps.dmi'
 	icon_state = "plasticflaps"
 	density = 0
 	anchored = 1

@@ -13,7 +13,7 @@
 /obj/structure/morgue
 	name = "morgue"
 	desc = "Used to keep bodies in until someone fetches them."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/structure/morgue.dmi'
 	icon_state = "morgue1"
 	dir = EAST
 	density = TRUE
@@ -138,7 +138,7 @@
 /obj/structure/m_tray
 	name = "morgue tray"
 	desc = "Apply corpse before closing."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/structure/morgue.dmi'
 	icon_state = "morguet"
 	density = TRUE
 	anchored = TRUE
@@ -184,6 +184,7 @@
 /obj/structure/morgue/crematorium
 	name = "crematorium"
 	desc = "A human incinerator. Works well on barbeque nights."
+	icon = 'icons/obj/structure/morgue.dmi'
 	icon_state = "crema1"
 	dir = SOUTH
 	tray = /obj/structure/m_tray/c_tray

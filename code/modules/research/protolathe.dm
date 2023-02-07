@@ -145,8 +145,12 @@
 		if(max_material_storage - TotalMaterials() < (amount * SHEET_MATERIAL_AMOUNT)) //Can't overfill
 			amount = min(stack.get_amount(), round((max_material_storage - TotalMaterials()) / SHEET_MATERIAL_AMOUNT))
 
-	add_overlay("protolathe_[stack.default_type]")
-	CUT_OVERLAY_IN("protolathe_[stack.default_type]", 10)
+	var/image/I = image(icon, "protolathe_stack")
+	I.color = stack.material.icon_colour
+	add_overlay(I)
+	add_overlay("protolathe_insert")
+	CUT_OVERLAY_IN(I, 10)
+	CUT_OVERLAY_IN("protolathe_insert", 10)
 
 	busy = 1
 	use_power_oneoff(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))

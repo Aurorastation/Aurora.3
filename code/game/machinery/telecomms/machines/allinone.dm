@@ -5,7 +5,6 @@
 
 /obj/machinery/telecomms/allinone
 	name = "telecommunications mainframe"
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "comm_server"
 	desc = "A compact machine used for portable subspace telecommuniations processing."
 	idle_power_usage = 0

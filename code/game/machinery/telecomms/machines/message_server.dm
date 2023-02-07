@@ -218,7 +218,7 @@
 var/obj/machinery/blackbox_recorder/blackbox
 
 /obj/machinery/blackbox_recorder
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/machinery/telecomms.dmi'
 	icon_state = "blackbox"
 	name = "blackbox recorder"
 	density = TRUE

@@ -3,7 +3,7 @@
 	desc = "A large piece of machinery used to dispense pipes that transport and manipulate gasses."
 	desc_info = "This can be moved by using a wrench.  You will need to wrench it again when you want to use it.  You can put \
 	excess (atmospheric) pipes into the dispenser, as well.  It needs electricity to function."
-	icon = 'icons/obj/pipe_dispenser.dmi'
+	icon = 'icons/obj/machinery/pipe_dispenser.dmi'
 	icon_state = "pipe_dispenser"
 	density = TRUE
 	anchored = TRUE
@@ -130,7 +130,6 @@
 	desc = "A large piece of machinery used to dispense pipes that transport and manipulate objects."
 	desc_info = "This can be moved by using a wrench.  You will need to wrench it again when you want to use it.  You can put \
 	excess disposal pipes into the dispenser by dragging them onto it.  It needs electricity to function."
-	icon_state = "disposal_dispenser"
 	window_id = "disposaldispenser"
 
 //Allow you to drag-drop disposal pipes into it

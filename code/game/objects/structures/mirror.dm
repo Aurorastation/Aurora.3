@@ -1,7 +1,7 @@
 /obj/structure/mirror
 	name = "mirror"
 	desc = "A SalonPro Nano-Mirror(TM) brand mirror! The leading technology in hair salon products, utilizing nano-machinery to style your hair just right."
-	icon = 'icons/obj/watercloset.dmi'
+	icon = 'icons/obj/structure/watercloset.dmi'
 	icon_state = "mirror"
 	density = 0
 	anchored = 1
@@ -97,7 +97,7 @@
 	mouse_opacity = 0
 	vis_flags = VIS_HIDE
 	layer = ABOVE_OBJ_LAYER
-	var/alpha_icon = 'icons/obj/watercloset.dmi'
+	var/alpha_icon = 'icons/obj/structure/watercloset.dmi'
 	var/alpha_icon_state = "mirror_mask"
 	var/obj/mirror
 	desc = "Why are you locked in the bathroom?"

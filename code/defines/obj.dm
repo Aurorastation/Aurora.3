@@ -24,15 +24,6 @@
 		rank = replacetext(rank, " ([faction.title_suffix])", "")
 	return rank
 
-/obj/structure/showcase
-	name = "Showcase"
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "showcase_1"
-	desc = "A stand with the empty body of a cyborg bolted to it."
-	density = 1
-	anchored = 1
-	unacidable = 1//temporary until I decide whether the borg can be removed. -veyveyr
-
 /obj/item/mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
 /obj/item/beach_ball
@@ -57,13 +48,6 @@
 
 /obj/effect/spawner
 	name = "object spawner"
-
-/obj/structure/spaceship
-	name = "Abandoned Shuttle"
-	desc = "An ancient and inoperable shuttle-craft"
-	icon = 'icons/obj/machinery/spaceship.dmi'
-	anchored = 1
-	density = 1
 
 /obj/structure/mainframe
 	name = "Ancient Mainframe"

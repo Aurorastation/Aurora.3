@@ -1,6 +1,7 @@
 /obj/machinery/autolathe
 	name = "autolathe"
 	desc = "A large device loaded with various item schematics. It uses a combination of steel and glass to fabricate items."
+	icon = 'icons/obj/machinery/autolathe.dmi'
 	icon_state = "autolathe"
 	density = TRUE
 	anchored = TRUE
@@ -25,7 +26,7 @@
 	var/mat_efficiency = 1
 	var/build_time = 50
 
-	var/does_flick = TRUE
+	var/does_anim = TRUE
 
 	var/datum/wires/autolathe/wires
 
@@ -43,7 +44,7 @@
 	idle_power_usage = FALSE
 	active_power_usage = FALSE
 	interact_offline = TRUE
-	does_flick = FALSE
+	does_anim = FALSE
 
 /obj/machinery/autolathe/Initialize()
 	..()
@@ -233,14 +234,12 @@
 			if(!isnull(stored_material[material]))
 				stored_material[material] = max(0, stored_material[material] - round(build_item.resources[material] * mat_efficiency) * multiplier)
 
-		if(does_flick)
-			//Fancy autolathe animation.
-			flick("autolathe_n", src)
-
+		update_icon()
 		sleep(build_time)
 
 		busy = FALSE
 		update_use_power(POWER_USE_IDLE)
+		update_icon()
 
 		//Sanity check.
 		if(!build_item || !src)
@@ -257,7 +256,17 @@
 	updateUsrDialog()
 
 /obj/machinery/autolathe/update_icon()
-	icon_state = (panel_open ? "autolathe_t" : "autolathe")
+	cut_overlays()
+	if(!is_powered())
+		icon_state = "[initial(icon_state)]_d"
+	else if(busy && does_anim)
+		icon_state = "[initial(icon_state)]_p"
+	else
+		icon_state = "[initial(icon_state)]"
+
+	if(panel_open)
+		add_overlay("[initial(icon_state)]_panel")
+
 
 //Updates overall lathe storage size.
 /obj/machinery/autolathe/RefreshParts()
@@ -335,7 +344,14 @@
 	else if(fill_status[FILL_INCOMPLETELY])
 		to_chat(user, SPAN_NOTICE("You fill \the [src] with [english_list(fill_status[FILL_INCOMPLETELY])] \the [eating]."))
 
-	flick("autolathe_o", src) // Plays metal insertion animation. Work out a good way to work out a fitting animation. ~Z
+	var/image/I = image(icon, "[initial(icon_state)]_mat")
+	var/mat_colour = eating.color
+	if(!mat_colour)
+		mat_colour = material.icon_colour
+	if(mat_colour)
+		I.color = mat_colour
+	add_overlay(I)
+	CUT_OVERLAY_IN(I, 10)
 
 	if(istype(eating, /obj/item/stack))
 		var/obj/item/stack/stack = eating

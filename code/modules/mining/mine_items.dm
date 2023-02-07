@@ -754,8 +754,7 @@
 
 /obj/effect/portal/wormhole/jaunt_tunnel
 	name = "jaunt tunnel"
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "bhole3"
+	icon_state = "bhole"
 	desc = "A stable hole in the universe made by a wormhole jaunter. Turbulent doesn't even begin to describe how rough passage through one of these is, but at least it will always get you somewhere near a beacon."
 
 /obj/effect/portal/wormhole/jaunt_tunnel/teleport(atom/movable/M)

@@ -174,8 +174,12 @@
 		if(M.amount >= 1)
 			var/count = 0
 
-			add_overlay("fab-load-[M.material.name]")
-			CUT_OVERLAY_IN("fab-load-[M.material.name]", 6)
+			var/image/I = image(icon, "fab-mat")
+			I.color = M.material.icon_colour
+			add_overlay("fab-load")
+			add_overlay(I)
+			CUT_OVERLAY_IN("fab-load", 6)
+			CUT_OVERLAY_IN(I, 6)
 
 			while(materials[M.material.name] + M.perunit <= res_max_amount && M.amount >= 1)
 				materials[M.material.name] += M.perunit

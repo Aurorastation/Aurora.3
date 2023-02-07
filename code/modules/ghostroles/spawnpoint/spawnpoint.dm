@@ -127,7 +127,7 @@
 /obj/effect/ghostspawpoint/button
 	name = "button"
 	desc = "A button used for some kind of purpose."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/machinery/button.dmi'
 	icon_state = "doorctrl0"
 
 	identifier = null

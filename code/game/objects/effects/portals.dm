@@ -1,7 +1,7 @@
 /obj/effect/portal
 	name = "portal"
 	desc = "A bluespace tear in space, reaching directly to another point within this region. Looks unstable. Best to test it carefully."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/effect/portal.dmi'
 	icon_state = "portal"
 	density = TRUE
 	unacidable = TRUE //Can't destroy energy portals.

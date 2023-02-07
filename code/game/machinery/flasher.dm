@@ -3,7 +3,7 @@
 /obj/machinery/flasher
 	name = "mounted flash"
 	desc = "A mounted flash. Disorientates anyone caught in its range."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/machinery/flasher.dmi'
 	icon_state = "mflash1"
 	layer = OBJ_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED

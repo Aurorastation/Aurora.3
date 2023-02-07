@@ -3,7 +3,7 @@
 
 /obj/machinery/mineral/mint
 	name = "coin press"
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/machinery/mining_machines.dmi'
 	icon_state = "coinpress0"
 	density = TRUE
 	anchored = TRUE

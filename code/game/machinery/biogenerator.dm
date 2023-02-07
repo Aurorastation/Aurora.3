@@ -300,27 +300,28 @@
 
 /obj/machinery/biogenerator/update_icon()
 	. = ..()
+	cut_overlays()
 
 	if(panel_open)
-		. += mutable_appearance(icon, "[icon_state]_o_panel")
+		add_overlay(image(icon, "[icon_state]_o_panel")) // If anyone asks, _o stands for overlay. -Wezzy
 
 	if(beaker)
-		. += mutable_appearance(icon, "[icon_state]_o_container")
+		add_overlay(image(icon, "[icon_state]_o_container"))
 
 	if(points > 0)
 		// Get current biomass volume adjusted with sine function (more biomass = less frequent icon changes)
 		var/biomass_volume_sin = sin(min(points/max_visual_biomass, 1) * 90)
 		// Round up to get the corresponding overlay icon
 		var/biomass_level = ROUND_UP(biomass_volume_sin * 7)
-		. += mutable_appearance(icon, "[icon_state]_o_biomass_[biomass_level]")
+		add_overlay(image(icon, "[icon_state]_o_biomass_[biomass_level]"))
 
 	if(stat & (NOPOWER|BROKEN))
 		return
 
 	if(processing)
-		. += mutable_appearance(icon, "[icon_state]_o_process")
+		add_overlay(image(icon, "[icon_state]_o_process"))
 
-	. += mutable_appearance(icon, "[icon_state]_o_screen")
+	add_overlay(image(icon, "[icon_state]_o_screen"))
 
 /obj/machinery/biogenerator/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))

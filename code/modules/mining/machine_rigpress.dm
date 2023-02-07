@@ -2,7 +2,7 @@
 	name = "hardsuit module press"
 	desc = "This machine converts certain items permanently into hardsuit modules."
 	desc_info = "The following devices can be made:"
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/machinery/mining_machines.dmi'
 	icon_state = "coinpress0"
 	density = TRUE
 	anchored = TRUE
@@ -18,7 +18,7 @@
 	/obj/item/pickaxe/diamond = /obj/item/rig_module/device/drill,
 	/obj/item/gun/energy/vaurca/thermaldrill = /obj/item/rig_module/mounted/thermalldrill
 	)
-		
+
 /obj/machinery/mineral/rigpress/Initialize()
 	. = ..()
 	for(var/press_type in press_types)
@@ -27,10 +27,7 @@
 		desc_info += "\n[initial(base.name)] -> [initial(product.name)]"
 
 /obj/machinery/mineral/rigpress/update_icon()
-	if(pressing)
-		icon_state = "coinpress1"
-	else
-		icon_state = "coinpress0"
+	icon_state = "coinpress[pressing]"
 
 /obj/machinery/mineral/rigpress/attackby(obj/item/W, mob/user)
 	if(!pressing)

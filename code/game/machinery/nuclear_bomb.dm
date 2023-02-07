@@ -3,7 +3,7 @@ var/bomb_set
 /obj/machinery/nuclearbomb
 	name = "\improper Nuclear Fission Explosive"
 	desc = "Uh oh. RUN!!!!"
-	icon = 'icons/obj/nuke.dmi'
+	icon = 'icons/obj/machinery/nuke.dmi'
 	icon_state = "idle"
 	density = 1
 	var/deployable = 0
