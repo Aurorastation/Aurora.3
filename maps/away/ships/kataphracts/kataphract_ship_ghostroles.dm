@@ -25,7 +25,7 @@
 /datum/ghostspawner/human/kataphract/klax
 	short_name = "kataphract_hop_klax"
 	name = "Kataphract-Hopeful Klaxan"
-	desc = "A Zo'saa (squire) from the K'lax hive, here to learn what it means to be honourable. Remember, you serve the Izweski Hegemony on behalf of your K'laxan compatriots."
+	desc = "A Zo'saa (squire) from the K'lax Hive, here to learn what it means to be honourable. Remember, you serve the Izweski Hegemony on behalf of your K'laxan compatriots."
 	max_count = 1
 	uses_species_whitelist = TRUE
 
@@ -47,7 +47,7 @@
 	spawnpoints = list("kataphract_knight")
 
 	outfit = /datum/outfit/admin/kataphract/knight
-	
+
 
 	assigned_role = "Kataphract Knight Captain"
 	special_role = "Kataphract Knight Captain"
@@ -129,14 +129,14 @@
 
 	suit = /obj/item/clothing/accessory/poncho/red
 	back = /obj/item/storage/backpack/satchel/hegemony
-	
+
 
 /datum/outfit/admin/kataphract/knight/get_id_access()
 	return list(access_kataphract, access_kataphract_knight, access_external_airlocks)
 
 /datum/outfit/admin/kataphract/specialist
 	name = "Kataphract Specialist"
-	
+
 	back = /obj/item/storage/backpack/satchel/hegemony
 
 /datum/outfit/admin/kataphract/quartermaster/get_id_access()

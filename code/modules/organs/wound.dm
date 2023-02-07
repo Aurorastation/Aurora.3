@@ -38,7 +38,7 @@
 	var/list/stages
 	// maximum stage at which bleeding should still happen. Beyond this stage bleeding is prevented.
 	var/max_bleeding_stage = 0
-	// one of CUT, BRUISE, PIERCE , BURN
+	// one of CUT, BRUISE, PIERCE, BURN
 	var/damage_type = CUT
 	// whether this wound needs a bandage/salve to heal at all
 	// the maximum amount of damage that this wound can have and still autoheal
@@ -92,7 +92,7 @@
 	switch(damage_type)
 		if(BRUISE, CUT, PIERCE)
 			return bandaged
-		if(BURN)
+		if(DAMAGE_BURN)
 			return salved
 
 // Checks whether other other can be merged into src.
@@ -133,7 +133,7 @@
 	switch (damage_type)
 		if (BRUISE)
 			return prob(dam_coef*5)
-		if (BURN)
+		if (DAMAGE_BURN)
 			return prob(dam_coef*10)
 		if (CUT)
 			return prob(dam_coef*20)
@@ -245,7 +245,7 @@
 
 		if(BRUISE)
 			return /datum/wound/bruise
-		if(BURN, LASER)
+		if(DAMAGE_BURN, LASER)
 			switch(damage)
 				if(50 to INFINITY)
 					return /datum/wound/burn/carbonised
@@ -334,7 +334,7 @@ datum/wound/puncture/massive
 /** BURNS **/
 
 /datum/wound/burn
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	max_bleeding_stage = 0
 
 /datum/wound/burn/bleeding()
@@ -373,7 +373,7 @@ datum/wound/puncture/massive
 				"scarred stump" = 0
 				)
 		if(DROPLIMB_BURN)
-			damage_type = BURN
+			damage_type = DAMAGE_BURN
 			stages = list(
 				"ripped charred stump" = damage_amt*1.3,
 				"charred stump" = damage_amt,

@@ -102,14 +102,14 @@
 	apply_damage(effective_force, I.damtype, hit_zone, I, damage_flags, I.armor_penetration)
 
 	//Melee weapon embedded object code.
-	if (I && I.damtype == BRUTE && !I.anchored && !is_robot_module(I) && I.canremove)
+	if (I && I.damtype == DAMAGE_BRUTE && !I.anchored && !is_robot_module(I) && I.canremove)
 		var/damage = effective_force //just the effective damage used for sorting out embedding, no further damage is applied here
 		damage *= 1 - get_blocked_ratio(hit_zone, I.damtype, I.damage_flags(), I.armor_penetration, I.force)
 
 		if(I.can_embed) //If this weapon is allowed to embed in people.
 			//blunt objects should really not be embedding in things unless a huge amount of force is involved
-			var/sharp = damage_flags & DAM_SHARP
-			var/edge = damage_flags & DAM_EDGE
+			var/sharp = damage_flags & DAMAGE_FLAG_SHARP
+			var/edge = damage_flags & DAMAGE_FLAG_EDGE
 			var/embed_chance = sharp? damage/I.w_class : damage/(I.w_class*3)
 			var/embed_threshold = edge? 5*I.w_class : 15*I.w_class
 
@@ -131,7 +131,7 @@
 // Knifing
 /mob/living/carbon/proc/attack_throat(obj/item/W, obj/item/grab/G, mob/user)
 	var/damage_flags = W.damage_flags()
-	if(!(damage_flags & (DAM_SHARP|DAM_EDGE)) || W.damtype != BRUTE)
+	if(!(damage_flags & (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)) || W.damtype != DAMAGE_BRUTE)
 		return FALSE //unsuitable weapon
 
 	user.visible_message("<span class='danger'>\The [user] begins to slit [src]'s throat with \the [W]!</span>")
@@ -148,7 +148,7 @@
 	if(istype(helmet) && (helmet.body_parts_covered & HEAD) && (helmet.min_pressure_protection == 0))
 		var/datum/component/armor/armor_component = helmet.GetComponent(/datum/component/armor)
 		if(armor_component)
-			damage_mod -= armor_component.get_blocked(BRUTE, damage_flags, W.armor_penetration, W.force*1.5)
+			damage_mod -= armor_component.get_blocked(DAMAGE_BRUTE, damage_flags, W.armor_penetration, W.force*1.5)
 
 	var/total_damage = 0
 	for(var/i in 1 to 3)

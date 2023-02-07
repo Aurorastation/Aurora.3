@@ -175,8 +175,9 @@
 		var/obj/item/organ/internal/brain/B = owner.internal_organs_by_name[BP_BRAIN]
 
 		if(B && !B.prepared)
-			to_chat(owner, "<span class='danger'>As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains...</span>")
-			to_chat(owner, "<b>You have been lobotomized by K'ois infection. All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive.</b>")
+			to_chat(owner, SPAN_GOOD("As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains..."))
+			to_chat(owner, SPAN_HIGHDANGER("You have been lobotomized by K'ois infection."))
+			to_chat(owner, SPAN_NOTICE("All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive."))
 
 			B.prepared = 1
 

@@ -533,7 +533,7 @@
 				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
 			playsound(loc, 'sound/items/welder_activate.ogg', 50, 1)
 			force = 15
-			damtype = BURN
+			damtype = DAMAGE_BURN
 			w_class = ITEMSIZE_LARGE
 			welding = TRUE
 			hitsound = SOUNDS_LASER_MEAT
@@ -552,7 +552,7 @@
 			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
 		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, 1)
 		force = 3
-		damtype = BRUTE
+		damtype = DAMAGE_BRUTE
 		w_class = initial(w_class)
 		welding = FALSE
 		hitsound = /singleton/sound_category/swing_hit_sound
@@ -946,10 +946,10 @@
 		if(!user.gloves)
 			var/UserLoc = get_equip_slot()
 			if(UserLoc == slot_l_hand)
-				user.apply_damage(5, BURN, BP_L_HAND)
+				user.apply_damage(5, DAMAGE_BURN, BP_L_HAND)
 				to_chat(user, SPAN_DANGER("The steel wool burns your left hand!"))
 			else if(UserLoc == slot_r_hand)
-				user.apply_damage(5, BURN, BP_R_HAND)
+				user.apply_damage(5, DAMAGE_BURN, BP_R_HAND)
 				to_chat(user, SPAN_DANGER("The steel wool burns your right hand!"))
 
 	new /obj/effect/decal/cleanable/ash(get_turf(src))

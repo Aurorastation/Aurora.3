@@ -428,6 +428,12 @@
 	charm["holy sun rosette"] = /obj/item/clothing/accessory/tajaran/srendarr
 	gear_tweaks += new /datum/gear_tweak/path(charm)
 
+/datum/gear/tail_cloth
+	display_name = "tail cloth"
+	path = /obj/item/clothing/tail_accessory/tail_cloth
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/dpra_party_pin
 	display_name = "democratic peoples republic party pins selection"
 	description = "A selection of DPRA party pins."

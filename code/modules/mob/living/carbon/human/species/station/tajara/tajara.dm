@@ -8,8 +8,9 @@
 	deform = 'icons/mob/human_races/tajara/r_def_tajaran.dmi'
 	preview_icon = 'icons/mob/human_races/tajara/tajaran_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
-	tail = "tajtail"
+	tail = "Tail"
 	tail_animation = 'icons/mob/species/tajaran/tail.dmi'
+	selectable_tails = list("Tail", "Hakh'jar Tail")
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,

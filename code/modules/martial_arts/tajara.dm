@@ -48,7 +48,7 @@
 
 	var/obj/item/organ/internal/eyes/eyes = D.get_eyes()
 	eyes.take_damage(rand(3,4), 1)
-	D.apply_damage(10,BRUTE, BP_HEAD, damage_flags = DAM_SHARP|DAM_EDGE)
+	D.apply_damage(10,DAMAGE_BRUTE, BP_HEAD, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 
 	return 1
 
@@ -57,7 +57,7 @@
 	A.visible_message("<span class='danger'>[A] lunges forwards and strikes [D] with their claws!</span>")
 	playsound(get_turf(A), 'sound/weapons/slice.ogg', 50, 1, -1)
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
-	D.apply_damage(20, BRUTE, affecting, damage_flags = DAM_SHARP|DAM_EDGE)
+	D.apply_damage(20, DAMAGE_BRUTE, affecting, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 	if(prob(20))
 		D.apply_effect(4, WEAKEN)
 	return 1
@@ -68,7 +68,7 @@
 	A.do_attack_animation(D)
 	var/obj/item/organ/external/organ = D.get_organ(A.zone_sel.selecting)
 	A.visible_message("<span class='danger'>[A] stabs [D]'s [organ.name] with their claws!</span>")
-	D.apply_damage(organ.brute_dam, BRUTE, organ, damage_flags = DAM_SHARP|DAM_EDGE)
+	D.apply_damage(organ.brute_dam, DAMAGE_BRUTE, organ, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 	return 1
 
 /datum/martial_art/baghrar/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
