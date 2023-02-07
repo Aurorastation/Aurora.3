@@ -93,7 +93,7 @@
 /obj/item/mass_driver_button
 	name = "mass driver button"
 	desc = "An unscrewed mass driver button."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/machinery/button.dmi'
 	icon_state = "launcherbtt"
 	var/id
 

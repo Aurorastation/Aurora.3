@@ -15,7 +15,7 @@
 	var/turf/T = get_turf(hit_atom)
 	if(summoned_mob_type && core.summoned_mobs.len < core.max_summons && within_range(hit_atom) && pay_energy(energy_cost))
 		var/obj/effect/E = new(T)
-		E.icon = 'icons/obj/objects.dmi'
+		E.icon = 'icons/effects/effects.dmi'
 		E.icon_state = "anom"
 		sleep(5 SECONDS)
 		qdel(E)

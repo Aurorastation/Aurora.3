@@ -257,7 +257,7 @@
 
 /obj/machinery/autolathe/update_icon()
 	cut_overlays()
-	if(!is_powered())
+	if(stat & NOPOWER)
 		icon_state = "[initial(icon_state)]_d"
 	else if(busy && does_anim)
 		icon_state = "[initial(icon_state)]_p"
@@ -345,9 +345,11 @@
 		to_chat(user, SPAN_NOTICE("You fill \the [src] with [english_list(fill_status[FILL_INCOMPLETELY])] \the [eating]."))
 
 	var/image/I = image(icon, "[initial(icon_state)]_mat")
-	var/mat_colour = eating.color
-	if(!mat_colour)
-		mat_colour = material.icon_colour
+	var/mat_colour
+	if(eating.color)
+		mat_colour = eating.color
+	//	else
+	//	 mat_colour = eating.matter[material].icon_color
 	if(mat_colour)
 		I.color = mat_colour
 	add_overlay(I)

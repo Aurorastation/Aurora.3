@@ -158,7 +158,6 @@
 
 /obj/item/storage/box/excavation
 	name = "excavation pick set"
-	icon = 'icons/obj/storage/boxes.dmi'
 	icon_state = "excavation"
 	desc = "A rugged metal case containing a set of standardized picks used in archaeological digs."
 	item_state = "box"

@@ -3,7 +3,7 @@
 /obj/machinery/recharger
 	name = "recharger"
 	desc = "Useful for recharging electronic devices."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/machinery/recharger.dmi'
 	icon_state = "recharger_off"
 	anchored = 1
 	idle_power_usage = 6
@@ -174,7 +174,6 @@
 /obj/machinery/recharger/wallcharger
 	name = "wall recharger"
 	desc = "A heavy duty wall recharger specialized for energy weaponry."
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger_off"
 	active_power_usage = 75 KILOWATTS
 	allowed_devices = list(

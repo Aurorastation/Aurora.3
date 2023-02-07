@@ -13,7 +13,7 @@
 	anchored = 1
 	density = 0
 	level = 1
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/machinery/floor_beacon.dmi'
 	icon_state = "floor_beacon" // If anyone wants to make better sprite, feel free to do so without asking me.
 
 	var/name_tag = "#UNKN#" // ID tag displayed in list of powernet sensors. Each sensor should have it's own tag!
