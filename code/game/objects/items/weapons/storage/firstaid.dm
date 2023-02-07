@@ -22,7 +22,8 @@
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/storage/pill_bottle/antidexafen = 1,
 		/obj/item/storage/pill_bottle/perconol = 1,
-		/obj/item/stack/medical/splint = 1
+		/obj/item/stack/medical/splint = 1,
+		/obj/item/device/healthanalyzer
 	)
 
 /obj/item/storage/firstaid/fire
@@ -73,7 +74,8 @@
 		/obj/item/storage/pill_bottle/assorted = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 2,
-		/obj/item/stack/medical/splint = 1
+		/obj/item/stack/medical/splint = 1,
+		/obj/item/device/healthanalyzer
 	)
 
 /obj/item/storage/firstaid/adv/fill()
@@ -92,7 +94,8 @@
 		/obj/item/storage/pill_bottle/dylovene = 1,
 		/obj/item/storage/pill_bottle/mortaphenyl = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 1,
-		/obj/item/stack/medical/splint = 1
+		/obj/item/stack/medical/splint = 1,
+		/obj/item/device/healthanalyzer
 	)
 
 /obj/item/storage/firstaid/surgery
@@ -154,7 +157,8 @@
 		/obj/item/storage/box/fancy/med_pouch/burn = 1,
 		/obj/item/storage/box/fancy/med_pouch/oxyloss = 1,
 		/obj/item/storage/box/fancy/med_pouch/toxin = 1,
-		/obj/item/storage/box/fancy/med_pouch/radiation = 1
+		/obj/item/storage/box/fancy/med_pouch/radiation = 1,
+		/obj/item/device/healthanalyzer
 	)
 
 /obj/item/storage/firstaid/sleekstab
@@ -170,7 +174,8 @@
 		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/oxygen = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
+		/obj/item/device/healthanalyzer
 	)
 
 
