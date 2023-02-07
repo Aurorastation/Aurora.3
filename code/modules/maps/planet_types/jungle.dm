@@ -10,6 +10,9 @@
 	possible_themes = list(/datum/exoplanet_theme/mountains/breathable)
 	ruin_tags_blacklist = RUIN_VOID
 
+	possible_random_ruins = list(
+    	/datum/map_template/ruin/exoplanet/oasis)
+
 /obj/effect/overmap/visitable/sector/exoplanet/grass/grove/get_surface_color()
 	return "#5C7F34"
 
