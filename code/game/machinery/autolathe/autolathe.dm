@@ -348,8 +348,6 @@
 	var/mat_colour
 	if(eating.color)
 		mat_colour = eating.color
-	//	else
-	//	 mat_colour = eating.matter[material].icon_color
 	if(mat_colour)
 		I.color = mat_colour
 	add_overlay(I)
