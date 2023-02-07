@@ -75,7 +75,7 @@
 	},
 /area/ala_base)
 "hT" = (
-/obj/structure/flora/bush,
+/obj/structure/flora/bush/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -805,6 +805,12 @@
 	temperature = 268.15
 	},
 /area/ala_base)
+"ZQ" = (
+/obj/structure/flora/grass/adhomai,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 
 (1,1,1) = {"
 vi
@@ -812,7 +818,7 @@ vi
 vi
 vi
 vi
-vi
+ZQ
 vi
 vi
 vi
@@ -870,7 +876,7 @@ vi
 vi
 vi
 vi
-vi
+ZQ
 vi
 vi
 "}
@@ -892,7 +898,7 @@ vi
 vi
 vi
 vi
-vi
+ZQ
 vi
 vi
 vi
@@ -1625,7 +1631,7 @@ vi
 (25,1,1) = {"
 vi
 vi
-vi
+ZQ
 vi
 vi
 vi
@@ -1697,7 +1703,7 @@ vi
 vi
 vi
 vi
-vi
+ZQ
 vi
 vi
 vi
@@ -1736,7 +1742,7 @@ vi
 vi
 vi
 vi
-vi
+ZQ
 vi
 vi
 vi
