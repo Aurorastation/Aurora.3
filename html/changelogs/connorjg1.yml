@@ -40,4 +40,4 @@ delete-after: True
 changes:
   - maptweak: "Adjusted the Adhomai inn to make it seem more lived in and fuctional."
   - tweak: "The Amohdan Swordsman now has basic medical equipment."
-  - bugfix: "Fixes the bayonet locker having the wrong access on the Hailstorm."
+  - bugfix: "The bayonet locker has been fixed and no longer has the wrong access on the Hailstorm."
