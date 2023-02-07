@@ -2,7 +2,7 @@
 
 /singleton/origin_item/culture/elyran
 	name = "Serene Republic of Elyra"
-	desc = "A rich and prosperous nation, the Serene Republic of Elyra is one of the few locations in the Orion Spur where phoron can be found. This phoron has made the Republic extremely wealthy and has given them a technological edge over much of the Spur. Highly-controlled customs and harsh immigration requirements have kept much of Elyra isolated from the broader Spur, and have led to the growth of a large population of \"Non-Citizen Persons,\" that reside in the Republic. Recent attacks by the Lii'dra hive of the vaurca have led to the Republic becoming increasingly militarized."
+	desc = "A rich and prosperous nation, the Serene Republic of Elyra is one of the few locations in the Orion Spur where phoron can be found. This phoron has made the Republic extremely wealthy and has given them a technological edge over much of the Spur. Highly-controlled customs and harsh immigration requirements have kept much of Elyra isolated from the broader Spur, and have led to the growth of a large population of \"Non-Citizen Persons,\" that reside in the Republic. Recent attacks by the Lii'dra Hive of the vaurca have led to the Republic becoming increasingly militarized."
 	important_information = "Elyra's historic isolationism has made it nearly impossible for outsiders to become Elyran citizens. <b>Elyran citizens must have names and appearances consistent with the people of the modern day Middle-East, North Africa, Anatolia, and Persia.</b> Only native Elyran citizens or Elyran made IPCs may take the Elyran accent. This is enforceable by server moderators and admins."
 	possible_origins = list(
 		/singleton/origin_item/origin/persepolis,

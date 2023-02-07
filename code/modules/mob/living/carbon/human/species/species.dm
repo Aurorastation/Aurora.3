@@ -50,6 +50,7 @@
 	var/tail                                             // Name of tail state in species effects icon file.
 	var/tail_animation                                   // If set, the icon to obtain tail animation states from.
 	var/tail_hair
+	var/list/selectable_tails
 	var/race_key = 0       	                             // Used for mob icon cache string.
 	var/icon/icon_template                               // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
@@ -708,6 +709,9 @@
 	H.f_style = H.species.default_f_style
 	H.g_style = H.species.default_g_style
 	H.update_hair()
+
+/datum/species/proc/set_default_tail(var/mob/living/carbon/human/H)
+	H.set_tail_style(H.species.tail)
 
 /datum/species/proc/get_species_tally(var/mob/living/carbon/human/H)
 	return 0

@@ -81,6 +81,12 @@
 	pump_direction = 0;
 	use_power = 1
 	},
+/obj/machinery/light,
+/obj/machinery/camera/motion{
+	c_tag = "Telecommunications - Port";
+	dir = 8;
+	network = list("Command","Security","Telecommunications")
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "acg" = (
@@ -6608,7 +6614,7 @@
 /turf/simulated/floor/plating,
 /area/medical/washroom)
 "fxV" = (
-/obj/effect/shuttle_landmark/horizon/deckthree/port,
+/obj/effect/shuttle_landmark/horizon/deckthree/portfore,
 /turf/template_noop,
 /area/template_noop)
 "fyz" = (
@@ -10027,12 +10033,10 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
 	},
-/obj/machinery/camera/motion{
-	c_tag = "Telecommunications - Port";
-	dir = 8;
-	network = list("Command","Security","Telecommunications")
-	},
 /obj/machinery/firealarm/east,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "ilx" = (
@@ -13740,6 +13744,9 @@
 	},
 /obj/machinery/alarm/tcom{
 	pixel_y = 28
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -19006,6 +19013,9 @@
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "ppX" = (
@@ -20716,6 +20726,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "qTN" = (
@@ -23781,6 +23792,7 @@
 /area/bridge/selfdestruct)
 "tkE" = (
 /obj/machinery/blackbox_recorder,
+/obj/machinery/light,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "tkI" = (
@@ -23825,7 +23837,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/shields)
 "tmK" = (
-/obj/effect/shuttle_landmark/horizon/deckthree/starboard,
+/obj/effect/shuttle_landmark/horizon/deckthree/starboardfore,
 /turf/template_noop,
 /area/template_noop)
 "tmU" = (
@@ -29284,6 +29296,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"xsC" = (
+/obj/effect/shuttle_landmark/horizon/deckthree/portaft,
+/turf/template_noop,
+/area/template_noop)
 "xtA" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -36280,7 +36296,7 @@ dSF
 dSF
 dSF
 dSF
-tmK
+dSF
 dSF
 dSF
 dSF
@@ -38304,7 +38320,7 @@ dSF
 dSF
 dSF
 dSF
-dSF
+tmK
 dSF
 dSF
 dSF
@@ -51443,18 +51459,18 @@ dSF
 dSF
 dSF
 dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
 ubP
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
 dSF
 dSF
 dSF
@@ -51916,15 +51932,15 @@ dSF
 dSF
 dSF
 dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
 dOV
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
 dSF
 dSF
 dSF
@@ -61126,7 +61142,7 @@ dSF
 dSF
 dSF
 jJq
-dSF
+fxV
 dSF
 dSF
 dSF
@@ -62439,7 +62455,7 @@ dSF
 dSF
 dSF
 dSF
-dSF
+xsC
 dSF
 dSF
 dSF
@@ -65281,7 +65297,7 @@ dSF
 dSF
 dSF
 dSF
-fxV
+dSF
 dSF
 dSF
 dSF
