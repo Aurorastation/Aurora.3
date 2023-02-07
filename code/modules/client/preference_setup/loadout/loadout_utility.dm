@@ -25,7 +25,7 @@
 	description = "A small, fashionable bag typically worn over the shoulder."
 	path = /obj/item/storage/backpack/satchel/pocketbook/purse
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-	slot = slot_l_hand
+	slot = slot_r_hand
 
 /datum/gear/utility/folder
 	display_name = "folders"
