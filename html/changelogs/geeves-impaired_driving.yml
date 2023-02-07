@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Piloting a ship or shuttle while confused, such as when drunk or under the effects of some chemicals, now has a chance to offset the angle you meant to go in."
