@@ -16,7 +16,7 @@
 "ap" = (/obj/structure/flora/rock/pile,/turf/simulated/floor/exoplanet/water,/area/template_noop)
 "aq" = (/obj/machinery/atmospherics/unary/engine{dir = 4},/turf/unsimulated/floor/asteroid/ash/rocky,/area/template_noop)
 "ar" = (/obj/item/pipe{dir = 8},/turf/simulated/wall/shuttle/raider,/area/template_noop)
-"as" = (/obj/item/pipe{dir = 10},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/random/plushie,/turf/simulated/floor/airless,/area/template_noop)
+"as" = (/obj/item/pipe{dir = 10},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/structure/closet/toolcloset,/turf/simulated/floor/airless,/area/template_noop)
 "at" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/machinery/portable_atmospherics/canister/carbon_dioxide{start_pressure = 1298.5},/obj/effect/decal/cleanable/dirt,/obj/random/gift,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "au" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/item/storage/field_ration,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "av" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/machinery/floodlight{dir = 1},/obj/random/powercell,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
@@ -25,18 +25,18 @@
 "ay" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/item/modular_computer/console,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "az" = (/obj/effect/map_effect/window_spawner/full/reinforced/grille,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/airless,/area/template_noop)
 "aA" = (/obj/effect/decal/cleanable/dirt,/obj/effect/map_effect/window_spawner/full/reinforced/grille,/turf/simulated/floor/airless,/area/template_noop)
-"aB" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/machinery/atmospherics/pipe/manifold/visible{pixel_y = 3; pixel_x = 8},/obj/item/ammo_magazine/c45m{pixel_x = -9; pixel_y = 6},/obj/item/ammo_magazine/c45m,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
+"aB" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/machinery/atmospherics/pipe/manifold/visible{pixel_y = 3; pixel_x = 8},/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "aC" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/machinery/atmospherics/portables_connector{pixel_y = -4; pixel_x = 16; dir = 8},/obj/item/storage/field_ration,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "aD" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "aE" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/random/coin,/turf/simulated/floor/airless,/area/template_noop)
 "aF" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "aG" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/item/shovel/gadpathur,/obj/item/spacecash/c10,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
-"aH" = (/obj/effect/decal/cleanable/dirt,/obj/structure/bed/stool/chair/office/bridge/pilot{dir = 4},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/item/spacecash/c10,/obj/effect/ghostspawpoint{name = "survivor"},/turf/simulated/floor/tiled/white/airless,/area/template_noop)
+"aH" = (/obj/effect/decal/remains/human,/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
 "aI" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/item/modular_computer/console{dir = 8},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/item/spacecash/c100,/turf/simulated/floor/airless,/area/template_noop)
 "aJ" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/structure/grille/broken{pixel_y = 23},/obj/structure/grille/diagonal{pixel_y = 9; dir = 4},/obj/structure/grille/broken,/obj/item/material/shard{pixel_y = -3; pixel_x = 16},/obj/item/material/shard{icon_state = "small"; pixel_y = -10; pixel_x = -14},/obj/item/material/shard{icon_state = "small"; pixel_x = -2; pixel_y = 9},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/airless,/area/template_noop)
 "aK" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/atmospherics/pipe/manifold/visible{dir = 1; pixel_x = 8; pixel_y = 2},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
-"aL" = (/obj/machinery/atmospherics/portables_connector{pixel_y = -4; pixel_x = 16; dir = 8},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/item/ammo_magazine/c45,/turf/simulated/floor/airless,/area/template_noop)
-"aM" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/random/gift,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
+"aL" = (/obj/machinery/atmospherics/portables_connector{pixel_y = -4; pixel_x = 16; dir = 8},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/airless,/area/template_noop)
+"aM" = (/obj/effect/decal/cleanable/dirt,/obj/structure/bed/stool/chair/office/bridge/pilot{dir = 4},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/item/spacecash/c10,/obj/effect/decal/remains/human,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "aN" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/random/coin,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "aO" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/random/coin,/obj/item/spacecash/c10,/turf/simulated/floor/airless,/area/template_noop)
 "aP" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/structure/bed/stool/chair/office/bridge/pilot{dir = 4},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/item/spacecash/c100,/turf/simulated/floor/airless,/area/template_noop)
@@ -46,12 +46,13 @@
 "aT" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/portable_atmospherics/canister/carbon_dioxide{start_pressure = 2965.7},/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "aU" = (/obj/effect/decal/cleanable/dirt,/obj/structure/bed/stool/chair/shuttle{dir = 1},/obj/random/junk,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "aV" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/structure/bed/stool/chair/shuttle{dir = 1},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/airless,/area/template_noop)
-"aW" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/structure/bed/stool/chair/shuttle{dir = 1},/obj/effect/decal/cleanable/dirt,/obj/effect/ghostspawpoint{name = "survivor"},/turf/simulated/floor/tiled/white/airless,/area/template_noop)
+"aW" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/structure/bed/stool/chair/shuttle{dir = 1},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "aX" = (/mob/living/simple_animal/hostile/scarybat,/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
 "aY" = (/obj/effect/decal/cleanable/dirt,/obj/item/modular_computer/console{dir = 1},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "aZ" = (/obj/effect/map_effect/window_spawner/full/reinforced/grille,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/airless,/area/template_noop)
 "ba" = (/obj/effect/decal/cleanable/dirt,/obj/structure/railing/mapped{dir = 1},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/water,/area/template_noop)
 "bb" = (/obj/structure/flora/rock,/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
+"bc" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/remains/human,/turf/simulated/floor/tiled/white/airless,/area/template_noop)
 "bd" = (/turf/simulated/floor/exoplanet/barren,/area/template_noop)
 "be" = (/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
 
@@ -65,16 +66,16 @@ bebeafafafafbebebebebeafafafafbebebebebebeacbebeababbebeafafbebe
 beafafafbebebeadadbebebeafafafafbebeagbebebebebeabbeafafafafafbe
 beafafbebebeababajagbebebebeafafafbebebeacbebebebeafafafafafafbe
 bebebebeabababaXbebebeahbebebebeafbebebebebebebeafafafafafafafbe
-bebebebeabbebebebebebebebeaXbebebebeaibebeagbebebeafafafafafafbe
+bebebebeabbebebebebeaHbebeaXbebebebeaibebeagbebebeafafafafafafbe
 bebeaibebebebebebealalbebealbealalbebebebebebebebebeafafbebebebe
 bebebebebebdalamamamamananamamamamaobebeadadabababbebebebebebebe
 bebealbealbeapaqarasatauavawaxayazaAalbebebebebeabababbebeahbebe
-beapbdbeapbdalaqaraBaCaDaEaFaGaHaIaJalbebebebebebebeababbebeacbe
-bebealalbealalaqaraKaLaMaFaNaOaPaQaRalbebebebebeafafbebebebebebe
+beapbdbeapbdalaqaraBaCaDaEaFaGaMaIaJalbebebebebebebeababbebeacbe
+bebealalbealalaqaraKaLbcaFaNaOaPaQaRalbebebebebeafafbebebebebebe
 bebebeapbealbdaqaraSaTaUaVaWaWaYaZaZalbebebeafafafafafbebeagbebe
 bebealbdbebeapamamamamamamamamamambabebebebeafafbebebebebebebebe
 bebebebebebebebealalbealbebebealalbebebebeafafafbeahbebeababbebe
-bebebebeababbebebebebebebebebebebebebebeafafafbebebebeababbebebe
+bebebebeababbebebebeaHbebebebebebebebebeafafafbebebebeababbebebe
 beafbebebebebebebebeaXbebebebebeaXbebeafafafafbebebeababbebebebe
 beafafbebebebeaabebebebeaibebebebebebeafafafbebebebeabajbebeahbe
 bebeafafbeabagbebeajbebebebebebebeafafafbebebebeakbebebebebebebe

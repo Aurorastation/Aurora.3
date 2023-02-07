@@ -10,9 +10,9 @@
 
 
 /datum/map_template/ruin/exoplanet/crashsurvivors
-	name = "Crashed Survivors"
-	id = "crashed survivors"
-	description = "A crash shuttle, with gear and survivors."
+	name = "Crashed Shuttle"
+	id = "crashed shuttle"
+	description = "A crash shuttle with gear thrown about."
 
 	spawn_weight = 3
 	spawn_cost = 0.5
