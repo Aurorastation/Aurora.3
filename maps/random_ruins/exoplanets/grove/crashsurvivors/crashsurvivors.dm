@@ -1,3 +1,5 @@
+// ghost roles
+
 /datum/ghostspawner/human/survivor
 	short_name = "survivor"
 	name = "Survivor"
