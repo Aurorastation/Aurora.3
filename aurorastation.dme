@@ -1179,6 +1179,7 @@
 #include "code\game\objects\structures\crates_lockers\closets\secure\security.dm"
 #include "code\game\objects\structures\crates_lockers\closets\secure\service.dm"
 #include "code\game\objects\structures\crates_lockers\crates\gear_loadout.dm"
+#include "code\game\objects\structures\flora\adhomai.dm"
 #include "code\game\objects\structures\flora\generic_flora.dm"
 #include "code\game\objects\structures\flora\grove.dm"
 #include "code\game\objects\structures\flora\jungle.dm"

@@ -194,16 +194,16 @@
 				new /obj/structure/flora/rock/ice(T)
 		if(3)
 			if(prob(50))
-				new /obj/structure/flora/grass/both(T)
+				new /obj/structure/flora/grass/adhomai(T)
 		if(4)
 			if(prob(50))
-				new /obj/structure/flora/bush(T)
+				new /obj/structure/flora/bush/adhomai(T)
 		if(5)
 			if(prob(15))
-				new /obj/structure/flora/tree/dead(T)
+				new /obj/structure/flora/tree/adhomai(T)
 		if(6)
 			if(prob(15))
-				new /obj/structure/flora/grass/green(T)
+				new /obj/structure/flora/rock/adhomai(T)
 
 /area/exoplanet/adhomai
 	name = "Adhomian Wilderness"
