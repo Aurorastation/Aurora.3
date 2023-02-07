@@ -13,7 +13,7 @@
 	id = "crashsurvivors"
 	description = "A crashed shuttle, with some gear and survivors left behind."
 	suffixes = list("grove/crashsurvivors/crashsurvivors.dmm")
-	spawn_weight = 10
+	spawn_weight = 1
 	spawn_cost = 0.5
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
-	ruin_tags = RUIN_WRECK|RUIN_HUMAN
+	ruin_tags = RUIN_HUMAN|RUIN_HABITAT
