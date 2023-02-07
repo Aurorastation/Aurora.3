@@ -14,7 +14,7 @@
 	icon_state = "bush1"
 	anchored = 1
 
-/obj/structure/flora/bush/grove/Initialize(mapload)
+/obj/structure/flora/bush/adhomai/Initialize(mapload)
 	. = ..()
 	icon_state = "bush[rand(1, 7)]"
 
