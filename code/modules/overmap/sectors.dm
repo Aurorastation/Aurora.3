@@ -216,6 +216,9 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 // prior to being moved to the overmap. This blocks that. Use set_invisibility to adjust invisibility as needed instead.
 /obj/effect/overmap/visitable/sector/hide()
 
+/obj/effect/overmap/visitable/proc/handle_sensor_state_change(var/on)
+	return
+
 /proc/build_overmap()
 	if(!current_map.use_overmap)
 		return 1
