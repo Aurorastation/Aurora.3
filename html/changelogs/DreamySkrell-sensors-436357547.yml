@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Changes the sensors console range input to a button select like [1][2][3][4][5][6][7]."
+  - tweak: "Changes the sensors console range input to a button selection ranging from 1 to 7."
