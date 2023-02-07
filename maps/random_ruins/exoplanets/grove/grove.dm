@@ -7,3 +7,15 @@
 	spawn_cost = 0.5
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS|TEMPLATE_FLAG_NO_RUINS
 	ruin_tags = RUIN_HUMAN|RUIN_HABITAT
+
+/datum/map_template/ruin/exoplanet/oasis
+	name = "Oasis"
+	id = "oasis"
+	description = "An oasis among the trees."
+
+	spawn_weight = 3
+	spawn_cost = 0.5
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+	suffixes = list("grove/oasis/oasis.dmm")
+
+	ruin_tags = RUIN_NATURAL
