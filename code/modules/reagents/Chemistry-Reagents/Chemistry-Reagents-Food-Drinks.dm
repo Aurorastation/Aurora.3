@@ -792,7 +792,7 @@
 		to_chat(M, discomfort_message)
 
 		M.visible_message("<b>[M]</b> [pick("dry heaves!", "coughs!", "splutters!")]")
-		M.apply_effect(agony_amount, PAIN, 0)
+		M.apply_effect(agony_amount, DAMAGE_PAIN, 0)
 
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
@@ -869,14 +869,14 @@
 		message = "<span class='danger'>Your face and throat burn!</span>"
 		if(prob(25))
 			M.visible_message("<b>[M]</b> [pick("coughs!","coughs hysterically!","splutters!")]")
-		M.apply_effect(30, PAIN)
+		M.apply_effect(30, DAMAGE_PAIN)
 
 /singleton/reagent/capsaicin/condensed/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(!H.can_feel_pain())
 			return
-	M.apply_effect(10, PAIN)
+	M.apply_effect(10, DAMAGE_PAIN)
 	if(prob(5))
 		M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
@@ -2680,7 +2680,7 @@
 
 /singleton/reagent/alcohol/vodka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, blocked = 0)
+	M.apply_effect(max(M.total_radiation - 1 * removed, 0), DAMAGE_RADIATION, blocked = 0)
 
 /singleton/reagent/alcohol/vodka/mushroom
 	name = "Mushroom Vodka"
@@ -4189,7 +4189,7 @@
 			if(prob(5))
 				to_chat(M, discomfort_message)
 		else
-			M.apply_effect(agony_amount, PAIN, 0)
+			M.apply_effect(agony_amount, DAMAGE_PAIN, 0)
 			if(prob(5))
 				M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
 				to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")

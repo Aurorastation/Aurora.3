@@ -278,15 +278,15 @@
 	//Atmos effect
 	if(bodytemperature < minbodytemp)
 		fire_alert = 2
-		apply_damage(cold_damage_per_tick, BURN, used_weapon = "Cold Temperature")
+		apply_damage(cold_damage_per_tick, DAMAGE_BURN, used_weapon = "Cold Temperature")
 	else if(bodytemperature > maxbodytemp)
 		fire_alert = 1
-		apply_damage(heat_damage_per_tick, BURN, used_weapon = "High Temperature")
+		apply_damage(heat_damage_per_tick, DAMAGE_BURN, used_weapon = "High Temperature")
 	else
 		fire_alert = 0
 
 	if(!atmos_suitable)
-		apply_damage(unsuitable_atoms_damage, OXY, used_weapon = "Atmosphere")
+		apply_damage(unsuitable_atoms_damage, DAMAGE_OXY, used_weapon = "Atmosphere")
 
 	if(has_udder)
 		if(stat == CONSCIOUS)
@@ -537,7 +537,7 @@
 	simple_harm_attack(user)
 
 /mob/living/simple_animal/proc/simple_harm_attack(var/mob/living/user)
-	apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [user.name]")
+	apply_damage(harm_intent_damage, DAMAGE_BRUTE, used_weapon = "Attack by [user.name]")
 	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	poke(TRUE)
@@ -590,7 +590,7 @@
 
 	if(O.force > resistance)
 		var/damage = O.force
-		if (O.damtype == PAIN)
+		if (O.damtype == DAMAGE_PAIN)
 			damage = 0
 		if(supernatural && istype(O,/obj/item/nullrod))
 			damage *= 2
@@ -707,7 +707,7 @@
 		if(3.0)
 			damage = 30
 
-	apply_damage(damage, BRUTE, damage_flags = DAM_EXPLODE)
+	apply_damage(damage, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_EXPLODE)
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
 	if (isliving(target_mob))
@@ -879,7 +879,7 @@
 
 //Todo: add snowflakey shit to it.
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
-	apply_damage(shock_damage, BURN)
+	apply_damage(shock_damage, DAMAGE_BURN)
 	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
 	spark(loc, 5, alldirs)
 	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), SPAN_WARNING("You are shocked by \the [source]!"), SPAN_WARNING("You hear an electrical crack!"))
@@ -924,7 +924,7 @@
 	..()
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)
-			if(P.damage_type == BRUTE)
+			if(P.damage_type == DAMAGE_BRUTE)
 				var/hit_dir = get_dir(P.starting, src)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")

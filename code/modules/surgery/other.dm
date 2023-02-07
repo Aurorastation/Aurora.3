@@ -221,7 +221,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!") , \
 		SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
-	target.apply_damage(15, PAIN)
+	target.apply_damage(15, DAMAGE_PAIN)
 
 /singleton/surgery_step/hardsuit
 	name = "Remove Hardsuit"
@@ -331,5 +331,5 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, sawing through the bone in [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, sawwing through the bone in [target]'s [affected.name] with \the [tool]!"))
-	target.apply_damage(30, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(30, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
