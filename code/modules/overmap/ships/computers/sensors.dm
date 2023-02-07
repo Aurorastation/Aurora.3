@@ -88,6 +88,9 @@
 			distress_beacons.Add(list(list("caller" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
 		if(length(distress_beacons))
 			data["distress_beacons"] = distress_beacons
+		data["range_choices"] = list()
+		for(var/i in 1 to world.view)
+			data["range_choices"] += i
 
 
 		var/list/contacts = list()
@@ -175,6 +178,13 @@
 	if(sensors)
 		if (href_list["range"])
 			var/nrange = input("Set new sensors range", "Sensor range", sensors.range) as num|null
+			if(!CanInteract(usr, default_state))
+				return TOPIC_NOACTION
+			if (nrange)
+				sensors.set_range(Clamp(nrange, 1, world.view))
+			return TOPIC_REFRESH
+		if (href_list["range_choice"])
+			var/nrange = text2num(href_list["range_choice"])
 			if(!CanInteract(usr, default_state))
 				return TOPIC_NOACTION
 			if (nrange)
