@@ -1,7 +1,7 @@
 /obj/item/storage/box/bloodpacks
 	name = "blood packs bags"
 	desc = "This box contains blood packs."
-	icon_state = "sterile"
+	illustration = "blood"
 
 /obj/item/storage/box/bloodpacks/fill()
 	..()
