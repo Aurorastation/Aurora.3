@@ -257,7 +257,7 @@
 		src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
 	user.do_attack_animation(src)
 
-	apply_damage(damage, BRUTE, user.zone_sel?.selecting, armor_pen = armor_penetration, damage_flags = attack_flags)
+	apply_damage(damage, DAMAGE_BRUTE, user.zone_sel?.selecting, armor_pen = armor_penetration, damage_flags = attack_flags)
 	updatehealth()
 
 	return TRUE
