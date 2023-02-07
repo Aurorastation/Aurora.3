@@ -70,7 +70,7 @@
 
 /datum/gear/vaurca_robe
 	display_name = "hive cloak"
-	description = "A selection of vaurca colored hive cloaks."
+	description = "A selection of vaurca colored Hive cloaks."
 	path = /obj/item/clothing/suit/vaurca
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
@@ -169,7 +169,7 @@
 
 /datum/gear/augment/language_processor
 	display_name = "language processor"
-	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective hives."
+	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective Hives."
 	path = /obj/item/organ/internal/augment/language/klax
 	cost = 0
 	sort_category = "Xenowear - Vaurca"
@@ -198,7 +198,7 @@
 		var/obj/item/storage/toolbox/lunchbox/lunchbox = lunchbox_type
 		if(!initial(lunchbox.filled))
 			lunchboxes[initial(lunchbox.name)] = lunchbox_type
-	sortTim(lunchboxes, /proc/cmp_text_asc)
+	sortTim(lunchboxes, GLOBAL_PROC_REF(cmp_text_asc))
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_vaurca(), lunchables_vaurca_snack(), lunchables_drinks(), lunchables_utensil())
 

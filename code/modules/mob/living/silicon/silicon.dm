@@ -116,7 +116,7 @@
 		if(2)
 			src.take_organ_damage(0, 10, emp = TRUE)
 			Stun(rand(1, 5))
-	flash_eyes(affect_silicon = 1)
+	flash_act(affect_silicon = TRUE)
 	to_chat(src, SPAN_DANGER("BZZZT"))
 	to_chat(src, SPAN_WARNING("Warning: Electromagnetic pulse detected."))
 	..()
@@ -146,9 +146,9 @@
 /mob/living/silicon/bullet_act(obj/item/projectile/Proj)
 	if(!Proj.nodamage)
 		switch(Proj.damage_type)
-			if(BRUTE)
+			if(DAMAGE_BRUTE)
 				adjustBruteLoss(Proj.damage)
-			if(BURN)
+			if(DAMAGE_BURN)
 				adjustFireLoss(Proj.damage)
 
 	Proj.on_hit(src, 100)
@@ -276,7 +276,7 @@
 
 /mob/living/silicon/ex_act(severity)
 	if(!blinded)
-		flash_eyes()
+		flash_act(affect_silicon = TRUE)
 
 	var/brute
 	var/burn
@@ -290,8 +290,8 @@
 		if(3.0)
 			brute = 30
 
-	apply_damage(brute, BRUTE, damage_flags = DAM_EXPLODE)
-	apply_damage(burn, BURN, damage_flags = DAM_EXPLODE)
+	apply_damage(brute, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_EXPLODE)
+	apply_damage(burn, DAMAGE_BURN, damage_flags = DAMAGE_FLAG_EXPLODE)
 
 /mob/living/silicon/proc/receive_alarm(var/datum/alarm_handler/alarm_handler, var/datum/alarm/alarm, was_raised)
 	if(!next_alarm_notice)
@@ -361,6 +361,13 @@
 /mob/living/silicon/proc/is_malf_or_traitor()
 	return is_traitor() || is_malf()
 
+/mob/living/silicon/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+	if(affect_silicon)
+		return ..()
+
+/mob/living/silicon/is_blind()
+	return FALSE
+
 /mob/living/silicon/adjustEarDamage()
 	return
 
@@ -372,12 +379,8 @@
 	if(cameraFollow)
 		cameraFollow = null
 
-/mob/living/silicon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
-	if(affect_silicon)
-		return ..()
-
 /mob/living/silicon/seizure()
-	flash_eyes(affect_silicon = TRUE)
+	flash_act(affect_silicon = TRUE)
 
 /mob/living/silicon/Move(newloc, direct)
 	. = ..()

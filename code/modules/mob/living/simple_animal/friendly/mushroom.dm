@@ -69,7 +69,7 @@
 		spore_explode()
 		return
 	else
-		src.stat = DEAD
+		set_stat(DEAD)
 		name = "mushroom"
 		desc = "Shame, he was a really fun-gi"
 	..()

@@ -50,3 +50,5 @@ sound/items/drop/shell_drop.ogg - "ANI Big Pipe Hit", licensed under CC0. Obtain
 sound/effects/combatroll.ogg - "Starship landing sequence", licensed under CC BY 4.0. Obtained and edited from https://freesound.org/people/Hybrid_V/sounds/381679/
 
 ATTRIBUTIONS SECTION END
+
+sound/items/geiger.ogg - https://freesound.org/people/leonelmail/sounds/328381/ -- Under creative commons 0

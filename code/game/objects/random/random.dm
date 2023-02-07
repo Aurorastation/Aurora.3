@@ -140,7 +140,7 @@
 /obj/random/medical
 	name = "Random Medicine"
 	desc = "This is a random medical item."
-	icon = 'icons/obj/stacks/medical.dmi'
+	icon = 'icons/obj/item/stacks/medical.dmi'
 	icon_state = "brutepack"
 	spawn_nothing_percentage = 25
 	problist = list(
@@ -555,7 +555,7 @@
 		log_debug("random_obj (voidsuit): Type [suit.type] was unable to spawn a matching helmet!")
 	new /obj/item/clothing/shoes/magboots(loc)
 	if (damaged && prob(60))
-		suit.create_breaches(pick(BRUTE, BURN), rand(1, 5))
+		suit.create_breaches(pick(DAMAGE_BRUTE, DAMAGE_BURN), rand(1, 5))
 
 //Random MRE stuff
 
@@ -1083,7 +1083,10 @@
 		/obj/random/toolbox = 1,
 		/obj/random_produce = 0.25,
 		/obj/random/watches = 1,
-		/obj/random/wizard_dressup = 0.25
+		/obj/random/wizard_dressup = 0.25,
+		/obj/item/device/synthesized_instrument/violin = 0.1,
+		/obj/item/device/synthesized_instrument/guitar = 1,
+		/obj/item/device/synthesized_instrument/trumpet = 0.25
 	)
 
 

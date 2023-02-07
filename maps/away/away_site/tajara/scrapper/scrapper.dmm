@@ -584,6 +584,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -811,6 +812,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2261,6 +2263,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},

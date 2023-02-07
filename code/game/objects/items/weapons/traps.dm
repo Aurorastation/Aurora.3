@@ -90,7 +90,7 @@
 	else
 		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
-	var/success = L.apply_damage(30, BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+	var/success = L.apply_damage(30, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
 	if(!success)
 		return FALSE
 
@@ -249,7 +249,7 @@
 	var/time = 360 * time_to_escape * 2
 	breakout = TRUE
 
-	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, .proc/breakout_callback, escapee)))
+	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, PROC_REF(breakout_callback), escapee)))
 		breakout = FALSE
 		return
 

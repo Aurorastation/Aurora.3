@@ -32,14 +32,20 @@
 	var/smart_ranged = FALSE // This makes ranged mob check for friendly fire and obstacles
 	var/hostile_nameable = FALSE //If we can rename this hostile mob. Mostly to prevent repeat checks with guard dogs and hostile/retaliate farm animals
 
+	var/is_fast_processing = FALSE
+
+	// actions measured in deciseconds
+	var/hostile_time_between_attacks = 10
+	var/hostile_last_attack = 0
+
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
 	setup_target_type_validators()
 
 /mob/living/simple_animal/hostile/proc/setup_target_type_validators()
-	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/validator_living)
-	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, .proc/validator_bot)
-	target_type_validator_map[/obj/machinery/porta_turret] = CALLBACK(src, .proc/validator_turret)
+	target_type_validator_map[/mob/living] = CALLBACK(src, PROC_REF(validator_living))
+	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, PROC_REF(validator_bot))
+	target_type_validator_map[/obj/machinery/porta_turret] = CALLBACK(src, PROC_REF(validator_turret))
 
 /mob/living/simple_animal/hostile/Destroy()
 	friends = null
@@ -59,9 +65,12 @@
 		return null
 
 	var/atom/T = null
+	var/target_range = INFINITY
 	for (var/atom/A in targets)
 		if(A == src)
 			continue
+		if(!isturf(A.loc))
+			A = A.loc
 		var/datum/callback/cb = null
 		for (var/type in target_type_validator_map)
 			if (istype(A, type))
@@ -71,20 +80,23 @@
 		if (!cb)
 			continue
 		else if (!istype(cb) || cb.Invoke(A, T))
-			T = A
+			var/range_to_atom = get_dist(src, A)
+			if(range_to_atom < target_range)
+				T = A
+				target_range = range_to_atom
 
 	stop_automated_movement = 0
 
 	if (T != target_mob)
 		target_mob = T
 		FoundTarget()
+		if(isliving(T))
+			visible_message(SPAN_WARNING("\The [src] [attack_emote] [T]."))
+			if(istype(T, /mob/living/simple_animal/hostile))
+				var/mob/living/simple_animal/hostile/H = T
+				H.being_targeted(src)
 	if(!isnull(T))
-		stance = HOSTILE_STANCE_ATTACK
-	if(isliving(T))
-		visible_message(SPAN_WARNING("\The [src] [attack_emote] [T]."))
-		if(istype(T, /mob/living/simple_animal/hostile))
-			var/mob/living/simple_animal/hostile/H = T
-			H.being_targeted(src)
+		change_stance(HOSTILE_STANCE_ATTACK)
 	return T
 
 // This proc is used when one hostile mob targets another hostile mob.
@@ -93,20 +105,20 @@
 		return
 	target_mob = H
 	FoundTarget()
-	stance = HOSTILE_STANCE_ATTACKING
+	change_stance(HOSTILE_STANCE_ATTACKING)
 	visible_message(SPAN_WARNING("\The [src] gets taunted by \the [H] and begins to retaliate!"))
 
 /mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..()
 	if (ismob(P.firer) && target_mob != P.firer)
 		target_mob = P.firer
-		stance = HOSTILE_STANCE_ATTACK
+		change_stance(HOSTILE_STANCE_ATTACK)
 
 /mob/living/simple_animal/hostile/attackby(var/obj/item/O, var/mob/user)
 	..()
 	if(target_mob != user)
 		target_mob = user
-		stance = HOSTILE_STANCE_ATTACK
+		change_stance(HOSTILE_STANCE_ATTACK)
 
 mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
 	..()
@@ -114,19 +126,19 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		var/obj/O = AM
 		if((target_mob != O.thrower) && ismob(O.thrower))
 			target_mob = O.thrower
-			stance = HOSTILE_STANCE_ATTACK
+			change_stance(HOSTILE_STANCE_ATTACK)
 
 /mob/living/simple_animal/hostile/attack_generic(var/mob/user, var/damage, var/attack_message)
 	..()
 	if(target_mob != user)
 		target_mob = user
-		stance = HOSTILE_STANCE_ATTACK
+		change_stance(HOSTILE_STANCE_ATTACK)
 
 /mob/living/simple_animal/hostile/attack_hand(mob/living/carbon/human/M as mob)
 	..()
 	if(target_mob != M)
 		target_mob = M
-		stance = HOSTILE_STANCE_ATTACK
+		change_stance(HOSTILE_STANCE_ATTACK)
 
 //This proc is called after a target is acquired
 /mob/living/simple_animal/hostile/proc/FoundTarget()
@@ -152,9 +164,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			else
 				walk_to(src, target_mob, 6, move_to_delay)
 		else
-			stance = HOSTILE_STANCE_ATTACKING
-			var/move_distance = smart_melee ? 2 : 1
-			walk_to(src, target_mob, move_distance, move_to_delay)
+			change_stance(HOSTILE_STANCE_ATTACKING)
+			walk_to(src, target_mob, 1, move_to_delay)
 
 /mob/living/simple_animal/hostile/proc/AttackTarget()
 	stop_automated_movement = 1
@@ -166,11 +177,12 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return 0
 	if(!see_target())
 		LoseTarget()
-	if(!ranged)
-		step_to(src, target_mob, 1)
+	if(world.time < hostile_time_between_attacks + hostile_last_attack)
+		return
 	if(get_dist(src, target_mob) <= 1)	//Attacking
 		AttackingTarget()
 		attacked_times += 1
+		hostile_last_attack = world.time
 		return 1
 	else
 		return 0
@@ -214,7 +226,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if(target)
 		face_atom(target)
 		if(!ranged && smart_melee)
-			addtimer(CALLBACK(src, .proc/PostAttack, target), 0.6 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 0.6 SECONDS)
 		return target
 
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
@@ -234,7 +246,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	facing_dir = null
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
 	target_mob = null
 	walk(src, 0)
 	LostTarget()
@@ -276,6 +288,24 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 				target_mob = FindTarget()
 				attacked_times = 0
 
+/mob/living/simple_animal/hostile/proc/change_stance(var/new_stance)
+	if(new_stance == stance)
+		return FALSE
+
+	stance = new_stance
+	switch(stance)
+		if(HOSTILE_STANCE_IDLE)
+			MOB_SHIFT_TO_NORMAL_THINKING(src)
+		if(HOSTILE_STANCE_ALERT)
+			MOB_SHIFT_TO_FAST_THINKING(src)
+		if(HOSTILE_STANCE_ATTACK)
+			MOB_SHIFT_TO_FAST_THINKING(src)
+		if(HOSTILE_STANCE_ATTACKING)
+			MOB_SHIFT_TO_FAST_THINKING(src)
+		if(HOSTILE_STANCE_TIRED)
+			MOB_SHIFT_TO_NORMAL_THINKING(src)
+
+	return TRUE
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
 	if(!see_target())
@@ -287,14 +317,14 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] fires at \the [target]!"))
 
 	if(rapid)
-		var/datum/callback/shoot_cb = CALLBACK(src, .proc/shoot_wrapper, target, loc, src)
+		var/datum/callback/shoot_cb = CALLBACK(src, PROC_REF(shoot_wrapper), target, loc, src)
 		addtimer(shoot_cb, 1)
 		addtimer(shoot_cb, 4)
 		addtimer(shoot_cb, 6)
 	else
 		shoot_wrapper(target, loc, src)
 
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
 	target_mob = null
 
 /mob/living/simple_animal/hostile/proc/check_fire(target_mob)
@@ -340,7 +370,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 				visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] [attacktext] \the [e]!"))
 				src.do_attack_animation(e)
 				target_mob = e
-				stance = HOSTILE_STANCE_ATTACKING
+				change_stance(HOSTILE_STANCE_ATTACKING)
 				return TRUE
 			for(var/obj/structure/window/obstacle in get_step(src, dir))
 				if(obstacle.dir == reverse_dir[dir]) // So that windows get smashed in the right order

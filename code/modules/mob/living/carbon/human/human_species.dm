@@ -45,6 +45,9 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/farwa/Initialize(mapload)
 	. = ..(mapload, SPECIES_MONKEY_TAJARA)
 
+/mob/living/carbon/human/farwa/adhomai
+	faction = "Adhomai"
+
 /mob/living/carbon/human/neaera/Initialize(mapload)
 	. = ..(mapload, SPECIES_MONKEY_SKRELL)
 
@@ -116,6 +119,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/zhankhazan_tajara/Initialize(mapload)
 	h_style = "Tajaran Ears"
 	. = ..(mapload, SPECIES_TAJARA_ZHAN)
+
+/mob/living/carbon/human/tesla_body_tajara/Initialize(mapload)
+	h_style = "Tesla Rejuvenation Suit Ears"
+	. = ..(mapload, SPECIES_TAJARA_TESLA_BODY)
 
 /mob/living/carbon/human/industrial/Initialize(mapload)
 	. = ..(mapload, SPECIES_IPC_G1)

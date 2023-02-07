@@ -10,6 +10,7 @@
 	w_class = ITEMSIZE_LARGE
 	canhear_range = 2
 	flags = CONDUCT | NOBLOODY
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/number = 0
 	var/obj/machinery/abstract/intercom_listener/power_interface
 	var/global/list/screen_overlays
@@ -168,11 +169,11 @@
 	if(!ai_can_interact(user))
 		return
 	src.add_fingerprint(user)
-	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/item, attack_self), user)
 
 /obj/item/device/radio/intercom/attack_hand(mob/user as mob)
 	src.add_fingerprint(user)
-	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/item, attack_self), user)
 
 /obj/item/device/radio/intercom/can_receive(input_frequency, list/levels)
 	if(!listening)

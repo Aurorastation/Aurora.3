@@ -230,7 +230,7 @@
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
-		flash_eyes()
+		flash_act()
 
 	var/b_loss = null
 	var/f_loss = null
@@ -263,12 +263,12 @@
 				Paralyse(10)
 
 	// focus most of the blast on one organ
-	apply_damage(0.7 * b_loss, BRUTE, null, DAM_EXPLODE, used_weapon = "Explosive blast")
-	apply_damage(0.7 * f_loss, BURN, null, DAM_EXPLODE, used_weapon = "Explosive blast")
+	apply_damage(0.7 * b_loss, DAMAGE_BRUTE, null, DAMAGE_FLAG_EXPLODE, used_weapon = "Explosive blast")
+	apply_damage(0.7 * f_loss, DAMAGE_BURN, null, DAMAGE_FLAG_EXPLODE, used_weapon = "Explosive blast")
 
 	// distribute the remaining 30% on all limbs equally (including the one already dealt damage)
-	apply_damage(0.3 * b_loss, BRUTE, null, DAM_EXPLODE | DAM_DISPERSED, used_weapon = "Explosive blast")
-	apply_damage(0.3 * f_loss, BURN, null, DAM_EXPLODE | DAM_DISPERSED, used_weapon = "Explosive blast")
+	apply_damage(0.3 * b_loss, DAMAGE_BRUTE, null, DAMAGE_FLAG_EXPLODE | DAMAGE_FLAG_DISPERSED, used_weapon = "Explosive blast")
+	apply_damage(0.3 * f_loss, DAMAGE_BURN, null, DAMAGE_FLAG_EXPLODE | DAMAGE_FLAG_DISPERSED, used_weapon = "Explosive blast")
 
 	UpdateDamageIcon()
 
@@ -517,7 +517,7 @@
 				I.emp_act(emp_damage)
 				emp_damage *= 0.4
 
-		apply_damage(shock_damage, BURN, area, used_weapon="Electrocution")
+		apply_damage(shock_damage, DAMAGE_BURN, area, used_weapon="Electrocution")
 		shock_damage *= 0.4
 		playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
 
@@ -810,7 +810,7 @@
 
 ///eyecheck()
 ///Returns a number between -1 to 2
-/mob/living/carbon/human/eyecheck(ignore_inherent = FALSE)
+/mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
 	if(!species.vision_organ || !species.has_organ[species.vision_organ]) //No eyes, can't hurt them.
 		return FLASH_PROTECTION_MAJOR
 
@@ -818,10 +818,22 @@
 	if (I && I.status & ORGAN_CUT_AWAY)
 		return FLASH_PROTECTION_MAJOR
 
-	if (ignore_inherent)
+	if (!ignore_inherent && species.inherent_eye_protection)
+		. = max(species.inherent_eye_protection, flash_protection)
+	else
 		return flash_protection
 
-	return species.inherent_eye_protection ? max(species.inherent_eye_protection, flash_protection) : flash_protection
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
+		return max(. - 1, FLASH_PROTECTION_REDUCED)
+
+/mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+	if(..())
+		var/obj/item/organ/E = get_eyes(no_synthetic = !affect_silicon)
+		if(istype(E))
+			return E.flash_act(intensity, override_blindness_check, affect_silicon, ignore_inherent, type, length)
+	else if(intensity == get_flash_protection(ignore_inherent))
+		if(prob(20))
+			to_chat(src, SPAN_NOTICE("Something bright flashes in the corner of your vision!"))
 
 //Used by various things that knock people out by applying blunt trauma to the head.
 //Checks that the species has a BP_HEAD (brain containing organ) and that hit_zone refers to it.
@@ -1334,7 +1346,7 @@
 						SPAN_WARNING("Your movement jostles [O] in your [organ.name] painfully.") \
 					)
 					custom_pain(msg, 10, 10, organ)
-				organ.take_damage(rand(1, 3), 0, DAM_EDGE)
+				organ.take_damage(rand(1, 3), 0, DAMAGE_FLAG_EDGE)
 
 /mob/living/carbon/human/verb/check_pulse()
 	set category = "Object"
@@ -1465,6 +1477,8 @@
 
 	if(change_hair)
 		species.set_default_hair(src)
+
+	species.set_default_tail(src)
 
 	if(species)
 		return 1
@@ -1990,7 +2004,7 @@
 		return
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)
-			if(P.damage_type == BRUTE)
+			if(P.damage_type == DAMAGE_BRUTE)
 				var/hit_dir = get_dir(P.starting, src)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
@@ -2012,9 +2026,9 @@
 		if(species.radiation_mod <= 0)
 			return
 
-		apply_damage((rand(15,30)), IRRADIATE, damage_flags = DAM_DISPERSED)
+		apply_damage((rand(15,30)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 		if(prob(4))
-			apply_damage((rand(20,60)), IRRADIATE, damage_flags = DAM_DISPERSED)
+			apply_damage((rand(20,60)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 			if (prob(75))
 				randmutb(src) // Applies bad mutation
 				domutcheck(src,null,MUTCHK_FORCED)

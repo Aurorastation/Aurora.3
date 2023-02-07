@@ -24,8 +24,6 @@
 		"Orbital Fleet Fang" = list("nav_hangar_peoples_station_fang"),
 		"Intrepid" = list("nav_peoples_station_dockintrepid")
 	)
-	light_power = 3
-	light_range = 2
 
 /obj/effect/shuttle_landmark/nav_peoples_station/dockintrepid
 	name = "People's Space Station Intrepid Docking"

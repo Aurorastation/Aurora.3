@@ -412,6 +412,9 @@
 	icon_state = "battlerifle_mag"
 	multiple_sprites = 0
 
+/obj/item/ammo_magazine/c762/dpra
+	icon_state = "mrrazhak_mag"
+
 /obj/item/ammo_magazine/boltaction
 	name = "ammo clip (7.62mm)"
 	icon_state = "762"

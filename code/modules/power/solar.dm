@@ -520,7 +520,7 @@
 	. = ..()
 	power_change()
 	update_icon()
-	addtimer(CALLBACK(src, .proc/do_solars), 1800)
+	addtimer(CALLBACK(src, PROC_REF(do_solars)), 1800)
 
 /obj/machinery/power/solar_control/autostart/proc/do_solars()
 	search_for_connected()

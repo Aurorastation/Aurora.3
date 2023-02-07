@@ -408,7 +408,7 @@
 
 	to_chat(user, msg.Join())
 	if(Adjacent(user))
-		INVOKE_ASYNC(src, .proc/examine_pulse, user)
+		INVOKE_ASYNC(src, PROC_REF(examine_pulse), user)
 
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
 /proc/hasHUD(mob/M, hudtype)

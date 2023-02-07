@@ -19,6 +19,7 @@
 		)
 	idle_power_usage = 60
 	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/mob/living/carbon/occupant
 	var/last_occupant_name = ""

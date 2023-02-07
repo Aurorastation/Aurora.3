@@ -524,6 +524,8 @@
 /obj/item/device/suit_cooling_unit,
 /obj/item/clothing/head/helmet/space/void/mining/fluff,
 /obj/item/device/suit_cooling_unit,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
 "dmm" = (
@@ -595,6 +597,8 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
 "dGM" = (
