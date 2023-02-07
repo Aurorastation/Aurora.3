@@ -11,7 +11,7 @@
 /obj/item/clothing/head/skrell/skreLL_bandana
 	name = "skrell bandana"
 	desc = "A loose fitting bandana used to cover the headtails of a Skrell."
-	icon = 'icons/obj/item/clothing/head/skrell/skrandana.dmi'
+	icon = 'icons/obj/item/clothing/head/skrell/skrell_bandana.dmi'
 	item_state = "skrandana"
 	icon_state = "skrandana"
 	contained_sprite = TRUE
