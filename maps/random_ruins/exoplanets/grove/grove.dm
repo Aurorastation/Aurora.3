@@ -12,10 +12,8 @@
 	name = "Crashed Shuttle"
 	id = "crashsurvivors"
 	description = "A crashed shuttle, with some gear and survivors left behind."
-
-	spawn_weight = 1
-	spawn_cost = 0.5
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffixes = list("grove/crashsurvivors/crashsurvivors.dmm")
-
-	ruin_tags = RUIN_WRECK|RUIN_VOID
+	spawn_weight = 10
+	spawn_cost = 0.5
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	ruin_tags = RUIN_WRECK|RUIN_HUMAN
