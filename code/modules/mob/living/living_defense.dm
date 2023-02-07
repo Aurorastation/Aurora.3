@@ -101,7 +101,7 @@
 		apply_effect(stun_amount, EYE_BLUR)
 
 	if(agony_amount)
-		apply_damage(agony_amount, PAIN, def_zone, used_weapon)
+		apply_damage(agony_amount, DAMAGE_PAIN, def_zone, used_weapon)
 		apply_effect(agony_amount / 10, STUTTER)
 		apply_effect(agony_amount / 10, EYE_BLUR)
 
@@ -142,7 +142,7 @@
 
 	. = standard_weapon_hit_effects(I, user, effective_force, hit_zone)
 
-	if(I.damtype == BRUTE && prob(33) && I.force) // Added blood for whacking non-humans too
+	if(I.damtype == DAMAGE_BRUTE && prob(33) && I.force) // Added blood for whacking non-humans too
 		var/turf/simulated/location = get_turf(src)
 		if(istype(location)) location.add_blood_floor(src)
 
@@ -229,7 +229,7 @@
 /mob/living/proc/turf_collision(var/atom/T, var/speed = THROWFORCE_SPEED_DIVISOR, var/sound_to_play = 'sound/effects/bangtaper.ogg')
 	visible_message("<span class='danger'>[src] slams into \the [T]!</span>")
 	playsound(T, sound_to_play, 50, 1, 1)//so it plays sounds on the turf instead, makes for awesome carps to hull collision and such
-	apply_damage(speed*5, BRUTE)
+	apply_damage(speed*5, DAMAGE_BRUTE)
 
 /mob/living/proc/near_wall(var/direction,var/distance=1)
 	var/turf/T = get_step(get_turf(src),direction)
@@ -256,7 +256,7 @@
 	if (attack_message)
 		src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
 	user.do_attack_animation(src)
-	apply_damage(damage, BRUTE, user.zone_sel?.selecting, armor_pen = armor_penetration, damage_flags = attack_flags)
+	apply_damage(damage, DAMAGE_BRUTE, user.zone_sel?.selecting, armor_pen = armor_penetration, damage_flags = attack_flags)
 	addtimer(CALLBACK(src, PROC_REF(updatehealth)), 1)
 
 	return TRUE

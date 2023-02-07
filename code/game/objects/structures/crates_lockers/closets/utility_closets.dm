@@ -203,6 +203,7 @@
 		new /obj/item/clothing/head/radiation(src)
 		new /obj/item/clothing/suit/radiation(src)
 		new /obj/item/clothing/glasses/safety/goggles(src)
+		new /obj/item/device/geiger(src)
 	for(var/i = 1 to 2)
 		new /obj/item/reagent_containers/hypospray/autoinjector/hyronalin(src)
 

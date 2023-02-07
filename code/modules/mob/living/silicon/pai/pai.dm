@@ -131,7 +131,7 @@
 			close_up()
 
 		if(I_HURT)
-			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
+			apply_damage(harm_intent_damage, DAMAGE_BRUTE, used_weapon = "Attack by [M.name]")
 			M.visible_message(SPAN_DANGER("[M] [response_harm] \the [src]"))
 			M.do_attack_animation(src)
 			updatehealth()

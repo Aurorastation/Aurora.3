@@ -170,7 +170,7 @@
 							if(material.hardness > 15) //15 wood, 60 steel
 								var/obj/item/organ/external/hand/hand = H.zone_sel.selecting
 								if(!BP_IS_ROBOTIC(hand))
-									H.apply_damage(5, BRUTE, H.zone_sel.selecting, armor_pen = 10)
+									H.apply_damage(5, DAMAGE_BRUTE, H.zone_sel.selecting, armor_pen = 10)
 									to_chat(H, SPAN_WARNING("Ow! That hurt..."))
 							else
 								for(var/obj/item/O in get_turf(src))
@@ -198,10 +198,10 @@
 				return
 			if(G.state > GRAB_AGGRESSIVE && world.time >= G.last_action + UPGRADE_COOLDOWN)
 				if(user.a_intent == I_HURT)
-					var/blocked = M.get_blocked_ratio(BP_HEAD, BRUTE, damage = 8)
+					var/blocked = M.get_blocked_ratio(BP_HEAD, DAMAGE_BRUTE, damage = 8)
 					if (prob(30 * (1 - blocked)))
 						M.Weaken(5)
-					M.apply_damage(8, BRUTE, BP_HEAD)
+					M.apply_damage(8, DAMAGE_BRUTE, BP_HEAD)
 					visible_message("<span class='danger'>[G.assailant] slams [G.affecting]'s face against \the [src]!</span>")
 					if(material)
 						playsound(loc, material.tableslam_noise, 50, 1)
@@ -213,7 +213,7 @@
 						if(prob(50))
 							M.visible_message("<span class='danger'>\The [S] slices [M]'s face messily!</span>",
 												"<span class='danger'>\The [S] slices your face messily!</span>")
-							M.apply_damage(10, BRUTE, BP_HEAD)
+							M.apply_damage(10, DAMAGE_BRUTE, BP_HEAD)
 							sanity_counter++
 						if(sanity_counter >= 3)
 							break
