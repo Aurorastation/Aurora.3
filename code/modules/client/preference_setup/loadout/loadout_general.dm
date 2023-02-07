@@ -1,6 +1,7 @@
 /datum/gear/cane
 	display_name = "cane"
 	path = /obj/item/cane
+	slot = slot_l_hand
 
 /datum/gear/cane/New()
 	..()

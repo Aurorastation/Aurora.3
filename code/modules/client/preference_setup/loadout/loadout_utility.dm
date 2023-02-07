@@ -7,6 +7,8 @@
 	display_name = "briefcase selection"
 	description = "A selection of briefcases."
 	path = /obj/item/storage/briefcase
+	slot = slot_l_hand
+	cost = 2
 
 /datum/gear/utility/briefcase/New()
 	..()
@@ -15,18 +17,15 @@
 	briefcases["black briefcase"] = /obj/item/storage/briefcase/black
 	briefcases["metal briefcase"] = /obj/item/storage/briefcase/aluminium
 	briefcases["NT briefcase"] = /obj/item/storage/briefcase/nt
+	briefcases["secure briefcase"] = /obj/item/storage/secure/briefcase
 	gear_tweaks += new /datum/gear_tweak/path(briefcases)
-
-/datum/gear/utility/secure
-	display_name = "secure briefcase"
-	path = /obj/item/storage/secure/briefcase
-	cost = 2
 
 /datum/gear/utility/purse
 	display_name = "purse"
 	description = "A small, fashionable bag typically worn over the shoulder."
 	path = /obj/item/storage/backpack/satchel/pocketbook/purse
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	slot = slot_l_hand
 
 /datum/gear/utility/folder
 	display_name = "folders"
