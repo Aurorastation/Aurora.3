@@ -8,7 +8,7 @@
 	species_restricted = list(BODYTYPE_SKRELL)
 	flags_inv = BLOCKHAIR
 	
-/obj/item/clothing/head/skrell/skreLL_bandana
+/obj/item/clothing/head/skrell/skrell_bandana
 	name = "skrell bandana"
 	desc = "A loose fitting bandana used to cover the headtails of a Skrell."
 	icon = 'icons/obj/item/clothing/head/skrell/skrell_bandana.dmi'
