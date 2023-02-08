@@ -70,6 +70,45 @@
 	icon_state = "unathiknife"
 	attack_verb = list("ripped", "torn", "cut")
 
+/obj/item/material/hatchet/machete
+	name = "machete"
+	desc = "A long, sturdy blade with a rugged handle. Leading the way to cursed treasures since before space travel."
+	icon = 'icons/obj/item/melee/machete.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/obj/item/melee/machete.dmi',
+		slot_r_hand_str = 'icons/obj/item/melee/machete.dmi',
+		)
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	contained_sprite = TRUE
+	icon_state = "machete"
+	item_state = "machete"
+	w_class = ITEMSIZE_NORMAL
+	slot_flags = SLOT_BELT
+	default_material = MATERIAL_TITANIUM
+	max_force = 20
+	force_divisor = 0.2
+
+/obj/item/material/hatchet/machete/unbreakable
+	unbreakable = TRUE
+
+/obj/item/material/hatchet/machete/steel
+	name = "fabricated machete"
+	desc = "A long, machine-stamped blade with a somewhat ungainly handle. Found in military surplus stores, malls, and horror movies since before interstellar travel."
+	default_material = MATERIAL_STEEL
+	matter = list(MATERIAL_STEEL = 15000, MATERIAL_PLASTIC = 2500)
+
+/obj/item/material/hatchet/machete/Initialize()
+	icon_state = "machete[pick("","_red","_blue", "_black", "_olive")]"
+	. = ..()
+
+/obj/item/material/hatchet/machete/deluxe
+	name = "deluxe machete"
+	desc = "A fine example of a machete, with a polished blade, wooden handle and a leather cord loop."
+
+/obj/item/material/hatchet/machete/deluxe/Initialize()
+	. = ..()
+	icon_state = "machetedx"
+
 /obj/item/material/hook
 	name = "meat hook"
 	desc = "A sharp, metal hook that sticks into things."

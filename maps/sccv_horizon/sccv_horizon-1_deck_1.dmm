@@ -614,6 +614,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/research,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
 "aDj" = (
@@ -2883,6 +2885,8 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/research,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
 "ckY" = (
@@ -28324,6 +28328,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "wjU" = (
