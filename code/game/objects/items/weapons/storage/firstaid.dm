@@ -75,7 +75,7 @@
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 2,
 		/obj/item/stack/medical/splint = 1,
-		/obj/item/device/healthanalyzer
+		/obj/item/device/healthanalyzer = 1
 	)
 
 /obj/item/storage/firstaid/adv/fill()
