@@ -359,10 +359,10 @@
 "bud" = (
 /obj/structure/table/steel,
 /obj/structure/table/steel,
-/obj/item/storage/firstaid/brute{
+/obj/item/storage/firstaid/trauma{
 	pixel_x = -4
 	},
-/obj/item/storage/firstaid/brute{
+/obj/item/storage/firstaid/trauma{
 	pixel_x = -4
 	},
 /obj/item/storage/firstaid/fire{

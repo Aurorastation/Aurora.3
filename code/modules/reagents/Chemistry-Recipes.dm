@@ -493,7 +493,7 @@
 	name = "Coagzolug"
 	id = "coagzolug"
 	result = /singleton/reagent/coagzolug
-	required_reagents = list(/singleton/reagent/tricordrazine = 1, /singleton/reagent/coughsyrup = 1)
+	required_reagents = list(/singleton/reagent/tricordrazine = 1, /singleton/reagent/antidexafen = 1)
 	result_amount = 1 // result is 1. i imagine it's because of some whacky reaction
 
 /datum/chemical_reaction/surfactant
@@ -647,7 +647,7 @@
 	name = "Pneumalin"
 	id = "pneumalin"
 	result = /singleton/reagent/pneumalin
-	required_reagents = list(/singleton/reagent/coughsyrup = 1, /singleton/reagent/copper = 1, /singleton/reagent/pulmodeiectionem = 1)
+	required_reagents = list(/singleton/reagent/antidexafen = 1, /singleton/reagent/copper = 1, /singleton/reagent/pulmodeiectionem = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/saline
@@ -668,7 +668,7 @@
 /datum/chemical_reaction/coughsyrup
 	name = "Cough Syrup"
 	id = "coughsyrup"
-	result = /singleton/reagent/coughsyrup
+	result = /singleton/reagent/antidexafen
 	required_reagents = list(/singleton/reagent/carbon = 1, /singleton/reagent/tungsten = 1, /singleton/reagent/water = 1)
 	result_amount = 3
 
