@@ -1,37 +1,503 @@
-"a" = (/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
-"b" = (/obj/structure/flora/ausbushes/sunnybush,/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
-"c" = (/turf/simulated/floor/exoplanet/water,/area/template_noop)
-"d" = (/obj/structure/flora/tree/jungle/small,/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
-"e" = (/obj/structure/flora/tree/grove,/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
-"f" = (/mob/living/simple_animal/tindalos,/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
-"g" = (/turf/simulated/floor/exoplanet/water/shallow,/area/template_noop)
-"h" = (/obj/structure/flora/ausbushes/reedbush,/turf/simulated/floor/exoplanet/water,/area/template_noop)
-"i" = (/mob/living/carbon/human/stok,/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
-"j" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
-"k" = (/obj/structure/flora/ausbushes/fernybush,/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
-"l" = (/obj/structure/flora/tree/jungle,/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
-"m" = (/obj/structure/flora/rock/pile,/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
-"n" = (/obj/structure/flora/rock,/turf/simulated/floor/exoplanet/grass/grove,/area/template_noop)
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"b" = (
+/obj/structure/flora/ausbushes/sunnybush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"c" = (
+/turf/simulated/floor/exoplanet/water,
+/area/template_noop)
+"d" = (
+/obj/structure/flora/tree/jungle/small,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"e" = (
+/obj/structure/flora/tree/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"f" = (
+/mob/living/simple_animal/tindalos,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"g" = (
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/template_noop)
+"h" = (
+/obj/structure/flora/ausbushes/reedbush,
+/turf/simulated/floor/exoplanet/water,
+/area/template_noop)
+"i" = (
+/mob/living/carbon/human/stok,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"j" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"k" = (
+/obj/structure/flora/ausbushes/fernybush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"l" = (
+/obj/structure/flora/tree/jungle,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"m" = (
+/obj/structure/flora/rock/pile,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"n" = (
+/obj/structure/flora/rock,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"p" = (
+/mob/living/simple_animal/parrot,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"S" = (
+/mob/living/simple_animal/bee/beegun,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaaaaaaa
-aaaaaabaaaacccaaaada
-adaeaaafaacggghcaaia
-aaaaaaaaacggggggcaaa
-aajjaaaaccgggggggcaa
-aajakiacgggggggggcaa
-ajjaaacggggggggggcaa
-aaaaahggggggggggggca
-aaaacgggggggggccccaa
-alaacggggggggcaaaaaa
-aamacgggggggcaaabaaa
-aaafcgggggggghaaaaaa
-ajaacggggggggcaaaeaa
-adjacggggggggcaiaaaa
-aajaahggggggcaaaaaja
-aaaaaaccccccaaajjjaa
-amaaaaaaaaaaaaajaaaa
-aakaeaajjaajaanaalaa
-aaaaaajjajjadaaafaaa
-aaaaaaaaaaaaaaaaaaaa
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+S
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+d
+a
+p
+a
+j
+a
+a
+l
+a
+a
+j
+d
+a
+a
+m
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+a
+j
+j
+j
+a
+a
+a
+m
+a
+a
+j
+j
+a
+a
+k
+a
+a
+"}
+(4,1,1) = {"
+a
+a
+e
+a
+j
+a
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+a
+k
+a
+a
+c
+c
+c
+c
+c
+c
+a
+a
+a
+e
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+a
+a
+a
+i
+a
+h
+g
+g
+g
+g
+g
+g
+h
+a
+a
+a
+a
+a
+"}
+(7,1,1) = {"
+a
+b
+a
+a
+a
+a
+c
+g
+g
+g
+g
+g
+g
+g
+g
+c
+a
+a
+j
+a
+"}
+(8,1,1) = {"
+a
+a
+f
+a
+a
+c
+g
+g
+g
+g
+g
+g
+g
+g
+g
+c
+a
+j
+j
+a
+"}
+(9,1,1) = {"
+a
+a
+a
+a
+c
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+c
+a
+j
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+a
+c
+c
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+c
+a
+a
+j
+a
+"}
+(11,1,1) = {"
+a
+a
+c
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+c
+a
+a
+j
+a
+"}
+(12,1,1) = {"
+a
+c
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+c
+a
+j
+a
+a
+"}
+(13,1,1) = {"
+a
+c
+g
+g
+g
+g
+g
+g
+g
+g
+c
+g
+g
+g
+c
+a
+a
+a
+d
+a
+"}
+(14,1,1) = {"
+a
+c
+g
+g
+g
+g
+g
+g
+g
+c
+a
+h
+c
+c
+a
+a
+a
+a
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+h
+g
+g
+g
+g
+g
+c
+a
+a
+a
+a
+a
+a
+a
+a
+n
+a
+a
+"}
+(16,1,1) = {"
+a
+a
+c
+g
+g
+g
+g
+g
+c
+a
+a
+a
+a
+i
+a
+j
+j
+a
+a
+a
+"}
+(17,1,1) = {"
+a
+a
+a
+c
+g
+g
+g
+g
+c
+a
+b
+a
+a
+a
+a
+j
+a
+a
+f
+a
+"}
+(18,1,1) = {"
+a
+a
+a
+a
+c
+c
+c
+g
+c
+a
+a
+a
+e
+a
+a
+j
+a
+l
+a
+a
+"}
+(19,1,1) = {"
+a
+d
+i
+a
+a
+a
+a
+c
+a
+a
+a
+a
+a
+a
+j
+a
+a
+a
+a
+a
+"}
+(20,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
 "}
