@@ -331,10 +331,9 @@
 	var/singleton/recipe/recipe = null
 	var/atom/C = null
 	var/appliance
-	if (CI)
-		if (CI.container && CI.container.appliancetype)
-			C = CI.container
-			appliance = CI.container.appliancetype
+	if (CI && CI.container && CI.container.appliancetype)
+		C = CI.container
+		appliance = CI.container.appliancetype
 	else if(appliancetype)
 		C = src
 		appliance = appliancetype
@@ -366,7 +365,7 @@
 		QDEL_NULL(temp) //delete buffer object
 		. = TRUE //None of the rest of this function is relevant for recipe cooking
 
-	else if(CI.combine_target)
+	else if(CI && CI.combine_target)
 		. = combination_cook(CI)
 
 
