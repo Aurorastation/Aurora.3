@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Spawning with Aut'akh graspers will no longer duplicate your right hand."
