@@ -11,7 +11,7 @@ Single Use Emergency Pouches
 	3) Apply all autoinjectors to the injured party.<br>\
 	4) Use bandages to stop bleeding if required.<br>\
 	5) Force the injured party to swallow all pills.<br>\
-	6) Use ointment on any burns if required<br>\
+	6) Use ointment on any burns if required.<br>\
 	7) Contact the medical team with your location.<br>\
 	8) Stay in place once they respond."
 	icon = 'icons/obj/storage/firstaid.dmi'
