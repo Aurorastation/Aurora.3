@@ -631,7 +631,7 @@
 		/obj/item/storage/box/fancy/med_pouch/toxin = 1,
 		/obj/item/storage/box/fancy/med_pouch/radiation = 1,
 		/obj/item/device/healthanalyzer = 1,
-		/obj/item/device/breath_analyzer  = 1
+		/obj/item/device/breath_analyzer = 1
 	)
 	contraband = list(
 		/obj/item/reagent_containers/pill/tox = 3
