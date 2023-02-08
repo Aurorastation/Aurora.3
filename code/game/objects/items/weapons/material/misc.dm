@@ -83,7 +83,7 @@
 	icon_state = "machete"
 	item_state = "machete"
 	w_class = ITEMSIZE_NORMAL
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	default_material = MATERIAL_TITANIUM
 	max_force = 20
 	force_divisor = 0.2
