@@ -189,8 +189,7 @@
 /obj/effect/meteor/irradiated/meteor_effect()
 	explosion(src.loc, 0, 0, 4, 3, 0)
 	new /obj/effect/decal/cleanable/greenglow(get_turf(src))
-	for(var/mob/living/L in view(5, src))
-		L.apply_damage(40, IRRADIATE, damage_flags = DAM_DISPERSED)
+	SSradiation.radiate(src, 50)
 
 /obj/effect/meteor/golden
 	name = "golden meteor"

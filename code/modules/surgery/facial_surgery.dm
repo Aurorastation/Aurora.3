@@ -42,8 +42,8 @@
 /singleton/surgery_step/generic/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
-	target.apply_damage(20, OXY)
+	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_OXY)
 	target.losebreath += 10
 
 
@@ -88,8 +88,8 @@
 /singleton/surgery_step/generic/alter_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
-	target.apply_damage(20, OXY)
+	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_OXY)
 	target.losebreath += 10
 
 
@@ -128,7 +128,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, leaving a small burn on [target]'s face with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, leaving a small burn on [target]'s face with \the [tool]!"))
-	target.apply_damage(5, BURN, affected)
+	target.apply_damage(5, DAMAGE_BURN, affected)
 
 /singleton/surgery_step/robotics/face
 	priority = 2
@@ -164,7 +164,7 @@
 /singleton/surgery_step/robotics/face/synthskinopen/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/robotics/face/prepare_face
 	name = "Prepare Face"
@@ -192,7 +192,7 @@
 /singleton/surgery_step/robotics/face/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/robotics/face/alter_synthface
 	name = "Alter Face"
@@ -236,7 +236,7 @@
 /singleton/surgery_step/robotics/face/alter_synthface/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/robotics/face/seal_face
 	name = "Seal face"
@@ -272,4 +272,4 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, leaving a small burn on [target]'s synthskin face with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, leaving a small burn on [target]'s synthskin face with \the [tool]!"))
-	target.apply_damage(5, BURN, affected)
+	target.apply_damage(5, DAMAGE_BURN, affected)

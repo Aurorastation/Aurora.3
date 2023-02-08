@@ -340,7 +340,7 @@ BLIND     // can't see anything
 	if(brand_name)
 		desc += " This pair has been made in [brand_name] colors."
 
-/obj/item/clothing/glasses/safety/goggles/goon/security/process_hud(var/mob/M)
+/obj/item/clothing/glasses/safety/goggles/goon/process_hud(var/mob/M)
 	if(!up)
 		process_sec_hud(M, TRUE)
 
@@ -383,6 +383,9 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety/goggles/medical/process_hud(var/mob/M)
 	if(!up)
 		process_med_hud(M, TRUE)
+
+/obj/item/clothing/glasses/safety/goggles/medical/is_sec_hud()
+	return FALSE
 
 /obj/item/clothing/glasses/safety/goggles/medical/is_med_hud()
 	return !up

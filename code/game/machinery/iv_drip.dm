@@ -559,7 +559,7 @@
 
 /obj/machinery/iv_drip/proc/iv_rip()
 	attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [vein.name]."), SPAN_DANGER("The needle <B>painfully</B> rips out of your [vein.name]."))
-	vein.take_damage(brute = 5, damage_flags = DAM_SHARP)
+	vein.take_damage(brute = 5, damage_flags = DAMAGE_FLAG_SHARP)
 	vein = null
 	attached = null
 
