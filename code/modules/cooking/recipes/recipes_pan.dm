@@ -14,15 +14,15 @@
 		for (var/obj/item/reagent_containers/food/snacks/amanitajelly/being_cooked in .)
 			being_cooked.reagents.del_reagent(/singleton/reagent/toxin/amatoxin)
 
-// Ports from the microwave... yeah
+// Ports from the microwave... yeah  // YEAH RIGHT
 
 /singleton/recipe/mint
-	appliance = SAUCEPAN
+	appliance = SAUCEPAN | MICROWAVE
 	reagents = list(/singleton/reagent/sugar = 5, /singleton/reagent/frostoil = 5)
 	result = /obj/item/reagent_containers/food/snacks/mint
 
 /singleton/recipe/porkbowl
-	appliance = SAUCEPAN
+	appliance = SAUCEPAN | MICROWAVE
 	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/nutriment/rice = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
@@ -31,7 +31,7 @@
 	result = /obj/item/reagent_containers/food/snacks/porkbowl
 
 /singleton/recipe/crab_legs
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/water = 10, /singleton/reagent/sodiumchloride = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/crabmeat,

@@ -440,7 +440,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/reinforced/wood,
 /obj/item/storage/box/fancy/donut,
-/obj/item/paper/fluff/microwave,
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "aog" = (
@@ -601,6 +601,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "axw" = (
@@ -4712,15 +4713,13 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/item/storage/box/fancy/donut{
-	pixel_y = 5
-	},
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/status_display{
 	pixel_x = 32
 	},
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "egF" = (
@@ -18358,11 +18357,9 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
 /obj/item/storage/box/cups,
+/obj/item/storage/box/fancy/donut,
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "oOE" = (

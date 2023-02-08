@@ -331,9 +331,10 @@
 	var/singleton/recipe/recipe = null
 	var/atom/C = null
 	var/appliance
-	if (CI.container && CI.container.appliancetype)
-		C = CI.container
-		appliance = CI.container.appliancetype
+	if (CI)
+		if (CI.container && CI.container.appliancetype)
+			C = CI.container
+			appliance = CI.container.appliancetype
 	else if(appliancetype)
 		C = src
 		appliance = appliancetype

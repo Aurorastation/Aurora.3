@@ -66,6 +66,7 @@
 		SKILLET
 		SAUCEPAN
 		POT
+		MICROWAVE
 	*/
 	//This is a bitfield, more than one type can be used
 
@@ -85,6 +86,8 @@
 		LAZYADD(appliance_names, "a saucepan")
 	if(appliance & POT)
 		LAZYADD(appliance_names, "a pot")
+	if(appliance & MICROWAVE)
+		LAZYADD(appliance_names, "a microwave")
 	return english_list(appliance_names, and_text = " or ")
 
 /singleton/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)

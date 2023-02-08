@@ -1,5 +1,5 @@
 /singleton/recipe/chilied_eggs
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/hotchili,
 		/obj/item/reagent_containers/food/snacks/boiledegg,
@@ -9,7 +9,7 @@
 	result = /obj/item/reagent_containers/food/snacks/chilied_eggs
 
 /singleton/recipe/red_sun_special
-	appliance = SKILLET | SAUCEPAN
+	appliance = SKILLET | SAUCEPAN | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sausage,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
@@ -76,7 +76,7 @@
 	result = /obj/item/reagent_containers/food/snacks/bacon_stick
 
 /singleton/recipe/egg_pancake
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meatball,
 		/obj/item/reagent_containers/food/snacks/meatball,
@@ -143,7 +143,7 @@
 	result = /obj/item/reagent_containers/food/snacks/razirnoodles
 
 /singleton/recipe/sintapudding
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/blood = 15, /singleton/reagent/sugar = 10, /singleton/reagent/nutriment/coco = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spreads/butter

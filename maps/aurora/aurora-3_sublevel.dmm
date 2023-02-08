@@ -27652,6 +27652,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
 "eDK" = (
@@ -32879,10 +32880,7 @@
 /obj/item/reagent_containers/food/drinks/teapot{
 	pixel_y = 16
 	},
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
 "pUs" = (
@@ -35344,10 +35342,7 @@
 "uYK" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "uZy" = (
@@ -37066,6 +37061,7 @@
 	pixel_x = -3;
 	pixel_y = 2
 	},
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "ydL" = (

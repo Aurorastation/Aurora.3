@@ -7,14 +7,14 @@
 	result = /obj/item/reagent_containers/food/snacks/friedegg/overeasy
 
 /singleton/recipe/friedegg
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/friedegg/overeasy
 	)
 	result = /obj/item/reagent_containers/food/snacks/friedegg
 
 /singleton/recipe/poachedegg
-	appliance = SKILLET | SAUCEPAN
+	appliance = SKILLET | SAUCEPAN | MICROWAVE
 	reagents = list(/singleton/reagent/spacespice = 1, /singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1, /singleton/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg
@@ -40,7 +40,7 @@
 	result = /obj/item/reagent_containers/food/snacks/bacon_and_eggs
 
 /singleton/recipe/ntmuffin
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/plumphelmetbiscuit,
 		/obj/item/reagent_containers/food/snacks/sausage,
@@ -51,7 +51,7 @@
 	result = /obj/item/reagent_containers/food/snacks/nt_muffin
 
 /singleton/recipe/boiledegg
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/water = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(

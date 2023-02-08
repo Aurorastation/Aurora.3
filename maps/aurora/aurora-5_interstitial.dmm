@@ -2113,10 +2113,7 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/item/reagent_containers/glass/rag,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/tiled/white,
 /area/security/break_room)
 "eI" = (
@@ -2228,6 +2225,7 @@
 "eT" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled/white,
 /area/security/break_room)
 "eU" = (

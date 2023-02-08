@@ -166,7 +166,7 @@
 	result = /obj/item/reagent_containers/food/snacks/burger/jelly/cherry
 
 /singleton/recipe/twobread
-	appliance = SKILLET | MIX
+	appliance = SKILLET | MIX | MICROWAVE
 	reagents = list(/singleton/reagent/alcohol/wine = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice,

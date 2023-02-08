@@ -9,7 +9,7 @@
 	result = /obj/item/reagent_containers/food/snacks/chipplate
 
 /singleton/recipe/nachos
-	appliance = SKILLET // melt the cheese!
+	appliance = SKILLET | MICROWAVE // melt the cheese!
 	items = list(
 		/obj/item/reagent_containers/food/snacks/chipplate,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
@@ -17,7 +17,7 @@
 	result = /obj/item/reagent_containers/food/snacks/chipplate/nachos
 
 /singleton/recipe/cheesyfries
-	appliance = SKILLET | MIX // You can reheat it or mix it cold, like some sort of monster.
+	appliance = SKILLET | MIX | MICROWAVE // You can reheat it or mix it cold, like some sort of monster.
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fries,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
@@ -40,7 +40,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Ingredients are mixed together.
 
 /singleton/recipe/cheesesauce
-	appliance = SKILLET | SAUCEPAN // melt the cheese
+	appliance = SKILLET | SAUCEPAN | MICROWAVE // melt the cheese
 	fruit = list("chili" = 1, "tomato" = 1)
 	reagents = list(/singleton/reagent/spacespice = 1, /singleton/reagent/blackpepper = 1,/singleton/reagent/sodiumchloride = 1)
 	items = list(

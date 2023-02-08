@@ -221,7 +221,7 @@
 
 //Confections
 /singleton/recipe/chocolateegg
-	appliance = SAUCEPAN | POT // melt the chocolate
+	appliance = SAUCEPAN | POT  | MICROWAVE// melt the chocolate
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg,
 		/obj/item/reagent_containers/food/snacks/chocolatebar

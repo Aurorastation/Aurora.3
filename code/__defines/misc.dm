@@ -459,6 +459,7 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define SAUCEPAN			1 << 4
 #define POT					1 << 5
 #define GRILL				1 << 6
+#define MICROWAVE			1 << 7
 
 // Cooking misc.
 // can_insert return values

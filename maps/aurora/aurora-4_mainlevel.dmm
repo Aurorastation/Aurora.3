@@ -23815,6 +23815,7 @@
 	pixel_x = 27
 	},
 /obj/structure/table/standard,
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aPq" = (
@@ -33809,10 +33810,7 @@
 "bgE" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bgF" = (
@@ -34622,6 +34620,7 @@
 "bhV" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bhW" = (
@@ -66951,6 +66950,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"rkO" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/donkpockets,
+/turf/simulated/floor/carpet,
+/area/quartermaster/break_room)
 "rlA" = (
 /obj/structure/closet/crate/trashcart{
 	opened = 1
@@ -67593,16 +67597,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package";
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "sny" = (
@@ -69919,10 +69914,7 @@
 /area/assembly/robotics/workshop)
 "vWF" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/carpet,
 /area/quartermaster/break_room)
 "vXj" = (
@@ -97506,7 +97498,7 @@ caj
 caD
 cbc
 cbx
-cca
+rkO
 cca
 ccY
 cbw
