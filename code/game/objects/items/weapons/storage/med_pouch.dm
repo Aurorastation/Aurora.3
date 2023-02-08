@@ -62,11 +62,11 @@ Single Use Emergency Pouches
 	color = COLOR_SEDONA
 
 	starts_with = list(
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1,
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/mortaphenyl = 1,
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline = 1,
-	/obj/item/reagent_containers/pill/pouch_pill/perconol = 1,
-	/obj/item/stack/medical/ointment = 2
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/mortaphenyl = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline = 1,
+		/obj/item/reagent_containers/pill/pouch_pill/perconol = 1,
+		/obj/item/stack/medical/ointment = 2
 	)
 	desc_info = "\
 	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
