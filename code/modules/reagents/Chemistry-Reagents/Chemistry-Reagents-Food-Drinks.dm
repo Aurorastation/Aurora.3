@@ -1762,6 +1762,17 @@
 	glass_desc = "A strong coffee made by passing nearly boiling water through coffee seeds at high pressure."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
+/singleton/reagent/drink/coffee/ration
+    name = "Ration Coffee"
+    description = "Watered-down coffee. One cup now becomes four!"
+    color = "#664300" // rgb: 102, 67, 0
+    taste_description = "weak, watered-down coffee"
+
+    glass_icon_state = "hot_coffee"
+    glass_name = "glass of ration coffee"
+    glass_desc = "Coffee, watered-down."
+    glass_center_of_mass = list("x"=15, "y"=9)
+
 /singleton/reagent/drink/coffee/freddo_espresso
 	name = "Freddo Espresso"
 	description = "Espresso with ice cubes poured over ice."
