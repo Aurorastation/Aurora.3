@@ -1,0 +1,8 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - tweak: "Makes identification card's names flow better when read."
+  - tweak: "Cleans up and improves the guest pass terminal's code."
+  - bugfix: "Makes the arrivals announcer announce the map type instead of just \"station\"."
