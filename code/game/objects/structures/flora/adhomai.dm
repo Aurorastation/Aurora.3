@@ -4,7 +4,6 @@
 	icon = 'icons/obj/flora/adhomai_trees.dmi'
 	icon_state = "tree1"
 	pixel_x = -32
-	pixel_y = -32
 
 /obj/structure/flora/tree/adhomai/Initialize(mapload)
 	. = ..()
