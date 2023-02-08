@@ -30193,14 +30193,28 @@
 /area/horizon/crew_quarters/fitness/lounge)
 "ygT" = (
 /obj/structure/table/rack,
-/obj/item/stack/liquidbags/half_full,
-/obj/item/stack/barbed_wire/half_full,
-/obj/item/stack/material/plasteel{
-	amount = 20
+/obj/item/stack/liquidbags/half_full{
+	pixel_x = -5;
+	pixel_y = -3
 	},
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/steel/full,
+/obj/item/stack/barbed_wire/half_full{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/stack/material/plasteel{
+	amount = 20;
+	pixel_y = 3;
+	pixel_x = 5
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = 5
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = 5
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = 5
+	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
