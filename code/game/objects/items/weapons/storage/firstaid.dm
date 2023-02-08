@@ -158,7 +158,7 @@
 		/obj/item/storage/box/fancy/med_pouch/oxyloss = 1,
 		/obj/item/storage/box/fancy/med_pouch/toxin = 1,
 		/obj/item/storage/box/fancy/med_pouch/radiation = 1,
-		/obj/item/device/healthanalyzer
+		/obj/item/device/healthanalyzer = 1
 	)
 
 /obj/item/storage/firstaid/sleekstab
