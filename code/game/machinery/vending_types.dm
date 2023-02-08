@@ -625,11 +625,11 @@
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
 		/obj/item/stack/medical/bruise_pack = 4,
 		/obj/item/stack/medical/ointment = 4,
-		/obj/item/storage/box/fancy/med_pouch/trauma,
-		/obj/item/storage/box/fancy/med_pouch/burn,
-		/obj/item/storage/box/fancy/med_pouch/oxyloss,
-		/obj/item/storage/box/fancy/med_pouch/toxin,
-		/obj/item/storage/box/fancy/med_pouch/radiation,
+		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
+		/obj/item/storage/box/fancy/med_pouch/burn = 1,
+		/obj/item/storage/box/fancy/med_pouch/oxyloss = 1,
+		/obj/item/storage/box/fancy/med_pouch/toxin = 1,
+		/obj/item/storage/box/fancy/med_pouch/radiation = 1,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/device/breath_analyzer  = 1
 	)
