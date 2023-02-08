@@ -84,11 +84,11 @@ Single Use Emergency Pouches
 	color = COLOR_BLUE
 
 	starts_with = list(
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1,
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin = 1,
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline = 1,
-	/obj/item/reagent_containers/pill/pouch_pill/inaprovaline = 1,
-	/obj/item/reagent_containers/pill/pouch_pill/dexalin = 1
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline = 1,
+		/obj/item/reagent_containers/pill/pouch_pill/inaprovaline = 1,
+		/obj/item/reagent_containers/pill/pouch_pill/dexalin = 1
 	)
 	desc_info = "\
 	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
