@@ -2371,6 +2371,13 @@
 	required_reagents = list(/singleton/reagent/alcohol/rum = 1, /singleton/reagent/water = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/drink/ration_coffee
+    name = "Ration Coffee"
+    id = "ration_coffee"
+    result = /singleton/reagent/drink/coffee/ration
+    required_reagents = list(/singleton/reagent/drink/coffee = 2, /singleton/reagent/water = 1)
+    result_amount = 3
+
 /datum/chemical_reaction/drink/soy_latte
 	name = "Soy Latte"
 	id = "soy_latte"
