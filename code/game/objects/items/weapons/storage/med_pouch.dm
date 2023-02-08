@@ -106,8 +106,8 @@ Single Use Emergency Pouches
 	color = COLOR_GREEN
 
 	starts_with = list(
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dylovene = 1,
-	/obj/item/reagent_containers/pill/pouch_pill/dylovene = 1
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dylovene = 1,
+		/obj/item/reagent_containers/pill/pouch_pill/dylovene = 1
 	)
 	desc_info = "\
 	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
