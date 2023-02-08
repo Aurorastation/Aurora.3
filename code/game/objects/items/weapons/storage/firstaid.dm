@@ -23,7 +23,7 @@
 		/obj/item/storage/pill_bottle/antidexafen = 1,
 		/obj/item/storage/pill_bottle/perconol = 1,
 		/obj/item/stack/medical/splint = 1,
-		/obj/item/device/healthanalyzer
+		/obj/item/device/healthanalyzer = 1
 	)
 
 /obj/item/storage/firstaid/fire
