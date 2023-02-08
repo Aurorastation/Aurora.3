@@ -1144,7 +1144,7 @@
 /area/horizon/security/meeting_room)
 "aRw" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (.45 Pistol and Holsters)";
+	name = "Weaponry (10mm Pistol and Holsters)";
 	req_access = null;
 	req_one_access = list(3,19)
 	},
@@ -26088,7 +26088,7 @@
 /area/medical/ward/isolation)
 "uUy" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (.45 Magazines)";
+	name = "Weaponry (10mm Ammunition)";
 	req_access = null;
 	req_one_access = list(3,19)
 	},
@@ -30193,14 +30193,14 @@
 /area/horizon/crew_quarters/fitness/lounge)
 "ygT" = (
 /obj/structure/table/rack,
+/obj/item/stack/liquidbags/half_full,
+/obj/item/stack/barbed_wire/half_full,
 /obj/item/stack/material/plasteel{
 	amount = 20
 	},
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/steel/full,
-/obj/item/stack/liquidbags/half_full,
-/obj/item/stack/barbed_wire/half_full,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
