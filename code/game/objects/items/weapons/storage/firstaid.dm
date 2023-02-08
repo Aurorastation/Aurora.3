@@ -95,7 +95,7 @@
 		/obj/item/storage/pill_bottle/mortaphenyl = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 1,
 		/obj/item/stack/medical/splint = 1,
-		/obj/item/device/healthanalyzer
+		/obj/item/device/healthanalyzer = 1
 	)
 
 /obj/item/storage/firstaid/surgery
