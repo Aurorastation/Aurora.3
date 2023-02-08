@@ -175,7 +175,7 @@
 		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/oxygen = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
-		/obj/item/device/healthanalyzer
+		/obj/item/device/healthanalyzer = 1
 	)
 
 
