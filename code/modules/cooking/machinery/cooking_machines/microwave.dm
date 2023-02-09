@@ -66,7 +66,31 @@
 			component_parts += t
 			t.forceMove(null)
 
+	cooking_objs += new /datum/cooking_item(new /obj/item/reagent_containers/cooking_container(src))
 	RefreshParts()
+
+//Container is not removable
+/obj/machinery/appliance/cooker/microwave/removal_menu(var/mob/user)
+	if (!can_remove_items(user))
+		return FALSE
+	var/list/menuoptions = list()
+	for (var/cooking_obj in cooking_objs)
+		var/datum/cooking_item/CI = cooking_obj
+		if (CI.container?.check_contents() == CONTAINER_EMPTY)
+			to_chat(user, "There's nothing in [src] to remove!")
+			return
+		for (var/thing in CI.container)
+			var/obj/item/I = thing
+			menuoptions[I.name] = I
+
+	var/selection = show_radial_menu(user, src, menuoptions, require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
+	if (!selection)
+		return FALSE
+	var/obj/item/I = menuoptions[selection]
+	if (!user?.put_in_hands(I))
+		I.forceMove(get_turf(src))
+	update_icon()
+	return TRUE
 
 /*******************
 *   Item Adding
