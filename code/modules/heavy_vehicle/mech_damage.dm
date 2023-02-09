@@ -3,10 +3,10 @@
 		return 0
 
 	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage)))
-		if(effect > 0 && effecttype == DAMAGE_RADIATION)
+		if(effect > 0 && effecttype == IRRADIATE)
 			var/mob/living/pilot = pick(pilots)
 			return pilot.apply_effect(effect, effecttype, blocked)
-	if(!(effecttype in list(DAMAGE_PAIN, STUTTER, EYE_BLUR, DROWSY, STUN, WEAKEN)))
+	if(!(effecttype in list(PAIN, STUTTER, EYE_BLUR, DROWSY, STUN, WEAKEN)))
 		. = ..()
 
 /mob/living/heavy_vehicle/hitby(atom/movable/AM, speed)
@@ -66,7 +66,7 @@
 		else
 			return body
 
-/mob/living/heavy_vehicle/apply_damage(var/damage = 0, var/damagetype = DAMAGE_BRUTE, var/def_zone, var/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
+/mob/living/heavy_vehicle/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone, var/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
 	if(!damage)
 		return 0
 
@@ -80,12 +80,12 @@
 	var/target = zoneToComponent(def_zone)
 	//Only 2 types of damage concern mechs and vehicles
 	switch(damagetype)
-		if(DAMAGE_BRUTE)
+		if(BRUTE)
 			adjustBruteLoss(damage, target)
-		if(DAMAGE_BURN)
+		if(BURN)
 			adjustFireLoss(damage, target)
 
-	if((damagetype == DAMAGE_BRUTE || damagetype == DAMAGE_BURN) && prob(25+(damage*2)))
+	if((damagetype == BRUTE || damagetype == BURN) && prob(25+(damage*2)))
 		spark(src, 3)
 	updatehealth()
 
@@ -106,7 +106,7 @@
 	return total
 
 /mob/living/heavy_vehicle/emp_act(var/severity)
-	var/ratio = get_blocked_ratio(null, DAMAGE_BURN, null, (4-severity) * 20)
+	var/ratio = get_blocked_ratio(null, BURN, null, (4-severity) * 20)
 
 	if(ratio >= 0.5)
 		for(var/mob/living/m in pilots)
@@ -136,7 +136,7 @@
 	var/z_velocity = 5 * (levels_fallen**2) // 1z - 5, 2z - 20, 3z - 45
 	var/damage = max((z_velocity + rand(-10, 10)) * damage_mod, 0)
 
-	apply_damage(damage, DAMAGE_BRUTE, BP_L_LEG) // can target any leg, it will be changed to the proper component
+	apply_damage(damage, BRUTE, BP_L_LEG) // can target any leg, it will be changed to the proper component
 
 	playsound(loc, "sound/effects/bang.ogg", 100, 1)
 	playsound(loc, "sound/effects/bamf.ogg", 100, 1)

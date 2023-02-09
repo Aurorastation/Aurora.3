@@ -23,10 +23,7 @@
 	var/list/whitelist
 	var/list/blacklist
 
-	var/list/culture_restrictions = list()
-	var/list/origin_restrictions = list()
-
-/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/list/culture_restriction = list(), var/list/origin_restriction = list(), var/datum/topic_state/set_ui_state = interactive_state, var/datum/set_state_object = null, var/update_id)
+/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/datum/topic_state/set_ui_state = interactive_state, var/datum/set_state_object = null, var/update_id)
 	..()
 	ui_state = set_ui_state
 	state_object = set_state_object
@@ -39,8 +36,6 @@
 	src.check_whitelist = check_species_whitelist
 	src.whitelist = species_whitelist
 	src.blacklist = species_blacklist
-	culture_restrictions = culture_restriction
-	origin_restrictions = culture_restriction
 	generate_data(check_whitelist, whitelist, blacklist)
 
 /datum/vueui_module/appearance_changer/Topic(ref, href_list, var/datum/topic_state/state = ui_state)
@@ -310,22 +305,10 @@
 	if(!length(valid_cultures))
 		for(var/culture in owner.species.possible_cultures)
 			var/singleton/origin_item/culture/CI = GET_SINGLETON(culture)
-			if(length(culture_restrictions))
-				if(!(CI.type in culture_restrictions))
-					continue
 			valid_cultures[CI.name] = CI
-		if(length(culture_restrictions))
-			for(var/culture in culture_restrictions)
-				var/singleton/origin_item/culture/CL = GET_SINGLETON(culture)
-				for(var/origin in CL.possible_origins)
-					var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
-					valid_origins[OI.name] = OI
 		var/singleton/origin_item/culture/OC = owner.culture
 		for(var/origin in OC.possible_origins)
 			var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
-			if(length(origin_restrictions))
-				if(!(OI.type in origin_restrictions))
-					continue
 			valid_origins[OI.name] = OI
 		valid_citizenships = owner.origin.possible_citizenships
 		valid_accents = owner.origin.possible_accents

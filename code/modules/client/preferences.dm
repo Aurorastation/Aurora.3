@@ -48,8 +48,8 @@ datum/preferences
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 	var/primary_radio_slot = "Left Ear"
-	var/h_style = "Bedhead2"				//Hair type
 	var/tail_style = null
+	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
 	var/g_hair = 0						//Hair color
@@ -64,7 +64,7 @@ datum/preferences
 	var/r_facial = 0					//Face hair color
 	var/g_facial = 0					//Face hair color
 	var/b_facial = 0					//Face hair color
-	var/s_tone = -90						//Skin tone
+	var/s_tone = 0						//Skin tone
 	var/skin_colour = "#000000"			//Skin colour hex value, for SQL loading
 	var/r_skin = 37						//Skin color
 	var/g_skin = 3						//Skin color

@@ -500,10 +500,3 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it.
 
 #define LANDING_ZONE_RADIUS 25 // Used for autoplacing landmarks on exoplanets
-
-#define RAD_LEVEL_LOW 1 // Around the level at which radiation starts to become harmful
-#define RAD_LEVEL_MODERATE 25
-#define RAD_LEVEL_HIGH 40
-#define RAD_LEVEL_VERY_HIGH 100
-
-#define RADIATION_THRESHOLD_CUTOFF 0.1	// Radiation will not affect a tile when below this value.

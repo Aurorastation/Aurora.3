@@ -73,7 +73,7 @@
 			"<span class='danger'>\The [src] scrapes and gnashes against your exoskeleton before spitting you out!</span>",
 			"<b>You hear several metallic scrapes!</b>"
 			)
-		R.apply_damage(60,DAMAGE_BRUTE)
+		R.apply_damage(60,BRUTE)
 	else
 		L.visible_message(
 			"<span class='danger'>\The [src] eviscerates [L] with its teeth, swallowing what little remains whole!</span>",
@@ -184,7 +184,7 @@
 				if(prob(50))
 					var/mob/living/L = sarlacc.captive
 					if(L)
-						L.apply_damage(rand(3,10),DAMAGE_BRUTE)
+						L.apply_damage(rand(3,10),BRUTE)
 						L.visible_message(
 							"<span class='danger'>\The [src] tears at [L]'s flesh with its gruesome jaws.</span>",
 							"<span class='danger'>You feel a searing pain as \the [src] tears at your flesh!</span>",
@@ -293,7 +293,7 @@
 	var/list/possible_targets = list()
 	for(var/mob/living/L in src.loc)
 		if(L != src)
-			L.apply_damage(15,DAMAGE_BRUTE)
+			L.apply_damage(15,BRUTE)
 			possible_targets += L
 			to_chat(L, "<span class='danger'>\The [src] wraps around you tightly with its spiny teeth+!</span>")
 	if(Adjacent(originator) && possible_targets.len)

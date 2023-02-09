@@ -11,7 +11,7 @@
 
 	var/light_x = 0
 	var/light_y = 0
-	mobdamagetype = DAMAGE_BURN
+	mobdamagetype = BURN
 	cooking_coeff = 0
 	cooking_power = 0
 	flags = null

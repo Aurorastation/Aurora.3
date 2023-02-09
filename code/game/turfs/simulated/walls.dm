@@ -254,7 +254,8 @@
 	if(!total_radiation)
 		return
 
-	SSradiation.radiate(src, total_radiation)
+	for(var/mob/living/L in range(3,src))
+		L.apply_damage(total_radiation, IRRADIATE, damage_flags = DAM_DISPERSED)
 	return total_radiation
 
 /turf/simulated/wall/proc/burn(temperature)

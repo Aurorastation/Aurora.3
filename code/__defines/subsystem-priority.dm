@@ -61,7 +61,6 @@
 #define SS_PRIORITY_CALAMITY    20	// Singularity, Tesla, Nar'sie, blob, etc.
 #define SS_PRIORITY_EVENT       20
 #define SS_PRIORITY_DISEASE     20	// Disease ticks.
-#define SS_PRIORITY_RADIATION   20  // Radiation processing and cache updates.
 #define SS_PRIORITY_ALARMS      20
 #define SS_PRIORITY_PLANTS      20	// Spreading plant effects.
 #define SS_PRIORITY_EFFECTS     20	// New-style effects manager. Timing of effects may be off if this gets too far behind.

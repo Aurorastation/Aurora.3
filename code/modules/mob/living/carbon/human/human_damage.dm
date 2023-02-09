@@ -391,7 +391,7 @@ This function restores all organs.
 		zone = BP_HEAD
 	return organs_by_name[zone]
 
-/mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = DAMAGE_BRUTE, var/def_zone, var/obj/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
+/mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone, var/obj/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
 	if (invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
 		if(damage > 0)
 			to_chat(src, "<span class='danger'>You are now visible.</span>")
@@ -403,7 +403,7 @@ This function restores all organs.
 			organ = def_zone
 		else
 			if(!def_zone)
-				if(damage_flags & DAMAGE_FLAG_DISPERSED)
+				if(damage_flags & DAM_DISPERSED)
 					var/old_damage = damage
 					var/tally
 					silent = TRUE // Will damage a lot of organs, probably, so avoid spam.
@@ -418,8 +418,8 @@ This function restores all organs.
 			organ = get_organ(check_zone(def_zone))
 
 	//Handle other types of damage
-	if(!(damagetype in list(DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_PAIN, DAMAGE_CLONE)))
-		if(!stat && damagetype == DAMAGE_PAIN)
+	if(!(damagetype in list(BRUTE, BURN, PAIN, CLONE)))
+		if(!stat && damagetype == PAIN)
 			if((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
 				emote("scream")
 		return ..()
@@ -441,21 +441,21 @@ This function restores all organs.
 			make_adrenaline(round(damage/10))
 
 	switch(damagetype)
-		if(DAMAGE_BRUTE)
+		if(BRUTE)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.brute_mod
 			organ.take_damage(damage, 0, damage_flags, used_weapon)
 			UpdateDamageIcon()
-		if(DAMAGE_BURN)
+		if(BURN)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.burn_mod
 			organ.take_damage(0, damage, damage_flags, used_weapon)
 			UpdateDamageIcon()
-		if(DAMAGE_PAIN)
+		if(PAIN)
 			organ.add_pain(damage)
-		if(DAMAGE_CLONE)
+		if(CLONE)
 			organ.add_genetic_damage(damage)
 
 	// Will set our damageoverlay icon to the next level, which will then be set back to the normal level the next mob.Life().

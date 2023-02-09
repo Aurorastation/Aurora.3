@@ -710,9 +710,6 @@
 	H.g_style = H.species.default_g_style
 	H.update_hair()
 
-/datum/species/proc/set_default_tail(var/mob/living/carbon/human/H)
-	H.set_tail_style(H.species.tail)
-
 /datum/species/proc/get_species_tally(var/mob/living/carbon/human/H)
 	return 0
 

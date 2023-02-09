@@ -25,10 +25,8 @@
 /obj/item/clothing/suit/chef_jacket
 	name = "chef jacket"
 	desc = "A jacket typically used by chefs when cooking."
-	icon = 'icons/obj/item/clothing/suit/chef_jacket.dmi'
 	icon_state = "chef"
 	item_state = "chef"
-	contained_sprite = TRUE
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	allowed = list(
