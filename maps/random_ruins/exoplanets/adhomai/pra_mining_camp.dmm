@@ -221,6 +221,15 @@
 	temperature = 268.15
 	},
 /area/pra_mining_camp)
+"um" = (
+/obj/structure/closet/crate/plastic,
+/obj/item/storage/firstaid,
+/obj/item/storage/firstaid,
+/obj/item/storage/firstaid,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
 "up" = (
 /obj/machinery/light{
 	dir = 8
@@ -614,6 +623,8 @@
 /obj/item/device/analyzer,
 /obj/item/device/analyzer,
 /obj/item/device/analyzer,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -1140,7 +1151,7 @@ Hg
 Hg
 Hg
 Mq
-zx
+um
 uN
 ct
 Gq

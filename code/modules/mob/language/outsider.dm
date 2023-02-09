@@ -101,15 +101,15 @@
 /datum/language/revenant
 	name = LANGUAGE_REVENANT
 	desc = "The language of the forsaken bluespace inhabitants."
-	speech_verb = list("gargles")
-	ask_verb = list("gags")
-	exclaim_verb = list("retches")
+	speech_verb = list("hisses")
+	ask_verb = list("whispers")
+	exclaim_verb = list("wails")
 	sing_verb = list("trills")
 	colour = "revenant"
 	key = "c"
 	syllables = list("grhhg", "ghrohg", "grgugh", "grrhh", "hghh", "rghghh", "gghhh", "ggrh", "aghrh")
 	flags = RESTRICTED
-	partial_understanding = list(LANGUAGE_TCB = 80)
+	partial_understanding = list(LANGUAGE_TCB = 100)
 	always_parse_language = TRUE
 
 /datum/language/revenant/hivemind
