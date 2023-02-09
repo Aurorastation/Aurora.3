@@ -30,7 +30,7 @@
 
 		var/damage_to_inflict = max(L.health / L.getMaxHealth(), 0) // Otherwise, those in crit would actually be healed.
 
-		var/armor_factor = L.modify_damage_by_armor(BP_CHEST, 30, BURN, armor_pen = 40)
+		var/armor_factor = L.modify_damage_by_armor(BP_CHEST, 30, DAMAGE_BURN, armor_pen = 40)
 		damage_to_inflict = damage_to_inflict * armor_factor
 
 		if(L.isSynthetic())
