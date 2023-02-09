@@ -53,16 +53,30 @@
 
 /obj/effect/overmap/projectile/probe
 	var/obj/effect/overmap/visitable/origin = null
+	var/list/contacts = list() // Contacts, aka overmap effects, in view of the probe
+	instant_contact = TRUE
+	requires_contact = FALSE
+	unknown_id = "Gun Gun Gun"
 
 /obj/effect/overmap/projectile/probe/move_to()
-	var/list/contacts = list()
 
-	for(var/obj/effect/overmap/contact in view(7, src))
-		contacts |= list(contact)
-
-	//var/obj/item/ship_ammunition/ammo = src.ammo
+	var/list/diff_contacts = contacts.Copy()	//Stores the previous-cycle viewed effects that are no longer visible
 	var/obj/effect/overmap/visitable/ship/ship = origin
 
+	// Get a list of effects in a radius that the probe sees
+	for(var/obj/effect/overmap/contact in view(7, src))
+		if(contact != ship && !(contact in ship.datalinked))
+			contacts |= list(contact)
+
+	// Compute the effects that are no longer visible, now the variable is actually a diff, be sure to not remove the ship or datalinked ships
+	diff_contacts -= contacts - list(ship)
+
+	// Removes the contacts no longer visible
+	for(var/obj/effect/overmap/lost_contact in diff_contacts)
+		for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
+			sensor_console.datalink_remove_contact(lost_contact, ship)
+
+	// Add the new ones
 	for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
 		for(var/contact in contacts)
 			sensor_console.datalink_add_contact(contact, ship)
@@ -72,6 +86,14 @@
 	origin = shooter
 	. = ..(maploading, sx, sy)
 
+/obj/effect/overmap/projectile/probe/Destroy()
+	var/obj/effect/overmap/visitable/ship/ship = origin
+	for(var/obj/effect/overmap/contact in contacts)
+		for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
+			sensor_console.datalink_remove_contact(contact, ship)
+			//sensor_console.datalink_remove_ship_datalink(src)
+	. = ..()
+
 /obj/item/projectile/ship_ammo/grauwolf
 	name = "high-explosive flak"
 	icon_state = "small_burst"
@@ -79,13 +101,17 @@
 	armor_penetration = 0
 	penetrating = 0
 	anti_materiel_potential = 0
-	speed = 80
+	speed = 40
 
 /obj/item/projectile/ship_ammo/grauwolf/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
-	. = ..()
+	//. = ..()
+	return
 
 /obj/item/projectile/ship_ammo/grauwolf/process()
 	. = ..()
 
 /obj/item/projectile/ship_ammo/grauwolf/fire(angle, atom/direct_target)
+	. = ..()
+
+/obj/item/projectile/ship_ammo/grauwolf/Destroy()
 	. = ..()
