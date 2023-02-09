@@ -342,3 +342,9 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
+/obj/item/reagent_containers/cooking_container/microwave
+	name = "microwave plate"
+	shortname = "plate"
+	desc = "The working man and broke college student's chariot for convenience store food."
+	icon_state = "plate"
+	appliancetype = MICROWAVE
