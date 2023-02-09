@@ -161,7 +161,7 @@
 				last_visit = "Six days ago"
 			if("Sunday")
 				last_visit = "A week ago"
-		welcome_text += "Last port visit: <br><b>[last_visit]<b><br>"
+		welcome_text += "Last port visit: <br><b>[last_visit]</b><br>"
 		welcome_text += "Travel time to nearest port:<br /><b>[SSatlas.current_sector.get_port_travel_time()]</b><br /><br>"
 		welcome_text += "Scan results show the following points of interest:<br />"
 
