@@ -614,10 +614,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/research,
-/obj/item/material/hatchet/machete/steel,
-/obj/item/material/hatchet/machete/steel,
-/obj/item/clothing/accessory/holster/utility/machete,
-/obj/item/clothing/accessory/holster/utility/machete,
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
 "aDj" = (
@@ -2887,10 +2883,6 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/research,
-/obj/item/material/hatchet/machete/steel,
-/obj/item/material/hatchet/machete/steel,
-/obj/item/clothing/accessory/holster/utility/machete,
-/obj/item/clothing/accessory/holster/utility/machete,
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
 "ckY" = (

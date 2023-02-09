@@ -238,8 +238,10 @@
 	icon_state = "holster_machete"
 	item_state = "thigh_brown"
 	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
-	allowed_items = list(/obj/item/material/hatchet/machete,
-						/obj/item/material/hatchet/machete/deluxe,
-						/obj/item/material/hatchet/machete/unbreakable,
-						/obj/item/material/hatchet/machete/steel)
+	allowed_items = list(
+		/obj/item/material/hatchet/machete,
+		/obj/item/material/hatchet/machete/deluxe,
+		/obj/item/material/hatchet/machete/unbreakable,
+		/obj/item/material/hatchet/machete/steel
+	)
 /********** Utility Holsters End **********/
