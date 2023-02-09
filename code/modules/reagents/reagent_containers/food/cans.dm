@@ -29,7 +29,7 @@
 			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [user.get_pronoun("his")] forehead!"), SPAN_NOTICE("You crush the can of [src.name] on your forehead."))
 		else
 			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [M]'s forehead!"), SPAN_NOTICE("You crush the can of [src.name] on [M]'s forehead."))
-		M.apply_damage(2,BRUTE,BP_HEAD) // ouch.
+		M.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // ouch.
 		playsound(M,'sound/items/soda_crush.ogg', rand(10,50), TRUE)
 		var/obj/item/trash/can/crushed_can = new /obj/item/trash/can(M.loc)
 		crushed_can.icon_state = icon_state
@@ -245,47 +245,47 @@
 //DRINKS
 
 /obj/item/reagent_containers/food/drinks/cans/cola
-	name = "space cola"
-	desc = "Cola. in space."
+	name = "comet cola can"
+	desc = "Getmore's most popular line of soda. A generic cola, otherwise."
 	icon_state = "cola"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/drink/space_cola = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/space_mountain_wind
-	name = "\improper Space Mountain Wind"
-	desc = "Blows right through you like a space wind."
+	name = "stellar jolt can"
+	desc = "For those who have a need for caffeine stronger than would be sensible."
 	icon_state = "space_mountain_wind"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/spacemountainwind = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/thirteenloko
-	name = "thirteen loko"
-	desc = "The CMO has advised crew members that consumption of Thirteen Loko may result in seizures, blindness, drunkeness, or even death. Please Drink Responsibly."
+	name = "getmore energy can"
+	desc = "An extremely ill-advised combination of excessive caffeine and alcohol. Getmore's most controversial product to date!"
 	icon_state = "thirteen_loko"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/alcohol/thirteenloko = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/dr_gibb
-	name = "\improper Dr. Gibb"
-	desc = "A delicious mixture of 42 different flavors."
+	name = "getmore root-cola can"
+	desc = "A canned mixture of Comet Cola and Getmore Root Beer. More popular than one would expect."
 	icon_state = "dr_gibb"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/dr_gibb = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/starkist
-	name = "\improper Star-kist"
-	desc = "The taste of a star in liquid form. And, a bit of tuna...?"
+	name = "orange starshine can"
+	desc = "A sugary-sweet citrus soda."
 	icon_state = "starkist"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/brownstar = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/space_up
-	name = "\improper Space-Up"
-	desc = "Tastes like a hull breach in your mouth."
+	name = "vacuum fizz can"
+	desc = "Vacuum Fizz. It helps keep your cool."
 	icon_state = "space-up"
 	center_of_mass = list("x"=16, "y"=10)
 
@@ -293,7 +293,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/lemon_lime
 	name = "\improper Lemon-Lime"
-	desc = "You wanted ORANGE. It gave you Lemon Lime."
+	desc = "Generic lemon-lime soda."
 	icon_state = "lemon-lime"
 	center_of_mass = list("x"=16, "y"=10)
 
@@ -340,8 +340,8 @@
 	reagents_to_add = list(/singleton/reagent/kois/clean = 10, /singleton/reagent/toxin/phoron = 5)
 
 /obj/item/reagent_containers/food/drinks/cans/root_beer
-	name = "\improper RnD Root Beer"
-	desc = "A classic Earth drink from the United Americas province."
+	name = "getmore root beer can"
+	desc = "A classic Earth drink, made from various roots."
 	icon_state = "root_beer"
 	center_of_mass = list("x"=16, "y"=10)
 
@@ -452,8 +452,8 @@
 	reagents_to_add = list(/singleton/reagent/drink/hrozamal_soda = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/diet_cola
-	name = "Diet Cola"
-	desc = "Space Cola! Now in diet!"
+	name = "diet cola can"
+	desc = "Comet Cola! Now in diet!"
 	icon_state = "diet_cola"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/drink/diet_cola = 30)

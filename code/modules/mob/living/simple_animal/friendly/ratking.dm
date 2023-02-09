@@ -159,7 +159,7 @@
 	update_nutrition_stats()
 
 /mob/living/simple_animal/rat/king/splat()
-	src.apply_damage(5, BRUTE)
+	src.apply_damage(5, DAMAGE_BRUTE)
 
 /mob/living/simple_animal/rat/king/verb/kingDecree()
 	set category = "Abilities"

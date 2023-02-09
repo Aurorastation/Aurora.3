@@ -212,8 +212,8 @@
 						shake_camera(M, 3, 1)
 					else if(M.Check_Shoegrip(FALSE))
 						to_chat(M, SPAN_WARNING("You feel immense pressure in your feet as you cling to the floor!"))
-						M.apply_damage(10, PAIN, BP_L_FOOT)
-						M.apply_damage(10, PAIN, BP_R_FOOT)
+						M.apply_damage(10, DAMAGE_PAIN, BP_L_FOOT)
+						M.apply_damage(10, DAMAGE_PAIN, BP_R_FOOT)
 						shake_camera(M, 5, 1)
 					else
 						to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")

@@ -81,6 +81,12 @@
 	pump_direction = 0;
 	use_power = 1
 	},
+/obj/machinery/light,
+/obj/machinery/camera/motion{
+	c_tag = "Telecommunications - Port";
+	dir = 8;
+	network = list("Command","Security","Telecommunications")
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "acg" = (
@@ -1138,7 +1144,7 @@
 /area/horizon/security/meeting_room)
 "aRw" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (.45 Pistol and Holsters)";
+	name = "Weaponry (10mm Pistol and Holsters)";
 	req_access = null;
 	req_one_access = list(3,19)
 	},
@@ -10027,12 +10033,10 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
 	},
-/obj/machinery/camera/motion{
-	c_tag = "Telecommunications - Port";
-	dir = 8;
-	network = list("Command","Security","Telecommunications")
-	},
 /obj/machinery/firealarm/east,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "ilx" = (
@@ -13740,6 +13744,9 @@
 	},
 /obj/machinery/alarm/tcom{
 	pixel_y = 28
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -19006,6 +19013,9 @@
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "ppX" = (
@@ -20716,6 +20726,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "qTN" = (
@@ -23781,6 +23792,7 @@
 /area/bridge/selfdestruct)
 "tkE" = (
 /obj/machinery/blackbox_recorder,
+/obj/machinery/light,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "tkI" = (
@@ -26076,7 +26088,7 @@
 /area/medical/ward/isolation)
 "uUy" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (.45 Magazines)";
+	name = "Weaponry (10mm Ammunition)";
 	req_access = null;
 	req_one_access = list(3,19)
 	},
@@ -30181,14 +30193,28 @@
 /area/horizon/crew_quarters/fitness/lounge)
 "ygT" = (
 /obj/structure/table/rack,
-/obj/item/stack/material/plasteel{
-	amount = 20
+/obj/item/stack/liquidbags/half_full{
+	pixel_x = -5;
+	pixel_y = -3
 	},
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/liquidbags/half_full,
-/obj/item/stack/barbed_wire/half_full,
+/obj/item/stack/barbed_wire/half_full{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/stack/material/plasteel{
+	amount = 20;
+	pixel_y = 3;
+	pixel_x = 5
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = 5
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = 5
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = 5
+	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
