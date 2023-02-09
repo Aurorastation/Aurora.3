@@ -51,6 +51,12 @@
 	sector_hud_menu_sound = 'sound/effects/tajara_menu_click.ogg'
 	sector_hud_arrow = "menu_arrow"
 
+/datum/space_sector/srandmarr/get_port_travel_time()
+	return "[rand(6, 12)] hours"
+
+/datum/space_sector/srandmarr/generate_system_name()
+	return "S'rand'marr, and nearby points of interest"	
+
 /datum/space_sector/nrrahrahul
 	name = SECTOR_NRRAHRAHUL
 	description = "Hro'zamal is the second planet in the Nrrahrahul system. Formerly named Nrrahrahul Two, it was given the name Hro'zamal after the establishment of a permanent civilian \

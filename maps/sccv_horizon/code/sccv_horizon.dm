@@ -143,8 +143,26 @@
 	if (horizon) //If the overmap is disabled, it's possible for there to be no torch.
 		var/list/space_things = list()
 		welcome_text += "Current Coordinates:<br /><b>[horizon.x]:[horizon.y]</b><br /><br>"
-		welcome_text += "Next system targeted for jump:<br /><b>[generate_system_name()]</b><br /><br>"
-		welcome_text += "Travel time to nearest port:<br /><b>[rand(2,45)] days</b><br /><br>"
+		welcome_text += "Next system targeted for jump:<br /><b>[SSatlas.current_sector.generate_system_name()]</b><br /><br>"
+		var/last_visit
+		var/current_day = time2text(world.realtime, "Day")
+		switch(current_day)
+			if("Monday")
+				last_visit = "one day ago"
+			if("Tuesday")
+				last_visit = "two days ago"
+			if("Wednesday")
+				last_visit = "three days ago"
+			if("Thursday")
+				last_visit = "four days ago"
+			if("Friday")
+				last_visit = "five days ago"
+			if("Saturday")
+				last_visit = "six days ago"
+			if("Sunday")
+				last_visit = "a week ago"
+		welcome_text += "Last port visit: [last_visit]<br>"
+		welcome_text += "Travel time to nearest port:<br /><b>[SSatlas.current_sector.get_port_travel_time()]</b><br /><br>"
 		welcome_text += "Scan results show the following points of interest:<br />"
 
 		for(var/zlevel in map_sectors)
