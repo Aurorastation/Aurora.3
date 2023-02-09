@@ -136,7 +136,7 @@
 /datum/map/sccv_horizon/send_welcome()
 	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
 
-	var/welcome_text = "<center><img src = scclogo.png><br />[FONT_LARGE("<b>SCCV Horizon</b> Sensor Readings:")]<br>"
+	var/welcome_text = "<center><img src = scclogo.png><br />[FONT_LARGE("<b>SCCV Horizon</b> Ultra-Range Sensor Readings:")]<br>"
 	welcome_text += "Report generated on [worlddate2text()] at [worldtime2text()]</center><br /><br />"
 	welcome_text += "<hr>Current sector:<br /><b>[SSatlas.current_sector.name]</b><br /><br>"
 
@@ -161,7 +161,7 @@
 				last_visit = "6 days ago"
 			if("Sunday")
 				last_visit = "1 week ago"
-		welcome_text += "Last port visit: <br><b>[last_visit]</b><br>"
+		welcome_text += "Last port visit: <br><b>[last_visit]</b><br><br>"
 		welcome_text += "Travel time to nearest port:<br /><b>[SSatlas.current_sector.get_port_travel_time()]</b><br /><br>"
 		welcome_text += "Scan results show the following points of interest:<br />"
 
@@ -187,4 +187,4 @@
 		welcome_text += "<hr>"
 
 	post_comm_message("SCCV Horizon Sensor Readings", welcome_text)
-	priority_announcement.Announce(message = "New [current_map.company_name] Update available at all communication consoles.")
+	priority_announcement.Announce(message = "Long-range sensor readings have been printed out at all communication consoles.")
