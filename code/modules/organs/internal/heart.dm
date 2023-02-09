@@ -51,7 +51,7 @@
 		pulse_mod++
 
 	var/oxy = owner.get_blood_oxygenation()
-	if(oxy < BLOOD_VOLUME_OKAY) //brain wants us to get moar oxygen
+	if(oxy < BLOOD_VOLUME_OKAY) //brain wants us to get MOAR OXY
 		pulse_mod++
 	if(oxy < BLOOD_VOLUME_BAD) //MOAR
 		pulse_mod++

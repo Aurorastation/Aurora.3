@@ -70,7 +70,7 @@
 
 /datum/gear/vaurca_robe
 	display_name = "hive cloak"
-	description = "A selection of vaurca colored Hive cloaks."
+	description = "A selection of vaurca colored hive cloaks."
 	path = /obj/item/clothing/suit/vaurca
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
@@ -169,7 +169,7 @@
 
 /datum/gear/augment/language_processor
 	display_name = "language processor"
-	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective Hives."
+	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective hives."
 	path = /obj/item/organ/internal/augment/language/klax
 	cost = 0
 	sort_category = "Xenowear - Vaurca"

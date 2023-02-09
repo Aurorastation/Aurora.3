@@ -257,8 +257,6 @@
 	if(!issilicon(usr)) // AI and robots aren't allowed to pilot
 		if (href_list["move"])
 			var/ndir = text2num(href_list["move"])
-			if(prob(usr.confused * 5))
-				ndir = turn(ndir, pick(45, -45))
 			connected.relaymove(usr, ndir, accellimit)
 			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1) // remove when turning into vueui
 

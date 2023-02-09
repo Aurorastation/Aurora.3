@@ -247,7 +247,7 @@
 	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
 		if(istype(G.affecting,/mob/living))
-			grab_smash_attack(G, DAMAGE_BRUTE)
+			grab_smash_attack(G, BRUTE)
 			return
 
 	if(W.flags & NOBLUDGEON)
@@ -284,7 +284,7 @@
 			dismantle_window()
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
+		if(W.damtype == BRUTE || W.damtype == BURN)
 			if(reinf)
 				user.do_attack_animation(src)
 				if(W.force >= REINFORCED_WINDOW_DAMAGE_FORCE)
@@ -305,7 +305,7 @@
 			playsound(src, hitsound, 10, 1)
 	return
 
-/obj/structure/window/proc/grab_smash_attack(obj/item/grab/G, var/damtype = DAMAGE_BRUTE)
+/obj/structure/window/proc/grab_smash_attack(obj/item/grab/G, var/damtype = BRUTE)
 	var/mob/living/M = G.affecting
 	var/mob/living/user = G.assailant
 
@@ -673,7 +673,7 @@
 	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
 		if(istype(G.affecting,/mob/living))
-			grab_smash_attack(G, DAMAGE_BRUTE)
+			grab_smash_attack(G, BRUTE)
 			return
 
 	if(W.flags & NOBLUDGEON)
@@ -709,7 +709,7 @@
 				dismantle_window()
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
+		if(W.damtype == BRUTE || W.damtype == BURN)
 			if(reinf)
 				user.do_attack_animation(src)
 				if(W.force >= FULL_REINFORCED_WINDOW_DAMAGE_FORCE)

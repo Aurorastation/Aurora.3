@@ -144,12 +144,3 @@
 
 /// Convenience define for nth-bit flags, 0-indexed
 #define FLAG(BIT) SHIFTL(1, BIT)
-
-/// Increase the size of L by 1 at the end. Is the old last entry index.
-#define LIST_INC(L) ((L).len++)
-
-/// Increase the size of L by 1 at the end. Is the new last entry index.
-#define LIST_PRE_INC(L) (++(L).len)
-
-/// Decrease the size of L by 1 from the end. Is the old last entry index.
-#define LIST_DEC(L) ((L).len--)

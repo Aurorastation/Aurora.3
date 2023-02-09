@@ -101,14 +101,6 @@
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-	
-/datum/gear/head/skrell/skrell_bandana
-	display_name = "skrell bandana"
-	path = /obj/item/clothing/head/skrell/skrell_bandana
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
-	sort_category = "Xenowear - Skrell"
-	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
 
 /datum/gear/stellascope
 	display_name = "stellascope"

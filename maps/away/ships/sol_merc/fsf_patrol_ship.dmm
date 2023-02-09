@@ -661,8 +661,6 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/item/device/gps,
-/obj/item/clothing/glasses/safety/goggles/tactical,
-/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "eTq" = (
@@ -1346,8 +1344,6 @@
 /obj/item/clothing/suit/space/void/sol/fsf,
 /obj/item/clothing/head/helmet/space/void/sol/fsf,
 /obj/item/device/gps,
-/obj/item/clothing/glasses/safety/goggles/tactical,
-/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "iQy" = (
@@ -1682,8 +1678,6 @@
 /obj/item/clothing/suit/space/void/sol/fsf,
 /obj/item/clothing/head/helmet/space/void/sol/fsf,
 /obj/item/device/gps,
-/obj/item/clothing/glasses/safety/goggles/tactical,
-/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "lBQ" = (
@@ -2629,8 +2623,6 @@
 /obj/item/clothing/suit/space/void/sol/fsf,
 /obj/item/clothing/head/helmet/space/void/sol/fsf,
 /obj/item/device/gps,
-/obj/item/clothing/glasses/safety/goggles/tactical,
-/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "vgc" = (

@@ -232,8 +232,6 @@
 	dir = 8
 	},
 /obj/item/device/gps,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/glasses/safety/goggles/tactical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "aHC" = (
@@ -475,8 +473,6 @@
 	dir = 8
 	},
 /obj/item/device/gps,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/glasses/safety/goggles/tactical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "bdq" = (
@@ -1495,7 +1491,6 @@
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical/w,
 /obj/item/clothing/mask/surgical/w,
-/obj/item/clothing/glasses/safety/goggles/tactical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "dUd" = (
@@ -2648,8 +2643,6 @@
 /obj/item/clothing/head/helmet/space/void/sol/ssmd,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/device/gps,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/glasses/safety/goggles/tactical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "gKp" = (
@@ -2894,8 +2887,6 @@
 	dir = 4
 	},
 /obj/item/device/gps,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/glasses/safety/goggles/tactical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "hBs" = (

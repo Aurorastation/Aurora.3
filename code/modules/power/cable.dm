@@ -546,7 +546,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 							if(!do_mob(user, M, 200))
 								user.visible_message(SPAN_DANGER("[user]'s hand slips and tears open the wound on [M]'s [affecting.name]!"), \
 														SPAN_DANGER("<font size=2>The wound on your [affecting.name] is torn open!</font>"))
-								M.apply_damage(rand(1,10), DAMAGE_BRUTE)
+								M.apply_damage(rand(1,10), BRUTE)
 								break
 							user.visible_message(SPAN_NOTICE("\The [user] barely manages to stitch \a [W.desc] on [M]'s [affecting.name]."), \
 														SPAN_NOTICE("You barely manage to stitch \a [W.desc] on [M]'s [affecting.name].") )

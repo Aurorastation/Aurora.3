@@ -119,13 +119,13 @@
 			real_damage += G.punch_force
 			hit_dam_type = G.punch_damtype
 			if(A.pulling_punches)
-				hit_dam_type = DAMAGE_PAIN
+				hit_dam_type = PAIN
 
 			if(G.sharp)
-				damage_flags |= DAMAGE_FLAG_SHARP
+				damage_flags |= DAM_SHARP
 
 			if(G.edge)
-				damage_flags |= DAMAGE_FLAG_EDGE
+				damage_flags |= DAM_EDGE
 
 			if(istype(A.gloves,/obj/item/clothing/gloves/force))
 				var/obj/item/clothing/gloves/force/X = A.gloves
