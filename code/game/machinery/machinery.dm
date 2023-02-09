@@ -497,12 +497,12 @@ Class Procs:
 			return
 
 	if(hair_style.length >= 4 && prob(25))
-		H.apply_damage(30, DAMAGE_BRUTE, BP_HEAD)
+		H.apply_damage(30, BRUTE, BP_HEAD)
 		H.visible_message(SPAN_DANGER("\The [H]'s hair catches in \the [src]!"),
 					SPAN_DANGER("Your hair gets caught in \the [src]!"))
 		if(H.can_feel_pain())
 			H.emote("scream")
-			H.apply_damage(45, DAMAGE_PAIN)
+			H.apply_damage(45, PAIN)
 
 /obj/machinery/proc/do_signaler() // override this to customize effects
 	return

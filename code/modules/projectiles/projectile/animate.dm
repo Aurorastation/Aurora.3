@@ -2,7 +2,7 @@
 	name = "bolt of animation"
 	icon_state = "ice_1"
 	damage = 0
-	damage_type = DAMAGE_BURN
+	damage_type = BURN
 	nodamage = 1
 	check_armor = "energy"
 

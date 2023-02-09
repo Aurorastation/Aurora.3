@@ -93,7 +93,7 @@
 	bicaridine	spawn_reagent = /singleton/reagent/bicaridine
 	chloral		spawn_reagent = /singleton/reagent/polysomnine
 	clonexadone	spawn_reagent = /singleton/reagent/clonexadone
-	coughsyrup	spawn_reagent = /singleton/reagent/antidexafen
+	coughsyrup	spawn_reagent = /singleton/reagent/coughsyrup
 	cryoxadone	spawn_reagent = /singleton/reagent/cryoxadone
 	dermaline	spawn_reagent = /singleton/reagent/dermaline
 	dexalin		spawn_reagent = /singleton/reagent/dexalin

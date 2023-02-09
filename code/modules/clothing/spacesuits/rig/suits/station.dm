@@ -206,7 +206,6 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/rfd_c,
-		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/actuators
 		)
 

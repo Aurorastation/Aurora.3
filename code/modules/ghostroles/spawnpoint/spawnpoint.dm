@@ -17,7 +17,6 @@
 
 	var/identifier = null //identifier of this spawnpoint
 
-	var/single_use = FALSE //Ghost spawners with this set to TRUE will not be disabled.
 	var/recharge_time = 0 //Time it takes until the ghostspawner can be used again
 	var/unavailable_time = null //Time when the ghost spawner became unavailable
 	var/icon_unavailable = "x2"
@@ -62,7 +61,7 @@
 	SSghostroles.vui_interact(user,identifier)
 
 /obj/effect/ghostspawpoint/proc/is_available()
-	return TRUE
+	return state == STATE_AVAILABLE
 
 /obj/effect/ghostspawpoint/proc/set_spawned()
 	if(recharge_time) //If we are available again after a certain time -> being processing
@@ -70,8 +69,7 @@
 		unavailable_time = world.time
 		START_PROCESSING(SSprocessing, src)
 	else
-		if(single_use)
-			state = STATE_USED
+		state = STATE_USED
 	update_icon()
 
 /obj/effect/ghostspawpoint/proc/set_available()
@@ -106,11 +104,7 @@
 	icon_used = "x3" //Icon to use when spwanpoint has been used
 
 	recharge_time = 1
-	single_use = TRUE
 
-/obj/effect/ghostspawpoint/one_use
-	name = "single use ghost spawner"
-	single_use = TRUE
 
 /obj/effect/ghostspawpoint/cryo
 	name = "cryogenic storage pod"

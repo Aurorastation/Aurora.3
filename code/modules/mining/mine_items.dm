@@ -1095,7 +1095,7 @@ var/list/total_extraction_beacons = list()
 		if(creator)
 			add_logs(creator, L, "used a resonator field on", "resonator")
 		to_chat(L, SPAN_DANGER("\The [src] ruptured with you in it!"))
-		L.apply_damage(resonance_damage, DAMAGE_BRUTE)
+		L.apply_damage(resonance_damage, BRUTE)
 	qdel(src)
 
 

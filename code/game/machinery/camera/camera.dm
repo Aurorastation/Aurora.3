@@ -203,7 +203,7 @@
 			src.bugged = 1
 		return TRUE
 
-	else if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN) //bashing cameras
+	else if(W.damtype == BRUTE || W.damtype == BURN) //bashing cameras
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if (W.force >= src.toughness)
 			user.do_attack_animation(src)

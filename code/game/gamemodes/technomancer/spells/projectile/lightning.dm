@@ -26,7 +26,7 @@
 	icon_state = "lightning"
 	damage = 25
 	armor_penetration = 25
-	damage_type = DAMAGE_BURN
+	damage_type = BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/tesla
 	tracer_type = /obj/effect/projectile/tracer/tesla

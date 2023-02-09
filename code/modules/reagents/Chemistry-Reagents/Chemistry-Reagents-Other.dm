@@ -156,7 +156,7 @@
 	affect_ingest(M, alien, removed, holder)
 
 /singleton/reagent/uranium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.apply_damage(5 * removed, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	M.apply_effect(5 * removed, IRRADIATE, blocked = 0)
 
 /singleton/reagent/uranium/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 3)
@@ -178,7 +178,7 @@
 	affect_ingest(M, alien, removed, holder)
 
 /singleton/reagent/radioactive_waste/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.apply_effect(25 * removed, DAMAGE_RADIATION, blocked = 0)
+	M.apply_effect(25 * removed, IRRADIATE, blocked = 0)
 
 /singleton/reagent/radioactive_waste/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 3)

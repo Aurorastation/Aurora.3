@@ -115,9 +115,6 @@
 		for(var/spawnpoint in spawnpoints) //Loop through the applicable spawnpoints
 			var/turf/T = SSghostroles.get_spawnpoint(spawnpoint, use) //Gets the first matching spawnpoint or null if none are available
 			if(T) //If we have a spawnpoint, return it
-				if(use)
-					spawnpoints -= spawnpoint //Set the spawnpoint at the bottom of the list.
-					spawnpoints += spawnpoint
 				return T
 	if(!isnull(landmark_name))
 		var/list/possible_landmarks = list()

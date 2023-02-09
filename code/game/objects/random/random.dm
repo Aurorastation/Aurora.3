@@ -166,16 +166,12 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "firstaid"
 	problist = list(
-		/obj/item/storage/firstaid/regular = 4,
-		/obj/item/storage/firstaid/trauma = 3,
-		/obj/item/storage/firstaid/toxin = 3,
-		/obj/item/storage/firstaid/o2 = 3,
-		/obj/item/storage/firstaid/fire = 3,
-		/obj/item/storage/firstaid/radiation = 3,
-		/obj/item/storage/firstaid/stab = 2,
-		/obj/item/storage/firstaid/adv = 2,
-		/obj/item/storage/firstaid/combat = 1,
-		/obj/item/storage/firstaid/empty = 2
+		/obj/item/storage/firstaid/regular = 3,
+		/obj/item/storage/firstaid/toxin = 2,
+		/obj/item/storage/firstaid/o2 = 2,
+		/obj/item/storage/firstaid/fire = 2,
+		/obj/item/storage/firstaid/brute = 1,
+		/obj/item/storage/firstaid/adv = 1
 	)
 
 /obj/random/contraband
@@ -427,6 +423,7 @@
 	name = "random backpack"
 	problist = list(
 		/obj/item/storage/backpack = 3,
+		/obj/item/storage/backpack/holding = 0.5,
 		/obj/item/storage/backpack/cultpack = 2,
 		/obj/item/storage/backpack/medic = 3,
 		/obj/item/storage/backpack/security = 3,
@@ -554,7 +551,7 @@
 		log_debug("random_obj (voidsuit): Type [suit.type] was unable to spawn a matching helmet!")
 	new /obj/item/clothing/shoes/magboots(loc)
 	if (damaged && prob(60))
-		suit.create_breaches(pick(DAMAGE_BRUTE, DAMAGE_BURN), rand(1, 5))
+		suit.create_breaches(pick(BRUTE, BURN), rand(1, 5))
 
 //Random MRE stuff
 

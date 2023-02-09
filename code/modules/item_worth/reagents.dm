@@ -612,7 +612,7 @@
 /singleton/reagent/thetamycin
 	value = 2.5
 
-/singleton/reagent/antidexafen
+/singleton/reagent/coughsyrup
 	value = 1.5
 
 /singleton/reagent/sterilizine
