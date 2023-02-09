@@ -26,6 +26,13 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"z" = (
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/bruise_pack/full,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "P" = (
 /obj/structure/bonfire/light_up,
 /turf/simulated/floor/exoplanet/snow{
@@ -43,7 +50,7 @@ c
 (2,1,1) = {"
 c
 c
-c
+z
 c
 c
 "}
