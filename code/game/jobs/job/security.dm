@@ -293,7 +293,7 @@
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
-	tablet = /obj/item/modular_computer/handheld/preset/security\
+	tablet = /obj/item/modular_computer/handheld/preset/security
 
 /datum/outfit/job/intern_sec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -304,5 +304,5 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/unathi(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
