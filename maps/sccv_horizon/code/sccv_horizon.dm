@@ -140,7 +140,7 @@
 	welcome_text += "Report generated on [worlddate2text()] at [worldtime2text()]</center><br /><br />"
 	welcome_text += "<hr>Current sector:<br /><b>[SSatlas.current_sector.name]</b><br /><br>"
 
-	if (horizon) //If the overmap is disabled, it's possible for there to be no torch.
+	if (horizon) //If the overmap is disabled, it's possible for there to be no Horizon.
 		var/list/space_things = list()
 		welcome_text += "Current Coordinates:<br /><b>[horizon.x]:[horizon.y]</b><br /><br>"
 		welcome_text += "Next system targeted for jump:<br /><b>[SSatlas.current_sector.generate_system_name()]</b><br /><br>"
@@ -148,20 +148,20 @@
 		var/current_day = time2text(world.realtime, "Day")
 		switch(current_day)
 			if("Monday")
-				last_visit = "one day ago"
+				last_visit = "One day ago"
 			if("Tuesday")
-				last_visit = "two days ago"
+				last_visit = "Two days ago"
 			if("Wednesday")
-				last_visit = "three days ago"
+				last_visit = "Three days ago"
 			if("Thursday")
-				last_visit = "four days ago"
+				last_visit = "Four days ago"
 			if("Friday")
-				last_visit = "five days ago"
+				last_visit = "Five days ago"
 			if("Saturday")
-				last_visit = "six days ago"
+				last_visit = "Six days ago"
 			if("Sunday")
-				last_visit = "a week ago"
-		welcome_text += "Last port visit: [last_visit]<br>"
+				last_visit = "A week ago"
+		welcome_text += "Last port visit: <br><b>[last_visit]<b><br>"
 		welcome_text += "Travel time to nearest port:<br /><b>[SSatlas.current_sector.get_port_travel_time()]</b><br /><br>"
 		welcome_text += "Scan results show the following points of interest:<br />"
 
