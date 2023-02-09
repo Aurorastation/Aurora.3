@@ -148,19 +148,19 @@
 		var/current_day = time2text(world.realtime, "Day")
 		switch(current_day)
 			if("Monday")
-				last_visit = "One day ago"
+				last_visit = "1 day ago"
 			if("Tuesday")
-				last_visit = "Two days ago"
+				last_visit = "2 days ago"
 			if("Wednesday")
-				last_visit = "Three days ago"
+				last_visit = "3 days ago"
 			if("Thursday")
-				last_visit = "Four days ago"
+				last_visit = "4 days ago"
 			if("Friday")
-				last_visit = "Five days ago"
+				last_visit = "5 days ago"
 			if("Saturday")
-				last_visit = "Six days ago"
+				last_visit = "6 days ago"
 			if("Sunday")
-				last_visit = "A week ago"
+				last_visit = "1 week ago"
 		welcome_text += "Last port visit: <br><b>[last_visit]</b><br>"
 		welcome_text += "Travel time to nearest port:<br /><b>[SSatlas.current_sector.get_port_travel_time()]</b><br /><br>"
 		welcome_text += "Scan results show the following points of interest:<br />"

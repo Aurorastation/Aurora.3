@@ -113,4 +113,4 @@
 	return "[rand(1, 3)] days"
 
 /datum/space_sector/proc/generate_system_name()
-	return "[pick("Miranda", "BNM", "Xavier", "GJ", "HD", "TC", "Melissa", "TC")][prob(10) ? " Eridani" : ""] [rand(100,999)][prob(10) ? "[pick(greek_letters)]" : ""]"
+	return "[pick("Miranda", "BNM", "Xavier", "GJ", "HD", "TC", "Melissa", "TC")][prob(10) ? " Eridani" : ""] [rand(100,999)][prob(10) ? " [pick(greek_letters)]" : ""]"
