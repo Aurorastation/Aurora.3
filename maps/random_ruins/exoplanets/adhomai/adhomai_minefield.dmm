@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
-/obj/structure/flora/grass/both,
+/obj/structure/flora/grass/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -29,13 +29,13 @@
 	},
 /area/exoplanet/adhomai)
 "x" = (
-/obj/structure/flora/bush,
+/obj/structure/flora/bush/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "A" = (
-/obj/structure/flora/tree/pine,
+/obj/structure/flora/tree/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -48,12 +48,6 @@
 /area/exoplanet/adhomai)
 "P" = (
 /obj/structure/pit/landmine,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/exoplanet/adhomai)
-"X" = (
-/obj/structure/flora/tree/dead,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -207,7 +201,7 @@ c
 c
 c
 c
-X
+A
 m
 m
 m
@@ -255,7 +249,7 @@ c
 c
 s
 c
-X
+A
 c
 c
 c
@@ -282,7 +276,7 @@ c
 c
 c
 c
-X
+A
 c
 c
 c
@@ -415,7 +409,7 @@ c
 c
 c
 c
-X
+A
 c
 c
 c
@@ -649,7 +643,7 @@ c
 c
 c
 c
-X
+A
 c
 c
 c
@@ -668,12 +662,12 @@ A
 c
 c
 c
-X
+A
 c
 "}
 (19,1,1) = {"
 c
-X
+A
 c
 c
 c
@@ -863,7 +857,7 @@ c
 c
 c
 c
-X
+A
 c
 c
 c
@@ -878,7 +872,7 @@ c
 (25,1,1) = {"
 c
 c
-X
+A
 c
 c
 c
@@ -973,7 +967,7 @@ c
 c
 c
 c
-X
+A
 c
 c
 "}

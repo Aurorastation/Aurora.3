@@ -16,6 +16,9 @@
 	canbrush = TRUE
 	faction = "Adhomai"
 	gender = FEMALE
+	maxHealth = 50
+	health = 50
+	mob_size = 5
 	var/eggsleft = 0
 
 /mob/living/simple_animal/ice_tunneler/attackby(var/obj/item/O as obj, var/mob/user as mob)
@@ -57,6 +60,10 @@
 	icon_state = "tunneler_baby"
 	icon_living = "tunneler_baby"
 	icon_dead = "tunneler_baby_dead"
+	maxHealth = 10
+	health = 10
+	mob_size = 2
+	meat_amount = 1
 
 /mob/living/simple_animal/fatshouter
 	name = "fatshouter"
@@ -142,3 +149,9 @@
 	icon_living = "rafama_baby"
 	icon_dead = "rafama_baby_dead"
 	gender = MALE
+	maxHealth = 30
+	health = 30
+	mob_size = 5
+	melee_damage_lower = 5
+	melee_damage_upper = 5
+	meat_amount = 2
