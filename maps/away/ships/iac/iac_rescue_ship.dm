@@ -64,8 +64,9 @@
 	name = "IAC Rescue Ship"
 	class = "IAV"
 	desc = "The Sanctuary-class rescue ship is a fast response medical vessel, based in large part off of the Asclepius-class medical transport, a widespread clinic ship, designed to operate mainly between planets rather than in open space. Most Sanctuary-class hulls are heavily refitted to accomodate for the new conditions in the Wildlands, sporting additional thrusters and a hangar bay, created from what was originally a waiting room. However, it is still limited by its origins, having only the bare minimum of crew and atmospherics facilities, as well as being rather obviously unarmed, often needing to return to port for repairs or supplies."
-	icon_state = "ship"
-	moving_state = "ship_moving"
+	icon_state = "sanctuary"
+	moving_state = "sanctuary_moving"
+	colors = list("#ace8fa", "#71abf7")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -129,6 +130,9 @@
 	designation = "Heka"
 	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one's transponder identifies it as belonging to a Interstellar Aid Corps vessel."
 	shuttle = "IAC Ambulance Shuttle"
+	icon_state = "pod"
+	moving_state = "pod_moving"
+	colors = list("#ace8fa", "#71abf7")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
