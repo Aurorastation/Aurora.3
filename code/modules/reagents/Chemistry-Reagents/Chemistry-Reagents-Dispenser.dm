@@ -392,7 +392,7 @@
 	var/message_shown = FALSE
 
 /singleton/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
+	M.apply_effect(10 * removed, DAMAGE_RADIATION, blocked = 0) // Radium may increase your chances to cure a disease
 
 /singleton/reagent/radium/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 3)

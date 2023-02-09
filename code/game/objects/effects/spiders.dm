@@ -248,7 +248,7 @@
 			burst_out(O)
 		if (O.owner)
 			if(amount_grown > 40 && prob(1))
-				O.owner.apply_damage(1, TOX, O.limb_name)
+				O.owner.apply_damage(1, DAMAGE_TOXIN, O.limb_name)
 				if(world.time > last_itch + 30 SECONDS)
 					last_itch = world.time
 					O.owner.visible_message(

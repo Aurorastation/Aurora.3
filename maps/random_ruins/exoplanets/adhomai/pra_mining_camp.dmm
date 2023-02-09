@@ -99,7 +99,7 @@
 	},
 /area/pra_mining_camp)
 "hQ" = (
-/obj/structure/flora/tree/dead,
+/obj/structure/flora/tree/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -221,6 +221,15 @@
 	temperature = 268.15
 	},
 /area/pra_mining_camp)
+"um" = (
+/obj/structure/closet/crate/plastic,
+/obj/item/storage/firstaid,
+/obj/item/storage/firstaid,
+/obj/item/storage/firstaid,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
 "up" = (
 /obj/machinery/light{
 	dir = 8
@@ -332,7 +341,7 @@
 	},
 /area/pra_mining_camp)
 "CC" = (
-/obj/structure/flora/grass/brown,
+/obj/structure/flora/grass/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -614,6 +623,8 @@
 /obj/item/device/analyzer,
 /obj/item/device/analyzer,
 /obj/item/device/analyzer,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -657,7 +668,7 @@
 	},
 /area/exoplanet/adhomai)
 "WW" = (
-/obj/structure/flora/bush,
+/obj/structure/flora/bush/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -1140,7 +1151,7 @@ Hg
 Hg
 Hg
 Mq
-zx
+um
 uN
 ct
 Gq

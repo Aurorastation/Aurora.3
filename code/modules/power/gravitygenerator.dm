@@ -418,7 +418,7 @@
 
 /obj/machinery/gravity_generator/main/proc/pulse_radiation(var/amount = 20)
 	for(var/mob/living/L in view(7, src))
-		L.apply_damage(amount, IRRADIATE, damage_flags = DAM_DISPERSED)
+		L.apply_damage(amount, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 // Shake everyone on the z level to let them know that gravity was enagaged/disenagaged.
 /obj/machinery/gravity_generator/main/proc/shake_everyone()

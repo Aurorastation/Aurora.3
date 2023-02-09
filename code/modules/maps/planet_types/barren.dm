@@ -97,6 +97,7 @@
 		/datum/map_template/ruin/exoplanet/crashed_coc_skipjack,
 		/datum/map_template/ruin/exoplanet/carp_nest,
 		/datum/map_template/ruin/exoplanet/drill_site)
+	place_near_main = list(1, 1)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/generate_planet_image()
 	skybox_image = image('icons/skybox/skybox_rock_128.dmi', "bigrock")
