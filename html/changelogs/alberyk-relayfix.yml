@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the sensor relay having no sprites."
