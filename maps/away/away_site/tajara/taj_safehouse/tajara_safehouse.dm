@@ -15,6 +15,11 @@
 /obj/effect/overmap/visitable/sector/tajara_safehouse
 	name = "abandoned outpost"
 	desc = "A derelict space outpost."
+
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "outpost"
+	color = "#CD4A4C"
+
 	initial_restricted_waypoints = list(
 		"Unmarked Civilian Shuttle" = list("nav_hangar_tajara_safehouse")
 	)

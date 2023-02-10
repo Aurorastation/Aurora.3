@@ -15,6 +15,11 @@
 /obj/effect/overmap/visitable/sector/tajara_mining_jack
 	name = "adhomian mining outpost"
 	desc = "An outpost used by the crew of adhomian mining jacks."
+
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "outpost"
+	color = "#DAA06D"
+
 	initial_generic_waypoints = list(
 		"nav_tajara_mining_jack_1",
 		"nav_tajara_mining_jack_2",

@@ -15,6 +15,11 @@
 /obj/effect/overmap/visitable/sector/peoples_station
 	name = "People's Space Station"
 	desc = "Built in the interwar period, the People's Space Station bears the prestige of being the first space installation designed, constructed, and manned by Tajara."
+
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "battlestation"
+	color = "#8A3324"
+
 	initial_generic_waypoints = list(
 		"nav_peoples_station_ship_1",
 		"nav_peoples_station_ship_1",

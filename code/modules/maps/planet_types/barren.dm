@@ -59,10 +59,6 @@
 	if(prob(20))
 		overlays += image('icons/turf/decals/decals.dmi', "asteroid[rand(0,9)]")
 
-/obj/effect/overmap/visitable/sector/exoplanet/barren/Initialize()
-  . = ..()
-  icon_state = "asteroid[rand(1,3)]"
-
 /turf/simulated/floor/exoplanet/barren/Initialize()
 	. = ..()
 	update_icon()
@@ -98,6 +94,9 @@
 		/datum/map_template/ruin/exoplanet/carp_nest,
 		/datum/map_template/ruin/exoplanet/drill_site)
 	place_near_main = list(1, 1)
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/update_icon()
+  icon_state = "asteroid[rand(1,3)]"
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/generate_planet_image()
 	skybox_image = image('icons/skybox/skybox_rock_128.dmi', "bigrock")
