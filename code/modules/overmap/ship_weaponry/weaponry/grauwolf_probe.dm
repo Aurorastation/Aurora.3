@@ -20,7 +20,8 @@
 	overmap_icon_state = "flak"
 	caliber = SHIP_CALIBER_90MM
 	ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE
-	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf
+	overmap_behaviour = null
+	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf_probe
 	burst = 4
 
 /obj/item/ship_ammunition/grauwolf_probe/transfer_to_overmap(var/new_z)
@@ -94,8 +95,8 @@
 			//sensor_console.datalink_remove_ship_datalink(src)
 	. = ..()
 
-/obj/item/projectile/ship_ammo/grauwolf
-	name = "high-explosive flak"
+/obj/item/projectile/ship_ammo/grauwolf_probe
+	name = "sensor probe projectile"
 	icon_state = "small_burst"
 	damage = 0
 	armor_penetration = 0
@@ -103,15 +104,15 @@
 	anti_materiel_potential = 0
 	speed = 40
 
-/obj/item/projectile/ship_ammo/grauwolf/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+/obj/item/projectile/ship_ammo/grauwolf_probe/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	//. = ..()
 	return
 
-/obj/item/projectile/ship_ammo/grauwolf/process()
+/obj/item/projectile/ship_ammo/grauwolf_probe/process()
 	. = ..()
 
-/obj/item/projectile/ship_ammo/grauwolf/fire(angle, atom/direct_target)
+/obj/item/projectile/ship_ammo/grauwolf_probe/fire(angle, atom/direct_target)
 	. = ..()
 
-/obj/item/projectile/ship_ammo/grauwolf/Destroy()
+/obj/item/projectile/ship_ammo/grauwolf_probe/Destroy()
 	. = ..()
