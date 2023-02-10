@@ -84,8 +84,8 @@
  */
 
 /obj/item/storage/backpack/holding
-	name = "bag of holding"
-	desc = "A backpack that opens into a localized pocket of Blue Space."
+	name = "portable bluespace pocket"
+	desc = "A backpack that opens into a localized pocket of bluespace. Extremely dangerous, and officially these devices do not exist. Officially."
 	origin_tech = list(TECH_BLUESPACE = 4)
 	icon_state = "holdingpack"
 	item_state = "holdingpack"
