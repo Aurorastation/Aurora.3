@@ -33,6 +33,7 @@
 	pixel_y = 32;
 	req_access = list(209)
 	},
+/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
 /turf/simulated/floor/holofloor/tiled/dark{
 	temperature = 268.15
 	},
@@ -359,6 +360,15 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
+"vL" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
 "wx" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -553,6 +563,15 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"Ke" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
 /turf/simulated/floor/holofloor/tiled/dark{
 	temperature = 268.15
 	},
@@ -1547,7 +1566,7 @@ Hc
 Tn
 dd
 Mq
-ID
+Ke
 Tn
 qO
 Gu
@@ -1582,7 +1601,7 @@ Mq
 Mq
 Mq
 Xm
-WA
+vL
 Lo
 WA
 Lo
