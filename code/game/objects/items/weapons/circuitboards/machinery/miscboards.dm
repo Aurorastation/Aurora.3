@@ -102,9 +102,10 @@
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	board_type = "machine"
 	req_components = list(
-							"/obj/item/stock_parts/capacitor" = 3,
-							"/obj/item/stock_parts/micro_laser" = 1,
-							"/obj/item/stock_parts/matter_bin" = 2)
+		"/obj/item/stock_parts/capacitor" = 3,
+		"/obj/item/stock_parts/micro_laser" = 1,
+		"/obj/item/stock_parts/matter_bin" = 2
+	)
 
 /obj/item/circuitboard/oven
 	name = T_BOARD("oven")
