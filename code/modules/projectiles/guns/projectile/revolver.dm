@@ -73,7 +73,7 @@
 	recoil = 10
 	recoil_wielded = 5
 
-/obj/item/gun/projectile/revolver/mateba/captain_revolver/handle_post_fire(mob/user)
+/obj/item/gun/projectile/revolver/mateba/captain/handle_post_fire(mob/user)
 	..()
 	if(wielded)
 		return
