@@ -364,7 +364,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
+/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic{
+	dir = 8
+	},
 /turf/simulated/floor/holofloor/tiled/dark{
 	temperature = 268.15
 	},

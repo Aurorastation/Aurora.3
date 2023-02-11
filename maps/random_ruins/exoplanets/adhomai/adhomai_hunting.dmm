@@ -47,7 +47,9 @@
 	},
 /area/adhomai_hunting)
 "gT" = (
-/mob/living/simple_animal/hostile/commanded/dog/harron,
+/mob/living/simple_animal/hostile/commanded/dog/harron{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -148,7 +150,9 @@
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/commanded/dog/harron,
+/mob/living/simple_animal/hostile/commanded/dog/harron{
+	dir = 8
+	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -374,6 +378,14 @@
 	temperature = 268.15
 	},
 /area/adhomai_hunting)
+"Tu" = (
+/mob/living/simple_animal/hostile/commanded/dog/harron{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "UG" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -1142,7 +1154,7 @@ Rf
 sK
 ZD
 sK
-gT
+Tu
 sK
 QL
 dN
@@ -1175,7 +1187,7 @@ sK
 sK
 sK
 sK
-gT
+Tu
 sK
 gt
 QL
