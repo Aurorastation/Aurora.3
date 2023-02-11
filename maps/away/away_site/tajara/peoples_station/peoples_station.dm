@@ -57,7 +57,7 @@
 	desc = "An interceptor used by the Orbital Fleet in its carriers and stations."
 	shuttle = "Orbital Fleet Fang"
 	icon_state = "shuttle"
-	moving_state = "shuttle_red_moving"
+	moving_state = "shuttle_moving"
 	max_speed = 1/(1 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 3000

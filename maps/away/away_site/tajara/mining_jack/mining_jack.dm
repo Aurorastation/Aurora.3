@@ -29,7 +29,7 @@
 		"Mining Jack" = list("nav_hangar_tajara_mining_jack")
 	)
 	comms_support = TRUE
-	comms_name = "adhomian"
+	comms_name = "adhomian mining"
 
 /obj/effect/shuttle_landmark/tajara_mining_jack
 	base_turf = /turf/space
@@ -54,8 +54,9 @@
 	class = "ACV"
 	desc = "A modified skipjack used by Tajaran miners. These models have been modified to mine as much as possible with a small crew. Due to its limited fuel supply, it usually does not go too far from its home base."
 	shuttle = "Mining Jack"
-	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#DAA06D")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

@@ -48,8 +48,9 @@
 	designation = "Civilian Shuttle"
 	desc = "A civilian shuttle without any kind of identification."
 	shuttle = "Unmarked Civilian Shuttle"
-	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#CD4A4C")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
