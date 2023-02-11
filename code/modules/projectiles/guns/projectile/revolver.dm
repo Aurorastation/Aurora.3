@@ -65,6 +65,7 @@
 	item_state = "captain_revolver"
 	is_wieldable = TRUE
 	handle_casings = EJECT_CASINGS
+	pin = /obj/item/device/firing_pin/implant/loyalty
 	accuracy = -2
 	accuracy_wielded = 1
 	fire_delay = 18
