@@ -2879,7 +2879,7 @@
 
 /singleton/reagent/alcohol/bananahonk
 	name = "Banana Mama"
-	description = "A drink from Clown Heaven."
+	description = "Banana heaven."
 	nutriment_factor = 1
 	color = "#FFFF91"
 	strength = 15
@@ -2887,19 +2887,19 @@
 
 	glass_icon_state = "bananahonkglass"
 	glass_name = "glass of Banana Honk"
-	glass_desc = "A drink from Banana Heaven."
+	glass_desc = "A drink from banana heaven."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/alcohol/barefoot
 	name = "Barefoot"
-	description = "Barefoot and pregnant"
+	description = "Creamy berries."
 	color = "#ff66cc"
 	strength = 15
 	taste_description = "creamy berries"
 
 	glass_icon_state = "b&p"
 	glass_name = "glass of Barefoot"
-	glass_desc = "Barefoot and pregnant"
+	glass_desc = "A drink made of berry juice, cream, and vermouth."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
 /singleton/reagent/alcohol/beepsky_smash
