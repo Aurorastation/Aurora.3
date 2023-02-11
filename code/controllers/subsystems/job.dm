@@ -823,24 +823,18 @@
 			if(!G.augment)
 				continue
 
-			var/permitted = !G.allowed_roles || (rank.title in G.allowed_roles)
-			permitted = permitted && G.check_species_whitelist(H)
-			permitted = permitted && (!G.faction || (G.faction == H.employer_faction || H.employer_faction == "Stellar Corporate Conglomerate"))
-			var/singleton/origin_item/culture/our_culture = GET_SINGLETON(text2path(prefs.culture))
-			permitted = permitted && (!G.culture_restriction || (our_culture in G.culture_restriction))
-			var/singleton/origin_item/origin/our_origin = GET_SINGLETON(text2path(prefs.origin))
-			permitted = permitted && (!G.origin_restriction || (our_origin in G.origin_restriction))
-
-			if(!permitted)
-				to_chat(H, SPAN_WARNING("Your current job, culture, origin or whitelist status does not permit you to spawn with [thing]!"))
-				continue
-
 			var/metadata
 			var/list/gear_test = prefs.gear[G.display_name]
 			if(gear_test?.len)
 				metadata = gear_test
 			else
 				metadata = list()
+
+			var/cant_spawn_reason = G.cant_spawn_item_reason(null, metadata, H, rank, prefs)
+			if(cant_spawn_reason)
+				to_chat(H, SPAN_WARNING(cant_spawn_reason))
+				continue
+
 			var/obj/item/organ/A = G.spawn_item(H, metadata, H)
 			if(!istype(A, /obj/item/organ/external))
 				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
