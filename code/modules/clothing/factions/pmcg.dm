@@ -60,3 +60,10 @@
 		return
 
 	select_modsuit(usr)
+
+/obj/item/clothing/under/rank/security/pmc/wildlands_squadron
+	name = "wildlands squadron uniform"
+	desc = "A set of uniform fatigues used by employees of the Wildlands Squadron, a Private Military Contracting Group subsidiary. The original design is remarkably similar to the Mictlan System Defense Force's uniform, of which many of the original members of the Wildlands Squadron were members."
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
+	icon_state = "pmc_ws"
+	item_state = "pmc_ws"

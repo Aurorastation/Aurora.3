@@ -14,3 +14,4 @@
 
 /obj/effect/floor_decal/snowdrift/large
 	icon = 'icons/turf/decals/snow64x32.dmi'
+	pixel_x = -16

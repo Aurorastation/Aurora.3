@@ -54,7 +54,7 @@
 	for(var/thing in O.implants)
 		var/obj/S = thing
 		usr.visible_message("<span class='notice'>[usr] starts carefully digging out something in [H == usr ? "themselves" : H]...</span>")
-		O.take_damage(8, 0, DAM_SHARP|DAM_EDGE, src)
+		O.take_damage(8, 0, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, src)
 		H.custom_pain("<font size=3><span class='danger'>It burns!</span></font>", 50)
 		if(do_mob(usr, H, 100))
 			H.remove_implant(S, FALSE)

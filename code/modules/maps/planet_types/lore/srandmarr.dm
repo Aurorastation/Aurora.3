@@ -26,7 +26,6 @@
 	name = "Az'Mar"
 	desc = "A small planet with a caustic shale crust. The surface is extremely hot and dense."
 	color = "#4a3f41"
-	color = "#dcdcdc"
 	rock_colors = null
 	plant_colors = null
 	rock_colors = list("#4a3f41")
@@ -72,6 +71,7 @@
 	generated_name = FALSE
 	ring_chance = 0
 	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/raskara_ritual, /datum/map_template/ruin/exoplanet/raskara_okon, /datum/map_template/ruin/exoplanet/raskara_wreck, /datum/map_template/ruin/exoplanet/pra_exploration_drone)
+	place_near_main = list(3, 3)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/get_surface_color()
 	return "#373737"
@@ -108,7 +108,7 @@
 	plant_colors = null
 	possible_themes = list(/datum/exoplanet_theme/mountains/adhomai)
 	map_generators = list(/datum/random_map/noise/exoplanet/snow/adhomai, /datum/random_map/noise/ore/rich)
-	features_budget = 3
+	features_budget = 4
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
 	generated_name = FALSE
@@ -116,6 +116,7 @@
 	/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_bar,
 	/datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 	/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd)
+	place_near_main = list(2, 2)
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/pre_ruin_preparation()
 	var/landing_faction = pick("People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai")
@@ -148,7 +149,7 @@
 	return HABITABILITY_IDEAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_map()
-	if(prob(50))
+	if(prob(75))
 		lightlevel = rand(3,10)/10
 	..()
 
@@ -195,16 +196,22 @@
 				new /obj/structure/flora/rock/ice(T)
 		if(3)
 			if(prob(50))
-				new /obj/structure/flora/grass/both(T)
+				new /obj/structure/flora/grass/adhomai(T)
 		if(4)
 			if(prob(50))
-				new /obj/structure/flora/bush(T)
+				new /obj/structure/flora/bush/adhomai(T)
 		if(5)
 			if(prob(15))
-				new /obj/structure/flora/tree/dead(T)
+				new /obj/structure/flora/tree/adhomai(T)
 		if(6)
 			if(prob(15))
-				new /obj/structure/flora/grass/green(T)
+				new /obj/structure/flora/rock/adhomai(T)
+		if(7)
+			if(prob(15))
+				new /obj/effect/floor_decal/snowdrift(T)
+		if(8)
+			if(prob(10))
+				new /obj/effect/floor_decal/snowdrift/large(T)
 
 /area/exoplanet/adhomai
 	name = "Adhomian Wilderness"

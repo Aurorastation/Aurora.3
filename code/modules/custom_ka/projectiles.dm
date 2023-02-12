@@ -3,7 +3,7 @@
 	name = "kinetic force"
 	icon_state = null
 	damage = 0 //Base damage handled elsewhere.
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	check_armor = "bomb"
 	range = 5
 	var/pressure_decrease = 0.25

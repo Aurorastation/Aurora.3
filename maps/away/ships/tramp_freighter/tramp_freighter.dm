@@ -2,7 +2,7 @@
 	name = "Tramp Freighter"
 	description = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
 	suffixes = list("ships/tramp_freighter/tramp_freighter.dmm")
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ, SECTOR_SRANDMARR)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tramp_freighter"
@@ -26,8 +26,9 @@
 	name = "Tramp Freighter"
 	class = "ICV"
 	desc = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
-	icon_state = "ship_grey"
-	moving_state = "ship_grey_moving"
+	icon_state = "tramp"
+	moving_state = "tramp_moving"
+	colors = list("#c3c7eb", "#a0a8ec")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -70,8 +71,9 @@
 	designation = "Dame"
 	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one's transponder identifies it as belonging to an independent freighter."
 	shuttle = "Freight Shuttle"
-	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving" 
+	icon_state = "pod"
+	moving_state = "pod_moving"
+	colors = list("#c3c7eb", "#a0a8ec")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
