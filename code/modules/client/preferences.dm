@@ -36,6 +36,7 @@ datum/preferences
 	var/real_name						//our character's name
 	var/can_edit_name = TRUE				//Whether or not a character's name can be edited. Used with SQL saving.
 	var/can_edit_ipc_tag = TRUE
+	var/days_character_existed = INFINITY
 	var/gender = MALE					//gender of character (well duh)
 	var/pronouns = NEUTER				//what the character will appear as to others when examined
 	var/age = 30						//age of character

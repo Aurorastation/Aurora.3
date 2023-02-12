@@ -198,6 +198,8 @@ var/list/gear_datums = list()
 	var/available_items_html = "" // to be added to the middle of the list
 	var/unavailable_items_html = "" // to be added to the end/bottom of the list
 
+	var/list/headers_used = list()
+
 	var/list/player_valid_gear_choices = valid_gear_choices()
 	for(var/gear_name in LC.gear)
 		if(!(gear_name in player_valid_gear_choices))
@@ -209,7 +211,8 @@ var/list/gear_datums = list()
 		var/available = (G.check_faction(pref.faction) \
 			&& (job && G.check_role(job.title)) \
 			&& G.check_culture(text2path(pref.culture)) \
-			&& G.check_origin(text2path(pref.origin)))
+			&& G.check_origin(text2path(pref.origin)) \
+			&& G.check_character_age_created(pref.days_character_existed))
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
 
@@ -225,9 +228,14 @@ var/list/gear_datums = list()
 		available = available && found_searched_text
 
 		if(!available)
+			if(G.hide_if_cant_spawn)
+				continue
 			style = "style='color: #B1B1B1;'"
 		if(ticked)
 			style = "style='color: #FF8000;'"
+		if(G.header_title && !(G.header_title in headers_used))
+			temp_html += "<tr><td width=25%><h4>[G.header_title]</h4></tr>"
+			headers_used += G.header_title
 		temp_html += "<tr style='vertical-align:top'><td width=25%><a href=\"?src=\ref[src];toggle_gear=[G.display_name]\"><font [style]>[G.display_name]</font></a></td>"
 		temp_html += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
 		temp_html += "<td><font size=2><i>[G.description]</i><br>"
@@ -275,12 +283,15 @@ var/list/gear_datums = list()
 				temp_html += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
 			temp_html += "</td></tr>"
 
-		if(ticked)
-			ticked_items_html += temp_html
-		else if(!available)
+		if(G.always_use_available_items_list)
 			available_items_html += temp_html
 		else
-			unavailable_items_html += temp_html
+			if(ticked)
+				ticked_items_html += temp_html
+			else if(!available)
+				available_items_html += temp_html
+			else
+				unavailable_items_html += temp_html
 
 	. += ticked_items_html
 	. += unavailable_items_html
@@ -366,20 +377,42 @@ var/list/gear_datums = list()
 	return ..()
 
 /datum/gear
-	var/display_name       //Name/index. Must be unique.
-	var/description        //Description of this gear. If left blank will default to the description of the pathed item.
-	var/path               //Path to item.
-	var/cost = 1           //Number of points used. Items in general cost 1 point, storage/armor/gloves/special use costs 2 points.
-	var/slot               //Slot to equip to.
-	var/list/allowed_roles //Roles that can spawn with this item.
-	var/whitelisted        //Term to check the whitelist for..
-	var/faction            //Is this item whitelisted for a faction?
-	var/list/culture_restriction //Is this item restricted to certain cultures? The contents are paths.
-	var/list/origin_restriction //Is this item restricted to certain origins? The contents are paths.
+	/// Name/index. Must be unique.
+	var/display_name
+	/// Description of this gear. If left blank will default to the description of the pathed item.
+	var/description
+	/// Puts a header above the gear path, but only once per category, use in conjunction with always_use_available_items_list
+	var/header_title
+	/// Path to item.
+	var/path
+	/// Number of points used. Items in general cost 1 point, storage/armor/gloves/special use costs 2 points.
+	var/cost = 1
+	/// Slot to equip to.
+	var/slot
+	/// Forces every item to be sorted in the available items list, useful for stuff like headers
+	var/always_use_available_items_list = FALSE
+	/// Hides the gear entry from the loadout list if the user can't spawn with it
+	var/hide_if_cant_spawn = FALSE
+	/// Roles that can spawn with this item.
+	var/list/allowed_roles
+	/// Term to check the whitelist for..
+	var/whitelisted
+	/// Is this item whitelisted for a faction?
+	var/faction
+	/// Is this item restricted to certain cultures? The contents are paths.
+	var/list/culture_restriction
+	/// Is this item restricted to certain origins? The contents are paths.
+	var/list/origin_restriction
 	var/sort_category = "General"
-	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
+	/// List of datums which will alter the item after it has been spawned.
+	var/list/gear_tweaks = list()
 	var/flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	var/augment = FALSE
+	/// Only characters made before this date has access to these items
+	/// To get this date, go to https://www.timeanddate.com/date/timeduration.html
+	/// and type in your date values. start date being 01 Jan 2000 00:00:00, end date being the day after the event, with time set to 00:00:00
+	/// (this is because of date inaccuracies), then just use the number of days value
+	var/character_existed_before_date
 
 /datum/gear/New()
 	..()
@@ -428,6 +461,10 @@ var/list/gear_datums = list()
 	var/our_origin = text2path(prefs.origin)
 	if(origin_restriction && !(our_origin in origin_restriction))
 		return "You cannot spawn with the [initial(spawning_item.name)] with your current origin!"
+	if(character_existed_before_date)
+		var/character_start_date = (world.realtime / 864000) - prefs.days_character_existed
+		if(character_existed_before_date < character_start_date)
+			return "Your character wasn't around for when this item was available!"
 	return null
 
 /datum/gear/proc/spawn_item(var/location, var/metadata, var/mob/living/carbon/human/H)
@@ -486,4 +523,12 @@ var/list/gear_datums = list()
 /datum/gear/proc/check_origin(var/origin)
 	if(origin && origin_restriction && !(origin in origin_restriction))
 		return FALSE
+	return TRUE
+
+// arg should be prefs.days_character_existed
+/datum/gear/proc/check_character_age_created(var/days_existed)
+	if(character_existed_before_date)
+		var/character_start_date = (world.realtime / 864000) - days_existed
+		if(character_existed_before_date < character_start_date)
+			return FALSE
 	return TRUE
