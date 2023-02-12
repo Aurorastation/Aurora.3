@@ -10,7 +10,7 @@
  */
 /obj/item/surgery
 	name = "surgery tool parent item"
-	desc = "This is a parent item. If you have this, please submit an issue report."
+	desc = DESC_PARENT
 	icon = 'icons/obj/surgery.dmi'
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
@@ -67,7 +67,7 @@
 	desc = "A drill specialized for surgical use, capable of creating surgical cavities and safely breaching through Vaurcae carapace for initial incisions."
 	icon_state = "drill"
 	item_state = "drill"
-	hitsound = /decl/sound_category/drillhit_sound
+	hitsound = /singleton/sound_category/drillhit_sound
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
 	flags = CONDUCT
 	force = 15
@@ -290,7 +290,7 @@
 /obj/item/storage/box/fancy/tray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 	if(..() && contents.len)
 		spill(3, get_turf(M))
-		playsound(M, /decl/sound_category/tray_hit_sound, 50, 1)  //sound playin' again
+		playsound(M, /singleton/sound_category/tray_hit_sound, 50, 1)  //sound playin' again
 		user.visible_message(SPAN_DANGER("[user] smashes \the [src] into [M], causing it to spill its contents across the area!"))
 
 /obj/item/storage/box/fancy/tray/throw_impact(atom/hit_atom)

@@ -92,10 +92,11 @@
 		network.gases -= air_contents
 
 	anchored = 0
+	if(connected_port)
+		connected_port.toggle_process()
+		connected_port.connected_device = null
 
-	connected_port.connected_device = null
 	connected_port = null
-	connected_port.toggle_process()
 
 	return 1
 

@@ -14,8 +14,9 @@
 	class used by their counterparts in the Hegemony Navy. These vessels are rarely seen together and strive for maximum self-suffiency as they are the homes and primary means of transportation \
 	for questing Kataphracts and their followers. They usually carry enough firepower to deter the common pirate as well as a set of boarding pods for offensive actions. This ship however has no weapon hardpoints detected. It remains capable due to its sturdy design."
 	class = "IHKV" //Izweski Hegemony Kataphract Vessel
-	icon_state = "ship_green"
-	moving_state = "ship_green_moving"
+	icon_state = "voidbreaker"
+	moving_state = "voidbreaker_moving"
+	colors = list("#e38222", "#f0ba3e")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
@@ -78,8 +79,9 @@
 	designation = "Sasuna"
 	desc = "A small egg shaped shuttle of the 'Spearhead' class, commonly seen carried by Izweski Hegemony vessels. They're never far from their motherships and are a telltale sign of an Unathi presence within a sector. Affectionately called the 'Hatchling' by its operators. The transponder for this vessel identifies it as belonging to a traveling Kataphract Guild of the Hegemony."
 	shuttle = "Kataphract Transport"
-	icon_state = "shuttle_green"
-	moving_state = "shuttle_green_moving"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#e38222", "#f0ba3e")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 6000 //Ship has a lot of thrusters, so if its too low the shuttle goes too fast. Also, imagine a hard egg flying towards you.

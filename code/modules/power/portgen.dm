@@ -418,18 +418,13 @@
 /obj/machinery/power/portgen/basic/advanced/UseFuel()
 	//produces a tiny amount of radiation when in use
 	if (prob(2 * power_output))
-		for (var/mob/living/L in range(src, 5))
-			L.apply_damage(1, IRRADIATE, damage_flags = DAM_DISPERSED) //should amount to ~5 rads per minute at max safe power
+		SSradiation.radiate(src, 4)
 	..()
 
 /obj/machinery/power/portgen/basic/advanced/explode()
 	//a nice burst of radiation
 	var/rads = 50 + (sheets + sheet_left)*1.5
-	for (var/mob/living/L in range(src, 10))
-		//should really fall with the square of the distance, but that makes the rads value drop too fast
-		//I dunno, maybe physics works different when you live in 2D -- SM radiation also works like this, apparently
-		L.apply_damage(max(20, round(rads/get_dist(L,src))), IRRADIATE, damage_flags = DAM_DISPERSED)
-
+	SSradiation.radiate(src, max(40, rads))
 	explosion(loc, 3, 3, 5, 3)
 	qdel(src)
 
@@ -481,7 +476,7 @@
 
 	var/coolant_volume = 360
 	var/coolant_use = 0.2
-	var/coolant_reagent = /decl/reagent/coolant
+	var/coolant_reagent = /singleton/reagent/coolant
 
 /obj/machinery/power/portgen/basic/fusion/explode()
 	//a nice burst of radiation
@@ -489,7 +484,7 @@
 	for (var/mob/living/L in range(src, 10))
 		//should really fall with the square of the distance, but that makes the rads value drop too fast
 		//I dunno, maybe physics works different when you live in 2D -- SM radiation also works like this, apparently
-		L.apply_damage(max(20, round(rads/get_dist(L,src))), IRRADIATE, damage_flags = DAM_DISPERSED)
+		L.apply_damage(max(20, round(rads/get_dist(L,src))), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 	explosion(loc, 3, 6, 12, 16, 1)
 	qdel(src)
@@ -512,8 +507,7 @@
 		temperature_gain = initial(temperature_gain)
 	..()
 	if (prob(2 * power_output))
-		for (var/mob/living/L in range(src, 5))
-			L.apply_damage(1, IRRADIATE, damage_flags = DAM_DISPERSED) //should amount to ~5 rads per minute at max safe power
+		SSradiation.radiate(src, 6)
 	..()
 
 /obj/machinery/power/portgen/basic/fusion/update_icon()
@@ -526,7 +520,7 @@
 	if(istype(O, /obj/item/reagent_containers))
 		var/obj/item/reagent_containers/R = O
 		if(R.standard_pour_into(user, src))
-			if(reagents.has_reagent(/decl/reagent/coolant))
+			if(reagents.has_reagent(/singleton/reagent/coolant))
 				audible_message("<span class='notice'>[src] blips happily!</span>")
 				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
 			else

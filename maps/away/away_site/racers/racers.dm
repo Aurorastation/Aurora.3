@@ -7,7 +7,7 @@
 	spawn_cost = 2
 	id = "racers"
 
-/decl/submap_archetype/racers
+/singleton/submap_archetype/racers
 	map = "unregistered station"
 	descriptor = "A unregistered station."
 

@@ -7,7 +7,7 @@
 /mob/living/bot/farmbot
 	name = "Farmbot"
 	desc = "The botanist's best friend. Various farming equipment seems haphazardly attached to it."
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "farmbot0"
 	health = 50
 	maxHealth = 50
@@ -139,7 +139,7 @@
 
 	if(target)
 		if(Adjacent(target))
-			INVOKE_ASYNC(src, .proc/UnarmedAttack, target)
+			INVOKE_ASYNC(src, PROC_REF(UnarmedAttack), target)
 			path = list()
 			target = null
 		else
@@ -176,7 +176,7 @@
 						target = source
 						frustration = 0
 						break
-				
+
 
 /mob/living/bot/farmbot/proc/pathfind(var/atom/A)
 	var/t = get_dir(A, src) // Turf with the tray is impassable, so a* can't navigate directly to it
@@ -233,7 +233,7 @@
 				if(do_after(src, 30))
 					visible_message(SPAN_NOTICE("[src] eliminates the pests in \the [A]."))
 					T.pestlevel = 0
-					T.reagents.add_reagent(/decl/reagent/nutriment, 0.5)
+					T.reagents.add_reagent(/singleton/reagent/nutriment, 0.5)
 					T.update_icon()
 			if(FARMBOT_NUTRIMENT)
 				action = "fertile"
@@ -242,7 +242,7 @@
 				attacking = TRUE
 				if(do_after(src, 30))
 					visible_message(SPAN_NOTICE("[src] waters \the [A]."))
-					T.reagents.add_reagent(/decl/reagent/ammonia, 10)
+					T.reagents.add_reagent(/singleton/reagent/ammonia, 10)
 		attacking = FALSE
 		action = ""
 		update_icon()
@@ -255,7 +255,7 @@
 		visible_message(SPAN_NOTICE("[src] starts refilling its tank from \the [A]."))
 		attacking = TRUE
 		while(do_after(src, 10) && tank.reagents.total_volume < tank.reagents.maximum_volume)
-			tank.reagents.add_reagent(/decl/reagent/water, 10)
+			tank.reagents.add_reagent(/singleton/reagent/water, 10)
 			if(prob(5))
 				playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
 		attacking = FALSE
@@ -304,7 +304,7 @@
 		return FALSE
 	if(tray.dead && removes_dead || tray.harvest && collects_produce)
 		return FARMBOT_COLLECT
-	else if(waters_trays && tray.waterlevel < 10 && !tray.reagents.has_reagent(/decl/reagent/water))
+	else if(waters_trays && tray.waterlevel < 10 && !tray.reagents.has_reagent(/singleton/reagent/water))
 		return FARMBOT_WATER
 	else if(uproots_weeds && tray.weedlevel >= 5)
 		return FARMBOT_UPROOT
@@ -324,7 +324,7 @@
 /obj/item/farmbot_arm_assembly
 	name = "water tank/robot arm assembly"
 	desc = "A water tank with a robot arm permanently grafted to it."
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "water_arm"
 	var/build_step = 0
 	var/created_name = "Farmbot"

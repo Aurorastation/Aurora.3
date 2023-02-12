@@ -30,9 +30,9 @@
 	icon_state = "honeycomb"
 	desc = "Dripping with sugary sweetness."
 	reagents_to_add = list(
-		/decl/reagent/nutriment/honey = 10,
-		/decl/reagent/nutriment = 0.5,
-		/decl/reagent/sugar = 2
+		/singleton/reagent/nutriment/honey = 10,
+		/singleton/reagent/nutriment = 0.5,
+		/singleton/reagent/sugar = 2
 	)
 	bitesize = 2
 

@@ -7,7 +7,7 @@
 	ruin_tags = RUIN_HUMAN|RUIN_WRECK
 	spawn_weight = 0.33
 
-/decl/submap_archetype/crashed_pod
+/singleton/submap_archetype/crashed_pod
 	descriptor = "crashed survival pod"
 
 /datum/submap/crashed_pod/sync_cell(var/obj/effect/overmap/visitable/cell)

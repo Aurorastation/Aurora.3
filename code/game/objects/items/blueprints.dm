@@ -176,7 +176,7 @@
 
 	sorted_add_area(A)
 
-	addtimer(CALLBACK(src, .proc/interact), 5)
+	addtimer(CALLBACK(src, PROC_REF(interact)), 5)
 	return
 
 
@@ -195,9 +195,9 @@
 	if(length(str) > 50)
 		to_chat(usr, "<span class='warning'>Text too long.</span>")
 		return
-	INVOKE_ASYNC(src, .proc/set_area_machinery_title, A, str, prevname)
+	INVOKE_ASYNC(src, PROC_REF(set_area_machinery_title), A, str, prevname)
 	A.name = str
-	sortTim(all_areas, /proc/cmp_text_asc)
+	sortTim(all_areas, GLOBAL_PROC_REF(cmp_text_asc))
 	to_chat(usr, "<span class='notice'>You set the area '[prevname]' title to '[str]'.</span>")
 	interact()
 	return

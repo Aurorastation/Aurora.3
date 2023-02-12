@@ -140,7 +140,7 @@
 /obj/random/medical
 	name = "Random Medicine"
 	desc = "This is a random medical item."
-	icon = 'icons/obj/stacks/medical.dmi'
+	icon = 'icons/obj/item/stacks/medical.dmi'
 	icon_state = "brutepack"
 	spawn_nothing_percentage = 25
 	problist = list(
@@ -166,12 +166,16 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "firstaid"
 	problist = list(
-		/obj/item/storage/firstaid/regular = 3,
-		/obj/item/storage/firstaid/toxin = 2,
-		/obj/item/storage/firstaid/o2 = 2,
-		/obj/item/storage/firstaid/fire = 2,
-		/obj/item/storage/firstaid/brute = 1,
-		/obj/item/storage/firstaid/adv = 1
+		/obj/item/storage/firstaid/regular = 4,
+		/obj/item/storage/firstaid/trauma = 3,
+		/obj/item/storage/firstaid/toxin = 3,
+		/obj/item/storage/firstaid/o2 = 3,
+		/obj/item/storage/firstaid/fire = 3,
+		/obj/item/storage/firstaid/radiation = 3,
+		/obj/item/storage/firstaid/stab = 2,
+		/obj/item/storage/firstaid/adv = 2,
+		/obj/item/storage/firstaid/combat = 1,
+		/obj/item/storage/firstaid/empty = 2
 	)
 
 /obj/random/contraband
@@ -423,7 +427,6 @@
 	name = "random backpack"
 	problist = list(
 		/obj/item/storage/backpack = 3,
-		/obj/item/storage/backpack/holding = 0.5,
 		/obj/item/storage/backpack/cultpack = 2,
 		/obj/item/storage/backpack/medic = 3,
 		/obj/item/storage/backpack/security = 3,
@@ -551,7 +554,7 @@
 		log_debug("random_obj (voidsuit): Type [suit.type] was unable to spawn a matching helmet!")
 	new /obj/item/clothing/shoes/magboots(loc)
 	if (damaged && prob(60))
-		suit.create_breaches(pick(BRUTE, BURN), rand(1, 5))
+		suit.create_breaches(pick(DAMAGE_BRUTE, DAMAGE_BURN), rand(1, 5))
 
 //Random MRE stuff
 
@@ -1079,7 +1082,10 @@
 		/obj/random/toolbox = 1,
 		/obj/random_produce = 0.25,
 		/obj/random/watches = 1,
-		/obj/random/wizard_dressup = 0.25
+		/obj/random/wizard_dressup = 0.25,
+		/obj/item/device/synthesized_instrument/violin = 0.1,
+		/obj/item/device/synthesized_instrument/guitar = 1,
+		/obj/item/device/synthesized_instrument/trumpet = 0.25
 	)
 
 
@@ -1392,17 +1398,17 @@
 		/obj/item/toy/crossbow							= 11,
 		/obj/item/storage/box/fancy/crayons			= 11,
 		/obj/item/toy/spinningtoy						= 11,
-		/obj/item/toy/prize/ripley						= 1,
-		/obj/item/toy/prize/fireripley					= 1,
-		/obj/item/toy/prize/deathripley					= 1,
-		/obj/item/toy/prize/gygax						= 1,
-		/obj/item/toy/prize/durand						= 1,
-		/obj/item/toy/prize/honk						= 1,
-		/obj/item/toy/prize/marauder					= 1,
-		/obj/item/toy/prize/seraph						= 1,
-		/obj/item/toy/prize/mauler						= 1,
-		/obj/item/toy/prize/odysseus					= 1,
-		/obj/item/toy/prize/phazon						= 1,
+		/obj/item/toy/mech/ripley						= 1,
+		/obj/item/toy/mech/fireripley					= 1,
+		/obj/item/toy/mech/deathripley					= 1,
+		/obj/item/toy/mech/gygax						= 1,
+		/obj/item/toy/mech/durand						= 1,
+		/obj/item/toy/mech/honk						= 1,
+		/obj/item/toy/mech/marauder					= 1,
+		/obj/item/toy/mech/seraph						= 1,
+		/obj/item/toy/mech/mauler						= 1,
+		/obj/item/toy/mech/odysseus					= 1,
+		/obj/item/toy/mech/phazon						= 1,
 		/obj/item/reagent_containers/spray/waterflower						= 5,
 		/obj/random/action_figure						= 11,
 		/obj/random/plushie								= 44,
@@ -1463,7 +1469,7 @@
 	icon = 'icons/obj/kinetic_accelerators.dmi'
 	icon_state = "frame01"
 	spawnlist = list(
-		/obj/item/toy/prize/honk
+		/obj/item/toy/mech/honk
 	)
 	has_postspawn = TRUE
 	post_spawn(obj/thing)

@@ -214,7 +214,7 @@ default behaviour is:
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 	else
 		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
 
@@ -494,7 +494,7 @@ default behaviour is:
 		timeofdeath = 0
 
 	// restore us to conciousness
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 
 	// make the icons look correct
 	regenerate_icons()
@@ -517,7 +517,7 @@ default behaviour is:
 		switch_from_dead_to_living_mob_list()
 		timeofdeath = 0
 
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 	regenerate_icons()
 
 	BITSET(hud_updateflag, HEALTH_HUD)
@@ -630,9 +630,9 @@ default behaviour is:
 											location.add_blood(M)
 											if(ishuman(M))
 												var/mob/living/carbon/human/H = M
-												var/total_blood = round(REAGENT_VOLUME(H.vessel, /decl/reagent/blood))
+												var/total_blood = round(REAGENT_VOLUME(H.vessel, /singleton/reagent/blood))
 												if(total_blood > 0)
-													H.vessel.remove_reagent(/decl/reagent/blood, 1)
+													H.vessel.remove_reagent(/singleton/reagent/blood, 1)
 
 
 						step(pulling, get_dir(pulling.loc, T))
@@ -934,9 +934,9 @@ default behaviour is:
 	if (!composition_reagent)//if no reagent has been set, then we'll set one
 		var/type = find_type(src)
 		if (type & TYPE_SYNTHETIC)
-			src.composition_reagent = /decl/reagent/iron
+			src.composition_reagent = /singleton/reagent/iron
 		else
-			src.composition_reagent = /decl/reagent/nutriment/protein
+			src.composition_reagent = /singleton/reagent/nutriment/protein
 
 	//if the mob is a simple animal with a defined meat quantity
 	if (istype(src, /mob/living/simple_animal))
@@ -998,16 +998,6 @@ default behaviour is:
 
 /mob/living/proc/needs_wheelchair()
 	return FALSE
-
-//called when the mob receives a bright flash
-/mob/living/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
-	if(override_blindness_check || !(disabilities & BLIND))
-		..()
-		overlay_fullscreen("flash", type)
-		spawn(25)
-			if(src)
-				clear_fullscreen("flash", 25)
-		return 1
 
 /mob/living/verb/toggle_run_intent()
 	set hidden = 1

@@ -25,7 +25,7 @@
 	A.do_attack_animation(D)
 	var/atk_verb = pick("chomps", "bites")
 	D.visible_message(SPAN_DANGER("[A] [atk_verb] down hard on [D]!"), SPAN_DANGER("[A] [atk_verb] down hard on you!"))
-	D.apply_damage(rand(5, 10), BRUTE, damage_flags = DAM_SHARP, armor_pen = 100)
+	D.apply_damage(rand(5, 10), DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP, armor_pen = 100)
 	playsound(get_turf(D), 'sound/weapons/bloodyslice.ogg', 25, 1, -1)
 	return TRUE
 

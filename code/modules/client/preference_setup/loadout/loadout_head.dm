@@ -101,6 +101,11 @@
 	path = /obj/item/clothing/head/beret/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/head/sidecap
+	display_name = "side cap"
+	path = /obj/item/clothing/head/sidecap
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/warden
 	display_name = "headwear, security (warden)"
 	description = "A selection of warden headwear."
@@ -231,6 +236,7 @@
 	var/list/hats_colourable = list()
 	hats_colourable["hat, flatcap"] = /obj/item/clothing/head/flatcap/colourable
 	hats_colourable["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby/colourable
+	hats_colourable["hat, woolen"] = /obj/item/clothing/head/wool
 	gear_tweaks += new /datum/gear_tweak/path(hats_colourable)
 
 /datum/gear/head/hijab
@@ -310,10 +316,15 @@
 /datum/gear/head/nonla
 	display_name = "non la hat"
 	path = /obj/item/clothing/head/nonla
-	origin_restriction = list(/decl/origin_item/origin/earth, /decl/origin_item/origin/new_hai_phong)
+	origin_restriction = list(/singleton/origin_item/origin/earth, /singleton/origin_item/origin/new_hai_phong)
 /datum/gear/head/konyang
 	display_name = "gat"
 	path = /obj/item/clothing/head/konyang
+
+/datum/gear/head/hachimaki
+	display_name = "konyanger hachimaki"
+	path = /obj/item/clothing/head/hachimaki
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/iac
 	display_name = "IAC headgear selection"
@@ -354,7 +365,7 @@
 	display_name = "himean cap"
 	path = /obj/item/clothing/head/softcap/himeo
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/decl/origin_item/origin/himeo, /decl/origin_item/origin/ipc_himeo, /decl/origin_item/origin/free_council)
+	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
 
 /datum/gear/head/vysoka
 	display_name = "vysokan fur cap"
@@ -376,7 +387,7 @@
 	description = "A selection of headgear from Gadpathur."
 	path = /obj/item/clothing/head/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/decl/origin_item/origin/gadpathur)
+	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/head/gadpathur/New()
 	..()

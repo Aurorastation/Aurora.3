@@ -25,7 +25,7 @@
 /datum/ghostspawner/human/kataphract/klax
 	short_name = "kataphract_hop_klax"
 	name = "Kataphract-Hopeful Klaxan"
-	desc = "A Zo'saa (squire) from the K'lax hive, here to learn what it means to be honourable. Remember, you serve the Izweski Hegemony on behalf of your K'laxan compatriots."
+	desc = "A Zo'saa (squire) from the K'lax Hive, here to learn what it means to be honourable. Remember, you serve the Izweski Hegemony on behalf of your K'laxan compatriots."
 	max_count = 1
 	uses_species_whitelist = TRUE
 

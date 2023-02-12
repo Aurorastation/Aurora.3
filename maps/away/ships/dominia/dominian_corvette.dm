@@ -8,7 +8,7 @@
 	id = "dominian_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/dominian_shuttle)
 
-/decl/submap_archetype/dominian_corvette
+/singleton/submap_archetype/dominian_corvette
 	map = "Dominian Corvette"
 	descriptor = "One of the most common ships in the Imperial Fleet, Lammergeier-class corvettes are often used as the vanguard of battlefleets entering a system marked for annexation into the glorious Empire as it is tasked to find and scout routes for the larger fleet. Though intended for scouting and screening work the Lammergeier is, like its larger counterparts, quite heavily armed and armored for a typical corvette. Any frontier savages who attempt to meet one with force of arms will soon find themselves staring down the barrels of Zhurong’s finest weaponry, and the Fleet-trained Ma’zals entrusted to operate it. The heavy armament and sensors of the Lammergeier-class come at a cost: it lacks a shield generator and is much larger than a typical Solarian corvette, thus requiring a larger crew. Lammergeier-class captains are generally loyal Ma’zals, such as the citizens of Novi Jadran, and are authorized to take whatever measures are necessary to ensure their crew remains loyal to both Empire and Goddess. This one’s transponder marks it as belonging to the Empire’s First Battlefleet – a battle-hardened formation responsible for patrolling the region of the northern Sparring Sea between the Empire, Hegemony, and Republic of dominia."
 
@@ -68,8 +68,9 @@
 	name = "Dominian Corvette"
 	class = "HIMS"
 	desc = "One of the most common ships in the Imperial Fleet, Lammergeier-class corvettes are often used as the vanguard of battlefleets entering a system marked for annexation into the glorious Empire as it is tasked to find and scout routes for the larger fleet. Though intended for scouting and screening work the Lammergeier is, like its larger counterparts, quite heavily armed and armored for a typical corvette. Any frontier savages who attempt to meet one with force of arms will soon find themselves staring down the barrels of Zhurong’s finest weaponry, and the Fleet-trained Ma’zals entrusted to operate it. The heavy armament and sensors of the Lammergeier-class come at a cost: it lacks a shield generator and is much larger than a typical Solarian corvette, thus requiring a larger crew. Lammergeier-class captains are generally loyal Ma’zals, such as the citizens of Novi Jadran, and are authorized to take whatever measures are necessary to ensure their crew remains loyal to both Empire and Goddess. This one’s transponder marks it as belonging to the Empire’s First Battlefleet – a battle-hardened formation responsible for patrolling the region of the northern Sparring Sea between the Empire, Hegemony, and Republic of dominia."
-	icon_state = "ship_red"
-	moving_state = "ship_red_moving"
+	icon_state = "lammergeier"
+	moving_state = "lammergeier_moving"
+	colors = list("#df1032", "#d4296b")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -126,6 +127,9 @@
 	designation = "Chariot"
 	desc = "A light shuttle used by the Imperial Fleet to move small amounts of cargo or personnel between vessels, the Yupmi-class shuttle is a dependable utility craft. Like most Dominian vessels it is relatively well armored for its size but is not a combat vessel by any means. A short operational range means a Yupmi should never stray too far from its vessel of origin as it will soon run out of fuel."
 	shuttle = "Dominian Shuttle"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#df1032", "#d4296b")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

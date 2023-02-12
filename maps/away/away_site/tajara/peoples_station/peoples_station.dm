@@ -8,7 +8,7 @@
 	id = "peoples_station"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/peoples_station_fang)
 
-/decl/submap_archetype/peoples_station
+/singleton/submap_archetype/peoples_station
 	map = "People's Space Station"
 	descriptor = "Built in the interwar period, the People's Space Station bears the prestige of being the first space installation designed, constructed, and manned by Tajara."
 
@@ -24,8 +24,8 @@
 		"Orbital Fleet Fang" = list("nav_hangar_peoples_station_fang"),
 		"Intrepid" = list("nav_peoples_station_dockintrepid")
 	)
-	light_power = 3
-	light_range = 2
+	comms_support = TRUE
+	comms_name = "people's station"
 
 /obj/effect/shuttle_landmark/nav_peoples_station/dockintrepid
 	name = "People's Space Station Intrepid Docking"

@@ -54,7 +54,7 @@
 /obj/item/projectile/beam/cavern
 	name = "electrical discharge"
 	icon_state = "stun"
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	check_armor = "energy"
 	damage = 5
 
@@ -92,7 +92,7 @@
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	attacktext = "barrels into"
-	attack_sound = /decl/sound_category/punch_sound
+	attack_sound = /singleton/sound_category/punch_sound
 	a_intent = I_HURT
 	speak_emote = list("chirps","buzzes","whirrs")
 	emote_hear = list("chirps cheerfully","buzzes","whirrs","hums placidly","chirps","hums")

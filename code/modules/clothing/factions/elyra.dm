@@ -65,11 +65,11 @@
 	clothing_mode = names.Find(appearance_choice) - 1
 	cooldown = world.time
 
-	addtimer(CALLBACK(src, .proc/transform_holoclothing_appearance, user), 20)
+	addtimer(CALLBACK(src, PROC_REF(transform_holoclothing_appearance), user), 20)
 	set_light(2, 1.5, COLOR_NAVY_BLUE)
 	icon_state = initial(icon_state) + "_transition"
 	item_state = initial(item_state) + "_transition"
-	addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 22)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 22)
 	update_clothing_icon()
 
 /obj/item/clothing/under/elyra_holo/proc/transform_holoclothing_appearance(mob/user as mob)

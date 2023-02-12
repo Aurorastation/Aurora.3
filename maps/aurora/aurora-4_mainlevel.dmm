@@ -6693,9 +6693,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/device/piano{
-	broken = 1;
-	force_piano = 1;
+/obj/structure/synthesized_instrument/synthesizer/piano{
 	pixel_x = 6;
 	pixel_y = -6
 	},
@@ -20736,7 +20734,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/toy/prize/deathripley{
+/obj/item/toy/mech/deathripley{
 	desc = "This is Johnny 5. Is he alive?";
 	name = "Johnny 5"
 	},
@@ -50991,7 +50989,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bRW" = (
-/obj/structure/device/piano,
+/obj/structure/synthesized_instrument/synthesizer/piano,
 /obj/structure/table/wood{
 	pixel_x = -2;
 	pixel_y = -1
@@ -58759,14 +58757,8 @@
 /area/maintenance/medbay)
 "coB" = (
 /obj/structure/table/steel,
-/obj/item/storage/firstaid/regular{
-	empty = 1;
-	name = "First-Aid (empty)"
-	},
-/obj/item/storage/firstaid/regular{
-	empty = 1;
-	name = "First-Aid (empty)"
-	},
+/obj/item/storage/firstaid/empty,
+/obj/item/storage/firstaid/empty,
 /obj/item/device/healthanalyzer,
 /obj/item/device/healthanalyzer,
 /obj/machinery/firealarm/south,
@@ -67064,7 +67056,7 @@
 /area/maintenance/cargo)
 "ruO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/violin,
+/obj/item/device/synthesized_instrument/violin,
 /obj/structure/table/wood{
 	pixel_x = -2;
 	pixel_y = -1

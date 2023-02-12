@@ -182,7 +182,7 @@
 				if(get_trait(TRAIT_BIOLUM_COLOUR))
 					clr = get_trait(TRAIT_BIOLUM_COLOUR)
 				splat.set_light(get_trait(TRAIT_POTENCY)/10, pwr, clr)
-				addtimer(CALLBACK(splat, /atom/.proc/set_light, 0), rand(3 MINUTES, 5 MINUTES))
+				addtimer(CALLBACK(splat, TYPE_PROC_REF(/atom, set_light), 0), rand(3 MINUTES, 5 MINUTES))
 			var/flesh_colour = get_trait(TRAIT_FLESH_COLOUR)
 			if(!flesh_colour) flesh_colour = get_trait(TRAIT_PRODUCT_COLOUR)
 			if(flesh_colour) splat.color = get_trait(TRAIT_PRODUCT_COLOUR)
@@ -414,51 +414,51 @@
 
 	chems = list()
 	if(prob(80))
-		chems[/decl/reagent/nutriment] = list(rand(1,10),rand(10,20))
+		chems[/singleton/reagent/nutriment] = list(rand(1,10),rand(10,20))
 
 	var/additional_chems = rand(0,5)
 
 	if(additional_chems)
 		var/list/possible_chems = list(
-			/decl/reagent/acetone,
-			/decl/reagent/alkysine,
-			/decl/reagent/aslimetoxin,
-			/decl/reagent/bicaridine,
-			/decl/reagent/butazoline,
-			/decl/reagent/blood,
-			/decl/reagent/cryoxadone,
-			/decl/reagent/cryptobiolin,
-			/decl/reagent/toxin/cyanide,
-			/decl/reagent/dermaline,
-			/decl/reagent/dexalin,
-			/decl/reagent/ethylredoxrazine,
-			/decl/reagent/hydrazine,
-			/decl/reagent/hyperzine,
-			/decl/reagent/hyronalin,
-			/decl/reagent/impedrezene,
-			/decl/reagent/mercury,
-			/decl/reagent/mindbreaker,
-			/decl/reagent/inaprovaline,
-			/decl/reagent/peridaxon,
-			/decl/reagent/toxin/phoron,
-			/decl/reagent/toxin/plasticide,
-			/decl/reagent/potassium,
-			/decl/reagent/radium,
-			/decl/reagent/rezadone,
-			/decl/reagent/ryetalyn,
-			/decl/reagent/slimejelly,
-			/decl/reagent/space_drugs,
-			/decl/reagent/soporific,
-			/decl/reagent/sugar,
-			/decl/reagent/synaptizine,
-			/decl/reagent/thermite,
-			/decl/reagent/toxin,
-			/decl/reagent/mortaphenyl,
-			/decl/reagent/water,
-			/decl/reagent/woodpulp,
-			/decl/reagent/ambrosia_extract,
-			/decl/reagent/skrell_nootropic,
-			/decl/reagent/toxin/berserk
+			/singleton/reagent/acetone,
+			/singleton/reagent/alkysine,
+			/singleton/reagent/aslimetoxin,
+			/singleton/reagent/bicaridine,
+			/singleton/reagent/butazoline,
+			/singleton/reagent/blood,
+			/singleton/reagent/cryoxadone,
+			/singleton/reagent/cryptobiolin,
+			/singleton/reagent/toxin/cyanide,
+			/singleton/reagent/dermaline,
+			/singleton/reagent/dexalin,
+			/singleton/reagent/ethylredoxrazine,
+			/singleton/reagent/hydrazine,
+			/singleton/reagent/hyperzine,
+			/singleton/reagent/hyronalin,
+			/singleton/reagent/impedrezene,
+			/singleton/reagent/mercury,
+			/singleton/reagent/mindbreaker,
+			/singleton/reagent/inaprovaline,
+			/singleton/reagent/peridaxon,
+			/singleton/reagent/toxin/phoron,
+			/singleton/reagent/toxin/plasticide,
+			/singleton/reagent/potassium,
+			/singleton/reagent/radium,
+			/singleton/reagent/rezadone,
+			/singleton/reagent/ryetalyn,
+			/singleton/reagent/slimejelly,
+			/singleton/reagent/space_drugs,
+			/singleton/reagent/soporific,
+			/singleton/reagent/sugar,
+			/singleton/reagent/synaptizine,
+			/singleton/reagent/thermite,
+			/singleton/reagent/toxin,
+			/singleton/reagent/mortaphenyl,
+			/singleton/reagent/water,
+			/singleton/reagent/woodpulp,
+			/singleton/reagent/ambrosia_extract,
+			/singleton/reagent/skrell_nootropic,
+			/singleton/reagent/toxin/berserk
 			)
 
 		for(var/x=1;x<=additional_chems;x++)
@@ -764,7 +764,7 @@
 		if(get_trait(TRAIT_BIOLUM_COLOUR))
 			clr = get_trait(TRAIT_BIOLUM_COLOUR)
 		product.set_light(get_trait(TRAIT_POTENCY)/10, pwr, clr)
-		addtimer(CALLBACK(product, /atom/.proc/set_light, 0), rand(5 MINUTES, 7 MINUTES))
+		addtimer(CALLBACK(product, TYPE_PROC_REF(/atom, set_light), 0), rand(5 MINUTES, 7 MINUTES))
 
 	//Handle spawning in living, mobile products (like dionaea).
 	if(istype(product,/mob/living))

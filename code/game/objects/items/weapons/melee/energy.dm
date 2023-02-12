@@ -345,8 +345,8 @@
 	active_w_class = ITEMSIZE_NORMAL
 	w_class = ITEMSIZE_NORMAL
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
-	equip_sound = /decl/sound_category/sword_equip_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
 
 /obj/item/melee/energy/sword/powersword/activate(mob/living/user)
 	..()

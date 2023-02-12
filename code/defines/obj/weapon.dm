@@ -73,19 +73,19 @@
 	var/armorpercent = 0
 	var/wasblocked = 0
 	var/shoulddisarm = 0
-	var/damagetype = PAIN
+	var/damagetype = DAMAGE_PAIN
 	var/chargedelay = 4 // 4 half frames = 2 seconds
 
 	if(targetIsHuman && targetashuman == user)
 		wasselfattack = 1
 
-	if (user.intent == I_HURT)
+	if (user.a_intent == I_HURT)
 		target_zone = get_zone_with_miss_chance(target_zone, target) //Vary the attack
-		damagetype = BRUTE
+		damagetype = DAMAGE_BRUTE
 
 	if (targetIsHuman)
 		var/mob/living/carbon/human/targethuman = target
-		armorpercent = targethuman.get_blocked_ratio(target_zone, BRUTE, damage = force)*100
+		armorpercent = targethuman.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage = force)*100
 		wasblocked = targethuman.check_shields(force, src, user, target_zone, null)
 
 	var/damageamount = force

@@ -398,7 +398,7 @@
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Shaft Miner", "Operations Manager", "Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
-	origin_restriction = list(/decl/origin_item/origin/free_council)
+	origin_restriction = list(/singleton/origin_item/origin/free_council)
 
 /datum/gear/tajaran_tarot
 	display_name = "adhomian divination cards deck"
@@ -427,6 +427,12 @@
 	charm["tajani charm"] = /obj/item/clothing/accessory/tajaran/charm/tajani
 	charm["holy sun rosette"] = /obj/item/clothing/accessory/tajaran/srendarr
 	gear_tweaks += new /datum/gear_tweak/path(charm)
+
+/datum/gear/tail_cloth
+	display_name = "tail cloth"
+	path = /obj/item/clothing/tail_accessory/tail_cloth
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/dpra_party_pin
 	display_name = "democratic peoples republic party pins selection"
@@ -479,3 +485,22 @@
 	portrait["king vahzirthaamro portrait"] = /obj/item/sign/painting_frame/vahzirthaamro
 	portrait["queen shumaila portrait"] = /obj/item/sign/painting_frame/shumaila
 	gear_tweaks += new /datum/gear_tweak/path(portrait)
+
+/datum/gear/accessory/tajara_medal
+	display_name = "tajaran medals"
+	description = "Because of the cultural impact of the civil wars in the Tajara species, medals are treated with the utmost respect by society. Veterans commonly wear their decorations to formal occasions."
+	path = /obj/item/clothing/accessory/medal/dasnrra_evac
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajara_medal/New()
+	..()
+	var/list/accessory = list()
+	accessory["PRA medal for the evacuation of das'nrra"] = /obj/item/clothing/accessory/medal/dasnrra_evac
+	accessory["PRA medal for the defense of the homeland"] = /obj/item/clothing/accessory/medal/homeland_defense
+	accessory["DPRA medal for the liberation of das'nrra"] = /obj/item/clothing/accessory/medal/dasnrra_liberation
+	accessory["DPRA medal for the liberation of gakal'zaal"] = /obj/item/clothing/accessory/medal/gakalzaal_liberation
+	accessory["NKA medal for the defense of the kingdom"] = /obj/item/clothing/accessory/medal/kingdom_defense
+	accessory["NKA medal for the harr'masir offensive"] = /obj/item/clothing/accessory/medal/harrmasir_offensive
+	gear_tweaks += new /datum/gear_tweak/path(accessory)

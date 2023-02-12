@@ -71,7 +71,8 @@
 		/mob/living/carbon/human/proc/check_tag,
 		/mob/living/carbon/human/proc/tie_hair)
 
-	bodyfall_sound = /decl/sound_category/bodyfall_sound
+	bodyfall_sound = /singleton/sound_category/bodyfall_sound
+	use_alt_hair_layer = FALSE
 
 /datum/species/machine/shell/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
 	if(reference)
@@ -161,7 +162,7 @@
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
 	maneuvers = list(
-		/decl/maneuver/leap/industrial
+		/singleton/maneuver/leap/industrial
 	)
 
 	heat_level_1 = 800
@@ -363,11 +364,11 @@
 	brute_mod = 0.9
 	grab_mod = 0.9
 	resist_mod = 8
-	
+
 	cold_level_1 = -1 //RaceDefault 50 Default -1
 	cold_level_2 = -1 //RaceDefault -1 Default -1
 	cold_level_3 = -1  //RaceDefault -1 Default -1
-	
+
 	heat_level_1 = 700  //RaceDefault 600 Default 700
 	heat_level_2 = 1400  //RaceDefault 1200 Default 1400
 	heat_level_3 = 2800  //RaceDefault 2400 Default 2800
@@ -460,7 +461,7 @@
 		/mob/living/carbon/human/proc/check_tag
 		)
 	maneuvers = list(
-		/decl/maneuver/leap/zenghu
+		/singleton/maneuver/leap/zenghu
 	)
 
 

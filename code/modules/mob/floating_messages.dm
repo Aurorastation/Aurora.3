@@ -72,10 +72,24 @@ var/list/floating_chat_colors = list()
 		animate(old, 2, pixel_y = old.pixel_y + 8)
 	LAZYADD(holder.stored_chat_text, I)
 
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_floating_text, holder, I), duration)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_images_from_clients, I, show_to), duration + 2)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_floating_text), holder, I), duration)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_images_from_clients), I, show_to), duration + 2)
 
 	return I
+
+/// Gives floating text to src upon holder entering
+/atom/movable/proc/give_floating_text(atom/movable/holder)
+	if(!holder)
+		return
+	for(var/image/I in holder.stored_chat_text)
+		I.loc = src
+
+/// Returns floating text to holder upon leaving src
+/atom/movable/proc/return_floating_text(atom/movable/holder)
+	if(!holder)
+		return
+	for(var/image/I in holder.stored_chat_text)
+		I.loc = holder
 
 /proc/remove_floating_text(atom/movable/holder, image/I)
 	animate(I, 2, pixel_y = I.pixel_y + 10, alpha = 0)

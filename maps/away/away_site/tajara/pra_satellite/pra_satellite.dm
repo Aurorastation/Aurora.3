@@ -7,7 +7,7 @@
 	spawn_cost = 1
 	id = "pra_satellite"
 
-/decl/submap_archetype/pra_satellite
+/singleton/submap_archetype/pra_satellite
 	map = "hadiist satellite"
 	descriptor = "A People's Republic of Adhomai satellite used to survey the system."
 
@@ -46,3 +46,4 @@
 	requires_power = TRUE
 	base_turf = /turf/simulated/floor/plating
 	no_light_control = TRUE
+	ambience = AMBIENCE_TECH_RUINS

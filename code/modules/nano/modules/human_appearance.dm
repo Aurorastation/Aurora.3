@@ -23,7 +23,10 @@
 	var/list/whitelist
 	var/list/blacklist
 
-/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/datum/topic_state/set_ui_state = interactive_state, var/datum/set_state_object = null, var/update_id)
+	var/list/culture_restrictions = list()
+	var/list/origin_restrictions = list()
+
+/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/list/culture_restriction = list(), var/list/origin_restriction = list(), var/datum/topic_state/set_ui_state = interactive_state, var/datum/set_state_object = null, var/update_id)
 	..()
 	ui_state = set_ui_state
 	state_object = set_state_object
@@ -36,6 +39,8 @@
 	src.check_whitelist = check_species_whitelist
 	src.whitelist = species_whitelist
 	src.blacklist = species_blacklist
+	culture_restrictions = culture_restriction
+	origin_restrictions = culture_restriction
 	generate_data(check_whitelist, whitelist, blacklist)
 
 /datum/vueui_module/appearance_changer/Topic(ref, href_list, var/datum/topic_state/state = ui_state)
@@ -132,18 +137,20 @@
 		if(can_change(APPEARANCE_CULTURE))
 			var/new_culture_id = href_list["culture"]
 			if(new_culture_id in valid_cultures)
-				var/decl/origin_item/culture/new_culture = valid_cultures[new_culture_id]
+				var/singleton/origin_item/culture/new_culture = valid_cultures[new_culture_id]
 				owner.culture = new_culture
+				owner.culture.on_apply(owner)
 				if(!(owner.origin in new_culture.possible_origins))
-					owner.origin = decls_repository.get_decl(pick(new_culture.possible_origins))
+					owner.origin = GET_SINGLETON(pick(new_culture.possible_origins))
 				clear_and_generate_data()
 			return 1
 	if(href_list["origin"])
 		if(can_change(APPEARANCE_CULTURE))
 			var/new_origin_id = href_list["origin"]
 			if(new_origin_id in valid_origins)
-				var/decl/origin_item/origin/new_origin = valid_origins[new_origin_id]
+				var/singleton/origin_item/origin/new_origin = valid_origins[new_origin_id]
 				owner.origin = new_origin
+				owner.origin.on_apply(owner)
 				if(!(owner.accent in new_origin.possible_accents))
 					owner.accent = new_origin.possible_accents[1]
 				if(!(owner.religion in new_origin.possible_religions))
@@ -302,11 +309,23 @@
 		valid_facial_hairstyles = owner.generate_valid_facial_hairstyles()
 	if(!length(valid_cultures))
 		for(var/culture in owner.species.possible_cultures)
-			var/decl/origin_item/culture/CI = decls_repository.get_decl(culture)
+			var/singleton/origin_item/culture/CI = GET_SINGLETON(culture)
+			if(length(culture_restrictions))
+				if(!(CI.type in culture_restrictions))
+					continue
 			valid_cultures[CI.name] = CI
-		var/decl/origin_item/culture/OC = owner.culture
+		if(length(culture_restrictions))
+			for(var/culture in culture_restrictions)
+				var/singleton/origin_item/culture/CL = GET_SINGLETON(culture)
+				for(var/origin in CL.possible_origins)
+					var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
+					valid_origins[OI.name] = OI
+		var/singleton/origin_item/culture/OC = owner.culture
 		for(var/origin in OC.possible_origins)
-			var/decl/origin_item/origin/OI = decls_repository.get_decl(origin)
+			var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
+			if(length(origin_restrictions))
+				if(!(OI.type in origin_restrictions))
+					continue
 			valid_origins[OI.name] = OI
 		valid_citizenships = owner.origin.possible_citizenships
 		valid_accents = owner.origin.possible_accents

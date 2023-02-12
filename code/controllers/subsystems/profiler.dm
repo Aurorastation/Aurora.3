@@ -6,7 +6,8 @@ var/datum/controller/subsystem/profiler/SSprofiler
 	wait = 1
 	priority = SS_PRIORITY_PROFILE
 
-	flags = SS_TICKER|SS_FIRE_IN_LOBBY
+	flags = SS_TICKER
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
 	var/last_fire_rt = 0
 	var/threshold = 0

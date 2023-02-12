@@ -63,7 +63,9 @@
 	if(!owner)
 		return
 
-	if(night_vision)
+	. = ..()
+
+	if(. && night_vision)
 		to_chat(owner, SPAN_WARNING("Your eyes burn with the intense light of the flash!"))
 		owner.Weaken(5)
 		disable_night_vision()
@@ -132,6 +134,9 @@
 /obj/item/organ/internal/heart/tajara
 	desc = "A robust heart capable of helping to preserve body temperature through blood circulation."
 	icon = 'icons/obj/organs/tajara_organs.dmi'
+
+/obj/item/organ/internal/heart/tajara/tesla_body
+	on_mob_icon = 'icons/mob/human_races/tesla_body_augments.dmi'
 
 /obj/item/organ/internal/kidneys/tajara
 	desc = "Alien kidneys adapted to the Tajaran physiology."

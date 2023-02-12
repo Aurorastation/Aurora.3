@@ -459,7 +459,7 @@
 /mob/living/silicon/robot/drone/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 		return
 	health = maxHealth - (getBruteLoss() + getFireLoss())
 	return
@@ -512,13 +512,13 @@
 		return
 	if(rebooting)
 		return
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 	SSghostroles.add_spawn_atom("rebooted_maint_drone", src)
 
 /mob/living/silicon/robot/drone/proc/transfer_personality(var/client/player)
 	if(!player)
 		return
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 	src.ckey = player.ckey
 
 	if(player.mob?.mind)

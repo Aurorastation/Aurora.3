@@ -3,6 +3,7 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "launcherbtt"
 	desc = "A remote control switch for something."
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/id = null
 	var/active = 0
 	var/operating = 0
@@ -66,7 +67,7 @@
 	icon_state = "light[active]"
 
 /obj/machinery/button/switch/attack_hand()
-	playsound(src, /decl/sound_category/switch_sound, 30)
+	playsound(src, /singleton/sound_category/switch_sound, 30)
 	intent_message(BUTTON_FLICK, 5)
 
 //alternate button with the same functionality, except has a door control sprite instead

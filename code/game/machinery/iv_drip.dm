@@ -255,7 +255,7 @@
 				beaker.reagents.trans_to_mob(attached, transfer_amount, CHEM_BLOOD)
 				update_icon()
 			if(toggle_stop) // Automatically detaches if the blood volume is at 100%
-				if((beaker.reagents.has_reagent(/decl/reagent/blood) || beaker.reagents.has_reagent(/decl/reagent/saline)) && attached.get_blood_volume() >= 100)
+				if((beaker.reagents.has_reagent(/singleton/reagent/blood) || beaker.reagents.has_reagent(/singleton/reagent/saline)) && attached.get_blood_volume() >= 100)
 					visible_message("\The <b>[src]</b> flashes a warning light, disengaging from [attached]'s [vein.name] automatically!")
 					playsound(src, 'sound/machines/buzz-two.ogg', 100)
 					vein = null
@@ -559,7 +559,7 @@
 
 /obj/machinery/iv_drip/proc/iv_rip()
 	attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [vein.name]."), SPAN_DANGER("The needle <B>painfully</B> rips out of your [vein.name]."))
-	vein.take_damage(brute = 5, damage_flags = DAM_SHARP)
+	vein.take_damage(brute = 5, damage_flags = DAMAGE_FLAG_SHARP)
 	vein = null
 	attached = null
 

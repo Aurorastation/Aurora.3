@@ -64,6 +64,7 @@
 	},
 /obj/item/clothing/suit/space/void/freelancer,
 /obj/item/clothing/head/helmet/space/void/freelancer,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "atj" = (
@@ -693,6 +694,7 @@
 	},
 /obj/item/clothing/suit/space/void/freelancer,
 /obj/item/clothing/head/helmet/space/void/freelancer,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "hQA" = (
@@ -1431,6 +1433,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/freelancer,
 /obj/item/clothing/head/helmet/space/void/freelancer,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "uYP" = (

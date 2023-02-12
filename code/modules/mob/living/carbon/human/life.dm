@@ -359,8 +359,15 @@
 		var/relative_density = environment.total_moles / MOLES_CELLSTANDARD
 		bodytemperature += between(BODYTEMP_COOLING_MAX, temp_adj*relative_density, BODYTEMP_HEATING_MAX)
 
+	var/cold_bonus = 0
+	var/hot_bonus = 0
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_COLD_RESISTANCE))
+		cold_bonus = 20
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_HOT_RESISTANCE))
+		hot_bonus = 20
+
 	// +/- 50 degrees from 310.15K is the 'safe' zone, where no damage is dealt.
-	if(bodytemperature >= species.heat_level_1)
+	if(bodytemperature >= (species.heat_level_1 + hot_bonus))
 		//Body temperature is too hot.
 		fire_alert = max(fire_alert, 1)
 		if(status_flags & GODMODE)	return 1	//godmode
@@ -374,7 +381,7 @@
 		take_overall_damage(burn = burn_dam, used_weapon = "extreme heat")
 		fire_alert = max(fire_alert, 2)
 
-	else if(bodytemperature <= species.cold_level_1)
+	else if(bodytemperature <= (species.cold_level_1 - cold_bonus))
 		fire_alert = max(fire_alert, 1)
 		if(status_flags & GODMODE)
 			return 1
@@ -424,13 +431,19 @@
 	if (is_diona())
 		diona_handle_temperature(DS)
 
+/mob/living/carbon/human/proc/get_baseline_body_temperature()
+	var/baseline = species.body_temperature
+	for(var/obj/item/clothing/clothing in list(w_uniform, wear_suit))
+		baseline += clothing.body_temperature_change
+	return baseline
+
 /mob/living/carbon/human/proc/stabilize_body_temperature()
 	if (species.passive_temp_gain) // We produce heat naturally.
 		bodytemperature += species.passive_temp_gain
 	if (species.body_temperature == null)
 		return //this species doesn't have metabolic thermoregulation
 
-	var/body_temperature_difference = species.body_temperature - bodytemperature
+	var/body_temperature_difference = get_baseline_body_temperature() - bodytemperature
 
 	if (abs(body_temperature_difference) < 0.5)
 		return //fuck this precision
@@ -446,7 +459,10 @@
 		var/recovery_amt = body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR
 		bodytemperature += recovery_amt
 	else if(bodytemperature > species.heat_level_1) //360.15 is 310.15 + 50, the temperature where you start to feel effects.
-		//We totally need a sweat system cause it totally makes sense...~
+		if(hydration >= 2)
+			adjustHydrationLoss(2)
+			if(HAS_FLAG(species.flags, CAN_SWEAT) && fire_stacks == 0)
+				fire_stacks = -1
 		var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
 		bodytemperature += recovery_amt
 
@@ -647,9 +663,9 @@
 			for(var/obj/item/I in src)
 				if(I.contaminated && !(species.flags & PHORON_IMMUNE))
 					if(I == r_hand)
-						apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_R_HAND)
+						apply_damage(vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
 					else if(I == l_hand)
-						apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_L_HAND)
+						apply_damage(vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
 					else
 						adjustFireLoss(vsc.plc.CONTAMINATION_LOSS)
 
@@ -697,9 +713,9 @@
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
 		handle_trace_chems()
-	if(vessel && (/decl/reagent/blood in vessel.reagent_data))
+	if(vessel && (/singleton/reagent/blood in vessel.reagent_data))
 		// update the trace chems in our blood vessels
-		var/decl/reagent/blood/B = decls_repository.get_decl(/decl/reagent/blood)
+		var/singleton/reagent/blood/B = GET_SINGLETON(/singleton/reagent/blood)
 		B.handle_trace_chems(vessel)
 
 	for(var/_R in chem_doses)
@@ -745,7 +761,7 @@
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
 			if(sleeping)
-				stat = UNCONSCIOUS
+				set_stat(UNCONSCIOUS)
 				if(!sleeping_msg_debounce)
 					sleeping_msg_debounce = TRUE
 					to_chat(src, SPAN_NOTICE(FONT_LARGE("You are now unconscious.<br>You will not remember anything you \"see\" happening around you until you regain consciousness.")))
@@ -771,7 +787,7 @@
 
 		//CONSCIOUS
 		else if(!InStasis())
-			stat = CONSCIOUS
+			set_stat(CONSCIOUS)
 			sleeping_msg_debounce = FALSE
 			willfully_sleeping = FALSE
 
@@ -1137,6 +1153,28 @@
 		if (T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_simple(null, pick(scarySounds), 50, TRUE)
 
+		if(HAS_TRAIT(src, TRAIT_ORIGIN_DARK_AFRAID))
+			if(T.get_lumcount() < 0.1)
+				if(prob(2))
+					var/list/assunzione_messages = list(
+						"You feel a bit afraid...",
+						"You feel somewhat nervous...",
+						"You could use a little light here...",
+						"Ennoia be with you, it's a bit too dark..."
+					)
+					to_chat(src, SPAN_WARNING(pick(assunzione_messages)))
+
+		if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
+			if(T.get_lumcount() > 0.8)
+				if(prob(1))
+					if(prob(5))
+						var/list/eye_sensitivity_messages = list(
+							"Your eyes tire a bit.",
+							"Your eyes sting a little.",
+							"Your vision feels a bit strained."
+						)
+						to_chat(src, SPAN_WARNING(pick(eye_sensitivity_messages)))
+
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind)
 		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
@@ -1383,9 +1421,13 @@
 		if(ear_deaf <= 1 && (sdisabilities & DEAF) && has_hearing_aid())
 			setEarDamage(-1, max(ear_deaf-1, 0))
 
-		if(protected_from_sound())	// resting your ears make them heal faster
+		var/ear_safety = get_hearing_protection()
+
+		if(ear_safety >= EAR_PROTECTION_MAJOR)	// resting your ears make them heal faster
 			adjustEarDamage(-0.15, 0)
 			setEarDamage(-1)
+		else if(ear_safety > EAR_PROTECTION_NONE)
+			adjustEarDamage(-0.10, 0)
 		else if(ear_damage < HEARING_DAMAGE_SLOW_HEAL)	//ear damage heals slowly under this threshold. otherwise you'll need earmuffs
 			adjustEarDamage(-0.05, 0)
 

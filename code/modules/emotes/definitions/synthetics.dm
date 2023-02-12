@@ -1,29 +1,29 @@
-/decl/emote/audible/synth
+/singleton/emote/audible/synth
 	key = "beep"
 	emote_message_3p = "USER beeps."
 	emote_sound = 'sound/machines/twobeep.ogg'
 
-/decl/emote/audible/synth/check_user(var/mob/living/user)
+/singleton/emote/audible/synth/check_user(var/mob/living/user)
 	if(istype(user) && user.isSynthetic())
 		return ..()
 	return FALSE
 
-/decl/emote/audible/synth/ping
+/singleton/emote/audible/synth/ping
 	key = "ping"
 	emote_message_3p = "USER pings."
 	emote_sound = 'sound/machines/ping.ogg'
 
-/decl/emote/audible/synth/buzz
+/singleton/emote/audible/synth/buzz
 	key = "buzz"
 	emote_message_3p = "USER buzzes."
 	emote_sound = 'sound/machines/buzz-sigh.ogg'
 
-/decl/emote/audible/synth/confirm
+/singleton/emote/audible/synth/confirm
 	key = "confirm"
 	emote_message_3p = "USER emits an affirmative blip."
 	emote_sound = 'sound/machines/synth_yes.ogg'
 
-/decl/emote/audible/synth/deny
+/singleton/emote/audible/synth/deny
 	key = "deny"
 	emote_message_3p = "USER emits a negative blip."
 	emote_sound = 'sound/machines/synth_no.ogg'

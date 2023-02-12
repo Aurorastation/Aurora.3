@@ -5,7 +5,7 @@
 	name = "lime"
 	seed_name = "lime"
 	display_name = "lime trees"
-	chems = list(/decl/reagent/nutriment = list(1,20), /decl/reagent/drink/limejuice = list(10,20))
+	chems = list(/singleton/reagent/nutriment = list(1,20), /singleton/reagent/drink/limejuice = list(10,20))
 	kitchen_tag = "lime"
 
 /datum/seed/citrus/setup_traits()
@@ -28,7 +28,7 @@
 	name = "lemon"
 	seed_name = "lemon"
 	display_name = "lemon trees"
-	chems = list(/decl/reagent/nutriment = list(1,20), /decl/reagent/drink/lemonjuice = list(10,20))
+	chems = list(/singleton/reagent/nutriment = list(1,20), /singleton/reagent/drink/lemonjuice = list(10,20))
 	kitchen_tag = "lemon"
 
 /datum/seed/citrus/lemon/setup_traits()
@@ -46,7 +46,7 @@
 	seed_name = "orange"
 	display_name = "orange trees"
 	kitchen_tag = "orange"
-	chems = list(/decl/reagent/nutriment = list(1,20), /decl/reagent/drink/orangejuice = list(10,20))
+	chems = list(/singleton/reagent/nutriment = list(1,20), /singleton/reagent/drink/orangejuice = list(10,20))
 
 /datum/seed/citrus/orange/setup_traits()
 	..()
@@ -63,7 +63,7 @@
 	seed_name = "grape"
 	display_name = "grapevines"
 	mutants = list("greengrapes")
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/sugar = list(1,5), /decl/reagent/drink/grapejuice = list(10,10), /decl/reagent/nutriment/grapejelly = list(1,8))
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/sugar = list(1,5), /singleton/reagent/drink/grapejuice = list(10,10), /singleton/reagent/nutriment/grapejelly = list(1,8))
 
 /datum/seed/grapes/setup_traits()
 	..()
@@ -87,7 +87,7 @@
 	seed_name = "green grape"
 	display_name = "green grapevines"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/kelotane = list(3,5), /decl/reagent/drink/whitegrapejuice = list(10,10))
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/kelotane = list(3,5), /singleton/reagent/drink/whitegrapejuice = list(10,10))
 
 /datum/seed/grapes/green/setup_traits()
 	..()
@@ -104,7 +104,7 @@
 	seed_name = "berry"
 	display_name = "berry bush"
 	mutants = list("glowberries","poisonberries","blueberries")
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/berryjuice = list(10,10))
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/berryjuice = list(10,10))
 	kitchen_tag = "berries"
 
 /datum/seed/berry/setup_traits()
@@ -129,7 +129,7 @@
 	seed_name = "blueberry"
 	display_name = "blueberry bush"
 	mutants = list("berries","poisonberries","glowberries")
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/blueberryjuice = list(10,10))
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/blueberryjuice = list(10,10))
 
 /datum/seed/berry/blue/setup_traits()
 	..()
@@ -145,7 +145,7 @@
 	seed_name = "glowberry"
 	display_name = "glowberry bush"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/uranium = list(3,5), /decl/reagent/drink/glowberryjuice = list(10,10))
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/uranium = list(3,5), /singleton/reagent/drink/glowberryjuice = list(10,10))
 
 /datum/seed/berry/glow/setup_traits()
 	..()
@@ -168,7 +168,7 @@
 	seed_name = "poison berry"
 	display_name = "poison berry bush"
 	mutants = list("deathberries")
-	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/toxin = list(3,5), /decl/reagent/toxin/poisonberryjuice = list(10,5))
+	chems = list(/singleton/reagent/nutriment = list(1), /singleton/reagent/toxin = list(3,5), /singleton/reagent/toxin/poisonberryjuice = list(10,5))
 
 /datum/seed/berry/poison/setup_traits()
 	..()
@@ -184,7 +184,7 @@
 	seed_name = "death berry"
 	display_name = "death berry bush"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/toxin = list(3,3), /decl/reagent/lexorin = list(1,5), /decl/reagent/toxin/deathberryjuice = list(10,10))
+	chems = list(/singleton/reagent/nutriment = list(1), /singleton/reagent/toxin = list(3,3), /singleton/reagent/lexorin = list(1,5), /singleton/reagent/toxin/deathberryjuice = list(10,10))
 
 /datum/seed/berry/poison/death/setup_traits()
 	..()
@@ -201,7 +201,7 @@
 	seed_name = "raspberry"
 	display_name = "raspberry bush"
 	mutants = list("berries","poisonberries","glowberries")
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/raspberryjuice = list(10,10))
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/raspberryjuice = list(10,10))
 
 /datum/seed/berry/raspberry/setup_traits()
 	..()
@@ -215,7 +215,7 @@
 	seed_name = "blue raspberry"
 	display_name = "blue raspberry bush"
 	mutants = list("berries","poisonberries","glowberries")
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/blueraspberryjuice = list(10,10))
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/blueraspberryjuice = list(10,10))
 
 /datum/seed/berry/raspberry/blue/setup_traits()
 	..()
@@ -229,7 +229,7 @@
 	seed_name = "blackberry"
 	display_name = "blackberry bush"
 	mutants = list("berries","poisonberries","glowberries")
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/blackraspberryjuice = list(10,10))
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/blackraspberryjuice = list(10,10))
 
 /datum/seed/berry/raspberry/black/setup_traits()
 	..()
@@ -243,7 +243,7 @@
 	seed_name = "strawberry"
 	display_name = "strawberry bush"
 	mutants = list("berries","poisonberries","glowberries")
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/strawberryjuice = list(10,10))
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/strawberryjuice = list(10,10))
 
 /datum/seed/berry/strawberry/setup_traits()
 	..()
@@ -259,7 +259,7 @@
 	seed_name = "apple"
 	display_name = "apple tree"
 	mutants = list("poisonapple","goldapple")
-	chems = list(/decl/reagent/drink/applejuice = list(1,10), /decl/reagent/nutriment = list(1,10))
+	chems = list(/singleton/reagent/drink/applejuice = list(1,10), /singleton/reagent/nutriment = list(1,10))
 	kitchen_tag = "apple"
 
 /datum/seed/apple/setup_traits()
@@ -281,7 +281,7 @@
 /datum/seed/apple/poison
 	name = "poisonapple"
 	mutants = null
-	chems = list(/decl/reagent/toxin/cyanide = list(1,5))
+	chems = list(/singleton/reagent/toxin/cyanide = list(1,5))
 
 /obj/item/seeds/poisonedappleseed
 	seed_type = "poisonapple"
@@ -291,7 +291,7 @@
 	seed_name = "golden apple"
 	display_name = "gold apple tree"
 	mutants = null
-	chems = list(/decl/reagent/drink/applejuice = list(1,10), /decl/reagent/gold = list(1,5))
+	chems = list(/singleton/reagent/drink/applejuice = list(1,10), /singleton/reagent/gold = list(1,5))
 	kitchen_tag = "goldapple"
 
 /datum/seed/apple/gold/setup_traits()
@@ -312,7 +312,7 @@
 	name = "cacao"
 	seed_name = "cacao"
 	display_name = "cacao tree"
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/nutriment/coco = list(4,5))
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/nutriment/coco = list(4,5))
 
 /obj/item/seeds/cocoapodseed
 	seed_type = "cacao"
@@ -334,7 +334,7 @@
 	name = "banana"
 	seed_name = "banana"
 	display_name = "banana tree"
-	chems = list(/decl/reagent/drink/banana = list(10,10))
+	chems = list(/singleton/reagent/drink/banana = list(10,10))
 	trash_type = /obj/item/bananapeel
 	kitchen_tag = "banana"
 
@@ -360,7 +360,7 @@
 	seed_name = "cherry"
 	seed_noun = SEED_NOUN_PITS
 	display_name = "cherry tree"
-	chems = list(/decl/reagent/nutriment = list(1,15), /decl/reagent/sugar = list(1,15), /decl/reagent/nutriment/cherryjelly = list(10,15))
+	chems = list(/singleton/reagent/nutriment = list(1,15), /singleton/reagent/sugar = list(1,15), /singleton/reagent/nutriment/cherryjelly = list(10,15))
 	kitchen_tag = "cherries"
 
 /datum/seed/cherries/setup_traits()
@@ -383,7 +383,7 @@
 	name = "watermelon"
 	seed_name = "watermelon"
 	display_name = "watermelon vine"
-	chems = list(/decl/reagent/nutriment = list(1,6), /decl/reagent/drink/watermelonjuice = list(10,6))
+	chems = list(/singleton/reagent/nutriment = list(1,6), /singleton/reagent/drink/watermelonjuice = list(10,6))
 
 /datum/seed/watermelon/setup_traits()
 	..()
@@ -409,7 +409,7 @@
 	name = "pumpkin"
 	seed_name = "pumpkin"
 	display_name = "pumpkin vine"
-	chems = list(/decl/reagent/nutriment/pumpkinpulp = list(5,6))
+	chems = list(/singleton/reagent/nutriment/pumpkinpulp = list(5,6))
 	kitchen_tag = "pumpkin"
 
 /datum/seed/pumpkin/setup_traits()
@@ -434,7 +434,7 @@
 	name = "coffee"
 	seed_name = "coffee beans"
 	display_name = "coffee bush"
-	chems = list(/decl/reagent/nutriment/coffeegrounds = list(2,10))
+	chems = list(/singleton/reagent/nutriment/coffeegrounds = list(2,10))
 	kitchen_tag = "coffee"
 
 /datum/seed/coffee/setup_traits()
@@ -456,7 +456,7 @@
 	name = "rich coffee"
 	seed_name = "rich coffee beans"
 	display_name = "rich coffee bush"
-	chems = list(/decl/reagent/nutriment/darkcoffeegrounds = list(2,10))
+	chems = list(/singleton/reagent/nutriment/darkcoffeegrounds = list(2,10))
 	kitchen_tag = "richcoffee"
 
 /datum/seed/richcoffee/setup_traits()

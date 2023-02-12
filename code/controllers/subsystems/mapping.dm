@@ -18,7 +18,7 @@ var/datum/controller/subsystem/mapping/SSmapping
 /datum/controller/subsystem/mapping/Initialize(timeofday)
 	// Load templates and build away sites.
 	preloadTemplates()
-	for(var/atype in subtypesof(/decl/submap_archetype))
+	for(var/atype in subtypesof(/singleton/submap_archetype))
 		submap_archetypes[atype] = new atype
 
 	current_map.build_away_sites()
@@ -50,7 +50,7 @@ var/datum/controller/subsystem/mapping/SSmapping
 
 	var/list/banned_maps = list() + banned_exoplanet_dmms + banned_space_dmms + banned_away_site_dmms
 
-	for(var/item in sortList(subtypesof(/datum/map_template), /proc/cmp_ruincost_priority))
+	for(var/item in sortList(subtypesof(/datum/map_template), GLOBAL_PROC_REF(cmp_ruincost_priority)))
 		var/datum/map_template/map_template_type = item
 		// screen out the abstract subtypes
 		if(!initial(map_template_type.id))

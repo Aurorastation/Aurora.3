@@ -21,8 +21,8 @@
 	icon_state = "[ismetal? "m" : ""]foam"
 	metal = ismetal
 	playsound(src, 'sound/effects/bubbles2.ogg', 80, 1, -3)
-	addtimer(CALLBACK(src, .proc/tick), 3 + metal * 3)
-	addtimer(CALLBACK(src, .proc/post), solid_time)
+	addtimer(CALLBACK(src, PROC_REF(tick)), 3 + metal * 3)
+	addtimer(CALLBACK(src, PROC_REF(post)), solid_time)
 
 /obj/effect/effect/foam/proc/tick()
 	process()
@@ -127,7 +127,7 @@
 			for(var/id in carried_reagents)
 				F.reagents.add_reagent(id, 1, safety = 1) //makes a safety call because all reagents should have already reacted anyway
 		else
-			F.reagents.add_reagent(/decl/reagent/water, 1, safety = 1)
+			F.reagents.add_reagent(/singleton/reagent/water, 1, safety = 1)
 
 // wall formed by metal foams, dense and opaque, but easy to break
 
