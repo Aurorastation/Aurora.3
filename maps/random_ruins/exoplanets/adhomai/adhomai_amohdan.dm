@@ -37,7 +37,6 @@
 	shoes = /obj/item/clothing/shoes/tajara/combat
 	belt = /obj/item/material/sword/amohdan_sword
 	accessory = /obj/item/clothing/accessory/storage/bayonet
-
 	l_ear = null
 
 	id = null

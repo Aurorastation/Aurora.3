@@ -76,7 +76,7 @@
 	if(!config.starlight)
 		return
 	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
-		set_light(1, config.starlight, l_color = SSskybox.background_color)
+		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
 	else
 		set_light(0)
 
