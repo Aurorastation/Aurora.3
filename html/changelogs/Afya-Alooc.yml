@@ -1,6 +1,0 @@
-author: Afya
-
-delete-after: True
-
-changes:
-  - tweak: "ALOOC to use ALOOC instead of Admin-LOOC"
