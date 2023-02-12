@@ -5505,12 +5505,14 @@
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "eLI" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 9
 	},
-/obj/structure/reagent_dispensers/extinguisher,
-/turf/simulated/floor,
-/area/maintenance/bridge)
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "eNC" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/representative{
@@ -5736,6 +5738,15 @@
 	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
+"eXd" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "eXj" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -7388,17 +7399,13 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "ggF" = (
-/obj/structure/closet/secure_closet/personal,
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Cryogenic Storage Dormitory";
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/crew_quarters/cryo/dormitories)
+/obj/structure/table/rack,
+/obj/random/loot,
+/turf/simulated/floor,
+/area/maintenance/bridge)
 "ggJ" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
@@ -8549,14 +8556,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/longbow)
 "hcG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
-	dir = 10
-	},
-/obj/machinery/meter{
-	name = "Air Reserve"
-	},
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -10692,16 +10693,15 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/shields)
 "iMl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
-	dir = 5
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+	dir = 1
 	},
 /obj/structure/cable/green{
-	icon_state = "1-8"
+	icon_state = "4-8"
 	},
-/obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "iMI" = (
@@ -11038,11 +11038,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/firing_range)
 "jav" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
+/obj/random/loot,
+/turf/simulated/floor,
+/area/maintenance/bridge)
 "jaG" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -11674,12 +11676,11 @@
 /turf/simulated/wall,
 /area/horizon/stairwell/bridge)
 "jDM" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/effect/floor_decal/corner/blue,
+/obj/item/modular_computer/console/preset/engineering{
+	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "jEj" = (
@@ -13899,22 +13900,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
-"llL" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
-	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/closet/walllocker/firecloset{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
 "llN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -14511,13 +14496,18 @@
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "lKs" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 5
 	},
-/obj/random/loot,
-/turf/simulated/floor,
-/area/maintenance/bridge)
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "lMh" = (
 /obj/machinery/door/airlock/glass{
 	name = "Gym"
@@ -15139,10 +15129,17 @@
 /area/bridge/controlroom)
 "miA" = (
 /obj/effect/floor_decal/corner/blue{
-	dir = 1
+	dir = 9
 	},
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 1
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -21790,11 +21787,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "rNA" = (
-/obj/effect/floor_decal/corner/blue,
-/obj/item/modular_computer/console/preset/engineering{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "rNN" = (
@@ -21954,24 +21952,12 @@
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "rTd" = (
-/obj/structure/table/steel,
-/obj/machinery/cell_charger,
-/obj/machinery/recharger/wallcharger{
-	pixel_x = -28;
-	pixel_y = -10
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = -28;
-	pixel_y = 3
-	},
-/obj/machinery/recharger{
-	pixel_y = 11
-	},
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
+/obj/random/junk,
+/turf/simulated/floor,
+/area/maintenance/bridge)
 "rTk" = (
 /obj/structure/mirror{
 	pixel_x = 28;
@@ -22951,6 +22937,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
+"sAr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor,
+/area/maintenance/bridge)
 "sBl" = (
 /obj/machinery/light{
 	dir = 4
@@ -24394,12 +24387,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "tHh" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
 	},
-/obj/random/junk,
-/turf/simulated/floor,
-/area/maintenance/bridge)
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "tHF" = (
 /obj/machinery/light{
 	dir = 4
@@ -26283,23 +26278,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
-"vbS" = (
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 4
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/item/modular_computer/console/preset/medical{
-	dir = 1
-	},
-/obj/structure/railing/mapped,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
 "vbT" = (
 /obj/machinery/power/apc/hyper{
 	name = "south bump";
@@ -26374,13 +26352,17 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
 "vfg" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Cryogenic Storage Dormitory";
+	dir = 1
 	},
-/obj/structure/table/rack,
-/obj/random/loot,
-/turf/simulated/floor,
-/area/maintenance/bridge)
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/crew_quarters/cryo/dormitories)
 "vfl" = (
 /obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/plain{
@@ -26567,8 +26549,22 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "vlS" = (
-/turf/simulated/floor/tiled/white,
-/area/horizon/crew_quarters/cryo/dormitories)
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/item/modular_computer/console/preset/medical{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "vlW" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -27248,11 +27244,14 @@
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "vOl" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 10
 	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
+/obj/machinery/meter{
+	name = "Air Reserve"
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -28494,26 +28493,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
 "wPV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
+/turf/simulated/floor/tiled/white,
+/area/horizon/crew_quarters/cryo/dormitories)
 "wPW" = (
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/port)
 "wQI" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/structure/table/steel,
+/obj/machinery/cell_charger,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -28;
+	pixel_y = -10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
-	dir = 1
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -28;
+	pixel_y = 3
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/machinery/recharger{
+	pixel_y = 11
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -47151,11 +47151,11 @@ nup
 nup
 icU
 vaL
-tHh
-eLI
+rTd
+sAr
 nup
-lKs
-vfg
+jav
+ggF
 vaL
 kZV
 mgS
@@ -47753,15 +47753,15 @@ kUM
 kUM
 kUM
 kUM
-rTd
-llL
+wQI
+miA
 udD
 waj
 kUM
 kUM
 eaX
 dnk
-ggF
+vfg
 agp
 slj
 rAA
@@ -47955,9 +47955,9 @@ eqr
 vxF
 aKk
 uvI
-miA
-jDM
-vOl
+eXd
+rNA
+tHh
 eYC
 kUM
 kUM
@@ -48157,9 +48157,9 @@ nOF
 aGp
 leX
 eYD
-jav
-wQI
+hcG
 iMl
+lKs
 eUd
 kUM
 kUM
@@ -48356,17 +48356,17 @@ suQ
 jid
 nzb
 uWs
-jav
+hcG
 enn
 edt
 edt
-wPV
+eLI
 ozD
 cJm
 kUM
 kUM
 eVa
-vlS
+wPV
 vmT
 agp
 eVJ
@@ -48562,8 +48562,8 @@ wqO
 aqc
 azy
 azy
-rNA
-hcG
+jDM
+vOl
 qeM
 kUM
 nSJ
@@ -48764,7 +48764,7 @@ fzk
 qbD
 jEO
 raC
-vbS
+vlS
 fxi
 ydF
 ydF
