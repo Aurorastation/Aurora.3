@@ -525,7 +525,7 @@
 
 /obj/item/reagent_containers/food/snacks/chips
 	name = "chips"
-	desc = "Commander Riker's What-The-Crisps."
+	desc = "Getmore potato chips. Not actually chips, these are instead flash-fried wafers of potato paste. Delicious!"
 	icon_state = "chips"
 	trash = /obj/item/trash/chips
 	filling_color = "#E8C31E"
@@ -535,7 +535,7 @@
 
 /obj/item/reagent_containers/food/snacks/cookie
 	name = "cookie"
-	desc = "COOKIE!!!"
+	desc = "A cookie."
 	icon_state = "COOKIE!!!"
 	filling_color = "#DBC94F"
 	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/sugar = 3)
@@ -817,6 +817,13 @@
 	filling_color = "#e9ffd1"
 	volume = 20
 	hatchling = /mob/living/simple_animal/schlorrgo/baby
+
+/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
+	name = "ice tunneler egg"
+	desc = "An egg laid by an Adhomian animal."
+	icon_state = "tunneler_egg"
+	filling_color = "#eff5e9"
+	hatchling = /mob/living/simple_animal/ice_tunneler/baby
 
 /obj/item/reagent_containers/food/snacks/friedegg
 	name = "fried egg"
@@ -1511,10 +1518,10 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("soy" = 2))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/spagetti
+/obj/item/reagent_containers/food/snacks/spaghetti
 	name = "spaghetti"
 	desc = "A bundle of raw spaghetti."
-	icon_state = "spagetti"
+	icon_state = "spaghetti"
 	filling_color = "#EDDD00"
 	center_of_mass = list("x"=16, "y"=16)
 	reagents_to_add = list(/singleton/reagent/nutriment = 1)
@@ -2111,10 +2118,10 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("soy" = 4, "tomato" = 4))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/boiledspagetti
+/obj/item/reagent_containers/food/snacks/boiledspaghetti
 	name = "boiled spaghetti"
 	desc = "A plain dish of noodles, this sucks."
-	icon_state = "spagettiboiled"
+	icon_state = "spaghettiboiled"
 	trash = /obj/item/trash/plate
 	filling_color = "#FCEE81"
 	center_of_mass = list("x"=16, "y"=10)
@@ -2156,7 +2163,7 @@
 
 /obj/item/reagent_containers/food/snacks/pastatomato
 	name = "spaghetti"
-	desc = "Spaghetti and crushed tomatoes. Just like your abusive father used to make!"
+	desc = "Spaghetti and crushed tomatoes."
 	icon_state = "pastatomato"
 	trash = /obj/item/trash/plate
 	filling_color = "#DE4545"
@@ -2165,10 +2172,10 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("tomato" = 3, "noodles" = 3))
 	bitesize = 4
 
-/obj/item/reagent_containers/food/snacks/meatballspagetti
+/obj/item/reagent_containers/food/snacks/meatballspaghetti
 	name = "spaghetti and meatballs"
 	desc = "Now thats a nic'e meatball!"
-	icon_state = "meatballspagetti"
+	icon_state = "meatballspaghetti"
 	trash = /obj/item/trash/plate
 	filling_color = "#DE4545"
 	center_of_mass = list("x"=16, "y"=10)
@@ -3597,7 +3604,7 @@
 	desc = "A building block of an impressive dish."
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "doughslice"
-	slice_path = /obj/item/reagent_containers/food/snacks/spagetti
+	slice_path = /obj/item/reagent_containers/food/snacks/spaghetti
 	slices_num = 1
 	bitesize = 2
 	center_of_mass = list("x"=17, "y"=19)

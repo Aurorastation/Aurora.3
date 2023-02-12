@@ -214,8 +214,8 @@
 						shake_camera(M, 3, 1)
 					else if(M.Check_Shoegrip(FALSE))
 						to_chat(M, SPAN_WARNING("You feel immense pressure in your feet as you cling to the floor!"))
-						M.apply_damage(10, PAIN, BP_L_FOOT)
-						M.apply_damage(10, PAIN, BP_R_FOOT)
+						M.apply_damage(10, DAMAGE_PAIN, BP_L_FOOT)
+						M.apply_damage(10, DAMAGE_PAIN, BP_R_FOOT)
 						shake_camera(M, 5, 1)
 					else
 						to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
@@ -227,7 +227,7 @@
 		for(var/obj/structure/cable/C in A)
 			powernets |= C.powernet
 
-	translate_turfs(turf_translation, current_location.base_area, current_location.base_turf)
+	translate_turfs(turf_translation, current_location.base_area, current_location.base_turf, TRUE)
 	current_location = destination
 
 	// if there's a zlevel above our destination, paint in a ceiling on it so we retain our air

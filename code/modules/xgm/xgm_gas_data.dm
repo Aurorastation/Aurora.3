@@ -57,7 +57,7 @@
 
 /obj/effect/gas_overlay
 	name = "gas"
-	desc = "You shouldn't be clicking this."
+	desc = DESC_PARENT
 	icon = 'icons/effects/tile_effects.dmi'
 	icon_state = "generic"
 	layer = LIGHTING_LAYER - 1

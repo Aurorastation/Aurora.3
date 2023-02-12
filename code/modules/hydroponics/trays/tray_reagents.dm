@@ -59,8 +59,8 @@
 	update_icon()
 	if(reagents.total_volume)
 		var/fraction = reagents.total_volume / volume
-		force = max(10 * fraction, 1)
-		throwforce = max(8 * fraction, 1)
+		force = max(5 * fraction, 1)
+		throwforce = max(5 * fraction, 1)
 		hitsound = 'sound/weapons/jug_filled_impact.ogg'
 		drop_sound = 'sound/weapons/jug_filled_impact.ogg'
 	else

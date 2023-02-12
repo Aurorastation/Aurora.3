@@ -60,7 +60,7 @@
 
 	loaded = 0
 	icon_state = "animal_tagger0"
-	addtimer(CALLBACK(src, .proc/do_recharge), 5 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(do_recharge)), 5 MINUTES)
 
 
 /obj/item/device/dociler/proc/do_recharge()

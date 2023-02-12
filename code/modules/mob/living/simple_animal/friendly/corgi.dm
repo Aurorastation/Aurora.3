@@ -61,7 +61,7 @@
 	if(!stat && !resting && !buckled_to)
 		if(prob(1))
 			visible_emote(pick("dances around.","chases their tail."),0)
-			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
+			INVOKE_ASYNC(src, PROC_REF(do_dance), list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
 
 /mob/living/simple_animal/corgi/proc/do_dance(list/directions = list())
 	for(var/i in directions)
@@ -84,7 +84,7 @@
 			stop_automated_movement = 0
 			turns_since_scan = 0
 
-			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2))
+			INVOKE_ASYNC(src, PROC_REF(do_dance), list(1,2,4,8,4,2,1,2))
 	else
 		..()
 
@@ -177,4 +177,4 @@
 
 	if (!stat && !resting && !buckled_to && prob(1))
 		visible_emote(pick("dances around","chases her tail"),0)
-		INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
+		INVOKE_ASYNC(src, PROC_REF(do_dance), list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))

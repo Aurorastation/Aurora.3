@@ -72,7 +72,7 @@
 	jobtype = /datum/job/chef
 
 	uniform = /obj/item/clothing/under/rank/chef/nt
-	suit = /obj/item/clothing/suit/chef/nt
+	suit = /obj/item/clothing/suit/chef_jacket/nt
 	head = /obj/item/clothing/head/chefhat/nt
 	shoes = /obj/item/clothing/shoes/black
 
@@ -122,7 +122,6 @@
 	jobtype = /datum/job/hydro
 
 	uniform = /obj/item/clothing/under/rank/hydroponics
-//	suit = /obj/item/clothing/suit/apron
 	head = /obj/item/clothing/head/bandana/hydro/nt
 	shoes = /obj/item/clothing/shoes/black
 	suit_store = /obj/item/device/analyzer/plant_analyzer
@@ -336,9 +335,9 @@
 	spawn_positions = 1
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	access = list(access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
-	minimal_access = list(access_morgue, access_chapel_office, access_crematorium)
-	alt_titles = list("Presbyter","Rabbi","Imam","Priest","Shaman","Counselor")
+	access = list(access_chapel_office, access_maint_tunnels)
+	minimal_access = list(access_chapel_office)
+	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Shaman", "Counselor")
 	outfit = /datum/outfit/job/chaplain
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -577,9 +576,9 @@
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/belt/utility
 
-	tab_pda = /obj/item/modular_computer/handheld/pda/supply
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply
-	tablet = /obj/item/modular_computer/handheld/preset/supply
+	tab_pda = /obj/item/modular_computer/handheld/pda/supply/machinist
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/machinist
+	tablet = /obj/item/modular_computer/handheld/preset/supply/machinist
 
 	headset = /obj/item/device/radio/headset/headset_cargo
 	bowman = /obj/item/device/radio/headset/headset_cargo/alt

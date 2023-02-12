@@ -392,6 +392,9 @@
 			for (var/atom/movable/location as anything in nested_locs)
 				LAZYREMOVEASSOC(location.important_recursive_contents, channel, gone.important_recursive_contents[channel])
 
+	if(LAZYLEN(gone.stored_chat_text))
+		return_floating_text(gone)
+
 /atom/movable/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 
@@ -400,6 +403,9 @@
 		for (var/channel in arrived.important_recursive_contents)
 			for (var/atom/movable/location as anything in nested_locs)
 				LAZYORASSOCLIST(location.important_recursive_contents, channel, arrived.important_recursive_contents[channel])
+
+	if (LAZYLEN(arrived.stored_chat_text))
+		give_floating_text(arrived)
 
 //allows this movable to hear and adds itself to the important_recursive_contents list of itself and every movable loc its in
 /atom/movable/proc/become_hearing_sensitive(trait_source = TRAIT_GENERIC)

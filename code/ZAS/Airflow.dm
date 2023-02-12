@@ -117,9 +117,9 @@ Contains helper procs for airflow, handled in /connection_group.
 		bloody_body(src)
 	var/b_loss = airflow_speed * vsc.airflow_damage
 
-	apply_damage(b_loss/3, BRUTE, BP_HEAD, used_weapon = "Airflow")
-	apply_damage(b_loss/3, BRUTE, BP_CHEST, used_weapon = "Airflow")
-	apply_damage(b_loss/3, BRUTE, BP_GROIN, used_weapon = "Airflow")
+	apply_damage(b_loss/3, DAMAGE_BRUTE, BP_HEAD, used_weapon = "Airflow")
+	apply_damage(b_loss/3, DAMAGE_BRUTE, BP_CHEST, used_weapon = "Airflow")
+	apply_damage(b_loss/3, DAMAGE_BRUTE, BP_GROIN, used_weapon = "Airflow")
 
 	if(airflow_speed > 10)
 		Paralyse(round(airflow_speed * vsc.airflow_stun))

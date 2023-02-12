@@ -320,7 +320,7 @@
 			M.losebreath++
 
 	if(REAGENT_VOLUME(M.reagents, /singleton/reagent/oxycomorphine)) //Straight to overdose.
-		overdose(M, alien, holder)
+		overdose(M, alien, removed, holder)
 
 /singleton/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
@@ -782,13 +782,13 @@
 		return
 	M.add_chemical_effect(CE_ANTIEMETIC, M.chem_doses[type]/4) // 1u should suppress 2u thetamycin
 
-/singleton/reagent/coughsyrup
-	name = "Cough Syrup"
+/singleton/reagent/antidexafen
+	name = "Antidexafen"
 	description = "A complex antitussive medication available OTC which is very effective at suppressing cough reflexes. The medication also acts as a very weak analgesic medication, leading to it being a very cheap recreational drug or precursor to other recreational drugs."
 	scannable = TRUE
 	reagent_state = LIQUID
-	taste_description = "bitterness"
-	color = "#402060"
+	taste_description = "cough syrup"
+	color = "#c8a5dc"
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 	breathe_met = REM * 2 // .4 units per tick
 	// touch is slow
@@ -796,11 +796,11 @@
 	glass_name = "glass of cough syrup"
 	glass_desc = "You'd better not."
 
-/singleton/reagent/coughsyrup/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/antidexafen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
 
-/singleton/reagent/coughsyrup/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder) // effects based loosely on DXM
+/singleton/reagent/antidexafen/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder) // effects based loosely on DXM
 	M.hallucination = max(M.hallucination, 40)
 	M.add_chemical_effect(CE_PAINKILLER, 20) // stronger at higher doses
 	if(prob(M.chem_doses[type]))
@@ -1508,7 +1508,7 @@
 		if(M && M.stat == DEAD)
 			M.adjustOxyLoss(-rand(15,20))
 			M.visible_message(SPAN_DANGER("\The [M] shudders violently!"))
-			M.stat = 0
+			M.set_stat(CONSCIOUS)
 
 /singleton/reagent/pacifier
 	name = "Paxazide"

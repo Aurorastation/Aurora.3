@@ -16,6 +16,7 @@
 
 	permit_ao = FALSE
 	z_eventually_space = TRUE
+	turf_flags = TURF_FLAG_BACKGROUND
 	var/use_space_appearance = TRUE
 	var/use_starlight = TRUE
 
@@ -64,9 +65,6 @@
 /turf/space/levelupdate()
 	for(var/obj/O in src)
 		O.hide(0)
-
-/turf/space/is_solid_structure()
-	return locate(/obj/structure/lattice, src) //counts as solid structure if it has a lattice
 
 /turf/space/can_have_cabling()
 	if (locate(/obj/structure/lattice/catwalk) in src)

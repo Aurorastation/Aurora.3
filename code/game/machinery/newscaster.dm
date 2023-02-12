@@ -11,6 +11,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	icon_state = "newscaster"
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/isbroken = 0  //1 if someone banged it with something heavy
 	var/ispowered = 1 //starts powered, changes with power_change()
 	//var/list/datum/feed_channel/channel_list = list() //This list will contain the names of the feed channels. Each name will refer to a data region where the messages of the feed channels are stored.
@@ -122,7 +123,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		src.ispowered = 1
 		src.update_icon()
 	else
-		addtimer(CALLBACK(src, .proc/post_power_loss), rand(1, 15))
+		addtimer(CALLBACK(src, PROC_REF(post_power_loss)), rand(1, 15))
 
 /obj/machinery/newscaster/proc/post_power_loss()
 	ispowered = 0
@@ -1029,7 +1030,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		if (!alert)
 			alert = 1
 			update_icon()
-			addtimer(CALLBACK(src, .proc/clearAlert), 300, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, PROC_REF(clearAlert)), 300, TIMER_UNIQUE)
 
 		playsound(src.loc, 'sound/machines/twobeep.ogg', 75, 1)
 	else

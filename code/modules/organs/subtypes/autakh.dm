@@ -106,7 +106,7 @@
 	parent_organ = BP_GROIN
 
 /obj/item/organ/internal/augment/calf_override/proc/do_run_act()
-	owner.apply_damage(1, BRUTE, BP_GROIN, armor_pen = 100)
+	owner.apply_damage(1, DAMAGE_BRUTE, BP_GROIN, armor_pen = 100)
 
 /obj/item/organ/internal/augment/protein_valve
 	name = "protein breakdown valve"
@@ -205,8 +205,8 @@
 		owner.change_eye_color(250, 130, 130)
 		owner.update_eyes()
 		online = TRUE
-		addtimer(CALLBACK(src, .proc/add_warning), 5 MINUTES)
-		addtimer(CALLBACK(src, .proc/add_warning), 6 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(add_warning)), 5 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(add_warning)), 6 MINUTES)
 	else
 		turn_off()
 

@@ -32,7 +32,7 @@
 			if(projection_ready)
 				new/obj/effect/temp_visual/constellation (get_turf(user))
 				projection_ready = FALSE
-				addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(rearm)), 30 SECONDS)
 
 
 /obj/item/stellascope/proc/rearm()
@@ -250,7 +250,7 @@
 	canremove = FALSE
 	icon_state = "[initial(icon_state)]_active"
 	to_chat(wearer, SPAN_WARNING("\The [src] clamps down around your ear, releasing a burst of static before going silent. Something probes at your ear canal..."))
-	addtimer(CALLBACK(src, .proc/do_loyalty, wearer), 15)
+	addtimer(CALLBACK(src, PROC_REF(do_loyalty), wearer), 15)
 
 /obj/item/nralakktag/proc/unclamp()
 	if(fried)

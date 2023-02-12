@@ -23,7 +23,7 @@
 	. = ..()
 	if(monitor_type)
 		register_monitor(new monitor_type(src))
-		alarm_monitor.register_alarm(src, /atom/.proc/update_icon)
+		alarm_monitor.register_alarm(src, TYPE_PROC_REF(/atom, update_icon))
 
 /obj/machinery/computer/station_alert/Destroy()
 	. = ..()

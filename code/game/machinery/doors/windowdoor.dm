@@ -61,7 +61,7 @@
 				open()
 		else
 			open()
-			addtimer(CALLBACK(src, .proc/close), check_access(null) ? 5 SECONDS : 2 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(close)), check_access(null) ? 5 SECONDS : 2 SECONDS)
 
 /obj/machinery/door/window/allowed(mob/M)
 	. = ..()
@@ -195,7 +195,7 @@
 		var/aforce = I.force
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 		visible_message("<span class='danger'>[src] was hit by [I].</span>")
-		if(I.damtype == BRUTE || I.damtype == BURN)
+		if(I.damtype == DAMAGE_BRUTE || I.damtype == DAMAGE_BURN)
 			take_damage(aforce)
 		return TRUE
 

@@ -26,14 +26,15 @@
 	var/storage_type = /obj/item/storage/toolbox/bike_storage
 	var/obj/item/storage/storage_compartment
 	var/datum/effect_system/ion_trail/ion
+	var/ion_type = /datum/effect_system/ion_trail
 	var/kickstand = TRUE
 	var/can_hover = TRUE
 
 /obj/vehicle/bike/setup_vehicle()
 	..()
-	ion = new(src)
+	ion = new ion_type(src)
 	turn_off()
-	add_overlay(image('icons/obj/bike.dmi', "[icon_state]_off_overlay", MOB_LAYER + 1))
+	add_overlay(image(icon, "[icon_state]_off_overlay", MOB_LAYER + 1))
 	icon_state = "[bike_icon]_off"
 	if(storage_type)
 		storage_compartment = new storage_type(src)
@@ -178,10 +179,10 @@
 	cut_overlays()
 
 	if(on)
-		add_overlay(image('icons/obj/bike.dmi', "[bike_icon]_on_overlay", MOB_LAYER + 1))
+		add_overlay(image(icon, "[bike_icon]_on_overlay", MOB_LAYER + 1))
 		icon_state = "[bike_icon]_on"
 	else
-		add_overlay(image('icons/obj/bike.dmi', "[bike_icon]_off_overlay", MOB_LAYER + 1))
+		add_overlay(image(icon, "[bike_icon]_off_overlay", MOB_LAYER + 1))
 		icon_state = "[bike_icon]_off"
 
 	..()
@@ -194,6 +195,9 @@
 
 /obj/vehicle/bike/Collide(var/atom/movable/AM)
 	. = ..()
+	collide_act(AM)
+
+/obj/vehicle/bike/proc/collide_act(var/atom/movable/AM)
 	var/mob/living/M
 	if(!buckled)
 		return
@@ -227,7 +231,7 @@
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
 				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
-				H.apply_damage(20, BRUTE)
+				H.apply_damage(20, DAMAGE_BRUTE)
 				H.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				H.apply_effect(4, WEAKEN)
 				M.setMoveCooldown(10)
@@ -238,7 +242,7 @@
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [L]!"))
 				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
 				L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
-				L.apply_damage(20, BRUTE)
+				L.apply_damage(20, DAMAGE_BRUTE)
 				M.setMoveCooldown(10)
 				return TRUE
 
@@ -290,7 +294,7 @@
 		M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
 		msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
-		H.apply_damage(30, BRUTE)
+		H.apply_damage(30, DAMAGE_BRUTE)
 		H.apply_effect(4, WEAKEN)
 		return TRUE
 
@@ -316,11 +320,12 @@
 /obj/vehicle/bike/casino
 	name = "retrofitted snowmobile"
 	desc = "A modified snowmobile. There is a coin slot on the panel."
-	icon_state = "snowmobile_on"
+	icon_state = "snow_on"
 
-	bike_icon = "snowmobile"
-	land_speed = 3
+	bike_icon = "snow"
+	land_speed = 2
 	protection_percent = 10
+	can_hover = FALSE
 	var/paid = FALSE
 
 /obj/vehicle/bike/casino/Move(var/turf/destination)
@@ -333,7 +338,7 @@
 		if(!paid)
 			paid = TRUE
 			to_chat(user, SPAN_NOTICE("Payment confirmed, enjoy two minutes of unlimited snowmobile use."))
-			addtimer(CALLBACK(src, .proc/rearm), 2 MINUTES)
+			addtimer(CALLBACK(src, PROC_REF(rearm)), 2 MINUTES)
 		return
 	..()
 
@@ -347,3 +352,14 @@
 		return TRUE
 	else
 		return FALSE
+
+/obj/vehicle/bike/snow
+	name = "snowmobile"
+	desc = "A vehicle adapted to travel on snow."
+	icon_state = "snow_on"
+
+	bike_icon = "snow"
+	land_speed = 2
+	space_speed = 0
+	protection_percent = 10
+	can_hover = FALSE

@@ -20,7 +20,7 @@
 VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	watch_var("toner", "toner")
 	watch_var("maxcopies", "maxcopies")
-	watch_var("copyitem", "gotitem", CALLBACK(null, .proc/transform_to_boolean, FALSE))
+	watch_var("copyitem", "gotitem", CALLBACK(null, PROC_REF(transform_to_boolean), FALSE))
 
 /obj/machinery/photocopier/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
