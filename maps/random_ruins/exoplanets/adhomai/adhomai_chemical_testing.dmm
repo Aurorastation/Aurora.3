@@ -18,7 +18,7 @@
 	},
 /area/exoplanet/adhomai)
 "x" = (
-/obj/structure/flora/bush,
+/obj/structure/flora/bush/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -29,8 +29,14 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"M" = (
+/obj/structure/flora/grass/adhomai,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "X" = (
-/obj/structure/flora/tree/dead,
+/obj/structure/flora/tree/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -92,7 +98,7 @@ c
 c
 c
 c
-c
+M
 c
 c
 c
@@ -288,7 +294,7 @@ c
 c
 c
 c
-c
+M
 c
 c
 c
@@ -453,7 +459,7 @@ c
 c
 c
 c
-c
+M
 c
 c
 c
@@ -688,7 +694,7 @@ c
 c
 c
 c
-c
+M
 c
 c
 c
@@ -857,7 +863,7 @@ c
 c
 c
 c
-c
+M
 c
 c
 x
@@ -971,7 +977,7 @@ X
 c
 c
 c
-c
+M
 c
 c
 c

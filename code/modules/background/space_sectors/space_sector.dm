@@ -2,6 +2,8 @@
 	var/name
 	var/description
 	var/starlight_color = COLOR_WHITE
+	var/starlight_power = 1
+	var/starlight_range = 1
 	var/list/possible_erts = list()
 	var/list/possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/snow, /obj/effect/overmap/visitable/sector/exoplanet/desert)
 	var/list/cargo_price_coef = list("nt" = 1, "hpi" = 1, "zhu" = 1, "een" = 1, "get" = 1, "arz" = 1, "blm" = 1,
