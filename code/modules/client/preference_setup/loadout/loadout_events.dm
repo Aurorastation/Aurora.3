@@ -9,6 +9,6 @@
 	character_existed_before_date = -1
 	path = /obj/item/gun/energy/lawgiver
 
-/datum/gear/event/yesterday
+/datum/gear/event/another_item
 	display_name = "Example Entry 2"
 	path = /obj/item/gun/energy/lawgiver
