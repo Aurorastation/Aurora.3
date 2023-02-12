@@ -82,18 +82,33 @@
 	// Handle datalinked view
 	datalink_process()
 
-	for(var/obj/effect/overmap/contact in view(12, linked))
-		if(get_dist(contact, linked) <= OVERMAP_FAR_SCAN_RANGE || contact.sensor_range_override)
-			if(contact == linked)
-				continue
-			if(!contact.requires_contact)	   // Only some effects require contact for visibility.
-				continue
-			objects_in_current_view[contact] = TRUE
+	for(var/obj/effect/overmap/contact in view(sensor_range, linked))
+		if(contact == linked)
+			continue
+		if(!contact.requires_contact)	   // Only some effects require contact for visibility.
+			continue
 
-			if(contact.instant_contact)   // Instantly identify the object in range.
-				objects_in_view[contact] = 100
-			else if(!(contact in objects_in_view))
-				objects_in_view[contact] = 0
+		objects_in_current_view[contact] = TRUE
+
+		if(contact.instant_contact)   // Instantly identify the object in range.
+			objects_in_view[contact] = 100
+		else if(!(contact in objects_in_view))
+			objects_in_view[contact] = 0
+
+	for(var/obj/effect/overmap/contact in range(OVERMAP_FAR_SCAN_RANGE, linked))
+		if(!contact.sensor_range_override)
+			continue
+		if(contact == linked)
+			continue
+		if(!contact.requires_contact)	   // Only some effects require contact for visibility.
+			continue
+
+		objects_in_current_view[contact] = TRUE
+
+		if(contact.instant_contact)   // Instantly identify the object in range.
+			objects_in_view[contact] = 100
+		else if(!(contact in objects_in_view))
+			objects_in_view[contact] = 0
 
 	for(var/obj/effect/overmap/contact in objects_in_view) //Update everything.
 
