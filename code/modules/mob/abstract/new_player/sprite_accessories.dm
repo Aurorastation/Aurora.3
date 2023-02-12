@@ -2498,25 +2498,25 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "short headtails"
 
-		skr_tentacle_tuux_l
+		skr_tentacle_tuux_wavy
 			name = "Headtails, wavy tuux"
 			icon_state = "skrell_long_tuux"
 			length = 5
 			chatname = "headtails"
 			
-		skr_tentacle_tuux_2
+		skr_tentacle_tuux_straight
 			name = "Headtails, straight tuux"
 			icon_state = "skrell_straight_tuux"
 			length = 5
 			chatname = "headtails"
 
-		skr_tentacle_tuux_s
+		skr_tentacle_tuux_short
 			name = "Short Headtails, tuux"
 			icon_state = "skrell_short_tuux"
 			length = 3
 			chatname = "short headtails"
 			
-		skr_tentacle_tuux_l
+		skr_tentacle_tuux_straight_l
 			name = "Long Headtails, tuux"
 			icon_state = "skrell_straight_tuux_long"
 			length = 6
