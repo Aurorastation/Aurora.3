@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Ghostspawner ships now only spawn into the game area once its first crewmember wakes up."

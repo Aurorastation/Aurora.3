@@ -33,6 +33,8 @@
 		"Orbital Fleet Shuttle" = list("nav_headmaster_shuttle")
 	)
 
+	invisible_until_ghostrole_spawn = TRUE
+
 /obj/effect/overmap/visitable/ship/headmaster_ship/New()
 	if (prob(50))
 		designation = "Hadii"
