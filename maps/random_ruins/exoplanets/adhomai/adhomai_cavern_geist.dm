@@ -10,7 +10,7 @@
 
 //ghost roles
 
-/datum/ghostspawner/human/adhomai_cavern_geist
+/datum/ghostspawner/simplemob/adhomai_cavern_geist
 	short_name = "adhomai_cavern_geist"
 	name = "Cavern Geist"
 	desc = "Terrorize the land as a feared cavern geist, the apex predator of Adhomai."
