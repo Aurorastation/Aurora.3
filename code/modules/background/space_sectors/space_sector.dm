@@ -8,6 +8,13 @@
 								"iac" = 1, "zsc" = 1, "vfc" = 1, "bis" = 1, "xmg" = 1, "npi" = 1) //how much the space sector afffects how expensive is ordering from that cargo supplier
 	var/skybox_icon = "ceti"
 
+	var/list/sector_lobby_art = null //if this is set, it will override the map lobby icons
+	var/sector_lobby_transitions = null //if this is set, it will override the map lobby transition
+	var/sector_welcome_message = null ///if this is set, it will override welcome audio message
+	var/sector_hud_menu = null //if this is set, it will override the hud menu icons
+	var/sector_hud_menu_sound = null //if this is set, it will override the hud menu click sound
+	var/sector_hud_arrow = null //if this is set, it will use an overlay instead of the animation that makes the button bigger
+
 	//vars used by the meteor random event
 
 	var/list/meteors_minor = list(

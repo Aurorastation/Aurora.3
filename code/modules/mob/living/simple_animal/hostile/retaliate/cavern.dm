@@ -54,7 +54,7 @@
 /obj/item/projectile/beam/cavern
 	name = "electrical discharge"
 	icon_state = "stun"
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	check_armor = "energy"
 	damage = 5
 

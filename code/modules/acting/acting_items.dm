@@ -28,7 +28,7 @@
 	if(!istype(H))
 		return
 
-	H.change_appearance(APPEARANCE_ALL, H, TRUE, H.generate_valid_species(), null, default_state, src, update_id = TRUE)
+	H.change_appearance(APPEARANCE_ALL, H, TRUE, H.generate_valid_species(), null, ui_state = default_state, state_object = src, update_id = TRUE)
 	var/getName = sanitizeName(sanitize_readd_odd_symbols(sanitize(input(H, "Would you like to change your name to something else?", "Name change") as null|text)))
 	if(getName)
 		H.real_name = getName

@@ -64,7 +64,7 @@
 	},
 /area/exoplanet/adhomai)
 "ds" = (
-/obj/structure/flora/bush,
+/obj/structure/flora/bush/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -267,7 +267,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/structure/flora/grass/brown,
+/obj/structure/flora/grass/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -358,7 +358,7 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/obj/structure/flora/grass/brown,
+/obj/structure/flora/grass/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -381,7 +381,7 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/obj/structure/flora/bush,
+/obj/structure/flora/bush/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -516,7 +516,7 @@
 	},
 /area/adhomai_raskariim_hideout)
 "Mo" = (
-/obj/structure/flora/tree/dead,
+/obj/structure/flora/tree/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -596,7 +596,7 @@
 	},
 /area/adhomai_raskariim_hideout)
 "PT" = (
-/obj/structure/flora/grass/brown,
+/obj/structure/flora/grass/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
