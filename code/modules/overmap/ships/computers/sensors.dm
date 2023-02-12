@@ -303,6 +303,7 @@
 	var/heat = 0
 	var/range = 1 // actual range
 	var/desired_range = 1 // "desired" range, that the actual range will gradually move towards to
+	var/desired_range_instant = FALSE // if true, instantly changes range to desired
 	var/max_range = 10
 	var/sensor_strength = 5//used for detecting ships via contacts
 	idle_power_usage = 5000
@@ -427,6 +428,8 @@
 
 /obj/machinery/shipsensors/proc/set_desired_range(nrange)
 	desired_range = nrange
+	if(desired_range_instant)
+		set_range(nrange)
 
 /obj/machinery/shipsensors/proc/set_range(nrange)
 	range = nrange
