@@ -135,3 +135,10 @@
 
 // every hearing sensitive atom has this trait
 #define TRAIT_HEARING_SENSITIVE "hearing_sensitive"
+
+
+// IPC OVERLOADER OVERDOSE STATES
+#define TRAIT_SOURCE_OVERLOADER "overloader"
+#define TRAIT_OVERLOADER_OD_INITIAL "overloader_od_initial"
+#define TRAIT_OVERLOADER_OD_MEDIUM "overloader_od_medium"
+#define TRAIT_OVERLOADER_OD_EFFECT "overloader_od_effect"
