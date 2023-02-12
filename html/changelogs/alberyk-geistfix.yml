@@ -1,6 +1,0 @@
-author: Albery
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the Adhomai geist spawn not working properly."

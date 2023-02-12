@@ -1,6 +1,0 @@
-author: RyverStyx
-
-delete-after: True
-
-changes:
-  - tweak: "Some pixels were the wrong color. Changed them to match."
