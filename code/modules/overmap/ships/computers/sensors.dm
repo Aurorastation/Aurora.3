@@ -88,6 +88,7 @@
 			distress_beacons.Add(list(list("caller" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
 		if(length(distress_beacons))
 			data["distress_beacons"] = distress_beacons
+		data["desired_range"] = sensors.desired_range
 		data["range_choices"] = list()
 		for(var/i in 1 to sensors.max_range)
 			data["range_choices"] += i
@@ -181,14 +182,14 @@
 			if(!CanInteract(usr, default_state))
 				return TOPIC_NOACTION
 			if (nrange)
-				sensors.set_range(Clamp(nrange, 1, sensors.max_range))
+				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
 			return TOPIC_REFRESH
 		if(href_list["range_choice"])
 			var/nrange = text2num(href_list["range_choice"])
 			if(!CanInteract(usr, default_state))
 				return TOPIC_NOACTION
 			if(nrange)
-				sensors.set_range(Clamp(nrange, 1, sensors.max_range))
+				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
 			return TOPIC_REFRESH
 		if (href_list["toggle"])
 			sensors.toggle()
@@ -300,7 +301,8 @@
 	var/critical_heat = 50 // sparks and takes damage when active & above this heat
 	var/heat_reduction = 1.7 // mitigates this much heat per tick - can sustain range 4
 	var/heat = 0
-	var/range = 1
+	var/range = 1 // actual range
+	var/desired_range = 1 // "desired" range, that the actual range will gradually move towards to
 	var/max_range = 10
 	var/sensor_strength = 5//used for detecting ships via contacts
 	idle_power_usage = 5000
@@ -383,6 +385,8 @@
 	..()
 
 /obj/machinery/shipsensors/proc/toggle()
+	if(use_power) // reset desired range when turning off
+		set_desired_range(1)
 	if(!use_power && (health == 0 || !in_vacuum()))
 		return // No turning on if broken or misplaced.
 	if(!use_power) //need some juice to kickstart
@@ -395,6 +399,12 @@
 	if(use_power) //can't run in non-vacuum
 		if(!in_vacuum())
 			toggle()
+		if(desired_range > range)
+			set_range(range+1)
+		if(desired_range < range)
+			set_range(range-1)
+		if(desired_range-range <= -max_range/2)
+			set_range(range-1) // if working hard, spool down faster too
 		if(heat > critical_heat)
 			src.visible_message("<span class='danger'>\The [src] violently spews out sparks!</span>")
 			spark(src, 3, alldirs)
@@ -402,6 +412,8 @@
 			take_damage(rand(10,50))
 			toggle()
 		heat += active_power_usage/15000
+	else if(desired_range < range)
+		set_range(range-1) // if power off, only spool down
 
 	if (heat > 0)
 		heat = max(0, heat - heat_reduction)
@@ -412,6 +424,9 @@
 	. = ..()
 	if(use_power && !powered())
 		toggle()
+
+/obj/machinery/shipsensors/proc/set_desired_range(nrange)
+	desired_range = nrange
 
 /obj/machinery/shipsensors/proc/set_range(nrange)
 	range = nrange
