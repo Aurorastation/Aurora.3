@@ -38,4 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Changes the sensors console range input to a button selection ranging from 1 to 7."
+  - tweak: "Changes the sensors console range input to a button selection ranging from 1 to max sensor range."
+  - tweak: "Tweaks sensors suites max range and heat efficiency values. Standard sensors are now 10 max range, and sustainable heat is at 4 range. Strong sensors are 14/6, weak are 7/4."
+  - tweak: "Horizon's sensors suite is now the 'strong' variant."
