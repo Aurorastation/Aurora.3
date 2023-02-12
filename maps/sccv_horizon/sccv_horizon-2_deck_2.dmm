@@ -35538,13 +35538,10 @@
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "rDH" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/obj/structure/bed/stool/chair/sofa/left/brown,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
+/obj/machinery/vending/overloaders,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "rDK" = (
@@ -36208,9 +36205,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "rTC" = (
-/obj/structure/bed/stool/chair/sofa/brown,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
+	},
+/obj/structure/bed/stool/chair/sofa/left/brown,
+/obj/machinery/alarm{
+	pixel_y = 28
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
