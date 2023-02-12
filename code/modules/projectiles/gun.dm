@@ -577,11 +577,11 @@
 			user.show_message(SPAN_WARNING("You feel rather silly, trying to commit suicide with a toy."))
 			mouthshoot = FALSE
 			return
-		else if(in_chamber.damage_type == DAMAGE_PAIN)
-			user.apply_damage(in_chamber.damage * 2, DAMAGE_PAIN, BP_HEAD)
+		else if(in_chamber.damage_type == PAIN)
+			user.apply_damage(in_chamber.damage * 2, PAIN, BP_HEAD)
 		else
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src].")
-			user.apply_damage(in_chamber.damage * 20, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAMAGE_FLAG_SHARP)
+			user.apply_damage(in_chamber.damage * 20, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
 			user.death()
 
 		handle_post_fire(user, user, FALSE, FALSE, FALSE)

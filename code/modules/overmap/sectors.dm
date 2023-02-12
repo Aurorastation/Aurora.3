@@ -50,6 +50,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	/// null | num | list. If a num or a (num, num) list, the radius or random bounds for placing this sector near the main map's overmap icon.
 	var/list/place_near_main
 
+	var/invisible_until_ghostrole_spawn = FALSE
+
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)
@@ -77,7 +79,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		start_y = start_y || rand(map_low, map_high)
 		home = locate(start_x, start_y, current_map.overmap_z)
 
-	forceMove(home)
+	if(!invisible_until_ghostrole_spawn)
+		forceMove(home)
 
 	update_name()
 
@@ -171,7 +174,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 /obj/effect/overmap/visitable/proc/toggle_distress_status()
 	has_called_distress_beacon = !has_called_distress_beacon
 	if(has_called_distress_beacon)
-		var/image/distress_overlay = image('icons/obj/overmap.dmi', "distress")
+		var/image/distress_overlay = image('icons/obj/overmap/overmap_effects.dmi', "distress")
 		applied_distress_overlay = distress_overlay
 		add_overlay(applied_distress_overlay)
 		filters = filter(type = "outline", size = 2, color = COLOR_RED)

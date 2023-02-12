@@ -431,10 +431,16 @@
 
 
 /obj/singularity/proc/toxmob()
+	var/toxrange = 10
 	var/radiation = 15
+	var/radiationmin = 3
 	if (src.energy > 200)
 		radiation = round(((src.energy-150)/50)*5,1)
-	SSradiation.radiate(src, radiation)
+		radiationmin = round((radiation/5),1)//
+	for(var/mob/living/M in view(toxrange, src.loc))
+		if(M.status_flags & GODMODE)
+			continue
+		M.apply_damage(rand(radiationmin,radiation), IRRADIATE, damage_flags = DAM_DISPERSED)
 
 /obj/singularity/proc/mezzer()
 	for(var/mob/living/carbon/M in oviewers(8, src))
@@ -464,13 +470,13 @@
 /obj/singularity/proc/smwave()
 	for(var/mob/living/M in view(10, src.loc))
 		if(prob(67))
+			M.apply_damage(rand(energy), IRRADIATE, damage_flags = DAM_DISPERSED)
 			to_chat(M, "<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
 			to_chat(M, "<span class=\"notice\">Miraculously, it fails to kill you.</span>")
 		else
 			to_chat(M, "<span class=\"danger\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
 			to_chat(M, "<span class=\"danger\">You don't even have a moment to react as you are reduced to ashes by the intense radiation.</span>")
 			M.dust()
-	SSradiation.radiate(src, rand(energy))
 	return
 
 /obj/singularity/proc/on_capture()

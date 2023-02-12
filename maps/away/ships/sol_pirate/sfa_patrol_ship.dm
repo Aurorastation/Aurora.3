@@ -12,7 +12,7 @@
 	map = "SFA Corvette"
 	descriptor = "A small ship that appears to be, at its core, a Montevideo-class corvette, a Solarian anti-piracy and patrol corvette designed with ample automation and streamlined equipment which allows for it to be manned by a small crew. This one, however, seems to have been host to a myriad of haphazard and radical modifications, and is scarcely identifiable as the original craft. Beyond the changes made to the ship itself, it also appears to have suffered extensive damage and wear, and seems to be near-derelict"
 
-//Areas
+//areas
 /area/ship/sfa_patrol_ship
 	name = "SFA Corvette"
 
@@ -65,8 +65,9 @@
 	name = "SFA Corvette"
 	class = "SFAV"
 	desc = "A small ship that appears to be, at its core, a Montevideo-class corvette, a Solarian anti-piracy and patrol corvette designed with ample automation and streamlined equipment which allows for it to be manned by a small crew. This one, however, seems to have been host to a myriad of haphazard and radical modifications, and is scarcely identifiable as the original craft. Beyond the changes made to the ship itself, it also appears to have suffered extensive damage and wear, and seems to be near-derelict"
-	icon_state = "ship_green"
-	moving_state = "ship_green_moving"
+	icon_state = "corvette"
+	moving_state = "corvette_moving"
+	colors = list("#9dc04c", "#52c24c")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -80,6 +81,8 @@
 		"nav_sfa_patrol_ship_1",
 		"nav_sfa_patrol_ship_2"
 	)
+
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/sfa_patrol_ship/New()
 	designation = "[pick("Brigand", "Zheng Yi Sao", "Corruption", "Edward Teach", "Beauchamp's Revenge", "Blackguard", "Viking", "Despoiler", "Wayward Son", "Black Sheep", "Gluttony", "Pride", "Avarice", "Greed", "Envy", "Sloth", "Wrath", "We're The Good Ones", "Reformed", "Repentant", "Recidivist", "Just Following Orders", "Habitual Offender", "Felon", "Misdemeanor", "Conscientious Objector")]"
@@ -109,8 +112,9 @@
 	designation = "Pickford"
 	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus."
 	shuttle = "SFA Shuttle"
-	icon_state = "shuttle_green"
-	moving_state = "shuttle_green_moving"
+	icon_state = "pod"
+	moving_state = "pod_moving"
+	colors = list("#9dc04c", "#52c24c")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

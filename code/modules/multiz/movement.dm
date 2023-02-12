@@ -465,7 +465,7 @@
 
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
 
-	apply_damage(damage, DAMAGE_BRUTE)
+	apply_damage(damage, BRUTE)
 
 	// The only piece of duplicate code. I was so close. Soooo close. :ree:
 	if(!isSynthetic())
@@ -528,15 +528,15 @@
 		var/groin_damage = rand(0,damage/4)
 
 
-		apply_damage(left_damage, DAMAGE_BRUTE, BP_L_LEG)
-		apply_damage(right_damage, DAMAGE_BRUTE, BP_R_LEG)
+		apply_damage(left_damage, BRUTE, BP_L_LEG)
+		apply_damage(right_damage, BRUTE, BP_R_LEG)
 
 		if(prob(50))
-			apply_damage(leftf_damage, DAMAGE_BRUTE, BP_R_FOOT)
+			apply_damage(leftf_damage, BRUTE, BP_R_FOOT)
 		if(prob(50))
-			apply_damage(leftf_damage, DAMAGE_BRUTE, BP_L_FOOT)
+			apply_damage(leftf_damage, BRUTE, BP_L_FOOT)
 		if(prob(50))
-			apply_damage(groin_damage, DAMAGE_BRUTE, BP_GROIN)
+			apply_damage(groin_damage, BRUTE, BP_GROIN)
 
 		visible_message(SPAN_WARNING("\The [src] falls and lands directly on their legs!"),
 			SPAN_DANGER("You land on your feet, and the impact brings you to your knees."))
@@ -571,13 +571,13 @@
 		var/lefth_damage = rand(0,damage/4)
 		var/righth_damage = rand(0,damage/4)
 
-		apply_damage(left_damage, DAMAGE_BRUTE, BP_L_ARM)
-		apply_damage(right_damage, DAMAGE_BRUTE, BP_R_ARM)
+		apply_damage(left_damage, BRUTE, BP_L_ARM)
+		apply_damage(right_damage, BRUTE, BP_R_ARM)
 
 		if(prob(50))
-			apply_damage(lefth_damage, DAMAGE_BRUTE, BP_R_HAND)
+			apply_damage(lefth_damage, BRUTE, BP_R_HAND)
 		if(prob(50))
-			apply_damage(righth_damage, DAMAGE_BRUTE, BP_L_HAND)
+			apply_damage(righth_damage, BRUTE, BP_L_HAND)
 
 		limb_damage = left_damage + right_damage + lefth_damage + righth_damage
 
@@ -606,7 +606,7 @@
 				r_arm.dislocate(TRUE)
 
 	else if(prob(30) && combat_roll >= 1)//landed on their head
-		apply_damage(limb_damage, DAMAGE_BRUTE, BP_HEAD)
+		apply_damage(limb_damage, BRUTE, BP_HEAD)
 		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
 			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
 
@@ -622,7 +622,7 @@
 				"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	if(!limb_damage)
-		apply_damage(damage, DAMAGE_BRUTE, BP_CHEST)
+		apply_damage(damage, BRUTE, BP_CHEST)
 
 	Weaken(rand(damage/4, damage/2))
 
@@ -727,14 +727,14 @@
 	if (ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/cranial_damage = rand(0,damage/2)
-		H.apply_damage(cranial_damage, DAMAGE_BRUTE, BP_HEAD, armor_pen = cranial_damage + armor_penetration)
+		H.apply_damage(cranial_damage, BRUTE, BP_HEAD, armor_pen = cranial_damage + armor_penetration)
 		var/new_damage = damage - cranial_damage
-		H.apply_damage(new_damage, DAMAGE_BRUTE, BP_CHEST, armor_pen = new_damage + armor_penetration)
+		H.apply_damage(new_damage, BRUTE, BP_CHEST, armor_pen = new_damage + armor_penetration)
 
 		if (damage >= THROWNOBJ_KNOCKBACK_DIVISOR)
 			H.Weaken(rand(damage / 4, damage / 2))
 	else
-		L.apply_damage(damage, DAMAGE_BRUTE)
+		L.apply_damage(damage, BRUTE)
 
 	L.visible_message(SPAN_DANGER("\The [L] had \the [src] fall onto [src.get_pronoun("him")]!"),
 		SPAN_DANGER("You had \the [src] fall onto you and strike you!"))

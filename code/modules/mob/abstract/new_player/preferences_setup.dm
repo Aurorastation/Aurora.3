@@ -1,7 +1,7 @@
 /datum/preferences
 	//The mob should have a gender you want before running this proc. Will run fine without H
 
-/datum/preferences/proc/randomize_appearance_for(var/mob/living/carbon/human/H, var/random_gender=TRUE, var/list/culture_restriction = list(), var/list/origin_restriction = list())
+/datum/preferences/proc/randomize_appearance_for(var/mob/living/carbon/human/H,var/random_gender=TRUE)
 	if(random_gender)
 		gender = pick(MALE, FEMALE)
 	else
@@ -25,17 +25,9 @@
 	backbag = 2
 	pda_choice = 2
 	age = rand(getMinAge(),getMaxAge())
-	if(length(culture_restriction))
-		H.culture = GET_SINGLETON(pick(culture_restriction))
-	if(length(origin_restriction))
-		for(var/O in origin_restriction)
-			if(O in culture_restriction)
-				H.origin = GET_SINGLETON(O)
-				break
-		if(!H.origin)
-			crash_with("Invalid origin restrictions [english_list(origin_restriction)] for culture restrictions [english_list(culture_restriction)]!")
 	if(H)
 		copy_to(H,1)
+
 
 /datum/preferences/proc/randomize_hair_color(var/target = "hair")
 	if(prob (75) && target == "facial") // Chance to inherit hair color

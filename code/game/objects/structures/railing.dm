@@ -41,7 +41,7 @@
 	if(!material || !material.radioactivity)
 		return
 	for(var/mob/living/L in range(1,src))
-		L.apply_damage(round(material.radioactivity / 20), DAMAGE_RADIATION)
+		L.apply_damage(round(material.radioactivity / 20), IRRADIATE)
 
 /obj/structure/railing/Initialize()
 	. = ..()
@@ -213,7 +213,7 @@
 					playsound(get_turf(src), 'sound/effects/grillehit.ogg', 50, TRUE)
 					if(prob(30))
 						G.affecting.Weaken(5)
-					G.affecting.apply_damage(15, DAMAGE_BRUTE, BP_HEAD)
+					G.affecting.apply_damage(15, BRUTE, BP_HEAD)
 				else
 					G.affecting.forceMove(get_step(src, get_dir(user, src)))
 					G.affecting.Weaken(5)
@@ -273,7 +273,7 @@
 			update_icon()
 		return
 
-	if(W.force && (W.damtype == DAMAGE_BURN || W.damtype == DAMAGE_BRUTE))
+	if(W.force && (W.damtype == BURN || W.damtype == BRUTE))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		visible_message(SPAN_WARNING("\The [src] has been [LAZYLEN(W.attack_verb) ? pick(W.attack_verb) : "attacked"] with \the [W] by \the [user]!"))
 		take_damage(W.force)

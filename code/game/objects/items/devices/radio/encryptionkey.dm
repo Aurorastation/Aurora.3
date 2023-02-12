@@ -81,7 +81,7 @@
 
 /obj/item/device/encryptionkey/hivenet
 	name = "hivenet encryption chip"
-	desc = "It appears to be a Vaurca Hivenet encryption chip, for localized broadcasts."
+	desc = "It appears to be a Vaurca hivenet encryption chip, for localized broadcasts."
 	translate_hivenet = TRUE
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "neuralchip"

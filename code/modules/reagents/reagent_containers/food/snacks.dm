@@ -525,7 +525,7 @@
 
 /obj/item/reagent_containers/food/snacks/chips
 	name = "chips"
-	desc = "Getmore potato chips. Not actually chips, these are instead flash-fried wafers of potato paste. Delicious!"
+	desc = "Commander Riker's What-The-Crisps."
 	icon_state = "chips"
 	trash = /obj/item/trash/chips
 	filling_color = "#E8C31E"
@@ -535,7 +535,7 @@
 
 /obj/item/reagent_containers/food/snacks/cookie
 	name = "cookie"
-	desc = "A cookie."
+	desc = "COOKIE!!!"
 	icon_state = "COOKIE!!!"
 	filling_color = "#DBC94F"
 	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/sugar = 3)

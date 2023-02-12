@@ -1,7 +1,7 @@
 /obj/item/storage/box/bloodpacks
 	name = "blood packs bags"
 	desc = "This box contains blood packs."
-	illustration = "blood"
+	icon_state = "sterile"
 
 /obj/item/storage/box/bloodpacks/fill()
 	..()
@@ -151,7 +151,7 @@
 			else
 				var/obj/item/organ/external/affecting = attached.get_organ(pick(BP_R_ARM, BP_L_ARM))
 				attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."), SPAN_DANGER("The needle <b>painfully</b> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."))
-				affecting.take_damage(brute = 5, damage_flags = DAMAGE_FLAG_SHARP)
+				affecting.take_damage(brute = 5, damage_flags = DAM_SHARP)
 		attached_mob = null
 	STOP_PROCESSING(SSprocessing, src)
 

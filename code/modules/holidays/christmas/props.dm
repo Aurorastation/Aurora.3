@@ -101,6 +101,7 @@
 		/obj/item/storage/photo_album,
 		/obj/item/storage/box/snappops,
 		/obj/item/storage/box/fancy/crayons,
+		/obj/item/storage/backpack/holding,
 		/obj/item/storage/belt/champion,
 		/obj/item/soap/deluxe,
 		/obj/item/pickaxe/silver,

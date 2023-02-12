@@ -482,7 +482,7 @@
 				randmutg(M)
 			domutcheck(M, null)
 			M.UpdateAppearance()
-	M.apply_damage(10 * removed, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	M.apply_effect(10 * removed, IRRADIATE, blocked = 0)
 
 /singleton/reagent/slimejelly
 	name = "Slime Jelly"

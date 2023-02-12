@@ -1277,9 +1277,10 @@ var/list/admin_verbs_cciaa = list(
 		log_and_message_admins("forced the following away mission: [mission_name].")
 
 /client/proc/alooc(msg as text)
-	set name = "Admin LOOC"
+	set name = "ALOOC"
 	set desc = "Admin Local OOC, seen only by those in view, regardless of their LOOC preferences."
 	set category = "Admin"
+	set hidden = 1
 
 	if(!check_rights(R_ADMIN|R_MOD))
 		return

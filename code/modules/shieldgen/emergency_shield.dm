@@ -64,7 +64,7 @@
 	user.do_attack_animation(src, W)
 	//Calculate damage
 	var/aforce = W.force
-	if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
+	if(W.damtype == BRUTE || W.damtype == BURN)
 		health -= aforce
 
 	//Play a fitting sound

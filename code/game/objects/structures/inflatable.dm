@@ -105,7 +105,7 @@
 	if(W.can_puncture())
 		user.visible_message(SPAN_DANGER("[user] pierces \the [src] with \the [W]!"), SPAN_WARNING("You pierce \the [src] with \the [W]!"))
 		deflate(TRUE)
-	else if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
+	else if(W.damtype == BRUTE || W.damtype == BURN)
 		hit(W.force)
 		..()
 
