@@ -90,6 +90,13 @@
 	force_divisor = 0.2
 	build_from_parts = TRUE
 
+/obj/item/material/hatchet/machete/Initialize()
+	. = ..()
+	if(build_from_parts) 
+		var/image/I = image(icon, icon_state = "machete_handle")
+		I.color = pick(COLOR_BLUE, COLOR_RED, COLOR_CYAN, COLOR_BLACK, COLOR_AMBER, COLOR_GREEN, COLOR_OLIVE, COLOR_GUNMETAL, COLOR_DARK_BLUE_GRAY)
+		add_overlay(I)
+
 /obj/item/material/hatchet/machete/unbreakable
 	unbreakable = TRUE
 
@@ -98,13 +105,6 @@
 	desc = "A long, machine-stamped blade with a somewhat ungainly handle. Found in military surplus stores, malls, and horror movies since before interstellar travel."
 	default_material = MATERIAL_STEEL
 	matter = list(MATERIAL_STEEL = 15000, MATERIAL_PLASTIC = 2500)
-
-/obj/item/material/hatchet/machete/Initialize()
-	. = ..()
-	if(build_from_parts) 
-		var/image/I = image(icon, icon_state = "machete_handle")
-		I.color = pick(COLOR_BLUE, COLOR_RED, COLOR_CYAN, COLOR_BLACK, COLOR_AMBER, COLOR_GREEN, COLOR_OLIVE, COLOR_GUNMETAL, COLOR_DARK_BLUE_GRAY)
-		add_overlay(I)
 
 /obj/item/material/hatchet/machete/deluxe
 	name = "deluxe machete"
