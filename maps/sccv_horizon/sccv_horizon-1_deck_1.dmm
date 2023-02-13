@@ -14774,16 +14774,6 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
-"lyY" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/shuttle_landmark/intrepid/hangar,
-/turf/simulated/floor/tiled,
-/area/hangar/intrepid)
 "lzb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -25917,6 +25907,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/bluespace_beacon,
+/obj/effect/shuttle_landmark/intrepid/hangar,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "unS" = (
@@ -51436,7 +51427,7 @@ kEt
 hYy
 apf
 iZk
-lyY
+dhi
 ayq
 xvk
 nyz
