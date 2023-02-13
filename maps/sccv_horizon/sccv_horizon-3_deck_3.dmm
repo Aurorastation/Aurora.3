@@ -6587,11 +6587,9 @@
 /area/bridge/aibunker)
 "fxj" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
-	name = "Bridge";
-	req_one_access = list(19,38,72)
+	name = "Bridge"
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6696,11 +6694,9 @@
 /area/horizon/crew_quarters/fitness/hallway)
 "fBZ" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
-	name = "Bridge";
-	req_one_access = list(19,38,72)
+	name = "Bridge"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
@@ -16897,10 +16893,8 @@
 "nLc" = (
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
-	name = "Bridge";
-	req_one_access = list(19,38,72)
+	name = "Bridge"
 	},
-/obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
