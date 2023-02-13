@@ -66,6 +66,8 @@
 		data["range"] = sensors.range
 		data["health"] = sensors.health
 		data["max_health"] = sensors.max_health
+		data["deep_scan_range"] = sensors.deep_scan_range
+		data["deep_scan_toggled"] = sensors.deep_scan_toggled
 		data["heat"] = sensors.heat
 		data["critical_heat"] = sensors.critical_heat
 		if(sensors.health == 0)
@@ -184,6 +186,10 @@
 			sensors.toggle()
 			return TOPIC_REFRESH
 
+		if(href_list["ultralight"])
+			sensors.deep_scan_toggled = !sensors.deep_scan_toggled
+			return TOPIC_REFRESH
+
 	if(identification)
 		if(href_list["toggle_id"])
 			identification.toggle()
@@ -292,6 +298,8 @@
 	var/heat = 0
 	var/range = 1
 	var/sensor_strength = 5//used for detecting ships via contacts
+	var/deep_scan_range = 4 //Maximum range for the range() check in sensors. Basically a way to use range instead of view in this radius.
+	var/deep_scan_toggled = FALSE //When TRUE, this sensor is using long range sensors.
 	idle_power_usage = 5000
 
 	var/base_icon_state
@@ -421,9 +429,11 @@
 /obj/machinery/shipsensors/weak
 	heat_reduction = 0.35 // Can sustain range 1
 	desc = "Miniturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
+	deep_scan_range = 0
 
 /obj/machinery/shipsensors/strong
 	name = "sensors suite"
 	desc = "An upgrade to the standard ship-mounted sensor array, this beast has massive cooling systems running beneath it, allowing it to run hotter for much longer. Can only run in vacuum to protect delicate quantum BS elements."
 	icon_state = "sensor_suite"
 	heat_reduction = 1.6 // can sustain range 4
+	deep_scan_range = 12
