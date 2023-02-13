@@ -79,6 +79,10 @@
 			var/obj/item/clothing/under/suit = H.w_uniform
 			if((locate(/obj/item/clothing/accessory/hadii_pin) in suit.accessories) || (locate(/obj/item/clothing/accessory/badge/hadii_card) in suit.accessories))
 				return FALSE
+	if(ismech(L))
+		var/mob/living/heavy_vehicle/M = L
+		if(body && istype(body, /obj/item/mech_component/chassis/pra_egg))
+			return FALSE
 
 	if(!L.stat)
 		var/current_health = INFINITY
