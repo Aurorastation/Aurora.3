@@ -154,4 +154,5 @@
 		qdel(src)
 		return
 
+	atmos_initialised = TRUE
 	queue_icon_update()
