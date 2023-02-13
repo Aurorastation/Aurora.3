@@ -22,10 +22,10 @@
 	{{if data.deep_scan_range > 0}}
 		<div class='item'>
 			<div class="itemLabel">
-				<span class='white'>High-Power Quantum Sensor Array Controls</span>
+				<span class='white'>{{:data.deep_scan_name}}</span>
 			</div>
 			<div class="itemContent">
-				<span class='white'>High-Power Sensor Range: {{:data.deep_scan_range}}</span>
+				<span class='white'>Effective Range: {{:data.deep_scan_range}}</span>
 				{{:helper.link(data.deep_scan_toggled ? 'Deactivate' : 'Activate', 'gear', {'deep_scan_toggle' : 1}, data.status != 'MISSING' ? null : 'disabled', data.deep_scan_toggled ? 'selected' : null)}}
 			</div>
 		</div>
@@ -122,11 +122,9 @@
 	<table>
 	{{for data.contacts}}
 	<tr>
-	<div class='item'>
-		<td>{{:helper.link('Scan', 'search' ,{ 'scan' : value.ref }, null, null)}}</td>
+	<td>{{:helper.link('Scan', 'search' ,{ 'scan' : value.ref }, null, null)}}</td>
     <td>{{:helper.link('Datalink', 'search' ,{ 'request_datalink' : value.ref }, null, null)}}</td>
-		<td><span class='white'>{{:value.name}}</span>, bearing {{:value.bearing}}</td>
-	</div>
+	<td><span class='white'>{{:value.name}}</span>, bearing {{:value.bearing}}</td>
 	</tr>
 	{{/for}}
 	</table>

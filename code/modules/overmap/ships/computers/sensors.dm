@@ -66,6 +66,7 @@
 		data["range"] = sensors.range
 		data["health"] = sensors.health
 		data["max_health"] = sensors.max_health
+		data["deep_scan_name"] = sensors.deep_scan_sensor_name
 		data["deep_scan_range"] = sensors.deep_scan_range
 		data["deep_scan_toggled"] = sensors.deep_scan_toggled
 		data["heat"] = sensors.heat
@@ -311,6 +312,7 @@
 	var/sensor_strength = 5//used for detecting ships via contacts
 	var/deep_scan_range = 4 //Maximum range for the range() check in sensors. Basically a way to use range instead of view in this radius.
 	var/deep_scan_toggled = FALSE //When TRUE, this sensor is using long range sensors.
+	var/deep_scan_sensor_name = "High-Power Sensor Array"
 	idle_power_usage = 5000
 
 	var/base_icon_state
@@ -450,4 +452,11 @@
 	icon_state = "sensor_suite"
 	heat_reduction = 3.7 // can sustain range 6
 	max_range = 14
+	deep_scan_range = 6
+	deep_scan_sensor_name = "High-Power Sensor Array"
+
+/obj/machinery/shipsensors/strong/venator
+	name = "venator-class quantum sensor array"
+	desc = "An incredibly advanced sensor array, created using top of the line technology in every conceivable area. Not only does it far outperform and outclass every other sensors system, it also boasts revolutionary quantum long-range sensors."
 	deep_scan_range = 12
+	deep_scan_sensor_name = "Venator-Class Quantum Sensor Array"

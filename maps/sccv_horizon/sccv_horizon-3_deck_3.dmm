@@ -13047,10 +13047,10 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "kBl" = (
-/obj/machinery/shipsensors/strong{
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/shipsensors/strong/venator{
 	pixel_y = 7
 	},
-/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/reinforced/airless,
 /area/bridge/controlroom)
 "kCw" = (
@@ -30203,8 +30203,8 @@
 	},
 /obj/item/stack/material/plasteel{
 	amount = 20;
-	pixel_y = 3;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 3
 	},
 /obj/item/stack/material/steel/full{
 	pixel_x = 5
