@@ -13047,7 +13047,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "kBl" = (
-/obj/machinery/shipsensors{
+/obj/machinery/shipsensors/strong{
 	pixel_y = 7
 	},
 /obj/effect/floor_decal/industrial/warning/full,

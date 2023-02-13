@@ -90,6 +90,9 @@
 			distress_beacons.Add(list(list("caller" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
 		if(length(distress_beacons))
 			data["distress_beacons"] = distress_beacons
+		data["range_choices"] = list()
+		for(var/i in 1 to sensors.max_range)
+			data["range_choices"] += i
 
 
 		var/list/contacts = list()
@@ -180,7 +183,14 @@
 			if(!CanInteract(usr, default_state))
 				return TOPIC_NOACTION
 			if (nrange)
-				sensors.set_range(Clamp(nrange, 1, world.view))
+				sensors.set_range(Clamp(nrange, 1, sensors.max_range))
+			return TOPIC_REFRESH
+		if(href_list["range_choice"])
+			var/nrange = text2num(href_list["range_choice"])
+			if(!CanInteract(usr, default_state))
+				return TOPIC_NOACTION
+			if(nrange)
+				sensors.set_range(Clamp(nrange, 1, sensors.max_range))
 			return TOPIC_REFRESH
 		if (href_list["toggle"])
 			sensors.toggle()
@@ -294,9 +304,10 @@
 	var/max_health = 200
 	var/health = 200
 	var/critical_heat = 50 // sparks and takes damage when active & above this heat
-	var/heat_reduction = 0.5 // mitigates this much heat per tick - can sustain range 2
+	var/heat_reduction = 1.7 // mitigates this much heat per tick - can sustain range 4
 	var/heat = 0
 	var/range = 1
+	var/max_range = 10
 	var/sensor_strength = 5//used for detecting ships via contacts
 	var/deep_scan_range = 4 //Maximum range for the range() check in sensors. Basically a way to use range instead of view in this radius.
 	var/deep_scan_toggled = FALSE //When TRUE, this sensor is using long range sensors.
@@ -345,7 +356,7 @@
 
 	var/overlay = "[base_icon_state]-effect"
 
-	var/range_percentage = range / world.view * 100
+	var/range_percentage = range / max_range * 100
 
 	if(range_percentage < 20)
 		overlay = "[overlay]1"
@@ -427,7 +438,8 @@
 
 // For small shuttles
 /obj/machinery/shipsensors/weak
-	heat_reduction = 0.35 // Can sustain range 1
+	heat_reduction = 1.7 // Can sustain range 4
+	max_range = 7
 	desc = "Miniturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
 	deep_scan_range = 0
 
@@ -435,5 +447,7 @@
 	name = "sensors suite"
 	desc = "An upgrade to the standard ship-mounted sensor array, this beast has massive cooling systems running beneath it, allowing it to run hotter for much longer. Can only run in vacuum to protect delicate quantum BS elements."
 	icon_state = "sensor_suite"
+	heat_reduction = 3.7 // can sustain range 6
+	max_range = 14
 	heat_reduction = 1.6 // can sustain range 4
 	deep_scan_range = 12

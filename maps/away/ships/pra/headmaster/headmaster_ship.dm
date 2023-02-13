@@ -18,7 +18,7 @@
 	class = "PRAMV" //People's Republic of Adhomai Vessel
 	icon_state = "headmaster"
 	moving_state = "headmaster_moving"
-	colors = list("#fad89f", "#f1d378")
+	colors = list("#8A3324")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
@@ -68,7 +68,7 @@
 	desc = "A simple and reliable shuttle design used by the Orbital Fleet."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
-	colors = list("#fad89f", "#f1d378")
+	colors = list("#8A3324")
 	class = "PRAMV"
 	designation = "Yve'kha"
 	shuttle = "Orbital Fleet Shuttle"

@@ -15,6 +15,11 @@
 /obj/effect/overmap/visitable/sector/peoples_station
 	name = "People's Space Station"
 	desc = "Built in the interwar period, the People's Space Station bears the prestige of being the first space installation designed, constructed, and manned by Tajara."
+
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "battlestation"
+	color = "#8A3324"
+
 	initial_generic_waypoints = list(
 		"nav_peoples_station_ship_1",
 		"nav_peoples_station_ship_1",
@@ -52,7 +57,7 @@
 	desc = "An interceptor used by the Orbital Fleet in its carriers and stations."
 	shuttle = "Orbital Fleet Fang"
 	icon_state = "shuttle"
-	moving_state = "shuttle_red_moving"
+	moving_state = "shuttle_moving"
 	max_speed = 1/(1 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 3000

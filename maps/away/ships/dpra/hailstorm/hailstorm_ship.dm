@@ -18,7 +18,7 @@
 	class = "DPRAMV" //Democratic People's Republic of Adhomai Vessel
 	icon_state = "hailstorm"
 	moving_state = "hailstorm_moving"
-	colors = list("#f0d295", "#ecb037")
+	colors = list("B9BDC4")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
@@ -64,7 +64,7 @@
 	desc = "A simple and reliable shuttle design used by the Spacer Militia Shuttle."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
-	colors = list("#f0d295", "#ecb037")
+	colors = list("B9BDC4")
 	class = "DPRAMV"
 	designation = "Yve'kha"
 	shuttle = "Spacer Militia Shuttle"
