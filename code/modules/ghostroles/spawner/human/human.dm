@@ -177,10 +177,6 @@
 
 	return M
 
-//Proc executed after someone is spawned in
-/datum/ghostspawner/human/post_spawn(mob/user)
-	. = ..()
-
 /// Used for cryo to free up a slot when a ghost cryos.
 /mob/living/carbon/human
 	var/datum/weakref/ghost_spawner

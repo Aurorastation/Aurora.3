@@ -30,13 +30,6 @@ datum/design/item/tool/advanced_light_replacer
 	materials = list(DEFAULT_WALL_MATERIAL = 2500, MATERIAL_GLASS = 200)
 	build_path = /obj/item/mop/advanced
 
-/datum/design/item/tool/blutrash
-	name = "Trashbag of Holding"
-	desc = "An advanced trash bag with bluespace properties; capable of holding a plethora of garbage."
-	build_type = PROTOLATHE
-	materials = list(MATERIAL_GOLD = 1500, MATERIAL_URANIUM = 250, MATERIAL_PHORON = 1500)
-	build_path = /obj/item/storage/bag/trash/bluespace
-
 /datum/design/item/tool/mmi
 	name = "Man-Machine Interface"
 	req_tech = list(TECH_DATA = 2, TECH_BIO = 3)
@@ -62,12 +55,6 @@ datum/design/item/tool/advanced_light_replacer
 	req_tech = list(TECH_BLUESPACE = 1)
 	materials = list (DEFAULT_WALL_MATERIAL = 20, MATERIAL_GLASS = 10)
 	build_path = /obj/item/device/radio/beacon
-
-/datum/design/item/tool/bag_holding
-	desc = "Using localized pockets of bluespace, this bag prototype offers incredible storage capacity, while the contents apply no weight to the external user. It's a shame the bag itself is pretty heavy."
-	req_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 6)
-	materials = list(MATERIAL_GOLD = 3000, MATERIAL_DIAMOND = 1500, MATERIAL_URANIUM = 250)
-	build_path = /obj/item/storage/backpack/holding
 
 /datum/design/item/tool/power_cell_backpack
 	req_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 2, TECH_POWER = 4)

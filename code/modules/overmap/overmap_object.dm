@@ -1,6 +1,6 @@
 /obj/effect/overmap
 	name = "map object"
-	icon = 'icons/obj/overmap.dmi'
+	icon = 'icons/obj/overmap/overmap_effects.dmi'
 	icon_state = "object"
 	color = "#fffffe"
 
@@ -71,9 +71,6 @@
 		for(var/obj/effect/overmap/visitable/O in loc)
 			SSskybox.rebuild_skyboxes(O.map_z)
 
-/obj/effect/overmap/update_icon()
-	filters = filter(type="drop_shadow", color = color + "F0", size = 2, offset = 1, x = 0, y = 0)
-
 /obj/effect/overmap/proc/signal_hit(var/list/hit_data)
 	return
 
@@ -109,7 +106,7 @@
 	if(do_after(usr, 5 SECONDS))
 		C.targeting = FALSE
 		targeting = O
-		O.targeted_overlay = icon('icons/obj/overmap_heads_up_display.dmi', "lock")
+		O.targeted_overlay = icon('icons/obj/overmap/overmap_effects.dmi', "lock")
 		O.add_overlay(O.targeted_overlay)
 		if(designation && class && !obfuscated)
 			if(!O.maptext)
