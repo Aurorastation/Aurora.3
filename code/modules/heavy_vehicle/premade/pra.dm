@@ -9,6 +9,7 @@
 	e_legs = /obj/item/mech_component/propulsion/pra_egg
 	e_color = COLOR_STEEL
 	h_head = null
+	h_r_hand = /obj/item/mecha_equipment/mounted_system/combat/smg/pra_egg
 
 /obj/item/mech_component/manipulators/pra_egg
 	name = "p'kus-3 arms"
@@ -30,7 +31,7 @@
 	turn_delay = 3
 	max_damage = 100
 	power_use = 5000
-	trample_damage = 20
+	trample_damage = 15
 
 /obj/item/mech_component/sensors/pra_egg
 	name = "p'kus-3 sensors"
@@ -69,8 +70,6 @@
 	e_head = /obj/item/mech_component/sensors/pra_egg/armored
 	e_body = /obj/item/mech_component/chassis/pra_egg/armored
 	e_arms = /obj/item/mech_component/manipulators/pra_egg/armored
-
-	h_r_hand = /obj/item/mecha_equipment/mounted_system/combat/smg/pra_egg
 
 /obj/item/mech_component/manipulators/pra_egg/armored
 	name = "armored p'kus-3 arms"
