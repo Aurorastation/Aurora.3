@@ -80,7 +80,7 @@
 	max_damage = 120
 
 /obj/item/mech_component/sensors/pra_egg/armored
-	name = "armored p'kus-3 sensors"
+	name = "armored P'kus-3 sensors"
 	exosuit_desc_string = "weather-resistant armored sensors"
 	desc = "An armored cockpit in the shape of an egg. Its sensors are adapted to the Adhomian winds and hail."
 	icon_state = "strong_egg_head"
