@@ -59,13 +59,13 @@
 	requires_contact = FALSE
 	unknown_id = "Gun Gun Gun"
 
-/obj/effect/overmap/projectile/probe/move_to()
+/obj/effect/overmap/projectile/probe/Move()
 
 	var/list/diff_contacts = contacts.Copy()	//Stores the previous-cycle viewed effects that are no longer visible
 	var/obj/effect/overmap/visitable/ship/ship = origin
 
 	// Get a list of effects in a radius that the probe sees
-	for(var/obj/effect/overmap/contact in view(7, src))
+	for(var/obj/effect/overmap/contact in view(4, src))
 		if(contact != ship && !(contact in ship.datalinked))
 			contacts |= list(contact)
 
@@ -85,7 +85,7 @@
 
 /obj/effect/overmap/projectile/probe/Initialize(var/maploading, var/sx, var/sy, var/obj/effect/overmap/visitable/shooter)
 	origin = shooter
-	. = ..(maploading, sx, sy)
+	. = ..(maploading, sx, sy, shooter)
 
 /obj/effect/overmap/projectile/probe/Destroy()
 	var/obj/effect/overmap/visitable/ship/ship = origin
@@ -105,8 +105,7 @@
 	speed = 40
 
 /obj/item/projectile/ship_ammo/grauwolf_probe/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
-	//. = ..()
-	return
+	. = ..()
 
 /obj/item/projectile/ship_ammo/grauwolf_probe/process()
 	. = ..()
