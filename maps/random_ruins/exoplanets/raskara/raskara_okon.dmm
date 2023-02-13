@@ -1022,9 +1022,7 @@
 	},
 /area/raskara_okon/engineer)
 "ms" = (
-/obj/machinery/mineral/unloading_machine{
-	dir = 1
-	},
+/obj/machinery/mineral/unloading_machine,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
