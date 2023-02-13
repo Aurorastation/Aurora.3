@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - tweak: "Some away sites have different sprites and colors."
+  - tweak: "S'rand'marr overmap planet objects now have lore accurate icons."
