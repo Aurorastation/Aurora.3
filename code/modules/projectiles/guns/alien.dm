@@ -98,7 +98,7 @@
 	icon = 'icons/obj/machinery/particle_accelerator2.dmi'
 	icon_state = "particle"
 	damage = 60
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	check_armor = "bullet"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 

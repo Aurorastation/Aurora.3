@@ -180,7 +180,7 @@
 
 			E.take_damage(0, damage, used_weapon = "hot oil")
 		else
-			victim.apply_damage(damage, BURN, user.zone_sel.selecting)
+			victim.apply_damage(damage, DAMAGE_BURN, user.zone_sel.selecting)
 
 		if(!nopain)
 			var/arrows_var1 = E ? E.name : "flesh"

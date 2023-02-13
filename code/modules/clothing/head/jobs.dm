@@ -191,3 +191,35 @@
 /obj/item/clothing/head/flatcap/bartender/idris
 	icon_state = "idris_bartender_flatcap"
 	item_state = "idris_bartender_flatcap"
+
+/obj/item/clothing/head/sidecap
+	name = "side cap"
+	desc = "A simple cap, often worn by pilots."
+	icon = 'icons/obj/item/clothing/head/sidecap.dmi'
+	contained_sprite = TRUE
+	icon_state = "side_cap"
+	item_state = "side_cap"
+
+/obj/item/clothing/head/sidecap/zavod
+	name = "zavodskoi pilotka cap"
+	desc = "A simple cap, often worn by pilots. This one is in Zavodskoi colors."
+	icon_state = "zavodskoi_pilotka"
+	item_state = "zavodskoi_pilotka"
+
+/obj/item/clothing/head/sidecap/pmcg
+	name = "pmcg garrison cap"
+	desc = "A simple cap, often worn by pilots. This one is in PMCG colors."
+	icon_state = "pmcg_side_cap"
+	item_state = "pmcg_side_cap"
+
+/obj/item/clothing/head/sidecap/heph
+	name = "hephaestus side cap"
+	desc = "A simple cap, often worn by pilots. This one is in Hephaestus colors."
+	icon_state = "heph_side_cap"
+	item_state = "heph_side_cap"
+
+/obj/item/clothing/head/sidecap/zavod/alt
+	name = "black zavodskoi pilotka cap"
+	desc = "A simple cap, often worn by pilots. This one is in Zavodskoi colors."
+	icon_state = "zavodskoi_pilotka_alt"
+	item_state = "zavodskoi_pilotka_alt"

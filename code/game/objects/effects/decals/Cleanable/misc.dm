@@ -74,7 +74,7 @@
 
 /obj/effect/decal/cleanable/greenglow/radioactive/process()
 	for(var/mob/living/L in range(4,src))
-		L.apply_effect(25, IRRADIATE, blocked = 0)
+		L.apply_damage(25, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /obj/effect/decal/cleanable/cobweb
 	name = "cobweb"
