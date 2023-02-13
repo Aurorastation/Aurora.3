@@ -1,0 +1,6 @@
+author: Pirouette
+
+delete-after: True
+
+changes:
+  - tweak: "Labcoats can now hold GPS in suit storage."
