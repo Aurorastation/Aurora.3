@@ -50,7 +50,7 @@
 	software.installed_software = list(MECH_SOFTWARE_WEAPONS, MECH_SOFTWARE_UTILITY)
 
 /obj/item/mech_component/chassis/pra_egg
-	name = "p'kus-3 chassis"
+	name = "\improper P'kus-3 chassis"
 	hatch_descriptor = "canopy"
 	pilot_coverage = 100
 	exosuit_desc_string = "a light armored chassis"
