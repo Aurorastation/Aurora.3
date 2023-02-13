@@ -81,7 +81,7 @@
 				return FALSE
 	if(ismech(L))
 		var/mob/living/heavy_vehicle/M = L
-		if(body && istype(body, /obj/item/mech_component/chassis/pra_egg))
+		if(M.body && istype(M.body, /obj/item/mech_component/chassis/pra_egg))
 			return FALSE
 
 	if(!L.stat)
