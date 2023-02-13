@@ -136,4 +136,4 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/vision/multi,
 		/obj/item/rig_module/electrowarfare_suite
-		)
+	)

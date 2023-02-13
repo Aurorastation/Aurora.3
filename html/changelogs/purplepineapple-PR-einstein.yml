@@ -3,5 +3,5 @@ author: PurplePineapple, Kyres
 delete-after: True
 
 changes:
-  - rscadd: "Added a variant of the mercenary hardsuit with a sprite made by Kyres for the Einstein group gear crate."
+  - rscadd: "Added a variant of the mercenary hardsuit for use in the Einstein gear crates."
   - rscadd: "Added gear crates for antagonists wishing to play as Einstein to allow for a more unique set of weapons from other group antagonists."
