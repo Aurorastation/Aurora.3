@@ -23,7 +23,7 @@
 	has_hardpoints = list(HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_HAND)
 
 /obj/item/mech_component/propulsion/pra_egg
-	name = "p'kus-3 legs"
+	name = "\improper P'kus-3 legs"
 	exosuit_desc_string = "hydraulic legs"
 	desc = "Strong legs adapted for the Adhomian rought terrain."
 	icon_state = "egg_legs"
