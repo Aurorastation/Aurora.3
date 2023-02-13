@@ -34,7 +34,7 @@
 	trample_damage = 15
 
 /obj/item/mech_component/sensors/pra_egg
-	name = "p'kus-3 sensors"
+	name = "\improper P'kus-3 sensors"
 	gender = PLURAL
 	exosuit_desc_string = "weather-resistant sensors"
 	desc = "A round cockpit in the shape of an egg. Its sensors are adapted to the Adhomian winds and hail."
