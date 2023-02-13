@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscdel: "Removes the decrepit, unused skills in the loadout."
