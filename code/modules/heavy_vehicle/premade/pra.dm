@@ -87,7 +87,7 @@
 	max_damage = 120
 
 /obj/item/mech_component/chassis/pra_egg/armored
-	name = "armor p'kus-3 chassis"
+	name = "armored P'kus-3 chassis"
 	exosuit_desc_string = "an armored chassis"
 	desc = "A armored composite frame keeps the armor of this chassis respectable, but the interior spacious."
 	icon_state = "strong_egg_body"
