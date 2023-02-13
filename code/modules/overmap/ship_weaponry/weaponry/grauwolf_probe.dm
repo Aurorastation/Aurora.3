@@ -1,17 +1,3 @@
-// /obj/machinery/ship_weapon/grauwolf
-// 	name = "grauwolf flak battery"
-// 	desc = "A Kumar Arms flak battery developed in 2461 as part of the same <i>\"Chivalry\"</i> line of the Longbow. Its barrels may look smaller than its significantly larger kin's, \
-// 			but don't let that fool you: this gun will shred through smaller ships."
-// 	icon = 'icons/obj/machinery/ship_guns/grauwolf.dmi'
-// 	heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/flak_fire.ogg'
-// 	icon_state = "weapon_base"
-// 	max_ammo = 5
-// 	caliber = SHIP_CALIBER_90MM
-// 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
-
-// /obj/machinery/ammunition_loader/grauwolf
-// 	name = "grauwolf flak loader"
-
 /obj/item/ship_ammunition/grauwolf_probe
 	name = "grauwolf sensor probe"
 	desc = "A sensor probe, used to illuminate the area ahead using the dataling."
@@ -44,20 +30,12 @@
 	forceMove(P)
 	log_and_message_admins("A projectile ([name]) has entered the Overmap! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
 	return TRUE
-
-// /obj/item/ship_ammunition/grauwolf_bundle/ap
-// 	name = "grauwolf armor-piercing flak bundle"
-// 	desc = "A bundle of armor-piercing flak shells."
-// 	icon_state = "bundle_ap"
-// 	impact_type = SHIP_AMMO_IMPACT_AP
-// 	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf/ap
-
 /obj/effect/overmap/projectile/probe
 	var/obj/effect/overmap/visitable/origin = null
 	var/list/contacts = list() // Contacts, aka overmap effects, in view of the probe
+	var/scan_range = 4	// How far the probe "sees", aka how strong the radar is, aka in what radius it will reveal effects
 	instant_contact = TRUE
 	requires_contact = FALSE
-	unknown_id = "Gun Gun Gun"
 
 /obj/effect/overmap/projectile/probe/Move()
 
@@ -65,17 +43,29 @@
 	var/obj/effect/overmap/visitable/ship/ship = origin
 
 	// Get a list of effects in a radius that the probe sees
-	for(var/obj/effect/overmap/contact in view(4, src))
+	contacts = list()
+	for(var/obj/effect/overmap/contact in view(scan_range, src))
 		if(contact != ship && !(contact in ship.datalinked))
 			contacts |= list(contact)
 
 	// Compute the effects that are no longer visible, now the variable is actually a diff, be sure to not remove the ship or datalinked ships
-	diff_contacts -= contacts - list(ship)
+	diff_contacts -= (contacts - list(ship))
 
 	// Removes the contacts no longer visible
-	for(var/obj/effect/overmap/lost_contact in diff_contacts)
-		for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
-			sensor_console.datalink_remove_contact(lost_contact, ship)
+	remove_lost_contacts:
+		for(var/obj/effect/overmap/lost_contact in diff_contacts)
+			for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
+
+				// If the ship is seeing it directly, do not remove
+				if(lost_contact in sensor_console.objects_in_view)
+					continue remove_lost_contacts
+
+				// If another ship is supplying this contact via the datalink, do not remove
+				for(var/obj/effect/overmap/visitable/datalinked_ship in ship.datalinked)
+					if(lost_contact in sensor_console.datalink_contacts[datalinked_ship])
+						continue remove_lost_contacts
+
+				sensor_console.datalink_remove_contact(lost_contact, ship)
 
 	// Add the new ones
 	for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
@@ -89,10 +79,20 @@
 
 /obj/effect/overmap/projectile/probe/Destroy()
 	var/obj/effect/overmap/visitable/ship/ship = origin
-	for(var/obj/effect/overmap/contact in contacts)
-		for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
-			sensor_console.datalink_remove_contact(contact, ship)
-			//sensor_console.datalink_remove_ship_datalink(src)
+
+	remove_contacts:
+		for(var/obj/effect/overmap/contact in contacts)
+			for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
+				// If the ship is seeing it directly, do not remove
+				if(contact in sensor_console.objects_in_view)
+					continue remove_contacts
+
+				// If another ship is supplying this contact via the datalink, do not remove
+				for(var/obj/effect/overmap/visitable/datalinked_ship in ship.datalinked)
+					if(contact in sensor_console.datalink_contacts[datalinked_ship])
+						continue remove_contacts
+
+				sensor_console.datalink_remove_contact(contact, ship)
 	. = ..()
 
 /obj/item/projectile/ship_ammo/grauwolf_probe
@@ -103,15 +103,3 @@
 	penetrating = 0
 	anti_materiel_potential = 0
 	speed = 40
-
-/obj/item/projectile/ship_ammo/grauwolf_probe/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
-	. = ..()
-
-/obj/item/projectile/ship_ammo/grauwolf_probe/process()
-	. = ..()
-
-/obj/item/projectile/ship_ammo/grauwolf_probe/fire(angle, atom/direct_target)
-	. = ..()
-
-/obj/item/projectile/ship_ammo/grauwolf_probe/Destroy()
-	. = ..()
