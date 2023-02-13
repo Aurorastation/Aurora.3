@@ -1,5 +1,5 @@
 /mob/living/heavy_vehicle/premade/pra_egg
-	name = "P'kus-3 exosuit"
+	name = "\improper P'kus-3 exosuit"
 	desc = "An exosuit developed by the People's Republic of Adhomai for the Division Experimental Exosuit."
 	icon_state = "durand"
 
