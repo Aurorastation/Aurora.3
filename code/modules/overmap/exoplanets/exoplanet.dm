@@ -63,7 +63,10 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/Initialize()
   . = ..()
-  icon_state = "globe[rand(1,3)]"
+  update_icon()
+
+/obj/effect/overmap/visitable/sector/exoplanet/update_icon()
+	icon_state = "globe[rand(1,3)]"
 
 /obj/effect/overmap/visitable/sector/exoplanet/New(nloc, max_x, max_y)
 	if(!current_map.use_overmap)
