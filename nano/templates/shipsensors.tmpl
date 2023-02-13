@@ -1,6 +1,6 @@
-<h3>Sensors control console</h3>
+<h3>Sensor Array Control Console</h3>
 <div class='block'>
-	{{:helper.link(data.on ? 'Switch off' : 'Switch on', 'gear', { 'toggle' : 1 }, data.status != 'MISSING' ? null : 'disabled', data.on ? 'selected' : null)}}
+	{{:helper.link(data.on ? 'Switch Off' : 'Switch On', 'gear', { 'toggle' : 1 }, data.status != 'MISSING' ? null : 'disabled', data.on ? 'selected' : null)}}
 	<div class='item'>
 		<div class="itemLabel">
 			<span class='white'>Status:</span>
@@ -19,6 +19,17 @@
 			{{/for}}
 		</div>
 	</div>
+	{{if data.deep_scan_range > 0}}
+		<div class='item'>
+			<div class="itemLabel">
+				<span class='white'>High-Power Quantum Sensor Array Controls</span>
+			</div>
+			<div class="itemContent">
+				<span class='white'>High-Power Sensor Range: {{:data.deep_scan_range}}</span>
+				{{:helper.link(data.deep_scan_toggled ? 'Deactivate' : 'Activate', 'gear', {'deep_scan_toggled' : 1})}}
+			</div>
+		</div>
+	{{/if}}
 </div>
 <div class='block'>
 	<div class='item'>

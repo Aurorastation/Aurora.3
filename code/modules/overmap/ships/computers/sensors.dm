@@ -196,7 +196,7 @@
 			sensors.toggle()
 			return TOPIC_REFRESH
 
-		if(href_list["ultralight"])
+		if(href_list["deep_scan_toggle"])
 			sensors.deep_scan_toggled = !sensors.deep_scan_toggled
 			return TOPIC_REFRESH
 
@@ -444,10 +444,8 @@
 	deep_scan_range = 0
 
 /obj/machinery/shipsensors/strong
-	name = "sensors suite"
 	desc = "An upgrade to the standard ship-mounted sensor array, this beast has massive cooling systems running beneath it, allowing it to run hotter for much longer. Can only run in vacuum to protect delicate quantum BS elements."
 	icon_state = "sensor_suite"
 	heat_reduction = 3.7 // can sustain range 6
 	max_range = 14
-	heat_reduction = 1.6 // can sustain range 4
 	deep_scan_range = 12
