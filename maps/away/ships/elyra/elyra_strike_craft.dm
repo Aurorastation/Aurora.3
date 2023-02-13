@@ -43,6 +43,8 @@
 		"nav_elyran_strike_craft_2"
 	)
 
+	invisible_until_ghostrole_spawn = TRUE
+
 /obj/effect/overmap/visitable/ship/elyran_strike_craft/New()
 	designation = "[pick("Persepolis", "Damascus", "Medina", "Aemaq", "New Suez", "Bursa", "Republican", "Falcon", "Gelin", "Sphinx", "Takam", "Dandan", "Anqa", "Falak", "Uthra", "Djinn", "Roc", "Shadhavar", "Karkadann")]"
 	..()

@@ -84,6 +84,8 @@
 		"nav_iac_rescue_ship_5"
 	)
 
+	invisible_until_ghostrole_spawn = TRUE
+
 /obj/effect/overmap/visitable/ship/iac_rescue_ship/New()
 	designation = "[pick("Angitia", "Eir", "Vejovis", "Dharti", "Serket", "He Xiangu", "Sirona", "Ixtlilton", "Boris Yegorov", "Simi", "Aleksandra Hro'makar", "Assistance", "Helping Hand", "Free Aid", "Safe Haven", "Grace", "Compassion", "Relief")]"
 	..()
