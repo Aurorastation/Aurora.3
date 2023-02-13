@@ -93,6 +93,20 @@ datum/gear/suit/colorvest
 	path = /obj/item/clothing/suit/storage/toggle/labcoat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/suit/CMOlabcoat
+	display_name = "chief medical officer labcoat selection"
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
+	allowed_roles = list("Chief Medical Officer")
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/CMOlabcoat/New()
+	..()
+	var/list/cmolabcoat = list()
+	cmolabcoat["chief medical officer labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
+	cmolabcoat["chief medical officer labcoat alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt
+	cmolabcoat["chief medical officer labcoat alt2"] = /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2
+	gear_tweaks += new /datum/gear_tweak/path(cmolabcoat)
+
 /datum/gear/suit/surgeryapron
 	display_name = "surgical apron"
 	path = /obj/item/clothing/accessory/apron/surgery
