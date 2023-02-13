@@ -12,7 +12,7 @@
 	h_r_hand = /obj/item/mecha_equipment/mounted_system/combat/smg/pra_egg
 
 /obj/item/mech_component/manipulators/pra_egg
-	name = "p'kus-3 arms"
+	name = "\improper P'kus-3 arms"
 	exosuit_desc_string = "flexible arms"
 	desc = "Robotics arms designed to carry large weapons."
 	icon_state = "egg_arms"
