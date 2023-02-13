@@ -170,13 +170,15 @@
 /obj/item/ipc_overloader/screenshaker/handle_overloader_effect(mob/living/carbon/human/target)
 	. = ..()
 	to_chat(target, SPAN_NOTICE("You feel alert."))
-	target.make_dizzy(1000)
+	target.dizziness = 0
+	target.make_dizzy(200)
 
 /obj/item/ipc_overloader/screenshaker/midway_overloader_effect(mob/living/carbon/human/target)
 	. = ..()
 	if(.)
 		to_chat(target, SPAN_NOTICE("You feel alert."))
-		target.make_dizzy(1000)
+		target.dizziness = 0
+		target.make_dizzy(200)
 
 /obj/item/ipc_overloader/screenshaker/finish_overloader_effect(var/mob/living/carbon/human/target)
 	. = ..()

@@ -1362,9 +1362,21 @@
 	product_ads = "Tired? Try some Zo'ra Soda!;Thirsty? Why not Zo'ra Soda?;Bored? Have some Zo'ra Soda!;Zo'ra Soda. Drink up!;ZZZOOO'RRRAAA SSSOOODDDAAA!"
 	vend_id = "overloaders"
 	products = list(
-		/obj/item/ipc_overloader/classic = 5
+		/obj/item/ipc_overloader/classic = 5,
+		/obj/item/ipc_overloader/tranquil = 5,
+		/obj/item/ipc_overloader/rainbow = 5,
+		/obj/item/ipc_overloader/screenshaker = 5
 	)
 	prices = list(
-		/obj/item/ipc_overloader/classic = 200
+		/obj/item/ipc_overloader/classic = 200,
+		/obj/item/ipc_overloader/tranquil = 200,
+		/obj/item/ipc_overloader/rainbow = 200,
+		/obj/item/ipc_overloader/screenshaker = 200
+	)
+	contraband = list(
+		/obj/item/ipc_overloader/rainbow = 2
+	)
+	premium = list(
+		/obj/item/ipc_overloader/jitterbug = 5
 	)
 	light_color = LIGHT_COLOR_CYAN
