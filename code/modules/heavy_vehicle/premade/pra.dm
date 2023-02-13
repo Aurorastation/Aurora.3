@@ -72,7 +72,7 @@
 	e_arms = /obj/item/mech_component/manipulators/pra_egg/armored
 
 /obj/item/mech_component/manipulators/pra_egg/armored
-	name = "armored p'kus-3 arms"
+	name = "armored P'kus-3 arms"
 	exosuit_desc_string = "armored flexible arms"
 	desc = "Armored robotics arms designed to carry large weapons."
 	icon_state = "strong_egg_arms"
