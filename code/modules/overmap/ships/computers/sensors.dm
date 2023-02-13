@@ -409,7 +409,9 @@
 
 			take_damage(rand(10,50))
 			toggle()
-		heat += active_power_usage/15000
+		heat += active_power_usage / 15000
+		if(deep_scan_toggled)
+			heat += deep_scan_range / 8
 
 	if (heat > 0)
 		heat = max(0, heat - heat_reduction)

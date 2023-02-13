@@ -26,7 +26,7 @@
 			</div>
 			<div class="itemContent">
 				<span class='white'>High-Power Sensor Range: {{:data.deep_scan_range}}</span>
-				{{:helper.link(data.deep_scan_toggled ? 'Deactivate' : 'Activate', 'gear', {'deep_scan_toggled' : 1})}}
+				{{:helper.link(data.deep_scan_toggled ? 'Deactivate' : 'Activate', 'gear', {'deep_scan_toggle' : 1}, data.status != 'MISSING' ? null : 'disabled', data.deep_scan_toggled ? 'selected' : null)}}
 			</div>
 		</div>
 	{{/if}}
