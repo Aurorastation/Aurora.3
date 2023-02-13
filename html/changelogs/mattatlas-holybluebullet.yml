@@ -38,5 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Sensors now scan non-ship visitable overmap objects within 12 tiles automatically."
+  - rscadd: "Added high-power sensors. When toggled at a sensor console (must be using normal or better sensors) they will scan things through opaque overmap objects in a wide range. They add heat, so be careful."
   - rscadd: "A report containing the bearings of all overmap objects is now sent to Horizon command consoles within 180 seconds from roundstart."
+  - bugfix: "Fixed there being odd rows of blank spaces before sensor contacts."
