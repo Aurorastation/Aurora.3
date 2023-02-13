@@ -160,18 +160,6 @@ BLIND     // can't see anything
 
 	attack_self(usr)
 
-/obj/item/clothing/glasses/hud/health/aviator/pmcg
-	name = "medical HUD aviators"
-	desc = "Modified visor glasses with a toggled health HUD. Comes with bonus prescription overlay."
-	icon_state = "aviator_sec_pmcg"
-	off_state = "aviator_sec_pmcg_off"
-
-/obj/item/clothing/glasses/hud/health/aviator/zeng
-	name = "medical HUD aviators"
-	desc = "Modified visor glasses with a toggled health HUD. Comes with bonus prescription overlay."
-	icon_state = "visor_medhud"
-	off_state = "visor_medhud_off"
-
 /obj/item/clothing/glasses/hud/health/aviator/visor
 	name = "medical HUD visor"
 	desc = "Modified visor glasses with a toggled health HUD. Comes with bonus prescription overlay."
