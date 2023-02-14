@@ -13120,10 +13120,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
-"kDn" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/lawoffice/representative)
 "kDt" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -54753,7 +54749,7 @@ tIR
 qsd
 oaA
 hIc
-kDn
+moN
 cPq
 cPq
 cPq
