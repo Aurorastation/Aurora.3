@@ -459,4 +459,4 @@
 	name = "venator-class quantum sensor array"
 	desc = "An incredibly advanced sensor array, created using top of the line technology in every conceivable area. Not only does it far outperform and outclass every other sensors system, it also boasts revolutionary quantum long-range sensors."
 	deep_scan_range = 12
-	deep_scan_sensor_name = "Venator-Class Quantum Sensor Array"
+	deep_scan_sensor_name = "Venator-Class Ultra-High Depth Sensors"
