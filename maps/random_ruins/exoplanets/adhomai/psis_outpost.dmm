@@ -16,6 +16,17 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
+"bE" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/obj/structure/closet/crate/medical,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
 "ch" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
@@ -151,7 +162,9 @@
 	dir = 6
 	},
 /obj/item/stamp{
-	pixel_y = 7
+	pixel_y = 7;
+	name = "people's secret intelligence service stamp";
+	icon_state = "stamp-zavod"
 	},
 /obj/item/stamp/denied{
 	pixel_y = -2
@@ -727,6 +740,12 @@
 /turf/simulated/floor/holofloor/tiled/dark{
 	temperature = 268.15
 	},
+/area/psis_outpost)
+"Ss" = (
+/obj/machinery/vending/medical{
+	req_access = null
+	},
+/turf/simulated/wall/r_wall,
 /area/psis_outpost)
 "Tn" = (
 /turf/simulated/floor/holofloor/tiled/dark{
@@ -1546,8 +1565,8 @@ lf
 Hc
 Tn
 dd
-Mq
-ID
+Ss
+bE
 Tn
 qO
 Gu
