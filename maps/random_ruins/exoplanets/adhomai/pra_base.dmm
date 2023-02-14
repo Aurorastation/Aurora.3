@@ -12,21 +12,6 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"ab" = (
-/obj/structure/table/wood,
-/obj/effect/floor_decal/concrete{
-	dir = 9
-	},
-/obj/item/reagent_containers/food/drinks/bottle/victorygin{
-	pixel_y = 10
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
-/area/pra_base)
 "aJ" = (
 /obj/machinery/light{
 	dir = 4;
@@ -40,6 +25,22 @@
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
+	},
+/area/pra_base)
+"bk" = (
+/obj/effect/floor_decal/concrete/large,
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"bz" = (
+/obj/item/bedsheet/brown,
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/machinery/light/small,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
 	},
 /area/pra_base)
 "bR" = (
@@ -73,13 +74,18 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"dw" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/turf/simulated/floor/tiled/white,
+"dy" = (
+/obj/structure/sign/flag/pra/right{
+	pixel_x = 31;
+	dir = 4
+	},
+/obj/structure/table/wood,
+/obj/machinery/photocopier/faxmachine{
+	req_access = list(209);
+	department = "PRA Outpost";
+	req_one_access = null
+	},
+/turf/simulated/floor/wood,
 /area/pra_base)
 "dH" = (
 /obj/effect/floor_decal/concrete{
@@ -89,14 +95,18 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"eo" = (
-/turf/simulated/floor/tiled/white,
-/area/pra_base)
-"ey" = (
+"dJ" = (
+/obj/structure/table/wood,
 /obj/effect/floor_decal/concrete{
-	dir = 5
+	dir = 9
 	},
-/obj/structure/bed/stool/bar/padded/red,
+/obj/item/storage/box/fancy/cigarettes/pra,
+/obj/item/flame/lighter/adhomai{
+	pixel_x = 17
+	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -119,19 +129,19 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"fQ" = (
-/obj/machinery/light/small{
-	dir = 8
+"fx" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/concrete/large,
+/obj/item/spacecash/c10{
+	pixel_y = 13;
+	pixel_x = -10
 	},
-/obj/structure/filingcabinet{
-	pixel_x = -9;
-	pixel_y = 14
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
+	pixel_x = -16
 	},
-/obj/structure/filingcabinet{
-	pixel_x = 5;
-	pixel_y = 14
+/turf/simulated/floor/concrete{
+	temperature = 268.15
 	},
-/turf/simulated/floor/wood,
 /area/pra_base)
 "fY" = (
 /obj/structure/sign/flag/pra/left{
@@ -141,17 +151,25 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"gj" = (
-/obj/structure/table/steel,
-/obj/item/storage/box/fancy/tray/machinist{
-	name = "PRA operation tray";
-	desc = "A tray of various mundane surgical instruments for fixing someone up when they've been shot."
+"gh" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
+	id = "pra_base"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/wood,
 /area/pra_base)
-"gv" = (
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
+"gi" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/fountain/black,
+/turf/simulated/floor/wood,
+/area/pra_base)
+"gP" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/obj/machinery/space_heater,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
 	},
 /area/pra_base)
 "gU" = (
@@ -163,6 +181,15 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"jE" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
 "jF" = (
 /obj/effect/floor_decal/concrete/large/cee{
 	dir = 8
@@ -171,29 +198,9 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"jT" = (
-/obj/machinery/papershredder,
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
-	},
-/area/pra_base)
 "kq" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/floor_decal/concrete/large,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
-/area/pra_base)
-"kz" = (
-/obj/structure/table/wood,
-/obj/effect/floor_decal/concrete/large,
-/obj/item/spacecash/c10{
-	pixel_y = 13;
-	pixel_x = -10
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
-	pixel_x = -16
-	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -218,6 +225,20 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"ly" = (
+/obj/structure/sign/flag/pra/left{
+	pixel_x = 31;
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "pra_base_commissar";
+	name = "igs - pra_base_commissar"
+	},
+/turf/simulated/floor/wood,
+/area/pra_base)
 "lC" = (
 /obj/machinery/light{
 	dir = 1
@@ -231,13 +252,6 @@
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
-/area/pra_base)
-"lD" = (
-/obj/machinery/door/airlock/command{
-	req_access = list(209);
-	name = "Commissar's Office"
-	},
-/turf/simulated/floor/wood,
 /area/pra_base)
 "lI" = (
 /obj/effect/floor_decal/concrete/large/cee{
@@ -255,12 +269,6 @@
 /turf/simulated/floor/tiled/freezer{
 	temperature = 268.15
 	},
-/area/pra_base)
-"ma" = (
-/obj/item/storage/secure/safe{
-	pixel_y = 36
-	},
-/turf/simulated/floor/wood,
 /area/pra_base)
 "mb" = (
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -314,6 +322,14 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"na" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/turf/simulated/floor/tiled/white,
+/area/pra_base)
 "nc" = (
 /obj/structure/table/standard,
 /obj/structure/sign/flag/pra{
@@ -337,6 +353,30 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"oE" = (
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_base)
+"oO" = (
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 30
+	},
+/obj/item/stack/medical/splint/full,
+/obj/item/stack/medical/splint/full,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/box/syringes,
+/obj/item/clothing/suit/storage/hooded/tajaran/surgery,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/tank/anesthetic,
+/obj/item/storage/box/bodybags,
+/turf/simulated/floor/tiled/white,
+/area/pra_base)
 "pB" = (
 /obj/structure/sign/painting_frame/hadii{
 	pixel_x = 32
@@ -344,6 +384,13 @@
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
+/area/pra_base)
+"pN" = (
+/obj/machinery/door/airlock/command{
+	req_access = list(209);
+	name = "Commissar's Office"
+	},
+/turf/simulated/floor/wood,
 /area/pra_base)
 "pS" = (
 /obj/effect/floor_decal/concrete{
@@ -395,32 +442,11 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"rv" = (
-/obj/machinery/washing_machine,
-/obj/effect/floor_decal/concrete{
-	dir = 6
-	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
-/area/pra_base)
 "rz" = (
 /obj/effect/floor_decal/concrete{
 	dir = 4
 	},
 /obj/effect/floor_decal/concrete,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
-/area/pra_base)
-"sT" = (
-/obj/structure/table/standard,
-/obj/structure/bedsheetbin{
-	pixel_y = 10
-	},
-/obj/effect/floor_decal/concrete{
-	dir = 9
-	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -433,6 +459,16 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"tn" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/fire{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/storage/pill_bottle/dylovene,
+/turf/simulated/floor/tiled/white,
+/area/pra_base)
 "tT" = (
 /obj/machinery/door/airlock/security{
 	name = "Meeting Room";
@@ -443,9 +479,12 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"uC" = (
-/obj/item/pipe,
-/turf/simulated/floor/exoplanet/snow{
+"um" = (
+/obj/machinery/washing_machine,
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -463,8 +502,18 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"vD" = (
+/obj/structure/table/steel,
+/obj/item/storage/box/fancy/tray/machinist{
+	name = "PRA operation tray";
+	desc = "A tray of various mundane surgical instruments for fixing someone up when they've been shot."
+	},
+/turf/simulated/floor/tiled/white,
+/area/pra_base)
 "vQ" = (
-/obj/effect/floor_decal/concrete/large,
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
@@ -499,6 +548,9 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"xi" = (
+/turf/simulated/floor/wood,
+/area/pra_base)
 "xj" = (
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
@@ -520,12 +572,6 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"xI" = (
-/obj/structure/sign/painting_frame/hadii{
-	pixel_y = 32
-	},
-/turf/simulated/floor/wood,
-/area/pra_base)
 "xN" = (
 /obj/machinery/door/airlock/security{
 	name = "Armory";
@@ -533,6 +579,11 @@
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
+	},
+/area/pra_base)
+"yi" = (
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
 	},
 /area/pra_base)
 "yB" = (
@@ -551,11 +602,14 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"ze" = (
-/obj/machinery/door/airlock/medical{
-	name = "Medical Center"
+"zb" = (
+/obj/structure/table/wood,
+/obj/item/spacecash/c1{
+	pixel_y = -4
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
 /area/pra_base)
 "zC" = (
 /obj/item/storage/field_ration/army,
@@ -572,16 +626,6 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"zD" = (
-/obj/structure/reagent_dispensers/coolanttank{
-	reagents_to_add = list(/singleton/reagent/water=1000);
-	name = "heated water tank";
-	desc = "A tank of water filed by melting local snow."
-	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/pra_base)
 "zH" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/bottle/victorygin{
@@ -589,40 +633,6 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
-/area/pra_base)
-"zM" = (
-/obj/item/bedsheet/brown,
-/obj/structure/bed/padded,
-/obj/structure/curtain/open/bed,
-/obj/machinery/light/small,
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
-	},
-/area/pra_base)
-"zW" = (
-/obj/structure/table/wood,
-/obj/effect/floor_decal/concrete{
-	dir = 9
-	},
-/obj/item/storage/box/fancy/cigarettes/pra,
-/obj/item/flame/lighter/adhomai{
-	pixel_x = 17
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
-/area/pra_base)
-"Aa" = (
-/obj/effect/floor_decal/concrete/large{
-	dir = 8
-	},
-/obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -634,23 +644,13 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"BK" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/cooking_machines.dmi';
-	icon_state = "adhomai_stove_on";
-	name = "water heater";
-	desc = "A rustic Adhomian heater typically filled with firewood This one is connected to a nearby water tank. Warm enough to gather around the winter."
+"Bq" = (
+/obj/structure/table/standard,
+/obj/structure/bedsheetbin{
+	pixel_y = 10
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/pra_base)
-"BR" = (
 /obj/effect/floor_decal/concrete{
-	dir = 6
-	},
-/obj/effect/floor_decal/concrete/large{
-	dir = 4
+	dir = 9
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
@@ -668,6 +668,12 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"CG" = (
+/obj/structure/sign/flag/pra{
+	pixel_y = 30
+	},
+/turf/simulated/floor/wood,
+/area/pra_base)
 "CO" = (
 /obj/machinery/light{
 	dir = 8
@@ -679,20 +685,6 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"CT" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_x = 31;
-	dir = 4
-	},
-/obj/structure/bed/stool/chair/wood{
-	dir = 8
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "pra_base_commissar";
-	name = "igs - pra_base_commissar"
-	},
-/turf/simulated/floor/wood,
-/area/pra_base)
 "CW" = (
 /obj/machinery/light{
 	dir = 8
@@ -700,6 +692,12 @@
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
+/area/pra_base)
+"Dp" = (
+/obj/machinery/door/airlock/medical{
+	name = "Medical Center"
+	},
+/turf/simulated/floor/tiled/white,
 /area/pra_base)
 "DB" = (
 /obj/machinery/light{
@@ -781,6 +779,15 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"EM" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
 "EP" = (
 /obj/machinery/light{
 	dir = 4;
@@ -790,12 +797,7 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"Fo" = (
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
-/area/exoplanet/adhomai)
-"FU" = (
+"Fk" = (
 /obj/structure/table/wood,
 /obj/item/device/binoculars{
 	pixel_y = 8
@@ -805,6 +807,11 @@
 	temperature = 278.15
 	},
 /area/pra_base)
+"Fo" = (
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "FZ" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -829,6 +836,16 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"GV" = (
+/obj/structure/table/wood,
+/obj/item/spacecash/c10{
+	pixel_x = -6;
+	pixel_y = -10
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
 "HY" = (
 /obj/effect/floor_decal/concrete{
 	dir = 6
@@ -837,23 +854,11 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"Id" = (
-/obj/structure/table/wood,
-/obj/machinery/button/switch/windowtint{
-	dir = 4;
-	pixel_x = -4;
-	pixel_y = 7;
-	id = "pra_base"
+"If" = (
+/obj/item/pipe,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
 	},
-/obj/item/stamp{
-	name = "people's republic of adhomai stamp";
-	icon_state = "stamp-zavod";
-	pixel_x = 6
-	},
-/obj/item/stamp/denied{
-	pixel_x = -4
-	},
-/turf/simulated/floor/wood,
 /area/pra_base)
 "Iq" = (
 /obj/structure/sign/flag/pra/left{
@@ -863,6 +868,10 @@
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
+/area/pra_base)
+"IL" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
 /area/pra_base)
 "Jc" = (
 /obj/machinery/light,
@@ -886,14 +895,6 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"Jq" = (
-/obj/structure/barricade/metal/wired{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/pra_base)
 "Jw" = (
 /obj/structure/hadii_statue/stone,
 /obj/effect/floor_decal/concrete/large/full,
@@ -901,25 +902,38 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"Kp" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
-/obj/item/clothing/accessory/holster/hip,
-/obj/item/storage/backpack/satchel/leather,
-/obj/item/device/radio/headset/ship,
-/obj/item/clothing/accessory/badge/pra_passport,
-/obj/item/ammo_magazine/a50,
-/obj/item/ammo_magazine/a50,
-/obj/item/storage/box/hadii_manifesto,
-/obj/item/storage/box/hadii_card,
-/obj/item/device/megaphone,
-/obj/item/clothing/accessory/hadii_pin,
-/obj/item/flame/lighter/adhomai,
-/obj/item/clothing/under/tajaran/army_commissar,
-/obj/item/clothing/head/tajaran/army_commissar,
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
+"JI" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/concrete{
+	dir = 9
 	},
+/obj/item/reagent_containers/food/drinks/bottle/victorygin{
+	pixel_y = 10
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"JK" = (
+/obj/structure/table/wood,
+/obj/machinery/button/switch/windowtint{
+	dir = 4;
+	pixel_x = -4;
+	pixel_y = 7;
+	id = "pra_base"
+	},
+/obj/item/stamp{
+	name = "people's republic of adhomai stamp";
+	icon_state = "stamp-zavod";
+	pixel_x = 6
+	},
+/obj/item/stamp/denied{
+	pixel_x = -4
+	},
+/turf/simulated/floor/wood,
 /area/pra_base)
 "Lb" = (
 /obj/machinery/light,
@@ -942,6 +956,16 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"Lp" = (
+/obj/structure/reagent_dispensers/coolanttank{
+	reagents_to_add = list(/singleton/reagent/water=1000);
+	name = "heated water tank";
+	desc = "A tank of water filed by melting local snow."
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_base)
 "Lu" = (
 /obj/effect/floor_decal/concrete{
 	dir = 9
@@ -955,19 +979,6 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"MS" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_x = 31;
-	dir = 4
-	},
-/obj/structure/table/wood,
-/obj/machinery/photocopier/faxmachine{
-	req_one_access = null;
-	req_access = list(209);
-	department = "PRA Outpost"
-	},
-/turf/simulated/floor/wood,
-/area/pra_base)
 "Nc" = (
 /obj/machinery/door/airlock/security{
 	name = "Checkpoint";
@@ -978,16 +989,7 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"Nu" = (
-/obj/structure/table/wood,
-/obj/item/spacecash/c1{
-	pixel_y = -4
-	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
-/area/pra_base)
-"NK" = (
+"Ns" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -1020,9 +1022,11 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"Of" = (
-/obj/structure/bed/roller,
-/turf/simulated/floor/tiled/white,
+"Oc" = (
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
 /area/pra_base)
 "Or" = (
 /obj/structure/sign/flag/pra/right{
@@ -1033,39 +1037,37 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"OA" = (
-/obj/machinery/iv_drip,
+"OF" = (
+/obj/structure/table/steel,
+/obj/item/storage/box/masks{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/storage/box/gloves,
+/obj/item/reagent_containers/hypospray{
+	pixel_y = 4;
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/white,
 /area/pra_base)
-"Pf" = (
-/obj/structure/table/wood,
-/obj/item/paper_bin,
-/obj/item/pen/fountain/black,
-/turf/simulated/floor/wood,
-/area/pra_base)
-"Pn" = (
-/obj/effect/floor_decal/concrete{
-	dir = 6
-	},
-/obj/machinery/space_heater,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
-/area/pra_base)
-"Po" = (
-/obj/structure/sign/emergency/meetingpoint{
-	name = "\improper AID STATION sign";
-	desc = "A green sign which showcases the location of a medical aid station."
-	},
-/turf/simulated/wall/concrete,
-/area/pra_base)
-"PL" = (
-/obj/machinery/floodlight{
-	dir = 8;
-	pixel_x = 10
-	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
+"PS" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/storage/backpack/satchel/leather,
+/obj/item/device/radio/headset/ship,
+/obj/item/clothing/accessory/badge/pra_passport,
+/obj/item/ammo_magazine/a50,
+/obj/item/ammo_magazine/a50,
+/obj/item/storage/box/hadii_manifesto,
+/obj/item/storage/box/hadii_card,
+/obj/item/device/megaphone,
+/obj/item/clothing/accessory/hadii_pin,
+/obj/item/flame/lighter/adhomai,
+/obj/item/clothing/under/tajaran/army_commissar,
+/obj/item/clothing/head/tajaran/army_commissar,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
 	},
 /area/pra_base)
 "Qx" = (
@@ -1073,16 +1075,6 @@
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
-/area/pra_base)
-"QD" = (
-/obj/structure/table/steel,
-/obj/item/storage/firstaid/adv,
-/obj/item/storage/firstaid/fire{
-	pixel_x = 3;
-	pixel_y = 4
-	},
-/obj/item/storage/pill_bottle/dylovene,
-/turf/simulated/floor/tiled/white,
 /area/pra_base)
 "Rb" = (
 /obj/machinery/light{
@@ -1122,6 +1114,18 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"Sc" = (
+/obj/machinery/floodlight{
+	dir = 8;
+	pixel_x = 10
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Se" = (
+/turf/simulated/floor/tiled/white,
+/area/pra_base)
 "Sr" = (
 /turf/simulated/floor/concrete{
 	temperature = 268.15
@@ -1136,32 +1140,6 @@
 	},
 /obj/effect/floor_decal/concrete{
 	dir = 5
-	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
-/area/pra_base)
-"SZ" = (
-/obj/structure/closet/walllocker/medical{
-	pixel_y = 30
-	},
-/obj/item/stack/medical/splint/full,
-/obj/item/stack/medical/splint/full,
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/box/syringes,
-/obj/item/clothing/suit/storage/hooded/tajaran/surgery,
-/obj/item/clothing/mask/breath/medical,
-/obj/item/tank/anesthetic,
-/obj/item/storage/box/bodybags,
-/turf/simulated/floor/tiled/white,
-/area/pra_base)
-"Ta" = (
-/obj/structure/table/wood,
-/obj/item/spacecash/c10{
-	pixel_x = -6;
-	pixel_y = -10
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
@@ -1186,6 +1164,17 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"Uc" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/cooking_machines.dmi';
+	icon_state = "adhomai_stove_on";
+	name = "water heater";
+	desc = "A rustic Adhomian heater typically filled with firewood This one is connected to a nearby water tank. Warm enough to gather around the winter."
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_base)
 "Up" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/closet/secure_closet/guncabinet{
@@ -1198,6 +1187,27 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"UF" = (
+/obj/structure/sign/emergency/meetingpoint{
+	name = "\improper AID STATION sign";
+	desc = "A green sign which showcases the location of a medical aid station."
+	},
+/turf/simulated/wall/concrete,
+/area/pra_base)
+"UU" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/filingcabinet{
+	pixel_x = -9;
+	pixel_y = 14
+	},
+/obj/structure/filingcabinet{
+	pixel_x = 5;
+	pixel_y = 14
+	},
+/turf/simulated/floor/wood,
+/area/pra_base)
 "UX" = (
 /obj/structure/table/standard,
 /obj/structure/sign/painting_frame/hadii{
@@ -1208,13 +1218,10 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"Vu" = (
-/obj/effect/floor_decal/concrete{
-	dir = 10
-	},
-/obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
+"Vj" = (
+/obj/machinery/papershredder,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
 	},
 /area/pra_base)
 "Vy" = (
@@ -1274,12 +1281,6 @@
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
-/area/pra_base)
-"WL" = (
-/obj/structure/sign/flag/pra{
-	pixel_y = 30
-	},
-/turf/simulated/floor/wood,
 /area/pra_base)
 "WS" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -1344,25 +1345,24 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"YG" = (
-/obj/structure/table/steel,
-/obj/item/storage/box/masks{
-	pixel_x = 4;
-	pixel_y = 4
+"YL" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
 	},
-/obj/item/storage/box/gloves,
-/obj/item/reagent_containers/hypospray{
-	pixel_y = 4;
-	pixel_x = -5
+/obj/effect/floor_decal/concrete/large{
+	dir = 4
 	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"YU" = (
+/obj/structure/bed/roller,
 /turf/simulated/floor/tiled/white,
 /area/pra_base)
-"YN" = (
-/turf/simulated/floor/wood,
-/area/pra_base)
-"Zu" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
-	id = "pra_base"
+"YY" = (
+/obj/item/storage/secure/safe{
+	pixel_y = 36
 	},
 /turf/simulated/floor/wood,
 /area/pra_base)
@@ -1532,10 +1532,10 @@ wB
 wB
 wB
 wB
-Aa
-zW
-ab
-vQ
+jE
+dJ
+JI
+bk
 wB
 wB
 wB
@@ -1566,10 +1566,10 @@ wB
 wB
 wB
 wB
-ey
-Nu
-kz
-Vu
+vQ
+zb
+fx
+EM
 wB
 wB
 wB
@@ -1579,7 +1579,7 @@ wB
 gU
 gU
 gU
-sT
+Bq
 Go
 wB
 gU
@@ -1600,10 +1600,10 @@ wB
 wB
 wB
 wB
-ey
-Ta
-NK
-Vu
+vQ
+GV
+Ns
+EM
 wB
 wB
 wB
@@ -1613,7 +1613,7 @@ wB
 gU
 Rd
 gU
-rv
+um
 tc
 wB
 gU
@@ -1734,12 +1734,12 @@ gU
 bU
 wB
 wB
-Jq
-Jq
-Jq
+oE
+oE
+oE
 BZ
-PL
-PL
+Sc
+Sc
 wB
 wB
 Wc
@@ -2213,7 +2213,7 @@ EP
 ZR
 EJ
 aJ
-Pn
+gP
 wC
 gU
 wB
@@ -2224,9 +2224,9 @@ dH
 wB
 wB
 wB
-zD
-uC
-BK
+Lp
+If
+Uc
 wB
 gU
 vi
@@ -2244,8 +2244,8 @@ wB
 gU
 gU
 gU
-lD
-Zu
+pN
+gh
 gU
 gU
 gU
@@ -2277,11 +2277,11 @@ wB
 wB
 wB
 gU
-fQ
-YN
-YN
-jT
-Kp
+UU
+xi
+xi
+Vj
+PS
 gU
 wB
 wB
@@ -2291,9 +2291,9 @@ Sr
 dH
 wB
 gU
-Of
-eo
-QD
+YU
+Se
+tn
 gU
 wB
 gU
@@ -2311,11 +2311,11 @@ wB
 wB
 wB
 gU
-WL
-YN
-YN
-gv
-gv
+CG
+xi
+xi
+yi
+yi
 gU
 wB
 wB
@@ -2324,10 +2324,10 @@ Wc
 Sr
 dH
 wB
-Po
-gj
-eo
-YG
+UF
+vD
+Se
+OF
 gU
 wB
 gU
@@ -2345,11 +2345,11 @@ wB
 wB
 wB
 gU
-xI
-Id
-Pf
-gv
-FU
+Oc
+JK
+gi
+yi
+Fk
 gU
 wB
 wB
@@ -2358,10 +2358,10 @@ Wc
 Sr
 Sr
 nw
-ze
-eo
-eo
-dw
+Dp
+Se
+Se
+na
 gU
 wB
 gU
@@ -2379,23 +2379,23 @@ wB
 wB
 wB
 gU
-ma
-CT
-MS
-gv
-zM
-Zu
+YY
+ly
+dy
+yi
+bz
+gh
 wB
 wB
 wB
 ZR
 EJ
-BR
+YL
 wB
 gU
-SZ
-eo
-eo
+oO
+Se
+Se
 gU
 wB
 gU
@@ -2427,9 +2427,9 @@ wB
 wB
 wB
 gU
-Of
-OA
-Of
+YU
+IL
+YU
 gU
 wB
 gU
