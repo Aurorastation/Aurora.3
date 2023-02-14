@@ -190,6 +190,16 @@
 	temperature = 268.15
 	},
 /area/adhomai_hunting)
+"A" = (
+/obj/structure/closet/crate/medical,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/storage/firstaid,
+/obj/item/stack/medical/splint/full,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
 "B" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/material/knife/bayonet,
@@ -948,7 +958,7 @@ b
 g
 k
 M
-k
+A
 k
 j
 O
