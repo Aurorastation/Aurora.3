@@ -213,6 +213,9 @@
 
 	return list(spawn_cost, player_cost, ship_cost)
 
+/datum/map/proc/send_welcome()
+	return
+
 /datum/map/proc/build_away_sites()
 #ifdef UNIT_TEST
 	log_admin("Unit testing, so not loading away sites")
