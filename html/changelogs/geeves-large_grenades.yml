@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added grenade and large grenade casings to the Autolathe, under the Arms and Ammunition section. Large casings are only available in hacked lathes."
-  - rscdel: "Removed the option to print large grenade casings from Protolathes."
