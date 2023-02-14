@@ -1358,8 +1358,7 @@
 	desc_extended = "Previously the realm of amateur programmers and niche companies, the Gwok Group acquired and amalgamated a number of popular Port Verdant overloader brands in order to capitalize on the growing industry. Seeing untapped markets abroad, the corporation has begun exporting to nations with free IPC populations."
 	icon_state = "synth"
 	icon_vend = "synth-vend"
-	product_slogans = "Safe for consumption by all species!;Made by hard-working bound drones!;The most refreshing energy drink around!;A product of two thousand years!"
-	product_ads = "Tired? Try some Zo'ra Soda!;Thirsty? Why not Zo'ra Soda?;Bored? Have some Zo'ra Soda!;Zo'ra Soda. Drink up!;ZZZOOO'RRRAAA SSSOOODDDAAA!"
+	product_slogans = "GwokBuzz, to take the edge off!;Try our new Rainbow Essence flavour!;Safe and sanctioned by the authorities!"
 	vend_id = "overloaders"
 	products = list(
 		/obj/item/ipc_overloader/classic = 5,
