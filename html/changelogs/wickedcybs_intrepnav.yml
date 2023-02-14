@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "The Intrepid navpoint was moved back to its original position in roughly the middle of the shuttle. The recent change to its position ended up causing issues on away sites and how it interacted with other overmap ships."
+  - bugfix: "Some of the bridge deck navpoints had identical names and that meant they wouldn't work. That's been fixed too"
