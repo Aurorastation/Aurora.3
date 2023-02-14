@@ -1,14 +1,15 @@
 /obj/item/ship_ammunition/grauwolf_probe
 	name = "grauwolf sensor probe"
-	desc = "A sensor probe, used to illuminate the area ahead using the dataling."
-	icon = 'icons/obj/guns/ship/ship_ammo_flakbox.dmi'
-	icon_state = "bundle_he"
-	overmap_icon_state = "flak"
+	desc = "A gun-launched sensor probe, used to scan the area around and relay findings using the datalink."
+	icon = 'icons/obj/guns/ship/grauwolfprobe.dmi'
+	icon_state = "probe_2"
+	overmap_icon_state = "missle_probe"
 	caliber = SHIP_CALIBER_90MM
 	ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE
-	overmap_behaviour = null
+	impact_type = SHIP_AMMO_IMPACT_PROBE
+	overmap_behaviour = null	// This ammo cannot hit anything
 	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf_probe
-	burst = 4
+	burst = 1
 
 /obj/item/ship_ammunition/grauwolf_probe/transfer_to_overmap(var/new_z)
 	var/obj/effect/overmap/start_object = map_sectors["[new_z]"]
@@ -34,6 +35,8 @@
 	var/obj/effect/overmap/visitable/origin = null
 	var/list/contacts = list() // Contacts, aka overmap effects, in view of the probe
 	var/scan_range = 4	// How far the probe "sees", aka how strong the radar is, aka in what radius it will reveal effects
+
+	icon_state = "missle_probe"
 	instant_contact = TRUE
 	requires_contact = FALSE
 
