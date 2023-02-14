@@ -204,7 +204,16 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Consular Officer"
+	},
+/obj/item/material/ashtray/bronze{
+	pixel_x = 28
+	},
+/turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "afN" = (
 /obj/structure/railing/mapped,
@@ -303,12 +312,6 @@
 /obj/structure/bedsheetbin,
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/changing)
-"aiE" = (
-/obj/structure/bed/stool/chair/padded/brown{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/lawoffice/representative)
 "aiV" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -4061,13 +4064,6 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/bridge/controlroom)
-"dFm" = (
-/obj/machinery/hologram/holopad,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/carpet,
-/area/lawoffice/consular)
 "dFO" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -4416,6 +4412,14 @@
 "dSF" = (
 /turf/template_noop,
 /area/template_noop)
+"dTE" = (
+/obj/machinery/firealarm/south,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/lawoffice/representative)
 "dUf" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/green{
@@ -4910,7 +4914,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 8
+	},
+/turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "emM" = (
 /obj/effect/floor_decal/corner/green{
@@ -6272,12 +6279,14 @@
 /turf/simulated/floor,
 /area/medical/ward)
 "fnm" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair/padded/brown,
-/obj/structure/cable/green{
-	icon_state = "2-4"
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 8
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
@@ -6513,13 +6522,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
-"fum" = (
-/obj/structure/table/wood,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/carpet,
-/area/lawoffice/representative)
 "fuG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -7346,7 +7348,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
-"gcM" = (
+"gcb" = (
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
@@ -7357,6 +7359,27 @@
 	},
 /obj/machinery/light,
 /obj/machinery/chemical_dispenser/coffee,
+/turf/simulated/floor/wood,
+/area/lawoffice/representative)
+"gcM" = (
+/obj/machinery/power/apc/low{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/table/wood,
+/obj/item/storage/box/fancy/cookiesnack,
+/obj/item/storage/box/fancy/cookiesnack,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "gcR" = (
@@ -7774,15 +7797,6 @@
 	dir = 4
 	},
 /area/bridge)
-"gvC" = (
-/obj/structure/bed/stool/chair/padded/brown{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/carpet,
-/area/lawoffice/representative)
 "gvG" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -9496,6 +9510,38 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/captain)
+"hIc" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/button/switch/windowtint{
+	id = "rep";
+	pixel_x = 9;
+	pixel_y = -30;
+	req_access = list(38)
+	},
+/obj/machinery/light_switch{
+	pixel_x = 2;
+	pixel_y = -30
+	},
+/obj/machinery/button/remote/airlock{
+	id = "rep_office";
+	name = "representative door control";
+	pixel_x = -7;
+	pixel_y = -37;
+	req_access = null
+	},
+/obj/machinery/button/remote/airlock{
+	id = "rep_office";
+	name = "representative door bolts";
+	pixel_x = -7;
+	pixel_y = -28;
+	req_access = null;
+	specialfunctions = 4
+	},
+/turf/simulated/floor/wood,
+/area/lawoffice/representative)
 "hIe" = (
 /obj/effect/floor_decal/corner/blue/full,
 /turf/simulated/floor/tiled/dark,
@@ -9755,7 +9801,12 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/turf/simulated/floor/wood,
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/representative{
+	pixel_x = -1;
+	pixel_y = 5
+	},
+/turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "hUj" = (
 /obj/effect/floor_decal/corner/green{
@@ -9877,6 +9928,12 @@
 "idI" = (
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
+"idR" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor/plating,
+/area/lawoffice/representative)
 "ieB" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/spline/fancy/wood/full,
@@ -10310,12 +10367,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "iwW" = (
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Consular Officer"
-	},
+/obj/structure/table/wood,
+/obj/machinery/recharger,
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "iya" = (
@@ -11488,24 +11541,7 @@
 /turf/simulated/floor/carpet/art,
 /area/crew_quarters/lounge/secondary)
 "jwe" = (
-/obj/machinery/power/apc/low{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
 /obj/structure/table/wood,
-/obj/item/storage/box/fancy/cookiesnack,
-/obj/item/storage/box/fancy/cookiesnack,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "jwh" = (
@@ -11546,13 +11582,10 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "jxA" = (
-/obj/structure/bed/stool/chair/padded/brown{
-	dir = 8
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "jxG" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -11730,7 +11763,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/interrogation)
 "jEX" = (
-/turf/simulated/floor/wood,
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/representative{
+	pixel_x = -1;
+	pixel_y = 5
+	},
+/turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "jFO" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -13082,6 +13120,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"kDn" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/lawoffice/representative)
 "kDt" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -14346,10 +14388,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/bridge/controlroom)
-"lGj" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/carpet,
-/area/lawoffice/representative)
 "lGT" = (
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -16906,11 +16944,15 @@
 /turf/simulated/floor/tiled/full,
 /area/bridge)
 "nLN" = (
-/obj/structure/table/wood,
+/obj/structure/curtain/black{
+	icon_state = "open";
+	opacity = 0
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled/dark,
 /area/lawoffice/consular)
 "nLV" = (
 /obj/machinery/door/airlock/command{
@@ -17252,10 +17294,10 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/medical/upper)
 "oaA" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "oaC" = (
@@ -17356,7 +17398,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/wood,
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 8
+	},
+/turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "ofk" = (
 /obj/effect/floor_decal/corner/blue/full,
@@ -18842,8 +18887,8 @@
 /turf/simulated/wall,
 /area/crew_quarters/lounge)
 "pja" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/carpet,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "pjv" = (
 /obj/structure/railing/mapped,
@@ -19566,12 +19611,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
-"pWL" = (
-/obj/structure/table/wood,
-/obj/item/paper_bin,
-/obj/item/pen,
-/turf/simulated/floor/carpet,
-/area/lawoffice/consular)
 "pWN" = (
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Corridor Camera 5";
@@ -19684,11 +19723,12 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "qaI" = (
-/obj/machinery/firealarm/south,
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
+	dir = 8
 	},
-/obj/machinery/light,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "qbD" = (
@@ -19889,20 +19929,13 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/forensic_laboratory)
 "qjr" = (
-/obj/structure/table/wood,
-/obj/machinery/button/switch/windowtint{
-	dir = 4;
-	id = "consular";
-	pixel_x = -24;
-	pixel_y = -4
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
 	},
-/obj/machinery/button/remote/airlock{
+/obj/machinery/light_switch{
 	dir = 4;
-	id = "consular_office";
-	name = "consular door control";
-	pixel_x = -35;
-	pixel_y = 7;
-	req_access = null
+	pixel_x = -24;
+	pixel_y = 4
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 4;
@@ -19913,21 +19946,19 @@
 	req_access = null;
 	specialfunctions = 4
 	},
-/obj/item/paper_scanner,
-/obj/item/pen/black,
-/obj/item/pen/blue{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/modular_computer/laptop/preset/representative{
-	pixel_x = -1;
-	pixel_y = 5
-	},
-/obj/machinery/recharger,
-/obj/machinery/light_switch{
+/obj/machinery/button/remote/airlock{
 	dir = 4;
+	id = "consular_office";
+	name = "consular door control";
+	pixel_x = -35;
+	pixel_y = 7;
+	req_access = null
+	},
+/obj/machinery/button/switch/windowtint{
+	dir = 4;
+	id = "consular";
 	pixel_x = -24;
-	pixel_y = 4
+	pixel_y = -4
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
@@ -20957,6 +20988,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"ret" = (
+/obj/structure/table/wood,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/carpet,
+/area/lawoffice/representative)
 "rgb" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable/green{
@@ -21035,10 +21073,10 @@
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
 "rjn" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/turf/simulated/floor/plating,
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
 /area/lawoffice/representative)
 "rle" = (
 /obj/structure/railing/mapped,
@@ -23936,6 +23974,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 4
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative)
 "tqj" = (
@@ -24485,10 +24526,8 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/autopsy_laboratory)
 "tIR" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "tIV" = (
@@ -25297,7 +25336,33 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/obj/structure/table/wood,
+/obj/machinery/recharger,
+/obj/machinery/light_switch{
+	pixel_x = -4;
+	pixel_y = 24
+	},
+/obj/machinery/button/remote/airlock{
+	id = "consular_office";
+	name = "consular door bolts";
+	pixel_x = -6;
+	pixel_y = 35;
+	req_access = null;
+	specialfunctions = 4
+	},
+/obj/machinery/button/remote/airlock{
+	id = "consular_office";
+	name = "consular door control";
+	pixel_x = 6;
+	pixel_y = 35;
+	req_access = null
+	},
+/obj/machinery/button/switch/windowtint{
+	id = "consular";
+	pixel_x = 4;
+	pixel_y = 24
+	},
+/turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "uoU" = (
 /obj/item/device/radio/intercom{
@@ -27131,13 +27196,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "vJc" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 4
 	},
 /obj/structure/cable/green{
-	icon_state = "1-4"
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet,
 /area/lawoffice/representative)
 "vJP" = (
 /obj/structure/cable{
@@ -27303,7 +27368,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair/padded/brown,
+/obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "vOV" = (
@@ -27898,11 +27963,12 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "wmP" = (
-/obj/structure/table/wood,
-/obj/item/material/ashtray/bronze{
-	pixel_x = -16
+/obj/structure/curtain/black{
+	icon_state = "open";
+	opacity = 0
 	},
-/turf/simulated/floor/carpet,
+/obj/effect/floor_decal/corner/blue/diagonal,
+/turf/simulated/floor/tiled/dark,
 /area/lawoffice/consular)
 "wnC" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -28040,8 +28106,14 @@
 /turf/simulated/floor/grass/alt,
 /area/horizon/hallway/deck_three/primary/central)
 "wtr" = (
-/obj/structure/bed/stool/chair/padded/brown{
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Corporate Liaison"
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative)
@@ -28280,8 +28352,20 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "wHl" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Consular Officer"
+	},
+/obj/item/material/ashtray/bronze{
+	pixel_x = 28
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
@@ -29243,7 +29327,12 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge)
 "xqX" = (
-/turf/simulated/floor/wood,
+/obj/structure/curtain/black{
+	icon_state = "open";
+	opacity = 0
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
+/turf/simulated/floor/tiled/dark,
 /area/lawoffice/representative)
 "xrc" = (
 /obj/structure/lattice/catwalk,
@@ -30203,8 +30292,8 @@
 	},
 /obj/item/stack/material/plasteel{
 	amount = 20;
-	pixel_y = 3;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 3
 	},
 /obj/item/stack/material/steel/full{
 	pixel_x = 5
@@ -52033,7 +52122,7 @@ seF
 xIa
 hUd
 wHl
-pWL
+wmP
 qjr
 afn
 kAt
@@ -52232,7 +52321,7 @@ qoP
 bNJ
 gKQ
 seF
-xIa
+mgN
 uoT
 vON
 wmP
@@ -52438,7 +52527,7 @@ mgN
 emK
 fnm
 nLN
-dFm
+oez
 oez
 pPZ
 hcg
@@ -53653,7 +53742,7 @@ viN
 ybk
 ybk
 ybk
-sMq
+ybk
 sMq
 uBS
 uBS
@@ -53853,10 +53942,10 @@ iFe
 kbg
 mhs
 mhs
-vJc
+mhs
 qaI
+dTE
 moN
-cPq
 cPq
 cPq
 cPq
@@ -54053,12 +54142,12 @@ hzh
 viN
 tpN
 ord
-aiE
+pja
 xqX
-gvC
-aiE
+jxA
+vJc
 rjn
-cPq
+idR
 cPq
 cPq
 cPq
@@ -54257,10 +54346,10 @@ mdU
 ujD
 pja
 xqX
-fum
-pja
-rjn
-cPq
+jxA
+ret
+mdU
+idR
 cPq
 cPq
 cPq
@@ -54457,12 +54546,12 @@ seF
 ybk
 eNC
 fJL
-lGj
+pja
 xqX
 jxA
 wtr
-rjn
-cPq
+eNC
+idR
 cPq
 cPq
 cPq
@@ -54660,11 +54749,11 @@ viN
 fSW
 fMW
 qsd
-qsd
 tIR
+qsd
 oaA
-rjn
-cPq
+hIc
+kDn
 cPq
 cPq
 cPq
@@ -54865,8 +54954,8 @@ kqb
 krt
 jwe
 gcM
+gcb
 moN
-cPq
 cPq
 cPq
 cPq
@@ -55068,7 +55157,7 @@ viN
 viN
 moN
 moN
-cPq
+moN
 cPq
 cPq
 cPq
