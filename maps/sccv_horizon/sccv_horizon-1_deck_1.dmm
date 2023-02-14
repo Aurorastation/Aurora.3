@@ -796,11 +796,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/rotary)
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "aHY" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -14774,16 +14771,6 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
-"lyY" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/shuttle_landmark/intrepid/hangar,
-/turf/simulated/floor/tiled,
-/area/hangar/intrepid)
 "lzb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -25917,6 +25904,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/bluespace_beacon,
+/obj/effect/shuttle_landmark/intrepid/hangar,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "unS" = (
@@ -28324,6 +28312,10 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/clothing/accessory/holster/utility/machete,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "wjU" = (
@@ -51436,7 +51428,7 @@ kEt
 hYy
 apf
 iZk
-lyY
+dhi
 ayq
 xvk
 nyz

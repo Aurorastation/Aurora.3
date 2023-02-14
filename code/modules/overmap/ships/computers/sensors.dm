@@ -66,6 +66,9 @@
 		data["range"] = sensors.range
 		data["health"] = sensors.health
 		data["max_health"] = sensors.max_health
+		data["deep_scan_name"] = sensors.deep_scan_sensor_name
+		data["deep_scan_range"] = sensors.deep_scan_range
+		data["deep_scan_toggled"] = sensors.deep_scan_toggled
 		data["heat"] = sensors.heat
 		data["critical_heat"] = sensors.critical_heat
 		if(sensors.health == 0)
@@ -97,7 +100,7 @@
 		var/list/contacts = list()
 		var/list/potential_contacts = list()
 
-		for(var/obj/effect/overmap/nearby in view(7,linked))
+		for(var/obj/effect/overmap/nearby in view(7, linked))
 			if(nearby.requires_contact) // Some ships require.
 				continue
 			potential_contacts |= nearby
@@ -193,6 +196,10 @@
 			return TOPIC_REFRESH
 		if (href_list["toggle"])
 			sensors.toggle()
+			return TOPIC_REFRESH
+
+		if(href_list["deep_scan_toggle"])
+			sensors.deep_scan_toggled = !sensors.deep_scan_toggled
 			return TOPIC_REFRESH
 
 	if(identification)
@@ -306,6 +313,9 @@
 	var/desired_range_instant = FALSE // if true, instantly changes range to desired
 	var/max_range = 10
 	var/sensor_strength = 5//used for detecting ships via contacts
+	var/deep_scan_range = 4 //Maximum range for the range() check in sensors. Basically a way to use range instead of view in this radius.
+	var/deep_scan_toggled = FALSE //When TRUE, this sensor is using long range sensors.
+	var/deep_scan_sensor_name = "High-Power Sensor Array"
 	idle_power_usage = 5000
 
 	var/base_icon_state
@@ -409,10 +419,11 @@
 		if(heat > critical_heat)
 			src.visible_message("<span class='danger'>\The [src] violently spews out sparks!</span>")
 			spark(src, 3, alldirs)
-
 			take_damage(rand(10,50))
 			toggle()
-		heat += active_power_usage/15000
+		if(deep_scan_toggled)
+			heat += deep_scan_range / 8
+		heat += active_power_usage / 15000
 	else if(desired_range < range)
 		set_range(range-1) // if power off, only spool down
 
@@ -451,10 +462,18 @@
 	heat_reduction = 1.7 // Can sustain range 4
 	max_range = 7
 	desc = "Miniturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
+	deep_scan_range = 0
 
 /obj/machinery/shipsensors/strong
-	name = "sensors suite"
 	desc = "An upgrade to the standard ship-mounted sensor array, this beast has massive cooling systems running beneath it, allowing it to run hotter for much longer. Can only run in vacuum to protect delicate quantum BS elements."
 	icon_state = "sensor_suite"
 	heat_reduction = 3.7 // can sustain range 6
 	max_range = 14
+	deep_scan_range = 6
+	deep_scan_sensor_name = "High-Power Sensor Array"
+
+/obj/machinery/shipsensors/strong/venator
+	name = "venator-class quantum sensor array"
+	desc = "An incredibly advanced sensor array, created using top of the line technology in every conceivable area. Not only does it far outperform and outclass every other sensors system, it also boasts revolutionary quantum long-range sensors."
+	deep_scan_range = 12
+	deep_scan_sensor_name = "Venator-Class Ultra-High Depth Sensors"

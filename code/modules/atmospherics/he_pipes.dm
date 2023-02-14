@@ -51,6 +51,7 @@
 		qdel(src)
 		return
 
+	atmos_initialised = TRUE
 	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/process()
@@ -153,4 +154,5 @@
 		qdel(src)
 		return
 
+	atmos_initialised = TRUE
 	queue_icon_update()

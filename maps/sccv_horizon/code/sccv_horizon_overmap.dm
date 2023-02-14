@@ -193,11 +193,11 @@
 	landmark_tag = "deck_three_fore_of_horizon"
 
 /obj/effect/shuttle_landmark/horizon/deckthree/starboardfore
-	name = "Deck Three, Starboard of Horizon"
+	name = "Deck Three, Starboard Fore of Horizon"
 	landmark_tag = "deck_three_fore_starboard_of_horizon"
 
 /obj/effect/shuttle_landmark/horizon/deckthree/portfore
-	name = "Deck Three, Starboard of Horizon"
+	name = "Deck Three, Port Fore of Horizon"
 	landmark_tag = "deck_three_port_fore_of_horizon"
 
 /obj/effect/shuttle_landmark/horizon/deckthree/portaft
