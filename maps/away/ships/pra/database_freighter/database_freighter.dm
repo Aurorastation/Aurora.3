@@ -18,7 +18,7 @@
 	class = "PRAMV" //People's Republic of Adhomai Vessel
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
-	colors = list("#fad89f", "#f1d378")
+	colors = list("#8A3324")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
@@ -32,6 +32,8 @@
 	initial_restricted_waypoints = list(
 		"Database Freighter Shuttle" = list("nav_database_freighter_shuttle")
 	)
+
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/database_freighter/New()
 	if (prob(50))
@@ -66,7 +68,7 @@
 	desc = "A simple and reliable shuttle design used by the Orbital Fleet."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
-	colors = list("#fad89f", "#f1d378")
+	colors = list("#8A3324")
 	class = "PRAMV"
 	designation = "Yve'kha"
 	shuttle = "Database Freighter Shuttle"
