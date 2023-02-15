@@ -1,8 +1,7 @@
 /datum/map_template/ruin/exoplanet/adhomai_fallout_bunker
 	name = "Adhomian Fallout Bunker"
 	id = "adhomai_fallout_bunker"
-	description = "A fallout bunker built by the People's Republic of Adhomai after the armistice	."
-
+	description = "A fallout bunker built by the People's Republic of Adhomai after the armistice."
 	spawn_weight = 1
 	spawn_cost = 1
 	sectors = list(SECTOR_SRANDMARR)
