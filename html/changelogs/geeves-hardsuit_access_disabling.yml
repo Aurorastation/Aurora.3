@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Disabling the access lock on a hardsuit maintenance panel now unlocks the hardsuit entirely, meaning anyone can use it."
