@@ -102,6 +102,7 @@
 
 /datum/modular_computer_app_presets/medical/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
