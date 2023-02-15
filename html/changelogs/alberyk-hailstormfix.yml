@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the hailstorm not having telecomms equipment."
