@@ -1,6 +1,0 @@
-author: anconfuzedrock
-
-delete-after: True
-
-changes:
-  - bugfix: "Medical computers can now download other programs."
