@@ -46,12 +46,9 @@
 
 				H.adjustBruteLoss(-40)
 				H.adjustFireLoss(-40)
-
 				sleep(10 SECONDS)
 				L.basic_revival() //Restores a brain to half health and makes them conscious. Doesn't touch anything else: they'll immediately have a heart attack, good luck!
 				visible_message("<span class='danger'>\The [H]'s eyes open!</span>")
 				to_chat(user, "<span class='notice'>It's alive!</span>")
 				adjust_instability(50)
 				log_and_message_admins("has resurrected [H].")
-				to_chat(user, "<span class='warning'>The body of \the [H] doesn't seem to respond, perhaps you could try again?</span>")
-				adjust_instability(10)
