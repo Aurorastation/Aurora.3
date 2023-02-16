@@ -49,10 +49,7 @@
 
 				sleep(10 SECONDS)
 				if(H.client)
-					L.basic_revival() //Note that if whatever killed them in the first place wasn't fixed, they're likely to die again.
-					dead_mob_list -= H
-					living_mob_list += H
-					H.timeofdeath = null
+					L.basic_revival() //Restores your boy's brain to half health and makes them conscious. Doesn't touch anything else: they'll immediately have a heart attack, good luck!
 					visible_message("<span class='danger'>\The [H]'s eyes open!</span>")
 					to_chat(user, "<span class='notice'>It's alive!</span>")
 					adjust_instability(50)
