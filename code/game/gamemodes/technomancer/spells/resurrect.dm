@@ -37,23 +37,21 @@
 			else if(ishuman(L))
 				var/mob/living/carbon/human/H = L
 
-				if(!H.client && H.mind) //Don't force the dead person to come back if they don't want to.
+				if(!H.client && H.mind) //Don't force the dead person into their body if they don't want it.
 					for(var/mob/abstract/observer/ghost in player_list)
 						if(ghost.mind == H.mind)
 							sound_to(ghost, 'sound/effects/psi/power_feedback.ogg')
-							to_chat(ghost, "The Technomancer [user.real_name] is trying to revive you. Re-enter your body if you want to be revived!")
+							to_chat(ghost, "The Technomancer [user.real_name] is reviving you. Re-enter your body to live again!")
 							break
 
 				H.adjustBruteLoss(-40)
 				H.adjustFireLoss(-40)
 
 				sleep(10 SECONDS)
-				if(H.client)
-					L.basic_revival() //Restores your boy's brain to half health and makes them conscious. Doesn't touch anything else: they'll immediately have a heart attack, good luck!
-					visible_message("<span class='danger'>\The [H]'s eyes open!</span>")
-					to_chat(user, "<span class='notice'>It's alive!</span>")
-					adjust_instability(50)
-					log_and_message_admins("has resurrected [H].")
-				else
-					to_chat(user, "<span class='warning'>The body of \the [H] doesn't seem to respond, perhaps you could try again?</span>")
-					adjust_instability(10)
+				L.basic_revival() //Restores a brain to half health and makes them conscious. Doesn't touch anything else: they'll immediately have a heart attack, good luck!
+				visible_message("<span class='danger'>\The [H]'s eyes open!</span>")
+				to_chat(user, "<span class='notice'>It's alive!</span>")
+				adjust_instability(50)
+				log_and_message_admins("has resurrected [H].")
+				to_chat(user, "<span class='warning'>The body of \the [H] doesn't seem to respond, perhaps you could try again?</span>")
+				adjust_instability(10)

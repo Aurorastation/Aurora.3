@@ -104,6 +104,7 @@ proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/
 		/obj/item/personal_inhaler,
 		/obj/item/clothing/accessory/stethoscope,
 		/obj/item/autopsy_scanner,
+		/obj/item/spell,
 		/obj/item/grab
 		)
 	// Check for multi-surgery drifting.
