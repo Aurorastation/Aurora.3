@@ -41,6 +41,10 @@
 "P" = (
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)
+"R" = (
+/mob/living/simple_animal/hostile/harron,
+/turf/simulated/floor/exoplanet/mineral/adhomai,
+/area/exoplanet/adhomai)
 "X" = (
 /obj/structure/flora/tree/adhomai,
 /turf/simulated/floor/exoplanet/snow{
@@ -475,7 +479,7 @@ P
 P
 m
 m
-P
+R
 P
 P
 m
@@ -571,7 +575,7 @@ P
 P
 P
 P
-P
+R
 P
 P
 P
@@ -774,7 +778,7 @@ P
 P
 m
 m
-P
+R
 P
 A
 P
