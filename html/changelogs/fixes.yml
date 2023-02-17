@@ -1,0 +1,10 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes potted plants being anchored."
+  - bugfix: "Fixes the starboard Intrepid airlock sensor not following the Intrepid when taking off."
+  - bugfix: "Fixes the deck 3 dormitory APC being unconnected."
+  - bugfix: "Fixes tajaran voidsuits being unable to hold weapons in its storage slot."
+  - bugfix: "Fixes .45 silenced pistol not fitting in military belts."

@@ -920,10 +920,10 @@
 	)
 
 /obj/random/loot
-	name = "random maintenance loot items"
+	name = "random maintenance loot"
 	desc = "Stuff for the maint-dwellers."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "gift3"
+	icon = 'icons/holiday/christmas/presents.dmi'
+	icon_state = "gift1"
 	problist = list(
 		/obj/item/bluespace_crystal/artificial = 0.1,
 		/obj/item/bodybag = 0.7,

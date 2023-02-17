@@ -1,9 +1,12 @@
 /obj/structure/flora
+	name = "flora parent object"
+	desc = DESC_PARENT
 	anchored = TRUE
 
 /obj/structure/flora/tree
 	name = "tree"
-	density = 1
+	desc = "A tree."
+	density = TRUE
 	pixel_x = -16
 	layer = 9
 
@@ -56,8 +59,8 @@
 //rocks
 /obj/structure/flora/rock
 	name = "rock"
-	icon_state = "basalt"
 	desc = "A rock."
+	icon_state = "basalt"
 	icon = 'icons/obj/flora/rocks_grey.dmi'
 	density = TRUE
 
