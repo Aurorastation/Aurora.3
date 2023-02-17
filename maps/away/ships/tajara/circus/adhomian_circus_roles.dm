@@ -16,7 +16,7 @@
 	tags = list("External")
 
 	spawnpoints = list("adhomian_circus_crew")
-	max_count = 3
+	max_count = 2
 
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -31,7 +31,7 @@
 /datum/outfit/admin/adhomian_circus/crew
 	name = "Adhomian Circus Crew"
 
-	uniform = /obj/item/clothing/under/serviceoveralls
+	uniform = /obj/item/clothing/under/service_overalls
 	back = /obj/item/storage/backpack/satchel
 	shoes = /obj/item/clothing/shoes/tajara/jackboots
 

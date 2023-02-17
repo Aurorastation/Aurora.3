@@ -473,9 +473,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/prank
 	reagents_to_add = list(
-		/decl/reagent/toxin/tobacco/rich = 20,
-		/decl/reagent/mental/nicotine = 5,
-		/decl/reagent/fuel = 5
+		/singleton/reagent/toxin/tobacco/rich = 20,
+		/singleton/reagent/mental/nicotine = 5,
+		/singleton/reagent/fuel = 5
 	)
 
 /obj/item/trash/cigbutt

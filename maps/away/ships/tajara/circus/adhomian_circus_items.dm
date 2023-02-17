@@ -11,7 +11,7 @@
 /obj/item/clothing/head/that/ringmaster
 	name = "ringmaster tophat"
 	desc = "A tall hat worn by ringmasters during their presentations."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "ringmasterhat"
 	item_state = "ringmasterhat"
 	contained_sprite = TRUE
@@ -19,7 +19,7 @@
 /obj/item/clothing/suit/storage/ringmaster
 	name = "ringmaster coat"
 	desc = "A fur coat worn by Adhomian ringmasters."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "ringmastercoat"
 	item_state = "ringmastercoat"
 	contained_sprite = TRUE
@@ -27,7 +27,7 @@
 /obj/item/clothing/shoes/tajara/jackboots/ringmaster
 	name = "ringmaster boots"
 	desc = "Comfortable and fancy boots meant for a Tajara."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "circusboots"
 	item_state = "circusboots"
 	contained_sprite = TRUE
@@ -37,7 +37,7 @@
 /obj/item/clothing/under/strongman
 	name = "strongzhan leotard"
 	desc = "A skin-tight clothing made specially for strength athletics."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "strongman"
 	item_state = "strongman"
 	contained_sprite = TRUE
@@ -45,7 +45,7 @@
 /obj/item/clothing/shoes/sandal/strongman
 	name = "strongzhan sandals"
 	desc = "Reinforced leather sandals made for strong feet."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "strongsandal"
 	item_state = "strongsandal"
 	contained_sprite = TRUE
@@ -55,8 +55,8 @@
 
 /obj/item/clothing/under/tamer
 	name = "tamer uniform"
-	desc = "An uniform used by Adhomian animal tamers. The fabric was already been mended in a couple of places."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	desc = "An uniform used by Adhomian animal tamers. The fabric has already been mended in a couple of places."
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "beasttrainer"
 	item_state = "beasttrainer"
 	contained_sprite = TRUE
@@ -66,7 +66,7 @@
 /obj/item/clothing/under/dress/tajaran/fortune
 	name = "fortune teller dress"
 	desc = "A dress worn by mystics of questionable reputation."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "fortunedress"
 	item_state = "fortunedress"
 	contained_sprite = TRUE
@@ -77,7 +77,7 @@
 /obj/item/clothing/under/clown
 	name = "clown costume"
 	desc = "A costume worn by Adhomian entertainers."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "clownsuit"
 	item_state = "clownsuit"
 	contained_sprite = TRUE
@@ -85,7 +85,7 @@
 /obj/item/clothing/head/clown
 	name = "clown hat"
 	desc = "A hat worn by professional fools."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "clownhat"
 	item_state = "clownhat"
 	contained_sprite = TRUE
@@ -93,7 +93,7 @@
 /obj/item/clothing/shoes/clown
 	name = "clown shoes"
 	desc = "The prankster's standard-issue clowning shoes."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "clownshoes"
 	item_state = "clownshoes"
 	contained_sprite = TRUE
@@ -103,16 +103,16 @@
 	if(!running)
 		if(footstep >= 2)
 			footstep = 0
-			playsound(src, /decl/sound_category/clown_sound, 20, 1)
+			playsound(src, /singleton/sound_category/clown_sound, 20, 1)
 		else
 			footstep++
 	else
-		playsound(src, /decl/sound_category/clown_sound, 50, 1) // Running is louder and funnier
+		playsound(src, /singleton/sound_category/clown_sound, 50, 1) // Running is louder and funnier
 
 /obj/item/clothing/mask/clown
 	name = "clown mask"
 	desc = "A true prankster's facial attire."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "clownmask"
 	item_state = "clownmask"
 	sprite_sheets = null
@@ -123,7 +123,7 @@
 /obj/structure/balloon_dispenser
 	name = "ballon canister"
 	desc = "A canister of helium with countless balloons hanging from it."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "ballon_dispenser"
 	item_state = "ballon_dispenser"
 	anchored = FALSE
@@ -137,7 +137,7 @@
 /obj/machinery/media/jukebox/calliope
 	name = "calliope"
 	desc = "A steam powered music instrument. This one is painted in bright colors."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "calliope"
 	state_base = "calliope"
 	anchored = FALSE
@@ -220,6 +220,8 @@
 		return TRUE
 	if(user.is_diona())
 		return TRUE
+	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
+		return TRUE
 	if(user.is_berserk())
 		return TRUE
 	if(HULK in user.mutations)
@@ -251,6 +253,8 @@
 		return TRUE
 	if(user.species.name == SPECIES_IPC_XION)
 		return TRUE
+	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
+		return TRUE
 	if(user.is_diona())
 		return TRUE
 	if(user.is_berserk())
@@ -277,6 +281,8 @@
 	if(user.species.name == SPECIES_VAURCA_BULWARK)
 		return TRUE
 	if(user.species.name == SPECIES_VAURCA_WARFORM)
+		return TRUE
+	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
 		return TRUE
 	if(user.species.name == SPECIES_IPC_G1)
 		return TRUE
@@ -313,6 +319,8 @@
 		return TRUE
 	if(user.species.name == SPECIES_IPC_XION)
 		return TRUE
+	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
+		return TRUE
 	if(user.is_diona())
 		return TRUE
 	if(HULK in user.mutations)
@@ -339,6 +347,8 @@
 	if(user.species.name == SPECIES_IPC_G1)
 		return TRUE
 	if(user.species.name == SPECIES_IPC_G2)
+		return TRUE
+	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
 		return TRUE
 	if(user.is_diona())
 		return TRUE
@@ -367,6 +377,8 @@
 		return TRUE
 	if(user.is_diona())
 		return TRUE
+	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
+		return TRUE
 	if(HULK in user.mutations)
 		return TRUE
 	else
@@ -388,6 +400,8 @@
 		return TRUE
 	if(user.species.name == SPECIES_IPC_G2)
 		return TRUE
+	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
+		return TRUE
 	if(HULK in user.mutations)
 		return TRUE
 	else
@@ -408,6 +422,8 @@
 	if(user.species.name == SPECIES_VAURCA_WARFORM)
 		return TRUE
 	if(user.species.name == SPECIES_IPC_G2)
+		return TRUE
+	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
 		return TRUE
 	if(HULK in user.mutations)
 		return TRUE

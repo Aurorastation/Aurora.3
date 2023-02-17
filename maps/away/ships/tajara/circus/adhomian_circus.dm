@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/adhomian_circus
 	name = "Adhomian Traveling Circus"
 	description = "The N'hanzafu class is a bulky Adhomian freighter designed with a large crew and cargo in mind. This one is painted in bright colors."
-	suffix = "ships/circus/adhomian_circus.dmm"
+	suffixes = list("ships/tajara/circus/adhomian_circus.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
 	spawn_cost = 1
@@ -9,7 +9,7 @@
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/adhomian_circus_shuttle)
 
-/decl/submap_archetype/adhomian_circus
+/singleton/submap_archetype/adhomian_circus
 	map = "Adhomian Traveling Circus"
 	descriptor = "The N'hanzafu class is a bulky Adhomian freighter designed with a large crew and cargo in mind. This one is painted in bright colors."
 
@@ -45,7 +45,7 @@
 /obj/effect/shuttle_landmark/adhomian_circus/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_adhomian_circus"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/adhomian_circus_shuttle
@@ -84,4 +84,4 @@
 /obj/effect/shuttle_landmark/adhomian_circus_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_adhomian_circus_shuttle"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
