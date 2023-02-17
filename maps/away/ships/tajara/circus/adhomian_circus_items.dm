@@ -3,7 +3,7 @@
 /obj/item/clothing/under/ringmaster
 	name = "ringmaster uniform"
 	desc = "A fancy suit used by Adhomian ringmasters."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "ringmaster"
 	item_state = "ringmaster"
 	contained_sprite = TRUE
