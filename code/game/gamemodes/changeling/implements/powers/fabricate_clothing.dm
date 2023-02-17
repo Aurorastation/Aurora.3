@@ -10,7 +10,7 @@
 
 	var/success = FALSE
 
-	to_chat(M, "<span class='notice'>We begin growing our new equipment...</span>")
+	to_chat(M, SPAN_NOTICE("We begin growing our new equipment..."))
 
 	var/list/grown_items_list = list()
 	for(var/clothing_type in stuff_to_equip)
@@ -23,7 +23,7 @@
 
 	var/feedback = english_list(grown_items_list)
 
-	to_chat(M, SPAN_NOTICE("We have grown [feedback].</span>"))
+	to_chat(M, SPAN_NOTICE("We have grown [feedback]."))
 
 	if(success)
 		changeling.use_charges(10)
