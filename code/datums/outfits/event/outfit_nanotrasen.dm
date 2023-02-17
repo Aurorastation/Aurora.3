@@ -2,7 +2,7 @@
 	name = "NanoTrasen Representative"
 
 	uniform = /obj/item/clothing/under/rank/centcom
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/ert/ccia
@@ -308,7 +308,7 @@
 	name = "NTCC Odin Chef"
 
 	uniform = /obj/item/clothing/under/rank/chef
-	suit = /obj/item/clothing/suit/chef
+	suit = /obj/item/clothing/suit/chef_jacket
 	head = /obj/item/clothing/head/chefhat
 	shoes = /obj/item/clothing/shoes/laceup/all_species
 	headset = /obj/item/device/radio/headset/headset_service

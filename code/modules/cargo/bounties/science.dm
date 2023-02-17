@@ -1,10 +1,3 @@
-/datum/bounty/item/science/boh
-	name = "Bag of Holding"
-	description = "%COMPNAME would make good use of a high-capacity backpack. If you have any, please ship them."
-	reward_low = 6000
-	reward_high = 7200
-	wanted_types = list(/obj/item/storage/backpack/holding)
-
 /datum/bounty/item/science/nightvision_goggles
 	name = "Night Vision Goggles"
 	description = "An electrical storm has busted all the lights at %BOSSSHORT. While management is waiting for replacements, perhaps some night vision goggles can be shipped?"

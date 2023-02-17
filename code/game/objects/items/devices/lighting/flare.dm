@@ -1,6 +1,6 @@
 /obj/item/device/flashlight/flare
 	name = "flare"
-	desc = "A red standard-issue flare. There are instructions on the side reading 'pull cord, make light'."
+	desc = "A red standard-issue flare. There are instructions on the side reading 'pull cap, make light'."
 	w_class = ITEMSIZE_SMALL
 	brightness_on = 3 // Pretty bright.
 	light_power = 4
@@ -40,6 +40,14 @@
 	src.damtype = initial(src.damtype)
 	update_icon()
 
+/obj/item/device/flashlight/flare/update_icon()
+	..()
+	item_state = icon_state
+	if(ismob(src.loc))
+		var/mob/H = src.loc
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
 /obj/item/device/flashlight/flare/attack_self(mob/user)
 	// Usual checks
 	if(!fuel)
@@ -52,10 +60,11 @@
 	// All good, turn it on.
 	if(.)
 		if(!overrides_activation_message)
-			user.visible_message(SPAN_NOTICE("\The [user] activates the flare."), SPAN_NOTICE("You pull the cord on the flare, activating it!"))
+			user.visible_message(SPAN_NOTICE("\The [user] activates the flare."), SPAN_NOTICE("You pull the cap off the flare, activating it!"))
 		src.force = on_damage
 		src.damtype = "fire"
 		START_PROCESSING(SSprocessing, src)
+		update_icon()
 
 /obj/item/device/flashlight/flare/torch
 	name = "torch"
@@ -142,3 +151,22 @@
 		qdel(I)
 		user.put_in_hands(T)
 		qdel(src)
+
+/obj/item/device/flashlight/flare/torch/stick
+	name = "flaming stick"
+	desc = "How exciting!"
+	brightness_on = 1.5
+	light_power = 1
+	produce_heat = 400
+
+/obj/item/device/flashlight/flare/torch/stick/Initialize()
+	. = ..()
+	fuel = rand(30, 45)
+	on = TRUE
+	START_PROCESSING(SSprocessing, src)
+	update_icon()
+
+/obj/item/device/flashlight/flare/torch/stick/turn_off()
+	visible_message("\The [src] burns out.")
+	new /obj/effect/decal/cleanable/ash(get_turf(src))
+	qdel(src)

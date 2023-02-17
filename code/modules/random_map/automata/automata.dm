@@ -10,6 +10,8 @@
 	var/cell_dead_value = FLOOR_CHAR // As above for death.
 	var/cell_threshold = 5           // Cell becomes alive with this many live neighbors.
 
+	var/datum/exoplanet_theme/planet_theme // Theme used for exoplanet automata
+
 // Automata-specific procs and processing.
 /datum/random_map/automata/generate_map()
 	for(var/iter = 1 to iterations)

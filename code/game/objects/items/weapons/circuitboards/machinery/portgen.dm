@@ -23,3 +23,8 @@
 	name = T_BOARD("super portable generator")
 	build_path = /obj/machinery/power/portgen/basic/super
 	origin_tech = list(TECH_DATA = 3, TECH_POWER = 5, TECH_ENGINEERING = 5)
+
+/obj/item/circuitboard/portgen/fusion
+	name = T_BOARD("minature fusion reactor")
+	build_path = /obj/machinery/power/portgen/basic/fusion
+	origin_tech = list(TECH_DATA = 5, TECH_POWER = 7, TECH_ENGINEERING = 7)

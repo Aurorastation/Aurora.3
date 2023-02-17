@@ -61,7 +61,7 @@
 /obj/structure/spaceship
 	name = "Abandoned Shuttle"
 	desc = "An ancient and inoperable shuttle-craft"
-	icon = 'icons/obj/machines/spaceship.dmi'
+	icon = 'icons/obj/machinery/spaceship.dmi'
 	anchored = 1
 	density = 1
 

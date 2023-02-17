@@ -6,7 +6,7 @@
 /mob/living/silicon/robot/Allow_Spacemove()
 	if(module)
 		for(var/obj/item/tank/jetpack/J in module.modules)
-			if(J && J.allow_thrust(0.01))
+			if(J?.allow_thrust(0.01, src))
 				return TRUE
 	. = ..()
 
@@ -24,7 +24,7 @@
 
 /mob/living/silicon/robot/Move()
 	. = ..()
-	
+
 	if(client)
 		var/turf/B = GetAbove(get_turf(src))
 		if(up_hint)

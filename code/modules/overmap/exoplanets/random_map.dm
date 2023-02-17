@@ -7,6 +7,7 @@
 	var/water_level_max = 5
 	var/land_type = /turf/simulated/floor
 	var/water_type
+	var/datum/exoplanet_theme/planet_theme
 
 	//intended x*y size, used to adjust spawn probs
 	var/intended_x = 150
@@ -22,7 +23,7 @@
 	var/list/plantcolors = list("RANDOM")
 	var/list/grass_cache
 
-/datum/random_map/noise/exoplanet/New(var/seed, var/tx, var/ty, var/tz, var/tlx, var/tly, var/do_not_apply, var/do_not_announce, var/never_be_priority = 0, var/used_area, var/list/_plant_colors)
+/datum/random_map/noise/exoplanet/New(var/seed, var/tx, var/ty, var/tz, var/tlx, var/tly, var/do_not_apply, var/do_not_announce, var/never_be_priority = 0, var/used_area, var/list/_plant_colors, var/datum/exoplanet_theme/_planet_theme)
 	log_debug("Generating Random Exoplanet Map with tx: [tx], ty: [ty], tz: [tz], tlx: [tlx], tly: [tly]")
 	target_turf_type = world.turf
 	water_level = rand(water_level_min,water_level_max)
@@ -32,6 +33,8 @@
 	fauna_prob *= size_mod
 	if(_plant_colors)
 		plantcolors = _plant_colors
+	if(istype(_planet_theme))
+		planet_theme = _planet_theme
 	generate_flora()
 	..()
 
@@ -52,6 +55,8 @@
 		return land_type
 
 /datum/random_map/noise/exoplanet/get_additional_spawns(var/value, var/turf/T)
+	if(istype(planet_theme))
+		planet_theme.on_turf_generation(T, use_area)
 	if(is_edge_turf(T))
 		return
 	if(T.is_wall())

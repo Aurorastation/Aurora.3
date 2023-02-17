@@ -560,8 +560,8 @@
 	icon_vend = "generic-vend"
 	products = list(
 		/obj/item/clothing/under/rank/scientist = 6,
-		/obj/item/clothing/suit/bio_suit = 6,
-		/obj/item/clothing/head/bio_hood = 6,
+		/obj/item/clothing/suit/hazmat = 6,
+		/obj/item/clothing/head/hazmat = 6,
 		/obj/item/device/transfer_valve = 6,
 		/obj/item/device/assembly/timer = 6,
 		/obj/item/device/assembly/signaler = 6,
@@ -582,7 +582,7 @@
 
 
 /obj/machinery/vending/wallmed1
-	name = "NanoMed"
+	name = "\improper NanoMed"
 	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
@@ -591,10 +591,13 @@
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
-		/obj/item/stack/medical/bruise_pack = 2,
-		/obj/item/stack/medical/ointment = 2,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 4,
-		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 4,
+		/obj/item/stack/medical/bruise_pack = 3,
+		/obj/item/stack/medical/ointment = 3,
+		/obj/item/reagent_containers/pill/perconol = 4,
+		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
+		/obj/item/storage/box/fancy/med_pouch/burn = 1,
+		/obj/item/storage/box/fancy/med_pouch/oxyloss = 1,
+		/obj/item/storage/box/fancy/med_pouch/toxin = 1,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/device/breath_analyzer  = 1
 	)
@@ -608,10 +611,10 @@
 	random_itemcount = 0
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
-
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 /obj/machinery/vending/wallmed2
-	name = "NanoMed"
+	name = "\improper NanoMed Mini"
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
 	deny_time = 15
@@ -620,10 +623,15 @@
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
-		/obj/item/reagent_containers/syringe/dylovene = 3,
-		/obj/item/stack/medical/bruise_pack = 3,
-		/obj/item/stack/medical/ointment = 3,
-		/obj/item/device/healthanalyzer = 3
+		/obj/item/stack/medical/bruise_pack = 4,
+		/obj/item/stack/medical/ointment = 4,
+		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
+		/obj/item/storage/box/fancy/med_pouch/burn = 1,
+		/obj/item/storage/box/fancy/med_pouch/oxyloss = 1,
+		/obj/item/storage/box/fancy/med_pouch/toxin = 1,
+		/obj/item/storage/box/fancy/med_pouch/radiation = 1,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/device/breath_analyzer = 1
 	)
 	contraband = list(
 		/obj/item/reagent_containers/pill/tox = 3
@@ -634,7 +642,7 @@
 	random_itemcount = 0
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
-
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 /obj/machinery/vending/security
 	name = "SecTech"
@@ -909,7 +917,7 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/food/drinks/pitcher = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
-		/obj/item/clothing/suit/chef/classic = 2,
+		/obj/item/clothing/accessory/apron/chef = 2,
 		/obj/item/material/kitchen/rollingpin = 2,
 		/obj/item/reagent_containers/cooking_container/oven = 5,
 		/obj/item/reagent_containers/cooking_container/fryer = 4,
@@ -1017,12 +1025,14 @@
 	products = list(
 		/obj/item/device/multitool = 4,
 		/obj/item/powerdrill = 2,
+		/obj/item/taperoll/engineering = 4,
 		/obj/item/clothing/glasses/safety/goggles = 4,
-		/obj/item/airlock_electronics = 10,
+		/obj/item/airlock_electronics = 20,
 		/obj/item/module/power_control = 10,
 		/obj/item/airalarm_electronics = 10,
 		/obj/item/firealarm_electronics = 10,
-		/obj/item/cell/high = 10
+		/obj/item/cell/high = 10,
+		/obj/item/grenade/chem_grenade/antifuel = 5
 	)
 	contraband = list(
 		/obj/item/cell/potato = 3

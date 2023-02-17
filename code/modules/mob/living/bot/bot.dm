@@ -3,7 +3,7 @@
 	accent = ACCENT_TTS
 	health = 20
 	maxHealth = 20
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	layer = MOB_LAYER
 	universal_speak = TRUE
 	density = FALSE
@@ -71,7 +71,7 @@
 /mob/living/bot/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 	else
 		health = maxHealth - getFireLoss() - getBruteLoss()
 

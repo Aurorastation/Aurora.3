@@ -69,17 +69,12 @@
 	unit_name = "field generator"
 	export_types = list(/obj/machinery/field_generator)
 
-/datum/export/large/collector
-	cost = 200
-	unit_name = "collector"
-	export_types = list(/obj/machinery/power/rad_collector)
-
-/datum/export/large/collector/pa
+/datum/export/large/pa
 	cost = 300
 	unit_name = "particle accelerator part"
 	export_types = list(/obj/structure/particle_accelerator)
 
-/datum/export/large/collector/pa/controls
+/datum/export/large/pa/controls
 	cost = 500
 	unit_name = "particle accelerator control console"
 	export_types = list(/obj/machinery/particle_accelerator/control_box)

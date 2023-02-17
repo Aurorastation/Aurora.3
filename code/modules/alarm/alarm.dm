@@ -136,7 +136,7 @@
 
 	return cameras
 
-/mob/living/silicon/robot/syndicate/get_alarm_cameras()
+/mob/living/silicon/robot/combat/get_alarm_cameras()
 	return list()
 
 #undef ALARM_RESET_DELAY

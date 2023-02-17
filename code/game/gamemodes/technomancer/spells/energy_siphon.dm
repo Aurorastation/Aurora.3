@@ -63,8 +63,7 @@
 
 /obj/item/spell/energy_siphon/proc/populate_siphon_list(atom/movable/target) 
 	things_to_siphon.Cut()
-	things_to_siphon |= target // The recursive check below does not add the object being checked to its list.
-	things_to_siphon |= recursive_content_check(target, things_to_siphon, recursion_limit = 3, client_check = 0, sight_check = 0, include_mobs = 1, include_objects = 1)
+	things_to_siphon |= target.GetAllContents()
 	for(var/atom/movable/AM in things_to_siphon)
 		if(ishuman(AM)) // We can drain FBPs, so we can skip the test below.
 			var/mob/living/carbon/human/H = AM

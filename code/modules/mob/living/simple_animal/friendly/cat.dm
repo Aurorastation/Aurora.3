@@ -59,7 +59,7 @@
 				if(prob(15))
 					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
 
-				addtimer(CALLBACK(src, .proc/attack_mice), 2)
+				addtimer(CALLBACK(src, PROC_REF(attack_mice)), 2)
 				break
 
 
@@ -103,7 +103,7 @@
 /mob/living/simple_animal/cat/Released()
 	//A thrown cat will immediately attack mice near where it lands
 	handle_movement_target()
-	addtimer(CALLBACK(src, .proc/attack_mice), 3)
+	addtimer(CALLBACK(src, PROC_REF(attack_mice)), 3)
 	..()
 
 /mob/living/simple_animal/cat/proc/handle_radiation_light()
@@ -150,7 +150,7 @@
 
 /mob/living/simple_animal/cat/death()
 	.=..()
-	stat = DEAD
+	set_stat(DEAD)
 
 /mob/living/simple_animal/cat/Life()
 	. = ..()
@@ -159,7 +159,7 @@
 /mob/living/simple_animal/cat/apply_radiation_effects()
 	. = ..()
 	if(.)
-		apply_effect((rand(30,60)),IRRADIATE,blocked=0)
+		apply_damage((rand(30,60)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /mob/living/simple_animal/cat/proc/handle_flee_target()
 	//see if we should stop fleeing

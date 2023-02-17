@@ -219,6 +219,16 @@ Class Procs:
 /obj/machinery/proc/inoperable(var/additional_flags = 0)
 	return (stat & (NOPOWER|BROKEN|additional_flags))
 
+/obj/machinery/proc/toggle_power(power_set = -1, additional_flags = 0)
+	if(power_set >= 0)
+		update_use_power(power_set)
+	else if (use_power || inoperable(additional_flags))
+		update_use_power(POWER_USE_OFF)
+	else
+		update_use_power(initial(use_power))
+
+	update_icon()
+
 /obj/machinery/CanUseTopic(var/mob/user)
 	if(stat & BROKEN)
 		return STATUS_CLOSE
@@ -432,7 +442,7 @@ Class Procs:
 	return 1
 
 /obj/machinery/proc/dismantle()
-	playsound(loc, /decl/sound_category/crowbar_sound, 50, 1)
+	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
 	M.state = 3
@@ -455,7 +465,7 @@ Class Procs:
 		message = "\The [src] rattles to life and spits out a paper titled [paper]."
 	visible_message(SPAN_NOTICE(message))
 
-	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
+	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper), print_delay)
 
 	return 1
 
@@ -487,12 +497,12 @@ Class Procs:
 			return
 
 	if(hair_style.length >= 4 && prob(25))
-		H.apply_damage(30, BRUTE, BP_HEAD)
+		H.apply_damage(30, DAMAGE_BRUTE, BP_HEAD)
 		H.visible_message(SPAN_DANGER("\The [H]'s hair catches in \the [src]!"),
 					SPAN_DANGER("Your hair gets caught in \the [src]!"))
 		if(H.can_feel_pain())
 			H.emote("scream")
-			H.apply_damage(45, PAIN)
+			H.apply_damage(45, DAMAGE_PAIN)
 
 /obj/machinery/proc/do_signaler() // override this to customize effects
 	return
@@ -521,9 +531,17 @@ Class Procs:
 		if((. = .(candidate)))
 			return
 
-
 /obj/machinery/proc/on_user_login(mob/M)
 	return
 
 /obj/machinery/proc/set_emergency_state(var/new_security_level)
 	return
+
+/obj/machinery/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+	. = ..()
+	if(isliving(AM))
+		var/mob/living/M = AM
+		M.turf_collision(src, speed)
+		return
+	else
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))

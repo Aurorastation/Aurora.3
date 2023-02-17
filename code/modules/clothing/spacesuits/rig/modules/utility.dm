@@ -182,15 +182,15 @@
 	interface_desc = "Dispenses loaded chemicals directly into the wearer's bloodstream."
 
 	charges = list(
-		list("tricordrazine",	"tricordrazine",	/decl/reagent/tricordrazine,		80),
-		list("mortaphenyl",		"mortaphenyl",		/decl/reagent/mortaphenyl,			80),
-		list("dexalin plus",	"dexalinp",			/decl/reagent/dexalin/plus,		80),
-		list("antibiotics",		"thetamycin",		/decl/reagent/thetamycin,			80),
-		list("antitoxins",		"dylovene",			/decl/reagent/dylovene,			80),
-		list("nutrients",		"glucose",			/decl/reagent/nutriment/glucose,	80),
-		list("hyronalin",		"hyronalin",		/decl/reagent/hyronalin,			80),
-		list("synaptizine",		"synaptizine",		/decl/reagent/synaptizine,			80),
-		list("radium",			"radium",			/decl/reagent/radium,				80)
+		list("tricordrazine",	"tricordrazine",	/singleton/reagent/tricordrazine,		80),
+		list("mortaphenyl",		"mortaphenyl",		/singleton/reagent/mortaphenyl,			80),
+		list("dexalin plus",	"dexalinp",			/singleton/reagent/dexalin/plus,		80),
+		list("antibiotics",		"thetamycin",		/singleton/reagent/thetamycin,			80),
+		list("antitoxins",		"dylovene",			/singleton/reagent/dylovene,			80),
+		list("nutrients",		"glucose",			/singleton/reagent/nutriment/glucose,	80),
+		list("hyronalin",		"hyronalin",		/singleton/reagent/hyronalin,			80),
+		list("synaptizine",		"synaptizine",		/singleton/reagent/synaptizine,			80),
+		list("radium",			"radium",			/singleton/reagent/radium,				80)
 		)
 
 	var/max_reagent_volume = 80 //Used when refilling.
@@ -202,15 +202,15 @@
 
 	//just over a syringe worth of each. Want more? Go refill. Gives the ninja another reason to have to show their face.
 	charges = list(
-		list("tricordrazine",	"tricordrazine",	/decl/reagent/tricordrazine,		20),
-		list("mortaphenyl",		"mortaphenyl",		/decl/reagent/mortaphenyl,			20),
-		list("dexalin plus",	"dexalinp",			/decl/reagent/dexalin/plus,		20),
-		list("antibiotics",		"thetamycin",		/decl/reagent/thetamycin,			20),
-		list("antitoxins",		"dylovene",			/decl/reagent/dylovene,			20),
-		list("nutrients",		"glucose",			/decl/reagent/nutriment/glucose,	80),
-		list("hyronalin",		"hyronalin",		/decl/reagent/hyronalin,			20),
-		list("synaptizine",		"synaptizine",		/decl/reagent/synaptizine,			20),
-		list("radium",			"radium",			/decl/reagent/radium,				20)
+		list("tricordrazine",	"tricordrazine",	/singleton/reagent/tricordrazine,		20),
+		list("mortaphenyl",		"mortaphenyl",		/singleton/reagent/mortaphenyl,			20),
+		list("dexalin plus",	"dexalinp",			/singleton/reagent/dexalin/plus,		20),
+		list("antibiotics",		"thetamycin",		/singleton/reagent/thetamycin,			20),
+		list("antitoxins",		"dylovene",			/singleton/reagent/dylovene,			20),
+		list("nutrients",		"glucose",			/singleton/reagent/nutriment/glucose,	80),
+		list("hyronalin",		"hyronalin",		/singleton/reagent/hyronalin,			20),
+		list("synaptizine",		"synaptizine",		/singleton/reagent/synaptizine,			20),
+		list("radium",			"radium",			/singleton/reagent/radium,				20)
 		)
 
 	category = MODULE_UTILITY
@@ -300,10 +300,10 @@
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
 
 	charges = list(
-		list("synaptizine",		"synaptizine",		/decl/reagent/synaptizine,			30),
-		list("hyperzine",		"hyperzine",		/decl/reagent/hyperzine,			30),
-		list("oxycomorphine",	"oxycomorphine",	/decl/reagent/oxycomorphine,		30),
-		list("nutrients",		"glucose",			/decl/reagent/nutriment/glucose,	80)
+		list("synaptizine",		"synaptizine",		/singleton/reagent/synaptizine,			30),
+		list("hyperzine",		"hyperzine",		/singleton/reagent/hyperzine,			30),
+		list("oxycomorphine",	"oxycomorphine",	/singleton/reagent/oxycomorphine,		30),
+		list("nutrients",		"glucose",			/singleton/reagent/nutriment/glucose,	80)
 		)
 
 	interface_name = "combat chem dispenser"
@@ -316,11 +316,11 @@
 	desc = "A complex web of tubing and needles suitable for vaurcan hardsuit use."
 
 	charges = list(
-		list("synaptizine",		"synaptizine",		/decl/reagent/synaptizine,		30),
-		list("hyperzine",		"hyperzine",		/decl/reagent/hyperzine,		30),
-		list("oxycomorphine",	"oxycomorphine",	/decl/reagent/oxycomorphine,	30),
-		list("phoron",			"phoron",			/decl/reagent/toxin/phoron,	60),
-		list("kois",			"k'ois paste",		/decl/reagent/kois,			80)
+		list("synaptizine",		"synaptizine",		/singleton/reagent/synaptizine,		30),
+		list("hyperzine",		"hyperzine",		/singleton/reagent/hyperzine,		30),
+		list("oxycomorphine",	"oxycomorphine",	/singleton/reagent/oxycomorphine,	30),
+		list("phoron",			"phoron",			/singleton/reagent/toxin/phoron,	60),
+		list("kois",			"k'ois paste",		/singleton/reagent/kois,			80)
 		)
 
 	interface_name = "vaurca combat chem dispenser"
@@ -333,8 +333,8 @@
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
 
 	charges = list(
-		list("dexalin",			"dexalin",		/decl/reagent/dexalin,			5),
-		list("inaprovaline",	"inaprovaline",	/decl/reagent/inaprovaline,	5)
+		list("dexalin",			"dexalin",		/singleton/reagent/dexalin,			5),
+		list("inaprovaline",	"inaprovaline",	/singleton/reagent/inaprovaline,	5)
 		)
 
 	interface_name = "chem dispenser"
@@ -358,10 +358,10 @@
 
 /obj/item/rig_module/chem_dispenser/injector/paramedic //downgraded version
 	charges = list(
-		list("tricordrazine",	"tricordrazine",	/decl/reagent/tricordrazine,	40),
-		list("perconol",		"perconol",			/decl/reagent/perconol,		40),
-		list("dexalin",			"dexalin",			/decl/reagent/dexalin,			40),
-		list("inaprovaline",	"inaprovaline",		/decl/reagent/inaprovaline,	40)
+		list("tricordrazine",	"tricordrazine",	/singleton/reagent/tricordrazine,	40),
+		list("perconol",		"perconol",			/singleton/reagent/perconol,		40),
+		list("dexalin",			"dexalin",			/singleton/reagent/dexalin,			40),
+		list("inaprovaline",	"inaprovaline",		/singleton/reagent/inaprovaline,	40)
 		)
 
 /obj/item/rig_module/voice
@@ -497,12 +497,10 @@
 /obj/item/rig_module/maneuvering_jets/installed()
 	..()
 	jets.holder = holder
-	jets.ion_trail.bind(holder)
 
 /obj/item/rig_module/maneuvering_jets/removed()
 	..()
 	jets.holder = null
-	jets.ion_trail.bind(jets)
 
 /obj/item/rig_module/device/paperdispenser
 	name = "hardsuit paper dispenser"

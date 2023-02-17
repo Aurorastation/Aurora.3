@@ -2,7 +2,7 @@
 
 /obj/item/mecha_equipment/mounted_system/combat
 	name = "combat thing"
-	desc = "You shouldn't be seeing this."
+	desc = DESC_PARENT
 	icon_state = "mecha_taser"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
@@ -35,10 +35,14 @@
 	holding_type = /obj/item/gun/energy/laser/mounted/mech
 
 /obj/item/mecha_equipment/mounted_system/combat/smg
-	name = "mounted machinegun"
+	name = "mounted submachinegun"
 	desc = "An exosuit-mounted automatic weapon. Handle with care."
 	icon_state = "mecha_ballistic"
-	holding_type = /obj/item/gun/energy/mountedsmg/mech
+	holding_type = /obj/item/gun/energy/mountedsmg
+
+/obj/item/mecha_equipment/mounted_system/combat/smg/pra_egg
+	icon_state = "pra_egg_smg"
+	restricted_hardpoints = list(HARDPOINT_RIGHT_HAND)
 
 /obj/item/mecha_equipment/mounted_system/combat/pulse
 	name = "heavy pulse cannon"
@@ -164,7 +168,7 @@
 /obj/item/gun/launcher/mech/proc/regen_proj()
 	proj++
 	if (proj< max_proj)
-		addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(regen_proj)), proj_gen_time, TIMER_UNIQUE)
 
 /obj/item/gun/launcher/mech/mountedrl
 	name = "mounted rocket launcher"
@@ -183,7 +187,7 @@
 	var/obj/item/missile/M = new (src)
 	M.primed = 1
 	proj--
-	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(regen_proj)), proj_gen_time, TIMER_UNIQUE)
 	return M
 
 /obj/item/gun/launcher/mech/mountedgl
@@ -210,7 +214,7 @@
 	g.det_time = 10
 	g.activate(null)
 	proj--
-	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(regen_proj)), proj_gen_time, TIMER_UNIQUE)
 	return g
 
 /obj/item/gun/launcher/mech/mountedgl/fl
@@ -395,7 +399,7 @@
 			return AURA_FALSE|AURA_CANCEL
 
 		spark(get_turf(src), 5, global.alldirs)
-		playsound(get_turf(src), /decl/sound_category/spark_sound, 25, TRUE)
+		playsound(get_turf(src), /singleton/sound_category/spark_sound, 25, TRUE)
 
 /obj/aura/mechshield/hitby(atom/movable/M, var/speed)
 	. = ..()

@@ -1,19 +1,19 @@
 //Skrell foods
-/decl/recipe/lortl
+/singleton/recipe/lortl
 	appliance = OVEN
 	fruit = list("q'lort slice" = 1)
-	reagents = list(/decl/reagent/sodiumchloride = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 1)
 	result = /obj/item/reagent_containers/food/snacks/lortl
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
-/decl/recipe/lortl_dry
+/singleton/recipe/lortl_dry
 	appliance = MIX
 	fruit = list("dried q'lort slice" = 1)
-	reagents = list(/decl/reagent/sodiumchloride = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/lortl
 
-/decl/recipe/xuqqil
+/singleton/recipe/xuqqil
 	appliance = OVEN
 	fruit = list("plumphelmet" = 1)
 	items = list(
@@ -22,17 +22,17 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/xuqqil
 
-/decl/recipe/zantiri
+/singleton/recipe/zantiri
 	appliance = SAUCEPAN | POT
 	fruit = list("guami" = 2, "eki" = 1)
-	reagents = list(/decl/reagent/water = 10)
+	reagents = list(/singleton/reagent/water = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/soup/zantiri
 
-/decl/recipe/qilvo
+/singleton/recipe/qilvo
 	appliance = SAUCEPAN | POT
 	fruit = list("seaweed" = 2)
-	reagents = list(/decl/reagent/water = 10, /decl/reagent/drink/milk/cream = 5)
+	reagents = list(/singleton/reagent/water = 10, /singleton/reagent/drink/milk/cream = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/mollusc
 	)
@@ -40,14 +40,14 @@
 	result = /obj/item/reagent_containers/food/snacks/soup/qilvo
 
 //Neaera recipes.
-/decl/recipe/neaerastew
+/singleton/recipe/neaerastew
 	appliance = POT
 	fruit = list("guami" = 2, "eki" = 2)
-	reagents = list(/decl/reagent/drink/dynjuice = 10)
+	reagents = list(/singleton/reagent/drink/dynjuice = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/meat/neaera)
 	result = /obj/item/reagent_containers/food/snacks/stew/neaera
 
-/decl/recipe/neaerakabob
+/singleton/recipe/neaerakabob
 	items = list(
 		/obj/item/stack/rods,
 		/obj/item/reagent_containers/food/snacks/meat/neaera,
@@ -55,15 +55,15 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/neaerakabob
 
-/decl/recipe/neaeraloaf
+/singleton/recipe/neaeraloaf
 	appliance = OVEN
-	reagents = list(/decl/reagent/drink/milk/cream = 10)
+	reagents = list(/singleton/reagent/drink/milk/cream = 10)
 	items = list(/obj/item/organ/internal/brain/skrell/neaera)
 	result = /obj/item/reagent_containers/food/snacks/neaeraloaf
 
-/decl/recipe/neaeracandy
+/singleton/recipe/neaeracandy
 	appliance = OVEN
-	reagents = list(/decl/reagent/drink/milk/cream = 5)
+	reagents = list(/singleton/reagent/drink/milk/cream = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
@@ -71,13 +71,14 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/chipplate/neaeracandy
 
-/decl/recipe/fjylozynboiled
+/singleton/recipe/fjylozynboiled
 	appliance = SAUCEPAN | POT
 	fruit = list("fjylozyn" = 1)
-	reagents = list(/decl/reagent/water = 5)
+	reagents = list(/singleton/reagent/water = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/fjylozynboiled
 
-/decl/recipe/gnaqmi
+/singleton/recipe/gnaqmi
 	appliance = FRYER
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fjylozynboiled,

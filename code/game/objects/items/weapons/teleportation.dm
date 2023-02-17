@@ -77,7 +77,7 @@ Frequency:
 				src.temp += "<B>Located Beacons:</B><BR>"
 
 				for(var/obj/item/device/radio/beacon/W in teleportbeacons)
-					if (W.frequency == src.frequency)
+					if (W.get_frequency() == src.frequency)
 						var/turf/tr = get_turf(W)
 						if (tr.z == sr.z && tr)
 							var/direct = max(abs(tr.x - sr.x), abs(tr.y - sr.y))
@@ -245,7 +245,7 @@ Frequency:
 		var/old_pad = linked_pad
 		linked_pad = teleport_options[teleport_choice]
 		if(linked_pad)
-			destroyed_event.register(linked_pad, src, /obj/item/hand_tele/proc/pad_destroyed)
+			destroyed_event.register(linked_pad, src, PROC_REF(pad_destroyed))
 		if(old_pad && linked_pad != old_pad)
 			destroyed_event.unregister(old_pad, src)
 		return

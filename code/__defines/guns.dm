@@ -16,6 +16,6 @@
 
 //RCD Modes (TODO: Have the other RCD types have defines and set them here.)
 #define RFD_FLOORS_AND_WALL 1
-#define RFD_WINDOWS_AND_GRILLE 2
+#define RFD_WINDOW_AND_FRAME 2
 #define RFD_AIRLOCK 3
 #define RFD_DECONSTRUCT 4

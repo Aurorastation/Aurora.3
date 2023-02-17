@@ -158,10 +158,10 @@
 	if(istype(target_ladder, target_down))
 		direction = DOWN
 	if(!LAD.CanZPass(M, direction))
-		to_chat(M, "<span class='notice'>\The [LAD] is blocking \the [src].</span>")
+		to_chat(M, "<span class='notice'>\The [LAD.GetZPassBlocker()] is blocking \the [src].</span>")
 		return FALSE
 	if(!T.CanZPass(M, direction))
-		to_chat(M, "<span class='notice'>\The [T] is blocking \the [src].</span>")
+		to_chat(M, "<span class='notice'>\The [T.GetZPassBlocker()] is blocking \the [src].</span>")
 		return FALSE
 	for(var/atom/A in T)
 		if(!isliving(A))
@@ -198,21 +198,26 @@
 	allowed_directions = UP|DOWN
 	icon_state = "ladder11"
 
+// Stairs
+/obj/structure/ladder/away //a ladder that just looks like it's going down
+	icon_state = "ladderawaydown"
+
 /obj/structure/stairs
 	name = "stairs"
-	desc = "Stairs leading to another level.  Not too useful if the gravity goes out."
+	desc = "Stairs leading to another floor. Not too useful if the gravity goes out."
 	icon = 'icons/obj/stairs.dmi'
-	density = 0
-	opacity = 0
-	anchored = 1
+	icon_state = "solid"
 	layer = TURF_LAYER
+	density = FALSE
+	opacity = FALSE
+	anchored = TRUE
 
 /obj/structure/stairs/Initialize()
 	. = ..()
 	for(var/turf/turf in locs)
 		var/turf/simulated/open/above = GetAbove(turf)
 		if(!above)
-			warning("Stair created without level above: ([loc.x], [loc.y], [loc.z])")
+			warning("Stair created without z-level above: ([loc.x], [loc.y], [loc.z])")
 			return qdel(src)
 		if(!istype(above))
 			above.ChangeToOpenturf()
@@ -224,7 +229,7 @@
 	var/obj/structure/stairs/staircase = locate() in target
 	var/target_dir = get_dir(mover, target)
 	if(!staircase && (target_dir != dir && target_dir != reverse_dir[dir]))
-		INVOKE_ASYNC(src, .proc/mob_fall, mover)
+		INVOKE_ASYNC(src, PROC_REF(mob_fall), mover)
 
 	return ..()
 
@@ -266,7 +271,6 @@
 			"<span class='alert'>You hear a thump.</span>"
 		)
 
-// type paths to make mapping easier.
 /obj/structure/stairs/north
 	dir = NORTH
 	bound_height = 64

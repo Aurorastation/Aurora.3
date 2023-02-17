@@ -45,6 +45,12 @@
 	item_cost = 1
 	path = /obj/item/storage/box/syndie_kit/stimulants
 
+/datum/uplink_item/item/medical/stabilisation
+	name = "Slimline Stabilisation Kit"
+	desc = "A pocket-sized medkit filled with lifesaving equipment."
+	item_cost = 2
+	path = /obj/item/storage/firstaid/sleekstab
+
 /datum/uplink_item/item/medical/berserk_injectors
 	name = "Box of Berserk Injectors"
 	item_cost = 2
@@ -60,6 +66,13 @@
 	name = "Standard First-Aid Kit"
 	item_cost = 1
 	path = /obj/item/storage/firstaid/regular
+
+/datum/uplink_item/item/medical/firstaid
+	name = "Standard First-Aid Kit (Free)"
+	item_cost = 0
+	item_limit = 1
+	path = /obj/item/storage/firstaid/regular
+	desc = "You can claim this first-aid kit only once."
 
 /datum/uplink_item/item/medical/advfirstaid
 	name = "Advanced First-Aid Kit"

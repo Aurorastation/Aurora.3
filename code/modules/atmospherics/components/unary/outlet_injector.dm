@@ -13,7 +13,7 @@
 
 	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
-	power_rating = 15000	//15000 W ~ 20 HP
+	power_rating = 45000	//45000 W ~ 60 HP
 
 	var/injecting = 0
 
@@ -65,6 +65,7 @@
 		return
 
 	var/power_draw = -1
+	if(!loc) return FALSE
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	if(environment && air_contents.temperature > 0)
@@ -81,7 +82,7 @@
 	return 1
 
 /obj/machinery/atmospherics/unary/outlet_injector/proc/inject()
-	if(injecting || (stat & NOPOWER))
+	if(injecting || (stat & NOPOWER) || !loc)
 		return 0
 
 	var/datum/gas_mixture/environment = loc.return_air()

@@ -2,7 +2,7 @@
 /obj/item/clothing/under/pmc_modsuit
 	name = "\improper PMCG modsuit"
 	desc = "A modular fatigue jumpsuit, from the Private Military Contracting Group."
-	desc_fluff = "The proprietary PMCG Modular Fatigue Jumpsuit, quickly dubbed the modsuit, is an innovation by the recently-formed PMCG to quickly outfit its scores of new \
+	desc_extended = "The proprietary PMCG Modular Fatigue Jumpsuit, quickly dubbed the modsuit, is an innovation by the recently-formed PMCG to quickly outfit its scores of new \
 	hires and acquisitions at economic production costs. Designed to fit military contractors of a wide range of sizes, species, and operating environments with tolerable comfort, \
 	the modsuit features a number of smart-fabric connection points for the modern contractor to modify their uniform to a number of preset configurations."
 	icon = 'icons/clothing/under/uniforms/pmcg_modsuit.dmi'
@@ -60,3 +60,10 @@
 		return
 
 	select_modsuit(usr)
+
+/obj/item/clothing/under/rank/security/pmc/wildlands_squadron
+	name = "wildlands squadron uniform"
+	desc = "A set of uniform fatigues used by employees of the Wildlands Squadron, a Private Military Contracting Group subsidiary. The original design is remarkably similar to the Mictlan System Defense Force's uniform, of which many of the original members of the Wildlands Squadron were members."
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
+	icon_state = "pmc_ws"
+	item_state = "pmc_ws"

@@ -11,7 +11,7 @@
 /obj/machinery/computer/slot_machine
 	name = "slot machine"
 	desc = "Gambling for the antisocial."
-	icon = 'icons/obj/machines/slotmachine.dmi'
+	icon = 'icons/obj/machinery/slotmachine.dmi'
 	icon_state = "slots"
 	density = TRUE
 	clicksound = null
@@ -129,7 +129,7 @@
 	if(!emagged)
 		emmaged = TRUE
 		spark(src, 3)
-		playsound(src, /decl/sound_category/spark_sound, 50, 1)
+		playsound(src, /singleton/sound_category/spark_sound, 50, 1)
 		return TRUE
 
 /obj/machinery/computer/slot_machine/ui_interact(mob/living/user)
@@ -172,7 +172,7 @@
 		spin(usr)
 
 	else if(href_list["refund"])
-		playsound(src, /decl/sound_category/button_sound, clickvol)
+		playsound(src, /singleton/sound_category/button_sound, clickvol)
 		if(balance > 0)
 			give_payout(balance, usr)
 			balance = 0
@@ -214,9 +214,9 @@
 	update_icon()
 	updateUsrDialog()
 
-	INVOKE_ASYNC(src, .proc/do_spin)
+	INVOKE_ASYNC(src, PROC_REF(do_spin))
 
-	addtimer(CALLBACK(src, .proc/finish_spinning, user, the_name), SPIN_TIME - (REEL_DEACTIVATE_DELAY * reels.len)) //WARNING: no sanity checking for user since it's not needed and would complicate things (machine should still spin even if user is gone), be wary of this if you're changing this code.
+	addtimer(CALLBACK(src, PROC_REF(finish_spinning), user, the_name), SPIN_TIME - (REEL_DEACTIVATE_DELAY * reels.len)) //WARNING: no sanity checking for user since it's not needed and would complicate things (machine should still spin even if user is gone), be wary of this if you're changing this code.
 
 /obj/machinery/computer/slot_machine/proc/do_spin(mob/user, the_name)
 	while(working)

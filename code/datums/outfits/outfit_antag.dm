@@ -8,7 +8,7 @@
 	back = null
 	backpack = /obj/item/storage/backpack/syndie
 	satchel = /obj/item/storage/backpack/satchel/syndie
-	satchel_alt = /obj/item/storage/backpack/satchel
+	satchel_alt = /obj/item/storage/backpack/satchel/leather
 	dufflebag = /obj/item/storage/backpack/duffel/syndie
 	messengerbag = /obj/item/storage/backpack/messenger/syndie
 	belt = /obj/item/storage/belt/utility/full
@@ -189,7 +189,7 @@
 	allow_backbag_choice = FALSE
 
 	uniform = list(
-		/obj/item/clothing/under/serviceoveralls,
+		/obj/item/clothing/under/service_overalls,
 		/obj/item/clothing/under/det/zavod,
 		/obj/item/clothing/under/color/brown,
 		/obj/item/clothing/under/syndicate/tracksuit,
@@ -201,10 +201,10 @@
 		/obj/item/clothing/under/lance,
 		/obj/item/clothing/under/legion/pilot,
 		/obj/item/clothing/under/offworlder,
-		/obj/item/clothing/under/pants,
+		/obj/item/clothing/under/pants/jeans,
 		/obj/item/clothing/under/pants/camo,
 		/obj/item/clothing/under/pants/khaki,
-		/obj/item/clothing/under/pants/musthang,
+		/obj/item/clothing/under/pants/mustang,
 		/obj/item/clothing/under/rank/bartender,
 		/obj/item/clothing/under/rank/hangar_technician/heph,
 		/obj/item/clothing/under/rank/chef,
@@ -232,7 +232,7 @@
 		/obj/item/clothing/accessory/poncho/roles/cloak/cargo,
 		/obj/item/clothing/accessory/poncho/roles/cloak/mining,
 		/obj/item/clothing/accessory/poncho/roles/cloak/rd,
-		/obj/item/clothing/suit/apron/overalls/random,
+		/obj/item/clothing/accessory/overalls/random,
 		/obj/item/clothing/suit/captunic/capjacket,
 		/obj/item/clothing/suit/ianshirt,
 		/obj/item/clothing/suit/storage/toggle/fib,
@@ -243,7 +243,7 @@
 		/obj/item/clothing/suit/storage/leathercoat,
 		/obj/item/clothing/suit/storage/vest/ft,
 		/obj/item/clothing/suit/storage/toggle/dominia/bomber,
-		/obj/item/clothing/suit/storage/toggle/dominia/gold,
+		/obj/item/clothing/suit/storage/dominia/gold,
 		/obj/item/clothing/suit/storage/toggle/flannel,
 		/obj/item/clothing/suit/storage/toggle/flannel/gray,
 		/obj/item/clothing/suit/storage/toggle/flannel/red,
@@ -520,7 +520,7 @@
 	allow_backbag_choice = FALSE
 
 	head = /obj/item/clothing/head/culthood/alt
-	uniform = /obj/item/clothing/under/serviceoveralls
+	uniform = /obj/item/clothing/under/service_overalls
 	suit = /obj/item/clothing/suit/cultrobes/alt
 	back = /obj/item/storage/backpack/cultpack
 	belt = /obj/item/book/tome

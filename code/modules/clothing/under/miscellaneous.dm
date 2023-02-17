@@ -80,7 +80,7 @@
 /obj/item/clothing/under/rank/scc
 	name = "Stellar Corporate Conglomerate agent uniform"
 	desc = "A formal blue uniform worn by agents of the Stellar Corporate Conglomerate."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon = 'icons/clothing/under/uniforms/scc.dmi'
 	icon_state = "scc_agent"
 	item_state = "scc_agent"
@@ -387,7 +387,7 @@
 	item_state = "lb_suit"
 	worn_state = "tan_suit"
 
-/obj/item/clothing/under/serviceoveralls
+/obj/item/clothing/under/service_overalls
 	name = "workman outfit"
 	desc = "The very image of a working man. Not that you're probably doing work."
 	icon_state = "mechanic"
@@ -477,6 +477,8 @@
 	desc = "A traditional Japanese kimono."
 	icon_state = "kimono"
 	item_state = "kimono"
+	icon = 'icons/clothing/under/uniforms/kimono.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/kimono/ronin
 	name = "ronin kimono"
@@ -486,7 +488,7 @@
 
 /obj/item/clothing/under/kimono/fancy
 	name = "fancy kimono"
-	desc = "A Japanese kimono, this one is very luxurious. It brings to mine iced tea cans."
+	desc = "A Japanese kimono, this one is very luxurious. It brings to mind iced tea cans."
 	icon_state = "fancy_kimono"
 	item_state = "fancy_kimono"
 

@@ -88,9 +88,13 @@
 	bullet_ping(Proj)
 
 	var/proj_damage = Proj.get_structure_damage()
+	var/damage = proj_damage
 
 	//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
-	var/damage = min(proj_damage, 100)
+	if(Proj.anti_materiel_potential > 1)
+		damage = min(proj_damage, 100)
+
+	Proj.on_hit(src)
 
 	take_damage(damage)
 
@@ -243,15 +247,14 @@
 	to_chat(user, SPAN_WARNING("The thermite starts melting through the wall."))
 
 	QDEL_IN(O, 100)
-	addtimer(CALLBACK(src, /atom/.proc/melt, FALSE), 100)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, melt), FALSE), 100)
 
 /turf/simulated/wall/proc/radiate()
 	var/total_radiation = material.radioactivity + (reinf_material ? reinf_material.radioactivity / 2 : 0)
 	if(!total_radiation)
 		return
 
-	for(var/mob/living/L in range(3,src))
-		L.apply_damage(total_radiation, IRRADIATE, damage_flags = DAM_DISPERSED)
+	SSradiation.radiate(src, total_radiation)
 	return total_radiation
 
 /turf/simulated/wall/proc/burn(temperature)

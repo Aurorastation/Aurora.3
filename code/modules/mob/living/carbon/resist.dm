@@ -24,13 +24,13 @@
 	..()
 
 	if (handcuffed)
-		INVOKE_ASYNC(src, .proc/escape_handcuffs)
+		INVOKE_ASYNC(src, PROC_REF(escape_handcuffs))
 	else if (legcuffed)
-		INVOKE_ASYNC(src, .proc/escape_legcuffs)
+		INVOKE_ASYNC(src, PROC_REF(escape_legcuffs))
 
 /mob/living/carbon/human/process_resist()
 	if (istype(wear_suit, /obj/item/clothing/suit/straight_jacket))
-		INVOKE_ASYNC(src, .proc/escape_jacket)
+		INVOKE_ASYNC(src, PROC_REF(escape_jacket))
 		return
 	..()
 
@@ -174,7 +174,7 @@
 		update_inv_legcuffed()
 
 /mob/living/carbon/proc/can_break_cuffs()
-	if(HULK in mutations)
+	if(HAS_FLAG(mutations, HULK))
 		return TRUE
 
 	if(stamina < 100)
@@ -200,7 +200,7 @@
 			SPAN_WARNING("You successfully break your [handcuffed.name].")
 			)
 
-		if((isunathi(src)) || (HULK in mutations))
+		if((isunathi(src)) || HAS_FLAG(mutations, HULK))
 			say(pick("RAAAAAAAARGH!", "HNNNNNNNNNGGGGGGH!", "GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", "AAAAAAARRRGH!" ))
 			stamina -= 100 //takes a bunch of stamina
 

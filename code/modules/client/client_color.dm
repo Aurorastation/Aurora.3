@@ -27,7 +27,7 @@
 		var/datum/client_color/CC = new color_type()
 		CC.disability = set_disability
 		client_colors |= CC
-		sortTim(client_colors, /proc/cmp_clientcolor_priority)
+		sortTim(client_colors, GLOBAL_PROC_REF(cmp_clientcolor_priority))
 		update_client_color()
 
 

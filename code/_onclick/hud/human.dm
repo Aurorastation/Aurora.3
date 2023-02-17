@@ -535,3 +535,21 @@
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "wiz_energy"
 	invisibility = 101
+
+/obj/screen/status
+	icon = 'icons/mob/screen/midnight.dmi'
+	icon_state = "status_template"
+	var/status_message
+
+/obj/screen/status/Initialize(mapload, var/set_icon, var/set_overlay, var/set_status_message)
+	icon = set_icon
+	var/image/status_overlay = image('icons/mob/screen/hud_status.dmi', null, set_overlay)
+	status_overlay.appearance_flags = RESET_COLOR
+	add_overlay(status_overlay)
+	status_message = set_status_message
+	return ..()
+
+/obj/screen/status/Click(var/location, var/control, var/params)
+	var/list/modifiers = params2list(params)
+	if(status_message && modifiers["shift"])
+		to_chat(usr, status_message)

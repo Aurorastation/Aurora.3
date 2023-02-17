@@ -84,7 +84,7 @@
 	src.visible_message("<span class='danger'>\The [target] vanishes into \the [src]'s bag!</span>")
 	target.forceMove(src)
 	to_chat(target, "<span class='danger'>You have been captured by \the [src], you will soon be punished due to your misdeeds!</span>")
-	addtimer(CALLBACK(src, .proc/send_to_hell, target), 5 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(send_to_hell), target), 5 MINUTES)
 	last_special = world.time + 100
 	src.is_punishing = FALSE
 	return
@@ -112,7 +112,7 @@
 	for(var/i in 1 to 5)
 		var/mob/living/simple_animal/hostile/gift/T = new /mob/living/simple_animal/hostile/gift(get_turf(src))
 		var/turf/landing = get_step(src, pick(alldirs))
-		INVOKE_ASYNC(T, /atom/movable/.proc/throw_at, landing, 30, 5)
+		INVOKE_ASYNC(T, TYPE_PROC_REF(/atom/movable, throw_at), landing, 30, 5)
 
 /mob/living/simple_animal/hostile/krampus/proc/send_to_hell(mob/living/M)
 	if(!M)
@@ -125,7 +125,7 @@
 /mob/living/simple_animal/hostile/gift
 	name = "christmas gift"
 	desc = "PRESENTS!!!!...OH SHIT!"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "gift1_evil"
 	icon_living = "gift1_evil"
 	icon_dead = "gift1"

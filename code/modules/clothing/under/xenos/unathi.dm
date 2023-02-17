@@ -73,7 +73,7 @@
 	name = "himation cloak"
 	desc = "The himation is a staple of Unathi fashion. Whether a commoner in practical clothes or a noble looking \
 	for leisure wear, the himation has remained stylish for centuries."
-	desc_fluff = "The himation while unwrapped is usually a three meter around cloth. Unathi start by putting the \
+	desc_extended = "The himation while unwrapped is usually a three meter around cloth. Unathi start by putting the \
 	front around their waist, bring it over their right shoulder, and then form a sash-like loop by bringing it over \
 	their right again. A belt ties it off and drapes a skirt down over their thighs to complete the look. Fashionable \
 	for simple noble wear (the cloth can be embroidered), and practical for labor!"

@@ -4,7 +4,6 @@
 	animate_movement = 2
 	flags = PROXMOVE
 	sight = DEFAULT_SIGHT
-	virtual_mob = /mob/abstract/observer/virtual/mob
 	var/datum/mind/mind
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
@@ -74,7 +73,6 @@
 	var/stuttering = null
 	var/slurring = null
 	var/brokejaw = null
-	var/tarded = null
 	var/real_name = null
 	var/flavor_text = ""
 	var/med_record = ""
@@ -138,7 +136,6 @@
 	var/stunned = 0
 	var/weakened = 0
 	var/losebreath = 0 //Carbon
-	var/intent = null//Living -- Depreciated? (a_intent below is your help/disarm/grab/harm)
 	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
 	var/m_intent = M_WALK //Living
@@ -174,7 +171,7 @@
 
 	var/datum/dna/dna = null//Carbon
 
-	var/list/mutations = list() //Carbon -- Doohl
+	var/mutations = 0 //Carbon -- Doohl
 	//see: setup.dm for list of mutations
 
 	var/voice_name = "unidentifiable voice"

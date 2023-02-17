@@ -49,6 +49,14 @@
       </vui-group-item>
     </vui-group>
 
+    <div v-if="uses_coolant">
+      <h3>Coolant</h3>
+      <vui-group>
+        <vui-group-item label="Coolant:">
+          <vui-progress :value="coolant_stored" :max="coolant_capacity">{{ Math.round(coolant_stored / coolant_capacity * 100)}}%</vui-progress>
+        </vui-group-item>
+      </vui-group>
+    </div>
   </div>
 </template>
 

@@ -16,6 +16,7 @@
 
 	permit_ao = FALSE
 	z_eventually_space = TRUE
+	turf_flags = TURF_FLAG_BACKGROUND
 	var/use_space_appearance = TRUE
 	var/use_starlight = TRUE
 
@@ -38,6 +39,9 @@
 		src.Entered(AM, AM.loc)
 
 	turfs += src
+
+	if (isStationLevel(z))
+		station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -62,9 +66,6 @@
 	for(var/obj/O in src)
 		O.hide(0)
 
-/turf/space/is_solid_structure()
-	return locate(/obj/structure/lattice, src) //counts as solid structure if it has a lattice
-
 /turf/space/can_have_cabling()
 	if (locate(/obj/structure/lattice/catwalk) in src)
 		return 1
@@ -75,7 +76,7 @@
 	if(!config.starlight)
 		return
 	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
-		set_light(1, config.starlight, l_color = SSskybox.background_color)
+		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
 	else
 		set_light(0)
 

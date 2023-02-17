@@ -19,6 +19,7 @@
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty
 	)
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/should_check_mapload = TRUE
 	var/has_glass_installed = FALSE
 	var/glass_needed = 4

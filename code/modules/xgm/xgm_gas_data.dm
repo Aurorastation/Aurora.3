@@ -18,7 +18,7 @@
 	//Flags.
 	var/list/flags = list()
 
-/decl/xgm_gas
+/singleton/xgm_gas
 	var/id = ""
 	var/name = "Unnamed Gas"
 	var/specific_heat = 20	// J/(mol*K)
@@ -32,8 +32,8 @@
 
 /hook/startup/proc/generateGasData()
 	gas_data = new
-	for(var/p in (typesof(/decl/xgm_gas) - /decl/xgm_gas))
-		var/decl/xgm_gas/gas = new p //avoid initial() because of potential New() actions
+	for(var/p in (typesof(/singleton/xgm_gas) - /singleton/xgm_gas))
+		var/singleton/xgm_gas/gas = new p //avoid initial() because of potential New() actions
 
 		if(gas.id in gas_data.gases)
 			error("Duplicate gas id `[gas.id]` in `[p]`")
@@ -57,7 +57,7 @@
 
 /obj/effect/gas_overlay
 	name = "gas"
-	desc = "You shouldn't be clicking this."
+	desc = DESC_PARENT
 	icon = 'icons/effects/tile_effects.dmi'
 	icon_state = "generic"
 	layer = LIGHTING_LAYER - 1

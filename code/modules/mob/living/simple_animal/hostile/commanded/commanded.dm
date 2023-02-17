@@ -43,15 +43,23 @@
 		return
 	short_name = input
 
+/mob/living/simple_animal/hostile/commanded/proc/get_command(cmdtext, list/searchnames)
+	searchnames |= list("everyone", "everybody")
+	for(var/name in searchnames)
+		if(dd_hasprefix(cmdtext, name))
+			return copytext(cmdtext, length(name) + 1)
+
 /mob/living/simple_animal/hostile/commanded/think()
 	while(command_buffer.len > 0)
 		var/mob/speaker = command_buffer[1]
 		var/text = command_buffer[2]
 		var/filtered_name = lowertext(html_decode(name))
 		var/filtered_short = lowertext(html_decode(short_name))
-		if(dd_hasprefix(text,filtered_name) || dd_hasprefix(text,filtered_short) || dd_hasprefix(text,"everyone") || dd_hasprefix(text, "everybody")) //in case somebody wants to command 8 bears at once.
-			var/substring = copytext(text,length(filtered_name)+1) //get rid of the name.
-			listen(speaker,substring)
+		var/substring = get_command(text, list(filtered_name, filtered_short))
+
+		if(substring)
+			listen(speaker, substring)
+
 		command_buffer.Remove(command_buffer[1],command_buffer[2])
 	..()
 	switch(stance)
@@ -59,6 +67,19 @@
 			follow_target()
 		if(COMMANDED_STOP)
 			commanded_stop()
+
+/mob/living/simple_animal/hostile/commanded/change_stance(var/new_stance)
+	. = ..()
+	if(!.)
+		return
+
+	switch(stance)
+		if(COMMANDED_STOP)
+			MOB_SHIFT_TO_NORMAL_THINKING(src)
+		if(COMMANDED_FOLLOW)
+			MOB_SHIFT_TO_FAST_THINKING(src)
+		if(COMMANDED_MISC)
+			MOB_SHIFT_TO_NORMAL_THINKING(src)
 
 /mob/living/simple_animal/hostile/commanded/on_think_disabled()
 	..()
@@ -81,12 +102,12 @@
 		if(mode == "specific")
 			if(!(A in allowed_targets))
 				continue
-			stance = new_stance
+			change_stance(new_stance)
 			return A
 		else
 			if(M == master || (M in friends))
 				continue
-			stance = new_stance
+			change_stance(new_stance)
 			return A
 
 
@@ -94,7 +115,7 @@
 	stop_automated_movement = 1
 	if(!target_mob)
 		return
-	if(target_mob in ListTargets(10))
+	if(get_dist(src, target_mob) <= 10)
 		walk_to(src,target_mob,1,move_to_delay)
 
 /mob/living/simple_animal/hostile/commanded/proc/commanded_stop() //basically a proc that runs whenever we are asked to stay put. Probably going to remain unused.
@@ -146,7 +167,7 @@
 /mob/living/simple_animal/hostile/commanded/proc/attack_command(var/mob/speaker,var/text)
 	target_mob = null //want me to attack something? Well I better forget my old target.
 	walk_to(src,0)
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
 	if(text == "attack" || findtext(text,"everyone") || findtext(text,"anybody") || findtext(text, "somebody") || findtext(text, "someone")) //if its just 'attack' then just attack anybody, same for if they say 'everyone', somebody, anybody. Assuming non-pickiness.
 		allowed_targets = list("everyone")//everyone? EVERYONE
 		return 1
@@ -158,7 +179,7 @@
 
 /mob/living/simple_animal/hostile/commanded/proc/stay_command(var/mob/speaker,var/text)
 	target_mob = null
-	stance = COMMANDED_STOP
+	change_stance(COMMANDED_STOP)
 	stop_automated_movement = 1
 	walk_to(src,0)
 	if(emote_hear && emote_hear.len)
@@ -169,7 +190,7 @@
 	allowed_targets = list()
 	walk_to(src,0)
 	target_mob = null //gotta stop SOMETHIN
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
 	stop_automated_movement = 0
 	if(emote_hear && emote_hear.len)
 		audible_emote("[pick(emote_hear)].",0)
@@ -178,7 +199,7 @@
 /mob/living/simple_animal/hostile/commanded/proc/follow_command(var/mob/speaker,var/text)
 	//we can assume 'stop following' is handled by stop_command
 	if(findtext(text,"me"))
-		stance = COMMANDED_FOLLOW
+		change_stance(COMMANDED_FOLLOW)
 		target_mob = speaker //this wont bite me in the ass later.
 		return 1
 	var/list/targets = get_targets_by_name(text)
@@ -187,7 +208,7 @@
 
 	if(emote_hear && emote_hear.len)
 		audible_emote("[pick(emote_hear)].",0)
-	stance = COMMANDED_FOLLOW //GOT SOMEBODY. BETTER FOLLOW EM.
+	change_stance(COMMANDED_FOLLOW) //GOT SOMEBODY. BETTER FOLLOW EM.
 	target_mob = targets[1] //YEAH GOOD IDEA
 
 	return 1
@@ -202,12 +223,12 @@
 
 	// We forgive our master
 	if(user == master)
-		stance = HOSTILE_STANCE_IDLE
+		change_stance(HOSTILE_STANCE_IDLE)
 		target_mob = null
 		audible_emote("[pick(sad_emote)].",0)
 		return
 	if(. && retribution)
-		stance = HOSTILE_STANCE_ATTACK
+		change_stance(HOSTILE_STANCE_ATTACK)
 		target_mob = user
 		allowed_targets += user //fuck this guy in particular.
 		if(user in friends) //We were buds :'(
@@ -219,13 +240,13 @@
 
 	// We forgive our master
 	if(M == master)
-		stance = HOSTILE_STANCE_IDLE
+		change_stance(HOSTILE_STANCE_IDLE)
 		target_mob = null
 		if(M.a_intent == I_HURT)
 			audible_emote("[pick(sad_emote)].",0)
 		return
-	if(M.a_intent == I_HELP && prob(40)) //chance that they won't immediately kill anyone who pets them. But only a chance. 
-		stance = HOSTILE_STANCE_IDLE
+	if(M.a_intent == I_HELP && prob(40)) //chance that they won't immediately kill anyone who pets them. But only a chance.
+		change_stance(HOSTILE_STANCE_IDLE)
 		target_mob = null
 		audible_emote("growls at [M].")
 		to_chat(M, SPAN_WARNING("Maybe you should keep your hands to yourself..."))
@@ -235,7 +256,7 @@
 
 		target_mob = M
 		allowed_targets += M
-		stance = HOSTILE_STANCE_ATTACK
+		change_stance(HOSTILE_STANCE_ATTACK)
 		if(M in friends)
 			friends -= M
 
@@ -245,7 +266,7 @@
 	// We forgive our master
 	if(user == master)
 		target_mob = null
-		stance = HOSTILE_STANCE_IDLE
+		change_stance(HOSTILE_STANCE_IDLE)
 		audible_emote("[pick(sad_emote)].",0)
 
 /mob/living/simple_animal/hostile/commanded/bullet_act(var/obj/item/projectile/P, var/def_zone)
@@ -254,7 +275,7 @@
 	// We forgive our master
 	if (ismob(P.firer) && P.firer == master)
 		target_mob = null
-		stance = HOSTILE_STANCE_IDLE
+		change_stance(HOSTILE_STANCE_IDLE)
 		audible_emote("[pick(sad_emote)].",0)
 
 /mob/living/simple_animal/hostile/commanded/attackby(var/obj/item/O, var/mob/user)
@@ -263,7 +284,7 @@
 	// We forgive our master
 	if(user == master)
 		target_mob = null
-		stance = HOSTILE_STANCE_IDLE
+		change_stance(HOSTILE_STANCE_IDLE)
 		if(!istype(O, brush)) //we don't get sad if we're brushed!
 			audible_emote("[pick(sad_emote)].",0)
 
@@ -275,5 +296,5 @@
 		if(ismob(O.thrower))
 			if(O.thrower == master)
 				target_mob = null
-				stance = HOSTILE_STANCE_IDLE
+				change_stance(HOSTILE_STANCE_IDLE)
 				audible_emote("[pick(sad_emote)].",0)

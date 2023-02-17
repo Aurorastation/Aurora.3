@@ -229,7 +229,7 @@
 		/obj/item/photo
 		)
 
-/obj/item/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
+/obj/item/gripper/research // A general usage gripper, used for toxins/robotics/xenobio/etc
 	name = "scientific gripper"
 	icon_state = "gripper-sci"
 	desc = "A simple grasping tool suited to assist in a wide array of research applications."
@@ -243,18 +243,20 @@
 		/obj/item/mecha_equipment,
 		/obj/item/device/radio/exosuit,
 		/obj/item/borg/upgrade,
-		/obj/item/device/flash, //to build borgs,
-		/obj/item/organ/internal/brain, //to insert into MMIs,
-		/obj/item/stack/cable_coil, //again, for borg building,
+		/obj/item/device/flash, // to build borgs,
+		/obj/item/organ/internal/brain, // to insert into MMIs,
+		/obj/item/stack/cable_coil, // again, for borg building,
 		/obj/item/circuitboard,
 		/obj/item/slime_extract,
 		/obj/item/reagent_containers/glass,
 		/obj/item/reagent_containers/food/snacks/monkeycube,
-		/obj/item/device/assembly,//For building bots and similar complex R&D devices
-		/obj/item/device/healthanalyzer,//For building medibots
+		/obj/item/seeds, // To be able to plant things for Xenobotany
+		/obj/item/grown, // To be able to plant things for Xenobotany
+		/obj/item/device/assembly, // For building bots and similar complex R&D devices
+		/obj/item/device/healthanalyzer,// For building medibots
 		/obj/item/disk,
 		/obj/item/device/analyzer/plant_analyzer,//For farmbot construction
-		/obj/item/material/minihoe,//Farmbots and xenoflora
+		/obj/item/material/minihoe, // Farmbots and xenoflora
 		/obj/item/computer_hardware,
 		/obj/item/slimesteroid,
 		/obj/item/extract_enhancer,

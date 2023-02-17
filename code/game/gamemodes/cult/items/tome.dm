@@ -1,6 +1,6 @@
 /obj/item/book/tome
 	name = "arcane tome"
-	desc_cult = null
+	desc_antag = null // It's already been forged once.
 	icon_state = "tome"
 	item_state = "tome"
 	throw_speed = 1

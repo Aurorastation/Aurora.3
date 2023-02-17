@@ -194,8 +194,8 @@
 		occupant.adjustCloneLoss(-2 * heal_rate)
 
 		//So clones don't die of oxyloss in a running pod.
-		if(REAGENT_VOLUME(occupant.reagents, /decl/reagent/inaprovaline) < 30)
-			occupant.reagents.add_reagent(/decl/reagent/inaprovaline, 60)
+		if(REAGENT_VOLUME(occupant.reagents, /singleton/reagent/inaprovaline) < 30)
+			occupant.reagents.add_reagent(/singleton/reagent/inaprovaline, 60)
 		occupant.Sleeping(30)
 		//Also heal some oxyloss ourselves because inaprovaline is so bad at preventing it!!
 		occupant.adjustOxyLoss(-4)

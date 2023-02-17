@@ -9,6 +9,7 @@
 	anchored = TRUE
 	w_class = ITEMSIZE_NORMAL
 	layer = UNDER_PIPE_LAYER //under pipes
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/restrict_placement = TRUE
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
@@ -21,7 +22,7 @@
 		/obj/structure/grille,
 		/turf/unsimulated/mineral/asteroid
 	)
-	footstep_sound = /decl/sound_category/catwalk_footstep
+	footstep_sound = /singleton/sound_category/catwalk_footstep
 
 /obj/structure/lattice/Initialize()
 	. = ..()
@@ -31,6 +32,15 @@
 	for(var/obj/structure/lattice/LAT in loc)
 		if(LAT != src)
 			qdel(LAT)
+	if(isturf(loc))
+		var/turf/turf = loc
+		turf.is_hole = FALSE
+
+/obj/structure/lattice/Destroy()
+	if(isturf(loc))
+		var/turf/turf = loc
+		turf.is_hole = initial(turf.is_hole)
+	return ..()
 
 /obj/structure/lattice/ex_act(severity)
 	switch(severity)
@@ -40,14 +50,14 @@
 			qdel(src)
 	return
 
-/obj/structure/lattice/attackby(obj/item/C as obj, mob/user as mob)
+/obj/structure/lattice/attackby(obj/item/C, mob/user)
 	if (istype(C, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
 		T.attackby(C, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
 	if (C.iswelder())
 		var/obj/item/weldingtool/WT = C
-		if(WT.use(0, user))
+		if(WT.use(1, user))
 			to_chat(user, "<span class='notice'>Slicing lattice joints ...</span>")
 		new /obj/item/stack/rods(src.loc)
 		qdel(src)

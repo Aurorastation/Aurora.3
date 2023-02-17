@@ -76,7 +76,7 @@
 	new /obj/item/clothing/head/hardhat(src)
 
 /obj/structure/closet/excavation
-	name = "xenoarchaeology excavation tools"
+	name = "excavation tools"
 	icon_state = "eng"
 	icon_door = "eng_tool"
 
@@ -91,11 +91,17 @@
 	new /obj/item/device/beacon_locator(src)
 	new /obj/item/device/radio/beacon(src)
 	new /obj/item/pickaxe(src)
+	new /obj/item/material/hatchet/machete/steel(src)
+	new /obj/item/clothing/accessory/holster/utility/machete(src)
 	new /obj/item/device/measuring_tape(src)
 	new /obj/item/pickaxe/hand(src)
 	new /obj/item/storage/bag/fossils(src)
 	new /obj/item/device/hand_labeler(src)
 	new /obj/item/ore_detector(src)
+
+	// 2 Drills
+	new /obj/item/pickaxe/drill(src)
+	new /obj/item/pickaxe/drill(src)
 
 //---- Isolation room air alarms
 

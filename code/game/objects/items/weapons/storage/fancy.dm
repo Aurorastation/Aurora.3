@@ -60,9 +60,11 @@
 			src.icon_state = "[src.icon_type][src.storage_type][contents.len - itemremoved]"
 		else
 			icon_state = "[initial(icon_state)][src.opened]"
+			..()
 	else
 		cut_overlays()
 		icon_state = "[initial(icon_state)]" // closed
+	..()
 
 /obj/item/storage/box/fancy/handle_item_insertion()
 	if(!opened) // makes sure boxes are opened before inserting anything

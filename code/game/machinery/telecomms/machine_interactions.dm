@@ -1,12 +1,3 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
-
-
-/*
-
-	All telecommunications interactions:
-
-*/
-
 /obj/machinery/telecomms
 	var/temp = "" // output message
 	var/construct_op = 0
@@ -26,9 +17,9 @@
 		if (integrity < 100)               								//Damaged, let's repair!
 			if (T.use(1))
 				integrity = between(0, initial(integrity) / 2, initial(integrity))
-				to_chat(usr, "You apply the Nanopaste to [src], repairing some of the damage.")
+				to_chat(user, "You apply the Nanopaste to [src], repairing some of the damage.")
 		else
-			to_chat(usr, "This machine is already in perfect condition.")
+			to_chat(user, "This machine is already in perfect condition.")
 		return TRUE
 
 
@@ -118,8 +109,8 @@
 		M = user.get_multitool()
 	var/dat
 	dat += "<br>[temp]<br><br>"
-	dat += "Power Status: <a href='?src=\ref[src];input=toggle'>[src.toggled ? "On" : "Off"]</a>"
-	if(on && toggled)
+	dat += "Power Status: <a href='?src=\ref[src];input=toggle'>[src.use_power ? "On" : "Off"]</a>"
+	if(operable() && use_power)
 		if(id != "" && id)
 			dat += "<br>Identification String: <a href='?src=\ref[src];input=id'>[id]</a>"
 		else
@@ -195,23 +186,6 @@
 		temp = "<font color = #666633>-% Processing mode changed. %-</font>"
 		src.process_mode = !src.process_mode
 */
-
-// RELAY
-
-/obj/machinery/telecomms/relay/Options_Menu()
-	var/dat = ""
-	dat += "<br>Broadcasting: <A href='?src=\ref[src];broadcast=1'>[broadcasting ? "YES" : "NO"]</a>"
-	dat += "<br>Receiving:    <A href='?src=\ref[src];receive=1'>[receiving ? "YES" : "NO"]</a>"
-	return dat
-
-/obj/machinery/telecomms/relay/Options_Topic(href, href_list)
-
-	if(href_list["receive"])
-		receiving = !receiving
-		temp = "<font color = #666633>-% Receiving mode changed. %-</font>"
-	if(href_list["broadcast"])
-		broadcasting = !broadcasting
-		temp = "<font color = #666633>-% Broadcasting mode changed. %-</font>"
 // BUS
 
 /obj/machinery/telecomms/bus/Options_Menu()
@@ -250,9 +224,8 @@
 
 			if("toggle")
 
-				src.toggled = !src.toggled
-				temp = "<font color = #666633>-% [src] has been [src.toggled ? "activated" : "deactivated"].</font>"
-				update_power()
+				toggle_power()
+				temp = "<font color = #666633>-% [src] has been [src.use_power ? "activated" : "deactivated"].</font>"
 
 			/*
 			if("hide")
@@ -275,7 +248,7 @@
 
 					else
 						for(var/obj/machinery/telecomms/T in links)
-							T.links.Remove(src)
+							remove_link(T)
 
 						network = newnet
 						links = list()
@@ -303,27 +276,17 @@
 
 		if(text2num(href_list["unlink"]) <= length(links))
 			var/obj/machinery/telecomms/T = links[text2num(href_list["unlink"])]
-			temp = "<font color = #666633>-% Removed \ref[T] [T.name] from linked entities. %-</font>"
-
-			// Remove link entries from both T and src.
-
-			if(src in T.links)
-				T.links.Remove(src)
-			links.Remove(T)
+			if(T)
+				temp = "<font color = #666633>-% Removed \ref[T] [T.name] from linked entities. %-</font>"
+				remove_link(T)
 
 	if(href_list["link"])
 
 		if(P)
 			var/obj/machinery/telecomms/device = P.get_buffer()
-			if(istype(device) && device != src)
-				if(!(src in device.links))
-					device.links.Add(src)
-
-				if(!(device in src.links))
-					src.links.Add(device)
-
+			if(device)
+				add_new_link(device)
 				temp = "<font color = #666633>-% Successfully linked with \ref[device] [device.name] %-</font>"
-
 			else
 				temp = "<font color = #666633>-% Unable to acquire buffer %-</font>"
 
@@ -345,6 +308,37 @@
 	src.add_fingerprint(usr)
 
 	updateDialog()
+
+// Adds new_connection to src's links list AND vice versa. also updates links_by_telecomms_type
+/obj/machinery/telecomms/proc/add_new_link(obj/machinery/telecomms/new_connection)
+	if (!istype(new_connection) || new_connection == src)
+		return FALSE
+
+	if ((new_connection in links) && (src in new_connection.links))
+		return FALSE
+
+	links |= new_connection
+	new_connection.links |= src
+
+	LAZYADDASSOCLIST(links_by_telecomms_type, new_connection.telecomms_type, new_connection)
+	LAZYADDASSOCLIST(new_connection.links_by_telecomms_type, telecomms_type, src)
+
+	return TRUE
+
+// Removes old_connection from src's links list AND vice versa. also updates links_by_telecomms_type
+/obj/machinery/telecomms/proc/remove_link(obj/machinery/telecomms/old_connection)
+	if (!istype(old_connection) || old_connection == src)
+		return FALSE
+
+	if (old_connection in links)
+		links -= old_connection
+		LAZYREMOVEASSOC(links_by_telecomms_type, old_connection.telecomms_type, old_connection)
+
+	if (src in old_connection.links)
+		old_connection.links -= src
+		LAZYREMOVEASSOC(old_connection.links_by_telecomms_type, telecomms_type, src)
+
+	return TRUE
 
 /obj/machinery/telecomms/proc/canAccess(var/mob/user)
 	if(issilicon(user) || in_range(user, src))

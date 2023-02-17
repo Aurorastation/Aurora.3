@@ -11,7 +11,7 @@
 
 	skybox_image.overlays += get_base_image()
 
-	for (var/datum/exoplanet_theme/theme in themes)
+	if(istype(theme))
 		skybox_image.overlays += theme.get_planet_image_extra()
 
 	if (water_color) //TODO: move water levels out of randommap into exoplanet
@@ -37,7 +37,7 @@
 	skybox_image.overlays += shadow
 
 
-	if (prob(20))
+	if (prob(ring_chance))
 		var/image/rings = image('icons/skybox/planet_rings.dmi')
 		rings.icon_state = pick("sparse", "dense")
 		rings.color = pick("#f0fcff", "#dcc4ad", "#d1dcad", "#adb8dc")

@@ -471,7 +471,7 @@ var/list/localhost_addresses = list(
 	ticket_panels -= src
 	if(holder)
 		holder.owner = null
-		staff -= src
+	staff -= src
 	directory -= ckey
 	clients -= src
 	SSassets.handle_disconnect(src)

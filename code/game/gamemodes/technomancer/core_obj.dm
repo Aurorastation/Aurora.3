@@ -42,7 +42,7 @@
 	else
 		canremove = FALSE
 	if(!chameleon_options)
-		var/list/blocked = list(/obj/item/storage/backpack/satchel/withwallet) + typesof(/obj/item/technomancer_core)
+		var/list/blocked = list(/obj/item/storage/backpack/satchel/leather/withwallet) + typesof(/obj/item/technomancer_core)
 		chameleon_options = list("Reset")
 		chameleon_options += generate_chameleon_choices(/obj/item/storage/backpack, blocked)
 
@@ -127,7 +127,7 @@
 			var/mob/living/L = A
 			if(L.stat == DEAD)
 				summoned_mobs -= L
-				addtimer(CALLBACK(src, .proc/remove_summon, L), 1)
+				addtimer(CALLBACK(src, PROC_REF(remove_summon), L), 1)
 
 /obj/item/technomancer_core/proc/remove_summon(var/mob/living/L)
 	L.visible_message("<span class='notice'>\The [L] begins to fade away...</span>")

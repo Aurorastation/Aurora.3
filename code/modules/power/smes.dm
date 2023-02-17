@@ -26,7 +26,7 @@
 	density = 1
 	anchored = 1
 	use_power = POWER_USE_OFF
-	clicksound = /decl/sound_category/switch_sound
+	clicksound = /singleton/sound_category/switch_sound
 
 	var/health = 500
 	var/busted = FALSE // this it to prevent the damage text from playing repeatedly
@@ -84,6 +84,11 @@
 	var/smes_amt = min((amount * SMESRATE), charge)
 	charge -= smes_amt
 	return smes_amt / SMESRATE
+
+/obj/machinery/power/smes/proc/drain_power_simple(var/amount = 0)
+	var/power_drawn = between(0, amount, charge)
+	charge -= power_drawn
+	return power_drawn
 
 /obj/machinery/power/smes/Destroy()
 	QDEL_NULL(big_spark)
@@ -162,22 +167,22 @@
 		return
 
 	if(inputting == 2)
-		add_overlay("smes-oc2")
+		add_overlay("[icon_state]-oc2")
 	else if (inputting == 1)
-		add_overlay("smes-oc1")
+		add_overlay("[icon_state]-oc1")
 	else if (input_attempt)
-		add_overlay("smes-oc0")
+		add_overlay("[icon_state]-oc0")
 
 	var/clevel = chargedisplay()
 	if(clevel)
-		add_overlay("smes-og[clevel]")
+		add_overlay("[icon_state]-og[clevel]")
 
 	if(outputting == 2)
-		add_overlay("smes-op2")
+		add_overlay("[icon_state]-op2")
 	else if (outputting == 1)
-		add_overlay("smes-op1")
+		add_overlay("[icon_state]-op1")
 	else
-		add_overlay("smes-op0")
+		add_overlay("[icon_state]-op0")
 
 /obj/machinery/power/smes/proc/chargedisplay()
 	return round(5.5*charge/(capacity ? capacity : 5e6))
@@ -326,8 +331,7 @@
 	add_fingerprint(user)
 	ui_interact(user)
 
-
-/obj/machinery/power/smes/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/power/smes/attackby(var/obj/item/W, var/mob/user)
 	if(W.isscrewdriver())
 		if(!open_hatch)
 			if(is_badly_damaged())
@@ -525,6 +529,14 @@
 /obj/machinery/power/smes/magical/process()
 	charge = 5000000
 	..()
+
+/obj/machinery/power/smes/buildable/superconducting
+	name = "superconducting cryogenic capacitor"
+	desc = "An experimental, extremely high-capacity type of SMES. It uses integrated cryogenic cooling and superconducting cables to break conventional limits on power transfer."
+	icon_state = "cannon_smes"
+	charge = 0
+	max_coils = 12
+	cur_coils = 12
 
 #undef SMES_CLEVEL_1
 #undef SMES_CLEVEL_2

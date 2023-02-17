@@ -111,9 +111,8 @@
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/head/helmet/hos(src)
-	new /obj/item/clothing/suit/storage/security/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
-	new /obj/item/clothing/gloves/black_leather(src)
+	new /obj/item/clothing/suit/storage/security/hos(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
@@ -151,7 +150,6 @@
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/head/helmet/hos(src)
-	new /obj/item/clothing/suit/storage/security/hos(src)
 	//Tools
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/device/radio/headset/heads/hos(src)
@@ -168,7 +166,6 @@
 
 /obj/structure/closet/secure_closet/warden/fill()
 	//Supply
-	new /obj/item/storage/box/holobadge(src)
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/storage/box/teargas(src)
@@ -182,9 +179,7 @@
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/head/helmet/security(src)
-	new	/obj/item/clothing/suit/storage/security/warden(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
-	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
@@ -196,8 +191,14 @@
 	new /obj/item/gun/energy/disruptorpistol(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
-	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/storage/belt/security/full(src)
+	// Utility
+	new /obj/item/device/radio/sec(src)
+	new /obj/item/crowbar(src)
+	new /obj/item/device/flashlight/maglight(src)
+	new /obj/item/wrench(src)
+	new /obj/item/device/multitool(src)
 
 
 /obj/structure/closet/secure_closet/security_cadet
@@ -246,7 +247,6 @@
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/head/helmet/security(src)
-	new /obj/item/clothing/suit/storage/security/officer(src)
 	new /obj/item/clothing/accessory/badge/officer(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
@@ -272,18 +272,15 @@
 
 /obj/structure/closet/secure_closet/investigator/fill()
 	//Appearance
-	new /obj/item/storage/backpack/satchel/leather(src)
-	new /obj/item/clothing/suit/storage/det_jacket(src)
+	new /obj/item/storage/backpack/satchel/leather/recolorable(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/under/det(src)
 	new /obj/item/clothing/under/det/idris(src)
 	new /obj/item/clothing/under/det/pmc(src)
 	new /obj/item/clothing/under/det/zavod(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
-	new /obj/item/clothing/suit/storage/toggle/forensics(src)
-	new /obj/item/clothing/gloves/black/forensic(src)
-	new /obj/item/clothing/shoes/brown(src)
-	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/clothing/shoes/laceup/all_species(src)
+	new /obj/item/clothing/shoes/laceup/all_species(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
@@ -312,7 +309,8 @@
 /obj/structure/closet/secure_closet/brig
 	name = "brig locker"
 	req_access = list(access_brig)
-	anchored = 1
+	anchored = TRUE
+	canbemoved = TRUE
 	var/id = null
 
 /obj/structure/closet/secure_closet/brig/Initialize()
@@ -360,3 +358,17 @@
 	new /obj/item/device/radio/headset/headset_com/alt(src)
 	new /obj/item/device/radio/off(src)
 	new /obj/item/device/gps(src)
+
+// Evidence Storage Locker
+/obj/structure/closet/secure_closet/evidence
+	name = "evidence storage locker"
+	anchored = TRUE
+	canbemoved = TRUE
+	req_one_access = list(access_brig, access_armory, access_forensics_lockers)
+
+// Contraband Storage Locker
+/obj/structure/closet/secure_closet/contraband
+	name = "contraband weapons and ammunition storage locker"
+	anchored = TRUE
+	canbemoved = TRUE
+	req_access = list(access_armory)

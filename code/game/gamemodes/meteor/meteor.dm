@@ -50,9 +50,9 @@
 	alert_sent = 2
 	command_announcement.Announce(start_text, alert_title)
 	if(current_map.use_overmap)
-		var/area/map = locate(/area/overmap)
+		var/area/map = global.map_overmap
 		for(var/turf/T in map)
-			T.overlays += image('icons/obj/overmap.dmi', "meteor[rand(1,4)]")
+			T.overlays += image('icons/obj/overmap/overmap_effects.dmi', "meteor[rand(1,4)]")
 	next_wave = round_duration_in_ticks + meteor_wave_delay
 
 /datum/game_mode/meteor/process()

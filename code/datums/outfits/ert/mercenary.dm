@@ -5,7 +5,7 @@
 	shoes = /obj/item/clothing/shoes/swat/ert
 	gloves = /obj/item/clothing/gloves/swat/ert
 	belt = /obj/item/storage/belt/military
-	back = /obj/item/storage/backpack/satchel/norm
+	back = /obj/item/storage/backpack/satchel
 	l_hand = /obj/item/clothing/suit/space/void/freelancer
 	r_hand = /obj/item/clothing/head/helmet/space/void/freelancer
 	accessory = /obj/item/clothing/accessory/holster/thigh

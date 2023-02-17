@@ -51,14 +51,10 @@
 		/obj/item/gun/energy/pistol = 1
 	)
 
-	implants = list(
-		/obj/item/implant/mindshield
-	)
-
 /datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H && !visualsOnly)
-		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
 /datum/outfit/job/representative/proc/send_representative_mission(var/mob/living/carbon/human/H)

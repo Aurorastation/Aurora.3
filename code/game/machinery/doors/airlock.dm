@@ -556,6 +556,18 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 /obj/machinery/door/airlock/skrell/grey
 	icon = 'icons/obj/doors/grey_skrell_door.dmi'
 
+/obj/machinery/door/airlock/diona
+	name = "biomass airlock"
+	icon = 'icons/obj/doors/Door_dionae_airlock.dmi'
+	explosion_resistance = 20
+	secured_wires = TRUE
+	maxhealth = 600
+	insecure = FALSE
+	hashatch = FALSE
+
+/obj/machinery/door/airlock/diona/external
+	icon = 'icons/obj/doors/Door_dionae_external.dmi'
+
 //---Uranium doors
 /obj/machinery/door/airlock/uranium
 	name = "Uranium Airlock"
@@ -568,14 +580,9 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 /obj/machinery/door/airlock/uranium/process()
 	if(world.time > last_event+20)
 		if(prob(50))
-			radiate()
+			SSradiation.radiate(src, 50)
 		last_event = world.time
 	..()
-
-/obj/machinery/door/airlock/uranium/proc/radiate()
-	for(var/mob/living/L in range (3,src))
-		L.apply_damage(15, IRRADIATE, damage_flags = DAM_DISPERSED)
-	return
 
 //---Phoron door
 /obj/machinery/door/airlock/phoron
@@ -674,13 +681,13 @@ About the new airlock wires panel:
 	main_power_lost_until = mainPowerCablesCut() ? -1 : world.time + SecondsToTicks(60)
 	main_power_lost_at = world.time
 	if (main_power_lost_until > 0)
-		addtimer(CALLBACK(src, .proc/regainMainPower), 60 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+		addtimer(CALLBACK(src, PROC_REF(regainMainPower)), 60 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 
 	// If backup power is permanently disabled then activate in 10 seconds if possible, otherwise it's already enabled or a timer is already running
 	if(backup_power_lost_until == -1 && !backupPowerCablesCut())
 		backup_power_lost_until = world.time + SecondsToTicks(10)
 		backup_power_lost_at = world.time
-		addtimer(CALLBACK(src, .proc/regainBackupPower), 10 SECONDS, TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
+		addtimer(CALLBACK(src, PROC_REF(regainBackupPower)), 10 SECONDS, TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
 	if(!arePowerSystemsOn() && !isnull(aiActionTimer)) // AI action timer gets reset if any
 		deltimer(aiActionTimer)
@@ -692,7 +699,7 @@ About the new airlock wires panel:
 	backup_power_lost_until = backupPowerCablesCut() ? -1 : world.time + SecondsToTicks(60)
 	backup_power_lost_at = world.time
 	if (backup_power_lost_until > 0)
-		addtimer(CALLBACK(src, .proc/regainBackupPower), 60 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+		addtimer(CALLBACK(src, PROC_REF(regainBackupPower)), 60 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 
 	if(!arePowerSystemsOn() && !isnull(aiActionTimer)) // AI action timer gets reset if any
 		deltimer(aiActionTimer)
@@ -735,7 +742,7 @@ About the new airlock wires panel:
 		electrified_until = duration == -1 ? -1 : world.time + SecondsToTicks(duration)
 		electrified_at = world.time
 		if (electrified_until > 0)
-			addtimer(CALLBACK(src, .proc/electrify, 0), duration SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+			addtimer(CALLBACK(src, PROC_REF(electrify), 0), duration SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 
 	if(feedback && message)
 		to_chat(usr, message)
@@ -1042,7 +1049,7 @@ About the new airlock wires panel:
 		cutting = TRUE
 	else if(istype(tool,/obj/item/melee/energy/blade) || istype(tool,/obj/item/melee/energy/sword))
 		cut_verb = "slicing"
-		cut_sound = /decl/sound_category/spark_sound
+		cut_sound = /singleton/sound_category/spark_sound
 		cut_delay *= 1
 		cutting = TRUE
 	else if(istype(tool,/obj/item/surgery/circular_saw))
@@ -1163,11 +1170,11 @@ About the new airlock wires panel:
 				else if(activate)
 					to_chat(usr, SPAN_NOTICE("The door bolts should drop in [src.aiBoltingDelay] seconds."))
 					src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in <strong>[src.aiBoltingDelay] seconds</strong>.\"</span>")
-					src.aiActionTimer = addtimer(CALLBACK(src, .proc/lock), src.aiBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
+					src.aiActionTimer = addtimer(CALLBACK(src, PROC_REF(lock)), src.aiBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 				else
 					to_chat(usr, SPAN_NOTICE("The door bolts should raise in [src.aiUnBoltingDelay] seconds."))
 					src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[src.aiUnBoltingDelay] seconds</strong>.\"</span>")
-					src.aiActionTimer = addtimer(CALLBACK(src, .proc/unlock), src.aiUnBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
+					src.aiActionTimer = addtimer(CALLBACK(src, PROC_REF(unlock)), src.aiUnBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 			else // everyone else
 				if(activate)
 					if(src.lock())
@@ -1293,7 +1300,7 @@ About the new airlock wires panel:
 				"You hear a welding torch on metal."
 			)
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
-			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
+			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, PROC_REF(is_open), src.density)))
 				return TRUE
 			if(!WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
@@ -1399,7 +1406,7 @@ About the new airlock wires panel:
 				SPAN_WARNING("You start cutting the airlock control panel..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), C)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting the control pannel of the airlock with the [C]."),\
 					SPAN_WARNING("You finish cutting the airlock control panel."),\
@@ -1417,7 +1424,7 @@ About the new airlock wires panel:
 				SPAN_WARNING("You start cutting below the airlock..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), C)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting below the airlock with the [C]."),\
 					SPAN_NOTICE("You finish cutting below the airlock."),\
@@ -1433,7 +1440,7 @@ About the new airlock wires panel:
 				SPAN_WARNING("You start cutting between the airlock..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), C)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting between the airlock."),\
 					SPAN_WARNING("You finish cutting between the airlock."),\
@@ -1543,7 +1550,7 @@ About the new airlock wires panel:
 /mob/living/airlock_crush(var/crush_damage)
 	. = ..()
 	for(var/i = 1, i <= AIRLOCK_CRUSH_DIVISOR, i++)
-		apply_damage((crush_damage / AIRLOCK_CRUSH_DIVISOR), BRUTE)
+		apply_damage((crush_damage / AIRLOCK_CRUSH_DIVISOR), DAMAGE_BRUTE)
 
 	SetStunned(5)
 	SetWeakened(5)
@@ -1662,10 +1669,10 @@ About the new airlock wires panel:
 		electrified_until = 0
 		//if we lost power open 'er up
 		if(insecure)
-			INVOKE_ASYNC(src, /obj/machinery/door/.proc/open, 1)
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/machinery/door, open), 1)
 			securitylock = TRUE
 	else if(securitylock)
-		INVOKE_ASYNC(src, /obj/machinery/door/.proc/close, 1)
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/machinery/door, close), 1)
 		securitylock = FALSE
 	update_icon()
 

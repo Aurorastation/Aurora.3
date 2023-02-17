@@ -17,9 +17,9 @@
 	var/minimum_temperature_difference = 300
 	var/thermal_conductivity = 0 //WALL_HEAT_TRANSFER_COEFFICIENT No
 
-	var/maximum_pressure = 70*ONE_ATMOSPHERE
-	var/fatigue_pressure = 55*ONE_ATMOSPHERE
-	alert_pressure = 55*ONE_ATMOSPHERE
+	var/maximum_pressure = ATMOS_DEFAULT_MAX_PRESSURE
+	var/fatigue_pressure = ATMOS_DEFAULT_FATIGUE_PRESSURE
+	alert_pressure = ATMOS_DEFAULT_ALERT_PRESSURE
 
 	var/travel_verbname = "UNDEFINED"
 	var/travel_direction_verb = "UNDEFINED"
@@ -69,6 +69,7 @@
 		. = PROCESS_KILL
 
 /obj/machinery/atmospherics/pipe/zpipe/check_pressure(pressure)
+	if(!loc) return FALSE
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	var/pressure_difference = pressure - environment.return_pressure()

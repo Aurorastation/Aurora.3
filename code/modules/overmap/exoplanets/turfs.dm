@@ -3,7 +3,8 @@
 	icon = 'icons/turf/desert.dmi'
 	icon_state = "desert"
 	has_resources = 1
-	footstep_sound = /decl/sound_category/asteroid_footstep
+	footstep_sound = /singleton/sound_category/asteroid_footstep
+	turf_flags = TURF_FLAG_BACKGROUND
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
 	var/has_edge_icon = TRUE
@@ -17,7 +18,7 @@
 			else
 				temperature = T0C
 			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
-			set_light(E.lightlevel, 0.1, 2)
+			set_light(MINIMUM_USEFUL_LIGHT_RANGE, E.lightlevel, COLOR_WHITE)
 			if(E.planetary_area && istype(loc, world.area))
 				ChangeArea(src, E.planetary_area)
 	..()
@@ -81,8 +82,8 @@
 	name = "shallow water"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
-	footstep_sound = /decl/sound_category/water_footstep
-	var/reagent_type = /decl/reagent/water
+	footstep_sound = /singleton/sound_category/water_footstep
+	var/reagent_type = /singleton/reagent/water
 
 /turf/simulated/floor/exoplanet/water/shallow/attackby(obj/item/O, var/mob/living/user)
 	var/obj/item/reagent_containers/RG = O
@@ -104,17 +105,20 @@
 /turf/simulated/floor/exoplanet/ice/update_icon()
 	return
 
+/turf/simulated/floor/exoplanet/ice/dark
+	icon_state = "icedark"
+
 //Snow
 /turf/simulated/floor/exoplanet/snow
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
 	dirt_color = "#e3e7e8"
-	footstep_sound = /decl/sound_category/snow_footstep
+	footstep_sound = /singleton/sound_category/snow_footstep
 
 /turf/simulated/floor/exoplanet/snow/Initialize()
 	. = ..()
-	icon_state = pick("snow[rand(1,12)]","snow0")
+	icon_state = pick("snow[rand(1,2)]","snow0")
 
 /turf/simulated/floor/exoplanet/snow/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	melt()
@@ -122,7 +126,7 @@
 /turf/simulated/floor/exoplanet/snow/melt()
 	name = "permafrost"
 	icon_state = "permafrost"
-	footstep_sound = /decl/sound_category/asteroid_footstep
+	footstep_sound = /singleton/sound_category/asteroid_footstep
 
 //Grass
 /turf/simulated/floor/exoplanet/grass
@@ -130,7 +134,7 @@
 	icon = 'icons/turf/jungle.dmi'
 	icon_state = "greygrass"
 	color = "#799c4b"
-	footstep_sound = /decl/sound_category/grass_footstep
+	footstep_sound = /singleton/sound_category/grass_footstep
 
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
@@ -159,7 +163,7 @@
 	name = "sand"
 	desc = "It's coarse and gets everywhere."
 	dirt_color = "#ae9e66"
-	footstep_sound = /decl/sound_category/sand_footstep
+	footstep_sound = /singleton/sound_category/sand_footstep
 
 /turf/simulated/floor/exoplanet/desert/Initialize()
 	. = ..()
@@ -169,7 +173,7 @@
 	name = "sand"
 	desc = "It's coarse and gets everywhere."
 	dirt_color = "#544c31"
-	footstep_sound = /decl/sound_category/sand_footstep
+	footstep_sound = /singleton/sound_category/sand_footstep
 
 //Concrete
 /turf/simulated/floor/exoplanet/concrete

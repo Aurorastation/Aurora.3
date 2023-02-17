@@ -133,7 +133,7 @@
 
 	can_activate(var/mob/M,var/flags)
 		// Can't be big and small.
-		if(HULK in M.mutations)
+		if(HAS_FLAG(M.mutations, HULK))
 			return 0
 		return ..(M,flags)
 
@@ -155,14 +155,14 @@
 
 	can_activate(var/mob/M,var/flags)
 		// Can't be big and small.
-		if(mSmallsize in M.mutations)
+		if(HAS_FLAG(M.mutations, mSmallsize))
 			return 0
 		return ..(M,flags)
 
 	OnMobLife(var/mob/living/carbon/human/M)
 		if(!istype(M)) return
 		if(M.health <= 25)
-			M.mutations.Remove(HULK)
+			M.mutations &= ~HULK
 			M.update_mutations()		//update our mutation overlays
 			to_chat(M, "<span class='warning'>You suddenly feel very weak.</span>")
 			M.Weaken(3)
