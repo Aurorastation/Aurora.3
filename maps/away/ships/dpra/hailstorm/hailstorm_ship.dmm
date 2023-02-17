@@ -1014,6 +1014,17 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship)
+"fH" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Telecomms";
+	req_access = list(214)
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/hailstorm_ship/atmospherics)
 "fJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1828,10 +1839,9 @@
 /area/hailstorm_ship/gun_deck/second)
 "nT" = (
 /obj/structure/viewport,
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "headmaster_gun";
-	icon_state = "pdoor0"
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "hailstorm_bridge"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hailstorm_ship/gun_deck/second)
@@ -1854,6 +1864,16 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship/engine)
+"oc" = (
+/obj/machinery/telecomms/allinone/ship,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/hailstorm_ship/atmospherics)
 "og" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
@@ -2088,10 +2108,9 @@
 /area/hailstorm_ship)
 "rp" = (
 /obj/structure/viewport,
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "headmaster_gun";
-	icon_state = "pdoor0"
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "hailstorm_bridge"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hailstorm_ship/gun_deck)
@@ -13664,8 +13683,8 @@ eJ
 Pv
 Pv
 Pv
-iB
-iB
+Pv
+Pv
 iB
 iB
 iB
@@ -13825,9 +13844,9 @@ gg
 Pv
 gY
 sb
+fH
+oc
 Pv
-iB
-iB
 iB
 iB
 iB

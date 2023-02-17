@@ -7899,9 +7899,9 @@
 "dQZ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
+	dir = 2;
 	id = "shutters_deck2_hydroponicswindows";
-	name = "Viewing Shutter";
-	dir = 2
+	name = "Viewing Shutter"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen/hallway)
@@ -17208,6 +17208,7 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_deck2_eng_frontdesk";
+	name = "remote shutter control";
 	pixel_x = 6;
 	pixel_y = -2
 	},
@@ -48822,12 +48823,12 @@
 /area/operations/lobby)
 "xWa" = (
 /obj/item/rig/medical/equipped{
-	pixel_y = -2;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = -2
 	},
 /obj/item/rig/medical/equipped{
-	pixel_y = -2;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = -2
 	},
 /obj/structure/window/reinforced{
 	dir = 8
