@@ -33,13 +33,13 @@
 	impact_type = SHIP_AMMO_IMPACT_AP
 	projectile_type_override = /obj/item/projectile/ship_ammo/francisca/ap
 
-/obj/item/ship_ammunition/francisca/he
-	name = "40mm HE ammunition box"
-	name_override = "40mm HE burst"
-	desc = "A box of HE shells for use in a Francisca rotary gun."
+/obj/item/ship_ammunition/francisca/frag
+	name = "40mm fragmentation ammunition box"
+	name_override = "40mm FRAG burst"
+	desc = "A box of fragmentation shells for use in a Francisca rotary gun."
 	icon_state = "box_inc"
-	impact_type = SHIP_AMMO_IMPACT_AP
-	projectile_type_override = /obj/item/projectile/ship_ammo/francisca/he
+	impact_type = SHIP_AMMO_IMPACT_HE
+	projectile_type_override = /obj/item/projectile/ship_ammo/francisca/frag
 
 /obj/item/projectile/ship_ammo/francisca
 	name = "40mm FMJ shell"
@@ -54,13 +54,13 @@
 	armor_penetration = 100
 	penetrating = 4
 
-/obj/item/projectile/ship_ammo/francisca/he
-	name = "40mm HE shell"
-	damage = 50
+/obj/item/projectile/ship_ammo/francisca/frag
+	name = "40mm FRAG shell"
+	damage = 30
 	armor_penetration = 50
 	penetrating = 1
 
 
-/obj/item/projectile/ship_ammo/francisca/he/on_impact(var/atom/A)
-	explosion(A, -1, 0, 2)
+/obj/item/projectile/ship_ammo/francisca/frag/on_impact(var/atom/A)
+	fragem(src, 70, 70, 1, 2, 10, 4,TRUE)
 	..()
