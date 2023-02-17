@@ -3022,6 +3022,9 @@
 "cIv" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/washing_machine,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo/dormitories)
 "cJm" = (
@@ -7158,10 +7161,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "fVv" = (
-/obj/structure/closet/secure_closet/personal,
+/obj/structure/sink/kitchen{
+	name = "water fountain";
+	pixel_y = 26
+	},
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light,
-/obj/structure/railing/mapped{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -16032,6 +16037,9 @@
 	dir = 4;
 	pixel_x = -28
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo/dormitories)
 "naZ" = (
@@ -18673,6 +18681,9 @@
 	pixel_x = -24
 	},
 /obj/structure/cable/green,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo/dormitories)
 "pcj" = (
@@ -26592,7 +26603,6 @@
 /obj/structure/bedsheetbin{
 	pixel_y = 7
 	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo/dormitories)
 "vob" = (
@@ -47727,7 +47737,7 @@ kUM
 kUM
 eaX
 dnk
-fVv
+eaX
 agp
 slj
 rAA
@@ -48533,7 +48543,7 @@ uCQ
 qeM
 kUM
 nSJ
-eVa
+fVv
 faf
 cIv
 agp
