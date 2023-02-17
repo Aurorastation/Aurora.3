@@ -1,17 +1,4 @@
-var/global/list/changeling_fabricated_clothing = list(
-	/obj/item/clothing/under/chameleon/changeling,
-	/obj/item/clothing/head/chameleon/changeling,
-	/obj/item/clothing/suit/chameleon/changeling,
-	/obj/item/clothing/shoes/chameleon/changeling,
-	/obj/item/clothing/gloves/chameleon/changeling,
-	/obj/item/clothing/mask/chameleon/changeling,
-	/obj/item/clothing/glasses/chameleon/changeling,
-	/obj/item/storage/backpack/chameleon/changeling,
-	/obj/item/storage/belt/chameleon/changeling,
-	/obj/item/card/id/syndicate/changeling
-	)
-
-/mob/proc/changeling_generic_equip_all_slots(var/list/stuff_to_equip, var/cost)
+/mob/proc/changeling_equip_clothing(var/list/stuff_to_equip, var/cost)
 	var/datum/changeling/changeling = changeling_power(cost,1,100,CONSCIOUS)
 	if(!changeling)
 		return
@@ -56,9 +43,22 @@ var/global/list/changeling_fabricated_clothing = list(
 	set category = "Changeling"
 	set name = "Fabricate Clothing (10)"
 
-	if(changeling_generic_equip_all_slots(changeling_fabricated_clothing, cost = 10))
-		return 1
-	return 0
+	var/static/list/changeling_fabricated_clothing = list(
+		/obj/item/clothing/under/chameleon/changeling,
+		/obj/item/clothing/head/chameleon/changeling,
+		/obj/item/clothing/suit/chameleon/changeling,
+		/obj/item/clothing/shoes/chameleon/changeling,
+		/obj/item/clothing/gloves/chameleon/changeling,
+		/obj/item/clothing/mask/chameleon/changeling,
+		/obj/item/clothing/glasses/chameleon/changeling,
+		/obj/item/storage/backpack/chameleon/changeling,
+		/obj/item/storage/belt/chameleon/changeling,
+		/obj/item/card/id/syndicate/changeling
+	)
+
+	if(changeling_equip_clothing(changeling_fabricated_clothing, cost = 10))
+		return TRUE
+	return FALSE
 
 /obj/item/clothing/under/chameleon/changeling
 	name = "malformed flesh"
