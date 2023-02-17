@@ -1,0 +1,6 @@
+author: Pirouette
+
+delete-after: True
+
+changes:
+  - bugfix: "Left and right states for the reef ponytail now match."
