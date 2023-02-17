@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - bugfix: "Technomancer's resurrect ability now works."
-  - tweak: "Technomancer melee functions, like resurrect, work when people are on tables, like operating tables."
+  - tweak: "Technomancer healing melee functions, like resurrect, work when people are on tables, like operating tables."
