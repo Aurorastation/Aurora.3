@@ -2150,9 +2150,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/structure/disposalpipe/junction{
 	dir = 8
 	},
@@ -4435,9 +4432,6 @@
 	dir = 6
 	},
 /obj/structure/disposalpipe/segment,
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "bYT" = (
@@ -7259,9 +7253,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "dAr" = (
@@ -9105,9 +9096,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/door/airlock/medical{
 	name = "Operating Theatre 2";
 	req_access = list(45)
@@ -14519,9 +14507,6 @@
 	pixel_x = -26;
 	pixel_y = -26
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "hdG" = (
@@ -16096,9 +16081,6 @@
 "hQa" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
@@ -24624,9 +24606,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "miu" = (
@@ -28477,14 +28456,6 @@
 	},
 /obj/machinery/light{
 	dir = 4
-	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "west bump";
-	pixel_x = 25
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/sharps,
@@ -39575,9 +39546,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "tHs" = (
@@ -42434,6 +42402,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"uXE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/hallway/medical)
 "uXV" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -65314,7 +65288,7 @@ dAc
 hdz
 eAw
 tHl
-dkz
+uXE
 aUG
 ffe
 nvq
