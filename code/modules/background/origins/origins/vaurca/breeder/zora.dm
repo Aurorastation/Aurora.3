@@ -13,7 +13,7 @@
 	name = "Zoleth Brood"
 	desc = "The Warrior brood of the Zo'ra, Zoleth is established in Caprice, Tau Ceti. Although feared as a warmonger, the Zoleth Brood is known for their diplomacy."
 	possible_accents = list(ACCENT_ZORA, ACCENT_TTS)
-	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_BIESEL)
+	possible_citizenships = list(CITIZENSHIP_ZORA, CITIZENSHIP_BIESEL)
 	possible_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_NONE)
 
 /singleton/origin_item/origin/scay_b
