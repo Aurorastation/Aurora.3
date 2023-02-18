@@ -324,6 +324,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "ais" = (
@@ -1743,23 +1746,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
-"aMD" = (
-/obj/machinery/light_switch{
-	pixel_x = 26
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/button/switch/holosign{
-	id = 1;
-	pixel_x = 26;
-	pixel_y = -9
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/or1)
 "aME" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -4164,6 +4150,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "bSi" = (
@@ -4441,19 +4430,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "bYB" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "bYT" = (
@@ -6626,12 +6610,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "dkz" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "dkC" = (
@@ -7271,6 +7255,15 @@
 	},
 /turf/space/dynamic,
 /area/template_noop)
+"dAc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/or2)
 "dAr" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -9109,16 +9102,16 @@
 	id = 2
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /obj/machinery/door/airlock/medical{
 	name = "Operating Theatre 2";
 	req_access = list(45)
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/full,
 /area/medical/or2)
 "eAU" = (
@@ -9449,16 +9442,16 @@
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "eJl" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 21
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light_switch{
+	pixel_x = 26;
+	pixel_y = -26
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "eJH" = (
@@ -11270,16 +11263,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Operating Room 1";
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
@@ -11689,19 +11678,14 @@
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "fQV" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "fRc" = (
@@ -14528,16 +14512,16 @@
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "hdz" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -21
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light_switch{
+	pixel_x = -26;
+	pixel_y = -26
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "hdG" = (
@@ -14741,6 +14725,12 @@
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 1
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = -25;
+	pixel_y = -1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
@@ -16106,6 +16096,9 @@
 "hQa" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
@@ -17501,6 +17494,9 @@
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	pixel_y = 22
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
@@ -20074,6 +20070,11 @@
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 4
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Operating Room 1";
+	dir = 4;
+	pixel_y = -11
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
@@ -22745,6 +22746,10 @@
 	dir = 8
 	},
 /obj/item/tank/oxygen,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Operating Room 2";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "lmp" = (
@@ -24619,6 +24624,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "miu" = (
@@ -24734,6 +24742,9 @@
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	pixel_y = 22
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
@@ -26947,16 +26958,16 @@
 	id = 1
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /obj/machinery/door/airlock/medical{
 	name = "Operating Theatre 1";
 	req_access = list(45)
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/full,
 /area/medical/or1)
 "nlC" = (
@@ -28464,11 +28475,19 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
-/obj/structure/table/standard,
-/obj/item/storage/box/sharps,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "west bump";
+	pixel_x = 25
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/sharps,
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "oeF" = (
@@ -31310,6 +31329,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
+"pCV" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/curtain/open/medical,
+/turf/simulated/floor/tiled/white,
+/area/medical/or1)
 "pDa" = (
 /obj/machinery/light{
 	dir = 1
@@ -37881,6 +37906,10 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
+/obj/machinery/button/switch/holosign{
+	id = 2;
+	pixel_x = 26
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "sRe" = (
@@ -39128,6 +39157,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/lobby)
+"tyc" = (
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = -25;
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/exam)
 "tyd" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -39533,13 +39572,12 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
-/obj/effect/floor_decal/sign/srg,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "tHs" = (
@@ -39547,6 +39585,7 @@
 	dir = 5
 	},
 /obj/machinery/firealarm/north,
+/obj/effect/floor_decal/sign/srg,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "tHt" = (
@@ -42332,10 +42371,6 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Operating Room 2";
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "uUR" = (
@@ -43460,6 +43495,10 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
+/obj/machinery/button/switch/holosign{
+	id = 1;
+	pixel_x = -26
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "vBp" = (
@@ -44204,13 +44243,22 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/xenobiology)
 "vQV" = (
-/obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/item/storage/box/sharps,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "east bump";
+	pixel_x = -25;
+	pixel_y = -1
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/sharps,
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
@@ -44875,16 +44923,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "wej" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
-/obj/effect/floor_decal/sign/srg,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "weq" = (
@@ -46809,23 +46856,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/lobby)
-"wYk" = (
-/obj/machinery/light_switch{
-	pixel_x = -26
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/button/switch/holosign{
-	id = 2;
-	pixel_x = -26;
-	pixel_y = -9
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/or2)
 "wYO" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -47055,6 +47085,15 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"xcb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/or1)
 "xcp" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -63654,7 +63693,7 @@ dKR
 jeY
 rTP
 xGM
-rTP
+tyc
 tat
 dKR
 oif
@@ -64867,8 +64906,8 @@ quV
 oJL
 fHq
 fQV
+xcb
 eJl
-aMD
 nly
 wej
 dkz
@@ -65067,10 +65106,10 @@ fsf
 wxr
 qgf
 xhj
-wxr
-wxr
-wxr
-wxr
+pCV
+pCV
+pCV
+pCV
 nIi
 tHs
 uZU
@@ -65271,8 +65310,8 @@ tSC
 nMp
 uUJ
 bYB
+dAc
 hdz
-wYk
 eAw
 tHl
 dkz
