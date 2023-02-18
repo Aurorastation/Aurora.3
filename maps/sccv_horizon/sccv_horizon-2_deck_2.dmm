@@ -14711,12 +14711,6 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 1
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = -25;
-	pixel_y = -1
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "hhy" = (
@@ -39129,15 +39123,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/lobby)
 "tyc" = (
-/obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = -25;
-	pixel_y = -1
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/hallway/medical)
 "tyd" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -42402,12 +42392,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"uXE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/white,
-/area/hallway/medical)
 "uXV" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -63667,7 +63651,7 @@ dKR
 jeY
 rTP
 xGM
-tyc
+rTP
 tat
 dKR
 oif
@@ -65288,7 +65272,7 @@ dAc
 hdz
 eAw
 tHl
-uXE
+tyc
 aUG
 ffe
 nvq
