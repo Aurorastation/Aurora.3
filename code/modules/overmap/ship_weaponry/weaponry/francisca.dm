@@ -61,5 +61,5 @@
 	penetrating = 1
 
 /obj/item/projectile/ship_ammo/francisca/frag/on_impact(var/atom/A)
-	fragem(src, 70, 70, 1, 2, 10, 4,TRUE)
+	fragem(src, 70, 70, 1, 2, 10, 4, TRUE)
 	..()
