@@ -1,4 +1,3 @@
-var/list/loadout_categories = list()
 var/list/gear_datums = list()
 
 /datum/loadout_category
@@ -16,20 +15,8 @@ var/list/gear_datums = list()
 		var/datum/gear/G = geartype
 
 		var/use_name = initial(G.display_name)
-		var/use_category = initial(G.sort_category)
 
-		if(!loadout_categories[use_category])
-			loadout_categories[use_category] = new /datum/loadout_category(use_category)
-		var/datum/loadout_category/LC = loadout_categories[use_category]
 		gear_datums[use_name] = new geartype
-		LC.gear[use_name] = gear_datums[use_name]
-
-		//fill_automatic_tags_on_item(G)
-
-	sortTim(loadout_categories, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
-	for(var/loadout_category in loadout_categories)
-		var/datum/loadout_category/LC = loadout_categories[loadout_category]
-		sortTim(LC.gear, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
 
 	return TRUE
 
@@ -156,31 +143,9 @@ var/list/gear_datums = list()
 		. += "<tr><td colspan=3><center><i>Your loadout failed to load and will be reset if you save this slot.</i></center></td></tr>"
 	. += "<tr><td colspan=3><center><a href='?src=\ref[src];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=\ref[src];next_slot=1'>\>\></a><b><font color = '[fcolor]'>[total_cost]/[MAX_GEAR_COST]</font> loadout points spent.</b> \[<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
 
-	. += "<tr><td colspan=3><center><b>"
-	var/firstcat = 1
-	for(var/category in loadout_categories)
-
-		if(firstcat)
-			firstcat = 0
-		else
-			. += " |"
-		if(category == current_tab)
-			. += " [category] "
-		else
-			var/datum/loadout_category/LC = loadout_categories[category]
-			var/style = ""
-			for(var/thing in LC.gear)
-				if(thing in pref.gear)
-					style = "style='color: #FF8000;'"
-					break
-			. += " <a href='?src=\ref[src];select_category=[category]'><font [style]>[category]</font></a> "
-	. += "</b></center></td></tr>"
-
-	var/datum/loadout_category/LC = loadout_categories[current_tab]
-
 	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3>"
-	. += "<div style='left:0;position:absolute;width:10%;margin-left:45%;white-space: nowrap;'><b><center>[LC.category]</center></b></div>"
+	. += "<div style='left:0;position:absolute;width:10%;margin-left:45%;white-space: nowrap;'><b><center>.............</center></b></div>"
 	. += "<span style='float:left;'>"
 	. += "<script>function search_onchange() { \
 		var val = document.getElementById('search_input').value; \
@@ -201,10 +166,10 @@ var/list/gear_datums = list()
 	var/unavailable_items_html = "" // to be added to the end/bottom of the list
 
 	var/list/player_valid_gear_choices = valid_gear_choices()
-	for(var/gear_name in LC.gear)
+	for(var/gear_name in gear_datums)
 		if(!(gear_name in player_valid_gear_choices))
 			continue
-		var/datum/gear/G = LC.gear[gear_name]
+		var/datum/gear/G = gear_datums[gear_name]
 
 		var/temp_html = ""
 		var/datum/job/job = pref.return_chosen_high_job()
