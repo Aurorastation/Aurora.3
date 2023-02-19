@@ -26,6 +26,7 @@ var/list/gear_datums = list()
 	var/current_tab = "General"
 	var/gear_reset = FALSE
 	var/search_input_value = ""
+	var/list/selected_tags = list()
 
 /datum/category_item/player_setup_item/loadout/load_character(var/savefile/S)
 	S["gear"] >> pref.gear
@@ -143,6 +144,18 @@ var/list/gear_datums = list()
 		. += "<tr><td colspan=3><center><i>Your loadout failed to load and will be reset if you save this slot.</i></center></td></tr>"
 	. += "<tr><td colspan=3><center><a href='?src=\ref[src];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=\ref[src];next_slot=1'>\>\></a><b><font color = '[fcolor]'>[total_cost]/[MAX_GEAR_COST]</font> loadout points spent.</b> \[<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
 
+	. += "<tr><td colspan=3><b>"
+	for(var/tag_group in tag_groups_all)
+		var/list/tag_group_list = tag_groups_all[tag_group]
+		. += tag_group + ":"
+		for(tag in tag_group_list)
+			var/style = ""
+			if(tag in selected_tags)
+				style = "style='color: #FF8000;'"
+			. += " <a href='?src=\ref[src];toggle_tag=[tag]'><font [style]>[tag]</font></a> "
+		. += "<br>"
+	. += "</b></td></tr>"
+
 	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3>"
 	. += "<div style='left:0;position:absolute;width:10%;margin-left:45%;white-space: nowrap;'><b><center>.............</center></b></div>"
@@ -169,7 +182,16 @@ var/list/gear_datums = list()
 	for(var/gear_name in gear_datums)
 		if(!(gear_name in player_valid_gear_choices))
 			continue
+
 		var/datum/gear/G = gear_datums[gear_name]
+
+		var/has_all_selected_tags = TRUE
+		for(var/tag in selected_tags)
+			if(!(tag in G.tags))
+				has_all_selected_tags = FALSE
+				break
+		if(!has_all_selected_tags)
+			continue
 
 		var/temp_html = ""
 		var/datum/job/job = pref.return_chosen_high_job()
@@ -332,8 +354,8 @@ var/list/gear_datums = list()
 		// Refresh?
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
-	else if(href_list["select_category"])
-		current_tab = href_list["select_category"]
+	else if(href_list["toggle_tag"])
+		selected_tags ^= href_list["toggle_tag"]
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	else if(href_list["clear_loadout"])
 		pref.gear.Cut()

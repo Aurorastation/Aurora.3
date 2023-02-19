@@ -3,16 +3,22 @@
 
 
 // ------------------------------ automatic tag groups
-
 var/list/tag_group_department = list(DEPARTMENT_COMMAND, DEPARTMENT_COMMAND_SUPPORT, DEPARTMENT_SECURITY, DEPARTMENT_ENGINEERING, DEPARTMENT_MEDICAL, DEPARTMENT_SCIENCE, DEPARTMENT_CARGO, DEPARTMENT_SERVICE)
+var/list/tag_group_corp = list("Idris Incorporated", "Zavodskoi Interstellar", "Private Military Contracting Group", "Zeng-Hu Pharmaceuticals", "Hephaestus Industries", "NanoTrasen", "Orion Express")
 var/list/tag_group_slot = list()
 
 // ------------------------------ manual tag groups
+var/list/tag_group_other = list("tagless")
 
-
+// ------------------------------ all tag groups
+var/list/tag_groups_all = list(
+	"Department tags" = tag_group_department,
+	"Corp tags" = tag_group_corp,
+	"Slot tags" = tag_group_slot,
+	"Other tags" = tag_group_other,
+)
 
 // ------------------------------ add automatic tags to item
-
 proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 	// ---- tag_group_department
 	var/list/departments_and_jobs = list(
@@ -30,9 +36,13 @@ proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 			if(position in gear.allowed_roles)
 				gear.tags += department
 				break
+	// ---- tag_group_corp
+	if(gear.faction)
+		gear.tags += gear.faction
+	// ---- tag_group_slot
 	// ----
-	// ----
-	// ----
+	// ---- dedup
 	// ---- tagless tag
 	if(gear.tags.len == 0)
 		gear.tags += "tagless"
+// ------------------------------
