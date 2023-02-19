@@ -24,6 +24,8 @@ var/list/gear_datums = list()
 		gear_datums[use_name] = new geartype
 		LC.gear[use_name] = gear_datums[use_name]
 
+		//fill_automatic_tags_on_item(G)
+
 	sortTim(loadout_categories, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
 	for(var/loadout_category in loadout_categories)
 		var/datum/loadout_category/LC = loadout_categories[loadout_category]
@@ -264,6 +266,17 @@ var/list/gear_datums = list()
 				origin_count++
 				if(origin_count == G.origin_restriction.len)
 					temp_html += ") "
+					break
+				else
+					temp_html += ", "
+		if(G.tags && G.tags.len != 0)
+			temp_html += "</font><font size = 1>{tags: "
+			var/tag_count = 0
+			for(var/tag in G.tags)
+				temp_html += "[tag]"
+				tag_count++
+				if(tag_count == G.tags.len)
+					temp_html += "} "
 					break
 				else
 					temp_html += ", "
