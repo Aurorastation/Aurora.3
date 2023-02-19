@@ -68,13 +68,10 @@
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/tajara(H), slot_gloves)
 	else if(isunathi(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/unathi(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_gloves)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 
 /datum/job/warden
 	title = "Warden"
@@ -132,13 +129,10 @@
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/tajara(H), slot_gloves)
 	else if(isunathi(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/unathi(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_gloves)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 
 /datum/job/investigator
 	title = "Investigator"
@@ -244,13 +238,10 @@
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/tajara(H), slot_gloves)
 	else if(isunathi(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/unathi(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_gloves)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 
 /datum/job/intern_sec
 	title = "Security Cadet"
@@ -299,10 +290,7 @@
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/tajara(H), slot_gloves)
 	else if(isunathi(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/unathi(H), slot_gloves)
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)

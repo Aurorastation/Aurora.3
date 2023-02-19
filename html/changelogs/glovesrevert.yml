@@ -1,0 +1,7 @@
+author: Pirouette
+
+delete-after: True
+
+changes:
+  - tweak: "Security no longer spawns with gloves as default. They are in the lockers once more."
+  - bugfix: "Security spawns with jackboots properly once more."
