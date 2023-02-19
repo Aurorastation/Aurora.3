@@ -170,7 +170,6 @@
 
 	uniform = /obj/item/clothing/under/det
 	shoes = /obj/item/clothing/shoes/laceup/all_species
-	gloves = /obj/item/clothing/gloves/black/forensic
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
@@ -189,6 +188,15 @@
 	backpack_contents = list(
 		/obj/item/storage/box/evidence = 1
 	)
+
+/datum/outfit/job/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(istajara(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/tajara(H), slot_gloves)
+	else if(isunathi(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/unathi(H), slot_gloves)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
 
 /datum/job/officer
 	title = "Security Officer"

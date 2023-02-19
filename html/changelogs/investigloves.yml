@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Makes investigators spawn with black gloves. Re-adds investigator gloves to their lockers."

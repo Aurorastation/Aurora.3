@@ -279,6 +279,7 @@
 	new /obj/item/clothing/under/det/pmc(src)
 	new /obj/item/clothing/under/det/zavod(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
+	new/obj/item/clothing/gloves/black/forensic(src)
 	new /obj/item/clothing/shoes/laceup/all_species(src)
 	new /obj/item/clothing/shoes/laceup/all_species(src)
 	//Tools
