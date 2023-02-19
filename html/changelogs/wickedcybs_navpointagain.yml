@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "The bridge deck should actually have more than 3 navpoints outside of it now. They were already implemented, it just wasn't possible to use them due to a coding issue."
