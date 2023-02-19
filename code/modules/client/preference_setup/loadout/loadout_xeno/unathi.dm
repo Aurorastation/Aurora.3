@@ -69,6 +69,22 @@
 	un_gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather/unathi
 	gear_tweaks += new /datum/gear_tweak/path(un_gloves)
 
+/datum/gear/gloves/unathi_full_leather
+	display_name = "full leather gloves (colourable)"
+	path = /obj/item/clothing/gloves/black_leather/colour/unathi
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/gloves/unathi_evening
+	display_name = "evening gloves"
+	path = /obj/item/clothing/gloves/evening/unathi
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/gloves/unathi_handwraps
 	display_name = "cloth handwraps"
 	path = /obj/item/clothing/gloves/unathi
