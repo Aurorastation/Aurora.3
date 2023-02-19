@@ -164,7 +164,6 @@
 
 	uniform = /obj/item/clothing/under/det
 	shoes = /obj/item/clothing/shoes/laceup/all_species
-	gloves = /obj/item/clothing/gloves/black/forensic
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
