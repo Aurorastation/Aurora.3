@@ -6,6 +6,7 @@
 var/list/tag_group_department = list(DEPARTMENT_COMMAND, DEPARTMENT_COMMAND_SUPPORT, DEPARTMENT_SECURITY, DEPARTMENT_ENGINEERING, DEPARTMENT_MEDICAL, DEPARTMENT_SCIENCE, DEPARTMENT_CARGO, DEPARTMENT_SERVICE)
 var/list/tag_group_corp = list("Idris Incorporated", "Zavodskoi Interstellar", "Private Military Contracting Group", "Zeng-Hu Pharmaceuticals", "Hephaestus Industries", "NanoTrasen", "Orion Express")
 var/list/tag_group_slot = list() // filled below
+var/list/tag_group_species = list("Human", "IPC", "Skrell", "Unathi", "Tajara", "Diona", "Vaurca")
 
 // ------------------------------ manual tag groups
 var/list/tag_group_other = list("Toys", "tagless")
@@ -15,6 +16,7 @@ var/list/tag_groups_all = list(
 	"Department tags" = tag_group_department,
 	"Corp tags" = tag_group_corp,
 	"Slot tags" = tag_group_slot,
+	"Species tags" = tag_group_species,
 	"Other tags" = tag_group_other,
 )
 

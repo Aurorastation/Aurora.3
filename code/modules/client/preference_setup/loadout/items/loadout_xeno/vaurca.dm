@@ -3,7 +3,7 @@
 	path = /obj/item/clothing/glasses/sunglasses/blinders
 	cost = 2
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/mask/vaurca
@@ -11,7 +11,7 @@
 	path = /obj/item/clothing/mask/breath/vaurca
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/mask/filterport
@@ -19,14 +19,14 @@
 	path = /obj/item/clothing/mask/breath/vaurca/filter
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 
 /datum/gear/mask/vaurca_expression
 	display_name = "human expression mask"
 	path = /obj/item/clothing/head/expression
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/mask/vaurca_expression/skrell
@@ -37,7 +37,7 @@
 	display_name = "shaper helmet"
 	path = /obj/item/clothing/head/shaper
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/cape
@@ -45,7 +45,7 @@
 	path = /obj/item/storage/backpack/cloak
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/cape_selection
@@ -53,7 +53,7 @@
 	path = /obj/item/storage/backpack/cloak
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/cape_selection/New()
@@ -74,7 +74,7 @@
 	path = /obj/item/clothing/suit/vaurca
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 
 /datum/gear/vaurca_robe/New()
 	..()
@@ -89,7 +89,7 @@
 	display_name = "vaurca clothes"
 	path = /obj/item/clothing/under/vaurca
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/vaurca_harness
@@ -97,7 +97,7 @@
 	description = "A selection of vaurca colored gear harnesses."
 	path = /obj/item/clothing/under/vaurca/gearharness
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/vaurca_harness/New()
@@ -113,7 +113,7 @@
 	description = "A tight-fitting gear harness designed for the Vaurcan form. Mass-produced from equally mass-produced materials."
 	path = /obj/item/clothing/under/vaurca/gearharness/colorable
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/vaurca
@@ -121,7 +121,7 @@
 	path = /obj/item/clothing/suit/vaurca/shaper
 	slot = slot_wear_suit
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	cost = 1
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -129,7 +129,7 @@
 	display_name = "vaurca shoes"
 	path = /obj/item/clothing/shoes/vaurca
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/vaurca_shroud
@@ -138,7 +138,7 @@
 	path = /obj/item/clothing/head/shroud
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 
 /datum/gear/suit/vaurca_shroud/New()
 	..()
@@ -156,7 +156,7 @@
 	path = /obj/item/clothing/head/shroud/colorable
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/vaurca_mantle
@@ -164,7 +164,7 @@
 	path = /obj/item/clothing/accessory/poncho/vaurca
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/augment/language_processor
@@ -172,7 +172,7 @@
 	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective Hives."
 	path = /obj/item/organ/internal/augment/language/klax
 	cost = 0
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_NO_SELECTION
 
@@ -188,7 +188,7 @@
 	description = "A lunchbox selection containing various kois products."
 	cost = 2
 	path = /obj/item/storage/toolbox/lunchbox
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 
 /datum/gear/vaurca_lunchbox/New()
@@ -207,7 +207,7 @@
 	description = "Rings worn by Bulwarks to decorate their horns."
 	cost = 1
 	path = /obj/item/clothing/ears/bulwark/rings
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	whitelisted = list(SPECIES_VAURCA_BULWARK)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -216,6 +216,6 @@
 	description = "A holographic projector using advanced technology that immerses someone into a scene. It is developed and distributed by Hive Zo'ra and allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur."
 	cost = 2
 	path = /obj/item/skrell_projector/vaurca_projector
-	sort_category = "Xenowear - Vaurca"
+	tags = list("Vaurca")
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

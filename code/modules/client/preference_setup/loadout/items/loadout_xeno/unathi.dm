@@ -5,7 +5,7 @@
 	path = /obj/item/clothing/accessory/poncho/unathimantle
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/unathi_mantle/New()
@@ -22,7 +22,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/unathi_robe
@@ -30,7 +30,7 @@
 	path = /obj/item/clothing/suit/unathi/robe
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/unathi_robe/kilt
@@ -43,14 +43,14 @@
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 
 /datum/gear/gloves/unathi
 	display_name = "unathi gloves selection"
 	description = "A selection of unathi colored gloves."
 	path = /obj/item/clothing/gloves/black/unathi
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 
 /datum/gear/gloves/unathi/New()
 	..()
@@ -74,14 +74,14 @@
 	path = /obj/item/clothing/gloves/unathi
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic"
 	path = /obj/item/clothing/under/unathi
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/unathi/himation
@@ -94,21 +94,21 @@
 	display_name = "straw hat"
 	path = /obj/item/clothing/head/unathi
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 
 /datum/gear/eyes/wasteland_goggles
 	display_name = "wasteland goggles"
 	path = /obj/item/clothing/glasses/safety/goggles/wasteland
 	whitelisted = list(SPECIES_UNATHI)
 	origin_restriction = list(/singleton/origin_item/origin/wastelander)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 
 /datum/gear/accessory/sinta_hood
 	display_name = "clan hood"
 	slot = slot_head
 	path = /obj/item/clothing/accessory/sinta_hood
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/augment/autakh_engineering
@@ -116,7 +116,7 @@
 	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
 	path = /obj/item/organ/external/hand/right/autakh/tool
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	cost = 3
 	allowed_roles = list("Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist")
 	flags = GEAR_NO_SELECTION
@@ -126,7 +126,7 @@
 	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	cost = 3
 	allowed_roles = list("Shaft Miner")
 	flags = GEAR_NO_SELECTION
@@ -136,7 +136,7 @@
 	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
 	path = /obj/item/organ/external/hand/right/autakh/medical
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	cost = 3
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
 	flags = GEAR_NO_SELECTION
@@ -146,7 +146,7 @@
 	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
 	path = /obj/item/organ/external/hand/right/autakh/security
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	cost = 3
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
 	flags = GEAR_NO_SELECTION
@@ -155,39 +155,39 @@
 	display_name = "jizixi dress"
 	path = /obj/item/clothing/under/unathi/jizixi
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 
 /datum/gear/uniform/unathi/sashes
 	display_name = "gyzao sashes"
 	path = /obj/item/clothing/under/unathi/sashes
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 
 /datum/gear/uniform/unathi/mogazali
 	display_name = "mogazali attire"
 	path = /obj/item/clothing/under/unathi/mogazali
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/unathi/zazali
 	display_name = "zazali garb"
 	path = /obj/item/clothing/under/unathi/zazali
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
 
 /datum/gear/uniform/unathi/huytai
 	display_name = "huytai outfit"
 	path = /obj/item/clothing/under/unathi/huytai
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 
 /datum/gear/uniform/unathi/zozo
 	display_name = "zozo top"
 	path = /obj/item/clothing/under/unathi/zozo
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 
 /datum/gear/suit/unathi/wrapping_head
 	display_name = "Thakhist head wrappings"
@@ -195,7 +195,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain", "Machinist")
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/unathi/wrapping_body
@@ -204,7 +204,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain", "Machinist")
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/autakh
@@ -214,7 +214,7 @@
 	path = /obj/item/organ/internal/anchor
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 
 /datum/gear/augment/autakh/calf_override
 	display_name = "calf overdrive"
@@ -249,7 +249,7 @@
 /datum/gear/religion/shaman_staff
 	display_name = "shaman staff"
 	path = /obj/item/cane/shaman
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
 	whitelisted = list(SPECIES_UNATHI)
 
@@ -260,7 +260,7 @@
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain")
 	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/wrists/maxtlatl
@@ -269,7 +269,7 @@
 	whitelisted = list(SPECIES_UNATHI)
 	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
 	allowed_roles = list("Chaplain")
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/maxtlatl
@@ -278,7 +278,7 @@
 	whitelisted = list(SPECIES_UNATHI)
 	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
 	allowed_roles = list("Chaplain")
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/rockstone
@@ -287,7 +287,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
 
 /datum/gear/wrists/noble_bracers
@@ -295,7 +295,7 @@
 	path = /obj/item/clothing/wrists/unathi/jeweled
 	whitelisted = list(SPECIES_UNATHI)
 	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/sash
@@ -303,7 +303,7 @@
 	path = /obj/item/clothing/accessory/unathi
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/noble_vest
@@ -312,5 +312,5 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
-	sort_category = "Xenowear - Unathi"
+	tags = list("Unathi")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

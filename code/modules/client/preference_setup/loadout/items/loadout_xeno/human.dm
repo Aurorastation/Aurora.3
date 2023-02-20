@@ -2,7 +2,7 @@
 	display_name = "CR suit"
 	path = /obj/item/clothing/under/offworlder
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	tags = list("Human")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/offworlder/dress
@@ -17,14 +17,14 @@
 	display_name = "starshades"
 	path = /obj/item/clothing/glasses/spiffygogs/offworlder
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	tags = list("Human")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/offworlder
 	display_name = "legbrace"
 	path = /obj/item/clothing/accessory/offworlder/bracer
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	tags = list("Human")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/offworlder/venter
@@ -39,7 +39,7 @@
 	display_name = "exo-stellar ribbon selection"
 	path = /obj/item/clothing/accessory/armband/offworlder
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	tags = list("Human")
 
 /datum/gear/accessory/offworlder_armband/New()
 	..()
@@ -53,7 +53,7 @@
 	display_name = "jagmask"
 	path = /obj/item/clothing/mask/breath/offworlder/jagmask
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	tags = list("Human")
 
 /datum/gear/mask/offworlder/overmask
 	display_name = "overmask"
@@ -73,17 +73,17 @@
 	display_name = "starmitts"
 	path = /obj/item/clothing/gloves/offworlder
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	tags = list("Human")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/offworlder_rig
 	display_name = "exo-stellar skeleton"
 	path = /obj/item/rig/light/offworlder
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	tags = list("Human")
 
 /datum/gear/accessory/offworlder_card
 	display_name = "scarab passblade"
 	path = /obj/item/clothing/accessory/badge/passcard/scarab
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	tags = list("Human")
