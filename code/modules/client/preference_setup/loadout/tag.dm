@@ -8,7 +8,7 @@ var/list/tag_group_corp = list("Idris Incorporated", "Zavodskoi Interstellar", "
 var/list/tag_group_slot = list()
 
 // ------------------------------ manual tag groups
-var/list/tag_group_other = list("tagless")
+var/list/tag_group_other = list("Toys", "tagless")
 
 // ------------------------------ all tag groups
 var/list/tag_groups_all = list(
@@ -20,8 +20,16 @@ var/list/tag_groups_all = list(
 
 // ------------------------------
 proc/grab_manual_tags_from_item(var/datum/gear/gear)
-	for(var/tag in gear.tags)
-		tag_group_other |= tag
+	// for(var/tag in gear.tags)
+		// var/found = FALSE
+		// for(var/group_name in tag_groups_all)
+		// 	var/list/group_list = tag_groups_all[group_name]
+		// 	for(var/tag_in_group in group_list)
+		// 		if(tag in tag_in_group)
+		// 			found = TRUE
+		// 			break
+		// if(!found)
+			// tag_group_other |= tag
 
 // ------------------------------
 proc/fill_automatic_tags_on_item(var/datum/gear/gear)

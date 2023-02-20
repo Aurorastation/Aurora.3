@@ -2,6 +2,7 @@
 	display_name = "holo board game"
 	path = /obj/item/board
 	sort_category = "Toys"
+	tags = list("Toys")
 
 /datum/gear/toy/dice
 	display_name = "pack of dice"
