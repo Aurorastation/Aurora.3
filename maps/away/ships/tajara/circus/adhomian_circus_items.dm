@@ -155,7 +155,7 @@
 /obj/item/dumbbell
 	name = "adhomian dumbbell"
 	desc = "A heavy piece of metal used in weight lifting."
-	icon = 'maps/away/ships/circus/circus_sprites.dmi'
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "dumbbell"
 	item_state = "dumbbell"
 	contained_sprite = TRUE
