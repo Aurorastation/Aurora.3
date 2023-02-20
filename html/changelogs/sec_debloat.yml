@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - rscdel: "Removes the flash and handcuffs that spawn security's bag on round start or when joining."
