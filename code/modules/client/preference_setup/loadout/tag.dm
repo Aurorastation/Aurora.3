@@ -18,7 +18,12 @@ var/list/tag_groups_all = list(
 	"Other tags" = tag_group_other,
 )
 
-// ------------------------------ add automatic tags to item
+// ------------------------------
+proc/grab_manual_tags_from_item(var/datum/gear/gear)
+	for(var/tag in gear.tags)
+		tag_group_other |= tag
+
+// ------------------------------
 proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 	// ---- tag_group_department
 	var/list/departments_and_jobs = list(
@@ -45,4 +50,5 @@ proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 	// ---- tagless tag
 	if(gear.tags.len == 0)
 		gear.tags += "tagless"
+
 // ------------------------------
