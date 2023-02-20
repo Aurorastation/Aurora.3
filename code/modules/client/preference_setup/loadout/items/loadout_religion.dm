@@ -2,7 +2,7 @@
 	display_name = "trinary perfection robes"
 	path = /obj/item/clothing/suit/trinary_robes
 	slot = slot_w_uniform
-	sort_category = "Religion"
+	tags = list("Religion")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/religion/trinary/mask

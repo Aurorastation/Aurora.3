@@ -1,7 +1,7 @@
 /datum/gear/smoking
 	display_name = "matchbox"
 	path = /obj/item/storage/box/fancy/matches
-	sort_category = "Smoking"
+	tags = list("Smoking")
 
 /datum/gear/smoking/zippo
 	display_name = "zippo lighter selection"
