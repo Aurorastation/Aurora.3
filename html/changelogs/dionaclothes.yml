@@ -1,0 +1,6 @@
+author: Pirouette
+
+delete-after: True
+
+changes:
+  - bugfix: "Dominian Dionae may now access Dominian clothes."
