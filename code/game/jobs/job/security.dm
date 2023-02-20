@@ -40,7 +40,6 @@
 	head = /obj/item/clothing/head/hos
 	id = /obj/item/card/id/navy
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
-	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/heads/hos
 	bowman = /obj/item/device/radio/headset/heads/hos/alt
@@ -50,10 +49,6 @@
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/hos
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
 	tablet = /obj/item/modular_computer/handheld/preset/security/hos
-
-	backpack_contents = list(
-		/obj/item/handcuffs = 1
-	)
 
 	implants = list(
 		/obj/item/implant/mindshield
@@ -108,7 +103,6 @@
 	uniform = /obj/item/clothing/under/rank/warden
 	suit = /obj/item/clothing/suit/storage/toggle/warden
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator
-	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/headset_warden
 	bowman = /obj/item/device/radio/headset/headset_warden/alt
@@ -123,10 +117,6 @@
 	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
-
-	backpack_contents = list(
-		/obj/item/handcuffs = 1
-	)
 
 /datum/outfit/job/warden/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -220,7 +210,6 @@
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security
-	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
@@ -235,10 +224,6 @@
 	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
-
-	backpack_contents = list(
-		/obj/item/handcuffs = 1
-	)
 
 /datum/outfit/job/officer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
