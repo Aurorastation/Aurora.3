@@ -3297,6 +3297,7 @@
 #include "maps\away\ships\sol_ssmd\ssmd_ship.dm"
 #include "maps\away\ships\sol_ssmd\ssmd_ship_ghostroles.dm"
 #include "maps\away\ships\tajara\circus\adhomian_circus.dm"
+#include "maps\away\ships\tajara\circus\adhomian_circus_areas.dm"
 #include "maps\away\ships\tajara\circus\adhomian_circus_items.dm"
 #include "maps\away\ships\tajara\circus\adhomian_circus_roles.dm"
 #include "maps\away\ships\tajara\taj_smuggler\tajaran_smuggler.dm"

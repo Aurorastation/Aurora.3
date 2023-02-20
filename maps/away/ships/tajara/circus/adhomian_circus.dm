@@ -13,14 +13,6 @@
 	map = "Adhomian Traveling Circus"
 	descriptor = "The N'hanzafu class is a bulky Adhomian freighter designed with a large crew and cargo in mind. This one is painted in bright colors."
 
-//areas
-/area/ship/adhomian_circus
-	name = "Adhomian Traveling Circus"
-
-/area/shuttle/adhomian_circus_shuttle
-	name = "Adhomian Traveling Circus Shuttle"
-	icon_state = "shuttle2"
-
 //ship stuff
 
 /obj/effect/overmap/visitable/ship/adhomian_circus
@@ -77,7 +69,7 @@
 	name = "Adhomian Circus Shuttle"
 	landmark_tag = "nav_hangar_adhomian_circus_shuttle"
 	docking_controller = "adhomian_circus_shuttle_dock"
-	base_area = /area/ship/adhomian_circus
+	base_area = /area/adhomian_circus/hangar
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
