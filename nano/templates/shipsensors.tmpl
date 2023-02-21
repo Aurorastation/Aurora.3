@@ -128,6 +128,16 @@
 	</tr>
 	{{/for}}
 	</table>
+  {{if data.contact_details}}
+	<class="itemContent">
+	{{:data.contact_details}}
+	<br/>
+	</div>
+	<class="item">
+	{{:helper.link('Print', 'search', { 'scan' : 'print' })}}
+	{{:helper.link('Clear', 'refresh', { 'scan' : 'clear' })}}
+	</div>
+{{/if}}
 {{/if}}
 </div>
 
@@ -158,16 +168,6 @@
 	</tr>
 	{{/for}}
 	</table>
-{{/if}}
-{{if data.contact_details}}
-	<class="itemContent">
-	{{:data.contact_details}}
-	<br/>
-	</div>
-	<class="item">
-	{{:helper.link('Print', 'search', { 'scan' : 'print' })}}
-	{{:helper.link('Clear', 'refresh', { 'scan' : 'clear' })}}
-	</div>
 {{/if}}
 </div>
 

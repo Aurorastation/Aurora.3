@@ -21,16 +21,6 @@
 /obj/machinery/computer/ship/sensors/proc/get_sensors()
 	return sensors
 
-	var/working_sound = 'sound/machines/sensors/dradis.ogg'
-	var/datum/sound_token/sound_token
-	var/sound_id
-
-	var/datum/weakref/sensor_ref
-	var/list/last_scan
-
-/obj/machinery/computer/ship/sensors/proc/get_sensors()
-	return sensors
-
 /obj/machinery/computer/ship/sensors/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
 	if(!.)
@@ -271,6 +261,7 @@
 						LAZYSET(last_scan, "name", "[O]")
 						to_chat(usr, SPAN_NOTICE("Successfully scanned [O]."))
 						contact_name = O.name
+						contact_details = O.get_scan_data(usr)
 	return TOPIC_HANDLED
 
 	if (href_list["request_datalink"])
