@@ -90,7 +90,7 @@ datum/track/New(var/title_name, var/audio)
 			for(var/mob/living/carbon/M in ohearers(6, src))
 				if(istype(M, /mob/living/carbon/human))
 					var/mob/living/carbon/human/H = M
-					if(H.get_hearing_protection())
+					if(H.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 						continue
 				M.sleeping = 0
 				M.stuttering += 20
@@ -254,3 +254,24 @@ datum/track/New(var/title_name, var/audio)
 	icon = 'icons/obj/audioconsole_wall.dmi'
 	density = FALSE
 	anchored = TRUE
+
+/obj/machinery/media/jukebox/gramophone
+	name = "gramophone"
+	desc = "Play that vintage music!"
+	icon = 'icons/obj/jukebox.dmi'
+	icon_state = "gramophone"
+	state_base = "gramophone"
+	anchored = 0
+	tracks = list(
+		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
+		new/datum/track("Electro Swing", 'sound/music/phonograph/electro_swing.ogg'),
+		new/datum/track("Jazz Instrumental", 'sound/music/phonograph/jazz_instrumental.ogg'),
+		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
+		new/datum/track("Posin'", 'sound/music/phonograph/posin.ogg')
+	)
+
+/obj/machinery/media/jukebox/gramophone/update_icon()
+	cut_overlays()
+	icon_state = state_base
+	if(playing)
+		add_overlay("[state_base]-running")

@@ -25,7 +25,7 @@
 	pixel_y = -1
 	},
 /obj/item/storage/firstaid/adv,
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/trauma,
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/o2,
 /obj/item/storage/firstaid/toxin,
@@ -967,6 +967,10 @@
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/airless,
 /area/ship/orion_express_ship)
+"hfG" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/template_noop,
+/area/space)
 "hjK" = (
 /obj/machinery/atm{
 	pixel_x = 32
@@ -1096,7 +1100,7 @@
 "ian" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/clothing/suit/chef,
+/obj/item/clothing/suit/chef_jacket,
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
 "ibp" = (
@@ -1749,7 +1753,7 @@
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket,
 /obj/item/clothing/suit/storage/toggle/bomber,
 /obj/item/clothing/under/shorts/khaki,
-/obj/item/clothing/under/shorts/khaki/female,
+/obj/item/clothing/under/shorts/khaki/short,
 /obj/item/clothing/shoes/workboots/dark,
 /obj/item/clothing/shoes/workboots/toeless/dark,
 /obj/item/clothing/gloves/brown,
@@ -2575,6 +2579,8 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "sJD" = (
@@ -2895,6 +2901,8 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "uzX" = (
@@ -22333,7 +22341,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+hfG
 xRX
 xRX
 xRX
@@ -35906,7 +35914,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+hfG
 xRX
 xRX
 xRX
@@ -35986,7 +35994,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+hfG
 xRX
 xRX
 xRX

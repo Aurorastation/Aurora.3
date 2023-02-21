@@ -76,8 +76,9 @@
 	shuttle = "Izharshan Freighter"
 	designation = "Anvil"
 	desc = "Though the sensors identify the engine signature and overall rough profile of the signal as being from an older Hegemonic Brick-class civilian freight shuttle, many modifications are detected, such as possible anti-ship weaponry onboard."
-	icon_state = "shuttle_green"
-	moving_state = "shuttle_green_moving"
+	icon_state = "generic"
+	moving_state = "generic_moving"
+	colors = list("#95de9c")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 7500 //This truck is too damn big

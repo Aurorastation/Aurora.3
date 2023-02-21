@@ -1,7 +1,12 @@
+/obj/structure/flora
+	name = "flora parent object"
+	desc = DESC_PARENT
+	anchored = TRUE
+
 /obj/structure/flora/tree
 	name = "tree"
-	anchored = 1
-	density = 1
+	desc = "A tree."
+	density = TRUE
 	pixel_x = -16
 	layer = 9
 
@@ -53,8 +58,9 @@
 
 //rocks
 /obj/structure/flora/rock
-	icon_state = "basalt"
+	name = "rock"
 	desc = "A rock."
+	icon_state = "basalt"
 	icon = 'icons/obj/flora/rocks_grey.dmi'
 	density = TRUE
 
@@ -62,6 +68,16 @@
 	name = "rocks"
 	icon_state = "lavarocks"
 	desc = "A pile of rocks."
+
+/obj/structure/flora/rock/ice
+	name = "ice"
+	icon_state = "rock_1"
+	icon = 'icons/obj/flora/ice_rocks.dmi'
+	desc = "A large formation made of ice."
+
+/obj/structure/flora/rock/ice/Initialize(mapload)
+	. = ..()
+	icon_state = "rock_[rand(1,2)]"
 
 //newbushes
 

@@ -21529,7 +21529,7 @@
 /obj/item/clothing/head/surgery/pmc,
 /obj/item/clothing/head/surgery/pmc,
 /obj/item/clothing/head/surgery/pmc,
-/obj/item/clothing/suit/apron/surgery,
+/obj/item/clothing/accessory/apron/surgery,
 /obj/item/bodybag,
 /obj/item/bodybag,
 /obj/item/bodybag,
@@ -27865,6 +27865,30 @@
 /obj/item/clothing/glasses/night{
 	pixel_x = -6;
 	pixel_y = 8
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = 6;
+	pixel_y = 6
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"

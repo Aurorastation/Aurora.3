@@ -16,8 +16,9 @@
 	name = "Her Majesty's Mercantile Flotilla Ship"
 	desc = "The Hma'trra class is a modified version of the corporate freighter sold by the SCC to the New Kingdom. It is simple model adapted to the long journey between Adhomai and Tau Ceti."
 	class = "NKAMV" //New Kingdom of Adhomai Vessel
-	icon_state = "ship"
-	moving_state = "ship_moving"
+	icon_state = "hmatrra"
+	moving_state = "hmatrra_moving"
+	colors = list("#3e9af0", "#2b5cff")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
@@ -29,7 +30,7 @@
 		"nka_merchant_ship_4"
 	)
 	initial_restricted_waypoints = list(
-		"Orbital Fleet Shuttle" = list("nav_nka_merchant_shuttle")
+		"Her Majesty's Mercantile Flotilla Shuttle" = list("nav_nka_merchant_shuttle")
 	)
 
 /obj/effect/overmap/visitable/ship/nka_merchant/New()
@@ -62,6 +63,7 @@
 	desc = "A simple corporate shuttle design used by Her Majesty's Mercantile Flotilla."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	colors = list("#3e9af0", "#2955e6")
 	class = "NKAMV"
 	designation = "Tajani"
 	shuttle = "Her Majesty's Mercantile Flotilla Shuttle"

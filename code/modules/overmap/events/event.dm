@@ -126,13 +126,13 @@
 
 	if(!active_hazards.len)
 		hazard_by_turf -= T
-		entered_event.unregister(T, src, /singleton/overmap_event_handler/proc/on_turf_entered)
-		exited_event.unregister(T, src, /singleton/overmap_event_handler/proc/on_turf_exited)
+		entered_event.unregister(T, src, PROC_REF(on_turf_entered))
+		exited_event.unregister(T, src, PROC_REF(on_turf_exited))
 	else
 		hazard_by_turf |= T
 		hazard_by_turf[T] = active_hazards
-		entered_event.register(T, src,/singleton/overmap_event_handler/proc/on_turf_entered)
-		exited_event.register(T, src, /singleton/overmap_event_handler/proc/on_turf_exited)
+		entered_event.register(T, src, PROC_REF(on_turf_entered))
+		exited_event.register(T, src, PROC_REF(on_turf_exited))
 
 	for(var/obj/effect/overmap/visitable/ship/ship in T)
 		var/list/active_ship_events = ship_events[ship]
@@ -167,14 +167,18 @@
 //  And with them "existing" on the overmap Z-level things quickly get odd.
 /obj/effect/overmap/event
 	name = "event"
-	icon = 'icons/obj/overmap.dmi'
-	icon_state = "event"
-	opacity = 1
+	icon = 'icons/obj/overmap/overmap_effects.dmi'
+	icon_state = "blank"
+	opacity = 0
 	var/list/events
 	var/list/event_icon_states = list("event")
 	var/difficulty = EVENT_LEVEL_MODERATE
 	var/list/victims //basically cached events on which Z level
 	var/can_be_destroyed = TRUE //Can this event be destroyed by ship guns?
+
+	// Events must be detected by sensors, but are otherwise instantly visible.
+	requires_contact = TRUE
+	instant_contact = TRUE
 
 	// Vars that determine movability, current moving direction, and moving speed //
 	/// Whether this event can move or not

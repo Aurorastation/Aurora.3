@@ -1,9 +1,11 @@
 
 /obj/structure/flora/pottedplant
 	name = "potted plant"
+	desc = "A potted plant."
 	icon = 'icons/obj/plants.dmi'
 	icon_state = "plant-26"
-	var/dead = 0
+	anchored = FALSE
+	var/dead = FALSE
 	var/obj/item/stored_item
 
 /obj/structure/flora/pottedplant/Destroy()
@@ -11,11 +13,12 @@
 	return ..()
 
 /obj/structure/flora/pottedplant/proc/death()
-	if (!dead)
+	if(!dead)
 		icon_state = "plant-dead"
 		name = "dead [name]"
-		desc = "It looks dead."
-		dead = 1
+		desc = "A dead potted plant."
+		dead = TRUE
+
 //No complex interactions, just make them fragile
 /obj/structure/flora/pottedplant/ex_act(var/severity = 2.0)
 	death()
@@ -68,13 +71,13 @@
 		return 1
 	return ..()
 
-//Added random icon selection for potted plants.
-//It was silly they always used the same sprite when we have 26 sprites of them in the icon file
+// Added random icon selection for potted plants.
+// It was silly they always used the same sprite when we have 26 sprites of them in the icon file.
 /obj/structure/flora/pottedplant/random/New()
 	..()
 	var/number = rand(1,36)
 	if (number == 36)
-		if (prob(90))//Make the weird one rarer
+		if (prob(90)) // Make the weird one rarer
 			number = rand(1,35)
 		else if(!desc)
 			desc = "A half-sentient plant borne from a mishap in a Zeng-Hu genetics lab."
@@ -119,8 +122,6 @@
 				desc = "A woody shrub. This one seems to be in bloom. It's just like one of my japanese animes."
 			else
 				desc = "Just your common, everyday houseplant."
-
-
 
 	if (number < 10)
 		number = "0[number]"

@@ -65,7 +65,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	return ..()
 
 /mob/living/simple_animal/attackby(obj/item/I, mob/living/user)
-	if(I.damtype == PAIN)
+	if(I.damtype == DAMAGE_PAIN)
 		playsound(loc, 'sound/weapons/tap.ogg', I.get_clamped_volume(), 1, -1)
 		return TRUE
 	else

@@ -56,7 +56,7 @@
 		affected.status |= ORGAN_BLEEDING
 	playsound(target.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 
-	target.apply_damage(1, BRUTE, target_zone, 0)
+	target.apply_damage(1, DAMAGE_BRUTE, target_zone, 0)
 	affected.clamp_organ()
 	spread_germs_to_organ(affected, user)
 
@@ -64,8 +64,8 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips as the blade sputters, searing a long gash in [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips as the blade sputters, searing a long gash in [target]'s [affected.name] with \the [tool]!"))
-	target.apply_damage(7.5, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
-	target.apply_damage(12.5, BURN, target_zone, 0, tool)
+	target.apply_damage(7.5, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(12.5, DAMAGE_BURN, target_zone, 0, tool)
 
 /singleton/surgery_step/generic/incision_manager
 	name = "Make Managed Incision"
@@ -98,7 +98,7 @@
 	if(istype(target) && !(target.species.flags & NO_BLOOD))
 		affected.status |= ORGAN_BLEEDING
 
-	target.apply_damage(1, BRUTE, target_zone, 0)
+	target.apply_damage(1, DAMAGE_BRUTE, target_zone, 0)
 	affected.clamp_organ()
 	affected.open = ORGAN_OPEN_RETRACTED
 
@@ -106,8 +106,8 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand jolts as the system sparks, ripping a gruesome hole in [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand jolts as the system sparks, ripping a gruesome hole in [target]'s [affected.name] with \the [tool]!"))
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
-	target.apply_damage(15, BURN, target_zone, 0, tool)
+	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(15, DAMAGE_BURN, target_zone, 0, tool)
 
 /singleton/surgery_step/generic/cut_open
 	name = "Make Incision"
@@ -145,14 +145,14 @@
 	if(istype(target) && !(target.species.flags & NO_BLOOD))
 		affected.status |= ORGAN_BLEEDING
 
-	target.apply_damage(1, BRUTE, target_zone, 0)
+	target.apply_damage(1, DAMAGE_BRUTE, target_zone, 0)
 	playsound(target.loc, 'sound/weapons/bladeslice.ogg', 15, 1)
 
 /singleton/surgery_step/generic/cut_open/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing open [target]'s [affected.name] in the wrong place with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, slicing open [target]'s [affected.name] in the wrong place with \the [tool]!"))
-	target.apply_damage(10, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(10, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/generic/cut_open_vaurca
 	name = "Cut Open Vaurca"
@@ -189,13 +189,13 @@
 	if(istype(target) && !(target.species.flags & NO_BLOOD))
 		affected.status |= ORGAN_BLEEDING
 
-	target.apply_damage(1, BRUTE, target_zone, 0)
+	target.apply_damage(1, DAMAGE_BRUTE, target_zone, 0)
 
 /singleton/surgery_step/generic/cut_open_vaurca/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, cracking [target]'s [affected.name] carapace in the wrong place with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, cracking [target]'s [affected.name] carapace in the wrong place with \the [tool]!"))
-	target.apply_damage(15, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(15, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/generic/clamp_bleeders
 	name = "Clamp Bleeders"
@@ -292,7 +292,7 @@
 		msg = SPAN_WARNING("[user]'s hand slips, damaging several organs in [target]'s lower abdomen with \the [tool]")
 		self_msg = SPAN_WARNING("Your hand slips, damaging several organs in [target]'s lower abdomen with \the [tool]!")
 	user.visible_message(msg, self_msg)
-	target.apply_damage(12, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(12, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/generic/cauterize
 	name = "Cauterize Incision"
@@ -332,4 +332,4 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, leaving a small burn on [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, leaving a small burn on [target]'s [affected.name] with \the [tool]!"))
-	target.apply_damage(5, BURN, affected, tool)
+	target.apply_damage(5, DAMAGE_BURN, affected, tool)

@@ -201,7 +201,8 @@
 		/obj/item/device/flashlight,
 		/obj/item/extinguisher/mini,
 		/obj/item/device/radio,
-		/obj/item/taperoll/medical
+		/obj/item/taperoll/medical,
+		/obj/item/storage/box/fancy/med_pouch
 		)
 
 /obj/item/storage/belt/medical/first_responder
@@ -369,6 +370,7 @@
 		/obj/item/pinpointer,
 		/obj/item/plastique,
 		/obj/item/gun/projectile/pistol,
+		/obj/item/gun/projectile/silenced,
 		/obj/item/gun/energy/crossbow,
 		/obj/item/material/knife/trench,
 		/obj/item/ammo_casing/a145,

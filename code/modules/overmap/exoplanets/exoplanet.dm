@@ -1,7 +1,5 @@
 /obj/effect/overmap/visitable/sector/exoplanet
 	name = "exoplanet"
-	icon_state = "globe"
-	in_space = 0
 	var/area/planetary_area
 	var/list/seeds = list()
 	var/list/animals = list()
@@ -48,6 +46,8 @@
 	var/habitability_class
 
 	var/list/mobs_to_tolerate = list()
+	var/generated_name = TRUE
+	var/ring_chance = 20 //the chance of this exoplanet spawning with a ring on its sprite
 
 	var/list/possible_random_ruins
 
@@ -61,6 +61,13 @@
 		else
 			habitability_class = HABITABILITY_BAD
 
+/obj/effect/overmap/visitable/sector/exoplanet/Initialize()
+  . = ..()
+  update_icon()
+
+/obj/effect/overmap/visitable/sector/exoplanet/update_icon()
+	icon_state = "globe[rand(1,3)]"
+
 /obj/effect/overmap/visitable/sector/exoplanet/New(nloc, max_x, max_y)
 	if(!current_map.use_overmap)
 		return
@@ -69,12 +76,14 @@
 	maxy = max_y ? max_y : world.maxy
 	planetary_area = new planetary_area()
 
-	name = "[generate_planet_name()], \a [name]"
+	if(generated_name)
+		name = "[generate_planet_name()], \a [name]"
 
 	world.maxz++
 	forceMove(locate(1,1,world.maxz))
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
+	pre_ruin_preparation()
 	if(LAZYLEN(possible_themes))
 		var/datum/exoplanet_theme/T = pick(possible_themes)
 		theme = new T
@@ -98,6 +107,9 @@
 	generate_daycycle()
 	generate_planet_image()
 	START_PROCESSING(SSprocessing, src)
+
+/obj/effect/overmap/visitable/sector/exoplanet/proc/pre_ruin_preparation()
+	return
 
 //attempt at more consistent history generation for xenoarch finds.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_engravings()
@@ -125,8 +137,8 @@
 					var/mob_type = pick(repopulate_types)
 					var/mob/S = new mob_type(T)
 					animals += S
-					death_event.register(S, src, /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal)
-					destroyed_event.register(S, src, /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal)
+					death_event.register(S, src, PROC_REF(remove_animal))
+					destroyed_event.register(S, src, PROC_REF(remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
 				repopulating = 0
@@ -205,8 +217,8 @@
 	for(var/mob/living/simple_animal/A in living_mob_list)
 		if(A.z in map_z)
 			animals += A
-			death_event.register(A, src, /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal)
-			destroyed_event.register(A, src, /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal)
+			death_event.register(A, src, PROC_REF(remove_animal))
+			destroyed_event.register(A, src, PROC_REF(remove_animal))
 	max_animal_count = animals.len
 	for(var/type in random_map.fauna_types)
 		mobs_to_tolerate[type] = TRUE

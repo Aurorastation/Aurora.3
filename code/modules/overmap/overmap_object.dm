@@ -1,6 +1,6 @@
 /obj/effect/overmap
 	name = "map object"
-	icon = 'icons/obj/overmap.dmi'
+	icon = 'icons/obj/overmap/overmap_effects.dmi'
 	icon_state = "object"
 	color = "#fffffe"
 
@@ -8,6 +8,15 @@
 
 	var/known = 0		//shows up on nav computers automatically
 	var/scannable       //if set to TRUE will show up on ship sensors for detailed scans
+	var/unknown_id                      // A unique identifier used when this entity is scanned. Assigned in Initialize().
+	var/requires_contact = TRUE //whether or not the effect must be identified by ship sensors before being seen.
+	var/instant_contact  = FALSE //do we instantly identify ourselves to any ship in sensors range?
+	var/sensor_range_override = FALSE //When true, this overmap object will be scanned with range instead of view.
+
+	var/sensor_visibility = 10	 //how likely it is to increase identification process each scan.
+	var/vessel_mass = 10000             // metric tonnes, very rough number, affects acceleration provided by engines
+
+
 	var/image/targeted_overlay
 
 //Overlay of how this object should look on other skyboxes
@@ -49,6 +58,9 @@
 			H.get_known_sectors()
 	update_icon()
 
+	if(requires_contact)
+		invisibility = INVISIBILITY_OVERMAP // Effects that require identification have their images cast to the client via sensors.
+
 /obj/effect/overmap/Crossed(var/obj/effect/overmap/visitable/other)
 	if(istype(other))
 		for(var/obj/effect/overmap/visitable/O in loc)
@@ -59,9 +71,6 @@
 		SSskybox.rebuild_skyboxes(other.map_z)
 		for(var/obj/effect/overmap/visitable/O in loc)
 			SSskybox.rebuild_skyboxes(O.map_z)
-
-/obj/effect/overmap/update_icon()
-	filters = filter(type="drop_shadow", color = color + "F0", size = 2, offset = 1, x = 0, y = 0)
 
 /obj/effect/overmap/proc/signal_hit(var/list/hit_data)
 	return
@@ -98,7 +107,7 @@
 	if(do_after(usr, 5 SECONDS))
 		C.targeting = FALSE
 		targeting = O
-		O.targeted_overlay = icon('icons/obj/overmap_heads_up_display.dmi', "lock")
+		O.targeted_overlay = icon('icons/obj/overmap/overmap_effects.dmi', "lock")
 		O.add_overlay(O.targeted_overlay)
 		if(designation && class && !obfuscated)
 			if(!O.maptext)
