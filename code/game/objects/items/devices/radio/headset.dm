@@ -121,7 +121,7 @@
 					keyslot2 = null
 
 			recalculateChannels(TRUE)
-			to_chat(user, SPAN_NOTICE("You pop out the encryption keys in \the [src]!"!"))
+			to_chat(user, SPAN_NOTICE("You pop out the encryption keys in \the [src]!"))
 		else
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any encryption keys!"))
 
