@@ -7,17 +7,15 @@
         <span v-else>On Hold</span>&nbsp;
         <vui-button :params="{ in_toggle_injector: 1 }" icon="power-off">Toggle Power</vui-button>
       </vui-item>
-      <vui-item label="Flow Rate Limit:">{{ state['input'].rate }} L/s</vui-item>
+      <vui-item label="Flow Rate Limit:">{{ inputRate }} L/s</vui-item>
       <vui-item label="Command:">
         <vui-input-numeric
-          @keypress.enter="$toTopic({ in_set_flowrate: state['input'].setrate })"
           width="3em"
           :button-count="3"
-          v-model="state['input'].setrate"
+          v-model="inputRate"
           :max="state.maxrate"
         />
         <br>
-        <vui-button push-state :params="{ in_set_flowrate: state['input'].setrate }">Set Flow Rate</vui-button>
       </vui-item>
     </div>
     <vui-button v-else :params="{ in_refresh_status: 1 }">Search for input port</vui-button>
@@ -27,21 +25,16 @@
         <span v-else>On Hold</span>&nbsp;
         <vui-button :params="{ out_toggle_power: 1 }" icon="power-off">Toggle Power</vui-button>
       </vui-item>
-      <vui-item label="Min Core Pressure:">{{ state['output'].pressure }} kPa</vui-item>
+      <vui-item label="Min Core Pressure:">{{ outputPressure }} kPa</vui-item>
       <vui-item label="Command:">
         <vui-input-numeric
-          @keypress.enter="$toTopic({ out_set_pressure: state['output'].setpressure })"
           width="5em"
           :button-count="3"
           :decimal-places="2"
-          v-model="state['output'].setpressure"
+          v-model="outputPressure"
           :max="state.maxpressure"
         />
         <br>
-        <vui-button
-          push-state
-          :params="{ out_set_pressure: state['output'].setpressure }"
-        >Set Pressure</vui-button>
       </vui-item>
     </div>
     <vui-button v-else :params="{ out_refresh_status: 1 }">Search for output port</vui-button>
@@ -52,6 +45,24 @@
 export default {
   data() {
     return this.$root.$data
-  }
+  },
+  computed: {
+    inputRate: {
+      get() {
+        return this.state['input'].setrate
+      },
+      set(value) {
+        this.$toTopic({ in_set_flowrate: value })
+      }
+    },
+    outputPressure: {
+      get() {
+        return this.state['output'].setpressure
+      },
+      set(value) {
+        this.$toTopic({ out_set_pressure: value })
+      }
+    }
+  },
 };
 </script>

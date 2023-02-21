@@ -155,13 +155,10 @@
 
 	VUEUI_SET_CHECK_IFNOTSET(data["items"], items, ., data)
 	VUEUI_SET_CHECK_IFNOTSET(data["price"], items, ., data)
-	VUEUI_SET_CHECK_IFNOTSET(data["tmp_name"], "", ., data)
-	VUEUI_SET_CHECK_IFNOTSET(data["tmp_price"], 0, ., data)
 	VUEUI_SET_CHECK(data["tmp_price"], max(0, data["tmp_price"]), ., data)
 	if(data["tmp_price"] < 0)
 		data["tmp_price"] = 0
 		. = data
-	VUEUI_SET_CHECK_IFNOTSET(data["selection"], list("_" = 0), ., data)
 	VUEUI_SET_CHECK(data["editmode"], editmode, ., data)
 	VUEUI_SET_CHECK(data["destinationact"], destinationact, ., data)
 
@@ -187,7 +184,7 @@
 		ui.data["items"] -= href_list["remove"]
 		. = TRUE
 	if(href_list["confirm"])
-		var/selection = ui.data["selection"]
+		var/selection = href_list["confirm"]
 		var/items = ui.data["items"]
 		for(var/name in selection)
 			if(items[name] && selection[name])
