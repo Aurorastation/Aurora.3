@@ -124,3 +124,14 @@
 	if(origin && origin_restriction && !(origin in origin_restriction))
 		return FALSE
 	return TRUE
+
+// returns the list of any possible item paths of this gear
+// either a list with just the path var, or the paths list from gear tweaks
+/datum/gear/proc/get_paths()
+	var/datum/gear_tweak/path/tweak = locate(/datum/gear_tweak/path) in gear_tweaks
+	if(tweak && istype(tweak))
+		return tweak.valid_paths
+	else if(path)
+		return list(path)
+	else
+		return null

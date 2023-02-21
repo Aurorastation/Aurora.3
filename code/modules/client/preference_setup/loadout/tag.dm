@@ -6,6 +6,7 @@
 var/list/tag_group_department = list(DEPARTMENT_COMMAND, DEPARTMENT_COMMAND_SUPPORT, DEPARTMENT_SECURITY, DEPARTMENT_ENGINEERING, DEPARTMENT_MEDICAL, DEPARTMENT_SCIENCE, DEPARTMENT_CARGO, DEPARTMENT_SERVICE)
 var/list/tag_group_corp = list("Idris Incorporated", "Zavodskoi Interstellar", "Private Military Contracting Group", "Zeng-Hu Pharmaceuticals", "Hephaestus Industries", "NanoTrasen", "Orion Express")
 var/list/tag_group_slot = list() // filled below
+var/list/tag_group_size = list("Tiny", "Small", "Normal", "Large", "Huge") // filled below
 var/list/tag_group_species = list("Human", "IPC", "Skrell", "Unathi", "Tajara", "Diona", "Vaurca")
 
 // ------------------------------ manual tag groups
@@ -16,6 +17,7 @@ var/list/tag_groups_all = list(
 	"Department tags" = tag_group_department,
 	"Corp tags" = tag_group_corp,
 	"Slot tags" = tag_group_slot,
+	"Item size tags" = tag_group_size,
 	"Species tags" = tag_group_species,
 	"Other tags" = tag_group_other,
 )
@@ -62,6 +64,23 @@ proc/slot_to_string(var/slot)
 		else
 			return null
 
+proc/w_class_to_string(var/w_class)
+	switch(w_class)
+		if(ITEMSIZE_TINY)
+			return "Tiny"
+		if(ITEMSIZE_SMALL)
+			return "Small"
+		if(ITEMSIZE_NORMAL)
+			return "Normal"
+		if(ITEMSIZE_LARGE)
+			return "Large"
+		if(ITEMSIZE_HUGE)
+			return "Huge"
+		if(ITEMSIZE_IMMENSE)
+			return "Immense"
+		else
+			return null
+
 proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 	// ---- tag_group_department
 	var/list/departments_and_jobs = list(
@@ -88,7 +107,13 @@ proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 		if(s)
 			tag_group_slot |= s
 			gear.tags += s
-	// ----
+	// ---- tag_group_size
+	var/list/paths = gear.get_paths()
+	for(var/path in paths)
+		var/obj/item/item = new path
+		var/size = w_class_to_string(item.w_class)
+		gear.tags |= size
+		tag_group_size |= size
 	// ---- dedup
 	// ---- tagless tag
 	if(gear.tags.len == 0)
