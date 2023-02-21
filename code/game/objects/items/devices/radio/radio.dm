@@ -400,7 +400,8 @@ var/global/list/default_medbay_channels = list(
 	// If we were to send to a channel we don't have, drop it.
 	return null
 
-/obj/item/device/radio/talk_into(mob/living/M, message, channel, var/say_verb = null, var/datum/language/speaking = null, var/ignore_restrained)	if(!on)
+/obj/item/device/radio/talk_into(mob/living/M, message, channel, var/say_verb = null, var/datum/language/speaking = null, var/ignore_restrained)
+	if(!on)
 		return FALSE
 	if(!M || !message)
 		return FALSE
