@@ -24,14 +24,25 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "aaG" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 5
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"abl" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
 "aeb" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 9
@@ -39,27 +50,55 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "ajL" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
 /obj/machinery/meter,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "amW" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "anm" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
+"asY" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	pixel_y = -24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/crew)
 "azG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -70,19 +109,31 @@
 /obj/machinery/computer/ship/engines{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "aAM" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "aEq" = (
 /obj/structure/table/wood,
 /obj/item/storage/pill_bottle/dice/tajara,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
+"aGz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/clown)
 "aIe" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/space_ship,
@@ -92,33 +143,54 @@
 	identifier = "adhomian_circus_tamer";
 	name = "igs - adhomian_circus_tamer"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "aOs" = (
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "aOR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "aQh" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"aQW" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
 "aRj" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "aRr" = (
 /obj/machinery/light{
@@ -129,77 +201,200 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"aSh" = (
+/obj/machinery/door/airlock/glass{
+	name = "Circus"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "aSm" = (
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "aTD" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/rag,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "aUK" = (
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"aUS" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "aZD" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
+"bdh" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = null;
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "bdW" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "beb" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /obj/machinery/vending/cigarette,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "bgL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "bhJ" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "bkp" = (
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 1
+	dir = 1;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
+"bmD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
+"bpn" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/tamer)
 "bpK" = (
 /obj/item/dumbbell/barbell/eighty,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "bsf" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
 /turf/simulated/floor,
 /area/adhomian_circus/maintenance)
+"bsl" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
 "bun" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/adhomian_circus/atmospherics)
+"bvh" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 4
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = null;
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
 "bzM" = (
 /obj/structure/table/wood,
 /obj/item/bikehorn,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
 "bAh" = (
 /obj/machinery/door/airlock/external{
@@ -207,24 +402,31 @@
 	icon_state = "door_locked";
 	id_tag = "adhomian_circus_shuttle_out"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "bCv" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 1
+	dir = 1;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "bGH" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "bHU" = (
 /obj/machinery/media/jukebox/calliope,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "bKA" = (
 /obj/machinery/shipsensors/weak,
@@ -244,15 +446,55 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 1
+	dir = 1;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
+"bSj" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
 "bTK" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"bUQ" = (
+/obj/structure/table/wood,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
+"bXS" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "bYt" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
@@ -269,7 +511,9 @@
 "cbo" = (
 /obj/effect/floor_decal/corner/orange/full,
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "cfP" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -281,7 +525,9 @@
 /area/adhomian_circus/atmospherics)
 "ciO" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "coU" = (
 /obj/machinery/atmospherics/pipe/tank/air,
@@ -295,6 +541,25 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/adhomian_circus/hangar)
+"csw" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
 "cuL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
@@ -303,6 +568,26 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/atmospherics)
+"cyR" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
 "cCN" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -322,25 +607,32 @@
 	dir = 4;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "cHa" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 4
+	dir = 4;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "cJz" = (
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "cJS" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "cMQ" = (
 /obj/machinery/light{
@@ -350,7 +642,30 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
+"cNG" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "cQG" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
@@ -359,7 +674,18 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
+"cTz" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "cUR" = (
 /obj/machinery/atm{
@@ -371,7 +697,9 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "cUS" = (
 /obj/structure/railing/mapped{
@@ -381,20 +709,39 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 4
+	dir = 4;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "dgA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "dgD" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/mauve/full,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"dgU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "dhp" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/tamer)
@@ -403,7 +750,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "dlU" = (
 /obj/machinery/light/small{
@@ -417,12 +766,63 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/ramp,
+/turf/simulated/floor/holofloor/tiled/ramp{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"dnG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/crew)
+"dwU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/tamer)
 "dyw" = (
 /obj/structure/table/rack/fancy_table/black,
 /turf/simulated/floor/carpet/darkblue,
 /area/adhomian_circus/fortune)
+"dzv" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
+"dAH" = (
+/obj/machinery/door/airlock/glass{
+	name = "Hangar"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "dEe" = (
 /obj/machinery/light{
 	dir = 4;
@@ -431,7 +831,9 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "dGc" = (
 /obj/structure/extinguisher_cabinet{
@@ -440,7 +842,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "dHJ" = (
 /obj/structure/railing/mapped{
@@ -448,25 +852,45 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 8
+	dir = 8;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
+"dIC" = (
+/obj/structure/cable/green,
+/obj/machinery/power/apc{
+	pixel_y = -24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/tamer)
 "dIJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "dJv" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/pink{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "dMP" = (
 /obj/item/dumbbell/barbell/twohundredtwenty,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "dMZ" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -475,11 +899,29 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/atmospherics)
+"dOG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "dOO" = (
 /obj/machinery/computer/ship/engines{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/pink{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "dPw" = (
 /obj/machinery/atm{
@@ -488,45 +930,64 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "dQs" = (
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/corner/blue/full,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "dQH" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "dRo" = (
 /obj/machinery/vending/boozeomat{
 	req_access = null
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "dSf" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "dTb" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_alc/full,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "dUt" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "dVf" = (
 /obj/structure/table/wood,
 /obj/item/eightball/haunted,
-/turf/simulated/floor/wood,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "dVn" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -537,7 +998,9 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "ehz" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -546,29 +1009,67 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"eih" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, crew area"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/adhomian_circus/port)
+"eit" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/tamer)
 "emX" = (
-/turf/simulated/floor/carpet/art,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "enL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "eon" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"epZ" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, hangar"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/adhomian_circus/hangar)
 "eqz" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 1
+	dir = 1;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "etL" = (
@@ -578,30 +1079,87 @@
 /obj/effect/floor_decal/corner_wide/grey/full{
 	dir = 1
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"ewi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
+"eyi" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "eyW" = (
 /obj/structure/table/wood,
 /obj/item/deck/tarot/adhomai,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "eAy" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"eCC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
 "eDa" = (
 /obj/machinery/door/airlock/glass{
 	name = "Circus"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "eDb" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "eII" = (
 /obj/machinery/light{
@@ -609,24 +1167,65 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "eIS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "eJZ" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
+"eLn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/clown)
+"eMv" = (
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "eQz" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "eRx" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
@@ -641,67 +1240,175 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "eVA" = (
 /obj/item/dumbbell/barbell/twohundred,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
+"fay" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "fbF" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "fdH" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "flH" = (
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 8
+	dir = 8;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "fpk" = (
 /obj/machinery/door/airlock/glass{
 	name = "Hangar"
 	},
-/turf/simulated/floor/carpet/art,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "fpz" = (
 /obj/machinery/computer/ship/helm{
 	req_access = null
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
+"fpI" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "fpK" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/adhomian_circus/fortune)
+"fqh" = (
+/obj/machinery/light/small,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/crew)
+"fre" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
+"ftf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/clown)
 "fuH" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"fwa" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
 "fwf" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "fzC" = (
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "fzN" = (
 /obj/machinery/light/small{
@@ -710,13 +1417,17 @@
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "fDc" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "fEF" = (
 /obj/structure/railing/mapped{
@@ -733,7 +1444,9 @@
 /area/adhomian_circus/hangar)
 "fFA" = (
 /obj/effect/shuttle_landmark/adhomian_circus_shuttle/hangar,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "fFD" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -749,13 +1462,25 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "fRF" = (
 /obj/structure/closet/crate/secure/large,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24;
+	req_access = null
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -775,12 +1500,19 @@
 /turf/simulated/floor/tiled/white,
 /area/adhomian_circus/hangar)
 "gab" = (
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "gdf" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/cigarettes/cigar,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/pink/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "gdr" = (
 /obj/machinery/light{
@@ -791,16 +1523,42 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "gdx" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/hangar)
+"ggu" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "gki" = (
 /obj/item/dumbbell/barbell/hundredforty,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"glB" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	pixel_y = -24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "gmc" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
@@ -809,7 +1567,20 @@
 	dir = 2;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/marble,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "got" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -822,7 +1593,9 @@
 /obj/item/reagent_containers/food/snacks/sliceable/fatshouter_fillet,
 /obj/item/reagent_containers/food/snacks/spicy_clams,
 /obj/item/reagent_containers/food/snacks/spicy_clams,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "gvp" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -831,8 +1604,25 @@
 /obj/structure/fuel_port/hydrogen{
 	pixel_x = -32
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
+"gws" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
 "gzG" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -846,7 +1636,16 @@
 /obj/structure/table/standard,
 /obj/item/pen/black,
 /obj/item/paper_bin,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/pink{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "gJK" = (
 /obj/machinery/light{
@@ -856,13 +1655,17 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "gKG" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "gLA" = (
 /obj/machinery/light{
@@ -871,9 +1674,25 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"gQC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "gSf" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -881,7 +1700,9 @@
 "gVY" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/corner/blue/full,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "gZS" = (
 /obj/machinery/light{
@@ -891,30 +1712,58 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "gZU" = (
 /obj/item/dumbbell/barbell/sixty,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "hbo" = (
 /obj/item/dumbbell/barbell/twohundredforty,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "hdA" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"hhE" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
 "hlv" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "hoX" = (
 /obj/machinery/light{
@@ -924,27 +1773,43 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "hzs" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
 	},
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "hzN" = (
 /obj/machinery/computer/shuttle_control/explore/adhomian_circus_shuttle{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "hAK" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Animal Tamer";
 	req_access = list(202)
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "hES" = (
 /obj/structure/table/rack,
@@ -962,18 +1827,29 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "hHZ" = (
 /obj/structure/bed/stool/padded,
 /obj/effect/floor_decal/spline/fancy/wood/cee,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "hIR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "hNT" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
@@ -983,20 +1859,31 @@
 	name = "Engine";
 	req_access = list(202)
 	},
-/turf/simulated/floor/plating,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/engine)
 "hUt" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "hXM" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "hYj" = (
 /obj/machinery/telecomms/allinone/ship,
@@ -1012,10 +1899,16 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "iew" = (
 /obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -1025,7 +1918,13 @@
 /obj/item/trap,
 /obj/item/trap,
 /obj/structure/closet/crate,
-/turf/simulated/floor/tiled,
+/obj/machinery/alarm/cold{
+	req_one_access = null;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "iiG" = (
 /obj/machinery/light{
@@ -1035,17 +1934,42 @@
 	},
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner/blue/full,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "iiQ" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1;
 	req_access = list(204)
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/pink{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
+"ikq" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/clown)
 "ilY" = (
-/turf/simulated/floor/carpet/art,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "irI" = (
 /turf/simulated/floor,
@@ -1059,13 +1983,18 @@
 /area/adhomian_circus/crew)
 "isG" = (
 /obj/structure/curtain/black,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "ivc" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Restroom"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "iBt" = (
 /obj/structure/bed/stool/bar/padded/brown,
@@ -1073,12 +2002,16 @@
 	identifier = "adhomian_circus_clown";
 	name = "igs - adhomian_circus_clown"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
 "iCh" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/reagent_containers/glass/bucket,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "iGx" = (
 /obj/machinery/light{
@@ -1089,31 +2022,44 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "iGV" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "iJi" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "iMQ" = (
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "iQA" = (
 /obj/structure/table/standard,
 /obj/item/flame/lighter/adhomai,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "iTP" = (
 /obj/structure/target_stake,
@@ -1121,60 +2067,151 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "iUs" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"iVv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "iWN" = (
 /obj/structure/table/wood,
 /obj/item/lipstick/random,
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
+"iWT" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
 "iXo" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "iZf" = (
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "iZS" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/carpet/art,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
+"jaK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "jcV" = (
 /obj/effect/floor_decal/corner/blue/full,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "jed" = (
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "jeu" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "jix" = (
-/turf/simulated/floor/holofloor/tiled/ramp,
+/turf/simulated/floor/holofloor/tiled/ramp{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"jjZ" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
 "jkM" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "jmV" = (
 /obj/structure/target_stake,
@@ -1186,7 +2223,9 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "jpL" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -1204,18 +2243,48 @@
 /obj/item/reagent_containers/food/snacks/dirt_roast,
 /obj/item/reagent_containers/food/snacks/dirt_roast,
 /obj/item/reagent_containers/food/snacks/dirt_roast,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "jqO" = (
 /obj/effect/floor_decal/corner_wide/lime/full,
-/turf/simulated/floor/marble,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "juq" = (
 /obj/machinery/vending/engivend{
 	req_access = null
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
+"juJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/tamer)
 "jwF" = (
 /obj/structure/closet/crate,
 /obj/item/stack/material/plasteel,
@@ -1227,16 +2296,42 @@
 /area/adhomian_circus/maintenance)
 "jzx" = (
 /obj/machinery/chemical_dispenser/full,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"jAc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/adhomian_circus/fortune)
 "jAz" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"jGm" = (
+/obj/structure/table/wood,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
 "jLJ" = (
 /obj/machinery/power/portgen/basic/fusion,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -1253,7 +2348,9 @@
 /obj/structure/bed/stool/chair/sofa/black{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "jMB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
@@ -1263,22 +2360,53 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/atmospherics)
+"jQi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/clown)
 "jQR" = (
 /obj/machinery/door/window{
 	req_access = list(202);
 	name = "Food Stand";
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "jSm" = (
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"jSF" = (
+/obj/machinery/alarm/cold{
+	req_one_access = null;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/clown)
 "jSL" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "jUH" = (
 /obj/machinery/light{
@@ -1288,28 +2416,79 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "jZG" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "kaC" = (
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "kbt" = (
 /obj/structure/table/wood,
 /obj/item/nullrod/athame,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
+"kkG" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
+"kls" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "knb" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
 /obj/machinery/vending/tool,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "knl" = (
 /obj/structure/table/rack,
@@ -1323,8 +2502,27 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"knX" = (
+/obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/crew)
 "ksM" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
@@ -1341,27 +2539,57 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "kvt" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus)
+"kvG" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
 "kvN" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
 	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "kwP" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/pink{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "kCh" = (
-/turf/simulated/floor/plating,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/engine)
 "kCJ" = (
 /obj/machinery/atmospherics/binary/passive_gate/supply{
@@ -1377,6 +2605,18 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/atmospherics)
+"kEN" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/engine)
 "kFK" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -1385,14 +2625,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 8
+	dir = 8;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "kKS" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "kNv" = (
 /obj/machinery/light/small{
@@ -1406,10 +2649,40 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"kRy" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24;
+	req_access = null
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/adhomian_circus/fortune)
 "kTl" = (
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "kUb" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
@@ -1419,14 +2692,25 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "lbX" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
+"ldy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/adhomian_circus/atmospherics)
 "leQ" = (
 /obj/item/storage/box/lights/mixed,
 /obj/structure/table/standard,
@@ -1436,21 +2720,36 @@
 	dir = 1
 	},
 /obj/item/reagent_containers/spray/cleaner,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"lgm" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/engine)
 "lhB" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "lia" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/adhomian_circus/maintenance)
 "liM" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
-	layer = 2.8
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "lln" = (
 /obj/machinery/light{
@@ -1458,12 +2757,16 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "lmZ" = (
 /obj/item/device/flashlight/lamp,
 /obj/structure/table/wood,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "lnx" = (
 /obj/structure/table/wood,
@@ -1477,12 +2780,16 @@
 /obj/item/flame/lighter/adhomai{
 	pixel_x = 7
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
 "loe" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "lrP" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -1501,14 +2808,18 @@
 	icon_state = "spline_fancy"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "lsY" = (
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "ltF" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -1522,7 +2833,9 @@
 /obj/machinery/computer/ship/sensors{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "ltJ" = (
 /obj/machinery/light/small{
@@ -1530,43 +2843,65 @@
 	},
 /obj/structure/table/wood,
 /obj/item/mesmetron,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "luo" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "luu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/largecrate/animal/adhomai/rafama,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "luC" = (
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "lAY" = (
 /obj/structure/balloon_dispenser,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
+"lBQ" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/unsimulated/wall/fakepdoor{
+	dir = 4
+	},
+/area/adhomian_circus/hangar)
 "lFr" = (
 /obj/machinery/computer/cryopod{
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "lFH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "lGG" = (
 /obj/structure/table/stone/marble,
 /obj/item/paper_bin,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "lGK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -1575,7 +2910,9 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "lHi" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -1594,13 +2931,31 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "lMa" = (
 /obj/structure/table/wood,
 /obj/item/toy/comic/outlandish_tales,
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
+"lPh" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/adhomian_circus/atmospherics)
 "lSj" = (
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -1613,12 +2968,16 @@
 	name = "Bar";
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "lUV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/largecrate/animal/adhomai/fatshouter,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "lVT" = (
 /obj/machinery/light{
@@ -1629,17 +2988,37 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"lYK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
 "lYX" = (
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 1
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"lZh" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/clown)
 "mbY" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "mcf" = (
 /obj/structure/railing/mapped,
@@ -1647,13 +3026,16 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 1
+	dir = 1;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "mfs" = (
 /obj/structure/closet/crate,
 /obj/item/crowbar/red,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "mjY" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -1667,12 +3049,17 @@
 "mmv" = (
 /obj/item/dumbbell,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "mpc" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/pink/full,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "mrm" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
@@ -1681,11 +3068,20 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "msU" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "mvI" = (
 /obj/machinery/atmospherics/binary/pump/on{
@@ -1696,30 +3092,89 @@
 	},
 /area/adhomian_circus/atmospherics)
 "mwS" = (
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "myi" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"mzH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
 "mBi" = (
 /obj/structure/closet/crate/trashcart,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "mIJ" = (
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "mJH" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
+"mKH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
+"mNx" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
+"mQc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/crew)
 "mUm" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -1733,7 +3188,9 @@
 	req_access = list(202);
 	name = "Firing Range"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "mWN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -1742,7 +3199,9 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "mWZ" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
@@ -1750,18 +3209,40 @@
 	identifier = "adhomian_circus_ringmaster";
 	name = "igs - adhomian_circus_ringmaster"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "nax" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"nbY" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/adhomian_circus/hangar)
 "nde" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance Hatch";
 	req_access = list(202)
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "ndt" = (
 /obj/machinery/atm{
@@ -1770,29 +3251,85 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "neh" = (
 /obj/machinery/door/airlock/glass{
 	name = "Cockpit";
 	req_access = list(202)
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "nfV" = (
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/marble,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "ngK" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/clown)
+"njy" = (
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "nog" = (
 /obj/item/reagent_containers/glass/bucket,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/engine)
+"npy" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
 "npI" = (
 /obj/effect/floor_decal/corner/mauve,
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "nqs" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
@@ -1802,14 +3339,18 @@
 	dir = 8;
 	layer = 2.8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "ntw" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/dress/tajaran/fortune,
 /obj/item/spirit_board/tajara,
 /obj/item/deck/tarot/adhomai,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "ntK" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -1817,14 +3358,17 @@
 	id_tag = "adhomian_circus_shuttle_dock";
 	pixel_y = -24
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "nug" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 8
+	dir = 8;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "nuw" = (
@@ -1835,67 +3379,156 @@
 	dir = 4;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"nvD" = (
+/obj/structure/curtain/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/adhomian_circus/fortune)
 "nxb" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "nxp" = (
 /obj/structure/bed/stool/chair/sofa/right/black{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "nxu" = (
 /obj/item/trap/animal/large,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "nAK" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "nDF" = (
 /obj/structure/bed/stool/bar/padded/beige,
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "nEf" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"nEW" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
+"nFL" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
 "nKW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
+"nLt" = (
+/obj/structure/bed/stool/padded,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1;
+	icon_state = "spline_fancy"
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
 "nNZ" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "nPs" = (
 /obj/machinery/vending/dinnerware,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"nTh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/crew)
 "nTn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/vehicle/unicycle,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
 "nUu" = (
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
 "nVx" = (
 /obj/effect/floor_decal/corner_wide/lime{
@@ -1906,35 +3539,108 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "nWS" = (
 /obj/structure/table/wood,
 /obj/item/clothing/accessory/tajaran/charm/tajani,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
+"nXE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/crew)
+"nYq" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "nZv" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"oaV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "ocw" = (
 /obj/item/dumbbell/barbell/hundredeighty,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "ofz" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8;
+	icon_state = "map-scrubbers"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "ofA" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "ojf" = (
 /obj/effect/landmark{
@@ -1942,12 +3648,31 @@
 	},
 /turf/template_noop,
 /area/space)
+"ojL" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/engine)
 "omQ" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Quarters";
 	req_access = list(202)
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "onz" = (
 /obj/machinery/light{
@@ -1958,13 +3683,17 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "oov" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "otI" = (
 /obj/item/modular_computer/console/preset/civilian,
@@ -1974,21 +3703,27 @@
 	},
 /area/adhomian_circus/crew)
 "oAa" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "oEn" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "oEK" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
 /obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
 /obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "oEZ" = (
 /obj/structure/closet/crate/weapon/alt{
@@ -2003,7 +3738,9 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "oHV" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -2024,7 +3761,9 @@
 /obj/item/reagent_containers/food/snacks/avah,
 /obj/item/reagent_containers/food/snacks/avah,
 /obj/item/reagent_containers/food/snacks/avah,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "oLm" = (
 /obj/structure/table/stone/marble,
@@ -2032,7 +3771,9 @@
 	desc = "A small empty jar that is mostly used for giving a tip.";
 	name = "tip jar"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "oMS" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -2045,28 +3786,69 @@
 /obj/item/gun/bang/sec,
 /obj/structure/table/wood,
 /obj/item/grenade/fake,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
 "oPj" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"oQG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/adhomian_circus/fortune)
 "oTz" = (
 /obj/item/reagent_containers/food/snacks/egg/schlorrgo,
 /obj/item/reagent_containers/food/snacks/egg/schlorrgo,
 /obj/item/reagent_containers/food/snacks/egg/schlorrgo,
 /obj/item/reagent_containers/food/snacks/egg/schlorrgo,
 /obj/structure/closet/crate,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
+"oYm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
+"oZW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "paq" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "pbe" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -2080,21 +3862,41 @@
 /obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
 /obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
 /obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "pbC" = (
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "pda" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal)
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "adhomian_circus_shuttle_out"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "pdu" = (
 /mob/living/simple_animal/hostile/commanded/dog/harron,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "pdV" = (
 /obj/structure/table/wood,
 /obj/item/spirit_board/tajara,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "pgu" = (
 /obj/structure/target_stake,
@@ -2106,32 +3908,70 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "piq" = (
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
+"piO" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "piT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "pjU" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "pkJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "ppy" = (
 /turf/simulated/wall/shuttle/space_ship,
+/area/adhomian_circus/port)
+"prU" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 1
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = null;
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "psN" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
@@ -2139,14 +3979,48 @@
 "put" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/purple/full,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
+"pws" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "pxV" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/bridge)
+"pNf" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, dinner"
+	},
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/adhomian_circus/starboard)
+"pOw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/bridge)
 "pOZ" = (
 /obj/machinery/vending/dinnerware,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
@@ -2155,12 +4029,43 @@
 "pRr" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/lava/cyan,
-/turf/simulated/floor/wood,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "qam" = (
 /obj/structure/reagent_dispensers/lube,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
+"qbz" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/tamer)
+"qcw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/adhomian_circus/atmospherics)
 "qek" = (
 /obj/machinery/button/distress{
 	pixel_y = 32
@@ -2169,13 +4074,20 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/pink{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "qhw" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "qia" = (
 /obj/machinery/atmospherics/unary/engine,
@@ -2190,53 +4102,114 @@
 	dir = 2;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "qnS" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/adhomian_circus_shuttle,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "qpv" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Quarters";
 	req_access = list(202)
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "qrK" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"qtp" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
 "que" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "qvv" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Janitoral Closet";
 	req_access = list(202)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "qvH" = (
 /obj/structure/closet/crate,
 /obj/item/trap,
 /obj/item/trap,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "qxV" = (
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/drinkingglasses,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"qBW" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "qDL" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "qIj" = (
 /obj/structure/table/stone/marble,
@@ -2246,18 +4219,32 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "qMY" = (
 /obj/effect/floor_decal/corner/blue/full,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "qOv" = (
 /obj/machinery/door/airlock/glass{
 	name = "Staff";
 	req_access = list(202)
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "qOF" = (
 /obj/machinery/light{
@@ -2268,32 +4255,81 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/tamer,
 /obj/item/melee/whip,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "qQD" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
+"qQU" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
 "qRs" = (
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 8
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "qUF" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood,
-/area/adhomian_circus/starboard)
-"qYy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+/turf/simulated/floor/wood{
+	temperature = 278.15
 	},
+/area/adhomian_circus/starboard)
+"qWL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
+"qXO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
+"qYy" = (
 /obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2324,56 +4360,154 @@
 /area/adhomian_circus/atmospherics)
 "rjn" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "rjv" = (
 /obj/item/storage/box/monkeycubes/farwacubes,
 /obj/structure/closet/crate,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "rnu" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/pink{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "roG" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled/ramp,
+/turf/simulated/floor/holofloor/tiled/ramp{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"rpH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/tamer)
 "rqu" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"rqD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
 "ruq" = (
 /obj/effect/map_effect/window_spawner/reinforced,
-/turf/simulated/floor/plating,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
+"rxp" = (
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/tamer)
+"rBD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = null;
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "rCE" = (
 /obj/structure/closet/cabinet,
 /obj/random/soap,
 /obj/random/soap,
 /obj/random/soap,
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
+"rHP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "rKc" = (
 /obj/structure/mopbucket,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"rNq" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/unsimulated/floor/plating,
+/area/adhomian_circus/hangar)
 "rOy" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "rOL" = (
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "rRx" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -2384,30 +4518,48 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "rVj" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "rVQ" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"rZd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
 "seg" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "skB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/largecrate/animal/adhomai/schlorrgo,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "smY" = (
 /obj/structure/railing/mapped{
@@ -2415,7 +4567,8 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 4
+	dir = 4;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "sqB" = (
@@ -2423,19 +4576,53 @@
 	identifier = "adhomian_circus_crew";
 	name = "igs - adhomian_circus_crew"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"suQ" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/starboard)
+"sxc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "sxZ" = (
 /obj/item/dumbbell/barbell/twohundredsixty,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "szu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "sBE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2443,20 +4630,26 @@
 	icon_state = "spline_fancy"
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "sHY" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "sIM" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
 	},
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "sMK" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -2467,7 +4660,9 @@
 /obj/item/reagent_containers/food/snacks/pie,
 /obj/item/reagent_containers/food/snacks/pie,
 /obj/item/reagent_containers/food/snacks/pie,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
 "sMW" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -2485,7 +4680,9 @@
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "sNp" = (
 /obj/machinery/atmospherics/pipe/tank{
@@ -2501,7 +4698,9 @@
 /turf/space/transit/north,
 /area/space)
 "sQN" = (
-/turf/simulated/floor/carpet/art,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "sRj" = (
 /obj/structure/bed/stool/padded,
@@ -2510,12 +4709,17 @@
 	icon_state = "spline_fancy"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "sRM" = (
 /obj/item/dumbbell/barbell/hundred,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "sRN" = (
 /obj/structure/table/stone/marble,
@@ -2527,23 +4731,44 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"sSb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/tamer)
 "sSK" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Storage";
 	req_access = list(202)
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "sTW" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 8
+	dir = 8;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "sVk" = (
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "sVW" = (
 /obj/structure/extinguisher_cabinet{
@@ -2552,17 +4777,27 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "tcN" = (
 /obj/effect/map_effect/window_spawner/reinforced,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "thx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "tiv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
@@ -2572,18 +4807,31 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/atmospherics)
+"tlQ" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4;
+	layer = 2.8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
 "tmJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "tpo" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/beige{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "tqA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2594,18 +4842,82 @@
 /obj/item/storage/bag/inflatable{
 	pixel_y = 3
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "tsl" = (
 /obj/effect/floor_decal/corner/blue,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"ttB" = (
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
+"tux" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24;
+	req_access = null
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
 "tuK" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"tvi" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
+"txZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/adhomian_circus/fortune)
+"tzs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "tHa" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -2613,19 +4925,25 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/ramp,
+/turf/simulated/floor/holofloor/tiled/ramp{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "tHx" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 6
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "tJT" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "tLl" = (
 /obj/structure/table/stone/marble,
@@ -2635,24 +4953,54 @@
 	pixel_y = -32;
 	req_access = list(202)
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "tMl" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "tNG" = (
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 4
+	dir = 4;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "tOW" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
+"tPC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
+"tRA" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "tTc" = (
 /obj/machinery/light{
@@ -2663,13 +5011,17 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "tUM" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "tVK" = (
 /obj/structure/extinguisher_cabinet{
@@ -2678,15 +5030,44 @@
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "tWs" = (
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"tWH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/crew)
+"tZg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
 "ufH" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/hatch{
@@ -2702,24 +5083,66 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"umW" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
+"uqd" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, dinner"
+	},
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/adhomian_circus/starboard)
 "urU" = (
 /obj/structure/table/stone/marble,
 /obj/item/material/ashtray/bronze,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "uta" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Atmospherics";
 	req_access = list(202)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/adhomian_circus/atmospherics)
 "uua" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2728,36 +5151,49 @@
 /obj/structure/bed/stool/chair/sofa/left/black{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "uCl" = (
 /obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "uDE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "uEy" = (
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "uMQ" = (
 /obj/machinery/cryopod{
 	dir = 2
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "uMY" = (
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 4
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "uTj" = (
 /obj/structure/bed/stool/chair/padded/black,
@@ -2770,31 +5206,61 @@
 "uTp" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 1
+	dir = 1;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
+"uUQ" = (
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
 "uWs" = (
 /obj/effect/floor_decal/corner_wide/grey/full{
 	dir = 4
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "uWI" = (
 /obj/machinery/door/airlock/glass{
 	name = "Circus"
 	},
-/turf/simulated/floor/carpet/art,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "uXh" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "uXy" = (
 /obj/structure/table/wood,
 /obj/item/bananapeel,
-/turf/simulated/floor/tiled,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
 "vcn" = (
 /obj/structure/closet/cabinet,
@@ -2802,7 +5268,9 @@
 /obj/item/clothing/under/clown,
 /obj/item/clothing/mask/clown,
 /obj/item/clothing/head/clown,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
 "vcr" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -2822,13 +5290,17 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "vkB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "vnh" = (
 /obj/structure/table/standard,
@@ -2839,17 +5311,30 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass{
 	pixel_x = -5
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "vnQ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "vpf" = (
 /obj/machinery/vending/snack,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "vrg" = (
 /obj/machinery/light/small{
@@ -2868,7 +5353,9 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "vun" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2877,24 +5364,57 @@
 	},
 /obj/machinery/meter,
 /obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
+"vuS" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/crew)
 "vwe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
 "vyR" = (
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/ramp,
+/turf/simulated/floor/holofloor/tiled/ramp{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"vzp" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Maintenance Hatch";
+	req_access = list(202)
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
 "vzT" = (
 /obj/effect/ghostspawpoint{
 	identifier = "adhomian_circus_crew";
 	name = "igs - adhomian_circus_crew"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "vCc" = (
 /obj/machinery/light{
@@ -2902,20 +5422,101 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
 "vFj" = (
 /obj/item/trap/animal/medium,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/tamer)
+"vFJ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/crew)
+"vGg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
+"vHi" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "vHM" = (
 /obj/item/dumbbell/barbell,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"vIA" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engine"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/adhomian_circus/maintenance)
+"vJf" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
+"vLy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "vLF" = (
 /obj/machinery/light{
 	dir = 8;
@@ -2924,22 +5525,67 @@
 /obj/structure/table/wood,
 /obj/item/reagent_containers/spray,
 /obj/item/reagent_containers/glass/bucket/wood,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
 "vMd" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/atmospherics)
+"vNj" = (
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
 "vOJ" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/adhomian_circus,
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
+"vOT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/adhomian_circus/fortune)
 "vQh" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
+"vRz" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/bridge)
 "vTV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
@@ -2954,53 +5600,143 @@
 	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/blue/full,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"vWW" = (
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/hangar)
 "wbk" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/beige{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "wbD" = (
 /obj/structure/closet/emcloset,
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 30
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/pink/full{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "wbI" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"wcW" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, crew area"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/adhomian_circus/port)
 "wdp" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Clown";
 	req_access = list(202)
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
 "wgh" = (
 /obj/effect/floor_decal/corner_wide/grey/full{
 	dir = 8
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "wgC" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/carpet/art,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
 /area/adhomian_circus/maintenance)
+"wgP" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
+"wls" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "wlK" = (
 /turf/simulated/floor/carpet/darkblue,
 /area/adhomian_circus/fortune)
 "wms" = (
 /obj/effect/floor_decal/corner/green/full,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "wnc" = (
 /obj/machinery/light{
@@ -3011,33 +5747,50 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "wnH" = (
 /obj/item/dumbbell/twenty,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "wpl" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "wpH" = (
 /obj/effect/floor_decal/corner_wide/grey/full,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "wqJ" = (
 /obj/structure/bed/padded,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/fortune)
 "wqU" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "wrg" = (
 /obj/machinery/light{
@@ -3050,7 +5803,9 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "wrJ" = (
 /obj/effect/shuttle_landmark/adhomian_circus_shuttle/transit,
@@ -3060,20 +5815,89 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "wvt" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"wvC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
+"wyq" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
+"wBq" = (
+/obj/effect/map_effect/window_spawner/reinforced,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomian_circus/bridge)
+"wEA" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/tamer)
+"wFh" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, engine"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/adhomian_circus/maintenance)
+"wHx" = (
+/obj/machinery/alarm/cold{
+	req_one_access = null;
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/adhomian_circus/fortune)
 "wIY" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "wKY" = (
 /obj/structure/bed/stool/chair/wood{
@@ -3083,7 +5907,9 @@
 	dir = 8;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "wLA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3093,8 +5919,26 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
+"wLD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "wLJ" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
@@ -3106,22 +5950,29 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "wNw" = (
 /obj/item/dumbbell/barbell/threehundred,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "wVF" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "wWk" = (
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 8
+	dir = 8;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "wWB" = (
@@ -3129,20 +5980,40 @@
 	dir = 4
 	},
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "wWZ" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 4
+	dir = 4;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "xqv" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"xqJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus/maintenance)
+"xsu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/tamer)
 "xuV" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/adhomian_circus/starboard)
@@ -3151,33 +6022,49 @@
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "xCj" = (
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/ramp{
-	dir = 4
+	dir = 4;
+	temperature = 278.15
 	},
 /area/adhomian_circus)
 "xEn" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "xFP" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/turf/simulated/floor/marble,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "xGS" = (
 /obj/item/storage/box/snappops,
 /obj/structure/table/wood,
 /obj/item/storage/box/snappops,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
 "xHA" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
@@ -3194,7 +6081,16 @@
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/pink/full{
+	dir = 1
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = null;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/bridge)
 "xJd" = (
 /obj/machinery/iff_beacon/name_change,
@@ -3204,6 +6100,14 @@
 	},
 /turf/simulated/floor/airless,
 /area/adhomian_circus/bridge)
+"xMn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/bridge)
 "xOA" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -3211,7 +6115,9 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled/ramp,
+/turf/simulated/floor/holofloor/tiled/ramp{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "xQr" = (
 /obj/machinery/alarm/cold{
@@ -3226,32 +6132,81 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
+"xRh" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
+"xRD" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
 "xRU" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "xRX" = (
 /turf/template_noop,
 /area/space)
+"xSr" = (
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "xUu" = (
 /obj/effect/ghostspawpoint{
 	identifier = "adhomian_circus_strongman";
 	name = "igs - adhomian_circus_strongman"
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "xVI" = (
 /obj/structure/janitorialcart/full,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "xWm" = (
 /obj/structure/table/wood,
 /obj/item/razor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/clown)
 "xXA" = (
 /obj/machinery/light/small/emergency{
@@ -3260,7 +6215,9 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "xZX" = (
 /obj/machinery/light{
@@ -3271,13 +6228,38 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
+"ybU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomian_circus/port)
+"ycI" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomian_circus)
 "yfE" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 9
 	},
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus/port)
 "yhh" = (
 /obj/structure/table/wood,
@@ -3286,32 +6268,53 @@
 	pixel_y = -34
 	},
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "yhx" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/tiled,
+/obj/machinery/alarm/cold{
+	req_one_access = null;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/crew)
 "yhR" = (
-/turf/simulated/floor/tiled,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 "yjk" = (
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/adhomian_circus/starboard)
 "yka" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/marble{
+	temperature = 278.15
+	},
 /area/adhomian_circus)
 "ykc" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	temperature = 278.15
+	},
 /area/adhomian_circus/hangar)
 
 (1,1,1) = {"
@@ -30394,7 +33397,7 @@ xuV
 xuV
 xuV
 xuV
-xuV
+pNf
 xuV
 xuV
 xuV
@@ -31678,8 +34681,8 @@ dUt
 dUt
 dUt
 dUt
-dUt
-nNZ
+abl
+suQ
 aOR
 nuw
 nuw
@@ -31936,7 +34939,7 @@ eRN
 eRN
 eRN
 eRN
-jAz
+qQU
 aSm
 aSm
 aSm
@@ -32193,14 +35196,14 @@ eIS
 wKY
 wKY
 szu
-aSm
+rZd
 eIS
 wKY
 wKY
 szu
 aSm
 aSm
-sRj
+nLt
 urU
 dUt
 dUt
@@ -32450,7 +35453,7 @@ fHU
 nax
 nax
 qUF
-aSm
+rZd
 fHU
 nax
 nax
@@ -32707,14 +35710,14 @@ fHU
 nax
 nax
 qUF
-aSm
+rZd
 fHU
 nax
 nax
 qUF
 aSm
 aSm
-sRj
+nLt
 iUs
 mwS
 mwS
@@ -32964,14 +35967,14 @@ aOR
 nuw
 nuw
 piT
-aSm
+rZd
 aOR
 nuw
 nuw
 piT
 aSm
 aSm
-sRj
+nLt
 dUt
 mwS
 mwS
@@ -33205,7 +36208,7 @@ xRX
 xRX
 xRX
 fFD
-fFD
+vIA
 fFD
 vcr
 dQH
@@ -33221,14 +36224,14 @@ aSm
 aSm
 aSm
 aSm
+rZd
 aSm
 aSm
 aSm
 aSm
 aSm
 aSm
-aSm
-sRj
+nLt
 dUt
 mwS
 mwS
@@ -33474,19 +36477,19 @@ aSm
 aSm
 aSm
 aSm
-aSm
-aSm
-aSm
-aSm
-aSm
-aSm
-aSm
-aSm
-aSm
-aSm
-aSm
+npy
+aQW
+aQW
+aQW
+fre
+oYm
+oYm
+oYm
+oYm
+oYm
+oYm
 sRj
-dUt
+kvG
 mwS
 mwS
 mwS
@@ -33731,24 +36734,24 @@ paq
 paq
 gJK
 paq
-paq
+hhE
 paq
 gJK
 eAy
-aSm
+mzH
 aSm
 lsY
 aSm
 aSm
 aSm
 aSm
-sRj
+nLt
 oLm
 sqB
 mwS
 mwS
 dTb
-xuV
+uqd
 xRX
 xRX
 xRX
@@ -33992,14 +36995,14 @@ dVn
 dVn
 cQG
 nNZ
-aSm
+mzH
 aRj
 vcr
 idb
 aSm
 aSm
 aSm
-sRj
+nLt
 dUt
 mwS
 mwS
@@ -34249,14 +37252,14 @@ oAa
 nxp
 dVn
 ndt
-aSm
+mzH
 aSm
 aUK
 aSm
 aSm
 aSm
 aSm
-sRj
+nLt
 dUt
 mwS
 mwS
@@ -34506,14 +37509,14 @@ oAa
 jMa
 dVn
 nNZ
+mzH
 aSm
 aSm
 aSm
 aSm
 aSm
 aSm
-aSm
-sRj
+nLt
 aTD
 mwS
 mwS
@@ -34749,13 +37752,13 @@ xRX
 xRX
 fFD
 enL
-kaC
+vNj
 xuV
 xuV
 leQ
 rKc
 dVn
-oAa
+wHx
 uTj
 dyw
 fpK
@@ -34763,14 +37766,14 @@ oAa
 uxo
 dVn
 iGx
+mzH
 aSm
 aSm
 aSm
 aSm
 aSm
 aSm
-aSm
-sRj
+nLt
 lGG
 mwS
 mwS
@@ -35020,14 +38023,14 @@ oAa
 pRr
 dVn
 nNZ
+mzH
 aSm
 aSm
 aSm
 aSm
 aSm
 aSm
-aSm
-sRj
+nLt
 urU
 dUt
 dUt
@@ -35265,19 +38268,19 @@ ehz
 ehz
 ehz
 nts
-kaC
+vNj
 xuV
 xuV
 dVn
 ltJ
 oAa
-oAa
-oAa
-oAa
-oAa
-isG
-nNZ
-aSm
+txZ
+jAc
+oQG
+vOT
+nvD
+iWT
+bsl
 aSm
 aSm
 aSm
@@ -35529,12 +38532,12 @@ cQG
 nWS
 kbt
 dVf
-oAa
+kRy
 oAa
 cJz
 dVn
 nNZ
-aSm
+mzH
 aSm
 aSm
 aSm
@@ -35542,11 +38545,11 @@ aSm
 aSm
 aSm
 tsl
-lVT
+bvh
 kUb
 kUb
 bGH
-luC
+asY
 kUb
 xRX
 xRX
@@ -35774,13 +38777,13 @@ xRX
 xRX
 xRX
 ehz
-kCh
-kCh
+kEN
+lgm
 kCh
 hOi
-kaC
-kaC
-kaC
+gws
+nEW
+nFL
 rOy
 cQG
 cQG
@@ -35791,7 +38794,7 @@ isG
 dVn
 dVn
 iGx
-aSm
+mzH
 aSm
 aSm
 aSm
@@ -35802,8 +38805,8 @@ kUW
 kUb
 kUb
 bGH
-luC
-eJZ
+vuS
+fqh
 kUb
 xRX
 xRX
@@ -36032,13 +39035,13 @@ xRX
 xRX
 ehz
 iew
-kCh
+ojL
 fGZ
 ehz
-kaC
-kaC
-kaC
-kaC
+mNx
+vNj
+mNx
+vNj
 juq
 cQG
 cQG
@@ -36048,7 +39051,7 @@ oAa
 aZD
 dVn
 nNZ
-aSm
+mzH
 aSm
 aSm
 aSm
@@ -36059,7 +39062,7 @@ kUb
 kUb
 bGH
 luC
-luC
+nTh
 iWN
 kUb
 xRX
@@ -36292,11 +39295,11 @@ ehz
 ehz
 ehz
 ehz
-kaC
-kaC
-kaC
-kaC
-kaC
+mNx
+vNj
+mNx
+vNj
+vNj
 mJH
 cQG
 cQG
@@ -36305,7 +39308,7 @@ oAa
 oAa
 dVn
 nNZ
-aSm
+mzH
 aSm
 aSm
 aSm
@@ -36549,11 +39552,11 @@ gdx
 lrP
 vrg
 gdx
-kaC
-kaC
-kaC
-kaC
-kaC
+mNx
+vNj
+tux
+vNj
+vNj
 mJH
 mJH
 cQG
@@ -36562,7 +39565,7 @@ wqJ
 lmZ
 dVn
 aRr
-paq
+qtp
 paq
 lKh
 dib
@@ -36573,7 +39576,7 @@ uMQ
 lFr
 lbX
 luC
-luC
+tWH
 lMa
 kUb
 xRX
@@ -36806,8 +39809,8 @@ gdx
 mjY
 fYD
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 kvt
 kvt
@@ -37063,8 +40066,8 @@ gdx
 ivc
 gdx
 gdx
-kaC
-qDL
+mNx
+dzv
 kvt
 mIJ
 jkM
@@ -37073,10 +40076,10 @@ hoX
 fDc
 fDc
 fDc
-fDc
+eyi
 hoX
 fDc
-fDc
+nYq
 vsk
 hoX
 fDc
@@ -37087,7 +40090,7 @@ hoX
 fDc
 put
 kvt
-luC
+mQc
 eJZ
 oMS
 xRX
@@ -37296,56 +40299,56 @@ xRX
 xRX
 gdx
 gdx
-hIR
+gQC
+tPC
+dIJ
+dIJ
+dIJ
+tPC
 dIJ
 dIJ
 dIJ
 dIJ
 dIJ
 dIJ
+tPC
 dIJ
 dIJ
 dIJ
 dIJ
 dIJ
-dIJ
-dIJ
-dIJ
-dIJ
-dIJ
-dIJ
-dIJ
+tPC
 dIJ
 tmJ
-yhR
-yhR
+njy
+njy
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 pjU
+tzs
 emX
 emX
 emX
 emX
 emX
+dgU
 emX
 emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
+ewi
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
 wIY
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -37574,35 +40577,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
-wpl
+njy
+ttB
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 cMQ
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
+oZW
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
 gLA
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -37831,35 +40834,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+njy
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -38088,35 +41091,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+njy
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -38345,35 +41348,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+njy
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 yka
 cQX
 cQX
 qMY
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 nAK
 tMl
 tMl
 wms
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -38602,35 +41605,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+glB
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 myi
 jSm
 jSm
 rqu
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rVj
 jSm
 jSm
 wse
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -38859,35 +41862,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
+njy
 yhR
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 myi
 jSm
 jSm
 rqu
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rVj
 jSm
 jSm
 wse
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-eJZ
+knX
 oMS
 xRX
 xRX
@@ -39116,35 +42119,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
+njy
 yhR
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
-pjU
-emX
-emX
+ggu
+qBW
+xSr
 rOL
 ofA
 hUt
 hUt
 bhJ
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 eDb
 uXh
 uXh
 wWB
 rOL
-emX
-emX
+xSr
+xSr
 gLA
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -39373,35 +42376,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
+njy
 wpl
 gdx
-kaC
-qDL
+mNx
+dzv
 kvt
 cMQ
-emX
-emX
+oZW
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -39630,35 +42633,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
+njy
 yhR
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 rOL
 eII
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rOL
 eII
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -39876,8 +42879,6 @@ fzC
 fzC
 fzC
 fzC
-fzC
-fzC
 uCl
 fzC
 fzC
@@ -39886,36 +42887,38 @@ fzC
 fzC
 fzC
 fzC
+fzC
+fzC
 mbY
-yhR
+njy
 yhR
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 efm
 kvt
 fwf
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 efm
 kvt
 fwf
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -40144,35 +43147,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
+njy
 yhR
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 rOL
 lln
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rOL
 lln
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -40401,35 +43404,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+kkG
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 sVW
-emX
-emX
+oZW
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-eJZ
+knX
 oMS
 xRX
 xRX
@@ -40658,35 +43661,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+iVv
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -40915,35 +43918,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
-wpl
+njy
+eMv
 gdx
-kaC
-qDL
+mNx
+dzv
 kvt
 cMQ
-emX
-emX
+oZW
+xSr
 rOL
 eII
 rOL
 cUS
 cHa
 smY
-emX
-emX
+xSr
+xSr
 cHa
 cHa
 smY
 rOL
 eII
 rOL
-emX
-emX
+xSr
+xSr
 gLA
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -41172,35 +44175,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+iVv
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 efm
 kvt
 fwf
 xCj
 tNG
 wWZ
-emX
-emX
+xSr
+xSr
 tNG
 tNG
 wWZ
 efm
 kvt
 fwf
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-luC
+dnG
 oMS
 xRX
 xRX
@@ -41429,35 +44432,35 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+iVv
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 lln
 rOL
 xCj
 tNG
 wWZ
-emX
-emX
+xSr
+xSr
 tNG
 tNG
 wWZ
 rOL
 lln
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-luC
+dnG
 oMS
 xJd
 xRX
@@ -41686,15 +44689,15 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+iVv
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 tHa
 dne
 dne
@@ -41709,12 +44712,12 @@ fdH
 bCv
 bCv
 mcf
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-luC
+dnG
 oMS
 mrm
 xRX
@@ -41943,15 +44946,15 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+iVv
 gdx
-kaC
-kaC
+mNx
+vNj
 kvt
 dPw
-emX
-emX
+oZW
+xSr
 vyR
 jix
 jix
@@ -41966,12 +44969,12 @@ rqu
 bkp
 bkp
 uTp
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 luC
-eJZ
+knX
 pxV
 mrm
 tcN
@@ -42200,15 +45203,15 @@ fzC
 fzC
 fzC
 mbY
-yhR
-wpl
+njy
+eMv
 gdx
-nde
+vzp
 fFD
 kvt
 cMQ
-emX
-emX
+oZW
+xSr
 vyR
 jix
 jix
@@ -42223,12 +45226,12 @@ nxb
 bkp
 bkp
 uTp
-emX
-emX
-wIY
+xSr
+xSr
+bdh
 kvt
 luC
-luC
+dnG
 pxV
 wbD
 dJv
@@ -42458,17 +45461,17 @@ fzC
 fzC
 mbY
 sQN
-sQN
+dOG
 fpk
-ilY
-ilY
+wgP
+tvi
 uWI
-emX
-emX
-emX
-emX
-emX
-emX
+tRA
+kls
+xSr
+xSr
+xSr
+xSr
 iGV
 jSm
 jSm
@@ -42477,11 +45480,11 @@ jSm
 jSm
 jSm
 gKG
-emX
-emX
-emX
-emX
-emX
+xSr
+xSr
+xSr
+xSr
+xSr
 gLA
 kvt
 oMS
@@ -42489,7 +45492,7 @@ qpv
 pxV
 rnu
 anm
-piq
+pOw
 kwP
 tcN
 xRX
@@ -42691,7 +45694,7 @@ xRX
 xRX
 xRX
 xRX
-aab
+lBQ
 vkB
 fzC
 fzC
@@ -42717,21 +45720,21 @@ mbY
 sQN
 iZS
 gdx
-ilY
+uUQ
 wgC
 kvt
+xSr
+cNG
 emX
 emX
 emX
 emX
-emX
-emX
-myi
+piO
 nfV
-jSm
-jSm
-jSm
-jSm
+wls
+wls
+wls
+wls
 nfV
 xFP
 emX
@@ -42739,16 +45742,16 @@ emX
 emX
 emX
 emX
-wIY
+umW
 qOv
-luC
-luC
+nXE
+vFJ
 neh
-piq
+vRz
 vOJ
 mWZ
 iiQ
-tcN
+wBq
 xRX
 xRX
 xRX
@@ -42972,17 +45975,17 @@ fzC
 fzC
 mbY
 sQN
-sQN
-fpk
+rHP
+dAH
+xqJ
 ilY
-ilY
-uWI
-emX
-emX
-emX
-emX
-emX
-emX
+aSh
+vGg
+ycI
+xSr
+xSr
+xSr
+xSr
 tJT
 jSm
 jSm
@@ -42991,18 +45994,18 @@ jSm
 jSm
 jSm
 wse
-emX
-emX
-emX
-emX
-emX
+xSr
+xSr
+xSr
+xSr
+xSr
 gLA
 kvt
 sSK
 oMS
 pxV
 qek
-piq
+xMn
 piq
 dOO
 tcN
@@ -43228,15 +46231,15 @@ fzC
 fzC
 fzC
 mbY
-yhR
-wpl
+njy
+vWW
 gdx
 fFD
 nde
 kvt
 cMQ
-emX
-emX
+oZW
+xSr
 vyR
 jix
 jix
@@ -43251,8 +46254,8 @@ kKS
 bkp
 bkp
 uTp
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -43485,15 +46488,15 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+vLy
 gdx
-kaC
+vNj
 kaC
 kvt
 dPw
-emX
-emX
+oZW
+xSr
 vyR
 jix
 jix
@@ -43508,8 +46511,8 @@ rqu
 bkp
 bkp
 uTp
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -43742,15 +46745,15 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+vLy
 gdx
-kaC
+vNj
 kaC
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 xOA
 roG
 roG
@@ -43765,8 +46768,8 @@ luo
 eqz
 eqz
 bOm
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -43999,31 +47002,31 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+vLy
 gdx
-kaC
+vNj
 kaC
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 eII
 rOL
 flH
 wWk
 wWk
-emX
-emX
+xSr
+xSr
 wWk
 wWk
 sTW
 rOL
 eII
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -44256,31 +47259,31 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+vLy
 gdx
-kaC
+vNj
 kaC
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 efm
 kvt
 fwf
 flH
 wWk
 wWk
-emX
-emX
+xSr
+xSr
 wWk
 wWk
 sTW
 efm
 kvt
 fwf
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -44513,31 +47516,31 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+rBD
 gdx
-kaC
+vNj
 kaC
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 lln
 rOL
 kFK
 nug
 nug
-emX
-emX
+xSr
+xSr
 nug
 nug
 dHJ
 rOL
 lln
 rOL
-emX
-emX
+xSr
+xSr
 gLA
 kvt
 gab
@@ -44770,31 +47773,31 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+vLy
 gdx
-kaC
+vNj
 kaC
 kvt
-pjU
-emX
-emX
+cTz
+jaK
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -45027,31 +48030,31 @@ fzC
 fzC
 fzC
 mbY
-yhR
-wpl
+njy
+vWW
 gdx
-kaC
+vNj
 qDL
 kvt
 cMQ
-emX
-emX
+oZW
+xSr
 rOL
 rOL
 eII
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rOL
 eII
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -45284,31 +48287,31 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+vLy
 gdx
-kaC
+vNj
 kaC
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 efm
 kvt
 fwf
 rOL
 bHU
-emX
-emX
+xSr
+xSr
 rOL
 efm
 kvt
 fwf
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -45541,31 +48544,31 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+vHi
 gdx
-kaC
+vNj
 kaC
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 rOL
 lln
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rOL
 lln
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -45798,31 +48801,31 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+njy
 gdx
-kaC
+vNj
 kaC
 kvt
 sVW
-emX
-emX
+oZW
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -46055,31 +49058,31 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+njy
 gdx
-kaC
+vNj
 kaC
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 cJS
 vnQ
 vnQ
 fdH
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 qrK
 tOW
 tOW
 cbo
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -46312,31 +49315,31 @@ fzC
 fzC
 fzC
 mbY
-yhR
-yhR
+njy
+njy
 gdx
-kaC
+vNj
 kaC
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 tJT
 jSm
 jSm
 kKS
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 iGV
 jSm
 jSm
 nxb
 rOL
-emX
-emX
+xSr
+xSr
 gLA
 kvt
 gab
@@ -46569,31 +49572,31 @@ fzC
 irI
 fzC
 mbY
-yhR
-wpl
+njy
+ttB
 gdx
-kaC
+vNj
 qDL
 kvt
 cMQ
-emX
-emX
+oZW
+xSr
 rOL
 tJT
 jSm
 jSm
 kKS
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 iGV
 jSm
 jSm
 nxb
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -46818,7 +49821,7 @@ gdx
 gdx
 gdx
 bAh
-bAh
+pda
 gdx
 gdx
 gdx
@@ -46826,31 +49829,31 @@ gdx
 gdx
 fzC
 mbY
-yhR
+njy
 ntK
 gdx
-kaC
+vNj
 kaC
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 oEn
 sHY
 sHY
 eon
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 sIM
 aAM
 aAM
 qhw
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -47083,31 +50086,31 @@ aIe
 cqF
 fzC
 mbY
-yhR
-yhR
+njy
+njy
 gdx
-kaC
+vNj
 kaC
 kvt
-pjU
-emX
-emX
+ggu
+qBW
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -47337,34 +50340,34 @@ jed
 jed
 tqA
 aIe
-cqF
+rNq
 fzC
 mbY
-yhR
-yhR
+njy
+njy
 gdx
-kaC
+vNj
 kaC
 kvt
 pjU
-emX
-emX
+oZW
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 rOL
 rOL
 rOL
 rOL
 rOL
 rOL
-emX
-emX
+xSr
+xSr
 wIY
 kvt
 gab
@@ -47597,31 +50600,31 @@ aIe
 cqF
 fzC
 mbY
-yhR
-yhR
+njy
+njy
 gdx
-kaC
+vNj
 kaC
 kvt
 pjU
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
+oZW
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
 wIY
 kvt
 gab
@@ -47832,7 +50835,7 @@ xRX
 xRX
 xRX
 gdx
-dgA
+aUS
 dSf
 fzC
 fzC
@@ -47846,7 +50849,7 @@ gdx
 gdx
 gdx
 gdx
-gdx
+nbY
 gdx
 gdx
 gdx
@@ -47854,31 +50857,31 @@ gdx
 gdx
 fzC
 mbY
-yhR
+njy
 beb
 gdx
-kaC
+vNj
 kaC
 kvt
 cMQ
+sxc
+emX
+emX
+emX
+qXO
 emX
 emX
 emX
 emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
-emX
+pws
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
 gLA
 kvt
 gab
@@ -48091,30 +51094,30 @@ xRX
 gdx
 gdx
 dgA
+oaV
+nKW
+nKW
+nKW
+oaV
 nKW
 nKW
 nKW
 nKW
 nKW
 nKW
+oaV
 nKW
 nKW
 nKW
 nKW
 nKW
-nKW
-nKW
-nKW
-nKW
-nKW
-nKW
-nKW
+oaV
 nKW
 pkJ
-yhR
+njy
 vpf
 gdx
-kaC
+vNj
 kaC
 kvt
 oPj
@@ -48122,12 +51125,12 @@ rOL
 rOL
 rOL
 rOL
+bXS
 rOL
 rOL
 rOL
 rOL
-rOL
-rOL
+wLD
 rOL
 rOL
 rOL
@@ -48354,7 +51357,7 @@ gdx
 gdx
 gdx
 gdx
-gdx
+epZ
 gdx
 gdx
 gdx
@@ -48371,7 +51374,7 @@ vMd
 vMd
 vMd
 vMd
-kaC
+vNj
 qDL
 kvt
 xxb
@@ -48379,12 +51382,12 @@ nZv
 jUH
 nZv
 nZv
-nZv
+fpI
 nZv
 nZv
 jUH
 nZv
-nZv
+vJf
 nZv
 jUH
 nZv
@@ -48628,7 +51631,7 @@ sNp
 kNv
 lHi
 vMd
-kaC
+vNj
 kaC
 kvt
 kvt
@@ -48885,11 +51888,11 @@ vTV
 eRx
 jLO
 vMd
+vNj
 kaC
-kaC
-kaC
-kaC
-kaC
+vNj
+vNj
+vNj
 mJH
 mJH
 hNT
@@ -48898,7 +51901,7 @@ eQz
 xZX
 tuK
 tuK
-tuK
+csw
 wgh
 rRx
 aeb
@@ -49142,20 +52145,20 @@ uua
 raB
 cuL
 vMd
+vNj
 kaC
-kaC
-kaC
-kaC
-kaC
+vNj
+vNj
+vNj
 mJH
 lia
 hNT
-eQz
+xRh
 msx
-sVk
-sVk
-sVk
-sVk
+fwa
+fwa
+fwa
+wvC
 aaG
 mmv
 kTl
@@ -49399,20 +52402,20 @@ gSf
 mvI
 ksM
 vMd
+vNj
 kaC
-kaC
-kaC
-kaC
+vNj
+vNj
 jwF
 lia
 hNT
 wvt
-msx
+fay
 sVk
 sVk
 sVk
 sVk
-sVk
+bmD
 aaG
 wnH
 kTl
@@ -49652,24 +52655,24 @@ xRX
 vMd
 rcX
 kCJ
-gSf
+qcw
 tiv
 cfP
 vMd
-kaC
-kaC
-kaC
+qWL
+thx
+vNj
 knb
 lia
 lia
 eQz
-msx
+fay
 sVk
 sVk
 sVk
 sVk
 sVk
-sVk
+bmD
 aaG
 vHM
 eVA
@@ -49909,30 +52912,30 @@ xRX
 vMd
 xQr
 cCN
-gSf
+lPh
 qYy
-gSf
+ldy
 uta
 thx
-vwe
+liM
 kvN
 lia
 hNT
 wrg
-msx
+fay
 sVk
 sVk
 sVk
 sVk
 sVk
 sVk
-sVk
+bmD
 aaG
 bpK
 hbo
 oov
 ngK
-nUu
+jSF
 nUu
 uXy
 nqs
@@ -50183,7 +53186,7 @@ sVk
 sVk
 sVk
 sVk
-sVk
+bmD
 aaG
 sRM
 xUu
@@ -50191,7 +53194,7 @@ oov
 ngK
 bzM
 nUu
-nUu
+ikq
 xGS
 nqs
 nqs
@@ -50425,13 +53428,13 @@ xRX
 xRX
 xRX
 fFD
-thx
+liM
 vwe
 mWN
 lia
 lia
 vhE
-msx
+fay
 mUv
 sVk
 sVk
@@ -50440,7 +53443,7 @@ sVk
 sVk
 sVk
 sVk
-sVk
+bmD
 aaG
 ocw
 sxZ
@@ -50448,7 +53451,7 @@ oov
 ngK
 lnx
 iBt
-nUu
+ikq
 nUu
 vLF
 nqs
@@ -50682,12 +53685,12 @@ xRX
 xRX
 xRX
 fFD
-enL
+tlQ
 lia
 lia
 lia
 hES
-msx
+fay
 sVk
 ciO
 sVk
@@ -50697,7 +53700,7 @@ sVk
 sVk
 sVk
 sVk
-sVk
+bmD
 aaG
 gki
 dMP
@@ -50705,7 +53708,7 @@ oov
 ngK
 xWm
 nUu
-nUu
+ikq
 nUu
 nUu
 qam
@@ -50943,7 +53946,7 @@ enL
 lia
 hNT
 knl
-msx
+fay
 sVk
 sVk
 ciO
@@ -50954,18 +53957,18 @@ sVk
 sVk
 sVk
 sVk
-sVk
+bmD
 aaG
 gZU
 kTl
 oov
 ngK
-nUu
-nUu
-nUu
-nUu
-nUu
-nUu
+lZh
+aGz
+jQi
+eLn
+eLn
+eLn
 rCE
 ngK
 xRX
@@ -51199,7 +54202,7 @@ fFD
 enL
 lia
 pgu
-msx
+fay
 sVk
 sVk
 sVk
@@ -51211,7 +54214,7 @@ sVk
 sVk
 sVk
 sVk
-sVk
+bmD
 aaG
 wNw
 kTl
@@ -51219,7 +54222,7 @@ qjZ
 ngK
 lAY
 nUu
-nUu
+ftf
 nUu
 nTn
 nUu
@@ -51460,15 +54463,15 @@ sVk
 sVk
 sVk
 sVk
-ciO
-sVk
-sVk
-sVk
-sVk
+bUQ
+eCC
+eCC
+eCC
+eCC
 uEy
+tZg
 sVk
-sVk
-sVk
+bmD
 euC
 tHx
 tHx
@@ -51724,18 +54727,18 @@ sVk
 jZG
 ppy
 fbF
-sVk
-sVk
-sVk
-sVk
-sVk
+ybU
+xRD
+rqD
+rqD
+rqD
 ofz
 amW
 amW
-gdr
-amW
-amW
-amW
+cyR
+bSj
+wyq
+wyq
 gdr
 dgD
 ppy
@@ -51974,14 +54977,14 @@ sVk
 sVk
 sVk
 sVk
-ciO
-sVk
-sVk
-sVk
-sVk
+jGm
+mKH
+mKH
+mKH
+mKH
 iZf
-sVk
-sVk
+mKH
+lYK
 sVk
 sVk
 sVk
@@ -51995,7 +54998,7 @@ jeu
 jeu
 onz
 bTK
-ppy
+eih
 xRX
 xRX
 xRX
@@ -52223,7 +55226,7 @@ xRX
 xRX
 xRX
 fFD
-fFD
+wFh
 fFD
 lia
 iTP
@@ -52760,12 +55763,12 @@ sVk
 kRw
 dhp
 bgL
-pbC
-pbC
-pbC
-pbC
-pbC
-pbC
+wEA
+eit
+eit
+eit
+eit
+dIC
 dhp
 xRX
 xRX
@@ -53017,11 +56020,11 @@ sVk
 kRw
 dhp
 ihK
-pbC
+juJ
 aMI
 pbC
 pbC
-pbC
+qbz
 xHA
 xHA
 xRX
@@ -53274,9 +56277,9 @@ sVk
 kRw
 dhp
 bgL
-pbC
-pbC
-pbC
+rpH
+rxp
+rxp
 qOF
 xHA
 xHA
@@ -53513,7 +56516,7 @@ xRX
 xRX
 xRX
 xRX
-pda
+hNT
 hNT
 aaA
 wbk
@@ -53531,8 +56534,8 @@ yfE
 jqO
 dhp
 pdu
-pbC
-pbC
+rpH
+rxp
 rjv
 xHA
 xHA
@@ -53787,8 +56790,8 @@ kTl
 kTl
 gmc
 dhp
-pbC
-pbC
+xsu
+sSb
 oTz
 xHA
 xHA
@@ -54031,7 +57034,7 @@ xRX
 xRX
 hNT
 hNT
-xEn
+prU
 jSL
 ehW
 kTl
@@ -54042,9 +57045,9 @@ kTl
 kTl
 kTl
 kTl
-aQh
+jjZ
 hAK
-pbC
+dwU
 vCc
 xHA
 xHA
@@ -54301,7 +57304,7 @@ kTl
 kTl
 aQh
 dhp
-pbC
+bpn
 xHA
 xHA
 xRX
@@ -54809,7 +57812,7 @@ ppy
 ppy
 ppy
 ppy
-ppy
+wcW
 ppy
 ppy
 ppy

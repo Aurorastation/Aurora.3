@@ -113,8 +113,9 @@
 	designation = "Cargo Hold"
 	desc = "A floating cargo container."
 	shuttle = "Adhomian Freight Cargo"
-	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving"
+	colors = list("#c3c7eb", "#a0a8ec")
+	icon_state = "pod"
+	moving_state = "pod_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

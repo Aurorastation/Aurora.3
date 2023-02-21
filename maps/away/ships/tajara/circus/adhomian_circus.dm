@@ -19,8 +19,9 @@
 	name = "Adhomian Traveling Circus"
 	class = "ACV"
 	desc = "The N'hanzafu class is a bulky Adhomian freighter designed with a large crew and cargo in mind. This one is painted in bright colors."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "generic"
+	moving_state = "generic_moving"
+	colors = list(COLOR_CYAN, COLOR_WARM_YELLOW, COLOR_BOTTLE_GREEN, COLOR_HOT_PINK)
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -29,6 +30,7 @@
 	initial_restricted_waypoints = list(
 		"Adhomian Circus Shuttle" = list("nav_hangar_adhomian_circus")
 	)
+
 
 /obj/effect/overmap/visitable/ship/adhomian_circus/New()
 	designation = "[pick("Kalmykova", "Flying Rafama", "Harazhimir Brothers")]"
@@ -47,6 +49,9 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
+	icon_state = "pod"
+	moving_state = "pod_moving"
+	colors = list(COLOR_CYAN, COLOR_WARM_YELLOW, COLOR_BOTTLE_GREEN, COLOR_HOT_PINK)
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
