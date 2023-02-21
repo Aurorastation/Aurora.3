@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Controls -->
-    <input type="text" v-model="new_own_tag" :placeholder="s,own_tag"><vui-button :params="{ tag: new_own_tag }">Set GPS Tag</vui-button><br>
+    <input type="text" v-model="new_own_tag" :placeholder="s.own_tag"><vui-button :params="{ tag: new_own_tag }">Set GPS Tag</vui-button><br>
     <input type="text" v-model="add_track_tag"><vui-button :params="{ add_tag: add_track_tag }">Track New Tag</vui-button><br>
     <vui-button :params="{ add_all: 1 }">Track All</vui-button>
     <vui-button :params="{ clear_all: 1 }">Untrack All</vui-button>
