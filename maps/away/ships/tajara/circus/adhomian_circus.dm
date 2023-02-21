@@ -46,6 +46,8 @@
 	name = "Adhomian Circus Shuttle"
 	desc = "An inefficient and rustic looking shuttle. This one's transponder identifies it as belonging to an independent freighter."
 	shuttle = "Adhomian Circus Shuttle"
+	class = "ACV"
+	designation = "Rafama"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
