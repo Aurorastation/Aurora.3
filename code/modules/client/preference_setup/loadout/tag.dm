@@ -10,7 +10,7 @@ var/list/tag_group_size = list("Tiny", "Small", "Normal", "Large", "Huge") // fi
 var/list/tag_group_species = list("Human", "IPC", "Skrell", "Unathi", "Tajara", "Diona", "Vaurca")
 
 // ------------------------------ manual tag groups
-var/list/tag_group_other = list("Toy", "Smoking", "Religion", "Augment", "Computer", "tagless")
+var/list/tag_group_other = list("Toy", "Smoking", "Religion", "Augment", "Computer")
 
 // ------------------------------ all tag groups
 var/list/tag_groups_all = list(
@@ -117,6 +117,7 @@ proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 	// ---- dedup
 	// ---- tagless tag
 	if(gear.tags.len == 0)
+		tag_group_other |= "tagless"
 		gear.tags += "tagless"
 
 // ------------------------------
