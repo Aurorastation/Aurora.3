@@ -191,7 +191,7 @@
 		/obj/item/storage/box/evidence = 1
 	)
 
-/datum/outfit/job/warden/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	H.equip_or_collect(new /obj/item/clothing/gloves/black/forensic(H), slot_gloves)
 
