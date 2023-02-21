@@ -137,7 +137,7 @@
 "aIe" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/space_ship,
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "aMI" = (
 /obj/effect/ghostspawpoint{
 	identifier = "adhomian_circus_tamer";
@@ -156,7 +156,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "aOR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5;
@@ -405,7 +405,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "bCv" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -507,7 +507,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "cbo" = (
 /obj/effect/floor_decal/corner/orange/full,
 /obj/item/device/flashlight/lamp/stage,
@@ -540,7 +540,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "csw" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -1309,7 +1309,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "fpI" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
@@ -1441,7 +1441,7 @@
 	},
 /obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor,
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "fFA" = (
 /obj/effect/shuttle_landmark/adhomian_circus_shuttle/hangar,
 /turf/simulated/floor/plating{
@@ -1607,7 +1607,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "gws" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1793,7 +1793,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "hAK" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Animal Tamer";
@@ -2170,7 +2170,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "jeu" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -2679,6 +2679,9 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/fortune)
+"kRJ" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/adhomian_circus_shuttle)
 "kTl" = (
 /turf/simulated/floor/marble{
 	temperature = 278.15
@@ -2836,7 +2839,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "ltJ" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -3082,7 +3085,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "mvI" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8
@@ -3227,7 +3230,7 @@
 	name = "starboard, crew compartment"
 	},
 /turf/simulated/wall/shuttle/space_ship,
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "nde" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance Hatch";
@@ -3884,7 +3887,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "pdu" = (
 /mob/living/simple_animal/hostile/commanded/dog/harron,
 /turf/simulated/floor/tiled{
@@ -3975,7 +3978,7 @@
 /area/adhomian_circus/port)
 "psN" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "put" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/purple/full,
@@ -4112,7 +4115,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "qpv" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Quarters";
@@ -4266,7 +4269,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "qQU" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
@@ -4437,7 +4440,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "rxp" = (
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4494,7 +4497,7 @@
 	name = "aft, engines"
 	},
 /turf/unsimulated/floor/plating,
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "rOy" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -4553,7 +4556,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "skB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/largecrate/animal/adhomai/schlorrgo,
@@ -4845,7 +4848,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "tsl" = (
 /obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled{
@@ -5033,7 +5036,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "tWs" = (
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/corner/blue/full{
@@ -5367,7 +5370,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "vuS" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -5953,7 +5956,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "wNw" = (
 /obj/item/dumbbell/barbell/threehundred,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6218,7 +6221,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 "xZX" = (
 /obj/machinery/light{
 	dir = 8;
@@ -6315,7 +6318,7 @@
 /turf/simulated/floor/shuttle/dark_blue{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/shuttle/adhomian_circus_shuttle)
 
 (1,1,1) = {"
 xRX
@@ -49817,16 +49820,16 @@ fzC
 fzC
 fEF
 psN
-gdx
-gdx
-gdx
+kRJ
+kRJ
+kRJ
 bAh
 pda
-gdx
-gdx
-gdx
-gdx
-gdx
+kRJ
+kRJ
+kRJ
+kRJ
+kRJ
 fzC
 mbY
 njy
@@ -50074,7 +50077,7 @@ fzC
 fzC
 fzC
 psN
-gdx
+kRJ
 hzN
 tVK
 jed
@@ -50588,7 +50591,7 @@ fzC
 fzC
 fzC
 psN
-gdx
+kRJ
 ltF
 seg
 xXA
@@ -50845,16 +50848,16 @@ fzC
 fzC
 bYt
 psN
-gdx
-gdx
-gdx
-gdx
+kRJ
+kRJ
+kRJ
+kRJ
 nbY
-gdx
-gdx
-gdx
-gdx
-gdx
+kRJ
+kRJ
+kRJ
+kRJ
+kRJ
 fzC
 mbY
 njy
