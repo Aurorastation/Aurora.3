@@ -29,6 +29,7 @@
 #include "code\__defines\auxtools.dm"
 #include "code\__defines\battle_monsters.dm"
 #include "code\__defines\byond_compat.dm"
+#include "code\__defines\profiler_tracy.dm"
 #include "code\__defines\callback.dm"
 #include "code\__defines\chemistry.dm"
 #include "code\__defines\color.dm"
