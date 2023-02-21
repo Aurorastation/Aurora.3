@@ -262,7 +262,7 @@
 						to_chat(usr, SPAN_NOTICE("Successfully scanned [O]."))
 						contact_name = O.name
 						contact_details = O.get_scan_data(usr)
-	return TOPIC_HANDLED
+		return TOPIC_HANDLED
 
 	if (href_list["request_datalink"])
 		var/obj/effect/overmap/visitable/O = locate(href_list["request_datalink"])
