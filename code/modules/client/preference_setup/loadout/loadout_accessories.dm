@@ -625,3 +625,8 @@
 	necklace_uncolored["large golden pendant"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/fat
 	necklace_uncolored["large silver pendant"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/silver/fat
 	gear_tweaks += new /datum/gear_tweak/path(necklace_uncolored)
+
+/datum/gear/accessory/visegradi_sweater
+	display_name = "visegradi patterned sweater"
+	path = /obj/item/clothing/accessory/sweater/visegradi
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

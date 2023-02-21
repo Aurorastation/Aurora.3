@@ -96,6 +96,14 @@
 	icon_state = "argyle_sweater_vest"
 	item_state = "argyle_sweater_vest"
 
+/obj/item/clothing/accessory/sweater/visegradi
+	name = "visegradi patterned sweater"
+	desc = "A thick wool sweater of Visegradi make, complete with a patterned design."
+	contained_sprite = TRUE
+	icon = 'icons/obj/item/clothing/accessory/visegradi_sweater.dmi'
+	icon_state = "visegradi_sweater"
+	item_state = "visegradi_sweater"
+
 //
 // Shirts
 //
