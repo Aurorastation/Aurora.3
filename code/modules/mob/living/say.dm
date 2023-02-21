@@ -246,6 +246,9 @@ proc/get_radio_key_from_channel(var/channel)
 		var/randomnote = pick("\u2669", "\u266A", "\u266B")
 		message = "[randomnote] <span class='singing'>[message]</span> [randomnote]"
 
+	var/list/obj/item/used_radios = new //we'll come back to this later.
+
+
 	//handle nonverbal and sign languages here
 	if (speaking)
 		if (speaking.flags & NONVERBAL)
@@ -253,9 +256,25 @@ proc/get_radio_key_from_channel(var/channel)
 				src.custom_emote(VISIBLE_MESSAGE, "[pick(speaking.signlang_verb)].")
 
 		if (speaking.flags & SIGNLANG)
+			if(istype(src,/mob/living/carbon/human)) //Allows for sign-to-speech over radio if radio-gloves with an active translator are worn.
+				var/mob/living/carbon/human/H = src
+				if(H.gloves && istype(H.gloves,/obj/item/device/radio/gloves))
+					var/obj/item/device/radio/gloves/G = H.gloves
+					if(G.transign == 1)
+						var/transmessage = message
+						G.transign_active = 1
+						src.say("<i>[transmessage]</i>", all_languages[LANGUAGE_TCB], "chimes", "", GHOSTS_ALL_HEAR, FALSE)
+						if(length(used_radios)) //talk into StS
+							message_range = 1
+							if(speaking)
+								message_range = speaking.get_talkinto_msg_range(message)
+							if(!speaking || !(speaking.flags & NO_TALK_MSG))
+								var/msg = SPAN_NOTICE("\The [src] signs using \the [used_radios[1]].")
+								for (var/mob/living/L in get_hearers_in_view(5, src) - src)
+									L.show_message(msg)
+						G.transign_active = 0
 			return say_signlang(message, pick(speaking.signlang_verb), speaking, speaking.sign_adv_length)
 
-	var/list/obj/item/used_radios = new
 	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper, is_singing))
 		return TRUE
 
@@ -353,7 +372,6 @@ proc/get_radio_key_from_channel(var/channel)
 
 /mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language, var/list/sign_adv_length)
 	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]",ckey=key_name(src))
-
 	for (var/mob/O in viewers(src, null))
 		O.hear_signlang(message, verb, language, src, sign_adv_length)
 	return 1

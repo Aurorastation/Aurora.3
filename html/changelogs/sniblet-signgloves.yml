@@ -1,0 +1,6 @@
+author: Collaborative effort
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds gloves that translate sign language to Tau Ceti Basic, available in the loadout. The translation functionality can be toggled, and they also act like a shortwave radio so you can transmit your sign-to-speech over comms."
