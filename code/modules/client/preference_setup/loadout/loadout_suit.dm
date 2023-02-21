@@ -469,3 +469,9 @@ datum/gear/suit/colorvest
 	overalls["overall skirt, x-shaped back"] = /obj/item/clothing/accessory/overalls/skirt/x_shaped_back
 
 	gear_tweaks += new /datum/gear_tweak/path(overalls)
+
+
+/datum/gear/suit/ponczo
+	display_name = "visegradi ponczo"
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/colorable/ponczo
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
