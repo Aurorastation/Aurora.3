@@ -30,6 +30,7 @@
 		"Adhomian Circus Shuttle" = list("nav_hangar_adhomian_circus")
 	)
 
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/adhomian_circus/New()
 	designation = "[pick("Kalmykova", "Flying Rafama", "Harazhimir Brothers")]"
