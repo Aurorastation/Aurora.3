@@ -50,11 +50,23 @@
 	contained_sprite = TRUE
 	var/cape_backing_state = "cape_backing"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/generic
+	icon_state = "colorable_cape"
+	item_state = "colorable_cape"
+	worn_overlay = "cape"
+	build_from_parts = TRUE
+
 /obj/item/clothing/accessory/poncho/dominia_cape/white
 	name = "white dominian cape"
 	icon_state = "dominian_capew"
 	item_state = "dominian_capew"
 	cape_backing_state = "capew_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/white/generic
+	icon_state = "colorable_capew"
+	item_state = "colorable_capew"
+	worn_overlay = "cape"
+	build_from_parts = TRUE
 
 /obj/item/clothing/accessory/poncho/dominia_cape/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()

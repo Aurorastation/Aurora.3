@@ -248,6 +248,19 @@ datum/gear/suit/colorvest
 	dominiacape["white dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/white
 	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
 
+/datum/gear/suit/dominia_cape_colorable
+	display_name = "dominian cape (colorable)"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/generic
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+
+/datum/gear/suit/dominia_cape_colorable/New()
+	..()
+	var/list/colorablecape = list()
+	colorablecape["dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/generic
+	colorablecape["white dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/white/generic
+	gear_tweaks += new /datum/gear_tweak/path(colorablecape)
+
 /datum/gear/suit/dominia
 	display_name = "dominia coat and jacket selection"
 	description = "A selection of Dominian coats and jackets."
