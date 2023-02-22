@@ -1,0 +1,8 @@
+author: diggiez
+
+delete-after: True
+
+changes:
+  - maptweak: "The Spark and Intrepid now have distress beacon launchers."
+  - maptweak: "All 'mother' away ships use the plain sensor suite instead of the weak variant. This gives them access to range 10 and deep scanning."
+  - maptweak: "Various QoL remaps that places away ship sensors, engines, and navigation consoles in more sensible spots."
