@@ -903,11 +903,11 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "lri" = (
-/obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/ship/militia_ship)
 "lwj" = (

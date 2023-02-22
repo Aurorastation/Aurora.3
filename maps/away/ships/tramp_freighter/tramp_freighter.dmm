@@ -20,8 +20,8 @@
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "aap" = (
-/obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/ship/tramp_freighter)
 "aaI" = (

@@ -652,6 +652,12 @@
 "gkc" = (
 /turf/simulated/floor/shuttle/skrell/ramp,
 /area/ship/tirakqi_freighter)
+"gkO" = (
+/obj/machinery/button/distress{
+	pixel_x = -26
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_freighter)
 "goI" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	req_access = "208"
@@ -715,11 +721,11 @@
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "gIX" = (
-/obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/ship/tirakqi_freighter)
 "gMA" = (
@@ -885,7 +891,17 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "hLR" = (
-/turf/simulated/wall/shuttle/skrell,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/iff_beacon,
+/turf/simulated/floor,
 /area/shuttle/tirakqi_shuttle)
 "hNy" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -1809,10 +1825,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
-"rQN" = (
-/obj/item/device/gps,
-/turf/space/transit/north,
-/area/space)
 "rXT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -7032,7 +7044,7 @@ etL
 etL
 etL
 etL
-rQN
+etL
 que
 etL
 etL
@@ -37464,7 +37476,7 @@ fBo
 fZq
 egE
 egE
-bzd
+gkO
 fZq
 bzd
 gkc

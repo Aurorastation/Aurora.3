@@ -3346,8 +3346,8 @@
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/grauwolf)
 "iMd" = (
-/obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/canteen)
 "iNn" = (

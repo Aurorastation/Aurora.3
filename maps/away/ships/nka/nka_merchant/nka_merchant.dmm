@@ -2301,11 +2301,11 @@
 	},
 /area/nka_merchant/engine)
 "jt" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/white/full{
 	dir = 4
+	},
+/obj/machinery/computer/ship/navigation{
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4562,6 +4562,17 @@
 "QW" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant)
+"Rm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/machinery/computer/ship/engines{
+	dir = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/engine)
 "RC" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -18582,7 +18593,7 @@ iB
 iB
 iB
 cR
-aI
+Rm
 Zr
 OL
 cG

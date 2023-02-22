@@ -3736,11 +3736,11 @@
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engineering)
 "pGT" = (
-/obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "pIa" = (

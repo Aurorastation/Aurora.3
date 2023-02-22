@@ -1401,6 +1401,13 @@
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
+"itS" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Legion Quarters";
+	req_access = list(204)
+	},
+/turf/simulated/floor/shuttle/tan,
+/area/ship/tcfl_peacekeeper_ship)
 "ive" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2422,6 +2429,10 @@
 "oAY" = (
 /turf/simulated/wall/shuttle/legion/cardinal,
 /area/ship/tcfl_peacekeeper_ship)
+"oCF" = (
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/turf/simulated/wall/shuttle/legion,
+/area/ship/tcfl_peacekeeper_ship)
 "oCQ" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/unsimulated/wall/fakepdoor{
@@ -2519,6 +2530,10 @@
 /obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"ppf" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/wall/shuttle/legion,
+/area/ship/tcfl_peacekeeper_ship)
 "ppZ" = (
 /obj/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -2608,10 +2623,11 @@
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
 "pIz" = (
-/obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
+	},
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
@@ -2739,9 +2755,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "qtP" = (
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 8
-	},
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -3393,7 +3406,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "upC" = (
@@ -3443,7 +3458,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "uCI" = (
@@ -3671,8 +3688,8 @@
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "wji" = (
-/obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/ship/tcfl_peacekeeper_ship)
 "wns" = (
@@ -28071,7 +28088,7 @@ yjk
 npq
 yjk
 yjk
-qfE
+ppf
 yjk
 yjk
 yjk
@@ -28586,7 +28603,7 @@ uwT
 uwT
 uwT
 oyy
-yjk
+itS
 qtP
 tUb
 tUb
@@ -30905,7 +30922,7 @@ lmc
 lva
 yjk
 yjk
-yjk
+oCF
 yjk
 oAY
 uNk

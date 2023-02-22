@@ -360,6 +360,14 @@
 	temperature = 278.15
 	},
 /area/shuttle/hailstorm_shuttle)
+"bv" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck/second)
 "bx" = (
 /obj/item/device/radio,
 /obj/item/device/radio,
@@ -1200,6 +1208,7 @@
 	},
 /area/hailstorm_ship/bridge)
 "ie" = (
+/obj/machinery/computer/ship/targeting,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1427,6 +1436,14 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship/engine)
+"jH" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
 "jJ" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
@@ -1605,7 +1622,6 @@
 	},
 /area/hailstorm_ship/engine)
 "lk" = (
-/obj/machinery/computer/ship/sensors,
 /obj/machinery/alarm/cold{
 	req_one_access = list(214);
 	pixel_y = 32
@@ -1615,6 +1631,9 @@
 	},
 /obj/structure/sign/flag/dpra{
 	pixel_x = -32
+	},
+/obj/machinery/computer/ship/navigation{
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1692,7 +1711,7 @@
 "mj" = (
 /obj/structure/closet/secure_closet/engineering_welding{
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/power/apc/high{
@@ -1961,13 +1980,11 @@
 /turf/template_noop,
 /area/space)
 "pg" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/black/full,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2131,9 +2148,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/hailstorm_ship/gun_deck)
 "rt" = (
-/obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/hailstorm_ship/bridge)
 "rx" = (
@@ -2818,6 +2835,7 @@
 	},
 /area/hailstorm_ship/barracks)
 "Ed" = (
+/obj/machinery/computer/ship/targeting,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3725,12 +3743,12 @@
 	},
 /area/hailstorm_ship)
 "Up" = (
-/obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "Hailstorm Port Gun"
-	},
 /obj/structure/window/reinforced{
 	dir = 1;
 	icon_state = "rwindow"
+	},
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Hailstorm Port Gun"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3748,7 +3766,11 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "UD" = (
-/obj/machinery/ammunition_loader/grauwolf{
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/machinery/ammunition_loader/francisca{
 	weapon_id = "Hailstorm Starboard Gun"
 	},
 /turf/simulated/floor/tiled{
@@ -13860,7 +13882,7 @@ je
 fQ
 aa
 MH
-Ed
+jH
 Ed
 fQ
 iB
@@ -16290,7 +16312,7 @@ JO
 CR
 kZ
 pC
-ie
+bv
 ie
 hc
 iB

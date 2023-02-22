@@ -368,7 +368,7 @@
 /turf/unsimulated/mineral/asteroid,
 /area/ship/diona_rokz_ship/exterior/west)
 "rh" = (
-/obj/machinery/shipsensors/weak,
+/obj/machinery/shipsensors,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/exterior/west)
 "rm" = (

@@ -1339,11 +1339,11 @@
 	},
 /area/shuttle/tajaran_smuggler_cargo)
 "gXv" = (
-/obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/tajaran_smuggler/bridge)
 "gXx" = (
@@ -2867,6 +2867,20 @@
 	temperature = 278.15
 	},
 /area/tajaran_smuggler)
+"pHM" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/computer/ship/navigation{
+	dir = 8
+	},
+/obj/machinery/computer/ship/navigation{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/tajaran_smuggler)
 "pPq" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3953,9 +3967,7 @@
 	},
 /area/tajaran_smuggler)
 "yin" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 1
-	},
+/obj/machinery/computer/ship/engines,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -35440,7 +35452,7 @@ hAC
 nSb
 sim
 nSb
-buK
+pHM
 nSb
 als
 lWc

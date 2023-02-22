@@ -1309,11 +1309,11 @@
 	},
 /area/headmaster_ship/hangar)
 "dJ" = (
-/obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/headmaster_ship/bridge)
 "dK" = (
@@ -5049,7 +5049,7 @@
 /turf/template_noop,
 /area/space)
 "zm" = (
-/obj/machinery/computer/ship/navigation{
+/obj/machinery/computer/ship/targeting{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{

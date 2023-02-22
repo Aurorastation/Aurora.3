@@ -133,11 +133,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "aSO" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
+	},
+/obj/machinery/computer/ship/engines{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -2261,15 +2261,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "qTc" = (
-/obj/machinery/computer/ship/engines{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
+	},
+/obj/machinery/computer/ship/navigation{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -2468,6 +2468,9 @@
 	dir = 8;
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/obj/machinery/computer/ship/sensors{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -3164,6 +3167,9 @@
 	name = "Port docking controller";
 	tag_door = "orion_express_shuttle_out"
 	},
+/obj/item/storage/bag/inflatable{
+	pixel_y = -8
+	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/orion_express_shuttle)
 "wlw" = (
@@ -3296,10 +3302,10 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/machinery/shipsensors,
 /turf/template_noop,
 /area/ship/orion_express_ship)
 "xnY" = (

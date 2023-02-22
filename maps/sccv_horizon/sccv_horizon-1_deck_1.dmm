@@ -942,6 +942,10 @@
 	},
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/reagent_containers/inhaler/pneumalin,
+/obj/machinery/button/distress{
+	pixel_y = 24;
+	pixel_x = -12
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "aNR" = (
@@ -8851,6 +8855,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
+"gGI" = (
+/obj/machinery/button/distress{
+	pixel_y = 32
+	},
+/turf/simulated/wall/shuttle/scc/cardinal,
+/area/shuttle/mining)
 "gIc" = (
 /obj/structure/closet/crate,
 /obj/item/circuitboard/smes,
@@ -13783,6 +13793,9 @@
 	frequency = 1380;
 	id_tag = "intrepid_shuttle";
 	pixel_y = 33
+	},
+/obj/machinery/button/distress{
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -20830,7 +20843,7 @@
 "qqS" = (
 /obj/effect/floor_decal/corner/brown/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/computer/ship/sensors{
+/obj/machinery/computer/shuttle_control/explore/mining_shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -26527,7 +26540,7 @@
 /area/engineering/atmos)
 "uNw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/computer/shuttle_control/explore/mining_shuttle{
+/obj/machinery/computer/ship/sensors{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -47017,7 +47030,7 @@ qNK
 ukS
 iuk
 dgD
-iuk
+gGI
 aNO
 uNw
 rAa

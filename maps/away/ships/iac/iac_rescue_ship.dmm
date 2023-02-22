@@ -85,7 +85,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/shipsensors/weak,
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/ship/iac_rescue_ship/bridge)
 "aoJ" = (

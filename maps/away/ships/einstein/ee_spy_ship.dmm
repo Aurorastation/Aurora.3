@@ -702,11 +702,11 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "lri" = (
-/obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/ship/ee_spy_ship)
 "lwj" = (

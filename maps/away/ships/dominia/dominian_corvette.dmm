@@ -4201,11 +4201,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/officer)
 "pAh" = (
-/obj/machinery/shipsensors/weak,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/machinery/shipsensors,
 /turf/simulated/floor/bluegrid/airless,
 /area/ship/dominian_corvette/exterior)
 "pBl" = (

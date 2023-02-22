@@ -296,8 +296,8 @@
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "aTL" = (
-/obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/ship/elyran_strike_craft)
 "aTV" = (

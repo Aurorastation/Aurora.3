@@ -415,7 +415,7 @@
 	},
 /area/ship/diona_serz_ship/engine)
 "sS" = (
-/obj/machinery/shipsensors/weak,
+/obj/machinery/shipsensors,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/bridge)
 "sU" = (

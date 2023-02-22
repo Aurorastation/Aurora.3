@@ -2469,11 +2469,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
 "ttw" = (
-/obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/ship/fsf_patrol_ship)
 "ttC" = (
