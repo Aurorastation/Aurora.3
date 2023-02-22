@@ -6,6 +6,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "quikpay"
 	w_class = ITEMSIZE_SMALL
+	slot_flags = SLOT_BELT
 	var/machine_id = ""
 	var/list/items = list()
 	var/sum = 0
