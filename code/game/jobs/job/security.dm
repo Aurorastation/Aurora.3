@@ -39,6 +39,7 @@
 	uniform = /obj/item/clothing/under/rank/head_of_security
 	head = /obj/item/clothing/head/hos
 	id = /obj/item/card/id/navy
+	shoes = null
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 
 	headset = /obj/item/device/radio/headset/heads/hos
@@ -103,6 +104,8 @@
 	uniform = /obj/item/clothing/under/rank/warden
 	suit = /obj/item/clothing/suit/storage/toggle/warden
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator
+	shoes = null
+	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/headset_warden
 	bowman = /obj/item/device/radio/headset/headset_warden/alt
@@ -160,7 +163,6 @@
 
 	uniform = /obj/item/clothing/under/det
 	shoes = /obj/item/clothing/shoes/laceup/all_species
-	gloves = /obj/item/clothing/gloves/black/forensic
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
@@ -179,6 +181,10 @@
 	backpack_contents = list(
 		/obj/item/storage/box/evidence = 1
 	)
+
+/datum/outfit/job/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_or_collect(new /obj/item/clothing/gloves/black/forensic(H), slot_gloves)
 
 /datum/job/officer
 	title = "Security Officer"
@@ -210,6 +216,8 @@
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security
+	l_pocket = /obj/item/device/flash
+	shoes = null
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
@@ -265,6 +273,7 @@
 	uniform = /obj/item/clothing/under/rank/cadet
 	suit = /obj/item/clothing/suit/storage/hazardvest/security
 	head = /obj/item/clothing/head/beret/security
+	shoes = null
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
