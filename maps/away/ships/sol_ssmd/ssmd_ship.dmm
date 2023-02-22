@@ -4391,6 +4391,9 @@
 /obj/machinery/light/colored/red,
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/francisca)
 "mqW" = (
@@ -5348,6 +5351,9 @@
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/francisca)
 "pwR" = (
@@ -5634,6 +5640,9 @@
 /obj/item/ship_ammunition/francisca,
 /obj/machinery/light/colored/red{
 	dir = 1
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/francisca)
@@ -6599,6 +6608,9 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/francisca)
 "uew" = (

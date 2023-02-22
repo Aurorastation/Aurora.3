@@ -70,7 +70,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(un_gloves)
 
 /datum/gear/gloves/unathi_full_leather
-	display_name = "full leather gloves (colourable)"
+	display_name = "unathi full leather gloves (colourable)"
 	path = /obj/item/clothing/gloves/black_leather/colour/unathi
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
@@ -78,7 +78,7 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/gloves/unathi_evening
-	display_name = "evening gloves"
+	display_name = "unathi evening gloves"
 	path = /obj/item/clothing/gloves/evening/unathi
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)

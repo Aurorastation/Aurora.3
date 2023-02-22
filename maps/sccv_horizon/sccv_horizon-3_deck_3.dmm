@@ -10129,6 +10129,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/clothing/head/leader_headband,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "ioA" = (
@@ -30111,6 +30112,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/clothing/head/leader_headband,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "ycu" = (
