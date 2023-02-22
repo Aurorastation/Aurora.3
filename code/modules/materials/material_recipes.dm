@@ -160,6 +160,7 @@
 	recipes += new /datum/stack_recipe_list("[display_name] recipes",
 		list(
 			new /datum/stack_recipe("wooden barricade", /obj/structure/barricade/wooden, BUILD_AMT, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE),
+			new /datum/stack_recipe("bonfire", /obj/structure/bonfire, BUILD_AMT, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE),
 			new /datum/stack_recipe("wooden sandals", /obj/item/clothing/shoes/sandal, 1),
 			new /datum/stack_recipe("wood circlet", /obj/item/woodcirclet, 1),
 			new /datum/stack_recipe("wood floor tile", /obj/item/stack/tile/wood, 1, 4, 20),
