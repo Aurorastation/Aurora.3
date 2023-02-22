@@ -96,17 +96,18 @@ proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 	for(var/department in departments_and_jobs)
 		for(var/position in departments_and_jobs[department])
 			if(position in gear.allowed_roles)
-				gear.tags += department
+				gear.tags |= department
 				break
 	// ---- tag_group_corp
 	if(gear.faction)
-		gear.tags += gear.faction
+		gear.tags |= gear.faction
+	if(gear.faction)
 	// ---- tag_group_slot
 	if(gear.slot)
 		var/s = slot_to_string(gear.slot)
 		if(s)
 			tag_group_slot |= s
-			gear.tags += s
+			gear.tags |= s
 	// ---- tag_group_size
 	var/list/paths = gear.get_paths()
 	for(var/path in paths)
@@ -118,6 +119,6 @@ proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 	// ---- tagless tag
 	if(gear.tags.len == 0)
 		tag_group_other |= "tagless"
-		gear.tags += "tagless"
+		gear.tags |= "tagless"
 
 // ------------------------------
