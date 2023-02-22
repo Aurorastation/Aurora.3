@@ -12059,6 +12059,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/firing_range)
+"jRy" = (
+/obj/structure/displaycase/adhomai_map,
+/turf/simulated/floor/wood,
+/area/crew_quarters/captain)
 "jRJ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -48044,7 +48048,7 @@ soE
 xmU
 rOt
 rOk
-rOk
+jRy
 rFu
 grm
 bqA
