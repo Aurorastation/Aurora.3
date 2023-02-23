@@ -1298,8 +1298,8 @@
 	return
 
 /mob/living/silicon/robot/succumb()
-	set hidden = 1
-	if (health < maxHealth / 3)
+	set hidden = TRUE
+	if(health < maxHealth / 3)
 		death()
 		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
 	else
