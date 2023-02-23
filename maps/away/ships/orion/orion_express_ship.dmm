@@ -967,6 +967,10 @@
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/airless,
 /area/ship/orion_express_ship)
+"hfG" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/template_noop,
+/area/space)
 "hjK" = (
 /obj/machinery/atm{
 	pixel_x = 32
@@ -22337,7 +22341,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+hfG
 xRX
 xRX
 xRX
@@ -35910,7 +35914,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+hfG
 xRX
 xRX
 xRX
@@ -35990,7 +35994,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+hfG
 xRX
 xRX
 xRX

@@ -14,7 +14,7 @@
 /obj/effect/overmap/visitable/sector/saniorios_smuggler
 	name = "Sani'Orios"
 	desc = "A gas giant composed of ammonia. Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
-	icon_state = "globe"
+	icon_state = "globe3"
 	color = COLOR_DARK_BLUE_GRAY
 
 /obj/effect/overmap/visitable/sector/saniorios_smuggler/get_skybox_representation()

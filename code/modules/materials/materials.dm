@@ -1045,7 +1045,7 @@
 /material/graphite
 	name = MATERIAL_GRAPHITE
 	stack_type = /obj/item/stack/material/graphite
-	icon_base = "graphite"
+	icon_base = "solid"
 	icon_colour = "#666666"
 	shard_type = SHARD_STONE_PIECE
 	weight = 20

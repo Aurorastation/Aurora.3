@@ -6,6 +6,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 /obj/effect/overmap/visitable
 	name = "map object"
 	scannable = TRUE
+	sensor_range_override = TRUE
 	var/designation //Actual name of the object.
 	var/class //Imagine a ship or station's class. "NTCC" Odin, "SCCV" Horizon, ...
 	unknown_id = "Bogey"
@@ -50,6 +51,9 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	/// null | num | list. If a num or a (num, num) list, the radius or random bounds for placing this sector near the main map's overmap icon.
 	var/list/place_near_main
 
+	var/invisible_until_ghostrole_spawn = FALSE
+	var/hide_from_reports = FALSE
+
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)
@@ -77,7 +81,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		start_y = start_y || rand(map_low, map_high)
 		home = locate(start_x, start_y, current_map.overmap_z)
 
-	forceMove(home)
+	if(!invisible_until_ghostrole_spawn)
+		forceMove(home)
 
 	update_name()
 
