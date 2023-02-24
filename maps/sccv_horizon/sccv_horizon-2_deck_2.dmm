@@ -2457,9 +2457,6 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -5811,14 +5808,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "cOj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "cOk" = (
@@ -5852,12 +5849,12 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/armoury)
@@ -10694,9 +10691,6 @@
 	pixel_x = -12;
 	pixel_y = 6
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/armoury)
 "frL" = (
@@ -10791,14 +10785,14 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering/tesla)
 "ftz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/horizon/security/armoury)
 "ftB" = (
@@ -12290,9 +12284,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
@@ -30075,8 +30071,7 @@
 /turf/simulated/open/airless,
 /area/template_noop)
 "oTr" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/structure/disposalpipe/segment{
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -31377,13 +31372,13 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_security{
 	name = "Armoury Lobby";
 	req_access = list(3)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "pDn" = (
@@ -48332,10 +48327,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "xLY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
@@ -48640,11 +48637,11 @@
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "xSM" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -77559,7 +77556,7 @@ oVe
 uXV
 qDh
 khi
-oTr
+mfX
 gem
 nCg
 eqS
@@ -77763,7 +77760,7 @@ qDh
 aOz
 mfX
 aIH
-pJE
+oTr
 jJa
 qtN
 hjo
