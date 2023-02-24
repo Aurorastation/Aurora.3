@@ -40420,12 +40420,24 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "ucq" = (
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /obj/machinery/door/airlock/glass_security{
 	id_tag = null;
 	name = "Armoury Foyer";
 	req_access = list(1)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "ucI" = (
