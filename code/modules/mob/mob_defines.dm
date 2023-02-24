@@ -93,8 +93,9 @@
 	var/sleeping = 0					//Carbon
 	var/sleeping_msg_debounce = FALSE	//Carbon - Used to show a message once every time someone falls asleep.
 	var/resting = 0						//Carbon
-	var/lying = 0
-	var/lying_prev = 0
+	var/lying = 0	// Is the mob lying down?
+	var/lying_prev = 0	// Was the mob lying down before?
+	var/lying_is_intentional = FALSE	// Is the mob lying down intentionally? (eg. a manouver)
 	var/canmove = 1
 	//Allows mobs to move through dense areas without restriction. For instance, in space or out of holder objects.
 	var/incorporeal_move = INCORPOREAL_DISABLE

@@ -55,7 +55,7 @@
 	var/obj/item/I = get_active_hand()
 	if(istype(I))
 		tally += I.slowdown
-	
+
 	if(isitem(pulling))
 		var/obj/item/P = pulling
 		tally += P.slowdown
@@ -118,6 +118,8 @@
 	. = ..()
 	if(. && tail_style)
 		update_tail_showing(1)
+	if(lying)
+		update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/Move()
 	. = ..()

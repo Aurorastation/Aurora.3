@@ -140,7 +140,7 @@ There are several things that need to be remembered:
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
 
 // Updates overlays from overlays_raw.
-/mob/living/carbon/human/update_icon()
+/mob/living/carbon/human/update_icon(var/forceDirUpdate = FALSE)
 	if (QDELING(src))
 		return	// No point.
 
@@ -172,13 +172,18 @@ There are several things that need to be remembered:
 
 		add_overlay(ovr)
 
-	if (lying_prev != lying || size_multiplier != 1)
+	if ((lying_prev != lying) || forceDirUpdate || size_multiplier != 1)
 		if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
 			var/matrix/M = matrix()
-			M.Turn(90)
+
+			switch(src.dir)
+				if(NORTH,EAST)
+					M.Turn(90)
+				else
+					M.Turn(-90)
 			M.Scale(size_multiplier)
 			M.Translate(1,-6)
-			animate(src, transform = M, time = ANIM_LYING_TIME)
+			animate(src, transform = M, time = (forceDirUpdate ? 0 : ANIM_LYING_TIME))
 		else
 			var/matrix/M = matrix()
 			M.Scale(size_multiplier)
