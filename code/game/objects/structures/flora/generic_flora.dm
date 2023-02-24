@@ -2,13 +2,14 @@
 	name = "flora parent object"
 	desc = DESC_PARENT
 	anchored = TRUE
+	density = TRUE
 
 /obj/structure/flora/tree
 	name = "tree"
 	desc = "A tree."
 	density = TRUE
-	pixel_x = -16
 	layer = 9
+	pixel_x = -16
 
 /obj/structure/flora/tree/pine
 	name = "pine tree"
@@ -39,16 +40,16 @@
 /obj/structure/flora/tree/jungle/small/patience
 	name = "Patience"
 	desc = "A lush and healthy tree. A small golden plaque at its base reads its name, in plain text, Patience."
-	layer = 3
-	density = FALSE
 	icon_state = "patiencebottom"
+	density = FALSE
+	layer = 3
 
 /obj/structure/flora/tree/jungle/small/patience_top
 	name = "Patience"
 	desc = "A lush and healthy tree. A small golden plaque at its base reads its name, in plain text, Patience."
-	pixel_y = -32
-	density = TRUE
 	icon_state = "patiencetop"
+	density = TRUE
+	pixel_y = -32
 
 /obj/structure/flora/tree/jungle/small/patience/Initialize()
 	. = ..()
@@ -56,59 +57,58 @@
 	if(T)
 		new /obj/structure/flora/tree/jungle/small/patience_top(T)
 
-//rocks
+// Rocks
 /obj/structure/flora/rock
 	name = "rock"
 	desc = "A rock."
-	icon_state = "basalt"
 	icon = 'icons/obj/flora/rocks_grey.dmi'
-	density = TRUE
+	icon_state = "basalt"
 
 /obj/structure/flora/rock/pile
 	name = "rocks"
-	icon_state = "lavarocks"
 	desc = "A pile of rocks."
+	icon_state = "lavarocks"
 
 /obj/structure/flora/rock/ice
 	name = "ice"
-	icon_state = "rock_1"
-	icon = 'icons/obj/flora/ice_rocks.dmi'
 	desc = "A large formation made of ice."
+	icon = 'icons/obj/flora/ice_rocks.dmi'
+	icon_state = "rock_1"
 
 /obj/structure/flora/rock/ice/Initialize(mapload)
 	. = ..()
 	icon_state = "rock_[rand(1,2)]"
 
-//newbushes
-
+// Bushes, Flowers, and Grass
 /obj/structure/flora/ausbushes
 	name = "bush"
+	desc = "A bush."
 	icon = 'icons/obj/flora/ausflora.dmi'
 	icon_state = "firstbush_1"
-	anchored = 1
+	density = FALSE
 
 /obj/structure/flora/ausbushes/New()
 	..()
 	icon_state = "firstbush_[rand(1, 4)]"
 
-/obj/structure/flora/ausbushes/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(istype(W,/obj/item/material/scythe))
+/obj/structure/flora/ausbushes/attackby(var/obj/item/W, var/mob/user)
+	if(istype(W, /obj/item/material/scythe))
 		if(prob(50))
 			new /obj/item/stack/material/wood(get_turf(src), 2)
 		if(prob(40))
 			new /obj/item/stack/material/wood(get_turf(src), 4)
 		if(prob(10))
-			var/pickberry = pick(list(/obj/item/seeds/berryseed,/obj/item/seeds/blueberryseed))
+			var/pickberry = pick(list(/obj/item/seeds/berryseed, /obj/item/seeds/blueberryseed))
 			new /obj/item/stack/material/wood(get_turf(src), 4)
 			new pickberry(get_turf(src), 4)
-			to_chat(usr, "<span class='notice'>You find some seeds as you hack the bush away!</span>")
-		to_chat(usr, "<span class='notice'>You slice at the bush!</span>")
+			to_chat(user, SPAN_NOTICE("You find some seeds as you hack the bush away."))
+		to_chat(user, SPAN_NOTICE("You slice at the bush!"))
 		qdel(src)
-		playsound(src.loc, 'sound/effects/woodcutting.ogg', 50, 1)
-	if(istype(W,/obj/item/material/hatchet))//no items
-		to_chat(usr, SPAN_NOTICE("You chop at the bush!"))
+		playsound(src, 'sound/effects/woodcutting.ogg', 50, TRUE)
+	if(istype(W, /obj/item/material/hatchet)) // No items.
+		to_chat(user, SPAN_NOTICE("You chop at the bush!"))
 		qdel(src)
-		playsound(src.loc, 'sound/effects/woodcutting.ogg', 50, 1)
+		playsound(src, 'sound/effects/woodcutting.ogg', 50, TRUE)
 
 /obj/structure/flora/ausbushes/reedbush
 	icon_state = "reedbush_1"

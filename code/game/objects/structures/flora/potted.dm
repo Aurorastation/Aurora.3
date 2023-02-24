@@ -1,4 +1,3 @@
-
 /obj/structure/flora/pottedplant
 	name = "potted plant"
 	desc = "A potted plant."
