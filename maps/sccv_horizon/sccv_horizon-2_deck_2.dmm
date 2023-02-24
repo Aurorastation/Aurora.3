@@ -1696,9 +1696,6 @@
 /area/hallway/engineering)
 "aKO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1707,6 +1704,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armoury";
 	req_access = list(3)
@@ -5657,15 +5655,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"cKA" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "armory";
-	name = "Emergency Access"
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/armoury)
 "cKB" = (
 /obj/structure/cable/yellow,
 /obj/structure/cable{
@@ -78988,7 +78977,7 @@ jcL
 pJE
 yef
 tvc
-cKA
+aru
 elL
 dYR
 shY
