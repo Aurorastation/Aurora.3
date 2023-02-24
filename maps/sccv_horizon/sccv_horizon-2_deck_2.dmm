@@ -106,6 +106,9 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "abA" = (
@@ -1942,6 +1945,9 @@
 /area/medical/first_responder)
 "aQR" = (
 /obj/structure/closet/secure_closet/security_cadet,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "aRr" = (
@@ -5652,6 +5658,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"cKA" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/equipment)
 "cKB" = (
 /obj/structure/cable/yellow,
 /obj/structure/cable{
@@ -19144,6 +19156,9 @@
 /area/rnd/xenobiology)
 "jpR" = (
 /obj/structure/closet/wardrobe/red,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "jqw" = (
@@ -20088,6 +20103,9 @@
 "jNY" = (
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
@@ -24462,6 +24480,12 @@
 	},
 /obj/item/storage/box/fancy/donut{
 	pixel_y = 13
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
@@ -29087,10 +29111,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/rnd/conference)
-"ouo" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
-/area/horizon/security/equipment)
 "ouK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -30070,12 +30090,6 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
 /area/template_noop)
-"oTr" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/equipment)
 "oTE" = (
 /obj/machinery/light{
 	dir = 4
@@ -30953,6 +30967,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "pnj" = (
@@ -37406,6 +37423,9 @@
 /area/storage/primary)
 "sBr" = (
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "sBt" = (
@@ -42607,6 +42627,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
@@ -77760,7 +77783,7 @@ qDh
 aOz
 mfX
 aIH
-oTr
+cKA
 jJa
 qtN
 hjo
@@ -78569,7 +78592,7 @@ qDh
 aQR
 pJE
 qQt
-ouo
+tvc
 aru
 rSE
 rOt
@@ -78771,7 +78794,7 @@ qDh
 jpR
 pJE
 yef
-ouo
+tvc
 jDA
 brZ
 sNx
@@ -79579,7 +79602,7 @@ qDh
 qDh
 lZp
 lMO
-pJE
+jJa
 rXh
 tWH
 trn
@@ -79781,7 +79804,7 @@ gBa
 qDh
 xki
 lMO
-pJE
+jJa
 rXh
 tWH
 tWH
