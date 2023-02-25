@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Bushes no longer block movement."
+  - bugfix: "Adhomian bushes are no longer invisible."
