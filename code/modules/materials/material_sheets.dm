@@ -376,8 +376,9 @@
 
 /obj/item/stack/material/wood/log
 	name = "log"
-	icon_state = "sheet-wood"
+	icon_state = "sheet-log"
 	default_type = MATERIAL_WOOD_LOG
+	max_amount = 25
 	var/chopping
 
 /obj/item/stack/material/wood/log/full/Initialize()
@@ -404,8 +405,9 @@
 
 /obj/item/stack/material/wood/branch
 	name = "branch"
-	icon_state = "sheet-log"
+	icon_state = "sheet-branch"
 	default_type = MATERIAL_WOOD_BRANCH
+	max_amount = 25
 
 /obj/item/stack/material/wood/branch/full/Initialize()
 	. = ..()
