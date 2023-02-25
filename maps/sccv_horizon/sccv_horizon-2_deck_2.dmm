@@ -3115,18 +3115,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
-"brZ" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "bsj" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
@@ -3336,13 +3324,6 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
-"bxZ" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "byh" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -4534,16 +4515,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/operations/lobby)
-"bYu" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "bYB" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -7779,6 +7750,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "dLn" = (
@@ -10826,8 +10798,8 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
@@ -11268,6 +11240,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
+"fDV" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/horizon/security/hallway)
 "fEa" = (
 /obj/structure/table/standard,
 /obj/machinery/conveyor_switch/oneway{
@@ -12228,6 +12207,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"fZX" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "gai" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -12683,6 +12672,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
+"gjU" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/structure/table/reinforced,
+/obj/item/deck/cards,
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "gkh" = (
 /obj/machinery/door/blast/shutters{
 	dir = 8;
@@ -14875,13 +14878,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/freezer,
 /area/operations/break_room)
-"hgO" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "hhx" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -21478,6 +21474,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
+"kvL" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "kvZ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -21641,6 +21644,13 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet,
 /area/medical/psych)
+"kBh" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "kBY" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -22920,8 +22930,6 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/obj/structure/table/reinforced,
-/obj/item/deck/cards,
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "ljF" = (
@@ -33391,6 +33399,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"quJ" = (
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "quT" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
@@ -36211,6 +36223,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
+"rLu" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "rLw" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -37703,10 +37724,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
-"sBR" = (
-/obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "sCe" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -44358,15 +44375,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
-"vPh" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "vPj" = (
 /turf/simulated/floor/tiled,
 /area/horizon/security/lobby)
@@ -48491,13 +48499,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
-"xKY" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/horizon/security/hallway)
 "xLu" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -74129,7 +74130,7 @@ wQi
 fAC
 qlV
 wCZ
-xKY
+fDV
 pMf
 pMf
 pMf
@@ -74949,7 +74950,7 @@ ioW
 kvE
 jvp
 pMf
-bYu
+fZX
 jfH
 xer
 qgN
@@ -75139,7 +75140,7 @@ ucX
 rdP
 jfu
 sEc
-xKY
+fDV
 pMf
 iWm
 kvE
@@ -75757,7 +75758,7 @@ pMf
 pMf
 pMf
 pMf
-hgO
+kvL
 nFs
 jPc
 kuh
@@ -75947,7 +75948,7 @@ ucD
 mJJ
 yci
 vtf
-xKY
+fDV
 cjC
 tuH
 glv
@@ -75955,7 +75956,7 @@ cjC
 lvT
 dXF
 xVl
-bxZ
+kBh
 gis
 gis
 gis
@@ -78370,11 +78371,11 @@ fVL
 bDo
 abz
 klv
+gjU
+rLu
+fqS
 ljx
-fqS
-vPh
-brZ
-fqS
+rLu
 baJ
 bDo
 aOz
@@ -78572,7 +78573,7 @@ gEB
 bDo
 elL
 huP
-sBR
+quJ
 huP
 huP
 huP
