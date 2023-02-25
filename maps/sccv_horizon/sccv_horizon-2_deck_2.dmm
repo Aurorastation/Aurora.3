@@ -1140,7 +1140,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/sign/flag/scc/left{
+	pixel_y = 32
+	},
+/obj/machinery/light/colored/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1688,6 +1691,11 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
+/obj/machinery/firealarm/east{
+	pixel_x = 0;
+	pixel_y = 33;
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "aKU" = (
@@ -1721,6 +1729,10 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
+	},
+/obj/structure/sign/flag/scc/left{
+	dir = 4;
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
@@ -1871,11 +1883,6 @@
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
-	},
-/obj/machinery/firealarm/east{
-	pixel_x = 0;
-	pixel_y = 24;
-	dir = 2
 	},
 /obj/machinery/button/flasher{
 	id = "permflash";
@@ -6345,6 +6352,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
+"dbA" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "dcF" = (
 /obj/machinery/light{
 	dir = 4
@@ -8838,6 +8852,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
+"epE" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/horizon/security/armoury)
 "epN" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8914,6 +8932,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
+"eqB" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "eqK" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -9608,11 +9635,6 @@
 "eMf" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
-	},
-/obj/machinery/firealarm/west{
-	pixel_x = 0;
-	dir = 1;
-	pixel_y = -24
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_b)
@@ -10924,6 +10946,11 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
+/obj/machinery/firealarm/east{
+	pixel_x = 0;
+	pixel_y = 33;
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_b)
 "fuu" = (
@@ -11240,13 +11267,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
-"fDV" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/horizon/security/hallway)
 "fEa" = (
 /obj/structure/table/standard,
 /obj/machinery/conveyor_switch/oneway{
@@ -12207,16 +12227,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"fZX" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "gai" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -12243,7 +12253,11 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/machinery/light,
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = -32
+	},
+/obj/machinery/light/colored/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "gbk" = (
@@ -12672,20 +12686,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
-"gjU" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/obj/structure/table/reinforced,
-/obj/item/deck/cards,
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "gkh" = (
 /obj/machinery/door/blast/shutters{
 	dir = 8;
@@ -18246,7 +18246,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/light{
+/obj/machinery/light/colored/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -18335,6 +18335,14 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/structure/cable/green,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Brig Lockdown";
+	name = "Brig Lockdown Blast Door";
+	opacity = 0
+	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -19606,6 +19614,10 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "jvu" = (
@@ -21475,6 +21487,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "kvL" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -21644,13 +21659,6 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet,
 /area/medical/psych)
-"kBh" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "kBY" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -22930,6 +22938,8 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/structure/table/reinforced,
+/obj/item/deck/cards,
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "ljF" = (
@@ -23237,7 +23247,6 @@
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
-/obj/machinery/light,
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
@@ -27565,6 +27574,13 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"nqE" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/horizon/security/hallway)
 "nrr" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -27923,7 +27939,11 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/sign/flag/scc/right{
+	dir = 4;
+	pixel_x = 32
+	},
+/obj/machinery/light/colored/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -28437,6 +28457,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/research)
+"nRF" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "nSO" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 4
@@ -30610,6 +30637,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
+"oXo" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "oXu" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -33110,8 +33149,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "qlU" = (
-/obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/table/rack,
+/obj/machinery/recharger{
+	pixel_x = 6
+	},
+/obj/machinery/recharger{
+	pixel_x = -6
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/armoury)
 "qlV" = (
@@ -33399,10 +33444,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
-"quJ" = (
-/obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "quT" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
@@ -35676,6 +35717,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
+"rxk" = (
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "rxC" = (
 /obj/effect/landmark/start{
 	name = "Chef"
@@ -36223,15 +36268,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
-"rLu" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "rLw" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -37096,6 +37132,9 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/sign/flag/scc{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "siL" = (
@@ -37406,6 +37445,9 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/sign/flag/scc{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "sqE" = (
@@ -39256,10 +39298,10 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/firealarm/west{
+/obj/machinery/firealarm/east{
 	pixel_x = 0;
-	dir = 2;
-	pixel_y = 24
+	pixel_y = 33;
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_a)
@@ -45672,6 +45714,12 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/armoury)
 "wpz" = (
@@ -48002,6 +48050,9 @@
 /obj/item/ammo_casing/peac,
 /obj/item/ammo_casing/peac,
 /obj/item/ammo_casing/peac,
+/obj/structure/sign/flag/scc/right{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "xxc" = (
@@ -49233,7 +49284,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/machinery/light/colored/red,
 /turf/simulated/floor/tiled,
 /area/horizon/security/armoury)
 "ybh" = (
@@ -74130,7 +74181,7 @@ wQi
 fAC
 qlV
 wCZ
-fDV
+nqE
 pMf
 pMf
 pMf
@@ -74542,7 +74593,7 @@ wJh
 hIK
 wdF
 jYJ
-kvE
+epE
 hjo
 gaA
 pMf
@@ -74950,7 +75001,7 @@ ioW
 kvE
 jvp
 pMf
-fZX
+kvL
 jfH
 xer
 qgN
@@ -75140,7 +75191,7 @@ ucX
 rdP
 jfu
 sEc
-fDV
+nqE
 pMf
 iWm
 kvE
@@ -75758,7 +75809,7 @@ pMf
 pMf
 pMf
 pMf
-kvL
+dbA
 nFs
 jPc
 kuh
@@ -75948,7 +75999,7 @@ ucD
 mJJ
 yci
 vtf
-fDV
+nqE
 cjC
 tuH
 glv
@@ -75956,7 +76007,7 @@ cjC
 lvT
 dXF
 xVl
-kBh
+nRF
 gis
 gis
 gis
@@ -78371,11 +78422,11 @@ fVL
 bDo
 abz
 klv
-gjU
-rLu
-fqS
 ljx
-rLu
+eqB
+fqS
+oXo
+eqB
 baJ
 bDo
 aOz
@@ -78573,7 +78624,7 @@ gEB
 bDo
 elL
 huP
-quJ
+rxk
 huP
 huP
 huP
