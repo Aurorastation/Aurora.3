@@ -4624,6 +4624,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
+"bZE" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/horizon/security/armoury)
 "caj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -6352,13 +6356,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
-"dbA" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "dcF" = (
 /obj/machinery/light{
 	dir = 4
@@ -7764,7 +7761,6 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "dLn" = (
@@ -8852,10 +8848,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
-"epE" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled,
-/area/horizon/security/armoury)
 "epN" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8932,15 +8924,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
-"eqB" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "eqK" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -10820,8 +10803,8 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
@@ -21202,6 +21185,10 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/horizon/security/armoury)
+"kkY" = (
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "klv" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -21486,16 +21473,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
-"kvL" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "kvZ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -22938,8 +22915,6 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/obj/structure/table/reinforced,
-/obj/item/deck/cards,
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "ljF" = (
@@ -27576,11 +27551,13 @@
 /area/maintenance/wing/starboard)
 "nqE" = (
 /obj/effect/floor_decal/corner/paleblue{
-	dir = 10
+	dir = 9
 	},
-/obj/machinery/light,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
-/area/horizon/security/hallway)
+/area/horizon/security/brig)
 "nrr" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -28457,13 +28434,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/research)
-"nRF" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "nSO" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 4
@@ -30637,18 +30607,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
-"oXo" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "oXu" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -31164,6 +31122,13 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_two/fore)
+"pjs" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "pjA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -33394,6 +33359,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
+"qtN" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/horizon/security/hallway)
 "qtR" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -34153,6 +34125,16 @@
 /obj/effect/floor_decal/sign/p,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
+"qLd" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "qLj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -35717,10 +35699,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
-"rxk" = (
-/obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "rxC" = (
 /obj/effect/landmark/start{
 	name = "Chef"
@@ -36582,6 +36560,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
+"rSE" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/structure/table/reinforced,
+/obj/item/deck/cards,
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "rSG" = (
 /turf/simulated/open,
 /area/operations/office)
@@ -48600,6 +48592,13 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
+"xLZ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "xMm" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -74181,7 +74180,7 @@ wQi
 fAC
 qlV
 wCZ
-nqE
+qtN
 pMf
 pMf
 pMf
@@ -74593,7 +74592,7 @@ wJh
 hIK
 wdF
 jYJ
-epE
+bZE
 hjo
 gaA
 pMf
@@ -75001,7 +75000,7 @@ ioW
 kvE
 jvp
 pMf
-kvL
+qLd
 jfH
 xer
 qgN
@@ -75191,7 +75190,7 @@ ucX
 rdP
 jfu
 sEc
-nqE
+qtN
 pMf
 iWm
 kvE
@@ -75809,7 +75808,7 @@ pMf
 pMf
 pMf
 pMf
-dbA
+xLZ
 nFs
 jPc
 kuh
@@ -75999,7 +75998,7 @@ ucD
 mJJ
 yci
 vtf
-nqE
+qtN
 cjC
 tuH
 glv
@@ -76007,7 +76006,7 @@ cjC
 lvT
 dXF
 xVl
-nRF
+pjs
 gis
 gis
 gis
@@ -78422,11 +78421,11 @@ fVL
 bDo
 abz
 klv
-ljx
-eqB
+rSE
 fqS
-oXo
-eqB
+nqE
+ljx
+fqS
 baJ
 bDo
 aOz
@@ -78624,7 +78623,7 @@ gEB
 bDo
 elL
 huP
-rxk
+kkY
 huP
 huP
 huP
