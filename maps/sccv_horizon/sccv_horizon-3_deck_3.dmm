@@ -5567,12 +5567,6 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/security/investigators_office)
-"eKe" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/horizon/security/meeting_room)
 "eLw" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -22068,6 +22062,12 @@
 "rRe" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/template_noop)
+"rRC" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/security/meeting_room)
 "rRE" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -22126,6 +22126,16 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
+"rTu" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/firealarm/south{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/security/washroom)
 "rUd" = (
 /obj/machinery/light{
 	dir = 8
@@ -23773,16 +23783,6 @@
 /obj/effect/shuttle_landmark/horizon/dock4,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
-"teT" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/machinery/firealarm/south{
-	pixel_y = 24
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/security/washroom)
 "tfg" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -57443,7 +57443,7 @@ sNN
 qdz
 dqT
 lnI
-teT
+rTu
 uks
 muG
 jUg
@@ -57641,8 +57641,8 @@ lnI
 jzb
 sLg
 tZE
-eKe
-eKe
+rRC
+rRC
 fWH
 tni
 vGh
