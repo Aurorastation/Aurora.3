@@ -1065,3 +1065,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/throw_fail_consequences(var/mob/living/carbon/C)
 	return
+
+/obj/item/proc/can_woodcut()
+	return FALSE

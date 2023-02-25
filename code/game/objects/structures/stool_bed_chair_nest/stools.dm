@@ -299,3 +299,18 @@
 	item_state = "hover_stool"
 	base_icon = "hover_stool"
 	origin_type = /obj/structure/bed/stool/hover
+
+/obj/structure/flora/log_bench
+	name = "log bench"
+	desc = "Apply butt."
+	icon = 'icons/obj/wood.dmi'
+	icon_state = "tree_log"
+	anchored = FALSE
+	density = FALSE
+
+/obj/structure/flora/log_bench/fire_act()
+	for(var/obj/structure/bonfire/B in get_turf(src))
+		if(B.on_fire)
+			B.fuel = min(B.max_fuel, B.fuel + 300)
+			new /obj/effect/decal/cleanable/ash(get_turf(src))
+			qdel(src)
