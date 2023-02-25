@@ -26,7 +26,7 @@
 	company_short = "BT"
 	station_type  = "dumpster"
 
-	use_overmap = FALSE
+	use_overmap = TRUE
 	overmap_size = 35
 
 	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETA%."
