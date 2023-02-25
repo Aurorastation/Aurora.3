@@ -387,8 +387,14 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		setClickCooldown(attack_delay)
 		target_mob = A
 		OpenFire(A)
-	..()
-
+		return
+	else
+		var/turf/turf_attacking = get_step(src, get_compass_dir(src, A))
+		if(turf_attacking)
+			var/mob/living/target = locate() in turf_attacking
+			if(target && Adjacent(target))
+				return UnarmedAttack(target, TRUE)
+	return ..()
 
 /mob/living/simple_animal/hostile/proc/check_horde()
 	if(evacuation_controller.is_prepared())
