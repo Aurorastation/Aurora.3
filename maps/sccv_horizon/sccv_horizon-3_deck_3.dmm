@@ -3873,8 +3873,10 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/blue,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
@@ -4037,10 +4039,6 @@
 /area/horizon/security/meeting_room)
 "dBS" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	name = "Security Maintenance";
-	req_access = list(63)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -6423,19 +6421,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
-"frS" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/security/washroom)
 "frU" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6678,6 +6663,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/washroom)
+"fxm" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/security/meeting_room)
 "fxV" = (
 /obj/effect/shuttle_landmark/horizon/deckthree/portfore,
 /turf/template_noop,
@@ -9873,12 +9864,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
-"hVd" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/horizon/security/meeting_room)
 "hVM" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -19480,6 +19465,19 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/showers)
+"pMu" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/security/washroom)
 "pML" = (
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/corner/green{
@@ -57642,11 +57640,11 @@ lnI
 jzb
 sLg
 tZE
-hVd
-hVd
+fxm
+fxm
 fWH
 tni
-frS
+pMu
 mNY
 muG
 oLG
