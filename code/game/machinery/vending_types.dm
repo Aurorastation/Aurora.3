@@ -1361,21 +1361,21 @@
 	product_slogans = "GwokBuzz, to take the edge off!;Try our new Rainbow Essence flavour!;Safe and sanctioned by the authorities!"
 	vend_id = "overloaders"
 	products = list(
-		/obj/item/ipc_overloader/classic = 5,
-		/obj/item/ipc_overloader/tranquil = 5,
-		/obj/item/ipc_overloader/rainbow = 5,
-		/obj/item/ipc_overloader/screenshaker = 5
+		/obj/item/storage/overloader/classic = 5,
+		/obj/item/storage/overloader/tranquil = 5,
+		/obj/item/storage/overloader/rainbow = 5,
+		/obj/item/storage/overloader/screenshaker = 5
 	)
 	prices = list(
-		/obj/item/ipc_overloader/classic = 200,
-		/obj/item/ipc_overloader/tranquil = 200,
-		/obj/item/ipc_overloader/rainbow = 200,
-		/obj/item/ipc_overloader/screenshaker = 200
+		/obj/item/storage/overloader/classic = 200,
+		/obj/item/storage/overloader/tranquil = 200,
+		/obj/item/storage/overloader/rainbow = 200,
+		/obj/item/storage/overloader/screenshaker = 200
 	)
 	contraband = list(
-		/obj/item/ipc_overloader/rainbow = 2
+		/obj/item/storage/overloader/rainbow = 2
 	)
 	premium = list(
-		/obj/item/ipc_overloader/jitterbug = 5
+		/obj/item/storage/overloader/jitterbug = 5
 	)
 	light_color = LIGHT_COLOR_CYAN
