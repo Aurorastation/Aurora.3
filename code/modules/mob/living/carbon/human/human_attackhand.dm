@@ -555,12 +555,11 @@
 	visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))
 
 	var/dam_zone = user.zone_sel?.selecting
-	if(!dam_zone)
-		dam_zone = pick(organs)
-	var/obj/item/organ/external/affecting = get_organ(dam_zone)
-	apply_damage(damage, DAMAGE_BRUTE, affecting, armor_pen = armor_penetration, damage_flags = attack_flags)
-	updatehealth()
-	return TRUE
+	var/obj/item/organ/external/affecting = dam_zone ? get_organ(dam_zone) : pick(organs)
+	if(affecting)
+		apply_damage(damage, DAMAGE_BRUTE, affecting, armor_pen = armor_penetration, damage_flags = attack_flags)
+		updatehealth()
+	return affecting
 
 //Used to attack a joint through grabbing
 /mob/living/carbon/human/proc/grab_joint(var/mob/living/user, var/def_zone)

@@ -187,7 +187,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	else
 		return 0
 
-/mob/living/simple_animal/hostile/proc/on_attack_mob(var/mob/hit_mob)
+/mob/living/simple_animal/hostile/proc/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
 	return
 
 /mob/living/simple_animal/hostile/proc/AttackingTarget()
@@ -207,8 +207,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	var/atom/target
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
-		L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags)
-		on_attack_mob(L)
+		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags))
 		target = L
 	else if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
