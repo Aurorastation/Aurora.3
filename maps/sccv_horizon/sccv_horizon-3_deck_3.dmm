@@ -3873,6 +3873,10 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/blue,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/horizon/security/meeting_room)
 "dre" = (
@@ -5563,6 +5567,12 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/security/investigators_office)
+"eKe" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/security/meeting_room)
 "eLw" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7265,6 +7275,15 @@
 "fWH" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
@@ -19886,6 +19905,8 @@
 /obj/effect/landmark/start{
 	name = "Investigator"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "qeu" = (
@@ -23178,6 +23199,16 @@
 	pixel_y = 35
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/washroom)
 "sHy" = (
@@ -23375,6 +23406,8 @@
 /obj/effect/landmark/start{
 	name = "Investigator"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "sNZ" = (
@@ -23740,6 +23773,16 @@
 /obj/effect/shuttle_landmark/horizon/dock4,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
+"teT" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/firealarm/south{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/security/washroom)
 "tfg" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -23949,6 +23992,11 @@
 "tni" = (
 /obj/machinery/door/airlock{
 	name = "Restroom"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/washroom)
@@ -25041,6 +25089,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "tZR" = (
@@ -25713,14 +25764,17 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
@@ -27197,6 +27251,15 @@
 /area/horizon/hallway/deck_three/primary/central)
 "vGh" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/washroom)
 "vGj" = (
@@ -57380,7 +57443,7 @@ sNN
 qdz
 dqT
 lnI
-vGh
+teT
 uks
 muG
 jUg
@@ -57578,8 +57641,8 @@ lnI
 jzb
 sLg
 tZE
-kxs
-kxs
+eKe
+eKe
 fWH
 tni
 vGh

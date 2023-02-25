@@ -2719,13 +2719,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/server)
-"biD" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/horizon/security/hallway)
 "biE" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Hallway 2";
@@ -3518,6 +3511,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_a)
 "bBO" = (
@@ -8077,13 +8071,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
-"dTp" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "dTI" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -9578,14 +9565,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
-"eIR" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "Armoury";
-	req_access = list(3)
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/horizon/security/armoury)
 "eIU" = (
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/corner/yellow{
@@ -9642,6 +9621,11 @@
 "eMf" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
+	},
+/obj/machinery/firealarm/west{
+	pixel_x = 0;
+	dir = 1;
+	pixel_y = -24
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_b)
@@ -10827,8 +10811,8 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
@@ -14857,13 +14841,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
-"hfP" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "hfR" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -16132,6 +16109,7 @@
 	name = "Armoury";
 	req_access = list(3)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/security/armoury)
 "hKh" = (
@@ -20539,6 +20517,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
+"jUq" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "jUs" = (
 /obj/machinery/atmospherics/unary/freezer{
 	icon_state = "freezer"
@@ -26538,15 +26523,6 @@
 /obj/item/paper/monitorkey,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
-"mVF" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "mVO" = (
 /obj/machinery/light{
 	dir = 1
@@ -27804,6 +27780,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
+"nzv" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "nAq" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -30446,6 +30431,20 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
 /area/template_noop)
+"oTr" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/structure/table/reinforced,
+/obj/item/deck/cards,
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "oTE" = (
 /obj/machinery/light{
 	dir = 4
@@ -32693,6 +32692,16 @@
 	},
 /turf/simulated/open/airless,
 /area/horizon/exterior)
+"qaw" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "qaI" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning{
@@ -32826,6 +32835,13 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
+"qfc" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "qff" = (
 /obj/machinery/light{
 	dir = 4
@@ -34087,6 +34103,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
+"qJA" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/horizon/security/hallway)
 "qKi" = (
 /obj/machinery/shower{
 	pixel_y = 24
@@ -34457,6 +34480,7 @@
 	id = "armory";
 	name = "Emergency Access"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/security/armoury)
 "qTB" = (
@@ -34495,6 +34519,7 @@
 /area/storage/primary)
 "qUt" = (
 /obj/machinery/door/airlock/multi_tile/glass,
+/obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/investigations_hallway)
 "qUz" = (
@@ -34531,6 +34556,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
+"qVk" = (
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "qVu" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -37089,16 +37118,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
-"siF" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "siL" = (
 /obj/structure/railing/mapped,
 /obj/structure/lattice,
@@ -39227,20 +39246,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
-"trn" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/obj/structure/table/reinforced,
-/obj/item/deck/cards,
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "trC" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/brown{
@@ -39270,6 +39275,11 @@
 "tsy" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
+	},
+/obj/machinery/firealarm/west{
+	pixel_x = 0;
+	dir = 2;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_a)
@@ -40405,6 +40415,7 @@
 	name = "Armoury Lobby Interior Access";
 	req_access = list(3)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/security/armoury)
 "tTW" = (
@@ -41021,6 +41032,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "uiL" = (
@@ -43088,6 +43100,7 @@
 	name = "Emergency Access"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/security/armoury)
 "vgh" = (
@@ -43814,6 +43827,7 @@
 	req_access = list(3)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/security/armoury)
 "vCM" = (
@@ -44955,10 +44969,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
-"vZY" = (
-/obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "way" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -46268,6 +46278,7 @@
 	name = "Holding Cell B";
 	req_one_access = list(2,4)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_b)
 "wFh" = (
@@ -74135,7 +74146,7 @@ wQi
 fAC
 qlV
 wCZ
-biD
+qJA
 pMf
 pMf
 pMf
@@ -74342,7 +74353,7 @@ blC
 mbi
 dgw
 kkW
-eIR
+pMf
 wpq
 jAp
 jAp
@@ -74955,7 +74966,7 @@ ioW
 kvE
 jvp
 pMf
-siF
+qaw
 jfH
 xer
 qgN
@@ -75145,7 +75156,7 @@ ucX
 rdP
 jfu
 sEc
-biD
+qJA
 pMf
 iWm
 kvE
@@ -75763,7 +75774,7 @@ pMf
 pMf
 pMf
 pMf
-hfP
+qfc
 nFs
 jPc
 kuh
@@ -75953,7 +75964,7 @@ ucD
 mJJ
 yci
 vtf
-biD
+qJA
 cjC
 tuH
 glv
@@ -75961,7 +75972,7 @@ cjC
 lvT
 dXF
 xVl
-dTp
+jUq
 gis
 gis
 gis
@@ -78376,11 +78387,11 @@ fVL
 bDo
 abz
 klv
-trn
-mVF
+oTr
 fqS
+nzv
 ljx
-mVF
+fqS
 baJ
 bDo
 aOz
@@ -78578,7 +78589,7 @@ jcL
 bDo
 elL
 huP
-vZY
+qVk
 huP
 huP
 huP
