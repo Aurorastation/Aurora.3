@@ -2,6 +2,8 @@
 	var/name
 	var/description
 	var/starlight_color = COLOR_WHITE
+	var/starlight_power = 1
+	var/starlight_range = 1
 	var/list/possible_erts = list()
 	var/list/possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/snow, /obj/effect/overmap/visitable/sector/exoplanet/desert)
 	var/list/cargo_price_coef = list("nt" = 1, "hpi" = 1, "zhu" = 1, "een" = 1, "get" = 1, "arz" = 1, "blm" = 1,
@@ -108,3 +110,9 @@
 
 /datum/space_sector/proc/get_chat_description()
 	return "<hr><div align='center'><hr1><B>Current Sector: [name]!</B></hr1><br><i>[description]</i><hr></div>"
+
+/datum/space_sector/proc/get_port_travel_time()
+	return "[rand(1, 3)] days"
+
+/datum/space_sector/proc/generate_system_name()
+	return "[pick("Miranda", "BNM", "Xavier", "GJ", "HD", "TC", "Melissa", "TC")][prob(10) ? " Eridani" : ""] [rand(100,999)][prob(10) ? " [pick(greek_letters)]" : ""]"

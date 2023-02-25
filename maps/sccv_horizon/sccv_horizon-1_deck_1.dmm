@@ -787,19 +787,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "aHu" = (
-/obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_west_exterior_sensor";
-	pixel_x = -8;
-	pixel_y = 32
-	},
+/obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4
+	dir = 9
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced,
 /area/shuttle/intrepid/rotary)
 "aHY" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -1510,12 +1502,20 @@
 	},
 /area/maintenance/research_port)
 "bhi" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/window/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_west_exterior_sensor";
+	pixel_x = -42;
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/shuttle/intrepid/rotary)
 "bij" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -2222,8 +2222,12 @@
 /area/maintenance/substation/supply)
 "bGE" = (
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/plating,
-/area/shuttle/intrepid/cockpit)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced,
+/area/shuttle/intrepid/rotary)
 "bGM" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
@@ -4063,6 +4067,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
+"djr" = (
+/obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced,
+/area/shuttle/intrepid/rotary)
 "djv" = (
 /obj/machinery/floodlight,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -9333,7 +9344,10 @@
 	pixel_y = -162;
 	weapon_id = "Francisca Rotary Gun"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced,
 /area/shuttle/intrepid/rotary)
 "hdi" = (
 /turf/simulated/wall,
@@ -14774,16 +14788,6 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
-"lyY" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/shuttle_landmark/intrepid/hangar,
-/turf/simulated/floor/tiled,
-/area/hangar/intrepid)
 "lzb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -15703,7 +15707,8 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, weapon"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/reinforced,
 /area/shuttle/intrepid/rotary)
 "mlw" = (
 /obj/structure/cable/green{
@@ -16488,15 +16493,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "mSf" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/structure/window/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/shuttle/intrepid/rotary)
 "mSk" = (
 /obj/effect/floor_decal/corner/green{
@@ -24858,7 +24862,13 @@
 /area/operations/storage)
 "tAU" = (
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
 /area/shuttle/intrepid/rotary)
 "tBF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -25917,6 +25927,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/bluespace_beacon,
+/obj/effect/shuttle_landmark/intrepid/hangar,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "unS" = (
@@ -28324,6 +28335,10 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/clothing/accessory/holster/utility/machete,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "wjU" = (
@@ -49836,7 +49851,7 @@ aEw
 ifw
 ewy
 aEw
-aHu
+iRC
 iRC
 iRC
 iRC
@@ -50039,9 +50054,9 @@ eyW
 xlX
 aEw
 bhi
-tAU
-tAU
+aHu
 bGE
+tAU
 tAU
 mlc
 iRC
@@ -50242,7 +50257,7 @@ jyn
 aEw
 mSf
 hcE
-tAU
+djr
 iRC
 iRC
 iRC
@@ -51436,7 +51451,7 @@ kEt
 hYy
 apf
 iZk
-lyY
+dhi
 ayq
 xvk
 nyz

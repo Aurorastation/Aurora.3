@@ -11,6 +11,7 @@
 	var/unknown_id                      // A unique identifier used when this entity is scanned. Assigned in Initialize().
 	var/requires_contact = TRUE //whether or not the effect must be identified by ship sensors before being seen.
 	var/instant_contact  = FALSE //do we instantly identify ourselves to any ship in sensors range?
+	var/sensor_range_override = FALSE //When true, this overmap object will be scanned with range instead of view.
 
 	var/sensor_visibility = 10	 //how likely it is to increase identification process each scan.
 	var/vessel_mass = 10000             // metric tonnes, very rough number, affects acceleration provided by engines

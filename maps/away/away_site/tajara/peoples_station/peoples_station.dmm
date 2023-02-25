@@ -1380,6 +1380,12 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1828,6 +1834,12 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 8
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6109,6 +6121,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/training)
+"Bw" = (
+/obj/machinery/door/window/brigdoor/southleft{
+	name = "Robot Storage";
+	req_access = list(209)
+	},
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/heavy_vehicle/premade/pra_egg/armored,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/robotics_bay)
 "Bx" = (
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -8343,11 +8369,11 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8966,7 +8992,7 @@
 "Pj" = (
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
-	department = "HMV Supreme";
+	department = "People's Space Station";
 	req_access = list(209);
 	req_one_access = null
 	},
@@ -9816,6 +9842,11 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -42371,7 +42402,7 @@ dt
 fa
 wj
 dt
-lO
+Bw
 yu
 Zc
 cJ
@@ -42885,7 +42916,7 @@ dt
 fa
 wj
 dt
-fa
+Bw
 yu
 zs
 Ss
@@ -43913,7 +43944,7 @@ dt
 fi
 wj
 dt
-fi
+lO
 xN
 zs
 tk

@@ -918,6 +918,7 @@
 		/obj/item/reagent_containers/food/drinks/pitcher = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
 		/obj/item/clothing/accessory/apron/chef = 2,
+		/obj/item/clothing/suit/chef_jacket = 2,
 		/obj/item/material/kitchen/rollingpin = 2,
 		/obj/item/reagent_containers/cooking_container/oven = 5,
 		/obj/item/reagent_containers/cooking_container/fryer = 4,

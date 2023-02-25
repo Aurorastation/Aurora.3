@@ -3,6 +3,7 @@
 	name = "Ae'themir"
 	desc = "A planet comprised mainly of solid common minerals and silicate."
 	color = "#B1A69B"
+	icon_state = "globe1"
 	rock_colors = list(COLOR_GRAY80)
 	possible_themes = list(/datum/exoplanet_theme/mountains)
 	map_generators = list(/datum/random_map/noise/exoplanet/barren, /datum/random_map/noise/ore)
@@ -21,11 +22,15 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/get_surface_color()
 	return "#B1A69B"
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/update_icon()
+	return
+
 //Az'Mar
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar
 	name = "Az'Mar"
 	desc = "A small planet with a caustic shale crust. The surface is extremely hot and dense."
 	color = "#4a3f41"
+	icon_state = "globe2"
 	rock_colors = null
 	plant_colors = null
 	rock_colors = list("#4a3f41")
@@ -50,17 +55,25 @@
 		atmosphere.temperature = T0C + 500
 		atmosphere.update_values()
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/update_icon()
+	return
+
 //Sahul
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul
 	name = "Sahul"
 	desc = "Az'mar's moon is a celestial body composed primarily of molten metals."
+	icon_state = "globe1"
 	generated_name = FALSE
 	ring_chance = 0
+
+/obj/effect/overmap/visitable/sector/exoplanet/lava/sahul/update_icon()
+	return
 
 //Raskara
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara
 	name = "Raskara"
 	desc = "A barren moon orbiting Adhomai."
+	icon_state = "globe1"
 	color = "#373737"
 	rock_colors = list("#373737")
 	planetary_area = /area/exoplanet/barren/raskara
@@ -75,6 +88,9 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/get_surface_color()
 	return "#373737"
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/update_icon()
+	return
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/generate_planet_image()
 	skybox_image = image('icons/skybox/lore_planets.dmi', "raskara")
@@ -102,7 +118,8 @@
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai
 	name = "Adhomai"
 	desc = "The Tajaran homeworld. Adhomai is a cold and icy world, suffering from almost perpetual snowfall and extremely low temperatures."
-	color = "#dcdcdc"
+	icon_state = "globe2"
+	color = "#b5dfeb"
 	planetary_area = /area/exoplanet/adhomai
 	rock_colors = null
 	plant_colors = null
@@ -126,7 +143,8 @@
 			/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual,
 			/datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 			/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd, /datum/map_template/ruin/exoplanet/adhomai_abandoned_labor_camp,
-			/datum/map_template/ruin/exoplanet/psis_outpost, /datum/map_template/ruin/exoplanet/pra_base, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue, /datum/map_template/ruin/exoplanet/pra_mining_camp, /datum/map_template/ruin/exoplanet/adhomai_nuclear_waste)
+			/datum/map_template/ruin/exoplanet/psis_outpost, /datum/map_template/ruin/exoplanet/pra_base, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue, /datum/map_template/ruin/exoplanet/pra_mining_camp, /datum/map_template/ruin/exoplanet/adhomai_nuclear_waste,
+			/datum/map_template/ruin/exoplanet/adhomai_fallout_bunker)
 
 		if("Democratic People's Republic of Adhomai")
 			possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
@@ -164,6 +182,9 @@
 		atmosphere.temperature = T0C - 5
 		atmosphere.update_values()
 
+/obj/effect/overmap/visitable/sector/exoplanet/adhomai/update_icon()
+	return
+
 /datum/random_map/noise/exoplanet/snow/adhomai
 	descriptor = "Adhomai"
 	smoothing_iterations = 1
@@ -173,7 +194,7 @@
 	water_type = /turf/simulated/floor/exoplanet/ice
 	fauna_types = list(/mob/living/simple_animal/ice_tunneler, /mob/living/simple_animal/ice_tunneler/male, /mob/living/simple_animal/fatshouter, /mob/living/simple_animal/fatshouter/male,
 					/mob/living/simple_animal/hostile/retaliate/rafama, /mob/living/simple_animal/hostile/retaliate/rafama/male, /mob/living/simple_animal/hostile/retaliate/rafama/baby,
-					/mob/living/simple_animal/hostile/wind_devil, /mob/living/carbon/human/farwa/adhomai)
+					/mob/living/simple_animal/hostile/wind_devil, /mob/living/carbon/human/farwa/adhomai, /mob/living/simple_animal/hostile/harron)
 
 /datum/random_map/noise/exoplanet/snow/adhomai/generate_flora()
 	for(var/i = 1 to flora_diversity)
