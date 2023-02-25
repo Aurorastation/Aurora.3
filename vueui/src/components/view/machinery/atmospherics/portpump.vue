@@ -31,7 +31,7 @@
     <vui-group-item label="Target Pressure:">
       <vui-progress :value="targetpressure" :min="minpressure" :max="maxpressure"/>
       <div style="float: left; clear: both; padding-top: 4px; text-align: center;">
-        <vui-input-numeric v-model="targetpressure" :min="minpressure" :max="maxpressure" min-button max-button width="4em" :button-count="0" @input="s({pressure_set : targetpressure})"/>
+        <vui-input-numeric v-model="targetpressure" :min="minpressure" :max="maxpressure" min-button max-button width="4em" :button-count="0"/>
       </div>
     </vui-group-item>
 
@@ -46,16 +46,21 @@
 </template>
 
 <script>
-import Utils from "../../../../utils.js";
 export default {
 	data() {
 		return this.$root.$data.state;
   },
-	methods: {
-    s(parameters) {
-      Utils.sendToTopic(parameters);
-    }
-	}
+  computed: {
+    targetpressure: {
+      get() {
+        return this.$data.targetpressure;
+      },
+      set(value) {
+        this.$data.targetpressure = value;
+        this.$toTopic({pressure_set : targetpressure})
+      },
+    },
+  },
 }
 </script>
 

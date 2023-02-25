@@ -36,9 +36,9 @@
       </vui-group-item>
 
       <vui-group-item label="Input Level:">
-        <vui-progress :value="state.chargeLevel" :min="0" :max="state.chargeMax"/>
+        <vui-progress :value="chargeLevel" :min="0" :max="state.chargeMax"/>
         <div style="clear: both; padding-top: 4px; text-align:center;">
-          <vui-input-numeric width="100px" v-model="state.chargeLevel" min-button max-button :button-count="0" :min="0" :max="state.chargeMax" @input="s({input : state.chargeLevel})">&nbsp;{{state.chargeLevel}} W&nbsp;</vui-input-numeric>
+          <vui-input-numeric width="100px" v-model="chargeLevel" min-button max-button :button-count="0" :min="0" :max="state.chargeMax"></vui-input-numeric>
         </div>
       </vui-group-item>
 
@@ -57,9 +57,9 @@
       </vui-group-item>
 
       <vui-group-item label="Output Level:">
-        <vui-progress :value="state.outputLevel" :min="0" :max="state.outputMax"/>
+        <vui-progress :value="outputLevel" :min="0" :max="state.outputMax"/>
         <div style="clear: both; padding-top: 4px; text-align: center;">
-          <vui-input-numeric width="100px" v-model="state.outputLevel" min-button max-button :button-count="0" :min="0" :max="state.outputMax" @input="s({output : state.outputLevel})">&nbsp;{{state.outputLevel}} W&nbsp;</vui-input-numeric>
+          <vui-input-numeric width="100px" v-model="outputLevel" min-button max-button :button-count="0" :min="0" :max="state.outputMax"></vui-input-numeric>
         </div>
       </vui-group-item>
 
@@ -74,17 +74,32 @@
 </template>
 
 <script>
-import Utils from "../../../../utils.js";
 export default {
   data() {
-    return this.$root.$data; // Make data more easily accessible
-  },
-  methods: {
-    s(parameters) {
-      Utils.sendToTopic(parameters)
-    },
+    return {
+      state: this.$root.$data.state,
+
+    }
   },
   computed: {
+    chargeLevel: {
+      get() {
+        return this.state.chargeLevel
+      },
+      set(value) {
+        this.state.chargeLevel = value
+        this.$toTopic({input : value})
+      }
+    },
+    outputLevel: {
+      get() {
+        return this.state.outputLevel
+      },
+      set(value) {
+        this.state.outputLevel = value
+        this.$toTopic({output : value})
+      }
+    },
     chargeClass() {
       switch(this.state.chargeMode){
         case 2: return 'good';
@@ -114,7 +129,7 @@ export default {
       }
     },
     timeRemaining() {
-      var timeleft = (this.state.time - this.wtime)/10 // deciseconds
+      var timeleft = (this.state.time - this.$root.$data.wtime)/10 // deciseconds
       var hours = Math.round(timeleft / 3600)
       var minutes = Math.round(timeleft % 3600 / 60)
       var seconds = Math.round(timeleft % 60)

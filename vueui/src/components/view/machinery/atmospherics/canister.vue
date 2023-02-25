@@ -33,7 +33,7 @@
       <vui-group-item label="Release Pressure:">
         <vui-progress style="width: 100%;" :value="releasePressure" :min="minReleasePressure" :max="maxReleasePressure"/>
         <div style="clear: both; padding-top: 4px;">
-          <vui-input-numeric width="5em" v-model="releasePressure" :button-count="4" :min="minReleasePressure" :max="maxReleasePressure" @input="$toTopic({pressure_set : releasePressure})">{{releasePressure}} kPa&nbsp;</vui-input-numeric>
+          <vui-input-numeric width="5em" v-model="releasePressure" :button-count="4" :min="minReleasePressure" :max="maxReleasePressure">{{releasePressure}} kPa&nbsp;</vui-input-numeric>
         </div>
       </vui-group-item>
 
@@ -49,6 +49,17 @@
 export default {
 	data() {
 		return this.$root.$data.state;
-  }
+  },
+  computed: {
+    releasePressure: {
+      get() {
+        return this.$data.releasePressure;
+      },
+      set(value) {
+        this.$data.releasePressure = value;
+        this.$toTopic({pressure_set : value});
+      }
+    },
+  },
 }
 </script>
