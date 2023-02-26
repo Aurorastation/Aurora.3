@@ -3344,6 +3344,11 @@
 	},
 /turf/simulated/open,
 /area/hallway/medical/upper)
+"cVx" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "cWl" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -59484,7 +59489,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+bEW
 kMe
 dSF
 dSF
@@ -59687,7 +59692,7 @@ wGH
 wGH
 wGH
 vkb
-dSF
+slH
 dSF
 dSF
 dSF
@@ -59887,9 +59892,9 @@ wGH
 wGH
 wGH
 wGH
-bEW
-kMe
-dSF
+wGH
+vkb
+slH
 dSF
 dSF
 dSF
@@ -60089,9 +60094,9 @@ wGH
 wGH
 wGH
 wGH
+wGH
 vkb
-dSF
-dSF
+slH
 dSF
 dSF
 dSF
@@ -60291,9 +60296,9 @@ wGH
 wGH
 wGH
 bEW
+leE
 kMe
-dSF
-dSF
+slH
 dSF
 dSF
 dSF
@@ -60492,10 +60497,10 @@ wGH
 wGH
 wGH
 wGH
-vkb
-dSF
-dSF
-dSF
+cVx
+slH
+slH
+slH
 dSF
 dSF
 dSF
