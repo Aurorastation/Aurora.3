@@ -4,7 +4,7 @@
 	icon = 'icons/mob/species/breeder/inventory.dmi'
 	item_state = "hive_rep_shroud"
 	icon_state = "hive_rep_shroud"
-	contained_sprite = TRUE
+	contained_sprite = FALSE
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
 
