@@ -16,6 +16,16 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"d" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
 "e" = (
 /obj/machinery/light,
 /turf/simulated/floor/concrete,
@@ -31,6 +41,16 @@
 /area/adhomai_silo)
 "i" = (
 /turf/simulated/floor/concrete/square,
+/area/adhomai_silo)
+"j" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/concrete,
 /area/adhomai_silo)
 "k" = (
 /obj/effect/floor_decal/concrete/large,
@@ -48,6 +68,33 @@
 "n" = (
 /obj/effect/floor_decal/concrete{
 	dir = 6
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"o" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "pra_silo_entry";
+	name = "Entry";
+	req_access = list(209);
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "silo_guard";
+	name = "igs - silo_guard"
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"p" = (
+/obj/effect/floor_decal/concrete{
+	dir = 4
 	},
 /turf/simulated/floor/concrete,
 /area/adhomai_silo)
@@ -71,9 +118,96 @@
 	},
 /turf/simulated/floor/concrete,
 /area/adhomai_silo)
+"y" = (
+/obj/effect/floor_decal/concrete{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"z" = (
+/obj/effect/floor_decal/concrete{
+	dir = 1
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
 "A" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"B" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"C" = (
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/structure/table/steel,
+/obj/item/material/ashtray/bronze,
+/obj/item/handcuffs,
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/obj/effect/floor_decal/concrete/large{
+	dir = 1
+	},
+/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda{
+	pixel_y = 8;
+	pixel_x = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"E" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"F" = (
+/obj/machinery/door/window/brigdoor/northright{
+	req_access = list(209)
+	},
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
+	pixel_y = 10;
+	pixel_x = 5
+	},
+/obj/effect/floor_decal/concrete/large,
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"G" = (
+/obj/effect/floor_decal/concrete/large/cee{
+	dir = 1
+	},
+/obj/machinery/door/blast/shutters{
+	id = "pra_camp_entry"
 	},
 /turf/simulated/floor/concrete,
 /area/adhomai_silo)
@@ -88,6 +222,17 @@
 /obj/machinery/porta_turret/ballistic,
 /turf/simulated/floor/concrete,
 /area/adhomai_silo)
+"K" = (
+/obj/effect/floor_decal/concrete/large,
+/obj/structure/table/standard,
+/obj/machinery/chemical_dispenser/coffee/full,
+/obj/machinery/turretid/lethal{
+	pixel_y = -32
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
 "M" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/missile_silo.dmi';
@@ -102,9 +247,39 @@
 	},
 /turf/simulated/floor/concrete,
 /area/adhomai_silo)
+"O" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"R" = (
+/obj/machinery/door/airlock/security{
+	name = "Checkpoint";
+	req_access = list(209)
+	},
+/obj/effect/floor_decal/concrete/large/full,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"S" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
 "T" = (
 /turf/simulated/wall/concrete,
 /area/adhomai_silo)
+"U" = (
+/turf/simulated/wall/concrete,
+/area/pra_base)
 "W" = (
 /obj/machinery/light{
 	dir = 4;
@@ -505,12 +680,12 @@ c
 "}
 (13,1,1) = {"
 c
-s
-A
-J
+G
+z
 f
 f
-W
+f
+f
 f
 f
 f
@@ -538,15 +713,15 @@ c
 (14,1,1) = {"
 c
 s
-A
+j
+n
+d
+p
 f
 f
-e
-T
-I
 f
 f
-f
+W
 f
 f
 i
@@ -569,17 +744,17 @@ c
 "}
 (15,1,1) = {"
 c
-s
+U
+U
+U
+U
 A
+f
 f
 f
 e
 T
 I
-f
-f
-f
-f
 f
 i
 i
@@ -590,9 +765,9 @@ f
 f
 f
 f
-e
-T
-I
+f
+E
+f
 f
 f
 a
@@ -601,30 +776,30 @@ c
 "}
 (16,1,1) = {"
 c
-s
-A
-J
-f
-f
-t
-f
-f
-f
-f
-f
-f
-i
-i
-i
-i
-i
-f
+F
+o
+K
+U
+O
 f
 f
 f
 f
 t
 f
+f
+i
+i
+i
+i
+i
+f
+f
+f
+f
+e
+T
+I
 f
 J
 a
@@ -633,7 +808,10 @@ c
 "}
 (17,1,1) = {"
 c
-s
+C
+B
+S
+R
 A
 f
 f
@@ -642,9 +820,6 @@ f
 f
 f
 f
-f
-f
-f
 i
 i
 i
@@ -655,7 +830,7 @@ f
 f
 f
 f
-f
+t
 f
 f
 f
@@ -665,11 +840,11 @@ c
 "}
 (18,1,1) = {"
 c
-s
-A
-f
-f
-f
+U
+U
+U
+U
+O
 f
 f
 f
@@ -698,10 +873,10 @@ c
 (19,1,1) = {"
 c
 s
-A
-f
-f
-f
+b
+N
+N
+y
 f
 f
 f
