@@ -397,26 +397,30 @@
 	flags = RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
+/area/horizon/crew_quarters/washroom/deck_two
+	name = "Horizon - Deck 2 Central Washroom"
+	icon_state = "washroom"
+	sound_env = SMALL_ENCLOSED
+
+/area/horizon/crew_quarters/showers/deck_three
+	name = "Horizon - Deck 3 Showers"
+	icon_state = "showers"
+	sound_env = SMALL_ENCLOSED
+
+/area/horizon/crew_quarters/laundry
+	name = "Horizon - Deck 3 Laundry"
+
 // Cryogenics
 /area/horizon/crew_quarters/cryo
 	name = "Horizon - Cryogenic Storage"
 	icon_state = "Sleep"
 
-/area/horizon/crew_quarters/cryo/living_quarters_lift
-	name = "Horizon - Living Quarters Lift"
+/area/horizon/crew_quarters/cryo/living_quarters_lifts
+	name = "Horizon - Living Quarters Lifts"
 	sound_env = SMALL_ENCLOSED
 
-/area/horizon/crew_quarters/cryo/dormitories
-	name = "Horizon - Cryogenic Storage - Dormitories"
-
-/area/horizon/crew_quarters/cryo/washroom
-	name = "Horizon - Cryogenic Storage - Washroom"
-	icon_state = "washroom"
-	sound_env = SMALL_ENCLOSED
-
-/area/horizon/crew_quarters/cryo/showers
-	name = "Horizon - Cryogenic Storage - Showers"
-	icon_state = "showers"
+/area/horizon/crew_quarters/cryo/living_quarters_cryogenics
+	name = "Horizon - Living Quarters Cryogenics"
 	sound_env = SMALL_ENCLOSED
 
 // Fitness Center
@@ -460,13 +464,6 @@
 	name = "Horizon - Bar Lounge"
 	icon_state = "lounge"
 	sound_env = SMALL_SOFTFLOOR
-
-// Miscellanous
-/area/horizon/crew_quarters/washroom/central
-	name = "Horizon - Central Washroom"
-	icon_state = "washroom"
-	sound_env = SMALL_ENCLOSED
-
 /********** Crew Quarters End **********/
 
 /********** Holodeck Start **********/

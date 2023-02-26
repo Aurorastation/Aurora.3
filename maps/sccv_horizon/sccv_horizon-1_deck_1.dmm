@@ -218,7 +218,6 @@
 	name = "\improper Lift to Residential Deck sign";
 	pixel_y = -10
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/computer/cryopod/living_quarters{
 	pixel_y = 32
 	},
@@ -227,7 +226,7 @@
 	name = "JoinLate"
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "any" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
@@ -908,22 +907,17 @@
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
 "aNc" = (
-/obj/structure/closet/emcloset,
-/obj/item/storage/toolbox/emergency,
-/obj/item/crowbar/red,
-/obj/machinery/power/apc/super/critical{
-	dir = 1;
-	pixel_y = 24
-	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/green{
-	dir = 5
+/obj/machinery/door/airlock/atmos{
+	req_one_access = list(11,24)
 	},
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/turf/simulated/floor/tiled/full,
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "aNO" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/structure/cable/green{
@@ -1301,17 +1295,17 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "bap" = (
-/obj/machinery/disposal/small/north,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/green/full,
 /obj/machinery/light{
 	dir = 8
 	},
 /obj/machinery/firealarm/south,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
+/obj/item/storage/toolbox/emergency,
+/obj/item/crowbar/red,
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "baq" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -1991,15 +1985,21 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "bBA" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
+/obj/structure/closet/emcloset,
+/obj/item/storage/toolbox/emergency,
+/obj/item/crowbar/red,
+/obj/effect/floor_decal/corner/green/full{
+	dir = 4
 	},
-/obj/machinery/disposal/small/north,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "bBD" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
@@ -5026,7 +5026,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/full,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "dZQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -7139,21 +7139,28 @@
 /turf/simulated/floor/tiled/freezer,
 /area/horizon/hydroponics/lower)
 "fzA" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 32
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
-/obj/effect/floor_decal/corner/green/full{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
-/obj/machinery/cryopod{
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/turf/simulated/floor/plating,
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "fzU" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -8037,7 +8044,7 @@
 /area/medical/emergency_storage)
 "geN" = (
 /turf/simulated/wall/r_wall,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "gfb" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -8369,14 +8376,15 @@
 	dir = 10
 	},
 /obj/machinery/disposal/small/north,
-/obj/machinery/status_display{
-	pixel_y = -32
-	},
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/machinery/power/apc/super/critical{
+	pixel_y = -24
+	},
+/obj/structure/cable,
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "grP" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/door/firedoor,
@@ -8979,25 +8987,25 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "gMP" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 32
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
-/obj/structure/closet/emcloset,
-/obj/item/storage/toolbox/emergency,
-/obj/item/storage/toolbox/emergency,
-/obj/item/crowbar/red,
-/obj/machinery/alarm{
-	pixel_y = 28
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
-/obj/effect/floor_decal/corner/green/full{
-	dir = 1
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
 	},
-/obj/machinery/light{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/obj/structure/railing/mapped,
+/turf/simulated/floor/plating,
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "gNs" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10138,7 +10146,7 @@
 	pixel_y = -10
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "hIx" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 8
@@ -11078,7 +11086,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/landmark{
 	name = "JoinLateLift"
 	},
@@ -11086,8 +11093,14 @@
 	dir = 8;
 	icon_state = "pipe-j2"
 	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "iBf" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8
@@ -11346,17 +11359,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/teleporter)
 "iMY" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/atmos{
-	req_one_access = list(11,24)
-	},
-/turf/simulated/floor/tiled/full,
-/area/engineering/atmos/air)
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled,
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "iNi" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -11618,15 +11623,18 @@
 /turf/simulated/wall/r_wall,
 /area/hallway/engineering)
 "iYS" = (
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/ramp,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "iYT" = (
 /obj/structure/cable/green{
@@ -12731,28 +12739,25 @@
 /area/shuttle/intrepid/medical_compartment)
 "jRx" = (
 /obj/structure/cable{
-	icon_state = "4-8"
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/ramp{
 	dir = 4
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/obj/structure/sign/directions/cryo{
-	pixel_y = -10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "jRE" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 8
@@ -12974,7 +12979,7 @@
 "kbo" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "kbI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -14756,26 +14761,21 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
 "lyo" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
+/obj/structure/railing/mapped{
+	dir = 1
 	},
 /obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled/ramp{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/area/maintenance/research_port)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "lyU" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -14862,15 +14862,26 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
 "lDs" = (
-/obj/machinery/cryopod{
+/obj/machinery/cryopod/living_quarters{
+	pixel_y = 8
+	},
+/obj/structure/sign/directions/civ{
+	desc = "A sign pointing out that a lift leads to the ship's residential deck.";
+	dir = 1;
+	name = "\improper Lift to Residential Deck sign";
+	pixel_y = -10
+	},
+/obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/green{
-	dir = 10
+/obj/machinery/light{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "lEq" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -15908,15 +15919,15 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck - Living Quarters Lift";
-	dir = 1
-	},
 /obj/effect/landmark{
 	name = "JoinLate"
 	},
+/obj/machinery/camera/network/first_deck{
+	c_tag = "First Deck - Living Quarters Lifts";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "msG" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 9
@@ -16431,12 +16442,12 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
-	icon_state = "1-4"
+	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
@@ -16507,14 +16518,15 @@
 	dir = 10
 	},
 /obj/machinery/disposal/small/north,
-/obj/machinery/ai_status_display{
-	pixel_y = -32
-	},
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/machinery/alarm{
+	pixel_y = -28;
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "mSq" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -17605,12 +17617,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/junk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "nLh" = (
@@ -19554,7 +19563,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
 "pxY" = (
-/obj/structure/window/reinforced,
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/eastleft{
 	name = "Custodial Closet Desk External"
@@ -19577,26 +19585,19 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial)
 "pya" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "pyd" = (
@@ -23568,29 +23569,16 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "sxT" = (
-/obj/structure/sign/directions/cryo{
-	pixel_y = -10
-	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/turf/simulated/floor/tiled/ramp,
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "sys" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -24331,7 +24319,7 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "tfB" = (
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 1
@@ -24717,7 +24705,7 @@
 	req_one_access = list(12,47)
 	},
 /turf/simulated/floor/tiled/full,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "tuP" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/storage/lower)
@@ -26078,10 +26066,6 @@
 /obj/effect/landmark{
 	name = "JoinLateLift"
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 8;
-	icon_state = "pipe-j2"
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -26094,8 +26078,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "usF" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/trash_pile,
@@ -26374,21 +26361,23 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "uFo" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "2-8"
+/obj/effect/landmark{
+	name = "JoinLateLift"
 	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
-/area/engineering/atmos/air)
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "uFv" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
@@ -27243,7 +27232,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "vpu" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
 	dir = 1
@@ -27595,7 +27584,7 @@
 	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "vFp" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -28398,18 +28387,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/outpost/mining_main/refinery)
 "wkH" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable{
-	icon_state = "4-8"
+	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -29741,18 +29723,18 @@
 /area/engineering/atmos/air)
 "xkJ" = (
 /obj/structure/cable{
-	icon_state = "2-4"
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/cobweb2{
-	icon_state = "cobweb1"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+	dir = 4
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -30526,7 +30508,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/living_quarters_lift)
+/area/horizon/crew_quarters/cryo/living_quarters_lifts)
 "xMb" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
 /turf/simulated/floor/tiled/dark,
@@ -53856,8 +53838,8 @@ qKj
 brk
 jOJ
 geN
-hIw
-vET
+lDs
+uFo
 bBA
 geN
 gEb
@@ -54058,9 +54040,9 @@ nwI
 riL
 qep
 geN
-aNc
-sxT
-lDs
+geN
+ttK
+geN
 geN
 dYF
 cZw
@@ -54459,12 +54441,12 @@ lIE
 lIE
 lIE
 any
-lIE
+wkH
 mRk
-geN
-geN
-ttK
-geN
+aNc
+sxT
+iMY
+lyo
 geN
 oYC
 cZw
@@ -54662,10 +54644,10 @@ axK
 axK
 llk
 suZ
-wkH
+jOJ
 riL
 xkJ
-lyo
+lvP
 pya
 wRE
 fHn
@@ -54864,8 +54846,8 @@ lnG
 bwN
 bao
 riL
-uFo
-iMY
+jOJ
+riL
 iYS
 lvP
 aNR
