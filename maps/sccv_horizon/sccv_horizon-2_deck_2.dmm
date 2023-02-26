@@ -8093,14 +8093,6 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Brig Lockdown";
-	name = "Brig Lockdown Blast Door";
-	opacity = 0
-	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -15038,23 +15030,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
-"hkx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "hlu" = (
 /obj/machinery/papershredder,
 /obj/structure/railing/mapped{
@@ -17835,6 +17810,16 @@
 /obj/effect/floor_decal/corner_wide/green,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
+"iFU" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/hallway)
 "iGE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -23261,6 +23246,23 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/office)
+"lsL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "ltv" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/green/full{
@@ -28126,14 +28128,6 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Brig Lockdown";
-	name = "Brig Lockdown Blast Door";
-	opacity = 0
-	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -29623,6 +29617,10 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
+"ovl" = (
+/obj/effect/shuttle_landmark/horizon/decktwo/port_fore,
+/turf/template_noop,
+/area/template_noop)
 "ovu" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/ship_weapon_dummy,
@@ -36839,10 +36837,6 @@
 "rVg" = (
 /turf/simulated/wall,
 /area/operations/office)
-"rVq" = (
-/obj/effect/shuttle_landmark/horizon/decktwo/port_fore,
-/turf/template_noop,
-/area/template_noop)
 "rVv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -44102,16 +44096,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
-"vCX" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/hallway)
 "vDc" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -48158,14 +48142,6 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Brig Lockdown";
-	name = "Brig Lockdown Blast Door";
-	opacity = 0
-	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -75704,7 +75680,7 @@ aHj
 pJE
 lCC
 uJa
-vCX
+iFU
 pMf
 wiB
 qxp
@@ -78532,7 +78508,7 @@ uOB
 eWX
 qvO
 rSE
-hkx
+lsL
 bDo
 qxq
 tYB
@@ -84018,7 +83994,7 @@ qgN
 qgN
 qgN
 qgN
-rVq
+ovl
 qgN
 qgN
 qgN
