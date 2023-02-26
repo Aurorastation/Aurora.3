@@ -38,13 +38,6 @@
 #define RUST_G (__rust_g || __detect_rust_g())
 #endif
 
-// Handle 515 call() -> call_ext() changes
-#if DM_VERSION >= 515
-#define LIBCALL call_ext
-#else
-#define LIBCALL call
-#endif
-
 /// Gets the version of rust_g
 /proc/rustg_get_version() return LIBCALL(RUST_G, "get_version")()
 
