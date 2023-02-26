@@ -214,3 +214,78 @@
 	nutrition_threshold = 30
 
 	current_size = EGG_SCHLORRGO
+
+/mob/living/simple_animal/schlorrgo/cybernetic
+	name = "cybernetic schlorrgo"
+	desc = "A fat creature native to the world of Hro'zamal. This one has been heavily augmented by the People's Republic of Adhomai."
+	icon = 'icons/mob/npc/schlorrgo.dmi'
+	icon_state = "cyberschlorrgo"
+	icon_living = "cyberschlorrgo"
+	icon_dead = "cyberschlorrgo_dead"
+
+	speak_emote = list("beeps", "beeps raucously")
+	emote_hear = list("beeps", "beeps raucously")
+
+	emote_sounds = list('sound/effects/creatures/cybeough.ogg')
+
+	hunger_enabled = FALSE
+
+	maxHealth = 80
+	health = 80
+
+	has_udder = FALSE
+
+	organ_names = list("head", "chest", "augmented core", "augmented torso", "robotic centre", "left leg", "right leg")
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 1)
+
+/mob/living/simple_animal/schlorrgo/cybernetic/emp_act(severity)
+	switch(severity)
+		if(1)
+			adjustFireLoss(rand(10, 15))
+		if(2)
+			adjustFireLoss(rand(5, 10))
+		if(3)
+			adjustFireLoss(rand(3, 5))
+
+/mob/living/simple_animal/schlorrgo/cybernetic/check_wideness_change()
+	return
+
+//the evil version
+
+/mob/living/simple_animal/hostile/cybernetic_schlorrgo
+	name = "cybernetic schlorrgo"
+	desc = "A fat creature native to the world of Hro'zamal. This one has been heavily augmented by the People's Republic of Adhomai. It has an evil glare on its eyes."
+	icon = 'icons/mob/npc/schlorrgo.dmi'
+	icon_state = "cyberschlorrgo"
+	icon_living = "cyberschlorrgo"
+	icon_dead = "cyberschlorrgo_dead"
+
+	speak = list("Ough!")
+	emote_see = list("rolls around")
+	speak_emote = list("beeps", "beeps maliciously")
+	emote_hear = list("beeps", "beeps maliciously")
+	emote_sounds = list('sound/effects/creatures/evil_cybeough.ogg')
+
+	maxHealth = 80
+	health = 80
+
+	melee_damage_lower = 10
+	melee_damage_upper = 10
+	attacktext = "sawed"
+	attack_sound = 'sound/weapons/saw/circsawhit.ogg'
+
+	mob_size = MOB_SMALL
+	organ_names = list("head", "chest", "augmented core", "augmented torso", "robotic centre", "left leg", "right leg")
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	meat_amount = 1
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 1)
+
+/mob/living/simple_animal/hostile/cybernetic_schlorrgo/emp_act(severity)
+	switch(severity)
+		if(1)
+			adjustFireLoss(rand(10, 15))
+		if(2)
+			adjustFireLoss(rand(5, 10))
+		if(3)
+			adjustFireLoss(rand(3, 5))
