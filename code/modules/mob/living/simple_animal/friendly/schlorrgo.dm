@@ -43,6 +43,8 @@
 
 	metabolic_factor = 0.3
 
+	faction = "Hro'zamal"
+
 	var/starting_nutrition = 100
 	var/nutrition_threshold = 80
 
@@ -250,6 +252,16 @@
 /mob/living/simple_animal/schlorrgo/cybernetic/check_wideness_change()
 	return
 
+
+/mob/living/simple_animal/schlorrgo/cybernetic/death(gibbed)
+	..(null, "dies!")
+	if(!gibbed && prob(25))
+		visible_message(SPAN_WARNING("\The [src] detonates!"))
+		var/T = get_turf(src)
+		new /obj/effect/gibspawner/generic(T)
+		explosion(T, -1, 0, 2)
+		qdel(src)
+
 //the evil version
 
 /mob/living/simple_animal/hostile/cybernetic_schlorrgo
@@ -266,6 +278,8 @@
 	emote_hear = list("beeps", "beeps maliciously")
 	emote_sounds = list('sound/effects/creatures/evil_cybeough.ogg')
 
+	faction = "Hro'zamal"
+
 	maxHealth = 80
 	health = 80
 
@@ -281,6 +295,14 @@
 	meat_amount = 1
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 1)
 
+/mob/living/simple_animal/hostile/cybernetic_schlorrgo/Initialize()
+	. = ..()
+	if(prob(25))
+		projectiletype = /obj/item/projectile/beam/pistol
+		projectilesound = 'sound/weapons/laser1.ogg'
+		rapid = FALSE
+		ranged = TRUE
+
 /mob/living/simple_animal/hostile/cybernetic_schlorrgo/emp_act(severity)
 	switch(severity)
 		if(1)
@@ -289,3 +311,12 @@
 			adjustFireLoss(rand(5, 10))
 		if(3)
 			adjustFireLoss(rand(3, 5))
+
+/mob/living/simple_animal/hostile/cybernetic_schlorrgo/death(gibbed)
+	..(null, "dies!")
+	if(!gibbed && prob(25))
+		visible_message(SPAN_WARNING("\The [src] detonates!"))
+		var/T = get_turf(src)
+		new /obj/effect/gibspawner/generic(T)
+		explosion(T, -1, 0, 2)
+		qdel(src)
