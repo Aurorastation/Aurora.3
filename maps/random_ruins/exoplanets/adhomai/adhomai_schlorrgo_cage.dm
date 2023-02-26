@@ -1,5 +1,5 @@
 /datum/map_template/ruin/exoplanet/adhomai_schlorrgo_cage
-	name = "Adhomian Schlorrgo Testing Site "
+	name = "Adhomian Schlorrgo Testing Site"
 	id = "adhomai_schlorrgo_cage"
 	description = "A facility for storing and testing cybernetic schlorrgo."
 
