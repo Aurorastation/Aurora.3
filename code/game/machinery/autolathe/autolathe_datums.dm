@@ -6,6 +6,12 @@
 	var/category
 	var/power_use = 0
 	var/is_stack
+	var/disk_specific = FALSE
+
+/datum/autolathe/recipe/disk
+	disk_specific = TRUE
+	path = /obj/item/reagent_containers/glass/bucket
+	category = "Disk Specific"
 
 /datum/autolathe/recipe/bucket
 	name = "bucket"

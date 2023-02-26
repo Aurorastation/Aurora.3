@@ -4326,6 +4326,9 @@
 /obj/item/circuitboard/borgupload{
 	pixel_y = -4
 	},
+/obj/item/disk/autolathe/security,
+/obj/item/disk/autolathe/security,
+/obj/item/disk/autolathe/security,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage/tech)
 "dtN" = (
@@ -29463,6 +29466,39 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/standard,
+/obj/item/disk/autolathe/engineering{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/disk/autolathe/engineering{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/disk/autolathe/engineering{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/disk/autolathe/medical{
+	pixel_y = 1
+	},
+/obj/item/disk/autolathe/medical{
+	pixel_y = 1
+	},
+/obj/item/disk/autolathe/medical{
+	pixel_y = 1
+	},
+/obj/item/disk/autolathe/science{
+	pixel_x = 4;
+	pixel_y = -2
+	},
+/obj/item/disk/autolathe/science{
+	pixel_x = 4;
+	pixel_y = -2
+	},
+/obj/item/disk/autolathe/science{
+	pixel_x = 4;
+	pixel_y = -2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "xdE" = (

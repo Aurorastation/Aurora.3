@@ -764,6 +764,7 @@
 #include "code\game\machinery\atmoalter\scrubber.dm"
 #include "code\game\machinery\autolathe\autolathe.dm"
 #include "code\game\machinery\autolathe\autolathe_datums.dm"
+#include "code\game\machinery\autolathe\autolathe_disks.dm"
 #include "code\game\machinery\bots\bots.dm"
 #include "code\game\machinery\camera\camera.dm"
 #include "code\game\machinery\camera\camera_assembly.dm"

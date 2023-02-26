@@ -38,6 +38,9 @@
 	var/list/queue = list()
 	var/timer_id
 
+	var/list/available_categories = list()
+	var/obj/item/disk/autolathe/data_disk
+
 /obj/machinery/autolathe/mounted
 	name = "\improper mounted autolathe"
 	density = FALSE
@@ -47,10 +50,16 @@
 	interact_offline = TRUE
 	does_flick = FALSE
 
+/obj/machinery/autolathe/mounted/recalculate_available_categories()
+	available_categories = list("All", "General")
+	for(var/category in SSmaterials.autolathe_categories)
+		available_categories += category
+
 /obj/machinery/autolathe/Initialize()
 	..()
 	wires = new(src)
 	print_loc = src
+	recalculate_available_categories()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/autolathe/LateInitialize()
@@ -118,7 +127,15 @@
 		for(var/recipe in SSmaterials.autolathe_recipes)
 			var/datum/autolathe/recipe/R = recipe
 			index++
-			if(R.hidden && !hacked || (show_category != "All" && show_category != R.category))
+			if(R.hidden && !hacked)
+				continue
+			if(!R.disk_specific)
+				if(show_category == "All")
+					if(!(R.category in available_categories))
+						continue
+				else if(R.category != show_category)
+					continue
+			else if(!data_disk || (show_category != "All" && show_category != "Disk Specific") || !(R.type in data_disk.disk_specific_recipies))
 				continue
 			var/can_make = TRUE
 			var/material_string = ""
@@ -159,6 +176,17 @@
 	autolathe_win.add_stylesheet("misc", 'html/browser/misc.css')
 	autolathe_win.open()
 
+/obj/machinery/autolathe/proc/recalculate_available_categories()
+	available_categories = list("All", "General")
+	if(data_disk)
+		for(var/category in SSmaterials.autolathe_categories)
+			if(category in data_disk.compatible_categories)
+				available_categories += category
+		if(data_disk.disk_specific_recipies)
+			available_categories += "Disk Specific"
+	if(!(show_category in available_categories))
+		show_category = available_categories[1]
+
 /obj/machinery/autolathe/attackby(obj/item/O, mob/user)
 	if(busy)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for the completion of previous operation."))
@@ -190,6 +218,21 @@
 	if(is_robot_module(O))
 		return FALSE
 
+	if(istype(O, /obj/item/disk/autolathe))
+		var/obj/item/disk/autolathe/current_disk = data_disk
+		if(current_disk)
+			current_disk.forceMove(user.loc)
+			data_disk = null
+		user.visible_message("<b>[user]</b> slides \the [O] into \the [src].", SPAN_NOTICE("You slide \the [O] into \the [src]."))
+		user.drop_from_inventory(O, src)
+		data_disk = O
+		if(current_disk)
+			user.put_in_hands(current_disk)
+		verbs += /obj/machinery/autolathe/proc/eject_data_disk
+		recalculate_available_categories()
+		updateUsrDialog()
+		return TRUE
+
 	load_lathe(O, user)
 
 	updateUsrDialog()
@@ -207,7 +250,7 @@
 	add_fingerprint(usr)
 
 	if(href_list["change_category"])
-		var/choice = input("Which category do you wish to display?") as null|anything in SSmaterials.autolathe_categories+"All"
+		var/choice = input("Which category do you wish to display?") as null|anything in available_categories
 		if(!choice)
 			return
 		show_category = choice
@@ -282,7 +325,7 @@
 		var/multiplier = queue_data[2] || 1
 		for(var/material in build_item.resources)
 			if(!isnull(stored_material[material]))
-				stored_material[material] = max(storage_capacity[material], stored_material[material] + round(build_item.resources[material] * 0.8) * multiplier)
+				stored_material[material] = min(storage_capacity[material], stored_material[material] + round(build_item.resources[material] * 0.8) * multiplier)
 	queue.Cut(index, index + 1)
 	if(length(queue))
 		timer_id = addtimer(CALLBACK(src, PROC_REF(process_queue)), build_time, TIMER_UNIQUE | TIMER_STOPPABLE)
@@ -395,3 +438,15 @@
 #undef NO_SPACE
 #undef FILL_COMPLETELY
 #undef FILL_INCOMPLETELY
+
+/obj/machinery/autolathe/proc/eject_data_disk()
+	set name = "Eject Data Disk"
+	set category = "Object"
+	set src in view(1)
+
+	usr.visible_message("<b>[usr]</b> ejects \the [data_disk] out of \the [src].", SPAN_NOTICE("You eject \the [data_disk] out of \the [src]."))
+	usr.put_in_hands(data_disk)
+	data_disk = null
+	verbs -= /obj/machinery/autolathe/proc/eject_data_disk
+	recalculate_available_categories()
+	updateUsrDialog()

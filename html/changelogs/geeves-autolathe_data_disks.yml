@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now queue items to construct at the autolathe."
+  - rscadd: "Added autolathe design data disks. By default, autolathes can only print designs in the General tab. Inserting a disk will unlock the other categories. Some data disks even have disk specific items loaded on them, but you'll have to find them."

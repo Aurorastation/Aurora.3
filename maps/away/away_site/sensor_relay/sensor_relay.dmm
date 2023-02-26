@@ -609,6 +609,17 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/item/disk/autolathe/engineering{
+	pixel_x = -8;
+	pixel_y = -14
+	},
+/obj/item/disk/autolathe/medical{
+	pixel_y = -13
+	},
+/obj/item/disk/autolathe/science{
+	pixel_x = 8;
+	pixel_y = -14
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/sensor_relay)
 "knX" = (

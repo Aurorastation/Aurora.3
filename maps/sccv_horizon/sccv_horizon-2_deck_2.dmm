@@ -5035,6 +5035,7 @@
 /obj/structure/reagent_dispensers/acid{
 	pixel_y = 32
 	},
+/obj/item/disk/autolathe/science,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/research)
 "coa" = (
@@ -31544,6 +31545,21 @@
 	pixel_x = -32
 	},
 /obj/structure/table/standard,
+/obj/item/disk/autolathe/engineering{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/disk/autolathe/medical{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/disk/autolathe/science{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/disk/autolathe/security{
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "pHJ" = (
