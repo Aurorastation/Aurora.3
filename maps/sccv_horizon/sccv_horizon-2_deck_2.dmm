@@ -27160,6 +27160,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "ngA" = (
@@ -39228,6 +39229,13 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/kitchen/hallway)
+"tiG" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "tiJ" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -79761,7 +79769,7 @@ fGs
 kSM
 waU
 vPH
-vPH
+tiG
 vPH
 qfR
 vPH
