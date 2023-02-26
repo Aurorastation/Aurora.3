@@ -379,6 +379,7 @@
 	icon_state = "sheet-log"
 	default_type = MATERIAL_WOOD_LOG
 	max_amount = 25
+	icon_has_variants = TRUE
 	var/chopping
 
 /obj/item/stack/material/wood/log/full/Initialize()
@@ -408,6 +409,7 @@
 	icon_state = "sheet-branch"
 	default_type = MATERIAL_WOOD_BRANCH
 	max_amount = 25
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/wood/branch/full/Initialize()
 	. = ..()
