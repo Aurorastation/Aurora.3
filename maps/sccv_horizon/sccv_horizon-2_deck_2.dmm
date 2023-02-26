@@ -1703,6 +1703,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "aKU" = (
@@ -4340,6 +4344,14 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 1;
+	id = "cell_isolation_a";
+	name = "Isolation Cell Bolts";
+	pixel_y = -25;
+	req_access = list(19);
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
@@ -8103,6 +8115,14 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Brig Lockdown";
+	name = "Brig Lockdown Blast Door";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/horizon/security/brig)
 "dVt" = (
@@ -10172,6 +10192,10 @@
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
@@ -15014,6 +15038,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
+"hkx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "hlu" = (
 /obj/machinery/papershredder,
 /obj/structure/railing/mapped{
@@ -18336,6 +18377,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/horizon/security/hallway)
 "iSG" = (
@@ -23419,6 +23461,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "lAx" = (
@@ -28100,6 +28146,14 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Brig Lockdown";
+	name = "Brig Lockdown Blast Door";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/horizon/security/brig)
 "nFO" = (
@@ -32450,6 +32504,15 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Brig Lockdown";
+	name = "Brig Lockdown Blast Door";
+	opacity = 0
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "pSI" = (
@@ -35038,6 +35101,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "rfG" = (
@@ -36775,6 +36839,10 @@
 "rVg" = (
 /turf/simulated/wall,
 /area/operations/office)
+"rVq" = (
+/obj/effect/shuttle_landmark/horizon/decktwo/port_fore,
+/turf/template_noop,
+/area/template_noop)
 "rVv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -44034,6 +44102,16 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
+"vCX" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/hallway)
 "vDc" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -44498,6 +44576,9 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/structure/closet/crate,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "vOS" = (
@@ -47823,6 +47904,8 @@
 	name = "Brig Lockdown Blast Door";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "xkH" = (
@@ -48093,6 +48176,14 @@
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
+	opacity = 0
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Brig Lockdown";
+	name = "Brig Lockdown Blast Door";
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
@@ -49746,6 +49837,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "yeY" = (
@@ -75612,7 +75704,7 @@ aHj
 pJE
 lCC
 uJa
-pIn
+vCX
 pMf
 wiB
 qxp
@@ -78440,7 +78532,7 @@ uOB
 eWX
 qvO
 rSE
-kkY
+hkx
 bDo
 qxq
 tYB
@@ -83926,7 +84018,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+rVq
 qgN
 qgN
 qgN
