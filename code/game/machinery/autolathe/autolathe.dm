@@ -20,7 +20,6 @@
 	var/disabled = FALSE
 	var/shocked = FALSE
 	var/busy = FALSE
-	var/datum/autolathe/recipe/build_item
 
 	var/mat_efficiency = 1
 	var/build_time = 50
@@ -35,6 +34,9 @@
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stock_parts/console_screen
 	)
+
+	var/list/queue = list()
+	var/timer_id
 
 /obj/machinery/autolathe/mounted
 	name = "\improper mounted autolathe"
@@ -55,6 +57,8 @@
 	populate_lathe_recipes()
 
 /obj/machinery/autolathe/Destroy()
+	deltimer(timer_id)
+	queue = null
 	QDEL_NULL(wires)
 	return ..()
 
@@ -96,6 +100,18 @@
 			material_bottom += "<td width = '25%' align = center>[stored_material[material]]<b>/[storage_capacity[material]]</b></td>"
 
 		dat += "[material_top]</tr>[material_bottom]</tr></table><hr>"
+
+		// Queue
+		dat += "<h2>Construction Queue</h2>"
+		dat += "<table width = '100%'>"
+		var/queue_index = 1
+		for(var/list/queue_data in queue)
+			var/datum/autolathe/recipe/queued_recipe = queue_data[1]
+			var/multiplier = queue_data[2]
+			dat += "<tr><td width = 40%><b>[capitalize_first_letters(queued_recipe.name)][multiplier ? " ([multiplier])" : ""]</b></td><td align = right><a href='?src=\ref[src];remove_queue=[queue_index]'>X</a></tr>"
+			queue_index++
+		dat += "</table><hr>"
+
 		dat += "<h2>Printable Designs</h2><h3>Showing: <a href='?src=\ref[src];change_category=1'>[show_category]</a></h3></center><table width = '100%'>"
 
 		var/index = 0
@@ -202,10 +218,14 @@
 		to_chat(usr, SPAN_WARNING("The autolathe is busy. Please wait for the completion of previous operation."))
 		return
 
+	if(href_list["remove_queue"])
+		var/index = text2num(href_list["remove_queue"])
+		remove_from_queue(index, TRUE)
+
 	if(href_list["make"] && SSmaterials.autolathe_recipes)
 		var/index = text2num(href_list["make"])
 		var/multiplier = text2num(href_list["multiplier"])
-		build_item = null
+		var/datum/autolathe/recipe/build_item
 
 		if(index > 0 && index <= length(SSmaterials.autolathe_recipes))
 			build_item = SSmaterials.autolathe_recipes[index]
@@ -237,8 +257,6 @@
 			//Fancy autolathe animation.
 			flick("autolathe_n", src)
 
-		sleep(build_time)
-
 		busy = FALSE
 		update_use_power(POWER_USE_IDLE)
 
@@ -246,13 +264,43 @@
 		if(!build_item || !src)
 			return
 
-		//Create the desired item.
-		var/obj/item/I = new build_item.path(get_turf(print_loc))
-		I.Created()
-		if(multiplier > 1 && istype(I, /obj/item/stack))
-			var/obj/item/stack/S = I
-			S.amount = multiplier
-		build_item = null
+		add_to_queue(build_item, multiplier)
+
+	updateUsrDialog()
+
+/obj/machinery/autolathe/proc/add_to_queue(var/datum/autolathe/recipe/recipe, var/multiplier)
+	queue += list(list(recipe, multiplier))
+	if(length(queue) == 1)
+		timer_id = addtimer(CALLBACK(src, PROC_REF(process_queue)), build_time, TIMER_UNIQUE | TIMER_STOPPABLE)
+
+/obj/machinery/autolathe/proc/remove_from_queue(var/index, var/refund = FALSE)
+	if(index == 1)
+		deltimer(timer_id)
+	if(refund)
+		var/list/queue_data = queue[1]
+		var/datum/autolathe/recipe/build_item = queue_data[1]
+		var/multiplier = queue_data[2] || 1
+		for(var/material in build_item.resources)
+			if(!isnull(stored_material[material]))
+				stored_material[material] = max(storage_capacity[material], stored_material[material] + round(build_item.resources[material] * 0.8) * multiplier)
+	queue.Cut(index, index + 1)
+	if(length(queue))
+		timer_id = addtimer(CALLBACK(src, PROC_REF(process_queue)), build_time, TIMER_UNIQUE | TIMER_STOPPABLE)
+
+/obj/machinery/autolathe/proc/process_queue()
+	if(!length(queue))
+		return
+
+	var/list/queue_data = queue[1]
+	var/datum/autolathe/recipe/build_item = queue_data[1]
+
+	remove_from_queue(1)
+
+	var/obj/item/I = new build_item.path(get_turf(print_loc))
+	I.Created()
+	if(istype(I, /obj/item/stack))
+		var/obj/item/stack/S = I
+		S.amount = queue_data[2]
 
 	updateUsrDialog()
 

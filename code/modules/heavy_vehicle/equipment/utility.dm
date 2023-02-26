@@ -521,9 +521,11 @@
 	var/obj/machinery/autolathe/mounted/lathe
 
 /obj/item/mecha_equipment/autolathe/get_hardpoint_maptext()
-	if(lathe?.build_item)
-		return lathe.build_item.name
-	. = ..()
+	if(lathe && length(lathe.queue))
+		var/list/queue_data = lathe.queue[1]
+		var/datum/autolathe/recipe/build_item = queue_data[1]
+		return build_item.name
+	return ..()
 
 /obj/item/mecha_equipment/autolathe/Initialize()
 	. = ..()
