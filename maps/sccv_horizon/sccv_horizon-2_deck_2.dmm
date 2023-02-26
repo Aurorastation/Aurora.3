@@ -492,6 +492,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
+"ang" = (
+/obj/effect/shuttle_landmark/horizon/decktwo/port_fore,
+/turf/template_noop,
+/area/template_noop)
 "anJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -1831,6 +1835,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"aNB" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/hallway)
 "aNL" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -17810,16 +17824,6 @@
 /obj/effect/floor_decal/corner_wide/green,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
-"iFU" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/hallway)
 "iGE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -23246,23 +23250,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/office)
-"lsL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "ltv" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/green/full{
@@ -26691,6 +26678,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"mXO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "mXS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -29617,10 +29621,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
-"ovl" = (
-/obj/effect/shuttle_landmark/horizon/decktwo/port_fore,
-/turf/template_noop,
-/area/template_noop)
 "ovu" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/ship_weapon_dummy,
@@ -47888,7 +47888,6 @@
 	name = "Brig Lockdown Blast Door";
 	opacity = 0
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
@@ -75680,7 +75679,7 @@ aHj
 pJE
 lCC
 uJa
-iFU
+aNB
 pMf
 wiB
 qxp
@@ -78508,7 +78507,7 @@ uOB
 eWX
 qvO
 rSE
-lsL
+mXO
 bDo
 qxq
 tYB
@@ -83994,7 +83993,7 @@ qgN
 qgN
 qgN
 qgN
-ovl
+ang
 qgN
 qgN
 qgN
