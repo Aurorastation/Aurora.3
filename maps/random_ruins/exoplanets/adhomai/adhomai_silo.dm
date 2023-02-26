@@ -25,7 +25,7 @@
 	desc = "Guard the Hadiist missile silo."
 	tags = list("External")
 
-	spawnpoints = list("siloe_guard")
+	spawnpoints = list("silo_guard")
 	max_count = 1
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
