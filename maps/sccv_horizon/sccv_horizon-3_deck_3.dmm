@@ -24536,6 +24536,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"tGG" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Security Lockdown";
+	name = "Security Blast Door";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "tHh" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -58054,7 +58067,7 @@ kxs
 xJq
 oIR
 rRe
-rRe
+tGG
 rRe
 rRe
 rRe
