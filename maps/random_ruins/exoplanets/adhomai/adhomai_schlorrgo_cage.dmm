@@ -111,8 +111,8 @@
 	dir = 1;
 	req_access = list(209);
 	name = "Hostile Specimen Containment";
-	uid = "evil_schlorrgo";
-	pixel_y = -32
+	pixel_y = -32;
+	id = "evil_schlorrgo"
 	},
 /obj/effect/floor_decal/concrete{
 	dir = 10
