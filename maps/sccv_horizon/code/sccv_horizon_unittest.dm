@@ -42,7 +42,6 @@
 		/area/construction,
 		/area/bridge/aibunker,
 		/area/medical/cryo,
-		/area/horizon/crew_quarters/cryo/washroom,
 		/area/rnd/isolation_a,
 		/area/rnd/isolation_b,
 		/area/rnd/isolation_c
