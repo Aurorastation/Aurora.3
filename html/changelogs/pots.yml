@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Fixes potted plants blocking movement."
+  - bugfix: "Fixed potted plants blocking movement."
