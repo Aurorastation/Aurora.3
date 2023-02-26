@@ -465,16 +465,8 @@
 			if(M_LAY)
 				if(C.lying_is_intentional)
 					usr.m_intent = M_WALK
-					// var/matrix/M = matrix()
-					// M.Translate(0)
-					// animate(C, transform = M, time = ANIM_LYING_TIME)
 		if(modifiers["button"] == "middle" && !C.lying)	// See /mob/proc/update_canmove() for more logic on the lying FSM
 			C.m_intent = M_LAY
-			// var/matrix/M = matrix()
-			// M.Turn(90)
-			// M.Translate(1,-6)
-			// animate(C, transform = M, time = ANIM_LYING_TIME)
-			// C.set_dir(C.dir, ignore_facing_dir = TRUE) //So the transformation applies, it looks like the ignore_facing_dir is unused, so making good use of it
 
 	else if(istype(usr, /mob/living/simple_animal/hostile/morph))
 		var/mob/living/simple_animal/hostile/morph/M = usr
