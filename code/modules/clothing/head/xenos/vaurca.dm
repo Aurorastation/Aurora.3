@@ -23,17 +23,17 @@
 /obj/item/clothing/head/vaurca_breeder/nralakk
 	name = "nralakk representative shroud"
 	desc = "Large shroud used by C'thur Nralakk representatives."
-	item_state = "hive_rep_shroud_nralakk"
+	item_state = "hive_rep_shroud_nralakk_i"
 	icon_state = "hive_rep_shroud_nralakk"
 
 /obj/item/clothing/head/vaurca_breeder/biesel
 	name = "biesel representative shroud"
 	desc = "Large shroud used by Zo'ra Republic of Biesel representatives."
-	item_state = "hive_rep_shroud_biesel"
-	icon_state = "hive_rep_shroud_biesel_i"
+	item_state = "hive_rep_shroud_biesel_i"
+	icon_state = "hive_rep_shroud_biesel"
 
 /obj/item/clothing/head/vaurca_breeder/hegemony
 	name = "hegemony representative shroud"
 	desc = "Large shroud used by K'lax Izweski Hegemony representatives."
-	item_state = "hive_rep_shroud_hegemony"
-	icon_state = "hive_rep_shroud_hegemony_i"
+	item_state = "hive_rep_shroud_hegemony_i"
+	icon_state = "hive_rep_shroud_hegemony"
