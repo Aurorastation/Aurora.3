@@ -9851,7 +9851,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "hYI" = (
@@ -12931,7 +12930,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "kwf" = (
