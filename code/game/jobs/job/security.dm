@@ -39,8 +39,8 @@
 	uniform = /obj/item/clothing/under/rank/head_of_security
 	head = /obj/item/clothing/head/hos
 	id = /obj/item/card/id/navy
+	shoes = null
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
-	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/heads/hos
 	bowman = /obj/item/device/radio/headset/heads/hos/alt
@@ -50,10 +50,6 @@
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/hos
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
 	tablet = /obj/item/modular_computer/handheld/preset/security/hos
-
-	backpack_contents = list(
-		/obj/item/handcuffs = 1
-	)
 
 	implants = list(
 		/obj/item/implant/mindshield
@@ -73,7 +69,7 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/unathi(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
 
 /datum/job/warden
@@ -108,6 +104,7 @@
 	uniform = /obj/item/clothing/under/rank/warden
 	suit = /obj/item/clothing/suit/storage/toggle/warden
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator
+	shoes = null
 	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/headset_warden
@@ -124,10 +121,6 @@
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
-	backpack_contents = list(
-		/obj/item/handcuffs = 1
-	)
-
 /datum/outfit/job/warden/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
@@ -137,7 +130,7 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/unathi(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
 
 /datum/job/investigator
@@ -170,7 +163,6 @@
 
 	uniform = /obj/item/clothing/under/det
 	shoes = /obj/item/clothing/shoes/laceup/all_species
-	gloves = /obj/item/clothing/gloves/black/forensic
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
@@ -189,6 +181,10 @@
 	backpack_contents = list(
 		/obj/item/storage/box/evidence = 1
 	)
+
+/datum/outfit/job/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_or_collect(new /obj/item/clothing/gloves/black/forensic(H), slot_gloves)
 
 /datum/job/officer
 	title = "Security Officer"
@@ -221,6 +217,7 @@
 
 	uniform = /obj/item/clothing/under/rank/security
 	l_pocket = /obj/item/device/flash
+	shoes = null
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
@@ -236,10 +233,6 @@
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
-	backpack_contents = list(
-		/obj/item/handcuffs = 1
-	)
-
 /datum/outfit/job/officer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
@@ -249,7 +242,7 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/unathi(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
 
 /datum/job/intern_sec
@@ -280,6 +273,7 @@
 	uniform = /obj/item/clothing/under/rank/cadet
 	suit = /obj/item/clothing/suit/storage/hazardvest/security
 	head = /obj/item/clothing/head/beret/security
+	shoes = null
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
