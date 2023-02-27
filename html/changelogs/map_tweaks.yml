@@ -5,7 +5,7 @@ delete-after: True
 changes:
   - maptweak: "Tweaked deck 3 medical visually."
   - maptweak: "Switched the places of the deck 3 showers and the deck 3 washroom. Turned the washroom into a laundry room with toilets."
-  - maptweak: "Added cryogenics to deck 2 to where the auxiliary custodial closet is."
+  - maptweak: "Added cryogenics to deck 2 where the auxiliary custodial closet currently is."
   - maptweak: "Moved the auxiliary custodial closet to its old location on deck 2 near operations."
   - maptweak: "Restored the deck 1 residential deck lifts room to its original smaller size."
   - tweak: "Fixed some areas using their old names."
