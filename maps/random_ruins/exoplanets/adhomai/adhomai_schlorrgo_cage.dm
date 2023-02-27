@@ -6,7 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list( "adhomai/adhomai_schlorrgo_cage.dmm")
+	suffixes = list("adhomai/adhomai_schlorrgo_cage.dmm")
 
 /area/adhomai_schlorrgo_cage
 	name = "Adhomian Schlorrgo Testing Site"
