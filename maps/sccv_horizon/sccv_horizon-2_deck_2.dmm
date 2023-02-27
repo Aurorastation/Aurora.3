@@ -37451,25 +37451,6 @@
 /area/horizon/bar)
 "sxl" = (
 /obj/structure/table/standard,
-/obj/item/grenade/chem_grenade,
-/obj/item/grenade/chem_grenade,
-/obj/item/grenade/chem_grenade,
-/obj/item/grenade/chem_grenade,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
-/obj/structure/closet/crate/drop/grey{
-	desc = "A large, sturdy crate, that stores grenade components.";
-	layer = 2.79;
-	name = "grenade crate";
-	pixel_y = -4;
-	tablestatus = -1
-	},
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
