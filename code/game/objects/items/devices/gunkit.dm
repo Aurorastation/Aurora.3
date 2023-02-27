@@ -1,9 +1,3 @@
-#define ENERGY_PISTOL 1
-#define HEGEMONY_PISTOL 2
-#define ZORA_BLASTER 3
-#define BIESEL_REVOLVER 4
-
-
 /obj/item/device/gunkit
 	name = "gun selection kit"
 	desc = "A kit containing a firearm waiting to be collected."
