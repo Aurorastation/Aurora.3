@@ -68,11 +68,6 @@
 
 /datum/outfit/job/representative/consular/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
-		if(isunathi(H))
-			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/poncho/unathimantle(H), slot_wear_suit)
-
-/datum/outfit/job/representative/consular/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H && !visualsOnly)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/hegemony(H), slot_head)
@@ -82,4 +77,5 @@
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
 		else
 			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/poncho/unathimantle(H), slot_wear_suit)
 	return TRUE

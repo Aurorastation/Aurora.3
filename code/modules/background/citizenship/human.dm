@@ -57,6 +57,7 @@
 			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_belt)
 		else
 			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/blaster/revolver(H), slot_belt)
 	return TRUE
 
 /datum/citizenship/sol_alliance
