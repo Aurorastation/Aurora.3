@@ -589,3 +589,9 @@
 		var/obj/item/clothing/accessory/temperature/temp_pack = temp_path
 		temperature[initial(temp_pack.name)] = temp_path
 	gear_tweaks += new /datum/gear_tweak/path(temperature)
+
+/datum/gear/accessory/necklace
+	display_name = "necklace (colorable)"
+	description = "A piece of jewelry that goes around your neck."
+	path = /obj/item/clothing/accessory/necklace
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
