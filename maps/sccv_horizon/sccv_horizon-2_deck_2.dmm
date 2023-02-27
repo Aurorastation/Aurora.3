@@ -1782,20 +1782,12 @@
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "aMD" = (
-/obj/machinery/light_switch{
-	pixel_x = 26
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/button/switch/holosign{
-	id = 1;
-	pixel_x = 26;
-	pixel_y = -9
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "aME" = (
@@ -4571,11 +4563,6 @@
 /turf/simulated/floor/plating,
 /area/operations/lobby)
 "bYB" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -9609,16 +9596,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "eJl" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 21
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/curtain/open/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "eJH" = (
@@ -11480,10 +11460,6 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Operating Room 1";
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "fHr" = (
@@ -11909,11 +11885,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "fQV" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -14732,10 +14703,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "hdz" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -21
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -17772,6 +17739,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/device/radio/intercom{
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "iEi" = (
@@ -20390,6 +20360,11 @@
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 4
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Operating Room 1";
+	dir = 4;
+	pixel_y = -11
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
@@ -23035,6 +23010,10 @@
 	dir = 8
 	},
 /obj/item/tank/oxygen,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Operating Room 2";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "lmp" = (
@@ -25095,6 +25074,9 @@
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
@@ -38515,6 +38497,10 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
+/obj/machinery/button/switch/holosign{
+	id = 2;
+	pixel_x = 26
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "sRe" = (
@@ -43011,10 +42997,6 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Operating Room 2";
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "uUR" = (
@@ -44046,6 +44028,10 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
+/obj/machinery/button/switch/holosign{
+	id = 1;
+	pixel_x = -26
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "vBp" = (
@@ -44803,6 +44789,11 @@
 /obj/item/storage/box/sharps,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "east bump";
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
@@ -47320,21 +47311,13 @@
 /area/horizon/security/lobby)
 "wYk" = (
 /obj/machinery/light_switch{
-	pixel_x = -26
+	pixel_y = -27
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/button/switch/holosign{
-	id = 2;
-	pixel_x = -26;
-	pixel_y = -9
-	},
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/curtain/open/medical,
 /turf/simulated/floor/tiled/white,
-/area/medical/or2)
+/area/medical/or1)
 "wYO" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -65412,7 +65395,7 @@ quV
 oJL
 fHq
 fQV
-eJl
+aMD
 aMD
 nly
 wej
@@ -65612,10 +65595,10 @@ fsf
 wxr
 qgf
 xhj
-wxr
-wxr
-wxr
-wxr
+eJl
+eJl
+eJl
+wYk
 nIi
 tHs
 uZU
@@ -65817,7 +65800,7 @@ nMp
 uUJ
 bYB
 hdz
-wYk
+hdz
 eAw
 tHl
 dkz
