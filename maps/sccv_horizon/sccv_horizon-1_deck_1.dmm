@@ -212,12 +212,6 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/structure/sign/directions/civ{
-	desc = "A sign pointing out that a lift leads to the ship's residential deck.";
-	dir = 1;
-	name = "\improper Lift to Residential Deck sign";
-	pixel_y = -10
-	},
 /obj/machinery/computer/cryopod/living_quarters{
 	pixel_y = 32
 	},

@@ -17849,10 +17849,6 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/structure/sign/directions/cryo{
-	pixel_y = -10;
-	dir = 8
-	},
 /obj/effect/landmark{
 	name = "JoinLateCryo"
 	},
@@ -17862,6 +17858,12 @@
 	},
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Second Deck - Living Quarters Cryogenics"
+	},
+/obj/structure/sign/directions/civ{
+	desc = "A sign pointing out that a cryogenic pod leads to the ship's residential deck.";
+	dir = 8;
+	name = "\improper Cryogenic Pod to Residential Deck sign";
+	pixel_y = -10
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_cryogenics)
@@ -24211,12 +24213,14 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/structure/sign/directions/cryo{
-	pixel_y = -10;
-	dir = 4
-	},
 /obj/effect/landmark{
 	name = "JoinLateCryo"
+	},
+/obj/structure/sign/directions/civ{
+	desc = "A sign pointing out that a cryogenic pod leads to the ship's residential deck.";
+	dir = 4;
+	name = "\improper Cryogenic Pod to Residential Deck sign";
+	pixel_y = -10
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_cryogenics)
