@@ -52,6 +52,39 @@
 	ammo_type = /obj/item/ammo_casing/a454
 	magazine_type = /obj/item/ammo_magazine/a454
 
+/obj/item/gun/projectile/revolver/mateba/captain
+	name = "\improper SCC command autorevolver"
+	desc = "A ludicrously powerful .454 autorevolver with equally ludicrous recoil which is issued by the SCC to the administrators of critical facilities and vessels. While revolvers may be a thing of the past, the stopping power displayed by this weapon is second to none."
+	desc_info = "In order to accurately fire this revolver, it must be wielded. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
+	desc_extended = "A Zavodskoi Interstellar design from the mid 2450s intended for export to the Eridani Corporate Federation and the Republic of Biesel, the Protektor \
+	revolver was never designed with practicality in mind. The .454 rounds fired from this weapon are liable to snap the wrist of an unprepared shooter and \
+	any following shots will be difficult to place onto a human-sized target due to the recoil, let alone a skrell. But nobody buys a Protektor for the purpose of \
+	practicality: they buy it due to having too much money and wanting a revolver large enough for their ego."
+	icon = 'icons/obj/guns/captain_revolver.dmi'
+	icon_state = "captain_revolver"
+	item_state = "captain_revolver"
+	is_wieldable = TRUE
+	handle_casings = EJECT_CASINGS
+	accuracy = -2
+	accuracy_wielded = 1
+	fire_delay = 18
+	fire_delay_wielded = 18
+	force = 10
+	recoil = 10
+	recoil_wielded = 5
+
+/obj/item/gun/projectile/revolver/mateba/captain/handle_post_fire(mob/user)
+	..()
+	if(wielded)
+		return
+	else
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(H.mob_size <10)
+				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
+				H.drop_item(src)
+				src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 2, 2)
+
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
 	desc = "An old, obsolete revolver. It has no identifying marks. Chambered in the antiquated .38 caliber. Maybe the Tajara made it?"

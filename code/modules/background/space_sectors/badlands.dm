@@ -5,7 +5,9 @@
 	but natives aren't known to treat settlements kindly."
 	skybox_icon = "badlands"
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava)
-	starlight_color = COLOR_PALE_RED_GRAY
+	starlight_color = "#b13636"
+	starlight_power = 2
+	starlight_range = 4
 
 /datum/space_sector/valley_hale
 	name = SECTOR_VALLEY_HALE
@@ -14,7 +16,9 @@
 	safer parts of the known Frontier. After 2462, the Republic of Elyra has occupied the majority of Valley Hale, now bordering the Republic of Biesel."
 	skybox_icon = "valley_hale"
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava)
-	starlight_color = "#fde497"
+	starlight_color = "#e68831"
+	starlight_power = 2
+	starlight_range = 4
 
 /datum/space_sector/new_ankara
 	name = SECTOR_NEW_ANKARA
@@ -23,7 +27,9 @@
 	before and after independence. Commercial and service sector jobs remain the highest employer, second to refineries processing phoron or other minerals transported to the planet's \
 	orbit. This is among the primary locations in Elyra where phoron can be found in abundance."
 	skybox_icon = "valley_hale"
-	starlight_color = "#fde497"
+	starlight_color = "#e68831"
+	starlight_power = 2
+	starlight_range = 4
 
 /datum/space_sector/aemag
 	name = SECTOR_AEMAQ
@@ -33,7 +39,9 @@
 	planet well-known for its research into the seas the chemical industry remains the primary employer on Aemaq, and many hopeful immigrants to the Republic find themselves working \
 	in the massive chemical plants of Aemaq to make ends meet."
 	skybox_icon = "valley_hale"
-	starlight_color = "#fde497"
+	starlight_color = "#e68831"
+	starlight_power = 2
+	starlight_range = 4
 
 /datum/space_sector/srandmarr
 	name = SECTOR_SRANDMARR
@@ -41,15 +49,23 @@
 	almost perpetual snowfall and extremely low temperatures. It is currently divided between three factions involved in a cold war: the People's Republic of Adhomai, the Democratic People's \
 	Republic of Adhomai, and the New Kingdom of Adhomai."
 	skybox_icon = "srandmarr"
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir, /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara, /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar, /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul, /obj/effect/overmap/visitable/sector/exoplanet/adhomai)
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir, /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara, /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar, /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul, /obj/effect/overmap/visitable/sector/exoplanet/adhomai)
 	cargo_price_coef = list("nt" = 1.2, "hpi" = 1.2, "zhu" = 1.2, "een" = 1.2, "get" = 1.2, "arz" = 1.2, "blm" = 1.2, "iac" = 1.2, "zsc" = 0.5, "vfc" = 1.2, "bis" = 1.2, "xmg" = 1.2, "npi" = 1.2)
-	starlight_color = "#B9E8EA"
+	starlight_color = "#50b7bb"
+	starlight_power = 2
+	starlight_range = 4
 	sector_lobby_art = list('icons/misc/titlescreens/lore/cold_dawn.dmi')
 	sector_lobby_transitions = 0
 	sector_welcome_message = 'sound/AI/adhomai_welcome.ogg'
 	sector_hud_menu = 'icons/misc/hudmenu/tajara_hud.dmi'
 	sector_hud_menu_sound = 'sound/effects/tajara_menu_click.ogg'
 	sector_hud_arrow = "menu_arrow"
+
+/datum/space_sector/srandmarr/get_port_travel_time()
+	return "[rand(6, 12)] hours"
+
+/datum/space_sector/srandmarr/generate_system_name()
+	return "S'rand'marr, and nearby points of interest"	
 
 /datum/space_sector/nrrahrahul
 	name = SECTOR_NRRAHRAHUL
@@ -58,6 +74,8 @@
 	Tajara can survive in these regions without the use of suits. The use of acclimatization systems is necessary during the \
 	warmer seasons."
 	starlight_color = COLOR_WHITE
+	starlight_power = 5
+	starlight_range = 1
 
 /datum/space_sector/gakal
 	name = SECTOR_GAKAL
@@ -65,6 +83,8 @@
 	The majority of the surface is covered by hills, steppes, and forests. Temperatures are generally low, but the average climate is considered to be more moderate and warm than \
 	Adhomai. Gakal'zaal is home to a large Tajara population, with an Unathi minority living at the equator."
 	starlight_color = COLOR_WHITE
+	starlight_power = 5
+	starlight_range = 1
 
 /datum/space_sector/uueoaesa
 	name = SECTOR_UUEOAESA
@@ -72,3 +92,5 @@
 	It is similar in density and composition to Earth and held host to varied and complex environments and local fauna and flora. It's surface area of salt water is much lower than most other habitable planets. \
 	Moghes is currently experiencing immense environmental degradation following a global nuclear war in the 2430's."
 	starlight_color = COLOR_WHITE
+	starlight_power = 5
+	starlight_range = 1

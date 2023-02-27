@@ -81,18 +81,34 @@
 	// Handle datalinked view
 	datalink_process()
 
-
 	for(var/obj/effect/overmap/contact in view(sensor_range, linked))
 		if(contact == linked)
 			continue
 		if(!contact.requires_contact)	   // Only some effects require contact for visibility.
 			continue
+
 		objects_in_current_view[contact] = TRUE
 
 		if(contact.instant_contact)   // Instantly identify the object in range.
 			objects_in_view[contact] = 100
 		else if(!(contact in objects_in_view))
 			objects_in_view[contact] = 0
+
+	if(sensors.deep_scan_toggled)
+		for(var/obj/effect/overmap/contact in range(sensors.deep_scan_range, linked))
+			if(!contact.sensor_range_override)
+				continue
+			if(contact == linked)
+				continue
+			if(!contact.requires_contact)	   // Only some effects require contact for visibility.
+				continue
+
+			objects_in_current_view[contact] = TRUE
+
+			if(contact.instant_contact)   // Instantly identify the object in range.
+				objects_in_view[contact] = 100
+			else if(!(contact in objects_in_view))
+				objects_in_view[contact] = 0
 
 	for(var/obj/effect/overmap/contact in objects_in_view) //Update everything.
 
@@ -279,7 +295,7 @@
 
 			// Recurse the function on the other ship's instance
 			sensor_console.datalink_remove_ship_datalink(src.connected)
-		visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"A datalink contact was sewered! Recalibration...\""))
+		visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"A datalink contact was severed! Recalibrating...\""))
 
 
 /obj/machinery/computer/ship/sensors/proc/datalink_remove_all_ships_datalink()

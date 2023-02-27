@@ -50,14 +50,14 @@
 			qdel(src)
 	return
 
-/obj/structure/lattice/attackby(obj/item/C as obj, mob/user as mob)
+/obj/structure/lattice/attackby(obj/item/C, mob/user)
 	if (istype(C, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
 		T.attackby(C, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
 	if (C.iswelder())
 		var/obj/item/weldingtool/WT = C
-		if(WT.use(0, user))
+		if(WT.use(1, user))
 			to_chat(user, "<span class='notice'>Slicing lattice joints ...</span>")
 		new /obj/item/stack/rods(src.loc)
 		qdel(src)
