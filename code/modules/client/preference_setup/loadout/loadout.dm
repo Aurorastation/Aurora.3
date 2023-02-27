@@ -9,14 +9,14 @@ var/list/gear_datums = list()
 	..()
 
 /hook/startup/proc/populate_gear_list()
-	// Setup custom loadout.
-	//create a list of gear datums to sort
+	// create a list of gear datums
 	for(var/geartype in subtypesof(/datum/gear))
 		var/datum/gear/G = geartype
-
 		var/use_name = initial(G.display_name)
-
 		gear_datums[use_name] = new geartype
+
+	// sort that list
+	sortTim(gear_datums, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
 
 	return TRUE
 

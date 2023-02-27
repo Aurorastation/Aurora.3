@@ -101,7 +101,6 @@ proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 	// ---- tag_group_corp
 	if(gear.faction)
 		gear.tags |= gear.faction
-	if(gear.faction)
 	// ---- tag_group_slot
 	if(gear.slot)
 		var/s = slot_to_string(gear.slot)
