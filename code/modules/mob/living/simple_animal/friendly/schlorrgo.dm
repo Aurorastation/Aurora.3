@@ -266,7 +266,7 @@
 
 /mob/living/simple_animal/hostile/cybernetic_schlorrgo
 	name = "cybernetic schlorrgo"
-	desc = "A fat creature native to the world of Hro'zamal. This one has been heavily augmented by the People's Republic of Adhomai. It has an evil glare on its eyes."
+	desc = "A fat creature native to the world of Hro'zamal. This one has been heavily augmented by the People's Republic of Adhomai. It has an evil glare in its eyes."
 	icon = 'icons/mob/npc/schlorrgo.dmi'
 	icon_state = "cyberschlorrgo"
 	icon_living = "cyberschlorrgo"
