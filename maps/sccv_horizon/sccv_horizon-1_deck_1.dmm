@@ -15438,6 +15438,9 @@
 /area/storage/eva)
 "lWu" = (
 /obj/machinery/bluespace_beacon,
+/obj/effect/floor_decal/corner/green{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "lXa" = (
