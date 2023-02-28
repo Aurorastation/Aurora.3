@@ -267,10 +267,10 @@
 
 /obj/item/gun/energy/vaurca/blaster
 	name = "\improper Zo'ra Blaster"
-	desc = "Designed after the Zo'ra arrival in the Spur, this modern reimagining of the venerable Zo'rane energy blaster is as much a rare and brutal personal defense weapon as it is a badge of office for the Court of Queens Ta that now wield it. \
+	desc = "Designed after the Zo'ra arrival in the Spur, this modern reimagining of the venerable Zo'rane energy blaster is as much a rare and brutal personal defense weapon as it is a badge of office for the Zo'ra Ta that now wield it. \
 	The design blends visual elements from a revolver, chosen by the Hive for its status as a respected weapon among several species, with the might of Zo'rane energy technology."
 	desc_extended = "The Zo'ra Blaster is an incendiary energy weapon capable of tearing through any would-be interloper, though the phoron-powered battery is held back by an unremarkable capacity. \
-	While the blaster's smaller battery may cause problems in longer engagements, its intended use as the sidearm of Court of Queens Diplomats and certain Warriors makes it a low priority to increase given the already remarkably steep cost of the design."
+	While the blaster's smaller battery may cause problems in longer engagements, its intended use as the sidearm of Zo'ra Diplomats and certain Warriors makes it a low priority to increase given the already remarkably steep cost of the design."
 	icon = 'icons/obj/guns/blaster.dmi'
 	icon_state = "blaster"
 	item_state = "blaster"

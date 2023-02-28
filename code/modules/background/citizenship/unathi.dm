@@ -78,7 +78,4 @@
 		else
 			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/poncho/unathimantle(H), slot_wear_suit)
-			H.equip_to_slot_or_del(new /obj/item/gun/energy/pistol/hegemony(H), slot_belt)
-
-
 	return TRUE
