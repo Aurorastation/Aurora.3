@@ -6,7 +6,7 @@ var/list/gear_datums = list()
 // index is tag name, value is initial(gear.display_name)
 var/list/tag_gear_names = list()
 
-// index is tag, value is any tags of items that have this tag
+// index is tag name, value is any tags of items that have this tag
 // for example, we have items and their tags: 1{A,B,C}, 2{A,D,E}, 3{B,F,G}
 // then A index in this list will have list(A,B,C,D,E), cause items 1 and 2 have those tags
 var/list/tag_related_tags = list()
@@ -36,6 +36,16 @@ var/list/tag_related_tags = list()
 			if(!tag_gear_names[tag])
 				tag_gear_names[tag] = list()
 			tag_gear_names[tag] += gear_name
+
+	// fill tag_related_tags
+	for(var/tag in tag_gear_names)
+		if(!tag_related_tags[tag])
+			tag_related_tags[tag] = list()
+		var/list/gear_names = tag_gear_names[tag]
+		for(var/gear_name in gear_names)
+			var/datum/gear/gear = gear_datums[gear_name]
+			for(var/related_tag in gear.tags)
+				tag_related_tags[tag] |= related_tag
 
 	return TRUE
 
@@ -169,6 +179,10 @@ var/list/tag_related_tags = list()
 		. += tag_group + ":"
 		for(tag in tag_group_list)
 			var/style = ""
+			for(var/selected_tag in selected_tags)
+				if(!(tag in tag_related_tags[selected_tag]))
+					style = "style='color: #919191;'"
+					break
 			if(tag in selected_tags)
 				style = "style='color: #FF8000;'"
 			. += " <a href='?src=\ref[src];toggle_tag=[tag]'><font [style]>[tag]</font></a> "
