@@ -80,3 +80,12 @@
 	desc = "A crate containing gear for a single individual.The voidsuit is only usable by Tajara."
 	path = /obj/structure/closet/crate/secure/gear_loadout/kosmostrelki/single
 	item_cost = 10
+
+/datum/uplink_item/item/gear_loadout/legion
+	name = "Tau Ceti Foreign Legion Assets (Group)"
+	path = /obj/structure/closet/crate/secure/gear_loadout/legion
+
+/datum/uplink_item/item/gear_loadout/legion_single
+	name = "Tau Ceti Foreign Legion Assets (Single)"
+	path = /obj/structure/closet/crate/secure/gear_loadout/legion_single
+	item_cost = 10
