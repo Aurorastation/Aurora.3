@@ -1,4 +1,15 @@
+// gear datums list
+// index is initial(gear.display_name), value is actual /datum/gear object
 var/list/gear_datums = list()
+
+// all gear names that have a tag
+// index is tag name, value is initial(gear.display_name)
+var/list/tag_gear_names = list()
+
+// index is tag, value is any tags of items that have this tag
+// for example, we have items and their tags: 1{A,B,C}, 2{A,D,E}, 3{B,F,G}
+// then A index in this list will have list(A,B,C,D,E), cause items 1 and 2 have those tags
+var/list/tag_related_tags = list()
 
 /datum/loadout_category
 	var/category = ""
@@ -17,6 +28,14 @@ var/list/gear_datums = list()
 
 	// sort that list
 	sortTim(gear_datums, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
+
+	// fill tag_gear_names
+	for(var/gear_name in gear_datums)
+		var/datum/gear/gear = gear_datums[gear_name]
+		for(var/tag in gear.tags)
+			if(!tag_gear_names[tag])
+				tag_gear_names[tag] = list()
+			tag_gear_names[tag] += gear_name
 
 	return TRUE
 
@@ -179,7 +198,12 @@ var/list/gear_datums = list()
 	var/unavailable_items_html = "" // to be added to the end/bottom of the list
 
 	var/list/player_valid_gear_choices = valid_gear_choices()
-	for(var/gear_name in gear_datums)
+
+	var/list/gear_names = list()
+	if(selected_tags.len > 0)
+		gear_names = tag_gear_names[selected_tags[1]]
+
+	for(var/gear_name in gear_names)
 		if(!(gear_name in player_valid_gear_choices))
 			continue
 
