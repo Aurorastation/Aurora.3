@@ -1215,6 +1215,11 @@
 	desc_info = "This miniature was given out on the 9th of April 2464 to all former crew members of the Aurora as a memento, before setting off to their new mission on the SCCV Horizon."
 	icon_state = "aurora"
 
+/obj/item/toy/adhomian_map
+	name = "ancient adhomian map"
+	desc = "A replica of an Adhomian map found three years ago in Tau Ceti. What it leads to is unknown."
+	icon_state = "map"
+
 /obj/item/toy/ringbell
 	name = "ringside bell"
 	desc = "A bell used to signal the beginning and end of various ring sports."

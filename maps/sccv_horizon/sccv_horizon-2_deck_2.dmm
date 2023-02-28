@@ -1784,15 +1784,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
-"aMD" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/white,
-/area/medical/ors)
 "aME" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -2836,8 +2827,15 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/armoury)
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/ors)
+"blC" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/security/warden)
 "blJ" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -6697,12 +6695,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "dkz" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "dkC" = (
@@ -9230,13 +9228,13 @@
 	id = 2
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/medical{
 	name = "Operating Theatre 2";
 	req_access = list(45)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/full,
 /area/medical/ors)
 "eAU" = (
@@ -9580,9 +9578,12 @@
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "eJl" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/curtain/open/medical,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
 "eJH" = (
@@ -11437,12 +11438,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
@@ -17340,12 +17341,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
-"isu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/white,
-/area/hallway/medical)
 "isy" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/vending/snack,
@@ -27401,16 +27396,16 @@
 	id = 1
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /obj/machinery/door/airlock/medical{
 	name = "Operating Theatre 1";
 	req_access = list(45)
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/full,
 /area/medical/ors)
 "nlC" = (
@@ -29010,11 +29005,11 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
-/obj/structure/table/standard,
-/obj/item/storage/box/sharps,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/standard,
+/obj/item/storage/box/sharps,
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
 "oeF" = (
@@ -29992,14 +29987,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
-"oBm" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray,
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/ors)
 "oBv" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -31837,6 +31824,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
+"pCV" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/curtain/open/medical,
+/turf/simulated/floor/tiled/white,
+/area/medical/ors)
 "pDa" = (
 /obj/machinery/light{
 	dir = 1
@@ -33589,7 +33582,9 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/medical/surgery)
+/area/medical/surgery{
+	name = "Medical - Operating Theatre"ss
+	})
 "qvb" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-6"
@@ -34972,11 +34967,11 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/wing/port)
 "rcR" = (
-/obj/machinery/computer/operating{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 10
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/curtain/open/medical,
+/obj/machinery/light_switch{
+	pixel_y = -27
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
@@ -36759,6 +36754,14 @@
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
+"rTR" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/ors)
 "rTT" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -40105,7 +40108,6 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
-/obj/effect/floor_decal/sign/srg,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
@@ -40116,6 +40118,7 @@
 	dir = 5
 	},
 /obj/machinery/firealarm/north,
+/obj/effect/floor_decal/sign/srg,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "tHt" = (
@@ -40978,18 +40981,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
-"ucX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/equipment)
 "ucY" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -44740,21 +44731,21 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/xenobiology)
 "vQV" = (
-/obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/item/storage/box/sharps,
 /obj/machinery/light{
 	dir = 8
 	},
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "east bump";
-	pixel_x = -28
+	pixel_x = -25;
+	pixel_y = -1
 	},
+/obj/structure/table/standard,
+/obj/item/storage/box/sharps,
 /obj/structure/cable/green{
-	d2 = 4;
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/white,
@@ -45416,16 +45407,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "wej" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
-/obj/effect/floor_decal/sign/srg,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "weq" = (
@@ -46188,7 +46178,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "wxr" = (
-/turf/simulated/wall)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/hallway/medical)
 "wxt" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -47270,15 +47264,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/lobby)
-"wYk" = (
-/obj/machinery/light_switch{
-	pixel_y = -27
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/curtain/open/medical,
-/turf/simulated/floor/tiled/white,
-/area/medical/ors)
 "wYO" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -64953,7 +64938,7 @@ iLR
 isa
 bRm
 paL
-oBm
+rTR
 wXA
 fCI
 kqi
@@ -65155,7 +65140,7 @@ xhj
 mlD
 aic
 ugE
-rcR
+blt
 wXA
 xlQ
 hlu
@@ -65351,13 +65336,13 @@ oTE
 sMn
 vvh
 fsf
-wxr
+xhj
 quV
 oJL
 fHq
 fQV
-aMD
-aMD
+eJl
+eJl
 nly
 wej
 dkz
@@ -65553,13 +65538,13 @@ laB
 sMn
 kxP
 fsf
-wxr
+xhj
 qgf
 xhj
-eJl
-eJl
-eJl
-wYk
+pCV
+pCV
+pCV
+rcR
 nIi
 tHs
 uZU
@@ -65755,7 +65740,7 @@ gsX
 pfp
 kxP
 lfF
-wxr
+xhj
 tSC
 nMp
 uUJ
@@ -65764,7 +65749,7 @@ hdz
 hdz
 eAw
 tHl
-isu
+wxr
 aUG
 ffe
 nvq
