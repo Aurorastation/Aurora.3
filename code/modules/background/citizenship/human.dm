@@ -37,7 +37,6 @@
 
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	accessory = /obj/item/clothing/accessory/tc_pin
-	belt = /obj/item/gun/energy/blaster/revolver
 	backpack_contents = list(
 		/obj/item/storage/box/ceti_visa = 1,
 		/obj/item/storage/box/tcfl_pamphlet = 1,
