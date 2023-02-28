@@ -9625,6 +9625,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
+"eMp" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/machinery/computer/operating,
+/turf/simulated/floor/tiled/white,
+/area/medical/ors)
 "eMH" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 9
@@ -10558,13 +10565,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/lobby)
-"fhE" = (
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 10
-	},
-/obj/machinery/computer/operating,
-/turf/simulated/floor/tiled/white,
-/area/medical/ors)
 "fin" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled,
@@ -12443,16 +12443,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
-"geo" = (
-/obj/machinery/light_switch{
-	pixel_y = -27
-	},
-/obj/machinery/computer/operating,
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/ors)
 "gfj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -17578,6 +17568,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"iAC" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/item/storage/box/fancy/tray,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/medical/ors)
 "iAF" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 10
@@ -20926,6 +20924,18 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/horizon/crew_quarters/lounge/bar)
+"kfw" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/equipment)
 "kfE" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -31258,6 +31268,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
+"piK" = (
+/obj/machinery/light_switch{
+	pixel_y = -27
+	},
+/obj/machinery/computer/operating,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/ors)
 "piY" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -33473,18 +33493,6 @@
 "qsw" = (
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
-"qsx" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/equipment)
 "qsZ" = (
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
@@ -35071,14 +35079,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
-"reu" = (
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 10
-	},
-/obj/item/storage/box/fancy/tray,
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled/white,
-/area/medical/ors)
 "rew" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -49560,10 +49560,10 @@
 	dir = 1;
 	pixel_y = -28
 	},
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 10
-	},
 /obj/machinery/light/colored/red,
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/armoury)
 "ybh" = (
@@ -65166,7 +65166,7 @@ xhj
 mlD
 aic
 ugE
-fhE
+eMp
 wXA
 xlQ
 hlu
@@ -65974,7 +65974,7 @@ xhj
 iEd
 mij
 ugE
-geo
+piK
 wyb
 jWj
 xur
@@ -66176,7 +66176,7 @@ tpy
 cVe
 hQa
 fai
-reu
+iAC
 wyb
 jWj
 xur
@@ -75481,7 +75481,7 @@ dTj
 qDh
 iTL
 jBq
-qsx
+kfw
 rdP
 jfu
 sEc
