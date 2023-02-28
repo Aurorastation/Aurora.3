@@ -2822,17 +2822,6 @@
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai)
 "blC" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/structure/cable/green,
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/ors)
-"blC" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/warden)
@@ -5399,6 +5388,8 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
+"czT" = (
+)
 "cAb" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -11322,6 +11313,16 @@
 /obj/machinery/recharger,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
+"fEp" = (
+/obj/machinery/light_switch{
+	pixel_y = -27
+	},
+/obj/machinery/computer/operating,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/ors)
 "fEE" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -18351,6 +18352,14 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/horizon/security/hallway)
+"iSF" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/item/storage/box/fancy/tray,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/space)
 "iSG" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/carpet/rubber,
@@ -19368,6 +19377,13 @@
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
+"jqF" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/machinery/computer/operating,
+/turf/simulated/floor/tiled/white,
+/area/space)
 "jqQ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -36756,10 +36772,10 @@
 /area/medical/exam)
 "rTR" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
+/obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
 "rTT" = (
@@ -65140,7 +65156,7 @@ xhj
 mlD
 aic
 ugE
-blt
+jqF
 wXA
 xlQ
 hlu
@@ -65948,7 +65964,7 @@ xhj
 iEd
 mij
 ugE
-rcR
+fEp
 wyb
 jWj
 xur
@@ -66150,7 +66166,7 @@ tpy
 cVe
 hQa
 fai
-oBm
+iSF
 wyb
 jWj
 xur
@@ -75455,7 +75471,7 @@ dTj
 qDh
 iTL
 jBq
-ucX
+czT
 rdP
 jfu
 sEc
