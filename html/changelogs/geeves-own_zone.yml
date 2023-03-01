@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Ported CM dir-slashing, meaning, if you play a simple mob, you can now click at the edge of your screen, and any mobs in that direction will get slashed, provided they're adjacent to you."
