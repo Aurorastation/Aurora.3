@@ -1,7 +1,5 @@
 /obj/effect/overmap/visitable/sector/exoplanet
 	name = "exoplanet"
-	icon_state = "globe"
-	in_space = 0
 	var/area/planetary_area
 	var/list/seeds = list()
 	var/list/animals = list()
@@ -62,6 +60,13 @@
 			habitability_class = HABITABILITY_OKAY
 		else
 			habitability_class = HABITABILITY_BAD
+
+/obj/effect/overmap/visitable/sector/exoplanet/Initialize()
+  . = ..()
+  update_icon()
+
+/obj/effect/overmap/visitable/sector/exoplanet/update_icon()
+	icon_state = "globe[rand(1,3)]"
 
 /obj/effect/overmap/visitable/sector/exoplanet/New(nloc, max_x, max_y)
 	if(!current_map.use_overmap)

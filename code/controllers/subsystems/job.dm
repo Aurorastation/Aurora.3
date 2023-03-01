@@ -842,8 +842,9 @@
 			else
 				metadata = list()
 			var/obj/item/organ/A = G.spawn_item(H, metadata, H)
-			var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-			A.replaced(H, affected)
+			if(!istype(A, /obj/item/organ/external))
+				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+				A.replaced(H, affected)
 			H.update_body()
 
 	Debug("EA/([H]): Complete.")

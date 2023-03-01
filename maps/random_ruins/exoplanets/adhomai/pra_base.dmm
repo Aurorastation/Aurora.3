@@ -93,7 +93,7 @@
 /turf/simulated/wall/concrete,
 /area/pra_base)
 "hT" = (
-/obj/structure/flora/bush,
+/obj/structure/flora/bush/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},

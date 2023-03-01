@@ -60,6 +60,13 @@
 	tag_icon = "scarabs"
 	text_tag = "SCA"
 
+/datum/accent/burzsia
+	name = ACCENT_BURZSIA
+	description = "The native Burzsian accent is harsh, guttural, and aggressive. Burzsians refuse to pull any punches with their vocabulary, in accordance with their \
+	dangerous, and at times, adventurous lifestyle."
+	tag_icon = "burzsia"
+	text_tag = "BRZ"
+
 /datum/accent/silversun_original
 	name = ACCENT_SILVERSUN_ORIGINAL
 	description = "The native accent of Silversun is a sing-song take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be associated with the planet's renowned tourism industry. \

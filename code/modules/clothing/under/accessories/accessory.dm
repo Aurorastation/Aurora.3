@@ -223,6 +223,14 @@
 	icon_state = "bow_tie"
 	item_state = "bow_tie"
 
+/obj/item/clothing/accessory/necklace
+	name = "necklace"
+	desc = "A piece of jewelry that goes around your neck."
+	icon = 'icons/obj/item/clothing/accessory/necklace.dmi'
+	icon_state = "necklace"
+	item_state = "necklace"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."

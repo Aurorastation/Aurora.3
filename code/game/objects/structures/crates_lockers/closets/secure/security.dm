@@ -112,7 +112,6 @@
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
-	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/suit/storage/security/hos(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
@@ -181,7 +180,6 @@
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/head/helmet/security(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
-	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
@@ -281,9 +279,8 @@
 	new /obj/item/clothing/under/det/pmc(src)
 	new /obj/item/clothing/under/det/zavod(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
-	new /obj/item/clothing/gloves/black/forensic(src)
-	new /obj/item/clothing/shoes/brown(src)
-	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/clothing/shoes/laceup/all_species(src)
+	new /obj/item/clothing/shoes/laceup/all_species(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
