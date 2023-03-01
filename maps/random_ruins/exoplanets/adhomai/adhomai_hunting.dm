@@ -105,5 +105,5 @@
 				/obj/item/material/sword/sabre/silver
 				)
 	id = null
-	back = /obj/item/gun/projectile/shotgun/pump/rifle
+	back = /obj/item/gun/projectile/shotgun/pump/rifle/scope
 	l_pocket = list(/obj/item/storage/wallet/random = 1)
