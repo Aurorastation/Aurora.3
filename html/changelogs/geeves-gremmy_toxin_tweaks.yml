@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Greimorians now inject toxins into the same limb they hit. If the limb is robotic, no toxin is injected. Wearing armor lowers the probability of toxin being injected."
