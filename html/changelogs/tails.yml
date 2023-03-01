@@ -1,0 +1,8 @@
+author: RyverStyx
+
+delete-after: True
+
+changes:
+  - rscadd: "Added short/med/long versions of three tails (regular, fringed, and fish) to Axiori."
+  - rscadd: "Added the ability for Axiori to not have tails."
+  - rscadd: "Added short versions of three tails (regular, fringed, and fish) to Xiialt."
