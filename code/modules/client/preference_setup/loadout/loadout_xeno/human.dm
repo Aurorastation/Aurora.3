@@ -97,4 +97,3 @@
 	sort_category = "Xenowear - Human"
 	flags = GEAR_HAS_DESC_SELECTION
 	culture_restriction = list(/singleton/origin_item/origin/coa_spacer)
-
