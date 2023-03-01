@@ -1411,19 +1411,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
-"aBz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "aBY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2838,7 +2825,10 @@
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai)
 "blC" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "blJ" = (
@@ -18730,6 +18720,19 @@
 "jcz" = (
 /turf/simulated/wall,
 /area/horizon/security/office)
+"jcK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "jdo" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -34562,21 +34565,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
-"qRF" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/brig)
 "qRY" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
@@ -47207,6 +47195,21 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
+"wTm" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "wTD" = (
 /obj/structure/cable/orange{
 	icon_state = "1-2"
@@ -78154,7 +78157,7 @@ uOB
 khi
 mns
 rSE
-aBz
+jcK
 bDo
 amI
 syI
@@ -78358,7 +78361,7 @@ oLB
 gtk
 kkY
 fin
-qRF
+wTm
 qQt
 ftz
 eGh
