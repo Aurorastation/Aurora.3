@@ -1428,10 +1428,10 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "aCP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment{
@@ -1441,6 +1441,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "aCS" = (
@@ -30667,7 +30668,6 @@
 /area/maintenance/wing/port)
 "oVk" = (
 /obj/structure/table/standard,
-/obj/item/modular_computer/laptop/preset/supply,
 /obj/item/stamp/denied{
 	pixel_x = 5;
 	pixel_y = 13
@@ -30686,6 +30686,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/item/modular_computer/laptop/preset/supply/om,
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "oWm" = (
