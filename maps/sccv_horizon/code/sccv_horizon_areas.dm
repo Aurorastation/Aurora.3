@@ -45,12 +45,8 @@
 
 //Medical
 
-/area/medical/or1
-	name = "Medical - Operating Room 1"
-	icon_state = "surgery"
-
-/area/medical/or2
-	name = "Medical - Operating Room 2"
+/area/medical/ors
+	name = "Medical - Combined Operating Rooms"
 	icon_state = "surgery"
 
 /area/medical/exam

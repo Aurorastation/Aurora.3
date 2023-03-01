@@ -10,6 +10,7 @@ var/global/list/total_active_bonfires = list()
 	anchored = TRUE
 	density = FALSE
 	light_color = LIGHT_COLOR_FIRE
+	build_amt = 20
 	var/fuel = 2000
 	var/max_fuel = 2000
 	var/on_fire = FALSE
@@ -65,7 +66,7 @@ var/global/list/total_active_bonfires = list()
 	var/mob/living/carbon/human/H = user
 	if(use_check_and_message(H))
 		return
-	if(fuel >= max(max_fuel * 0.1, 50))
+	if(fuel >= max(max_fuel * 0.1, 50) && on_fire)
 		to_chat(H, SPAN_NOTICE("You grab a burning stick from the fire."))
 		fuel -= 40
 		var/obj/item/device/flashlight/flare/torch/stick/torch = new(get_turf(user))

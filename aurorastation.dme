@@ -3336,7 +3336,7 @@
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_rafama_herd.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_raskara_ritual.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_raskariim_hideout.dm"
-#include "maps\random_ruins\exoplanets\adhomai\adhomai_silo.dm"
+#include "maps\random_ruins\exoplanets\adhomai\adhomai_schlorrgo_cage.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_tunneler_nest.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_village.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_war_memorial.dm"

@@ -1,0 +1,883 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/obj/machinery/light,
+/obj/effect/decal/remains/robot,
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"b" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/obj/machinery/optable,
+/obj/item/sign/painting_frame/hadii{
+	pixel_x = 32
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"c" = (
+/turf/simulated/wall/r_wall,
+/area/adhomai_schlorrgo_cage)
+"e" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/egg/schlorrgo,
+/obj/item/reagent_containers/food/snacks/egg/schlorrgo,
+/obj/item/reagent_containers/food/snacks/egg/schlorrgo,
+/obj/item/reagent_containers/food/snacks/egg/schlorrgo,
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"f" = (
+/obj/structure/blocker/steel/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_schlorrgo_cage)
+"g" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/obj/structure/table/standard,
+/obj/item/cell/super,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/device/flashlight/lamp{
+	pixel_y = 9
+	},
+/obj/structure/sign/flag/pra{
+	pixel_x = 32
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"h" = (
+/obj/structure/sign/biohazard{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_schlorrgo_cage)
+"i" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/obj/item/trap/animal/medium,
+/obj/structure/sign/biohazard{
+	pixel_y = -32
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"j" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"k" = (
+/obj/item/shovel,
+/obj/item/device/flashlight/lantern{
+	pixel_y = 5;
+	pixel_x = 8
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_schlorrgo_cage)
+"l" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_schlorrgo_cage)
+"m" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray,
+/obj/structure/sign/flag/pra{
+	pixel_x = 32
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"p" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	req_access = list(209);
+	name = "Hostile Specimen Containment";
+	pixel_y = -32;
+	id = "evil_schlorrgo"
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"q" = (
+/obj/machinery/door/blast/regular{
+	id = "evil_schlorrgo"
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"r" = (
+/obj/effect/floor_decal/concrete/gutter/corner{
+	dir = 4
+	},
+/obj/structure/sign/biohazard{
+	pixel_x = 32
+	},
+/obj/machinery/door/window/brigdoor/westleft{
+	req_access = null
+	},
+/mob/living/simple_animal/schlorrgo/cybernetic,
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_schlorrgo_cage)
+"s" = (
+/obj/effect/floor_decal/concrete/gutter/corner{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/structure/sign/biohazard{
+	pixel_x = -32
+	},
+/obj/machinery/door/window/brigdoor/eastleft{
+	req_access = null
+	},
+/obj/machinery/light/small/red{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_schlorrgo_cage)
+"t" = (
+/obj/machinery/door/airlock/research{
+	name = "Animal Storage";
+	req_access = list(209)
+	},
+/obj/effect/floor_decal/concrete/large/cee,
+/turf/simulated/floor/concrete,
+/area/adhomai_schlorrgo_cage)
+"u" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/obj/machinery/light,
+/obj/item/trap/animal/medium,
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"v" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"x" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"z" = (
+/obj/structure/pit/closed,
+/mob/living/simple_animal/schlorrgo{
+	dead_on_map = 1
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_schlorrgo_cage)
+"A" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/melee/baton/stunrod,
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"B" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"E" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/obj/machinery/vending/assist,
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"F" = (
+/obj/effect/floor_decal/concrete/gutter/corner,
+/mob/living/simple_animal/hostile/cybernetic_schlorrgo,
+/obj/machinery/light/small/red,
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"G" = (
+/obj/effect/floor_decal/concrete/large,
+/obj/item/trap/animal/large,
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"H" = (
+/turf/simulated/wall/concrete,
+/area/adhomai_schlorrgo_cage)
+"I" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_schlorrgo_cage)
+"J" = (
+/obj/effect/floor_decal/concrete/gutter/corner{
+	dir = 8
+	},
+/mob/living/simple_animal/schlorrgo/cybernetic,
+/obj/structure/sign/biohazard{
+	pixel_x = -32
+	},
+/obj/machinery/door/window/brigdoor/eastleft{
+	req_access = null
+	},
+/obj/machinery/light/small/red{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_schlorrgo_cage)
+"L" = (
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"M" = (
+/obj/machinery/door/blast/shutters{
+	id = "schlorrgo_cage";
+	dir = 2
+	},
+/obj/effect/floor_decal/concrete/large/cee{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_schlorrgo_cage)
+"N" = (
+/obj/structure/pit,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_schlorrgo_cage)
+"O" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_schlorrgo_cage)
+"P" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 1
+	},
+/obj/machinery/vending/robotics{
+	req_access = list(209)
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"S" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/obj/structure/table/standard,
+/obj/item/cell/super,
+/obj/item/stock_parts/manipulator/nano,
+/obj/item/stock_parts/scanning_module/adv,
+/obj/item/device/flashlight/lamp{
+	pixel_y = 9
+	},
+/obj/structure/sign/flag/pra{
+	pixel_x = -32
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"T" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"U" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"V" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"W" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray,
+/obj/structure/sign/flag/pra{
+	pixel_x = -32
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+"X" = (
+/obj/effect/floor_decal/concrete/gutter/corner{
+	dir = 4
+	},
+/mob/living/simple_animal/schlorrgo,
+/obj/structure/sign/biohazard{
+	pixel_x = 32
+	},
+/obj/machinery/door/window/brigdoor/westleft{
+	req_access = null
+	},
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_schlorrgo_cage)
+"Y" = (
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_schlorrgo_cage)
+"Z" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/obj/machinery/optable,
+/obj/item/sign/painting_frame/hadii{
+	pixel_x = -32
+	},
+/mob/living/simple_animal/schlorrgo{
+	dead_on_map = 1
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_schlorrgo_cage)
+
+(1,1,1) = {"
+c
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+c
+"}
+(2,1,1) = {"
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+f
+"}
+(3,1,1) = {"
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+N
+z
+O
+O
+f
+"}
+(4,1,1) = {"
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+k
+N
+z
+O
+O
+f
+"}
+(5,1,1) = {"
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+z
+z
+O
+O
+f
+"}
+(6,1,1) = {"
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+f
+"}
+(7,1,1) = {"
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+f
+"}
+(8,1,1) = {"
+f
+O
+O
+O
+O
+O
+H
+H
+H
+O
+H
+H
+H
+O
+O
+O
+O
+f
+"}
+(9,1,1) = {"
+f
+O
+O
+O
+O
+H
+H
+s
+H
+H
+H
+J
+H
+H
+O
+O
+O
+f
+"}
+(10,1,1) = {"
+f
+O
+O
+O
+O
+H
+e
+j
+W
+Z
+S
+j
+G
+H
+O
+O
+O
+f
+"}
+(11,1,1) = {"
+f
+O
+O
+O
+l
+H
+T
+L
+L
+L
+L
+L
+u
+H
+O
+O
+O
+f
+"}
+(12,1,1) = {"
+f
+O
+O
+O
+h
+H
+V
+L
+L
+L
+x
+L
+i
+H
+H
+H
+O
+f
+"}
+(13,1,1) = {"
+M
+I
+I
+I
+I
+t
+U
+L
+L
+L
+L
+L
+B
+q
+F
+H
+O
+f
+"}
+(14,1,1) = {"
+f
+O
+O
+O
+h
+H
+V
+L
+L
+L
+L
+L
+p
+H
+H
+H
+O
+f
+"}
+(15,1,1) = {"
+f
+O
+O
+O
+l
+H
+E
+L
+L
+L
+L
+L
+a
+H
+O
+O
+O
+f
+"}
+(16,1,1) = {"
+f
+O
+O
+O
+O
+H
+P
+v
+m
+b
+g
+v
+A
+H
+O
+O
+O
+f
+"}
+(17,1,1) = {"
+f
+O
+O
+O
+O
+H
+H
+X
+H
+H
+H
+r
+H
+H
+O
+O
+O
+f
+"}
+(18,1,1) = {"
+f
+O
+O
+O
+O
+O
+H
+H
+H
+O
+H
+H
+H
+O
+O
+O
+O
+f
+"}
+(19,1,1) = {"
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+f
+"}
+(20,1,1) = {"
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+f
+"}
+(21,1,1) = {"
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+f
+"}
+(22,1,1) = {"
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+f
+"}
+(23,1,1) = {"
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+f
+"}
+(24,1,1) = {"
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+f
+"}
+(25,1,1) = {"
+c
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+c
+"}
