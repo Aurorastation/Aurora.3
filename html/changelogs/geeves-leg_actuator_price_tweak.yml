@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "There's no longer a power cost or delay when you fail to use leg actuators."
+  - tweak: "You can now jump to a location that contains railings with leg actuators."
+  - tweak: "Removed the silver and gold cost for leg actuators in the mechfab, it just costs steel and glass now."
+  - tweak: "Tweaked the leg actuator landing messages to make more grammatical sense, and adds a self message to them."
