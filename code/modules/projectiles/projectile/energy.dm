@@ -209,6 +209,6 @@
 
 /obj/item/projectile/energy/blaster/incendiary
 	icon_state = "laser"
-	damage = 60
+	damage = 35
 	armor_penetration = 60
 	incinerate = 15
