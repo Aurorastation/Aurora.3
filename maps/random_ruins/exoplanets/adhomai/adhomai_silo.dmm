@@ -227,7 +227,8 @@
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/coffee/full,
 /obj/machinery/turretid/lethal{
-	pixel_y = -32
+	pixel_y = -32;
+	req_access = list(209)
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
