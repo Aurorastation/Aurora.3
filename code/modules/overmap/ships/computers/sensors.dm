@@ -243,25 +243,27 @@
 			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship designation registered.\"</i>"))
 			return TOPIC_REFRESH
 
-	if (href_list["scan"])
-		switch(href_list["scan"])
+	if (href_list["scan-action"])
+		switch(href_list["scan-action"])
 			if("clear")
 				contact_details = null
 			if("print")
 				if(contact_details)
 					playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
 					new/obj/item/paper/(get_turf(src), contact_details, "paper (Sensor Scan - [contact_name])")
-			else
-				var/obj/effect/overmap/O = locate(href_list["scan"])
-				if(istype(O) && !QDELETED(O))
-					if((O in view(7,linked))|| (O in contact_datums))
-						playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
-						LAZYSET(last_scan, "data", O.get_scan_data(usr))
-						LAZYSET(last_scan, "location", "[O.x],[O.y]")
-						LAZYSET(last_scan, "name", "[O]")
-						to_chat(usr, SPAN_NOTICE("Successfully scanned [O]."))
-						contact_name = O.name
-						contact_details = O.get_scan_data(usr)
+		return TOPIC_HANDLED
+
+	if (href_list["scan"])
+		var/obj/effect/overmap/O = locate(href_list["scan"])
+		if(istype(O) && !QDELETED(O))
+			if((O in view(7,linked))|| (O in contact_datums))
+				playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
+				LAZYSET(last_scan, "data", O.get_scan_data(usr))
+				LAZYSET(last_scan, "location", "[O.x],[O.y]")
+				LAZYSET(last_scan, "name", "[O]")
+				to_chat(usr, SPAN_NOTICE("Successfully scanned [O]."))
+				contact_name = O.name
+				contact_details = O.get_scan_data(usr)
 		return TOPIC_HANDLED
 
 	if (href_list["request_datalink"])
@@ -271,7 +273,7 @@
 
 				for(var/obj/machinery/computer/ship/sensors/sensor_console in O.consoles)
 					sensor_console.connected.datalink_requests |= src.connected
-					return TOPIC_HANDLED
+		return TOPIC_HANDLED
 
 	if (href_list["accept_datalink_requests"])
 		var/obj/effect/overmap/visitable/O = locate(href_list["accept_datalink_requests"])
