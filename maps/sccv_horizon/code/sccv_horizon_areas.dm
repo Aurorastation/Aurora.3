@@ -279,17 +279,17 @@
 	name = "Intrepid"
 	icon_state = "intrepid"
 	requires_power = TRUE
-/area/shuttle/intrepid/crew_compartment 
+/area/shuttle/intrepid/crew_compartment
 	name = "Intrepid Crew Compartment"
 /area/shuttle/intrepid/cargo_bay
 	name = "Intrepid Cargo Bay"
 /area/shuttle/intrepid/medical_compartment
 	name = "Intrepid Medical Compartment"
-/area/shuttle/intrepid/engine_compartment 
+/area/shuttle/intrepid/engine_compartment
 	name = "Engine Compartment"
-/area/shuttle/intrepid/atmos_compartment 
+/area/shuttle/intrepid/atmos_compartment
 	name = "Atmos Compartment"
-/area/shuttle/intrepid/cockpit 
+/area/shuttle/intrepid/cockpit
 	name = "Cockpit"
 /area/shuttle/intrepid/rotary
 	name = "Intrepid Armament"
