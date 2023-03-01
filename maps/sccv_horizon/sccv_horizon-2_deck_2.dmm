@@ -30036,7 +30036,6 @@
 /area/maintenance/wing/port)
 "oVk" = (
 /obj/structure/table/standard,
-/obj/item/modular_computer/laptop/preset/supply,
 /obj/item/stamp/denied{
 	pixel_x = 5;
 	pixel_y = 13
@@ -30055,6 +30054,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/item/modular_computer/laptop/preset/supply/om,
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "oWm" = (
