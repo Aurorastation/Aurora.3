@@ -15692,13 +15692,8 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = -28;
-	pixel_y = 2
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = -28;
-	pixel_y = -9
+/obj/structure/fireaxecabinet{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
@@ -45597,11 +45592,16 @@
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
 	},
-/obj/structure/reagent_dispensers/peppertank{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 23
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 34
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
