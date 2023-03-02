@@ -27379,7 +27379,7 @@
 	dir = 1
 	},
 /obj/machinery/camera/network/security{
-	c_tag = "Security - Holding Cell B
+	c_tag = "Security - Holding Cell B"
 	},
 /obj/machinery/hologram/holopad,
 /obj/machinery/computer/sentencing/courtroom{
