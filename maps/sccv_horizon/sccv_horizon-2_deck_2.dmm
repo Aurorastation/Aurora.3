@@ -758,6 +758,9 @@
 	pixel_y = 28
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "ask" = (
@@ -3883,6 +3886,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "bKR" = (
@@ -4565,6 +4571,11 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
+"bZz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "bZD" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/regular{
@@ -5255,6 +5266,12 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/starboard)
+"cwH" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "cwO" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -10829,6 +10846,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "frL" = (
@@ -11927,6 +11950,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
+"fSy" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "fSA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/graphite/full,
@@ -12113,6 +12142,12 @@
 "fWI" = (
 /turf/simulated/floor/lino/grey,
 /area/chapel/main)
+"fXA" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "fYi" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
@@ -12327,6 +12362,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/lobby)
+"gbJ" = (
+/obj/machinery/flasher{
+	id = "permflash"
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "gbT" = (
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
@@ -16179,6 +16227,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
+"hMm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "hMt" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
@@ -18662,6 +18719,12 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "jck" = (
@@ -19461,6 +19524,10 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/engine_airlock)
+"jtQ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "jtR" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -21195,6 +21262,8 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "kqM" = (
@@ -21710,6 +21779,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
+"kGc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "kGX" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/strongroom)
@@ -26477,6 +26555,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "mXS" = (
@@ -30480,6 +30561,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "oYM" = (
@@ -32988,6 +33075,12 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "qnl" = (
@@ -33516,6 +33609,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/grauwolf)
+"qBg" = (
+/obj/machinery/flasher{
+	id = "permflash"
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "qBt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -34115,6 +34217,12 @@
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
@@ -35226,6 +35334,18 @@
 	dir = 1
 	},
 /area/maintenance/wing/starboard/far)
+"rrf" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "rrq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -39036,6 +39156,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
+"tnX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "toe" = (
 /obj/structure/closet/crate/coffin,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -45453,6 +45582,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"wpd" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "wpq" = (
 /obj/machinery/light{
 	dir = 1
@@ -45588,6 +45728,12 @@
 "wsF" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
@@ -47356,6 +47502,12 @@
 /obj/machinery/door/airlock/glass_security{
 	name = "Brig Interior";
 	req_access = list(2)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
@@ -78339,12 +78491,12 @@ xki
 bOR
 bDo
 qQt
-eUB
-huP
-huP
-eUB
-huP
-eUB
+qBg
+bZz
+bZz
+qBg
+bZz
+gbJ
 gqI
 hqd
 mfN
@@ -78538,15 +78690,15 @@ aVX
 rIM
 jDA
 qni
-aKO
+wpd
 kqz
 wsF
 huP
 kHb
 kHb
 yef
-huP
-huP
+cwH
+tnX
 aae
 uan
 hrG
@@ -78747,8 +78899,8 @@ eUB
 vaj
 mdB
 fGs
-huP
-huP
+kGc
+hMm
 noZ
 gMP
 tvc
@@ -78940,16 +79092,16 @@ xiu
 jqD
 bDo
 rXh
-huP
-jcc
-huP
+jtQ
+rrf
+fSy
 huP
 huP
 huP
 lBc
 lBc
 xzV
-huP
+fXA
 eUB
 jpB
 dVc
