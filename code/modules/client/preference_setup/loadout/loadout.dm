@@ -295,7 +295,7 @@ var/list/tag_related_tags = list()
 				else
 					temp_html += ", "
 		if(G.tags && G.tags.len != 0)
-			temp_html += "</font><font size = 1>{tags: "
+			temp_html += "</font><font size = 1>{Tags: "
 			var/tag_count = 0
 			for(var/tag in G.tags)
 				temp_html += "[tag]"
