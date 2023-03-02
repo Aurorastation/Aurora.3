@@ -103,44 +103,42 @@
 	get_light_and_color(parent)
 	. = ..()
 
-/mob/living/simple_animal/hostile/giant_spider/AttackingTarget()
+/mob/living/simple_animal/hostile/giant_spider/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
 	. = ..()
-	if(isliving(.))
-		var/mob/living/L = .
-		if(L.reagents)
-			L.reagents.add_reagent(/singleton/reagent/toxin, poison_per_bite)
-			if(prob(poison_per_bite) && (!issilicon(L) && !isipc(L)))
-				to_chat(L, "<span class='warning'>You feel a tiny prick.</span>")
-				L.reagents.add_reagent(poison_type, 5)
+	if(isliving(hit_mob) && istype(limb) && !BP_IS_ROBOTIC(limb))
+		var/mob/living/target = hit_mob
+		if(!target.reagents)
+			return
+		var/inject_probability = 100
+		var/list/armors = target.get_armors_by_zone(limb.limb_name, DAMAGE_BRUTE, DAMAGE_FLAG_SHARP)
+		for(var/armor in armors)
+			var/datum/component/armor/armor_datum = armor
+			inject_probability -= armor_datum.armor_values["melee"] * 1.8
+		if(prob(inject_probability))
+			to_chat(target, SPAN_WARNING("You feel a tiny prick."))
+			target.reagents.add_reagent(poison_type, poison_per_bite)
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/AttackingTarget()
+/mob/living/simple_animal/hostile/giant_spider/nurse/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
 	. = ..()
-	if(ishuman(.))
-		var/mob/living/carbon/human/H = .
-		if(prob(poison_per_bite))
-			var/obj/item/organ/external/O = pick(H.organs)
-			if(!(O.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)) && (O.limb_flags & ORGAN_CAN_AMPUTATE))
-				var/eggs = new /obj/effect/spider/eggcluster(O, src)
-				O.implants += eggs
-				to_chat(H, "<span class='warning'>The [src] injects something into your [O.name]!</span>")
+	if(ishuman(hit_mob) && istype(limb) && !BP_IS_ROBOTIC(limb) && prob(poison_per_bite))
+		var/eggs = new /obj/effect/spider/eggcluster(limb, src)
+		limb.implants += eggs
+		to_chat(hit_mob, SPAN_WARNING("\The [src] injects something into your [limb.name]!"))
 
-/mob/living/simple_animal/hostile/giant_spider/emp/AttackingTarget()
+/mob/living/simple_animal/hostile/giant_spider/emp/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
 	. = ..()
-	if(ishuman(.))
-		var/mob/living/carbon/human/H = .
+	if(ishuman(hit_mob))
+		var/mob/living/carbon/human/H = hit_mob
 		if(prob(20))
-			if(H.isSynthetic())
-				var/obj/item/organ/internal/cell/cell_holder = locate() in H.internal_organs
-				if(cell_holder)
-					var/obj/item/cell/C = cell_holder.cell
-					if(C)
-						to_chat(H, SPAN_WARNING("\The [src] saps some of your energy!"))
-						C.use(C.maxcharge / 15)
-			if(length(H.organs))
-				var/obj/item/organ/external/O = pick(H.organs)
-				if(O.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT))
-					H.visible_message(SPAN_WARNING("\The [src] bites down onto \the [H]'s [O.name]!"), SPAN_WARNING("\The [src] bites down onto your [O.name]!"))
-					O.emp_act(2)
+			var/obj/item/organ/internal/cell/cell_holder = locate() in H.internal_organs
+			if(cell_holder)
+				var/obj/item/cell/C = cell_holder.cell
+				if(C)
+					to_chat(H, SPAN_WARNING("\The [src] saps some of your energy!"))
+					C.use(C.maxcharge / 15)
+			if(istype(limb) && HAS_FLAG(limb.status, ORGAN_ROBOT|ORGAN_ADV_ROBOT))
+				H.visible_message(SPAN_WARNING("\The [src] bites down onto \the [H]'s [limb.name]!"), SPAN_WARNING("\The [src] bites down onto your [limb.name]!"))
+				limb.emp_act(2)
 
 /mob/living/simple_animal/hostile/giant_spider/think()
 	..()
