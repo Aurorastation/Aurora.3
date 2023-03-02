@@ -166,8 +166,9 @@
 			/datum/map_template/ruin/exoplanet/nka_base, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue_toppled)
 
 		if("North Pole")
-			features_budget = 2
+			features_budget = 1
 			map_generators = list(/datum/random_map/noise/exoplanet/snow/adhomai_north_pole, /datum/random_map/noise/ore/rich)
+			possible_random_ruins = list (/datum/map_template/ruin/exoplanet/north_pole_monolith, /datum/map_template/ruin/exoplanet/north_pole_nka_expedition, /datum/map_template/ruin/exoplanet/north_pole_worm)
 
 	desc += " The landing sites are located at the [landing_faction]'s territory."
 
