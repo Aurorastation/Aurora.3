@@ -132,7 +132,8 @@
 /area/horizon/hallway/deck_three/primary/central)
 "adv" = (
 /obj/machinery/door/airlock{
-	name = "Washroom"
+	name = "Washroom";
+	id_tag = "sec_deck3_toilet"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -23226,13 +23227,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
 "sGQ" = (
-/obj/structure/window/reinforced,
-/obj/machinery/door/window/westright{
-	name = "Shower"
-	},
-/obj/structure/curtain/open/shower,
 /obj/machinery/shower{
 	pixel_y = 24
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/horizon/security/washroom)
@@ -25610,13 +25609,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/window/westleft{
-	name = "Toilet"
-	},
-/obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/washroom)
 "uAr" = (
@@ -27265,9 +27257,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/item/device/radio/intercom{
+/obj/machinery/button/remote/airlock{
 	dir = 4;
-	pixel_x = -24
+	id = "sec_deck3_toilet";
+	name = "Door Bolt Control";
+	pixel_x = -25;
+	specialfunctions = 4;
+	pixel_y = -7
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/washroom)
