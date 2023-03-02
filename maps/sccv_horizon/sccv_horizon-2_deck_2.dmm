@@ -16159,9 +16159,6 @@
 /obj/item/gun/projectile/sec,
 /obj/effect/floor_decal/corner_wide/paleblue/full,
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Laser Rifles)"
-	},
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_y = -32

@@ -11937,7 +11937,7 @@
 	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
-/area/template_noop)
+/area/horizon/security/meeting_room)
 "jJH" = (
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine{
@@ -15463,7 +15463,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
-/area/template_noop)
+/area/horizon/security/meeting_room)
 "mrU" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -22091,7 +22091,7 @@
 /area/tcommsat/chamber)
 "rRe" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/template_noop)
+/area/horizon/security/washroom)
 "rRE" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -24556,7 +24556,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/template_noop)
+/area/horizon/security/washroom)
 "tHh" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -58079,11 +58079,11 @@ xJq
 oIR
 rRe
 tGG
-rRe
-rRe
-rRe
-rRe
-wGH
+fll
+fll
+fll
+fll
+fll
 wGH
 wGH
 wGH
@@ -58877,14 +58877,14 @@ jaj
 nlv
 nlv
 nlv
-pbx
-rRe
+oIR
+oIR
 mrA
 jJs
 mrA
 mrA
-rRe
-rRe
+oIR
+oIR
 wGH
 wGH
 wGH
