@@ -39,5 +39,6 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Zo'ra and K'lax Ta now have new Republic of Biesel and Izweski Hegemony clothing."
+  - bugfix: "K'lax Ta can now spawn as Hegemony Consular's without being told they are species ineligible."
   - balance: "Zo'ra Blaster has been renamed to Thermic Blaster and changed. The burst mode has been removed and a firing delay added, however the round itself now does more damage, has better AP and has a longer lasting incendiary effect."
   - rscadd: "Zo'ra Consulars are now equipped with the newly renamed Zo'ra Blaster, the Thermic Blaster."
