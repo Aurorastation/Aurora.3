@@ -98,7 +98,7 @@
 	return
 
 /mob/living/simple_animal/hostile/cavern_geist/augmented
-	name = "augmented cavern geist"
+	name = "cybernetic cavern geist"
 	desc = "A cavern geist augmented with Hadiist technology. A Tajara-made horror beyond one's comprehension. "
 	icon_state = "cybergeist"
 	icon_living = "cybergeist"
