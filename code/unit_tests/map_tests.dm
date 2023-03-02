@@ -339,5 +339,27 @@
 
 	return 1
 
+/datum/unit_test/map_test/miscellaneous_map_checks
+	name = "MAP: Check for duplicate decals"
+
+	// Floor decals that should only be one to a turf
+	var/list/to_check = list(
+		/obj/effect/floor_decal/corner,
+		/obj/effect/floor_decal/corner_wide,
+		/obj/effect/floor_decal/corner_full
+	)
+
+	var/turfs_checked = list()
+	var/bad_decal_turfs = list()
+
+/datum/unit_test/map_test/miscellaneous_map_checks/start_test()
+	for(var/obj/effect/floor_decal/FD in world)
+		if(is_type_in_list(FD, to_check))
+			var/turf/T = FD.loc
+			if(T in turfs_checked)
+				bad_decal_turfs |= T
+			else
+				turfs_checked += T
+
 #undef SUCCESS
 #undef FAILURE
