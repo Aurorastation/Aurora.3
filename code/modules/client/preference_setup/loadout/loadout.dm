@@ -191,8 +191,6 @@ var/list/tag_related_tags = list()
 
 	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3>"
-	. += "<div style='left:0;position:absolute;width:10%;margin-left:45%;white-space: nowrap;'><b><center>.............</center></b></div>"
-	. += "<span style='float:left;'>"
 	. += "<script>function search_onchange() { \
 		var val = document.getElementById('search_input').value; \
 		document.getElementById('search_refresh_link').href='?src=\ref[src];search_input_refresh=' + encodeURIComponent(val) + ''; \
@@ -204,7 +202,6 @@ var/list/tag_related_tags = list()
 	. += "<a href='#' onclick='search_onchange()'>Refresh search</a> "
 	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Clear search</a> "
 	. += "<a href='?src=\ref[src];clear_tags=1'>Clear tags and show all selected items</a> "
-	. += "</span>"
 	. += "</td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
 
