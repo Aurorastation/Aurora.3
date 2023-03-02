@@ -1,6 +1,11 @@
 /obj/structure/closet/crate/secure/gear_loadout
 	desc = "A secure gear crate."
 	name = "gear crate"
+	
+/obj/structure/closet/crate/secure/gear_loadout/legion
+	desc = "A secure crate with Tau Ceti Foreign Legion branding."
+	name = "tcfl gear crate"
+	icon_state = "tcfl_crate"
 
 /obj/structure/closet/crate/gear_loadout/hephaestus
 	desc = "A sturdy crate with Hephaestus Industries branding."
@@ -25,6 +30,7 @@
 	name = "zavodskoi interstellar drop crate"
 	icon_state = "necro_crate"
 	door_hinge = 0.5
+
 
 /obj/structure/closet/crate/secure/gear_loadout/coalition/fill()
 	new /obj/item/rig/gunslinger/equipped(src)
@@ -67,6 +73,19 @@
 	new /obj/item/ammo_magazine/gauss/emp(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/eridani/fill()
+	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
+	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
+	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
+	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
+	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
+	new /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc(src)
+	new /obj/item/clothing/under/rank/security/pmc/epmc/alt(src)
+	new /obj/item/clothing/head/beret/corporate/pmc/epmc(src)
+	new /obj/item/clothing/head/beret/corporate/pmc/epmc(src)
+	new /obj/item/clothing/head/beret/corporate/pmc/epmc(src)
+	new /obj/item/clothing/head/softcap/pmc/epmc(src)
+	new /obj/item/clothing/head/softcap/pmc/epmc(src)
+	new /obj/item/clothing/head/softcap/pmc/epmc(src)
 	new /obj/item/rig/strike/equipped(src)
 	new /obj/item/clothing/head/helmet/space/void/cruiser(src)
 	new /obj/item/clothing/head/helmet/space/void/cruiser(src)
@@ -80,16 +99,23 @@
 	new /obj/item/clothing/suit/space/void/cruiser(src)
 	new /obj/item/gun/energy/gun/nuclear(src)
 	new /obj/item/gun/energy/gun/nuclear(src)
-	new /obj/item/gun/energy/stunrevolver(src)
-	new /obj/item/gun/energy/stunrevolver(src)
+	new /obj/item/gun/energy/disruptorpistol/magnum(src)
+	new /obj/item/gun/energy/disruptorpistol/magnum(src)
 	new /obj/item/gun/energy/net(src)
-	new /obj/item/gun/energy/lawgiver(src)
+	new /obj/item/gun/projectile/automatic/x9(src)
+	new /obj/item/gun/projectile/automatic/x9(src)
+	new /obj/item/ammo_magazine/c45m/auto(src)
+	new /obj/item/ammo_magazine/c45m/auto(src)
+	new /obj/item/ammo_magazine/c45m/auto(src)
+	new /obj/item/ammo_magazine/c45m/auto(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/eridani_single/fill()
+	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
+	new /obj/item/clothing/head/beret/corporate/pmc/epmc(src)
 	new /obj/item/clothing/head/helmet/space/void/cruiser(src)
 	new /obj/item/clothing/suit/space/void/cruiser(src)
 	new /obj/item/gun/energy/gun/nuclear(src)
-	new /obj/item/gun/energy/stunrevolver(src)
+	new /obj/item/gun/energy/disruptorpistol/magnum(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/elyra/fill()
 	new /obj/item/rig/elyran/equipped(src)
@@ -293,15 +319,11 @@
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
-	new /obj/item/clothing/head/helmet/space/void/dominia/unathi(src)
-	new /obj/item/clothing/head/helmet/space/void/dominia/unathi(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
-	new /obj/item/clothing/suit/space/void/dominia/unathi(src)
-	new /obj/item/clothing/suit/space/void/dominia/unathi(src)
 	new /obj/item/gun/projectile/automatic/rifle/dom(src)
 	new /obj/item/gun/projectile/automatic/rifle/dom(src)
 	new /obj/item/ammo_magazine/c762(src)
@@ -317,16 +339,17 @@
 	new /obj/item/ammo_magazine/submachinemag(src)
 	new /obj/item/ammo_magazine/submachinemag(src)
 	new /obj/item/ammo_magazine/submachinemag(src)
-	new /obj/item/material/knife/bayonet(src)
-	new /obj/item/material/knife/bayonet(src)
-	new /obj/item/material/knife/bayonet(src)
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/melee/energy/sword/pirate(src)
+	new /obj/item/melee/energy/sword/pirate(src)
+	new /obj/item/melee/energy/sword/pirate(src)
+	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/shield/energy/dominia(src)
 	new /obj/item/shield/energy/dominia(src)
 	new /obj/item/shield/energy/dominia(src)
 	new /obj/item/shield/energy/dominia(src)
 	new /obj/item/shield/energy/dominia(src)
+	new /obj/item/storage/box/dominianvoid(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/dominia/single/fill()
 	new /obj/item/clothing/under/dominia/fleet(src)
@@ -336,19 +359,9 @@
 	new /obj/item/gun/projectile/automatic/rifle/dom(src)
 	new /obj/item/ammo_magazine/c762(src)
 	new /obj/item/ammo_magazine/c762(src)
-	new /obj/item/material/knife/bayonet(src)
-	new /obj/item/shield/energy/dominia(src)
-
-/obj/structure/closet/crate/secure/gear_loadout/dominia/single/unathi/fill()
-	new /obj/item/clothing/under/dominia/fleet(src)
-	new /obj/item/clothing/under/dominia/fleet/armsman(src)
-	new /obj/item/clothing/head/helmet/space/void/dominia/unathi(src)
-	new /obj/item/clothing/suit/space/void/dominia/unathi(src)
-	new /obj/item/gun/projectile/automatic/tommygun/dom(src)
-	new /obj/item/ammo_magazine/submachinemag(src)
-	new /obj/item/ammo_magazine/submachinemag(src)
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/shield/energy/dominia(src)
+	new /obj/item/voidsuit_modkit/dominianvoid(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/kosmostrelki/fill()
 	new /obj/item/clothing/under/tajaran/cosmonaut(src)
@@ -466,7 +479,7 @@
 	new /obj/item/melee/energy/sword/knife(src)
 	new /obj/item/material/twohanded/pike/flag(src)
 	
-/obj/structure/closet/crate/secure/gear_loadout/legion_single/fill()
+/obj/structure/closet/crate/secure/gear_loadout/legion/single/fill()
 	new /obj/item/clothing/under/legion(src)
 	new /obj/item/clothing/head/beret/legion/field(src)
 	new /obj/item/clothing/head/helmet/legion(src)

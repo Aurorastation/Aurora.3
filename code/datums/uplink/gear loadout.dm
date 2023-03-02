@@ -52,13 +52,9 @@
 	path = /obj/structure/closet/crate/secure/gear_loadout/dominia
 
 /datum/uplink_item/item/gear_loadout/dominia_single
-	name = "Empire of Dominia Assets (Single, Human)"
+	name = "Empire of Dominia Assets (Single)"
 	path = /obj/structure/closet/crate/secure/gear_loadout/dominia/single
 	item_cost = 10
-
-/datum/uplink_item/item/gear_loadout/dominia_single/unathi
-	name = "Empire of Dominia Assets (Single, Unathi)"
-	path = /obj/structure/closet/crate/secure/gear_loadout/dominia/single/unathi
 
 /datum/uplink_item/item/gear_loadout/cowboys
 	name = "Frontier Cowboys (Group)"
@@ -87,8 +83,9 @@
 
 /datum/uplink_item/item/gear_loadout/legion_single
 	name = "Tau Ceti Foreign Legion Assets (Single)"
-	path = /obj/structure/closet/crate/secure/gear_loadout/legion_single
+	path = /obj/structure/closet/crate/secure/gear_loadout/legion/single
 	item_cost = 10
+
 /datum/uplink_item/item/gear_loadout/einstein
 	name = "Einstein Engines Assets (Group)"
 	path = /obj/structure/closet/crate/secure/gear_loadout/einstein
