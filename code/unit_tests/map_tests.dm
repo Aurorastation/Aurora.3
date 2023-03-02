@@ -349,8 +349,8 @@
 		/obj/effect/floor_decal/corner_full
 	)
 
-	var/turfs_checked = list()
-	var/bad_decal_turfs = list()
+	var/list/turfs_checked = list()
+	var/list/bad_decal_turfs = list()
 
 /datum/unit_test/map_test/miscellaneous_map_checks/start_test()
 	for(var/obj/effect/floor_decal/FD in world)
@@ -365,7 +365,7 @@
 	if(bad_decal_turfs.len)
 		fail("\[[bad_decal_turfs.len]\] turfs had more than one unique floor decal assigned.")
 	else
-		success("All turfs passed miscellaneous checks.")
+		pass("All turfs passed miscellaneous checks.")
 
 #undef SUCCESS
 #undef FAILURE
