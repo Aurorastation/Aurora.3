@@ -49,6 +49,12 @@
 	designation = "[pick("Castle", "Rook", "Gin Rummy", "Pawn", "Bishop", "Knight", "Blackjack", "Torch", "Liberty", "President Dorn", "Independence", "Civic Duty", "Democracy", "Progress", "Prosperity", "New Gibson", "Biesel", "Justice", "Equality")]"
 	..()
 
+/obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "tramp_freighter")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
+
 /obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/nav1
 	name = "TCFL Corvette - Port Side"
 	landmark_tag = "nav_tcfl_peacekeeper_ship_1"

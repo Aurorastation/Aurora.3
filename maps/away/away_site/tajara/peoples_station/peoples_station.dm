@@ -32,6 +32,12 @@
 	comms_support = TRUE
 	comms_name = "people's station"
 
+/obj/effect/overmap/visitable/sector/peoples_station/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "pss")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
+
 /obj/effect/shuttle_landmark/nav_peoples_station/dockintrepid
 	name = "People's Space Station Intrepid Docking"
 	landmark_tag = "nav_peoples_station_dockintrepid"

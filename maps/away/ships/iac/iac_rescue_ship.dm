@@ -90,6 +90,12 @@
 	designation = "[pick("Angitia", "Eir", "Vejovis", "Dharti", "Serket", "He Xiangu", "Sirona", "Ixtlilton", "Boris Yegorov", "Simi", "Aleksandra Hro'makar", "Assistance", "Helping Hand", "Free Aid", "Safe Haven", "Grace", "Compassion", "Relief")]"
 	..()
 
+/obj/effect/overmap/visitable/ship/iac_rescue_ship/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "hospital")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
+
 /obj/effect/shuttle_landmark/iac_rescue_ship/nav1
 	name = "IAC Rescue Ship - Port Side"
 	landmark_tag = "nav_iac_rescue_ship_1"
