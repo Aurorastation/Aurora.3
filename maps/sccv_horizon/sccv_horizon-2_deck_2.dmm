@@ -4253,22 +4253,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
-"bSz" = (
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 1
-	},
-/obj/machinery/camera/network/security{
-	c_tag = "Security - Holding Cell B"
-	},
-/obj/machinery/hologram/holopad,
-/obj/machinery/computer/sentencing/courtroom{
-	pixel_y = 32
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "bSD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -7708,10 +7692,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
-"dLc" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/template_noop)
 "dLe" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
@@ -10792,23 +10772,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
-"fri" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/door/airlock/glass_security{
-	name = "Holding Cell B";
-	req_one_access = list(2,4)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/full,
-/area/template_noop)
 "frL" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
@@ -11333,15 +11296,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
-"fFV" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Security Maintenance";
-	req_access = list(63)
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
-/area/template_noop)
 "fGi" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -18790,24 +18744,6 @@
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
-"jcz" = (
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 8
-	},
-/obj/structure/bed/stool/chair,
-/obj/effect/floor_decal/industrial/outline/security,
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "jcK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -19342,21 +19278,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/atmos/storage)
-"joH" = (
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 4
-	},
-/obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
-/obj/item/paper/sentencing{
-	pixel_x = 6;
-	pixel_y = 6
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "joM" = (
 /obj/effect/landmark{
 	name = "Revenant"
@@ -23009,19 +22930,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
-"ljZ" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/machinery/firealarm/west,
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "lkt" = (
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Lobby Desk"
@@ -25964,13 +25872,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
-"mJJ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
 "mKw" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -34855,11 +34756,6 @@
 	},
 /turf/simulated/open/airless,
 /area/template_noop)
-"rdP" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
-/area/template_noop)
 "rdZ" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -35918,19 +35814,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
-"rDK" = (
-/obj/effect/floor_decal/corner/paleblue/full,
-/obj/structure/closet/secure_closet/brig,
-/obj/effect/floor_decal/industrial/outline/security,
-/obj/machinery/alarm{
-	pixel_x = -28;
-	dir = 4
-	},
-/obj/structure/sign/nosmoking_1{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "rEk" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -36457,22 +36340,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/library)
-"rQr" = (
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 1
-	},
-/obj/machinery/camera/network/security{
-	c_tag = "Security - Holding Cell A"
-	},
-/obj/machinery/hologram/holopad,
-/obj/machinery/computer/sentencing/courtroom{
-	pixel_y = 32
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "rQB" = (
 /obj/effect/floor_decal/sign/icu,
 /obj/structure/cable/green{
@@ -43435,27 +43302,6 @@
 /obj/structure/grille,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
-"vrr" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "vrC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -44734,23 +44580,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
-"vVW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_security{
-	name = "Holding Cell A";
-	req_one_access = list(2,4)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/full,
-/area/template_noop)
 "vWt" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/green{
@@ -48693,9 +48522,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
-"xLZ" = (
-/turf/simulated/wall/r_wall,
-/area/template_noop)
 "xMm" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -49060,13 +48886,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
-"xVl" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "xVu" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
@@ -77109,14 +76928,14 @@ kuh
 fdj
 qgN
 qgN
-fFV
-dLc
-xVl
-dLc
-rdP
-dLc
-dLc
-dLc
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -77311,14 +77130,14 @@ dUw
 fdj
 qgN
 qgN
-xLZ
-xLZ
-xLZ
-xLZ
-xLZ
-xLZ
-xLZ
-xLZ
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -77513,14 +77332,14 @@ kuh
 fdj
 qgN
 qgN
-xLZ
-jcz
-ljZ
-rDK
-xLZ
-jcz
-ljZ
-rDK
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -77715,14 +77534,14 @@ kuh
 fdj
 qgN
 qgN
-xLZ
-rQr
-vrr
-joH
-xLZ
-bSz
-vrr
-joH
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -77917,14 +77736,14 @@ nJQ
 opx
 qgN
 qgN
-xLZ
-mJJ
-vVW
-mJJ
-xLZ
-mJJ
-fri
-mJJ
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
