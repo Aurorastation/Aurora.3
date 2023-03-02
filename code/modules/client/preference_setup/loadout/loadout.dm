@@ -201,8 +201,9 @@ var/list/tag_related_tags = list()
 	. += "Search: "
 	. += "<input type='text' id='search_input' name='search_input' \
 			onchange='search_onchange()' value='[search_input_value]'> "
-	. += "<a href='#' onclick='search_onchange()'>Refresh</a> "
-	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Clear</a> "
+	. += "<a href='#' onclick='search_onchange()'>Refresh search</a> "
+	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Clear search</a> "
+	. += "<a href='?src=\ref[src];clear_tags=1'>Clear tags and show all selected items</a> "
 	. += "</span>"
 	. += "</td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
@@ -216,6 +217,8 @@ var/list/tag_related_tags = list()
 	var/list/gear_names = list()
 	if(selected_tags.len > 0)
 		gear_names = tag_gear_names[selected_tags[1]]
+	if(selected_tags.len == 0)
+		gear_names = pref.gear
 
 	for(var/gear_name in gear_names)
 		if(!(gear_name in player_valid_gear_choices))
@@ -400,5 +403,8 @@ var/list/tag_related_tags = list()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	else if(href_list["search_input_refresh"] != null) // empty str is false
 		search_input_value = sanitize(href_list["search_input_refresh"], 100)
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+	else if(href_list["clear_tags"])
+		selected_tags = list()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	return ..()
