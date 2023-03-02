@@ -1,0 +1,7 @@
+author: Alberyk, Happy_Fox
+
+delete-after: True
+
+changes:
+  - tweak: "Buffed the cavern geist with some minor damage regeneration, health and damage."
+  - rscadd: "Added a stronger version of the cavern geist."

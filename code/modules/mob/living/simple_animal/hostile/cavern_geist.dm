@@ -22,9 +22,10 @@
 	maxHealth = 500
 	health = 500
 	harm_intent_damage = 0
-	melee_damage_lower = 35
-	melee_damage_upper = 35
-	resist_mod = 3
+	melee_damage_lower = 40
+	melee_damage_upper = 40
+	armor_penetration = 20
+	resist_mod = 15
 	mob_size = 25
 	environment_smash = 2
 	attacktext = "mangled"
@@ -40,6 +41,10 @@
 /mob/living/simple_animal/hostile/cavern_geist/death(gibbed)
 	..()
 	anchored = TRUE
+
+/mob/living/simple_animal/hostile/cavern_geist/Life()
+	..()
+	adjustBruteLoss(-5)
 
 /mob/living/simple_animal/hostile/cavern_geist/verb/devour(mob/living/target as mob in oview())
 	set category = "Cavern Geist"
@@ -91,3 +96,17 @@
 	last_special = world.time + 100
 	is_devouring = FALSE
 	return
+
+/mob/living/simple_animal/hostile/cavern_geist/augmented
+	name = "augmented cavern geist"
+	desc = "A cavern geist augmented with Hadiist technology. A Tajara-made horror beyond one's comprehension. "
+	icon_state = "cybergeist"
+	icon_living = "cybergeist"
+	icon_dead = "cybergeist_dead"
+	maxHealth = 700
+	health = 700
+	speed = -2
+
+	melee_damage_lower = 50
+	melee_damage_upper = 50
+	armor_penetration = 40
