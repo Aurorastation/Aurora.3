@@ -358,8 +358,14 @@
 			var/turf/T = FD.loc
 			if(T in turfs_checked)
 				bad_decal_turfs |= T
+				log_unit_test("Duplicate floor decal at [T.x] [T.y] [T.z]")
 			else
 				turfs_checked += T
+
+	if(bad_decal_turfs.len)
+		fail("\[[bad_decal_turfs.len]\] turfs had more than one unique floor decal assigned.")
+	else
+		success("All turfs passed miscellaneous checks.")
 
 #undef SUCCESS
 #undef FAILURE
