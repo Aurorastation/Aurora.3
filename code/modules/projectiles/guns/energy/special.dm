@@ -280,6 +280,7 @@
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 	accuracy = 1
+	recoil = 1
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster/incendiary
 	max_shots = 7
