@@ -22931,7 +22931,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/operations/lobby)
+/area/horizon/custodial/auxiliary)
 "ljk" = (
 /obj/machinery/light{
 	dir = 1
@@ -24581,7 +24581,7 @@
 	pixel_y = -10
 	},
 /turf/simulated/floor/tiled,
-/area/operations/lobby)
+/area/horizon/crew_quarters/cryo/living_quarters_cryogenics)
 "lWF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -27929,6 +27929,20 @@
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
+"nxi" = (
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/structure/sign/deathsposal{
+	pixel_x = -32
+	},
+/obj/machinery/disposal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/grauwolf)
 "nxk" = (
 /obj/structure/sink/kitchen{
 	dir = 8;
@@ -31370,7 +31384,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/custodial/auxiliary)
+/area/horizon/crew_quarters/cryo/living_quarters_cryogenics)
 "piK" = (
 /obj/machinery/light_switch{
 	pixel_y = -27
@@ -37161,6 +37175,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
+"rYX" = (
+/obj/effect/floor_decal/corner/purple/full,
+/obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_y = 2;
+	pixel_x = -4
+	},
+/obj/item/device/hand_labeler{
+	pixel_y = 8;
+	pixel_x = -4
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/custodial/auxiliary)
 "rZh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
@@ -58093,7 +58120,7 @@ wRu
 wRu
 wRu
 cpl
-mqc
+nxi
 uKV
 aFy
 hFU
@@ -60312,7 +60339,7 @@ wMP
 lEZ
 fak
 liv
-ifY
+rYX
 quT
 kMq
 jNd
@@ -65750,7 +65777,7 @@ pCV
 pCV
 pCV
 rcR
-nIi
+dIZ
 tHs
 uZU
 hHE
