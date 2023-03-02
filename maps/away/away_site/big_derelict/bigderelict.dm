@@ -7,6 +7,12 @@
 	spawn_cost = 2
 	id = "big_derelict"
 
+/datum/map_template/ruin/away_site/big_derelict/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/wrecks.dmi', "debris_large2")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
+
 /singleton/submap_archetype/big_derelict
 	map = "large derelict"
 	descriptor = "A very large derelict station. According to the starmap, it shouldn't exist."
