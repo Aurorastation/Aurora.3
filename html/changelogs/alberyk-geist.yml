@@ -5,3 +5,4 @@ delete-after: True
 changes:
   - tweak: "Buffed the cavern geist with some minor damage regeneration, health and damage."
   - rscadd: "Added a stronger version of the cavern geist."
+  - tweak: "Removed the geist and the pra exploration drone from the gold slime spawning list."
