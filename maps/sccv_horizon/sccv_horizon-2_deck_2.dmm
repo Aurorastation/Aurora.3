@@ -31901,7 +31901,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "pDx" = (
-/obj/machinery/disposal,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
@@ -31912,6 +31911,7 @@
 	c_tag = "Medical - Entrance";
 	dir = 8
 	},
+/obj/machinery/disposal/small/north,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "pDK" = (
