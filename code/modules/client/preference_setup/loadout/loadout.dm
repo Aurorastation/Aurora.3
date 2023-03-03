@@ -180,7 +180,7 @@ var/list/tag_related_tags = list()
 		for(tag in tag_group_list)
 			var/style = ""
 			for(var/selected_tag in selected_tags)
-				if(!(tag in tag_related_tags[selected_tag]))
+				if(!(selected_tag in tag_related_tags[tag]))
 					style = "style='color: #919191;'"
 					break
 			if(tag in selected_tags)
