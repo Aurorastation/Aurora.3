@@ -12,6 +12,15 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"bK" = (
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = 11;
+	pixel_y = -11
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
 "bR" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -25,6 +34,15 @@
 	initial_lock_value = "nka_commander"
 	},
 /turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"cM" = (
+/obj/structure/simple_door/iron{
+	initial_lock_value = "nka_cell";
+	name = "cell"
+	},
+/turf/simulated/floor/tiled{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -51,9 +69,29 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"gF" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/item/handcuffs,
+/obj/item/handcuffs/legcuffs,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
 "gU" = (
 /obj/structure/blocker/steel/fence{
 	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
+"hK" = (
+/obj/item/stack/material/woodlog/full,
+/obj/item/stack/material/woodlog/full,
+/obj/item/stack/material/woodlog/full,
+/obj/structure/closet/crate/bin{
+	name = "fire wood bin"
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -65,18 +103,18 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"jI" = (
-/obj/structure/bonfire,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/nka_base)
 "jN" = (
 /obj/structure/sign/emergency/meetingpoint{
 	name = "\improper AID STATION sign";
 	desc = "A green sign which showcases the location of a medical aid station."
 	},
 /turf/simulated/wall/wood,
+/area/nka_base)
+"ka" = (
+/obj/structure/bed/padded,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
 /area/nka_base)
 "kO" = (
 /obj/structure/bed/stool/chair/wood{
@@ -185,30 +223,6 @@
 	temperature = 268.15
 	},
 /area/nka_base)
-"qF" = (
-/obj/item/stack/material/woodlog/full,
-/obj/item/stack/material/woodlog/full,
-/obj/item/stack/material/woodlog/full,
-/obj/structure/closet/crate/bin{
-	name = "fire wood bin"
-	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/nka_base)
-"rO" = (
-/obj/structure/bonfire/fireplace,
-/obj/structure/bedsheetbin{
-	pixel_y = -4;
-	pixel_x = 9
-	},
-/obj/item/clothing/under/tajaran/nka_uniform{
-	pixel_x = 10
-	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/nka_base)
 "rV" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -289,6 +303,12 @@
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
 /turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
+"wy" = (
+/obj/structure/bonfire,
+/turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -387,6 +407,28 @@
 	},
 /obj/structure/sign/flag/nka{
 	pixel_x = -32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
+"Ab" = (
+/obj/structure/bonfire/fireplace,
+/obj/structure/bedsheetbin{
+	pixel_y = -4;
+	pixel_x = 9
+	},
+/obj/item/clothing/under/tajaran/nka_uniform{
+	pixel_x = 10
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"AC" = (
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_y = 6;
+	pixel_x = 10
 	},
 /turf/simulated/floor/tiled{
 	temperature = 268.15
@@ -572,11 +614,9 @@
 	},
 /area/nka_base)
 "Rg" = (
-/obj/item/reagent_containers/glass/bucket/wood{
-	pixel_x = 11;
-	pixel_y = -11
-	},
-/turf/simulated/floor/exoplanet/snow{
+/obj/effect/map_effect/window_spawner/basic,
+/obj/structure/curtain/black,
+/turf/simulated/floor/tiled{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -624,6 +664,12 @@
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
+/area/nka_base)
+"Uz" = (
+/obj/structure/sign/painting_frame/shumaila{
+	pixel_x = -32
+	},
+/turf/simulated/wall/wood,
 /area/nka_base)
 "UX" = (
 /obj/structure/bed/stool/bar/padded/brown,
@@ -694,6 +740,15 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"YC" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/item/trash/tray,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
 "YD" = (
 /obj/structure/table/wood,
 /obj/item/key{
@@ -707,6 +762,11 @@
 	pixel_x = -5
 	},
 /obj/machinery/light/small,
+/obj/item/key{
+	key_data = "nka_cell";
+	name = "cell key";
+	pixel_x = -5
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -895,8 +955,8 @@ DL
 DL
 DL
 DL
-qF
-jI
+hK
+wy
 DL
 DL
 DL
@@ -1164,7 +1224,7 @@ DL
 DL
 DL
 DL
-Rg
+bK
 DL
 DL
 yB
@@ -1236,7 +1296,7 @@ DL
 DL
 DL
 yB
-rO
+Ab
 Vy
 UX
 pB
@@ -1487,10 +1547,10 @@ DL
 DL
 EP
 EP
-DL
-DL
-DL
-DL
+yB
+yB
+yB
+yB
 DL
 gU
 "}
@@ -1521,10 +1581,10 @@ DL
 DL
 EP
 EP
-DL
-DL
-DL
-DL
+Rg
+gF
+YC
+yB
 DL
 gU
 "}
@@ -1555,10 +1615,10 @@ EP
 EP
 EP
 EP
-DL
-DL
-DL
-DL
+cM
+Rb
+AC
+yB
 DL
 gU
 "}
@@ -1589,10 +1649,10 @@ EP
 EP
 EP
 EP
-DL
-DL
-DL
-DL
+yB
+Rb
+ka
+yB
 DL
 gU
 "}
@@ -1623,10 +1683,10 @@ EP
 EP
 EP
 EP
-DL
-DL
-DL
-DL
+Uz
+yB
+yB
+yB
 DL
 gU
 "}
