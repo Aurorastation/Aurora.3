@@ -330,6 +330,12 @@
 	icon_state = "hijab_black"
 	item_state = "hijab_black"
 
+/obj/item/clothing/head/hijab/elyra
+	name = "elyran hijab"
+	desc = "Encompassing cloth headwear worn by some human cultures and religions. This one is styled after the Elyran flag."
+	icon_state = "hijab_elyra"
+	item_state = "hijab_elyra"
+
 /obj/item/clothing/head/cowboy
 	name = "cowboy hat"
 	desc = "A wide-brimmed hat, in the prevalent style of the frontier."

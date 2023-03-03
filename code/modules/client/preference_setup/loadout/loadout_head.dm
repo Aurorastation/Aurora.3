@@ -254,6 +254,7 @@
 	hijab["green hijab"] = /obj/item/clothing/head/hijab/green
 	hijab["blue hijab"] = /obj/item/clothing/head/hijab/blue
 	hijab["black hijab"] = /obj/item/clothing/head/hijab/black
+	hijab["elyran hijab"] = /obj/item/clothing/head/hijab/elyra
 
 	gear_tweaks += new /datum/gear_tweak/path(hijab)
 
