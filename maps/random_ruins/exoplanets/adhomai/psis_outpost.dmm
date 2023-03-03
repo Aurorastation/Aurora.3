@@ -17,13 +17,10 @@
 	},
 /area/psis_outpost)
 "bE" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
+/obj/structure/sign/securearea{
+	pixel_y = -32
 	},
-/obj/item/storage/firstaid/adv,
-/obj/item/storage/firstaid/adv,
-/obj/structure/closet/crate/medical,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -52,6 +49,18 @@
 "dd" = (
 /obj/machinery/porta_turret/ballistic,
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"dF" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -208,18 +217,6 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
-"kX" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/structure/sign/flag/pra{
-	pixel_y = 32
-	},
-/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
-/area/psis_outpost)
 "lf" = (
 /obj/machinery/porta_turret/ballistic,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -279,7 +276,9 @@
 	},
 /area/psis_outpost)
 "on" = (
-/obj/structure/blocker/steel/fence,
+/obj/structure/blocker/steel/fence{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -312,10 +311,14 @@
 	},
 /area/psis_outpost)
 "qB" = (
-/obj/structure/blocker/steel/fence{
-	dir = 4
+/obj/effect/floor_decal/corner/red{
+	dir = 5
 	},
-/turf/simulated/floor/exoplanet/snow{
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -534,9 +537,7 @@
 	},
 /area/exoplanet/adhomai)
 "Hq" = (
-/obj/structure/sign/securearea{
-	pixel_y = 32
-	},
+/obj/structure/blocker/steel/fence,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -598,10 +599,19 @@
 	},
 /area/psis_outpost)
 "Ke" = (
-/obj/structure/sign/securearea{
-	pixel_y = -32
+/obj/effect/floor_decal/corner/red{
+	dir = 5
 	},
-/turf/simulated/floor/exoplanet/snow{
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/radiation,
+/obj/machinery/vending/medical{
+	req_access = null;
+	pixel_y = 31
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -629,6 +639,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
+/obj/item/gun/projectile/automatic/rifle/adhomian,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -660,18 +671,6 @@
 /obj/structure/sign/flag/pra{
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
-/area/psis_outpost)
-"LZ" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -789,10 +788,12 @@
 	},
 /area/psis_outpost)
 "Ss" = (
-/obj/machinery/vending/medical{
-	req_access = null
+/obj/structure/sign/securearea{
+	pixel_y = 32
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
 /area/psis_outpost)
 "Tn" = (
 /turf/simulated/floor/tiled/dark{
@@ -1060,30 +1061,30 @@ Hg
 Hg
 Hg
 Mq
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
 Mq
 Hg
 Hg
@@ -1093,7 +1094,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1118,7 +1119,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1127,7 +1128,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1152,7 +1153,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1161,7 +1162,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1186,7 +1187,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1195,7 +1196,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1204,7 +1205,7 @@ jx
 jx
 jx
 jx
-Ke
+bE
 Mq
 Mq
 Mq
@@ -1212,7 +1213,7 @@ Mq
 Mq
 Mq
 Mq
-Hq
+Ss
 jx
 jx
 jx
@@ -1220,7 +1221,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 CC
 Hg
@@ -1229,7 +1230,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1254,7 +1255,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1263,7 +1264,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1288,7 +1289,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1297,7 +1298,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1322,7 +1323,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1331,7 +1332,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1356,7 +1357,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 hQ
 Hg
@@ -1365,7 +1366,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1390,7 +1391,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1399,7 +1400,7 @@ Hg
 WW
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1424,7 +1425,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1433,10 +1434,10 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
-Ke
+bE
 Mq
 Mq
 Mq
@@ -1456,9 +1457,9 @@ Mq
 Mq
 Mq
 Mq
-Hq
+Ss
 jx
-qB
+on
 Hg
 WW
 Hg
@@ -1467,7 +1468,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1492,7 +1493,7 @@ PT
 Mq
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1526,7 +1527,7 @@ ZG
 Mq
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1560,7 +1561,7 @@ Cg
 Mq
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1579,7 +1580,7 @@ Tn
 Tn
 Tn
 Mq
-kX
+qB
 qO
 KF
 Mq
@@ -1594,7 +1595,7 @@ ZG
 Mq
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1603,7 +1604,7 @@ Hg
 CC
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1612,14 +1613,14 @@ lf
 Hc
 Tn
 dd
-Ss
-bE
+Mq
+Ke
 Tn
 Tn
 Tn
 qO
 Gu
-LZ
+dF
 Mq
 TS
 dO
@@ -1628,7 +1629,7 @@ oR
 Mq
 jx
 jx
-qB
+on
 Hg
 Hg
 hQ
@@ -1637,10 +1638,10 @@ hQ
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
-Ke
+bE
 Mq
 Mq
 Mq
@@ -1660,9 +1661,9 @@ Mq
 Mq
 Mq
 Mq
-Hq
+Ss
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1671,7 +1672,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1696,7 +1697,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1705,7 +1706,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1730,7 +1731,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1739,7 +1740,7 @@ Hg
 WW
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1764,7 +1765,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1773,7 +1774,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1798,7 +1799,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 WW
@@ -1807,7 +1808,7 @@ WW
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1832,7 +1833,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1841,7 +1842,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1866,7 +1867,7 @@ jx
 jx
 jx
 jx
-qB
+on
 CC
 Hg
 Hg
@@ -1875,7 +1876,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1884,7 +1885,7 @@ jx
 jx
 jx
 jx
-Ke
+bE
 Mq
 Mq
 Mq
@@ -1892,7 +1893,7 @@ Mq
 Mq
 Mq
 Mq
-Hq
+Ss
 jx
 jx
 jx
@@ -1900,7 +1901,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1909,7 +1910,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1934,7 +1935,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1943,7 +1944,7 @@ Hg
 Hg
 Hg
 Hg
-qB
+on
 jx
 jx
 jx
@@ -1968,7 +1969,7 @@ jx
 jx
 jx
 jx
-qB
+on
 Hg
 Hg
 Hg
@@ -1978,30 +1979,30 @@ Hg
 Hg
 Hg
 Mq
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
-on
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
 Mq
 Hg
 hQ
