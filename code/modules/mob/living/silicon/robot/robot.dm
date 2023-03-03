@@ -511,7 +511,7 @@
 	set category = "Robot Commands"
 	set name = "View Holomap"
 	set desc = "View a virtual map of the surrounding area."
-	
+
 	var/obj/machinery/station_map/mobile/holo_map_object
 	if(src.holo_map)
 		holo_map_object = src.holo_map.resolve()
@@ -520,7 +520,7 @@
 	if(!holo_map_object)
 		holo_map_object = new(src)
 		src.holo_map = WEAKREF(holo_map)
-	
+
 	holo_map_object.startWatching(src)
 
 /mob/living/silicon/robot/verb/rebuild_overlays()
@@ -1296,3 +1296,11 @@
 			to_chat(src, SPAN_DANGER("Hack attempt detected and thwarted. Evacuate the area immediately."))
 		return SMOOTH_TRUE
 	return
+
+/mob/living/silicon/robot/succumb()
+	set hidden = TRUE
+	if(health < maxHealth / 3)
+		death()
+		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
+	else
+		to_chat(src, SPAN_NOTICE("You are not injured enough to succumb to death!"))

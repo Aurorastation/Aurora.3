@@ -18,7 +18,7 @@
 
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "battlestation"
-	color = "#8A3324"
+	color = "#8C8A81"
 
 	initial_generic_waypoints = list(
 		"nav_peoples_station_ship_1",
