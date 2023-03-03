@@ -16,7 +16,6 @@ var/list/tag_group_other = list(
 	"Religion",	// manual		(needs to be manually added to the item like `tags = list("Toy")`)
 	"Augment",	// automatic	(automatically added)
 	"Computer",	// manual
-	">2 storage slots"	// automatic
 )
 
 // ------------------------------ all tag groups
