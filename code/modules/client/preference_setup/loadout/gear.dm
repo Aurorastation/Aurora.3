@@ -31,8 +31,8 @@
 		gear_tweaks += list(gear_tweak_free_desc)
 	if(flags & GEAR_HAS_COLOR_ROTATION_SELECTION)
 		gear_tweaks += list(gear_tweak_color_rotation)
-	grab_manual_tags_from_item(src)
 	fill_automatic_tags_on_item(src)
+	grab_manual_tags_from_item(src)
 
 /datum/gear_data
 	var/path

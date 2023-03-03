@@ -9,21 +9,31 @@ var/list/tag_group_slot = list() // filled below
 var/list/tag_group_size = list("Tiny", "Small", "Normal", "Large", "Huge") // filled below
 var/list/tag_group_species = list("Human", "IPC", "Skrell", "Unathi", "Tajara", "Diona", "Vaurca")
 
-// ------------------------------ manual tag groups
-var/list/tag_group_other = list("Toy", "Smoking", "Religion", "Augment", "Computer")
+// ------------------------------ manual/automatic tag groups
+var/list/tag_group_other = list(
+	"Toy",		// manual
+	"Smoking",	// manual
+	"Religion",	// manual		(needs to be manually added to the item like `tags = list("Toy")`)
+	"Augment",	// automatic	(automatically added)
+	"Computer",	// manual
+	">2 storage slots"	// automatic
+)
 
 // ------------------------------ all tag groups
 var/list/tag_groups_all = list(
-	"Department tags" = tag_group_department,
-	"Corp tags" = tag_group_corp,
-	"Slot tags" = tag_group_slot,
+	"Department restriction tags" = tag_group_department,
+	"Corporation tags" = tag_group_corp,
+	"Item slot tags" = tag_group_slot,
 	"Item size tags" = tag_group_size,
-	"Species tags" = tag_group_species,
+	"Species restriction tags" = tag_group_species,
 	"Other tags" = tag_group_other,
 )
 
 // ------------------------------ functions
 proc/grab_manual_tags_from_item(var/datum/gear/gear)
+	// this grabs any tags from an item
+	// that are not already present in the tag groups
+	// and adds them to tag_group_other
 	// for(var/tag in gear.tags)
 		// var/found = FALSE
 		// for(var/group_name in tag_groups_all)
