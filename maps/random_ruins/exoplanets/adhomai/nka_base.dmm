@@ -65,6 +65,12 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"jI" = (
+/obj/structure/bonfire,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
 "jN" = (
 /obj/structure/sign/emergency/meetingpoint{
 	name = "\improper AID STATION sign";
@@ -91,7 +97,6 @@
 	},
 /area/nka_base)
 "mb" = (
-/obj/structure/bed/stool/bar/padded/brown,
 /obj/structure/sign/flag/nka/right{
 	pixel_y = 32
 	},
@@ -175,6 +180,30 @@
 /obj/structure/reagent_dispensers/keg/mead,
 /obj/machinery/light/small{
 	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"qF" = (
+/obj/item/stack/material/woodlog/full,
+/obj/item/stack/material/woodlog/full,
+/obj/item/stack/material/woodlog/full,
+/obj/structure/closet/crate/bin{
+	name = "fire wood bin"
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
+"rO" = (
+/obj/structure/bonfire/fireplace,
+/obj/structure/bedsheetbin{
+	pixel_y = -4;
+	pixel_x = 9
+	},
+/obj/item/clothing/under/tajaran/nka_uniform{
+	pixel_x = 10
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -543,10 +572,11 @@
 	},
 /area/nka_base)
 "Rg" = (
-/obj/machinery/light/small{
-	dir = 4
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = 11;
+	pixel_y = -11
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -865,8 +895,8 @@ DL
 DL
 DL
 DL
-DL
-DL
+qF
+jI
 DL
 DL
 DL
@@ -1134,7 +1164,7 @@ DL
 DL
 DL
 DL
-DL
+Rg
 DL
 DL
 yB
@@ -1173,7 +1203,7 @@ DL
 DL
 yB
 mb
-mB
+UX
 mB
 mB
 mB
@@ -1206,9 +1236,9 @@ DL
 DL
 DL
 yB
+rO
 Vy
 UX
-Rg
 pB
 nc
 Et
