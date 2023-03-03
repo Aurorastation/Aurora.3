@@ -201,6 +201,7 @@
 /obj/structure/sign/flag/pra/left{
 	pixel_y = -32
 	},
+/obj/item/folder/red,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
 	pixel_y = 5;
 	pixel_x = 8
