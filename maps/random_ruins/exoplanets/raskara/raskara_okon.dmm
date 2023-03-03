@@ -1036,9 +1036,7 @@
 	},
 /area/raskara_okon/engineer)
 "ms" = (
-/obj/machinery/mineral/unloading_machine{
-	dir = 1
-	},
+/obj/machinery/mineral/unloading_machine,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
@@ -1783,6 +1781,13 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/observatory)
+"xg" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/raskara_okon/engineer)
 "xn" = (
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
@@ -3886,7 +3891,7 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/door/window{
 	dir = 4;
-	req_one_access = "112"
+	req_access = list(209)
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -4239,7 +4244,7 @@ HX
 (8,1,1) = {"
 HX
 gs
-iS
+xg
 mL
 Pj
 gs
@@ -4273,7 +4278,7 @@ HX
 (9,1,1) = {"
 HX
 gs
-iS
+xg
 mL
 tj
 gs

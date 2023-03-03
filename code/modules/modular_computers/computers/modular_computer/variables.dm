@@ -79,6 +79,7 @@
 	var/obj/item/computer_hardware/tesla_link/tesla_link					// Tesla Link, Allows remote charging from nearest APC.
 	var/obj/item/device/paicard/personal_ai									// Personal AI, can control the device via a verb when installed
 	var/obj/item/computer_hardware/flashlight/flashlight
+	var/listener/listener
 
 	var/registered_message = ""
 

@@ -32,7 +32,7 @@
 	req_access = list(209);
 	name = "Outpost"
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -44,7 +44,8 @@
 	pixel_y = 32;
 	req_access = list(209)
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -52,7 +53,7 @@
 /obj/machinery/porta_turret/ballistic,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -83,7 +84,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -95,7 +96,7 @@
 	identifier = "psis_outpost";
 	name = "igs - psis_outpost"
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -114,7 +115,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -126,7 +127,7 @@
 	identifier = "psis_outpost";
 	name = "igs - psis_outpost"
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -134,7 +135,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -146,7 +147,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -169,7 +170,7 @@
 /obj/item/stamp/denied{
 	pixel_y = -2
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -180,7 +181,7 @@
 /obj/item/clothing/under/color/orange,
 /obj/item/clothing/under/color/orange,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -205,14 +206,14 @@
 	pixel_y = 5;
 	pixel_x = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
 "lf" = (
 /obj/machinery/porta_turret/ballistic,
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -238,7 +239,7 @@
 	pixel_x = 7;
 	pixel_y = 2
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -257,7 +258,7 @@
 /obj/item/device/binoculars,
 /obj/item/device/binoculars,
 /obj/item/device/binoculars,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -290,7 +291,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -312,7 +313,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -321,7 +322,7 @@
 	req_access = list(209);
 	name = "Cells"
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -329,7 +330,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -350,7 +351,7 @@
 	req_access = list(209);
 	pixel_y = 32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -368,7 +369,18 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"vL" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -377,7 +389,7 @@
 	dir = 4
 	},
 /obj/machinery/vending/cigarette,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -385,7 +397,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -393,7 +405,7 @@
 /obj/structure/sign/flag/pra{
 	pixel_x = -32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -410,7 +422,7 @@
 	dir = 10
 	},
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -418,7 +430,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -453,7 +465,7 @@
 /obj/machinery/door/blast/shutters{
 	id = "psis_outpost_shutter"
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -473,7 +485,7 @@
 /obj/structure/sign/flag/pra/right{
 	pixel_y = -32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -485,7 +497,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -493,7 +505,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -502,7 +514,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -530,7 +542,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -550,7 +562,7 @@
 /obj/structure/sign/flag/pra{
 	pixel_y = -32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -566,7 +578,16 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"Ke" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -594,7 +615,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -603,7 +624,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -614,7 +635,7 @@
 /obj/structure/sign/flag/pra{
 	pixel_x = -32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -625,7 +646,7 @@
 /obj/structure/sign/flag/pra{
 	pixel_x = 32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -640,7 +661,7 @@
 	pixel_y = 32
 	},
 /obj/structure/hadii_statue,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -668,13 +689,13 @@
 /obj/structure/sign/flag/pra{
 	pixel_y = 32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
 "PL" = (
 /obj/effect/floor_decal/corner/black,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -689,14 +710,14 @@
 /area/psis_outpost)
 "Qq" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
 "Qx" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/machinery/vending/snack,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -711,7 +732,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -720,7 +741,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -737,7 +758,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -748,7 +769,7 @@
 /turf/simulated/wall/r_wall,
 /area/psis_outpost)
 "Tn" = (
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -761,7 +782,7 @@
 /obj/structure/sign/flag/pra/left{
 	pixel_y = 32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -770,7 +791,7 @@
 	req_access = list(209);
 	name = "Office"
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -797,7 +818,7 @@
 	req_access = list(209);
 	name = "Interrogation"
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -805,7 +826,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -823,7 +844,7 @@
 	pixel_x = -8;
 	pixel_y = 5
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -831,7 +852,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -840,7 +861,7 @@
 	dir = 10
 	},
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -852,7 +873,7 @@
 /obj/item/book/manual/pra_manifesto,
 /obj/item/book/manual/pra_manifesto,
 /obj/item/book/manual/pra_manifesto,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -872,7 +893,7 @@
 /obj/structure/sign/flag/pra/right{
 	pixel_y = 32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -884,7 +905,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -904,7 +925,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = -32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -912,7 +933,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -920,7 +941,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -930,7 +951,7 @@
 	},
 /obj/item/clothing/under/color/orange,
 /obj/item/clothing/under/color/orange,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -1567,6 +1588,8 @@ Tn
 dd
 Ss
 bE
+Mq
+Ke
 Tn
 qO
 Gu
@@ -1601,7 +1624,7 @@ Mq
 Mq
 Mq
 Xm
-WA
+vL
 Lo
 WA
 Lo
