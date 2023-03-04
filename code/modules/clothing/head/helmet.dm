@@ -135,6 +135,8 @@
 	desc = "It's a helmet specifically designed to protect against close range attacks."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
 	icon_state = "helm_riot"
 	item_state = "helm_riot"
 	body_parts_covered = HEAD|FACE|EYES //face shield
