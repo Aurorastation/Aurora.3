@@ -534,18 +534,6 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"Hq" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
-/area/psis_outpost)
 "Iy" = (
 /obj/machinery/door/window/brigdoor{
 	dir = 8;
@@ -1638,11 +1626,11 @@ dd
 Mq
 Ke
 Tn
-Tn
-Tn
 qO
 Gu
-Hq
+Vr
+Tn
+WD
 Mq
 TS
 dO
