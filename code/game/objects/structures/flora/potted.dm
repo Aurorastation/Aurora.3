@@ -1,10 +1,10 @@
-
 /obj/structure/flora/pottedplant
 	name = "potted plant"
 	desc = "A potted plant."
 	icon = 'icons/obj/plants.dmi'
 	icon_state = "plant-26"
 	anchored = FALSE
+	density = FALSE
 	var/dead = FALSE
 	var/obj/item/stored_item
 
