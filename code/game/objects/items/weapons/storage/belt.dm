@@ -582,3 +582,21 @@
 	item_state = "belt"
 	storage_slots = 1
 	max_w_class = ITEMSIZE_TINY
+
+/obj/item/storage/belt/generic/thin
+	name = "thin elastic belt"
+	icon_state = "thin_belt"
+	item_state = "thin_belt"
+
+/obj/item/storage/belt/generic/thick
+	name = "wide waist belt"
+	icon_state = "thick_belt"
+	item_state = "thick_belt"
+
+/obj/item/storage/belt/generic/buckle
+	name = "buckle belt"
+	desc = "A belt secured by a large golden buckle."
+	icon_state = "belt_b"
+	item_state = "belt_b"
+	build_from_parts = TRUE
+	worn_overlay = "buckle"
