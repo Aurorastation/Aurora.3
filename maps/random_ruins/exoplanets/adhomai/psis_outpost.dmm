@@ -926,6 +926,17 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
+"XM" = (
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -7
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 10
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/psis_outpost)
 "XR" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 10
@@ -1534,7 +1545,7 @@ Mq
 BW
 ZG
 ZG
-ZG
+XM
 Mq
 Kl
 Kl

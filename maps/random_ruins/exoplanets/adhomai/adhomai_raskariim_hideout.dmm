@@ -160,7 +160,7 @@
 "kX" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/reagent_dispensers/keg/mead{
-	reagents_to_add = list(/singleton/reagent/water = 1000);
+	reagents_to_add = list(/singleton/reagent/water=1000);
 	name = "water barrel"
 	},
 /turf/simulated/floor/tiled/white{
@@ -442,7 +442,9 @@
 	},
 /area/adhomai_raskariim_hideout)
 "xs" = (
-/obj/structure/bonfire/fireplace,
+/obj/structure/bonfire/fireplace{
+	density = 0
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},

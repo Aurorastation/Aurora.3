@@ -194,10 +194,6 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"im" = (
-/obj/structure/extinguisher_cabinet,
-/turf/simulated/wall/iron,
-/area/ala_base)
 "iM" = (
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark{
@@ -249,6 +245,14 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
+/obj/structure/filingcabinet{
+	pixel_x = 12;
+	pixel_y = 23;
+	density = 0
+	},
+/obj/structure/sign/flag/dpra{
+	pixel_y = 32
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -295,9 +299,12 @@
 "nu" = (
 /obj/structure/sign/emergency/meetingpoint{
 	name = "\improper AID STATION sign";
-	desc = "A green sign which showcases the location of a medical aid station."
+	desc = "A green sign which showcases the location of a medical aid station.";
+	pixel_x = 32
 	},
-/turf/simulated/wall/wood,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
 /area/ala_base)
 "nE" = (
 /obj/structure/simple_door/wood,
@@ -605,6 +612,9 @@
 /area/ala_base)
 "wf" = (
 /obj/machinery/light,
+/obj/structure/sign/flag/dpra{
+	pixel_y = -33
+	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -632,7 +642,6 @@
 /area/ala_base)
 "wH" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/structure/curtain/black,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -863,10 +872,12 @@
 	},
 /area/ala_base)
 "BV" = (
-/obj/structure/noticeboard{
-	icon_state = "nboard03"
+/obj/structure/curtain/black{
+	pixel_y = 32
 	},
-/turf/simulated/wall/iron,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
 /area/ala_base)
 "Ci" = (
 /obj/structure/table/wood/gamblingtable,
@@ -1130,6 +1141,9 @@
 /area/ala_base)
 "LP" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 31
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -1224,9 +1238,12 @@
 /area/ala_base)
 "Od" = (
 /obj/structure/noticeboard{
-	icon_state = "nboard04"
+	icon_state = "nboard03";
+	pixel_x = 32
 	},
-/turf/simulated/wall/iron,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
 /area/ala_base)
 "Ol" = (
 /obj/structure/table/rack,
@@ -1359,7 +1376,9 @@
 	},
 /area/exoplanet/adhomai)
 "TB" = (
-/obj/structure/light_pole/r,
+/obj/structure/light_pole/r{
+	density = 0
+	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -1373,8 +1392,13 @@
 	},
 /area/ala_base)
 "VN" = (
-/obj/structure/sign/flag/dpra,
-/turf/simulated/wall/iron,
+/obj/structure/noticeboard{
+	icon_state = "nboard04";
+	pixel_x = -32
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
 /area/ala_base)
 "Wl" = (
 /obj/structure/sign/painting_frame/nated{
@@ -1395,9 +1419,8 @@
 	},
 /area/exoplanet/adhomai)
 "XN" = (
-/obj/structure/filingcabinet{
-	pixel_x = -12;
-	pixel_y = 23
+/obj/structure/curtain/black{
+	pixel_y = 32
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -1755,7 +1778,7 @@ vi
 Ty
 Hq
 Hq
-Od
+Hq
 Hq
 DB
 DB
@@ -1794,7 +1817,7 @@ vi
 ut
 Hq
 DU
-oA
+VN
 uk
 DB
 DB
@@ -1936,7 +1959,7 @@ iP
 rp
 DB
 DB
-VN
+Hq
 lI
 LV
 uM
@@ -1989,7 +2012,7 @@ vi
 ut
 Hq
 LW
-oA
+Od
 uk
 DB
 qA
@@ -2028,7 +2051,7 @@ vi
 Ty
 Hq
 Hq
-BV
+Hq
 Hq
 DB
 DB
@@ -2115,7 +2138,7 @@ qA
 qA
 DB
 DB
-im
+Hq
 LP
 ui
 uO
@@ -2149,7 +2172,7 @@ Hq
 qm
 zC
 wH
-DB
+BV
 qA
 qA
 qA
@@ -2305,7 +2328,7 @@ DB
 DB
 DB
 DB
-DB
+nu
 qA
 Cj
 nR
@@ -2344,7 +2367,7 @@ DB
 DB
 DB
 yS
-nu
+yS
 nE
 yS
 yS

@@ -181,6 +181,16 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"iB" = (
+/obj/structure/sign/emergency/meetingpoint{
+	name = "\improper AID STATION sign";
+	desc = "A green sign which showcases the location of a medical aid station.";
+	pixel_y = -29
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_base)
 "jE" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 8
@@ -426,6 +436,9 @@
 	},
 /obj/effect/floor_decal/concrete/large{
 	dir = 1
+	},
+/obj/item/storage/box/folders{
+	pixel_y = 13
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
@@ -1070,6 +1083,15 @@
 	temperature = 278.15
 	},
 /area/pra_base)
+"Qk" = (
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 31
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
 "Qx" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/concrete{
@@ -1188,11 +1210,22 @@
 	},
 /area/pra_base)
 "UF" = (
-/obj/structure/sign/emergency/meetingpoint{
-	name = "\improper AID STATION sign";
-	desc = "A green sign which showcases the location of a medical aid station."
+/obj/machinery/button/remote/blast_door{
+	id = "pra_camp_entry";
+	name = "Entry";
+	req_access = list(209);
+	pixel_y = 32
 	},
-/turf/simulated/wall/concrete,
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 8
+	},
+/obj/item/storage/toolbox/electrical,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
 /area/pra_base)
 "UU" = (
 /obj/machinery/light/small{
@@ -1200,11 +1233,13 @@
 	},
 /obj/structure/filingcabinet{
 	pixel_x = -9;
-	pixel_y = 14
+	pixel_y = 14;
+	density = 0
 	},
 /obj/structure/filingcabinet{
 	pixel_x = 5;
-	pixel_y = 14
+	pixel_y = 14;
+	density = 0
 	},
 /turf/simulated/floor/wood,
 /area/pra_base)
@@ -1305,10 +1340,12 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/obj/item/handcuffs,
 /obj/effect/floor_decal/concrete/large{
 	dir = 1
 	},
+/obj/item/folder/yellow,
+/obj/item/folder/yellow,
+/obj/item/handcuffs,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -1762,7 +1799,7 @@ vi
 vi
 vi
 gU
-St
+UF
 DL
 gU
 lC
@@ -2012,7 +2049,7 @@ CO
 Lu
 kq
 gU
-wB
+Qk
 wB
 Wc
 Sr
@@ -2323,8 +2360,8 @@ wB
 Wc
 Sr
 dH
-wB
-UF
+iB
+gU
 vD
 Se
 OF

@@ -46,15 +46,6 @@
 	temperature = 268.15
 	},
 /area/nka_base)
-"dH" = (
-/obj/structure/table/rack,
-/obj/item/shovel,
-/obj/item/shovel,
-/obj/item/shovel,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/nka_base)
 "eF" = (
 /obj/structure/simple_door/wood,
 /turf/space,
@@ -113,11 +104,13 @@
 	},
 /area/exoplanet/adhomai)
 "jN" = (
-/obj/structure/sign/emergency/meetingpoint{
-	name = "\improper AID STATION sign";
-	desc = "A green sign which showcases the location of a medical aid station."
+/obj/structure/table/rack,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/shovel,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
 	},
-/turf/simulated/wall/wood,
 /area/nka_base)
 "ka" = (
 /obj/structure/bed/padded,
@@ -238,6 +231,14 @@
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"sR" = (
+/obj/structure/curtain/black{
+	pixel_y = -33
+	},
+/turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -422,7 +423,9 @@
 	},
 /area/nka_base)
 "Ab" = (
-/obj/structure/bonfire/fireplace,
+/obj/structure/bonfire/fireplace{
+	density = 0
+	},
 /obj/structure/bedsheetbin{
 	pixel_y = -4;
 	pixel_x = 9
@@ -540,10 +543,13 @@
 	},
 /area/nka_base)
 "Fo" = (
-/turf/simulated/floor/exoplanet/barren{
+/obj/structure/table/rack,
+/obj/item/wrench,
+/obj/item/screwdriver,
+/turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
-/area/exoplanet/adhomai)
+/area/nka_base)
 "IG" = (
 /obj/structure/closet/outhouse,
 /turf/simulated/floor/exoplanet/snow{
@@ -578,9 +584,27 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"Kr" = (
+/obj/structure/sign/emergency/meetingpoint{
+	name = "\improper AID STATION sign";
+	desc = "A green sign which showcases the location of a medical aid station.";
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/nka_base)
 "Md" = (
 /obj/machinery/light/small{
 	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
+"Nl" = (
+/obj/structure/sign/painting_frame/shumaila{
+	pixel_y = 31
 	},
 /turf/simulated/floor/tiled{
 	temperature = 268.15
@@ -639,7 +663,6 @@
 /area/nka_base)
 "Rg" = (
 /obj/effect/map_effect/window_spawner/basic,
-/obj/structure/curtain/black,
 /turf/simulated/floor/tiled{
 	temperature = 268.15
 	},
@@ -690,10 +713,11 @@
 	},
 /area/nka_base)
 "Uz" = (
-/obj/structure/sign/painting_frame/shumaila{
-	pixel_x = -32
+/obj/item/torch,
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
 	},
-/turf/simulated/wall/wood,
 /area/nka_base)
 "UX" = (
 /obj/structure/bed/stool/bar/padded/brown,
@@ -786,9 +810,9 @@
 /area/nka_base)
 
 (1,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 vi
 vi
 vi
@@ -820,9 +844,9 @@ vi
 vi
 "}
 (2,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 vi
 vi
 vi
@@ -854,9 +878,9 @@ vi
 vi
 "}
 (3,1,1) = {"
-vi
-vi
-hT
+DL
+DL
+pV
 vi
 vi
 vi
@@ -888,9 +912,9 @@ vi
 vi
 "}
 (4,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 EK
 EK
 EK
@@ -922,9 +946,9 @@ EK
 EK
 "}
 (5,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 CO
 CO
 CO
@@ -956,8 +980,8 @@ DL
 gU
 "}
 (6,1,1) = {"
-hT
-vi
+pV
+DL
 lX
 CO
 St
@@ -970,7 +994,7 @@ DL
 DL
 hK
 wy
-DL
+Uz
 DL
 DL
 DL
@@ -990,9 +1014,9 @@ DL
 gU
 "}
 (7,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 CO
 Xb
 mj
@@ -1024,9 +1048,9 @@ DL
 gU
 "}
 (8,1,1) = {"
-Fo
-Fo
-Fo
+EP
+EP
+EP
 oA
 EP
 EP
@@ -1058,9 +1082,9 @@ DL
 gU
 "}
 (9,1,1) = {"
-Fo
-Fo
-Fo
+EP
+EP
+EP
 gU
 DL
 DL
@@ -1092,9 +1116,9 @@ DL
 gU
 "}
 (10,1,1) = {"
-Fo
-Fo
-Fo
+EP
+EP
+EP
 oA
 EP
 EP
@@ -1126,9 +1150,9 @@ DL
 gU
 "}
 (11,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 EK
 EK
@@ -1147,8 +1171,8 @@ DL
 DL
 DL
 DL
-DL
-dH
+Fo
+jN
 DL
 EP
 EP
@@ -1160,9 +1184,9 @@ DL
 gU
 "}
 (12,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1194,9 +1218,9 @@ yB
 gU
 "}
 (13,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1228,9 +1252,9 @@ yB
 gU
 "}
 (14,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1264,7 +1288,7 @@ gU
 (15,1,1) = {"
 vi
 vi
-vi
+DL
 gU
 DL
 DL
@@ -1287,8 +1311,8 @@ aa
 yB
 DL
 EP
-EP
-jN
+Kr
+yB
 Em
 TH
 SZ
@@ -1296,9 +1320,9 @@ yB
 gU
 "}
 (16,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1330,9 +1354,9 @@ yB
 gU
 "}
 (17,1,1) = {"
+DL
 vi
-vi
-vi
+DL
 gU
 DL
 DL
@@ -1366,7 +1390,7 @@ gU
 (18,1,1) = {"
 vi
 vi
-vi
+DL
 gU
 DL
 DL
@@ -1398,9 +1422,9 @@ DL
 gU
 "}
 (19,1,1) = {"
-vi
-hT
-vi
+DL
+pV
+DL
 gU
 DL
 DL
@@ -1434,7 +1458,7 @@ gU
 (20,1,1) = {"
 vi
 vi
-vi
+DL
 gU
 DL
 DL
@@ -1466,9 +1490,9 @@ DL
 gU
 "}
 (21,1,1) = {"
+DL
 vi
-vi
-vi
+DL
 gU
 DL
 DL
@@ -1500,9 +1524,9 @@ DL
 gU
 "}
 (22,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1534,9 +1558,9 @@ DL
 gU
 "}
 (23,1,1) = {"
+DL
 vi
-vi
-vi
+DL
 gU
 DL
 DL
@@ -1568,9 +1592,9 @@ DL
 gU
 "}
 (24,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1593,7 +1617,7 @@ DL
 DL
 DL
 EP
-EP
+sR
 Rg
 gF
 YC
@@ -1602,9 +1626,9 @@ DL
 gU
 "}
 (25,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1636,9 +1660,9 @@ DL
 gU
 "}
 (26,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1663,16 +1687,16 @@ EP
 EP
 EP
 yB
-Rb
+Nl
 ka
 yB
 DL
 gU
 "}
 (27,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1696,7 +1720,7 @@ EP
 EP
 EP
 EP
-Uz
+yB
 yB
 yB
 yB
@@ -1704,9 +1728,9 @@ DL
 gU
 "}
 (28,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1738,9 +1762,9 @@ DL
 gU
 "}
 (29,1,1) = {"
-vi
-hT
-vi
+DL
+pV
+DL
 EK
 EK
 EK
@@ -1772,9 +1796,9 @@ EK
 EK
 "}
 (30,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 vi
 vi
 vi
@@ -1806,9 +1830,9 @@ vi
 vi
 "}
 (31,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 vi
 vi
 vi
@@ -1840,9 +1864,9 @@ vi
 vi
 "}
 (32,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 vi
 hT
 vi
