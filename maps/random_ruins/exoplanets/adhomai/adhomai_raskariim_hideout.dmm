@@ -6,16 +6,6 @@
 	temperature = 278.15
 	},
 /area/adhomai_raskariim_hideout)
-"aW" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/small{
-	brightness_color = "#FA8282";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
-	},
-/area/adhomai_raskariim_hideout)
 "bk" = (
 /obj/structure/railing/fence{
 	dir = 1
@@ -105,12 +95,6 @@
 /area/exoplanet/adhomai)
 "ez" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/adhomai_raskariim_hideout)
-"eU" = (
-/obj/item/storage/box/fancy/candle_box,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -207,6 +191,16 @@
 	temperature = 278.15
 	},
 /area/adhomai_raskariim_hideout)
+"nm" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_raskariim_hideout)
 "or" = (
 /obj/item/reagent_containers/pill/happy{
 	pixel_y = -5;
@@ -215,10 +209,6 @@
 /obj/item/reagent_containers/pill/zoom{
 	pixel_y = 8;
 	pixel_x = -4
-	},
-/obj/machinery/light/small{
-	brightness_color = "#FA8282";
-	dir = 1
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -322,11 +312,7 @@
 	},
 /area/adhomai_raskariim_hideout)
 "tY" = (
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
-	pixel_y = 6;
-	pixel_x = 5
-	},
+/obj/machinery/light/small/red,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -497,6 +483,16 @@
 /obj/item/material/kitchen/utensil/knife,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
+	},
+/area/adhomai_raskariim_hideout)
+"zd" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
 	},
 /area/adhomai_raskariim_hideout)
 "zn" = (
@@ -846,6 +842,12 @@
 "WO" = (
 /turf/simulated/wall/wood,
 /area/adhomai_raskariim_hideout)
+"XF" = (
+/obj/item/storage/box/fancy/candle_box,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskariim_hideout)
 "Yu" = (
 /obj/effect/ghostspawpoint{
 	identifier = "raskariim_hideout";
@@ -1018,7 +1020,7 @@ WO
 DU
 SE
 SE
-rA
+SE
 Ml
 WO
 zC
@@ -1067,7 +1069,7 @@ SE
 Yu
 OF
 Yu
-uQ
+tY
 WO
 SE
 jX
@@ -1136,7 +1138,7 @@ CS
 WM
 WO
 Jq
-eU
+XF
 SE
 Ew
 SE
@@ -1173,7 +1175,7 @@ WO
 bE
 SE
 SE
-tY
+zd
 WO
 WO
 WO
@@ -1239,7 +1241,7 @@ zn
 SE
 DD
 WO
-aW
+nm
 Hn
 Hn
 Hn
