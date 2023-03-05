@@ -5,7 +5,6 @@
 
 	spawn_weight = 1
 	spawn_cost = 2
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	sectors = list(SECTOR_SRANDMARR)
 	suffixes = list("adhomai/psis_outpost.dmm")
 
