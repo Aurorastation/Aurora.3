@@ -578,7 +578,8 @@
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
 	req_one_access = null;
-	req_access = list(209)
+	req_access = list(209);
+	department = "Unknown Signal"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9

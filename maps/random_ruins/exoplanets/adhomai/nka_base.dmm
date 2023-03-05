@@ -46,6 +46,15 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"dH" = (
+/obj/structure/table/rack,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/shovel,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
 "eF" = (
 /obj/structure/simple_door/wood,
 /turf/space,
@@ -535,15 +544,6 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"Gc" = (
-/obj/structure/table/rack,
-/obj/item/shovel,
-/obj/item/shovel,
-/obj/item/shovel,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/nka_base)
 "IG" = (
 /obj/structure/closet/outhouse,
 /turf/simulated/floor/exoplanet/snow{
@@ -604,6 +604,21 @@
 /obj/item/flame/lighter/adhomai,
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/item/key{
+	key_data = "nka_armory";
+	name = "armory key";
+	pixel_x = 5
+	},
+/obj/item/key{
+	key_data = "nka_cell";
+	name = "cell key";
+	pixel_x = -5
+	},
+/obj/item/key{
+	key_data = "nka_commander";
+	name = "officer room key";
+	pixel_x = -5
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -760,21 +775,10 @@
 /area/nka_base)
 "YD" = (
 /obj/structure/table/wood,
-/obj/item/key{
-	key_data = "nka_armory";
-	name = "armory key";
-	pixel_x = 5
-	},
-/obj/item/key{
-	key_data = "nka_commander";
-	name = "officer room key";
-	pixel_x = -5
-	},
 /obj/machinery/light/small,
-/obj/item/key{
-	key_data = "nka_cell";
-	name = "cell key";
-	pixel_x = -5
+/obj/machinery/photocopier/faxmachine{
+	department = "NKA Outpost";
+	req_one_access = null
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -1144,7 +1148,7 @@ DL
 DL
 DL
 DL
-Gc
+dH
 DL
 EP
 EP
