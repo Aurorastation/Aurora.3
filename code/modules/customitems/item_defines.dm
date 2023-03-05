@@ -2087,7 +2087,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 	contained_sprite = TRUE
 
-/obj/item/clothing/glasses/sunglasses/fluff/lyod_snowglasses // Lyod snowglasses - Ravna Surtaeva - Sycmos
+
+/obj/item/clothing/glasses/sunglasses/fluff/lyod_snowglasses //Lyod snowglasses - Ravna Surtaeva - sycmos
 	name = "\improper Lyod snowglasses"
 	desc = "A pair of protective glasses hand-sculpted of reindeer antler, intended for use in arctic climates to protect from snow blindness."
 	icon = 'icons/obj/custom_items/ravna_items.dmi'
@@ -2097,11 +2098,36 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	flash_protection = FLASH_PROTECTION_NONE
 
-/obj/item/clothing/suit/storage/toggle/fluff/prejoroub_fur_longcoat // prejoroub fur longcoat - Ravna Surtaeva - Sycmos
+/obj/item/clothing/suit/storage/toggle/fluff/prejoroub_fur_longcoat //Prejoroub Fur Longcoat - Ravna Surtaeva - sycmos
 	name = "prejoroub fur longcoat"
 	desc = "A dense and heavy longcoat of dyed tenelote leather, with a liner and collar of prejoroub fur and decorative trimming throughout."
 	icon = 'icons/obj/custom_items/ravna_items.dmi'
 	icon_override = 'icons/obj/custom_items/ravna_items.dmi'
 	icon_state = "ravna_coat"
 	item_state = "ravna_coat"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/armor/carrier/fluff/abbasi_carrier //Medinan Mercenary's Plate Carrier - Shirin Abbasi - persephoneq
+	name = "medinan mercenary's plate carrier"
+	desc = "A flashy and apparently well-made plate carrier. This one seems well-maintained, if quite worn-in. It's design is reminiscent of the ornate and intricate patterns of \
+	Medinan make, though someone has written various colorful epithets such as 'AIM HERE' over the heart and 'KICK ME' on the back in Elyran Standard. A patch on the center depicts a \
+	golden jackal with a challenging and cheerful grin, a chunk of phoron held between it's teeth. On the left shoulder, a much newer patch is sewn in depicting the insignia of the \
+	SCC Chainlink. Beneath it is stitched 'ABBASI'."
+	icon = 'icons/obj/custom_items/abbasi_carrier.dmi'
+	icon_override = 'icons/obj/custom_items/abbasi_carrier.dmi'
+	icon_state = "abbasi_carrier"
+	item_state = "abbasi_carrier"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/toggle/fluff/prejoroub_fur_longcoat //Renewed Antiquated Labcoat - Freedom Of Self Shackled By Unending Greed - lmwevil
+	name = "renewed antiquated labcoat"
+	desc = "An ancient labcoat from the Narrows, recently revitalized with extreme tailoring to become a symbol of unity between the Conglomerate and Dionae across the spur after the \
+	allowance of Dionae as Executive Officers aboard the Horizon. It must have cost a substantial sum to fix the century old labcoat back up to scratch. On the left arm is a beautifully \
+	sewn on patch that reads \"A block\"."
+	icon = 'icons/obj/custom_items/freedom_coat.dmi'
+	icon_override = 'icons/obj/custom_items/freedom_coat.dmi'
+	icon_state = "freedom_coat"
+	item_state = "freedom_coat"
 	contained_sprite = TRUE
