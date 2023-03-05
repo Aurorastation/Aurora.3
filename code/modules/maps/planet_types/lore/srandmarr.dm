@@ -136,7 +136,7 @@
 	place_near_main = list(2, 2)
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/pre_ruin_preparation()
-	var/landing_faction = pick("New Kingdom of Adhomai")
+	var/landing_faction = pick("People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai")
 	switch(landing_faction)
 		if("People's Republic of Adhomai")
 			possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
