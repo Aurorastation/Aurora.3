@@ -462,10 +462,12 @@
 				usr.m_intent = M_WALK
 			if(M_WALK)
 				usr.m_intent = M_RUN
+
 			if(M_LAY)
 
 				// No funny "haha i get the bonuses then stand up"
-				if(C.get_type_in_hands(/obj/item/gun)?.wielded)
+				var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
+				if(gun_in_hand.wielded)
 					to_chat(C, "You cannot wield and stand up!")
 					return
 
@@ -475,7 +477,8 @@
 		if(modifiers["button"] == "middle" && !C.lying)	// See /mob/proc/update_canmove() for more logic on the lying FSM
 
 			// You want this bonus weapon or not? Wield it when you are lying, not before!
-			if(C.get_type_in_hands(/obj/item/gun)?.wielded)
+			var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
+			if(gun_in_hand.wielded)
 				to_chat(C, "You cannot wield and lie down!")
 				return
 			C.m_intent = M_LAY
