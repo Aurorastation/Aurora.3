@@ -6,6 +6,16 @@
 	temperature = 278.15
 	},
 /area/adhomai_raskariim_hideout)
+"aW" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_raskariim_hideout)
 "bk" = (
 /obj/structure/railing/fence{
 	dir = 1
@@ -95,6 +105,12 @@
 /area/exoplanet/adhomai)
 "ez" = (
 /obj/structure/table/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskariim_hideout)
+"eU" = (
+/obj/item/storage/box/fancy/candle_box,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -200,6 +216,10 @@
 	pixel_y = 8;
 	pixel_x = -4
 	},
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -244,7 +264,7 @@
 	},
 /area/adhomai_raskariim_hideout)
 "rw" = (
-/obj/structure/bed/stool/chair/sofa/left/beige{
+/obj/structure/bed/stool/chair/sofa/left/black{
 	dir = 1
 	},
 /turf/simulated/floor/wood{
@@ -302,7 +322,11 @@
 	},
 /area/adhomai_raskariim_hideout)
 "tY" = (
-/obj/machinery/light/small/red,
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp{
+	pixel_y = 6;
+	pixel_x = 5
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -337,6 +361,9 @@
 /obj/item/reagent_containers/glass/bucket/wood{
 	pixel_x = -4;
 	pixel_y = 9
+	},
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -573,8 +600,8 @@
 /area/adhomai_raskariim_hideout)
 "HE" = (
 /obj/item/handcuffs/cable/random,
-/obj/machinery/light/small/red,
 /obj/item/handcuffs/cable/random,
+/obj/machinery/light/small,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -586,6 +613,9 @@
 /obj/item/storage/box/fancy/cigarettes/dpra{
 	pixel_y = -2;
 	pixel_x = -7
+	},
+/obj/machinery/light/small{
+	dir = 8
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -648,6 +678,9 @@
 	pixel_x = 7
 	},
 /obj/item/material/kitchen/utensil/knife,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -749,6 +782,7 @@
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/poppet,
+/obj/machinery/light/small,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -817,6 +851,7 @@
 	identifier = "raskariim_hideout";
 	name = "igs - raskariim_hideout"
 	},
+/obj/item/flame/candle,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -983,7 +1018,7 @@ WO
 DU
 SE
 SE
-SE
+rA
 Ml
 WO
 zC
@@ -1032,7 +1067,7 @@ SE
 Yu
 OF
 Yu
-tY
+uQ
 WO
 SE
 jX
@@ -1101,7 +1136,7 @@ CS
 WM
 WO
 Jq
-SE
+eU
 SE
 Ew
 SE
@@ -1138,7 +1173,7 @@ WO
 bE
 SE
 SE
-ez
+tY
 WO
 WO
 WO
@@ -1204,7 +1239,7 @@ zn
 SE
 DD
 WO
-Hn
+aW
 Hn
 Hn
 Hn
