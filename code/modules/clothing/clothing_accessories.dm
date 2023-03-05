@@ -108,6 +108,7 @@
 	src.verbs |= /obj/item/clothing/proc/removetie_verb
 	update_clothing_icon()
 	update_accessory_slowdown()
+	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
 	if(!(A in accessories))
@@ -117,6 +118,7 @@
 	LAZYREMOVE(accessories, A)
 	update_clothing_icon()
 	update_accessory_slowdown()
+	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/removetie_verb()
 	set name = "Remove Accessory"
@@ -132,7 +134,7 @@
 
 	if(!LAZYLEN(accessories))
 		return
-	
+
 	var/obj/item/clothing/accessory/A
 	if(LAZYLEN(accessories) > 1)
 		var/list/options = list()

@@ -101,6 +101,11 @@
 	path = /obj/item/clothing/head/beret/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/head/sidecap
+	display_name = "side cap"
+	path = /obj/item/clothing/head/sidecap
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/warden
 	display_name = "headwear, security (warden)"
 	description = "A selection of warden headwear."
@@ -315,6 +320,11 @@
 /datum/gear/head/konyang
 	display_name = "gat"
 	path = /obj/item/clothing/head/konyang
+
+/datum/gear/head/hachimaki
+	display_name = "konyanger hachimaki"
+	path = /obj/item/clothing/head/hachimaki
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/iac
 	display_name = "IAC headgear selection"

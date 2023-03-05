@@ -227,7 +227,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, damaging the internal structure of [target]'s [affected.name]."),
 		SPAN_WARNING("Your [tool.name] slips, damaging the internal structure of [target]'s [affected.name]."))
-	target.apply_damage(rand(5,10), BURN, affected)
+	target.apply_damage(rand(5,10), DAMAGE_BURN, affected)
 
 /singleton/surgery_step/robotics/repair_burn
 	name = "Repair Burns"
@@ -271,7 +271,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user] causes a short circuit in [target]'s [affected.name]!"),
 		SPAN_WARNING("You cause a short circuit in [target]'s [affected.name]!"))
-	target.apply_damage(rand(5,10), BURN, affected)
+	target.apply_damage(rand(5,10), DAMAGE_BURN, affected)
 
 /singleton/surgery_step/robotics/detach_organ_robotic
 	name = "Detach Robotic Organ"

@@ -174,16 +174,16 @@
 	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/overalls_mining
-	display_name = "overalls, mining"
-	path = /obj/item/clothing/accessory/storage/overalls/mining
-	allowed_roles = list("Shaft Miner", "Xenoarchaeologist")
-	cost = 2
-
 /datum/gear/accessory/overalls_engineer
 	display_name = "overalls, engineering"
 	path = /obj/item/clothing/accessory/storage/overalls/engineer
 	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	cost = 2
+
+/datum/gear/accessory/overalls_mining
+	display_name = "overalls, mining"
+	path = /obj/item/clothing/accessory/storage/overalls/mining
+	allowed_roles = list("Shaft Miner", "Xenoarchaeologist")
 	cost = 2
 
 /datum/gear/accessory/sweater
@@ -575,3 +575,23 @@
 	aodai["ao dai, new hai phong cut"] = /obj/item/clothing/accessory/aodai/nhp
 	aodai["ao dai, masculine formalwear"] = /obj/item/clothing/accessory/aodai/masc
 	gear_tweaks += new /datum/gear_tweak/path(aodai)
+
+/datum/gear/accessory/temperature
+	display_name = "temperature packs"
+	description = "A nice little pack that heats/cools you when worn under your clothes!"
+	path = /obj/item/clothing/accessory/temperature
+	flags = 0
+
+/datum/gear/accessory/temperature/New()
+	..()
+	var/list/temperature = list()
+	for(var/temp_path in subtypesof(/obj/item/clothing/accessory/temperature))
+		var/obj/item/clothing/accessory/temperature/temp_pack = temp_path
+		temperature[initial(temp_pack.name)] = temp_path
+	gear_tweaks += new /datum/gear_tweak/path(temperature)
+
+/datum/gear/accessory/necklace
+	display_name = "necklace (colorable)"
+	description = "A piece of jewelry that goes around your neck."
+	path = /obj/item/clothing/accessory/necklace
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

@@ -49,7 +49,7 @@
 					damage_coef -= 0.2
 					return
 
-				if(H.apply_damage(25 * damage_coef, BRUTE, affecting))
+				if(H.apply_damage(25 * damage_coef, DAMAGE_BRUTE, affecting))
 					H.updatehealth()
 
 					if(H.can_feel_pain())

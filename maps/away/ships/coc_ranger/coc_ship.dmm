@@ -4053,8 +4053,8 @@
 /obj/item/clothing/head/beret/colorable/random,
 /obj/item/clothing/head/headbando/random,
 /obj/item/clothing/head/headbando/random,
-/obj/item/clothing/suit/apron/overalls/random,
-/obj/item/clothing/suit/apron/overalls/random,
+/obj/item/clothing/accessory/apron/random,
+/obj/item/clothing/accessory/apron/random,
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
 /obj/item/clothing/suit/storage/toggle/trench/colorable/random,
@@ -4177,12 +4177,18 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/item/grenade/frag{
-	desc = "A military fragmentation grenade, designed to explode in a deadly shower of fragments. This one has the word 'CATCH!!' written on it in white paint."
-	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
@@ -4310,6 +4316,9 @@
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
+	},
+/obj/item/grenade/frag{
+	desc = "A military fragmentation grenade, designed to explode in a deadly shower of fragments. This one has the word 'CATCH!!' written on it in white paint."
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)

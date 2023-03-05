@@ -69,8 +69,8 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/proc/damagecrunch(mob/living/carbon/human/user)
 	if(src == user.wear_mask) // are we still chewing the gum?
-		user.apply_damage(damage_per_crunch, BRUTE, BP_HEAD)
-		user.apply_damage(damage_per_crunch/2, PAIN, BP_HEAD)
+		user.apply_damage(damage_per_crunch, DAMAGE_BRUTE, BP_HEAD)
+		user.apply_damage(damage_per_crunch/2, DAMAGE_PAIN, BP_HEAD)
 		to_chat(user, SPAN_DANGER("You bite down hard on \the [name]!"))
 	crunching = FALSE
 

@@ -16,8 +16,9 @@
 	name = "Hailstorm Ship"
 	desc = "A skipjack armed with multiple mass-driver weapons designed for patrolling and brief engagements. When used for patrols, the Hailstorm is loaded with supplies to last weeks on its own; its crew is specifically trained to be as frugal as possible while aboard."
 	class = "DPRAMV" //Democratic People's Republic of Adhomai Vessel
-	icon_state = "ship"
-	moving_state = "ship_moving"
+	icon_state = "hailstorm"
+	moving_state = "hailstorm_moving"
+	colors = list("#B9BDC4")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
@@ -63,6 +64,7 @@
 	desc = "A simple and reliable shuttle design used by the Spacer Militia Shuttle."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	colors = list("#B9BDC4")
 	class = "DPRAMV"
 	designation = "Yve'kha"
 	shuttle = "Spacer Militia Shuttle"

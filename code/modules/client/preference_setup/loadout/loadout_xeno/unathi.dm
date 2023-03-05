@@ -69,6 +69,22 @@
 	un_gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather/unathi
 	gear_tweaks += new /datum/gear_tweak/path(un_gloves)
 
+/datum/gear/gloves/unathi_full_leather
+	display_name = "unathi full leather gloves (colourable)"
+	path = /obj/item/clothing/gloves/black_leather/colour/unathi
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/gloves/unathi_evening
+	display_name = "unathi evening gloves"
+	path = /obj/item/clothing/gloves/evening/unathi
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/gloves/unathi_handwraps
 	display_name = "cloth handwraps"
 	path = /obj/item/clothing/gloves/unathi
@@ -117,7 +133,7 @@
 	path = /obj/item/organ/external/hand/right/autakh/tool
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	cost = 3
+	cost = 2
 	allowed_roles = list("Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist")
 	flags = GEAR_NO_SELECTION
 
@@ -127,7 +143,7 @@
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	cost = 3
+	cost = 2
 	allowed_roles = list("Shaft Miner")
 	flags = GEAR_NO_SELECTION
 
@@ -137,7 +153,7 @@
 	path = /obj/item/organ/external/hand/right/autakh/medical
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	cost = 3
+	cost = 2
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
 	flags = GEAR_NO_SELECTION
 
@@ -147,7 +163,7 @@
 	path = /obj/item/organ/external/hand/right/autakh/security
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	cost = 3
+	cost = 2
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
 	flags = GEAR_NO_SELECTION
 
@@ -212,7 +228,7 @@
 	description = "A rune inscribed mirror or piece of glass placed behind the eyes. Believed to \
 	be the 'Window to the Soul' and house the concentrated spirit of an individual."
 	path = /obj/item/organ/internal/anchor
-	cost = 1
+	cost = 0
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
@@ -221,23 +237,27 @@
 	description = "An Aut'akh augment that allows the user to run at high speeds without the cost \
 	of stamina, causes damage to the lower body when used."
 	path = /obj/item/organ/internal/augment/calf_override
+	cost = 1
 
 /datum/gear/augment/autakh/protein_valve
 	display_name = "protein breakdown valve"
 	description = "An aut'akh valve on the chest that releases a dangerous chemical into the \
 	stomach, forcing rapid digestion for immediate adrenal stimulation. Causes long-term damage."
 	path = /obj/item/organ/internal/augment/protein_valve
+	cost = 1
 
 /datum/gear/augment/autakh/venomous_rest
 	display_name = "venomous rest implant"
 	description = "An aut'akh compartment connected to the blood system that administers a \
 	traditional Unathi healing agent."
 	path = /obj/item/organ/internal/augment/venomous_rest
+	cost = 1
 
 /datum/gear/augment/autakh/eyes
 	display_name = "eye augment selection"
 	description = "A selection of au'takh eye augments."
 	path = /obj/item/organ/internal/augment/farseer_eye
+	cost = 1
 
 /datum/gear/augment/autakh/eyes/New()
 	..()
