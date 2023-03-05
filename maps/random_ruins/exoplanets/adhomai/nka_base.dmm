@@ -12,6 +12,14 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"ak" = (
+/obj/structure/sign/painting_frame/shumaila{
+	pixel_y = 31
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
 "bK" = (
 /obj/item/reagent_containers/glass/bucket/wood{
 	pixel_x = 11;
@@ -47,8 +55,14 @@
 	},
 /area/nka_base)
 "eF" = (
-/obj/structure/simple_door/wood,
-/turf/space,
+/obj/structure/sign/emergency/meetingpoint{
+	name = "\improper AID STATION sign";
+	desc = "A green sign which showcases the location of a medical aid station.";
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
 /area/nka_base)
 "fq" = (
 /obj/structure/bed/padded,
@@ -200,6 +214,14 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"pb" = (
+/obj/structure/table/rack,
+/obj/item/wrench,
+/obj/item/screwdriver,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
 "pB" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/tajara/jackboots,
@@ -231,14 +253,6 @@
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/nka_base)
-"sR" = (
-/obj/structure/curtain/black{
-	pixel_y = -33
-	},
-/turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -543,10 +557,10 @@
 	},
 /area/nka_base)
 "Fo" = (
-/obj/structure/table/rack,
-/obj/item/wrench,
-/obj/item/screwdriver,
-/turf/simulated/floor/exoplanet/snow{
+/obj/structure/curtain/black{
+	pixel_y = -33
+	},
+/turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -584,27 +598,9 @@
 	temperature = 268.15
 	},
 /area/nka_base)
-"Kr" = (
-/obj/structure/sign/emergency/meetingpoint{
-	name = "\improper AID STATION sign";
-	desc = "A green sign which showcases the location of a medical aid station.";
-	pixel_y = -32
-	},
-/turf/simulated/floor/exoplanet/barren{
-	temperature = 268.15
-	},
-/area/nka_base)
 "Md" = (
 /obj/machinery/light/small{
 	dir = 1
-	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
-/area/nka_base)
-"Nl" = (
-/obj/structure/sign/painting_frame/shumaila{
-	pixel_y = 31
 	},
 /turf/simulated/floor/tiled{
 	temperature = 268.15
@@ -1171,7 +1167,7 @@ DL
 DL
 DL
 DL
-Fo
+pb
 jN
 DL
 EP
@@ -1278,7 +1274,7 @@ yB
 DL
 EP
 EP
-eF
+WG
 mB
 mB
 vd
@@ -1311,7 +1307,7 @@ aa
 yB
 DL
 EP
-Kr
+eF
 yB
 Em
 TH
@@ -1617,7 +1613,7 @@ DL
 DL
 DL
 EP
-sR
+Fo
 Rg
 gF
 YC
@@ -1687,7 +1683,7 @@ EP
 EP
 EP
 yB
-Nl
+ak
 ka
 yB
 DL
