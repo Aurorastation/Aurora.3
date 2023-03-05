@@ -445,11 +445,11 @@ var/datum/controller/subsystem/ticker/SSticker
 	for(var/s in SSghostroles.spawners)
 		var/datum/ghostspawner/G = SSghostroles.spawners[s]
 		if(G.enabled && !("Antagonist" in G.tags) && !(G.loc_type == GS_LOC_ATOM && !length(G.spawn_atoms)))
-			available_ghostroles |= list(G.name)
+			available_ghostroles |= G.name
 
 	// Special case, to list the Merchant in case it is available at roundstart
 	if(SSjobs.type_occupations[/datum/job/merchant].total_positions)
-		available_ghostroles |= list(SSjobs.type_occupations[/datum/job/merchant].title)
+		available_ghostroles |= SSjobs.type_occupations[/datum/job/merchant].title
 
 	if(length(available_ghostroles))
 		to_world("<br /><br />" + SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round:")) + "[english_list(available_ghostroles)].<br />" + \
