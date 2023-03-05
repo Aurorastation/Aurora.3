@@ -31295,9 +31295,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "piK" = (
-/obj/machinery/light_switch{
-	pixel_y = -27
-	},
 /obj/machinery/computer/operating,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
