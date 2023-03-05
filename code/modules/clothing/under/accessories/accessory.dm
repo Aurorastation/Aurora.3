@@ -1055,16 +1055,23 @@
 	icon_state = "orion_liaison_badge"
 	item_state = "orion_liaison_badge"
 
-/obj/item/clothing/accessory/poncho/ipc_mantle
+/obj/item/clothing/accessory/poncho/burzsian_mantle
 	name = "\improper Burzsian shoulder mantle"
 	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
 	desc_extended = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
-	icon = 'icons/clothing/accessories/BZ_Gorget.dmi'
-	icon_state = "Burz_gorget"
-	item_state = "Burz_gorget"
+	icon = 'icons/clothing/accessories/bz_gorget.dmi'
+	icon_state = "ipcmantle"
+	item_state = "ipcmantle"
 	contained_sprite = TRUE
 	icon_override = null
 	body_parts_covered = UPPER_TORSO
+
+/obj/item/clothing/accessory/poncho/burzsian_mantle/native
+	name = "native Burzsian shoulder mantle"
+	desc = "A uniform mantle made out of inexpensive leather. The sigil of Burzsia is imprinted on the front."
+	desc_extended = "Native Burzsians within Burzsia II, also known as the Obsidian Belt, wear these leather mantles that, unlike the IPCs' mantles from the same system, are designed to be comfortable for humans and less encumbering, nonetheless providing them partial skin protection from the harsh dwarf star."
+	icon_state = "burzsianmantle"
+	item_state = "burzsianmantle"
 
 /obj/item/clothing/accessory/goon_coif
 	name = "tactical coif"

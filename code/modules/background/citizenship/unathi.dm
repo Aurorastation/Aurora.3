@@ -28,7 +28,6 @@
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_BULWARK,
-			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -64,7 +63,6 @@
 	name = "Izweski Hegemony Consular Officer"
 
 	uniform = /obj/item/clothing/under/unathi
-	suit = /obj/item/clothing/accessory/poncho/unathimantle
 	backpack_contents = list(/obj/item/device/camera = 1)
 	belt = /obj/item/gun/energy/pistol/hegemony
 
@@ -72,11 +70,12 @@
 	if(H && !visualsOnly)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/klax(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/hegemony(H), slot_head)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder/klax(H), slot_shoes)
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/klax(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
 		else
 			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/poncho/unathimantle(H), slot_wear_suit)
 	return TRUE
