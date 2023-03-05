@@ -4053,6 +4053,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Security Maintenance";
+	req_access = list(63)
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/investigations_hallway)
 "dCe" = (
@@ -27280,6 +27284,9 @@
 	},
 /obj/machinery/firealarm/south{
 	pixel_y = 24
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/washroom)

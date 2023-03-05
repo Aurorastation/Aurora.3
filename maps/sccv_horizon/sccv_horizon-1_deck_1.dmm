@@ -16885,7 +16885,7 @@
 "nfO" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Secure Technical Storage";
-	req_one_access = list(19,23)
+	req_access = list(23)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -26771,7 +26771,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Technical Storage";
-	req_one_access = list(19,23)
+	req_access = list(23)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
