@@ -57,6 +57,16 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
+"dw" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/structure/table/standard,
+/obj/machinery/chemical_dispenser/coffeemaster,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
 "dO" = (
 /obj/structure/table/standard,
 /obj/item/melee/baton/stunrod,
@@ -119,6 +129,30 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
+"fF" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/structure/sign/flag/pra{
+	pixel_x = 32
+	},
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"fL" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/structure/sign/flag/pra{
+	pixel_x = -32
+	},
+/obj/machinery/papershredder,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
 "gi" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -169,6 +203,10 @@
 	},
 /obj/item/stamp/denied{
 	pixel_y = -2
+	},
+/obj/item/flame/lighter/adhomai{
+	pixel_y = 10;
+	pixel_x = 9
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -433,6 +471,9 @@
 	dir = 10
 	},
 /obj/machinery/light,
+/obj/item/storage/box/lights{
+	pixel_y = 14
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -640,6 +681,25 @@
 /obj/structure/sign/flag/pra{
 	pixel_x = 32
 	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"Mm" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/light,
+/obj/item/storage/box/folders,
+/obj/structure/closet/crate,
+/obj/item/storage/box/folders,
+/obj/item/storage/box/folders,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -926,17 +986,6 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
-"XM" = (
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = -7
-	},
-/obj/item/storage/toolbox/electrical{
-	pixel_y = 10
-	},
-/turf/simulated/floor/reinforced{
-	temperature = 268.15
-	},
-/area/psis_outpost)
 "XR" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 10
@@ -952,7 +1001,19 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/bedsheetbin,
 /turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"Ys" = (
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -7
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 10
+	},
+/turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -1470,8 +1531,8 @@ Gq
 bE
 KR
 el
-KR
-el
+fL
+dw
 Qx
 Mq
 Mq
@@ -1545,7 +1606,7 @@ Mq
 BW
 ZG
 ZG
-XM
+Ys
 Mq
 Kl
 Kl
@@ -1642,7 +1703,7 @@ qO
 Gu
 Vr
 Tn
-WD
+Mm
 Mq
 TS
 dO
@@ -1674,7 +1735,7 @@ Xm
 vL
 Lo
 WA
-Lo
+fF
 WA
 wx
 Mq
