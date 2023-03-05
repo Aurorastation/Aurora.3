@@ -152,7 +152,7 @@
 	},
 /area/pra_base)
 "gh" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/reinforced/polarized{
 	id = "pra_base"
 	},
 /turf/simulated/floor/wood,
@@ -172,6 +172,13 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"gS" = (
+/obj/structure/bed/roller,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/pra_base)
 "gU" = (
 /turf/simulated/wall/concrete,
 /area/pra_base)
@@ -181,16 +188,6 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"iB" = (
-/obj/structure/sign/emergency/meetingpoint{
-	name = "\improper AID STATION sign";
-	desc = "A green sign which showcases the location of a medical aid station.";
-	pixel_y = -29
-	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/pra_base)
 "jE" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 8
@@ -338,6 +335,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/pra_base)
 "nc" = (
@@ -464,6 +462,15 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"rN" = (
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 31
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
 "tc" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 4
@@ -497,6 +504,9 @@
 /obj/effect/floor_decal/concrete{
 	dir = 6
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -523,6 +533,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/pra_base)
+"vF" = (
+/obj/structure/sign/emergency/meetingpoint{
+	name = "\improper AID STATION sign";
+	desc = "A green sign which showcases the location of a medical aid station.";
+	pixel_y = -29
+	},
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_base)
 "vQ" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -541,6 +562,9 @@
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/concrete/large{
 	dir = 4
+	},
+/obj/item/storage/box/lights{
+	pixel_y = 18
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
@@ -1083,15 +1107,6 @@
 	temperature = 278.15
 	},
 /area/pra_base)
-"Qk" = (
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 31
-	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
-/area/pra_base)
 "Qx" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/concrete{
@@ -1400,6 +1415,9 @@
 "YY" = (
 /obj/item/storage/secure/safe{
 	pixel_y = 36
+	},
+/obj/machinery/light/small{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/pra_base)
@@ -2049,7 +2067,7 @@ CO
 Lu
 kq
 gU
-Qk
+rN
 wB
 Wc
 Sr
@@ -2328,7 +2346,7 @@ Sr
 dH
 wB
 gU
-YU
+gS
 Se
 tn
 gU
@@ -2360,7 +2378,7 @@ wB
 Wc
 Sr
 dH
-iB
+vF
 gU
 vD
 Se
@@ -2428,7 +2446,7 @@ wB
 ZR
 EJ
 YL
-wB
+Jc
 gU
 oO
 Se
@@ -2464,7 +2482,7 @@ wB
 wB
 wB
 gU
-YU
+gS
 IL
 YU
 gU
