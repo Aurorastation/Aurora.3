@@ -452,8 +452,8 @@ var/datum/controller/subsystem/ticker/SSticker
 		available_ghostroles |= list(SSjobs.type_occupations[/datum/job/merchant].title)
 
 	if(length(available_ghostroles))
-		to_world("<br /><br /><B><span class='notice'>Ghost roles available for this round:</span></B> [english_list(available_ghostroles)].<br />\
-		<span class='info'>Please note that the actual availability depends on additional things, including your user (eg. job bans)</span>")
+		to_world("<br /><br />" + SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round:")) + "[english_list(available_ghostroles)].<br />" + \
+		SPAN_INFO("Please note that the actual availability depends on additional things, including your user (eg. job bans)"))
 
 	callHook("pregame_start")
 
