@@ -297,10 +297,8 @@
 	},
 /area/ala_base)
 "nu" = (
-/obj/structure/sign/emergency/meetingpoint{
-	name = "\improper AID STATION sign";
-	desc = "A green sign which showcases the location of a medical aid station.";
-	pixel_x = 32
+/obj/structure/curtain/black{
+	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -872,10 +870,11 @@
 	},
 /area/ala_base)
 "BV" = (
-/obj/structure/curtain/black{
-	pixel_y = 32
+/obj/structure/noticeboard{
+	icon_state = "nboard03";
+	pixel_x = 32
 	},
-/turf/simulated/floor/exoplanet/snow{
+/turf/simulated/floor/wood{
 	temperature = 268.15
 	},
 /area/ala_base)
@@ -1088,6 +1087,7 @@
 /area/ala_base)
 "JT" = (
 /obj/structure/closet/crate,
+/obj/item/storage/box/lights,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -1237,11 +1237,12 @@
 	},
 /area/ala_base)
 "Od" = (
-/obj/structure/noticeboard{
-	icon_state = "nboard03";
+/obj/structure/sign/emergency/meetingpoint{
+	name = "\improper AID STATION sign";
+	desc = "A green sign which showcases the location of a medical aid station.";
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/ala_base)
@@ -2012,7 +2013,7 @@ vi
 ut
 Hq
 LW
-Od
+BV
 uk
 DB
 qA
@@ -2172,7 +2173,7 @@ Hq
 qm
 zC
 wH
-BV
+nu
 qA
 qA
 qA
@@ -2328,7 +2329,7 @@ DB
 DB
 DB
 DB
-nu
+Od
 qA
 Cj
 nR
