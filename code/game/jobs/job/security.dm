@@ -105,7 +105,6 @@
 	suit = /obj/item/clothing/suit/storage/toggle/warden
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	shoes = null
-	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/headset_warden
 	bowman = /obj/item/device/radio/headset/headset_warden/alt
@@ -216,7 +215,6 @@
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security
-	l_pocket = /obj/item/device/flash
 	shoes = null
 
 	headset = /obj/item/device/radio/headset/headset_sec
