@@ -9,6 +9,7 @@
 #define MC_TICK_CHECK ( world.tick_usage > CURRENT_TICKLIMIT ? pause() : 0 )
 
 #define GAME_STATE 2 ** (Master.current_runlevel - 1)
+#define SS_IS_RUNNING(subsystem) (subsystem.can_fire && !subsystem.suspended && (GAME_STATE & subsystem.runlevels))
 
 // For multi-step subsystems that want to split their tick into multiple parts.
 #define MC_SPLIT_TICK_INIT(phase_count) var/original_tick_limit = CURRENT_TICKLIMIT; var/split_tick_phases = ##phase_count

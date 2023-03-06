@@ -370,6 +370,7 @@
 		/obj/item/pinpointer,
 		/obj/item/plastique,
 		/obj/item/gun/projectile/pistol,
+		/obj/item/gun/projectile/silenced,
 		/obj/item/gun/energy/crossbow,
 		/obj/item/material/knife/trench,
 		/obj/item/ammo_casing/a145,

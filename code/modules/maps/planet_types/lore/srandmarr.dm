@@ -143,7 +143,8 @@
 			/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual,
 			/datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 			/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd, /datum/map_template/ruin/exoplanet/adhomai_abandoned_labor_camp,
-			/datum/map_template/ruin/exoplanet/psis_outpost, /datum/map_template/ruin/exoplanet/pra_base, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue, /datum/map_template/ruin/exoplanet/pra_mining_camp, /datum/map_template/ruin/exoplanet/adhomai_nuclear_waste)
+			/datum/map_template/ruin/exoplanet/psis_outpost, /datum/map_template/ruin/exoplanet/pra_base, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue, /datum/map_template/ruin/exoplanet/pra_mining_camp, /datum/map_template/ruin/exoplanet/adhomai_nuclear_waste,
+			/datum/map_template/ruin/exoplanet/adhomai_fallout_bunker, /datum/map_template/ruin/exoplanet/adhomai_schlorrgo_cage)
 
 		if("Democratic People's Republic of Adhomai")
 			possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
@@ -193,7 +194,7 @@
 	water_type = /turf/simulated/floor/exoplanet/ice
 	fauna_types = list(/mob/living/simple_animal/ice_tunneler, /mob/living/simple_animal/ice_tunneler/male, /mob/living/simple_animal/fatshouter, /mob/living/simple_animal/fatshouter/male,
 					/mob/living/simple_animal/hostile/retaliate/rafama, /mob/living/simple_animal/hostile/retaliate/rafama/male, /mob/living/simple_animal/hostile/retaliate/rafama/baby,
-					/mob/living/simple_animal/hostile/wind_devil, /mob/living/carbon/human/farwa/adhomai)
+					/mob/living/simple_animal/hostile/wind_devil, /mob/living/carbon/human/farwa/adhomai, /mob/living/simple_animal/hostile/harron)
 
 /datum/random_map/noise/exoplanet/snow/adhomai/generate_flora()
 	for(var/i = 1 to flora_diversity)

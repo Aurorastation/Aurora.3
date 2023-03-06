@@ -148,6 +148,8 @@
 	var/return_damage_min
 	var/return_damage_max
 
+	var/dead_on_map = FALSE //if true, kills the mob when it spawns (it is for mapping)
+
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
@@ -178,6 +180,9 @@
 	if(simple_default_language)
 		add_language(simple_default_language)
 		set_default_language(all_languages[simple_default_language])
+
+	if(dead_on_map)
+		death()
 
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()

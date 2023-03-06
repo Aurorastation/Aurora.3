@@ -182,7 +182,7 @@
 		to_chat(user, SPAN_WARNING("The suit cannot function while the wearer is prone."))
 		return FALSE
 
-	if(holder.security_check_enabled && !holder.check_suit_access(user))
+	if(holder.security_check_enabled && holder.locked && !holder.check_suit_access(user))
 		to_chat(user, SPAN_DANGER("Access denied."))
 		return FALSE
 

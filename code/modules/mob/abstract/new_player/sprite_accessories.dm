@@ -2455,49 +2455,119 @@ Follow by example and make good judgement based on length which list to include 
 			length = 5
 			chatname = "headtails"
 			scrunchy_style = "backwater"
+			
+		skr_tentacle_braided
+			name = "Headtails, braided"
+			icon_state = "skrell_loose_braid"
+			length = 5
+			chatname = "headtails"
 
 		skr_tentacle_reserved
 			name = "Expressive Headtails, reserved"
 			icon_state = "skrell_reserved"
 			length = 6
 			chatname = "headtails"
+			
+		skr_tentacle_reserved_long
+			name = "Expressive Headtails, reserved (long)"
+			icon_state = "skrell_reserved_long"
+			length = 6
+			chatname = "long headtails"
 
 		skr_tentacle_excited
 			name = "Expressive Headtails, excited"
 			icon_state = "skrell_excited"
 			length = 6
 			chatname = "headtails"
+			
+		skr_tentacle_excited_long
+			name = "Expressive Headtails, excited (long)"
+			icon_state = "skrell_excited_long"
+			length = 6
+			chatname = "long headtails"
 
 		skr_tentacle_insulted
 			name = "Expressive Headtails, insulted"
 			icon_state = "skrell_insulted"
 			length = 6
 			chatname = "headtails"
+			
+		skr_tentacle_insulted_long
+			name = "Expressive Headtails, insulted (long)"
+			icon_state = "skrell_insulted_long"
+			length = 6
+			chatname = "long headtails"
 
 		skr_tentacle_tucked
 			name = "Short Headtails, tucked"
 			icon_state = "skrell_tucked"
 			length = 2
 			chatname = "short headtails"
+			
+		skr_tentacle_bun_short
+			name = "Short Headtails, bun"
+			icon_state = "skrell_short_mid_bun"
+			length = 3
+			chatname = "short headtails"
+			scrunchy_style = "short bun"
+			
+		skr_tentacle_bun
+			name = "Headtails, bun"
+			icon_state = "skrell_mid_bun"
+			length = 4
+			chatname = "headtails"
+			scrunchy_style = "bun"
 
-		skr_tentacle_tuux_l
-			name = "Headtails, tuux"
+		skr_tentacle_bun_long
+			name = "Long Headtails, bun"
+			icon_state = "skrell_long_mid_bun"
+			length = 6
+			chatname = "long headtails"
+			scrunchy_style = "long bun"
+			
+		skr_tentacle_low_bun
+			name = "Headtails, low bun"
+			icon_state = "skrell_low_bun"
+			length = 4
+			chatname = "headtails"
+			scrunchy_style = "low bun"
+
+		skr_tentacle_tuux_wavy
+			name = "Headtails, wavy tuux"
 			icon_state = "skrell_long_tuux"
 			length = 5
 			chatname = "headtails"
+			
+		skr_tentacle_tuux_straight
+			name = "Headtails, straight tuux"
+			icon_state = "skrell_straight_tuux"
+			length = 5
+			chatname = "headtails"
 
-		skr_tentacle_tuux_s
+		skr_tentacle_tuux_short
 			name = "Short Headtails, tuux"
 			icon_state = "skrell_short_tuux"
 			length = 3
 			chatname = "short headtails"
+			
+		skr_tentacle_tuux_straight_l
+			name = "Long Headtails, tuux"
+			icon_state = "skrell_straight_tuux_long"
+			length = 6
+			chatname = "long headtails"
 
 		skr_tentacle_slicked
 			name = "Short Headtails, slicked"
 			icon_state = "skrell_slicked"
 			length = 2
 			chatname = "short headtails"
-
+			
+		skr_tentacle_mullet
+			name = "Headtails, mullet"
+			icon_state = "skrell_mullet"
+			length = 4
+			chatname = "headtails"
+			
 		skr_tentacle_behind_r
 			name = "Headtails, behind (right)"
 			icon_state = "skrell_right_behind"
