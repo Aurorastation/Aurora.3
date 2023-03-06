@@ -65,7 +65,7 @@
 	return "[rand(6, 12)] hours"
 
 /datum/space_sector/srandmarr/generate_system_name()
-	return "S'rand'marr, and nearby points of interest"	
+	return "S'rand'marr, and nearby points of interest"
 
 /datum/space_sector/nrrahrahul
 	name = SECTOR_NRRAHRAHUL

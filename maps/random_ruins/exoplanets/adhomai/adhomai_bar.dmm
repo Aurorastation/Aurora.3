@@ -940,6 +940,7 @@
 /obj/item/flame/lighter/adhomai,
 /obj/item/material/knife/trench,
 /obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -1255,6 +1256,14 @@
 	dir = 9
 	},
 /obj/structure/table/wood,
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 30
+	},
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/splint/full,
+/obj/item/stack/medical/ointment/full,
+/obj/item/stack/medical/ointment/full,
 /turf/simulated/floor/lino/grey{
 	temperature = 268.15
 	},
@@ -1820,7 +1829,7 @@ eS
 eS
 zA
 Zm
-Zc
+WR
 zA
 eS
 eS
@@ -2030,7 +2039,7 @@ nR
 nR
 Xv
 sv
-eS
+mH
 Dn
 Xv
 pr
@@ -2209,7 +2218,7 @@ yR
 zA
 eS
 zA
-Zc
+WR
 yR
 zA
 eS
@@ -2243,7 +2252,7 @@ Xv
 zA
 eS
 zA
-Zc
+WR
 Zc
 zA
 eS
