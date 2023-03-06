@@ -195,7 +195,7 @@ default behaviour is:
 		now_pushing = FALSE
 
 	// Recurse the /mob/living/Collide function with the flag set, to trigger the parent calls as needed
-	addtimer(CALLBACK(src, /mob/living/Collide, AM, TRUE, src, usr))
+	call(/mob/living/Collide)(AM, TRUE, src, usr)
 
 /proc/swap_density_check(var/mob/swapper, var/mob/swapee)
 	var/turf/T = get_turf(swapper)
