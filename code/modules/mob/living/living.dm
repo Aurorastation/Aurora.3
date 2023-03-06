@@ -53,17 +53,8 @@ default behaviour is:
 /mob/living
 	var/tmp/last_push_notif
 
-/mob/living/Collide(atom/movable/AM, var/handleIsFinished = FALSE, var/incoming_src = null, var/incoming_usr = null)
-	if(handleIsFinished)
-		// Repopulate SRC and USR as they might get used downstream
-		src = incoming_src
-		usr = incoming_usr
-
-		. = ..()
-	else
-		addtimer(CALLBACK(src, PROC_REF(HandleCollide), AM, src, usr))
-
-
+/mob/living/Collide(atom/movable/AM)
+	addtimer(CALLBACK(src, PROC_REF(HandleCollide), AM, src, usr))
 
 
 /mob/living/proc/HandleCollide(atom/movable/AM, var/incoming_src, var/incoming_usr)
@@ -194,8 +185,22 @@ default behaviour is:
 
 		now_pushing = FALSE
 
-	// Recurse the /mob/living/Collide function with the flag set, to trigger the parent calls as needed
-	call(/mob/living/Collide)(AM, TRUE, src, usr)
+	// This is like a ..() in /mob/living/Collide, but without the cursed code to have to use it there, a copy paste from /atom/movable/proc/Collide
+	if(airflow_speed > 0 && airflow_dest)
+		airflow_hit(AM)
+	else
+		airflow_speed = 0
+		airflow_time = 0
+
+	if (throwing)
+		throwing = FALSE
+		. = TRUE
+		if (!QDELETED(AM))
+			throw_impact(AM)
+			AM.CollidedWith(src)
+
+	else if (!QDELETED(AM))
+		AM.CollidedWith(src)
 
 /proc/swap_density_check(var/mob/swapper, var/mob/swapee)
 	var/turf/T = get_turf(swapper)
