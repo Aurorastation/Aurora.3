@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a thin variant of the wristbound radio, it's selectable in the character creation menu as a Sleek Wristbound Radio."
