@@ -2086,3 +2086,22 @@ All custom items with worn sprites must follow the contained sprite system: http
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette/dromedaryco)
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 	contained_sprite = TRUE
+
+/obj/item/clothing/glasses/sunglasses/fluff/lyod_snowglasses // Lyod snowglasses - Ravna Surtaeva - Sycmos
+	name = "\improper Lyod snowglasses"
+	desc = "A pair of protective glasses hand-sculpted of reindeer antler, intended for use in arctic climates to protect from snow blindness."
+	icon = 'icons/obj/custom_items/ravna_items.dmi'
+	icon_override = 'icons/obj/custom_items/ravna_items.dmi'
+	icon_state = "ravna_sunglasses"
+	item_state = "ravna_sunglasses"
+	contained_sprite = TRUE
+	flash_protection = FLASH_PROTECTION_NONE
+
+/obj/item/clothing/suit/storage/toggle/fluff/prejoroub_fur_longcoat // prejoroub fur longcoat - Ravna Surtaeva - Sycmos
+	name = "prejoroub fur longcoat"
+	desc = "A dense and heavy longcoat of dyed tenelote leather, with a liner and collar of prejoroub fur and decorative trimming throughout."
+	icon = 'icons/obj/custom_items/ravna_items.dmi'
+	icon_override = 'icons/obj/custom_items/ravna_items.dmi'
+	icon_state = "ravna_coat"
+	item_state = "ravna_coat"
+	contained_sprite = TRUE

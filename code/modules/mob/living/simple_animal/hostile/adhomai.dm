@@ -41,27 +41,23 @@
 	icon_dead = "harron_dead"
 
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
-	response_help = "pets"
-	response_harm = "hits"
-	response_disarm = "pushes"
 
 	turns_per_move = 3
 
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
+
 	speed = -1
 	maxHealth = 75
 	health = 75
 
 	mob_size = 5
 
-
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
-
 
 	faction = "Adhomai"
 
