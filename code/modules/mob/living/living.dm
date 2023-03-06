@@ -53,16 +53,26 @@ default behaviour is:
 /mob/living
 	var/tmp/last_push_notif
 
-/mob/living/Collide(atom/movable/AM)
-	addtimer(CALLBACK(src, PROC_REF(HandleCollide), AM), 0)
-	. = ..()
+/mob/living/Collide(atom/movable/AM, var/handleIsFinished = FALSE, var/incoming_src = null, var/incoming_usr = null)
+	if(handleIsFinished)
+		// Repopulate SRC and USR as they might get used downstream
+		src = incoming_src
+		usr = incoming_usr
+
+		. = ..()
+	else
+		addtimer(CALLBACK(src, PROC_REF(HandleCollide), AM, src, usr))
 
 
 
 
-/mob/living/proc/HandleCollide(atom/movable/AM)
+/mob/living/proc/HandleCollide(atom/movable/AM, var/incoming_src, var/incoming_usr)
 	if (now_pushing || !loc)
 		return
+
+	// Repopulate SRC and USR as they might get used downstream
+	src = incoming_src
+	usr = incoming_usr
 
 	now_pushing = TRUE
 	if (istype(AM, /mob/living))
@@ -150,9 +160,14 @@ default behaviour is:
 		tmob.LAssailant = WEAKREF(src)
 
 	now_pushing = FALSE
-	addtimer(CALLBACK(src, PROC_REF(HandleCollide2), AM, now_pushing), 0)
+	addtimer(CALLBACK(src, PROC_REF(HandleCollide2), AM, now_pushing, src, usr))
 
-/mob/living/proc/HandleCollide2(atom/movable/AM, var/now_pushing)
+/mob/living/proc/HandleCollide2(atom/movable/AM, var/now_pushing, var/incoming_src, var/incoming_usr)
+
+	// Repopulate SRC and USR as they might get used downstream
+	src = incoming_src
+	usr = incoming_usr
+
 	if (!istype(AM, /atom/movable))
 		return
 	if (!now_pushing)
@@ -178,6 +193,9 @@ default behaviour is:
 					G.adjust_position()
 
 		now_pushing = FALSE
+
+	// Recurse the /mob/living/Collide function with the flag set, to trigger the parent calls as needed
+	addtimer(CALLBACK(src, /mob/living/Collide, AM, TRUE, src, usr))
 
 /proc/swap_density_check(var/mob/swapper, var/mob/swapee)
 	var/turf/T = get_turf(swapper)
