@@ -219,13 +219,3 @@
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
-
-/datum/gear/augment/bulwark_mining
-	display_name = "integrated mining drill"
-	description = "A mining drill integrated into the hand. This drill is so heavy, only Vaurca Bulwarks are capable of handling it."
-	cost = 5
-	path = /obj/item/organ/internal/augment/tool/drill
-	sort_category = "Xenowear - Vaurca"
-	whitelisted = list(SPECIES_VAURCA_BULWARK)
-	allowed_roles = list("Shaft Miner")
-	flags = GEAR_NO_SELECTION
