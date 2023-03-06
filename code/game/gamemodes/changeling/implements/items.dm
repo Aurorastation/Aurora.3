@@ -175,13 +175,4 @@
 		log_and_message_admins("finger-lockpicked \an [door].", user)
 		changeling.use_charges(10)
 		return TRUE
-
-	else if(isobj(target)) //This should catch everything else we might miss, without a million typechecks.
-		var/obj/O = target
-		to_chat(user, "<span class='notice'>We send an electrical pulse up our finger, and into \the [O].</span>")
-		O.add_fingerprint(user)
-		O.emag_act(1, user)
-		log_and_message_admins("finger-lockpicked \an [O].", user)
-		changeling.use_charges(10)
-		return TRUE
 	return FALSE

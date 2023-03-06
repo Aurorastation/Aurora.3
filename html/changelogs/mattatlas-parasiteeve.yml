@@ -40,7 +40,7 @@ delete-after: True
 changes:
   - rscadd: "Added Resonant Shriek, a ling ability that is essentially chiropterean screech but without a stun, and just disorientation."
   - rscadd: "Added Dissonant Shriek, a ling ability that produces an EMP."
-  - rscadd: "Added Electric Lockpick, a ling ability that opens doors and allows you to emag items."
+  - rscadd: "Added Electric Lockpick, a ling ability that opens doors."
   - rscadd: "Added Integrated Armour, a ling ability that gives the ling innate armour. Slightly worse than heavy armour."
   - rscadd: "Added Augmented Eyesight, a ling ability that gives the ling thermals. When active, it makes the user more vulnerable to flashes."
   - rscadd: "Added Fabricate Clothing, a ling ability that equips the ling with chameleon clothing."
