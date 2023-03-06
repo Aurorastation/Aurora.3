@@ -110,7 +110,7 @@
 	desc = "It's a storage unit for Solarian Army service & dress uniforms."
 	icon_state = "syndicate1"
 
-/obj/structure/closet/sol/navy/fill()
+/obj/structure/closet/sol/army_dress/fill()
 	..()
 	new /obj/item/clothing/under/rank/sol/army(src)
 	new /obj/item/clothing/under/rank/sol/army(src)
