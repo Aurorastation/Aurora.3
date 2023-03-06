@@ -312,5 +312,5 @@
 	for(var/obj/structure/bonfire/B in get_turf(src))
 		if(B.on_fire)
 			B.fuel = min(B.max_fuel, B.fuel + 300)
-			new /obj/effect/decal/cleanable/ash(get_turf(src))
-			qdel(src)
+	new /obj/effect/decal/cleanable/ash(get_turf(src))
+	qdel(src)

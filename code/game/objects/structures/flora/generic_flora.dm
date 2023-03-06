@@ -12,6 +12,15 @@
 			user.visible_message(SPAN_NOTICE("\The [user] removes \the [src]!"))
 			qdel(src)
 
+/obj/structure/flora/proc/can_dig()
+	return FALSE
+
+/obj/structure/flora/attackby(obj/item/I, mob/user)
+	if(I.is_shovel() && can_dig())
+		dig_up(user)
+		return
+	..()
+
 /obj/structure/flora/tree
 	name = "tree"
 	desc = "A tree."
@@ -141,11 +150,8 @@
 	density = FALSE
 	anchored = TRUE
 
-/obj/structure/flora/stump/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/shovel))
-		dig_up(user)
-		return
-	..()
+/obj/structure/flora/stump/can_dig()
+	return TRUE
 
 /obj/structure/flora/stump/log
 	name = "big log"
@@ -154,8 +160,6 @@
 	icon_state = "timber"
 
 /obj/structure/flora/stump/log/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/shovel)) //can't dig this up
-		return
 	if(I.can_woodcut())
 		if(cutting)
 			return
