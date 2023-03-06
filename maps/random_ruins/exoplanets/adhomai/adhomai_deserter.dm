@@ -40,11 +40,11 @@
 						/obj/item/gun/projectile/pistol/adhomai = 1,
 						/obj/item/ammo_magazine/mc9mm = 2,
 						/obj/item/grenade/frag = 1,
-						/obj/item/ammo_magazine/d762 = 2
+						/obj/item/ammo_magazine/boltaction = 3
 						)
 
 	l_ear = null
-	back = /obj/item/gun/projectile/dragunov
+	back = /obj/item/gun/projectile/shotgun/pump/rifle/scope
 	id = null
 	l_pocket = /obj/item/material/caltrops
 	r_pocket = /obj/item/material/caltrops
