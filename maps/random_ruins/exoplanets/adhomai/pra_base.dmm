@@ -487,6 +487,9 @@
 	pixel_y = 4
 	},
 /obj/item/storage/pill_bottle/dylovene,
+/obj/item/storage/pill_bottle/perconol,
+/obj/item/reagent_containers/glass/bottle/thetamycin,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /turf/simulated/floor/tiled/white,
 /area/pra_base)
 "tT" = (

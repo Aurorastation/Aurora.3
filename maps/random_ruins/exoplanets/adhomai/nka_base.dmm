@@ -266,7 +266,6 @@
 /obj/item/stack/medical/splint/full,
 /obj/item/stack/medical/splint/full,
 /obj/item/stack/medical/ointment/full,
-/obj/item/clothing/mask/breath/medical,
 /obj/item/clothing/suit/storage/hooded/tajaran/surgery,
 /obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/wood{
@@ -306,6 +305,7 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/item/surgery/circular_saw,
 /obj/item/tape_roll,
+/obj/item/stack/cable_coil,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -664,15 +664,6 @@
 	temperature = 268.15
 	},
 /area/nka_base)
-"RN" = (
-/obj/structure/reagent_dispensers/keg/mead{
-	reagents_to_add = list(/singleton/reagent/water=1000);
-	name = "water barrel"
-	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/nka_base)
 "Sr" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
@@ -713,6 +704,15 @@
 /obj/item/device/flashlight/lamp,
 /obj/structure/sign/flag/nka/left{
 	pixel_y = 32
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"Uq" = (
+/obj/structure/reagent_dispensers/keg/mead{
+	reagents_to_add = list(/singleton/reagent/water=1000);
+	name = "water barrel"
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -1243,7 +1243,7 @@ pB
 Sr
 Ec
 nc
-RN
+Uq
 mB
 UX
 yB
