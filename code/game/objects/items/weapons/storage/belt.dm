@@ -578,8 +578,10 @@
 /obj/item/storage/belt/generic
 	name = "belt"
 	desc = "Only useful for holding up your pants." // Useless belt is useless.
+	icon = 'icons/obj/item/clothing/belts/generic_belts.dmi'
 	icon_state = "belt"
 	item_state = "belt"
+	contained_sprite = TRUE
 	storage_slots = 1
 	max_w_class = ITEMSIZE_TINY
 
