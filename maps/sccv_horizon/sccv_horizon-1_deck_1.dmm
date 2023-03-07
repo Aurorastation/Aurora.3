@@ -28544,14 +28544,11 @@
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
 "wnQ" = (
-/obj/machinery/door/firedoor/multi_tile{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/multi_tile,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 8;
 	name = "Hangar";
 	req_one_access = list(12,26)
 	},
