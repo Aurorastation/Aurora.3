@@ -21273,6 +21273,18 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
+"qIR" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
+/turf/simulated/floor/grass/alt,
+/area/horizon/hydroponics/lower)
 "qIT" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/corner/purple/full,
@@ -54304,7 +54316,7 @@ ifu
 jeF
 acw
 jGG
-fKB
+qIR
 rRi
 fXy
 clG
