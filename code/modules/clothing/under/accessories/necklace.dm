@@ -6,11 +6,27 @@
 	item_state = "necklace"
 	contained_sprite = TRUE
 
+/obj/item/clothing/accessory/necklace/thin
+	name = "golden necklace"
+	icon_state = "gold"
+	item_state = "gold"
+
+/obj/item/clothing/accessory/necklace/thin/silver
+	name = "silver necklace"
+	icon_state = "silver"
+	item_state = "silver"
+
 /obj/item/clothing/accessory/necklace/chain
 	name = "golden chain necklace"
 	desc = "A winding chain of golden links, fashioned into an exquisite necklace."
 	icon_state = "chain"
 	item_state = "chain"
+
+/obj/item/clothing/accessory/necklace/chain/silver
+	name = "silver chain necklace"
+	desc = "A winding chain of silver links, fashioned into an exquisite necklace."
+	icon_state = "chain_silver"
+	item_state = "chain_silver"
 
 /obj/item/clothing/accessory/necklace/colorable
 	icon_state = "round"
@@ -22,7 +38,7 @@
 	icon_state = "low"
 	item_state = "low"
 
-/obj/item/clothing/accessory/necklace/colorable/low
+/obj/item/clothing/accessory/necklace/colorable/small
 	name = "small necklace"
 	desc = "A diminutive necklace."
 	icon_state = "small"
@@ -47,7 +63,15 @@
 	icon_state = "pendant_gold"
 	item_state = "pendant_gold"
 
+/obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/fat
+	icon_state = "large_pendant_gold"
+	item_state = "large_pendant_gold"
+
 /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/silver
 	name = "silver pendant necklace"
 	icon_state = "pendant_silver"
 	item_state = "pendant_silver"
+
+/obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/silver/fat
+	icon_state = "large_pendant_silver"
+	item_state = "large_pendant_silver"

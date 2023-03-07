@@ -1,8 +1,8 @@
 /obj/item/clothing/ears/earring
 	name = "stud earrings"
 	desc = "A pair of small stud earrings."
-    icon = 'icons/obj/item/clothing/ears/earrings.dmi"
-    icon_state = "stud"
+	icon = 'icons/obj/item/clothing/ears/earrings.dmi'
+	icon_state = "stud"
 	item_state = "stud"
 	contained_sprite = TRUE
 
