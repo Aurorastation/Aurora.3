@@ -46531,12 +46531,9 @@
 "wLZ" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	req_access = list(1);
-	name = "Equipment Room";
-	dir = 8
+	name = "Equipment Room"
 	},
-/obj/machinery/door/firedoor/multi_tile{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/multi_tile,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green{
 	icon_state = "1-2"
