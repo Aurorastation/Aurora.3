@@ -1,0 +1,6 @@
+author: RyverStyx
+
+delete-after: True
+
+changes:
+  - tweak: "Removes Non-Fed citizenship options from Federation Origins."
