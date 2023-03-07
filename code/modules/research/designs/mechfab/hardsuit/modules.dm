@@ -3,6 +3,13 @@
 	category = "Hardsuit (Modules)"
 	time = 10
 
+/datum/design/hardsuitmodules/storage
+	name = "Storage Module"
+	desc = "A storage unit for storing a precious few items in a hardsuit."
+	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 20000)
+	build_path = /obj/item/rig_module/storage
+
 /datum/design/hardsuitmodules/iss_module
 	name = "IIS Module"
 	desc = "An integrated intelligence system module suitable for most hardsuits."

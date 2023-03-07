@@ -12,6 +12,23 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"ak" = (
+/obj/structure/sign/painting_frame/shumaila{
+	pixel_y = 31
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
+"bK" = (
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = 11;
+	pixel_y = -11
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
 "bR" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -25,6 +42,25 @@
 	initial_lock_value = "nka_commander"
 	},
 /turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"cM" = (
+/obj/structure/simple_door/iron{
+	initial_lock_value = "nka_cell";
+	name = "cell"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
+"eF" = (
+/obj/structure/sign/emergency/meetingpoint{
+	name = "\improper AID STATION sign";
+	desc = "A green sign which showcases the location of a medical aid station.";
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -47,9 +83,29 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"gF" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/item/handcuffs,
+/obj/item/handcuffs/legcuffs,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
 "gU" = (
 /obj/structure/blocker/steel/fence{
 	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
+"hK" = (
+/obj/item/stack/material/woodlog/full,
+/obj/item/stack/material/woodlog/full,
+/obj/item/stack/material/woodlog/full,
+/obj/structure/closet/crate/bin{
+	name = "fire wood bin"
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -61,6 +117,21 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"jN" = (
+/obj/structure/table/rack,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/shovel,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
+"ka" = (
+/obj/structure/bed/padded,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
 "kO" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -80,7 +151,6 @@
 	},
 /area/nka_base)
 "mb" = (
-/obj/structure/bed/stool/bar/padded/brown,
 /obj/structure/sign/flag/nka/right{
 	pixel_y = 32
 	},
@@ -104,8 +174,7 @@
 /area/nka_base)
 "mj" = (
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/table/wood,
 /obj/item/key{
@@ -145,6 +214,14 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"pb" = (
+/obj/structure/table/rack,
+/obj/item/wrench,
+/obj/item/screwdriver,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
 "pB" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/tajara/jackboots,
@@ -155,11 +232,43 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"pV" = (
+/obj/structure/flora/bush/adhomai,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
 "qa" = (
 /obj/structure/reagent_dispensers/keg/mead,
 /obj/machinery/light/small{
 	dir = 8
 	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"rV" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"tI" = (
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 31
+	},
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/splint/full,
+/obj/item/stack/medical/splint/full,
+/obj/item/stack/medical/ointment/full,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/suit/storage/hooded/tajaran/surgery,
+/obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -189,6 +298,17 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"vd" = (
+/obj/structure/table/standard,
+/obj/item/surgery/scalpel,
+/obj/item/surgery/retractor,
+/obj/item/flame/lighter/adhomai,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/surgery/circular_saw,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
 "vi" = (
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -207,6 +327,12 @@
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
 /turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
+"wy" = (
+/obj/structure/bonfire,
+/turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -310,6 +436,30 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"Ab" = (
+/obj/structure/bonfire/fireplace{
+	density = 0
+	},
+/obj/structure/bedsheetbin{
+	pixel_y = -4;
+	pixel_x = 9
+	},
+/obj/item/clothing/under/tajaran/nka_uniform{
+	pixel_x = 10
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"AC" = (
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_y = 6;
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
 "BZ" = (
 /obj/structure/closet/secure_closet/cabinet{
 	req_access = list(213);
@@ -363,6 +513,25 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"Em" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 12;
+	pixel_x = 5
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_y = 10;
+	pixel_x = -7
+	},
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater{
+	pixel_y = -16;
+	pixel_x = 9
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
 "Et" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/tajara/jackboots,
@@ -388,10 +557,13 @@
 	},
 /area/nka_base)
 "Fo" = (
+/obj/structure/curtain/black{
+	pixel_y = -33
+	},
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
-/area/exoplanet/adhomai)
+/area/nka_base)
 "IG" = (
 /obj/structure/closet/outhouse,
 /turf/simulated/floor/exoplanet/snow{
@@ -453,6 +625,21 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/key{
+	key_data = "nka_armory";
+	name = "armory key";
+	pixel_x = 5
+	},
+/obj/item/key{
+	key_data = "nka_cell";
+	name = "cell key";
+	pixel_x = -5
+	},
+/obj/item/key{
+	key_data = "nka_commander";
+	name = "officer room key";
+	pixel_x = -5
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -471,10 +658,8 @@
 	},
 /area/nka_base)
 "Rg" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/wood{
+/obj/effect/map_effect/window_spawner/basic,
+/turf/simulated/floor/tiled{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -495,6 +680,24 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"SZ" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/rag/handkerchief,
+/obj/item/reagent_containers/blood/empty,
+/obj/item/reagent_containers/syringe,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"TH" = (
+/obj/structure/bed/padded,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/bedsheet/medical,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
 "Up" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -502,6 +705,13 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"Uz" = (
+/obj/item/torch,
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -574,28 +784,31 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"YC" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/item/trash/tray,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
 "YD" = (
 /obj/structure/table/wood,
-/obj/item/key{
-	key_data = "nka_armory";
-	name = "armory key";
-	pixel_x = 5
-	},
-/obj/item/key{
-	key_data = "nka_commander";
-	name = "officer room key";
-	pixel_x = -5
-	},
 /obj/machinery/light/small,
+/obj/machinery/photocopier/faxmachine{
+	department = "NKA Outpost";
+	req_one_access = null
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
 /area/nka_base)
 
 (1,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 vi
 vi
 vi
@@ -627,9 +840,9 @@ vi
 vi
 "}
 (2,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 vi
 vi
 vi
@@ -661,9 +874,9 @@ vi
 vi
 "}
 (3,1,1) = {"
-vi
-vi
-hT
+DL
+DL
+pV
 vi
 vi
 vi
@@ -695,9 +908,9 @@ vi
 vi
 "}
 (4,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 EK
 EK
 EK
@@ -724,18 +937,21 @@ EK
 EK
 EK
 EK
-vi
-hT
-vi
+EK
+EK
+EK
 "}
 (5,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 CO
 CO
 CO
 CO
+DL
+DL
+DL
 DL
 DL
 DL
@@ -758,13 +974,10 @@ DL
 DL
 DL
 gU
-vi
-vi
-vi
 "}
 (6,1,1) = {"
-hT
-vi
+pV
+DL
 lX
 CO
 St
@@ -775,6 +988,9 @@ DL
 DL
 DL
 DL
+hK
+wy
+Uz
 DL
 DL
 DL
@@ -792,14 +1008,11 @@ DL
 DL
 DL
 gU
-vi
-vi
-vi
 "}
 (7,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 CO
 Xb
 mj
@@ -825,20 +1038,19 @@ DL
 DL
 DL
 DL
+DL
+DL
+DL
 gU
-vi
-vi
-vi
 "}
 (8,1,1) = {"
-Fo
-Fo
-Fo
-oA
+EP
 EP
 EP
 oA
 EP
+EP
+oA
 EP
 EP
 EP
@@ -859,15 +1071,16 @@ EP
 EP
 EP
 DL
+DL
+DL
+DL
+DL
 gU
-vi
-vi
-vi
 "}
 (9,1,1) = {"
-Fo
-Fo
-Fo
+EP
+EP
+EP
 gU
 DL
 DL
@@ -891,22 +1104,21 @@ EP
 EP
 EP
 EP
-EP
+DL
+DL
+DL
+DL
 DL
 gU
-vi
-vi
-vi
 "}
 (10,1,1) = {"
-Fo
-Fo
-Fo
-oA
+EP
 EP
 EP
 oA
 EP
+EP
+oA
 EP
 EP
 EP
@@ -927,15 +1139,16 @@ EP
 EP
 EP
 DL
+DL
+DL
+DL
+DL
 gU
-vi
-vi
-hT
 "}
 (11,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 EK
 EK
@@ -954,22 +1167,22 @@ DL
 DL
 DL
 DL
-DL
-DL
+pb
+jN
 DL
 EP
 EP
-EP
+DL
+DL
+DL
+DL
 DL
 gU
-vi
-vi
-vi
 "}
 (12,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -993,17 +1206,17 @@ yB
 DL
 EP
 EP
-EP
-DL
+yB
+yB
+yB
+yB
+yB
 gU
-vi
-vi
-vi
 "}
 (13,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1027,24 +1240,24 @@ yB
 DL
 EP
 EP
-EP
-DL
+yB
+tI
+mB
+rV
+yB
 gU
-vi
-vi
-vi
 "}
 (14,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
 DL
 DL
 DL
-DL
+bK
 DL
 DL
 yB
@@ -1061,17 +1274,17 @@ yB
 DL
 EP
 EP
-EP
-DL
+WG
+mB
+mB
+vd
+yB
 gU
-vi
-vi
-vi
 "}
 (15,1,1) = {"
 vi
 vi
-vi
+DL
 gU
 DL
 DL
@@ -1083,7 +1296,7 @@ DL
 DL
 yB
 mb
-mB
+UX
 mB
 mB
 mB
@@ -1094,18 +1307,18 @@ aa
 yB
 DL
 EP
-EP
-EP
-DL
+eF
+yB
+Em
+TH
+SZ
+yB
 gU
-vi
-vi
-vi
 "}
 (16,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1116,9 +1329,9 @@ DL
 DL
 DL
 yB
+Ab
 Vy
 UX
-Rg
 pB
 nc
 Et
@@ -1129,17 +1342,17 @@ yB
 DL
 EP
 EP
-EP
-DL
+yB
+yB
+yB
+yB
+yB
 gU
-vi
-vi
-vi
 "}
 (17,1,1) = {"
+DL
 vi
-vi
-vi
+DL
 gU
 DL
 DL
@@ -1163,85 +1376,85 @@ yB
 DL
 EP
 EP
-EP
+DL
+DL
+DL
+DL
 DL
 gU
-vi
-vi
-vi
 "}
 (18,1,1) = {"
 vi
 vi
-vi
-gU
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-EP
-EP
-EP
 DL
 gU
-vi
-vi
-vi
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+EP
+EP
+DL
+DL
+DL
+DL
+DL
+gU
 "}
 (19,1,1) = {"
-vi
-hT
-vi
-gU
 DL
-DL
-CO
-CO
-CO
-CO
-CO
-CO
-CO
-DL
-DL
-CO
-CO
-CO
-CO
-CO
-CO
-CO
-DL
-DL
-EP
-EP
-EP
+pV
 DL
 gU
-vi
-vi
-vi
+DL
+DL
+CO
+CO
+CO
+CO
+CO
+CO
+CO
+DL
+DL
+CO
+CO
+CO
+CO
+CO
+CO
+CO
+DL
+DL
+EP
+EP
+DL
+DL
+DL
+DL
+DL
+gU
 "}
 (20,1,1) = {"
 vi
 vi
-vi
+DL
 gU
 DL
 DL
@@ -1265,17 +1478,17 @@ DL
 DL
 EP
 EP
-EP
+DL
+DL
+DL
+pV
 DL
 gU
-hT
-vi
-vi
 "}
 (21,1,1) = {"
+DL
 vi
-vi
-vi
+DL
 gU
 DL
 DL
@@ -1299,17 +1512,17 @@ DL
 DL
 EP
 EP
-EP
+DL
+DL
+DL
+DL
 DL
 gU
-vi
-vi
-vi
 "}
 (22,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1333,17 +1546,17 @@ DL
 DL
 EP
 EP
-EP
+DL
+DL
+DL
+DL
 DL
 gU
-vi
-vi
-vi
 "}
 (23,1,1) = {"
+DL
 vi
-vi
-vi
+DL
 gU
 DL
 DL
@@ -1367,17 +1580,17 @@ DL
 DL
 EP
 EP
-EP
+yB
+yB
+yB
+yB
 DL
 gU
-vi
-vi
-vi
 "}
 (24,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1400,18 +1613,18 @@ DL
 DL
 DL
 EP
-EP
-EP
+Fo
+Rg
+gF
+YC
+yB
 DL
 gU
-vi
-vi
-vi
 "}
 (25,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1435,17 +1648,17 @@ EP
 EP
 EP
 EP
-EP
+cM
+Rb
+AC
+yB
 DL
 gU
-vi
-vi
-vi
 "}
 (26,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1469,17 +1682,17 @@ EP
 EP
 EP
 EP
-EP
+yB
+ak
+ka
+yB
 DL
 gU
-vi
-vi
-vi
 "}
 (27,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 gU
 DL
 DL
@@ -1503,51 +1716,51 @@ EP
 EP
 EP
 EP
-EP
+yB
+yB
+yB
+yB
 DL
 gU
-vi
-vi
-vi
 "}
 (28,1,1) = {"
-vi
-vi
-vi
-gU
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
-DL
 DL
 DL
 DL
 gU
-vi
-vi
-hT
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+gU
 "}
 (29,1,1) = {"
-vi
-hT
-vi
+DL
+pV
+DL
 EK
 EK
 EK
@@ -1574,14 +1787,14 @@ EK
 EK
 EK
 EK
-vi
-vi
-vi
+EK
+EK
+EK
 "}
 (30,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 vi
 vi
 vi
@@ -1613,9 +1826,9 @@ vi
 vi
 "}
 (31,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 vi
 vi
 vi
@@ -1647,9 +1860,9 @@ vi
 vi
 "}
 (32,1,1) = {"
-vi
-vi
-vi
+DL
+DL
+DL
 vi
 hT
 vi
