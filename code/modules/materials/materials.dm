@@ -763,7 +763,7 @@
 
 /material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
 	name = MATERIAL_WOOD_LOG
-	stack_type = /obj/item/stack/material/woodlog
+	stack_type = /obj/item/stack/material/wood/log
 	icon_colour = "#824B28"
 	integrity = 50
 	icon_base = "solid"
@@ -774,22 +774,22 @@
 	melting_point = T0C+380
 	ignition_point = T0C+328
 	destruction_desc = "splinters"
-	sheet_singular_name = "log"
-	sheet_plural_name = "logs"
+	sheet_singular_name = "pice"
+	sheet_plural_name = "piles"
 
 /material/wood/branch
 	name = MATERIAL_WOOD_BRANCH
-	stack_type = /obj/item/stack/material/woodbranch
+	stack_type = /obj/item/stack/material/wood/branch
 	icon_colour = "#824B28"
-	integrity = 50
+	integrity = 10
 	icon_base = "solid"
 	explosion_resistance = 0
 	hardness = 0.1
 	weight = 7
 	melting_point = T0C+220
 	ignition_point = T0C+218
-	sheet_singular_name = "branch"
-	sheet_plural_name = "branch"
+	sheet_singular_name = "bundle"
+	sheet_plural_name = "bundle"
 
 /material/rust
 	name = MATERIAL_RUST
