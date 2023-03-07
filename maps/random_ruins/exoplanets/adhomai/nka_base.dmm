@@ -305,6 +305,7 @@
 /obj/item/flame/lighter/adhomai,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/item/surgery/circular_saw,
+/obj/item/tape_roll,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -660,6 +661,15 @@
 "Rg" = (
 /obj/effect/map_effect/window_spawner/basic,
 /turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
+"RN" = (
+/obj/structure/reagent_dispensers/keg/mead{
+	reagents_to_add = list(/singleton/reagent/water=1000);
+	name = "water barrel"
+	},
+/turf/simulated/floor/wood{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -1158,8 +1168,8 @@ DL
 DL
 DL
 DL
-DL
 EP
+DL
 wB
 DL
 DL
@@ -1191,9 +1201,9 @@ DL
 DL
 DL
 DL
-DL
 yB
 WG
+yB
 yB
 yB
 yB
@@ -1225,7 +1235,6 @@ DL
 DL
 DL
 DL
-DL
 yB
 mB
 WS
@@ -1234,6 +1243,7 @@ pB
 Sr
 Ec
 nc
+RN
 mB
 UX
 yB
@@ -1256,12 +1266,12 @@ DL
 DL
 DL
 DL
-DL
 bK
 DL
 DL
 yB
 Yr
+mB
 mB
 mB
 mB
@@ -1290,13 +1300,13 @@ DL
 DL
 DL
 DL
-DL
 IG
 DL
 DL
 yB
 mb
 UX
+mB
 mB
 mB
 mB
@@ -1327,7 +1337,6 @@ DL
 DL
 DL
 DL
-DL
 yB
 Ab
 Vy
@@ -1336,6 +1345,7 @@ pB
 nc
 Et
 nc
+mB
 mB
 UX
 yB
@@ -1361,7 +1371,7 @@ DL
 DL
 DL
 DL
-DL
+yB
 yB
 yB
 yB
