@@ -142,7 +142,8 @@
 /obj/item/stack/medical/bruise_pack/full,
 /obj/item/stack/medical/splint/full,
 /obj/item/stack/medical/splint/full,
-/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/empty,
+/obj/item/stack/medical/ointment,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},

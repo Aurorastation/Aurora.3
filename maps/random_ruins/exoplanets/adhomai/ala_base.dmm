@@ -420,6 +420,7 @@
 /area/ala_base)
 "sD" = (
 /obj/effect/decal/cleanable/blood/drip,
+/obj/machinery/iv_drip,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},

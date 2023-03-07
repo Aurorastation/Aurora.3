@@ -527,10 +527,7 @@
 /area/exoplanet/adhomai)
 "vD" = (
 /obj/structure/table/steel,
-/obj/item/storage/box/fancy/tray/machinist{
-	name = "PRA operation tray";
-	desc = "A tray of various mundane surgical instruments for fixing someone up when they've been shot."
-	},
+/obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/pra_base)
 "vF" = (
