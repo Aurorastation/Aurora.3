@@ -119,6 +119,12 @@
 	icon_state = "nka_commander_hat"
 	item_state = "nka_commander_hat"
 
+/obj/item/clothing/head/tajaran/nka_cap/sailor
+	name = "royal navy service hat"
+	desc = "A simple service hat worn by sailors of the Royal Navy."
+	icon_state = "nka_sailor_hat"
+	item_state = "nka_sailor_hat"
+
 /obj/item/clothing/head/tajaran/consular
 	name = "consular service cap"
 	desc = "A service cap worn by the diplomatic service of the People's Republic of Adhomai."
