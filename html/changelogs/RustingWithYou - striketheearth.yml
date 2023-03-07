@@ -33,4 +33,4 @@ author: RustingWithYou
 delete-after: True
 
 changes:
-  - tweak: Integrated mining drills can now be taken by Vaurca Bulwarks and Workers. The integrated drill has been moved from Xenowear - IPC to Augments in the loadout menu
+  - tweak: "Integrated mining drills can now be taken by Vaurca bulwarks and workers. The integrated drill has been moved from xenowear to augments in the loadout menu."
