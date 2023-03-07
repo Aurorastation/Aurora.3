@@ -46,7 +46,7 @@
 	desc = "It's a storage unit for Solarian Army uniforms."
 	icon_state = "syndicate1"
 
-/obj/structure/closet/sol/navy/fill()
+/obj/structure/closet/sol/army/fill()
 	..()
 	new /obj/item/clothing/under/rank/sol/army(src)
 	new /obj/item/clothing/under/rank/sol/army(src)
@@ -112,18 +112,15 @@
 
 /obj/structure/closet/sol/army_dress/fill()
 	..()
-	new /obj/item/clothing/under/rank/sol/army(src)
-	new /obj/item/clothing/under/rank/sol/army(src)
-	new /obj/item/clothing/under/rank/sol/army(src)
-	new /obj/item/clothing/under/rank/sol/army/grey(src)
-	new /obj/item/clothing/under/rank/sol/army/grey(src)
-	new /obj/item/clothing/under/rank/sol/army/grey(src)
-	new /obj/item/clothing/head/sol/army(src)
-	new /obj/item/clothing/head/sol/army(src)
-	new /obj/item/clothing/head/sol/army(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/under/rank/sol/army/service(src)
+	new /obj/item/clothing/under/rank/sol/army/service(src)
+	new /obj/item/clothing/under/rank/sol/army/service(src)
+	new /obj/item/clothing/head/sol/army/service(src)
+	new /obj/item/clothing/head/sol/army/service(src)
+	new /obj/item/clothing/head/sol/army/service(src)
+	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/clothing/shoes/laceup(src)
 
 /obj/structure/closet/secure_closet/soll_officer
 	name = "sol alliance officer locker"

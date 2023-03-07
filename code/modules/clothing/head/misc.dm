@@ -665,43 +665,43 @@
 	icon_state = "army_field_grey"
 	item_state = "army_field_grey"
 
-/obj/item/clothing/head/sol/service
+/obj/item/clothing/head/sol/army/service
 	name = "sol army peaked cap"
 	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A small silver pin of the ASSN seal is attached to the peak. A enlisted-person or NCO should wear this."
 	icon_state = "army_cap"
 	item_state = "army_cap"
 
-/obj/item/clothing/head/sol/service/officer
+/obj/item/clothing/head/sol/army/service/officer
 	name = "sol army officer peaked cap"
 	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak. A Second Lieutenant, First Lieutenant and Captain should wear this."
 	icon_state = "army_cap_officer"
 	item_state = "army_cap_officer"
 
-/obj/item/clothing/head/sol/service/senioroff
+/obj/item/clothing/head/sol/army/service/senioroff
 	name = "sol army senior officer peaked cap"
 	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak and leaf-shaped embellishments rap around the visor. A Major, Lieutenant Colonel and Colonel should wear this."
 	icon_state = "army_cap_senioroff"
 	item_state = "army_cap_senioroff"
 
-/obj/item/clothing/head/sol/service/general
+/obj/item/clothing/head/sol/army/service/general
 	name = "sol army general peaked cap"
 	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak and leaf-shaped embellishments rap around the visor. A Brigadier General, Major General, Lieutenant General or full General should wear this."
 	icon_state = "army_cap_general"
 	item_state = "army_cap_general"
 
-/obj/item/clothing/head/sol/service/garrison
+/obj/item/clothing/head/sol/army/service/garrison
 	name = "sol army garrison cap"
 	desc = "A green garrison cap issued as part of Solarian Army service uniforms, for when a peaked cap is impractical or unnecessary. All enlisted-people and NCOs should wear this."
 	icon_state = "army_garrison"
 	item_state = "army_garrison"
 
-/obj/item/clothing/head/sol/service/garrison/officer
+/obj/item/clothing/head/sol/army/service/garrison/officer
 	name = "sol army garrison cap"
 	desc = "A green garrison cap issued as part of Solarian Army service uniforms, for when a peaked cap is impractical or unnecessary. A golden rank pin is attached to one side. All officers, including generals, should wear this."
 	icon_state = "army_garrison_officer"
 	item_state = "army_garrison_officer"
 
-/obj/item/clothing/head/sol/service/campaign
+/obj/item/clothing/head/sol/army/service/campaign
 	name = "sol army campaign cap"
 	desc = "A green campaign cap issued as part of Solarian Army service uniforms. The NCOs that scream at you more than the normal ones should wear this."
 	icon_state = "army_campaign"
