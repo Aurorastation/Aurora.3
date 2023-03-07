@@ -673,13 +673,13 @@
 
 /obj/item/clothing/head/sol/army/service/officer
 	name = "sol army officer peaked cap"
-	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak. A Second Lieutenant, First Lieutenant and Captain should wear this."
+	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak. A Second Lieutenant, First Lieutenant or Captain should wear this."
 	icon_state = "army_cap_officer"
 	item_state = "army_cap_officer"
 
 /obj/item/clothing/head/sol/army/service/senioroff
 	name = "sol army senior officer peaked cap"
-	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak and leaf-shaped embellishments rap around the visor. A Major, Lieutenant Colonel and Colonel should wear this."
+	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak and leaf-shaped embellishments rap around the visor. A Major, Lieutenant Colonel or Colonel should wear this."
 	icon_state = "army_cap_senioroff"
 	item_state = "army_cap_senioroff"
 
@@ -702,7 +702,7 @@
 	item_state = "army_garrison_officer"
 
 /obj/item/clothing/head/sol/army/service/campaign
-	name = "sol army campaign cap"
-	desc = "A green campaign cap issued as part of Solarian Army service uniforms. The NCOs that scream at you more than the normal ones should wear this."
+	name = "sol army campaign hat"
+	desc = "A green campaign hat issued as part of Solarian Army service uniforms. The NCOs that scream at you more than the normal ones should wear this."
 	icon_state = "army_campaign"
 	item_state = "army_campaign"
