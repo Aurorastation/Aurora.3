@@ -7,3 +7,4 @@ changes:
   - tweak: "Recolors colorable webbing and storage sprites to better utilize custom colors."
   - tweak: "Resprited Scarab passblades, the Exo-Stellar Skeleton for offworlders, and the CR apparel."
   - tweak: "Moved webbing and all offworlder-related items into contained folders."
+  - bugfix: "Fixed a bug where contained mask sprites wouldn't swap between adjusted states properly."
