@@ -528,12 +528,6 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"vq" = (
-/obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/pra_base)
 "vD" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/fancy/tray,
@@ -1014,6 +1008,12 @@
 	dir = 9
 	},
 /turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"LI" = (
+/obj/structure/flora/bush/adhomai,
+/turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -2058,7 +2058,7 @@ vi
 "}
 (19,1,1) = {"
 vi
-vq
+LI
 wB
 gU
 wB
@@ -2398,7 +2398,7 @@ hT
 "}
 (29,1,1) = {"
 vi
-vq
+LI
 wB
 gU
 wB
