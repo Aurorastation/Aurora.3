@@ -59,6 +59,7 @@
 #include "code\__defines\organs.dm"
 #include "code\__defines\origin_traits.dm"
 #include "code\__defines\overmap.dm"
+#include "code\__defines\pipes.dm"
 #include "code\__defines\projectiles.dm"
 #include "code\__defines\psi.dm"
 #include "code\__defines\qdel.dm"
