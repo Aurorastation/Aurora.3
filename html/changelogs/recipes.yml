@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - tweak: "Made the meat pizza recipe cost less meat."
+  - tweak: "Made the pancakes recipe give you 1 pancake instead of 2. Reflected by the ingredient cost as well."
