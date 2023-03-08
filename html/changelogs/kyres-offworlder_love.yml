@@ -1,0 +1,9 @@
+author: kyres1
+
+delete-after: True
+
+changes:
+  - tweak: "Recolored all of the offworlder-unique items to better utilize custom colors."
+  - tweak: "Recolors colorable webbing and storage sprites to better utilize custom colors."
+  - tweak: "Resprited Scarab passblades, the Exo-Stellar Skeleton for offworlders, and the CR apparel."
+  - tweak: "Moved webbing and all offworlder-related items into contained folders."
