@@ -1,8 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the lower hydroponics animal pen not having an air alarm."
-  - bugfix: "Fixed the engineering foyer not having a ringer terminal."
-  - bugfix: "Added vents and scrubbers to xenoarchaeology."
