@@ -421,6 +421,9 @@
 	dir = 1
 	},
 /obj/structure/curtain/open/shower,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
@@ -624,6 +627,18 @@
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinedrum,
 /turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
+"JB" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -1151,7 +1166,7 @@ EP
 EP
 DL
 Vn
-yk
+JB
 yB
 DL
 gU
