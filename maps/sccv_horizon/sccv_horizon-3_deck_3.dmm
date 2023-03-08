@@ -3033,6 +3033,9 @@
 	departmentType = 5;
 	pixel_y = 32
 	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Forensic Laboratory Autopsy"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/autopsy_laboratory)
 "cHl" = (
@@ -3742,10 +3745,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "dlM" = (
-/obj/machinery/camera/network/security{
-	c_tag = "Security - Corridor Camera 6";
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
@@ -4504,6 +4503,10 @@
 "dTI" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Forensic Laboratory Port";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/forensic_laboratory)
@@ -12963,7 +12966,7 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/security{
-	c_tag = "Security - Investigations Office";
+	c_tag = "Security - Interrogation";
 	name = "interrogation";
 	network = list("Interrogation")
 	},
@@ -14799,6 +14802,10 @@
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Evidence Storage";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
@@ -17872,6 +17879,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Interrogation Observation"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/interrogation/monitoring)
 "okz" = (
@@ -18115,7 +18125,11 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "otG" = (
-/turf/simulated/wall,
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Firing Range Port"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/horizon/security/firing_range)
 "otI" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -19924,20 +19938,6 @@
 /obj/item/pen,
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
-"pWN" = (
-/obj/machinery/camera/network/security{
-	c_tag = "Security - Corridor Camera 5";
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
-	},
-/obj/machinery/disposal/small/east,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/security/investigations_hallway)
 "pWW" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -21305,6 +21305,9 @@
 	dir = 8
 	},
 /obj/structure/flora/pottedplant/random,
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Corridor Camera 6"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
 "rgZ" = (
@@ -22150,6 +22153,10 @@
 	dir = 8;
 	pixel_x = 24;
 	pixel_y = -9
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Morgue";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
@@ -23412,6 +23419,10 @@
 	dir = 8;
 	pixel_x = 28
 	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Corridor Camera 5";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
 "sGQ" = (
@@ -23892,16 +23903,12 @@
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "taN" = (
-/obj/machinery/status_display{
-	layer = 4;
-	pixel_y = 32
-	},
-/obj/machinery/disposal/small/east,
 /obj/machinery/light{
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/disposalpipe/trunk,
+/obj/machinery/disposal/small/south,
 /turf/simulated/floor/lino/grey,
 /area/horizon/security/investigators_office)
 "taR" = (
@@ -25298,6 +25305,10 @@
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Forensic Laboratory Starboard";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/forensic_laboratory)
@@ -29404,6 +29415,9 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 24
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Firing Range Starboard"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/firing_range)
@@ -56863,7 +56877,7 @@ cGm
 buA
 oUr
 kjX
-pWN
+dlM
 mbm
 ofk
 moY
@@ -59071,8 +59085,8 @@ woR
 hDn
 woR
 jWM
+ioQ
 otG
-jaj
 nlv
 nlv
 nlv
@@ -59273,7 +59287,7 @@ woR
 rXr
 woR
 eyx
-otG
+ioQ
 jaj
 mvx
 mvx
@@ -59475,7 +59489,7 @@ mpk
 woR
 woR
 ehu
-otG
+ioQ
 jaj
 mvx
 mvx
@@ -59677,7 +59691,7 @@ wqv
 mpk
 dQq
 bLO
-otG
+ioQ
 jJh
 qNg
 qNg
@@ -59879,7 +59893,7 @@ hTq
 mwN
 wTo
 tvl
-otG
+ioQ
 psg
 psg
 psg
@@ -60081,7 +60095,7 @@ hTq
 bOa
 hTq
 gTG
-pbx
+gTG
 pbx
 fEn
 pbx

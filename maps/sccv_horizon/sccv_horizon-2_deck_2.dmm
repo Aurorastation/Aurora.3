@@ -5951,6 +5951,11 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/machinery/ringer_button{
+	id = "engie_ringer";
+	pixel_x = -21;
+	pixel_y = -21
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "cQE" = (
@@ -14195,7 +14200,7 @@
 	dir = 4
 	},
 /obj/machinery/newscaster{
-	pixel_y = 30
+	pixel_y = 32
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Lobby"
@@ -18398,6 +18403,10 @@
 	department = "Chief Engineer's Desk";
 	departmentType = 6;
 	name = "Chief Engineer RC";
+	pixel_x = 32
+	},
+/obj/machinery/newscaster{
+	pixel_y = -32;
 	pixel_x = 32
 	},
 /turf/simulated/floor/carpet,
@@ -26274,20 +26283,6 @@
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
-"mRi" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
-/obj/machinery/ringer_button{
-	id = "engie_ringer";
-	pixel_x = -21;
-	pixel_y = 11
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/lobby)
 "mRl" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
@@ -46225,9 +46220,6 @@
 	pixel_x = -24;
 	pixel_y = 9
 	},
-/obj/machinery/newscaster{
-	pixel_y = -30
-	},
 /obj/structure/coatrack{
 	pixel_x = -10
 	},
@@ -46536,12 +46528,9 @@
 "wLZ" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	req_access = list(1);
-	name = "Equipment Room";
-	dir = 8
+	name = "Equipment Room"
 	},
-/obj/machinery/door/firedoor/multi_tile{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/multi_tile,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -47582,6 +47571,12 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/ringer{
+	department = "Engineering";
+	id = "engie_ringer";
+	req_access = list(11);
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "xlP" = (
@@ -69404,7 +69399,7 @@ lTb
 vBE
 vBE
 cQz
-mRi
+vBE
 vBE
 oWB
 nbJ
