@@ -91,7 +91,7 @@
 	sprint_cost_factor = 0.80
 	stamina_recovery = 3
 
-	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
+	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN
 
 	possible_cultures = list(
 		/singleton/origin_item/culture/zora_breeder,
@@ -164,7 +164,7 @@
 	warning_high_pressure = 3250 //Default 325
 
 	spawn_flags = IS_RESTRICTED
-	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE | NO_ARTERIES | PHORON_IMMUNE
+	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/rebel_yell,

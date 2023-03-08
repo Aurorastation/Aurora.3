@@ -242,7 +242,7 @@
 	description = "A selection of Dominian suits."
 	path = /obj/item/clothing/under/dominia
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
 
 /datum/gear/uniform/dominia/New()
 	..()
@@ -262,7 +262,7 @@
 	display_name = "dominian dress selection"
 	description = "A selection of Dominian dresses."
 	path = /obj/item/clothing/under/dominia/dress
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
 
 /datum/gear/uniform/dominia_dress/New()
 	..()

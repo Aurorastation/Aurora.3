@@ -446,6 +446,8 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 	var/current_time = world.time
 	if(!M || !M.client || (M.shakecamera > current_time)|| M.stat || isEye(M) || isAI(M))
 		return
+	if(((M.client.view != world.view) || (M.client.pixel_x != 0) || (M.client.pixel_y != 0))) //to prevent it while zooming, because zoom does not play well with this code
+		return
 	M.shakecamera = current_time + max(TICKS_PER_RECOIL_ANIM, duration)
 	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
 	var/steps = min(1, Floor(duration/TICKS_PER_RECOIL_ANIM))-1

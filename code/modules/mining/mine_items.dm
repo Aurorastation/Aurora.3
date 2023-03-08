@@ -353,6 +353,9 @@
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	usesound = /singleton/sound_category/shovel_sound
 
+/obj/item/shovel/is_shovel()
+	return TRUE
+
 /obj/item/shovel/spade
 	name = "spade"
 	desc = "A small tool for digging and moving dirt."

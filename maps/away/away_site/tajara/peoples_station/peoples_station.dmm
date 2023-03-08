@@ -1380,6 +1380,12 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1828,6 +1834,12 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 8
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -8357,11 +8369,11 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9830,6 +9842,11 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
