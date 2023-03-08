@@ -206,6 +206,18 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"nA" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/nka_base)
 "oA" = (
 /obj/structure/simple_door/iron{
 	initial_lock_value = "nka_base_entry"
@@ -627,18 +639,6 @@
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinedrum,
 /turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
-/area/nka_base)
-"JB" = (
-/obj/machinery/shower{
-	dir = 1
-	},
-/obj/structure/curtain/open/shower,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -1166,7 +1166,7 @@ EP
 EP
 DL
 Vn
-JB
+nA
 yB
 DL
 gU
@@ -1342,8 +1342,8 @@ yB
 gU
 "}
 (15,1,1) = {"
-vi
-vi
+DL
+DL
 DL
 gU
 DL
@@ -1411,7 +1411,7 @@ gU
 "}
 (17,1,1) = {"
 DL
-vi
+DL
 DL
 gU
 DL
@@ -1444,8 +1444,8 @@ DL
 gU
 "}
 (18,1,1) = {"
-vi
-vi
+DL
+DL
 DL
 gU
 DL
@@ -1512,8 +1512,8 @@ DL
 gU
 "}
 (20,1,1) = {"
-vi
-vi
+DL
+DL
 DL
 gU
 DL
@@ -1547,7 +1547,7 @@ gU
 "}
 (21,1,1) = {"
 DL
-vi
+DL
 DL
 gU
 DL
@@ -1615,7 +1615,7 @@ gU
 "}
 (23,1,1) = {"
 DL
-vi
+DL
 DL
 gU
 DL
