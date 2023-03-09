@@ -4546,6 +4546,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/firing_range)
 "dVW" = (
@@ -7606,8 +7607,8 @@
 	},
 /obj/machinery/power/sensor{
 	long_range = 1;
-	name = "Powernet Sensor - Shields Subgrid";
-	name_tag = "Shields Subgrid"
+	name = "Powernet Sensor - Shield Subgrid";
+	name_tag = "Shield Subgrid"
 	},
 /obj/structure/cable/cyan{
 	icon_state = "1-2"
@@ -20664,9 +20665,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/sign/nosmoking_2{
-	pixel_y = 32
-	},
 /obj/item/gun/energy/disruptorpistol/practice{
 	pixel_y = -4
 	},
@@ -20680,6 +20678,10 @@
 /obj/item/gun/energy/rifle/laser/practice,
 /obj/item/gun/energy/rifle/laser/practice{
 	pixel_y = 4
+	},
+/obj/machinery/alarm{
+	pixel_y = 28;
+	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/firing_range)
@@ -21568,10 +21570,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/power/sensor{
-	name = "Powernet Sensor - Command Subgrid";
-	name_tag = "Command Subgrid"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -22012,6 +22010,10 @@
 /obj/structure/cable/green,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Deck 3 Command Subgrid";
+	name_tag = "Deck 3 Command Subgrid"
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
@@ -27801,8 +27803,11 @@
 "vSg" = (
 /obj/effect/floor_decal/spline/plain/cee,
 /obj/machinery/power/sensor{
-	name = "Powernet Sensor - Telecommunications Subgrid";
-	name_tag = "Telecommunications Subgrid"
+	name = "Powernet Sensor - Deck 3 Telecommunications Subgrid";
+	name_tag = "Deck 3 Telecommunications Subgrid"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
