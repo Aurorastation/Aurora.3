@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Exoplanet turfs can no longer be removed with tools."
