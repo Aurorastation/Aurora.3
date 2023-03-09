@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - maptweak: "Removes the carp random events in favour of the overmap implementation."
+  - maptweak: "Removed the carp random events in favour of the overmap implementation."
