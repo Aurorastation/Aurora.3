@@ -4,6 +4,7 @@
 	name_plural = "Skrell"
 	category_name = "Skrell"
 	bodytype = BODYTYPE_SKRELL
+	species_height = HEIGHT_CLASS_SHORT
 	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
@@ -90,7 +91,7 @@
 		/singleton/origin_item/culture/federation,
 		/singleton/origin_item/culture/non_federation
 	)
-	
+
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/adjust_headtails
 	)

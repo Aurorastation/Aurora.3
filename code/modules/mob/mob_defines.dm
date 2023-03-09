@@ -59,6 +59,7 @@
 	var/character_id = 0
 	var/obj/machinery/machine = null
 	var/other_mobs = null
+	var/height = HEIGHT_NOT_USED
 	var/sdisabilities = 0				//Carbon
 	var/disabilities = 0				//Carbon
 	var/atom/movable/pulling = null

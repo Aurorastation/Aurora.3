@@ -1472,3 +1472,58 @@
 		return
 	var/obj/screen/zone_sel/selector = mob.zone_sel
 	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))
+
+//Height String for examine - Runs on the mob being examined.
+/mob/proc/assembleHeightString(mob/examiner)
+	var/heightString = null
+	var/descriptor
+	if(height == HEIGHT_NOT_USED)
+		return heightString
+
+	// Compare to Species Average
+	if(ishuman(src))
+		var/mob/living/carbon/selfCarbon = src
+		if(selfCarbon.species.species_height != HEIGHT_NOT_USED)
+			switch(height - selfCarbon.species.species_height)
+				if(-999 to -100)
+					descriptor = "miniscule"
+				if(-99 to -50)
+					descriptor = "tiny"
+				if(-49 to -20)
+					descriptor = "small"
+				if(-19 to 20)
+					descriptor = "about average height"
+				if(21 to 50)
+					descriptor = "tall"
+				if(51 to 100)
+					descriptor = "huge"
+				else
+					descriptor = "gargantuan"
+			heightString = "[get_pronoun("He")] is [descriptor] for \a [selfCarbon.species.name]"
+
+
+	if(examiner.height == HEIGHT_NOT_USED)
+		if(heightString)
+			return heightString + "."
+		return heightString
+
+	switch(height - examiner.height)
+		if(-999 to -100)
+			descriptor = "is absolutely tiny compared to"
+		if(-99 to -50)
+			descriptor = "is much smaller than"
+		if(-49 to -20)
+			descriptor = "stands slightly beneath"
+		if(-19 to 20)
+			descriptor = "is around about the same height"
+		if(21 to 50)
+			descriptor = "stands taller than"
+		if(51 to 100)
+			descriptor = "is much larger than"
+		else
+			descriptor = "towers over"
+	if(heightString)
+		return heightString + ", and [get_pronoun("he")] [descriptor] you."
+	return "[get_pronoun("He")] [descriptor] you."
+
+

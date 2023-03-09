@@ -18,6 +18,7 @@
 	show_ssd = null
 
 	bodytype = BODYTYPE_MONKEY
+	species_height = HEIGHT_CLASS_TINY
 
 	eyes = "blank_eyes"
 

@@ -244,6 +244,9 @@
 
 	if(HAS_FLAG(mutations, mSmallsize))
 		msg += "[get_pronoun("He")] [get_pronoun("is")] small halfling!\n"
+	//height
+	if(height)
+		msg += "[SPAN_NOTICE("[assembleHeightString(user)]")]\n"
 
 	var/distance = get_dist(user,src)
 	if(istype(user, /mob/abstract/observer) || user.stat == 2) // ghosts can see anything
