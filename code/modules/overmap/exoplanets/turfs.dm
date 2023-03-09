@@ -38,8 +38,6 @@
 		if(T.use(1))
 			playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 			ChangeTurf(/turf/simulated/floor, FALSE, FALSE, TRUE)
-	else
-		..()
 
 /turf/simulated/floor/exoplanet/ex_act(severity)
 	switch(severity)
