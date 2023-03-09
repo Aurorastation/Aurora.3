@@ -4499,6 +4499,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
+/obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "bYf" = (
@@ -27882,7 +27883,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain{
-	dir = 4
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
@@ -50345,6 +50346,7 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/spline/plain/cee,
 /turf/simulated/floor/tiled,
 /area/horizon/kitchen)
 "yfL" = (
@@ -70177,7 +70179,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+hVj
 qgN
 qgN
 qgN
