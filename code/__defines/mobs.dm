@@ -46,6 +46,8 @@
 #define HOSTILE_STANCE_ATTACKING 4
 #define HOSTILE_STANCE_TIRED     5
 
+#define ON_ATTACK_COOLDOWN(hostile_mob) world.time < hostile_mob.hostile_time_between_attacks + hostile_mob.hostile_last_attack
+
 #define LEFT  1
 #define RIGHT 2
 

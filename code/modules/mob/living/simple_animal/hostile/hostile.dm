@@ -144,9 +144,6 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 /mob/living/simple_animal/hostile/proc/FoundTarget()
 	return
 
-/mob/living/simple_animal/hostile/proc/Found(var/atom/A)
-	return
-
 /mob/living/simple_animal/hostile/proc/see_target()
 	return check_los(src, target_mob)
 
@@ -177,7 +174,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return 0
 	if(!see_target())
 		LoseTarget()
-	if(world.time < hostile_time_between_attacks + hostile_last_attack)
+	if(ON_ATTACK_COOLDOWN(src))
 		return
 	if(get_dist(src, target_mob) <= 1)	//Attacking
 		AttackingTarget()
@@ -253,9 +250,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 /mob/living/simple_animal/hostile/proc/LostTarget()
 	return
 
-/mob/living/simple_animal/hostile/proc/ListTargets(var/dist = 7)
-	var/list/L = view(src, dist)
-	return L
+/mob/living/simple_animal/hostile/proc/get_targets(dist = world.view)
+	return get_targets_in_LOS(dist, src)
 
 /mob/living/simple_animal/hostile/death()
 	..()
@@ -269,7 +265,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 	switch(stance)
 		if(HOSTILE_STANCE_IDLE)
-			targets = get_targets_in_LOS(10, src)
+			targets = get_targets(10)
 			target_mob = FindTarget()
 			if(destroy_surroundings && isnull(target_mob))
 				DestroySurroundings()
@@ -283,7 +279,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			if(!AttackTarget() && destroy_surroundings)	//hit a window OR a mob, not both at once
 				DestroySurroundings(TRUE)
 			if(attacked_times >= rand(0, 4))
-				targets = get_targets_in_LOS(10, src)
+				targets = get_targets(10)
 				target_mob = FindTarget()
 				attacked_times = 0
 
@@ -313,7 +309,10 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	// This code checks if we are not going to hit our target
 	if(smart_ranged && !check_fire(target_mob))
 		return
+	if(ON_ATTACK_COOLDOWN(src))
+		return
 	visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] fires at \the [target]!"))
+	hostile_last_attack = world.time
 
 	if(rapid)
 		var/datum/callback/shoot_cb = CALLBACK(src, PROC_REF(shoot_wrapper), target, loc, src)
@@ -361,6 +360,9 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	A.launch_projectile(target, def_zone)
 
 /mob/living/simple_animal/hostile/proc/DestroySurroundings(var/bypass_prob = FALSE)
+	if(ON_ATTACK_COOLDOWN(src))
+		return FALSE
+
 	if(prob(break_stuff_probability) || bypass_prob) //bypass_prob is used to make mob destroy things in the way to our target
 		for(var/dir in cardinal) // North, South, East, West
 			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
@@ -370,16 +372,22 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 				src.do_attack_animation(e)
 				target_mob = e
 				change_stance(HOSTILE_STANCE_ATTACKING)
+				hostile_last_attack = world.time
 				return TRUE
-			for(var/obj/structure/window/obstacle in get_step(src, dir))
-				if(obstacle.dir == reverse_dir[dir]) // So that windows get smashed in the right order
-					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-					return 1
-			var/obj/structure/obstacle = locate(/obj/structure, get_step(src, dir))
-			if(istype(obstacle, /obj/structure/window) || istype(obstacle, /obj/structure/closet) || istype(obstacle, /obj/structure/table) || istype(obstacle, /obj/structure/grille))
-				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-				return 1
-	return 0
+
+			for(var/obj/structure/S in get_step(src, dir))
+				if(!is_type_in_list(S, list(/obj/structure/window, /obj/structure/closet, /obj/structure/table, /obj/structure/grille)))
+					continue
+
+				if(istype(S, /obj/structure/window))
+					if(!istype(S, /obj/structure/window/full) && S.dir != reverse_dir[dir])
+						continue
+
+				S.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
+				hostile_last_attack = world.time
+				return TRUE
+
+	return FALSE
 
 /mob/living/simple_animal/hostile/RangedAttack(atom/A, params) //Player firing
 	if(ranged)
