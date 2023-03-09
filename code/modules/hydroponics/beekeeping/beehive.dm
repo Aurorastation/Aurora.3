@@ -2,7 +2,7 @@
 	name = "beehive assembly"
 	desc = "Contains everything you need to build a beehive."
 	icon = 'icons/obj/beekeeping.dmi'
-	icon_state = "apiary"
+	icon_state = "beehive_assembly"
 
 /obj/item/beehive_assembly/attack_self(var/mob/user)
 	to_chat(user, SPAN_NOTICE("You start assembling \the [src]..."))
