@@ -5184,9 +5184,6 @@
 	pixel_x = -24;
 	pixel_y = -10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 5
-	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
