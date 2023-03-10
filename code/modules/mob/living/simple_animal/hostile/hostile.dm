@@ -375,7 +375,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 				hostile_last_attack = world.time
 				return TRUE
 
-			for(var/obj/structure/S in get_step(src, dir))
+			for(var/S in get_step(src, dir))
 				if(!is_type_in_list(S, list(/obj/structure/window, /obj/structure/closet, /obj/structure/table, /obj/structure/grille)))
 					continue
 
