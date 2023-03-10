@@ -1,6 +1,0 @@
-author: atteria
-
-delete-after: True
-
-changes:
-  - tweak: "Reduced the ship ambient hum volume by half. Consider turning it back on now!"
