@@ -1,0 +1,9 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed hostile mobs aggroing on players they couldn't see, i.e. through walls and across z-levels."
+  - bugfix: "Fixed hostile mobs sometimes not attacking full window frames."
+  - bugfix: "Fixed hostile mobs ignoring their attack cooldown and attacking structures/objects incredibly quickly."
+  - bugfix: "Fixed retaliate mobs (e.g. goats) starting hostile by default."
