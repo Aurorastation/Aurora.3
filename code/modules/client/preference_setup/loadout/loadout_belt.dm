@@ -1,5 +1,5 @@
 /datum/gear/belt
-	display_name = "belt selection"
+	display_name = "belt selection (colorable)"
 	description = "A selection of colorable belts."
 	path = /obj/item/storage/belt/generic
 	slot = slot_belt

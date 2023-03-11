@@ -591,7 +591,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(temperature)
 
 /datum/gear/accessory/necklace
-	display_name = "colored necklace selection"
+	display_name = "necklace selection (colored)"
 	description = "A selection of already-colored necklaces."
 	path = /obj/item/clothing/accessory/necklace
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
@@ -607,7 +607,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(colored)
 
 /datum/gear/accessory/necklace_uncolored
-	display_name = "colorable necklace selection"
+	display_name = "necklace selection (colorable)"
 	description = "A selection of entirely colorable necklaces."
 	path = /obj/item/clothing/accessory/necklace/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
