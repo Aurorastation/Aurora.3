@@ -7704,12 +7704,15 @@
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 8
 	},
-/obj/random/booze,
-/obj/random/booze{
-	pixel_x = 7
+/obj/random/rig_module{
+	pixel_x = 1;
+	pixel_y = 5
 	},
-/obj/random/booze{
-	pixel_x = -7
+/obj/random/rig_module{
+	pixel_x = 6
+	},
+/obj/random/rig_module{
+	pixel_x = -6
 	},
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
@@ -38476,6 +38479,14 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
+"sEo" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret,
+/turf/simulated/floor/reinforced,
+/area/storage/secure)
 "sEu" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/junk,
@@ -43664,17 +43675,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"vcB" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/structure/toilet,
-/obj/structure/bed/handrail{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/operations/break_room)
 "vcH" = (
 /turf/simulated/wall,
 /area/maintenance/substation/wing_starboard)
@@ -48162,6 +48162,17 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
+"xeO" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/toilet,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/operations/break_room)
 "xeR" = (
 /obj/structure/table/standard,
 /obj/machinery/button/remote/blast_door{
@@ -50511,14 +50522,6 @@
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
-"yhb" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced,
-/area/storage/secure)
 "yhm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -60528,7 +60531,7 @@ qKi
 gAp
 vJu
 rqA
-vcB
+xeO
 aqV
 xnf
 sem
@@ -60735,7 +60738,7 @@ eIE
 xnf
 pfi
 bNd
-yhb
+sEo
 bNd
 wmz
 xnf
