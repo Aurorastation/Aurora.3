@@ -1,9 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - tweak: "Made the meat pizza recipe cost less meat."
-  - tweak: "Made the pancakes recipe give you 1 pancake instead of 2. Lowered the ingredients cost from 2 to 1."
-  - tweak: "Made the döner kebab cost 1 cutlet instead of 1 steak. Made it also cost 1 spice."
-  - bugfix: "Fixed the corn dog recipe."
