@@ -52,8 +52,6 @@
 
 #define isairlock(A) istype(A, /obj/machinery/door/airlock)
 
-#define isbeam(A) istype(A, /obj/item/projectile/beam)
-
 #define isbrain(A) istype(A, /mob/living/carbon/brain)
 
 #define isvirtualmob(A) istype(A, /mob/abstract/observer/virtual)
@@ -61,8 +59,6 @@
 #define iscarbon(A) istype(A, /mob/living/carbon)
 
 #define iscorgi(A) istype(A, /mob/living/simple_animal/corgi)
-
-#define isenergy(A) istype(A, /obj/item/projectile/beam)
 
 #define isEye(A) istype(A, /mob/abstract/eye)
 
@@ -108,9 +104,12 @@
 
 #define isclient(A) istype(A, /client)
 
-#define isprojectile(A) istype(A, /obj/item/projectile)
-
 #define isclothing(A) istype(A, /obj/item/clothing)
+
+/// Projectile helpers
+#define isprojectile(A) istype(A, /obj/item/projectile)
+#define isbeam(A) istype(A, /obj/item/projectile/beam)
+#define isenergy(A) istype(A, /obj/item/projectile/energy)
 
 /// General I/O helpers
 #define to_target(target, payload)                          target << (payload)
