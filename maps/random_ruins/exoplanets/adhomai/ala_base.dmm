@@ -119,9 +119,20 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/rag/handkerchief,
 /obj/item/reagent_containers/blood/empty,
-/obj/item/reagent_containers/syringe,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/reagent_containers/glass/bottle/perconol{
+	name = "painkiller bottle"
+	},
+/obj/item/stack/cable_coil{
+	pixel_y = 7;
+	pixel_x = -9
+	},
+/obj/item/tape_roll{
+	pixel_y = -8;
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/syringe,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -420,6 +431,7 @@
 /area/ala_base)
 "sD" = (
 /obj/effect/decal/cleanable/blood/drip,
+/obj/machinery/iv_drip,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -1213,6 +1225,9 @@
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
 /obj/item/clothing/suit/storage/hooded/tajaran/surgery,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},

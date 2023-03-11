@@ -959,6 +959,7 @@
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
