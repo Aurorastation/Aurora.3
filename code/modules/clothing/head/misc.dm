@@ -9,10 +9,12 @@
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/pin
-	icon_state = "pin"
-	item_state = "pin"
 	name = "hair pin"
 	desc = "A nice hair pin."
+	icon = 'icons/obj/item/clothing/accessory/hair_pins.dmi'
+	contained_sprite = TRUE
+	icon_state = "pin"
+	item_state = "pin"
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0
 	drop_sound = 'sound/items/drop/ring.ogg'
@@ -83,7 +85,6 @@
 	name = "hair ribbon parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/item/clothing/accessory/hair_ribbons.dmi'
-	contained_sprite = TRUE
 
 /obj/item/clothing/head/pin/ribbon/head
 	name = "hair ribbon"
@@ -333,11 +334,15 @@
 /obj/item/clothing/head/cowboy
 	name = "cowboy hat"
 	desc = "A wide-brimmed hat, in the prevalent style of the frontier."
+	icon = 'icons/obj/item/clothing/head/cowboy.dmi'
+	contained_sprite = TRUE
 	icon_state = "cowboyhat"
+	item_state = "cowboyhat"
 
 /obj/item/clothing/head/cowboy/wide
 	name = "wide-brimmed cowboy hat"
 	icon_state = "cowboy_wide"
+	item_state = "cowboy_wide"
 
 /obj/item/clothing/head/sombrero
 	name = "sombrero"
@@ -440,12 +445,20 @@
 /obj/item/clothing/head/beanie
 	name = "beanie"
 	desc = "A head-hugging brimless winter cap. This one is tight."
+	icon = 'icons/obj/item/clothing/head/beanie.dmi'
+	contained_sprite = TRUE
 	icon_state = "beanie"
 	item_state = "beanie"
 
 /obj/item/clothing/head/beanie/random/Initialize()
 	. = ..()
 	color = get_random_colour(lower = 150)
+
+/obj/item/clothing/head/beanie/winter
+	name = "winter beanie"
+	desc = "A head-hugging brimless winter cap. This one has flaps that cover the ears."
+	icon_state = "winterbeanie"
+	item_state = "winterbeanie"
 
 //Flower crowns
 
