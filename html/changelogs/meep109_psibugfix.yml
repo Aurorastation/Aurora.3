@@ -1,8 +1,0 @@
-author: meep109
-
-
-delete-after: True
-
-
-changes:
-  - bugfix: "Fixes psi-ping sprites not disappearing."
