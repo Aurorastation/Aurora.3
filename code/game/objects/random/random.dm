@@ -1236,11 +1236,11 @@
 		/obj/random/telecrystals = 0.5,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
 		/obj/random/sword = 0.5,
+		/obj/item/vault_token = 0.2,
 		/obj/item/gun/energy/lawgiver = 0.5,
 		/obj/item/melee/energy/axe = 0.5,
 		/obj/item/gun/projectile/automatic/terminator = 0.5,
-		/obj/item/device/personal_shield = 0.3,
-		/obj/item/object/vault_hardsuit_token = 0.2
+		/obj/item/device/personal_shield = 0.3
 	)
 
 /obj/random/highvalue/no_crystal
