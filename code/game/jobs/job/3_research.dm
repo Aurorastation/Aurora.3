@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "the captain"
-	selection_color = "#a44799"
+	selection_color = "#76417B"
 	economic_modifier = 15
 
 	minimum_character_age = list(
@@ -72,7 +72,7 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the research director"
-	selection_color = "#a44799"
+	selection_color = "#563758"
 	economic_modifier = 7
 
 	minimum_character_age = list(
@@ -124,7 +124,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the research director"
-	selection_color = "#a44799"
+	selection_color = "#563758"
 	economic_modifier = 7
 
 	minimum_character_age = list(
@@ -155,7 +155,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the research director"
-	selection_color = "#a44799"
+	selection_color = "#563758"
 	economic_modifier = 7
 
 	minimum_character_age = list(
@@ -187,7 +187,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the research director"
-	selection_color = "#a44799"
+	selection_color = "#563758"
 	economic_modifier = 7
 
 	minimum_character_age = list(
@@ -220,7 +220,7 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Research Director"
-	selection_color = "#a44799"
+	selection_color = "#563758"
 	access = list(access_research, access_tox)
 	minimal_access = list(access_research, access_tox)
 	outfit = /datum/outfit/job/intern_sci

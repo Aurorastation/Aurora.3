@@ -321,7 +321,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Regular jobs
 	//Command
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_positions)]'><a href='?src=\ref[src];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr align='center' bgcolor='334E6D'><th colspan='[length(command_positions)]'><a href='?src=\ref[src];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in command_positions)
 		if (!jobPos)
 			continue
@@ -343,7 +343,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 
 	//Command Support
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_support_positions)]'><a href='?src=\ref[src];jobban_job=commandsupportdept;jobban_tgt=[ckey]'>Command Support Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr align='center' bgcolor='29405A'><th colspan='[length(command_support_positions)]'><a href='?src=\ref[src];jobban_job=commandsupportdept;jobban_tgt=[ckey]'>Support Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in command_support_positions)
 		if (!jobPos)
 			continue
@@ -366,7 +366,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Security
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='991818'><th colspan='[length(security_positions)]'><a href='?src=\ref[src];jobban_job=securitydept;jobban_tgt=[ckey]'>Security Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='4F637D'><th colspan='[length(security_positions)]'><a href='?src=\ref[src];jobban_job=securitydept;jobban_tgt=[ckey]'>Security Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in security_positions)
 		if (!jobPos)
 			continue
@@ -389,7 +389,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Engineering
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='c67519'><th colspan='[length(engineering_positions)]'><a href='?src=\ref[src];jobban_job=engineeringdept;jobban_tgt=[ckey]'>Engineering Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='A28226'><th colspan='[length(engineering_positions)]'><a href='?src=\ref[src];jobban_job=engineeringdept;jobban_tgt=[ckey]'>Engineering Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in engineering_positions)
 		if (!jobPos)
 			continue
@@ -412,7 +412,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Medical
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='15903a'><th colspan='[length(medical_positions)]'><a href='?src=\ref[src];jobban_job=medicaldept;jobban_tgt=[ckey]'>Medical Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='467B41'><th colspan='[length(medical_positions)]'><a href='?src=\ref[src];jobban_job=medicaldept;jobban_tgt=[ckey]'>Medical Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in medical_positions)
 		if (!jobPos)
 			continue
@@ -435,7 +435,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Science
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='a44799'><th colspan='[length(science_positions)]'><a href='?src=\ref[src];jobban_job=sciencedept;jobban_tgt=[ckey]'>Science Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='76417B'><th colspan='[length(science_positions)]'><a href='?src=\ref[src];jobban_job=sciencedept;jobban_tgt=[ckey]'>Science Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in science_positions)
 		if (!jobPos)
 			continue
@@ -458,7 +458,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Cargo
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='593616'><th colspan='[length(cargo_positions)]'><a href='?src=\ref[src];jobban_job=cargodept;jobban_tgt=[ckey]'>Cargo Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='78430D'><th colspan='[length(cargo_positions)]'><a href='?src=\ref[src];jobban_job=cargodept;jobban_tgt=[ckey]'>Cargo Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in cargo_positions)
 		if (!jobPos)
 			continue
@@ -480,7 +480,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Service
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='90524b'><th colspan='[length(service_positions)]'><a href='?src=\ref[src];jobban_job=servicedept;jobban_tgt=[ckey]'>Service Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='90BA58'><th colspan='[length(service_positions)]'><a href='?src=\ref[src];jobban_job=servicedept;jobban_tgt=[ckey]'>Service Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in service_positions)
 		if (!jobPos)
 			continue
@@ -503,7 +503,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Civilian
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='999999'><th colspan='[length(civilian_positions)]'><a href='?src=\ref[src];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='626262'><th colspan='[length(civilian_positions)]'><a href='?src=\ref[src];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in civilian_positions)
 		if (!jobPos)
 			continue
@@ -522,10 +522,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			jobs += "</tr><tr align='center'>"
 			counter = 0
 
-	//Non-Human (Green)
+	//Non-Human
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='ccffcc'><th colspan='[length(nonhuman_positions)+1]'><a href='?src=\ref[src];jobban_job=nonhumandept;jobban_tgt=[ckey]'>Non-human Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='4B4B51'><th colspan='[length(nonhuman_positions)+1]'><a href='?src=\ref[src];jobban_job=nonhumandept;jobban_tgt=[ckey]'>Non-human Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in nonhuman_positions)
 		if (!jobPos)
 			continue

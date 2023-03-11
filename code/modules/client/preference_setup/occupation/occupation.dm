@@ -138,7 +138,7 @@
 
 	sanitize_faction()
 
-/datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Engineer", "Head of Security"))
+/datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Engineer", "Head of Security")) // Splitjobs forces named job to be at the top of a seperate column.
 	if (SSjobs.init_state != SS_INITSTATE_DONE || SSrecords.init_state != SS_INITSTATE_DONE)
 		return "<center><large>Jobs controller not initialized yet. Please wait a bit and reload this section.</large></center>"
 
@@ -152,7 +152,8 @@
 	dat += list(
 		"<tt><center>",
 		"<b>Choose occupation chances</b><br>Unavailable occupations are crossed out.<br>",
-		"<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>", // Table within a table for alignment, also allows you to easily add more colomns.
+//		"<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>", // If you ever wanted the old columns back...
+		"<table width='100%' cellpadding='1' cellspacing='0'><tr>", // Table within a table for alignment, also allows you to easily add more colomns.
 		"<table width='100%' cellpadding='1' cellspacing='0'>"
 	)
 	var/index = -1
@@ -161,12 +162,13 @@
 	for(var/datum/job/job in SSjobs.occupations)
 		index += 1
 		if((index >= limit) || (job.title in splitJobs))
-			dat += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
+//			dat += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>" If you ever wanted the old tables back...
+			dat += "</table></td><table width='100%' cellpadding='1' cellspacing='0'>"
 			index = 0
 
 		var/rank = job.title
 		var/head = (rank in command_positions) || (rank == "AI")
-		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, head ? 1 : 0.5)];'><td width='60%' align='right'>"
+		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, head ? 1 : 0.5)];'><td width='50%' align='right'>"
 
 		var/list/available = pref.GetValidTitles(job)
 		var/dispRank = LAZYLEN(available) ? LAZYACCESS(available, 1) : rank
@@ -197,7 +199,7 @@
 			dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
 			continue
 		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
-			dispRank = "<span width='60%' align='center'>&nbsp<a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
+			dispRank = "<span width='50%' align='center'>&nbsp<a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
 			dat += "<span class='none'>[dispRank]</span></td><td></td></tr>"
 			continue
@@ -206,7 +208,7 @@
 		else
 			dat += "[dispRank]"
 
-		dat += "</td><td width='40%'>"
+		dat += "</td><td width='50%'>"
 
 		dat += "<a href='?src=\ref[src];set_job=[rank]'>"
 

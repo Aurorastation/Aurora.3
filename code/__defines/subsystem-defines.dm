@@ -118,7 +118,7 @@
 // - SSjobs --
 // departments
 #define DEPARTMENT_COMMAND "Command"
-#define DEPARTMENT_COMMAND_SUPPORT "Command Support"
+#define DEPARTMENT_COMMAND_SUPPORT "Support"
 #define DEPARTMENT_SECURITY "Security"
 #define DEPARTMENT_ENGINEERING "Engineering"
 #define DEPARTMENT_MEDICAL "Medical"

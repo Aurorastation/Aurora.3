@@ -186,7 +186,7 @@
 	var/list/positions = list()
 	var/list/set_names = list(
 			"Command" = command_positions,
-			"Command Support" = command_support_positions,
+			"Support" = command_support_positions,
 			"Security" = security_positions,
 			"Engineering" = engineering_positions,
 			"Medical" = medical_positions,

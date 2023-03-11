@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "the captain"
-	selection_color = "#991818"
+	selection_color = "#4F637D"
 	economic_modifier = 10
 
 	minimum_character_age = list(
@@ -81,7 +81,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
-	selection_color = "#991818"
+	selection_color = "#42546D"
 	economic_modifier = 5
 
 	minimum_character_age = list(
@@ -105,6 +105,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/warden
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	shoes = null
+	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/headset_warden
 	bowman = /obj/item/device/radio/headset/headset_warden/alt
@@ -141,7 +142,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of security"
-	selection_color = "#991818"
+	selection_color = "#42546D"
 	economic_modifier = 5
 
 	minimum_character_age = list(
@@ -194,7 +195,7 @@
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the head of security"
-	selection_color = "#991818"
+	selection_color = "#42546D"
 	economic_modifier = 4
 
 	minimum_character_age = list(
@@ -215,6 +216,7 @@
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security
+	l_pocket = /obj/item/device/flash
 	shoes = null
 
 	headset = /obj/item/device/radio/headset/headset_sec
@@ -252,7 +254,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Head of Security"
-	selection_color = "#991818"
+	selection_color = "#42546D"
 	access = list(access_security, access_sec_doors, access_maint_tunnels)
 	minimal_access = list(access_security, access_sec_doors)
 	outfit = /datum/outfit/job/intern_sec

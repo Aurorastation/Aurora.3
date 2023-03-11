@@ -65,7 +65,7 @@
 	  <div id="all-value.jobs">
 		<table>
 		  <tr>
-			<th></th><th>Command</th>
+			<th style = "color: '#334E6D'></th><th>Command</th>
 		  </tr>
 		  <tr>
 			<th>Special</th>
@@ -75,7 +75,7 @@
 			</td>
 		  </tr>
 		  <tr>
-		  <th style="color: '#114DC1';">Command Support</th>
+		  <th style="color: '#29405A';">Support</th>
 			<td>
 			  {{for data.command_support_jobs}}
 				{{:helper.link(value.display_name, '', {'action' : 'assign', 'assign_target' : value.job}, data.id_rank == value.job ? 'disabled' : null)}}
@@ -83,7 +83,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<th style="color: '#FFA500';">Engineering</th>
+			<th style="color: '#A28226';">Engineering</th>
 			<td>
 			  {{for data.engineering_jobs}}
 				{{:helper.link(value.display_name, '', {'action' : 'assign', 'assign_target' : value.job}, data.id_rank == value.job ? 'disabled' : null)}}
@@ -91,7 +91,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<th style="color: '#008000';">Medical</th>
+			<th style="color: '#467B41';">Medical</th>
 			<td>
 			  {{for data.medical_jobs}}
 				{{:helper.link(value.display_name, '', {'action' : 'assign', 'assign_target' : value.job}, data.id_rank == value.job ? 'disabled' : null)}}
@@ -99,7 +99,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<th style="color: '#800080';">Science</th>
+			<th style="color: '#76417B';">Science</th>
 			<td>
 			  {{for data.science_jobs}}
 				{{:helper.link(value.display_name, '', {'action' : 'assign', 'assign_target' : value.job}, data.id_rank == value.job ? 'disabled' : null)}}
@@ -107,7 +107,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<th style="color: '#DD0000';">Security</th>
+			<th style="color: '#4F637D';">Security</th>
 			<td>
 			  {{for data.security_jobs}}
 				{{:helper.link(value.display_name, '', {'action' : 'assign', 'assign_target' : value.job}, data.id_rank == value.job ? 'disabled' : null)}}
@@ -115,7 +115,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<th style="color: '#cc6600';">Cargo</th>
+			<th style="color: '#78430D';">Cargo</th>
 			<td>
 			  {{for data.cargo_jobs}}
 				{{if index && index % 6 === 0}}
@@ -126,7 +126,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<th style="color: '#90524b';">Service</th>
+			<th style="color: '#90BA58';">Service</th>
 			<td>
 			  {{for data.service_jobs}}
 				{{if index && index % 6 === 0}}
@@ -136,7 +136,7 @@
 			  {{/for}}
 			</td>
 		  </tr>
-			<th style="color: '#999999';">Civilian</th>
+			<th style="color: '#626262';">Civilian</th>
 			<td>
 			  {{for data.civilian_jobs}}
 				{{if index && index % 6 === 0}}

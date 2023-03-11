@@ -14,7 +14,7 @@
 
 	var/intro_prefix = "a"
 	var/supervisors = null                // Supervisors, who this person answers to directly
-	var/selection_color = "#5d6a67"     // Selection screen color
+	var/selection_color = "#626262"     // Selection screen color
 	var/list/departments = list()         // List of departments this job is a part of. Keys are departments, values are a bit field that indicate special roles of that job within the department (like whether they are a head/supervisor of that department).
 	var/list/alt_titles                   // List of alternate titles, if any
 	var/list/title_accesses               // A map of title -> list of accesses to add if the person has this title.
