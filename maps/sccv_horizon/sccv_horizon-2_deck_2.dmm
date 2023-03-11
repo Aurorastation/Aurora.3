@@ -18834,7 +18834,7 @@
 	},
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
-/area/horizon/security/armoury)
+/area/horizon/security/warden)
 "iWo" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 1
