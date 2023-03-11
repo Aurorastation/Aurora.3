@@ -17775,19 +17775,6 @@
 "itX" = (
 /turf/simulated/floor/wood,
 /area/chapel/main)
-"iue" = (
-/obj/effect/floor_decal/corner_wide/blue{
-	dir = 9
-	},
-/obj/machinery/light/colored/red{
-	dir = 8
-	},
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
-	},
-/turf/simulated/floor/reinforced,
-/area/storage/secure)
 "iuP" = (
 /turf/simulated/wall,
 /area/operations/mail_room)
@@ -18089,6 +18076,8 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "iDt" = (
@@ -26465,6 +26454,8 @@
 	pixel_x = 32;
 	shuttle_tag = "Operations Lift"
 	},
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "mKJ" = (
@@ -28213,14 +28204,6 @@
 "nxI" = (
 /turf/simulated/wall,
 /area/horizon/bar)
-"nxN" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced,
-/area/storage/secure)
 "nxW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -37595,12 +37578,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics/garden)
 "sdi" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 9
 	},
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled,
-/area/operations/office)
+/obj/machinery/light/colored/red{
+	dir = 8
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
+/turf/simulated/floor/reinforced,
+/area/storage/secure)
 "sdT" = (
 /obj/machinery/light{
 	dir = 4
@@ -49736,6 +49725,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
+"xQK" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret,
+/turf/simulated/floor/reinforced,
+/area/storage/secure)
 "xRl" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -60341,7 +60338,7 @@ rqA
 rqA
 xnf
 dJs
-iue
+sdi
 mMf
 dBX
 weh
@@ -60746,7 +60743,7 @@ eIE
 xnf
 pfi
 bNd
-nxN
+xQK
 bNd
 wmz
 xnf
@@ -61557,7 +61554,7 @@ bpY
 rju
 qNo
 qvZ
-sdi
+kRZ
 aoC
 kmc
 epw
@@ -61759,7 +61756,7 @@ iWz
 lSe
 nES
 eGl
-sdi
+kRZ
 ngA
 oZI
 njF
