@@ -683,21 +683,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "aqV" = (
-/obj/structure/toilet{
-	dir = 4
-	},
-/obj/structure/bed/handrail{
-	dir = 1
-	},
-/obj/machinery/light/small{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/button/remote/airlock{
 	id = "cargobreak_t2";
 	name = "Door Bolt Control";
 	pixel_y = 32;
-	specialfunctions = 4
+	specialfunctions = 4;
+	pixel_x = 24;
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/newscaster{
+	pixel_y = -29
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
@@ -7704,6 +7703,13 @@
 /obj/machinery/door/window,
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 8
+	},
+/obj/random/booze,
+/obj/random/booze{
+	pixel_x = 7
+	},
+/obj/random/booze{
+	pixel_x = -7
 	},
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
@@ -27235,6 +27241,15 @@
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 1
 	},
+/obj/random/bad_ai{
+	pixel_x = 5
+	},
+/obj/random/bad_ai{
+	pixel_x = -6
+	},
+/obj/random/bad_ai{
+	pixel_y = 9
+	},
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
 "nbd" = (
@@ -29331,10 +29346,10 @@
 /obj/structure/sign/securearea{
 	pixel_y = 32
 	},
-/obj/machinery/turretid{
+/obj/machinery/turretid/lethal{
 	dir = 4;
-	pixel_x = -27;
-	pixel_y = 3
+	pixel_x = -26;
+	name = "Vault Turret Control"
 	},
 /turf/simulated/floor/tiled,
 /area/storage/secure)
@@ -31466,7 +31481,9 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/structure/safe/station,
+/obj/structure/safe/station{
+	name = "Secure Safe"
+	},
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
 "pfp" = (
@@ -37574,6 +37591,9 @@
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/closet/secure_closet,
+/obj/item/storage/box/syndie_kit/random_weapon,
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
 "sen" = (
@@ -43644,6 +43664,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"vcB" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/toilet,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/operations/break_room)
 "vcH" = (
 /turf/simulated/wall,
 /area/maintenance/substation/wing_starboard)
@@ -47105,8 +47136,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/vault{
-	name = "Secure Storage";
+/obj/machinery/door/airlock/vault/bolted{
 	id_tag = "Vault_Airlock"
 	},
 /turf/simulated/floor/reinforced,
@@ -50481,6 +50511,14 @@
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
+"yhb" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret,
+/turf/simulated/floor/reinforced,
+/area/storage/secure)
 "yhm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -60490,7 +60528,7 @@ qKi
 gAp
 vJu
 rqA
-rqA
+vcB
 aqV
 xnf
 sem
@@ -60697,7 +60735,7 @@ eIE
 xnf
 pfi
 bNd
-dlZ
+yhb
 bNd
 wmz
 xnf
