@@ -532,5 +532,5 @@
 	..()
 	var/list/hats = list()
 	hats["PRA consular service side cap"] = /obj/item/clothing/head/tajaran/consular/side_cap
-	hats["DPRA consular service side cap"] = /obj/item/clothing/head/tajaran/consular/dpra
+	hats["DPRA consular service side cap"] = /obj/item/clothing/head/tajaran/consular/dpra/side_cap
 	gear_tweaks += new /datum/gear_tweak/path(hats)
