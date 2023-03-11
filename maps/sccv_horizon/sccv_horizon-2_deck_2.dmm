@@ -4265,6 +4265,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
+"bRq" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 9
+	},
+/obj/machinery/light/colored/red{
+	dir = 8
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
+/turf/simulated/floor/reinforced,
+/area/storage/secure)
 "bSi" = (
 /obj/machinery/power/apc/low{
 	dir = 4;
@@ -30219,6 +30232,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/morgue_lift)
+"ozk" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret,
+/turf/simulated/floor/reinforced,
+/area/storage/secure)
 "ozr" = (
 /obj/structure/window/reinforced,
 /obj/structure/cable/green{
@@ -37303,6 +37324,17 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
+"rWh" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/toilet,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/operations/break_room)
 "rWp" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -38479,14 +38511,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
-"sEo" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced,
-/area/storage/secure)
 "sEu" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/junk,
@@ -48162,17 +48186,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
-"xeO" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/structure/toilet,
-/obj/structure/bed/handrail{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/operations/break_room)
 "xeR" = (
 /obj/structure/table/standard,
 /obj/machinery/button/remote/blast_door{
@@ -60333,7 +60346,7 @@ rqA
 rqA
 xnf
 dJs
-dBX
+bRq
 mMf
 dBX
 weh
@@ -60531,7 +60544,7 @@ qKi
 gAp
 vJu
 rqA
-xeO
+rWh
 aqV
 xnf
 sem
@@ -60738,7 +60751,7 @@ eIE
 xnf
 pfi
 bNd
-sEo
+ozk
 bNd
 wmz
 xnf
