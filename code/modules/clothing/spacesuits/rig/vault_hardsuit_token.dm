@@ -30,5 +30,5 @@
 	if(chosen_rig)
 		spark(loc, 2, alldirs)
 		var/crate_path = hardsuit_options[chosen_rig]
-		var/obj/structure/closet/crate/secure/gear_loadout/vault/N = new crate_path(get_turf(src))
+		new crate_path(get_turf(src))
 		qdel(src)

@@ -7479,6 +7479,9 @@
 /obj/machinery/light/colored/red{
 	dir = 8
 	},
+/obj/machinery/anti_bluespace{
+	pixel_x = -32
+	},
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
 "dCa" = (
@@ -25679,6 +25682,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"msu" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/toilet,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/operations/break_room)
 "msO" = (
 /obj/machinery/recharger/wallcharger{
 	layer = 3.3;
@@ -40655,16 +40669,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
 "tHZ" = (
-/obj/machinery/light/small{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/structure/toilet,
-/obj/structure/bed/handrail{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/operations/break_room)
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret,
+/turf/simulated/floor/reinforced,
+/area/storage/secure)
 "tIa" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -49725,14 +49736,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
-"xQK" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced,
-/area/storage/secure)
 "xRl" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -60536,7 +60539,7 @@ qKi
 gAp
 vJu
 rqA
-tHZ
+msu
 aqV
 xnf
 sem
@@ -60743,7 +60746,7 @@ eIE
 xnf
 pfi
 bNd
-xQK
+tHZ
 bNd
 wmz
 xnf
