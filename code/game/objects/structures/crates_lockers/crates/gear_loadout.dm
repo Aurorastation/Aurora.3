@@ -1,7 +1,7 @@
 /obj/structure/closet/crate/secure/gear_loadout
 	desc = "A secure gear crate."
 	name = "gear crate"
-	
+
 /obj/structure/closet/crate/secure/gear_loadout/legion
 	desc = "A secure crate with Tau Ceti Foreign Legion branding."
 	name = "tcfl gear crate"
@@ -417,7 +417,7 @@
 	new /obj/item/gun/projectile/pistol/adhomai(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
-	
+
 /obj/structure/closet/crate/secure/gear_loadout/legion/fill()
 	new /obj/item/clothing/under/legion(src)
 	new /obj/item/clothing/under/legion(src)
@@ -481,7 +481,7 @@
 	new /obj/item/melee/energy/sword/knife(src)
 	new /obj/item/melee/energy/sword/knife(src)
 	new /obj/item/material/twohanded/pike/flag(src)
-	
+
 /obj/structure/closet/crate/secure/gear_loadout/legion/single/fill()
 	new /obj/item/clothing/under/legion(src)
 	new /obj/item/clothing/head/beret/legion/field(src)
@@ -661,3 +661,53 @@
 	new /obj/item/gun/projectile/pistol(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+
+//Vault Gear for hardsuit token
+/obj/structure/closet/crate/secure/gear_loadout/vault
+	var/associated_hardsuit = /obj/item/rig/hazard
+/obj/structure/closet/crate/secure/gear_loadout/vault/hazard
+	associated_hardsuit = /obj/item/rig/hazard
+
+/obj/structure/closet/crate/secure/gear_loadout/vault/hazard/fill()
+	..()
+	new /obj/item/gun/energy/rifle(src)
+	new /obj/item/clothing/accessory/holster/armpit/brown(src)
+	new /obj/item/gun/energy/pistol(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/vault/crimson
+	associated_hardsuit = /obj/item/rig/merc
+
+/obj/structure/closet/crate/secure/gear_loadout/vault/crimson/fill()
+	..()
+	new /obj/item/gun/projectile/automatic/tommygun(src)
+	new /obj/item/ammo_magazine/submachinedrum(src)
+	new /obj/item/gun/projectile/revolver(src)
+	new /obj/item/ammo_magazine/a357(src)
+	new /obj/item/ammo_magazine/a357(src)
+/obj/structure/closet/crate/secure/gear_loadout/vault/einstein
+	associated_hardsuit = /obj/item/rig/merc/einstein
+
+/obj/structure/closet/crate/secure/gear_loadout/vault/einstein/fill()
+	..()
+	new /obj/item/gun/energy/laser(src)
+	new /obj/item/gun/energy/pistol(src)
+	new /obj/item/clothing/accessory/holster/armpit/brown(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/vault/sol
+	associated_hardsuit = /obj/item/rig/military
+
+/obj/structure/closet/crate/secure/gear_loadout/vault/sol/fill()
+	..()
+	new /obj/item/gun/projectile/automatic/rifle/sol
+	new /obj/item/ammo_magazine/c762/sol
+	new /obj/item/ammo_magazine/c762/sol
+	new /obj/item/clothing/accessory/holster/armpit/brown
+
+/obj/structure/closet/crate/secure/gear_loadout/vault/combat
+	associated_hardsuit = /obj/item/rig/combat
+
+/obj/structure/closet/crate/secure/gear_loadout/vault/combat/fill()
+	..()
+	new /obj/item/gun/energy/rifle
+	new /obj/item/gun/energy/pistol
+	new /obj/item/clothing/accessory/holster/armpit/brown

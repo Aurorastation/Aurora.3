@@ -120,6 +120,3 @@
 
 /obj/structure/displaycase/adhomai_map
 	spawn_contained_type = /obj/item/toy/adhomian_map
-
-/obj/structure/displaycase/vault_loot
-	spawn_contained_type = /obj/item/vault_weapon

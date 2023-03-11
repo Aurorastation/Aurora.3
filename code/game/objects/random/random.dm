@@ -1233,20 +1233,14 @@
 	icon = 'icons/obj/coins.dmi'
 	icon_state = "coin_diamond_heads"
 	problist = list(
-		/obj/item/bluespace_crystal = 5,
-		/obj/item/stack/telecrystal{amount = 10} = 5,
-		/obj/item/clothing/suit/armor/reactive = 0.5,
-		/obj/item/clothing/glasses/thermal = 0.5,
+		/obj/random/telecrystals = 0.5,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
 		/obj/random/sword = 0.5,
 		/obj/item/gun/energy/lawgiver = 0.5,
 		/obj/item/melee/energy/axe = 0.5,
 		/obj/item/gun/projectile/automatic/terminator = 0.5,
-		/obj/item/rig/military = 0.5,
-		/obj/item/rig/unathi/fancy = 0.5,
-		/obj/item/rig/vaurca/minimal = 0.5,
-		/obj/item/anomaly_core = 0.5,
-		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = 0.1
+		/obj/item/vault_hardsuit_token = 0.2,
+		/obj/item/device/personal_shield = 0.3
 	)
 
 /obj/random/highvalue/no_crystal
@@ -1552,9 +1546,10 @@
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "telecrystal"
 	spawnlist = list(
-		/obj/item/stack/telecrystal{amount = 5} = 0.7,
-		/obj/item/stack/telecrystal{amount = 10} = 0.1,
-		/obj/item/stack/telecrystal{amount = 15} = 0.2,
+		/obj/item/stack/telecrystal{amount = 10} = 0.5,
+		/obj/item/stack/telecrystal{amount = 15} = 0.4,
+		/obj/item/stack/telecrystal{amount = 20} = 0.3,
+		/obj/item/stack/telecrystal{amount = 30} = 0.2
 	)
 
 /obj/random/bad_ai
