@@ -23275,7 +23275,6 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
-/obj/structure/displaycase,
 /turf/simulated/floor/wood,
 /area/operations/office)
 "lhU" = (
@@ -39176,10 +39175,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "sYA" = (

@@ -1,7 +1,7 @@
 /obj/item/vault_token
 	name = "hardsuit token"
 	desc = "A token infused with telecrystals. You can summon almost any hardsuit with this."
-	icon = 'icons/obj/hardsuit_token.dmi'
+	icon = 'icons/obj/vault_token.dmi'
 	icon_state = "hardsuit_token"
 
 /obj/item/vault_token/attack_self(mob/living/carbon/human/user)
@@ -12,8 +12,8 @@
 		"Crimson Hardsuit" = /obj/structure/closet/crate/secure/gear_loadout/vault/crimson,
 		"Solarian Military Hardsuit" = /obj/structure/closet/crate/secure/gear_loadout/vault/sol,
 		"Hazard Control Hardsuit" = /obj/structure/closet/crate/secure/gear_loadout/vault/hazard,
-		"Paragon Control Module" = /obj/structure/closet/crate/secure/gear_loadout/vault/einstein,
-		"Combat Suit" = /obj/structure/closet/crate/secure/gear_loadout/vault/combat
+		"Einstein Hardsuit" = /obj/structure/closet/crate/secure/gear_loadout/vault/einstein,
+		"Combat Hardsuit" = /obj/structure/closet/crate/secure/gear_loadout/vault/combat
 	)
 	for(var/hardsuit_option in hardsuit_options)
 		var/crate_path = hardsuit_options[hardsuit_option]
@@ -24,8 +24,7 @@
 			hardsuit_options -= hardsuit_option
 	var/list/options = list()
 	for(var/hardsuit in hardsuit_options)
-		var/obj/structure/closet/crate/secure/gear_loadout/vault/choice = hardsuit_options[hardsuit]
-		var/image/radial_button = image(icon = choice.icon, icon_state = choice.icon_state)
+		var/image/radial_button = image(icon = src.icon, icon_state = hardsuit)
 		options[hardsuit] = radial_button
 	var/chosen_rig = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
 	if(chosen_rig)
