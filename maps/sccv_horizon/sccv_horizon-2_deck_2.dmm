@@ -312,7 +312,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Substation";
+	name = "Deck 2 Research Substation";
 	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
@@ -4147,7 +4147,7 @@
 	},
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Master Grid";
-	name_tag = "Master"
+	name_tag = "Master Grid"
 	},
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -11275,6 +11275,11 @@
 /area/horizon/security/armoury)
 "fyU" = (
 /obj/effect/floor_decal/corner/yellow/full,
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - AI Subgrid";
+	name_tag = "AI Subgrid"
+	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "fyV" = (
@@ -14042,8 +14047,8 @@
 	pixel_y = -24
 	},
 /obj/machinery/power/sensor{
-	name = "Powernet Sensor - Supermatter Containment";
-	name_tag = "SM Containment"
+	name = "Powernet Sensor - SM Reactor Containment";
+	name_tag = "SM Reactor Containment"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -15254,6 +15259,10 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/storage_hard)
 "hlM" = (
@@ -16428,6 +16437,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
+"hMd" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "hMm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -18091,11 +18107,14 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/light/small{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
@@ -19613,6 +19632,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/engineering/atmos/storage)
 "joM" = (
@@ -24440,8 +24460,8 @@
 	pixel_x = 24
 	},
 /obj/machinery/power/sensor{
-	name = "Powernet Sensor - Engineering Subgrid";
-	name_tag = "Engineering Subgrid"
+	name = "Powernet Sensor - Deck 2 Engineering Subgrid";
+	name_tag = "Deck 2 Engineering Subgrid"
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -26260,8 +26280,8 @@
 	pixel_y = -24
 	},
 /obj/machinery/power/sensor{
-	name = "Powernet Sensor - Research Subgrid";
-	name_tag = "Research Subgrid"
+	name = "Powernet Sensor - Deck 2 Research Subgrid";
+	name_tag = "Deck 2 Research Subgrid"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research)
@@ -26563,7 +26583,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Medbay Substation";
+	name = "Deck 1, 2, and 3 Medical Substation";
 	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
@@ -27837,7 +27857,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Medbay Substation";
+	name = "Deck 1, 2, and 3 Medical Substation";
 	req_access = list(66);
 	req_one_access = null
 	},
@@ -29406,6 +29426,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "ogV" = (
@@ -31302,7 +31325,7 @@
 	pixel_y = -24
 	},
 /obj/machinery/power/sensor{
-	name = "Powernet Sensor - Port Wing Subgrid";
+	name = "Powernet Sensor - Starboard Wing Subgrid";
 	name_tag = "Starboard Wing Subgrid"
 	},
 /turf/simulated/floor/plating,
@@ -32105,7 +32128,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Substation";
+	name = "Deck 2 Research Substation";
 	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
@@ -32257,8 +32280,8 @@
 	dir = 4
 	},
 /obj/machinery/power/sensor{
-	name = "Powernet Sensor - Supermatter Output";
-	name_tag = "SM Output"
+	name = "Powernet Sensor - SM Reactor Output";
+	name_tag = "SM Reactor Output"
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine control room blast doors.";
@@ -49328,8 +49351,8 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/sensor{
-	name = "Powernet Sensor - Medbay Subgrid";
-	name_tag = "Medbay Subgrid"
+	name = "Powernet Sensor - Deck 1, 2, and 3 Medical Subgrid";
+	name_tag = "Deck 1, 2, and 3 Medical Subgrid"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
@@ -75806,7 +75829,7 @@ qlU
 exu
 jvp
 pMf
-gis
+hMd
 lMO
 xer
 qgN
@@ -76812,7 +76835,7 @@ dTj
 rec
 bzs
 qDh
-gis
+hMd
 gis
 pjs
 gis
@@ -77014,7 +77037,7 @@ mqg
 hsh
 jKb
 qDh
-sKE
+gis
 bDo
 bDo
 bDo
