@@ -673,7 +673,6 @@
 	new /obj/item/gun/energy/rifle(src)
 	new /obj/item/clothing/accessory/holster/armpit/brown(src)
 	new /obj/item/gun/energy/pistol(src)
-
 /obj/structure/closet/crate/secure/gear_loadout/vault/crimson
 	associated_hardsuit = /obj/item/rig/merc
 

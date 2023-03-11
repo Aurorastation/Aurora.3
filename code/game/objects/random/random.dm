@@ -1239,8 +1239,8 @@
 		/obj/item/gun/energy/lawgiver = 0.5,
 		/obj/item/melee/energy/axe = 0.5,
 		/obj/item/gun/projectile/automatic/terminator = 0.5,
-		/obj/item/vault_hardsuit_token = 0.2,
-		/obj/item/device/personal_shield = 0.3
+		/obj/item/device/personal_shield = 0.3,
+		/obj/item/object/vault_hardsuit_token = 0.2
 	)
 
 /obj/random/highvalue/no_crystal
