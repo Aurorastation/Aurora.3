@@ -799,6 +799,8 @@
 /obj/item/clothing/accessory/offworlder
 	name = "venter assembly"
 	desc = "A series of complex tubing meant to dissipate heat from the skin passively."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "venter"
 	item_state = "venter"
 	slot = ACCESSORY_SLOT_CAPE
