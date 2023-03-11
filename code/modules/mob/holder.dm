@@ -628,3 +628,8 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "schlorrgo_fat"
 	item_state = "schlorrgo_fat"
 	w_class = ITEMSIZE_LARGE
+
+/obj/item/holder/fish
+	attack_verb = list("fished", "disrespected", "smacked", "smackereled")
+	icon_state = "fish"
+	item_state = "fish"

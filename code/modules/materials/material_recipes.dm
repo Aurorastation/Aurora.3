@@ -152,7 +152,8 @@
 			new /datum/stack_recipe("reagent dispenser cartridge (small)", /obj/item/reagent_containers/chem_disp_cartridge/small,  1, on_floor=0), // 100u
 			new /datum/stack_recipe("white floor tile", /obj/item/stack/tile/floor_white, 1, 4, 20),
 			new /datum/stack_recipe("freezer floor tile", /obj/item/stack/tile/floor_freezer, 1, 4, 20),
-			new /datum/stack_recipe("plastic flaps", /obj/structure/plasticflaps, BUILD_AMT, 1, 1)
+			new /datum/stack_recipe("plastic flaps", /obj/structure/plasticflaps, BUILD_AMT, 1, 1),
+			new /datum/stack_recipe("plastic net", /obj/item/material/fishing_net, 8, time = 10, one_per_turf = 1, on_floor = 1)
 		))
 
 /material/wood/generate_recipes()
@@ -176,7 +177,8 @@
 			new /datum/stack_recipe("shaft", /obj/item/material/shaft, 10, time = 25, one_per_turf = 0, on_floor = 0),
 			new /datum/stack_recipe("buckler donut", /obj/item/material/woodenshield, 20, time = 25, one_per_turf = 0, on_floor = 0),
 			new /datum/stack_recipe("torch handle", /obj/item/torch, 3, time = 5, one_per_turf = 0, on_floor = 0),
-			new /datum/stack_recipe("easel", /obj/structure/easel, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1)
+			new /datum/stack_recipe("easel", /obj/structure/easel, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("crude fishing rod", /obj/item/material/fishing_rod, 8, time = 10, one_per_turf = 1, on_floor = 1)
 		))
 
 /material/stone/generate_recipes()

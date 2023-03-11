@@ -5583,3 +5583,12 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("pickled lettuce" = 4))
 	bitesize = 2
 	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/worm
+	name = "worm"
+	desc = "A worm, freshly plucked from the ground."
+	icon_state = "worm"
+	reagents_to_add = list(/singleton/reagent/nutriment/fishbait = 9, /singleton/reagent/nutriment/protein = 6)
+	center_of_mass = list("x"=16, "y"=16)
+	reagent_data = list(/singleton/reagent/nutriment/fishbait = list("dirt" = 5))
+	bitesize = 15
