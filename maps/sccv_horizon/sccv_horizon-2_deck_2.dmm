@@ -205,13 +205,15 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "aec" = (
-/obj/effect/floor_decal/corner/grey/full,
 /obj/machinery/door/airlock/glass_service{
 	name = "Bar - Preparations";
 	req_access = list(25)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/lino/grey,
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/horizon/bar)
 "aem" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -3691,6 +3693,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/zta)
+"bEH" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/wood,
+/area/horizon/crew_quarters/lounge/bar)
 "bFA" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/device/radio/intercom{
@@ -4039,7 +4046,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "Bar_Private_Lounge"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "bOR" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -5439,7 +5446,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/structure/railing/mapped,
 /obj/structure/closet/cabinet,
 /obj/item/clothing/suit/carp_costume,
 /obj/item/clothing/suit/lobster_costume,
@@ -5997,10 +6003,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/disposalpipe/sortjunction{
-	dir = 4;
-	name = "Atmospherics";
-	sortType = "Hydroponics"
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
@@ -6659,12 +6664,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "dim" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 5
-	},
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/coffeemaster/full{
 	pixel_y = 5
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
@@ -8681,7 +8686,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "ekw" = (
-/obj/effect/floor_decal/spline/plain/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -8692,7 +8696,7 @@
 /obj/structure/disposalpipe/junction{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -9456,7 +9460,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
 /turf/simulated/floor/wood,
@@ -9911,6 +9915,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -10806,6 +10813,10 @@
 	pixel_x = 4;
 	pixel_y = 18
 	},
+/obj/machinery/alarm{
+	pixel_y = 28;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
 "flS" = (
@@ -10872,6 +10883,9 @@
 /obj/structure/window/reinforced,
 /obj/machinery/gibber,
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -11407,13 +11421,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/camera/network/service{
-	c_tag = "Service - Deck 2 - Dining Hall 2";
-	dir = 1
-	},
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "fCI" = (
@@ -13815,13 +13826,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "gBK" = (
-/obj/effect/floor_decal/spline/plain,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "gBM" = (
@@ -14163,10 +14174,13 @@
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "gHR" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -14268,7 +14282,6 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/hallway)
 "gKC" = (
-/obj/effect/floor_decal/spline/plain,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -14278,6 +14291,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "gKG" = (
@@ -16965,8 +16979,8 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/floor_light/dance,
 /obj/effect/floor_decal/spline/plain,
+/obj/machinery/floor_light/dance/alternate,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "idS" = (
@@ -17576,9 +17590,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "ipD" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
 /obj/machinery/firealarm/west,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -17720,12 +17731,12 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/camera/network/service{
 	c_tag = "Dinner - Kitchen Service";
 	pixel_x = -6
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/kitchen/hallway)
@@ -18082,6 +18093,9 @@
 "iEi" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/grass/alt,
 /area/horizon/hallway/deck_two/fore)
 "iEj" = (
@@ -19898,9 +19912,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "juh" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
@@ -19916,6 +19927,9 @@
 	dir = 1;
 	name = "Bar";
 	sortType = "Bar"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
 	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
@@ -20291,12 +20305,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "jFc" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
 /obj/structure/curtain/black{
 	icon_state = "open";
 	opacity = 0
@@ -20315,6 +20323,9 @@
 	pixel_x = -28;
 	pixel_y = 8;
 	req_access = list(25)
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
@@ -23749,7 +23760,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "lvM" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -23790,6 +23801,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
+"lzj" = (
+/obj/machinery/floor_light/dance/alternate,
+/turf/simulated/floor/wood,
+/area/horizon/crew_quarters/lounge/bar)
 "lzq" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -24304,9 +24319,6 @@
 /area/rnd/hallway)
 "lLl" = (
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/spline/plain/cee{
-	dir = 1
-	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -25342,13 +25354,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics)
 "mjp" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/structure/table/stone/marble,
 /obj/item/crowbar/red,
 /obj/item/material/hatchet/butch,
 /obj/item/material/hook,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -25689,9 +25704,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "mtP" = (
-/obj/machinery/camera/network/service{
-	c_tag = "Dinner - Kitchen Freezer";
-	dir = 4
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -27522,9 +27537,6 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
@@ -28931,8 +28943,11 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/starboard)
 "nUh" = (
-/obj/effect/floor_decal/spline/plain/cee{
-	dir = 1
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
@@ -29329,7 +29344,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "odD" = (
-/obj/effect/floor_decal/spline/plain,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -29339,6 +29353,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "odZ" = (
@@ -29935,10 +29950,10 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "otr" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "otw" = (
@@ -30916,18 +30931,11 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
 "oTg" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/wood,
+/obj/machinery/light,
+/turf/simulated/floor/lino/grey,
 /area/horizon/bar)
 "oTE" = (
 /obj/machinery/light{
@@ -31995,6 +32003,7 @@
 /obj/effect/landmark/start{
 	name = "Chef"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "pvt" = (
@@ -32381,10 +32390,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/floor_light/dance,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
+/obj/machinery/floor_light/dance/alternate,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "pGJ" = (
@@ -32453,13 +32462,13 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "pIs" = (
-/obj/machinery/floor_light/dance,
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/machinery/floor_light/dance/alternate,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "pIE" = (
@@ -33170,6 +33179,10 @@
 	pixel_x = 3
 	},
 /obj/item/flame/candle,
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Deck 2 - Dining Hall 2";
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "qaf" = (
@@ -35325,7 +35338,11 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/sortjunction/flipped{
+	dir = 2;
+	name = "Hydroponics";
+	sortType = "Hydroponics"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "rcy" = (
@@ -36636,10 +36653,10 @@
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "rIZ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "rJn" = (
@@ -38788,12 +38805,11 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm{
-	pixel_y = 28;
-	req_one_access = list(24,11,55)
-	},
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/teapot,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
 "sOu" = (
@@ -39409,7 +39425,6 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
-/obj/machinery/light,
 /obj/machinery/media/jukebox/audioconsole/wall{
 	pixel_y = -32
 	},
@@ -39664,6 +39679,9 @@
 	pixel_y = 15
 	},
 /obj/machinery/chemical_dispenser/bar_soft/full,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "tjk" = (
@@ -39714,6 +39732,10 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
@@ -42415,7 +42437,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "uxr" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
 /turf/simulated/floor/wood,
@@ -43053,6 +43075,10 @@
 /area/security/checkpoint2)
 "uNs" = (
 /obj/structure/kitchenspike,
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Kitchen Freezer";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -43799,11 +43825,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "vhe" = (
-/obj/effect/floor_decal/spline/plain,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -44225,8 +44251,8 @@
 	dir = 8
 	},
 /obj/structure/bed/stool/chair/padded/red,
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/newscaster{
+	pixel_x = -32
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
@@ -44614,6 +44640,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -44644,8 +44673,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/machinery/newscaster{
-	pixel_x = -32
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
@@ -44714,10 +44743,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "vId" = (
@@ -45289,13 +45315,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -45352,7 +45375,6 @@
 	dir = 6
 	},
 /obj/machinery/chem_master/condimaster,
-/obj/machinery/light,
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 4
 	},
@@ -45375,10 +45397,10 @@
 	req_access = list(25)
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/spline/plain/cee{
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
+/obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -45440,6 +45462,9 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "vWX" = (
@@ -46900,13 +46925,13 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "wDJ" = (
-/obj/machinery/floor_light/dance,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/floor_light/dance/alternate,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "wDR" = (
@@ -48643,12 +48668,6 @@
 /turf/simulated/floor/reinforced,
 /area/horizon/security/brig)
 "xsH" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -48657,6 +48676,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "xsU" = (
@@ -49915,13 +49937,13 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "xYw" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 6
-	},
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
 /obj/machinery/disposal/small/west,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "xYK" = (
@@ -50596,13 +50618,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/morgue_lift)
 "ylh" = (
-/obj/machinery/floor_light/dance,
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/machinery/floor_light/dance/alternate,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "ylk" = (
@@ -68363,7 +68385,7 @@ eDK
 ekw
 jFc
 xsH
-oTg
+xsH
 juh
 jCt
 bfB
@@ -69370,7 +69392,7 @@ dWH
 nxI
 sOe
 eSd
-vJX
+oTg
 nxI
 sKJ
 sKJ
@@ -70386,9 +70408,9 @@ sKJ
 emF
 tAn
 xtW
-qVJ
+bEH
 cUZ
-sJq
+lzj
 nFQ
 nAq
 pNA
