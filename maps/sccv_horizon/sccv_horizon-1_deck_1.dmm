@@ -5575,7 +5575,7 @@
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/horizon/hydroponics/lower)
 "etT" = (
 /obj/structure/lattice,
@@ -10973,7 +10973,7 @@
 "iqk" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "irA" = (
 /obj/machinery/atmospherics/binary/pump{
@@ -54874,7 +54874,7 @@ snA
 pdL
 vLJ
 acw
-mdL
+nRy
 olu
 fKB
 bpl
