@@ -31,11 +31,12 @@
 	var/failed = FALSE // pretty much exclusively for sending the fail state across to the UI, using recipe elsewhere is preferred
 
 	component_types = list(
-			/obj/item/circuitboard/microwave = 1,
-			/obj/item/stock_parts/capacitor = 3,
-			/obj/item/stock_parts/micro_laser = 1,
-			/obj/item/stock_parts/matter_bin = 2
-		)
+		/obj/item/circuitboard/microwave = 1,
+		/obj/item/stock_parts/capacitor = 3,
+		/obj/item/stock_parts/micro_laser = 1,
+		/obj/item/stock_parts/matter_bin = 2
+	)
+
 	starts_with = list(
 		/obj/item/reagent_containers/cooking_container/microwave
 	)
