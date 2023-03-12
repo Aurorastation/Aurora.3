@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - tweak: "Skybox icon should now have their original colors while keeping their light color."

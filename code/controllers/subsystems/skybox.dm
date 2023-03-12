@@ -56,7 +56,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 	res.appearance_flags = KEEP_TOGETHER
 
 	var/sector_icon = SSatlas.current_sector.skybox_icon
-	var/image/base = overlay_image(skybox_icon, sector_icon, background_color)
+	var/image/base = overlay_image(skybox_icon, sector_icon)
 
 	if(use_stars)
 		var/image/stars = overlay_image(skybox_icon, star_state, flags = RESET_COLOR)
