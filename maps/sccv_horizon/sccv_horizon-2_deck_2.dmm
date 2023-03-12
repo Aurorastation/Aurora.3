@@ -43201,8 +43201,7 @@
 	pixel_y = 24
 	},
 /obj/structure/disposalpipe/junction{
-	dir = 8;
-	icon_state = "pipe-j2"
+	dir = 4
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/kitchen/hallway)
