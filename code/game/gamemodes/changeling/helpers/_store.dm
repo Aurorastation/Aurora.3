@@ -256,7 +256,7 @@ var/list/datum/power/changeling/powerinstances = list()
 /datum/power/changeling/horror_form
 	name = "Horror Form"
 	desc = "We tear apart our human disguise, revealing our true and ultimate form."
-	helptext = "We will assume our ultimate form. This is irreversible."
+	helptext = "We will assume our ultimate form. This is irreversible. While we are in this state, we are extremely powerful."
 	genomecost = 10
 	verbpath = /mob/proc/horror_form
 
