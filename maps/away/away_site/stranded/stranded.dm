@@ -19,16 +19,18 @@
 	name="survivor planet"
 	icon_state = "outpost_mine_main"
 	requires_power = FALSE
+	flags = HIDE_FROM_HOLOMAP
 
 /area/stranded/forest
-	name="survivor forest"
+	name="forest"
 	icon_state = "outpost_mine_main"
 	requires_power = FALSE
+	flags = HIDE_FROM_HOLOMAP
 
 /area/stranded/forest/play_ambience(var/mob/living/L)
 	..()
 	if(L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
-		L.playsound_to(get_turf(L),sound('sound/ambience/spooky_jungle.ogg', repeat = 1, wait = 0, volume = 15, channel = 1))
+		sound_to(L, sound('sound/ambience/spooky_jungle.ogg', repeat = 1, wait = 0, volume = 15, channel = 1))
 
 /area/stranded/forest/Exited(var/mob/living/L, atom/newarea)
 	if(!istype(newarea, /area/stranded/forest))
@@ -43,14 +45,17 @@ area/stranded/hut
 	name="survivor hut"
 	icon_state = "dark"
 	requires_power = FALSE
+	flags = HIDE_FROM_HOLOMAP
 
 area/stranded/cabin
 	name="strange cabin"
 	icon_state = "dark"
 	requires_power = FALSE
+	flags = HIDE_FROM_HOLOMAP
 	music = list('sound/ambience/ghostly/ghostly1.ogg')
 
 area/stranded/cave
-	name="monster cave"
+	name="cave"
 	icon_state = "mining"
+	flags = HIDE_FROM_HOLOMAP
 	requires_power = FALSE
