@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed reagent data not being copied correctly, leading to chips transferring their dip to the entire chip basket."
+  - bugfix: "Fixed taste descriptions for nutriment subtypes not showing properly when set in reagent data."
