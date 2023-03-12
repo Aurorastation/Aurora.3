@@ -58,6 +58,7 @@
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	icon_state = "wristbound-h"
+
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/ce
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
 	icon_state = "wristbound-ce"
@@ -80,9 +81,6 @@
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/captain
 	_app_preset_type = /datum/modular_computer_app_presets/command/captain
 	icon_state = "wristbound-c"
-
-/obj/item/modular_computer/handheld/wristbound/preset/advanced/generic
-	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/representative
 	_app_preset_type = /datum/modular_computer_app_presets/representative
