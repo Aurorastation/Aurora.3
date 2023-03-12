@@ -978,6 +978,12 @@
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/franny)
 "dBq" = (
@@ -2763,6 +2769,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/engineering)
 "kAt" = (
@@ -3215,6 +3222,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/dominia/voidsman,
 /obj/item/clothing/head/helmet/space/void/dominia/voidsman,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/engineering)
 "mcE" = (
@@ -4069,6 +4077,12 @@
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/franny)
 "oYG" = (

@@ -4,8 +4,8 @@
 
 /datum/shuttle/autodock/ferry/autoreturn/arrived()
 	if(waypoint_station == current_location)
-		addtimer(CALLBACK(src, .proc/announce_return), 20)
-		addtimer(CALLBACK(src, .proc/do_return), auto_return_time*10)
+		addtimer(CALLBACK(src, PROC_REF(announce_return)), 20)
+		addtimer(CALLBACK(src, PROC_REF(do_return)), auto_return_time*10)
 
 /datum/shuttle/autodock/ferry/autoreturn/proc/announce_return()
 	if(!location)

@@ -4,6 +4,8 @@
 	icon_state = "desert"
 	has_resources = 1
 	footstep_sound = /singleton/sound_category/asteroid_footstep
+	turf_flags = TURF_FLAG_BACKGROUND
+	flags = null
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
 	var/has_edge_icon = TRUE
@@ -36,8 +38,6 @@
 		if(T.use(1))
 			playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 			ChangeTurf(/turf/simulated/floor, FALSE, FALSE, TRUE)
-	else
-		..()
 
 /turf/simulated/floor/exoplanet/ex_act(severity)
 	switch(severity)

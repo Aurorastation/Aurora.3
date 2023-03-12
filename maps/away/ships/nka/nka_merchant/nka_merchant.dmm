@@ -1144,6 +1144,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/nka,
 /obj/item/clothing/head/helmet/space/void/nka,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1863,6 +1864,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/security,
 /obj/item/clothing/head/helmet/space/void/security,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2027,6 +2029,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/nka,
 /obj/item/clothing/head/helmet/space/void/nka,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

@@ -94,7 +94,6 @@
 		/obj/item/storage/wallet                              = TRADER_THIS_TYPE,
 		/obj/item/storage/photo_album                         = TRADER_THIS_TYPE,
 		/obj/item/clothing/glasses                            = TRADER_SUBTYPES_ONLY,
-		/obj/item/clothing/glasses/threedglasses/fluff        = TRADER_BLACKLIST_ALL, // Custom items
 		/obj/item/clothing/glasses/hud                        = TRADER_BLACKLIST_ALL, //don't want mech/advanced stuff
 		/obj/item/clothing/glasses/sunglasses/blindfold/tape  = TRADER_BLACKLIST, // Literally just tape over someone's eyes
 		/obj/item/clothing/glasses/chameleon                  = TRADER_BLACKLIST, // traitor stuff
@@ -179,6 +178,5 @@
 		/obj/item/reagent_containers/glass/bottle/stoxin       = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/polysomnine  = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/antitoxin    = TRADER_THIS_TYPE,
-		/obj/item/device/handheld_medical                      = TRADER_THIS_TYPE,
-		/obj/item/stack/medical/advanced/bruise_pack/spaceklot = TRADER_THIS_TYPE
+		/obj/item/device/handheld_medical                      = TRADER_THIS_TYPE
 	)

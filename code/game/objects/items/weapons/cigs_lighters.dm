@@ -853,9 +853,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 					if(user.IgniteMob())
 						user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally sets themselves on fire!"))
 					if(user.l_hand == src)
-						user.apply_damage(2, BURN,BP_L_HAND)
+						user.apply_damage(2, DAMAGE_BURN,BP_L_HAND)
 					else
-						user.apply_damage(2, BURN,BP_R_HAND)
+						user.apply_damage(2, DAMAGE_BURN,BP_R_HAND)
 					if(last_open <= world.time - 20) //Spam limiter.
 						last_open = world.time
 						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)

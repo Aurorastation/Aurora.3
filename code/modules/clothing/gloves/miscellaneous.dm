@@ -277,8 +277,12 @@
 /obj/item/clothing/gloves/offworlder
 	name = "starmitts"
 	desc = "Thick arm warmers and mittens that reach past the elbow."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "starmittens"
 	item_state = "starmittens"
+	build_from_parts = TRUE
+	worn_overlay = "over"
 
 /obj/item/clothing/gloves/ballistic
 	name = "ballistic gauntlet"
@@ -384,7 +388,7 @@
 				charged = FALSE
 				update_icon()
 				user.update_inv_gloves()
-				addtimer(CALLBACK(src, .proc/rearm), 10 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(rearm)), 10 SECONDS)
 
 		else
 			var/turf/T = get_turf(user)
@@ -396,7 +400,7 @@
 			charged = FALSE
 			update_icon()
 			user.update_inv_gloves()
-			addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(rearm)), 30 SECONDS)
 
 /obj/item/clothing/gloves/tesla/proc/rearm()
 	visible_message(SPAN_NOTICE("\The [src] surges back with energy!"))

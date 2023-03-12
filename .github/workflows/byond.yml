@@ -1,6 +1,7 @@
 name: BYOND tests
 
 on:
+  merge_group:
   push:
     branches:
     - master

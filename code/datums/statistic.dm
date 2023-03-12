@@ -123,7 +123,7 @@
 	return FALSE
 
 /datum/statistic/grouped/most_deaths/get_roundend_lines()
-	sortTim(values, /proc/cmp_numeric_dsc, TRUE)
+	sortTim(values, GLOBAL_PROC_REF(cmp_numeric_dsc), TRUE)
 	var/ckey = values[1]
 	. = "[ckey], with [values[ckey]] deaths."
 

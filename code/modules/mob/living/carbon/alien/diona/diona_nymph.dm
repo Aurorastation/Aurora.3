@@ -289,16 +289,16 @@
 		if(paralysis && paralysis > 0)
 			handle_paralysed()
 			blinded = TRUE
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 
 		if(sleeping)
 			if(mind)
 				if(mind.active && client)
 					sleeping = max(sleeping-1, 0)
 			blinded = TRUE
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 		else if(!resting)
-			stat = CONSCIOUS
+			set_stat(CONSCIOUS)
 
 		// Eyes and blindness.
 		if(!has_eyes())

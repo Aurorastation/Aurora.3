@@ -137,7 +137,7 @@
 	active_force = 40
 	active_throwforce = 60
 	active_w_class = ITEMSIZE_HUGE
-	armor_penetration = 20 
+	armor_penetration = 20
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_HUGE
@@ -209,6 +209,12 @@
 	..()
 	icon_state = initial(icon_state)
 	to_chat(user, "<span class='notice'>\The [src] is de-energised. It's just a regular axe now.</span>")
+
+/obj/item/melee/energy/axe/can_woodcut()
+	if(active)
+		return TRUE
+	else
+		return FALSE
 
 /*
  * Energy Sword

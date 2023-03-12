@@ -26,8 +26,9 @@
 	name = "Elyran Naval Strike Craft"
 	class = "ENV"
 	desc = "The Aslan-class Strike Craft is among the oldest designs in the Elyran naval arsenal, and is one of the ship classes slated to be retired in the ongoing Elyran military modernization plan. Not an independent vessel in of itself, it is instead an oversized attack craft designed to be launched from the General Abd Al-Hamid-class Carrier, a type of Elyran capital ship, named after the Republic's foremost national hero. As such, it has limited crew facilities and life support capabilities, and is instead reliant on its mothership for long-term operation. This ship is an interdiction variant, with its torpedo bay and railgun hardpoint replaced by a hangar and a boarding pod launch room, respectively."
-	icon_state = "ship_grey"
-	moving_state = "ship_grey_moving"
+	icon_state = "corvette"
+	moving_state = "corvette_moving"
+	colors = list("#ffae17", "#ffcd70")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -41,6 +42,8 @@
 		"nav_elyran_strike_craft_1",
 		"nav_elyran_strike_craft_2"
 	)
+
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/elyran_strike_craft/New()
 	designation = "[pick("Persepolis", "Damascus", "Medina", "Aemaq", "New Suez", "Bursa", "Republican", "Falcon", "Gelin", "Sphinx", "Takam", "Dandan", "Anqa", "Falak", "Uthra", "Djinn", "Roc", "Shadhavar", "Karkadann")]"
@@ -70,8 +73,9 @@
 	designation = "Colibri"
 	desc = "Easily mistaken for a Wisp-class (which it is almost identical to), this shuttle is in fact an Elyran Dromedary-class, which is an unlicensed copy of the Hephaestus Wisp-class, and one of the designs slated for retirement in the ongoing military modernization program. Hephaestus Industries has attempted to sue the Elyran government many times for the navy's unlicensed production of its intellectual property, and Elyran courts have, unsurprisingly, always ruled in favor of the government - much to the frustration of the megacorporation, which has no other method of recourse. An inefficient design of ultra-light shuttle. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. This one's transponder identifies it as an Elyran Naval Infantry recovery shuttle."
 	shuttle = "Elyran Naval Shuttle"
-	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving"
+	icon_state = "pod"
+	moving_state = "pod_moving"
+	colors = list("#ffae17", "#ffcd70")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

@@ -140,7 +140,7 @@
 /obj/random/medical
 	name = "Random Medicine"
 	desc = "This is a random medical item."
-	icon = 'icons/obj/stacks/medical.dmi'
+	icon = 'icons/obj/item/stacks/medical.dmi'
 	icon_state = "brutepack"
 	spawn_nothing_percentage = 25
 	problist = list(
@@ -166,12 +166,16 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "firstaid"
 	problist = list(
-		/obj/item/storage/firstaid/regular = 3,
-		/obj/item/storage/firstaid/toxin = 2,
-		/obj/item/storage/firstaid/o2 = 2,
-		/obj/item/storage/firstaid/fire = 2,
-		/obj/item/storage/firstaid/brute = 1,
-		/obj/item/storage/firstaid/adv = 1
+		/obj/item/storage/firstaid/regular = 4,
+		/obj/item/storage/firstaid/trauma = 3,
+		/obj/item/storage/firstaid/toxin = 3,
+		/obj/item/storage/firstaid/o2 = 3,
+		/obj/item/storage/firstaid/fire = 3,
+		/obj/item/storage/firstaid/radiation = 3,
+		/obj/item/storage/firstaid/stab = 2,
+		/obj/item/storage/firstaid/adv = 2,
+		/obj/item/storage/firstaid/combat = 1,
+		/obj/item/storage/firstaid/empty = 2
 	)
 
 /obj/random/contraband
@@ -423,7 +427,6 @@
 	name = "random backpack"
 	problist = list(
 		/obj/item/storage/backpack = 3,
-		/obj/item/storage/backpack/holding = 0.5,
 		/obj/item/storage/backpack/cultpack = 2,
 		/obj/item/storage/backpack/medic = 3,
 		/obj/item/storage/backpack/security = 3,
@@ -551,7 +554,7 @@
 		log_debug("random_obj (voidsuit): Type [suit.type] was unable to spawn a matching helmet!")
 	new /obj/item/clothing/shoes/magboots(loc)
 	if (damaged && prob(60))
-		suit.create_breaches(pick(BRUTE, BURN), rand(1, 5))
+		suit.create_breaches(pick(DAMAGE_BRUTE, DAMAGE_BURN), rand(1, 5))
 
 //Random MRE stuff
 
@@ -917,10 +920,10 @@
 	)
 
 /obj/random/loot
-	name = "random maintenance loot items"
+	name = "random maintenance loot"
 	desc = "Stuff for the maint-dwellers."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "gift3"
+	icon = 'icons/holidays/christmas/presents.dmi'
+	icon_state = "gift1"
 	problist = list(
 		/obj/item/bluespace_crystal/artificial = 0.1,
 		/obj/item/bodybag = 0.7,
@@ -1079,7 +1082,10 @@
 		/obj/random/toolbox = 1,
 		/obj/random_produce = 0.25,
 		/obj/random/watches = 1,
-		/obj/random/wizard_dressup = 0.25
+		/obj/random/wizard_dressup = 0.25,
+		/obj/item/device/synthesized_instrument/violin = 0.1,
+		/obj/item/device/synthesized_instrument/guitar = 1,
+		/obj/item/device/synthesized_instrument/trumpet = 0.25
 	)
 
 

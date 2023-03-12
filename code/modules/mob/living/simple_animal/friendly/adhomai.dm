@@ -1,10 +1,10 @@
 /mob/living/simple_animal/ice_tunneler
 	name = "ice tunneler"
 	desc = "An egg producing beast from Adhomai. It is known for burrowing in ice and snow."
-	icon = 'icons/mob/npc/livestock.dmi'
-	icon_state = "tunneler"
-	icon_living = "tunneler"
-	icon_dead = "tunneler_dead"
+	icon = 'icons/mob/npc/adhomai.dmi'
+	icon_state = "tunneler_f"
+	icon_living = "tunneler_f"
+	icon_dead = "tunneler_f_dead"
 	speak = list("Fiiiiiii!")
 	speak_emote = list("whistles")
 	emote_hear = list("whistles loudly")
@@ -14,6 +14,11 @@
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	hunger_enabled = FALSE
 	canbrush = TRUE
+	faction = "Adhomai"
+	gender = FEMALE
+	maxHealth = 50
+	health = 50
+	mob_size = 5
 	var/eggsleft = 0
 
 /mob/living/simple_animal/ice_tunneler/attackby(var/obj/item/O as obj, var/mob/user as mob)
@@ -39,18 +44,34 @@
 	. =..()
 	if(!.)
 		return
-	if(!stat && prob(3) && eggsleft > 0)
+	if(!stat && prob(3) && eggsleft > 0 && (gender = FEMALE))
 		visible_message("[src] lays an egg.")
 		eggsleft--
-		new /obj/item/reagent_containers/food/snacks/egg(get_turf(src))
+		new /obj/item/reagent_containers/food/snacks/egg/ice_tunnelers(get_turf(src))
+
+/mob/living/simple_animal/ice_tunneler/male
+	icon_state = "tunneler_m"
+	icon_living = "tunneler_m"
+	icon_dead = "tunneler_m_dead"
+	gender = MALE
+
+/mob/living/simple_animal/ice_tunneler/baby
+	name = "ice tunneler chick"
+	icon_state = "tunneler_baby"
+	icon_living = "tunneler_baby"
+	icon_dead = "tunneler_baby_dead"
+	maxHealth = 10
+	health = 10
+	mob_size = 2
+	meat_amount = 1
 
 /mob/living/simple_animal/fatshouter
 	name = "fatshouter"
 	desc = "An adhomian animal known for its production of milk and wool."
-	icon = 'icons/mob/npc/livestock.dmi'
-	icon_state = "fatshouter"
-	icon_living = "fatshouter"
-	icon_dead = "fatshouter_dead"
+	icon = 'icons/mob/npc/adhomai.dmi'
+	icon_state = "fatshouter_f"
+	icon_living = "fatshouter_f"
+	icon_dead = "fatshouter_f_dead"
 	speak_emote = list("brays")
 	emote_hear = list("brays")
 	emote_see = list("shakes its head")
@@ -73,15 +94,24 @@
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	butchering_products = list(/obj/item/stack/material/animalhide = 5, /obj/item/reagent_containers/food/snacks/spreads/lard = 5)
+	faction = "Adhomai"
 
+	gender = FEMALE
+
+/mob/living/simple_animal/fatshouter/male
+	icon_state = "fatshouter_m"
+	icon_living = "fatshouter_m"
+	icon_dead = "fatshouter_m_dead"
+	gender = MALE
+	has_udder = FALSE
 
 /mob/living/simple_animal/hostile/retaliate/rafama
 	name = "steed of Mata'ke"
 	desc = "An animal native to Adhomai, known for its agressive behavior and mighty tusks."
-	icon = 'icons/mob/npc/livestock.dmi'
-	icon_state = "rafama"
-	icon_living = "rafama"
-	icon_dead = "rafama_dead"
+	icon = 'icons/mob/npc/adhomai.dmi'
+	icon_state = "rafama_f"
+	icon_living = "rafama_f"
+	icon_dead = "rafama_f_dead"
 	turns_per_move = 3
 	speak_emote = list("chuffs")
 	emote_hear = list("growls")
@@ -105,3 +135,117 @@
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 5)
 	meat_amount = 8
+	faction = "Adhomai"
+	gender = FEMALE
+
+/mob/living/simple_animal/hostile/retaliate/rafama/male
+	icon_state = "rafama_m"
+	icon_living = "rafama_m"
+	icon_dead = "rafama_m_dead"
+	gender = MALE
+
+/mob/living/simple_animal/hostile/retaliate/rafama/baby
+	icon_state = "rafama_baby"
+	icon_living = "rafama_baby"
+	icon_dead = "rafama_baby_dead"
+	gender = MALE
+	maxHealth = 30
+	health = 30
+	mob_size = 5
+	melee_damage_lower = 5
+	melee_damage_upper = 5
+	meat_amount = 2
+
+/mob/living/simple_animal/scavenger
+	name = "scavenger"
+	desc = "Segmented, keratinous creatures that feed on the Hma'trra Zivr carcasses found on the pole's surface."
+	icon = 'icons/mob/npc/adhomai.dmi'
+	icon_state = "scavenger"
+	icon_living = "scavenger"
+	icon_dead = "scavenger_dead"
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	meat_amount = 1
+	organ_names = list("thorax", "legs", "head")
+	faction = "Adhomai"
+	maxHealth = 20
+	health = 20
+	mob_size = 3
+
+	speak_emote = list("chitters")
+	emote_hear = list("chitters")
+	emote_see = list("scutters around", "digs the ground")
+
+	blood_type = "#281C2D"
+
+/mob/living/simple_animal/ice_catcher
+	name = "ice catcher"
+	desc = "An animal often mistaken for a rock due its shell. Its main body is made up of large tentacles."
+	icon = 'icons/mob/npc/adhomai_48.dmi'
+	icon_state = "catcher"
+	icon_living = "catcher"
+	icon_dead = "catcher_dead"
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	meat_amount = 10
+	organ_names = list("shell", "tentacles")
+	faction = "Adhomai"
+
+	maxHealth = 50
+	health = 50
+	mob_size = 3
+	pixel_x = -8
+	blood_type = "#281C2D"
+	var/burrowed = FALSE
+	var/chosen_icon
+
+/mob/living/simple_animal/ice_catcher/Initialize()
+	. = ..()
+	chosen_icon = pick("catcher", "catcher1", "catcher2")
+	icon_state = chosen_icon
+	icon_living = chosen_icon
+	icon_dead = "[chosen_icon]_dead"
+	burrow()
+
+/mob/living/simple_animal/ice_catcher/proc/burrow()
+	burrowed = TRUE
+	icon_state = "[chosen_icon]-h"
+	icon_living = "[chosen_icon]-h"
+	anchored = TRUE
+	name = "rock"
+	desc = "A rock."
+	visible_message(SPAN_NOTICE("\The [src] burrows into the ground!"))
+
+/mob/living/simple_animal/ice_catcher/Move()
+	if(burrowed)
+		return
+	else
+		..()
+
+/mob/living/simple_animal/ice_catcher/proc/unburrow()
+	burrowed = FALSE
+	icon_state = "[chosen_icon]"
+	icon_living = "[chosen_icon]"
+	anchored = FALSE
+	name = "ice catcher"
+	desc = "An animal often mistaken for a rock due its shell. Its main body is made up of large tentacles."
+	visible_message(SPAN_NOTICE("\The [src] emerges from the ground!"))
+
+/mob/living/simple_animal/ice_catcher/attack_hand(mob/living/carbon/human/M as mob)
+	if(burrowed && (stat != DEAD))
+		unburrow()
+	..()
+
+/mob/living/simple_animal/ice_catcher/attackby(obj/item/O, mob/user)
+	if(burrowed && (stat != DEAD))
+		unburrow()
+	..()
+
+/mob/living/simple_animal/ice_catcher/bullet_act(obj/item/projectile/P, def_zone)
+	if(burrowed && (stat != DEAD))
+		unburrow()
+	..()
+
+/mob/living/simple_animal/ice_catcher/death(gibbed)
+	..()
+	if(burrowed)
+		unburrow()

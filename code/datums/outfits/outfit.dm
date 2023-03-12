@@ -38,6 +38,7 @@
 #define OUTFIT_BOWMAN 3
 #define OUTFIT_DOUBLE 4
 #define OUTFIT_WRISTRAD 5
+#define OUTFIT_THIN_WRISTRAD 6
 
 /datum/outfit
 	var/name = "Naked"
@@ -229,6 +230,7 @@
 		else
 			H.equip_or_collect(B, slot_back)
 
+	var/datum/callback/radio_callback
 	if(allow_headset_choice)
 		switch(H.headset_choice)
 			if (OUTFIT_NOTHING)
@@ -237,21 +239,26 @@
 				l_ear = bowman
 			if (OUTFIT_DOUBLE)
 				l_ear = double_headset
-			if (OUTFIT_WRISTRAD)
+			if (OUTFIT_WRISTRAD, OUTFIT_THIN_WRISTRAD)
 				l_ear = null
 				wrist = wrist_radio
+				if(H.headset_choice == OUTFIT_THIN_WRISTRAD)
+					radio_callback = CALLBACK(src, PROC_REF(turn_into_thinset))
 			else
 				l_ear = headset //Department headset
 	if(l_ear)
-		equip_item(H, l_ear, slot_l_ear)
+		equip_item(H, l_ear, slot_l_ear, callback = radio_callback)
 	else if (wrist)
-		equip_item(H, wrist, slot_wrists)
+		equip_item(H, wrist, slot_wrists, callback = radio_callback)
 
-	return
+/datum/outfit/proc/turn_into_thinset(var/obj/item/device/radio/headset/wrist/radio)
+	if(istype(radio))
+		radio.icon_state = replacetext(radio.icon_state, "wrist", "thin")
+		radio.item_state = replacetext(radio.item_state, "wrist", "thin")
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
 //override_collect temporarily allows equip_or_collect without enabling it for the job. Mostly used to prevent weirdness with hand equips when the player is missing one
-/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE, var/item_color)
+/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE, var/item_color, var/datum/callback/callback)
 	var/obj/item/I
 
 	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
@@ -265,6 +272,9 @@
 		I = G.spawn_random()
 	else
 		I = new path(H) //As fallback treat it as a path
+
+	if(I && callback)
+		callback.Invoke(I)
 
 	if(collect_not_del || override_collect)
 		H.equip_or_collect(I, slot)
@@ -457,7 +467,7 @@
 			var/obj/item/ID = new id(H)
 			imprint_idcard(H, ID)
 			if(personal_computer?.card_slot)
-				addtimer(CALLBACK(src, .proc/register_pda, personal_computer, ID), 2 SECOND)
+				addtimer(CALLBACK(src, PROC_REF(register_pda), personal_computer, ID), 2 SECOND)
 			else
 				H.equip_or_collect(ID, slot_wear_id)
 
@@ -555,7 +565,7 @@
 		C.access = get_id_access(H)
 		C.rank = get_id_rank(H)
 		C.assignment = get_id_assignment(H)
-		addtimer(CALLBACK(H, /mob/.proc/set_id_info, C), 1 SECOND)	// Delay a moment to allow an icon update to happen.
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob, set_id_info), C), 1 SECOND)	// Delay a moment to allow an icon update to happen.
 
 		if(H.mind && H.mind.initial_account)
 			C.associated_account_number = H.mind.initial_account.account_number

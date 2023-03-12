@@ -228,6 +228,9 @@
 		cleave(user, target)
 	..()
 
+/obj/item/material/twohanded/fireaxe/can_woodcut()
+	return TRUE
+
 //spears, bay edition
 /obj/item/material/twohanded/spear
 	icon_state = "spearglass0"
@@ -318,6 +321,9 @@
 /obj/item/material/twohanded/spear/diamond/Initialize(newloc, material_key)
 	. = ..(newloc, MATERIAL_DIAMOND)
 
+/obj/item/material/twohanded/spear/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
+
 /obj/structure/headspear
 	name = "head on a spear"
 	desc = "How barbaric."
@@ -370,6 +376,12 @@
 /obj/item/material/twohanded/chainsaw/fueled/Initialize()
 	. = ..()
 	reagents.add_reagent(fuel_type, max_fuel)
+
+/obj/item/material/twohanded/chainsaw/can_woodcut()
+	if(powered)
+		return TRUE
+	else
+		return ..()
 
 /obj/item/material/twohanded/chainsaw/op //For events or whatever
 	opendelay = 5
@@ -445,8 +457,9 @@
 		playsound(loc, 'sound/weapons/saw/chainsawloop2.ogg', 25, 0, 30)
 		if(prob(75))
 			spark(src, 3, alldirs)
-			if(prob(25))
-				eyecheck(2,loc)
+			if(prob(25) && isliving(loc))
+				if(loc.flash_act())
+					to_chat(loc, SPAN_DANGER("Some stray sparks fly into your eyes!"))
 	else
 		playsound(loc, 'sound/weapons/saw/chainsawloop1.ogg', 25, 0, 30)
 
@@ -478,20 +491,6 @@
 			playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
 			RemoveFuel(3)
 	. = ..()
-
-/obj/item/material/twohanded/chainsaw/proc/eyecheck(var/multiplier, mob/living/carbon/human/H as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
-
-	if (!istype(H) || H.status_flags & GODMODE)
-		return
-
-	var/obj/item/organ/internal/eyes/E = H.get_eyes()
-	if(!istype(E))
-		return
-
-	var/eye_damage = max(0, (2 - H.eyecheck())*multiplier )
-	E.damage += eye_damage
-	if(eye_damage > 0)
-		to_chat(H, "<span class='danger'>Some stray sparks fly in your eyes!</span>")
 
 /obj/item/material/twohanded/chainsaw/AltClick(mob/user)
 	if(powered)
@@ -557,6 +556,12 @@
 	sharp = 1
 	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed")
 
+/obj/item/material/twohanded/pike/halberd/can_woodcut()
+	if(wielded)
+		return TRUE
+	else
+		return ..()
+
 /obj/item/material/twohanded/pike/pitchfork
 	icon_state = "pitchfork0"
 	base_icon = "pitchfork"
@@ -615,7 +620,10 @@
 	icon_state = "flag_hegemony0"
 	base_icon = "flag_hegemony"
 	contained_sprite = TRUE
-	damtype = BURN
+	damtype = DAMAGE_BURN
+
+/obj/item/material/twohanded/pike/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
 
 /obj/item/material/twohanded/zweihander
 	icon_state = "zweihander0"

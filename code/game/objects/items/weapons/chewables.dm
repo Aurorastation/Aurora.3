@@ -62,15 +62,15 @@ obj/item/clothing/mask/chewable/Destroy()
 			if (src == C.wear_mask && C.check_has_mouth())
 				reagents.trans_to_mob(C, REM, CHEM_INGEST, 0.2)
 				if(isnum(damage_per_crunch && !crunching))
-					addtimer(CALLBACK(src, .proc/damagecrunch, C), 50, TIMER_UNIQUE)
+					addtimer(CALLBACK(src, PROC_REF(damagecrunch), C), 50, TIMER_UNIQUE)
 					crunching = TRUE
 		else
 			STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/clothing/mask/chewable/proc/damagecrunch(mob/living/carbon/human/user)
 	if(src == user.wear_mask) // are we still chewing the gum?
-		user.apply_damage(damage_per_crunch, BRUTE, BP_HEAD)
-		user.apply_damage(damage_per_crunch/2, PAIN, BP_HEAD)
+		user.apply_damage(damage_per_crunch, DAMAGE_BRUTE, BP_HEAD)
+		user.apply_damage(damage_per_crunch/2, DAMAGE_PAIN, BP_HEAD)
 		to_chat(user, SPAN_DANGER("You bite down hard on \the [name]!"))
 	crunching = FALSE
 

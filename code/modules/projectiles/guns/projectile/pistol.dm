@@ -197,6 +197,9 @@
 /obj/item/gun/projectile/silenced
 	name = "silenced pistol"
 	desc = "A small, quiet, easily concealable gun. Uses .45 rounds."
+	desc_extended = "Created as a disposable and concealable weapon, the Mrrazhakulii suppressed pistol is a firearm with a silencer integrated as part of its barrel. \
+		Carried by guerrilla forces and spies, those guns are used in assassination and subterfuge operations. Due to using cheap and available materials, such as \
+		recycled iron and tires, countless of those pistols were distributed among cells and ALA soldiers."
 	icon = 'icons/obj/guns/silenced_pistol.dmi'
 	icon_state = "silenced_pistol"
 	item_state = "silenced_pistol"
@@ -210,10 +213,6 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
-
-	desc_extended = "Created as a disposable and concealable weapon, the Mrrazhakulii suppressed pistol is a firearm with a silencer integrated as part of its barrel. Carried by \
-	guerrilla forces and spies, those guns are used in assassination and subterfuge operations. Due to using cheap and available materials, such as recycled iron and tires, countless of \
-	those pistols were distributed among cells and ALA soldiers."
 
 /obj/item/gun/projectile/silenced/update_icon()
 	..()

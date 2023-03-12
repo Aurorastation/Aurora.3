@@ -353,6 +353,9 @@
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	usesound = /singleton/sound_category/shovel_sound
 
+/obj/item/shovel/is_shovel()
+	return TRUE
+
 /obj/item/shovel/spade
 	name = "spade"
 	desc = "A small tool for digging and moving dirt."
@@ -771,7 +774,7 @@
 				L.Weaken(3)
 				if(ishuman(L))
 					shake_camera(L, 20, 1)
-					addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
+					addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living/carbon/human, vomit), 20))
 
 /**********************Lazarus Injector**********************/
 
@@ -1079,7 +1082,7 @@ var/list/total_extraction_beacons = list()
 		name = "strong resonance field"
 		resonance_damage = 60
 
-	addtimer(CALLBACK(src, .proc/burst, loc), timetoburst)
+	addtimer(CALLBACK(src, PROC_REF(burst), loc), timetoburst)
 
 /obj/effect/resonance/Destroy()
 	if(res)
@@ -1095,7 +1098,7 @@ var/list/total_extraction_beacons = list()
 		if(creator)
 			add_logs(creator, L, "used a resonator field on", "resonator")
 		to_chat(L, SPAN_DANGER("\The [src] ruptured with you in it!"))
-		L.apply_damage(resonance_damage, BRUTE)
+		L.apply_damage(resonance_damage, DAMAGE_BRUTE)
 	qdel(src)
 
 
@@ -1443,9 +1446,9 @@ var/list/total_extraction_beacons = list()
 					L.Weaken(3)
 					shake_camera(L, 20, 1)
 					if(!isipc(L) && ishuman(L))
-						addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
+						addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living/carbon/human, vomit)), 20)
 
-		addtimer(CALLBACK(src, .proc/drill, location), 2)
+		addtimer(CALLBACK(src, PROC_REF(drill), location), 2)
 
 	qdel(src)
 

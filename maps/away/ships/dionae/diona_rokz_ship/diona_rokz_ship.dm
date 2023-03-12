@@ -4,7 +4,7 @@
 	suffixes = list("ships/dionae/diona_rokz_ship/diona_rokz_ship.dmm")
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "diona_rokz"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/diona_rokz_ship_shuttle)
 
@@ -47,8 +47,9 @@
 	name = "Rokz Clan Ship"
 	class = "RCS"
 	desc = "A ship belonging to the Rokz voidtamer clan, a group of dionae who specialize in selling space fauna."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "diona"
+	moving_state = "diona_moving"
+	colors = list("#5cc04c", "#78f898")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -110,6 +111,9 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#5cc04c", "#78f898")
 
 /obj/machinery/computer/shuttle_control/explore/diona_rokz_ship
 	name = "shuttle control console"

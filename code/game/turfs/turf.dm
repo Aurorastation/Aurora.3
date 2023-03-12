@@ -1,6 +1,8 @@
 /turf
 	icon = 'icons/turf/floors.dmi'
 	level = 1
+
+	var/turf_flags
 	var/holy = 0
 
 	// Initial air contents (in moles)
@@ -140,7 +142,7 @@
 	return 0
 
 /turf/proc/is_solid_structure()
-	return 1
+	return !(turf_flags & TURF_FLAG_BACKGROUND) || locate(/obj/structure/lattice, src)
 
 /turf/proc/is_space()
 	return 0
