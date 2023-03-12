@@ -2080,7 +2080,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/toggle/fluff/prejoroub_fur_longcoat //Renewed Antiquated Labcoat - Freedom Of Self Shackled By Unending Greed - lmwevil
+/obj/item/clothing/suit/storage/toggle/fluff/freedom_coat //Renewed Antiquated Labcoat - Freedom Of Self Shackled By Unending Greed - lmwevil
 	name = "renewed antiquated labcoat"
 	desc = "An ancient labcoat from the Narrows, recently revitalized with extreme tailoring to become a symbol of unity between the Conglomerate and Dionae across the spur after the \
 	allowance of Dionae as Executive Officers aboard the Horizon. It must have cost a substantial sum to fix the century old labcoat back up to scratch. On the left arm is a beautifully \
