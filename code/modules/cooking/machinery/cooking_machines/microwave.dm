@@ -31,15 +31,11 @@
 	var/failed = FALSE // pretty much exclusively for sending the fail state across to the UI, using recipe elsewhere is preferred
 
 	component_types = list(
-		/obj/item/circuitboard/microwave = 1,
-		/obj/item/stock_parts/capacitor = 3,
-		/obj/item/stock_parts/micro_laser = 1,
-		/obj/item/stock_parts/matter_bin = 2
-	)
-
-	starts_with = list(
-		/obj/item/reagent_containers/cooking_container/microwave
-	)
+			/obj/item/circuitboard/microwave = 1,
+			/obj/item/stock_parts/capacitor = 3,
+			/obj/item/stock_parts/micro_laser = 1,
+			/obj/item/stock_parts/matter_bin = 2
+		)
 
 	var/cook_time = 400
 	var/start_time = 0
@@ -54,9 +50,13 @@
 
 /obj/machinery/appliance/cooker/microwave/Initialize(mapload)
 	. = ..(mapload, 0, FALSE) // shadow-realm the parts for now, jimbo
-	create_reagents(100)
+	reagents = new/datum/reagents(100)
 	reagents.my_atom = src
 	soundloop = new(list(src), FALSE)
+	if (mapload)
+		addtimer(CALLBACK(src, .proc/setup_recipes), 1)
+	else
+		setup_recipes()
 
 	if(component_parts)
 		component_parts.Cut()
@@ -71,6 +71,23 @@
 			t.forceMove(null)
 
 	RefreshParts()
+
+/obj/machinery/appliance/cooker/microwave/proc/setup_recipes()
+	if (!LAZYLEN(acceptable_items))
+		acceptable_items = list()
+		acceptable_reagents = list()
+		for (var/singleton/recipe/recipe in RECIPE_LIST(appliancetype))
+			for (var/item in recipe.items)
+				acceptable_items[item] = TRUE
+
+			for (var/reagent in recipe.reagents)
+				acceptable_reagents[reagent] = TRUE
+
+		// This will do until I can think of a fun recipe to use dionaea in -
+		// will also allow anything using the holder item to be microwaved into
+		// impure carbon. ~Z
+		acceptable_items[/obj/item/holder] = TRUE
+		acceptable_items[/obj/item/reagent_containers/food/snacks/grown] = TRUE
 
 /*******************
 *   Item Adding
@@ -121,8 +138,8 @@
 			)
 			if(O.use_tool(src, user, 20, volume = 50))
 				user.visible_message( \
-					SPAN_NOTICE("\The [user] has cleaned the microwave."), \
-					SPAN_NOTICE("You have cleaned the microwave.") \
+					"<span class='notice'>\The [user] has cleaned the microwave.</span>", \
+					"<span class='notice'>You have cleaned the microwave.</span>" \
 				)
 				dirty = 0 // It's clean!
 				broken = 0 // just to be sure
@@ -301,7 +318,54 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 	RefreshParts()
 	return (ct / cooking_power)
 
-// What you see here are the remains of proc/wzhzhzh, 2010 - 2019. RIP.
+/obj/machinery/appliance/cooker/microwave/finish_cooking()
+	if(!recipe)
+		return
+	var/result = recipe.result
+	var/valid = TRUE
+	var/list/cooked_items = list()
+	var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
+	while(valid)
+		var/list/things = list()
+		things.Add(recipe.make_food(src))
+		cooked_items += things
+		//Move cooked things to the buffer so they're not considered as ingredients
+		for (var/atom/movable/AM in things)
+			AM.forceMove(temp)
+
+		valid = FALSE
+		recipe = select_recipe(RECIPE_LIST(appliancetype),src)
+		if (recipe && recipe.result == result)
+			sleep(2)
+			valid = TRUE
+
+	for (var/r in cooked_items)
+		var/atom/movable/R = r
+		R.forceMove(src) //Move everything from the buffer back to the container
+
+	QDEL_NULL(temp)//Delete buffer object
+
+	//Any leftover reagents are divided amongst the foods
+	var/total = reagents.total_volume
+	for (var/obj/item/reagent_containers/food/snacks/S in cooked_items)
+		reagents.trans_to_holder(S.reagents, total/cooked_items.len)
+
+	for (var/obj/item/reagent_containers/food/snacks/S in contents)
+		S.cook()
+
+	eject(0) //clear out anything left
+
+	return
+
+/obj/machinery/appliance/cooker/microwave/process() // What you see here are the remains of proc/wzhzhzh, 2010 - 2019. RIP.
+	if (stat & (NOPOWER|BROKEN))
+		stop()
+		return
+
+	update_use_power(active_power_usage)
+
+	if(world.time > end_time)
+		stop()
 
 /obj/machinery/appliance/cooker/microwave/proc/half_time_process()
 	if (stat & (NOPOWER|BROKEN))
@@ -328,7 +392,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 
 	START_PROCESSING(SSprocessing, src)
 	addtimer(CALLBACK(src, .proc/half_time_process), cook_time / 2)
-	visible_message(SPAN_NOTICE("The microwave turns on."), SPAN_NOTICE("You hear a microwave."))
+	visible_message("<span class='notice'>The microwave turns on.</span>", "<span class='notice'>You hear a microwave.</span>")
 
 	if(cook_dirty)
 		playsound(loc, 'sound/effects/splat.ogg', 50, 1) // Play a splat sound
@@ -363,7 +427,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 		fail()
 		failed = FALSE
 	else if(!failed && !abort)
-		finish_cooking(CI)
+		finish_cooking()
 
 	abort = FALSE
 	SSvueui.check_uis_for_change(src)
