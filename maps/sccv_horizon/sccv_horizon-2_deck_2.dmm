@@ -3693,11 +3693,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/zta)
-"bEH" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/wood,
-/area/horizon/crew_quarters/lounge/bar)
 "bFA" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/device/radio/intercom{
@@ -21823,6 +21818,13 @@
 "kuh" = (
 /turf/simulated/open/airless,
 /area/template_noop)
+"kum" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/lino/grey,
+/area/horizon/bar)
 "kur" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -23801,10 +23803,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
-"lzj" = (
-/obj/machinery/floor_light/dance/alternate,
-/turf/simulated/floor/wood,
-/area/horizon/crew_quarters/lounge/bar)
 "lzq" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -25704,9 +25702,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "mtP" = (
-/obj/machinery/alarm{
+/obj/machinery/alarm/freezer{
 	dir = 4;
-	pixel_x = -28
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -30931,12 +30929,9 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
 "oTg" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
-/obj/machinery/light,
-/turf/simulated/floor/lino/grey,
-/area/horizon/bar)
+/obj/machinery/floor_light/dance/alternate,
+/turf/simulated/floor/wood,
+/area/horizon/crew_quarters/lounge/bar)
 "oTE" = (
 /obj/machinery/light{
 	dir = 4
@@ -43094,7 +43089,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /obj/machinery/camera/network/service{
-	c_tag = "Dinner - Hydroponics 1";
+	c_tag = "Service - Hydroponics 1";
 	dir = 8
 	},
 /turf/simulated/open,
@@ -45549,6 +45544,11 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
+"vXG" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/wood,
+/area/horizon/crew_quarters/lounge/bar)
 "vXX" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -69392,7 +69392,7 @@ dWH
 nxI
 sOe
 eSd
-oTg
+kum
 nxI
 sKJ
 sKJ
@@ -70408,9 +70408,9 @@ sKJ
 emF
 tAn
 xtW
-bEH
+vXG
 cUZ
-lzj
+oTg
 nFQ
 nAq
 pNA
