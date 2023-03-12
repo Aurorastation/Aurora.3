@@ -301,15 +301,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 	RefreshParts()
 	return (ct / cooking_power)
 
-/obj/machinery/appliance/cooker/microwave/process() // What you see here are the remains of proc/wzhzhzh, 2010 - 2019. RIP.
-	if (stat & (NOPOWER|BROKEN))
-		stop()
-		return
-
-	update_use_power(active_power_usage)
-
-	if(world.time > end_time)
-		stop()
+// What you see here are the remains of proc/wzhzhzh, 2010 - 2019. RIP.
 
 /obj/machinery/appliance/cooker/microwave/proc/half_time_process()
 	if (stat & (NOPOWER|BROKEN))
@@ -371,7 +363,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 		fail()
 		failed = FALSE
 	else if(!failed && !abort)
-		finish_cooking()
+		finish_cooking(CI)
 
 	abort = FALSE
 	SSvueui.check_uis_for_change(src)
