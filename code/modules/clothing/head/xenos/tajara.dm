@@ -109,15 +109,21 @@
 		insignia."
 
 /obj/item/clothing/head/tajaran/nka_cap
-	name = "adhomai imperial army service cap"
-	desc = "A simple service cap worn by soldiers of the Adhomai Imperial Army."
+	name = "imperial adhomian army service cap"
+	desc = "A simple service cap worn by soldiers of the Imperial Adhomian Army."
 	icon_state = "nkahat"
 	item_state = "nkahat"
 
 /obj/item/clothing/head/tajaran/nka_cap/commander
-	desc = "A fancy service cap worn by officer of the Adhomai Imperial Army."
+	desc = "A fancy service cap worn by officer of the Imperial Adhomian Army."
 	icon_state = "nka_commander_hat"
 	item_state = "nka_commander_hat"
+
+/obj/item/clothing/head/tajaran/nka_cap/sailor
+	name = "royal navy service hat"
+	desc = "A simple service hat worn by sailors of the Royal Navy."
+	icon_state = "nka_sailor_hat"
+	item_state = "nka_sailor_hat"
 
 /obj/item/clothing/head/tajaran/consular
 	name = "consular service cap"

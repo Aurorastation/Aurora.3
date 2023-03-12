@@ -259,16 +259,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_NORMAL
 
 
-/obj/item/clothing/under/fluff/ellie_uniform //Cheery Blazer - Ellie Shoshanna - resilynn
-	name = "cheery blazer"
-	desc = "A cheery but professional outfit, mauve corduroys, blue blazer and a tie."
-	icon = 'icons/obj/custom_items/ellie_uniform.dmi'
-	icon_override = 'icons/obj/custom_items/ellie_uniform.dmi'
-	icon_state = "ellie_uniform"
-	item_state = "ellie_uniform"
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/suit/storage/fluff/vira_coat //Designer Military Coat - Vira Bolivar - scheveningen
 	name = "designer military coat"
 	desc = "A dark funnel neck designer military-style dress coat, specially fitted on commission, clearly designed for a woman's figure. \
@@ -399,7 +389,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_NORMAL
 
 
-/obj/item/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - simontheminer
+/obj/item/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - sampletex
 	desc = "An old looking zippo lighter with Vasili Mine Logo engraved on it. \"Good Luck Nikit\" is crudely scratched on under the logo in small writing."
 	icon = 'icons/obj/custom_items/nikit_zippo.dmi'
 	icon_override = 'icons/obj/custom_items/nikit_zippo.dmi'
@@ -458,15 +448,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
 	icon_override = 'icons/obj/custom_items/klavdiya_amulet.dmi'
 	icon_state = "klavdiya_board" //thanks to kyres1 for the sprites
-
-
-/obj/item/clothing/glasses/threedglasses/fluff/grunnus_glasses //3D glasses - Paul Grunnus - moom241
-	desc = "A pair of old, beat up looking glasses, with red and blue lenses. Pretty archaic, but some might call it fashionable."
-	icon = 'icons/obj/custom_items/grunnus_glasses.dmi'
-	icon_override = 'icons/obj/custom_items/grunnus_glasses.dmi'
-	icon_state = "grunnus_glasses"
-	item_state = "grunnus_glasses"
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/head/fluff/aavs_mask //Reflective Mask - Aavs Guwan - dronzthewolf
@@ -788,7 +769,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "likho_labcoat"
 
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/ramit_jacket //Winter Paramedic Jacket - Ra'mit Ma'zaira - simontheminer
+/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/ramit_jacket //Winter Paramedic Jacket - Ra'mit Ma'zaira - sampletex
 	name = "winter paramedic jacket"
 	desc = "A custom made first responder coat. Inside is a warm fabric with the name \"Ra'Mit Ma'zaira\" sewn in by the collar."
 	icon = 'icons/obj/custom_items/ramit_jacket.dmi'
@@ -992,28 +973,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	user.visible_message("<span class='notice'>[user] begins searching through \the [src]'s pages...</span>")
 	if(do_after(user, 25))
 		to_chat(user, "<span class='notice'>You pick out a song in the folder and read the lyrics: [pick(lyrics)]</span>")
-
-
-/obj/item/modular_computer/laptop/fluff/harrow_laptop //Developer's Laptop - Danny Harrow - brainos
-	name = "developer's laptop"
-	desc = "A portable computer, this one is covered edge-to-edge in stickers. Some stand out; such ones from a 2458 Game Jam, 2459 Game Jam and various title logos from obscure holovid series. Printed on the bottom panel \
-	is \"Hello, world!\" in a bright, monospace font."
-	icon = 'icons/obj/custom_items/harrow_laptop.dmi'
-	icon_override = 'icons/obj/custom_items/harrow_laptop.dmi'
-	anchored = FALSE
-	screen_on = FALSE
-	icon_state = "laptop-closed"
-
-/obj/item/modular_computer/laptop/fluff/harrow_laptop/install_default_hardware()
-	..()
-	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
-	hard_drive = new /obj/item/computer_hardware/hard_drive(src)
-	network_card = new /obj/item/computer_hardware/network_card(src)
-	battery_module = new /obj/item/computer_hardware/battery_module(src)
-	battery_module.charge_to_full()
-	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
-	nano_printer.max_paper = 10
-	nano_printer.stored_paper = 5
 
 
 /obj/item/clothing/accessory/poncho/fluff/ozuha_cape //Victory Cape - Skavoss Ozuha - dronzthewolf
@@ -2075,7 +2034,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/storage/box/fancy/cigarettes/cigar/brianne_cigarettes //Martian Cigarette Case - Sean Brianne - Zelmana
+/obj/item/storage/box/fancy/cigarettes/cigar/brianne_cigarettes //Martian Cigarette Case - Sean Brianne - zelmana
 	name = "martian cigarette case"
 	desc = "A small, personal cigarette tin. It holds cigarettes similar to a cigarette packet but has some nice flair."
 	icon = 'icons/obj/custom_items/brianne_items.dmi'
@@ -2085,4 +2044,49 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_type = "cigarette"
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette/dromedaryco)
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/glasses/sunglasses/fluff/lyod_snowglasses //Lyod snowglasses - Ravna Surtaeva - sycmos
+	name = "\improper Lyod snowglasses"
+	desc = "A pair of protective glasses hand-sculpted of reindeer antler, intended for use in arctic climates to protect from snow blindness."
+	icon = 'icons/obj/custom_items/ravna_items.dmi'
+	icon_override = 'icons/obj/custom_items/ravna_items.dmi'
+	icon_state = "ravna_sunglasses"
+	item_state = "ravna_sunglasses"
+	contained_sprite = TRUE
+	flash_protection = FLASH_PROTECTION_NONE
+
+/obj/item/clothing/suit/storage/toggle/fluff/prejoroub_fur_longcoat //Prejoroub Fur Longcoat - Ravna Surtaeva - sycmos
+	name = "prejoroub fur longcoat"
+	desc = "A dense and heavy longcoat of dyed tenelote leather, with a liner and collar of prejoroub fur and decorative trimming throughout."
+	icon = 'icons/obj/custom_items/ravna_items.dmi'
+	icon_override = 'icons/obj/custom_items/ravna_items.dmi'
+	icon_state = "ravna_coat"
+	item_state = "ravna_coat"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/armor/carrier/fluff/abbasi_carrier //Medinan Mercenary's Plate Carrier - Shirin Abbasi - persephoneq
+	name = "medinan mercenary's plate carrier"
+	desc = "A flashy and apparently well-made plate carrier. This one seems well-maintained, if quite worn-in. It's design is reminiscent of the ornate and intricate patterns of \
+	Medinan make, though someone has written various colorful epithets such as 'AIM HERE' over the heart and 'KICK ME' on the back in Elyran Standard. A patch on the center depicts a \
+	golden jackal with a challenging and cheerful grin, a chunk of phoron held between it's teeth. On the left shoulder, a much newer patch is sewn in depicting the insignia of the \
+	SCC Chainlink. Beneath it is stitched 'ABBASI'."
+	icon = 'icons/obj/custom_items/abbasi_carrier.dmi'
+	icon_override = 'icons/obj/custom_items/abbasi_carrier.dmi'
+	icon_state = "abbasi_carrier"
+	item_state = "abbasi_carrier"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/toggle/fluff/prejoroub_fur_longcoat //Renewed Antiquated Labcoat - Freedom Of Self Shackled By Unending Greed - lmwevil
+	name = "renewed antiquated labcoat"
+	desc = "An ancient labcoat from the Narrows, recently revitalized with extreme tailoring to become a symbol of unity between the Conglomerate and Dionae across the spur after the \
+	allowance of Dionae as Executive Officers aboard the Horizon. It must have cost a substantial sum to fix the century old labcoat back up to scratch. On the left arm is a beautifully \
+	sewn on patch that reads \"A block\"."
+	icon = 'icons/obj/custom_items/freedom_coat.dmi'
+	icon_override = 'icons/obj/custom_items/freedom_coat.dmi'
+	icon_state = "freedom_coat"
+	item_state = "freedom_coat"
 	contained_sprite = TRUE

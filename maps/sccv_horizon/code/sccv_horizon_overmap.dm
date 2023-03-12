@@ -2,6 +2,9 @@
 	class = "SCCV"
 	designation = "Horizon"
 	desc = "A line without compare, the Venator-series consists of one vessel so far: the SCCV Horizon, the lead ship of its class. Designed to be an entirely self-sufficient general-purpose surveying ship and to carry multiple replacement crews simultaneously, the Venator is equipped with both a bluespace and a warp drive and two different engines. Defying typical cruiser dimensions, the Venator is home to a sizable residential deck below the operations deck of the ship, where the crew is housed. It also features weapon hardpoints in its prominent wing nacelles. This one's transponder identifies it, obviously, as the SCCV Horizon."
+	icon_state = "venator"
+	moving_state = "venator_moving"
+	colors = list("#cfd4ff", "#78adf8")
 	fore_dir = SOUTH
 	vessel_mass = 70000
 	burn_delay = 2 SECONDS
@@ -33,9 +36,9 @@
 	"deck_two_starboard_aft",
 	"deck_three_fore_of_horizon",
 	"deck_three_fore_starboard_of_horizon",
-	"deck_three_fore_port_of_horizon",
+	"deck_three_port_fore_of_horizon",
 	"deck_three_aft_of_horizon",
-	"deck_three_aft_port_of_horizon"
+	"deck_three_port_aft_of_horizon"
 	)
 
 /obj/effect/overmap/visitable/ship/landable/intrepid
@@ -45,6 +48,9 @@
 	desc = "A standard-sized exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid, which actually uses \
 			a specially modified Pathfinder-class chassis fitted with a 40mm Francisca rotary gun."
 	shuttle = "Intrepid"
+	icon_state = "intrepid"
+	moving_state = "intrepid_moving"
+	colors = list("#cfd4ff", "#78adf8")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -62,6 +68,9 @@
 	designation = "Spark"
 	desc = "A common, modestly-sized short-range shuttle manufactured by Hephaestus. Most frequently used as a mining platform, the Pickaxe-class is entirely reliant on a reasonably-sized mothership for anything but short-term functionality. This one's transponder identifies it as belonging to the Stellar Corporate Conglomerate."
 	shuttle = "Spark"
+	icon_state = "spark"
+	moving_state = "spark_moving"
+	colors = list("#cfd4ff", "#78adf8")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
@@ -184,16 +193,16 @@
 	landmark_tag = "deck_three_fore_of_horizon"
 
 /obj/effect/shuttle_landmark/horizon/deckthree/starboardfore
-	name = "Deck Three, Starboard of Horizon"
+	name = "Deck Three, Starboard Fore of Horizon"
 	landmark_tag = "deck_three_fore_starboard_of_horizon"
 
 /obj/effect/shuttle_landmark/horizon/deckthree/portfore
-	name = "Deck Three, Starboard of Horizon"
+	name = "Deck Three, Fore Port of Horizon"
 	landmark_tag = "deck_three_port_fore_of_horizon"
 
 /obj/effect/shuttle_landmark/horizon/deckthree/portaft
 	name = "Deck Three, Aft Port of Horizon"
-	landmark_tag = "deck_three_port_of_horizon"
+	landmark_tag = "deck_three_port_aft_of_horizon"
 
 /obj/effect/shuttle_landmark/horizon/deckthree/aft
 	name = "Deck Three, Aft of Horizon"

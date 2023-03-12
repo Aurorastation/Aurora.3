@@ -32,7 +32,7 @@
 	max_count = 3
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/
+	outfit = /datum/outfit/admin/nka_base
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -56,7 +56,7 @@
 	l_pocket = /obj/item/device/radio
 
 /datum/outfit/admin/nka_base/get_id_access()
-	return list(access_pra)
+	return list(access_nka)
 
 /datum/ghostspawner/human/nka_base/commander
 	short_name = "nka_base_commander"

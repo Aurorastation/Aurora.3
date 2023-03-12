@@ -323,7 +323,7 @@
 	icon_state = "snow_on"
 
 	bike_icon = "snow"
-	land_speed = 3
+	land_speed = 2
 	protection_percent = 10
 	can_hover = FALSE
 	var/paid = FALSE
@@ -359,7 +359,7 @@
 	icon_state = "snow_on"
 
 	bike_icon = "snow"
-	land_speed = 3
+	land_speed = 2
 	space_speed = 0
 	protection_percent = 10
 	can_hover = FALSE

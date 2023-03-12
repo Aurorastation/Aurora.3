@@ -257,10 +257,10 @@
 
 /singleton/recipe/donerkebab
 	fruit = list("tomato" = 1, "cabbage" = 1)
-	reagents = list(/singleton/reagent/sodiumchloride = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/spacespice = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meatsteak,
-		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/cutlet
 	)
 	result = /obj/item/reagent_containers/food/snacks/donerkebab
 

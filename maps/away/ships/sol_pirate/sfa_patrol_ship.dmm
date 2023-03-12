@@ -2473,7 +2473,7 @@
 /obj/structure/table/stone/marble,
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/trauma,
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/medbay)
 "jzt" = (
@@ -3266,6 +3266,15 @@
 	pixel_y = 8
 	},
 /obj/structure/table/rack,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Ammo_Closet)
 "nnv" = (

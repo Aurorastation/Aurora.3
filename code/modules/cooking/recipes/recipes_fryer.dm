@@ -146,7 +146,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sausage
 	)
-	fruit = list("corn" = 1)
 	coating = /singleton/reagent/nutriment/coating/batter
 	result = /obj/item/reagent_containers/food/snacks/corn_dog
 

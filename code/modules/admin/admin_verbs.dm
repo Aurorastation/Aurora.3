@@ -71,7 +71,6 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggledebuglogs,
 	/client/proc/toggleghostwriters,
 	/client/proc/toggledrones,
-	/datum/admins/proc/show_skills,
 	/client/proc/damage_menu,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
@@ -262,7 +261,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/wipe_ai,
 	/client/proc/toggleghostwriters,
 	/client/proc/toggledrones,
-	/datum/admins/proc/show_skills,
 	/client/proc/restart_sql,
 	/client/proc/damage_menu,
 	/client/proc/man_up,
@@ -412,7 +410,6 @@ var/list/admin_verbs_mod = list(
 	/client/proc/cmd_mod_say,
 	/datum/admins/proc/show_player_info,
 	/client/proc/dsay,
-	/datum/admins/proc/show_skills,
 	/datum/admins/proc/show_player_panel,
 	/client/proc/check_antagonists,
 	/client/proc/jobbans,
@@ -1277,9 +1274,10 @@ var/list/admin_verbs_cciaa = list(
 		log_and_message_admins("forced the following away mission: [mission_name].")
 
 /client/proc/alooc(msg as text)
-	set name = "Admin LOOC"
+	set name = "ALOOC"
 	set desc = "Admin Local OOC, seen only by those in view, regardless of their LOOC preferences."
 	set category = "Admin"
+	set hidden = 1
 
 	if(!check_rights(R_ADMIN|R_MOD))
 		return

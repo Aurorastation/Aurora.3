@@ -150,7 +150,7 @@
 
 	New()
 		..()
-		new /obj/item/book/manual/medical_cloning(src)
+		new /obj/item/book/manual/medical_diagnostics_manual(src)
 		new /obj/item/book/manual/medical_diagnostics_manual(src)
 		new /obj/item/book/manual/medical_diagnostics_manual(src)
 		new /obj/item/book/manual/medical_diagnostics_manual(src)

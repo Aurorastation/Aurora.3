@@ -89,7 +89,7 @@
 				SPAN_NOTICE("\The [user] starts to fix part of the microwave."), \
 				SPAN_NOTICE("You start to fix part of the microwave.") \
 			)
-			if (do_after(user,20/O.toolspeed))
+			if(O.use_tool(src, user, 20, volume = 50))
 				user.visible_message( \
 					SPAN_NOTICE("\The [user] fixes part of the microwave."), \
 					SPAN_NOTICE("You have fixed part of the microwave.") \
@@ -100,7 +100,7 @@
 				SPAN_NOTICE("\The [user] starts to fix part of the microwave."), \
 				SPAN_NOTICE("You start to fix part of the microwave.") \
 			)
-			if (do_after(user,20/O.toolspeed))
+			if(O.use_tool(src, user, 20, volume = 50))
 				user.visible_message( \
 					SPAN_NOTICE("\The [user] fixes the microwave."), \
 					SPAN_NOTICE("You have fixed the microwave.") \
@@ -118,7 +118,7 @@
 				SPAN_NOTICE("\The [user] starts to clean the microwave."), \
 				SPAN_NOTICE("You start to clean the microwave.") \
 			)
-			if (do_after(user,20/O.toolspeed))
+			if(O.use_tool(src, user, 20, volume = 50))
 				user.visible_message( \
 					SPAN_NOTICE("\The [user] has cleaned the microwave."), \
 					SPAN_NOTICE("You have cleaned the microwave.") \

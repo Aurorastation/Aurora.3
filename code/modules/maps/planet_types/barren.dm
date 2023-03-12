@@ -1,7 +1,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren
 	name = "barren exoplanet"
 	desc = "An exoplanet that couldn't hold its atmosphere."
-	color = "#6c6c6c"
+	color = "#ad9c9c"
 	planetary_area = /area/exoplanet/barren
 	rock_colors = list(COLOR_BEIGE, COLOR_GRAY80, COLOR_BROWN)
 	possible_themes = list(/datum/exoplanet_theme/mountains)
@@ -12,8 +12,8 @@
 	water_color = null
 
 	possible_random_ruins = list(
-		/datum/map_template/ruin/exoplanet/abandoned_mining, 
-		/datum/map_template/ruin/exoplanet/hideout, 
+		/datum/map_template/ruin/exoplanet/abandoned_mining,
+		/datum/map_template/ruin/exoplanet/hideout,
 		/datum/map_template/ruin/exoplanet/crashed_shuttle_01,
 		/datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01,
 		/datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01,
@@ -25,7 +25,7 @@
 		/datum/map_template/ruin/exoplanet/crashed_pod,
 		/datum/map_template/ruin/exoplanet/crashed_coc_skipjack,
 		/datum/map_template/ruin/exoplanet/drill_site)
- 
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/generate_habitability()
 	return HABITABILITY_BAD
 
@@ -79,8 +79,8 @@
 	planetary_area = /area/exoplanet/barren/asteroid
 
 	possible_random_ruins = list(
-		/datum/map_template/ruin/exoplanet/abandoned_mining, 
-		/datum/map_template/ruin/exoplanet/hideout, 
+		/datum/map_template/ruin/exoplanet/abandoned_mining,
+		/datum/map_template/ruin/exoplanet/hideout,
 		/datum/map_template/ruin/exoplanet/crashed_shuttle_01,
 		/datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01,
 		/datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01,
@@ -94,6 +94,9 @@
 		/datum/map_template/ruin/exoplanet/carp_nest,
 		/datum/map_template/ruin/exoplanet/drill_site)
 	place_near_main = list(1, 1)
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/update_icon()
+  icon_state = "asteroid[rand(1,3)]"
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/generate_planet_image()
 	skybox_image = image('icons/skybox/skybox_rock_128.dmi', "bigrock")
