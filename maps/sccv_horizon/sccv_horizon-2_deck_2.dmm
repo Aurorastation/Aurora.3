@@ -21724,13 +21724,6 @@
 "kuh" = (
 /turf/simulated/open/airless,
 /area/template_noop)
-"kum" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
-/obj/machinery/light,
-/turf/simulated/floor/lino/grey,
-/area/horizon/bar)
 "kur" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -43016,13 +43009,12 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 8;
-	icon_state = "pipe-j2"
-	},
 /obj/machinery/alarm{
 	pixel_y = 28;
 	req_one_access = list(24,11,55)
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 4
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
@@ -45321,11 +45313,6 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
-"vXG" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/wood,
-/area/horizon/crew_quarters/lounge/bar)
 "vXX" = (
 /obj/machinery/light/small{
 	dir = 1
