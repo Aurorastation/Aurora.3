@@ -4366,6 +4366,7 @@
 "dtb" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
+/mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "dtN" = (
@@ -4848,7 +4849,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "dMS" = (
-/obj/item/holder/chicken,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -4993,9 +4993,9 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/holder/chicken/black,
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/plain,
+/mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "dWC" = (
@@ -7476,8 +7476,8 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/holder/chicken/white,
 /obj/structure/flora/ausbushes/ywflowers,
+/mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "fKD" = (
