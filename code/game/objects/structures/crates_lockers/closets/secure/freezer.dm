@@ -30,6 +30,19 @@
 	P.pixel_x = 6
 	P.pixel_y = 8
 
+// Chicken and Fish Freezer
+/obj/structure/closet/secure_closet/freezer/chicken_and_fish
+	name = "chicken and fish freezer"
+
+/obj/structure/closet/secure_closet/freezer/chicken_and_fish/fill()
+	..()
+	// 6 Chicken Fillets
+	for(var/i = 0, i < 6, i++)
+		new /obj/item/reagent_containers/food/snacks/meat/chicken(src)
+	// 6 Fish Fillets
+	for(var/i = 0, i < 6, i++)
+		new /obj/item/reagent_containers/food/snacks/fish/fishfillet(src)
+
 /obj/structure/closet/secure_closet/freezer/fridge
 	name = "refrigerator"
 	desc = "A refrigerator."
