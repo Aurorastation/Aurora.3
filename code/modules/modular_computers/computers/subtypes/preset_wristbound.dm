@@ -34,7 +34,7 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/cargo
 	_app_preset_type = /datum/modular_computer_app_presets/supply
-	icon_state = "wristbound-cargo"
+	icon_state = "wristbound-sup"
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/engineering
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
