@@ -2,7 +2,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir
 	name = "Ae'themir"
 	desc = "A planet comprised mainly of solid common minerals and silicate."
-	color = "#B1A69B"
+	color = "#bf7c39"
 	icon_state = "globe1"
 	rock_colors = list(COLOR_GRAY80)
 	possible_themes = list(/datum/exoplanet_theme/mountains)
@@ -29,7 +29,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar
 	name = "Az'Mar"
 	desc = "A small planet with a caustic shale crust. The surface is extremely hot and dense."
-	color = "#4a3f41"
+	color = "#8f4754"
 	icon_state = "globe2"
 	rock_colors = null
 	plant_colors = null
@@ -74,7 +74,7 @@
 	name = "Raskara"
 	desc = "A barren moon orbiting Adhomai."
 	icon_state = "globe1"
-	color = "#373737"
+	color = "#ab46d4"
 	rock_colors = list("#373737")
 	planetary_area = /area/exoplanet/barren/raskara
 	possible_themes = list(/datum/exoplanet_theme/mountains)

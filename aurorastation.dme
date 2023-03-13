@@ -1708,6 +1708,7 @@
 #include "code\modules\clothing\under\accessories\holster.dm"
 #include "code\modules\clothing\under\accessories\lockets.dm"
 #include "code\modules\clothing\under\accessories\medal.dm"
+#include "code\modules\clothing\under\accessories\necklace.dm"
 #include "code\modules\clothing\under\accessories\shirts.dm"
 #include "code\modules\clothing\under\accessories\storage.dm"
 #include "code\modules\clothing\under\accessories\temperature.dm"
