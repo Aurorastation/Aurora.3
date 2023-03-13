@@ -258,14 +258,15 @@
 	damage = 10
 	attack_door = 20
 	crowbar_door = TRUE
+	sparring_variant_type = /datum/unarmed_attack/pain_strike/heavy
 
 /datum/unarmed_attack/vaurca_bulwark/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
 	if(prob(25))
 		playsound(user, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>[user] shoves hard, sending [target] flying!</span>")
-                var/turf/target_turf = get_ranged_target_turf(target, user.dir, 4)
-                target.throw_at(target_turf, 4, 1, user)
+		var/turf/target_turf = get_ranged_target_turf(target, user.dir, 4)
+		target.throw_at(target_turf, 4, 1, user)
 		target.apply_effect(attack_damage * 0.4, WEAKEN, armor)
 
 /datum/unarmed_attack/bite/warrior
