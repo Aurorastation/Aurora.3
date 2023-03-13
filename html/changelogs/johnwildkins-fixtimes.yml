@@ -1,0 +1,12 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed several runtime errors related to creating wounds / handling pain on dropped / detached limbs."
+  - bugfix: "Admins are now properly notified when someone attempts to vote for an early round restart."
+  - bugfix: "Fixed beam timers not being deleted when the beam fizzles early."
+  - bugfix: "Fixed station all-in-one relays not listening for the hailing frequency."
+  - bugfix: "Paper bundles now correctly show the overlays attached to the first paper in the bundle."
+  - bugfix: "Fixed a runtime error with dionae nymphs sprinting."
+  - bugfix: "Fixed the supermatter control console not automatically updating."
