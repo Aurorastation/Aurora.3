@@ -1225,6 +1225,7 @@
 
 /obj/item/toy/plushie/herring_gull/AltClick(mob/user)
 	if(lying)
+		lying = !lying
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> extends \the [src]'s legs."),
 			SPAN_NOTICE("You extend \the [src]'s legs.")
@@ -1232,6 +1233,7 @@
 		icon_state = "herring_gull"
 		item_state = "herring_gull"
 	else
+		lying = !lying
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> tucks in \the [src]'s legs."),
 			SPAN_NOTICE("You tuck in \the [src]'s legs.")
