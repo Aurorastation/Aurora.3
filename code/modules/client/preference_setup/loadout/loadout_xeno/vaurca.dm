@@ -222,7 +222,7 @@
 
 /datum/gear/augment/vaurcatool
 	display_name = "vaurca interated toolset"
-	description = "A heavy arm-mounted toolset designed for use by Bound Workers and Bulwarks"
+	description = "A heavy arm-mounted toolset designed for use by Bound Workers and Bulwarks."
 	cost = 5
 	path = /obj/item/organ/internal/augment/tool/combitool/vaurca
 	sort_category = "Xenowear - Vaurca"
