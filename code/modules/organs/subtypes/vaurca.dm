@@ -94,9 +94,9 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 /obj/item/organ/internal/augment/tool/combitool/vaurca
 	name = "vaurca integrated toolset"
-	icon_state = "augment-vaurcatool"
+	icon_state = "vaurcatool"
 	action_button_name = "Deploy Toolset"
-	action_button_icon = "augment-vaurcatool"
+	action_button_icon = "vaurcatool"
 	augment_type = /obj/item/combitool/robotic/vaurca
 
 /obj/item/organ/internal/augment/tool/combitool/vaurca/left
@@ -113,8 +113,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 		"screwdriver",
 		"wrench",
 		"wirecutters",
-		"multitool",
-		"welding tool"
+		"multitool"
 		)
 
 

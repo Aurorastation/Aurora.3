@@ -220,15 +220,15 @@
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
-/datum/gear/augment/combitool/vaurca
-	display name = "vaurca interated toolset"
+/datum/gear/augment/vaurcatool
+	display_name = "vaurca interated toolset"
 	description = "A heavy arm-mounted toolset designed for use by Bound Workers and Bulwarks"
 	cost = 5
 	path = /obj/item/organ/internal/augment/tool/combitool/vaurca
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list (SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK)
 
-/datum/gear/augment/combitool/vaurca/New()
+/datum/gear/augment/vaurcatool/New()
 	..()
 	var/list/augs = list()
 	augs["vaurca integrated toolset, right hand"] = /obj/item/organ/internal/augment/tool/combitool/vaurca
