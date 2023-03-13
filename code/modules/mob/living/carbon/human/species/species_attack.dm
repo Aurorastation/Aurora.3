@@ -264,14 +264,8 @@
 	if(prob(25))
 		playsound(user, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>[user] shoves hard, sending [target] flying!</span>")
-		step_away(target,user,15)
-		sleep(1)
-		step_away(target,user,15)
-		sleep(1)
-		step_away(target,user,15)
-		sleep(1)
-		step_away(target,user,15)
-		sleep(1)
+                var/turf/target_turf = get_ranged_target_turf(target, user.dir, 4)
+                target.throw_at(target_turf, 4, 1, user)
 		target.apply_effect(attack_damage * 0.4, WEAKEN, armor)
 
 /datum/unarmed_attack/bite/warrior
