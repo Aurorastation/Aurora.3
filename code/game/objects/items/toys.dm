@@ -1197,6 +1197,7 @@
 	icon_state = "herring_gull"
 	item_state = "herring_gull"
 	phrase = "Kek kek kek!"
+	var/lying = FALSE
 
 /obj/item/toy/plushie/herring_gull/attack_self(mob/user)
 	if(user.a_intent == I_HELP)
@@ -1221,6 +1222,22 @@
 		)
 		playsound(src, 'sound/items/plushies/herring_gull/alarm_call.ogg', 75, FALSE)
 		visible_message("<b>\The [src]</b> says, \"[phrase]\"")
+
+/obj/item/toy/plushie/herring_gull/AltClick(mob/user)
+	if(lying)
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> extends \the [src]'s legs."),
+			SPAN_NOTICE("You extend \the [src]'s legs.")
+		)
+		icon_state = "herring_gull"
+		item_state = "herring_gull"
+	else
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> tucks in \the [src]'s legs."),
+			SPAN_NOTICE("You tuck in \the [src]'s legs.")
+		)
+		icon_state = "herring_gull_lying"
+		item_state = "herring_gull_lying"
 
 //Toy cult sword
 /obj/item/toy/cultsword
