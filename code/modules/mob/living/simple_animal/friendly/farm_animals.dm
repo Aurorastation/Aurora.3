@@ -201,7 +201,7 @@
 	name = "chicken"
 	desc = "Hopefully the eggs are good this season."
 	icon = 'icons/mob/npc/livestock.dmi'
-	icon_state = "chicken_white" // Overriden in Initialize(). This is for map visibility.
+	icon_state = "chicken_white" // Overridden in Initialize(). This is for map visibility.
 	icon_living = null
 	icon_dead = null
 	speak = list("Cluck!","BWAAAAARK BWAK BWAK BWAK!","Bwaak bwak.")
