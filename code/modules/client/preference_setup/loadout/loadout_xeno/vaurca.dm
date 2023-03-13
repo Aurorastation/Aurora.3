@@ -226,7 +226,7 @@
 	cost = 5
 	path = /obj/item/organ/internal/augment/tool/combitool/vaurca
 	sort_category = "Xenowear - Vaurca"
-	whitelisted = list (SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK)
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK)
 
 /datum/gear/augment/vaurcatool/New()
 	..()
