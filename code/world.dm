@@ -71,7 +71,7 @@ var/global/datum/global_init/init = new ()
 		diary_runtime = file("data/logs/_runtime/[diary_date_string]-runtime.log")
 
 	if(byond_version < RECOMMENDED_VERSION)
-		world.log << "Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION]."
+		log_error("Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION].")
 
 	world.TgsNew()
 
@@ -349,15 +349,15 @@ var/list/world_api_rate_limit = list()
 
 /hook/startup/proc/load_databases()
 	if(!config.sql_enabled)
-		world.log << "Database Connection disabled. - Skipping Connection Establishment"
+		log_error("Database Connection disabled. - Skipping Connection Establishment")
 		return 1
 	//Construct the database object from an init file.
 	dbcon = initialize_database_object("config/dbconfig.txt")
 
 	if(!setup_database_connection(dbcon))
-		world.log <<  "Your server failed to establish a connection with the configured database."
+		log_error("Your server failed to establish a connection with the configured database.")
 	else
-		world.log <<  "Database connection established."
+		log_error("Database connection established.")
 	return 1
 
 /proc/initialize_database_object(var/filename)
@@ -402,7 +402,7 @@ var/list/world_api_rate_limit = list()
 
 /proc/setup_database_connection(var/DBConnection/con)
 	if (!con)
-		error("No DBConnection object passed to setup_database_connection().")
+		log_error("No DBConnection object passed to setup_database_connection().")
 		return 0
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)	//If it failed to establish a connection more than 5 times in a row, don't bother attempting to conenct anymore.
@@ -414,13 +414,15 @@ var/list/world_api_rate_limit = list()
 		con.failed_connections = 0	//If this connection succeeded, reset the failed connections counter.
 	else
 		con.failed_connections++		//If it failed, increase the failed connections counter.
+		con.last_fail = world.timeofday
 
 #ifdef UNIT_TEST
 		// UTs are presumed public. Change this to hide your shit.
-		error("Database connection failed with message:")
-		error(con.ErrorMsg())
+		log_error("Database connection failed with message:")
+		log_error(con.ErrorMsg())
 #else
-		world.log <<  con.ErrorMsg()
+		log_error("[time2text(con.last_fail, "hh:mm:ss")]: Database connection failed (try #[con.failed_connections]/[FAILED_DB_CONNECTION_CUTOFF])")
+		log_error(con.ErrorMsg())
 #endif
 
 	return .
@@ -431,12 +433,15 @@ var/list/world_api_rate_limit = list()
 		return FALSE
 
 	if (!con)
-		error("No DBConnection object passed to establish_db_connection() proc.")
+		log_error("No DBConnection object passed to establish_db_connection() proc.")
 		return FALSE
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)
-		error("DB connection cutoff exceeded for a database object in establish_db_connection().")
-		return FALSE
+		if(world.timeofday < con.last_fail + 100) // 10 seconds
+			log_error("DB connection cutoff exceeded for a database object in establish_db_connection().")
+			return FALSE
+
+		con.failed_connections = 0
 
 	if (!con.IsConnected())
 		return setup_database_connection(con)
