@@ -105,7 +105,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 /obj/item/combitool/robotic/vaurca
 	name = "vaurca toolset"
-	desc = "An integrated toolset in the arm designed for use by Bound Workers"
+	desc = "An integrated toolset in the arm designed for use by Bound Workers."
 	icon_state = "vaurcatool"
 	item_state = "vaurcatool"
 	tools = list(
