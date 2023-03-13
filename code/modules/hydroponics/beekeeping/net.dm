@@ -1,7 +1,7 @@
 /obj/item/bee_net
 	name = "bee net"
 	desc = "A net for catching rogue bees."
-	icon = 'icons/obj/apiary_bees_etc.dmi'
+	icon = 'icons/obj/beekeeping.dmi'
 	icon_state = "bee_net"
 	item_state = "bee_net"
 	var/caught_bees = 0
