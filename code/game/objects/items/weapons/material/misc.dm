@@ -45,6 +45,9 @@
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 
+/obj/item/material/hatchet/can_woodcut()
+	return TRUE
+
 /obj/item/material/hatchet/butch
 	name = "butcher's cleaver"
 	icon = 'icons/obj/kitchen.dmi'
@@ -59,6 +62,9 @@
 	slot_flags = SLOT_BELT
 	attack_verb = list("cleaved", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 
+/obj/item/material/hatchet/butch/can_woodcut()
+	return FALSE
+
 /obj/item/material/hatchet/unathiknife
 	name = "duelling knife"
 	desc = "A length of leather-bound wood studded with razor-sharp teeth. How crude."
@@ -69,6 +75,9 @@
 		)
 	icon_state = "unathiknife"
 	attack_verb = list("ripped", "torn", "cut")
+
+/obj/item/material/hatchet/unathiknife/can_woodcut()
+	return FALSE
 
 /obj/item/material/hatchet/machete
 	name = "machete"
@@ -92,7 +101,7 @@
 
 /obj/item/material/hatchet/machete/Initialize()
 	. = ..()
-	if(build_from_parts) 
+	if(build_from_parts)
 		var/image/I = image(icon, icon_state = "machete_handle")
 		I.color = pick(COLOR_BLUE, COLOR_RED, COLOR_CYAN, COLOR_BLACK, COLOR_AMBER, COLOR_GREEN, COLOR_OLIVE, COLOR_GUNMETAL, COLOR_DARK_BLUE_GRAY)
 		add_overlay(I)
@@ -111,6 +120,12 @@
 	desc = "A fine example of a machete, with a polished blade, wooden handle, and a leather cord loop."
 	icon_state = "machetedx"
 	build_from_parts = FALSE
+
+/obj/item/material/hatchet/lumber
+	name = "woodcutting hatchet"
+	desc = "Made from the very things you cut down."
+	icon_state = "axe"
+	item_state = "axe"
 
 /obj/item/material/hook
 	name = "meat hook"

@@ -847,3 +847,6 @@
 
 /datum/species/proc/handle_middle_mouse_click(var/atom/target)
 	return
+
+/datum/species/proc/can_use_guns()
+	return TRUE

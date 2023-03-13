@@ -2,7 +2,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir
 	name = "Ae'themir"
 	desc = "A planet comprised mainly of solid common minerals and silicate."
-	color = "#B1A69B"
+	color = "#bf7c39"
 	icon_state = "globe1"
 	rock_colors = list(COLOR_GRAY80)
 	possible_themes = list(/datum/exoplanet_theme/mountains)
@@ -29,7 +29,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar
 	name = "Az'Mar"
 	desc = "A small planet with a caustic shale crust. The surface is extremely hot and dense."
-	color = "#4a3f41"
+	color = "#8f4754"
 	icon_state = "globe2"
 	rock_colors = null
 	plant_colors = null
@@ -74,7 +74,7 @@
 	name = "Raskara"
 	desc = "A barren moon orbiting Adhomai."
 	icon_state = "globe1"
-	color = "#373737"
+	color = "#ab46d4"
 	rock_colors = list("#373737")
 	planetary_area = /area/exoplanet/barren/raskara
 	possible_themes = list(/datum/exoplanet_theme/mountains)
@@ -125,7 +125,7 @@
 	plant_colors = null
 	possible_themes = list(/datum/exoplanet_theme/mountains/adhomai)
 	map_generators = list(/datum/random_map/noise/exoplanet/snow/adhomai, /datum/random_map/noise/ore/rich)
-	features_budget = 4
+	features_budget = 8
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
 	generated_name = FALSE
@@ -134,9 +134,13 @@
 	/datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 	/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd)
 	place_near_main = list(2, 2)
+	var/landing_faction
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/pre_ruin_preparation()
-	var/landing_faction = pick("People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai")
+	if(prob(15))
+		landing_faction = "North Pole"
+	else
+		landing_faction = pick("People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai")
 	switch(landing_faction)
 		if("People's Republic of Adhomai")
 			possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
@@ -144,7 +148,7 @@
 			/datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 			/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd, /datum/map_template/ruin/exoplanet/adhomai_abandoned_labor_camp,
 			/datum/map_template/ruin/exoplanet/psis_outpost, /datum/map_template/ruin/exoplanet/pra_base, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue, /datum/map_template/ruin/exoplanet/pra_mining_camp, /datum/map_template/ruin/exoplanet/adhomai_nuclear_waste,
-			/datum/map_template/ruin/exoplanet/adhomai_fallout_bunker, /datum/map_template/ruin/exoplanet/adhomai_schlorrgo_cage)
+			/datum/map_template/ruin/exoplanet/adhomai_fallout_bunker, /datum/map_template/ruin/exoplanet/adhomai_schlorrgo_cage, /datum/map_template/ruin/exoplanet/adhomai_silo)
 
 		if("Democratic People's Republic of Adhomai")
 			possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
@@ -160,6 +164,11 @@
 			/datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout,/datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 			/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd, /datum/map_template/ruin/exoplanet/adhomai_amohdan, /datum/map_template/ruin/exoplanet/adhomai_archeology,
 			/datum/map_template/ruin/exoplanet/nka_base, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue_toppled)
+
+		if("North Pole")
+			features_budget = 1
+			map_generators = list(/datum/random_map/noise/exoplanet/snow/adhomai_north_pole, /datum/random_map/noise/ore/rich)
+			possible_random_ruins = list (/datum/map_template/ruin/exoplanet/north_pole_monolith, /datum/map_template/ruin/exoplanet/north_pole_nka_expedition, /datum/map_template/ruin/exoplanet/north_pole_worm)
 
 	desc += " The landing sites are located at the [landing_faction]'s territory."
 
@@ -179,7 +188,10 @@
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_atmosphere()
 	..()
 	if(atmosphere)
-		atmosphere.temperature = T0C - 5
+		if(landing_faction == "North Pole")
+			atmosphere.temperature = T0C - 40
+		else
+			atmosphere.temperature = T0C - 5
 		atmosphere.update_values()
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/update_icon()
@@ -231,6 +243,43 @@
 			if(prob(15))
 				new /obj/effect/floor_decal/snowdrift(T)
 		if(8)
+			if(prob(10))
+				new /obj/effect/floor_decal/snowdrift/large(T)
+
+/datum/random_map/noise/exoplanet/snow/adhomai_north_pole
+	descriptor = "Adhomai North pole"
+	smoothing_iterations = 1
+	flora_prob = 0
+	water_level_max = 4
+	land_type = /turf/simulated/floor/exoplanet/snow
+	water_type = /turf/simulated/floor/exoplanet/ice/dark
+	fauna_types = list(/mob/living/simple_animal/scavenger, /mob/living/simple_animal/ice_catcher, /mob/living/simple_animal/hostile/plasmageist, /mob/living/simple_animal/hostile/wriggler)
+
+/datum/random_map/noise/exoplanet/snow/adhomai_north_pole/generate_flora()
+	return
+
+/datum/random_map/noise/exoplanet/snow/adhomai_north_pole/get_additional_spawns(var/value, var/turf/T)
+	..()
+	if(istype(T, water_type))
+		return
+	if(T.density)
+		return
+	var/val = min(10,max(0,round((value/cell_range)*10)))
+	if(isnull(val)) val = 0
+	switch(val)
+		if(2)
+			if(prob(25))
+				new /obj/structure/flora/rock/ice(T)
+		if(3)
+			if(prob(10))
+				new /obj/structure/geyser(T)
+		if(4)
+			if(prob(20))
+				new /obj/structure/flora/rock/adhomai(T)
+		if(5)
+			if(prob(15))
+				new /obj/effect/floor_decal/snowdrift(T)
+		if(6)
 			if(prob(10))
 				new /obj/effect/floor_decal/snowdrift/large(T)
 
