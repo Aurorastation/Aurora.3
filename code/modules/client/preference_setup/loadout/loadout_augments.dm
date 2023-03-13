@@ -203,6 +203,14 @@
 	allowed_roles = list("Chief Engineer", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist")
 	cost = 2
 
+/datum/gear/augment/drill
+	display_name = "integrated drill"
+	description = "A mining drill integrated in the hand. The drill is heavy enough that it is only usable by industrial IPCs, as well as Vaurca Bulwarks and Bound Workers."
+	path = /obj/item/organ/internal/augment/tool/drill
+	whitelisted = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WORKER)
+	allowed_roles = list("Shaft Miner")
+	cost = 5
+
 /datum/gear/augment/head_fluff
 	display_name = "custom head augmentation"
 	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes."
