@@ -362,7 +362,7 @@
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/ponczo.dmi'
 	icon_state = "ponczo"
 	item_state = "ponczo"
-	build_from_parts = FALSE
+	build_from_parts = TRUE
 	hoodtype = /obj/item/clothing/head/winterhood/colorable/ponczo
 	worn_overlay = null
 	contained_sprite = TRUE
@@ -371,6 +371,6 @@
 	desc = "A hood for a Visegradi ponczo."
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/ponczo.dmi'
 	icon_state = "ponczo_hood"
-	build_from_parts = FALSE
+	build_from_parts = TRUE
 	worn_overlay = null
 	contained_sprite = TRUE
