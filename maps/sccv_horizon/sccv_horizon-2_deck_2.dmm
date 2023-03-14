@@ -204,13 +204,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
-"aec" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/obj/structure/synthesized_instrument/synthesizer/piano,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/bar)
 "aem" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -11954,10 +11947,6 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
-"fOt" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/wall,
-/area/horizon/library)
 "fOX" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/spline/plain{
@@ -12320,13 +12309,6 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
-"fYz" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/bar)
 "fYC" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -22519,16 +22501,6 @@
 "kPz" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -68618,7 +68590,7 @@ nxI
 gUn
 aas
 crn
-aec
+giH
 etT
 xer
 qgN
@@ -68820,7 +68792,7 @@ bOI
 cHC
 aas
 crn
-fYz
+giH
 etT
 mxf
 qgN
@@ -72225,7 +72197,7 @@ oCi
 pWx
 rQh
 rQh
-fOt
+pWx
 rtI
 vyP
 xuj
