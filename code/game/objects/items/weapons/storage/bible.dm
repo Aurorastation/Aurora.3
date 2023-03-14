@@ -49,7 +49,7 @@
 		return
 
 	var/religion_name = "Christianity"
-	var/new_religion = sanitize(input(user, "You are the crew services officer. Would you like to change your religion? Default is Christianity, in SPACE.", "Name change", religion_name), MAX_NAME_LEN)
+	var/new_religion = sanitize(input(user, "Would you like to change your religion? Default is Christianity, in SPACE.", "Name change", religion_name), MAX_NAME_LEN)
 
 	if(!new_religion)
 		new_religion = religion_name
@@ -58,6 +58,7 @@
 
 	if(book_name)
 		name = book_name
+	if(user.mind && (user.mind.assigned_role == "Chaplain"))
 		SSticker.Bible_name = book_name
 
 	var/new_book_style = input(user,"Which bible style would you like?") in list("Generic", "Bible", "White Bible", "Melted Bible", "Quran", "Torah", "Holy Light", "Tome", "Scroll", "The King in Yellow", "Ithaqua", "Trinary", "Stars", "Scrapbook", "Atheist", "Necronomicon")
@@ -112,7 +113,8 @@
 			icon_state = randbook
 			item_state = randbook
 
-	SSticker.Bible_icon_state = icon_state
-	SSticker.Bible_item_state = item_state
+	if(user.mind && (user.mind.assigned_role == "Chaplain"))
+		SSticker.Bible_icon_state = icon_state
+		SSticker.Bible_item_state = item_state
 
 	verbs -= /obj/item/storage/bible/proc/Set_Religion
