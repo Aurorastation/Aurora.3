@@ -108,6 +108,18 @@
 		if("Necronomicon")
 			icon_state = "necronomicon"
 			item_state = "necronomicon"
+		if("Luceism")
+			icon_state = "luce2"
+			item_state = "luce2"
+		if("Trinary")
+			icon_state = "trinary"
+			item_state = "trinary"
+		if("Skrell")
+			icon_state = "skrellbible"
+			item_state = "skrellbible"
+		if("Diona Eternal")
+			icon_state = "eternal"
+			item_state = "eternal"
 		else
 			var/randbook = "book" + pick("1", "2", "3", "4", "5", "6" , "7", "8", "9", "10", "11", "12", "13" , "14", "15" , "16")
 			icon_state = randbook
