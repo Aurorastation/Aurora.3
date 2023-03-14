@@ -113,8 +113,13 @@
 /obj/item/clothing/head/that
 	name = "top-hat"
 	desc = "It's an amish looking hat."
+	icon = 'icons/obj/item/clothing/head/top_hat.dmi'
+	contained_sprite = TRUE
 	icon_state = "tophat"
 	item_state = "tophat"
+	color = "#2d2b33"
+	build_from_parts = TRUE
+	worn_overlay = "over"
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/redcoat
@@ -331,19 +336,6 @@
 	icon_state = "hijab_black"
 	item_state = "hijab_black"
 
-/obj/item/clothing/head/cowboy
-	name = "cowboy hat"
-	desc = "A wide-brimmed hat, in the prevalent style of the frontier."
-	icon = 'icons/obj/item/clothing/head/cowboy.dmi'
-	contained_sprite = TRUE
-	icon_state = "cowboyhat"
-	item_state = "cowboyhat"
-
-/obj/item/clothing/head/cowboy/wide
-	name = "wide-brimmed cowboy hat"
-	icon_state = "cowboy_wide"
-	item_state = "cowboy_wide"
-
 /obj/item/clothing/head/sombrero
 	name = "sombrero"
 	desc = "You can practically taste the fiesta."
@@ -442,24 +434,6 @@
 	icon_state = "grey_fedora"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
 
-/obj/item/clothing/head/beanie
-	name = "beanie"
-	desc = "A head-hugging brimless winter cap. This one is tight."
-	icon = 'icons/obj/item/clothing/head/beanie.dmi'
-	contained_sprite = TRUE
-	icon_state = "beanie"
-	item_state = "beanie"
-
-/obj/item/clothing/head/beanie/random/Initialize()
-	. = ..()
-	color = get_random_colour(lower = 150)
-
-/obj/item/clothing/head/beanie/winter
-	name = "winter beanie"
-	desc = "A head-hugging brimless winter cap. This one has flaps that cover the ears."
-	icon_state = "winterbeanie"
-	item_state = "winterbeanie"
-
 //Flower crowns
 
 /obj/item/clothing/head/sunflower_crown
@@ -496,50 +470,6 @@
 	desc = "A stark red peaked cap. Worn by senior officers of the Tau Ceti Foreign Legion."
 	icon_state = "legion_cap"
 	item_state = "legion_cap"
-
-//golden beep stuff
-
-/obj/item/clothing/head/headchain
-	name = "cobalt head chains"
-	desc = "A set of luxurious chains intended to be wrapped around one's head. They don't seem particularly comfortable. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
-	icon_state = "cobalt_headchains"
-	item_state = "cobalt_headchains"
-	body_parts_covered = 0
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/clothing/head/headchain/emerald
-	name = "emerald head chains"
-	desc = "A set of luxurious chains intended to be wrapped around one's head. They don't seem particularly comfortable. They're encrusted with emerald-green gems, and made of <b>REAL</b> faux gold."
-	icon_state = "emerald_headchains"
-	item_state = "emerald_headchains"
-
-/obj/item/clothing/head/headchain/ruby
-	name = "ruby head chains"
-	desc = "A set of luxurious chains intended to be wrapped around one's head. They don't seem particularly comfortable. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
-	icon_state = "ruby_headchains"
-	item_state = "ruby_headchains"
-
-/obj/item/clothing/head/crest
-	name = "cobalt head crest"
-	desc = "A solemn crest wrapping around the back of one's head, seeming to bend in the center on multiple hinges and clip on. It's encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
-	icon_state = "cobalt_crest"
-	item_state = "cobalt_crest"
-	body_parts_covered = 0
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/clothing/head/crest/emerald
-	name = "emerald head crest"
-	desc = "A solemn crest wrapping around the back of one's head, seeming to bend in the center on multiple hinges and clip on. It's encrusted with emerald-green gems, and made of <b>REAL</b> faux gold."
-	icon_state = "emerald_crest"
-	item_state = "emerald_crest"
-
-/obj/item/clothing/head/crest/ruby
-	name = "ruby head crest"
-	desc = "A solemn crest wrapping around the back of one's head, seeming to bend in the center on multiple hinges and clip on. It's encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
-	icon_state = "ruby_crest"
-	item_state = "ruby_crest"
 
 /obj/item/clothing/head/fake_culthood
 	name = "occultist hood"
