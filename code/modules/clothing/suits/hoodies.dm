@@ -365,6 +365,7 @@
 	build_from_parts = FALSE
 	hoodtype = /obj/item/clothing/head/winterhood/colorable/ponczo
 	worn_overlay = null
+	contained_sprite = TRUE
 
 /obj/item/clothing/head/winterhood/colorable/ponczo
 	desc = "A hood for a Visegradi ponczo."
@@ -372,3 +373,4 @@
 	icon_state = "ponczo_hood"
 	build_from_parts = FALSE
 	worn_overlay = null
+	contained_sprite = TRUE
