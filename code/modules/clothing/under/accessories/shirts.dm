@@ -98,7 +98,7 @@
 
 /obj/item/clothing/accessory/sweater/visegradi
 	name = "visegradi patterned sweater"
-	desc = "A thick wool sweater of Visegradi make, complete with a patterned design."
+	desc = "A thick wool sweater, with a meandering pattern. These are typical of the planet Visegrad, where the wool is valued in both keeping the wearer dry and warm on the notoriously wet planet."
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/accessory/visegradi_sweater.dmi'
 	icon_state = "visegradi_sweater"
