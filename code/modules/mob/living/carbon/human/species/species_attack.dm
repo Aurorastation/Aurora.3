@@ -248,7 +248,7 @@
 /datum/unarmed_attack/vaurca_bulwark
 	attack_verb = list("punched", "pulverized", "hammered")
 	attack_noun = list("fists")
-	desc = "Smash into your opponents with the strength the Queens gave you. Not as sharp as other species' claws, but yours hit a hell of a lot harder"
+	desc = "Smash into your opponents with the strength the Queens gave you. Not as sharp as other species' claws, but yours hit a hell of a lot harder."
 	eye_attack_text = "claws"
 	eye_attack_text_victim = "claws"
 	attack_name = "bulwark punch"
