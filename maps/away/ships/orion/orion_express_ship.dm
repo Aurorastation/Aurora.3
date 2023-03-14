@@ -51,6 +51,12 @@
 	designation = "[pick("Messenger", "Traveler", "Highspeed", "Punctual", "Unstoppable", "Pony Express", "Courier", "Telegram", "Carrier Pigeon", "Fuel Stop", "Convenience")]"
 	..()
 
+/obj/effect/overmap/visitable/ship/orion_express_ship/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "oe_platform")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
+
 /obj/effect/shuttle_landmark/orion_express_ship/nav1
 	name = "Orion Express Mobile Station - Port Side"
 	landmark_tag = "nav_orion_express_ship_1"

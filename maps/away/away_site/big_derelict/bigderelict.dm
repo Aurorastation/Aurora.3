@@ -15,3 +15,8 @@
 	name = "large derelict"
 	desc = "A very large derelict station. According to the starmap, it shouldn't exist."
 
+/obj/effect/overmap/visitable/sector/big_derelict/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/wrecks.dmi', "debris_large2")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
