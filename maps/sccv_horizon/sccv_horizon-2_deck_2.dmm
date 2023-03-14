@@ -202,17 +202,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
-"aec" = (
-/obj/machinery/door/airlock/glass_service{
-	name = "Bar - Preparations";
-	req_access = list(25)
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/horizon/bar)
 "aem" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -3444,6 +3433,9 @@
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
@@ -11936,10 +11928,6 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
-"fOt" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/wall,
-/area/horizon/library)
 "fOX" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/spline/plain{
@@ -13583,6 +13571,10 @@
 /obj/machinery/smartfridge/drinks{
 	opacity = 1
 	},
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "gwP" = (
@@ -14156,14 +14148,11 @@
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "gHR" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
 	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
@@ -18431,15 +18420,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/requests_console{
-	department = "Bar";
-	departmentType = 1;
-	name = "Bar Requests Console";
-	pixel_x = -32
-	},
-/obj/machinery/camera/network/service{
-	c_tag = "Service - Deck 2 - Bar Preparation Room";
-	dir = 4
+/obj/structure/sink/kitchen{
+	dir = 4;
+	name = "sink";
+	pixel_x = -20
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
@@ -21432,6 +21416,9 @@
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
@@ -28950,13 +28937,11 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/starboard)
 "nUh" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/machinery/vending/dinnerware,
+/obj/effect/floor_decal/spline/plain/cee{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "nUN" = (
 /turf/simulated/wall/r_wall,
@@ -38752,8 +38737,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/teapot,
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/requests_console{
+	department = "Bar";
+	departmentType = 1;
+	name = "Bar Requests Console";
+	pixel_y = 32
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
@@ -39412,10 +39400,6 @@
 	dir = 2;
 	id = "bar_shutter";
 	name = "Bar Shutter"
-	},
-/obj/item/flame/candle{
-	pixel_x = -11;
-	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
@@ -42385,6 +42369,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "sink";
+	pixel_x = 21
+	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "uxE" = (
@@ -43151,8 +43140,7 @@
 	pixel_y = 24
 	},
 /obj/structure/disposalpipe/junction{
-	dir = 8;
-	icon_state = "pipe-j2"
+	dir = 4
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/kitchen/hallway)
@@ -44786,6 +44774,10 @@
 "vJX" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
+	},
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Deck 2 - Bar Preparation Room";
+	dir = 1
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
@@ -69164,7 +69156,7 @@ feu
 aNL
 wSE
 vJX
-aec
+nxI
 nUh
 gHR
 xYw
@@ -72177,7 +72169,7 @@ oCi
 pWx
 rQh
 rQh
-fOt
+pWx
 rtI
 vyP
 xuj
