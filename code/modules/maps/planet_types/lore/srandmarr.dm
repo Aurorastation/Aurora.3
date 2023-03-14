@@ -206,7 +206,8 @@
 	water_type = /turf/simulated/floor/exoplanet/ice
 	fauna_types = list(/mob/living/simple_animal/ice_tunneler, /mob/living/simple_animal/ice_tunneler/male, /mob/living/simple_animal/fatshouter, /mob/living/simple_animal/fatshouter/male,
 					/mob/living/simple_animal/hostile/retaliate/rafama, /mob/living/simple_animal/hostile/retaliate/rafama/male, /mob/living/simple_animal/hostile/retaliate/rafama/baby,
-					/mob/living/simple_animal/hostile/wind_devil, /mob/living/carbon/human/farwa/adhomai, /mob/living/simple_animal/hostile/harron)
+					/mob/living/simple_animal/hostile/wind_devil, /mob/living/carbon/human/farwa/adhomai, /mob/living/simple_animal/hostile/harron, /mob/living/simple_animal/climber,
+					/mob/living/simple_animal/snow_strider)
 
 /datum/random_map/noise/exoplanet/snow/adhomai/generate_flora()
 	for(var/i = 1 to flora_diversity)

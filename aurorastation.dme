@@ -3137,6 +3137,7 @@
 #include "code\modules\turbolift\turbolift_map.dm"
 #include "code\modules\turbolift\turbolift_turfs.dm"
 #include "code\modules\udp\ship_udp.dm"
+#include "code\modules\vehicles\animal.dm"
 #include "code\modules\vehicles\bike.dm"
 #include "code\modules\vehicles\cargo_train.dm"
 #include "code\modules\vehicles\droppod.dm"

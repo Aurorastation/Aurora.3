@@ -149,7 +149,7 @@
 	var/return_damage_max
 
 	var/dead_on_map = FALSE //if true, kills the mob when it spawns (it is for mapping)
-
+	var/vehicle_version = null
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
@@ -544,6 +544,16 @@
 	poke(TRUE)
 
 /mob/living/simple_animal/attackby(obj/item/O, mob/user)
+	if(istype(O, /obj/item/saddle) && vehicle_version && (stat != DEAD))
+		var/obj/vehicle/V = new vehicle_version (get_turf(src))
+		V.health = health
+		V.maxhealth = maxHealth
+		to_chat(user, SPAN_WARNING("You place \the [O] on the \the [src]."))
+		user.drop_from_inventory(O)
+		O.forceMove(get_turf(src))
+		qdel(O)
+		qdel(src)
+
 	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
 		attacked_with_item(O, user)
 		return
