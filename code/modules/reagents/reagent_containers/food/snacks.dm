@@ -5611,7 +5611,7 @@
 
 /obj/item/reagent_containers/food/snacks/chipplate/miniavah_basket
 	name = "mini-avah basket"
-	desc = "A basket of mini-Avahs, a small variant of a traditional Avah filled with meat that are the perfect size for dipping."
+	desc = "A basket of mini-avahs, a small variant of a traditional avah filled with meat that are the perfect size for dipping."
 	icon_state = "miniavahs_3"
 	vendingobject = /obj/item/reagent_containers/food/snacks/chip/miniavah
 	unitname = "mini-avah"
