@@ -5398,8 +5398,8 @@
 	due to its shelf life. Certain folk stories and jokes claim that such food could also be used as an artillery ammunition or thrown at besieging armies during sieges."
 
 /obj/item/reagent_containers/food/snacks/hardbread_slice
-	name ="adhomian hard bread slice"
-	desc = "A long-lasting Tajaran bread slice. It is usually prepared for long journeys, hard winters or military campaigns."
+	name = "adhomian hard bread slice"
+	desc = "A long-lasting Tajaran bread slice. It is usually prepared for long journeys, hard winters, or military campaigns."
 	icon_state = "hardbread_slice"
 	filling_color = "#BD8939"
 	bitesize = 2
@@ -5611,7 +5611,7 @@
 
 /obj/item/reagent_containers/food/snacks/chipplate/miniavah_basket
 	name = "mini-avah basket"
-	desc = "A basket of mini-Avahs, a small variant of a traditional Avah filled with meat that are the perfect size for dipping."
+	desc = "A basket of mini-avahs, a small variant of a traditional avah filled with meat that are the perfect size for dipping."
 	icon_state = "miniavahs_3"
 	vendingobject = /obj/item/reagent_containers/food/snacks/chip/miniavah
 	unitname = "mini-avah"
@@ -5635,15 +5635,15 @@
 	. = ..()
 
 /obj/item/reagent_containers/food/snacks/chip/miniavah
-	name ="mini-avah"
-	desc = "A miniature Avah, a traditional Adhomian treat. This one is filled with meat, and is the perfect size for dipping."
+	name = "mini-avah"
+	desc = "A miniature avah, a traditional Adhomian treat. This one is filled with meat, and is the perfect size for dipping."
 	icon_state = "avah_full"
 	bitten_state = "avah_half"
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/chip/miniavah/cheese
 	name = "cheese mini-avah"
-	desc = "A miniature Avah filled with meat. This one has cheese on it."
+	desc = "A miniature avah filled with meat. This one has cheese on it."
 	icon_state = "avah_full_queso"
 	bitten_state = "avah_half_queso"
 	bitesize = 2
@@ -5651,7 +5651,7 @@
 
 /obj/item/reagent_containers/food/snacks/chip/miniavah/salsa
 	name = "salsa mini-avah"
-	desc = "A miniature Avah filled with meat. This one has salsa on it."
+	desc = "A miniature avah filled with meat. This one has salsa on it."
 	icon_state = "avah_full_salsa"
 	bitten_state = "avah_half_salsa"
 	bitesize = 2
@@ -5659,7 +5659,7 @@
 
 /obj/item/reagent_containers/food/snacks/chip/miniavah/guac
 	name = "guac mini-avah"
-	desc = "A miniature Avah filled with meat. This one has guac on it."
+	desc = "A miniature avah filled with meat. This one has guac on it."
 	icon_state = "avah_full_guac"
 	bitten_state = "avah_half_guac"
 	bitesize = 2
@@ -5667,7 +5667,7 @@
 
 /obj/item/reagent_containers/food/snacks/chip/miniavah/sourcream
 	name = "sourcream mini-avah"
-	desc = "A miniature Avah filled with meat. This one has sour cream on it."
+	desc = "A miniature avah filled with meat. This one has sour cream on it."
 	icon_state = "avah_full_sourcream"
 	bitten_state = "avah_half_sourcream"
 	bitesize = 2
@@ -5675,7 +5675,7 @@
 
 /obj/item/reagent_containers/food/snacks/chip/miniavah/tajhummus
 	name = "hummus mini-avah"
-	desc = "A miniature Avah filled with meat. This one has sweet hummus on it."
+	desc = "A miniature avah filled with meat. This one has sweet hummus on it."
 	icon_state = "avah_full_hummus"
 	bitten_state = "avah_half_hummus"
 	bitesize = 2
