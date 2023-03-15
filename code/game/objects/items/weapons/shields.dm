@@ -161,11 +161,11 @@
 		
 /obj/item/shield/energy/attack_self(mob/living/user)
 	var/time = world.time
-	if (time < next_action)
+	if(time < next_action)
 		return
 	next_action = time + 3 SECONDS
 	active = !active
-	if (active)
+	if(active)
 		HandleTurnOn()
 	else
 		HandleShutOff()
@@ -179,7 +179,6 @@
 
 	if(!active || user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
 		return FALSE
-		
 	if(.)
 		spark(user.loc, 5)
 
