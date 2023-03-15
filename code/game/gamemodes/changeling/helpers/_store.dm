@@ -213,6 +213,46 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 3
 	verbpath = /mob/proc/changeling_shield
 
+/datum/power/changeling/armor
+	name = "Integrated Armor"
+	desc = "We evolve our skin to harden in response to trauma."
+	helptext = "Gives us innate armor, slightly worse than heavy armor."
+	genomecost = 1
+	isVerb = FALSE
+	verbpath = /mob/proc/changeling_armor
+
+/datum/power/changeling/resonant_shriek
+	name = "Resonant Shriek"
+	desc = "Our lungs and vocal chords evolve, allowing us to briefly emit a noise that deafens and confuses the weak-minded."
+	helptext = "Lights are blown, organics are disoriented, and synthetics act as if they were flashed."
+	genomecost = 3
+	isVerb = TRUE
+	verbpath = /mob/proc/resonant_shriek
+
+/datum/power/changeling/dissonant_shriek
+	name = "Dissonant Shriek"
+	desc = "We shift our vocal chords to release a high-frequency sound that overloads synthetics and nearby electronics."
+	helptext = "Creates a moderate sized EMP."
+	genomecost = 3
+	isVerb = TRUE
+	verbpath = /mob/proc/dissonant_shriek
+
+/datum/power/changeling/augmented_eyesight
+	name = "Augmented Eyesight"
+	desc = "Creates heat receptors in our eyes and dramatically increases light sensing ability."
+	helptext = "Grants us thermal vision that can be toggled on or off. This decreases our resistance to flashing."
+	genomecost = 2
+	isVerb = TRUE
+	verbpath = /mob/proc/changeling_thermals
+
+/datum/power/changeling/electric_lockpick
+	name = "Electric Lockpick"
+	desc = "We discreetly evolve a finger to be able to send a small electric charge.  \
+	We can open most electrical locks, but it will be obvious when we do so."
+	helptext = "Use the ability, then touch something that utilizes an electrical locking system, to open it.  Each use costs 10 chemicals."
+	genomecost = 1
+	verbpath = /mob/proc/changeling_electric_lockpick
+
 /datum/power/changeling/horror_form
 	name = "Horror Form"
 	desc = "We tear apart our human disguise, revealing our true form."

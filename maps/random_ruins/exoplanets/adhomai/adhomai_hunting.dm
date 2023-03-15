@@ -64,7 +64,7 @@
 
 	suit = /obj/item/clothing/suit/storage/tajaran/hunting
 	id = null
-	suit_store = /obj/item/gun/projectile/shotgun/pump/rifle
+	suit_store = /obj/item/gun/projectile/shotgun/pump/rifle/scope
 	backpack_contents = list(/obj/item/storage/wallet/random = 1)
 
 /datum/ghostspawner/human/matake_hunter
@@ -105,5 +105,5 @@
 				/obj/item/material/sword/sabre/silver
 				)
 	id = null
-	back = /obj/item/gun/projectile/shotgun/pump/rifle
+	back = /obj/item/gun/projectile/shotgun/pump/rifle/scope
 	l_pocket = list(/obj/item/storage/wallet/random = 1)

@@ -1181,7 +1181,10 @@
 		/mob/living/simple_animal/hostile/republicon/ranged,
 		/mob/living/simple_animal/hostile/spider_queen,
 		/mob/living/simple_animal/hostile/tree,
-		/mob/living/simple_animal/hostile/mimic
+		/mob/living/simple_animal/hostile/mimic,
+		/mob/living/simple_animal/hostile/cavern_geist,
+		/mob/living/simple_animal/hostile/cavern_geist/augmented,
+		/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone
 	)
 	//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs

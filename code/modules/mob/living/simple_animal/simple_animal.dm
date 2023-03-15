@@ -306,14 +306,10 @@
 	if(stop_thinking)
 		return
 
-	if(!stop_automated_movement && wander && !anchored)
-		if(isturf(loc) && !resting && !buckled_to && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
-			if(turns_since_move >= turns_per_move && !(stop_automated_movement_when_pulled && pulledby))	 //Some animals don't move when pulled
-				var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
-				moving_to = wanders_diagonally ? pick(alldirs) : pick(cardinal)
-				set_dir(moving_to)			//How about we turn them the direction they are moving, yay.
-				Move(get_step(src,moving_to))
-				turns_since_move = 0
+	if(wander && !anchored && !stop_automated_movement)
+		if(isturf(loc) && !resting && !buckled_to && canmove)
+			if(!(pulledby && stop_automated_movement_when_pulled))
+				step_rand(src)
 
 	//Speaking
 	if(speak_chance && rand(0,200) < speak_chance)

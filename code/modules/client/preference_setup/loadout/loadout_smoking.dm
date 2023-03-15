@@ -117,7 +117,7 @@
 /datum/gear/smoking/cigpaper/New()
 	..()
 	var/list/cigpaper = list()
-	cigpaper["Gen. Eric cigarette paper"] = /obj/item/storage/box/fancy/cigpaper
+	cigpaper["Callistean Classic cigarette paper"] = /obj/item/storage/box/fancy/cigpaper
 	cigpaper["Trident cigarette paper"] = /obj/item/storage/box/fancy/cigpaper/fine
 	gear_tweaks += new /datum/gear_tweak/path(cigpaper)
 

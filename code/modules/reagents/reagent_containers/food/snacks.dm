@@ -985,16 +985,6 @@
 
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
 
-/obj/item/reagent_containers/food/snacks/sausage/battered
-	name = "battered sausage"
-	desc = "A piece of mixed, long meat, battered and then deepfried"
-	icon_state = "batteredsausage"
-	filling_color = "#DB0000"
-	do_coating_prefix = 0
-	bitesize = 2
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/coating/batter = 1.7, /singleton/reagent/nutriment/triglyceride/oil = 1.5)
-	coating = /singleton/reagent/nutriment/coating/batter
-
 /obj/item/reagent_containers/food/snacks/jalapeno_poppers
 	name = "jalapeno popper"
 	desc = "A battered, deep-fried chili pepper"

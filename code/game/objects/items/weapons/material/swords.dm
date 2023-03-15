@@ -119,6 +119,9 @@
 		cleave(user, target)
 	..()
 
+/obj/item/material/sword/axe/can_woodcut()
+	return TRUE
+
 /obj/item/material/sword/khopesh
 	name = "khopesh"
 	desc = "An ancient sword shapped like a sickle."

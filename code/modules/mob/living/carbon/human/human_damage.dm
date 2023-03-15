@@ -465,7 +465,7 @@ This function restores all organs.
 		rads = rads * species.radiation_mod
 	..(rads)
 
-/mob/living/carbon/human/proc/get_shock()
+/mob/living/carbon/human/get_shock()
 	if(!can_feel_pain())
 		return 0
 

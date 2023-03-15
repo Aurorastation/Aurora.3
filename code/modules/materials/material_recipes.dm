@@ -294,3 +294,13 @@
 			new /datum/stack_recipe("leather briefcase", /obj/item/storage/briefcase/real, 4, 1, time = 20),
 			new /datum/stack_recipe("leather whip", /obj/item/melee/whip, 15, 1, time = 20)
 		))
+
+/material/wood/log/generate_recipes()
+	recipes = list()
+	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 3, time = 50, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("log bench", /obj/structure/flora/log_bench, 2, time = 20, one_per_turf = 1, on_floor = 1)
+
+/material/wood/branch/generate_recipes()
+	recipes = list()
+	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 10, time = 50, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("torch handle", /obj/item/torch, 1, time = 15, one_per_turf = 0, on_floor = 0)
