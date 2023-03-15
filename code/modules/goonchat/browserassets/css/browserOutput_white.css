@@ -312,20 +312,20 @@ em						{font-style: normal;font-weight: bold;}
 .newscaster				{color: #750000;}
 
 /* Radio Channels */
-.comradio				{color: #193A7A;}
+.comradio				{color: #334e6d;}
 .syndradio				{color: #6D3F40;}
 .centradio				{color: #5C5C8A;}
-.airadio				{color: #FF00FF;}
+.airadio				{color: #4b4b51;}
 .entradio				{color: #bd893c;}
 .hailradio				{color: #7331c4;}
 .shipradio				{color: #738465;}
 
-.secradio				{color: #A30000;}
-.engradio				{color: #A66300;}
-.medradio				{color: #0a5c47;}
-.sciradio				{color: #993399;}
-.supradio				{color: #5F4519;}
-.srvradio				{color: #6eaa2c;}
+.secradio				{color: #4f637d;}
+.engradio				{color: #a28226;}
+.medradio				{color: #467b41;}
+.sciradio				{color: #76417b;}
+.supradio				{color: #78430d;}
+.srvradio				{color: #90ba58;}
 
 /* Miscellaneous */
 .name					{font-weight: bold;}
