@@ -303,8 +303,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/explorer_ration
 
-// Tajaran dips
-
+// Tajaran Dips
 /singleton/recipe/sarmikhir
 	appliance = MIX
 	reagents = list(/singleton/reagent/drink/milk/adhomai/fermented = 15, /singleton/reagent/drink/milk/cream = 15, /singleton/reagent/spacespice = 1)
