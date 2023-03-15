@@ -4464,7 +4464,7 @@
 	var/obj/item/reagent_containers/food/snacks/returningitem
 	if(istype(item,/obj/item/reagent_containers/food/snacks/chip/nacho) && item.icon_state == "chip_nacho")
 		returningitem = new nachotrans(src)
-	else if (istype(item,/obj/item/reagent_containers/food/snacks/chip/miniavah) && item.icon_state == "avah_full")
+	else if (istype(item,/obj/item/reagent_containers/food/snacks/chip/miniavah) && item.icon_state == "avah_full" || item.icon_state == "avah_half")
 		returningitem = new avahtrans(src)
 	else if (istype(item,/obj/item/reagent_containers/food/snacks/chip) && (item.icon_state == "chip" || item.icon_state == "chip_half"))
 		returningitem = new chiptrans(src)
