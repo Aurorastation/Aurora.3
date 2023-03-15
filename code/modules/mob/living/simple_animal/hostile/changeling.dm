@@ -137,6 +137,10 @@
 	src.is_devouring = FALSE
 	return
 
+/mob/living/simple_animal/hostile/true_changeling/attempt_grab(var/mob/living/grabber)
+	to_chat(grabber, SPAN_WARNING("\The [src] contorts and shifts away from you when you try to grab it!"))
+	return FALSE
+
 /mob/living/simple_animal/hostile/lesser_changeling
 	name = "crawling horror"
 	desc = "An agile monster made of twisted flesh and bone."
