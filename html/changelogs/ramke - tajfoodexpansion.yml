@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Adds Tajara-themed food expansion, 17 new dishes. This includes variations of earthen-root dishes, hardbread pudding, sandwiches, dips, avahs and more."
+  - rscadd: "New garlic sauce sprite."
