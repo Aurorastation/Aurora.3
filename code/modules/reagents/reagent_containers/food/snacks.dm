@@ -5398,8 +5398,8 @@
 	due to its shelf life. Certain folk stories and jokes claim that such food could also be used as an artillery ammunition or thrown at besieging armies during sieges."
 
 /obj/item/reagent_containers/food/snacks/hardbread_slice
-	name ="adhomian hard bread slice"
-	desc = "A long-lasting Tajaran bread slice. It is usually prepared for long journeys, hard winters or military campaigns."
+	name = "adhomian hard bread slice"
+	desc = "A long-lasting Tajaran bread slice. It is usually prepared for long journeys, hard winters, or military campaigns."
 	icon_state = "hardbread_slice"
 	filling_color = "#BD8939"
 	bitesize = 2
