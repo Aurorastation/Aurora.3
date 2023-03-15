@@ -5645,7 +5645,7 @@
 	bitesize = 2
 	filling_color = "#FFF454"
 
-	/obj/item/reagent_containers/food/snacks/chip/miniavah/salsa
+/obj/item/reagent_containers/food/snacks/chip/miniavah/salsa
 	name = "salsa mini-avah"
 	desc = "A miniature Avah filled with meat. This one has salsa on it."
 	icon_state = "avah_full_salsa"
@@ -5653,7 +5653,7 @@
 	bitesize = 2
 	filling_color = "#FF4D36"
 
-	/obj/item/reagent_containers/food/snacks/chip/miniavah/guac
+/obj/item/reagent_containers/food/snacks/chip/miniavah/guac
 	name = "guac mini-avah"
 	desc = "A miniature Avah filled with meat. This one has guac on it."
 	icon_state = "avah_full_guac"
@@ -5669,7 +5669,7 @@
 	bitesize = 2
 	filling_color = "#e4e4e4"
 
-	/obj/item/reagent_containers/food/snacks/chip/miniavah/tajhummus
+/obj/item/reagent_containers/food/snacks/chip/miniavah/tajhummus
 	name = "hummus mini-avah"
 	desc = "A miniature Avah filled with meat. This one has sweet hummus on it."
 	icon_state = "avah_full_hummus"
