@@ -5530,7 +5530,7 @@
 
 /obj/item/reagent_containers/food/snacks/salad/earthenroot
 	name = "earthen-root salad"
-	desc = "TBD"
+	desc = "A Tajaran salad containing earthen-root, sarmikhir, herbs and cream. A great option for the more healthy-minded."
 	icon_state = "earthenroot_salad"
 	trash = /obj/item/trash/snack_bowl
 	reagents_to_add = list(/singleton/reagent/nutriment = 10)
@@ -5539,7 +5539,7 @@
 
 /obj/item/reagent_containers/food/snacks/stuffed_earthenroot
 	name = "stuffed earthen-root"
-	desc = "TBD"
+	desc = "An earthen-root stuffed with adhomian meat. Crunchy on the outside, savoury on the inside."
 	icon_state = "earthenroot_stuffed"
 	trash = /obj/item/trash/plate
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/nutriment/protein = 7)
@@ -5574,6 +5574,7 @@
 	name = "adhomian fish soup"
 	desc = "A creamy Adhomian fish soup garnished with sweet herbs."
 	icon_state = "adhomian_fish_soup"
+	trash = /obj/item/trash/snack_bowl
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 4)
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("creamy, sweet fish."))
 
@@ -5583,6 +5584,7 @@
 	icon_state = "hardbread_pudding_whole"
 	slice_path = /obj/item/reagent_containers/food/snacks/hardbread_bun
 	slices_num = 4
+	trash = /obj/item/trash/tray
 	reagents_to_add = list(/singleton/reagent/nutriment = 30, /singleton/reagent/drink/milk/cream = 15)
 	reagent_data = list(/singleton/reagent/nutriment = list("soft bread" = 3), /singleton/reagent/drink/milk/cream = list("sweet cream" = 3))
 
@@ -5590,11 +5592,13 @@
 	name = "hardbread bun"
 	desc = "A bun made out of hardbread pudding. Topped with sweet cream."
 	icon_state = "hardbread_pudding_bun"
+	trash = /obj/item/trash/snack_bowl
 
 /obj/item/reagent_containers/food/snacks/tunneler_meategg
 	name = "tunneler meategg"
 	desc = "An adhomian ice tunneler egg cooked with a layer of meat. All the protein that you'll need!"
 	icon_state = "tunneler_scotchegg"
+	trash = /obj/item/trash/plate
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment/protein = 7, /singleton/reagent/nutriment = 5)
 	reagent_data = list(/singleton/reagent/nutriment/protein = list("savoury meat" = 3), /singleton/reagent/nutriment = list("meaty bread" = 1))
 
