@@ -280,16 +280,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
-"aoG" = (
-/obj/machinery/camera/network/intrepid{
-	c_tag = "Intrepid - Medbay"
-	},
-/obj/machinery/vending/wallmed1{
-	pixel_y = 32;
-	req_access = null
-	},
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "aoR" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 1441;
@@ -2949,7 +2939,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/sleeper,
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "cne" = (
@@ -5259,6 +5248,13 @@
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/toxin,
+/obj/machinery/vending/wallmed1{
+	pixel_y = 32;
+	req_access = null
+	},
+/obj/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Medbay"
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "eeV" = (
@@ -53041,7 +53037,7 @@ uRt
 uRt
 jgf
 eKr
-aoG
+iRC
 iRC
 aEw
 rmT
