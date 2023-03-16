@@ -4360,7 +4360,7 @@
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/salsa
 	name = "nacho chip"
-	desc = "A nacho ship stray from a plate of cheesy nachos. This one has salsa on it."
+	desc = "A stray nacho chip from a plate of cheesy nachos. This one has salsa on it."
 	icon_state = "chip_nacho_salsa"
 	bitten_state = "chip_half"
 	bitesize = 2
@@ -4368,7 +4368,7 @@
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/guac
 	name = "nacho chip"
-	desc = "A nacho ship stray from a plate of cheesy nachos. This one has guac on it."
+	desc = "A stray nacho chip from a plate of cheesy nachos. This one has guac on it."
 	icon_state = "chip_nacho_guac"
 	bitten_state = "chip_half"
 	bitesize = 2
@@ -4376,7 +4376,7 @@
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/cheese
 	name = "nacho chip"
-	desc = "A nacho ship stray from a plate of cheesy nachos. This one has extra cheese on it."
+	desc = "A stray nacho chip from a plate of cheesy nachos. This one has extra cheese on it."
 	icon_state = "chip_nacho_cheese"
 	bitten_state = "chip_half"
 	bitesize = 2
@@ -4384,7 +4384,7 @@
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/sourcream
 	name = "nacho chip"
-	desc = "A nacho ship stray from a plate of cheesy nachos. This one has extra sour cream on it."
+	desc = "A stray nacho chip from a plate of cheesy nachos. This one has extra sour cream on it."
 	icon_state = "chip_nacho_sourcream"
 	bitten_state = "chip_half_sourcream"
 	bitesize = 2
@@ -4392,7 +4392,7 @@
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/tajhummus
 	name = "nacho chip"
-	desc = "A nacho ship stray from a plate of cheesy nachos. This one has extra hummus on it."
+	desc = "A stray nacho chip from a plate of cheesy nachos. This one has extra hummus on it."
 	icon_state = "chip_nacho_hummus"
 	bitten_state = "chip_half_hummus"
 	bitesize = 2
@@ -5539,7 +5539,7 @@
 
 /obj/item/reagent_containers/food/snacks/stuffed_earthenroot
 	name = "stuffed earthen-root"
-	desc = "An earthen-root stuffed with adhomian meat. Crunchy on the outside, savoury on the inside."
+	desc = "An earthen-root stuffed with Adhomian meat. Crunchy on the outside, savoury on the inside."
 	icon_state = "earthenroot_stuffed"
 	trash = /obj/item/trash/plate
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/nutriment/protein = 7)
@@ -5596,7 +5596,7 @@
 
 /obj/item/reagent_containers/food/snacks/tunneler_meategg
 	name = "tunneler meategg"
-	desc = "An adhomian ice tunneler egg cooked with a layer of meat. All the protein that you'll need!"
+	desc = "An Adhomian ice tunneler egg cooked with a layer of meat. All the protein that you'll need!"
 	icon_state = "tunneler_scotchegg"
 	trash = /obj/item/trash/plate
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment/protein = 7, /singleton/reagent/nutriment = 5)
