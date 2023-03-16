@@ -5572,7 +5572,7 @@
 
 /obj/item/reagent_containers/food/snacks/soup/tajfish
 	name = "adhomian fish soup"
-	desc = "A creamy Adhomian fish soup garnished with sweet herbs."
+	desc = "A creamy Adhomian fish soup, garnished with sweet herbs."
 	icon_state = "adhomian_fish_soup"
 	trash = /obj/item/trash/snack_bowl
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 4)
