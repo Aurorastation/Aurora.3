@@ -7479,9 +7479,11 @@
 /obj/machinery/light/colored/red{
 	dir = 8
 	},
-/obj/machinery/anti_bluespace{
-	pixel_x = -32
+/obj/machinery/power/apc/high{
+	dir = 8;
+	pixel_x = -24
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
 "dCa" = (
@@ -26561,10 +26563,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "mMf" = (
-/obj/machinery/power/apc/high{
-	dir = 8;
-	pixel_x = -24
-	},
 /obj/machinery/camera/motion{
 	c_tag = "Operations - Secure Storage";
 	dir = 4;
@@ -26573,9 +26571,11 @@
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/cable/green{
-	icon_state = "0-4"
+	icon_state = "2-4"
 	},
+/obj/machinery/anti_bluespace,
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
 "mMh" = (
