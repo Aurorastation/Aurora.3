@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Adds a vault version of the Hardsuit Token, allows for the spawning of 5 gear loadouts catered to antagonists on station."
-  - imageadd: "Adds in a new vault_token dmi"
+  - rscadd: "Adds new loot to the Vault Safe, making it a viable option for antagonists to attempt to rob."
+  - rscadd: "Adds an additional spawn to the vault safe, allowing for five objects to spawn."
   - maptweak: "Tweaks 'Secure Storage' to be a proper vault now."

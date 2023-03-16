@@ -40668,14 +40668,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
-"tHZ" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced,
-/area/storage/secure)
 "tIa" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -60746,7 +60738,7 @@ eIE
 xnf
 pfi
 bNd
-tHZ
+dlZ
 bNd
 wmz
 xnf
