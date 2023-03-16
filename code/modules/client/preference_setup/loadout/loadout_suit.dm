@@ -470,7 +470,6 @@ datum/gear/suit/colorvest
 
 	gear_tweaks += new /datum/gear_tweak/path(overalls)
 
-
 /datum/gear/suit/ponczo
 	display_name = "visegradi ponczo"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/colorable/ponczo
