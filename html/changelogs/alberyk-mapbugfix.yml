@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed some access problems in the hailstorm ship."
-  - bugfix: "Fixed the glacier worm carcass having no name."
