@@ -4,7 +4,4 @@ delete-after: True
 
 changes:
   - spellcheck: "Punctuated the Peace Treaty glass's description."
-<<<<<<< Updated upstream
-=======
   - spellcheck: "Capitalized Raskara as it appears in Tajaran charms."
->>>>>>> Stashed changes
