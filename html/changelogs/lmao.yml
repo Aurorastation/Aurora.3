@@ -1,7 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed leftover mapping in the hangar near the Intrepid."
-  - bugfix: "Fixed the bee net having no sprite set."
