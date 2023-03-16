@@ -219,7 +219,7 @@
 	name = "bullpup carbine"
 	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, chambered in the same 5.56 caliber but only capable of accepting smaller magazines. It lacks the integral grenade launcher and the burst fire of the Bulldog."
 	desc_extended = "It makes you feel like a corporate goon when you hold it."
-	icon = 'icons/obj/guns/civcarbine.dmi'
+	icon = 'icons/obj/guns/crew_rifle.dmi'
 	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
 	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine, /obj/item/ammo_magazine/a556/carbine/polymer)
 	icon_state = "civcarbine"
@@ -341,11 +341,11 @@
 
 /obj/item/gun/projectile/automatic/rifle/jingya
 	name = "burst rifle"
-	desc = "The Jingya A-1 is the first of a new line of NanoTrasen rifles, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. They are made to be sleek, easy to use by users with minimal training and cheap to mass produce while still being reliable."
+	desc = "The Jingya A-1 is the first of a new line of NanoTrasen rifles, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. Primarily made of high strength polymers, the rifle is designed to be cheap to mass produce while remaining reliable."
 	desc_extended = "The Jingya A-1 won a hard-fought victory in the ballistic side of the SCC Future Firearms contest hosted in 2463, which was also its first unveiling: this rifle is made to function where laser weaponry may be either too risky or not functional for the engagement at hand. It is slated to be deployed for trial usage by a select few special TCFL regiments in Mictlan."
-	icon = 'icons/obj/guns/crew_rifle.dmi'
-	icon_state = "arifle"
-	item_state = "arifle"
+	icon = 'icons/obj/guns/burst_rifle.dmi'
+	icon_state = "arx"
+	item_state = "arx"
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	caliber = "a556"
@@ -366,9 +366,9 @@
 /obj/item/gun/projectile/automatic/rifle/jingya/update_icon()
 	..()
 	if(ammo_magazine)
-		icon_state = "arifle"
+		icon_state = "arx"
 	else
-		icon_state = "arifle-empty"
+		icon_state = "arx-empty"
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"

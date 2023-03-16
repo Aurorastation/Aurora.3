@@ -1,6 +1,6 @@
 /singleton/origin_item/culture/zora
 	name = "Zo'ra Hive"
-	desc = "Known as 'the Unstoppable', Zo'ra is the largest and most powerful Hive. It was discovered by humanity following the spotting of their Hiveship, dubbed as 'Titan Prime'. Zo'ra themselves to be the best of their species, and the face of the Vaurca as a whole. They have settled mainly in Tau Ceti across multiple planets including Biesel, New Gibson, Luthien and Caprice. The latter two are official colonies of the hive, with the Zo'ra's \"Capital\" of New Sedantis residing on Caprice, along with the reformed Court of Queens chambers."
+	desc = "Known as 'the Unstoppable', Zo'ra is the largest and most powerful Hive. It was discovered by humanity following the spotting of their Hiveship, dubbed as 'Titan Prime'. Zo'ra themselves to be the best of their species, and the face of the Vaurca as a whole. They have settled mainly in Tau Ceti across multiple planets including Biesel, New Gibson, Luthien and Caprice. The latter two are official colonies of the Hive, with the Zo'ra's \"Capital\" of New Sedantis residing on Caprice, along with the reformed Court of Queens chambers."
 	possible_origins = list(
 		/singleton/origin_item/origin/zoleth,
 		/singleton/origin_item/origin/scay,

@@ -275,3 +275,27 @@ obj/item/reagent_containers/pill/joy
 	desc = "Used to treat dementia."
 	icon_state = "pill8"
 	reagents_to_add = list(/singleton/reagent/skrell_nootropic = 5)
+
+/obj/item/reagent_containers/pill/hyronalin
+	name = "7u Hyronalin"
+	desc = "Used to treat radiation poisoning."
+	icon_state = "pill1"
+	reagents_to_add = list(/singleton/reagent/hyronalin = 7)
+
+/obj/item/reagent_containers/pill/antirad
+	name = "AntiRad"
+	desc = "Used to treat radiation poisoning."
+	icon_state = "yellow"
+	reagents_to_add = list(/singleton/reagent/hyronalin = 5, /singleton/reagent/dylovene = 10)
+
+/obj/item/reagent_containers/pill/sugariron
+	name = "10u Sugar-Iron"
+	desc = "Used to help the body naturally replenish blood."
+	icon_state = "pill1"
+	reagents_to_add = list(/singleton/reagent/iron = 5, /singleton/reagent/sugar = 10)
+
+/obj/item/reagent_containers/pill/antidexafen
+	name = "15u antidexafen"
+	desc = "Common cold mediciation. Safe for babies!"
+	icon_state = "pill4"
+	reagents_to_add = list(/singleton/reagent/antidexafen = 10, /singleton/reagent/drink/lemonjuice = 5, /singleton/reagent/nutriment/mint = REM*0.2)

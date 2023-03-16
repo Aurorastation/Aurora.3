@@ -525,7 +525,7 @@
 
 /obj/item/reagent_containers/food/snacks/chips
 	name = "chips"
-	desc = "Commander Riker's What-The-Crisps."
+	desc = "Getmore potato chips. Not actually chips, these are instead flash-fried wafers of potato paste. Delicious!"
 	icon_state = "chips"
 	trash = /obj/item/trash/chips
 	filling_color = "#E8C31E"
@@ -535,7 +535,7 @@
 
 /obj/item/reagent_containers/food/snacks/cookie
 	name = "cookie"
-	desc = "COOKIE!!!"
+	desc = "A cookie."
 	icon_state = "COOKIE!!!"
 	filling_color = "#DBC94F"
 	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/sugar = 3)
@@ -818,6 +818,13 @@
 	volume = 20
 	hatchling = /mob/living/simple_animal/schlorrgo/baby
 
+/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
+	name = "ice tunneler egg"
+	desc = "An egg laid by an Adhomian animal."
+	icon_state = "tunneler_egg"
+	filling_color = "#eff5e9"
+	hatchling = /mob/living/simple_animal/ice_tunneler/baby
+
 /obj/item/reagent_containers/food/snacks/friedegg
 	name = "fried egg"
 	desc = "A fried egg, with a touch of salt and pepper."
@@ -977,16 +984,6 @@
 	bitesize = 2
 
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
-
-/obj/item/reagent_containers/food/snacks/sausage/battered
-	name = "battered sausage"
-	desc = "A piece of mixed, long meat, battered and then deepfried"
-	icon_state = "batteredsausage"
-	filling_color = "#DB0000"
-	do_coating_prefix = 0
-	bitesize = 2
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/coating/batter = 1.7, /singleton/reagent/nutriment/triglyceride/oil = 1.5)
-	coating = /singleton/reagent/nutriment/coating/batter
 
 /obj/item/reagent_containers/food/snacks/jalapeno_poppers
 	name = "jalapeno popper"

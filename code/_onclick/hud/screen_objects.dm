@@ -317,7 +317,7 @@
 					up_image.plane = LIGHTING_LAYER + 1
 					up_image.layer = LIGHTING_LAYER + 1
 					usr << up_image
-					addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), up_image), 12)
+					QDEL_IN(up_image, 12)
 				return
 			var/turf/T = GetAbove(usr)
 			if (!T)

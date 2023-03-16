@@ -142,7 +142,7 @@
 	if(shock_damage<1)
 		return 0
 
-	src.apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
+	src.apply_damage(shock_damage, DAMAGE_BURN, def_zone, used_weapon="Electrocution")
 	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
 	if(shock_damage > 15 || tesla_shock)
 		src.visible_message(
@@ -446,6 +446,10 @@
 		return FALSE
 
 	return TRUE
+
+/mob/living/carbon/get_shock()
+	if(can_feel_pain())
+		return ..()
 
 /mob/living/carbon/proc/need_breathe()
 	return

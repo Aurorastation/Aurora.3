@@ -25,8 +25,9 @@
 /obj/effect/overmap/visitable/ship/tirakqi_freighter
 	name = "Ti'Rakqi Freighter"
 	desc = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one's transponder identifies it as belonging to an independent freighter."
-	icon_state = "ship_blue"
-	moving_state = "ship_blue_moving"
+	icon_state = "tirakqi"
+	moving_state = "tirakqi_moving"
+	colors = list("#27e4ee", "#4febbf")
 	class = "ISV"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
@@ -44,9 +45,17 @@
 		"nav_tirakqi_freighter_4"
 	)
 
+	invisible_until_ghostrole_spawn = TRUE
+
 /obj/effect/overmap/visitable/ship/tirakqi_freighter/New()
     designation = "[pick("Bigger Squib", "Frightful Whaler", "Star Spanner", "Lu'Kaax", "Star Scamp", "Ocean Ink", "Yippi")]"
     ..()
+
+/obj/effect/overmap/visitable/ship/tirakqi_freighter/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "skrell_freighter")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/tirakqi_freighter/nav1
 	name = "Ti'Rakqi Freighter - Starboard"
@@ -84,8 +93,9 @@
 	designation = "Ku'ku"
 	desc = "A simple and fast transport shuttle. This one's transponder identifies it as belonging to an independent freighter."
 	shuttle = "Ti'Rakqi Shuttle"
-	icon_state = "shuttle_blue"
-	moving_state = "shuttle_blue_moving"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#27e4ee", "#4febbf")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000

@@ -50,6 +50,7 @@
 	var/tail                                             // Name of tail state in species effects icon file.
 	var/tail_animation                                   // If set, the icon to obtain tail animation states from.
 	var/tail_hair
+	var/list/selectable_tails
 	var/race_key = 0       	                             // Used for mob icon cache string.
 	var/icon/icon_template                               // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
@@ -561,7 +562,7 @@
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay
 
-	var/obj/item/organ/internal/eyes/night/NE = H.internal_organs_by_name[BP_EYES]
+	var/obj/item/organ/internal/eyes/night/NE = H.get_eyes()
 	if(istype(NE) && NE.night_vision && NE.can_change_invisible())
 		H.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 
@@ -709,6 +710,9 @@
 	H.g_style = H.species.default_g_style
 	H.update_hair()
 
+/datum/species/proc/set_default_tail(var/mob/living/carbon/human/H)
+	H.set_tail_style(H.species.tail)
+
 /datum/species/proc/get_species_tally(var/mob/living/carbon/human/H)
 	return 0
 
@@ -843,3 +847,6 @@
 
 /datum/species/proc/handle_middle_mouse_click(var/atom/target)
 	return
+
+/datum/species/proc/can_use_guns()
+	return TRUE
