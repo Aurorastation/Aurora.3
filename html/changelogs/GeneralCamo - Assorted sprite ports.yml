@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - imageadd: "Replaced table lamp sprites (Credit to CEV Eris, Kegdo)"
-  - imageadd: "Replaced static air tank sprites (Credit to CEV Eris, SpadesSlick, with minor adjustments by GeneralCamo)"
-  - imageadd: "Replaced Mass Driver sprites (Credit to /tg/station, Wallem)"
+  - imageadd: "Replaced table lamp sprites. (Credit to CEV Eris, Kegdo.)"
+  - imageadd: "Replaced volume tank sprites. (Credit to CEV Eris, SpadesSlick, with minor adjustments by GeneralCamo.)"
+  - imageadd: "Replaced mass driver sprites. (Credit to /tg/station, Wallem.)"
