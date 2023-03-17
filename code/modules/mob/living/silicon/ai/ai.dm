@@ -4,6 +4,7 @@
 var/list/ai_list = list()
 var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/ai_announcement,
+	/mob/living/silicon/ai/proc/vox_announcement,
 	/mob/living/silicon/ai/proc/ai_call_shuttle,
 	/mob/living/silicon/ai/proc/ai_emergency_message,
 	/mob/living/silicon/ai/proc/ai_camera_track,
@@ -106,6 +107,8 @@ var/list/ai_verbs_default = list(
 	var/datum/ai_icon/selected_sprite			// The selected icon set
 	var/custom_sprite = FALSE 				// Whether the selected icon is custom
 
+	var/vox_sound_channel = null // For vox announcements
+
 /mob/living/silicon/ai/proc/add_ai_verbs()
 	src.verbs |= ai_verbs_default
 	src.verbs |= silicon_subsystems
@@ -197,6 +200,9 @@ var/list/ai_verbs_default = list(
 	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 
 	ai_list += src
+
+	vox_sound_channel = sound_channels.RequestChannel(key = "[usr]-vox-announcements") //We reserve a channel for vox announcements
+
 	return ..()
 
 /mob/living/silicon/ai/Destroy()
@@ -427,6 +433,95 @@ var/list/ai_verbs_default = list(
 	message_cooldown = 1
 	spawn(600)//One minute cooldown
 		message_cooldown = 0
+
+/** This uses the VOX announcement system.
+ * First, it prompts the caller to input a text, then each word is matched against a list (defined in vox_sounds.dm) of words that has an associated sound,
+ * if every word has an associated file to play, the words are sent to the "play_vox_word" function one by one
+ */
+
+/mob/living/silicon/ai/proc/vox_announcement()
+
+	set category = "AI Commands"
+	set name = "VOX Announcement"
+
+	var/message = input(usr, "Please write a message to VOX announce to the ship crew.", "A.I. VOX Announcement") as null|message
+
+	if(!message || incapacitated())
+		return
+
+	if(control_disabled)
+		to_chat(src, SPAN_WARNING("Wireless interface disabled, unable to interact with announcement PA."))
+		return
+
+	var/list/words = splittext(trim(message), " ")
+	var/list/incorrect_words = list()
+
+	for(var/word in words)
+		word = lowertext(trim(word))
+		if(!word)
+			words -= word
+			continue
+		if(!((GET_SINGLETON(/singleton/vox_sounds)).soundlist[word]))
+			incorrect_words += word
+
+	if(incorrect_words.len)
+		to_chat(src, SPAN_NOTICE("These words are not available on the announcement system: [english_list(incorrect_words)]."))
+		to_chat(src, SPAN_NOTICE("Your attempted announcement message: [message]."))
+		return
+
+	say("; [message]")
+
+	for(var/word in words)
+		play_vox_word(word, src.z, null, vox_sound_channel)
+
+/**
+ * This must be set in the z_level parameter for admin/antags/whatever fuckery, so that the announcement reaches everyone in the round
+ * indifferently of where either the announcer or the receipient are, otherwise, the function will (should) not play the message to
+ * mobs that are not in the main map level.
+ * Please note this does not skip the life/deafness check, so if the mob is deaf, though luck still.
+*/
+#define VOX_ANNOUNCEMENT_IGNORE_ZLEVELS -1
+
+/**
+ * The actual VOX logic
+ * Get the sound files from the words it has received, selects the mobs that should receive them (usually all and only the mobs that are alive,
+ * on the ship levels and can hear) and push the audio messages to their playing queue in the specified sound channel.
+ *
+ * Arguments:
+ * * word - The word to push in the playing queue.
+ * * z_level - The source z_level of whoever or whatever is making the announcement, or -1 to ignore all the Z-level logic.
+ * * only_listener - If this announcement is going to a specific mob, pass it here, otherwise normal logic.
+ * * sound_channel - The sound channel to push this word into, client-side.
+*/
+
+/proc/play_vox_word(word, z_level, mob/only_listener, sound_channel)
+	if(!sound_channel)
+		crash_with("The VOX announcment system got called without a sound channel!")
+
+	if(!isStationLevel(z_level) && z_level != VOX_ANNOUNCEMENT_IGNORE_ZLEVELS)
+		crash_with("The VOX announcment cannot come from outside the map levels!")
+
+	word = lowertext(word)
+
+	if(!((GET_SINGLETON(/singleton/vox_sounds)).soundlist[word])) //To be revised away from GLOB
+		return FALSE
+
+	var/sound_file = (GET_SINGLETON(/singleton/vox_sounds)).soundlist[word]
+
+	var/sound/voice = sound(sound_file, wait = 1, channel = sound_channel) // To revise to use our sound channels system
+	voice.status = SOUND_STREAM
+
+	if(only_listener)
+		sound_to(only_listener, voice)
+	else
+		for(var/mob/player_mob in player_list) // To revise to only happen on connected Z levels
+			if(!isdeaf(player_mob) && (player_mob.client.prefs.sfx_toggles & ASFX_VOX))
+				var/turf/T = get_turf(player_mob)
+				if(isStationLevel(T.z) || z_level == VOX_ANNOUNCEMENT_IGNORE_ZLEVELS)
+					sound_to(player_mob, voice)
+	return TRUE
+
+#undef VOX_ANNOUNCEMENT_IGNORE_ZLEVELS
 
 /mob/living/silicon/ai/proc/ai_call_shuttle()
 	set category = "AI Commands"

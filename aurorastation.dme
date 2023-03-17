@@ -2333,6 +2333,7 @@
 #include "code\modules\mob\living\silicon\ai\login.dm"
 #include "code\modules\mob\living\silicon\ai\logout.dm"
 #include "code\modules\mob\living\silicon\ai\malf.dm"
+#include "code\modules\mob\living\silicon\ai\vox_sounds.dm"
 #include "code\modules\mob\living\silicon\decoy\death.dm"
 #include "code\modules\mob\living\silicon\decoy\decoy.dm"
 #include "code\modules\mob\living\silicon\decoy\life.dm"
