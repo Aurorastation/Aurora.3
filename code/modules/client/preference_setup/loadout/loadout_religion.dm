@@ -184,6 +184,7 @@
 	display_name = "assunzione warding sphere sheath"
 	description = "A small metal shell designed to hold a warding sphere."
 	path = /obj/item/storage/assunzionesheath
+	cost = 0
 	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
 
 /datum/gear/religion/dominia/codex

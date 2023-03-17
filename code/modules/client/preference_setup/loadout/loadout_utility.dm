@@ -106,6 +106,7 @@
 	display_name = "business card holder"
 	description = "Comes in different materials."
 	path = /obj/item/storage/business_card_holder
+	cost = 0
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/utility/business_card_holder/New()
