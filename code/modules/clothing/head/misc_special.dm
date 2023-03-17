@@ -142,12 +142,13 @@
 	icon = 'icons/obj/item/clothing/head/nyakas.dmi'
 	icon_state = "nyakas"
 	item_state = "nyakas"
+	
 
 /obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
 	src.earsup = !src.earsup
 	if(src.earsup)
 		icon_state = "[icon_state]_up"
-		item_state = "[icon_state]_up"
+		item_state = "[item_state]_up"
 		to_chat(user, "You raise the ear flaps on the hat.")
 	else
 		src.icon_state = initial(icon_state)
