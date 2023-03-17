@@ -8,7 +8,7 @@
 	map_generators = list(/datum/random_map/noise/exoplanet/lava, /datum/random_map/noise/ore)
 	ruin_tags_blacklist = RUIN_HABITAT|RUIN_WATER
 	features_budget = 4
-	surface_color = "#575d5e"
+	surface_color = "#cf1020"
 	water_color = null
 
 	possible_random_ruins = list(
