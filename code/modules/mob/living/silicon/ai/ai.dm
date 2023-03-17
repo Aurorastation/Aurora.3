@@ -434,11 +434,12 @@ var/list/ai_verbs_default = list(
 	spawn(600)//One minute cooldown
 		message_cooldown = 0
 
-/** This uses the VOX announcement system.
+/**
+ * This uses the VOX announcement system.
+ *
  * First, it prompts the caller to input a text, then each word is matched against a list (defined in vox_sounds.dm) of words that has an associated sound,
  * if every word has an associated file to play, the words are sent to the "play_vox_word" function one by one
- */
-
+*/
 /mob/living/silicon/ai/proc/vox_announcement()
 
 	set category = "AI Commands"
