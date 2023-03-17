@@ -3346,6 +3346,7 @@
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_rredouane_shrine.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_schlorrgo_cage.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_silo.dm"
+#include "maps\random_ruins\exoplanets\adhomai\adhomai_sole_rock_nomad.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_tunneler_nest.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_village.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_war_memorial.dm"
