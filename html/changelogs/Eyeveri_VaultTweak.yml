@@ -40,4 +40,4 @@ delete-after: True
 changes:
   - bugfix: "Puts the proper motion alarms in place for the vault"
   - maptweak: "Adjusts the walls around the vault to have 2 thick ReInf instead of one."
-  - balance: "Reworks some of the loot spawn capabilities to have more 'common' spawns.""
+  - balance: "Reworks some of the loot spawn capabilities to have more common spawns."
