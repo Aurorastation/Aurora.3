@@ -152,7 +152,7 @@
 		to_chat(user, "You raise the ear flaps on the hat.")
 	else
 		src.icon_state = initial(icon_state)
-		item_state = initial(icon_state)
+		item_state = initial(item_state)
 		to_chat(user, "You lower the ear flaps on the hat.")
 	update_clothing_icon()
 
