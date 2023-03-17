@@ -4066,15 +4066,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
-"diR" = (
-/obj/structure/disposalpipe/up{
-	dir = 2
-	},
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/starboard/deck1)
 "djn" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -13159,7 +13150,12 @@
 /area/engineering/gravity_gen)
 "kho" = (
 /obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/disposalpipe/up{
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "kid" = (
@@ -30899,10 +30895,10 @@
 /area/assembly/chargebay)
 "xSt" = (
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "xSR" = (
@@ -40700,7 +40696,7 @@ acn
 fif
 fif
 kho
-diR
+kTJ
 xSt
 kTJ
 kTJ
