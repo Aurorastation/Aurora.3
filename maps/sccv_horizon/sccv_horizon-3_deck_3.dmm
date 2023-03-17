@@ -560,7 +560,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "avK" = (
 /obj/effect/floor_decal/corner/green{
@@ -11807,7 +11807,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "jxS" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -14331,7 +14331,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "luX" = (
 /obj/structure/cable/green{
@@ -14592,7 +14592,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "lGj" = (
 /obj/machinery/hologram/holopad,
@@ -19180,7 +19180,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "piX" = (
 /turf/simulated/wall,
@@ -30003,7 +30003,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "xFO" = (
 /obj/effect/floor_decal/corner/red/full,
