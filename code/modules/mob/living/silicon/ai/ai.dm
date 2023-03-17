@@ -504,18 +504,18 @@ var/list/ai_verbs_default = list(
 
 	word = lowertext(word)
 
-	if(!((GET_SINGLETON(/singleton/vox_sounds)).soundlist[word])) //To be revised away from GLOB
+	if(!((GET_SINGLETON(/singleton/vox_sounds)).soundlist[word]))
 		return FALSE
 
 	var/sound_file = (GET_SINGLETON(/singleton/vox_sounds)).soundlist[word]
 
-	var/sound/voice = sound(sound_file, wait = 1, channel = sound_channel) // To revise to use our sound channels system
+	var/sound/voice = sound(sound_file, wait = 1, channel = sound_channel)
 	voice.status = SOUND_STREAM
 
 	if(only_listener)
 		sound_to(only_listener, voice)
 	else
-		for(var/mob/player_mob in player_list) // To revise to only happen on connected Z levels
+		for(var/mob/player_mob in player_list)
 			if(!isdeaf(player_mob) && (player_mob.client.prefs.sfx_toggles & ASFX_VOX))
 				var/turf/T = get_turf(player_mob)
 				if(isStationLevel(T.z) || z_level == VOX_ANNOUNCEMENT_IGNORE_ZLEVELS)
