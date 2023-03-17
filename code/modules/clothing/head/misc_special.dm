@@ -135,14 +135,24 @@
 	desc = "Perfect for winter in Siberia, da?"
 	icon_state = "greyushanka"
 
+/obj/item/clothing/head/ushanka/nyakas
+	name = "visegradi nyakas"
+	desc = "A type of flap hat that is extremely popular on Visegrad. It is designed to keep one's head and neck dry, and the flap can be pinned to the sides of the hat when not needed."
+	contained_sprite = TRUE
+	icon = 'icons/obj/item/clothing/head/nyakas.dmi'
+	icon_state = "nyakas"
+	item_state = "nyakas"
+	
 /obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
 	src.earsup = !src.earsup
 	if(src.earsup)
 		icon_state = "[icon_state]_up"
-		to_chat(user, "You raise the ear flaps on the ushanka.")
+		item_state = "[item_state]_up"
+		to_chat(user, "You raise the ear flaps on the hat.")
 	else
 		src.icon_state = initial(icon_state)
-		to_chat(user, "You lower the ear flaps on the ushanka.")
+		item_state = initial(item_state)
+		to_chat(user, "You lower the ear flaps on the hat.")
 	update_clothing_icon()
 
 /*
