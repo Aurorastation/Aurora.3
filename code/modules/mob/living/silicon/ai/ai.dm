@@ -457,12 +457,14 @@ var/list/ai_verbs_default = list(
 	var/list/words = splittext(trim(message), " ")
 	var/list/incorrect_words = list()
 
+	var/singleton/vox_sounds/voxsounds = GET_SINGLETON(/singleton/vox_sounds)
+
 	for(var/word in words)
 		word = lowertext(trim(word))
 		if(!word)
 			words -= word
 			continue
-		if(!((GET_SINGLETON(/singleton/vox_sounds)).soundlist[word]))
+		if(!(voxsounds.soundlist[word]))
 			incorrect_words += word
 
 	if(incorrect_words.len)
@@ -504,10 +506,12 @@ var/list/ai_verbs_default = list(
 
 	word = lowertext(word)
 
-	if(!((GET_SINGLETON(/singleton/vox_sounds)).soundlist[word]))
+	var/singleton/vox_sounds/voxsounds = GET_SINGLETON(/singleton/vox_sounds)
+
+	if(!(voxsounds.soundlist[word]))
 		return FALSE
 
-	var/sound_file = (GET_SINGLETON(/singleton/vox_sounds)).soundlist[word]
+	var/sound_file = voxsounds.soundlist[word]
 
 	var/sound/voice = sound(sound_file, wait = 1, channel = sound_channel)
 	voice.status = SOUND_STREAM
