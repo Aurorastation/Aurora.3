@@ -131,10 +131,20 @@
 	icon_state = "pra_consularhat"
 	item_state = "pra_consularhat"
 
+/obj/item/clothing/head/tajaran/consular/side_cap
+	name = "consular service side cap"
+	icon_state = "pra_pilotka"
+	item_state = "pra_pilotka"
+
 /obj/item/clothing/head/tajaran/consular/dpra
 	desc = "A service cap worn by the diplomatic service of the Democratic People's Republic of Adhomai."
 	icon_state = "dpra_consularhat"
 	item_state = "dpra_consularhat"
+
+/obj/item/clothing/head/tajaran/consular/dpra/side_cap
+	name = "consular service side cap"
+	icon_state = "dpra_pilotka"
+	item_state = "dpra_pilotka"
 
 /obj/item/clothing/head/tajaran/consular/nka
 	name = "royal consular hat"
