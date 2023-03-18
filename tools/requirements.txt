@@ -1,3 +1,4 @@
+cffi==1.15.0
 pygit2==1.4.0
 bidict==0.21.2
 Pillow==9.3.0
