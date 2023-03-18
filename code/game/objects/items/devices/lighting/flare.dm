@@ -13,20 +13,21 @@
 	var/on_damage = 7
 	var/produce_heat = 1500
 	light_wedge = LIGHT_OMNI
+	power_use = FALSE
 	activation_sound = 'sound/items/flare.ogg'
+	toggle_sound = null
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
-	var/overrides_activation_message = FALSE
-
 /obj/item/device/flashlight/flare/Initialize()
 	. = ..()
-	fuel = rand(400, 600)
+	fuel = rand(4 MINUTES, 6 MINUTES)
 
 /obj/item/device/flashlight/flare/process()
-	var/turf/pos = get_turf(src)
-	if(pos)
-		pos.hotspot_expose(produce_heat, 5)
+	if(produce_heat)
+		var/turf/pos = get_turf(src)
+		if(pos)
+			pos.hotspot_expose(produce_heat, 5)
 	fuel = max(fuel - 1, 0)
 	if(!fuel || !on)
 		turn_off()
@@ -35,7 +36,7 @@
 		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/device/flashlight/flare/proc/turn_off()
-	on = 0
+	on = FALSE
 	src.force = initial(src.force)
 	src.damtype = initial(src.damtype)
 	update_icon()
@@ -55,16 +56,29 @@
 		return
 	if(on)
 		return
-
 	. = ..()
 	// All good, turn it on.
 	if(.)
-		if(!overrides_activation_message)
-			user.visible_message(SPAN_NOTICE("\The [user] activates the flare."), SPAN_NOTICE("You pull the cap off the flare, activating it!"))
-		src.force = on_damage
-		src.damtype = "fire"
+		activate(user)
+		update_damage()
 		START_PROCESSING(SSprocessing, src)
 		update_icon()
+
+/obj/item/device/flashlight/flare/proc/activate(mob/user)
+	if(istype(user))
+		user.visible_message(
+			SPAN_NOTICE("\The [user] activates the flare."),
+			SPAN_NOTICE("You pull the cap off the flare, activating it!"),
+			SPAN_NOTICE("You hear a flare sparking to life.")
+		)
+
+/obj/item/device/flashlight/flare/proc/update_damage()
+	if(on)
+		force = on_damage
+		damtype = "fire"
+	else
+		force = initial(force)
+		damtype = initial(damtype)
 
 /obj/item/device/flashlight/flare/torch
 	name = "torch"

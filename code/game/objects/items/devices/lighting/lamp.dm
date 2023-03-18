@@ -9,9 +9,13 @@
 	w_class = ITEMSIZE_HUGE
 	flags = CONDUCT
 	uv_intensity = 100
+	power_use = FALSE
 	on = TRUE
 	slot_flags = 0 //No wearing desklamps
 	light_wedge = LIGHT_OMNI
+	toggle_sound = /singleton/sound_category/switch_sound
+	activation_sound = 'sound/effects/lighton.ogg'
+
 
 // green-shaded desk lamp
 /obj/item/device/flashlight/lamp/green
@@ -21,6 +25,15 @@
 	center_of_mass = list("x" = 15,"y" = 11)
 	brightness_on = 5
 	light_color = "#FFC58F"
+	toggle_sound = 'sound/machines/switch_chain.ogg'
+
+/obj/item/device/flashlight/lamp/verb/toggle_light()
+	set name = "Toggle Light"
+	set category = "Object"
+	set src in oview(1)
+
+	if(!usr.stat)
+		attack_self(usr)
 
 //Lava Lamps: Because we're already stuck in the 70ies with those fax machines.
 /obj/item/device/flashlight/lamp/lava
