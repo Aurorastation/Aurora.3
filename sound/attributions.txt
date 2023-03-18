@@ -54,8 +54,6 @@ ATTRIBUTIONS SECTION END
 sound/items/geiger.ogg - https://freesound.org/people/leonelmail/sounds/328381/ -- Under creative commons 0
 
 ATTRIBUTIONS SECTION START
-
 sound/machines/switch_chain.ogg - "Chain_switch_2.wav", licensed under CC-BY 3.0. Obtained and edited from https://freesound.org/people/DCElliott/sounds/386422/
 sound/machines/switch_flashlight.ogg - "Flashlight Switch", licensed under CC0. Obtained and edited from https://freesound.org/people/Kinoton/sounds/352092/
-
 ATTRIBUTIONS SECTION END

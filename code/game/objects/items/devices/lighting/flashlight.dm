@@ -15,7 +15,7 @@
 	uv_intensity = 50
 	light_wedge = LIGHT_WIDE
 
-	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_PLASTIC = 50, MATERIAL_GLASS = 20)
 
 	action_button_name = "Toggle Flashlight"
 	/// Is the light currently on or off?
@@ -288,6 +288,9 @@
 	set src in usr
 	set_brightness(usr)
 
+/obj/item/device/flashlight/empty
+	starts_with_cell = FALSE
+
 /obj/item/device/flashlight/pen
 	name = "penlight"
 	desc = "A pen-sized light, used by medical staff."
@@ -318,7 +321,7 @@
 	brightness_on = 4
 	w_class = ITEMSIZE_NORMAL
 	uv_intensity = 60
-	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 70)
+	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_GLASS = 70)
 	light_wedge = LIGHT_SEMI
 
 /obj/item/device/flashlight/maglight
