@@ -49,6 +49,13 @@
 	designation = "[pick("Persepolis", "Damascus", "Medina", "Aemaq", "New Suez", "Bursa", "Republican", "Falcon", "Gelin", "Sphinx", "Takam", "Dandan", "Anqa", "Falak", "Uthra", "Djinn", "Roc", "Shadhavar", "Karkadann")]"
 	..()
 
+/obj/effect/overmap/visitable/ship/elyran_strike_craft/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "elyran_corvette")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
+
+
 /obj/effect/shuttle_landmark/elyran_strike_craft/nav1
 	name = "Elyran Naval Strike Craft - Port Side"
 	landmark_tag = "nav_elyran_strike_craft_1"

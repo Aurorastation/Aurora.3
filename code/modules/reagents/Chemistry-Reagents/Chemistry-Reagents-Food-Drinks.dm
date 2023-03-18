@@ -3961,7 +3961,7 @@
 
 	glass_icon_state = "peacetreatyglass"
 	glass_name = "glass of Peace Treaty"
-	glass_desc = "A diplomatic overture in a glass"
+	glass_desc = "A diplomatic overture in a glass."
 
 /singleton/reagent/alcohol/caruso
 	name = "Caruso"

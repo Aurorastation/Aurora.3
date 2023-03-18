@@ -357,3 +357,13 @@
 /obj/item/clothing/head/winterhood/colorable/update_icon(mob/user)
 	. = ..()
 
+/obj/item/clothing/suit/storage/hooded/wintercoat/colorable/ponczo
+	name = "visegradi ponczo"
+	desc = "A type of shelter-half or zeltbahn, the ponczo is a ubiquitous article of clothing on the planet of Visegrad. Resembling a long smock or raincoat, the ponczo is as waterproof as it is rugged. While true shelter-halves can be made into a tent, most ponczos are no longer capable of this."
+	icon_state = "ponczo"
+	item_state = "ponczo"
+	hoodtype = /obj/item/clothing/head/winterhood/colorable/ponczo
+
+/obj/item/clothing/head/winterhood/colorable/ponczo
+	name = "visegradi ponczo hood"
+	desc = "A hood for a Visegradi ponczo."
