@@ -104,9 +104,12 @@
 
 #define isclient(A) istype(A, /client)
 
-#define isprojectile(A) istype(A, /obj/item/projectile)
-
 #define isclothing(A) istype(A, /obj/item/clothing)
+
+/// Projectile helpers
+#define isprojectile(A) istype(A, /obj/item/projectile)
+#define isbeam(A) istype(A, /obj/item/projectile/beam)
+#define isenergy(A) istype(A, /obj/item/projectile/energy)
 
 /// General I/O helpers
 #define to_target(target, payload)                          target << (payload)
