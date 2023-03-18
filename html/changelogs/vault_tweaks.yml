@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - maptweak: "Tweaked the vault to make more efficient use of available space."

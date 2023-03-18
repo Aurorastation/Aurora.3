@@ -26,9 +26,11 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "acn" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm{
-	pixel_y = 28
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
@@ -3882,9 +3884,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
 /area/maintenance/wing/starboard/deck1)
 "dae" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4067,10 +4069,11 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
 "diR" = (
-/obj/structure/disposalpipe/up{
-	dir = 2
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning/cee{
+/obj/machinery/alarm{
+	pixel_x = -28;
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -5701,9 +5704,9 @@
 /area/assembly/chargebay)
 "exX" = (
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
 /area/maintenance/wing/starboard/deck1)
 "eyI" = (
 /obj/structure/cable/green{
@@ -7353,10 +7356,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "fFm" = (
@@ -8687,18 +8690,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
-"gzW" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/starboard/deck1)
 "gAi" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -13158,8 +13149,9 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "kho" = (
-/obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "kid" = (
@@ -14240,7 +14232,9 @@
 /area/maintenance/wing/starboard/deck1)
 "kTJ" = (
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "kTL" = (
@@ -15494,7 +15488,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/decal/cleanable/greenglow,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -23447,9 +23440,11 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
@@ -30898,11 +30893,19 @@
 /turf/simulated/floor/tiled/full,
 /area/assembly/chargebay)
 "xSt" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/disposalpipe/up{
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "xSR" = (
@@ -40697,12 +40700,12 @@ hTk
 hTk
 hTk
 acn
-fif
-fif
+kho
+kho
 kho
 diR
+kho
 xSt
-kTJ
 kTJ
 kTJ
 exX
@@ -40903,7 +40906,7 @@ gBl
 gBl
 gBl
 fFj
-gzW
+gBl
 gBl
 gBl
 gBl
