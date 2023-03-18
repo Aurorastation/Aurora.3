@@ -73,7 +73,7 @@
 	},
 /area/pra_mining_camp)
 "gi" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /mob/living/heavy_vehicle/premade/miner,
 /turf/simulated/floor/concrete{

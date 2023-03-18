@@ -477,7 +477,7 @@
 /obj/vehicle/bike/snow{
 	dir = 4
 	},
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15

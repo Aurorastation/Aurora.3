@@ -6414,7 +6414,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/headmaster_ship/engine)
 "Uy" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/heavy_vehicle/premade/pra_egg{
 	dir = 8
 	},

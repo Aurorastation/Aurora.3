@@ -391,7 +391,7 @@
 /obj/machinery/floodlight,
 /obj/machinery/charger/wall{
 	charging_efficiency = 0.5;
-	name = "worn wall recharger";
+	name = "worn wall charger";
 	pixel_x = 4;
 	pixel_y = 23
 	},
