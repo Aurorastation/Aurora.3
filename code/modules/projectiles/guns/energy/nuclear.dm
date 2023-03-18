@@ -3,7 +3,7 @@
 	desc = "A NanoTrasen designed energy-based carbine with two settings: Stun and kill."
 	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
 	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To switch between stun and lethal, click the weapon \
-	in your hand.  To recharge this weapon, use a weapon recharger."
+	in your hand.  To recharge this weapon, use a weapon charger."
 	desc_extended = "The NT EC-4 is an energy carbine developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/ecarbine.dmi'
 	icon_state = "energystun"
@@ -206,7 +206,7 @@
 	self_recharge = TRUE
 	fire_sound = 'sound/weapons/Laser2.ogg'
 	modifystate = null
-	charge_failure_message = "'s charging socket was removed to make room for a recharger."
+	charge_failure_message = "'s charging socket was removed to make room for a charger."
 	secondary_fire_sound = 'sound/weapons/Laser3.ogg'
 
 /obj/item/gun/energy/gun/skrell/emp_act(severity)

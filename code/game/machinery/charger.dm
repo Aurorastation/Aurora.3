@@ -56,7 +56,7 @@
 		playsound(loc, G.usesound, 75, 1)
 		return TRUE
 
-	if(istype(G, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
+	if(istype(G, /obj/item/gripper))//Code for allowing cyborgs to use chargers
 		var/obj/item/gripper/Gri = G
 		if(charging)//If there's something in the charger
 			if(Gri.grip_item(charging, user))//we attempt to grab it
@@ -142,7 +142,7 @@
 						bar.update(C.charge)
 
 		else if(cell == DEVICE_NO_CELL)
-			log_debug("recharger: Item [DEBUG_REF(charging)] was in charger, but claims to have no internal cell slot; booting item.")
+			log_debug("charger: Item [DEBUG_REF(charging)] was in charger, but claims to have no internal cell slot; booting item.")
 			charging.forceMove(loc)
 			charging.visible_message("\The [charging] falls out of [src].")
 			charging = null

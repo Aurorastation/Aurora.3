@@ -70,7 +70,7 @@
 	desc = "The Noctiluca XM/24 is a brand new model of laser rifle, developed entirely by Kumar Arms, a Zavodskoi Interstellar subsidiary. Easy to handle for users with minimal training, reliable and with a reasonable form factor, it is poised to become the new standard for laser weaponry."
 	desc_extended = "The Noctiluca XM/24 was unveiled at the tail end of 2463 in the SCC Future Firearms contest and was released by Zavodskoi in June 2464 after achieving a stunning victory over the other competitors. Zavodskoi installations are prioritized for acquisition of this new rifle, with along the SCCV Horizon. The Noctiluca's specialty lies in its revolutionary dual-function laser diffuser, which is able to modulate the laser into either a standard beam or an armor-piercing super-concentrated beam."
 	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger. \
+	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon charger. \
 	The Noctiluca comes with a standard firing mode that is slightly worse in damage than the normal laser rifle, but has more armor penetration. Additionally, \
 	it has a secondary armor-piercing mode, which does less damage but has extremely high armor piercing."
 	icon = 'icons/obj/guns/crew_laser.dmi'

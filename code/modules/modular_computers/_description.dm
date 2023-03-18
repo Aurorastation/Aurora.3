@@ -17,7 +17,7 @@ Consoles won't usually have integrated battery, but the possibility to install o
 will have working coverage on higher speed (Ethernet is faster than Wi-Fi) and won't require wireless coverage to exist.
 LAPTOPS
 Laptops are middle ground between actual portable devices and full consoles. They offer certain level of mobility, as they can be closed, moved somewhere else and then opened again.
-Laptops will by default have internal battery to power them, and may be recharged with rechargers. However, laptops rely on wireless NTNet coverage. Laptop HDDs are also designed with power efficiency
+Laptops will by default have internal battery to power them, and may be recharged with chargers. However, laptops rely on wireless NTNet coverage. Laptop HDDs are also designed with power efficiency
 in mind, which means they sacrifice some storage space for higher battery life. Laptops may be dispensed from computer vendor machine, and may be customised before vending. For people which don't
 want to rely on internal battery, tesla link exists that connects to APC, if one exists.
 TABLETS

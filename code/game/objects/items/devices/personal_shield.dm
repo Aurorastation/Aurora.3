@@ -1,6 +1,6 @@
 /obj/item/device/personal_shield
 	name = "personal shield"
-	desc = "Truely a life-saver: this device protects its user from being hit by objects moving very, very fast, though only for a few shots. Comes with a power cell and can be recharged in a recharger."
+	desc = "Truely a life-saver: this device protects its user from being hit by objects moving very, very fast, though only for a few shots. Comes with a power cell and can be recharged in a charger."
 	icon = 'icons/obj/personal_shield.dmi'
 	icon_state = "personal_shield"
 	item_state = "personal_shield"

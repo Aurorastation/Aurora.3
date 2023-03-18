@@ -270,7 +270,7 @@
 
 /obj/machinery/robot_charger/verb/move_eject()
 	set category = "Object"
-	set name = "Eject Recharger"
+	set name = "Eject Charger"
 	set src in oview(1)
 
 	if(usr.incapacitated())
@@ -282,7 +282,7 @@
 
 /obj/machinery/robot_charger/verb/move_inside()
 	set category = "Object"
-	set name = "Enter Recharger"
+	set name = "Enter Charger"
 	set src in oview(1)
 
 	if(!usr.incapacitated())
@@ -296,7 +296,11 @@
 			to_chat(user, SPAN_DANGER("You need to get closer if you want to put [C] into that charger!"))
 			return
 		user.face_atom(src)
-		user.visible_message(SPAN_DANGER("[user] starts hauling [C] into the recharging unit!"), SPAN_DANGER("You start hauling and pushing [C] into the recharger. This might take a while..."), "You hear heaving and straining")
+		user.visible_message(
+			SPAN_DANGER("\The [user] starts hauling \the [C] into the charging unit!"),
+			SPAN_DANGER("You start hauling and pushing \the [C] into the charger. This might take a while..."),
+			"You hear heaving and straining."
+		)
 		if(do_mob(user, R, R.mob_size*10, needhand = 1))
 			if(go_in(R))
 				user.visible_message(SPAN_NOTICE("After a great effort, [user] manages to get [C] into the recharging unit!"))

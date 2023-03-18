@@ -541,7 +541,7 @@
 			opened = COVER_OPENED
 			panel_open = TRUE
 			update_icon()
-	else if (istype(W, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
+	else if (istype(W, /obj/item/gripper))//Code for allowing cyborgs to use chargers
 		var/obj/item/gripper/Gri = W
 		if(opened != COVER_CLOSED && cell)
 			if (Gri.grip_item(cell, user))

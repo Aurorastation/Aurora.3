@@ -625,7 +625,7 @@
 				handle_panel_overlay()
 				return
 
-		if(istype(W, /obj/item/gripper)) //Code for allowing cyborgs to use rechargers
+		if(istype(W, /obj/item/gripper)) //Code for allowing cyborgs to use chargers
 			var/obj/item/gripper/gripper = W
 			if(!wires_exposed)
 				var/datum/robot_component/cell_component = components["power cell"]

@@ -140,7 +140,7 @@ obj/item/gun/energy/retro
 	name = "marksman energy rifle"
 	desc = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
 	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger. \
+	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon charger. \
 	To use the scope, use the appropriate verb in the object tab."
 	icon = 'icons/obj/guns/sniper.dmi'
 	icon_state = "sniper"
