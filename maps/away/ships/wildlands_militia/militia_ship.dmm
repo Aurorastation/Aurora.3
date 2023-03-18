@@ -37,6 +37,12 @@
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "ajL" = (
@@ -1473,6 +1479,12 @@
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "vwF" = (

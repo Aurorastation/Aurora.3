@@ -5703,10 +5703,6 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
-"qO" = (
-/obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "qP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5;
@@ -20893,7 +20889,7 @@ OF
 gZ
 lS
 lS
-qO
+lS
 lS
 gY
 ZO

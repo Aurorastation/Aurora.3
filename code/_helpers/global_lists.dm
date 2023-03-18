@@ -70,7 +70,7 @@ var/global/list/exclude_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job
 var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Tablet", "Wristbound")
 
 //Headset choice
-var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio")
+var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio", "Sleek Wristbound Radio")
 
 // Primary Radio Slot choice
 var/global/list/primary_radio_slot_choice = list("Left Ear", "Right Ear", "Wrist")

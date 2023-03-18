@@ -43,6 +43,24 @@
 	gendered_icon = 1
 	augment_limit = 3
 
+	var/obj/item/storage/internal/tail/tail_storage
+
+/obj/item/organ/external/groin/Initialize()
+	. = ..()
+	if(owner.species.tail)
+		tail_storage = new /obj/item/storage/internal/tail(src)
+
+/obj/item/organ/external/groin/Destroy()
+	if(owner?.species.tail)
+		QDEL_NULL(tail_storage)
+	return ..()
+
+/obj/item/organ/external/groin/removed()
+	. = ..()
+	if(owner?.species.tail)
+		for(var/thing in tail_storage)
+			tail_storage.remove_from_storage(thing, get_turf(src))
+
 /obj/item/organ/external/groin/body_part_class()
 	return UPPER_TORSO
 
@@ -176,7 +194,8 @@
 
 /obj/item/organ/external/hand/take_damage(brute, burn, damage_flags, used_weapon, list/forbidden_limbs, silent)
 	. = ..()
-	owner.update_hud_hands()
+	if(owner)
+		owner.update_hud_hands()
 
 /obj/item/organ/external/hand/removed()
 	owner.drop_from_inventory(owner.gloves)

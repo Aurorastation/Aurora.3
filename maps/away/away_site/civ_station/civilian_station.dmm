@@ -2415,8 +2415,8 @@
 /area/civilian_station)
 "wQE" = (
 /obj/structure/table/rack,
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
 /turf/simulated/floor/marble/dark,
 /area/civilian_station)
 "wXj" = (

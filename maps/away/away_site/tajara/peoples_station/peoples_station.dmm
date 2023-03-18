@@ -1380,6 +1380,12 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1829,6 +1835,12 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1869,6 +1881,16 @@
 	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
+"iq" = (
+/obj/machinery/telecomms/allinone/ship,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/peoples_station/solars)
 "ir" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -4860,11 +4882,11 @@
 	},
 /area/peoples_station/training)
 "vH" = (
-/obj/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/sign/flag/pra{
 	pixel_x = 32
 	},
+/obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -6099,6 +6121,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/training)
+"Bw" = (
+/obj/machinery/door/window/brigdoor/southleft{
+	name = "Robot Storage";
+	req_access = list(209)
+	},
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/heavy_vehicle/premade/pra_egg/armored,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/robotics_bay)
 "Bx" = (
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -8333,11 +8369,11 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8956,7 +8992,7 @@
 "Pj" = (
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
-	department = "HMV Supreme";
+	department = "People's Space Station";
 	req_access = list(209);
 	req_one_access = null
 	},
@@ -9806,6 +9842,11 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -10224,8 +10265,16 @@
 	},
 /area/peoples_station/training)
 "UH" = (
-/turf/simulated/wall/shuttle/raider,
-/area/space)
+/obj/machinery/door/airlock/hatch{
+	name = "Telecomms";
+	req_access = list(209)
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/peoples_station/solars)
 "UI" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -42353,7 +42402,7 @@ dt
 fa
 wj
 dt
-lO
+Bw
 yu
 Zc
 cJ
@@ -42842,8 +42891,8 @@ nz
 HK
 pr
 Kn
-Kn
-Kn
+nU
+nU
 nU
 He
 PX
@@ -42867,7 +42916,7 @@ dt
 fa
 wj
 dt
-fa
+Bw
 yu
 zs
 Ss
@@ -43099,8 +43148,8 @@ nz
 EI
 pr
 Kn
-Kn
-Kn
+nU
+iq
 nU
 FH
 Dk
@@ -43355,8 +43404,8 @@ pr
 pr
 pr
 pr
-UH
-UH
+nU
+nU
 UH
 nU
 jO
@@ -43895,7 +43944,7 @@ dt
 fi
 wj
 dt
-fi
+lO
 xN
 zs
 tk

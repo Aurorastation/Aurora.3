@@ -40,7 +40,7 @@
 	if (is_drowsy())
 		tally += 6
 
-	if (!(species.flags & IS_MECHANICAL))	// Machines don't move slower when cold.
+	if (!(species.flags & NO_COLD_SLOWDOWN))	// Bugs and machines don't move slower when cold.
 		if(HAS_FLAG(mutations, FAT))
 			tally += 1.5
 		if (bodytemperature < 283.222)
@@ -55,7 +55,7 @@
 	var/obj/item/I = get_active_hand()
 	if(istype(I))
 		tally += I.slowdown
-	
+
 	if(isitem(pulling))
 		var/obj/item/P = pulling
 		tally += P.slowdown
@@ -116,7 +116,7 @@
 
 /mob/living/carbon/human/set_dir(var/new_dir, ignore_facing_dir = FALSE)
 	. = ..()
-	if(. && species.tail)
+	if(. && tail_style)
 		update_tail_showing(1)
 
 /mob/living/carbon/human/Move()

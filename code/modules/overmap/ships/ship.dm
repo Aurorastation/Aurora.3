@@ -13,9 +13,12 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship
 	name = "generic ship"
 	desc = "Space faring vessel."
-	icon_state = "ship"
+	icon = 'icons/obj/overmap/overmap_ships.dmi'
+	icon_state = "generic"
 	requires_contact = TRUE
 	obfuscated_name = "unidentified vessel"
+	sensor_range_override = FALSE
+	hide_from_reports = TRUE
 	var/moving_state = "ship_moving"
 
 	var/list/known_ships = list()		//List of ships known at roundstart - put types here.
@@ -41,6 +44,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 	comms_support = TRUE
 
+	var/list/colors = list() //Pick a color from this list on init
+
 /obj/effect/overmap/visitable/ship/Initialize()
 	. = ..()
 	glide_size = world.icon_size
@@ -48,6 +53,9 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	max_speed = round(max_speed, SHIP_MOVE_RESOLUTION)
 	base_sensor_visibility = round((vessel_mass/SENSOR_COEFFICENT),1)
 	SSshuttle.ships += src
+
+	if(LAZYLEN(colors))
+		color = pick(colors)
 
 /obj/effect/overmap/visitable/ship/find_z_levels(var/fore_direction)
 	. = ..(fore_dir)

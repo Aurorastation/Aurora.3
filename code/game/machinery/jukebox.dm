@@ -197,7 +197,7 @@ datum/track/New(var/title_name, var/audio)
 	if(!current_track)
 		return
 
-	token = sound_player.PlayLoopingSound(src, "jukebox", current_track.sound, 30, 7, 1, prefer_mute = TRUE, sound_type = ASFX_MUSIC)
+	token = sound_player.PlayLoopingSound(src, src, current_track.sound, 30, 7, 1, prefer_mute = TRUE, sound_type = ASFX_MUSIC)
 
 	playing = 1
 	update_use_power(POWER_USE_ACTIVE)
@@ -254,3 +254,24 @@ datum/track/New(var/title_name, var/audio)
 	icon = 'icons/obj/audioconsole_wall.dmi'
 	density = FALSE
 	anchored = TRUE
+
+/obj/machinery/media/jukebox/gramophone
+	name = "gramophone"
+	desc = "Play that vintage music!"
+	icon = 'icons/obj/jukebox.dmi'
+	icon_state = "gramophone"
+	state_base = "gramophone"
+	anchored = 0
+	tracks = list(
+		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
+		new/datum/track("Electro Swing", 'sound/music/phonograph/electro_swing.ogg'),
+		new/datum/track("Jazz Instrumental", 'sound/music/phonograph/jazz_instrumental.ogg'),
+		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
+		new/datum/track("Posin'", 'sound/music/phonograph/posin.ogg')
+	)
+
+/obj/machinery/media/jukebox/gramophone/update_icon()
+	cut_overlays()
+	icon_state = state_base
+	if(playing)
+		add_overlay("[state_base]-running")

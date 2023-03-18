@@ -8,6 +8,8 @@
 	var/obj/machinery/iff_beacon/identification
 	circuit = /obj/item/circuitboard/ship/sensors
 	linked_type = /obj/effect/overmap/visitable
+	var/contact_details = null
+	var/contact_name = null
 
 	var/working_sound = 'sound/machines/sensors/dradis.ogg'
 	var/datum/sound_token/sound_token
@@ -66,6 +68,9 @@
 		data["range"] = sensors.range
 		data["health"] = sensors.health
 		data["max_health"] = sensors.max_health
+		data["deep_scan_name"] = sensors.deep_scan_sensor_name
+		data["deep_scan_range"] = sensors.deep_scan_range
+		data["deep_scan_toggled"] = sensors.deep_scan_toggled
 		data["heat"] = sensors.heat
 		data["critical_heat"] = sensors.critical_heat
 		if(sensors.health == 0)
@@ -88,12 +93,16 @@
 			distress_beacons.Add(list(list("caller" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
 		if(length(distress_beacons))
 			data["distress_beacons"] = distress_beacons
+		data["desired_range"] = sensors.desired_range
+		data["range_choices"] = list()
+		for(var/i in 1 to sensors.max_range)
+			data["range_choices"] += i
 
 
 		var/list/contacts = list()
 		var/list/potential_contacts = list()
 
-		for(var/obj/effect/overmap/nearby in view(7,linked))
+		for(var/obj/effect/overmap/nearby in view(7, linked))
 			if(nearby.requires_contact) // Some ships require.
 				continue
 			potential_contacts |= nearby
@@ -146,6 +155,8 @@
 		data["id_name"] = linked.designation
 		data["can_change_class"] = identification.can_change_class
 		data["can_change_name"] = identification.can_change_name
+		if(contact_details)
+			data["contact_details"] = contact_details
 	else
 		data["id_status"] = "NOBEACON" //Should not really happen.
 
@@ -178,10 +189,21 @@
 			if(!CanInteract(usr, default_state))
 				return TOPIC_NOACTION
 			if (nrange)
-				sensors.set_range(Clamp(nrange, 1, world.view))
+				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
+			return TOPIC_REFRESH
+		if(href_list["range_choice"])
+			var/nrange = text2num(href_list["range_choice"])
+			if(!CanInteract(usr, default_state))
+				return TOPIC_NOACTION
+			if(nrange)
+				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
 			return TOPIC_REFRESH
 		if (href_list["toggle"])
 			sensors.toggle()
+			return TOPIC_REFRESH
+
+		if(href_list["deep_scan_toggle"])
+			sensors.deep_scan_toggled = !sensors.deep_scan_toggled
 			return TOPIC_REFRESH
 
 	if(identification)
@@ -221,6 +243,16 @@
 			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship designation registered.\"</i>"))
 			return TOPIC_REFRESH
 
+	if (href_list["scan-action"])
+		switch(href_list["scan-action"])
+			if("clear")
+				contact_details = null
+			if("print")
+				if(contact_details)
+					playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
+					new/obj/item/paper/(get_turf(src), contact_details, "paper (Sensor Scan - [contact_name])")
+		return TOPIC_HANDLED
+
 	if (href_list["scan"])
 		var/obj/effect/overmap/O = locate(href_list["scan"])
 		if(istype(O) && !QDELETED(O))
@@ -230,8 +262,9 @@
 				LAZYSET(last_scan, "location", "[O.x],[O.y]")
 				LAZYSET(last_scan, "name", "[O]")
 				to_chat(usr, SPAN_NOTICE("Successfully scanned [O]."))
-				new/obj/item/paper/(get_turf(src), O.get_scan_data(usr), "paper (Sensor Scan - [O])")
-			return TOPIC_HANDLED
+				contact_name = O.name
+				contact_details = O.get_scan_data(usr)
+		return TOPIC_HANDLED
 
 	if (href_list["request_datalink"])
 		var/obj/effect/overmap/visitable/O = locate(href_list["request_datalink"])
@@ -240,7 +273,7 @@
 
 				for(var/obj/machinery/computer/ship/sensors/sensor_console in O.consoles)
 					sensor_console.connected.datalink_requests |= src.connected
-					return TOPIC_HANDLED
+		return TOPIC_HANDLED
 
 	if (href_list["accept_datalink_requests"])
 		var/obj/effect/overmap/visitable/O = locate(href_list["accept_datalink_requests"])
@@ -288,10 +321,16 @@
 	var/max_health = 200
 	var/health = 200
 	var/critical_heat = 50 // sparks and takes damage when active & above this heat
-	var/heat_reduction = 0.5 // mitigates this much heat per tick - can sustain range 2
+	var/heat_reduction = 1.7 // mitigates this much heat per tick - can sustain range 4
 	var/heat = 0
-	var/range = 1
+	var/range = 1 // actual range
+	var/desired_range = 1 // "desired" range, that the actual range will gradually move towards to
+	var/desired_range_instant = FALSE // if true, instantly changes range to desired
+	var/max_range = 10
 	var/sensor_strength = 5//used for detecting ships via contacts
+	var/deep_scan_range = 4 //Maximum range for the range() check in sensors. Basically a way to use range instead of view in this radius.
+	var/deep_scan_toggled = FALSE //When TRUE, this sensor is using long range sensors.
+	var/deep_scan_sensor_name = "High-Power Sensor Array"
 	idle_power_usage = 5000
 
 	var/base_icon_state
@@ -337,7 +376,7 @@
 
 	var/overlay = "[base_icon_state]-effect"
 
-	var/range_percentage = range / world.view * 100
+	var/range_percentage = range / max_range * 100
 
 	if(range_percentage < 20)
 		overlay = "[overlay]1"
@@ -372,6 +411,8 @@
 	..()
 
 /obj/machinery/shipsensors/proc/toggle()
+	if(use_power) // reset desired range when turning off
+		set_desired_range(1)
 	if(!use_power && (health == 0 || !in_vacuum()))
 		return // No turning on if broken or misplaced.
 	if(!use_power) //need some juice to kickstart
@@ -384,13 +425,22 @@
 	if(use_power) //can't run in non-vacuum
 		if(!in_vacuum())
 			toggle()
+		if(desired_range > range)
+			set_range(range+1)
+		if(desired_range < range)
+			set_range(range-1)
+		if(desired_range-range <= -max_range/2)
+			set_range(range-1) // if working hard, spool down faster too
 		if(heat > critical_heat)
 			src.visible_message("<span class='danger'>\The [src] violently spews out sparks!</span>")
 			spark(src, 3, alldirs)
-
 			take_damage(rand(10,50))
 			toggle()
-		heat += active_power_usage/15000
+		if(deep_scan_toggled)
+			heat += deep_scan_range / 8
+		heat += active_power_usage / 15000
+	else if(desired_range < range)
+		set_range(range-1) // if power off, only spool down
 
 	if (heat > 0)
 		heat = max(0, heat - heat_reduction)
@@ -401,6 +451,11 @@
 	. = ..()
 	if(use_power && !powered())
 		toggle()
+
+/obj/machinery/shipsensors/proc/set_desired_range(nrange)
+	desired_range = nrange
+	if(desired_range_instant)
+		set_range(nrange)
 
 /obj/machinery/shipsensors/proc/set_range(nrange)
 	range = nrange
@@ -419,11 +474,21 @@
 
 // For small shuttles
 /obj/machinery/shipsensors/weak
-	heat_reduction = 0.35 // Can sustain range 1
+	heat_reduction = 1.7 // Can sustain range 4
+	max_range = 7
 	desc = "Miniturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
+	deep_scan_range = 0
 
 /obj/machinery/shipsensors/strong
-	name = "sensors suite"
 	desc = "An upgrade to the standard ship-mounted sensor array, this beast has massive cooling systems running beneath it, allowing it to run hotter for much longer. Can only run in vacuum to protect delicate quantum BS elements."
 	icon_state = "sensor_suite"
-	heat_reduction = 1.6 // can sustain range 4
+	heat_reduction = 3.7 // can sustain range 6
+	max_range = 14
+	deep_scan_range = 6
+	deep_scan_sensor_name = "High-Power Sensor Array"
+
+/obj/machinery/shipsensors/strong/venator
+	name = "venator-class quantum sensor array"
+	desc = "An incredibly advanced sensor array, created using top of the line technology in every conceivable area. Not only does it far outperform and outclass every other sensors system, it also boasts revolutionary quantum long-range sensors."
+	deep_scan_range = 12
+	deep_scan_sensor_name = "Venator-Class Ultra-High Depth Sensors"

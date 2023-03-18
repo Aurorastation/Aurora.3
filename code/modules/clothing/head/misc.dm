@@ -623,3 +623,19 @@
 	desc = "A paper sack with crude holes cut out for eyes and a sketchy smile drawn on the front. Not creepy at all."
 	icon_state = "papersack_smile"
 	flags_inv = BLOCKHEADHAIR
+
+/obj/item/clothing/head/hachimaki
+	name = "konyanger hachimaki"
+	desc = "A simple headband emblazoned with the taijitu national emblem of the planet Konyang. It is typically worn as a symbol of effort or courage, or perhaps national pride and patriotic sentiment."
+	icon = 'icons/obj/item/clothing/head/hachimaki.dmi'
+	icon_state = "hachimaki"
+	item_state = "hachimaki"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/leader_headband
+	name = "militia leader headband"
+	desc = "A simple headband that is used to denote the leader of a Horizon militia team."
+	icon = 'icons/obj/item/clothing/head/leader_headband.dmi'
+	icon_state = "leader_headband"
+	item_state = "leader_headband"
+	contained_sprite = TRUE

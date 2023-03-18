@@ -16,8 +16,9 @@
 	name = "Her Majesty's Mercantile Flotilla Ship"
 	desc = "The Hma'trra class is a modified version of the corporate freighter sold by the SCC to the New Kingdom. It is simple model adapted to the long journey between Adhomai and Tau Ceti."
 	class = "NKAMV" //New Kingdom of Adhomai Vessel
-	icon_state = "ship"
-	moving_state = "ship_moving"
+	icon_state = "hmatrra"
+	moving_state = "hmatrra_moving"
+	colors = list("#3e9af0", "#2b5cff")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
@@ -35,6 +36,12 @@
 /obj/effect/overmap/visitable/ship/nka_merchant/New()
 	designation = "[pick("Minharrzka's Daughter", "Her Majesty's Merchant", "Vahzirthaamro", "Azunja's Favorite", "Wealth-Beyond-Measure", "Miran'mir", "Crown Traveller", "Space Monarch")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/nka_merchant/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "nka_freighter")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/nka_merchant
 	base_turf = /turf/space
@@ -62,6 +69,7 @@
 	desc = "A simple corporate shuttle design used by Her Majesty's Mercantile Flotilla."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	colors = list("#3e9af0", "#2955e6")
 	class = "NKAMV"
 	designation = "Tajani"
 	shuttle = "Her Majesty's Mercantile Flotilla Shuttle"

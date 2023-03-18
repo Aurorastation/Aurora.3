@@ -166,12 +166,16 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "firstaid"
 	problist = list(
-		/obj/item/storage/firstaid/regular = 3,
-		/obj/item/storage/firstaid/toxin = 2,
-		/obj/item/storage/firstaid/o2 = 2,
-		/obj/item/storage/firstaid/fire = 2,
-		/obj/item/storage/firstaid/brute = 1,
-		/obj/item/storage/firstaid/adv = 1
+		/obj/item/storage/firstaid/regular = 4,
+		/obj/item/storage/firstaid/trauma = 3,
+		/obj/item/storage/firstaid/toxin = 3,
+		/obj/item/storage/firstaid/o2 = 3,
+		/obj/item/storage/firstaid/fire = 3,
+		/obj/item/storage/firstaid/radiation = 3,
+		/obj/item/storage/firstaid/stab = 2,
+		/obj/item/storage/firstaid/adv = 2,
+		/obj/item/storage/firstaid/combat = 1,
+		/obj/item/storage/firstaid/empty = 2
 	)
 
 /obj/random/contraband
@@ -423,7 +427,6 @@
 	name = "random backpack"
 	problist = list(
 		/obj/item/storage/backpack = 3,
-		/obj/item/storage/backpack/holding = 0.5,
 		/obj/item/storage/backpack/cultpack = 2,
 		/obj/item/storage/backpack/medic = 3,
 		/obj/item/storage/backpack/security = 3,
@@ -551,7 +554,7 @@
 		log_debug("random_obj (voidsuit): Type [suit.type] was unable to spawn a matching helmet!")
 	new /obj/item/clothing/shoes/magboots(loc)
 	if (damaged && prob(60))
-		suit.create_breaches(pick(BRUTE, BURN), rand(1, 5))
+		suit.create_breaches(pick(DAMAGE_BRUTE, DAMAGE_BURN), rand(1, 5))
 
 //Random MRE stuff
 
@@ -917,10 +920,10 @@
 	)
 
 /obj/random/loot
-	name = "random maintenance loot items"
+	name = "random maintenance loot"
 	desc = "Stuff for the maint-dwellers."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "gift3"
+	icon = 'icons/holidays/christmas/presents.dmi'
+	icon_state = "gift1"
 	problist = list(
 		/obj/item/bluespace_crystal/artificial = 0.1,
 		/obj/item/bodybag = 0.7,
@@ -1230,20 +1233,14 @@
 	icon = 'icons/obj/coins.dmi'
 	icon_state = "coin_diamond_heads"
 	problist = list(
-		/obj/item/bluespace_crystal = 5,
-		/obj/item/stack/telecrystal{amount = 10} = 5,
-		/obj/item/clothing/suit/armor/reactive = 0.5,
-		/obj/item/clothing/glasses/thermal = 0.5,
-		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
-		/obj/random/sword = 0.5,
-		/obj/item/gun/energy/lawgiver = 0.5,
-		/obj/item/melee/energy/axe = 0.5,
-		/obj/item/gun/projectile/automatic/terminator = 0.5,
-		/obj/item/rig/military = 0.5,
-		/obj/item/rig/unathi/fancy = 0.5,
-		/obj/item/rig/vaurca/minimal = 0.5,
-		/obj/item/anomaly_core = 0.5,
-		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = 0.1
+		/obj/random/telecrystals = 0.2,
+		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.2,
+		/obj/random/melee = 0.5,
+		/obj/item/gun/energy/lawgiver = 0.2,
+		/obj/item/gun/projectile/automatic/terminator = 0.2,
+		/obj/item/device/personal_shield = 0.4,
+		/obj/random/safe_rig = 0.5,
+		/obj/item/gun/projectile/shotgun/pump/combat = 0.3
 	)
 
 /obj/random/highvalue/no_crystal
@@ -1543,15 +1540,28 @@
 		/obj/item/rig/industrial = 1
 	)
 
+/obj/random/safe_rig
+	name = "random rigsuit"
+	desc = "contains a random highvalue rigsuit found in the vault"
+	icon = 'icons/obj/rig_modules.dmi'
+	icon_state = "breacher_rig"
+	spawnlist = list(
+		/obj/item/rig/combat/equipped = 1,
+		/obj/item/rig/military = 0.4,
+		/obj/item/rig/hazard/equipped = 1,
+		/obj/item/rig/retro/equipped = 0.8,
+		/obj/item/rig/ert/security = 0.2
+	)
 /obj/random/telecrystals
 	name = "random telecrystals"
 	desc = "Contains a random amount of telecrystals."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "telecrystal"
 	spawnlist = list(
-		/obj/item/stack/telecrystal{amount = 5} = 0.7,
-		/obj/item/stack/telecrystal{amount = 10} = 0.1,
-		/obj/item/stack/telecrystal{amount = 15} = 0.2,
+		/obj/item/stack/telecrystal{amount = 10} = 0.5,
+		/obj/item/stack/telecrystal{amount = 15} = 0.4,
+		/obj/item/stack/telecrystal{amount = 20} = 0.3,
+		/obj/item/stack/telecrystal{amount = 30} = 0.2
 	)
 
 /obj/random/bad_ai

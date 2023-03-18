@@ -16,7 +16,17 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
-	allowed = list(/obj/item/tank,/obj/item/device/flashlight,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(
+		/obj/item/device/flashlight,
+		/obj/item/tank,
+		/obj/item/device/suit_cooling_unit,
+		/obj/item/gun,
+		/obj/item/ammo_magazine,
+		/obj/item/ammo_casing,
+		/obj/item/melee/baton,
+		/obj/item/melee/energy/sword,
+		/obj/item/handcuffs
+	)
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
 
@@ -53,6 +63,17 @@
 	icon_state = "okonsuit-red"
 	item_state = "okonsuit-red"
 	contained_sprite = TRUE
+	allowed = list(
+		/obj/item/device/flashlight,
+		/obj/item/tank,
+		/obj/item/device/suit_cooling_unit,
+		/obj/item/gun,
+		/obj/item/ammo_magazine,
+		/obj/item/ammo_casing,
+		/obj/item/melee/baton,
+		/obj/item/melee/energy/sword,
+		/obj/item/handcuffs
+	)
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
 
@@ -117,6 +138,17 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
+	allowed = list(
+		/obj/item/device/flashlight,
+		/obj/item/tank,
+		/obj/item/device/suit_cooling_unit,
+		/obj/item/gun,
+		/obj/item/ammo_magazine,
+		/obj/item/ammo_casing,
+		/obj/item/melee/baton,
+		/obj/item/melee/energy/sword,
+		/obj/item/handcuffs
+	)
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
 
@@ -154,6 +186,17 @@
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
+	)
+	allowed = list(
+		/obj/item/device/flashlight,
+		/obj/item/tank,
+		/obj/item/device/suit_cooling_unit,
+		/obj/item/gun,
+		/obj/item/ammo_magazine,
+		/obj/item/ammo_casing,
+		/obj/item/melee/baton,
+		/obj/item/melee/energy/sword,
+		/obj/item/handcuffs
 	)
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE

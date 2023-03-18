@@ -232,6 +232,8 @@
 	dir = 8
 	},
 /obj/item/device/gps,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/glasses/safety/goggles/tactical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "aHC" = (
@@ -473,6 +475,8 @@
 	dir = 8
 	},
 /obj/item/device/gps,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/glasses/safety/goggles/tactical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "bdq" = (
@@ -1491,6 +1495,7 @@
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical/w,
 /obj/item/clothing/mask/surgical/w,
+/obj/item/clothing/glasses/safety/goggles/tactical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "dUd" = (
@@ -2643,6 +2648,8 @@
 /obj/item/clothing/head/helmet/space/void/sol/ssmd,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/device/gps,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/glasses/safety/goggles/tactical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "gKp" = (
@@ -2887,6 +2894,8 @@
 	dir = 4
 	},
 /obj/item/device/gps,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/glasses/safety/goggles/tactical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "hBs" = (
@@ -4382,6 +4391,9 @@
 /obj/machinery/light/colored/red,
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/francisca)
 "mqW" = (
@@ -5339,6 +5351,9 @@
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/francisca)
 "pwR" = (
@@ -5625,6 +5640,9 @@
 /obj/item/ship_ammunition/francisca,
 /obj/machinery/light/colored/red{
 	dir = 1
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/francisca)
@@ -6590,6 +6608,9 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/francisca)
 "uew" = (

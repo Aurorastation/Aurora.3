@@ -38,7 +38,7 @@
 		to_chat(user, SPAN_CULT("An unexplicable force rips through you, tearing the sword from your grasp!"))
 
 	//random amount of damage between half of the blade's force and the full force of the blade.
-	user.apply_damage(rand(force/2, force), BRUTE, zone, 0, damage_flags = DAM_SHARP|DAM_EDGE)
+	user.apply_damage(rand(force/2, force), DAMAGE_BRUTE, zone, 0, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 	user.Weaken(5)
 
 	user.drop_from_inventory(src)

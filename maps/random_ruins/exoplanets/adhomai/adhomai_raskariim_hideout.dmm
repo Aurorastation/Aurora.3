@@ -16,6 +16,15 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"bE" = (
+/obj/structure/closet/crate/bin,
+/obj/item/clothing/accessory/tajaran/charm/steel,
+/obj/item/trash/plate,
+/obj/item/trash/plate,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskariim_hideout)
 "ch" = (
 /obj/structure/table/wood,
 /obj/item/pocketwatch/adhomai,
@@ -31,6 +40,13 @@
 /area/adhomai_raskariim_hideout)
 "cy" = (
 /obj/structure/closet/cabinet,
+/obj/item/clothing/suit/storage/toggle/tajaran/wool,
+/obj/item/clothing/under/tajaran,
+/obj/item/clothing/under/tajaran,
+/obj/item/clothing/under/tajaran/nka_noble{
+	name = "tattered noble adhomian clothes";
+	desc = "Clothes frequently worn by the New Kingdom's nobles. Whilst most are hand-me-downs this one clearly is, dotted by large holes and torn fabric."
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -63,8 +79,16 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"dg" = (
+/obj/item/stack/material/woodlog,
+/obj/item/stack/material/woodlog,
+/obj/item/stack/material/woodlog,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "ds" = (
-/obj/structure/flora/bush,
+/obj/structure/flora/bush/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -127,6 +151,22 @@
 	temperature = 278.15
 	},
 /area/adhomai_raskariim_hideout)
+"kM" = (
+/obj/structure/bookcase,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskariim_hideout)
+"kX" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/reagent_dispensers/keg/mead{
+	reagents_to_add = list(/singleton/reagent/water=1000);
+	name = "water barrel"
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_raskariim_hideout)
 "lj" = (
 /obj/structure/mirror{
 	pixel_y = 32
@@ -148,6 +188,16 @@
 /obj/item/device/flashlight/lamp,
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomai_raskariim_hideout)
+"nm" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/adhomai_raskariim_hideout)
@@ -183,6 +233,10 @@
 	pixel_y = 1
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = -7;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -200,7 +254,7 @@
 	},
 /area/adhomai_raskariim_hideout)
 "rw" = (
-/obj/structure/bed/stool/chair/sofa/left/beige{
+/obj/structure/bed/stool/chair/sofa/left/black{
 	dir = 1
 	},
 /turf/simulated/floor/wood{
@@ -267,7 +321,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/structure/flora/grass/brown,
+/obj/structure/flora/grass/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -290,6 +344,13 @@
 "vA" = (
 /obj/item/surgery/scalpel,
 /obj/structure/table/wood,
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = -4;
+	pixel_y = 9
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -304,10 +365,20 @@
 /area/adhomai_raskariim_hideout)
 "vI" = (
 /obj/item/clothing/shoes/tajara/footwraps{
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = 14
 	},
 /obj/item/clothing/shoes/tajara/footwraps{
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 13
+	},
+/obj/item/clothing/shoes/tajara/winter{
+	pixel_x = -11;
+	pixel_y = -7
+	},
+/obj/item/clothing/shoes/tajara/winter{
+	pixel_x = 7;
+	pixel_y = -7
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -315,6 +386,29 @@
 /area/adhomai_raskariim_hideout)
 "wq" = (
 /obj/structure/table/wood,
+/obj/item/gun/projectile/revolver/adhomian{
+	pixel_y = -2
+	},
+/obj/item/ammo_casing/c38{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/ammo_casing/c38{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/ammo_casing/c38{
+	pixel_x = 1;
+	pixel_y = 7
+	},
+/obj/item/ammo_casing/c38{
+	pixel_x = 4;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_x = -5;
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -322,6 +416,47 @@
 "wx" = (
 /obj/structure/bed/stool/chair/sofa/black{
 	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskariim_hideout)
+"xe" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/cooking_container/pot{
+	pixel_y = 11;
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/cooking_container/saucepan{
+	pixel_y = -2;
+	pixel_x = -11
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_y = 20;
+	pixel_x = -15
+	},
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = 11
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_raskariim_hideout)
+"xo" = (
+/obj/structure/table/wood,
+/obj/item/flame/candle/waxcandles{
+	pixel_x = -4;
+	pixel_y = 16
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskariim_hideout)
+"xs" = (
+/obj/structure/bonfire/fireplace{
+	density = 0
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -337,8 +472,27 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = 9;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = 3;
+	pixel_x = -7
+	},
+/obj/item/material/kitchen/utensil/knife,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
+	},
+/area/adhomai_raskariim_hideout)
+"zd" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
 	},
 /area/adhomai_raskariim_hideout)
 "zn" = (
@@ -358,7 +512,7 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/obj/structure/flora/grass/brown,
+/obj/structure/flora/grass/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -381,7 +535,7 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/obj/structure/flora/bush,
+/obj/structure/flora/bush/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -393,8 +547,13 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = -5
 	},
-/obj/item/flame/lighter/adhomai,
 /obj/structure/table/wood,
+/obj/item/storage/firstaid,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/flame/lighter/adhomai,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -437,7 +596,8 @@
 /area/adhomai_raskariim_hideout)
 "HE" = (
 /obj/item/handcuffs/cable/random,
-/obj/machinery/light/small/red,
+/obj/item/handcuffs/cable/random,
+/obj/machinery/light/small,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -446,6 +606,13 @@
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
 /obj/item/trash/cigbutt,
+/obj/item/storage/box/fancy/cigarettes/dpra{
+	pixel_y = -2;
+	pixel_x = -7
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -456,6 +623,18 @@
 /obj/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
+	},
+/area/adhomai_raskariim_hideout)
+"Io" = (
+/obj/structure/closet/crate/bin,
+/obj/item/paper/crumpled/bloody,
+/obj/item/paper/crumpled/bloody,
+/obj/item/trash/candle,
+/obj/item/trash/plate,
+/obj/item/trash/plate,
+/obj/item/trash/plate,
+/turf/simulated/floor/wood{
+	temperature = 268.15
 	},
 /area/adhomai_raskariim_hideout)
 "IW" = (
@@ -495,6 +674,9 @@
 	pixel_x = 7
 	},
 /obj/item/material/kitchen/utensil/knife,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -516,7 +698,7 @@
 	},
 /area/adhomai_raskariim_hideout)
 "Mo" = (
-/obj/structure/flora/tree/dead,
+/obj/structure/flora/tree/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -571,6 +753,10 @@
 /area/adhomai_raskariim_hideout)
 "Ol" = (
 /obj/structure/coatrack,
+/obj/item/clothing/accessory/poncho/tajarancloak/winter,
+/obj/item/clothing/accessory/poncho/tajarancloak/winter,
+/obj/item/clothing/head/tajaran/fur,
+/obj/item/clothing/head/tajaran/fur,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -591,12 +777,14 @@
 /obj/structure/noose,
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/decal/cleanable/blood/splatter,
+/obj/item/poppet,
+/obj/machinery/light/small,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
 /area/adhomai_raskariim_hideout)
 "PT" = (
-/obj/structure/flora/grass/brown,
+/obj/structure/flora/grass/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -654,11 +842,18 @@
 "WO" = (
 /turf/simulated/wall/wood,
 /area/adhomai_raskariim_hideout)
+"XF" = (
+/obj/item/storage/box/fancy/candle_box,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskariim_hideout)
 "Yu" = (
 /obj/effect/ghostspawpoint{
 	identifier = "raskariim_hideout";
 	name = "igs - raskariim_hideout"
 	},
+/obj/item/flame/candle,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -785,7 +980,7 @@ SE
 SE
 SE
 WO
-SE
+kM
 zn
 zn
 vD
@@ -881,7 +1076,7 @@ jX
 ez
 ka
 WO
-SE
+xs
 zn
 zn
 rw
@@ -943,7 +1138,7 @@ CS
 WM
 WO
 Jq
-SE
+XF
 SE
 Ew
 SE
@@ -972,15 +1167,15 @@ ri
 WO
 WO
 WO
-SE
+Io
 SE
 SE
 SE
 WO
+bE
 SE
 SE
-SE
-ez
+zd
 WO
 WO
 WO
@@ -988,7 +1183,7 @@ WO
 "}
 (14,1,1) = {"
 CS
-WM
+dg
 WO
 ch
 SE
@@ -1027,7 +1222,7 @@ Hn
 Hn
 Hn
 Hn
-Hn
+kX
 WO
 WM
 WM
@@ -1038,7 +1233,7 @@ MZ
 CS
 WM
 WO
-ez
+xo
 zn
 zn
 zn
@@ -1046,12 +1241,12 @@ zn
 SE
 DD
 WO
+nm
 Hn
 Hn
 Hn
 Hn
-Hn
-Hn
+xe
 WO
 WM
 WM

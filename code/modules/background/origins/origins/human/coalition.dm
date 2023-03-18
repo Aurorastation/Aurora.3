@@ -44,7 +44,7 @@
 /singleton/origin_item/origin/coa_spacer
 	name = "Coalition Offworlders"
 	desc = "The offworlders of the Coalition of Colonies are an odd mix of nomadic or semi-nomadic peoples that do not call any planet home, and instead opt to live in spaceborne fleets. The most notable offworlder group in the Coalition is the Scarabs, though many more are present in the Coalition's borders."
-	possible_accents = list(ACCENT_NCF, ACCENT_SCARAB, ACCENT_COC)
+	possible_accents = list(ACCENT_NCF, ACCENT_SCARAB, ACCENT_COC, ACCENT_BURZSIA)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_SCARAB)
 

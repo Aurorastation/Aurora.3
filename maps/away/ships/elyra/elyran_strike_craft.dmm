@@ -359,10 +359,10 @@
 "bud" = (
 /obj/structure/table/steel,
 /obj/structure/table/steel,
-/obj/item/storage/firstaid/brute{
+/obj/item/storage/firstaid/trauma{
 	pixel_x = -4
 	},
-/obj/item/storage/firstaid/brute{
+/obj/item/storage/firstaid/trauma{
 	pixel_x = -4
 	},
 /obj/item/storage/firstaid/fire{
@@ -1839,6 +1839,15 @@
 	},
 /obj/item/ship_ammunition/francisca/ap{
 	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)

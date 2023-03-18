@@ -11,7 +11,7 @@
 "ak" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/trauma,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/hideout)
@@ -2303,7 +2303,7 @@
 /area/hideout)
 "JG" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/trauma,
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "JP" = (

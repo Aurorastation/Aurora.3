@@ -2305,10 +2305,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
-"hO" = (
-/obj/item/book/manual/medical_cloning,
-/turf/template_noop,
-/area/template_noop)
 "hR" = (
 /obj/structure/grille/broken,
 /obj/structure/window/reinforced,
@@ -49367,7 +49363,7 @@ aa
 aa
 aa
 aa
-hO
+aa
 aa
 aa
 aA

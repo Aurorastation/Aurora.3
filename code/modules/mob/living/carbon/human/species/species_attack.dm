@@ -30,10 +30,8 @@
 	attack_name = "claws"
 
 /datum/unarmed_attack/claws/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
-	var/skill = user.skills["combat"]
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
 
-	if(!skill)	skill = 1
 	attack_damage = Clamp(attack_damage, 1, 5)
 
 	if(target == user)
@@ -177,7 +175,7 @@
 			continue
 		if(L == target)
 			continue
-		L.apply_damage(rand(5,20), BRUTE, zone, armor)
+		L.apply_damage(rand(5,20), DAMAGE_BRUTE, zone, armor)
 		to_chat(L, "<span class='danger'>\The [user] [pick(attack_verb)] you with its [attack_noun]!</span>")
 		hit_mobs++
 	if(hit_mobs)
@@ -208,7 +206,7 @@
 		to_chat(user, SPAN_WARNING("You feel that \the [target] has been already infected!"))
 
 	var/infection_chance = 80
-	infection_chance -= target.get_blocked_ratio(zone, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE, damage = damage)*100
+	infection_chance -= target.get_blocked_ratio(zone, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, damage = damage)*100
 	if(prob(infection_chance))
 		if(target.reagents)
 			var/trioxin_amount = REAGENT_VOLUME(target.reagents, /singleton/reagent/toxin/trioxin)
@@ -240,7 +238,7 @@
 	damage = 10
 	attack_sound = 'sound/items/welder.ogg'
 	attack_name = "flaming touch"
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 
 /datum/unarmed_attack/flame/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()

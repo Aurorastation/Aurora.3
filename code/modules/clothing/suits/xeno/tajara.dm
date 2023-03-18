@@ -323,7 +323,7 @@
 	item_state = "hunter_coat"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/material/knife, /obj/item/device/flashlight)
+	allowed = list(/obj/item/gun/projectile/shotgun, /obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/material/knife, /obj/item/device/flashlight)
 
 /obj/item/clothing/suit/storage/tajaran/archeologist
 	name = "archeologist jacket"
