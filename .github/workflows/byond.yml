@@ -18,12 +18,11 @@ env:
 jobs:
   lint:
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Install
         run: |
-          apt-get install python-cffi
           pip install --user -r ./tools/requirements.txt
           chmod +x ./scripts/code_check.sh && ./scripts/code_check.sh $PWD
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
@@ -49,7 +48,7 @@ jobs:
       matrix:
         map: [runtime, aurora, sccv_horizon, away_sites_testing]
       fail-fast: false
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: lint
     services:
       mariadb:
