@@ -40,5 +40,5 @@ delete-after: True
 changes:
   - backend: "Updated build chain to use the new rustg v1.2.0+a2 from our repository, after having updated our repository."
   - backend: "Updated byond version to use to 514.1589 from the previously set minor, in the chain."
-  - backend: "Updated flyway version to use to 6.1.5."
+  - backend: "Updated flyway version to use to 9.9.0."
   - backend: "Updated spacemandmm version to use to 1.7.3."
