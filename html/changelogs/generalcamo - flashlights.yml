@@ -49,3 +49,4 @@ changes:
   - soundadd: "Added sounds for toggling flashlights, and the green desk lamp."
   - tweak: "Flashlights are now fabricated from plastic, instead of steel."
   - tweak: "Electronic cigarettes now use device power cells. Power consumption has been reduced in half to compensate."
+  - tweak: "Dim lights can no longer be used to inspect eyes, and robotic eyes can no longer be inspected with flashlights."
