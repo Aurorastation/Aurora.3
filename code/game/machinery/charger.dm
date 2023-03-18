@@ -8,7 +8,8 @@
 	pass_flags = PASSTABLE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	idle_power_usage = 5
-	active_power_usage = 1 KILOWATTS
+	active_power_usage = 45 KILOWATTS
+	var/charging_efficiency = 1.3
 	var/icon_state_charged = "recharger100"
 	var/icon_state_charging = "recharger"
 	var/icon_state_idle = "recharger_off" //also when unpowered
@@ -125,7 +126,7 @@
 					icon_state = icon_state_charging + "60"
 				else
 					icon_state = icon_state_charging + "80"
-				C.give(active_power_usage * CELLRATE)
+				C.give((active_power_usage * CELLRATE) * charging_efficiency)
 
 				update_use_power(POWER_USE_ACTIVE)
 			else
@@ -173,7 +174,7 @@
 	desc = "A wall-mounted quick charger, specialized for electrically powered weaponry."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger_off"
-	active_power_usage = 2 KILOWATTS
+	active_power_usage = 75 KILOWATTS
 	allowed_devices = list(
 		/obj/item/gun/energy,
 		/obj/item/melee/baton

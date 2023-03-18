@@ -7,9 +7,10 @@
 	anchored = TRUE
 	density = FALSE
 	idle_power_usage = 5
-	active_power_usage = 2 KILOWATTS
+	active_power_usage = 90 KILOWATTS
 	power_channel = EQUIP
 	update_icon_on_init = TRUE
+	var/charging_efficiency = 1.38
 	var/charge_level = -1
 	var/obj/item/cell/charging = null
 
@@ -123,7 +124,7 @@
 	if (charging && !charging.fully_charged())
 		if(use_power < POWER_USE_ACTIVE)
 			update_use_power(POWER_USE_ACTIVE)
-		charging.give(active_power_usage * CELLRATE)
+		charging.give((active_power_usage * CELLRATE) * charging_efficiency)
 		update_icon()
 	else
 		update_use_power(POWER_USE_IDLE)

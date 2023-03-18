@@ -7,11 +7,10 @@
 	layer = TURF_LAYER + 0.1
 	anchored = TRUE
 	idle_power_usage = 50
-	active_power_usage = 10 KILOWATTS // When charging.
+	active_power_usage = 90 KILOWATTS // When charging.
 
 	var/mob/living/heavy_vehicle/charging
-	var/base_charge_rate = 10000
-	var/repair_power_usage = 15000		// Per 1 HP of health.
+	var/repair_power_usage = 15 KILOWATTS // Per 1 HP of health.
 	var/repair = 0 // Note: Not a boolean.
 	var/charge
 
@@ -63,7 +62,7 @@
 		stop_charging()
 		return
 
-	var/remaining_energy = base_charge_rate
+	var/remaining_energy = active_power_usage
 
 	if(repair && !fully_repaired())
 		for(var/obj/item/mech_component/MC in charging)
@@ -117,9 +116,7 @@
 	desc = "A massive mech charger elevated slightly above the ground, constructed for equally massive recharging speeds."
 	icon_state = "supermechcharger"
 	idle_power_usage = 400
-	active_power_usage = 12.5 KILOWATTS
-
-	base_charge_rate = 120000
+	active_power_usage = 120 KILOWATTS
 	repair = 1
 
 	component_types = list(
