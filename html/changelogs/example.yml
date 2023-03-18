@@ -27,7 +27,7 @@
 #################################
 
 # Your name.
-author: ChangeMe
+author: ReadThisNamePlz
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -38,5 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a changelog editing system that should cause fewer conflicts and more accurate timestamps."
-  - rscdel: "Killed innocent kittens."
+  - bugfix: "Fixes the Cameras in the vault not having a motion alarm"
+  - maptweak: "Tweaks the vault to have two walls instead of one. Adds two additional turrets. Adds a emergency O2 wall locker instead of the standing locker to ops."
+  - balance: "Readjusts some of the loot and adds less valuable loot possibilities for the safe."
