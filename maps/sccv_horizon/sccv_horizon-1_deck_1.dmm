@@ -280,16 +280,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
-"aoG" = (
-/obj/machinery/camera/network/intrepid{
-	c_tag = "Intrepid - Medbay"
-	},
-/obj/machinery/vending/wallmed1{
-	pixel_y = 32;
-	req_access = null
-	},
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "aoR" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 1441;
@@ -2949,7 +2939,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/sleeper,
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "cne" = (
@@ -4366,6 +4355,7 @@
 "dtb" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
+/mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "dtN" = (
@@ -4848,7 +4838,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "dMS" = (
-/obj/item/holder/chicken,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -4993,9 +4982,9 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/holder/chicken/black,
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/plain,
+/mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "dWC" = (
@@ -5259,6 +5248,13 @@
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/toxin,
+/obj/machinery/vending/wallmed1{
+	pixel_y = 32;
+	req_access = null
+	},
+/obj/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Medbay"
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "eeV" = (
@@ -7476,8 +7472,8 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/holder/chicken/white,
 /obj/structure/flora/ausbushes/ywflowers,
+/mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "fKD" = (
@@ -53041,7 +53037,7 @@ uRt
 uRt
 jgf
 eKr
-aoG
+iRC
 iRC
 aEw
 rmT

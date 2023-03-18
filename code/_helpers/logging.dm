@@ -29,8 +29,9 @@
 /proc/log_topic(T, addr, master, key, var/list/queryparams)
 	WRITE_LOG(diary, "[game_id] TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]")
 
-/proc/error(msg)
+/proc/log_error(msg)
 	world.log <<  "## ERROR: [msg][log_end]"
+	game_log("ERROR", msg)
 
 /proc/shutdown_logging()
 	dll_call(RUST_G, "log_close_all")
@@ -39,10 +40,12 @@
 //print a warning message to world.log
 /proc/warning(msg)
 	world.log <<  "## WARNING: [msg][log_end]"
+	game_log("WARNING", msg)
 
 //print a testing-mode debug message to world.log
 /proc/testing(msg)
 	world.log <<  "## TESTING: [msg][log_end]"
+	game_log("TESTING", msg)
 
 /proc/game_log(category, text)
 	WRITE_LOG(diary, "[game_id] [category]: [text][log_end]")
@@ -66,7 +69,7 @@
 		game_log("DEBUG", text)
 
 	if (level == SEVERITY_ERROR) // Errors are always logged
-		error(text)
+		log_error(text)
 
 	for(var/s in staff)
 		var/client/C = s
@@ -181,7 +184,7 @@
 	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_ALERT, "FAILSAFE")
 
 /proc/log_tgs(text, severity = SEVERITY_INFO)
-	game_log("TGS", text)
+	game_log("TGS[SEVERITY_INFO]", text)
 	send_gelf_log(
 		short_message = text,
 		long_message="[time_stamp()]: [text]",

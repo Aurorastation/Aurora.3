@@ -2,7 +2,7 @@
 
 /mob/living/simple_animal/bee
 	name = "bees"
-	icon = 'icons/obj/apiary_bees_etc.dmi'
+	icon = 'icons/obj/beekeeping.dmi'
 	icon_state = "bees1"
 	icon_dead = "bees1"
 	mob_size = 0.5
