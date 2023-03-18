@@ -1,4 +1,4 @@
-pygit2==1.4.0
+pygit2
 bidict==0.21.2
 Pillow==9.3.0
 PyYAML==5.4.1
