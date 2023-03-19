@@ -2454,11 +2454,14 @@
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "bci" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/structure/lattice,
+/obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/open,
 /area/maintenance/wing/starboard)
 "bcL" = (
 /obj/effect/floor_decal/corner_wide/orange{
@@ -8275,6 +8278,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
+"dZL" = (
+/obj/structure/lattice,
+/obj/structure/window/reinforced,
+/turf/simulated/open,
+/area/maintenance/wing/starboard)
 "dZU" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -16823,6 +16831,14 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
+"idh" = (
+/obj/structure/lattice,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/open,
+/area/maintenance/wing/starboard)
 "ids" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -18463,6 +18479,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
+"iPP" = (
+/obj/structure/lattice,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/maintenance/wing/starboard)
 "iQK" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/security,
@@ -38177,6 +38203,9 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "sDy" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "sDz" = (
@@ -39829,6 +39858,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
+"twT" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/maintenance/wing/starboard)
 "txr" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -47229,11 +47264,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "wPJ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/structure/lattice,
+/obj/structure/window/reinforced{
+	dir = 1
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/open,
 /area/maintenance/wing/starboard)
 "wPX" = (
 /obj/structure/cable/green{
@@ -48300,7 +48335,10 @@
 /area/horizon/hydroponics/garden)
 "xoW" = (
 /obj/structure/lattice,
-/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "xpv" = (
@@ -59758,7 +59796,7 @@ nNE
 ycb
 qrz
 qrz
-bci
+qrz
 ijb
 fsf
 iYH
@@ -59958,7 +59996,7 @@ qgN
 dzL
 oiL
 uLC
-rlv
+iPP
 sDy
 xoW
 uEl
@@ -60160,9 +60198,9 @@ ojK
 iAB
 oIL
 pGp
+wPJ
 rlv
-rlv
-xoW
+dZL
 uEl
 ceU
 xas
@@ -60362,9 +60400,9 @@ aOj
 ugZ
 oIL
 wTd
-rlv
-sDy
-xoW
+bci
+twT
+idh
 uEl
 ceU
 nyI
@@ -60566,7 +60604,7 @@ oIL
 kyA
 aLc
 aLc
-wPJ
+aLc
 cKP
 ceU
 vqi
