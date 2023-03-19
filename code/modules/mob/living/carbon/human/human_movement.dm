@@ -122,7 +122,6 @@
 /mob/living/carbon/human/Move()
 	. = ..()
 	if(.) //We moved
-//		species.handle_exertion(src) If anyone wants to port Bay exertion.
 		handle_leg_damage()
 
 	var/turf/T = loc
