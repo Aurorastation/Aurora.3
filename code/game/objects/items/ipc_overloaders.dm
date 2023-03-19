@@ -26,10 +26,10 @@
 /obj/item/ipc_overloader/update_icon()
 	if(uses == initial(uses))
 		icon_state = initial(icon_state)
-	else if(uses == initial(uses) / 2)
-		icon_state = "[initial(icon_state)]-1"
-	else
+	else if(!uses)
 		icon_state = "[initial(icon_state)]-spent"
+	else
+		icon_state = "[initial(icon_state)]-[initial(uses)-uses]"
 
 /obj/item/ipc_overloader/examine(mob/user)
 	. = ..()
