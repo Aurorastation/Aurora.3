@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the people's space station having the wrong insulated gloves."
-  - bugfix: "Fixed an access and zone name issue in the Hailstorm."
