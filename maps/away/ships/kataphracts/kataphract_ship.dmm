@@ -1965,7 +1965,7 @@
 /turf/simulated/wall,
 /area/kataphract_chapter/main_ring)
 "ev" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "ew" = (
@@ -8814,7 +8814,7 @@
 	dir = 5;
 	icon_state = "corner_white"
 	},
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)

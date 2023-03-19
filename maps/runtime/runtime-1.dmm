@@ -706,7 +706,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "bN" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "bO" = (

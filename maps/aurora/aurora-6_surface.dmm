@@ -15066,7 +15066,7 @@
 /turf/simulated/floor/carpet,
 /area/security/vacantoffice)
 "ndX" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
@@ -17268,7 +17268,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "oZC" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "pav" = (
@@ -22778,7 +22778,7 @@
 	},
 /area/crew_quarters/fitness/pool)
 "tAm" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
@@ -23910,7 +23910,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
 "usa" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 4;

@@ -4974,7 +4974,7 @@
 	},
 /area/peoples_station/robotics_bay)
 "wt" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},

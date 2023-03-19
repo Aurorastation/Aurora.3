@@ -2337,7 +2337,7 @@
 	},
 /area/city/mendell/interior)
 "mx" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -3521,7 +3521,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -5902,7 +5902,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "If" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -6474,7 +6474,7 @@
 	},
 /area/city/mendell/interior)
 "LB" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "LD" = (
@@ -7200,7 +7200,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "OU" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/lino/grey,
 /area/city/mendell/interior)
 "OZ" = (

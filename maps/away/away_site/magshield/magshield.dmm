@@ -3016,7 +3016,7 @@
 /turf/simulated/floor/tiled,
 /area/magshield/south)
 "iQ" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled,
 /area/magshield/south)
 "iR" = (
@@ -3682,7 +3682,7 @@
 /turf/simulated/floor/tiled,
 /area/magshield/south)
 "lp" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/magshield/south)

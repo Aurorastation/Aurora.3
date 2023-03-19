@@ -2424,7 +2424,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "fP" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -4988,7 +4988,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nd" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
 	icon_state = "corner_white"
@@ -5374,7 +5374,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "oa" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)

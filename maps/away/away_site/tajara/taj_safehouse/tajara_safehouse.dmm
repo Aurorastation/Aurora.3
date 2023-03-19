@@ -1330,7 +1330,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "Vr" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "VG" = (

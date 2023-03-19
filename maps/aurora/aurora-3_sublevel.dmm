@@ -28629,7 +28629,7 @@
 /area/maintenance/medsublevel_port)
 "gBM" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "gCb" = (

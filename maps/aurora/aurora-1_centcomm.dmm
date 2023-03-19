@@ -19499,7 +19499,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/distress)
 "iCW" = (
-/obj/machinery/vending/drinks{
+/obj/machinery/vending/cola{
 	pixel_x = 5
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -22966,7 +22966,7 @@
 	name = "adjusted light fixture";
 	pixel_y = -16
 	},
-/obj/machinery/vending/drinks{
+/obj/machinery/vending/cola{
 	name = "hacked Robust Softdrinks";
 	prices = list()
 	},
@@ -28282,7 +28282,7 @@
 	},
 /area/centcom/control)
 "oel" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -28532,7 +28532,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "opB" = (
-/obj/machinery/vending/drinks{
+/obj/machinery/vending/cola{
 	density = 0;
 	layer = 2.99;
 	name = "Free Robust Softdrinks";
@@ -30572,7 +30572,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
 "pIW" = (
-/obj/machinery/vending/drinks{
+/obj/machinery/vending/cola{
 	name = "Free Robust Softdrinks";
 	prices = list()
 	},
@@ -38796,7 +38796,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
 "vDl" = (
-/obj/machinery/vending/drinks{
+/obj/machinery/vending/cola{
 	name = "Free Robust Softdrinks";
 	prices = list()
 	},

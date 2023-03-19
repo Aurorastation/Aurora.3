@@ -8037,7 +8037,7 @@
 /turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "iCW" = (
-/obj/machinery/vending/drinks{
+/obj/machinery/vending/cola{
 	pixel_x = 5
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -12381,7 +12381,7 @@
 	},
 /area/centcom/control)
 "oel" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -13467,7 +13467,7 @@
 	},
 /area/centcom/specops)
 "pIW" = (
-/obj/machinery/vending/drinks{
+/obj/machinery/vending/cola{
 	name = "Free Robust Softdrinks";
 	prices = list()
 	},

@@ -22,7 +22,7 @@
 	},
 /area/pra_mining_camp)
 "ct" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},

@@ -556,7 +556,7 @@
 /turf/simulated/floor/carpet,
 /area/ship/orion_express_ship)
 "drF" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
 	},

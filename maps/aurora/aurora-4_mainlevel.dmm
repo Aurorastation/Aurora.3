@@ -5812,7 +5812,7 @@
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 9
 	},
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "alA" = (
@@ -30589,7 +30589,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "baP" = (
@@ -33823,7 +33823,7 @@
 /area/crew_quarters/medbreak)
 "bgG" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bgH" = (
@@ -45410,7 +45410,7 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 27
 	},
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Coridor - Camera 4"
 	},
@@ -54054,7 +54054,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bZr" = (
-/obj/machinery/vending/drinks,
+/obj/machinery/vending/cola,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
