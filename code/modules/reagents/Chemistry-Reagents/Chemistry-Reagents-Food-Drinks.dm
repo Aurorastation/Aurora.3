@@ -5351,5 +5351,5 @@
 	taste_description = "bubbly, carbonated water"
 
 	glass_icon_state = "glass_clear"
-	glass_name = "glass of carbonatedwater"
+	glass_name = "carbonated water"
 	glass_desc = "A glass of carbonated water."
