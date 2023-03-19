@@ -335,7 +335,7 @@
 
 	products = list(
 		// Standard
-		/obj/item/reagent_containers/food/drinks/bottle/water = 10,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
 		/obj/item/reagent_containers/food/drinks/cans/carbonated_water = 10,
 		/obj/item/reagent_containers/food/drinks/cans/sodawater = 10,
 		/obj/item/reagent_containers/food/drinks/cans/tonic = 10,
@@ -378,7 +378,7 @@
 
 	prices = list(
 		// Standard
-		/obj/item/reagent_containers/food/drinks/bottle/water = 10,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
 		/obj/item/reagent_containers/food/drinks/cans/carbonated_water = 10,
 		/obj/item/reagent_containers/food/drinks/cans/sodawater = 10,
 		/obj/item/reagent_containers/food/drinks/cans/tonic = 20,
