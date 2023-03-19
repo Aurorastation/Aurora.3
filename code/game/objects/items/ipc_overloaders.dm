@@ -89,7 +89,7 @@
 		if(2) // random component damage
 			to_chat(target, SPAN_WARNING("Your internals rapidly heat up!"))
 			var/probability = 100
-			for(var/obj/item/organ/internal/internal_component in shuffle(target.internal_organs))
+			for(var/obj/item/organ/internal/internal_component as anything in shuffle(target.internal_organs))
 				if(prob(probability))
 					internal_component.take_internal_damage(10, FALSE)
 					probability -= 25
