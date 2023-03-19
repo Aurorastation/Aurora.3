@@ -5223,7 +5223,7 @@
 	},
 /area/centcom/bar)
 "alz" = (
-/obj/machinery/vending/cola{
+/obj/machinery/vending/drinks{
 	pixel_x = 5
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -13114,7 +13114,7 @@
 	},
 /area/centcom/holding)
 "aEH" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -13172,7 +13172,7 @@
 	},
 /area/centcom/specops)
 "aFd" = (
-/obj/machinery/vending/cola{
+/obj/machinery/vending/drinks{
 	name = "Free Robust Softdrinks";
 	prices = list()
 	},
@@ -23166,7 +23166,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bdn" = (
-/obj/machinery/vending/cola{
+/obj/machinery/vending/drinks{
 	name = "Free Robust Softdrinks";
 	prices = list()
 	},
@@ -25924,7 +25924,7 @@
 	name = "adjusted light fixture";
 	pixel_y = -16
 	},
-/obj/machinery/vending/cola{
+/obj/machinery/vending/drinks{
 	name = "hacked Robust Softdrinks";
 	prices = list()
 	},
@@ -29100,7 +29100,7 @@
 	},
 /area/centcom/distress_prep)
 "bqj" = (
-/obj/machinery/vending/cola{
+/obj/machinery/vending/drinks{
 	density = 0;
 	layer = 2.99;
 	name = "Free Robust Softdrinks";

@@ -1997,7 +1997,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "jyw" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
 	},
@@ -4099,7 +4099,7 @@
 "tXP" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/spider/stickyweb,
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /turf/simulated/floor/tiled/white,
 /area/racers)
 "tYI" = (

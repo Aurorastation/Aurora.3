@@ -2070,7 +2070,7 @@
 /area/ship/tramp_freighter)
 "wci" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "wjC" = (

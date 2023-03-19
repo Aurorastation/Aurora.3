@@ -1350,7 +1350,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /turf/simulated/floor/tiled,
 /area/security/training)
 "dl" = (

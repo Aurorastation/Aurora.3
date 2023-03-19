@@ -1026,7 +1026,7 @@
 /area/nka_merchant/captain_quarters)
 "df" = (
 /obj/effect/floor_decal/corner/blue/full,
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

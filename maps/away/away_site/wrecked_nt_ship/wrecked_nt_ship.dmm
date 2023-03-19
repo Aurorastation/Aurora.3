@@ -1385,7 +1385,7 @@
 /turf/simulated/floor/wood/airless,
 /area/wrecked_nt_ship)
 "DT" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /turf/simulated/floor/wood/airless,
 /area/wrecked_nt_ship)
 "Eg" = (

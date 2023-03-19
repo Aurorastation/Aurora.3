@@ -427,7 +427,7 @@
 	c_tag = "Third Deck - Central Ring Port";
 	dir = 8
 	},
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/cafeteria)
@@ -1508,7 +1508,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bridge/bridge_crew)
 "bdI" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
@@ -21589,7 +21589,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_armoury/foyer)
@@ -25032,7 +25032,7 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/forensic_laboratory)
 "tQA" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
@@ -29909,7 +29909,7 @@
 /area/security/vacantoffice)
 "xAy" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/port)
 "xAE" = (

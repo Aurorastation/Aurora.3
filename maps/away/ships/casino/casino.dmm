@@ -4954,7 +4954,7 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_bridge)
 "vc" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;

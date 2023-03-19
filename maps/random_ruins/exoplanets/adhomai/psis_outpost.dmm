@@ -545,7 +545,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/machinery/light{
 	dir = 1
 	},

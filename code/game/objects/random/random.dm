@@ -698,7 +698,7 @@
 		/obj/machinery/vending/boozeomat = 1,
 		/obj/machinery/vending/coffee = 1,
 		/obj/machinery/vending/snack = 1,
-		/obj/machinery/vending/cola = 1,
+		/obj/machinery/vending/drinks = 1,
 		/obj/machinery/vending/cigarette = 1,
 		/obj/machinery/vending/medical = 1.2,
 		/obj/machinery/vending/phoronresearch = 0.7,

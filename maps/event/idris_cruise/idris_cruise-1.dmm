@@ -515,7 +515,7 @@
 	},
 /area/cruise/main_bar/aft)
 "asZ" = (
-/obj/machinery/vending/cola{
+/obj/machinery/vending/drinks{
 	name = "Free Robust Softdrinks";
 	prices = list()
 	},
@@ -6768,7 +6768,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /turf/unsimulated/floor{
 	icon_state = "asteroidfloor"
 	},
@@ -8420,7 +8420,7 @@
 	},
 /area/cruise/jungle)
 "gCK" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
@@ -11390,7 +11390,7 @@
 	},
 /area/cruise/hydroponics)
 "iXl" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -21092,7 +21092,7 @@
 	},
 /area/cruise/centerline)
 "qQn" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/flag/idris{
 	pixel_y = 32
@@ -22135,7 +22135,7 @@
 	},
 /area/cruise/tcomms_sat)
 "rJS" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "floor7"
@@ -25418,7 +25418,7 @@
 	},
 /area/cruise/aft_p)
 "umE" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 4
@@ -28573,7 +28573,7 @@
 /area/cruise/pool)
 "wSK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/cola{
+/obj/machinery/vending/drinks{
 	name = "Free Robust Softdrinks";
 	prices = list()
 	},
@@ -29538,7 +29538,7 @@
 /turf/simulated/wall/shuttle/idris/cardinal,
 /area/cruise/central)
 "xBH" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "dark2"

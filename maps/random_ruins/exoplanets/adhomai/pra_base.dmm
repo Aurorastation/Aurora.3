@@ -124,7 +124,7 @@
 	},
 /area/pra_base)
 "fw" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},

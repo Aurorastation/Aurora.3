@@ -5971,7 +5971,7 @@
 /area/horizon/hallway/deck_two/fore)
 "cOU" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /turf/simulated/floor/tiled/dark,
 /area/operations/lobby)
 "cOY" = (
@@ -6888,7 +6888,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
@@ -11532,7 +11532,7 @@
 /area/horizon/maintenance/deck_two/fore/port)
 "fHo" = (
 /obj/effect/floor_decal/corner/green/full,
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -19072,7 +19072,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "jcK" = (
@@ -33083,7 +33083,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/aft_airlock)
 "pYK" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -45048,7 +45048,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28

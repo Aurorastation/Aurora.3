@@ -685,7 +685,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "zp" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/drinks,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "zP" = (

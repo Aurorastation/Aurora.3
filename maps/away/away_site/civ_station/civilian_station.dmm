@@ -991,7 +991,7 @@
 /area/civilian_station)
 "gAI" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/vending/cola{
+/obj/machinery/vending/drinks{
 	density = 0;
 	pixel_y = 25
 	},

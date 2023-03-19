@@ -344,7 +344,7 @@
 	light_color = COLOR_BABY_BLUE
 
 
-/obj/machinery/vending/cola
+/obj/machinery/vending/drinks
 	name = "drinks vending machine"
 	desc = "A drinks vending machine."
 	icon_state = "cola_machine"
