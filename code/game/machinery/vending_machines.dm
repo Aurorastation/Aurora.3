@@ -81,11 +81,11 @@
 		/obj/item/reagent_containers/food/drinks/bottle/space_up = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water = 3,
-		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6,
-		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
-		/obj/item/reagent_containers/food/drinks/cans/sodawater = 15,
-		/obj/item/reagent_containers/food/drinks/cans/tonic = 8,
-		/obj/item/reagent_containers/food/drinks/cans/threetowns = 6,
+		/obj/item/reagent_containers/food/drinks/cans/grapevine = 6,
+		/obj/item/reagent_containers/food/drinks/cans/hakhma_milk = 2,
+		/obj/item/reagent_containers/food/drinks/cans/soda_water = 15,
+		/obj/item/reagent_containers/food/drinks/cans/tonic_water = 8,
+		/obj/item/reagent_containers/food/drinks/cans/three_towns_cider = 6,
 		/obj/item/reagent_containers/food/drinks/carton/applejuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/cream = 4,
 		/obj/item/reagent_containers/food/drinks/carton/dynjuice = 4,
@@ -337,8 +337,8 @@
 		// Standard
 		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
 		/obj/item/reagent_containers/food/drinks/cans/carbonated_water = 10,
-		/obj/item/reagent_containers/food/drinks/cans/sodawater = 10,
-		/obj/item/reagent_containers/food/drinks/cans/tonic = 10,
+		/obj/item/reagent_containers/food/drinks/cans/soda_water = 10,
+		/obj/item/reagent_containers/food/drinks/cans/tonic_water = 10,
 		/obj/item/reagent_containers/food/drinks/cans/starfall = 10,
 		/obj/item/reagent_containers/food/drinks/cans/starfall_max = 10,
 		/obj/item/reagent_containers/food/drinks/cans/comet_cola = 10,
@@ -347,27 +347,27 @@
 		/obj/item/reagent_containers/food/drinks/cans/lemon_twist = 10,
 		/obj/item/reagent_containers/food/drinks/cans/orange_sunset = 10,
 		/obj/item/reagent_containers/food/drinks/cans/oj_dash = 10,
-		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 10,
-		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 10,
-		/obj/item/reagent_containers/food/drinks/cans/dr_gibb_zero = 10,
-		/obj/item/reagent_containers/food/drinks/cans/root_beer = 10,
-		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 10,
-		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 10,
+		/obj/item/reagent_containers/food/drinks/cans/xanu_rush = 10,
+		/obj/item/reagent_containers/food/drinks/cans/cherry_blossom = 10,
+		/obj/item/reagent_containers/food/drinks/cans/cherry_blossom_zero = 10,
+		/obj/item/reagent_containers/food/drinks/cans/getmore_root_beer = 10,
+		/obj/item/reagent_containers/food/drinks/cans/grapevine = 10,
+		/obj/item/reagent_containers/food/drinks/cans/silversun_wave = 10,
 		// Milk
 		/obj/item/reagent_containers/food/drinks/small_milk = 10,
 		/obj/item/reagent_containers/food/drinks/small_milk/chocolate = 10,
 		/obj/item/reagent_containers/food/drinks/small_milk/strawberry = 10,
 		// Non-standard
-		/obj/item/reagent_containers/food/drinks/cans/dyn = 5,
+		/obj/item/reagent_containers/food/drinks/cans/dyn_cooling_breeze = 5,
 		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 5,
-		/obj/item/reagent_containers/food/drinks/cans/adhomai_milk = 5,
-		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
-		/obj/item/reagent_containers/food/drinks/cans/threetowns = 5,
-		/obj/item/reagent_containers/food/drinks/cans/koispunch = 2
+		/obj/item/reagent_containers/food/drinks/cans/shouter_milk = 5,
+		/obj/item/reagent_containers/food/drinks/cans/hakhma_milk = 5,
+		/obj/item/reagent_containers/food/drinks/cans/three_towns_cider = 5,
+		/obj/item/reagent_containers/food/drinks/cans/phoron_punch = 2
 	)
 
 	contraband = list(
-		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 2
+		/obj/item/reagent_containers/food/drinks/cans/pow2go = 2
 	)
 
 	premium = list(
@@ -380,8 +380,8 @@
 		// Standard
 		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
 		/obj/item/reagent_containers/food/drinks/cans/carbonated_water = 10,
-		/obj/item/reagent_containers/food/drinks/cans/sodawater = 10,
-		/obj/item/reagent_containers/food/drinks/cans/tonic = 20,
+		/obj/item/reagent_containers/food/drinks/cans/soda_water = 10,
+		/obj/item/reagent_containers/food/drinks/cans/tonic_water = 20,
 		/obj/item/reagent_containers/food/drinks/cans/starfall = 20,
 		/obj/item/reagent_containers/food/drinks/cans/starfall_max = 20,
 		/obj/item/reagent_containers/food/drinks/cans/comet_cola = 20,
@@ -390,23 +390,23 @@
 		/obj/item/reagent_containers/food/drinks/cans/lemon_twist = 20,
 		/obj/item/reagent_containers/food/drinks/cans/orange_sunset = 20,
 		/obj/item/reagent_containers/food/drinks/cans/oj_dash = 20,
-		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 20,
-		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 20,
-		/obj/item/reagent_containers/food/drinks/cans/dr_gibb_zero = 20,
-		/obj/item/reagent_containers/food/drinks/cans/root_beer = 20,
-		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 20,
-		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 20,
+		/obj/item/reagent_containers/food/drinks/cans/xanu_rush = 20,
+		/obj/item/reagent_containers/food/drinks/cans/cherry_blossom = 20,
+		/obj/item/reagent_containers/food/drinks/cans/cherry_blossom_zero = 20,
+		/obj/item/reagent_containers/food/drinks/cans/getmore_root_beer = 20,
+		/obj/item/reagent_containers/food/drinks/cans/grapevine = 20,
+		/obj/item/reagent_containers/food/drinks/cans/silversun_wave = 20,
 		// Milk
 		/obj/item/reagent_containers/food/drinks/small_milk = 10,
 		/obj/item/reagent_containers/food/drinks/small_milk/chocolate = 10,
 		/obj/item/reagent_containers/food/drinks/small_milk/strawberry = 10,
 		// Non-standard
-		/obj/item/reagent_containers/food/drinks/cans/dyn = 30,
+		/obj/item/reagent_containers/food/drinks/cans/dyn_cooling_breeze = 30,
 		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 30,
-		/obj/item/reagent_containers/food/drinks/cans/adhomai_milk = 30,
-		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 30,
-		/obj/item/reagent_containers/food/drinks/cans/threetowns = 30,
-		/obj/item/reagent_containers/food/drinks/cans/koispunch = 50
+		/obj/item/reagent_containers/food/drinks/cans/shouter_milk = 30,
+		/obj/item/reagent_containers/food/drinks/cans/hakhma_milk = 30,
+		/obj/item/reagent_containers/food/drinks/cans/three_towns_cider = 30,
+		/obj/item/reagent_containers/food/drinks/cans/phoron_punch = 50
 	)
 
 	idle_power_usage = VENDING_MACHINE_IDLE_POWER_USAGE
@@ -1187,28 +1187,28 @@
 	product_ads = "Tired? Try some Zo'ra Soda!;Thirsty? Why not Zo'ra Soda?;Bored? Have some Zo'ra Soda!;Zo'ra Soda. Drink up!;ZZZOOO'RRRAAA SSSOOODDDAAA!"
 	vend_id = "zora"
 	products = list(
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/klax = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 5
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/cherry = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/phoron_passion = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/energy_crush = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/rockin_raspberry = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/sour_venom_grass = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/kois_twist = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/drone_fuel = 5
 	)
 	contraband = list(
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm = 5
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/hozm = 5
 	)
 	premium = list(
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly = 3
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/royal_jelly = 3
 	)
 	prices = list(
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry = 29,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron = 29,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/klax = 29,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur = 29,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass = 29,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois = 29,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 29
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/cherry = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/phoron_passion = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/energy_crush = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/rockin_raspberry = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/sour_venom_grass = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/kois_twist = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zora_soda/drone_fuel = 29
 	)
 	idle_power_usage = VENDING_MACHINE_IDLE_POWER_USAGE
 	temperature_setting = -1
@@ -1273,7 +1273,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/victorygin = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/pwine = 5,
 		/obj/item/reagent_containers/food/snacks/hardbread = 5,
-		/obj/item/reagent_containers/food/drinks/cans/adhomai_milk = 5,
+		/obj/item/reagent_containers/food/drinks/cans/shouter_milk = 5,
 		/obj/item/reagent_containers/food/snacks/adhomian_can = 5,
 		/obj/item/reagent_containers/food/snacks/clam = 5,
 		/obj/item/reagent_containers/food/snacks/tajaran_bread = 5,

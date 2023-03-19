@@ -3495,7 +3495,7 @@
 "jU" = (
 /obj/item/trash/plate,
 /obj/item/reagent_containers/food/snacks/waffles,
-/obj/item/reagent_containers/food/drinks/cans/iced_tea,
+/obj/item/reagent_containers/food/drinks/cans/silversun_wave,
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/fancybrown,
 /area/casino/casino_mainfloor)

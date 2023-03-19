@@ -57,8 +57,8 @@ var/list/lunchables_drinks_ = list(
 	// Standard
 	/obj/item/reagent_containers/food/drinks/waterbottle,
 	/obj/item/reagent_containers/food/drinks/cans/carbonated_water,
-	/obj/item/reagent_containers/food/drinks/cans/sodawater,
-	/obj/item/reagent_containers/food/drinks/cans/tonic,
+	/obj/item/reagent_containers/food/drinks/cans/soda_water,
+	/obj/item/reagent_containers/food/drinks/cans/tonic_water,
 	/obj/item/reagent_containers/food/drinks/cans/starfall,
 	/obj/item/reagent_containers/food/drinks/cans/starfall_max,
 	/obj/item/reagent_containers/food/drinks/cans/comet_cola,
@@ -67,22 +67,22 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/cans/lemon_twist,
 	/obj/item/reagent_containers/food/drinks/cans/orange_sunset,
 	/obj/item/reagent_containers/food/drinks/cans/oj_dash,
-	/obj/item/reagent_containers/food/drinks/cans/peach_soda,
-	/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
-	/obj/item/reagent_containers/food/drinks/cans/dr_gibb_zero,
-	/obj/item/reagent_containers/food/drinks/cans/root_beer,
-	/obj/item/reagent_containers/food/drinks/cans/grape_juice,
-	/obj/item/reagent_containers/food/drinks/cans/iced_tea,
+	/obj/item/reagent_containers/food/drinks/cans/xanu_rush,
+	/obj/item/reagent_containers/food/drinks/cans/cherry_blossom,
+	/obj/item/reagent_containers/food/drinks/cans/cherry_blossom_zero,
+	/obj/item/reagent_containers/food/drinks/cans/getmore_root_beer,
+	/obj/item/reagent_containers/food/drinks/cans/grapevine,
+	/obj/item/reagent_containers/food/drinks/cans/silversun_wave,
 	// Milk
 	/obj/item/reagent_containers/food/drinks/small_milk,
 	/obj/item/reagent_containers/food/drinks/small_milk/chocolate,
 	/obj/item/reagent_containers/food/drinks/small_milk/strawberry,
 	// Non-standard
-	/obj/item/reagent_containers/food/drinks/cans/dyn,
+	/obj/item/reagent_containers/food/drinks/cans/dyn_cooling_breeze,
 	/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda,
-	/obj/item/reagent_containers/food/drinks/cans/adhomai_milk,
-	/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
-	/obj/item/reagent_containers/food/drinks/cans/threetowns
+	/obj/item/reagent_containers/food/drinks/cans/shouter_milk,
+	/obj/item/reagent_containers/food/drinks/cans/hakhma_milk,
+	/obj/item/reagent_containers/food/drinks/cans/three_towns_cider
 )
 
 var/list/lunchables_vaurca_ = list(

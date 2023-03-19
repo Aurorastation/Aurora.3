@@ -2326,17 +2326,17 @@
 /obj/item/reagent_containers/food/drinks/cans/space_up{
 	pixel_x = -4
 	},
-/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
-/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
-/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
-/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
-/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
-/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
-/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
-/obj/item/reagent_containers/food/drinks/cans/thirteenloko{
+/obj/item/reagent_containers/food/drinks/cans/cherry_blossom,
+/obj/item/reagent_containers/food/drinks/cans/cherry_blossom,
+/obj/item/reagent_containers/food/drinks/cans/cherry_blossom,
+/obj/item/reagent_containers/food/drinks/cans/cherry_blossom,
+/obj/item/reagent_containers/food/drinks/cans/cherry_blossom,
+/obj/item/reagent_containers/food/drinks/cans/cherry_blossom,
+/obj/item/reagent_containers/food/drinks/cans/cherry_blossom,
+/obj/item/reagent_containers/food/drinks/cans/pow2go{
 	pixel_x = 4
 	},
-/obj/item/reagent_containers/food/drinks/cans/thirteenloko{
+/obj/item/reagent_containers/food/drinks/cans/pow2go{
 	pixel_x = 4
 	},
 /obj/item/reagent_containers/food/snacks/donerkebab,

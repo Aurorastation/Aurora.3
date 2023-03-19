@@ -197,10 +197,10 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/drinks/cans/threetowns,
-/obj/item/reagent_containers/food/drinks/cans/threetowns,
-/obj/item/reagent_containers/food/drinks/cans/threetowns,
-/obj/item/reagent_containers/food/drinks/cans/threetowns,
+/obj/item/reagent_containers/food/drinks/cans/three_towns_cider,
+/obj/item/reagent_containers/food/drinks/cans/three_towns_cider,
+/obj/item/reagent_containers/food/drinks/cans/three_towns_cider,
+/obj/item/reagent_containers/food/drinks/cans/three_towns_cider,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "fR" = (

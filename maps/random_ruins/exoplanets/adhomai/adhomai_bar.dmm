@@ -1086,7 +1086,7 @@
 /area/adhomai_bar)
 "VB" = (
 /obj/structure/largecrate,
-/obj/item/reagent_containers/food/drinks/cans/adhomai_milk{
+/obj/item/reagent_containers/food/drinks/cans/shouter_milk{
 	pixel_x = 8;
 	pixel_y = 17
 	},

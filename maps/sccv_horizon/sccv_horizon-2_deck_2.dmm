@@ -32935,11 +32935,11 @@
 /area/maintenance/wing/starboard/far)
 "pUn" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/cans/root_beer{
+/obj/item/reagent_containers/food/drinks/cans/getmore_root_beer{
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/drinks/cans/root_beer,
+/obj/item/reagent_containers/food/drinks/cans/getmore_root_beer,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "pUI" = (

@@ -2692,7 +2692,7 @@
 	pixel_x = 16;
 	pixel_y = 9
 	},
-/obj/item/reagent_containers/food/drinks/cans/cola{
+/obj/item/reagent_containers/food/drinks/cans/starfall{
 	pixel_x = -3;
 	pixel_y = 1
 	},

@@ -55,7 +55,7 @@
 
 		if("Imperial Army")
 			new /obj/item/reagent_containers/food/snacks/hardbread(src)
-			new /obj/item/reagent_containers/food/drinks/cans/adhomai_milk(src)
+			new /obj/item/reagent_containers/food/drinks/cans/shouter_milk(src)
 			desc += " This one has the stamp of the Imperial Adhomian Army."
 
 		if("Royal Navy")
@@ -80,5 +80,5 @@
 /obj/item/storage/field_ration/dpra/create_ration()
 	new /obj/item/reagent_containers/food/snacks/explorer_ration(src)
 	new /obj/item/reagent_containers/food/snacks/tajaran_bread(src)
-	new /obj/item/reagent_containers/food/drinks/cans/adhomai_milk(src)
+	new /obj/item/reagent_containers/food/drinks/cans/shouter_milk(src)
 	desc += " This one has the stamp of the Adhomai Liberation Army."

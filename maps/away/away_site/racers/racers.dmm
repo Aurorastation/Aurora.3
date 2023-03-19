@@ -534,7 +534,7 @@
 /area/racers)
 "bKn" = (
 /obj/effect/decal/cleanable/greenglow,
-/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
+/obj/item/reagent_containers/food/drinks/cans/zora_soda/hozm,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
 /area/racers)
@@ -797,7 +797,7 @@
 "dqN" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/table/steel,
-/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
+/obj/item/reagent_containers/food/drinks/cans/zora_soda/hozm,
 /turf/simulated/floor/plating,
 /area/racers)
 "dqZ" = (
@@ -1438,7 +1438,7 @@
 	dir = 10
 	},
 /obj/item/trash/cigbutt,
-/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
+/obj/item/reagent_containers/food/drinks/cans/zora_soda/hozm,
 /obj/item/grenade/dynamite,
 /turf/simulated/floor/holofloor/tiled,
 /area/racers)
@@ -1597,7 +1597,7 @@
 "hME" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/dry_ramen,
-/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
+/obj/item/reagent_containers/food/drinks/cans/zora_soda/hozm,
 /turf/simulated/floor/holofloor/tiled,
 /area/racers)
 "hNl" = (
@@ -1685,7 +1685,7 @@
 /area/racers)
 "inF" = (
 /obj/structure/table/wood/gamblingtable,
-/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
+/obj/item/reagent_containers/food/drinks/cans/zora_soda/hozm,
 /turf/simulated/floor/carpet/art,
 /area/racers)
 "irX" = (
@@ -1825,7 +1825,7 @@
 	pixel_x = 32
 	},
 /obj/item/tape/medical,
-/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
+/obj/item/reagent_containers/food/drinks/cans/zora_soda/hozm,
 /obj/structure/blocker,
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/white,
@@ -2879,7 +2879,7 @@
 /area/racers)
 "nZC" = (
 /obj/structure/table/wood/gamblingtable,
-/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
+/obj/item/reagent_containers/food/drinks/cans/zora_soda/hozm,
 /turf/simulated/floor/plating,
 /area/racers)
 "oaj" = (
@@ -4833,7 +4833,7 @@
 "xwj" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/rag,
-/obj/item/reagent_containers/food/drinks/cans/sodawater,
+/obj/item/reagent_containers/food/drinks/cans/soda_water,
 /turf/simulated/floor/holofloor/tiled,
 /area/racers)
 "xwJ" = (
