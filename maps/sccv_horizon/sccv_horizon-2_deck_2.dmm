@@ -2078,7 +2078,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/fancy,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "aTa" = (
 /obj/machinery/light,
@@ -2808,7 +2808,7 @@
 "bkQ" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/cooled,
 /area/turret_protected/ai)
 "blJ" = (
 /obj/machinery/door/airlock/external{
@@ -3098,7 +3098,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/corner,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "bqW" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
@@ -6078,7 +6078,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "cRu" = (
 /obj/machinery/door/firedoor,
@@ -6409,7 +6409,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "dat" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -9318,7 +9318,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "eAl" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -16155,7 +16155,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "hEx" = (
 /obj/machinery/light{
@@ -16624,7 +16624,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "hSp" = (
 /obj/structure/closet/crate/hydroponics,
@@ -17461,7 +17461,7 @@
 	dir = 8
 	},
 /obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/cooled,
 /area/turret_protected/ai)
 "imC" = (
 /obj/structure/railing/mapped{
@@ -19958,7 +19958,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "jvp" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -21729,7 +21729,7 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/west,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "krl" = (
 /obj/machinery/door/airlock/mining{
@@ -24906,7 +24906,7 @@
 	c_tag = "AI Core - Fore"
 	},
 /obj/structure/window/borosilicate/reinforced/skrell,
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "lYV" = (
 /obj/structure/table/stone/marble,
@@ -26401,7 +26401,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "mHM" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -28110,7 +28110,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "ntt" = (
 /turf/simulated/wall/r_wall,
@@ -29824,7 +29824,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "oou" = (
 /obj/structure/lattice/catwalk,
@@ -31353,7 +31353,7 @@
 "pch" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/anti_bluespace,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/cooled,
 /area/turret_protected/ai)
 "pcx" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -33759,7 +33759,7 @@
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "qni" = (
 /obj/structure/disposalpipe/segment{
@@ -34088,7 +34088,7 @@
 	dir = 4
 	},
 /obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/cooled,
 /area/turret_protected/ai)
 "qvx" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -34169,7 +34169,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "qwJ" = (
 /obj/structure/disposalpipe/segment,
@@ -35544,7 +35544,7 @@
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "rfO" = (
 /turf/simulated/wall/r_wall,
@@ -38011,7 +38011,7 @@
 	pixel_x = -40;
 	pixel_y = 25
 	},
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "sqc" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -39187,7 +39187,7 @@
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "sYI" = (
 /obj/machinery/alarm{
@@ -42051,7 +42051,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "upn" = (
 /obj/structure/cable/green{
@@ -47760,7 +47760,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "wWx" = (
 /turf/simulated/floor/wood,
@@ -48927,7 +48927,7 @@
 	dir = 1;
 	pixel_y = 24
 	},
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "xxy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
