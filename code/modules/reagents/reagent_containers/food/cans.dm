@@ -28,7 +28,7 @@
 	amount_per_transfer_from_this = 5
 	volume = 33 // Centiliters.
 
-	var/can_open = FALSE // If the can is opened. Used for the "open_overlay".
+	var/can_is_open = FALSE // If the can is opened. Used for the "open_overlay".
 	var/sticker // Used to know which overlay sticker to put on the can.
 	var/shadow_overlay = "33cl_shadow_overlay" // Used to know where the shadow overlay goes.
 	var/open_overlay = "33cl_open_overlay" // Used to know where the open overlay goes.
@@ -74,7 +74,7 @@
 	add_overlay(shadow_overlay)
 	add_overlay(sticker)
 
-	if(can_open)
+	if(can_is_open)
 		add_overlay(open_overlay)
 
 	// Bomb Code
@@ -101,7 +101,7 @@
 		SPAN_NOTICE("You can hear a pop.")
 	)
 	flags |= OPENCONTAINER
-	can_open = TRUE
+	can_is_open = TRUE
 	update_icon()
 
 // attackby()
