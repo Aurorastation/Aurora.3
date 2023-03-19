@@ -335,33 +335,39 @@
 
 	products = list(
 		// Standard
-		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
+		/obj/item/reagent_containers/food/drinks/bottle/water = 10,
 		/obj/item/reagent_containers/food/drinks/cans/carbonated_water = 10,
+		/obj/item/reagent_containers/food/drinks/cans/sodawater = 10,
+		/obj/item/reagent_containers/food/drinks/cans/tonic = 10,
 		/obj/item/reagent_containers/food/drinks/cans/starfall = 10,
 		/obj/item/reagent_containers/food/drinks/cans/starfall_max = 10,
 		/obj/item/reagent_containers/food/drinks/cans/comet_cola = 10,
 		/obj/item/reagent_containers/food/drinks/cans/comet_cola_zero = 10,
 		/obj/item/reagent_containers/food/drinks/cans/stellar_jolt = 10,
 		/obj/item/reagent_containers/food/drinks/cans/lemon_twist = 10,
-		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 10,
-		/obj/item/reagent_containers/food/drinks/cans/root_beer = 10,
+		/obj/item/reagent_containers/food/drinks/cans/orange_sunset = 10,
 		/obj/item/reagent_containers/food/drinks/cans/oj_dash = 10,
-		/obj/item/reagent_containers/food/drinks/cans/dyn = 10,
-		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 10,
-		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 10,
 		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 10,
-		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 10,
-		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 10,
-		// Non-standard
+		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 10,
+		/obj/item/reagent_containers/food/drinks/cans/dr_gibb_zero = 10,
+		/obj/item/reagent_containers/food/drinks/cans/root_beer = 10,
+		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 10,
+		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 10,
 		// Milk
 		/obj/item/reagent_containers/food/drinks/small_milk = 10,
 		/obj/item/reagent_containers/food/drinks/small_milk/chocolate = 10,
-		/obj/item/reagent_containers/food/drinks/small_milk/strawberry = 10
+		/obj/item/reagent_containers/food/drinks/small_milk/strawberry = 10,
+		// Non-standard
+		/obj/item/reagent_containers/food/drinks/cans/dyn = 5,
+		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 5,
+		/obj/item/reagent_containers/food/drinks/cans/adhomai_milk = 5,
+		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
+		/obj/item/reagent_containers/food/drinks/cans/threetowns = 5,
+		/obj/item/reagent_containers/food/drinks/cans/koispunch = 2
 	)
 
 	contraband = list(
-		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
-		/obj/item/reagent_containers/food/drinks/cans/koispunch = 3
+		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 2
 	)
 
 	premium = list(
@@ -371,27 +377,36 @@
 	)
 
 	prices = list(
-		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
+		// Standard
+		/obj/item/reagent_containers/food/drinks/bottle/water = 10,
 		/obj/item/reagent_containers/food/drinks/cans/carbonated_water = 10,
-		/obj/item/reagent_containers/food/drinks/cans/starfall = 15,
-		/obj/item/reagent_containers/food/drinks/cans/starfall_max = 15,
-		/obj/item/reagent_containers/food/drinks/cans/comet_cola = 15,
-		/obj/item/reagent_containers/food/drinks/cans/comet_cola_zero = 15,
-		/obj/item/reagent_containers/food/drinks/cans/stellar_jolt = 11,
-		/obj/item/reagent_containers/food/drinks/cans/lemon_twist = 11,
-		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 16,
-		/obj/item/reagent_containers/food/drinks/cans/root_beer = 13,
-		/obj/item/reagent_containers/food/drinks/cans/oj_dash = 15,
-		/obj/item/reagent_containers/food/drinks/cans/dyn = 18,
-		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 13,
-		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 16,
-		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 16,
-		/obj/item/reagent_containers/food/drinks/cans/koispunch = 50,
-		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
-		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 35,
-		/obj/item/reagent_containers/food/drinks/small_milk = 18,
-		/obj/item/reagent_containers/food/drinks/small_milk/chocolate = 18,
-		/obj/item/reagent_containers/food/drinks/small_milk/strawberry = 18
+		/obj/item/reagent_containers/food/drinks/cans/sodawater = 10,
+		/obj/item/reagent_containers/food/drinks/cans/tonic = 20,
+		/obj/item/reagent_containers/food/drinks/cans/starfall = 20,
+		/obj/item/reagent_containers/food/drinks/cans/starfall_max = 20,
+		/obj/item/reagent_containers/food/drinks/cans/comet_cola = 20,
+		/obj/item/reagent_containers/food/drinks/cans/comet_cola_zero = 20,
+		/obj/item/reagent_containers/food/drinks/cans/stellar_jolt = 20,
+		/obj/item/reagent_containers/food/drinks/cans/lemon_twist = 20,
+		/obj/item/reagent_containers/food/drinks/cans/orange_sunset = 20,
+		/obj/item/reagent_containers/food/drinks/cans/oj_dash = 20,
+		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 20,
+		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 20,
+		/obj/item/reagent_containers/food/drinks/cans/dr_gibb_zero = 20,
+		/obj/item/reagent_containers/food/drinks/cans/root_beer = 20,
+		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 20,
+		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 20,
+		// Milk
+		/obj/item/reagent_containers/food/drinks/small_milk = 10,
+		/obj/item/reagent_containers/food/drinks/small_milk/chocolate = 10,
+		/obj/item/reagent_containers/food/drinks/small_milk/strawberry = 10,
+		// Non-standard
+		/obj/item/reagent_containers/food/drinks/cans/dyn = 30,
+		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 30,
+		/obj/item/reagent_containers/food/drinks/cans/adhomai_milk = 30,
+		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 30,
+		/obj/item/reagent_containers/food/drinks/cans/threetowns = 30,
+		/obj/item/reagent_containers/food/drinks/cans/koispunch = 50
 	)
 
 	idle_power_usage = VENDING_MACHINE_IDLE_POWER_USAGE
