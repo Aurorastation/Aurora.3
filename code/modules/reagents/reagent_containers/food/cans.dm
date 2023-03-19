@@ -177,7 +177,10 @@
 								to_chat(user, SPAN_NOTICE("You shorten the fuse to [short] seconds."))
 								fuse_remove(fuse_length - short)
 							else if(!short && !isnull(short))
-								user.visible_message("<b>[user]</b> removes the steel wool from \the [name]", SPAN_NOTICE("You remove the steel wool fuse from \the [name]."))
+								user.visible_message(
+									"<b>[user]</b> removes the steel wool from \the [name]",
+									SPAN_NOTICE("You remove the steel wool fuse from \the [name].")
+									)
 								fuse_remove()
 							else if(short == fuse_length || isnull(short))
 								to_chat(user, SPAN_NOTICE("You decide against modifying the fuse."))
@@ -211,13 +214,22 @@
 				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
 				detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade balance in check
 		if(fuse_length < FUSELENGTH_MIN)
-			user.visible_message(SPAN_DANGER("<b>[user]</b> tries to light the fuse on \the [name] but it was too short!"), SPAN_DANGER("You try to light the fuse but it was too short!"))
+			user.visible_message(
+				SPAN_DANGER("<b>[user]</b> tries to light the fuse on \the [name] but it was too short!"),
+				SPAN_DANGER("You try to light the fuse but it was too short!")
+			)
 			detonate(TRUE) // if you're somehow THAT determined and/or ignorant you managed to get the fuse below 3 seconds, so be it. reap what you sow.
 		else
 			if(premature)
-				user.visible_message(SPAN_WARNING("<b>[user]</b> prematurely starts \the [name]'s fuse!"), SPAN_WARNING("You prematurely start \the [name]'s fuse!"))
+				user.visible_message(
+					SPAN_WARNING("<b>[user]</b> prematurely starts \the [name]'s fuse!"),
+					SPAN_WARNING("You prematurely start \the [name]'s fuse!")
+				)
 			else
-				user.visible_message(SPAN_WARNING("<b>[user]</b> lights the steel wool on \the [name] with \the [W]!"), SPAN_WARNING("You light the steel wool on \the [name] with the [W]!"))
+				user.visible_message(
+					SPAN_WARNING("<b>[user]</b> lights the steel wool on \the [name] with \the [W]!"),
+					SPAN_WARNING("You light the steel wool on \the [name] with the [W]!")
+				)
 			playsound(get_turf(src), 'sound/items/flare.ogg', 50)
 			detonate(FALSE)
 
@@ -226,7 +238,7 @@
 	var/fuel = REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 	if(instant)
 		fuse_length = 0
-	else if(prob(fuse_length * 6)) // the longer the fuse, the higher chance it will fizzle out (18% chance minimum)
+	else if(prob(fuse_length * 6)) // The longer the fuse, the higher chance it will fizzle out (18% chance minimum).
 		var/fizzle = rand(1, fuse_length - 1)
 		sleep(fizzle * 1 SECOND)
 
@@ -238,7 +250,7 @@
 		update_icon()
 		return
 	else
-		fuse_length += rand(-2, 2) // if the fuse isn't fizzling out or detonating instantly, make it a little harder to predict the fuse by +2/-2 seconds
+		fuse_length += rand(-2, 2) // If the fuse isn't fizzling out or detonating instantly, make it a little harder to predict the fuse by +2/-2 seconds.
 	sleep(fuse_length * 1 SECOND)
 
 	switch(round(fuel))
@@ -260,7 +272,7 @@
 			playsound(get_turf(src), 'sound/effects/bang.ogg', 50)
 			visible_message(SPAN_WARNING("\The [name] bursts violently into pieces!"))
 		if(LETHAL_FUEL_CAPACITY to INFINITY) // boom
-			fragem(src, shrapnelcount, shrapnelcount, 1, 0, 5, 1, TRUE, 2) // The main aim of the grenade should be to hit and wound people with shrapnel instead of causing a lot of station damage, hence the small explosion radius
+			fragem(src, shrapnelcount, shrapnelcount, 1, 0, 5, 1, TRUE, 2) // The main aim of the grenade should be to hit and wound people with shrapnel.
 			playsound(get_turf(src), 'sound/effects/Explosion1.ogg', 50)
 			visible_message(SPAN_DANGER("<b>\The [name] explodes!</b>"))
 	fuse_lit = FALSE
@@ -268,7 +280,7 @@
 	qdel(src)
 
 // can_light()
-/obj/item/reagent_containers/food/drinks/cans/proc/can_light() // just reverses the fuse_lit var to return a TRUE or FALSE, should hopefully make things a little easier if someone adds more fuse interactions later.
+/obj/item/reagent_containers/food/drinks/cans/proc/can_light() // Just reverses the fuse_lit var to return a TRUE or FALSE.
     return !fuse_lit && fuse_length
 
 /obj/item/reagent_containers/food/drinks/cans/proc/fuse_remove(var/cable_removed = fuse_length)
@@ -434,9 +446,8 @@
 	reagents_to_add = list(/decl/reagent/drink/sodawater = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/koispunch
-	name = "\improper Phoron Punch!"
-	desc = "A radical looking can of " + SPAN_WARNING("Phoron Punch!") + " Phoron poisoning has never been more extreme! " + SPAN_DANGER("WARNING: Phoron is toxic to non-Vaurca. Consuming this product might lead to death.")
-
+	name = "\improper Phoron Punch"
+	desc = "A can of Phoron Punch. " + SPAN_DANGER("WARNING: Phoron is toxic to non-Vaurcae. Consuming this product will lead to death.")
 	center_of_mass = list("x"=16, "y"=8)
 	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/decl/reagent/water = 18, /decl/reagent/kois/clean = 10, /decl/reagent/toxin/phoron = 5)
@@ -444,24 +455,19 @@
 /obj/item/reagent_containers/food/drinks/cans/root_beer
 	name = "\improper RnD Root Beer"
 	desc = "A classic Earth drink from the United Americas province."
-
 	center_of_mass = list("x"=16, "y"=10)
-
 	reagents_to_add = list(/decl/reagent/drink/root_beer = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/adhomai_milk
 	name = "fermented fatshouters milk"
 	desc = "A can of fermented fatshouters milk, imported from Adhomai."
-
-	center_of_mass = list("x"=16, "y"=10)
 	desc_extended = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
-
+	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/milk/adhomai/fermented = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk
 	name = "\improper Hakhma Milk"
 	desc = "A can of Hakhma beetle milk, sourced from Scarab and Drifter communities."
-
 	center_of_mass = list("x"=17, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/milk/beetle = 33)
 	can_size_overrides = list("x" = 1, "y" = -2)
@@ -469,32 +475,30 @@
 /obj/item/reagent_containers/food/drinks/cans/dyn
 	name = "Cooling Breeze"
 	desc = "The most refreshing thing you can find on the market, based on a Skrell medicinal plant. No salt or sugar."
-
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/dynjuice/cold = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/threetowns
 	name = "\improper Three Towns Cider"
-	desc = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland."
-
+	desc = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped \
+	throughout the Wasteland."
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/alcohol/butanol/threetownscider = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/hrozamal_soda
 	name = "Hro'zamal Soda"
 	desc = "A can of Hro'zamal Soda. Made with Hro'zamal Ras'Nifs powder and canned in the People's Republic of Adhomai."
-	desc_extended = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as a herbal tea by the \
-	colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university \
-	students because of its stimulant effect."
-
+	desc_extended = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as \
+	a herbal tea by the colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular \
+	with factory workers and university students because of its stimulant effect."
 	center_of_mass = list("x"=16, "y"=10)
-
 	reagents_to_add = list(/decl/reagent/drink/hrozamal_soda = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/peach_soda
 	name = "Xanu Rush!"
 	desc = "Made from the NEW Xanu Prime peaches."
-	desc_extended = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush! Is the number one Coalition soda, despite its dull taste."
+	desc_extended = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush! Is the number one Coalition soda, despite \
+	its dull taste."
 	icon_state = "xanu_rush"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/peach_soda = 33)
@@ -504,8 +508,8 @@
 //
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda
-	name = "\improper Zo'ra Soda"
-	desc = "A can of Zo'ra Soda energy drink, with V'krexi additives. You aren't supposed to see this."
+	name = "\improper Zo'ra Soda parent item"
+	desc = DESC_PARENT
 	center_of_mass = list("x" = 16, "y" = 8)
 	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/decl/reagent/drink/zorasoda = 50)
@@ -513,55 +517,49 @@
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry
 	name = "\improper Zo'ra Soda Cherry"
 	desc = "A can of cherry flavoured Zo'ra Soda energy drink, with V'krexi additives. All good energy drinks come in cherry."
-
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/cherry = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron
 	name = "\improper Zo'ra Soda Phoron Passion"
 	desc = "A can of grape flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes nothing like phoron according to Unbound vaurca taste testers."
-
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/phoron = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/klax
-	name = "\improper K'laxan Energy Crush"
+	name = "\improper Zo'ra Soda Energy Crush"
 	desc = "A can of nitrogen-infused creamy orange zest flavoured Zo'ra Soda energy drink, with V'krexi additives. The smooth taste is engineered to near perfection."
-
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/klax = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur
-	name = "\improper C'thur Rockin' Raspberry"
+	name = "\improper Zo'ra Soda Rockin' Raspberry"
 	desc = "A can of \"blue raspberry\" flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes like a more flowery and aromatic raspberry."
-
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/cthur = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass
-	name = "\improper Zo'ra Sour Venom Grass"
+	name = "\improper Zo'ra Soda Sour Venom Grass"
 	desc = "A can of sour \"venom grass\" flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes like a cloud of angry stinging acidic bees."
-
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/venomgrass = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm // "Contraband"
-	name = "\improper High Octane Zorane Might"
-	desc = "A can of mint flavoured Zo'ra Soda energy drink, with a lot of V'krexi additives. Tastes like impaling the roof of your mouth with a freezing cold spear laced with angry bees and road salt.<br/>" + SPAN_DANGER(" WARNING: Not for the faint hearted!")
-
+	name = "\improper Zo'ra Soda High Octane Zorane Might"
+	desc = "A can of mint flavoured Zo'ra Soda energy drink, with a lot of V'krexi additives. Tastes like impaling the roof of your mouth with a freezing \
+	cold spear laced with angry bees and road salt.<br/>" + SPAN_DANGER(" WARNING: Not for the faint hearted!")
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/hozm = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/kois
 	name = "\improper Zo'ra Soda K'ois Twist"
 	desc = "A can of K'ois-imitation flavoured Zo'ra Soda energy drink, with V'krexi additives. Contains no K'ois, contrary to what the name may imply."
-
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/kois = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/drone
-	name = "\improper Vaurca Drone Fuel"
-	desc = "A can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives, meant for Vaurca.<br/>" + SPAN_DANGER(" WARNING: Known to induce vomiting in all species except vaurcae and dionae!")
-
+	name = "\improper Zo'ra Soda Drone Fuel"
+	desc = "A can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives, meant for Vaurcae.<br/>" + SPAN_DANGER("WARNING: Known to induce vomiting \
+	in all species except vaurcae and dionae!")
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/drone = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly
-	name = "\improper Royal Vaurca Jelly"
-	desc = "A can of..." + SPAN_ITALIC(" sludge?") + " It smells kind of pleasant either way. Royal jelly is a nutritious concentrated substance commonly created by Caretaker Vaurca in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
-
+	name = "\improper Zo'ra Soda Royal Jelly"
+	desc = "A can of..." + SPAN_ITALIC(" sludge?") + " It smells kind of pleasant either way. Royal jelly is a nutritious concentrated substance commonly created by \
+	caretaker Vaurcae in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/jelly = 50)
 
 #undef LETHAL_FUEL_CAPACITY
