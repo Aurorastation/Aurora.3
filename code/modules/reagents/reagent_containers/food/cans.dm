@@ -2,7 +2,7 @@
 // Cans
 //
 
-// Bomb Defines
+// Defines
 #define LETHAL_FUEL_CAPACITY 21 // This many units of fuel will cause a harmful explosion.
 #define FUSELENGTH_MAX       10 // This is the longest a fuse can be.
 #define FUSELENGTH_MIN        3 // And the minimum that the builder can intentionally make.
@@ -311,7 +311,9 @@
 		visible_message(SPAN_WARNING("<b>\The [name]'s fuse catches on fire!</b>"))
 	. = ..()
 
-// Cans
+//
+// Can Sizes
+//
 
 // 33 Centiliter Can
 // Regular sodas, juice, et cetera.
@@ -330,7 +332,9 @@
 	can_size_overrides = list("x" = 1)
 	volume = 50
 
+//
 // Drinks
+//
 
 // Carbonated Water
 /obj/item/reagent_containers/food/drinks/cans/carbonated_water
@@ -338,6 +342,16 @@
 	desc = "A 33 cl can of carbonated water."
 	sticker = "water"
 	reagents_to_add = list(/singleton/reagent/water/carbonated = 33)
+
+/obj/item/reagent_containers/food/drinks/cans/sodawater
+	name = "soda water"
+	desc = "A can of soda water. Still water's more refreshing cousin."
+	reagents_to_add = list(/singleton/reagent/drink/sodawater = 33)
+
+/obj/item/reagent_containers/food/drinks/cans/tonic
+	name = "\improper T-Borg's tonic water"
+	desc = "Quinine tastes funny, but at least it'll keep that Space Malaria away."
+	reagents_to_add = list(/singleton/reagent/drink/tonic = 33)
 
 // Starfall (Cola)
 /obj/item/reagent_containers/food/drinks/cans/starfall
@@ -395,75 +409,7 @@
 	sticker = "oj_dash"
 	reagents_to_add = list(/singleton/reagent/drink/brownstar = 33)
 
-// Pow2Go (Energy Drink)
-/obj/item/reagent_containers/food/drinks/cans/thirteenloko
-	name = "\improper Pow2Go"
-	desc = "An extremely ill-advised combination of excessive caffeine and alcohol. Getmore's most controversial product to date."
-	reagents_to_add = list(/singleton/reagent/alcohol/thirteenloko = 33)
-
-/obj/item/reagent_containers/food/drinks/cans/dr_gibb
-	name = "\improper Dr. Gibb"
-	desc = "A delicious mixture of 42 different flavors."
-	reagents_to_add = list(/singleton/reagent/drink/dr_gibb = 33)
-
-/obj/item/reagent_containers/food/drinks/cans/iced_tea
-	name = "\improper Silversun Wave ice tea"
-	desc = "Marketed as a favorite amongst parched Silversun beachgoers, there's actually more sugar in this than there is tea."
-	reagents_to_add = list(/singleton/reagent/drink/icetea = 33)
-
-/obj/item/reagent_containers/food/drinks/cans/grape_juice
-	name = "\improper Grapel juice"
-	desc = "500 pages of rules of how to appropriately enter into a combat with this juice!"
-	reagents_to_add = list(/singleton/reagent/drink/grapejuice = 33)
-
-/obj/item/reagent_containers/food/drinks/cans/tonic
-	name = "\improper T-Borg's tonic water"
-	desc = "Quinine tastes funny, but at least it'll keep that Space Malaria away."
-	reagents_to_add = list(/singleton/reagent/drink/tonic = 33)
-
-/obj/item/reagent_containers/food/drinks/cans/sodawater
-	name = "soda water"
-	desc = "A can of soda water. Still water's more refreshing cousin."
-	reagents_to_add = list(/singleton/reagent/drink/sodawater = 33)
-
-/obj/item/reagent_containers/food/drinks/cans/koispunch
-	name = "\improper Phoron Punch"
-	desc = "A can of Phoron Punch. " + SPAN_DANGER("WARNING: Phoron is toxic to non-Vaurcae. Consuming this product will lead to death.")
-	reagents_to_add = list(/singleton/reagent/water = 18, /singleton/reagent/kois/clean = 10, /singleton/reagent/toxin/phoron = 5)
-
-/obj/item/reagent_containers/food/drinks/cans/root_beer
-	name = "\improper RnD Root Beer"
-	desc = "A classic Earth drink from the United Americas province."
-	reagents_to_add = list(/singleton/reagent/drink/root_beer = 33)
-
-/obj/item/reagent_containers/food/drinks/cans/adhomai_milk
-	name = "fermented fatshouters milk"
-	desc = "A can of fermented fatshouters milk, imported from Adhomai."
-	desc_extended = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
-	reagents_to_add = list(/singleton/reagent/drink/milk/adhomai/fermented = 33)
-
-/obj/item/reagent_containers/food/drinks/cans/beetle_milk
-	name = "\improper Hakhma Milk"
-	desc = "A can of Hakhma beetle milk, sourced from Scarab and Drifter communities."
-	reagents_to_add = list(/singleton/reagent/drink/milk/beetle = 33)
-	can_size_overrides = list("x" = 1, "y" = -2)
-
-/obj/item/reagent_containers/food/drinks/cans/dyn
-	name = "Cooling Breeze"
-	desc = "The most refreshing thing you can find on the market, based on a Skrell medicinal plant. No salt or sugar."
-	reagents_to_add = list(/singleton/reagent/drink/dynjuice/cold = 33)
-
-/obj/item/reagent_containers/food/drinks/cans/threetowns
-	name = "\improper Three Towns Cider"
-	desc = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland.<br>" + SPAN_DANGER("WARNING: CONTAINS BUTANOL, INTENDED FOR UNATHI CONSUMPTION")
-	reagents_to_add = list(/singleton/reagent/alcohol/butanol/threetownscider = 33)
-
-/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda
-	name = "Hro'zamal Soda"
-	desc = "A can of Hro'zamal Soda. Made with Hro'zamal Ras'Nifs powder and canned in the People's Republic of Adhomai."
-	desc_extended = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as a herbal tea by the colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university students because of its stimulant effect."
-	reagents_to_add = list(/singleton/reagent/drink/hrozamal_soda = 33)
-
+// Xanu Rush (Peach Soda)
 /obj/item/reagent_containers/food/drinks/cans/peach_soda
 	name = "Xanu Rush"
 	desc = "Made from the fresh Xanu Prime peaches."
@@ -471,7 +417,73 @@
 	icon_state = "xanu_rush"
 	reagents_to_add = list(/singleton/reagent/drink/peach_soda = 33)
 
+// (Cherry Soda)
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb
+	name = "\improper Dr. Gibb"
+	desc = "A delicious mixture of 42 different flavors."
+	reagents_to_add = list(/singleton/reagent/drink/dr_gibb = 33)
+
+// (Sassafras Soda)
+/obj/item/reagent_containers/food/drinks/cans/root_beer
+	name = "\improper RnD Root Beer"
+	desc = "A classic Earth drink from the United Americas province."
+	reagents_to_add = list(/singleton/reagent/drink/root_beer = 33)
+
+/obj/item/reagent_containers/food/drinks/cans/grape_juice
+	name = "\improper Grapel juice"
+	desc = "500 pages of rules of how to appropriately enter into a combat with this juice!"
+	reagents_to_add = list(/singleton/reagent/drink/grapejuice = 33)
+
+/obj/item/reagent_containers/food/drinks/cans/iced_tea
+	name = "\improper Silversun Wave ice tea"
+	desc = "Marketed as a favorite amongst parched Silversun beachgoers, there's actually more sugar in this than there is tea."
+	reagents_to_add = list(/singleton/reagent/drink/icetea = 33)
+
+// Pow2Go (Energy Drink)
+/obj/item/reagent_containers/food/drinks/cans/thirteenloko
+	name = "\improper Pow2Go"
+	desc = "An extremely ill-advised combination of excessive caffeine and alcohol. Getmore's most controversial product to date."
+	reagents_to_add = list(/singleton/reagent/alcohol/thirteenloko = 33)
+
+//
+// Non-standard Drinks
+//
+
+// Cooling Breeze (Dyn Soda)
+/obj/item/reagent_containers/food/drinks/cans/dyn
+	name = "Cooling Breeze"
+	desc = "The most refreshing thing you can find on the market, based on a Skrell medicinal plant. No salt or sugar."
+	reagents_to_add = list(/singleton/reagent/drink/dynjuice/cold = 33)
+
+// Shouter Milk (Fermented Fatshouter Milk)
+/obj/item/reagent_containers/food/drinks/cans/adhomai_milk
+	name = "\improper Shouter Milk"
+	desc = "A can of fermented fatshouters milk, imported from Adhomai."
+	desc_extended = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
+	reagents_to_add = list(/singleton/reagent/drink/milk/adhomai/fermented = 33)
+
+// Hakhma Milk (Hahkma Bettle Milk)
+/obj/item/reagent_containers/food/drinks/cans/beetle_milk
+	name = "\improper Hakhma Milk"
+	desc = "A can of Hakhma beetle milk, sourced from Scarab and Drifter communities."
+	reagents_to_add = list(/singleton/reagent/drink/milk/beetle = 33)
+	can_size_overrides = list("x" = 1, "y" = -2)
+
+// Three Towns Cider (Non-descript Butanol-based Cider)
+/obj/item/reagent_containers/food/drinks/cans/threetowns
+	name = "\improper Three Towns Cider"
+	desc = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland.<br>" + SPAN_DANGER("WARNING: CONTAINS BUTANOL. INTENDED FOR UNATHI CONSUMPTION ONLY.")
+	reagents_to_add = list(/singleton/reagent/alcohol/butanol/threetownscider = 33)
+
+// Phoron Punch (Phoron-based Punch)
+/obj/item/reagent_containers/food/drinks/cans/koispunch
+	name = "\improper Phoron Punch"
+	desc = "A can of Phoron Punch. " + SPAN_DANGER("WARNING: CONTAINS PHORON. INTENDED FOR VAURCAE CONSUMPTION ONLY. CONSUMPTION OF THIS PRODUCT AS NON-VAURCAE WILL LEAD TO DEATH.")
+	reagents_to_add = list(/singleton/reagent/water = 18, /singleton/reagent/kois/clean = 10, /singleton/reagent/toxin/phoron = 5)
+
+//
 // Zo'ra Sodas
+//
 
 // Zo'ra Soda Parent Item
 /obj/item/reagent_containers/food/drinks/cans/zorasoda
@@ -538,6 +550,7 @@
 	sticker = "zora_royal_jelly"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/jelly = 50)
 
+// Undefines
 #undef LETHAL_FUEL_CAPACITY
 #undef FUSELENGTH_MAX
 #undef FUSELENGTH_MIN
