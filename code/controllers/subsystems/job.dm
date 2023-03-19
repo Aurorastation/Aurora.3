@@ -176,20 +176,19 @@
 				var/min_job_age = job.get_minimum_character_age(V.get_species())
 				var/ideal_job_age = job.get_ideal_character_age(V.get_species())
 
-				switch(age)
-					if(min_job_age to (min_job_age+10))
-						weightedCandidates[V] = 3 // Still a bit young.
-					if((min_job_age+10) to (ideal_job_age-10))
-						weightedCandidates[V] = 6 // Better.
-					if((ideal_job_age-10) to (ideal_job_age+10))
-						weightedCandidates[V] = 10 // Great.
-					if((ideal_job_age+10) to (ideal_job_age+20))
-						weightedCandidates[V] = 6 // Still good.
-					if((ideal_job_age+20) to INFINITY)
-						weightedCandidates[V] = 3 // Geezer.
-					else
-						// If there's ABSOLUTELY NOBODY ELSE
-						if(candidates.len == 1) weightedCandidates[V] = 1
+				if(age > (ideal_job_age + 20)) // Elderly for the position
+					weightedCandidates[V] = 3
+				else if(age > (ideal_job_age + 10)) // Good, but on the elderly side
+					weightedCandidates[V] = 6
+				else if(age > (ideal_job_age - 10)) // Perfect
+					weightedCandidates[V] = 10
+				else if(age > (min_job_age + 10)) // Good, but on the young side
+					weightedCandidates[V] = 6
+				else if(age >= min_job_age) // Too young
+					weightedCandidates[V] = 3
+				else
+					if(candidates.len == 1) // There's only one option
+						weightedCandidates[V] = 1
 
 			var/mob/abstract/new_player/candidate = pickweight(weightedCandidates)
 			if(AssignRole(candidate, command_position))

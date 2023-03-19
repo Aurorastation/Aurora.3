@@ -2,7 +2,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir
 	name = "Ae'themir"
 	desc = "A planet comprised mainly of solid common minerals and silicate."
-	color = "#B1A69B"
+	color = "#bf7c39"
 	icon_state = "globe1"
 	rock_colors = list(COLOR_GRAY80)
 	possible_themes = list(/datum/exoplanet_theme/mountains)
@@ -29,7 +29,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar
 	name = "Az'Mar"
 	desc = "A small planet with a caustic shale crust. The surface is extremely hot and dense."
-	color = "#4a3f41"
+	color = "#8f4754"
 	icon_state = "globe2"
 	rock_colors = null
 	plant_colors = null
@@ -74,7 +74,7 @@
 	name = "Raskara"
 	desc = "A barren moon orbiting Adhomai."
 	icon_state = "globe1"
-	color = "#373737"
+	color = "#ab46d4"
 	rock_colors = list("#373737")
 	planetary_area = /area/exoplanet/barren/raskara
 	possible_themes = list(/datum/exoplanet_theme/mountains)
@@ -156,14 +156,14 @@
 			/datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 			/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd, /datum/map_template/ruin/exoplanet/adhomai_amohdan,
 			/datum/map_template/ruin/exoplanet/ala_cell, /datum/map_template/ruin/exoplanet/adhomai_chemical_testing, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue_toppled, /datum/map_template/ruin/exoplanet/ala_base,
-			/datum/map_template/ruin/exoplanet/adhomai_deserter, /datum/map_template/ruin/exoplanet/adhomai_nuclear_waste_makeshift)
+			/datum/map_template/ruin/exoplanet/adhomai_deserter, /datum/map_template/ruin/exoplanet/adhomai_nuclear_waste_makeshift, /datum/map_template/ruin/exoplanet/adhomai_rredouane_shrine)
 
 		if("New Kingdom of Adhomai")
 			possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
 			/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual,
 			/datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout,/datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 			/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd, /datum/map_template/ruin/exoplanet/adhomai_amohdan, /datum/map_template/ruin/exoplanet/adhomai_archeology,
-			/datum/map_template/ruin/exoplanet/nka_base, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue_toppled)
+			/datum/map_template/ruin/exoplanet/nka_base, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue_toppled, /datum/map_template/ruin/exoplanet/adhomai_rredouane_shrine)
 
 		if("North Pole")
 			features_budget = 1

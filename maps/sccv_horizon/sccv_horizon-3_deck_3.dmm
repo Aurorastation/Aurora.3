@@ -4546,6 +4546,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/firing_range)
 "dVW" = (
@@ -7606,8 +7607,8 @@
 	},
 /obj/machinery/power/sensor{
 	long_range = 1;
-	name = "Powernet Sensor - Shields Subgrid";
-	name_tag = "Shields Subgrid"
+	name = "Powernet Sensor - Shield Subgrid";
+	name_tag = "Shield Subgrid"
 	},
 /obj/structure/cable/cyan{
 	icon_state = "1-2"
@@ -16363,12 +16364,9 @@
 	},
 /area/bridge/controlroom)
 "nbl" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/lattice,
-/turf/simulated/open/airless,
-/area/template_noop)
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "nbm" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -20664,9 +20662,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/sign/nosmoking_2{
-	pixel_y = 32
-	},
 /obj/item/gun/energy/disruptorpistol/practice{
 	pixel_y = -4
 	},
@@ -20680,6 +20675,10 @@
 /obj/item/gun/energy/rifle/laser/practice,
 /obj/item/gun/energy/rifle/laser/practice{
 	pixel_y = 4
+	},
+/obj/machinery/alarm{
+	pixel_y = 28;
+	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/firing_range)
@@ -21568,10 +21567,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/power/sensor{
-	name = "Powernet Sensor - Command Subgrid";
-	name_tag = "Command Subgrid"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -22012,6 +22007,10 @@
 /obj/structure/cable/green,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Deck 3 Command Subgrid";
+	name_tag = "Deck 3 Command Subgrid"
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
@@ -27801,8 +27800,11 @@
 "vSg" = (
 /obj/effect/floor_decal/spline/plain/cee,
 /obj/machinery/power/sensor{
-	name = "Powernet Sensor - Telecommunications Subgrid";
-	name_tag = "Telecommunications Subgrid"
+	name = "Powernet Sensor - Deck 3 Telecommunications Subgrid";
+	name_tag = "Deck 3 Telecommunications Subgrid"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -47409,7 +47411,7 @@ wGH
 vkb
 vtk
 ewP
-dSF
+slH
 hBa
 otI
 otI
@@ -47419,11 +47421,11 @@ otI
 otI
 otI
 opC
-dSF
-dSF
-dSF
-dSF
-dSF
+slH
+slH
+slH
+slH
+slH
 dSF
 dSF
 dSF
@@ -47625,8 +47627,8 @@ otI
 otI
 otI
 opC
-dSF
-dSF
+slH
+slH
 dSF
 dSF
 dSF
@@ -47828,8 +47830,8 @@ wGH
 wGH
 vBY
 opC
-dSF
-dSF
+slH
+slH
 dSF
 dSF
 dSF
@@ -48031,7 +48033,7 @@ bqA
 wGH
 vBY
 opC
-dSF
+slH
 dSF
 dSF
 dSF
@@ -48233,7 +48235,7 @@ fgF
 bqA
 wGH
 vkb
-dSF
+slH
 dSF
 dSF
 dSF
@@ -48435,7 +48437,7 @@ rFu
 grm
 bqA
 vkb
-dSF
+slH
 dSF
 dSF
 dSF
@@ -53485,7 +53487,7 @@ vZO
 eri
 qsz
 vkb
-dSF
+slH
 dSF
 dSF
 dSF
@@ -53687,7 +53689,7 @@ eri
 qsz
 wGH
 vkb
-dSF
+slH
 dSF
 dSF
 dSF
@@ -53889,7 +53891,7 @@ qsz
 wGH
 bEW
 kMe
-dSF
+slH
 dSF
 dSF
 dSF
@@ -54082,8 +54084,8 @@ sGh
 sGh
 drY
 drY
-leE
-oCi
+cPq
+wGH
 wGH
 wGH
 wGH
@@ -54274,25 +54276,25 @@ cPq
 cPq
 cPq
 cPq
-mKC
-grY
-grY
-grY
-grY
-grY
-grY
-grY
-grY
-grY
-grY
-uLF
-leE
-leE
-leE
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+wGH
+wGH
+wGH
+bEW
 leE
 leE
 kMe
-slH
+dSF
 dSF
 dSF
 dSF
@@ -54476,25 +54478,25 @@ cPq
 cPq
 cPq
 cPq
-mKC
-iKX
 nbl
-iKX
-iKX
-iKX
-iKX
-iKX
-iKX
-iKX
-iKX
+fJy
+fJy
+fJy
+fJy
+fJy
+fJy
+fJy
+fJy
+fJy
+fJy
+leE
+leE
+leE
+kMe
 slH
 slH
-slH
-slH
-slH
-slH
-slH
-slH
+dSF
+dSF
 dSF
 dSF
 dSF
@@ -54682,18 +54684,18 @@ mKC
 slH
 lix
 slH
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
+slH
+slH
+slH
+slH
+slH
+slH
+slH
+slH
+slH
+slH
+slH
+slH
 dSF
 dSF
 dSF

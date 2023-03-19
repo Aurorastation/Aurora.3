@@ -438,6 +438,23 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	to_world("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>")
 	to_world("Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
+
+	// Compute and, if available, print the ghost roles in the pre-round lobby. Begone, people who do not ready up to see what ghost roles will be available!
+	var/list/available_ghostroles = list()
+
+	for(var/s in SSghostroles.spawners)
+		var/datum/ghostspawner/G = SSghostroles.spawners[s]
+		if(G.enabled && !("Antagonist" in G.tags) && !(G.loc_type == GS_LOC_ATOM && !length(G.spawn_atoms)))
+			available_ghostroles |= G.name
+
+	// Special case, to list the Merchant in case it is available at roundstart
+	if(SSjobs.type_occupations[/datum/job/merchant].total_positions)
+		available_ghostroles |= SSjobs.type_occupations[/datum/job/merchant].title
+
+	if(length(available_ghostroles))
+		to_world("<br /><br />" + SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round:")) + "[english_list(available_ghostroles)].<br />" + \
+		SPAN_INFO("Please note that the actual availability depends on additional things, including your user (eg. job bans)"))
+
 	callHook("pregame_start")
 
 /datum/controller/subsystem/ticker/proc/setup()

@@ -1,3 +1,5 @@
+#define IS_OPAQUE_TURF(turf)	(turf.opacity || turf.has_opaque_atom)
+
 #define TURF_REMOVE_CROWBAR     1
 #define TURF_REMOVE_SCREWDRIVER 2
 #define TURF_REMOVE_SHOVEL      4

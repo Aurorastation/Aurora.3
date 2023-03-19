@@ -251,11 +251,19 @@
 	icon_state = "pra_consular"
 	item_state = "pra_consular"
 
+/obj/item/clothing/under/tajaran/consular/female
+	icon_state = "pra_con_f"
+	item_state = "pra_con_f"
+
 /obj/item/clothing/under/tajaran/consular/dpra
 	name = "democratic people's republic consular uniform"
 	desc = "A grey uniform used by the diplomatic service of the Democratic People's Republic of Adhomai."
 	icon_state = "dpra_consular"
 	item_state = "dpra_consular"
+
+/obj/item/clothing/under/tajaran/consular/dpra/female
+	icon_state = "dpra_con_f"
+	item_state = "dpra_con_f"
 
 /obj/item/clothing/under/tajaran/consular/nka
 	name = "new kingdom consular uniform"
