@@ -19,9 +19,9 @@
 	icon = 'icons/obj/item/reagent_containers/food/drinks/cans.dmi'
 	icon_state = "can_33cl"
 	desc_info = "Activate it in your active hand to open it.<br>\
-				 - If it's carbonated and closed, you can shake it by activating it on harm intent.<br>\
-				 - If it's empty, you can crush it on your forehead by selecting your head on the targetting doll and clicking on yourself on harm intent.<br>\
-				 - You can also crush cans on other people's foreheads as well."
+	- If it's carbonated and closed, you can shake it by activating it on harm intent.<br>\
+	- If it's empty, you can crush it on your forehead by selecting your head on the targetting doll and clicking on yourself on harm intent.<br>\
+	- You can also crush cans on other people's foreheads as well."
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
 	flags = 0 // Item flag to check if you can pour stuff inside.
