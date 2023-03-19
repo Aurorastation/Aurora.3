@@ -112,8 +112,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 		"crowbar",
 		"screwdriver",
 		"wrench",
-		"wirecutters",
-		"multitool"
+		"wirecutters"
 		)
 
 
