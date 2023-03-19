@@ -1074,7 +1074,7 @@
 		return
 	holder.add_reagent(/singleton/reagent/oculine, removed * 0.2)
 
-/singleton/reagent/drink/grapejuice
+/singleton/reagent/drink/grape_juice
 	name = "Grape Juice"
 	description = "It's grrrrrape!"
 	color = "#660099"
@@ -1225,7 +1225,7 @@
 	glass_name = "pear juice"
 	glass_desc = "Delicious juice made from pears."
 
-/singleton/reagent/drink/dynjuice
+/singleton/reagent/drink/dyn_juice
 	name = "Dyn Juice"
 	description = "Juice from a dyn leaf. Good for you, but normally not consumed undiluted."
 	taste_description = "astringent menthol"
@@ -1235,7 +1235,7 @@
 	glass_name = "glass of dyn juice"
 	glass_desc = "Juice from a dyn leaf. Good for you, but normally not consumed undiluted."
 
-/singleton/reagent/drink/dynjuice/hot
+/singleton/reagent/drink/dyn_juice/hot
 	name = "Dyn Tea"
 	taste_description = "peppermint water"
 	description = "An old-fashioned, but traditional Skrell drink with documented medicinal properties."
@@ -1244,7 +1244,7 @@
 	glass_name = "cup of dyn tea"
 	glass_desc = "An old-fashioned, but traditional Skrell drink with documented medicinal properties."
 
-/singleton/reagent/drink/dynjuice/cold
+/singleton/reagent/drink/dyn_juice/cold
 	name = "Dyn Ice Tea"
 	taste_description = "fizzy mint tea"
 	description = "A modern spin on an old formula, popular among Skrell youngsters. Good for you."
@@ -1368,7 +1368,7 @@
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
 
-/singleton/reagent/drink/icetea
+/singleton/reagent/drink/ice_tea
 	name = "Iced Tea"
 	description = "No relation to a certain rap artist/ actor."
 	color = "#984707"
@@ -1638,7 +1638,7 @@
 	glass_name = "glass of sweet tea"
 	glass_desc = "Hope you have a good dentist!"
 
-/singleton/reagent/drink/dynjuice/thewake //dyn properties
+/singleton/reagent/drink/dyn_juice/thewake //dyn properties
 	name = "The Wake"
 	description = "The tea-based alternative to a Sromshine."
 	color = "#00E0E0"
@@ -1942,7 +1942,7 @@
 	glass_name = "cup of hot chocolate"
 	glass_desc = "Made with love! And cocoa beans."
 
-/singleton/reagent/drink/sodawater
+/singleton/reagent/drink/soda_water
 	name = "Soda Water"
 	description = "A can of club soda. Why not make a scotch and soda?"
 	color = "#619494"
@@ -1967,7 +1967,7 @@
 	glass_name = "glass of grape soda"
 	glass_desc = "Looks like a delicious drink!"
 
-/singleton/reagent/drink/tonic
+/singleton/reagent/drink/tonic_water
 	name = "Tonic Water"
 	description = "It tastes strange but at least the quinine keeps the Space Malaria at bay."
 	color = "#AEE5E4"
@@ -2013,16 +2013,16 @@
 	glass_desc = "Long live the guy who everyone had mistaken for a girl. Baka!"
 	glass_center_of_mass = list("x"=16, "y"=12)
 
-/singleton/reagent/drink/brownstar
-	name = "Orange Starshine"
+/singleton/reagent/drink/oj_dash
+	name = "OJ Dash"
 	description = "A citrusy orange soda."
 	color = "#9F3400"
-	taste_description = "orange and cola soda"
+	taste_description = "orange soda"
 	carbonated = TRUE
 
 	glass_icon_state = "brownstar"
-	glass_name = "glass of Orange Starshine"
-	glass_desc = "A citrusy orange soda."
+	glass_name = "glass of OJ Dash"
+	glass_desc = "A glass of OJ Dash."
 
 /singleton/reagent/drink/mintsyrup
 	name = "Mint Syrup"
@@ -2097,7 +2097,7 @@
 	glass_desc = "Sweet and tangy, a bar syrup used to add color or flavor to drinks."
 	glass_center_of_mass = list("x"=17, "y"=6)
 
-/singleton/reagent/drink/space_cola
+/singleton/reagent/drink/comet_cola
 	name = "Comet Cola"
 	description = "A refreshing beverage."
 	reagent_state = LIQUID
@@ -2111,9 +2111,9 @@
 	glass_desc = "A glass of refreshing Comet Cola"
 	glass_center_of_mass = list("x"=17, "y"=6)
 
-/singleton/reagent/drink/spacemountainwind
-	name = "Stellar Jolt"
-	description = "For those who have a stronger need for caffeine than they have sense."
+/singleton/reagent/drink/lemon_twist
+	name = "Lemon Twist"
+	description = "A sweet citrus soda."
 	color = "#a2ff8d"
 	adj_drowsy = -7
 	adj_sleepy = -1
@@ -2122,31 +2122,31 @@
 
 	glass_icon_state = "Space_mountain_wind_glass"
 	glass_name = "glass of Stellar Jolt"
-	glass_desc = "Stellar Jolt. Lemony and full of sugar."
+	glass_desc = "A glass of Lemon Twist."
 
-/singleton/reagent/drink/dr_gibb
-	name = "Dr. Gibb"
-	description = "A delicious blend of 42 different flavours"
+/singleton/reagent/drink/cherry_blossom
+	name = "Cherry Blossom"
+	description = "A cherry soda."
 	color = "#93230b"
 	adj_drowsy = -6
 	taste_description = "cherry soda"
 	carbonated = TRUE
 
 	glass_icon_state = "dr_gibb_glass"
-	glass_name = "glass of Dr. Gibb"
-	glass_desc = "Dr. Gibb. Not as dangerous as the name might imply."
+	glass_name = "glass of Cherry Blossom"
+	glass_desc = "A glass of Cherry Blossom."
 
-/singleton/reagent/drink/root_beer
+/singleton/reagent/drink/getmore_root_beer
 	name = "Getmore Root Beer"
 	description = "A classic Earth drink, made from various roots."
 	color = "#211100"
 	adj_drowsy = -6
-	taste_description = "sassafras and anise soda"
+	taste_description = "sassafras soda"
 	carbonated = TRUE
 
 	glass_icon_state = "root_beer_glass"
 	glass_name = "glass of Getmore Root Beer"
-	glass_desc = "A glass of bubbly Getmore Root Beer."
+	glass_desc = "A glass of Getmore Root Beer."
 
 /singleton/reagent/drink/spaceup
 	name = "Vacuum Fizz"
@@ -2640,21 +2640,21 @@
 	glass_desc = "Now all that's missing is the weird colored shades!"
 	glass_center_of_mass = list("x"=16, "y"=12)
 
-/singleton/reagent/alcohol/thirteenloko
-	name = "Getmore Energy"
+/singleton/reagent/alcohol/pow2go
+	name = "Pow2Go"
 	description = "A potent mixture of caffeine and alcohol."
 	color = "#ffb928"
 	strength = 10
 	nutriment_factor = 1
 	caffeine = 0.5
-	taste_description = "jitters and death"
+	taste_description = "generic energy drink flavour, coffeine, and mild alcohol"
 	carbonated = TRUE
 
 	glass_icon_state = "thirteen_loko_glass"
-	glass_name = "glass of Getmore Energy"
-	glass_desc = "This is a glass of Getmore Energy, a potent mixture of caffeine and alcohol."
+	glass_name = "glass of Pow2Go"
+	glass_desc = "A glass of Pow2Go."
 
-/singleton/reagent/alcohol/thirteenloko/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/alcohol/pow2go/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	if(alien == IS_DIONA)
 		return
@@ -3824,16 +3824,16 @@
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 // Snowflake drinks
-/singleton/reagent/drink/dr_gibb_diet
-	name = "Getmore Root-Cola"
-	description = "A delicious blend of 42 different flavours, one of which is water."
+/singleton/reagent/drink/cherry_blossom_zero
+	name = "Cherry Blossom Zero"
+	description = "A cherry soda."
 	color = "#93230b"
-	taste_description = "watered down liquid sunshine"
+	taste_description = "cherry soda"
 	carbonated = TRUE
 
 	glass_icon_state = "dr_gibb_glass"
-	glass_name = "glass of Diet Getmore Root Cola"
-	glass_desc = "Regular Root Cola is probably healthier than this cocktail of artificial flavors."
+	glass_name = "glass of Cherry Blossom Zero"
+	glass_desc = "A glass of Cherry Blossom Zero."
 
 /singleton/reagent/alcohol/drdaniels
 	name = "Dr. Daniels"
@@ -4669,14 +4669,17 @@
 	glass_name = "glass of Sarezhi Wine"
 	glass_desc = "It tastes like plain berry juice. Is this supposed to be alcoholic?"
 
-/singleton/reagent/alcohol/butanol/threetownscider
+/singleton/reagent/alcohol/butanol/three_towns_cider
 	name = "Three Towns Cider"
 	description = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland."
 	color = "#b8f77e"
 	strength = 20
 	taste_description = "bittersweet root juice"
 
-//Kaed's Unathi Cocktails
+	glass_name = "glass of Three Towns Cider"
+	glass_desc = "A glass of Three Towns Cider."
+
+// Unathi Cocktails
 //=======
 //What an exciting time we live in, that lizards may drink fruity girl drinks.
 /singleton/reagent/alcohol/butanol/moghesmargarita
@@ -4879,7 +4882,7 @@
 	glass_desc = "A variation of Mictlanian pulque that is safe to consume for Unathi."
 
 // Zo'ra Sodas
-/singleton/reagent/drink/zorasoda
+/singleton/reagent/drink/zora_soda
 	name = "Zo'ra Soda"
 	description = "Zo'ra Soda. You aren't supposed to see this."
 	color = "#000000"
@@ -4891,72 +4894,72 @@
 	taste_description = "zo'ra soda"
 	carbonated = TRUE
 
-/singleton/reagent/drink/zorasoda/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drink/zora_soda/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien != IS_DIONA)
 		if(prob(2))
 			to_chat(M, SPAN_GOOD(pick("You feel great!", "You feel full of energy!", "You feel alert and focused!")))
 
-/singleton/reagent/drink/zorasoda/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+/singleton/reagent/drink/zora_soda/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	if(!(alien in list(IS_DIONA, IS_VAURCA)))
 		M.make_jittery(5)
 
-/singleton/reagent/drink/zorasoda/cherry
-	name = "Zo'ra Cherry"
-	description = "Zo'ra Soda, cherry edition. All good energy drinks come in cherry."
+/singleton/reagent/drink/zora_soda/cherry
+	name = "Zo'ra Soda Cherry"
+	description = "Some Zo'ra Soda Cherry."
 	color = "#102000"
 	taste_description = "bitter cherry"
 
-/singleton/reagent/drink/zorasoda/phoron
-	name = "Zo'ra Phoron Passion"
-	description = "Tastes nothing like phoron, but everything like grapes."
+/singleton/reagent/drink/zora_soda/phoron_passion
+	name = "Zo'ra Soda Phoron Passion"
+	description = "Some Zo'ra Phoron Passion."
 	color = "#863333"
 	taste_description = "fruity grape"
 
-/singleton/reagent/drink/zorasoda/klax
-	name = "K'laxan Energy Crush"
-	description = "An orange zest cream soda with a delicious smooth taste."
+/singleton/reagent/drink/zora_soda/energy_crush
+	name = "Zo'ra Soda Energy Crush"
+	description = "Some Zo'ra Soda Energy Crush."
 	color = "#E78108"
 	taste_description = "fizzy and creamy orange zest"
 
-/singleton/reagent/drink/zorasoda/cthur
-	name = "C'thur Rockin' Raspberry"
-	description = "A raspberry concoction you're pretty sure is already on recall."
+/singleton/reagent/drink/zora_soda/rockin_raspberry
+	name = "Zo'ra Soda Rockin' Raspberry"
+	description = "Some Zo'ra Soda Rockin' Raspberry."
 	color = "#0000CD"
 	taste_description = "sweet flowery raspberry"
 
-/singleton/reagent/drink/zorasoda/venomgrass
-	name = "Zo'ra Sour Venom Grass"
-	description = "The milder version of High Energy Zorane Might. Still tastes like a cloud of angry stinging acidic bees, though."
+/singleton/reagent/drink/zora_soda/sour_venom_grass
+	name = "Zo'ra Soda Sour Venom Grass"
+	description = "Some Zo'ra Soda Sour Venom Grass."
 	color = "#100800"
 	taste_description = "fizzy acidic nettles"
 
-/singleton/reagent/drink/zorasoda/hozm // "Contraband"
-	name = "Zo'ra High Octane Zorane Might"
-	description = "It feels like someone is driving a freezing cold spear through the bottom of your mouth."
+/singleton/reagent/drink/zora_soda/hozm // "Contraband"
+	name = "Zo'ra Soda High Octane Zorane Might"
+	description = "Some Zo'ra Soda High Octane Zorane Might."
 	color = "#365000"
 	overdose = 20
 	caffeine = 0.6
 	taste_description = "biting into an acidic lemon mixed with strong mint"
 
-/singleton/reagent/drink/zorasoda/hozm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drink/zora_soda/hozm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	if(!(alien in list(IS_DIONA, IS_VAURCA)))
 		M.make_jittery(10)
 
-/singleton/reagent/drink/zorasoda/kois
-	name = "Zo'ra K'ois Twist"
-	description = "Tastes exactly like how a kitchen smells after boiling brussel sprouts."
+/singleton/reagent/drink/zora_soda/kois_twist
+	name = "Zo'ra Soda K'ois Twist"
+	description = "Some Zo'ra Soda K'ois Twist."
 	color = "#DCD9CD"
 	taste_description = "sugary cabbage"
 
-/singleton/reagent/drink/zorasoda/drone
-	name = "Vaurca Drone Fuel"
-	description = "It's as thick as syrup and smells of gasoline. Why."
+/singleton/reagent/drink/zora_soda/drone_fuel
+	name = "Zo'ra Soda Drone Fuel"
+	description = "Some Zo'ra Soda Drone Fuel."
 	color = "#31004A"
 	taste_description = "viscous stale cola mixed with gasoline"
 	carbonated = TRUE
 
-/singleton/reagent/drink/zorasoda/drone/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drink/zora_soda/drone_fuel/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 
@@ -4970,14 +4973,14 @@
 			to_chat(M, pick(SPAN_WARNING("You feel nauseous!"), SPAN_WARNING("Ugh... You're going to be sick!"), SPAN_WARNING("Your stomach churns uncomfortably!"), SPAN_WARNING("You feel like you're about to throw up!"), SPAN_WARNING("You feel queasy!")))
 			M.vomit()
 
-/singleton/reagent/drink/zorasoda/jelly
-	name = "Royal Vaurca Jelly"
-	description = "It looks like mucus, but tastes like heaven. Royal jelly is a nutritious concentrated substance commonly created by Caretaker Vaurca in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
+/singleton/reagent/drink/zora_soda/royal_jelly
+	name = "Zo'ra Soda Royal Jelly"
+	description = "Some Zo'ra Soda Royal Jelly."
 	color = "#FFFF00"
 	caffeine = 0.3
 	taste_description = "sweet flowers and nectar mixed with aromatic spices"
 
-/singleton/reagent/drink/zorasoda/jelly/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drink/zora_soda/royal_jelly/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	if(alien != IS_DIONA)
 		M.druggy = max(M.druggy, 30)
@@ -5251,9 +5254,9 @@
 	glass_name = "glass of root-cola floats"
 	glass_desc = "A floating soda of icecream and Getmore Root-Cola."
 
-/singleton/reagent/drink/diet_cola
-	name = "Diet Cola"
-	description = "Comet cola! Now in diet!"
+/singleton/reagent/drink/comet_cola_max
+	name = "Comet Cola Max"
+	description = "Some Comet Cola Max."
 	color = "#100800"
 	taste_description = "cola and less calories"
 	carbonated = TRUE
@@ -5282,9 +5285,9 @@
 	glass_name = "glass of strawberry milk"
 	glass_desc = "A mixture of perfectly healthy milk and delicious strawberry."
 
-/singleton/reagent/drink/peach_soda
-	name = "Xanu Rush!"
-	description = "Made from the NEW Xanu Prime peaches."
+/singleton/reagent/drink/xanu_rush
+	name = "Xanu Rush"
+	description = "Some Xanu Rush."
 	color = "#FFE5B4"
 	taste_description = "dull peaches"
 	carbonated = TRUE

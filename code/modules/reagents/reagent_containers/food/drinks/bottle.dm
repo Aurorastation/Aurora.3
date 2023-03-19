@@ -410,7 +410,7 @@
 	drink_flags = NO_EMPTY_ICON
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
-	reagents_to_add = list(/singleton/reagent/drink/space_cola = 100)
+	reagents_to_add = list(/singleton/reagent/drink/comet_cola = 100)
 	shatter_material = MATERIAL_PLASTIC
 	fragile = 0
 
@@ -436,7 +436,7 @@
 	drink_flags = NO_EMPTY_ICON
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
-	reagents_to_add = list(/singleton/reagent/drink/spacemountainwind = 100)
+	reagents_to_add = list(/singleton/reagent/drink/lemon_twist = 100)
 	shatter_material = MATERIAL_PLASTIC
 	fragile = 0
 

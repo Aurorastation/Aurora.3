@@ -1744,7 +1744,7 @@
 	desc = "The traditional Mictlanian pozole, incorporating dyn to add flavor."
 	icon_state = "dynpozole"
 	reagent_data = list(/singleton/reagent/nutriment = list("peppermint" = 2, "salad" = 4, "hot stew" = 2))
-	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/water = 5, /singleton/reagent/drink/dynjuice =2)
+	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/water = 5, /singleton/reagent/drink/dyn_juice =2)
 
 /obj/item/reagent_containers/food/snacks/soup/brudet
 	name = "morozian brudet"
@@ -4000,7 +4000,7 @@
 	name = "neaera stew"
 	desc = "Stew made from neaera meat. It is typically garnished with other foods such as guami, eki, or dyn depending on taste."
 	icon_state = "neaera_stew"
-	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/drink/dynjuice = 4)
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/drink/dyn_juice = 4)
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("meaty mushroom" = 2))
 	filling_color = "#7C66DD"
 

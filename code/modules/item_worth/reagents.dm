@@ -192,7 +192,7 @@
 /singleton/reagent/alcohol/tequila
 	value = 0.1
 
-/singleton/reagent/alcohol/thirteenloko
+/singleton/reagent/alcohol/pow2go
 	value = 0.15
 
 /singleton/reagent/alcohol/vermouth

@@ -63,7 +63,7 @@
 	seed_name = "grape"
 	display_name = "grapevines"
 	mutants = list("greengrapes")
-	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/sugar = list(1,5), /singleton/reagent/drink/grapejuice = list(10,10), /singleton/reagent/nutriment/grapejelly = list(1,8))
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/sugar = list(1,5), /singleton/reagent/drink/grape_juice = list(10,10), /singleton/reagent/nutriment/grapejelly = list(1,8))
 
 /datum/seed/grapes/setup_traits()
 	..()

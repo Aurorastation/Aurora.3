@@ -44,7 +44,7 @@
 
 /singleton/proteinbar_flavor/honeybuns
 	name = "honey buns"
-	reagents = list(/singleton/reagent/nutriment/honey, /singleton/reagent/drink/grapejuice)
+	reagents = list(/singleton/reagent/nutriment/honey, /singleton/reagent/drink/grape_juice)
 
 /singleton/proteinbar_flavor/powerfulpeppermint
 	name = "powerful peppermint"

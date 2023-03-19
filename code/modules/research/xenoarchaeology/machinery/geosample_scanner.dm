@@ -49,7 +49,7 @@
 	create_reagents(500)
 	coolant_reagents_purity[/singleton/reagent/water] = 0.5
 	coolant_reagents_purity[/singleton/reagent/drink/coffee/icecoffee] = 0.6
-	coolant_reagents_purity[/singleton/reagent/drink/icetea] = 0.6
+	coolant_reagents_purity[/singleton/reagent/drink/ice_tea] = 0.6
 	coolant_reagents_purity[/singleton/reagent/drink/milkshake] = 0.6
 	coolant_reagents_purity[/singleton/reagent/leporazine] = 0.7
 	coolant_reagents_purity[/singleton/reagent/kelotane] = 0.7

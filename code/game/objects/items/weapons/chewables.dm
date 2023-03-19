@@ -176,7 +176,7 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/candy/gum/Initialize()
 	. = ..()
-	reagents.add_reagent(pick(/singleton/reagent/drink/banana,/singleton/reagent/drink/berryjuice,/singleton/reagent/drink/grapejuice,/singleton/reagent/drink/lemonjuice,/singleton/reagent/drink/limejuice,/singleton/reagent/drink/orangejuice,/singleton/reagent/drink/watermelonjuice),10)
+	reagents.add_reagent(pick(/singleton/reagent/drink/banana,/singleton/reagent/drink/berryjuice,/singleton/reagent/drink/grape_juice,/singleton/reagent/drink/lemonjuice,/singleton/reagent/drink/limejuice,/singleton/reagent/drink/orangejuice,/singleton/reagent/drink/watermelonjuice),10)
 	color = reagents.get_color()
 	update_icon()
 
@@ -243,7 +243,7 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/candy/lolli/Initialize()
 	. = ..()
-	reagents.add_reagent(pick(/singleton/reagent/drink/banana,/singleton/reagent/drink/berryjuice,/singleton/reagent/drink/grapejuice,/singleton/reagent/drink/lemonjuice,/singleton/reagent/drink/limejuice,/singleton/reagent/drink/orangejuice,/singleton/reagent/drink/watermelonjuice),20)
+	reagents.add_reagent(pick(/singleton/reagent/drink/banana,/singleton/reagent/drink/berryjuice,/singleton/reagent/drink/grape_juice,/singleton/reagent/drink/lemonjuice,/singleton/reagent/drink/limejuice,/singleton/reagent/drink/orangejuice,/singleton/reagent/drink/watermelonjuice),20)
 	color = reagents.get_color()
 	update_icon()
 

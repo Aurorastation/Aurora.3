@@ -127,7 +127,7 @@ var/list/lunchables_alcohol_reagents_ = list(
 	/singleton/reagent/alcohol/coffee,
 	/singleton/reagent/alcohol/hippiesdelight,
 	/singleton/reagent/alcohol/hooch,
-	/singleton/reagent/alcohol/thirteenloko,
+	/singleton/reagent/alcohol/pow2go,
 	/singleton/reagent/alcohol/manhattan_proj,
 	/singleton/reagent/alcohol/neurotoxin,
 	/singleton/reagent/alcohol/pwine,

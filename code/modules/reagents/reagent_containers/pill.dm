@@ -255,7 +255,7 @@ obj/item/reagent_containers/pill/joy
 
 /obj/item/reagent_containers/pill/bio_vitamin/Initialize()
 	. = ..()
-	var/juice = pick(/singleton/reagent/drink/banana, /singleton/reagent/drink/berryjuice, /singleton/reagent/drink/grapejuice, /singleton/reagent/drink/lemonjuice, /singleton/reagent/drink/limejuice, /singleton/reagent/drink/orangejuice, /singleton/reagent/drink/watermelonjuice)
+	var/juice = pick(/singleton/reagent/drink/banana, /singleton/reagent/drink/berryjuice, /singleton/reagent/drink/grape_juice, /singleton/reagent/drink/lemonjuice, /singleton/reagent/drink/limejuice, /singleton/reagent/drink/orangejuice, /singleton/reagent/drink/watermelonjuice)
 	reagents.add_reagent(juice, 1)
 
 /obj/item/reagent_containers/pill/rmt

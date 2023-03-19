@@ -48,26 +48,26 @@
 	wine		spawn_reagent = /singleton/reagent/alcohol/wine
 
 	// Bar, soft
-	apple   	spawn_reagent = /singleton/reagent/drink/applejuice
-	banana  	spawn_reagent = /singleton/reagent/drink/banana
-	berryjuice	spawn_reagent = /singleton/reagent/drink/berryjuice
-	brownstar	spawn_reagent = /singleton/reagent/drink/brownstar
-	clean_kois	spawn_reagent = /singleton/reagent/kois/clean
-	cola		spawn_reagent = /singleton/reagent/drink/space_cola
-	dr_gibb		spawn_reagent = /singleton/reagent/drink/dr_gibb
-	grenadine	spawn_reagent = /singleton/reagent/drink/grenadine
-	ice			spawn_reagent = /singleton/reagent/drink/ice
-	icetea		spawn_reagent = /singleton/reagent/drink/icetea
-	lemon_lime	spawn_reagent = /singleton/reagent/drink/lemon_lime
-	lime		spawn_reagent = /singleton/reagent/drink/limejuice
-	orange		spawn_reagent = /singleton/reagent/drink/orangejuice
-	root_beer	spawn_reagent = /singleton/reagent/drink/root_beer
-	smw			spawn_reagent = /singleton/reagent/drink/spacemountainwind
-	sodawater	spawn_reagent = /singleton/reagent/drink/sodawater
-	spaceup		spawn_reagent = /singleton/reagent/drink/spaceup
-	tea			spawn_reagent = /singleton/reagent/drink/tea
-	tonic		spawn_reagent = /singleton/reagent/drink/tonic
-	watermelon	spawn_reagent = /singleton/reagent/drink/watermelonjuice
+	apple   			spawn_reagent = /singleton/reagent/drink/applejuice
+	banana  			spawn_reagent = /singleton/reagent/drink/banana
+	berryjuice			spawn_reagent = /singleton/reagent/drink/berryjuice
+	oj_dash				spawn_reagent = /singleton/reagent/drink/oj_dash
+	clean_kois			spawn_reagent = /singleton/reagent/kois/clean
+	comet_cola			spawn_reagent = /singleton/reagent/drink/comet_cola
+	cherry_blossom		spawn_reagent = /singleton/reagent/drink/cherry_blossom
+	grenadine			spawn_reagent = /singleton/reagent/drink/grenadine
+	ice					spawn_reagent = /singleton/reagent/drink/ice
+	ice_tea				spawn_reagent = /singleton/reagent/drink/ice_tea
+	lemon_lime			spawn_reagent = /singleton/reagent/drink/lemon_lime
+	lime				spawn_reagent = /singleton/reagent/drink/limejuice
+	orange				spawn_reagent = /singleton/reagent/drink/orangejuice
+	getmore_root_beer	spawn_reagent = /singleton/reagent/drink/getmore_root_beer
+	lemon_twist			spawn_reagent = /singleton/reagent/drink/lemon_twist
+	soda_water			spawn_reagent = /singleton/reagent/drink/soda_water
+	spaceup				spawn_reagent = /singleton/reagent/drink/spaceup
+	tea					spawn_reagent = /singleton/reagent/drink/tea
+	tonic_water			spawn_reagent = /singleton/reagent/drink/tonic_water
+	watermelon			spawn_reagent = /singleton/reagent/drink/watermelonjuice
 
 	// Bar, coffee and tea
 	chaitea		spawn_reagent = /singleton/reagent/drink/tea/chaitea

@@ -69,7 +69,7 @@
 		/singleton/reagent/alcohol/beer =	0.25,
 		/singleton/reagent/phosphorus =				 0.1,
 		/singleton/reagent/sugar =					 0.1,
-		/singleton/reagent/drink/sodawater =		 0.1,
+		/singleton/reagent/drink/soda_water =		 0.1,
 		/singleton/reagent/ammonia =				   1,
 		/singleton/reagent/diethylamine =			   2,
 		/singleton/reagent/nutriment =				   1,
@@ -103,7 +103,7 @@
 		/singleton/reagent/hydrazine =				 -2,
 		/singleton/reagent/phosphorus =			   -0.5,
 		/singleton/reagent/water =					  1,
-		/singleton/reagent/drink/sodawater =		  1
+		/singleton/reagent/drink/soda_water =		  1
 		)
 
 	// Beneficial reagents also have values for modifying yield_mod and mut_mod (in that order).
@@ -111,7 +111,7 @@
 		/singleton/reagent/alcohol/beer=list( -0.05, 0,   0  ),
 		/singleton/reagent/hydrazine =			list( -2,    0,   0  ),
 		/singleton/reagent/phosphorus =			list( -0.75, 0,   0  ),
-		/singleton/reagent/drink/sodawater =	list(  0.1,  0,   0  ),
+		/singleton/reagent/drink/soda_water =	list(  0.1,  0,   0  ),
 		/singleton/reagent/acid =		  		list( -1,    0,   0  ),
 		/singleton/reagent/acid/hydrochloric =	list( -1,    0,   0  ),
 		/singleton/reagent/acid/polyacid =		list( -2,    0,   0  ),

@@ -372,7 +372,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "Juice from a Skrell medicinal herb. It's supposed to be diluted."
 	icon_state = "dyncarton"
 
-	reagents_to_add = list(/singleton/reagent/drink/dynjuice = 100)
+	reagents_to_add = list(/singleton/reagent/drink/dyn_juice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/applejuice
 	name = "apple juice"

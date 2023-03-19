@@ -5,7 +5,7 @@
 	seed_name = "dyn"
 	display_name = "dyn bush"
 	mutants = null
-	chems = list(/singleton/reagent/drink/dynjuice = list(2, 2), /singleton/reagent/dylovene = list(0, 1))
+	chems = list(/singleton/reagent/drink/dyn_juice = list(2, 2), /singleton/reagent/dylovene = list(0, 1))
 	kitchen_tag = "dyn leaf"
 
 /datum/seed/dyn/setup_traits()

@@ -62,7 +62,7 @@
 
 // for /obj/machinery/vending/sovietsoda
 /obj/item/reagent_containers/food/drinks/drinkingglass/soda
-	reagents_to_add = list(/singleton/reagent/drink/sodawater = 50)
+	reagents_to_add = list(/singleton/reagent/drink/soda_water = 50)
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/cola
-	reagents_to_add = list(/singleton/reagent/drink/space_cola = 50)
+	reagents_to_add = list(/singleton/reagent/drink/comet_cola = 50)

@@ -43,7 +43,7 @@
 /singleton/recipe/neaerastew
 	appliance = POT
 	fruit = list("guami" = 2, "eki" = 2)
-	reagents = list(/singleton/reagent/drink/dynjuice = 10)
+	reagents = list(/singleton/reagent/drink/dyn_juice = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/meat/neaera)
 	result = /obj/item/reagent_containers/food/snacks/stew/neaera
 

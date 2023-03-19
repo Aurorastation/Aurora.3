@@ -68,7 +68,7 @@
 		/singleton/reagent/alcohol/sidewinderfang,
 		/singleton/reagent/alcohol/gibsonhooch,
 		/singleton/reagent/alcohol/manly_dorf,
-		/singleton/reagent/alcohol/thirteenloko,
+		/singleton/reagent/alcohol/pow2go,
 		/singleton/reagent/alcohol/vodkamartini,
 		/singleton/reagent/alcohol/whiskeysoda,
 		/singleton/reagent/alcohol/demonsblood,
