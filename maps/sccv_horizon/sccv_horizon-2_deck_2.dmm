@@ -101,8 +101,8 @@
 /obj/machinery/button/flasher{
 	id = "permflash";
 	name = "brig flashes";
-	req_access = list(2);
-	pixel_y = 23
+	pixel_y = 23;
+	req_access = list(2)
 	},
 /obj/item/paper_bin,
 /obj/item/pen,
@@ -646,7 +646,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/table/stone/marble,
 /obj/machinery/door/blast/shutters{
-	dir = 1;
 	id = "bar_shutter";
 	name = "Bar Shutter"
 	},
@@ -655,12 +654,12 @@
 "aqV" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/button/remote/airlock{
+	dir = 8;
 	id = "cargobreak_t2";
 	name = "Door Bolt Control";
-	pixel_y = 32;
-	specialfunctions = 4;
 	pixel_x = 24;
-	dir = 8
+	pixel_y = 32;
+	specialfunctions = 4
 	},
 /obj/machinery/light/small{
 	dir = 8
@@ -1232,8 +1231,8 @@
 	dir = 8
 	},
 /obj/machinery/door/window/eastleft{
-	name = "Pun Pun Chamber";
 	dir = 2;
+	name = "Pun Pun Chamber";
 	req_access = list(25)
 	},
 /obj/item/bananapeel,
@@ -1711,8 +1710,8 @@
 /obj/item/clothing/head/helmet/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/machinery/door/window/brigdoor/southright{
-	req_access = list(3);
-	name = "Riot Armour"
+	name = "Riot Armour";
+	req_access = list(3)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
@@ -4981,8 +4980,8 @@
 	pixel_y = 8
 	},
 /obj/item/device/radio/intercom{
-	pixel_x = 24;
-	dir = 8
+	dir = 8;
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
@@ -7438,9 +7437,9 @@
 	},
 /obj/structure/cable/green,
 /obj/machinery/camera/motion/security{
+	c_tag = "Operations - Vault 2";
 	dir = 4;
-	network = list("Command","Security","Operations");
-	c_tag = "Operations - Vault 2"
+	network = list("Command","Security","Operations")
 	},
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
@@ -7860,9 +7859,9 @@
 	},
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "Bar Viewing Shutters";
+	dir = 2;
 	id = "bar_viewing_shutters";
-	dir = 2
+	name = "Bar Viewing Shutters"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/spline/plain{
@@ -8520,8 +8519,8 @@
 /obj/structure/sign/securearea{
 	desc = "A caution sign which reads 'CAUTION: BRIG COMMUNAL AREA' and 'SECURE AREA'.";
 	name = "\improper BRIG COMMUNAL AREA sign";
-	pixel_y = 32;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = 32
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -8956,16 +8955,16 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "cell_isolation";
 	name = "Isolation Cell Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	name = "Viewing Shutter";
-	id = "cell_isolation_viewing"
+	id = "cell_isolation_viewing";
+	name = "Viewing Shutter"
 	},
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -9055,9 +9054,9 @@
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "Bar Viewing Shutters";
+	dir = 2;
 	id = "bar_viewing_shutters";
-	dir = 2
+	name = "Bar Viewing Shutters"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -9469,9 +9468,9 @@
 	},
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "Bar Viewing Shutters";
+	dir = 2;
 	id = "bar_viewing_shutters";
-	dir = 2
+	name = "Bar Viewing Shutters"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -9532,11 +9531,11 @@
 /obj/structure/cable/green,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/brig)
@@ -9778,7 +9777,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/table/stone/marble,
 /obj/machinery/door/blast/shutters{
-	dir = 1;
 	id = "bar_shutter";
 	name = "Bar Shutter"
 	},
@@ -9860,9 +9858,9 @@
 	},
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "Bar Viewing Shutters";
+	dir = 2;
 	id = "bar_viewing_shutters";
-	dir = 2
+	name = "Bar Viewing Shutters"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/spline/plain{
@@ -10690,9 +10688,9 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "kitchen window shutter";
+	dir = 2;
 	id = "kitchen_window_shutters";
-	dir = 2
+	name = "kitchen window shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/kitchen)
@@ -10902,12 +10900,12 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/button/flasher{
+	dir = 8;
 	id = "permflash";
 	name = "brig flashes";
-	req_access = list(2);
-	pixel_y = 24;
 	pixel_x = 23;
-	dir = 8
+	pixel_y = 24;
+	req_access = list(2)
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
@@ -11989,9 +11987,9 @@
 	},
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "Bar Viewing Shutters";
+	dir = 2;
 	id = "bar_viewing_shutters";
-	dir = 2
+	name = "Bar Viewing Shutters"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
@@ -12139,9 +12137,9 @@
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "Bar Viewing Shutters";
+	dir = 8;
 	id = "bar_viewing_shutters";
-	dir = 8
+	name = "Bar Viewing Shutters"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -13397,9 +13395,9 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
-	name = "lounge window shutter";
+	dir = 2;
 	id = "lounge_window_shutters";
-	dir = 2
+	name = "lounge window shutter"
 	},
 /turf/simulated/floor/reinforced,
 /area/horizon/crew_quarters/lounge/bar)
@@ -13775,9 +13773,9 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
-	name = "Bar Viewing Shutters";
+	dir = 8;
 	id = "bar_viewing_shutters";
-	dir = 8
+	name = "Bar Viewing Shutters"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/bar)
@@ -15542,16 +15540,16 @@
 	id = "armory";
 	name = "Armoury Blast Doors";
 	pixel_x = -25;
-	req_access = list(3);
-	pixel_y = 7
+	pixel_y = 7;
+	req_access = list(3)
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Armoury Starboard";
-	network = list("Security","Armory");
-	dir = 4
+	dir = 4;
+	network = list("Security","Armory")
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
@@ -15616,9 +15614,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/sortjunction/flipped{
+	dir = 2;
 	name = "Security";
-	sortType = "Security";
-	dir = 2
+	sortType = "Security"
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled,
@@ -16356,9 +16354,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/door/window{
-	dir = 2
-	},
+/obj/machinery/door/window,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -16841,9 +16837,9 @@
 	},
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "Bar Viewing Shutters";
+	dir = 8;
 	id = "bar_viewing_shutters";
-	dir = 8
+	name = "Bar Viewing Shutters"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
@@ -17095,8 +17091,8 @@
 	pixel_y = -7
 	},
 /obj/item/device/hand_labeler{
-	pixel_y = 10;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = 10
 	},
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/corner/paleblue{
@@ -17571,9 +17567,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/door/window{
-	dir = 2
-	},
+/obj/machinery/door/window,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -18589,8 +18583,8 @@
 /obj/item/clothing/head/helmet/ablative,
 /obj/item/clothing/head/helmet/ablative,
 /obj/machinery/door/window/brigdoor/southright{
-	req_access = list(3);
-	name = "Ablative Armour"
+	name = "Ablative Armour";
+	req_access = list(3)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
@@ -18721,8 +18715,8 @@
 	pixel_x = 32
 	},
 /obj/machinery/newscaster{
-	pixel_y = -32;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = -32
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
@@ -19300,6 +19294,10 @@
 "jjF" = (
 /obj/structure/bed/stool/chair/sofa/left/orange{
 	dir = 8
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/bar)
@@ -20376,9 +20374,9 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "Bar Viewing Shutters";
+	dir = 8;
 	id = "bar_viewing_shutters";
-	dir = 8
+	name = "Bar Viewing Shutters"
 	},
 /obj/structure/grille,
 /turf/simulated/floor/plating,
@@ -20643,9 +20641,9 @@
 /obj/machinery/porta_turret,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/camera/motion/security{
+	c_tag = "Operations - Vault 1" ;
 	dir = 8;
-	network = list("Command","Security","Operations");
-	c_tag = "Operations - Vault 1" 
+	network = list("Command","Security","Operations")
 	},
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
@@ -20720,8 +20718,8 @@
 	dir = 1
 	},
 /obj/machinery/button/remote/blast_door{
-	name = "lounge window shutters";
 	id = "lounge_window_shutters";
+	name = "lounge window shutters";
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
@@ -20797,9 +20795,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/vending/overloaders,
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "jRN" = (
@@ -20904,16 +20900,16 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "cell_isolation";
 	name = "Isolation Cell Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	name = "Viewing Shutter";
-	id = "cell_isolation_viewing"
+	id = "cell_isolation_viewing";
+	name = "Viewing Shutter"
 	},
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -21326,8 +21322,8 @@
 	c_tag = "Security - Holding Cell B"
 	},
 /obj/item/paper/pamphlet{
-	pixel_y = 8;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = 8
 	},
 /obj/machinery/status_display{
 	pixel_y = 32
@@ -21342,9 +21338,9 @@
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "Bar Viewing Shutters";
+	dir = 2;
 	id = "bar_viewing_shutters";
-	dir = 2
+	name = "Bar Viewing Shutters"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/landmark/entry_point/fore{
@@ -21817,9 +21813,9 @@
 	dir = 1
 	},
 /obj/machinery/door/blast/shutters/open{
-	name = "kitchen window shutter";
+	dir = 2;
 	id = "kitchen_window_shutters";
-	dir = 2
+	name = "kitchen window shutter"
 	},
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
@@ -21833,9 +21829,9 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
-	name = "lounge window shutter";
+	dir = 2;
 	id = "lounge_window_shutters";
-	dir = 2
+	name = "lounge window shutter"
 	},
 /turf/simulated/floor/reinforced,
 /area/horizon/crew_quarters/lounge/bar)
@@ -24277,8 +24273,8 @@
 	dir = 8
 	},
 /obj/machinery/door/window/eastleft{
-	name = "Bar Access";
 	dir = 2;
+	name = "Bar Access";
 	req_access = list(25)
 	},
 /obj/machinery/door/blast/shutters{
@@ -24513,7 +24509,6 @@
 	},
 /obj/item/reagent_containers/glass/rag,
 /obj/machinery/door/blast/shutters{
-	dir = 1;
 	id = "bar_shutter";
 	name = "Bar Shutter"
 	},
@@ -28336,8 +28331,8 @@
 	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Armoury Port";
-	network = list("Security","Armory");
-	dir = 8
+	dir = 8;
+	network = list("Security","Armory")
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 36;
@@ -29275,10 +29270,10 @@
 	pixel_y = 32
 	},
 /obj/machinery/turretid/lethal{
+	check_synth = 1;
 	dir = 4;
-	pixel_x = -26;
 	name = "Vault Turret Control";
-	check_synth = 1
+	pixel_x = -26
 	},
 /obj/machinery/light/small/red{
 	dir = 1
@@ -32178,8 +32173,8 @@
 	dir = 10
 	},
 /obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
+	dir = 1;
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
@@ -33497,8 +33492,8 @@
 	pixel_x = -6
 	},
 /obj/item/grenade/chem_grenade/large/phoroncleaner{
-	pixel_y = 7;
-	pixel_x = 1
+	pixel_x = 1;
+	pixel_y = 7
 	},
 /obj/machinery/door/window{
 	dir = 1
@@ -36739,8 +36734,8 @@
 /obj/item/clothing/head/helmet/ballistic,
 /obj/item/clothing/head/helmet/ballistic,
 /obj/machinery/door/window/brigdoor/southright{
-	req_access = list(3);
-	name = "Ballistic Armour"
+	name = "Ballistic Armour";
+	req_access = list(3)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
@@ -37785,9 +37780,9 @@
 	},
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "Bar Viewing Shutters";
+	dir = 2;
 	id = "bar_viewing_shutters";
-	dir = 2
+	name = "Bar Viewing Shutters"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -37991,9 +37986,9 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/sign/securearea{
-	pixel_x = 32;
 	desc = "A warning sign which reads 'WARNING' and 'ARMOURY'.";
-	name = "\improper WARNING: ARMOURY sign"
+	name = "\improper WARNING: ARMOURY sign";
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
@@ -38791,9 +38786,9 @@
 "sPp" = (
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters/open{
-	name = "kitchen window shutter";
+	dir = 2;
 	id = "kitchen_window_shutters";
-	dir = 2
+	name = "kitchen window shutter"
 	},
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
@@ -39498,8 +39493,8 @@
 	c_tag = "Security - Holding Cell A"
 	},
 /obj/item/paper/pamphlet{
-	pixel_y = 8;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 8
 	},
 /obj/machinery/status_display{
 	pixel_y = 32
@@ -39681,9 +39676,9 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "kitchen window shutter";
+	dir = 2;
 	id = "kitchen_window_shutters";
-	dir = 2
+	name = "kitchen window shutter"
 	},
 /obj/structure/grille/diagonal{
 	dir = 1
@@ -40068,8 +40063,8 @@
 	},
 /obj/machinery/light,
 /obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
+	dir = 1;
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
@@ -40968,9 +40963,9 @@
 "tRz" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/door/window/northleft{
+	dir = 8;
 	name = "Hydroponics";
-	req_access = list(35);
-	dir = 8
+	req_access = list(35)
 	},
 /turf/simulated/open,
 /area/horizon/hydroponics)
@@ -42976,9 +42971,9 @@
 /obj/structure/grille/diagonal,
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "Bar Viewing Shutters";
+	dir = 2;
 	id = "bar_viewing_shutters";
-	dir = 2
+	name = "Bar Viewing Shutters"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
@@ -43036,8 +43031,8 @@
 	dir = 8;
 	id = "shutters_deck2_hydroponicswindowssafety";
 	name = "Viewing Shutters";
-	pixel_y = 32;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = 32
 	},
 /obj/structure/lattice/catwalk,
 /obj/machinery/camera/network/service{
@@ -43738,7 +43733,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
-	dir = 1;
 	id = "armory";
 	name = "Armoury Blast Door"
 	},
@@ -44101,9 +44095,9 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "lounge window shutter";
+	dir = 2;
 	id = "lounge_window_shutters";
-	dir = 2
+	name = "lounge window shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/crew_quarters/lounge/bar)
@@ -44975,22 +44969,22 @@
 /obj/effect/floor_decal/spline/plain/corner,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/button/remote/blast_door{
-	name = "Kitchen window shutters";
 	id = "kitchen_window_shutters";
+	name = "Kitchen window shutters";
 	pixel_x = -24;
 	pixel_y = 12;
 	req_access = list(28)
 	},
 /obj/machinery/button/remote/blast_door{
-	name = "Kitchen counter shutters";
 	id = "shutters_deck2_kitchendesk";
+	name = "Kitchen counter shutters";
 	pixel_x = -24;
 	pixel_y = 4;
 	req_access = list(28)
 	},
 /obj/machinery/button/remote/blast_door{
-	name = "Smartheater shutters";
 	id = "shutters_deck2_smartheater";
+	name = "Smartheater shutters";
 	pixel_x = -24;
 	pixel_y = -4;
 	req_access = list(28)
@@ -46228,9 +46222,9 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/shutters/open{
-	name = "kitchen window shutter";
+	dir = 2;
 	id = "kitchen_window_shutters";
-	dir = 2
+	name = "kitchen window shutter"
 	},
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
@@ -47362,8 +47356,8 @@
 /area/horizon/security/office)
 "wLZ" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	req_access = list(1);
-	name = "Equipment Room"
+	name = "Equipment Room";
+	req_access = list(1)
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -47379,9 +47373,9 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	name = "Bar Viewing Shutters";
+	dir = 8;
 	id = "bar_viewing_shutters";
-	dir = 8
+	name = "Bar Viewing Shutters"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/bar)
@@ -47811,34 +47805,34 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "Security Lockdown";
 	name = "Security Lockdown";
 	pixel_x = 38;
 	pixel_y = 38;
-	req_access = list(58);
-	dir = 8
+	req_access = list(58)
 	},
 /obj/machinery/button/remote/airlock{
+	dir = 8;
 	id = "HoSdoor";
 	name = "Office Door";
 	pixel_x = 27;
-	pixel_y = 38;
-	dir = 8
+	pixel_y = 38
 	},
 /obj/machinery/button/switch/windowtint{
+	dir = 4;
 	id = "HoS Windows";
 	pixel_x = 26;
 	pixel_y = 28;
-	req_access = list(58);
-	dir = 4
+	req_access = list(58)
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "armory";
 	name = "Armory Shutters";
 	pixel_x = 38;
 	pixel_y = 28;
-	req_access = list(58);
-	dir = 8
+	req_access = list(58)
 	},
 /turf/simulated/floor/carpet,
 /area/horizon/security/head_of_security)
@@ -48420,8 +48414,8 @@
 /obj/machinery/ringer{
 	department = "Engineering";
 	id = "engie_ringer";
-	req_access = list(11);
-	pixel_y = 32
+	pixel_y = 32;
+	req_access = list(11)
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
@@ -48722,8 +48716,8 @@
 /area/horizon/crew_quarters/lounge/bar)
 "xtW" = (
 /obj/effect/floor_decal/plaque{
-	name = "SCCV Horizon Plaque";
-	desc = "The unbreakable chainlink, the one thing holding the Orion Spur together..."
+	desc = "The unbreakable chainlink, the one thing holding the Orion Spur together...";
+	name = "SCCV Horizon Plaque"
 	},
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /turf/simulated/floor/wood,
@@ -48841,8 +48835,8 @@
 	dir = 1
 	},
 /obj/machinery/door/window/brigdoor/southright{
-	req_access = list(3);
-	name = "Heavy Armour"
+	name = "Heavy Armour";
+	req_access = list(3)
 	},
 /obj/item/clothing/suit/armor/carrier/heavy/sec,
 /obj/item/clothing/suit/armor/carrier/heavy/sec,
@@ -49016,8 +49010,8 @@
 "xCr" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/eastleft{
-	name = "Bar Access";
 	dir = 8;
+	name = "Bar Access";
 	req_access = list(25)
 	},
 /obj/structure/window/reinforced{
