@@ -1,6 +1,7 @@
 /obj/item/device/flashlight/lamp
 	name = "desk lamp"
 	desc = "A desk lamp with an adjustable mount."
+	desc_info = "Use this item in your hand to toggle the light, or right click this object and use the "Toggle Light" verb."
 	desc_antag = "As a Cultist, this item can be reforged to become a pylon."
 	icon_state = "lamp"
 	item_state = "lamp"

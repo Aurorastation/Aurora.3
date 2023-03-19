@@ -1,6 +1,7 @@
 /obj/item/device/flashlight
 	name = "flashlight"
 	desc = "A hand-held emergency light."
+	desc_info = "Use this item in your hand, to turn on the light. Click this light with the opposite hand, to remove the cell contained inside."
 	icon = 'icons/obj/lighting.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_lighting.dmi',
@@ -315,7 +316,7 @@
 
 /obj/item/device/flashlight/heavy
 	name = "heavy duty flashlight"
-	desc = "A high-luminosity flashlight for specialist duties."
+	desc = "A high-luminosity flashlight, for specialist duties."
 	icon_state = "heavyflashlight"
 	item_state = "heavyflashlight"
 	brightness_on = 4
@@ -326,7 +327,7 @@
 
 /obj/item/device/flashlight/maglight
 	name = "maglight"
-	desc = "A heavy flashlight designed for security personnel."
+	desc = "A heavy flashlight, designed for security personnel."
 	icon_state = "maglight"
 	item_state = "maglight"
 	force = 10
@@ -349,6 +350,7 @@
 	gender = PLURAL
 	name = "glowing slime extract"
 	desc = "A glowing ball of what appears to be amber."
+	desc_info = null
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "floor1" //not a slime extract sprite but... something close enough!
 	item_state = "slime"
@@ -377,7 +379,7 @@
 
 /obj/item/device/flashlight/lantern
 	name = "lantern"
-	desc = "A mining lantern."
+	desc = "A mining lantern. Accepts larger cells than normal flashlights."
 	icon_state = "lantern"
 	item_state = "lantern"
 	item_icons = list(

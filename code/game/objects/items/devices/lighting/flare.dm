@@ -1,6 +1,7 @@
 /obj/item/device/flashlight/flare
 	name = "flare"
-	desc = "A red standard-issue flare. There are instructions on the side reading 'pull cap, make light'."
+	desc = "A red standard-issue flare. There are instructions on the side reading 'twist cap off, make light'."
+	desc_info = "Use this item in your hand, to turn on the light."
 	w_class = ITEMSIZE_SMALL
 	brightness_on = 3 // Pretty bright.
 	light_power = 4
@@ -68,7 +69,7 @@
 	if(istype(user))
 		user.visible_message(
 			SPAN_NOTICE("\The [user] activates the flare."),
-			SPAN_NOTICE("You pull the cap off the flare, activating it!"),
+			SPAN_NOTICE("You twist the cap off the flare, activating it!"),
 			SPAN_NOTICE("You hear a flare sparking to life.")
 		)
 
@@ -83,6 +84,7 @@
 /obj/item/device/flashlight/flare/torch
 	name = "torch"
 	desc = "A rustic source of light."
+	desc_info = "Click on a source of flame, to light the torch."
 	w_class = ITEMSIZE_LARGE
 	brightness_on = 2
 	light_power = 3
