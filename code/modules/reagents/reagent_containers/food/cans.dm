@@ -480,25 +480,21 @@
 
 /obj/item/reagent_containers/food/drinks/cans/threetowns
 	name = "\improper Three Towns Cider"
-	desc = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped \
-	throughout the Wasteland."
+	desc = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland."
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/alcohol/butanol/threetownscider = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/hrozamal_soda
 	name = "Hro'zamal Soda"
 	desc = "A can of Hro'zamal Soda. Made with Hro'zamal Ras'Nifs powder and canned in the People's Republic of Adhomai."
-	desc_extended = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as \
-	a herbal tea by the colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular \
-	with factory workers and university students because of its stimulant effect."
+	desc_extended = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as a herbal tea by the colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university students because of its stimulant effect."
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/hrozamal_soda = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/peach_soda
 	name = "Xanu Rush!"
 	desc = "Made from the NEW Xanu Prime peaches."
-	desc_extended = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush! Is the number one Coalition soda, despite \
-	its dull taste."
+	desc_extended = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush! Is the number one Coalition soda, despite its dull taste."
 	icon_state = "xanu_rush"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/peach_soda = 33)
@@ -541,8 +537,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm // "Contraband"
 	name = "\improper Zo'ra Soda High Octane Zorane Might"
-	desc = "A can of mint flavoured Zo'ra Soda energy drink, with a lot of V'krexi additives. Tastes like impaling the roof of your mouth with a freezing \
-	cold spear laced with angry bees and road salt.<br/>" + SPAN_DANGER(" WARNING: Not for the faint hearted!")
+	desc = "A can of mint flavoured Zo'ra Soda energy drink, with a lot of V'krexi additives. Tastes like impaling the roof of your mouth with a freezing cold spear laced with angry bees and road salt.<br/>" + SPAN_DANGER(" WARNING: Not for the faint hearted!")
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/hozm = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/kois
@@ -552,14 +547,12 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/drone
 	name = "\improper Zo'ra Soda Drone Fuel"
-	desc = "A can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives, meant for Vaurcae.<br/>" + SPAN_DANGER("WARNING: Known to induce vomiting \
-	in all species except vaurcae and dionae!")
+	desc = "A can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives, meant for Vaurcae.<br/>" + SPAN_DANGER("WARNING: Known to induce vomiting in all species except vaurcae and dionae!")
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/drone = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly
 	name = "\improper Zo'ra Soda Royal Jelly"
-	desc = "A can of..." + SPAN_ITALIC(" sludge?") + " It smells kind of pleasant either way. Royal jelly is a nutritious concentrated substance commonly created by \
-	caretaker Vaurcae in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
+	desc = "A can of..." + SPAN_ITALIC(" sludge?") + " It smells kind of pleasant either way. Royal jelly is a nutritious concentrated substance commonly created by caretaker Vaurcae in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/jelly = 50)
 
 #undef LETHAL_FUEL_CAPACITY
