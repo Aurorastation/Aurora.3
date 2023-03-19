@@ -22,7 +22,7 @@
       <div class="t-parent">
         <p>Item Selected:<span class="purchase-icon" :class="s.sel_icon" />{{s.sel_name}}</p>
         <p>Charge: {{s.sel_price}} 电</p>
-        <p>Scan your card, insert a chargecard, or insert credits to purchase this product.</p>
+        <p>Scan a payment card, insert a chargecard, or insert credits to purchase this product.</p>
         <p v-if="s.message_err == 1" class="danger">{{s.message}}</p>
         <div class="cancel-button">
           <vui-button :params="{cancelpurchase: 1}" icon="undo">Cancel Purchase</vui-button>
@@ -57,6 +57,7 @@ export default {
 .t-parent > p {
   text-align: center;
   margin-top: 0px;
+  padding: 0 4px;
   width: 100%;
 }
 
@@ -102,7 +103,7 @@ p.danger {
   height: auto;
   white-space: normal;
   box-sizing: border-box;
-  margin: 4px 4px 4px 4px;
+  margin: 4px;
   background-color: rgba(64, 98, 138, 0.4);
 }
 
@@ -158,7 +159,7 @@ p.danger {
   background-color: #202020;
   color: #fff;
   text-align: center;
-  padding: 5px;
+  padding: 4px;
   border-radius: 4px;
   opacity: 0;
   transition: opacity 0.5s;
@@ -176,7 +177,7 @@ p.danger {
   position: absolute;
   top: 100%;
   left: 50%;
-  border-width: 5px;
+  border-width: 4px;
   border-style: solid;
   border-color: #202020 transparent transparent transparent;
 }
