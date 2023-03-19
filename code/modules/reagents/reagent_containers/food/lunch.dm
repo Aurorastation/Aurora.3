@@ -54,28 +54,35 @@ var/list/lunchables_snacks_ = list(
 )
 
 var/list/lunchables_drinks_ = list(
-	/obj/item/reagent_containers/food/drinks/waterbottle,
-	/obj/item/reagent_containers/food/drinks/cans/starfall,
-	/obj/item/reagent_containers/food/drinks/cans/starfall_max,
-	/obj/item/reagent_containers/food/drinks/cans/comet_cola,
-	/obj/item/reagent_containers/food/drinks/cans/comet_cola_zero,
-	/obj/item/reagent_containers/food/drinks/cans/stellar_jolt,
-	/obj/item/reagent_containers/food/drinks/cans/lemon_twist,
-	/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
-	/obj/item/reagent_containers/food/drinks/cans/oj_dash,
-	/obj/item/reagent_containers/food/drinks/cans/iced_tea,
-	/obj/item/reagent_containers/food/drinks/cans/grape_juice,
-	/obj/item/reagent_containers/food/drinks/cans/peach_soda,
-	/obj/item/reagent_containers/food/drinks/cans/tonic,
-	/obj/item/reagent_containers/food/drinks/cans/sodawater,
-	/obj/item/reagent_containers/food/drinks/cans/adhomai_milk,
-	/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
-	/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda,
-	/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
-	/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
-	/obj/item/reagent_containers/food/drinks/small_milk,
-	/obj/item/reagent_containers/food/drinks/small_milk/chocolate,
+	// Standard
+	/obj/item/reagent_containers/food/drinks/waterbottle
+	/obj/item/reagent_containers/food/drinks/cans/carbonated_water
+	/obj/item/reagent_containers/food/drinks/cans/sodawater
+	/obj/item/reagent_containers/food/drinks/cans/tonic
+	/obj/item/reagent_containers/food/drinks/cans/starfall
+	/obj/item/reagent_containers/food/drinks/cans/starfall_max
+	/obj/item/reagent_containers/food/drinks/cans/comet_cola
+	/obj/item/reagent_containers/food/drinks/cans/comet_cola_zero
+	/obj/item/reagent_containers/food/drinks/cans/stellar_jolt
+	/obj/item/reagent_containers/food/drinks/cans/lemon_twist
+	/obj/item/reagent_containers/food/drinks/cans/orange_sunset
+	/obj/item/reagent_containers/food/drinks/cans/oj_dash
+	/obj/item/reagent_containers/food/drinks/cans/peach_soda
+	/obj/item/reagent_containers/food/drinks/cans/dr_gibb 
+	/obj/item/reagent_containers/food/drinks/cans/dr_gibb_zero
+	/obj/item/reagent_containers/food/drinks/cans/root_beer
+	/obj/item/reagent_containers/food/drinks/cans/grape_juice
+	/obj/item/reagent_containers/food/drinks/cans/iced_tea
+	// Milk
+	/obj/item/reagent_containers/food/drinks/small_milk
+	/obj/item/reagent_containers/food/drinks/small_milk/chocolate
 	/obj/item/reagent_containers/food/drinks/small_milk/strawberry
+	// Non-standard
+	/obj/item/reagent_containers/food/drinks/cans/dyn
+	/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda
+	/obj/item/reagent_containers/food/drinks/cans/adhomai_milk
+	/obj/item/reagent_containers/food/drinks/cans/beetle_milk
+	/obj/item/reagent_containers/food/drinks/cans/threetowns
 )
 
 var/list/lunchables_vaurca_ = list(
