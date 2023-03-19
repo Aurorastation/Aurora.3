@@ -280,13 +280,13 @@
 				<table class="request">
 					<tr>
 						<td class="radio">Transmit:</td>
-						<td><a href='byond://?src=\ref[src];wires=4'>[radio.broadcasting ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
+						<td><a href='byond://?src=\ref[src];wires=4'>[radio.get_broadcasting() ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
 
 						</td>
 					</tr>
 					<tr>
 						<td class="radio">Receive:</td>
-						<td><a href='byond://?src=\ref[src];wires=2'>[radio.listening ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
+						<td><a href='byond://?src=\ref[src];wires=2'>[radio.get_listening() ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
 
 						</td>
 					</tr>
@@ -371,9 +371,9 @@
 		var/t1 = text2num(href_list["wires"])
 		switch(t1)
 			if(4)
-				radio.ToggleBroadcast()
+				radio.set_broadcasting(!radio.get_broadcasting())
 			if(2)
-				radio.ToggleReception()
+				radio.set_listening(!radio.get_listening())
 	if(href_list["setlaws"])
 		var/newlaws = sanitize(input("Enter any additional directives you would like your pAI personality to follow. Note that these directives will not override the personality's allegiance to its imprinted master. Conflicting directives will be ignored.", "pAI Directive Configuration", pai.pai_laws) as message)
 		if(newlaws)

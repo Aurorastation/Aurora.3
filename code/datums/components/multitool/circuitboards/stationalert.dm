@@ -1,6 +1,6 @@
 /obj/item/circuitboard/stationalert/Initialize()
 	. = ..()
-	AddComponent(/datum/component/multitool/circuitboards, CALLBACK(src, .proc/get_multitool_ui), CALLBACK(src, .proc/on_topic))
+	AddComponent(/datum/component/multitool/circuitboards, CALLBACK(src, PROC_REF(get_multitool_ui)), CALLBACK(src, PROC_REF(get_multitool_ui)))
 
 /obj/item/circuitboard/stationalert/proc/get_multitool_ui(var/mob/user, var/obj/item/device/multitool/MT, var/datum/component/multitool/C)
 	. += "<b>Alarm Sources</b><br>"

@@ -319,6 +319,18 @@
 			break
 	return copytext_char(t, 1, i) + uppertext(copytext_char(t, i, i + 1)) + copytext_char(t, i + 1)
 
+//Returns a string with the first element of the string uncapitalized, ignoring html-tags
+/proc/uncapitalize(t as text)
+	var/i = 1
+	while(copytext_char(t, i, i + 1) == "<")
+		i = findtext_char(t, ">", i + 1)
+		if(i)
+			i++
+		else
+			i = 2
+			break
+	return copytext_char(t, 1, i) + lowertext(copytext_char(t, i, i + 1)) + copytext_char(t, i + 1)
+
 //This proc strips html properly, remove < > and all text between
 //for complete text sanitizing should be used sanitize()
 /proc/strip_html_properly(input)

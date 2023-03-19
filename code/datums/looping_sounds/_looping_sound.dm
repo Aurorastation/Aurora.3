@@ -16,7 +16,7 @@
 */
 
 /datum/looping_sound
-	var/list/atom/output_atoms
+	var/list/atom/output_atoms = list()
 	var/mid_sounds
 	var/mid_length
 	var/start_volume
@@ -39,7 +39,7 @@
 		WARNING("A looping sound datum was created without sounds to play.")
 		return
 
-	output_atoms = _output_atoms
+	output_atoms |= _output_atoms
 	direct = _direct
 
 	if(start_immediately)
@@ -73,7 +73,7 @@
 	if(!chance || prob(chance))
 		play(get_sound(starttime))
 	if(!timerid)
-		timerid = addtimer(CALLBACK(src, .proc/sound_loop, world.time), mid_length, TIMER_STOPPABLE | TIMER_LOOP)
+		timerid = addtimer(CALLBACK(src, PROC_REF(sound_loop), world.time), mid_length, TIMER_STOPPABLE | TIMER_LOOP)
 
 /datum/looping_sound/proc/play(soundfile, volume_override)
 	var/list/atoms_cache = output_atoms
@@ -98,7 +98,7 @@
 	if(start_sound)
 		play(start_sound, start_volume)
 		start_wait = start_length
-	addtimer(CALLBACK(src, .proc/sound_loop), start_wait)
+	addtimer(CALLBACK(src, PROC_REF(sound_loop)), start_wait)
 
 /datum/looping_sound/proc/on_stop()
 	if(end_sound)

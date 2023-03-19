@@ -33,6 +33,8 @@
 	for(var/obj/machinery/power/apc/A in SSmachinery.machinery)
 		if(A.z in affecting_z && !A.is_critical)
 			valid_apcs.Add(A)
+	if(!valid_apcs.len)
+		kill(TRUE)
 	endWhen = (severity * 60) + startWhen
 
 /datum/event/electrical_storm/tick()

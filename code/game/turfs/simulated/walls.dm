@@ -247,15 +247,14 @@
 	to_chat(user, SPAN_WARNING("The thermite starts melting through the wall."))
 
 	QDEL_IN(O, 100)
-	addtimer(CALLBACK(src, /atom/.proc/melt, FALSE), 100)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, melt), FALSE), 100)
 
 /turf/simulated/wall/proc/radiate()
 	var/total_radiation = material.radioactivity + (reinf_material ? reinf_material.radioactivity / 2 : 0)
 	if(!total_radiation)
 		return
 
-	for(var/mob/living/L in range(3,src))
-		L.apply_damage(total_radiation, IRRADIATE, damage_flags = DAM_DISPERSED)
+	SSradiation.radiate(src, total_radiation)
 	return total_radiation
 
 /turf/simulated/wall/proc/burn(temperature)

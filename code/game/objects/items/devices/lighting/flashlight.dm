@@ -86,13 +86,13 @@
 	add_fingerprint(user)
 	if(on && user.zone_sel.selecting == BP_EYES)
 
-		if(((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))	//too dumb to use flashlight properly
+		if(((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(50))	//too dumb to use flashlight properly
 			return ..()	//just hit them in the head
 
 		var/mob/living/carbon/human/H = M	//mob has protective eyewear
 		if(istype(H))
-			if(M:eyecheck())
-				to_chat(user, SPAN_WARNING("You're going to need to remove \The [M]'s eye protection first."))
+			if(H.get_flash_protection())
+				to_chat(user, SPAN_WARNING("You're going to need to remove \the [M]'s eye protection first."))
 				return
 
 			var/obj/item/organ/vision
@@ -107,7 +107,7 @@
 				if(M.stat == DEAD || M.blinded || M.status_flags & FAKEDEATH)	//mob is dead or fully blind
 					to_chat(user, SPAN_WARNING("\The [M]'s pupils do not react to the light!"))
 					return
-				if(XRAY in M.mutations)
+				if(HAS_FLAG(M.mutations, XRAY))
 					to_chat(user, SPAN_NOTICE("\The [M]'s pupils give an eerie glow!"))
 				if(vision.damage)
 					to_chat(user, SPAN_WARNING("There's visible damage to [M]'s [vision.name]!"))
@@ -116,8 +116,8 @@
 				if(M.getBrainLoss() > 15)
 					to_chat(user, SPAN_NOTICE("There's visible lag between left and right pupils' reactions."))
 
-				var/list/pinpoint = list(/decl/reagent/oxycomorphine=1,/decl/reagent/mortaphenyl=5)
-				var/list/dilating = list(/decl/reagent/space_drugs=5,/decl/reagent/mindbreaker=1)
+				var/list/pinpoint = list(/singleton/reagent/oxycomorphine=1,/singleton/reagent/mortaphenyl=5)
+				var/list/dilating = list(/singleton/reagent/space_drugs=5,/singleton/reagent/mindbreaker=1)
 				var/datum/reagents/ingested = H.get_ingested_reagents()
 				if(H.reagents.has_any_reagent(pinpoint) || ingested.has_any_reagent(pinpoint))
 					to_chat(user, SPAN_NOTICE("\The [M]'s pupils are already pinpoint and cannot narrow any more."))
@@ -127,7 +127,7 @@
 					to_chat(user, SPAN_NOTICE("\The [M]'s pupils narrow."))
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //can be used offensively
-			M.flash_eyes()
+			H.flash_act(length = 1 SECOND)
 	else
 		return ..()
 

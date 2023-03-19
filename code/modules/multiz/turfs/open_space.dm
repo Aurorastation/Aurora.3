@@ -14,6 +14,7 @@
 	roof_type = null
 	footstep_sound = null
 	z_flags = ZM_MIMIC_DEFAULTS | ZM_MIMIC_OVERWRITE | ZM_MIMIC_NO_AO | ZM_ALLOW_ATMOS
+	turf_flags = TURF_FLAG_BACKGROUND
 
 	// A lazy list to contain a list of mobs who are currently scaling
 	// up this turf. Used in human/can_fall.
@@ -39,14 +40,23 @@
 		if(direction == DOWN) //on a turf above, trying to enter
 			return !density
 
+/turf/proc/GetZPassBlocker()
+	return src
+
 /turf/simulated/open/CanZPass(atom/A, direction)
 	if(locate(/obj/structure/lattice/catwalk, src))
 		if(z == A.z)
 			if(direction == DOWN)
-				return 0
+				return FALSE
 		else if(direction == UP)
-			return 0
+			return FALSE
 	return 1
+
+/turf/simulated/open/GetZPassBlocker()
+	var/obj/structure/lattice/catwalk/catwalk = locate(/obj/structure/lattice/catwalk, src)
+	if(catwalk)
+		return catwalk
+	return src
 
 /turf/space/CanZPass(atom/A, direction)
 	if(locate(/obj/structure/lattice/catwalk, src))
@@ -56,6 +66,12 @@
 		else if(direction == UP)
 			return 0
 	return 1
+
+/turf/space/GetZPassBlocker()
+	var/obj/structure/lattice/catwalk/catwalk = locate(/obj/structure/lattice/catwalk, src)
+	if(catwalk)
+		return catwalk
+	return src
 
 
 // Add a falling atom by default. Even if it's not an atom that can actually fall.

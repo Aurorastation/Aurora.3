@@ -18,10 +18,10 @@
 	uses_species_whitelist = FALSE
 
 /datum/outfit/admin/tajaran_scrapper
-	name = "Tajaran Scrapper"
+	name = "Scrapper"
 
 	uniform = list(
-				/obj/item/clothing/under/serviceoveralls,
+				/obj/item/clothing/under/service_overalls,
 				/obj/item/clothing/under/tajaran/mechanic,
 				/obj/item/clothing/under/tajaran,
 				/obj/item/clothing/under/overalls

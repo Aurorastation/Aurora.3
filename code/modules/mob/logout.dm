@@ -6,6 +6,8 @@
 	disconnect_time = world.realtime
 	log_access("Logout: [key_name(src)]",ckey=key_name(src))
 	SSfeedback.update_status()
+	if(client)
+		clear_important_client_contents(client)
 
 	if(admin_datums[src.ckey])
 		var/datum/admins/A = admin_datums[src.ckey]

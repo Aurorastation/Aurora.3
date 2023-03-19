@@ -3,9 +3,9 @@
 // fossils
 
 /obj/item/fossil
-	name = "Fossil"
+	name = "fossil"
 	icon = 'icons/obj/xenoarchaeology.dmi'
-	icon_state = "bone"
+	icon_state = "bone1"
 	desc = "It's a fossil."
 	var/animal = 1
 
@@ -20,18 +20,26 @@
 	qdel(src)
 
 /obj/item/fossil/bone
-	name = "Fossilised bone"
-	icon_state = "bone"
+	name = "fossilised bone"
 	desc = "It's a fossilised bone."
 
+/obj/item/fossil/bone/New()
+	icon_state = "bone[rand(1, 3)]"
+
 /obj/item/fossil/skull
-	name = "Fossilised skull"
+	name = "fossilised skull"
 	icon_state = "skull"
-	desc = "It's a fossilised skull."
+	desc = "It's a foss1ilised skull."
+
+/obj/item/fossil/skull/New()
+	icon_state = "skull[rand(1, 3)]"
 
 /obj/item/fossil/skull/horned
-	icon_state = "hskull"
+	icon_state = "horned_skull1"
 	desc = "It's a fossilised, horned skull."
+
+/obj/item/fossil/skull/horned/New()
+	icon_state = "horned_skull[rand(1, 2)]"
 
 /obj/item/fossil/skull/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/fossil/bone))
@@ -54,7 +62,7 @@
 	var/plaque_contents = "Unnamed alien creature"
 
 /obj/skeleton/New()
-	src.breq = rand(6)+3
+	src.breq = rand(3)+3
 	src.desc = "An incomplete skeleton, looks like it could use [src.breq-src.bnum] more bones."
 
 /obj/skeleton/attackby(obj/item/W as obj, mob/user as mob)
@@ -90,12 +98,15 @@
 
 //shells and plants do not make skeletons
 /obj/item/fossil/shell
-	name = "Fossilised shell"
+	name = "fossilised shell"
 	icon_state = "shell"
 	desc = "It's a fossilised shell."
 
+/obj/item/fossil/shell/New()
+	icon_state = "shell[rand(1, 2)]"
+
 /obj/item/fossil/plant
-	name = "Fossilised plant"
+	name = "fossilised plant"
 	icon_state = "plant1"
 	desc = "It's fossilised plant remains."
 	animal = 0

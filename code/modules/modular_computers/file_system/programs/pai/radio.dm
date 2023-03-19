@@ -34,8 +34,8 @@
 		return
 	var/mob/living/silicon/pai/host = true_computer.computer_host
 
-	data["listening"] = host.radio.broadcasting
-	data["frequency"] = format_frequency(host.radio.frequency)
+	data["listening"] = host.radio.get_broadcasting()
+	data["frequency"] = format_frequency(host.radio.get_frequency())
 	VUEUI_SET_CHECK_IFNOTSET(data["radio_range"], host.radio.canhear_range, ., data)
 	host.radio.canhear_range = data["radio_range"]
 

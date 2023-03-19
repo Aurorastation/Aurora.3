@@ -100,7 +100,7 @@
 	category = "General"
 
 /datum/autolathe/recipe/radio_bounced
-	name = "station bounced radio"
+	name = "shortwave radio"
 	path = /obj/item/device/radio/off
 	category = "General"
 
@@ -599,3 +599,13 @@
 	path = /obj/item/clothing/gloves/brassknuckles
 	hidden = 1
 	category = "General"
+
+/datum/autolathe/recipe/grenade
+	name = "grenade casing"
+	path = /obj/item/grenade/chem_grenade
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/grenade/large
+	name = "large grenade casing"
+	path = /obj/item/grenade/chem_grenade/large
+	hidden = TRUE

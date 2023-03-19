@@ -19,10 +19,8 @@ STOCK_ITEM_LARGE(EOD, 1.5)
 	else
 		new /obj/structure/closet/bombcloset(L)
 
-STOCK_ITEM_LARGE(biosuit, 3)
-	var/list/allsuits = typesof(/obj/structure/closet/l3closet)
-	var/type = pick(allsuits)
-	new type(L)
+STOCK_ITEM_LARGE(hazmat_gear_locker, 3)
+	new /obj/structure/closet/hazmat/general(L)
 
 STOCK_ITEM_LARGE(hydrotray, 3)
 	new /obj/machinery/portable_atmospherics/hydroponics(L)
@@ -77,7 +75,10 @@ STOCK_ITEM_LARGE(vendor, 6)
 	new /obj/random/vendor(L, 1)
 
 STOCK_ITEM_LARGE(piano, 2)
-	new /obj/structure/device/piano(L)
+	new /obj/structure/synthesized_instrument/synthesizer/piano(L)
+
+STOCK_ITEM_LARGE(synthesizer, 2)
+	new /obj/structure/synthesized_instrument/synthesizer(L)
 
 //Xenoarch suspension field generator, they need a spare
 STOCK_ITEM_LARGE(suspension, 2)

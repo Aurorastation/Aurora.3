@@ -7,15 +7,15 @@ var/global/list/sparring_attack_cache = list()
 	var/desc = "A simple unarmed attack."
 	var/damage = 0						// Extra empty hand attack damage.
 	var/armor_penetration = 0
-	var/attack_sound = /decl/sound_category/punch_sound
-	var/miss_sound = /decl/sound_category/punchmiss_sound
+	var/attack_sound = /singleton/sound_category/punch_sound
+	var/miss_sound = /singleton/sound_category/punchmiss_sound
 	var/shredding = 0 // Calls the old attack_alien() behavior on objects/mobs when on harm intent.
 	var/attack_door = 0 // Whether the attack can damage airlocks and how much damage it does
 	var/crowbar_door = FALSE
 	var/sharp = 0
 	var/edge = FALSE
 
-	var/damage_type = BRUTE
+	var/damage_type = DAMAGE_BRUTE
 	var/sparring_variant_type = /datum/unarmed_attack/pain_strike
 
 	var/eye_attack_text
@@ -53,7 +53,7 @@ var/global/list/sparring_attack_cache = list()
 		return
 
 	var/stun_chance = rand(0, 100)
-	var/armor = target.get_blocked_ratio(zone, BRUTE, damage_flags(), armor_penetration, damage)
+	var/armor = target.get_blocked_ratio(zone, DAMAGE_BRUTE, damage_flags(), armor_penetration, damage)
 	var/pain_message = TRUE
 
 	if(!target.can_feel_pain())
@@ -96,7 +96,7 @@ var/global/list/sparring_attack_cache = list()
 				if(!target.lying)
 					if(pain_message)
 						target.visible_message("<span class='warning'>[target] gives way slightly.</span>")
-					target.apply_effect(attack_damage*3, PAIN, armor)
+					target.apply_effect(attack_damage*3, DAMAGE_PAIN, armor)
 	else if(attack_damage >= 5 && !(target == user) && (stun_chance + attack_damage * 5 >= 100) && armor < 1) // Chance to get the usual throwdown as well (25% standard chance)
 		if(!target.lying)
 			target.visible_message("<span class='danger'>[target] [pick("slumps", "falls", "drops")] down to the ground!</span>")
@@ -127,9 +127,9 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack/proc/damage_flags()
 	. = 0
 	if(sharp)
-		. |= DAM_SHARP
+		. |= DAMAGE_FLAG_SHARP
 	if(edge)
-		. |= DAM_EDGE
+		. |= DAMAGE_FLAG_EDGE
 
 /datum/unarmed_attack/bite
 	attack_verb = list("bit")
@@ -213,7 +213,7 @@ var/global/list/sparring_attack_cache = list()
 	attack_name = "palm"
 
 /datum/unarmed_attack/palm/unathi // only one more damage, pretty much just for show
-	attack_sound = /decl/sound_category/punch_bassy_sound
+	attack_sound = /singleton/sound_category/punch_bassy_sound
 	desc = "Striking your opponent with your palm. A method of dishing out damage without risking your claws or shredding your opponent to ribbons. This method of attack showcases some more restraint, the damage output is more stable, too."
 	damage = 3
 
@@ -224,7 +224,7 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack/kick
 	attack_verb = list("kicked", "kicked", "kicked", "kneed")
 	attack_noun = list("kick", "kick", "kick", "knee strike")
-	attack_sound = /decl/sound_category/swing_hit_sound
+	attack_sound = /singleton/sound_category/swing_hit_sound
 	desc = "A high risk, pretty low reward move. It could be useful if your shoes has a knife sticking out the front, or if you're a trained martial arts master. Make sure to target the lower parts of the body, or else you won't be able to reach!"
 	damage = 0
 	attack_name = "kick"
@@ -270,7 +270,7 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack/stomp
 	attack_verb = null
 	attack_noun = list("stomp")
-	attack_sound = /decl/sound_category/swing_hit_sound
+	attack_sound = /singleton/sound_category/swing_hit_sound
 	desc = "An incredible tactic for turning a downed opponent into tenderized meat! Stomping is a safe and sound method of dispatching downed enemies, but it only works if they're already lying down."
 	damage = 0
 	attack_name = "stomp"
@@ -315,7 +315,7 @@ var/global/list/sparring_attack_cache = list()
 		if(5)		user.visible_message("<span class='danger'>[pick("[user] landed a powerful stomp on", "[user] stomped down hard on", "[user] slammed [user.get_pronoun("his")] [shoes ? copytext(shoes.name, 1, -1) : "foot"] down hard onto")] [target]'s [organ]!</span>") //Devastated lol. No. We want to say that the stomp was powerful or forceful, not that it /wrought devastation/
 
 /datum/unarmed_attack/pain_strike
-	damage_type = PAIN
+	damage_type = DAMAGE_PAIN
 	attack_noun = list("tap","light strike")
 	attack_verb = list("tapped", "lightly struck")
 	desc = "Sparring: A light strike to your opponent. So light, it won't even leave a mark! They WILL feel this, but will suffer no dangerous side effect, unless you punch them into cardiac arrest!"
@@ -332,4 +332,4 @@ var/global/list/sparring_attack_cache = list()
 	desc = "Sparring: A heavy strike to your opponent. With poise and precision, no evidence will be left behind! They WILL ABSOLUTELY feel this, but will suffer no dangerous side effect, unless you punch them into cardiac arrest! Show off your might!"
 	damage = 4
 	attack_name = "heavy hit"
-	attack_sound = /decl/sound_category/punch_bassy_sound
+	attack_sound = /singleton/sound_category/punch_bassy_sound

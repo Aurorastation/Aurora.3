@@ -12,10 +12,12 @@
 #define NO_CHUBBY           BITFLAG(11)   // Cannot be visibly fat from nutrition type.
 #define NO_ARTERIES         BITFLAG(12)   // This species does not have arteries.
 #define PHORON_IMMUNE       BITFLAG(13)   // species doesn't suffer the negative effects of phoron contamination
+#define CAN_SWEAT           BITFLAG(14)   // Forgive me.
+#define NO_COLD_SLOWDOWN	BITFLAG(15)		//Doesn't slow down in the cold.
 // unused: 0x8000(32768) - higher than this will overflow
 
 // Base flags for IPCs.
-#define IS_IPC (NO_BREATHE|NO_SCAN|NO_BLOOD|NO_PAIN|NO_POISON|IS_MECHANICAL|NO_CHUBBY|PHORON_IMMUNE)
+#define IS_IPC (NO_BREATHE|NO_SCAN|NO_BLOOD|NO_PAIN|NO_POISON|IS_MECHANICAL|NO_CHUBBY|PHORON_IMMUNE|NO_COLD_SLOWDOWN)
 
 // Species spawn flags
 #define IS_WHITELISTED    0x1    // Must be whitelisted to play.
@@ -34,10 +36,11 @@
 #define HAS_FBP           0x80   // If for whatever ungodly reason we decide to ever have non-Shell FBPs.
 #define HAS_SKIN_PRESET   0x100  // Skin color presets selectable in character generation.
 
-// Tau-Ceti basic, language common to all crew.
+// Innate Languages
+#define LANGUAGE_NOISE "Noise" // Used for audible emotes.
 #define LANGUAGE_TCB "Ceti Basic"
 
-// Species languages
+// Species Languages
 #define LANGUAGE_SOL_COMMON "Sol Common"
 #define LANGUAGE_ELYRAN_STANDARD "Elyran Standard"
 #define LANGUAGE_UNATHI "Sinta'unathi"

@@ -26,7 +26,7 @@ Thus, the two variables affect pump operation are set in New():
 
 	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
-	power_rating = 7500			//7500 W ~ 10 HP
+	power_rating = 30000			//30000 W ~ 40 HP
 
 	var/max_pressure_setting = ATMOS_PUMP_MAX_PRESSURE	//kPa
 
@@ -225,8 +225,9 @@ Thus, the two variables affect pump operation are set in New():
 		to_chat(user, "<span class='warning'>You cannot unwrench this [src], turn it off first.</span>")
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
+	if (!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE && !istype(W, /obj/item/pipewrench))
+	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED && !istype(W, /obj/item/pipewrench))
 		to_chat(user, "<span class='warning'>You cannot unwrench this [src], it's too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return TRUE

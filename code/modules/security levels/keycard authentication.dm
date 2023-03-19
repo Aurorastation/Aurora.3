@@ -3,6 +3,7 @@
 	desc = "This device is used to trigger station functions, which require more than one ID card to authenticate."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "auth_off"
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/active = 0 //This gets set to 1 on all devices except the one where the initial request was made.
 	var/event = ""
 	var/screen = 1
@@ -12,7 +13,6 @@
 	var/obj/machinery/keycard_auth/event_source
 	var/mob/event_triggered_by
 	var/mob/event_confirmed_by
-	var/listening = FALSE
 	var/recorded_message = ""
 	//1 = select event
 	//2 = authenticate
@@ -120,7 +120,7 @@
 	recorded_message = ""
 
 /obj/machinery/keycard_auth/hear_talk(mob/M, text, verb, datum/language/speaking)
-	if(event == "Distress Beacon" && listening && M == event_triggered_by)
+	if(event == "Distress Beacon" && M == event_triggered_by)
 		recorded_message = text
 
 /obj/machinery/keycard_auth/proc/broadcast_request(var/mob/user)
@@ -128,9 +128,9 @@
 	if(event == "Distress Beacon" && user)
 		distress_message = input(user, "Enter a distress message that other vessels will receive.", "Distress Beacon")
 		if(distress_message)
-			listening = TRUE
+			become_hearing_sensitive()
 			user.say(distress_message)
-			listening = FALSE
+			lose_hearing_sensitivity()
 		else
 			to_chat(user, SPAN_WARNING("The beacon refuses to launch without a message!"))
 			reset()

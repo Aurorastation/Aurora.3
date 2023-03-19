@@ -97,7 +97,7 @@
 
 		to_chat(user, "You inject the solution into the power cell.")
 
-		if(S.reagents.has_reagent(/decl/reagent/toxin/phoron, 5))
+		if(S.reagents.has_reagent(/singleton/reagent/toxin/phoron, 5))
 
 			rigged = 1
 

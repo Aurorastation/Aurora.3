@@ -23,7 +23,7 @@
 		src.temperature_override = temperature_override
 	if(spawn_reagent)
 		reagents.add_reagent(spawn_reagent, volume, temperature = src.temperature_override)
-		var/decl/reagent/R = decls_repository.get_decl(spawn_reagent)
+		var/singleton/reagent/R = GET_SINGLETON(spawn_reagent)
 		if(label)
 			setLabel(label)
 		else

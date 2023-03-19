@@ -1,6 +1,6 @@
 /obj/effect/overmap
 	name = "map object"
-	icon = 'icons/obj/overmap.dmi'
+	icon = 'icons/obj/overmap/overmap_effects.dmi'
 	icon_state = "object"
 	color = "#fffffe"
 
@@ -8,6 +8,15 @@
 
 	var/known = 0		//shows up on nav computers automatically
 	var/scannable       //if set to TRUE will show up on ship sensors for detailed scans
+	var/unknown_id                      // A unique identifier used when this entity is scanned. Assigned in Initialize().
+	var/requires_contact = TRUE //whether or not the effect must be identified by ship sensors before being seen.
+	var/instant_contact  = FALSE //do we instantly identify ourselves to any ship in sensors range?
+	var/sensor_range_override = FALSE //When true, this overmap object will be scanned with range instead of view.
+
+	var/sensor_visibility = 10	 //how likely it is to increase identification process each scan.
+	var/vessel_mass = 10000             // metric tonnes, very rough number, affects acceleration provided by engines
+
+
 	var/image/targeted_overlay
 
 //Overlay of how this object should look on other skyboxes
@@ -17,16 +26,40 @@
 /obj/effect/overmap/proc/get_scan_data(mob/user)
 	return desc
 
+/obj/effect/overmap/proc/handle_wraparound()
+	var/nx = x
+	var/ny = y
+	var/low_edge = 1
+	var/high_edge = current_map.overmap_size - 1
+
+	if((dir & WEST) && x == low_edge)
+		nx = high_edge
+	else if((dir & EAST) && x == high_edge)
+		nx = low_edge
+	if((dir & SOUTH)  && y == low_edge)
+		ny = high_edge
+	else if((dir & NORTH) && y == high_edge)
+		ny = low_edge
+	if((x == nx) && (y == ny))
+		return //we're not flying off anywhere
+
+	var/turf/T = locate(nx,ny,z)
+	if(T)
+		forceMove(T)
+
 /obj/effect/overmap/Initialize()
 	. = ..()
 	if(!current_map.use_overmap)
 		return INITIALIZE_HINT_QDEL
-	
+
 	if(known)
 		layer = EFFECTS_ABOVE_LIGHTING_LAYER
 		for(var/obj/machinery/computer/ship/helm/H in SSmachinery.machinery)
 			H.get_known_sectors()
 	update_icon()
+
+	if(requires_contact)
+		invisibility = INVISIBILITY_OVERMAP // Effects that require identification have their images cast to the client via sensors.
 
 /obj/effect/overmap/Crossed(var/obj/effect/overmap/visitable/other)
 	if(istype(other))
@@ -38,9 +71,6 @@
 		SSskybox.rebuild_skyboxes(other.map_z)
 		for(var/obj/effect/overmap/visitable/O in loc)
 			SSskybox.rebuild_skyboxes(O.map_z)
-
-/obj/effect/overmap/update_icon()
-	filters = filter(type="drop_shadow", color = color + "F0", size = 2, offset = 1, x = 0, y = 0)
 
 /obj/effect/overmap/proc/signal_hit(var/list/hit_data)
 	return
@@ -54,7 +84,7 @@
 			var/obj/machinery/computer/ship/targeting/GS = H.machine
 			if(GS.targeting)
 				return
-			if(!istype(GS.connected.loc, /turf/unsimulated/map))
+			if(!istype(GS.linked.loc, /turf/unsimulated/map))
 				to_chat(H, SPAN_WARNING("The safeties won't let you target while you're not on the Overmap!"))
 				return
 			var/my_sector = map_sectors["[H.z]"]
@@ -77,12 +107,18 @@
 	if(do_after(usr, 5 SECONDS))
 		C.targeting = FALSE
 		targeting = O
-		O.targeted_overlay = icon('icons/obj/overmap_heads_up_display.dmi', "lock")
+		O.targeted_overlay = icon('icons/obj/overmap/overmap_effects.dmi', "lock")
 		O.add_overlay(O.targeted_overlay)
-		if(!O.maptext)
-			O.maptext = SMALL_FONTS(6, "[class] [designation]")
+		if(designation && class && !obfuscated)
+			if(!O.maptext)
+				O.maptext = SMALL_FONTS(6, "[class] [designation]")
+			else
+				O.maptext += SMALL_FONTS(6, " [class] [designation]")
 		else
-			O.maptext += SMALL_FONTS(6, " [class] [designation]")
+			if(!O.maptext)
+				O.maptext = SMALL_FONTS(6, "[capitalize_first_letters(name)]")
+			else
+				O.maptext = SMALL_FONTS(6, " [capitalize_first_letters(name)]")
 		O.maptext_y = 32
 		O.maptext_x = -10
 		O.maptext_width = 72

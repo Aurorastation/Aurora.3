@@ -1,13 +1,13 @@
 /datum/map_template/ruin/away_site/abandoned_bunker
 	name = "lone asteroid"
 	description = "A lone asteroid. Strange signals are coming from this one."
-	suffix = "away_site/sol_bunker/bunker.dmm"
+	suffixes = list("away_site/sol_bunker/bunker.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "abandoned_bunker"
 
-/decl/submap_archetype/abandoned_bunker
+/singleton/submap_archetype/abandoned_bunker
 	map = "lone asteroid"
 	descriptor = "A lone asteroid. Strange signals are coming from this one."
 

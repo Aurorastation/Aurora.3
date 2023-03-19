@@ -1,7 +1,7 @@
 /obj/machinery/iff_beacon
 	name = "IFF transponder" //This object handles ship identification on sensors.
 	desc = "A complex set of various bluespace and subspace arrays that transmit a ship's identification tags."
-	icon = 'icons/obj/machines/telecomms.dmi'
+	icon = 'icons/obj/machinery/telecomms.dmi'
 	icon_state = "ntnet"
 	idle_power_usage = 500
 	var/datum/wires/iff/wires

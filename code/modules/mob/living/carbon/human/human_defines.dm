@@ -1,4 +1,7 @@
 /mob/living/carbon/human
+	// Tail Style
+	var/tail_style = null
+
 	//Hair colour and style
 	var/r_hair = 0
 	var/g_hair = 0
@@ -71,16 +74,10 @@
 	var/obj/item/s_store = null
 	var/obj/item/wrists = null
 
-	var/used_skillpoints = 0
-	var/skill_specialization = null
-	var/list/skills = list()
-
 	var/icon/stand_icon = null
 	var/icon/lying_icon = null
 
 	var/voice = ""	//Instead of new say code calling GetVoice() over and over and over, we're just going to ask this variable, which gets updated in Life()
-
-	var/speech_problem_flag = 0
 
 	var/miming = null //Toggle for the mime's abilities.
 	var/special_voice = "" // For changing our voice. Used by a symptom.
@@ -113,8 +110,8 @@
 	var/list/equipment_overlays = list()	// Extra overlays from equipped items
 
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
-	var/bodyfall_sound = /decl/sound_category/bodyfall_sound
-	var/footsound = /decl/sound_category/blank_footsteps
+	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound
+	var/footsound = /singleton/sound_category/blank_footsteps
 
 	var/last_x = 0
 	var/last_y = 0

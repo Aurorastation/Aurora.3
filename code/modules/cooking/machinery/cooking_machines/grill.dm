@@ -71,7 +71,7 @@
 		icon_state = on_icon
 	else
 		icon_state = off_icon
-		grill_loop.stop()
+		grill_loop?.stop()
 	if(length(cooking_objs))
 		grill_loop.start()
 		var/datum/cooking_item/CI = cooking_objs[1]

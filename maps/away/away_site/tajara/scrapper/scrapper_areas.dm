@@ -5,7 +5,7 @@
 	dynamic_lighting = 1
 	no_light_control = 0
 	base_turf = /turf/space
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
 
 /area/scrapper_base/quarters
 	name = "Scrapper Outpost Crew Quarters"
@@ -25,6 +25,7 @@
 
 //Shuttle
 /area/shuttle/scrapper_ship
+	flags = HIDE_FROM_HOLOMAP
 	requires_power = TRUE
 
 /area/shuttle/scrapper_ship/bridge

@@ -31,7 +31,7 @@
 /obj/structure/gore/resin/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		visible_message(SPAN_DANGER("\The [user] destroys \the [src]!"))
 		health = 0
 	else

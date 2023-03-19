@@ -59,10 +59,6 @@
 	build_path = /obj/machinery/computer/arcade/orion_trail
 	origin_tech = list(TECH_DATA = 1)
 
-/obj/item/circuitboard/turbine_control
-	name = T_BOARD("turbine control console")
-	build_path = /obj/machinery/computer/turbine_computer
-
 /obj/item/circuitboard/solar_control
 	name = T_BOARD("solar control console")
 	build_path = /obj/machinery/power/solar_control

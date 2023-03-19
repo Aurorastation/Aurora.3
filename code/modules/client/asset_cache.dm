@@ -527,7 +527,7 @@ var/list/asset_datums = list()
 					icon_states_string = "[json_encode(s)](\ref[s])"
 				else
 					icon_states_string += ", [json_encode(s)](\ref[s])"
-			error("[O] has an invalid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)](\ref[icon_state]), icon_states=[icon_states_string]")
+			log_error("[O] has an invalid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)](\ref[icon_state]), icon_states=[icon_states_string]")
 			I = icon('icons/turf/floors.dmi', "", SOUTH)
 
 		var/imgid = ckey("[path]")

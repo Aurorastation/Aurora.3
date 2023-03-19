@@ -35,7 +35,7 @@
 
 	id = /obj/item/card/id/away_site
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/device/radio/headset/ship/common
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/clothing/accessory/wcoat = 1)
 
@@ -74,7 +74,7 @@
 	name = "Space Bar Chef"
 
 	uniform = /obj/item/clothing/under/rank/chef/idris
-	suit = /obj/item/clothing/suit/chef/idris
+	suit = /obj/item/clothing/suit/chef_jacket/idris
 	head = /obj/item/clothing/head/chefhat/idris
 	shoes = /obj/item/clothing/shoes/brown
 	species_shoes = list(
@@ -90,7 +90,7 @@
 
 	id = /obj/item/card/id/away_site
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/device/radio/headset/ship/common
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 
@@ -130,7 +130,7 @@
 	respawn_flag = null
 
 /datum/outfit/admin/random/space_bar_patron
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/device/radio/headset/ship/common
 	l_pocket = /obj/item/storage/wallet/random
 
 /datum/outfit/admin/random/space_bar_patron/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

@@ -70,7 +70,7 @@
 		return FALSE
 	if(!istype(O))
 		return FALSE
-	if(REAGENT_VOLUME(O.reagents, /decl/reagent/water) >= 750)
+	if(REAGENT_VOLUME(O.reagents, /singleton/reagent/water) >= 750)
 		return TRUE
 	return FALSE
 
@@ -163,7 +163,7 @@
 		return FALSE
 	if(!istype(O))
 		return FALSE
-	if(REAGENT_VOLUME(O.reagents, /decl/reagent/spacecleaner) >= 200)
+	if(REAGENT_VOLUME(O.reagents, /singleton/reagent/spacecleaner) >= 200)
 		return TRUE
 	return FALSE
 

@@ -422,6 +422,15 @@
 /obj/item/ship_ammunition/francisca/ap{
 	pixel_y = 8
 	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "cdD" = (
@@ -660,6 +669,9 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/item/device/gps,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "eTq" = (
@@ -1342,6 +1354,9 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/clothing/suit/space/void/sol/fsf,
 /obj/item/clothing/head/helmet/space/void/sol/fsf,
+/obj/item/device/gps,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "iQy" = (
@@ -1675,6 +1690,9 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/clothing/suit/space/void/sol/fsf,
 /obj/item/clothing/head/helmet/space/void/sol/fsf,
+/obj/item/device/gps,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "lBQ" = (
@@ -2563,7 +2581,7 @@
 "uvX" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/red,
-/mob/living/heavy_vehicle/premade/ripley/loader,
+/mob/living/heavy_vehicle/premade/ripley/loader/sol,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "uBC" = (
@@ -2619,6 +2637,9 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/clothing/suit/space/void/sol/fsf,
 /obj/item/clothing/head/helmet/space/void/sol/fsf,
+/obj/item/device/gps,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "vgc" = (
@@ -31965,7 +31986,7 @@ sSs
 ttG
 ttG
 sSs
-tKM
+tra
 yjk
 fnS
 sSs
@@ -32218,7 +32239,7 @@ yjk
 aCd
 aCd
 yjk
-tra
+yjk
 yjk
 yjk
 qgw
@@ -32474,8 +32495,8 @@ eOW
 yjk
 sSs
 sSs
-yjk
-yjk
+fVv
+aAY
 yjk
 vCZ
 ylV
@@ -33245,7 +33266,7 @@ iQt
 yjk
 aCd
 aCd
-ccm
+qcp
 fkj
 yjk
 fDM
@@ -33502,7 +33523,7 @@ yjk
 yjk
 sSs
 sSs
-aAY
+ccm
 fkj
 yjk
 eeP

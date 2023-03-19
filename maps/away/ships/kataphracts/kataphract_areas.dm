@@ -112,6 +112,10 @@
 	ambience = AMBIENCE_HANGAR
 	sound_env = HANGAR
 
+/area/kataphract_chapter/cic 
+	name = "Kataphract Chapter - Combat Information Center"
+	icon_state = "security"
+
 /area/kataphract_chapter/hull
 	name = "Kataphract Chapter - Hull"
 	icon_state = "blue"

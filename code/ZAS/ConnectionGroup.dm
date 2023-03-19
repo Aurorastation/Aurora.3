@@ -208,7 +208,8 @@ Class Procs:
 	src.A = A
 	src.B = B
 	LAZYADD(A.edges, src)
-	air = B.return_air()
+	if(B)
+		air = B.return_air()
 	//id = 52*A.id
 //	log_debug("New edge from [A] to [B].")
 

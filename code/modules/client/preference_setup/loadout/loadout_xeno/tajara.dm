@@ -57,6 +57,11 @@
 	coat["raakti shariim coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/raakti_shariim
 	coat["hadiist surplus jacket"] = /obj/item/clothing/suit/storage/tajaran/pra_jacket
 	coat["al'mariist jacket"] = /obj/item/clothing/suit/storage/tajaran/dpra_jacket
+	coat["fancy black ladies coat"] = /obj/item/clothing/suit/storage/tajaran/fancycoat
+	coat["fancy red ladies coat"] = /obj/item/clothing/suit/storage/tajaran/fancycoat/red
+	coat["fine brown coat"] = /obj/item/clothing/suit/storage/tajaran/finecoat
+	coat["fine blue coat"] = /obj/item/clothing/suit/storage/tajaran/finecoat/blue
+	coat["fancy royalist jacket"] = /obj/item/clothing/suit/storage/tajaran/fancy
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajara_cloak
@@ -128,6 +133,8 @@
 	var/list/uniform = list()
 	uniform["laborer clothes"] = /obj/item/clothing/under/tajaran
 	uniform["fancy uniform"] = /obj/item/clothing/under/tajaran/fancy
+	uniform["fancy uniform, alt 1"] = /obj/item/clothing/under/tajaran/fancy/alt1
+	uniform["fancy uniform, alt 2"] = /obj/item/clothing/under/tajaran/fancy/alt2
 	uniform["nanotrasen overalls"] = /obj/item/clothing/under/tajaran/nt
 	uniform["matake priest garments"] = /obj/item/clothing/under/tajaran/matake
 	uniform["adhomian summerwear"] = /obj/item/clothing/under/tajaran/summer
@@ -136,7 +143,6 @@
 	uniform["raakti shariim uniform"] = /obj/item/clothing/under/tajaran/raakti_shariim
 	uniform["a'lmariist laborer clothes"] = /obj/item/clothing/under/tajaran/dpra
 	uniform["a'lmariist laborer clothes, alternate"] = /obj/item/clothing/under/tajaran/dpra/alt
-	uniform["fancy royalist jacket"] = /obj/item/clothing/suit/storage/tajaran/fancy
 	gear_tweaks += new /datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/nka_colorable_uniform
@@ -180,7 +186,18 @@
 	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
 	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
 	dress["adhomian summer dress"] = /obj/item/clothing/under/dress/tajaran/summer
+	dress["fancy uniform with skirt"] = /obj/item/clothing/under/dress/tajaran/formal
+	dress["fancy uniform with skirt, alt 1"] = /obj/item/clothing/under/dress/tajaran/formal/alt1
+	dress["fancy uniform with skirt, alt 2"] = /obj/item/clothing/under/dress/tajaran/formal/alt2
 	gear_tweaks += new /datum/gear_tweak/path(dress)
+
+/datum/gear/uniform/tajara_long_dress
+	display_name = "tajaran long dress (recolorable)"
+	path = /obj/item/clothing/under/dress/tajaran/long
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 
 /datum/gear/shoes/tajara/flats
 	display_name = "tajaran flats selection"
@@ -380,8 +397,8 @@
 	path = /obj/item/voidsuit_modkit/himeo/tajara
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Cargo Technician", "Shaft Miner", "Quartermaster", "Head of Personnel", "Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
-	origin_restriction = list(/decl/origin_item/origin/free_council)
+	allowed_roles = list("Shaft Miner", "Operations Manager", "Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	origin_restriction = list(/singleton/origin_item/origin/free_council)
 
 /datum/gear/tajaran_tarot
 	display_name = "adhomian divination cards deck"
@@ -410,6 +427,12 @@
 	charm["tajani charm"] = /obj/item/clothing/accessory/tajaran/charm/tajani
 	charm["holy sun rosette"] = /obj/item/clothing/accessory/tajaran/srendarr
 	gear_tweaks += new /datum/gear_tweak/path(charm)
+
+/datum/gear/tail_cloth
+	display_name = "tail cloth"
+	path = /obj/item/clothing/tail_accessory/tail_cloth
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/dpra_party_pin
 	display_name = "democratic peoples republic party pins selection"
@@ -462,3 +485,52 @@
 	portrait["king vahzirthaamro portrait"] = /obj/item/sign/painting_frame/vahzirthaamro
 	portrait["queen shumaila portrait"] = /obj/item/sign/painting_frame/shumaila
 	gear_tweaks += new /datum/gear_tweak/path(portrait)
+
+/datum/gear/accessory/tajara_medal
+	display_name = "tajaran medals"
+	description = "Because of the cultural impact of the civil wars in the Tajara species, medals are treated with the utmost respect by society. Veterans commonly wear their decorations to formal occasions."
+	path = /obj/item/clothing/accessory/medal/dasnrra_evac
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajara_medal/New()
+	..()
+	var/list/accessory = list()
+	accessory["PRA medal for the evacuation of das'nrra"] = /obj/item/clothing/accessory/medal/dasnrra_evac
+	accessory["PRA medal for the defense of the homeland"] = /obj/item/clothing/accessory/medal/homeland_defense
+	accessory["DPRA medal for the liberation of das'nrra"] = /obj/item/clothing/accessory/medal/dasnrra_liberation
+	accessory["DPRA medal for the liberation of gakal'zaal"] = /obj/item/clothing/accessory/medal/gakalzaal_liberation
+	accessory["NKA medal for the defense of the kingdom"] = /obj/item/clothing/accessory/medal/kingdom_defense
+	accessory["NKA medal for the harr'masir offensive"] = /obj/item/clothing/accessory/medal/harrmasir_offensive
+	gear_tweaks += new /datum/gear_tweak/path(accessory)
+
+/datum/gear/uniform/tajara_consular
+	display_name = "tajaran alternative consular uniform selection"
+	description = "A selection of tajaran alternative consular uniforms."
+	path = /obj/item/clothing/under/tajaran/consular/female
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Consular Officer")
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/uniform/tajara_consular/New()
+	..()
+	var/list/uniform = list()
+	uniform["PRA consular uniform, female"] = /obj/item/clothing/under/tajaran/consular/female
+	uniform["DPRA consular uniform, female"] = /obj/item/clothing/under/tajaran/consular/dpra/female
+	gear_tweaks += new /datum/gear_tweak/path(uniform)
+
+/datum/gear/head/tajara_consular
+	display_name = "tajaran alternative consular hat selection"
+	description = "A selection of tajaran alternative consular hats."
+	path = /obj/item/clothing/head/tajaran/consular/side_cap
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	allowed_roles = list("Consular Officer")
+
+/datum/gear/head/tajara_consular/New()
+	..()
+	var/list/hats = list()
+	hats["PRA consular service side cap"] = /obj/item/clothing/head/tajaran/consular/side_cap
+	hats["DPRA consular service side cap"] = /obj/item/clothing/head/tajaran/consular/dpra/side_cap
+	gear_tweaks += new /datum/gear_tweak/path(hats)

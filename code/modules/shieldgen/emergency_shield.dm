@@ -64,7 +64,7 @@
 	user.do_attack_animation(src, W)
 	//Calculate damage
 	var/aforce = W.force
-	if(W.damtype == BRUTE || W.damtype == BURN)
+	if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
 		health -= aforce
 
 	//Play a fitting sound
@@ -131,7 +131,7 @@
 /obj/machinery/shieldgen
 	name = "emergency shield projector"
 	desc = "Used to seal minor hull breaches."
-	icon = 'icons/obj/machines/shielding.dmi'
+	icon = 'icons/obj/machinery/shielding.dmi'
 	icon_state = "shieldoff"
 	density = TRUE
 	opacity = FALSE

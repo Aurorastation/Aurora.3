@@ -83,7 +83,7 @@
 
 /datum/mind/proc/transfer_to(mob/living/new_character)
 	if(!istype(new_character))
-		world.log <<  "## DEBUG: transfer_to(): Some idiot has tried to transfer_to( a non mob/living mob. Please inform Carn"
+		log_error("## DEBUG: transfer_to(): Some idiot has tried to transfer_to( a non mob/living mob. Please inform Carn")
 	var/datum/changeling/changeling = antag_datums[MODE_CHANGELING]
 	var/datum/vampire/vampire = antag_datums[MODE_VAMPIRE]
 	if(current)					//remove ourself from our old body's mind variable
@@ -530,13 +530,6 @@
 /mob/living/carbon/slime/mind_initialize()
 	..()
 	mind.assigned_role = "slime"
-
-/mob/living/carbon/alien/larva
-	icon_state = "larva0"
-
-/mob/living/carbon/alien/larva/mind_initialize()
-	..()
-	mind.special_role = "Larva"
 
 //AI
 /mob/living/silicon/ai/mind_initialize()

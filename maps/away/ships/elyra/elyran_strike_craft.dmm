@@ -359,10 +359,10 @@
 "bud" = (
 /obj/structure/table/steel,
 /obj/structure/table/steel,
-/obj/item/storage/firstaid/brute{
+/obj/item/storage/firstaid/trauma{
 	pixel_x = -4
 	},
-/obj/item/storage/firstaid/brute{
+/obj/item/storage/firstaid/trauma{
 	pixel_x = -4
 	},
 /obj/item/storage/firstaid/fire{
@@ -488,6 +488,7 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/suit/space/void/valkyrie,
 /obj/item/clothing/head/helmet/space/void/valkyrie,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "cWy" = (
@@ -531,6 +532,7 @@
 /obj/item/ammo_magazine/c45m,
 /obj/item/gun/projectile/plasma/bolter,
 /obj/item/ammo_magazine/plasma/light,
+/obj/item/device/gps,
 /turf/simulated/floor/carpet,
 /area/ship/elyran_strike_craft)
 "dqM" = (
@@ -1783,6 +1785,7 @@
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
+/obj/item/device/gps,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "rBF" = (
@@ -1836,6 +1839,15 @@
 	},
 /obj/item/ship_ammunition/francisca/ap{
 	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -34672,7 +34684,7 @@ tUL
 eLi
 atj
 vOv
-pcX
+kHe
 vPN
 crW
 iOh
@@ -35443,7 +35455,7 @@ hmO
 atj
 xkT
 vOv
-kHe
+aOc
 aTV
 pcX
 mXc
@@ -36214,7 +36226,7 @@ pZC
 atj
 aHa
 vOv
-rMJ
+rXd
 geX
 spD
 dVy
@@ -36471,7 +36483,7 @@ xrq
 atj
 uHF
 vOv
-pcX
+rMJ
 pcX
 jZJ
 kbf

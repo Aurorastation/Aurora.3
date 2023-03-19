@@ -237,6 +237,9 @@ proc/getsensorlevel(A)
 /mob/proc/is_pacified()
 	return FALSE
 
+/mob/proc/is_blind()
+	return (sdisabilities & BLIND) || blinded
+
 /*
 	Miss Chance
 */
@@ -441,6 +444,8 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 	var/current_time = world.time
 	if(!M || !M.client || (M.shakecamera > current_time)|| M.stat || isEye(M) || isAI(M))
 		return
+	if(((M.client.view != world.view) || (M.client.pixel_x != 0) || (M.client.pixel_y != 0))) //to prevent it while zooming, because zoom does not play well with this code
+		return
 	M.shakecamera = current_time + max(TICKS_PER_RECOIL_ANIM, duration)
 	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
 	var/steps = min(1, Floor(duration/TICKS_PER_RECOIL_ANIM))-1
@@ -511,13 +516,6 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 				hud_used.action_intent.icon_state = I_HURT
 			else
 				hud_used.action_intent.icon_state = I_HELP
-
-proc/is_blind(A)
-	if(istype(A, /mob/living/carbon))
-		var/mob/living/carbon/C = A
-		if(C.sdisabilities & BLIND || C.blinded)
-			return 1
-	return 0
 
 /proc/broadcast_security_hud_message(var/message, var/broadcast_source)
 	broadcast_hud_message(message, broadcast_source, sec_hud_users, /obj/item/clothing/glasses/hud/security)
@@ -1191,12 +1189,6 @@ proc/is_blind(A)
 				var/final_icon = a.tag_icon
 				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
 				return {"<span onclick="window.location.href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'">[S.icon_tag(final_icon)]</span>"}
-				
-
-/mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
-	for(var/mob/M in contents)
-		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
-		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
 
 /mob/assign_player(var/mob/user)
 	ckey = user.ckey
@@ -1292,6 +1284,3 @@ proc/is_blind(A)
 
 /mob/get_client()
 	return client
-
-/mob/abstract/observer/virtual/get_client()
-	return host.get_client()

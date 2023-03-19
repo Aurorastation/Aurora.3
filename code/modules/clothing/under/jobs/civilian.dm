@@ -3,7 +3,7 @@
 /obj/item/clothing/under/rank/bartender
 	name = "bartender's uniform"
 	desc = "It looks like it could use some more flair."
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_bartender"
 	item_state = "nt_bartender"
@@ -26,13 +26,13 @@
 	worn_state = "chef"
 
 /obj/item/clothing/under/rank/chef/nt
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_chef"
 	item_state = "nt_chef"
 
 /obj/item/clothing/under/rank/chef/idris
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "idris_chef"
 	item_state = "idris_chef"
@@ -40,7 +40,7 @@
 /obj/item/clothing/under/rank/hydroponics
 	desc = "It's a jumpsuit designed to protect against minor plant-related hazards."
 	name = "botanist's jumpsuit"
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_gardener"
 	item_state = "nt_gardener"
 	permeability_coefficient = 0.50
@@ -54,7 +54,7 @@
 /obj/item/clothing/under/rank/liaison
 	name = "corporate liaison uniform"
 	desc = "The plain, professional attire of a corporate liaison. The collar is <i>immaculately</i> starched."
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_liaison"
 	item_state = "nt_liaison"
 	contained_sprite = TRUE
@@ -87,7 +87,7 @@
 /obj/item/clothing/under/rank/janitor
 	desc = "It's the official uniform of the station's janitor. It has minor protection from biohazards."
 	name = "janitor's jumpsuit"
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_janitor"
 	item_state = "nt_janitor"
 	contained_sprite = TRUE
@@ -130,7 +130,7 @@
 /obj/item/clothing/under/librarian
 	name = "sensible suit"
 	desc = "It's very... sensible."
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_librarian"
 	item_state = "nt_librarian"
@@ -144,7 +144,7 @@
 /obj/item/clothing/under/rank/miner
 	desc = "It's a snappy miner's jumpsuit, complete with overalls and caked-on dirt."
 	name = "miner's jumpsuit"
-	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_miner"
 	item_state = "nt_miner"
@@ -160,7 +160,7 @@
 /obj/item/clothing/under/rank/operations_manager
 	name = "operations manager's jumpsuit"
 	desc = "A uniform worn by the operations manager. It has the SCC insignia on it."
-	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "operations_manager"
 	item_state = "operations_manager"
 	contained_sprite = TRUE
@@ -168,7 +168,7 @@
 /obj/item/clothing/under/rank/hangar_technician
 	name = "hangar technician's jumpsuit"
 	desc = "The future of hangar tech apparel: long, stuffy slacks. We never said it was a bright future."
-	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "nt_tech"
 	item_state = "nt_tech"
 	contained_sprite = TRUE
@@ -184,7 +184,7 @@
 /obj/item/clothing/under/rank/bridge_crew
 	name = "bridge crew's jumpsuit"
 	desc = "The uniform worn by the SCC's bridge crew."
-	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "bridge_crew"
 	item_state = "bridge_crew"
 	contained_sprite = TRUE
@@ -192,40 +192,32 @@
 /obj/item/clothing/under/rank/bridge_crew/alt
 	name = "bridge crew's skirt"
 	desc = "The uniform worn by the SCC's bridge crew, featuring a skirt."
-	icon = 'icons/contained_items/clothing/bottomwear/bridge_crew_alt.dmi'
 	icon_state = "bridge_crew_alt"
 	item_state = "bridge_crew_alt"
-	contained_sprite = TRUE
-
 /obj/item/clothing/under/rank/bridge_crew/alt/white
 	icon_state = "bridge_crew_alt_white"
 	item_state = "bridge_crew_alt_white"
-	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/bridge_crew/sancolette
 	name = "bridge crew's uniform"
 	desc = "A bridge staff uniform in SCC colors but Colettish style, consisting of trousers and meant to be paired with a jacket. Fancy!"
 	desc_extended = "This uniform is based upon an officer's uniform of the Civil Guard of San Colette. The blue-and-white \
 	uniforms of the Civil Guard are one of the more striking uniforms found in the local military forces of the Alliance, and are often copied by both corporate and civil actors."
-	icon = 'icons/contained_items/clothing/bottomwear/bridge_crew_sancol.dmi'
 	icon_state = "bridge_crew_sancol"
 	item_state = "bridge_crew_sancol"
-	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/bridge_crew/sancolette/alt
 	name = "bridge crew's uniform"
 	desc = "A bridge staff uniform in SCC colors but Colettish style, consisting of navy trousers and meant to be paired with a jacket. Fancy!"
 	desc_extended = "This uniform is based upon an officer's uniform of the Civil Guard of San Colette. The blue-and-white \
 	uniforms of the Civil Guard are one of the more striking uniforms found in the local military forces of the Alliance, and are often copied by both corporate and civil actors."
-	icon = 'icons/contained_items/clothing/bottomwear/bridge_crew_sancol.dmi'
 	icon_state = "bridge_crew_sancol_alt"
 	item_state = "bridge_crew_sancol_alt"
-	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/xo
 	name = "executive officer's jumpsuit"
 	desc = "The uniform worn by the SCC's executive officers."
-	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "executive_officer"
 	item_state = "executive_officer"
 	contained_sprite = TRUE
@@ -233,7 +225,7 @@
 /obj/item/clothing/under/rank/machinist
 	name = "machinist's jumpsuit"
 	desc = "A practical uniform designed for industrial work."
-	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_machinist"
 	item_state = "nt_machinist"

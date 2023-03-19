@@ -117,7 +117,7 @@ LINEN BINS
 	if (do_after(user, 25, src))
 		if(user.loc != loc)
 			user.do_attack_animation(src)
-		playsound(get_turf(loc), /decl/sound_category/rustle_sound, 15, 1, -5)
+		playsound(get_turf(loc), /singleton/sound_category/rustle_sound, 15, 1, -5)
 		var/folds = fold
 		user.visible_message(SPAN_NOTICE("\The [user] [folds ? "unfolds" : "folds"] \the [src]."),
 				SPAN_NOTICE("You [fold ? "unfold" : "fold"] \the [src]."))
@@ -151,7 +151,7 @@ LINEN BINS
 	if (do_after(user, 6, src))
 		if(user.loc != loc)
 			user.do_attack_animation(src)
-		playsound(get_turf(loc), /decl/sound_category/rustle_sound, 15, 1, -5)
+		playsound(get_turf(loc), /singleton/sound_category/rustle_sound, 15, 1, -5)
 		var/rolls = roll
 		user.visible_message(SPAN_NOTICE("\The [user] [rolls ? "unrolls" : "rolls"] \the [src]."),
 							SPAN_NOTICE("You [roll ? "unroll" : "roll"] \the [src]."))
@@ -389,11 +389,13 @@ LINEN BINS
 
 
 /obj/structure/bedsheetbin/update_icon()
-	switch(amount)
-		if(0)				icon_state = "linenbin-empty"
-		if(1 to amount / 2)	icon_state = "linenbin-half"
-		else				icon_state = "linenbin-full"
-
+	var/max_sheets = initial(amount)
+	if(amount > (max_sheets/2))
+		icon_state = "linenbin-full"
+	else if(amount > 0)
+		icon_state = "linenbin-half"
+	else
+		icon_state = "linenbin-empty"
 
 /obj/structure/bedsheetbin/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/bedsheet))

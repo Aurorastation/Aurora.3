@@ -22,7 +22,7 @@
 
 	else if(istype(AM, /mob/living))
 		var/mob/living/L = AM
-		if(locate(/obj/structure/lattice/catwalk, src))	//should be safe to walk upon
+		if(locate(/obj/structure/lattice, src))	// Should be safe to walk upon.
 			return TRUE
 		if(!L.CanAvoidGravity())
 			L.visible_message(SPAN_DANGER("\The [L] falls into \the [src]."), SPAN_DANGER("You plummet down into \the [src]!"))
@@ -41,3 +41,6 @@
 
 	else
 		..()
+
+/turf/simulated/abyss/is_open()
+	return TRUE

@@ -47,7 +47,7 @@
 	check_update_ui_need()
 
 	if(looping_sound && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
-		playsound(get_turf(src), /decl/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
+		playsound(get_turf(src), /singleton/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
 		ambience_last_played_time = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(preset_type)
@@ -86,7 +86,6 @@
 
 /obj/item/modular_computer/Initialize()
 	. = ..()
-	listener = new(LISTENER_MODULAR_COMPUTER, src)
 	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)
@@ -96,6 +95,7 @@
 	if(looping_sound)
 		soundloop = new(src, enabled)
 	initial_name = name
+	listener = new(LISTENER_MODULAR_COMPUTER, src)
 
 /obj/item/modular_computer/Destroy()
 	kill_program(TRUE)
@@ -104,10 +104,9 @@
 	for(var/obj/item/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
 		qdel(CH)
-	listening_objects -= src
 	STOP_PROCESSING(SSprocessing, src)
-	QDEL_NULL(listener)
 	QDEL_NULL(soundloop)
+	QDEL_NULL(listener)
 	return ..()
 
 /obj/item/modular_computer/CouldUseTopic(var/mob/user)

@@ -25,7 +25,7 @@
 /datum/ghostspawner/human/kataphract/klax
 	short_name = "kataphract_hop_klax"
 	name = "Kataphract-Hopeful Klaxan"
-	desc = "A Zo'saa (squire) from the K'lax hive, here to learn what it means to be honourable. Remember, you serve the Izweski Hegemony on behalf of your K'laxan compatriots."
+	desc = "A Zo'saa (squire) from the K'lax Hive, here to learn what it means to be honourable. Remember, you serve the Izweski Hegemony on behalf of your K'laxan compatriots."
 	max_count = 1
 	uses_species_whitelist = TRUE
 
@@ -47,25 +47,25 @@
 	spawnpoints = list("kataphract_knight")
 
 	outfit = /datum/outfit/admin/kataphract/knight
-	
+
 
 	assigned_role = "Kataphract Knight Captain"
 	special_role = "Kataphract Knight Captain"
 
-/datum/ghostspawner/human/kataphract/quartermaster
-	short_name = "kataphract_quart"
-	name = "Kataphract Knight Quartermaster"
-	desc = "A Saa (Knight) of the traveling Kataphract Guild. Display honour in everything you do. Be an excellent person. Ensure the Kataphracts are well-stocked and ready for anything. Lead by example with the Knight Captain. Remember, you serve the Izweski Hegemony."
+/datum/ghostspawner/human/kataphract/specialist
+	short_name = "kataphract_specialist"
+	name = "Kataphract Specialist"
+	desc = "A Saa (Knight) of the traveling Kataphract Guild. Display honour in everything you do. Support your Knight Captain and lead by example. Remember, you serve the Izweski Hegemony."
 	max_count = 1
 
 	mob_name_prefix = "Saa "
 
-	spawnpoints = list("kataphract_quartermaster")
+	spawnpoints = list("kataphract_specialist")
 
-	outfit = /datum/outfit/admin/kataphract/quartermaster
+	outfit = /datum/outfit/admin/kataphract/specialist
 
-	assigned_role = "Kataphract Knight Quartermaster"
-	special_role = "Kataphract Knight Quartermaster"
+	assigned_role = "Kataphract Specialist"
+	special_role = "Kataphract Specialist"
 
 // Kataphract who are not combat ready
 /datum/outfit/admin/kataphract
@@ -129,14 +129,14 @@
 
 	suit = /obj/item/clothing/accessory/poncho/red
 	back = /obj/item/storage/backpack/satchel/hegemony
-	
+
 
 /datum/outfit/admin/kataphract/knight/get_id_access()
 	return list(access_kataphract, access_kataphract_knight, access_external_airlocks)
 
-/datum/outfit/admin/kataphract/quartermaster
-	name = "Kataphract Quartermaster"
-	
+/datum/outfit/admin/kataphract/specialist
+	name = "Kataphract Specialist"
+
 	back = /obj/item/storage/backpack/satchel/hegemony
 
 /datum/outfit/admin/kataphract/quartermaster/get_id_access()

@@ -1,10 +1,6 @@
 /atom/movable/proc/get_mob()
 	return
 
-/obj/machinery/bot/mulebot/get_mob()
-	if(load && istype(load,/mob/living))
-		return load
-
 /obj/vehicle/train/get_mob()
 	return buckled
 
@@ -232,7 +228,7 @@ Proc for attack log creation, because really why not
 				break
 
 		//update our pda and id if we have them on our person
-		var/list/searching = GetAllContents(searchDepth = 3)
+		var/list/searching = GetAllContents()
 		var/search_id = 1
 		var/search_pda = 1
 

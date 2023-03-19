@@ -1,7 +1,7 @@
 /obj/item/stellascope
 	name = "stellascope"
 	desc = "An antique and delicate looking instrument used to study the stars."
-	icon = 'icons/obj/contained_items/skrell/stellascope.dmi'
+	icon = 'icons/obj/item/skrell/stellascope.dmi'
 	icon_state = "starscope"
 	w_class = ITEMSIZE_TINY
 	matter = list(MATERIAL_GLASS = 200)
@@ -32,7 +32,7 @@
 			if(projection_ready)
 				new/obj/effect/temp_visual/constellation (get_turf(user))
 				projection_ready = FALSE
-				addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(rearm)), 30 SECONDS)
 
 
 /obj/item/stellascope/proc/rearm()
@@ -46,7 +46,7 @@
 /obj/effect/temp_visual/constellation
 	name = "starry projection"
 	desc = "A holographic projection of star system."
-	icon = 'icons/obj/contained_items/skrell/stellascope.dmi'
+	icon = 'icons/obj/item/skrell/stellascope.dmi'
 	icon_state = "starprojection"
 	mouse_opacity = TRUE
 	duration = 30 SECONDS
@@ -76,7 +76,7 @@
 /obj/item/skrell_projector
 	name = "nralakk projector"
 	desc = "A projector using technology that originated in Nralakk, meant to help Skrell feel like they're carrying home with them wherever they go. It looks very complex."
-	icon = 'icons/obj/contained_items/skrell/nralakk_projector.dmi'
+	icon = 'icons/obj/item/skrell/nralakk_projector.dmi'
 	icon_state = "projector"
 	light_color = LIGHT_COLOR_HALOGEN
 	w_class = ITEMSIZE_TINY
@@ -225,7 +225,7 @@
 	desc = "An ear-tag that shows the wearer is loyal to the Nralakk Federation. A small cable travels into the ear canal..."
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_EARS
-	icon = 'icons/obj/contained_items/skrell/jargtag.dmi'
+	icon = 'icons/obj/item/skrell/jargtag.dmi'
 	icon_state = "jargtag"
 	item_state = "jargtag"
 	contained_sprite = TRUE
@@ -250,7 +250,7 @@
 	canremove = FALSE
 	icon_state = "[initial(icon_state)]_active"
 	to_chat(wearer, SPAN_WARNING("\The [src] clamps down around your ear, releasing a burst of static before going silent. Something probes at your ear canal..."))
-	addtimer(CALLBACK(src, .proc/do_loyalty, wearer), 15)
+	addtimer(CALLBACK(src, PROC_REF(do_loyalty), wearer), 15)
 
 /obj/item/nralakktag/proc/unclamp()
 	if(fried)

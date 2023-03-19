@@ -40,7 +40,7 @@
 
 	/* -- Execute the compiled code -- */
 
-	proc/Run(var/datum/signal/signal)
+	proc/Run(var/datum/signal/subspace/vocal/signal)
 
 		if(!ready)
 			return
@@ -107,7 +107,7 @@
 					@param job:			The name of the job.
 					@param language:	The language used for the broadcast
 		*/
-		interpreter.SetProc("broadcast", "tcombroadcast", signal, list("message", "freq", "source", "job", "language"))
+		interpreter.SetProc("broadcast", "broadcast", signal, list("message", "freq", "source", "job", "language"))
 
 		/*
 			-> Store a value permanently to the server machine (not the actual game hosting machine, the ingame machine)
@@ -235,7 +235,3 @@ datum/signal
 
 			else
 				S.memory[address] = value
-
-
-
-

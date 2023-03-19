@@ -13,7 +13,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -46,7 +46,7 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -305,7 +305,7 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -473,7 +473,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -20
 	},
 /obj/machinery/light{
@@ -991,7 +990,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -1013,7 +1012,6 @@
 "aJq" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -1055,7 +1053,7 @@
 	anchored = 1
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -1201,7 +1199,6 @@
 "aQy" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_x = 5;
 	pixel_y = -22
 	},
@@ -1385,7 +1382,7 @@
 	icon_state = "rock2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -1744,7 +1741,6 @@
 "bjA" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -1896,34 +1892,34 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/clothing/under/shorts/red,
-/obj/item/clothing/under/shorts/red,
-/obj/item/clothing/under/shorts/red,
-/obj/item/clothing/under/shorts/red,
-/obj/item/clothing/under/shorts/red,
-/obj/item/clothing/under/shorts/red,
-/obj/item/clothing/under/shorts/green,
-/obj/item/clothing/under/shorts/green,
-/obj/item/clothing/under/shorts/green,
-/obj/item/clothing/under/shorts/green,
-/obj/item/clothing/under/shorts/green,
-/obj/item/clothing/under/shorts/green,
-/obj/item/clothing/under/shorts/grey,
-/obj/item/clothing/under/shorts/grey,
-/obj/item/clothing/under/shorts/grey,
-/obj/item/clothing/under/shorts/grey,
-/obj/item/clothing/under/shorts/grey,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/under/shorts/black,
-/obj/item/clothing/under/shorts/black,
-/obj/item/clothing/under/shorts/black,
-/obj/item/clothing/under/shorts/black,
-/obj/item/clothing/under/shorts/black,
+/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/grey,
+/obj/item/clothing/under/shorts/athletic/grey,
+/obj/item/clothing/under/shorts/athletic/grey,
+/obj/item/clothing/under/shorts/athletic/grey,
+/obj/item/clothing/under/shorts/athletic/grey,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/black,
+/obj/item/clothing/under/shorts/athletic/black,
+/obj/item/clothing/under/shorts/athletic/black,
+/obj/item/clothing/under/shorts/athletic/black,
+/obj/item/clothing/under/shorts/athletic/black,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -1941,7 +1937,7 @@
 /obj/structure/lattice,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
 	layer = 2.6;
 	name = "cable"
@@ -1965,7 +1961,7 @@
 	layer = 9.1
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -2043,7 +2039,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -2206,7 +2202,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -2400,7 +2396,7 @@
 	pixel_x = -13
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -2546,7 +2542,7 @@
 	pixel_y = 20
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -2703,7 +2699,7 @@
 /obj/structure/flora/grass/jungle/b,
 /obj/structure/flora/tree/jungle/small,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -2852,7 +2848,7 @@
 	icon_state = "rock"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -2895,7 +2891,7 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -3402,7 +3398,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -20
 	},
 /turf/unsimulated/floor{
@@ -3412,7 +3407,6 @@
 "cFP" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -3466,7 +3460,7 @@
 /obj/structure/table/wood,
 /obj/item/storage/toolbox/mechanical,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -3534,7 +3528,7 @@
 /area/cruise/arcade)
 "cLb" = (
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -3545,7 +3539,7 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -3702,7 +3696,7 @@
 	layer = 9.2
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -4305,7 +4299,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -4336,7 +4330,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -4464,7 +4458,7 @@
 	},
 /obj/structure/flora/grass/jungle/b,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -4579,7 +4573,7 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -4621,7 +4615,7 @@
 "dEl" = (
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -4663,7 +4657,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -4799,7 +4793,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -4853,7 +4847,7 @@
 "dQM" = (
 /obj/structure/flora/grass/jungle/b,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -4906,7 +4900,7 @@
 	anchored = 1
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -4944,7 +4938,7 @@
 	icon_state = "grassa2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -4956,7 +4950,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/door/firedoor,
@@ -5045,7 +5038,7 @@
 "eak" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -5197,7 +5190,6 @@
 "ejQ" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/effect/landmark/force_spawnpoint{
@@ -5360,7 +5352,7 @@
 	icon_state = "rock"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -5402,7 +5394,7 @@
 	icon_state = "grassa2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -5927,7 +5919,7 @@
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -6192,7 +6184,7 @@
 /obj/structure/table/wood,
 /obj/item/watertank,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -6250,7 +6242,6 @@
 "eZS" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -6617,7 +6608,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -6634,7 +6624,6 @@
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/broadcaster,
-/obj/item/circuitboard/telecomms/relay,
 /obj/item/circuitboard/ntnet_relay,
 /turf/unsimulated/floor{
 	icon_state = "plating"
@@ -6705,7 +6694,7 @@
 	},
 /obj/structure/flora/tree/jungle/small,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -6755,7 +6744,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -6858,7 +6847,7 @@
 	color = "#6e472b"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -6934,7 +6923,7 @@
 	icon_state = "grassa2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -7106,7 +7095,7 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -7215,7 +7204,7 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -7378,7 +7367,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -7528,7 +7517,6 @@
 "fWc" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/ramp,
@@ -7580,7 +7568,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -7591,7 +7579,6 @@
 /area/cruise/arcade)
 "fXP" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 25
 	},
 /turf/unsimulated/floor{
@@ -7751,7 +7738,7 @@
 	},
 /obj/structure/blocker,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -7793,7 +7780,7 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -7803,7 +7790,6 @@
 /obj/structure/bed/stool/padded/red,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/light/small{
@@ -7900,7 +7886,7 @@
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -7951,7 +7937,7 @@
 "gjw" = (
 /obj/machinery/floodlight,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -8094,7 +8080,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -8200,7 +8186,7 @@
 "gqC" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -8415,7 +8401,7 @@
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/tree/jungle/small,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -8427,7 +8413,7 @@
 	layer = 9.12
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -8710,7 +8696,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -8718,7 +8703,7 @@
 	},
 /area/cruise/central)
 "gML" = (
-/obj/effect/floor_decal/scc_full,
+/obj/effect/floor_decal/big/scc_full,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -8809,7 +8794,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -8866,7 +8850,7 @@
 	icon_state = "tree3"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -8876,7 +8860,7 @@
 	icon_state = "rock"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -8955,7 +8939,7 @@
 /obj/structure/flora/grass/jungle/b,
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -9054,7 +9038,7 @@
 	},
 /obj/structure/flora/grass/jungle/b,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -9445,7 +9429,7 @@
 	icon_state = "bushb1"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -9660,7 +9644,7 @@
 "hBy" = (
 /obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -10137,7 +10121,7 @@
 "iam" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
 	layer = 2.6;
 	name = "cable"
@@ -10296,7 +10280,7 @@
 	icon_state = "tree2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -10659,7 +10643,7 @@
 	layer = 9.11
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -10690,13 +10674,13 @@
 	},
 /area/cruise/fore)
 "iue" = (
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/combat,
 /obj/item/storage/firstaid/combat,
@@ -10804,7 +10788,7 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -10848,7 +10832,7 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -10952,7 +10936,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -11008,7 +10992,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -11538,7 +11522,7 @@
 /area/cruise/arcade)
 "jdi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/l3closet/security,
+/obj/structure/closet/hazmat/security,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -11558,7 +11542,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -11757,7 +11740,6 @@
 /obj/structure/closet/emcloset,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/light/small{
@@ -11770,7 +11752,7 @@
 "jlw" = (
 /obj/structure/flora/grass/jungle/b,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -11798,7 +11780,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/machinery/light/small{
@@ -11835,7 +11816,7 @@
 	icon_state = "rock2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -11974,7 +11955,7 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -12028,7 +12009,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -12322,7 +12303,7 @@
 	icon_state = "rock"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -12451,7 +12432,6 @@
 "jUE" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -12673,7 +12653,6 @@
 	},
 /area/cruise/beach)
 "kez" = (
-/obj/machinery/telecomms/relay/preset/station,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -12710,7 +12689,7 @@
 	icon_state = "bushb2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -13117,7 +13096,7 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -13298,7 +13277,7 @@
 "kBn" = (
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -13348,7 +13327,7 @@
 	icon_state = "bushb1"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -13379,7 +13358,7 @@
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -13486,7 +13465,7 @@
 	icon_state = "tree2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -13978,7 +13957,7 @@
 	pixel_y = 9
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -14032,7 +14011,7 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -14259,7 +14238,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -14274,7 +14253,7 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -14354,14 +14333,14 @@
 "luP" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
 	layer = 2.6;
 	name = "cable"
@@ -14780,12 +14759,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/cruise/virtual_reality)
-"lHd" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/unsimulated/floor{
-	icon_state = "plating"
-	},
-/area/cruise/tcomms_sat)
 "lHn" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -14855,7 +14828,7 @@
 	icon_state = "basalt3"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -14896,7 +14869,7 @@
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -15156,7 +15129,7 @@
 	anchored = 1
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -15250,7 +15223,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -15268,7 +15241,7 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -15582,7 +15555,6 @@
 "mlx" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -20
 	},
 /turf/unsimulated/floor{
@@ -15656,7 +15628,6 @@
 "mpp" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/light{
@@ -15753,7 +15724,7 @@
 	pixel_y = -14
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -15767,7 +15738,7 @@
 	pixel_y = -2
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -16038,7 +16009,7 @@
 	pixel_y = 9
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -16136,7 +16107,7 @@
 	icon_state = "tree2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -16342,7 +16313,7 @@
 	layer = 9.12
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -16612,7 +16583,7 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -17061,7 +17032,7 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -17167,7 +17138,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -17614,7 +17585,7 @@
 "nSK" = (
 /obj/item/reagent_containers/glass/bucket/wood,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -17652,7 +17623,7 @@
 "nTq" = (
 /obj/structure/blocker,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -18021,7 +17992,7 @@
 	pixel_y = 16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -18051,7 +18022,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -18269,7 +18240,7 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -18492,7 +18463,6 @@
 "oAK" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -18846,7 +18816,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/ramp,
@@ -19158,7 +19127,7 @@
 "pfY" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -19319,7 +19288,7 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -19444,14 +19413,14 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
 	layer = 2.6;
 	name = "cable"
@@ -19564,7 +19533,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -19727,14 +19696,14 @@
 "pBZ" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
 	layer = 2.6;
 	name = "cable"
@@ -19946,14 +19915,14 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
 	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -19968,7 +19937,6 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
 /turf/unsimulated/floor{
@@ -20889,7 +20857,7 @@
 	layer = 9.11
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -20902,7 +20870,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -21138,7 +21106,7 @@
 /area/cruise/aft)
 "qQP" = (
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -21165,7 +21133,7 @@
 	icon_state = "tree3"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -21195,7 +21163,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -21222,7 +21190,7 @@
 /obj/structure/lattice,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -21686,7 +21654,6 @@
 "rrj" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_x = 5;
 	pixel_y = -22
 	},
@@ -21831,7 +21798,7 @@
 /area/cruise/library)
 "ruM" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -21947,7 +21914,6 @@
 "rCz" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -22129,7 +22095,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -22303,7 +22269,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -22399,7 +22365,7 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -22438,7 +22404,7 @@
 	pixel_y = 27
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -22590,7 +22556,6 @@
 "sek" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_x = 5;
 	pixel_y = -22
 	},
@@ -22631,7 +22596,7 @@
 "sey" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -23185,7 +23150,7 @@
 	icon_state = "grassa2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -23259,7 +23224,7 @@
 "sIV" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "0-8";
 	name = "cable"
 	},
@@ -23344,7 +23309,7 @@
 	color = "#6e472b"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -23625,7 +23590,7 @@
 	},
 /area/cruise/hangar)
 "sXc" = (
-/obj/machinery/message_server,
+/obj/machinery/telecomms/message_server,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
@@ -23948,7 +23913,7 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -24141,7 +24106,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -24225,7 +24190,7 @@
 	pixel_y = 5
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -24754,7 +24719,7 @@
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -24854,7 +24819,6 @@
 /obj/structure/flora/pottedplant/random,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -24966,7 +24930,7 @@
 	layer = 9.1
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -25573,7 +25537,7 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -26085,7 +26049,7 @@
 /area/cruise/hangar)
 "uJZ" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -26225,7 +26189,7 @@
 	icon_state = "tree2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -26242,7 +26206,6 @@
 "uRK" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -26559,7 +26522,7 @@
 	icon_state = "bushb1"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -26599,7 +26562,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/light{
@@ -26895,7 +26857,7 @@
 	icon_state = "bushb2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -27539,7 +27501,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -27570,7 +27532,7 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -27625,7 +27587,7 @@
 	pixel_y = -2
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -27636,7 +27598,7 @@
 	icon_state = "basalt3"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -27735,7 +27697,7 @@
 	icon_state = "grassa2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -27796,7 +27758,6 @@
 "whR" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -28043,7 +28004,7 @@
 /obj/structure/closet/crate/coffin,
 /obj/item/reagent_containers/food/snacks/donut/normal/psdonut,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -28270,7 +28231,6 @@
 "wFi" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -28562,7 +28522,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -28581,7 +28541,7 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -28590,7 +28550,7 @@
 "wSm" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -28637,7 +28597,7 @@
 	pixel_y = -14
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -28750,7 +28710,7 @@
 "wYE" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "0-4";
 	name = "cable"
 	},
@@ -28848,7 +28808,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -28942,7 +28901,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/ramp/bottom,
@@ -29157,7 +29115,7 @@
 	pixel_y = 20
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -29200,7 +29158,6 @@
 "xpJ" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -29735,7 +29692,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -30056,7 +30013,7 @@
 	icon_state = "rock"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = /decl/sound_category/grass_footstep;
+	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -38319,7 +38276,7 @@ gMU
 bhV
 czu
 xJS
-lHd
+poQ
 fHM
 twK
 tSs

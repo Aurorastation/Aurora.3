@@ -88,13 +88,12 @@
 
 /obj/item/gun/energy/lawgiver/Initialize()
 	. = ..()
-	listening_objects += src
+	become_hearing_sensitive()
 	power_supply = new /obj/item/cell/device/variable(src, 2000)
 	var/datum/firemode/new_mode = firemodes[sel_mode]
 	new_mode.apply_to(src)
 
 /obj/item/gun/energy/lawgiver/Destroy()
-	listening_objects -= src
 	return ..()
 
 /obj/item/gun/energy/lawgiver/proc/play_message()

@@ -1,8 +1,7 @@
 /obj/item/flamethrower
 	name = "flamethrower"
 	desc = "A flamethrower created by modifying a welding tool to fit an external gas tank."
-
-	icon = 'icons/obj/contained_items/weapons/flamethrower.dmi'
+	icon = 'icons/obj/item/flamethrower.dmi'
 	icon_state = "flamethrower1"
 	item_state = "flamethrower_0"
 	contained_sprite = TRUE

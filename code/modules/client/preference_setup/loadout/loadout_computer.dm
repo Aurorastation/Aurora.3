@@ -20,7 +20,7 @@
 	tablets["security tablet"] = /obj/item/modular_computer/handheld/preset/security
 	tablets["investigation tablet"] = /obj/item/modular_computer/handheld/preset/security/detective
 	tablets["research tablet"] = /obj/item/modular_computer/handheld/preset/research
-	tablets["robotics tablet"] = /obj/item/modular_computer/handheld/preset/research/robotics
+	tablets["machinist tablet"] = /obj/item/modular_computer/handheld/preset/supply/machinist
 	gear_tweaks += new /datum/gear_tweak/path(tablets)
 
 /datum/gear/computer/handheld/wristbound/selection

@@ -30,7 +30,7 @@
 	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of a reagent."))
 		for(var/_T in reagents.reagent_volumes)
-			var/decl/reagent/T = decls_repository.get_decl(_T)
+			var/singleton/reagent/T = GET_SINGLETON(_T)
 			if(T.reagent_state == LIQUID)
 				to_chat(user, SPAN_NOTICE("You see something liquid in the beaker."))
 				break // to stop multiple messages of this
@@ -47,7 +47,7 @@
 
 /obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
 	var/list/additional_evidence = ..()
-	var/list/Bdata = REAGENT_DATA(reagents, /decl/reagent/blood/)
+	var/list/Bdata = REAGENT_DATA(reagents, /singleton/reagent/blood/)
 	var/list/blood_Data = list(
 		Bdata["blood_DNA"] = Bdata["blood_type"]
 	)
@@ -211,9 +211,9 @@
 /obj/item/reagent_containers/glass/beaker/medcup/attack_self() // No lid for the medcup
 	return
 
-/obj/item/reagent_containers/glass/beaker/cryoxadone/reagents_to_add = list(/decl/reagent/cryoxadone = 30)
+/obj/item/reagent_containers/glass/beaker/cryoxadone/reagents_to_add = list(/singleton/reagent/cryoxadone = 30)
 
-/obj/item/reagent_containers/glass/beaker/sulphuric/reagents_to_add = list(/decl/reagent/acid = 60)
+/obj/item/reagent_containers/glass/beaker/sulphuric/reagents_to_add = list(/singleton/reagent/acid = 60)
 
 /obj/item/reagent_containers/glass/bucket
 	desc = "A blue plastic bucket."

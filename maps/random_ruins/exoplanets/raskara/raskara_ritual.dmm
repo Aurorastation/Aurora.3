@@ -1,0 +1,134 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"d" = (
+/obj/structure/cult/tome{
+	desc = "A stone altar dedicated to Raskara. The blood is still fresh.";
+	icon_state = "churchaltar";
+	name = "altar"
+	},
+/obj/item/material/knife/raskariim,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"f" = (
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+
+(1,1,1) = {"
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+"}
+(2,1,1) = {"
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+"}
+(3,1,1) = {"
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+"}
+(4,1,1) = {"
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+"}
+(5,1,1) = {"
+f
+f
+f
+f
+d
+f
+f
+f
+f
+f
+"}
+(6,1,1) = {"
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+"}
+(7,1,1) = {"
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+"}
+(8,1,1) = {"
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+"}
+(9,1,1) = {"
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+"}
+(10,1,1) = {"
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+"}

@@ -70,7 +70,7 @@
 		if(emag_act(INFINITY, user, "The locker has been sliced open by [user] with \an [blade]!", "You hear metal being sliced and sparks flying."))
 			blade.spark_system.queue()
 			playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
-			playsound(loc, /decl/sound_category/spark_sound, 50, 1)
+			playsound(loc, /singleton/sound_category/spark_sound, 50, 1)
 	else
 		to_chat(user, "<span class='warning'>Access Denied</span>")
 	return

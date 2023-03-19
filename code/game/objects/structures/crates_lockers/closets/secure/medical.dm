@@ -119,8 +119,6 @@
 	else
 		new /obj/item/storage/backpack/satchel/med(src)
 	new /obj/item/storage/backpack/duffel/med(src)
-	new /obj/item/clothing/suit/bio_suit/cmo(src)
-	new /obj/item/clothing/head/bio_hood/cmo(src)
 	new /obj/item/clothing/shoes/medical(src)
 	new /obj/item/clothing/under/rank/chief_medical_officer(src)
 	new /obj/item/clothing/gloves/latex/nitrile(src)

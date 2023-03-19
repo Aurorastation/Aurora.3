@@ -569,7 +569,7 @@
 
 /obj/item/rig/proc/check_suit_access(var/mob/living/carbon/human/user)
 
-	if(!security_check_enabled)
+	if(!security_check_enabled || !locked)
 		return 1
 
 	if(istype(user))

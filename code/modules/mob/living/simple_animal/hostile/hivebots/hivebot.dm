@@ -10,7 +10,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	armor_penetration = 40
-	attack_flags = DAM_SHARP|DAM_EDGE
+	attack_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE
 	break_stuff_probability = 25
 	attacktext = "slashed"
 	projectilesound = 'sound/weapons/bladeslice.ogg'
@@ -35,9 +35,6 @@
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 	psi_pingable = FALSE
-
-/mob/living/simple_animal/hostile/hivebot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 
 /mob/living/simple_animal/hostile/hivebot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
@@ -97,13 +94,13 @@
 /mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()
 	..()
 	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
+	change_stance(HOSTILE_STANCE_TIRED)
 	stop_automated_movement = 1
 	wander = 0
 	if(!has_exploded)
 		playsound(src.loc, 'sound/items/countdown.ogg', 125, 1)
 		has_exploded = TRUE
-		addtimer(CALLBACK(src, .proc/burst), 20)
+		addtimer(CALLBACK(src, PROC_REF(burst)), 20)
 
 /mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
@@ -170,12 +167,12 @@
 
 /mob/living/simple_animal/hostile/hivebot/emp_act(severity)
 	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
-	addtimer(CALLBACK(src, .proc/wakeup), 50)
+	change_stance(HOSTILE_STANCE_TIRED)
+	addtimer(CALLBACK(src, PROC_REF(wakeup)), 50)
 	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 	var/turf/random_turf = get_turf(pick(orange(src,7)))
 	do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebot/proc/wakeup()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
