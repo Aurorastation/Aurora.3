@@ -203,7 +203,6 @@
 		/obj/item/clothing/glasses/sunglasses = 4
 	)
 
-
 /obj/machinery/vending/coffee
 	name = "hot drinks vending machine"
 	desc = "A hot drinks vending machine."
