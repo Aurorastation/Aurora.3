@@ -1,0 +1,1211 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"b" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"c" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"d" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"e" = (
+/obj/machinery/light,
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"f" = (
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"g" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"i" = (
+/turf/simulated/floor/concrete/square,
+/area/adhomai_silo)
+"j" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"k" = (
+/obj/effect/floor_decal/concrete/large,
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"m" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"n" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"o" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "pra_silo_entry";
+	name = "Entry";
+	req_access = list(209);
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "silo_guard";
+	name = "igs - silo_guard"
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"p" = (
+/obj/effect/floor_decal/concrete{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"s" = (
+/obj/structure/blocker/steel/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_silo)
+"t" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"v" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"y" = (
+/obj/effect/floor_decal/concrete{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"z" = (
+/obj/effect/floor_decal/concrete{
+	dir = 1
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"A" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"B" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"C" = (
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/structure/table/steel,
+/obj/item/material/ashtray/bronze,
+/obj/item/handcuffs,
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/obj/effect/floor_decal/concrete/large{
+	dir = 1
+	},
+/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda{
+	pixel_y = 8;
+	pixel_x = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"E" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"F" = (
+/obj/machinery/door/window/brigdoor/northright{
+	req_access = list(209)
+	},
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
+	pixel_y = 10;
+	pixel_x = 5
+	},
+/obj/effect/floor_decal/concrete/large,
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"G" = (
+/obj/effect/floor_decal/concrete/large/cee{
+	dir = 1
+	},
+/obj/machinery/door/blast/shutters{
+	id = "pra_silo_entry"
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"I" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"K" = (
+/obj/effect/floor_decal/concrete/large,
+/obj/structure/table/standard,
+/obj/machinery/chemical_dispenser/coffee/full,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"M" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/effects/missile_silo.dmi';
+	icon_state = "silo";
+	pixel_x = -32
+	},
+/turf/simulated/floor/concrete/square,
+/area/adhomai_silo)
+"N" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"O" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"R" = (
+/obj/machinery/door/airlock/security{
+	name = "Checkpoint";
+	req_access = list(209)
+	},
+/obj/effect/floor_decal/concrete/large/full,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"S" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"T" = (
+/turf/simulated/wall/concrete,
+/area/adhomai_silo)
+"U" = (
+/turf/simulated/wall/concrete,
+/area/pra_base)
+"W" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/adhomai_silo)
+"Y" = (
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_silo)
+
+(1,1,1) = {"
+c
+T
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+T
+c
+"}
+(2,1,1) = {"
+c
+s
+b
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+k
+s
+c
+"}
+(3,1,1) = {"
+c
+s
+A
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(4,1,1) = {"
+c
+s
+A
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(5,1,1) = {"
+c
+s
+A
+f
+W
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+W
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+W
+a
+s
+c
+"}
+(6,1,1) = {"
+c
+s
+A
+e
+T
+I
+f
+f
+f
+f
+f
+f
+f
+f
+e
+T
+I
+f
+f
+f
+f
+f
+f
+f
+f
+e
+T
+m
+s
+c
+"}
+(7,1,1) = {"
+c
+s
+A
+f
+t
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+t
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+t
+a
+s
+c
+"}
+(8,1,1) = {"
+c
+s
+A
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(9,1,1) = {"
+c
+s
+A
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(10,1,1) = {"
+c
+s
+A
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+W
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(11,1,1) = {"
+c
+s
+A
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+e
+T
+I
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(12,1,1) = {"
+c
+s
+A
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+t
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(13,1,1) = {"
+c
+G
+z
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+i
+i
+i
+i
+i
+f
+f
+f
+f
+f
+W
+f
+f
+f
+a
+s
+c
+"}
+(14,1,1) = {"
+c
+s
+j
+n
+d
+p
+f
+f
+f
+f
+W
+f
+f
+i
+i
+i
+i
+i
+f
+f
+f
+f
+e
+T
+I
+f
+f
+a
+s
+c
+"}
+(15,1,1) = {"
+c
+U
+U
+U
+U
+A
+f
+f
+f
+e
+T
+I
+f
+i
+i
+M
+i
+i
+f
+f
+f
+f
+f
+E
+f
+f
+f
+a
+s
+c
+"}
+(16,1,1) = {"
+c
+F
+o
+K
+U
+O
+f
+f
+f
+f
+t
+f
+f
+i
+i
+i
+i
+i
+f
+f
+f
+f
+e
+T
+I
+f
+f
+a
+s
+c
+"}
+(17,1,1) = {"
+c
+C
+B
+S
+R
+A
+f
+f
+f
+f
+f
+f
+f
+i
+i
+i
+i
+i
+f
+f
+f
+f
+f
+t
+f
+f
+f
+a
+s
+c
+"}
+(18,1,1) = {"
+c
+U
+U
+U
+U
+O
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+W
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(19,1,1) = {"
+c
+s
+b
+N
+N
+y
+f
+f
+f
+f
+f
+f
+f
+f
+f
+e
+T
+I
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(20,1,1) = {"
+c
+s
+A
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+t
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(21,1,1) = {"
+c
+s
+A
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(22,1,1) = {"
+c
+s
+A
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(23,1,1) = {"
+c
+s
+A
+f
+W
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+W
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+W
+a
+s
+c
+"}
+(24,1,1) = {"
+c
+s
+A
+e
+T
+I
+f
+f
+f
+f
+f
+f
+f
+f
+e
+T
+I
+f
+f
+f
+f
+f
+f
+f
+f
+e
+T
+m
+s
+c
+"}
+(25,1,1) = {"
+c
+s
+A
+f
+t
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+t
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+t
+a
+s
+c
+"}
+(26,1,1) = {"
+c
+s
+A
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(27,1,1) = {"
+c
+s
+A
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+s
+c
+"}
+(28,1,1) = {"
+c
+s
+v
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+g
+s
+c
+"}
+(29,1,1) = {"
+c
+T
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+T
+c
+"}
