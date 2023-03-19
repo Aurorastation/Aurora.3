@@ -94,14 +94,15 @@
 		add_overlay(casingoverlay)
 
 /obj/item/reagent_containers/food/drinks/cans/open(mob/user)
-	playsound(src,'sound/items/soda_open.ogg', rand(10, 50), TRUE)
+	can_is_open = TRUE
+	name = "opened [name]"
+	flags |= OPENCONTAINER
 	user.visible_message(
 		"\The <b>[user]</b> opens \the [src].",
 		SPAN_NOTICE("You open \the [src] with an audible pop!"),
 		SPAN_NOTICE("You can hear a pop.")
 	)
-	flags |= OPENCONTAINER
-	can_is_open = TRUE
+	playsound(src,'sound/items/soda_open.ogg', rand(10, 50), TRUE)
 	update_icon()
 
 // attackby()
@@ -344,7 +345,7 @@
 	reagents_to_add = list(/singleton/reagent/water/carbonated = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/sodawater
-	name = "soda water"
+	name = "soda water can"
 	desc = "A 33 cl aluminium can of soda water."
 	sticker = "soda_water"
 	reagents_to_add = list(/singleton/reagent/drink/sodawater = 33)
