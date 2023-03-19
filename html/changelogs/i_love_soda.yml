@@ -4,3 +4,6 @@ delete-after: True
 
 changes:
   - tweak: "Reworked cans to be more immersive."
+  - imageadd: "Reworked cans to use overlays."
+  - rscadd: "Added new sodas."
+  - tweak: "Cleaned up the vending machine interface."
