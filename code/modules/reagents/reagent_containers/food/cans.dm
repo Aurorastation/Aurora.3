@@ -50,18 +50,19 @@
 	if(iscarbon(M) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
 		if(M == user)
 			user.visible_message(
-				SPAN_WARNING("\The [user] crushes the can of [src.name] on [user.get_pronoun("his")] forehead!"),
-				SPAN_NOTICE("You crush the can of [src.name] on your forehead.")
+				SPAN_WARNING("\The [user] crushes \the [src] on [user.get_pronoun("his")] forehead!"),
+				SPAN_WARNING("You crush \the [src] on your forehead.")
 			)
 		else
 			user.visible_message(
-				SPAN_WARNING("\The [user] crushes the can of [src.name] on \the [M]'s forehead!"),
-				SPAN_NOTICE("You crush the can of [src.name] on \the [M]'s forehead.")
+				SPAN_WARNING("\The [user] crushes \the [src] on \the [M]'s forehead!"),
+				SPAN_WARNING("You crush \the [src] on \the [M]'s forehead.")
 			)
 		M.apply_damage(2, DAMAGE_BRUTE, BP_HEAD)
 		playsound(M, 'sound/items/soda_crush.ogg', rand(10, 50), TRUE)
 		var/obj/item/trash/can/crushed_can = new /obj/item/trash/can(M.loc)
-		crushed_can.icon_state = "[sticker]-crushed" // Set the crushed can's icon state based on its sticker.
+		crushed_can.name = "crushed [name]" // Set the crushed can's name based on its uncrushed counterpart's name.
+		crushed_can.icon_state = "[sticker]-crushed" // Set the crushed can's icon state based on its uncrushed counterpart's sticker.
 		qdel(src)
 		user.put_in_hands(crushed_can)
 		return TRUE

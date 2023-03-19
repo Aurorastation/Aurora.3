@@ -138,8 +138,9 @@
 	icon_state = "useless_plastic"
 
 /obj/item/trash/can
-	name = "used can"
-	icon_state = "cola"
+	name = "crushed Starfall can"
+	icon = 'icons/obj/item/reagent_containers/food/drinks/cans.dmi'
+	icon_state = "starfall"
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
 	randpixel = 4
