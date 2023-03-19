@@ -225,7 +225,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/connect_ntsl,
 	/client/proc/disconnect_ntsl,
 	/turf/proc/view_chunk,
-	/turf/proc/update_chunk
+	/turf/proc/update_chunk,
+	/client/proc/profiler_start
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -398,7 +399,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/edit_admin_permissions,
 	/proc/possess,
 	/proc/release,
-	/client/proc/force_away_mission
+	/client/proc/force_away_mission,
+	/client/proc/profiler_start
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -461,7 +463,8 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/lighting_show_verbs,
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_init_log,
-	/client/proc/create_poll //Allows to create polls
+	/client/proc/create_poll, //Allows to create polls
+	/client/proc/profiler_start
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/

@@ -663,6 +663,7 @@
 	color = "#d8c045"
 	condiment_name = "garlic sauce"
 	condiment_desc = "Perfect for repelling vampires and/or potential dates."
+	condiment_icon_state = "garlic_sauce"
 
 /singleton/reagent/nutriment/mayonnaise
 	name = "Mayonnaise"

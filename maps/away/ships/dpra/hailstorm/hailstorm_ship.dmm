@@ -1709,8 +1709,7 @@
 /area/hailstorm_ship/engineering)
 "mj" = (
 /obj/structure/closet/secure_closet/engineering_welding{
-	req_access = null;
-	req_one_access = list(113)
+	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/power/apc/high{
