@@ -49,6 +49,12 @@
     designation = "[pick("Tuckerbag", "Do No Harm", "Volatile Cargo", "Stay Clear", "Entrepreneurial", "Good Things Only", "Worthless", "Skip This One", "Pay No Mind", "Customs-Cleared", "Friendly", "Reactor Leak", "Fool's Gold", "Cursed Cargo", "Guards Aboard")]"
     ..()
 
+/obj/effect/overmap/visitable/ship/tramp_freighter/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "tcfl_corvette")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
+
 /obj/effect/shuttle_landmark/tramp_freighter/nav1
 	name = "Tramp Freighter - Port Side"
 	landmark_tag = "nav_tramp_freighter_1"

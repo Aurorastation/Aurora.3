@@ -98,14 +98,13 @@
 /singleton/recipe/pancakes
 	appliance = SKILLET
 	items = list(
-		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
 		)
 	result = /obj/item/reagent_containers/food/snacks/pancakes
-	result_quantity = 2
+	result_quantity = 1
 
 /singleton/recipe/pancakes/berry
-	fruit = list("berries" = 2)
+	fruit = list("berries" = 1)
 	result = /obj/item/reagent_containers/food/snacks/pancakes/berry
 
 /singleton/recipe/waffles

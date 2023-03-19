@@ -49,6 +49,12 @@
 	designation = "[pick("Varangian", "Swiss Guard", "Free Company", "Praetorian", "Gurkha", "Roland", "Whispering Death", "Gordon Ingram", "Jungle Work", "Habiru", "Francs-Tireurs", "Catalan", "Navarrese", "Breton", "Corsair", "Landsknecht", "Hessian")]"
 	..()
 
+/obj/effect/overmap/visitable/ship/fsf_patrol_ship/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "corvette")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
+
 /obj/effect/shuttle_landmark/fsf_patrol_ship/nav1
 	name = "FSF Corvette - Port Side"
 	landmark_tag = "nav_fsf_patrol_ship_1"

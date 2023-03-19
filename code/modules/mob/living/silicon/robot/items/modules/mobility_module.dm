@@ -1,13 +1,13 @@
 /obj/item/borg/combat/mobility
 	name = "mobility module"
 	desc = "By retracting limbs and tucking in its head, a combat android can roll at high speeds."
-	icon = 'icons/obj/decals.dmi'
+	icon = 'icons/obj/signs.dmi'
 	icon_state = "shock"
 
 /obj/item/borg/rescue/mobility
 	name = "mobility module"
 	desc = "The Rescue Module has been outfitted with thrusters capable of retrieving injured Crew at speeds unheard of in other Stationbound modules."
-	icon = 'icons/obj/decals.dmi'
+	icon = 'icons/obj/signs.dmi'
 	icon_state = "shock"
 
 /obj/item/borg/combat/mobility/on_module_activate(mob/living/silicon/robot/R)
