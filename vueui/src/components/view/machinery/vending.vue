@@ -20,12 +20,12 @@
     </template>
     <template v-else-if="s.sel_name && s.sel_price > 0">
       <div class="t-parent">
-        <p>Item selected:<span class="purchase-icon" :class="s.sel_icon" />{{s.sel_name}}</p>
-        <p>Charge: {{s.sel_price}}电 / {{s.sel_price}}cr</p>
-        <p>Swipe your NanoTrasen ID or insert credits to purchase.</p>
+        <p>Item Selected:<span class="purchase-icon" :class="s.sel_icon" />{{s.sel_name}}</p>
+        <p>Charge: {{s.sel_price}} 电</p>
+        <p>Scan your card, insert a chargecard, or insert credits to purchase this product.</p>
         <p v-if="s.message_err == 1" class="danger">{{s.message}}</p>
         <div class="cancel-button">
-          <vui-button :params="{ cancelpurchase: 1 }" icon="undo">Cancel Transaction</vui-button>
+          <vui-button :params="{cancelpurchase: 1}" icon="undo">Cancel Purchase</vui-button>
         </div>
       </div>
     </template>
@@ -74,7 +74,6 @@ p.danger {
 }
 
 .food-icon {
-  // zoom: 2;
   transform: scale(2);
   position: absolute;
   left: 0;
@@ -88,7 +87,6 @@ p.danger {
   opacity: 0.2;
   filter: alpha(opacity=20);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
-  // god knows which one of these we actually need so let's just use them all
 }
 
 .t-parent {
@@ -160,10 +158,10 @@ p.danger {
   background-color: #202020;
   color: #fff;
   text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
+  padding: 5px;
+  border-radius: 4px;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
 
   position: absolute;
   z-index: 1;
