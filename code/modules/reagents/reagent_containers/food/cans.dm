@@ -381,6 +381,13 @@
 	sticker = "lemon_twist"
 	reagents_to_add = list(/singleton/reagent/drink/spacemountainwind = 33)
 
+// Orange Sunset (Orange Soda)
+/obj/item/reagent_containers/food/drinks/cans/orange_sunset
+	name = "\improper Orange Sunset can"
+	desc = "A 33 cl can of Orange Sunset."
+	sticker = "orange_sunset"
+	reagents_to_add = list(/singleton/reagent/drink/brownstar = 33)
+
 // OJ Dash (Orange Soda)
 /obj/item/reagent_containers/food/drinks/cans/oj_dash
 	name = "\improper OJ Dash can"
