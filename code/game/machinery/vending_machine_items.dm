@@ -54,9 +54,9 @@
 	vend_id = "snacks"
 	charges = 38
 
-/obj/item/device/vending_refill/cola
-	name = "cola resupply canister"
-	vend_id = "cola"
+/obj/item/device/vending_refill/drinks
+	name = "drinks resupply canister"
+	vend_id = "drinks"
 	charges = 50
 
 /obj/item/device/vending_refill/smokes

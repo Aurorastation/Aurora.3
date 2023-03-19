@@ -16,7 +16,7 @@
 		/obj/item/device/vending_refill/tools = 1,
 		/obj/item/device/vending_refill/coffee = 1,
 		/obj/item/device/vending_refill/snack = 1,
-		/obj/item/device/vending_refill/cola = 1,
+		/obj/item/device/vending_refill/drinks = 1,
 		/obj/item/device/vending_refill/smokes = 1,
 		/obj/item/device/vending_refill/meds = 1,
 		/obj/item/device/vending_refill/robust = 1,
@@ -329,9 +329,9 @@
 /obj/machinery/vending/cola
 	name = "drinks vending machine"
 	desc = "A drinks vending machine."
-	icon_state = "cola_machine"
-	icon_vend = "cola_machine-vend"
-	vend_id = "cola"
+	icon_state = "drinks"
+	icon_vend = "drinks-vend"
+	vend_id = "drinks"
 
 	products = list(
 		// Standard
