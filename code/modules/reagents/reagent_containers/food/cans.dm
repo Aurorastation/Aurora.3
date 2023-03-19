@@ -246,7 +246,7 @@
 		visible_message(SPAN_WARNING("The fuse on \the [name] fizzles out early."))
 		playsound(get_turf(src), 'sound/items/cigs_lighters/cig_snuff.ogg', 50)
 		fuse_lit = FALSE
-		set_light(0, 0)
+		set_light(0)
 		update_icon()
 		return
 	else
@@ -259,7 +259,7 @@
 			fuse_length = 0
 			fuse_lit = FALSE
 			update_icon()
-			set_light(0, 0)
+			set_light(0)
 			return
 		if(1 to FUSELENGTH_MAX) // baby explosion.
 			var/obj/item/trash/can/popped_can = new(get_turf(src))
