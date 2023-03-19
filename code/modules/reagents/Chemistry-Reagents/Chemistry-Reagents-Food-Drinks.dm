@@ -5345,9 +5345,9 @@
 	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."
 
 // Carbonated Water
-/decl/reagent/water/carbonated
+/singleton/reagent/water/carbonated
 	name = "carbonated water"
-	description = "Carbonated water."
+	description = "Some carbonated water."
 	taste_description = "bubbly, carbonated water"
 
 	glass_icon_state = "glass_clear"
