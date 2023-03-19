@@ -113,12 +113,6 @@
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
-	pain_emotes_with_pain_level = list(
-			list(/singleton/emote/audible/wheeze, /singleton/emote/audible/roar, /singleton/emote/audible/bellow) = 80,
-			list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan, /singleton/emote/audible/wheeze, /singleton/emote/audible/hiss) = 50,
-			list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan, /singleton/emote/audible/hiss) = 20,
-		)
-
 	pain_messages = list("It hurts so much", "You really need some painkillers", "Ancestors, it hurts")
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw

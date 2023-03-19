@@ -211,7 +211,7 @@
 		mid_turf = get_step_towards(mid_turf, target_turf)
 		if(mid_turf == target_turf)
 			break
-		if(mid_turf.opacity)
+		if(IS_OPAQUE_TURF(mid_turf))
 			return FALSE
 
 	return TRUE

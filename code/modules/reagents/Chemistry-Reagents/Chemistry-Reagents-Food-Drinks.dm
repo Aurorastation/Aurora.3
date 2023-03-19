@@ -663,6 +663,7 @@
 	color = "#d8c045"
 	condiment_name = "garlic sauce"
 	condiment_desc = "Perfect for repelling vampires and/or potential dates."
+	condiment_icon_state = "garlic_sauce"
 
 /singleton/reagent/nutriment/mayonnaise
 	name = "Mayonnaise"
@@ -3961,7 +3962,7 @@
 
 	glass_icon_state = "peacetreatyglass"
 	glass_name = "glass of Peace Treaty"
-	glass_desc = "A diplomatic overture in a glass"
+	glass_desc = "A diplomatic overture in a glass."
 
 /singleton/reagent/alcohol/caruso
 	name = "Caruso"

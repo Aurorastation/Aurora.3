@@ -136,6 +136,9 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/mechanical,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/stack/medical/splint/full,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 268.15
 	},
