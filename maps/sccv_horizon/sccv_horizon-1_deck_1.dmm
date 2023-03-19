@@ -7348,15 +7348,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "fFj" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "fFm" = (
@@ -13158,8 +13151,15 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "kho" = (
-/obj/structure/railing/mapped,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "kid" = (
@@ -30898,11 +30898,11 @@
 /turf/simulated/floor/tiled/full,
 /area/assembly/chargebay)
 "xSt" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "xSR" = (
@@ -40698,10 +40698,10 @@ hTk
 hTk
 acn
 fif
-fif
-kho
+fFj
 diR
 xSt
+kTJ
 kTJ
 kTJ
 kTJ
@@ -40901,8 +40901,8 @@ nua
 gBl
 gBl
 gBl
+kho
 gBl
-fFj
 gzW
 gBl
 gBl
