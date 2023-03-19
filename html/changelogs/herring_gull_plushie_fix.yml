@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - spellcheck: "Fixed the herring gull plushie grab intent interaction message having an extra \"the\"."
