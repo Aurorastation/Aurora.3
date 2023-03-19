@@ -14975,8 +14975,8 @@
 /area/security/checkpoint2)
 "hgK" = (
 /obj/machinery/door/airlock{
-	id_tag = "cargobreak_t2";
-	name = "Stall 2"
+	id_tag = "cargobreak_shower";
+	name = "Shower"
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/break_room)
@@ -25669,19 +25669,15 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/library)
 "muO" = (
-/obj/structure/mirror{
-	pixel_x = 27
-	},
 /obj/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = 13
-	},
+/obj/structure/table/rack,
+/obj/item/towel,
+/obj/random/soap,
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "muQ" = (
@@ -34493,9 +34489,8 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "qKi" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/button/remote/airlock{
-	id = "cargobreak_t2";
+	id = "cargobreak_shower";
 	name = "Door Bolt Control";
 	pixel_y = 25;
 	specialfunctions = 4;
@@ -34504,10 +34499,10 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/toilet{
+/obj/machinery/shower{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/freezer,
 /area/operations/break_room)
 "qKK" = (
 /obj/effect/floor_decal/corner_wide/green{
@@ -41976,8 +41971,8 @@
 /area/horizon/zta)
 "usP" = (
 /obj/machinery/door/airlock{
-	id_tag = "cargobreak_t1";
-	name = "Stall 1"
+	id_tag = "cargobreak_stall";
+	name = "Stall"
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/break_room)
@@ -44525,7 +44520,7 @@
 "vJu" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/button/remote/airlock{
-	id = "cargobreak_t1";
+	id = "cargobreak_stall";
 	name = "Door Bolt Control";
 	pixel_y = 25;
 	specialfunctions = 4;
