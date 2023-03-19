@@ -2633,10 +2633,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
 "ciO" = (
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "cjo" = (
@@ -2759,7 +2759,6 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 9
 	},
-/obj/machinery/papershredder,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "cur" = (
@@ -2788,6 +2787,8 @@
 	name = "Bridge RC";
 	pixel_y = 32
 	},
+/obj/structure/table/reinforced,
+/obj/item/paper_scanner,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "cvQ" = (
@@ -3385,14 +3386,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "cXq" = (
-/obj/effect/floor_decal/spline/fancy{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/structure/table/reinforced,
-/turf/simulated/floor/carpet/rubber,
+/obj/effect/floor_decal/corner/blue,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "cYs" = (
 /obj/effect/floor_decal/spline/plain/corner{
@@ -5359,7 +5357,7 @@
 /obj/structure/fireaxecabinet{
 	pixel_y = 32
 	},
-/obj/structure/table/reinforced,
+/obj/machinery/papershredder,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "eBp" = (
@@ -7527,7 +7525,7 @@
 /area/horizon/crew_quarters/fitness/hallway)
 "gcZ" = (
 /obj/effect/floor_decal/spline/fancy,
-/obj/machinery/computer/message_monitor{
+/obj/machinery/computer/security{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -10043,6 +10041,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "idI" = (
@@ -10618,9 +10617,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/machinery/computer/ship/sensors{
-	dir = 1
-	},
+/obj/machinery/computer/ship/engines,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "iDS" = (
@@ -11786,6 +11783,11 @@
 /area/lawoffice/representative)
 "jxG" = (
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/machinery/requests_console{
+	department = "Conference Room";
+	name = "Conference Room Requests Console";
+	pixel_y = -32
+	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "jxM" = (
@@ -11799,6 +11801,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/reinforced,
 /area/bridge/controlroom)
 "jxS" = (
@@ -13259,11 +13262,12 @@
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
 "kAB" = (
-/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/blue/full,
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
 /obj/machinery/leviathan_safeguard,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -14317,6 +14321,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "ltT" = (
@@ -15182,6 +15189,9 @@
 	dir = 5
 	},
 /obj/structure/table/reinforced,
+/obj/item/stack/wrapping_paper,
+/obj/item/stack/packageWrap,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "mcf" = (
@@ -15886,6 +15896,9 @@
 /area/horizon/crew_armoury/foyer)
 "mKb" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "mKp" = (
@@ -16283,7 +16296,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
 	},
-/obj/machinery/computer/security{
+/obj/item/modular_computer/console/preset/medical{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -16333,11 +16346,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/requests_console{
-	department = "Conference Room";
-	name = "Conference Room Requests Console";
-	pixel_y = -32
-	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "nac" = (
@@ -19196,6 +19204,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/reinforced,
 /area/bridge/controlroom)
 "piX" = (
@@ -19402,6 +19411,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "psa" = (
@@ -19790,11 +19800,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/item/device/radio/intercom{
 	dir = 4;
 	pixel_x = -25
 	},
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "pRD" = (
@@ -20169,7 +20179,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "qgM" = (
@@ -20636,12 +20645,8 @@
 	dir = 5
 	},
 /obj/item/paper_bin,
-/obj/item/pen,
-/obj/item/stack/packageWrap,
 /obj/item/clipboard,
-/obj/item/device/hand_labeler,
-/obj/item/paper_scanner,
-/obj/item/stack/wrapping_paper,
+/obj/item/pen,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "qxO" = (
@@ -23401,6 +23406,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -28700,7 +28708,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "wFM" = (
@@ -28846,7 +28853,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/machinery/computer/ship/engines{
+/obj/machinery/computer/ship/sensors{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -29526,7 +29533,7 @@
 /area/horizon/hallway/deck_three/primary/central)
 "xiC" = (
 /obj/effect/floor_decal/spline/fancy,
-/obj/item/modular_computer/console/preset/medical{
+/obj/machinery/computer/message_monitor{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -30498,6 +30505,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -50319,7 +50329,7 @@ pFY
 qxu
 vbJ
 xLf
-xiC
+gcZ
 qJd
 icV
 pqL
@@ -50520,8 +50530,8 @@ tYp
 cqp
 mcd
 olJ
-cXq
-ciO
+aGi
+aAl
 qgG
 sFf
 wSG
@@ -51129,7 +51139,7 @@ wVS
 gyt
 wRl
 mbb
-ltM
+cXq
 ldK
 smr
 eFH
@@ -51531,11 +51541,11 @@ asO
 asO
 vQB
 xLf
-gcZ
+xiC
 rUs
 xXU
-xfx
 kAB
+sWA
 ltT
 phw
 uCJ
@@ -51733,7 +51743,7 @@ uOh
 vPl
 sOs
 jmA
-aAl
+ciO
 lQh
 uVB
 omR
