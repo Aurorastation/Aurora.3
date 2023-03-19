@@ -34,7 +34,7 @@
 
 /datum/changeling_sting/proc/do_sting(var/mob/living/target)
 	var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
-	changeling.chem_charges -= required_chems
+	changeling.use_charges(required_chems)
 	changeling.sting_range = 1
 	owner.verbs -= verb_path
 	ADD_VERB_IN(owner, 10, verb_path)
@@ -267,7 +267,7 @@
 	changeling = changeling_power(10, 0, 100)
 	if(!changeling)
 		return FALSE
-	changeling.chem_charges -= 10
+	changeling.use_charges(10)
 	to_chat(src, SPAN_NOTICE("Your throat adjusts to launch the sting."))
 	changeling.sting_range = 2
 	src.verbs -= /mob/proc/changeling_boost_range

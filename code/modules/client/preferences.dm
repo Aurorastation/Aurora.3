@@ -125,10 +125,6 @@ datum/preferences
 	//Keeps track of preferrence for not getting any wanted jobs
 	var/alternate_option = RETURN_TO_LOBBY
 
-	var/used_skillpoints = 0
-	var/skill_specialization = null
-	var/list/skills = list() // skills can range from 0 to 3
-
 	// maps each organ to either null(intact), "cyborg" or "amputated"
 	// will probably not be able to do this for head and torso ;)
 	var/list/organ_data = list()
@@ -214,58 +210,6 @@ datum/preferences
 /datum/preferences/proc/getMaxAge()
 	var/datum/species/mob_species = all_species[species]
 	return mob_species.age_max
-
-/datum/preferences/proc/ZeroSkills(var/forced = 0)
-	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
-		if(!skills.Find(S.ID) || forced)
-			skills[S.ID] = SKILL_NONE
-
-/datum/preferences/proc/CalculateSkillPoints()
-	used_skillpoints = 0
-	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
-		var/multiplier = 1
-		switch(skills[S.ID])
-			if(SKILL_NONE)
-				used_skillpoints += 0 * multiplier
-			if(SKILL_BASIC)
-				used_skillpoints += 1 * multiplier
-			if(SKILL_ADEPT)
-				// secondary skills cost less
-				if(S.secondary)
-					used_skillpoints += 1 * multiplier
-				else
-					used_skillpoints += 3 * multiplier
-			if(SKILL_EXPERT)
-				// secondary skills cost less
-				if(S.secondary)
-					used_skillpoints += 3 * multiplier
-				else
-					used_skillpoints += 6 * multiplier
-
-/datum/preferences/proc/GetSkillClass(points)
-	return CalculateSkillClass(points, age)
-
-/proc/CalculateSkillClass(points, age)
-	if(points <= 0) return "Unconfigured"
-	// skill classes describe how your character compares in total points
-	points -= min(round((age - 20) / 2.5), 4) // every 2.5 years after 20, one extra skillpoint
-	if(age > 30)
-		points -= round((age - 30) / 5) // every 5 years after 30, one extra skillpoint
-	switch(points)
-		if(-1000 to 3)
-			return "Terrifying"
-		if(4 to 6)
-			return "Below Average"
-		if(7 to 10)
-			return "Average"
-		if(11 to 14)
-			return "Above Average"
-		if(15 to 18)
-			return "Exceptional"
-		if(19 to 24)
-			return "Genius"
-		if(24 to 1000)
-			return "God"
 
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)	return
@@ -473,9 +417,6 @@ datum/preferences
 	character.origin.on_apply(character)
 	character.culture.on_apply(character)
 
-	character.skills = skills
-	character.used_skillpoints = used_skillpoints
-
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)
 
@@ -505,7 +446,7 @@ datum/preferences
 
 	character.pda_choice = pda_choice
 
-	if(headset_choice > OUTFIT_WRISTRAD || headset_choice < OUTFIT_NOTHING)
+	if(headset_choice > OUTFIT_THIN_WRISTRAD || headset_choice < OUTFIT_NOTHING)
 		headset_choice = OUTFIT_HEADSET
 
 	character.headset_choice = headset_choice
@@ -619,8 +560,6 @@ datum/preferences
 	ccia_record = ""
 
 	gear_list = list() //Dont copy the loadout
-
-	ZeroSkills(1)
 
 	// Do we need to reinitialize a whole bunch more vars?
 	if (re_initialize)

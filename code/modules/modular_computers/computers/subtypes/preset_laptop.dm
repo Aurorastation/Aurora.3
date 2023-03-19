@@ -113,6 +113,11 @@
 	_app_preset_type = /datum/modular_computer_app_presets/supply
 	enrolled = 1
 
+/obj/item/modular_computer/laptop/preset/supply/om
+	name = "operations manager's laptop"
+	desc = "A portable computer belonging to the operation's manager."
+	_app_preset_type = /datum/modular_computer_app_presets/supply/om
+
 // Representative
 /obj/item/modular_computer/laptop/preset/representative
 	name = "representative's laptop"

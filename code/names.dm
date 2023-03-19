@@ -19,9 +19,6 @@ var/list/greek_letters = list("Alpha", "Beta", "Gamma", "Delta",
 	"Nu", "Xi", "Omicron", "Pi", "Rho", "Sigma", "Tau", "Upsilon", "Phi",
 	"Chi", "Psi", "Omega")
 
-/proc/generate_system_name()
-	return "[pick("CRZ", "BNM", "Xavier", "GJ", "HD", "TC")][prob(10) ? " Eridani" : ""] [rand(100,999)]"
-
 /proc/generate_planet_name()
 	return "[capitalize(pick(last_names))]-[pick(greek_letters)]"
 

@@ -3,7 +3,7 @@
 //
 
 #define VOLUME_AMBIENCE 30
-#define VOLUME_AMBIENT_HUM 35
+#define VOLUME_AMBIENT_HUM 18
 #define VOLUME_MUSIC 30
 
 /area
