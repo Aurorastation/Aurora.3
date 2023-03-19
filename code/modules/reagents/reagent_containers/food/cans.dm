@@ -14,10 +14,9 @@
 
 // Parent Item
 /obj/item/reagent_containers/food/drinks/cans
-	name = "can"
-	desc = "An aluminium can."
+	name = "can parent item"
+	desc = DESC_PARENT
 	icon = 'icons/obj/item/reagent_containers/food/drinks/cans.dmi'
-	icon_state = "can_33cl"
 	desc_info = "Activate it in your active hand to open it.<br>\
 	- If it's carbonated and closed, you can shake it by activating it on harm intent.<br>\
 	- If it's empty, you can crush it on your forehead by selecting your head on the targetting doll and clicking on yourself on harm intent.<br>\
@@ -26,7 +25,6 @@
 	pickup_sound = 'sound/items/pickup/soda.ogg'
 	flags = 0 // Item flag to check if you can pour stuff inside.
 	amount_per_transfer_from_this = 5
-	volume = 33 // Centiliters.
 
 	var/can_is_open = FALSE // If the can is opened. Used for the "open_overlay".
 	var/sticker // Used to know which overlay sticker to put on the can.
@@ -319,17 +317,19 @@
 
 // 33 Centiliter Can
 // Regular sodas, juice, et cetera.
-/obj/item/reagent_containers/food/drinks/cans/regular
+/obj/item/reagent_containers/food/drinks/cans/can_33cl
 	name = "can"
 	desc = "A 33 cl aluminium can."
+	icon_state = "can_33cl"
 	center_of_mass = list("x"=16, "y"=10)
 	volume = 33
 
 // 50 Centiliter Can
 // Water, energy drinks, et cetera.
-/obj/item/reagent_containers/food/drinks/cans/large
-	name = "large can"
+/obj/item/reagent_containers/food/drinks/cans/can_50cl
+	name = "can"
 	desc = "A 50 cl aluminium can."
+	icon_state = "can_50cl"
 	center_of_mass = list("x" = 16, "y" = 8)
 	can_size_overrides = list("x" = 1)
 	volume = 50
