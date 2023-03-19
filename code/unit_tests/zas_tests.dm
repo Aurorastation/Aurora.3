@@ -87,7 +87,7 @@ proc/test_air_in_area(var/test_area, var/expectation = UT_NORMAL)
 					return test_result
 
 			if(expectation == UT_NORMAL_COOL)
-				if(temp > 293.15)
+				if(temp > 283)
 					test_result["msg"] = "Temperature out of bounds: [temp]K at [pressure]Pa | [t_msg] | expectation: NORMAL_COOL"
 					return test_result
 
@@ -111,7 +111,7 @@ datum/unit_test/zas_area_test/supply_centcomm
 datum/unit_test/zas_area_test/ai_chamber
 	name = "ZAS: AI Chamber"
 	area_path = /area/turret_protected/ai
-	expectation = UT_NORMAL_COOL
+	expectation = UT_NORMAL
 
 datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"
