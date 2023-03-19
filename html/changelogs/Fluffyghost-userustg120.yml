@@ -48,6 +48,6 @@ changes:
   - rscadd: "Added some premade cooled floors, used in the AI chamber."
   - maptweak: "AI Chamber in Aurora and Horizon now uses the cooled floors."
   - bugfix: "Fixed ZAS unit tests (along with the mapping above) so now they correctly run. They were not since Aurora."
-  - bugfix: "Fixed switch statements that were using double pipes, as they are either not supported since a while or never where."
+  - bugfix: "Fixed switch statements that were using double pipes, as they are either not supported since a while or never were."
   - bugfix: "Fixed switch statements based on random() that did not catch the variables, as the codechecks now catch them."
   - rscadd: "ZAS Unit Tests now tell when something fails the temperature, pressure and what expectation parameter they checked for."
