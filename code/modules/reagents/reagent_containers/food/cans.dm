@@ -16,7 +16,7 @@
 /obj/item/reagent_containers/food/drinks/cans
 	name = "can"
 	desc = "An aluminium can."
-	icon = 'icons/contained_items/items/cans.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/drinks/cans.dmi'
 	icon_state = "can_33cl"
 	desc_info = "Activate it in your active hand to open it.<br>\
 				 - If it's carbonated and closed, you can shake it by activating it on harm intent.<br>\
@@ -61,7 +61,7 @@
 		M.apply_damage(2, DAMAGE_BRUTE, BP_HEAD)
 		playsound(M, 'sound/items/soda_crush.ogg', rand(10, 50), TRUE)
 		var/obj/item/trash/can/crushed_can = new /obj/item/trash/can(M.loc)
-		crushed_can.icon_state = icon_state
+		crushed_can.icon_state = "[sticker]-crushed" // Set the crushed can's icon state based on its sticker.
 		qdel(src)
 		user.put_in_hands(crushed_can)
 		return TRUE
@@ -311,9 +311,7 @@
 		visible_message(SPAN_WARNING("<b>\The [name]'s fuse catches on fire!</b>"))
 	. = ..()
 
-//
-// Can Sizes
-//
+// Cans
 
 // 33 Centiliter Can
 // Regular sodas, juice, et cetera.
@@ -329,9 +327,7 @@
 	desc = "A 50 cl aluminium can."
 	volume = 50
 
-//
 // Drinks
-//
 
 // Carbonated Water
 /obj/item/reagent_containers/food/drinks/cans/carbonated_water
@@ -400,49 +396,37 @@
 /obj/item/reagent_containers/food/drinks/cans/thirteenloko
 	name = "thirteen loko"
 	desc = "The CMO has advised crew members that consumption of Thirteen Loko may result in seizures, blindness, drunkeness, or even death. Please Drink Responsibly."
-
 	center_of_mass = list("x"=16, "y"=10)
-
 	reagents_to_add = list(/decl/reagent/alcohol/thirteenloko = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/dr_gibb
 	name = "\improper Dr. Gibb"
 	desc = "A delicious mixture of 42 different flavors."
-
 	center_of_mass = list("x"=16, "y"=10)
-
 	reagents_to_add = list(/decl/reagent/drink/dr_gibb = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/iced_tea
 	name = "\improper Silversun Wave ice tea"
 	desc = "Marketed as a favorite amongst parched Silversun beachgoers, there's actually more sugar in this than there is tea."
-
 	center_of_mass = list("x"=16, "y"=10)
-
 	reagents_to_add = list(/decl/reagent/drink/icetea = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/grape_juice
 	name = "\improper Grapel juice"
 	desc = "500 pages of rules of how to appropriately enter into a combat with this juice!"
-
 	center_of_mass = list("x"=16, "y"=10)
-
 	reagents_to_add = list(/decl/reagent/drink/grapejuice = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/tonic
 	name = "\improper T-Borg's tonic water"
 	desc = "Quinine tastes funny, but at least it'll keep that Space Malaria away."
-
 	center_of_mass = list("x"=16, "y"=10)
-
 	reagents_to_add = list(/decl/reagent/drink/tonic = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/sodawater
 	name = "soda water"
 	desc = "A can of soda water. Still water's more refreshing cousin."
-
 	center_of_mass = list("x"=16, "y"=10)
-
 	reagents_to_add = list(/decl/reagent/drink/sodawater = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/koispunch
@@ -499,10 +483,9 @@
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/peach_soda = 33)
 
-//
 // Zo'ra Sodas
-//
 
+// Zo'ra Soda Parent Item
 /obj/item/reagent_containers/food/drinks/cans/zorasoda
 	name = "\improper Zo'ra Soda parent item"
 	desc = DESC_PARENT
@@ -510,49 +493,63 @@
 	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/decl/reagent/drink/zorasoda = 50)
 
+// Zo'ra Soda Cherry
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry
 	name = "\improper Zo'ra Soda Cherry"
-	desc = "A can of cherry flavoured Zo'ra Soda energy drink, with V'krexi additives. All good energy drinks come in cherry."
+	desc = "A can of cherry flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, all good energy drinks come in cherry."
+	sticker = "zora_cherry"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/cherry = 50)
 
+// Zo'ra Soda Phoron Passion
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron
 	name = "\improper Zo'ra Soda Phoron Passion"
-	desc = "A can of grape flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes nothing like phoron according to Unbound vaurca taste testers."
+	desc = "A can of grape flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, it actually doesn't taste like phoron but rather like grape."
+	sticker = "zora_phoron_passion"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/phoron = 50)
 
+// Zo'ra Soda Energy Crush
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/klax
 	name = "\improper Zo'ra Soda Energy Crush"
-	desc = "A can of nitrogen-infused creamy orange zest flavoured Zo'ra Soda energy drink, with V'krexi additives. The smooth taste is engineered to near perfection."
+	desc = "A can of nitrogen-infused creamy orange zest flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, the smooth taste is engineered to near perfection."
+	sticker = "zora_energy_crush"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/klax = 50)
 
+// Zo'ra Soda Rockin' Raspberry
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur
 	name = "\improper Zo'ra Soda Rockin' Raspberry"
-	desc = "A can of \"blue raspberry\" flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes like a more flowery and aromatic raspberry."
+	desc = "A can of \"blue raspberry\" flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, it tastes like a more flowery and aromatic raspberry."
+	sticker = "zora_blue_raspberry"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/cthur = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass
 	name = "\improper Zo'ra Soda Sour Venom Grass"
-	desc = "A can of sour \"venom grass\" flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes like a cloud of angry stinging acidic bees."
+	desc = "A can of sour \"venom grass\" flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, it tastes like a cloud of angry stinging acidic bees."
+	sticker = "zora_sour_venom_grass"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/venomgrass = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm // "Contraband"
 	name = "\improper Zo'ra Soda High Octane Zorane Might"
-	desc = "A can of mint flavoured Zo'ra Soda energy drink, with a lot of V'krexi additives. Tastes like impaling the roof of your mouth with a freezing cold spear laced with angry bees and road salt.<br/>" + SPAN_DANGER(" WARNING: Not for the faint hearted!")
+	desc = "A can of mint flavoured Zo'ra Soda energy drink, with a lot of V'krexi additives. According to the label, it tastes like impaling the roof of your mouth with a freezing cold spear laced with angry bees and road salt."
+	sticker = "zora_hozm"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/hozm = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/kois
 	name = "\improper Zo'ra Soda K'ois Twist"
-	desc = "A can of K'ois-imitation flavoured Zo'ra Soda energy drink, with V'krexi additives. Contains no K'ois, contrary to what the name may imply."
+	desc = "A can of K'ois-imitation flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, it contains no K'ois but rather a flavour that imitates it."
+	sticker = "zora_kois_twist"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/kois = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/drone
 	name = "\improper Zo'ra Soda Drone Fuel"
-	desc = "A can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives, meant for Vaurcae.<br/>" + SPAN_DANGER("WARNING: Known to induce vomiting in all species except vaurcae and dionae!")
+	desc = "A can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, it is meant for Vaurcae and reinforces this by the big red text that says \"" + SPAN_DANGER("WARNING: Known to induce vomiting in all species except vaurcae and dionae.") + "\"."
+	sticker = "zora_drone_fuel"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/drone = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly
 	name = "\improper Zo'ra Soda Royal Jelly"
-	desc = "A can of..." + SPAN_ITALIC(" sludge?") + " It smells kind of pleasant either way. Royal jelly is a nutritious concentrated substance commonly created by caretaker Vaurcae in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
+	desc = "A can of royal jelly infused Zo'ra Soda energy drink, with V'krexi additives. According to the label, it has a mild stimulating effect."
+	desc_extended = "Royal jelly is a nutritious concentrated substance commonly created by caretaker Vaurcae in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
+	sticker = "zora_royal_jelly"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/jelly = 50)
 
 #undef LETHAL_FUEL_CAPACITY
