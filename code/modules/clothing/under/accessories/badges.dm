@@ -541,7 +541,7 @@
 
 /obj/item/clothing/accessory/badge/passport/nralakk
 	name = "nralakk federation passport"
-	desc = "A passport issued to citizens of the Nralakk Federation. Shiny, and compact, it's perfect to use on the go."
+	desc = "A passport issued to citizens of the Nralakk Federation. Shiny, and compact, it's perfect to use on the go. On the back there is a large red stamp that reads 'DO NOT BORGIFY'."
 	icon_state = "passport_nralakk"
 	item_state = "passport_nralakk"
 	open = CLOSED
@@ -550,7 +550,7 @@
 
 /obj/item/clothing/accessory/badge/passport/nralakk/examine(mob/user)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score]."))
+	to_chat(user, SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score]. On the back there is a large red stamp that reads 'DO NOT BORGIFY'."))
 
 /obj/item/clothing/accessory/badge/passport/nralakk/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"
