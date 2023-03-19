@@ -1,26 +1,11 @@
+#define VENDING_MACHINE_IDLE_POWER_USAGE 200
 
-/*
- * Vending machine types
- */
-
-/*
-
-/obj/machinery/vending/[vendors name here]   // --vending machine template   :)
-	name = ""
-	desc = ""
-	icon = ''
-	icon_state = ""
-	vend_delay = 15
-	products = list()
-	contraband = list()
-	premium = list()
-
-*/
-
-//RECURSION
+//
+// Vending Machines
+//
 /obj/machinery/vending/vendors
-	name = "Omni-Vendor"
-	desc = "The mother of all vendors, from which vending itself comes!"
+	name = "restocking kits vending machine"
+	desc = "A restocking kits vending machine."
 	icon_state = "engivend"
 	icon_vend = "engivend-vend"
 	deny_time = 6
@@ -45,9 +30,9 @@
 
 
 /obj/machinery/vending/boozeomat
-	name = "Booze-O-Mat"
-	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
-	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
+	name = "alcohol vending machine"
+	desc = "An alcohol vending machine."
+	icon_state = "boozeomat"
 	icon_vend = "boozeomat-vend"
 	deny_time = 16
 	vend_id = "booze"
@@ -136,7 +121,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing = 2
 	)
 	vend_delay = 15
-	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	idle_power_usage = VENDING_MACHINE_IDLE_POWER_USAGE
 	product_slogans = "I hope nobody asks me for a bloody cup o' tea...;Alcohol is humanity's friend. Would you abandon a friend?;Quite delighted to serve you!;Is nobody thirsty on this station?"
 	product_ads = "Drink up!;Booze is good for you!;Alcohol is humanity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
 	req_access = list(access_bar)
@@ -158,7 +143,6 @@
 	ui.open(v_asset)
 
 /obj/machinery/vending/boozeomat/merchant
-	// boozeomat variant used on the merchant station
 	products = list(
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/ice = 12,
@@ -203,7 +187,7 @@
 	light_color = COLOR_GUNMETAL
 
 /obj/machinery/vending/assist/synd
-	name = "Parts vendor"
+	name = "Parts Vendor"
 	desc = "Just a normal vending machine - nothing to see here."
 	icon_state = "generic"
 	icon_vend = "generic-vend"
@@ -221,13 +205,13 @@
 
 
 /obj/machinery/vending/coffee
-	name = "Hot Drinks machine"
-	desc = "A vending machine which dispenses hot drinks."
+	name = "hot drinks vending machine"
+	desc = "A hot drinks vending machine."
 	product_ads = "Have a drink!;Drink up!;It's good for you!;Would you like a hot joe?;I'd kill for some coffee!;The best beans in the galaxy.;Only the finest brew for you.;Mmmm. Nothing like a coffee.;I like coffee, don't you?;Coffee helps you work!;Try some tea.;We hope you like the best!;Try our new chocolate!;Admin conspiracies"
 	icon_state = "coffee"
 	icon_vend = "coffee-vend"
 	vend_delay = 34
-	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	idle_power_usage = VENDING_MACHINE_IDLE_POWER_USAGE
 	vend_id = "coffee"
 	products = list(
 		/obj/item/reagent_containers/food/drinks/coffee = 25,
@@ -261,8 +245,8 @@
 	light_color = COLOR_BROWN
 
 /obj/machinery/vending/coffee/free
-	name = "Free Hot Drinks machine"
-	desc = "A vending machine which dispenses complimentary hot drinks."
+	name = "free hot drinks vending machine"
+	desc = "A hot drinks vending machine which dispenses its contents for free."
 	random_itemcount = 0
 	products = list(
 		/obj/item/reagent_containers/food/drinks/coffee = 12,
@@ -273,8 +257,8 @@
 	prices = list()
 
 /obj/machinery/vending/snack
-	name = "Getmore Chocolate Corp"
-	desc = "A snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars."
+	name = "snacks vending machine"
+	desc = "A snacks vending machine."
 	product_slogans = "Try our new nougat bar!;Twice the calories for half the price!"
 	product_ads = "The healthiest!;Award-winning chocolate bars!;Mmm! So good!;Oh my god it's so juicy!;Have a snack.;Snacks are good for you!;Have some more Getmore!;Best quality snacks straight from mars.;We love chocolate!;Try our new jerky!"
 	icon_state = "snack"
@@ -343,7 +327,6 @@
 	)
 	light_color = COLOR_BABY_BLUE
 
-
 /obj/machinery/vending/cola
 	name = "drinks vending machine"
 	desc = "A drinks vending machine."
@@ -409,14 +392,14 @@
 		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 18
 	)
 
-	idle_power_usage = 211
+	idle_power_usage = VENDING_MACHINE_IDLE_POWER_USAGE
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	temperature_setting = -1
 	light_color = COLOR_GUNMETAL
 
 /obj/machinery/vending/cigarette
-	name = "cigarette vending machine"
-	desc = "If you want to get cancer, might as well do it in style!"
+	name = "smoking vending machine"
+	desc = "A smoking vending machine."
 	product_slogans = "Space cigs taste good like a cigarette should.;I'd rather toolbox than switch.;Smoke!;Don't believe the reports - smoke today!"
 	product_ads = "Probably not bad for you!;Don't believe the scientists!;It's good for you!;Don't quit, buy more!;Smoke!;Nicotine heaven.;Best cigarettes since 2150.;Award-winning cigs."
 	vend_delay = 24
@@ -495,7 +478,6 @@
 	light_color = COLOR_BLUE_GRAY
 
 /obj/machinery/vending/cigarette/merchant
-	// Mapped in merchant station
 	premium = list()
 	prices = list()
 	products = list(
@@ -554,13 +536,11 @@
 		/obj/item/reagent_containers/pill/tox = 3,
 		/obj/item/reagent_containers/pill/stox = 4
 	)
-	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	idle_power_usage = VENDING_MACHINE_IDLE_POWER_USAGE
 	random_itemcount = 0
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
 
-
-//This one's from bay12
 /obj/machinery/vending/phoronresearch
 	name = "Toximate 3000"
 	desc = "All the fine parts you need in one vending machine!"
@@ -597,7 +577,7 @@
 	icon_state = "wallmed"
 	deny_time = 15
 	req_access = list(access_medical)
-	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
+	density = 0
 	vend_id = "meds"
 	products = list(
 		/obj/item/stack/medical/bruise_pack = 3,
@@ -628,7 +608,7 @@
 	icon_state = "wallmed"
 	deny_time = 15
 	req_access = list(access_medical)
-	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
+	density = 0
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
@@ -716,7 +696,7 @@
 	contraband = list(
 		/obj/item/reagent_containers/glass/bottle/mutagen = 2
 	)
-	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	idle_power_usage = VENDING_MACHINE_IDLE_POWER_USAGE
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 
@@ -882,12 +862,7 @@
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 
-/**
- *  Populate hydroseeds product_records
- *
- *  This needs to be customized to fetch the actual names of the seeds, otherwise
- *  the machine would simply list "packet of seeds" times 20
- */
+// This needs to be customized to fetch the actual names of the seeds, otherwise the machine would simply list "packet of seeds" times 20.
 /obj/machinery/vending/hydroseeds/build_inventory()
 	var/list/all_products = list(
 		list(src.products, CAT_NORMAL),
@@ -976,14 +951,13 @@
 	products = list(
 		/obj/item/reagent_containers/food/drinks/drinkingglass/soda = 30
 	)
-	//would a soviet vending machine really have a premium item? hmmm.
 	premium = list(
 		/obj/item/reagent_containers/food/drinks/bottle/vodka = 5
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/drinkingglass/cola = 20
 	)
-	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	idle_power_usage = VENDING_MACHINE_IDLE_POWER_USAGE
 	random_itemcount = 0
 	temperature_setting = -1
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
@@ -996,7 +970,6 @@
 	icon_vend = "tool-vend"
 	deny_time = 6
 	vend_id = "tools"
-	//req_access = list(access_maint_tunnels) //Maintenance access
 	products = list(
 		/obj/item/stack/cable_coil/random = 10,
 		/obj/item/crowbar = 5,
@@ -1054,7 +1027,7 @@
 	random_itemcount = 0
 	light_color = COLOR_GOLD
 
-/obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
+/obj/machinery/vending/tacticool
 	name = "Tactical Express"
 	desc = "Everything you need to ensure corporate bureaucracy makes it another day."
 	icon_state = "tact"
@@ -1071,7 +1044,7 @@
 		/obj/item/handcuffs/ziptie = 3
 	)
 	contraband = list(
-		/obj/item/grenade/flashbang/clusterbang = 1 //this can only go well.
+		/obj/item/grenade/flashbang/clusterbang = 1
 	)
 	premium = list(
 		/obj/item/grenade/chem_grenade/gas = 2
@@ -1079,7 +1052,7 @@
 	random_itemcount = 0
 	light_color = COLOR_BROWN
 
-/obj/machinery/vending/tacticool/ert //Slightly more !FUN!
+/obj/machinery/vending/tacticool/ert
 	name = "Nanosecurity Plus"
 	desc = "For when shit really goes down; the private contractor's personal armory."
 	req_access = list(access_security)
@@ -1108,7 +1081,6 @@
 	)
 	random_itemcount = 0
 
-//This one's from bay12
 /obj/machinery/vending/engineering
 	name = "Robco Tool Maker"
 	desc = "Everything you need for do-it-yourself station repair."
@@ -1154,7 +1126,6 @@
 	restock_items = 1
 	light_color = COLOR_GOLD
 
-//This one's from bay12
 /obj/machinery/vending/robotics
 	name = "Robotech Deluxe"
 	desc = "All the tools you need to create your own robot army."
@@ -1181,7 +1152,6 @@
 	premium = list(
 		/obj/item/device/paicard = 2
 	)
-	//everything after the power cell had no amounts, I improvised.  -Sayu
 	restock_blocked_items = list(
 		/obj/item/stack/cable_coil,
 		/obj/item/device/flash,
@@ -1223,7 +1193,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 29
 	)
-	idle_power_usage = 211
+	idle_power_usage = VENDING_MACHINE_IDLE_POWER_USAGE
 	temperature_setting = -1
 	light_color = COLOR_CULT_REINFORCED
 
@@ -1238,10 +1208,10 @@
 		/obj/item/battle_monsters/wrapped/basic = 20,
 		/obj/item/battle_monsters/wrapped = 20,
 		/obj/item/battle_monsters/wrapped/pro = 20,
-		/obj/item/battle_monsters/wrapped/species = 10, //Human monsters
-		/obj/item/battle_monsters/wrapped/species/lizard = 10, //Reptile Monsters
-		/obj/item/battle_monsters/wrapped/species/cat = 10, //Feline Monsters
-		/obj/item/battle_monsters/wrapped/species/ant = 10, //Ant Monsters
+		/obj/item/battle_monsters/wrapped/species = 10, // Human monsters.
+		/obj/item/battle_monsters/wrapped/species/lizard = 10, // Reptile monsters.
+		/obj/item/battle_monsters/wrapped/species/cat = 10, // Feline monsters.
+		/obj/item/battle_monsters/wrapped/species/ant = 10, // Ant monsters.
 		/obj/item/battle_monsters/wrapped/rare = 10
 	)
 	prices = list(
@@ -1325,7 +1295,7 @@
 	random_itemcount = FALSE
 
 /obj/machinery/vending/mredispenser
-	name = "\improper MRE dispenser"
+	name = "\improper TCFL MRE vending machine"
 	desc = "A vending machine filled with MRE's."
 	icon_state = "mrevend"
 	icon_vend = "mrevend-vend"
@@ -1356,8 +1326,10 @@
 		/obj/item/storage/box/fancy/mre/menu10 = 50
 	)
 	contraband = list(
-		/obj/item/storage/box/fancy/mre/menu11 = 5, // memes.
+		/obj/item/storage/box/fancy/mre/menu11 = 5,
 		/obj/item/reagent_containers/food/snacks/liquidfood = 5
 	)
 	vend_delay = 15
-	idle_power_usage = 211 // Cold MREs...
+	idle_power_usage = VENDING_MACHINE_IDLE_POWER_USAGE
+
+#undef VENDING_MACHINE_IDLE_POWER_USAGE
