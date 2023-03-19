@@ -318,6 +318,7 @@
 /obj/item/reagent_containers/food/drinks/cans/regular
 	name = "can"
 	desc = "A 33 cl aluminium can."
+	center_of_mass = list("x"=16, "y"=10)
 	volume = 33
 
 // 50 Centiliter Can
@@ -325,6 +326,8 @@
 /obj/item/reagent_containers/food/drinks/cans/large
 	name = "large can"
 	desc = "A 50 cl aluminium can."
+	center_of_mass = list("x" = 16, "y" = 8)
+	can_size_overrides = list("x" = 1)
 	volume = 50
 
 // Drinks
@@ -334,7 +337,6 @@
 	name = "\improper carbonated water can"
 	desc = "A 33 cl can of carbonated water."
 	sticker = "water"
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/water/carbonated = 33)
 
 // Starfall (Cola)
@@ -342,7 +344,6 @@
 	name = "\improper Starfall can"
 	desc = "A 33 cl can of Starfall cola."
 	sticker = "starfall"
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/space_cola = 33)
 
 // Starfall Max (Cola)
@@ -350,7 +351,6 @@
 	name = "\improper Starfall Max can"
 	desc = "A 33 cl can of Starfall Max cola. Contains no sugar, unless you count the sweetener as sugar."
 	sticker = "starfall_max"
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/diet_cola = 33)
 
 // Comet Cola (Cola)
@@ -358,15 +358,13 @@
 	name = "\improper Comet Cola can"
 	desc = "A 33 cl can of Comet Cola."
 	sticker = "comet_cola"
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/space_cola = 33)
 
 // Comet Cola Zero (Cola)
 /obj/item/reagent_containers/food/drinks/cans/comet_cola_zero
 	name = "\improper Comet Cola Zero can"
-	desc = "A 33 cl can of Comet Cola Zero. The zero sugar variant as the name implies."
+	desc = "A 33 cl can of Comet Cola Zero. The zero sugar variant, as the name implies."
 	sticker = "comet_cola_zero"
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/diet_cola = 33)
 
 // Stellar Jolt (Lemon and Lime Soda)
@@ -374,7 +372,6 @@
 	name = "\improper Stellar Jolt can"
 	desc = "A 33 cl can of Stellar Jolt."
 	sticker = "jolt"
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/spacemountainwind = 33)
 
 // Lemon Twist (Lemon and Lime Soda)
@@ -382,7 +379,6 @@
 	name = "\improper Lemon Twist can"
 	desc = "A 33 cl can of Lemon Twist."
 	sticker = "lemon_twist"
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/spacemountainwind = 33)
 
 // OJ Dash (Orange Soda)
@@ -390,97 +386,82 @@
 	name = "\improper OJ Dash can"
 	desc = "A 33 cl can of OJ Dash."
 	sticker = "oj_dash"
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/brownstar = 33)
 
+// Pow2Go (Energy Drink)
 /obj/item/reagent_containers/food/drinks/cans/thirteenloko
-	name = "thirteen loko"
-	desc = "The CMO has advised crew members that consumption of Thirteen Loko may result in seizures, blindness, drunkeness, or even death. Please Drink Responsibly."
-	center_of_mass = list("x"=16, "y"=10)
+	name = "\improper Pow2Go"
+	desc = "An extremely ill-advised combination of excessive caffeine and alcohol. Getmore's most controversial product to date."
 	reagents_to_add = list(/decl/reagent/alcohol/thirteenloko = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/dr_gibb
 	name = "\improper Dr. Gibb"
 	desc = "A delicious mixture of 42 different flavors."
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/dr_gibb = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/iced_tea
 	name = "\improper Silversun Wave ice tea"
 	desc = "Marketed as a favorite amongst parched Silversun beachgoers, there's actually more sugar in this than there is tea."
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/icetea = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/grape_juice
 	name = "\improper Grapel juice"
 	desc = "500 pages of rules of how to appropriately enter into a combat with this juice!"
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/grapejuice = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/tonic
 	name = "\improper T-Borg's tonic water"
 	desc = "Quinine tastes funny, but at least it'll keep that Space Malaria away."
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/tonic = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/sodawater
 	name = "soda water"
 	desc = "A can of soda water. Still water's more refreshing cousin."
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/sodawater = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/koispunch
 	name = "\improper Phoron Punch"
 	desc = "A can of Phoron Punch. " + SPAN_DANGER("WARNING: Phoron is toxic to non-Vaurcae. Consuming this product will lead to death.")
-	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/decl/reagent/water = 18, /decl/reagent/kois/clean = 10, /decl/reagent/toxin/phoron = 5)
 
 /obj/item/reagent_containers/food/drinks/cans/root_beer
 	name = "\improper RnD Root Beer"
 	desc = "A classic Earth drink from the United Americas province."
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/root_beer = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/adhomai_milk
 	name = "fermented fatshouters milk"
 	desc = "A can of fermented fatshouters milk, imported from Adhomai."
 	desc_extended = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/milk/adhomai/fermented = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk
 	name = "\improper Hakhma Milk"
 	desc = "A can of Hakhma beetle milk, sourced from Scarab and Drifter communities."
-	center_of_mass = list("x"=17, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/milk/beetle = 33)
 	can_size_overrides = list("x" = 1, "y" = -2)
 
 /obj/item/reagent_containers/food/drinks/cans/dyn
 	name = "Cooling Breeze"
 	desc = "The most refreshing thing you can find on the market, based on a Skrell medicinal plant. No salt or sugar."
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/dynjuice/cold = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/threetowns
 	name = "\improper Three Towns Cider"
-	desc = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland."
-	center_of_mass = list("x"=16, "y"=10)
+	desc = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland.<br>" + SPAN_DANGER("WARNING: CONTAINS BUTANOL, INTENDED FOR UNATHI CONSUMPTION")
 	reagents_to_add = list(/decl/reagent/alcohol/butanol/threetownscider = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/hrozamal_soda
 	name = "Hro'zamal Soda"
 	desc = "A can of Hro'zamal Soda. Made with Hro'zamal Ras'Nifs powder and canned in the People's Republic of Adhomai."
 	desc_extended = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as a herbal tea by the colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university students because of its stimulant effect."
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/hrozamal_soda = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/peach_soda
-	name = "Xanu Rush!"
-	desc = "Made from the NEW Xanu Prime peaches."
-	desc_extended = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush! Is the number one Coalition soda, despite its dull taste."
+	name = "Xanu Rush"
+	desc = "Made from the fresh Xanu Prime peaches."
+	desc_extended = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush is the number one Coalition soda, despite its dull taste."
 	icon_state = "xanu_rush"
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/peach_soda = 33)
 
 // Zo'ra Sodas
@@ -489,8 +470,6 @@
 /obj/item/reagent_containers/food/drinks/cans/zorasoda
 	name = "\improper Zo'ra Soda parent item"
 	desc = DESC_PARENT
-	center_of_mass = list("x" = 16, "y" = 8)
-	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/decl/reagent/drink/zorasoda = 50)
 
 // Zo'ra Soda Cherry
