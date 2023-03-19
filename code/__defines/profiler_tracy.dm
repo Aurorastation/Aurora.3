@@ -8,7 +8,7 @@
 // 	prof_init()
 // 	. = ..()
 
-/client/verb/profiler_start()
+/client/proc/profiler_start()
 	set name = "Start Tracy Profiler"
 	set category = "Debug"
 	set desc = "Starts the tracy profiler, which will await the client connection."

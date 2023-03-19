@@ -1233,14 +1233,16 @@
 	icon = 'icons/obj/coins.dmi'
 	icon_state = "coin_diamond_heads"
 	problist = list(
-		/obj/random/telecrystals = 0.2,
-		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.2,
-		/obj/random/melee = 0.5,
-		/obj/item/gun/energy/lawgiver = 0.2,
-		/obj/item/gun/projectile/automatic/terminator = 0.2,
+		/obj/random/telecrystals = 0.1,
+		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.1,
+		/obj/random/melee = 0.3,
+		/obj/item/gun/energy/lawgiver = 0.1,
+		/obj/item/gun/projectile/automatic/terminator = 0.1,
 		/obj/item/device/personal_shield = 0.4,
-		/obj/random/safe_rig = 0.5,
-		/obj/item/gun/projectile/shotgun/pump/combat = 0.3
+		/obj/random/safe_rig = 0.4,
+		/obj/item/gun/energy/disruptorpistol/magnum = 0.3,
+		/obj/item/gun/projectile/shotgun/pump/combat = 0.2,
+		/obj/item/clothing/glasses/thermal = 0.5
 	)
 
 /obj/random/highvalue/no_crystal
@@ -1546,11 +1548,12 @@
 	icon = 'icons/obj/rig_modules.dmi'
 	icon_state = "breacher_rig"
 	spawnlist = list(
-		/obj/item/rig/combat/equipped = 1,
-		/obj/item/rig/military = 0.4,
-		/obj/item/rig/hazard/equipped = 1,
+		/obj/item/rig/combat/equipped = 0.8,
+		/obj/item/rig/military = 0.3,
+		/obj/item/rig/hazard/equipped = 0.8,
 		/obj/item/rig/retro/equipped = 0.8,
-		/obj/item/rig/ert/security = 0.2
+		/obj/item/rig/ert/security = 0.3,
+		/obj/item/rig/unathi = 0.4
 	)
 /obj/random/telecrystals
 	name = "random telecrystals"
