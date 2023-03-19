@@ -704,7 +704,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/small_milk
 	name = "small milk carton"
-	desc = "It's milk. White and nutritious goodness!"
+	desc = "A small carton of milk. White and nutritious goodness."
 	icon_state = "mini-milk"
 	item_state = "carton"
 	drop_sound = 'sound/items/drop/papercup.ogg'
@@ -712,22 +712,14 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	center_of_mass = list("x"=16, "y"=14)
 	reagents_to_add = list(/singleton/reagent/drink/milk = 20)
 
-/obj/item/reagent_containers/food/drinks/small_milk_choco
+/obj/item/reagent_containers/food/drinks/small_milk/chocolate
 	name = "small chocolate milk carton"
-	desc = "It's milk. This one is in delicious chocolate flavor."
+	desc = "A small carton of milk. This one is in a delicious chocolate flavour."
 	icon_state = "mini-milk_choco"
-	item_state = "carton"
-	drop_sound = 'sound/items/drop/papercup.ogg'
-	pickup_sound = 'sound/items/pickup/papercup.ogg'
-	center_of_mass = list("x"=16, "y"=14)
 	reagents_to_add = list(/singleton/reagent/drink/milk/chocolate = 20)
 
-/obj/item/reagent_containers/food/drinks/small_milk_strawberry
+/obj/item/reagent_containers/food/drinks/small_milk/strawberry
 	name = "small strawberry milk carton"
-	desc = "It's milk. This one is in delicious strawberry flavor."
+	desc = "A small carton of milk. This one is in a delicious strawberry flavour."
 	icon_state = "mini-milk_strawberry"
-	item_state = "carton"
-	drop_sound = 'sound/items/drop/papercup.ogg'
-	pickup_sound = 'sound/items/pickup/papercup.ogg'
-	center_of_mass = list("x"=16, "y"=14)
 	reagents_to_add = list(/singleton/reagent/drink/milk/strawberry = 20)

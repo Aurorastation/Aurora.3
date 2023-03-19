@@ -334,6 +334,7 @@
 	vend_id = "cola"
 
 	products = list(
+		// Standard
 		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
 		/obj/item/reagent_containers/food/drinks/cans/carbonated_water = 10,
 		/obj/item/reagent_containers/food/drinks/cans/starfall = 10,
@@ -351,9 +352,11 @@
 		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 10,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 10,
 		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 10,
+		// Non-standard
+		// Milk
 		/obj/item/reagent_containers/food/drinks/small_milk = 10,
-		/obj/item/reagent_containers/food/drinks/small_milk_choco = 10,
-		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 10
+		/obj/item/reagent_containers/food/drinks/small_milk/chocolate = 10,
+		/obj/item/reagent_containers/food/drinks/small_milk/strawberry = 10
 	)
 
 	contraband = list(
@@ -387,8 +390,8 @@
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
 		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 35,
 		/obj/item/reagent_containers/food/drinks/small_milk = 18,
-		/obj/item/reagent_containers/food/drinks/small_milk_choco = 18,
-		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 18
+		/obj/item/reagent_containers/food/drinks/small_milk/chocolate = 18,
+		/obj/item/reagent_containers/food/drinks/small_milk/strawberry = 18
 	)
 
 	idle_power_usage = VENDING_MACHINE_IDLE_POWER_USAGE
