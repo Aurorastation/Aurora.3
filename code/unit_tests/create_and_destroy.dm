@@ -2,6 +2,7 @@
 /datum/unit_test/create_and_destroy
 	//You absolutely must run last
 	//priority = TEST_CREATE_AND_DESTROY
+	// We do not have a priority and it seems to run just as well anyways, so... *snip*
 
 	name = "Create and Destroy Test"
 	var/result = null
@@ -10,6 +11,18 @@
 /datum/unit_test/create_and_destroy/start_test()
 	//We'll spawn everything here
 	var/turf/spawn_at = locate()
+
+	/**
+	 * EXCLUSIONS OF THE TEST
+	 *
+	 * This is to be used when there's no other possible way to make this test work, to exclude a specific path from being scrutinized
+	 * by this unit test.
+	 *
+	 * Any and all additions should be heavily scrutinized, this test exists to try to catch issues and bypassing it, barring the
+	 * most extenous circumstances, is NOT preferable, and should only be resorted to for when all the other options are exhausted.
+	 */
+
+	// Specific paths excluded
 	var/list/ignore = list(
 		//Never meant to be created, errors out the ass for mobcode reasons
 		/mob/living/carbon,
@@ -88,6 +101,9 @@
 		/obj/spellbutton,
 
 	)
+
+	// Paths and all the subpaths excluded
+
 	//Needs a holodeck area linked to it which is not guarenteed to exist and technically is supposed to have a 1:1 relationship with computer anyway.
 	ignore += typesof(/obj/machinery/computer/HolodeckControl)
 
@@ -139,22 +155,26 @@
 	ignore += typesof(/mob/living/heavy_vehicle)
 	ignore += typesof(/obj/singularity/narsie)
 
+	/**
+	 * END EXCLUSIONS OF THE TEST
+	 */
+
 	var/list/cached_contents = spawn_at.contents.Copy()
-	// var/original_turf_type = spawn_at.type
-	// var/original_baseturfs = islist(spawn_at.baseturfs) ? spawn_at.baseturfs.Copy() : spawn_at.baseturfs
-	// var/original_baseturf_count = length(original_baseturfs)
+	var/original_turf_type = spawn_at.type
+	var/original_baseturf = islist(spawn_at.baseturf) ? spawn_at.baseturf:Copy() : spawn_at.baseturf
+	var/original_baseturf_count = length(original_baseturf)
 
 	// /datum/running_create_and_destroy = TRUE
 	for(var/type_path in typesof(/atom/movable, /turf) - ignore) //No areas please
 		if(ispath(type_path, /turf))
 			spawn_at.ChangeTurf(type_path)
 			//We change it back to prevent baseturfs stacking and hitting the limit
-			// spawn_at.ChangeTurf(original_turf_type, original_baseturfs)
-			// if(original_baseturf_count != length(spawn_at.baseturfs))
-			// 	TEST_FAIL("[type_path] changed the amount of baseturfs from [original_baseturf_count] to [length(spawn_at.baseturfs)]; [english_list(original_baseturfs)] to [islist(spawn_at.baseturfs) ? english_list(spawn_at.baseturfs) : spawn_at.baseturfs]")
+			spawn_at.ChangeTurf(original_turf_type)
+			if(original_baseturf_count != length(spawn_at.baseturf))
+				TEST_FAIL("[type_path] changed the amount of baseturfs from [original_baseturf_count] to [length(spawn_at.baseturf)]; [english_list(original_baseturf)] to [islist(spawn_at.baseturf) ? english_list(spawn_at.baseturf) : spawn_at.baseturf]")
 			// 	//Warn if it changes again
-			// 	original_baseturfs = islist(spawn_at.baseturfs) ? spawn_at.baseturfs.Copy() : spawn_at.baseturfs
-			// 	original_baseturf_count = length(original_baseturfs)
+				original_baseturf = islist(spawn_at.baseturf) ? spawn_at.baseturf:Copy() : spawn_at.baseturf
+				original_baseturf_count = length(original_baseturf)
 		else
 			var/atom/creation = new type_path(spawn_at)
 			if(QDELETED(creation))
@@ -192,7 +212,6 @@
 			garbage_queue_processed = TRUE
 			break
 
-		var/list/oldest_packet = locate(queue_to_check[1])
 		//Pull out the time we deld at
 		var/qdeld_at = SSgarbage.queue[queue_to_check[1]]
 		//If we've found a packet that got del'd later then we finished, then all our shit has been processed

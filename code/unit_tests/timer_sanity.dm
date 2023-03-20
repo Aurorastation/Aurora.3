@@ -1,3 +1,6 @@
+/datum/unit_test/timer_sanity
+	name = "SStimer Sanity (no negative count) Test"
+
 /datum/unit_test/timer_sanity/start_test()
 	TEST_ASSERT(SStimer.bucket_count >= 0,
 		"SStimer is going into negative bucket count from something")
