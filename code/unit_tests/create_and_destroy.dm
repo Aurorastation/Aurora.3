@@ -144,6 +144,7 @@
 	ignore += typesof(/obj/effect/shuttle_landmark)
 	ignore += typesof(/obj/effect/overmap/visitable)
 	ignore += typesof(/obj/effect/mazegen)
+	ignore += typesof(/obj/effect/ghostspawpoint)
 
 
 	ignore += typesof(/obj/turbolift_map_holder)
@@ -154,6 +155,7 @@
 	ignore += typesof(/turf/simulated/floor/beach/water)
 	ignore += typesof(/mob/living/heavy_vehicle)
 	ignore += typesof(/obj/singularity/narsie)
+	ignore += typesof(/obj/screen/ability)
 
 	/**
 	 * END EXCLUSIONS OF THE TEST
