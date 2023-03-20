@@ -48,6 +48,7 @@
 #include "code\__defines\lighting.dm"
 #include "code\__defines\lists.dm"
 #include "code\__defines\machinery.dm"
+#include "code\__defines\manual_unit_testing.dm"
 #include "code\__defines\master_controller.dm"
 #include "code\__defines\materials.dm"
 #include "code\__defines\math_physics.dm"

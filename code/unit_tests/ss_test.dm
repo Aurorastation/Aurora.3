@@ -2,7 +2,11 @@
 // It initializes last in the subsystem order, and queues
 // the tests to start about 20 seconds after init is done.
 
-#ifndef UNIT_TEST
+/**
+ * Wondering if you should change this to run the tests? NO!
+ * Because the preproc checks for this in other areas too, set it in code\__defines\manual_unit_testing.dm instead!
+ */
+#ifdef UNIT_TEST
 
 /datum/controller/subsystem/unit_tests
 	name = "Unit Tests"
