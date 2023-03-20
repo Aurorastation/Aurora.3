@@ -2100,6 +2100,7 @@
 #include "code\modules\maps\planet_types\jungle.dm"
 #include "code\modules\maps\planet_types\lava.dm"
 #include "code\modules\maps\planet_types\snow.dm"
+#include "code\modules\maps\planet_types\lore\burszia.dm"
 #include "code\modules\maps\planet_types\lore\haneunim.dm"
 #include "code\modules\maps\planet_types\lore\srandmarr.dm"
 #include "code\modules\martial_arts\gunkata.dm"

@@ -17,11 +17,13 @@
 
 //coalition sectors
 #define SECTOR_HANEUNIM				"Haneunim"
-#define ALL_COALITION_SECTORS	list(SECTOR_HANEUNIM)
+#define SECTOR_WEEPING_STARS		"Weeping Stars"
+#define SECTOR_BURZSIA				"Burzsia"
+#define ALL_COALITION_SECTORS	list(SECTOR_HANEUNIM, SECTOR_WEEPING_STARS, SECTOR_BURZSIA)
 
 //generic sectors, particularly ones that can be seen regardless of region the ship is in
 #define SECTOR_STAR_NURSERY			"Star Nursery"
 #define SECTOR_GENERIC				"Generic Sector"
 #define ALL_GENERIC_SECTORS		list(SECTOR_STAR_NURSERY, SECTOR_GENERIC)
 
-#define ALL_POSSIBLE_SECTORS	list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_GENERIC_SECTORS)
+#define ALL_POSSIBLE_SECTORS	list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_GENERIC_SECTORS, ALL_COALITION_SECTORS)
