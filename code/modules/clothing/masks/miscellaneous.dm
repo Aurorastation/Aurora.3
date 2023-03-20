@@ -151,6 +151,7 @@
 	eye = new(src)
 	eye.name_suffix = "camera MIU"
 	. = ..()
+	return .
 
 /obj/item/clothing/mask/ai/Destroy()
 	if(eye)
