@@ -1798,6 +1798,15 @@
 	temperature = 278.15
 	},
 /area/shuttle/tajaran_smuggler_cargo)
+"jhu" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/shuttle/tajaran_smuggler_cargo)
 "jhI" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/tajaran,
@@ -33878,7 +33887,7 @@ xRX
 lRj
 lNz
 aHt
-kpn
+jhu
 uHi
 yjk
 aXZ

@@ -70,6 +70,7 @@
 	set_light(6,0.5,LIGHT_COLOR_GREEN)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/generate_warp_destinations()
+	set background=1
 
 	destinations.Cut()
 	for(var/turf/simulated/floor/T in circle_range(src,10))
