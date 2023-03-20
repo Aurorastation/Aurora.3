@@ -90,7 +90,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/brownstar,
 			/obj/item/reagent_containers/chem_disp_cartridge/tonic,
 			/obj/item/reagent_containers/chem_disp_cartridge/sodawater,
-			/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime,
+			/obj/item/reagent_containers/chem_disp_cartridge/lemon_twist,
 			/obj/item/reagent_containers/chem_disp_cartridge/sugar,
 			/obj/item/reagent_containers/chem_disp_cartridge/orange,
 			/obj/item/reagent_containers/chem_disp_cartridge/lime,
@@ -113,7 +113,7 @@
 
 /obj/machinery/chemical_dispenser/bar_alc/full
 	spawn_cartridges = list(
-			/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime,
+			/obj/item/reagent_containers/chem_disp_cartridge/lemon_twist,
 			/obj/item/reagent_containers/chem_disp_cartridge/sugar,
 			/obj/item/reagent_containers/chem_disp_cartridge/orange,
 			/obj/item/reagent_containers/chem_disp_cartridge/lime,
@@ -138,7 +138,7 @@
 
 /obj/machinery/chemical_dispenser/bar_alc/full/space //Spacebar away site. Gets much more to make the best drinks, hassle-free. 
 	spawn_cartridges = list(
-			/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime,
+			/obj/item/reagent_containers/chem_disp_cartridge/lemon_twist,
 			/obj/item/reagent_containers/chem_disp_cartridge/sugar,
 			/obj/item/reagent_containers/chem_disp_cartridge/orange,
 			/obj/item/reagent_containers/chem_disp_cartridge/lime,

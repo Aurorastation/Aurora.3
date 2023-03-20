@@ -423,7 +423,7 @@
 	drink_flags = NO_EMPTY_ICON
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
-	reagents_to_add = list(/singleton/reagent/drink/spaceup = 100)
+	reagents_to_add = list(/singleton/reagent/drink/stellar_jolt = 100)
 	shatter_material = MATERIAL_PLASTIC
 	fragile = 0
 

@@ -2497,7 +2497,7 @@
 	name = "Snow White"
 	id = "snowwhite"
 	result = /singleton/reagent/alcohol/snowwhite
-	required_reagents = list(/singleton/reagent/alcohol/beer = 1, /singleton/reagent/drink/lemon_lime = 1)
+	required_reagents = list(/singleton/reagent/alcohol/beer = 1, /singleton/reagent/drink/lemon_twist = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/drink/irishcarbomb
@@ -2680,7 +2680,7 @@
 	name = "Sui Dream"
 	id = "suidream"
 	result = /singleton/reagent/alcohol/suidream
-	required_reagents = list(/singleton/reagent/drink/spaceup = 1, /singleton/reagent/alcohol/bluecuracao = 1, /singleton/reagent/alcohol/melonliquor = 1)
+	required_reagents = list(/singleton/reagent/drink/stellar_jolt = 1, /singleton/reagent/alcohol/bluecuracao = 1, /singleton/reagent/alcohol/melonliquor = 1)
 	result_amount = 3
 
 //aurora's drinks
@@ -2841,7 +2841,7 @@
 	name = "Bad Touch"
 	id = "badtouch"
 	result = /singleton/reagent/alcohol/badtouch
-	required_reagents = list(/singleton/reagent/alcohol/vodka = 2, /singleton/reagent/alcohol/rum = 2, /singleton/reagent/alcohol/absinthe = 1, /singleton/reagent/drink/lemon_lime = 1)
+	required_reagents = list(/singleton/reagent/alcohol/vodka = 2, /singleton/reagent/alcohol/rum = 2, /singleton/reagent/alcohol/absinthe = 1, /singleton/reagent/drink/lemon_twist = 1)
 	result_amount = 6
 
 /datum/chemical_reaction/drink/bluelagoon
@@ -2876,7 +2876,7 @@
 	name = "Jungle Juice"
 	id = "junglejuice"
 	result = /singleton/reagent/alcohol/junglejuice
-	required_reagents = list(/singleton/reagent/drink/lemonjuice = 1, /singleton/reagent/drink/orangejuice = 1, /singleton/reagent/drink/lemon_lime = 1, /singleton/reagent/alcohol/vodka = 1, /singleton/reagent/alcohol/rum = 1)
+	required_reagents = list(/singleton/reagent/drink/lemonjuice = 1, /singleton/reagent/drink/orangejuice = 1, /singleton/reagent/drink/lemon_twist = 1, /singleton/reagent/alcohol/vodka = 1, /singleton/reagent/alcohol/rum = 1)
 	result_amount = 5
 
 /datum/chemical_reaction/drink/marsarita
@@ -2932,7 +2932,7 @@
 	name = "Shirley Temple"
 	id = "shirleytemple"
 	result = /singleton/reagent/drink/shirleytemple
-	required_reagents = list(/singleton/reagent/drink/spaceup = 4, /singleton/reagent/drink/grenadine = 2)
+	required_reagents = list(/singleton/reagent/drink/stellar_jolt = 4, /singleton/reagent/drink/grenadine = 2)
 	result_amount = 6
 
 /datum/chemical_reaction/drink/sugarrush

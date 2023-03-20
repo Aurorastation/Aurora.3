@@ -293,7 +293,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 /obj/item/reagent_containers/ecig_cartridge/lemonlime
 	name = "lemon-lime flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its lemon-lime flavored."
-	reagents_to_add = list(/singleton/reagent/toxin/tobacco/liquid = 10, /singleton/reagent/water = 10, /singleton/reagent/drink/lemon_lime = 5)
+	reagents_to_add = list(/singleton/reagent/toxin/tobacco/liquid = 10, /singleton/reagent/water = 10, /singleton/reagent/drink/lemon_twist = 5)
 
 /obj/item/reagent_containers/ecig_cartridge/coffee
 	name = "coffee flavour cartridge"

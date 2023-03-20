@@ -1942,19 +1942,6 @@
 	glass_name = "cup of hot chocolate"
 	glass_desc = "Made with love! And cocoa beans."
 
-/singleton/reagent/drink/soda_water
-	name = "Soda Water"
-	description = "A can of club soda. Why not make a scotch and soda?"
-	color = "#619494"
-	adj_dizzy = -5
-	adj_drowsy = -3
-	taste_description = "carbonated water"
-	carbonated = TRUE
-
-	glass_icon_state = "glass_clear"
-	glass_name = "glass of soda water"
-	glass_desc = "Soda water. Why not make a scotch and soda?"
-
 /singleton/reagent/drink/grapesoda
 	name = "Grape Soda"
 	description = "Grapes made into a fine drank."
@@ -1966,20 +1953,6 @@
 	glass_icon_state = "gsodaglass"
 	glass_name = "glass of grape soda"
 	glass_desc = "Looks like a delicious drink!"
-
-/singleton/reagent/drink/tonic_water
-	name = "Tonic Water"
-	description = "It tastes strange but at least the quinine keeps the Space Malaria at bay."
-	color = "#AEE5E4"
-	adj_dizzy = -5
-	adj_drowsy = -3
-	adj_sleepy = -2
-	taste_description = "tart and fresh"
-	carbonated = TRUE
-
-	glass_icon_state = "glass_clear"
-	glass_name = "glass of tonic water"
-	glass_desc = "Quinine tastes funny, but at least it'll keep that Space Malaria away."
 
 /singleton/reagent/drink/lemonade
 	name = "Lemonade"
@@ -2012,17 +1985,6 @@
 	glass_name = "glass of Kira Special"
 	glass_desc = "Long live the guy who everyone had mistaken for a girl. Baka!"
 	glass_center_of_mass = list("x"=16, "y"=12)
-
-/singleton/reagent/drink/oj_dash
-	name = "OJ Dash"
-	description = "A citrusy orange soda."
-	color = "#9F3400"
-	taste_description = "orange soda"
-	carbonated = TRUE
-
-	glass_icon_state = "brownstar"
-	glass_name = "glass of OJ Dash"
-	glass_desc = "A glass of OJ Dash."
 
 /singleton/reagent/drink/mintsyrup
 	name = "Mint Syrup"
@@ -2096,78 +2058,6 @@
 	glass_name = "glass of grenadine syrup"
 	glass_desc = "Sweet and tangy, a bar syrup used to add color or flavor to drinks."
 	glass_center_of_mass = list("x"=17, "y"=6)
-
-/singleton/reagent/drink/comet_cola
-	name = "Comet Cola"
-	description = "A refreshing beverage."
-	reagent_state = LIQUID
-	color = "#100800"
-	adj_drowsy = -3
-	taste_description = "cola"
-	carbonated = TRUE
-
-	glass_icon_state  = "spacecola"
-	glass_name = "glass of Comet Cola"
-	glass_desc = "A glass of refreshing Comet Cola"
-	glass_center_of_mass = list("x"=17, "y"=6)
-
-/singleton/reagent/drink/lemon_twist
-	name = "Lemon Twist"
-	description = "A sweet citrus soda."
-	color = "#a2ff8d"
-	adj_drowsy = -7
-	adj_sleepy = -1
-	taste_description = "sweet citrus soda"
-	carbonated = TRUE
-
-	glass_icon_state = "Space_mountain_wind_glass"
-	glass_name = "glass of Stellar Jolt"
-	glass_desc = "A glass of Lemon Twist."
-
-/singleton/reagent/drink/cherry_blossom
-	name = "Cherry Blossom"
-	description = "A cherry soda."
-	color = "#93230b"
-	adj_drowsy = -6
-	taste_description = "cherry soda"
-	carbonated = TRUE
-
-	glass_icon_state = "dr_gibb_glass"
-	glass_name = "glass of Cherry Blossom"
-	glass_desc = "A glass of Cherry Blossom."
-
-/singleton/reagent/drink/getmore_root_beer
-	name = "Getmore Root Beer"
-	description = "A classic Earth drink, made from various roots."
-	color = "#211100"
-	adj_drowsy = -6
-	taste_description = "sassafras soda"
-	carbonated = TRUE
-
-	glass_icon_state = "root_beer_glass"
-	glass_name = "glass of Getmore Root Beer"
-	glass_desc = "A glass of Getmore Root Beer."
-
-/singleton/reagent/drink/spaceup
-	name = "Vacuum Fizz"
-	description = "Tastes like a hull breach in your mouth."
-	color = "#aee5e4"
-	taste_description = "a hull breach"
-	carbonated = TRUE
-
-	glass_icon_state = "space-up_glass"
-	glass_name = "glass of Vacuum Fizz"
-	glass_desc = "Vacuum Fizz. It helps keep your cool."
-
-/singleton/reagent/drink/lemon_lime
-	name = "Lemon Lime"
-	description = "A tangy substance made of 0.5% natural citrus!"
-	color = "#878F00"
-	taste_description = "tangy lime and lemon soda"
-
-	glass_icon_state = "lemonlime"
-	glass_name = "glass of lemon lime soda"
-	glass_desc = "A tangy substance made of 0.5% natural citrus!"
 
 /singleton/reagent/drink/doctorsdelight
 	name = "The Doctor's Delight"
@@ -5254,17 +5144,6 @@
 	glass_name = "glass of root-cola floats"
 	glass_desc = "A floating soda of icecream and Getmore Root-Cola."
 
-/singleton/reagent/drink/comet_cola_max
-	name = "Comet Cola Max"
-	description = "Some Comet Cola Max."
-	color = "#100800"
-	taste_description = "cola and less calories"
-	carbonated = TRUE
-
-	glass_icon_state = "spacecola"
-	glass_name = "glass of diet cola"
-	glass_desc = "Comet cola! Now in diet!"
-
 /singleton/reagent/drink/milk/chocolate
 	name = "Chocolate milk"
 	description = "A mixture of perfectly healthy milk and delicious chocolate."
@@ -5284,17 +5163,6 @@
 	glass_icon_state = "glass_strawberry"
 	glass_name = "glass of strawberry milk"
 	glass_desc = "A mixture of perfectly healthy milk and delicious strawberry."
-
-/singleton/reagent/drink/xanu_rush
-	name = "Xanu Rush"
-	description = "Some Xanu Rush."
-	color = "#FFE5B4"
-	taste_description = "dull peaches"
-	carbonated = TRUE
-
-	glass_icon_state = "glass_red"
-	glass_name = "glass of Xanu Rush!"
-	glass_desc = "Made from the NEW Xanu Prime peaches."
 
 /singleton/reagent/alcohol/pulque
 	name = "pulque"
@@ -5347,6 +5215,10 @@
 	glass_name = "coffee pulque"
 	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."
 
+//
+// Water
+//
+
 // Carbonated Water
 /singleton/reagent/water/carbonated
 	name = "carbonated water"
@@ -5356,3 +5228,192 @@
 	glass_icon_state = "glass_clear"
 	glass_name = "carbonated water"
 	glass_desc = "A glass of carbonated water."
+
+// Soda Water
+/singleton/reagent/drink/soda_water
+	name = "soda water"
+	description = "Some soda water."
+	color = "#619494"
+	adj_dizzy = -5
+	adj_drowsy = -3
+	taste_description = "carbonated water"
+	carbonated = TRUE
+
+	glass_icon_state = "glass_clear"
+	glass_name = "glass of soda water"
+	glass_desc = "A glass of soda water."
+
+// Tonic Water
+/singleton/reagent/drink/tonic_water
+	name = "tonic water"
+	description = "Some tonic water."
+	color = "#AEE5E4"
+	adj_dizzy = -5
+	adj_drowsy = -3
+	adj_sleepy = -2
+	taste_description = "tart, bitter carbonated water"
+	carbonated = TRUE
+
+	glass_icon_state = "glass_clear"
+	glass_name = "glass of tonic water"
+	glass_desc = "A glass of tonic water."
+
+//
+// Sodas
+//
+
+// Comet Cola
+/singleton/reagent/drink/comet_cola
+	name = "Comet Cola"
+	description = "Some Comet Cola."
+	reagent_state = LIQUID
+	color = "#100800"
+	adj_drowsy = -3
+	taste_description = "sweet, generic cola"
+	carbonated = TRUE
+
+	glass_icon_state  = "spacecola"
+	glass_name = "glass of Comet Cola"
+	glass_desc = "A glass of Comet Cola."
+	glass_center_of_mass = list("x"=17, "y"=6)
+
+// Comet Cola Zero
+/singleton/reagent/drink/comet_cola_zero
+	name = "Comet Cola Zero"
+	description = "Some Comet Cola Zero."
+	color = "#100800"
+	taste_description = "generic cola"
+	carbonated = TRUE
+
+	glass_icon_state = "spacecola"
+	glass_name = "glass of Comet Cola Zero"
+	glass_desc = "A glass of Comet Cola Zero."
+
+// Starfall
+/singleton/reagent/drink/starfall
+	name = "Starfall"
+	description = "Some Starfall."
+	reagent_state = LIQUID
+	color = "#100800"
+	adj_drowsy = -3
+	taste_description = "sweet, citrusy cola"
+	carbonated = TRUE
+
+	glass_icon_state  = "spacecola"
+	glass_name = "glass of Starfall"
+	glass_desc = "A glass of Starfall."
+	glass_center_of_mass = list("x"=17, "y"=6)
+
+// Starfall Max
+/singleton/reagent/drink/starfall_max
+	name = "Comet Cola Zero"
+	description = "Some Starfall Max."
+	color = "#100800"
+	taste_description = "citrusy cola"
+	carbonated = TRUE
+
+	glass_icon_state = "spacecola"
+	glass_name = "glass of Starfall Max"
+	glass_desc = "A glass of Starfall Max."
+
+// Lemon Twist
+/singleton/reagent/drink/lemon_twist
+	name = "Lemon Twist"
+	description = "Some Lemon Twist."
+	color = "#a2ff8d"
+	adj_drowsy = -7
+	adj_sleepy = -1
+	taste_description = "sweet, citrus soda"
+	carbonated = TRUE
+
+	glass_icon_state = "Space_mountain_wind_glass"
+	glass_name = "glass of Lemon Twist"
+	glass_desc = "A glass of Lemon Twist."
+
+// Stellar Jolt
+/singleton/reagent/drink/stellar_jolt
+	name = "Stellar Jolt"
+	description = "Some Stellar Jolt."
+	color = "#aee5e4"
+	adj_drowsy = -7
+	adj_sleepy = -1
+	taste_description = "sweet, citrus soda"
+	carbonated = TRUE
+
+	glass_icon_state = "space-up_glass"
+	glass_name = "glass of Stellar Jolt"
+	glass_desc = "A glass of Stellar Jolt."
+
+// OJ Dash
+/singleton/reagent/drink/oj_dash
+	name = "OJ Dash"
+	description = "Some OJ Dash."
+	color = "#9F3400"
+	taste_description = "orange soda"
+	carbonated = TRUE
+
+	glass_icon_state = "brownstar"
+	glass_name = "glass of OJ Dash"
+	glass_desc = "A glass of OJ Dash."
+
+// Orange Sunset
+/singleton/reagent/drink/orange_sunset
+	name = "Orange Sunset"
+	description = "Some Orange Sunset."
+	color = "#9F3400"
+	taste_description = "orange soda"
+	carbonated = TRUE
+
+	glass_icon_state = "brownstar"
+	glass_name = "glass of Orange Sunset"
+	glass_desc = "A glass of Orange Sunset."
+
+// Xanu Rush
+/singleton/reagent/drink/xanu_rush
+	name = "Xanu Rush"
+	description = "Some Xanu Rush."
+	color = "#FFE5B4"
+	taste_description = "dull, fresh peaches"
+	carbonated = TRUE
+
+	glass_icon_state = "glass_red"
+	glass_name = "glass of Xanu Rush"
+	glass_desc = "A glass of Xanu Rush."
+
+// Cherry Blossom
+/singleton/reagent/drink/cherry_blossom
+	name = "Cherry Blossom"
+	description = "A cherry soda."
+	color = "#93230b"
+	adj_drowsy = -6
+	taste_description = "cherry soda"
+	carbonated = TRUE
+
+	glass_icon_state = "dr_gibb_glass"
+	glass_name = "glass of Cherry Blossom"
+	glass_desc = "A glass of Cherry Blossom."
+
+// Cherry Blossom Zero
+/singleton/reagent/drink/cherry_blossom_zero
+	name = "Cherry Blossom Zero"
+	description = "Some Cherry Blossom Zero."
+	color = "#93230b"
+	taste_description = "cherry soda"
+	carbonated = TRUE
+
+	glass_icon_state = "dr_gibb_glass"
+	glass_name = "glass of Cherry Blossom Zero"
+	glass_desc = "A glass of Cherry Blossom Zero."
+
+// Getmore Root Beer
+/singleton/reagent/drink/getmore_root_beer
+	name = "Getmore Root Beer"
+	description = "A classic Earth drink, made from various roots."
+	color = "#211100"
+	adj_drowsy = -6
+	taste_description = "sassafras soda"
+	carbonated = TRUE
+
+	glass_icon_state = "root_beer_glass"
+	glass_name = "glass of Getmore Root Beer"
+	glass_desc = "A glass of Getmore Root Beer."

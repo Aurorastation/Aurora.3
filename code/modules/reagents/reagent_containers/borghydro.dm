@@ -142,7 +142,40 @@
 	recharge_time = 3
 	volume = 60
 	possible_transfer_amounts = list(5, 10, 20, 30)
-	reagent_ids = list(/singleton/reagent/alcohol/beer, /singleton/reagent/alcohol/coffee/kahlua, /singleton/reagent/alcohol/whiskey, /singleton/reagent/alcohol/wine, /singleton/reagent/alcohol/vodka, /singleton/reagent/alcohol/gin, /singleton/reagent/alcohol/rum, /singleton/reagent/alcohol/tequila, /singleton/reagent/alcohol/vermouth, /singleton/reagent/alcohol/cognac, /singleton/reagent/alcohol/ale, /singleton/reagent/alcohol/mead, /singleton/reagent/water, /singleton/reagent/sugar, /singleton/reagent/drink/ice, /singleton/reagent/drink/tea, /singleton/reagent/drink/ice_tea, /singleton/reagent/drink/comet_cola, /singleton/reagent/drink/lemon_twist, /singleton/reagent/drink/cherry_blossom, /singleton/reagent/drink/spaceup, /singleton/reagent/drink/tonic_water, /singleton/reagent/drink/soda_water, /singleton/reagent/drink/lemon_lime, /singleton/reagent/drink/orangejuice, /singleton/reagent/drink/limejuice, /singleton/reagent/drink/watermelonjuice, /singleton/reagent/drink/coffee, /singleton/reagent/drink/coffee/espresso)
+	reagent_ids = list(
+		/singleton/reagent/alcohol/beer,
+		/singleton/reagent/alcohol/coffee/kahlua,
+		/singleton/reagent/alcohol/whiskey,
+		/singleton/reagent/alcohol/wine,
+		/singleton/reagent/alcohol/vodka,
+		/singleton/reagent/alcohol/gin,
+		/singleton/reagent/alcohol/rum,
+		/singleton/reagent/alcohol/tequila,
+		/singleton/reagent/alcohol/vermouth,
+		/singleton/reagent/alcohol/cognac,
+		/singleton/reagent/alcohol/ale,
+		/singleton/reagent/alcohol/mead,
+		/singleton/reagent/water,
+		/singleton/reagent/sugar,
+		/singleton/reagent/drink/ice,
+		/singleton/reagent/drink/tea,
+		/singleton/reagent/drink/ice_tea,
+		/singleton/reagent/drink/comet_cola,
+		/singleton/reagent/drink/comet_cola_zero,
+		/singleton/reagent/drink/starfall,
+		/singleton/reagent/drink/starfall_max,
+		/singleton/reagent/drink/lemon_twist,
+		/singleton/reagent/drink/cherry_blossom,
+		/singleton/reagent/drink/cherry_blossom_zero,
+		/singleton/reagent/drink/stellar_jolt,
+		/singleton/reagent/drink/tonic_water,
+		/singleton/reagent/drink/soda_water,
+		/singleton/reagent/drink/orangejuice,
+		/singleton/reagent/drink/limejuice,
+		/singleton/reagent/drink/watermelonjuice,
+		/singleton/reagent/drink/coffee,
+		/singleton/reagent/drink/coffee/espresso
+	)
 
 /obj/item/reagent_containers/hypospray/borghypo/service/update_icon()
 	underlays.Cut()

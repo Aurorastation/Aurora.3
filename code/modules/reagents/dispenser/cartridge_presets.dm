@@ -58,13 +58,13 @@
 	grenadine			spawn_reagent = /singleton/reagent/drink/grenadine
 	ice					spawn_reagent = /singleton/reagent/drink/ice
 	ice_tea				spawn_reagent = /singleton/reagent/drink/ice_tea
-	lemon_lime			spawn_reagent = /singleton/reagent/drink/lemon_lime
+	lemon_twist			spawn_reagent = /singleton/reagent/drink/lemon_twist
 	lime				spawn_reagent = /singleton/reagent/drink/limejuice
 	orange				spawn_reagent = /singleton/reagent/drink/orangejuice
 	getmore_root_beer	spawn_reagent = /singleton/reagent/drink/getmore_root_beer
 	lemon_twist			spawn_reagent = /singleton/reagent/drink/lemon_twist
 	soda_water			spawn_reagent = /singleton/reagent/drink/soda_water
-	spaceup				spawn_reagent = /singleton/reagent/drink/spaceup
+	stellar_jolt		spawn_reagent = /singleton/reagent/drink/stellar_jolt
 	tea					spawn_reagent = /singleton/reagent/drink/tea
 	tonic_water			spawn_reagent = /singleton/reagent/drink/tonic_water
 	watermelon			spawn_reagent = /singleton/reagent/drink/watermelonjuice
