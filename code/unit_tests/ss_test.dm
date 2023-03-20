@@ -2,7 +2,7 @@
 // It initializes last in the subsystem order, and queues
 // the tests to start about 20 seconds after init is done.
 
-#ifndef UNIT_TEST
+#ifdef UNIT_TEST
 
 /datum/controller/subsystem/unit_tests
 	name = "Unit Tests"
