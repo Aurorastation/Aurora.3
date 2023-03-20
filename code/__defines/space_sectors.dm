@@ -15,6 +15,10 @@
 #define SECTOR_UUEOAESA				"Uueoa-Esa"
 #define ALL_BADLAND_SECTORS		list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
+//coalition sectors
+#define SECTOR_HANEUNIM				"Haneunim"
+#define ALL_COALITION_SECTORS	list(SECTOR_HANEUNIM)
+
 //generic sectors, particularly ones that can be seen regardless of region the ship is in
 #define SECTOR_STAR_NURSERY			"Star Nursery"
 #define SECTOR_GENERIC				"Generic Sector"
