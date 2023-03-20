@@ -24,6 +24,10 @@
 	. = ..()
 	fuel = rand(4 MINUTES, 6 MINUTES)
 
+/obj/item/device/flashlight/flare/Destroy()
+	. = ..()
+	STOP_PROCESSING(SSprocessing, src)
+
 /obj/item/device/flashlight/flare/process()
 	if(produce_heat)
 		var/turf/pos = get_turf(src)
@@ -32,15 +36,10 @@
 	fuel = max(fuel - 1, 0)
 	if(!fuel || !on)
 		turn_off()
+		update_damage()
 		if(!fuel)
 			src.icon_state = "[initial(icon_state)]-empty"
 		STOP_PROCESSING(SSprocessing, src)
-
-/obj/item/device/flashlight/flare/proc/turn_off()
-	on = FALSE
-	src.force = initial(src.force)
-	src.damtype = initial(src.damtype)
-	update_icon()
 
 /obj/item/device/flashlight/flare/update_icon()
 	..()
@@ -53,7 +52,7 @@
 /obj/item/device/flashlight/flare/attack_self(mob/user)
 	// Usual checks
 	if(!fuel)
-		to_chat(user, SPAN_WARNING("It's out of fuel."))
+		to_chat(user, SPAN_WARNING("\The [src] is spent."))
 		return
 	if(on)
 		return
@@ -72,6 +71,13 @@
 			SPAN_NOTICE("You twist the cap off the flare, activating it!"),
 			SPAN_NOTICE("You hear a flare sparking to life.")
 		)
+
+/obj/item/device/flashlight/flare/proc/turn_off()
+	on = FALSE
+	visible_message(
+		SPAN_NOTICE("\The [src] sputters out.")
+	)
+	update_icon()
 
 /obj/item/device/flashlight/flare/proc/update_damage()
 	if(on)
@@ -101,6 +107,7 @@
 /obj/item/device/flashlight/flare/torch/attack_self(mob/user)
 	if (on)
 		turn_off()
+		update_damage()
 		user.visible_message("<b>[user]</b> extinguishes \the [src].", SPAN_NOTICE("You extinguish \the [src]."))
 	return
 
@@ -137,6 +144,7 @@
 	fuel = max(fuel - 1, 0)
 	if(!fuel || !on)
 		turn_off()
+		update_damage()
 		STOP_PROCESSING(SSprocessing, src)
 		if(!fuel)
 			var/obj/item/torch/T = new(pos)

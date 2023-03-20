@@ -58,7 +58,12 @@
 		verbs -= /obj/item/device/flashlight/verb/toggle_brightness
 
 	if (on)
-		light_range = brightness_on
+		if(brightness_level == "low")
+			light_range = brightness_on * 0.5
+		else if(brightness_level == "high")
+			light_range = brightness_on * 1.5
+		else
+			light_range = brightness_on
 		update_icon()
 
 	. = ..()
@@ -386,6 +391,10 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
 		)
+	force = 10
+	attack_verb = list("bludgeoned, bashed, whacked")
+	w_class = ITEMSIZE_NORMAL
+	matter = list(MATERIAL_STEEL = 200,MATERIAL_GLASS = 100)
 	flashlight_power = 1
 	brightness_on = 4
 	cell_type = /obj/item/cell

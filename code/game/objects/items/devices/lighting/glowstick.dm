@@ -3,10 +3,11 @@
 	desc = "A green military-grade glowstick."
 	w_class = ITEMSIZE_SMALL
 	brightness_on = 1.2
-	light_power = 2
-	color = "#49F37C"
+	flashlight_power = 2
+	light_color = "#49F37C"
 	icon_state = "glowstick"
 	item_state = "glowstick"
+	produce_heat = 0
 	uv_intensity = 255
 	light_wedge = LIGHT_OMNI
 	activation_sound = 'sound/items/glowstick.ogg'
@@ -31,9 +32,12 @@
 		icon_state = "[initial(icon_state)]-empty"
 		set_light(0)
 	else if(on)
+		var/image/I = overlay_image(icon, "glowstick-overlay", color)
+		I.blend_mode = BLEND_ADD
+		add_overlay(I)
 		icon_state = "[initial(icon_state)]-on"
 		item_state = "[initial(icon_state)]-on"
-		set_light(brightness_on)
+		set_light(brightness_on, flashlight_power, light_color)
 	else
 		icon_state = initial(icon_state)
 	update_held_icon()

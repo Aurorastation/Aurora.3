@@ -7,6 +7,7 @@
 	item_state = "lamp"
 	center_of_mass = list("x" = 13,"y" = 11)
 	brightness_on = 4
+	flashlight_power = 1.0
 	w_class = ITEMSIZE_HUGE
 	flags = CONDUCT
 	uv_intensity = 100
@@ -23,7 +24,6 @@
 	desc = "A classic green-shaded desk lamp."
 	icon_state = "lampgreen"
 	item_state = "lampgreen"
-	center_of_mass = list("x" = 15,"y" = 11)
 	brightness_on = 5
 	light_color = "#FFC58F"
 	toggle_sound = 'sound/machines/switch_chain.ogg'
@@ -42,11 +42,12 @@
 	desc = "Random oil globules within were parsed in photos for your protection. Enjoy this kitschy memorabilia by sticking it on your desk."
 	icon_state = "lavalamp"
 	brightness_on = 3
+	flashlight_power = 0.5
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 200)
 
 /obj/item/device/flashlight/lamp/lava/update_icon()
 	if(on)
-		set_light(brightness_on)
+		set_light(brightness_on, flashlight_power, light_color)
 	else
 		set_light(0)
 	cut_overlays()
