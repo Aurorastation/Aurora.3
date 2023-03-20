@@ -2964,10 +2964,10 @@
 	result_amount = 4
 
 //Snowflake drinks
-/datum/chemical_reaction/drink/dr_gibb_diet
-	name = "Diet Dr. Gibb"
-	id = "dr_gibb_diet"
-	result = /singleton/reagent/drink/cherry_blossom_diet
+/datum/chemical_reaction/drink/cherry_blossom_zero
+	name = "Cherry Blossom Zero"
+	id = "cherry_blossom_zero"
+	result = /singleton/reagent/drink/cherry_blossom_zero
 	required_reagents = list(/singleton/reagent/drink/cherry_blossom = 1, /singleton/reagent/water = 1)
 	result_amount = 2
 
@@ -2975,7 +2975,7 @@
 	name = "Dr. Daniels"
 	id = "dr_daniels"
 	result = /singleton/reagent/alcohol/drdaniels
-	required_reagents = list(/singleton/reagent/drink/cherry_blossom_diet = 3, /singleton/reagent/alcohol/whiskey = 1, /singleton/reagent/nutriment/honey = 1)
+	required_reagents = list(/singleton/reagent/drink/cherry_blossom_zero = 3, /singleton/reagent/alcohol/whiskey = 1, /singleton/reagent/nutriment/honey = 1)
 	result_amount = 5
 
 /datum/chemical_reaction/drink/meatshake
