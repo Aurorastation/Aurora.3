@@ -151,7 +151,7 @@
 "lT" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/reagent_containers/food/snacks/hardbread,
-/obj/item/reagent_containers/food/drinks/cans/shouter_milk,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/shouter_milk,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},

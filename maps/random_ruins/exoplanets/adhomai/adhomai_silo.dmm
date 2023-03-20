@@ -162,7 +162,7 @@
 /obj/effect/floor_decal/concrete/large{
 	dir = 1
 	},
-/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda{
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/hrozamal_soda{
 	pixel_y = 8;
 	pixel_x = 8
 	},

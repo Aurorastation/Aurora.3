@@ -61,9 +61,9 @@
 		/obj/item/reagent_containers/food/drinks/bottle/pulque = 2,
 		/obj/item/reagent_containers/food/condiment/small/packet/capsaicin = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/lemon_twist = 2,
-		/obj/item/reagent_containers/food/drinks/cans/cherry_blossom = 2,
+		/obj/item/reagent_containers/food/drinks/cans/can_33cl/cherry_blossom = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice = 10,
-		/obj/item/reagent_containers/food/drinks/cans/three_towns_cider = 10,
+		/obj/item/reagent_containers/food/drinks/cans/can_33cl/three_towns_cider = 10,
 		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 10)
 	req_access = list(210)
 	restock_items = 1

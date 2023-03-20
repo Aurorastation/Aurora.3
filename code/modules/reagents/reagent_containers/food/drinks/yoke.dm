@@ -59,25 +59,25 @@
 	to_chat(user, SPAN_WARNING("\The [src] cannot be refilled with items!"))
 
 /obj/item/storage/box/fancy/yoke/zoracherry
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zora_soda/cherry = 6)
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/cherry = 6)
 
 /obj/item/storage/box/fancy/yoke/zoraphoron
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zora_soda/phoron_passion = 6)
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/phoron_passion = 6)
 
 /obj/item/storage/box/fancy/yoke/zoraklax
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zora_soda/energy_crush = 6)
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/energy_crush = 6)
 
 /obj/item/storage/box/fancy/yoke/zoracthur
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zora_soda/rockin_raspberry = 6)
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/rockin_raspberry = 6)
 
 /obj/item/storage/box/fancy/yoke/zoravenom
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zora_soda/sour_venom_grass = 6)
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/sour_venom_grass = 6)
 
 /obj/item/storage/box/fancy/yoke/zorahozm
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zora_soda/hozm = 6)
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/hozm = 6)
 
 /obj/item/storage/box/fancy/yoke/zorakois
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zora_soda/kois_twist = 6)
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/kois_twist = 6)
 
 /obj/item/storage/box/fancy/yoke/random
 	starts_with = list()
@@ -85,13 +85,13 @@
 /obj/item/storage/box/fancy/yoke/random/fill()
 	for(var/i = 1 to 6)
 		var/list/energy_options = list(
-			/obj/item/reagent_containers/food/drinks/cans/zora_soda/cherry,
-			/obj/item/reagent_containers/food/drinks/cans/zora_soda/phoron_passion,
-			/obj/item/reagent_containers/food/drinks/cans/zora_soda/energy_crush,
-			/obj/item/reagent_containers/food/drinks/cans/zora_soda/rockin_raspberry,
-			/obj/item/reagent_containers/food/drinks/cans/zora_soda/sour_venom_grass,
-			/obj/item/reagent_containers/food/drinks/cans/zora_soda/hozm,
-			/obj/item/reagent_containers/food/drinks/cans/zora_soda/kois_twist
+			/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/cherry,
+			/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/phoron_passion,
+			/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/energy_crush,
+			/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/rockin_raspberry,
+			/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/sour_venom_grass,
+			/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/hozm,
+			/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/kois_twist
 		)
 		var/path = pick(energy_options)
 		if(starts_with[path])

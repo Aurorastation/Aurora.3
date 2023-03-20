@@ -11507,9 +11507,9 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
 "dJe" = (
-/obj/item/reagent_containers/food/drinks/cans/starfall,
-/obj/item/reagent_containers/food/drinks/cans/starfall,
-/obj/item/reagent_containers/food/drinks/cans/starfall,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/starfall,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/starfall,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/starfall,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{

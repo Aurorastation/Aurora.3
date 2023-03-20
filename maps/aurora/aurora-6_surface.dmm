@@ -13867,7 +13867,7 @@
 	icon_state = "cola";
 	name = "randomly spawned cola";
 	spawn_nothing_percentage = 50;
-	spawn_object = /obj/item/reagent_containers/food/drinks/cans/starfall
+	spawn_object = /obj/item/reagent_containers/food/drinks/cans/can_33cl/starfall
 	},
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/departure_lounge)

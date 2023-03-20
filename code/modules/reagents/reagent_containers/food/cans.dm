@@ -339,82 +339,82 @@
 //
 
 // Carbonated Water
-/obj/item/reagent_containers/food/drinks/cans/carbonated_water
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/carbonated_water
 	name = "\improper carbonated water can"
 	desc = "A 33 cl aluminium can of carbonated water."
 	sticker = "water"
 	reagents_to_add = list(/singleton/reagent/water/carbonated = 33)
 
-/obj/item/reagent_containers/food/drinks/cans/soda_water
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/soda_water
 	name = "soda water can"
 	desc = "A 33 cl aluminium can of soda water."
 	sticker = "soda_water"
 	reagents_to_add = list(/singleton/reagent/drink/soda_water = 33)
 
-/obj/item/reagent_containers/food/drinks/cans/tonic_water
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/tonic_water
 	name = "tonic water can"
 	desc = "A 33 cl aluminium can of tonic water."
 	sticker = "tonic_water"
 	reagents_to_add = list(/singleton/reagent/drink/tonic_water = 33)
 
 // Starfall (Cola)
-/obj/item/reagent_containers/food/drinks/cans/starfall
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/starfall
 	name = "\improper Starfall can"
 	desc = "A 33 cl aluminium can of Starfall cola."
 	sticker = "starfall"
 	reagents_to_add = list(/singleton/reagent/drink/starfall = 33)
 
 // Starfall Max (Cola)
-/obj/item/reagent_containers/food/drinks/cans/starfall_max
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/starfall_max
 	name = "\improper Starfall Max can"
 	desc = "A 33 cl aluminium can of Starfall Max cola. Contains no sugar, unless you count the sweetener as sugar."
 	sticker = "starfall_max"
 	reagents_to_add = list(/singleton/reagent/drink/starfall_max = 33)
 
 // Comet Cola (Cola)
-/obj/item/reagent_containers/food/drinks/cans/comet_cola
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/comet_cola
 	name = "\improper Comet Cola can"
 	desc = "A 33 cl aluminium can of Comet Cola."
 	sticker = "comet_cola"
 	reagents_to_add = list(/singleton/reagent/drink/comet_cola = 33)
 
 // Comet Cola Zero (Cola)
-/obj/item/reagent_containers/food/drinks/cans/comet_cola_zero
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/comet_cola_zero
 	name = "\improper Comet Cola Zero can"
 	desc = "A 33 cl aluminium can of Comet Cola Zero. The zero sugar variant, as the name implies."
 	sticker = "comet_cola_zero"
 	reagents_to_add = list(/singleton/reagent/drink/comet_cola_zero = 33)
 
 // Stellar Jolt (Lemon and Lime Soda)
-/obj/item/reagent_containers/food/drinks/cans/stellar_jolt
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/stellar_jolt
 	name = "\improper Stellar Jolt can"
 	desc = "A 33 cl aluminium can of Stellar Jolt."
 	sticker = "stellar_jolt"
 	reagents_to_add = list(/singleton/reagent/drink/stellar_jolt = 33)
 
 // Lemon Twist (Lemon and Lime Soda)
-/obj/item/reagent_containers/food/drinks/cans/lemon_twist
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/lemon_twist
 	name = "\improper Lemon Twist can"
 	desc = "A 33 cl aluminium can of Lemon Twist."
 	sticker = "lemon_twist"
 	reagents_to_add = list(/singleton/reagent/drink/lemon_twist = 33)
 
 // Orange Sunset (Orange Soda)
-/obj/item/reagent_containers/food/drinks/cans/orange_sunset
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/orange_sunset
 	name = "\improper Orange Sunset can"
 	desc = "A 33 cl aluminium can of Orange Sunset."
 	sticker = "orange_sunset"
 	reagents_to_add = list(/singleton/reagent/drink/orange_sunset = 33)
 
 // OJ Dash (Orange Soda)
-/obj/item/reagent_containers/food/drinks/cans/oj_dash
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/oj_dash
 	name = "\improper OJ Dash can"
 	desc = "A 33 cl aluminium can of OJ Dash."
 	sticker = "oj_dash"
 	reagents_to_add = list(/singleton/reagent/drink/oj_dash = 33)
 
 // Xanu Rush (Peach Soda)
-/obj/item/reagent_containers/food/drinks/cans/xanu_rush
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/xanu_rush
 	name = "\improper Xanu Rush can"
 	desc = "A 33 cl aluminium can of Xanu Rush. Made from fresh Xanu Prime peaches."
 	desc_extended = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush is the number one Coalition soda, despite its somewhat dull taste."
@@ -422,42 +422,42 @@
 	reagents_to_add = list(/singleton/reagent/drink/xanu_rush = 33)
 
 // Cherry Blossom (Cherry Soda)
-/obj/item/reagent_containers/food/drinks/cans/cherry_blossom
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/cherry_blossom
 	name = "\improper Cherry Blossom can"
 	desc = "A 33 cl aluminium can of Cherry Blossom."
 	sticker = "cherry_blossom"
 	reagents_to_add = list(/singleton/reagent/drink/cherry_blossom = 33)
 
 // Cherry Blossom Zero (Sugar-free Cherry Blossom Soda)
-/obj/item/reagent_containers/food/drinks/cans/cherry_blossom_zero
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/cherry_blossom_zero
 	name = "\improper Cherry Blossom Zero can"
 	desc = "A 33 cl aluminium can of Cherry Blossom Zero."
 	sticker = "cherry_blossom_zero"
 	reagents_to_add = list(/singleton/reagent/drink/cherry_blossom_zero = 33)
 
 // Getmore Root Beer (Sassafras Soda)
-/obj/item/reagent_containers/food/drinks/cans/getmore_root_beer
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/getmore_root_beer
 	name = "\improper Getmore Root Beer"
 	desc = "A 33 cl aluminium can of Getmore Root Beer. A classic Earth drink, made from sassafras roots."
 	sticker = "root_beer"
 	reagents_to_add = list(/singleton/reagent/drink/getmore_root_beer = 33)
 
 // Grapevine (Grape Soda)
-/obj/item/reagent_containers/food/drinks/cans/grapevine
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/grapevine
 	name = "\improper Grapevine can"
 	desc = "A 33 cl aluminium can of Grapevine soda."
 	sticker = "grapevine"
 	reagents_to_add = list(/singleton/reagent/drink/grape_juice = 33)
 
 // Silversun Wave (Ice Tea)
-/obj/item/reagent_containers/food/drinks/cans/silversun_wave
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/silversun_wave
 	name = "\improper Silversun Wave ice tea can"
 	desc = "A 33 cl aluminium can of Silversun Wave ice tea. Marketed as a favorite amongst parched Silversun beachgoers."
 	sticker = "silversun_wave"
 	reagents_to_add = list(/singleton/reagent/drink/ice_tea = 33)
 
 // Pow2Go (Energy Drink)
-/obj/item/reagent_containers/food/drinks/cans/pow2go
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/pow2go
 	name = "\improper Pow2Go can"
 	desc = "A 33 cl aluminium can of Pow2Go. An extremely ill-advised combination of excessive caffeine and alcohol. Getmore's most controversial product to date."
 	sticker = "pow2go"
@@ -468,14 +468,14 @@
 //
 
 // Dyn Cooling Breeze (Dyn Soda)
-/obj/item/reagent_containers/food/drinks/cans/dyn_cooling_breeze
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/dyn_cooling_breeze
 	name = "\improper Dyn Cooling Breeze can"
 	desc = "A 33 cl aluminium can of Dyn Cooling Breeze. One of the most refreshing things you can find on the market, based on the dyn Skrell medicinal plant."
 	sticker = "dyn_cooling_breeze"
 	reagents_to_add = list(/singleton/reagent/drink/dyn_juice/cold = 33)
 
 // Hro'zamal Soda (Hro'zamal-based Soda)
-/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/hrozamal_soda
 	name = "Hro'zamal Soda can"
 	desc = "A 33 cl aluminium can of Hro'zamal Soda. Made with Hro'zamal Ras'Nifs powder and canned in the People's Republic of Adhomai."
 	desc_extended = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as a herbal tea by the colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university students because of its stimulant effect."
@@ -483,7 +483,7 @@
 	reagents_to_add = list(/singleton/reagent/drink/hrozamal_soda = 30)
 
 // Shouter Milk (Fermented Fatshouter Milk)
-/obj/item/reagent_containers/food/drinks/cans/shouter_milk
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/shouter_milk
 	name = "\improper Shouter Milk can"
 	desc = "A 33 cl aluminium can of fermented fatshouters milk, imported from Adhomai."
 	desc_extended = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
@@ -491,21 +491,21 @@
 	reagents_to_add = list(/singleton/reagent/drink/milk/adhomai/fermented = 33)
 
 // Hakhma Milk (Hahkma Bettle Milk)
-/obj/item/reagent_containers/food/drinks/cans/hakhma_milk
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/hakhma_milk
 	name = "\improper Hakhma Milk can"
 	desc = "A 33 cl aluminium can of Hakhma beetle milk, sourced from Scarab and Drifter communities."
 	sticker = "hakhma_milk"
 	reagents_to_add = list(/singleton/reagent/drink/milk/beetle = 33)
 
 // Three Towns Cider (Non-descript Butanol-based Cider)
-/obj/item/reagent_containers/food/drinks/cans/three_towns_cider
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/three_towns_cider
 	name = "\improper Three Towns Cider can"
 	desc = "A 33 cl aluminium can of Three Towns Cider. A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland.<br>" + SPAN_DANGER("WARNING: CONTAINS BUTANOL. INTENDED FOR UNATHI CONSUMPTION ONLY.")
 	sticker = "three_towns_cider"
 	reagents_to_add = list(/singleton/reagent/alcohol/butanol/three_towns_cider = 33)
 
 // Phoron Punch (Phoron-based Punch)
-/obj/item/reagent_containers/food/drinks/cans/phoron_punch
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/phoron_punch
 	name = "\improper Phoron Punch can"
 	desc = "A 33 cl aluminium can of Phoron Punch. " + SPAN_DANGER("WARNING: CONTAINS PHORON. INTENDED FOR VAURCAE CONSUMPTION ONLY. CONSUMPTION OF THIS PRODUCT AS NON-VAURCAE WILL LEAD TO DEATH.")
 	sticker = "phoron_punch"
@@ -516,64 +516,64 @@
 //
 
 // Zo'ra Soda Parent Item
-/obj/item/reagent_containers/food/drinks/cans/zora_soda
+/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda
 	name = "\improper Zo'ra Soda parent item"
 	desc = DESC_PARENT
 	reagents_to_add = list(/singleton/reagent/drink/zora_soda = 50)
 
 // Zo'ra Soda Cherry
-/obj/item/reagent_containers/food/drinks/cans/zora_soda/cherry
+/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/cherry
 	name = "\improper Zo'ra Soda Cherry can"
 	desc = "A 50 cl aluminium can of cherry flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, all good energy drinks come in cherry."
 	sticker = "zora_cherry"
 	reagents_to_add = list(/singleton/reagent/drink/zora_soda/cherry = 50)
 
 // Zo'ra Soda Phoron Passion
-/obj/item/reagent_containers/food/drinks/cans/zora_soda/phoron_passion
+/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/phoron_passion
 	name = "\improper Zo'ra Soda Phoron Passion can"
 	desc = "A 50 cl aluminium can of grape flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, it actually doesn't taste like phoron but rather like grape."
 	sticker = "zora_phoron_passion"
 	reagents_to_add = list(/singleton/reagent/drink/zora_soda/phoron_passion = 50)
 
 // Zo'ra Soda Energy Crush
-/obj/item/reagent_containers/food/drinks/cans/zora_soda/energy_crush
+/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/energy_crush
 	name = "\improper Zo'ra Soda Energy Crush can"
 	desc = "A 50 cl aluminium can of nitrogen-infused creamy orange zest flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, the smooth taste is engineered to near perfection."
 	sticker = "zora_energy_crush"
 	reagents_to_add = list(/singleton/reagent/drink/zora_soda/energy_crush = 50)
 
 // Zo'ra Soda Rockin' Raspberry
-/obj/item/reagent_containers/food/drinks/cans/zora_soda/rockin_raspberry
+/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/rockin_raspberry
 	name = "\improper Zo'ra Soda Rockin' Raspberry can"
 	desc = "A 50 cl aluminium can of \"blue raspberry\" flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, it tastes like a more flowery and aromatic raspberry."
 	sticker = "zora_rockin_raspberry"
 	reagents_to_add = list(/singleton/reagent/drink/zora_soda/rockin_raspberry = 50)
 
-/obj/item/reagent_containers/food/drinks/cans/zora_soda/sour_venom_grass
+/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/sour_venom_grass
 	name = "\improper Zo'ra Soda Sour Venom Grass can"
 	desc = "A 50 cl aluminium can of sour \"venom grass\" flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, it tastes like a cloud of angry stinging acidic bees."
 	sticker = "zora_sour_venom_grass"
 	reagents_to_add = list(/singleton/reagent/drink/zora_soda/sour_venom_grass = 50)
 
-/obj/item/reagent_containers/food/drinks/cans/zora_soda/hozm // "Contraband"
+/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/hozm // "Contraband"
 	name = "\improper Zo'ra Soda High Octane Zorane Might can"
 	desc = "A 50 cl aluminium can of mint flavoured Zo'ra Soda energy drink, with a lot of V'krexi additives. According to the label, it tastes like impaling the roof of your mouth with a freezing cold spear laced with angry bees and road salt."
 	sticker = "zora_hozm"
 	reagents_to_add = list(/singleton/reagent/drink/zora_soda/hozm = 50)
 
-/obj/item/reagent_containers/food/drinks/cans/zora_soda/kois_twist
+/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/kois_twist
 	name = "\improper Zo'ra Soda K'ois Twist can"
 	desc = "A 50 cl aluminium can of K'ois-imitation flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, it contains no K'ois but rather a flavour that imitates it."
 	sticker = "zora_kois_twist"
 	reagents_to_add = list(/singleton/reagent/drink/zora_soda/kois_twist = 50)
 
-/obj/item/reagent_containers/food/drinks/cans/zora_soda/drone_fuel
+/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/drone_fuel
 	name = "\improper Zo'ra Soda Drone Fuel can"
 	desc = "A 50 cl aluminium can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives. According to the label, it is meant for Vaurcae and reinforces this by the big red text that says \"" + SPAN_DANGER("WARNING: Known to induce vomiting in all species except vaurcae and dionae.") + "\"."
 	sticker = "zora_drone_fuel"
 	reagents_to_add = list(/singleton/reagent/drink/zora_soda/drone_fuel = 50)
 
-/obj/item/reagent_containers/food/drinks/cans/zora_soda/royal_jelly
+/obj/item/reagent_containers/food/drinks/cans/can_50cl/zora_soda/royal_jelly
 	name = "\improper Zo'ra Soda Royal Jelly can"
 	desc = "A 50 cl aluminium can of royal jelly infused Zo'ra Soda energy drink, with V'krexi additives. According to the label, it has a mild stimulating effect."
 	desc_extended = "Royal jelly is a nutritious concentrated substance commonly created by caretaker Vaurcae in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."

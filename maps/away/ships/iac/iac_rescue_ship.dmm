@@ -3315,8 +3315,8 @@
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/drinks/cans/silversun_wave,
-/obj/item/reagent_containers/food/drinks/cans/starfall{
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/silversun_wave,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/starfall{
 	pixel_x = -3;
 	pixel_y = 1
 	},

@@ -840,10 +840,10 @@
 /area/grand_romanovich)
 "cq" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/drinks/cans/shouter_milk,
-/obj/item/reagent_containers/food/drinks/cans/shouter_milk,
-/obj/item/reagent_containers/food/drinks/cans/shouter_milk,
-/obj/item/reagent_containers/food/drinks/cans/shouter_milk,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/shouter_milk,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/shouter_milk,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/shouter_milk,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/shouter_milk,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
@@ -3679,7 +3679,7 @@
 /area/grand_romanovich)
 "jq" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/drinks/cans/shouter_milk,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/shouter_milk,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4;
 	icon_state = "spline_fancy"
@@ -6377,10 +6377,10 @@
 /area/grand_romanovich)
 "Ch" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/drinks/cans/shouter_milk,
-/obj/item/reagent_containers/food/drinks/cans/shouter_milk,
-/obj/item/reagent_containers/food/drinks/cans/shouter_milk,
-/obj/item/reagent_containers/food/drinks/cans/shouter_milk,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/shouter_milk,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/shouter_milk,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/shouter_milk,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/shouter_milk,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,

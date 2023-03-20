@@ -1579,17 +1579,17 @@
 /turf/template_noop,
 /area/ship/orion_express_ship)
 "lXU" = (
-/obj/item/reagent_containers/food/drinks/cans/xanu_rush{
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/xanu_rush{
 	pixel_x = 9
 	},
-/obj/item/reagent_containers/food/drinks/cans/xanu_rush{
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/xanu_rush{
 	pixel_x = 18
 	},
-/obj/item/reagent_containers/food/drinks/cans/xanu_rush{
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/xanu_rush{
 	pixel_x = 13;
 	pixel_y = 12
 	},
-/obj/item/reagent_containers/food/drinks/cans/xanu_rush{
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/xanu_rush{
 	layer = 3.1;
 	pixel_x = 17;
 	pixel_y = 24
@@ -3335,10 +3335,10 @@
 /turf/template_noop,
 /area/ship/orion_express_ship)
 "xnY" = (
-/obj/item/reagent_containers/food/drinks/cans/xanu_rush{
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/xanu_rush{
 	pixel_x = -5
 	},
-/obj/item/reagent_containers/food/drinks/cans/xanu_rush{
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/xanu_rush{
 	pixel_x = -10;
 	pixel_y = 12
 	},
