@@ -1,4 +1,4 @@
-//Burszia Prime or Burzsia I
+//Burzsia Prime or Burzsia I
 /obj/effect/overmap/visitable/sector/exoplanet/barren/burzsiai
 	name = "Burzsia I"
 	desc = "The only planet within Burzsia, it is used as a junction for Hephaestus Industries' mineral extraction and refinery operations."
@@ -92,6 +92,126 @@
 
 /datum/random_map/noise/exoplanet/barren/asteroid
 	descriptor = "Burszia II's surface"
+	smoothing_iterations = 4
+	land_type = /turf/unsimulated/floor/asteroid/ash
+	fauna_prob = 1
+	fauna_types = list(/mob/living/simple_animal/hostile/carp/asteroid, /mob/living/simple_animal/hostile/carp/bloater, /mob/living/simple_animal/hostile/carp/shark/reaver,
+					/mob/living/simple_animal/hostile/carp/shark/reaver/eel, /mob/living/simple_animal/hostile/gnat)
+
+/area/exoplanet/barren/asteroid
+	name = "\improper Asteroid Surface"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+
+//Burzsai IIa
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaiia
+	name = "Burzsia IIa"
+	desc = "A medium, resource rich asteroid."
+	surface_color = COLOR_GRAY
+	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich)
+	rock_colors = list(COLOR_ASTEROID_ROCK)
+	planetary_area = /area/exoplanet/barren/asteroid
+	generated_name = FALSE
+	place_near_main = list(3, 6)
+
+	possible_random_ruins = list(
+		/datum/map_template/ruin/exoplanet/abandoned_mining,
+		/datum/map_template/ruin/exoplanet/digsite,
+		/datum/map_template/ruin/exoplanet/drill_site)
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaiia/update_icon()
+  icon_state = "asteroid[rand(1,3)]"
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaiia/generate_planet_image()
+	skybox_image = image('icons/skybox/skybox_rock_128.dmi', "bigrock")
+	skybox_image.color = pick(rock_colors)
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	skybox_image.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
+	skybox_image.blend_mode = BLEND_OVERLAY
+
+/datum/random_map/noise/exoplanet/barren/asteroid
+	descriptor = "Burszia IIa's surface"
+	smoothing_iterations = 4
+	land_type = /turf/unsimulated/floor/asteroid/ash
+	fauna_prob = 1
+	fauna_types = list(/mob/living/simple_animal/hostile/carp/asteroid, /mob/living/simple_animal/hostile/carp/bloater, /mob/living/simple_animal/hostile/carp/shark/reaver,
+					/mob/living/simple_animal/hostile/carp/shark/reaver/eel, /mob/living/simple_animal/hostile/gnat)
+
+/area/exoplanet/barren/asteroid
+	name = "\improper Asteroid Surface"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+
+//Burzsai IIb
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaiib
+	name = "Burzsia IIb"
+	desc = "A small, resource rich asteroid."
+	surface_color = COLOR_GRAY
+	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich)
+	rock_colors = list(COLOR_ASTEROID_ROCK)
+	planetary_area = /area/exoplanet/barren/asteroid
+	generated_name = FALSE
+	place_near_main = list(7, 6)
+
+	possible_random_ruins = list(
+		/datum/map_template/ruin/exoplanet/abandoned_mining,
+		/datum/map_template/ruin/exoplanet/digsite,
+		/datum/map_template/ruin/exoplanet/drill_site)
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaiib/update_icon()
+  icon_state = "asteroid[rand(1,3)]"
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaiib/generate_planet_image()
+	skybox_image = image('icons/skybox/skybox_rock_128.dmi', "bigrock")
+	skybox_image.color = pick(rock_colors)
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	skybox_image.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
+	skybox_image.blend_mode = BLEND_OVERLAY
+
+/datum/random_map/noise/exoplanet/barren/asteroid
+	descriptor = "Burszia IIb's surface"
+	smoothing_iterations = 4
+	land_type = /turf/unsimulated/floor/asteroid/ash
+	fauna_prob = 1
+	fauna_types = list(/mob/living/simple_animal/hostile/carp/asteroid, /mob/living/simple_animal/hostile/carp/bloater, /mob/living/simple_animal/hostile/carp/shark/reaver,
+					/mob/living/simple_animal/hostile/carp/shark/reaver/eel, /mob/living/simple_animal/hostile/gnat)
+
+/area/exoplanet/barren/asteroid
+	name = "\improper Asteroid Surface"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+
+//Burzsai IIc
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaiic
+	name = "Burzsia IIc"
+	desc = "A medium, resource rich asteroid."
+	surface_color = COLOR_GRAY
+	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich)
+	rock_colors = list(COLOR_ASTEROID_ROCK)
+	planetary_area = /area/exoplanet/barren/asteroid
+	generated_name = FALSE
+	place_near_main = list(4, 8)
+
+	possible_random_ruins = list(
+		/datum/map_template/ruin/exoplanet/abandoned_mining,
+		/datum/map_template/ruin/exoplanet/digsite,
+		/datum/map_template/ruin/exoplanet/drill_site)
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaiic/update_icon()
+  icon_state = "asteroid[rand(1,3)]"
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaiic/generate_planet_image()
+	skybox_image = image('icons/skybox/skybox_rock_128.dmi', "bigrock")
+	skybox_image.color = pick(rock_colors)
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	skybox_image.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
+	skybox_image.blend_mode = BLEND_OVERLAY
+
+/datum/random_map/noise/exoplanet/barren/asteroid
+	descriptor = "Burszia IIc's surface"
 	smoothing_iterations = 4
 	land_type = /turf/unsimulated/floor/asteroid/ash
 	fauna_prob = 1

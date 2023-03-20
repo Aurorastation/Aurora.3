@@ -20,7 +20,7 @@
 	name = SECTOR_BURZSIA
 	description = "Burszia, an autocratic corporate-owned system, basically."
 	skybox_icon = "badlands"
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/burzsiai, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaii)
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/burzsiai, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaii, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaiia, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaiib, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsiaiic)
 	starlight_color = "#b13636"
 	starlight_power = 2
 	starlight_range = 4
