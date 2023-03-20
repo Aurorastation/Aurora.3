@@ -95,7 +95,7 @@
 	if (crit_fail)
 		add_overlay("nucgun-whee")
 		return
-	var/ratio = power_supply.charge / power_supply.maxcharge
+	var/ratio = max(power_supply?.charge / power_supply?.maxcharge), 0)
 	ratio = round(ratio, 0.25) * 100
 	add_overlay("nucgun-[ratio]")
 
