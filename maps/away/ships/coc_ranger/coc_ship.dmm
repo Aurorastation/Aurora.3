@@ -4743,11 +4743,11 @@
 "waI" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/steel,
-/obj/item/reagent_containers/food/drinks/small_milk_choco{
+/obj/item/reagent_containers/food/drinks/small_milk/chocolate{
 	pixel_x = -5;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/drinks/small_milk_choco{
+/obj/item/reagent_containers/food/drinks/small_milk/chocolate{
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/white,

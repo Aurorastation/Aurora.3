@@ -1230,7 +1230,7 @@
 	icon_state = "television";
 	name = "PanaVision 2400"
 	},
-/obj/item/reagent_containers/food/drinks/cans/diet_cola{
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/comet_cola_zero{
 	pixel_x = 7;
 	pixel_y = 16
 	},

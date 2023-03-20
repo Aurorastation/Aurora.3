@@ -2934,16 +2934,16 @@
 /area/magshield/west)
 "iD" = (
 /obj/structure/table/steel,
-/obj/item/reagent_containers/food/drinks/cans/space_up,
-/obj/item/reagent_containers/food/drinks/cans/space_up{
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/stellar_jolt,
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/stellar_jolt{
 	pixel_x = 5;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/drinks/cans/space_up{
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/stellar_jolt{
 	pixel_x = -8;
 	pixel_y = 5
 	},
-/obj/item/reagent_containers/food/drinks/cans/space_up{
+/obj/item/reagent_containers/food/drinks/cans/can_33cl/stellar_jolt{
 	pixel_x = -2;
 	pixel_y = -4
 	},
