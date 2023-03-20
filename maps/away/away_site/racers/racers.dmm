@@ -2723,6 +2723,14 @@
 /obj/machinery/portable_atmospherics/canister/empty/hydrogen,
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
+"nqE" = (
+/obj/structure/window/reinforced/tinted/frosted,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/window/reinforced/tinted/frosted{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/racers)
 "nrP" = (
 /obj/structure/girder/displaced,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
@@ -40149,7 +40157,7 @@ jyq
 jyq
 jyq
 jyq
-pQQ
+nqE
 xRX
 xRX
 xRX
