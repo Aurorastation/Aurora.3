@@ -54,10 +54,12 @@ var/ascii_reset = "[ascii_esc]\[0m"
 	failed_unit_tests++
 	reported = 1
 	log_unit_test("[ascii_red]!!! FAILURE !!! \[[name]\]: [message][ascii_reset]")
+	return UNIT_TEST_FAILED
 
 /datum/unit_test/proc/pass(var/message)
 	reported = 1
 	log_unit_test("[ascii_green]*** SUCCESS *** \[[name]\]: [message][ascii_reset]")
+	return UNIT_TEST_PASSED
 
 /datum/unit_test/proc/warn(var/message)
 	log_unit_test("[ascii_yellow]=== WARNING === \[[name]\]: [message][ascii_reset]")

@@ -49,7 +49,7 @@
 	for(cointype in typesof(/obj/item/coin))
 		var/obj/item/coin/C = new cointype
 		coinvalues["[cointype]"] = get_value(C)
-		qdel(C) //Sigh
+		QDEL_IN(C, 1 MINUTE) //Sigh
 
 /obj/machinery/computer/slot_machine/Destroy()
 	if(balance)
@@ -249,7 +249,9 @@
 /obj/machinery/computer/slot_machine/proc/toggle_reel_spin(value, delay = 0) //value is 1 or 0 aka on or off
 	for(var/list/reel in reels)
 		reels[reel] = value
-		sleep(delay)
+
+		if(delay)
+			sleep(delay)
 
 /obj/machinery/computer/slot_machine/proc/randomize_reels()
 	for(var/reel in reels)

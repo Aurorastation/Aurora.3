@@ -26,7 +26,8 @@
 	. = ..()
 	var/mob/living/heavy_vehicle/newowner = loc
 	if(!istype(newowner))
-		return qdel(src)
+		qdel(src)
+		return
 	owner = newowner
 
 /obj/screen/mecha/Click()

@@ -814,15 +814,6 @@
 /obj/structure/bed/stool/bar/padded,
 /turf/simulated/floor/plating,
 /area/racers)
-"dtM" = (
-/obj/structure/window/reinforced/tinted/frosted{
-	dir = 8
-	},
-/obj/structure/window/reinforced/tinted/frosted,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/racers)
 "dtY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -3633,12 +3624,6 @@
 	},
 /turf/template_noop,
 /area/space)
-"rHx" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
-/area/racers)
 "rIG" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/plating,
@@ -40164,7 +40149,7 @@ jyq
 jyq
 jyq
 jyq
-dtM
+pQQ
 xRX
 xRX
 xRX
@@ -43228,7 +43213,7 @@ vLM
 wiz
 bVv
 vLM
-rHx
+vLM
 xjB
 sae
 xjB
@@ -44256,7 +44241,7 @@ vLM
 vLM
 bhm
 lwM
-rHx
+vLM
 lsG
 dsR
 xjB

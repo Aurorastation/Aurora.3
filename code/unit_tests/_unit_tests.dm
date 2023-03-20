@@ -3,6 +3,11 @@
 
 // #if defined(UNIT_TESTS) || defined(SPACEMAN_DMM) //tgstation style, not relevant for us, for now
 
+/// Constants indicating unit test completion status
+#define UNIT_TEST_FAILED null
+#define UNIT_TEST_PASSED 1
+#define UNIT_TEST_SKIPPED 2 //Currently not implemented
+
 /// For advanced cases, fail unconditionally but don't return (so a test can return multiple results)
 #define TEST_FAIL(reason) (fail(reason || "No reason", __FILE__, __LINE__))
 
@@ -44,12 +49,8 @@
 /// Logs a noticable message on GitHub, but will not mark as an error.
 /// Use this when something shouldn't happen and is of note, but shouldn't block CI.
 /// Does not mark the test as failed.
-#define TEST_NOTICE(source, message) log_unit_test("\[\[NOTICE\]\]:" + ##message, __FILE__, __LINE__)
+#define TEST_NOTICE(source, message) warn(##message, __FILE__, __LINE__)
 
-/// Constants indicating unit test completion status
-#define UNIT_TEST_PASSED 0
-#define UNIT_TEST_FAILED 1
-#define UNIT_TEST_SKIPPED 2
 
 #define TEST_PRE 0
 #define TEST_DEFAULT 1

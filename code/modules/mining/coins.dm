@@ -17,6 +17,14 @@
 	var/sides = 2
 	var/cmineral = null
 	var/last_flip = 0 //Spam limiter
+
+/obj/item/coin/Initialize()
+	. = ..()
+
+/obj/item/coin/Destroy()
+	. = ..()
+
+
 /obj/item/coin/New()
 	randpixel_xy()
 
