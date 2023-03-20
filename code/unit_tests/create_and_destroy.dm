@@ -70,9 +70,6 @@
 		/obj/effect/plastic_explosive,
 		/obj/effect/temp_visual/incorporeal_mech,
 
-		// Requires something on icon update
-		/obj/item/gun/energy/gun/nuclear,
-
 		/obj/effect/liquid,
 
 		// Generates EMP logs without a source
@@ -156,6 +153,9 @@
 	ignore += typesof(/mob/living/heavy_vehicle)
 	ignore += typesof(/obj/singularity/narsie)
 	ignore += typesof(/obj/screen/ability)
+
+	// Requires something in icon update or runtimes
+	ignore += typesof(/obj/item/gun/energy/gun/nuclear)
 
 	/**
 	 * END EXCLUSIONS OF THE TEST
