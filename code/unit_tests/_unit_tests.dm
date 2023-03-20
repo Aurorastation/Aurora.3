@@ -51,6 +51,11 @@
 /// Does not mark the test as failed.
 #define TEST_NOTICE(source, message) warn(##message, __FILE__, __LINE__)
 
+/**
+ * Logs debug messages of the test run, useful for when you wish to show things being done
+ */
+#define TEST_DEBUG(message) testing(##message, __FILE__, __LINE__)
+
 
 #define TEST_PRE 0
 #define TEST_DEFAULT 1

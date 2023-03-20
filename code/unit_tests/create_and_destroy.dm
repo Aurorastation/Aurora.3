@@ -171,6 +171,9 @@
 
 	// /datum/running_create_and_destroy = TRUE
 	for(var/type_path in typesof(/atom/movable, /turf) - ignore) //No areas please
+
+		TEST_DEBUG("[name]: now creating and destroying: [type_path]")
+
 		if(ispath(type_path, /turf))
 			spawn_at.ChangeTurf(type_path)
 			//We change it back to prevent baseturfs stacking and hitting the limit
