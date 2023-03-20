@@ -191,16 +191,16 @@
 	var/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
 	w_class = ITEMSIZE_SMALL
 
-#define DRINK_FLUFF_GETMORE  "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
-							   but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
-							   and fast food restaurants all under the Getmore brand."
+#define DRINK_FLUFF_GETMORE "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
+but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
+and fast food restaurants all under the Getmore brand."
 
-#define DRINK_FLUFF_ZENGHU    "This drink is made by Zeng-Hu Pharmaceuticals, a trans-stellar medical research and pharmaceutical conglomerate that has heavy ties with Skrell. \
-							   With a big genetics and xenobiology division, it has also revolutionized the production of some old Terran alcohol."
+#define DRINK_FLUFF_ZENGHU "This drink is made by Zeng-Hu Pharmaceuticals, a trans-stellar medical research and pharmaceutical conglomerate that has heavy ties with Skrell. \
+With a big genetics and xenobiology division, it has also revolutionized the production of some old Terran alcohol."
 
 #define DRINK_FLUFF_SILVERPORT "This drink is made by Silverport Quality Brand, an Idris subsidiary that focuses on production of expensive, extremely high-quality drinks. \
-								Its facilities can be found on both Silversun and Venus, but the Cytherean part of Venus are its main consumers. \
-								Still, Silverport has excellent reputation all across the Orion Spur."
+Its facilities can be found on both Silversun and Venus, but the Cytherean part of Venus are its main consumers. \
+Still, Silverport has excellent reputation all across the Orion Spur."
 
 
 /obj/item/reagent_containers/food/drinks/bottle/gin
@@ -276,7 +276,7 @@
 	name = "Nojosuru Aromatic Bitters"
 	desc = "Only the finest and highest quality herbs find their way into our cocktail bitters, both human <i>and</i> skrellian."
 	desc_extended = "This drink is made by Nojosuru Foods, a subsidiary of Zeng-Hu Pharmaceuticals, founded on Earth in 2252. \
-				  They are known for their surprisingly affordable and incredible quality foods, as well as growing many crops used in pharmaceuticals and luxury items."
+	They are known for their surprisingly affordable and incredible quality foods, as well as growing many crops used in pharmaceuticals and luxury items."
 	icon_state = "bitters"
 	center_of_mass = list("x"=16, "y"=9)
 	reagents_to_add = list(/singleton/reagent/alcohol/bitters = 40)
@@ -402,8 +402,8 @@
 	center_of_mass = list("x"=16, "y"=6)
 	reagents_to_add = list(/singleton/reagent/drink/grenadine = 100)
 
-/obj/item/reagent_containers/food/drinks/bottle/cola
-	name = "comet cola"
+/obj/item/reagent_containers/food/drinks/bottle/comet_cola
+	name = "\improper Comet Cola"
 	desc = "Getmore's most popular line of soda. A generic cola, otherwise."
 	icon_state = "colabottle"
 	center_of_mass = list("x"=16, "y"=6)
@@ -414,21 +414,8 @@
 	shatter_material = MATERIAL_PLASTIC
 	fragile = 0
 
-/obj/item/reagent_containers/food/drinks/bottle/space_up
-	name = "\improper Vacuum Fizz"
-	desc = "Tastes like a hull breach in your mouth."
-	desc_extended = DRINK_FLUFF_GETMORE
-	icon_state = "space-up_bottle"
-	center_of_mass = list("x"=16, "y"=6)
-	drink_flags = NO_EMPTY_ICON
-	drop_sound = 'sound/items/drop/shoes.ogg'
-	pickup_sound = 'sound/items/pickup/shoes.ogg'
-	reagents_to_add = list(/singleton/reagent/drink/stellar_jolt = 100)
-	shatter_material = MATERIAL_PLASTIC
-	fragile = 0
-
-/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind
-	name = "\improper Stellar Jolt"
+/obj/item/reagent_containers/food/drinks/bottle/lemon_twist
+	name = "\improper Lemon Twist"
 	desc = "For those who have a need for caffeine stronger than would be sensible."
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "space_mountain_wind_bottle"
@@ -437,6 +424,19 @@
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/singleton/reagent/drink/lemon_twist = 100)
+	shatter_material = MATERIAL_PLASTIC
+	fragile = 0
+
+/obj/item/reagent_containers/food/drinks/bottle/stellar_jolt
+	name = "\improper Stellar Jolt"
+	desc = "Tastes like a hull breach in your mouth."
+	desc_extended = DRINK_FLUFF_GETMORE
+	icon_state = "space-up_bottle"
+	center_of_mass = list("x"=16, "y"=6)
+	drink_flags = NO_EMPTY_ICON
+	drop_sound = 'sound/items/drop/shoes.ogg'
+	pickup_sound = 'sound/items/pickup/shoes.ogg'
+	reagents_to_add = list(/singleton/reagent/drink/stellar_jolt = 100)
 	shatter_material = MATERIAL_PLASTIC
 	fragile = 0
 
@@ -494,7 +494,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/chartreusegreen
 	name = "Nralakk Touch green chartreuse"
 	desc = "A green, strong liqueur with a very strong flavor. The original recipe called for almost a hundred of different herbs, \
-			but thanks to Skrellian improvements to the recipe, it now just has five, without losing any nuance."
+	but thanks to Skrellian improvements to the recipe, it now just has five, without losing any nuance."
 	desc_extended = DRINK_FLUFF_ZENGHU
 	icon_state = "chartreusegreenbottle"
 	center_of_mass = list("x" = 15,"y" = 5)
@@ -503,7 +503,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/chartreuseyellow
 	name = "Nralakk Touch yellow chartreuse"
 	desc = "A green, strong liqueur with a very strong flavor. The original recipe called for almost a hundred of different herbs, \
-			but thanks to Skrellian improvements to the recipe, it now just has five, without losing any nuance."
+	but thanks to Skrellian improvements to the recipe, it now just has five, without losing any nuance."
 	desc_extended = DRINK_FLUFF_ZENGHU
 	icon_state = "chartreuseyellowbottle"
 	center_of_mass = list("x" = 15,"y" = 5)

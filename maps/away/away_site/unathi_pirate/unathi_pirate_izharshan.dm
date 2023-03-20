@@ -60,7 +60,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/grenadine = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/pulque = 2,
 		/obj/item/reagent_containers/food/condiment/small/packet/capsaicin = 4,
-		/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/lemon_twist = 2,
 		/obj/item/reagent_containers/food/drinks/cans/cherry_blossom = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice = 10,
 		/obj/item/reagent_containers/food/drinks/cans/three_towns_cider = 10,

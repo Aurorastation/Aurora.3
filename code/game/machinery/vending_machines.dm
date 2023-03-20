@@ -76,9 +76,9 @@
 		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 6,
 		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice = 8,
 		/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz = 4,
-		/obj/item/reagent_containers/food/drinks/bottle/cola = 5,
-		/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind = 5,
-		/obj/item/reagent_containers/food/drinks/bottle/space_up = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/comet_cola = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/lemon_twist = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/stellar_jolt = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water = 3,
 		/obj/item/reagent_containers/food/drinks/cans/grapevine = 6,
@@ -371,9 +371,9 @@
 	)
 
 	premium = list(
-		/obj/item/reagent_containers/food/drinks/bottle/cola = 2,
-		/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind = 2,
-		/obj/item/reagent_containers/food/drinks/bottle/space_up = 2
+		/obj/item/reagent_containers/food/drinks/bottle/comet_cola = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/lemon_twist = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/stellar_jolt = 2
 	)
 
 	prices = list(
