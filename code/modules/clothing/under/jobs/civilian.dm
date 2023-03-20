@@ -83,14 +83,6 @@
 	icon_state = "orion_liaison"
 	item_state = "orion_liaison"
 
-// Heph Captain for Synth Arc
-/obj/item/clothing/under/rank/hephcaptain
-	name = "Hephaestus Industries Captain"
-	desc = "The professional attire of the Cyclops Captain. The collar is <i>immaculately</i> starched."
-	icon = 'icons/obj/heph_captain.dmi'
-	icon_state = "uniform"
-	item_state = "uniform_un"
-	contained_sprite = TRUE
 // Janitor
 /obj/item/clothing/under/rank/janitor
 	desc = "It's the official uniform of the station's janitor. It has minor protection from biohazards."

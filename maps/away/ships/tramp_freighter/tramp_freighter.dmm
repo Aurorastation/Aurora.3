@@ -19,6 +19,11 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"aap" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/ship/tramp_freighter)
 "aaI" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -77,6 +82,16 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"aoJ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "atj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -122,6 +137,16 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/tramp_freighter)
+"aCu" = (
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"aFo" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/zora,
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "aGW" = (
 /obj/machinery/computer/ship/helm{
@@ -170,6 +195,36 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"aMB" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/reagent_containers/inhaler/soporific,
+/obj/item/reagent_containers/inhaler/soporific,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/structure/closet/crate/medical,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"aSi" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"aSJ" = (
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	layer = 2.31;
+	name = "lattice"
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "aUn" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
@@ -185,6 +240,16 @@
 	name = "cooled floor";
 	temperature = 278
 	},
+/area/ship/tramp_freighter)
+"aWL" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_x = 32
+	},
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "aXh" = (
 /obj/machinery/hologram/holopad/long_range,
@@ -205,6 +270,26 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"bci" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"bfg" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	layer = 2.31;
+	name = "lattice"
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "bfG" = (
 /obj/item/gun/energy/plasmacutter,
 /obj/item/gun/energy/plasmacutter{
@@ -254,6 +339,11 @@
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"bOP" = (
+/obj/structure/ship_weapon_dummy,
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
+/area/ship/tramp_freighter)
 "bQB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
@@ -275,6 +365,25 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"bXv" = (
+/obj/effect/floor_decal/spline/plain,
+/obj/item/clothing/head/bearpelt{
+	anchored = 1;
+	name = "bear pelt wall rug";
+	pixel_x = 1;
+	pixel_y = -25
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/art,
+/area/ship/tramp_freighter)
+"ckN" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp/green,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/art,
+/area/ship/tramp_freighter)
 "clm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -337,6 +446,14 @@
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
+"cBb" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "cJv" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -354,6 +471,21 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"cTq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"cVA" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "cWy" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -361,6 +493,21 @@
 /obj/machinery/floodlight{
 	dir = 1
 	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"dbx" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"ddV" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/closet/crate,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "dex" = (
@@ -380,6 +527,14 @@
 /obj/item/device/gps/mining,
 /obj/item/device/gps/mining,
 /turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
+"dmm" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "dqq" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
@@ -463,6 +618,12 @@
 /obj/item/clothing/gloves/yellow,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"dSf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/vehicle/bike/monowheel,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "dTw" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -484,8 +645,39 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
+"ecW" = (
+/obj/structure/lattice,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "efg" = (
 /obj/structure/closet/firecloset/full,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"ehI" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/box/shotgunshells,
+/obj/random/civgun/rifle,
+/obj/random/civgun/rifle,
+/obj/random/civgun/rifle,
+/turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
+"eiL" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "elQ" = (
@@ -541,6 +733,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
+"eBV" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "eCb" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -587,6 +786,10 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/freighter_shuttle)
+"eTq" = (
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "eVk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/dispenser/oxygen,
@@ -611,11 +814,26 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
+"fji" = (
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"fjY" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/drill,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "fkv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"fkL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/coffee/free,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "fqs" = (
@@ -624,6 +842,26 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port engine"
 	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"ftq" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	layer = 2.31;
+	name = "lattice"
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"fty" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/bed,
+/obj/item/device/flashlight,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "fva" = (
@@ -673,11 +911,66 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
+"fTv" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "freighter_mining"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "fUw" = (
 /obj/structure/sign/poster{
 	pixel_x = 32
 	},
 /turf/simulated/floor/carpet,
+/area/ship/tramp_freighter)
+"fUQ" = (
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c50,
+/obj/item/spacecash/c50,
+/obj/item/spacecash/c50,
+/obj/item/spacecash/c50,
+/obj/item/spacecash/c50,
+/obj/structure/closet,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/clothing/suit/armor/material/makeshift/plasteel,
+/turf/simulated/floor/tiled/yellow,
+/area/ship/tramp_freighter)
+"fXG" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Anti-Piracy Armory"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
+"fZq" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/battlemonsters,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"gab" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "gcq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -685,6 +978,23 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/tramp_freighter)
+"gdg" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled/yellow,
+/area/ship/tramp_freighter)
+"gdk" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
 "gjD" = (
 /obj/machinery/computer/ship/engines{
@@ -695,6 +1005,15 @@
 "gqO" = (
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"guF" = (
+/obj/structure/ship_weapon_dummy,
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "Tramp Francisca Rotary Gun"
+	},
+/turf/simulated/floor/airless,
+/area/ship/tramp_freighter)
 "gwv" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port hangar"
@@ -711,6 +1030,17 @@
 /obj/effect/shuttle_landmark/tramp_freighter/nav1,
 /turf/template_noop,
 /area/space)
+"gzH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/largecrate/animal/adhomai/schlorrgo,
+/obj/item/device/radio{
+	icon_state = "radio";
+	pixel_x = -1;
+	pixel_y = 16
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "gAS" = (
 /obj/structure/bed/stool/chair/sofa/left/brown{
 	dir = 4
@@ -721,6 +1051,30 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
+"gIU" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"gMq" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"gMG" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/boozeomat,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "gQH" = (
 /obj/machinery/iff_beacon,
@@ -747,6 +1101,15 @@
 	name = "Bridge"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
+"hlD" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/hydronutrients/xenobotany,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "hqX" = (
 /obj/structure/table/steel,
@@ -791,6 +1154,11 @@
 /obj/machinery/door/window{
 	dir = 1
 	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"hCv" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/snack,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "hDn" = (
@@ -868,6 +1236,13 @@
 	},
 /turf/simulated/floor/carpet,
 /area/ship/tramp_freighter)
+"hQL" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "hWh" = (
 /obj/structure/table/standard,
 /obj/machinery/light{
@@ -878,6 +1253,12 @@
 /obj/item/toy/desk/fan,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
+"hWD" = (
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Tramp Francisca Rotary Gun"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
 "hZq" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -886,6 +1267,11 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/freighter_shuttle)
+"iaK" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/closet/crate,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "iaS" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
@@ -935,6 +1321,38 @@
 /obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"jfa" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/civgun,
+/obj/random/civgun,
+/obj/random/civgun,
+/turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
+"jgW" = (
+/obj/structure/bed/stool/chair,
+/obj/effect/floor_decal/corner/black/diagonal,
+/turf/simulated/floor/tiled/yellow,
+/area/ship/tramp_freighter)
+"jqx" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"jqJ" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, cargo"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/tramp_freighter)
 "jCz" = (
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor,
@@ -970,6 +1388,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
+"ktI" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "ktN" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
@@ -991,14 +1414,48 @@
 /obj/item/storage/bag/inflatable,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"kCT" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, starboard side"
+	},
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/ship/tramp_freighter)
 "kMq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/vehicle/train/cargo/engine,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"kSj" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "lfq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
+"lgd" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/closet/crate,
+/obj/item/clothing/accessory/badge/passport/sol,
+/obj/item/clothing/accessory/badge/passport/elyra,
+/obj/item/clothing/accessory/badge/passport/dominia,
+/obj/item/clothing/accessory/badge/passport/coc,
+/obj/item/clothing/accessory/badge/passport,
+/obj/item/stamp/sol,
+/obj/item/stamp/biesel,
+/obj/item/stamp/denied,
+/obj/item/stamp,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"lgo" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/conveyor_switch{
+	id = "freighter_mining"
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "llg" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1017,6 +1474,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"lwq" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
+/area/ship/tramp_freighter)
 "lGR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -1030,9 +1491,23 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"lTL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "lXE" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
+/area/ship/tramp_freighter)
+"mbR" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "mpg" = (
 /obj/structure/sign/nosmoking_1{
@@ -1054,9 +1529,51 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
+"mDg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"mUE" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/bookcase{
+	anchored = 0
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"nty" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "nyj" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Cargo Compartment"
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"nHp" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"nHD" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "freighter_mining"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -1150,6 +1667,13 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"peu" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "pfE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1159,10 +1683,39 @@
 "phz" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/freighter_shuttle)
+"pmv" = (
+/obj/structure/plasticflaps,
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "freighter_mining"
+	},
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"pzo" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"pDO" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 6
+	},
+/turf/simulated/floor/carpet/art,
+/area/ship/tramp_freighter)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
 /area/space)
+"pUv" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "pUZ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/fryer,
@@ -1171,6 +1724,26 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/tramp_freighter)
+"qpc" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"qpg" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/simulated/floor/airless,
 /area/ship/tramp_freighter)
 "que" = (
 /obj/effect/step_trigger/teleporter,
@@ -1187,6 +1760,13 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
+"qGN" = (
+/obj/machinery/mineral/unloading_machine,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "qHm" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -1194,6 +1774,35 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
+/area/ship/tramp_freighter)
+"qKJ" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "freighter_mining"
+	},
+/obj/machinery/mineral/stacking_machine,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"qXU" = (
+/obj/structure/bed,
+/obj/item/bedsheet/blue,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4;
+	opacity = 0
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "freighter_crew_captain";
+	name = "igs - freight captain"
+	},
+/turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
 "rgA" = (
 /obj/structure/bed/stool/chair{
@@ -1204,6 +1813,12 @@
 /area/ship/tramp_freighter)
 "rtf" = (
 /turf/unsimulated/wall/fakepdoor,
+/area/ship/tramp_freighter)
+"rBU" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/art,
 /area/ship/tramp_freighter)
 "rMI" = (
 /obj/machinery/light{
@@ -1230,6 +1845,17 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
+"rVB" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 9
+	},
+/turf/simulated/floor/carpet/art,
+/area/ship/tramp_freighter)
+"rWz" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/corner/black/diagonal,
+/turf/simulated/floor/tiled/yellow,
+/area/ship/tramp_freighter)
 "shf" = (
 /obj/structure/sign/nosmoking_1{
 	pixel_x = -32
@@ -1248,7 +1874,8 @@
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "sDf" = (
-/turf/template_noop,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "sDF" = (
 /obj/machinery/door/airlock/hatch{
@@ -1265,11 +1892,44 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/freighter_shuttle)
+"sKL" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, cleaning room"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/tramp_freighter)
+"sLj" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"sLk" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "sOb" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
 /area/space)
+"tvU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
 "tCo" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/oven,
@@ -1293,6 +1953,15 @@
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
+"udB" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/obj/item/pen/multi,
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/art,
+/area/ship/tramp_freighter)
 "uep" = (
 /obj/machinery/vending/tool,
 /obj/machinery/light/small/emergency{
@@ -1306,6 +1975,23 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
+"uqZ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "uCl" = (
 /obj/structure/closet,
@@ -1349,6 +2035,11 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"uWk" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/reagent_containers/glass/bucket,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "uYP" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -1377,6 +2068,21 @@
 /obj/effect/landmark/entry_point/aft,
 /turf/unsimulated/wall/fakepdoor,
 /area/ship/tramp_freighter)
+"wci" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/cola,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"wjC" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/mineral/processing_unit_console{
+	pixel_x = 32
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "wrJ" = (
 /obj/effect/shuttle_landmark/freighter_shuttle/transit,
 /turf/space/transit/north,
@@ -1385,6 +2091,15 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor,
+/area/ship/tramp_freighter)
+"wCo" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/light{
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
 "wTJ" = (
 /turf/simulated/floor/tiled/dark,
@@ -1409,6 +2124,11 @@
 "wZf" = (
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"wZp" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "xeK" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24
@@ -1418,8 +2138,28 @@
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/freighter_shuttle)
+"xok" = (
+/obj/structure/curtain/black{
+	name = "DO NOT ENTER"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
 "xto" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"xAC" = (
+/obj/machinery/mineral/processing_unit,
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "freighter_mining"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "xRX" = (
@@ -1430,8 +2170,29 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"ylI" = (
+/obj/structure/closet/crate/medical{
+	name = "IAC crate"
+	},
+/obj/item/clothing/shoes/iac,
+/obj/item/clothing/under/rank/iacjumpsuit,
+/obj/item/clothing/suit/storage/hazardvest/iac,
+/obj/item/clothing/mask/balaclava/iac,
+/obj/item/clothing/accessory/armband/iac,
+/obj/item/clothing/head/softcap/iac,
+/obj/item/gun/launcher/syringe,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/clothing/gloves/latex/nitrile,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "ylV" = (
 /turf/simulated/wall/shuttle/space_ship,
+/area/ship/tramp_freighter)
+"yme" = (
+/obj/machinery/door/airlock/mining{
+	name = "Captain's Office"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
 
 (1,1,1) = {"
@@ -29560,11 +30321,11 @@ xRX
 xRX
 xRX
 xRX
-sDf
-sDf
-sDf
-sDf
-sDf
+lwq
+bOP
+lwq
+lwq
+qpg
 xRX
 xRX
 xRX
@@ -29817,8 +30578,8 @@ xRX
 xRX
 xRX
 xRX
-sDf
-sDf
+guF
+lwq
 xRX
 xRX
 xRX
@@ -30055,27 +30816,27 @@ xRX
 xRX
 xRX
 xRX
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
+ylV
+ylV
+ylV
+ylV
+ylV
+ylV
+ylV
+ylV
+ylV
+jqJ
+ylV
+ylV
+ylV
+ylV
+ylV
+ylV
+ylV
+ylV
+ylV
+hWD
+ylV
 xRX
 xRX
 xRX
@@ -30308,31 +31069,31 @@ xRX
 xRX
 xRX
 xRX
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
+ylV
+ylV
+sKL
+ylV
+ylV
+aHt
+aSi
+bci
+aSi
+aCu
+gMG
+bci
+nHp
+bci
+hlD
+fji
+aSi
+bci
+dmm
+bci
+aSJ
+ylV
+jfa
+lfq
+ylV
 xRX
 xRX
 xRX
@@ -30565,33 +31326,33 @@ xRX
 xRX
 xRX
 xRX
+ylV
+uWk
+pzo
+eTq
+fty
+ylV
+ktI
+fji
 sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
+bci
+ktI
+aCu
+ktI
+fji
+ktI
+bci
+hCv
+bci
+uqZ
+fji
+aSJ
+ylV
+ehI
+lfq
+ylV
+ylV
+wYA
 xRX
 xRX
 xRX
@@ -30822,34 +31583,34 @@ ylV
 ylV
 ylV
 ylV
+ylV
+ddV
+lgd
+pzo
+aoJ
+ylV
+fkL
+bci
+ktI
+bci
 sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
+bci
+ktI
+fji
+ktI
+bci
+wZp
+bci
+qpc
+eTq
+sLj
+fXG
+lfq
+tvU
+ylV
+qXU
+wYA
+wYA
 xRX
 xRX
 xRX
@@ -31079,34 +31840,34 @@ aaa
 ktN
 qHm
 xto
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
+ylV
+iaK
+ylI
+pzo
+pzo
+aHt
+fZq
+pzo
+dbx
+pzo
+dbx
+pzo
+hQL
+pzo
+wjC
+pzo
+aWL
+pzo
+hQL
+bci
+aSJ
+aHt
+ylV
+ylV
+wYA
+gdk
+fUQ
+wYA
 xRX
 xRX
 xRX
@@ -31336,34 +32097,34 @@ aZQ
 vwF
 aac
 vCZ
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
+ylV
+gzH
+aMB
+pzo
+gab
+xok
+mUE
+aCu
+eBV
+bci
+aFo
+pzo
+lgo
+cVA
+mbR
+peu
+mbR
+peu
+peu
+bci
+ftq
+aHt
+gdg
+gdk
+rVB
+rBU
+wCo
+kCT
 xRX
 xRX
 xRX
@@ -31594,33 +32355,33 @@ aaI
 afz
 wZf
 ylV
+ylV
+ylV
+ylV
+ylV
+ylV
 sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
+aCu
+fjY
+bci
+wci
+kSj
+qGN
+nHD
+xAC
+fTv
+qKJ
+fTv
+pmv
+pzo
+ecW
+yme
+gdk
+rWz
+ckN
+bXv
+wYA
+wYA
 xRX
 xRX
 xRX
@@ -31851,32 +32612,32 @@ ylV
 xto
 wZf
 sDF
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
+cVA
+nty
+nty
+nty
+gIU
+dbx
+bci
+pUv
+cTq
+dSf
+mDg
+hQL
+hQL
+gMq
+gMq
+gMq
+gMq
+gMq
+bci
+aSJ
+ylV
+gdk
+jgW
+udB
+pDO
+wYA
 xRX
 xRX
 xRX
@@ -32108,31 +32869,31 @@ ylV
 ylV
 ylV
 ylV
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
+aSJ
+aSJ
+bfg
+aSJ
+aSJ
+aSJ
+jqx
+sLk
+cVA
+dbx
+nty
+cVA
+pzo
+lTL
+cVA
+pzo
+cVA
+cVA
+cBb
+aSJ
+ylV
+wYA
+wYA
+wYA
+wYA
 xRX
 xRX
 xRX
@@ -32365,28 +33126,28 @@ ylV
 ylV
 ylV
 ylV
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
-sDf
+ylV
+ylV
+ylV
+ylV
+aSJ
+bfg
+aSJ
+eiL
+aSJ
+bfg
+aSJ
+bfg
+eiL
+bfg
+aSJ
+eiL
+aSJ
+bfg
+aSJ
+wYA
+wYA
+aap
 xRX
 xRX
 xRX
@@ -32637,13 +33398,13 @@ ylV
 dxh
 ylV
 ylV
+nyj
 ylV
 ylV
 ylV
-ylV
-ylV
-ylV
-ylV
+wYA
+wYA
+wYA
 xRX
 xRX
 xRX

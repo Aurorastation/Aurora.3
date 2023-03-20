@@ -10,8 +10,6 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
-#include "_maps\away_sites_testing.dm"
-#include "_maps\runtime.dm"
 #include "code\global.dm"
 #include "code\hub.dm"
 #include "code\names.dm"
@@ -3266,7 +3264,6 @@
 #include "maps\away\away_site\unathi_pirate\unathi_pirate_izharshan.dm"
 #include "maps\away\away_site\unathi_pirate\unathi_pirate_izharshan_ghostroles.dm"
 #include "maps\away\away_site\wrecked_nt_ship\wrecked_nt_ship.dm"
-#include "maps\away\ships\Hephaestus_Mining.dmm"
 #include "maps\away\ships\casino\casino.dm"
 #include "maps\away\ships\casino\casino_areas.dm"
 #include "maps\away\ships\coc_ranger\coc_ship.dm"
@@ -3284,8 +3281,6 @@
 #include "maps\away\ships\einstein\ee_spy_ship_ghostroles.dm"
 #include "maps\away\ships\elyra\elyra_strike_craft.dm"
 #include "maps\away\ships\elyra\elyra_strike_craft_ghostroles.dm"
-#include "maps\away\ships\heph_mining\heph_mining_areas.dm"
-#include "maps\away\ships\heph_mining\heph_mining_ship.dm"
 #include "maps\away\ships\iac\iac_rescue_ship.dm"
 #include "maps\away\ships\iac\iac_rescue_ship_ghostroles.dm"
 #include "maps\away\ships\kataphracts\kataphract_areas.dm"
@@ -3378,8 +3373,6 @@
 #include "maps\random_ruins\exoplanets\raskara\raskara_wreck.dm"
 #include "maps\random_ruins\space_ruins\space_ruins.dm"
 #include "maps\runtime\runtime_overmap.dm"
-#include "maps\runtime\runtime-1.dmm"
-#include "maps\runtime\runtime-2.dmm"
 #include "maps\runtime\code\runtime.dm"
 #include "maps\runtime\code\runtime_lifts.dm"
 #include "maps\runtime\code\runtime_unittest.dm"
