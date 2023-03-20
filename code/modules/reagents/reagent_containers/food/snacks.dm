@@ -5575,8 +5575,8 @@
 	desc = "A creamy Adhomian fish soup, garnished with sweet herbs."
 	icon_state = "adhomian_fish_soup"
 	trash = /obj/item/trash/snack_bowl
-	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 4)
-	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("creamy, sweet fish."))
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/drink/milk/cream = 4, /singleton/reagent/water = 4)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("creamy, sweet fish." = 3))
 
 /obj/item/reagent_containers/food/snacks/hardbread_pudding
 	name = "hardbread pudding"
