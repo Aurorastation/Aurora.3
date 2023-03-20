@@ -588,6 +588,8 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
+/obj/structure/table/reinforced/steel,
+/obj/item/aicard,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "awy" = (
@@ -10154,10 +10156,6 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
-	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
@@ -20998,8 +20996,6 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
 	},
-/obj/structure/table/reinforced/steel,
-/obj/item/aicard,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "qMs" = (
@@ -21186,6 +21182,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/item/modular_computer/console/preset/command{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -29110,11 +29109,11 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/item/modular_computer/console/preset/command{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
+	},
+/obj/machinery/computer/ship/navigation{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
