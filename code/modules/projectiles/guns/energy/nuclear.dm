@@ -105,7 +105,7 @@
 		return
 	if(lightfail)
 		add_overlay("nucgun-medium")
-	else if ((power_supply.charge/power_supply.maxcharge) <= 0.5)
+	else if ((power_supply?.charge/power_supply?.maxcharge) <= 0.5)
 		add_overlay("nucgun-light")
 	else
 		add_overlay("nucgun-clean")

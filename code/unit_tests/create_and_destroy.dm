@@ -97,6 +97,9 @@
 
 		/obj/spellbutton,
 
+		/obj/screen/click_catcher,
+		/obj/screen/new_player/selection/polls,
+
 	)
 
 	// Paths and all the subpaths excluded
