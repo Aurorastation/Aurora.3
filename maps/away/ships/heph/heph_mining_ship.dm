@@ -26,10 +26,13 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
-
+	initial_restricted_waypoints = list(
+        "Cyclops Shuttle" = list("nav_hangar_cyclops")
+    )
 	initial_generic_waypoints = list(
-		"nav_heph_mining_ship_1",
-		"nav_heph_mining_ship_2"
+		"nav_cyclops_1",
+		"nav_cyclops_2",
+		"nav_hangar_cyclops"
 	)
 
 	invisible_until_ghostrole_spawn = FALSE
@@ -89,12 +92,12 @@
 	name = "Cyclops Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/cyclops_shuttle)
-	current_location = "nav_cyclops_shuttle"
-	landmark_transition = "nav_cyclops_shuttle"
+	current_location = "nav_hangar_cyclops"
+	landmark_transition = "nav_transit_cyclops_shuttle"
 	dock_target = "cyclops_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_cyclops_shuttle"
+	logging_home_tag = "nav_hangar_cyclops"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/cyclops_shuttle/hangar
