@@ -1372,7 +1372,6 @@
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "uG" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
@@ -1386,6 +1385,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "uM" = (
