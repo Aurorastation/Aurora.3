@@ -46,6 +46,8 @@
 #define HOSTILE_STANCE_ATTACKING 4
 #define HOSTILE_STANCE_TIRED     5
 
+#define ON_ATTACK_COOLDOWN(hostile_mob) world.time < hostile_mob.hostile_time_between_attacks + hostile_mob.hostile_last_attack
+
 #define LEFT  1
 #define RIGHT 2
 
@@ -303,6 +305,11 @@
 #define FLASH_PROTECTION_NONE 0
 #define FLASH_PROTECTION_MODERATE 1
 #define FLASH_PROTECTION_MAJOR 2
+
+#define EAR_PROTECTION_REDUCED -1
+#define EAR_PROTECTION_NONE		0
+#define EAR_PROTECTION_MODERATE 1
+#define EAR_PROTECTION_MAJOR	2
 
 #define ANIMAL_SPAWN_DELAY round(config.respawn_delay / 6)
 #define DRONE_SPAWN_DELAY  round(config.respawn_delay / 3)

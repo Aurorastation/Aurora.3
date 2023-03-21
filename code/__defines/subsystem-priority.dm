@@ -41,6 +41,7 @@
 //#define SS_PRIORITY_DEFAULT  50	// This is defined somewhere else.
 #define SS_PRIORITY_TIMER      20	// Timed event scheduling. This is important.
 #define SS_PRIORITY_PROFILE    15
+#define SS_PRIORITY_OVERMAP    12   // Handles overmap processing. Keeps things smooth during highpop, ideally.
 #define SS_PRIORITY_SMOOTHING  10	// Smooth turf generation.
 #define SS_PRIORITY_ORBIT       5	// Orbit datum updates.
 #define SS_PRIORITY_ICON_UPDATE 5	// Queued icon updates. Mostly used by APCs and tables.
@@ -60,6 +61,7 @@
 #define SS_PRIORITY_CALAMITY    20	// Singularity, Tesla, Nar'sie, blob, etc.
 #define SS_PRIORITY_EVENT       20
 #define SS_PRIORITY_DISEASE     20	// Disease ticks.
+#define SS_PRIORITY_RADIATION   20  // Radiation processing and cache updates.
 #define SS_PRIORITY_ALARMS      20
 #define SS_PRIORITY_PLANTS      20	// Spreading plant effects.
 #define SS_PRIORITY_EFFECTS     20	// New-style effects manager. Timing of effects may be off if this gets too far behind.

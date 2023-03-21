@@ -1,0 +1,50 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"c" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"X" = (
+/obj/structure/monolith{
+	color = "#232B2B"
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+
+(1,1,1) = {"
+c
+c
+c
+c
+c
+"}
+(2,1,1) = {"
+c
+c
+c
+c
+c
+"}
+(3,1,1) = {"
+c
+c
+X
+c
+c
+"}
+(4,1,1) = {"
+c
+c
+c
+c
+c
+"}
+(5,1,1) = {"
+c
+c
+c
+c
+c
+"}

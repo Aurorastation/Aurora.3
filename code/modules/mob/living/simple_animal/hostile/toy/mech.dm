@@ -41,7 +41,7 @@
 	parent.forceMove(src)
 
 /mob/living/simple_animal/hostile/mech/setup_target_type_validators()
-	target_type_validator_map[/mob/living/simple_animal/hostile/mech] = CALLBACK(src, .proc/validator_rival)
+	target_type_validator_map[/mob/living/simple_animal/hostile/mech] = CALLBACK(src, PROC_REF(validator_rival))
 
 /mob/living/simple_animal/hostile/mech/proc/validator_rival(var/mob/living/rival, var/atom/current)
 	if(!seeking_targets)
@@ -58,13 +58,13 @@
 				visible_message("<b>[src]</b> lifts \the [rival] over its head and slams them down into the ground behind them!")
 				rival.throw_at(get_step(src, reverse_dir[dir]), 1, 3, src, TRUE)
 				playsound(loc, 'sound/effects/bang.ogg', 50, 1)
-				rival.apply_damage(2, BRUTE)
+				rival.apply_damage(2, DAMAGE_BRUTE)
 			if(2)
 				visible_message("<b>[src]</b> leaps into the air and superman punches \the [rival]!")
 				animate(src, pixel_z = 16, time = 3, easing = SINE_EASING | EASE_IN)
 				animate(pixel_z = 0, time = 3, easing = SINE_EASING | EASE_OUT)
 				playsound(loc, 'sound/weapons/cardboardhit.ogg', 50, 1)
-				rival.apply_damage(2, BRUTE)
+				rival.apply_damage(2, DAMAGE_BRUTE)
 	if(rival.health <= 0)
 		say(pick(victory_speech))
 
@@ -78,7 +78,7 @@
 
 /mob/living/simple_animal/hostile/mech/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if(!seeking_targets)
-		addtimer(CALLBACK(src, .proc/handle_hear_say, speaker, message), 0.5 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(handle_hear_say), speaker, message), 0.5 SECONDS)
 	return ..()
 
 /mob/living/simple_animal/hostile/mech/proc/handle_hear_say(var/mob/speaker, var/text)

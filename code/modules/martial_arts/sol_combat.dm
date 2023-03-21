@@ -27,7 +27,7 @@
 		return 0
 	A.visible_message("<span class='warning'>[A] leg sweeps [D]!</span>")
 	playsound(get_turf(A), /singleton/sound_category/swing_hit_sound, 50, 1, -1)
-	D.apply_damage(5, BRUTE)
+	D.apply_damage(5, DAMAGE_BRUTE)
 	D.Weaken(2)
 	return 1
 
@@ -44,7 +44,7 @@
 	A.do_attack_animation(D)
 	A.visible_message("<span class='warning'>[A] karate chops [D]'s neck!</span>")
 	playsound(get_turf(A), /singleton/sound_category/punch_sound, 50, 1, -1)
-	D.apply_damage(5, BRUTE)
+	D.apply_damage(5, DAMAGE_BRUTE)
 	D.silent += 10
 	return 1
 
@@ -64,7 +64,7 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 	if(D.weakened || D.resting || D.lying)
 		bonus_damage += 5
 		picked_hit_type = "stomped on"
-	D.apply_damage(bonus_damage, BRUTE)
+	D.apply_damage(bonus_damage, DAMAGE_BRUTE)
 	if(picked_hit_type == "kicked" || picked_hit_type == "stomped")
 		playsound(get_turf(D), /singleton/sound_category/swing_hit_sound, 50, 1, -1)
 	else

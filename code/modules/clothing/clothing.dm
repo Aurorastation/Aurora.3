@@ -31,6 +31,9 @@
 
 	var/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints
 
+	/// Measured in Celsius, when worn, the clothing modifies the baseline temperature by this much
+	var/body_temperature_change = 0
+
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
 	. = ..(mapload)
 	if(!material_key)
@@ -300,6 +303,11 @@
 			return accessory
 	return null
 
+/obj/item/clothing/proc/recalculate_body_temperature_change()
+	body_temperature_change = initial(body_temperature_change)
+	for(var/obj/item/clothing/accessory/accessory as anything in accessories)
+		body_temperature_change += accessory.body_temperature_change
+
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
@@ -391,7 +399,7 @@
 	var/obj/item/clothing/ring/ring = null		//Covered ring
 	var/mob/living/carbon/human/wearer = null	//Used for covered rings when dropping
 	var/punch_force = 0			//How much damage do these gloves add to a punch?
-	var/punch_damtype = BRUTE	//What type of damage does this make fists be?
+	var/punch_damtype = DAMAGE_BRUTE	//What type of damage does this make fists be?
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
@@ -773,11 +781,12 @@
 	update_clothing_icon()
 
 /obj/item/clothing/mask/proc/adjust_sprites()
-	if(hanging)
-		icon_state = "[icon_state]down"
-	else
-		icon_state = initial(icon_state)
-		item_state = initial(icon_state)
+    if(hanging)
+        icon_state = "[icon_state]down"
+        item_state = "[item_state]down"
+    else
+        icon_state = initial(icon_state)
+        item_state = initial(item_state)
 
 /obj/item/clothing/mask/proc/lower_message(mob/user)
 	user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", SPAN_NOTICE("You pull \the [src] down to hang around your neck."))

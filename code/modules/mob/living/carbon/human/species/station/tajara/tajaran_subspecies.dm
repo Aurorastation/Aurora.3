@@ -160,7 +160,6 @@
 	standing_jump_range = 1
 
 	injection_mod = 2
-	has_fine_manipulation = FALSE
 
 	bodyfall_sound = /singleton/sound_category/bodyfall_machine_sound
 
@@ -211,3 +210,6 @@
 
 /datum/species/tajaran/tesla_body/can_double_fireman_carry()
 	return TRUE
+
+/datum/species/tajaran/tesla_body/can_use_guns()
+	return FALSE

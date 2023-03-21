@@ -106,8 +106,8 @@
 	current_weight += I.w_class
 	vis_contents += I
 	I.vis_flags |= VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
-	item_equipped_event.register(I, src, /obj/item/tray/proc/pick_up)
-	destroyed_event.register(I, src, /obj/item/tray/proc/unload_item)
+	item_equipped_event.register(I, src, PROC_REF(pick_up))
+	destroyed_event.register(I, src, PROC_REF(unload_item))
 
 /obj/item/tray/verb/unload()
 	set name = "Unload Tray"

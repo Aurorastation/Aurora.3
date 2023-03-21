@@ -122,3 +122,57 @@
 	edge = FALSE
 	throwforce = 5
 	w_class = ITEMSIZE_SMALL
+
+/obj/item/finger_lockpick
+	name = "finger lockpick"
+	desc = "This finger appears to be an organic datajack."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "electric_hand"
+
+/obj/item/finger_lockpick/Initialize()
+	. = ..()
+	if(ismob(loc))
+		to_chat(loc, SPAN_NOTICE("We shape our finger to fit inside electronics, and are ready to force them open."))
+
+/obj/item/finger_lockpick/dropped(mob/user)
+	to_chat(user, SPAN_NOTICE("We discreetly shape our finger back to a less suspicious form."))
+	QDEL_IN(src, 1)
+
+/obj/item/finger_lockpick/afterattack(var/atom/target, var/mob/living/user, proximity)
+	if(!target)
+		return
+	if(!proximity)
+		return
+
+	var/datum/changeling/changeling = user.changeling_power(10)
+	if(!changeling)
+		return
+
+	//Airlocks require an ugly block of code, but we don't want to just call emag_act(), since we don't want to break airlocks forever.
+	if(istype(target, /obj/machinery/door))
+		var/obj/machinery/door/door = target
+		to_chat(user, "<span class='notice'>We send an electrical pulse up our finger, and into \the [target], attempting to open it.</span>")
+
+		if(door.density && door.operable())
+			door.do_animate("spark")
+			if(do_after(user, 1 SECOND))
+				//More typechecks, because windoors can't be locked.  Fun.
+				if(istype(target,/obj/machinery/door/airlock))
+					var/obj/machinery/door/airlock/airlock = target
+
+					if(airlock.locked) //Check if we're bolted.
+						airlock.unlock()
+						to_chat(user, "<span class='notice'>We've unlocked \the [airlock].  Another pulse is requried to open it.</span>")
+					else	//We're not bolted, so open the door already.
+						airlock.open()
+						to_chat(user, "<span class='notice'>We've opened \the [airlock].</span>")
+				else
+					door.open() //If we're a windoor, open the windoor.
+					to_chat(user, "<span class='notice'>We've opened \the [door].</span>")
+		else //Probably broken or no power.
+			to_chat(user, "<span class='warning'>The door does not respond to the pulse.</span>")
+		door.add_fingerprint(user)
+		log_and_message_admins("finger-lockpicked \an [door].", user)
+		changeling.use_charges(10)
+		return TRUE
+	return FALSE
