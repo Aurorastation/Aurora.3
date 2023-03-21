@@ -213,7 +213,7 @@ datum/unit_test/zas_area_test/mining_area
 			var/offending_turfs = "Problem turfs: "
 			for(var/turf/simulated/S in A.contents)
 				if(S.oxygen || S.nitrogen)
-					offending_turfs += "[S] ([S.x], [S.y], [S.z]) "
+					offending_turfs += "[S] ([S.x], [S.y], [S.z]); "
 
 			log_unit_test("[ascii_red]-------- [offending_turfs][ascii_reset]")
 		else
@@ -236,7 +236,7 @@ datum/unit_test/zas_area_test/mining_area
 			var/offending_turfs = "Problem turfs: "
 			for(var/turf/simulated/S in problem.contents)
 				if(S.oxygen || S.nitrogen)
-					offending_turfs += "[S] ([S.x], [S.y], [S.z]) "
+					offending_turfs += "[S] ([S.x], [S.y], [S.z]); "
 
 			log_unit_test("[ascii_red]-------- [offending_turfs][ascii_reset]")
 

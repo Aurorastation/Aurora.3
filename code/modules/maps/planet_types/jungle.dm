@@ -8,10 +8,8 @@
 	plant_colors = null
 	map_generators = list(/datum/random_map/noise/exoplanet/grass/grove)
 	possible_themes = list(/datum/exoplanet_theme/mountains/breathable)
-	ruin_tags_blacklist = RUIN_VOID
-
-	possible_random_ruins = list(
-    	/datum/map_template/ruin/exoplanet/crashsurvivors)
+	ruin_planet_type = PLANET_GROVE
+	ruin_allowed_tags = RUIN_LOWPOP|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/grass/grove/get_surface_color()
 	return "#5C7F34"
