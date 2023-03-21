@@ -1,5 +1,5 @@
 
-/area/hephmining_ship/Cyclops
+/area/hephmining_ship/cyclops
 	name = "Cyclops Mining Vessel"
 	icon_state = "bluenew"
 	requires_power = 1
@@ -7,7 +7,6 @@
 	no_light_control = 0
 	base_turf = /turf/space
 	flags = RAD_SHIELDED
-
 /area/hephmining_ship/cyclops_bridge
 	name = "Cyclops Bridge"
 	icon_state = "bridge"
@@ -26,6 +25,10 @@
 
 /area/hephmining_ship/cyclops_barracks
 	name = "Cyclops Barracks"
+	icon_state = "crew_quarters"
+
+/area/hephmining_ship/cyclops/bathroom
+	name = "Cyclops Bathroom"
 	icon_state = "crew_quarters"
 
 /area/hephmining_ship/cyclops_hangar

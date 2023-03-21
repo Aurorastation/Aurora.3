@@ -72,7 +72,7 @@
 /obj/effect/overmap/visitable/ship/landable/cyclops_shuttle
 	name = "Cyclops Shuttle"
 	class = "HCS"
-	designation = "Wisp"
+	designation = "Cyclops Shuttle"
 	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one's transponder identifies it as belonging to an independent freighter."
 	shuttle = "Cyclops Shuttle"
 	icon_state = "pod"
@@ -103,7 +103,7 @@
 	name = "Cyclops Shuttle Hangar"
 	landmark_tag = "nav_hangar_tramp"
 	docking_controller = "cyclops_shuttle_dock"
-	base_area = /area/hephmining_ship/Cyclops
+	base_area = /area/hephmining_ship/cyclops
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
