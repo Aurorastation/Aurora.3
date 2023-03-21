@@ -2802,7 +2802,6 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "bkQ" = (
@@ -19520,14 +19519,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
-"jmm" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 6
-	},
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/simulated/open/airless,
-/area/horizon/exterior)
 "jmE" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -22321,12 +22312,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
-"kHS" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging,
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/simulated/open/airless,
-/area/horizon/exterior)
 "kIp" = (
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
@@ -26255,14 +26240,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
-"mFz" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 9
-	},
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/simulated/open/airless,
-/area/horizon/exterior)
 "mFJ" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -32836,14 +32813,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
-"pQg" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 4
-	},
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/simulated/open/airless,
-/area/horizon/exterior)
 "pQj" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -35277,7 +35246,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "qZj" = (
-/obj/structure/lattice,
 /obj/structure/cable{
 	icon_state = "11-2"
 	},
@@ -37415,12 +37383,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
-"sau" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/structure/grille,
-/turf/simulated/open/airless,
-/area/horizon/exterior)
 "saJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -62709,7 +62671,7 @@ avu
 avu
 avu
 avu
-sau
+avu
 bxp
 bxp
 bxp
@@ -63309,10 +63271,10 @@ avu
 avu
 avu
 avu
-sau
+avu
 bxp
-pQg
-jmm
+oSQ
+lVd
 gmo
 gmo
 gmo
@@ -63715,7 +63677,7 @@ gmo
 gmo
 gmo
 gmo
-mFz
+xPj
 oSQ
 bxp
 sSY
@@ -63917,7 +63879,7 @@ lVd
 gmo
 gmo
 gmo
-kHS
+gmo
 xPj
 bxp
 sSY
