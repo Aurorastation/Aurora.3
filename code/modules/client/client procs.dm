@@ -61,7 +61,7 @@ var/list/localhost_addresses = list(
 
 	//search the href for script injection
 	if( findtext(href,"<script",1,0) )
-		world.log <<  "Attempted use of scripts within a topic call, by [src]"
+		log_error("Attempted use of scripts within a topic call, by [src]")
 		message_admins("Attempted use of scripts within a topic call, by [src]")
 		//del(usr)
 		return

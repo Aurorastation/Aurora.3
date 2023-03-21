@@ -23,14 +23,16 @@
 /obj/item/clothing/mask/breath/offworlder
 	name = "overmask"
 	desc = "A large breath mask with cushioning."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "breathcover"
-	item_state = "cloth"
+	item_state = "breathcover"
 
 /obj/item/clothing/mask/breath/offworlder/jagmask
 	name = "jagmask"
 	desc = "A two-piece, jagged filtering mask meant to conform to one's face comfortably."
 	icon_state = "jagmask"
-	item_state = "muzzle"
+	item_state = "jagmask"
 
 /obj/item/clothing/mask/breath/skrell
 	name = "skrellian gill cover"

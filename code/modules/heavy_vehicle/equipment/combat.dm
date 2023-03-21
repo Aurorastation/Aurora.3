@@ -40,6 +40,10 @@
 	icon_state = "mecha_ballistic"
 	holding_type = /obj/item/gun/energy/mountedsmg
 
+/obj/item/mecha_equipment/mounted_system/combat/smg/pra_egg
+	icon_state = "pra_egg_smg"
+	restricted_hardpoints = list(HARDPOINT_RIGHT_HAND)
+
 /obj/item/mecha_equipment/mounted_system/combat/pulse
 	name = "heavy pulse cannon"
 	desc = "A weapon for combat exosuits. The eZ-13 mk2 heavy pulse rifle shoots powerful pulse-based beams, capable of destroying structures."

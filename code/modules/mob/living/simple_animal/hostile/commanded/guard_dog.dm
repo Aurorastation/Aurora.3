@@ -111,3 +111,43 @@
 	melee_damage_upper = 5
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 2)
+
+/mob/living/simple_animal/hostile/commanded/dog/harron
+	name = "domesticated ha'rron"
+	short_name = "ha'rron"
+
+	desc = "A carnivorous adhomian animal. Some domesticated breeds make excellent hunting companions."
+
+	icon = 'icons/mob/npc/adhomai.dmi'
+	icon_state = "harron"
+	icon_living = "harron"
+	icon_dead = "harron_dead"
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	meat_amount = 5
+
+/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic
+	name = "cybernetic ha'rron"
+	desc = "A heavily augmented ha'rron. It is commonly used by the People's Strategic Intelligence Service."
+
+	icon_state = "cyber_harron"
+	icon_living = "cyber_harron"
+	icon_dead = "cyber_harron_dead"
+
+	melee_damage_lower = 20
+	melee_damage_upper = 20
+	resist_mod = 4
+
+	health = 100
+	maxHealth = 100
+
+	meat_amount = 3
+
+/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic/emp_act(severity)
+	switch(severity)
+		if(1)
+			adjustFireLoss(rand(10, 15))
+		if(2)
+			adjustFireLoss(rand(5, 10))
+		if(3)
+			adjustFireLoss(rand(3, 5))

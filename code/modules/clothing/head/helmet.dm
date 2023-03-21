@@ -45,8 +45,8 @@
 		for(var/obj/item/thing in hold.contents)
 			var/icon_type = hold.helmet_storage_types[thing.type]
 			var/thing_state = icon_type == HELMET_GARB_PASS_ICON ? initial(thing.icon_state) : icon_type
+			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
 			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, thing_state))
-		I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
 	return I
 
 /obj/item/clothing/head/helmet/attack_hand(mob/user)
@@ -135,6 +135,8 @@
 	desc = "It's a helmet specifically designed to protect against close range attacks."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
 	icon_state = "helm_riot"
 	item_state = "helm_riot"
 	body_parts_covered = HEAD|FACE|EYES //face shield

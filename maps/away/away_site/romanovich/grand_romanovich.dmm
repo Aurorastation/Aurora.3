@@ -3496,9 +3496,9 @@
 "iN" = (
 /obj/structure/closet/wardrobe,
 /obj/item/clothing/head/chefhat,
-/obj/item/clothing/suit/chef,
+/obj/item/clothing/suit/chef_jacket,
 /obj/item/clothing/under/rank/chef,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/accessory/apron/chef,
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
 "iO" = (
@@ -5702,10 +5702,6 @@
 	icon_state = "rwindow"
 	},
 /turf/simulated/floor/carpet/art,
-/area/grand_romanovich)
-"qO" = (
-/obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "qP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -20893,7 +20889,7 @@ OF
 gZ
 lS
 lS
-qO
+lS
 lS
 gY
 ZO

@@ -101,7 +101,6 @@
 		/obj/item/storage/photo_album,
 		/obj/item/storage/box/snappops,
 		/obj/item/storage/box/fancy/crayons,
-		/obj/item/storage/backpack/holding,
 		/obj/item/storage/belt/champion,
 		/obj/item/soap/deluxe,
 		/obj/item/pickaxe/silver,
@@ -136,7 +135,7 @@
 		/obj/item/reagent_containers/food/snacks/grown/ambrosiadeus,
 		/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 		/obj/item/device/paicard,
-		/obj/item/device/violin,
+		/obj/item/device/synthesized_instrument/violin,
 		/obj/item/storage/belt/utility/full,
 		/obj/item/clothing/accessory/horrible)
 
@@ -322,7 +321,9 @@
 		/obj/item/device/dociler,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/megaphone,
-		/obj/item/device/violin)
+		/obj/item/device/synthesized_instrument/violin,
+		/obj/item/device/synthesized_instrument/guitar,
+		/obj/item/device/synthesized_instrument/trumpet)
 
 	return picked_gift_type
 

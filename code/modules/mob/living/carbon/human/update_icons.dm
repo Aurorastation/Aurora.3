@@ -86,45 +86,48 @@ There are several things that need to be remembered:
 
 // Human Overlays Indexes //
 // Layer 1 intentionally left empty.
-#define FIRE_LAYER_LOWER  2
-#define MUTATIONS_LAYER   3
-#define DAMAGE_LAYER      4
-#define SURGERY_LAYER     5
-#define UNDERWEAR_LAYER   6
-#define TAIL_SOUTH_LAYER  7
-#define SHOES_LAYER_ALT   8
-#define UNIFORM_LAYER     9
-#define ID_LAYER          10
-#define SHOES_LAYER       11
-#define GLOVES_LAYER      12
-#define BELT_LAYER        13
-#define WRISTS_LAYER_ALT  14
-#define SUIT_LAYER        15
-#define ID_LAYER_ALT      16
-#define TAIL_NORTH_LAYER  17
-#define HAIR_LAYER_ALT    18
-#define GLASSES_LAYER     19
-#define BELT_LAYER_ALT    20
-#define SUIT_STORE_LAYER  21
-#define BACK_LAYER        22
-#define HAIR_LAYER        23
-#define GLASSES_LAYER_ALT 24
-#define L_EAR_LAYER       25
-#define R_EAR_LAYER       26
-#define FACEMASK_LAYER    27
-#define HEAD_LAYER        28
-#define COLLAR_LAYER      29
-#define HANDCUFF_LAYER    30
-#define LEGCUFF_LAYER     31
-#define L_HAND_LAYER      32
-#define R_HAND_LAYER      33
-#define WRISTS_LAYER      34
-#define FIRE_LAYER_UPPER  35
-#define TOTAL_LAYERS      35
+#define FIRE_LAYER_LOWER      2
+#define MUTATIONS_LAYER       3
+#define DAMAGE_LAYER          4
+#define SURGERY_LAYER         5
+#define UNDERWEAR_LAYER       6
+#define TAIL_SOUTH_LAYER      7
+#define TAIL_SOUTH_ACC_LAYER  8
+#define SHOES_LAYER_ALT       9
+#define UNIFORM_LAYER         10
+#define ID_LAYER              11
+#define SHOES_LAYER           12
+#define GLOVES_LAYER          13
+#define BELT_LAYER            14
+#define WRISTS_LAYER_ALT      15
+#define SUIT_LAYER            16
+#define ID_LAYER_ALT          17
+#define TAIL_NORTH_LAYER      18
+#define TAIL_NORTH_ACC_LAYER  19
+#define HAIR_LAYER_ALT        20
+#define GLASSES_LAYER         21
+#define BELT_LAYER_ALT        22
+#define SUIT_STORE_LAYER      23
+#define BACK_LAYER            24
+#define HAIR_LAYER            25
+#define GLASSES_LAYER_ALT     26
+#define L_EAR_LAYER           27
+#define R_EAR_LAYER           28
+#define FACEMASK_LAYER        29
+#define HEAD_LAYER            30
+#define COLLAR_LAYER          31
+#define HANDCUFF_LAYER        32
+#define LEGCUFF_LAYER         33
+#define L_HAND_LAYER          34
+#define R_HAND_LAYER          35
+#define WRISTS_LAYER          36
+#define FIRE_LAYER_UPPER      37
+#define TOTAL_LAYERS          37
 ////////////////////////////
 
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
 #define GET_TAIL_LAYER (dir == NORTH ? TAIL_NORTH_LAYER : TAIL_SOUTH_LAYER)
+#define GET_TAIL_ACC_LAYER (dir == NORTH ? TAIL_NORTH_ACC_LAYER : TAIL_SOUTH_ACC_LAYER)
 
 /proc/overlay_image(icon,icon_state,color,flags)
 	var/image/ret = image(icon,icon_state)
@@ -1287,8 +1290,9 @@ There are several things that need to be remembered:
 
 	if(species.tail && NOT_FLAG(mutations, HUSK) && NOT_FLAG(mutations, SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
-		overlays_raw[tail_layer] = image(tail_s, icon_state = "[species.tail]_s")
-		animate_tail_reset(0)
+		overlays_raw[tail_layer] = image(tail_s, icon_state = "[tail_style]_s")
+		animate_tail_reset()
+		update_tail_accessory(FALSE)
 
 	if(update_icons)
 		update_icon()
@@ -1305,7 +1309,7 @@ There are several things that need to be remembered:
 		tail_icon.Blend(rgb(r_skin, g_skin, b_skin), ICON_ADD)
 		// The following will not work with animated tails.
 		if(species.tail_hair)
-			var/icon/hair_icon = icon('icons/effects/species.dmi', "[species.tail]_[species.tail_hair]")
+			var/icon/hair_icon = icon('icons/effects/species.dmi', "[tail_style]_[species.tail_hair]")
 			hair_icon.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
 			tail_icon.Blend(hair_icon, ICON_OVERLAY)
 		SSicon_cache.tail_icon_cache[icon_key] = tail_icon
@@ -1313,16 +1317,20 @@ There are several things that need to be remembered:
 	return tail_icon
 
 /mob/living/carbon/human/proc/set_tail_state(var/mob_state)
-	if (!species.tail)
+	if(!tail_style)
 		return
 
 	var/tail_layer = GET_TAIL_LAYER
-
 	var/image/tail_overlay = overlays_raw[tail_layer]
 
+	var/obj/item/clothing/tail_accessory/TA = get_tail_accessory()
+	if(TA && !(tail_style in TA.compatible_animated_tail))
+		mob_state = "[tail_style]_static"
+
 	if(tail_overlay && species.tail_animation)
-		if (tail_overlay.icon_state != mob_state)
+		if(tail_overlay.icon_state != mob_state)
 			tail_overlay.icon_state = mob_state
+			update_tail_accessory()
 			update_icon()
 		return tail_overlay
 	return null
@@ -1330,7 +1338,7 @@ There are several things that need to be remembered:
 //Not really once, since BYOND can't do that.
 //Update this if the ability to flick() images or make looping animation start at the first frame is ever added.
 /mob/living/carbon/human/proc/animate_tail_once()
-	var/mob_state = "[species.tail]_once"
+	var/mob_state = "[tail_style]_once"
 
 	var/tail_layer = GET_TAIL_LAYER
 
@@ -1345,23 +1353,42 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/proc/end_animate_tail_once(image/tail_overlay)
 	//check that the animation hasn't changed in the meantime
 	var/tail_layer = GET_TAIL_LAYER
-	if(overlays_raw[tail_layer] == tail_overlay && tail_overlay.icon_state == "[species.tail]_once")
+	if(overlays_raw[tail_layer] == tail_overlay && tail_overlay.icon_state == "[tail_style]_once")
 		animate_tail_stop()
+		update_tail_accessory()
 
 /mob/living/carbon/human/proc/animate_tail_start()
-	set_tail_state("[species.tail]_slow[rand(0,9)]")
+	set_tail_state("[tail_style]_slow")
 
 /mob/living/carbon/human/proc/animate_tail_fast()
-	set_tail_state("[species.tail]_loop[rand(0,9)]")
+	set_tail_state("[tail_style]_loop")
 
 /mob/living/carbon/human/proc/animate_tail_reset()
 	if(stat != DEAD && !lying)
-		set_tail_state("[species.tail]_idle[rand(0,9)]")
+		set_tail_state("[tail_style]_idle")
 	else
-		set_tail_state("[species.tail]_static")
+		set_tail_state("[tail_style]_static")
 
 /mob/living/carbon/human/proc/animate_tail_stop(var/update_icons=1)
-	set_tail_state("[species.tail]_static")
+	set_tail_state("[tail_style]_static")
+
+/mob/living/carbon/human/proc/update_tail_accessory(var/update_icons=1)
+	overlays_raw[TAIL_NORTH_ACC_LAYER] = null
+	overlays_raw[TAIL_SOUTH_ACC_LAYER] = null
+
+	var/obj/item/clothing/tail_accessory/TA = get_tail_accessory()
+	if(!TA)
+		return
+
+	var/image/tail_overlay = overlays_raw[GET_TAIL_LAYER]
+	if(!tail_overlay)
+		return
+
+	overlays_raw[GET_TAIL_ACC_LAYER] = TA.get_mob_overlay(src, TA.icon, "[tail_overlay.icon_state]_to", slot_tail_str)
+
+	if(update_icons)
+		update_icon()
+
 
 //Adds a collar overlay above the helmet layer if the suit has one
 //	Suit needs an identically named sprite in icons/mob/collar.dmi

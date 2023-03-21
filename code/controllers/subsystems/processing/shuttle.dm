@@ -164,7 +164,7 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 				S.motherdock = S.current_location.landmark_tag
 				mothership.shuttle_area |= S.shuttle_area
 			else
-				error("Shuttle [S] was unable to find mothership [mothership]!")
+				log_error("Shuttle [S] was unable to find mothership [mothership]!")
 
 /datum/controller/subsystem/shuttle/proc/toggle_overmap(new_setting)
 	if(overmap_halted == new_setting)
@@ -176,3 +176,9 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 
 /datum/controller/subsystem/shuttle/stat_entry()
 	..("Shuttles:[shuttles.len], Ships:[ships.len], L:[registered_shuttle_landmarks.len][overmap_halted ? ", HALT" : ""]")
+
+/datum/controller/subsystem/shuttle/proc/ship_by_type(type)
+	for (var/obj/effect/overmap/visitable/ship/ship in ships)
+		if (ship.type == type)
+			return ship
+	return null

@@ -1,4 +1,7 @@
 /mob/living/carbon/human
+	// Tail Style
+	var/tail_style = null
+
 	//Hair colour and style
 	var/r_hair = 0
 	var/g_hair = 0
@@ -70,10 +73,6 @@
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
 	var/obj/item/wrists = null
-
-	var/used_skillpoints = 0
-	var/skill_specialization = null
-	var/list/skills = list()
 
 	var/icon/stand_icon = null
 	var/icon/lying_icon = null

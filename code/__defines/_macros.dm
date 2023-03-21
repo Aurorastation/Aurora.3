@@ -104,9 +104,12 @@
 
 #define isclient(A) istype(A, /client)
 
-#define isprojectile(A) istype(A, /obj/item/projectile)
-
 #define isclothing(A) istype(A, /obj/item/clothing)
+
+/// Projectile helpers
+#define isprojectile(A) istype(A, /obj/item/projectile)
+#define isbeam(A) istype(A, /obj/item/projectile/beam)
+#define isenergy(A) istype(A, /obj/item/projectile/energy)
 
 /// General I/O helpers
 #define to_target(target, payload)                          target << (payload)
@@ -123,6 +126,7 @@
 #define send_link(target, url)                              to_target(target, link(url))
 
 #define CanInteract(user, state) (CanUseTopic(user, state) == STATUS_INTERACTIVE)
+#define CanInteractWith(user, target, state) (target.CanUseTopic(user, state) == STATUS_INTERACTIVE)
 
 #define isopenturf(target) istype(target, /turf/simulated/open)
 #define isweakref(target) istype(target, /datum/weakref)
@@ -143,3 +147,12 @@
 
 /// Convenience define for nth-bit flags, 0-indexed
 #define FLAG(BIT) SHIFTL(1, BIT)
+
+/// Increase the size of L by 1 at the end. Is the old last entry index.
+#define LIST_INC(L) ((L).len++)
+
+/// Increase the size of L by 1 at the end. Is the new last entry index.
+#define LIST_PRE_INC(L) (++(L).len)
+
+/// Decrease the size of L by 1 from the end. Is the old last entry index.
+#define LIST_DEC(L) ((L).len--)

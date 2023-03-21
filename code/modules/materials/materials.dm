@@ -175,6 +175,9 @@
 			skip_blend = TRUE
 		if ("skrell")
 			skip_blend = TRUE
+		if("concrete")
+			wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
+			skip_blend = TRUE
 		else
 			world.log <<  "materials: [src] has unknown icon_base [icon_base]."
 
@@ -373,6 +376,13 @@
 	golem = SPECIES_GOLEM_MARBLE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
+
+/material/stone/concrete
+	name = MATERIAL_CONCRETE
+	icon_base = "concrete"
+	icon_colour = "#D2D1CD"
+	stack_type = null
+	golem = null
 
 /material/steel
 	name = DEFAULT_WALL_MATERIAL
@@ -716,7 +726,7 @@
 	weapon_hitsound = 'sound/weapons/woodenhit.ogg'
 	shatter_sound = /singleton/sound_category/wood_break_sound
 
-/material/wood/birch 
+/material/wood/birch
 	name = MATERIAL_BIRCH
 	stack_type = /obj/item/stack/material/wood/coloured/birch
 	icon_colour = WOOD_COLOR_BIRCH
@@ -727,7 +737,7 @@
 	icon_colour = WOOD_COLOR_RICH
 
 /material/wood/maple
-	name = MATERIAL_MAPLE  
+	name = MATERIAL_MAPLE
 	stack_type = /obj/item/stack/material/wood/coloured/maple
 	icon_colour = WOOD_COLOR_PALE
 
@@ -753,7 +763,7 @@
 
 /material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
 	name = MATERIAL_WOOD_LOG
-	stack_type = /obj/item/stack/material/woodlog
+	stack_type = /obj/item/stack/material/wood/log
 	icon_colour = "#824B28"
 	integrity = 50
 	icon_base = "solid"
@@ -764,22 +774,22 @@
 	melting_point = T0C+380
 	ignition_point = T0C+328
 	destruction_desc = "splinters"
-	sheet_singular_name = "log"
-	sheet_plural_name = "logs"
+	sheet_singular_name = "pice"
+	sheet_plural_name = "piles"
 
 /material/wood/branch
 	name = MATERIAL_WOOD_BRANCH
-	stack_type = /obj/item/stack/material/woodbranch
+	stack_type = /obj/item/stack/material/wood/branch
 	icon_colour = "#824B28"
-	integrity = 50
+	integrity = 10
 	icon_base = "solid"
 	explosion_resistance = 0
 	hardness = 0.1
 	weight = 7
 	melting_point = T0C+220
 	ignition_point = T0C+218
-	sheet_singular_name = "branch"
-	sheet_plural_name = "branch"
+	sheet_singular_name = "bundle"
+	sheet_plural_name = "bundle"
 
 /material/rust
 	name = MATERIAL_RUST
@@ -1035,7 +1045,7 @@
 /material/graphite
 	name = MATERIAL_GRAPHITE
 	stack_type = /obj/item/stack/material/graphite
-	icon_base = "graphite"
+	icon_base = "solid"
 	icon_colour = "#666666"
 	shard_type = SHARD_STONE_PIECE
 	weight = 20

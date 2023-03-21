@@ -46,3 +46,4 @@
 	requires_power = TRUE
 	base_turf = /turf/simulated/floor/plating
 	no_light_control = TRUE
+	ambience = AMBIENCE_TECH_RUINS

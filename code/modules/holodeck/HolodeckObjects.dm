@@ -171,7 +171,7 @@
 	if (istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
 		if(istype(G.affecting,/mob/living))
-			grab_smash_attack(G, PAIN)
+			grab_smash_attack(G, DAMAGE_PAIN)
 			return
 
 	if(W.flags & NOBLUDGEON) return
@@ -183,7 +183,7 @@
 	else if(W.iswrench() && !anchored && (!state || !reinf))
 		to_chat(user, ("<span class='notice'>It's a holowindow, you can't dismantle it!</span>"))
 	else
-		if(W.damtype == BRUTE || W.damtype == BURN)
+		if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
 			hit(W.force)
 			if(health <= 7)
 				anchored = 0
@@ -216,7 +216,7 @@
 		var/aforce = I.force
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 		visible_message("<span class='danger'>[src] was hit by [I].</span>")
-		if(I.damtype == BRUTE || I.damtype == BURN)
+		if(I.damtype == DAMAGE_BRUTE || I.damtype == DAMAGE_BURN)
 			take_damage(aforce)
 		return
 
@@ -254,7 +254,7 @@
 	return
 
 /obj/item/holo
-	damtype = PAIN
+	damtype = DAMAGE_PAIN
 	no_attack_log = 1
 
 /obj/item/holo/esword

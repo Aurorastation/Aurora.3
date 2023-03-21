@@ -353,6 +353,9 @@
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	usesound = /singleton/sound_category/shovel_sound
 
+/obj/item/shovel/is_shovel()
+	return TRUE
+
 /obj/item/shovel/spade
 	name = "spade"
 	desc = "A small tool for digging and moving dirt."
@@ -1095,7 +1098,7 @@ var/list/total_extraction_beacons = list()
 		if(creator)
 			add_logs(creator, L, "used a resonator field on", "resonator")
 		to_chat(L, SPAN_DANGER("\The [src] ruptured with you in it!"))
-		L.apply_damage(resonance_damage, BRUTE)
+		L.apply_damage(resonance_damage, DAMAGE_BRUTE)
 	qdel(src)
 
 
