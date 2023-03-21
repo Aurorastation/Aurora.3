@@ -40,7 +40,7 @@
 	description = "A crashed shuttle, with some gear left behind."
 
 	spawn_weight = 1
-	spawn_cost = 1
+	spawn_cost = 2
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffixes = list("asteroid/crashed_shuttle/crashed_shuttle_01.dmm")
 
@@ -52,8 +52,8 @@
 	description = "A crashed sol shuttle, with some gear left behind."
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS|TEMPLATE_FLAG_NO_RUINS
 	
-	spawn_weight = 1
-	spawn_cost = 2
+	spawn_weight = 0.5
+	spawn_cost = 3
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffixes = list("asteroid/sol_ship/sol_ship_unique.dmm")
 
@@ -65,8 +65,8 @@
 	description = "A crashed skrell shuttle, with some gear left behind."
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS|TEMPLATE_FLAG_NO_RUINS
 
-	spawn_weight = 1
-	spawn_cost = 2
+	spawn_weight = 0.5
+	spawn_cost = 3
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffixes = list("asteroid/skrell_ship/skrell_crash_unique.dmm")
 
@@ -78,8 +78,8 @@
 	description = "An unmarked shuttle in almost pristine condition. The occupants are nowhere to be found."
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS|TEMPLATE_FLAG_NO_RUINS
 
-	spawn_weight = 1
-	spawn_cost = 2
+	spawn_weight = 0.5
+	spawn_cost = 3
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffixes = list("asteroid/mystery_ship/mystery_ship_unique.dmm")
 
@@ -118,7 +118,7 @@
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS|TEMPLATE_FLAG_NO_RUINS
 
 	spawn_weight = 1
-	spawn_cost = 0.5
+	spawn_cost = 1
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
 	suffixes = list("asteroid/escape_pod/escape_pod_unique.dmm")
 
@@ -131,7 +131,7 @@
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS|TEMPLATE_FLAG_NO_RUINS
 	
 	spawn_weight = 1
-	spawn_cost = 0.5
+	spawn_cost = 1
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
 	suffixes = list("asteroid/digsite/digsite_unique.dmm")
 
@@ -156,8 +156,8 @@
 	description = "A crashed Coalition skipjack, with some gear left behind."
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS|TEMPLATE_FLAG_NO_RUINS
 
-	spawn_weight = 1
-	spawn_cost = 2
+	spawn_weight = 0.5
+	spawn_cost = 3
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffixes = list("asteroid/coc_ship/coc_ship_unique.dmm")
 
