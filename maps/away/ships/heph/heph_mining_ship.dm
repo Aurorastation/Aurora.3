@@ -1,0 +1,114 @@
+/datum/map_template/ruin/away_site/cyclops_mining_vessel
+	name = "Cyclops Mining Vessel"
+	description = "This bulky vessel is designed and operated by Hephaestus Industries. From asteroid cracking to planetary operations, this ship can do it all. "
+	suffixes = list("ships/heph/cyclops.dmm")
+	sectors = list(SECTOR_WEEPING_STARS, SECTOR_SRANDMARR, SECTOR_ROMANOVICH)
+	spawn_weight = 1
+	ship_cost = 1
+	id = "Cyclops Mining Vessel"
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cyclops_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
+/singleton/submap_archetype/cyclops_mining
+	map = "Cyclops Mining Vessel"
+	descriptor = "This bulky vessel is designed and operated by Hephaestus Industries. From asteroid cracking to planetary operations, this ship can do it all. "
+
+// Ship Stuff
+/obj/effect/overmap/visitable/ship/cyclops_mining
+	name = "Cyclops Mining Vessel"
+	class = "HCV"
+	desc = "This bulky vessel is designed and operated by Hephaestus Industries. From asteroid cracking to planetary operations, this ship can do it all. "
+	icon_state = "tramp"
+	moving_state = "tramp_moving"
+	colors = list("#BAB86C", "#8B4000")
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 5000
+	fore_dir = SOUTH
+	vessel_size = SHIP_SIZE_SMALL
+	initial_restricted_waypoints = list(
+        "Cyclops Shuttle" = list("nav_hangar_cyclops")
+    )
+	initial_generic_waypoints = list(
+		"nav_cyclops_1",
+		"nav_cyclops_2",
+		"nav_hangar_cyclops"
+	)
+
+	invisible_until_ghostrole_spawn = FALSE
+
+/obj/effect/overmap/visitable/ship/cyclops_mining/New()
+    designation = "[pick("Tuckerbag", "Do No Harm", "Volatile Cargo", "Stay Clear", "Entrepreneurial", "Good Things Only", "Worthless", "Skip This One", "Pay No Mind", "Customs-Cleared", "Friendly", "Reactor Leak", "Fool's Gold", "Cursed Cargo", "Guards Aboard")]"
+    ..()
+
+/obj/effect/overmap/visitable/ship/cyclops_mining/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "tcfl_corvette")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
+
+/obj/effect/shuttle_landmark/cyclops
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/cyclops/nav1
+	name = "Cyclops Mining Vessel - Port Side"
+	landmark_tag = "nav_cyclops_1"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/cyclops/nav2
+	name = "Cyclops Mining Vessel - Port Airlock"
+	landmark_tag = "nav_cyclops_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/cyclops/transit
+	name = "In transit"
+	landmark_tag = "nav_transit_cyclops"
+	base_turf = /turf/space/transit/north
+
+//shuttle stuff
+/obj/effect/overmap/visitable/ship/landable/cyclops_shuttle
+	name = "Cyclops Shuttle"
+	class = "HCS"
+	designation = "Cyclops Shuttle"
+	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one's transponder identifies it as belonging to an independent freighter."
+	shuttle = "Cyclops Shuttle"
+	icon_state = "pod"
+	moving_state = "pod_moving"
+	colors = list("#c3c7eb", "#a0a8ec")
+	max_speed = 1/(3 SECONDS)
+	burn_delay = 2 SECONDS
+	vessel_mass = 3000 //very inefficient pod
+	fore_dir = NORTH
+	vessel_size = SHIP_SIZE_TINY
+
+/obj/machinery/computer/shuttle_control/explore/cyclops_shuttle
+	name = "shuttle control console"
+	shuttle_tag = "Cyclops Shuttle"
+
+/datum/shuttle/autodock/overmap/cyclops_shuttle
+	name = "Cyclops Shuttle"
+	move_time = 20
+	shuttle_area = list(/area/shuttle/cyclops_shuttle)
+	current_location = "nav_hangar_cyclops"
+	landmark_transition = "nav_transit_cyclops_shuttle"
+	dock_target = "cyclops_shuttle"
+	range = 1
+	fuel_consumption = 2
+	logging_home_tag = "nav_hangar_cyclops"
+	defer_initialisation = TRUE
+
+/obj/effect/shuttle_landmark/cyclops_shuttle/hangar
+	name = "Cyclops Shuttle Hangar"
+	landmark_tag = "nav_hangar_cyclops"
+	docking_controller = "cyclops_shuttle_dock"
+	base_area = /area/hephmining_ship/cyclops
+	base_turf = /turf/simulated/floor/plating
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+
+/obj/effect/shuttle_landmark/cyclops_shuttle/transit
+	name = "In transit"
+	landmark_tag = "nav_transit_cyclops_shuttle"
+	base_turf = /turf/space/transit/north
