@@ -18,9 +18,9 @@
 			log_unit_test("Culture [OC.name] does not have any possible origins!")
 			failures++
 	if(failures)
-		fail("[failures] error(s) found.")
+		TEST_FAIL("[failures] error(s) found.")
 	else
-		pass("All cultures are filled out properly.")
+		TEST_PASS("All cultures are filled out properly.")
 	return TRUE
 
 /datum/unit_test/origins
@@ -43,9 +43,9 @@
 			log_unit_test("Origin [OI.name] is missing at least one entry in the possible accents, citizenships or religions lists!")
 			failures++
 	if(failures)
-		fail("[failures] error(s) found.")
+		TEST_FAIL("[failures] error(s) found.")
 	else
-		pass("All origins are filled out properly.")
+		TEST_PASS("All origins are filled out properly.")
 	return TRUE
 
 /datum/unit_test/accent_tags
@@ -59,7 +59,7 @@
 			log_unit_test("Accent tag [A.name] did not have a text tag or the type was inappropriate!")
 			failures++
 	if(failures)
-		fail("[failures] errors found.")
+		TEST_FAIL("[failures] errors found.")
 	else
-		pass("All accents have a text tag.")
+		TEST_PASS("All accents have a text tag.")
 	return TRUE

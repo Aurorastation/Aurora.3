@@ -8,8 +8,8 @@
 #define UNIT_TEST_PASSED 1
 #define UNIT_TEST_SKIPPED 2 //Currently not implemented
 
-/// For advanced cases, fail unconditionally but don't return (so a test can return multiple results)
 #define TEST_FAIL(reason) (fail(reason || "No reason", __FILE__, __LINE__))
+#define TEST_PASS(reason) (pass(reason || "No reason", __FILE__, __LINE__))
 
 /// Asserts that a condition is true
 /// If the condition is not true, fails the test

@@ -83,13 +83,13 @@
 			msg += " With [n_unused] unsued tags found."
 		else
 			msg += " With no unused tags."
-		fail(msg)
+		TEST_FAIL(msg)
 	else
 		var/msg = "All [length(recipes)] recipes could find all [n_found] needed tags!"
 		if(n_unused)
 			msg += " With [n_unused] unsued tags found."
 		else
 			msg += " With no unused tags."
-		pass(msg)
+		TEST_PASS(msg)
 
 	return 1

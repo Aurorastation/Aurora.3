@@ -65,9 +65,9 @@
 		fail_message += "\[[bad_fire]/[area_test_count]\] areas lacked a fire alarm.\n"
 
 	if(length(fail_message))
-		fail(fail_message)
+		TEST_FAIL(fail_message)
 	else
-		pass("All \[[area_test_count]\] areas contained APCs, air scrubbers, air vents, and fire alarms.")
+		TEST_PASS("All \[[area_test_count]\] areas contained APCs, air scrubbers, air vents, and fire alarms.")
 
 	return TRUE
 
@@ -101,9 +101,9 @@
 			dirs_checked.Add(combined_dir)
 
 	if(bad_tests)
-		fail("\[[bad_tests] / [wire_test_count]\] Some turfs had overlapping wires going the same direction.")
+		TEST_FAIL("\[[bad_tests] / [wire_test_count]\] Some turfs had overlapping wires going the same direction.")
 	else
-		pass("All \[[wire_test_count]\] wires had no overlapping cables going the same direction.")
+		TEST_PASS("All \[[wire_test_count]\] wires had no overlapping cables going the same direction.")
 
 	return 1
 
@@ -130,9 +130,9 @@
 				log_unit_test("[ascii_red]--------------- [T.name] \[[T.x] / [T.y] / [T.z]\] Has no roof.[ascii_reset]")
 
 	if (bad_tiles)
-		fail("\[[bad_tiles] / [tiles_total]\] station turfs had no roof.")
+		TEST_FAIL("\[[bad_tiles] / [tiles_total]\] station turfs had no roof.")
 	else
-		pass("All \[[tiles_total]\] station turfs had a roof.")
+		TEST_PASS("All \[[tiles_total]\] station turfs had a roof.")
 
 	return 1
 
@@ -170,9 +170,9 @@
 			log_unit_test("[ascii_red]--------------- [ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is blocked in dirs:[(bad & BLOCKED_UP) ? " UP" : ""][(bad & BLOCKED_DOWN) ? " DOWN" : ""].[ascii_reset]")
 
 	if (ladders_blocked || ladders_incomplete)
-		fail("\[[ladders_blocked + ladders_incomplete] / [ladders_total]\] ladders were bad.[ladders_blocked ? " [ladders_blocked] blocked." : ""][ladders_incomplete ? " [ladders_incomplete] incomplete." : ""]")
+		TEST_FAIL("\[[ladders_blocked + ladders_incomplete] / [ladders_total]\] ladders were bad.[ladders_blocked ? " [ladders_blocked] blocked." : ""][ladders_incomplete ? " [ladders_incomplete] incomplete." : ""]")
 	else
-		pass("All [ladders_total] ladders were okay.")
+		TEST_PASS("All [ladders_total] ladders were okay.")
 
 	return 1
 
@@ -193,9 +193,9 @@
 			log_unit_test("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
 
 	if(failed_checks)
-		fail("\[[failed_checks] / [checks]\] Some doors had improper turfs below them.")
+		TEST_FAIL("\[[failed_checks] / [checks]\] Some doors had improper turfs below them.")
 	else
-		pass("All \[[checks]\] doors have proper turfs below them.")
+		TEST_PASS("All \[[checks]\] doors have proper turfs below them.")
 
 	return 1
 
@@ -219,9 +219,9 @@
 			log_unit_test("Firedoor with bad turf at ([F.x],[F.y],[F.z]) in [T.loc].")
 
 	if(failed_checks)
-		fail("\[[failed_checks] / [checks]\] Some firedoors were doubled up or had bad turfs below them.")
+		TEST_FAIL("\[[failed_checks] / [checks]\] Some firedoors were doubled up or had bad turfs below them.")
 	else
-		pass("All \[[checks]\] firedoors have proper turfs below them and are not doubled up.")
+		TEST_PASS("All \[[checks]\] firedoors have proper turfs below them and are not doubled up.")
 
 	return 1
 
@@ -273,9 +273,9 @@
 							log_unit_test("Overlapping pipe ([pipe.name]) located at [T.x],[T.y],[T.z] ([get_area(T)])")
 							continue next_turf
 	if(failed_checks)
-		fail("\[[failed_checks] / [checks]\] Some pipes are not properly connected or doubled up.")
+		TEST_FAIL("\[[failed_checks] / [checks]\] Some pipes are not properly connected or doubled up.")
 	else
-		pass("All \[[checks]\] pipes are properly connected and not doubled up.")
+		TEST_PASS("All \[[checks]\] pipes are properly connected and not doubled up.")
 
 	return 1
 
@@ -298,9 +298,9 @@
 			log_unit_test("Vending machine [V] at ([V.x],[V.y],[V.z] on [V.loc] has mapped-in products, contraband, or premium items.")
 
 	if(failed_checks)
-		fail("\[[failed_checks] / [checks]\] Some vending machines have mapped-in product lists.")
+		TEST_FAIL("\[[failed_checks] / [checks]\] Some vending machines have mapped-in product lists.")
 	else
-		pass("All \[[checks]\] vending machines have valid product lists.")
+		TEST_PASS("All \[[checks]\] vending machines have valid product lists.")
 
 	return 1
 
@@ -333,9 +333,9 @@
 			log_unit_test("Station area [A]: [invalid_turfs.len] turfs are not entirely mapped on station z-levels. Found turfs on non-station levels: [english_list(failed_area_zlevels)]")
 
 	if(failed_checks)
-		fail("\[[failed_checks] / [checks]\] Some station areas had turfs mapped outside station z-levels.")
+		TEST_FAIL("\[[failed_checks] / [checks]\] Some station areas had turfs mapped outside station z-levels.")
 	else
-		pass("All \[[checks]\] station areas are correctly mapped only on station z-levels.")
+		TEST_PASS("All \[[checks]\] station areas are correctly mapped only on station z-levels.")
 
 	return 1
 

@@ -27,12 +27,12 @@ datum/unit_test/zas_area_test/start_test()
 	var/list/test = test_air_in_area(area_path, expectation)
 
 	if(isnull(test))
-		fail("Check Runtimed")
+		TEST_FAIL("Check Runtimed")
 
 	if(test["result"] == SUCCESS)
-		pass(test["msg"])
+		TEST_PASS(test["msg"])
 	else
-		fail(test["msg"])
+		TEST_FAIL(test["msg"])
 	return 1
 
 // ==================================================================================================
@@ -142,14 +142,14 @@ datum/unit_test/zas_area_test/mining_area
 
 /datum/unit_test/zas_supply_shuttle_moved/start_test()
 	if(!SSshuttle)
-		fail("The shuttle controller is not setup at time of test.")
+		TEST_FAIL("The shuttle controller is not setup at time of test.")
 		return 1
 	if(!SSshuttle.shuttles.len)
 		if(length(current_map.map_shuttles))
-			fail("This map should have shuttles, but it doesn't!")
+			TEST_FAIL("This map should have shuttles, but it doesn't!")
 			return 1
 		else
-			pass("This map is not supposed to have any shuttles.")
+			TEST_PASS("This map is not supposed to have any shuttles.")
 			return 1
 
 	shuttle = SScargo.shuttle
@@ -164,10 +164,10 @@ datum/unit_test/zas_area_test/mining_area
 
 /datum/unit_test/zas_supply_shuttle_moved/check_result()
 	if(!shuttle)
-		pass("This map has no supply shuttle.")
+		TEST_PASS("This map has no supply shuttle.")
 		return 1
 	if(shuttle.moving_status == SHUTTLE_IDLE && !shuttle.at_station())
-		fail("Shuttle Did not Move")
+		TEST_FAIL("Shuttle Did not Move")
 		return 1
 
 	if(!shuttle.at_station())
@@ -183,12 +183,12 @@ datum/unit_test/zas_area_test/mining_area
 	for(var/area/A in shuttle.shuttle_area)
 		var/list/test = test_air_in_area(A.type)
 		if(isnull(test))
-			fail("Check Runtimed")
+			TEST_FAIL("Check Runtimed")
 			return 1
 
 		switch(test["result"])
-			if(SUCCESS) pass(test["msg"])
-			else        fail(test["msg"])
+			if(SUCCESS) TEST_PASS(test["msg"])
+			else        TEST_FAIL(test["msg"])
 	return 1
 
 /datum/unit_test/zas_active_edges
@@ -196,9 +196,9 @@ datum/unit_test/zas_area_test/mining_area
 
 /datum/unit_test/zas_active_edges/start_test()
 	if(SSair.active_edges.len)
-		fail("[SSair.active_edges.len] edges active at round-start!")
+		TEST_FAIL("[SSair.active_edges.len] edges active at round-start!")
 	else
-		pass("No active ZAS edges at round-start.")
+		TEST_PASS("No active ZAS edges at round-start.")
 		return TRUE
 	for(var/connection_edge/E in SSair.active_edges)
 		var/connection_edge/unsimulated/U = E

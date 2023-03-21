@@ -26,9 +26,9 @@
 		for (var/t in unfound_types)
 			log_unit_test("[ascii_red]--------------- [unfound_types[t]] instances of [t] not found in SSmachinery.machinery.")
 
-		fail("\[[unfound_types.len] / [all_types.len]\] mapped in machinery types were not found in SSmachinery.machinery.")
+		TEST_FAIL("\[[unfound_types.len] / [all_types.len]\] mapped in machinery types were not found in SSmachinery.machinery.")
 	else
-		pass("All \[[all_types.len]\] mapped in machinery types were found in SSmachinery.machinery.")
+		TEST_PASS("All \[[all_types.len]\] mapped in machinery types were found in SSmachinery.machinery.")
 
 	return 1
 
@@ -47,7 +47,7 @@
 			known_types += F.build_type
 
 	if(known_types.len == length(uniquelist(known_types)))
-		pass("All flooring types had a unique or null build type.")
+		TEST_PASS("All flooring types had a unique or null build type.")
 	else
 		for(var/type in known_types)
 			var/i = 0
@@ -56,7 +56,7 @@
 					i++
 			if(i != 1)
 				log_unit_test("[ascii_red]--------------- Flooring build_type [type] is non-unique; exists [i] times.")
-		fail("Found non-unique build_types in flooring decl.")
+		TEST_FAIL("Found non-unique build_types in flooring decl.")
 
 	return TRUE
 
@@ -77,8 +77,8 @@
 					valid_keys += k
 
 	if(length(valid_keys) == length(vending_products))
-		pass("All vending products are /obj subtypes")
+		TEST_PASS("All vending products are /obj subtypes")
 	else
-		fail("Some vending products are not /obj subtypes")
+		TEST_FAIL("Some vending products are not /obj subtypes")
 
 	return TRUE

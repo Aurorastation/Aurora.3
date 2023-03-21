@@ -14,9 +14,9 @@
 			count_failed++
 
 	if (count_failed)
-		fail("\[[count_failed]\] VueUI var monitors without var holders discovered.")
+		TEST_FAIL("\[[count_failed]\] VueUI var monitors without var holders discovered.")
 	else
-		pass("All VueUI var monitors have var holders.")
+		TEST_PASS("All VueUI var monitors have var holders.")
 
 	return TRUE
 
@@ -43,9 +43,9 @@
 			count_failed++
 
 	if (count_failed)
-		fail("\[[count_failed]\] VueUI var monitors have invalid var watches.")
+		TEST_FAIL("\[[count_failed]\] VueUI var monitors have invalid var watches.")
 	else
-		pass("All VueUI var monitors have valid var watchers.")
+		TEST_PASS("All VueUI var monitors have valid var watchers.")
 
 	return TRUE
 

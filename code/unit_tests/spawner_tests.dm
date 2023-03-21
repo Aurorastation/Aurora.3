@@ -7,7 +7,7 @@
 
 datum/unit_test/template
 	name = "Ghost Spawner Tests"		// If it's a template leave the word "template" in it's name so it's not ran.
-	
+
 
 datum/unit_test/template/start_test()
 	var/list/ignore_spawners = list(
@@ -31,9 +31,9 @@ datum/unit_test/template/start_test()
 			failed_checks++
 
 	if(failed_checks)
-		fail("\[[failed_checks] / [checks]\] Ghost Spawners are invalid")
+		TEST_FAIL("\[[failed_checks] / [checks]\] Ghost Spawners are invalid")
 	else
-		pass("All Ghost Spawners are valid.")
+		TEST_PASS("All Ghost Spawners are valid.")
 
 
 	return 1

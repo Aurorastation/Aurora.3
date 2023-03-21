@@ -5,12 +5,12 @@
 	if(!config.sql_enabled)
 		log_unit_test("[ascii_yellow]--------------- Database not Configured - Skipping Preference Column UT")
 		return TRUE
-	
+
 	log_unit_test("[ascii_yellow]--------------- Database Configured - Running SQL Preference UTs")
-	
+
 	if(!establish_db_connection(dbcon))
 		log_unit_test("[ascii_red]--------------- Unable to establish database connection.")
-		fail("Database connection could not be established.")
+		TEST_FAIL("Database connection could not be established.")
 		return TRUE
 
 	var/faults = 0
@@ -32,7 +32,7 @@
 
 		if (get_cs.ErrorMsg())
 			log_unit_test("[ascii_red]--------------- SQL error encountered: [get_cs.ErrorMsg()].[ascii_reset]")
-			fail("SQL error encountered.")
+			TEST_FAIL("SQL error encountered.")
 			return TRUE
 
 		valid_columns[T] = list()
@@ -91,9 +91,9 @@
 						faults++
 
 	if (faults)
-		fail("\[[faults]\] faults found in the SQL preferences setup.")
+		TEST_FAIL("\[[faults]\] faults found in the SQL preferences setup.")
 	else
-		pass("No faults found in the SQL preferences setup.")
+		TEST_PASS("No faults found in the SQL preferences setup.")
 
 	return TRUE
 
@@ -130,8 +130,8 @@
 					faults++
 
 	if (faults)
-		fail("\[[faults] / [total]\] variable references found invalid in the SQL preferences setup.")
+		TEST_FAIL("\[[faults] / [total]\] variable references found invalid in the SQL preferences setup.")
 	else
-		pass("All \[[total]\] variable references found valid in the SQL preferences setup.")
+		TEST_PASS("All \[[total]\] variable references found valid in the SQL preferences setup.")
 
 	return TRUE

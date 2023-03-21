@@ -42,9 +42,9 @@
 		found_cables += searched
 
 	if(failed)
-		fail("Found [failed] bad cables.")
+		TEST_FAIL("Found [failed] bad cables.")
 	else
-		pass("All connected roundstart cables have matching powernets.")
+		TEST_PASS("All connected roundstart cables have matching powernets.")
 
 	return 1
 
@@ -64,9 +64,9 @@
 			failed++
 
 	if(failed)
-		fail("Found [failed] duplicate APCs.")
+		TEST_FAIL("Found [failed] duplicate APCs.")
 	else
-		pass("No areas with duplicated APCs have been found.")
+		TEST_PASS("No areas with duplicated APCs have been found.")
 	return 1
 
 /datum/unit_test/area_power_tally_accuracy
@@ -85,7 +85,7 @@
 				log_unit_test("[ascii_red]--------------- The area [A.name] had improper power use values on the [channel_names[i]] channel: was [old_values[i]] but should be [new_values[i]].")
 
 	if(failed)
-		fail("At least one area had improper power use values")
+		TEST_FAIL("At least one area had improper power use values")
 	else
-		pass("All areas had accurate power use values.")
+		TEST_PASS("All areas had accurate power use values.")
 	return 1

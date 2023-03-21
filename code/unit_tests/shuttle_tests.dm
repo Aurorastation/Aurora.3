@@ -30,7 +30,7 @@
 			failed++
 
 	if(failed)
-		fail("[failed] shuttle transition and start location landmarks were not found.")
+		TEST_FAIL("[failed] shuttle transition and start location landmarks were not found.")
 	else
-		pass("All shuttle transition and start location landmarks were found.")
+		TEST_PASS("All shuttle transition and start location landmarks were found.")
 	return TRUE
