@@ -386,7 +386,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_out"
+	id_tag = "cyclops_shuttle_out";
+	locked = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/cyclops_shuttle)
@@ -2337,6 +2338,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"DR" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_engineering)
 "DW" = (
 /obj/structure/table/standard,
 /obj/item/device/binoculars,
@@ -3245,7 +3263,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_out"
+	id_tag = "cyclops_shuttle_out";
+	locked = 1
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -3258,23 +3277,6 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/cyclops_shuttle)
-"Ot" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/door/window{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/hephmining_ship/cyclops/cyclops_engineering)
 "Oy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -35399,7 +35401,7 @@ CE
 CE
 Mx
 eT
-gw
+Ki
 gw
 gw
 gw
@@ -36427,7 +36429,7 @@ CE
 CE
 Mx
 wu
-gw
+Ki
 gw
 gw
 gw
@@ -38240,7 +38242,7 @@ gZ
 gZ
 nc
 AF
-Ot
+DR
 MB
 AI
 TD
@@ -38497,7 +38499,7 @@ CE
 Zg
 Ev
 KP
-gZ
+PZ
 MB
 Ld
 NU
