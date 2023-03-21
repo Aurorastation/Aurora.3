@@ -73,6 +73,13 @@
 	icon_state = "coin_battlemonsters_heads"
 	cmineral = "battlemonsters"
 
+/obj/item/coin/battlemonsters/Initialize()
+	. = ..()
+
+/obj/item/coin/battlemon/Destroy()
+	. = ..()
+
+
 /obj/item/coin/mining
 	name = "mining coin"
 	desc = "A flat disc or piece of metal with an official stamp. This coin can be used at a mining vendor to gain access to additional equipment."

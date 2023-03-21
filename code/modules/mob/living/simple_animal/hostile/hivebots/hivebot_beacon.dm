@@ -72,11 +72,10 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/generate_warp_destinations()
 
 	destinations.Cut()
-	for(var/turf/simulated/floor/T in circle_range(src,10))
-		if(turf_clear(T))
-			destinations += T
+	generate_warp_range_destinations(src)
+
 	var/area/A = get_area(src)
-	if(!isNotStationLevel(A.z))
+	if(isStationLevel(A.z))
 		var/list/area_turfs = get_area_turfs(A)
 		var/list/floor_turfs = list()
 		for(var/turf/simulated/floor/T in (area_turfs))
@@ -85,14 +84,22 @@
 		if(floor_turfs.len)
 			destinations |= floor_turfs
 
+	generate_close_destinations(src)
+
+	latest_area = get_area(src)
+
+/mob/living/simple_animal/hostile/hivebotbeacon/proc/generate_warp_range_destinations(var/location)
+	for(var/turf/simulated/floor/T in circle_range(location,10))
+		if(turf_clear(T))
+			destinations += T
+
+/mob/living/simple_animal/hostile/hivebotbeacon/proc/generate_close_destinations(var/atom/location)
 	close_destinations.Cut()
-	for(var/turf/simulated/floor/T in oview(src,5))
+	for(var/turf/simulated/floor/T in oview(location,5))
 		if(turf_clear(T))
 			close_destinations += T
 	if(!close_destinations.len)
-		close_destinations += src.loc
-
-	latest_area = get_area(src)
+		close_destinations += location.loc
 
 /mob/living/simple_animal/hostile/hivebotbeacon/death()
 	..(null,"blows apart and erupts in a cloud of noxious smoke!")
