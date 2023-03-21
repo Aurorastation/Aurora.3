@@ -10,8 +10,6 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
-#include "_maps\away_sites_testing.dm"
-#include "_maps\runtime.dm"
 #include "code\global.dm"
 #include "code\hub.dm"
 #include "code\names.dm"
@@ -3369,10 +3367,6 @@
 #include "maps\random_ruins\exoplanets\asteroid\mystery_ship\mystery_ship_areas.dm"
 #include "maps\random_ruins\exoplanets\crashed_pod\crashed_pod.dm"
 #include "maps\random_ruins\exoplanets\desert\desert.dm"
-#include "maps\runtime\runtime_overmap.dm"
-#include "maps\runtime\code\runtime.dm"
-#include "maps\runtime\code\runtime_lifts.dm"
-#include "maps\runtime\code\runtime_unittest.dm"
 #include "maps\random_ruins\exoplanets\grove\grove.dm"
 #include "maps\random_ruins\exoplanets\lava\lava.dm"
 #include "maps\random_ruins\exoplanets\raskara\pra_exploration_drone.dm"
@@ -3381,8 +3375,6 @@
 #include "maps\random_ruins\exoplanets\raskara\raskara_wreck.dm"
 #include "maps\random_ruins\space_ruins\space_ruins.dm"
 #include "maps\runtime\runtime_overmap.dm"
-#include "maps\runtime\runtime-1.dmm"
-#include "maps\runtime\runtime-2.dmm"
 #include "maps\runtime\code\runtime.dm"
 #include "maps\runtime\code\runtime_lifts.dm"
 #include "maps\runtime\code\runtime_unittest.dm"

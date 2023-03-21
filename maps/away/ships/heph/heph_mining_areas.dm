@@ -1,4 +1,3 @@
-
 /area/hephmining_ship/cyclops
 	name = "Cyclops Mining Vessel"
 	icon_state = "bluenew"

@@ -95,12 +95,12 @@
 "bC" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
-	id_tag = "freight_ship_port";
+	id_tag = "cyclops_mining_port";
 	layer = 3.3;
 	pixel_y = 28;
-	tag_airpump = "freight_ship_pump";
-	tag_chamber_sensor = "freight_ship_sensor";
-	tag_exterior_door = "freight_ship_out";
+	tag_airpump = "cyclops_mining_pump";
+	tag_chamber_sensor = "cyclops_mining_sensor";
+	tag_exterior_door = "cyclops_mining_out";
 	tag_interior_door = "freight_ship_in"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -346,7 +346,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "freight_shuttle_out"
+	id_tag = "cyclops_shuttle_out"
 	},
 /turf/simulated/floor,
 /area/shuttle/cyclops_shuttle)
@@ -3178,7 +3178,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "freight_shuttle_out"
+	id_tag = "cyclops_shuttle_out"
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -3620,7 +3620,7 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1380;
-	master_tag = "freight_ship_port";
+	master_tag = "cyclops_mining_port";
 	name = "interior access button";
 	pixel_x = 24;
 	pixel_y = -8
@@ -4025,7 +4025,7 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1380;
-	master_tag = "freight_ship_port";
+	master_tag = "cyclops_mining_port";
 	name = "exterior access button";
 	pixel_x = -24;
 	pixel_y = -10
@@ -4095,11 +4095,11 @@
 "ZH" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	id_tag = "freight_shuttle";
+	id_tag = "cyclops_shuttle";
 	name = "Port docking controller";
 	pixel_x = 6;
 	pixel_y = 28;
-	tag_door = "freight_shuttle_out"
+	tag_door = "cyclops_shuttle_out"
 	},
 /obj/machinery/computer/ship/sensors{
 	dir = 8

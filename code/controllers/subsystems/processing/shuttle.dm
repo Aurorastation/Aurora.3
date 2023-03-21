@@ -121,7 +121,7 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 	for(var/landmark_tag in given_sector.initial_generic_waypoints)
 		if(!try_add_landmark_tag(landmark_tag, given_sector))
 			landmarks_still_needed[landmark_tag] = given_sector
-	
+
 	for(var/shuttle_name in given_sector.initial_restricted_waypoints)
 		for(var/landmark_tag in given_sector.initial_restricted_waypoints[shuttle_name])
 			if(!try_add_landmark_tag(landmark_tag, given_sector))

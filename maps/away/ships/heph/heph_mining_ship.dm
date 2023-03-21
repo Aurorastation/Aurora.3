@@ -9,7 +9,7 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cyclops_shuttle)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
-/singleton/submap_archetype/heph_mining_ship
+/singleton/submap_archetype/cyclops_mining
 	map = "Cyclops Mining Vessel"
 	descriptor = "This bulky vessel is designed and operated by Hephaestus Industries. From asteroid cracking to planetary operations, this ship can do it all. "
 
@@ -26,9 +26,6 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
-	initial_restricted_waypoints = list(
-		"Cyclops Shuttle" = list("nav_hangar_cyclops")
-	)
 
 	initial_generic_waypoints = list(
 		"nav_heph_mining_ship_1",
@@ -92,16 +89,17 @@
 	name = "Cyclops Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/cyclops_shuttle)
-	current_location = "nav_cyclops_hangar"
+	current_location = "nav_cyclops_shuttle"
 	landmark_transition = "nav_cyclops_shuttle"
+	dock_target = "cyclops_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_cyclops_hangar"
+	logging_home_tag = "nav_cyclops_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/cyclops_shuttle/hangar
 	name = "Cyclops Shuttle Hangar"
-	landmark_tag = "nav_hangar_tramp"
+	landmark_tag = "nav_hangar_cyclops"
 	docking_controller = "cyclops_shuttle_dock"
 	base_area = /area/hephmining_ship/cyclops
 	base_turf = /turf/simulated/floor/plating
