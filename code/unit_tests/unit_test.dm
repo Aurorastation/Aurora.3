@@ -124,9 +124,9 @@ var/ascii_reset = "[ascii_esc]\[0m"
 	log_unit_test(LOG_UNIT_TEST_ERROR, message, file, line)
 	return UNIT_TEST_FAILED
 
-/datum/unit_test/proc/pass(var/message)
+/datum/unit_test/proc/pass(var/message, var/file, var/line)
 	reported = 1
-	log_unit_test("[ascii_green]*** SUCCESS *** \[[name]\]: [message][ascii_reset]")
+	log_unit_test(LOG_UNIT_TEST_INFORMATION, "[ascii_green][message][ascii_reset]", title = "SUCCESS: [name]")
 	return UNIT_TEST_PASSED
 
 
