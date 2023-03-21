@@ -1499,7 +1499,7 @@
 					descriptor = "huge"
 				else
 					descriptor = "gargantuan"
-			heightString = "[get_pronoun("He")] is [descriptor] for \a [selfCarbon.species.name]"
+			heightString = "[get_pronoun("He")] look\s [descriptor] for \a [selfCarbon.species.name]"
 
 
 	if(examiner.height == HEIGHT_NOT_USED)
@@ -1509,21 +1509,21 @@
 
 	switch(height - examiner.height)
 		if(-999 to -100)
-			descriptor = "is absolutely tiny compared to"
+			descriptor = "absolutely tiny compared to"
 		if(-99 to -50)
-			descriptor = "is much smaller than"
+			descriptor = "much smaller than"
 		if(-49 to -20)
-			descriptor = "stands slightly beneath"
+			descriptor = "slightly beneath"
 		if(-19 to 20)
-			descriptor = "is around about the same height"
+			descriptor = "around about the same height"
 		if(21 to 50)
-			descriptor = "stands taller than"
+			descriptor = "taller than"
 		if(51 to 100)
-			descriptor = "is much larger than"
+			descriptor = "much larger than"
 		else
-			descriptor = "towers over"
+			descriptor = "to tower over"
 	if(heightString)
-		return heightString + ", and [get_pronoun("he")] [descriptor] you."
-	return "[get_pronoun("He")] [descriptor] you."
+		return heightString + ", and [get_pronoun("he")] seem\s [descriptor] you."
+	return "[get_pronoun("He")] seem\s [descriptor] you."
 
 
