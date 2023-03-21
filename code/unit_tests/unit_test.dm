@@ -62,33 +62,34 @@ var/ascii_reset = "[ascii_esc]\[0m"
 
 /datum/unit_test/proc/log_unit_test(var/severity, var/message, var/filename, var/line, var/title)
 
-	#ifdef UNIT_TEST
+	#if defined(MANUAL_UNIT_TEST)
 
-	if(UNIT_TEST == 0) // This is set by Travis, manual debug sets this to 1
-		// We are running off Travis, which means github (or someone fucked up very badly)
+	// We are manually running, write in a more sensible format
+	switch(severity)
+		if(LOG_UNIT_TEST_DEBUG)
+			severity = "\[\[ DEBUG \]\] "
+		if(LOG_UNIT_TEST_INFORMATION)
+			severity = "[ascii_green] *** NOTICE *** [ascii_reset] "
+		if(LOG_UNIT_TEST_WARNING)
+			severity = "[ascii_yellow] === WARNING === [ascii_reset] "
+		if(LOG_UNIT_TEST_ERROR)
+			severity = "[ascii_red] !!! FAILURE !!! [ascii_reset] "
+	#else
 
-		// Spaces or lack thereof are significant here!
-		switch(severity)
-			if(LOG_UNIT_TEST_DEBUG)
-				severity = "debug"
-			if(LOG_UNIT_TEST_INFORMATION)
-				severity = "notice "
-			if(LOG_UNIT_TEST_WARNING)
-				severity = "warning "
-			if(LOG_UNIT_TEST_ERROR)
-				severity = "error "
-	else
-		switch(severity)
-			if(LOG_UNIT_TEST_DEBUG)
-				severity = "\[\[ DEBUG \]\] "
-			if(LOG_UNIT_TEST_INFORMATION)
-				severity = "[ascii_green] *** NOTICE *** [ascii_reset] "
-			if(LOG_UNIT_TEST_WARNING)
-				severity = "[ascii_yellow] === WARNING === [ascii_reset] "
-			if(LOG_UNIT_TEST_ERROR)
-				severity = "[ascii_red] !!! FAILURE !!! [ascii_reset] "
+	// We are running off Travis, which means github (or someone fucked up very badly)
 
-	// Of the #ifdef UNIT_TEST
+	// Spaces or lack thereof are significant here!
+	switch(severity)
+		if(LOG_UNIT_TEST_DEBUG)
+			severity = "debug"
+		if(LOG_UNIT_TEST_INFORMATION)
+			severity = "notice "
+		if(LOG_UNIT_TEST_WARNING)
+			severity = "warning "
+		if(LOG_UNIT_TEST_ERROR)
+			severity = "error "
+
+	// Of the #if defined(MANUAL_UNIT_TEST)
 	#endif
 
 	var/printstring = "::[severity]"
@@ -101,7 +102,7 @@ var/ascii_reset = "[ascii_esc]\[0m"
 	if(title)
 		printstring += ",title=[title]"
 
-	printstring += "::[message], generated @ File: [filename] - Line: [line]"
+	printstring += "::[message]; Generated @ File: [filename] - Line: [line]"
 
 
 	world.log <<  printstring

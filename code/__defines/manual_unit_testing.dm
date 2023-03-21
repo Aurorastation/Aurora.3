@@ -1,2 +1,3 @@
 // !!! For manual use only, remember to recomment before PRing !!!
-// #define UNIT_TEST 1
+// #define UNIT_TEST
+// #define MANUAL_UNIT_TEST
