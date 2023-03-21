@@ -52,7 +52,7 @@
 		var/list/ruins_to_spawn = list()
 		if(!initial(new_planet.ruin_planet_type) || initial(new_planet.ruin_planet_type) == PLANET_LORE)
 			continue
-		new_planet = new(null, planet_size[1], planet_size[2])
+		new_planet = new new_planet(null, planet_size[1], planet_size[2])
 		for(var/datum/map_template/ruin/exoplanet/R in ruins_to_test)
 			if(new_planet.ruin_planet_type in R.planet_types)
 				ruins_to_spawn |= R
