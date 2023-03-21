@@ -58,7 +58,7 @@
 								TEST_FAIL("Recipe '[R.title]' on material '[D.name]' consumes less material '[mat]' ([R.req_amount] × [temp_matter[mat]] = [consumed_matter_value]) than the product is worth ([R.res_amount] × [I.matter[mat]] = [item_matter_value]).")
 								error_count++
 						else
-							warn("Recipe '[R.title]' on material '[D.name]' creates product with material '[mat]', but that material is not required by the recipe.")
+							TEST_WARN("Recipe '[R.title]' on material '[D.name]' creates product with material '[mat]', but that material is not required by the recipe.")
 				qdel(I)
 		qdel(D)
 

@@ -47,7 +47,9 @@
 #define TEST_FOCUS(test_path) ##test_path { focus = TRUE; }
 
 
-// Fancy formatting for github as per https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions included
+/// Logs a noticable warning message
+#define TEST_WARN(message) warn(##message, __FILE__, __LINE__)
+
 
 /// Logs a noticable message on GitHub, but will not mark as an error.
 /// Use this when something shouldn't happen and is of note, but shouldn't block CI.
