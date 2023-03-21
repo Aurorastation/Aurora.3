@@ -582,14 +582,12 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/obj/structure/table/reinforced/steel,
-/obj/item/aicard,
+/obj/item/modular_computer/console/preset/command{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "awy" = (
@@ -3641,7 +3639,9 @@
 /area/bridge)
 "dhn" = (
 /obj/effect/floor_decal/spline/fancy,
-/obj/machinery/computer/ship/engines,
+/obj/machinery/computer/ship/engines{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "dhB" = (
@@ -9087,7 +9087,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "hmC" = (
@@ -21184,9 +21186,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
-/obj/item/modular_computer/console/preset/command{
-	dir = 1
-	},
+/obj/structure/table/reinforced/steel,
+/obj/item/aicard,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "qWi" = (
@@ -29105,9 +29106,6 @@
 	pixel_x = -5;
 	pixel_y = -23;
 	req_access = list(19)
-	},
-/obj/structure/railing/mapped{
-	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
