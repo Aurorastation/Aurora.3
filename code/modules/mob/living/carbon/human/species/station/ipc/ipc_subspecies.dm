@@ -5,6 +5,8 @@
 	name_plural = "Shells"
 	bodytype = BODYTYPE_HUMAN
 	species_height = HEIGHT_CLASS_AVERAGE
+	height_min = 120
+	height_max = 230 // If for whatever reason you wanted a shell that was ~~pretending to be geneboosted~~ SCHLOSSER
 	default_genders = list(MALE, FEMALE)
 	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
 

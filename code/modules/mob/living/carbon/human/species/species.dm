@@ -12,6 +12,8 @@
 	var/category_name                                    // a name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
 	var/species_height = HEIGHT_NOT_USED				 // Average Height of the species
+	var/height_min = 120
+	var/height_max = 350
 	var/bodytype
 	var/age_min = 18
 	var/age_max = 85

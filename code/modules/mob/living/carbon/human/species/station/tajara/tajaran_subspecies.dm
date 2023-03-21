@@ -9,6 +9,8 @@
 	from their fellow Tajara who cite their lackluster test scores, even among Tajara, and their higher \
 	crime rates."
 	species_height = HEIGHT_CLASS_TALL
+	height_min = 160
+	height_max = 200
 
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_DELVAHII)
 
@@ -56,6 +58,8 @@
 	However, this gives them the benefit of being more agile. Hitorically, they often \
 	worked as hunters, later becoming warriors and soldiers as civilization developed."
 	species_height = HEIGHT_CLASS_AVERAGE
+	height_min = 150
+	height_max = 200
 
 	slowdown = -1.2 //As opposed to -1 for Base tajara
 	sprint_speed_factor = 0.75 // As opposed to 0.65

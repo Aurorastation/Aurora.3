@@ -5,6 +5,8 @@
 	category_name = "Skrell"
 	bodytype = BODYTYPE_SKRELL
 	species_height = HEIGHT_CLASS_SHORT
+	height_min = 130
+	height_max = 170
 	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)

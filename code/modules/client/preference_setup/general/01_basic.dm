@@ -8,6 +8,7 @@
 	S["pronouns"]   >> pref.pronouns
 	S["age"]        >> pref.age
 	S["species"]    >> pref.species
+	S["char_height"]>> pref.char_height
 	S["spawnpoint"] >> pref.spawnpoint
 	S["OOC_Notes"]  >> pref.metadata
 	S["floating_chat_color"] >> pref.floating_chat_color
@@ -22,6 +23,7 @@
 	S["pronouns"]   << pref.pronouns
 	S["age"]        << pref.age
 	S["species"]    << pref.species
+	S["char_height"]<< pref.char_height
 	S["spawnpoint"] << pref.spawnpoint
 	S["OOC_Notes"]  << pref.metadata
 	S["floating_chat_color"] << pref.floating_chat_color
@@ -43,6 +45,7 @@
 				"metadata",
 				"spawnpoint",
 				"species",
+				"char_height",
 				"floating_chat_color"
 			),
 			"args" = list("id")
@@ -75,6 +78,7 @@
 			"metadata",
 			"spawnpoint",
 			"species",
+			"char_height",
 			"floating_chat_color",
 			"id" = 1,
 			"ckey" = 1
@@ -96,6 +100,7 @@
 		"metadata" = pref.metadata,
 		"spawnpoint" = pref.spawnpoint,
 		"species" = pref.species,
+		"char_height" = pref.char_height,
 		"tag_status" = pref.machine_tag_status,
 		"serial_number" = pref.machine_serial_number,
 		"ownership_status" = pref.machine_ownership_status,
@@ -137,6 +142,7 @@
 	if(!is_in_playable_species)
 		pref.species = SPECIES_HUMAN
 
+	pref.char_height		= sanitize_integer(text2num(pref.char_height), pref.getMinHeight(), pref.getMaxHeight(), 170)
 	pref.age                = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
 	pref.gender             = sanitize_gender(pref.gender, pref.species)
 	pref.pronouns           = sanitize_pronouns(pref.pronouns, pref.species, pref.gender)
@@ -161,6 +167,7 @@
 	if(length(S.selectable_pronouns))
 		dat += "<b>Pronouns:</b> <a href='?src=\ref[src];pronouns=1'><b>[capitalize_first_letters(pref.pronouns)]</b></a><br>"
 	dat += "<b>Age:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
+	dat += "<b>Height:</b> <a href='?src=\ref[src];char_height=1'>[pref.char_height]</a><br>"
 	dat += "<b>Spawn Point</b>: <a href='?src=\ref[src];spawnpoint=1'>[pref.spawnpoint]</a><br>"
 	dat += "<b>Floating Chat Color:</b> <a href='?src=\ref[src];select_floating_chat_color=1'><b>[pref.floating_chat_color]</b></a><br>"
 	if(istype(S, /datum/species/machine))
@@ -260,6 +267,13 @@
 		var/new_age = input(user, "Choose your character's age:\n([pref.getMinAge()]-[pref.getMaxAge()])", "Character Preference", pref.age) as num|null
 		if(new_age && CanUseTopic(user))
 			pref.age = max(min(round(text2num(new_age)),  pref.getMaxAge()),pref.getMinAge())
+			return TOPIC_REFRESH
+
+	else if(href_list["char_height"])
+		var/datum/species/char_spec = all_species[pref.species]
+		var/new_height = input(user, "Choose your character's height: (Values in Centimetres. [char_spec.name] height range [pref.getMinHeight()] - [pref.getMaxHeight()])", "Character Preference", pref.char_height) as num|null
+		if(new_height && CanUseTopic(user))
+			pref.char_height = max(min(round(text2num(new_height)),  pref.getMaxHeight()),pref.getMinHeight())
 			return TOPIC_REFRESH
 
 	else if(href_list["spawnpoint"])

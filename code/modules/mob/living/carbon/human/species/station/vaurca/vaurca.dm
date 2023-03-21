@@ -5,6 +5,8 @@
 	category_name = "Vaurca"
 	bodytype = BODYTYPE_VAURCA
 	species_height = HEIGHT_CLASS_TALL
+	height_min = 150
+	height_max = 250
 	age_min = 1
 	age_max = 20
 	default_genders = list(NEUTER)

@@ -6,6 +6,8 @@
 	category_name = "Human"
 	bodytype = BODYTYPE_HUMAN
 	species_height = HEIGHT_CLASS_AVERAGE
+	height_min = 120
+	height_max = 210
 	age_max = 125
 	economic_modifier = 12
 	bandages_icon = 'icons/mob/bandage.dmi'

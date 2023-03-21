@@ -3,7 +3,9 @@
 	short_name = "vaw"
 	name_plural = "Type BA"
 	language = LANGUAGE_VAURCA
-	species_height = HEIGHT_CLASS_HUGE
+	species_height = HEIGHT_CLASS_TALL
+	height_min = 150
+	height_max = 250
 	primitive_form = SPECIES_VAURCA_WORKER
 	greater_form = SPECIES_VAURCA_BREEDER
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
@@ -53,6 +55,8 @@
 	bodytype = BODYTYPE_VAURCA_BREEDER
 	primitive_form = SPECIES_VAURCA_WARRIOR
 	species_height = HEIGHT_CLASS_GIGANTIC
+	height_min = 220
+	height_max = 320
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
@@ -200,6 +204,8 @@
 	name_plural = "Type E"
 	bodytype = BODYTYPE_VAURCA_BULWARK
 	species_height = HEIGHT_CLASS_GIGANTIC
+	height_min = 220
+	height_max = 320
 	preview_icon = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'

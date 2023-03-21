@@ -39,6 +39,7 @@ datum/preferences
 	var/gender = MALE					//gender of character (well duh)
 	var/pronouns = NEUTER				//what the character will appear as to others when examined
 	var/age = 30						//age of character
+	var/char_height						//character's height
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = OUTFIT_BACKPACK		//backpack type (defines in outfit.dm)
@@ -213,6 +214,18 @@ datum/preferences
 /datum/preferences/proc/getMaxAge()
 	var/datum/species/mob_species = all_species[species]
 	return mob_species.age_max
+
+/datum/preferences/proc/getMinHeight()
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.height_min
+
+/datum/preferences/proc/getMaxHeight()
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.height_max
+
+/datum/preferences/proc/getAvgHeight()
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.species_height
 
 /datum/preferences/proc/ZeroSkills(var/forced = 0)
 	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
@@ -435,6 +448,7 @@ datum/preferences
 	character.pronouns = pronouns
 	character.age = age
 	character.b_type = b_type
+	character.height = char_height
 
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
