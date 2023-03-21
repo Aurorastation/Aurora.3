@@ -47,9 +47,7 @@
 	toggle_reel_spin(FALSE)
 
 	for(cointype in typesof(/obj/item/coin))
-		var/obj/item/coin/C = new cointype
-		coinvalues["[cointype]"] = get_value(C)
-		QDEL_IN(C, 1 MINUTE) //Sigh
+		coinvalues["[cointype]"] = get_value(cointype)
 
 /obj/machinery/computer/slot_machine/Destroy()
 	if(balance)

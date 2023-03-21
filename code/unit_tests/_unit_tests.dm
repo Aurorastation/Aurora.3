@@ -52,12 +52,12 @@
 /// Logs a noticable message on GitHub, but will not mark as an error.
 /// Use this when something shouldn't happen and is of note, but shouldn't block CI.
 /// Does not mark the test as failed.
-#define TEST_NOTICE(source, message) warn("::notice file="+__LINE__+",line="+__LINE__ + " " + ##message)
+#define TEST_NOTICE(message) notice(##message, __FILE__, __LINE__)
 
 /**
  * Logs debug messages of the test run, useful for when you wish to show things being done
  */
-#define TEST_DEBUG(message) testing("::debug::"+##message, __FILE__, __LINE__)
+#define TEST_DEBUG(message) debug(##message, __FILE__, __LINE__)
 
 
 #define TEST_PRE 0
