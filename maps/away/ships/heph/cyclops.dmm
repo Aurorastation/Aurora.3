@@ -3822,7 +3822,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/space,
+/turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Va" = (
 /obj/structure/sign/flag/heph/left{
