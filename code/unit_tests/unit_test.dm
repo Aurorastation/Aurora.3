@@ -100,7 +100,7 @@ var/ascii_reset = "[ascii_esc]\[0m"
 	// 	if(line)
 	// 		printstring += ",line=[line]"
 	if(title)
-		printstring += ",title=[title]"
+		printstring += " title=[title]"
 
 	printstring += "::[message]; Generated @ File: [filename] - Line: [line]"
 
@@ -126,7 +126,7 @@ var/ascii_reset = "[ascii_esc]\[0m"
 
 /datum/unit_test/proc/pass(var/message, var/file, var/line)
 	reported = 1
-	log_unit_test(LOG_UNIT_TEST_INFORMATION, "[ascii_green][message][ascii_reset]", title = "SUCCESS: [name]")
+	log_unit_test(LOG_UNIT_TEST_INFORMATION, "[ascii_green][message][ascii_reset]", file, line, title = "SUCCESS: [name]")
 	return UNIT_TEST_PASSED
 
 
