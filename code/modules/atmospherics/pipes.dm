@@ -90,7 +90,7 @@
 		return ..()
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())
-		to_chat(user, "<span class='warning'>You must remove the plating first.</span>")
+		to_chat(user, SPAN_WARNING("You must remove the plating first!"))
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
 	if(!loc) return FALSE
@@ -349,7 +349,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers
 	name = "Scrubbers pipe"
 	desc = "A one meter section of scrubbers pipe."
-	desc_info = "This is a special 'supply' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	desc_info = "This is a special 'scrubbers' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
 	a Universal Adapter pipe."
 	icon_state = "intact-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
@@ -360,11 +360,35 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply
 	name = "Air supply pipe"
 	desc = "A one meter section of supply pipe"
+	desc_info = "This is a special 'supply' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	a Universal Adapter pipe."
 	icon_state = "intact-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
 	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/simple/visible/fuel
+	name = "Fuel pipe"
+	desc = "A one meter section of fuel pipe."
+	desc_info = "This is a special 'fuel' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	a Universal Adapter pipe."
+	icon_state = "intact-fuel"
+	connect_types = CONNECT_TYPE_FUEL
+	layer = 2.40
+	icon_connect_type = "-fuel"
+	color = PIPE_COLOR_YELLOW
+
+/obj/machinery/atmospherics/pipe/simple/visible/aux
+	name = "Auxiliary pipe"
+	desc = "A one meter section of auxiliary pipe."
+	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	a Universal Adapter pipe."
+	icon_state = "intact-aux"
+	connect_types = CONNECT_TYPE_AUX
+	layer = 2.41
+	icon_connect_type = "-aux"
+	color = PIPE_COLOR_CYAN
 
 /obj/machinery/atmospherics/pipe/simple/visible/yellow
 	color = PIPE_COLOR_YELLOW
@@ -413,6 +437,28 @@
 	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel
+	name = "Fuel pipe"
+	desc = "A one meter section of fuel pipe."
+	desc_info = "This is a special 'fuel' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	a Universal Adapter pipe."
+	icon_state = "intact-fuel"
+	connect_types = CONNECT_TYPE_FUEL
+	layer = 2.40
+	icon_connect_type = "-fuel"
+	color = PIPE_COLOR_YELLOW
+
+/obj/machinery/atmospherics/pipe/simple/hidden/aux
+	name = "Auxiliary pipe"
+	desc = "A one meter section of auxiliary pipe."
+	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	a Universal Adapter pipe."
+	icon_state = "intact-aux"
+	connect_types = CONNECT_TYPE_AUX
+	layer = 2.41
+	icon_connect_type = "-aux"
+	color = PIPE_COLOR_CYAN
 
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow
 	color = PIPE_COLOR_YELLOW
@@ -652,6 +698,28 @@
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
+/obj/machinery/atmospherics/pipe/manifold/visible/fuel
+	name = "fuel pipe manifold"
+	desc = "A manifold composed of fuel piping."
+	desc_info = "This is a special 'fuel' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	a Universal Adapter pipe."
+	icon_state = "map-fuel"
+	connect_types = CONNECT_TYPE_FUEL
+	layer = 2.40
+	icon_connect_type = "-fuel"
+	color = PIPE_COLOR_YELLOW
+
+/obj/machinery/atmospherics/pipe/manifold/visible/aux
+	name = "auxiliary pipe manifold"
+	desc = "A manifold composed of auxiliary piping."
+	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	a Universal Adapter pipe."
+	icon_state = "intact-aux"
+	connect_types = CONNECT_TYPE_AUX
+	layer = 2.41
+	icon_connect_type = "-aux"
+	color = PIPE_COLOR_CYAN
+
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow
 	color = PIPE_COLOR_YELLOW
 
@@ -699,6 +767,28 @@
 	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel
+	name = "Fuel pipe manifold"
+	desc = "A manifold composed of fuel pipes."
+	desc_info = "This is a special 'fuel' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	a Universal Adapter pipe."
+	icon_state = "map-fuel"
+	connect_types = CONNECT_TYPE_FUEL
+	layer = 2.40
+	icon_connect_type = "-fuel"
+	color = PIPE_COLOR_YELLOW
+
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux
+	name = "Auxiliary pipe"
+	desc = "A manifold composed of auxiliary pipes."
+	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	a Universal Adapter pipe."
+	icon_state = "map-aux"
+	connect_types = CONNECT_TYPE_AUX
+	layer = 2.41
+	icon_connect_type = "-aux"
+	color = PIPE_COLOR_CYAN
 
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow
 	color = PIPE_COLOR_YELLOW
@@ -940,6 +1030,28 @@
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
+/obj/machinery/atmospherics/pipe/manifold4w/visible/fuel
+	name = "4-way fuel pipe manifold"
+	desc = "A manifold composed of fuel pipes."
+	desc_info = "This is a special 'fuel' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	a Universal Adapter pipe."
+	icon_state = "map_4way-fuel"
+	connect_types = CONNECT_TYPE_FUEL
+	layer = 2.38
+	icon_connect_type = "-fuel"
+	color = PIPE_COLOR_YELLOW
+
+/obj/machinery/atmospherics/pipe/manifold4w/visible/aux
+	name = "4-way auxiliary pipe manifold"
+	desc = "A manifold composed of auxiliary pipes"
+	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	a Universal Adapter pipe."
+	icon_state = "map_4way-aux"
+	connect_types = CONNECT_TYPE_AUX
+	layer = 2.39
+	icon_connect_type = "-aux"
+	color = PIPE_COLOR_CYAN
+
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow
 	color = PIPE_COLOR_YELLOW
 
@@ -987,6 +1099,28 @@
 	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel
+	name = "4-way fuel pipe manifold"
+	desc = "A manifold composed of fuel pipes."
+	desc_info = "This is a special 'fuel' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	a Universal Adapter pipe."
+	icon_state = "map_4way-fuel"
+	connect_types = CONNECT_TYPE_FUEL
+	layer = 2.38
+	icon_connect_type = "-fuel"
+	color = PIPE_COLOR_YELLOW
+
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux
+	name = "4-way auxiliary pipe manifold"
+	desc = "A manifold composed of auxiliary pipes."
+	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
+	a Universal Adapter pipe."
+	icon_state = "map_4way-aux"
+	connect_types = CONNECT_TYPE_AUX
+	layer = 2.39
+	icon_connect_type = "-aux"
+	color = PIPE_COLOR_CYAN
 
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/yellow
 	color = PIPE_COLOR_YELLOW
@@ -1214,6 +1348,7 @@
 /obj/machinery/atmospherics/pipe/tank/air
 	name = "Pressure Tank (Air)"
 	icon_state = "air_map"
+	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_AUX
 
 /obj/machinery/atmospherics/pipe/tank/air/Initialize()
 	air_temporary = new
@@ -1272,6 +1407,7 @@
 /obj/machinery/atmospherics/pipe/tank/phoron
 	name = "Pressure Tank (Phoron)"
 	icon_state = "phoron_map"
+	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
 
 /obj/machinery/atmospherics/pipe/tank/phoron/Initialize()
 	air_temporary = new
@@ -1286,6 +1422,7 @@
 /obj/machinery/atmospherics/pipe/tank/hydrogen
 	name = "Pressure Tank (Hydrogen)"
 	icon_state = "hydrogen_map"
+	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
 
 /obj/machinery/atmospherics/pipe/tank/hydrogen/Initialize()
 	air_temporary = new
@@ -1313,9 +1450,9 @@
 
 /obj/machinery/atmospherics/pipe/simple/visible/universal
 	name = "universal pipe adapter"
-	desc = "An adapter for regular, supply and scrubbers pipes."
-	desc_info = "This allows you to connect 'normal' pipes, red 'scrubber' pipes, and blue 'supply' pipes."
-	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER
+	desc = "An adapter for regular, supply, scrubbers, fuel, and auxiliary pipes."
+	desc_info = "This allows you to connect 'normal' pipes, blue 'supply' pipes, red 'scrubber' pipes, yellow 'fuel' pipes, and cyan 'aux' pipes together."
+	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL|CONNECT_TYPE_AUX
 	icon_state = "map_universal"
 	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
@@ -1350,9 +1487,9 @@
 
 /obj/machinery/atmospherics/pipe/simple/hidden/universal
 	name = "universal pipe adapter"
-	desc = "An adapter for regular, supply and scrubbers pipes."
-	desc_info = "This allows you to connect 'normal' pipes, red 'scrubber' pipes, and blue 'supply' pipes."
-	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER
+	desc = "An adapter for regular, supply, scrubbers, fuel, and auxiliary pipes."
+	desc_info = "This allows you to connect 'normal' pipes, blue 'supply' pipes, red 'scrubber' pipes, yellow 'fuel' pipes, and cyan 'aux' pipes together."
+	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL|CONNECT_TYPE_AUX
 	icon_state = "map_universal"
 	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
@@ -1394,18 +1531,38 @@
 			add_underlay_adapter(T, , node_dir, "")
 			add_underlay_adapter(T, node, node_dir, "-supply")
 			add_underlay_adapter(T, , node_dir, "-scrubbers")
+			add_underlay_adapter(T, , node_dir, "-fuel")
+			add_underlay_adapter(T, , node_dir, "-aux")
 		else if (node.icon_connect_type == "-scrubbers")
 			add_underlay_adapter(T, , node_dir, "")
 			add_underlay_adapter(T, , node_dir, "-supply")
 			add_underlay_adapter(T, node, node_dir, "-scrubbers")
+			add_underlay_adapter(T, , node_dir, "-fuel")
+			add_underlay_adapter(T, , node_dir, "-aux")
+		else if (node.icon_connect_type == "-fuel")
+			add_underlay_adapter(T, , node_dir, "")
+			add_underlay_adapter(T, , node_dir, "-supply")
+			add_underlay_adapter(T, , node_dir, "-scrubbers")
+			add_underlay_adapter(T, node, node_dir, "-fuel")
+			add_underlay_adapter(T, , node_dir, "-aux")
+		else if (node.icon_connect_type == "-aux")
+			add_underlay_adapter(T, , node_dir, "")
+			add_underlay_adapter(T, , node_dir, "-supply")
+			add_underlay_adapter(T, , node_dir, "-scrubbers")
+			add_underlay_adapter(T, , node_dir, "-fuel")
+			add_underlay_adapter(T, node, node_dir, "-aux")
 		else
 			add_underlay_adapter(T, node, node_dir, "")
 			add_underlay_adapter(T, , node_dir, "-supply")
 			add_underlay_adapter(T, , node_dir, "-scrubbers")
+			add_underlay_adapter(T, , node_dir, "-fuel")
+			add_underlay_adapter(T, , node_dir, "-aux")
 	else
 		add_underlay_adapter(T, , direction, "-supply")
 		add_underlay_adapter(T, , direction, "-scrubbers")
 		add_underlay_adapter(T, , direction, "")
+		add_underlay_adapter(T, , direction, "-fuel")
+		add_underlay_adapter(T, , direction, "-aux")
 
 /obj/machinery/atmospherics/proc/add_underlay_adapter(var/turf/T, var/obj/machinery/atmospherics/node, var/direction, var/icon_connect_type) //modified from add_underlay, does not make exposed underlays
 	if(node)
