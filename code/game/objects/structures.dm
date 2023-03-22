@@ -225,4 +225,9 @@
 	return 1
 
 /obj/structure/get_material()
-	return material
+	if (istext(material))
+		return SSmaterials.get_material_by_name(material)
+	else if (istype(material, /material))
+		return material
+	else
+		CRASH("The material is not an instance type of material nor a string, this isn't expected to happen.")
