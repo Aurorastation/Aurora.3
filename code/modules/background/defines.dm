@@ -59,6 +59,8 @@
 #define RELIGION_ETERNAL "The Eternal"
 #define RELIGION_KSSHR "Ksshr"
 #define RELIGION_SHRKH "Shrkh"
+#define RELIGION_MADA "Maraka"
+#define RELIGION_GLEANERS "Lights Accord"
 
 //accent defines
 
