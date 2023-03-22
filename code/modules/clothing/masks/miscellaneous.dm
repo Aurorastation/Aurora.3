@@ -151,7 +151,6 @@
 	eye = new(src)
 	eye.name_suffix = "camera MIU"
 	. = ..()
-	return .
 
 /obj/item/clothing/mask/ai/Destroy()
 	if(eye)
@@ -160,7 +159,7 @@
 		qdel(eye)
 		eye = null
 
-	..()
+	. = ..()
 
 /obj/item/clothing/mask/ai/attack_self(mob/user)
 	if(user.incapacitated())

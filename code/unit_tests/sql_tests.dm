@@ -3,15 +3,14 @@
 
 /datum/unit_test/sql_preferences_columns/start_test()
 	if(!config.sql_enabled)
-		log_unit_test("[ascii_yellow]--------------- Database not Configured - Skipping Preference Column UT")
-		return TRUE
+		TEST_WARN("--------------- Database not Configured - Skipping Preference Column UT")
+		return UNIT_TEST_PASSED
 
-	log_unit_test("[ascii_yellow]--------------- Database Configured - Running SQL Preference UTs")
+	TEST_DEBUG("--------------- Database Configured - Running SQL Preference UTs")
 
 	if(!establish_db_connection(dbcon))
-		log_unit_test("[ascii_red]--------------- Unable to establish database connection.")
 		TEST_FAIL("Database connection could not be established.")
-		return TRUE
+		return UNIT_TEST_FAILED
 
 	var/faults = 0
 	var/valid_columns = list()
@@ -31,9 +30,8 @@
 		get_cs.Execute(list("table" = T))
 
 		if (get_cs.ErrorMsg())
-			log_unit_test("[ascii_red]--------------- SQL error encountered: [get_cs.ErrorMsg()].[ascii_reset]")
-			TEST_FAIL("SQL error encountered.")
-			return TRUE
+			TEST_FAIL("SQL error encountered: [get_cs.ErrorMsg()]")
+			return UNIT_TEST_FAILED
 
 		valid_columns[T] = list()
 
@@ -66,7 +64,7 @@
 
 			if (unfound.len)
 				for (var/C in unfound)
-					log_unit_test("[ascii_red]--------------- load parameter '[C]' not found in any queries for '[A.name]':[A.type].[ascii_reset]")
+					TEST_FAIL("load parameter '[C]' not found in any queries for '[A.name]':[A.type].")
 					faults++
 			temp.Cut()
 
@@ -81,21 +79,21 @@
 			for (var/B in test_columns)
 				var/list/valids = valid_columns[B]
 				if (!valids || !valids.len)
-					log_unit_test("[ascii_red]--------------- table '[B]' referenced but not found for '[A.name]':[A.type].[ascii_reset]")
+					TEST_FAIL("table '[B]' referenced but not found for '[A.name]':[A.type].")
 					faults++
 					continue
 
 				for (var/C in test_columns[B])
 					if (!(C in valids))
-						log_unit_test("[ascii_red]--------------- column '[C]' referenced but not in table '[B]' for item '[A.name]':[A.type].[ascii_reset]")
+						TEST_FAIL("column '[C]' referenced but not in table '[B]' for item '[A.name]':[A.type].")
 						faults++
 
 	if (faults)
 		TEST_FAIL("\[[faults]\] faults found in the SQL preferences setup.")
+		return UNIT_TEST_FAILED
 	else
 		TEST_PASS("No faults found in the SQL preferences setup.")
-
-	return TRUE
+		return UNIT_TEST_PASSED
 
 /datum/unit_test/sql_preferences_vars
 	name = "SQL: Preferences Variables"
@@ -126,12 +124,12 @@
 			total += test.len
 			for (var/V in test)
 				if (!(V in P.vars))
-					log_unit_test("[ascii_red]--------------- variable '[V]' referenced by, but not found in preferences class variables, '[A.name]':[A.type].[ascii_reset]")
+					TEST_FAIL("variable '[V]' referenced by, but not found in preferences class variables, '[A.name]':[A.type].")
 					faults++
 
 	if (faults)
 		TEST_FAIL("\[[faults] / [total]\] variable references found invalid in the SQL preferences setup.")
+		return UNIT_TEST_FAILED
 	else
 		TEST_PASS("All \[[total]\] variable references found valid in the SQL preferences setup.")
-
-	return TRUE
+		return UNIT_TEST_PASSED
