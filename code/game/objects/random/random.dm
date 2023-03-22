@@ -1227,6 +1227,24 @@
 		/obj/item/clothing/head/beret/captain = 1
 	)
 
+/obj/random/hardhat
+	name = "random hardhat"
+	desc = "This is a random hardhat."
+	icon = 'icons/obj/clothing/hats/hardhats.dmi'
+	icon_state = "hardhat_yellow"
+	problist = list(
+		/obj/item/clothing/head/hardhat = 1,
+		/obj/item/clothing/head/hardhat/orange = 1,
+		/obj/item/clothing/head/hardhat/red = 1,
+		/obj/item/clothing/head/hardhat/green = 1,
+		/obj/item/clothing/head/hardhat/blue = 1,
+		/obj/item/clothing/head/hardhat/white = 0.5,
+		/obj/item/clothing/head/hardhat/atmos = 0.1,
+		/obj/item/clothing/head/hardhat/first_responder = 0.1,
+		/obj/item/clothing/head/hardhat/firefighter = 0.1
+	)
+
+
 /obj/random/highvalue
 	name = "random high valuable item"
 	desc = "This is a random high valuable item."
