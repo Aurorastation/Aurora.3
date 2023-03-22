@@ -42,7 +42,7 @@
   book_name = "maraka writ"
   book_sprite = "holybook"
   
-  /datum/religion/gleaners
+/datum/religion/gleaners
   name = RELIGION_GLEANERS
   description = "A faith focusing on the worship of the sun and stars originating from EUM."
   book_name = "lights accord writ"
