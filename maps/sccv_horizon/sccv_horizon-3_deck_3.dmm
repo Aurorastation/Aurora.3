@@ -579,12 +579,24 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "avY" = (
+<<<<<<< HEAD
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+=======
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/obj/item/modular_computer/console/preset/command{
+	dir = 4
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "awy" = (
@@ -687,7 +699,11 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
+<<<<<<< HEAD
 /obj/machinery/computer/station_alert/all{
+=======
+/obj/machinery/computer/message_monitor{
+>>>>>>> Bridgeremapfinal
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -851,6 +867,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
+<<<<<<< HEAD
 "aGi" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -860,6 +877,8 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
+=======
+>>>>>>> Bridgeremapfinal
 "aGl" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -2454,6 +2473,10 @@
 	pixel_y = 4
 	},
 /obj/structure/table/glass,
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/unary/vent_pump/on,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "cbP" = (
@@ -2759,6 +2782,13 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 9
 	},
+<<<<<<< HEAD
+=======
+/obj/item/modular_computer/console/preset/engineering{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "cur" = (
@@ -2789,6 +2819,10 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/paper_scanner,
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/unary/vent_pump/on,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "cvQ" = (
@@ -3341,6 +3375,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_three/primary/central)
 "cTN" = (
+<<<<<<< HEAD
 /obj/effect/floor_decal/spline/fancy,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -3353,6 +3388,9 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
+=======
+/obj/effect/map_effect/window_spawner/full/reinforced,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "cVc" = (
@@ -3650,6 +3688,7 @@
 /area/bridge)
 "dhn" = (
 /obj/effect/floor_decal/spline/fancy,
+<<<<<<< HEAD
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
 /obj/item/folder/blue,
@@ -3657,6 +3696,10 @@
 /obj/item/pen/blue{
 	pixel_x = 4;
 	pixel_y = 4
+=======
+/obj/machinery/computer/ship/engines{
+	dir = 1
+>>>>>>> Bridgeremapfinal
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
@@ -6252,6 +6295,10 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
+<<<<<<< HEAD
+=======
+/obj/structure/table/reinforced,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "fiV" = (
@@ -7525,7 +7572,11 @@
 /area/horizon/crew_quarters/fitness/hallway)
 "gcZ" = (
 /obj/effect/floor_decal/spline/fancy,
+<<<<<<< HEAD
 /obj/machinery/computer/security{
+=======
+/obj/machinery/computer/station_alert/all{
+>>>>>>> Bridgeremapfinal
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -8019,6 +8070,12 @@
 	pixel_x = 2;
 	pixel_y = 2
 	},
+<<<<<<< HEAD
+=======
+/obj/machinery/light{
+	dir = 8
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "gyx" = (
@@ -8314,9 +8371,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+=======
+>>>>>>> Bridgeremapfinal
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Backroom";
 	dir = 1
@@ -8324,6 +8384,10 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "gKQ" = (
@@ -8842,11 +8906,29 @@
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 4
 	},
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "hfB" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/tcommsat/entrance)
+<<<<<<< HEAD
+=======
+"hfR" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/controlroom)
+>>>>>>> Bridgeremapfinal
 "hhb" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 8
@@ -9089,7 +9171,13 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+<<<<<<< HEAD
 /obj/machinery/computer/ship/targeting,
+=======
+/obj/machinery/computer/ship/targeting{
+	dir = 1
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "hmC" = (
@@ -9396,6 +9484,10 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "hxQ" = (
@@ -10617,7 +10709,13 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+<<<<<<< HEAD
 /obj/machinery/computer/ship/engines,
+=======
+/obj/machinery/computer/security{
+	dir = 1
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "iDS" = (
@@ -11802,6 +11900,12 @@
 	dir = 6
 	},
 /obj/structure/flora/pottedplant/random,
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/reinforced,
 /area/bridge/controlroom)
 "jxS" = (
@@ -13268,7 +13372,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+<<<<<<< HEAD
 /obj/machinery/leviathan_safeguard,
+=======
+/obj/structure/flora/pottedplant/random,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "kAR" = (
@@ -14669,6 +14777,10 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
+<<<<<<< HEAD
+=======
+/obj/structure/table/reinforced,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "lIN" = (
@@ -16161,20 +16273,33 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
 "mVg" = (
+<<<<<<< HEAD
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/office/bridge,
+=======
+>>>>>>> Bridgeremapfinal
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
+<<<<<<< HEAD
+=======
+/obj/structure/bed/stool/chair/office/bridge,
+>>>>>>> Bridgeremapfinal
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
 	},
+<<<<<<< HEAD
+=======
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Captain"
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "mVs" = (
@@ -16296,7 +16421,12 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
 	},
+<<<<<<< HEAD
 /obj/item/modular_computer/console/preset/medical{
+=======
+/obj/structure/table/reinforced,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+>>>>>>> Bridgeremapfinal
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -17926,12 +18056,21 @@
 /area/crew_quarters/captain)
 "olJ" = (
 /obj/effect/floor_decal/spline/plain,
+<<<<<<< HEAD
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+=======
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "omA" = (
@@ -19205,6 +19344,12 @@
 	dir = 10
 	},
 /obj/structure/flora/pottedplant/random,
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/reinforced,
 /area/bridge/controlroom)
 "piX" = (
@@ -19411,7 +19556,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+<<<<<<< HEAD
 /obj/structure/bed/stool/chair/office/bridge/pilot,
+=======
+/obj/structure/flora/pottedplant/random,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "psa" = (
@@ -19800,10 +19949,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+<<<<<<< HEAD
 /obj/item/device/radio/intercom{
 	dir = 4;
 	pixel_x = -25
 	},
+=======
+>>>>>>> Bridgeremapfinal
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -20049,6 +20201,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "qaI" = (
@@ -20982,8 +21140,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/structure/table/reinforced/steel,
 /obj/item/aicard,
+=======
+/obj/effect/floor_decal/corner/blue{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 1
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "qMs" = (
@@ -21172,6 +21339,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
+<<<<<<< HEAD
+=======
+/obj/structure/table/reinforced/steel,
+/obj/item/aicard,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "qWi" = (
@@ -22092,6 +22264,22 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
 /area/maintenance/bridge)
+<<<<<<< HEAD
+=======
+"rKM" = (
+/obj/effect/floor_decal/spline/plain,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/controlroom)
+>>>>>>> Bridgeremapfinal
 "rLv" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -23206,12 +23394,18 @@
 /area/crew_quarters/heads/hop/xo)
 "suj" = (
 /obj/effect/floor_decal/spline/fancy,
+<<<<<<< HEAD
 /obj/structure/table/reinforced,
 /obj/item/device/radio/off,
 /obj/item/device/radio/off,
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
 /obj/item/crowbar/red,
+=======
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "sum" = (
@@ -23689,9 +23883,12 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+<<<<<<< HEAD
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+=======
+>>>>>>> Bridgeremapfinal
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -23701,6 +23898,10 @@
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 1
 	},
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "sOC" = (
@@ -23851,11 +24052,21 @@
 /area/horizon/crew_armoury)
 "sWA" = (
 /obj/structure/railing/mapped,
+<<<<<<< HEAD
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue/full,
 /obj/structure/table/reinforced,
+=======
+/obj/effect/floor_decal/corner/blue/full,
+/obj/item/modular_computer/console/preset/medical{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "sWB" = (
@@ -24440,6 +24651,18 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/forensic_laboratory)
+<<<<<<< HEAD
+=======
+"tuh" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/controlroom)
+>>>>>>> Bridgeremapfinal
 "tuB" = (
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
@@ -24708,6 +24931,17 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
+<<<<<<< HEAD
+=======
+"tDY" = (
+/obj/effect/floor_decal/spline/fancy{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/carpet/rubber,
+/area/bridge/controlroom)
+>>>>>>> Bridgeremapfinal
 "tFa" = (
 /obj/machinery/light_switch{
 	pixel_x = -9;
@@ -24931,6 +25165,12 @@
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 1
 	},
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "tLh" = (
@@ -25876,6 +26116,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
+<<<<<<< HEAD
+=======
+"uAY" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue/full,
+/obj/machinery/leviathan_safeguard,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/controlroom)
+>>>>>>> Bridgeremapfinal
 "uBf" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -26162,6 +26414,12 @@
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "uKi" = (
@@ -26544,8 +26802,13 @@
 	pixel_x = 24
 	},
 /obj/machinery/camera/network/command{
+<<<<<<< HEAD
 	c_tag = "Bridge - Center 1";
 	dir = 8
+=======
+	dir = 8;
+	c_tag = "Bridge - Center 1"
+>>>>>>> Bridgeremapfinal
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -26650,7 +26913,11 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_three/primary/central)
 "vaz" = (
+<<<<<<< HEAD
 /obj/structure/table/reinforced,
+=======
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "vaL" = (
@@ -26686,6 +26953,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "vbS" = (
@@ -27312,12 +27585,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "vyU" = (
+<<<<<<< HEAD
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/cee{
 	dir = 1
 	},
+=======
+/obj/effect/floor_decal/spline/fancy/cee{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "vzb" = (
@@ -27792,6 +28072,12 @@
 	dir = 1;
 	pixel_y = 24
 	},
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "vQU" = (
@@ -28148,6 +28434,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
+<<<<<<< HEAD
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -28157,6 +28444,20 @@
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 1
 	},
+=======
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/obj/item/folder/blue,
+/obj/item/pen,
+/obj/item/pen/blue{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+>>>>>>> Bridgeremapfinal
 /area/bridge/controlroom)
 "wev" = (
 /obj/machinery/door/airlock/external{
@@ -28853,7 +29154,11 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/machinery/computer/ship/sensors{
+=======
+/obj/machinery/computer/station_alert/all{
+>>>>>>> Bridgeremapfinal
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -29013,6 +29318,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
 "wRl" = (
+<<<<<<< HEAD
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
@@ -29025,6 +29331,11 @@
 /obj/item/modular_computer/console/preset/command{
 	dir = 8
 	},
+=======
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+>>>>>>> Bridgeremapfinal
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_deck3_bridgesafety";
 	name = "Bridge Safety Shutters";
@@ -29051,6 +29362,15 @@
 	pixel_y = -23;
 	req_access = list(19)
 	},
+<<<<<<< HEAD
+=======
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 1
+	},
+/obj/machinery/computer/ship/navigation{
+	dir = 8
+	},
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "wRH" = (
@@ -29533,9 +29853,13 @@
 /area/horizon/hallway/deck_three/primary/central)
 "xiC" = (
 /obj/effect/floor_decal/spline/fancy,
+<<<<<<< HEAD
 /obj/machinery/computer/message_monitor{
 	dir = 1
 	},
+=======
+/obj/structure/table/reinforced,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "xjh" = (
@@ -30040,15 +30364,22 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+<<<<<<< HEAD
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+=======
+>>>>>>> Bridgeremapfinal
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+>>>>>>> Bridgeremapfinal
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "xDX" = (
@@ -50327,14 +50658,22 @@ rCl
 nVG
 pFY
 qxu
+<<<<<<< HEAD
 vbJ
+=======
+olJ
+>>>>>>> Bridgeremapfinal
 xLf
 gcZ
 qJd
 icV
 pqL
 wJY
+<<<<<<< HEAD
 xEZ
+=======
+hfR
+>>>>>>> Bridgeremapfinal
 jxM
 iwi
 jIF
@@ -50530,7 +50869,11 @@ tYp
 cqp
 mcd
 olJ
+<<<<<<< HEAD
 aGi
+=======
+eFH
+>>>>>>> Bridgeremapfinal
 aAl
 qgG
 sFf
@@ -50941,7 +51284,11 @@ lGT
 gCH
 uZD
 uNc
+<<<<<<< HEAD
 oWy
+=======
+vaz
+>>>>>>> Bridgeremapfinal
 xhy
 rmQ
 vkb
@@ -51135,7 +51482,11 @@ caX
 xDz
 asO
 cvj
+<<<<<<< HEAD
 wVS
+=======
+rKM
+>>>>>>> Bridgeremapfinal
 gyt
 wRl
 mbb
@@ -51143,7 +51494,11 @@ cXq
 ldK
 smr
 eFH
+<<<<<<< HEAD
 vaz
+=======
+oWy
+>>>>>>> Bridgeremapfinal
 suj
 mrU
 vkb
@@ -51338,7 +51693,11 @@ gKI
 asO
 vCY
 qaE
+<<<<<<< HEAD
 aGi
+=======
+tDY
+>>>>>>> Bridgeremapfinal
 uJu
 wFE
 mKb
@@ -51540,13 +51899,22 @@ qrI
 asO
 asO
 vQB
+<<<<<<< HEAD
 xLf
+=======
+eFH
+>>>>>>> Bridgeremapfinal
 xiC
 rUs
 xXU
 kAB
+<<<<<<< HEAD
 sWA
 ltT
+=======
+uAY
+tuh
+>>>>>>> Bridgeremapfinal
 phw
 uCJ
 dFe
