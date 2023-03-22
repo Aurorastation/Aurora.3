@@ -142,6 +142,7 @@
 #define ACCENT_SKRELLSOL "Solarian Skrell Standard"
 #define ACCENT_SKRELLCOC "Coalition Skrell Standard"
 #define ACCENT_SKRELLCETI "Biesellite Skrell Standard"
+#define ACCENT_SKRELLEUM "Nral'Daaq"
 #define ACCENT_SROM "Inner Voice"
 #define ACCENT_TATTUQIG "Tattuqig"
 
