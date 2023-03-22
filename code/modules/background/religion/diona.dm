@@ -31,3 +31,19 @@
   working for Zeng-Hu due to the megacorporations ties with the Federation."
   book_name = "shrkh codex"
   book_sprite = "holybook"
+
+/datum/religion/mada
+  name = RELIGION_MADA
+  description = "The Mada religion, translated as Maraka, is practiced by the majority of Mada citizens and has two core tenants central to its practitioners; Spirits are /
+  created through the continued absorption of sunlight, the more sunlight absorbed the stronger these spirits become, chlorophyll and anything capable of producing it are /
+  considered blessed, as they have an increased potency when it comes to creating powerful spirits, doubly so if nurtured and protected. This means that most forms of plant /
+  life are considered holy to the Maraka religion, harming or killing a developing or still-living plant is considered taboo, but once naturally dead there’s no issue with /
+  consuming it or utilizing it for any other purpose."
+  book_name = "maraka writ"
+  book_sprite = "holybook"
+  
+  /datum/religion/gleaners
+  name = RELIGION_GLEANERS
+  description = "A faith focusing on the worship of the sun and stars originating from EUM.
+  book_name = "lights accord writ"
+  book_sprite = "holybook"
