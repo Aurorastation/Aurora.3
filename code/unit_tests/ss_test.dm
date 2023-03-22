@@ -19,7 +19,7 @@
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY | RUNLEVEL_INIT
 
 /datum/controller/subsystem/unit_tests/Initialize(timeofday)
-	log_unit_test("Initializing Unit Testing")
+	TEST_NOTICE("Initializing Unit Testing")
 
 	//
 	//Start the Round.
@@ -33,17 +33,17 @@
 
 		queue += D
 
-	log_unit_test("[queue.len] unit tests loaded.")
-	..()
+	TEST_DEBUG("[queue.len] unit tests loaded.")
+	. = ..()
 
 /datum/controller/subsystem/unit_tests/proc/start_game()
 	if (SSticker.current_state == GAME_STATE_PREGAME)
 		SSticker.current_state = GAME_STATE_SETTING_UP
 
-		log_unit_test("Round has been started.")
+		TEST_NOTICE("Round has been started.")
 		stage++
 	else
-		log_unit_test("Unable to start testing; SSticker.current_state=[SSticker.current_state]!")
+		TEST_FAIL("Unable to start testing; SSticker.current_state=[SSticker.current_state]!")
 		del world
 
 /datum/controller/subsystem/unit_tests/proc/handle_tests()
@@ -53,19 +53,19 @@
 		curr.len--
 
 		if (test.map_path && current_map && current_map.path != test.map_path)
-			test.pass("[ascii_red]Check Disabled: This test is not allowed to run on this map.")
+			TEST_PASS("[ascii_red]Check Disabled: This test is not allowed to run on this map.")
 			if (MC_TICK_CHECK)
 				return
 			continue
 
 		if (test.disabled)
-			test.pass("[ascii_red]Check Disabled: [test.why_disabled]")
+			TEST_PASS("[ascii_red]Check Disabled: [test.why_disabled]")
 			if (MC_TICK_CHECK)
 				return
 			continue
 
 		if (test.start_test() == null)	// Runtimed.
-			test.fail("Test Runtimed")
+			TEST_FAIL("Test [test.name] Runtimed")
 		if (test.async)
 			async_tests += test
 
@@ -112,9 +112,9 @@
 
 		if (4)	// Finalization.
 			if(all_unit_tests_passed)
-				log_unit_test("[ascii_green]**** All Unit Tests Passed \[[total_unit_tests]\] ****[ascii_reset]")
+				TEST_PASS("[ascii_green]**** All Unit Tests Passed \[[total_unit_tests]\] ****[ascii_reset]")
 			else
-				log_unit_test("[ascii_red]**** \[[failed_unit_tests]\\[total_unit_tests]\] Unit Tests Failed ****[ascii_reset]")
+				TEST_FAIL("[ascii_red]**** \[[failed_unit_tests]\\[total_unit_tests]\] Unit Tests Failed ****[ascii_reset]")
 			del world
 
 #endif

@@ -257,4 +257,4 @@
 	//This shouldn't be needed, but let's be polite
 	SSgarbage.collection_timeout = initial(SSgarbage.collection_timeout)
 
-	return result ? result : pass("All paths are created and destroyed successfully, without hard deletions or other unwanted behaviors")
+	return result ? result : TEST_PASS("All paths are created and destroyed successfully, without hard deletions or other unwanted behaviors")

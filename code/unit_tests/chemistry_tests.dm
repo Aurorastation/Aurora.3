@@ -19,8 +19,8 @@ datum/unit_test/specific_heat/start_test()
 			error_count++
 
 	if(error_count)
-		fail("[error_count] reagents(s) found without a proper specific heat value. Assign a specific heat value or make a recipe with these reagents as the final product.")
+		TEST_FAIL("[error_count] reagents(s) found without a proper specific heat value. Assign a specific heat value or make a recipe with these reagents as the final product.")
 	else
-		pass("All reagents have a specific heat value.")
+		TEST_PASS("All reagents have a specific heat value.")
 
 	return 1
