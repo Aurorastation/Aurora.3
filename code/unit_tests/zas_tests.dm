@@ -194,35 +194,44 @@ datum/unit_test/zas_area_test/mining_area
 	name = "ZAS: Roundstart Active Edges"
 
 /datum/unit_test/zas_active_edges/start_test()
-	if(SSair.active_edges.len)
-		TEST_FAIL("[SSair.active_edges.len] edges active at round-start!")
-	else
+
+	// Nothing went wrong (this time...)
+	if(!(SSair.active_edges.len))
 		TEST_PASS("No active ZAS edges at round-start.")
-		return TRUE
+		return UNIT_TEST_PASSED
+
+
+	/**Something went wrong
+	 * compose a message and fail the test, let the poor soul try to figure out where the issue is, assuming it's not intermittent
+	 */
+	var/fail_message = "[SSair.active_edges.len] edges active at round-start!\n"
 	for(var/connection_edge/E in SSair.active_edges)
 		var/connection_edge/unsimulated/U = E
 		if(istype(U))
 			var/turf/T = U.B
 			if(istype(T))
-				log_unit_test("[ascii_red]---- [U.A.name] and [T.name] ([T.x], [T.y], [T.z]) have mismatched gas mixtures![ascii_reset]")
+				fail_message += "--> [U.A.name] and [T.name] ([T.x], [T.y], [T.z]) have mismatched gas mixtures! <--\n"
 			else
-				log_unit_test("[ascii_red]----[U.A.name] and [U.B] have mismatched gas mixtures![ascii_reset]")
+				fail_message += "--> [U.A.name] and [U.B] have mismatched gas mixtures! <--\n"
 
 			var/zone/A = U.A
-			var/offending_turfs = "Problem turfs: "
+			var/offending_turfs = "Problem turfs: \n"
 			for(var/turf/simulated/S in A.contents)
 				if(S.oxygen || S.nitrogen)
-					offending_turfs += "[S] ([S.x], [S.y], [S.z]) "
+					offending_turfs += "[S] ([S.x], [S.y], [S.z])\t"
 
-			log_unit_test("[ascii_red]-------- [offending_turfs][ascii_reset]")
+			fail_message += "[offending_turfs]"
+
 		else
 			var/connection_edge/zone/Z = E
 			var/zone/problem
 			if(!istype(Z))
 				return
-			log_unit_test("[ascii_red]---- [Z.A.name] and [Z.B.name] have mismatched gas mixtures![ascii_reset]")
+
+			fail_message += "--> [Z.A.name] and [Z.B.name] have mismatched gas mixtures! <--\n"
+
 			if(Z.A.air.gas.len && Z.B.air.gas.len)
-				log_unit_test("[ascii_red]-------- Both zones have gas mixtures defined; either one is a normally vacuum zone exposed to a breach, or two differing gases are mixing at round-start.[ascii_reset]")
+				fail_message += "--> Both zones have gas mixtures defined; either one is a normally vacuum zone exposed to a breach, or two differing gases are mixing at round-start. <--\n"
 				continue
 			else if(Z.A.air.gas.len)
 				problem = Z.A
@@ -235,12 +244,12 @@ datum/unit_test/zas_area_test/mining_area
 			var/offending_turfs = "Problem turfs: "
 			for(var/turf/simulated/S in problem.contents)
 				if(S.oxygen || S.nitrogen)
-					offending_turfs += "[S] ([S.x], [S.y], [S.z]) "
+					offending_turfs += "[S] ([S.x], [S.y], [S.z])\t"
 
-			log_unit_test("[ascii_red]-------- [offending_turfs][ascii_reset]")
+			fail_message += "[offending_turfs]"
 
-
-	return FALSE
+	TEST_FAIL("[fail_message]")
+	return UNIT_TEST_FAILED
 
 #undef UT_NORMAL
 #undef UT_VACUUM
