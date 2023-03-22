@@ -55,6 +55,8 @@
 	cigarettes["Working Tajara cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/pra
 	cigarettes["Shastar Leaves cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dpra
 	cigarettes["Royal Choice cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nka
+	cigarettes["Nralakk Federation cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/federation
+	cigarettes["Traverse cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/traverse
 	gear_tweaks += new /datum/gear_tweak/path(cigarettes)
 
 /datum/gear/smoking/chew

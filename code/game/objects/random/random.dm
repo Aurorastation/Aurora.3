@@ -229,7 +229,9 @@
 		/obj/item/storage/box/fancy/cigarettes/rugged = 10,
 		/obj/item/storage/box/fancy/cigarettes/pra = 5,
 		/obj/item/storage/box/fancy/cigarettes/dpra = 2,
-		/obj/item/storage/box/fancy/cigarettes/nka = 2
+		/obj/item/storage/box/fancy/cigarettes/nka = 2,
+		/obj/item/storage/box/fancy/cigarettes/federation = 2,
+		/obj/item/storage/box/fancy/cigarettes/traverse = 2
 	)
 
 /obj/random/energy

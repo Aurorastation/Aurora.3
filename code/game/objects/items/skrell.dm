@@ -281,3 +281,18 @@
 	flippable = FALSE
 	v_flippable = FALSE
 	badge_string = null
+
+/obj/item/storage/box/fancy/cigarettes/federation
+	name = "\improper Nralakk Federation cigarette packet"
+	desc = "Nralakk Federation cigarette description (placeholder)."
+	desc_extended = "Imported from the Nralakk Federation."
+	icon_state = "nfpacket"
+	item_state = "nfpacket"
+
+/obj/item/storage/box/fancy/cigarettes/traverse
+	name = "\improper Traverse cigarette packet"
+	desc = "Traverse cigarette description (placeholder)."
+	desc_extended = "Imported from the Traverse."
+	icon_state = "twpacket"
+	item_state = "twpacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/wulumunusha
