@@ -21,6 +21,7 @@
 	var/surfacegravity = "0.99"								//Should use Gs as measurement
 	var/charted = "No database entry- likely uncharted."	//If it's on star charts or not, and who found it plus when
 	var/geology = "Dormant, unreadable tectonic activity"	//Anything unique about tectonics and its core activity
+	var/weather = "No substantial meteorological readings"	//Anything unique about terrestrial weather conditions
 	var/surfacewater = "NA/None Visible"					//Water visible on the surface
 
 	var/maxx
