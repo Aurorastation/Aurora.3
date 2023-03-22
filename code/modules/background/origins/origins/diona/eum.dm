@@ -32,7 +32,7 @@
 	desc = "Playing host to the vast majority of the planet’s non-dionae population, Nral’Daaq is a city-state under the CT-EUM that is known for being the planet’s hub of off-world trading, as well as for its quite diverse majority-skrell population, with both Pro-Federation and Anti-Federation Skrell calling the city home. Due to the city’s border with the sea, Nral’Daaq is also a quite popular trading spot for the Ekane, with the vast majority of their goods ending up in the city to be later resold off-world. "
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_ANCIENTSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_ETERNAL, RELIGION_MADA, RELIGION_GLEANERS, RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGU, RELIGION_OTHER, RELIGION_NONE)
+	possible_religions = list(RELIGION_ETERNAL, RELIGION_MADA, RELIGION_GLEANERS, RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
 	
 /singleton/origin_item/origin/mada
 	name = "Mada"
@@ -54,7 +54,7 @@
 	important_information = "As a result of the station's recent founding and taking on of residents from all across the planet, Celestial Station Dionae tend to share some characteristics with the other city-states."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_ANCIENTSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	Possible_religions = list(RELIGION_ETERNAL, RELIGION_MADA, RELIGION_GLEANERS, RELIGION_OTHER, RELIGION_NONE)
+	possible_religions = list(RELIGION_ETERNAL, RELIGION_MADA, RELIGION_GLEANERS, RELIGION_OTHER, RELIGION_NONE)
 	
 /singleton/origin_item/origin/eumminor
 	name = "Minor City State"
@@ -62,4 +62,4 @@
 	important_information = "This is for player-created citystates in the CT-EUM, just keep it reasponable."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_ANCIENTSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	ossible_religions = list(RELIGION_ETERNAL, RELIGION_MADA, RELIGION_GLEANERS, RELIGION_OTHER, RELIGION_NONE)
+	pssible_religions = list(RELIGION_ETERNAL, RELIGION_MADA, RELIGION_GLEANERS, RELIGION_OTHER, RELIGION_NONE)
