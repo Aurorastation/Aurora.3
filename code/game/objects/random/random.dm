@@ -1237,7 +1237,7 @@
 		/obj/item/clothing/head/hardhat/orange = 1,
 		/obj/item/clothing/head/hardhat/red = 1,
 		/obj/item/clothing/head/hardhat/green = 1,
-		/obj/item/clothing/head/hardhat/blue = 1,
+		/obj/item/clothing/head/hardhat/dblue = 1,
 		/obj/item/clothing/head/hardhat/white = 0.5,
 		/obj/item/clothing/head/hardhat/atmos = 0.1,
 		/obj/item/clothing/head/hardhat/first_responder = 0.1,
