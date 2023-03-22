@@ -204,11 +204,11 @@
 		return
 
 	if (reagents.total_volume > 500)
-		explosion(src.loc,1,2,4)
+		explosion(src.loc,0,3,6)
 	else if (reagents.total_volume > 100)
-		explosion(src.loc,0,1,3)
+		explosion(src.loc,0,2,4)
 	else if (reagents.total_volume > 50)
-		explosion(src.loc,-1,1,2)
+		explosion(src.loc,-1,1,3)
 
 	..()
 
