@@ -34,6 +34,13 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	scanimage = "tcfl_cetus.png"
+	designer = "NanoTrasen, Stellar Corporate Conglomerate"
+	volume = "51 meters length, 42 meters beam/width, 12 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Two extruding wing mounted naval ballistic weapon mounts, aft obscured flight craft bay"
+	sizeclass = "Cetus Class Corvette"
+	shiptype = "Military patrol and combat utility"
 	initial_restricted_waypoints = list(
 		"TCFL Shuttle" = list("nav_hangar_tcfl")
 	)

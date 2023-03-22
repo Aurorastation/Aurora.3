@@ -2,6 +2,7 @@
 	name = "grove exoplanet"
 	desc = "Planet with abundant, peaceful flora and fauna."
 	color = "#346934"
+	scanimage = "grove.png"
 	planetary_area = /area/exoplanet/grass/grove
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	grass_color = null

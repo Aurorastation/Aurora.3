@@ -2,6 +2,7 @@
 	name = "barren exoplanet"
 	desc = "An exoplanet that couldn't hold its atmosphere."
 	color = "#ad9c9c"
+	scanimage = "barren.png"
 	planetary_area = /area/exoplanet/barren
 	rock_colors = list(COLOR_BEIGE, COLOR_GRAY80, COLOR_BROWN)
 	possible_themes = list(/datum/exoplanet_theme/mountains)

@@ -34,6 +34,13 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	scanimage = "tramp_freighter.png"
+	designer = "Independent, Unknown"
+	volume = "49 meters length, 46 meters beam/width, 12 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Starboard low-end ballistic weapon mount, aft obscured flight craft bay"
+	sizeclass = "Catspaw Class Freighter"
+	shiptype = "Long-term shipping utilities"
 	initial_restricted_waypoints = list(
 		"Freight Shuttle" = list("nav_hangar_tramp")
 	)

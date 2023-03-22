@@ -77,6 +77,11 @@
 	color = "#ab46d4"
 	rock_colors = list("#373737")
 	planetary_area = /area/exoplanet/barren/raskara
+	scanimage = "raskara.png"
+	massvolume = "0.27/0.39"
+	surfacegravity = "0.25"
+	charted = "Natural satellite of Tajaran homeworld, charted 2418CE, NanoTrasen Corporation"
+	geology = "Zero tectonic heat, completely dormant geothermal signature. Presumed dead core"
 	possible_themes = list(/datum/exoplanet_theme/mountains)
 	map_generators = list(/datum/random_map/noise/exoplanet/barren/raskara, /datum/random_map/noise/ore)
 	features_budget = 1
@@ -121,6 +126,12 @@
 	icon_state = "globe2"
 	color = "#b5dfeb"
 	planetary_area = /area/exoplanet/adhomai
+	scanimage = "adhomai.png"
+	massvolume = "0.86/0.98"
+	surfacegravity = "0.80"
+	charted = "Tajaran homeworld, charted 2418CE, NanoTrasen Corporation"
+	geology = "Minimal tectonic heat, miniscule geothermal signature overall"
+	surfacewater = "Majority frozen, 78% surface water. Significant tidal forces from natural satellite"
 	rock_colors = null
 	plant_colors = null
 	possible_themes = list(/datum/exoplanet_theme/mountains/adhomai)

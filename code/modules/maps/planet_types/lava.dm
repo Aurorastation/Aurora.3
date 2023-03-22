@@ -2,6 +2,7 @@
 	name = "lava exoplanet"
 	desc = "An exoplanet with a lot of volcanic activity."
 	color = "#575d5e"
+	scanimage = "lava.png"
 	planetary_area = /area/exoplanet/barren
 	rock_colors = list(COLOR_DARK_GRAY)
 	possible_themes = list(/datum/exoplanet_theme/mountains)
