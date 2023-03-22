@@ -31,7 +31,7 @@
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_EUM)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
 	
-/decl/origin_item/origin/skrell_eum
+/singleton/origin_item/origin/skrell_eum
 	name = "Co-operative Territories of Epsilon Ursea Minoris"
 	desc = "The Federation and CT-EUM have had close ties since the two nations first came into contact. Most Skrell living within CT-EUM are immigrants, living in the city-state of Nral'Daaq, but there is a growing group of Skrell who were born and raised on Epsilon Ursea Minoris."
 	important_information = "The Nralakk Federation has close ties to CT-EUM, and Skrell living here run the risk of being deported for anti-Federation actions. Skrell who were born within CT-EUM must be born on or after 2390."
