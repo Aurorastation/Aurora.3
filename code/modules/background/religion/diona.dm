@@ -44,6 +44,6 @@
   
   /datum/religion/gleaners
   name = RELIGION_GLEANERS
-  description = "A faith focusing on the worship of the sun and stars originating from EUM.
+  description = "A faith focusing on the worship of the sun and stars originating from EUM."
   book_name = "lights accord writ"
   book_sprite = "holybook"
