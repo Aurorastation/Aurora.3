@@ -1410,7 +1410,7 @@
 #include "code\modules\background\accent\unathi.dm"
 #include "code\modules\background\accent\vaurca.dm"
 #include "code\modules\background\citizenship\citizenship.dm"
-#include "code\modules\background\citizenship\diona.dm"
+#include "code\modules\background\citizenship\dionad.dm"
 #include "code\modules\background\citizenship\human.dm"
 #include "code\modules\background\citizenship\ipc.dm"
 #include "code\modules\background\citizenship\skrell.dm"
