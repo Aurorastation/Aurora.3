@@ -31,7 +31,7 @@
 
 /// Groups management
 #define TEST_GROUP_OPEN(name) world.log << "::group::"+##name
-#define TEST_GROUP_CLOSE (world.log << "::endgroup::")
+#define TEST_GROUP_CLOSE(message) (world.log << ##message + "\n::endgroup::")
 
 /// Asserts that a condition is true
 /// If the condition is not true, fails the test
