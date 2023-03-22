@@ -295,4 +295,4 @@
 	desc_extended = "Imported from the Traverse."
 	icon_state = "twpacket"
 	item_state = "twpacket"
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/wulumunusha
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dyn

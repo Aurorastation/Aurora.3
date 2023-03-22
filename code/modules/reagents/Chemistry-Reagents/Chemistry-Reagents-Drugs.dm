@@ -364,10 +364,6 @@
 	condiment_desc = "A small dropper bottle full of a stoner's paradise. A warning label warns of muteness as a side effect."
 	condiment_icon_state = "wuluextract"
 
-
-/singleton/reagent/wulumunusha/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
-	to_chat(M, SPAN_GOOD(pick("Your eyes open wide and you look upon this new world you now see.", "You close your eyes, and when they open, everything appears so much more vibrant.")))
-
 /singleton/reagent/wulumunusha/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.druggy = max(M.druggy, 100)
 	M.silent = max(M.silent, 5)

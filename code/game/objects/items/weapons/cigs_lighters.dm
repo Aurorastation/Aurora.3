@@ -415,14 +415,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		/singleton/reagent/mental/nicotine = 5
 	)
 
-/obj/item/clothing/mask/smokable/cigarette/skrell
-	name =  "skrellian cigarette"
-	desc = "A cigarette from the Traverse made with processed wulumunusha."
+/obj/item/clothing/mask/smokable/cigarette/dyn
+	name =  "dyn cigarette"
+	desc = "A mentholated cigarette from the Traverse made with processed dyn."
 	reagents_to_add = list(
-		/singleton/reagent/wulumunusha = 5,
-		/singleton/reagent/tobacco = 5,
-		/singleton/reagent/mental/nicotine = 5
+		/singleton/reagent/toxin/tobacco = 5,
+		/singleton/reagent/mental/nicotine = 5,
+		/singleton/reagent/drink/dynjuice = 5,
 	)
+
+/obj/item/clothing/mask/smokable/cigarette/wulumunusha
+	name = "wulumunusha cigarette"
+	desc = "A placeholder description."
+	reagents_to_add = list(/singleton/reagent/wulumunusha = 15)
 
 ////////////
 // CIGARS //
