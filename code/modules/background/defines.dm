@@ -145,6 +145,7 @@
 
 #define ACCENT_ROOTSONG "Rootsong"
 #define ACCENT_VOIDSONG "Voidsong"
+#define ACCENT_ANCIENTSONG "Ancientsong"
 
 #define ACCENT_TTS "Text-to-Speech"
 
