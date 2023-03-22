@@ -8,8 +8,30 @@
 #define UNIT_TEST_PASSED 1
 #define UNIT_TEST_SKIPPED 2 //Currently not implemented
 
+/**
+ * Macros used to log the Unit Test messages
+ */
+
 #define TEST_FAIL(reason) (fail(reason || "No reason", __FILE__, __LINE__))
 #define TEST_PASS(reason) (pass(reason || "No reason", __FILE__, __LINE__))
+
+/// Logs a warning message, to be used when something is important to be known to the reader, like a test that did not run,
+/// but not a failure or something that necessarily indicates an issue
+#define TEST_WARN(message) warn(##message, __FILE__, __LINE__)
+
+
+/// Logs a notice, comething that is good to be known to a scrutinizing eye, without being obnoxious
+/// Do not use this with long lists or internals that most people would never care about for the vast majority of the time
+#define TEST_NOTICE(message) notice(##message, __FILE__, __LINE__)
+
+
+/// Logs debug messages of the test run, this is NOT normally visible in GitHub, the test has to be run in debug mode (on the GitHub actions) for that.
+/// To be used to log debugging, internals information
+#define TEST_DEBUG(message) debug(##message, __FILE__, __LINE__)
+
+/// Groups management
+#define TEST_GROUP_OPEN(name) world.log << "::group::"+##name
+#define TEST_GROUP_CLOSE (world.log << "::endgroup::")
 
 /// Asserts that a condition is true
 /// If the condition is not true, fails the test
@@ -40,27 +62,6 @@
 		return fail("Expected [isnull(lhs) ? "null" : lhs] to not be equal to [isnull(rhs) ? "null" : rhs].[message ? " [message]" : ""]", __FILE__, __LINE__); \
 	} \
 } while (FALSE)
-
-/// *Only* run the test provided within the parentheses
-/// This is useful for debugging when you want to reduce noise, but should never be pushed
-/// Intended to be used in the manner of `TEST_FOCUS(/datum/unit_test/math)`
-#define TEST_FOCUS(test_path) ##test_path { focus = TRUE; }
-
-
-/// Logs a noticable warning message
-#define TEST_WARN(message) warn(##message, __FILE__, __LINE__)
-
-
-/// Logs a noticable message on GitHub, but will not mark as an error.
-/// Use this when something shouldn't happen and is of note, but shouldn't block CI.
-/// Does not mark the test as failed.
-#define TEST_NOTICE(message) notice(##message, __FILE__, __LINE__)
-
-/**
- * Logs debug messages of the test run, useful for when you wish to show things being done
- */
-#define TEST_DEBUG(message) debug(##message, __FILE__, __LINE__)
-
 
 #define TEST_PRE 0
 #define TEST_DEFAULT 1

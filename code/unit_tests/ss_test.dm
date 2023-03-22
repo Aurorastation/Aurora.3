@@ -64,8 +64,11 @@
 				return
 			continue
 
+		TEST_GROUP_OPEN(test.name)
 		if (test.start_test() == null)	// Runtimed.
 			test.fail("Test Runtimed")
+		TEST_GROUP_CLOSE()
+
 		if (test.async)
 			async_tests += test
 
@@ -86,8 +89,10 @@
 		var/datum/unit_test/test = current_async[current_async.len]
 		current_async.len--
 
+		TEST_GROUP_OPEN(test.name)
 		if (test.check_result())
 			async_tests -= test
+		TEST_GROUP_CLOSE()
 
 		if (MC_TICK_CHECK)
 			return
