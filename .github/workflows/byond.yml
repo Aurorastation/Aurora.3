@@ -46,7 +46,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
     strategy:
       matrix:
-        map: [runtime, aurora, sccv_horizon, away_sites_testing]
+        map: [runtime, aurora, sccv_horizon, away_sites_testing, exoplanet_testing]
       fail-fast: false
     runs-on: ubuntu-20.04
     needs: lint
