@@ -62,4 +62,4 @@
 	important_information = "This is for player-created citystates in the CT-EUM, just keep it reasponable."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_ANCIENTSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	pssible_religions = list(RELIGION_ETERNAL, RELIGION_MADA, RELIGION_GLEANERS, RELIGION_OTHER, RELIGION_NONE)
+	possible_religions = list(RELIGION_ETERNAL, RELIGION_MADA, RELIGION_GLEANERS, RELIGION_OTHER, RELIGION_NONE)
