@@ -12,11 +12,20 @@
 	allowed_spawns = list()
 
 	use_overmap = TRUE
+	planet_size = list(255, 255)
 
 	excluded_test_types = list(
 		/datum/unit_test/zas_area_test,
 		/datum/unit_test/foundation/step_shall_return_true_on_success
 	)
+
+/obj/effect/overmap/visitable/sector/away_sites_testing
+	name = "Away Sites Testing Facility"
+	desc = "You shouldn't be seeing this. But c'est la vie."
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "runtime_penal_colony"
+	color = COLOR_STEEL
+	base = TRUE
 
 /datum/map/away_sites_testing/build_exoplanets()
 	var/list/all_ruins = list()
@@ -42,8 +51,8 @@
 			if(initial(E.ruin_planet_type) in types_needed)
 				planets_to_spawn += EP
 		all_ruins = build_exoplanets_for_testing(all_ruins, planets_to_spawn)
-		if(!planets_to_spawn || (sanity_count > 10))
-			testing("[ascii_red]FAILED SPAWNING RUINS:[ascii_reset] [sanity_count > 10 ? "EXCEEDED SANITY COUNT" : "NO VALID PLANETS"] for ruins [english_list(all_ruins)]")
+		if(!planets_to_spawn || (sanity_count > 3))
+			testing("[ascii_red]FAILED SPAWNING RUINS:[ascii_reset] [sanity_count > 3 ? "EXCEEDED SANITY COUNT" : "NO VALID PLANETS"] for ruins [english_list(all_ruins)]")
 			break
 
 /datum/map/away_sites_testing/proc/build_exoplanets_for_testing(list/ruins_to_test = list(), list/exoplanet_types = subtypesof(/obj/effect/overmap/visitable/sector/exoplanet))
@@ -69,7 +78,7 @@
 	generate_habitability()
 	generate_atmosphere()
 	generate_map()
-	spawned_features = seedRuins(map_z, features_budget, ruins_to_spawn, /area/exoplanet, maxx, maxy)
+	spawned_features = seedRuins(map_z, features_budget, ruins_to_spawn, /area/exoplanet, maxx, maxy, ignore_sector = TRUE)
 	generate_landing(2)
 	update_biome()
 	generate_daycycle()
