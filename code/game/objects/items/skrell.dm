@@ -283,16 +283,38 @@
 	badge_string = null
 
 /obj/item/storage/box/fancy/cigarettes/federation
-	name = "\improper Nralakk Federation cigarette packet"
+	name = "\improper Eriuyushi Sunset cigarette packet"
 	desc = "Nralakk Federation cigarette description (placeholder)."
 	desc_extended = "Imported from the Nralakk Federation."
 	icon_state = "nfpacket"
 	item_state = "nfpacket"
 
-/obj/item/storage/box/fancy/cigarettes/traverse
-	name = "\improper Traverse cigarette packet"
+/obj/item/storage/box/fancy/cigarettes/dyn
+	name = "\improper Xaqixal Dyn Fields cigarette packet"
 	desc = "Traverse cigarette description (placeholder)."
 	desc_extended = "Imported from the Traverse."
-	icon_state = "twpacket"
-	item_state = "twpacket"
+	icon_state = "dynpacket"
+	item_state = "dynpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dyn
+
+/obj/item/storage/box/fancy/cigarettes/wulu
+	name = "wulumunusha joint pouch"
+	desc = "Wulu cigarette description (placeholder)."
+	desc_extended = "Imported from the Traverse."
+	icon_state = "wulupacket"
+	item_state = "wulupacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/wulu
+
+/obj/item/storage/chewables/tobacco/federation
+	name = "tin of Leviathan Chew"
+	desc = "placeholder description"
+	icon_state = "chew_fed"
+	item_state = "chew_fed"
+	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/generic = 6)
+
+/obj/item/storage/chewables/tobacco/dyn
+	name = "tin of Weibi's Breeze"
+	desc = "placeholder description"
+	icon_state = "chew_dyn"
+	item_state = "chew_dyn"
+	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/menthol = 6)

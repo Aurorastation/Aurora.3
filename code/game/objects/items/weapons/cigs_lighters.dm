@@ -424,7 +424,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		/singleton/reagent/drink/dynjuice = 5,
 	)
 
-/obj/item/clothing/mask/smokable/cigarette/wulumunusha
+/obj/item/clothing/mask/smokable/cigarette/wulu
 	name = "wulumunusha cigarette"
 	desc = "A placeholder description."
 	reagents_to_add = list(/singleton/reagent/wulumunusha = 15)
