@@ -102,7 +102,7 @@ var/ascii_reset = "[ascii_esc]\[0m"
 	if(title)
 		printstring += " title=[title]"
 
-	printstring += "::[message]; Generated @ File: [filename] - Line: [line]"
+	printstring += "::[message] → " + TEST_OUTPUT_U_CYAN("@@@[filename]:[line]")
 
 
 	world.log <<  printstring

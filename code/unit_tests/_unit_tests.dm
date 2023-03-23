@@ -13,6 +13,7 @@
  */
 
 #define TEST_OUTPUT_HI_BLUE(text) "\x1B\x5B0;94m[text]\x1B\x5B0m"
+#define TEST_OUTPUT_U_CYAN(text) "\x1B\x5B4;36m[text]\x1B\x5B0m"
 
 
 /**
