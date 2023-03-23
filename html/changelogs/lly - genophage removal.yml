@@ -1,0 +1,7 @@
+author: Llywelwyn
+
+delete-after: True
+
+changes:
+  - tweak: "Replaces all mentions of 'genophage' with 'X'Lu'oa'."
+  - tweak: "Replaces all remaining mentions of 'Jargon Federation' with 'Nralakk Federation'."

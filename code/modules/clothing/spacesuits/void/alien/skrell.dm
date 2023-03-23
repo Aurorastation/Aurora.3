@@ -50,7 +50,7 @@
 
 /obj/item/clothing/suit/space/void/kala
 	name = "qukala voidsuit"
-	desc = "A sleek skrell voidsuit that slightly shimmers as it moves. This one has a Jargon Federation emblem on it."
+	desc = "A sleek skrell voidsuit that slightly shimmers as it moves. This one has a Nralakk Federation emblem on it."
 	icon = 'icons/clothing/kit/skrell_armor.dmi'
 	icon_state = "kala_suit"
 	item_state = "kala_suit"
@@ -68,7 +68,7 @@
 
 /obj/item/clothing/head/helmet/space/void/kala
 	name = "qukala voidsuit helmet"
-	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Jargon Federation emblem on it."
+	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Nralakk Federation emblem on it."
 	icon = 'icons/clothing/kit/skrell_armor.dmi'
 	icon_state = "kala_helm"
 	item_state = "kala_helm"
@@ -86,36 +86,36 @@
 
 /obj/item/clothing/suit/space/void/kala/med
 	name = "qukala medical voidsuit"
-	desc = "A sleek skrell voidsuit that slightly shimmers as it moves. This one has a Jargon Federation emblem on it. This one belongs to a Qukala medic."
+	desc = "A sleek skrell voidsuit that slightly shimmers as it moves. This one has a Nralakk Federation emblem on it. This one belongs to a Qukala medic."
 	icon_state = "kala_med"
 	item_state = "kala_med"
 
 /obj/item/clothing/head/helmet/space/void/kala/med
 	name = "qukala medical voidsuit helmet"
-	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Jargon Federation emblem on it. This one belongs to a Qukala medic."
+	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Nralakk Federation emblem on it. This one belongs to a Qukala medic."
 	icon_state = "kala_helm_med"
 	item_state = "kala_helm_med"
 
 /obj/item/clothing/suit/space/void/kala/leader
 	name = "qukala leader voidsuit"
-	desc = "A sleek skrell voidsuit that slightly shimmers as it moves. This one has a Jargon Federation emblem on it. This one belongs to a Qukala leader."
+	desc = "A sleek skrell voidsuit that slightly shimmers as it moves. This one has a Nralakk Federation emblem on it. This one belongs to a Qukala leader."
 	icon_state = "kala_leader"
 	item_state = "kala_leader"
 
 /obj/item/clothing/head/helmet/space/void/kala/leader
 	name = "qukala leader voidsuit helmet"
-	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Jargon Federation emblem on it. This one belongs to a Qukala leader."
+	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Nralakk Federation emblem on it. This one belongs to a Qukala leader."
 	icon_state = "kala_leader_helm"
 	item_state = "kala_leader_helm"
 
 /obj/item/clothing/suit/space/void/kala/engineering
 	name = "qukala engineer voidsuit"
-	desc = "A sleek skrell voidsuit that slightly shimmers as it moves. This one has a Jargon Federation emblem on it. This one belongs to a Qukala engineer."
+	desc = "A sleek skrell voidsuit that slightly shimmers as it moves. This one has a Nralakk Federation emblem on it. This one belongs to a Qukala engineer."
 	icon_state = "kala_eng"
 	item_state = "kala_eng"
 
 /obj/item/clothing/head/helmet/space/void/kala/engineering
 	name = "qukala engineer voidsuit helmet"
-	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Jargon Federation emblem on it. This one belongs to a Qukala engineer."
+	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Nralakk Federation emblem on it. This one belongs to a Qukala engineer."
 	icon_state = "kala_helm_eng"
 	item_state = "kala_helm_eng"
