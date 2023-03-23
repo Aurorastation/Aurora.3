@@ -13,7 +13,7 @@
  */
 
 #define TEST_OUTPUT_HI_BLUE(text) "\x1B\x5B0;94m[text]\x1B\x5B0m"
-#define TEST_OUTPUT_BI_GREEN(text) "\x1B\x5B0;94m[text]\x1B\x5B0m"
+
 
 /**
  * Macros used to log the Unit Test messages
@@ -37,8 +37,8 @@
 #define TEST_DEBUG(message) debug(##message, __FILE__, __LINE__)
 
 /// Groups management
-#define TEST_GROUP_OPEN(name) world.log << TEST_OUTPUT_HI_BLUE("\t UNIT TEST " + ##name + " IS NOW STARTING") //world.log << "::group::"+##name
-#define TEST_GROUP_CLOSE(message) world.log << TEST_OUTPUT_HI_BLUE("\t UNIT TEST " + ##message + " HAS FINISHED") //world.log << ##message + "\n::endgroup::"
+#define TEST_GROUP_OPEN(name) world.log << TEST_OUTPUT_HI_BLUE("----> UNIT TEST \[" + ##name + "\] <----") //world.log << "::group::"+##name
+#define TEST_GROUP_CLOSE(message) world.log << TEST_OUTPUT_HI_BLUE("\n") //world.log << ##message + "\n::endgroup::"
 
 /// Asserts that a condition is true
 /// If the condition is not true, fails the test
@@ -76,19 +76,3 @@
 #define TEST_LONGER 10
 /// This must be the last test to run due to the inherent nature of the test iterating every single tangible atom in the game and qdeleting all of them (while taking long sleeps to make sure the garbage collector fires properly) taking a large amount of time.
 #define TEST_CREATE_AND_DESTROY INFINITY
-
-/// Change color to red on ANSI terminal output, if enabled with -DANSICOLORS.
-#ifdef ANSICOLORS
-#define TEST_OUTPUT_RED(text) "\x1B\x5B1;31m[text]\x1B\x5B0m"
-#else
-#define TEST_OUTPUT_RED(text) (text)
-#endif
-/// Change color to green on ANSI terminal output, if enabled with -DANSICOLORS.
-#ifdef ANSICOLORS
-#define TEST_OUTPUT_GREEN(text) "\x1B\x5B1;32m[text]\x1B\x5B0m"
-#else
-#define TEST_OUTPUT_GREEN(text) (text)
-#endif
-
-/// A trait source when adding traits through unit tests
-#define TRAIT_SOURCE_UNIT_TESTS "unit_tests"
