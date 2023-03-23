@@ -67,7 +67,7 @@
 		TEST_GROUP_OPEN("[test.name]")
 		if (test.start_test() == null)	// Runtimed.
 			test.fail("Test Runtimed")
-		TEST_GROUP_CLOSE("[test.name] has finished")
+		TEST_GROUP_CLOSE("[test.name]")
 
 		if (test.async)
 			async_tests += test
@@ -92,7 +92,7 @@
 		TEST_GROUP_OPEN("[test.name]")
 		if (test.check_result())
 			async_tests -= test
-		TEST_GROUP_CLOSE("[test.name] has terminated the ASYNC run")
+		TEST_GROUP_CLOSE("[test.name]")
 
 		if (MC_TICK_CHECK)
 			return
