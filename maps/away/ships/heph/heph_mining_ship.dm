@@ -35,10 +35,10 @@
 		"nav_hangar_cyclops"
 	)
 
-	invisible_until_ghostrole_spawn = FALSE
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/cyclops_mining/New()
-    designation = "[pick("Tuckerbag", "Do No Harm", "Volatile Cargo", "Stay Clear", "Entrepreneurial", "Good Things Only", "Worthless", "Skip This One", "Pay No Mind", "Customs-Cleared", "Friendly", "Reactor Leak", "Fool's Gold", "Cursed Cargo", "Guards Aboard")]"
+    designation = "[pick("Archemedes, Pallas, Crius, Pothos, Nyx")]"
     ..()
 
 /obj/effect/overmap/visitable/ship/cyclops_mining/get_skybox_representation()
