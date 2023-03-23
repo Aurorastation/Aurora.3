@@ -30,8 +30,8 @@
 #define TEST_DEBUG(message) debug(##message, __FILE__, __LINE__)
 
 /// Groups management
-#define TEST_GROUP_OPEN(name) world.log << "::group::"+##name
-#define TEST_GROUP_CLOSE(message) world.log << ##message + "\n::endgroup::"
+#define TEST_GROUP_OPEN(name) world.log << "\t\t\t" + ##name //world.log << "::group::"+##name
+#define TEST_GROUP_CLOSE(message) world.log << "\t\t\t" + ##message //world.log << ##message + "\n::endgroup::"
 
 /// Asserts that a condition is true
 /// If the condition is not true, fails the test
