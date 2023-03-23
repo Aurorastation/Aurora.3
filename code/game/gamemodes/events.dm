@@ -64,14 +64,6 @@ var/hadevent    = 0
 	else
 		log_error("ERROR: Could not initate grey-tide. Unable find prison or brig area.")
 
-/proc/carp_migration() // -- Darem
-	for(var/obj/effect/landmark/C in landmarks_list)
-		if(C.name == "carpspawn")
-			new /mob/living/simple_animal/hostile/carp(C.loc)
-	//sleep(100)
-	spawn(rand(300, 600)) //Delayed announcements to keep the crew on their toes.
-		command_announcement.Announce("Attention: unknown biological entities have been detected near the [station_name()]'s exterior.", "Lifesign Sensor Array Alert", new_sound = 'sound/AI/commandreport.ogg')
-
 /proc/lightsout(isEvent = 0, lightsoutAmount = 1,lightsoutRange = 25) //leave lightsoutAmount as 0 to break ALL lights
 	if(isEvent)
 		command_announcement.Announce("Attention: an electrical storm has been detected in your sector, please repair potential electronic overloads.", "Electrical Storm Alert")
