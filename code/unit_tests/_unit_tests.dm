@@ -12,7 +12,7 @@
  * Output colouring macros, ANSI as per https://gist.github.com/stevewithington/b1b620b5bc9252e2c32e2cad35efbf83
  */
 
-#define TEST_OUTPUT_HI_BLUE(text) "\x1B\x5B0;94m" + text + "\x1B\x5B0m"
+#define TEST_OUTPUT_HI_BLUE(text) "\x1B\x5B0;94m[text]\x1B\x5B0m"
 
 
 /**
@@ -37,7 +37,7 @@
 #define TEST_DEBUG(message) debug(##message, __FILE__, __LINE__)
 
 /// Groups management
-#define TEST_GROUP_OPEN(name) world.log << TEST_OUTPUT_HI_BLUE("----> UNIT TEST \[ " + name + " \] <----") //world.log << "::group::"+##name
+#define TEST_GROUP_OPEN(groupname) world.log << TEST_OUTPUT_HI_BLUE("----> UNIT TEST \[[groupname]\] <----") //world.log << "::group::"+##name
 #define TEST_GROUP_CLOSE(message) world.log << TEST_OUTPUT_HI_BLUE("\n") //world.log << ##message + "\n::endgroup::"
 
 /// Asserts that a condition is true
