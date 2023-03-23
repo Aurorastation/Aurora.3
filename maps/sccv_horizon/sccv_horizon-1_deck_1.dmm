@@ -724,7 +724,7 @@
 	name = "Inner Core Airlock";
 	req_access = list(13)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "aFN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2026,7 +2026,7 @@
 	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "bBR" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
@@ -3740,7 +3740,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "cTm" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -6201,7 +6201,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "eOk" = (
 /obj/structure/cable{
@@ -7823,7 +7823,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "fVm" = (
 /obj/structure/closet/hazmat/custodial,
@@ -8437,7 +8437,7 @@
 /area/hallway/engineering)
 "gsG" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "gtE" = (
 /obj/effect/decal/cleanable/dirt,
@@ -12318,7 +12318,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "jyn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -12443,7 +12443,7 @@
 	pixel_y = -25
 	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "jCf" = (
 /obj/machinery/light/small/emergency,
@@ -15267,7 +15267,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "lPP" = (
 /obj/structure/tank_wall/hydrogen{
@@ -16700,7 +16700,7 @@
 	c_tag = "AI Core - First Deck Chamber";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "mVJ" = (
 /obj/structure/cable/green{
@@ -17231,7 +17231,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "nqp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -21543,7 +21543,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "qQa" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -23306,7 +23306,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "skS" = (
 /obj/machinery/light/spot/weak,
@@ -23660,7 +23660,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "sxx" = (
 /obj/machinery/recharge_station,
@@ -24176,7 +24176,7 @@
 	id_tag = "ai_core_sensor";
 	pixel_x = -30
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "sTu" = (
 /obj/machinery/door/firedoor,
@@ -26767,7 +26767,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "uRt" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -30175,7 +30175,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "xrp" = (
 /obj/effect/floor_decal/corner/blue{
@@ -30650,7 +30650,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "xLq" = (
 /obj/structure/table/rack{
