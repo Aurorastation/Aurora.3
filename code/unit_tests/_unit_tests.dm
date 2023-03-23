@@ -12,7 +12,7 @@
  * Output colouring macros, ANSI as per https://gist.github.com/stevewithington/b1b620b5bc9252e2c32e2cad35efbf83
  */
 
-#define TEST_OUTPUT_HI_BLUE(text) "\x1B\x5B0;94m[text]\x1B\x5B0m"
+#define TEST_OUTPUT_HI_BLUE(text) "\x1B\x5B0;94m" + text + "\x1B\x5B0m"
 
 
 /**
