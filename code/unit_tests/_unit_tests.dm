@@ -12,17 +12,17 @@
  * Macros used to log the Unit Test messages
  */
 
-#define TEST_FAIL(reason) (fail(reason || "No reason", __FILE__, __LINE__))
-#define TEST_PASS(reason) (pass(reason || "No reason", __FILE__, __LINE__))
+#define TEST_FAIL(reason) (fail("\t" + reason || "\t" + "No reason", __FILE__, __LINE__))
+#define TEST_PASS(reason) (pass("\t" + reason || "\t" + "No reason", __FILE__, __LINE__))
 
 /// Logs a warning message, to be used when something is important to be known to the reader, like a test that did not run,
 /// but not a failure or something that necessarily indicates an issue
-#define TEST_WARN(message) warn(##message, __FILE__, __LINE__)
+#define TEST_WARN(message) warn("\t" + ##message, __FILE__, __LINE__)
 
 
 /// Logs a notice, comething that is good to be known to a scrutinizing eye, without being obnoxious
 /// Do not use this with long lists or internals that most people would never care about for the vast majority of the time
-#define TEST_NOTICE(message) notice(##message, __FILE__, __LINE__)
+#define TEST_NOTICE(message) notice("\t" + ##message, __FILE__, __LINE__)
 
 
 /// Logs debug messages of the test run, this is NOT normally visible in GitHub, the test has to be run in debug mode (on the GitHub actions) for that.
@@ -30,8 +30,8 @@
 #define TEST_DEBUG(message) debug(##message, __FILE__, __LINE__)
 
 /// Groups management
-#define TEST_GROUP_OPEN(name) world.log << "\t\t\t" + ##name //world.log << "::group::"+##name
-#define TEST_GROUP_CLOSE(message) world.log << "\t\t\t" + ##message //world.log << ##message + "\n::endgroup::"
+#define TEST_GROUP_OPEN(name) world.log << ##name //world.log << "::group::"+##name
+#define TEST_GROUP_CLOSE(message) world.log << ##message //world.log << ##message + "\n::endgroup::"
 
 /// Asserts that a condition is true
 /// If the condition is not true, fails the test
