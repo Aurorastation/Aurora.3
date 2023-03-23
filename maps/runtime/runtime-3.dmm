@@ -95,17 +95,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
-"o" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
-/area/construction/hallway)
-"p" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
-/area/construction/hallway)
 "q" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -4851,11 +4840,11 @@ g
 k
 k
 k
-o
 k
 k
-o
-o
+k
+k
+k
 k
 k
 v
@@ -5622,10 +5611,10 @@ g
 k
 k
 k
-o
 k
 k
-o
+k
+k
 k
 k
 k
@@ -5882,7 +5871,7 @@ j
 k
 j
 j
-p
+k
 j
 j
 j
