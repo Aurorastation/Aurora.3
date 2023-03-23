@@ -112,6 +112,8 @@ proc/get_radio_key_from_channel(var/channel)
 				Weaken(3)
 			if(11 to 60)
 				to_chat(src, SPAN_WARNING("You struggle to speak with your dislocated jaw!"))
+			else
+				. = null //This does nothing, it's to avoid a dreamchecker error
 		. = TRUE
 	else if(stuttering)
 		message = get_stuttered_message(message)

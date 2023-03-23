@@ -23873,11 +23873,6 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hallway/deck_three/primary/starboard)
-"sXr" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/simulated/open,
-/area/horizon/hallway/deck_three/primary/central)
 "sXJ" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -51665,7 +51660,7 @@ iHA
 hOw
 lrF
 tlL
-sXr
+isT
 nez
 isT
 kzM
@@ -51673,7 +51668,7 @@ kzM
 kzM
 isT
 nez
-sXr
+isT
 tlL
 ykD
 eod
@@ -52069,7 +52064,7 @@ fDJ
 hOw
 lrF
 tlL
-sXr
+isT
 ocK
 isT
 gcR
@@ -52077,7 +52072,7 @@ gcR
 gcR
 isT
 ocK
-sXr
+isT
 tlL
 ykD
 rIg

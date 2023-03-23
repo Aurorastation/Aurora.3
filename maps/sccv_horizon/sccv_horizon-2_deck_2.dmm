@@ -2038,7 +2038,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/fancy,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "aTa" = (
 /obj/machinery/light,
@@ -2767,13 +2767,12 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "bkQ" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/cooled,
 /area/turret_protected/ai)
 "blJ" = (
 /obj/machinery/door/airlock/external{
@@ -3061,7 +3060,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/corner,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "bqW" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
@@ -5934,6 +5933,15 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+<<<<<<< HEAD
+=======
+"cRs" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating/cooled,
+/area/turret_protected/ai)
+>>>>>>> master
 "cRu" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
@@ -6261,7 +6269,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "dat" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -9093,7 +9101,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "eAl" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -15743,7 +15751,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "hEx" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -16194,7 +16202,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "hSp" = (
 /obj/structure/closet/crate/hydroponics,
@@ -17043,7 +17051,7 @@
 	dir = 8
 	},
 /obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/cooled,
 /area/turret_protected/ai)
 "imC" = (
 /obj/structure/railing/mapped{
@@ -19027,14 +19035,6 @@
 /mob/living/carbon/slime,
 /turf/simulated/floor/reinforced,
 /area/maintenance/wing/port/far)
-"jmm" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 6
-	},
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/simulated/open/airless,
-/area/horizon/exterior)
 "jmE" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -19442,7 +19442,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "jvp" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -21199,7 +21199,7 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/west,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "krl" = (
 /obj/machinery/door/airlock/mining{
@@ -21758,12 +21758,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
-"kHS" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging,
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/simulated/open/airless,
-/area/horizon/exterior)
 "kIp" = (
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
@@ -24262,7 +24256,7 @@
 	c_tag = "AI Core - Fore"
 	},
 /obj/structure/window/borosilicate/reinforced/skrell,
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "lYV" = (
 /obj/structure/table/stone/marble,
@@ -25570,14 +25564,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
-"mFz" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 9
-	},
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/simulated/open/airless,
-/area/horizon/exterior)
 "mFJ" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -25711,7 +25697,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "mHM" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -27439,7 +27425,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "ntt" = (
 /turf/simulated/wall/r_wall,
@@ -29126,7 +29112,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "oou" = (
 /obj/structure/lattice/catwalk,
@@ -30607,7 +30593,7 @@
 "pch" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/anti_bluespace,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/cooled,
 /area/turret_protected/ai)
 "pcx" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -32130,14 +32116,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
-"pQg" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 4
-	},
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/simulated/open/airless,
-/area/horizon/exterior)
 "pQj" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -33007,7 +32985,7 @@
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "qni" = (
 /obj/structure/disposalpipe/segment{
@@ -33332,7 +33310,7 @@
 	dir = 4
 	},
 /obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/cooled,
 /area/turret_protected/ai)
 "qvx" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -33415,7 +33393,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "qwJ" = (
 /obj/structure/disposalpipe/segment,
@@ -34561,7 +34539,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "qZj" = (
-/obj/structure/lattice,
 /obj/structure/cable{
 	icon_state = "11-2"
 	},
@@ -34826,7 +34803,7 @@
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "rfO" = (
 /obj/structure/railing/mapped,
@@ -36641,6 +36618,7 @@
 	},
 /turf/template_noop,
 /turf/simulated/floor/tiled/white,
+<<<<<<< HEAD
 /area/rnd/conference)
 "sau" = (
 /obj/structure/lattice,
@@ -36648,6 +36626,9 @@
 /obj/structure/grille,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
+=======
+/area/rnd/research)
+>>>>>>> master
 "saJ" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -37251,7 +37232,7 @@
 	pixel_x = -40;
 	pixel_y = 25
 	},
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "sqc" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -38402,7 +38383,7 @@
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "sYI" = (
 /obj/machinery/alarm{
@@ -41132,7 +41113,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "upn" = (
 /obj/structure/cable/green{
@@ -46589,7 +46570,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "wWx" = (
 /turf/simulated/floor/wood,
@@ -47709,7 +47690,7 @@
 	dir = 1;
 	pixel_y = 24
 	},
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "xxy" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -61369,7 +61350,7 @@ avu
 avu
 avu
 avu
-sau
+avu
 bxp
 bxp
 bxp
@@ -61969,10 +61950,10 @@ avu
 avu
 avu
 avu
-sau
+avu
 bxp
-pQg
-jmm
+oSQ
+lVd
 gmo
 gmo
 gmo
@@ -62375,7 +62356,7 @@ gmo
 gmo
 gmo
 gmo
-mFz
+xPj
 oSQ
 bxp
 sSY
@@ -62577,7 +62558,7 @@ lVd
 gmo
 gmo
 gmo
-kHS
+gmo
 xPj
 bxp
 sSY
