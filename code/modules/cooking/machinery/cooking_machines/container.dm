@@ -249,10 +249,10 @@
 	return TRUE
 
 /obj/item/reagent_containers/cooking_container/plate
-	name = "serving plate"
-	shortname = "plate"
-	desc = "A plate. You plate foods on this plate."
-	icon_state = "plate"
+	name = "chopping board"
+	shortname = "board"
+	desc = "A board for preparing food. Not chopping. I'm sorry."
+	icon_state = "board"
 	appliancetype = MIX
 	flags = OPENCONTAINER // Will still react
 	volume = 15 // for things like jelly sandwiches etc
@@ -300,6 +300,20 @@
 
 	QDEL_NULL(temp) //delete buffer object
 	return ..()
+
+/obj/item/reagent_containers/cooking_container/plate/do_empty(mob/user)
+	. = ..()
+	icon_state = initial(icon_state)
+
+/obj/item/reagent_containers/cooking_container/plate/attackby(obj/item/I, mob/user)
+	. = ..()
+	if (length(contents)) //Only if something was actually added
+		icon_state = "[initial(icon_state)]_prep"
+
+/obj/item/reagent_containers/cooking_container/plate/on_reagent_change()
+	. = ..()
+	if (reagents.total_volume) //Only if something was actually added
+		icon_state = "[initial(icon_state)]_prep"
 
 /obj/item/reagent_containers/cooking_container/plate/bowl
 	name = "serving bowl"
