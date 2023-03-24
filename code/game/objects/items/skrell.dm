@@ -284,7 +284,7 @@
 
 /obj/item/storage/box/fancy/cigarettes/federation
 	name = "\improper Eriuyushi Sunset cigarette packet"
-	desc = "A sleek packet of cigarettes with the Nralakk Federation's flag printed on the front. The label says that they are 'regular' flavour."
+	desc = "A short, wide packet of cigarettes with the Nralakk Federation's flag printed on the front. The label says that they are 'regular' flavour."
 	desc_extended = "Meticulously grown and machine rolled in the Nralakk Federation, these cigarettes are the Federation's attempt at entering the tobacco market. They use tobacco hydroponically grown in the underwater town of Eriyushi on Qerrbalak."
 	icon_state = "nfpacket"
 	item_state = "nfpacket"
@@ -292,7 +292,7 @@
 
 /obj/item/storage/box/fancy/cigarettes/dyn
 	name = "\improper Xaqixal Dyn Fields cigarette packet"
-	desc = "A sleek packet of cigarettes with the Nralakk Federation's flag printed on the front. The label says that they are 'dyn menthol' flavour."
+	desc = "A short, wide packet of cigarettes with the Nralakk Federation's flag printed on the front. The label says that they are 'dyn menthol' flavour."
 	desc_extended = "Meticulously grown and machine rolled in the Nralakk Federation, these cigarettes are the Federation's attempt at entering the tobacco market. Dyn leaves grown on Xaqixal are used to add the refreshing menthol flavour."
 	icon_state = "dynpacket"
 	item_state = "dynpacket"
