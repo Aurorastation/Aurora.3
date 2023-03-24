@@ -845,13 +845,6 @@
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
-"rW" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/structure/grille/broken,
-/turf/template_noop,
-/area/space)
 "rY" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced/tinted{
@@ -34101,7 +34094,7 @@ ax
 iQ
 vx
 UP
-rW
+HB
 wf
 Kn
 Kn
