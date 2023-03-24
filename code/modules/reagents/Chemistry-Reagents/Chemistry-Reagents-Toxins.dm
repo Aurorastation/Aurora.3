@@ -663,7 +663,7 @@
 
 /singleton/reagent/toxin/tobacco/sweet 
 	name = "Sweet Tobacco"
-	description = "This tobacco is much sweeter than the common strains found in human space."
+	description = "This tobacco is much sweeter than the strains usually found in human space."
 	taste_description = "sweet tobacco"
 	nicotine = 0.3
 
