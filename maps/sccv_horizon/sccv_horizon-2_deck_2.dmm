@@ -11836,7 +11836,7 @@
 	},
 /obj/machinery/light/small/red,
 /turf/simulated/floor/tiled,
-/area/operations/office)
+/area/storage/secure)
 "fME" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -18154,7 +18154,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/operations/office)
+/area/storage/secure)
 "iGG" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled/dark,
@@ -29251,18 +29251,18 @@
 /obj/structure/sign/securearea{
 	pixel_y = 32
 	},
-/obj/machinery/turretid/lethal{
-	dir = 4;
-	pixel_x = -26;
-	name = "Vault Turret Control";
-	check_synth = 1;
-	req_access = list(16,41,19,38)
-	},
 /obj/machinery/light/small/red{
 	dir = 1
 	},
+/obj/machinery/turretid{
+	name = "Vault Turret Control";
+	req_access = list(16,41,19,38);
+	dir = 4;
+	pixel_x = -27;
+	lethal = 1
+	},
 /turf/simulated/floor/tiled,
-/area/operations/office)
+/area/storage/secure)
 "obQ" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 9
