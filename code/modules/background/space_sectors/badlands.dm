@@ -86,6 +86,9 @@
 	starlight_power = 5
 	starlight_range = 1
 
+/datum/space_sector/gakal/generate_system_name()
+	return "Gakal, and nearby points of interest"
+
 /datum/space_sector/uueoaesa
 	name = SECTOR_UUEOAESA
 	description = "The home of the Unathi race, Uueoa-Esa is a solar system with 4 rocky planets and 1 gas giant. Moghes is the homeworld of the Unathi species and third from its mother star. \
@@ -94,3 +97,6 @@
 	starlight_color = COLOR_WHITE
 	starlight_power = 5
 	starlight_range = 1
+
+/datum/space_sector/uueoaesa/generate_system_name()
+	return "Uueoa-Esa, and nearby points of interest"

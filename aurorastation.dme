@@ -1468,6 +1468,7 @@
 #include "code\modules\background\space_sectors\badlands.dm"
 #include "code\modules\background\space_sectors\generic_sectors.dm"
 #include "code\modules\background\space_sectors\space_sector.dm"
+#include "code\modules\background\space_sectors\sparring_sea.dm"
 #include "code\modules\background\space_sectors\tauceti.dm"
 #include "code\modules\balloon_alert\balloon_alert.dm"
 #include "code\modules\battlemonsters\datum_core.dm"
