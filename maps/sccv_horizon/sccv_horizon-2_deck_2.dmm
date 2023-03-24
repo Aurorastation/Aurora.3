@@ -29254,12 +29254,11 @@
 /obj/machinery/light/small/red{
 	dir = 1
 	},
-/obj/machinery/turretid{
-	name = "Vault Turret Control";
-	req_access = list(16,41,19,38);
+/obj/machinery/turretid/lethal{
 	dir = 4;
-	pixel_x = -27;
-	lethal = 1
+	pixel_x = -29;
+	name = "Vault Turret Control Panel";
+	req_access = list(16,41)
 	},
 /turf/simulated/floor/tiled,
 /area/storage/secure)
