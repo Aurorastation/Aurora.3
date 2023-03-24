@@ -29256,7 +29256,7 @@
 	pixel_x = -26;
 	name = "Vault Turret Control";
 	check_synth = 1;
-	req_access = list(16,41)
+	req_access = list(16,41,19)
 	},
 /obj/machinery/light/small/red{
 	dir = 1
