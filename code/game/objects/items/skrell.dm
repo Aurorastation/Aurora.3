@@ -288,7 +288,7 @@
 	desc_extended = "Meticulously grown and machine rolled in the Nralakk Federation, these cigarettes are the Federation's attempt at entering the tobacco market. They use tobacco hydroponically grown in the underwater town of Eriyushi on Qerrbalak."
 	icon_state = "nfpacket"
 	item_state = "nfpacket"
-	/obj/item/clothing/mask/smokable/cigarette/sweet
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/sweet
 
 /obj/item/storage/box/fancy/cigarettes/dyn
 	name = "\improper Xaqixal Dyn Fields cigarette packet"
@@ -301,7 +301,7 @@
 /obj/item/storage/box/fancy/cigarettes/wulu
 	name = "wulumunusha joint pouch"
 	desc = "A leather pouch of pre-rolled wulumunusha joints. A common sight in Federation space, they can be smoked for recreational or religious purposes."
-	desc_extended = "Wulumunusha holds a cultural and religious importance for Skrell throughout the Spur. While disposable pouches of pre-rolled joints are popular in Federation space, many Skrell choose to use a reusable pouch like this one, typically with unique colours and designs."
+	desc_extended = "Wulumunusha holds a cultural and religious importance for Skrell throughout the Spur. While disposable pouches of wulumunusha are readily available in Federation space, many Skrell choose to refill a reusable pouch like this one when away from home, typically decorated with unique colours and designs."
 	icon_state = "wulupacket"
 	item_state = "wulupacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/wulu
