@@ -1296,9 +1296,6 @@
 /obj/item/wrench,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
-"Cz" = (
-/turf/simulated/floor/ice,
-/area/space)
 "CI" = (
 /obj/item/melee/vaurca/rock,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -34097,7 +34094,7 @@ Kn
 Kn
 dh
 nq
-Cz
+Kn
 Kn
 Kn
 Kn
