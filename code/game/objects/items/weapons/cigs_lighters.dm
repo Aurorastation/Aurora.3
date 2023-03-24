@@ -432,7 +432,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/wulu
 	name = "wulumunusha cigarette"
-	desc = "A wulumunusha cigarette smoked commonly during Skrellian religious ceremony."
+	desc = "A wulumunusha cigarette commonly smoked by Skrell for religious purposes."
 	reagents_to_add = list(/singleton/reagent/wulumunusha = 15)
 
 ////////////
