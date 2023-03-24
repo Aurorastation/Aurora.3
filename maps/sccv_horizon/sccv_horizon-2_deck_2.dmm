@@ -20636,7 +20636,7 @@
 /obj/machinery/camera/motion/security{
 	dir = 8;
 	network = list("Command","Security","Operations");
-	c_tag = "Operations - Vault 1" 
+	c_tag = "Operations - Vault 1"
 	},
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
@@ -29255,7 +29255,8 @@
 	dir = 4;
 	pixel_x = -26;
 	name = "Vault Turret Control";
-	check_synth = 1
+	check_synth = 1;
+	req_access = list(16,41)
 	},
 /obj/machinery/light/small/red{
 	dir = 1
