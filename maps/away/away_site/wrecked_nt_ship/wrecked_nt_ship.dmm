@@ -137,23 +137,11 @@
 /obj/machinery/recharger,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
-"cs" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/item/ore/glass,
-/turf/template_noop,
-/area/space)
 "cA" = (
 /obj/item/mecha_equipment/mounted_system/flarelauncher,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
-"cJ" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/item/material/shard,
-/turf/template_noop,
-/area/space)
 "cT" = (
 /obj/item/clothing/suit/caution,
 /turf/simulated/floor/tiled/steel/airless{
@@ -1330,12 +1318,6 @@
 /obj/item/wrench,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
-"Cz" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/structure/grille/broken,
-/turf/template_noop,
-/area/space)
 "CI" = (
 /obj/item/melee/vaurca/rock,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -2247,11 +2229,6 @@
 "XR" = (
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/steel/airless,
-/area/space)
-"XV" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/template_noop,
 /area/space)
 "Yb" = (
 /obj/effect/decal/remains/human,
@@ -31056,7 +31033,7 @@ pM
 UP
 kC
 iQ
-XV
+Kh
 Kn
 iQ
 Kn
@@ -31308,14 +31285,14 @@ iQ
 qw
 jM
 jM
-XV
+Kh
 WI
-cJ
+tt
 ll
 iQ
 Kh
 Kh
-Cz
+HB
 Kn
 Kn
 Kn
@@ -31565,7 +31542,7 @@ iQ
 jM
 jM
 vx
-Cz
+HB
 Kh
 Kh
 bO
@@ -31573,8 +31550,8 @@ kO
 wj
 ll
 Kh
-XV
-rW
+Kh
+HB
 Kn
 Kn
 Kn
@@ -36706,7 +36683,7 @@ Kn
 Kn
 Kn
 Kn
-cs
+NX
 Kn
 Kn
 Kn
@@ -38502,7 +38479,7 @@ iQ
 zs
 zs
 TC
-XV
+Kh
 NX
 zs
 zs
