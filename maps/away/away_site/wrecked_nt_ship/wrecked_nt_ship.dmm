@@ -450,9 +450,6 @@
 	icon_state = "asteroidfloor"
 	},
 /area/space)
-"jM" = (
-/turf/simulated/floor/ice,
-/area/wrecked_nt_ship)
 "jN" = (
 /turf/simulated/floor/wood/airless{
 	icon_state = "wood_broken5"
@@ -770,10 +767,6 @@
 "qq" = (
 /obj/machinery/door/airlock/highsecurity,
 /turf/simulated/floor/tiled/steel/airless,
-/area/wrecked_nt_ship)
-"qw" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/ice,
 /area/wrecked_nt_ship)
 "qD" = (
 /obj/effect/decal/remains/human,
@@ -1303,6 +1296,9 @@
 /obj/item/wrench,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
+"Cz" = (
+/turf/simulated/floor/ice,
+/area/space)
 "CI" = (
 /obj/item/melee/vaurca/rock,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -31000,9 +30996,9 @@ iQ
 iQ
 BC
 iQ
-jM
-jM
-jM
+hZ
+hZ
+hZ
 iv
 pM
 UP
@@ -31257,9 +31253,9 @@ aY
 IU
 ll
 iQ
-qw
-jM
-jM
+hZ
+hZ
+hZ
 Kh
 WI
 tt
@@ -31514,8 +31510,8 @@ ll
 ll
 zc
 iQ
-jM
-jM
+hZ
+hZ
 vx
 HB
 Kh
@@ -31771,7 +31767,7 @@ Hp
 ll
 Bi
 iQ
-jM
+hZ
 ll
 pM
 zU
@@ -32028,7 +32024,7 @@ kc
 ll
 ll
 iQ
-jM
+hZ
 kO
 dB
 vx
@@ -34101,7 +34097,7 @@ Kn
 Kn
 dh
 nq
-Kn
+Cz
 Kn
 Kn
 Kn
