@@ -1,0 +1,9 @@
+author: Sparky_hotdog, Alberyk
+
+delete-after: True
+
+changes:
+  - rscadd: "Added dinner plates and dinner bowls, which can be used to serve up food in a somewhat more refined manner."
+  - rscadd: "Dinner plates and dinner bowls aren't clean after use. Make sure to clean them with a cloth, or with your tongue, afterwards."
+  - rscadd: "Added serving plates which work like trays, but can't hold as much."
+  - tweak: "The item which was a serving plate is now a chopping board. Functionally this is the same as before."

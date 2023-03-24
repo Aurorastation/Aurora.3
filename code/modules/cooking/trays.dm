@@ -209,6 +209,7 @@
 
 /obj/item/tray/plate
 	name = "serving plate"
+	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "l_plate"
 	desc = "A large plate for serving meals on."
 	throwforce = 4

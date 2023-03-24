@@ -108,7 +108,6 @@ Plates that can hold your cooking stuff
 /obj/item/reagent_containers/bowl/plate/attackby(obj/item/I, mob/user)
 	if ((istype(I, /obj/item/reagent_containers/food/snacks) || istype(I, /obj/item/trash)) && !holding)
 		holding = I
-		user.prepare_for_slotmove(I)
 		I.forceMove(src)
 		to_chat(user, SPAN_NOTICE("You place \the [holding.name] on \the [src]."))
 		update_icon()
@@ -124,15 +123,13 @@ Plates that can hold your cooking stuff
 			temp_hold.forceMove(src)
 			if(!grease) //Grease lightning, go grease lightning!
 				grease = TRUE
-			if(!holding.reagents)
-				holding = null
-				qdel(holding)
 		update_icon()
 		return
 	if (istype(I, /obj/item/material/kitchen/utensil) && istype(holding, /obj/item/trash))
 		to_chat(user, SPAN_WARNING("You're not sure you should try to eat \the [holding.name]."))
 	if (istype(I, /obj/item/material/kitchen/utensil))
 		to_chat(user, SPAN_WARNING("There isn't any food on \the [name]."))
+		update_icon()
 		return
 
 /obj/item/reagent_containers/bowl/plate/attack_self(mob/user)
@@ -150,7 +147,6 @@ Plates that can hold your cooking stuff
         var/obj/item/temp_hold = S.standard_feed_mob(user, M)
         if(temp_hold != holding)
             holding = temp_hold
-            user.prepare_for_slotmove(temp_hold)
             temp_hold.forceMove(src)
             if(!grease) //Grease lightning, go grease lightning!
                 grease = TRUE
