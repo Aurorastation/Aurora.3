@@ -4051,12 +4051,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "dAz" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "dAI" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -5273,10 +5272,11 @@
 /turf/simulated/floor/reinforced,
 /area/bridge/selfdestruct)
 "ewP" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/turf/simulated/open/airless,
-/area/template_noop)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "eyi" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -14955,12 +14955,11 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/medical/smoking)
 "lUf" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
 	},
-/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "lUB" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -19452,12 +19451,13 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_three/primary/central)
 "pwa" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/obj/structure/railing/mapped,
+/turf/simulated/open/airless,
+/area/horizon/exterior)
 "pwO" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -47200,10 +47200,10 @@ vaL
 vaL
 vaL
 uPJ
-wGH
-vkb
-iqb
-gVY
+cPq
+mKC
+mUv
+pwa
 dSF
 dSF
 dSF
@@ -47402,20 +47402,20 @@ vaL
 qHx
 aoA
 ivg
-wGH
-vkb
-vtk
-ewP
+cPq
+mKC
+uLZ
+wfb
 slH
-hBa
-otI
-otI
-otI
-otI
-otI
-otI
-otI
-opC
+slH
+slH
+slH
+slH
+slH
+slH
+slH
+slH
+slH
 slH
 slH
 slH
@@ -47604,24 +47604,24 @@ aoA
 aoA
 aoA
 aoA
-wGH
-vBY
-otI
-otI
-otI
-tJH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-vBY
-otI
-otI
-otI
-opC
+cPq
+dAz
+mjb
+mjb
+mjb
+mjb
+mjb
+mjb
+mjb
+mjb
+mjb
+mjb
+mjb
+mjb
+mjb
+mjb
+mjb
+lUf
 slH
 slH
 dSF
@@ -47806,25 +47806,25 @@ vaL
 aoA
 aoA
 ivg
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-vBY
-opC
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+dAz
+lUf
 slH
 slH
 dSF
@@ -48025,9 +48025,9 @@ giI
 rnu
 iWr
 bqA
-wGH
-vBY
-opC
+cPq
+dAz
+lUf
 slH
 dSF
 dSF
@@ -48228,8 +48228,8 @@ jqi
 hzB
 fgF
 bqA
-wGH
-vkb
+cPq
+mKC
 slH
 dSF
 dSF
@@ -48431,7 +48431,7 @@ jRy
 rFu
 grm
 bqA
-vkb
+mKC
 slH
 dSF
 dSF
@@ -48633,8 +48633,8 @@ ljj
 oir
 fkC
 mIs
-vBY
-opC
+mKC
+slH
 dSF
 dSF
 dSF
@@ -48835,8 +48835,8 @@ kQW
 rvO
 aXB
 qlf
-wGH
-vkb
+mKC
+slH
 dSF
 dSF
 dSF
@@ -49037,8 +49037,8 @@ nxm
 nSO
 fvX
 sqN
-wGH
-vkb
+mKC
+slH
 dSF
 dSF
 dSF
@@ -49239,8 +49239,8 @@ fec
 rGK
 vbh
 aZS
-wGH
-vkb
+mKC
+slH
 dSF
 dSF
 dSF
@@ -49441,8 +49441,8 @@ soE
 jKp
 soE
 qBS
-wGH
-vkb
+mKC
+slH
 dSF
 dSF
 dSF
@@ -49643,8 +49643,8 @@ wFM
 kAR
 cAY
 hrR
-wGH
-vkb
+mKC
+slH
 dSF
 dSF
 dSF
@@ -49845,7 +49845,7 @@ sWA
 naZ
 omA
 sdp
-leE
+dAz
 lUf
 dSF
 dSF
@@ -50048,7 +50048,7 @@ ltT
 lFK
 mrU
 kBl
-dAz
+mKC
 dSF
 dSF
 dSF
@@ -50250,7 +50250,7 @@ xEZ
 jxM
 iwi
 jIF
-pwa
+mKC
 dSF
 dSF
 dSF
@@ -50452,7 +50452,7 @@ tKU
 lIB
 amy
 mrU
-vkb
+mKC
 dSF
 dSF
 dSF
@@ -50654,7 +50654,7 @@ eFH
 vaz
 dhn
 mrU
-vkb
+mKC
 dSF
 dSF
 dSF
@@ -50856,7 +50856,7 @@ uNc
 oWy
 xhy
 rmQ
-vkb
+mKC
 dSF
 dSF
 dSF
@@ -51058,7 +51058,7 @@ eFH
 oWy
 suj
 mrU
-vkb
+mKC
 dSF
 dSF
 dSF
@@ -51260,7 +51260,7 @@ hfm
 fis
 grs
 mrU
-vkb
+mKC
 dSF
 dSF
 dSF
@@ -51462,7 +51462,7 @@ ltT
 phw
 uCJ
 dFe
-vkb
+mKC
 dSF
 dSF
 dSF
@@ -51663,8 +51663,8 @@ hmu
 xEZ
 auq
 mrU
-wGH
-vkb
+nbl
+ewP
 dSF
 dSF
 dSF
@@ -51865,8 +51865,8 @@ hhA
 rqU
 ltH
 mrU
-wGH
-vkb
+mKC
+slH
 dSF
 dSF
 dSF
@@ -52067,8 +52067,8 @@ rxJ
 xPq
 iii
 dFe
-wGH
-vkb
+mKC
+slH
 dSF
 dSF
 dSF
@@ -52269,8 +52269,8 @@ asO
 asO
 asO
 hrR
-wGH
-vkb
+mKC
+slH
 dSF
 dSF
 dSF
@@ -52471,8 +52471,8 @@ eeU
 dpE
 xPj
 sHE
-wGH
-vkb
+mKC
+slH
 dSF
 dSF
 dSF
@@ -52673,8 +52673,8 @@ uIm
 uIm
 gjT
 sHE
-wGH
-vkb
+mKC
+slH
 dSF
 dSF
 dSF
@@ -52875,8 +52875,8 @@ kkw
 cBE
 edo
 bNm
-wGH
-vkb
+mKC
+slH
 dSF
 dSF
 dSF
@@ -53077,8 +53077,8 @@ qrQ
 qrQ
 pNE
 sHE
-wGH
-vkb
+mKC
+slH
 dSF
 dSF
 dSF
@@ -53279,8 +53279,8 @@ vZO
 vZO
 rKd
 sHE
-bEW
-kMe
+mKC
+slH
 dSF
 dSF
 dSF
@@ -53481,7 +53481,7 @@ vZO
 vZO
 eri
 qsz
-vkb
+mKC
 slH
 dSF
 dSF
@@ -53682,8 +53682,8 @@ fbz
 ujs
 eri
 qsz
-wGH
-vkb
+cPq
+mKC
 slH
 dSF
 dSF
@@ -53883,9 +53883,9 @@ waX
 waX
 waX
 qsz
-wGH
-bEW
-kMe
+cPq
+nbl
+ewP
 slH
 dSF
 dSF
@@ -54080,15 +54080,15 @@ sGh
 drY
 drY
 cPq
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-vkb
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
+ewP
 slH
-dSF
+slH
 dSF
 dSF
 dSF
@@ -54282,14 +54282,14 @@ cPq
 cPq
 cPq
 cPq
-wGH
-wGH
-wGH
-bEW
-leE
-leE
-kMe
-dSF
+cPq
+cPq
+cPq
+cPq
+cPq
+ewP
+slH
+slH
 dSF
 dSF
 dSF
@@ -54484,13 +54484,13 @@ fJy
 fJy
 fJy
 fJy
-leE
-leE
-leE
-kMe
+fJy
+fJy
+fJy
+fJy
+ewP
 slH
 slH
-dSF
 dSF
 dSF
 dSF
@@ -54691,7 +54691,7 @@ slH
 slH
 slH
 slH
-dSF
+slH
 dSF
 dSF
 dSF

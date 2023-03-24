@@ -2049,12 +2049,11 @@
 /area/maintenance/hangar/port)
 "bCN" = (
 /obj/machinery/vending/hydronutrients,
-/obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "bCU" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4355,7 +4354,6 @@
 "dtb" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "dtN" = (
@@ -4841,6 +4839,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "dNa" = (
@@ -5571,7 +5570,7 @@
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/horizon/hydroponics/lower)
 "etT" = (
 /obj/structure/lattice,
@@ -7155,15 +7154,12 @@
 "fyR" = (
 /obj/structure/closet/secure_closet/hydroponics,
 /obj/item/watertank,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "fzA" = (
 /obj/structure/sign/nosmoking_1{
@@ -10727,13 +10723,10 @@
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/spline/plain{
-	dir = 6
-	},
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "ifw" = (
 /obj/machinery/door/airlock/external{
@@ -10962,7 +10955,7 @@
 "iqk" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "irA" = (
 /obj/machinery/atmospherics/binary/pump{
@@ -17704,7 +17697,10 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/bikehorn/rubberducky,
+/obj/item/bikehorn/rubberducky{
+	pixel_x = -9;
+	pixel_y = -8
+	},
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/horizon/stairwell/bridge)
 "nLL" = (
@@ -17812,9 +17808,8 @@
 /area/outpost/mining_main/refinery)
 "nOi" = (
 /obj/machinery/seed_storage/garden,
-/obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "nOM" = (
 /obj/structure/disposalpipe/segment{
@@ -22356,10 +22351,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "rtC" = (
 /obj/effect/decal/cleanable/dirt,
@@ -23358,12 +23350,11 @@
 "snA" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "snD" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -23418,13 +23409,16 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
 "spL" = (
-/obj/effect/floor_decal/spline/plain,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
 "spQ" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -28053,9 +28047,6 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
 	},
@@ -28067,6 +28058,12 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
@@ -30351,23 +30348,17 @@
 "xyG" = (
 /obj/structure/closet/secure_closet/hydroponics,
 /obj/item/watertank,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/network/service{
 	c_tag = "Service- Hydroponics Lower";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "xzd" = (
 /obj/structure/table/stone/marble,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
 /obj/machinery/firealarm/west,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "xAf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -54870,7 +54861,7 @@ snA
 pdL
 vLJ
 acw
-mdL
+nRy
 olu
 fKB
 bpl
