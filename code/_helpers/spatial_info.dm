@@ -31,6 +31,7 @@
 
 /mob/abstract/oranges_ear/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)
+	initialized = TRUE
 	return INITIALIZE_HINT_NORMAL
 
 /mob/abstract/oranges_ear/Destroy(force)
