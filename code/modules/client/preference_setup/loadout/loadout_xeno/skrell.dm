@@ -141,7 +141,7 @@
 	path = /obj/item/storage/box/fancy/cigarettes/wulu
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Skrell"
-	flags = GEAR_NO_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/ears/skrell/goop
 	display_name = "glowing algae"

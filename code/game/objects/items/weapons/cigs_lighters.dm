@@ -415,11 +415,17 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		/singleton/reagent/mental/nicotine = 5
 	)
 
+/obj/item/clothing/mask/smokable/cigarette/sweet
+	reagents_to_add = list(
+		/singleton/reagent/toxin/tobacco/sweet = 10,
+		/singleton/reagent/mental/nicotine = 5
+	)
+
 /obj/item/clothing/mask/smokable/cigarette/dyn
 	name =  "dyn cigarette"
-	desc = "A mentholated cigarette from the Traverse made with processed dyn."
+	desc = "A mentholated cigarette from Nralakk made with processed dyn."
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco = 5,
+		/singleton/reagent/toxin/tobacco/sweet = 5,
 		/singleton/reagent/mental/nicotine = 5,
 		/singleton/reagent/drink/dynjuice = 5,
 	)
