@@ -75,6 +75,7 @@ Plates that can hold your cooking stuff
 	return
 
 /obj/item/reagent_containers/bowl/update_icon()
+	cut_overlays(
 	if(grease)
 		icon_state = "[initial(icon_state)]_mess"
 	else
@@ -160,6 +161,7 @@ Plates that can hold your cooking stuff
     return
 
 /obj/item/reagent_containers/bowl/plate/update_icon()
+	cut_overlays(
     var/list/O = list()
     if(grease)
         icon_state = "[initial(icon_state)]_mess"
