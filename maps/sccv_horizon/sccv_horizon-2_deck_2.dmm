@@ -349,10 +349,6 @@
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora_hazard)
-"aiL" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "aiP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
@@ -2303,19 +2299,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
-"aXh" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/floor_decal/spline/plain{
-	dir = 5
-	},
-/obj/machinery/camera/network/research{
-	c_tag = "Research - XenoBotanical Greenhouse"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
 "aXX" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/green{
@@ -4218,20 +4201,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
-"bSn" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28;
-	req_one_access = list(24,11,55)
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "bSD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -5793,6 +5762,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
+"cNg" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "cNh" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
@@ -7883,10 +7866,6 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/chapel/main)
-"dQH" = (
-/obj/structure/closet/firecloset,
-/turf/simulated/floor,
-/area/maintenance/wing/port/far)
 "dQR" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -8690,6 +8669,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
+"emj" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "emA" = (
 /turf/simulated/wall,
 /area/horizon/maintenance/deck_two/fore/port)
@@ -9297,20 +9280,6 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
-"eBF" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Corridor Camera 5";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "eBN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -9791,6 +9760,10 @@
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
 /area/horizon/grauwolf)
+"ePU" = (
+/obj/structure/closet/firecloset,
+/turf/simulated/floor,
+/area/maintenance/wing/port/far)
 "eQg" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
@@ -22340,10 +22313,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
-"kND" = (
-/obj/structure/reagent_dispensers/extinguisher,
-/turf/simulated/floor,
-/area/maintenance/wing/port/far)
 "kOt" = (
 /obj/machinery/power/breakerbox{
 	RCon_tag = "Supermatter Grid Bypass"
@@ -24065,6 +24034,26 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/chapel/office)
+"lHK" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/grey{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 4
+	},
+/obj/machinery/shower{
+	dir = 4;
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Xenobiology Entrance";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology)
 "lHY" = (
 /obj/machinery/door/airlock/highsecurity{
 	desc = "A gigantic bunker lock. Warning signs on the exterior dictate the internal contents as high-value, and highly dangerous property. It stresses the absolute importance of only command-level entry.";
@@ -28412,17 +28401,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/far)
-"nEH" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10;
-	req_access = list(55)
-	},
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Corridor Camera 4";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "nES" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped{
@@ -29682,6 +29660,20 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
+"omM" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Corridor Camera 5";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "omQ" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -33551,6 +33543,19 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
+"qgE" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - XenoBotanical Greenhouse"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "qgK" = (
 /obj/structure/closet/crate/trashcart,
 /obj/item/storage/bag/trash{
@@ -36913,19 +36918,6 @@
 /obj/structure/lattice,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
-"rMz" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Corridor Camera 2";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "rME" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -48845,6 +48837,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
+"xvR" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10;
+	req_access = list(55)
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Corridor Camera 4";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "xvZ" = (
 /obj/structure/table/standard,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -49284,25 +49287,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
 "xHv" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/corner/grey{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/white{
-	dir = 4
-	},
-/obj/machinery/shower{
-	dir = 4;
-	pixel_x = -1;
-	pixel_y = 1
-	},
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Xenobiology Entrance";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenobiology)
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor,
+/area/maintenance/wing/port/far)
 "xHX" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -49937,6 +49924,19 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
+"xYs" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Corridor Camera 2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "xYw" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -76628,8 +76628,8 @@ jmj
 pZQ
 wEq
 spU
-bSn
-rMz
+cNg
+xYs
 nWF
 qfP
 xHX
@@ -78049,7 +78049,7 @@ tjP
 tvX
 nOJ
 rem
-nEH
+xvR
 dxa
 kaT
 qsg
@@ -79056,7 +79056,7 @@ ptV
 jIL
 jIL
 jIL
-eBF
+omM
 jIL
 jIL
 tgT
@@ -80656,7 +80656,7 @@ qgN
 qgN
 qgN
 noW
-aXh
+qgE
 rKj
 fti
 ldu
@@ -81074,7 +81074,7 @@ jLS
 lFE
 iwo
 ybi
-xHv
+lHK
 pyJ
 iwo
 egq
@@ -83905,11 +83905,11 @@ ubv
 sFk
 fVz
 iwo
-aiL
+emj
 pVs
 fuu
-dQH
-kND
+ePU
+xHv
 lPd
 fuu
 kDg
