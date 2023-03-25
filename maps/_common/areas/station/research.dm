@@ -39,6 +39,7 @@
 	name = "Research - Secure Hallway"
 	icon_state = "research"
 	lightswitch = TRUE
+
 /area/rnd/research
 	name = "Research and Development"
 	icon_state = "research"
