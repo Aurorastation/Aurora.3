@@ -38,14 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - maptweak: "Remapped the entirety of the Science department on Deck Two."
-  - maptweak: "Circuits and RnD expanded."
-  - maptweak: "Science entrance moved."
-  - maptweak: "Xenobotany and Xenobiology received layout changes."
-  - maptweak: "Telescience was located to a different area."
-  - maptweak: "Exploratory Chemistry is now in its own secure area."
-  - maptweak: "AI Upload Foyer made smaller."
-  - maptweak: "AI Chamber altered slightly."
-  - maptweak: "Research Directors Office tweaked for QOL"
-  - maptweak: "Science now has its own departmental entrance to a secure wing."
-  - maptweak: "Edits the Deck one ladder to the right by one tile"
+  - maptweak: "Remapped the entirety of the research department on deck two."
