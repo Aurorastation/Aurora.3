@@ -1698,7 +1698,6 @@
 /area/headmaster_ship/bridge)
 "fi" = (
 /obj/effect/map_effect/airlock/e_to_w/long/square/wide,
-/obj/effect/map_effect/airlock/e_to_w/long/square/wide,
 /turf/simulated/wall/shuttle/raider,
 /area/headmaster_ship/gun_deck)
 "fk" = (
