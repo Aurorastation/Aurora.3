@@ -17475,6 +17475,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"nAj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "nAn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -29641,7 +29648,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
@@ -56621,7 +56627,7 @@ qnr
 uVL
 uVL
 mhf
-mhf
+nAj
 mhf
 pom
 fYt
