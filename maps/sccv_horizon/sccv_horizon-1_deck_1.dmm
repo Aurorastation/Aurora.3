@@ -1624,10 +1624,18 @@
 /turf/space/dynamic,
 /area/horizon/exterior)
 "boN" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret,
-/turf/simulated/floor/tiled/dark,
-/area/turret_protected/ai_upload)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/deck1)
 "boY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 6
@@ -1785,6 +1793,9 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/operations/loading)
+"buV" = (
+/turf/simulated/floor/plating,
+/area/turret_protected/ai_upload)
 "bvb" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
@@ -5947,12 +5958,8 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "eGG" = (
-/obj/effect/decal/cleanable/ash,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/turf/simulated/floor/tiled/ramp/bottom,
+/area/turret_protected/ai)
 "eHq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -7909,15 +7916,10 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
 "fYt" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
-/turf/simulated/floor/tiled/dark,
-/area/turret_protected/ai_upload)
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "fZr" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
@@ -9201,11 +9203,12 @@
 /area/maintenance/substation/research_sublevel)
 "gVe" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "gVu" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 8
@@ -9531,12 +9534,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "hgR" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/ash,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9
+	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "hgU" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -10380,16 +10383,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "hSt" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
+/obj/effect/landmark/entry_point/port{
+	name = "port, deck 1 maintenance"
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/template_noop)
 "hSX" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
@@ -11556,8 +11554,10 @@
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "iSc" = (
-/turf/simulated/floor/tiled/ramp/bottom,
-/area/maintenance/research_port)
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
 "iSu" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -11999,18 +11999,12 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "joF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/wing/port/deck1)
+/area/turret_protected/ai_upload)
 "joW" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -15784,10 +15778,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/outpost/mining_main/eva)
 "mkW" = (
-/obj/machinery/mech_recharger,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/turret_protected/ai_upload)
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
 "mlc" = (
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
@@ -22321,7 +22313,8 @@
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
 "rso" = (
-/obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/porta_turret,
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "rsz" = (
@@ -24630,12 +24623,6 @@
 	},
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/mining)
-"tkp" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, deck 1 maintenance"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/template_noop)
 "tkS" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /obj/machinery/meter,
@@ -29149,12 +29136,11 @@
 /area/template_noop)
 "wJK" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "wKh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -29743,7 +29729,7 @@
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "xgE" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -56634,15 +56620,15 @@ wsF
 qnr
 uVL
 uVL
-gyD
-eKc
+mhf
+mhf
 mhf
 pom
-mhf
-mhf
-tFd
-lrg
-mhf
+fYt
+fYt
+fYt
+fYt
+fYt
 grP
 aAk
 mDt
@@ -56836,15 +56822,15 @@ lBi
 irW
 uVL
 uVL
-tnb
+gyD
 eKc
+mhf
+pom
+mhf
+mhf
 tFd
-grP
-wJK
-iSc
-xgm
-hgR
-eGG
+lrg
+mhf
 pom
 gBA
 mDt
@@ -57038,18 +57024,18 @@ moj
 cne
 uVL
 uVL
-rsL
-vil
-rsL
-xXO
-rUd
-rUd
-rUd
-rUd
-rUd
+tnb
+eKc
+tFd
+iSc
+gVe
+eGG
+xgm
+wJK
+hgR
 rUd
 xsN
-gVe
+idq
 bRg
 gdJ
 fKt
@@ -57240,19 +57226,19 @@ dLn
 uVL
 uVL
 uVL
+rsL
 vil
-vil
-vil
+rsL
+xXO
 rUd
-xKI
-xre
-mVo
-xre
-fVh
+rUd
+rUd
+rUd
+rUd
 rUd
 akC
 iGO
-hSt
+iGO
 avE
 iGO
 tdL
@@ -57442,20 +57428,20 @@ eSV
 uVL
 uVL
 uVL
-oTX
 vil
 vil
+vil
 rUd
-npz
-gsG
-gsG
-gsG
-sxc
+xKI
+xre
+mVo
+xre
+fVh
 rUd
-rUd
-rUd
-pdC
-pdC
+mkW
+mkW
+joF
+buV
 cDa
 jNq
 vDT
@@ -57644,19 +57630,19 @@ eSV
 eSV
 uVL
 uVL
-rsL
+oTX
 vil
-rsL
+vil
 rUd
-eNY
+npz
 gsG
-ben
 gsG
-jBX
-aFA
-sSK
-bBL
-vCC
+gsG
+sxc
+rUd
+rUd
+rUd
+pdC
 pdC
 vcF
 xtK
@@ -57845,20 +57831,20 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
+uVL
+rsL
+vil
 qZp
 rUd
-jyg
+eNY
 gsG
+ben
 gsG
-gsG
-cTj
-rUd
-rUd
-rUd
-nCI
+jBX
+aFA
+sSK
+bBL
+vCC
 pdC
 mhf
 xtK
@@ -58050,17 +58036,17 @@ eSV
 eSV
 eSV
 eSV
-wie
+qZp
 rUd
-lPL
-skq
-qPV
-skq
-uRl
+jyg
+gsG
+gsG
+gsG
+cTj
 rUd
-hUt
-thF
-bVh
+pdC
+pdC
+nCI
 pdC
 haI
 xtK
@@ -58252,17 +58238,17 @@ eSV
 eSV
 eSV
 eSV
-qZp
+wie
 rUd
+lPL
+skq
+qPV
+skq
+uRl
 rUd
-rUd
-rUd
-rUd
-rUd
-rUd
-ajM
-oFy
-boN
+hUt
+thF
+bVh
 pdC
 nVO
 xtK
@@ -58455,16 +58441,16 @@ eSV
 eSV
 eSV
 qZp
-qZp
-qZp
-qZp
-qZp
-nEl
-qZp
 rUd
-mkW
+rUd
+rUd
+rUd
+rUd
+rUd
+rUd
+ajM
 rso
-fYt
+oFy
 pdC
 tFd
 xtK
@@ -58656,12 +58642,12 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+qZp
+qZp
+qZp
+qZp
+qZp
+nEl
 xiH
 pdC
 dEe
@@ -64346,7 +64332,7 @@ eSV
 eSV
 xst
 iNi
-joF
+boN
 xst
 eSV
 eSV
@@ -64750,7 +64736,7 @@ eSV
 eSV
 hob
 hob
-tkp
+hSt
 hob
 eSV
 eSV
