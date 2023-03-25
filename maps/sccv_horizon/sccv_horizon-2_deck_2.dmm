@@ -20536,7 +20536,7 @@
 /obj/machinery/camera/motion/security{
 	dir = 8;
 	network = list("Command","Security","Operations");
-	c_tag = "Operations - Vault 1" 
+	c_tag = "Operations - Vault 1"
 	},
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
@@ -29140,7 +29140,9 @@
 	dir = 4;
 	pixel_x = -26;
 	name = "Vault Turret Control";
-	check_synth = 1
+	check_synth = 1;
+	req_access = null;
+	req_one_access = list(16,20,41)
 	},
 /obj/machinery/light/small/red{
 	dir = 1
@@ -46822,7 +46824,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/vault/bolted{
-	id_tag = "Vault_Airlock"
+	id_tag = "Vault_Airlock";
+	req_one_access = list(16,20,41)
 	},
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
