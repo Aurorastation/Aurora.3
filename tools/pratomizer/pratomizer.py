@@ -1,4 +1,5 @@
 import click
+import os
 from git import Repo
 from git import SymbolicReference
 
@@ -31,7 +32,7 @@ def hello(file: str, prname: str, commitmessage: str):
 
 def GitMakeRepo(name):
     try:
-        repo = Repo("..\\..\\")
+        repo = Repo(os.getcwd())
         if repo.is_dirty(untracked_files=True):
             print("There are uncommitted changes in the current branch.")
             print("Please commit or stash your changes before creating a new branch.")
