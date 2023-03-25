@@ -50,7 +50,7 @@ def CopyFileInNewRepo(filepath, content):
 def StageChanges(repo: Repo):
     repo.git.diff()
     for changed_file in [item.a_path for item in repo.index.diff(None)]:
-        repo.index.add(changed_file)
+        repo.git.add(changed_file)
 
 def CommitAtomization(repo: Repo, message: str, file: str):
     repo.index.commit(message)
