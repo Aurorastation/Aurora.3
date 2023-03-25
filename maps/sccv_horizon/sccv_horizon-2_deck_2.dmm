@@ -44851,12 +44851,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
-"vSd" = (
-/obj/effect/floor_decal/corner/purple{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/operations/lobby)
 "vSJ" = (
 /obj/machinery/computer/general_air_control/supermatter_core{
 	input_tag = "cooling_in";
@@ -60654,7 +60648,7 @@ usr
 usr
 usr
 rCR
-vSd
+ubX
 jNd
 plH
 fzh

@@ -29147,7 +29147,16 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "wSZ" = (
-/turf/space,
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "wTc" = (
 /obj/effect/floor_decal/corner/blue{
