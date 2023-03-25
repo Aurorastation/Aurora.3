@@ -8923,15 +8923,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "gGb" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
-	dir = 4
-	},
 /obj/machinery/meter,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
 /obj/machinery/alarm{
 	pixel_y = 28
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/atmos_compartment)
@@ -14372,9 +14372,7 @@
 /area/maintenance/engineering)
 "kVu" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
-	},
+/obj/machinery/atmospherics/portables_connector/fuel,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -16672,7 +16670,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	id_tag = "intrepid_shuttle_west_pump_out_external";
@@ -20465,10 +20462,10 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/atmos_compartment)
 "pXv" = (
@@ -24542,7 +24539,7 @@
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4;
 	layer = 3.5;
-	start_pressure = 5066.26
+	start_pressure = 506.625
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
@@ -31461,11 +31458,11 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
-	dir = 10
-	},
 /obj/machinery/atmospherics/binary/pump/fuel{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/atmos_compartment)

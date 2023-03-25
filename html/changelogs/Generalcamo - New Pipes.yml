@@ -42,6 +42,7 @@ changes:
   - rscadd: "Added auxiliary pipes. Auxiliary pipes are intended primarily for airlocks, but can be used in other various means. They have their own dedicated pump, connector, and vent."
   - rscadd: "Added a mode to airlock controllers to cycle air externally. This prevents external, potentially poisonous air from mixing with clean air."
   - tweak: "Thrusters can now attach directly to fuel pipes."
+  - tweak: "Pressure tanks can now attach directly to all pipes."
   - maptweak: "The Intrepid and Spark now have externally cycled airlocks, and utilize the new pipes."
   - maptweak: "Added a scrubber to the Spark, which is directly vented out into space."
   - imageadd: "Ported Keekenox#1337's vents and scrubbers."

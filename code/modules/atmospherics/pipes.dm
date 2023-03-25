@@ -1273,6 +1273,7 @@
 	name = "Pressure Tank"
 	desc = "A large vessel containing pressurized gas."
 
+	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL|CONNECT_TYPE_AUX
 	volume = 10000 //in liters, 1 meters by 1 meters by 2 meters ~tweaked it a little to simulate a pressure tank without needing to recode them yet
 	var/start_pressure = PRESSURE_ONE_THOUSAND * 2.5
 
@@ -1348,7 +1349,6 @@
 /obj/machinery/atmospherics/pipe/tank/air
 	name = "Pressure Tank (Air)"
 	icon_state = "air_map"
-	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_AUX
 
 /obj/machinery/atmospherics/pipe/tank/air/Initialize()
 	air_temporary = new
@@ -1407,7 +1407,6 @@
 /obj/machinery/atmospherics/pipe/tank/phoron
 	name = "Pressure Tank (Phoron)"
 	icon_state = "phoron_map"
-	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
 
 /obj/machinery/atmospherics/pipe/tank/phoron/Initialize()
 	air_temporary = new
@@ -1422,7 +1421,6 @@
 /obj/machinery/atmospherics/pipe/tank/hydrogen
 	name = "Pressure Tank (Hydrogen)"
 	icon_state = "hydrogen_map"
-	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
 
 /obj/machinery/atmospherics/pipe/tank/hydrogen/Initialize()
 	air_temporary = new
