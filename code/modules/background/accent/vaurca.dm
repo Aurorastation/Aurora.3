@@ -21,7 +21,7 @@
 /datum/accent/cthur
     name = ACCENT_CTHUR
     description = "C'thuric is the modern day dialect of the C'thur Hive, a sly and sneering take on the unyielding Nral'Malic. Other vaurcae would associate this tone with \
-	C'thur's infamous past deeds. Modulators are unfortunately still cheap, creating a monotone method of speaking. \
+	C'thur's infamous past deeds. Modulators are unfortunately still cheap, leading to a monotone method of speaking. \
 	Voices are also warped into being clear and concise, many C'thur adopting a blunt and to-the-point style when speaking casually. \
 	Their vocal augments stereotypically have difficulty, typically when producing sounds related to the letter 's', instead \
     substituting with a harsh buzzing in the throat."

@@ -269,8 +269,8 @@
 
 /datum/accent/pluto
 	name = ACCENT_PLUTO
-	description = "The Plutonian accent is one of many Sol Common accents found throughout the Sol System. Rooted in a combination \
-	of Central Asian and Eastern European dialects, the Plutonian accent is notable for its slow, methodical method of speech. Very few positronics can be found with this accent, due to Pluto's unusual relationship with corporations."
+	description = "Rooted in a combination of Central Asian and Eastern European dialects, the Plutonian accent is notable for its slow, methodical method of speech. \
+	Very few positronics can be found with this accent, due to Pluto's unusual relationship with corporations."
 	tag_icon = "pluto"
 	text_tag = "PLU"
 
