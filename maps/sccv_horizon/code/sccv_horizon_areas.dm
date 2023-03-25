@@ -283,8 +283,6 @@
 	name = "Intrepid Crew Compartment"
 /area/shuttle/intrepid/cargo_bay
 	name = "Intrepid Cargo Bay"
-/area/shuttle/intrepid/medical_compartment
-	name = "Intrepid Medical Compartment"
 /area/shuttle/intrepid/engine_compartment
 	name = "Engine Compartment"
 /area/shuttle/intrepid/atmos_compartment

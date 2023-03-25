@@ -239,17 +239,31 @@
 	item_state = "nka_commander"
 	starting_accessories = null
 
+/obj/item/clothing/under/tajaran/nka_uniform/sailor
+	name = "royal navy sailor uniform"
+	desc = "A military uniform used by the sailor of the New Kingdom of Adhomai's navy."
+	icon_state = "nka_sailor"
+	item_state = "nka_sailor"
+
 /obj/item/clothing/under/tajaran/consular
 	name = "people's republic consular uniform"
 	desc = "An olive uniform used by the diplomatic service of the People's Republic of Adhomai."
 	icon_state = "pra_consular"
 	item_state = "pra_consular"
 
+/obj/item/clothing/under/tajaran/consular/female
+	icon_state = "pra_con_f"
+	item_state = "pra_con_f"
+
 /obj/item/clothing/under/tajaran/consular/dpra
 	name = "democratic people's republic consular uniform"
 	desc = "A grey uniform used by the diplomatic service of the Democratic People's Republic of Adhomai."
 	icon_state = "dpra_consular"
 	item_state = "dpra_consular"
+
+/obj/item/clothing/under/tajaran/consular/dpra/female
+	icon_state = "dpra_con_f"
+	item_state = "dpra_con_f"
 
 /obj/item/clothing/under/tajaran/consular/nka
 	name = "new kingdom consular uniform"

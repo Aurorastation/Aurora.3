@@ -298,6 +298,9 @@ default behaviour is:
 /mob/living/proc/getHalLoss()
 	return 0
 
+/mob/living/proc/get_shock()
+	return getHalLoss()
+
 /mob/living/proc/getCloneLoss()
 	return 0
 

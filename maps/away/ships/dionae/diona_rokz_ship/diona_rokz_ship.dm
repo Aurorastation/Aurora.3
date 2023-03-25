@@ -70,6 +70,12 @@
     designation = "[pick("Boulder", "Stonecarp", "Gibber")]"
     ..()
 
+/obj/effect/overmap/visitable/ship/diona_rokz_ship/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "diona")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
+
 /obj/effect/shuttle_landmark/diona_rokz_ship/nav1
 	name = "Rokz Clan Ship - Port Airlock"
 	landmark_tag = "nav_diona_rokz_ship_1"

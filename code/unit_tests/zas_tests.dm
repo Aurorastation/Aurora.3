@@ -64,33 +64,32 @@ proc/test_air_in_area(var/test_area, var/expectation = UT_NORMAL)
 		var/pressure = GM.return_pressure()
 		var/temp = GM.temperature
 
-		switch(expectation)
 
-			if(UT_VACUUM)
-				if(pressure > 10)
-					test_result["msg"] = "Pressure out of bounds: [pressure] | [t_msg]"
+		if(expectation == UT_VACUUM)
+			if(pressure > 10)
+				test_result["msg"] = "Pressure out of bounds: [pressure]Pa at [temp]K | [t_msg] | expectation: VACUUM"
+				return test_result
+
+
+		if(expectation == UT_NORMAL || expectation == UT_NORMAL_COLD || expectation == UT_NORMAL_COOL)
+			if(abs(pressure - ONE_ATMOSPHERE) > 10)
+				test_result["msg"] = "Pressure out of bounds: [pressure]Pa | [t_msg]"
+				return test_result
+
+			if(expectation == UT_NORMAL)
+				if(abs(temp - T20C) > 10)
+					test_result["msg"] = "Temperature out of bounds: [temp]K at [pressure]Pa | [t_msg] | expectation: NORMAL"
 					return test_result
 
-
-			if(UT_NORMAL || UT_NORMAL_COLD || UT_NORMAL_COOL)
-				if(abs(pressure - ONE_ATMOSPHERE) > 10)
-					test_result["msg"] = "Pressure out of bounds: [pressure] | [t_msg]"
+			if(expectation == UT_NORMAL_COLD)
+				if(temp > 120)
+					test_result["msg"] = "Temperature out of bounds: [temp]K at [pressure]Pa | [t_msg] | expectation: NORMAL_COLD"
 					return test_result
 
-				if(expectation == UT_NORMAL)
-					if(abs(temp - T20C) > 10)
-						test_result["msg"] = "Temperature out of bounds: [temp] | [t_msg]"
-						return test_result
-
-				if(expectation == UT_NORMAL_COLD)
-					if(temp > 120)
-						test_result["msg"] = "Temperature out of bounds: [temp] | [t_msg]"
-						return test_result
-
-				if(expectation == UT_NORMAL_COOL)
-					if(temp > 283)
-						test_result["msg"] = "Temperature out of bounds: [temp] | [t_msg]"
-						return test_result
+			if(expectation == UT_NORMAL_COOL)
+				if(temp > 283)
+					test_result["msg"] = "Temperature out of bounds: [temp]K at [pressure]Pa | [t_msg] | expectation: NORMAL_COOL"
+					return test_result
 
 		GM_checked.Add(GM)
 
