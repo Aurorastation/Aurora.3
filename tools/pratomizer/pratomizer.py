@@ -8,11 +8,9 @@ from git import SymbolicReference
 @click.option('--commitmessage', default='Atomization')
 def hello(file: str, prname: str, commitmessage: str):
 
-    repo = GitMakeRepo(prname)
     filesToCopy = {}
 
     for file in file.replace(',', ' ').split():
-        filecontent = 0
         with open(file.strip(), 'rb') as f:
             try:
                 filecontent = f.read()
@@ -24,6 +22,7 @@ def hello(file: str, prname: str, commitmessage: str):
     for file, filecontent in filesToCopy.items():
         CopyFileInNewRepo(file, filecontent)
 
+    repo = GitMakeRepo(prname)
     StageChanges(repo)
     CommitAtomization(repo, commitmessage)
 
