@@ -70,3 +70,12 @@
 	light_color = COLOR_ORANGE
 	icon_state = "stage"
 	item_state = "stage"
+
+/obj/item/device/flashlight/lamp/box
+    name = "box lamp"
+    desc = "A box-shaped traditional flame lamp. Less safe, more pretty."
+    brightness_on = 5
+    light_color = "#ffcb9b"
+    icon = 'icons/effects/props/holodeck/konyang/32x32.dmi'
+    icon_state = "boxlamp"
+    item_state = "boxlamp"

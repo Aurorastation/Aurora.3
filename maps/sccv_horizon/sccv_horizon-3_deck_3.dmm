@@ -1137,6 +1137,7 @@
 /obj/machinery/light/spot{
 	dir = 1
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "aVh" = (
@@ -2740,11 +2741,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "cIv" = (
-/obj/structure/table/wood,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
 /obj/machinery/light/spot{
 	dir = 1
 	},
@@ -2825,6 +2822,10 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 10
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -3207,7 +3208,7 @@
 "dhG" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 18
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -3799,18 +3800,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "dMG" = (
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	name = "Holodeck Alpha Public Opening Shutters";
+	id = "holodeck_alpha_bigshutters"
 	},
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
-/obj/structure/sign/directions/all{
-	dir = 4;
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/central)
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/full,
+/area/horizon/holodeck_control)
 "dNi" = (
 /turf/simulated/wall,
 /area/horizon/security/investigators_office)
@@ -5525,11 +5522,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "fmy" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/blue{
 	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -5571,9 +5565,9 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
-	id = "holodeck_alpha_shutters";
-	name = "Holodeck Privacy Shutters";
-	pixel_x = -23;
+	id = "holodeck_alpha_bigshutters";
+	name = "Holodeck Public Entry Shutters";
+	pixel_x = -32;
 	pixel_y = -7
 	},
 /obj/machinery/light_switch{
@@ -5593,6 +5587,13 @@
 	},
 /obj/structure/filingcabinet/medical{
 	pixel_x = -7
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "holodeck_alpha_shutters";
+	name = "Holodeck Privacy Shutters";
+	pixel_x = -23;
+	pixel_y = -7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
@@ -5941,6 +5942,9 @@
 "fCc" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/flora/pottedplant/random,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
 "fCi" = (
@@ -6687,8 +6691,12 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
+/obj/structure/sign/directions/com{
+	dir = 4;
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -8084,8 +8092,6 @@
 	dir = 10
 	},
 /obj/structure/window/reinforced,
-/obj/structure/table/wood,
-/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "hnj" = (
@@ -8669,7 +8675,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/computer/HolodeckControl/Horizon/beta{
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = list(19,22,25,28,35,37,38)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
@@ -14260,7 +14267,13 @@
 /obj/item/reagent_containers/food/snacks/chips{
 	pixel_x = -13
 	},
-/obj/item/material/ashtray/glass,
+/obj/item/material/ashtray/glass{
+	pixel_y = -3
+	},
+/obj/machinery/recharger{
+	pixel_y = 10;
+	pixel_x = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
 "naZ" = (
@@ -14439,6 +14452,14 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "holodeck_beta_shutters";
+	name = "Holodeck Privacy Shutters";
+	pixel_x = -23;
+	pixel_y = -7;
+	req_one_access = list(38)
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
@@ -14754,9 +14775,6 @@
 "nBJ" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/bed/stool/padded/red,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
 /obj/machinery/light/spot{
 	dir = 1
 	},
@@ -15226,7 +15244,6 @@
 	dir = 10
 	},
 /obj/structure/window/reinforced,
-/obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
 "nVK" = (
@@ -15395,6 +15412,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
+"oeT" = (
+/obj/structure/bed/stool/padded/red,
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/holodeck_control)
 "ofk" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/structure/disposalpipe/segment,
@@ -17894,6 +17919,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_three/primary/central)
+"qpQ" = (
+/obj/item/holomenu/holodeck,
+/turf/simulated/wall,
+/area/horizon/holodeck_control/beta)
 "qqN" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -18452,6 +18481,7 @@
 /obj/machinery/light/spot{
 	dir = 1
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
 "qSM" = (
@@ -19762,6 +19792,14 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "holodeck_alpha_shutters";
+	name = "Holodeck Privacy Shutters";
+	pixel_x = -23;
+	pixel_y = -7;
+	req_one_access = list(38)
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "rYn" = (
@@ -20092,10 +20130,6 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/sign/directions/com{
-	dir = 4;
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "slo" = (
@@ -21170,7 +21204,8 @@
 	dir = 4
 	},
 /obj/machinery/computer/HolodeckControl/Horizon{
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = list(19,22,25,28,35,37,38)
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/cable/green{
@@ -22682,6 +22717,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/port/docks)
+"uzq" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(5,12)
+	},
+/turf/simulated/floor,
+/area/maintenance/bridge)
 "uzK" = (
 /obj/structure/toilet{
 	dir = 8
@@ -24236,6 +24278,11 @@
 /area/engineering/break_room)
 "vOl" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
+	},
+/obj/structure/table/wood,
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "vON" = (
@@ -25655,6 +25702,9 @@
 "xbM" = (
 /obj/structure/bed/stool/chair/sofa/left/red,
 /obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
 "xci" = (
@@ -25830,16 +25880,16 @@
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "xjy" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/window/reinforced,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 18
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
 "xki" = (
@@ -26624,6 +26674,10 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"xWI" = (
+/obj/item/holomenu/holodeck,
+/turf/simulated/wall,
+/area/horizon/holodeck_control)
 "xWL" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -26642,6 +26696,10 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
 	name = "Deck 3 Starboard Hallway"
+	},
+/obj/structure/sign/directions/all{
+	dir = 4;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -43981,6 +44039,7 @@ jbh
 jbh
 jbh
 vaL
+uzq
 vaL
 vaL
 vaL
@@ -43990,8 +44049,7 @@ vaL
 vaL
 vaL
 vaL
-vaL
-vaL
+uzq
 vaL
 vaL
 vaL
@@ -44404,7 +44462,7 @@ oVU
 oVU
 oVU
 oVU
-gEa
+vyA
 slj
 rAA
 spL
@@ -44808,8 +44866,8 @@ oVU
 oVU
 oVU
 oVU
-vyA
-wUS
+dMG
+fmy
 rIP
 uKr
 hmd
@@ -45010,8 +45068,8 @@ oVU
 oVU
 oVU
 oVU
-vyA
-wUS
+dMG
+fmy
 uOA
 uwr
 jOD
@@ -45212,8 +45270,8 @@ oVU
 oVU
 oVU
 oVU
-vyA
-wUS
+dMG
+fmy
 uOA
 oVD
 cBm
@@ -45405,7 +45463,7 @@ mfV
 mfV
 mfV
 gEa
-raC
+oeT
 tHh
 oVU
 oVU
@@ -45414,7 +45472,7 @@ oVU
 oVU
 oVU
 oVU
-vyA
+dMG
 fmy
 dxD
 uhy
@@ -46020,8 +46078,8 @@ oVU
 oVU
 oVU
 oVU
-gEa
-dMG
+vyA
+eod
 aBC
 jYJ
 vIv
@@ -46222,7 +46280,7 @@ oVU
 oVU
 oVU
 oVU
-gEa
+vyA
 rIg
 aBC
 iwj
@@ -46424,8 +46482,8 @@ oVU
 oVU
 oVU
 oVU
-gEa
-mKP
+vyA
+rIg
 aBC
 wZL
 vIv
@@ -46810,7 +46868,7 @@ sBT
 bpD
 tBo
 emm
-tBo
+qpQ
 vFz
 uhp
 xwA
@@ -46820,7 +46878,7 @@ bkB
 pdn
 gEa
 gdf
-gEa
+xWI
 vFz
 uhp
 xwA
