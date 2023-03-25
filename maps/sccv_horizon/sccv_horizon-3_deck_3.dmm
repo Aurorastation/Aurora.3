@@ -18964,7 +18964,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/dormitories)
+/area/horizon/crew_quarters/laundry)
 "oUJ" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Autopsy Lab";
@@ -23864,19 +23864,15 @@
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "sRf" = (
-/obj/machinery/door/window/westleft{
-	name = "Shower"
-	},
 /obj/machinery/shower{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/structure/toilet{
-	dir = 1;
-	pixel_y = -1
+/obj/machinery/door/window/westleft{
+	name = "Shower"
 	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/crew_quarters/cryo/washroom)
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/freezer,
+/area/horizon/crew_quarters/showers/deck_three)
 "sSi" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin{
@@ -29150,6 +29146,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
+"wSZ" = (
+/turf/space,
+/area/hallway/medical/upper)
 "wTc" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -46745,7 +46744,7 @@ gQr
 xPP
 adQ
 fND
-bnG
+wSZ
 ksw
 gPn
 nHR
