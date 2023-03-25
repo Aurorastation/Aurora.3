@@ -9,7 +9,7 @@ def hello(file, prname):
 
     filecontent = 0
 
-    with open(file, 'rb', encoding='utf-8') as f:
+    with open(file, 'rb') as f:
         try:
             filecontent = f.read()
         except():
@@ -38,7 +38,7 @@ def GitMakeRepo(name):
             print('Something went wrong in the cloning of the branch')
 
 def CopyFileInNewRepo(filepath, content):
-    with open(filepath, 'wb', encoding='utf-8') as f:
+    with open(filepath, 'wb') as f:
         f.write(content)
 
 
