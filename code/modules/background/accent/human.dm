@@ -180,10 +180,10 @@
 
 /datum/accent/dominia_frontier
 	name = ACCENT_DOMINIA_FRONTIER
-	description = "Resembling more Freespeak than the Vulgar Morozi dialect found in more civilised regions of the Empire, most accents of the Imperial Frontier are looked down upon by those from the Core Worlds. \
+	description = "Resembling  Freespeak more than the Vulgar Morozi dialect found in more civilised regions of the Empire, most accents of the Imperial Frontier are looked down upon by those from the Core Worlds. \
 	Many Primaries and Secondaries look down upon the dialects of the Imperial Frontier as rogue, coarse, and often grating to hear compared to their Common-descended dialects. Many from this region who wish to rise \
 	through the ranks of the Empire’s Ma'zals spend great amounts of time learning an ersatz Solarian Common dialect based upon this one which is known as the Refined Imperial Frontier Dialect. While not nearly as \
-	prestigious see its counterparts the Refined Frontier dialect is often viewed as a mark of loyalty and dedication to the Empire."
+	prestigious as its counterparts the Refined Frontier dialect is often viewed as a mark of loyalty and dedication to the Empire."
 	tag_icon = "dominia_frontier"
 	text_tag = "IFR"
 
@@ -192,7 +192,7 @@
 	description = "Much like the planet itself, the Jadranic dialect of Solarian Common sits between standard Solarian Common-influenced Vulgar Morozi and the more Freespeak-derived accents of the Imperial Frontier. \
 	The dialect possesses grammar and pronunciation similar to Vulgar Morozi but possesses multiple loan words from Freespeak which make it distinct from its Morozian counterpart. Jadraners are valued highly for their \
 	loyalty and this dialect is often regarded as the most common accent of the Imperial Army. More educated Jadraners, such as those from the planet's few urban centers, will often leave the dialect's Freespeak \
-	loan words our while talking with Morozians or other Dominians."
+	loan words out while talking with Morozians or other Dominians."
 	tag_icon = "dominia_novijadran"
 	text_tag = "NOV"
 
@@ -239,7 +239,7 @@
 /datum/accent/xanu
 	name = ACCENT_XANU
 	description = "The Xanu Standard dialect is arguably the most notable Freespeak dialect. Xanu Standard first emerged as an informal creole designed to make communication between the various nationalities \
-	who settled the planet more easily and possessed loan words from upwards of a half-dozen languages during this early period. Over time this creole would morph into the Xanu Standard dialect of Freespeak \
+	who settled the planet easier and used loan words from upwards of a half-dozen languages during this early period. Over time this creole would morph into the Xanu Standard dialect of Freespeak \
 	and is arguably the oldest and most widespread of the 25th century's common Freespeak dialects. Freespeak taught abroad, such as in the Serene Republic of Elyra and Republic of Biesel, is most often based upon the Xanu Standard dialect."
 	tag_icon = "xanu"
 	text_tag = "XAN"
@@ -253,7 +253,7 @@
 
 /datum/accent/fisanduh
 	name = ACCENT_FISANDUH
-	description = "While it is similar to the typical Morozian accent, to those not familiar with it; or not from the Empire of Dominia, the standard Fisanduhian accent has some variations that mark it as distinctive. \
+	description = "While it is similar to the typical Morozian accent to those not familiar with it, the standard Fisanduhian accent has some variations that mark it as distinctive. \
 	The accent is higher pitched than its Dominian counterpart, and has been described as more tonal. Members of the Fisanduh Freedom Front will often go to great lengths to disguise this accent, \
 	though most will slip back into it when off-world."
 	tag_icon = "fisanduh"
@@ -269,16 +269,16 @@
 
 /datum/accent/pluto
 	name = ACCENT_PLUTO
-	description = "The Plutonian accent is one of many Sol Common accents found throughout the Sol System itself, though it is almost undoubtedly the furthest one out from the Sun itself. Rooted in a combination \
+	description = "The Plutonian accent is one of many Sol Common accents found throughout the Sol System. Rooted in a combination \
 	of Central Asian and Eastern European dialects, the Plutonian accent is notable for its slow, methodical method of speech. Very few positronics can be found with this accent, due to Pluto's unusual relationship with corporations."
 	tag_icon = "pluto"
 	text_tag = "PLU"
 
 /datum/accent/assunzione
 	name = ACCENT_ASSUNZIONE
-	description = "The Assunzionii accent is one of the most unusual found in the Coalition of Colonies, due to the planet's colonial roots in the Mediterranean. Heavily influenced by Romance languages the Assunzionii dialect is \
-	most notable for its elegant-sounding and evenly-paced method of speaking compared to rougher-sounding Coalition and frontier dialects. Liturgical Assunzionii is a small subset of this dialect, and is generally only spoken during \
-	Luceian services and can be distinguished by its use of archaic language."
+	description = "The Assunzionii accent is one of the most unusual found in the Coalition of Colonies, due to the planet's colonial roots in the Mediterranean. Heavily influenced by Romance languages, the Assunzionii dialect is \
+	most notable for its elegant-sounding and evenly-paced method of speaking compared to rougher-sounding Coalition and frontier dialects. Liturgical Assunzionii, distinguished by its use of archaic language, is a small subset of this dialect, \
+	and is generally only spoken during Luceian services."
 	tag_icon = "assunzione"
 	text_tag = "ASU"
 
@@ -313,13 +313,14 @@
 
 /datum/accent/antillia
 	name = ACCENT_ANTILLIA
-	description = "There are two distinct dialects present on the planet: one that sees heavy lifting from Tradeband and the other more influenced by Solarian Common. It is relatively easy to identify the differences between the two: Antilleans influenced by Tradeband sound more nasal and rhythmic, whereas those that grew up in regions where Solarian Common is the dominant language are more soft-spoken and enunciated."
+	description = "There are two distinct dialects present on the planet: one that sees heavy lifting from Tradeband, and another more influenced by Solarian Common. It is relatively easy to identify the differences between \
+	the two: Antilleans influenced by Tradeband sound more nasal and rhythmic, whereas those that grew up in regions where Solarian Common is the dominant language are more soft-spoken and enunciated."
 	tag_icon = "antillia"
 	text_tag = "PRT"
 
 /datum/accent/persepolis
 	name = ACCENT_PERSEPOLIS
-	description = "Well-known across Elyra for its rapid-fire, energetic cadence, the Persepolitian accent is characterised by a vibrant and fast-paced nature that represents the New Ankaran Jewel's cosmopolitan nature. \
+	description = "Well-known across Elyra for its rapid-fire, energetic cadence, the Persepolitian accent is characterised by a vibrant and fast-paced nature that represents the New Ankaran Jewel's cosmopolitanism. \
 	Speakers of this variant of Elyran Standard tend to be affluent and well-cultured, in keeping with the Elyran capital's general prosperity."
 	tag_icon = "persepolis"
 	text_tag = "PER"
