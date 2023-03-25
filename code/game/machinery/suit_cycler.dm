@@ -623,7 +623,7 @@
 				suit.name = "captain voidsuit"
 				suit.icon_state = "capspace"
 				suit.item_state = "capspace"
-		if("^%###^%$" || "Mercenary")
+		if("^%###^%$", "Mercenary")
 			if(helmet)
 				helmet.name = "blood-red voidsuit helmet"
 				helmet.icon_state = "rig0-syndie"
