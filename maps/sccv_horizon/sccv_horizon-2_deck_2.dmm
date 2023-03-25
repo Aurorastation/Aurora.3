@@ -349,6 +349,10 @@
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora_hazard)
+"aiL" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "aiP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
@@ -2299,6 +2303,19 @@
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
+"aXh" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - XenoBotanical Greenhouse"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "aXX" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/green{
@@ -4201,6 +4218,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
+"bSn" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "bSD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -7852,6 +7883,10 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/chapel/main)
+"dQH" = (
+/obj/structure/closet/firecloset,
+/turf/simulated/floor,
+/area/maintenance/wing/port/far)
 "dQR" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -7893,6 +7928,9 @@
 /area/maintenance/wing/starboard/far)
 "dRN" = (
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/hallway/primary/central_one)
 "dRO" = (
@@ -9259,6 +9297,20 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
+"eBF" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Corridor Camera 5";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "eBN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -10368,6 +10420,9 @@
 	pixel_y = 2
 	},
 /obj/item/pen,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Research Director's Office"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/heads/hor)
 "feu" = (
@@ -13000,6 +13055,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Xenobotanical Greenhouse 2";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "gmG" = (
@@ -14436,6 +14495,10 @@
 	},
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Corridor Camera 1";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "gQD" = (
@@ -14479,6 +14542,10 @@
 "gRY" = (
 /obj/machinery/smartfridge,
 /obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - XenoBotanical Lab";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "gSb" = (
@@ -15079,13 +15146,14 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/random/junk,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "hkk" = (
@@ -19582,6 +19650,11 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "jrz" = (
@@ -21558,6 +21631,11 @@
 /area/hallway/engineering/tesla)
 "krL" = (
 /obj/effect/floor_decal/corner/lime/full,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "ksC" = (
@@ -22262,6 +22340,10 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
+"kND" = (
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor,
+/area/maintenance/wing/port/far)
 "kOt" = (
 /obj/machinery/power/breakerbox{
 	RCon_tag = "Supermatter Grid Bypass"
@@ -23554,6 +23636,11 @@
 /area/maintenance/wing/port/far)
 "lyH" = (
 /obj/machinery/light,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Xenobiology Laboratory 3";
+	dir = 1;
+	pixel_x = 12
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
 "lyI" = (
@@ -24251,9 +24338,14 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "lNE" = (
-/obj/structure/closet/radiation,
 /obj/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/structure/closet/secure_closet/guncabinet/sci,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28;
+	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
@@ -27076,11 +27168,12 @@
 	dir = 8;
 	icon_state = "freezer"
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Xenobotanical Greenhouse 2";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -28319,6 +28412,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/far)
+"nEH" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10;
+	req_access = list(55)
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Corridor Camera 4";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "nES" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped{
@@ -32053,6 +32157,16 @@
 /area/engineering/engine_airlock)
 "pyS" = (
 /obj/effect/floor_decal/corner_wide/orange/full,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Exploratory Chemistry";
+	dir = 4;
+	pixel_y = 10
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/chemistry)
 "pzc" = (
@@ -33833,10 +33947,9 @@
 /turf/simulated/floor/tiled,
 /area/rnd/secure_hallway)
 "qsg" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "qsj" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -34431,8 +34544,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_research{
-	name = "Research and Development";
-	req_access = list(7)
+	name = "Science Secure Wing"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/secure_hallway)
@@ -36420,6 +36532,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/hallway/primary/central_one)
 "rCf" = (
@@ -36798,6 +36913,19 @@
 /obj/structure/lattice,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
+"rMz" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Corridor Camera 2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "rME" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -40082,6 +40210,9 @@
 	dir = 5
 	},
 /obj/machinery/firealarm/north,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Corridor Camera 3"
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/secure_hallway)
 "tyq" = (
@@ -45069,6 +45200,10 @@
 	pixel_x = -31;
 	pixel_y = 0
 	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Research Storage";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "vPj" = (
@@ -46777,6 +46912,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "wAT" = (
@@ -49026,6 +49162,12 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/hallway/primary/central_one)
 "xED" = (
@@ -49058,10 +49200,6 @@
 /area/horizon/library)
 "xFR" = (
 /obj/structure/railing/mapped,
-/obj/machinery/door/airlock/glass_research{
-	name = "Research and Development";
-	req_access = list(7)
-	},
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/heads/hor)
 "xFZ" = (
@@ -49146,12 +49284,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
 "xHv" = (
-/obj/item/storage/box/fancy/vials{
-	pixel_x = -4;
-	pixel_y = 10
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/grey{
+	dir = 8
 	},
-/turf/simulated/wall/r_wall,
-/area/rnd/xenobiology/xenoflora)
+/obj/effect/floor_decal/corner/white{
+	dir = 4
+	},
+/obj/machinery/shower{
+	dir = 4;
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Xenobiology Entrance";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology)
 "xHX" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -49699,6 +49850,10 @@
 	dir = 8
 	},
 /obj/machinery/firealarm/north,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Meeting Room";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
 "xWc" = (
@@ -49853,6 +50008,9 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/item/trap/animal/medium,
 /obj/item/trap/animal/medium,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Xenobiology Laboratory 1"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "xZK" = (
@@ -76470,8 +76628,8 @@ jmj
 pZQ
 wEq
 spU
-nWF
-nWF
+bSn
+rMz
 nWF
 qfP
 xHX
@@ -76681,7 +76839,7 @@ tPL
 drw
 tDS
 dxa
-heg
+kaT
 hps
 hps
 hps
@@ -77287,7 +77445,7 @@ qzF
 rem
 hcw
 dxa
-kaT
+heg
 hps
 hps
 hps
@@ -77891,7 +78049,7 @@ tjP
 tvX
 nOJ
 rem
-tUg
+nEH
 dxa
 kaT
 qsg
@@ -78096,7 +78254,7 @@ rem
 hcw
 dxa
 kaT
-wsW
+kaT
 hSG
 dSI
 nTF
@@ -78298,7 +78456,7 @@ ePN
 tUg
 dxa
 kaT
-wsW
+kaT
 hSG
 dSI
 uhE
@@ -78898,7 +79056,7 @@ ptV
 jIL
 jIL
 jIL
-ptV
+eBF
 jIL
 jIL
 tgT
@@ -79088,7 +79246,7 @@ rFn
 rFn
 ebY
 rFn
-xHv
+rFn
 rFn
 rFn
 rFn
@@ -80498,7 +80656,7 @@ qgN
 qgN
 qgN
 noW
-jAT
+aXh
 rKj
 fti
 ldu
@@ -80916,7 +81074,7 @@ jLS
 lFE
 iwo
 ybi
-pyJ
+xHv
 pyJ
 iwo
 egq
@@ -83747,11 +83905,11 @@ ubv
 sFk
 fVz
 iwo
-pVs
+aiL
 pVs
 fuu
-lPd
-lPd
+dQH
+kND
 lPd
 fuu
 kDg
