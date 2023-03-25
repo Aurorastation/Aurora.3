@@ -48,6 +48,7 @@ def CopyFileInNewRepo(filepath, content):
         f.write(content)
 
 def StageChanges(repo: Repo):
+    repo.git.diff()
     for changed_file in [item.a_path for item in repo.index.diff(None)]:
         repo.index.add(changed_file)
 
