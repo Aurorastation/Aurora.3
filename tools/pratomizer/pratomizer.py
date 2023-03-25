@@ -13,7 +13,7 @@ def hello(file: str, prname: str, commitmessage: str):
 
     for file in file.replace(',', ' ').split():
         filecontent = 0
-        with open(file, 'rb') as f:
+        with open(file.strip(), 'rb') as f:
             try:
                 filecontent = f.read()
                 filesToCopy[file] = filecontent
