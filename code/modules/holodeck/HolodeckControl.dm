@@ -380,6 +380,5 @@
 	density = 0
 	linkedholodeck_area = /area/horizon/holodeck/alphadeck
 
-///obj/machinery/computer/HolodeckControl/Horizon/beta
-//	density = 0
-//	linkedholodeck_area = /area/horizon/holodeck/betadeck
+/obj/machinery/computer/HolodeckControl/Horizon/beta
+	linkedholodeck_area = /area/horizon/holodeck/betadeck

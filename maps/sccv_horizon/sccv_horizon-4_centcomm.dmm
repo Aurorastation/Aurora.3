@@ -35295,8 +35295,10 @@
 /turf/simulated/floor/holofloor/lino,
 /area/horizon/holodeck/source_theatre)
 "clb" = (
-/turf/simulated/floor/beach/water/pool,
-/area/horizon/holodeck/source_beach)
+/turf/simulated/floor/exoplanet/water/shallow{
+	icon_state = "pool"
+	},
+/area/horizon/holodeck/source_pool)
 "cvL" = (
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
@@ -35604,14 +35606,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "epu" = (
-/obj/effect/decal/fake_object/light_source{
-	icon_state = "lantern-on";
-	light_color = "#FAA019";
-	light_range = 6;
-	name = "lantern";
-	pixel_x = 12;
-	pixel_y = -1
-	},
+/obj/item/device/flashlight/lantern,
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert4"
 	},
@@ -35750,7 +35745,7 @@
 /obj/effect/floor_decal/corner_wide/blue,
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "eVJ" = (
 /obj/structure/window/shuttle/unique/ccia{
 	icon_state = "0,2"
@@ -35778,7 +35773,7 @@
 /obj/item/beach_ball,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "flJ" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
@@ -35913,7 +35908,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "gma" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -35990,7 +35985,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "gRV" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
@@ -36273,8 +36268,10 @@
 	name = "Pool ladder";
 	pixel_y = 14
 	},
-/turf/simulated/floor/beach/water/pool,
-/area/horizon/holodeck/source_beach)
+/turf/simulated/floor/exoplanet/water/shallow{
+	icon_state = "pool"
+	},
+/area/horizon/holodeck/source_pool)
 "jqV" = (
 /obj/structure/shuttle_part/ccia{
 	icon_state = "5,0";
@@ -36768,7 +36765,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "maT" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert2"
@@ -36835,7 +36832,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "mtQ" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Energy Carbines and .45 Pistols)"
@@ -36854,7 +36851,7 @@
 /turf/simulated/floor/tiled/ramp{
 	dir = 4
 	},
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "mzT" = (
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_chessboard)
@@ -36918,7 +36915,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "mYf" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 5
@@ -36944,9 +36941,15 @@
 	},
 /turf/simulated/floor/holofloor/lino,
 /area/horizon/holodeck/source_theatre)
+"nbj" = (
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/holofloor/desert{
+	name = "dirt"
+	},
+/area/horizon/holodeck/source_adhomai)
 "nco" = (
 /turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "ncB" = (
 /obj/effect/floor_decal/corner/white,
 /turf/simulated/floor/holofloor/tiled,
@@ -37539,14 +37542,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "qhS" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 10
 	},
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "qis" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 5
@@ -37696,7 +37699,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "rkH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -38028,6 +38031,13 @@
 /area/horizon/holodeck/source_dininghall)
 "tme" = (
 /obj/structure/table/wood,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch{
+	pixel_x = 5
+	},
+/obj/item/device/flashlight/flare/torch{
+	pixel_x = 9
+	},
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_adhomai)
 "tmq" = (
@@ -38160,7 +38170,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "udl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/reinforced,
@@ -38224,7 +38234,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "uGv" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/wood,
@@ -38281,7 +38291,7 @@
 /obj/item/banhammer,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "veZ" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -38311,13 +38321,6 @@
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
 /area/antag/wizard)
-"vnw" = (
-/obj/machinery/computer/HolodeckControl/Horizon/beta{
-	pixel_y = 32;
-	name = "holodeck control console"
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/template_noop)
 "vta" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
 /obj/effect/step_trigger/thrower/shuttle/south,
@@ -38494,7 +38497,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "wtp" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
@@ -38625,7 +38628,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck/source_beach)
+/area/horizon/holodeck/source_pool)
 "xUh" = (
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_chapel)
@@ -99342,7 +99345,7 @@ sAO
 sAx
 yds
 yds
-yds
+nbj
 sAO
 sAO
 bFf
@@ -102953,7 +102956,7 @@ bGM
 ebQ
 bFf
 cKf
-vnw
+cKf
 cKf
 cKf
 cKf

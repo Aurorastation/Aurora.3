@@ -1130,12 +1130,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/light/spot{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
@@ -1287,9 +1287,6 @@
 "baz" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"baO" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/holodeck/alphadeck)
 "baP" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille/diagonal{
@@ -2743,13 +2740,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "cIv" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
+	},
+/obj/machinery/light/spot{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
@@ -3433,9 +3430,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
@@ -6283,14 +6277,13 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/super{
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
@@ -8675,6 +8668,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/computer/HolodeckControl/Horizon/beta{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
 "hTq" = (
@@ -9762,9 +9758,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
@@ -9880,22 +9873,6 @@
 "jbh" = (
 /turf/simulated/wall,
 /area/horizon/crew_quarters/fitness/showers)
-"jbI" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/horizon/holodeck/alphadeck)
 "jcr" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 4
@@ -10375,7 +10352,7 @@
 "jzd" = (
 /obj/structure/bed/stool/chair/sofa/right/red,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11138,7 +11115,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "holodecktint_b"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/full,
 /area/horizon/holodeck_control/beta)
 "kof" = (
 /obj/structure/cable/green{
@@ -12197,7 +12174,7 @@
 	name = "aft, recreational area"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/holodeck/alphadeck)
+/area/maintenance/engineering_ladder)
 "ldK" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 8
@@ -13331,7 +13308,7 @@
 /area/bridge/meeting_room)
 "mfV" = (
 /turf/simulated/floor/holofloor/reinforced,
-/area/horizon/holodeck_control/beta)
+/area/horizon/holodeck/betadeck)
 "mgN" = (
 /turf/simulated/wall,
 /area/lawoffice/consular)
@@ -14250,7 +14227,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/horizon/holodeck/alphadeck)
+/area/maintenance/engineering_ladder)
 "mZK" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
@@ -14775,13 +14752,13 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/autopsy_laboratory)
 "nBJ" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/bed/stool/padded/red,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
+	},
+/obj/machinery/light/spot{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
@@ -15923,6 +15900,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/light/spot{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "oyK" = (
@@ -18465,12 +18445,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/light/spot{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
@@ -18528,6 +18508,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/light/spot{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
 "qTV" = (
@@ -20452,14 +20435,13 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/super{
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
@@ -23918,7 +23900,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "holodecktint_a"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/full,
 /area/horizon/holodeck_control)
 "vyJ" = (
 /obj/structure/table/rack,
@@ -25167,7 +25149,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/horizon/holodeck/alphadeck)
+/area/maintenance/engineering_ladder)
 "wGH" = (
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
@@ -25387,7 +25369,7 @@
 "wQI" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -45203,7 +45185,7 @@ qan
 wGH
 qan
 lds
-jbI
+dHJ
 kyL
 oCa
 kVK
@@ -45404,8 +45386,8 @@ wGH
 wGH
 bbm
 bbm
-baO
-jbI
+bbm
+dHJ
 kyL
 kyL
 kyL

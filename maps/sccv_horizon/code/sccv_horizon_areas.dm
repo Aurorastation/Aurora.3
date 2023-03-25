@@ -486,9 +486,9 @@
 	name = "Horizon - Holodeck Alpha"
 	dynamic_lighting = TRUE
 
-//area/horizon/holodeck/betadeck
-//	name = "Horizon - Holodeck Beta"
-//	dynamic_lighting = TRUE
+/area/horizon/holodeck/betadeck
+	name = "Horizon - Holodeck Beta"
+	dynamic_lighting = TRUE
 
 /area/horizon/holodeck/source_plating
 	name = "Horizon - Holodeck - Off"
@@ -572,6 +572,9 @@
 /area/horizon/holodeck/source_beach
 	name = "Horizon - Holodeck - Silversunner Coast"
 	sound_env = PLAIN
+
+/area/horizon/holodeck/source_pool
+	name = "Horizon - Holodeck - Swimming Pool"
 
 /area/horizon/holodeck/source_venus
 	name = "Horizon - Holodeck - Venusean Bar"

@@ -68,6 +68,7 @@
 		"konyang" = new /datum/holodeck_program(/area/horizon/holodeck/source_konyang),
 		"moghes" = new /datum/holodeck_program(/area/horizon/holodeck/source_moghes),
 		"adhomai" = new /datum/holodeck_program(/area/horizon/holodeck/source_adhomai),
+		"pool" = new /datum/holodeck_program(/area/horizon/holodeck/source_pool),
 		"chessboard" = new /datum/holodeck_program(/area/horizon/holodeck/source_chessboard),
 		"turnoff" = new /datum/holodeck_program(/area/horizon/holodeck/source_plating)
 	)
@@ -82,6 +83,7 @@
 		"Space"              = "space",
 		"Picnic Area"        = "picnicarea",
 		"Dining Hall"        = "dininghall",
+		"Swimming Pool"      = "pool",
 		"Bursa Tundra"       = "snowfield",
 		"Adhomian Campfire"  = "adhomai",
 		"Moghresian Jungle"  = "moghes",
