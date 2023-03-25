@@ -9345,9 +9345,7 @@
 /area/tcommsat/lounge)
 "icA" = (
 /obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/coffee/full{
-	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
-	},
+/obj/machinery/chemical_dispenser/coffee/full,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},

@@ -2900,8 +2900,7 @@
 /obj/structure/table/reinforced/wood,
 /obj/machinery/chemical_dispenser/coffee/full{
 	layer = 3.1;
-	pixel_y = 2;
-	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
+	pixel_y = 2
 	},
 /obj/item/storage/box/drinkingglasses{
 	pixel_x = -4;
@@ -7206,8 +7205,7 @@
 /obj/structure/table/reinforced/wood,
 /obj/machinery/chemical_dispenser/coffee/full{
 	layer = 3.1;
-	pixel_y = 2;
-	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
+	pixel_y = 2
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -11383,8 +11381,7 @@
 /obj/structure/table/reinforced/wood,
 /obj/machinery/chemical_dispenser/coffee/full{
 	layer = 3.1;
-	pixel_y = 2;
-	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
+	pixel_y = 2
 	},
 /obj/item/storage/box/drinkingglasses{
 	pixel_x = 8;
