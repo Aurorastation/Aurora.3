@@ -29258,8 +29258,15 @@
 	name = "Vault Turret Control";
 	req_access = list(16,41,19,38);
 	dir = 4;
+<<<<<<< Updated upstream
 	pixel_x = -27;
 	lethal = 1
+=======
+	pixel_x = -29;
+	name = "Vault Turret Control Panel";
+	req_access = null;
+	req_one_access = list(19,20,38,41)
+>>>>>>> Stashed changes
 	},
 /turf/simulated/floor/tiled,
 /area/storage/secure)
