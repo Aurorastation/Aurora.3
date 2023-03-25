@@ -15990,7 +15990,10 @@
 /turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "hEx" = (
-/turf/space,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "hEF" = (
 /obj/effect/floor_decal/corner/green{
