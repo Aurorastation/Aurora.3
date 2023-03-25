@@ -6,20 +6,21 @@ from git import SymbolicReference
 @click.option('--file')
 @click.option('--prname')
 @click.option('--commitmessage', default='Atomization')
-def hello(file, prname, commitmessage):
+def hello(file: str, prname: str, commitmessage: str):
 
     filecontent = 0
-
-    with open(file, 'rb') as f:
-        try:
-            filecontent = f.read()
-        except():
-            print(f'Unable to open, find or read the file {file}')
-            exit()
-
     repo = GitMakeRepo(prname)
-    CopyFileInNewRepo(file, filecontent)
-    repo: Repo = repo
+
+    for file in file.replace(',', ' ').split():
+        with open(file, 'rb') as f:
+            try:
+                filecontent = f.read()
+            except():
+                print(f'Unable to open, find or read the file {file}')
+                exit()
+
+        CopyFileInNewRepo(file, filecontent)
+
     StageChanges(repo)
     CommitAtomization(repo, commitmessage, file)
 
@@ -31,6 +32,7 @@ def GitMakeRepo(name):
         if repo.is_dirty(untracked_files=True):
             print("There are uncommitted changes in the current branch.")
             print("Please commit or stash your changes before creating a new branch.")
+            exit()
         else:
             try:
                 repo.git.checkout("master")
@@ -40,8 +42,10 @@ def GitMakeRepo(name):
                 return repo
             except():
                 print('Something went wrong in the cloning of the branch')
+                exit()
     except():
         print("Unable to acquire repo.")
+        exit()
 
 def CopyFileInNewRepo(filepath, content):
     with open(filepath, 'wb') as f:
