@@ -20,7 +20,8 @@ def hello(file, prname, commitmessage):
     repo = GitMakeRepo(prname)
     CopyFileInNewRepo(file, filecontent)
     repo: Repo = repo
-    CommitAtomization(repo, commitmessage)
+    StageChange(repo, file)
+    CommitAtomization(repo, commitmessage, file)
 
 
 
@@ -46,8 +47,10 @@ def CopyFileInNewRepo(filepath, content):
     with open(filepath, 'wb') as f:
         f.write(content)
 
-def CommitAtomization(repo: Repo, message: str):
-    repo.index.add("*")
+def StageChange(repo: Repo, file: str):
+    repo.index.add(file)
+
+def CommitAtomization(repo: Repo, message: str, file: str):
     repo.index.commit(message)
 
 
