@@ -11999,10 +11999,17 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "joF" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, deck 1 maintenance"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "joW" = (
 /obj/machinery/light/small{
@@ -24623,6 +24630,12 @@
 	},
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/mining)
+"tkp" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, deck 1 maintenance"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/template_noop)
 "tkS" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /obj/machinery/meter,
@@ -64331,9 +64344,9 @@ eSV
 eSV
 eSV
 eSV
-jKT
-cye
-pAB
+xst
+iNi
+joF
 xst
 eSV
 eSV
@@ -64534,9 +64547,9 @@ eSV
 eSV
 eSV
 jKT
-jKT
-joF
-jKT
+cye
+pAB
+xst
 eSV
 eSV
 eSV
@@ -64735,10 +64748,10 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
+hob
+hob
+tkp
+hob
 eSV
 eSV
 eSV
