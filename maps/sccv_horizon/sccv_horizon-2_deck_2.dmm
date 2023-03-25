@@ -3648,6 +3648,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/zta)
+"bEf" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "bFA" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/device/radio/intercom{
@@ -7130,16 +7136,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "dxa" = (
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10;
+	req_access = list(55)
 	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/wing/port/far)
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "dxm" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-5"
@@ -7652,9 +7654,6 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
@@ -11000,6 +10999,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"fus" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/secure_hallway)
 "fuu" = (
 /turf/simulated/wall,
 /area/maintenance/wing/port/far)
@@ -17089,13 +17091,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
-"iiE" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10;
-	req_access = list(55)
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "ijb" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -22528,6 +22523,13 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
 /area/template_noop)
+"kUn" = (
+/obj/machinery/power/apc/low{
+	pixel_y = -24
+	},
+/obj/structure/cable,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "kUp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -23071,12 +23073,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
-"ljh" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "ljk" = (
 /obj/machinery/light{
 	dir = 1
@@ -28965,6 +28961,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/turret_protected/ai_upload)
+"nYN" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10;
+	req_access = list(55)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "nYZ" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign describing some terrible danger beyond these walls. The particular danger being a weapon of extreme power. The wall is probably for the best.";
@@ -30395,6 +30401,13 @@
 /obj/effect/floor_decal/corner_wide/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
+"oGH" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "oGK" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -34660,6 +34673,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
+"qKI" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10;
+	req_access = list(55)
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "qKK" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -34768,14 +34789,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
-"qNY" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10;
-	req_access = list(55)
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "qOM" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
@@ -35782,6 +35795,12 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
+"rmB" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "rmR" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -36633,21 +36652,6 @@
 "rId" = (
 /turf/simulated/floor/plating,
 /area/horizon/zta)
-"rIj" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port)
 "rIK" = (
 /obj/structure/coatrack{
 	pixel_x = 10;
@@ -40737,13 +40741,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
-"tLF" = (
-/obj/machinery/power/apc/low{
-	pixel_y = -24
-	},
-/obj/structure/cable,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port)
 "tLU" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -47895,9 +47892,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/office)
-"xcL" = (
-/turf/simulated/wall/r_wall,
-/area/rnd/secure_hallway)
 "xcO" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -47951,6 +47945,21 @@
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
+"xdz" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "xdA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -47984,11 +47993,6 @@
 	},
 /obj/effect/landmark{
 	name = "JoinLateCyborg"
-	},
-/obj/machinery/power/apc/high{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled,
@@ -49012,16 +49016,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/hallway/primary/central_one)
-"xEA" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10;
-	req_access = list(55)
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "xED" = (
 /obj/machinery/light/small/emergency,
 /obj/effect/floor_decal/industrial/warning{
@@ -49906,12 +49900,6 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
-"yaV" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "ybf" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Burst Rifle)"
@@ -75663,11 +75651,11 @@ hfv
 tcD
 qAF
 bmq
-xcL
-xcL
-xcL
-xcL
-xcL
+fus
+fus
+fus
+fus
+fus
 wMv
 wMv
 kGX
@@ -76067,11 +76055,11 @@ qLj
 hgg
 cer
 emT
-xcL
+fus
 qhA
 qUz
 bUN
-xcL
+fus
 qdf
 hep
 kGX
@@ -76268,12 +76256,12 @@ mTY
 ohs
 iVJ
 cer
-xcL
-xcL
-xcL
-xcL
-xcL
-xcL
+fus
+fus
+fus
+fus
+fus
+fus
 eUX
 smn
 kGX
@@ -76482,7 +76470,7 @@ xHX
 xHX
 uxf
 oGK
-xcL
+fus
 kaT
 bBu
 ePb
@@ -76683,8 +76671,8 @@ opW
 tPL
 tPL
 drw
-xEA
-xcL
+nYN
+fus
 heg
 hps
 hps
@@ -76886,7 +76874,7 @@ hnH
 hnH
 ykd
 syi
-xcL
+fus
 kaT
 hps
 elh
@@ -77087,8 +77075,8 @@ jIj
 cda
 hnH
 oCI
-iiE
-xcL
+dxa
+fus
 kaT
 hps
 elh
@@ -77288,9 +77276,9 @@ rgc
 oRT
 tvX
 qzF
-ljh
-qNY
-xcL
+rmB
+qKI
+fus
 kaT
 hps
 hps
@@ -77490,9 +77478,9 @@ fYN
 tjP
 tvX
 nOJ
-ljh
-iiE
-xcL
+rmB
+dxa
+fus
 kaT
 wAm
 cRr
@@ -77678,12 +77666,12 @@ cOs
 mBB
 mBB
 cQw
-xcL
-xcL
-xcL
-xcL
-xcL
-ljh
+fus
+fus
+fus
+fus
+fus
+oGH
 aov
 gUA
 vUK
@@ -77692,8 +77680,8 @@ gBT
 tjP
 tvX
 nOJ
-ljh
-iiE
+rmB
+dxa
 tLU
 kaT
 wAm
@@ -77885,7 +77873,7 @@ cOp
 vQR
 jxs
 mdR
-ljh
+rmB
 aov
 gUA
 vUK
@@ -77894,9 +77882,9 @@ fYN
 tjP
 tvX
 nOJ
-ljh
-iiE
-xcL
+rmB
+dxa
+fus
 kaT
 qsg
 kaT
@@ -78082,11 +78070,11 @@ kXO
 xkH
 mBB
 bHL
-xcL
+fus
 aff
 aff
-xcL
-xcL
+fus
+fus
 dZU
 iOD
 kVk
@@ -78096,9 +78084,9 @@ oPk
 urh
 tvX
 qzF
-ljh
-qNY
-xcL
+rmB
+qKI
+fus
 kaT
 wsW
 hSG
@@ -78288,7 +78276,7 @@ weq
 weq
 weq
 weq
-xcL
+fus
 vFw
 ltR
 hnH
@@ -78299,8 +78287,8 @@ rZU
 sGG
 hnH
 ePN
-iiE
-xcL
+dxa
+fus
 kaT
 wsW
 hSG
@@ -78491,7 +78479,7 @@ weq
 weq
 weq
 txy
-ljh
+rmB
 aov
 hnH
 hnH
@@ -78502,7 +78490,7 @@ hnH
 hnH
 ykd
 syi
-xcL
+fus
 xsU
 wsW
 tXR
@@ -78703,8 +78691,8 @@ cfp
 pex
 cfp
 dJx
-xEA
-xcL
+nYN
+fus
 kaT
 wsW
 xed
@@ -78894,7 +78882,7 @@ weq
 weq
 weq
 weq
-xcL
+fus
 eUp
 xcO
 xlZ
@@ -78906,7 +78894,7 @@ ptV
 jIL
 jIL
 tgT
-xcL
+fus
 kaT
 sYc
 sYc
@@ -79501,7 +79489,7 @@ vzO
 mOp
 qen
 cjg
-ljh
+rmB
 aov
 lCI
 ebQ
@@ -79703,7 +79691,7 @@ oaQ
 vPk
 rvJ
 cjg
-ljh
+rmB
 mQe
 lCI
 goc
@@ -79905,7 +79893,7 @@ pev
 vPk
 mPn
 cjg
-ljh
+rmB
 mQe
 lCI
 gWW
@@ -80107,7 +80095,7 @@ pkf
 vPk
 kZZ
 cjg
-ljh
+rmB
 aov
 lCI
 wXp
@@ -80309,7 +80297,7 @@ kaz
 vPk
 taf
 cjg
-ljh
+rmB
 jkO
 ueF
 hhv
@@ -80730,8 +80718,8 @@ iwo
 iwo
 iwo
 iwo
-rIj
-tLF
+xdz
+kUn
 bDo
 bDo
 bDo
@@ -80915,7 +80903,7 @@ wzN
 bsj
 rFn
 kZL
-yaV
+bEf
 jLS
 lFE
 iwo
@@ -84760,7 +84748,7 @@ iZt
 gds
 xqo
 ueH
-dxa
+ueH
 fuu
 lBd
 aPN
