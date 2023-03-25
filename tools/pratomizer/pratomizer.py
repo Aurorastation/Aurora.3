@@ -46,7 +46,7 @@ def CopyFileInNewRepo(filepath, content):
     with open(filepath, 'wb') as f:
         f.write(content)
 
-def CommitAtomization(repo: Repo, message: String):
+def CommitAtomization(repo: Repo, message: str):
     repo.index.add("*")
     repo.index.commit(message)
 
