@@ -428,16 +428,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"avE" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "avI" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1793,6 +1783,12 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/operations/loading)
+"buV" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "bvb" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
@@ -11550,6 +11546,13 @@
 "iRC" = (
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
+"iSc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "iSu" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -15769,13 +15772,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/outpost/mining_main/eva)
-"mkW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "mlc" = (
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
@@ -56616,7 +56612,7 @@ qnr
 uVL
 uVL
 mhf
-mkW
+iSc
 mhf
 pom
 fYt
@@ -57234,7 +57230,7 @@ rUd
 akC
 iGO
 iGO
-avE
+iGO
 iGO
 tdL
 ccZ
@@ -57436,7 +57432,7 @@ rUd
 vil
 vil
 joF
-vil
+buV
 cDa
 jNq
 vDT
