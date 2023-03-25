@@ -1,6 +1,6 @@
 /datum/accent/rootsong
 	name = ACCENT_ROOTSONG
-	description = "An accent native to the Dionae born within atmospheric conditions, more specifically that of planets. More commonly found in Dionae that were exposed to non-ionising or trace amounts of radiation during their formative years. To non-Dionae, this accent is akin to singing - a high pitched voice that has various rises and falls between Soprano and Mezzo-soprano."
+	description = "An accent native to the Dionae born within atmospheric conditions, more specifically that of planets. More commonly found in Dionae that were exposed to non-ionising or trace amounts of radiation during their formative years. To non-Dionae, this accent is akin to singing - a high pitched voice that has various rises and falls between soprano and mezzo-soprano."
 	tag_icon = "dionae_rootsong"
 	text_tag = "RTS"
 
