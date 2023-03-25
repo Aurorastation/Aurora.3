@@ -20,7 +20,7 @@ def hello(file, prname, commitmessage):
     repo = GitMakeRepo(prname)
     CopyFileInNewRepo(file, filecontent)
     repo: Repo = repo
-    StageChange(repo, file)
+    #StageChange(repo, file)
     CommitAtomization(repo, commitmessage, file)
 
 
