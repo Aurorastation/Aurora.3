@@ -1052,14 +1052,6 @@
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
-"gIU" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
 "gMq" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1905,14 +1897,6 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"sLk" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -32616,7 +32600,7 @@ cVA
 nty
 nty
 nty
-gIU
+cVA
 dbx
 bci
 pUv
@@ -32876,7 +32860,7 @@ aSJ
 aSJ
 aSJ
 jqx
-sLk
+hQL
 cVA
 dbx
 nty

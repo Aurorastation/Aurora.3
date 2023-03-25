@@ -945,13 +945,23 @@
 	light_color = COLOR_STEEL
 
 /obj/machinery/vending/dinnerware/plastic
-	name = "Utensil Vendor"
+	name = "utensil vendor"
 	desc = "A kitchen and restaurant utensil vendor."
 	products = list(
 		/obj/item/material/kitchen/utensil/fork/plastic = 12,
 		/obj/item/material/kitchen/utensil/spoon/plastic = 12,
 		/obj/item/material/kitchen/utensil/knife/plastic = 12,
 		/obj/item/material/kitchen/utensil/fork/chopsticks/cheap = 12,
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
+		/obj/item/reagent_containers/food/drinks/pitcher = 3,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6
+	)
+
+/obj/machinery/vending/dinnerware/bar
+	name = "utensil vendor"
+	desc = "A bar utensil vendor."
+	products = list(
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/food/drinks/pitcher = 3,

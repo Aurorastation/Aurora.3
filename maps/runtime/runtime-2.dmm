@@ -1190,11 +1190,6 @@
 	temperature = 278
 	},
 /area/tcommsat/chamber)
-"Wz" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
-/area/construction/storage)
 "Xd" = (
 /obj/structure/cable{
 	d2 = 8;
@@ -5614,12 +5609,12 @@ ki
 wx
 zQ
 zQ
-Wz
 zQ
 zQ
 zQ
 zQ
-Wz
+zQ
+zQ
 zQ
 zQ
 Vd
@@ -6899,12 +6894,12 @@ Nz
 wf
 zQ
 zQ
-Wz
 zQ
 zQ
 zQ
 zQ
-Wz
+zQ
+zQ
 zQ
 zQ
 Vd

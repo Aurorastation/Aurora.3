@@ -91,55 +91,55 @@
 	regenerate_icons()
 
 /mob/living/carbon/slime/purple/Initialize(mapload, colour = "purple")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/metal/Initialize(mapload, colour = "metal")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/orange/Initialize(mapload, colour = "orange")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/blue/Initialize(mapload, colour = "blue")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/dark_blue/Initialize(mapload, colour = "dark blue")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/dark_purple/Initialize(mapload, colour = "dark purple")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/yellow/Initialize(mapload, colour = "yellow")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/silver/Initialize(mapload, colour = "silver")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/pink/Initialize(mapload, colour = "pink")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/red/Initialize(mapload, colour = "red")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/gold/Initialize(mapload, colour = "gold")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/green/Initialize(mapload, colour = "green")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/oil/Initialize(mapload, colour = "oil")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/adamantine/Initialize(mapload, colour = "adamantine")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/black/Initialize(mapload, colour = "black")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/cerulean/Initialize(mapload, colour = "cerulean")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/pyrite/Initialize(mapload, colour = "pyrite")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/getToxLoss()
 	return toxloss
