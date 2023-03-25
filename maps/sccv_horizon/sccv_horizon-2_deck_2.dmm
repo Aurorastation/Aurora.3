@@ -3648,12 +3648,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/zta)
-"bEf" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "bFA" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/device/radio/intercom{
@@ -5320,6 +5314,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
+"cAa" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10;
+	req_access = list(55)
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "cAb" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -7136,11 +7138,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "dxa" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10;
-	req_access = list(55)
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/wall/r_wall,
 /area/rnd/secure_hallway)
 "dxm" = (
 /obj/structure/shuttle_part/scc_space_ship{
@@ -9529,6 +9527,12 @@
 "eHG" = (
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
+"eIk" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "eIt" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -10999,9 +11003,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"fus" = (
-/turf/simulated/wall/r_wall,
-/area/rnd/secure_hallway)
 "fuu" = (
 /turf/simulated/wall,
 /area/maintenance/wing/port/far)
@@ -16692,6 +16693,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
+"hZM" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "iap" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -18720,6 +18728,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
+"iXe" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10;
+	req_access = list(55)
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "iXI" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -22523,13 +22538,6 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
 /area/template_noop)
-"kUn" = (
-/obj/machinery/power/apc/low{
-	pixel_y = -24
-	},
-/obj/structure/cable,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port)
 "kUp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -28961,16 +28969,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/turret_protected/ai_upload)
-"nYN" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10;
-	req_access = list(55)
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "nYZ" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign describing some terrible danger beyond these walls. The particular danger being a weapon of extreme power. The wall is probably for the best.";
@@ -30401,13 +30399,6 @@
 /obj/effect/floor_decal/corner_wide/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
-"oGH" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
-	},
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "oGK" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -30615,6 +30606,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
+"oLL" = (
+/obj/machinery/power/apc/low{
+	pixel_y = -24
+	},
+/obj/structure/cable,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "oMC" = (
 /turf/simulated/open,
 /area/horizon/stairwell/central)
@@ -33762,6 +33760,21 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
+"qpu" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "qpB" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -34673,14 +34686,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
-"qKI" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10;
-	req_access = list(55)
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "qKK" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -35795,12 +35800,6 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
-"rmB" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "rmR" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -47945,21 +47944,6 @@
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
-"xdz" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port)
 "xdA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -50165,6 +50149,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
+"yeq" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "yeF" = (
 /obj/structure/closet/secure_closet/hangar_tech,
 /obj/machinery/alarm{
@@ -50341,6 +50331,16 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
+"yjf" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10;
+	req_access = list(55)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "yjg" = (
 /obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/corner/mauve/full{
@@ -75651,11 +75651,11 @@ hfv
 tcD
 qAF
 bmq
-fus
-fus
-fus
-fus
-fus
+dxa
+dxa
+dxa
+dxa
+dxa
 wMv
 wMv
 kGX
@@ -76055,11 +76055,11 @@ qLj
 hgg
 cer
 emT
-fus
+dxa
 qhA
 qUz
 bUN
-fus
+dxa
 qdf
 hep
 kGX
@@ -76256,12 +76256,12 @@ mTY
 ohs
 iVJ
 cer
-fus
-fus
-fus
-fus
-fus
-fus
+dxa
+dxa
+dxa
+dxa
+dxa
+dxa
 eUX
 smn
 kGX
@@ -76470,7 +76470,7 @@ xHX
 xHX
 uxf
 oGK
-fus
+dxa
 kaT
 bBu
 ePb
@@ -76671,8 +76671,8 @@ opW
 tPL
 tPL
 drw
-nYN
-fus
+yjf
+dxa
 heg
 hps
 hps
@@ -76874,7 +76874,7 @@ hnH
 hnH
 ykd
 syi
-fus
+dxa
 kaT
 hps
 elh
@@ -77075,8 +77075,8 @@ jIj
 cda
 hnH
 oCI
+iXe
 dxa
-fus
 kaT
 hps
 elh
@@ -77276,9 +77276,9 @@ rgc
 oRT
 tvX
 qzF
-rmB
-qKI
-fus
+yeq
+cAa
+dxa
 kaT
 hps
 hps
@@ -77478,9 +77478,9 @@ fYN
 tjP
 tvX
 nOJ
-rmB
+yeq
+iXe
 dxa
-fus
 kaT
 wAm
 cRr
@@ -77666,12 +77666,12 @@ cOs
 mBB
 mBB
 cQw
-fus
-fus
-fus
-fus
-fus
-oGH
+dxa
+dxa
+dxa
+dxa
+dxa
+hZM
 aov
 gUA
 vUK
@@ -77680,8 +77680,8 @@ gBT
 tjP
 tvX
 nOJ
-rmB
-dxa
+yeq
+iXe
 tLU
 kaT
 wAm
@@ -77873,7 +77873,7 @@ cOp
 vQR
 jxs
 mdR
-rmB
+yeq
 aov
 gUA
 vUK
@@ -77882,9 +77882,9 @@ fYN
 tjP
 tvX
 nOJ
-rmB
+yeq
+iXe
 dxa
-fus
 kaT
 qsg
 kaT
@@ -78070,11 +78070,11 @@ kXO
 xkH
 mBB
 bHL
-fus
+dxa
 aff
 aff
-fus
-fus
+dxa
+dxa
 dZU
 iOD
 kVk
@@ -78084,9 +78084,9 @@ oPk
 urh
 tvX
 qzF
-rmB
-qKI
-fus
+yeq
+cAa
+dxa
 kaT
 wsW
 hSG
@@ -78276,7 +78276,7 @@ weq
 weq
 weq
 weq
-fus
+dxa
 vFw
 ltR
 hnH
@@ -78287,8 +78287,8 @@ rZU
 sGG
 hnH
 ePN
+iXe
 dxa
-fus
 kaT
 wsW
 hSG
@@ -78479,7 +78479,7 @@ weq
 weq
 weq
 txy
-rmB
+yeq
 aov
 hnH
 hnH
@@ -78490,7 +78490,7 @@ hnH
 hnH
 ykd
 syi
-fus
+dxa
 xsU
 wsW
 tXR
@@ -78691,8 +78691,8 @@ cfp
 pex
 cfp
 dJx
-nYN
-fus
+yjf
+dxa
 kaT
 wsW
 xed
@@ -78882,7 +78882,7 @@ weq
 weq
 weq
 weq
-fus
+dxa
 eUp
 xcO
 xlZ
@@ -78894,7 +78894,7 @@ ptV
 jIL
 jIL
 tgT
-fus
+dxa
 kaT
 sYc
 sYc
@@ -79489,7 +79489,7 @@ vzO
 mOp
 qen
 cjg
-rmB
+yeq
 aov
 lCI
 ebQ
@@ -79691,7 +79691,7 @@ oaQ
 vPk
 rvJ
 cjg
-rmB
+yeq
 mQe
 lCI
 goc
@@ -79893,7 +79893,7 @@ pev
 vPk
 mPn
 cjg
-rmB
+yeq
 mQe
 lCI
 gWW
@@ -80095,7 +80095,7 @@ pkf
 vPk
 kZZ
 cjg
-rmB
+yeq
 aov
 lCI
 wXp
@@ -80297,7 +80297,7 @@ kaz
 vPk
 taf
 cjg
-rmB
+yeq
 jkO
 ueF
 hhv
@@ -80718,8 +80718,8 @@ iwo
 iwo
 iwo
 iwo
-xdz
-kUn
+qpu
+oLL
 bDo
 bDo
 bDo
@@ -80903,7 +80903,7 @@ wzN
 bsj
 rFn
 kZL
-bEf
+eIk
 jLS
 lFE
 iwo

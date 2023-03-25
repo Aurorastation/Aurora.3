@@ -1793,9 +1793,6 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/operations/loading)
-"buV" = (
-/turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
 "bvb" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
@@ -5959,7 +5956,7 @@
 /area/outpost/mining_main/refinery)
 "eGG" = (
 /turf/simulated/floor/tiled/ramp/bottom,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "eHq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -9208,7 +9205,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "gVu" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 8
@@ -9539,7 +9536,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "hgU" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -11553,11 +11550,6 @@
 "iRC" = (
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
-"iSc" = (
-/obj/machinery/door/airlock/maintenance_hatch,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/turret_protected/ai)
 "iSu" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -12004,7 +11996,7 @@
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "joW" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -15778,8 +15770,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/outpost/mining_main/eva)
 "mkW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "mlc" = (
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
@@ -17475,13 +17471,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"nAj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "nAn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -29147,7 +29136,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "wKh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -29735,7 +29724,7 @@
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "xgE" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -56627,7 +56616,7 @@ qnr
 uVL
 uVL
 mhf
-nAj
+mkW
 mhf
 pom
 fYt
@@ -57033,13 +57022,13 @@ uVL
 tnb
 eKc
 tFd
-iSc
+grP
 gVe
 eGG
 xgm
 wJK
 hgR
-rUd
+lCv
 xsN
 idq
 bRg
@@ -57444,10 +57433,10 @@ mVo
 xre
 fVh
 rUd
-mkW
-mkW
+vil
+vil
 joF
-buV
+vil
 cDa
 jNq
 vDT
