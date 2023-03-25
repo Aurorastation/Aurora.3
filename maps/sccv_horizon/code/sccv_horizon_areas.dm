@@ -465,6 +465,14 @@
 
 /********** Holodeck Start **********/
 // Holodeck
+/area/horizon/holodeck_control
+	name = "Horizon - Holodeck Alpha"
+	flags = RAD_SHIELDED
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+
+/area/horizon/holodeck_control/beta
+	name = "Horizon - Holodeck Beta"
+
 /area/horizon/holodeck
 	name = "Horizon - Holodeck (PARENT AREA - DON'T USE)"
 	icon_state = "Holodeck"
@@ -477,6 +485,10 @@
 /area/horizon/holodeck/alphadeck
 	name = "Horizon - Holodeck Alpha"
 	dynamic_lighting = TRUE
+
+//area/horizon/holodeck/betadeck
+//	name = "Horizon - Holodeck Beta"
+//	dynamic_lighting = TRUE
 
 /area/horizon/holodeck/source_plating
 	name = "Horizon - Holodeck - Off"
@@ -512,10 +524,6 @@
 	name = "Horizon - Holodeck - Courtroom"
 	sound_env = AUDITORIUM
 
-/area/horizon/holodeck/source_beach
-	name = "Horizon - Holodeck - Beach"
-	sound_env = PLAIN
-
 /area/horizon/holodeck/source_burntest
 	name = "Horizon - Holodeck - Atmospheric Burn Test"
 
@@ -527,7 +535,7 @@
 	sound_env = AUDITORIUM
 
 /area/horizon/holodeck/source_theatre
-	name = "Horizon - Holodeck - Theatre"
+	name = "Horizon - Holodeck - Callistean Theatre"
 	sound_env = CONCERT_HALL
 
 /area/horizon/holodeck/source_picnicarea
@@ -539,7 +547,7 @@
 	sound_env = PLAIN
 
 /area/horizon/holodeck/source_snowfield
-	name = "Horizon - Holodeck - Snow Field"
+	name = "Horizon - Holodeck - Bursa Tundra"
 	sound_env = FOREST
 
 /area/horizon/holodeck/source_desert
@@ -557,6 +565,28 @@
 
 /area/horizon/holodeck/source_chessboard
 	name = "Horizon - Holodeck - Chessboard"
+
+/area/horizon/holodeck/source_adhomai
+	name = "Horizon - Holodeck - Adhomian Campfire"
+
+/area/horizon/holodeck/source_beach
+	name = "Horizon - Holodeck - Silversunner Coast"
+	sound_env = PLAIN
+
+/area/horizon/holodeck/source_venus
+	name = "Horizon - Holodeck - Venusean Bar"
+
+/area/horizon/holodeck/source_konyang
+	name = "Horizon - Holodeck - Konyanger Noodle Shop"
+
+/area/horizon/holodeck/source_moghes
+	name = "Horizon - Holodeck - Moghresian Jungle"
+
+/area/horizon/holodeck/source_biesel
+	name = "Horizon - Holodeck - Mendell Skyline"
+
+/area/horizon/holodeck/source_tribunal
+	name = "Horizon - Holodeck - Tribunalist Chapel"
 /********** Holodeck End **********/
 
 /********** Unique Start **********/
