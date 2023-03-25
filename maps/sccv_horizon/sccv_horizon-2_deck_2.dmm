@@ -6217,9 +6217,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
-"cYk" = (
-/turf/simulated/wall/r_wall,
-/area/rnd/secure_hallway)
 "cYy" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
@@ -7133,20 +7130,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "dxa" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port)
+/turf/simulated/wall/r_wall,
+/area/rnd/secure_hallway)
 "dxm" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-5"
@@ -7344,6 +7329,9 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "dDo" = (
@@ -7416,12 +7404,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard/far)
-"dFx" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "dFC" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -14756,6 +14738,14 @@
 "hcv" = (
 /turf/simulated/floor/tiled,
 /area/horizon/security/office)
+"hcw" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10;
+	req_access = list(55)
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "hcF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -16000,10 +15990,7 @@
 /turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "hEx" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/turf/simulated/floor/reinforced/airless,
+/turf/space,
 /area/template_noop)
 "hEF" = (
 /obj/effect/floor_decal/corner/green{
@@ -17935,12 +17922,6 @@
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
-"iEr" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/security/checkpoint2)
 "iEu" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
@@ -18225,16 +18206,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
-"iKL" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10;
-	req_access = list(55)
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "iKU" = (
 /obj/machinery/ammunition_loader/grauwolf{
 	weapon_id = "Grauwolf Flak Battery"
@@ -18250,12 +18221,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/tesla)
-"iLd" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "iLC" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -24706,13 +24671,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
-"lXI" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10;
-	req_access = list(55)
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "lXO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -28782,6 +28740,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
+/obj/machinery/alarm{
+	pixel_x = 27;
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/storage/tools)
 "nRx" = (
@@ -28865,14 +28827,6 @@
 /obj/machinery/door/window/northright,
 /turf/simulated/floor/tiled/dark/full,
 /area/medical/pharmacy)
-"nTy" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10;
-	req_access = list(55)
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "nTB" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -32766,6 +32720,10 @@
 "pNX" = (
 /obj/machinery/mech_recharger,
 /obj/machinery/light,
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -29
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "pOl" = (
@@ -35487,6 +35445,12 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
+"rem" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "reo" = (
 /obj/structure/cable/orange{
 	icon_state = "1-2"
@@ -36539,6 +36503,12 @@
 "rFn" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora)
+"rFv" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/security/checkpoint2)
 "rFF" = (
 /obj/machinery/door/window/brigdoor/northright{
 	dir = 2;
@@ -40106,6 +40076,13 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
+"tye" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "tyq" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -40315,6 +40292,16 @@
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/wood,
 /area/chapel/main)
+"tDS" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10;
+	req_access = list(55)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "tDZ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -41064,6 +41051,13 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/full,
 /area/engineering/storage_hard)
+"tUg" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10;
+	req_access = list(55)
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "tUR" = (
 /obj/structure/stairs/east,
 /obj/structure/railing/mapped,
@@ -43810,13 +43804,6 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/reinforced,
 /area/horizon/zta)
-"vkk" = (
-/obj/machinery/power/apc/low{
-	pixel_y = -24
-	},
-/obj/structure/cable,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port)
 "vkq" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/security/hos,
@@ -44792,6 +44779,9 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/security/head_of_security)
+"vJO" = (
+/turf/space/dynamic,
+/area/template_noop)
 "vJR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -45368,6 +45358,13 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar)
+"vUt" = (
+/obj/machinery/power/apc/low{
+	pixel_y = -24
+	},
+/obj/structure/cable,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "vUK" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -45718,6 +45715,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
+"wbw" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/secure_hallway)
 "wbC" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/warning{
@@ -46765,6 +46768,21 @@
 "wAm" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/security_starboard)
+"wAC" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "wAT" = (
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -48791,13 +48809,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/tools)
-"xyY" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
-	},
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled,
-/area/rnd/secure_hallway)
 "xzd" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/spline/plain{
@@ -60532,10 +60543,10 @@ bVw
 rCR
 mLw
 whe
-qgN
-qgN
-qgN
-qgN
+vJO
+vJO
+vJO
+vJO
 qgN
 qgN
 qgN
@@ -60737,7 +60748,7 @@ saJ
 cdH
 uNl
 hEx
-qgN
+vJO
 qgN
 qgN
 qgN
@@ -60939,7 +60950,7 @@ uTr
 pxG
 jRN
 xer
-qgN
+vJO
 qgN
 qgN
 qgN
@@ -61141,7 +61152,7 @@ hrD
 nSF
 pxG
 xer
-qgN
+vJO
 qgN
 qgN
 qgN
@@ -61343,7 +61354,7 @@ eau
 rSP
 pxG
 gkB
-qgN
+vJO
 qgN
 qgN
 qgN
@@ -61545,7 +61556,7 @@ qUc
 fzh
 oeF
 qlp
-qgN
+vJO
 qgN
 qgN
 qgN
@@ -61747,7 +61758,7 @@ mnm
 qra
 dGz
 aPF
-qgN
+vJO
 qgN
 qgN
 qgN
@@ -64973,7 +64984,7 @@ oLE
 vte
 ldT
 ojV
-iEr
+rFv
 rCH
 rCH
 pkH
@@ -75652,11 +75663,11 @@ hfv
 tcD
 qAF
 bmq
-cYk
-cYk
-cYk
-cYk
-cYk
+dxa
+dxa
+dxa
+dxa
+dxa
 wMv
 wMv
 kGX
@@ -76056,11 +76067,11 @@ qLj
 hgg
 cer
 emT
-cYk
+dxa
 qhA
 qUz
 bUN
-cYk
+dxa
 qdf
 hep
 kGX
@@ -76257,12 +76268,12 @@ mTY
 ohs
 iVJ
 cer
-cYk
-cYk
-cYk
-cYk
-cYk
-cYk
+dxa
+dxa
+dxa
+dxa
+dxa
+dxa
 eUX
 smn
 kGX
@@ -76471,7 +76482,7 @@ xHX
 xHX
 uxf
 oGK
-cYk
+dxa
 kaT
 bBu
 ePb
@@ -76672,8 +76683,8 @@ opW
 tPL
 tPL
 drw
-iKL
-cYk
+tDS
+dxa
 heg
 hps
 hps
@@ -76875,7 +76886,7 @@ hnH
 hnH
 ykd
 syi
-cYk
+dxa
 kaT
 hps
 elh
@@ -77076,8 +77087,8 @@ jIj
 cda
 hnH
 oCI
-lXI
-cYk
+tUg
+dxa
 kaT
 hps
 elh
@@ -77277,9 +77288,9 @@ rgc
 oRT
 tvX
 qzF
-iLd
-nTy
-cYk
+rem
+hcw
+dxa
 kaT
 hps
 hps
@@ -77479,9 +77490,9 @@ fYN
 tjP
 tvX
 nOJ
-iLd
-lXI
-cYk
+rem
+tUg
+dxa
 kaT
 wAm
 cRr
@@ -77667,12 +77678,12 @@ cOs
 mBB
 mBB
 cQw
-cYk
-cYk
-cYk
-cYk
-cYk
-xyY
+dxa
+dxa
+dxa
+dxa
+dxa
+tye
 aov
 gUA
 vUK
@@ -77681,8 +77692,8 @@ gBT
 tjP
 tvX
 nOJ
-iLd
-lXI
+rem
+tUg
 tLU
 kaT
 wAm
@@ -77874,7 +77885,7 @@ cOp
 vQR
 jxs
 mdR
-iLd
+rem
 aov
 gUA
 vUK
@@ -77883,9 +77894,9 @@ fYN
 tjP
 tvX
 nOJ
-iLd
-lXI
-cYk
+rem
+tUg
+dxa
 kaT
 qsg
 kaT
@@ -78071,11 +78082,11 @@ kXO
 xkH
 mBB
 bHL
-cYk
+dxa
 aff
 aff
-cYk
-cYk
+dxa
+dxa
 dZU
 iOD
 kVk
@@ -78085,9 +78096,9 @@ oPk
 urh
 tvX
 qzF
-iLd
-nTy
-cYk
+rem
+hcw
+dxa
 kaT
 wsW
 hSG
@@ -78277,7 +78288,7 @@ weq
 weq
 weq
 weq
-cYk
+dxa
 vFw
 ltR
 hnH
@@ -78288,8 +78299,8 @@ rZU
 sGG
 hnH
 ePN
-lXI
-cYk
+tUg
+dxa
 kaT
 wsW
 hSG
@@ -78480,7 +78491,7 @@ weq
 weq
 weq
 txy
-iLd
+rem
 aov
 hnH
 hnH
@@ -78491,7 +78502,7 @@ hnH
 hnH
 ykd
 syi
-cYk
+dxa
 xsU
 wsW
 tXR
@@ -78692,8 +78703,8 @@ cfp
 pex
 cfp
 dJx
-iKL
-cYk
+tDS
+dxa
 kaT
 wsW
 xed
@@ -78883,7 +78894,7 @@ weq
 weq
 weq
 weq
-cYk
+dxa
 eUp
 xcO
 xlZ
@@ -78895,7 +78906,7 @@ ptV
 jIL
 jIL
 tgT
-cYk
+dxa
 kaT
 sYc
 sYc
@@ -79490,7 +79501,7 @@ vzO
 mOp
 qen
 cjg
-iLd
+rem
 aov
 lCI
 ebQ
@@ -79692,7 +79703,7 @@ oaQ
 vPk
 rvJ
 cjg
-iLd
+rem
 mQe
 lCI
 goc
@@ -79894,7 +79905,7 @@ pev
 vPk
 mPn
 cjg
-iLd
+rem
 mQe
 lCI
 gWW
@@ -80096,7 +80107,7 @@ pkf
 vPk
 kZZ
 cjg
-iLd
+rem
 aov
 lCI
 wXp
@@ -80298,7 +80309,7 @@ kaz
 vPk
 taf
 cjg
-iLd
+rem
 jkO
 ueF
 hhv
@@ -80719,8 +80730,8 @@ iwo
 iwo
 iwo
 iwo
-dxa
-vkk
+wAC
+vUt
 bDo
 bDo
 bDo
@@ -80904,7 +80915,7 @@ wzN
 bsj
 rFn
 kZL
-dFx
+wbw
 jLS
 lFE
 iwo
