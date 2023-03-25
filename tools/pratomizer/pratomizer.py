@@ -19,10 +19,11 @@ def hello(file: str, prname: str, commitmessage: str):
                 print(f'Unable to open, find or read the file {file}')
                 exit()
 
+    repo = GitMakeRepo(prname)
+
     for file, filecontent in filesToCopy.items():
         CopyFileInNewRepo(file, filecontent)
 
-    repo = GitMakeRepo(prname)
     StageChanges(repo)
     CommitAtomization(repo, commitmessage)
 
