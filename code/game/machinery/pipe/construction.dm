@@ -956,7 +956,6 @@
 				V.node.atmos_init()
 				V.node.build_network()
 
-
 		if(PIPE_MVALVE)		//manual valve
 			var/obj/machinery/atmospherics/valve/V = new( src.loc)
 			V.set_dir(dir)
