@@ -5,6 +5,7 @@ from git import SymbolicReference
 @click.command()
 @click.option('--file')
 @click.option('--prname')
+@click.option('--commitmessage', default='Atomization')
 def hello(file, prname):
 
     filecontent = 0
@@ -23,17 +24,16 @@ def hello(file, prname):
 
 def GitMakeRepo(name):
     repo = Repo("..\\..\\")
-    current_branch = repo.active_branch
     if repo.is_dirty(untracked_files=True):
         print("There are uncommitted changes in the current branch.")
         print("Please commit or stash your changes before creating a new branch.")
     else:
         try:
-          repo.git.checkout("master")
-          new_branch: 'SymbolicReference' = repo.create_head(f'{name}')
-          new_branch.checkout()
-          repo.git.checkout(name)
-          return new_branch
+            repo.git.checkout("master")
+            new_branch: 'SymbolicReference' = repo.create_head(f'{name}')
+            new_branch.checkout()
+            repo.git.checkout(name)
+            return new_branch
         except():
             print('Something went wrong in the cloning of the branch')
 
