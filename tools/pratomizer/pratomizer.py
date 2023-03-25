@@ -9,16 +9,19 @@ from git import SymbolicReference
 def hello(file: str, prname: str, commitmessage: str):
 
     repo = GitMakeRepo(prname)
+    filesToCopy = {}
 
     for file in file.replace(',', ' ').split():
         filecontent = 0
         with open(file, 'rb') as f:
             try:
                 filecontent = f.read()
+                filesToCopy[file] = filecontent
             except():
                 print(f'Unable to open, find or read the file {file}')
                 exit()
 
+    for file, filecontent in filesToCopy.items():
         CopyFileInNewRepo(file, filecontent)
 
     StageChanges(repo)
