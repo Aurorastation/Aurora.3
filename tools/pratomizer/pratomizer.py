@@ -8,10 +8,10 @@ from git import SymbolicReference
 @click.option('--commitmessage', default='Atomization')
 def hello(file: str, prname: str, commitmessage: str):
 
-    filecontent = 0
     repo = GitMakeRepo(prname)
 
     for file in file.replace(',', ' ').split():
+        filecontent = 0
         with open(file, 'rb') as f:
             try:
                 filecontent = f.read()
@@ -22,7 +22,7 @@ def hello(file: str, prname: str, commitmessage: str):
         CopyFileInNewRepo(file, filecontent)
 
     StageChanges(repo)
-    CommitAtomization(repo, commitmessage, file)
+    CommitAtomization(repo, commitmessage)
 
 
 
@@ -55,7 +55,7 @@ def StageChanges(repo: Repo):
     repo.git.diff()
     repo.git.add('--all')
 
-def CommitAtomization(repo: Repo, message: str, file: str):
+def CommitAtomization(repo: Repo, message: str):
     repo.index.commit(message)
 
 
