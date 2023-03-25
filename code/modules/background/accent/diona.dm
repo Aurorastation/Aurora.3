@@ -6,6 +6,6 @@
 
 /datum/accent/voidsong
 	name = ACCENT_VOIDSONG
-	description = "An innate accent spoken by Dionae that were born within the vacuum of space, or near extreme amounts of ionising radiation. The accent is said to be incredibly deep, and some have said that the Dionae that have the accent sound extremely similar to Baritones - varying between basslike and tenorlike."
+	description = "An innate accent spoken by Dionae that were born within the vacuum of space, or near extreme amounts of ionising radiation. The accent is said to be incredibly deep, and some have said that the Dionae that have the accent sound extremely similar to baritones, varying between basslike and tenorlike."
 	tag_icon = "dionae_voidsong"
 	text_tag = "VDS"
