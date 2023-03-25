@@ -27,7 +27,7 @@
 #################################
 
 # Your name.
-author: ReadThisNamePlz and 50%Noob
+author: ReadThisNamePlz, 50%Noob
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -48,3 +48,4 @@ changes:
   - maptweak: "AI Chamber altered slightly."
   - maptweak: "Research Directors Office tweaked for QOL"
   - maptweak: "Science now has its own departmental entrance to a secure wing."
+  - maptweak: "Edits the Deck one ladder to the right by one tile"
