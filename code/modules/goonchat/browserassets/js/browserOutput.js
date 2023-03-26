@@ -40,7 +40,6 @@ var opts = {
 	'selectedSubLoop': null, //Contains the interval loop for closing the selected sub menu
 	'suppressSubClose': false, //Whether or not we should be hiding the selected sub menu
 	'highlightTerms': [],
-	'highlightLimit': 5,
 	'highlightColor': '#FFFF00', //The color of the highlighted message
 	'pingDisabled': false, //Has the user disabled the ping counter
 
@@ -945,15 +944,12 @@ $(function() {
 
 	$('#highlightTerm').click(function(e) {
 		if ($('.popup .highlightTerm').is(':visible')) {return;}
-		var termInputs = '';
-		for (var i = 0; i < opts.highlightLimit; i++) {
-			termInputs += '<div><input type="text" name="highlightTermInput'+i+'" id="highlightTermInput'+i+'" class="highlightTermInput'+i+'" maxlength="255" value="'+(opts.highlightTerms[i] ? opts.highlightTerms[i] : '')+'" /></div>';
-		}
 		var popupContent = '<div class="head">String Highlighting</div>' +
 			'<div class="highlightPopup" id="highlightPopup">' +
-				'<div>Choose up to '+opts.highlightLimit+' strings that will highlight the line when they appear in chat.</div>' +
+				'<div>Choose strings that will be highlighted when they appear in chat. Max length of input is 255 characters. ' +
+					'Separate strings by ",". Example: "a,b,c" will highlight "a", "b", and "c".</div>' +
 				'<form id="highlightTermForm">' +
-					termInputs +
+					'<div><input type="text" name="highlightTermInput" id="highlightTermInput" class="highlightTermInput" maxlength="255" value="'+(opts.highlightTerms ? opts.highlightTerms : '')+'" /></div>' +
 					'<div><input type="text" name="highlightColor" id="highlightColor" class="highlightColor" '+
 						'style="background-color: '+(opts.highlightColor ? opts.highlightColor : '#FFFF00')+'" value="'+(opts.highlightColor ? opts.highlightColor : '#FFFF00')+'" maxlength="7" /></div>' +
 					'<div><input type="submit" name="highlightTermSubmit" id="highlightTermSubmit" class="highlightTermSubmit" value="Save" /></div>' +
@@ -973,11 +969,12 @@ $(function() {
 		e.preventDefault();
 
 		opts.highlightTerms = [];
-		for (var count = 0; count < opts.highlightLimit; count++) {
-			var term = $('#highlightTermInput'+count).val();
-			if (term !== null && /\S/.test(term)) {
-				opts.highlightTerms.push(term.trim().toLowerCase());
-			}
+		var term = $('#highlightTermInput').val();
+		if (term !== null && /\S/.test(term)) {
+			function mapFn (element) {
+				return element.trim();
+			};
+			opts.highlightTerms = term.trim().toLowerCase().split(',').map(mapFn);
 		}
 
 		var color = $('#highlightColor').val();
