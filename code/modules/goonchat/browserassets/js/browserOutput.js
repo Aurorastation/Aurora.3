@@ -25,9 +25,9 @@ var $messages, $subTheme, $subOptions, $subFont, $selectedSub, $contextMenu, $fi
 var opts = {
 	//General
 	'messageCount': 0, //A count of messages
-	'messageLimit': 2053, //A limit for the messages
-	'messageLimitMin': 2053,
-	'messageLimitMax': 2053*8,
+	'messageLimit': 2048 , //A limit for the messages
+	'messageLimitMin': 2048 ,
+	'messageLimitMax': 16384,
 	'scrollSnapTolerance': 10, //If within x pixels of bottom
 	'clickTolerance': 10, //Keep focus if outside x pixels of mousedown position on mouseup
 	'imageRetryDelay': 50, //how long between attempts to reload images (in ms)
