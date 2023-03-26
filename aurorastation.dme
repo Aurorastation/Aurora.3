@@ -2787,6 +2787,7 @@
 #include "code\modules\projectiles\guns\projectile\musket.dm"
 #include "code\modules\projectiles\guns\projectile\pistol.dm"
 #include "code\modules\projectiles\guns\projectile\plasma.dm"
+#include "code\modules\projectiles\guns\projectile\platform.dm"
 #include "code\modules\projectiles\guns\projectile\revolver.dm"
 #include "code\modules\projectiles\guns\projectile\rifle.dm"
 #include "code\modules\projectiles\guns\projectile\shotgun.dm"
