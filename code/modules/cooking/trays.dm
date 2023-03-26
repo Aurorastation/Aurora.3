@@ -217,4 +217,4 @@
 	flags = null
 	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
 	recyclable = TRUE
-	max_carry = 7 //That's 3 dishes, a knife, spoon and fork and a glass
+	max_carry = 7 // That's 3 dishes, a knife, spoon and fork and a glass
