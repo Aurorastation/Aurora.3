@@ -1034,7 +1034,7 @@
 	pixel_x = -32
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "aLD" = (
@@ -2680,7 +2680,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "cby" = (
@@ -3219,7 +3219,7 @@
 "cyK" = (
 /obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "czu" = (
@@ -5642,7 +5642,7 @@
 /area/cruise/aft_p)
 "ezk" = (
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "ezH" = (
@@ -8042,7 +8042,7 @@
 	pixel_y = -1
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "gnC" = (
@@ -8687,7 +8687,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "gMC" = (
@@ -9275,7 +9275,7 @@
 "hof" = (
 /obj/structure/closet/firecloset/full,
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "hog" = (
@@ -10234,7 +10234,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "ieV" = (
@@ -10333,7 +10333,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "ijb" = (
@@ -11029,7 +11029,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "iLE" = (
@@ -11367,7 +11367,7 @@
 	pixel_y = 28
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "iXb" = (
@@ -11746,7 +11746,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "jlw" = (
@@ -14627,7 +14627,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "lDd" = (
@@ -15065,7 +15065,7 @@
 	name = "Main Bar Suite Entry"
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "lQO" = (
@@ -15425,7 +15425,7 @@
 	},
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "mhT" = (
@@ -15619,7 +15619,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "mpp" = (
@@ -16434,7 +16434,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "mUE" = (
@@ -16519,7 +16519,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "mXl" = (
@@ -19036,7 +19036,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "pbJ" = (
@@ -19431,7 +19431,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "pqU" = (
@@ -19902,7 +19902,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "pOG" = (
@@ -20264,7 +20264,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "qdK" = (
@@ -21863,7 +21863,7 @@
 "rzl" = (
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "rzJ" = (
@@ -21963,7 +21963,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "rFd" = (
@@ -22012,7 +22012,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "rGt" = (
@@ -22286,7 +22286,7 @@
 	pixel_x = -5
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "rSC" = (
@@ -23014,7 +23014,7 @@
 /obj/structure/table/wood,
 /obj/random/lavalamp,
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "sCx" = (
@@ -23458,7 +23458,7 @@
 "sTR" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "sTV" = (
@@ -25324,7 +25324,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "uhg" = (
@@ -25930,7 +25930,7 @@
 	opacity = 0
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "uEN" = (
@@ -26904,7 +26904,7 @@
 "vxo" = (
 /obj/machinery/hologram/holopad,
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "vxO" = (
@@ -27548,7 +27548,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "wbo" = (
@@ -28359,7 +28359,7 @@
 "wJF" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "wJJ" = (
@@ -28981,7 +28981,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	color = COLOR_INDIGO
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "xjM" = (
