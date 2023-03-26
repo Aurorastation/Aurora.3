@@ -88,6 +88,14 @@
 	blend_state = "corner"
 	outline = FALSE
 
+/obj/effect/floor_decal/corner/diagonal
+	icon_state = "preview_diagonal"
+	blend_state = "diagonal"
+
+/obj/effect/floor_decal/corner/full
+	icon_state = "preview_threethirds"
+	blend_state = "threethirds"
+
 /obj/effect/floor_decal/corner/black
 	name = "black corner"
 	color = COLOR_GRAY20
