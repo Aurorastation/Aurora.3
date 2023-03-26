@@ -25,8 +25,8 @@ var $messages, $subTheme, $subOptions, $subFont, $selectedSub, $contextMenu, $fi
 var opts = {
 	//General
 	'messageCount': 0, //A count of messages
-	'messageLimit': 2048 , //A limit for the messages
-	'messageLimitMin': 2048 ,
+	'messageLimit': 2048, //A limit for the messages
+	'messageLimitMin': 2048,
 	'messageLimitMax': 16384,
 	'scrollSnapTolerance': 10, //If within x pixels of bottom
 	'clickTolerance': 10, //Keep focus if outside x pixels of mousedown position on mouseup
