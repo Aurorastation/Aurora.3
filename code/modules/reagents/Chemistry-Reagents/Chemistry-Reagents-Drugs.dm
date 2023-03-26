@@ -357,7 +357,7 @@
 	name = "Wulumunusha Extract"
 	description = "The extract of the wulumunusha fruit, it can cause hallucinations and muteness."
 	color = "#61E2EC"
-	taste_description = "pickled mint"
+	taste_description = "earthiness"
 	fallback_specific_heat = 1
 	overdose = 10
 	condiment_name = "Wulumunusha Extract Bottle"
