@@ -37,7 +37,7 @@
 "aj" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/table/glass,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
@@ -155,14 +155,14 @@
 "ay" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "az" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -218,18 +218,18 @@
 /obj/structure/flora/pottedplant,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "aH" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -240,7 +240,7 @@
 "aJ" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -248,11 +248,11 @@
 /obj/structure/flora/pottedplant,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -269,7 +269,7 @@
 "aN" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -280,14 +280,14 @@
 "aP" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "aQ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -313,7 +313,7 @@
 "aU" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -323,7 +323,7 @@
 "aV" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -333,7 +333,7 @@
 "aW" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
@@ -341,7 +341,7 @@
 "aX" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -358,7 +358,7 @@
 "aZ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -370,14 +370,14 @@
 "bb" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bc" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -414,7 +414,7 @@
 "bh" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
@@ -428,7 +428,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -466,7 +466,7 @@
 "bp" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
@@ -492,7 +492,7 @@
 "bt" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -506,7 +506,7 @@
 "bv" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -544,7 +544,7 @@
 "bz" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -556,7 +556,7 @@
 "bA" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -755,7 +755,7 @@
 "bX" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -845,7 +845,7 @@
 "ci" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -892,7 +892,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -918,7 +918,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -943,7 +943,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -966,7 +966,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -992,7 +992,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -1015,7 +1015,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1116,7 +1116,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1204,7 +1204,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -1326,11 +1326,11 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/weightlifter,
 /turf/simulated/floor/tiled/dark,
@@ -1341,7 +1341,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/weightlifter,
 /turf/simulated/floor/tiled/dark,
@@ -1353,7 +1353,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -1361,7 +1361,7 @@
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -1369,7 +1369,7 @@
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -1380,14 +1380,14 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "dl" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/computer/arcade/orion_trail,
 /turf/simulated/floor/tiled/dark,
@@ -1395,11 +1395,11 @@
 "dm" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/computer/arcade/battle,
 /turf/simulated/floor/tiled/dark,
@@ -1407,11 +1407,11 @@
 "dn" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
@@ -1419,18 +1419,18 @@
 "do" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "dp" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -1566,7 +1566,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -1649,11 +1649,11 @@
 "dP" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
@@ -1680,7 +1680,7 @@
 "dS" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
@@ -1841,7 +1841,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -1920,7 +1920,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -2052,14 +2052,14 @@
 "eF" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "eG" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2091,7 +2091,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -2107,7 +2107,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -2186,7 +2186,7 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -2200,7 +2200,7 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -2220,7 +2220,7 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2240,7 +2240,7 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -2266,7 +2266,7 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2354,18 +2354,18 @@
 "fc" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "fd" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/alarm{
 	dir = 4;
@@ -2383,7 +2383,7 @@
 "fe" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -2441,7 +2441,7 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2472,7 +2472,7 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2514,7 +2514,7 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -2553,7 +2553,7 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -2774,7 +2774,7 @@
 /obj/structure/cable/green,
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -2824,7 +2824,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -2854,7 +2854,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3000,7 +3000,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -3122,7 +3122,7 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3184,7 +3184,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3209,7 +3209,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/structure/cable/green{
@@ -3235,7 +3235,7 @@
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/punching_bag,
 /turf/simulated/floor/tiled/dark,
@@ -3249,7 +3249,7 @@
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -3262,7 +3262,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/structure/cable/green{
@@ -3409,11 +3409,11 @@
 "hc" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "kata_armoury";
@@ -3478,11 +3478,11 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/aft_hall)
@@ -3497,7 +3497,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -3508,25 +3508,25 @@
 "hp" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "hq" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "hr" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
@@ -3534,11 +3534,11 @@
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
@@ -3551,7 +3551,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3576,7 +3576,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -3617,7 +3617,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3829,7 +3829,7 @@
 "ic" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -3936,7 +3936,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3971,7 +3971,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -4000,12 +4000,12 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -4114,7 +4114,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -4134,7 +4134,7 @@
 "iF" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/item/reagent_containers/food/snacks/grilled_carp_slice,
 /obj/structure/table/standard,
@@ -4253,12 +4253,12 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/aft_hall)
@@ -4291,11 +4291,11 @@
 "iU" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4310,7 +4310,7 @@
 "iW" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4322,7 +4322,7 @@
 "iX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -4334,7 +4334,7 @@
 "iY" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -4349,7 +4349,7 @@
 "iZ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -4364,7 +4364,7 @@
 "ja" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -4379,7 +4379,7 @@
 "jb" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4397,7 +4397,7 @@
 "jd" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4415,7 +4415,7 @@
 "je" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4953,7 +4953,7 @@
 "jZ" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
@@ -5005,11 +5005,11 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -5019,21 +5019,21 @@
 "kf" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "kg" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "kh" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -5043,7 +5043,7 @@
 "ki" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5053,7 +5053,7 @@
 "kj" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5063,7 +5063,7 @@
 "kk" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -5073,11 +5073,11 @@
 "kl" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -5128,12 +5128,12 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/aft_hall)
@@ -5182,11 +5182,11 @@
 /obj/machinery/chemical_dispenser/coffee/full,
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -5203,12 +5203,12 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5225,12 +5225,12 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5253,12 +5253,12 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5348,12 +5348,12 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5694,7 +5694,7 @@
 "lz" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -5707,14 +5707,14 @@
 "lB" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "lC" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/computer/guestpass{
 	pixel_y = 32
@@ -5743,7 +5743,7 @@
 "lF" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
@@ -5787,7 +5787,7 @@
 "lM" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
@@ -5795,7 +5795,7 @@
 "lN" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -5908,11 +5908,11 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -5977,19 +5977,19 @@
 "mi" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "mj" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -6029,14 +6029,14 @@
 "mp" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "mq" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -6122,12 +6122,12 @@
 "mB" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -6160,7 +6160,7 @@
 "mE" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
@@ -6179,11 +6179,11 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/aft_hall)
@@ -6255,7 +6255,7 @@
 /obj/machinery/firealarm/west,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -6268,12 +6268,12 @@
 "mP" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -6359,12 +6359,12 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Engineering and Hangar";
@@ -6483,7 +6483,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -6507,11 +6507,11 @@
 "nj" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
@@ -6519,7 +6519,7 @@
 "nk" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -6536,7 +6536,7 @@
 "nm" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/punching_bag,
 /turf/simulated/floor/tiled/dark,
@@ -6560,7 +6560,7 @@
 "np" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
@@ -6600,11 +6600,11 @@
 "nt" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
@@ -6640,11 +6640,11 @@
 "nx" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
@@ -6665,7 +6665,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -6688,7 +6688,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6710,7 +6710,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -6756,7 +6756,7 @@
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -6793,7 +6793,7 @@
 "op" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -6861,7 +6861,7 @@
 "pg" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
@@ -7020,11 +7020,11 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
@@ -7132,11 +7132,11 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/aft_hall)
@@ -7200,7 +7200,7 @@
 "rv" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7241,7 +7241,7 @@
 "rN" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/item/reagent_containers/food/snacks/meatsteak,
 /obj/structure/table/standard,
@@ -7260,7 +7260,7 @@
 "rZ" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -7296,7 +7296,7 @@
 "sB" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -7587,14 +7587,14 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
 "wf" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7802,7 +7802,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -7817,7 +7817,7 @@
 "yi" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
@@ -7880,11 +7880,11 @@
 /obj/structure/flora/pottedplant,
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/sign/flag/hegemony{
 	pixel_y = 32
@@ -7894,7 +7894,7 @@
 "yD" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -8039,11 +8039,11 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/aft_hall)
@@ -8105,7 +8105,7 @@
 "AC" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -8319,11 +8319,11 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8440,7 +8440,7 @@
 "DX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -8612,11 +8612,11 @@
 "FC" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -8808,11 +8808,11 @@
 "GX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/vending/cola,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -9007,7 +9007,7 @@
 "Jg" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
@@ -9054,7 +9054,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -9203,7 +9203,7 @@
 "KK" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -9280,7 +9280,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -9315,7 +9315,7 @@
 "LM" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/sink/kitchen{
 	name = "water fountain";
@@ -9356,11 +9356,11 @@
 "Mk" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -9472,11 +9472,11 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -9496,11 +9496,11 @@
 "Nq" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -9619,7 +9619,7 @@
 "Oa" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -9651,7 +9651,7 @@
 "Oh" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -9682,7 +9682,7 @@
 "OA" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -9782,12 +9782,12 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/aft_hall)
@@ -9820,11 +9820,11 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -9843,7 +9843,7 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -9889,11 +9889,11 @@
 /obj/structure/flora/pottedplant,
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/sign/flag/hegemony{
 	pixel_y = 32
@@ -9917,7 +9917,7 @@
 "QF" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -10082,7 +10082,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/alarm{
 	pixel_y = 25;
@@ -10316,7 +10316,7 @@
 "UC" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -10382,7 +10382,7 @@
 "VG" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "katashroud";
@@ -10415,7 +10415,7 @@
 "VZ" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -10496,7 +10496,7 @@
 "WV" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
@@ -10739,7 +10739,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/structure/cable/green{

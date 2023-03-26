@@ -463,7 +463,7 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "bB" = (
 /turf/simulated/wall,
@@ -1079,7 +1079,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "dd" = (
 /obj/structure/closet,
@@ -2001,7 +2001,7 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "fS" = (
 /obj/structure/table/standard{
@@ -2012,7 +2012,7 @@
 	pixel_x = -6;
 	pixel_y = 24
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "fT" = (
 /obj/machinery/light{
@@ -2022,35 +2022,35 @@
 	name = "plastic table frame"
 	},
 /obj/item/trash/plate,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "fU" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
 /obj/random/pizzabox,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "fV" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
 /obj/item/reagent_containers/food/drinks/small_milk,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "fW" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
 /obj/item/reagent_containers/food/snacks/tajaran_bread,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "fX" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
 /obj/item/trash/plate,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "fY" = (
 /obj/machinery/light{
@@ -2060,11 +2060,11 @@
 	name = "plastic table frame"
 	},
 /obj/item/reagent_containers/food/snacks/sosjerky,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "fZ" = (
 /obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "ga" = (
 /turf/simulated/wall,
@@ -2129,12 +2129,12 @@
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
 "gj" = (
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "gk" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/structure/bed/stool/padded,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "gl" = (
 /obj/machinery/alarm{
@@ -2146,11 +2146,11 @@
 "gm" = (
 /obj/item/reagent_containers/food/drinks/flask/shiny,
 /obj/structure/bed/stool/padded,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "gn" = (
 /obj/structure/bed/stool/padded,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "gp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2295,7 +2295,7 @@
 /area/casino/casino_maintenance)
 "gD" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "gG" = (
 /turf/space/dynamic,
@@ -3377,7 +3377,7 @@
 /area/casino/casino_kitchen)
 "jD" = (
 /obj/machinery/vending/coffee,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_kitchen)
 "jE" = (
 /obj/item/reagent_containers/food/drinks/bottle/absinthe,
@@ -3643,7 +3643,7 @@
 /obj/item/reagent_containers/food/drinks/h_chocolate,
 /obj/structure/table/stone/marble,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_mainfloor)
 "kq" = (
 /obj/machinery/door/firedoor,
@@ -4803,7 +4803,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "qh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4835,7 +4835,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "rt" = (
 /obj/structure/cable{
@@ -4868,7 +4868,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "sT" = (
 /obj/structure/shuttle/window,
@@ -4889,7 +4889,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "td" = (
 /obj/machinery/portable_atmospherics/canister/air,
@@ -4907,7 +4907,7 @@
 /area/casino/casino_mainfloor)
 "tn" = (
 /obj/structure/bed/stool/chair/shuttle,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "tp" = (
 /obj/machinery/door/blast/regular/open{
@@ -4960,7 +4960,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "vP" = (
 /obj/effect/landmark/entry_point/east{
@@ -5000,7 +5000,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "ws" = (
 /obj/effect/landmark/entry_point/west{
@@ -5041,7 +5041,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "xe" = (
 /obj/structure/window/basic,
@@ -5067,7 +5067,7 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/shuttle,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "xQ" = (
 /obj/effect/landmark/entry_point/south{
@@ -5086,7 +5086,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "yK" = (
 /obj/structure/lattice,
@@ -5129,7 +5129,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "zl" = (
 /obj/structure/flora/pottedplant/random,
@@ -5195,7 +5195,7 @@
 	name = "Cutter door"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "AW" = (
 /obj/effect/decal/cleanable/generic,
@@ -5408,7 +5408,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "Hb" = (
 /obj/item/ammo_casing/rifle/used,
@@ -5440,7 +5440,7 @@
 /turf/simulated/floor/carpet/fancybrown,
 /area/casino/casino_mainfloor)
 "Ik" = (
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "In" = (
 /obj/machinery/alarm{
@@ -5648,7 +5648,7 @@
 /obj/machinery/computer/shuttle_control/explore/casino_cutter{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "OO" = (
 /obj/structure/table/wood,
@@ -5718,7 +5718,7 @@
 	},
 /obj/structure/bed/stool/chair/shuttle,
 /obj/random/spacecash,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "PF" = (
 /obj/structure/cable{
@@ -5727,7 +5727,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/vending/mredispenser,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "PV" = (
 /obj/machinery/access_button/airlock_exterior{
@@ -5760,7 +5760,7 @@
 /obj/machinery/alarm{
 	pixel_y = 30
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "Qi" = (
 /obj/machinery/atmospherics/unary/engine{
@@ -5782,7 +5782,7 @@
 	pixel_y = 25
 	},
 /obj/structure/bed/stool/chair/office/bridge/pilot,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "QS" = (
 /obj/machinery/door/blast/regular/open{
@@ -5897,7 +5897,7 @@
 	name = "north bump";
 	pixel_y = 24
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "Tc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{

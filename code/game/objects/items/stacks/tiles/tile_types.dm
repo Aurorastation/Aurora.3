@@ -11,7 +11,7 @@
 /obj/item/stack/tile
 	name = "tile"
 	singular_name = "tile"
-	desc = "A non-descript floor tile"
+	desc = "A non-descript floor tile."
 	w_class = ITEMSIZE_NORMAL
 	max_amount = 60
 	recyclable = TRUE
@@ -36,20 +36,6 @@
 	singular_name = "synthetic grass tile"
 	desc = "A patch of grass like they often use on golf courses."
 	icon_state = "tile_grass"
-	force = 1.0
-	throwforce = 1.0
-	throw_speed = 5
-	throw_range = 20
-	flags = 0
-	origin_tech = list(TECH_BIO = 1)
-	drop_sound = 'sound/items/drop/herb.ogg'
-	pickup_sound = 'sound/items/pickup/herb.ogg'
-
-/obj/item/stack/tile/grass_alt
-	name = "grass tile"
-	singular_name = "grass floor tile"
-	desc = "A soft patch of grass."
-	icon_state = "tile_grass_alt"
 	force = 1.0
 	throwforce = 1.0
 	throw_speed = 5
@@ -205,7 +191,7 @@
 	icon_state = "tile_carpetmagenta"
 
 /obj/item/stack/tile/lino
-	name = "old linoleum"
+	name = "linoleum"
 	singular_name = "linoleum"
 	desc = "A piece of linoleum. It is the same size as a normal floor tile!"
 	icon_state = "tile_linoleum"
@@ -218,19 +204,9 @@
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	matter = list(MATERIAL_PLASTIC = TILE_MATERIAL_AMOUNT)
 
-/obj/item/stack/tile/lino_grey
-	name = "linoleum"
-	singular_name = "linoleum"
-	desc = "A piece of linoleum. It is the same size as a normal floor tile!"
-	icon_state = "tile_linoleum_grey"
-	force = 1.0
-	throwforce = 1.0
-	throw_speed = 5
-	throw_range = 20
-	flags = 0
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
-	matter = list(MATERIAL_PLASTIC = TILE_MATERIAL_AMOUNT)
+/obj/item/stack/tile/lino/diamond
+	name = "diamond linoleum"
+	icon_state = "tile_linoleum_diamond"
 
 /*
  * Circuits
@@ -281,7 +257,7 @@
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/tile/floor/full
+/obj/item/stack/tile/mono
 	name = "full steel tiles"
 	desc = "A set of full steel floor tiles."
 	singular_name = "full steel tile"
@@ -293,11 +269,9 @@
 	color = COLOR_RED_GRAY
 	icon_state = "tile_white"
 
-/obj/item/stack/tile/floor_steel
-	name = "steel floor tile"
-	singular_name = "steel floor tile"
-	icon_state = "tile_steel"
-	matter = list(MATERIAL_PLASTEEL = TILE_MATERIAL_AMOUNT)
+/obj/item/stack/tile/floor/rust
+	name = "rusted steel floor tile"
+	desc = "A set of steel floor tiles. Seems to be only good for recycling."
 
 /obj/item/stack/tile/floor_white
 	name = "white floor tile"

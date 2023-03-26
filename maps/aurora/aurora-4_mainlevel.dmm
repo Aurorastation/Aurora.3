@@ -16443,10 +16443,10 @@
 	pixel_y = 4
 	},
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/bridge)
 "aDk" = (
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/bridge)
 "aDl" = (
 /obj/structure/grille,
@@ -17554,7 +17554,7 @@
 	pixel_y = -5
 	},
 /obj/structure/flora/ausbushes/reedbush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/bridge)
 "aEZ" = (
 /obj/structure/table/steel,
@@ -30348,7 +30348,7 @@
 	dir = 1;
 	pixel_y = -28
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bak" = (
 /obj/structure/cryofeed,
@@ -41630,7 +41630,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/bridge)
 "bvN" = (
 /obj/structure/bed/stool/chair{
@@ -41685,7 +41685,7 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/bridge)
 "bvS" = (
 /turf/simulated/wall/r_wall,
@@ -42056,7 +42056,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/bridge)
 "bwH" = (
 /obj/structure/bed/stool/chair{
@@ -42097,7 +42097,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/genericbush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/bridge)
 "bwM" = (
 /obj/structure/window/reinforced{
@@ -42835,7 +42835,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/bridge)
 "byf" = (
 /obj/structure/bed/stool/chair{
@@ -42892,7 +42892,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/bridge)
 "bym" = (
 /obj/machinery/door/airlock/external{
@@ -47359,7 +47359,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bIn" = (
 /obj/machinery/requests_console{
@@ -47369,7 +47369,7 @@
 	pixel_y = 30
 	},
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bIo" = (
 /obj/structure/disposalpipe/trunk,
@@ -47381,16 +47381,16 @@
 /obj/item/bee_net,
 /obj/item/honey_frame,
 /obj/item/honey_frame,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bIp" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bIq" = (
 /obj/machinery/firealarm/east,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bIr" = (
 /obj/machinery/vending/hydronutrients,
@@ -47691,11 +47691,11 @@
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bJg" = (
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bJi" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bJm" = (
 /obj/structure/curtain,
@@ -47933,7 +47933,7 @@
 /area/hydroponics)
 "bJS" = (
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bJU" = (
 /obj/machinery/light{
@@ -47941,7 +47941,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bJV" = (
 /obj/structure/window/reinforced{
@@ -47949,7 +47949,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bJW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -47987,13 +47987,13 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bKa" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bKb" = (
 /obj/structure/disposalpipe/segment,
@@ -48003,13 +48003,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bKc" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bKd" = (
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -48304,7 +48304,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bKX" = (
 /obj/structure/disposalpipe/segment{
@@ -48540,13 +48540,13 @@
 "bLE" = (
 /obj/structure/window/reinforced,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bLF" = (
 /obj/structure/window/reinforced,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bLG" = (
 /obj/machinery/door/window{
@@ -48556,7 +48556,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bLJ" = (
 /obj/structure/disposalpipe/junction/yjunction{
@@ -59611,7 +59611,7 @@
 	dir = 1
 	},
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "dFK" = (
 /obj/machinery/light/small/emergency{
@@ -60070,7 +60070,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "eJt" = (
 /obj/machinery/door/firedoor,
@@ -61276,7 +61276,7 @@
 	pixel_x = -7;
 	pixel_y = -1
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/bridge)
 "gGr" = (
 /obj/machinery/power/apc{
@@ -62643,7 +62643,7 @@
 /area/maintenance/research_port)
 "jch" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "jck" = (
 /obj/machinery/door/airlock/maintenance{
@@ -63254,7 +63254,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "kFz" = (
 /obj/machinery/firealarm/west,
@@ -67803,7 +67803,7 @@
 "sNw" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "sNG" = (
 /obj/structure/cable{
@@ -69267,7 +69267,7 @@
 	pixel_x = -2;
 	pixel_y = -1
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/bridge)
 "vap" = (
 /obj/structure/grille,
@@ -69604,7 +69604,7 @@
 "vCz" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/bridge)
 "vEy" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -69676,7 +69676,7 @@
 /area/engineering/engine_room)
 "vIq" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "vIC" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,

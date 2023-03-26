@@ -85,7 +85,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -116,7 +116,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -469,7 +469,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -485,7 +485,7 @@
 "gk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/drill,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -1195,7 +1195,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -1253,7 +1253,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -1282,7 +1282,7 @@
 /obj/item/shovel,
 /obj/item/gun/energy/plasmacutter,
 /obj/item/gun/energy/plasmacutter,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -1333,7 +1333,7 @@
 	pixel_x = -24;
 	req_access = list(209)
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -1551,7 +1551,7 @@
 	dir = 8;
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -1789,7 +1789,7 @@
 	},
 /area/raskara_okon/engineer)
 "xn" = (
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -1919,7 +1919,7 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -2139,7 +2139,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -2339,7 +2339,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -2408,7 +2408,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -2515,7 +2515,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -2654,7 +2654,7 @@
 "IM" = (
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -2740,7 +2740,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -2860,7 +2860,7 @@
 "LM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -2937,7 +2937,7 @@
 	dir = 8
 	},
 /obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -3045,7 +3045,7 @@
 /obj/machinery/mining/brace{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -3266,7 +3266,7 @@
 	id = "okon_base_belt"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -3377,7 +3377,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -3422,7 +3422,7 @@
 	id = "okon_base_belt";
 	layer = 2.9
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -3702,7 +3702,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
@@ -3959,7 +3959,7 @@
 /obj/machinery/mineral/stacking_unit_console{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)

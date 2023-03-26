@@ -29,7 +29,7 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
@@ -150,7 +150,7 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
 "aqS" = (
-/obj/effect/floor_decal/corner/light/full{
+/obj/effect/floor_decal/corner/full{
 	dir = 8
 	},
 /obj/structure/closet/crate/freezer/rations,
@@ -440,7 +440,7 @@
 "bik" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/light{
@@ -565,7 +565,7 @@
 "bCq" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -869,7 +869,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/red{
@@ -951,7 +951,7 @@
 "drI" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -990,7 +990,7 @@
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/ship/dominian_corvette)
 "dEo" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 9
 	},
 /obj/structure/closet/crate/freezer/rations,
@@ -1202,7 +1202,7 @@
 "eur" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
@@ -1340,7 +1340,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
 "ePS" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 10
 	},
 /turf/simulated/floor/marble/dark,
@@ -1383,7 +1383,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 6
 	},
 /obj/effect/floor_decal/spline/plain{
@@ -1475,7 +1475,7 @@
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "fte" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 9
 	},
 /obj/structure/closet/crate/freezer/rations,
@@ -1488,7 +1488,7 @@
 "fvv" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1516,7 +1516,7 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/franny)
 "fyU" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 6
 	},
 /obj/effect/floor_decal/spline/plain{
@@ -1636,7 +1636,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/red{
@@ -1695,7 +1695,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/brig)
 "giY" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
@@ -1766,7 +1766,7 @@
 "gBt" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1897,10 +1897,10 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering)
 "hdB" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
@@ -1950,7 +1950,7 @@
 "hqL" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/marble/dark,
@@ -2088,7 +2088,7 @@
 "hGR" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/bed,
 /obj/item/bedsheet/black,
@@ -2106,7 +2106,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/firealarm/south,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2161,7 +2161,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/red{
@@ -2319,10 +2319,10 @@
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/ship/dominian_corvette/engineering)
 "iEC" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -2516,7 +2516,7 @@
 "jvZ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -2559,7 +2559,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/franny)
 "jGb" = (
-/obj/effect/floor_decal/corner/light/full{
+/obj/effect/floor_decal/corner/full{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain{
@@ -2595,7 +2595,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "jTL" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -2613,7 +2613,7 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/franny)
 "jXR" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2670,10 +2670,10 @@
 /turf/simulated/wall,
 /area/ship/dominian_corvette/officer)
 "klE" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2686,7 +2686,7 @@
 /area/ship/dominian_corvette/quarters)
 "kpq" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 5
 	},
 /obj/structure/sign/flag/zhao{
@@ -2825,7 +2825,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/closet/walllocker{
 	name = "priest's raiments locker";
@@ -2852,7 +2852,7 @@
 "kUR" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2931,7 +2931,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/cannon)
 "liI" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/sofa/right/black{
@@ -3019,10 +3019,10 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
 "lsu" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/sofa/right/black{
@@ -3203,7 +3203,7 @@
 /turf/simulated/wall,
 /area/ship/dominian_corvette/cannon)
 "lPG" = (
-/obj/effect/floor_decal/corner/light/full,
+/obj/effect/floor_decal/corner/full,
 /obj/structure/bed/stool/chair/sofa/left/black{
 	dir = 4;
 	name = "pew";
@@ -3228,7 +3228,7 @@
 "mcE" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
@@ -3297,7 +3297,7 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/franny)
 "mqx" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
@@ -3317,10 +3317,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/franny)
 "mwP" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/structure/toilet{
@@ -3338,7 +3338,7 @@
 "myq" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/sign/kiddieplaque{
 	icon = 'icons/turf/flooring/decals.dmi';
@@ -3448,10 +3448,10 @@
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "mLi" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/structure/sink/kitchen{
@@ -3484,7 +3484,7 @@
 	},
 /area/ship/dominian_corvette)
 "mSp" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3492,7 +3492,7 @@
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_corvette/temple)
 "mXF" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/plain/corner{
@@ -3508,10 +3508,10 @@
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_corvette/temple)
 "mZy" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -3538,7 +3538,7 @@
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/shuttle/dominian_shuttle)
 "nke" = (
-/obj/effect/floor_decal/corner/light/full{
+/obj/effect/floor_decal/corner/full{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/corner,
@@ -3687,7 +3687,7 @@
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/sign/flag/dominia{
 	pixel_y = -32
@@ -3719,10 +3719,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/officer)
 "nMr" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
@@ -3772,7 +3772,7 @@
 "nXd" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -3803,7 +3803,7 @@
 "ocM" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
@@ -3890,7 +3890,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/table/stone/marble,
 /obj/item/flame/lighter/zippo/dominia,
@@ -3975,7 +3975,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/alarm{
 	req_one_access = null;
@@ -3995,7 +3995,7 @@
 "oLv" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/sign/kiddieplaque{
 	icon = 'icons/turf/flooring/decals.dmi';
@@ -4049,7 +4049,7 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
 "oVO" = (
-/obj/effect/floor_decal/corner/light/full,
+/obj/effect/floor_decal/corner/full,
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_corvette/temple)
 "oXc" = (
@@ -4125,7 +4125,7 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
@@ -4139,7 +4139,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/fancy/candle_box,
@@ -4179,7 +4179,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/officer)
 "pvH" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/sofa/left/black{
@@ -4461,7 +4461,7 @@
 "qEa" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/alarm{
@@ -4567,10 +4567,10 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
 "qQq" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -4591,7 +4591,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering)
 "qTV" = (
-/obj/effect/floor_decal/corner/light/full{
+/obj/effect/floor_decal/corner/full{
 	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
@@ -4603,10 +4603,10 @@
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/ship/dominian_corvette/brig)
 "qZm" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/item/trash/spitwad,
@@ -4754,7 +4754,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)
@@ -4889,7 +4889,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/officer)
 "ssO" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 5
 	},
 /obj/machinery/light{
@@ -4976,7 +4976,7 @@
 	dir = 1
 	},
 /obj/machinery/hologram/holopad/long_range,
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 5
 	},
 /obj/machinery/light{
@@ -5204,7 +5204,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5263,7 +5263,7 @@
 "tSP" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -5274,10 +5274,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/franny)
 "tYz" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/structure/sink/kitchen{
@@ -5296,7 +5296,7 @@
 "tYX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5392,7 +5392,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/reagent_dispensers/water_cooler{
 	pixel_x = -9
@@ -5628,7 +5628,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/item/clothing/accessory/dominia,
 /obj/item/clothing/accessory/dominia,
@@ -5698,10 +5698,10 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
 "vBe" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -5771,7 +5771,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/red{
@@ -5780,10 +5780,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
 "vXj" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -5802,7 +5802,7 @@
 "vZS" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/officer)
@@ -5857,7 +5857,7 @@
 "wzs" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/vending/coffee/free,
 /turf/simulated/floor/tiled/dark,
@@ -5974,7 +5974,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "wRN" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 5
 	},
 /obj/structure/bed/stool/chair/sofa/left/black{
@@ -5999,7 +5999,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/sign/kiddieplaque{
 	icon = 'icons/turf/flooring/decals.dmi';
@@ -6023,7 +6023,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "wXi" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 5
 	},
 /turf/simulated/floor/marble/dark,
@@ -6104,7 +6104,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/red{
@@ -6312,10 +6312,10 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/officer)
 "ybQ" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6353,7 +6353,7 @@
 "ygQ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)

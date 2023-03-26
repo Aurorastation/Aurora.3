@@ -513,7 +513,7 @@
 /area/city/mendell/interior)
 "cW" = (
 /obj/structure/sink/puddle,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -1330,7 +1330,7 @@
 /area/city/mendell/interior)
 "gN" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -2131,7 +2131,7 @@
 "lr" = (
 /obj/structure/flora/grass/jungle,
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -2573,7 +2573,7 @@
 "od" = (
 /obj/structure/flora/tree/jungle,
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -2661,7 +2661,7 @@
 /area/city/mendell/interior)
 "oM" = (
 /obj/structure/flora/tree/jungle,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -2906,7 +2906,7 @@
 /area/city/mendell/interior)
 "qu" = (
 /obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -3366,7 +3366,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -3831,7 +3831,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -4435,7 +4435,7 @@
 /area/city/mendell/interior)
 "yL" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -5462,7 +5462,7 @@
 /obj/structure/flora/grass/jungle{
 	density = 1
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -5476,7 +5476,7 @@
 	},
 /area/city/mendell/interior)
 "EO" = (
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -5702,7 +5702,7 @@
 /area/city/mendell/interior)
 "GJ" = (
 /obj/structure/flora/grass/jungle,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -5783,7 +5783,7 @@
 /area/city/mendell/interior)
 "Hp" = (
 /obj/structure/bed/stool/chair/wood,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -5875,13 +5875,13 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
 "HT" = (
 /obj/structure/flora/grass/jungle/b,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -6137,7 +6137,7 @@
 	density = 1
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -6171,7 +6171,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -6371,7 +6371,7 @@
 /area/city/mendell/interior)
 "La" = (
 /obj/structure/flora/tree/jungle/small,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -7341,7 +7341,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -7360,7 +7360,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -7506,7 +7506,7 @@
 	dir = 4
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -7668,7 +7668,7 @@
 /area/city/mendell/interior)
 "Rm" = (
 /obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -8177,7 +8177,7 @@
 /area/city/mendell/interior)
 "Ur" = (
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -8269,7 +8269,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -8379,7 +8379,7 @@
 "VB" = (
 /obj/structure/flora/grass/jungle,
 /obj/machinery/light/small,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -8413,7 +8413,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)

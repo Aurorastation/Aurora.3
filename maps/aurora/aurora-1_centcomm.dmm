@@ -4374,7 +4374,7 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/coffeemaster/full,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "aDJ" = (
@@ -5360,7 +5360,7 @@
 	pixel_y = 29
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "aJH" = (
@@ -7388,7 +7388,7 @@
 	pixel_y = 26
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bdI" = (
@@ -7444,7 +7444,7 @@
 	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "bex" = (
@@ -7741,7 +7741,7 @@
 	stat = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "bkm" = (
@@ -7859,7 +7859,7 @@
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "bpF" = (
@@ -8301,7 +8301,7 @@
 	stat = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "bDy" = (
@@ -8491,7 +8491,7 @@
 "bJv" = (
 /obj/machinery/door/airlock/glass,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bJH" = (
@@ -8499,7 +8499,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "bJW" = (
@@ -8665,7 +8665,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "bQP" = (
 /turf/unsimulated/wall/darkshuttlewall,
@@ -8791,7 +8791,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "bUC" = (
 /obj/item/device/radio/intercom{
@@ -9233,7 +9233,7 @@
 	stat = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "clg" = (
@@ -9295,7 +9295,7 @@
 	pixel_y = 30
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "coi" = (
@@ -9445,7 +9445,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "crk" = (
@@ -9612,7 +9612,7 @@
 "cAr" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "cAL" = (
 /obj/effect/floor_decal/corner/red{
@@ -9672,7 +9672,7 @@
 "cCN" = (
 /obj/machinery/smartfridge/stocked,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "cCQ" = (
@@ -9823,7 +9823,7 @@
 	req_access = null
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "cIl" = (
@@ -9908,7 +9908,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "cKC" = (
@@ -9957,7 +9957,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "cLT" = (
@@ -10074,7 +10074,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "cOn" = (
@@ -10166,7 +10166,7 @@
 	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "cRg" = (
@@ -10515,7 +10515,7 @@
 	pixel_x = 12;
 	pixel_y = -10
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/shuttle/arrival)
 "cZW" = (
 /turf/simulated/wall/shuttle/unique/distress{
@@ -10715,7 +10715,7 @@
 "deb" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "deN" = (
@@ -10937,7 +10937,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "dnd" = (
@@ -11070,7 +11070,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "drc" = (
 /obj/structure/shuttle_part/cargo{
@@ -11293,7 +11293,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "dDI" = (
@@ -11345,7 +11345,7 @@
 /obj/item/reagent_containers/food/drinks/milk,
 /obj/item/reagent_containers/food/drinks/milk,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "dGq" = (
@@ -11378,7 +11378,7 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "dHX" = (
@@ -11885,7 +11885,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "dUW" = (
@@ -12269,7 +12269,7 @@
 /obj/item/material/ashtray,
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "efo" = (
@@ -12684,7 +12684,7 @@
 	can_buckle = 0;
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "evC" = (
 /obj/structure/table/stone/marble,
@@ -12692,7 +12692,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "evM" = (
@@ -12833,7 +12833,7 @@
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "eAt" = (
 /obj/machinery/light{
@@ -12854,7 +12854,7 @@
 	pixel_y = 27
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "eBz" = (
@@ -12913,7 +12913,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "eDB" = (
 /turf/simulated/wall/shuttle/unique/cargo{
@@ -13050,7 +13050,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "eHl" = (
@@ -13446,7 +13446,7 @@
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "eUi" = (
@@ -13454,7 +13454,7 @@
 	density = 0
 	},
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "eUW" = (
 /obj/structure/table/rack,
@@ -14729,7 +14729,7 @@
 	pixel_y = 27
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "fKq" = (
@@ -14830,7 +14830,7 @@
 	pixel_y = -11
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "fNk" = (
@@ -14966,14 +14966,11 @@
 	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "fRx" = (
-/turf/unsimulated/floor{
-	icon_state = "elevatorshaft";
-	name = "elevator machinery"
-	},
+/turf/unsimulated/floor/elevatorshaft,
 /area/centcom/legion)
 "fSi" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -15222,7 +15219,7 @@
 	name = "igs - OdinBartender"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "fXq" = (
@@ -15482,7 +15479,7 @@
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "gfT" = (
@@ -15951,7 +15948,7 @@
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "gty" = (
@@ -17561,7 +17558,7 @@
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "hmN" = (
@@ -18174,7 +18171,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/evac)
 "hOa" = (
 /obj/structure/table/wood,
@@ -18690,7 +18687,7 @@
 	icon_state = "tree2"
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "ieM" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -19314,7 +19311,7 @@
 	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ivL" = (
@@ -19489,7 +19486,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "iCJ" = (
 /obj/structure/shuttle_part/distress{
@@ -19519,7 +19516,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "iEv" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -19552,7 +19549,7 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "iED" = (
@@ -20094,7 +20091,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "iTm" = (
@@ -20341,7 +20338,7 @@
 	name = "Kitchen Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "jcG" = (
@@ -20723,7 +20720,7 @@
 	name = "Bar Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "jvz" = (
@@ -20855,7 +20852,7 @@
 	icon_state = "tree5"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "jBi" = (
 /obj/structure/sign/flag/nanotrasen/left{
@@ -21345,7 +21342,7 @@
 /area/shuttle/transport1)
 "jSp" = (
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "jSH" = (
 /obj/machinery/computer/robotics,
@@ -21720,7 +21717,7 @@
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "kdz" = (
 /obj/structure/shuttle_part/transfer{
@@ -21833,7 +21830,7 @@
 "kgi" = (
 /obj/structure/table/stone/marble,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "kgq" = (
@@ -21988,7 +21985,7 @@
 /area/centcom/shared_dream)
 "kme" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "kmj" = (
 /obj/effect/decal/fake_object{
@@ -22761,7 +22758,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "kOI" = (
 /obj/structure/railing/mapped{
@@ -23207,7 +23204,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "ldy" = (
@@ -23516,7 +23513,7 @@
 	pixel_y = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "loa" = (
@@ -24273,7 +24270,7 @@
 /area/centcom/legion/hangar5)
 "lMz" = (
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "lNi" = (
@@ -26238,7 +26235,7 @@
 "mWz" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "mYp" = (
 /obj/structure/shuttle_part/distress{
@@ -27395,7 +27392,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "nFu" = (
 /turf/simulated/wall/shuttle/unique/distress{
@@ -27514,7 +27511,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/evac)
 "nLo" = (
 /obj/item/material/ashtray/bronze{
@@ -27618,7 +27615,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "nMl" = (
@@ -27740,7 +27737,7 @@
 	icon_state = "tree3"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "nQl" = (
 /obj/structure/window/shuttle/unique/merchant{
@@ -28019,7 +28016,7 @@
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "nXL" = (
 /obj/effect/decal/fake_object/light_source/invisible,
@@ -28200,7 +28197,7 @@
 	name = "Bar Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "obP" = (
@@ -28786,7 +28783,7 @@
 	},
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "oBu" = (
 /obj/effect/floor_decal/corner/blue{
@@ -29244,7 +29241,7 @@
 /area/centcom/specops)
 "oRK" = (
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "oRM" = (
 /obj/structure/shuttle_part/hapt{
@@ -29280,7 +29277,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = 3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "oUr" = (
 /obj/structure/table/rack,
@@ -29622,7 +29619,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = 3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "pjc" = (
 /obj/machinery/door/blast/regular{
@@ -29715,7 +29712,7 @@
 /turf/unsimulated/floor,
 /area/antag/loner)
 "plz" = (
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "plM" = (
 /obj/structure/shuttle_part/transfer{
@@ -29764,7 +29761,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "pmR" = (
@@ -29903,7 +29900,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "psm" = (
@@ -31096,7 +31093,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "qdi" = (
@@ -31709,7 +31706,7 @@
 "qBY" = (
 /obj/structure/flora/tree/jungle,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "qCl" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
@@ -32373,7 +32370,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "rch" = (
 /turf/simulated/wall/shuttle/dark/corner/underlay{
@@ -32623,7 +32620,7 @@
 	name = "Bar Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "rkF" = (
@@ -32673,7 +32670,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "rmo" = (
 /obj/structure/shuttle_part/ert{
@@ -33166,7 +33163,7 @@
 	icon_state = "plant-28";
 	pixel_x = -3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/shuttle/arrival)
 "rGt" = (
 /turf/simulated/wall/shuttle/unique/transfer{
@@ -33238,7 +33235,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "rKw" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -33466,7 +33463,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "rRP" = (
@@ -34195,7 +34192,7 @@
 /area/centcom/control)
 "stK" = (
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "stO" = (
@@ -34306,7 +34303,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "sxB" = (
 /turf/unsimulated/wall/fakepdoor{
@@ -34405,7 +34402,7 @@
 "szR" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "sAP" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -34521,7 +34518,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/evac)
 "sEk" = (
 /obj/structure/table/standard,
@@ -34695,7 +34692,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "sLn" = (
@@ -35079,7 +35076,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "tbN" = (
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -35091,7 +35088,7 @@
 	can_buckle = 0;
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "tbP" = (
 /obj/machinery/light{
@@ -35431,7 +35428,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "tnJ" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -35587,7 +35584,7 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "tsH" = (
@@ -35813,7 +35810,7 @@
 "tAC" = (
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "tBa" = (
 /obj/structure/sign/directions/security{
@@ -36284,7 +36281,7 @@
 	},
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "tPw" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -36500,7 +36497,7 @@
 /area/tdome/tdomeobserve)
 "tXP" = (
 /obj/structure/table/skrell,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "tYj" = (
 /turf/unsimulated/wall/fakeairlock{
@@ -36679,7 +36676,7 @@
 	name = "igs - OdinChef"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ugm" = (
@@ -37121,7 +37118,7 @@
 	icon_state = "tree4"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "urN" = (
 /obj/structure/closet/crate/freezer/rations,
@@ -37262,7 +37259,7 @@
 "uCS" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "uDo" = (
 /obj/structure/shuttle_part/mercenary{
@@ -37799,7 +37796,7 @@
 /area/shuttle/mercenary)
 "uSm" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "uSv" = (
 /turf/unsimulated/floor,
@@ -39355,7 +39352,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "vVC" = (
 /turf/unsimulated/floor{
@@ -39707,7 +39704,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = -3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "wgf" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -39870,7 +39867,7 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "wlj" = (
@@ -40240,7 +40237,7 @@
 "wrY" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "wsd" = (
 /obj/structure/table/rack,
@@ -41171,7 +41168,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "wUa" = (
 /obj/structure/window/shuttle/unique/transfer{
@@ -41567,7 +41564,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = -3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "xeH" = (
 /obj/structure/table/reinforced/wood,
@@ -41819,7 +41816,7 @@
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "xmf" = (
@@ -42714,7 +42711,7 @@
 /obj/item/flame/lighter/zippo,
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "xMD" = (
@@ -43224,7 +43221,7 @@
 	can_buckle = 0;
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "yfl" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -43260,7 +43257,7 @@
 	name = "Bar Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ygd" = (

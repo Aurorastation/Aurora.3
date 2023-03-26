@@ -2198,7 +2198,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/ssmd_corvette/starboardfoyer)
 "fDY" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -3611,7 +3611,7 @@
 "jTb" = (
 /obj/structure/flora/ausbushes/grassybush,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/ssmd_corvette/starboardfoyer)
 "jTo" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -4701,7 +4701,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/ssmd_corvette/starboardfoyer)
 "ncs" = (
 /obj/effect/landmark/entry_point/port{
@@ -7313,7 +7313,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/ssmd_corvette/starboardfoyer)
 "wcT" = (
 /obj/structure/cable{

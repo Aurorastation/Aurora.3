@@ -219,7 +219,7 @@
 "aM" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -675,7 +675,7 @@
 "cJ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1470,7 +1470,7 @@
 "gw" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1559,7 +1559,7 @@
 "he" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2392,7 +2392,7 @@
 "lX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -2437,7 +2437,7 @@
 "mj" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
@@ -2645,7 +2645,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -3236,7 +3236,7 @@
 "yr" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/alarm/cold{
 	req_one_access = list(209);
@@ -3501,7 +3501,7 @@
 "BV" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4316,7 +4316,7 @@
 "PV" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1

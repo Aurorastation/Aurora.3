@@ -9,7 +9,7 @@
 /area/adhomai_nuclear_waste)
 "b" = (
 /obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -21,14 +21,14 @@
 "e" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/radioactive_waste,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
 "f" = (
 /obj/effect/decal/cleanable/greenglow/radioactive,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -39,7 +39,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -53,7 +53,7 @@
 /area/exoplanet/adhomai)
 "i" = (
 /obj/effect/decal/cleanable/greenglow/radioactive,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -83,7 +83,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -92,7 +92,7 @@
 	req_access = list(209);
 	name = "Compound"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -111,7 +111,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -136,14 +136,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
 "B" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret/ballistic,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -154,7 +154,7 @@
 	locked = 1;
 	icon_state = "door_locked"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -166,7 +166,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -180,7 +180,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/radioactive_waste,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -194,12 +194,12 @@
 /area/adhomai_nuclear_waste)
 "L" = (
 /obj/structure/closet/radiation,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
 "M" = (
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -214,7 +214,7 @@
 "S" = (
 /obj/machinery/porta_turret/ballistic,
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -231,7 +231,7 @@
 	dir = 4;
 	pixel_x = -32
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -244,7 +244,7 @@
 /obj/item/reagent_containers/glass/bottle/hyronalin,
 /obj/item/reagent_containers/syringe,
 /obj/item/reagent_containers/syringe/inaprovaline,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -253,7 +253,7 @@
 	req_access = list(209);
 	name = "Storage"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
@@ -270,7 +270,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)

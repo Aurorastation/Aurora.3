@@ -125,6 +125,7 @@
 	icon_state = "grate_dark"
 	return_amount = 1
 	smooth = null
+	color = COLOR_DARK_GUNMETAL
 	var/base_icon_state = "grate_dark"
 	var/damaged = FALSE
 
@@ -143,6 +144,7 @@
 	icon_state = "grate_light"
 	base_icon_state = "grate_light"
 	return_amount = 1
+	color = COLOR_DARK_GUNMETAL
 
 /obj/structure/lattice/catwalk/indoor/grate/light/old
 	icon_state = "grate_light_old"

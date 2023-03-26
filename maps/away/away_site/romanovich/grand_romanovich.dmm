@@ -20,7 +20,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/closet/secure_closet/freezer/money,
 /turf/simulated/floor/tiled/dark,
@@ -35,7 +35,7 @@
 "ag" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/closet/secure_closet/freezer/money,
 /turf/simulated/floor/tiled/dark,
@@ -57,7 +57,7 @@
 "al" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -87,14 +87,14 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "aq" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/safe,
 /turf/simulated/floor/tiled/dark,
@@ -119,7 +119,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/safe,
 /turf/simulated/floor/tiled/dark,
@@ -138,7 +138,7 @@
 "ay" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -146,7 +146,7 @@
 /obj/structure/closet/secure_closet/freezer/money,
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -189,7 +189,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -228,7 +228,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -296,7 +296,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/closet/crate/secure/weapon,
 /obj/item/gun/projectile/shotgun/pump/rifle,
@@ -330,7 +330,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -338,7 +338,7 @@
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/item/stack/material/gold/full,
 /turf/simulated/floor/tiled/dark,
@@ -1065,7 +1065,7 @@
 "cF" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/machinery/vending/casino,
 /turf/simulated/floor/tiled/dark,
@@ -1280,7 +1280,7 @@
 "de" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/vending/casino,
 /turf/simulated/floor/tiled/dark,
@@ -1559,7 +1559,7 @@
 "dP" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/vending/casino,
 /turf/simulated/floor/tiled/dark,
@@ -1754,7 +1754,7 @@
 "es" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/vending/casino,
 /turf/simulated/floor/tiled/dark,
@@ -1833,18 +1833,18 @@
 "eG" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "eH" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light/small,
 /obj/machinery/vending/casino,
@@ -1853,11 +1853,11 @@
 "eI" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -1944,7 +1944,7 @@
 "eR" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/vending/casino,
 /turf/simulated/floor/tiled/dark,
@@ -2296,7 +2296,7 @@
 /obj/machinery/door/airlock/glass,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -2304,7 +2304,7 @@
 /obj/machinery/door/airlock/glass,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -2352,7 +2352,7 @@
 "fH" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/vending/casino,
 /turf/simulated/floor/tiled/dark,
@@ -2360,7 +2360,7 @@
 "fI" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -2374,7 +2374,7 @@
 "fK" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 1;
@@ -2545,7 +2545,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -2605,7 +2605,7 @@
 "gj" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -2626,7 +2626,7 @@
 "gn" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -2656,11 +2656,11 @@
 "gt" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -3397,7 +3397,7 @@
 "iy" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -3417,7 +3417,7 @@
 /obj/machinery/light/small,
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -3943,7 +3943,7 @@
 "kj" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 8;
@@ -4094,7 +4094,7 @@
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/item/storage/bag/money/casino,
 /obj/item/storage/bag/money/casino,
@@ -4133,7 +4133,7 @@
 /obj/machinery/light/small,
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/item/storage/bag/money/casino,
 /obj/item/storage/bag/money/casino,
@@ -4149,7 +4149,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4179,14 +4179,14 @@
 "lh" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "li" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 2;
@@ -4236,7 +4236,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4262,14 +4262,14 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "ls" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4280,14 +4280,14 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lu" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4295,29 +4295,29 @@
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lw" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lx" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4329,21 +4329,21 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lz" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lA" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4351,7 +4351,7 @@
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4363,7 +4363,7 @@
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4389,7 +4389,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4397,7 +4397,7 @@
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4405,7 +4405,7 @@
 /obj/structure/bed/stool/padded,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4418,7 +4418,7 @@
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4429,7 +4429,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4439,7 +4439,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4527,7 +4527,7 @@
 "lY" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -4541,7 +4541,7 @@
 "lZ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -4552,7 +4552,7 @@
 "ma" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -4564,7 +4564,7 @@
 /obj/structure/holohoop,
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -4575,7 +4575,7 @@
 "mc" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -4586,7 +4586,7 @@
 "md" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -4627,7 +4627,7 @@
 "mi" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/door/window/westright,
 /turf/simulated/floor/fixed,
@@ -4638,21 +4638,21 @@
 "mk" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/fixed,
 /area/grand_romanovich)
 "ml" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/fixed,
 /area/grand_romanovich)
 "mm" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/door/window/eastleft,
 /turf/simulated/floor/fixed,
@@ -4676,7 +4676,7 @@
 "mp" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -4686,14 +4686,14 @@
 "mq" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/fixed,
 /area/grand_romanovich)
 "mr" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -4710,7 +4710,7 @@
 "mt" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/fixed,
 /area/grand_romanovich)
@@ -4718,14 +4718,14 @@
 /obj/item/beach_ball/holoball,
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/fixed,
 /area/grand_romanovich)
 "mv" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -4735,7 +4735,7 @@
 "mw" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -4745,14 +4745,14 @@
 "mx" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/fixed,
 /area/grand_romanovich)
 "my" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -4762,7 +4762,7 @@
 "mz" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -4772,7 +4772,7 @@
 "mA" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -4782,14 +4782,14 @@
 "mB" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/fixed,
 /area/grand_romanovich)
 "mC" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/door/window/westright,
 /turf/simulated/floor/fixed,
@@ -4797,21 +4797,21 @@
 "mD" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/fixed,
 /area/grand_romanovich)
 "mE" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/fixed,
 /area/grand_romanovich)
 "mF" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/door/window/eastleft,
 /turf/simulated/floor/fixed,
@@ -4844,7 +4844,7 @@
 "mJ" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/fixed,
@@ -4857,7 +4857,7 @@
 "mL" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/holohoop{
 	dir = 1
@@ -4868,7 +4868,7 @@
 "mM" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/fixed,
@@ -4876,7 +4876,7 @@
 "mN" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -4948,7 +4948,7 @@
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4956,7 +4956,7 @@
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4964,7 +4964,7 @@
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4976,14 +4976,14 @@
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nc" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4991,7 +4991,7 @@
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5001,7 +5001,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5012,14 +5012,14 @@
 "ng" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nh" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5027,7 +5027,7 @@
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5081,21 +5081,21 @@
 "nu" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nv" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nw" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5107,7 +5107,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5115,7 +5115,7 @@
 /obj/structure/bed/stool/padded,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5128,7 +5128,7 @@
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5136,14 +5136,14 @@
 /obj/structure/bed/stool/padded,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nC" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5151,18 +5151,18 @@
 /obj/machinery/door/airlock/glass,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nE" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5172,7 +5172,7 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5192,14 +5192,14 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nI" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -5210,7 +5210,7 @@
 "nJ" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 8;
@@ -5223,47 +5223,47 @@
 /obj/machinery/door/airlock/glass,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nL" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nM" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nN" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nO" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 1;
@@ -5274,22 +5274,22 @@
 "nP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nQ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5299,18 +5299,18 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nS" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5321,7 +5321,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5342,7 +5342,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5352,7 +5352,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5362,14 +5362,14 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nZ" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5382,7 +5382,7 @@
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5394,7 +5394,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5402,7 +5402,7 @@
 /obj/structure/bed/stool/padded,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5415,7 +5415,7 @@
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5425,7 +5425,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5436,7 +5436,7 @@
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5444,40 +5444,40 @@
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "oi" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "oj" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "ok" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5725,7 +5725,7 @@
 /area/grand_romanovich)
 "qY" = (
 /obj/effect/floor_decal/corner/yellow/full{
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -6072,7 +6072,7 @@
 "wG" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/winter,
@@ -6115,7 +6115,7 @@
 "xd" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -6598,7 +6598,7 @@
 "Fn" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/table/rack,
 /obj/item/tank/emergency_oxygen/double,
@@ -6805,7 +6805,7 @@
 "Iz" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/yellow/full{
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -7015,7 +7015,7 @@
 "Lv" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /obj/structure/table/rack,
 /obj/item/device/flashlight,
@@ -7702,7 +7702,7 @@
 /obj/item/ammo_magazine/boltaction,
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -7825,7 +7825,7 @@
 /area/grand_romanovich)
 "WN" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)

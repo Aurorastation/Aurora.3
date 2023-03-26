@@ -1,17 +1,22 @@
 /turf/unsimulated/floor
 	name = "floor"
-	icon = 'icons/turf/total_floors.dmi'
-	icon_state = "new_steel"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "tiled"
+	color = COLOR_DARK_GUNMETAL
+
+/turf/unsimulated/floor/elevatorshaft
+	name = "elevator machinery"
+	icon_state = "elevatorshaft"
 
 /turf/unsimulated/floor/plating
 	name = "plating"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
 
 /turf/unsimulated/floor/xmas
 	name = "snow"
-	icon = 'icons/turf/snow.dmi'
-	icon_state = "snow"
+	icon = 'icons/turf/flooring/snow.dmi'
+	icon_state = "snow0"
 	footstep_sound = /singleton/sound_category/snow_footstep
 
 /turf/unsimulated/mask

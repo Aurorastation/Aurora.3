@@ -1,5 +1,5 @@
 /obj/effect/floor_decal/snow
-	icon = 'icons/turf/snow.dmi'
+	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "snow"
 
 /obj/effect/floor_decal/snow/corner
@@ -9,7 +9,7 @@
 	icon_state = "snow_surround"
 
 /obj/effect/floor_decal/snowdrift
-	icon = 'icons/turf/snow.dmi'
+	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "drift"
 
 /obj/effect/floor_decal/snowdrift/large

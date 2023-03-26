@@ -235,7 +235,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/crew_quarters/lounge)
 "agT" = (
 /obj/machinery/ringer_button{
@@ -433,7 +433,7 @@
 /area/horizon/cafeteria)
 "anz" = (
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "anR" = (
 /obj/structure/viewport/zavod,
@@ -1330,7 +1330,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/port)
 "aXB" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -1544,7 +1544,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "beL" = (
 /obj/structure/toilet{
@@ -1699,7 +1699,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "blU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2288,7 +2288,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/port)
 "bSA" = (
 /obj/effect/floor_decal/corner/blue/full,
@@ -2439,7 +2439,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "caP" = (
 /turf/simulated/open,
@@ -2994,7 +2994,7 @@
 "cGj" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "cGm" = (
 /obj/machinery/light{
@@ -5308,7 +5308,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "ezp" = (
 /obj/effect/floor_decal/corner/beige{
@@ -6413,7 +6413,7 @@
 /area/lawoffice/consular)
 "fnB" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "fom" = (
 /obj/structure/disposalpipe/segment,
@@ -7115,7 +7115,7 @@
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/port)
 "fND" = (
 /obj/machinery/door/blast/shutters{
@@ -7208,7 +7208,7 @@
 /area/crew_quarters/captain)
 "fQB" = (
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "fRO" = (
 /obj/machinery/door/firedoor,
@@ -7537,7 +7537,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "gdT" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -7599,7 +7599,7 @@
 /area/horizon/hallway/deck_three/primary/central)
 "ghJ" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "gin" = (
 /obj/machinery/shield_capacitor/multiz{
@@ -8537,7 +8537,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "gUY" = (
 /obj/structure/cable/green{
@@ -10599,7 +10599,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/port)
 "iCT" = (
 /obj/structure/railing/mapped,
@@ -11180,7 +11180,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "iWr" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -11551,7 +11551,7 @@
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/starboard)
 "jnZ" = (
 /obj/structure/filingcabinet/chestdrawer{
@@ -12750,7 +12750,7 @@
 /area/horizon/security/interrogation/monitoring)
 "kms" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "knw" = (
 /obj/effect/floor_decal/corner/green/full,
@@ -15747,7 +15747,7 @@
 "mBM" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "mCl" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -16644,7 +16644,7 @@
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/palebush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/starboard)
 "nmW" = (
 /obj/structure/railing/mapped{
@@ -18097,7 +18097,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "otj" = (
 /obj/effect/floor_decal/corner/green{
@@ -19116,7 +19116,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "pem" = (
 /obj/structure/bed/stool/padded/blue,
@@ -19434,7 +19434,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "pvq" = (
 /obj/structure/railing/mapped{
@@ -20184,7 +20184,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "qie" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -21024,7 +21024,7 @@
 /area/horizon/hallway/deck_three/primary/central)
 "qSG" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "qSM" = (
 /obj/machinery/alarm{
@@ -21583,7 +21583,7 @@
 /turf/simulated/floor,
 /area/maintenance/substation/command)
 "rtf" = (
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "rtu" = (
 /obj/effect/floor_decal/corner/green{
@@ -21933,7 +21933,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "rEe" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -23827,7 +23827,7 @@
 "sWB" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/starboard)
 "sXr" = (
 /obj/structure/lattice,
@@ -24031,7 +24031,7 @@
 /area/horizon/crew_quarters/fitness/hallway)
 "tfp" = (
 /obj/structure/flora/tree/jungle/small/patience,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "tfK" = (
 /obj/effect/floor_decal/spline/plain{
@@ -24222,7 +24222,7 @@
 "tor" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/port)
 "tpd" = (
 /turf/simulated/floor/reinforced,
@@ -26388,7 +26388,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/starboard)
 "uRa" = (
 /obj/effect/floor_decal/corner_wide/paleblue,
@@ -27067,7 +27067,7 @@
 /area/horizon/security/investigators_office)
 "vrL" = (
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "vsx" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -28224,7 +28224,7 @@
 /area/bridge)
 "wkT" = (
 /obj/structure/flora/ausbushes/palebush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "wld" = (
 /turf/simulated/wall,
@@ -28459,7 +28459,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "wtr" = (
 /obj/structure/bed/stool/chair/padded/brown{
@@ -29189,7 +29189,7 @@
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/port)
 "wWK" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -29485,7 +29485,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hallway/deck_three/primary/central)
 "xki" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{

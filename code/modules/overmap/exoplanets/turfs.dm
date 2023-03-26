@@ -98,7 +98,7 @@
 //Ice
 /turf/simulated/floor/exoplanet/ice
 	name = "ice"
-	icon = 'icons/turf/snow.dmi'
+	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "ice"
 
 /turf/simulated/floor/exoplanet/ice/update_icon()
@@ -110,8 +110,8 @@
 //Snow
 /turf/simulated/floor/exoplanet/snow
 	name = "snow"
-	icon = 'icons/turf/snow.dmi'
-	icon_state = "snow"
+	icon = 'icons/turf/flooring/snow.dmi'
+	icon_state = "snow0"
 	dirt_color = "#e3e7e8"
 	footstep_sound = /singleton/sound_category/snow_footstep
 

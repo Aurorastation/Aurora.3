@@ -35,7 +35,7 @@ obj/machinery/seed_extractor/attackby(var/obj/item/O as obj, var/mob/user as mob
 		return TRUE
 
 	//Grass.
-	else if(istype(O, /obj/item/stack/tile/grass_alt))
+	else if(istype(O, /obj/item/stack/tile/grass))
 		var/obj/item/stack/tile/grass/S = O
 		if (S.use(1))
 			to_chat(user, "<span class='notice'>You extract some seeds from the grass tile.</span>")

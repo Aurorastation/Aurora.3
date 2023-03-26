@@ -305,7 +305,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "bhz" = (
 /obj/structure/disposalpipe/trunk{
@@ -347,7 +347,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "bVS" = (
 /obj/machinery/light{
@@ -376,7 +376,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "ctQ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -393,7 +393,7 @@
 "cBD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "cJe" = (
 /obj/machinery/light/small{
@@ -491,7 +491,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "fnY" = (
 /obj/structure/table/stone/marble,
@@ -541,7 +541,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "gaA" = (
 /obj/machinery/light/small{
@@ -574,7 +574,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "gxE" = (
 /obj/machinery/chem_heater,
@@ -668,7 +668,7 @@
 /turf/simulated/floor/carpet,
 /area/space_bar)
 "hBd" = (
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "hFr" = (
 /obj/machinery/light{
@@ -690,7 +690,7 @@
 /area/space_bar)
 "hNl" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "hNM" = (
 /obj/machinery/door/airlock/glass{
@@ -816,7 +816,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "jIR" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -872,7 +872,7 @@
 /area/space_bar)
 "lOr" = (
 /obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "mhC" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -949,7 +949,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "odP" = (
 /obj/structure/disposalpipe/trunk{
@@ -1054,7 +1054,7 @@
 /area/space_bar)
 "qmJ" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "quQ" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -1075,7 +1075,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "qWo" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1145,7 +1145,7 @@
 "svn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "szY" = (
 /obj/structure/table/stone/marble,
@@ -1174,7 +1174,7 @@
 "sMP" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "taa" = (
 /obj/structure/table/stone/marble,
@@ -1232,7 +1232,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "uaE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1245,7 +1245,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "uuL" = (
 /obj/structure/mopbucket,
@@ -1370,7 +1370,7 @@
 /area/space_bar)
 "wJk" = (
 /obj/machinery/vending/engivend,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "wLs" = (
 /obj/structure/sign/double/barsign{

@@ -3052,7 +3052,7 @@
 "agP" = (
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "agQ" = (
 /obj/structure/railing/mapped,
@@ -3061,13 +3061,13 @@
 	icon_state = "tube1"
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "agR" = (
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "agS" = (
 /obj/structure/railing/mapped,
@@ -3076,7 +3076,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "agT" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -3095,7 +3095,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "agW" = (
 /obj/structure/shuttle_part/hapt{
@@ -3306,7 +3306,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "ahy" = (
 /obj/structure/shuttle_part/hapt{
@@ -3436,7 +3436,7 @@
 	},
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "ahP" = (
 /obj/structure/shuttle_part/hapt{
@@ -3886,7 +3886,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "aiN" = (
@@ -3900,7 +3900,7 @@
 	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "aiP" = (
@@ -4101,7 +4101,7 @@
 	name = "Kitchen Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ajm" = (
@@ -4109,7 +4109,7 @@
 	stat = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ajn" = (
@@ -4118,7 +4118,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ajo" = (
@@ -4126,12 +4126,12 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ajp" = (
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ajq" = (
@@ -4140,7 +4140,7 @@
 	pixel_y = 27
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ajr" = (
@@ -4149,7 +4149,7 @@
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ajs" = (
@@ -4346,7 +4346,7 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/coffeemaster/full,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ajN" = (
@@ -4355,7 +4355,7 @@
 	pixel_y = 29
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ajO" = (
@@ -4364,7 +4364,7 @@
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ajP" = (
@@ -4614,13 +4614,13 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "akp" = (
 /obj/structure/table/stone/marble,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "akq" = (
@@ -4628,7 +4628,7 @@
 	stat = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "aks" = (
@@ -4636,7 +4636,7 @@
 	stat = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "akt" = (
@@ -4901,7 +4901,7 @@
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "akX" = (
@@ -4909,7 +4909,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "akY" = (
@@ -4929,7 +4929,7 @@
 	pixel_y = -11
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "akZ" = (
@@ -5110,7 +5110,7 @@
 	pixel_y = 30
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "alu" = (
@@ -5123,7 +5123,7 @@
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "alv" = (
@@ -5185,7 +5185,7 @@
 	pixel_y = 27
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "alw" = (
@@ -5205,7 +5205,7 @@
 	name = "Bar Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "alx" = (
@@ -5253,7 +5253,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "alB" = (
@@ -5413,7 +5413,7 @@
 	req_access = null
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "alV" = (
@@ -5429,7 +5429,7 @@
 	name = "Bar Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "alW" = (
@@ -5474,7 +5474,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "alZ" = (
@@ -5499,7 +5499,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ama" = (
@@ -5530,7 +5530,7 @@
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "amb" = (
@@ -5545,7 +5545,7 @@
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "amc" = (
@@ -5568,7 +5568,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "amd" = (
@@ -5679,7 +5679,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ams" = (
@@ -5754,13 +5754,13 @@
 "amz" = (
 /obj/machinery/smartfridge/stocked,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "amA" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "amB" = (
@@ -5772,7 +5772,7 @@
 /obj/item/reagent_containers/food/drinks/milk,
 /obj/item/reagent_containers/food/drinks/milk,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "amC" = (
@@ -5794,7 +5794,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "amD" = (
@@ -5963,7 +5963,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "anc" = (
@@ -6178,7 +6178,7 @@
 	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "anI" = (
@@ -6478,7 +6478,7 @@
 	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "aoE" = (
@@ -6497,7 +6497,7 @@
 	name = "Bar Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "aoF" = (
@@ -6513,7 +6513,7 @@
 	name = "Bar Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "aoG" = (
@@ -8532,7 +8532,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/evac)
 "auI" = (
 /obj/effect/shuttle_landmark/merchant/start,
@@ -8922,7 +8922,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/evac)
 "avG" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -9555,7 +9555,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "awJ" = (
 /turf/unsimulated/wall/darkshuttlewall,
@@ -11949,7 +11949,7 @@
 	},
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "aCa" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
@@ -12285,7 +12285,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/evac)
 "aCZ" = (
 /obj/item/gun/projectile/automatic/rifle/w556{
@@ -13143,14 +13143,14 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = 3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "aEL" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = 3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "aFb" = (
 /turf/unsimulated/wall/fakeairlock{
@@ -13319,7 +13319,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
 "aFG" = (
 /obj/structure/lattice/catwalk,
@@ -13905,7 +13905,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = -3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "aHk" = (
 /obj/structure/window/reinforced/crescent{
@@ -13914,7 +13914,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = -3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "aHl" = (
 /obj/machinery/door/airlock/centcom{
@@ -15882,7 +15882,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "aNH" = (
 /obj/effect/floor_decal/corner/red{
@@ -16017,7 +16017,7 @@
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "aNX" = (
 /obj/effect/floor_decal/corner/red/full,
@@ -16160,7 +16160,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "aOq" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -16681,7 +16681,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "aPG" = (
 /obj/structure/window/reinforced/crescent{
@@ -16693,7 +16693,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "aPH" = (
 /obj/structure/window/reinforced/crescent{
@@ -16705,7 +16705,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "aPI" = (
 /obj/structure/window/reinforced/crescent{
@@ -16717,7 +16717,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "aPJ" = (
 /obj/structure/window/reinforced/crescent{
@@ -16729,7 +16729,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "aPK" = (
 /obj/structure/window/reinforced/crescent{
@@ -16740,7 +16740,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "aPL" = (
 /obj/structure/window/reinforced/crescent{
@@ -16752,7 +16752,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "aPM" = (
 /obj/structure/window/reinforced/crescent{
@@ -16763,7 +16763,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "aPN" = (
 /obj/structure/window/reinforced/crescent{
@@ -16775,7 +16775,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "aPO" = (
 /obj/effect/floor_decal/industrial/warning/full,
@@ -19815,10 +19815,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "aWJ" = (
-/turf/unsimulated/floor{
-	icon_state = "elevatorshaft";
-	name = "elevator machinery"
-	},
+/turf/unsimulated/floor/elevatorshaft,
 /area/centcom/legion)
 "aWK" = (
 /obj/machinery/light/small/emergency{
@@ -27271,7 +27268,7 @@
 	pixel_y = 26
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bmG" = (
@@ -27279,7 +27276,7 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bmH" = (
@@ -27299,7 +27296,7 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bmI" = (
@@ -27310,7 +27307,7 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bmJ" = (
@@ -27321,7 +27318,7 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bmK" = (
@@ -27333,7 +27330,7 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bmL" = (
@@ -27346,7 +27343,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bmM" = (
@@ -27609,12 +27606,12 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bny" = (
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bnz" = (
@@ -27622,7 +27619,7 @@
 	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bnA" = (
@@ -28237,7 +28234,7 @@
 "bow" = (
 /obj/machinery/door/airlock/glass,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "box" = (
@@ -28253,7 +28250,7 @@
 /obj/item/material/ashtray,
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "boy" = (
@@ -28265,7 +28262,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "boz" = (
@@ -28280,7 +28277,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "boA" = (
@@ -28296,7 +28293,7 @@
 	pixel_y = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "boB" = (
@@ -28309,7 +28306,7 @@
 /obj/item/flame/lighter/zippo,
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "boC" = (
@@ -28327,7 +28324,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "boD" = (
@@ -34119,7 +34116,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
 "bFJ" = (
 /obj/structure/holostool,
@@ -34180,7 +34177,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bFT" = (
 /obj/item/inflatable_duck,
@@ -34366,14 +34363,14 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bGA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
 "bGB" = (
 /obj/item/chess_piece/bishop,
@@ -34392,7 +34389,7 @@
 /obj/effect/landmark{
 	name = "Holocarp Spawn"
 	},
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "bGE" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -34401,7 +34398,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bGF" = (
 /obj/effect/floor_decal/corner/white/full,
@@ -34435,7 +34432,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bGL" = (
 /turf/simulated/floor/beach/sand{
@@ -34473,7 +34470,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bGR" = (
 /turf/simulated/floor/holofloor/reinforced,
@@ -34497,7 +34494,7 @@
 /area/horizon/holodeck/source_boxingcourt)
 "bGV" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "bGW" = (
 /obj/effect/floor_decal/corner/green{
@@ -34878,7 +34875,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bIg" = (
 /turf/simulated/floor/beach/sand{
@@ -34919,7 +34916,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
 "bIn" = (
 /obj/item/clothing/glasses/sunglasses,
@@ -34941,7 +34938,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bIs" = (
 /obj/structure/holostool,
@@ -34971,7 +34968,7 @@
 	dir = 9
 	},
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bIx" = (
 /obj/structure/table/wood,
@@ -35071,7 +35068,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bIR" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
@@ -35101,7 +35098,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bIX" = (
 /obj/structure/holostool,
@@ -35128,26 +35125,26 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJb" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJc" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJd" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJe" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -35156,14 +35153,14 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJf" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJg" = (
 /obj/effect/floor_decal/spline/plain{
@@ -35176,7 +35173,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJi" = (
 /obj/effect/floor_decal/spline/plain{
@@ -35205,7 +35202,7 @@
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJo" = (
 /obj/structure/table/stone/marble,
@@ -35220,7 +35217,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJq" = (
 /obj/item/beach_ball,
@@ -35250,7 +35247,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJv" = (
 /obj/effect/shuttle_landmark/distress/interim,
@@ -35266,7 +35263,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJC" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -35274,7 +35271,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJD" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -35282,13 +35279,13 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJG" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/pointybush,
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJI" = (
 /turf/simulated/floor/holofloor/beach/sand{
@@ -35306,7 +35303,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJL" = (
 /obj/effect/floor_decal/industrial/loading{
@@ -35358,7 +35355,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJU" = (
 /obj/structure/bed/stool/chair/holochair,
@@ -35375,7 +35372,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bKb" = (
 /obj/effect/floor_decal/carpet{
@@ -35504,7 +35501,7 @@
 /area/horizon/holodeck/source_gym)
 "bKy" = (
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "bKA" = (
 /obj/structure/punching_bag,
@@ -35540,7 +35537,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bKJ" = (
 /obj/effect/shuttle_landmark/emergency/interim,
@@ -35565,11 +35562,11 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bKO" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "bKP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -35577,7 +35574,7 @@
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
 "bKQ" = (
 /obj/effect/floor_decal/corner/red{
@@ -35596,7 +35593,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
 "bKT" = (
 /obj/effect/floor_decal/carpet,
@@ -35614,14 +35611,14 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
 "bKX" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
 "bKY" = (
 /turf/simulated/floor/beach/sand{
@@ -35635,7 +35632,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
 "bLa" = (
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "bLb" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -35663,7 +35660,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
 "bLg" = (
 /obj/effect/floor_decal/corner/green/full{
@@ -35685,7 +35682,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
 "bLk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -35693,7 +35690,7 @@
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
 "bLr" = (
 /turf/space/dynamic{
@@ -35767,54 +35764,54 @@
 	},
 /area/centcom/shared_dream)
 "bLL" = (
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bLM" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bLN" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bLO" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree4"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bLP" = (
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bLQ" = (
 /obj/structure/flora/tree/jungle/small{
 	density = 0
 	},
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bLR" = (
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bLS" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree5"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bLT" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree3"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bLU" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
@@ -35828,28 +35825,28 @@
 "bLW" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bLX" = (
 /obj/structure/flora/tree/jungle,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bLY" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bLZ" = (
 /obj/structure/bed/stool/chair/office/hover{
 	can_buckle = 0;
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bMa" = (
 /obj/structure/table/skrell,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bMb" = (
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -35861,11 +35858,11 @@
 	can_buckle = 0;
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bMc" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bMd" = (
 /obj/effect/landmark{
@@ -35893,14 +35890,14 @@
 "bMf" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bMg" = (
 /obj/structure/bed/stool/chair/office/hover{
 	can_buckle = 0;
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bMk" = (
 /obj/item/shovel,
@@ -35946,12 +35943,12 @@
 	icon_state = "tree2"
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bMo" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bMq" = (
 /obj/effect/shuttle_landmark/research/interim,
@@ -35979,7 +35976,7 @@
 /area/centcom/shared_dream)
 "bMt" = (
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "bMw" = (
 /obj/item/pickaxe,
@@ -36498,7 +36495,7 @@
 /area/shuttle/transport1)
 "dZU" = (
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "dZX" = (
 /turf/simulated/floor/holofloor/beach/sand,
@@ -36507,7 +36504,7 @@
 /obj/effect/landmark{
 	name = "Holocarp Spawn"
 	},
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "enp" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -36825,7 +36822,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
 "kHV" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -37033,21 +37030,21 @@
 /area/template_noop)
 "qlw" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "qoK" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/landmark{
 	name = "Holocarp Spawn"
 	},
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "qza" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/effect/landmark{
 	name = "Holocarp Spawn"
 	},
-/turf/simulated/floor/holofloor/grass/alt,
+/turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "reg" = (
 /obj/effect/step_trigger/teleporter/random{

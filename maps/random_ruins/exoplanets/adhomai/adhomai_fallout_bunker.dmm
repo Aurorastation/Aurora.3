@@ -248,7 +248,7 @@
 "kd" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -433,7 +433,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -442,7 +442,7 @@
 "oI" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -746,7 +746,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -879,7 +879,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -888,7 +888,7 @@
 "Cj" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -935,7 +935,7 @@
 /obj/structure/hadii_statue,
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1087,7 +1087,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1143,7 +1143,7 @@
 "KP" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1302,7 +1302,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1496,7 +1496,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "preview_corner"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
