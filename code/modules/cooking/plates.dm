@@ -95,7 +95,7 @@ Plates that can hold your cooking stuff
 	return ..()
 
 /obj/item/reagent_containers/bowl/plate
-	name = "dinner plate"
+	name = "plate"
 	desc = "A plate for dishing up the finest of cuisines. Service!"
 	flags = null
 	icon_state = "plate"
