@@ -173,6 +173,10 @@
 	return_amount = 1
 	color = COLOR_GUNMETAL
 
+/obj/structure/lattice/catwalk/indoor/grate/light/old/Initialize()
+	. = ..()
+	add_overlay("rust")
+
 /obj/structure/lattice/catwalk/indoor/grate/light/damaged
 	icon_state = "grate_light_dam0"
 	damaged = TRUE
