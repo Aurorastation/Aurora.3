@@ -3,6 +3,8 @@ that constitute the atomic change and commit them with a specified message.
 
 Remember to install the requirements on your system, if not already installed:
 pip install -r requirements.txt
+
+Released under GNU Affero General Public License <https://www.gnu.org/licenses/agpl-3.0.en.html>
 """
 
 import os
