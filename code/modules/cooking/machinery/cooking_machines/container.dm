@@ -312,7 +312,7 @@
 
 /obj/item/reagent_containers/cooking_container/board/on_reagent_change()
 	. = ..()
-	if (reagents.total_volume) //Only if something was actually added
+	if(reagents.total_volume) // Only if something was actually added.
 		icon_state = "[initial(icon_state)]_prep"
 
 /obj/item/reagent_containers/cooking_container/board/bowl
