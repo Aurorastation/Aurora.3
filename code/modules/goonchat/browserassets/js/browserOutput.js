@@ -1013,7 +1013,7 @@ $(function() {
 		var popupContent = '<div class="head">Chat Message Limit</div>' +
 			'<div class="messageLimitPopup" id="messageLimitPopup">' +
 				'<div>Choose the limit of messages in the chat. Default value is '+opts.messageLimitMin+', min is '+opts.messageLimitMin+', max is '+opts.messageLimitMax+'. ' +
-					'If limit is reached, oldest messages at the top will be deleted. Higher limits may or may not be laggy during very long rounds.</div>' +
+					'If limit is reached, oldest messages at the top will be deleted. Higher limits may cause lower performance during long rounds.</div>' +
 				'<form id="messageLimitForm">' +
 				'<div><input type="text" name="messageLimitInput" id="messageLimitInput" class="messageLimitInput" maxlength="255" value="'+(opts.messageLimit ? opts.messageLimit : '')+'" /></div>' +
 					'<div><input type="submit" name="messageLimitSubmit" id="messageLimitSubmit" class="messageLimitSubmit" value="Save" /></div>' +
