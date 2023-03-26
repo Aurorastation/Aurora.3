@@ -1,5 +1,5 @@
-import click
 import os
+import click
 from git import Repo
 from git import SymbolicReference
 
@@ -25,7 +25,7 @@ def main(file: str, prname: str, commitmessage: str, nocommit: bool):
             try:
                 filecontent = f.read()
                 files_to_copy[file] = filecontent
-            except ():
+            except BaseException:
                 print(f'Unable to open, find or read the file {file}')
                 exit()
 
@@ -44,7 +44,7 @@ def main(file: str, prname: str, commitmessage: str, nocommit: bool):
         commit_atomization(repo, commitmessage)
 
 
-def git_make_branch(name):
+def git_make_branch(name: str):
     """Make a branch from the repository master with the gigen name
 
     Args:
@@ -66,7 +66,7 @@ def git_make_branch(name):
                 new_branch.checkout()  # type: ignore
                 repo.git.checkout(name)
                 return repo
-            except ():
+            except BaseException:
                 print('Something went wrong in the cloning of the branch')
                 return False
     except ():
@@ -74,7 +74,7 @@ def git_make_branch(name):
         return False
 
 
-def copy_file_in_new_branch(filepath, content: bytes):
+def copy_file_in_new_branch(filepath: str, content: bytes):
     """Copy the file content, passed as parameter, to the new file,
     takes care of closing the file itself
 
@@ -92,8 +92,12 @@ def stage_changes(repo: Repo):
     Args:
         repo (Repo): the repository
     """
-    repo.git.diff()
-    repo.git.add('--all')
+    try:
+        repo.git.diff()
+        repo.git.add('--all')
+    except BaseException as exc:
+        print("Unable to stage the changes to git!")
+        raise RuntimeError("Unable to stage the changes to git!") from exc
 
 
 def commit_atomization(repo: Repo, message: str):
