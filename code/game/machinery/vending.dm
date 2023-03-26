@@ -34,8 +34,6 @@
 	else
 		product_icon = new /icon(A.icon, A.icon_state)
 
-	if(istype(A, /obj/item/coin/battlemonsters))
-		A.name = A.name
 	icon_state = product_icon
 	QDEL_NULL(A)
 
