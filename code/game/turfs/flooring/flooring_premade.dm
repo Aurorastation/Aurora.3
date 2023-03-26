@@ -70,6 +70,10 @@
 	icon_state = "bcircuit"
 	initial_flooring = /singleton/flooring/reinforced/circuit
 
+/turf/simulated/floor/bluegrid/cooled
+	name = "cooled mainframe floor"
+	temperature = 278
+
 /turf/simulated/floor/greengrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
@@ -147,6 +151,10 @@
 	tile_decal_state = "tiled_light"
 	tile_outline_alpha = 125
 
+/turf/simulated/floor/tiled/cooled
+	name = "cooled steel tiles"
+	temperature = 278
+
 /turf/simulated/floor/tiled/full
 	name = "full steel tile"
 	icon_state = "monotile_preview"
@@ -167,6 +175,10 @@
 	footstep_sound = /singleton/sound_category/plating_footstep
 	tile_outline = "reinforced"
 	tile_decal_state = "reinforced_light"
+
+/turf/simulated/floor/reinforced/cooled
+	name = "cooled reinforced floor"
+	temperature = 278
 
 /turf/simulated/floor/reinforced/airless
 	oxygen = 0
@@ -236,6 +248,10 @@
 	initial_flooring = /singleton/flooring/tiling/dark
 	tile_decal_state = "dark_light"
 
+/turf/simulated/floor/tiled/dark/cooled
+	name = "cooled plasteel tiles"
+	temperature = 278
+
 /turf/simulated/floor/tiled/dark/airless
 	oxygen = 0
 	nitrogen = 0
@@ -280,6 +296,10 @@
 	oxygen = 0
 	nitrogen = 0
 	roof_type = null
+
+/turf/simulated/floor/plating/cooled
+	name = "cooled plating"
+	temperature = 278
 
 /turf/simulated/floor/plating/asteroid
 	icon_state = "asteroidplating"

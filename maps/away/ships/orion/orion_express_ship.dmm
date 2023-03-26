@@ -297,7 +297,6 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
@@ -604,11 +603,6 @@
 	tag_interior_door = "orion_traveler_n_in"
 	},
 /turf/simulated/floor,
-/area/ship/orion_express_ship)
-"dHA" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
 /area/ship/orion_express_ship)
 "dLy" = (
 /turf/simulated/floor/shuttle/black,
@@ -31366,7 +31360,7 @@ xRX
 xRX
 xRX
 bex
-dHA
+soM
 xnk
 xRX
 xRX

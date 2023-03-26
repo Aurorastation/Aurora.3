@@ -92,7 +92,7 @@
 	description = "A synthetic replacement for the structures within the ear, allowing the user to hear without requiring external tools."
 	path = /obj/item/organ/internal/augment/cochlear
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
-	cost = 3
+	cost = 1
 
 /datum/gear/augment/analyzer
 	display_name = "retractable cyborg analyzer"
