@@ -5,14 +5,14 @@
 "d" = (
 /obj/structure/table/rack,
 /obj/random/weapon_and_ammo{
-	chosen_rarity = Common
+	chosen_rarity = "Common"
 	},
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "r" = (
 /obj/structure/table/rack,
 /obj/random/weapon_and_ammo{
-	chosen_rarity = Rare
+	chosen_rarity = "Rare"
 	},
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
