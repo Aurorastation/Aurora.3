@@ -7,7 +7,7 @@ Plates that can hold your cooking stuff
 
 /obj/item/reagent_containers/bowl
 	name = "bowl"
-	desc = "A small bowl for serving liquid meals in. Just don't mention the fly in yours, or everyone will want one, okay?"
+	desc = "A small bowl for serving liquid meals in."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "bowl"
 	fragile = 3
