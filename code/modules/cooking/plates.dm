@@ -174,6 +174,6 @@ Plates that can hold your cooking stuff
     else
         icon_state = initial(icon_state)
     if(holding)
-        holding.update_icon() //Just to be safe
+        holding.update_icon() // Just to be safe.
         LAZYADD(O, image(icon=holding.icon, icon_state=holding.icon_state))
     set_overlays(O)
