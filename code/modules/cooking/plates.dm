@@ -113,7 +113,7 @@ Plates that can hold your cooking stuff
 		to_chat(user, "It looks like there is \a [holding.name] on \the [src].")
 
 /obj/item/reagent_containers/bowl/plate/attackby(obj/item/I, mob/user)
-	if ((istype(I, /obj/item/reagent_containers/food/snacks) || istype(I, /obj/item/trash)) && !holding)
+	if((istype(I, /obj/item/reagent_containers/food/snacks) || istype(I, /obj/item/trash)) && !holding)
 		holding = I
 		I.forceMove(src)
 		to_chat(user, SPAN_NOTICE("You place \the [holding.name] on \the [src]."))
