@@ -4,10 +4,11 @@ from git import Repo
 from git import SymbolicReference
 
 @click.command()
-@click.option('--file')
-@click.option('--prname')
-@click.option('--commitmessage', default='Atomization')
-def hello(file: str, prname: str, commitmessage: str):
+@click.option('--file', '-f', required=True)
+@click.option('--prname', '-p', required=True)
+@click.option('--nocommit', is_flag=True, help="Do not commit the files, letting you review them before doing it yourself.")
+@click.option('--commitmessage', '-c', default='Atomization')
+def hello(file: str, prname: str, commitmessage: str, nocommit: bool):
 
     filesToCopy = {}
 
@@ -26,7 +27,9 @@ def hello(file: str, prname: str, commitmessage: str):
         CopyFileInNewRepo(file, filecontent)
 
     StageChanges(repo)
-    CommitAtomization(repo, commitmessage)
+
+    if not nocommit:
+        CommitAtomization(repo, commitmessage)
 
 
 
