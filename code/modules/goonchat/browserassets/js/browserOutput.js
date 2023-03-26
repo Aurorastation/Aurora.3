@@ -949,7 +949,7 @@ $(function() {
 				'<div>Choose strings that will be highlighted when they appear in chat. Max length of input is 256 characters. ' +
 					'Separate strings by ",". Example: "a,b,c" will highlight "a", "b", and "c".</div>' +
 				'<form id="highlightTermForm">' +
-					'<div><input type="text" name="highlightTermInput" id="highlightTermInput" class="highlightTermInput" maxlength="255" value="'+(opts.highlightTerms ? opts.highlightTerms : '')+'" /></div>' +
+					'<div><input type="text" name="highlightTermInput" id="highlightTermInput" class="highlightTermInput" maxlength="256" value="'+(opts.highlightTerms ? opts.highlightTerms : '')+'" /></div>' +
 					'<div><input type="text" name="highlightColor" id="highlightColor" class="highlightColor" '+
 						'style="background-color: '+(opts.highlightColor ? opts.highlightColor : '#FFFF00')+'" value="'+(opts.highlightColor ? opts.highlightColor : '#FFFF00')+'" maxlength="7" /></div>' +
 					'<div><input type="submit" name="highlightTermSubmit" id="highlightTermSubmit" class="highlightTermSubmit" value="Save" /></div>' +
