@@ -59,7 +59,10 @@ Plates that can hold your cooking stuff
 
 /obj/item/reagent_containers/bowl/attack(mob/living/M, mob/living/user, target_zone)
 	if(grease &&!reagents.total_volume && (M == user))
-		user.visible_message(SPAN_NOTICE("[user] starts to lick \the [src] clean."), SPAN_NOTICE("You start to lick \the [src] clean."))
+		user.visible_message(
+			SPAN_NOTICE("[user] starts to lick \the [src] clean."),
+			SPAN_NOTICE("You start to lick \the [src] clean.")
+		)
 		if(do_after(user, 5))
 			grease = FALSE
 			user.visible_message(SPAN_NOTICE("[user] licks everything off \the [src]."), SPAN_NOTICE("You lick everything off \the [src]."))
