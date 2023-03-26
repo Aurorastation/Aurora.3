@@ -133,8 +133,9 @@
 	var/base_icon_state = "grate_dark"
 	var/damaged = FALSE
 
-/obj/structure/lattice/catwalk/indoor/grate/old
-	icon_state = "grate_dark_old"
+/obj/structure/lattice/catwalk/indoor/grate/old/Initialize()
+	. = ..()
+	add_overlay("rust")
 
 /obj/structure/lattice/catwalk/indoor/grate/damaged
 	icon_state = "grate_dark_dam0"
@@ -148,10 +149,11 @@
 	icon_state = "grate_light"
 	base_icon_state = "grate_light"
 	return_amount = 1
-	color = COLOR_DARK_GUNMETAL
+	color = COLOR_GUNMETAL
 
-/obj/structure/lattice/catwalk/indoor/grate/light/old
-	icon_state = "grate_light_old"
+/obj/structure/lattice/catwalk/indoor/grate/light/Initialize()
+	. = ..()
+	add_overlay("rust")
 
 /obj/structure/lattice/catwalk/indoor/grate/light/damaged
 	icon_state = "grate_light_dam0"

@@ -150,7 +150,7 @@
 	desc = "A solid, heavy set of flooring plates."
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "tiled"
-	color = COLOR_DARK_GUNMETAL
+	color = COLOR_GUNMETAL
 	has_damage_range = 4
 	damage_temperature = T0C+1400
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
@@ -220,7 +220,7 @@
 /singleton/flooring/tiling/dark
 	desc = "How ominous."
 	icon_base = "dark"
-	color = COLOR_DARK_GRAY
+	color = COLOR_DARK_GUNMETAL
 	has_damage_range = FALSE
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_dark

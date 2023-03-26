@@ -98,7 +98,7 @@
 		var/image/I = image(icon = 'icons/turf/flooring/damage.dmi', icon_state = cache_key)
 		if(blend)
 			I.blend_mode = blend
-		I.layer = layer
+		I.turf_decal_layerise()
 		flooring_cache[cache_key] = I
 	return flooring_cache[cache_key]
 
