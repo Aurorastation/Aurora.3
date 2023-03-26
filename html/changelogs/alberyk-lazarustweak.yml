@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - tweak: "The Lazarus injector can no longer revive mobs that are not tameable."
