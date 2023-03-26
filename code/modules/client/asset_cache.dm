@@ -464,6 +464,7 @@ var/list/asset_datums = list()
 		"elyran_corvette.png" = 'html/images/scans/elyran_corvette.png',
 		"dominian_corvette.png" = 'html/images/scans/dominian_corvette.png',
 		"tcfl_cetus.png" = 'html/images/scans/tcfl_cetus.png',
+		"unathi_corvette.png" = 'html/images/scans/unathi_corvette.png',
 		"ranger.png" = 'html/images/scans/ranger.png',
 		"oe_platform.png" = 'html/images/scans/oe_platform.png',
 		"hospital.png" = 'html/images/scans/hospital.png',
