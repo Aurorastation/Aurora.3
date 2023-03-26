@@ -143,6 +143,14 @@
 			src.pipe_type = PIPE_SCRUBBERS_CAP
 			connect_types = CONNECT_TYPE_SCRUBBER
 			src.color = PIPE_COLOR_RED
+		else if(istype(make_from, /obj/machinery/atmospherics/pipe/cap/visible/fuel) || istype(make_from, /obj/machinery/atmospherics/pipe/cap/hidden/fuel))
+			src.pipe_type = PIPE_FUEL_CAP
+			connect_types = CONNECT_TYPE_FUEL
+			src.color = PIPE_COLOR_YELLOW
+		else if(istype(make_from, /obj/machinery/atmospherics/pipe/cap/visible/aux) || istype(make_from, /obj/machinery/atmospherics/pipe/cap/hidden/aux))
+			src.pipe_type = PIPE_AUX_CAP
+			connect_types = CONNECT_TYPE_AUX
+			src.color = PIPE_COLOR_CYAN
 		else if(istype(make_from, /obj/machinery/atmospherics/pipe/cap))
 			src.pipe_type = PIPE_CAP
 		else if(istype(make_from, /obj/machinery/atmospherics/omni/mixer))
@@ -158,6 +166,14 @@
 			src.pipe_type = PIPE_SCRUBBERS_UP
 			connect_types = CONNECT_TYPE_SCRUBBER
 			src.color = PIPE_COLOR_RED
+		else if(istype(make_from, /obj/machinery/atmospherics/pipe/zpipe/up/fuel))
+			src.pipe_type = PIPE_FUEL_UP
+			connect_types = CONNECT_TYPE_FUEL
+			src.color = PIPE_COLOR_YELLOW
+		else if(istype(make_from, /obj/machinery/atmospherics/pipe/zpipe/up/aux))
+			src.pipe_type = PIPE_AUX_UP
+			connect_types = CONNECT_TYPE_AUX
+			src.color = PIPE_COLOR_CYAN
 		else if(istype(make_from, /obj/machinery/atmospherics/pipe/zpipe/up))
 			src.pipe_type = PIPE_UP
 		else if(istype(make_from, /obj/machinery/atmospherics/pipe/zpipe/down/supply))
@@ -168,6 +184,14 @@
 			src.pipe_type = PIPE_SCRUBBERS_DOWN
 			connect_types = CONNECT_TYPE_SCRUBBER
 			src.color = PIPE_COLOR_RED
+		else if(istype(make_from, /obj/machinery/atmospherics/pipe/zpipe/down/fuel))
+			src.pipe_type = PIPE_FUEL_DOWN
+			connect_types = CONNECT_TYPE_FUEL
+			src.color = PIPE_COLOR_YELLOW
+		else if(istype(make_from, /obj/machinery/atmospherics/pipe/zpipe/down/aux))
+			src.pipe_type = PIPE_AUX_DOWN
+			connect_types = CONNECT_TYPE_AUX
+			src.color = PIPE_COLOR_CYAN
 		else if(istype(make_from, /obj/machinery/atmospherics/pipe/zpipe/down))
 			src.pipe_type = PIPE_DOWN
 ///// Z-Level stuff
@@ -426,7 +450,7 @@
 		if(PIPE_CAP, PIPE_SUPPLY_CAP, PIPE_SCRUBBERS_CAP, PIPE_FUEL_CAP, PIPE_AUX_CAP)
 			return dir
 ///// Z-Level stuff
-		if(PIPE_UP,PIPE_DOWN,PIPE_SUPPLY_UP,PIPE_SUPPLY_DOWN,PIPE_SCRUBBERS_UP,PIPE_SCRUBBERS_DOWN)
+		if(PIPE_UP,PIPE_DOWN,PIPE_SUPPLY_UP,PIPE_SUPPLY_DOWN,PIPE_SCRUBBERS_UP,PIPE_SCRUBBERS_DOWN,PIPE_FUEL_UP,PIPE_FUEL_DOWN,PIPE_AUX_UP,PIPE_AUX_DOWN)
 			return dir
 ///// Z-Level stuff
 	return 0
@@ -516,6 +540,16 @@
 						pipe_type = PIPE_SUPPLY_STRAIGHT
 				else if(pipe_type in list(PIPE_SUPPLY_BENT, PIPE_SUPPLY_STRAIGHT))
 					if(pipe_type == PIPE_SUPPLY_BENT)
+						pipe_type = PIPE_FUEL_BENT
+					else
+						pipe_type = PIPE_FUEL_STRAIGHT
+				else if(pipe_type in list(PIPE_FUEL_BENT, PIPE_FUEL_STRAIGHT))
+					if(pipe_type == PIPE_FUEL_BENT)
+						pipe_type = PIPE_AUX_BENT
+					else
+						pipe_type = PIPE_AUX_STRAIGHT
+				else if(pipe_type in list(PIPE_AUX_BENT, PIPE_AUX_STRAIGHT))
+					if(pipe_type == PIPE_AUX_BENT)
 						pipe_type = PIPE_SIMPLE_BENT
 					else
 						pipe_type = PIPE_SIMPLE_STRAIGHT
@@ -911,6 +945,60 @@
 				M.node4.atmos_init()
 				M.node4.build_network()
 
+		if(PIPE_FUEL_MANIFOLD4W)		//4-way manifold
+			var/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel/M = new( src.loc )
+			M.color = color
+			M.set_dir(dir)
+			M.initialize_directions = pipe_dir
+			M.connect_types = src.connect_types
+			//M.New()
+			var/turf/T = M.loc
+			M.level = !T.is_plating() ? 2 : 1
+			M.atmos_init()
+			if (!M)
+				to_chat(usr, "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)")
+				return TRUE
+			M.build_network()
+			if (M.node1)
+				M.node1.atmos_init()
+				M.node1.build_network()
+			if (M.node2)
+				M.node2.atmos_init()
+				M.node2.build_network()
+			if (M.node3)
+				M.node3.atmos_init()
+				M.node3.build_network()
+			if (M.node4)
+				M.node4.atmos_init()
+				M.node4.build_network()
+
+		if(PIPE_AUX_MANIFOLD4W)		//4-way manifold
+			var/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux/M = new( src.loc )
+			M.color = color
+			M.set_dir(dir)
+			M.initialize_directions = pipe_dir
+			M.connect_types = src.connect_types
+			//M.New()
+			var/turf/T = M.loc
+			M.level = !T.is_plating() ? 2 : 1
+			M.atmos_init()
+			if (!M)
+				to_chat(usr, "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)")
+				return TRUE
+			M.build_network()
+			if (M.node1)
+				M.node1.atmos_init()
+				M.node1.build_network()
+			if (M.node2)
+				M.node2.atmos_init()
+				M.node2.build_network()
+			if (M.node3)
+				M.node3.atmos_init()
+				M.node3.build_network()
+			if (M.node4)
+				M.node4.atmos_init()
+				M.node4.build_network()
+
 		if(PIPE_JUNCTION)
 			var/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction/P = new ( src.loc )
 			P.set_dir(src.dir)
@@ -1100,6 +1188,26 @@
 
 		if(PIPE_SCRUBBERS_CAP)
 			var/obj/machinery/atmospherics/pipe/cap/hidden/scrubbers/C = new(src.loc)
+			C.set_dir(dir)
+			C.initialize_directions = pipe_dir
+			C.atmos_init()
+			C.build_network()
+			if(C.node)
+				C.node.atmos_init()
+				C.node.build_network()
+
+		if(PIPE_FUEL_CAP)
+			var/obj/machinery/atmospherics/pipe/cap/hidden/fuel/C = new(src.loc)
+			C.set_dir(dir)
+			C.initialize_directions = pipe_dir
+			C.atmos_init()
+			C.build_network()
+			if(C.node)
+				C.node.atmos_init()
+				C.node.build_network()
+
+		if(PIPE_AUX_CAP)
+			var/obj/machinery/atmospherics/pipe/cap/hidden/aux/C = new(src.loc)
 			C.set_dir(dir)
 			C.initialize_directions = pipe_dir
 			C.atmos_init()
@@ -1306,6 +1414,70 @@
 				P.node2.build_network()
 		if(PIPE_SCRUBBERS_DOWN)
 			var/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers/P = new(src.loc)
+			P.set_dir(dir)
+			P.initialize_directions = pipe_dir
+			if (pipename)
+				P.name = pipename
+			var/turf/T = P.loc
+			P.level = !T.is_plating() ? 2 : 1
+			P.atmos_init()
+			P.build_network()
+			if (P.node1)
+				P.node1.atmos_init()
+				P.node1.build_network()
+			if (P.node2)
+				P.node2.atmos_init()
+				P.node2.build_network()
+		if(PIPE_FUEL_UP)
+			var/obj/machinery/atmospherics/pipe/zpipe/up/fuel/P = new(src.loc)
+			P.set_dir(dir)
+			P.initialize_directions = pipe_dir
+			if (pipename)
+				P.name = pipename
+			var/turf/T = P.loc
+			P.level = !T.is_plating() ? 2 : 1
+			P.atmos_init()
+			P.build_network()
+			if (P.node1)
+				P.node1.atmos_init()
+				P.node1.build_network()
+			if (P.node2)
+				P.node2.atmos_init()
+				P.node2.build_network()
+		if(PIPE_FUEL_DOWN)
+			var/obj/machinery/atmospherics/pipe/zpipe/down/fuel/P = new(src.loc)
+			P.set_dir(dir)
+			P.initialize_directions = pipe_dir
+			if (pipename)
+				P.name = pipename
+			var/turf/T = P.loc
+			P.level = !T.is_plating() ? 2 : 1
+			P.atmos_init()
+			P.build_network()
+			if (P.node1)
+				P.node1.atmos_init()
+				P.node1.build_network()
+			if (P.node2)
+				P.node2.atmos_init()
+				P.node2.build_network()
+		if(PIPE_AUX_UP)
+			var/obj/machinery/atmospherics/pipe/zpipe/up/aux/P = new(src.loc)
+			P.set_dir(dir)
+			P.initialize_directions = pipe_dir
+			if (pipename)
+				P.name = pipename
+			var/turf/T = P.loc
+			P.level = !T.is_plating() ? 2 : 1
+			P.atmos_init()
+			P.build_network()
+			if (P.node1)
+				P.node1.atmos_init()
+				P.node1.build_network()
+			if (P.node2)
+				P.node2.atmos_init()
+				P.node2.build_network()
+		if(PIPE_AUX_DOWN)
+			var/obj/machinery/atmospherics/pipe/zpipe/down/aux/P = new(src.loc)
 			P.set_dir(dir)
 			P.initialize_directions = pipe_dir
 			if (pipename)

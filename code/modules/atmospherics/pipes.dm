@@ -1244,6 +1244,22 @@
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
+/obj/machinery/atmospherics/pipe/cap/visible/fuel
+	name = "fuel pipe endcap"
+	desc = "An endcap for fuel pipes"
+	connect_types = CONNECT_TYPE_FUEL
+	layer = 2.40
+	icon_connect_type = "-fuel"
+	color = PIPE_COLOR_YELLOW
+
+/obj/machinery/atmospherics/pipe/cap/visible/aux
+	name = "auxiliary pipe endcap"
+	desc = "An endcap for auxiliary pipes"
+	connect_types = CONNECT_TYPE_AUX
+	layer = 2.41
+	icon_connect_type = "-aux"
+	color = PIPE_COLOR_CYAN
+
 /obj/machinery/atmospherics/pipe/cap/hidden
 	level = 1
 	icon_state = "cap"
@@ -1264,6 +1280,22 @@
 	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/cap/hidden/fuel
+	name = "fuel pipe endcap"
+	desc = "An endcap for fuel pipes"
+	connect_types = CONNECT_TYPE_FUEL
+	layer = 2.40
+	icon_connect_type = "-fuel"
+	color = PIPE_COLOR_YELLOW
+
+/obj/machinery/atmospherics/pipe/cap/hidden/aux
+	name = "auxiliary pipe endcap"
+	desc = "An endcap for auxiliary pipes"
+	connect_types = CONNECT_TYPE_AUX
+	layer = 2.41
+	icon_connect_type = "-aux"
+	color = PIPE_COLOR_CYAN
 
 
 /obj/machinery/atmospherics/pipe/tank
