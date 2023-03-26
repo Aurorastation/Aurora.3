@@ -81,7 +81,7 @@ Plates that can hold your cooking stuff
 	return
 
 /obj/item/reagent_containers/bowl/update_icon()
-	cut_overlays(
+	cut_overlays()
 	if(grease)
 		icon_state = "[initial(icon_state)]_mess"
 	else
@@ -97,6 +97,9 @@ Plates that can hold your cooking stuff
 /obj/item/reagent_containers/bowl/plate
 	name = "plate"
 	desc = "A plate for dishing up the finest of cuisine."
+	desc_info = "Click with food to put food on.<br>\
+		- Click with cutlery to eat some.<br>\
+		- Click it with the active hand to remove food"
 	flags = null
 	icon_state = "plate"
 	var/obj/item/holding
@@ -167,13 +170,13 @@ Plates that can hold your cooking stuff
     return
 
 /obj/item/reagent_containers/bowl/plate/update_icon()
-	cut_overlays(
-    var/list/O = list()
-    if(grease)
-        icon_state = "[initial(icon_state)]_mess"
-    else
-        icon_state = initial(icon_state)
-    if(holding)
-        holding.update_icon() // Just to be safe.
-        LAZYADD(O, image(icon=holding.icon, icon_state=holding.icon_state))
-    set_overlays(O)
+	cut_overlays()
+	var/list/O = list()
+	if(grease)
+		icon_state = "[initial(icon_state)]_mess"
+	else
+		icon_state = initial(icon_state)
+	if(holding)
+		holding.update_icon() // Just to be safe.
+		LAZYADD(O, image(icon=holding.icon, icon_state=holding.icon_state))
+	set_overlays(O)
