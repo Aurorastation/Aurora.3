@@ -134,7 +134,7 @@ Plates that can hold your cooking stuff
 		return
 	if(istype(I, /obj/item/material/kitchen/utensil) && istype(holding, /obj/item/trash))
 		to_chat(user, SPAN_WARNING("You're not sure you should try to eat \the [holding.name]."))
-	if (istype(I, /obj/item/material/kitchen/utensil))
+	if(istype(I, /obj/item/material/kitchen/utensil))
 		to_chat(user, SPAN_WARNING("There isn't any food on \the [name]."))
 		update_icon()
 		return
