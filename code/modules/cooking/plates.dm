@@ -37,9 +37,9 @@ Plates that can hold your cooking stuff
 					to_chat(user, SPAN_WARNING("You already have liquid on \the [U]."))
 					return
 
-				user.visible_message( \
-				"\The [user] scoops up some of \the [src]'s contents with \the [U]!", \
-				SPAN_NOTICE("You scoop up some of \the [src]'s contents with \the [U]!") \
+				user.visible_message(
+					"\The [user] scoops up some of \the [src]'s contents with \the [U]!",
+					SPAN_NOTICE("You scoop up some of \the [src]'s contents with \the [U]!")
 				)
 
 				U.cut_overlays()
