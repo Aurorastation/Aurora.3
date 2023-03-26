@@ -21,13 +21,8 @@ from git import SymbolicReference
 @click.option('--commitmessage', '-c', default='Atomization', help='The commit message to use for\
   the commit, otherwise, "Atomization" will be used')
 def main(file: str, prname: str, commitmessage: str, nocommit: bool):
-    """Consumes the command line options and gets the job done
-
-    Args:
-        file (str): String of file, or comma separated files, to put in the atomization
-        prname (str): The name of the PR (branch)
-        commitmessage (str): The message of the commit
-        nocommit (bool): If true, the tool will not perform the commit
+    """This tool is used to atomize the PRs, it makes a new branch from master, copy the files
+    that constitute the atomic change and commit them with a specified message.
     """
     files_to_copy = {}
 
