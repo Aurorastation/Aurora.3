@@ -22,7 +22,7 @@
 			var/icon/decal_blend_icon
 			var/decal_blend_process
 			var/color_to_swap = rgb(255, 0, 220, 255)
-			if(T.tile_outline && outline) // handles decals getting cut up by gaps in tiles.
+			if(T.tile_outline && T.tile_outline_alpha && outline) // handles decals getting cut up by gaps in tiles.
 				var/icon/tile_outline_icon = icon('icons/turf/decals/blend.dmi', T.tile_outline)
 				tile_outline_icon.SwapColor(color_to_swap, rgb(0, 0, 0, T.tile_outline_alpha))
 				decal_blend_icon = tile_outline_icon

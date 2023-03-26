@@ -40,6 +40,7 @@ delete-after: True
 changes:
   - imageadd: "Adds new sprites for turfs, by Atteria."
   - bugfix: "Fixes paint colors being ultra desaturated when painted on tiles."
+  - rscadd: "Damage overlays for tiles have been improved."
   - rscadd: "You can now paint linoleum, freezer tiles, reinforced tiles and wooden tiles."
   - rscadd: "Tile paint decals are now modularised, meaning they adapt to the tile they are on."
   - rscadd: "Adds decal blending modes, allowing decals to adapt to the type of tile they're painted on."

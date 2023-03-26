@@ -6,6 +6,7 @@
 	name = "carpet"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
+	tile_outline = "carpet"
 	initial_flooring = /singleton/flooring/carpet
 	footstep_sound = /singleton/sound_category/carpet_footstep
 

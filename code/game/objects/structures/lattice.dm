@@ -129,39 +129,9 @@
 	icon_state = "grate_dark"
 	return_amount = 1
 	smooth = null
-	color = COLOR_DARK_GUNMETAL
+	color = COLOR_GUNMETAL
 	var/base_icon_state = "grate_dark"
 	var/damaged = FALSE
-
-/obj/structure/lattice/catwalk/indoor/grate/old/Initialize()
-	. = ..()
-	add_overlay("rust")
-
-/obj/structure/lattice/catwalk/indoor/grate/damaged
-	icon_state = "grate_dark_dam0"
-	damaged = TRUE
-
-/obj/structure/lattice/catwalk/indoor/grate/damaged/Initialize()
-	. = ..()
-	icon_state = "[base_icon_state]_dam[rand(0,3)]"
-
-/obj/structure/lattice/catwalk/indoor/grate/light
-	icon_state = "grate_light"
-	base_icon_state = "grate_light"
-	return_amount = 1
-	color = COLOR_GUNMETAL
-
-/obj/structure/lattice/catwalk/indoor/grate/light/Initialize()
-	. = ..()
-	add_overlay("rust")
-
-/obj/structure/lattice/catwalk/indoor/grate/light/damaged
-	icon_state = "grate_light_dam0"
-	damaged = TRUE
-
-/obj/structure/lattice/catwalk/indoor/grate/light/damaged/Initialize()
-	. = ..()
-	icon_state = "[base_icon_state]_dam[rand(0,3)]"
 
 /obj/structure/lattice/catwalk/indoor/grate/attackby(obj/item/C, mob/user)
 	if(C.iswelder() && damaged)
@@ -184,3 +154,32 @@
 			else
 				qdel(src)
 	return
+
+/obj/structure/lattice/catwalk/indoor/grate/old/Initialize()
+	. = ..()
+	add_overlay("rust")
+
+/obj/structure/lattice/catwalk/indoor/grate/damaged
+	icon_state = "grate_dark_dam0"
+	damaged = TRUE
+
+/obj/structure/lattice/catwalk/indoor/grate/damaged/Initialize()
+	. = ..()
+	icon_state = "[base_icon_state]_dam[rand(0,3)]"
+
+/obj/structure/lattice/catwalk/indoor/grate/light
+	icon_state = "grate_light"
+	base_icon_state = "grate_light"
+	return_amount = 1
+	color = COLOR_GUNMETAL
+
+/obj/structure/lattice/catwalk/indoor/grate/light/damaged
+	icon_state = "grate_light_dam0"
+	damaged = TRUE
+
+/obj/structure/lattice/catwalk/indoor/grate/light/damaged/Initialize()
+	. = ..()
+	icon_state = "[base_icon_state]_dam[rand(0,3)]"
+
+/obj/structure/lattice/catwalk/indoor/grate/dark
+	color = COLOR_DARK_GUNMETAL

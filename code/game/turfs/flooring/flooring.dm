@@ -16,8 +16,9 @@
 	var/color
 
 	var/has_base_range // basically if you want your turf to have variants, e.g. snow and grass. this number sets upper bound, starts at 0.
-	var/has_damage_range
-	var/has_burn_range
+	var/has_damage_range = 2
+	var/has_damage_state // if you've got unique damage sprites, hard-baked, not overlays. if you use overlays use the range system.
+	var/has_burn_range = 2
 	var/damage_temperature
 	var/apply_thermal_conductivity
 	var/apply_heat_capacity
@@ -88,7 +89,7 @@
 	icon_base = "carpet"
 	build_type = /obj/item/stack/tile/carpet
 	damage_temperature = T0C+200
-	flags = TURF_HAS_CORNERS | TURF_HAS_INNER_CORNERS | TURF_REMOVE_CROWBAR | TURF_CAN_BURN
+	flags = TURF_HAS_CORNERS | TURF_HAS_INNER_CORNERS | TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
 	footstep_sound = /singleton/sound_category/carpet_footstep
 	floor_smooth = SMOOTH_NONE
 	wall_smooth = SMOOTH_NONE
@@ -151,7 +152,6 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "tiled"
 	color = COLOR_GUNMETAL
-	has_damage_range = 4
 	damage_temperature = T0C+1400
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/floor
@@ -166,7 +166,6 @@
 	name = "floor"
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	icon_base = "asteroidfloor"
-	has_damage_range = null
 	build_type = null
 
 /singleton/flooring/tiling/asteroid/plating
@@ -186,43 +185,32 @@
 /singleton/flooring/linoleum/diamond
 	icon_base = "lino_diamond"
 	build_type = /obj/item/stack/tile/lino/diamond
-	has_damage_range = 2
 
 /singleton/flooring/tiling/red
 	name = "floor"
 	icon_base = "white"
-	has_damage_range = null
-	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_red
 
 /singleton/flooring/tiling/steel
 	name = "floor"
 	desc = "You wonder how something rusts in an oxygenless enviroment."
-	has_damage_range = null
-	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor/rust
 
 /singleton/flooring/tiling/white
 	desc = "How sterile."
 	icon_base = "white"
 	color = COLOR_OFF_WHITE
-	has_damage_range = null
-	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_white
 
 /singleton/flooring/tiling/yellow
 	name = "floor"
 	icon_base = "tiled_light"
-	has_damage_range = null
-	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_yellow
 
 /singleton/flooring/tiling/dark
 	desc = "How ominous."
 	icon_base = "dark"
 	color = COLOR_DARK_GUNMETAL
-	has_damage_range = FALSE
-	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_dark
 
 /singleton/flooring/tiling/dark/full
@@ -234,8 +222,6 @@
 	desc = "Don't slip."
 	icon_base = "freezer"
 	color = null
-	has_damage_range = null
-	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_freezer
 
 //Wood
@@ -245,6 +231,7 @@
 	icon = 'icons/turf/flooring/wood.dmi'
 	icon_base = "wood"
 	has_damage_range = 6
+	has_damage_state = TRUE
 	damage_temperature = T0C+200
 	descriptor = "planks"
 	build_type = /obj/item/stack/tile/wood
@@ -328,6 +315,7 @@
 	icon_base = "cult"
 	build_type = null
 	has_damage_range = 6
+	has_damage_state = TRUE
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK
 	can_paint = FALSE
 
@@ -337,7 +325,7 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "ramptop"
 	build_type = null
-	has_damage_range = 2
+	has_damage_state = TRUE
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK
 	can_paint = TRUE
 
@@ -360,6 +348,8 @@
 	desc = "A fancy floor with silver plating."
 	icon = 'icons/turf/flooring/material.dmi'
 	icon_base = "silver"
+	has_base_range = 0
+	has_damage_state = TRUE
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/silver
 
@@ -368,6 +358,8 @@
 	desc = "A fancy floor with golden plating."
 	icon = 'icons/turf/flooring/material.dmi'
 	icon_base = "gold"
+	has_base_range = 0
+	has_damage_state = TRUE
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/gold
 
@@ -376,6 +368,8 @@
 	desc = "An unsafe floor with uranium plating."
 	icon = 'icons/turf/flooring/material.dmi'
 	icon_base = "uranium"
+	has_base_range = 0
+	has_damage_state = TRUE
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/uranium
 
@@ -384,7 +378,9 @@
 	desc = "A flammable floor with phoron plating."
 	icon = 'icons/turf/flooring/material.dmi'
 	icon_base = "plasma"
-	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
+	has_base_range = 0
+	has_damage_state = TRUE
+	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/phoron
 
 /singleton/flooring/diamond
@@ -392,6 +388,8 @@
 	desc = "An expensive floor with diamond plating."
 	icon = 'icons/turf/flooring/material.dmi'
 	icon_base = "diamond"
+	has_base_range = 0
+	has_damage_state = TRUE
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/diamond
 

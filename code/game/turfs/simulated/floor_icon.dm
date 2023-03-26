@@ -60,9 +60,12 @@
 			add_overlay(I)
 
 	if(!isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
-		add_overlay(get_damage_overlay("broken[broken]", BLEND_MULTIPLY))
+		if(flooring.has_damage_state)
+			add_overlay(get_damage_overlay("[flooring.icon_base]_broken[broken]", flooring_icon = flooring.icon))
+		else
+			add_overlay(get_damage_overlay("broken[tile_outline ? "_[tile_outline]" : ""][broken]", BLEND_MULTIPLY))
 	if(!isnull(burnt) && (flooring.flags & TURF_CAN_BURN))
-		add_overlay(get_damage_overlay("burned[burnt]"))
+		add_overlay(get_damage_overlay("burned[tile_outline ? "_[tile_outline]" : ""][burnt]"))
 
 	if(update_neighbors)
 		for(var/turf/simulated/floor/F in RANGE_TURFS(1, src))
@@ -92,10 +95,10 @@
 		flooring_cache[cache_key] = I
 	return flooring_cache[cache_key]
 
-/turf/simulated/floor/proc/get_damage_overlay(var/cache_key, blend)
+/turf/simulated/floor/proc/get_damage_overlay(var/cache_key, blend, var/flooring_icon)
 	var/list/flooring_cache = SSicon_cache.flooring_cache
 	if(!flooring_cache[cache_key])
-		var/image/I = image(icon = 'icons/turf/flooring/damage.dmi', icon_state = cache_key)
+		var/image/I = image(icon = flooring_icon ? flooring_icon : 'icons/turf/flooring/damage.dmi', icon_state = cache_key)
 		if(blend)
 			I.blend_mode = blend
 		I.turf_decal_layerise()

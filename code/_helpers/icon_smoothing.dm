@@ -67,8 +67,8 @@
 	var/list/fixed_underlay
 	var/smooth_underlays	// Determines if we should attempt to generate turf underlays for this type.
 	var/tile_decal_state // override if you don't want decals to cut from the icon state directly but something else. used for coloring decals, mostly
-	var/tile_outline // decal effect for "sinking in" the edges
-	var/tile_outline_alpha // how dark you want the sinking in to be
+	var/tile_outline // decal effect for "sinking in" the edges. also sets damage states because i don't want to make another variable. yet.
+	var/tile_outline_alpha // how dark you want the sinking in to be. set this if you want above to do stuff.
 	var/tile_outline_blend_process = ICON_OVERLAY
 
 /turf/simulated/wall/shuttle
