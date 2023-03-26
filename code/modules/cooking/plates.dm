@@ -155,7 +155,7 @@ Plates that can hold your cooking stuff
         if(temp_hold != holding)
             holding = temp_hold
             temp_hold.forceMove(src)
-            if(!grease) //Grease lightning, go grease lightning!
+            if(!grease)
                 grease = TRUE
         update_icon()
     else if(grease && !holding && (M == user))
