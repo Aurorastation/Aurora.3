@@ -24,8 +24,10 @@ window.status = 'Output';
 var $messages, $subTheme, $subOptions, $subFont, $selectedSub, $contextMenu, $filterMessages, $last_message;
 var opts = {
 	//General
-	'messageCount': 0, //A count...of messages...
-	'messageLimit': 2053, //A limit...for the messages...
+	'messageCount': 0, //A count of messages
+	'messageLimit': 2053, //A limit for the messages
+	'messageLimitMin': 2053,
+	'messageLimitMax': 2053*8,
 	'scrollSnapTolerance': 10, //If within x pixels of bottom
 	'clickTolerance': 10, //Keep focus if outside x pixels of mousedown position on mouseup
 	'imageRetryDelay': 50, //how long between attempts to reload images (in ms)
@@ -348,9 +350,9 @@ function output(message, flag) {
 	opts.messageCount++;
 
 	//Pop the top message off if history limit reached
-	if (opts.messageCount >= opts.messageLimit) {
+	while (opts.messageCount >= opts.messageLimit) {
 		$messages.children('div.entry:first-child').remove();
-		opts.messageCount--; //I guess the count should only ever equal the limit
+		opts.messageCount--;
 	}
 
 	// Create the element - if combining is off, we use it, and if it's on, we
@@ -670,6 +672,7 @@ $(function() {
 		fontsize: getCookie('fontsize'),
 		iconsize: getCookie('iconsize'),
 		lineheight: getCookie('lineheight'),
+		'smessageLimit': getCookie('messageLimit'),
 		'spingDisabled': getCookie('pingdisabled'),
 		'shighlightTerms': getCookie('highlightterms'),
 		'shighlightColor': getCookie('highlightcolor'),
@@ -693,6 +696,17 @@ $(function() {
 	}
 	if(savedConfig.stheme){
 		setTheme(savedConfig.stheme);
+	}
+	if (savedConfig.smessageLimit) {
+		var limit = parseInt(savedConfig.smessageLimit);
+		if(isNaN(limit) || limit < opts.messageLimitMin) {
+			limit = opts.messageLimitMin
+		}
+		if(limit > opts.messageLimitMax) {
+			limit = opts.messageLimitMax
+		}
+		opts.messageLimit = limit;
+		internalOutput('<span class="internal boldnshit">Loaded message limit of: '+opts.messageLimit+'</span>', 'internal');
 	}
 	if (savedConfig.spingDisabled) {
 		if (savedConfig.spingDisabled == 'true') {
@@ -992,6 +1006,44 @@ $(function() {
 
 		setCookie('highlightterms', JSON.stringify(opts.highlightTerms), 365);
 		setCookie('highlightcolor', opts.highlightColor, 365);
+	});
+
+	$('#messageLimit').click(function(e) {
+		if ($('.popup .messageLimit').is(':visible')) {return;}
+		var popupContent = '<div class="head">Chat Message Limit</div>' +
+			'<div class="messageLimitPopup" id="messageLimitPopup">' +
+				'<div>Choose the limit of messages in the chat. Default value is '+opts.messageLimitMin+', min is '+opts.messageLimitMin+', max is '+opts.messageLimitMax+'. ' +
+					'If limit is reached, oldest messages at the top will be deleted. Higher limits may or may not be laggy during very long rounds.</div>' +
+				'<form id="messageLimitForm">' +
+				'<div><input type="text" name="messageLimitInput" id="messageLimitInput" class="messageLimitInput" maxlength="255" value="'+(opts.messageLimit ? opts.messageLimit : '')+'" /></div>' +
+					'<div><input type="submit" name="messageLimitSubmit" id="messageLimitSubmit" class="messageLimitSubmit" value="Save" /></div>' +
+				'</form>' +
+			'</div>';
+		createPopup(popupContent, 250);
+	});
+
+	$('body').on('submit', '#messageLimitForm', function(e) {
+		e.preventDefault();
+
+		var limit = $('#messageLimitInput').val();
+		limit = parseInt(limit);
+
+		if(isNaN(limit) || limit < opts.messageLimitMin) {
+			limit = opts.messageLimitMin
+			internalOutput('<span class="internal boldnshit">Message limit invalid or below min value.</span>', 'internal');
+		}
+		if(limit > opts.messageLimitMax) {
+			limit = opts.messageLimitMax
+			internalOutput('<span class="internal boldnshit">Message limit above max value.</span>', 'internal');
+		}
+
+		opts.messageLimit = limit
+		internalOutput('<span class="internal boldnshit">Message limit set to: '+opts.messageLimit+'</span>', 'internal');
+
+		var $popup = $('#messageLimitPopup').closest('.popup');
+		$popup.remove();
+
+		setCookie('messageLimit', opts.messageLimit, 365);
 	});
 
 	$('#clearMessages').click(function() {
