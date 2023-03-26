@@ -876,7 +876,7 @@
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "dDt" = (
 /obj/structure/inflatable/door,
-/turf/simulated/floor/tiled/old_white{
+/turf/simulated/floor/tiled/white{
 	broken = 2
 	},
 /area/ship/sfa_patrol_ship)
@@ -4988,7 +4988,7 @@
 /area/ship/sfa_patrol_ship)
 "vEW" = (
 /obj/structure/inflatable,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship)
 "vGd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{

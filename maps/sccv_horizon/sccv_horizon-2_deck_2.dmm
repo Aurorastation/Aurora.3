@@ -38094,7 +38094,7 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
 "sBE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
