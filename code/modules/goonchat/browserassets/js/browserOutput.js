@@ -1038,7 +1038,7 @@ $(function() {
 		}
 
 		opts.messageLimit = limit
-		internalOutput('<span class="internal boldnshit">Message limit set to: '+opts.messageLimit+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Message limit set to '+opts.messageLimit+'</span>', 'internal');
 
 		var $popup = $('#messageLimitPopup').closest('.popup');
 		$popup.remove();
