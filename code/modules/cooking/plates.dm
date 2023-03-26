@@ -122,7 +122,7 @@ Plates that can hold your cooking stuff
 	if(istype(I, /obj/item/reagent_containers/food/snacks) || istype(I, /obj/item/trash))
 		to_chat(user, SPAN_WARNING("\The [src] already has something on it!"))
 		return
-	if (istype(I, /obj/item/material/kitchen/utensil) && istype(holding, /obj/item/reagent_containers/food/snacks))
+	if(istype(I, /obj/item/material/kitchen/utensil) && istype(holding, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/temp_hold = holding.attackby(I, user)
 		if(temp_hold != holding)
 			holding = temp_hold
