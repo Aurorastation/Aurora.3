@@ -11,7 +11,7 @@ Plates that can hold your cooking stuff
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "bowl"
 	fragile = 3
-	shatter_material = DEFAULT_TABLE_MATERIAL //slight typecasting abuse here, gets converted to a material in initializee
+	shatter_material = DEFAULT_TABLE_MATERIAL // Slight typecasting abuse here, gets converted to a material in Initialize().
 	can_be_placed_into = list()
 	flags = OPENCONTAINER
 	var/grease = FALSE
