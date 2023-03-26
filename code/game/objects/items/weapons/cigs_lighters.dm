@@ -427,7 +427,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents_to_add = list(
 		/singleton/reagent/toxin/tobacco/sweet = 5,
 		/singleton/reagent/mental/nicotine = 5,
-		/singleton/reagent/drink/dynjuice = 5,
+		/singleton/reagent/drink/dynjuice = 5
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/wulu
