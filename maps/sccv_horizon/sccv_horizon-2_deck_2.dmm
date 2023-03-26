@@ -33803,7 +33803,6 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/machinery/firealarm/south,
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
 "quD" = (

@@ -4354,7 +4354,6 @@
 "dtb" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "dtN" = (
