@@ -47392,13 +47392,13 @@
 "bIr" = (
 /obj/machinery/vending/hydronutrients,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled_dark,
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/bar)
 "bIs" = (
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
-/turf/simulated/floor/tiled_dark,
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/bar)
 "bIv" = (
 /obj/structure/bed,
@@ -48017,7 +48017,7 @@
 /obj/machinery/vending/hydroseeds{
 	prices = list()
 	},
-/turf/simulated/floor/tiled_dark,
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/bar)
 "bKf" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -59856,7 +59856,7 @@
 "enl" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled_dark,
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/bar)
 "enx" = (
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -63151,7 +63151,7 @@
 /obj/random/loot,
 /obj/structure/table/steel,
 /obj/item/crowbar/red,
-/turf/simulated/floor/tiled_dark,
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/bar)
 "kxP" = (
 /obj/effect/decal/cleanable/dirt,
@@ -64340,7 +64340,7 @@
 /area/maintenance/research_port)
 "mMJ" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled_dark,
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/bar)
 "mNw" = (
 /obj/structure/closet,
