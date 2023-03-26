@@ -3,68 +3,108 @@ import os
 from git import Repo
 from git import SymbolicReference
 
+
 @click.command()
 @click.option('--file', '-f', required=True)
 @click.option('--prname', '-p', required=True)
 @click.option('--nocommit', is_flag=True, help="Do not commit the files, letting you review them before doing it yourself.")
 @click.option('--commitmessage', '-c', default='Atomization')
-def hello(file: str, prname: str, commitmessage: str, nocommit: bool):
+def main(file: str, prname: str, commitmessage: str, nocommit: bool):
+    """_summary_
 
-    filesToCopy = {}
+    Args:
+        file (str): _description_
+        prname (str): _description_
+        commitmessage (str): _description_
+        nocommit (bool): _description_
+    """
+    files_to_copy = {}
 
     for file in file.replace(',', ' ').split():
         with open(file.strip(), 'rb') as f:
             try:
                 filecontent = f.read()
-                filesToCopy[file] = filecontent
-            except():
+                files_to_copy[file] = filecontent
+            except ():
                 print(f'Unable to open, find or read the file {file}')
                 exit()
 
-    repo = GitMakeRepo(prname)
+    repo = git_make_branch(prname)
 
-    for file, filecontent in filesToCopy.items():
-        CopyFileInNewRepo(file, filecontent)
+    if not repo:
+        print(f'Unable to make branch {prname}, aborting!')
+        exit()
 
-    StageChanges(repo)
+    for file, filecontent in files_to_copy.items():
+        copy_file_in_new_branch(file, filecontent)
+
+    stage_changes(repo)
 
     if not nocommit:
-        CommitAtomization(repo, commitmessage)
+        commit_atomization(repo, commitmessage)
 
 
+def git_make_branch(name):
+    """Make a branch from the repository master with the gigen name
 
-def GitMakeRepo(name):
+    Args:
+        name (str): the name of the new branch
+
+    Returns:
+        _type_: _description_
+    """
     try:
         repo = Repo(os.getcwd())
         if repo.is_dirty(untracked_files=True):
             print("There are uncommitted changes in the current branch.")
             print("Please commit or stash your changes before creating a new branch.")
-            exit()
+            return False
         else:
             try:
                 repo.git.checkout("master")
                 new_branch: 'SymbolicReference' = repo.create_head(f'{name}')
-                new_branch.checkout()
+                new_branch.checkout()  # type: ignore
                 repo.git.checkout(name)
                 return repo
-            except():
+            except ():
                 print('Something went wrong in the cloning of the branch')
-                exit()
-    except():
+                return False
+    except ():
         print("Unable to acquire repo.")
-        exit()
+        return False
 
-def CopyFileInNewRepo(filepath, content):
+
+def copy_file_in_new_branch(filepath, content: bytes):
+    """Copy the file content, passed as parameter, to the new file,
+    takes care of closing the file itself
+
+    Args:
+        filepath (str): path of the file to copy the content TO
+        content (bytes): an array of bytes to write in the new file
+    """
     with open(filepath, 'wb') as f:
         f.write(content)
 
-def StageChanges(repo: Repo):
+
+def stage_changes(repo: Repo):
+    """Stage the changes in the new branch, ready to be committed
+
+    Args:
+        repo (Repo): the repository
+    """
     repo.git.diff()
     repo.git.add('--all')
 
-def CommitAtomization(repo: Repo, message: str):
+
+def commit_atomization(repo: Repo, message: str):
+    """Commits the atomization to git
+
+    Args:
+        repo (Repo): the repository
+        message (str): the commit message to use
+    """
     repo.index.commit(message)
 
 
 if __name__ == '__main__':
-    exit(hello())
+    exit(main())
