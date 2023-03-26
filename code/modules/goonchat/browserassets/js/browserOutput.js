@@ -946,7 +946,7 @@ $(function() {
 		if ($('.popup .highlightTerm').is(':visible')) {return;}
 		var popupContent = '<div class="head">String Highlighting</div>' +
 			'<div class="highlightPopup" id="highlightPopup">' +
-				'<div>Choose strings that will be highlighted when they appear in chat. Max length of input is 255 characters. ' +
+				'<div>Choose strings that will be highlighted when they appear in chat. Max length of input is 256 characters. ' +
 					'Separate strings by ",". Example: "a,b,c" will highlight "a", "b", and "c".</div>' +
 				'<form id="highlightTermForm">' +
 					'<div><input type="text" name="highlightTermInput" id="highlightTermInput" class="highlightTermInput" maxlength="255" value="'+(opts.highlightTerms ? opts.highlightTerms : '')+'" /></div>' +
