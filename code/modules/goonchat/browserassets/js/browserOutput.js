@@ -706,7 +706,7 @@ $(function() {
 			limit = opts.messageLimitMax
 		}
 		opts.messageLimit = limit;
-		internalOutput('<span class="internal boldnshit">Loaded message limit of: '+opts.messageLimit+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Loaded message limit of '+opts.messageLimit+'</span>', 'internal');
 	}
 	if (savedConfig.spingDisabled) {
 		if (savedConfig.spingDisabled == 'true') {
