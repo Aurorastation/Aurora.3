@@ -307,7 +307,7 @@
 
 /obj/item/reagent_containers/cooking_container/board/attackby(obj/item/I, mob/user)
 	. = ..()
-	if (length(contents)) //Only if something was actually added
+	if(length(contents)) // Only if something was actually added.
 		icon_state = "[initial(icon_state)]_prep"
 
 /obj/item/reagent_containers/cooking_container/board/on_reagent_change()
