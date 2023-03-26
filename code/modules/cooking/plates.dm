@@ -65,7 +65,10 @@ Plates that can hold your cooking stuff
 		)
 		if(do_after(user, 5))
 			grease = FALSE
-			user.visible_message(SPAN_NOTICE("[user] licks everything off \the [src]."), SPAN_NOTICE("You lick everything off \the [src]."))
+			user.visible_message(
+				SPAN_NOTICE("[user] licks everything off \the [src]."),
+				SPAN_NOTICE("You lick everything off \the [src].")
+			)
 	else
 		return ..()
 	update_icon()
