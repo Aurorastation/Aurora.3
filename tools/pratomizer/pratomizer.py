@@ -5,10 +5,12 @@ from git import SymbolicReference
 
 
 @click.command()
-@click.option('--file', '-f', required=True)
-@click.option('--prname', '-p', required=True)
-@click.option('--nocommit', is_flag=True, help="Do not commit the files, letting you review them before doing it yourself.")
-@click.option('--commitmessage', '-c', default='Atomization')
+@click.option('--file', '-f', required=True, help='The file relative path, or comma (or space) separated list of\
+  files to atomize for the new PR')
+@click.option('--prname', '-p', required=True, help='The name of the PR/Branch you want the tool to create')
+@click.option('--nocommit', is_flag=True, help='If this flag is specified, do not commit the changes.')
+@click.option('--commitmessage', '-c', default='Atomization', help='The commit message to use for the commit,\
+  otherwise, "Atomization" will be used')
 def main(file: str, prname: str, commitmessage: str, nocommit: bool):
     """_summary_
 
