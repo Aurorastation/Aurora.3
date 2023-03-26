@@ -1,3 +1,10 @@
+"""This tool is used to atomize the PRs, it makes a new branch from master, copy the files
+that constitute the atomic change and commit them with a specified message.
+
+Remember to install the requirements on your system, if not already installed:
+pip install -r requirements.txt
+"""
+
 import os
 import click
 from git import Repo
@@ -5,20 +12,20 @@ from git import SymbolicReference
 
 
 @click.command()
-@click.option('--file', '-f', required=True, help='The file relative path, or comma (or space) separated list of\
-  files to atomize for the new PR')
+@click.option('--file', '-f', required=True, help='The file relative path, or comma \
+  separated list of files to atomize for the new PR')
 @click.option('--prname', '-p', required=True, help='The name of the PR/Branch you want the tool to create')
 @click.option('--nocommit', is_flag=True, help='If this flag is specified, do not commit the changes.')
-@click.option('--commitmessage', '-c', default='Atomization', help='The commit message to use for the commit,\
-  otherwise, "Atomization" will be used')
+@click.option('--commitmessage', '-c', default='Atomization', help='The commit message to use for\
+  the commit, otherwise, "Atomization" will be used')
 def main(file: str, prname: str, commitmessage: str, nocommit: bool):
-    """_summary_
+    """Consumes the command line options and gets the job done
 
     Args:
-        file (str): _description_
-        prname (str): _description_
-        commitmessage (str): _description_
-        nocommit (bool): _description_
+        file (str): String of file, or comma separated files, to put in the atomization
+        prname (str): The name of the PR (branch)
+        commitmessage (str): The message of the commit
+        nocommit (bool): If true, the tool will not perform the commit
     """
     files_to_copy = {}
 
