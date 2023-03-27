@@ -106,7 +106,7 @@
 		return
 
 	if(!F.flooring || F.broken || F.burnt)
-		to_chat(user, "<span class='warning'>\The [src] cannot paint damaged or missing tiles.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] cannot paint damaged or missing tiles."))
 		return
 
 	var/list/decal_data = decals[decal]
