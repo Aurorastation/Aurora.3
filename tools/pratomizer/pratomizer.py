@@ -1,6 +1,9 @@
 """This tool is used to atomize the PRs, it makes a new branch from master, copy the files
 that constitute the atomic change and commit them with a specified message.
 
+It also prepare a changelog file for you to edit, with format gitusername-prname, and
+sets the author inside it with your username.
+
 Remember to install the requirements on your system, if not already installed:
 pip install -r requirements.txt
 
@@ -25,6 +28,9 @@ from git import SymbolicReference
 def main(file: str, prname: str, commitmessage: str, nocommit: bool, nochangelog: bool):
     """This tool is used to atomize the PRs, it makes a new branch from master, copy the files
     that constitute the atomic change and commit them with a specified message.
+
+    It also prepare a changelog file for you to edit, with format gitusername-prname, and
+    sets the author inside it with your username.
     """
     files_to_copy = {}
 
@@ -61,7 +67,7 @@ def git_make_branch(name: str):
         name (str): the name of the new branch
 
     Returns:
-        _type_: _description_
+        Repo: the repository, ready to receive changes
     """
     try:
         repo = Repo(os.getcwd())
