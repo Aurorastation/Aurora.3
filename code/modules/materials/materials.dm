@@ -392,7 +392,7 @@
 	protectiveness = 10 // 33%
 	icon_base = "solid"
 	icon_reinf = "reinf_over"
-	icon_colour = "#666666"
+	icon_colour = "#545c68"
 	golem = SPECIES_GOLEM_STEEL
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
@@ -428,7 +428,7 @@
 	melting_point = 6000
 	icon_base = "solid"
 	icon_reinf = "reinf_over"
-	icon_colour = "#666666"
+	icon_colour = "#545c68"
 	explosion_resistance = 25
 	hardness = 80
 	weight = 23

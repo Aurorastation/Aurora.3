@@ -170,7 +170,7 @@
 	var/supported = FALSE // Whether or not there's an object in the turf which can support other objects.
 	if(is_background)
 		new_turf = target
-	else	
+	else
 		new_turf = target.ChangeTurf(source.type, 1, 1)
 		new_turf.transport_properties_from(source)
 
@@ -196,7 +196,7 @@
 
 	if(is_background)
 		return list(new_turf, source)
-	
+
 	return new_turf
 
 /proc/air_sound(atom/source, var/required_pressure = SOUND_MINIMUM_PRESSURE)

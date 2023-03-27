@@ -3,11 +3,13 @@
 	desc = "A steel window frame."
 	icon = 'icons/obj/smooth/full_window_frame.dmi'
 	icon_state = "window_frame"
+	color = "#545c68"
 	build_amt = 4
+	layer = 2.98
 	anchored = TRUE
 	density = TRUE
 	climbable = TRUE
-	smooth = SMOOTH_TRUE
+	smooth = SMOOTH_MORE
 	can_be_unanchored = TRUE
 	canSmoothWith = list(
 		/turf/simulated/wall,
@@ -17,7 +19,9 @@
 		/turf/unsimulated/wall/riveted, // Centcomm wall.
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
-		/obj/structure/window_frame/empty
+		/obj/structure/window_frame/empty,
+		/obj/machinery/door,
+		/obj/machinery/door/airlock
 	)
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/should_check_mapload = TRUE
@@ -30,6 +34,8 @@
 	var/east_wall = FALSE
 	var/south_wall = FALSE
 	var/west_wall = FALSE
+	var/overlay_layer = 4
+
 	if(adjacencies & N_NORTH)
 		var/turf/T = get_step(src, NORTH)
 		if(iswall(T))
@@ -52,19 +58,17 @@
 			west_wall = TRUE
 	if(((adjacencies & N_NORTH) && (adjacencies & N_WEST)) && (north_wall || west_wall))
 		dir_mods["[N_NORTH][N_WEST]"] = "-n[north_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
+		//add_overlay("nw_attach", overlay_layer)
 	if(((adjacencies & N_NORTH) && (adjacencies & N_EAST)) && (north_wall || east_wall))
 		dir_mods["[N_NORTH][N_EAST]"] = "-n[north_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
+		//add_overlay("ne_attach", overlay_layer)
 	if(((adjacencies & N_SOUTH) && (adjacencies & N_WEST)) && (south_wall || west_wall))
 		dir_mods["[N_SOUTH][N_WEST]"] = "-s[south_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
+		//add_overlay("sw_attach", overlay_layer)
 	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST) && (south_wall || east_wall))
 		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
+		//add_overlay("se_attach", overlay_layer)
 	return ..(adjacencies, dir_mods)
-
-/obj/structure/window_frame/proc/update_nearby_icons()
-	queue_smooth_neighbors(src)
-
-/obj/structure/window_frame/update_icon()
-	queue_smooth(src)
 
 /obj/structure/window_frame/Initialize(mapload) // If the window frame is mapped in, it should be considered to have glass spawned in it by a window spawner.
 	. = ..()
@@ -168,3 +172,4 @@
 
 /obj/structure/window_frame/empty
 	should_check_mapload = FALSE // No glass.
+

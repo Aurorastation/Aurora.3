@@ -603,11 +603,15 @@
 	shardtype = /obj/item/material/shard
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
-	smooth = SMOOTH_TRUE
+	smooth = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/window/full/reinforced,
 		/obj/structure/window/full/reinforced/polarized,
-		/obj/structure/window/full/phoron/reinforced
+		/obj/structure/window/full/phoron/reinforced,
+		/turf/simulated/wall,
+		/turf/unsimulated/wall,
+		/obj/machinery/door,
+		/obj/machinery/door/airlock
 	)
 
 /obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
@@ -795,8 +799,64 @@
 		/obj/structure/window/full/reinforced/indestructible,
 		/obj/structure/window/full/reinforced/polarized,
 		/obj/structure/window/full/reinforced/polarized/indestructible,
-		/obj/structure/window/full/phoron/reinforced
+		/obj/structure/window/full/phoron/reinforced,
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/turf/unsimulated/wall/steel,
+		/turf/unsimulated/wall/darkshuttlewall,
+		/turf/unsimulated/wall/riveted
 	)
+/obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
+	LAZYINITLIST(dir_mods)
+	var/north_wall = FALSE
+	var/east_wall = FALSE
+	var/south_wall = FALSE
+	var/west_wall = FALSE
+	var/overlay_layer = 3
+
+	if(adjacencies & N_NORTH)
+		var/turf/T = get_step(src, NORTH)
+		if(iswall(T))
+			dir_mods["[N_NORTH]"] = "-wall"
+			add_overlay("n_attach", overlay_layer)
+			north_wall = TRUE
+	if(adjacencies & N_EAST)
+		var/turf/T = get_step(src, EAST)
+		if(iswall(T))
+			dir_mods["[N_EAST]"] = "-wall"
+			add_overlay("e_attach", overlay_layer)
+			east_wall = TRUE
+	if(adjacencies & N_SOUTH)
+		var/turf/T = get_step(src, SOUTH)
+		if(iswall(T))
+			dir_mods["[N_SOUTH]"] = "-wall"
+			add_overlay("s_attach", overlay_layer)
+			south_wall = TRUE
+	if(adjacencies & N_WEST)
+		var/turf/T = get_step(src, WEST)
+		if(iswall(T))
+			dir_mods["[N_WEST]"] = "-wall"
+			add_overlay("w_attach", overlay_layer)
+			west_wall = TRUE
+	if(((adjacencies & N_NORTH) && (adjacencies & N_WEST)) && (north_wall || west_wall))
+		dir_mods["[N_NORTH][N_WEST]"] = "-n[north_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
+		add_overlay("nw_attach", overlay_layer)
+	if(((adjacencies & N_NORTH) && (adjacencies & N_EAST)) && (north_wall || east_wall))
+		dir_mods["[N_NORTH][N_EAST]"] = "-n[north_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
+		add_overlay("ne_attach", overlay_layer)
+	if(((adjacencies & N_SOUTH) && (adjacencies & N_WEST)) && (south_wall || west_wall))
+		dir_mods["[N_SOUTH][N_WEST]"] = "-s[south_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
+		add_overlay("sw_attach", overlay_layer)
+	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST) && (south_wall || east_wall))
+		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
+		add_overlay("se_attach", overlay_layer)
+	return ..(adjacencies, dir_mods)
+
+/obj/structure/window_frame/proc/update_nearby_icons()
+	queue_smooth_neighbors(src)
+
+/obj/structure/window_frame/update_icon()
+	queue_smooth(src)
 
 // Indestructible Reinforced Window
 /obj/structure/window/full/reinforced/indestructible/attack_hand()
