@@ -100,9 +100,6 @@ Plates that can hold your cooking stuff
 /obj/item/reagent_containers/bowl/plate
 	name = "plate"
 	desc = "A plate for dishing up the finest of cuisine."
-	desc_info = "Click with food to put food on.<br>\
-		- Click with cutlery to eat some.<br>\
-		- Click it with the active hand to remove food"
 	flags = null
 	icon_state = "plate"
 	var/obj/item/holding
