@@ -137,7 +137,11 @@
 	if(C.iswelder() && damaged)
 		var/obj/item/weldingtool/WT = C
 		if(C.use_tool(src, user, 5, volume = 50) && WT.use(1, user))
-			to_chat(user, SPAN_NOTICE("You slice apart the [src] leaving nothing useful behind."))
+			user.visible_message(
+				SPAN_NOTICE("\The [user] slices apart \the [src], leaving nothing useful behind."),
+				SPAN_NOTICE("You slice apart \the [src], leaving nothing useful behind."),
+				SPAN_NOTICE("You hear the sound of a welder, slicing apart metal.")
+			)
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			qdel(src)
 	else
