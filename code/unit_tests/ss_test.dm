@@ -10,6 +10,7 @@
 
 /datum/controller/subsystem/unit_tests
 	name = "Unit Tests"
+	var/datum/unit_test/UT = new // Use this to log things from outside where a specific unit_test is defined
 	init_order = -1e6	// last.
 	var/list/queue = list()
 	var/list/async_tests = list()
@@ -19,7 +20,7 @@
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY | RUNLEVEL_INIT
 
 /datum/controller/subsystem/unit_tests/Initialize(timeofday)
-	TEST_NOTICE("Initializing Unit Testing")
+	UT.notice("Initializing Unit Testing", __FILE__, __LINE__)
 
 	//
 	//Start the Round.
@@ -33,17 +34,17 @@
 
 		queue += D
 
-	TEST_NOTICE("[queue.len] unit tests loaded.")
+	UT.notice("[queue.len] unit tests loaded.", __FILE__, __LINE__)
 	..()
 
 /datum/controller/subsystem/unit_tests/proc/start_game()
 	if (SSticker.current_state == GAME_STATE_PREGAME)
 		SSticker.current_state = GAME_STATE_SETTING_UP
 
-		TEST_DEBUG("Round has been started.")
+		UT.debug("Round has been started.", __FILE__, __LINE__)
 		stage++
 	else
-		TEST_FAIL("Unable to start testing; SSticker.current_state=[SSticker.current_state]!")
+		UT.fail("Unable to start testing; SSticker.current_state=[SSticker.current_state]!", __FILE__, __LINE__)
 		del world
 
 /datum/controller/subsystem/unit_tests/proc/handle_tests()
@@ -117,9 +118,9 @@
 
 		if (4)	// Finalization.
 			if(all_unit_tests_passed)
-				TEST_PASS("[ascii_green]**** All Unit Tests Passed \[[total_unit_tests]\] ****[ascii_reset]")
+				UT.pass("**** All Unit Tests Passed \[[total_unit_tests]\] ****", __FILE__, __LINE__)
 			else
-				TEST_FAIL("[ascii_red]**** \[[unit_tests_failures]\] Errors Encountered! Read the log! ****[ascii_reset]")
+				UT.fail("**** \[[unit_tests_failures]\] Errors Encountered! Read the logs above! ****", __FILE__, __LINE__)
 			del world
 
 #endif
