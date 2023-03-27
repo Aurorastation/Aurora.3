@@ -118,10 +118,10 @@ Plates that can hold your cooking stuff
 
 /obj/item/reagent_containers/bowl/plate/attackby(obj/item/I, mob/user)
 	if((istype(I, /obj/item/reagent_containers/food/snacks) || istype(I, /obj/item/trash)) && !holding)
-		holding = I
+		user.unEquip(I)
 		I.forceMove(src)
+		holding = I
 		to_chat(user, SPAN_NOTICE("You place \the [holding.name] on \the [src]."))
-		update_icon()
 		return
 	if(istype(I, /obj/item/reagent_containers/food/snacks) || istype(I, /obj/item/trash))
 		to_chat(user, SPAN_WARNING("\The [src] already has something on it!"))
@@ -129,9 +129,9 @@ Plates that can hold your cooking stuff
 	if(istype(I, /obj/item/material/kitchen/utensil) && istype(holding, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/temp_hold = holding.attackby(I, user)
 		if(temp_hold != holding)
-			holding = temp_hold
-			user.prepare_for_slotmove(temp_hold)
+			user.unEquip(temp_hold)
 			temp_hold.forceMove(src)
+			holding = temp_hold
 			if(!grease)
 				grease = TRUE
 		update_icon()
@@ -144,7 +144,7 @@ Plates that can hold your cooking stuff
 		return
 
 /obj/item/reagent_containers/bowl/plate/attack_self(mob/user)
-    if(!user.get_inactive_hand()) // Free hand.
+    if(!user.get_inactive_hand())
         var/obj/item/reagent_containers/food/snacks/F = holding
         user.put_in_hands(F)
         holding = null
@@ -158,6 +158,7 @@ Plates that can hold your cooking stuff
         var/obj/item/temp_hold = S.standard_feed_mob(user, M)
         if(temp_hold != holding)
             holding = temp_hold
+            user.unEquip(temp_hold)
             temp_hold.forceMove(src)
             if(!grease)
                 grease = TRUE
