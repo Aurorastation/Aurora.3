@@ -127,7 +127,7 @@ def generate_changelog_file(repo: Repo, prname: str):
         prname (str): the name of the branch
     """
     reader = repo.config_reader()
-    username: str = str(reader.get_value("user", "username"))
+    username: str = str(reader.get_value("user", "name"))
 
     with open(os.getcwd() + '\\html\\changelogs\\example.yml', 'rb') as source_file:
         with open(os.getcwd() + f'\\html\\changelogs\\{username}-{prname}', 'wb')\
