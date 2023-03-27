@@ -54,6 +54,17 @@
 				<li class="refactor">SSAtoms init now uses a switch statement only, slightly more performant.</li>
 				<li class="bugfix">Fix nuclear gun updates procs, that assumed a power supply present, when it is not guaranteed to be, causing a runtime.</li>
 			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added fuel pipes. Fuel pipes are intended to carry fuel for vessels, and have their own dedicated pump and connector for this.</li>
+				<li class="rscadd">Added auxiliary pipes. Auxiliary pipes are intended primarily for airlocks, but can be used in other various means. They have their own dedicated pump, connector, and vent.</li>
+				<li class="rscadd">Added a mode to airlock controllers to cycle air externally. This prevents external, potentially poisonous air from mixing with clean air.</li>
+				<li class="tweak">Thrusters can now attach directly to fuel pipes.</li>
+				<li class="tweak">Pressure tanks can now attach directly to all pipes.</li>
+				<li class="maptweak">The Intrepid and Spark now have externally cycled airlocks, and utilize the new pipes.</li>
+				<li class="maptweak">Added a scrubber to the Spark, which is directly vented out into space.</li>
+				<li class="imageadd">Ported Keekenox#1337&#x27;s vents and scrubbers.</li>
+			</ul>
 			<h3 class="author">SimpleMaroon updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="tweak">Library computers now print generic bibles that can be customized by anyone.</li>
