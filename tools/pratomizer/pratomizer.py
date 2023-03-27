@@ -20,7 +20,8 @@ from git import SymbolicReference
 @click.option('--nocommit', is_flag=True, help='If this flag is specified, do not commit the changes.')
 @click.option('--commitmessage', '-c', default='Atomization', help='The commit message to use for\
   the commit, otherwise, "Atomization" will be used')
-def main(file: str, prname: str, commitmessage: str, nocommit: bool):
+@click.option('--nochangelog', is_flag=True, help='If this flag is specified, do not create a changelog file.')
+def main(file: str, prname: str, commitmessage: str, nocommit: bool, nochangelog: bool):
     """This tool is used to atomize the PRs, it makes a new branch from master, copy the files
     that constitute the atomic change and commit them with a specified message.
     """
@@ -48,6 +49,8 @@ def main(file: str, prname: str, commitmessage: str, nocommit: bool):
 
     if not nocommit:
         commit_atomization(repo, commitmessage)
+    if not nochangelog:
+        generate_changelog_file(repo, prname)
 
 
 def git_make_branch(name: str):
@@ -114,6 +117,22 @@ def commit_atomization(repo: Repo, message: str):
         message (str): the commit message to use
     """
     repo.index.commit(message)
+
+
+def generate_changelog_file(repo: Repo, prname: str):
+    """Creates the changelog file in the format username-branchname
+
+    Args:
+        repo (Repo): the repository object
+        prname (str): the name of the branch
+    """
+    reader = repo.config_reader()
+    username: str = str(reader.get_value("user", "username"))
+
+    with open(os.getcwd() + '\\html\\changelogs\\example.yml', 'rb') as source_file:
+        with open(os.getcwd() + f'\\html\\changelogs\\{username}-{prname}', 'wb')\
+          as destination_file:
+            destination_file.write(source_file.read())
 
 
 if __name__ == '__main__':
