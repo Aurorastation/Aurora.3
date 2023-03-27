@@ -20,8 +20,7 @@
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,
-		/obj/machinery/door,
-		/obj/machinery/door/airlock
+		/obj/machinery/door
 	)
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/should_check_mapload = TRUE
@@ -34,26 +33,30 @@
 	var/east_wall = FALSE
 	var/south_wall = FALSE
 	var/west_wall = FALSE
-	var/overlay_layer = 4
+	//var/overlay_layer = 4
 
 	if(adjacencies & N_NORTH)
 		var/turf/T = get_step(src, NORTH)
-		if(iswall(T))
+		var/obj/machinery/door/airlock_adjacent = locate(/obj/machinery/door/airlock) in T
+		if(iswall(T) || istype(airlock_adjacent))
 			dir_mods["[N_NORTH]"] = "-wall"
 			north_wall = TRUE
 	if(adjacencies & N_EAST)
 		var/turf/T = get_step(src, EAST)
-		if(iswall(T))
+		var/obj/machinery/door/airlock_adjacent = locate(/obj/machinery/door/airlock) in T
+		if(iswall(T) || istype(airlock_adjacent))
 			dir_mods["[N_EAST]"] = "-wall"
 			east_wall = TRUE
 	if(adjacencies & N_SOUTH)
 		var/turf/T = get_step(src, SOUTH)
-		if(iswall(T))
+		var/obj/machinery/door/airlock_adjacent = locate(/obj/machinery/door/airlock) in T
+		if(iswall(T) || istype(airlock_adjacent))
 			dir_mods["[N_SOUTH]"] = "-wall"
 			south_wall = TRUE
 	if(adjacencies & N_WEST)
 		var/turf/T = get_step(src, WEST)
-		if(iswall(T))
+		var/obj/machinery/door/airlock_adjacent = locate(/obj/machinery/door/airlock) in T
+		if(iswall(T) || istype(airlock_adjacent))
 			dir_mods["[N_WEST]"] = "-wall"
 			west_wall = TRUE
 	if(((adjacencies & N_NORTH) && (adjacencies & N_WEST)) && (north_wall || west_wall))

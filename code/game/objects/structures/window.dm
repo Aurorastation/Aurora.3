@@ -806,6 +806,7 @@
 		/turf/unsimulated/wall/darkshuttlewall,
 		/turf/unsimulated/wall/riveted
 	)
+
 /obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
 	LAZYINITLIST(dir_mods)
 	var/north_wall = FALSE
