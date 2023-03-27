@@ -10,7 +10,7 @@
 		var/datum/vueui_var_monitor/VM = new path()
 
 		if (!VM.var_holders || !VM.var_holders.len)
-			log_unit_test("[ascii_red]--------------- VueUI var monitor has an empty var_holders list: [VM.type].[ascii_reset]")
+			TEST_FAIL("VueUI var monitor has an empty var_holders list: [VM.type].")
 			count_failed++
 
 	if (count_failed)
@@ -35,7 +35,7 @@
 		try
 			subject = new VM.subject_type()
 		catch ()
-			log_unit_test("[ascii_red]--------------- VueUI var monitor subject runtimed while being spawned. Monitor: [VM.type].[ascii_reset]")
+			TEST_FAIL("VueUI var monitor subject runtimed while being spawned. Monitor: [VM.type].")
 			count_failed++
 			continue
 
@@ -55,11 +55,11 @@
 		var/datum/vueui_var_holder/VH = _iter
 
 		if (!VH.source_key || !VH.data_key)
-			log_unit_test("[ascii_red]--------------- VueUI var monitor has no source or data key: [VM.type].[ascii_reset]")
+			TEST_FAIL("VueUI var monitor has no source or data key: [VM.type].")
 			. = FALSE
 			continue
 
 		if (!(VH.source_key in subject.vars))
-			log_unit_test("[ascii_red]--------------- VueUI var monitor is watching a var '[VH.source_key]' not found on the subject: [VM.type]. Subject: [subject.type].[ascii_reset]")
+			TEST_FAIL("VueUI var monitor is watching a var '[VH.source_key]' not found on the subject: [VM.type]. Subject: [subject.type].")
 			. = FALSE
 			continue
