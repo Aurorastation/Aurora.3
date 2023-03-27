@@ -468,7 +468,7 @@
 				// No funny "haha i get the bonuses then stand up"
 				var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
 				if(gun_in_hand.wielded)
-					to_chat(C, "You cannot wield and stand up!")
+					to_chat(C, SPAN_WARNING("You cannot wield and stand up!"))
 					return
 
 				if(C.lying_is_intentional)
