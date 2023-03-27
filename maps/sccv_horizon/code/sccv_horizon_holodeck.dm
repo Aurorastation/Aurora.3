@@ -62,14 +62,33 @@
 			),
 			FALSE
 		),
-		"venus" = new /datum/holodeck_program(/area/horizon/holodeck/source_venus),
+		"biesel" = new /datum/holodeck_program(/area/horizon/holodeck/source_biesel,
+			list(
+				'sound/effects/wind/wind_2_1.ogg',
+				'sound/effects/wind/wind_2_2.ogg',
+				'sound/effects/wind/wind_3_1.ogg',
+				'sound/effects/wind/wind_4_1.ogg',
+				'sound/effects/wind/wind_4_2.ogg',
+				'sound/effects/wind/wind_5_1.ogg'
+			)
+		),
+		"jupiter" = new /datum/holodeck_program(/area/horizon/holodeck/source_jupiter,
+			list(
+				'sound/effects/wind/wind_2_1.ogg',
+				'sound/effects/wind/wind_2_2.ogg',
+				'sound/effects/wind/wind_3_1.ogg',
+				'sound/effects/wind/wind_4_1.ogg',
+				'sound/effects/wind/wind_4_2.ogg',
+				'sound/effects/wind/wind_5_1.ogg'
+			)
+		),
 		"chapel_tribunal" = new /datum/holodeck_program(/area/horizon/holodeck/source_tribunal),
-		"biesel" = new /datum/holodeck_program(/area/horizon/holodeck/source_biesel),
+		"chapel_trinary" = new /datum/holodeck_program(/area/horizon/holodeck/source_trinary),
 		"konyang" = new /datum/holodeck_program(/area/horizon/holodeck/source_konyang),
 		"moghes" = new /datum/holodeck_program(/area/horizon/holodeck/source_moghes),
 		"adhomai" = new /datum/holodeck_program(/area/horizon/holodeck/source_adhomai),
 		"pool" = new /datum/holodeck_program(/area/horizon/holodeck/source_pool),
-		"chessboard" = new /datum/holodeck_program(/area/horizon/holodeck/source_chessboard),
+		"sauna" = new /datum/holodeck_program(/area/horizon/holodeck/source_sauna),
 		"turnoff" = new /datum/holodeck_program(/area/horizon/holodeck/source_plating)
 	)
 
@@ -84,17 +103,19 @@
 		"Picnic Area"        = "picnicarea",
 		"Dining Hall"        = "dininghall",
 		"Swimming Pool"      = "pool",
+		"Sauna"      = "sauna",
 		"Bursa Tundra"       = "snowfield",
 		"Adhomian Campfire"  = "adhomai",
 		"Moghresian Jungle"  = "moghes",
-		"Venusean Bar"       = "venus",
 		"Callistean Theatre" = "theatre",
 		"Meeting Hall"       = "meetinghall",
 		"Courtroom"          = "courtroom",
 		"Chapel"             = "chapel",
 		"Tribunalist Chapel" = "chapel_tribunal",
-		"Mendell Skyline"    = "biesel",
-		"Konyanger Noodle Shop"  = "konyang",
+		"Trinarist Chapel"   = "chapel_trinary",
+		"Foggy Mendell Skyline" = "biesel",
+		"Konyanger Boardwalk" = "konyang",
+		"Jupiter Upper Atmosphere" = "jupiter",
 		"Xavier Trasen Memorial Gymnasium" = "gym",
 		"Battle Monsters Duelling Arena" = "battlemonsters",
 		"Chessboard" = "chessboard"

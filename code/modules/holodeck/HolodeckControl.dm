@@ -6,11 +6,11 @@
 	icon_screen = "holocontrolw"
 	light_color = LIGHT_COLOR_CYAN
 
-	active_power_usage = 8000 //8kW for the scenery + 500W per holoitem
+	active_power_usage = 2000 //Pretty low, 15 per item too. Will still drain power like crazy on more complex programs
 
 	circuit = /obj/item/circuitboard/holodeckcontrol
 
-	var/item_power_usage = 500
+	var/item_power_usage = 15
 
 	var/area/linkedholodeck = null
 	var/linkedholodeck_area

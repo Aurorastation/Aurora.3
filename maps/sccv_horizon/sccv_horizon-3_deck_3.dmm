@@ -663,9 +663,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/green{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "aBF" = (
@@ -2763,13 +2760,16 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "cMi" = (
@@ -3609,6 +3609,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "dES" = (
@@ -4668,18 +4669,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
-"eBs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/central)
 "eBt" = (
 /obj/machinery/telecomms/allinone/ship/station_relay,
 /turf/simulated/floor/bluegrid,
@@ -8511,16 +8500,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/captain)
-"hJD" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/open,
-/area/horizon/hallway/deck_three/primary/central)
 "hKm" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -9223,6 +9202,7 @@
 	pixel_x = -24
 	},
 /obj/structure/cable/green,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "izo" = (
@@ -9441,18 +9421,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"iHA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/central)
 "iIe" = (
 /obj/machinery/door/airlock/maintenance{
 	req_one_access = list(5,12)
@@ -9923,9 +9891,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
@@ -11541,9 +11506,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
-"kyL" = (
-/turf/simulated/wall,
-/area/horizon/crew_quarters/fitness/washroom)
 "kzM" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped{
@@ -11962,7 +11924,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
-/area/horizon/crew_quarters/fitness/washroom)
+/area/horizon/crew_quarters/fitness/changing)
 "kWj" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -12268,8 +12230,12 @@
 /obj/structure/disposalpipe/junction{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
@@ -15982,16 +15948,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"oAy" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/open,
-/area/horizon/hallway/deck_three/primary/central)
 "oAK" = (
 /turf/simulated/floor/tiled/ramp{
 	dir = 1
@@ -16052,7 +16008,7 @@
 	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/horizon/crew_quarters/fitness/washroom)
+/area/horizon/crew_quarters/fitness/changing)
 "oCi" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -16971,7 +16927,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
-/area/horizon/crew_quarters/fitness/washroom)
+/area/horizon/crew_quarters/fitness/changing)
 "ppg" = (
 /obj/machinery/firealarm/west,
 /obj/effect/floor_decal/spline/plain/cee{
@@ -17490,7 +17446,7 @@
 	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/horizon/crew_quarters/fitness/washroom)
+/area/horizon/crew_quarters/fitness/changing)
 "pWL" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -23676,12 +23632,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
-"vlz" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/central)
 "vlC" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
@@ -26113,7 +26063,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "xuf" = (
@@ -45042,8 +44991,8 @@ wGH
 wGH
 ivg
 ggJ
-kyL
-kyL
+vaL
+vaL
 jbh
 jbh
 jZm
@@ -45244,7 +45193,7 @@ wGH
 qan
 lds
 dHJ
-kyL
+bpD
 oCa
 kVK
 pXu
@@ -45446,9 +45395,9 @@ bbm
 bbm
 bbm
 dHJ
-kyL
-kyL
-kyL
+bpD
+bpD
+bpD
 vlS
 wtq
 szb
@@ -45648,7 +45597,7 @@ bbm
 nSh
 wGt
 mZB
-kyL
+bpD
 pVZ
 poW
 aqc
@@ -45850,9 +45799,9 @@ bbm
 dHJ
 bpD
 bpD
-kyL
-kyL
-kyL
+bpD
+bpD
+bpD
 pkB
 xpu
 lzS
@@ -47272,7 +47221,7 @@ fzk
 qhP
 ygn
 xtA
-vJP
+mBw
 aBD
 rsD
 wUC
@@ -47473,9 +47422,9 @@ wdy
 wdy
 wdy
 dei
-seF
-oAy
-eBs
+dHs
+dHs
+aBC
 vyx
 vRR
 tmc
@@ -47675,8 +47624,8 @@ ffj
 ffj
 wdy
 rIg
-seF
-hJD
+dHs
+dHs
 jey
 hLC
 xul
@@ -47877,9 +47826,9 @@ ffj
 ffj
 wdy
 nCP
-kTE
-vlz
-iHA
+dHs
+dHs
+aBC
 hOw
 lrF
 tlL

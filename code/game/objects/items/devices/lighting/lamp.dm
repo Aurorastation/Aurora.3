@@ -71,6 +71,20 @@
 	icon_state = "stage"
 	item_state = "stage"
 
+/obj/item/device/flashlight/lamp/holodeck
+    name = "holographic lighting orb"
+    desc = "A floating orb that comes in a variety of colors. Optional holodeck lighting."
+    desc_info = "This is a holodeck item used for optional lighting. You can click on this to toggle it on and off."
+    anchored = 1
+    brightness_on = 12
+    light_color = "#ffcb9b"
+    icon = 'icons/effects/props/holodeck/holodeck_tools.dmi'
+    icon_state = "orb"
+    item_state = "orb"
+
+/obj/item/device/flashlight/lamp/holodeck/attack_hand(mob/user)
+	toggle()
+
 /obj/item/device/flashlight/lamp/box
     name = "box lamp"
     desc = "A box-shaped traditional flame lamp. Less safe, more pretty."

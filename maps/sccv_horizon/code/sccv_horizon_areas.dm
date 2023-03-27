@@ -576,20 +576,26 @@
 /area/horizon/holodeck/source_pool
 	name = "Horizon - Holodeck - Swimming Pool"
 
-/area/horizon/holodeck/source_venus
-	name = "Horizon - Holodeck - Venusean Bar"
+/area/horizon/holodeck/source_sauna
+	name = "Horizon - Holodeck - Sauna"
+
+/area/horizon/holodeck/source_jupiter
+	name = "Horizon - Holodeck - Jupiter Upper Atmosphere"
 
 /area/horizon/holodeck/source_konyang
-	name = "Horizon - Holodeck - Konyanger Noodle Shop"
+	name = "Horizon - Holodeck - Konyanger Boardwalk"
 
 /area/horizon/holodeck/source_moghes
 	name = "Horizon - Holodeck - Moghresian Jungle"
 
 /area/horizon/holodeck/source_biesel
-	name = "Horizon - Holodeck - Mendell Skyline"
+	name = "Horizon - Holodeck - Foggy Mendell Skyline"
 
 /area/horizon/holodeck/source_tribunal
 	name = "Horizon - Holodeck - Tribunalist Chapel"
+
+/area/horizon/holodeck/source_trinary
+	name = "Horizon - Holodeck - Trinarist Chapel"
 /********** Holodeck End **********/
 
 /********** Unique Start **********/
