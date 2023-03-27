@@ -12,6 +12,6 @@
 			if (subsystem.flags & SS_OK_TO_FAIL_INIT)
 				TEST_NOTICE("[src] - [message]\nThis subsystem is marked as SS_OK_TO_FAIL_INIT. This is still a bug, but it is non-blocking.")
 			else
-				TEST_FAIL(message)
-				return UNIT_TEST_FAILED
-	return UNIT_TEST_PASSED
+				return TEST_FAIL(message)
+
+	return TEST_PASS("All subsystems initialize correctly.")
