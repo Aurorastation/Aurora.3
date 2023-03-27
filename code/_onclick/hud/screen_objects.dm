@@ -479,7 +479,7 @@
 			// You want this bonus weapon or not? Wield it when you are lying, not before!
 			var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
 			if(gun_in_hand.wielded)
-				to_chat(C, "You cannot wield and lie down!")
+				to_chat(C, SPAN_WARNING("You cannot wield and lie down!"))
 				return
 			C.m_intent = M_LAY
 
