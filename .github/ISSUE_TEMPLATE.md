@@ -7,7 +7,7 @@ body:
       value: |
         Thanks for taking the time to fill out this bug report!
   - type: checkboxes
-    id: checks0
+    id: checks
     attributes:
       label: Checks
       description: Verify that all of the following is true:
