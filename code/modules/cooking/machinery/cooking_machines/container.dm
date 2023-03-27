@@ -316,7 +316,7 @@
 		icon_state = "[initial(icon_state)]_prep"
 
 /obj/item/reagent_containers/cooking_container/board/bowl
-	name = "serving bowl"
+	name = "mixing bowl"
 	shortname = "bowl"
 	desc = "A bowl. You bowl foods... wait, what?"
 	icon = 'icons/obj/kitchen.dmi'
