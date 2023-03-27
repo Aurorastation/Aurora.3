@@ -369,6 +369,7 @@
 	w_class = ITEMSIZE_LARGE
 
 /obj/item/gift/random_pixel/Initialize()
+	. = ..()
 	pixel_x = rand(-16,16)
 	pixel_y = rand(-16,16)
 
