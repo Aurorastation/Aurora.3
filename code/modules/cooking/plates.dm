@@ -8,6 +8,9 @@ Plates that can hold your cooking stuff
 /obj/item/reagent_containers/bowl
 	name = "bowl"
 	desc = "A small bowl for serving liquid meals in."
+	desc_info = "Click with food to put food on.<br>\
+	- Click with cutlery to eat some.<br>\
+	- Click it with the active hand to remove food."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "bowl"
 	fragile = 3
