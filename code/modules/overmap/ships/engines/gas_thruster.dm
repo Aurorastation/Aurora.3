@@ -58,9 +58,8 @@
 	icon = 'icons/obj/ship_engine.dmi'
 	icon_state = "nozzle"
 	opacity = 1
-	density = TRUE
+	density = 1
 	atmos_canpass = CANPASS_NEVER
-	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
 
 	use_power = POWER_USE_OFF
 	power_channel = EQUIP

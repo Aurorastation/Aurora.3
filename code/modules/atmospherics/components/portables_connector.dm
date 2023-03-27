@@ -17,16 +17,6 @@
 	use_power = POWER_USE_OFF
 	level = 1
 
-/obj/machinery/atmospherics/portables_connector/fuel
-	icon_state = "map_connector-fuel"
-	icon_connect_type = "-fuel"
-	connect_types = CONNECT_TYPE_FUEL
-
-/obj/machinery/atmospherics/portables_connector/aux
-	icon_state = "map_connector-aux"
-	icon_connect_type = "-aux"
-	connect_types = CONNECT_TYPE_AUX
-
 
 /obj/machinery/atmospherics/portables_connector/Initialize()
 	initialize_directions = dir
@@ -37,7 +27,7 @@
 	toggle_process()
 
 /obj/machinery/atmospherics/portables_connector/update_icon()
-	icon_state = "connector" + icon_connect_type
+	icon_state = "connector"
 
 /obj/machinery/atmospherics/portables_connector/update_underlays()
 	if(..())
@@ -45,7 +35,7 @@
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		add_underlay(T, node, dir, node?.icon_connect_type)
+		add_underlay(T, node, dir)
 
 /obj/machinery/atmospherics/portables_connector/hide(var/i)
 	update_underlays()
