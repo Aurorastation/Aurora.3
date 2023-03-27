@@ -157,13 +157,6 @@ Plates that can hold your cooking stuff
     if(istype(holding, /obj/item/reagent_containers/food/snacks))
         var/obj/item/reagent_containers/food/snacks/S = holding
         var/obj/item/temp_hold = S.standard_feed_mob(user, M)
-        if(temp_hold != holding)
-            holding = temp_hold
-            user.unEquip(temp_hold)
-            temp_hold.forceMove(src)
-            if(!grease)
-                grease = TRUE
-        update_icon()
     else if(grease && !holding && (M == user))
         user.visible_message(SPAN_NOTICE("[user] starts to lick \the [src] clean."), SPAN_NOTICE("You start to lick \the [src] clean."))
         if(do_after(user, 5))
