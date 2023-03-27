@@ -154,16 +154,16 @@ Plates that can hold your cooking stuff
         return
 
 /obj/item/reagent_containers/bowl/plate/attack(mob/living/M, mob/living/user, target_zone)
-    if(istype(holding, /obj/item/reagent_containers/food/snacks))
-        var/obj/item/reagent_containers/food/snacks/S = holding
-        var/obj/item/temp_hold = S.standard_feed_mob(user, M)
-    else if(grease && !holding && (M == user))
-        user.visible_message(SPAN_NOTICE("[user] starts to lick \the [src] clean."), SPAN_NOTICE("You start to lick \the [src] clean."))
-        if(do_after(user, 5))
-            grease = FALSE
-            user.visible_message(SPAN_NOTICE("[user] licks everything off \the [src]."), SPAN_NOTICE("You lick everything off \the [src]."))
-    update_icon()
-    return
+	if(istype(holding, /obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/S = holding
+		S.standard_feed_mob(user, M)
+	else if(grease && !holding && (M == user))
+		user.visible_message(SPAN_NOTICE("[user] starts to lick \the [src] clean."), SPAN_NOTICE("You start to lick \the [src] clean."))
+		if(do_after(user, 5))
+			grease = FALSE
+			user.visible_message(SPAN_NOTICE("[user] licks everything off \the [src]."), SPAN_NOTICE("You lick everything off \the [src]."))
+	update_icon()
+	return
 
 /obj/item/reagent_containers/bowl/plate/update_icon()
 	cut_overlays()
