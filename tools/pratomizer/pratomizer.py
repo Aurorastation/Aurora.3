@@ -9,6 +9,7 @@ Released under GNU Affero General Public License <https://www.gnu.org/licenses/a
 
 import os
 import click
+import re
 from git import Repo
 from git import SymbolicReference
 
@@ -132,7 +133,9 @@ def generate_changelog_file(repo: Repo, prname: str):
     with open(os.getcwd() + '\\html\\changelogs\\example.yml', 'rb') as source_file:
         with open(os.getcwd() + f'\\html\\changelogs\\{username}-{prname}', 'wb')\
           as destination_file:
-            destination_file.write(source_file.read())
+            changelog_content = source_file.read()
+            changelog_content = re.sub('author: (.*)\n', f'author: {username} \n', text)
+            destination_file.write()
 
 
 if __name__ == '__main__':
