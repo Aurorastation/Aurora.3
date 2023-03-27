@@ -53,20 +53,20 @@
 		curr.len--
 
 		if (test.map_path && current_map && current_map.path != test.map_path)
-			test.pass("[ascii_red]Check Disabled: This test is not allowed to run on this map.")
+			test.pass("[ascii_red]Check Disabled: This test is not allowed to run on this map.", __FILE__, __LINE__)
 			if (MC_TICK_CHECK)
 				return
 			continue
 
 		if (test.disabled)
-			test.pass("[ascii_red]Check Disabled: [test.why_disabled]")
+			test.pass("[ascii_red]Check Disabled: [test.why_disabled]", __FILE__, __LINE__)
 			if (MC_TICK_CHECK)
 				return
 			continue
 
 		TEST_GROUP_OPEN("[test.name]")
 		if (test.start_test() == null)	// Runtimed.
-			test.fail("Test Runtimed")
+			test.fail("Test Runtimed: [test.name]", __FILE__, __LINE__)
 		TEST_GROUP_CLOSE("[test.name]")
 
 		if (test.async)
@@ -119,7 +119,7 @@
 			if(all_unit_tests_passed)
 				log_unit_test("[ascii_green]**** All Unit Tests Passed \[[total_unit_tests]\] ****[ascii_reset]")
 			else
-				log_unit_test("[ascii_red]**** \[[failed_unit_tests]\\[total_unit_tests]\] Unit Tests Failed ****[ascii_reset]")
+				log_unit_test("[ascii_red]**** \[[unit_tests_failures]\] Errors Encountered! Read the log! ****[ascii_reset]")
 			del world
 
 #endif

@@ -20,15 +20,15 @@
                 min_antag_count = max(min_antag_count, A.initial_spawn_req)
 
         if(min_antag_count != GM.required_enemies)
-            failed += "[ascii_red]--------------- [GM] ([GM.type]) requires [GM.required_enemies] enemies but its antagonist roles require [min_antag_count] players!"
+            failed += "[GM] ([GM.type]) requires [GM.required_enemies] enemies but its antagonist roles require [min_antag_count] players!"
         if(min_antag_count > GM.required_players)
-            failed += "[ascii_red]--------------- [GM] ([GM.type]) requires [GM.required_players] players but its antagonist roles require [min_antag_count] players!"
+            failed += "[GM] ([GM.type]) requires [GM.required_players] players but its antagonist roles require [min_antag_count] players!"
 
 
     if(failed.len)
         TEST_FAIL("Some gamemodes did not have high enough required_enemies or required_players.")
         for(var/failed_message in failed)
-            log_unit_test(failed_message)
+            TEST_FAIL(failed_message)
     else
         TEST_PASS("All gamemodes had suitable required_enemies and required_players.")
 

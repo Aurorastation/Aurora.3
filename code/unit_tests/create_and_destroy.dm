@@ -1,9 +1,5 @@
 ///Delete one of every type, sleep a while, then check to see if anything has gone fucky
 /datum/unit_test/create_and_destroy
-	//You absolutely must run last
-	//priority = TEST_CREATE_AND_DESTROY
-	// We do not have a priority and it seems to run just as well anyways, so... *snip*
-
 	name = "Create and Destroy Test"
 	var/result = null
 
@@ -13,7 +9,7 @@
 	var/turf/spawn_at = locate()
 
 	/**
-	 * EXCLUSIONS OF THE TEST
+	 * EXCLUSIONS FROM THE TEST
 	 *
 	 * This is to be used when there's no other possible way to make this test work, to exclude a specific path from being scrutinized
 	 * by this unit test.
@@ -113,7 +109,6 @@
 	// Groins fail for all subspecies
 	ignore += typesof(/obj/item/organ/external/groin)
 
-	// Spells require an owner, which would not work here
 	ignore += typesof(/obj/item/organ/internal)
 
 	// The grab objects, could never work here
@@ -199,11 +194,8 @@
 			for(var/atom/to_kill in to_del)
 				qdel(to_kill)
 
-	// /datum/running_create_and_destroy = FALSE
 	//Hell code, we're bound to have ended the round somehow so let's stop if from ending while we work
 	SSticker.delay_end = TRUE
-	// //Prevent the garbage subsystem from harddeling anything, if only to save time
-	// SSgarbage.collection_timeout = 10000 HOURS
 	//Clear it, just in case
 	cached_contents.Cut()
 

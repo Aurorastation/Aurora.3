@@ -26,7 +26,7 @@
 
 
 var/all_unit_tests_passed = 1
-var/failed_unit_tests = 0
+var/unit_tests_failures = 0
 var/total_unit_tests = 0
 
 // For console out put in Linux/Bash makes the output green or red.
@@ -94,11 +94,6 @@ var/ascii_reset = "[ascii_esc]\[0m"
 
 	var/printstring = "::[severity]"
 
-	// if(filename)
-	// 	printstring += "file=[filename]"
-
-	// 	if(line)
-	// 		printstring += ",line=[line]"
 	if(title)
 		printstring += " title=[title]"
 
@@ -119,7 +114,7 @@ var/ascii_reset = "[ascii_esc]\[0m"
 
 /datum/unit_test/proc/fail(var/message, var/file, var/line)
 	all_unit_tests_passed = 0
-	failed_unit_tests++
+	unit_tests_failures++
 	reported = 1
 	log_unit_test(LOG_UNIT_TEST_ERROR, message, file, line)
 	return UNIT_TEST_FAILED

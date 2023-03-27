@@ -40,19 +40,19 @@
 			var/bad_msg = "[ascii_red]--------------- [A.name] ([A.type])"
 
 			if(!A.apc && !is_type_in_typecache(A, exempt_from_apc))
-				log_unit_test("[bad_msg] lacks an APC.[ascii_reset]")
+				TEST_FAIL("[bad_msg] lacks an APC.[ascii_reset]")
 				bad_apc++
 
 			if(!A.air_scrub_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				log_unit_test("[bad_msg] lacks an air scrubber.[ascii_reset]")
+				TEST_FAIL("[bad_msg] lacks an air scrubber.[ascii_reset]")
 				bad_airs++
 
 			if(!A.air_vent_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				log_unit_test("[bad_msg] lacks an air vent.[ascii_reset]")
+				TEST_FAIL("[bad_msg] lacks an air vent.[ascii_reset]")
 				bad_airv++
 
 			if(!(locate(/obj/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
-				log_unit_test("[bad_msg] lacks a fire alarm.[ascii_reset]")
+				TEST_FAIL("[bad_msg] lacks a fire alarm.[ascii_reset]")
 				bad_fire++
 
 	if(bad_apc)
@@ -97,7 +97,7 @@
 			var/combined_dir = "[C.d1]-[C.d2]"
 			if(combined_dir in dirs_checked)
 				bad_tests++
-				log_unit_test("[bad_msg] Contains multiple wires with same direction on top of each other.")
+				TEST_FAIL("[bad_msg] Contains multiple wires with same direction on top of each other.")
 			dirs_checked.Add(combined_dir)
 
 	if(bad_tests)
@@ -127,7 +127,7 @@
 
 			if (above && above.is_hole)
 				bad_tiles++
-				log_unit_test("[ascii_red]--------------- [T.name] \[[T.x] / [T.y] / [T.z]\] Has no roof.[ascii_reset]")
+				TEST_FAIL("[T.name] \[[T.x] / [T.y] / [T.z]\] Has no roof.")
 
 	if (bad_tiles)
 		TEST_FAIL("\[[bad_tiles] / [tiles_total]\] station turfs had no roof.")
@@ -155,7 +155,7 @@
 
 		if (!ladder.target_up && !ladder.target_down)
 			ladders_incomplete++
-			log_unit_test("[ascii_red]--------------- [ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is incomplete.[ascii_reset]")
+			TEST_FAIL("[ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is incomplete.")
 			continue
 
 		var/bad = 0
@@ -167,7 +167,7 @@
 
 		if (bad)
 			ladders_blocked++
-			log_unit_test("[ascii_red]--------------- [ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is blocked in dirs:[(bad & BLOCKED_UP) ? " UP" : ""][(bad & BLOCKED_DOWN) ? " DOWN" : ""].[ascii_reset]")
+			TEST_FAIL("[ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is blocked in dirs:[(bad & BLOCKED_UP) ? " UP" : ""][(bad & BLOCKED_DOWN) ? " DOWN" : ""].")
 
 	if (ladders_blocked || ladders_incomplete)
 		TEST_FAIL("\[[ladders_blocked + ladders_incomplete] / [ladders_total]\] ladders were bad.[ladders_blocked ? " [ladders_blocked] blocked." : ""][ladders_incomplete ? " [ladders_incomplete] incomplete." : ""]")
@@ -190,7 +190,7 @@
 		checks++
 		if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
-			log_unit_test("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
+			TEST_FAIL("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
 
 	if(failed_checks)
 		TEST_FAIL("\[[failed_checks] / [checks]\] Some doors had improper turfs below them.")
@@ -213,10 +213,10 @@
 			firelock_increment += 1
 		if(firelock_increment > 1)
 			failed_checks++
-			log_unit_test("Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
+			TEST_FAIL("Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
 		else if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
-			log_unit_test("Firedoor with bad turf at ([F.x],[F.y],[F.z]) in [T.loc].")
+			TEST_FAIL("Firedoor with bad turf at ([F.x],[F.y],[F.z]) in [T.loc].")
 
 	if(failed_checks)
 		TEST_FAIL("\[[failed_checks] / [checks]\] Some firedoors were doubled up or had bad turfs below them.")
@@ -240,7 +240,7 @@
 		checks++
 		if (plumbing.nodealert)
 			failed_checks++
-			log_unit_test("Unconnected [plumbing.name] located at [plumbing.x],[plumbing.y],[plumbing.z] ([get_area(plumbing.loc)])")
+			TEST_FAIL("Unconnected [plumbing.name] located at [plumbing.x],[plumbing.y],[plumbing.z] ([get_area(plumbing.loc)])")
 
 	//Manifolds
 	for (var/obj/machinery/atmospherics/pipe/manifold/pipe in world)
@@ -249,7 +249,7 @@
 		checks++
 		if (!pipe.node1 || !pipe.node2 || !pipe.node3)
 			failed_checks++
-			log_unit_test("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
+			TEST_FAIL("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
 
 	//Pipes
 	for (var/obj/machinery/atmospherics/pipe/simple/pipe in world)
@@ -258,7 +258,7 @@
 		checks++
 		if (!pipe.node1 || !pipe.node2)
 			failed_checks++
-			log_unit_test("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
+			TEST_FAIL("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
 
 	next_turf:
 		for(var/turf/T in turfs)
@@ -270,7 +270,7 @@
 						for(var/connect_type in pipe.connect_types)
 							connect_types[connect_type] += 1
 						if(connect_types[1] > 1 || connect_types[2] > 1 || connect_types[3] > 1)
-							log_unit_test("Overlapping pipe ([pipe.name]) located at [T.x],[T.y],[T.z] ([get_area(T)])")
+							TEST_FAIL("Overlapping pipe ([pipe.name]) located at [T.x],[T.y],[T.z] ([get_area(T)])")
 							continue next_turf
 	if(failed_checks)
 		TEST_FAIL("\[[failed_checks] / [checks]\] Some pipes are not properly connected or doubled up.")
@@ -295,7 +295,7 @@
 		if(length(difflist(V.products, temp_V.products)) || length(difflist(V.contraband, temp_V.contraband)) || length(difflist(V.premium, temp_V.premium)))
 			failed_checks++
 
-			log_unit_test("Vending machine [V] at ([V.x],[V.y],[V.z] on [V.loc] has mapped-in products, contraband, or premium items.")
+			TEST_FAIL("Vending machine [V] at ([V.x],[V.y],[V.z] on [V.loc] has mapped-in products, contraband, or premium items.")
 
 	if(failed_checks)
 		TEST_FAIL("\[[failed_checks] / [checks]\] Some vending machines have mapped-in product lists.")
@@ -330,7 +330,7 @@
 			var/list/failed_area_zlevels = list()
 			for(var/turf/T as anything in invalid_turfs)
 				failed_area_zlevels |= T.z
-			log_unit_test("Station area [A]: [invalid_turfs.len] turfs are not entirely mapped on station z-levels. Found turfs on non-station levels: [english_list(failed_area_zlevels)]")
+			TEST_FAIL("Station area [A]: [invalid_turfs.len] turfs are not entirely mapped on station z-levels. Found turfs on non-station levels: [english_list(failed_area_zlevels)]")
 
 	if(failed_checks)
 		TEST_FAIL("\[[failed_checks] / [checks]\] Some station areas had turfs mapped outside station z-levels.")

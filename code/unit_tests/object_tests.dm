@@ -24,7 +24,7 @@
 
 	if (unfound_types.len)
 		for (var/t in unfound_types)
-			log_unit_test("[ascii_red]--------------- [unfound_types[t]] instances of [t] not found in SSmachinery.machinery.")
+			TEST_FAIL("[unfound_types[t]] instances of [t] not found in SSmachinery.machinery.")
 
 		TEST_FAIL("\[[unfound_types.len] / [all_types.len]\] mapped in machinery types were not found in SSmachinery.machinery.")
 	else
@@ -55,7 +55,7 @@
 				if(flooring_type == type)
 					i++
 			if(i != 1)
-				log_unit_test("[ascii_red]--------------- Flooring build_type [type] is non-unique; exists [i] times.")
+				TEST_FAIL("Flooring build_type [type] is non-unique; exists [i] times.")
 		TEST_FAIL("Found non-unique build_types in flooring decl.")
 
 	return TRUE
@@ -72,7 +72,7 @@
 			for(var/k in p)
 				vending_products += k
 				if(!ispath(k, /obj))
-					log_unit_test("Vending product [k] in vending machine [V] is not a subtype of /obj")
+					TEST_FAIL("Vending product [k] in vending machine [V] is not a subtype of /obj")
 				else
 					valid_keys += k
 

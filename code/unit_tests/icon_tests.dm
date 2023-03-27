@@ -50,7 +50,7 @@
 		// Base icon state
 		if(!(state in closet_states))
 			missing_states += 1
-			log_unit_test("icon_state [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+			TEST_FAIL("icon_state [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 		// Non-animated door states
 		if(!initial(closet_path.is_animating_door))
 			// Door icon
@@ -58,50 +58,50 @@
 				state = "[initial(closet_path.icon_door)][closet_state_suffixes["door"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 			else
 				state = "[initial(closet_path.icon_state)][closet_state_suffixes["door"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 			// Secure closet icon overlays
 			if(initial(closet_path.secure))
 				// Emagged
 				state = "[initial(closet_path.icon_door_overlay)][closet_state_suffixes["emag"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Emag'd icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Emag'd icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 				// Locked
 				state = "[initial(closet_path.icon_door_overlay)][closet_state_suffixes["locked"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Locked icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Locked icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 				// Unlocked
 				state = "[initial(closet_path.icon_door_overlay)][closet_state_suffixes["unlocked"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Unlocked icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Unlocked icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 			// Opened
 			if(initial(closet_path.icon_door_override))
 				state = "[initial(closet_path.icon_door)][closet_state_suffixes["opened"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Opened icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Opened icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 			else
 				state = "[initial(closet_path.icon_state)][closet_state_suffixes["opened"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Opened icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Opened icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 		// Animated Door
 		else
 			state = "[initial(closet_path.icon_door) || initial(closet_path.icon_state)][closet_state_suffixes["door"]]"
 			if(!(state in closet_states))
 				missing_states += 1
-				log_unit_test("Animated door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+				TEST_FAIL("Animated door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 			state = "[initial(closet_path.icon_door) || initial(closet_path.icon_state)][closet_state_suffixes["back"]]"
 			if(!(state in closet_states))
 				missing_states += 1
-				log_unit_test("Animated door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+				TEST_FAIL("Animated door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 
 	if(missing_states)
 		TEST_FAIL("[missing_states] closet icon state\s [missing_states == 1 ? "is" : "are"] missing.")
@@ -124,7 +124,7 @@
 			continue
 
 		invalid_states++
-		log_unit_test("Mapped closet [C] at [C.x], [C.y], [C.z] had an invalid icon_state defined: [C.icon_state]!")
+		TEST_FAIL("Mapped closet [C] at [C.x], [C.y], [C.z] had an invalid icon_state defined: [C.icon_state]!")
 
 	if(invalid_states)
 		TEST_FAIL("Found [invalid_states] / [checked_closets] mapped closets with invalid mapped icon states!")

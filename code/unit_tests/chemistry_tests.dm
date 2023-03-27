@@ -15,7 +15,7 @@ datum/unit_test/specific_heat/start_test()
 	for(var/reagent in GET_SINGLETON_SUBTYPE_MAP(/singleton/reagent/))
 		var/singleton/reagent/R = reagent
 		if(!SSchemistry.has_valid_specific_heat(R))
-			log_unit_test("[ascii_red][reagent] lacks a proper specific heat value![ascii_reset]")
+			TEST_FAIL("[reagent] lacks a proper specific heat value!")
 			error_count++
 
 	if(error_count)

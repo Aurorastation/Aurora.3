@@ -27,7 +27,7 @@ datum/unit_test/template/start_test()
 			continue
 		//Check if we hae name, short_name and desc set
 		if(!G.short_name || !G.name || !G.desc)
-			log_unit_test("[ascii_red]--------------- Invalid Spawner: Type:[G.type], Short-Name:[G.short_name], Name:[G.name]")
+			TEST_FAIL("Invalid Spawner: Type:[G.type], Short-Name:[G.short_name], Name:[G.name]")
 			failed_checks++
 
 	if(failed_checks)

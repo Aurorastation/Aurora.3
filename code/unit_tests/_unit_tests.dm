@@ -12,7 +12,9 @@
  * Output colouring macros, ANSI as per https://gist.github.com/stevewithington/b1b620b5bc9252e2c32e2cad35efbf83
  */
 
+/// Underlined Blue
 #define TEST_OUTPUT_HI_BLUE(text) "\x1B\x5B0;94m[text]\x1B\x5B0m"
+/// High Intensity Cyan
 #define TEST_OUTPUT_U_CYAN(text) "\x1B\x5B4;36m[text]\x1B\x5B0m"
 
 
@@ -28,7 +30,7 @@
 #define TEST_WARN(message) warn(##message, __FILE__, __LINE__)
 
 
-/// Logs a notice, comething that is good to be known to a scrutinizing eye, without being obnoxious
+/// Logs a notice, something that is good to be known to a scrutinizing eye, without being obnoxious
 /// Do not use this with long lists or internals that most people would never care about for the vast majority of the time
 #define TEST_NOTICE(message) notice(##message, __FILE__, __LINE__)
 
@@ -38,11 +40,10 @@
 #define TEST_DEBUG(message) debug(##message, __FILE__, __LINE__)
 
 /// Groups management
-#define TEST_GROUP_OPEN(groupname) world.log << TEST_OUTPUT_HI_BLUE("----> UNIT TEST \[[groupname]\] <----") //world.log << "::group::"+##name
-#define TEST_GROUP_CLOSE(message) world.log << TEST_OUTPUT_HI_BLUE("\n") //world.log << ##message + "\n::endgroup::"
+#define TEST_GROUP_OPEN(groupname) world.log << TEST_OUTPUT_HI_BLUE("----> UNIT TEST \[[groupname]\] <----") //world.log << "::group::"+##name <-- if we want to switch back to github auto-grouping
+#define TEST_GROUP_CLOSE(message) world.log << TEST_OUTPUT_HI_BLUE("\n") //world.log << ##message + "\n::endgroup::" <-- if we want to switch back to github auto-grouping
 
 /// Asserts that a condition is true
-/// If the condition is not true, fails the test
 #define TEST_ASSERT(assertion, reason) if (!(assertion)) { return fail("Assertion failed: [reason || "No reason"]", __FILE__, __LINE__) }
 
 /// Asserts that a parameter is not null
@@ -51,7 +52,7 @@
 /// Asserts that a parameter is null
 #define TEST_ASSERT_NULL(a, reason) if (!isnull(a)) { return fail("Expected null value but received [a]: [reason || "No reason"]", __FILE__, __LINE__) }
 
-/// Asserts that the two parameters passed are equal, fails otherwise
+/// Asserts that the two parameters passed are equal
 /// Optionally allows an additional message in the case of a failure
 #define TEST_ASSERT_EQUAL(a, b, message) do { \
 	var/lhs = ##a; \
@@ -61,7 +62,7 @@
 	} \
 } while (FALSE)
 
-/// Asserts that the two parameters passed are not equal, fails otherwise
+/// Asserts that the two parameters passed are not equal
 /// Optionally allows an additional message in the case of a failure
 #define TEST_ASSERT_NOTEQUAL(a, b, message) do { \
 	var/lhs = ##a; \
@@ -70,10 +71,3 @@
 		return fail("Expected [isnull(lhs) ? "null" : lhs] to not be equal to [isnull(rhs) ? "null" : rhs].[message ? " [message]" : ""]", __FILE__, __LINE__); \
 	} \
 } while (FALSE)
-
-#define TEST_PRE 0
-#define TEST_DEFAULT 1
-/// After most test steps, used for tests that run long so shorter issues can be noticed faster
-#define TEST_LONGER 10
-/// This must be the last test to run due to the inherent nature of the test iterating every single tangible atom in the game and qdeleting all of them (while taking long sleeps to make sure the garbage collector fires properly) taking a large amount of time.
-#define TEST_CREATE_AND_DESTROY INFINITY

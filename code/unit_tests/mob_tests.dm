@@ -535,7 +535,7 @@ datum/unit_test/robot_module_icons/start_test()
 	for(var/i=1, i<=robot_modules.len, i++)
 		var/bad_msg = "[ascii_red]--------------- [robot_modules[i]]"
 		if(!(lowertext(robot_modules[i]) in valid_states))
-			log_unit_test("[bad_msg] does not contain a valid icon state in [icon_file][ascii_reset]")
+			TEST_FAIL("[bad_msg] does not contain a valid icon state in [icon_file][ascii_reset]")
 			failed=1
 
 	if(failed)
