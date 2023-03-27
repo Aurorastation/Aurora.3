@@ -130,11 +130,11 @@ def generate_changelog_file(repo: Repo, prname: str):
     reader = repo.config_reader()
     username: str = str(reader.get_value("user", "name"))
 
-    with open(os.getcwd() + '\\html\\changelogs\\example.yml', 'rb') as source_file:
-        with open(os.getcwd() + f'\\html\\changelogs\\{username}-{prname}', 'wb')\
+    with open(os.getcwd() + '\\html\\changelogs\\example.yml', 'r', encoding='ascii') as source_file:
+        with open(os.getcwd() + f'\\html\\changelogs\\{username}-{prname}', 'w', encoding='ascii')\
           as destination_file:
             changelog_content = source_file.read()
-            changelog_content = re.sub('author: (.*)\n', f'author: {username} \n', text)
+            changelog_content = re.sub('author: (.*)\n', f'author: {username} \n', changelog_content)
             destination_file.write(changelog_content)
 
 
