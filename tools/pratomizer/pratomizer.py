@@ -121,7 +121,7 @@ def commit_atomization(repo: Repo, message: str):
 
 
 def generate_changelog_file(repo: Repo, prname: str):
-    """Creates the changelog file in the format username-branchname
+    """Creates the changelog file in the format username-branchname, and sets the author
 
     Args:
         repo (Repo): the repository object
