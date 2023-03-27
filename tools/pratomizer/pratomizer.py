@@ -135,7 +135,7 @@ def generate_changelog_file(repo: Repo, prname: str):
           as destination_file:
             changelog_content = source_file.read()
             changelog_content = re.sub('author: (.*)\n', f'author: {username} \n', text)
-            destination_file.write()
+            destination_file.write(changelog_content)
 
 
 if __name__ == '__main__':
