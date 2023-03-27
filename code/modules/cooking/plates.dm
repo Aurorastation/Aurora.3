@@ -81,6 +81,7 @@ Plates that can hold your cooking stuff
 	. = ..()
 	if(grease)
 		grease = FALSE
+		update_icon()
 	return
 
 /obj/item/reagent_containers/bowl/update_icon()
