@@ -122,6 +122,7 @@ Plates that can hold your cooking stuff
 		I.forceMove(src)
 		holding = I
 		to_chat(user, SPAN_NOTICE("You place \the [holding.name] on \the [src]."))
+		update_icon()
 		return
 	if(istype(I, /obj/item/reagent_containers/food/snacks) || istype(I, /obj/item/trash))
 		to_chat(user, SPAN_WARNING("\The [src] already has something on it!"))
