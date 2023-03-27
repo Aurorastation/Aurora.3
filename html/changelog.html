@@ -35,6 +35,32 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">27 March 2023</h2>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Set background=1 in xenoarch Initialize(), byond consider the proc too long and automatically switch it in background already, but prints a warning about it, this suppress the warning.</li>
+				<li class="bugfix">The Grinch stole the return hint of the xmas gifts to SSAtoms, restored it.</li>
+				<li class="backend">Set background=1 in get_area_turf, byond consider the proc too long and automatically switch it in background already, but prints a warning about it, this suppress the warning.</li>
+				<li class="bugfix">Fixed ai mask Initialize() not returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fix mech flare Initialize() not returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fixed screen mecha Initialize() not returning an hint to SSAtoms.</li>
+				<li class="rscadd">Fixed gravgen Destroy() which assumed to be linked, generating a runtime.</li>
+				<li class="rscadd">Fixed minedrone FindOre() that did not handle the lack of enemies, runtiming.</li>
+				<li class="bugfix">Fixed mobcorpose initialize not setting the variable nor returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fixed antimatter shield initialize, a dependant function could sleep, making SSAtoms angry.</li>
+				<li class="bugfix">Fixed stairs initialize that could return without returning an hint to SSAtoms.</li>
+				<li class="rscadd">Fixed bush initialize not returning an hint to SSAtoms or setting the variable initialize.</li>
+				<li class="bugfix">Fixed random_pixel initialize not returning an hint or setting the initialize variable.</li>
+				<li class="refactor">SSAtoms init now uses a switch statement only, slightly more performant.</li>
+				<li class="bugfix">Fix nuclear gun updates procs, that assumed a power supply present, when it is not guaranteed to be, causing a runtime.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Library computers now print generic bibles that can be customized by anyone.</li>
+				<li class="imageadd">Added several in-universe religious book sprites as options when customizing bibles.</li>
+				<li class="backend">Only Chaplains who use the Set Religion verb will affect the SSticker.</li>
+			</ul>
+
 			<h2 class="date">26 March 2023</h2>
 			<h3 class="author">Alberyk updated:</h3>
 			<ul class="changes bgimages16">
