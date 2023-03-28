@@ -35,6 +35,85 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">28 March 2023</h2>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Tweaked the vault to make more efficient use of available space.</li>
+			</ul>
+
+			<h2 class="date">27 March 2023</h2>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Set background=1 in xenoarch Initialize(), byond consider the proc too long and automatically switch it in background already, but prints a warning about it, this suppress the warning.</li>
+				<li class="bugfix">The Grinch stole the return hint of the xmas gifts to SSAtoms, restored it.</li>
+				<li class="backend">Set background=1 in get_area_turf, byond consider the proc too long and automatically switch it in background already, but prints a warning about it, this suppress the warning.</li>
+				<li class="bugfix">Fixed ai mask Initialize() not returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fix mech flare Initialize() not returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fixed screen mecha Initialize() not returning an hint to SSAtoms.</li>
+				<li class="rscadd">Fixed gravgen Destroy() which assumed to be linked, generating a runtime.</li>
+				<li class="rscadd">Fixed minedrone FindOre() that did not handle the lack of enemies, runtiming.</li>
+				<li class="bugfix">Fixed mobcorpose initialize not setting the variable nor returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fixed antimatter shield initialize, a dependant function could sleep, making SSAtoms angry.</li>
+				<li class="bugfix">Fixed stairs initialize that could return without returning an hint to SSAtoms.</li>
+				<li class="rscadd">Fixed bush initialize not returning an hint to SSAtoms or setting the variable initialize.</li>
+				<li class="bugfix">Fixed random_pixel initialize not returning an hint or setting the initialize variable.</li>
+				<li class="refactor">SSAtoms init now uses a switch statement only, slightly more performant.</li>
+				<li class="bugfix">Fix nuclear gun updates procs, that assumed a power supply present, when it is not guaranteed to be, causing a runtime.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added fuel pipes. Fuel pipes are intended to carry fuel for vessels, and have their own dedicated pump and connector for this.</li>
+				<li class="rscadd">Added auxiliary pipes. Auxiliary pipes are intended primarily for airlocks, but can be used in other various means. They have their own dedicated pump, connector, and vent.</li>
+				<li class="rscadd">Added a mode to airlock controllers to cycle air externally. This prevents external, potentially poisonous air from mixing with clean air.</li>
+				<li class="tweak">Thrusters can now attach directly to fuel pipes.</li>
+				<li class="tweak">Pressure tanks can now attach directly to all pipes.</li>
+				<li class="maptweak">The Intrepid and Spark now have externally cycled airlocks, and utilize the new pipes.</li>
+				<li class="maptweak">Added a scrubber to the Spark, which is directly vented out into space.</li>
+				<li class="imageadd">Ported Keekenox#1337&#x27;s vents and scrubbers.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Library computers now print generic bibles that can be customized by anyone.</li>
+				<li class="imageadd">Added several in-universe religious book sprites as options when customizing bibles.</li>
+				<li class="backend">Only Chaplains who use the Set Religion verb will affect the SSticker.</li>
+			</ul>
+
+			<h2 class="date">26 March 2023</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The Lazarus injector can no longer revive mobs that are not tameable.</li>
+			</ul>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Makes the announcement handling more robust, avoiding a runtime when it&#x27;s called and no player is logged in (eg. when a random event triggers).</li>
+				<li class="bugfix">Fix intercom broadcasting Initialize() not setting the initialize variable nor returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fix med_pouches Initialize() not returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fixed orange_hears not setting the initialized=TRUE value on Initialize, making SSAtom unhappy about it.</li>
+				<li class="rscadd">Fix some slime items initialize() not returning an hint to SSAtoms and not setting the initialize variable.</li>
+				<li class="bugfix">Fixed full windows init, now they set the initialized variable to true and return the correct hint to SSAtoms.</li>
+				<li class="bugfix">Fix slot machines init, they were unnecessarily creating the coins to add and then immediately QDELing them, making SSAtoms angry. They were also sleeping during init, making SSAtoms doubly angry.</li>
+				<li class="bugfix">Fix telescience stationary GPS Initialize() not setting the initialize variable nor returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fixed some floor decals Initialize() that were not returning the correct hint to SSAtoms.</li>
+				<li class="bugfix">Fix two implanters Initialize() that didn&#x27;t return an hint to SSAtoms.</li>
+				<li class="bugfix">Fixed hivebot beacon Initialize() being so heavy that BYOND sended it in background, thus sleeping, thus making SSAtom not happy.</li>
+				<li class="bugfix">Fix extinguisher cabinet Initialize(), was not returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fix radio encryption keys Initialize() not setting the initialized variable and not returning the hint to SSAtoms.</li>
+				<li class="bugfix">Fixes some eyeglasses Initialize() that were not returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fix statue Initialize(), that could self-del, making SSAtoms unhappy about it.</li>
+				<li class="bugfix">Fix mobile station holomap init, now setting the initialized variable and returning the correct hint to SSAtoms.</li>
+				<li class="bugfix">Fixed vending_product New() so that it assigns the parent return value to itself.</li>
+				<li class="bugfix">Fixes cleanable fuel decal initialize, they now return the correct hint.</li>
+			</ul>
+			<h3 class="author">Huntime updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Complete overhaul of Skrell Srom map/dreamscape.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes vault access for OM. Also adds access requirements to the Vault door.</li>
+				<li class="bugfix">Removes double airlock spawner on the headmaster.</li>
+			</ul>
+
 			<h2 class="date">24 March 2023</h2>
 			<h3 class="author">SleepyGemmy updated:</h3>
 			<ul class="changes bgimages16">
