@@ -84,7 +84,7 @@
 		memory["interior_status"]["state"] = signal.data["door_status"]
 		memory["interior_status"]["lock"] = signal.data["lock_status"]
 
-	else if(receive_tag==tag_airpump)
+	else if(receive_tag==tag_airpump || receive_tag==tag_pump_out_internal)
 		if(signal.data["power"])
 			memory["pump_status"] = signal.data["direction"]
 		else
@@ -166,6 +166,9 @@
 
 	if(shutdown_pump)
 		signalPump(tag_airpump, 0)		//send a signal to stop pressurizing
+		if(cycle_to_external_air)
+			signalPump(tag_pump_out_internal, 0)
+			signalPump(tag_pump_out_external, 0)
 
 
 /datum/computer/file/embedded_program/airlock/process()
@@ -195,7 +198,7 @@
 
 	switch(state)
 		if(STATE_PREPARE)
-			if (check_doors_secured())
+			if(check_doors_secured())
 				var/chamber_pressure = memory["chamber_sensor_pressure"]
 				var/target_pressure = memory["target_pressure"]
 
@@ -224,8 +227,7 @@
 					else
 						memory["purge"] = 1 // should always purge first if using external air, chamber pressure should never be higher than target pressure here
 
-				//Make sure the airlock isn't aiming for pure vacuum - an impossibility
-				memory["target_pressure"] = max(target_pressure, ONE_ATMOSPHERE * 0.05)
+				memory["target_pressure"] = target_pressure
 
 		if(STATE_PRESSURIZE)
 			if(memory["chamber_sensor_pressure"] >= memory["target_pressure"] - SENSOR_TOLERANCE)
@@ -270,6 +272,10 @@
 	state = STATE_IDLE
 	target_state = TARGET_INOPEN
 	memory["purge"] = cycle_to_external_air
+	
+/datum/computer/file/embedded_program/airlock/proc/begin_dock_cycle()
+	state = STATE_IDLE
+	target_state = TARGET_INOPEN
 
 /datum/computer/file/embedded_program/airlock/proc/begin_cycle_out()
 	state = STATE_IDLE
