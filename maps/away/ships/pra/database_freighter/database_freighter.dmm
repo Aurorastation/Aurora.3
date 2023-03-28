@@ -218,8 +218,7 @@
 /area/database_freighter/barracks)
 "aM" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "preview_corner"
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -674,8 +673,7 @@
 /area/database_freighter/engineering)
 "cJ" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "preview_corner"
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1469,8 +1467,7 @@
 /area/database_freighter)
 "gw" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "preview_corner"
+	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1558,8 +1555,7 @@
 /area/database_freighter/laboratory)
 "he" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "preview_corner"
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2391,8 +2387,7 @@
 /area/database_freighter)
 "lX" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "preview_corner"
+	dir = 10
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -2436,8 +2431,7 @@
 /area/database_freighter/engineering)
 "mj" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "preview_corner"
+	dir = 10
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
@@ -2644,8 +2638,7 @@
 "nx" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "preview_corner"
+	dir = 9
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -3235,8 +3228,7 @@
 /area/database_freighter/hangar)
 "yr" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "preview_corner"
+	dir = 10
 	},
 /obj/machinery/alarm/cold{
 	req_one_access = list(209);
@@ -3500,8 +3492,7 @@
 /area/database_freighter/engine)
 "BV" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "preview_corner"
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4315,8 +4306,7 @@
 /area/database_freighter/laboratory)
 "PV" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "preview_corner"
+	dir = 10
 	},
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1

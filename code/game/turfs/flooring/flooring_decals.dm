@@ -157,7 +157,7 @@
 
 /obj/effect/floor_decal/corner/yellow
 	name = "yellow corner"
-	icon_state = "corner_light"
+	icon_state = "preview_corner"
 	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/corner/yellow/diagonal
