@@ -62,6 +62,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul
 	name = "Sahul"
 	desc = "Az'mar's moon is a celestial body composed primarily of molten metals."
+	color = "#cf1020"
 	icon_state = "globe1"
 	generated_name = FALSE
 	ring_chance = 0
