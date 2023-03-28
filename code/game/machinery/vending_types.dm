@@ -933,13 +933,16 @@
 		/obj/item/reagent_containers/cooking_container/skillet = 4,
 		/obj/item/reagent_containers/cooking_container/saucepan = 4,
 		/obj/item/reagent_containers/cooking_container/pot = 4,
-		/obj/item/reagent_containers/cooking_container/plate = 3,
-		/obj/item/reagent_containers/cooking_container/plate/bowl = 2,
+		/obj/item/reagent_containers/cooking_container/board = 3,
+		/obj/item/reagent_containers/cooking_container/board/bowl = 2,
 		/obj/item/reagent_containers/ladle = 4,
 		/obj/item/storage/toolbox/lunchbox/nt = 6,
 		/obj/item/reagent_containers/glass/rag = 8,
 		/obj/item/evidencebag/plasticbag = 20,
 		/obj/item/tray = 12,
+		/obj/item/tray/plate = 10,
+		/obj/item/reagent_containers/bowl = 10,
+		/obj/item/reagent_containers/bowl/plate = 10
 	)
 	contraband = list(
 		/obj/item/storage/toolbox/lunchbox/syndicate = 2

@@ -59005,7 +59005,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -65050,7 +65050,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "odf" = (
@@ -68470,7 +68470,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/flour,
 /obj/structure/table,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/machinery/light_construct{
 	dir = 8
 	},
