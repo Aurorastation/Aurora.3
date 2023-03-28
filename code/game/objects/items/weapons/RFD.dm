@@ -592,8 +592,6 @@
 #define STANDARD_PIPE "Standard Pipes"
 #define SUPPLY_PIPE "Supply Pipes"
 #define SCRUBBER_PIPE "Scrubber Pipes"
-#define FUEL_PIPE "Fuel Pipes"
-#define AUX_PIPE "Auxiliary Pipes"
 #define DEVICES "Devices"
 
 /obj/item/rfd/piping
@@ -639,32 +637,12 @@
 		"Downward Pipe" = PIPE_SCRUBBERS_DOWN
 	)
 
-	var/list/fuel_pipes = list(
-		"Pipe" = PIPE_FUEL_STRAIGHT,
-		"Bent Pipe" = PIPE_FUEL_BENT,
-		"Manifold" = PIPE_FUEL_MANIFOLD,
-		"4-Way Manifold" = PIPE_FUEL_MANIFOLD4W,
-		"Upward Pipe" = PIPE_FUEL_UP,
-		"Downward Pipe" = PIPE_FUEL_DOWN
-	)
-
-	var/list/aux_pipes = list(
-		"Pipe" = PIPE_AUX_STRAIGHT,
-		"Bent Pipe" = PIPE_AUX_BENT,
-		"Manifold" = PIPE_AUX_MANIFOLD,
-		"4-Way Manifold" = PIPE_AUX_MANIFOLD4W,
-		"Upward Pipe" = PIPE_AUX_UP,
-		"Downward Pipe" = PIPE_AUX_DOWN
-	)
-
 	var/list/devices = list(
 		"Universal Pipe Adapter" = PIPE_UNIVERSAL,
 		"Connector" = PIPE_CONNECTOR,
 		"Unary Vent" = PIPE_UVENT,
-		"Auxiliary Unary Vent" = PIPE_AUX_UVENT,
 		"Scrubber" = PIPE_SCRUBBER,
 		"Gas Pump" = PIPE_PUMP,
-		"Fuel Gas Pump" = PIPE_PUMP_FUEL,
 		"Pressure Regulator" = PIPE_PASSIVE_GATE,
 		"High Power Gas Pump" = PIPE_VOLUME_PUMP,
 		"Gas Filter" = PIPE_GAS_FILTER_M,
@@ -714,7 +692,7 @@
 
 	// Special case handling for bent pipes. They require a non-cardinal direction
 	var/pipe_dir = NORTH
-	if(selected_pipe in list(PIPE_SIMPLE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT, PIPE_FUEL_BENT, PIPE_AUX_BENT))
+	if(selected_pipe in list(PIPE_SIMPLE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT))
 		pipe_dir = NORTHEAST
 	new /obj/item/pipe(T, selected_pipe, pipe_dir)
 
@@ -732,10 +710,6 @@
 			pipe_selection = supply_pipes
 		if(SCRUBBER_PIPE)
 			pipe_selection = scrubber_pipes
-		if(FUEL_PIPE)
-			pipe_selection = fuel_pipes
-		if(AUX_PIPE)
-			pipe_selection = aux_pipes
 		if(DEVICES)
 			pipe_selection = devices
 	pipe_examine = input(user, "Choose the pipe you want to deploy.", "Pipe Selection") in pipe_selection
@@ -753,12 +727,6 @@
 		if(SCRUBBER_PIPE)
 			pipe_examine = "Pipe"
 			selected_pipe = PIPE_SCRUBBERS_STRAIGHT
-		if(FUEL_PIPE)
-			pipe_examine = "Pipe"
-			selected_pipe = PIPE_FUEL_STRAIGHT
-		if(AUX_PIPE)
-			pipe_examine = "Pipe"
-			selected_pipe = PIPE_AUX_STRAIGHT
 		if(DEVICES)
 			pipe_examine = "Universal Pipe Adapter"
 			selected_pipe = PIPE_UNIVERSAL
@@ -779,7 +747,5 @@
 #undef STANDARD_PIPE
 #undef SUPPLY_PIPE
 #undef SCRUBBER_PIPE
-#undef FUEL_PIPE
-#undef AUX_PIPE
 #undef DEVICES
 #undef MATERIALIZATION_FAIL_MESSAGE
