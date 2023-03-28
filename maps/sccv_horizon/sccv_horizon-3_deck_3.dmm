@@ -4042,13 +4042,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
-"dAz" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
 "dAI" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -11817,11 +11810,6 @@
 /area/lawoffice/representative)
 "jxG" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/requests_console{
-	department = "Conference Room";
-	name = "Conference Room Requests Console";
-	pixel_y = -32
-	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "jxM" = (
@@ -14996,13 +14984,6 @@
 "lTQ" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/medical/smoking)
-"lUf" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
 "lUB" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -16385,6 +16366,11 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/machinery/requests_console{
+	department = "Conference Room";
+	name = "Conference Room Requests Console";
+	pixel_y = -32
+	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "nac" = (
@@ -19520,13 +19506,6 @@
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_three/primary/central)
-"pwa" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
 "pwO" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -47525,15 +47504,15 @@ vkb
 vtk
 ewP
 slH
-hBa
-otI
-otI
-otI
-otI
-otI
-otI
-otI
-opC
+slH
+slH
+slH
+slH
+slH
+slH
+slH
+slH
+slH
 slH
 slH
 slH
@@ -47727,15 +47706,15 @@ vBY
 otI
 otI
 otI
-tJH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-vBY
+otI
+otI
+otI
+otI
+otI
+otI
+otI
+otI
+otI
 otI
 otI
 otI
@@ -48751,8 +48730,8 @@ ljj
 oir
 fkC
 mIs
-vBY
-opC
+vkb
+slH
 dSF
 dSF
 dSF
@@ -48953,8 +48932,8 @@ kQW
 rvO
 aXB
 qlf
-wGH
 vkb
+slH
 dSF
 dSF
 dSF
@@ -49155,8 +49134,8 @@ nxm
 nSO
 fvX
 sqN
-wGH
 vkb
+slH
 dSF
 dSF
 dSF
@@ -49357,8 +49336,8 @@ fec
 rGK
 vbh
 aZS
-wGH
 vkb
+slH
 dSF
 dSF
 dSF
@@ -49559,8 +49538,8 @@ soE
 jKp
 soE
 qBS
-wGH
 vkb
+slH
 dSF
 dSF
 dSF
@@ -49761,8 +49740,8 @@ wFM
 kAR
 cAY
 hrR
-wGH
 vkb
+slH
 dSF
 dSF
 dSF
@@ -49963,8 +49942,8 @@ sWA
 naZ
 omA
 sdp
-leE
-lUf
+vBY
+opC
 dSF
 dSF
 dSF
@@ -50166,7 +50145,7 @@ ltT
 lFK
 mrU
 kBl
-dAz
+vkb
 dSF
 dSF
 dSF
@@ -50368,7 +50347,7 @@ ngS
 jxM
 iwi
 jIF
-pwa
+vkb
 dSF
 dSF
 dSF
@@ -51781,8 +51760,8 @@ eAw
 xEZ
 auq
 mrU
-wGH
-vkb
+bEW
+kMe
 dSF
 dSF
 dSF
@@ -51983,8 +51962,8 @@ hhA
 rqU
 ltH
 mrU
-wGH
 vkb
+slH
 dSF
 dSF
 dSF
@@ -52185,8 +52164,8 @@ rxJ
 xPq
 iii
 dFe
-wGH
 vkb
+slH
 dSF
 dSF
 dSF
@@ -52387,8 +52366,8 @@ asO
 asO
 asO
 hrR
-wGH
 vkb
+slH
 dSF
 dSF
 dSF
@@ -52589,8 +52568,8 @@ eeU
 dpE
 xPj
 sHE
-wGH
 vkb
+slH
 dSF
 dSF
 dSF
@@ -52791,8 +52770,8 @@ uIm
 uIm
 gjT
 sHE
-wGH
 vkb
+slH
 dSF
 dSF
 dSF
@@ -52993,8 +52972,8 @@ kkw
 cBE
 edo
 bNm
-wGH
 vkb
+slH
 dSF
 dSF
 dSF
@@ -53195,8 +53174,8 @@ qrQ
 qrQ
 pNE
 sHE
-wGH
 vkb
+slH
 dSF
 dSF
 dSF
@@ -53397,8 +53376,8 @@ vZO
 vZO
 rKd
 sHE
-bEW
-kMe
+cVx
+slH
 dSF
 dSF
 dSF
@@ -54203,10 +54182,10 @@ wGH
 wGH
 wGH
 wGH
-wGH
-vkb
+bEW
+kMe
 slH
-dSF
+slH
 dSF
 dSF
 dSF
@@ -54403,11 +54382,11 @@ cPq
 wGH
 wGH
 wGH
+wGH
 bEW
-leE
-leE
 kMe
-dSF
+slH
+slH
 dSF
 dSF
 dSF
@@ -54605,10 +54584,10 @@ fJy
 leE
 leE
 leE
+leE
 kMe
 slH
 slH
-dSF
 dSF
 dSF
 dSF
@@ -54809,7 +54788,7 @@ slH
 slH
 slH
 slH
-dSF
+slH
 dSF
 dSF
 dSF
