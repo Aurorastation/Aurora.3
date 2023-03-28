@@ -1,0 +1,7 @@
+author: Alberyk, Wowzewow (Wezzy)
+
+delete-after: True
+
+changes:
+  - imageadd: "Added sprites for wielding the adhomian assault rifle."
+  - rscadd: "Added golden plated version of the adhomian assault rifle."
