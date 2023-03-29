@@ -582,13 +582,13 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Center 1";
+/obj/machinery/computer/ship/navigation{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 1
-	},
+/turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "awy" = (
 /obj/machinery/light{
@@ -690,10 +690,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
-/obj/structure/table/reinforced,
-/obj/machinery/leviathan_button{
-	pixel_y = 4
-	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "aAu" = (
@@ -859,9 +856,8 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "aGl" = (
@@ -2458,6 +2454,7 @@
 	pixel_y = 4
 	},
 /obj/structure/table/glass,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "cbP" = (
@@ -2637,14 +2634,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
 "ciO" = (
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
-/obj/item/book/manual/wiki/security_space_law,
-/obj/item/book/manual/evaguide{
-	pixel_x = 2;
-	pixel_y = 2
+/obj/machinery/computer/station_alert/engineering{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
@@ -2768,6 +2762,11 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 9
 	},
+/obj/machinery/computer/message_monitor{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "cur" = (
@@ -2790,13 +2789,13 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/structure/bed/stool/chair,
 /obj/machinery/requests_console{
 	department = "Bridge";
 	departmentType = 5;
 	name = "Bridge RC";
 	pixel_y = 32
 	},
+/obj/structure/table/reinforced,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "cvQ" = (
@@ -3353,7 +3352,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "cVc" = (
@@ -3390,17 +3389,10 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/item/paper_bin,
-/obj/item/folder/blue,
-/obj/item/pen,
-/obj/item/pen/blue{
-	pixel_x = 4;
-	pixel_y = 4
-	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "cYs" = (
@@ -4050,12 +4042,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
-"dAz" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
 "dAI" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -4186,6 +4172,10 @@
 	},
 /obj/machinery/keycard_auth{
 	pixel_x = -23
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Center 2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -4384,6 +4374,21 @@
 "dNV" = (
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
+"dOh" = (
+/obj/effect/floor_decal/spline/fancy,
+/obj/effect/floor_decal/spline/fancy{
+	dir = 1
+	},
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/obj/item/folder/blue,
+/obj/item/pen,
+/obj/item/pen/blue{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/bridge/controlroom)
 "dOC" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5272,11 +5277,10 @@
 /turf/simulated/floor/reinforced,
 /area/bridge/selfdestruct)
 "ewP" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/turf/simulated/open/airless,
+/area/template_noop)
 "eyi" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -5352,14 +5356,24 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
+"eAw" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/machinery/computer/ship/targeting{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/controlroom)
 "eAV" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/structure/bed/stool/chair,
 /obj/structure/fireaxecabinet{
 	pixel_y = 32
 	},
+/obj/machinery/papershredder,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "eBp" = (
@@ -6255,7 +6269,6 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/obj/machinery/recharger,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "fiV" = (
@@ -7529,7 +7542,13 @@
 /area/horizon/crew_quarters/fitness/hallway)
 "gcZ" = (
 /obj/effect/floor_decal/spline/fancy,
-/obj/machinery/computer/ship/targeting,
+/obj/structure/table/reinforced,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/obj/item/device/flashlight,
+/obj/item/device/flashlight,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "gdf" = (
@@ -7831,10 +7850,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
+/obj/machinery/recharger,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "grI" = (
@@ -8018,6 +8034,12 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
+/obj/structure/table/reinforced,
+/obj/item/book/manual/wiki/security_space_law,
+/obj/item/book/manual/evaguide{
+	pixel_x = 2;
+	pixel_y = 2
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "gyx" = (
@@ -8072,16 +8094,6 @@
 /area/horizon/exterior)
 "gCH" = (
 /obj/structure/bed/stool/chair/office/bridge,
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/yellow,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "gCZ" = (
@@ -8323,9 +8335,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Backroom";
 	dir = 1
@@ -8333,6 +8342,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "gKQ" = (
@@ -8851,6 +8861,9 @@
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "hfB" = (
@@ -8917,8 +8930,9 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/obj/item/modular_computer/console/preset/supply{
-	dir = 1
+/obj/structure/table/reinforced,
+/obj/machinery/leviathan_button{
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -9197,12 +9211,13 @@
 /obj/item/device/radio/off,
 /obj/item/device/radio/off,
 /obj/item/device/radio/off,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/device/flashlight,
+/obj/item/device/flashlight,
+/obj/item/device/flashlight,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "hpb" = (
@@ -9406,6 +9421,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "hxQ" = (
@@ -10005,7 +10021,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "hYI" = (
@@ -10051,6 +10067,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "idI" = (
@@ -10622,14 +10639,13 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "iDo" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/spline/plain{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/computer/message_monitor{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced,
 /area/bridge/controlroom)
 "iDS" = (
 /obj/effect/floor_decal/corner_wide/blue,
@@ -11807,6 +11823,10 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/reinforced,
 /area/bridge/controlroom)
 "jxS" = (
@@ -13162,7 +13182,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "kwf" = (
@@ -13271,9 +13291,8 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/blue/full,
-/obj/item/device/taperecorder,
+/obj/machinery/leviathan_safeguard,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "kAR" = (
@@ -13957,9 +13976,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
 "ldK" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 8
-	},
 /obj/machinery/button/remote/blast_door{
 	id = "hangarlockdown";
 	name = "Hangar Lockdoor";
@@ -13990,6 +14006,10 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
+/obj/item/device/taperecorder,
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "leE" = (
@@ -14216,6 +14236,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
+"lqw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/controlroom)
 "lqT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -14324,6 +14351,9 @@
 "ltM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -14954,12 +14984,6 @@
 "lTQ" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/medical/smoking)
-"lUf" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
 "lUB" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -15120,6 +15144,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/table/reinforced,
+/obj/item/aicard,
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "mbm" = (
@@ -15185,7 +15214,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/papershredder,
+/obj/structure/table/reinforced,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "mcf" = (
@@ -15890,6 +15919,9 @@
 /area/horizon/crew_armoury/foyer)
 "mKb" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "mKp" = (
@@ -16152,8 +16184,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
 "mVg" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Captain"
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/structure/bed/stool/chair/office/bridge{
+	name = "Captain Chair"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "mVs" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -16275,8 +16316,9 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
 	},
-/obj/machinery/recharger,
-/obj/item/aicard,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "mZd" = (
@@ -16476,6 +16518,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/interrogation)
+"ngS" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/controlroom)
 "ngT" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
@@ -17909,10 +17960,10 @@
 /area/crew_quarters/captain)
 "olJ" = (
 /obj/effect/floor_decal/spline/plain,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
 /obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -17934,9 +17985,13 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair/office/bridge,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -18924,7 +18979,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "oWy" = (
-/obj/structure/bed/stool/chair/office/bridge,
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "oWK" = (
@@ -19179,6 +19238,10 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/reinforced,
 /area/bridge/controlroom)
 "piX" = (
@@ -19382,17 +19445,10 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/item/paper_bin,
-/obj/item/folder/blue,
-/obj/item/pen,
-/obj/item/pen/blue{
-	pixel_x = 4;
-	pixel_y = 4
-	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "psa" = (
@@ -19450,14 +19506,6 @@
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_three/primary/central)
-"pwa" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/open/airless,
-/area/horizon/exterior)
 "pwO" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -19779,10 +19827,10 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
-/obj/structure/bed/stool/chair/office/bridge,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "pRD" = (
@@ -20957,13 +21005,13 @@
 /turf/simulated/floor,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "qMa" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/machinery/light{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/effect/floor_decal/corner/blue{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -23374,6 +23422,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "sFE" = (
@@ -23819,7 +23870,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue/full,
-/obj/machinery/computer/station_alert/all{
+/obj/item/modular_computer/console/preset/medical{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -24891,6 +24942,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
@@ -26121,7 +26175,11 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
 	},
-/obj/machinery/leviathan_safeguard,
+/obj/structure/table/reinforced,
+/obj/machinery/recharger,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "uKi" = (
@@ -26503,6 +26561,10 @@
 /obj/machinery/keycard_auth{
 	pixel_x = 24
 	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Center 1";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "uVR" = (
@@ -26606,11 +26668,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_three/primary/central)
 "vaz" = (
-/obj/structure/bed/stool/chair/office/bridge,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -25
-	},
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "vaL" = (
@@ -26645,6 +26703,9 @@
 /obj/effect/floor_decal/spline/plain,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -27272,12 +27333,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "vyU" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
 /obj/effect/floor_decal/spline/fancy/cee{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "vzb" = (
@@ -28795,11 +28854,12 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/item/paper_scanner,
+/obj/machinery/computer/station_alert/all{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "wKC" = (
@@ -28919,6 +28979,16 @@
 /obj/effect/floor_decal/spline/plain/cee,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
+"wOZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/corner/blue{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/controlroom)
 "wPp" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -28960,13 +29030,39 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Center 2";
-	dir = 4
+/obj/item/modular_computer/console/preset/command{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/ramp/bottom{
+/obj/machinery/button/remote/blast_door{
+	id = "bridge blast";
+	name = "Bridge Lockdown";
+	pixel_x = -5;
+	pixel_y = -23;
+	req_access = list(19)
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "shutters_deck3_bridgesafety";
+	name = "Bridge Safety Shutters";
+	pixel_x = 6;
+	pixel_y = -23
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "crew_armory";
+	name = "Crew Armory";
+	pixel_x = 6;
+	pixel_y = -33;
+	req_access = list(60)
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "hangarlockdown";
+	name = "Hangar Lockdoor";
+	pixel_x = -5;
+	pixel_y = -33
+	},
+/obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
+/turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "wRH" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -29341,11 +29437,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "xfx" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 4
-	},
 /obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -29448,7 +29544,7 @@
 /area/horizon/hallway/deck_three/primary/central)
 "xiC" = (
 /obj/effect/floor_decal/spline/fancy,
-/obj/item/modular_computer/console/preset/medical{
+/obj/item/modular_computer/console/preset/engineering{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -29955,15 +30051,13 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "xDX" = (
@@ -30420,6 +30514,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -47200,10 +47297,10 @@ vaL
 vaL
 vaL
 uPJ
-cPq
-mKC
-mUv
-pwa
+wGH
+vkb
+iqb
+gVY
 dSF
 dSF
 dSF
@@ -47402,10 +47499,10 @@ vaL
 qHx
 aoA
 ivg
-cPq
-mKC
-uLZ
-wfb
+wGH
+vkb
+vtk
+ewP
 slH
 slH
 slH
@@ -47604,24 +47701,24 @@ aoA
 aoA
 aoA
 aoA
-cPq
-dAz
-mjb
-mjb
-mjb
-mjb
-mjb
-mjb
-mjb
-mjb
-mjb
-mjb
-mjb
-mjb
-mjb
-mjb
-mjb
-lUf
+wGH
+vBY
+otI
+otI
+otI
+otI
+otI
+otI
+otI
+otI
+otI
+otI
+otI
+otI
+otI
+otI
+otI
+opC
 slH
 slH
 dSF
@@ -47806,25 +47903,25 @@ vaL
 aoA
 aoA
 ivg
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-dAz
-lUf
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+vBY
+opC
 slH
 slH
 dSF
@@ -48025,9 +48122,9 @@ giI
 rnu
 iWr
 bqA
-cPq
-dAz
-lUf
+wGH
+vBY
+opC
 slH
 dSF
 dSF
@@ -48228,8 +48325,8 @@ jqi
 hzB
 fgF
 bqA
-cPq
-mKC
+wGH
+vkb
 slH
 dSF
 dSF
@@ -48431,7 +48528,7 @@ jRy
 rFu
 grm
 bqA
-mKC
+vkb
 slH
 dSF
 dSF
@@ -48633,7 +48730,7 @@ ljj
 oir
 fkC
 mIs
-mKC
+vkb
 slH
 dSF
 dSF
@@ -48835,7 +48932,7 @@ kQW
 rvO
 aXB
 qlf
-mKC
+vkb
 slH
 dSF
 dSF
@@ -49037,7 +49134,7 @@ nxm
 nSO
 fvX
 sqN
-mKC
+vkb
 slH
 dSF
 dSF
@@ -49239,7 +49336,7 @@ fec
 rGK
 vbh
 aZS
-mKC
+vkb
 slH
 dSF
 dSF
@@ -49441,7 +49538,7 @@ soE
 jKp
 soE
 qBS
-mKC
+vkb
 slH
 dSF
 dSF
@@ -49643,7 +49740,7 @@ wFM
 kAR
 cAY
 hrR
-mKC
+vkb
 slH
 dSF
 dSF
@@ -49845,8 +49942,8 @@ sWA
 naZ
 omA
 sdp
-dAz
-lUf
+vBY
+opC
 dSF
 dSF
 dSF
@@ -50043,12 +50140,12 @@ mYH
 uAr
 dFS
 pRj
-iDo
+hmu
 ltT
 lFK
 mrU
 kBl
-mKC
+vkb
 dSF
 dSF
 dSF
@@ -50239,18 +50336,18 @@ rCl
 nVG
 pFY
 qxu
-vbJ
+olJ
 xLf
 xiC
 qJd
 icV
 pqL
 wJY
-xEZ
+ngS
 jxM
 iwi
 jIF
-mKC
+vkb
 dSF
 dSF
 dSF
@@ -50442,7 +50539,7 @@ tYp
 cqp
 mcd
 olJ
-aGi
+eFH
 ciO
 qgG
 sFf
@@ -50452,7 +50549,7 @@ tKU
 lIB
 amy
 mrU
-mKC
+vkb
 dSF
 dSF
 dSF
@@ -50644,7 +50741,7 @@ fhB
 asO
 eAV
 wVS
-gyt
+dOh
 avY
 mbb
 ltM
@@ -50654,7 +50751,7 @@ eFH
 vaz
 dhn
 mrU
-mKC
+vkb
 dSF
 dSF
 dSF
@@ -50853,10 +50950,10 @@ lGT
 gCH
 uZD
 uNc
-oWy
+vaz
 xhy
 rmQ
-mKC
+vkb
 dSF
 dSF
 dSF
@@ -51050,15 +51147,15 @@ cvj
 wVS
 gyt
 wRl
-mbb
-ltM
+wOZ
+lqw
 ldK
 smr
 eFH
 oWy
 suj
 mrU
-mKC
+vkb
 dSF
 dSF
 dSF
@@ -51260,7 +51357,7 @@ hfm
 fis
 grs
 mrU
-mKC
+vkb
 dSF
 dSF
 dSF
@@ -51452,17 +51549,17 @@ qrI
 asO
 asO
 vQB
-xLf
+eFH
 gcZ
 rUs
 xXU
 cXq
 kAB
-ltT
+iDo
 phw
 uCJ
 dFe
-mKC
+vkb
 dSF
 dSF
 dSF
@@ -51659,12 +51756,12 @@ aAl
 lQh
 uVB
 omR
-hmu
+eAw
 xEZ
 auq
 mrU
-nbl
-ewP
+bEW
+kMe
 dSF
 dSF
 dSF
@@ -51865,7 +51962,7 @@ hhA
 rqU
 ltH
 mrU
-mKC
+vkb
 slH
 dSF
 dSF
@@ -52067,7 +52164,7 @@ rxJ
 xPq
 iii
 dFe
-mKC
+vkb
 slH
 dSF
 dSF
@@ -52269,7 +52366,7 @@ asO
 asO
 asO
 hrR
-mKC
+vkb
 slH
 dSF
 dSF
@@ -52471,7 +52568,7 @@ eeU
 dpE
 xPj
 sHE
-mKC
+vkb
 slH
 dSF
 dSF
@@ -52673,7 +52770,7 @@ uIm
 uIm
 gjT
 sHE
-mKC
+vkb
 slH
 dSF
 dSF
@@ -52875,7 +52972,7 @@ kkw
 cBE
 edo
 bNm
-mKC
+vkb
 slH
 dSF
 dSF
@@ -53077,7 +53174,7 @@ qrQ
 qrQ
 pNE
 sHE
-mKC
+vkb
 slH
 dSF
 dSF
@@ -53279,7 +53376,7 @@ vZO
 vZO
 rKd
 sHE
-mKC
+cVx
 slH
 dSF
 dSF
@@ -53481,7 +53578,7 @@ vZO
 vZO
 eri
 qsz
-mKC
+vkb
 slH
 dSF
 dSF
@@ -53682,8 +53779,8 @@ fbz
 ujs
 eri
 qsz
-cPq
-mKC
+wGH
+vkb
 slH
 dSF
 dSF
@@ -53883,9 +53980,9 @@ waX
 waX
 waX
 qsz
-cPq
-nbl
-ewP
+wGH
+bEW
+kMe
 slH
 dSF
 dSF
@@ -54080,13 +54177,13 @@ sGh
 drY
 drY
 cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-ewP
+wGH
+wGH
+wGH
+wGH
+wGH
+bEW
+kMe
 slH
 slH
 dSF
@@ -54282,12 +54379,12 @@ cPq
 cPq
 cPq
 cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-ewP
+wGH
+wGH
+wGH
+wGH
+bEW
+kMe
 slH
 slH
 dSF
@@ -54484,11 +54581,11 @@ fJy
 fJy
 fJy
 fJy
-fJy
-fJy
-fJy
-fJy
-ewP
+leE
+leE
+leE
+leE
+kMe
 slH
 slH
 dSF

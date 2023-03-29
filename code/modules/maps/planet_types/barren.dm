@@ -6,25 +6,11 @@
 	rock_colors = list(COLOR_BEIGE, COLOR_GRAY80, COLOR_BROWN)
 	possible_themes = list(/datum/exoplanet_theme/mountains)
 	map_generators = list(/datum/random_map/noise/exoplanet/barren, /datum/random_map/noise/ore)
-	ruin_tags_blacklist = RUIN_HABITAT|RUIN_WATER
 	features_budget = 6
 	surface_color = "#807d7a"
 	water_color = null
-
-	possible_random_ruins = list(
-		/datum/map_template/ruin/exoplanet/abandoned_mining,
-		/datum/map_template/ruin/exoplanet/hideout,
-		/datum/map_template/ruin/exoplanet/crashed_shuttle_01,
-		/datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01,
-		/datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01,
-		/datum/map_template/ruin/exoplanet/mystery_ship_1,
-		/datum/map_template/ruin/exoplanet/crashed_satelite,
-		/datum/map_template/ruin/exoplanet/abandoned_listening_post,
-		/datum/map_template/ruin/exoplanet/crashed_escape_pod_1,
-		/datum/map_template/ruin/exoplanet/digsite,
-		/datum/map_template/ruin/exoplanet/crashed_pod,
-		/datum/map_template/ruin/exoplanet/crashed_coc_skipjack,
-		/datum/map_template/ruin/exoplanet/drill_site)
+	ruin_planet_type = PLANET_BARREN
+	ruin_allowed_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/generate_habitability()
 	return HABITABILITY_BAD
@@ -77,22 +63,9 @@
 	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich)
 	rock_colors = list(COLOR_ASTEROID_ROCK)
 	planetary_area = /area/exoplanet/barren/asteroid
+	ruin_planet_type = PLANET_ASTEROID
+	ruin_allowed_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
-	possible_random_ruins = list(
-		/datum/map_template/ruin/exoplanet/abandoned_mining,
-		/datum/map_template/ruin/exoplanet/hideout,
-		/datum/map_template/ruin/exoplanet/crashed_shuttle_01,
-		/datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01,
-		/datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01,
-		/datum/map_template/ruin/exoplanet/mystery_ship_1,
-		/datum/map_template/ruin/exoplanet/crashed_satelite,
-		/datum/map_template/ruin/exoplanet/abandoned_listening_post,
-		/datum/map_template/ruin/exoplanet/crashed_escape_pod_1,
-		/datum/map_template/ruin/exoplanet/digsite,
-		/datum/map_template/ruin/exoplanet/crashed_pod,
-		/datum/map_template/ruin/exoplanet/crashed_coc_skipjack,
-		/datum/map_template/ruin/exoplanet/carp_nest,
-		/datum/map_template/ruin/exoplanet/drill_site)
 	place_near_main = list(1, 1)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/update_icon()
