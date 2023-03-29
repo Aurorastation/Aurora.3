@@ -229,7 +229,9 @@
 		/obj/item/storage/box/fancy/cigarettes/rugged = 10,
 		/obj/item/storage/box/fancy/cigarettes/pra = 5,
 		/obj/item/storage/box/fancy/cigarettes/dpra = 2,
-		/obj/item/storage/box/fancy/cigarettes/nka = 2
+		/obj/item/storage/box/fancy/cigarettes/nka = 2,
+		/obj/item/storage/box/fancy/cigarettes/federation = 2,
+		/obj/item/storage/box/fancy/cigarettes/dyn = 2
 	)
 
 /obj/random/energy
@@ -1023,7 +1025,7 @@
 		/obj/item/reagent_containers/food/drinks/flask/lithium = 0.3,
 		/obj/item/reagent_containers/food/drinks/flask/shiny = 0.3,
 		/obj/item/reagent_containers/food/drinks/teapot = 0.4,
-		/obj/item/reagent_containers/cooking_container/plate/bowl = 0.8,
+		/obj/item/reagent_containers/cooking_container/board/bowl = 0.8,
 		/obj/item/reagent_containers/inhaler/hyperzine = 0.1,
 		/obj/item/reagent_containers/spray/cleaner = 0.6,
 		/obj/item/reagent_containers/spray/sterilizine = 0.4,

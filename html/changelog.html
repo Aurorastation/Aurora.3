@@ -35,6 +35,188 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">29 March 2023</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed Sahul not having a proper color.</li>
+				<li class="bugfix">Fixed the NKA merchant ship spawning even if no one joined as its crew.</li>
+				<li class="bugfix">Fixed the scrapper outpost using the wrong icon.</li>
+			</ul>
+			<h3 class="author">AuroraBirdie updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Remapped the bridge.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Chat message limit can now be changed.</li>
+				<li class="tweak">Chat string highlighting now allows any number of strings.</li>
+			</ul>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the artifact forcefield effect, which could runtime if it didn&#x27;t find a turf.</li>
+			</ul>
+			<h3 class="author">atteria updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Exoplanet snow is now smoothable rather than hard edges.</li>
+			</ul>
+
+			<h2 class="date">28 March 2023</h2>
+			<h3 class="author">Llywelwyn, RyverStyx updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added two brands of Skrellian cigarettes: Eriuyushi Sunset and Xaqixal Dyn Fields.</li>
+				<li class="rscadd">Added two brands of Skrellian chewing tobacco: Leviathan Chew and Weibi&#x27;s Breeze.</li>
+				<li class="rscadd">Added a pouch of wulumunusha cigarettes to the loadout, only selectable by Skrell.</li>
+				<li class="tweak">Touched up the wulumunusha reagent by giving it a unique flavour description and removing the initial effect.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Tweaked the vault to make more efficient use of available space.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog, Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added dinner plates and dinner bowls, which can be used to serve up food in a somewhat more refined manner.</li>
+				<li class="rscadd">Dinner plates and dinner bowls aren&#x27;t clean after use. Make sure to clean them with a cloth, or with your tongue, afterwards.</li>
+				<li class="rscadd">Added serving plates which work like trays, but can&#x27;t hold as much.</li>
+				<li class="tweak">The item which was a serving plate is now a chopping board. Functionally this is the same as before.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added an upgrade to changelings that disables their need to breathe in order to survive. Useful for those who don&#x27;t intend on getting full space adapation.</li>
+			</ul>
+
+			<h2 class="date">27 March 2023</h2>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Set background=1 in xenoarch Initialize(), byond consider the proc too long and automatically switch it in background already, but prints a warning about it, this suppress the warning.</li>
+				<li class="bugfix">The Grinch stole the return hint of the xmas gifts to SSAtoms, restored it.</li>
+				<li class="backend">Set background=1 in get_area_turf, byond consider the proc too long and automatically switch it in background already, but prints a warning about it, this suppress the warning.</li>
+				<li class="bugfix">Fixed ai mask Initialize() not returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fix mech flare Initialize() not returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fixed screen mecha Initialize() not returning an hint to SSAtoms.</li>
+				<li class="rscadd">Fixed gravgen Destroy() which assumed to be linked, generating a runtime.</li>
+				<li class="rscadd">Fixed minedrone FindOre() that did not handle the lack of enemies, runtiming.</li>
+				<li class="bugfix">Fixed mobcorpose initialize not setting the variable nor returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fixed antimatter shield initialize, a dependant function could sleep, making SSAtoms angry.</li>
+				<li class="bugfix">Fixed stairs initialize that could return without returning an hint to SSAtoms.</li>
+				<li class="rscadd">Fixed bush initialize not returning an hint to SSAtoms or setting the variable initialize.</li>
+				<li class="bugfix">Fixed random_pixel initialize not returning an hint or setting the initialize variable.</li>
+				<li class="refactor">SSAtoms init now uses a switch statement only, slightly more performant.</li>
+				<li class="bugfix">Fix nuclear gun updates procs, that assumed a power supply present, when it is not guaranteed to be, causing a runtime.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added fuel pipes. Fuel pipes are intended to carry fuel for vessels, and have their own dedicated pump and connector for this.</li>
+				<li class="rscadd">Added auxiliary pipes. Auxiliary pipes are intended primarily for airlocks, but can be used in other various means. They have their own dedicated pump, connector, and vent.</li>
+				<li class="rscadd">Added a mode to airlock controllers to cycle air externally. This prevents external, potentially poisonous air from mixing with clean air.</li>
+				<li class="tweak">Thrusters can now attach directly to fuel pipes.</li>
+				<li class="tweak">Pressure tanks can now attach directly to all pipes.</li>
+				<li class="maptweak">The Intrepid and Spark now have externally cycled airlocks, and utilize the new pipes.</li>
+				<li class="maptweak">Added a scrubber to the Spark, which is directly vented out into space.</li>
+				<li class="imageadd">Ported Keekenox#1337&#x27;s vents and scrubbers.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Library computers now print generic bibles that can be customized by anyone.</li>
+				<li class="imageadd">Added several in-universe religious book sprites as options when customizing bibles.</li>
+				<li class="backend">Only Chaplains who use the Set Religion verb will affect the SSticker.</li>
+			</ul>
+
+			<h2 class="date">26 March 2023</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The Lazarus injector can no longer revive mobs that are not tameable.</li>
+			</ul>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Makes the announcement handling more robust, avoiding a runtime when it&#x27;s called and no player is logged in (eg. when a random event triggers).</li>
+				<li class="bugfix">Fix intercom broadcasting Initialize() not setting the initialize variable nor returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fix med_pouches Initialize() not returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fixed orange_hears not setting the initialized=TRUE value on Initialize, making SSAtom unhappy about it.</li>
+				<li class="rscadd">Fix some slime items initialize() not returning an hint to SSAtoms and not setting the initialize variable.</li>
+				<li class="bugfix">Fixed full windows init, now they set the initialized variable to true and return the correct hint to SSAtoms.</li>
+				<li class="bugfix">Fix slot machines init, they were unnecessarily creating the coins to add and then immediately QDELing them, making SSAtoms angry. They were also sleeping during init, making SSAtoms doubly angry.</li>
+				<li class="bugfix">Fix telescience stationary GPS Initialize() not setting the initialize variable nor returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fixed some floor decals Initialize() that were not returning the correct hint to SSAtoms.</li>
+				<li class="bugfix">Fix two implanters Initialize() that didn&#x27;t return an hint to SSAtoms.</li>
+				<li class="bugfix">Fixed hivebot beacon Initialize() being so heavy that BYOND sended it in background, thus sleeping, thus making SSAtom not happy.</li>
+				<li class="bugfix">Fix extinguisher cabinet Initialize(), was not returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fix radio encryption keys Initialize() not setting the initialized variable and not returning the hint to SSAtoms.</li>
+				<li class="bugfix">Fixes some eyeglasses Initialize() that were not returning an hint to SSAtoms.</li>
+				<li class="bugfix">Fix statue Initialize(), that could self-del, making SSAtoms unhappy about it.</li>
+				<li class="bugfix">Fix mobile station holomap init, now setting the initialized variable and returning the correct hint to SSAtoms.</li>
+				<li class="bugfix">Fixed vending_product New() so that it assigns the parent return value to itself.</li>
+				<li class="bugfix">Fixes cleanable fuel decal initialize, they now return the correct hint.</li>
+			</ul>
+			<h3 class="author">Huntime updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Complete overhaul of Skrell Srom map/dreamscape.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes vault access for OM. Also adds access requirements to the Vault door.</li>
+				<li class="bugfix">Removes double airlock spawner on the headmaster.</li>
+			</ul>
+
+			<h2 class="date">24 March 2023</h2>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Removed the carp random events in favour of the overmap implementation.</li>
+			</ul>
+
+			<h2 class="date">23 March 2023</h2>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fix material initialization for structures, ensuring they are init&#x27;d to the material, not a string.</li>
+				<li class="bugfix">Fix lattice Initialize, as it was QDELing directly instead of returning a QDEL HINT.</li>
+				<li class="backend">Implemented stack_trace(), a version of CRASH() that does not end the current proc, from /tg/.</li>
+				<li class="bugfix">Fixes slime initialization, so that the correct init hint is returned to SSAtoms.</li>
+			</ul>
+			<h3 class="author">ImmortalRedshirt updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The cochlear implant now costs only one point, like the other accessibility augments.</li>
+			</ul>
+			<h3 class="author">Llywelwyn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Replaces all mentions of &#x27;genophage&#x27; with &#x27;X&#x27;Lu&#x27;oa&#x27;.</li>
+				<li class="tweak">Replaces all remaining mentions of &#x27;Jargon Federation&#x27; with &#x27;Nralakk Federation&#x27;.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixed some mapping oversights in the service area.</li>
+				<li class="bugfix">Fixed the bunker&#x27;s escape route.</li>
+			</ul>
+			<h3 class="author">William Murdoch updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added Chief Medical Officer labcoats to the loadout.</li>
+			</ul>
+
+			<h2 class="date">22 March 2023</h2>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes duplicate lattices in our maps.</li>
+				<li class="bugfix">Resolves some startup runtimes/harddels.</li>
+				<li class="maptweak">Removes minor objects from the old Aurora map that implement shitcode.</li>
+				<li class="backend">Implements auxtools_expr_stub, used by auxtools (the debugger dll) to get expressions with the debug console.</li>
+				<li class="bugfix">Fixes the issues found during debugging of not being able to copy values from the variables panel, debug console, or conditional breakpoints expressions.</li>
+				<li class="backend">Updated build chain to use the new rustg v1.2.0+a2 from our repository, after having updated our repository.</li>
+				<li class="backend">Updated byond version to use to 514.1589 from the previously set minor, in the chain.</li>
+				<li class="backend">Updated flyway version to use to 9.9.0.</li>
+				<li class="backend">Updated spacemandmm version to use to 1.7.3.</li>
+				<li class="backend">Removed version bindings for pip requirements.</li>
+				<li class="backend">Github pipeline now runs on Ubuntu 22.04 (from 20.04), both are LTS.</li>
+				<li class="backend">Added package requirements to correctly bind into the new version of rust-g.</li>
+				<li class="rscadd">Added some premade cooled floors, used in the AI chamber.</li>
+				<li class="maptweak">AI Chamber in Aurora and Horizon now uses the cooled floors.</li>
+				<li class="bugfix">Fixed ZAS unit tests (along with the mapping above) so now they correctly run. They were not since Aurora.</li>
+				<li class="bugfix">Fixed switch statements that were using double pipes, as they are either not supported since a while or never were.</li>
+				<li class="bugfix">Fixed switch statements based on random() that did not catch the variables, as the codechecks now catch them.</li>
+				<li class="rscadd">ZAS Unit Tests now tell when something fails the temperature, pressure and what expectation parameter they checked for.</li>
+			</ul>
+			<h3 class="author">Ramke updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added 8 new Tajara-themed cups into loadout.</li>
+			</ul>
+
 			<h2 class="date">20 March 2023</h2>
 			<h3 class="author">GeneralCamo updated:</h3>
 			<ul class="changes bgimages16">

@@ -814,15 +814,6 @@
 /obj/structure/bed/stool/bar/padded,
 /turf/simulated/floor/plating,
 /area/racers)
-"dtM" = (
-/obj/structure/window/reinforced/tinted/frosted{
-	dir = 8
-	},
-/obj/structure/window/reinforced/tinted/frosted,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/racers)
 "dtY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -2732,6 +2723,14 @@
 /obj/machinery/portable_atmospherics/canister/empty/hydrogen,
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
+"nqE" = (
+/obj/structure/window/reinforced/tinted/frosted,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/window/reinforced/tinted/frosted{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/racers)
 "nrP" = (
 /obj/structure/girder/displaced,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
@@ -3633,12 +3632,6 @@
 	},
 /turf/template_noop,
 /area/space)
-"rHx" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
-/area/racers)
 "rIG" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/plating,
@@ -4988,7 +4981,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /turf/simulated/floor/tiled/white,
 /area/racers)
 "xSs" = (
@@ -40164,7 +40157,7 @@ jyq
 jyq
 jyq
 jyq
-dtM
+nqE
 xRX
 xRX
 xRX
@@ -43228,7 +43221,7 @@ vLM
 wiz
 bVv
 vLM
-rHx
+vLM
 xjB
 sae
 xjB
@@ -44256,7 +44249,7 @@ vLM
 vLM
 bhm
 lwM
-rHx
+vLM
 lsG
 dsR
 xjB
