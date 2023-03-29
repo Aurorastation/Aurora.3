@@ -3,8 +3,8 @@
 	id = "crashed_pod"
 	description = "A crashed survival pod from a destroyed ship."
 	suffixes = list("crashed_pod/crashed_pod.dmm")
-	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_NO_RUINS | TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
-	ruin_tags = RUIN_HUMAN|RUIN_WRECK
+	template_flags = TEMPLATE_FLAG_NO_RUINS | TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
+	ruin_tags = RUIN_LOWPOP|RUIN_WRECK
 	spawn_weight = 0.33
 
 /singleton/submap_archetype/crashed_pod

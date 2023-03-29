@@ -11,7 +11,8 @@
 	surface_color = "#B1A69B"
 	generated_name = FALSE
 	ring_chance = 0
-	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
+	ruin_planet_type = PLANET_LORE
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/generate_atmosphere()
 	..()
@@ -40,7 +41,8 @@
 	surface_color = "#4a3f41"
 	generated_name = FALSE
 	ring_chance = 0
-	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
+	ruin_planet_type = PLANET_LORE
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/get_surface_color()
 	return "#4a3f41"
@@ -63,7 +65,9 @@
 	name = "Sahul"
 	desc = "Az'mar's moon is a celestial body composed primarily of molten metals."
 	icon_state = "globe1"
+	color = "#cf1020"
 	generated_name = FALSE
+	ruin_planet_type = PLANET_LAVA
 	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul/update_icon()
@@ -83,7 +87,8 @@
 	surface_color = "#373737"
 	generated_name = FALSE
 	ring_chance = 0
-	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/raskara_ritual, /datum/map_template/ruin/exoplanet/raskara_okon, /datum/map_template/ruin/exoplanet/raskara_wreck, /datum/map_template/ruin/exoplanet/pra_exploration_drone)
+	ruin_planet_type = PLANET_LORE
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/raskara_ritual, /datum/map_template/ruin/exoplanet/raskara_okon, /datum/map_template/ruin/exoplanet/raskara_wreck, /datum/map_template/ruin/exoplanet/pra_exploration_drone)
 	place_near_main = list(3, 3)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/get_surface_color()
@@ -129,7 +134,8 @@
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
 	generated_name = FALSE
-	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
+	ruin_planet_type = PLANET_LORE
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
 	/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_bar,
 	/datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 	/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd)
@@ -143,7 +149,7 @@
 		landing_faction = pick("People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai")
 	switch(landing_faction)
 		if("People's Republic of Adhomai")
-			possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
+			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
 			/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual,
 			/datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 			/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd, /datum/map_template/ruin/exoplanet/adhomai_abandoned_labor_camp,
@@ -151,7 +157,7 @@
 			/datum/map_template/ruin/exoplanet/adhomai_fallout_bunker, /datum/map_template/ruin/exoplanet/adhomai_schlorrgo_cage, /datum/map_template/ruin/exoplanet/adhomai_silo)
 
 		if("Democratic People's Republic of Adhomai")
-			possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
+			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
 			/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual,
 			/datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 			/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd, /datum/map_template/ruin/exoplanet/adhomai_amohdan,
@@ -159,7 +165,7 @@
 			/datum/map_template/ruin/exoplanet/adhomai_deserter, /datum/map_template/ruin/exoplanet/adhomai_nuclear_waste_makeshift, /datum/map_template/ruin/exoplanet/adhomai_rredouane_shrine)
 
 		if("New Kingdom of Adhomai")
-			possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
+			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
 			/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual,
 			/datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout,/datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 			/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd, /datum/map_template/ruin/exoplanet/adhomai_amohdan, /datum/map_template/ruin/exoplanet/adhomai_archeology,
@@ -168,7 +174,7 @@
 		if("North Pole")
 			features_budget = 1
 			map_generators = list(/datum/random_map/noise/exoplanet/snow/adhomai_north_pole, /datum/random_map/noise/ore/rich)
-			possible_random_ruins = list (/datum/map_template/ruin/exoplanet/north_pole_monolith, /datum/map_template/ruin/exoplanet/north_pole_nka_expedition, /datum/map_template/ruin/exoplanet/north_pole_worm)
+			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/north_pole_monolith, /datum/map_template/ruin/exoplanet/north_pole_nka_expedition, /datum/map_template/ruin/exoplanet/north_pole_worm)
 
 	desc += " The landing sites are located at the [landing_faction]'s territory."
 
@@ -298,4 +304,3 @@
 /turf/simulated/floor/exoplanet/mineral/adhomai/Initialize(mapload)
 	. = ..()
 	icon_state = "icy_rock[rand(1,19)]"
-

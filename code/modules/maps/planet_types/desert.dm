@@ -9,9 +9,8 @@
 	possible_themes = list(/datum/exoplanet_theme/mountains/breathable)
 	surface_color = "#d6cca4"
 	water_color = null
-
-	possible_random_ruins = list(
-		/datum/map_template/ruin/exoplanet/desert_oasis)
+	ruin_planet_type = PLANET_DESERT
+	ruin_allowed_tags = RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/generate_map()
 	if(prob(70))

@@ -182,6 +182,10 @@
 		return TRUE
 	return FALSE
 
+//Proc to check if a specific user can jump to this spawner (ghosts should be able to)
+/datum/ghostspawner/proc/can_jump_to(mob/user)
+	return isobserver(user) && loc_type == GS_LOC_POS
+
 /datum/ghostspawner/proc/is_enabled()
 	if(loc_type == GS_LOC_ATOM)
 		return enabled && !!length(spawn_atoms)

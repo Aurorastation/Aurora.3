@@ -42,4 +42,11 @@
 			else
 				var/obj/item/TrashItem = new trash(user)
 				TrashItem.forceMove(get_turf(src))
+		if(istype(loc, /obj/item/reagent_containers/bowl/plate))
+			var/obj/item/reagent_containers/bowl/plate/P = loc
+			if(P.holding == src)
+				P.holding = null
+				if(!P.grease)
+					P.grease = TRUE
+				P.update_icon()
 		qdel(src)
