@@ -63,6 +63,7 @@
 	name = "Sahul"
 	desc = "Az'mar's moon is a celestial body composed primarily of molten metals."
 	icon_state = "globe1"
+	color = "#cf1020"
 	generated_name = FALSE
 	ring_chance = 0
 

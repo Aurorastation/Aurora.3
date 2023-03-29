@@ -1,0 +1,8 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed Sahul not having a proper color."
+  - bugfix: "Fixed the NKA merchant ship spawning even if no one joined as its crew."
+  - bugfix: "Fixed the scrapper outpost using the wrong icon."
