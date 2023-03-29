@@ -1049,7 +1049,7 @@
 /area/shuttle/militia_shuttle)
 "nty" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/item/material/kitchen/rollingpin{
 	pixel_x = 6
 	},
