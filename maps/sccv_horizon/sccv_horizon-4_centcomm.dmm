@@ -36924,6 +36924,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
+"hEj" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#66ccff";
+	light_power = 0.75;
+	light_range = 6;
+	name = "snow light"
+	},
+/turf/template_noop,
+/area/template_noop)
 "hIs" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
@@ -38313,6 +38322,15 @@
 	icon_state = "beachcorner"
 	},
 /area/centcom/shared_dream)
+"trr" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C48A18";
+	light_power = 2;
+	light_range = 3;
+	name = "fire light"
+	},
+/turf/template_noop,
+/area/template_noop)
 "tvM" = (
 /obj/structure/window/shuttle/unique/ccia{
 	icon_state = "3,3"
@@ -38345,6 +38363,14 @@
 	density = 1
 	},
 /area/centcom/shared_dream)
+"tCk" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 7;
+	name = "green light"
+	},
+/turf/template_noop,
+/area/template_noop)
 "tCK" = (
 /obj/structure/flora/tree/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -38669,6 +38695,14 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"wEr" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#00ff00";
+	light_range = 3;
+	name = "lime light"
+	},
+/turf/template_noop,
+/area/template_noop)
 "wWn" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/beach/sand{
@@ -91066,10 +91100,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+trr
+tCk
+wEr
+hEj
 aaa
 aaa
 aaa
