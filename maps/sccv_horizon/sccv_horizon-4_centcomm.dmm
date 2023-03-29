@@ -54,6 +54,11 @@
 /area/centcom/shared_dream)
 "aaj" = (
 /obj/effect/floor_decal/spline/plain,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "aak" = (
@@ -16795,6 +16800,14 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"aPQ" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#00ff00";
+	light_range = 3;
+	name = "srom lime light"
+	},
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/centcom/shared_dream)
 "aPS" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor,
@@ -36246,6 +36259,15 @@
 	icon_state = "seashallow"
 	},
 /area/centcom/shared_dream)
+"cwA" = (
+/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/centcom/shared_dream)
 "cwS" = (
 /obj/effect/floor_decal/snowdrift/large{
 	dir = 8
@@ -36256,6 +36278,16 @@
 /obj/effect/floor_decal/spline/plain,
 /obj/structure/flora/tree/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
+/area/centcom/shared_dream)
+"cLi" = (
+/obj/structure/flora/ausbushes/leafybush,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
+/turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "cNb" = (
 /obj/effect/decal/cleanable/cobweb2,
@@ -36307,6 +36339,15 @@
 	dir = 9
 	},
 /turf/simulated/floor/exoplanet/ice,
+/area/centcom/shared_dream)
+"dmJ" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "doG" = (
 /obj/effect/floor_decal/spline/plain{
@@ -36559,6 +36600,12 @@
 "ePz" = (
 /obj/item/device/flashlight/lantern,
 /obj/item/pickaxe,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C48A18";
+	light_power = 2;
+	light_range = 3;
+	name = "srom fire light"
+	},
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "eQN" = (
@@ -36612,6 +36659,16 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren,
+/area/centcom/shared_dream)
+"fcx" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
+/turf/simulated/floor/beach/sand{
+	icon_state = "desert"
+	},
 /area/centcom/shared_dream)
 "fcH" = (
 /obj/structure/dueling_table{
@@ -36712,6 +36769,12 @@
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/food/drinks/bottle/whitewine,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
 "fVy" = (
@@ -36731,7 +36794,23 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
 /turf/simulated/floor/exoplanet/grass,
+/area/centcom/shared_dream)
+"gjO" = (
+/obj/structure/flora/grass/green,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#66ccff";
+	light_power = 0.75;
+	light_range = 6;
+	name = "srom snow light"
+	},
+/turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "gkn" = (
 /obj/structure/dueling_table/no_collide/above_layer{
@@ -36791,6 +36870,17 @@
 	icon_state = "desert3"
 	},
 /area/horizon/holodeck/source_desert)
+"gxn" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C48A18";
+	light_power = 2;
+	light_range = 3;
+	name = "srom fire light"
+	},
+/turf/simulated/floor/airless/lava{
+	density = 1
+	},
+/area/centcom/shared_dream)
 "gzZ" = (
 /obj/structure/flora/bush/grove,
 /obj/effect/floor_decal/spline/plain{
@@ -36929,7 +37019,7 @@
 	light_color = "#66ccff";
 	light_power = 0.75;
 	light_range = 6;
-	name = "snow light"
+	name = "srom snow light"
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -37141,6 +37231,25 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
+"jrv" = (
+/obj/structure/flora/rock/ice,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#66ccff";
+	light_power = 0.75;
+	light_range = 6;
+	name = "srom snow light"
+	},
+/turf/simulated/floor/exoplanet/snow,
+/area/centcom/shared_dream)
+"jrA" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
+/turf/simulated/floor/exoplanet/grass,
+/area/centcom/shared_dream)
 "jrX" = (
 /obj/structure/bed/stool/chair/sofa/left/brown{
 	dir = 4
@@ -37221,6 +37330,12 @@
 /obj/structure/cult/tome{
 	density = 0;
 	pixel_x = 2
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C48A18";
+	light_power = 2;
+	light_range = 3;
+	name = "srom fire light"
 	},
 /turf/simulated/floor/wood/coloured/yew,
 /area/centcom/shared_dream)
@@ -37478,6 +37593,15 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
+"mAv" = (
+/obj/structure/flora/rock/pile,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/centcom/shared_dream)
 "mEa" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/fancy{
@@ -37496,6 +37620,16 @@
 /obj/effect/decal/cleanable/spiderling_remains,
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
+"mKO" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/centcom/shared_dream)
 "mLu" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
@@ -37512,6 +37646,11 @@
 /area/centcom/shared_dream)
 "mOA" = (
 /obj/item/bucket_sensor,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
@@ -37522,6 +37661,27 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
+/area/centcom/shared_dream)
+"mQi" = (
+/obj/structure/flora/grass/jungle,
+/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
+/turf/simulated/floor/exoplanet/grass,
+/area/centcom/shared_dream)
+"mUS" = (
+/obj/effect/floor_decal/snowdrift,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#66ccff";
+	light_power = 0.75;
+	light_range = 6;
+	name = "srom snow light"
+	},
+/turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "mZu" = (
 /obj/effect/floor_decal/spline/plain{
@@ -37563,6 +37723,24 @@
 "nnX" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
+	},
+/turf/simulated/floor/exoplanet/snow,
+/area/centcom/shared_dream)
+"noL" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
+/turf/simulated/floor/beach/water/alt,
+/area/centcom/shared_dream)
+"nqH" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#66ccff";
+	light_power = 0.75;
+	light_range = 6;
+	name = "srom snow light"
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
@@ -37653,6 +37831,12 @@
 	name = "Hot chocolate";
 	pixel_x = 6;
 	pixel_y = 7
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C48A18";
+	light_power = 2;
+	light_range = 3;
+	name = "srom fire light"
 	},
 /turf/simulated/floor/carpet/purple,
 /area/centcom/shared_dream)
@@ -37792,6 +37976,16 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
+/area/centcom/shared_dream)
+"pul" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "pxj" = (
 /obj/structure/window/shuttle/unique/ccia{
@@ -38028,6 +38222,12 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
 "rlY" = (
@@ -38163,6 +38363,14 @@
 	},
 /turf/simulated/floor/exoplanet/ice,
 /area/centcom/shared_dream)
+"suZ" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/centcom/shared_dream)
 "szG" = (
 /obj/structure/bonfire/fireplace,
 /obj/item/clothing/accessory/scarf/zebra{
@@ -38184,6 +38392,17 @@
 /obj/structure/window/reinforced/holowindow/disappearing,
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
+"sFe" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
+/turf/simulated/floor/beach/sand{
+	dir = 1;
+	icon_state = "beachcorner"
+	},
+/area/centcom/shared_dream)
 "sLS" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
@@ -38278,6 +38497,11 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
@@ -38327,7 +38551,7 @@
 	light_color = "#C48A18";
 	light_power = 2;
 	light_range = 3;
-	name = "fire light"
+	name = "srom fire light"
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -38366,8 +38590,9 @@
 "tCk" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
-	light_range = 7;
-	name = "green light"
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -38506,6 +38731,16 @@
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"uXJ" = (
+/obj/structure/flora/grass/jungle,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
+/turf/simulated/floor/exoplanet/grass,
+/area/centcom/shared_dream)
 "uYd" = (
 /obj/effect/floor_decal/snow/surround{
 	dir = 8
@@ -38635,6 +38870,14 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"wjr" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/centcom/shared_dream)
 "wkS" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/snow/corner{
@@ -38699,7 +38942,7 @@
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#00ff00";
 	light_range = 3;
-	name = "lime light"
+	name = "srom lime light"
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -38841,6 +39084,17 @@
 /turf/simulated/floor/airless/lava{
 	density = 1
 	},
+/area/centcom/shared_dream)
+"ycl" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
+/turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "yhM" = (
 /obj/effect/floor_decal/spline/plain/corner{
@@ -94199,7 +94453,7 @@ bLO
 bLX
 bMl
 bMl
-cYQ
+mAv
 bLO
 bMQ
 bMG
@@ -94438,7 +94692,7 @@ bMw
 bLw
 bMw
 lLY
-bMw
+nqH
 bMw
 bMw
 qAd
@@ -94958,7 +95212,7 @@ eSG
 bMw
 bMw
 bMw
-dRB
+gjO
 pRF
 bMw
 bMw
@@ -95463,7 +95717,7 @@ bMA
 bMA
 bMw
 bLv
-dRB
+gjO
 bMw
 bMw
 rRN
@@ -95483,7 +95737,7 @@ coz
 iIo
 vgq
 aag
-bLO
+suZ
 bLO
 bLO
 egX
@@ -95733,7 +95987,7 @@ lLY
 bMw
 dRB
 bMw
-bMw
+nqH
 bMw
 bMw
 bMw
@@ -96244,7 +96498,7 @@ bMl
 bMl
 bLz
 bLz
-bLz
+wjr
 bLz
 xdF
 dRB
@@ -96259,7 +96513,7 @@ bLO
 bLO
 bMQ
 bMQ
-bMQ
+fcx
 bMQ
 bMQ
 ozQ
@@ -96487,7 +96741,7 @@ bLr
 bLr
 kGB
 xhA
-bNd
+jrv
 iPO
 bLt
 bMl
@@ -96752,7 +97006,7 @@ bMl
 sTs
 bLz
 bLz
-bLz
+wjr
 bLz
 unw
 bLz
@@ -96764,7 +97018,7 @@ tSJ
 ewR
 bMw
 uoQ
-bLv
+mUS
 ikY
 sts
 kzl
@@ -97025,7 +97279,7 @@ vsW
 bLv
 dRB
 pIp
-bLO
+suZ
 bLO
 bMQ
 ifr
@@ -97263,7 +97517,7 @@ bLz
 bLz
 qhk
 bMs
-bLz
+wjr
 bLz
 bLz
 bLz
@@ -97517,7 +97771,7 @@ nnX
 pRF
 bMw
 kzN
-bLz
+wjr
 bLz
 bLz
 bLz
@@ -97780,7 +98034,7 @@ bLz
 bLz
 bLz
 bMR
-bMH
+uXJ
 bNe
 mLF
 bLr
@@ -97795,7 +98049,7 @@ bLr
 gme
 bMw
 ecJ
-bLO
+suZ
 bLO
 bMQ
 bMQ
@@ -98033,7 +98287,7 @@ bLt
 sTs
 bMl
 bMl
-bLz
+wjr
 bMR
 bMR
 bMR
@@ -98044,7 +98298,7 @@ bLr
 aah
 dac
 vSj
-vSj
+aPQ
 vSj
 jQg
 dsb
@@ -98061,7 +98315,7 @@ wnF
 bMQ
 bNk
 uiN
-bMQ
+fcx
 wrH
 bLr
 bMl
@@ -98566,7 +98820,7 @@ bLr
 bLr
 bLr
 eWy
-bLO
+suZ
 bLO
 bMQ
 bMQ
@@ -98801,7 +99055,7 @@ bLr
 bMl
 bMl
 bMl
-pEO
+cwA
 bME
 bMm
 bMR
@@ -99316,11 +99570,11 @@ bMU
 xYy
 bMl
 hIs
-txX
+gxn
 txX
 txp
 bMR
-bMz
+cLi
 bMF
 bMK
 bMF
@@ -99340,7 +99594,7 @@ bLO
 bLO
 bMQ
 bMQ
-bMQ
+fcx
 bMQ
 bNc
 dPA
@@ -99593,7 +99847,7 @@ bLr
 bMW
 bMl
 bLO
-bLO
+suZ
 bLO
 bMQ
 row
@@ -99827,7 +100081,7 @@ bMl
 bLr
 bLr
 txX
-txX
+gxn
 txX
 hIs
 ecI
@@ -100344,7 +100598,7 @@ bLr
 bLN
 bLS
 bLz
-bLz
+wjr
 bMR
 bMR
 bMR
@@ -100355,7 +100609,7 @@ bNc
 bNc
 bNc
 bMQ
-bMQ
+fcx
 bMQ
 bNi
 bNn
@@ -100599,7 +100853,7 @@ bLr
 bLr
 bLr
 bLr
-bLQ
+ycl
 bLz
 bMH
 bMR
@@ -100607,7 +100861,7 @@ bMR
 bMR
 bMg
 bMR
-bNc
+dmJ
 bNc
 bMK
 bMF
@@ -100617,12 +100871,12 @@ bMQ
 bMG
 bMQ
 bMQ
+fcx
 bMQ
 bMQ
 bMQ
 bMQ
-bMQ
-bNo
+sFe
 jnr
 uiN
 lJV
@@ -100861,7 +101115,7 @@ bLz
 bLZ
 bMR
 bMR
-bMR
+jrA
 bMz
 bNu
 bMF
@@ -101381,7 +101635,7 @@ bMR
 bLL
 bMR
 bMF
-bNu
+pul
 bNc
 bMF
 bNc
@@ -101886,7 +102140,7 @@ bLr
 bLr
 bLr
 sYz
-xew
+mQi
 bMn
 bMa
 bMR
@@ -101909,7 +102163,7 @@ bNu
 bNc
 bNu
 bNc
-bNc
+dmJ
 eoI
 epL
 bLr
@@ -102160,7 +102414,7 @@ exq
 bMF
 bNc
 bMV
-bMF
+mKO
 bNc
 bNc
 bMV
@@ -102916,7 +103170,7 @@ bMo
 bMo
 bMo
 bMo
-bMo
+noL
 bMo
 bMo
 bMo
