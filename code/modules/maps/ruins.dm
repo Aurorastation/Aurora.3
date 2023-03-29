@@ -17,16 +17,16 @@ var/list/banned_ruin_ids = list()
 	var/remaining = budget
 
 	for(var/datum/map_template/ruin/ruin in potentialRuins)
-		if (ruin.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED)
+		if(ruin.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED)
 			force_spawn |= ruin
 			continue
-		if (ruin.id in banned_ruin_ids)
+		if(ruin.id in banned_ruin_ids)
 			continue
 		if(!(SSatlas.current_sector.name in ruin.sectors) && !ignore_sector)
 			continue
 		available[ruin] = ruin.spawn_weight
 
-	if (!length(available) && !length(force_spawn))
+	if(!length(available) && !length(force_spawn))
 		UNLINT(WARNING("No ruins available - Not generating ruins"))
 
 	for(var/datum/map_template/ruin/ruin in force_spawn)
@@ -52,9 +52,9 @@ var/list/banned_ruin_ids = list()
 		load_ruin(choice, ruin)
 		selected += ruin
 
-		if (ruin.spawn_cost > 0)
+		if(ruin.spawn_cost > 0)
 			remaining -= ruin.spawn_cost
-		if (!(ruin.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
+		if(!(ruin.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
 			banned_ruin_ids += ruin.id
 			available -= ruin
 
@@ -81,7 +81,7 @@ var/list/banned_ruin_ids = list()
 
 	var/valid = TRUE
 
-	for (var/attempts = 20, attempts > 0, --attempts)
+	for(var/attempts = 20, attempts > 0, --attempts)
 		var/z = pick(zlevels)
 		var/turf/choice = locate(rand(width, max_x - width), rand(height, max_y - height), z)
 

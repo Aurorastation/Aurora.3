@@ -1246,7 +1246,6 @@
 		/obj/item/clothing/head/hardhat/firefighter = 0.1
 	)
 
-
 /obj/random/highvalue
 	name = "random high valuable item"
 	desc = "This is a random high valuable item."
