@@ -24544,8 +24544,7 @@
 /obj/machinery/door/window/eastleft,
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4;
-	layer = 3.5;
-	start_pressure = 1,013.25
+	layer = 3.5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
