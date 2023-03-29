@@ -1,6 +1,0 @@
-author: atteria
-
-delete-after: True
-
-changes:
-  - imageadd: "Exoplanet snow is now smoothable rather than hard edges."
