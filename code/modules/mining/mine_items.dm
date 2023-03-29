@@ -825,7 +825,7 @@
 	if(isliving(target) && proximity_flag)
 		if(istype(target, /mob/living/simple_animal))
 			var/mob/living/simple_animal/M = target
-			if(!(M.find_type() & revive_type))
+			if(!(M.find_type() & revive_type) || !(M.tameable))
 				to_chat(user, SPAN_INFO("\The [src] does not work on this sort of creature."))
 				return
 			if(M.stat == DEAD)

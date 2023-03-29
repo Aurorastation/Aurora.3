@@ -1207,7 +1207,7 @@
 		)
 	else if(user.a_intent == I_DISARM)
 		user.visible_message(
-			SPAN_NOTICE("<b>\The [user]</b> squeezes the \the [src]."),
+			SPAN_NOTICE("<b>\The [user]</b> squeezes \the [src]."),
 			SPAN_NOTICE("You squeeze \the [src].")
 		)
 	else if(user.a_intent == I_GRAB)

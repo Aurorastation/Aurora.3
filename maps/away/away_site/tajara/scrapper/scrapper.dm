@@ -25,6 +25,7 @@
 	)
 	comms_support = TRUE
 	comms_name = "adhomian scrapper"
+	icon_state = "outpost"
 	color = "#DAA06D"
 
 /obj/effect/shuttle_landmark/tajara_scrapper

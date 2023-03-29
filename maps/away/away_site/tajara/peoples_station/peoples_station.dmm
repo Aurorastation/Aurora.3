@@ -2278,9 +2278,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/table/rack,
 /obj/item/inflatable_dispenser,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -7387,7 +7387,7 @@
 "Hj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = -6;
 	pixel_y = 8
