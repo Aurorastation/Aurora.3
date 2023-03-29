@@ -1,0 +1,9 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed an issue that prevented several ruins from spawning on exoplanets."
+  - bugfix: "Fixed ruin spawns being partially / wholly deleted by landing zones, causing unit test failures and, of course, deleted ruins."
+  - backend: "Changed the ruin tag system to more appropriately reflect types that actually want to be filtered for. Added planetary tags to restrict ruins by planet type."
+  - backend: "The away site testing map now attempts to build one of each exoplanet (excluding lore planets) and one of each ruin."
