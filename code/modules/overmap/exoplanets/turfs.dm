@@ -113,7 +113,6 @@
 	icon = 'icons/turf/smooth/snow40.dmi'
 	icon_state = "snow0"
 	dirt_color = "#e3e7e8"
-	layer = LOWER_ON_TURF_LAYER
 	footstep_sound = /singleton/sound_category/snow_footstep
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE

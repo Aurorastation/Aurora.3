@@ -55,17 +55,15 @@
 
 	if(decals && decals.len)
 		for(var/image/I in decals)
-			if(I.plane != DECAL_PLATING_LAYER)
-				continue
 			add_overlay(I)
 
 	if(!isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
 		if(flooring.has_damage_state)
 			add_overlay(get_damage_overlay("[flooring.icon_base]_broken[broken]", flooring_icon = flooring.icon))
 		else
-			add_overlay(get_damage_overlay("broken[tile_outline ? "_[tile_outline]" : ""][broken]", BLEND_MULTIPLY))
+			add_overlay(get_damage_overlay("broken[damage_overlay ? "_[damage_overlay]" : ""][broken]", BLEND_MULTIPLY))
 	if(!isnull(burnt) && (flooring.flags & TURF_CAN_BURN))
-		add_overlay(get_damage_overlay("burned[tile_outline ? "_[tile_outline]" : ""][burnt]"))
+		add_overlay(get_damage_overlay("burned[damage_overlay ? "_[damage_overlay]" : ""][burnt]"))
 
 	if(update_neighbors)
 		for(var/turf/simulated/floor/F in RANGE_TURFS(1, src))

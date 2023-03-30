@@ -7,6 +7,7 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	tile_outline = "carpet"
+	damage_overlay = "carpet"
 	initial_flooring = /singleton/flooring/carpet
 	footstep_sound = /singleton/sound_category/carpet_footstep
 
@@ -151,6 +152,7 @@
 	tile_outline = "tiled"
 	tile_decal_state = "tiled_light"
 	tile_outline_alpha = 125
+	damage_overlay = "tiled"
 
 /turf/simulated/floor/tiled/cooled
 	name = "cooled steel tiles"
@@ -162,6 +164,7 @@
 	initial_flooring = /singleton/flooring/tiling/mono
 	tile_outline = "monotile"
 	tile_decal_state = "monotile_light"
+	damage_overlay = null
 
 /turf/simulated/floor/tiled/full/airless
 	name = "airless full steel tile"
@@ -263,6 +266,7 @@
 	initial_flooring = /singleton/flooring/tiling/dark/full
 	tile_outline = "monotile"
 	tile_decal_state = "monotile_dark_light"
+	damage_overlay = null
 
 /turf/simulated/floor/tiled/dark/full/airless
 	name = "airless full plasteel tile"
@@ -292,6 +296,7 @@
 /turf/simulated/floor/tiled/asteroid
 	icon_state = "asteroidfloor"
 	initial_flooring = /singleton/flooring/tiling/asteroid
+	damage_overlay = null
 
 /turf/simulated/floor/tiled/asteroid/airless
 	oxygen = 0
@@ -311,6 +316,7 @@
 	tile_outline_alpha = 75
 	tile_decal_state = "white"
 	initial_flooring = /singleton/flooring/tiling/white
+	damage_overlay = null
 
 /turf/simulated/floor/tiled/yellow
 	name = "yellow floor"
@@ -346,6 +352,7 @@
 	icon_state = "lino_diamond"
 	initial_flooring = /singleton/flooring/linoleum/diamond
 	tile_outline = "tiled"
+	damage_overlay = "tiled"
 
 //ATMOS PREMADES
 /turf/simulated/floor/reinforced/airless

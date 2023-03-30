@@ -13,6 +13,7 @@
 	var/initial_flooring
 	var/singleton/flooring/flooring
 	var/mineral = DEFAULT_WALL_MATERIAL
+	var/damage_overlay // self-explanatory. see floor_icon.dm
 
 	thermal_conductivity = 0.040
 	heat_capacity = 10000

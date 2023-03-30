@@ -33,7 +33,7 @@
 	var/footstep_sound = /singleton/sound_category/tiles_footstep
 
 	//How we smooth with other flooring
-	var/decal_layer = ON_TURF_LAYER
+	var/decal_layer = DECAL_LAYER
 	var/floor_smooth = SMOOTH_ALL
 	var/list/flooring_whitelist = list() //Smooth with nothing except the contents of this list
 	var/list/flooring_blacklist = list() //Smooth with everything except the contents of this list
