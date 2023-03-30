@@ -1499,7 +1499,7 @@
 					descriptor = "huge"
 				else
 					descriptor = "gargantuan"
-			heightString = "[get_pronoun("He")] look[get_pronoun("s")] [descriptor] for \a [selfCarbon.species.name]"
+			heightString = "[get_pronoun("He")] look[get_pronoun("end")] [descriptor] for \a [selfCarbon.species.name]"
 
 
 	if(examiner.height == HEIGHT_NOT_USED)
@@ -1521,7 +1521,7 @@
 		else
 			descriptor = "to tower over"
 	if(heightString)
-		return heightString + ", and [get_pronoun("he")] seem[get_pronoun("s")] [descriptor] you."
-	return "[get_pronoun("He")] seem[get_pronoun("s")] [descriptor] you."
+		return heightString + ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
+	return "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."
 
 
