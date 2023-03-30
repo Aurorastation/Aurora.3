@@ -281,6 +281,10 @@
 	user.visible_message(msg, self_msg)
 	affected.open = ORGAN_OPEN_RETRACTED
 
+	if(!affected.encased)
+		for(var/obj/item/implant/I in affected.implants)
+			I.exposed()
+
 /singleton/surgery_step/generic/retract_skin/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/msg = SPAN_WARNING("[user]'s hand slips, tearing the edges of the incision on [target]'s [affected.name] with \the [tool]!")

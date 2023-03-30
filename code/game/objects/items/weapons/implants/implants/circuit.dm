@@ -3,9 +3,10 @@
 	desc = "It's a case, for building very tiny electronics with."
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_implant"
+	known = TRUE
 	var/obj/item/device/electronic_assembly/implant/IC = null
 
-/obj/item/implant/integrated_circuit/islegal()
+/obj/item/implant/integrated_circuit/isLegal()
 	return TRUE
 
 /obj/item/implant/integrated_circuit/Initialize()
