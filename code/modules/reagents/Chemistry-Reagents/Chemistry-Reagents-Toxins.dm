@@ -661,6 +661,12 @@
 	taste_description = "acrid smoke"
 	nicotine = 0.1
 
+/singleton/reagent/toxin/tobacco/sweet 
+	name = "Sweet Tobacco"
+	description = "This tobacco is much sweeter than the strains usually found in human space."
+	taste_description = "sweet tobacco"
+	nicotine = 0.3
+
 /singleton/reagent/toxin/tobacco/liquid
 	name = "Nicotine Solution"
 	description = "A diluted nicotine solution."

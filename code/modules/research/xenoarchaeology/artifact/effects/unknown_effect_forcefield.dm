@@ -38,6 +38,9 @@
 /datum/artifact_effect/forcefield/UpdateMove()
 	if(created_field.len && holder)
 		var/turf/T = get_turf(holder)
+
+		if(!T)
+			return
 		while(created_field.len < 16)
 			//for now, just instantly respawn the fields when they get destroyed
 			var/obj/effect/energy_field/E = new (locate(T.x,T.y,T))
