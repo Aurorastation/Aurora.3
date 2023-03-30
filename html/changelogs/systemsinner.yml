@@ -1,0 +1,6 @@
+author: RyverStyx
+
+delete-after: True
+
+changes:
+  - tweak: "Changes the core world origin to inner systems."
