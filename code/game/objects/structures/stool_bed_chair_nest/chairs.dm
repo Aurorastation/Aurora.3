@@ -55,7 +55,7 @@
 			return FALSE
 	return ..()
 
-/obj/structure/chair/fancy //base for any chair with armrests
+/obj/structure/bed/stool/chair/fancy
 	name = "fancy chair"
 	desc = "The armrests give you a signature feeling of superiority."
 	icon_state = "chair_fancy"
