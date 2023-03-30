@@ -237,3 +237,11 @@
 /obj/item/clothing/under/rank/machinist/orion
 	icon_state = "orion_machinist"
 	item_state = "orion_machinist"
+
+/obj/item/clothing/under/rank/security/heph
+    name = "hephaestus security officer uniform"
+    desc = "A green-and-orange uniform worn by Security Officers of smaller Hephaestus Industries vessels."
+    icon = 'icons/clothing/under/uniforms/heph.dmi'
+    icon_state = "heph_security"
+    item_state = "heph_security"
+    contained_sprite = TRUE

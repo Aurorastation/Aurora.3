@@ -1690,8 +1690,8 @@
 /obj/item/clothing/under/rank/liaison/heph,
 /obj/item/clothing/accessory/pin/corporate/heph,
 /obj/item/clothing/head/beret/corporate/heph,
-/obj/item/gun/energy/disruptorpistol,
 /obj/item/storage/belt/security/full,
+/obj/item/clothing/under/rank/security/heph,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "yg" = (
@@ -1969,10 +1969,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "AE" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 5
-	},
 /obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/orange/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3604,7 +3604,16 @@
 	dir = 8;
 	pixel_x = 30
 	},
-/obj/structure/table/standard,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Anti-Piracy Locker"
+	},
+/obj/item/gun/projectile/automatic/rifle/carbine,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/gun/projectile/automatic/x9,
+/obj/item/gun/projectile/automatic/x9,
+/obj/item/ammo_magazine/c45m/auto,
+/obj/item/ammo_magazine/c45m/auto,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "SX" = (
