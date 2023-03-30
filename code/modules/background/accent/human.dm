@@ -269,16 +269,16 @@
 
 /datum/accent/pluto
 	name = ACCENT_PLUTO
-	description = "Rooted in a combination of Central Asian and Eastern European dialects, the Plutonian accent is notable for its slow, methodical method of speech. \
-	Very few positronics can be found with this accent, due to Pluto's unusual relationship with corporations."
+	description = "The Plutonian accent is one of many Sol Common accents found throughout the Sol System itself, though it is almost undoubtedly the furthest one out from the Sun itself. Rooted in a combination \
+	of Central Asian and Eastern European dialects, the Plutonian accent is notable for its slow, methodical method of speech. Very few positronics can be found with this accent, due to Pluto's unusual relationship with corporations."
 	tag_icon = "pluto"
 	text_tag = "PLU"
 
 /datum/accent/assunzione
 	name = ACCENT_ASSUNZIONE
-	description = "The Assunzionii accent is one of the most unusual found in the Coalition of Colonies, due to the planet's colonial roots in the Mediterranean. Heavily influenced by Romance languages, the Assunzionii dialect is \
-	most notable for its elegant-sounding and evenly-paced method of speaking compared to rougher-sounding Coalition and frontier dialects. Liturgical Assunzionii, distinguished by its use of archaic language, is a small subset of this dialect, \
-	and is generally only spoken during Luceian services."
+	description = "The Assunzionii accent is one of the most unusual found in the Coalition of Colonies, due to the planet's colonial roots in the Mediterranean. Heavily influenced by Romance languages the Assunzionii dialect is \
+	most notable for its elegant-sounding and evenly-paced method of speaking compared to rougher-sounding Coalition and frontier dialects. Liturgical Assunzionii is a small subset of this dialect, and is generally only spoken during \
+	Luceian services and can be distinguished by its use of archaic language."
 	tag_icon = "assunzione"
 	text_tag = "ASU"
 
@@ -320,7 +320,7 @@
 
 /datum/accent/persepolis
 	name = ACCENT_PERSEPOLIS
-	description = "Well-known across Elyra for its rapid-fire, energetic cadence, the Persepolitian accent is characterised by a vibrant and fast-paced nature that represents the New Ankaran Jewel's cosmopolitanism. \
+	description = "Well-known across Elyra for its rapid-fire, energetic cadence, the Persepolitian accent is characterised by a vibrant and fast-paced nature that represents the New Ankaran Jewel's cosmopolitan nature. \
 	Speakers of this variant of Elyran Standard tend to be affluent and well-cultured, in keeping with the Elyran capital's general prosperity."
 	tag_icon = "persepolis"
 	text_tag = "PER"
