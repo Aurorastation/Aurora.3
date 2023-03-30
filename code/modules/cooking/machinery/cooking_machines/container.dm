@@ -301,19 +301,37 @@
 	QDEL_NULL(temp) //delete buffer object
 	return ..()
 
-/obj/item/reagent_containers/cooking_container/board/do_empty(mob/user)
-	. = ..()
-	icon_state = initial(icon_state)
-
-/obj/item/reagent_containers/cooking_container/board/attackby(obj/item/I, mob/user)
-	. = ..()
-	if(length(contents)) // Only if something was actually added.
-		icon_state = "[initial(icon_state)]_prep"
 
 /obj/item/reagent_containers/cooking_container/board/on_reagent_change()
-	. = ..()
-	if(reagents.total_volume) // Only if something was actually added.
+	update_icon()
+
+/obj/item/reagent_containers/cooking_container/board/pickup(mob/user)
+	..()
+	update_icon()
+
+/obj/item/reagent_containers/cooking_container/board/dropped(mob/user)
+	..()
+	update_icon()
+
+
+/obj/item/reagent_containers/cooking_container/board/attack_hand()
+	..()
+	update_icon()
+
+
+/obj/item/reagent_containers/cooking_container/board/do_empty(mob/user)
+	..()
+	update_icon()
+
+/obj/item/reagent_containers/cooking_container/board/attackby(obj/item/I, mob/user)
+	..()
+	update_icon()
+
+/obj/item/reagent_containers/cooking_container/board/update_icon()
+	if(length(contents)) // Only if something was actually added.
 		icon_state = "[initial(icon_state)]_prep"
+	else
+		icon_state = initial(icon_state)
 
 /obj/item/reagent_containers/cooking_container/board/bowl
 	name = "mixing bowl"
@@ -328,26 +346,6 @@
 	volume = 180
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,180)
-
-
-/obj/item/reagent_containers/cooking_container/board/bowl/on_reagent_change()
-	update_icon()
-
-
-/obj/item/reagent_containers/cooking_container/board/bowl/pickup(mob/user)
-	..()
-	update_icon()
-
-
-/obj/item/reagent_containers/cooking_container/board/bowl/dropped(mob/user)
-	..()
-	update_icon()
-
-
-/obj/item/reagent_containers/cooking_container/board/bowl/attack_hand()
-	..()
-	update_icon()
-
 
 /obj/item/reagent_containers/cooking_container/board/bowl/update_icon()
 	cut_overlays()
