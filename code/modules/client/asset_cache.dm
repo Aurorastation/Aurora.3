@@ -486,6 +486,8 @@ var/list/asset_datums = list()
 		"snow.png" = 'html/images/scans/exoplanets/snow.png',
 		"adhomai.png" = 'html/images/scans/exoplanets/adhomai.png',
 		"raskara.png" = 'html/images/scans/exoplanets/raskara.png',
+		"comet.png" = 'html/images/scans/exoplanets/comet.png',
+		"asteroid.png" = 'html/images/scans/exoplanets/asteroid.png',
 		//end scan images
 		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
 		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',

@@ -24,7 +24,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
 	scanimage = "nka_freighter.png"
-	designer = "New Kingdom of Adhomai"
+	designer = "NanoTrasen, New Kingdom of Adhomai"
 	volume = "49 meters length, 28 meters beam/width, 11 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
 	weapons = "Not apparent, port obscured flight craft bay"

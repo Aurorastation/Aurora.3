@@ -74,7 +74,10 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid
 	name = "mineral asteroid"
 	desc = "A large, resource rich asteroid."
+	massvolume = "Miniscule, not immediately apparent in mass"
+	surfacegravity = "Miniscule, non-obstructive gravity well"
 	surface_color = COLOR_GRAY
+	scanimage = "asteroid.png"
 	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich)
 	rock_colors = list(COLOR_ASTEROID_ROCK)
 	planetary_area = /area/exoplanet/barren/asteroid

@@ -57,7 +57,7 @@
 	..()
 
 /obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship/get_skybox_representation()
-	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "tramp_freighter")
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "tcfl_corvette")
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image

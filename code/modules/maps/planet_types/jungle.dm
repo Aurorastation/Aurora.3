@@ -1,6 +1,6 @@
 /obj/effect/overmap/visitable/sector/exoplanet/grass/grove
 	name = "grove exoplanet"
-	desc = "Planet with abundant, peaceful flora and fauna."
+	desc = "A temperate planet with abundant, peaceful flora and fauna."
 	color = "#346934"
 	scanimage = "grove.png"
 	planetary_area = /area/exoplanet/grass/grove

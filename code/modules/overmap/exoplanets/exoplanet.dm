@@ -406,6 +406,7 @@
 	. += "<br><b>Charted: </b><small>[charted]</small>"
 	. += "<br><b>Geological Variables: </b><small>[geology]</small>"
 	. += "<br><b>Surface Water Coverage: </b><small>[surfacewater]</small>"
+	. += "<br><b>Apparent Weather Data: </b><small>[weather]</small>"
 	. += "<hr>"
 	. += "<br><center><b>Visible Light Viewport Magnified</b>"
 	. += "<br><img src = [scanimage]>"
@@ -422,16 +423,16 @@
 				gases += gas_data.name[g]
 		extra_data += "<b>Atmosphere composition:</b> [english_list(gases)]"
 		var/inaccuracy = rand(8,12)/10
-		extra_data += "<b>Atmosphere pressure:</b> [atmosphere.return_pressure()*inaccuracy] <b>kPa, temperature:</b> [atmosphere.temperature*inaccuracy] K"
+		extra_data += "<b>Atmosphere pressure:</b> [atmosphere.return_pressure()*inaccuracy] kPa, <b>temperature:</b> [atmosphere.temperature*inaccuracy] K"
 
 	if(seeds.len)
-		extra_data += "<br>Unrecognized xenoflora detected"
+		extra_data += "<br>Unrecognized xenoflora detected."
 
 	if(animals.len)
-		extra_data += "<br>Unrecognized xenofauna detected"
+		extra_data += "<br>Unrecognized xenofauna detected."
 
 	else
-		extra_data += "<br>No unrecognized biological signatures detected"
+		extra_data += "<br>No unrecognized biological signatures detected."
 
 	if(LAZYLEN(spawned_features))
 		var/ruin_num = 0

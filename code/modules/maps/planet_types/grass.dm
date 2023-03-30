@@ -1,8 +1,11 @@
 /obj/effect/overmap/visitable/sector/exoplanet/grass
 	name = "lush exoplanet"
-	desc = "Planet with abundant flora and fauna."
+	desc = "An exoplanet with abundant flora and fauna."
 	color = "#407c40"
-	scanimage = "grove.png"
+	scanimage = "jungle.png"
+	geology = "High-energy geothermal signature, tectonic activity non-obstructive to surface environment"
+	weather = "Global full-atmosphere hydrological weather system. Dangerous meteorological activity not present"
+	surfacewater = "63% surface water, majority readings not visibly potable. Expected mineral toxicity or salt presence in water bodies"
 	planetary_area = /area/exoplanet/grass
 	rock_colors = list(COLOR_ASTEROID_ROCK, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#0e1e14","#1a3e38","#5a7467","#9eab88","#6e7248", "RANDOM")

@@ -1,8 +1,11 @@
 /obj/effect/overmap/visitable/sector/exoplanet/snow
 	name = "snow exoplanet"
-	desc = "Cold planet with limited plant life."
+	desc = "A frigid exoplanet with limited plant life."
 	color = "#dcdcdc"
 	scanimage = "snow.png"
+	geology = "Non-existent tectonic activity, minimal geothermal signature"
+	weather = "Global full-atmosphere hydrological weather system. Barely-habitable ambient low temperatures. Frequently dangerous, unpredictable meteorological upsets"
+	surfacewater = "Majority frozen, 70% surface water"
 	planetary_area = /area/exoplanet/snow
 	rock_colors = list(COLOR_DARK_BLUE_GRAY, COLOR_GUNMETAL, COLOR_GRAY80, COLOR_DARK_GRAY)
 	plant_colors = list("#d0fef5","#93e1d8","#93e1d8", "#b2abbf", "#3590f3", "#4b4e6d")
