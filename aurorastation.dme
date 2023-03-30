@@ -1206,6 +1206,7 @@
 #include "code\game\objects\structures\gore\wall.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\bed.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\chairs.dm"
+#include "code\game\objects\structures\stool_bed_chair_nest\sofa.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\stools.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\wheelchair.dm"
 #include "code\game\objects\structures\vr\_remote_chair.dm"

@@ -2074,7 +2074,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "jMP" = (
-/obj/structure/bed/stool/chair/sofa/corner/red{
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -2290,7 +2290,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/racers)
 "lev" = (
-/obj/structure/bed/stool/chair/sofa/corner/red{
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
@@ -3424,7 +3424,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/racers)
 "qII" = (
-/obj/structure/bed/stool/chair/sofa/corner/red{
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
@@ -3950,7 +3950,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/racers)
 "thI" = (
-/obj/structure/bed/stool/chair/sofa/corner/red,
+/obj/structure/bed/stool/chair/sofa/corner/concave/red,
 /turf/simulated/floor/carpet,
 /area/racers)
 "tjm" = (

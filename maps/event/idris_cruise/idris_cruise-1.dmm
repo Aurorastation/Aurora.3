@@ -3806,7 +3806,7 @@
 	},
 /area/cruise/jungle)
 "cUA" = (
-/obj/structure/bed/stool/chair/sofa/corner/red,
+/obj/structure/bed/stool/chair/sofa/corner/concave/red,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -26002,7 +26002,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair/sofa/corner/red,
+/obj/structure/bed/stool/chair/sofa/corner/concave/red,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"

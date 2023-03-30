@@ -11225,7 +11225,7 @@
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "iYp" = (
-/obj/structure/bed/stool/chair/sofa/corner/brown{
+/obj/structure/bed/stool/chair/sofa/corner/concave/brown{
 	dir = 1
 	},
 /obj/machinery/light{
@@ -23964,7 +23964,7 @@
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "tbL" = (
-/obj/structure/bed/stool/chair/sofa/corner/brown,
+/obj/structure/bed/stool/chair/sofa/corner/concave/brown,
 /obj/machinery/light{
 	dir = 1
 	},

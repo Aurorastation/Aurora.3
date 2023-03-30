@@ -37331,7 +37331,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "klh" = (
-/obj/structure/bed/stool/chair/sofa/corner/brown{
+/obj/structure/bed/stool/chair/sofa/corner/concave/brown{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/purple,
@@ -38426,7 +38426,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
 "thp" = (
-/obj/structure/bed/stool/chair/sofa/corner/brown{
+/obj/structure/bed/stool/chair/sofa/corner/concave/brown{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/purple,

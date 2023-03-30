@@ -662,7 +662,7 @@
 /turf/simulated/floor/lino/grey,
 /area/space_bar)
 "hyy" = (
-/obj/structure/bed/stool/chair/sofa/corner/red{
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
@@ -747,7 +747,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "iVQ" = (
-/obj/structure/bed/stool/chair/sofa/corner/red{
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -1205,7 +1205,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "tmd" = (
-/obj/structure/bed/stool/chair/sofa/corner/red,
+/obj/structure/bed/stool/chair/sofa/corner/concave/red,
 /turf/simulated/floor/carpet,
 /area/space_bar)
 "tnT" = (
@@ -1422,7 +1422,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/space_bar)
 "xjB" = (
-/obj/structure/bed/stool/chair/sofa/corner/red{
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,

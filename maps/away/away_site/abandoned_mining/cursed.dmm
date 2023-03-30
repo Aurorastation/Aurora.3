@@ -551,7 +551,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "cXE" = (
-/obj/structure/bed/stool/chair/sofa/corner,
+/obj/structure/bed/stool/chair/sofa/corner/concave,
 /turf/simulated/floor/carpet,
 /area/cursed/living_area)
 "dcH" = (
