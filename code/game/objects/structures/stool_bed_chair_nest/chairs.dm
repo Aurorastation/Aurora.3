@@ -303,6 +303,19 @@
 	base_icon = "folding_chair"
 	origin_type = /obj/structure/bed/stool/chair/folding
 
+/obj/item/material/stool/chair/plastic
+	icon_state = "plastic_chair_item"
+	item_state = "plastic_chair"
+	base_icon = "plastic_chair"
+	origin_type = /obj/structure/bed/stool/chair/wood/wings
+
+/obj/item/material/stool/chair/wood/wings
+	icon_state = "wooden_chair_wings_item"
+	item_state = "woodenchair"
+	base_icon = "wooden_chair_wings"
+	origin_type = /obj/structure/bed/stool/chair/wood/wings
+
+
 //Maybe if you tried hard, you could sit on these too.
 /obj/structure/bed/handrail
 	name = "handrail"
