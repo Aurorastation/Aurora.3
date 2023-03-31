@@ -165,7 +165,7 @@
 	held_item = /obj/item/chair/stool/bamboo
 	can_pad = FALSE
 
-/obj/structure/bed/stool/hover/New(var/newloc)
+/obj/structure/bed/stool/bamboo/New(var/newloc)
 	..(newloc, MATERIAL_BAMBOO)
 
 // Stool Items
