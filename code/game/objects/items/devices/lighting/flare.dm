@@ -36,11 +36,6 @@
 		update_damage()
 		if(!fuel)
 			src.icon_state = "[initial(icon_state)]-empty"
-		turn_off()
-		update_damage()
-		if(!fuel)
-			src.icon_state = "[initial(icon_state)]-empty"
-		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/device/flashlight/flare/update_icon()
 	..()
@@ -147,9 +142,6 @@
 		STOP_PROCESSING(SSprocessing, src)
 		turn_off()
 		update_damage()
-		turn_off()
-		update_damage()
-		STOP_PROCESSING(SSprocessing, src)
 		if(!fuel)
 			var/obj/item/torch/T = new(pos)
 			if(ismob(src.loc))
