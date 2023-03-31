@@ -29,7 +29,7 @@ BREATH ANALYZER
 	if(last_scan <= world.time - 20) //Spam limiter.
 		last_scan = world.time
 		sound_scan = TRUE
-	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a succesful scan
+	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
 	health_scan_mob(M, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
 
