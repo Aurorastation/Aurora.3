@@ -36,12 +36,15 @@
 
 	var/list/map_generators = list()
 
-	//Flags deciding what features to pick
-	var/ruin_tags_whitelist
-	var/ruin_tags_blacklist
 	var/features_budget = 4
 	var/list/possible_features = list()
 	var/list/spawned_features
+	/// List of ruin types that can be chosen from; supercedes ruin tags system, ignores TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
+	var/list/ruin_type_whitelist
+	// Ruin tags: used to dynamically select what ruins are valid for this exoplanet, if any
+	// See code/__defines/ruin_tags.dm
+	var/ruin_planet_type = PLANET_BARREN
+	var/ruin_allowed_tags = RUIN_ALL_TAGS
 
 	var/habitability_class
 
@@ -49,7 +52,6 @@
 	var/generated_name = TRUE
 	var/ring_chance = 20 //the chance of this exoplanet spawning with a ring on its sprite
 
-	var/list/possible_random_ruins
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
 	var/roll = rand(1,100)
@@ -87,12 +89,19 @@
 	if(LAZYLEN(possible_themes))
 		var/datum/exoplanet_theme/T = pick(possible_themes)
 		theme = new T
-	if(possible_random_ruins)
-		for(var/T in possible_random_ruins)
+	if(ruin_type_whitelist)
+		for(var/T in ruin_type_whitelist)
 			var/datum/map_template/ruin/exoplanet/ruin = T
-			if(ruin_tags_whitelist && !(ruin_tags_whitelist & initial(ruin.ruin_tags)))
+			possible_features += new ruin
+	else
+		for(var/T in subtypesof(/datum/map_template/ruin/exoplanet))
+			var/datum/map_template/ruin/exoplanet/ruin = T
+			if((initial(ruin.template_flags) & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				continue
-			if(ruin_tags_blacklist & initial(ruin.ruin_tags))
+			if(!(ruin_planet_type in initial(ruin.planet_types)))
+				continue
+			var/filtered_tags = initial(ruin.ruin_tags) & ruin_allowed_tags
+			if(filtered_tags != initial(ruin.ruin_tags))
 				continue
 			possible_features += new ruin
 	..()
@@ -109,7 +118,17 @@
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/pre_ruin_preparation()
-	return
+	switch(habitability_class)
+		if(HABITABILITY_IDEAL)
+			if(prob(75))
+				ruin_allowed_tags |= RUIN_HIGHPOP
+			ruin_allowed_tags &= ~RUIN_AIRLESS
+		if(HABITABILITY_OKAY)
+			if(prob(25))
+				ruin_allowed_tags |= RUIN_HIGHPOP
+			ruin_allowed_tags &= ~RUIN_AIRLESS
+		if(HABITABILITY_BAD)
+			ruin_allowed_tags |= RUIN_AIRLESS
 
 //attempt at more consistent history generation for xenoarch finds.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_engravings()
@@ -305,7 +324,7 @@
 //There is also a sanity check to ensure that the map isnt too small to handle the landing spot
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_landing(num = 1)
 	var/places = list()
-	var/attempts = 20*num
+	var/attempts = 20
 	var/new_type = landmark_type
 
 	//sanity-check map size
@@ -323,16 +342,19 @@
 		if(!T || (T in places)) // Two landmarks on one turf is forbidden as the landmark code doesn't work with it.
 			continue
 		if(attempts >= 0) // While we have the patience, try to find better spawn points. If out of patience, put them down wherever, so long as there are no repeats.
-			var/valid = 1
-			var/list/block_to_check = block(locate(T.x - 10, T.y - 10, T.z), locate(T.x + 10, T.y + 10, T.z))
+			var/valid = TRUE
+			var/list/block_to_check = block(locate(T.x - LANDING_ZONE_RADIUS, T.y - LANDING_ZONE_RADIUS, T.z), locate(T.x + LANDING_ZONE_RADIUS, T.y + LANDING_ZONE_RADIUS, T.z))
+			// Ruins check - try to avoid blowing up ruins with our LZ
+			// We do this until we run out of attempts
 			for(var/turf/check in block_to_check)
 				if(!istype(get_area(check), /area/exoplanet) || check.flags & TURF_NORUINS)
-					valid = 0
+					valid = FALSE
 					break
+			// Landability check - try to find an already-open space for an LZ
 			if(attempts >= 10)
-				if(check_collision(T.loc, block_to_check)) //While we have lots of patience, ensure landability
-					valid = 0
-			else //Running out of patience, but would rather not clear ruins, so switch to clearing landmarks and bypass landability check
+				if(check_collision(T.loc, block_to_check))
+					valid = FALSE
+			else // If we're running low on attempts we try to make our own LZ, ignoring landability but still checking for ruins
 				new_type = /obj/effect/shuttle_landmark/automatic/clearing
 
 			if(!valid)
@@ -341,6 +363,7 @@
 		num--
 		places += T
 		new new_type(T)
+		attempts = 20
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_atmosphere()
 	atmosphere = new
