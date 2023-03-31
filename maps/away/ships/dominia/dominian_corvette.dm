@@ -72,7 +72,7 @@
 	moving_state = "lammergeier_moving"
 	colors = list("#df1032", "#d4296b")
 	scanimage = "dominian_corvette.png"
-	designer = "Imperial Navy, Empire of Dominia"
+	designer = "Zhurong Naval Arsenal, Empire of Dominia"
 	volume = "42 meters length, 75 meters beam/width, 18 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
 	weapons = "Dual wingtip-mounted extruding medium-caliber ballistic armament, aft obscured flight craft bay"

@@ -25,7 +25,7 @@
 	designer = "People's Republic of Adhomai"
 	volume = "101 meters length, 115 meters beam/width, 32 meters vertical height"
 	weapons = "Dual extruding starboard-mounted medium and small caliber ballistic armament, two port obscured flight craft bays"
-	sizeclass = "Small-scale surveillance station"
+	sizeclass = "Armed military surveillance and waypoint station"
 
 	initial_generic_waypoints = list(
 		"nav_peoples_station_ship_1",

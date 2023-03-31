@@ -94,7 +94,7 @@
 	moving_state = "corvette_moving"
 	colors = list("#9dc04c", "#52c24c")
 	scanimage = "corvette.png"
-	designer = "Solarian Core, Hephaestus Industries"
+	designer = "Solarian Navy"
 	volume = "41 meters length, 43 meters beam/width, 19 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
 	weapons = "Dual extruding fore caliber ballistic armament, fore obscured flight craft bay"

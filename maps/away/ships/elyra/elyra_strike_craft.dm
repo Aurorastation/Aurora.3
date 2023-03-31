@@ -30,7 +30,7 @@
 	moving_state = "corvette_moving"
 	colors = list("#ffae17", "#ffcd70")
 	scanimage = "elyran_corvette.png"
-	designer = "Elyran Navy, internal design"
+	designer = "Jewel Aerospace, Republic of Elyra"
 	volume = "32 meters length, 43 meters beam/width, 12 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
 	weapons = "Dual extruding fore-mounted medium caliber ballistic armament, fore obscured flight craft bay"
