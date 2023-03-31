@@ -24,10 +24,6 @@
 	. = ..()
 	fuel = rand(4 MINUTES, 6 MINUTES)
 
-/obj/item/device/flashlight/flare/Destroy()
-	. = ..()
-	STOP_PROCESSING(SSprocessing, src)
-
 /obj/item/device/flashlight/flare/process()
 	if(produce_heat)
 		var/turf/pos = get_turf(src)
