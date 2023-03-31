@@ -307,7 +307,7 @@
 	icon_state = "plastic_chair_item"
 	item_state = "plastic_chair"
 	base_icon = "plastic_chair"
-	origin_type = /obj/structure/bed/stool/chair/wood/wings
+	origin_type = /obj/structure/bed/stool/chair/plastic
 
 /obj/item/material/stool/chair/wood/wings
 	icon_state = "wooden_chair_wings_item"
