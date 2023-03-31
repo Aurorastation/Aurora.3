@@ -154,7 +154,7 @@
 	..(newloc, MATERIAL_SHUTTLE_SKRELL)
 	set_light(1,1,LIGHT_COLOR_CYAN)
 
-/obj/structure/chair/stool/bamboo
+/obj/structure/bed/chair/stool/bamboo
 	name = "bamboo stool"
 	desc = "A makeshift bamboo stool with a rustic look."
 	icon_state = "bamboo_stool_item"
