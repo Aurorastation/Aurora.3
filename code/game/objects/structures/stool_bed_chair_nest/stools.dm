@@ -162,7 +162,7 @@
 	base_icon = "bamboo_stool"
 	icon_state = "bamboo_stool"
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
-	origin_type = /obj/item/chair/stool/bamboo
+	held_item = /obj/item/chair/stool/bamboo
 	can_pad = FALSE
 
 /obj/structure/bed/stool/hover/New(var/newloc)
