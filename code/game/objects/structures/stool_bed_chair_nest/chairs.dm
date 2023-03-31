@@ -176,7 +176,7 @@
 /obj/structure/bed/stool/chair/plastic/New(var/newloc)
 	..(newloc, MATERIAL_PLASTIC)
 
-/obj/structure/bed/stool/chair/plastic/post_buckle() //you do not want to see an angry spaceman speeding while holding dearly onto it
+/obj/structure/bed/stool/chair/plastic/post_buckle(atom/movable/MA) //you do not want to see an angry spaceman speeding while holding dearly onto it
 	. = ..()
 	if(MA == buckled)
 		anchored = TRUE
