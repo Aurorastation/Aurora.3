@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed mixing bowls turning invisible."
+  - bugfix: "Fixed the scrapper outpost being invisible."
