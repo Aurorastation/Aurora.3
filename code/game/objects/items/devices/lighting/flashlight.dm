@@ -166,20 +166,6 @@
 		..()
 	else
 		return ..()
-	if(user.get_inactive_hand() == src)
-		if(cell)
-			cell.update_icon()
-			user.put_in_hands(cell)
-			cell = null
-			to_chat(user, SPAN_NOTICE("You remove the cell from \the [src]."))
-			playsound(src, 'sound/machines/click.ogg', 30, 1, 0)
-			on = FALSE
-			STOP_PROCESSING(SSprocessing, src)
-			update_icon()
-			return
-		..()
-	else
-		return ..()
 
 /obj/item/device/flashlight/attackby(obj/item/W, mob/user)
 	if(power_use)
