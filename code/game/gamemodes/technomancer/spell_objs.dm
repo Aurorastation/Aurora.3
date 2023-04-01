@@ -32,7 +32,7 @@
 		)
 	throwforce = 0
 	force = 0
-//	var/mob/living/carbon/human/owner = null
+//	var/mob/living/carbon/teshari/owner = null
 	var/mob/living/owner = null
 	var/obj/item/technomancer_core/core = null
 	var/cast_methods = null			// Controls how the spell is casted.
@@ -126,7 +126,7 @@
 /mob/living/proc/get_technomancer_core()
 	return null
 
-/mob/living/carbon/human/get_technomancer_core()
+/mob/living/carbon/teshari/get_technomancer_core()
 	var/obj/item/technomancer_core/core = back
 	if(istype(core))
 		return core
@@ -209,7 +209,7 @@
 // Proc: get_other_hand()
 // Parameters: 1 (I - item being compared to determine what the offhand is)
 // Description: Helper for Aspect spells.
-/mob/living/carbon/human/proc/get_other_hand(var/obj/item/I)
+/mob/living/carbon/teshari/proc/get_other_hand(var/obj/item/I)
 	if(r_hand == I)
 		return l_hand
 	else
@@ -275,8 +275,8 @@
 
 // Proc: place_spell_in_hand()
 // Parameters: 1 (path - the type path for the spell that is desired.)
-// Description: Gives the spell to the human mob, if it is allowed to have spells, hands are not full, etc.  Otherwise it deletes itself.
-/mob/living/carbon/human/place_spell_in_hand(var/path)
+// Description: Gives the spell to the teshari mob, if it is allowed to have spells, hands are not full, etc.  Otherwise it deletes itself.
+/mob/living/carbon/teshari/place_spell_in_hand(var/path)
 	if(!path || !ispath(path))
 		return 0
 

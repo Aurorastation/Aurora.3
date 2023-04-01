@@ -19,8 +19,8 @@
 	icon_state_broken = icon_state
 
 /obj/item/modular_computer/handheld/wristbound/attack_hand(mob/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.wrists == src || H.wear_id == src)
 			return attack_self(user)
 	..()
@@ -34,7 +34,7 @@
 		var/obj/screen/inventory/S = over_object
 		if(S.slot_id == equip_slot)
 			return
-	if(ishuman(usr))
+	if(isteshari(usr))
 		if(!(istype(over_object, /obj/screen)))
 			return ..()
 

@@ -60,8 +60,8 @@
 		QDEL_IN(src, 2 MINUTES)
 
 /obj/effect/decal/cleanable/greenglow/post_sweep(var/mob/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		H.apply_radiation(5)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/Initialize(mapload)

@@ -42,7 +42,7 @@ var/datum/antagonist/revolutionary/revs
 	if(!..())
 		return
 	global_objectives = list()
-	for(var/mob/living/carbon/human/player in mob_list)
+	for(var/mob/living/carbon/teshari/player in mob_list)
 		if(!player.mind || player.stat == DEAD || !(player.mind.assigned_role in command_positions))
 			continue
 		var/datum/objective/rev/rev_obj = new
@@ -58,7 +58,7 @@ var/datum/antagonist/revolutionary/revs
 			return FALSE
 	return TRUE
 
-/datum/antagonist/revolutionary/equip(var/mob/living/carbon/human/player)
+/datum/antagonist/revolutionary/equip(var/mob/living/carbon/teshari/player)
 
 	if(!..())
 		return FALSE
@@ -72,7 +72,7 @@ var/datum/antagonist/revolutionary/revs
 	INVOKE_ASYNC(src, PROC_REF(alert_revolutionary_status), player)
 	return TRUE
 
-/datum/antagonist/revolutionary/proc/alert_revolutionary_status(var/mob/living/carbon/human/player) //This is so dumb.
+/datum/antagonist/revolutionary/proc/alert_revolutionary_status(var/mob/living/carbon/teshari/player) //This is so dumb.
 	alert(player, "As a Head Revolutionary you are given an uplink with a lot of telecrystals. \
 				Your goal is to create and progress a story. Use the announcement device you spawn with to whip people into a frenzy, \
 				and the uplink disguised as a radio to equip them. DO NOT PLAY THIS ROLE AS A SUPER TRAITOR. \

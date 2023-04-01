@@ -83,8 +83,8 @@
 
 		if(2) //Gunshot
 			sound_to(holder, 'sound/weapons/gunshot/gunshot1.ogg')
-			if(ishuman(holder))
-				var/mob/living/carbon/human/H = holder
+			if(isteshari(holder))
+				var/mob/living/carbon/teshari/H = holder
 				var/obj/item/organ/external/O = pick(H.organs)
 				O.add_pain(15)
 				to_chat(holder, SPAN_DANGER("You feel a sharp pain in your [O.name]!")) //phantom pain reaction to audio

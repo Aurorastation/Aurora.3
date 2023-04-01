@@ -18,7 +18,7 @@
 	clicksound = 'sound/machines/buttonbeep.ogg'
 	clickvol = 30
 
-	var/mob/living/carbon/human/occupant = null
+	var/mob/living/carbon/teshari/occupant = null
 	var/list/available_chemicals = list(
 		/singleton/reagent/inaprovaline,
 		/singleton/reagent/soporific,
@@ -32,7 +32,7 @@
 	var/pump = FALSE
 	var/list/stasis_settings = list(1, 2, 5, 10)
 	var/stasis = 1
-	var/allow_occupant_types = list(/mob/living/carbon/human)
+	var/allow_occupant_types = list(/mob/living/carbon/teshari)
 	var/disallow_occupant_types = list()
 	var/display_loading_message = TRUE
 
@@ -65,7 +65,7 @@
 				for(var/_x in occupant.reagents.reagent_volumes)
 					occupant.reagents.trans_to_obj(beaker, 3)
 					pumped++
-				if(ishuman(occupant))
+				if(isteshari(occupant))
 					occupant.vessel.trans_to_obj(beaker, pumped + 1)
 		else
 			toggle_filter()
@@ -156,8 +156,8 @@
 				LAZYADD(stomach_reagents, list(stomach_reagent))
 			if(LAZYLEN(stomach_reagents))
 				data["stomachreagents"] = stomach_reagents.Copy()
-		if(ishuman(occupant))
-			var/mob/living/carbon/human/H = occupant
+		if(isteshari(occupant))
+			var/mob/living/carbon/teshari/H = occupant
 			data["pulse"] = H.get_pulse(GETPULSE_TOOL)
 
 		var/list/reagents = list()
@@ -269,7 +269,7 @@
 		return TRUE
 
 /obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
-	if(user.stat || user.lying || !Adjacent(user) || !target.Adjacent(user)|| !ishuman(target))
+	if(user.stat || user.lying || !Adjacent(user) || !target.Adjacent(user)|| !isteshari(target))
 		return
 
 	var/mob/living/L = target

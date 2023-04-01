@@ -1597,7 +1597,7 @@
 		/obj/item/aiModule/purge = 1,
 		/obj/item/aiModule/quarantine = 1,
 		/obj/item/aiModule/freeform = 1,
-		/obj/item/aiModule/oneHuman = 0.5,
+		/obj/item/aiModule/oneteshari = 0.5,
 		/obj/item/aiModule/oxygen = 1
 	)
 

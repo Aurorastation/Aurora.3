@@ -13,7 +13,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 
 	brightness_on = 6
 	refittable = FALSE
@@ -35,12 +35,12 @@
 	slowdown = 1
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 	refittable = FALSE
 
 /obj/item/clothing/head/helmet/space/void/coalition
 	name = "coalition vulture voidsuit helmet"
-	desc = "A helmet resembling an avian, built for the Human head. Heavy and plated with plasteel across its faces."
+	desc = "A helmet resembling an avian, built for the teshari head. Heavy and plated with plasteel across its faces."
 	icon_state = "vulture"
 	item_state = "vulture"
 	armor = list(
@@ -53,7 +53,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 
 	brightness_on = 6
 	refittable = FALSE
@@ -75,7 +75,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 	refittable = FALSE
 
 
@@ -94,7 +94,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 	w_class = ITEMSIZE_NORMAL
 	brightness_on = 6
 	refittable = FALSE
@@ -116,7 +116,7 @@
 	slowdown = 1
 	allowed = list(/obj/item/tank,/obj/item/device/flashlight,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 	refittable = FALSE
 
 /obj/item/clothing/head/helmet/space/void/valkyrie
@@ -134,7 +134,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000
 	brightness_on = 6
 	refittable = FALSE
@@ -156,7 +156,7 @@
 	)
 	allowed = list(/obj/item/tank,/obj/item/device/flashlight,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 	refittable = FALSE
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000
 
@@ -175,7 +175,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 	refittable = FALSE
 
 /obj/item/clothing/head/helmet/space/void/lancer/unathi
@@ -201,7 +201,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/lancer/unathi
@@ -228,7 +228,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_teshari, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 	light_overlay = "helmet_light_banshee"
 	brightness_on = 6
 	light_color = "#7ffbf7"
@@ -255,7 +255,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_teshari, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 	desc_extended = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
 	refittable = FALSE
 
@@ -278,7 +278,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_teshari, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 	light_overlay = "helmet_light_dragon"
 	brightness_on = 6
 	light_color = "#7ffbf7"
@@ -305,7 +305,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_teshari, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit. It is relatively fragile but has very apparent radiation shielding. Most often seen in the hands of post-disaster cleanup teams and private military contractors."
 	refittable = FALSE
 
@@ -328,7 +328,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 	light_overlay = "helmet_light_caiman"
 	brightness_on = 6
 	light_color = "#ffce01"
@@ -355,7 +355,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 	desc_extended = "An easily recognized Hephaestus terraforming suit. Used often on jungle worlds to handle local wildlife and safely deforest areas in hostile environments. It found recent popularity due to its combat effectiveness that resulted in its proliferation in the hands of Hephaestus private military."
 	refittable = FALSE
 
@@ -378,7 +378,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 	light_overlay = "helmet_light_revenant"
 	brightness_on = 6
 	light_color = "#f65858"
@@ -405,7 +405,7 @@
 	slowdown = 1
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 	desc_extended = "A portable, sleek combat suit utilized in excess by Zavodskoi Interstellar private military contractors. It is known to be utilized by the company's most secretive sectors explicitly for espionage."
 
 //Freelancer voidsuit
@@ -424,7 +424,7 @@
 		rad = ARMOR_RAD_RESISTANT
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_teshari, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 	light_overlay = "freelancer_light"
 	brightness_on = 6
 	light_color = "#7ffbf7"
@@ -448,7 +448,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_teshari, BODYTYPE_SKRELL, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 
 /obj/item/clothing/head/helmet/space/void/dominia
 	name = "dominian prejoroub combat helmet"
@@ -468,7 +468,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 	brightness_on = 6
 
 /obj/item/clothing/head/helmet/space/void/dominia/voidsman
@@ -505,7 +505,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 
 /obj/item/clothing/suit/space/void/dominia/voidsman
 	name = "dominian voidsman suit"
@@ -538,7 +538,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_teshari, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 	brightness_on = 6
 
 /obj/item/clothing/suit/space/void/golden_deep
@@ -562,7 +562,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_teshari, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 
 /obj/item/clothing/head/helmet/space/void/mining/himeo
 	name = "himeo mining voidsuit helmet"

@@ -72,7 +72,7 @@
 
 //Processes the occupant, drawing from the internal power cell if needed.
 /obj/machinery/recharge_station/proc/process_occupant()
-	if(!isrobot(occupant) && !ishuman(occupant))
+	if(!isrobot(occupant) && !isteshari(occupant))
 		return
 
 	var/obj/item/cell/target
@@ -89,8 +89,8 @@
 		if(wire_rate && R.getFireLoss() && cell.checked_use(wire_power_use * wire_rate * CELLRATE))
 			R.adjustFireLoss(-wire_rate)
 
-	if(ishuman(occupant))
-		var/mob/living/carbon/human/H = occupant
+	if(isteshari(occupant))
+		var/mob/living/carbon/teshari/H = occupant
 		var/obj/item/organ/internal/cell/IC = H.internal_organs_by_name[BP_CELL]
 		if(IC)
 			target = IC.cell
@@ -236,8 +236,8 @@
 		var/mob/living/silicon/robot/R = M
 		if(R.cell)
 			return TRUE
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(!isnull(H.internal_organs_by_name[BP_CELL]))
 			return TRUE
 		if(istype(H.back, /obj/item/rig))
@@ -308,7 +308,7 @@
 		return
 
 	else if(isipc(C)) // IPCs don't take as long
-		var/mob/living/carbon/human/machine/R = C
+		var/mob/living/carbon/teshari/machine/R = C
 		if(!user.Adjacent(R) || !Adjacent(user))
 			to_chat(user, SPAN_DANGER("You need to get closer if you want to put [C] into that charger!"))
 			return

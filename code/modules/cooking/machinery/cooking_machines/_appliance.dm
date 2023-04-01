@@ -576,8 +576,8 @@
 	var/digest_product_type = victim.get_digestion_product() // DOES NOT RETURN A DECL, RETURNS A PATH
 	var/list/data
 	var/meat_name = result.kitchen_tag || victim.name
-	if(ishuman(victim))
-		var/mob/living/carbon/human/CH = victim
+	if(isteshari(victim))
+		var/mob/living/carbon/teshari/CH = victim
 		meat_name = CH.species?.name || meat_name
 	if(ispath(digest_product_type, /singleton/reagent/nutriment/protein))
 		data = list("[meat_name] meat" = reagent_amount)

@@ -20,7 +20,7 @@
 
 //ghost roles
 
-/datum/ghostspawner/human/ala_base
+/datum/ghostspawner/teshari/ala_base
 	short_name = "ala_base_soldier"
 	name = "Adhomai Liberation Army Soldier"
 	desc = "Man the Adhomai Liberation Army outpost in Adhomai."
@@ -57,7 +57,7 @@
 	return list(access_dpra)
 
 
-/datum/ghostspawner/human/ala_base/officer
+/datum/ghostspawner/teshari/ala_base/officer
 	short_name = "ala_base_officer"
 	name = "Adhomai Liberation Army Officer"
 	desc = "Command the forces in the Liberation Army outpost"

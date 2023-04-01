@@ -59,7 +59,7 @@
 /obj/machinery/door_timer/examine(mob/user)
 	. = ..()
 	if(stat & (NOPOWER|BROKEN))	return
-	
+
 	if(src.timing)
 		var/second = round(timeleft() % 60)
 		var/minute = round((timeleft() - second) / 60)
@@ -167,7 +167,7 @@
 		broadcast_security_hud_message("The timer for [id] has expired.", src)
 
 	if(istype(incident))
-		var/mob/living/carbon/human/C = incident.criminal.resolve()
+		var/mob/living/carbon/teshari/C = incident.criminal.resolve()
 		var/datum/record/general/R = SSrecords.find_record("name", C.name)
 		if(istype(R) && istype(R.security))
 			if(early == 1)
@@ -203,13 +203,13 @@
 
 	return
 
-//Allows AIs to use door_timer, see human attack_hand function below
+//Allows AIs to use door_timer, see teshari attack_hand function below
 /obj/machinery/door_timer/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
 
-// Allows humans to use door_timer
+// Allows tesharis to use door_timer
 // Opens dialog window when someone clicks on door timer
 // Flasher activation limited to 150 seconds
 /obj/machinery/door_timer/attack_hand(var/mob/user)
@@ -368,7 +368,7 @@
 
 		if("activate")
 			src.timer_start()
-			var/mob/living/carbon/human/C = incident.criminal.resolve()
+			var/mob/living/carbon/teshari/C = incident.criminal.resolve()
 			var/datum/record/general/R = SSrecords.find_record("name", C.name)
 			if(R && R.security)
 				R.security.criminal = "Incarcerated"

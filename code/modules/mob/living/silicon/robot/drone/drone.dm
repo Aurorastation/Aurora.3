@@ -186,7 +186,7 @@
 	to_chat(src, SPAN_NOTICE("<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."))
 	to_chat(src, SPAN_NOTICE("You are assigned to an SCC construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
 	to_chat(src, SPAN_NOTICE("Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."))
-	to_chat(src, SPAN_NOTICE("<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."))
+	to_chat(src, SPAN_NOTICE("<b>You do not follow orders from anyone; not the AI, not tesharis, and not other synthetics.</b>."))
 
 /mob/living/silicon/robot/drone/construction/process_level_restrictions()
 	//Abort if they should not get blown

@@ -136,8 +136,8 @@
 					if(W.bleeding())
 						open_wound = TRUE
 						if(temp.applied_pressure)
-							if(ishuman(temp.applied_pressure))
-								var/mob/living/carbon/human/H = temp.applied_pressure
+							if(isteshari(temp.applied_pressure))
+								var/mob/living/carbon/teshari/H = temp.applied_pressure
 								H.bloody_hands(src, 0)
 							var/min_eff_damage = max(0, W.damage - 10) / 6
 							blood_max += max(min_eff_damage, W.damage - 30) / 40

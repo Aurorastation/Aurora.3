@@ -5,11 +5,11 @@
 	worn_state = "punpun"
 	species_restricted = list(BODYTYPE_MONKEY)
 
-/mob/living/carbon/human/monkey/punpun/Initialize()
+/mob/living/carbon/teshari/monkey/punpun/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/mob/living/carbon/human/monkey/punpun/LateInitialize()
+/mob/living/carbon/teshari/monkey/punpun/LateInitialize()
 	name = "Pun Pun"
 	real_name = name
 	named = TRUE
@@ -24,11 +24,11 @@
 	worn_state = "nupnup"
 	species_restricted = list(BODYTYPE_MONKEY)
 
-/mob/living/carbon/human/monkey/nupnup/Initialize()
+/mob/living/carbon/teshari/monkey/nupnup/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/mob/living/carbon/human/monkey/nupnup/LateInitialize()
+/mob/living/carbon/teshari/monkey/nupnup/LateInitialize()
 	name = "Winston, the Christmas Monkey"
 	real_name = name
 	gender = MALE

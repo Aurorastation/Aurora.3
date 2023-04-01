@@ -9,7 +9,7 @@
 /datum/game_mode/changeling/pre_setup()
 	round_description = "There are alien changelings on the [current_map.station_type]. Do not let the changelings succeed!"
 	extended_round_description = "Life always finds a way. However, life can sometimes take a more disturbing route. \
-		Humanity's extensive knowledge of xeno-biological specimens has made them confident and arrogant. Yet \
+		teshariity's extensive knowledge of xeno-biological specimens has made them confident and arrogant. Yet \
 		something slipped past their eyes. Something dangerous. Something alive. Most frightening of all, \
 		however, is that this something is someone. An unknown alien specimen has incorporated itself into \
 		the crew of the [current_map.station_type]. Its unique biology allows it to manipulate its own or anyone else's DNA. \

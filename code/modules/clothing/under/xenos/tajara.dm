@@ -5,7 +5,7 @@
 	icon_state = "taj_labor"
 	item_state = "taj_labor"
 	contained_sprite = TRUE
-	desc_extended = "Having direct and friendly contact with humanity, The People's Republic of Adhomai has been the most influenced by the spacer fashion. The most known \
+	desc_extended = "Having direct and friendly contact with teshariity, The People's Republic of Adhomai has been the most influenced by the spacer fashion. The most known \
 	being the \"assistant jumpsuits\" which directly inspired the design of factory overalls, the plight and low pay of the assistants being close to the hearts of Tajara Hadiist \
 	workers and their Republic."
 	no_overheat = TRUE
@@ -126,7 +126,7 @@
 	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
-	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
+	make the teshari clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
 /obj/item/clothing/under/dress/tajaran/blue
@@ -171,7 +171,7 @@
 	buttons.appearance_flags = RESET_COLOR
 	add_overlay(buttons)
 
-/obj/item/clothing/under/dress/tajaran/long/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/clothing/under/dress/tajaran/long/get_mob_overlay(var/mob/living/carbon/teshari/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_w_uniform_str)
 		var/image/buttons = image(mob_icon, null, "longdress_un_buttons")
@@ -209,7 +209,7 @@
 	item_state = "summer-pants"
 	contained_sprite = TRUE
 	starting_accessories = list(/obj/item/clothing/accessory/tajaran/summershirt)
-	desc_extended = "Having direct and friendly contact with humanity, The People's Republic of Adhomai has been the most influenced by the spacer fashion. The most known \
+	desc_extended = "Having direct and friendly contact with teshariity, The People's Republic of Adhomai has been the most influenced by the spacer fashion. The most known \
 	being the \"assistant jumpsuits\" which directly inspired the design of factory overalls, the plight and low pay of the assistants being close to the hearts of Tajara Hadiist \
 	workers and their Republic."
 
@@ -293,7 +293,7 @@
 	lining.appearance_flags = RESET_COLOR
 	add_overlay(lining)
 
-/obj/item/clothing/under/tajaran/nka_noble/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/clothing/under/tajaran/nka_noble/get_mob_overlay(var/mob/living/carbon/teshari/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_w_uniform_str)
 		var/image/lining = image(mob_icon, null, "nka_noble_uniform_un_lining")

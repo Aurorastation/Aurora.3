@@ -54,7 +54,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	else
 		return I.attack(src, user, selected_zone)
 
-/mob/living/carbon/human/attackby(obj/item/I, mob/user)
+/mob/living/carbon/teshari/attackby(obj/item/I, mob/user)
 	if(user == src && zone_sel?.selecting == BP_MOUTH && can_devour(I, silent = TRUE))
 		var/obj/item/blocked = src.check_mouth_coverage()
 		if(blocked)
@@ -133,13 +133,13 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		power *= 2
 	if(user.is_berserk())
 		power *= 1.5
-	if(ishuman(user))
-		var/mob/living/carbon/human/X = user
-		if(ishuman(target))
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/X = user
+		if(isteshari(target))
 			if(X.check_weapon_affinity(src))
 				perform_technique(target, X, hit_zone)
 
 	return target.hit_with_weapon(src, user, power, hit_zone)
 
-/obj/item/proc/perform_technique(var/mob/living/carbon/human/target, var/mob/living/carbon/human/user, var/target_zone)	//used when weapons have special interactions with martial arts
+/obj/item/proc/perform_technique(var/mob/living/carbon/teshari/target, var/mob/living/carbon/teshari/user, var/target_zone)	//used when weapons have special interactions with martial arts
 	return

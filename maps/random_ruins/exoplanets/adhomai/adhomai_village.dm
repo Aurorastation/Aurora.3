@@ -20,7 +20,7 @@
 
 //ghost roles
 
-/datum/ghostspawner/human/adhomai_village
+/datum/ghostspawner/teshari/adhomai_village
 	short_name = "adhomai_village"
 	name = "Adhomian Villager"
 	desc = "Live your life in a tiny Adhomian village."

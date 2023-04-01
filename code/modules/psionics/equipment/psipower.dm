@@ -43,7 +43,7 @@
 		owner.psi.spend_power(maintain_cost)
 	if(!owner || loc != owner || (owner.l_hand != src && owner.r_hand != src))
 		if(istype(loc,/mob/living))
-			var/mob/living/carbon/human/host = loc
+			var/mob/living/carbon/teshari/host = loc
 			if(istype(host))
 				for(var/obj/item/organ/external/organ in host.organs)
 					for(var/obj/item/O in organ.implants)

@@ -50,7 +50,7 @@
 	reagents = R
 	R.my_atom = src
 
-/obj/item/toy/waterballoon/attack(mob/living/carbon/human/M as mob, mob/user as mob)
+/obj/item/toy/waterballoon/attack(mob/living/carbon/teshari/M as mob, mob/user as mob)
 	return
 
 /obj/item/toy/waterballoon/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
@@ -534,8 +534,8 @@
 			src.item_state = "sword0"
 			src.w_class = ITEMSIZE_SMALL
 
-		if(istype(user,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = user
+		if(istype(user,/mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = user
 			H.update_inv_l_hand()
 			H.update_inv_r_hand()
 
@@ -586,8 +586,8 @@
 	do_pop()
 
 /obj/item/toy/snappop/Crossed(H as mob|obj)
-	if((ishuman(H))) //i guess carp and shit shouldn't set them off
-		var/mob/living/carbon/human/M = H
+	if((isteshari(H))) //i guess carp and shit shouldn't set them off
+		var/mob/living/carbon/teshari/M = H
 		if(M.shoes?.item_flags & LIGHTSTEP)
 			return
 		if(M.m_intent == M_RUN)

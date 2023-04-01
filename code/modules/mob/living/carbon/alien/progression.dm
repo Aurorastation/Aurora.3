@@ -24,7 +24,7 @@
 	if(!new_species || !adult_form )
 		return
 
-	var/mob/living/carbon/human/adult = new adult_form(get_turf(src))
+	var/mob/living/carbon/teshari/adult = new adult_form(get_turf(src))
 	adult.set_species(new_species)
 	show_evolution_blurb()
 	// TODO: drop a moulted skin. Ew.

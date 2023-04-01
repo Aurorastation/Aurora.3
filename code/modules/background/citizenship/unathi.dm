@@ -8,8 +8,8 @@
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
-			SPECIES_HUMAN,
-			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_teshari,
+			SPECIES_teshari_OFFWORLD,
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -31,7 +31,7 @@
 		)
 	)
 
-/datum/citizenship/izweski/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/izweski/get_objectives(mission_level, var/mob/living/carbon/teshari/H)
 	var/rep_objectives
 
 	switch(mission_level)
@@ -66,7 +66,7 @@
 	backpack_contents = list(/obj/item/device/camera = 1)
 	belt = /obj/item/gun/energy/pistol/hegemony
 
-/datum/outfit/job/representative/consular/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/representative/consular/izweski/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)

@@ -70,11 +70,11 @@
 	build_from_parts = TRUE
 	worn_overlay = "over"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
-	slot = ACCESSORY_SLOT_HEAD 
+	slot = ACCESSORY_SLOT_HEAD
 
 /obj/item/clothing/accessory/ear_warmers/attack_hand(mob/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.l_ear != src && H.r_ear != src)
 			return ..()
 
@@ -83,7 +83,7 @@
 			qdel(OE)
 
 	..()
-	
+
 /obj/item/clothing/accessory/ear_warmers/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc

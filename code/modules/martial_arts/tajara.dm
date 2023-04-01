@@ -6,7 +6,7 @@
 	name = "Baghrar"
 	help_verb = /datum/martial_art/baghrar/proc/baghrar_help
 
-/datum/martial_art/baghrar/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/baghrar/proc/check_streak(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(findtext(streak,EYE_RAKE))
 		streak = ""
 		eye_rake(A,D)
@@ -21,7 +21,7 @@
 		return 1
 	return 0
 
-/datum/martial_art/baghrar/proc/eye_rake(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/baghrar/proc/eye_rake(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(!istajara(A))
 		return 0
 	A.do_attack_animation(D)
@@ -52,7 +52,7 @@
 
 	return 1
 
-/datum/martial_art/baghrar/proc/claw_punch(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
+/datum/martial_art/baghrar/proc/claw_punch(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)//is actually lung punch
 	A.do_attack_animation(D)
 	A.visible_message("<span class='danger'>[A] lunges forwards and strikes [D] with their claws!</span>")
 	playsound(get_turf(A), 'sound/weapons/slice.ogg', 50, 1, -1)
@@ -62,7 +62,7 @@
 		D.apply_effect(4, WEAKEN)
 	return 1
 
-/datum/martial_art/baghrar/proc/rraknar_stab(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/baghrar/proc/rraknar_stab(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(!istajara(A))
 		return 0
 	A.do_attack_animation(D)
@@ -71,14 +71,14 @@
 	D.apply_damage(organ.brute_dam, DAMAGE_BRUTE, organ, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 	return 1
 
-/datum/martial_art/baghrar/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/baghrar/harm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("H",D)
 	if(check_streak(A,D))
 		return 1
 	basic_hit(A,D)
 	return 1
 
-/datum/martial_art/baghrar/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/baghrar/disarm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("D",D)
 	if(check_streak(A,D))
 		return 1

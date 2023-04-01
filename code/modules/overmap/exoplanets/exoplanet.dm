@@ -133,8 +133,8 @@
 //attempt at more consistent history generation for xenoarch finds.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_engravings()
 	if(!actors.len)
-		actors += pick("alien humanoid","an amorphic blob","a short, hairy being","a rodent-like creature","a robot","a primate","a reptilian alien","an unidentifiable object","a statue","a starship","unusual devices","a structure")
-		actors += pick("alien humanoids","amorphic blobs","short, hairy beings","rodent-like creatures","robots","primates","reptilian aliens")
+		actors += pick("alien tesharioid","an amorphic blob","a short, hairy being","a rodent-like creature","a robot","a primate","a reptilian alien","an unidentifiable object","a statue","a starship","unusual devices","a structure")
+		actors += pick("alien tesharioids","amorphic blobs","short, hairy beings","rodent-like creatures","robots","primates","reptilian aliens")
 
 	var/engravings = "[actors[1]] \
 	[pick("surrounded by","being held aloft by","being struck by","being examined by","communicating with")] \

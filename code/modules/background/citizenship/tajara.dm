@@ -9,8 +9,8 @@
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
-			SPECIES_HUMAN,
-			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_teshari,
+			SPECIES_teshari_OFFWORLD,
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -33,7 +33,7 @@
 		)
 	)
 
-/datum/citizenship/pra/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/pra/get_objectives(mission_level, var/mob/living/carbon/teshari/H)
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_LOW)
 			return "Ensure the loyalty of PRA Citizen to the Party and President Hadii. You must also promote the relationship between the [current_map.boss_name] and the People's Republic through diplomacy."
@@ -56,7 +56,7 @@
 /datum/citizenship/dpra
 	name = CITIZENSHIP_DPRA
 	description = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Liberation Army, a group made up of Tajara from almost every walk of life. \
-	Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
+	Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of teshariity, they aim \
 	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
 	nation they were fighting for the Democratic People's Republic of Adhomai. The DPRA is now lead by Purrjar Almrah Harrlala who is struggling to transition what was once a militant \
 	insurgency movement, then an organized military, into a modern, democratic nation. With the help of Nated as a government minister going out to negotiate with ruling Juntas to \
@@ -65,8 +65,8 @@
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
-			SPECIES_HUMAN,
-			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_teshari,
+			SPECIES_teshari_OFFWORLD,
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -89,7 +89,7 @@
 		)
 	)
 
-/datum/citizenship/dpra/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/dpra/get_objectives(mission_level, var/mob/living/carbon/teshari/H)
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_LOW)
 			return "Ensure that DPRA citizens are following the principles of Al'mariism. Defend the rights of the Tajara through diplomacy."
@@ -122,8 +122,8 @@
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
-			SPECIES_HUMAN,
-			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_teshari,
+			SPECIES_teshari_OFFWORLD,
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -146,7 +146,7 @@
 		)
 	)
 
-/datum/citizenship/nka/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/nka/get_objectives(mission_level, var/mob/living/carbon/teshari/H)
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_LOW)
 			return "Ensure that NKA citizens are loyal to the Crown. You must also promote the relationship between the [current_map.boss_name] and the New Kingdom through diplomacy."

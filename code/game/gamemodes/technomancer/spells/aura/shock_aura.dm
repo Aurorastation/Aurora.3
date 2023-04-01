@@ -28,7 +28,7 @@
 	for(var/mob/living/L in nearby_mobs)
 		if(is_ally(L))
 			continue
-		
+
 		if(L.loc == owner)
 			continue
 
@@ -36,8 +36,8 @@
 			to_chat(L, "<span class='danger'>ERROR: Electrical fault detected!</span>")
 			L.stuttering += 3
 
-		if(ishuman(L))
-			var/mob/living/carbon/human/H = L
+		if(isteshari(L))
+			var/mob/living/carbon/teshari/H = L
 			var/obj/item/organ/external/affected = H.get_organ(check_zone(BP_CHEST))
 			H.electrocute_act(power, src, H.get_siemens_coefficient_organ(affected), BP_CHEST)
 		else

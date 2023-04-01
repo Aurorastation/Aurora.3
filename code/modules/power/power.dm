@@ -292,8 +292,8 @@
 	//If following checks determine user is protected we won't alarm for long.
 	if(PN)
 		PN.trigger_warning(5)
-	var/mob/living/carbon/human/H
-	if(ishuman(M))
+	var/mob/living/carbon/teshari/H
+	if(isteshari(M))
 		H = M
 	if(H)
 		if(H.species.siemens_coefficient == 0)

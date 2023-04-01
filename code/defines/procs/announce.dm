@@ -106,7 +106,7 @@
 /proc/ion_storm_announcement()
 	command_announcement.Announce("It has come to our attention that the station passed through an ion storm.  Please monitor all electronic equipment for malfunctions.", "Anomaly Alert")
 
-/proc/AnnounceArrival(var/mob/living/carbon/human/character, var/rank, var/join_message)
+/proc/AnnounceArrival(var/mob/living/carbon/teshari/character, var/rank, var/join_message)
 	if(SSticker.current_state == GAME_STATE_PLAYING)
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title

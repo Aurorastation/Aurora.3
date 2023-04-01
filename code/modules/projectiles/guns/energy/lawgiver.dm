@@ -117,9 +117,9 @@
 
 /obj/item/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
 	if(src.dna != user.dna.unique_enzymes && !emagged)
-		if(istype(user, /mob/living/carbon/human))
+		if(istype(user, /mob/living/carbon/teshari))
 			//Save the users active hand
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/teshari/H = user
 			var/obj/item/organ/external/LA = H.get_organ(BP_L_ARM)
 			var/obj/item/organ/external/RA = H.get_organ(BP_R_ARM)
 			var/active_hand = H.hand
@@ -148,7 +148,7 @@
 		..()
 
 /obj/item/gun/energy/lawgiver/hear_talk(mob/living/M in range(0,src), msg)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if (!H || !istype(H))
 		return
 	if( (src.dna==H.dna.unique_enzymes || emagged) && (src in H.contents))

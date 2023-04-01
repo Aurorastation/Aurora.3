@@ -36,7 +36,7 @@
 /datum/outfit/admin/deathsquad/get_id_access()
 	return get_all_accesses()
 
-/datum/outfit/admin/deathsquad/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/deathsquad/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return

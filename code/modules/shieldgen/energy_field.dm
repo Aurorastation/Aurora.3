@@ -39,7 +39,7 @@
 		user.visible_message(SPAN_WARNING("[user] attacks \the [src] with \the [I]."), SPAN_WARNING("You attack \the [src] with \the [I]."))
 		Stress(I.force / 10)
 
-/obj/effect/energy_field/attack_hand(mob/living/carbon/human/H)
+/obj/effect/energy_field/attack_hand(mob/living/carbon/teshari/H)
 	if(istype(H))
 		if(H.species.can_shred(H))
 			H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

@@ -73,7 +73,7 @@
 	if(basecolor == "rainbow") basecolor = get_random_colour(1)
 	color = basecolor
 
-/obj/effect/decal/cleanable/blood/Crossed(mob/living/carbon/human/perp)
+/obj/effect/decal/cleanable/blood/Crossed(mob/living/carbon/teshari/perp)
 	if (!istype(perp))
 		return
 	if(dries && world.time > (bleed_time + drytime))
@@ -123,7 +123,7 @@
 	if(amount > 2 && prob(perp.slip_chance(perp.m_intent == M_RUN ? 20 : 5)))
 		perp.slip(src, 4)
 
-/obj/effect/decal/cleanable/blood/attack_hand(mob/living/carbon/human/user)
+/obj/effect/decal/cleanable/blood/attack_hand(mob/living/carbon/teshari/user)
 	..()
 	if(dries && world.time > (bleed_time + drytime))
 		amount = 0
@@ -142,7 +142,7 @@
 		user.bloody_hands = taken
 		user.hand_blood_color = basecolor
 		user.update_inv_gloves(1)
-		user.verbs += /mob/living/carbon/human/proc/bloody_doodle
+		user.verbs += /mob/living/carbon/teshari/proc/bloody_doodle
 
 /obj/effect/decal/cleanable/blood/splatter
         random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")

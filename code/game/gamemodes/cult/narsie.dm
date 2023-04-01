@@ -315,7 +315,7 @@ var/global/list/narsie_list = list()
 		acquire(pick(cultists))
 		return
 		//If there was living cultists, it picks one to follow.
-	for(var/mob/living/carbon/human/food in living_mob_list)
+	for(var/mob/living/carbon/teshari/food in living_mob_list)
 		if(food.stat)
 			continue
 		var/turf/pos = get_turf(food)
@@ -325,7 +325,7 @@ var/global/list/narsie_list = list()
 	if(cultists.len)
 		acquire(pick(cultists))
 		return
-		//no living cultists, pick a living human instead.
+		//no living cultists, pick a living teshari instead.
 	for(var/mob/abstract/observer/ghost in player_list)
 		if(!ghost.client)
 			continue
@@ -336,7 +336,7 @@ var/global/list/narsie_list = list()
 	if(cultists.len)
 		acquire(pick(cultists))
 		return
-		//no living humans, follow a ghost instead.
+		//no living tesharis, follow a ghost instead.
 
 /obj/singularity/narsie/proc/acquire(const/mob/food)
 	var/capname = uppertext(name)
@@ -344,7 +344,7 @@ var/global/list/narsie_list = list()
 	to_chat(target, "<span class='notice'><b>[capname] HAS LOST INTEREST IN YOU.</b></span>")
 	target = food
 
-	if (ishuman(target))
+	if (isteshari(target))
 		to_chat(target, "<span class='danger'>[capname] HUNGERS FOR YOUR SOUL.</span>")
 	else
 		to_chat(target, "<span class='danger'>[capname] HAS CHOSEN YOU TO LEAD HIM TO HIS NEXT MEAL.</span>")

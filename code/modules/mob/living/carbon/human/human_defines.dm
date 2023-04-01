@@ -1,4 +1,4 @@
-/mob/living/carbon/human
+/mob/living/carbon/teshari
 	// Tail Style
 	var/tail_style = null
 
@@ -97,7 +97,7 @@
 	var/list/gunshot_residue
 	var/pulling_punches // Are you trying not to hurt your opponent?
 
-	mob_bump_flag = HUMAN
+	mob_bump_flag = teshari
 	mob_push_flags = ~HEAVY
 	mob_swap_flags = ~HEAVY
 

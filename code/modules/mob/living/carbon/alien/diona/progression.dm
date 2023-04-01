@@ -1,5 +1,5 @@
 /mob/living/carbon/alien/diona/confirm_evolution()
-	var/response = alert(src, "Are you sure you wish to grow into a gestalt? Instead of being an individual nymph you'll become a group of them, for formed together to work as a more humanoid entity. As a gestalt you'll have hands and the ability to do most actions humans can such as opening doors and using tools, but you'll be unable to ventcrawl. If you've not already done so it's highly suggested you read over some of the dionae wiki to get a better understanding of the species before advancing further.", "Confirm Gestalt", "Growth!", "Patience...")
+	var/response = alert(src, "Are you sure you wish to grow into a gestalt? Instead of being an individual nymph you'll become a group of them, for formed together to work as a more tesharioid entity. As a gestalt you'll have hands and the ability to do most actions tesharis can such as opening doors and using tools, but you'll be unable to ventcrawl. If you've not already done so it's highly suggested you read over some of the dionae wiki to get a better understanding of the species before advancing further.", "Confirm Gestalt", "Growth!", "Patience...")
 	if(response != "Growth!")
 		return
 
@@ -43,7 +43,7 @@
 	visible_message(SPAN_WARNING("[src] erupts in a shower of shed bark as it splits into a tangle of new gestalt."),
 	SPAN_WARNING("All at once, we consume our stored nutrients to surge with growth, splitting into a tangle of new gestalt. We have attained a new form."))
 
-	var/mob/living/carbon/human/adult = new adult_form(get_turf(src))
+	var/mob/living/carbon/teshari/adult = new adult_form(get_turf(src))
 	show_evolution_blurb()
 
 	if(mind)

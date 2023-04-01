@@ -16,7 +16,7 @@
 
 	var/list/datum/power/vampire/purchased_powers = list()			// List of power datums available for use.
 	var/obj/effect/dummy/veil_walk/holder = null					// The veil_walk dummy.
-	var/mob/living/carbon/human/master = null	// The vampire/thrall's master.
+	var/mob/living/carbon/teshari/master = null	// The vampire/thrall's master.
 
 	var/image/master_image
 	var/image/thrall_image

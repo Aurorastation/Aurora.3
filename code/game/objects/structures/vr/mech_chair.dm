@@ -5,8 +5,8 @@
 
 /obj/structure/bed/stool/chair/remote/mech/user_buckle(mob/user)
 	..()
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		SSvirtualreality.mech_selection(H, remote_network)
 
 /obj/structure/bed/stool/chair/remote/mech/portable

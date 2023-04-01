@@ -73,7 +73,7 @@ datum/preferences
 	var/r_eyes = 0						//Eye color
 	var/g_eyes = 0						//Eye color
 	var/b_eyes = 0						//Eye color
-	var/species = SPECIES_HUMAN               //Species datum to use.
+	var/species = SPECIES_teshari               //Species datum to use.
 	var/species_preview                 //Used for the species selection window.
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() // Language prefix keys
@@ -338,11 +338,11 @@ datum/preferences
 	ShowChoices(usr)
 	return 1
 
-/datum/preferences/proc/copy_to(mob/living/carbon/human/character, icon_updates = 1)
+/datum/preferences/proc/copy_to(mob/living/carbon/teshari/character, icon_updates = 1)
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.
 	player_setup.sanitize_setup()
 
-	if(config.humans_need_surnames)
+	if(config.tesharis_need_surnames)
 		var/firstspace = findtext(real_name, " ")
 		var/name_length = length(real_name)
 		if(!firstspace)	//we need a surname
@@ -521,7 +521,7 @@ datum/preferences
 	user << browse(null, "window=saves")
 
 // Logs a character to the database. For statistics.
-/datum/preferences/proc/log_character(var/mob/living/carbon/human/H)
+/datum/preferences/proc/log_character(var/mob/living/carbon/teshari/H)
 	if (!config.sql_saves || !config.sql_stats || !establish_db_connection(dbcon) || !H)
 		return
 
@@ -579,14 +579,14 @@ datum/preferences
 		g_eyes = 0
 		b_eyes = 0
 
-		species = SPECIES_HUMAN
+		species = SPECIES_teshari
 		home_system = "Unset"
 		citizenship = "None"
 		faction = "None"
 		religion = "None"
 		accent = "None"
 
-		species = SPECIES_HUMAN
+		species = SPECIES_teshari
 
 		job_civilian_high = 0
 		job_civilian_med = 0

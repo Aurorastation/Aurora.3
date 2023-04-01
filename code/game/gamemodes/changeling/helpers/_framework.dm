@@ -59,7 +59,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(!changeling.GetDNA(newDNA.name)) // Don't duplicate - I wonder if it's possible for it to still be a different DNA? DNA code could use a rewrite
 		changeling.absorbed_dna += newDNA
 
-//Restores our verbs. It will only restore verbs allowed during lesser (monkey) form if we are not human
+//Restores our verbs. It will only restore verbs allowed during lesser (monkey) form if we are not teshari
 /mob/proc/make_changeling()
 
 	if(!mind)
@@ -70,7 +70,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	verbs += /datum/changeling/proc/EvolutionMenu
 	add_language("Changeling")
 
-	var/lesser_form = !ishuman(src)
+	var/lesser_form = !isteshari(src)
 
 	if(!powerinstances.len)
 		for(var/P in powers)
@@ -93,7 +93,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	for(var/language in languages)
 		changeling.absorbed_languages |= language
 
-	var/mob/living/carbon/human/H = src
+	var/mob/living/carbon/teshari/H = src
 	if(istype(H))
 		var/datum/absorbed_dna/newDNA = new(H.real_name, H.dna, H.species.get_cloning_variant(), H.languages)
 		absorbDNA(newDNA)

@@ -10,7 +10,7 @@
 		return FALSE
 
 	var/list/choices = list()
-	for(var/mob/living/carbon/human/H in view(1, src))
+	for(var/mob/living/carbon/teshari/H in view(1, src))
 		if(!Adjacent(H) || !H.client)
 			continue
 		if(is_diona(H) == DIONA_WORKER)
@@ -24,7 +24,7 @@
 		to_chat(src, SPAN_WARNING("You fail to merge with \the [M]..."))
 
 
-/mob/living/carbon/alien/diona/proc/do_merge(var/mob/living/carbon/human/H)
+/mob/living/carbon/alien/diona/proc/do_merge(var/mob/living/carbon/teshari/H)
 	if(!istype(H) || !Adjacent(H))
 		return FALSE
 
@@ -205,7 +205,7 @@
 		adjustNutritionLoss(-20)
 	else if (types & TYPE_WEIRD)
 		visible_message(SPAN_DANGER("[src] attempts to bite into [donor.name] but passes right through it!."), SPAN_DANGER("You attempt to sink your fangs into [donor.name] but pass right through it!"))
-	else if (ishuman(donor))
+	else if (isteshari(donor))
 		var/datum/dionastats/DS = get_dionastats()
 		if(DS)
 			DS.do_blood_suck(src, donor)
@@ -259,7 +259,7 @@
 
 	verbs.Remove(/mob/living/carbon/proc/echo_eject)
 
-/mob/living/carbon/human/proc/consume_nutrition_from_air()
+/mob/living/carbon/teshari/proc/consume_nutrition_from_air()
 	set category = "Abilities"
 	set name = "Toggle Consuming Air For Nutrition"
 	set desc = "Consumes air, restoring part of the nutrition."
@@ -274,7 +274,7 @@
 	consume_nutrition_from_air = !consume_nutrition_from_air
 	to_chat(src, SPAN_NOTICE("You [consume_nutrition_from_air ? "started" : "stopped"] consuming air for nutrition."))
 
-/mob/living/carbon/human/proc/create_structure()
+/mob/living/carbon/teshari/proc/create_structure()
 	set category = "Abilities"
 	set name = "Create Structure"
 	set desc = "Expend nymphs or biomass to create structures."

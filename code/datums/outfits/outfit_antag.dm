@@ -30,7 +30,7 @@
 	var/id_access = "Syndicate Operative"
 	var/uplink_uses = DEFAULT_TELECRYSTAL_AMOUNT
 
-/datum/outfit/admin/syndicate/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/syndicate/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -136,7 +136,7 @@
 
 	id_access = "Syndicate Agent"
 
-/datum/outfit/admin/syndicate/ninja/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/syndicate/ninja/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -160,7 +160,7 @@
 
 	id_iff = IFF_MERCENARY
 
-/datum/outfit/admin/syndicate/mercenary/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/syndicate/mercenary/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -338,7 +338,7 @@
 
 	backpack_contents = list()
 
-/datum/outfit/admin/syndicate/raider/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/syndicate/raider/equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 
 	new /obj/random/backpack(H.loc)
 	var/obj/item/storage/backpack/bag
@@ -373,7 +373,7 @@
 
 	return ..()
 
-/datum/outfit/admin/syndicate/raider/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/syndicate/raider/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -434,7 +434,7 @@
 
 	id_iff = IFF_BURGLAR
 
-/datum/outfit/admin/syndicate/burglar/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/syndicate/burglar/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -505,7 +505,7 @@
 	id = /obj/item/card/id/highlander
 	id_iff = IFF_HIGHLANDER
 
-/datum/outfit/admin/highlander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/highlander/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -535,7 +535,7 @@
 
 	id_iff = IFF_CULTIST
 
-/datum/outfit/admin/syndicate/cultist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/syndicate/cultist/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	return
 
 /datum/outfit/admin/syndicate/cultist/super
@@ -567,7 +567,7 @@
 
 	id_iff = IFF_BLUESPACE
 
-/datum/outfit/admin/syndicate/raider_techno/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/syndicate/raider_techno/equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	var/list/loadouts = list("Nature", "Techno", "Cobra", "Brawler", "Shimmer")
 	if(H.gender in list(FEMALE, PLURAL, NEUTER))
 		loadouts += list("Storm", "Sorceress")
@@ -609,7 +609,7 @@
 			back = /obj/item/technomancer_core/summoner
 	return ..()
 
-/datum/outfit/admin/syndicate/raider_techno/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/syndicate/raider_techno/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -659,7 +659,7 @@
 
 	var/id_assignment = "Technomagus"
 
-/datum/outfit/admin/techomancer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/techomancer/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -689,7 +689,7 @@
 
 	id_assignment = "Techno-apprentice"
 
-/datum/outfit/admin/techomancer/apprentice/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/techomancer/apprentice/post_equip(mob/living/carbon/teshari/H, visualsOnly)
 	. = ..()
 	if(visualsOnly)
 		return

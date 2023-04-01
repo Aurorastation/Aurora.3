@@ -41,7 +41,7 @@
 /datum/artifact_effect/badfeeling/DoEffectAura()
 	if(holder)
 		var/turf/T = get_turf(holder)
-		for(var/mob/living/carbon/human/H in range(effectrange,T))
+		for(var/mob/living/carbon/teshari/H in range(effectrange,T))
 			if(H.isSynthetic())
 				continue
 			if(prob(5))
@@ -57,7 +57,7 @@
 /datum/artifact_effect/badfeeling/DoEffectPulse()
 	if(holder)
 		var/turf/T = get_turf(holder)
-		for(var/mob/living/carbon/human/H in range(effectrange,T))
+		for(var/mob/living/carbon/teshari/H in range(effectrange,T))
 			if(H.isSynthetic())
 				continue
 			if(prob(50))
@@ -98,8 +98,8 @@
 		"You feel like the world is out to help you.")
 
 /datum/artifact_effect/goodfeeling/DoEffectTouch(var/mob/living/user)
-	if(ishuman(user) && !user.isSynthetic())
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user) && !user.isSynthetic())
+		var/mob/living/carbon/teshari/H = user
 		if(prob(50))
 			if(prob(75))
 				to_chat(H, "<b><font color='blue' size='[num2text(rand(1,5))]'>[pick(drastic_messages)]</b></font>")
@@ -112,7 +112,7 @@
 /datum/artifact_effect/goodfeeling/DoEffectAura()
 	if(holder)
 		var/turf/T = get_turf(holder)
-		for(var/mob/living/carbon/human/H in range(effectrange,T))
+		for(var/mob/living/carbon/teshari/H in range(effectrange,T))
 			if(H.isSynthetic())
 				continue
 			if(prob(5))
@@ -128,7 +128,7 @@
 /datum/artifact_effect/goodfeeling/DoEffectPulse()
 	if(holder)
 		var/turf/T = get_turf(holder)
-		for(var/mob/living/carbon/human/H in range(effectrange,T))
+		for(var/mob/living/carbon/teshari/H in range(effectrange,T))
 			if(H.isSynthetic())
 				continue
 			if(prob(50))

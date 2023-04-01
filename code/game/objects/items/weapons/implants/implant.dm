@@ -188,8 +188,8 @@ Implant Specifics:<BR>"}
 
 	message_admins("Explosive implant triggered in [imp_in] ([imp_in.key]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[imp_in.x];Y=[imp_in.y];Z=[imp_in.z]'>JMP</a>) ")
 	log_game("Explosive implant triggered in [imp_in] ([imp_in.key]).")
-	if(ishuman(imp_in))
-		var/mob/living/carbon/human/T = imp_in
+	if(isteshari(imp_in))
+		var/mob/living/carbon/teshari/T = imp_in
 		if(elevel == "Localized Limb" && part)
 			small_countdown()
 			return	//to avoid hotspot_expose.
@@ -211,7 +211,7 @@ Implant Specifics:<BR>"}
 /obj/item/implant/explosive/proc/small_countdown()
 	if(!imp_in)
 		visible_message(SPAN_WARNING("Something begins beeping..."))
-	if(ishuman(imp_in))
+	if(isteshari(imp_in))
 		var/message = "Something beeps inside of [imp_in][part ? "'s [part.name]" : ""]..." //for some reason SPAN_X and span() both hate having this in-line
 		imp_in.visible_message(SPAN_WARNING(message))
 	else if(ismob(imp_in))
@@ -222,7 +222,7 @@ Implant Specifics:<BR>"}
 /obj/item/implant/explosive/proc/small_boom()
 	if(!imp_in)
 		explosion(get_turf(src), -1, 0, 2, 4)
-	if(ishuman(imp_in) && part)
+	if(isteshari(imp_in) && part)
 		//No tearing off these parts since it's pretty much killing. Mangle them.
 		if(part.vital && !istype(part, /obj/item/organ/external/head)) //Head explodes
 			part.createwound(BRUISE, 70)
@@ -475,8 +475,8 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	desc = "Makes you loyal to the Sol Alliance, or to a certain individual."
 
 /obj/item/implant/mindshield/sol/implanted(mob/M)
-	if(!istype(M, /mob/living/carbon/human))	return 0
-	var/mob/living/carbon/human/H = M
+	if(!istype(M, /mob/living/carbon/teshari))	return 0
+	var/mob/living/carbon/teshari/H = M
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
 	if(antag_data && (antag_data.flags & ANTAG_IMPLANT_IMMUNE))
 		H.visible_message("[H] seems to resist the implant!", "You feel the tendrils of the Sol Alliance try to invade your mind!")
@@ -675,10 +675,10 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	<b>Integrity:</b> Implant will last so long as the nanobots are inside the bloodstream."}
 
 /obj/item/implant/aggression/implanted(mob/M)
-	if(!istype(M, /mob/living/carbon/human))
+	if(!istype(M, /mob/living/carbon/teshari))
 		return FALSE
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 
 	for(var/obj/item/implant/mindshield/I in H)
 		if(I.implanted)

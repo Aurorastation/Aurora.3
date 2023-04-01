@@ -147,7 +147,7 @@
 		if(!("[R.icon_state]_ba" in rig_states))
 			fail("[R.name]'s on-back module icon_state isn't in its icon file.")
 
-		var/list/species_to_check = list("") // blank means default, human
+		var/list/species_to_check = list("") // blank means default, teshari
 		if(length(R.icon_supported_species_tags))
 			species_to_check += R.icon_supported_species_tags
 

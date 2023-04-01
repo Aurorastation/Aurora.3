@@ -115,8 +115,8 @@
 
 /obj/structure/barricade/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		var/shredding = H.species.can_shred(H)
 		if(shredding)
 			var/datum/unarmed_attack/UA = H.default_attack
@@ -299,7 +299,7 @@
 	rotate(usr, -1)
 
 /obj/structure/barricade/rotate(var/mob/user, var/rotation_dir = -1)//-1 for clockwise, 1 for counter clockwise
-	if(world.time <= user.next_move || !ishuman(user) || use_check_and_message(user))
+	if(world.time <= user.next_move || !isteshari(user) || use_check_and_message(user))
 		return
 
 	if(anchored)

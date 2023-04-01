@@ -377,7 +377,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/mask/fluff/ird_mask //Titanium Faceplate - IRD - kyres1
 	name = "titanium faceplate"
-	desc = "An odd mask seeming to mimic the face of a Human with some artistic liberties taken. Small lights keep it dimly illuminated from within with holographic projectors emulating two bright blue eyes.  \
+	desc = "An odd mask seeming to mimic the face of a teshari with some artistic liberties taken. Small lights keep it dimly illuminated from within with holographic projectors emulating two bright blue eyes.  \
 	Its rigid frame is composed of what looks like polished titanium."
 	icon = 'icons/obj/custom_items/ird_face.dmi'
 	icon_override = 'icons/obj/custom_items/ird_face.dmi'
@@ -617,7 +617,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if((user == usr && (!(usr.restrained()) && (!(usr.stat) && (usr.contents.Find(src) || in_range(src, usr))))))
 		if(!istype(usr, /mob/living/carbon/slime) && !istype(usr, /mob/living/simple_animal))
 			if(!usr.get_active_hand()) // If active hand is empty.
-				var/mob/living/carbon/human/H = user
+				var/mob/living/carbon/teshari/H = user
 				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 
 				if(H.hand)
@@ -1020,7 +1020,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/akinyi_stand/MouseDrop(mob/user as mob)
 	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(ishuman(user))
+		if(isteshari(user))
 			forceMove(get_turf(user))
 			user.put_in_hands(src)
 			update_icon()
@@ -1088,7 +1088,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/poncho/fluff/amos_vest //Ouerean Vest - Amos Zhujian - dronzthewolf
 	name = "ourean vest"
-	desc = "A  thin vest made of separate colors, this one is brown and turquoise, with something written in Sinta'Unathi on the right breast. While this is a traditional cut vest, it's made of modern machine-woven fabrics as is commonly done on Ouerea, and sized to fit a human."
+	desc = "A  thin vest made of separate colors, this one is brown and turquoise, with something written in Sinta'Unathi on the right breast. While this is a traditional cut vest, it's made of modern machine-woven fabrics as is commonly done on Ouerea, and sized to fit a teshari."
 	icon = 'icons/obj/custom_items/amos_vest.dmi'
 	icon_override = 'icons/obj/custom_items/amos_vest.dmi'
 	icon_state = "amos_vest"

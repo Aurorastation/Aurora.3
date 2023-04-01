@@ -15,34 +15,34 @@
 	//1 or lower means common, 2 means uncommon, 3 means rare, 4 or higher means legendary.
 	//Uncommon or higher rarities should be used sparringly, and only to cards that are super noteable.
 
-/datum/battle_monsters/monster/human
-	name = "Human"
-	id = "human_male"
-	icon_state = "human"
+/datum/battle_monsters/monster/teshari
+	name = "teshari"
+	id = "teshari_male"
+	icon_state = "teshari"
 	power_add = BATTLE_MONSTERS_POWER_PETTY
 	defense_add = 1
 	attack_add = 1
 	description = "a typical male %SPECIES inhabitant of Great Kingdom of Garoosh. While not a trained fighter, all %SPECIESs are quick thinkers and know how to fight when it matters with their %WEAPON_AND."
 	special_effects = ""
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
-	defense_type = BATTLE_MONSTERS_DEFENSETYPE_HUMAN
+	defense_type = BATTLE_MONSTERS_DEFENSETYPE_teshari
 	rarity = BATTLE_MONSTERS_RARITY_COMMON
 	rarity_score = -1
 
-/datum/battle_monsters/monster/human/female
-	name = "Human"
-	id = "human_female"
-	icon_state = "human"
+/datum/battle_monsters/monster/teshari/female
+	name = "teshari"
+	id = "teshari_female"
+	icon_state = "teshari"
 	power_add = BATTLE_MONSTERS_POWER_PETTY
 	defense_add = 1
 	attack_add = 0.75
 	description = "a typical female %SPECIES inhabitant of Great Kingdom of Garoosh. While not a trained fighter, all %SPECIESs are quick thinkers and know how to fight when it matters with their %WEAPON_AND."
 	special_effects = ""
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
-	defense_type = BATTLE_MONSTERS_DEFENSETYPE_HUMAN
+	defense_type = BATTLE_MONSTERS_DEFENSETYPE_teshari
 	rarity = BATTLE_MONSTERS_RARITY_COMMON
 	rarity_score = -1
-/datum/battle_monsters/monster/human/mage
+/datum/battle_monsters/monster/teshari/mage
 	name = "Apprentice Mage"
 	id = "mage"
 	icon_state = "staff"
@@ -55,7 +55,7 @@
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 	rarity_score = 0
 
-/datum/battle_monsters/monster/human/sage
+/datum/battle_monsters/monster/teshari/sage
 	name = "Wise Sage"
 	id = "sage"
 	icon_state = "staff"
@@ -68,7 +68,7 @@
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 	rarity_score = 0
 
-/datum/battle_monsters/monster/human/wizard
+/datum/battle_monsters/monster/teshari/wizard
 	name = "Wizard"
 	id = "wizard"
 	icon_state = "staff"
@@ -81,10 +81,10 @@
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 	rarity_score = 1
 
-datum/battle_monsters/monster/human/warrior
+datum/battle_monsters/monster/teshari/warrior
 	name = "Barbarian"
 	id = "warrior"
-	icon_state = "human"
+	icon_state = "teshari"
 	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 2
 	attack_add = 1
@@ -94,10 +94,10 @@ datum/battle_monsters/monster/human/warrior
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 	rarity_score = 0
 
-/datum/battle_monsters/monster/human/amazon_warrior
+/datum/battle_monsters/monster/teshari/amazon_warrior
 	name = "Amazon Warrior"
 	id = "amazon_warrior"
-	icon_state = "human"
+	icon_state = "teshari"
 	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 2
 	attack_add = 1
@@ -106,10 +106,10 @@ datum/battle_monsters/monster/human/warrior
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 	rarity_score = 0
 
-/datum/battle_monsters/monster/human/amazon_prime
+/datum/battle_monsters/monster/teshari/amazon_prime
 	name = "Amazon Prime"
 	id = "amazon_prime"
-	icon_state = "human"
+	icon_state = "teshari"
 	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 2
 	attack_add = 1
@@ -119,10 +119,10 @@ datum/battle_monsters/monster/human/warrior
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 	rarity_score = 1
 
-/datum/battle_monsters/monster/human/knight
+/datum/battle_monsters/monster/teshari/knight
 	name = "Knight"
 	id = "knight"
-	icon_state = "human_knight"
+	icon_state = "teshari_knight"
 	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 4
 	attack_add = 1
@@ -133,7 +133,7 @@ datum/battle_monsters/monster/human/warrior
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 	rarity_score = 0
 
-/datum/battle_monsters/monster/human/king
+/datum/battle_monsters/monster/teshari/king
 	name = "King"
 	id = "king"
 	icon_state = "king"
@@ -146,7 +146,7 @@ datum/battle_monsters/monster/human/warrior
 	rarity = BATTLE_MONSTERS_RARITY_MYTHICAL
 	rarity_score = 1
 
-/datum/battle_monsters/monster/human/queen
+/datum/battle_monsters/monster/teshari/queen
 	name = "Queen"
 	id = "queen"
 	icon_state = "king"
@@ -193,7 +193,7 @@ datum/battle_monsters/monster/human/warrior
 	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 2
 	attack_add = 1
-	description = "an unrealsticly busty feminine shaped %SPECIES. When not using their mammaries to confuse scientists, %NAME usually stalks careless human climbers for a quick and easy meal using their deadly %WEAPON_AND."
+	description = "an unrealsticly busty feminine shaped %SPECIES. When not using their mammaries to confuse scientists, %NAME usually stalks careless teshari climbers for a quick and easy meal using their deadly %WEAPON_AND."
 	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES monsters."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID

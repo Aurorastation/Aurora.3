@@ -70,7 +70,7 @@ var/list/command_positions = list(
 )
 
 var/list/command_support_positions = list(
-	"Human Resources Assistant",
+	"teshari Resources Assistant",
 	"Corporate Liaison",
 	"Consular Officer",
 	"Bridge Crew"
@@ -135,7 +135,7 @@ var/list/security_positions = list(
 	"Security Cadet"
 )
 
-var/list/nonhuman_positions = list(
+var/list/nonteshari_positions = list(
 	"AI",
 	"Cyborg",
 	"pAI"

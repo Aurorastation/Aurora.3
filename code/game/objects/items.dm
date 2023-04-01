@@ -92,7 +92,7 @@
 	// Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.
 	var/list/sprite_sheets_obj
 
-	var/icon_override  //Used to override hardcoded clothing dmis in human clothing pr
+	var/icon_override  //Used to override hardcoded clothing dmis in teshari clothing pr
 
 
 	var/charge_failure_message = " cannot be recharged."
@@ -202,11 +202,11 @@
 /obj/item/attack_hand(mob/user)
 	if(!user)
 		return
-	if(ishuman(user))
+	if(isteshari(user))
 		if(iszombie(user))
 			to_chat(user, SPAN_WARNING("You uselessly claw at \the [src], your rotting brain incapable of picking it up or operating it."))
 			return
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/teshari/H = user
 		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 		if (user.hand)
 			temp = H.organs_by_name[BP_L_HAND]
@@ -417,9 +417,9 @@ var/list/global/slot_flags_enumeration = list(
 	if(!slot) return 0
 	if(!M) return 0
 
-	if(!ishuman(M)) return 0
+	if(!isteshari(M)) return 0
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	var/list/mob_equip = list()
 	if(H.species.hud && H.species.hud.equip_slots)
 		mob_equip = H.species.hud.equip_slots
@@ -560,7 +560,7 @@ var/list/global/slot_flags_enumeration = list(
 	if(M.eyes_protected(src, TRUE))
 		return
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	admin_attack_log(user, M, "attacked [key_name(M)] with [src]", "was attacked by [key_name(user)] using \a [src]", "used \a [src] to eyestab")
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -629,7 +629,7 @@ var/list/global/slot_flags_enumeration = list(
 		blood_overlay.color = COLOR_LUMINOL
 		update_icon()
 
-/obj/item/add_blood(mob/living/carbon/human/M as mob)
+/obj/item/add_blood(mob/living/carbon/teshari/M as mob)
 	if (!..())
 		return 0
 
@@ -684,7 +684,7 @@ var/list/global/slot_flags_enumeration = list(
 /*
 For zooming with scope or binoculars. This is called from
 modules/mob/mob_movement.dm if you move you will be zoomed out
-modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
+modules/mob/living/carbon/teshari/life.dm if you die, you will be zoomed out.
 */
 //Looking through a scope or binoculars should /not/ improve your periphereal vision. Still, increase viewsize a tiny bit so that sniping isn't as restricted to NSEW
 /obj/item/proc/zoom(var/mob/M, var/tileoffset = 14, var/viewsize = 9, var/do_device_check = TRUE, var/show_zoom_message = TRUE) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
@@ -706,7 +706,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	var/cannotzoom
 
-	if(M.stat || !(ishuman(M)))
+	if(M.stat || !(isteshari(M)))
 		to_chat(M, SPAN_WARNING("You are unable to focus through \the [devicename]!"))
 		cannotzoom = 1
 	else if(!zoom && (global_hud.darkMask[1] in M.client.screen))
@@ -755,8 +755,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			if(show_zoom_message)
 				M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		H.handle_vision()
 
 /obj/item/proc/pwr_drain()

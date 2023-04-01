@@ -12,7 +12,7 @@
 	emp_protection = 35
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
 	req_access = list(access_cent_specops)
-	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_teshari)
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -137,7 +137,7 @@
 	slowdown = 0
 	emp_protection = 50
 
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,

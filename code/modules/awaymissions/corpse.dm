@@ -23,14 +23,14 @@
 	var/corpseidjob = null // Needs to be in quotes, such as "Clown" or "Chef." This just determines what the ID reads as, not their access
 	var/corpseidaccess = null //This is for access. See access.dm for which jobs give what access. Again, put in quotes. Use "Captain" if you want it to be all access.
 	var/corpseidicon = null //For setting it to be a gold, silver, centcomm etc ID
-	var/species = SPECIES_HUMAN
+	var/species = SPECIES_teshari
 
 /obj/effect/landmark/corpse/Initialize()
 	. = ..()
 	createCorpse()
 
 /obj/effect/landmark/corpse/proc/createCorpse() //Creates a mob and checks for gear in each slot before attempting to equip it.
-	var/mob/living/carbon/human/M = new /mob/living/carbon/human (src.loc)
+	var/mob/living/carbon/teshari/M = new /mob/living/carbon/teshari (src.loc)
 	M.set_species(species)
 	M.name = random_name(M.gender, M.species.name)
 	M.real_name = M.name
@@ -84,7 +84,7 @@
 	qdel(src)
 
 
-/obj/effect/landmark/corpse/proc/do_extra_customization(var/mob/living/carbon/human/M)
+/obj/effect/landmark/corpse/proc/do_extra_customization(var/mob/living/carbon/teshari/M)
 	return
 
 // I'll work on making a list of corpses people request for maps, or that I think will be commonly used. Syndicate operatives for example.

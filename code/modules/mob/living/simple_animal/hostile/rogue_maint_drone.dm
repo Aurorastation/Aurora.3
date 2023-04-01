@@ -49,8 +49,8 @@
 	if(.)
 		if(issilicon(L))
 			return FALSE
-		if(ishuman(L))
-			var/mob/living/carbon/human/H = L
+		if(isteshari(L))
+			var/mob/living/carbon/teshari/H = L
 			if(H.isSynthetic() && !H.isShell())
 				return FALSE
 			if(istype(H.head, /obj/item/holder/drone))

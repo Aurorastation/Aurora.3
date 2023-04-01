@@ -41,7 +41,7 @@ var/datum/antagonist/raider_techno/raider_techno
 			return FALSE
 	return TRUE
 
-/datum/antagonist/raider_techno/equip(var/mob/living/carbon/human/player)
+/datum/antagonist/raider_techno/equip(var/mob/living/carbon/teshari/player)
 	if(!..())
 		return FALSE
 

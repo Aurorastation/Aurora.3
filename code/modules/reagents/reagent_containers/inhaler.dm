@@ -38,7 +38,7 @@
 	update_icon()
 	return
 
-/obj/item/reagent_containers/inhaler/proc/inject(var/mob/living/carbon/human/H, var/mob/user, var/proximity)
+/obj/item/reagent_containers/inhaler/proc/inject(var/mob/living/carbon/teshari/H, var/mob/user, var/proximity)
 	if (!istype(H) || !proximity)
 		return
 
@@ -97,7 +97,7 @@
 	update_icon()
 	return TRUE
 
-/obj/item/reagent_containers/inhaler/afterattack(var/mob/living/carbon/human/H, var/mob/user, proximity)
+/obj/item/reagent_containers/inhaler/afterattack(var/mob/living/carbon/teshari/H, var/mob/user, proximity)
 	if (!istype(H))
 		return ..()
 

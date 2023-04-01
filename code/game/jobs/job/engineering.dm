@@ -12,13 +12,13 @@
 	economic_modifier = 10
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 80,
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
 	ideal_character_age = list(
-		SPECIES_HUMAN = 50,
+		SPECIES_teshari = 50,
 		SPECIES_SKRELL = 100,
 		SPECIES_SKRELL_AXIORI = 100
 	)
@@ -63,7 +63,7 @@
 	dufflebag = /obj/item/storage/backpack/duffel/ce
 	messengerbag = /obj/item/storage/backpack/messenger/ce
 
-/datum/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/chief_engineer/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
@@ -88,7 +88,7 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
+		SPECIES_teshari = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -133,7 +133,7 @@
 		/obj/item/powerdrill = 1
 	)
 
-/datum/outfit/job/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/engineer/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
@@ -156,7 +156,7 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
+		SPECIES_teshari = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -200,7 +200,7 @@
 		/obj/item/powerdrill = 1
 	)
 
-/datum/outfit/job/atmos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/atmos/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
@@ -226,7 +226,7 @@
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18,
+		SPECIES_teshari = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)

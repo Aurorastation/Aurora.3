@@ -249,10 +249,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	SSjobs.AssignRole(src, rank, 1)
 
-	var/mob/living/character = create_character()	//creates the human and transfers vars and mind
+	var/mob/living/character = create_character()	//creates the teshari and transfers vars and mind
 
 	SSjobs.EquipAugments(character, character.client.prefs)
-	character = SSjobs.EquipRank(character, rank, TRUE, spawning_at)					//equips the human
+	character = SSjobs.EquipRank(character, rank, TRUE, spawning_at)					//equips the teshari
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core
 	if(character.mind.assigned_role == "AI")
@@ -317,7 +317,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	spawning = 1
 	close_spawn_windows()
 
-	var/mob/living/carbon/human/new_character
+	var/mob/living/carbon/teshari/new_character
 
 	var/use_species_name
 	var/datum/species/chosen_species
@@ -403,7 +403,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		chosen_species = all_species[client.prefs.species]
 
 	if(!chosen_species)
-		return SPECIES_HUMAN
+		return SPECIES_teshari
 
 	if(is_species_whitelisted(chosen_species) || has_admin_rights())
 		if (reference)
@@ -411,7 +411,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		else
 			return chosen_species.name
 
-	return SPECIES_HUMAN
+	return SPECIES_teshari
 
 /mob/abstract/new_player/get_gender()
 	if(!client || !client.prefs)

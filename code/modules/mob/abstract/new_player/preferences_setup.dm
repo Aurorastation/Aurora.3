@@ -1,7 +1,7 @@
 /datum/preferences
 	//The mob should have a gender you want before running this proc. Will run fine without H
 
-/datum/preferences/proc/randomize_appearance_for(var/mob/living/carbon/human/H, var/random_gender=TRUE, var/list/culture_restriction = list(), var/list/origin_restriction = list())
+/datum/preferences/proc/randomize_appearance_for(var/mob/living/carbon/teshari/H, var/random_gender=TRUE, var/list/culture_restriction = list(), var/list/origin_restriction = list())
 	if(random_gender)
 		gender = pick(MALE, FEMALE)
 	else
@@ -201,7 +201,7 @@
 	b_skin = blue
 
 
-/datum/preferences/proc/dress_preview_mob(var/mob/living/carbon/human/mannequin)
+/datum/preferences/proc/dress_preview_mob(var/mob/living/carbon/teshari/mannequin)
 	copy_to(mannequin)
 
 	if(!equip_preview_mob)
@@ -252,7 +252,7 @@
 	return chosenJob
 
 /datum/preferences/proc/update_mannequin()
-	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmob.get_mannequin(client.ckey)
+	var/mob/living/carbon/teshari/dummy/mannequin/mannequin = SSmob.get_mannequin(client.ckey)
 	mannequin.delete_inventory(TRUE)
 	mannequin.species.create_organs(mannequin)
 	if(gender)

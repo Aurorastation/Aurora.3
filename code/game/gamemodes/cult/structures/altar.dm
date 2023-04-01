@@ -7,10 +7,10 @@
 
 /obj/structure/cult/talisman/attack_hand(mob/user)
 	. = ..()
-	if(iscultist(user) && ishuman(user))
+	if(iscultist(user) && isteshari(user))
 		if(last_use <= world.time)
 			last_use = world.time + 1200 // Cooldown of two minutes
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/teshari/H = user
 			H.heal_overall_damage(20, 20)
 			to_chat(H, SPAN_CULT("You begin your prayer to Nar'Sie, your wounds slowly closing up..."))
 			for(var/obj/item/organ/external/O in H.organs)

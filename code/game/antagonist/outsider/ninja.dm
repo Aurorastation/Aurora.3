@@ -95,13 +95,13 @@ var/datum/antagonist/ninja/ninjas
 	..()
 	var/ninja_title = pick(ninja_titles)
 	var/ninja_name = pick(ninja_names)
-	var/mob/living/carbon/human/H = player.current
+	var/mob/living/carbon/teshari/H = player.current
 	if(istype(H))
 		H.real_name = "[ninja_title] [ninja_name]"
 		H.name = H.real_name
 	player.name = H.name
 
-/datum/antagonist/ninja/equip(var/mob/living/carbon/human/player)
+/datum/antagonist/ninja/equip(var/mob/living/carbon/teshari/player)
 	if(!..())
 		return FALSE
 
@@ -130,7 +130,7 @@ var/datum/antagonist/ninja/ninjas
 		if(4)
 			directive += "The Spider Clan absolutely cannot be linked to this operation. Eliminate witnesses at your discretion."
 		if(5)
-			directive += "We are currently negotiating with [current_map.company_name] [current_map.boss_name]. Prioritize saving human lives over ending them."
+			directive += "We are currently negotiating with [current_map.company_name] [current_map.boss_name]. Prioritize saving teshari lives over ending them."
 		if(6)
 			directive += "We are engaged in a legal dispute over [current_map.station_name]. If a laywer is present on board, force their cooperation in the matter."
 		if(7)

@@ -2,7 +2,7 @@
 	name = "apparition rune"
 	desc = "This rune is used to turn a spirit around us into an apparition."
 	rune_flags = NO_TALISMAN
-	var/mob/living/carbon/human/apparition/apparition
+	var/mob/living/carbon/teshari/apparition/apparition
 
 /datum/rune/apparition/Destroy()
 	apparition_check()
@@ -12,8 +12,8 @@
 	if(!iscarbon(user))
 		to_chat(user, SPAN_WARNING("Your primitive form cannot use this rune!"))
 		return fizzle(user, A)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.species.type == /datum/species/apparition)
 			to_chat(user, SPAN_WARNING("Apparitions cannot summon more apparitions!"))
 			return fizzle(user, A)
@@ -35,7 +35,7 @@
 		return fizzle(user, A)
 
 	user.say("Gal'h'rfikk harfrandid mud[pick("'","`")]gib!")
-	apparition = new /mob/living/carbon/human/apparition(get_turf(A))
+	apparition = new /mob/living/carbon/teshari/apparition(get_turf(A))
 	user.visible_message("<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
 	"<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
 	"<span class='warning'>You hear liquid flowing.</span>")

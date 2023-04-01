@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/update_eyes()
+/mob/living/carbon/teshari/proc/update_eyes()
 	var/obj/item/organ/internal/eyes/eyes = internal_organs_by_name[species.vision_organ || BP_EYES]
 	if(eyes)
 		eyes.update_colour()
@@ -6,9 +6,9 @@
 
 /mob/living/carbon/var/list/internal_organs = list()
 /mob/living/carbon/var/shock_stage = 0
-/mob/living/carbon/human/var/list/organs = list()
+/mob/living/carbon/teshari/var/list/organs = list()
 
-/mob/living/carbon/human/proc/recheck_bad_external_organs()
+/mob/living/carbon/teshari/proc/recheck_bad_external_organs()
 	var/damage_this_tick = getToxLoss()
 	for(var/obj/item/organ/external/O in organs)
 		damage_this_tick += O.burn_dam + O.brute_dam
@@ -18,7 +18,7 @@
 	last_dam = damage_this_tick
 
 // Takes care of organ related updates, such as broken and missing limbs
-/mob/living/carbon/human/proc/handle_organs()
+/mob/living/carbon/teshari/proc/handle_organs()
 	number_wounds = 0
 	var/force_process = recheck_bad_external_organs()
 
@@ -65,10 +65,10 @@
 						if (W.infection_check())
 							W.germ_level += 1
 
-/mob/living/carbon/human
+/mob/living/carbon/teshari
 	var/next_stance_collapse = 0
 
-/mob/living/carbon/human/proc/handle_stance()
+/mob/living/carbon/teshari/proc/handle_stance()
 	// Don't need to process any of this if they aren't standing anyways
 	// unless their stance is damaged, and we want to check if they should stay down
 	if(!stance_damage && (lying || resting))
@@ -98,7 +98,7 @@
 		else
 			Weaken(6) //No legs or feet means you should be really fucked.
 
-/mob/living/carbon/human/proc/handle_grasp()
+/mob/living/carbon/teshari/proc/handle_grasp()
 	if(!l_hand && !r_hand)
 		return
 
@@ -170,25 +170,25 @@
 			spark(src, 5)
 
 //Handles chem traces
-/mob/living/carbon/human/proc/handle_trace_chems()
+/mob/living/carbon/teshari/proc/handle_trace_chems()
 	//New are added for reagents to random organs.
 	for(var/_A in reagents.reagent_volumes)
 		var/singleton/reagent/A = GET_SINGLETON(_A)
 		var/obj/item/organ/O = pick(organs)
 		O.trace_chemicals[A.name] = 100
 
-/mob/living/carbon/human/proc/sync_organ_dna()
+/mob/living/carbon/teshari/proc/sync_organ_dna()
 	var/list/all_bits = internal_organs|organs
 	for(var/obj/item/organ/O in all_bits)
 		O.set_dna(dna)
 
-/mob/living/carbon/human/proc/get_blood_alcohol()
+/mob/living/carbon/teshari/proc/get_blood_alcohol()
 	return round(intoxication/max(REAGENT_VOLUME(vessel, /singleton/reagent/blood),1),0.01)
 
 /mob/living/proc/is_asystole()
 	return FALSE
 
-/mob/living/carbon/human/is_asystole()
+/mob/living/carbon/teshari/is_asystole()
 	if(isSynthetic())
 		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
 		if(istype(C) && C.is_usable() && C.percent())
@@ -200,7 +200,7 @@
 			return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/get_brain_result()
+/mob/living/carbon/teshari/proc/get_brain_result()
 	var/brain_result
 	if(should_have_organ(BP_BRAIN))
 		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
@@ -212,7 +212,7 @@
 		brain_result = -1
 	return brain_result
 
-/mob/living/carbon/human/proc/get_brain_status()
+/mob/living/carbon/teshari/proc/get_brain_status()
 	var/brain_result = get_brain_result()
 	switch(brain_result)
 		if(0)

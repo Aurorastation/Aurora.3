@@ -27,8 +27,8 @@
 	if(!eggs)
 		to_chat(user, SPAN_WARNING("\The [src] is empty."))
 		return
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		var/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers/E = new/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers (get_turf(src))
 		H.put_in_hands(E)
 		eggs--

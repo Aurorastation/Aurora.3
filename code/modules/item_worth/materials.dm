@@ -76,7 +76,7 @@
 /material/hide
 	value = 5
 
-/material/hide/human
+/material/hide/teshari
 	value = 35
 
 /material/bone

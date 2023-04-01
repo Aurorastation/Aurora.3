@@ -244,7 +244,7 @@ var/const/enterloopsanity = 100
 		if(!has_gravity)
 			inertial_drift(M)
 
-		// Footstep SFX logic moved to human_movement.dm - Move().
+		// Footstep SFX logic moved to teshari_movement.dm - Move().
 
 		else if(!is_hole)
 			M.inertia_dir = 0
@@ -254,8 +254,8 @@ var/const/enterloopsanity = 100
 		else if(M.is_floating && !is_hole && has_gravity)
 			M.update_floating()
 
-	if(does_footprint && footprint_color && ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	if(does_footprint && footprint_color && isteshari(AM))
+		var/mob/living/carbon/teshari/H = AM
 		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
 		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
 		var/has_feet = TRUE
@@ -281,8 +281,8 @@ var/const/enterloopsanity = 100
 
 		H.update_inv_shoes(TRUE)
 
-	if(tracks_footprint && ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	if(tracks_footprint && isteshari(AM))
+		var/mob/living/carbon/teshari/H = AM
 		H.species.deploy_trail(H, src)
 
 	..(AM, old_loc)

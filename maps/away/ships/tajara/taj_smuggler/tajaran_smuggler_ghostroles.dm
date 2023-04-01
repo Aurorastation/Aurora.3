@@ -1,6 +1,6 @@
 //tajaran smuggler ship
 
-/datum/ghostspawner/human/tajaran_smuggler
+/datum/ghostspawner/teshari/tajaran_smuggler
 	short_name = "tajaran_smuggler"
 	name = "Tajaran Smuggler"
 	desc = "Crew a Tajaran smuggling ship. Try to sell some of your illegally-acquired goods and make a profit."
@@ -67,7 +67,7 @@
 	)
 
 
-/datum/ghostspawner/human/tajaran_smuggler/captain
+/datum/ghostspawner/teshari/tajaran_smuggler/captain
 	short_name = "tajaran_smuggler_captain"
 	name = "Tajaran Smuggler Captain"
 	desc = "Captain the Adhomian smuggling ship. Try to make a profit from selling your goods."

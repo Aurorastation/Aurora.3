@@ -79,7 +79,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	var/real_name          // Stores the real name of the person who originally got this dna datum. Used primarily for changelings,
 
 	// New stuff
-	var/species = SPECIES_HUMAN
+	var/species = SPECIES_teshari
 	var/list/body_markings = list()
 
 // Make a copy of this strand.
@@ -113,7 +113,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	if(!defer)
 		UpdateUI()
 
-/datum/dna/proc/ResetUIFrom(var/mob/living/carbon/human/character)
+/datum/dna/proc/ResetUIFrom(var/mob/living/carbon/teshari/character)
 	// INITIALIZE!
 	ResetUI(1)
 	// Hair
@@ -341,7 +341,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 // BACK-COMPAT!
 //  Just checks our character has all the crap it needs.
-/datum/dna/proc/check_integrity(var/mob/living/carbon/human/character)
+/datum/dna/proc/check_integrity(var/mob/living/carbon/teshari/character)
 	if(character)
 		if(UI.len != DNA_UI_LENGTH)
 			ResetUIFrom(character)
@@ -359,7 +359,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 // BACK-COMPAT!
 //  Initial DNA setup.  I'm kind of wondering why the hell this doesn't just call the above.
-/datum/dna/proc/ready_dna(mob/living/carbon/human/character)
+/datum/dna/proc/ready_dna(mob/living/carbon/teshari/character)
 	ResetUIFrom(character)
 
 	ResetSE()

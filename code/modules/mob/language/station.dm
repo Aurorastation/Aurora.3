@@ -167,7 +167,7 @@
 /datum/language/skrell
 	name = LANGUAGE_SKRELLIAN
 	short = "NRAL"
-	desc = "A melodic and complex language spoken by the Skrell of Qerrbalak. Some of the notes are inaudible to humans."
+	desc = "A melodic and complex language spoken by the Skrell of Qerrbalak. Some of the notes are inaudible to tesharis."
 	speech_verb = list("warbles")
 	ask_verb = list("warbles")
 	exclaim_verb = list("warbles")
@@ -259,7 +259,7 @@
 	if(istype(other, /mob/living/silicon))
 		return 1
 
-	var/mob/living/carbon/human/M = other
+	var/mob/living/carbon/teshari/M = other
 	if(!istype(M))
 		return 0
 	if(istype(M, /mob/abstract/new_player))
@@ -285,7 +285,7 @@
 
 	return 0
 
-/datum/language/human
+/datum/language/teshari
 	name = LANGUAGE_SOL_COMMON
 	short = "SOL"
 	desc = "With its roots in Mandarin Chinese, Common evolved as the official language of the Sol Alliance, with officials working to tie it together with a common tongue. It's spoken by state officials, taught in schools, and spoken by those who either feel a sense of national pride in the Alliance or otherwise fell sway to the culture."
@@ -304,7 +304,7 @@
 	"zu", "zun", "zuo")
 	allow_accents = TRUE
 
-/datum/language/human/get_random_name(var/gender)
+/datum/language/teshari/get_random_name(var/gender)
 	if (prob(80))
 		if(gender==FEMALE)
 			return capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
@@ -323,7 +323,7 @@
 	key = "4"
 	flags = WHITELISTED | TCOMSSIM
 	syllables = list("af", "if", "ba", "ta", "tha", "id", "jem", "ha", "kha", "dal", "dhl", "ra", "zay", "sen", "um", "shn", "sid", "ad", "ta", "za", "ayn", "gha", "zir", "yn", "fa", "qaf", "iam", "mim", "al", "ja", "non", "ha", "waw", "ya",
-		"hem", "zah", "hml", "ks", "ini", "da", "ks", "iga", "ih", "la", "ulf", "xe", "ayw", "sit", "ah", "aarah", "jalaa", "sirt", "kurt", "turhk", "ust", "irk", "kir", "mir", "ach", "oglu", "bolu", "shek", "she", "ghoz", "miya", "ejdan", 
+		"hem", "zah", "hml", "ks", "ini", "da", "ks", "iga", "ih", "la", "ulf", "xe", "ayw", "sit", "ah", "aarah", "jalaa", "sirt", "kurt", "turhk", "ust", "irk", "kir", "mir", "ach", "oglu", "bolu", "shek", "she", "ghoz", "miya", "ejdan",
 		"haaz", "quq", "taab", "shanha", "an", "saa", "seh", "an'", "e'", "a'", "em'")
 	allow_accents = TRUE
 

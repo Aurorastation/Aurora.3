@@ -5,7 +5,7 @@
 	var/datum/topic_state/ui_state
 	var/datum/state_object
 
-	var/datum/weakref/target_human
+	var/datum/weakref/target_teshari
 	var/datum/weakref/target_id //Mostly for ghostroles and plastic surgery machines. If there is an ID, update it when we close the UI to ensure the correct info is imprinted.
 	var/change_id = FALSE //Prevents runtimes in vueui_on_close if target_id is null
 	var/list/valid_species = list()
@@ -26,11 +26,11 @@
 	var/list/culture_restrictions = list()
 	var/list/origin_restrictions = list()
 
-/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/list/culture_restriction = list(), var/list/origin_restriction = list(), var/datum/topic_state/set_ui_state = interactive_state, var/datum/set_state_object = null, var/update_id)
+/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/teshari/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/list/culture_restriction = list(), var/list/origin_restriction = list(), var/datum/topic_state/set_ui_state = interactive_state, var/datum/set_state_object = null, var/update_id)
 	..()
 	ui_state = set_ui_state
 	state_object = set_state_object
-	target_human = WEAKREF(H)
+	target_teshari = WEAKREF(H)
 	if(istype(H) && update_id)
 		var/obj/item/card/id/idcard = H.GetIdCard()
 		if(idcard)
@@ -47,7 +47,7 @@
 	if(..())
 		return 1
 
-	var/mob/living/carbon/human/owner = target_human.resolve()
+	var/mob/living/carbon/teshari/owner = target_teshari.resolve()
 	if(!istype(owner))
 		return FALSE
 
@@ -189,7 +189,7 @@
 	if(!data)
 		data = list()
 
-	var/mob/living/carbon/human/owner = target_human.resolve()
+	var/mob/living/carbon/teshari/owner = target_teshari.resolve()
 	if(!istype(owner))
 		to_chat(user, SPAN_WARNING("We couldn't find you, closing."))
 		ui.close()
@@ -205,7 +205,7 @@
 	data["valid_gender"] = valid_genders
 	data["valid_pronouns"] = valid_pronouns
 
-	
+
 	data["change_culture"] = can_change(APPEARANCE_CULTURE)
 	data["owner_culture"] = owner.culture.name
 	data["valid_cultures"] = valid_cultures
@@ -243,39 +243,39 @@
 
 /datum/vueui_module/appearance_changer/vueui_on_close(var/datum/vueui/ui)
 	if(change_id)
-		var/mob/living/carbon/human/owner = target_human.resolve()
+		var/mob/living/carbon/teshari/owner = target_teshari.resolve()
 		var/obj/item/card/id/I = target_id.resolve()
 		if(!istype(I) || !(istype(owner)))
 			return FALSE
 		owner.set_id_info(I)
 
 /datum/vueui_module/appearance_changer/proc/update_dna()
-	var/mob/living/carbon/human/owner = target_human.resolve()
+	var/mob/living/carbon/teshari/owner = target_teshari.resolve()
 	if(!istype(owner))
 		return FALSE
 	if(owner && (flags & APPEARANCE_UPDATE_DNA))
 		owner.update_dna()
 
 /datum/vueui_module/appearance_changer/proc/can_change(var/flag)
-	var/mob/living/carbon/human/owner = target_human.resolve()
+	var/mob/living/carbon/teshari/owner = target_teshari.resolve()
 	if(!istype(owner))
 		return FALSE
 	return owner && (flags & flag)
 
 /datum/vueui_module/appearance_changer/proc/can_change_skin_tone()
-	var/mob/living/carbon/human/owner = target_human.resolve()
+	var/mob/living/carbon/teshari/owner = target_teshari.resolve()
 	if(!istype(owner))
 		return FALSE
 	return owner && (flags & APPEARANCE_SKIN) && owner.species.appearance_flags & HAS_SKIN_TONE
 
 /datum/vueui_module/appearance_changer/proc/can_change_skin_color()
-	var/mob/living/carbon/human/owner = target_human.resolve()
+	var/mob/living/carbon/teshari/owner = target_teshari.resolve()
 	if(!istype(owner))
 		return FALSE
 	return owner && (flags & APPEARANCE_SKIN) && owner.species.appearance_flags & HAS_SKIN_COLOR
 
 /datum/vueui_module/appearance_changer/proc/can_change_skin_preset()
-	var/mob/living/carbon/human/owner = target_human.resolve()
+	var/mob/living/carbon/teshari/owner = target_teshari.resolve()
 	if(!istype(owner))
 		return FALSE
 	return owner && (flags & APPEARANCE_SKIN) && owner.species.appearance_flags & HAS_SKIN_PRESET
@@ -294,7 +294,7 @@
 	generate_data()
 
 /datum/vueui_module/appearance_changer/proc/generate_data()
-	var/mob/living/carbon/human/owner = target_human.resolve()
+	var/mob/living/carbon/teshari/owner = target_teshari.resolve()
 	if(!istype(owner))
 		return FALSE
 	if(!length(valid_species))

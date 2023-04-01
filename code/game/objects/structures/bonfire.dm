@@ -61,9 +61,9 @@ var/global/list/total_active_bonfires = list()
 
 
 /obj/structure/bonfire/AltClick(mob/user)
-	if(!ishuman(user))
+	if(!isteshari(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/teshari/H = user
 	if(use_check_and_message(H))
 		return
 	if(fuel >= max(max_fuel * 0.1, 50) && on_fire)
@@ -278,7 +278,7 @@ var/global/list/total_active_bonfires = list()
 	if(!istype(L))
 		return
 
-	for(var/mob/living/carbon/human/H in oview(src, heat_range))
+	for(var/mob/living/carbon/teshari/H in oview(src, heat_range))
 		var/turf/simulated/T = get_turf(H)
 		var/datum/gas_mixture/mob_env
 		if(!istype(T))

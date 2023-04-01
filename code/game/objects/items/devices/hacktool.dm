@@ -126,7 +126,7 @@
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
 		// Tidy up a bit.
 		if(istype(loc,/mob/living))
-			var/mob/living/carbon/human/host = loc
+			var/mob/living/carbon/teshari/host = loc
 			if(istype(host))
 				for(var/obj/item/organ/external/organ in host.organs)
 					for(var/obj/item/O in organ.implants)

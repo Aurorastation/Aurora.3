@@ -182,7 +182,7 @@
 	if(O.force)
 		set_flee_target(user? user : src.loc)
 
-/mob/living/simple_animal/cat/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/cat/attack_hand(mob/living/carbon/teshari/M as mob)
 	. = ..()
 	if(M.a_intent == I_HURT)
 		set_flee_target(M)
@@ -205,7 +205,7 @@
 
 //Basic friend AI
 /mob/living/simple_animal/cat/fluff
-	var/mob/living/carbon/human/friend
+	var/mob/living/carbon/teshari/friend
 	var/befriend_job = null
 
 /mob/living/simple_animal/cat/fluff/handle_movement_target()
@@ -270,7 +270,7 @@
 		say("Meow!")
 		return
 
-	if (!(ishuman(usr) && befriend_job && usr.job == befriend_job))
+	if (!(isteshari(usr) && befriend_job && usr.job == befriend_job))
 		to_chat(usr, "<span class='notice'>[src] ignores you.</span>")
 		return
 

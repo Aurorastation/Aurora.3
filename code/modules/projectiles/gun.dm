@@ -222,8 +222,8 @@
 		to_chat(M, SPAN_DANGER("Your fingers are much too large for the trigger guard!"))
 		return FALSE
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/A = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/A = M
 		var/no_guns_check = A.check_no_guns()
 		if(no_guns_check)
 			to_chat(A, SPAN_WARNING("[no_guns_check]")) // the proc returns the no_guns_message
@@ -466,8 +466,8 @@
 	if(recoil)
 		shake_camera(user, recoil + 1, recoil)
 
-	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
+		var/mob/living/carbon/teshari/H = user
 		if(istype(H.back, /obj/item/rig))
 			var/obj/item/rig/R = H.back
 			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
@@ -542,9 +542,9 @@
 //Suicide handling.
 /obj/item/gun/var/mouthshoot = FALSE //To stop people from suiciding twice... >.>
 /obj/item/gun/proc/handle_suicide(mob/living/user)
-	if(!ishuman(user))
+	if(!isteshari(user))
 		return
-	var/mob/living/carbon/human/M = user
+	var/mob/living/carbon/teshari/M = user
 
 	mouthshoot = TRUE
 	M.visible_message(SPAN_DANGER("\The [user] sticks \the [src] in their mouth, their finger ready to pull the trigger..."))
@@ -702,11 +702,11 @@
 	if(!istype(user.get_active_hand(), /obj/item/gun))
 		to_chat(user, SPAN_WARNING("You need to be holding \the [name] in your active hand."))
 		return
-	if(!ishuman(user))
+	if(!isteshari(user))
 		to_chat(user, SPAN_WARNING("It's too heavy for you to stabilize properly."))
 		return
 
-	var/mob/living/carbon/human/M = user
+	var/mob/living/carbon/teshari/M = user
 	if(M.isMonkey())
 		to_chat(user, SPAN_WARNING("It's too heavy for you to stabilize properly."))
 		return

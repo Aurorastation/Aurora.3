@@ -44,7 +44,7 @@
 		deintegrate()
 		return
 
-	var/mob/living/carbon/human/H = loc
+	var/mob/living/carbon/teshari/H = loc
 	if(istype(H) && H.head == src)
 		integrate()
 		return
@@ -82,7 +82,7 @@
 	if(canremove)
 		return
 
-	var/mob/living/carbon/human/H = loc
+	var/mob/living/carbon/teshari/H = loc
 	if(!istype(H) || H.head != src)
 		canremove = TRUE
 		return
@@ -113,7 +113,7 @@
 	var/lastloc = loc
 	. = ..()
 	if(.)
-		var/mob/living/carbon/human/H = lastloc
+		var/mob/living/carbon/teshari/H = lastloc
 		if(istype(H) && H.psi)
 			H.psi.reset()
 		H = loc
@@ -137,7 +137,7 @@
 		to_chat(usr, SPAN_NOTICE("You still have [max_boosted_faculties - LAZYLEN(boosted_faculties)] facult[LAZYLEN(boosted_faculties) == 1 ? "y" : "ies"] to select. Use \the [src] in-hand to select them."))
 		return
 
-	var/mob/living/carbon/human/H = loc
+	var/mob/living/carbon/teshari/H = loc
 	if(!istype(H) || H.head != src)
 		to_chat(usr, SPAN_WARNING("\The [src] must be worn on your head in order to be activated."))
 		return

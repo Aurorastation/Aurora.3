@@ -50,7 +50,7 @@
 		if(stamina_cost)
 			user.stamina -= stamina_cost
 		if(isipc(user))
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/teshari/H = user
 			var/obj/item/cell/C = H.internal_organs_by_name[BP_CELL]
 			if(C)
 				C.use(charge_cost)

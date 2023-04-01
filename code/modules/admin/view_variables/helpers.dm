@@ -62,7 +62,7 @@
 		<option value='?_src_=vars;emp=\ref[src]'>Trigger EM pulse</option>
 		"}
 
-/mob/living/carbon/human/get_view_variables_options()
+/mob/living/carbon/teshari/get_view_variables_options()
 	return ..() + {"
 		<option value='?_src_=vars;setspecies=\ref[src]'>Set Species</option>
 		<option value='?_src_=vars;makeai=\ref[src]'>Make AI</option>

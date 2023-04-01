@@ -34,8 +34,8 @@
 		if(power_supply)
 			to_chat(user, SPAN_NOTICE("You uninstall \the [power_supply]."))
 			power_supply.forceMove(get_turf(src))
-			if(ishuman(user))
-				var/mob/living/carbon/human/H = user
+			if(isteshari(user))
+				var/mob/living/carbon/teshari/H = user
 				H.put_in_hands(power_supply)
 			power_supply = null
 		else

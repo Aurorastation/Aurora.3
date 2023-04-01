@@ -168,7 +168,7 @@
 		SSvueui.check_uis_for_change(src) //Make sure to update all the UIs so the count is updated
 	if(href_list["jump_to"])
 		var/spawner_id = href_list["jump_to"]
-		var/datum/ghostspawner/human/spawner = spawners[spawner_id]
+		var/datum/ghostspawner/teshari/spawner = spawners[spawner_id]
 		var/mob/abstract/observer/observer = usr
 		if(spawner && istype(observer) && spawner.can_jump_to(observer))
 			var/atom/turf = spawner.select_spawnlocation(FALSE)

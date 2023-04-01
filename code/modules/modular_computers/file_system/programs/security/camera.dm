@@ -145,8 +145,8 @@
 	user.reset_view(current_camera)
 	check_eye(user)
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		H.handle_vision()
 
 	return TRUE

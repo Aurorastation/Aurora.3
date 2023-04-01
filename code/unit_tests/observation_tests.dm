@@ -10,7 +10,7 @@ datum/unit_test/observation/moved_observer_shall_register_on_follow
 
 datum/unit_test/observation/moved_observer_shall_register_on_follow/start_test()
 	var/turf/T = locate(20,20,1)
-	var/mob/living/carbon/human/H = new(T)
+	var/mob/living/carbon/teshari/H = new(T)
 	var/mob/abstract/observer/O = new(T)
 
 	O.ManualFollow(H)
@@ -28,7 +28,7 @@ datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow
 
 datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow/start_test()
 	var/turf/T = locate(20,20,1)
-	var/mob/living/carbon/human/H = new(T)
+	var/mob/living/carbon/teshari/H = new(T)
 	var/mob/abstract/observer/O = new(T)
 
 	O.ManualFollow(H)
@@ -47,18 +47,18 @@ datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener
 
 datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener/start_test()
 	var/turf/T = locate(20,20,1)
-	var/mob/living/carbon/human/H = new(T)
+	var/mob/living/carbon/teshari/H = new(T)
 	var/obj/structure/closet/C = new(T)
 	var/mob/abstract/observer/O = new(T)
 
 	H.forceMove(C)
 	O.ManualFollow(H)
 	var/listening_to_closet = is_listening_to_movement(C, H)
-	var/listening_to_human = is_listening_to_movement(H, O)
-	if(listening_to_closet && listening_to_human)
+	var/listening_to_teshari = is_listening_to_movement(H, O)
+	if(listening_to_closet && listening_to_teshari)
 		pass("Recursive moved registration succesful.")
 	else
-		fail("Recursive moved registration failed. Human listening to closet: [listening_to_closet] - Observer listening to human: [listening_to_human]")
+		fail("Recursive moved registration failed. teshari listening to closet: [listening_to_closet] - Observer listening to teshari: [listening_to_teshari]")
 
 	QDEL_IN(C, 10 SECONDS)
 	QDEL_IN(H, 10 SECONDS)
@@ -70,18 +70,18 @@ datum/unit_test/observation/moved_shall_registers_recursively_with_existing_list
 
 datum/unit_test/observation/moved_shall_registers_recursively_with_existing_listener/start_test()
 	var/turf/T = locate(20,20,1)
-	var/mob/living/carbon/human/H = new(T)
+	var/mob/living/carbon/teshari/H = new(T)
 	var/obj/structure/closet/C = new(T)
 	var/mob/abstract/observer/O = new(T)
 
 	O.ManualFollow(H)
 	H.forceMove(C)
 	var/listening_to_closet = is_listening_to_movement(C, H)
-	var/listening_to_human = is_listening_to_movement(H, O)
-	if(listening_to_closet && listening_to_human)
+	var/listening_to_teshari = is_listening_to_movement(H, O)
+	if(listening_to_closet && listening_to_teshari)
 		pass("Recursive moved registration succesful.")
 	else
-		fail("Recursive moved registration failed. Human listening to closet: [listening_to_closet] - Observer listening to human: [listening_to_human]")
+		fail("Recursive moved registration failed. teshari listening to closet: [listening_to_closet] - Observer listening to teshari: [listening_to_teshari]")
 
 	QDEL_IN(C, 10 SECONDS)
 	QDEL_IN(H, 10 SECONDS)

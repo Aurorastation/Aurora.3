@@ -152,7 +152,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 		set_light(7, FIRE_LIGHT_2, no_update = TRUE)
 	else
 		set_light(5, FIRE_LIGHT_1, no_update = TRUE)
-	
+
 	air_contents.adjust_gas(GAS_CO2, firelevel * 0.07)
 
 	for(var/mob/living/L in loc)
@@ -420,7 +420,7 @@ datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
 	apply_damage(2.5*mx, DAMAGE_BURN)
 
 
-/mob/living/carbon/human/FireBurn(var/firelevel, var/last_temperature, var/pressure)
+/mob/living/carbon/teshari/FireBurn(var/firelevel, var/last_temperature, var/pressure)
 	//Burns mobs due to fire. Respects heat transfer coefficients on various body parts.
 	//Due to TG reworking how fireprotection works, this is kinda less meaningful.
 

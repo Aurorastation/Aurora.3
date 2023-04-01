@@ -62,7 +62,7 @@
 	id_icon = "ccia"
 	id_access = "CCIA Agent"
 
-/datum/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 
 	if(H && H.belt)
 
@@ -161,7 +161,7 @@
 
 	id_access = "Odin Security"
 
-/datum/outfit/admin/nt/odinsec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/nt/odinsec/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 
 	if(H && H.w_uniform)
 

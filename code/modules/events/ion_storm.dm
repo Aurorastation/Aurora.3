@@ -17,7 +17,7 @@
 /datum/event/ionstorm/announce()
 	endWhen = rand(500, 1500)
 //		command_alert("The station has entered an ion storm.  Monitor all electronic equipment for malfunctions", "Anomaly Alert")
-	for (var/mob/living/carbon/human/player in player_list)
+	for (var/mob/living/carbon/teshari/player in player_list)
 		if(	!player.mind || player_is_antag(player.mind, only_offstation_roles = 1) || player.client.inactivity > MinutesToTicks(10))
 			continue
 		players += player.real_name
@@ -58,7 +58,7 @@
 								"You must act [prob(50)?"passive aggressively":"excessively cheerful"].",
 								"Refer to [prob(50)?"the crew as puppies":random_player + " as puppy"].",
 								"Greed is good, the crew should amass wealth to encourage productivity.",
-								"Monkeys are part of the crew, too. Make sure they are treated humanely.",
+								"Monkeys are part of the crew, too. Make sure they are treated teshariely.",
 								"Replace the letters 'I' and 'E' in all your messages with an apostrophe.",
 								"The crew is playing Dungeons and Dragons, and you are the Dungeon Master.",
 								"Your job is to watch the crew. Watch the crew. Make the crew feel watched.",

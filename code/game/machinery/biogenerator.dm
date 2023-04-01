@@ -259,9 +259,9 @@
 	object = /obj/item/stack/medical/advanced/ointment
 
 		// Antag Items (Emag)
-/singleton/biorecipe/illegal/humanhide
-	name = "Human Hide"
-	object = /obj/item/stack/material/animalhide/human
+/singleton/biorecipe/illegal/tesharihide
+	name = "teshari Hide"
+	object = /obj/item/stack/material/animalhide/teshari
 	cost = 50
 	amount = list(1,5,10,25,50)
 

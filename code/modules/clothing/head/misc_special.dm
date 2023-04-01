@@ -97,7 +97,7 @@
 
 	var/turf/location = src.loc
 	if(istype(location, /mob/))
-		var/mob/living/carbon/human/M = location
+		var/mob/living/carbon/teshari/M = location
 		if(M.l_hand == src || M.r_hand == src || M.head == src)
 			location = M.loc
 
@@ -142,7 +142,7 @@
 	icon = 'icons/obj/item/clothing/head/nyakas.dmi'
 	icon_state = "nyakas"
 	item_state = "nyakas"
-	
+
 /obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
 	src.earsup = !src.earsup
 	if(src.earsup)

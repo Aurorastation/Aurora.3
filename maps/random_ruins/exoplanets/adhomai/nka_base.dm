@@ -23,7 +23,7 @@
 
 //ghost roles
 
-/datum/ghostspawner/human/nka_base
+/datum/ghostspawner/teshari/nka_base
 	short_name = "nka_base_soldier"
 	name = "Imperial Adhomian Army Soldier"
 	desc = "Man the New Kingdom outpost in Adhomai."
@@ -59,7 +59,7 @@
 /datum/outfit/admin/nka_base/get_id_access()
 	return list(access_nka)
 
-/datum/ghostspawner/human/nka_base/commander
+/datum/ghostspawner/teshari/nka_base/commander
 	short_name = "nka_base_commander"
 	name = "Imperial Adhomian Army Officer"
 	desc = "Command the forces in the New Kingdom outpost."

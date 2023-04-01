@@ -10,7 +10,7 @@
 	universal_speak = 1
 	universal_understand = 1
 
-	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
+	mob_swap_flags = teshari|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
 	tameable = FALSE

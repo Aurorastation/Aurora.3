@@ -69,14 +69,14 @@
 		var/datum/ntnet_conversation/conv = locate(href_list["send"]["target"])
 		var/message = href_list["send"]["message"]
 		if(istype(conv) && message)
-			if(ishuman(user))
+			if(isteshari(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
 	if(href_list["focus"])
 		var/mob/living/user = usr
 		var/datum/ntnet_conversation/conv = locate(href_list["focus"])
 		if(istype(conv))
-			if(ishuman(user))
+			if(isteshari(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			if(focused_conv == conv)
 				focused_conv = null
@@ -140,7 +140,7 @@
 		var/datum/ntnet_conversation/conv = locate(href_list["Reply"])
 		var/message = input(user, "Enter message or leave blank to cancel: ")
 		if(istype(conv) && message)
-			if(ishuman(user))
+			if(isteshari(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
 

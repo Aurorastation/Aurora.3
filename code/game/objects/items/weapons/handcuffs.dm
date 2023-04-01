@@ -56,7 +56,7 @@
 /obj/item/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user, var/instant)
 	playsound(src.loc, cuff_sound, 30, 1, -2)
 
-	var/mob/living/carbon/human/H = target
+	var/mob/living/carbon/teshari/H = target
 	if(!istype(H))
 		return FALSE
 
@@ -114,11 +114,11 @@
 		target.update_inv_legcuffed()
 	return TRUE
 
-/mob/living/carbon/human/RestrainedClickOn(var/atom/A)
+/mob/living/carbon/teshari/RestrainedClickOn(var/atom/A)
 	if (A != src) return ..()
 
 
-	var/mob/living/carbon/human/H = A
+	var/mob/living/carbon/teshari/H = A
 	if (H.last_chew + 26 > world.time) return
 	if (!H.handcuffed) return
 	if (H.a_intent != I_HURT) return

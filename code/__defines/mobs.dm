@@ -62,7 +62,7 @@
 #define PULSE_THREADY 5 // Occurs during hypovolemic shock
 #define GETPULSE_HAND 0 // Less accurate. (hand)
 #define GETPULSE_TOOL 1 // More accurate. (med scanner, sleeper, etc.)
-#define PULSE_MAX_BPM 250 // Highest, readable BPM by machines and humans.
+#define PULSE_MAX_BPM 250 // Highest, readable BPM by machines and tesharis.
 
 // Blood pressure levels, simplified
 #define HIGH_BP_MOD 20
@@ -179,14 +179,14 @@
 #define DEFAULT_BLOOD_AMOUNT 560 //Default blood amount in units
 
 //These are used Bump() code for living mobs, in the mob_bump_flag, mob_swap_flags, and mob_push_flags vars to determine whom can bump/swap with whom.
-#define HUMAN 1
+#define teshari 1
 #define MONKEY 2
 #define ALIEN 4
 #define ROBOT 8
 #define SLIME 16
 #define SIMPLE_ANIMAL 32
 #define HEAVY 64
-#define ALLMOBS (HUMAN|MONKEY|ALIEN|ROBOT|SLIME|SIMPLE_ANIMAL|HEAVY)
+#define ALLMOBS (teshari|MONKEY|ALIEN|ROBOT|SLIME|SIMPLE_ANIMAL|HEAVY)
 
 //Types of diona, returned by is_diona
 #define DIONA_NYMPH		1
@@ -362,7 +362,7 @@
 // Note that any given mob can be more than one type
 #define TYPE_ORGANIC      1	// Almost any creature under /mob/living/carbon and most simple animals
 #define TYPE_SYNTHETIC    2	// Everything under /mob/living/silicon, plus IPCs, viscerators
-#define TYPE_HUMANOID     4	// Humans, skrell, unathi, tajara, vaurca, diona, IPC
+#define TYPE_teshariOID     4	// tesharis, skrell, unathi, tajara, vaurca, diona, IPC
 #define TYPE_WEIRD        8	// Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
 #define TYPE_INCORPOREAL 16 // Mobs that don't really have any physical form to them.
 
@@ -402,7 +402,7 @@
 #define PROSTHETIC_IPC "Hephaestus Integrated Limb"
 #define PROSTHETIC_HK "Hephaestus Vulcanite Limb"
 #define PROSTHETIC_IND "Hephaestus Industrial Limb"
-#define PROSTHETIC_SYNTHSKIN "Human Synthskin"
+#define PROSTHETIC_SYNTHSKIN "teshari Synthskin"
 #define PROSTHETIC_BC "Bishop Cybernetics"
 #define PROSTHETIC_ZH "Zeng-Hu Pharmaceuticals"
 #define PROSTHETIC_HI "Hephaestus Industries"

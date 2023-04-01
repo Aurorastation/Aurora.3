@@ -68,9 +68,9 @@
 	if(rival.health <= 0)
 		say(pick(victory_speech))
 
-/mob/living/simple_animal/hostile/mech/attack_hand(mob/living/carbon/human/human)
-	if(human.a_intent == I_HELP)
-		human.put_in_hands(contained_mech)
+/mob/living/simple_animal/hostile/mech/attack_hand(mob/living/carbon/teshari/teshari)
+	if(teshari.a_intent == I_HELP)
+		teshari.put_in_hands(contained_mech)
 		contained_mech = null
 		qdel(src)
 		return

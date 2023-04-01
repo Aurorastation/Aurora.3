@@ -141,7 +141,7 @@ proc/admin_notice(var/message, var/rights)
 			//AI / Cyborg
 			if(isAI(M))
 				body += "<B>Is an AI</B> "
-			else if(ishuman(M))
+			else if(isteshari(M))
 				body += {"<A href='?src=\ref[src];makeai=\ref[M]'>Make AI</A> |
 					<A href='?src=\ref[src];makerobot=\ref[M]'>Make Robot</A> |
 					<A href='?src=\ref[src];makeslime=\ref[M]'>Make slime</A>
@@ -175,7 +175,7 @@ proc/admin_notice(var/message, var/rights)
 			body += {"<br><br>
 				<b>Rudimentary transformation:</b><font size=2><br>These transformations only create a new mob type and copy stuff over. They do not take into account MMIs and similar mob-specific things. The buttons in 'Transformations' are preferred, when possible.</font><br>
 				<A href='?src=\ref[src];simplemake=observer;mob=\ref[M]'>Observer</A> |
-				\[ Crew: <A href='?src=\ref[src];simplemake=human;mob=\ref[M]'>Choose Species</A>\] | \[
+				\[ Crew: <A href='?src=\ref[src];simplemake=teshari;mob=\ref[M]'>Choose Species</A>\] | \[
 				<A href='?src=\ref[src];simplemake=nymph;mob=\ref[M]'>Nymph</A>\] |
 				\[ slime: <A href='?src=\ref[src];simplemake=slime;mob=\ref[M]'>Baby</A>\]|
 				<A href='?src=\ref[src];simplemake=ai;mob=\ref[M]'>AI</A> |
@@ -1193,7 +1193,7 @@ proc/admin_notice(var/message, var/rights)
 	if(!ai_number)
 		to_chat(usr, "<b>No AIs located</b>") //Just so you know the thing is actually working and not just ignoring you.)
 
-/client/proc/update_mob_sprite(mob/living/carbon/human/H as mob)
+/client/proc/update_mob_sprite(mob/living/carbon/teshari/H as mob)
 	set category = "Admin"
 	set name = "Update Mob Sprite"
 	set desc = "Should fix any mob sprite update errors."

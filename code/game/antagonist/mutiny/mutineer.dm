@@ -19,7 +19,7 @@ var/datum/antagonist/mutineer/mutineers
 /datum/antagonist/mutineer/can_become_antag(var/datum/mind/player)
 	if(!..())
 		return 0
-	if(!istype(player.current, /mob/living/carbon/human))
+	if(!istype(player.current, /mob/living/carbon/teshari))
 		return 0
 	if(M.special_role)
 		return 0

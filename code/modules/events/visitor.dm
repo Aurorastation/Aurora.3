@@ -1,6 +1,6 @@
 /datum/event/visitor
     no_fake = 1
-    var/datum/ghostspawner/human/visitor/spawner
+    var/datum/ghostspawner/teshari/visitor/spawner
 
 /datum/event/visitor/setup()
     spawner = SSghostroles.get_spawner("visitor")

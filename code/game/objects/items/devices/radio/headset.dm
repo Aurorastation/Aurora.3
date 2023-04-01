@@ -81,8 +81,8 @@
 /obj/item/device/radio/headset/can_receive(input_frequency, level, aiOverride = FALSE)
 	if (aiOverride)
 		return ..(input_frequency, level)
-	if(ishuman(src.loc))
-		var/mob/living/carbon/human/H = src.loc
+	if(isteshari(src.loc))
+		var/mob/living/carbon/teshari/H = src.loc
 		if(H.l_ear == src || H.r_ear == src)
 			return ..(input_frequency, level)
 	if(!EarSound)
@@ -90,8 +90,8 @@
 	return FALSE
 
 /obj/item/device/radio/headset/attack_hand(mob/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.l_ear != src && H.r_ear != src)
 			return ..()
 

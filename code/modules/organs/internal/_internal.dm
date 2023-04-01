@@ -23,7 +23,7 @@
 		if(istype(E)) E.internal_organs -= src
 	return ..()
 
-/obj/item/organ/internal/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
+/obj/item/organ/internal/replaced(var/mob/living/carbon/teshari/target, var/obj/item/organ/external/affected)
 	if(!istype(target))
 		return 0
 

@@ -22,14 +22,14 @@
 
 	if(!host)
 		var/list/viable_sayers = list()
-		for(var/mob/living/carbon/human/H in range(3, src))
+		for(var/mob/living/carbon/teshari/H in range(3, src))
 			if(H.stat)
 				continue
 			viable_sayers += H
 		if(!length(viable_sayers))
 			to_chat(src, SPAN_NOTICE("There are no viable hosts to speak with."))
 		else
-			var/mob/living/carbon/human/chosen_sayer = pick(viable_sayers)
+			var/mob/living/carbon/teshari/chosen_sayer = pick(viable_sayers)
 			log_say("[key_name(src)] : (forcing [key_name(chosen_sayer)]) [message]", ckey=key_name(src))
 			chosen_sayer.say(message)
 		return

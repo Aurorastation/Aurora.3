@@ -825,8 +825,8 @@
 /mob/living/silicon/robot/attack_hand(mob/user)
 	add_fingerprint(user)
 
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
+	if(istype(user,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = user
 		if(H.species.can_shred(H))
 			attack_generic(H, rand(30,50), "slashed")
 			return
@@ -1019,23 +1019,23 @@
 					else if(istype(A, /obj/item))
 						var/obj/item/cleaned_item = A
 						cleaned_item.clean_blood()
-					else if(istype(A, /mob/living/carbon/human))
-						var/mob/living/carbon/human/cleaned_human = A
-						if(cleaned_human.lying)
-							if(cleaned_human.head)
-								cleaned_human.head.clean_blood()
-								cleaned_human.update_inv_head(0)
-							if(cleaned_human.wear_suit)
-								cleaned_human.wear_suit.clean_blood()
-								cleaned_human.update_inv_wear_suit(0)
-							else if(cleaned_human.w_uniform)
-								cleaned_human.w_uniform.clean_blood()
-								cleaned_human.update_inv_w_uniform(0)
-							if(cleaned_human.shoes)
-								cleaned_human.shoes.clean_blood()
-								cleaned_human.update_inv_shoes(0)
-							cleaned_human.clean_blood(1)
-							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
+					else if(istype(A, /mob/living/carbon/teshari))
+						var/mob/living/carbon/teshari/cleaned_teshari = A
+						if(cleaned_teshari.lying)
+							if(cleaned_teshari.head)
+								cleaned_teshari.head.clean_blood()
+								cleaned_teshari.update_inv_head(0)
+							if(cleaned_teshari.wear_suit)
+								cleaned_teshari.wear_suit.clean_blood()
+								cleaned_teshari.update_inv_wear_suit(0)
+							else if(cleaned_teshari.w_uniform)
+								cleaned_teshari.w_uniform.clean_blood()
+								cleaned_teshari.update_inv_w_uniform(0)
+							if(cleaned_teshari.shoes)
+								cleaned_teshari.shoes.clean_blood()
+								cleaned_teshari.update_inv_shoes(0)
+							cleaned_teshari.clean_blood(1)
+							to_chat(cleaned_teshari, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
 
 /mob/living/silicon/robot/proc/start_self_destruct(var/anti_theft = FALSE)
 	if(self_destructing)

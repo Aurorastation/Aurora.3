@@ -3,20 +3,20 @@ var/list/dream_entries = list()
 /mob
 	var/mob/living/brain_ghost/bg
 
-/mob/living/carbon/human
+/mob/living/carbon/teshari
 	var/datum/weakref/srom_pulled_by
 	var/datum/weakref/srom_pulling
 
-/mob/living/carbon/human/Destroy()
+/mob/living/carbon/teshari/Destroy()
 	srom_pulled_by = null
 	srom_pulling = null
 	bg = null //Just to be sure.
 	return ..()
 
-/mob/living/carbon/human/proc/handle_shared_dreaming(var/force_wakeup = FALSE)
+/mob/living/carbon/teshari/proc/handle_shared_dreaming(var/force_wakeup = FALSE)
 	// If they're an Unconsious person with the abillity to do Skrellepathy.
 	// If either changes, they should be nocked back to the real world.
-	var/mob/living/carbon/human/srom_puller = srom_pulled_by?.resolve()
+	var/mob/living/carbon/teshari/srom_puller = srom_pulled_by?.resolve()
 	if((can_commune() || (srom_puller && Adjacent(srom_puller))) && stat == UNCONSCIOUS && sleeping > 1)
 		if(!istype(bg) && client) // Don't spawn a brainghost if we're not logged in.
 			bg = new /mob/living/brain_ghost(src) // Generate a new brainghost.
@@ -35,8 +35,8 @@ var/list/dream_entries = list()
 				if(!G)
 					G = l_hand
 				if(G)
-					var/mob/living/carbon/human/victim = G.affecting
-					if(ishuman(victim) && !isSynthetic(victim) && victim.is_psi_pingable())
+					var/mob/living/carbon/teshari/victim = G.affecting
+					if(isteshari(victim) && !isSynthetic(victim) && victim.is_psi_pingable())
 						to_chat(bg, SPAN_NOTICE("You have taken [victim] to the Srom with you."))
 						victim.srom_pulled_by = WEAKREF(src)
 						srom_pulling = WEAKREF(victim)
@@ -75,7 +75,7 @@ var/list/dream_entries = list()
 				adjustBrainLoss(10)
 				srom_pulled_by = null
 
-			var/mob/living/carbon/human/victim = srom_pulling?.resolve()
+			var/mob/living/carbon/teshari/victim = srom_pulling?.resolve()
 			if(victim)
 				victim.srom_pulled_by = null
 			srom_pulling = null

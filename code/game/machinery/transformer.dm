@@ -36,15 +36,15 @@
 
 /obj/machinery/transformer/CollidedWith(var/atom/movable/AM)
 	// HasEntered didn't like people lying down.
-	if(ishuman(AM))
-		// Only humans can enter from the west side, while lying down.
+	if(isteshari(AM))
+		// Only tesharis can enter from the west side, while lying down.
 		var/move_dir = get_dir(loc, AM.loc)
-		var/mob/living/carbon/human/H = AM
+		var/mob/living/carbon/teshari/H = AM
 		if((transform_standing || H.lying) && move_dir == EAST)
 			AM.forceMove(src.loc)
 			make_robot(AM)
 
-/obj/machinery/transformer/proc/make_robot(var/mob/living/carbon/human/H)
+/obj/machinery/transformer/proc/make_robot(var/mob/living/carbon/teshari/H)
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(!transform_dead && H.stat == DEAD)

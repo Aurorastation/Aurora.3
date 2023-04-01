@@ -3,7 +3,7 @@
  *
  *  Mob Unit Tests.
  *
- *  Human suffocation in Space.
+ *  teshari suffocation in Space.
  *  Mob damage Template
  *
  */
@@ -81,15 +81,15 @@ datum/unit_test/mob_hear/start_test()
 		fail("speaker did not say the words \"[message]\"")
 		return 0
 
-datum/unit_test/human_breath
-	name = "MOB: Human Suffocates in Space"
+datum/unit_test/teshari_breath
+	name = "MOB: teshari Suffocates in Space"
 	var/starting_oxyloss = null
 	var/ending_oxyloss = null
-	var/mob/living/carbon/human/H
+	var/mob/living/carbon/teshari/H
 	async = 1
 
 
-datum/unit_test/human_breath/start_test()
+datum/unit_test/teshari_breath/start_test()
 	var/turf/T = locate(20,20,1) //TODO:  Find better way.
 
 	if(!istype(T, /turf/space))	//If the above isn't a space turf then we force it to find one will most likely pick 1,1,1
@@ -101,7 +101,7 @@ datum/unit_test/human_breath/start_test()
 
 	return 1
 
-datum/unit_test/human_breath/check_result()
+datum/unit_test/teshari_breath/check_result()
 
 	if(H.life_tick < 10) 	// Finish Condition
 		return 0	// Return 0 to try again later.
@@ -117,7 +117,7 @@ datum/unit_test/human_breath/check_result()
 
 // ============================================================================
 
-proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/carbon/human, var/add_to_playerlist = FALSE)
+proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/carbon/teshari, var/add_to_playerlist = FALSE)
 	var/list/test_result = list("result" = FAILURE, "msg"    = "", "mobref" = null)
 
 	if(isnull(mobloc))
@@ -156,8 +156,8 @@ proc/damage_check(var/mob/living/M, var/damage_type)
 			loss = M.getToxLoss()
 		if(DAMAGE_OXY)
 			loss = M.getOxyLoss()
-			if(istype(M,/mob/living/carbon/human))
-				var/mob/living/carbon/human/H = M
+			if(istype(M,/mob/living/carbon/teshari))
+				var/mob/living/carbon/teshari/H = M
 				var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name["lungs"]
 				if(L)
 					loss = L.oxygen_deprivation
@@ -166,8 +166,8 @@ proc/damage_check(var/mob/living/M, var/damage_type)
 		if(DAMAGE_PAIN)
 			loss = M.getHalLoss()
 
-	if(!loss && istype(M, /mob/living/carbon/human))          // Revert IPC's when?
-		var/mob/living/carbon/human/H = M                 // IPC's have robot limbs which don't report damage to getXXXLoss()
+	if(!loss && istype(M, /mob/living/carbon/teshari))          // Revert IPC's when?
+		var/mob/living/carbon/teshari/H = M                 // IPC's have robot limbs which don't report damage to getXXXLoss()
 		if(istype(H.species, /datum/species/machine))     // So we have ot hard code this check or create a different one for them.
 			return H.species.total_health - H.health                     // TODO: Find better way to do this then hardcoding this formula
 
@@ -189,9 +189,9 @@ proc/damage_check(var/mob/living/M, var/damage_type)
 
 datum/unit_test/mob_damage
 	name = "MOB: Template for mob damage"
-	var/mob/living/carbon/human/testmob = null
+	var/mob/living/carbon/teshari/testmob = null
 	var/damagetype = DAMAGE_BRUTE
-	var/mob_type = /mob/living/carbon/human
+	var/mob_type = /mob/living/carbon/teshari
 	var/expected_vulnerability = STANDARD
 	var/check_health = 0
 	var/damage_location = BP_CHEST
@@ -209,7 +209,7 @@ datum/unit_test/mob_damage/start_test()
 		fail(test["msg"])
 		return 0
 
-	var/mob/living/carbon/human/H = locate(test["mobref"])
+	var/mob/living/carbon/teshari/H = locate(test["mobref"])
 
 	if(isnull(H))
 		fail("Test unable to set test mob from reference")
@@ -280,31 +280,31 @@ datum/unit_test/mob_damage/start_test()
 	return 1
 
 // =================================================================
-// Human damage check.
+// teshari damage check.
 // =================================================================
 
 datum/unit_test/mob_damage/brute
-	name = "MOB: Human Brute damage check"
+	name = "MOB: teshari Brute damage check"
 	damagetype = DAMAGE_BRUTE
 
 datum/unit_test/mob_damage/fire
-	name = "MOB: Human Fire damage check"
+	name = "MOB: teshari Fire damage check"
 	damagetype = DAMAGE_BURN
 
 datum/unit_test/mob_damage/tox
-	name = "MOB: Human Toxin damage check"
+	name = "MOB: teshari Toxin damage check"
 	damagetype = DAMAGE_TOXIN
 
 datum/unit_test/mob_damage/oxy
-	name = "MOB: Human Oxygen damage check"
+	name = "MOB: teshari Oxygen damage check"
 	damagetype = DAMAGE_OXY
 
 datum/unit_test/mob_damage/clone
-	name = "MOB: Human Clone damage check"
+	name = "MOB: teshari Clone damage check"
 	damagetype = DAMAGE_CLONE
 
 datum/unit_test/mob_damage/halloss
-	name = "MOB: Human Halloss damage check"
+	name = "MOB: teshari Halloss damage check"
 	damagetype = DAMAGE_PAIN
 
 // =================================================================
@@ -313,7 +313,7 @@ datum/unit_test/mob_damage/halloss
 
 datum/unit_test/mob_damage/unathi
 	name = "MOB: Unathi damage check template"
-	mob_type = /mob/living/carbon/human/unathi
+	mob_type = /mob/living/carbon/teshari/unathi
 
 datum/unit_test/mob_damage/unathi/brute
 	name = "MOB: Unathi Brute Damage Check"
@@ -346,7 +346,7 @@ datum/unit_test/mob_damage/unathi/halloss
 
 datum/unit_test/mob_damage/tajaran
 	name = "MOB: Tajaran damage check template"
-	mob_type = /mob/living/carbon/human/tajaran
+	mob_type = /mob/living/carbon/teshari/tajaran
 
 datum/unit_test/mob_damage/tajaran/brute
 	name = "MOB: Tajaran Brute Damage Check"
@@ -379,7 +379,7 @@ datum/unit_test/mob_damage/tajaran/halloss
 
 datum/unit_test/mob_damage/skrell
 	name = "MOB: Skrell damage check template"
-	mob_type = /mob/living/carbon/human/skrell
+	mob_type = /mob/living/carbon/teshari/skrell
 
 datum/unit_test/mob_damage/skrell/brute
 	name = "MOB: Skrell Brute Damage Check"
@@ -411,7 +411,7 @@ datum/unit_test/mob_damage/skrell/halloss
 
 datum/unit_test/mob_damage/diona
 	name = "MOB: Diona damage check template"
-	mob_type = /mob/living/carbon/human/diona
+	mob_type = /mob/living/carbon/teshari/diona
 
 datum/unit_test/mob_damage/diona/brute
 	name = "MOB: Diona Brute Damage Check"
@@ -446,7 +446,7 @@ datum/unit_test/mob_damage/diona/halloss
 
 datum/unit_test/mob_damage/machine
 	name = "MOB: IPC damage check template"
-	mob_type = /mob/living/carbon/human/machine
+	mob_type = /mob/living/carbon/teshari/machine
 
 datum/unit_test/mob_damage/machine/brute
 	name = "MOB: IPC Brute Damage Check"
@@ -484,7 +484,7 @@ datum/unit_test/mob_damage/machine/halloss
 
 datum/unit_test/mob_damage/vaurca
 	name = "MOB: Vaurca damage check template"
-	mob_type = /mob/living/carbon/human/type_a
+	mob_type = /mob/living/carbon/teshari/type_a
 
 datum/unit_test/mob_damage/vaurca/brute
 	name = "MOB: Vaurca Brute Damage Check"

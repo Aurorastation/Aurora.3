@@ -25,14 +25,14 @@
 	if(mob_path)
 		M = new mob_path(get_turf(source))
 	else
-		M = new /mob/living/carbon/human(get_turf(source))
+		M = new /mob/living/carbon/teshari(get_turf(source))
 	M.real_name = source.real_name
 	M.name = M.real_name
 	M.ckey = source.ckey
 	add_antagonist(M.mind, 1, 0, 1) // Equip them and move them to spawn.
 	return M
 
-/datum/antagonist/proc/create_id(var/assignment, var/mob/living/carbon/human/player, var/equip = 1)
+/datum/antagonist/proc/create_id(var/assignment, var/mob/living/carbon/teshari/player, var/equip = 1)
 
 	var/obj/item/card/id/W = new id_type(player)
 	if(!W) return
@@ -42,7 +42,7 @@
 	if(equip) player.equip_to_slot_or_del(W, slot_wear_id)
 	return W
 
-/datum/antagonist/proc/create_radio(var/freq, var/mob/living/carbon/human/player)
+/datum/antagonist/proc/create_radio(var/freq, var/mob/living/carbon/teshari/player)
 	var/obj/item/device/radio/R
 
 	switch(freq)
@@ -123,8 +123,8 @@
 
 /datum/antagonist/proc/set_antag_name(var/mob/living/player)
 	// Choose a name, if any.
-	if(ishuman(player))
-		var/mob/living/carbon/human/H = player
+	if(isteshari(player))
+		var/mob/living/carbon/teshari/H = player
 		var/datum/language/L = H.default_language
 		if(!L)
 			L = all_languages[LANGUAGE_TCB]

@@ -80,13 +80,13 @@ obj/item/organ/vaurca/neuralsocket/process()
 			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	..()
 
-/obj/item/organ/internal/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/vaurca/neuralsocket/replaced(var/mob/living/carbon/teshari/target)
 	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
 		owner.add_language(LANGUAGE_VAURCA)
 		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	..()
 
-/obj/item/organ/internal/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/vaurca/neuralsocket/removed(var/mob/living/carbon/teshari/target)
 	if(all_languages[LANGUAGE_VAURCA] in target.languages)
 		target.remove_language(LANGUAGE_VAURCA)
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
@@ -212,8 +212,8 @@ obj/item/organ/vaurca/neuralsocket/process()
 		if(mask_check)
 			if(location.wear_mask && (location.wear_mask.flags & AIRTIGHT))
 				data["maskConnected"] = 1
-			else if(istype(location, /mob/living/carbon/human))
-				var/mob/living/carbon/human/H = location
+			else if(istype(location, /mob/living/carbon/teshari))
+				var/mob/living/carbon/teshari/H = location
 				if(H.head && (H.head.flags & AIRTIGHT))
 					data["maskConnected"] = 1
 
@@ -260,8 +260,8 @@ obj/item/organ/vaurca/neuralsocket/process()
 				var/can_open_valve
 				if(location.wear_mask && (location.wear_mask.flags & AIRTIGHT))
 					can_open_valve = 1
-				else if(istype(location,/mob/living/carbon/human))
-					var/mob/living/carbon/human/H = location
+				else if(istype(location,/mob/living/carbon/teshari))
+					var/mob/living/carbon/teshari/H = location
 					if(H.head && (H.head.flags & AIRTIGHT))
 						can_open_valve = 1
 

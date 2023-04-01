@@ -1,14 +1,14 @@
 /*
 Add fingerprints to items when we put them in our hands.
-This saves us from having to call add_fingerprint() any time something is put in a human's hands programmatically.
+This saves us from having to call add_fingerprint() any time something is put in a teshari's hands programmatically.
 */
 
-/mob/living/carbon/human/verb/quick_equip()
+/mob/living/carbon/teshari/verb/quick_equip()
 	set name = "quick-equip"
 	set hidden = 1
 
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
+	if(isteshari(src))
+		var/mob/living/carbon/teshari/H = src
 		var/obj/item/I = H.get_active_hand()
 		if(!I)
 			if(istype(s_store) && s_store.should_equip())
@@ -30,7 +30,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		else
 			to_chat(H, "<span class='warning'>You are unable to equip that.</span>")
 
-/mob/living/carbon/human/proc/equip_in_one_of_slots(obj/item/W, list/slots, del_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, ignore_blocked = FALSE)
+/mob/living/carbon/teshari/proc/equip_in_one_of_slots(obj/item/W, list/slots, del_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, ignore_blocked = FALSE)
 	for(var/slot in slots)
 		if(equip_to_slot_if_possible(W, slot, del_on_fail, disable_warning, redraw_mob, ignore_blocked))
 			return slot
@@ -39,12 +39,12 @@ This saves us from having to call add_fingerprint() any time something is put in
 	return null
 
 
-/mob/living/carbon/human/proc/has_organ(name)
+/mob/living/carbon/teshari/proc/has_organ(name)
 	var/obj/item/organ/external/O = organs_by_name[name]
 
 	return (O && !O.is_stump())
 
-/mob/living/carbon/human/proc/has_organ_for_slot(slot)
+/mob/living/carbon/teshari/proc/has_organ_for_slot(slot)
 	switch(slot)
 		if(slot_back)
 			return has_organ(BP_CHEST)
@@ -94,7 +94,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if(slot_wrists)
 			return has_organ(BP_L_ARM) || has_organ(BP_R_ARM)
 
-/mob/living/carbon/human/u_equip(obj/W as obj)
+/mob/living/carbon/teshari/u_equip(obj/W as obj)
 	if(!W)	return 0
 
 	if (W == wear_suit)
@@ -220,7 +220,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 
 //This is an UNSAFE proc. Use mob_can_equip() before calling this one! Or rather use equip_to_slot_if_possible() or advanced_equip_to_slot_if_possible()
 //set redraw_mob to 0 if you don't wish the hud to be updated - if you're doing it manually in your own proc.
-/mob/living/carbon/human/equip_to_slot(obj/item/W, slot, redraw_mob = TRUE, assisted_equip)
+/mob/living/carbon/teshari/equip_to_slot(obj/item/W, slot, redraw_mob = TRUE, assisted_equip)
 	..()
 	if(!slot)
 		return
@@ -382,7 +382,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 	return 1
 
 //Checks if a given slot can be accessed at this time, either to equip or unequip I
-/mob/living/carbon/human/slot_is_accessible(var/slot, var/obj/item/I, mob/user=null)
+/mob/living/carbon/teshari/slot_is_accessible(var/slot, var/obj/item/I, mob/user=null)
 	var/obj/item/covering = null
 	var/check_flags = 0
 
@@ -404,7 +404,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		return 0
 	return 1
 
-/mob/living/carbon/human/get_equipped_item(var/slot)
+/mob/living/carbon/teshari/get_equipped_item(var/slot)
 	switch(slot)
 		if(slot_back)       return back
 		if(slot_legcuffed)  return legcuffed
@@ -428,7 +428,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if(slot_wrists)		return wrists
 	return ..()
 
-/mob/living/carbon/human/get_equipped_items(var/include_carried = 0)
+/mob/living/carbon/teshari/get_equipped_items(var/include_carried = 0)
 	var/list/items = new/list()
 
 	if(back) items += back
@@ -458,14 +458,14 @@ This saves us from having to call add_fingerprint() any time something is put in
 
 
 //Puts the item into our active hand if possible. returns 1 on success.
-/mob/living/carbon/human/put_in_active_hand(var/obj/item/W, set_disable_warning = FALSE)
+/mob/living/carbon/teshari/put_in_active_hand(var/obj/item/W, set_disable_warning = FALSE)
 	return (hand ? equip_to_slot_if_possible(W, slot_l_hand, disable_warning = set_disable_warning) : equip_to_slot_if_possible(W, slot_r_hand, disable_warning = set_disable_warning))
 
 //Puts the item into our inactive hand if possible. returns 1 on success.
-/mob/living/carbon/human/put_in_inactive_hand(var/obj/item/W, set_disable_warning = FALSE)
+/mob/living/carbon/teshari/put_in_inactive_hand(var/obj/item/W, set_disable_warning = FALSE)
 	return (hand ? equip_to_slot_if_possible(W, slot_r_hand, disable_warning = set_disable_warning) : equip_to_slot_if_possible(W, slot_l_hand, disable_warning = set_disable_warning))
 
-/mob/living/carbon/human/put_in_hands(var/obj/item/W)
+/mob/living/carbon/teshari/put_in_hands(var/obj/item/W)
 	if(!W)
 		return FALSE
 	if(put_in_active_hand(W, TRUE))
@@ -475,7 +475,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 	else
 		return ..()
 
-/mob/living/carbon/human/proc/update_noise_level()
+/mob/living/carbon/teshari/proc/update_noise_level()
 	is_noisy = FALSE
 	if (lying || !shoes || !istype(shoes, /obj/item/clothing/shoes))
 		return
@@ -485,7 +485,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 
 	is_noisy = TRUE
 
-/mob/living/carbon/human/proc/get_covering_equipped_item_by_zone(var/zone)
+/mob/living/carbon/teshari/proc/get_covering_equipped_item_by_zone(var/zone)
 	var/obj/item/organ/external/O = get_organ(zone)
 	if(O)
 		return get_covering_equipped_item(O.body_part)

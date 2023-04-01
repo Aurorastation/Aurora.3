@@ -116,7 +116,7 @@
 	var/list/implants = null //A list of implants that should be implanted
 	var/list/spells = list() // A list of spells to grant
 
-/datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/proc/pre_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
 	if(allow_backbag_choice)
 		switch(H.backbag)
@@ -260,7 +260,7 @@
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
 //override_collect temporarily allows equip_or_collect without enabling it for the job. Mostly used to prevent weirdness with hand equips when the player is missing one
-/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE, var/item_color, var/datum/callback/callback)
+/datum/outfit/proc/equip_item(mob/living/carbon/teshari/H, path, slot, var/override_collect = FALSE, var/item_color, var/datum/callback/callback)
 	var/obj/item/I
 
 	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
@@ -283,7 +283,7 @@
 	else
 		H.equip_to_slot_or_del(I, slot)
 
-/datum/outfit/proc/equip_uniform_accessory(mob/living/carbon/human/H)
+/datum/outfit/proc/equip_uniform_accessory(mob/living/carbon/teshari/H)
 	if(!H)
 		return
 
@@ -308,7 +308,7 @@
 			if(W)
 				holster.holster(W, H)
 
-/datum/outfit/proc/equip_suit_accessory(mob/living/carbon/human/H)
+/datum/outfit/proc/equip_suit_accessory(mob/living/carbon/teshari/H)
 	if(!H)
 		return
 
@@ -317,10 +317,10 @@
 		var/obj/item/clothing/accessory/A = new suit_accessory
 		S.attach_accessory(H, A)
 
-/datum/outfit/proc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/proc/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	//to be overriden for changing items post equip (such as toggeling internals, ...)
 
-/datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/proc/equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	//Start with uniform,suit,backpack for additional slots
 	if(back)
 		equip_item(H, back, slot_back)
@@ -501,7 +501,7 @@
 	return 1
 
 // this proc takes all the scattered voidsuit pieces and reassembles them into one piece
-/datum/outfit/proc/organize_voidsuit(mob/living/carbon/human/H, var/add_magboots = TRUE)
+/datum/outfit/proc/organize_voidsuit(mob/living/carbon/teshari/H, var/add_magboots = TRUE)
 	var/obj/item/tank/T = H.s_store
 	H.unEquip(T, TRUE)
 
@@ -521,7 +521,7 @@
 
 	H.equip_to_slot_if_possible(VS, slot_wear_suit)
 
-/datum/outfit/proc/apply_fingerprints(mob/living/carbon/human/H)
+/datum/outfit/proc/apply_fingerprints(mob/living/carbon/teshari/H)
 	if(!istype(H))
 		return
 	if(H.back)
@@ -562,7 +562,7 @@
 		H.r_store.add_fingerprint(H, 1)
 	return 1
 
-/datum/outfit/proc/imprint_idcard(mob/living/carbon/human/H, obj/item/card/id/C)
+/datum/outfit/proc/imprint_idcard(mob/living/carbon/teshari/H, obj/item/card/id/C)
 	if(istype(C))
 		C.access = get_id_access(H)
 		C.rank = get_id_rank(H)
@@ -581,15 +581,15 @@
 		P.enable_computer(null, TRUE) // passing null because we don't want the UI to open
 		P.minimize_program()
 
-/datum/outfit/proc/get_id_access(mob/living/carbon/human/H)
+/datum/outfit/proc/get_id_access(mob/living/carbon/teshari/H)
 	return list()
 
-/datum/outfit/proc/get_id_assignment(mob/living/carbon/human/H)
+/datum/outfit/proc/get_id_assignment(mob/living/carbon/teshari/H)
 	. = GetAssignment(H)
 
 	if (. && . != "Unassigned" && H?.mind?.selected_faction)
 		if (H.mind.selected_faction.title_suffix)
 			. += " ([H.mind.selected_faction.title_suffix])"
 
-/datum/outfit/proc/get_id_rank(mob/living/carbon/human/H)
+/datum/outfit/proc/get_id_rank(mob/living/carbon/teshari/H)
 	return GetAssignment(H)

@@ -40,7 +40,7 @@
 	if(!..())
 		return FALSE
 
-	var/mob/living/carbon/human/H = holder.wearer
+	var/mob/living/carbon/teshari/H = holder.wearer
 
 	to_chat(H, SPAN_NOTICE("<b>You are now invisible to normal detection.</b>"))
 	H.invisibility = INVISIBILITY_LEVEL_TWO
@@ -53,7 +53,7 @@
 	if(!..())
 		return FALSE
 
-	var/mob/living/carbon/human/H = holder.wearer
+	var/mob/living/carbon/teshari/H = holder.wearer
 
 	to_chat(H, SPAN_NOTICE("<b>You are now visible.</b>"))
 	H.invisibility = FALSE
@@ -103,7 +103,7 @@
 	if(!..())
 		return FALSE
 
-	var/mob/living/carbon/human/H = holder.wearer
+	var/mob/living/carbon/teshari/H = holder.wearer
 
 	if(lastteleport + (5 SECONDS) > world.time)
 		to_chat(user, SPAN_WARNING("The teleporter needs time to cool down!"))
@@ -295,7 +295,7 @@
 /obj/item/rig_module/emergency_powergenerator/engage(atom/target, mob/user)
 	if(!..())
 		return
-	var/mob/living/carbon/human/H = holder.wearer
+	var/mob/living/carbon/teshari/H = holder.wearer
 	if(cooldown)
 		to_chat(user, SPAN_DANGER("There isn't enough power stored up yet!"))
 		return FALSE

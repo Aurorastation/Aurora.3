@@ -40,8 +40,8 @@
 		if(vampire && !(vampire.status & VAMP_ISTHRALL))
 			to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		H.change_appearance(APPEARANCE_ALL_HAIR, H, FALSE, ui_state = default_state, state_object = src)
 
 /obj/structure/mirror/proc/shatter()
@@ -145,12 +145,12 @@
 	transform = M
 
 	filters += filter("type" = "alpha", "icon" = icon(alpha_icon, alpha_icon_state), "x" = 0, "y" = 0)
-	for(var/mob/living/carbon/human/H in loc)
+	for(var/mob/living/carbon/teshari/H in loc)
 		check_vampire_enter(H.loc, H)
 
 	vis_contents += get_turf(mirror)
 
-/obj/effect/reflection/proc/check_vampire_enter(var/turf/T, var/mob/living/carbon/human/H)
+/obj/effect/reflection/proc/check_vampire_enter(var/turf/T, var/mob/living/carbon/teshari/H)
 	if(!istype(H))
 		return
 	var/datum/vampire/V = H.get_antag_datum(MODE_VAMPIRE)
@@ -160,7 +160,7 @@
 		else
 			H.vis_flags |= VIS_HIDE
 
-/obj/effect/reflection/proc/check_vampire_exit(var/turf/T, var/mob/living/carbon/human/H)
+/obj/effect/reflection/proc/check_vampire_exit(var/turf/T, var/mob/living/carbon/teshari/H)
 	if(!istype(H))
 		return
 	var/datum/vampire/V = H.get_antag_datum(MODE_VAMPIRE)
@@ -183,6 +183,6 @@
 		if(vampire && !(vampire.status & VAMP_ISTHRALL))
 			to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		H.change_appearance(APPEARANCE_HAIR, H, FALSE, ui_state = default_state, state_object = src)

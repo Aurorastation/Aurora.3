@@ -230,7 +230,7 @@
 	desc = "An animal often mistaken for a rock due its shell. Its main body is made up of large tentacles."
 	visible_message(SPAN_NOTICE("\The [src] emerges from the ground!"))
 
-/mob/living/simple_animal/ice_catcher/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/ice_catcher/attack_hand(mob/living/carbon/teshari/M as mob)
 	if(burrowed && (stat != DEAD))
 		unburrow()
 	..()

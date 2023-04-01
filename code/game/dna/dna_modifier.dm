@@ -96,7 +96,7 @@
 
 	if (usr.stat != 0)
 		return
-	if (!ishuman(usr) && !issmall(usr)) //Make sure they're a mob that has dna
+	if (!isteshari(usr) && !issmall(usr)) //Make sure they're a mob that has dna
 		to_chat(usr, "<span class='notice'>Try as you might, you can not climb up into the scanner.</span>")
 		return
 	if (src.occupant)
@@ -673,7 +673,7 @@
 				var/datum/dna2/record/databuf=new
 				databuf.types = DNA2_BUF_UE
 				databuf.dna = src.connected.occupant.dna.Clone()
-				if(ishuman(connected.occupant))
+				if(isteshari(connected.occupant))
 					databuf.dna.real_name=connected.occupant.dna.real_name
 				databuf.name = "Unique Identifier"
 				src.buffers[bufferId] = databuf
@@ -684,7 +684,7 @@
 				var/datum/dna2/record/databuf=new
 				databuf.types = DNA2_BUF_UI|DNA2_BUF_UE
 				databuf.dna = src.connected.occupant.dna.Clone()
-				if(ishuman(connected.occupant))
+				if(isteshari(connected.occupant))
 					databuf.dna.real_name=connected.occupant.dna.real_name
 				databuf.name = "Unique Identifier + Unique Enzymes"
 				src.buffers[bufferId] = databuf
@@ -695,7 +695,7 @@
 				var/datum/dna2/record/databuf=new
 				databuf.types = DNA2_BUF_SE
 				databuf.dna = src.connected.occupant.dna.Clone()
-				if(ishuman(connected.occupant))
+				if(isteshari(connected.occupant))
 					databuf.dna.real_name=connected.occupant.dna.real_name
 				databuf.name = "Structural Enzymes"
 				src.buffers[bufferId] = databuf

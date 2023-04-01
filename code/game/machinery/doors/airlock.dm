@@ -974,8 +974,8 @@ About the new airlock wires panel:
 		if(src.isElectrified())
 			if(src.shock(user, 100))
 				return
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 
 		if(H.getBrainLoss() >= 50)
 			if(prob(40) && src.density)
@@ -1523,7 +1523,7 @@ About the new airlock wires panel:
 
 /mob/living/blocks_airlock()
 	// if this returns false, a mob can be crushed by airlock
-	// cat is 2.5, corgi is 3.5, fox is 4, human is 9
+	// cat is 2.5, corgi is 3.5, fox is 4, teshari is 9
 	return mob_size > 2.4
 
 /atom/movable/proc/airlock_crush(var/crush_damage)

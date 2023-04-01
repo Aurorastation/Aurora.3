@@ -47,7 +47,7 @@ mob/var/next_pain_time = 0
 
 	next_pain_time = world.time + 5 SECONDS
 
-/mob/living/carbon/human/proc/handle_pain()
+/mob/living/carbon/teshari/proc/handle_pain()
 	if(stat >= DEAD)
 		return
 	if(!can_feel_pain())

@@ -79,13 +79,13 @@
 	outputs = list("nutrition" = IC_PINTYPE_NUMBER)
 	var/inefficiency = 1.2
 
-/obj/item/integrated_circuit/passive/power/metabolic_siphon/proc/test_validity(var/mob/living/carbon/human/host)
+/obj/item/integrated_circuit/passive/power/metabolic_siphon/proc/test_validity(var/mob/living/carbon/teshari/host)
 	if(!host || host.isSynthetic() || host.stat == DEAD || host.nutrition <= 10)
 		return FALSE // Robots and dead people don't have a metabolism.
 	return TRUE
 
 /obj/item/integrated_circuit/passive/power/metabolic_siphon/make_energy()
-	var/mob/living/carbon/human/host
+	var/mob/living/carbon/teshari/host
 	if(assembly && istype(assembly, /obj/item/device/electronic_assembly/implant))
 		var/obj/item/device/electronic_assembly/implant/implant_assembly = assembly
 		if(implant_assembly.implant.imp_in)
@@ -111,7 +111,7 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	inefficiency = 1 // it's not converting anything, just transferring power
 
-/obj/item/integrated_circuit/passive/power/metabolic_siphon/synthetic/test_validity(var/mob/living/carbon/human/host)
+/obj/item/integrated_circuit/passive/power/metabolic_siphon/synthetic/test_validity(var/mob/living/carbon/teshari/host)
 	if(!host || !host.isSynthetic() || host.stat == DEAD || host.nutrition <= 10)
 		return FALSE // This time we don't want a metabolism.
 	return TRUE

@@ -109,7 +109,7 @@
 	origin = "Replica Store"
 	possible_origins = list("Ye-Old Armory", "Knights and Knaves", "The Blacksmith", "Historical Apparel and Items", "The Pointy End")
 	speech = list(
-		"hail_generic"      = "Welcome, welcome! You look like a man who appreciates human history. Come in, and learn! Maybe even.... buy?",
+		"hail_generic"      = "Welcome, welcome! You look like a man who appreciates teshari history. Come in, and learn! Maybe even.... buy?",
 		"hail_Unathi"       = "Ah, you look like a lizard who knows his way around martial combat. Come in! Our stuff may not be as high quality as you are used to, but feel free to look around.",
 		"hail_deny"         = "A man who does not appreciate history does not appreciate me. Goodbye.",
 		"trade_complete"    = "Now remember, these may be replicas, but they are still a bit sharp!",

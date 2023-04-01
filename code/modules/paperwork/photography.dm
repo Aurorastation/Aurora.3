@@ -102,7 +102,7 @@ var/global/photo_count = 0
 
 /obj/item/storage/photo_album/MouseDrop(obj/over_object as obj)
 
-	if((istype(usr, /mob/living/carbon/human)))
+	if((istype(usr, /mob/living/carbon/teshari)))
 		var/mob/M = usr
 		if(!( istype(over_object, /obj/screen) ))
 			return ..()
@@ -157,7 +157,7 @@ var/global/photo_count = 0
 		size = nsize
 		to_chat(usr, "<span class='notice'>Camera will now take [size]x[size] photos.</span>")
 
-/obj/item/device/camera/attack(mob/living/carbon/human/M as mob, mob/user as mob)
+/obj/item/device/camera/attack(mob/living/carbon/teshari/M as mob, mob/user as mob)
 	return
 
 /obj/item/device/camera/attack_self(mob/user as mob)

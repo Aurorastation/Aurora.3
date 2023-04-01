@@ -119,8 +119,8 @@
 		if(isliving(A))
 			var/mob/living/L = A
 			visible_message(SPAN_WARNING("\The [src] crushes \the [L] under its weight!"))
-			if(ishuman(L))
-				var/mob/living/carbon/human/H = L
+			if(isteshari(L))
+				var/mob/living/carbon/teshari/H = L
 				var/obj/item/organ/external/affected = pick(H.organs)
 				affected.take_damage(fall_force)
 			else

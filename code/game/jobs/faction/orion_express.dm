@@ -14,7 +14,7 @@
 	allowed_role_types = ORION_ROLES
 
 	allowed_species_types = list(
-		/datum/species/human,
+		/datum/species/teshari,
 		/datum/species/skrell,
 		/datum/species/machine,
 		/datum/species/unathi,

@@ -205,7 +205,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		if(BATTLE_MONSTERS_DEFENSETYPE_FERALDRAGON)
 			return "feral dragon"
 		if(BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID)
-			return "human-dragon hybrid"
+			return "teshari-dragon hybrid"
 		if(BATTLE_MONSTERS_DEFENSETYPE_DRAGON)
 			return "dragon"
 		if(BATTLE_MONSTERS_DEFENSETYPE_DEMIGOD)
@@ -224,8 +224,8 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 			return "colossus"
 		if(BATTLE_MONSTERS_DEFENSETYPE_REPTILE)
 			return "reptile"
-		if(BATTLE_MONSTERS_DEFENSETYPE_HUMAN)
-			return "human"
+		if(BATTLE_MONSTERS_DEFENSETYPE_teshari)
+			return "teshari"
 		if(BATTLE_MONSTERS_DEFENSETYPE_INSECT)
 			return "insect"
 		if(BATTLE_MONSTERS_DEFENSETYPE_GOD)
@@ -247,7 +247,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	//This list looks odd to prevent runtime errors related to out of bounds indexes
 	var/list/translations = list(
-		"Human" = BATTLE_MONSTERS_DEFENSETYPE_HUMAN,
+		"teshari" = BATTLE_MONSTERS_DEFENSETYPE_teshari,
 		"God" = BATTLE_MONSTERS_DEFENSETYPE_GOD,
 		"Machine" = BATTLE_MONSTERS_DEFENSETYPE_MACHINE,
 		"Creature" = BATTLE_MONSTERS_DEFENSETYPE_CREATURE,

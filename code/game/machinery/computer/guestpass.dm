@@ -149,7 +149,7 @@
 		switch(href_list["action"])
 			if("id")
 				if(giver && giver != GUEST_PASS_TERMINAL_UNSET)
-					if(ishuman(usr))
+					if(isteshari(usr))
 						giver.forceMove(usr.loc)
 						if(!usr.get_active_hand())
 							usr.put_in_hands(giver)

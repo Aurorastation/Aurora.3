@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/zenghu_survivor
+/datum/ghostspawner/teshari/zenghu_survivor
 	short_name = "zenghu"
 	name = "Zeng-Hu Survivor"
 	desc = "Survive whatever might lurk in the Zeng-Hu installation."
@@ -12,7 +12,7 @@
 	away_site = TRUE
 
 	outfit = /datum/outfit/admin/zenghu_survivor
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP)
+	possible_species = list(SPECIES_teshari, SPECIES_teshari_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Zeng-Hu Survivor"

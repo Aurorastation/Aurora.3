@@ -11,13 +11,13 @@
 	var/list/pieces = list()
 	var/list/lastAction = null
 
-/obj/item/board/attack_hand(mob/living/carbon/human/M as mob)
+/obj/item/board/attack_hand(mob/living/carbon/teshari/M as mob)
 	if(!isturf(loc)) //so if you want to play the game, you need to put it down somewhere
 		..()
 	else
 		if(ui_interact(M))
 			..()
-		
+
 
 /obj/item/board/ui_interact(mob/user, var/datum/topic_state/state = default_state)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -34,7 +34,7 @@
 	data["last"] = lastAction
 
 /obj/item/board/Topic(href, href_list)
-	
+
 	if(href_list["add"])
 		if(pieces.len > 64)
 			return
@@ -46,11 +46,11 @@
 			lastAction = pieces[href_list["change"]["index"]]
 			pieces[href_list["change"]["index"]] = href_list["change"]["piece"]
 
-	
+
 	if(href_list["remove"] && isnum(href_list["remove"]["index"]))
 		lastAction = pieces[href_list["remove"]["index"]]
 		pieces -= list(pieces[href_list["remove"]["index"]])
-	
+
 	SSvueui.check_uis_for_change(src)
 
 /obj/item/board/proc/verifyPiece(var/list/piece)
@@ -61,7 +61,7 @@
 	if(!(IS_VALID_BOARD_POSITION(piece["pos"])))
 		return FALSE
 	return TRUE
-	
+
 #undef ALLOWED_BOARD_TYPES
 #undef ALLOWED_BOARD_FACTIONS
 #undef IS_VALID_BOARD_POSITION

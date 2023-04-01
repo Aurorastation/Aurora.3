@@ -61,7 +61,7 @@
 	if(!A || !proximity)
 		return 0
 
-	var/mob/living/carbon/human/H = loc
+	var/mob/living/carbon/teshari/H = loc
 	if(!istype(H) || !H.back)
 		return 0
 

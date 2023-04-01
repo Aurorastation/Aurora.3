@@ -1,6 +1,6 @@
 // ghost roles
 
-/datum/ghostspawner/human/survivor
+/datum/ghostspawner/teshari/survivor
 	short_name = "survivor"
 	name = "Survivor"
 	desc = "Well you've managed to survive the initial impact. Can you survive until rescue?"
@@ -10,7 +10,7 @@
 	max_count = 3
 
 	outfit = /datum/outfit/admin/freighter_crew
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	possible_species = list(SPECIES_teshari, SPECIES_teshari_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Survivor"
@@ -39,7 +39,7 @@
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/workboots/toeless
 	)
 
-/datum/outfit/admin/survivor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/survivor/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)

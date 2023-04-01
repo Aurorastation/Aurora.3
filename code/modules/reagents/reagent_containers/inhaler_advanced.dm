@@ -123,7 +123,7 @@
 
 /obj/item/personal_inhaler/attack(mob/living/M as mob, mob/user as mob)
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 
 	if (!istype(H))
 		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on \the [M]!</span>")

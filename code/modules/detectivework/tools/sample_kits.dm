@@ -96,9 +96,9 @@
 /obj/item/sample/print/attack_self(var/mob/user)
 	if(LAZYLEN(evidence))
 		return
-	if(!ishuman(user))
+	if(!isteshari(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/teshari/H = user
 	if(H.gloves)
 		to_chat(user, SPAN_WARNING("Take \the [H.gloves] off first."))
 		return
@@ -112,13 +112,13 @@
 
 /obj/item/sample/print/attack(var/mob/living/M, var/mob/user, var/target_zone)
 
-	if(!ishuman(M))
+	if(!isteshari(M))
 		return ..()
 
 	if(LAZYLEN(evidence))
 		return 0
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 
 	if(H.gloves)
 		to_chat(user, SPAN_WARNING("\The [H] is wearing gloves."))

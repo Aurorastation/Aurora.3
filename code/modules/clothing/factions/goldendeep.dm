@@ -35,7 +35,7 @@
 
 /obj/item/clothing/under/goldendeep/suit
 	name = "golden deep suit"
-	desc = "A two piece suit made from a flexible electroplated thermoplastic and a tasteful synthetic silk tie. It is commonly worn by members of the Golden Deep looking to fit in with human culture."
+	desc = "A two piece suit made from a flexible electroplated thermoplastic and a tasteful synthetic silk tie. It is commonly worn by members of the Golden Deep looking to fit in with teshari culture."
 	desc_extended = "Two piece suits and skirtsuits have always been a mainstay of Golden Deep culture; representing a certain amount of gravitas inherent with the business-formal aesthetic that they embody. \
 	It wasn't until 2458, however, that the golden suits were seen in greater numbers among Golden Deep citizens. Until then, it had been trendy to stick with flowing, breathable clothing options among other citizens. \
 	Trading with external societies has become more competitive, and as such old rivalries among GD citizens and traders have been rekindled - necessitating the need to 'keep up appearances' even within exclusively \
@@ -47,7 +47,7 @@
 
 /obj/item/clothing/under/goldendeep/skirtsuit
 	name = "golden deep skirtsuit"
-	desc = "A flowing skirtsuit made from a flexible electroplated thermoplastic and a tasteful synthetic silk tie. It is commonly worn by members of the Golden Deep looking to fit in with human culture."
+	desc = "A flowing skirtsuit made from a flexible electroplated thermoplastic and a tasteful synthetic silk tie. It is commonly worn by members of the Golden Deep looking to fit in with teshari culture."
 	desc_extended = "Two piece suits and skirtsuits have always been a mainstay of Golden Deep culture; representing a certain amount of gravitas inherent with the business-formal aesthetic that they embody. It wasn't until 2458, however, that the golden suits \
 	were seen in greater numbers among Golden Deep citizens. Until then, it had been trendy to stick with flowing, breathable clothing options among other citizens. Trading with external societies has become more competitive, and as such old rivalries among \
 	GD citizens and traders have been rekindled - necessitating the need to 'keep up appearances' even within exclusively Golden Deep social circles."

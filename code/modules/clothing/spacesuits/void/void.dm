@@ -22,7 +22,7 @@
 	icon = 'icons/obj/clothing/hats.dmi'
 
 	//Species-specific stuff.
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_teshari, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 	sprite_sheets_refit = list(
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi',
 		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
@@ -62,7 +62,7 @@
 	contained_sprite = FALSE
 	icon = 'icons/obj/clothing/suits.dmi'
 
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_teshari, BODYTYPE_SKRELL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 	sprite_sheets_refit = list(
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/suit.dmi',
 		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/suit.dmi',
@@ -114,7 +114,7 @@
 /obj/item/clothing/suit/space/void/equipped(mob/M)
 	..()
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 
 	if(!istype(H)) return
 
@@ -145,7 +145,7 @@
 			cooler.canremove = 0
 
 /obj/item/clothing/suit/space/void/proc/cleanup_from_mob()
-	var/mob/living/carbon/human/H
+	var/mob/living/carbon/teshari/H
 
 	if(helmet)
 		helmet.canremove = 1
@@ -189,7 +189,7 @@
 		to_chat(usr, "There is no helmet installed.")
 		return
 
-	var/mob/living/carbon/human/H = usr
+	var/mob/living/carbon/teshari/H = usr
 
 	if(!istype(H)) return
 	if(H.stat) return

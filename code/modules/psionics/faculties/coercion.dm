@@ -113,7 +113,7 @@
 	min_rank =       PSI_RANK_MASTER
 	use_description = "Target the arms or hands on disarm intent to use a ranged attack that may rip the weapons away from the target."
 
-/datum/psionic_power/coercion/spasm/invoke(var/mob/living/user, var/mob/living/carbon/human/target)
+/datum/psionic_power/coercion/spasm/invoke(var/mob/living/user, var/mob/living/carbon/teshari/target)
 	if(!istype(target))
 		return FALSE
 
@@ -269,7 +269,7 @@
 			else if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)
 				to_chat(M, "<span class='notice'>[user] psionically says to [target]:</span> [text]")
 
-		var/mob/living/carbon/human/H = target
+		var/mob/living/carbon/teshari/H = target
 		if(H.can_commune() || H.psi)
 			to_chat(H, SPAN_CULT("<b>You instinctively sense [user] passing a thought into your mind:</b> [text]"))
 		else if(target.has_psi_aug())

@@ -58,7 +58,7 @@
 	check whether you're adjacent to the target, then pass off the click to whoever
 	is recieving it.
 	The most common are:
-	* mob/UnarmedAttack(atom,adjacent) - used here only when adjacent, with no item in hand; in the case of humans, checks gloves
+	* mob/UnarmedAttack(atom,adjacent) - used here only when adjacent, with no item in hand; in the case of tesharis, checks gloves
 	* atom/attackby(item,user) - used only when adjacent, return TRUE to prevent further afterattack procs being called
 	* item/afterattack(atom,user,adjacent,params) - used both ranged and adjacent
 	* mob/RangedAttack(atom,params) - used only ranged, only used for tk and laser eyes but could be changed
@@ -196,7 +196,7 @@
 	not be called at ranged except with telekinesis.
 
 	proximity_flag is not currently passed to attack_hand, and is instead used
-	in human click code to allow glove touches only at melee range.
+	in teshari click code to allow glove touches only at melee range.
 */
 /mob/proc/UnarmedAttack(var/atom/A, var/proximity_flag)
 	return
@@ -242,7 +242,7 @@
 		return
 	swap_hand()
 
-/mob/living/carbon/human/MiddleClickOn(var/atom/A)
+/mob/living/carbon/teshari/MiddleClickOn(var/atom/A)
 	if(species.handle_middle_mouse_click(src, A))
 		return
 	return ..()
@@ -333,7 +333,7 @@
 	playsound(usr.loc, 'sound/weapons/wave.ogg', 75, 1)
 	LE.launch_projectile(A, zone_sel? zone_sel.selecting : null, src, params)
 
-/mob/living/carbon/human/LaserEyes(atom/A, params)
+/mob/living/carbon/teshari/LaserEyes(atom/A, params)
 	if(nutrition <= 0)
 		to_chat(src, "<span class='warning'>You're out of energy!  You need food!</span>")
 		return

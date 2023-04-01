@@ -242,7 +242,7 @@
 			var/mob/living/L = A
 			if(L.pulling)
 				L.pulling.forceMove(target)
-			if(ishuman(A))
+			if(isteshari(A))
 				playsound(src, 'sound/effects/stairs_step.ogg', 50)
 				playsound(target, 'sound/effects/stairs_step.ogg', 50)
 
@@ -260,7 +260,7 @@
 	return !density
 
 /obj/structure/stairs/proc/mob_fall(mob/living/L)
-	if(isopenturf(L.loc) || get_turf(L) == get_turf(src) || !ishuman(L))
+	if(isopenturf(L.loc) || get_turf(L) == get_turf(src) || !isteshari(L))
 		return
 
 	L.Weaken(2)

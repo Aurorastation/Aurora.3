@@ -522,11 +522,11 @@ var/list/jobban_keylist = list() // Global jobban list.
 			jobs += "</tr><tr align='center'>"
 			counter = 0
 
-	//Non-Human (Green)
+	//Non-teshari (Green)
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='ccffcc'><th colspan='[length(nonhuman_positions)+1]'><a href='?src=\ref[src];jobban_job=nonhumandept;jobban_tgt=[ckey]'>Non-human Positions</a></th></tr><tr align='center'>"
-	for (var/jobPos in nonhuman_positions)
+	jobs += "<tr bgcolor='ccffcc'><th colspan='[length(nonteshari_positions)+1]'><a href='?src=\ref[src];jobban_job=nontesharidept;jobban_tgt=[ckey]'>Non-teshari Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in nonteshari_positions)
 		if (!jobPos)
 			continue
 		var/datum/job/job = SSjobs.GetJob(jobPos)
@@ -693,9 +693,9 @@ var/list/jobban_keylist = list() // Global jobban list.
 				if (!temp)
 					continue
 				joblist += temp.title
-		if ("nonhumandept")
+		if ("nontesharidept")
 			joblist += "pAI"
-			for (var/jobPos in nonhuman_positions)
+			for (var/jobPos in nonteshari_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)

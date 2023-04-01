@@ -1,4 +1,4 @@
-/mob/living/carbon/human/LateLogin()
+/mob/living/carbon/teshari/LateLogin()
 	..()
 	update_hud()
 	if(species)

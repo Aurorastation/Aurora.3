@@ -21,7 +21,7 @@
 	claims to be the Messiah for Unathi. It is a radical Sk'akh heresy that claims the Contact War to have been Final Judgement for the Unathi species caused by their innate wickedness. \
 	He claims that all Unathi that died in the 'cleansing fire' of the atomic weapons were given salvation, and that all Unathi that survived are damned to remain trapped on the Hell of \
 	Moghes unless the species and Moghes are rapidly purified. The movement has nearly a hundred thousand followers and it has come into immediate conflict with the orthodox Sk'akh \
-	church due to Si'akh claiming it to be completely illegitimate. Its followers are ruthlessly hunted down by the Maraziite Order and many of its followers are fleeing into human \
+	church due to Si'akh claiming it to be completely illegitimate. Its followers are ruthlessly hunted down by the Maraziite Order and many of its followers are fleeing into teshari \
 	space as they try to find personal salvation. It is treated as a Sk'akh heresy or a fanatical doomsday cult by orthodox Unathi. "
 	book_name = "transcripts from Si'akh"
 

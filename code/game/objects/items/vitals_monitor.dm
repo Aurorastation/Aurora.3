@@ -17,9 +17,9 @@
 	if(!bed)
 		return
 
-	var/mob/living/carbon/human/H
+	var/mob/living/carbon/teshari/H
 	if(bed?.buckled)
-		if(ishuman(bed.buckled))
+		if(isteshari(bed.buckled))
 			H = bed.buckled
 		else if(istype(bed.buckled, /obj/structure/closet))
 			H = locate() in bed.buckled.contents
@@ -84,9 +84,9 @@
 	if(!data)
 		data = list()
 
-	var/mob/living/carbon/human/H
+	var/mob/living/carbon/teshari/H
 	if(bed?.buckled)
-		if(ishuman(bed.buckled))
+		if(isteshari(bed.buckled))
 			H = bed.buckled
 		else if(istype(bed.buckled, /obj/structure/closet))
 			H = locate() in bed.buckled.contents

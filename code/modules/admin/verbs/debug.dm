@@ -45,7 +45,7 @@
 	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
-	if(istype(M, /mob/living/carbon/human))
+	if(istype(M, /mob/living/carbon/teshari))
 		log_admin("[key_name(src)] has robotized [M.key].",admin_key=key_name(usr),ckey=key_name(M))
 		spawn(10)
 			M:Robotize()
@@ -81,7 +81,7 @@
 	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
-	if(ishuman(M))
+	if(isteshari(M))
 		log_and_message_admins("has slimeized [key_name(M)].", user = usr)
 		spawn(10)
 			M:slimeize()
@@ -95,7 +95,7 @@
 	set name = "Del-All"
 
 	// to prevent REALLY stupid deletions
-	var/blocked = list(/obj, /mob, /mob/living, /mob/living/carbon, /mob/living/carbon/human, /mob/abstract, /mob/abstract/observer, /mob/living/silicon, /mob/living/silicon/robot, /mob/living/silicon/ai)
+	var/blocked = list(/obj, /mob, /mob/living, /mob/living/carbon, /mob/living/carbon/teshari, /mob/abstract, /mob/abstract/observer, /mob/living/silicon, /mob/living/silicon/robot, /mob/living/silicon/ai)
 	var/hsbitem = input(usr, "Choose an object to delete.", "Delete:") as null|anything in typesof(/obj) + typesof(/mob) - blocked
 	if(hsbitem)
 		for(var/atom/O in world)
@@ -129,8 +129,8 @@
 	if (!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
-	if (istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if (istype(M, /mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = M
 		if (H.GetIdCard())
 			var/obj/item/card/id/id = H.GetIdCard()
 			id.icon_state = "gold"
@@ -266,7 +266,7 @@
 /client/proc/cmd_admin_grab_observers()
 	set category = "Fun"
 	set name = "Grab Observers"
-	set desc = "Grabs players that are observing and spawns them as basic humans beneath your feet."
+	set desc = "Grabs players that are observing and spawns them as basic tesharis beneath your feet."
 
 	var/list/chosen_observers = list()
 	var/next_observer = "NotGeeves"
@@ -282,23 +282,23 @@
 			chosen_observers += next_observer
 
 	for(var/spawn_observer in chosen_observers)
-		var/mob/living/carbon/human/H = new /mob/living/carbon/human(get_turf(usr))
+		var/mob/living/carbon/teshari/H = new /mob/living/carbon/teshari(get_turf(usr))
 		do_dressing(H)
 		var/mob/abstract/observer/O = spawn_observer
 		H.ckey = O.ckey
 		qdel(O)
 
-/client/proc/cmd_admin_dress(mob/living/carbon/human/H in human_mob_list)
+/client/proc/cmd_admin_dress(mob/living/carbon/teshari/H in teshari_mob_list)
 	set category = "Fun"
-	set name = "Set Human Outfit"
+	set name = "Set teshari Outfit"
 
 	if(!check_rights(R_FUN))
 		return
 	do_dressing(H)
 
-/client/proc/do_dressing(var/mob/living/carbon/human/M = null)
+/client/proc/do_dressing(var/mob/living/carbon/teshari/M = null)
 	if(!M || !istype(M))
-		M = input("Select a mob you would like to dress.", "Set Human Outfit") as null|anything in human_mob_list
+		M = input("Select a mob you would like to dress.", "Set teshari Outfit") as null|anything in teshari_mob_list
 	if(!M)
 		return
 

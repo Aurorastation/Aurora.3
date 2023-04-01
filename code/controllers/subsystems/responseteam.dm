@@ -11,7 +11,7 @@
 	var/list/datum/responseteam/all_ert_teams = list()
 	var/list/datum/responseteam/available_teams = list()
 	var/datum/responseteam/picked_team
-	var/list/datum/ghostspawner/human/ert/sent_teams = list()
+	var/list/datum/ghostspawner/teshari/ert/sent_teams = list()
 
 	var/list/active_distress_beacons = list()
 
@@ -101,10 +101,10 @@
 
 /datum/controller/subsystem/distress/proc/handle_spawner()
 	for(var/N in typesof(picked_team.spawner)) //Find all spawners that are subtypes of the team we want.
-		var/datum/ghostspawner/human/ert/new_spawner = new N
+		var/datum/ghostspawner/teshari/ert/new_spawner = new N
 		for(var/role_spawner in SSghostroles.spawners)
 			if(new_spawner.short_name == role_spawner) //Create the spawner, then use its name to find the spawner in SSghostroles' spawner lists.
-				var/datum/ghostspawner/human/ert/good_spawner = SSghostroles.spawners[role_spawner]
+				var/datum/ghostspawner/teshari/ert/good_spawner = SSghostroles.spawners[role_spawner]
 				sent_teams += good_spawner //Enable that spawner.
 				good_spawner.enable()
 	if(picked_team.equipment_map)
@@ -175,7 +175,7 @@
 /datum/distress_beacon
 	var/distress_message
 	var/obj/effect/overmap/visitable/caller
-	var/mob/living/carbon/human/user
+	var/mob/living/carbon/teshari/user
 	var/user_name
 
 /datum/distress_beacon/Destroy()

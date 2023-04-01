@@ -53,7 +53,7 @@
 	if (!( ROUND_IS_STARTED ) || operating || !density || !istype(M) || !allowed(M))
 		return
 
-	if(ishuman(M) || isrobot(M) || isbot(M) || istype(M, /mob/living/simple_animal/spiderbot) || ismech(M))
+	if(isteshari(M) || isrobot(M) || isbot(M) || istype(M, /mob/living/simple_animal/spiderbot) || ismech(M))
 		if(inoperable())
 			if(do_after(M, 1 SECOND, TRUE, src))
 				// The VM here is before open and the wording is backwards because density gets set after a background sleep in open
@@ -131,7 +131,7 @@
 		return
 
 /obj/machinery/door/window/attack_hand(mob/user as mob)
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/teshari/H = user
 	if(istype(H) && H.species.can_shred(H))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)

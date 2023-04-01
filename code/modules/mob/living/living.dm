@@ -121,7 +121,7 @@ default behaviour is:
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && HAS_FLAG(tmob.mutations, FAT))
+			if(istype(tmob, /mob/living/carbon/teshari) && HAS_FLAG(tmob.mutations, FAT))
 				if(prob(40) && NOT_FLAG(mutations, FAT))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = FALSE
@@ -165,7 +165,7 @@ default behaviour is:
 							return
 
 					step(AM, t)
-					if(ishuman(AM) && AM:grabbed_by)
+					if(isteshari(AM) && AM:grabbed_by)
 						for(var/obj/item/grab/G in AM:grabbed_by)
 							step(G:assailant, get_dir(G:assailant, AM))
 							G.adjust_position()
@@ -229,7 +229,7 @@ default behaviour is:
 	take_overall_damage(0, burn_amount)
 	return TRUE
 
-/mob/living/carbon/human/burn_skin(burn_amount)
+/mob/living/carbon/teshari/burn_skin(burn_amount)
 	if(HAS_FLAG(mutations, mShock)) //shockproof
 		return FALSE
 	if(HAS_FLAG(mutations, COLD_RESISTANCE)) //fireproof
@@ -433,7 +433,7 @@ default behaviour is:
 	else
 		start_floating()
 
-/mob/living/proc/revive(reset_to_roundstart = TRUE)	// this param is only used in human regen.
+/mob/living/proc/revive(reset_to_roundstart = TRUE)	// this param is only used in teshari regen.
 	// Stop killing yourself. Please.
 //	if(suiciding)
 //		suiciding = 0
@@ -631,8 +631,8 @@ default behaviour is:
 										var/turf/location = M.loc
 										if (istype(location, /turf/simulated))
 											location.add_blood(M)
-											if(ishuman(M))
-												var/mob/living/carbon/human/H = M
+											if(isteshari(M))
+												var/mob/living/carbon/teshari/H = M
 												var/total_blood = round(REAGENT_VOLUME(H.vessel, /singleton/reagent/blood))
 												if(total_blood > 0)
 													H.vessel.remove_reagent(/singleton/reagent/blood, 1)
@@ -922,7 +922,7 @@ default behaviour is:
 	return null
 
 /proc/is_valid_for_devour(var/mob/living/test, var/eat_types)
-	//eat_types must contain all types that the mob has. For example we need both humanoid and synthetic to eat an IPC.
+	//eat_types must contain all types that the mob has. For example we need both tesharioid and synthetic to eat an IPC.
 	var/test_types = test.find_type()
 	. = (eat_types & test_types) == test_types
 

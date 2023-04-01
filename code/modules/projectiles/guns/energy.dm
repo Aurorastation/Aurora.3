@@ -59,7 +59,7 @@
 		to_chat(M, SPAN_DANGER("[src] locks up!"))
 		playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
 	var/initial_charge = power_supply.charge
-	power_supply.charge = 0	
+	power_supply.charge = 0
 	sleep(severity * 20)
 	power_supply.give(initial_charge)
 	update_maptext()
@@ -119,7 +119,7 @@
 	if(istype(src.loc, /obj/item/rig_module))
 		var/obj/item/rig_module/module = src.loc
 		if(module.holder && module.holder.wearer)
-			var/mob/living/carbon/human/H = module.holder.wearer
+			var/mob/living/carbon/teshari/H = module.holder.wearer
 			if(istype(H) && H.back)
 				var/obj/item/rig/suit = H.back
 				if(istype(suit))
@@ -160,7 +160,7 @@
 		else
 			icon_state = "[initial(icon_state)][icon_state_ratio]"
 			item_state = "[initial(item_state)][item_state_ratio]"
-			
+
 	..()
 
 /obj/item/gun/energy/handle_post_fire()

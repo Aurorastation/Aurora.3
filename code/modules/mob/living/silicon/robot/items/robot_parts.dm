@@ -222,8 +222,8 @@
 			O.job = "AI Shell"
 			O.cell = chest.cell
 			O.cell.forceMove(O)
-			W.forceMove(O) 
-			
+			W.forceMove(O)
+
 			if(O.cell)
 				var/datum/robot_component/cell_component = O.components["power cell"]
 				cell_component.wrapped = O.cell
@@ -252,7 +252,7 @@
 					to_chat(user, SPAN_WARNING("There's no way that would fit in an IPC chassis!"))
 					return
 
-				var/mob/living/carbon/human/new_shell = new(get_turf(src), chest.linked_frame)
+				var/mob/living/carbon/teshari/new_shell = new(get_turf(src), chest.linked_frame)
 				// replace the IPC's microbattery cell with the one that was in the robot chest
 				var/obj/item/organ/internal/cell/C = new_shell.internal_organs_by_name[BP_CELL]
 				C.replace_cell(chest.cell)
@@ -422,7 +422,7 @@
 	linked_frame = SPECIES_IPC_ZENGHU
 
 /obj/item/robot_parts/chest/synthskin
-	name = "Human synthskin torso"
+	name = "teshari synthskin torso"
 	linked_frame = SPECIES_IPC_SHELL
 
 /obj/item/robot_parts/chest/xion

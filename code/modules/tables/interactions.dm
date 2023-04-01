@@ -60,8 +60,8 @@
 
 /obj/structure/table/Crossed(var/atom/movable/am as mob|obj)
 	..()
-	if(ishuman(am))
-		var/mob/living/carbon/human/H = am
+	if(isteshari(am))
+		var/mob/living/carbon/teshari/H = am
 		if(H.a_intent != I_HELP || H.m_intent == M_RUN)
 			throw_things(H)
 		else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
@@ -116,8 +116,8 @@
 		"<span class='warning'>[user] climbs onto \the [src]!</span>",
 		"<span class='warning'>You climb onto \the [src]!</span>"
 		)
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
+		if(isteshari(user))
+			var/mob/living/carbon/teshari/H = user
 			if(H.a_intent != I_HELP || H.m_intent == M_RUN)
 				throw_things(H)
 			else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
@@ -153,9 +153,9 @@
 
 /obj/structure/table/attack_hand(mob/user)
 	. = ..()
-	if(ishuman(user))
+	if(isteshari(user))
 		if(!use_check_and_message(user))
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/teshari/H = user
 			if((H.zone_sel.selecting in list(BP_R_HAND, BP_L_HAND)))
 				if(H.last_special + 1 SECOND < world.time)
 					H.last_special = world.time

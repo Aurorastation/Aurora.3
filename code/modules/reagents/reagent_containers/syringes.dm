@@ -64,7 +64,7 @@
 /obj/item/reagent_containers/syringe/proc/infect_limb(var/obj/item/organ/external/eo)
 	eo.germ_level += dirtiness // only 75% of the way to an infection at max
 
-/obj/item/reagent_containers/syringe/proc/dirty(var/mob/living/carbon/human/target, var/obj/item/organ/external/eo)
+/obj/item/reagent_containers/syringe/proc/dirty(var/mob/living/carbon/teshari/target, var/obj/item/organ/external/eo)
 	LAZYINITLIST(targets)
 
 	//Just once!
@@ -126,8 +126,8 @@
 		to_chat(user, SPAN_WARNING("This syringe is broken!"))
 		return
 
-	if(user.a_intent == I_GRAB && ishuman(user) && ishuman(target)) // we could add other things here eventually. trepanation maybe
-		var/mob/living/carbon/human/H = target
+	if(user.a_intent == I_GRAB && isteshari(user) && isteshari(target)) // we could add other things here eventually. trepanation maybe
+		var/mob/living/carbon/teshari/H = target
 		if (check_zone(user.zone_sel.selecting) == BP_CHEST) // impromptu needle thoracostomy, re-inflate a collapsed lung
 			var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
 			var/P = (user == target) ? "their" : (target.name + "\'s")
@@ -157,7 +157,7 @@
 			L.rescued = TRUE
 			return
 
-	if(user.a_intent == I_HURT && ishuman(user))
+	if(user.a_intent == I_HURT && isteshari(user))
 		if((user.is_clumsy()) && prob(50))
 			target = user
 		syringestab(target, user)
@@ -227,7 +227,7 @@
 				to_chat(user, SPAN_NOTICE("[target] is full."))
 				return
 
-			var/mob/living/carbon/human/H = target
+			var/mob/living/carbon/teshari/H = target
 			var/obj/item/organ/external/affected
 			if(istype(H))
 				affected = H.get_organ(user.zone_sel.selecting)
@@ -304,9 +304,9 @@
 	if(mode == SYRINGE_CAPPED)
 		to_chat(user, SPAN_DANGER("You can't stab someone with a capped syringe!"))
 
-	if(istype(target, /mob/living/carbon/human))
+	if(istype(target, /mob/living/carbon/teshari))
 
-		var/mob/living/carbon/human/H = target
+		var/mob/living/carbon/teshari/H = target
 
 		var/target_zone = ran_zone(check_zone(user.zone_sel.selecting), 70)
 		var/obj/item/organ/external/affecting = H.get_organ(target_zone)

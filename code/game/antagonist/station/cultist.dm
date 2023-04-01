@@ -62,7 +62,7 @@ var/datum/antagonist/cultist/cult
 	sacrifice_target = sacrifice.target
 	global_objectives |= sacrifice
 
-/datum/antagonist/cultist/equip(var/mob/living/carbon/human/player)
+/datum/antagonist/cultist/equip(var/mob/living/carbon/teshari/player)
 	if(!..())
 		return FALSE
 

@@ -122,8 +122,8 @@
 
 /obj/item/gun/projectile/heavysniper/unathi/handle_post_fire(mob/user)
 	..()
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		var/has_online_rig = H.wearing_rig && !H.wearing_rig.offline
 		if(H.mob_size < 10 && !has_online_rig) // smaller than an unathi
 			H.visible_message(SPAN_WARNING("\The [src] goes flying out of \the [H]'s hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))

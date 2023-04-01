@@ -11,7 +11,7 @@
 	var/list/possible_wanted_items                              //List of all possible wanted items. Structure is (type = mode)
 	var/list/possible_trading_items                             //List of all possible trading items. Structure is (type = mode)
 	var/list/trading_items = list()                             //What items they are currently trading away.
-	var/list/blacklisted_trade_items = list(/mob/living/carbon/human)
+	var/list/blacklisted_trade_items = list(/mob/living/carbon/teshari)
 	var/list/allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL,
 										SECTOR_GAKAL, SECTOR_UUEOAESA)	//which sector this merchant can show up                                                            //Things they will automatically refuse
 
@@ -147,8 +147,8 @@
 		if(is_type_in_list(offer,wanted_items))
 			is_wanted = 1
 		if(blacklisted_trade_items && blacklisted_trade_items.len)
-			if(ishuman(offer))
-				var/mob/living/carbon/human/A = offer
+			if(isteshari(offer))
+				var/mob/living/carbon/teshari/A = offer
 				if(is_type_in_list(A.species, blacklisted_trade_items))
 					return 0
 			else if(is_type_in_list(offer,blacklisted_trade_items))
@@ -176,8 +176,8 @@
 
 /datum/trader/proc/hail(var/mob/user)
 	var/specific
-	if(istype(user, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
+	if(istype(user, /mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = user
 		if(H.species)
 			specific = H.species.name
 	else if(istype(user, /mob/living/silicon))

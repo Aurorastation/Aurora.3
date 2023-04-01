@@ -134,7 +134,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		target_mob = user
 		change_stance(HOSTILE_STANCE_ATTACK)
 
-/mob/living/simple_animal/hostile/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/hostile/attack_hand(mob/living/carbon/teshari/M as mob)
 	..()
 	if(target_mob != M)
 		target_mob = M
@@ -235,7 +235,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		if(G.state >= GRAB_AGGRESSIVE)
 			return
 	facing_dir = get_dir(src, target)
-	if(ishuman(target))
+	if(isteshari(target))
 		step_away(src, pick(RANGE_TURFS(2, target)))
 	else
 		step_away(src, target, 2)

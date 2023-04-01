@@ -1,4 +1,4 @@
-/mob/living/carbon/human/revenant/Initialize(mapload)
+/mob/living/carbon/teshari/revenant/Initialize(mapload)
 	. = ..(mapload, SPECIES_REVENANT)
 	alpha = 0
 	animate(src, 2 SECONDS, alpha = 180)
@@ -14,8 +14,8 @@
 	you find it hard to look again, \
 	because you're sure there's someone there."
 
-	icobase = 'icons/mob/human_races/r_revenant.dmi'
-	deform = 'icons/mob/human_races/r_revenant.dmi'
+	icobase = 'icons/mob/teshari_races/r_revenant.dmi'
+	deform = 'icons/mob/teshari_races/r_revenant.dmi'
 	eyes = "eyes_revenant"
 	has_floating_eyes = TRUE
 
@@ -86,8 +86,8 @@
 	sprint_cost_factor = 0.5
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/shatter_light,
-		/mob/living/carbon/human/proc/dissolve
+		/mob/living/carbon/teshari/proc/shatter_light,
+		/mob/living/carbon/teshari/proc/dissolve
 	)
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
@@ -97,7 +97,7 @@
 
 	hud_type = /datum/hud_data/construct
 
-/datum/species/revenant/handle_death(var/mob/living/carbon/human/H)
+/datum/species/revenant/handle_death(var/mob/living/carbon/teshari/H)
 	if(player_is_antag(H.mind))
 		var/datum/ghostspawner/revenant/R = SSghostroles.get_spawner(MODE_REVENANT)
 		R.count = max(R.count - 1, 0)
@@ -116,7 +116,7 @@
 	G.fleshcolor = flesh_color
 	G.update_icon()
 
-/datum/species/revenant/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/revenant/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.real_name = "Revenant"
 	H.name = H.real_name
 	..()
@@ -129,12 +129,12 @@
 /datum/species/revenant/get_random_name()
 	return "Revenant"
 
-/datum/species/revenant/handle_death_check(var/mob/living/carbon/human/H)
+/datum/species/revenant/handle_death_check(var/mob/living/carbon/teshari/H)
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
 
-/datum/species/revenant/handle_middle_mouse_click(var/mob/living/carbon/human/user, var/atom/target)
+/datum/species/revenant/handle_middle_mouse_click(var/mob/living/carbon/teshari/user, var/atom/target)
 	if(user.incapacitated() || user.last_special + 5 SECONDS > world.time)
 		return FALSE
 	if(!isturf(target))

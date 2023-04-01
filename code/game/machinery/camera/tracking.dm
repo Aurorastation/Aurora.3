@@ -95,7 +95,7 @@
 /datum/trackable
 	var/list/names = list()
 	var/list/namecounts = list()
-	var/list/humans = list()
+	var/list/tesharis = list()
 	var/list/others = list()
 	var/list/cameras = list()
 
@@ -117,12 +117,12 @@
 		else
 			TB.names.Add(name)
 			TB.namecounts[name] = 1
-		if(istype(M, /mob/living/carbon/human))
-			TB.humans[name] = M
+		if(istype(M, /mob/living/carbon/teshari))
+			TB.tesharis[name] = M
 		else
 			TB.others[name] = M
 
-	var/list/targets = sortList(TB.humans) + sortList(TB.others)
+	var/list/targets = sortList(TB.tesharis) + sortList(TB.others)
 	src.track = TB
 	return targets
 
@@ -139,7 +139,7 @@
 	if (!track)
 		trackable_mobs()
 
-	var/mob/target = (isnull(track.humans[target_name]) ? track.others[target_name] : track.humans[target_name])
+	var/mob/target = (isnull(track.tesharis[target_name]) ? track.others[target_name] : track.tesharis[target_name])
 	src.track = null
 	ai_actual_track(target)
 
@@ -235,7 +235,7 @@ mob/living/proc/near_camera()
 	if(. == TRACKING_NO_COVERAGE)
 		return camera && camera.can_use() ? TRACKING_POSSIBLE : TRACKING_NO_COVERAGE
 
-/mob/living/carbon/human/tracking_status()
+/mob/living/carbon/teshari/tracking_status()
 	//Cameras can't track people wearing an agent card or a ninja hood.
 	if(istype(head, /obj/item/clothing/head/helmet/space/rig))
 		var/obj/item/clothing/head/helmet/space/rig/helmet = head

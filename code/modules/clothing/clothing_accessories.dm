@@ -40,7 +40,7 @@
 	return ..()
 
 /obj/item/clothing/MouseDrop(var/obj/over_object)
-	if(ishuman(usr) || issmall(usr))
+	if(isteshari(usr) || issmall(usr))
 		//makes sure that the clothing is equipped so that we can't drag it into our hand from miles away.
 		if(!(src.loc == usr))
 			return
@@ -77,9 +77,9 @@
 	// if you have to ask, it's earcode
 	// var/obj/item/clothing/ears/E
 	var/obj/item/clothing/ears/main_ear
-	if(!ishuman(user))
+	if(!isteshari(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/teshari/H = user
 
 	for(var/obj/item/clothing/ears/E in H.contents)
 		H.u_equip(E)

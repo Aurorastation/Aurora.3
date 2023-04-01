@@ -1,10 +1,10 @@
-/mob/living/carbon/human/skeleton/Initialize(mapload)
+/mob/living/carbon/teshari/skeleton/Initialize(mapload)
 	. = ..(mapload, SPECIES_SKELETON)
 
-/mob/living/carbon/human/skeleton
+/mob/living/carbon/teshari/skeleton
 	var/master
 
-/mob/living/carbon/human/skeleton/assign_player(var/mob/user)
+/mob/living/carbon/teshari/skeleton/assign_player(var/mob/user)
 	. = ..()
 	if(master)
 		to_chat(src, "<B>You are a skeleton minion to [master], they are your master. Obey and protect your master at all costs, you have no free will.</B>")
@@ -13,8 +13,8 @@
 	name = SPECIES_SKELETON
 	name_plural = "skeletons"
 	bodytype = BODYTYPE_SKELETON
-	icobase = 'icons/mob/human_races/r_skeleton.dmi'
-	deform = 'icons/mob/human_races/r_skeleton.dmi'
+	icobase = 'icons/mob/teshari_races/r_skeleton.dmi'
+	deform = 'icons/mob/teshari_races/r_skeleton.dmi'
 	eyes = "blank_eyes"
 
 	total_health = 100 //skeletons are frail
@@ -88,20 +88,20 @@
 
 	hud_type = /datum/hud_data/construct
 
-/datum/species/skeleton/handle_death_check(var/mob/living/carbon/human/H)
+/datum/species/skeleton/handle_death_check(var/mob/living/carbon/teshari/H)
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
 
-/mob/living/carbon/human/apparition/Initialize(mapload)
+/mob/living/carbon/teshari/apparition/Initialize(mapload)
 	. = ..(mapload, SPECIES_CULTGHOST)
 
 /datum/species/apparition
 	name = SPECIES_CULTGHOST
 	name_plural = "apparitions"
 	bodytype = BODYTYPE_CULTGHOST
-	icobase = 'icons/mob/human_races/r_manifested.dmi'
-	deform = 'icons/mob/human_races/r_manifested.dmi'
+	icobase = 'icons/mob/teshari_races/r_manifested.dmi'
+	deform = 'icons/mob/teshari_races/r_manifested.dmi'
 
 	default_language = LANGUAGE_TCB
 	language = LANGUAGE_CULT
@@ -134,27 +134,27 @@
 
 	hud_type = /datum/hud_data/construct
 
-/datum/species/apparition/handle_death(var/mob/living/carbon/human/H)
+/datum/species/apparition/handle_death(var/mob/living/carbon/teshari/H)
 	set waitfor = 0
 	sleep(1)
 	new /obj/effect/decal/cleanable/ash(H.loc)
 	qdel(H)
 
-/datum/species/apparition/handle_death_check(var/mob/living/carbon/human/H)
+/datum/species/apparition/handle_death_check(var/mob/living/carbon/teshari/H)
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
 
 
-/mob/living/carbon/human/zombie/Initialize(mapload)
+/mob/living/carbon/teshari/zombie/Initialize(mapload)
 	. = ..(mapload, SPECIES_ZOMBIE)
 
 /datum/species/zombie
 	name = SPECIES_ZOMBIE
 	name_plural = "Zombies"
-	bodytype = BODYTYPE_HUMAN
-	icobase = 'icons/mob/human_races/zombie/r_zombie.dmi'
-	deform = 'icons/mob/human_races/zombie/r_zombie.dmi'
+	bodytype = BODYTYPE_teshari
+	icobase = 'icons/mob/teshari_races/zombie/r_zombie.dmi'
+	deform = 'icons/mob/teshari_races/zombie/r_zombie.dmi'
 
 	hide_name = TRUE
 
@@ -207,8 +207,8 @@
 	rarity_value = 10
 	blurb = "Once a living person, this unholy creature was created either by the power of science or necromancy."
 
-	remains_type = /obj/effect/decal/remains/human
-	dust_remains_type = /obj/effect/decal/remains/human/burned
+	remains_type = /obj/effect/decal/remains/teshari
+	dust_remains_type = /obj/effect/decal/remains/teshari/burned
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/undead
 
@@ -223,13 +223,13 @@
 	sprint_speed_factor = 0.1
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
-	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes)
+	inherent_verbs = list(/mob/living/carbon/teshari/proc/darkness_eyes)
 
-	allowed_eat_types = TYPE_ORGANIC | TYPE_HUMANOID
+	allowed_eat_types = TYPE_ORGANIC | TYPE_teshariOID
 
 	gluttonous = 1
 
-/datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/zombie/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.mutations |= CLUMSY
 	var/datum/martial_art/zombie/Z = new /datum/martial_art/zombie()
 	Z.teach(H)
@@ -241,8 +241,8 @@
 	name = SPECIES_ZOMBIE_TAJARA
 	name_plural = "Tajara Zombies"
 	bodytype = BODYTYPE_TAJARA
-	icobase = 'icons/mob/human_races/zombie/r_zombie_tajara.dmi'
-	deform = 'icons/mob/human_races/zombie/r_zombie_tajara.dmi'
+	icobase = 'icons/mob/teshari_races/zombie/r_zombie_tajara.dmi'
+	deform = 'icons/mob/teshari_races/zombie/r_zombie_tajara.dmi'
 	tail = "tajtail"
 	tail_animation = 'icons/mob/species/tajaran/tail.dmi'
 
@@ -265,8 +265,8 @@
 	name = SPECIES_ZOMBIE_UNATHI
 	name_plural = "Unathi Zombies"
 	bodytype = BODYTYPE_UNATHI
-	icobase = 'icons/mob/human_races/zombie/r_zombie_unathi.dmi'
-	deform = 'icons/mob/human_races/zombie/r_zombie_unathi.dmi'
+	icobase = 'icons/mob/teshari_races/zombie/r_zombie_unathi.dmi'
+	deform = 'icons/mob/teshari_races/zombie/r_zombie_unathi.dmi'
 	tail = "sogtail"
 	tail_animation = 'icons/mob/species/unathi/tail.dmi'
 
@@ -291,8 +291,8 @@
 	name = SPECIES_ZOMBIE_SKRELL
 	name_plural = "Skrell Zombies"
 	bodytype = BODYTYPE_SKRELL
-	icobase = 'icons/mob/human_races/zombie/r_zombie_skrell.dmi'
-	deform = 'icons/mob/human_races/zombie/r_zombie_skrell.dmi'
+	icobase = 'icons/mob/teshari_races/zombie/r_zombie_skrell.dmi'
+	deform = 'icons/mob/teshari_races/zombie/r_zombie_skrell.dmi'
 
 	grab_mod = 1.25
 
@@ -301,9 +301,9 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
 
 	inherent_verbs = list(
-	/mob/living/carbon/human/proc/commune,
-	/mob/living/carbon/human/proc/sonar_ping,
-	/mob/living/carbon/human/proc/darkness_eyes,
+	/mob/living/carbon/teshari/proc/commune,
+	/mob/living/carbon/teshari/proc/sonar_ping,
+	/mob/living/carbon/teshari/proc/darkness_eyes,
 	)
 
 	flesh_color = "#8CD7A3"

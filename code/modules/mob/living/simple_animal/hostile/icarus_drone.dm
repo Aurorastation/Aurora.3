@@ -115,8 +115,8 @@
 		return ..()
 	if(L.stat == DEAD)
 		return FALSE
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
+	if(isteshari(L))
+		var/mob/living/carbon/teshari/H = L
 		var/obj/item/card/id/ID = H.GetIdCard(TRUE)
 		if(!ID) // can't identify, too risky, don't shoot
 			return FALSE
@@ -124,7 +124,7 @@
 			var/datum/record/general/R = SSrecords.find_record("name", ID.registered_name)
 			if(istype(R) && istype(R.security) && R.security.criminal == "*Arrest*") // blast free criminals
 				return TRUE
-		return FALSE // generally, don't shoot humans
+		return FALSE // generally, don't shoot tesharis
 	if(istype(L, /mob/living/simple_animal/hostile))
 		var/mob/living/simple_animal/hostile/SA = L
 		if(SA.belongs_to_station)

@@ -43,8 +43,8 @@
 		else
 			to_chat(user, SPAN_NOTICE("All [R]'s systems are nominal."))
 
-	else if(ishuman(M))		//Repairing robolimbs
-		var/mob/living/carbon/human/H = M
+	else if(isteshari(M))		//Repairing robolimbs
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/external/S = H.get_organ(target_zone)
 
 		if (S && (S.status & ORGAN_ASSISTED))
@@ -86,7 +86,7 @@
 	var/used = FALSE
 	construction_cost = null
 
-/obj/item/stack/nanopaste/surge/attack(mob/living/carbon/human/M as mob, mob/user as mob, var/target_zone)
+/obj/item/stack/nanopaste/surge/attack(mob/living/carbon/teshari/M as mob, mob/user as mob, var/target_zone)
 	if (!istype(M) || !istype(user))
 		return 0
 

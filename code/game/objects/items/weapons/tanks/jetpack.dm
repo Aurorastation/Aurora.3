@@ -1,14 +1,14 @@
 /**
- * Returns a jetpack if the param is a human mob and said human mob is wearing
+ * Returns a jetpack if the param is a teshari mob and said teshari mob is wearing
  * a jetpack on their back, or has a RIG on their back with the jetpack module
  * installed.
  *
- * @param	H Either a human or a robot mob. Is type and sanity checked.
+ * @param	H Either a teshari or a robot mob. Is type and sanity checked.
  *
  * @return	A jetpack instance if one is found. Null otherwise.
  */
-/proc/GetJetpack(var/mob/living/carbon/human/H)
-	// Search the human for a jetpack. Either on back or on a RIG that's on
+/proc/GetJetpack(var/mob/living/carbon/teshari/H)
+	// Search the teshari for a jetpack. Either on back or on a RIG that's on
 	// on their back.
 	if(istype(H))
 		// Skip sanity check for H.back, as istype can safely handle a null.

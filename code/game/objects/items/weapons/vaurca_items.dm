@@ -34,11 +34,11 @@
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/expression
-	name = "human expression mask"
-	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a human."
+	name = "teshari expression mask"
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a teshari."
 	icon = 'icons/obj/vaurca_items.dmi'
-	icon_state = "human_helmet"
-	item_state = "human_helmet"
+	icon_state = "teshari_helmet"
+	item_state = "teshari_helmet"
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/expression/skrell
@@ -109,8 +109,8 @@
 	icon_state = "eknife1"
 	item_state = icon_state
 	damtype = "fire"
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
@@ -120,8 +120,8 @@
 	icon_state = "eknife0"
 	item_state = icon_state
 	damtype = "brute"
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
@@ -206,7 +206,7 @@
 	if(spawner_type && deliveryamt)
 		var/turf/T = get_turf(src)
 		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
-		for(var/mob/living/carbon/human/M in viewers(T, null))
+		for(var/mob/living/carbon/teshari/M in viewers(T, null))
 			M.flash_act(ignore_inherent = TRUE)
 
 		for(var/i=1, i<=deliveryamt, i++)
@@ -382,7 +382,7 @@
 	base_block_chance = 60
 	shield_power = 150
 
-/obj/item/melee/energy/vaurca_zweihander/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/melee/energy/vaurca_zweihander/attack(mob/living/carbon/teshari/M as mob, mob/living/carbon/user as mob)
 	user.setClickCooldown(16)
 	..()
 
@@ -396,8 +396,8 @@
 	icon_state = "greatblade1"
 	item_state = icon_state
 	damtype = "fire"
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
@@ -407,8 +407,8 @@
 	icon_state = "greatblade0"
 	item_state = icon_state
 	damtype = "brute"
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")

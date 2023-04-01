@@ -365,4 +365,4 @@
 	req_access = list()
 	req_one_access = list()
 
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)

@@ -128,25 +128,25 @@ AI MODULES
 
 /******************** OneMember ********************/
 
-/obj/item/aiModule/oneHuman
+/obj/item/aiModule/oneteshari
 	name = "\improper 'OneCrewMember' AI module"
 	var/targetName = ""
 	desc = "A 'one crew member' AI module: 'Only <name> is a crew member.'"
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 6) //made with diamonds!
 
-/obj/item/aiModule/oneHuman/attack_self(var/mob/user as mob)
+/obj/item/aiModule/oneteshari/attack_self(var/mob/user as mob)
 	..()
 	var/targName = sanitize(input("Please enter the name of the person who is the only crew member.", "Who?", user.real_name))
 	targetName = targName
 	desc = text("A 'one crew member' AI module: 'Only [] is a crew member.'", targetName)
 
-/obj/item/aiModule/oneHuman/install(var/obj/machinery/computer/C)
+/obj/item/aiModule/oneteshari/install(var/obj/machinery/computer/C)
 	if(!targetName)
 		to_chat(usr, "No name detected on module, please enter one.")
 		return 0
 	return ..()
 
-/obj/item/aiModule/oneHuman/addAdditionalLaws(var/mob/living/silicon/ai/target, var/mob/sender)
+/obj/item/aiModule/oneteshari/addAdditionalLaws(var/mob/living/silicon/ai/target, var/mob/sender)
 	var/law = "Only [targetName] is an crew member."
 	if (!target.is_malf_or_traitor()) // Makes sure the AI isn't a traitor before changing their law 0. --NeoFite
 		to_chat(target, law)

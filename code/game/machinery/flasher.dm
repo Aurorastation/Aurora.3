@@ -85,8 +85,8 @@
 			continue
 
 		var/flash_time = strength
-		if (istype(O, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = O
+		if (istype(O, /mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = O
 			flash_time *= H.species.flash_mod
 
 		O.Weaken(flash_time)

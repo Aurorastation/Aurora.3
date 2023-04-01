@@ -13,7 +13,7 @@
 	var/last_warning
 
 	// Blood Stuff
-	var/mob/living/carbon/human/attached = null
+	var/mob/living/carbon/teshari/attached = null
 	var/obj/item/organ/external/vein = null
 	var/obj/item/reagent_containers/beaker = null
 	var/transfer_amount = REM
@@ -26,7 +26,7 @@
 	var/adv_scan = FALSE
 
 	// Supplemental Gas Stuff
-	var/mob/living/carbon/human/breather = null
+	var/mob/living/carbon/teshari/breather = null
 	var/obj/item/clothing/mask/breath/breath_mask = null
 	var/obj/item/tank/tank = null
 	var/tank_type = null
@@ -67,8 +67,8 @@
 	return ..()
 
 /obj/machinery/iv_drip/Crossed(var/mob/H)
-	if(ishuman(H))
-		var/mob/living/carbon/human/M = H
+	if(isteshari(H))
+		var/mob/living/carbon/teshari/M = H
 		if(M.shoes?.item_flags & LIGHTSTEP)
 			return
 		if(M.incapacitated())
@@ -290,7 +290,7 @@
 		return
 	if(isDrone(usr))
 		return
-	if(in_range(src, usr) && ishuman(over_object) && in_range(over_object, src))
+	if(in_range(src, usr) && isteshari(over_object) && in_range(over_object, src))
 		var/list/options = list(
 			"IV drip" = image('icons/mob/screen/radial.dmi', "iv_drip"),
 			"Breath mask" = image('icons/mob/screen/radial.dmi', "iv_mask"))
@@ -572,7 +572,7 @@
 	if(breath_mask.loc != breather)
 		var/loc_check = breath_mask.loc
 		if(ismob(loc_check))
-			var/mob/living/carbon/human/holder = loc_check
+			var/mob/living/carbon/teshari/holder = loc_check
 			holder.remove_from_mob(breath_mask)
 			holder.update_inv_wear_mask()
 			holder.update_inv_l_hand()

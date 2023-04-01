@@ -1,4 +1,4 @@
-#define HUMAN_MAX_OXYLOSS 1 //Defines how much oxyloss humans can get per tick. A tile with no air at all (such as space) applies this value, otherwise it's a percentage of it.
+#define teshari_MAX_OXYLOSS 1 //Defines how much oxyloss tesharis can get per tick. A tile with no air at all (such as space) applies this value, otherwise it's a percentage of it.
 
 /obj/item/organ/internal/lungs
 	name = "lungs"
@@ -97,7 +97,7 @@
 			owner.emote(pick("shiver","twitch"))
 
 	if(damage || owner.chem_effects[CE_BREATHLOSS] || world.time > last_successful_breath + 2 MINUTES)
-		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS * breath_fail_ratio)
+		owner.adjustOxyLoss(teshari_MAX_OXYLOSS * breath_fail_ratio)
 	owner.oxygen_alert = max(owner.oxygen_alert, 2)
 
 /obj/item/organ/internal/lungs/proc/enable_rupture()
@@ -371,4 +371,4 @@
 	..()
 	rescued = FALSE
 
-#undef HUMAN_MAX_OXYLOSS
+#undef teshari_MAX_OXYLOSS

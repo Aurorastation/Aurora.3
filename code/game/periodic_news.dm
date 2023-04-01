@@ -27,14 +27,14 @@
 						personnel. Heads of Staff will, according to our sources, not be affected."}
 			author = "Unauthorized"
 
-		human_experiments
+		teshari_experiments
 			round_time = 60*90
-			message = {"Unbelievable reports about human experimentation have reached our ears. According
+			message = {"Unbelievable reports about teshari experimentation have reached our ears. According
 			 			to a refugee from one of the Tau Ceti Research Stations, their station, in order
 			 			to increase revenue, has refactored several of their facilities to perform experiments
-			 			on live humans, including virology research, genetic manipulation, and \"feeding them
+			 			on live tesharis, including virology research, genetic manipulation, and \"feeding them
 			 			to the slimes to see what happens\". Allegedly, these test subjects were neither
-			 			humanified monkeys nor volunteers, but rather unqualified staff that were forced into
+			 			teshariified monkeys nor volunteers, but rather unqualified staff that were forced into
 			 			the experiments, and reported to have died in a \"work accident\" by NanoTrasen."}
 			author = "Unauthorized"
 

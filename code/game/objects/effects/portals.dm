@@ -67,8 +67,8 @@
 		var/mob/M = movable
 		if(M.pulling)
 			things_to_teleport += M.pulling
-		if(ishuman(movable))
-			var/mob/living/carbon/human/H = movable
+		if(isteshari(movable))
+			var/mob/living/carbon/teshari/H = movable
 			for(var/obj/item/grab/G in list(H.l_hand, H.r_hand))
 				things_to_teleport += G.affecting
 	for(var/atom/movable/M in things_to_teleport)

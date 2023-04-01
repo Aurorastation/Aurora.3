@@ -118,7 +118,7 @@
 	..(A, OL)
 
 //returns TRUE if made bloody, returns FALSE otherwise
-/turf/simulated/add_blood(mob/living/carbon/human/M as mob)
+/turf/simulated/add_blood(mob/living/carbon/teshari/M as mob)
 	if (!..())
 		return FALSE
 

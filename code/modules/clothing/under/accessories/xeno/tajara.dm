@@ -8,7 +8,7 @@
 	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old. Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
-	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
+	to produce teshari clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
 /obj/item/clothing/accessory/tajaran/lbrown
@@ -66,7 +66,7 @@
 	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
-	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
+	to produce teshari clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 	icon_override = null
 	contained_sprite = TRUE
@@ -335,7 +335,7 @@
 /obj/item/clothing/accessory/tajaran/charm/afterattack(mob/M, var/mob/living/user, proximity_flag)
 	if(proximity_flag)
 		return
-	if(!ishuman(M))
+	if(!isteshari(M))
 		return
 	user.visible_message("<b>\The [user]</b> points \the [src] at <b>\the [M]</b>")
 
@@ -498,7 +498,7 @@
 	buttons.appearance_flags = RESET_COLOR
 	add_overlay(buttons)
 
-/obj/item/clothing/accessory/tajaran/nka_waistcoat/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/clothing/accessory/tajaran/nka_waistcoat/get_mob_overlay(var/mob/living/carbon/teshari/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/buttons = image(mob_icon, null, "nka_waistcoat_un_buttons")
@@ -506,7 +506,7 @@
 		I.add_overlay(buttons)
 	return I
 
-/obj/item/clothing/accessory/tajaran/nka_waistcoat/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
+/obj/item/clothing/accessory/tajaran/nka_waistcoat/get_accessory_mob_overlay(mob/living/carbon/teshari/H, force)
 	var/image/base = ..()
 	var/image/buttons = image(icon, null, "nka_waistcoat_un_buttons")
 	buttons.appearance_flags = RESET_COLOR
@@ -525,7 +525,7 @@
 	buttons.appearance_flags = RESET_COLOR
 	add_overlay(buttons)
 
-/obj/item/clothing/accessory/tajaran/nka_vest/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/clothing/accessory/tajaran/nka_vest/get_mob_overlay(var/mob/living/carbon/teshari/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/buttons = image(mob_icon, null, "nka_vest_un_buttons")
@@ -533,7 +533,7 @@
 		I.add_overlay(buttons)
 	return I
 
-/obj/item/clothing/accessory/tajaran/nka_vest/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
+/obj/item/clothing/accessory/tajaran/nka_vest/get_accessory_mob_overlay(mob/living/carbon/teshari/H, force)
 	var/image/base = ..()
 	var/image/buttons = image(icon, null, "nka_vest_un_buttons")
 	buttons.appearance_flags = RESET_COLOR

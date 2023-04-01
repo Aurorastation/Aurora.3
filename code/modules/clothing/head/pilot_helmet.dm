@@ -73,7 +73,7 @@
 	set name = "Toggle Visor"
 	set category = "Object"
 
-	var/mob/living/carbon/human/user = usr
+	var/mob/living/carbon/teshari/user = usr
 	if(!istype(user))
 		return
 

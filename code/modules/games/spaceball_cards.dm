@@ -13,7 +13,7 @@
 			P.name = "Spaceball Jones, [year] Brickburn Galaxy Trekers"
 			P.card_icon = "spaceball_jones"
 		else
-			var/language_type = pick(/datum/language/human,/datum/language/diona,/datum/language/tajaran,/datum/language/unathi)
+			var/language_type = pick(/datum/language/teshari,/datum/language/diona,/datum/language/tajaran,/datum/language/unathi)
 			var/datum/language/L = new language_type()
 			var/team = pick("Tau Ceti Galaxy Trekers","Martian Raiders", "Qerrbalak Saints", "Moghes Rockets", "Adhomai Lightening")
 			P.name = "[L.get_random_name(pick(MALE,FEMALE))], [year - rand(0,50)] [team]"

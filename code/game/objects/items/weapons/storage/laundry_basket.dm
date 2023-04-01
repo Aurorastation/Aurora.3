@@ -22,8 +22,8 @@
 
 
 /obj/item/storage/laundry_basket/attack_hand(mob/user as mob)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		var/obj/item/organ/external/temp = H.get_organ(BP_R_HAND)
 		if (user.hand)
 			temp = H.get_organ(BP_L_HAND)

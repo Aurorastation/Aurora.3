@@ -15,7 +15,7 @@
 
 /datum/fluidtrack
 	var/direction = 0
-	var/basecolor = COLOR_HUMAN_BLOOD
+	var/basecolor = COLOR_teshari_BLOOD
 	var/wet = FALSE
 	var/fresh = TRUE
 	var/crusty = FALSE
@@ -66,7 +66,7 @@
 	* @param goingdir Direction tracks are going to (or 0).
 	* @param footprint_color Color of the blood when wet.
 	*/
-/obj/effect/decal/cleanable/blood/tracks/proc/add_tracks(var/list/DNA, var/comingdir, var/goingdir, var/footprint_color = COLOR_HUMAN_BLOOD)
+/obj/effect/decal/cleanable/blood/tracks/proc/add_tracks(var/list/DNA, var/comingdir, var/goingdir, var/footprint_color = COLOR_teshari_BLOOD)
 	var/updated = 0
 	// Shift our goingdir 4 spaces to the left so it's in the GOING bitblock.
 	var/realgoing = goingdir << 4
@@ -149,8 +149,8 @@
 	dryname = "dried footprints"
 	desc = "They look like still wet tracks left by footwear."
 	drydesc = "They look like dried tracks left by footwear."
-	coming_state = "human1"
-	going_state  = "human2"
+	coming_state = "teshari1"
+	going_state  = "teshari2"
 	amount = 0
 
 /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot

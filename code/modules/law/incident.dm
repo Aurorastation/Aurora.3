@@ -29,7 +29,7 @@
 /datum/crime_incident/proc/addArbiter( var/obj/item/card/id/C, var/title )
 	if( !istype( C ))
 		return "Invalid ID card!"
-	var/mob/living/carbon/human/M = C.mob_id.resolve()
+	var/mob/living/carbon/teshari/M = C.mob_id.resolve()
 	if( !M )
 		return "ID card not tied to an SCC Employee!"
 
@@ -53,7 +53,7 @@
 		return "Could not add [M] as [title]."
 
 /datum/crime_incident/proc/missingSentenceReq()
-	var/mob/living/carbon/human/C = criminal.resolve()
+	var/mob/living/carbon/teshari/C = criminal.resolve()
 	if( !istype( C ))
 		return "No criminal selected!"
 
@@ -134,7 +134,7 @@
 
 //type: 0 - brig sentence, 1 - fine, 2 - prison sentence
 /datum/crime_incident/proc/renderGuilty( var/mob/living/user, var/type=0 )
-	var/mob/living/carbon/human/C = criminal.resolve()
+	var/mob/living/carbon/teshari/C = criminal.resolve()
 	if( !C )
 		return
 
@@ -154,7 +154,7 @@
 	return generateReport()
 
 /datum/crime_incident/proc/generateReport()
-	var/mob/living/carbon/human/C = criminal.resolve()
+	var/mob/living/carbon/teshari/C = criminal.resolve()
 	if( !C )
 		return
 	. = "<center>Security Incident Report</center><hr>"
@@ -188,7 +188,7 @@
 	return .
 
 /datum/crime_incident/proc/saveCharInfraction()
-	var/mob/living/carbon/human/C = criminal.resolve()
+	var/mob/living/carbon/teshari/C = criminal.resolve()
 	var/datum/record/char_infraction/cinf = new()
 	cinf.char_id = C.character_id
 	cinf.id = UID

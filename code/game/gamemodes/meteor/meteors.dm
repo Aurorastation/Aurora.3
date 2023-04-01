@@ -275,7 +275,7 @@
 			if(turf_clear(eligible_turf))
 				new /obj/structure/girder/displaced(eligible_turf)
 		if(prob(0.25))
-			new /obj/effect/gibspawner/human(eligible_turf)
+			new /obj/effect/gibspawner/teshari(eligible_turf)
 			new /obj/random/voidsuit/no_nanotrasen(eligible_turf)
 
 //This function takes a turf to prevent race conditions, as the object calling it will probably be deleted in the same frame

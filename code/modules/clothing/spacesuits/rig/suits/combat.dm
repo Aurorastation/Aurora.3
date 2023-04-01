@@ -23,7 +23,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
 
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
+	species_restricted = list(BODYTYPE_teshari, BODYTYPE_SKRELL)
 
 /obj/item/clothing/head/helmet/space/rig/combat
 	light_overlay = "helmet_light_dual_cyan"
@@ -60,7 +60,7 @@
 	offline_vision_restriction = TINT_HEAVY
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/military
 
@@ -151,7 +151,7 @@
 		/obj/item/material/twohanded/pike/flag
 	)
 
-	species_restricted = list(BODYTYPE_HUMAN,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_VAURCA)
+	species_restricted = list(BODYTYPE_teshari,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_VAURCA)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
@@ -190,7 +190,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 
 /obj/item/rig/gunslinger/equipped
 	req_access = list(access_syndicate)
@@ -239,7 +239,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 
 /obj/item/rig/strike/equipped
 	req_access = list(access_syndicate)
@@ -307,7 +307,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000
 
@@ -359,7 +359,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_UTILITY
 
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_teshari)
 
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 
@@ -396,7 +396,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
+	species_restricted = list(BODYTYPE_teshari, BODYTYPE_UNATHI)
 
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 

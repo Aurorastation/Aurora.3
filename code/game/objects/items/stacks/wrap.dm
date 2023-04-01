@@ -66,10 +66,10 @@
 		to_chat(user, "There [amount == 1 ? "is" : "are"] about [amount] [singular_name]\s of paper left!")
 
 /obj/item/stack/wrapping_paper/attack(mob/target, mob/user)
-	if(!ishuman(target))
+	if(!isteshari(target))
 		return
 
-	var/mob/living/carbon/human/H = target
+	var/mob/living/carbon/teshari/H = target
 	if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket) || H.stat)
 		if(src.amount >= 2)
 			var/obj/effect/spresent/present = new /obj/effect/spresent (H.loc)

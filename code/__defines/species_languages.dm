@@ -69,7 +69,7 @@
 
 // Lesser-form Languages
 #define LANGUAGE_GIBBERING "Gibbering"			// alberyk
-#define LANGUAGE_CHIMPANZEE "Chimpanzee"	// human
+#define LANGUAGE_CHIMPANZEE "Chimpanzee"	// teshari
 #define LANGUAGE_NEAERA "Neaera"			// skrell
 #define LANGUAGE_STOK "Stok"				// unathi
 #define LANGUAGE_FARWA "Farwa"				// tajara

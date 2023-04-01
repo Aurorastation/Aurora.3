@@ -519,8 +519,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(..())
 		return TRUE
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.open != 0)
@@ -564,8 +564,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 				return ..()
 
 /obj/item/stack/cable_coil/afterattack(var/mob/living/M, var/mob/user)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/external/S = H.organs_by_name[user.zone_sel.selecting]
 
 		if(!S)
@@ -591,7 +591,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	else
 		return ..()
 
-/obj/item/stack/cable_coil/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
+/obj/item/stack/cable_coil/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/teshari/target, var/obj/item/organ/external/affecting)
 	if(!affecting.burn_dam)
 		user.visible_message(SPAN_NOTICE("\The [user] finishes mending the burnt wiring in [target]'s [affecting]."))
 		return
@@ -670,7 +670,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	set name = "Make Cable Restraints"
 	set category = "Object"
 
-	if(ishuman(usr) && !usr.restrained() && !usr.stat && !usr.paralysis && ! usr.stunned)
+	if(isteshari(usr) && !usr.restrained() && !usr.stat && !usr.paralysis && ! usr.stunned)
 		if(!isturf(usr.loc))
 			return
 		if(src.amount <= 14)
@@ -1027,7 +1027,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/structure/noose/Initialize(mapload, param_color = null)
 	. = ..()
-	can_buckle = list(/mob/living/carbon/human)
+	can_buckle = list(/mob/living/carbon/teshari)
 	pixel_y += 16 //Noose looks like it's "hanging" in the air
 	over = image(icon, "noose_overlay")
 	over.layer = MOB_LAYER + 0.1
@@ -1101,15 +1101,15 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		unbuckle()
 		add_fingerprint(user)
 
-/obj/structure/noose/user_buckle(mob/living/carbon/human/M, mob/user)
+/obj/structure/noose/user_buckle(mob/living/carbon/teshari/M, mob/user)
 	if(!in_range(user, src) || user.stat || user.restrained() || !istype(M))
 		return FALSE
 
 	if(!user.IsAdvancedToolUser())
 		return
 
-	if (ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if (isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(!affecting)
 			to_chat(user, SPAN_DANGER("They don't have a head."))
@@ -1154,7 +1154,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 				SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
 			return FALSE
 
-/obj/structure/noose/process(mob/living/carbon/human/M, mob/user)
+/obj/structure/noose/process(mob/living/carbon/teshari/M, mob/user)
 	if(!buckled)
 		STOP_PROCESSING(SSprocessing, src)
 		buckled.pixel_x = initial(buckled.pixel_x)
@@ -1174,8 +1174,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			buckled.pixel_x += 1
 			if(istype(buckled, /mob/living))
 				var/mob/living/B = buckled
-				if (ishuman(B))
-					var/mob/living/carbon/human/H = B
+				if (isteshari(B))
+					var/mob/living/carbon/teshari/H = B
 					if (H.species && (H.species.flags & NO_BREATHE))
 						return
 				if(prob(15))
@@ -1194,8 +1194,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if(istype(buckled, /mob/living))
 		var/mob/living/B = buckled
-		if (ishuman(B))
-			var/mob/living/carbon/human/H = B
+		if (isteshari(B))
+			var/mob/living/carbon/teshari/H = B
 			if (H.species && (H.species.flags & NO_BREATHE) || isvaurca(H))
 				return
 		B.adjustOxyLoss(5)

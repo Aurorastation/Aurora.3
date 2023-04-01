@@ -97,8 +97,8 @@
 	L.visible_message(SPAN_DANGER("\The [L] steps on \the [src]!"), FONT_LARGE(SPAN_DANGER("You step on \the [src]!")), SPAN_WARNING("<b>You hear a loud metallic snap!</b>"))
 
 	var/did_trap = TRUE
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
+	if(isteshari(L))
+		var/mob/living/carbon/teshari/H = L
 		var/obj/item/organ/external/limb = H.get_organ(check_zone(target_zone))
 		if(!limb || limb.is_stump()) // oops, we took the limb clean off
 			did_trap = FALSE
@@ -123,8 +123,8 @@
 		deployed = FALSE
 
 /obj/item/trap/Crossed(atom/movable/AM)
-	if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	if(isteshari(AM))
+		var/mob/living/carbon/teshari/H = AM
 		if(H.shoes?.item_flags & LIGHTSTEP)
 			return
 	if(deployed && isliving(AM))
@@ -274,7 +274,7 @@
 	if(!usr.canmove || usr.stat || usr.restrained())
 		return
 
-	if(!ishuman(usr))
+	if(!isteshari(usr))
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 		return
 
@@ -466,7 +466,7 @@
 	if(captured)
 		pass_without_trace(usr) // It's full
 
-	if((usr.isMonkey() && (/mob/living/carbon/human/monkey in allowed_mobs)) || is_type_in_list(usr, allowed_mobs)) // Because monkeys can be of type of just human.
+	if((usr.isMonkey() && (/mob/living/carbon/teshari/monkey in allowed_mobs)) || is_type_in_list(usr, allowed_mobs)) // Because monkeys can be of type of just teshari.
 		pass_without_trace(usr, 50)
 		return
 
@@ -523,7 +523,7 @@
 /obj/item/trap/animal/medium/Initialize()
 	. = ..()
 	allowed_mobs = list(
-						/mob/living/simple_animal/cat, /mob/living/simple_animal/corgi, /mob/living/simple_animal/hostile/retaliate/diyaab, /mob/living/carbon/human/monkey, /mob/living/simple_animal/penguin, /mob/living/simple_animal/crab,
+						/mob/living/simple_animal/cat, /mob/living/simple_animal/corgi, /mob/living/simple_animal/hostile/retaliate/diyaab, /mob/living/carbon/teshari/monkey, /mob/living/simple_animal/penguin, /mob/living/simple_animal/crab,
 						/mob/living/simple_animal/chicken, /mob/living/simple_animal/yithian, /mob/living/carbon/alien/diona, /mob/living/silicon/robot/drone, /mob/living/silicon/pai,
 						/mob/living/simple_animal/spiderbot, /mob/living/simple_animal/hostile/tree)
 
@@ -547,7 +547,7 @@
 	allowed_mobs = list(
 						/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/cow, /mob/living/simple_animal/corgi/fox,
 						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/giant_spider,
-						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/human,
+						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/teshari,
 						/mob/living/simple_animal/pig)
 
 /obj/item/trap/animal/large/attack_hand(mob/user)
@@ -593,7 +593,7 @@
 	if(!src.Adjacent(usr))
 		return
 
-	if(!ishuman(usr))
+	if(!isteshari(usr))
 		..()
 		return
 
@@ -679,10 +679,10 @@
 		update_icon()
 
 /obj/item/trap/tripwire/attack_mob(mob/living/L)
-	if(!ishuman(L))
+	if(!isteshari(L))
 		return
 
-	var/mob/living/carbon/human/H = L
+	var/mob/living/carbon/teshari/H = L
 	if(!H.organs_by_name[BP_L_LEG] && !H.organs_by_name[BP_R_LEG]) // tripwires are triggered by shin, so if you don't have legs, assume you fly or crawl
 		return
 

@@ -17,7 +17,7 @@
 	icon_state = "maxtlatl-head"
 	item_state = "maxtlatl-head"
 
-/obj/item/clothing/head/unathi/maxtlatl/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/clothing/head/unathi/maxtlatl/get_mob_overlay(var/mob/living/carbon/teshari/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_head_str)
 		var/mutable_appearance/M = mutable_appearance(mob_icon, "[item_state]_translate")

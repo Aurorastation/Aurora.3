@@ -1,4 +1,4 @@
-/mob/living/carbon/human/Logout()
+/mob/living/carbon/teshari/Logout()
 	..()
 	if(species)
 		species.handle_logout_special(src)

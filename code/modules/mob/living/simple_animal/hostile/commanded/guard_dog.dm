@@ -55,7 +55,7 @@
 	set src in view(1)
 
 	if(!master)
-		var/mob/living/carbon/human/H = usr
+		var/mob/living/carbon/teshari/H = usr
 		if(istype(H))
 			master = usr
 			audible_emote("[pick(emote_hear)].",0)

@@ -1,7 +1,7 @@
 /datum/faction/zavodskoi_interstellar
 	name = "Zavodskoi Interstellar"
 	description = {"<p>
-	The largest weapons producer in human space, Zavodskoi Interstellar initially
+	The largest weapons producer in teshari space, Zavodskoi Interstellar initially
 	found its place with the invention of a militarized voidsuit for use in the Interstellar War.
 	With many lucrative weapon contracts thanks to the Sol Alliance, as well as acquisitions of
 	other major armaments companies, Zavodskoi weapons can be found in the hands of nearly every
@@ -14,7 +14,7 @@
 	allowed_role_types = ZAVOD_ROLES
 
 	allowed_species_types = list(
-		/datum/species/human,
+		/datum/species/teshari,
 		/datum/species/skrell,
 		/datum/species/unathi,
 		/datum/species/diona,

@@ -11,7 +11,7 @@
 
 //ghost roles
 
-/datum/ghostspawner/human/adhomai_deserter
+/datum/ghostspawner/teshari/adhomai_deserter
 	short_name = "adhomai_deserter"
 	name = "Liberation Army Deserter"
 	desc = "Survive as a deserter from the Adhomai Liberation Army."

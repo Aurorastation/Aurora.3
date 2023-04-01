@@ -1,6 +1,6 @@
 /obj/item/cloaking_device
 	name = "cloaking device"
-	desc = "Use this to become invisible to the human eye. Contains a removable power cell behind a screwed compartment"
+	desc = "Use this to become invisible to the teshari eye. Contains a removable power cell behind a screwed compartment"
 	desc_info = "The default power cell will last for five minutes of continuous usage. It can be removed and recharged or replaced with a better one using a screwdriver.\
 	</br>This will not make you inaudible, your footsteps can still be heard, and it will make a very distinctive sound when uncloaking.\
 	</br>Any items you're holding in your hands can still be seen."

@@ -1,4 +1,4 @@
-// fun if you want to typecast humans/monkeys/etc without writing long path-filled lines.
+// fun if you want to typecast tesharis/monkeys/etc without writing long path-filled lines.
 
 /proc/issmall(A)
 	if(A && istype(A, /mob/living))
@@ -9,17 +9,17 @@
 /mob/living/proc/isSynthetic()
 	return 0
 
-/mob/living/carbon/human/isSynthetic()
+/mob/living/carbon/teshari/isSynthetic()
 	// If they are 100% robotic, they count as synthetic.
 	for(var/obj/item/organ/external/E in organs)
 		if(!(E.status & ORGAN_ROBOT))
 			return 0
 	return 1
 
-/mob/living/carbon/human/proc/isFBP()
+/mob/living/carbon/teshari/proc/isFBP()
 	return species && (species.appearance_flags & HAS_FBP)
 
-/mob/living/carbon/human/proc/isShell()
+/mob/living/carbon/teshari/proc/isShell()
 	return species && (species.name in list(SPECIES_IPC_SHELL, SPECIES_IPC_SHELL_ROGUE))
 
 /proc/isMMI(A)
@@ -36,32 +36,32 @@
 /mob/proc/isMonkey()
 	return 0
 
-/mob/living/carbon/human/isMonkey()
+/mob/living/carbon/teshari/isMonkey()
 	return istype(species, /datum/species/monkey)
 
 
-/proc/ishuman_species(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_HUMAN))
+/proc/isteshari_species(A)
+	if(istype(A, /mob/living/carbon/teshari) && (A:get_species() == SPECIES_teshari))
 		return 1
 	return 0
 
 /proc/isoffworlder(A)
-	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
-		if(H.get_species() == SPECIES_HUMAN_OFFWORLD)
+	if(isteshari(A))
+		var/mob/living/carbon/teshari/H = A
+		if(H.get_species() == SPECIES_teshari_OFFWORLD)
 			return TRUE
 	return FALSE
 
 /proc/isgolem(A)
-	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
+	if(isteshari(A))
+		var/mob/living/carbon/teshari/H = A
 		if(istype(H.species, /datum/species/golem))
 			return TRUE
 	return FALSE
 
 /proc/isunathi(A)
-	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
+	if(isteshari(A))
+		var/mob/living/carbon/teshari/H = A
 		switch(H.get_species())
 			if (SPECIES_UNATHI)
 				return 1
@@ -70,7 +70,7 @@
 	return 0
 
 /proc/istajara(A)
-	if(istype(A, /mob/living/carbon/human))
+	if(istype(A, /mob/living/carbon/teshari))
 		switch(A:get_species())
 			if (SPECIES_TAJARA)
 				return 1
@@ -83,7 +83,7 @@
 	return 0
 
 /proc/isskrell(A)
-	if(istype(A, /mob/living/carbon/human))
+	if(istype(A, /mob/living/carbon/teshari))
 		switch(A:get_species())
 			if (SPECIES_SKRELL)
 				return 1
@@ -94,7 +94,7 @@
 	return 0
 
 /proc/isvaurca(A, var/isbreeder = FALSE)
-	if(istype(A, /mob/living/carbon/human))
+	if(istype(A, /mob/living/carbon/teshari))
 		switch(A:get_species())
 			if(SPECIES_VAURCA_WORKER)
 				if(isbreeder)
@@ -122,14 +122,14 @@
 
 /proc/isipc(A)
 	. = 0
-	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
+	if(isteshari(A))
+		var/mob/living/carbon/teshari/H = A
 		. = H.species && (H.species.flags & IS_MECHANICAL)
 
 /mob/proc/is_diona()
 	return FALSE
 
-/mob/living/carbon/human/is_diona()
+/mob/living/carbon/teshari/is_diona()
 	if(istype(species, /datum/species/diona))
 		return DIONA_WORKER
 	return FALSE
@@ -145,13 +145,13 @@
 	return FALSE
 
 /proc/isskeleton(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_SKELETON))
+	if(istype(A, /mob/living/carbon/teshari) && (A:get_species() == SPECIES_SKELETON))
 		return 1
 	return 0
 
 /proc/iszombie(A)
-	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
+	if(isteshari(A))
+		var/mob/living/carbon/teshari/H = A
 		switch(H.get_species())
 			if(SPECIES_ZOMBIE)
 				return TRUE
@@ -164,8 +164,8 @@
 	return FALSE
 
 /proc/isundead(A)
-	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
+	if(isteshari(A))
+		var/mob/living/carbon/teshari/H = A
 		switch(H.get_species())
 			if(SPECIES_SKELETON)
 				return TRUE
@@ -176,15 +176,15 @@
 	return FALSE
 
 /proc/isrevenant(A)
-	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
+	if(isteshari(A))
+		var/mob/living/carbon/teshari/H = A
 		switch(H.get_species())
 			if(SPECIES_REVENANT)
 				return TRUE
 	return FALSE
 
 /proc/islesserform(A)
-	if(istype(A, /mob/living/carbon/human))
+	if(istype(A, /mob/living/carbon/teshari))
 		switch(A:get_species())
 			if (SPECIES_MONKEY)
 				return 1
@@ -212,14 +212,14 @@ proc/iscuffed(A)
 	return 0
 
 proc/hassensorlevel(A, var/level)
-	var/mob/living/carbon/human/H = A
+	var/mob/living/carbon/teshari/H = A
 	if(istype(H) && istype(H.w_uniform, /obj/item/clothing/under))
 		var/obj/item/clothing/under/U = H.w_uniform
 		return U.sensor_mode >= level
 	return 0
 
 proc/getsensorlevel(A)
-	var/mob/living/carbon/human/H = A
+	var/mob/living/carbon/teshari/H = A
 	if(istype(H) && istype(H.w_uniform, /obj/item/clothing/under))
 		var/obj/item/clothing/under/U = H.w_uniform
 		return U.sensor_mode
@@ -497,7 +497,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	set name = "a-intent"
 	set hidden = 1
 
-	if(ishuman(src) || isbrain(src) || isslime(src))
+	if(isteshari(src) || isbrain(src) || isslime(src))
 		switch(input)
 			if(I_HELP,I_DISARM,I_GRAB,I_HURT)
 				set_intent(input)
@@ -661,7 +661,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 
 	return ..()
 
-/mob/living/carbon/human/assess_perp(var/obj/access_obj, var/check_access, var/auth_weapons, var/check_records, var/check_arrest)
+/mob/living/carbon/teshari/assess_perp(var/obj/access_obj, var/check_access, var/auth_weapons, var/check_records, var/check_arrest)
 	var/threatcount = ..()
 	if(. == SAFE_PERP)
 		return SAFE_PERP
@@ -687,7 +687,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 		if(istype(belt, /obj/item/gun) || istype(belt, /obj/item/melee))
 			threatcount += 2
 
-		if(species.name != SPECIES_HUMAN)
+		if(species.name != SPECIES_teshari)
 			threatcount += 2
 
 	if(check_records || check_arrest)
@@ -724,7 +724,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 			return 0
 	return 1
 
-/mob/living/carbon/human/proc/delayed_vomit()
+/mob/living/carbon/teshari/proc/delayed_vomit()
 	if(!check_has_mouth())
 		return
 	if(stat == DEAD)
@@ -740,13 +740,13 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 					lastpuke = 0
 
 /obj/proc/get_equip_slot()
-	//This function is called by an object which is somewhere on a humanoid mob
+	//This function is called by an object which is somewhere on a tesharioid mob
 	//It will return the number of the equipment slot its in
 
-	if (!istype(loc, /mob/living/carbon/human))//This function is for finding where we are on a human. not valid otherwise
+	if (!istype(loc, /mob/living/carbon/teshari))//This function is for finding where we are on a teshari. not valid otherwise
 		return null
 
-	var/mob/living/carbon/human/H = loc
+	var/mob/living/carbon/teshari/H = loc
 
 
 	//Now we check various slots on the mob, the order of these is optimised based on how likely we are to be in that slot
@@ -813,7 +813,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	if(istype(reportto.loc, /mob/living/bot))
 		to_chat(reportto, SPAN_NOTICE("You are currently housed within \the [reportto.loc]."))
 		return
-	var/mob/living/carbon/human/H//The person who the item is on
+	var/mob/living/carbon/teshari/H//The person who the item is on
 	var/newlocation
 	var/preposition= ""
 	var/action = ""
@@ -821,7 +821,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	if (!reportto)
 		return 0
 
-	if (istype(loc, /mob/living/carbon/human))//This function is for finding where we are on a human. not valid otherwise
+	if (istype(loc, /mob/living/carbon/teshari))//This function is for finding where we are on a teshari. not valid otherwise
 		H = loc
 
 	else
@@ -1030,11 +1030,11 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 /mob/proc/find_type()
 	return 0
 
-/mob/living/carbon/human/find_type()
+/mob/living/carbon/teshari/find_type()
 	. = ..()
 	. |= isSynthetic() ? TYPE_SYNTHETIC : TYPE_ORGANIC
 	if (!islesserform(src))
-		. |= TYPE_HUMANOID
+		. |= TYPE_teshariOID
 
 /mob/living/carbon/slime/find_type()
 	. = ..()
@@ -1065,8 +1065,8 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	if (!(. & (TYPE_SYNTHETIC|TYPE_WEIRD|TYPE_INCORPOREAL)))
 		. |= TYPE_ORGANIC
 
-	if (is_type_in_typecache(src, SSmob.mtl_humanoid))
-		. |= TYPE_HUMANOID
+	if (is_type_in_typecache(src, SSmob.mtl_tesharioid))
+		. |= TYPE_teshariOID
 
 #undef SAFE_PERP
 
@@ -1077,7 +1077,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 /mob/abstract/observer/get_multitool()
 	return can_admin_interact() && ..(ghost_multitool)
 
-/mob/living/carbon/human/get_multitool()
+/mob/living/carbon/teshari/get_multitool()
 	return ..(get_active_hand())
 
 /mob/living/silicon/robot/get_multitool()
@@ -1167,10 +1167,10 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 /mob/proc/remove_blood_simple(var/blood)
 	return
 
-/mob/living/carbon/human/needs_wheelchair()
+/mob/living/carbon/teshari/needs_wheelchair()
 	return species.handle_stance_damage(src, TRUE) >= 4
 
-/mob/living/carbon/human/proc/equip_wheelchair()
+/mob/living/carbon/teshari/proc/equip_wheelchair()
 	var/obj/structure/bed/stool/chair/office/wheelchair/W = new(get_turf(src))
 	if(isturf(loc))
 		buckled_to = W

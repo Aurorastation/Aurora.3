@@ -175,7 +175,7 @@
 	if(!usr || !over) return
 	if(!Adjacent(usr) || !over.Adjacent(usr)) return // should stop you from dragging through windows
 
-	if(!ishuman(over) || !(over in viewers(3))) return
+	if(!isteshari(over) || !(over in viewers(3))) return
 
 	if(!cards.len)
 		to_chat(usr, SPAN_WARNING("There are no cards in the deck."))

@@ -543,8 +543,8 @@
 		return
 
 	if(legs?.trample_damage)
-		if(ishuman(H))
-			var/mob/living/carbon/human/D = H
+		if(isteshari(H))
+			var/mob/living/carbon/teshari/D = H
 			if(D.lying)
 				D.attack_log += "\[[time_stamp()]\]<font color='orange'> Was trampled by [src]</font>"
 				attack_log += text("\[[time_stamp()]\] <span class='warning'>trampled [D.name] ([D.ckey]) with \the [src].</span>")
@@ -622,8 +622,8 @@
 					assign_leader(speaker)
 					say("New paired leader, [leader_name], confirmed and added to temporary biometric database.")
 					return
-				// check for humans and their IDs
-				for(var/mob/living/carbon/human/H in view(world.view, src))
+				// check for tesharis and their IDs
+				for(var/mob/living/carbon/teshari/H in view(world.view, src))
 					var/obj/item/card/id/ID = H.GetIdCard(TRUE)
 					if(ID?.registered_name) // we ID people based on their... ID
 						if(findtext(text, ID.registered_name))
@@ -717,7 +717,7 @@
 					assign_following(speaker)
 					say("Following [speaker.name].")
 					return
-				for(var/mob/living/carbon/human/H in view(world.view, src))
+				for(var/mob/living/carbon/teshari/H in view(world.view, src))
 					var/obj/item/card/id/ID = H.GetIdCard(TRUE)
 					if(ID?.registered_name) // we ID people based on their... ID
 						if(findtext(text, ID.registered_name))

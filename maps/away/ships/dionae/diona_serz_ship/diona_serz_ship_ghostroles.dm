@@ -1,6 +1,6 @@
 //Dionae Serz Ship
 
-/datum/ghostspawner/human/serz_voidtamer
+/datum/ghostspawner/teshari/serz_voidtamer
 	short_name = "serz_voidtamer"
 	name = "Serz Clan Voidtamer"
 	desc = "A Member of the Serz clan of Dionae voidtamers, a group known for selling products associated with space xenofauna as well as occasional live specimens. Generally will have apperances consistent with Unathi due to most of the clan members coming from in or around Moghes. (Info on the faction is located in the Dionae minor factions page.)"
@@ -34,18 +34,18 @@
 	)
 
 	id = null
-	
+
 	l_ear = /obj/item/device/radio/headset/ship
 
 	l_pocket = /obj/item/device/radio
 
 	backpack_contents = list(/obj/item/device/flashlight/lantern = 1, /obj/item/device/flashlight/survival = 1)
 
-/datum/outfit/admin/serz_voidtamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/serz_voidtamer/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#6D3175"
 
-/datum/ghostspawner/human/serz_voidtamer/captain
+/datum/ghostspawner/teshari/serz_voidtamer/captain
 	short_name = "serz_voidtamer_captain"
 	name = "Serz Clan Voidtamer Captain"
 	desc = "Dionae captain of the Serz ship. Generally will have apperances consistent with Unathi due to most of the clan members coming from in or around Moghes."
@@ -70,6 +70,6 @@
 	l_ear = /obj/item/device/radio/headset/ship
 	backpack_contents = list(/obj/item/device/flashlight/lantern = 1, /obj/item/device/flashlight/survival = 1)
 
-/datum/outfit/admin/serz_voidtamer/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/serz_voidtamer/captain/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#6D3175"

@@ -28,32 +28,32 @@
 	var/list/uristrunes = list()
 
 /*
-	Global associative list for caching humanoid icons.
+	Global associative list for caching tesharioid icons.
 	Index format m or f, followed by a string of 0 and 1 to represent bodyparts followed by husk fat hulk skeleton 1 or 0.
 	TODO: Proper documentation
 	icon_key is [species.race_key][g][husk][fat][hulk][skeleton][s_tone]
 */
-	var/list/human_icon_cache = list()
+	var/list/teshari_icon_cache = list()
 	var/list/tail_icon_cache = list()	//key is [species.race_key][r_skin][g_skin][b_skin]
 	var/list/light_overlay_cache = list()
 	// Cached limb icons, used by the damage health doll.
 	var/list/limb_icons_cache = list()
-	// Cached human damage icons.
+	// Cached teshari damage icons.
 	var/list/damage_icon_parts = list()
-	// Cached human body markings.
+	// Cached teshari body markings.
 	var/list/markings_cache = list()	// [icon]-[icon_state]-[limb_name]-[color]
-	var/list/human_eye_cache = list()
-	var/list/human_lip_cache = list()
+	var/list/teshari_eye_cache = list()
+	var/list/teshari_lip_cache = list()
 	var/list/internal_organ_cache = list()
-	// Cached composited human hair (beard & hair).
+	// Cached composited teshari hair (beard & hair).
 	// Key:
 	//    hair+beard: [beard_style][r_facial][g_facial][b_facial]_[hair_style][r_hair][g_hair][b_hair]
 	//    haironly:   nobeard_[hair_style][r_hair][g_hair][b_hair]
 	//    beardonly:  [beard_style][r_facial][g_facial][b_facial]_nohair
-	var/list/human_hair_cache = list()
+	var/list/teshari_hair_cache = list()
 	var/list/organ_keymap = list()
 	var/current_organ_keymap_idex = 1
-	// This is an assoc list of all icon states in `icons/mob/collar.dmi`, used by human update-icons.
+	// This is an assoc list of all icon states in `icons/mob/collar.dmi`, used by teshari update-icons.
 	var/list/collar_states
 
 	var/list/ao_cache = list()

@@ -31,7 +31,7 @@
 		icon_state = "implanter0"
 	return
 
-/obj/item/implanter/attack(mob/living/carbon/human/M, mob/user, var/target_zone)
+/obj/item/implanter/attack(mob/living/carbon/teshari/M, mob/user, var/target_zone)
 	if(!istype(M))
 		return
 
@@ -133,8 +133,8 @@
 			to_chat(user, SPAN_WARNING("Something is already scanned inside the implant!"))
 			return
 		c.scanned = A
-		if(istype(A.loc,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = A.loc
+		if(istype(A.loc,/mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = A.loc
 			H.remove_from_mob(A)
 		else if(istype(A.loc,/obj/item/storage))
 			var/obj/item/storage/S = A.loc
@@ -182,14 +182,14 @@
 	return
 
 /obj/item/implanter/ipc_tag/attack(mob/M, mob/user)
-	if(!ishuman(M))
+	if(!isteshari(M))
 		return
 
 	if(!ipc_tag)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have an IPC tag loaded!"))
 		return
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(!H.species || !isipc(H) || !H.organs_by_name[BP_HEAD])
 		to_chat(user, SPAN_WARNING("You cannot use \the [src] on a non-IPC!"))
 		return

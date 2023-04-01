@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/headmaster_kosmostrelki
+/datum/ghostspawner/teshari/headmaster_kosmostrelki
 	short_name = "headmaster_kosmostrelki"
 	name = "Headmaster Ship Kosmostrelki"
 	desc = "Crew an Orbital Fleet ship."
@@ -34,7 +34,7 @@
 /datum/outfit/admin/headmaster_kosmostrelki/get_id_access()
 	return list(access_pra, access_external_airlocks)
 
-/datum/ghostspawner/human/headmaster_kosmostrelki/captain
+/datum/ghostspawner/teshari/headmaster_kosmostrelki/captain
 	short_name = "headmaster_captain"
 	name = "Headmaster Ship Captain"
 	desc = "Command an Orbital Fleet ship."
@@ -63,7 +63,7 @@
 						)
 
 
-/datum/ghostspawner/human/headmaster_kosmostrelki/commissar
+/datum/ghostspawner/teshari/headmaster_kosmostrelki/commissar
 	short_name = "headmaster_commissar"
 	name = "Headmaster Party Commissar"
 	desc = "Ensure that the Kosmostrelki follow the principles of Hadiism."

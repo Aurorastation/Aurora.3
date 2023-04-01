@@ -12,7 +12,7 @@
 	no_guns = TRUE
 	no_guns_message = "Use of ranged weaponry would bring dishonor to the clan."
 
-/datum/martial_art/the_sleeping_carp/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/the_sleeping_carp/proc/check_streak(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(findtext(streak,WRIST_WRENCH_COMBO))
 		streak = ""
 		wristWrench(A,D)
@@ -35,7 +35,7 @@
 		return 1
 	return 0
 
-/datum/martial_art/the_sleeping_carp/proc/wristWrench(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/the_sleeping_carp/proc/wristWrench(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(!D.stat && !D.stunned && !D.weakened)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] grabs [D]'s wrist and wrenches it sideways!</span>")
@@ -46,7 +46,7 @@
 		return 1
 	return basic_hit(A,D)
 
-/datum/martial_art/the_sleeping_carp/proc/backKick(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/the_sleeping_carp/proc/backKick(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(A.dir == D.dir && !D.stat && !D.weakened)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] kicks [D] in the back!</span>")
@@ -57,7 +57,7 @@
 		return 1
 	return basic_hit(A,D)
 
-/datum/martial_art/the_sleeping_carp/proc/kneeStomach(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/the_sleeping_carp/proc/kneeStomach(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(!D.stat && !D.weakened)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] knees [D] in the stomach!</span>", \
@@ -71,7 +71,7 @@
 		return 1
 	return basic_hit(A,D)
 
-/datum/martial_art/the_sleeping_carp/proc/headKick(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/the_sleeping_carp/proc/headKick(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(!D.stat && !D.weakened)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] kicks [D] in the head!</span>", \
@@ -84,7 +84,7 @@
 		return 1
 	return basic_hit(A,D)
 
-/datum/martial_art/the_sleeping_carp/proc/elbowDrop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/the_sleeping_carp/proc/elbowDrop(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(D.weakened || D.resting || D.stat)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='danger'>[A] elbow drops [D]!</span>")
@@ -95,7 +95,7 @@
 		return 1
 	return basic_hit(A,D)
 
-/datum/martial_art/the_sleeping_carp/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/the_sleeping_carp/grab_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("G",D)
 	if(check_streak(A,D))
 		return 1
@@ -104,7 +104,7 @@
 	if(G)
 		G.state = GRAB_AGGRESSIVE //Instant aggressive grab
 
-/datum/martial_art/the_sleeping_carp/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/the_sleeping_carp/disarm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("D",D)
 	if(check_streak(A,D))
 		return 1

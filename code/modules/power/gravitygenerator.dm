@@ -487,8 +487,8 @@
 	for(var/mob/living/M in mob_list)
 		var/turf/their_turf = get_turf(M)
 		if(their_turf?.loc ==  Area)
-			if(ishuman(M))
-				var/mob/living/carbon/human/H = M
+			if(isteshari(M))
+				var/mob/living/carbon/teshari/H = M
 				var/obj/item/clothing/shoes/magboots/boots = H.get_equipped_item(slot_shoes)
 				if(istype(boots))
 					continue

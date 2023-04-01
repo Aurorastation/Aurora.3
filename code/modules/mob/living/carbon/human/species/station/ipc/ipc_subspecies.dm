@@ -3,14 +3,14 @@
 	hide_name = TRUE
 	short_name = "jak"
 	name_plural = "Shells"
-	bodytype = BODYTYPE_HUMAN
+	bodytype = BODYTYPE_teshari
 	default_genders = list(MALE, FEMALE)
 	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
 
 	burn_mod = 1.2
 	grab_mod = 1
 
-	blurb = "IPCs with humanlike properties. Their focus is on service, civilian, and medical, but there are no \
+	blurb = "IPCs with tesharilike properties. Their focus is on service, civilian, and medical, but there are no \
 	job restrictions. Created in the late days of 2450, the Shell is a controversial IPC model equipped with a synthskin weave applied over its metal chassis \
 	to create an uncannily close approximation of the organic form. Early models of Shell had the advantage of being able to compose themselves of a wide \
 	 variety of organic parts, but contemporary models have been restricted to a single species for the sake of prosthetic integrity. The additional weight of \
@@ -18,9 +18,9 @@
 
 	num_alternate_languages = 3
 
-	icobase = 'icons/mob/human_races/human/r_human.dmi'
-	deform = 'icons/mob/human_races/ipc/robotic.dmi'
-	preview_icon = 'icons/mob/human_races/ipc/shell_preview.dmi'
+	icobase = 'icons/mob/teshari_races/teshari/r_teshari.dmi'
+	deform = 'icons/mob/teshari_races/ipc/robotic.dmi'
+	preview_icon = 'icons/mob/teshari_races/ipc/shell_preview.dmi'
 
 	light_range = 0
 	light_power = 0
@@ -67,25 +67,25 @@
 	move_charge_factor = 0.85
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag,
-		/mob/living/carbon/human/proc/tie_hair)
+		/mob/living/carbon/teshari/proc/self_diagnostics,
+		/mob/living/carbon/teshari/proc/check_tag,
+		/mob/living/carbon/teshari/proc/tie_hair)
 
 	bodyfall_sound = /singleton/sound_category/bodyfall_sound
 	use_alt_hair_layer = FALSE
 
-/datum/species/machine/shell/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
+/datum/species/machine/shell/get_species(var/reference, var/mob/living/carbon/teshari/H, var/records)
 	if(reference)
 		return src
 	// it's illegal for shells in Tau Ceti space to not have tags, so their records would have to be falsified
 	if(records && !H.internal_organs_by_name[BP_IPCTAG])
-		return "Human"
+		return "teshari"
 	return name
 
 /datum/species/machine/shell/get_light_color()
 	return
 
-/datum/species/machine/shell/handle_death(var/mob/living/carbon/human/H)
+/datum/species/machine/shell/handle_death(var/mob/living/carbon/teshari/H)
 	return
 
 /datum/species/machine/shell/rogue
@@ -111,10 +111,10 @@
 		/datum/unarmed_attack/bite/strong)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/teshari/proc/self_diagnostics
 		)
 
-/datum/species/machine/shell/rogue/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
+/datum/species/machine/shell/rogue/check_tag(var/mob/living/carbon/teshari/new_machine, var/client/player)
 	return
 
 /datum/species/machine/industrial
@@ -137,9 +137,9 @@
 
 	blurb = "The first commercialized attempt Hephaestus Industries made at an industrial-type IPC. Designed for extra durability and increased weight loads, the first generation Industrial was considered a success, though it possessed some issues. A limited power cell and actuators designed for heavy lifting and not locomotion resulted in a slow and frequently charging machine. A special addition to the chassis makes up for these drawbacks - the ability to simply slot a suit cooling unit onto the model's back and make use of its built-in heat transferal conduits, allowing the Industrial to perform EVA without any extra peripherals such as a voidsuit."
 
-	icobase = 'icons/mob/human_races/ipc/r_industrial.dmi'
-	deform = 'icons/mob/human_races/ipc/r_industrial.dmi'
-	preview_icon = 'icons/mob/human_races/ipc/industrial_preview.dmi'
+	icobase = 'icons/mob/teshari_races/ipc/r_industrial.dmi'
+	deform = 'icons/mob/teshari_races/ipc/r_industrial.dmi'
+	preview_icon = 'icons/mob/teshari_races/ipc/industrial_preview.dmi'
 
 	eyes = "eyes_industry"
 	show_ssd = "completely quiescent"
@@ -176,14 +176,14 @@
 	move_charge_factor = 1.1
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/teshari/proc/self_diagnostics,
+		/mob/living/carbon/teshari/proc/check_tag
 		)
 
 /datum/species/machine/industrial/get_light_color()
 	return LIGHT_COLOR_TUNGSTEN
 
-/datum/species/machine/industrial/handle_death(var/mob/living/carbon/human/H)
+/datum/species/machine/industrial/handle_death(var/mob/living/carbon/teshari/H)
 	return
 
 /datum/species/machine/terminator
@@ -195,8 +195,8 @@
 
 	blurb = "\[REDACTED\]"
 
-	icobase = 'icons/mob/human_races/ipc/r_terminator.dmi'
-	deform = 'icons/mob/human_races/ipc/r_terminator.dmi'
+	icobase = 'icons/mob/teshari_races/ipc/r_terminator.dmi'
+	deform = 'icons/mob/teshari_races/ipc/r_terminator.dmi'
 
 	light_range = 0
 	light_power = 0
@@ -242,10 +242,10 @@
 	reagent_tag = IS_MACHINE
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_destruct,
-		/mob/living/carbon/human/proc/detonate_flechettes,
-		/mob/living/carbon/human/proc/state_laws,
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/teshari/proc/self_destruct,
+		/mob/living/carbon/teshari/proc/detonate_flechettes,
+		/mob/living/carbon/teshari/proc/state_laws,
+		/mob/living/carbon/teshari/proc/self_diagnostics
 	)
 
 	has_organ = list(
@@ -286,7 +286,7 @@
 /datum/species/machine/terminator/get_light_color()
 	return
 
-/datum/species/machine/terminator/handle_death(var/mob/living/carbon/human/H)
+/datum/species/machine/terminator/handle_death(var/mob/living/carbon/teshari/H)
 	..()
 	playsound(H.loc, 'sound/items/countdown.ogg', 125, 1)
 	spawn(15)
@@ -300,9 +300,9 @@
 	short_name = "hif"
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
 
-	icobase = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi'
-	deform = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi'
-	preview_icon = 'icons/mob/human_races/ipc/ind_hephaestus_preview.dmi'
+	icobase = 'icons/mob/teshari_races/ipc/r_ind_hephaestus.dmi'
+	deform = 'icons/mob/teshari_races/ipc/r_ind_hephaestus.dmi'
+	preview_icon = 'icons/mob/teshari_races/ipc/ind_hephaestus_preview.dmi'
 
 	eyes = "heph_eyes"
 
@@ -320,8 +320,8 @@
 	heat_discomfort_level = 900
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/teshari/proc/self_diagnostics,
+		/mob/living/carbon/teshari/proc/check_tag
 	)
 
 	examine_color = "#688359"
@@ -343,7 +343,7 @@
 	)
 
 
-/datum/species/machine/industrial/hephaestus/get_light_color(mob/living/carbon/human/H)
+/datum/species/machine/industrial/hephaestus/get_light_color(mob/living/carbon/teshari/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
 
@@ -352,9 +352,9 @@
 	short_name = "xmf"
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
 
-	icobase = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
-	deform = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
-	preview_icon = 'icons/mob/human_races/ipc/ind_xion_preview.dmi'
+	icobase = 'icons/mob/teshari_races/ipc/r_ind_xion.dmi'
+	deform = 'icons/mob/teshari_races/ipc/r_ind_xion.dmi'
+	preview_icon = 'icons/mob/teshari_races/ipc/ind_xion_preview.dmi'
 
 	unarmed_types = list(
 		/datum/unarmed_attack/industrial/xion,
@@ -411,7 +411,7 @@
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
 	)
 
-/datum/species/machine/industrial/xion/get_light_color(mob/living/carbon/human/H)
+/datum/species/machine/industrial/xion/get_light_color(mob/living/carbon/teshari/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
 
@@ -420,9 +420,9 @@
 	short_name = "zhf"
 	bodytype = BODYTYPE_IPC_ZENGHU
 
-	icobase = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
-	deform = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
-	preview_icon = 'icons/mob/human_races/ipc/ind_zenghu_preview.dmi'
+	icobase = 'icons/mob/teshari_races/ipc/r_ind_zenghu.dmi'
+	deform = 'icons/mob/teshari_races/ipc/r_ind_zenghu.dmi'
+	preview_icon = 'icons/mob/teshari_races/ipc/ind_zenghu_preview.dmi'
 
 	eyes = "zenghu_eyes"
 	brute_mod = 1.5
@@ -457,15 +457,15 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/teshari/proc/self_diagnostics,
+		/mob/living/carbon/teshari/proc/check_tag
 		)
 	maneuvers = list(
 		/singleton/maneuver/leap/zenghu
 	)
 
 
-/datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
+/datum/species/machine/zenghu/get_light_color(mob/living/carbon/teshari/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
 
@@ -474,9 +474,9 @@
 	short_name = "bcf"
 	bodytype = BODYTYPE_IPC_BISHOP
 
-	icobase = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
-	deform = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
-	preview_icon = 'icons/mob/human_races/ipc/ind_bishop_preview.dmi'
+	icobase = 'icons/mob/teshari_races/ipc/r_ind_bishop.dmi'
+	deform = 'icons/mob/teshari_races/ipc/r_ind_bishop.dmi'
+	preview_icon = 'icons/mob/teshari_races/ipc/ind_bishop_preview.dmi'
 
 	eyes = "bishop_eyes"
 	eyes_icon_blend = ICON_MULTIPLY
@@ -507,11 +507,11 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/teshari/proc/self_diagnostics,
+		/mob/living/carbon/teshari/proc/check_tag
 		)
 
-/datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
+/datum/species/machine/bishop/get_light_color(mob/living/carbon/teshari/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
 
@@ -522,8 +522,8 @@
 
 	blurb = "A simple and archaic robotic frame, used mostly as a temporary body before posibrains are transferred to any specialized chassis."
 
-	icobase = 'icons/mob/human_races/ipc/robotic.dmi'
-	deform = 'icons/mob/human_races/ipc/robotic.dmi'
+	icobase = 'icons/mob/teshari_races/ipc/robotic.dmi'
+	deform = 'icons/mob/teshari_races/ipc/robotic.dmi'
 	eyes = "eyes_s"
 
 	bald = 1
@@ -547,8 +547,8 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/teshari/proc/self_diagnostics,
+		/mob/living/carbon/teshari/proc/check_tag
 		)
 
 /datum/species/machine/unbranded/remote
@@ -565,6 +565,6 @@
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
 	)
 
-/datum/species/machine/unbranded/get_light_color(mob/living/carbon/human/H)
+/datum/species/machine/unbranded/get_light_color(mob/living/carbon/teshari/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)

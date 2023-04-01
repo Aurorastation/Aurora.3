@@ -852,10 +852,10 @@
 /material/cult/reinf
 	name = MATERIAL_CULT_REINFORCED
 	icon_colour = COLOR_CULT_REINFORCED
-	display_name = "human remains"
+	display_name = "teshari remains"
 
 /material/cult/reinf/place_dismantled_product(var/turf/target)
-	new /obj/effect/decal/remains/human(target)
+	new /obj/effect/decal/remains/teshari(target)
 
 /material/resin
 	name = MATERIAL_RESIN
@@ -974,9 +974,9 @@
 	stack_type = /obj/item/stack/material/animalhide/lizard
 	icon_colour = "#34AF10"
 
-/material/hide/human
-	name = MATERIAL_HIDE_HUMAN
-	stack_type = /obj/item/stack/material/animalhide/human
+/material/hide/teshari
+	name = MATERIAL_HIDE_teshari
+	stack_type = /obj/item/stack/material/animalhide/teshari
 	icon_colour = "#833C00"
 
 /material/hide/barehide

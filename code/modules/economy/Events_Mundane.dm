@@ -91,7 +91,7 @@
 				body += "Game hunters on [affected_dest.name] "
 				if(prob(33))
 					body += "were surprised when an unusual species experts have since identified as \
-					[pick("a subclass of mammal","a divergent abhuman species","an intelligent species of lemur","organic/cyborg hybrids")] turned up. Believed to have been brought in by \
+					[pick("a subclass of mammal","a divergent abteshari species","an intelligent species of lemur","organic/cyborg hybrids")] turned up. Believed to have been brought in by \
 					[pick("alien smugglers","early colonists","mercenary raiders","unwitting tourists")], this is the first such specimen discovered in the wild."
 				else if(prob(50))
 					body += "were attacked by a vicious [pick("nas'r","diyaab","samak","predator which has not yet been identified")]\
@@ -121,6 +121,6 @@
 				body += "Tourists are flocking to [affected_dest.name] after the surprise announcement of [pick("major shopping bargains by a wily retailer",\
 				"a huge new ARG by a popular entertainment company","a secret tour by popular artiste [random_name(pick(MALE,FEMALE))]")]. \
 				Tau Ceti Daily is offering discount tickets for two to see [random_name(pick(MALE,FEMALE))] live in return for eyewitness reports and up to the minute coverage."
-	
+
 	var/datum/feed_channel/ch =  SSnews.GetFeedChannel(channel)
 	SSnews.SubmitArticle(body, author, ch, null, 1)

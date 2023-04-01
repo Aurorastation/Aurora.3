@@ -42,7 +42,7 @@
 	//I couldn't get the normal way to work so this works.
 	//This whole section looks like a hack, I don't like it.
 	var/T = get_turf(usr)
-	var/mob/living/carbon/human/bst/bst = new(T)
+	var/mob/living/carbon/teshari/bst/bst = new(T)
 //	bst.original_mob = usr
 	bst.anchored = 1
 	bst.ckey = usr.ckey
@@ -126,24 +126,24 @@
 
 	return 1
 
-/client/proc/bst_post_spawn(mob/living/carbon/human/bst/bst)
+/client/proc/bst_post_spawn(mob/living/carbon/teshari/bst/bst)
 	spark(bst, 3, alldirs)
 	bst.anchored = FALSE
 
-/mob/living/carbon/human/bst
+/mob/living/carbon/teshari/bst
 	universal_understand = 1
 	status_flags = GODMODE|NOFALL
 
-/mob/living/carbon/human/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)
+/mob/living/carbon/teshari/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)
 	to_chat(user, SPAN_ALERT("The [src] disarms you before you can inject them."))
 	user.drop_item()
 	return 0
 
-/mob/living/carbon/human/bst/binarycheck()
+/mob/living/carbon/teshari/bst/binarycheck()
 	return 1
 
-/mob/living/carbon/human/bst/proc/suicide()
-	if(key && species.name != SPECIES_HUMAN)
+/mob/living/carbon/teshari/bst/proc/suicide()
+	if(key && species.name != SPECIES_teshari)
 		switch(species.name)
 			if(SPECIES_TAJARA)
 				bsc()
@@ -174,7 +174,7 @@
 			ghost.real_name = "[ghost.key] BSTech"
 			ghost.voice_name = "[ghost.key] BSTech"
 
-/mob/living/carbon/human/bst/proc/bsc() //because we all have our unrealistic snowflakes right?
+/mob/living/carbon/teshari/bst/proc/bsc() //because we all have our unrealistic snowflakes right?
 	if(set_species(SPECIES_TAJARA))
 		h_style = "Tajaran Ears"
 		name = "Bluespace Cat"
@@ -191,7 +191,7 @@
 		key = null
 		suicide()
 
-/mob/living/carbon/human/bst/proc/bsb()
+/mob/living/carbon/teshari/bst/proc/bsb()
 	if(set_species(SPECIES_IPC))
 		h_style = "blue IPC screen"
 		name = "Bluespace Bot"
@@ -207,7 +207,7 @@
 		key = null
 		suicide()
 
-/mob/living/carbon/human/bst/proc/bsd()
+/mob/living/carbon/teshari/bst/proc/bsd()
 	if(set_species(SPECIES_DIONA))
 		name = "Bluespace Tree"
 		voice_name = "Bluespace Tree"
@@ -222,7 +222,7 @@
 		key = null
 		suicide()
 
-/mob/living/carbon/human/bst/proc/bsu()
+/mob/living/carbon/teshari/bst/proc/bsu()
 	if(set_species(SPECIES_UNATHI))
 		h_style = "Unathi Horns"
 		name = "Bluespace Lizard"
@@ -238,7 +238,7 @@
 		key = null
 		suicide()
 
-/mob/living/carbon/human/bst/proc/bss()
+/mob/living/carbon/teshari/bst/proc/bss()
 	if(set_species(SPECIES_SKRELL))
 		h_style = "Skrell Average Tentacles"
 		name = "Bluespace Squid"
@@ -255,7 +255,7 @@
 		key = null
 		suicide()
 
-/mob/living/carbon/human/bst/proc/bsv()
+/mob/living/carbon/teshari/bst/proc/bsv()
 	if(set_species(SPECIES_VAURCA_WORKER))
 		h_style = "Bald"
 		name = "Bluespace Bug"
@@ -271,7 +271,7 @@
 		key = null
 		suicide()
 
-/mob/living/carbon/human/bst/verb/antigrav()
+/mob/living/carbon/teshari/bst/verb/antigrav()
 	set name = "Toggle Falling"
 	set desc = "Use bluespace technology to ignore gravity."
 	set category = "BST"
@@ -279,7 +279,7 @@
 	status_flags ^= NOFALL
 	to_chat(src, SPAN_NOTICE("You will [status_flags & NOFALL ? "no longer fall" : "now fall normally"]."))
 
-/mob/living/carbon/human/bst/verb/bstwalk()
+/mob/living/carbon/teshari/bst/verb/bstwalk()
 	set name = "Toggle Incorporeal Movement"
 	set desc = "Use bluespace technology to phase through solid matter and move quickly."
 	set category = "BST"
@@ -293,7 +293,7 @@
 		to_chat(src, SPAN_NOTICE("You will no-longer phase through solid matter."))
 	return
 
-/mob/living/carbon/human/bst/verb/bstrecover()
+/mob/living/carbon/teshari/bst/verb/bstrecover()
 	set name = "Restore Health"
 	set desc = "Use bluespace to teleport in a fresh, healthy body."
 	set category = "BST"
@@ -301,7 +301,7 @@
 
 	src.revive()
 
-/mob/living/carbon/human/bst/verb/bstawake()
+/mob/living/carbon/teshari/bst/verb/bstawake()
 	set name = "Wake up"
 	set desc = "This is a quick fix to the relogging sleep bug"
 	set category = "BST"
@@ -309,7 +309,7 @@
 
 	src.sleeping = 0
 
-/mob/living/carbon/human/bst/verb/bstquit()
+/mob/living/carbon/teshari/bst/verb/bstquit()
 	set name = "Teleport out"
 	set desc = "Jump into bluespace and continue wherever you left off. Deletes the BSTech and returns to your original mob if you have one."
 	set category = "BST"
@@ -324,7 +324,7 @@
 		C.holder.original_mob = null
 	suicide()
 
-/mob/living/carbon/human/bst/verb/tgm()
+/mob/living/carbon/teshari/bst/verb/tgm()
 	set name = "Toggle Godmode"
 	set desc = "For when you want to be vulnerable."
 	set category = "BST"
@@ -344,7 +344,7 @@
 /obj/item/device/radio/headset/ert/bst/attack_hand()
 	if(!usr)
 		return
-	if(!istype(usr, /mob/living/carbon/human/bst))
+	if(!istype(usr, /mob/living/carbon/teshari/bst))
 		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
@@ -363,7 +363,7 @@
 /obj/item/device/radio/headset/ert/bst/attack_hand()
 	if(!usr)
 		return
-	if(!istype(usr, /mob/living/carbon/human/bst))
+	if(!istype(usr, /mob/living/carbon/teshari/bst))
 		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
@@ -389,7 +389,7 @@
 /obj/item/clothing/under/rank/centcom_officer/bst/attack_hand()
 	if(!usr)
 		return
-	if(!istype(usr, /mob/living/carbon/human/bst))
+	if(!istype(usr, /mob/living/carbon/teshari/bst))
 		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
@@ -406,7 +406,7 @@
 /obj/item/clothing/gloves/swat/bst/attack_hand()
 	if(!usr)
 		return
-	if(!istype(usr, /mob/living/carbon/human/bst))
+	if(!istype(usr, /mob/living/carbon/teshari/bst))
 		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
@@ -446,7 +446,7 @@
 /obj/item/clothing/glasses/sunglasses/bst/attack_hand()
 	if(!usr)
 		return
-	if(!istype(usr, /mob/living/carbon/human/bst))
+	if(!istype(usr, /mob/living/carbon/teshari/bst))
 		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
@@ -463,7 +463,7 @@
 /obj/item/clothing/shoes/black/bst/attack_hand()
 	if(!usr)
 		return
-	if(!istype(usr, /mob/living/carbon/human/bst))
+	if(!istype(usr, /mob/living/carbon/teshari/bst))
 		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
@@ -481,7 +481,7 @@
 /obj/item/clothing/head/beret/centcom/officer/bst/attack_hand()
 	if(!usr)
 		return
-	if(!istype(usr, /mob/living/carbon/human/bst))
+	if(!istype(usr, /mob/living/carbon/teshari/bst))
 		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
@@ -514,11 +514,11 @@
 	access = possible_access[chosen_access]
 
 /obj/item/card/id/bst/attack_hand(mob/user)
-	if(!istype(user, /mob/living/carbon/human/bst))
+	if(!istype(user, /mob/living/carbon/teshari/bst))
 		to_chat(user, SPAN_ALERT("Your hand seems to go right through \the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
 
-/mob/living/carbon/human/bst/restrained()
+/mob/living/carbon/teshari/bst/restrained()
 	return 0

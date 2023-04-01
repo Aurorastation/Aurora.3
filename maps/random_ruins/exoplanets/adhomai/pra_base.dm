@@ -20,7 +20,7 @@
 
 //ghost roles
 
-/datum/ghostspawner/human/pra_base
+/datum/ghostspawner/teshari/pra_base
 	short_name = "pra_base_soldier"
 	name = "Grand People's Army Soldier"
 	desc = "Man the People's Republic outpost in Adhomai."
@@ -58,7 +58,7 @@
 /datum/outfit/admin/pra_base/get_id_access()
 	return list(access_pra)
 
-/datum/ghostspawner/human/pra_base/commissar
+/datum/ghostspawner/teshari/pra_base/commissar
 	short_name = "pra_base_commissar"
 	name = "Grand People's Army Commissar"
 	desc = "Ensure that the forces in the People's Republic outpost follows the principles of Hadiism."

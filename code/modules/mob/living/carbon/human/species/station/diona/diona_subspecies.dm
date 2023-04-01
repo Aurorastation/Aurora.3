@@ -4,7 +4,7 @@
 	category_name = "Diona"
 	age_min = 1
 	age_max = 200
-	icobase = 'icons/mob/human_races/diona/r_coeus_diona.dmi'
+	icobase = 'icons/mob/teshari_races/diona/r_coeus_diona.dmi'
 	mob_size = 10
 	stomach_capacity = 8
 	blurb = "Coeus are younger Dionae gestalts whose bark is not as developed as that of the Geras. When exactly a gestalt is no longer considered a Coeus is generally up to conditions they were \

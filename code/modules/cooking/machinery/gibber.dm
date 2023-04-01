@@ -16,7 +16,7 @@
 
 	idle_power_usage = 2
 	active_power_usage = 500
-	
+
 //auto-gibs anything that bumps into it
 /obj/machinery/gibber/autogibber
 	var/turf/input_plate
@@ -121,7 +121,7 @@
 		to_chat(user, SPAN_DANGER("This is not suitable for [src]!"))
 		return
 
-	if(ishuman(victim) && !emagged && !victim.isMonkey())
+	if(isteshari(victim) && !emagged && !victim.isMonkey())
 		to_chat(user, SPAN_DANGER("[src]'s safety guard is engaged!"))
 		return
 
@@ -192,8 +192,8 @@
 	else if(istype(occupant, /mob/living/carbon/alien))
 		var/mob/living/carbon/alien/A = occupant
 		slab_type = A.meat_type
-	else if(ishuman(occupant))
-		var/mob/living/carbon/human/H = occupant
+	else if(isteshari(occupant))
+		var/mob/living/carbon/teshari/H = occupant
 		slab_type = H.species.meat_type
 
 	// Small mobs don't give as much nutrition.

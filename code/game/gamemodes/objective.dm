@@ -32,7 +32,7 @@ datum/objective
 	proc/find_target()
 		var/list/possible_targets = list()
 		for(var/datum/mind/possible_target in SSticker.minds)
-			if(possible_target != owner && ishuman(possible_target.current) && (possible_target.current.stat != 2))
+			if(possible_target != owner && isteshari(possible_target.current) && (possible_target.current.stat != 2))
 				possible_targets += possible_target
 		if(possible_targets.len > 0)
 			target = pick(possible_targets)
@@ -40,7 +40,7 @@ datum/objective
 
 	proc/find_target_by_role(role, role_type=0)//Option sets either to check assigned role or special role. Default to assigned.
 		for(var/datum/mind/possible_target in SSticker.minds)
-			if((possible_target != owner) && ishuman(possible_target.current) && ((role_type ? possible_target.special_role : possible_target.assigned_role) == role) )
+			if((possible_target != owner) && isteshari(possible_target.current) && ((role_type ? possible_target.special_role : possible_target.assigned_role) == role) )
 				target = possible_target
 				break
 
@@ -95,7 +95,7 @@ datum/objective/anti_revolution/execute
 
 	check_completion()
 		if(target && target.current)
-			if(target.current.stat == DEAD || !ishuman(target.current))
+			if(target.current.stat == DEAD || !isteshari(target.current))
 				return 1
 			return 0
 		return 1
@@ -151,8 +151,8 @@ datum/objective/anti_revolution/demote
 		return target
 
 	check_completion()
-		if(target && target.current && ishuman(target))
-			var/mob/living/carbon/human/H = target
+		if(target && target.current && isteshari(target))
+			var/mob/living/carbon/teshari/H = target
 			var/obj/item/card/id/I = H.GetIdCard()
 
 			if(!istype(I)) return 1
@@ -381,11 +381,11 @@ datum/objective/harm
 		if(already_completed)
 			return 1
 
-		if(target && target.current && istype(target.current, /mob/living/carbon/human))
+		if(target && target.current && istype(target.current, /mob/living/carbon/teshari))
 			if(target.current.stat == DEAD)
 				return 0
 
-			var/mob/living/carbon/human/H = target.current
+			var/mob/living/carbon/teshari/H = target.current
 			for(var/obj/item/organ/external/E in H.organs)
 				if(E.status & ORGAN_BROKEN)
 					return 1
@@ -536,15 +536,15 @@ datum/objective/download
 
 
 	check_completion()
-		if(!ishuman(owner.current))
+		if(!isteshari(owner.current))
 			return 0
 		if(!owner.current || owner.current.stat == 2)
 			return 0
 
 		var/current_amount
 		var/obj/item/rig/S
-		if(istype(owner.current,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = owner.current
+		if(istype(owner.current,/mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = owner.current
 			S = H.back
 
 		if(!istype(S) || !S.installed_modules || !S.installed_modules.len)
@@ -571,7 +571,7 @@ datum/objective/capture
 		var/captured_amount = 0
 		var/area/centcom/holding/A = locate()
 
-		for(var/mob/living/carbon/human/M in A) // Humans (and subtypes).
+		for(var/mob/living/carbon/teshari/M in A) // tesharis (and subtypes).
 			var/worth = M.species.rarity_value
 			if(M.stat==2)//Dead folks are worth less.
 				worth*=0.5
@@ -592,7 +592,7 @@ datum/objective/capture
 				if(P.client && P.ready && P.mind!=owner)
 					n_p ++
 		else if (SSticker.current_state == GAME_STATE_PLAYING)
-			for(var/mob/living/carbon/human/P in player_list)
+			for(var/mob/living/carbon/teshari/P in player_list)
 				var/datum/changeling/changeling = P.mind.antag_datums[MODE_CHANGELING]
 				if(P.client && !changeling && P.mind != owner)
 					n_p ++
@@ -620,7 +620,7 @@ datum/objective/heist/kidnap
 		var/list/priority_targets = list()
 
 		for(var/datum/mind/possible_target in SSticker.minds)
-			if(possible_target != owner && ishuman(possible_target.current) && (possible_target.current.stat != 2) && (!possible_target.special_role))
+			if(possible_target != owner && isteshari(possible_target.current) && (possible_target.current.stat != 2) && (!possible_target.special_role))
 				possible_targets += possible_target
 				for(var/role in roles)
 					if(possible_target.assigned_role == role)
@@ -646,7 +646,7 @@ datum/objective/heist/kidnap
 			//	return 0 // They're loose. Close but no cigar.
 
 			var/area/shuttle/skipjack/A = locate()
-			for(var/mob/living/carbon/human/M in A)
+			for(var/mob/living/carbon/teshari/M in A)
 				if(target.current == M)
 					return 1 //They're restrained on the shuttle. Success.
 		else
@@ -841,7 +841,7 @@ datum/objective/heist/salvage
 /datum/objective/cult/sacrifice/find_target()
 	var/list/possible_targets = list()
 	if(!possible_targets.len)
-		for(var/mob/living/carbon/human/player in player_list)
+		for(var/mob/living/carbon/teshari/player in player_list)
 			if(player.mind && !(player.mind in cult))
 				possible_targets += player.mind
 	if(possible_targets.len > 0)
@@ -871,7 +871,7 @@ datum/objective/heist/salvage
 /datum/objective/rev/check_completion()
 	var/rval = 1
 	if(target && target.current)
-		var/mob/living/carbon/human/H = target.current
+		var/mob/living/carbon/teshari/H = target.current
 		if(!istype(H))
 			return 1
 		if(H.stat == DEAD || H.restrained())

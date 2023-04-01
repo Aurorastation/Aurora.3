@@ -12,14 +12,14 @@
 		icon_state = "geyser_plume"
 
 /obj/structure/geyser/Crossed(AM as mob|obj, var/ignore_deployment = FALSE)
-	if(ishuman(AM))
-		var/mob/living/carbon/human/L = AM
+	if(isteshari(AM))
+		var/mob/living/carbon/teshari/L = AM
 		if(prob(50))
 			trigger(L)
 
 	..()
 
-/obj/structure/geyser/proc/trigger(mob/living/carbon/human/L)
+/obj/structure/geyser/proc/trigger(mob/living/carbon/teshari/L)
 	visible_message(SPAN_WARNING("\The [src] spews a cloud of hot steam!"))
 	flick("geyser_fire", src)
 	var/steam_temperature = pick(10,50,100,500)

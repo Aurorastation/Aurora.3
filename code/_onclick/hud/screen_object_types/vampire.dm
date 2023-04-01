@@ -9,7 +9,7 @@
 	screen_loc = ui_alien_toxin
 
 /obj/screen/vampire/blood/Click(var/location, var/control, var/params)
-	if(ishuman(usr))
+	if(isteshari(usr))
 		var/datum/vampire/vampire = usr.mind.antag_datums[MODE_VAMPIRE]
 		to_chat(usr, SPAN_NOTICE("You have [vampire.blood_usable]u of blood to use for vampiric powers."))
 		to_chat(usr, SPAN_WARNING("If it drops too low, you will go into a blood frenzy. You can only store a maximum of [VAMPIRE_MAX_USABLE_BLOOD]u."))
@@ -20,7 +20,7 @@
 	screen_loc = ui_alien_fire
 
 /obj/screen/vampire/frenzy/Click(var/location, var/control, var/params)
-	if(ishuman(usr))
+	if(isteshari(usr))
 		var/datum/vampire/vampire = usr.mind.antag_datums[MODE_VAMPIRE]
 		to_chat(usr, SPAN_WARNING("Your frenzy counter is at [vampire.frenzy]."))
 		to_chat(usr, SPAN_WARNING("If it raises too high, you will gain incredible power, but they will be very unsubtle. You can lower your frenzy counter by getting out of holy areas and by obtaining usable blood."))
@@ -31,6 +31,6 @@
 	screen_loc = ui_suck
 
 /obj/screen/vampire/suck/Click(var/location, var/control, var/params)
-	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+	if(isteshari(usr))
+		var/mob/living/carbon/teshari/H = usr
 		H.vampire_drain_blood()

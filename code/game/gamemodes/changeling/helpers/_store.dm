@@ -90,35 +90,35 @@ var/list/datum/power/changeling/powerinstances = list()
 	name = "Hivemind Release Morph"
 	desc = "We release a hivemind member as a morph. They will be able to crawl inside vents and disguise themselves as objects."
 	genomecost = 0
-	verbpath = /mob/living/carbon/human/proc/changeling_release_morph
+	verbpath = /mob/living/carbon/teshari/proc/changeling_release_morph
 
 //Stings and sting accessorries
 //Rest in pieces, unfat sting. - Geeves
 
 /datum/power/changeling/boost_range
 	name = "Boost Range"
-	desc = "We evolve the ability to shoot our stingers at humans, with some preperation."
+	desc = "We evolve the ability to shoot our stingers at tesharis, with some preperation."
 	genomecost = 2
 	allowduringlesserform = 1
 	verbpath = /mob/proc/changeling_boost_range
 
 /datum/power/changeling/deaf_sting
 	name = "Deaf Sting"
-	desc = "We sting a human, completely deafening them for a short time."
+	desc = "We sting a teshari, completely deafening them for a short time."
 	genomecost = 1
 	allowduringlesserform = TRUE
 	verbpath = /mob/proc/changeling_deaf_sting
 
 /datum/power/changeling/blind_sting
 	name = "Blind Sting"
-	desc = "We sting a human, completely blinding them for a short time."
+	desc = "We sting a teshari, completely blinding them for a short time."
 	genomecost = 1
 	allowduringlesserform = TRUE
 	verbpath = /mob/proc/changeling_blind_sting
 
 /datum/power/changeling/silence_sting
 	name = "Silence Sting"
-	desc = "We silently sting a human, completely silencing them for a short time."
+	desc = "We silently sting a teshari, completely silencing them for a short time."
 	helptext = "Does not provide a warning to a victim that they have been stung, until they try to speak and cannot."
 	genomecost = 2
 	allowduringlesserform = TRUE
@@ -126,14 +126,14 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/transformation_sting
 	name = "Transformation Sting"
-	desc = "We silently sting a dead human, injecting a retrovirus that forces them to transform into another."
+	desc = "We silently sting a dead teshari, injecting a retrovirus that forces them to transform into another."
 	helptext = "Does not provide a warning to others. The victim will transform much like a changeling would."
 	genomecost = 3
 	verbpath = /mob/proc/changeling_transformation_sting
 
 /datum/power/changeling/paralysis_sting
 	name = "Paralysis Sting"
-	desc = "We sting a human, paralyzing them for a short time."
+	desc = "We sting a teshari, paralyzing them for a short time."
 	genomecost = 8
 	verbpath = /mob/proc/changeling_paralysis_sting
 
@@ -146,7 +146,7 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/death_sting
 	name = "Death Sting"
-	desc = "We sting a human, transfering five units of cyanide. Their death is likely, unless immediate intervention occurs."
+	desc = "We sting a teshari, transfering five units of cyanide. Their death is likely, unless immediate intervention occurs."
 	genomecost = 10
 	verbpath = /mob/proc/changeling_death_sting
 
@@ -263,7 +263,7 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/horror_form
 	name = "Horror Form"
-	desc = "We tear apart our human disguise, revealing our true and ultimate form."
+	desc = "We tear apart our teshari disguise, revealing our true and ultimate form."
 	helptext = "We will assume our ultimate form. This is irreversible. While we are in this state, we are extremely powerful."
 	genomecost = 10
 	verbpath = /mob/proc/horror_form

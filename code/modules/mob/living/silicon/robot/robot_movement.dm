@@ -37,8 +37,8 @@
 /mob/living/silicon/robot/get_pulling_movement_delay()
 	. = ..()
 
-	if(ishuman(pulling))
-		var/mob/living/carbon/human/H = pulling
+	if(isteshari(pulling))
+		var/mob/living/carbon/teshari/H = pulling
 		if(H.species.slowdown > speed)
 			. += H.species.slowdown - speed
 		. += H.ClothesSlowdown()

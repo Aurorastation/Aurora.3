@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/forcesay(list/append)
+/mob/living/carbon/teshari/proc/forcesay(list/append)
 	if(stat == CONSCIOUS)
 		if(client)
 			var/virgin = 1	//has the text been modified yet?
@@ -30,7 +30,7 @@
 					say(temp)
 				winset(client, "input", "text=[null]")
 
-/mob/living/carbon/human/say_understands(var/mob/other, var/datum/language/speaking = null)
+/mob/living/carbon/teshari/say_understands(var/mob/other, var/datum/language/speaking = null)
 
 	if(has_brain_worms()) //Brain worms translate everything. Even rat and alien speak.
 		return TRUE
@@ -60,7 +60,7 @@
 
 	return ..()
 
-/mob/living/carbon/human/GetVoice()
+/mob/living/carbon/teshari/GetVoice()
 	var/voice_sub
 	if(istype(back,/obj/item/rig))
 		var/obj/item/rig/rig = back
@@ -87,29 +87,29 @@
 		return GetSpecialVoice()
 	return real_name
 
-/mob/living/carbon/human/proc/SetSpecialVoice(var/new_voice)
+/mob/living/carbon/teshari/proc/SetSpecialVoice(var/new_voice)
 	if(new_voice)
 		special_voice = new_voice
 	return
 
-/mob/living/carbon/human/proc/UnsetSpecialVoice()
+/mob/living/carbon/teshari/proc/UnsetSpecialVoice()
 	special_voice = ""
 	return
 
-/mob/living/carbon/human/proc/GetSpecialVoice()
+/mob/living/carbon/teshari/proc/GetSpecialVoice()
 	return special_voice
 
 
 /*
    ***Deprecated***
    let this be handled at the hear_say or hear_radio proc
-   This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
+   This is left in for robot speaking when tesharis gain binary channel access until I get around to rewriting
    robot_talk() proc.
    There is no language handling build into it however there is at the /mob level so we accept the call
    for it but just ignore it.
 */
 
-/mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
+/mob/living/carbon/teshari/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
 	var/ending = copytext(message, length(message))
 	var/pre_ending = copytext(message, length(message) - 1, length(message))
 
@@ -118,7 +118,7 @@
 	else
 		. = ..()
 
-/mob/living/carbon/human/handle_speech_problems(message, say_verb, message_mode, message_range)
+/mob/living/carbon/teshari/handle_speech_problems(message, say_verb, message_mode, message_range)
 	if(!message)
 		return
 
@@ -166,7 +166,7 @@
 			HSP_MSGRANGE = message_range,
 		)
 
-/mob/living/carbon/human/get_radio()
+/mob/living/carbon/teshari/get_radio()
 	var/list/headsets = list()
 	if(istype(l_ear, /obj/item/device/radio))
 		headsets["Left Ear"] = l_ear
@@ -181,7 +181,7 @@
 		return headsets[headsets[1]]
 	return null
 
-/mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper, var/is_singing = FALSE)
+/mob/living/carbon/teshari/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper, var/is_singing = FALSE)
 	if(!whisper && (paralysis || InStasis()))
 		whisper(message, speaking)
 		return TRUE
@@ -241,12 +241,12 @@
 				used_radios += R
 				R.talk_into(src, message, message_mode, verb, speaking)
 
-/mob/living/carbon/human/handle_speech_sound()
+/mob/living/carbon/teshari/handle_speech_sound()
 	var/list/returns = ..()
 	returns = species.handle_speech_sound(src, returns)
 	return returns
 
-/mob/living/carbon/human/binarycheck()
+/mob/living/carbon/teshari/binarycheck()
 	for(var/obj/item/device/radio/headset/dongle in list(l_ear, r_ear))
 		if(dongle.translate_binary)
 			return TRUE

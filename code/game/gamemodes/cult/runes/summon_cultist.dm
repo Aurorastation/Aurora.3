@@ -30,7 +30,7 @@
 
 		var/dam = round(25 / (users.len/2))	//More people around the rune less damage everyone takes. Minimum is 3 cultists
 
-		for(var/mob/living/carbon/human/C in users)
+		for(var/mob/living/carbon/teshari/C in users)
 			if(iscultist(C) && !C.stat)
 				C.say("N'ath reth sh'yro eth d[pick("'","`")]rekkathnor!")
 				C.take_overall_damage(dam, 0)

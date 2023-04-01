@@ -1,7 +1,7 @@
 /datum/event/rescue_pod
     no_fake = 1
     var/spawner_name = "rescuepodsurv"
-    var/datum/ghostspawner/human/rescuepodsurv/spawner
+    var/datum/ghostspawner/teshari/rescuepodsurv/spawner
 
 /datum/event/rescue_pod/announce()
     if(prob(66))

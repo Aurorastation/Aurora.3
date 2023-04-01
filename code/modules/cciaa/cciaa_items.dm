@@ -1,7 +1,7 @@
 //CCIAA's tape recorder
 /obj/item/device/taperecorder/cciaa
-	name = "Human Resources Recorder"
-	desc = "A modified recorder used for interviews by human resources personnel around the galaxy."
+	name = "teshari Resources Recorder"
+	desc = "A modified recorder used for interviews by teshari resources personnel around the galaxy."
 	desc_extended = "This recorder is a modified version of a standard universal recorder. It features additional audit-proof records keeping, access controls and is tied to a central management system."
 	desc_info = "This recorder records the fingerprints of the interviewee, to do so, interact with this recorder when asked."
 	w_class = ITEMSIZE_TINY
@@ -84,7 +84,7 @@
 				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 				return
 			selected_report = new(report_id, time2text(world.realtime, "YYYY_MM_DD"), report_name)
-		var/mob/living/carbon/human/H = usr
+		var/mob/living/carbon/teshari/H = usr
 		if(istype(H))
 			interviewer_id = H.character_id
 		return
@@ -283,8 +283,8 @@
 		to_chat(user,"<span class='notice'>The device beeps and flashes \"A interviewee has already been associated with this interview\".</span>")
 		return
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(!H.character_id)
 			to_chat(user,"<span class='notice'>The device beeps and flashes \"Fingerprint is not recognized\".</span>")
 			return

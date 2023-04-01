@@ -1,4 +1,4 @@
-#define HUMAN_STRIP_DELAY        40   // Takes 40ds = 4s to strip someone.
+#define teshari_STRIP_DELAY        40   // Takes 40ds = 4s to strip someone.
 
 #define CANDLE_LUM 3 // For how bright candles are.
 
@@ -159,7 +159,7 @@
 #define FULL_BODY   0xFFFF
 
 // Bitflags for the percentual amount of protection a piece of clothing which covers the body part offers.
-// Used with human/proc/get_heat_protection() and human/proc/get_cold_protection().
+// Used with teshari/proc/get_heat_protection() and teshari/proc/get_cold_protection().
 // The values here should add up to 1, e.g., the head has 30% protection.
 #define THERMAL_PROTECTION_HEAD        0.3
 #define THERMAL_PROTECTION_UPPER_TORSO 0.15
@@ -188,16 +188,16 @@
 
 #define FIRESUIT_MIN_PRESSURE        0.5 * ONE_ATMOSPHERE
 
-#define TEMPERATURE_DAMAGE_COEFFICIENT  1.5 // This is used in handle_temperature_damage() for humans, and in reagents that affect body temperature. Temperature damage is multiplied by this amount.
-#define BODYTEMP_AUTORECOVERY_DIVISOR   12  // This is the divisor which handles how much of the temperature difference between the current body temperature and 310.15K (optimal temperature) humans auto-regenerate each tick. The higher the number, the slower the recovery. This is applied each tick, so long as the mob is alive.
+#define TEMPERATURE_DAMAGE_COEFFICIENT  1.5 // This is used in handle_temperature_damage() for tesharis, and in reagents that affect body temperature. Temperature damage is multiplied by this amount.
+#define BODYTEMP_AUTORECOVERY_DIVISOR   12  // This is the divisor which handles how much of the temperature difference between the current body temperature and 310.15K (optimal temperature) tesharis auto-regenerate each tick. The higher the number, the slower the recovery. This is applied each tick, so long as the mob is alive.
 #define BODYTEMP_AUTORECOVERY_MINIMUM   1   // Minimum amount of kelvin moved toward 310.15K per tick. So long as abs(310.15 - bodytemp) is more than 50.
-#define BODYTEMP_COLD_DIVISOR           6   // Similar to the BODYTEMP_AUTORECOVERY_DIVISOR, but this is the divisor which is applied at the stage that follows autorecovery. This is the divisor which comes into play when the human's loc temperature is lower than their body temperature. Make it lower to lose bodytemp faster.
-#define BODYTEMP_HEAT_DIVISOR           6   // Similar to the BODYTEMP_AUTORECOVERY_DIVISOR, but this is the divisor which is applied at the stage that follows autorecovery. This is the divisor which comes into play when the human's loc temperature is higher than their body temperature. Make it lower to gain bodytemp faster.
+#define BODYTEMP_COLD_DIVISOR           6   // Similar to the BODYTEMP_AUTORECOVERY_DIVISOR, but this is the divisor which is applied at the stage that follows autorecovery. This is the divisor which comes into play when the teshari's loc temperature is lower than their body temperature. Make it lower to lose bodytemp faster.
+#define BODYTEMP_HEAT_DIVISOR           6   // Similar to the BODYTEMP_AUTORECOVERY_DIVISOR, but this is the divisor which is applied at the stage that follows autorecovery. This is the divisor which comes into play when the teshari's loc temperature is higher than their body temperature. Make it lower to gain bodytemp faster.
 #define BODYTEMP_COOLING_MAX           -30  // The maximum number of degrees that your body can cool down in 1 tick, when in a cold area.
 #define BODYTEMP_HEATING_MAX            30  // The maximum number of degrees that your body can heat up in 1 tick,   when in a hot  area.
 
-#define BODYTEMP_HEAT_DAMAGE_LIMIT 360.15 // The limit the human body can take before it starts taking damage from heat.
-#define BODYTEMP_COLD_DAMAGE_LIMIT 260.15 // The limit the human body can take before it starts taking damage from coldness.
+#define BODYTEMP_HEAT_DAMAGE_LIMIT 360.15 // The limit the teshari body can take before it starts taking damage from heat.
+#define BODYTEMP_COLD_DAMAGE_LIMIT 260.15 // The limit the teshari body can take before it starts taking damage from coldness.
 
 #define SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE 2.0 // What min_cold_protection_temperature is set to for space-helmet quality headwear. MUST NOT BE 0.
 #define   SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE 2.0 // What min_cold_protection_temperature is set to for space-suit quality jumpsuits or suits. MUST NOT BE 0.

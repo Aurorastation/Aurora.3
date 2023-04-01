@@ -1,24 +1,24 @@
 #define SEC_HUDTYPE "security"
 #define MED_HUDTYPE "medical"
 
-/mob/living/carbon/human/proc/get_covered_body_parts(var/thick)
+/mob/living/carbon/teshari/proc/get_covered_body_parts(var/thick)
 	var/skipbody = 0
 	for(var/obj/item/clothing/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
 		if(!thick || (C.item_flags & THICKMATERIAL))
 			skipbody |= C.body_parts_covered
 	return skipbody
 
-/mob/living/carbon/human/proc/get_covered_clothes()
+/mob/living/carbon/teshari/proc/get_covered_clothes()
 	var/skipitems = 0
 	for(var/obj/item/clothing/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
 		skipitems |= C.flags_inv
 	return skipitems
 
-/mob/living/carbon/human/proc/examine_pulse(mob/user)
-	if(user.stat || user.incapacitated() || !ishuman(user))
+/mob/living/carbon/teshari/proc/examine_pulse(mob/user)
+	if(user.stat || user.incapacitated() || !isteshari(user))
 		return
 
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/teshari/H = user
 	if(H.has_stethoscope_active())
 		var/obj/item/organ/organ = src.get_organ(user.zone_sel.selecting)
 		if(organ)
@@ -35,7 +35,7 @@
 			else
 				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
 
-/mob/living/carbon/human/examine(mob/user)
+/mob/living/carbon/teshari/examine(mob/user)
 	var/skipbody = get_covered_body_parts()
 	var/skipbody_thick = get_covered_body_parts(TRUE)
 	var/skipitems = get_covered_clothes()
@@ -412,10 +412,10 @@
 	if(Adjacent(user))
 		INVOKE_ASYNC(src, PROC_REF(examine_pulse), user)
 
-//Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
+//Helper procedure. Called by /mob/living/carbon/teshari/examine() and /mob/living/carbon/teshari/Topic() to determine HUD access to security and medical records.
 /proc/hasHUD(mob/M, hudtype)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/clothing/glasses/G = H.glasses
 		var/eye_hud = 0
 		var/hud = 0
@@ -444,7 +444,7 @@
 
 /proc/fluid_color_type_map(var/supplied_color)
 	var/static/list/color_map = list(
-					COLOR_HUMAN_BLOOD = "blood",
+					COLOR_teshari_BLOOD = "blood",
 					COLOR_DIONA_BLOOD = "blood",
 					COLOR_SKRELL_BLOOD = "blood",
 					COLOR_VAURCA_BLOOD = "blood",

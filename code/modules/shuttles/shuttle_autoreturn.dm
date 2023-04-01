@@ -11,7 +11,7 @@
 	if(!location)
 		for(var/area/A in shuttle_area)
 			for(var/mob/M in A)
-				if(ishuman(M))
+				if(isteshari(M))
 					to_chat(M, SPAN_NOTICE("You have arrived at the [current_map.station_name]! The shuttle will return in [auto_return_time] seconds. Enjoy your stay!"))
 
 /datum/shuttle/autodock/ferry/autoreturn/proc/do_return()

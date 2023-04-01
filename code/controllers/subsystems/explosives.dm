@@ -146,11 +146,11 @@ var/datum/controller/subsystem/explosives/SSexplosives
 					var/dist = get_dist(M_turf, epicenter)
 					var/explosion_dir = angle2text(Get_Angle(M_turf, epicenter))
 					if (reception == 2 && (M.ear_deaf <= 0 || !M.ear_deaf)) //Dont play sounds to deaf people
-						
+
 						// Anyone with sensitive hearing gets a bonus to hearing explosions
 						var/extendeddist = closedist
-						if(ishuman(M))
-							var/mob/living/carbon/human/H = M
+						if(isteshari(M))
+							var/mob/living/carbon/teshari/H = M
 							var/hearing_sensitivity = H.get_hearing_sensitivity()
 							if (hearing_sensitivity)
 								if(H.is_listening())

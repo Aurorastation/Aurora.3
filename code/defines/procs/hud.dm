@@ -18,7 +18,7 @@ proc/process_med_hud(var/mob/M, var/local_scanner, var/mob/Alt)
 		return
 
 	var/datum/arranged_hud_process/P = arrange_hud_process(M, Alt, med_hud_users)
-	for(var/mob/living/carbon/human/patient in P.Mob.in_view(P.Turf))
+	for(var/mob/living/carbon/teshari/patient in P.Mob.in_view(P.Turf))
 		if(patient.is_invisible_to(M))
 			continue
 
@@ -39,7 +39,7 @@ proc/process_sec_hud(var/mob/M, var/advanced_mode, var/mob/Alt)
 	if(!can_process_hud(M))
 		return
 	var/datum/arranged_hud_process/P = arrange_hud_process(M, Alt, sec_hud_users)
-	for(var/mob/living/carbon/human/perp in P.Mob.in_view(P.Turf))
+	for(var/mob/living/carbon/teshari/perp in P.Mob.in_view(P.Turf))
 		if(perp.is_invisible_to(M))
 			continue
 
@@ -85,12 +85,12 @@ mob/proc/in_view(var/turf/T)
 
 /mob/abstract/eye/in_view(var/turf/T)
 	var/list/viewed = new
-	for(var/mob/living/carbon/human/H in mob_list)
+	for(var/mob/living/carbon/teshari/H in mob_list)
 		if(get_dist(H, T) <= 7)
 			viewed += H
 	return viewed
 
-proc/get_sec_hud_icon(var/mob/living/carbon/human/H)//This function is called from human/life,dm, ~line 1663
+proc/get_sec_hud_icon(var/mob/living/carbon/teshari/H)//This function is called from teshari/life,dm, ~line 1663
 	var/state
 	var/obj/item/card/id/I = H.GetIdCard()
 	if(I)

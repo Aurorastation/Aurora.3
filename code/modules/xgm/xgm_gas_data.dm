@@ -3,7 +3,7 @@
 /datum/xgm_gas_data
 	//Simple list of all the gas IDs.
 	var/list/gases = list()
-	//The friendly, human-readable name for the gas.
+	//The friendly, teshari-readable name for the gas.
 	var/list/name = list()
 	//Specific heat of the gas.  Used for calculating heat capacity.
 	var/list/specific_heat = list()

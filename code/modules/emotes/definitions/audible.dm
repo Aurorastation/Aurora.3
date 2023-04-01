@@ -189,8 +189,8 @@
 
 /singleton/emote/audible/scream/can_do_emote(var/mob/living/user)
 	. = ..()
-	if(. && ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(. && isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(!H.can_feel_pain())
 			return FALSE
 

@@ -51,7 +51,7 @@
 	var/dummy_type = /mob/living/simple_animal/spiderbot
 	var/dummy_colour
 
-	// Visible external components. Not strictly accurately named for non-humanoid machines (submarines) but w/e
+	// Visible external components. Not strictly accurately named for non-tesharioid machines (submarines) but w/e
 	var/obj/item/mech_component/manipulators/arms
 	var/obj/item/mech_component/propulsion/legs
 	var/obj/item/mech_component/sensors/head

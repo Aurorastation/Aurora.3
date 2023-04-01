@@ -6,7 +6,7 @@
 
 /datum/accent/coc
 	name = ACCENT_COC
-	description = "The frontier is home to an unknowably vast amount of humans and settlements, covering everything from small outposts of only a few hundred to major planets such as \
+	description = "The frontier is home to an unknowably vast amount of tesharis and settlements, covering everything from small outposts of only a few hundred to major planets such as \
 	Xanu Prime. It is difficult to define a standard \"Coalition accent,\" or dialect due to the diversity and regionalism of the Coalition, along with its lack of a strong central government. \
 	Solarian linguists generally define the Coalition dialect as an umbrella encompassing all Freespeak native speakers not from a major settlement of the Coalition."
 	tag_icon = "coalition"
@@ -40,7 +40,7 @@
 /datum/accent/eridani_dreg
 	name = ACCENT_ERIDANIDREG
 	description = "The Eridanian \"dreg\" accent is almost universally looked upon as the accent of petty criminals and ne'er-do-wells throughout the Orion Spur. \
-	Speaking with this accent in the proximity of most humans is a surefire way to gain their suspicion, and those speaking with this accent often find themselves under \
+	Speaking with this accent in the proximity of most tesharis is a surefire way to gain their suspicion, and those speaking with this accent often find themselves under \
 	enhanced security surveillance in corporate facilities. Eagle Corp, one of the major employers of dregs in Eridani, devotes a significant amount of its training \
 	to making its dreg recruits drop this distinctive accent."
 	tag_icon = "eridani_dreg"
@@ -49,7 +49,7 @@
 /datum/accent/sol
 	name = ACCENT_SOL
 	description = "The typical Solarian accent has a hundred tiny variants and can be found on a multitude of planets in countless systems, and is often simply regarded \
-	as the \"accent of humanity\" due to its prevalence. It can be found on planets as prominent as Earth or as obscure as settlements of only a few million in the Sol Alliance's Outer Ring."
+	as the \"accent of teshariity\" due to its prevalence. It can be found on planets as prominent as Earth or as obscure as settlements of only a few million in the Sol Alliance's Outer Ring."
 	tag_icon = "sol"
 	text_tag = "SOL"
 
@@ -149,7 +149,7 @@
 	description = "Venusian Common (referred to as Cytherean Common on Venus itself) is often regarded as one of the most prevalent forms \
 	of Sol Common due to Venus' massive entertainment industry. On Venus itself this accent is associated with the entertainment industry \
 	and Cytherea, and many prospective actors will attempt to adopt it in order to better fit into the industry. Many high-end entertainment \
-	IPCs used throughout human space come pre-programmed with this accent, due to its association with the Venusian entertainment industry."
+	IPCs used throughout teshari space come pre-programmed with this accent, due to its association with the Venusian entertainment industry."
 	tag_icon = "venus"
 	text_tag = "VEN"
 
@@ -231,7 +231,7 @@
 
 /datum/accent/earth
 	name = ACCENT_EARTH
-	description = "The typical Earth, or Terran, accent of the modern era has its roots in Mandarin Chinese, the dominant language of Earth for much of its modern history. All accents found in human space - \
+	description = "The typical Earth, or Terran, accent of the modern era has its roots in Mandarin Chinese, the dominant language of Earth for much of its modern history. All accents found in teshari space - \
 	from Luna to Xanu - are, one way or another, descended from this ancient accent."
 	tag_icon = "earth"
 	text_tag = "EAR"
@@ -246,7 +246,7 @@
 
 /datum/accent/ncf
 	name = ACCENT_NCF
-	description = "The non-Coalition frontier 'accent' is not a true accent in of itself, but is instead used as a catch-all term for human accents originating outside of the frontier controlled by the Coalition of Colonies. \
+	description = "The non-Coalition frontier 'accent' is not a true accent in of itself, but is instead used as a catch-all term for teshari accents originating outside of the frontier controlled by the Coalition of Colonies. \
 	These planets and systems vary wildly, and all sorts of people and places can be found within them."
 	tag_icon = "noncoalitionfrontier"
 	text_tag = "NCF"

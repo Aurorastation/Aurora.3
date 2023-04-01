@@ -150,7 +150,7 @@
 	holder = new_holder
 	return
 
-/obj/item/rig_module/proc/do_engage(atom/target, mob/living/carbon/human/user)
+/obj/item/rig_module/proc/do_engage(atom/target, mob/living/carbon/teshari/user)
 	. = engage(target, user)
 	if(.)
 		var/old_next_use = next_use
@@ -261,7 +261,7 @@
 		to_chat(holder.wearer, wearer_text)
 		return
 
-/mob/living/carbon/human/Stat()
+/mob/living/carbon/teshari/Stat()
 	. = ..()
 
 	if(. && istype(back,/obj/item/rig))
@@ -372,13 +372,13 @@
 		return TRUE
 	return FALSE
 
-/mob/living/carbon/human/ClickOn(atom/A, params)
+/mob/living/carbon/teshari/ClickOn(atom/A, params)
 	. = ..()
 	if (ismob(A) && istype(back, /obj/item/rig))
 		var/obj/item/rig/R = back
 		R.attack_disrupt_check(src)
 
-/mob/living/carbon/human/throw_item(atom/target)
+/mob/living/carbon/teshari/throw_item(atom/target)
 	. = ..()
 	if (ismob(src) && istype(back, /obj/item/rig))
 		var/obj/item/rig/R = back

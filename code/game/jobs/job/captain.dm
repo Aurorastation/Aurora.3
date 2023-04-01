@@ -17,13 +17,13 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	economic_modifier = 20
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 35,
+		SPECIES_teshari = 35,
 		SPECIES_SKRELL = 100,
 		SPECIES_SKRELL_AXIORI = 100
 	)
 
 	ideal_character_age = list(
-		SPECIES_HUMAN = 70,
+		SPECIES_teshari = 70,
 		SPECIES_SKRELL = 120,
 		SPECIES_SKRELL_AXIORI = 120
 	) // Old geezer captains ftw
@@ -64,7 +64,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	dufflebag = /obj/item/storage/backpack/duffel/cap
 	messengerbag = /obj/item/storage/backpack/messenger/com
 
-/datum/outfit/job/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/captain/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(H && H.w_uniform)
 		var/obj/item/clothing/under/U = H.w_uniform
@@ -76,7 +76,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 /datum/job/captain/get_access()
 	return get_all_station_access()
 
-/datum/job/captain/announce(mob/living/carbon/human/H)
+/datum/job/captain/announce(mob/living/carbon/teshari/H)
 	. = ..()
 	captain_announcement.Announce("All hands, Captain [H.real_name] on deck!")
 	callHook("captain_spawned", list(H))
@@ -95,13 +95,13 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	minimal_player_age = 10
 	economic_modifier = 10
 	ideal_character_age = list(
-		SPECIES_HUMAN = 50,
+		SPECIES_teshari = 50,
 		SPECIES_SKRELL = 100,
 		SPECIES_SKRELL_AXIORI = 100
 	)
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 80,
 		SPECIES_SKRELL_AXIORI = 80
 	)
@@ -157,13 +157,13 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	minimal_player_age = 20
 	economic_modifier = 5
 	ideal_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 75,
 		SPECIES_SKRELL_AXIORI = 75
 	)
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
+		SPECIES_teshari = 25,
 		SPECIES_SKRELL = 55,
 		SPECIES_SKRELL_AXIORI = 55
 	)

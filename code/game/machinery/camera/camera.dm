@@ -115,7 +115,7 @@
 	src.view_range = num
 	cameranet.update_visibility(src, 0)
 
-/obj/machinery/camera/attack_hand(mob/living/carbon/human/user as mob)
+/obj/machinery/camera/attack_hand(mob/living/carbon/teshari/user as mob)
 	if(!istype(user))
 		return
 

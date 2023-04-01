@@ -21,8 +21,8 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	short_name = "gol"
 	name_plural = "coal golems"
 
-	icobase = 'icons/mob/human_races/golem/r_coal.dmi'
-	deform = 'icons/mob/human_races/golem/r_coal.dmi'
+	icobase = 'icons/mob/teshari_races/golem/r_coal.dmi'
+	deform = 'icons/mob/teshari_races/golem/r_coal.dmi'
 	eyes = "blank_eyes"
 
 	bodytype = BODYTYPE_GOLEM
@@ -34,7 +34,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	siemens_coefficient = 1
 	rarity_value = 5
 
-	inherent_verbs = list(/mob/living/carbon/human/proc/consume_material)
+	inherent_verbs = list(/mob/living/carbon/teshari/proc/consume_material)
 
 	mob_size = 12
 
@@ -100,7 +100,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	var/turn_into_materials = TRUE //the golem will turn into materials upon its death
 	var/golem_designation = "Coal" //used in the creation of the name
 
-/datum/species/golem/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	if(H.mind)
 		H.mind.assigned_role = "Golem"
 		H.mind.special_role = "Golem"
@@ -111,14 +111,14 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	var/static/list/golem_descriptors = list("Lumbering", "Ponderous", "Slow", "Rumbling", "Sleek", "Solid", "Ephemeral", "Dense", "Shimmering", "Dull", "Glittering", "Shining", "Sluggish", "Quiet", "Ominious", "Lightweight", "Weighty", "Honest", "Watchful", "Short", "Tall", "Mysterious", "Curious", "Dimwitted")
 	return "[pick(golem_descriptors)] [golem_designation] Golem"
 
-/datum/species/golem/handle_death(var/mob/living/carbon/human/H)
+/datum/species/golem/handle_death(var/mob/living/carbon/teshari/H)
 	if(turn_into_materials)
 		set waitfor = 0
 		sleep(1)
 		new H.species.meat_type(H.loc, rand(3,8))
 		qdel(H)
 
-/datum/species/golem/handle_death_check(var/mob/living/carbon/human/H)
+/datum/species/golem/handle_death_check(var/mob/living/carbon/teshari/H)
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
@@ -157,7 +157,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Iron"
 
-/datum/species/golem/iron/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/iron/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(92, 84, 84)
 	H.update_dna()
 	..()
@@ -167,10 +167,10 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	short_name = null
 	name_plural = "bronze golems"
 
-	icobase = 'icons/mob/human_races/golem/r_bronze.dmi'
-	deform = 'icons/mob/human_races/golem/r_bronze.dmi'
+	icobase = 'icons/mob/teshari_races/golem/r_bronze.dmi'
+	deform = 'icons/mob/teshari_races/golem/r_bronze.dmi'
 
-	bodytype = "Human"
+	bodytype = "teshari"
 
 	meat_type = /obj/item/stack/material/bronze
 
@@ -224,7 +224,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Steel"
 
-/datum/species/golem/steel/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/steel/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(102,102,102)
 	H.update_dna()
 	..()
@@ -264,7 +264,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Plasteel"
 
-/datum/species/golem/plasteel/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/plasteel/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(80,80,80)
 	H.update_dna()
 	..()
@@ -305,7 +305,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Titanium"
 
-/datum/species/golem/titanium/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/titanium/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(50,95,88)
 	H.update_dna()
 	..()
@@ -315,10 +315,10 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	short_name = null
 	name_plural = "cloth golems"
 
-	icobase = 'icons/mob/human_races/golem/r_cloth.dmi'
-	deform = 'icons/mob/human_races/golem/r_cloth.dmi'
+	icobase = 'icons/mob/teshari_races/golem/r_cloth.dmi'
+	deform = 'icons/mob/teshari_races/golem/r_cloth.dmi'
 
-	bodytype = "Human"
+	bodytype = "teshari"
 
 	slowdown = -2
 
@@ -342,8 +342,8 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	name = SPECIES_GOLEM_CARDBOARD
 	name_plural = "cardboard golems"
 
-	icobase = 'icons/mob/human_races/golem/r_cardboard.dmi'
-	deform = 'icons/mob/human_races/golem/r_cardboard.dmi'
+	icobase = 'icons/mob/teshari_races/golem/r_cardboard.dmi'
+	deform = 'icons/mob/teshari_races/golem/r_cardboard.dmi'
 
 	slowdown = -1
 
@@ -392,7 +392,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Glass"
 
-/datum/species/golem/glass/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+/datum/species/golem/glass/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/teshari/H)
 	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
 		var/reflectchance = 50 - round(P.damage/3)
 		if(prob(reflectchance))
@@ -410,7 +410,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 			return -1 // complete projectile permutation
 
-/datum/species/golem/glass/handle_death(var/mob/living/carbon/human/H)
+/datum/species/golem/glass/handle_death(var/mob/living/carbon/teshari/H)
 	set waitfor = 0
 	sleep(1)
 	for(var/i in 1 to 5)
@@ -419,7 +419,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 		INVOKE_ASYNC(T, TYPE_PROC_REF(/atom/movable, throw_at), landing, 30, 5)
 	qdel(H)
 
-/datum/species/golem/glass/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/glass/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(0,132,150)
 	H.alpha = 150
 	H.update_dna()
@@ -450,7 +450,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Phoron"
 
-/datum/species/golem/phoron/handle_death(var/mob/living/carbon/human/H)
+/datum/species/golem/phoron/handle_death(var/mob/living/carbon/teshari/H)
 	set waitfor = 0
 	sleep(1)
 	var/turf/location = get_turf(H)
@@ -459,7 +459,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 		spawn (0) target_tile.hotspot_expose(700, 400)
 	qdel(H)
 
-/datum/species/golem/phoron/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/phoron/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(99,6,83)
 	H.update_dna()
 	..()
@@ -486,7 +486,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Silver"
 
-/datum/species/golem/silver/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/silver/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(120,120,120)
 	H.update_dna()
 	..()
@@ -513,7 +513,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Gold"
 
-/datum/species/golem/gold/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/gold/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(176,152,14)
 	H.update_dna()
 	..()
@@ -535,7 +535,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	meat_type = /obj/item/stack/material/mhydrogen
 
-	inherent_verbs = list(/mob/living/carbon/human/proc/consume_material, /mob/living/carbon/human/proc/thunder)
+	inherent_verbs = list(/mob/living/carbon/teshari/proc/consume_material, /mob/living/carbon/teshari/proc/thunder)
 
 	inherent_spells = list(/spell/aoe_turf/charge)
 
@@ -544,7 +544,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Metallic Hydrogen"
 
-/datum/species/golem/mhydrogen/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/mhydrogen/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(199,127,181)
 	H.update_dna()
 	..()
@@ -553,8 +553,8 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	name = SPECIES_GOLEM_WOOD
 	name_plural = "wood golems"
 
-	icobase = 'icons/mob/human_races/golem/r_wood.dmi'
-	deform = 'icons/mob/human_races/golem/r_wood.dmi'
+	icobase = 'icons/mob/teshari_races/golem/r_wood.dmi'
+	deform = 'icons/mob/teshari_races/golem/r_wood.dmi'
 
 	siemens_coefficient = 0.3
 
@@ -596,13 +596,13 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Diamond"
 
-/datum/species/golem/diamond/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/diamond/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(0,197,172)
 	H.alpha = 150
 	H.update_dna()
 	..()
 
-/datum/species/golem/diamond/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+/datum/species/golem/diamond/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/teshari/H)
 	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
 		var/reflectchance = 80 - round(P.damage/3)
 		if(prob(reflectchance))
@@ -645,7 +645,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Marble"
 
-/datum/species/golem/marble/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/marble/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(170,170,170)
 	H.update_dna()
 	..()
@@ -678,12 +678,12 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Sand"
 
-/datum/species/golem/sand/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/sand/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(201,166,64)
 	H.update_dna()
 	..()
 
-/datum/species/golem/sand/handle_environment_special(var/mob/living/carbon/human/H)
+/datum/species/golem/sand/handle_environment_special(var/mob/living/carbon/teshari/H)
 	var/turf/simulated/location = H.loc
 
 	if(!istype(location))
@@ -699,7 +699,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 		glassify(H)
 		return
 
-/datum/species/golem/sand/proc/glassify(var/mob/living/carbon/human/H)
+/datum/species/golem/sand/proc/glassify(var/mob/living/carbon/teshari/H)
 	H.visible_message("<span class='warning'>\The [H] vitrifies into a glass construct!</span>")
 	H.set_species(SPECIES_GOLEM_GLASS)
 
@@ -728,7 +728,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Plastic"
 
-/datum/species/golem/plastic/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/plastic/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(171,171,171)
 	H.update_dna()
 	..()
@@ -760,12 +760,12 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Uranium"
 
-/datum/species/golem/uranium/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/golem/uranium/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.change_skin_color(0,80,0)
 	H.update_dna()
 	..()
 
-/datum/species/golem/uranium/handle_environment_special(var/mob/living/carbon/human/H)
+/datum/species/golem/uranium/handle_environment_special(var/mob/living/carbon/teshari/H)
 	if(prob(25))
 		for(var/mob/living/L in view(7, H))
 			L.apply_damage(20, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
@@ -782,12 +782,12 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 		/datum/unarmed_attack/bite/sharp
 	)
 
-	icobase = 'icons/mob/human_races/golem/r_flesh.dmi'
-	deform = 'icons/mob/human_races/golem/r_flesh.dmi'
+	icobase = 'icons/mob/teshari_races/golem/r_flesh.dmi'
+	deform = 'icons/mob/teshari_races/golem/r_flesh.dmi'
 
-	inherent_verbs = list(/mob/living/carbon/human/proc/consume_material, /mob/living/carbon/human/proc/breath_of_life)
+	inherent_verbs = list(/mob/living/carbon/teshari/proc/consume_material, /mob/living/carbon/teshari/proc/breath_of_life)
 
-	bodytype = "Human"
+	bodytype = "teshari"
 
 	breath_pressure = 16
 	breath_type = GAS_OXYGEN
@@ -827,13 +827,13 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	max_hydration_factor = 1
 
-/datum/species/golem/homunculus/handle_death(var/mob/living/carbon/human/H)
+/datum/species/golem/homunculus/handle_death(var/mob/living/carbon/teshari/H)
 	if(turn_into_materials)
 		set waitfor = 0
 		sleep(1)
 		H.gib()
 
-/datum/species/golem/homunculus/handle_environment_special(var/mob/living/carbon/human/H)
+/datum/species/golem/homunculus/handle_environment_special(var/mob/living/carbon/teshari/H)
 	if(prob(25))
 		H.drip(1)
 
@@ -842,8 +842,8 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	short_name = "ada"
 	name_plural = "adamantine golems"
 
-	icobase = 'icons/mob/human_races/r_golem.dmi'
-	deform = 'icons/mob/human_races/r_golem.dmi'
+	icobase = 'icons/mob/teshari_races/r_golem.dmi'
+	deform = 'icons/mob/teshari_races/r_golem.dmi'
 
 	siemens_coefficient = 0
 
@@ -868,8 +868,8 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	short_name = "tgo"
 	name_plural = "technomancer golems"
 
-	icobase = 'icons/mob/human_races/golem/r_techno.dmi'
-	deform = 'icons/mob/human_races/golem/r_techno.dmi'
+	icobase = 'icons/mob/teshari_races/golem/r_techno.dmi'
+	deform = 'icons/mob/teshari_races/golem/r_techno.dmi'
 
 	default_genders = list(NEUTER)
 	selectable_pronouns = list(NEUTER)
@@ -879,7 +879,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	flags = NO_BREATHE | NO_PAIN | NO_ARTERIES | NO_SCAN | NO_POISON
 
-	inherent_verbs = list(/mob/living/carbon/human/proc/breath_of_life)
+	inherent_verbs = list(/mob/living/carbon/teshari/proc/breath_of_life)
 
 	blood_color = "#33CCFF"
 
@@ -900,12 +900,12 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	golem_designation = "Technomancer"
 
-/datum/species/golem/technomancer/handle_post_spawn(mob/living/carbon/human/H)
+/datum/species/golem/technomancer/handle_post_spawn(mob/living/carbon/teshari/H)
 	. = ..()
 	for(var/obj/item/organ/external/E as anything in H.organs)
 		E.status |= ORGAN_ASSISTED
 
-/datum/species/golem/technomancer/handle_movement_tally(var/mob/living/carbon/human/H)
+/datum/species/golem/technomancer/handle_movement_tally(var/mob/living/carbon/teshari/H)
 	var/tally = 0
 	if(istype(H.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
 		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
@@ -926,7 +926,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 			tally += 2
 	return tally
 
-/datum/species/golem/technomancer/handle_stance_damage(var/mob/living/carbon/human/H, var/damage_only = FALSE)
+/datum/species/golem/technomancer/handle_stance_damage(var/mob/living/carbon/teshari/H, var/damage_only = FALSE)
 	var/stance_damage = 0
 	var/obj/item/organ/external/E = H.organs_by_name[BP_GROIN]
 	if(!E || !E.is_usable())
@@ -935,6 +935,6 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 		stance_damage += 3
 	return stance_damage
 
-/datum/species/golem/technomancer/handle_emp_act(mob/living/carbon/human/H, var/severity)
+/datum/species/golem/technomancer/handle_emp_act(mob/living/carbon/teshari/H, var/severity)
 	H.apply_damage(75 * (4 - severity)) // their brute_mod means damage needs to be high
 	return TRUE

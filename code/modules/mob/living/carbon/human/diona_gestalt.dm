@@ -7,17 +7,17 @@
 #define COLD_DAMAGE_LEVEL_2 1.5
 #define COLD_DAMAGE_LEVEL_3 3
 
-/mob/living/carbon/human
+/mob/living/carbon/teshari
 	var/datum/dionastats/DS
 
 
-/mob/living/carbon/human/proc/setup_gestalt()
+/mob/living/carbon/teshari/proc/setup_gestalt()
 	composition_reagent = /singleton/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	setup_dionastats()
-	verbs += /mob/living/carbon/human/proc/check_light
-	verbs += /mob/living/carbon/human/proc/diona_split_nymph
-	verbs += /mob/living/carbon/human/proc/diona_detach_nymph
-	verbs += /mob/living/carbon/human/proc/pause_regen_process
+	verbs += /mob/living/carbon/teshari/proc/check_light
+	verbs += /mob/living/carbon/teshari/proc/diona_split_nymph
+	verbs += /mob/living/carbon/teshari/proc/diona_detach_nymph
+	verbs += /mob/living/carbon/teshari/proc/pause_regen_process
 
 	spawn(10)
 	//This is delayed after a gestalt is spawned, to allow nymphs to be added to it before extras are created
@@ -25,7 +25,7 @@
 	//There are no initial nymphs for a newly spawned diona player
 
 		if (mind?.name && mind.name != real_name)
-			verbs += /mob/living/carbon/human/proc/gestalt_set_name
+			verbs += /mob/living/carbon/teshari/proc/gestalt_set_name
 			var/datum/language/L = locate(/datum/language/diona) in languages
 			var/newname
 			if (L)
@@ -41,7 +41,7 @@
 
 		topup_nymphs()
 
-/mob/living/carbon/human/proc/topup_nymphs()
+/mob/living/carbon/teshari/proc/topup_nymphs()
 	var/added = 0
 	var/list/exclude = list(BP_GROIN, BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT) // becase these are supposed to be whole as their join parts
 	for(var/thing in organs_by_name)
@@ -54,7 +54,7 @@
 
 	return added
 
-/mob/living/carbon/human/proc/add_nymph()
+/mob/living/carbon/teshari/proc/add_nymph()
 	var/count = 0
 	for(var/mob/living/carbon/alien/nymph in contents)
 		count += 1
@@ -74,7 +74,7 @@
 //It will also deal damage to contained nymphs, making them much less likely to survive and split if the diona dies of cold
 //Damage is slightly randomised for each nymph, some will live longer than others, but in the long run all will die eventually
 //Nymphs are slightly insulated from the cold within a gestalt. The temperature to hurt a nymph is 40k lower than what hurts the gestalt
-/mob/living/carbon/human/proc/diona_contained_cold_damage()
+/mob/living/carbon/teshari/proc/diona_contained_cold_damage()
 	if (bodytemperature < (species.cold_level_1-40))
 		var/damage
 		if(bodytemperature > (species.cold_level_2-40))
@@ -94,7 +94,7 @@
 //A severity 1 explosion without armor will usually kill all nymphs in the gestalt
 //Damage is randomised for each nymph, often some will survive and others wont
 //Nymphs have 100 health, so without armor there is a small possibility for each nymph to survive a severity 1 blast
-/mob/living/carbon/human/proc/diona_contained_explosion_damage(var/severity)
+/mob/living/carbon/teshari/proc/diona_contained_explosion_damage(var/severity)
 	var/damage = 0
 	var/damage_factor = 0.1 //Safety value
 	if (severity)
@@ -111,7 +111,7 @@
 			D.adjustBruteLoss(damage)
 			D.updatehealth()
 
-/mob/living/carbon/human/proc/check_light()
+/mob/living/carbon/teshari/proc/check_light()
 	set category = "Abilities"
 	set name = "Check light level"
 
@@ -131,7 +131,7 @@
 
 //1.5 is the maximum energy that can be lost per proc
 //2.1 is the approximate delay between procs
-/mob/living/carbon/human/proc/setup_dionastats()
+/mob/living/carbon/teshari/proc/setup_dionastats()
 	//Diona time variables, these differ slightly between a gestalt and a nymph. All values are times in seconds
 	var/energy_duration = 120//How long this diona can exist in total darkness before its energy runs out
 	var/dark_consciousness = 120//How long this diona can stay on its feet and keep moving in darkness after energy is gone.
@@ -151,9 +151,9 @@
 //Splitting functions
 //====================
 
-/mob/living/carbon/human/proc/diona_split_nymph()
+/mob/living/carbon/teshari/proc/diona_split_nymph()
 	set name = "Split"
-	set desc = "Split your humanoid form into its constituent nymphs."
+	set desc = "Split your tesharioid form into its constituent nymphs."
 	set category = "Abilities"
 
 	var/response = alert(src, "Are you sure you want to split? This will break your gestalt into many smaller nymphs, but you will only control one.","Confirm Split","Split","Not now")
@@ -163,7 +163,7 @@
 
 
 //This function allows a reformed gestalt to set its name, once only
-/mob/living/carbon/human/proc/gestalt_set_name()
+/mob/living/carbon/teshari/proc/gestalt_set_name()
 	set name = "Set Gestalt Name"
 	set desc = "Choose a name for your new collective."
 	set category = "Abilities"
@@ -184,10 +184,10 @@
 		name = newname
 		mind.name = newname
 		to_chat(src, "<span class=notice>Our collective shall now be known as [real_name] !</span>")
-		verbs.Remove(/mob/living/carbon/human/proc/gestalt_set_name)
+		verbs.Remove(/mob/living/carbon/teshari/proc/gestalt_set_name)
 
 
-/mob/living/carbon/human/proc/pause_regen_process()
+/mob/living/carbon/teshari/proc/pause_regen_process()
 	set name = "Halt metabolism"
 	set desc = "Allows you to pause any regeneration process."
 	set category = "Abilities"
@@ -196,7 +196,7 @@
 		DS.pause_regen = !DS.pause_regen
 		to_chat(usr, SPAN_NOTICE("You have [!DS.pause_regen ? "started" : "paused"] regeneration process."))
 
-/mob/living/carbon/human/proc/diona_detach_nymph()
+/mob/living/carbon/teshari/proc/diona_detach_nymph()
 	set name = "Detach nymph"
 	set desc = "Allows you to detach specific nymph, and control it."
 	set category = "Abilities"
@@ -253,7 +253,7 @@
 	M.gestalt = src
 	M.verbs += /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt
 	M.verbs += /mob/living/carbon/alien/diona/proc/switch_to_gestalt
-	verbs += /mob/living/carbon/human/proc/switch_to_nymph
+	verbs += /mob/living/carbon/teshari/proc/switch_to_nymph
 	M.detached = TRUE
 	M.update_verbs(TRUE)
 	M.languages = languages.Copy()
@@ -264,7 +264,7 @@
 	diona_handle_regeneration(DS)
 	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 
-/mob/living/carbon/human/proc/switch_to_nymph()
+/mob/living/carbon/teshari/proc/switch_to_nymph()
 	set name = "Switch to Nymph"
 	set desc = "Allows you to switch control back to your detached Nymph."
 	set category = "Abilities"
@@ -280,7 +280,7 @@
 	else
 		nymph.key = key
 
-/mob/living/carbon/human/proc/diona_split_into_nymphs()
+/mob/living/carbon/teshari/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/alien/diona/bestNymph = null
 	var/gestalt_health = (300 -  getFireLoss() - getBruteLoss() - getToxLoss()) / 6

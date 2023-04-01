@@ -1,6 +1,6 @@
 /datum/species/skrell/axiori
 	name = SPECIES_SKRELL_AXIORI
-	preview_icon = 'icons/mob/human_races/skrell/skrell_axiori_preview.dmi'
+	preview_icon = 'icons/mob/teshari_races/skrell/skrell_axiori_preview.dmi'
 	blurb = "Axiori, which can be approximately translated to \"aquatics\" or \"ocean-dwellers\", are notably better \
 	adapted to survive within the depths of the Homeworld's seas. Typically sporting much more pronounced webbings \
 	for faster swimming, as well as larger and more monocular eyes to better perceive their environment. They also \

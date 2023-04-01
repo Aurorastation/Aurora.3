@@ -1,12 +1,12 @@
-/datum/ghostspawner/human/admin
+/datum/ghostspawner/teshari/admin
 	tags = list("Admin")
 
 //Add the ability to despawn
-/datum/ghostspawner/human/admin/post_spawn(mob/user)
+/datum/ghostspawner/teshari/admin/post_spawn(mob/user)
 	user.client.verbs += /client/proc/despawn
 	return ..()
 
-/datum/ghostspawner/human/admin/checkpointsec
+/datum/ghostspawner/teshari/admin/checkpointsec
 	short_name = "checkpointsec"
 	name = "Odin Checkpoint Security"
 	desc = "Secure the Odin checkpoint. Verify the identity of everyone passing through, perform random searches on \"suspicious\" crew."
@@ -17,9 +17,9 @@
 	req_perms_edit = R_CCIAA
 	max_count = 4
 
-	//Vars related to human mobs
+	//Vars related to teshari mobs
 	outfit = /datum/outfit/admin/nt/odinsec
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_IPC)
+	possible_species = list(SPECIES_teshari,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Security Officer"
@@ -30,7 +30,7 @@
 	mob_name_prefix = "Spec. "
 	mob_name_pick_message = "Pick a callsign or last-name."
 
-/datum/ghostspawner/human/admin/odindoc
+/datum/ghostspawner/teshari/admin/odindoc
 	short_name = "odindoc"
 	name = "Odin Medical Doctor"
 	desc = "Provide medical assistance for those arriving on the Odin."
@@ -41,9 +41,9 @@
 	req_perms_edit = R_CCIAA
 	max_count = 4
 
-	//Vars related to human mobs
+	//Vars related to teshari mobs
 	outfit = /datum/outfit/admin/nt/odindoc
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
+	possible_species = list(SPECIES_teshari,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Medical Doctor"
@@ -52,7 +52,7 @@
 
 	mob_name = null
 
-/datum/ghostspawner/human/admin/odinpharm
+/datum/ghostspawner/teshari/admin/odinpharm
 	short_name = "odinpharm"
 	name = "Odin Pharmacist"
 	desc = "Provide medication for the Doctors on the Odin and those in need."
@@ -64,7 +64,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/nt/odinpharm
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
+	possible_species = list(SPECIES_teshari,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Pharmacist"
@@ -73,7 +73,7 @@
 
 	mob_name = null
 
-/datum/ghostspawner/human/admin/odinchef
+/datum/ghostspawner/teshari/admin/odinchef
 	short_name = "odinchef"
 	name = "Odin Chef"
 	desc = "Feed starving crew members on the Odin."
@@ -85,7 +85,7 @@
 	max_count = 2
 
 	outfit = /datum/outfit/admin/nt/odinchef
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
+	possible_species = list(SPECIES_teshari,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Chef"
@@ -94,7 +94,7 @@
 
 	mob_name = null
 
-/datum/ghostspawner/human/admin/odinbartender
+/datum/ghostspawner/teshari/admin/odinbartender
 	short_name = "odinbartender"
 	name = "Odin Bartender"
 	desc = "Ensure enough drinks are available to the crew on the Odin."
@@ -106,7 +106,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/nt/odinbartender
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
+	possible_species = list(SPECIES_teshari,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Bartender"
@@ -115,7 +115,7 @@
 
 	mob_name = null
 
-/datum/ghostspawner/human/admin/odinjanitor
+/datum/ghostspawner/teshari/admin/odinjanitor
 	short_name = "odinjanitor"
 	name = "Odin Sanitation Specialist"
 	desc = "You are a expert in your field. A true authority. The crew looks to you when they get into a sticky situation. You are a janitor on the Odin."
@@ -126,7 +126,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/nt/odinjanitor
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
+	possible_species = list(SPECIES_teshari,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Sanitation Specialist"
@@ -137,7 +137,7 @@
 	mob_name_prefix = "Spec. "
 	mob_name_pick_message = "Pick a callsign or last-name."
 
-/datum/ghostspawner/human/admin/tcflsentinel
+/datum/ghostspawner/teshari/admin/tcflsentinel
 	short_name = "tcflsentinel"
 	name = "TCFL Sentinel"
 	desc = "Secure BLV The Tower from any would-be interlopers, provide assistance to returning personnel and/or evacuees."
@@ -149,7 +149,7 @@
 	max_count = 4
 
 	outfit = /datum/outfit/admin/ert/legion/sentinel
-	possible_species = list(SPECIES_HUMAN, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_DIONA)
+	possible_species = list(SPECIES_teshari, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_DIONA)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "TCFL Sentinel"

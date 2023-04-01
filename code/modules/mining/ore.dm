@@ -10,8 +10,8 @@
 
 /obj/item/ore/Crossed(AM as mob|obj)
 	..()
-	if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	if(isteshari(AM))
+		var/mob/living/carbon/teshari/H = AM
 		var/obj/item/storage/bag/ore/S = locate() in H
 		if(S && (S == H.l_store || S == H.r_store || S == H.l_hand || S == H.r_hand))
 			if(S.collection_mode)
@@ -46,7 +46,7 @@
 // POCKET SAND!
 /obj/item/ore/glass/throw_impact(atom/hit_atom)
 	..()
-	var/mob/living/carbon/human/H = hit_atom
+	var/mob/living/carbon/teshari/H = hit_atom
 	if(istype(H) && H.has_eyes() && prob(85))
 		to_chat(H, SPAN_DANGER("Some of \the [src] gets in your eyes!"))
 		H.eye_blind += 5

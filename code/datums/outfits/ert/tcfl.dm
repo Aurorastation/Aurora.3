@@ -14,7 +14,7 @@
 
 	id_iff = IFF_TCFL
 
-/datum/outfit/admin/ert/legion/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ert/legion/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
@@ -33,7 +33,7 @@
 	name = "TCFL Prefect"
 	accessory = /obj/item/clothing/accessory/legion
 
-/datum/outfit/admin/ert/legion/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ert/legion/leader/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	.=..()
 	var/obj/item/card/id/distress/legion/I = H.wear_id
 	I.access += (access_cent_specops)
@@ -79,7 +79,7 @@
 		/obj/item/melee/telebaton = 1
 	)
 
-/datum/outfit/admin/ert/legion/sentinel/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ert/legion/sentinel/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	.=..()
 	var/obj/item/card/id/distress/legion/I = H.wear_id
 	I.access += (access_cent_specops)

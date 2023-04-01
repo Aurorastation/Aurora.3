@@ -1,8 +1,8 @@
 /datum/gear/uniform/offworlder
 	display_name = "CR suit"
 	path = /obj/item/clothing/under/offworlder
-	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	whitelisted = list(SPECIES_teshari_OFFWORLD)
+	sort_category = "Xenowear - teshari"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/offworlder/dress
@@ -16,15 +16,15 @@
 /datum/gear/eyes/starshades
 	display_name = "starshades"
 	path = /obj/item/clothing/glasses/spiffygogs/offworlder
-	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	whitelisted = list(SPECIES_teshari_OFFWORLD)
+	sort_category = "Xenowear - teshari"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/offworlder
 	display_name = "legbrace"
 	path = /obj/item/clothing/accessory/offworlder/bracer
-	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	whitelisted = list(SPECIES_teshari_OFFWORLD)
+	sort_category = "Xenowear - teshari"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/offworlder/venter
@@ -38,8 +38,8 @@
 /datum/gear/accessory/offworlder_armband
 	display_name = "exo-stellar ribbon selection"
 	path = /obj/item/clothing/accessory/armband/offworlder
-	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	whitelisted = list(SPECIES_teshari_OFFWORLD)
+	sort_category = "Xenowear - teshari"
 
 /datum/gear/accessory/offworlder_armband/New()
 	..()
@@ -52,8 +52,8 @@
 /datum/gear/mask/offworlder
 	display_name = "jagmask"
 	path = /obj/item/clothing/mask/breath/offworlder/jagmask
-	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	whitelisted = list(SPECIES_teshari_OFFWORLD)
+	sort_category = "Xenowear - teshari"
 
 /datum/gear/mask/offworlder/overmask
 	display_name = "overmask"
@@ -73,28 +73,28 @@
 /datum/gear/gloves/offworlder
 	display_name = "starmitts"
 	path = /obj/item/clothing/gloves/offworlder
-	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	whitelisted = list(SPECIES_teshari_OFFWORLD)
+	sort_category = "Xenowear - teshari"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/offworlder_rig
 	display_name = "exo-stellar skeleton"
 	path = /obj/item/rig/light/offworlder
-	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	whitelisted = list(SPECIES_teshari_OFFWORLD)
+	sort_category = "Xenowear - teshari"
 
 /datum/gear/accessory/offworlder_card
 	display_name = "scarab passblade"
 	path = /obj/item/clothing/accessory/badge/passcard/scarab
-	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	whitelisted = list(SPECIES_teshari_OFFWORLD)
+	sort_category = "Xenowear - teshari"
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)
 
 /datum/gear/accessory/offworlder_mantle
 	display_name = "native Burzsian mantle"
 	path = /obj/item/clothing/accessory/poncho/burzsian_mantle/native
-	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
+	whitelisted = list(SPECIES_teshari_OFFWORLD)
+	sort_category = "Xenowear - teshari"
 	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)

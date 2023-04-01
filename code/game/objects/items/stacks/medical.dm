@@ -33,13 +33,13 @@ Contains:
 		to_chat(user, SPAN_WARNING("\The [src] cannot be applied to [M]!"))
 		return 1
 
-	if ( ! (istype(user, /mob/living/carbon/human) || \
+	if ( ! (istype(user, /mob/living/carbon/teshari) || \
 			istype(user, /mob/living/silicon)) )
 		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return 1
 
-	if (istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if (istype(M, /mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.name == BP_HEAD)
@@ -140,8 +140,8 @@ Contains:
 	if (!can_use(1, user))
 		return 0
 
-	if (istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if (istype(M, /mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.open == 0)
@@ -215,8 +215,8 @@ Contains:
 	if (!can_use(1, user))
 		return 0
 
-	if (istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if (istype(M, /mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.open == 0)
@@ -266,8 +266,8 @@ Contains:
 	if (!can_use(1, user))
 		return 0
 
-	if (ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if (isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.open == 0)
@@ -338,8 +338,8 @@ Contains:
 	if(..())
 		return 1
 
-	if (istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if (istype(M, /mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.open == 0)
@@ -389,8 +389,8 @@ Contains:
 	if (!can_use(1, user))
 		return 0
 
-	if (istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if (istype(M, /mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 		var/limb = affecting.name
 		if(!(affecting.limb_name in splintable_organs))

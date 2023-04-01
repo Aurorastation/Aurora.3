@@ -6,7 +6,7 @@
 	name = "Vk'utet"
 	help_verb = /datum/martial_art/vkutet/proc/vkutet_help
 
-/datum/martial_art/vkutet/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/vkutet/proc/check_streak(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(findtext(streak,PIERCING_STRIKE))
 		streak = ""
 		piercing_strike(A,D)
@@ -21,28 +21,28 @@
 		return 1
 	return 0
 
-/datum/martial_art/vkutet/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/vkutet/grab_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("G",D)
 	if(check_streak(A,D))
 		return 1
 	D.grabbedby(A,1)
 	return 1
 
-/datum/martial_art/vkutet/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/vkutet/harm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("H",D)
 	if(check_streak(A,D))
 		return 1
 	basic_hit(A,D)
 	return 1
 
-/datum/martial_art/vkutet/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/vkutet/disarm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("D",D)
 	if(check_streak(A,D))
 		return 1
 	basic_hit(A,D)
 	return 1
 
-/datum/martial_art/vkutet/proc/piercing_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/vkutet/proc/piercing_strike(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(!isvaurca(A))
 		return 0
 	A.do_attack_animation(D)
@@ -54,7 +54,7 @@
 
 	return 1
 
-/datum/martial_art/vkutet/proc/swift_bite(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/vkutet/proc/swift_bite(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	D.grabbedby(A,1)
 	if(istype(A.get_active_hand(),/obj/item/grab))
 		var/obj/item/grab/G = A.get_active_hand()
@@ -66,7 +66,7 @@
 				qdel(G)
 	return 1
 
-/datum/martial_art/vkutet/proc/crushing_jaws(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/vkutet/proc/crushing_jaws(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(!isvaurca(A))
 		return 0
 	D.grabbedby(A,1)

@@ -116,7 +116,7 @@
 	if(pad)
 		var/list/targets = pad.get_targets()
 		for(var/target in targets)
-			if(!computer_emagged && istype(target,/mob/living/carbon/human))
+			if(!computer_emagged && istype(target,/mob/living/carbon/teshari))
 				last_comms = "SAFETY LOCK ENABLED: SENTIENT MATTER UNTRANSMITTABLE"
 				return
 		var/response = T.offer_items_for_trade(targets,num, get_turf(pad))

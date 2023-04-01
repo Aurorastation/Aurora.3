@@ -17,7 +17,7 @@
 
 /obj/item/reagent_containers/weldpack/examine(mob/user, distance)
 	. = ..()
-	if(ishuman(loc) && user != loc) // what if we want to sneak some reagents out of somewhere?
+	if(isteshari(loc) && user != loc) // what if we want to sneak some reagents out of somewhere?
 		return
 	if(reagents.total_volume)
 		var/fuel_volume = REAGENT_VOLUME(reagents, /singleton/reagent/fuel)

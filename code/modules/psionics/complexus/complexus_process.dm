@@ -142,9 +142,9 @@
 	if(!heal_rate || stamina < heal_rate)
 		return // Don't backblast from trying to heal ourselves thanks.
 
-	if(ishuman(owner))
+	if(isteshari(owner))
 
-		var/mob/living/carbon/human/H = owner
+		var/mob/living/carbon/teshari/H = owner
 
 		// Fix some pain.
 		if(heal_rate > 0)

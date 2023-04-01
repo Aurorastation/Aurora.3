@@ -207,7 +207,7 @@
 
 /singleton/reagent/water/holywater/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	if(ishuman(M))
+	if(isteshari(M))
 		if(M.mind)
 			var/datum/vampire/vampire = M.mind.antag_datums[MODE_VAMPIRE]
 			if(vampire)
@@ -302,8 +302,8 @@
 	if(M.wear_mask)
 		if(M.wear_mask.clean_blood())
 			M.update_inv_wear_mask(0)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(H.head)
 			if(H.head.clean_blood())
 				H.update_inv_head(0)
@@ -428,7 +428,7 @@
 	M.adjustToxLoss(2 * removed)
 	M.add_chemical_effect(CE_ITCH, M.chem_doses[type])
 
-/singleton/reagent/silicate/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/silicate/affect_breathe(var/mob/living/carbon/teshari/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(H, 5))
 		if(prob(50))
 			H.visible_message("<b>[H]</b> splutters.", "You cough up a bunch of silicate.")
@@ -480,7 +480,7 @@
 	. = ..()
 	explode(holder)
 
-/singleton/reagent/nitroglycerin/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/nitroglycerin/affect_blood(var/mob/living/carbon/teshari/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(H) || alien == IS_DIONA)
 		return
 	H.add_chemical_effect(CE_PULSE, 2)
@@ -794,7 +794,7 @@
 	taste_description = "sickly sweet candy"
 	fallback_specific_heat = 2 //Thicc
 
-/singleton/reagent/love_potion/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/love_potion/affect_blood(var/mob/living/carbon/teshari/H, var/alien, var/removed, var/datum/reagents/holder)
 
 	if(!istype(H))
 		return
@@ -821,7 +821,7 @@
 	taste_description = "dust"
 	specific_heat = 1
 
-/singleton/reagent/stone_dust/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/stone_dust/affect_breathe(var/mob/living/carbon/teshari/H, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(istype(H))
 		if(prob(15))

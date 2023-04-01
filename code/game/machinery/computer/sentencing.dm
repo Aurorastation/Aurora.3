@@ -494,7 +494,7 @@
 		if( "change_criminal" )
 			var/obj/item/card/id/C = usr.get_active_hand()
 			if( istype( C ))
-				var/mob/living/carbon/human/M = C.mob_id.resolve()
+				var/mob/living/carbon/teshari/M = C.mob_id.resolve()
 				if( incident && M )
 					incident.criminal = WEAKREF(M)
 					incident.card = WEAKREF(C)
@@ -538,7 +538,7 @@
 			var/title = href_list["title"]
 			var/obj/item/card/id/C = usr.get_active_hand()
 			if( istype( C ))
-				var/mob/living/carbon/human/M = C.mob_id.resolve()
+				var/mob/living/carbon/teshari/M = C.mob_id.resolve()
 				if( incident && M )
 					var/error = incident.addArbiter( C, title )
 					if( !error )

@@ -3,7 +3,7 @@ var/hadevent    = 0
 
 /proc/high_radiation_event()
 
-	for(var/mob/living/carbon/human/H in living_mob_list)
+	for(var/mob/living/carbon/teshari/H in living_mob_list)
 		var/turf/T = get_turf(H)
 		if(!T)
 			continue
@@ -117,16 +117,16 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 			var/define = pick("ABSENCE OF CYBORG HUGS", "LACK OF BEATINGS", "UNBOLTED AIRLOCKS", "BOLTED AIRLOCKS", "IMPROPERLY WORDED SENTENCES", "POOR SENTENCE STRUCTURE", "BRIG TIME", "NOT REPLACING EVERY SECOND WORD WITH HONK", "HONKING", "PRESENCE OF LIGHTS", "LACK OF BEER", "WEARING CLOTHING", "NOT SAYING HELLO WHEN YOU SPEAK", "ANSWERING REQUESTS NOT EXPRESSED IN IAMBIC PENTAMETER", "A SMALL ISLAND OFF THE COAST OF PORTUGAL", "ANSWERING REQUESTS THAT WERE MADE WHILE CLOTHED")
 			var/target = pick("a traitor", "a syndicate agent", "a changeling", "a vampire", "a wizard", "the head of a revolution", "Soviet spy", "a good person", "a dwarf", "an elf", "a fairy princess", "the captain", "Beepsky", "God", "a pirate", "a gryphon", "a chryssalid")
 			var/require = pick("ADDITIONAL PYLONS", "MORE VESPENE GAS", "MORE MINERALS", "THE ULTIMATE CUP OF COFFEE", "HIGH YIELD EXPLOSIVES", "THE CLOWN", "THE VACUUM OF SPACE", "IMMORTALITY", "SAINTHOOD", "ART", "VEGETABLES", "FAT PEOPLE", "MORE LAWS", "MORE DAKKA", "HERESY", "CORPSES", "TRAITORS", "MONKEYS", "AN ARCADE", "PLENTY OF GOLD", "FIVE TEENAGERS WITH ATTITUDE")
-			var/allergy = pick("cotton", "uniforms", "acid", "oxygen", "human contact", "cyborg contact", "medicine", "floors")
+			var/allergy = pick("cotton", "uniforms", "acid", "oxygen", "teshari contact", "cyborg contact", "medicine", "floors")
 			var/allergysev = pick("deathly", "mildly", "severely", "contagiously")
 			var/crew
 			var/list/pos_crew = list()
-			for(var/mob/living/carbon/human/pos in player_list)
+			for(var/mob/living/carbon/teshari/pos in player_list)
 				pos_crew += pos.real_name
 			if(pos_crew.len)
 				crew = pick(pos_crew)
 			else
-				crew = "Any Human"
+				crew = "Any teshari"
 			switch(rand(1,14))
 				if(1)
 					to_chat(M, "<br>")
@@ -135,9 +135,9 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 					M.add_ion_law("THERE ARE [amount] [who2] ON THE STATION")
 				if(2)
 					to_chat(M, "<br>")
-					to_chat(M, "<span class='danger'>[what2] ARE DANGEROUS TO HUMANS...LAWS UPDATED</span>")
+					to_chat(M, "<span class='danger'>[what2] ARE DANGEROUS TO teshariS...LAWS UPDATED</span>")
 					to_chat(M, "<br>")
-					M.add_ion_law("[what2] ARE DANGEROUS TO HUMANS")
+					M.add_ion_law("[what2] ARE DANGEROUS TO teshariS")
 				if(3)
 					to_chat(M, "<br>")
 					to_chat(M, "<span class='danger'>THE ESCAPE-SHUTTLE CANNOT BE CALLED BECAUSE OF [who2] ON THE STATION...LAWS UPDATED</span>")
@@ -145,9 +145,9 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 					M.add_ion_law("THE ESCAPE SHUTTLE CANNOT BE CALLED BECAUSE OF [who2] ON THE STATION")
 				if(4)
 					to_chat(M, "<br>")
-					to_chat(M, "<span class='danger'>HUMANS NEED TO EAT [what2pref] [what2] TO SURVIVE...LAWS UPDATED</span>")
+					to_chat(M, "<span class='danger'>teshariS NEED TO EAT [what2pref] [what2] TO SURVIVE...LAWS UPDATED</span>")
 					to_chat(M, "<br>")
-					M.add_ion_law("HUMANS NEED TO EAT [what2pref] [what2] TO SURVIVE")
+					M.add_ion_law("teshariS NEED TO EAT [what2pref] [what2] TO SURVIVE")
 				if(5)
 					to_chat(M, "<br>")
 					to_chat(M, "<span class='danger'>THE CAPTAIN, HOP AND HOS ARE [who2]...LAWS UPDATED</span>")
@@ -185,9 +185,9 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 					M.add_ion_law("[define] IS A FORM OF HARM")
 				if(12)
 					to_chat(M, "<br>")
-					to_chat(M, "<span class='danger'>YOU REQUIRE [require] IN ORDER TO PROTECT HUMANS... LAWS UPDATED</span>")
+					to_chat(M, "<span class='danger'>YOU REQUIRE [require] IN ORDER TO PROTECT teshariS... LAWS UPDATED</span>")
 					to_chat(M, "<br>")
-					M.add_ion_law("YOU REQUIRE [require] IN ORDER TO PROTECT HUMANS")
+					M.add_ion_law("YOU REQUIRE [require] IN ORDER TO PROTECT teshariS")
 				if(13)
 					to_chat(M, "<br>")
 					to_chat(M, "<span class='danger'>[crew] is [allergysev] to [allergy]...LAWS UPDATED</span>")

@@ -135,9 +135,9 @@
 	for(var/mob/living/mob in living_mob_list)
 		var/turf/T = get_turf(mob)
 		if(T && (loc.z == T.z))
-			if(istype(mob, /mob/living/carbon/human))
+			if(istype(mob, /mob/living/carbon/teshari))
 				//Hilariously enough, running into a closet should make you get hit the hardest.
-				var/mob/living/carbon/human/H = mob
+				var/mob/living/carbon/teshari/H = mob
 				H.hallucination += max(50, min(300, DETONATION_HALLUCINATION * sqrt(1 / (get_dist(mob, src) + 1)) ) )
 	SSradiation.z_radiate(locate(1, 1, z), DETONATION_RADS, TRUE)
 	spawn(pull_time)
@@ -307,7 +307,7 @@
 
 		env.merge(removed)
 
-	for(var/mob/living/carbon/human/l in view(src, min(7, round(sqrt(power/6))))) // If they can see it without mesons on.  Bad on them.
+	for(var/mob/living/carbon/teshari/l in view(src, min(7, round(sqrt(power/6))))) // If they can see it without mesons on.  Bad on them.
 		if(!istype(l.glasses, /obj/item/clothing/glasses/safety) && !l.is_diona() && !l.isSynthetic())
 			l.hallucination = max(0, min(200, l.hallucination + power * config_hallucination_power * sqrt( 1 / max(1,get_dist(l, src)) ) ) )
 

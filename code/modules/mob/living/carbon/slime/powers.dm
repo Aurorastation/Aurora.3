@@ -21,12 +21,12 @@
 		return "I cannot feed on other slimes..."
 	if(!Adjacent(M))
 		return "This subject is too far away..."
-	if(ishuman(M) && !istype(M, /mob/living/carbon/human/monkey) && content) // don't eat humans while content
+	if(isteshari(M) && !istype(M, /mob/living/carbon/teshari/monkey) && content) // don't eat tesharis while content
 		return "I'm already content..."
 	if(istype(M, /mob/living/carbon) && M.getCloneLoss() >= M.maxHealth * 2 || istype(M, /mob/living/simple_animal) && M.stat == DEAD)
 		return "This subject does not have any edible life energy..."
 	if(istype(M, /mob/living/carbon))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/teshari/H = M
 		if(istype(H) && (H.species.flags & NO_SCAN))
 			return "This subject has nothing for us to take..."
 	for(var/mob/living/carbon/slime/met in view())
@@ -68,8 +68,8 @@
 
 			if(prob(15) && M.client && istype(M, /mob/living/carbon))
 				var/painMes = pick("You can feel your body becoming weak!", "You feel like you're about to die!", "You feel every part of your body screaming in agony!", "A low, rolling pain passes through your body!", "Your body feels as if it's falling apart!", "You feel extremely weak!", "A sharp, deep pain bathes every inch of your body!")
-				if(ishuman(M))
-					var/mob/living/carbon/human/H = M
+				if(isteshari(M))
+					var/mob/living/carbon/teshari/H = M
 					H.custom_pain(painMes, 100)
 				else if (istype(M, /mob/living/carbon))
 					var/mob/living/carbon/C = M

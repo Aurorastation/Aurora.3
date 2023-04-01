@@ -526,7 +526,7 @@ var/list/ai_verbs_default = list(
 	if (href_list["track"])
 		var/mob/target = locate(href_list["track"]) in mob_list
 
-		if(target && (!istype(target, /mob/living/carbon/human) || html_decode(href_list["trackname"]) == target:get_face_name()))
+		if(target && (!istype(target, /mob/living/carbon/teshari) || html_decode(href_list["trackname"]) == target:get_face_name()))
 			ai_actual_track(target)
 		else
 			to_chat(src, "<span class='warning'>System error. Cannot locate [html_decode(href_list["trackname"])].</span>")
@@ -642,19 +642,19 @@ var/list/ai_verbs_default = list(
 		return
 
 	var/input
-	if(alert(usr, "Would you like to select a hologram based on a humanoids within camera view or switch to a unique avatar?",,"Humanoids","Unique") == "Humanoids")
-		var/list/selectable_humans = list()
-		for(var/mob/living/carbon/human/H in view(usr.client))
+	if(alert(usr, "Would you like to select a hologram based on a tesharioids within camera view or switch to a unique avatar?",,"tesharioids","Unique") == "tesharioids")
+		var/list/selectable_tesharis = list()
+		for(var/mob/living/carbon/teshari/H in view(usr.client))
 			if(H.near_camera())
-				selectable_humans[H.name] = H
-		if(length(selectable_humans))
-			var/chosen_human = input(usr, "Select the humanoid whose form you wish to emulate.", "Hologram Select") as null|anything in selectable_humans
-			if(!chosen_human)
+				selectable_tesharis[H.name] = H
+		if(length(selectable_tesharis))
+			var/chosen_teshari = input(usr, "Select the tesharioid whose form you wish to emulate.", "Hologram Select") as null|anything in selectable_tesharis
+			if(!chosen_teshari)
 				return
-			var/mob/living/carbon/human/H = selectable_humans[chosen_human]
+			var/mob/living/carbon/teshari/H = selectable_tesharis[chosen_teshari]
 			holo_icon.appearance = H.appearance
 		else
-			to_chat(usr, SPAN_WARNING("There are no humanoids within camera view to base your hologram on."))
+			to_chat(usr, SPAN_WARNING("There are no tesharioids within camera view to base your hologram on."))
 	else
 		input = input("Please select a hologram:") as null|anything in list("default", "floating face", "carp", "loadout character", "custom")
 		if(input)
@@ -667,7 +667,7 @@ var/list/ai_verbs_default = list(
 					else
 						to_chat(src, SPAN_WARNING("You do not have a custom sprite!"))
 				if("loadout character")
-					var/mob/living/carbon/human/H = SSmob.get_mannequin(usr.client.ckey)
+					var/mob/living/carbon/teshari/H = SSmob.get_mannequin(usr.client.ckey)
 					holo_icon.appearance = H.appearance
 				else
 					set_hologram_unique(icon('icons/mob/AI.dmi', input))
@@ -849,7 +849,7 @@ var/list/ai_verbs_default = list(
 		icon_state = selected_sprite.alive_icon
 		set_light(1, 1, selected_sprite.alive_light)
 
-// Pass lying down or getting up to our pet human, if we're in a rig.
+// Pass lying down or getting up to our pet teshari, if we're in a rig.
 /mob/living/silicon/ai/lay_down()
 	set name = "Rest"
 	set category = "IC"

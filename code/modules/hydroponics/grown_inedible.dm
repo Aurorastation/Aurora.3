@@ -71,8 +71,8 @@
 
 /obj/item/bananapeel/Crossed(AM as mob|obj)
 	if(isliving(AM))
-		if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
+		if(isteshari(AM))
+			var/mob/living/carbon/teshari/H = AM
 			if(H.shoes?.item_flags & LIGHTSTEP)
 				return
 		var/mob/living/M = AM

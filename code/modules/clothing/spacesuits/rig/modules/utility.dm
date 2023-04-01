@@ -251,7 +251,7 @@
 	if(!..())
 		return FALSE
 
-	var/mob/living/carbon/human/H = holder.wearer
+	var/mob/living/carbon/teshari/H = holder.wearer
 
 	if(!charge_selected)
 		to_chat(user, SPAN_WARNING("You have not selected a chemical type."))
@@ -645,7 +645,7 @@
 	if (!target)
 		return TRUE
 
-	var/mob/living/carbon/human/H = holder.wearer
+	var/mob/living/carbon/teshari/H = holder.wearer
 
 	if (!isturf(H.loc))
 		to_chat(user, SPAN_WARNING("You cannot leap out of your current location!"))
@@ -758,7 +758,7 @@
 	if(!active)
 		return passive_power_cost
 
-	var/mob/living/carbon/human/H = holder.wearer
+	var/mob/living/carbon/teshari/H = holder.wearer
 
 	var/temp_adj = min(H.bodytemperature - thermostat, max_cooling)
 
@@ -818,7 +818,7 @@ var/global/list/lattice_users = list()
 	if (!..())
 		return FALSE
 
-	var/mob/living/carbon/human/H = holder.wearer
+	var/mob/living/carbon/teshari/H = holder.wearer
 	to_chat(H, SPAN_NOTICE("Neural lattice engaged. Pain receptors altered."))
 	lattice_users.Add(H)
 
@@ -826,7 +826,7 @@ var/global/list/lattice_users = list()
 	if (!..())
 		return FALSE
 
-	var/mob/living/carbon/human/H = holder.wearer
+	var/mob/living/carbon/teshari/H = holder.wearer
 	to_chat(H, SPAN_NOTICE("Neural lattice disengaged. Pain receptors restored."))
 	lattice_users.Remove(H)
 

@@ -31,8 +31,8 @@
 		/mob/living/simple_animal/hostile/faithless
 	)
 
-	// Actual human mobs are delibrately not in this list as they are handled elsewhere.
-	var/list/mtl_humanoid = list(
+	// Actual teshari mobs are delibrately not in this list as they are handled elsewhere.
+	var/list/mtl_tesharioid = list(
 		/mob/living/simple_animal/hostile/pirate,
 		/mob/living/simple_animal/hostile/russian,
 		/mob/living/simple_animal/hostile/syndicate
@@ -58,7 +58,7 @@
 		/mob/living/simple_animal/adultslime = TRUE
 	)
 
-	mtl_humanoid = typecacheof(mtl_humanoid)
+	mtl_tesharioid = typecacheof(mtl_tesharioid)
 
 	mtl_incorporeal = typecacheof(mtl_incorporeal)
 
@@ -114,7 +114,7 @@
 /datum/controller/subsystem/mobs/proc/get_mannequin(ckey)
 	. = mannequins[ckey]
 	if (!.)
-		. = new /mob/living/carbon/human/dummy/mannequin
+		. = new /mob/living/carbon/teshari/dummy/mannequin
 		mannequins[ckey] = .
 
 	addtimer(CALLBACK(src, PROC_REF(del_mannequin), ckey), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)

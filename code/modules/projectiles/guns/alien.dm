@@ -44,8 +44,8 @@
 	icon_state = "spikethrower[spikes]"
 
 /obj/item/gun/launcher/spikethrower/special_check(user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.species && H.species.name != SPECIES_VAURCA_WARRIOR)
 			to_chat(user, "<span class='warning'>\The [src] does not respond to you!</span>")
 			return FALSE
@@ -81,7 +81,7 @@
 
 /obj/item/gun/energy/noisecannon/attack_hand(mob/user as mob)
 	if(loc != user)
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/teshari/H = user
 		if(istype(H))
 			if(H.species.name == SPECIES_VAURCA_WARRIOR)
 				..()

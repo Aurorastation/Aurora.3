@@ -131,8 +131,8 @@
 		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
 		return FALSE
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		H.reset_view(current_camera)
 	else
 		user.reset_view(current_camera)
@@ -163,7 +163,7 @@
 	if(istype(A,/obj/machinery/camera))
 		jump_to = A
 	else if(ismob(A))
-		if(ishuman(A))
+		if(isteshari(A))
 			jump_to = locate() in A:head
 		else if(isrobot(A))
 			jump_to = A:camera

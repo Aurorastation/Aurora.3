@@ -103,7 +103,7 @@
 
 		if("andrey")
 			desc += " This one has the picture of Andrey Borisov."
-			desc_extended = "Born in 2416 to aline of M'sai warriors, Andrey was not even two years old before humanity stumbled across Adhomai and lit the flame that ignited the \
+			desc_extended = "Born in 2416 to aline of M'sai warriors, Andrey was not even two years old before teshariity stumbled across Adhomai and lit the flame that ignited the \
 			First Revolution. As the newly founded People's Republic began the arduous transition from a movement to a government, Andrey's connections with the upper echelon of \
 			PRA politicians bore fruit. He was taken on as a member of an officer's general staff, headquartered in Nal'Tor. His position put him in contact with the elite, however, \
 			and many found him charming and personable. His ascension from lowly	secretary to the major news anchor was one that involved plenty of political maneuvering, money - \
@@ -207,8 +207,8 @@
 		..()
 
 /obj/item/flame/lighter/adhomai/attack_hand(mob/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.l_store == src && !H.get_active_hand())
 			H.put_in_hands(src)
 			H.l_store = null
@@ -237,7 +237,7 @@
 		protection = !protection
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		update_icon()
-	
+
 /obj/item/stack/dice/tajara
 	name = "adhomian dice"
 	desc = "An adhomian dice made out of wood. Commonly used to play Suns and Moon."

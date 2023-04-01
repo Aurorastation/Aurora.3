@@ -26,7 +26,7 @@ var/datum/antagonist/loner/loners
 	..()
 	loners = src
 
-/datum/antagonist/loner/equip(var/mob/living/carbon/human/player)
+/datum/antagonist/loner/equip(var/mob/living/carbon/teshari/player)
 	if(!..())
 		return FALSE
 

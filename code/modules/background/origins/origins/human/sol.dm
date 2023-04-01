@@ -3,7 +3,7 @@
 
 /singleton/origin_item/culture/solarian
 	name = "Solarian"
-	desc = "Despite the loss of much of its territory during the Solarian Collapse of 2463, most of those that fall under the general umbrella of Solarian culture are citizens or belong to statelets affiliated with the Alliance of Sovereign Solarian Nations (ASSN). By and large, Solarians are generally perceived as xenophobic, nationalistic, and militarist. Non-humans, aside from Skrell, are generally rare on Solarian worlds, and many that do reside on them are treated as second-class citizens at best."
+	desc = "Despite the loss of much of its territory during the Solarian Collapse of 2463, most of those that fall under the general umbrella of Solarian culture are citizens or belong to statelets affiliated with the Alliance of Sovereign Solarian Nations (ASSN). By and large, Solarians are generally perceived as xenophobic, nationalistic, and militarist. Non-tesharis, aside from Skrell, are generally rare on Solarian worlds, and many that do reside on them are treated as second-class citizens at best."
 	possible_origins = list(
 		/singleton/origin_item/origin/sol_system,
 		/singleton/origin_item/origin/earth,
@@ -28,7 +28,7 @@
 
 /singleton/origin_item/origin/sol_system
 	name = "Sol System"
-	desc = "The cradle of humanity itself, the Sol System stands above most other systems in terms of its quality of life, wealth, influence, and population. \
+	desc = "The cradle of teshariity itself, the Sol System stands above most other systems in terms of its quality of life, wealth, influence, and population. \
 			Undisputedly controlled by the Solarian Alliance, the Sol System will likely remain the unofficial capital for centuries to come."
 	possible_accents = list(ACCENT_SOL)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
@@ -36,14 +36,14 @@
 
 /singleton/origin_item/origin/earth
 	name = "Earth"
-	desc = "Perhaps the single most important planet in the Orion Spur, Earth is the homeworld of humanity. Most megacorporations originated on Earth, and many still operate from it. Expensive climate restoration efforts undertaken by the Solarian Alliance in cooperation with Zeng-Hu Pharmaceuticals have restored much of Earth's climate, though the scars of humanity's industrialization can still be seen across its surface."
+	desc = "Perhaps the single most important planet in the Orion Spur, Earth is the homeworld of teshariity. Most megacorporations originated on Earth, and many still operate from it. Expensive climate restoration efforts undertaken by the Solarian Alliance in cooperation with Zeng-Hu Pharmaceuticals have restored much of Earth's climate, though the scars of teshariity's industrialization can still be seen across its surface."
 	possible_accents = list(ACCENT_EARTH)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
 
 /singleton/origin_item/origin/luna
 	name = "Luna"
-	desc = " Earth's only natural satellite, Luna is humanity's oldest colony and one of the Solarian Alliance's wealthiest member states. While not every Lunarian is wealthy, and a significant working class population exists, much of the moon's population is stereotyped as being wealthy beyond what most can imagine. Lunarians are often stereotyped as haughty, arrogant people who are incredibly prideful and constantly brag about their origins on Luna."
+	desc = " Earth's only natural satellite, Luna is teshariity's oldest colony and one of the Solarian Alliance's wealthiest member states. While not every Lunarian is wealthy, and a significant working class population exists, much of the moon's population is stereotyped as being wealthy beyond what most can imagine. Lunarians are often stereotyped as haughty, arrogant people who are incredibly prideful and constantly brag about their origins on Luna."
 	possible_accents = list(ACCENT_LUNA)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
@@ -73,7 +73,7 @@
 
 /singleton/origin_item/origin/jupiter
 	name = "Jupiter"
-	desc = "The three major inhabited moons of Jupiter - Callisto, Ganymede, and Europa - are key Solarian worlds. Callisto serves as a major port for the Alliance, Ganymede produces much of the food the Alliance consumes, and Europa is a major research hub. The Jovian Moons are home to a remarkable diversity of humanity, and humans from almost anywhere in the Orion Spur can be found in their ports."
+	desc = "The three major inhabited moons of Jupiter - Callisto, Ganymede, and Europa - are key Solarian worlds. Callisto serves as a major port for the Alliance, Ganymede produces much of the food the Alliance consumes, and Europa is a major research hub. The Jovian Moons are home to a remarkable diversity of teshariity, and tesharis from almost anywhere in the Orion Spur can be found in their ports."
 	possible_accents = list(ACCENT_JUPITER, ACCENT_EUROPA, ACCENT_CALLISTO)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
@@ -89,7 +89,7 @@
 /singleton/origin_item/origin/eridani
 	name = "Eridani Corporate Federation"
 	desc = "The Eridani Corporate Federation is an autonomous member of the Solarian Alliance that is infamous abroad for its starkly divided society and extreme levels of corporate involvement in daily life. Corporations touch every aspect of Eridani, and its society is divided between corporate \"Suits\" that work for its companies and non-citizen \"Dregs\" that live off the scraps of society. Between the two, \"Reinstated Dregs\" chart an awkward balance: too corporate to be Dregs, but not corporate enough to be Suits."
-	important_information = "<b>Due to Epsilon Eridani being originally settled by colonists of West and Central African descent, human characters born in the Eridani Corporate Federation must have names and appearances consistent with the indigenous peoples of these regions as any human moving to the ECF would assimilate into the dominant cultures and ethnic groups of the federation. Eridani dregs have developed cultures of abstract or unconventional names however and this is tolerated.</b> Only native Eridanians may select the Eridanian accents. This is enforceable by server moderators and admins."
+	important_information = "<b>Due to Epsilon Eridani being originally settled by colonists of West and Central African descent, teshari characters born in the Eridani Corporate Federation must have names and appearances consistent with the indigenous peoples of these regions as any teshari moving to the ECF would assimilate into the dominant cultures and ethnic groups of the federation. Eridani dregs have developed cultures of abstract or unconventional names however and this is tolerated.</b> Only native Eridanians may select the Eridanian accents. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_ERIDANI, ACCENT_ERIDANIREINSTATED)
 	possible_citizenships = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
@@ -99,7 +99,7 @@
 /singleton/origin_item/origin/eridani_dreg
 	name = "Eridani Corporate Federation Dreg"
 	desc = "The Eridani Corporate Federation is an autonomous member of the Solarian Alliance that is infamous abroad for its starkly divided society and extreme levels of corporate involvement in daily life. Referred to as Dregs by the Spur at large, the term has been co-opted by many as a badge of honor rather than a pejorative. Whether an individual was born outside the great Eridanian skyscrapers or sent there following the loss of their job, Dreg society is the polar opposite of their Suit counterpart. Without corporate control or any form of governance from the Eridanian state itself, the Dregs largely inhabit their own sprawling, slum-like conurbations all across the surface of Eridani's terrestrial worlds."
-	important_information = "<b>Due to Epsilon Eridani being originally settled by colonists of West and Central African descent, human characters born in the Eridani Corporate Federation must have names and appearances consistent with the indigenous peoples of these regions as any human moving to the ECF would assimilate into the dominant cultures and ethnic groups of the federation. Eridani dregs have developed cultures of abstract or unconventional names however and this is tolerated.</b> Only native Eridanians may select the Eridanian accents. This is enforceable by server moderators and admins."
+	important_information = "<b>Due to Epsilon Eridani being originally settled by colonists of West and Central African descent, teshari characters born in the Eridani Corporate Federation must have names and appearances consistent with the indigenous peoples of these regions as any teshari moving to the ECF would assimilate into the dominant cultures and ethnic groups of the federation. Eridani dregs have developed cultures of abstract or unconventional names however and this is tolerated.</b> Only native Eridanians may select the Eridanian accents. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_ERIDANIDREG)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
@@ -141,8 +141,8 @@
 
 /singleton/origin_item/origin/konyang
 	name = "Konyang"
-	desc = "A Solarian planet until very recently, Konyang is one of the youngest members of the Coalition of Colonies. The planet is famous for its robotics industry, which has resulted in a large amount of synthetic residents on the planet itself. The human population of Konyang still retains much of its Earther heritage."
-	important_information = "<b>Because of the ethnic make-up of Konyang's original settlers and assimilation of immigrants into the native population during the first AI boom, human characters born on Konyang will have appearances consistent with the people of China, the Korean Peninsula, and Japanese Islands.</b> Only native Konyangers or Konyang-made IPCs may select the Konyanger accent. This is enforceable by server moderators and admins."
+	desc = "A Solarian planet until very recently, Konyang is one of the youngest members of the Coalition of Colonies. The planet is famous for its robotics industry, which has resulted in a large amount of synthetic residents on the planet itself. The teshari population of Konyang still retains much of its Earther heritage."
+	important_information = "<b>Because of the ethnic make-up of Konyang's original settlers and assimilation of immigrants into the native population during the first AI boom, teshari characters born on Konyang will have appearances consistent with the people of China, the Korean Peninsula, and Japanese Islands.</b> Only native Konyangers or Konyang-made IPCs may select the Konyanger accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_KONYAN)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = RELIGIONS_SOLARIAN
@@ -160,7 +160,7 @@
 /singleton/origin_item/origin/mictlan
 	name = "Mictlan"
 	desc = "One of the worlds unlucky enough to be annexed into the Republic of Biesel's Corporate Reconstruction Zone following the Solarian Collapse, Mictlan has become the site of growing fighting and unrest directed at the Republic and its forces. Mictlaners now find themselves increasingly caught between Sol and Biesel, and the conflict on their planet shows no signs of deescalating."
-	important_information = "While Mictlan has been a beacon of multiculturalism among humans and aliens in the Orion Spur, many humans that have immigrated to the planet have been assimilated into Mictlan's culture and society. Because of this, <b>human characters born on Mictlan must have names and appearances consistent with the peoples of Central and South America.</b> Only characters native to Mictlan may take the Mictlan accent. This is enforceable by server moderators and admins."
+	important_information = "While Mictlan has been a beacon of multiculturalism among tesharis and aliens in the Orion Spur, many tesharis that have immigrated to the planet have been assimilated into Mictlan's culture and society. Because of this, <b>teshari characters born on Mictlan must have names and appearances consistent with the peoples of Central and South America.</b> Only characters native to Mictlan may take the Mictlan accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_MICTLAN)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
@@ -183,7 +183,7 @@
 	Coletters are, by Outer and Middle Ring standards, a wealthy people with a high standard of living. Culturally they have a strong connection to service in their local military, the Civil Guard of the Sovereign Solarian Republic of San Colette, \
 	and are often viewed as martial and dutiful people by the broader Alliance. Most value family highly and hold onto cultural traditions from the colonial origin of Iberia. The vast majority of Coletters are concerned for the future, and many have adopted a fatalistic attitude \
 	towards what seems to be a steadily approaching war in the Northern Wildands."
-	important_information = "Because of the ethnic make-up of San Colette's original settlers and assimilation of immigrants into the native population during and following the Warp Gate Project, human characters born on San Colette will have appearances consistent with the people of the Iberian Peninsula. This is enforceable by server moderators and admins."
+	important_information = "Because of the ethnic make-up of San Colette's original settlers and assimilation of immigrants into the native population during and following the Warp Gate Project, teshari characters born on San Colette will have appearances consistent with the people of the Iberian Peninsula. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_SANCOLETTE)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN

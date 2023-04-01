@@ -476,8 +476,8 @@
 		to_chat(user, SPAN_WARNING("There is no [fitting] in \the [src]."))
 		return
 
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
+	if(istype(user,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = user
 		if(H.a_intent == I_HURT && H.species.can_shred(H))
 			if(status != LIGHT_BROKEN || status != LIGHT_EMPTY)
 				H.visible_message(SPAN_WARNING("\The [user] smashes \the [src]!"), SPAN_WARNING("You smash \the [src]!"), SPAN_WARNING("You hear the tinkle of breaking glass."))

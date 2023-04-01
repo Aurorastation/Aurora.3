@@ -11,7 +11,7 @@
 		rad = ARMOR_RAD_SHIELDED
 	)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
-	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_teshari)
 	siemens_coefficient = 0.5
 	refittable = FALSE
 
@@ -36,7 +36,7 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe, /obj/item/rfd/construction)
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
-	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_teshari)
 	siemens_coefficient = 0.5
 	refittable = FALSE
 

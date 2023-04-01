@@ -77,8 +77,8 @@
 
 /obj/effect/overmap/Click(location, control, params)
 	. = ..()
-	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+	if(isteshari(usr))
+		var/mob/living/carbon/teshari/H = usr
 		var/client/C = H.client
 		if(H.machine && istype(H.machine, /obj/machinery/computer/ship/targeting) && istype(C.eye, /obj/effect/overmap))
 			var/obj/machinery/computer/ship/targeting/GS = H.machine

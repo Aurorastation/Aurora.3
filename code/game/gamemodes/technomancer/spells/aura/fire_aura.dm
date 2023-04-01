@@ -23,7 +23,7 @@
 	var/list/nearby_things = range(round(calculate_spell_power(4)),owner)
 
 	var/temp_change = calculate_spell_power(25)
-	var/datum/species/baseline = all_species["Human"]
+	var/datum/species/baseline = all_species["teshari"]
 	var/temp_cap = baseline.heat_level_3 * 1.5
 	var/fire_power = calculate_spell_power(2)
 
@@ -32,7 +32,7 @@
 		temp_cap *= 2
 		fire_power *= 2
 
-	for(var/mob/living/carbon/human/H in nearby_things)
+	for(var/mob/living/carbon/teshari/H in nearby_things)
 		if(is_ally(H))
 			continue
 
@@ -45,7 +45,7 @@
 	turf_check:
 		for(var/turf/simulated/T in nearby_things)
 			if(prob(30))
-				for(var/mob/living/carbon/human/H in T)
+				for(var/mob/living/carbon/teshari/H in T)
 					if(is_ally(H))
 						continue turf_check
 				T.hotspot_expose(500, 50, 1)

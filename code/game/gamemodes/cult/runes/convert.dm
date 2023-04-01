@@ -99,7 +99,7 @@
 	converting -= target
 	var/obj/item/device/soulstone/stone = new /obj/item/device/soulstone(get_turf(A))
 	target.death()
-	stone.transfer_human(target)
+	stone.transfer_teshari(target)
 	var/mob/living/simple_animal/shade/shade = locate() in stone
 	announce_ghost_joinleave(shade)
 	shade.ghostize(FALSE)

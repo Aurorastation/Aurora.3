@@ -119,11 +119,11 @@
 		else
 			to_chat(user, "<span class='notice'>You'd need both devices to be signallers for this to work.</span>")
 		return
-	else if(W.ismultitool() && ishuman(user) && user.get_inactive_hand() == src)
+	else if(W.ismultitool() && isteshari(user) && user.get_inactive_hand() == src)
 		if(charge < 10)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have enough charge to produce sufficient current!"))
 			return
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/teshari/H = user
 		var/siemens_coeff = 1
 		if(H.gloves)
 			siemens_coeff = H.gloves.siemens_coefficient

@@ -162,7 +162,7 @@
 	else
 		return ..()
 
-/mob/living/carbon/human/playsound_get_environment(pressure_factor = 1.0)
+/mob/living/carbon/teshari/playsound_get_environment(pressure_factor = 1.0)
 	if(get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 		return PADDED_CELL
 	return ..()
@@ -170,7 +170,7 @@
 /mob/proc/check_sound_equipment_volume()
 	return 1
 
-/mob/living/carbon/human/check_sound_equipment_volume()
+/mob/living/carbon/teshari/check_sound_equipment_volume()
 	return 1 - (get_hearing_protection() * 0.2)
 
 /mob/proc/playsound_to(turf/source_turf, sound/original_sound, use_random_freq, modify_environment = TRUE, use_pressure = TRUE, required_preferences = 0, required_asfx_toggles = 0)

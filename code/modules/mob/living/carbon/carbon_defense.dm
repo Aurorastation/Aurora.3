@@ -13,8 +13,8 @@
 	else if (src.gender == FEMALE)
 		t_him = "her"
 	var/show_ssd
-	var/mob/living/carbon/human/H
-	if(ishuman(src))
+	var/mob/living/carbon/teshari/H
+	if(isteshari(src))
 		H = src
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
@@ -41,8 +41,8 @@
 	else if (src.gender == FEMALE)
 		t_him = "her"
 	var/show_ssd
-	var/mob/living/carbon/human/H
-	if(ishuman(src))
+	var/mob/living/carbon/teshari/H
+	if(isteshari(src))
 		H = src
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
@@ -68,8 +68,8 @@
 	else if (src.gender == FEMALE)
 		t_him = "her"
 	var/show_ssd
-	var/mob/living/carbon/human/H
-	if(ishuman(src))
+	var/mob/living/carbon/teshari/H
+	if(isteshari(src))
 		H = src
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
@@ -171,8 +171,8 @@
 		if(W.hitsound)
 			playsound(loc, W.hitsound, W.get_clamped_volume(), 1, -1)
 
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
+	if(isteshari(src))
+		var/mob/living/carbon/teshari/H = src
 		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 		if(head)
 			head.sever_artery()

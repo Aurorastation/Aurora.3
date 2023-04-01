@@ -39,7 +39,7 @@ var/datum/antagonist/loyalists/loyalists
 	if(!..())
 		return
 	global_objectives = list()
-	for(var/mob/living/carbon/human/player in mob_list)
+	for(var/mob/living/carbon/teshari/player in mob_list)
 		if(!player.mind || player.stat == DEAD || !(player.mind.assigned_role in command_positions))
 			continue
 		var/datum/objective/protect/loyal_obj = new
@@ -47,7 +47,7 @@ var/datum/antagonist/loyalists/loyalists
 		loyal_obj.explanation_text = "Protect [player.real_name], the [player.mind.assigned_role]."
 		global_objectives += loyal_obj
 
-/datum/antagonist/loyalists/equip(var/mob/living/carbon/human/player)
+/datum/antagonist/loyalists/equip(var/mob/living/carbon/teshari/player)
 
 	if(!..())
 		return FALSE
@@ -61,7 +61,7 @@ var/datum/antagonist/loyalists/loyalists
 	INVOKE_ASYNC(src, PROC_REF(alert_loyalist_status), player)
 	return TRUE
 
-/datum/antagonist/loyalists/proc/alert_loyalist_status(var/mob/living/carbon/human/player) //This is still dumb but it works
+/datum/antagonist/loyalists/proc/alert_loyalist_status(var/mob/living/carbon/teshari/player) //This is still dumb but it works
 	alert(player, "As a Head Loyalist you are given an uplink with a lot of telecrystals. \
 				Your goal is to create and progress a story. Use the announcement device you spawn with to whip people into a frenzy, \
 				and the uplink disguised as a radio to equip them. DO NOT PLAY THIS ROLE AS A SUPER TRAITOR. \

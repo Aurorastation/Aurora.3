@@ -3,7 +3,7 @@
 // Draws air from turf, gradually charges internal reservoir
 // Once full (~1 atm), uses air resv to flush items into the pipes
 // Automatically recharges air (unless off), will flush when ready if pre-set
-// Can hold items and human size things, no other draggables
+// Can hold items and teshari size things, no other draggables
 // Toilets are a type of disposal bin for small objects only and work on magic. By magic, I mean torque rotation
 #define SEND_PRESSURE (700 + ONE_ATMOSPHERE) //kPa - assume the inside of a dispoal pipe is 1 atm, so that needs to be added.
 #define PRESSURE_TANK_VOLUME 150	//L
@@ -326,14 +326,14 @@
 	update()
 	return
 
-// ai as human but can't flush
+// ai as teshari but can't flush
 /obj/machinery/disposal/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	var/inside_bin = (user.loc == src)
 	interact(user, !inside_bin)
 
-// human interact with machine
+// teshari interact with machine
 /obj/machinery/disposal/attack_hand(mob/user as mob)
 
 	if(stat & BROKEN)

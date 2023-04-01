@@ -10,7 +10,7 @@
 	allowed_role_types = ADMIN_ROLES
 
 	allowed_species_types = list(
-		/datum/species/human,
+		/datum/species/teshari,
 		/datum/species/skrell
 	)
 

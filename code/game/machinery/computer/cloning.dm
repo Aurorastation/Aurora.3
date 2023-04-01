@@ -369,13 +369,13 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/cloning/proc/scan_mob(mob/living/carbon/human/subject as mob)
-	if ((isnull(subject)) || (!(ishuman(subject))) || (!subject.dna))
+/obj/machinery/computer/cloning/proc/scan_mob(mob/living/carbon/teshari/subject as mob)
+	if ((isnull(subject)) || (!(isteshari(subject))) || (!subject.dna))
 		scantemp = "Error: Unable to locate valid genetic data."
 		return
 	if (!subject.has_brain())
-		if(istype(subject, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = subject
+		if(istype(subject, /mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = subject
 			if(H.species.has_organ[BP_BRAIN])
 				scantemp = "Error: No signs of intelligence detected."
 		else

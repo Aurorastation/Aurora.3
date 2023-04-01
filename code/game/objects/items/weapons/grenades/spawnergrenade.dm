@@ -18,7 +18,7 @@
 		var/turf/T = get_turf(src)
 		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
 		if (flash)
-			for(var/mob/living/carbon/human/M in viewers(T, null))
+			for(var/mob/living/carbon/teshari/M in viewers(T, null))
 				M.flash_act(ignore_inherent = TRUE)
 		else
 			spark(T, 3, alldirs) //give spawning some flair if there's no flash

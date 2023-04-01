@@ -214,7 +214,7 @@
 	return item
 
 //gets the relevant list for the key from the listlist if it exists, check to make sure they are meant to have it and then calls the giving function
-/proc/equip_custom_items(var/mob/living/carbon/human/M)
+/proc/equip_custom_items(var/mob/living/carbon/teshari/M)
 	//Fetch the custom items for the mob
 	if(config.sql_enabled)
 		if(!establish_db_connection(dbcon))
@@ -247,7 +247,7 @@
 			equip_custom_item_to_mob(ci,M)
 
 
-/proc/equip_custom_item_to_mob(var/datum/custom_item/citem, var/mob/living/carbon/human/M)
+/proc/equip_custom_item_to_mob(var/datum/custom_item/citem, var/mob/living/carbon/teshari/M)
 	// Check for required job title.
 	if(length(citem.req_titles))
 		var/has_title

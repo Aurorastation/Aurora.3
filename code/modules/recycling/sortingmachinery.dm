@@ -134,7 +134,7 @@
 	if (src.wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
 		wrapped.forceMove(user.loc)
 		to_chat(user, SPAN_NOTICE("You tear open the parcel, revealing \a [wrapped]!"))
-		if(ishuman(user))
+		if(isteshari(user))
 			user.put_in_hands(wrapped)
 		else if(isrobot(user))
 			var/obj/item/gripper/G = user.get_active_hand()

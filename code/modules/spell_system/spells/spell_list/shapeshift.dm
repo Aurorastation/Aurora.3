@@ -41,7 +41,7 @@
 				trans.vars[varName] = newVars[varName]
 
 		trans.name = "[trans.name] ([M])"
-		if(istype(M,/mob/living/carbon/human) && drop_items)
+		if(istype(M,/mob/living/carbon/teshari) && drop_items)
 			for(var/obj/item/I in M.contents)
 				if(istype(I,/obj/item/organ))
 					continue

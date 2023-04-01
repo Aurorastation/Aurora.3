@@ -187,7 +187,7 @@
 // Fold the bubble, transfering properties.
 /obj/structure/closet/airbubble/MouseDrop(over_object, src_location, over_location)
 	if((!zipped || ripped )&& (over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
-		if(!ishuman(usr))	return
+		if(!isteshari(usr))	return
 		if(opened)	return 0
 		if(contents.len > 1)	return 0
 		if(cell)
@@ -303,7 +303,7 @@
 	if(!usr.canmove || usr.stat || usr.restrained())
 		return
 
-	if(!ishuman(usr))
+	if(!isteshari(usr))
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 		return
 
@@ -336,7 +336,7 @@
 	if(!usr.canmove || usr.stat || usr.restrained())
 		return
 
-	if(!ishuman(usr))
+	if(!isteshari(usr))
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 		return
 
@@ -369,7 +369,7 @@
 	if(!usr.canmove || usr.stat || usr.restrained())
 		return
 
-	if(!ishuman(usr))
+	if(!isteshari(usr))
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 		return
 
@@ -554,7 +554,7 @@
 /obj/structure/closet/airbubble/proc/process_preserve_temp()
 	if (!cooling || !cell)
 		return
-	for(var/mob/living/carbon/human/H in src)
+	for(var/mob/living/carbon/teshari/H in src)
 		var/datum/gas_mixture/t_air = get_turf_air()
 		if(!t_air)
 			return

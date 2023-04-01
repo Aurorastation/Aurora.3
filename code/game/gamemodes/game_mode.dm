@@ -375,7 +375,7 @@ var/global/list/additional_antag_types = list()
 		if(M.client)
 			clients++
 			if(M.stat != DEAD && isipc(M))
-				var/mob/living/carbon/human/H = M
+				var/mob/living/carbon/teshari/H = M
 				var/datum/species/machine/machine = H.species
 				machine.update_tag(H, H.client)
 			if(M.stat != DEAD)
@@ -550,7 +550,7 @@ proc/display_logout_report()
 proc/get_poor()
 	var/list/characters = list()
 
-	for(var/mob/living/carbon/human/character in player_list)
+	for(var/mob/living/carbon/teshari/character in player_list)
 		if(character.client)
 			if(character.client.prefs.economic_status == ECONOMICALLY_DESTITUTE) // Discrimination.
 				characters += character

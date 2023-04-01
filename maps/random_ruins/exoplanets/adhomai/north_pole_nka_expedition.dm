@@ -9,7 +9,7 @@
 
 //ghost roles
 
-/datum/ghostspawner/human/nka_polar_explorer
+/datum/ghostspawner/teshari/nka_polar_explorer
 	short_name = "nka_polar_explorer"
 	name = "New Kingdom Arctic Explorer"
 	desc = "Explore the north pole as part of the New Kingdom expedition."
@@ -49,7 +49,7 @@
 /datum/outfit/admin/nka_polar_explorer/get_id_access()
 	return list(access_nka)
 
-/datum/ghostspawner/human/nka_polar_sailor
+/datum/ghostspawner/teshari/nka_polar_sailor
 	short_name = "nka_polar_sailor"
 	name = "New Kingdom Arctic Sailor"
 	desc = "Defend the New Kingdom's Explorers as part of the expedition."

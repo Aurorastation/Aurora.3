@@ -73,8 +73,8 @@
 /datum/antagonist/changeling/can_become_antag(var/datum/mind/player, var/ignore_role)
 	if(..())
 		if(player.current)
-			if(ishuman(player.current))
-				var/mob/living/carbon/human/H = player.current
+			if(isteshari(player.current))
+				var/mob/living/carbon/teshari/H = player.current
 				if(H.isSynthetic())
 					return 0
 				if(H.species.flags & NO_SCAN)

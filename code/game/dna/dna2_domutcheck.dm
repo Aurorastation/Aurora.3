@@ -6,11 +6,11 @@
 #define MUTCHK_FORCED        1
 /proc/domutcheck(var/mob/living/M, var/connected=null, var/flags=0)
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(H.species && H.species.flags & NO_SCAN)
 			return
-			
+
 	for(var/datum/dna/gene/gene in dna_genes)
 		if(!M || !M.dna)
 			return

@@ -113,7 +113,7 @@
 	paper_win.open()
 
 /obj/item/paper/proc/can_read(var/mob/user, var/forceshow = FALSE)
-	var/can_read = (istype(user, /mob/living/carbon/human) || isobserver(user) || istype(user, /mob/living/silicon)) || forceshow
+	var/can_read = (istype(user, /mob/living/carbon/teshari) || isobserver(user) || istype(user, /mob/living/silicon)) || forceshow
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
 		var/mob/living/silicon/ai/AI
 		can_read = get_dist(src, AI.camera) < 2
@@ -215,8 +215,8 @@
 		M.examinate(src)
 
 	else if(target_zone == BP_MOUTH && paper_like) // lipstick wiping
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+		if(isteshari(M))
+			var/mob/living/carbon/teshari/H = M
 			if(H == user)
 				to_chat(user, SPAN_NOTICE("You wipe off the lipstick with [src]."))
 				H.lip_style = null
@@ -553,8 +553,8 @@
 			B.name = P.name
 		user.drop_from_inventory(P,B)
 		//TODO: Look into this stuff
-		if (istype(user, /mob/living/carbon/human))
-			var/mob/living/carbon/human/h_user = user
+		if (istype(user, /mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/h_user = user
 			if (h_user.r_hand == src)
 				h_user.drop_from_inventory(src)
 				h_user.equip_to_slot_if_possible(B, slot_r_hand)
@@ -731,7 +731,7 @@
 		welding goggles.</li><li>Grasp the emergency welding tool firmly in your hands, turn it on, and start cutting a hole in the floor.</li><li>Wait for \
 		the newly created hole to cool.<li>Use the emergency crowbar to pry away the metal.</li><li>Deploy the emergency ladder.</li><li>Dispose of the used \
 		equipment, if necessary.</li></ol></font></font>"
-		
+
 // Used on the IAC ship, meant for distribution.
 /obj/item/paper/fluff/iac
 	name = "interstellar aid corps info pamphlet"

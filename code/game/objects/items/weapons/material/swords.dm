@@ -23,8 +23,8 @@
 /obj/item/material/sword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	var/parry_bonus = 1
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		var/has_parry_bonus = H.check_weapon_affinity(src, TRUE)
 		if(has_parry_bonus)
 			parry_bonus = has_parry_bonus // proc returns the parry multiplier
@@ -35,7 +35,7 @@
 		return PROJECTILE_STOPPED
 	return FALSE
 
-/obj/item/material/sword/perform_technique(var/mob/living/carbon/human/target, var/mob/living/carbon/human/user, var/target_zone)
+/obj/item/material/sword/perform_technique(var/mob/living/carbon/teshari/target, var/mob/living/carbon/teshari/user, var/target_zone)
 	var/armor_reduction = target.get_blocked_ratio(target_zone, DAMAGE_BRUTE, DAMAGE_FLAG_EDGE|DAMAGE_FLAG_SHARP, damage = force)*100
 	var/obj/item/organ/external/affecting = target.get_organ(target_zone)
 	if(!affecting)

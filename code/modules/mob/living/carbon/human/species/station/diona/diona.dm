@@ -10,9 +10,9 @@
 	default_genders = list(NEUTER)
 	selectable_pronouns = list(NEUTER, PLURAL)
 	economic_modifier = 3
-	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
-	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
-	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
+	icobase = 'icons/mob/teshari_races/diona/r_diona.dmi'
+	deform = 'icons/mob/teshari_races/diona/r_def_plant.dmi'
+	preview_icon = 'icons/mob/teshari_races/diona/diona_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
 	language = LANGUAGE_ROOTSONG
 	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_AZAZIBA)
@@ -22,8 +22,8 @@
 		/datum/unarmed_attack/diona
 	)
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/consume_nutrition_from_air,
-		/mob/living/carbon/human/proc/create_structure,
+		/mob/living/carbon/teshari/proc/consume_nutrition_from_air,
+		/mob/living/carbon/teshari/proc/create_structure,
 		/mob/living/carbon/proc/sample
 	)
 	//primitive_form = "Nymph"
@@ -133,44 +133,44 @@
 		return 1
 	return 0
 
-/datum/species/diona/get_vision_organ(mob/living/carbon/human/H)
+/datum/species/diona/get_vision_organ(mob/living/carbon/teshari/H)
 	return H.organs_by_name[vision_organ]
 
-/datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
-	if (ishuman(H))
+/datum/species/diona/handle_post_spawn(var/mob/living/carbon/teshari/H)
+	if (isteshari(H))
 		return ..()
 	else//Most of the stuff in the parent function doesnt apply to nymphs
 		add_inherent_verbs(H)
 
-/datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
+/datum/species/diona/handle_death(var/mob/living/carbon/teshari/H, var/gibbed = 0)
 	if (!gibbed)
 		// This proc sleeps. Async it.
-		INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/human, diona_split_into_nymphs))
+		INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/teshari, diona_split_into_nymphs))
 
-/datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)
+/datum/species/diona/handle_speech_problems(mob/living/carbon/teshari/H, message, say_verb, message_mode, message_range)
 // Diona without head can live, but they cannot talk as loud anymore.
 	var/obj/item/organ/external/O = H.organs_by_name[BP_HEAD]
 	if(O.is_stump())
 		message_range = 3
 		return list(HSP_MSGRANGE = message_range)
 
-/datum/species/diona/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
+/datum/species/diona/handle_speech_sound(mob/living/carbon/teshari/H, list/current_flags)
 	current_flags = ..()
 	var/obj/item/organ/external/O = H.organs_by_name[BP_HEAD]
 	current_flags[3] = O.is_stump()
 	return current_flags
 
-/datum/species/diona/handle_death_check(var/mob/living/carbon/human/H)
+/datum/species/diona/handle_death_check(var/mob/living/carbon/teshari/H)
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
 
-/datum/species/diona/handle_despawn(var/mob/living/carbon/human/H)
+/datum/species/diona/handle_despawn(var/mob/living/carbon/teshari/H)
 	for(var/mob/living/carbon/alien/diona/D in H.contents)
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
 
-/datum/species/diona/after_equip(mob/living/carbon/human/H, visualsOnly, datum/job/J)
+/datum/species/diona/after_equip(mob/living/carbon/teshari/H, visualsOnly, datum/job/J)
 	. = ..()
 	var/obj/item/storage/box/survival/SB = locate() in H
 	if(!SB)
@@ -187,5 +187,5 @@
 /datum/species/diona/is_naturally_insulated()
 	return TRUE
 
-/datum/species/diona/bypass_food_fullness(var/mob/living/carbon/human/H)
+/datum/species/diona/bypass_food_fullness(var/mob/living/carbon/teshari/H)
 	return TRUE

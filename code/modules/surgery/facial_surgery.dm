@@ -9,7 +9,7 @@
 	priority = 2
 	can_infect = FALSE
 
-/singleton/surgery_step/face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/face/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -26,20 +26,20 @@
 	min_duration = 90
 	max_duration = 110
 
-/singleton/surgery_step/generic/prepare_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/generic/prepare_face/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_CUT_OPEN
 
-/singleton/surgery_step/generic/prepare_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/generic/prepare_face/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to retract [target]'s face with \the [tool].", \
 		"You start to retract [target]'s face with \the [tool].")
 	..()
 
-/singleton/surgery_step/generic/prepare_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/generic/prepare_face/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> has retracted [target]'s face with \the [tool] for his facial alteration." , \
 		SPAN_NOTICE("You have retracted [target]'s face and neck with \the [tool] for plastic surgery."),)
 	target.op_stage.face = FACE_RETRACTED
 
-/singleton/surgery_step/generic/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/generic/prepare_face/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
@@ -58,15 +58,15 @@
 	min_duration = 40
 	max_duration = 90
 
-/singleton/surgery_step/generic/alter_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/generic/alter_face/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_RETRACTED
 
-/singleton/surgery_step/generic/alter_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/generic/alter_face/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> starts to adjust [target]'s face with \the [tool].", \
 		SPAN_NOTICE("You start to alter [target]'s face and neck with \the [tool]."))
 	..()
 
-/singleton/surgery_step/generic/alter_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/generic/alter_face/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/head/head = target.get_organ(target_zone)
 	if(head.disfigured || HAS_FLAG(target.mutations, HUSK))
 		head.disfigured = FALSE
@@ -85,7 +85,7 @@
 		target.op_stage.face = FACE_ALTERED
 
 
-/singleton/surgery_step/generic/alter_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/generic/alter_face/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
@@ -105,15 +105,15 @@
 	min_duration = 70
 	max_duration = 100
 
-/singleton/surgery_step/face/cauterize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/face/cauterize/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	return ..() && target.op_stage.face > FACE_NORMAL
 
-/singleton/surgery_step/face/cauterize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/face/cauterize/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message("[user] is beginning to cauterize the incision on [target]'s face and neck with \the [tool]." , \
 		"You are beginning to cauterize the incision on [target]'s face and neck with \the [tool].")
 	..()
 
-/singleton/surgery_step/face/cauterize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/face/cauterize/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> cauterizes the incision on [target]'s face and neck with \the [tool].", \
 		SPAN_NOTICE("You cauterize the incision on [target]'s face and neck with \the [tool]."))
@@ -124,7 +124,7 @@
 		h.disfigured = 0
 	target.op_stage.face = FACE_NORMAL
 
-/singleton/surgery_step/face/cauterize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/face/cauterize/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, leaving a small burn on [target]'s face with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, leaving a small burn on [target]'s face with \the [tool]!"))
@@ -134,7 +134,7 @@
 	priority = 2
 	can_infect = FALSE
 
-/singleton/surgery_step/robotics/face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH
 
 /singleton/surgery_step/robotics/face/synthskinopen
@@ -148,20 +148,20 @@
 	min_duration = 90
 	max_duration = 110
 
-/singleton/surgery_step/robotics/face/synthskinopen/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/synthskinopen/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	return ..() && target.op_stage.face == FACE_NORMAL && target.get_species() == SPECIES_IPC_SHELL
 
-/singleton/surgery_step/robotics/face/synthskinopen/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/synthskinopen/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to cut open [target]'s synthskin face and neck with \the [tool].", \
 		"You start to cut open [target]'s synthskin face and neck with \the [tool].")
 	..()
 
-/singleton/surgery_step/robotics/face/synthskinopen/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/synthskinopen/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> has cut open [target]'s synthskin face and neck with \the [tool]." , \
 		SPAN_NOTICE("You have cut open [target]'s synthskin face and neck with \the [tool]."),)
 	target.op_stage.face = FACE_CUT_OPEN
 
-/singleton/surgery_step/robotics/face/synthskinopen/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/synthskinopen/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
@@ -176,20 +176,20 @@
 	min_duration = 90
 	max_duration = 110
 
-/singleton/surgery_step/robotics/face/prepare_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/prepare_face/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_CUT_OPEN
 
-/singleton/surgery_step/robotics/face/prepare_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/prepare_face/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to retract [target]'s synthskin face with \the [tool].", \
 		"You start to retract [target]'s face with \the [tool].")
 	..()
 
-/singleton/surgery_step/robotics/face/prepare_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/prepare_face/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> has retracted [target]'s synthskin face with \the [tool] for thier facial alteration." , \
 		SPAN_NOTICE("You have retracted [target]'s synthskin face and neck with \the [tool] for plastic surgery."),)
 	target.op_stage.face = FACE_RETRACTED
 
-/singleton/surgery_step/robotics/face/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/prepare_face/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
@@ -205,15 +205,15 @@
 	min_duration = 40
 	max_duration = 90
 
-/singleton/surgery_step/robotics/face/alter_synthface/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/alter_synthface/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_RETRACTED
 
-/singleton/surgery_step/robotics/face/alter_synthface/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/alter_synthface/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> starts to alter [target]'s synthskin face with \the [tool].", \
 		SPAN_NOTICE("You start to alter [target]'s synthskin face and neck with \the [tool]."))
 	..()
 
-/singleton/surgery_step/robotics/face/alter_synthface/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/alter_synthface/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/head/head = target.get_organ(target_zone)
 	if(head.disfigured || HAS_FLAG(target.mutations, HUSK))
 		head.disfigured = FALSE
@@ -233,7 +233,7 @@
 		target.op_stage.face = FACE_ALTERED
 
 
-/singleton/surgery_step/robotics/face/alter_synthface/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/alter_synthface/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
@@ -250,15 +250,15 @@
 	min_duration = 70
 	max_duration = 100
 
-/singleton/surgery_step/robotics/face/seal_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/seal_face/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	return ..() && target.op_stage.face > FACE_NORMAL
 
-/singleton/surgery_step/robotics/face/seal_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/seal_face/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message("[user] is beginning to seal the incision on [target]'s synthskin face and neck with \the [tool]." , \
 		"You are beginning to seal the incision on [target]'s synthskin face and neck with \the [tool].")
 	..()
 
-/singleton/surgery_step/robotics/face/seal_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/seal_face/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] seals the incision on [target]'s synthskin face and neck with \the [tool]."), \
 		SPAN_NOTICE("You seal the incision on [target]'s synthskin face and neck with \the [tool]."))
@@ -268,7 +268,7 @@
 		h.disfigured = FALSE
 	target.op_stage.face = FACE_NORMAL
 
-/singleton/surgery_step/robotics/face/seal_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/robotics/face/seal_face/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, leaving a small burn on [target]'s synthskin face with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, leaving a small burn on [target]'s synthskin face with \the [tool]!"))

@@ -71,8 +71,8 @@
 	if(chambered)
 		chambered.expend()
 		process_chambered()
-	if(ammo_magazine && !length(ammo_magazine.stored_ammo) && ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(ammo_magazine && !length(ammo_magazine.stored_ammo) && isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.check_weapon_affinity(src))
 			unload_ammo(user, TRUE, TRUE)
 	update_maptext()
@@ -98,7 +98,7 @@
 
 	// Aurora forensics port, gunpowder residue.
 	if(chambered.leaves_residue)
-		var/mob/living/carbon/human/H = loc
+		var/mob/living/carbon/teshari/H = loc
 		if(istype(H))
 			if(!istype(H.gloves, /obj/item/clothing))
 				LAZYDISTINCTADD(H.gunshot_residue, chambered.caliber)

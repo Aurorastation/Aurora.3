@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/izharshan
+/datum/ghostspawner/teshari/izharshan
 	short_name = "izharshan_crew"
 	name = "Izharshan Crewman"
 	desc = "Quartermaster, Vesselhide, Gunner or mere Crew, whatever your role is, you will obey your captain, for your pirate clan and fleet, the Izharshan. NOT AN ANTAGONIST! Do not act as such."
@@ -18,7 +18,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/ghostspawner/human/izharshan/captain
+/datum/ghostspawner/teshari/izharshan/captain
 	short_name = "izharshan_captain"
 	name = "Izharshan Captain"
 	desc = "Lead your ship for the honor and wealth of pirate clan and fleet Izharshan. Your ship has poor side armor, so be careful threatening ships with bigger guns, but your flechettes can intimidate the rest. If all else fails, you can bring the entire ship into boarding range. NOT AN ANTAGONIST! Do not act as such."

@@ -48,7 +48,7 @@
 		if("Thick")
 			alpha_mask = null
 	to_chat(usr, SPAN_NOTICE("You adjust your bag strap to be [alpha_mask ? "[alpha_mask]" : "thick"]."))
-	var/mob/living/carbon/human/H = src.loc
+	var/mob/living/carbon/teshari/H = src.loc
 	H.update_icon()
 	H.update_inv_back()
 
@@ -58,10 +58,10 @@
 	if (!..())
 		return 0
 
-	if(species_restricted && ishuman(M) && !(slot in list(slot_l_hand, slot_r_hand)))
+	if(species_restricted && isteshari(M) && !(slot in list(slot_l_hand, slot_r_hand)))
 		var/exclusive = null
 		var/wearable = null
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/teshari/H = M
 
 		if("exclude" in species_restricted)
 			exclusive = 1
@@ -603,7 +603,7 @@
 
 /obj/item/storage/backpack/duffel/cmo
 	name = "CMO's duffel"
-	desc = "A sterilized duffel bag with enough space to lug around enough medical supplies to treat a small humanitarian effort."
+	desc = "A sterilized duffel bag with enough space to lug around enough medical supplies to treat a small teshariitarian effort."
 	icon_state = "duffel-cmo"
 	item_state = "duffel-cmo"
 	empty_delay = 0.8 SECOND
@@ -900,7 +900,7 @@
 	to_chat(usr, "You [wings ? "extend" : "collapse"] your [src].")
 	icon_state = "[initial(icon_state)][wings ? "_open" : ""]"
 	item_state = "icon_state"
-	var/mob/living/carbon/human/H = src.loc
+	var/mob/living/carbon/teshari/H = src.loc
 	H.update_icon()
 	H.update_inv_back()
 
@@ -928,7 +928,7 @@
 	to_chat(usr, "You [hooded ? "raise" : "lower"] \the [src] hood.")
 	icon_state = "[initial(icon_state)][hooded ? "_up" : ""]"
 	item_state = "icon_state"
-	var/mob/living/carbon/human/H = src.loc
+	var/mob/living/carbon/teshari/H = src.loc
 	H.update_icon()
 	H.update_inv_back()
 

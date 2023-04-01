@@ -41,7 +41,7 @@
 /obj/item/computer_hardware/card_slot/proc/eject_id(mob/user)
 	if(!stored_card)
 		return
-	if(ishuman(user))
+	if(isteshari(user))
 		user.put_in_hands(stored_card)
 	else
 		stored_card.forceMove(get_turf(src))

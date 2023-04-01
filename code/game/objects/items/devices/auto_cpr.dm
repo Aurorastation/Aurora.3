@@ -1,7 +1,7 @@
 #define EPP "Emergency Positive Pressure system"
 
 /obj/item/auto_cpr
-	name = "stabilizer harness" 
+	name = "stabilizer harness"
 	desc = "A specialized medical harness that gives regular compressions to the patient's ribcage for cases of urgent heart issues, and functions as an emergency \
 	artificial respirator for cases of urgent lung issues."
 	desc_info = "The Stabilizer Harness' CPR mode is capable of restarting the heart much like manual CPR with a chance for rib cracking ONLY IF the patient is flat lining,\
@@ -24,7 +24,7 @@
 	var/charge_cost = 7 // 7 for 1 active function. Total of 14 if both CPR and EPP are doing their thing
 	var/cpr_mode = TRUE // Auto-Compressor system. Can be toggled on/off
 
-	var/mob/living/carbon/human/breather = null
+	var/mob/living/carbon/teshari/breather = null
 	var/obj/item/clothing/mask/breath/breath_mask = null
 	var/obj/item/tank/emergency_oxygen/tank = null
 	var/tank_level = 0
@@ -126,7 +126,7 @@
 	if(panel_open)
 		add_overlay("panel_open[battery ? "_battery" : ""]")
 
-/obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0)
+/obj/item/auto_cpr/mob_can_equip(mob/living/carbon/teshari/H, slot, disable_warning = 0, force = 0)
 	. = ..()
 	if(slot == slot_wear_suit)
 		if(panel_open)
@@ -134,12 +134,12 @@
 		return
 	if(force || !istype(H) || slot != slot_wear_suit)
 		return
-	if(H.species.get_bodytype() in list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI)) //gtfo stinky bugs
+	if(H.species.get_bodytype() in list(BODYTYPE_teshari, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI)) //gtfo stinky bugs
 		return
 	else
 		return FALSE
 
-/obj/item/auto_cpr/attack(mob/living/carbon/human/H, mob/living/user, var/target_zone)
+/obj/item/auto_cpr/attack(mob/living/carbon/teshari/H, mob/living/user, var/target_zone)
 	if(istype(H) && user.a_intent == I_HELP)
 		if(panel_open)
 			to_chat(user, SPAN_WARNING("You must screw \the [src]'s panel closed before fitting it onto anyone!"))
@@ -162,8 +162,8 @@
 
 /obj/item/auto_cpr/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
-		if(ishuman(loc))
-			var/mob/living/carbon/human/H = loc
+		if(isteshari(loc))
+			var/mob/living/carbon/teshari/H = loc
 			if(H.get_inventory_slot(src) == slot_wear_suit)
 				to_chat(user, SPAN_WARNING("You must unequip \the [src] before doing that!"))
 				return TRUE
@@ -269,10 +269,10 @@
 	..()
 
 /obj/item/auto_cpr/process()
-	if(!ishuman(loc))
+	if(!isteshari(loc))
 		return PROCESS_KILL
 
-	var/mob/living/carbon/human/H = loc
+	var/mob/living/carbon/teshari/H = loc
 	if(H.get_inventory_slot(src) != slot_wear_suit)
 		if(mask_on)
 			breath_mask_off()
@@ -297,7 +297,7 @@
 	H.update_inv_wear_suit()
 	update_icon()
 
-/obj/item/auto_cpr/proc/cpr_process(mob/living/carbon/human/H)
+/obj/item/auto_cpr/proc/cpr_process(mob/living/carbon/teshari/H)
 	if(world.time > last_pump + 10 SECONDS)
 		last_pump = world.time
 		playsound(src, 'sound/machines/pump.ogg', 25)
@@ -314,7 +314,7 @@
 			if(chest)
 				chest.fracture()
 
-/obj/item/auto_cpr/proc/epp_process(mob/living/carbon/human/H)
+/obj/item/auto_cpr/proc/epp_process(mob/living/carbon/teshari/H)
 	if(!tank || !breath_mask)
 		src.visible_message(SPAN_WARNING("Error! Vital component for \the [src]'s [EPP] missing! Turning function off."))
 		epp_off()
@@ -368,7 +368,7 @@
 		to_chat(H, SPAN_NOTICE("You feel fresh air being pushed into your lungs."))
 		battery.use(charge_cost)
 
-/obj/item/auto_cpr/proc/breath_mask_on(mob/living/carbon/human/H)
+/obj/item/auto_cpr/proc/breath_mask_on(mob/living/carbon/teshari/H)
 	if(!H.organs_by_name[BP_HEAD])
 		src.visible_message(SPAN_WARNING("Error! Patient lacks a head!"))
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50)
@@ -408,7 +408,7 @@
 	if(breath_mask.loc != breather)
 		var/loc_check = breath_mask.loc
 		if(ismob(loc_check))
-			var/mob/living/carbon/human/holder = loc_check
+			var/mob/living/carbon/teshari/holder = loc_check
 			holder.remove_from_mob(breath_mask)
 			holder.update_inv_wear_mask()
 			holder.update_inv_l_hand()
@@ -430,7 +430,7 @@
 	epp_mode = FALSE
 
 /obj/item/auto_cpr/proc/toggle_check(mob/user)
-	if(!ishuman(user) && !issilicon(user))
+	if(!isteshari(user) && !issilicon(user))
 		to_chat(user, SPAN_WARNING("This mob cannot use this!"))
 		return
 	if(user.stat || user.incapacitated())

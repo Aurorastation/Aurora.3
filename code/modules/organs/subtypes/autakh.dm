@@ -368,8 +368,8 @@
 			return
 
 		owner.last_special = world.time + 50
-		if(ishuman(G.affecting))
-			var/mob/living/carbon/human/H = G.affecting
+		if(isteshari(G.affecting))
+			var/mob/living/carbon/teshari/H = G.affecting
 			health_scan_mob(H, owner)
 
 /obj/item/organ/external/hand/right/autakh/security
@@ -412,9 +412,9 @@
 			to_chat(owner, "<span class='danger'>Your energy reserves are too low to use your [src]!</span>")
 			return
 
-		if(ishuman(G.affecting))
+		if(isteshari(G.affecting))
 
-			var/mob/living/carbon/human/H = G.affecting
+			var/mob/living/carbon/teshari/H = G.affecting
 			var/target_zone = check_zone(owner.zone_sel.selecting)
 
 			owner.last_special = world.time + 100

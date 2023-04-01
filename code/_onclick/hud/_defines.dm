@@ -43,7 +43,7 @@
 #define ui_monkey_mask "WEST+4:14,SOUTH:5"	//monkey
 #define ui_monkey_back "WEST+5:14,SOUTH:5"	//monkey
 
-#define ui_construct_health "EAST:00,CENTER:15" //same height as humans, hugging the right border
+#define ui_construct_health "EAST:00,CENTER:15" //same height as tesharis, hugging the right border
 #define ui_construct_purge "EAST:00,CENTER-1:15"
 #define ui_construct_fire "EAST-1:16,CENTER+1:13" //above health, slightly to the left
 #define ui_construct_pull "EAST-1:28,SOUTH+1:10" //above the zone_sel icon
@@ -98,8 +98,8 @@
 #define ui_internal "EAST-1:28,CENTER+1:17"
 
 //borgs
-#define ui_borg_health "EAST-1:28,CENTER-1:13" //borgs have the health display where humans have the pressure damage indicator.
-#define ui_alien_health "EAST-1:28,CENTER-1:13" //aliens have the health display where humans have the pressure damage indicator.
+#define ui_borg_health "EAST-1:28,CENTER-1:13" //borgs have the health display where tesharis have the pressure damage indicator.
+#define ui_alien_health "EAST-1:28,CENTER-1:13" //aliens have the health display where tesharis have the pressure damage indicator.
 
 //Pop-up inventory
 #define ui_shoes "WEST+1:8,SOUTH:5"

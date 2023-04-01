@@ -61,7 +61,7 @@ var/datum/uplink/uplink
 			var/obj/item/device/uplink/hidden/hidden_uplink = uplink_implant.hidden_uplink
 			if(istype(hidden_uplink))
 				hidden_uplink.purchase_log = U.purchase_log
-	
+
 	purchase_log(U)
 	U.uses -= cost
 	U.used_TC += cost
@@ -82,7 +82,7 @@ var/datum/uplink/uplink
 
 /datum/uplink_item/proc/items_left(obj/item/device/uplink/U)
 	return item_limit - U.purchase_log[src]
-		
+
 /datum/uplink_item/proc/can_view(obj/item/device/uplink/U)
 	// Making the assumption that if no uplink was supplied, then we don't care about antag roles
 	if(!U || (!length(antag_roles) && !antag_job))
@@ -133,8 +133,8 @@ var/datum/uplink/uplink
 		var/list/L = I
 		if(L.len) I = L[1]
 
-	if(istype(I) && ishuman(user))
-		var/mob/living/carbon/human/A = user
+	if(istype(I) && isteshari(user))
+		var/mob/living/carbon/teshari/A = user
 		A.put_in_any_hand_if_possible(I)
 	return I
 

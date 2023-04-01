@@ -14,12 +14,12 @@
 	unit_name = "monkey hide"
 	export_types = list(/obj/item/stack/material/animalhide/monkey)
 
-/datum/export/stack/skin/human
+/datum/export/stack/skin/teshari
 	cost = 100
 	contraband = TRUE
 	unit_name = "piece"
-	message = "of human skin"
-	export_types = list(/obj/item/stack/material/animalhide/human)
+	message = "of teshari skin"
+	export_types = list(/obj/item/stack/material/animalhide/teshari)
 
 /datum/export/stack/skin/cat
 	cost = 150

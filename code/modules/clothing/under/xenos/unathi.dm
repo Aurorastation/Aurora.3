@@ -45,7 +45,7 @@
 	belt.appearance_flags = RESET_COLOR
 	add_overlay(belt)
 
-/obj/item/clothing/under/unathi/zazali/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/clothing/under/unathi/zazali/get_mob_overlay(var/mob/living/carbon/teshari/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_w_uniform_str)
 		var/image/top = image(mob_icon, null, "zazali_un_top")
@@ -91,7 +91,7 @@
 	belt.appearance_flags = RESET_COLOR
 	add_overlay(belt)
 
-/obj/item/clothing/under/unathi/himation/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/clothing/under/unathi/himation/get_mob_overlay(var/mob/living/carbon/teshari/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_w_uniform_str)
 		var/image/skirt = image(mob_icon, null, "himation_un_skirt")

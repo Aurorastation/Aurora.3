@@ -134,8 +134,8 @@
 	return
 
 /obj/item/pen/crayon/attack(mob/user, var/target_zone)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.check_has_mouth())
 			user.visible_message("<span class='notice'>[user] takes a bite of their crayon and swallows it.</span>", "<span class='notice'>You take a bite of your crayon and swallow it.</span>")
 			user.adjustNutritionLoss(-1)

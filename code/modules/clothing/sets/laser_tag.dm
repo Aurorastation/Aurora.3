@@ -35,8 +35,8 @@
 			return
 		current_health = set_health
 		var/user_name = "Unknown User"
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
+		if(isteshari(user))
+			var/mob/living/carbon/teshari/H = user
 			var/obj/item/card/id/ID = H.GetIdCard()
 			if(ID)
 				user_name = ID.registered_name

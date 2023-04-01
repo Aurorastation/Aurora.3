@@ -50,15 +50,15 @@
 
 /obj/item/landmine/proc/trigger(mob/living/L)
 	spark(src, 3, alldirs)
-	if(ishuman(L))
+	if(isteshari(L))
 		L.Weaken(2)
 	explosion(loc, 0, 2, 2, 3)
 	qdel(src)
 
 /obj/item/landmine/Crossed(AM as mob|obj, var/ignore_deployment = FALSE)
 	if(deployed || ignore_deployment)
-		if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
+		if(isteshari(AM))
+			var/mob/living/carbon/teshari/H = AM
 			if(H.shoes?.item_flags & LIGHTSTEP)
 				..()
 				return
@@ -142,8 +142,8 @@
 /obj/item/landmine/radiation/trigger(mob/living/L)
 	spark(src, 3, alldirs)
 	if(L)
-		if(ishuman(L))
-			var/mob/living/carbon/human/H = L
+		if(isteshari(L))
+			var/mob/living/carbon/teshari/H = L
 			H.apply_radiation(50)
 	qdel(src)
 

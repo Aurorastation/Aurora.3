@@ -62,8 +62,8 @@
 
 /obj/item/ship_ammunition/do_additional_pickup_checks(var/mob/user)
 	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_HEAVY)
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
+		if(isteshari(user))
+			var/mob/living/carbon/teshari/H = user
 			var/datum/species/S = H.species
 			if(S.mob_size >= mob_carry_size || S.resist_mod >= 10 || user.status_flags & GODMODE)
 				visible_message(SPAN_NOTICE("[user] tightens their grip on [src] and starts heaving..."))
@@ -126,7 +126,7 @@
 /obj/item/ship_ammunition/proc/eject_shell(var/obj/machinery/ship_weapon/SW) //do cool casing ejection effects here
 	return
 
-/obj/item/ship_ammunition/proc/wield(var/mob/living/carbon/human/user)
+/obj/item/ship_ammunition/proc/wield(var/mob/living/carbon/teshari/user)
 	wielded = TRUE
 	var/obj/item/offhand/O = new(user)
 	O.name = "[initial(name)] - offhand"
@@ -211,7 +211,7 @@
 
 /obj/item/projectile/ship_ammo/touch_map_edge()
 	if(primed)
-		for(var/mob/living/carbon/human/H in human_mob_list)
+		for(var/mob/living/carbon/teshari/H in teshari_mob_list)
 			if(AreConnectedZLevels(H.z, z))
 				to_chat(H, SPAN_WARNING("The flooring below you vibrates a little as shells fly by the hull of the ship!"))
 				H.playsound_simple(null, 'sound/effects/explosionfar.ogg', 25)

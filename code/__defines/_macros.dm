@@ -62,7 +62,7 @@
 
 #define isEye(A) istype(A, /mob/abstract/eye)
 
-#define ishuman(A) istype(A, /mob/living/carbon/human)
+#define isteshari(A) istype(A, /mob/living/carbon/teshari)
 
 #define ismech(A) istype(A, /mob/living/heavy_vehicle)
 

@@ -20,7 +20,7 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
-/obj/item/clothing/gloves/regen/equipped(var/mob/living/carbon/human/H)
+/obj/item/clothing/gloves/regen/equipped(var/mob/living/carbon/teshari/H)
 	if(H && H.gloves == src)
 		wearer = H
 		if(wearer.can_feel_pain())
@@ -28,7 +28,7 @@
 			wearer.custom_pain("You feel a sharp pain in your hands!",1)
 	..()
 
-/obj/item/clothing/gloves/regen/dropped(var/mob/living/carbon/human/H)
+/obj/item/clothing/gloves/regen/dropped(var/mob/living/carbon/teshari/H)
 	..()
 	if(wearer)
 		if(wearer.can_feel_pain())

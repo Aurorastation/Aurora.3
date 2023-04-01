@@ -36,7 +36,7 @@
 /mob/proc/changeling_message_process(var/message)
 	return "<font color=[COLOR_LING_HIVEMIND]><b>[src]</b> says, \"[formalize_text(message)]\"</font>"
 
-/mob/living/carbon/human/proc/changeling_release_morph()
+/mob/living/carbon/teshari/proc/changeling_release_morph()
 	set category = "Changeling"
 	set name = "Hivemind Release Morph"
 	set desc = "Releases a member of our internal hivemind as a morph, at the cost of one of our limbs."

@@ -19,7 +19,7 @@
 
 /obj/item/spirit_board/MouseDrop(mob/user as mob)
 	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(ishuman(usr))
+		if(isteshari(usr))
 			forceMove(get_turf(usr))
 			usr.put_in_hands(src)
 

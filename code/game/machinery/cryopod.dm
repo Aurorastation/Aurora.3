@@ -209,7 +209,7 @@ var/global/list/frozen_crew = list()
 	var/on_enter_sound = 'sound/machines/cryopod/cryopod_enter.ogg'
 	var/on_exit_sound = 'sound/machines/cryopod/cryopod_exit.ogg'
 	var/on_store_sound = 'sound/machines/cryopod/cryopod_store.ogg'
-	var/allow_occupant_types = list(/mob/living/carbon/human)
+	var/allow_occupant_types = list(/mob/living/carbon/teshari)
 	var/disallow_occupant_types = list()
 
 	var/mob/occupant					// Person waiting to be despawned.
@@ -408,10 +408,10 @@ var/global/list/frozen_crew = list()
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."))
 	playsound(loc, on_store_sound, 25)
 	frozen_crew += occupant
-	if(ishuman(occupant))
-		var/mob/living/carbon/human/H = occupant
+	if(isteshari(occupant))
+		var/mob/living/carbon/teshari/H = occupant
 		if(H.ghost_spawner)
-			var/datum/ghostspawner/human/GS = H.ghost_spawner.resolve()
+			var/datum/ghostspawner/teshari/GS = H.ghost_spawner.resolve()
 			GS.count--
 
 	// Let SSjobs handle the rest.
@@ -572,7 +572,7 @@ var/global/list/frozen_crew = list()
 /obj/machinery/cryopod/proc/save_ipc_tag(var/mob/M)
 	var/choice = alert(M, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
 	if(choice == "Yes")
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(tag)
 			M.client.prefs.machine_ownership_status = tag.ownership_info

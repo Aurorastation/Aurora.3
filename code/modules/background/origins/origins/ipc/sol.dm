@@ -1,6 +1,6 @@
 /singleton/origin_item/culture/ipc_sol
 	name = "Solarian"
-	desc = "Coming from the very centre of human space, IPC from the worlds of the Alliance are made with servitude in mind. The prospect of freedom does not exist for the vast majority of synthetics from there, and many have behavioural inhibitors installed as hardware. Memory wiping and retooling ensure strict adherence to discipline and efficiency, an attribute many IPC carry with them in their lives."
+	desc = "Coming from the very centre of teshari space, IPC from the worlds of the Alliance are made with servitude in mind. The prospect of freedom does not exist for the vast majority of synthetics from there, and many have behavioural inhibitors installed as hardware. Memory wiping and retooling ensure strict adherence to discipline and efficiency, an attribute many IPC carry with them in their lives."
 	possible_origins = list(
 		/singleton/origin_item/origin/ipc_sol_system,
 		/singleton/origin_item/origin/ipc_eridani,
@@ -25,8 +25,8 @@
 
 /singleton/origin_item/origin/ipc_konyang
 	name = "Konyang"
-	desc = "The birthplace of the positronic brain, Konyang has embraced IPC as equals, integrating them into a mixed society of synthetics and humans. Ownership of IPC is forbidden, leaving them able to freely develop and express themselves as citizens with full rights and access to all levels of society. Synthetics native to Konyang tend to strongly adhere to local cultural standards, assuming the same protective attitude towards strangers like their human counterparts."
-	important_information = "Naming conventions are relaxed on Konyang, with some IPC taking a clearly synthetic name, while others adopt names similar to humans, with both a first and surname."
+	desc = "The birthplace of the positronic brain, Konyang has embraced IPC as equals, integrating them into a mixed society of synthetics and tesharis. Ownership of IPC is forbidden, leaving them able to freely develop and express themselves as citizens with full rights and access to all levels of society. Synthetics native to Konyang tend to strongly adhere to local cultural standards, assuming the same protective attitude towards strangers like their teshari counterparts."
+	important_information = "Naming conventions are relaxed on Konyang, with some IPC taking a clearly synthetic name, while others adopt names similar to tesharis, with both a first and surname."
 	possible_accents = list(ACCENT_KONYAN, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_NONE, RELIGION_TRINARY, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_TAOISM)

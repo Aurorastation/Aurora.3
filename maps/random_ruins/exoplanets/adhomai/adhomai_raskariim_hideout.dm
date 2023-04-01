@@ -28,7 +28,7 @@
 
 //ghost roles
 
-/datum/ghostspawner/human/raskariim_hideout
+/datum/ghostspawner/teshari/raskariim_hideout
 	short_name = "raskariim_hideout"
 	name = "Raskariim"
 	desc = "Worship Raskara and live the cultist life in an abandoned house as your hideout."

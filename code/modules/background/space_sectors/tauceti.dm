@@ -106,7 +106,7 @@
 /datum/space_sector/corp_zone
 	name = SECTOR_CORP_ZONE
 	description = "Formerly Solarian space, the Corporate Reconstruction Zone is the name for all systems occupied by the Republic of Biesel that are not within Tau Ceti's gravity well. \
-	The Zone, or the CRZ, is an area of instability and logistical chaos where once-Alliance colonies exist in relative peace compared to the adjacent Human Wildlands. This is owed to \
+	The Zone, or the CRZ, is an area of instability and logistical chaos where once-Alliance colonies exist in relative peace compared to the adjacent teshari Wildlands. This is owed to \
 	two factors: the presence of the lingering Stellar Corporate Conglomerate, and the federal authority of the Republic of Biesel backing them up. Warlords and major antagonistic \
 	factions (to Biesel) generally refrain from entering these territories to avoid the ire of the Conglomerate, much less the repercussions of engaging its allies."
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove)

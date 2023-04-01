@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/ee_crewman
+/datum/ghostspawner/teshari/ee_crewman
 	short_name = "ee_crewman"
 	name = "Einstein Engines Crewman"
 	desc = "Crew the Einstein Engines research (or more accurately, spy) ship. Collect intelligence on the SCCV Horizon, all while maintaining plausible deniability. NOT AN ANTAGONIST! Do not act as such."
@@ -8,7 +8,7 @@
 	max_count = 3
 
 	outfit = /datum/outfit/admin/ee_crewman
-	possible_species = list(SPECIES_HUMAN, SPECIES_IPC_SHELL)
+	possible_species = list(SPECIES_teshari, SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Einstein Engines Crewman"
@@ -34,7 +34,7 @@
 /datum/outfit/admin/ee_crewman/get_id_access()
 	return list(access_ee_spy_ship, access_external_airlocks)
 
-/datum/ghostspawner/human/ee_research_officer
+/datum/ghostspawner/teshari/ee_research_officer
 	short_name = "ee_research_officer"
 	name = "Einstein Engines Research Officer"
 	desc = "Command the Einstein Engines research (or more accurately, spy) ship. Collect intelligence on the SCCV Horizon, all while maintaining plausible deniability. NOT AN ANTAGONIST! Do not act as such."
@@ -44,7 +44,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/ee_research_officer
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_teshari)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Einstein Engines Research Officer"

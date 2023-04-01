@@ -7,7 +7,7 @@
 	if(!changeling)
 		return
 
-	if(!ishuman(src))
+	if(!isteshari(src))
 		to_chat(src, "<span class='warning'>We cannot perform this ability as this form!</span>")
 		return
 
@@ -37,9 +37,9 @@
 	return TRUE
 
 /mob/proc/handle_changeling_transform(var/datum/absorbed_dna/chosen_dna)
-	if(ishuman(src))
+	if(isteshari(src))
 		src.visible_message("<span class='warning'>[src] transforms!</span>")
-		var/mob/living/carbon/human/H = src
+		var/mob/living/carbon/teshari/H = src
 		var/newSpecies = chosen_dna.speciesName
 		H.set_species(newSpecies, 1)
 
@@ -63,7 +63,7 @@
 		to_chat(src, "<span class='warning'>We cannot perform this ability at the present time!</span>")
 		return
 
-	var/mob/living/carbon/human/H = src
+	var/mob/living/carbon/teshari/H = src
 
 	if(!istype(H) || !H.species.primitive_form)
 		to_chat(src, "<span class='warning'>We cannot perform this ability in this form!</span>")
@@ -87,7 +87,7 @@
 
 	var/mob/living/simple_animal/hostile/lesser_changeling/ling = new (get_turf(H))
 
-	if(istype(H,/mob/living/carbon/human))
+	if(istype(H,/mob/living/carbon/teshari))
 		for(var/obj/item/I in H.contents)
 			if(isorgan(I))
 				continue
@@ -111,7 +111,7 @@
 	feedback_add_details("changeling_powers", "LF")
 	return TRUE
 
-//Transform into a human
+//Transform into a teshari
 /mob/proc/changeling_lesser_transform()
 	set category = "Changeling"
 	set name = "Transform (1)"
@@ -159,7 +159,7 @@
 	for(var/obj/item/W in src)
 		C.drop_from_inventory(W)
 
-	var/mob/living/carbon/human/O = new /mob/living/carbon/human( src )
+	var/mob/living/carbon/teshari/O = new /mob/living/carbon/teshari( src )
 	if (C.dna.GetUIState(DNA_UI_GENDER))
 		O.gender = FEMALE
 	else
@@ -210,8 +210,8 @@
 	C.status_flags |= FAKEDEATH		//play dead
 	C.update_canmove()
 	C.remove_changeling_powers()
-	if(ishuman(C))
-		var/mob/living/carbon/human/H = C
+	if(isteshari(C))
+		var/mob/living/carbon/teshari/H = C
 		H.handle_hud_list(TRUE)
 
 	C.emote("gasp")
@@ -256,7 +256,7 @@
 		return FALSE
 	changeling.use_charges(30)
 
-	var/mob/living/carbon/human/C = src
+	var/mob/living/carbon/teshari/C = src
 	C.set_stat(0)
 	C.SetParalysis(0)
 	C.SetStunned(0)
@@ -272,7 +272,7 @@
 	feedback_add_details("changeling_powers", "UNS")
 	return TRUE
 
-//Prevents AIs tracking you but makes you easily detectable to the human-eye.
+//Prevents AIs tracking you but makes you easily detectable to the teshari-eye.
 /mob/proc/changeling_digitalcamo()
 	set category = "Changeling"
 	set name = "Toggle Digital Camouflage"
@@ -282,7 +282,7 @@
 	if(!changeling)
 		return FALSE
 
-	var/mob/living/carbon/human/C = src
+	var/mob/living/carbon/teshari/C = src
 	if(C.digitalcamo)
 		to_chat(C, "<span class='notice'>We return to normal.</span>")
 	else
@@ -310,7 +310,7 @@
 		return FALSE
 	changeling.use_charges(30)
 
-	var/mob/living/carbon/human/C = src
+	var/mob/living/carbon/teshari/C = src
 	spawn(0)
 		for(var/i = 0, i < 10, i++)
 			if(C)
@@ -396,8 +396,8 @@
 		M.u_equip(M.handcuffed)
 		qdel(cuffs)
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
 			src.visible_message("<span class='danger'>[H] tears through the [H.wear_suit] with their grotesque arm blades!</span>",
 								"<span class='danger'>We tear through the [H.wear_suit] with our arm blades!</span>",
@@ -434,8 +434,8 @@
 		M.u_equip(M.handcuffed)
 		qdel(cuffs)
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
 			src.visible_message("<span class='danger'>[H] tears through the [H.wear_suit] with their grotesque shield!</span>",
 							"<span class='danger'>We tear through the [H.wear_suit] with our newly formed shield!</span>",
@@ -454,7 +454,7 @@
 /mob/proc/horror_form()
 	set category = "Changeling"
 	set name = "Horror Form (50)"
-	set desc = "Tear apart your human disguise, revealing your true form."
+	set desc = "Tear apart your teshari disguise, revealing your true form."
 
 	var/datum/changeling/changeling = changeling_power(50,0,0)
 	if(!changeling)
@@ -463,14 +463,14 @@
 	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
 		return
 
-	var/mob/living/carbon/human/M = src
+	var/mob/living/carbon/teshari/M = src
 
 	if(alert("Are we sure we wish to reveal ourselves and assume our ultimate form? This is irreversible, and we will not be able to revert to our disguised form.", , "Yes", "No") == "No") //Changelings have to confirm whether they want to go full horrorform
 		return
 
 	changeling.use_charges(50)
 
-	M.visible_message("<span class='danger'>[M] writhes and contorts, their body expanding to inhuman proportions!</span>", \
+	M.visible_message("<span class='danger'>[M] writhes and contorts, their body expanding to inteshari proportions!</span>", \
 						"<span class='danger'>We begin our transformation to our true form!</span>")
 	if(!do_after(src,60))
 		M.visible_message("<span class='danger'>[M]'s transformation abruptly reverts itself!</span>", \
@@ -482,7 +482,7 @@
 
 	var/mob/living/simple_animal/hostile/true_changeling/ling = new (get_turf(M))
 
-	if(istype(M,/mob/living/carbon/human))
+	if(istype(M,/mob/living/carbon/teshari))
 		if(M.handcuffed)
 			var/cuffs = M.handcuffed
 			M.u_equip(M.handcuffed)
@@ -525,7 +525,7 @@
 	changeling.use_charges(30)
 
 	var/list/victims = list()
-	for(var/mob/living/carbon/human/T in hearers(7, src) - src)
+	for(var/mob/living/carbon/teshari/T in hearers(7, src) - src)
 		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 			continue
 		if(T.changeling_power())
@@ -580,7 +580,7 @@
 	var/datum/changeling/changeling = changeling_power(30,0,0)
 	if(!changeling)
 		return FALSE
-	
+
 	visible_message(SPAN_DANGER("<font size=4>[src] opens their mouth and a horrid, high-pitched noise comes out!</font>"))
 	log_and_message_admins("used dissonant shriek.")
 	empulse(get_turf(src), 2, 3)
@@ -596,8 +596,8 @@
 	if(!changeling)
 		return FALSE
 
-	var/mob/living/carbon/human/H = src
-	if(!ishuman(H))
+	var/mob/living/carbon/teshari/H = src
+	if(!isteshari(H))
 		return
 
 	changeling.use_charges(5)
@@ -613,7 +613,7 @@
 		H.stop_sight_update = TRUE
 		to_chat(H, SPAN_NOTICE("We have turned on our heat receptors."))
 
-/mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
+/mob/living/carbon/teshari/get_flash_protection(ignore_inherent = FALSE)
 	var/datum/changeling/changeling = changeling_power(0, 0, 0)
 	if(changeling && changeling.using_thermals)
 		return FLASH_PROTECTION_REDUCED
@@ -627,9 +627,9 @@
 
 	var/datum/changeling/changeling = changeling_power(5,0,100,CONSCIOUS)
 
-	var/mob/living/carbon/human/H = src
+	var/mob/living/carbon/teshari/H = src
 
-	if(!changeling || !ishuman(H))
+	if(!changeling || !isteshari(H))
 		return FALSE
 
 	var/obj/held_item = H.get_active_hand()
@@ -639,4 +639,4 @@
 		to_chat(H, SPAN_NOTICE("We have recreated our finger to act like an electric lockpick."))
 		changeling.use_charges(5)
 
-	
+

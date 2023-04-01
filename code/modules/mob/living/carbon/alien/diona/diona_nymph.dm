@@ -14,7 +14,7 @@
 	desc = "A diona nymph."
 	voice_name = "diona nymph"
 	accent = ACCENT_ROOTSONG
-	adult_form = /mob/living/carbon/human/diona/coeus
+	adult_form = /mob/living/carbon/teshari/diona/coeus
 	speak_emote = list("chirrups")
 	icon = 'icons/mob/diona.dmi'
 	icon_state = "nymph"
@@ -140,11 +140,11 @@
 	W.forceMove(get_turf(src))
 	return TRUE
 
-//Functions duplicated from humans, albeit slightly modified
+//Functions duplicated from tesharis, albeit slightly modified
 /mob/living/carbon/alien/diona/proc/set_species(var/new_species)
 	if(!dna)
 		if(!new_species)
-			new_species = SPECIES_HUMAN
+			new_species = SPECIES_teshari
 	else
 		if(!new_species)
 			new_species = dna.species
@@ -153,7 +153,7 @@
 
 	// No more invisible screaming wheelchairs because of set_species() typos.
 	if(!all_species[new_species])
-		new_species = SPECIES_HUMAN
+		new_species = SPECIES_teshari
 
 	if(species)
 		if(species.name == new_species)
@@ -218,8 +218,8 @@
 //This is called periodically to register or remove this nymph's status as a bad organ of the gestalt
 //This is used to notify the gestalt when it needs repaired
 /mob/living/carbon/alien/diona/proc/check_status_as_organ()
-	if(ishuman(gestalt) && !QDELETED(gestalt))
-		var/mob/living/carbon/human/H = gestalt
+	if(isteshari(gestalt) && !QDELETED(gestalt))
+		var/mob/living/carbon/teshari/H = gestalt
 		if(!H.bad_internal_organs)
 			return
 		if(health < maxHealth)

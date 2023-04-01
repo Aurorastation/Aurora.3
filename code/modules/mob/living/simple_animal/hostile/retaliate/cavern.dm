@@ -69,8 +69,8 @@
 		..()
 
 /obj/item/projectile/beam/cavern/on_hit(var/atom/target, var/blocked = 0)
-	if(ishuman(target))
-		var/mob/living/carbon/human/M = target
+	if(isteshari(target))
+		var/mob/living/carbon/teshari/M = target
 		var/shock_damage = rand(10,20)
 		M.electrocute_act(shock_damage)
 

@@ -11,7 +11,7 @@
 
 //ghost roles
 
-/datum/ghostspawner/human/adhomai_amohdan
+/datum/ghostspawner/teshari/adhomai_amohdan
 	short_name = "adhomai_amohdan"
 	name = "Amohdan Swordsman"
 	desc = "Wander the land in search of a proper challenge as an Amohdan Swordsman. Live and die by the sword."

@@ -1,7 +1,7 @@
 // Updated version of old powerswitch by Atlantis
 // Has better texture, and is now considered electronic device
 // AI has ability to toggle it in 5 seconds
-// Humans need 30 seconds (AI is faster when it comes to complex electronics)
+// tesharis need 30 seconds (AI is faster when it comes to complex electronics)
 // Used for advanced grid control (read: Substations)
 
 /obj/machinery/power/breakerbox

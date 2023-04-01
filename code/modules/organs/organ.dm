@@ -6,7 +6,7 @@
 	default_action_type = /datum/action/item_action/organ
 	germ_level = 0
 
-	var/mob/living/carbon/human/owner = null
+	var/mob/living/carbon/teshari/owner = null
 
 	//Organ stats.
 	var/status = 0
@@ -50,7 +50,7 @@
 
 /obj/item/organ/New(loc, ...)
 	..()
-	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
+	if (!initialized && istype(loc, /mob/living/carbon/teshari/dummy/mannequin))
 		args[1] = TRUE
 		SSatoms.InitAtom(src, args)
 
@@ -62,7 +62,7 @@
 	if(istype(owner, /mob/living/carbon))
 		if(owner.internal_organs)
 			owner.internal_organs -= src
-		if(istype(owner, /mob/living/carbon/human))
+		if(istype(owner, /mob/living/carbon/teshari))
 			if(owner.internal_organs_by_name)
 				owner.internal_organs_by_name -= src
 			if(owner.organs)
@@ -92,13 +92,13 @@
 		max_damage = min_broken_damage * 2
 	if(istype(holder))
 		src.owner = holder
-		species = all_species[SPECIES_HUMAN]
+		species = all_species[SPECIES_teshari]
 		if(holder.dna)
 			dna = holder.dna.Clone()
 			species = all_species[dna.species]
 		else
 			log_debug("[src] at [loc] spawned without a proper DNA.")
-		var/mob/living/carbon/human/H = holder
+		var/mob/living/carbon/teshari/H = holder
 		if(istype(H))
 			if(internal)
 				var/obj/item/organ/external/E = H.get_organ(parent_organ)
@@ -394,7 +394,7 @@
 	surge_damage = Clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
 	surge_time = world.time
 
-/obj/item/organ/proc/removed(var/mob/living/carbon/human/target,var/mob/living/user)
+/obj/item/organ/proc/removed(var/mob/living/carbon/teshari/target,var/mob/living/user)
 	if(!istype(owner))
 		return
 
@@ -428,7 +428,7 @@
 	owner.update_action_buttons()
 	owner = null
 
-/obj/item/organ/proc/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
+/obj/item/organ/proc/replaced(var/mob/living/carbon/teshari/target, var/obj/item/organ/external/affected)
 	owner = target
 	action_button_name = initial(action_button_name)
 	forceMove(owner) //just in case
@@ -436,7 +436,7 @@
 		set_dna(owner.dna)
 	return 1
 
-/obj/item/organ/internal/eyes/replaced(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/eyes/replaced(var/mob/living/carbon/teshari/target)
 
 	// Apply our eye colour to the target.
 	if(istype(target) && eye_colour)

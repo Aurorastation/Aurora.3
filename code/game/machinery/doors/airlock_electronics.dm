@@ -17,7 +17,7 @@
 	var/unres_dir = null
 
 /obj/item/airlock_electronics/attack_self(mob/user)
-	if(!ishuman(user) && !istype(user,/mob/living/silicon/robot))
+	if(!isteshari(user) && !istype(user,/mob/living/silicon/robot))
 		return ..(user)
 
 	var/t1 = text("<B>Access Control</B><br>\n")

@@ -14,7 +14,7 @@
 	r_hand = /obj/item/material/twohanded/fireaxe
 	id = null
 
-/datum/outfit/admin/killer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/killer/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	for(var/obj/item/carried_item in H.contents)
 		if(!istype(carried_item, /obj/item/implant))//If it's not an implant.
 			carried_item.add_blood(H)//Oh yes, there will be blood...
@@ -35,7 +35,7 @@
 	pda = /obj/item/modular_computer/handheld/pda/command
 	id_iff = IFF_SYNDICATE
 
-/datum/outfit/admin/killer/assassin/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/killer/assassin/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	var/obj/item/storage/secure/briefcase/sec_briefcase = new(H)
 	for(var/obj/item/briefcase_item in sec_briefcase)
 		qdel(briefcase_item)

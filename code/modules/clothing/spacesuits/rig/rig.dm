@@ -65,7 +65,7 @@
 	var/obj/item/rig_module/selected_module = null            // Primary system (used with middle-click)
 	var/obj/item/rig_module/vision/visor                      // Kinda shitty to have a var for a module, but saves time.
 	var/obj/item/rig_module/voice/speech                      // As above.
-	var/mob/living/carbon/human/wearer                        // The person currently wearing the rig.
+	var/mob/living/carbon/teshari/wearer                        // The person currently wearing the rig.
 	var/image/mob_icon                                        // Holder for on-mob icon.
 	var/list/installed_modules = list()                       // Power consumption/use bookkeeping.
 
@@ -99,7 +99,7 @@
 	var/datum/effect_system/sparks/spark_system
 
 	var/allowed_module_types = MODULE_GENERAL // All rigs by default should have access to general
-	var/list/species_restricted = list(BODYTYPE_HUMAN,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	var/list/species_restricted = list(BODYTYPE_teshari,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 
 /obj/item/rig/examine()
 	to_chat(usr, "This is [icon2html(src, usr)][src.name].")
@@ -434,7 +434,7 @@
 	var/fail_msg
 
 	if(!user_is_ai)
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/teshari/H = user
 		if(istype(H) && H.back != src)
 			fail_msg = "<span class='warning'>You must be wearing \the [src] to do this.</span>"
 		else if(user.incorporeal_move)
@@ -567,7 +567,7 @@
 		return cell
 	return ..()
 
-/obj/item/rig/proc/check_suit_access(var/mob/living/carbon/human/user)
+/obj/item/rig/proc/check_suit_access(var/mob/living/carbon/teshari/user)
 
 	if(!security_check_enabled || !locked)
 		return 1
@@ -599,7 +599,7 @@
 		return 0
 
 	if(href_list["toggle_piece"])
-		if(ishuman(user) && (user.stat || user.stunned || user.lying))
+		if(isteshari(user) && (user.stat || user.stunned || user.lying))
 			return FALSE
 		toggle_piece(href_list["toggle_piece"], user)
 	else if(href_list["toggle_seals"])
@@ -637,7 +637,7 @@
 			to_chat(module.integrated_ai, "[message]")
 			. = 1
 
-/obj/item/rig/check_equipped(mob/living/carbon/human/M, slot, assisted_equip = FALSE)
+/obj/item/rig/check_equipped(mob/living/carbon/teshari/M, slot, assisted_equip = FALSE)
 	if(istype(M) && slot == slot_back)
 		if(!assisted_equip && seal_delay > 0)
 			M.visible_message(SPAN_NOTICE("[M] starts putting on \the [src]..."), SPAN_NOTICE("You start putting on \the [src]..."))
@@ -690,7 +690,7 @@
 	if(use_obj)
 		if(check_slot == use_obj && deploy_mode != ONLY_DEPLOY)
 
-			var/mob/living/carbon/human/holder
+			var/mob/living/carbon/teshari/holder
 
 			if(use_obj)
 				holder = use_obj.loc
@@ -723,7 +723,7 @@
 
 /obj/item/rig/proc/deploy(mob/M,var/sealed)
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 
 	if(!H || !istype(H)) return
 
@@ -847,7 +847,7 @@
 			to_chat(wearer, "<span class='warning'>The [source] has damaged your [dam_module.interface_name]!</span>")
 	dam_module.deactivate()
 
-/obj/item/rig/proc/malfunction_check(var/mob/living/carbon/human/user)
+/obj/item/rig/proc/malfunction_check(var/mob/living/carbon/teshari/user)
 	if(malfunction_delay)
 		if(offline)
 			to_chat(user, "<span class='danger'>The suit is completely unresponsive.</span>")
@@ -969,7 +969,7 @@
 		if(istype(wearer.pulledby, /obj/structure/bed/stool/chair/office/wheelchair))
 			return wearer.pulledby.relaymove(wearer, direction)
 		else if(istype(wearer.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
-			if(ishuman(wearer.buckled_to))
+			if(isteshari(wearer.buckled_to))
 				var/obj/item/organ/external/l_hand = wearer.get_organ(BP_L_HAND)
 				var/obj/item/organ/external/r_hand = wearer.get_organ(BP_R_HAND)
 				if((!l_hand || (l_hand.status & ORGAN_DESTROYED)) && (!r_hand || (r_hand.status & ORGAN_DESTROYED)))
@@ -989,7 +989,7 @@
 /obj/item/rig/get_rig()
 	return src
 
-/mob/living/carbon/human/get_rig()
+/mob/living/carbon/teshari/get_rig()
 	return back
 
 //Used in random rig spawning for cargo

@@ -36,8 +36,8 @@
 		user.visible_message("<b>[user]</b> climbs into \the [src], disappearing from sight.", SPAN_NOTICE("You climb into \the [src], finally finding a good spot to hide."))
 		user.forceMove(src)
 		hider = user
-		if(ishuman(user) && prob(5))
-			var/mob/living/carbon/human/H = user
+		if(isteshari(user) && prob(5))
+			var/mob/living/carbon/teshari/H = user
 			H.take_overall_damage(5, 0, DAMAGE_FLAG_SHARP, src)
 			to_chat(user, SPAN_WARNING("You cut yourself while climbing into \the [src]!"))
 
@@ -49,9 +49,9 @@
 		hider = null
 
 /obj/structure/trash_pile/attack_hand(mob/user)
-	//Human mob
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	//teshari mob
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.a_intent == I_HURT)
 			H.visible_message("<b>[user]</b> starts taking \the [src] apart...", SPAN_NOTICE("You start taking \the [src] apart..."))
 			if(do_after(user, 2 MINUTES))

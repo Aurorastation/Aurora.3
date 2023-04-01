@@ -12,9 +12,9 @@
 /datum/reagents/metabolism/proc/metabolize()
 	if(!parent)
 		return
-	var/metabolism_type = 0 //non-human mobs
-	if(ishuman(parent))
-		var/mob/living/carbon/human/H = parent
+	var/metabolism_type = 0 //non-teshari mobs
+	if(isteshari(parent))
+		var/mob/living/carbon/teshari/H = parent
 		metabolism_type = H.species.reagent_tag
 	// run this first to get all the chem effects sorted
 	for(var/_R in reagent_volumes)

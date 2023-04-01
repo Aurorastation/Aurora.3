@@ -112,8 +112,8 @@
 
 /obj/item/gun/custom_ka/frameB/handle_post_fire(mob/user)
 	..()
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.mob_size < 10) // smaller than an unathi
 			H.visible_message(SPAN_WARNING("\The [src] goes flying out of \the [H]'s hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 			H.drop_item(src)

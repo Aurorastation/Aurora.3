@@ -17,6 +17,6 @@
 	var/list/datum/citizenship/possible_citizenships = list()
 	var/list/datum/religion/possible_religions = list()
 
-/singleton/origin_item/proc/on_apply(var/mob/living/carbon/human/H)
+/singleton/origin_item/proc/on_apply(var/mob/living/carbon/teshari/H)
 	for(var/trait in origin_traits)
 		ADD_TRAIT(H, trait, CULTURE_TRAIT)

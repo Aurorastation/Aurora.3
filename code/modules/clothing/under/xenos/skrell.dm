@@ -327,7 +327,7 @@
 	accent.color = additional_color
 	add_overlay(accent)
 
-/obj/item/clothing/under/skrell/wetsuit/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/clothing/under/skrell/wetsuit/get_mob_overlay(var/mob/living/carbon/teshari/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_w_uniform_str)
 		var/image/accent = image(mob_icon, null, "wetsuit_un_accent")

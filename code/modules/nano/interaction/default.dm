@@ -102,7 +102,7 @@
 	if(. == STATUS_INTERACTIVE)
 		return STATUS_UPDATE
 
-/mob/living/carbon/human/default_can_use_topic(var/src_object)
+/mob/living/carbon/teshari/default_can_use_topic(var/src_object)
 	. = shared_nano_interaction(src_object)
 	if(. != STATUS_CLOSE)
 		if(loc)

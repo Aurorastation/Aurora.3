@@ -91,7 +91,7 @@
 	set name = "Reset Lock"
 	if(!usr.canmove || usr.stat || usr.restrained()) // Don't use it if you're not able to! Checks for stuns, ghost and restrain
 		return
-	if(ishuman(usr))
+	if(isteshari(usr))
 		add_fingerprint(usr)
 		if (locked || !registered_name)
 			to_chat(usr, "<span class='warning'>You need to unlock it first.</span>")

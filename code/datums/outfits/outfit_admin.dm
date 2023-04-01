@@ -1,14 +1,14 @@
 /datum/outfit/admin
 	var/id_icon
 
-/datum/outfit/admin/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/pre_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(!visualsOnly)
 		if(H.mind)
 			H.mind.assigned_role = name
 		H.job = name
 
-/datum/outfit/admin/imprint_idcard(mob/living/carbon/human/H, obj/item/card/id/C)
+/datum/outfit/admin/imprint_idcard(mob/living/carbon/teshari/H, obj/item/card/id/C)
 	..()
 	if(id_icon)
 		C.icon_state = id_icon
@@ -16,7 +16,7 @@
 /datum/outfit/admin/random_employee
 	name = "Random Employee"
 
-/datum/outfit/admin/random_employee/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/random_employee/pre_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(!visualsOnly)
 		//Select a random job, set the assigned_role / job var and equip it
@@ -49,7 +49,7 @@
 		/obj/item/storage/backpack/duffel
 	)
 
-/datum/outfit/admin/random/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/random/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(!visualsOnly)
 		if(prob(10)) //Equip something smokable

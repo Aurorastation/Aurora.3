@@ -30,8 +30,8 @@
 		return ..()
 
 	var/zone = (user.hand ? BP_L_ARM:BP_R_ARM)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		var/obj/item/organ/external/affecting = H.get_organ(zone)
 		to_chat(user, SPAN_CULT("An unexplicable force rips through your [affecting.name], tearing the sword from your grasp!"))
 	else

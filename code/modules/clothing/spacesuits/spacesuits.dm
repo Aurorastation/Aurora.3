@@ -75,7 +75,7 @@
 	check_limb_support(user)
 	..()
 
-/obj/item/clothing/suit/space/proc/check_limb_support(var/mob/living/carbon/human/user)
+/obj/item/clothing/suit/space/proc/check_limb_support(var/mob/living/carbon/teshari/user)
 	// If this isn't set, then we don't need to care.
 	if(!supporting_limbs || !supporting_limbs.len)
 		return

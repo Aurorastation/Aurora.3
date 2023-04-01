@@ -39,7 +39,7 @@
 		if(!isipc(M))
 			to_chat(user, SPAN_WARNING("You analyze \the [M], but find that they're not an IPC at all!"))
 			return
-		var/mob/living/carbon/human/IPC = M
+		var/mob/living/carbon/teshari/IPC = M
 		var/obj/item/organ/internal/ipc_tag/tag = IPC.internal_organs_by_name[BP_IPCTAG]
 		if(isnull(tag) || !tag)
 			to_chat(user, SPAN_WARNING("Error: Serial Identification Missing."))

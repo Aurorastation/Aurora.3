@@ -283,7 +283,7 @@
 	else
 		..()
 
-// Used for an MMI or posibrain being installed into a human.
+// Used for an MMI or posibrain being installed into a teshari.
 /obj/item/organ/internal/mmi_holder
 	name = "brain"
 	organ_tag = BP_BRAIN

@@ -20,8 +20,8 @@
 
 /singleton/maneuver/leap/proc/end_leap(var/mob/living/user, var/atom/target, var/pass_flag)
 	user.pass_flags = pass_flag
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.species.mob_size > 10)
 			var/turf/T = get_turf(target)
 			var/damage_mod = 1
@@ -73,8 +73,8 @@
 
 /singleton/maneuver/leap/grab/end_leap(mob/living/user, atom/target, pass_flag)
 	. = ..()
-	if(ishuman(user) && !user.lying && ismob(target) && user.Adjacent(target))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user) && !user.lying && ismob(target) && user.Adjacent(target))
+		var/mob/living/carbon/teshari/H = user
 		var/use_hand = "left"
 		if(H.l_hand)
 			if(H.r_hand)

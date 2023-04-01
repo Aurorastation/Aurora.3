@@ -114,7 +114,7 @@
 			targetTurfs += T
 		// populates a list of mobs in the smoke for logs
 		if (show_touch_log)
-			for (var/mob/living/carbon/human/MT in T.contents)
+			for (var/mob/living/carbon/teshari/MT in T.contents)
 				if (MT.client)
 					touched_mobs += get_mob_by_key(MT.ckey)
 

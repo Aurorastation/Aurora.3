@@ -85,7 +85,7 @@
 	if(incinerate) apply_effect(incinerate, INCINERATE, blocked)
 	return 1
 
-// overridden by human
+// overridden by teshari
 /mob/living/proc/apply_radiation(var/rads)
 	total_radiation += rads
 	if (total_radiation < 0)

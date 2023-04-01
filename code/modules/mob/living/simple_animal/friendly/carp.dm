@@ -65,7 +65,7 @@
 
 //Basic friend AI
 /mob/living/simple_animal/carp/fluff
-	var/mob/living/carbon/human/friend
+	var/mob/living/carbon/teshari/friend
 	var/befriend_job = null
 
 /mob/living/simple_animal/carp/fluff/think()
@@ -116,7 +116,7 @@
 		say("Glubglub!")
 		return
 
-	if(!(ishuman(usr) && befriend_job && usr.job == befriend_job))
+	if(!(isteshari(usr) && befriend_job && usr.job == befriend_job))
 		to_chat(user, "<span class='notice'>[src] ignores you.</span>")
 		return
 

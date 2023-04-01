@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/syndicate
 	name = "\improper Syndicate operative"
 	desc = "Death to the Company."
-	icon = 'icons/mob/npc/human.dmi'
+	icon = 'icons/mob/npc/teshari.dmi'
 	icon_state = "syndicate"
 	icon_living = "syndicate"
 	icon_dead = "syndicate_dead"

@@ -34,8 +34,8 @@
 				SM.rejuvenate()
 				SM.health = SM.getMaxHealth() / 3
 				adjust_instability(15)
-			else if(ishuman(L))
-				var/mob/living/carbon/human/H = L
+			else if(isteshari(L))
+				var/mob/living/carbon/teshari/H = L
 
 				if(!H.client && H.mind) //Don't force the dead person to come back if they don't want to.
 					for(var/mob/abstract/observer/ghost in player_list)

@@ -194,7 +194,7 @@
 
 	distillation_point = T0C + 78.37
 
-/singleton/reagent/alcohol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/alcohol/affect_ingest(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
@@ -227,7 +227,7 @@
 	return
 
 
-// Butanol is a common alcohol that is fairly ineffective for humans and most other species, but highly intoxicating to unathi.
+// Butanol is a common alcohol that is fairly ineffective for tesharis and most other species, but highly intoxicating to unathi.
 // Most behavior is inherited from alcohol.
 /singleton/reagent/alcohol/butanol
 	name = "Butanol"
@@ -247,7 +247,7 @@
 
 	distillation_point = T0C + 117.7
 
-/singleton/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
@@ -289,7 +289,7 @@
 	remove_self(amount, holder)
 	return
 
-/singleton/reagent/hydrazine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/hydrazine/affect_breathe(var/mob/living/carbon/teshari/H, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	H.add_chemical_effect(CE_PNEUMOTOXIC, removed * 0.5)
 
@@ -319,12 +319,12 @@
 /singleton/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
 		step(M, pick(cardinal))
-	if(prob(5) && ishuman(M))
+	if(prob(5) && isteshari(M))
 		M.emote(pick("twitch", "drool", "moan"))
 
 /singleton/reagent/mercury
 	name = "Mercury"
-	description = "A poisonous chemical element, one of two that is a liquid at human room temperature and pressure."
+	description = "A poisonous chemical element, one of two that is a liquid at teshari room temperature and pressure."
 	reagent_state = LIQUID
 	color = "#484848"
 	ingest_met = REM*0.1
@@ -346,7 +346,7 @@
 		M.confused = max(M.confused, 10)
 	if(dose > 4)
 		M.add_chemical_effect(CE_CLUMSY, 1)
-		if(prob(dose/4) && ishuman(M))
+		if(prob(dose/4) && isteshari(M))
 			M.emote(pick("twitch", "shiver", "drool"))
 		if(prob(dose/4))
 			M.visible_message("<b>[M]</b> chuckles spontaneously.", "You chuckle spontaneously.")
@@ -418,13 +418,13 @@
 /singleton/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.take_organ_damage(0, removed * power)
 
-/singleton/reagent/acid/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/acid/affect_breathe(var/mob/living/carbon/teshari/H, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	H.add_chemical_effect(CE_PNEUMOTOXIC, removed * power * 0.5)
 
 /singleton/reagent/acid/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) // This is the most interesting
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(H.head)
 			if(H.head.unacidable)
 				to_chat(H, "<span class='danger'>Your [H.head] protects you from the acid.</span>")
@@ -469,8 +469,8 @@
 		M.take_organ_damage(0, removed * power * 0.2) //burn damage, since it causes chemical burns. Acid doesn't make bones shatter, like brute trauma would.
 		return
 	if(!M.unacidable && removed > 0)
-		if(ishuman(M) && REAGENT_VOLUME(holder, type) >= meltdose)
-			var/mob/living/carbon/human/H = M
+		if(isteshari(M) && REAGENT_VOLUME(holder, type) >= meltdose)
+			var/mob/living/carbon/teshari/H = M
 			var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 			if(affecting)
 				if(affecting.take_damage(0, removed * power * 0.1))

@@ -38,7 +38,7 @@
 	id_iff = IFF_LANCER
 	var/id_access = "Lancer"
 
-/datum/outfit/admin/event/lance/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/event/lance/post_equip(mob/living/carbon/teshari/H, visualsOnly)
 	organize_voidsuit(H)
 
 /datum/outfit/admin/event/lance/get_id_access()
@@ -108,7 +108,7 @@
 	)
 	id_access = "Lance Operative"
 
-/datum/outfit/admin/event/lance/operative/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/event/lance/operative/post_equip(mob/living/carbon/teshari/H, visualsOnly)
 	return
 
 /datum/outfit/admin/event/sol_marine

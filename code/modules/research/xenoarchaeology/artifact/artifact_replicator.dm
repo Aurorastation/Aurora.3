@@ -70,7 +70,7 @@
 	var/quantity = rand(5,15)
 	for(var/i=0, i<quantity, i++)
 		var/button_desc = "a [pick("yellow","purple","green","blue","red","orange","white")], "
-		button_desc += "[pick("round","square","diamond",BP_HEART,"dog","human")] shaped "
+		button_desc += "[pick("round","square","diamond",BP_HEART,"dog","teshari")] shaped "
 		button_desc += "[pick("toggle","switch","lever","button","pad","hole")]"
 		var/type = pick(viables)
 		viables.Remove(type)

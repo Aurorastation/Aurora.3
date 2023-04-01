@@ -20,7 +20,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	var/fail_chance = 35
 
-/obj/item/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
+/obj/item/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/teshari/M)
 	if(prob(fail_chance))
 		M.visible_message("<span class='danger'>[M]'s weapon blows up, shattering into pieces!</span>","<span class='danger'>[src] blows up in your face!</span>", "You hear a loud bang!")
 		M.take_organ_damage(0,30)

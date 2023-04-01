@@ -10,7 +10,7 @@
 	anchored = FALSE
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
-	var/mob/living/carbon/human/attached = null
+	var/mob/living/carbon/teshari/attached = null
 	var/wiping = FALSE
 	var/datum/progressbar/wipe_bar
 	var/wipe_start_time = 0

@@ -14,12 +14,12 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/classichotdog
 
-/singleton/recipe/humanburger
+/singleton/recipe/teshariburger
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meat/human,
+		/obj/item/reagent_containers/food/snacks/meat/teshari,
 		/obj/item/reagent_containers/food/snacks/bun
 	)
-	result = /obj/item/reagent_containers/food/snacks/human/burger
+	result = /obj/item/reagent_containers/food/snacks/teshari/burger
 
 /singleton/recipe/mouseburger
 	items = list(
@@ -31,7 +31,7 @@
 /singleton/recipe/plainburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat //do not place this recipe before /singleton/recipe/humanburger
+		/obj/item/reagent_containers/food/snacks/meat //do not place this recipe before /singleton/recipe/teshariburger
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger
 
@@ -63,13 +63,13 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/tofu
 
-/singleton/recipe/humankabob
+/singleton/recipe/tesharikabob
 	items = list(
 		/obj/item/stack/rods,
-		/obj/item/reagent_containers/food/snacks/meat/human,
-		/obj/item/reagent_containers/food/snacks/meat/human
+		/obj/item/reagent_containers/food/snacks/meat/teshari,
+		/obj/item/reagent_containers/food/snacks/meat/teshari
 	)
-	result = /obj/item/reagent_containers/food/snacks/human/kabob
+	result = /obj/item/reagent_containers/food/snacks/teshari/kabob
 
 /singleton/recipe/monkeykabob
 	items = list(

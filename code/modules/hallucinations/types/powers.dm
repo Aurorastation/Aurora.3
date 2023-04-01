@@ -29,8 +29,8 @@
 		if(3)
 			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
 			holder.visible_message("<b>[holder]</b> winces.")
-			if(ishuman(holder))
-				var/mob/living/carbon/human/H = holder
+			if(isteshari(holder))
+				var/mob/living/carbon/teshari/H = holder
 				var/obj/item/organ/external/O = H.get_organ(BP_HEAD)
 				O.add_pain(25)
 
@@ -116,8 +116,8 @@
 		if(3)
 			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
 			holder.visible_message("<b>[holder]</b> winces.")
-			if(ishuman(holder))
-				var/mob/living/carbon/human/H = holder
+			if(isteshari(holder))
+				var/mob/living/carbon/teshari/H = holder
 				var/obj/item/organ/external/O = H.get_organ(BP_HEAD)
 				O.add_pain(25)
 

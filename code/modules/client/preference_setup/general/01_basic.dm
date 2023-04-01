@@ -128,13 +128,13 @@
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	if(!pref.species)
-		pref.species = SPECIES_HUMAN
+		pref.species = SPECIES_teshari
 	var/is_in_playable_species = FALSE
 	for(var/thing in playable_species)
 		if(pref.species in playable_species[thing])
 			is_in_playable_species = TRUE
 	if(!is_in_playable_species)
-		pref.species = SPECIES_HUMAN
+		pref.species = SPECIES_teshari
 
 	pref.age                = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
 	pref.gender             = sanitize_gender(pref.gender, pref.species)
@@ -230,8 +230,8 @@
 		var/new_fc_color = input(user, "Choose Floating Chat Color:", "Global Preference") as color|null
 		if(new_fc_color && CanUseTopic(user))
 			pref.floating_chat_color = new_fc_color
-			var/mob/living/carbon/human/H = preference_mob()
-			if(ishuman(H))
+			var/mob/living/carbon/teshari/H = preference_mob()
+			if(isteshari(H))
 				H.set_floating_chat_color(new_fc_color)
 			return TOPIC_REFRESH
 

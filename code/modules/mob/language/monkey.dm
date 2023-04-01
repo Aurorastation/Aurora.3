@@ -1,4 +1,4 @@
-/datum/language/human/monkey
+/datum/language/teshari/monkey
 	name = LANGUAGE_CHIMPANZEE
 	desc = "Ook ook ook."
 	speech_verb = list("chimpers")

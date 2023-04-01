@@ -82,7 +82,7 @@
 	Move(destination)
 	return TRUE
 
-/mob/living/carbon/human/zMove(direction)
+/mob/living/carbon/teshari/zMove(direction)
 	if(istype(loc, /mob/living/heavy_vehicle))
 		var/mob/living/heavy_vehicle/mech = loc
 		mech.zMove(direction)
@@ -133,7 +133,7 @@
 /mob/abstract/observer/can_ztravel(var/direction)
 	return TRUE
 
-/mob/living/carbon/human/can_ztravel(var/direction)
+/mob/living/carbon/teshari/can_ztravel(var/direction)
 	if(incapacitated())
 		return FALSE
 
@@ -148,7 +148,7 @@
 			if(Check_Shoegrip(FALSE))
 				return TRUE
 
-/mob/living/carbon/human/proc/climb(var/direction, var/turf/source, var/climb_bonus)
+/mob/living/carbon/teshari/proc/climb(var/direction, var/turf/source, var/climb_bonus)
 	var/turf/destination
 	if(direction == UP)
 		destination = GetAbove(source)
@@ -212,7 +212,7 @@
 				Move(destination)
 			fall_impact(1, damage_mod = min(1, max(0.2, ((100-climb_chance)/100) - 0.2)))
 
-/mob/living/carbon/human/proc/climb_check(var/success, var/climb_chance, var/speed, var/direction, var/turf/destination) //purely for immersion and variety
+/mob/living/carbon/teshari/proc/climb_check(var/success, var/climb_chance, var/speed, var/direction, var/turf/destination) //purely for immersion and variety
 	if((last_special < world.time) && !success) //if you will succeed you can't fail
 		last_special = world.time + speed/10
 		if(prob(100 - climb_chance)) //The worse you are the sooner you'll fail.
@@ -239,7 +239,7 @@
  * Used to determine whether or not a given mob can override gravity when
  * attempting to Z-move UP.
  *
- * Returns FALSE in standard mob cases. Exists for carbon/human and other child overrides.
+ * Returns FALSE in standard mob cases. Exists for carbon/teshari and other child overrides.
  *
  * @return	TRUE if the mob can Z-move up despite gravity.
  *			FALSE otherwise.
@@ -249,9 +249,9 @@
 		return TRUE
 	return FALSE
 
-// Humans and borgs have jetpacks which allows them to override gravity! Or rather,
+// tesharis and borgs have jetpacks which allows them to override gravity! Or rather,
 // they can have them. So we override and check.
-/mob/living/carbon/human/CanAvoidGravity()
+/mob/living/carbon/teshari/CanAvoidGravity()
 	if (!restrained())
 		var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
@@ -373,7 +373,7 @@
 // Only things that stop mechas are atoms that, well, stop them.
 // Lattices and stairs get crushed in fall_through.
 
-/mob/living/carbon/human/can_fall(turf/below, turf/simulated/open/dest = src.loc)
+/mob/living/carbon/teshari/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// Special condition for jetpack mounted folk!
 	if(!restrained())
 		var/obj/item/tank/jetpack/thrust = GetJetpack(src)
@@ -483,7 +483,7 @@
 
 	return TRUE
 
-/mob/living/carbon/human/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
+/mob/living/carbon/teshari/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
 	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
@@ -627,7 +627,7 @@
 
 	updatehealth()
 
-// Humans can be synthetic. Never forgetti.
+// tesharis can be synthetic. Never forgetti.
 	if(!isSynthetic())
 		switch(damage)
 			if(-INFINITY to 10)
@@ -642,18 +642,18 @@
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
 	// Stats.
-	SSfeedback.IncrementSimpleStat("openturf_human_falls")
+	SSfeedback.IncrementSimpleStat("openturf_teshari_falls")
 	addtimer(CALLBACK(src, PROC_REF(post_fall_death_check)), 2 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 	return TRUE
 
-/mob/living/carbon/human/proc/fall_message(var/location, var/descriptor)
+/mob/living/carbon/teshari/proc/fall_message(var/location, var/descriptor)
 	visible_message(SPAN_WARNING("There's a sickening popping noise as [src]'s [location] [descriptor]!"),
 		SPAN_DANGER("Grueling pain shoots through your mind as your [location] [descriptor]!"))
 
-/mob/living/carbon/human/proc/post_fall_death_check()
+/mob/living/carbon/teshari/proc/post_fall_death_check()
 	if (stat == DEAD)
-		SSfeedback.IncrementSimpleStat("openturf_human_deaths")
+		SSfeedback.IncrementSimpleStat("openturf_teshari_deaths")
 
 /obj/vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	. = ..()
@@ -723,8 +723,8 @@
 	if (!L)
 		return null
 
-	if (ishuman(L))
-		var/mob/living/carbon/human/H = L
+	if (isteshari(L))
+		var/mob/living/carbon/teshari/H = L
 		var/cranial_damage = rand(0,damage/2)
 		H.apply_damage(cranial_damage, DAMAGE_BRUTE, BP_HEAD, armor_pen = cranial_damage + armor_penetration)
 		var/new_damage = damage - cranial_damage

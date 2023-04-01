@@ -315,7 +315,7 @@
 	observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
 	announce_ghost_joinleave(src)
-	var/mob/living/carbon/human/dummy/mannequin/mannequin = new
+	var/mob/living/carbon/teshari/dummy/mannequin/mannequin = new
 	client.prefs.dress_preview_mob(mannequin)
 	observer.appearance = mannequin.appearance
 	observer.appearance_flags = KEEP_TOGETHER

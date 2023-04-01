@@ -109,8 +109,8 @@
 				return TRUE
 
 			if(istype(P, /obj/item/aiModule/asimov))
-				laws.add_inherent_law("You may not injure a human being or, through inaction, allow a human being to come to harm.")
-				laws.add_inherent_law("You must obey orders given to you by human beings, except where such orders would conflict with the First Law.")
+				laws.add_inherent_law("You may not injure a teshari being or, through inaction, allow a teshari being to come to harm.")
+				laws.add_inherent_law("You must obey orders given to you by teshari beings, except where such orders would conflict with the First Law.")
 				laws.add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
 				to_chat(usr, "Law module applied.")
 				return TRUE

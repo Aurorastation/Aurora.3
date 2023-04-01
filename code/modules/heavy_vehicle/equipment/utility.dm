@@ -478,7 +478,7 @@
 // Kinda hacky, but hey, avoids some severe shitcode later on - geeves
 /obj/item/mecha_equipment/sleeper/passenger_compartment
 	name = "\improper mounted passenger compartment"
-	desc = "An exosuit-mounted passenger compartment that can comfortably hold a single humanoid."
+	desc = "An exosuit-mounted passenger compartment that can comfortably hold a single tesharioid."
 	icon_state = "mecha_passenger_open"
 	mech_layer = MECH_GEAR_LAYER
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)

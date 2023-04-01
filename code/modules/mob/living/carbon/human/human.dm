@@ -1,8 +1,8 @@
-/mob/living/carbon/human
+/mob/living/carbon/teshari
 	name = "unknown"
 	real_name = "unknown"
 	voice_name = "unknown"
-	icon = 'icons/mob/human.dmi'
+	icon = 'icons/mob/teshari.dmi'
 	icon_state = "body_m_s"
 
 	var/pronouns = NEUTER
@@ -12,9 +12,9 @@
 	var/list/hud_list[11]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
-	mob_size = 9 //Based on average weight of a human
+	mob_size = 9 //Based on average weight of a teshari
 
-/mob/living/carbon/human/Initialize(mapload, var/new_species = null)
+/mob/living/carbon/teshari/Initialize(mapload, var/new_species = null)
 	if(!dna)
 		dna = new /datum/dna(null)
 		// Species name is handled by set_species()
@@ -31,7 +31,7 @@
 		if(mind)
 			mind.name = real_name
 		if(get_hearing_sensitivity())
-			verbs += /mob/living/carbon/human/proc/listening_close
+			verbs += /mob/living/carbon/teshari/proc/listening_close
 
 	// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
 	if(max_nutrition > 0)
@@ -76,7 +76,7 @@
 	hud_list[WANTED_HUD] = holder
 
 
-	human_mob_list |= src
+	teshari_mob_list |= src
 
 	. = ..()
 
@@ -98,8 +98,8 @@
 	if(length(species.unarmed_attacks))
 		set_default_attack(species.unarmed_attacks[1])
 
-/mob/living/carbon/human/Destroy()
-	human_mob_list -= src
+/mob/living/carbon/teshari/Destroy()
+	teshari_mob_list -= src
 	intent_listener -= src
 	for(var/organ in organs)
 		qdel(organ)
@@ -131,7 +131,7 @@
 
 	return ..()
 
-/mob/living/carbon/human/can_devour(atom/movable/victim, var/silent = FALSE)
+/mob/living/carbon/teshari/can_devour(atom/movable/victim, var/silent = FALSE)
 	if(!should_have_organ(BP_STOMACH))
 		return ..()
 
@@ -154,8 +154,8 @@
 	if(species?.gluttonous & GLUT_MESSY)
 		if(ismob(victim))
 			var/mob/M = victim
-			if(ishuman(victim))
-				to_chat(src, SPAN_WARNING("You can't devour humanoids!"))
+			if(isteshari(victim))
+				to_chat(src, SPAN_WARNING("You can't devour tesharioids!"))
 				return FALSE
 			for(var/obj/item/grab/G in M.grabbed_by)
 				if(G && G.state < GRAB_NECK)
@@ -165,20 +165,20 @@
 
 	. = stomach.get_devour_time(victim) || ..()
 
-/mob/living/carbon/human/get_ingested_reagents()
+/mob/living/carbon/teshari/get_ingested_reagents()
 	if(should_have_organ(BP_STOMACH))
 		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 		if(stomach)
 			return stomach.ingested
 	return touching
 
-/mob/living/carbon/human/proc/metabolize_ingested_reagents()
+/mob/living/carbon/teshari/proc/metabolize_ingested_reagents()
 	if(should_have_organ(BP_STOMACH))
 		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 		if(stomach)
 			stomach.metabolize()
 
-/mob/living/carbon/human/get_fullness()
+/mob/living/carbon/teshari/get_fullness()
 	if(!should_have_organ(BP_STOMACH))
 		return ..()
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
@@ -186,7 +186,7 @@
 		return nutrition + stomach.ingested.total_volume
 	return 0
 
-/mob/living/carbon/human/Stat()
+/mob/living/carbon/teshari/Stat()
 	..()
 	if(statpanel("Status"))
 		stat("Intent:", "[a_intent]")
@@ -228,7 +228,7 @@
 				stat("Chemical Storage", changeling.chem_charges)
 				stat("Genetic Damage Time", changeling.geneticdamage)
 
-/mob/living/carbon/human/ex_act(severity)
+/mob/living/carbon/teshari/ex_act(severity)
 	if(!blinded)
 		flash_act()
 
@@ -272,7 +272,7 @@
 
 	UpdateDamageIcon()
 
-/mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
+/mob/living/carbon/teshari/proc/implant_loyalty(mob/living/carbon/teshari/M, override = FALSE) // Won't override by default.
 	if(!config.use_loyalty_implants && !override) return // Nuh-uh.
 
 	var/obj/item/implant/mindshield/L
@@ -287,7 +287,7 @@
 	L.part = affected
 	L.implanted(src)
 
-/mob/living/carbon/human/proc/is_loyalty_implanted(mob/living/carbon/human/M)
+/mob/living/carbon/teshari/proc/is_loyalty_implanted(mob/living/carbon/teshari/M)
 	for(var/L in M.contents)
 		if(istype(L, /obj/item/implant/mindshield))
 			for(var/obj/item/organ/external/O in M.organs)
@@ -295,14 +295,14 @@
 					return 1
 	return 0
 
-/mob/living/carbon/human/restrained()
+/mob/living/carbon/teshari/restrained()
 	if (handcuffed)
 		return 1
 	if (istype(wear_suit, /obj/item/clothing/suit/straight_jacket))
 		return 1
 	return 0
 
-/mob/living/carbon/human/show_inv(mob/user as mob)
+/mob/living/carbon/teshari/show_inv(mob/user as mob)
 	if(user.incapacitated() || !user.Adjacent(src))
 		return
 
@@ -379,16 +379,16 @@
 	mob_win.set_content(dat)
 	mob_win.open()
 
-// called when something steps onto a human
+// called when something steps onto a teshari
 // this handles vehicles
-/mob/living/carbon/human/Crossed(var/atom/movable/AM)
+/mob/living/carbon/teshari/Crossed(var/atom/movable/AM)
 	..()
 	if(istype(AM, /obj/vehicle))
 		var/obj/vehicle/V = AM
 		V.RunOver(src)
 
 // Get rank from ID, ID inside PDA, PDA, ID in wallet, etc.
-/mob/living/carbon/human/proc/get_authentification_rank(var/if_no_id = "No id", var/if_no_job = "No job")
+/mob/living/carbon/teshari/proc/get_authentification_rank(var/if_no_id = "No id", var/if_no_job = "No job")
 	var/obj/item/card/id/id = GetIdCard()
 	if(!istype(id))
 		return if_no_id
@@ -397,7 +397,7 @@
 
 //gets assignment from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
-/mob/living/carbon/human/proc/get_assignment(var/if_no_id = "No ID", var/if_no_job = "No Job")
+/mob/living/carbon/teshari/proc/get_assignment(var/if_no_id = "No ID", var/if_no_job = "No Job")
 	var/obj/item/card/id/I = GetIdCard()
 	if(istype(I))
 		return I.assignment ? I.assignment : if_no_job
@@ -406,7 +406,7 @@
 
 //gets name from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
-/mob/living/carbon/human/proc/get_authentification_name(var/if_no_id = "Unknown")
+/mob/living/carbon/teshari/proc/get_authentification_name(var/if_no_id = "Unknown")
 	var/obj/item/card/id/I = GetIdCard()
 	if(istype(I))
 		return I.registered_name
@@ -414,7 +414,7 @@
 		return if_no_id
 
 //repurposed proc. Now it combines get_id_name() and get_face_name() to determine a mob's name variable. Made into a seperate proc as it'll be useful elsewhere
-/mob/living/carbon/human/proc/get_visible_name()
+/mob/living/carbon/teshari/proc/get_visible_name()
 	if( wear_mask && (wear_mask.flags_inv&HIDEFACE) )	//Wearing a mask which hides our face, use id-name if possible
 		return get_id_name("Unknown")
 	if( head && (head.flags_inv&HIDEFACE) )
@@ -425,8 +425,8 @@
 		return "[face_name] (as [id_name])"
 	return face_name
 
-//Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when polyacided or when updating a human's name variable
-/mob/living/carbon/human/proc/get_face_name()
+//Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when polyacided or when updating a teshari's name variable
+/mob/living/carbon/teshari/proc/get_face_name()
 	var/obj/item/organ/external/head = get_organ(BP_HEAD)
 	if(!head || head.disfigured || head.is_stump() || !real_name || HAS_FLAG(mutations, HUSK))	//disfigured. use id-name if possible
 		return "Unknown"
@@ -434,7 +434,7 @@
 
 //gets name from ID or PDA itself, ID inside PDA doesn't matter
 //Useful when player is being seen by other mobs
-/mob/living/carbon/human/proc/get_id_name(var/if_no_id = "Unknown")
+/mob/living/carbon/teshari/proc/get_id_name(var/if_no_id = "Unknown")
 	. = if_no_id
 	var/obj/item/card/id/I = GetIdCard()
 	if(I)
@@ -442,11 +442,11 @@
 	return
 
 //gets ID card object from special clothes slot or null.
-/mob/living/carbon/human/proc/get_idcard()
+/mob/living/carbon/teshari/proc/get_idcard()
 	if(wear_id)
 		return wear_id.GetID()
 
-/mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
+/mob/living/carbon/teshari/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	var/list/damage_areas = list()
 	if(status_flags & GODMODE)	return 0	//godmode
 
@@ -541,7 +541,7 @@
 
 	return shock_damage
 
-/mob/living/carbon/human/Topic(href, href_list)
+/mob/living/carbon/teshari/Topic(href, href_list)
 	if (href_list["refresh"])
 		if((machine)&&(in_range(src, usr)))
 			show_inv(machine)
@@ -582,8 +582,8 @@
 
 							spawn()
 								BITSET(hud_updateflag, WANTED_HUD)
-								if(istype(usr,/mob/living/carbon/human))
-									var/mob/living/carbon/human/U = usr
+								if(istype(usr,/mob/living/carbon/teshari))
+									var/mob/living/carbon/teshari/U = usr
 									U.handle_regular_hud_updates()
 								if(istype(usr,/mob/living/silicon/robot))
 									var/mob/living/silicon/robot/U = usr
@@ -652,8 +652,8 @@
 				var/t1 = sanitize(input("Add Comment:", "Sec. records", null, null)  as message)
 				if ( !(t1) || usr.stat || usr.restrained() || !(hasHUD(usr,"security")) )
 					return
-				if(istype(usr,/mob/living/carbon/human))
-					var/mob/living/carbon/human/U = usr
+				if(istype(usr,/mob/living/carbon/teshari))
+					var/mob/living/carbon/teshari/U = usr
 					R.security.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
 				if(istype(usr,/mob/living/silicon/robot))
 					var/mob/living/silicon/robot/U = usr
@@ -681,8 +681,8 @@
 						SSrecords.reset_manifest()
 
 						spawn()
-							if(istype(usr,/mob/living/carbon/human))
-								var/mob/living/carbon/human/U = usr
+							if(istype(usr,/mob/living/carbon/teshari))
+								var/mob/living/carbon/teshari/U = usr
 								U.handle_regular_hud_updates()
 							if(istype(usr,/mob/living/silicon/robot))
 								var/mob/living/silicon/robot/U = usr
@@ -751,8 +751,8 @@
 				var/t1 = sanitize(input("Add Comment:", "Med. records", null, null)  as message)
 				if ( !(t1) || use_check(usr) || !(hasHUD(usr,"medical")) )
 					return
-				if(ishuman(usr))
-					var/mob/living/carbon/human/U = usr
+				if(isteshari(usr))
+					var/mob/living/carbon/teshari/U = usr
 					R.medical.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
 				if(isrobot(usr))
 					var/mob/living/silicon/robot/U = usr
@@ -810,7 +810,7 @@
 
 ///eyecheck()
 ///Returns a number between -1 to 2
-/mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
+/mob/living/carbon/teshari/get_flash_protection(ignore_inherent = FALSE)
 	if(!species.vision_organ || !species.has_organ[species.vision_organ]) //No eyes, can't hurt them.
 		return FLASH_PROTECTION_MAJOR
 
@@ -826,7 +826,7 @@
 	if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
 		return max(. - 1, FLASH_PROTECTION_REDUCED)
 
-/mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+/mob/living/carbon/teshari/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
 	if(..())
 		var/obj/item/organ/E = get_eyes(no_synthetic = !affect_silicon)
 		if(istype(E))
@@ -837,7 +837,7 @@
 
 //Used by various things that knock people out by applying blunt trauma to the head.
 //Checks that the species has a BP_HEAD (brain containing organ) and that hit_zone refers to it.
-/mob/living/carbon/human/proc/headcheck(var/target_zone, var/brain_tag = BP_BRAIN)
+/mob/living/carbon/teshari/proc/headcheck(var/target_zone, var/brain_tag = BP_BRAIN)
 	if(!species.has_organ[brain_tag])
 		return 0
 
@@ -857,7 +857,7 @@
 
 	return 1
 
-/mob/living/carbon/human/IsAdvancedToolUser(var/silent)
+/mob/living/carbon/teshari/IsAdvancedToolUser(var/silent)
 
 	if(is_berserk())
 		if(!silent)
@@ -871,7 +871,7 @@
 
 	return 1
 
-/mob/living/carbon/human/abiotic(var/full_body = 0)
+/mob/living/carbon/teshari/abiotic(var/full_body = 0)
 	if(full_body && ((src.l_hand && !( src.l_hand.abstract )) || (src.r_hand && !( src.r_hand.abstract )) || (src.back || src.wear_mask || src.head || src.shoes || src.w_uniform || src.wear_suit || src.glasses || src.l_ear || src.r_ear || src.gloves)))
 		return 1
 
@@ -881,16 +881,16 @@
 	return 0
 
 
-/mob/living/carbon/human/proc/check_dna()
+/mob/living/carbon/teshari/proc/check_dna()
 	dna.check_integrity(src)
 	return
 
-/mob/living/carbon/human/get_species(var/reference = FALSE, var/records = FALSE)
+/mob/living/carbon/teshari/get_species(var/reference = FALSE, var/records = FALSE)
 	if(!species)
 		set_species()
 	return species.get_species(reference, src, records)
 
-/mob/living/carbon/human/proc/play_xylophone()
+/mob/living/carbon/teshari/proc/play_xylophone()
 	if(!src.xylophone)
 		visible_message(SPAN_WARNING("\The [src] begins playing [get_pronoun("his")] ribcage like a xylophone. It's quite spooky."), SPAN_NOTICE("You begin to play a spooky refrain on your ribcage."), SPAN_WARNING("You hear a spooky xylophone melody."))
 		var/song = pick('sound/effects/xylophone1.ogg','sound/effects/xylophone2.ogg','sound/effects/xylophone3.ogg')
@@ -900,7 +900,7 @@
 			xylophone=0
 	return
 
-/mob/living/carbon/human/proc/check_has_mouth()
+/mob/living/carbon/teshari/proc/check_has_mouth()
 	// Todo, check stomach organ when implemented.
 	var/obj/item/organ/external/E = get_organ(BP_HEAD)
 	if(E && !E.is_stump())
@@ -912,7 +912,7 @@
 /mob/living/proc/empty_stomach()
 	return
 
-/mob/living/carbon/human/empty_stomach()
+/mob/living/carbon/teshari/empty_stomach()
 	Stun(3)
 
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
@@ -973,7 +973,7 @@
 
 	playsound(get_turf(src), 'sound/effects/splat.ogg', 50, 1)
 
-/mob/living/carbon/human/proc/vomit(var/timevomit = 1, var/level = 3, var/deliberate = FALSE)
+/mob/living/carbon/teshari/proc/vomit(var/timevomit = 1, var/level = 3, var/deliberate = FALSE)
 
 	set waitfor = 0
 
@@ -1004,7 +1004,7 @@
 	lastpuke = FALSE
 
 // A damaged stomach can put blood in your vomit.
-/mob/living/carbon/human/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
+/mob/living/carbon/teshari/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
 	..()
 	if(should_have_organ(BP_STOMACH))
 		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
@@ -1014,10 +1014,10 @@
 			else
 				reagents.trans_to_obj(vomit, 5)
 
-/mob/living/carbon/human/get_digestion_product()
+/mob/living/carbon/teshari/get_digestion_product()
 	return species.get_digestion_product(src)
 
-/mob/living/carbon/human/proc/morph()
+/mob/living/carbon/teshari/proc/morph()
 	set name = "Morph"
 	set category = "Superpower"
 
@@ -1027,7 +1027,7 @@
 		return
 
 	if(NOT_FLAG(mutations, mMorph))
-		src.verbs -= /mob/living/carbon/human/proc/morph
+		src.verbs -= /mob/living/carbon/teshari/proc/morph
 		return
 
 	var/new_facial = input("Please select facial hair color.", "Character Generation",rgb(r_facial,g_facial,b_facial)) as color
@@ -1098,7 +1098,7 @@
 
 	visible_message(SPAN_NOTICE("\The [src] morphs and changes [get_pronoun("his")] appearance!"), SPAN_NOTICE("You change your appearance!"), SPAN_WARNING("Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!"))
 
-/mob/living/carbon/human/proc/remotesay()
+/mob/living/carbon/teshari/proc/remotesay()
 	set name = "Project mind"
 	set category = "Superpower"
 
@@ -1108,11 +1108,11 @@
 		return
 
 	if(NOT_FLAG(mutations, mRemotetalk))
-		src.verbs -= /mob/living/carbon/human/proc/remotesay
+		src.verbs -= /mob/living/carbon/teshari/proc/remotesay
 		return
 	var/list/creatures = list()
-	for(var/hh in human_mob_list)
-		var/mob/living/carbon/human/H = hh
+	for(var/hh in teshari_mob_list)
+		var/mob/living/carbon/teshari/H = hh
 		if (H.client)
 			creatures += hh
 
@@ -1130,7 +1130,7 @@
 	for(var/mob/abstract/observer/G in dead_mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
-/mob/living/carbon/human/proc/remoteobserve()
+/mob/living/carbon/teshari/proc/remoteobserve()
 	set name = "Remote View"
 	set category = "Superpower"
 
@@ -1142,7 +1142,7 @@
 	if(NOT_FLAG(mutations, mRemote))
 		remoteview_target = null
 		reset_view(0)
-		src.verbs -= /mob/living/carbon/human/proc/remoteobserve
+		src.verbs -= /mob/living/carbon/teshari/proc/remoteobserve
 		return
 
 	if(client.eye != client.mob)
@@ -1152,8 +1152,8 @@
 
 	var/list/mob/creatures = list()
 
-	for(var/h in human_mob_list)
-		var/mob/living/carbon/human/H = h
+	for(var/h in teshari_mob_list)
+		var/mob/living/carbon/teshari/H = h
 		if (!H.client)
 			continue
 
@@ -1171,7 +1171,7 @@
 		remoteview_target = null
 		reset_view(0)
 
-/mob/living/carbon/human/succumb()
+/mob/living/carbon/teshari/succumb()
 	set hidden = TRUE
 
 	if(shock_stage > 50 && (maxHealth * 0.6) > get_total_health())
@@ -1180,20 +1180,20 @@
 	else
 		to_chat(src, SPAN_WARNING("You are not injured enough to succumb to death!"))
 
-/mob/living/carbon/human/get_gender()
+/mob/living/carbon/teshari/get_gender()
 	var/skipitems = get_covered_clothes()
 	var/skipbody = get_covered_body_parts(TRUE)
 	if((skipbody & FACE || (skipitems & (HIDEMASK|HIDEFACE))) && ((skipbody & UPPER_TORSO && skipbody & LOWER_TORSO) || (skipitems & HIDEJUMPSUIT))) //big suits/masks/helmets make it hard to tell their gender
 		return PLURAL
 	return pronouns
 
-/mob/living/carbon/human/proc/increase_germ_level(n)
+/mob/living/carbon/teshari/proc/increase_germ_level(n)
 	if(gloves)
 		gloves.germ_level += n
 	else
 		germ_level += n
 
-/mob/living/carbon/human/revive(reset_to_roundstart = TRUE)
+/mob/living/carbon/teshari/revive(reset_to_roundstart = TRUE)
 
 	if(species && !(species.flags & NO_BLOOD))
 		vessel.add_reagent(/singleton/reagent/blood,560-vessel.total_volume, temperature = species.body_temperature)
@@ -1233,7 +1233,7 @@
 
 	..()
 
-/mob/living/carbon/human/handle_breath(datum/gas_mixture/breath)
+/mob/living/carbon/teshari/handle_breath(datum/gas_mixture/breath)
 	if(status_flags & GODMODE)
 		return
 
@@ -1253,44 +1253,44 @@
 
 	return !failed_last_breath
 
-/mob/living/carbon/human/proc/is_lung_ruptured()
+/mob/living/carbon/teshari/proc/is_lung_ruptured()
 	var/species_organ = species.breathing_organ
 	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
 	return L && L.is_bruised()
 
-/mob/living/carbon/human/proc/rupture_lung()
+/mob/living/carbon/teshari/proc/rupture_lung()
 	var/species_organ = species.breathing_organ
 	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
 	if(L && !L.is_bruised())
 		custom_pain("You feel a stabbing pain in your chest!", 50)
 		L.bruise()
 
-/mob/living/carbon/human/proc/is_lung_rescued()
+/mob/living/carbon/teshari/proc/is_lung_rescued()
 	var/species_organ = species.breathing_organ
 	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
 	return L && L.rescued
 
 //returns 1 if made bloody, returns 0 otherwise
-/mob/living/carbon/human/add_blood(mob/living/carbon/C as mob)
+/mob/living/carbon/teshari/add_blood(mob/living/carbon/C as mob)
 	if (!..())
 		return FALSE
 	//if this blood isn't already in the list, add it
-	hand_blood_color = COLOR_HUMAN_BLOOD
-	if(ishuman(C))
-		var/mob/living/carbon/human/H = C
+	hand_blood_color = COLOR_teshari_BLOOD
+	if(isteshari(C))
+		var/mob/living/carbon/teshari/H = C
 		if(!blood_DNA[H.dna.unique_enzymes])
 			blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
 		hand_blood_color = H.species?.blood_color
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
-	verbs += /mob/living/carbon/human/proc/bloody_doodle
+	verbs += /mob/living/carbon/teshari/proc/bloody_doodle
 	return TRUE //we applied blood to the item
 
-/mob/living/carbon/human/proc/get_full_print()
+/mob/living/carbon/teshari/proc/get_full_print()
 	if(!dna ||!dna.uni_identity)
 		return
 	return md5(dna.uni_identity)
 
-/mob/living/carbon/human/clean_blood(var/clean_feet)
+/mob/living/carbon/teshari/clean_blood(var/clean_feet)
 	.=..()
 	if(gloves)
 		if(gloves.clean_blood())
@@ -1313,7 +1313,7 @@
 		blood_color = null
 		return 1
 
-/mob/living/carbon/human/get_visible_implants(var/class = 0)
+/mob/living/carbon/teshari/get_visible_implants(var/class = 0)
 
 	var/list/visible_implants = list()
 	for(var/obj/item/organ/external/organ in src.organs)
@@ -1323,14 +1323,14 @@
 
 	return(visible_implants)
 
-/mob/living/carbon/human/embedded_needs_process()
+/mob/living/carbon/teshari/embedded_needs_process()
 	for(var/obj/item/organ/external/organ in src.organs)
 		for(var/obj/item/O in organ.implants)
 			if(!istype(O, /obj/item/implant)) //implant type items do not cause embedding effects, see handle_embedded_objects()
 				return 1
 	return 0
 
-/mob/living/carbon/human/proc/handle_embedded_objects()
+/mob/living/carbon/teshari/proc/handle_embedded_objects()
 
 	for(var/obj/item/organ/external/organ in src.organs)
 		if(organ.status & ORGAN_SPLINTED) //Splints prevent movement.
@@ -1348,7 +1348,7 @@
 					custom_pain(msg, 10, 10, organ)
 				organ.take_damage(rand(1, 3), 0, DAMAGE_FLAG_EDGE)
 
-/mob/living/carbon/human/verb/check_pulse()
+/mob/living/carbon/teshari/verb/check_pulse()
 	set category = "Object"
 	set name = "Check pulse"
 	set desc = "Approximately count somebody's pulse. Requires you to stand still at least 6 seconds."
@@ -1385,11 +1385,11 @@
 	else
 		to_chat(usr, SPAN_WARNING("You failed to check the pulse. Try again."))
 
-/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0, var/change_hair = TRUE)
+/mob/living/carbon/teshari/proc/set_species(var/new_species, var/default_colour, var/kpg=0, var/change_hair = TRUE)
 	cached_bodytype = null
 	if(!dna)
 		if(!new_species)
-			new_species = SPECIES_HUMAN
+			new_species = SPECIES_teshari
 	else
 		if(!new_species)
 			new_species = dna.species
@@ -1398,7 +1398,7 @@
 
 	// No more invisible screaming wheelchairs because of set_species() typos.
 	if(!all_species[new_species])
-		new_species = SPECIES_HUMAN
+		new_species = SPECIES_teshari
 
 	if(species)
 
@@ -1486,14 +1486,14 @@
 		return 0
 
 
-/mob/living/carbon/human/proc/fill_out_culture_data()
+/mob/living/carbon/teshari/proc/fill_out_culture_data()
 	culture = GET_SINGLETON(species.possible_cultures[1])
 	origin = GET_SINGLETON(culture.possible_origins[1])
 	accent = pick(origin.possible_accents)
 	citizenship = origin.possible_citizenships[1]
 	religion = origin.possible_religions[1]
 
-/mob/living/carbon/human/proc/bloody_doodle()
+/mob/living/carbon/teshari/proc/bloody_doodle()
 	set category = "IC"
 	set name = "Write in blood"
 	set desc = "Use blood on your hands to write a short message on the floor or a wall, murder mystery style."
@@ -1505,7 +1505,7 @@
 		return 0 //something is terribly wrong
 
 	if (!bloody_hands)
-		verbs -= /mob/living/carbon/human/proc/bloody_doodle
+		verbs -= /mob/living/carbon/teshari/proc/bloody_doodle
 
 	if (src.gloves)
 		to_chat(src, SPAN_WARNING("Your [src.gloves] are getting in the way."))
@@ -1555,7 +1555,7 @@
 #define BASE_INJECTION_MOD 1 // x1 multiplier with no effects
 #define SUIT_INJECTION_MOD 2 // x2 multiplier if target is wearing spacesuit
 
-/mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone, var/handle_coverage = TRUE)
+/mob/living/carbon/teshari/can_inject(var/mob/user, var/error_msg, var/target_zone, var/handle_coverage = TRUE)
 	. = BASE_INJECTION_MOD
 
 	if(!target_zone)
@@ -1585,7 +1585,7 @@
 			fail_msg = "There is no exposed skin nor thin material on \the [affecting.loc]'s [target_zone] to inject into."
 		to_chat(user, SPAN_ALERT("[fail_msg]"))
 
-/mob/living/carbon/human/proc/get_bp_coverage(var/bp)
+/mob/living/carbon/teshari/proc/get_bp_coverage(var/bp)
 	. = BASE_INJECTION_MOD
 	var/static/list/bp_to_coverage = list(
 		BP_HEAD = HEAD,
@@ -1619,7 +1619,7 @@
 #undef BASE_INJECTION_MOD
 #undef SUIT_INJECTION_MOD
 
-/mob/living/carbon/human/print_flavor_text(var/shrink = 1)
+/mob/living/carbon/teshari/print_flavor_text(var/shrink = 1)
 	var/list/equipment = list(src.head,src.wear_mask,src.glasses,src.w_uniform,src.wear_suit,src.gloves,src.shoes)
 	var/head_exposed = 1
 	var/face_exposed = 1
@@ -1662,35 +1662,35 @@
 	else
 		return ..()
 
-/mob/living/carbon/human/getDNA()
+/mob/living/carbon/teshari/getDNA()
 	if(species.flags & NO_SCAN)
 		return null
 	..()
 
-/mob/living/carbon/human/setDNA()
+/mob/living/carbon/teshari/setDNA()
 	if(species.flags & NO_SCAN)
 		return
 	..()
 
-/mob/living/carbon/human/has_brain()
+/mob/living/carbon/teshari/has_brain()
 	if(internal_organs_by_name[BP_BRAIN])
 		var/obj/item/organ/brain = internal_organs_by_name[BP_BRAIN] // budget fix until MMIs and stuff get made internal or you think of a better way, sorry matt
 		if(brain && istype(brain))
 			return 1
 	return 0
 
-/mob/living/carbon/human/has_eyes()
+/mob/living/carbon/teshari/has_eyes()
 	var/obj/item/organ/internal/eyes = get_eyes()
 	if(istype(eyes) && !(eyes.status & ORGAN_CUT_AWAY))
 		return 1
 	return 0
 
-/mob/living/carbon/human/slip(var/slipped_on, stun_duration=8)
+/mob/living/carbon/teshari/slip(var/slipped_on, stun_duration=8)
 	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & NOSLIP)))
 		return 0
 	. = ..(slipped_on,stun_duration)
 
-/mob/living/carbon/human/proc/undislocate()
+/mob/living/carbon/teshari/proc/undislocate()
 	set category = "Object"
 	set name = "Undislocate Joint"
 	set desc = "Pop a joint back into place. Extremely painful."
@@ -1749,18 +1749,18 @@
 		playsound(src.loc, /singleton/sound_category/fracture_sound, 50, 1, -2)
 	current_limb.undislocate()
 
-/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
+/mob/living/carbon/teshari/drop_from_inventory(var/obj/item/W, var/atom/target = null)
 	if(W in organs)
 		return
 	..()
 
-/mob/living/carbon/human/reset_view(atom/A, update_hud = 1)
+/mob/living/carbon/teshari/reset_view(atom/A, update_hud = 1)
 	..()
 	if(update_hud)
 		handle_regular_hud_updates()
 
 
-/mob/living/carbon/human/can_stand_overridden()
+/mob/living/carbon/teshari/can_stand_overridden()
 	if(wearing_rig && wearing_rig.ai_can_move_suit(check_for_ai = 1))
 		// Actually missing a leg will screw you up. Everything else can be compensated for.
 		for(var/limbcheck in list(BP_L_LEG,BP_R_LEG))
@@ -1770,7 +1770,7 @@
 		return 1
 	return 0
 
-/mob/living/carbon/human/proc/can_drink(var/obj/item/I)
+/mob/living/carbon/teshari/proc/can_drink(var/obj/item/I)
 	if(!check_has_mouth())
 		to_chat(src, SPAN_NOTICE("Where do you intend to put \the [I]? You don't have a mouth!"))
 		return FALSE
@@ -1780,15 +1780,15 @@
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/human/MouseDrop(var/atom/over_object)
-	if(ishuman(over_object))
-		var/mob/living/carbon/human/H = over_object
+/mob/living/carbon/teshari/MouseDrop(var/atom/over_object)
+	if(isteshari(over_object))
+		var/mob/living/carbon/teshari/H = over_object
 		if(holder_type && istype(H) && H.a_intent == I_HELP && !H.lying && !issmall(H) && Adjacent(H))
 			get_scooped(H, (usr == src))
 			return
 	return ..()
 
-/mob/living/carbon/human/AltClickOn(var/atom/A)
+/mob/living/carbon/teshari/AltClickOn(var/atom/A)
 	var/doClickAction = 1
 	if (istype(get_active_hand(), /obj/item))
 		var/obj/item/I = get_active_hand()
@@ -1797,12 +1797,12 @@
 	if (doClickAction)
 		..()
 
-/mob/living/carbon/human/AltClick(mob/user)
+/mob/living/carbon/teshari/AltClick(mob/user)
 	. = ..()
 	if(hasHUD(user, MED_HUDTYPE))
 		Topic(src, list("triagetag"=1))
 
-/mob/living/carbon/human/verb/toggle_underwear()
+/mob/living/carbon/teshari/verb/toggle_underwear()
 	set name = "Toggle Underwear"
 	set desc = "Shows/hides selected parts of your underwear."
 	set category = "Object"
@@ -1820,7 +1820,7 @@
 	update_underwear(1)
 	to_chat(src, "<span class='notice'>You [hide_underwear[UWC.name] ? "take off" : "put on"] your [UWC.display_name].</span>")
 
-/mob/living/carbon/human/verb/pull_punches()
+/mob/living/carbon/teshari/verb/pull_punches()
 	set name = "Pull Punches"
 	set desc = "Try not to hurt them."
 	set category = "IC"
@@ -1830,10 +1830,10 @@
 	to_chat(src, SPAN_NOTICE("You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"]."))
 	return
 
-/mob/living/carbon/human/get_metabolism(metabolism)
+/mob/living/carbon/teshari/get_metabolism(metabolism)
 	return ..() * (species ? species.metabolism_mod : 1)
 
-/mob/living/carbon/human/is_clumsy()
+/mob/living/carbon/teshari/is_clumsy()
 	if(HAS_FLAG(mutations, CLUMSY))
 		return TRUE
 	if(CE_CLUMSY in chem_effects)
@@ -1848,7 +1848,7 @@
 	return FALSE
 
 // Similar to get_pulse, but returns only integer numbers instead of text.
-/mob/living/carbon/human/proc/get_pulse_as_number()
+/mob/living/carbon/teshari/proc/get_pulse_as_number()
 	var/obj/item/organ/internal/heart/heart_organ = internal_organs_by_name[BP_HEART]
 	if(!heart_organ)
 		return 0
@@ -1868,7 +1868,7 @@
 			return PULSE_MAX_BPM
 	return 0
 
-/mob/living/carbon/human/proc/get_pulse(var/method)	//method 0 is for hands, 1 is for machines, more accurate
+/mob/living/carbon/teshari/proc/get_pulse(var/method)	//method 0 is for hands, 1 is for machines, more accurate
 	var/obj/item/organ/internal/heart/heart_organ = internal_organs_by_name[BP_HEART]
 	if(!heart_organ)
 		// No heart, no pulse
@@ -1880,34 +1880,34 @@
 
 	return "[method ? bpm : bpm + rand(-10, 10)]"
 
-/mob/living/carbon/human/proc/pulse()
+/mob/living/carbon/teshari/proc/pulse()
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 	return heart ? heart.pulse : PULSE_NONE
 
-/mob/living/carbon/human/move_to_stomach(atom/movable/victim)
+/mob/living/carbon/teshari/move_to_stomach(atom/movable/victim)
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 	if(istype(stomach))
 		victim.forceMove(stomach)
 
-/mob/living/carbon/human/need_breathe()
+/mob/living/carbon/teshari/need_breathe()
 	if(NOT_FLAG(mutations, mNobreath) && species.breathing_organ && species.has_organ[species.breathing_organ])
 		return TRUE
 	return FALSE
 
 //Get fluffy numbers
-/mob/living/carbon/human/proc/blood_pressure()
+/mob/living/carbon/teshari/proc/blood_pressure()
 	if(status_flags & FAKEDEATH)
 		return list(Floor(species.bp_base_systolic+rand(-5,5))*0.25, Floor(species.bp_base_disatolic+rand(-5,5)*0.25))
 	var/blood_result = get_blood_circulation()
 	return list(Floor((species.bp_base_systolic+rand(-5,5))*(blood_result/100)), Floor((species.bp_base_disatolic+rand(-5,5))*(blood_result/100)))
 
 //Formats blood pressure for text display
-/mob/living/carbon/human/proc/get_blood_pressure()
+/mob/living/carbon/teshari/proc/get_blood_pressure()
 	var/list/bp = blood_pressure()
 	return "[bp[1]]/[bp[2]]"
 
 //Works out blood pressure alert level -- not very accurate
-/mob/living/carbon/human/proc/get_blood_pressure_alert()
+/mob/living/carbon/teshari/proc/get_blood_pressure_alert()
 	var/list/bp_list = blood_pressure()
 	// For a blood pressure, e.g. 120/80
 	var/systolic_alert // this is the top number '120' -- highest pressure when heart beats
@@ -1945,27 +1945,27 @@
 		return BLOOD_PRESSURE_IDEAL
 
 //Point at which you dun breathe no more. Separate from asystole crit, which is heart-related.
-/mob/living/carbon/human/nervous_system_failure()
+/mob/living/carbon/teshari/nervous_system_failure()
 	return getBrainLoss() >= maxHealth * 0.75
 
 // Check if we should die.
-/mob/living/carbon/human/proc/handle_death_check()
+/mob/living/carbon/teshari/proc/handle_death_check()
 	if(should_have_organ(BP_BRAIN) && !is_mechanical()) //robots don't die via brain damage
 		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
 		if(!brain || (brain.status & ORGAN_DEAD))
 			return TRUE
 	return species.handle_death_check(src)
 
-/mob/living/carbon/human/should_have_organ(var/organ_check)
+/mob/living/carbon/teshari/should_have_organ(var/organ_check)
 	return (species?.has_organ[organ_check])
 
-/mob/living/carbon/human/should_have_limb(var/limb_check)
+/mob/living/carbon/teshari/should_have_limb(var/limb_check)
 	return (species?.has_limbs[limb_check])
 
 /mob/living/proc/resuscitate()
 	return FALSE
 
-/mob/living/carbon/human/resuscitate()
+/mob/living/carbon/teshari/resuscitate()
 	if(!is_asystole() || !should_have_organ(BP_HEART))
 		return
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
@@ -1981,16 +1981,16 @@
 		heart.handle_pulse()
 		return TRUE
 
-/mob/living/carbon/human/proc/make_adrenaline(var/amount)
+/mob/living/carbon/teshari/proc/make_adrenaline(var/amount)
 	if(stat == CONSCIOUS)
 		reagents.add_reagent(/singleton/reagent/adrenaline, amount)
 
-/mob/living/carbon/human/proc/gigashatter()
+/mob/living/carbon/teshari/proc/gigashatter()
 	for(var/obj/item/organ/external/E in organs)
 		E.fracture()
 	return
 
-/mob/living/carbon/human/get_bullet_impact_effect_type(var/def_zone)
+/mob/living/carbon/teshari/get_bullet_impact_effect_type(var/def_zone)
 	var/obj/item/organ/external/E = get_organ(def_zone)
 	if(!E || E.is_stump())
 		return BULLET_IMPACT_NONE
@@ -1998,7 +1998,7 @@
 		return BULLET_IMPACT_METAL
 	return BULLET_IMPACT_MEAT
 
-/mob/living/carbon/human/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage, var/blocked_ratio)
+/mob/living/carbon/teshari/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage, var/blocked_ratio)
 	..()
 	if(blocked_ratio > 0.7)
 		return
@@ -2012,7 +2012,7 @@
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
 
-/mob/living/carbon/human/apply_radiation_effects()
+/mob/living/carbon/teshari/apply_radiation_effects()
 	. = ..()
 	if(. == TRUE)
 		if(src.is_diona())
@@ -2036,7 +2036,7 @@
 				randmutg(src) // Applies good mutation
 				domutcheck(src,null,MUTCHK_FORCED)
 
-/mob/living/carbon/human/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
+/mob/living/carbon/teshari/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	var/used_accent = accent //starts with the mob's default accent
 
 	if(mind)
@@ -2061,7 +2061,7 @@
 
 	return ..(speaking, hearer, used_accent)
 
-/mob/living/carbon/human/proc/generate_valid_languages()
+/mob/living/carbon/teshari/proc/generate_valid_languages()
 	var/list/available_languages = species.secondary_langs.Copy() + LANGUAGE_TCB
 	for(var/L in all_languages)
 		var/datum/language/lang = all_languages[L]
@@ -2069,13 +2069,13 @@
 			available_languages |= L
 	return available_languages
 
-/mob/living/carbon/human/proc/set_accent(var/new_accent)
+/mob/living/carbon/teshari/proc/set_accent(var/new_accent)
 	accent = new_accent
 	if(!(accent in origin.possible_accents))
 		accent = origin.possible_accents[1]
 	return TRUE
 
-/mob/living/carbon/human/proc/add_or_remove_language(var/language)
+/mob/living/carbon/teshari/proc/add_or_remove_language(var/language)
 	var/datum/language/new_language = all_languages[language]
 	if(!new_language || !istype(new_language))
 		to_chat(src, SPAN_WARNING("Invalid language!"))
@@ -2093,38 +2093,38 @@
 		to_chat(src, SPAN_NOTICE("You now know <b>[language]</b>."))
 	return TRUE
 
-/mob/living/carbon/human/verb/click_belt()
+/mob/living/carbon/teshari/verb/click_belt()
 	set hidden = 1
 	set name = "click_belt"
 	if(belt)
 		belt.Click()
 
-/mob/living/carbon/human/verb/click_uniform()
+/mob/living/carbon/teshari/verb/click_uniform()
 	set hidden = 1
 	set name = "click_uniform"
 	if(w_uniform)
 		w_uniform.Click()
 
-/mob/living/carbon/human/verb/click_back()
+/mob/living/carbon/teshari/verb/click_back()
 	set hidden = 1
 	set name = "click_back"
 	if(back)
 		back.Click()
 
-/mob/living/carbon/human/verb/click_suit_storage()
+/mob/living/carbon/teshari/verb/click_suit_storage()
 	set hidden = 1
 	set name = "click_suit_storage"
 	if(s_store)
 		s_store.Click()
 
-/mob/living/carbon/human/proc/disable_organ_night_vision()
+/mob/living/carbon/teshari/proc/disable_organ_night_vision()
 	var/obj/item/organ/E = internal_organs_by_name[BP_EYES]
 	if (istype(E, /obj/item/organ/internal/eyes/night))
 		var/obj/item/organ/internal/eyes/night/N = E
 		if(N.night_vision )
 			N.disable_night_vision()
 
-/mob/living/carbon/human/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE)
+/mob/living/carbon/teshari/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE)
 	if (damage > 0)
 		var/hearing_sensitivity = get_hearing_sensitivity()
 		if (hearing_sensitivity)
@@ -2144,7 +2144,7 @@
 // Intensity 1: mild, 2: hurts, 3: very painful, 4: extremely painful, 5: that's going to leave some damage
 // Sensitive_only: If yes, only those with sensitive hearing are affected
 // Listening_pain: Increases the intensity by the listed amount if the person is listening in
-/mob/living/carbon/human/proc/earpain(var/intensity, var/sensitive_only = FALSE, var/listening_pain = 0)
+/mob/living/carbon/teshari/proc/earpain(var/intensity, var/sensitive_only = FALSE, var/listening_pain = 0)
 	if (ear_deaf)
 		return
 	if (sensitive_only && !get_hearing_sensitivity())
@@ -2171,7 +2171,7 @@
 			adjustEarDamage(5, 5, FALSE)
 			stop_listening()
 
-/mob/living/carbon/human/verb/lookup()
+/mob/living/carbon/teshari/verb/lookup()
 	set name = "Look Up"
 	set desc = "If you want to know what's above."
 	set category = "IC"

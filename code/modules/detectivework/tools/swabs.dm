@@ -25,13 +25,13 @@
 
 /obj/item/forensics/swab/attack(var/mob/living/M, var/mob/user, var/target_zone)
 
-	if(!ishuman(M))
+	if(!isteshari(M))
 		return ..()
 
 	if(is_used())
 		return
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	var/sample_type
 
 	if(!H.dna || !H.dna.unique_enzymes)

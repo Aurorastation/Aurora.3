@@ -700,7 +700,7 @@
 /mob/proc/pull_damage()
 	return 0
 
-/mob/living/carbon/human/pull_damage()
+/mob/living/carbon/teshari/pull_damage()
 	if(!lying || getBruteLoss() + getFireLoss() < 100)
 		return 0
 	for(var/thing in organs)
@@ -792,8 +792,8 @@
 	if(pullin)
 		pullin.icon_state = "pull1"
 
-	if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	if(isteshari(AM))
+		var/mob/living/carbon/teshari/H = AM
 		if(H.lying) // If they're on the ground we're probably dragging their arms to move them
 			visible_message(SPAN_WARNING("\The [src] leans down and grips \the [H]'s arms."), SPAN_NOTICE("You lean down and grip \the [H]'s arms."))
 		else //Otherwise we're probably just holding their arm to lead them somewhere
@@ -822,7 +822,7 @@
 /mob/living/silicon/is_mechanical()
 	return TRUE
 
-/mob/living/carbon/human/is_mechanical()
+/mob/living/carbon/teshari/is_mechanical()
 	return species && (species.flags & IS_MECHANICAL)
 
 /mob/proc/is_ready()
@@ -913,7 +913,7 @@
 	if(transforming)						return 0
 	return 1
 
-// Not sure what to call this. Used to check if humans are wearing an AI-controlled exosuit and hence don't need to fall over yet.
+// Not sure what to call this. Used to check if tesharis are wearing an AI-controlled exosuit and hence don't need to fall over yet.
 /mob/proc/can_stand_overridden()
 	return 0
 
@@ -1107,7 +1107,7 @@
 /mob/living/proc/flash_strong_pain()
 	return
 
-/mob/living/carbon/human/flash_strong_pain()
+/mob/living/carbon/teshari/flash_strong_pain()
 	if(can_feel_pain())
 		overlay_fullscreen("strong_pain", /obj/screen/fullscreen/strong_pain)
 		addtimer(CALLBACK(src, PROC_REF(clear_strong_pain)), 10, TIMER_UNIQUE)
@@ -1144,7 +1144,7 @@
 		imp.removed()
 	. = TRUE
 
-/mob/living/carbon/human/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE, var/obj/item/organ/external/affected)
+/mob/living/carbon/teshari/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE, var/obj/item/organ/external/affected)
 	if(!affected) //Grab the organ holding the implant.
 		for(var/obj/item/organ/external/organ in organs)
 			for(var/obj/item/O in organ.implants)
@@ -1216,9 +1216,9 @@
 	selection.forceMove(get_turf(src))
 	if(!(U.l_hand && U.r_hand))
 		U.put_in_hands(selection)
-	if(ishuman(U))
-		var/mob/living/carbon/human/human_user = U
-		human_user.bloody_hands(src)
+	if(isteshari(U))
+		var/mob/living/carbon/teshari/teshari_user = U
+		teshari_user.bloody_hands(src)
 	return 1
 
 /mob/living/proc/handle_statuses()

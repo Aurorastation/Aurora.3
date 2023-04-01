@@ -24,8 +24,8 @@
 	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='warning'>You club yourself over the head.</span>")
 		user.Weaken(3 * force)
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
+		if(isteshari(user))
+			var/mob/living/carbon/teshari/H = user
 			H.apply_damage(2*force, DAMAGE_BRUTE, BP_HEAD)
 		else
 			user.take_organ_damage(2*force)
@@ -48,7 +48,7 @@
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	var/on = FALSE
 
-/obj/item/melee/telebaton/proc/do_special_effects(var/mob/living/carbon/human/H)
+/obj/item/melee/telebaton/proc/do_special_effects(var/mob/living/carbon/teshari/H)
 	return
 
 /obj/item/melee/telebaton/attack_self(mob/user)
@@ -68,8 +68,8 @@
 		force = 3 //not so robust now
 		attack_verb = list("hit", "punched")
 
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
+	if(istype(user,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 
@@ -94,15 +94,15 @@
 		if(user.is_clumsy() && prob(50))
 			to_chat(user, SPAN_WARNING("You club yourself over the head."))
 			user.Weaken(3 * force)
-			if(ishuman(user))
-				var/mob/living/carbon/human/H = user
+			if(isteshari(user))
+				var/mob/living/carbon/teshari/H = user
 				H.apply_damage(2 * force, DAMAGE_BRUTE, BP_HEAD)
 			else
 				user.take_organ_damage(2 * force)
 			return
 		if(..() && user.a_intent == I_DISARM)
-			if(ishuman(target))
-				var/mob/living/carbon/human/T = target
+			if(isteshari(target))
+				var/mob/living/carbon/teshari/T = target
 				T.apply_damage(40, DAMAGE_PAIN, target_zone)
 		return
 	return ..()
@@ -114,5 +114,5 @@
 	state_extended = "nlom_telebaton_1"
 	force = 5
 
-/obj/item/melee/telebaton/nlom/do_special_effects(var/mob/living/carbon/human/H)
+/obj/item/melee/telebaton/nlom/do_special_effects(var/mob/living/carbon/teshari/H)
 	spark(H, 5)

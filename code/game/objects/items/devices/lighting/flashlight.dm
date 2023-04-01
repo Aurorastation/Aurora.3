@@ -233,7 +233,7 @@
 			to_chat(user, SPAN_WARNING("This light is too dim to see anything with!"))
 			return
 
-		var/mob/living/carbon/human/H = M	//mob has protective eyewear
+		var/mob/living/carbon/teshari/H = M	//mob has protective eyewear
 		if(istype(H))
 			if(H.get_flash_protection())
 				to_chat(user, SPAN_WARNING("You're going to need to remove \the [M]'s eye protection first."))
@@ -259,7 +259,7 @@
 		return ..()
 
 /obj/item/device/flashlight/proc/inspect_vision(obj/item/organ/vision, mob/living/user)
-	var/mob/living/carbon/human/H = vision.owner
+	var/mob/living/carbon/teshari/H = vision.owner
 
 	if (H == user)	//can't look into your own eyes buster
 		return

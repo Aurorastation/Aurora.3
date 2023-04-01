@@ -9,11 +9,11 @@
 	taste_mult = 0.4
 	breathe_met = REM * 0.5 * 0.5
 
-/singleton/reagent/space_drugs/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+/singleton/reagent/space_drugs/initial_effect(var/mob/living/carbon/teshari/M, var/alien, var/holder)
 	to_chat(M, SPAN_GOOD(pick("You close your eyes, and when they open, everything appears so much more vibrant.", "You feel a wave of pleasure suddenly rush over you.", "This is already the best decision you've ever made.")))
 
 /singleton/reagent/space_drugs/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.add_chemical_effect(CE_PULSE, -1)
@@ -49,7 +49,7 @@
 
 /singleton/reagent/serotrotium
 	name = "Serotrotium"
-	description = "A chemical compound that promotes concentrated production of the serotonin neurotransmitter in humans."
+	description = "A chemical compound that promotes concentrated production of the serotonin neurotransmitter in tesharis."
 	reagent_state = LIQUID
 	color = "#202040"
 	metabolism = REM * 0.25
@@ -58,8 +58,8 @@
 	fallback_specific_heat = 1.2
 
 /singleton/reagent/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/mob/living/carbon/human/H = M
-	if(!istype(H) || (istype(H) && (H.species.flags & NO_BLOOD))) //If we're not human OR if we're human but don't have blood.
+	var/mob/living/carbon/teshari/H = M
+	if(!istype(H) || (istype(H) && (H.species.flags & NO_BLOOD))) //If we're not teshari OR if we're teshari but don't have blood.
 		return
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "gasp"))
@@ -75,7 +75,7 @@
 	taste_description = "sourness"
 
 /singleton/reagent/cryptobiolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.dizziness = max(150, M.dizziness)//Setting dizziness directly works as long as the make_dizzy proc is called after to spawn the process
@@ -97,7 +97,7 @@
 	M.add_chemical_effect(CE_NEUROTOXIC, 2*removed)
 	if(prob(50))
 		M.drowsiness = max(M.drowsiness, 3)
-	if(prob(10) && ishuman(M))
+	if(prob(10) && isteshari(M))
 		M.emote("drool")
 
 /singleton/reagent/mindbreaker
@@ -133,11 +133,11 @@
 	condiment_icon_state = "psilocybin"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
-/singleton/reagent/psilocybin/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+/singleton/reagent/psilocybin/initial_effect(var/mob/living/carbon/teshari/M, var/alien, var/holder)
 	to_chat(M, SPAN_GOOD(pick("You lean back and begin to fall... and fall... and fall.", "Your eyes open wide and you look upon this new world you now see.", "You close your eyes, and when they open, everything appears so much more vibrant.", "You feel a wave of pleasure suddenly rush over you.", "This is already the best decision you've ever made.")))
 
 /singleton/reagent/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.druggy = max(M.druggy, 30)
@@ -166,7 +166,7 @@
 		M.druggy = max(M.druggy, 40)
 		if(prob(3))
 			to_chat(M, SPAN_GOOD(pick("Everything is so vibrant...", "Look at all those colours...", "Shapes dance across your vision.", "You feel like you're looking through a kaleidoscope.", "That's so funny!")))
-	if(ishuman(M) && prob(min(15, dose*5)))
+	if(isteshari(M) && prob(min(15, dose*5)))
 		M.emote(pick("twitch", "giggle"))
 
 /singleton/reagent/psilocybin/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
@@ -187,7 +187,7 @@
 	breathe_met = REM * 0.2
 	ingest_met = REM * 0.3
 
-/singleton/reagent/raskara_dust/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+/singleton/reagent/raskara_dust/initial_effect(var/mob/living/carbon/teshari/M, var/alien, var/holder)
 	to_chat(M, SPAN_GOOD(pick("You gradually begin to slow down, and so does everything around you.", "You lean back and begin to fall... and fall... and fall.", "This is already the best decision you've ever made.")))
 
 /singleton/reagent/raskara_dust/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -199,7 +199,7 @@
 /singleton/reagent/raskara_dust/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	M.drowsiness += 2 * removed
-	if(prob(5) && ishuman(M))
+	if(prob(5) && isteshari(M))
 		M.emote("cough")
 	if(prob(3))
 		to_chat(M, SPAN_GOOD(pick("You feel so relaxed...", "Nothing's really bothering you right now...", "You should lay down and just... take it easy.", "You deserve a break from all your hard work today.")))
@@ -237,10 +237,10 @@
 	. = ..()
 	LAZYSET(., "special", 0)
 
-/singleton/reagent/night_juice/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+/singleton/reagent/night_juice/initial_effect(var/mob/living/carbon/teshari/M, var/alien, var/holder)
 	to_chat(M, SPAN_GOOD(pick("You feel a wave of pleasure smash into you and liven you up!", "You're startled by the sheer strength and speed of this drug!", "You already feel so damn good!", "This is the best decision you've ever made!")))
 
-/singleton/reagent/night_juice/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/night_juice/affect_blood(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 
@@ -260,7 +260,7 @@
 		var/obj/item/organ/H = M.internal_organs_by_name[BP_HEART]
 		H.take_damage(holder.reagent_data[type]["special"] * removed * 0.025)
 
-/singleton/reagent/night_juice/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/night_juice/overdose(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.bodytemperature = max(M.bodytemperature + 1 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 	if(prob(2))
 		M.emote("shiver")
@@ -325,7 +325,7 @@
 	overdose = 15
 
 /singleton/reagent/toxin/krok/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(!istype(H))
 		return
 	var/robo = FALSE
@@ -378,7 +378,7 @@
 
 /singleton/reagent/ambrosia_extract
 	name = "Ambrosia Extract"
-	description = "Ambrosia Extract is a fairly strong relaxant commonly found in Ambrosia plants. It's one of the most widely available drugs in human space."
+	description = "Ambrosia Extract is a fairly strong relaxant commonly found in Ambrosia plants. It's one of the most widely available drugs in teshari space."
 	reagent_state = LIQUID
 	color = "#60A584"
 	metabolism = REM / 3.33
@@ -393,7 +393,7 @@
 
 
 /singleton/reagent/ambrosia_extract/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.add_chemical_effect(CE_PULSE, -1)
@@ -432,7 +432,7 @@
 	od_minimum_dose = 2
 	taste_description = "tranquility"
 
-/singleton/reagent/joy/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+/singleton/reagent/joy/initial_effect(var/mob/living/carbon/teshari/M, var/alien, var/holder)
 	to_chat(M, SPAN_GOOD(pick("You feel a numbing sensation spread from within you.", "A numbing sensation builds within you.", "Everything will be okay... just relax.")))
 
 /singleton/reagent/joy/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -448,7 +448,7 @@
 	if(M.chem_doses[type] >= 1)
 		if(prob(3))
 			to_chat(M, SPAN_GOOD(pick("Stress was an inconvenience that you are now free of.", "You lose all sense of connection to the real world.", "Everything is so tranquil.", "You feel totaly detached from reality.", "Your feel disconnected from your body.", "You are aware of nothing but your conscious thoughts.", "You keep falling... and falling... and falling - never stopping.", "Is this what it feels like to be dead?", "Your memories are hazy... all you have ever known is this feeling.", "You're watching yourself from afar - detached from your physical body.")))
-			
+
 /singleton/reagent/joy/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/datum/reagents/holder)
 	M.ear_deaf = 20
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type])
@@ -458,7 +458,7 @@
 	if(prob(3))
 		to_chat(M, SPAN_GOOD(pick("You're dying... but you don't care.", "The numbing sensation continues to build and build.", "One more hit... and maybe even death will cease to exist.")))
 
-/singleton/reagent/joy/final_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+/singleton/reagent/joy/final_effect(var/mob/living/carbon/teshari/M, var/alien, var/holder)
 	to_chat(M, SPAN_GOOD("You feel grounded in the real world again... for better or worse."))
 
 /singleton/reagent/xuxigas
@@ -470,7 +470,7 @@
 	overdose = REAGENTS_OVERDOSE
 	breathe_met = REM*0.2
 
-/singleton/reagent/xuxigas/affect_breathe(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/xuxigas/affect_breathe(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.druggy = max(M.druggy, M.chem_doses[type]/2)
 	M.add_chemical_effect(CE_PULSE, -1)
 	if(prob(3))
@@ -480,7 +480,7 @@
 	if(prob(2) && isskrell(M))
 		to_chat(M, SPAN_ALIEN(pick("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?")))
 
-/singleton/reagent/xuxigas/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/xuxigas/overdose(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(3))
 		to_chat(M, SPAN_WARNING(pick("You feel particularly vulnerable to being swayed by those around you...", "You have an urge to please those around you.", "This high cannot end... where can you get more?", "You don't want this feeling to end.")))
 

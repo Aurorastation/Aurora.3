@@ -395,7 +395,7 @@
 		new_text += copytext(text, i, i+1)
 	return new_text
 
-//Used in preferences' SetFlavorText and human's set_flavor verb
+//Used in preferences' SetFlavorText and teshari's set_flavor verb
 //Previews a string of len or less length
 /proc/TextPreview(string, len=40)
 	if(length(string) <= len)

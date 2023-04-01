@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/pirate
 	name = "Pirate"
 	desc = "Does what he wants cause a pirate is free."
-	icon = 'icons/mob/npc/human.dmi'
+	icon = 'icons/mob/npc/teshari.dmi'
 	icon_state = "piratemelee"
 	icon_living = "piratemelee"
 	icon_dead = "piratemelee_dead"

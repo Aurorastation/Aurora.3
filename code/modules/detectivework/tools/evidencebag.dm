@@ -16,10 +16,10 @@
 	AddComponent(/datum/component/base_name, name)
 
 /obj/item/evidencebag/MouseDrop(var/obj/item/I as obj)
-	if (!ishuman(usr))
+	if (!isteshari(usr))
 		return
 
-	var/mob/living/carbon/human/user = usr
+	var/mob/living/carbon/teshari/user = usr
 
 	if (!(user.l_hand == src || user.r_hand == src))
 		return //bag must be in your hands to use

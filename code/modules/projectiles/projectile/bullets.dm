@@ -410,10 +410,10 @@
 	anti_materiel_potential = 2
 
 /obj/item/projectile/bullet/nuke/on_impact(var/atom/A)
-	for(var/mob/living/carbon/human/mob in human_mob_list)
+	for(var/mob/living/carbon/teshari/mob in teshari_mob_list)
 		var/turf/T = get_turf(mob)
 		if(T && (loc.z == T.z))
-			if(ishuman(mob))
+			if(isteshari(mob))
 				mob.apply_damage(250, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 	new /obj/effect/temp_visual/nuke(A.loc)
 	explosion(A,2,5,9)

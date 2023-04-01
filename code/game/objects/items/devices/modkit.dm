@@ -7,7 +7,7 @@
 	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user."
 	icon_state = "modkit"
 	var/parts = MODKIT_FULL
-	var/target_species = BODYTYPE_HUMAN
+	var/target_species = BODYTYPE_teshari
 
 	var/list/permitted_types = list(
 		/obj/item/clothing/head/helmet/space/void,
@@ -248,7 +248,7 @@
 		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/sfa,
 		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/sfa
 	)
-	
+
 /obj/item/voidsuit_modkit/dominianvoid
 	name = "dominian voidsman's voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Dominian prejoroub combat suit into its voidsman counterpart. Practical!"
@@ -295,7 +295,7 @@
 	name = "sfa modkit box"
 	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."
 	starts_with = list(/obj/item/voidsuit_modkit/sfa = 4)
-	
+
 /obj/item/storage/box/dominianvoid
 	name = "dominian voidsman's modkit box"
 	desc = "Contains modkits to convert Dominian voidsuits into a voidsman's variant."

@@ -110,7 +110,7 @@
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing)
 	return ..()
 
-/obj/item/clothing/under/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+/obj/item/clothing/under/circuitry/build_additional_parts(mob/living/carbon/teshari/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_w_uniform_str)
@@ -131,7 +131,7 @@
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
 	return ..()
 
-/obj/item/clothing/gloves/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+/obj/item/clothing/gloves/circuitry/build_additional_parts(mob/living/carbon/teshari/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_gloves_str)
@@ -162,7 +162,7 @@
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
 	return ..()
 
-/obj/item/clothing/glasses/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+/obj/item/clothing/glasses/circuitry/build_additional_parts(mob/living/carbon/teshari/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_glasses_str, slot_l_hand_str, slot_r_hand_str)
@@ -198,7 +198,7 @@
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
 	return ..()
 
-/obj/item/clothing/shoes/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+/obj/item/clothing/shoes/circuitry/build_additional_parts(mob/living/carbon/teshari/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_shoes_str)
@@ -219,7 +219,7 @@
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
 	return ..()
 
-/obj/item/clothing/head/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+/obj/item/clothing/head/circuitry/build_additional_parts(mob/living/carbon/teshari/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_head_str)
@@ -240,7 +240,7 @@
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
 	return ..()
 
-/obj/item/clothing/ears/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+/obj/item/clothing/ears/circuitry/build_additional_parts(mob/living/carbon/teshari/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_l_ear_str, slot_r_ear_str)
@@ -261,7 +261,7 @@
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/large)
 	return ..()
 
-/obj/item/clothing/suit/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+/obj/item/clothing/suit/circuitry/build_additional_parts(mob/living/carbon/teshari/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_wear_suit_str)

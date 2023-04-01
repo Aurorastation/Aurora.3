@@ -10,7 +10,7 @@
 	//AI vars
 	var/frustration = 0
 	var/list/path = list()
-	var/mob/living/carbon/human/patient = null
+	var/mob/living/carbon/teshari/patient = null
 	var/mob/ignored = list() // Used by emag
 	var/last_newpatient_speak = 0
 	var/message = null
@@ -70,7 +70,7 @@
 				patient = null
 				icon_state = "medibot[on]"
 	else
-		for(var/mob/living/carbon/human/H in view(7, src)) // Time to find a patient!
+		for(var/mob/living/carbon/teshari/H in view(7, src)) // Time to find a patient!
 			if(valid_healing_target(H))
 				patient = H
 				frustration = 0
@@ -81,7 +81,7 @@
 					last_newpatient_speak = world.time
 				break
 
-/mob/living/bot/medbot/UnarmedAttack(var/mob/living/carbon/human/H, var/proximity)
+/mob/living/bot/medbot/UnarmedAttack(var/mob/living/carbon/teshari/H, var/proximity)
 	. = ..()
 	if(!.)
 		return
@@ -293,7 +293,7 @@
 	currently_healing = 0
 	..()
 
-/mob/living/bot/medbot/proc/valid_healing_target(var/mob/living/carbon/human/H)
+/mob/living/bot/medbot/proc/valid_healing_target(var/mob/living/carbon/teshari/H)
 	if(H.stat == DEAD) // He's dead, Jim
 		return null
 

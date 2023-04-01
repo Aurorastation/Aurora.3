@@ -15,8 +15,8 @@
 	aspect = ASPECT_UNSTABLE
 
 /obj/item/spell/shared_burden/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
-	if(ishuman(hit_atom) && within_range(hit_atom))
-		var/mob/living/carbon/human/H = hit_atom
+	if(isteshari(hit_atom) && within_range(hit_atom))
+		var/mob/living/carbon/teshari/H = hit_atom
 		if(H == user)
 			to_chat(user, "<span class='warning'>Draining instability out of you to put it back seems a bit pointless.</span>")
 			return 0

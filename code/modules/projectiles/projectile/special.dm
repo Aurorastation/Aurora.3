@@ -12,7 +12,7 @@
 
 /obj/item/projectile/ion/stun/on_impact(var/atom/A)
 	if(isipc(A))
-		var/mob/living/carbon/human/H = A
+		var/mob/living/carbon/teshari/H = A
 		var/obj/item/organ/internal/surge/s = H.internal_organs_by_name["surge"]
 		if(!isnull(s))
 			if(s.surge_left >= 0.5)
@@ -150,8 +150,8 @@
 
 /obj/item/projectile/energy/floramut/on_hit(var/atom/target, var/blocked = 0)
 	var/mob/living/M = target
-	if(ishuman(target))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(target))
+		var/mob/living/carbon/teshari/H = M
 		if((H.species.flags & IS_PLANT) && (M.nutrition < 500))
 			if(prob(15))
 				H.apply_damage(rand(30,80), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
@@ -183,8 +183,8 @@
 
 /obj/item/projectile/energy/florayield/on_hit(var/atom/target, var/blocked = 0)
 	var/mob/M = target
-	if(ishuman(target)) //These rays make plantmen fat.
-		var/mob/living/carbon/human/H = M
+	if(isteshari(target)) //These rays make plantmen fat.
+		var/mob/living/carbon/teshari/H = M
 		if((H.species.flags & IS_PLANT) && (M.nutrition < 500))
 			M.adjustNutritionLoss(-30)
 	else if (istype(target, /mob/living/carbon/))
@@ -197,8 +197,8 @@
 	name = "flayer ray"
 
 /obj/item/projectile/beam/mindflayer/on_hit(var/atom/target, var/blocked = 0)
-	if(ishuman(target))
-		var/mob/living/carbon/human/M = target
+	if(isteshari(target))
+		var/mob/living/carbon/teshari/M = target
 		M.adjustBrainLoss(5)
 		M.hallucination += 20
 

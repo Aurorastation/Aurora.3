@@ -446,7 +446,7 @@
 	vitals = null
 	update_icon()
 
-/obj/structure/bed/roller/proc/attach_iv(mob/living/carbon/human/target, mob/user)
+/obj/structure/bed/roller/proc/attach_iv(mob/living/carbon/teshari/target, mob/user)
 	if(!beaker)
 		return
 	if(do_mob(user, target, 1 SECOND))
@@ -455,7 +455,7 @@
 		update_icon()
 		START_PROCESSING(SSprocessing, src)
 
-/obj/structure/bed/roller/proc/detach_iv(mob/living/carbon/human/target, mob/user)
+/obj/structure/bed/roller/proc/detach_iv(mob/living/carbon/teshari/target, mob/user)
 	user.visible_message(SPAN_NOTICE("<b>[user]</b> takes [target] off the IV on \the [src]."), SPAN_NOTICE("You take the IV off \the [target]."))
 	iv_attached = FALSE
 	update_icon()
@@ -465,7 +465,7 @@
 	..()
 	if(use_check(usr) || !Adjacent(usr))
 		return
-	if(!ishuman(usr) && (!isrobot(usr) || isDrone(usr))) //Humans and borgs can collapse, but not drones
+	if(!isteshari(usr) && (!isrobot(usr) || isDrone(usr))) //tesharis and borgs can collapse, but not drones
 		return
 	if(over_object == buckled && beaker)
 		if(iv_attached)
@@ -473,7 +473,7 @@
 		else
 			attach_iv(buckled, usr)
 		return
-	if(usr != over_object && ishuman(over_object))
+	if(usr != over_object && isteshari(over_object))
 		if(user_buckle(over_object, usr))
 			attach_iv(buckled, usr)
 			return

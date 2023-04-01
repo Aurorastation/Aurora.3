@@ -125,8 +125,8 @@
 
 /obj/item/clothing/suit/straight_jacket/equipped(var/mob/user, var/slot)
 	if (slot == slot_wear_suit)
-		if(ishuman(loc))
-			var/mob/living/carbon/human/H = loc
+		if(isteshari(loc))
+			var/mob/living/carbon/teshari/H = loc
 			H.drop_r_hand()
 			H.drop_l_hand()
 			H.drop_from_inventory(H.handcuffed)

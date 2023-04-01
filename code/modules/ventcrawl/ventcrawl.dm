@@ -12,7 +12,7 @@ var/global/list/can_enter_vent_with = list(
 	/obj/machinery/camera,
 	/mob/living/simple_animal/borer,
 	/mob/living/simple_animal/rat,
-	/mob/living/carbon/human
+	/mob/living/carbon/teshari
 	)
 
 /mob/living/var/list/icon/pipes_shown = list()
@@ -45,7 +45,7 @@ var/global/list/can_enter_vent_with = list(
 		return 1
 	return ..()
 
-/mob/living/carbon/human/is_allowed_vent_crawl_item(var/obj/item/carried_item)
+/mob/living/carbon/teshari/is_allowed_vent_crawl_item(var/obj/item/carried_item)
 	if(carried_item in organs)
 		return 1
 	return ..()
@@ -71,7 +71,7 @@ var/global/list/can_enter_vent_with = list(
 		return 1
 	return ..()
 
-/mob/living/carbon/human/can_ventcrawl()
+/mob/living/carbon/teshari/can_ventcrawl()
 	return issmall(src)
 
 /mob/proc/start_ventcrawl()

@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/ssmd_navy_crewman
+/datum/ghostspawner/teshari/ssmd_navy_crewman
 	short_name = "ssmd_navy_crewman"
 	name = "SSMD Navy Crewman"
 	desc = "Crew the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSMD. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
@@ -9,7 +9,7 @@
 	max_count = 3
 
 	outfit = /datum/outfit/admin/ssmd_navy_crewman
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_teshari)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "SSMD Navy Crewman"
@@ -36,7 +36,7 @@
 /datum/outfit/admin/ssmd_navy_crewman/get_id_access()
 	return list(access_sol_ships, access_external_airlocks)
 
-/datum/ghostspawner/human/ssmd_navy_officer
+/datum/ghostspawner/teshari/ssmd_navy_officer
 	short_name = "ssmd_navy_officer"
 	name = "SSMD Navy Officer"
 	desc = "Command the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSMD. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
@@ -47,7 +47,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/ssmd_navy_officer
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_teshari)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "SSMD Navy Officer"
@@ -73,7 +73,7 @@
 /datum/outfit/admin/ssmd_navy_officer/get_id_access()
 	return list(access_sol_ships, access_external_airlocks)
 
-/datum/ghostspawner/human/ssmd_navy_crewman/senior
+/datum/ghostspawner/teshari/ssmd_navy_crewman/senior
 	short_name = "ssmd_navy_senior_crewman"
 	name = "SSMD Navy Senior Crewman"
 	desc = "Serve as the second-in-command of the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSMD. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
@@ -85,7 +85,7 @@
 	assigned_role = "SSMD Navy Senior Crewman"
 	special_role = "SSMD Navy Senior Crewman"
 
-/datum/ghostspawner/human/ssmd_marine_pilot
+/datum/ghostspawner/teshari/ssmd_marine_pilot
 	short_name = "ssmd_marine_pilot"
 	name = "SSMD Marine Exosuit Pilot"
 	desc = "Protect the Southern Solarian Military District reconnaissance corvette, and pilot the gremlin recon exosuit. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSMD. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
@@ -96,7 +96,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/ssmd_marine_pilot
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_teshari)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "SSMD Marine Exosuit Pilot"
@@ -123,7 +123,7 @@
 /datum/outfit/admin/ssmd_marine_pilot/get_id_access()
 	return list(access_sol_ships, access_external_airlocks)
 
-/datum/ghostspawner/human/ssmd_ipc
+/datum/ghostspawner/teshari/ssmd_ipc
 	short_name = "ssmd_ipc"
 	name = "SSMD Military Synthetic"
 	desc = "Assist the crew of the Southern Solarian Military District reconnaissance corvette in whatever capacity necessary. Use your superior reflexes and skills to expertly pilot the ship and man its targeting systems. Remember that you are not a free, enlisted soldier: you are the military's non-combatant property, programmed to rigidly serve the interests of the Solarian government and the SSMD above all else."

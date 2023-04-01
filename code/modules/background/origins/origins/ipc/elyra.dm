@@ -1,6 +1,6 @@
 /singleton/origin_item/culture/ipc_elyra
 	name = "Serene Republic of Elyra"
-	desc = "On paper, Elyra is one of the most progressive states in the Spur towards IPC, being the first to grant them citizenship in 2428. However, the law does not reflect the popular opinion towards synthetics, with many Elyrans today viewing them as not equal to humans. Still, IPC in the Republic enjoy the ability to become citizens and receive social welfare, with a lucky minority finding a comfortable, if secluded life within the nation."
+	desc = "On paper, Elyra is one of the most progressive states in the Spur towards IPC, being the first to grant them citizenship in 2428. However, the law does not reflect the popular opinion towards synthetics, with many Elyrans today viewing them as not equal to tesharis. Still, IPC in the Republic enjoy the ability to become citizens and receive social welfare, with a lucky minority finding a comfortable, if secluded life within the nation."
 	possible_origins = list(
 		/singleton/origin_item/origin/ipc_elyra
 	)

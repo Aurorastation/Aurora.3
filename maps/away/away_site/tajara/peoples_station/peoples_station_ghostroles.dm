@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/peoples_station_crew
+/datum/ghostspawner/teshari/peoples_station_crew
 	short_name = "peoples_station_crew"
 	name = "People's Space Station Crewmember"
 	desc = "Crew the People's Space Station."
@@ -35,7 +35,7 @@
 /datum/outfit/admin/peoples_station_crew/get_id_access()
 	return list(access_pra, access_external_airlocks)
 
-/datum/ghostspawner/human/peoples_station_crew/captain
+/datum/ghostspawner/teshari/peoples_station_crew/captain
 	short_name = "peoples_station_captain"
 	name = "People's Space Station Captain"
 	desc = "Command the People's Space Station."
@@ -65,7 +65,7 @@
 						)
 
 
-/datum/ghostspawner/human/peoples_station_crew/commissar
+/datum/ghostspawner/teshari/peoples_station_crew/commissar
 	short_name = "peoples_station_commissar"
 	name = "People's Space Station Party Commissar"
 	desc = "Ensure that the People's Space Station's crew follow the principles of Hadiism."

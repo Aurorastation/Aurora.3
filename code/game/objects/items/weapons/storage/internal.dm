@@ -31,7 +31,7 @@
 //returns 1 if the master item's parent's MouseDrop() should be called, 0 otherwise. It's strange, but no other way of
 //doing it without the ability to call another proc's parent, really.
 /obj/item/storage/internal/proc/handle_mousedrop(mob/user as mob, obj/over_object as obj)
-	if (ishuman(user) || issmall(user)) //so monkeys can take off their backpacks -- Urist
+	if (isteshari(user) || issmall(user)) //so monkeys can take off their backpacks -- Urist
 
 		if(over_object == user && Adjacent(user)) // this must come before the screen objects only block
 			src.open(user)
@@ -65,8 +65,8 @@
 /obj/item/storage/internal/proc/handle_attack_hand(mob/user as mob)
 	var/obj/item/real_master_item = special_master_item_handling ? get_master_item() : master_item
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.l_store == real_master_item && !H.get_active_hand())	//Prevents opening if it's in a pocket.
 			H.put_in_hands(real_master_item)
 			H.l_store = null
@@ -172,17 +172,17 @@
 	if(!istype(E))
 		return FALSE
 
-	var/mob/living/carbon/human/H = E.owner
+	var/mob/living/carbon/teshari/H = E.owner
 	if(!istype(H))
 		return FALSE
 
-	if(!TA.compatible_with_human(H))
+	if(!TA.compatible_with_teshari(H))
 		return FALSE
 
 	return TRUE
 
 // we can generally assume user has all the proper groin stuff here, otherwise the above block of code is busted
-/obj/item/storage/internal/tail/handle_item_insertion(obj/item/W, prevent_warning, mob/living/carbon/human/user)
+/obj/item/storage/internal/tail/handle_item_insertion(obj/item/W, prevent_warning, mob/living/carbon/teshari/user)
 	. = ..()
 	if(.)
 		user.update_tail_showing()
@@ -193,7 +193,7 @@
 		var/obj/item/organ/external/E = loc
 		if(!istype(E))
 			return
-		var/mob/living/carbon/human/H = E.owner
+		var/mob/living/carbon/teshari/H = E.owner
 		if(!istype(H))
 			return
 		H.update_tail_showing()

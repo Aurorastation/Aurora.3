@@ -158,7 +158,7 @@
 				target = null
 	else
 		if(emagged)
-			for(var/mob/living/carbon/human/H in view(7, src))
+			for(var/mob/living/carbon/teshari/H in view(7, src))
 				target = H
 				break
 		else
@@ -262,7 +262,7 @@
 		action = ""
 		update_icon()
 		visible_message(SPAN_NOTICE("[src] finishes refilling its tank."))
-	else if(emagged && ishuman(A))
+	else if(emagged && isteshari(A))
 		var/action = pick("weed", "water")
 		attacking = TRUE
 		spawn(50) // Some delay

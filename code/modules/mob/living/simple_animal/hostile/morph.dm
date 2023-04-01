@@ -224,7 +224,7 @@
 	if(morphed)
 		restore()
 
-/mob/living/simple_animal/hostile/morph/attack_hand(mob/living/carbon/human/M)
+/mob/living/simple_animal/hostile/morph/attack_hand(mob/living/carbon/teshari/M)
 	..()
 	if(morphed && M != src)
 		restore()

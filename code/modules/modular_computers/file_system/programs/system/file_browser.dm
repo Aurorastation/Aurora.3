@@ -146,8 +146,8 @@
 		if(!F || !istype(F))
 			return TRUE
 		var/is_usr_tech_support = FALSE
-		if(ishuman(usr))
-			var/mob/living/carbon/human/H = usr
+		if(isteshari(usr))
+			var/mob/living/carbon/teshari/H = usr
 			var/obj/item/card/id/ID = H.GetIdCard()
 			if(access_it in ID.access)
 				is_usr_tech_support = TRUE
@@ -174,8 +174,8 @@
 		if(!F || !istype(F))
 			return TRUE
 		var/is_usr_tech_support = FALSE
-		if(ishuman(usr))
-			var/mob/living/carbon/human/H = usr
+		if(isteshari(usr))
+			var/mob/living/carbon/teshari/H = usr
 			var/obj/item/card/id/ID = H.GetIdCard()
 			if(access_it in ID.access)
 				is_usr_tech_support = TRUE

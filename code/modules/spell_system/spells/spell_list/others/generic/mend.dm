@@ -16,7 +16,7 @@
 
 	range = 1
 
-	compatible_mobs = list(/mob/living/carbon/human)
+	compatible_mobs = list(/mob/living/carbon/teshari)
 
 /spell/targeted/mend/cast(list/targets, mob/user)
 	..()
@@ -29,11 +29,11 @@
 			to_chat(user, "This spell can't affect non-organics.")
 			return 0
 
-		if(!ishuman(target))
+		if(!isteshari(target))
 			to_chat(user, "<span class='warning'>\The [target]'s body is not complex enough to require healing of this kind.</span>")
 			return 0
 
-		var/mob/living/carbon/human/H = target
+		var/mob/living/carbon/teshari/H = target
 		var/obj/item/organ/external/E = H.get_organ(user.zone_sel.selecting)
 
 		if(!E || E.is_stump())

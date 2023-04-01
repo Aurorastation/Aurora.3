@@ -36,7 +36,7 @@
 	set waitfor = 0
 	playsound(source, 'sound/effects/narsie.ogg', 75) //LOUD AS FUCK BOY
 
-	if(!ishuman(victim))
+	if(!isteshari(victim))
 		to_chat(victim, "<span class='notice'>An annoying buzz passes through your head.</span>")
 		return
 

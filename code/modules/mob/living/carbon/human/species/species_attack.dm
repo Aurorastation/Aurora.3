@@ -29,7 +29,7 @@
 	damage = 5
 	attack_name = "claws"
 
-/datum/unarmed_attack/claws/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
+/datum/unarmed_attack/claws/show_attack(var/mob/living/carbon/teshari/user, var/mob/living/carbon/teshari/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
 
 	attack_damage = Clamp(attack_damage, 1, 5)
@@ -101,7 +101,7 @@
 /datum/unarmed_attack/stomp/weak/get_unarmed_damage()
 	return damage
 
-/datum/unarmed_attack/stomp/weak/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
+/datum/unarmed_attack/stomp/weak/show_attack(var/mob/living/carbon/teshari/user, var/mob/living/carbon/teshari/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
 	user.visible_message("<span class='warning'>[user] jumped up and down on \the [target]'s [affecting.name]!</span>")
 	playsound(user.loc, attack_sound, 25, 1, -1)
@@ -141,7 +141,7 @@
 	attack_name = "power fist"
 	shredding = TRUE
 
-/datum/unarmed_attack/terminator/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
+/datum/unarmed_attack/terminator/apply_effects(var/mob/living/carbon/teshari/user,var/mob/living/carbon/teshari/target,var/armor,var/attack_damage,var/zone)
 	..()
 	if(prob(25) && target.mob_size <= 30)
 		playsound(user, 'sound/weapons/push_connect.ogg', 50, 1, -1)
@@ -167,7 +167,7 @@
 	attack_name = "massive claws"
 	shredding = TRUE
 
-/datum/unarmed_attack/claws/cleave/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
+/datum/unarmed_attack/claws/cleave/apply_effects(var/mob/living/carbon/teshari/user,var/mob/living/carbon/teshari/target,var/armor,var/attack_damage,var/zone)
 	..()
 	var/hit_mobs = 0
 	for(var/mob/living/L in orange(1,user))
@@ -198,7 +198,7 @@
 	armor_penetration = 15
 	shredding = TRUE
 
-/datum/unarmed_attack/bite/infectious/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
+/datum/unarmed_attack/bite/infectious/apply_effects(var/mob/living/carbon/teshari/user,var/mob/living/carbon/teshari/target,var/armor,var/attack_damage,var/zone)
 	..()
 	if(!target || target.stat == DEAD)
 		return
@@ -227,7 +227,7 @@
 	attack_sound = 'sound/effects/sparks4.ogg'
 	attack_name = "electrifying touch"
 
-/datum/unarmed_attack/shocking/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
+/datum/unarmed_attack/shocking/apply_effects(var/mob/living/carbon/teshari/user,var/mob/living/carbon/teshari/target,var/armor,var/attack_damage,var/zone)
 	..()
 	if(prob(25))
 		target.electrocute_act(20, user, def_zone = zone)
@@ -240,7 +240,7 @@
 	attack_name = "flaming touch"
 	damage_type = DAMAGE_BURN
 
-/datum/unarmed_attack/flame/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
+/datum/unarmed_attack/flame/apply_effects(var/mob/living/carbon/teshari/user,var/mob/living/carbon/teshari/target,var/armor,var/attack_damage,var/zone)
 	..()
 	if(prob(25))
 		target.apply_effect(1, INCINERATE, 0)
@@ -272,7 +272,7 @@
 	attack_name = "industrial claw"
 	shredding = TRUE
 
-/datum/unarmed_attack/tesla_body/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
+/datum/unarmed_attack/tesla_body/apply_effects(var/mob/living/carbon/teshari/user,var/mob/living/carbon/teshari/target,var/armor,var/attack_damage,var/zone)
 	..()
 	user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
 	if(iscarbon(target))

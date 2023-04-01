@@ -15,7 +15,7 @@
 			/obj/item/stock_parts/scanning_module = 1
 		)
 
-	var/mob/living/carbon/human/victim = null
+	var/mob/living/carbon/teshari/victim = null
 	var/suppressing = FALSE
 
 	var/obj/machinery/computer/operating/computer = null
@@ -88,7 +88,7 @@
 	if(!victim || !victim.lying || victim.loc != loc)
 		suppressing = FALSE
 		victim = null
-		var/mob/living/carbon/human/H = locate() in loc
+		var/mob/living/carbon/teshari/H = locate() in loc
 		if(istype(H))
 			if(H.lying)
 				icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
@@ -120,8 +120,8 @@
 	C.resting = TRUE
 	C.forceMove(loc)
 	add_fingerprint(user)
-	if(ishuman(C))
-		var/mob/living/carbon/human/H = C
+	if(isteshari(C))
+		var/mob/living/carbon/teshari/H = C
 		victim = H
 		icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
 		if(H.stat == DEAD || H.is_asystole() || H.status_flags & FAKEDEATH)
@@ -156,7 +156,7 @@
 	set category = "Object"
 	set src in oview(1)
 
-	if(usr.stat || !ishuman(usr) || usr.restrained() )
+	if(usr.stat || !isteshari(usr) || usr.restrained() )
 		return
 
 	take_victim(usr,usr)

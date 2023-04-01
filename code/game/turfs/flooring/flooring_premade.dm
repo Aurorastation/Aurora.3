@@ -468,6 +468,6 @@
 
 /turf/simulated/floor/foamedmetal/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(ishuman(user))
+	if(isteshari(user))
 		ChangeTurf(/turf/space)
 		to_chat(user, SPAN_NOTICE("You clear away the metal foam."))

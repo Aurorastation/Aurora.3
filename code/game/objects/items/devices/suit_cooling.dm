@@ -43,7 +43,7 @@
 // Checks whether the cooling unit is being worn on the back/suit slot.
 // That way you can't carry it in your hands while it's running to cool yourself down.
 /obj/item/device/suit_cooling_unit/proc/is_in_slot()
-	var/mob/living/carbon/human/H = loc
+	var/mob/living/carbon/teshari/H = loc
 	if(!istype(H))
 		return FALSE
 
@@ -56,7 +56,7 @@
 	if(!is_in_slot())
 		return
 
-	var/mob/living/carbon/human/H = loc
+	var/mob/living/carbon/teshari/H = loc
 
 	var/efficiency = !!(H.species.flags & ACCEPTS_COOLER) || 1 - H.get_pressure_weakness()		//you need to have a good seal for effective cooling; some species can directly connect to the cooler, so get a free 100% efficiency here
 	var/env_temp = get_environment_temperature()		//wont save you from a fire
@@ -77,8 +77,8 @@
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/proc/get_environment_temperature()
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/H = loc
 		if(istype(H.loc, /obj/machinery/atmospherics/unary/cryo_cell))
 			var/obj/machinery/atmospherics/unary/cryo_cell/C = H.loc
 			return C.air_contents.temperature
@@ -94,10 +94,10 @@
 	return environment.temperature
 
 /obj/item/device/suit_cooling_unit/proc/attached_to_suit(mob/M)
-	if(!ishuman(M))
+	if(!isteshari(M))
 		return FALSE
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 
 	if(!H.wear_suit || H.s_store != src)
 		return FALSE
@@ -124,7 +124,7 @@
 
 /obj/item/device/suit_cooling_unit/attack_self(mob/user)
 	if(cover_open && cell)
-		if(ishuman(user))
+		if(isteshari(user))
 			user.put_in_hands(cell)
 		else
 			cell.forceMove(get_turf(loc))
@@ -217,8 +217,8 @@
 	if(on)
 		if(attached_to_suit(src.loc))
 			to_chat(user, SPAN_NOTICE("It's switched on and running."))
-		else if(ishuman(loc))
-			var/mob/living/carbon/human/H = loc
+		else if(isteshari(loc))
+			var/mob/living/carbon/teshari/H = loc
 			if(H.species.flags & ACCEPTS_COOLER)
 				to_chat(user, SPAN_NOTICE("It's switched on and running, connected to the cooling systems of [H]."))
 		else

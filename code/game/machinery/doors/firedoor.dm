@@ -212,8 +212,8 @@
 	if(user.incapacitated() || (get_dist(src, user) > 1  && !issilicon(user)))
 		return
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.species.can_shred(H) || H.default_attack?.crowbar_door)
 			if(src.density)
 				visible_message("<span class='danger'>\The [H] forces \the [src] open!</span>")

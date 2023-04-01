@@ -31,7 +31,7 @@
 			M = user
 		return eyestab(M,user)
 
-/obj/item/material/knife/verb/extract_embedded(var/mob/living/carbon/human/H as mob in view(1))
+/obj/item/material/knife/verb/extract_embedded(var/mob/living/carbon/teshari/H as mob in view(1))
 	set name = "Extract Embedded Item"
 	set category = "Object"
 	set src in usr

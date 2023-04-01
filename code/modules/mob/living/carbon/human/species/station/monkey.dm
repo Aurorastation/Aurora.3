@@ -4,16 +4,16 @@
 	name_plural = "Monkeys"
 	blurb = "Ook."
 
-	icobase = 'icons/mob/human_races/monkeys/r_monkey.dmi'
-	deform = 'icons/mob/human_races/monkeys/r_monkey.dmi'
-	skeleton_icon = 'icons/mob/human_races/monkeys/monkey_skeleton.dmi'
-	damage_overlays = 'icons/mob/human_races/masks/dam_monkey.dmi'
-	damage_mask = 'icons/mob/human_races/masks/dam_mask_monkey.dmi'
-	blood_mask = 'icons/mob/human_races/masks/blood_monkey.dmi'
+	icobase = 'icons/mob/teshari_races/monkeys/r_monkey.dmi'
+	deform = 'icons/mob/teshari_races/monkeys/r_monkey.dmi'
+	skeleton_icon = 'icons/mob/teshari_races/monkeys/monkey_skeleton.dmi'
+	damage_overlays = 'icons/mob/teshari_races/masks/dam_monkey.dmi'
+	damage_mask = 'icons/mob/teshari_races/masks/dam_mask_monkey.dmi'
+	blood_mask = 'icons/mob/teshari_races/masks/blood_monkey.dmi'
 	language = LANGUAGE_CHIMPANZEE
 	default_language = LANGUAGE_CHIMPANZEE
 	secondary_langs = list(LANGUAGE_CHIMPANZEE)
-	greater_form = SPECIES_HUMAN
+	greater_form = SPECIES_teshari
 	mob_size = MOB_SMALL
 	show_ssd = null
 
@@ -29,7 +29,7 @@
 	tail = "chimptail"
 
 	unarmed_types = list(/datum/unarmed_attack/bite, /datum/unarmed_attack/claws)
-	inherent_verbs = list(/mob/living/proc/ventcrawl, /mob/living/carbon/human/proc/change_animal_name)
+	inherent_verbs = list(/mob/living/proc/ventcrawl, /mob/living/carbon/teshari/proc/change_animal_name)
 	hud_type = /datum/hud_data/monkey
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/monkey
@@ -52,7 +52,7 @@
 	pass_flags = PASSTABLE
 	holder_type = /obj/item/holder/monkey
 
-/datum/species/monkey/handle_npc(var/mob/living/carbon/human/H)
+/datum/species/monkey/handle_npc(var/mob/living/carbon/teshari/H)
 	if(H.stat != CONSCIOUS)
 		return
 
@@ -92,8 +92,8 @@
 	name_plural = "Farwa"
 	fall_mod = 0.25
 
-	icobase = 'icons/mob/human_races/monkeys/r_farwa.dmi'
-	deform = 'icons/mob/human_races/monkeys/r_farwa.dmi'
+	icobase = 'icons/mob/teshari_races/monkeys/r_farwa.dmi'
+	deform = 'icons/mob/teshari_races/monkeys/r_farwa.dmi'
 
 	greater_form = SPECIES_TAJARA
 	default_language = LANGUAGE_FARWA
@@ -115,8 +115,8 @@
 	name_plural = "Neaera"
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/neaera
 
-	icobase = 'icons/mob/human_races/monkeys/r_neaera.dmi'
-	deform = 'icons/mob/human_races/monkeys/r_neaera.dmi'
+	icobase = 'icons/mob/teshari_races/monkeys/r_neaera.dmi'
+	deform = 'icons/mob/teshari_races/monkeys/r_neaera.dmi'
 
 	greater_form = SPECIES_SKRELL
 	default_language = LANGUAGE_NEAERA
@@ -142,8 +142,8 @@
 	short_name = "sto"
 	name_plural = LANGUAGE_STOK
 
-	icobase = 'icons/mob/human_races/monkeys/r_stok.dmi'
-	deform = 'icons/mob/human_races/monkeys/r_stok.dmi'
+	icobase = 'icons/mob/teshari_races/monkeys/r_stok.dmi'
+	deform = 'icons/mob/teshari_races/monkeys/r_stok.dmi'
 
 	tail = "stoktail"
 	greater_form = SPECIES_UNATHI
@@ -162,12 +162,12 @@
 	name_plural = "V'krexi"
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/bug
 	holder_type = null//No icons for held Vkrexi yet
-	icobase = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'
-	deform = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'
+	icobase = 'icons/mob/teshari_races/monkeys/r_vkrexi.dmi'
+	deform = 'icons/mob/teshari_races/monkeys/r_vkrexi.dmi'
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite,
-		/mob/living/carbon/human/proc/change_animal_name
+		/mob/living/carbon/teshari/proc/bugbite,
+		/mob/living/carbon/teshari/proc/change_animal_name
 		)
 
 	tail = "vkrexitail"

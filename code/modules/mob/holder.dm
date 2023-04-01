@@ -149,8 +149,8 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/attack_self(mob/M as mob)
 
 	if (contained && !(contained.stat & DEAD))
-		if (istype(M,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
+		if (istype(M,/mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = M
 			switch(H.a_intent)
 				if(I_HELP)
 					H.visible_message("<span class='notice'>[H] pets [contained].</span>")
@@ -265,8 +265,8 @@ var/list/holder_mob_icon_cache = list()
 		var/mob/living/simple_animal/SA = contained
 		SA.change_name(usr)
 		sync(contained)
-	if(ishuman(contained))
-		var/mob/living/carbon/human/H = contained
+	if(isteshari(contained))
+		var/mob/living/carbon/teshari/H = contained
 		if(H.isMonkey())
 			H.change_animal_name(usr)
 			sync(contained)
@@ -396,7 +396,7 @@ var/list/holder_mob_icon_cache = list()
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_NORMAL
 
-/obj/item/holder/monkey/set_contained(var/mob/living/carbon/human/M)
+/obj/item/holder/monkey/set_contained(var/mob/living/carbon/teshari/M)
 	..()
 	M.dir = SOUTH //monkeys look better head-on | source: it was revealed to me in a mirror
 	if(istype(M.w_uniform, /obj/item/clothing/under))

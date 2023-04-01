@@ -55,7 +55,7 @@
 	nutrition = starting_nutrition
 	check_wideness_change()
 
-/mob/living/simple_animal/schlorrgo/unarmed_harm_attack(mob/living/carbon/human/user)
+/mob/living/simple_animal/schlorrgo/unarmed_harm_attack(mob/living/carbon/teshari/user)
 	var/obj/item/organ/external/left_leg = user.get_organ(BP_L_LEG)
 	var/obj/item/organ/external/right_leg = user.get_organ(BP_R_LEG)
 
@@ -162,7 +162,7 @@
 			attacktext = "crushed"
 			environment_smash = 1
 			resistance = 2
-			mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
+			mob_swap_flags = teshari|SIMPLE_ANIMAL|SLIME|MONKEY
 			mob_push_flags = ALLMOBS
 			a_intent = I_HURT
 			emote_sounds = list('sound/effects/creatures/schlorrgo_scream.ogg')
@@ -189,7 +189,7 @@
 			melee_damage_upper = 25
 			environment_smash = 2
 			resistance = 3
-			mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
+			mob_swap_flags = teshari|SIMPLE_ANIMAL|SLIME|MONKEY
 			mob_push_flags = ALLMOBS
 			a_intent = I_HURT
 			emote_sounds = list('sound/effects/creatures/schlorrgo_scream.ogg')

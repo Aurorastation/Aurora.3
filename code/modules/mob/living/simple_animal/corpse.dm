@@ -1,4 +1,4 @@
-//Meant for simple animals to drop lootable human bodies.
+//Meant for simple animals to drop lootable teshari bodies.
 
 //If someone can do this in a neater way, be my guest-Kor
 
@@ -34,7 +34,7 @@
 	return INITIALIZE_HINT_NORMAL
 
 /obj/effect/landmark/mobcorpse/proc/createCorpse() //Creates a mob and checks for gear in each slot before attempting to equip it.
-	var/mob/living/carbon/human/M = new /mob/living/carbon/human (src.loc)
+	var/mob/living/carbon/teshari/M = new /mob/living/carbon/teshari (src.loc)
 	M.real_name = src.name
 	M.set_stat(DEAD)
 	if(src.corpseuniform)

@@ -36,7 +36,7 @@
 	icon_state = "from_above"
 	elements = BATTLE_MONSTERS_ELEMENT_LIGHT | BATTLE_MONSTERS_ELEMENT_DARK
 	rarity = 1
-	description = "an incredibly angry bearded god pointing savagely at a very confused human villager."
+	description = "an incredibly angry bearded god pointing savagely at a very confused teshari villager."
 	special_effects = "TRIGGER: When activated. Single use.<br>EFFECT: The chosen monster is sent to the graveyard."
 	tip = "Can be used on facedown cards with an unknown card type. However, if you get the card type wrong, then the spell is wasted."
 	rarity_score = 1

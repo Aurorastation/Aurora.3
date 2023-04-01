@@ -1,7 +1,7 @@
-/mob/living/carbon/human/instantiate_hud(var/datum/hud/HUD, var/ui_style, var/ui_color, var/ui_alpha)
-	HUD.human_hud(ui_style, ui_color, ui_alpha, src)
+/mob/living/carbon/teshari/instantiate_hud(var/datum/hud/HUD, var/ui_style, var/ui_color, var/ui_alpha)
+	HUD.teshari_hud(ui_style, ui_color, ui_alpha, src)
 
-/datum/hud/proc/human_hud(var/ui_style='icons/mob/screen/white.dmi', var/ui_color = "#ffffff", var/ui_alpha = 255, var/mob/living/carbon/human/target)
+/datum/hud/proc/teshari_hud(var/ui_style='icons/mob/screen/white.dmi', var/ui_color = "#ffffff", var/ui_alpha = 255, var/mob/living/carbon/teshari/target)
 	var/datum/hud_data/hud_data
 	if(!istype(target))
 		hud_data = new()
@@ -402,7 +402,7 @@
 	return
 
 
-/mob/living/carbon/human/verb/toggle_hotkey_verbs()
+/mob/living/carbon/teshari/verb/toggle_hotkey_verbs()
 	set category = "OOC"
 	set name = "Toggle hotkey buttons"
 	set desc = "This disables or enables the user interface buttons which can be used with hotkeys."
@@ -414,10 +414,10 @@
 		client.screen -= hud_used.hotkeybuttons
 		hud_used.hotkey_ui_hidden = 1
 
-//Used for new human mobs created by cloning/goleming/etc.
-/mob/living/carbon/human/proc/set_cloned_appearance()
+//Used for new teshari mobs created by cloning/goleming/etc.
+/mob/living/carbon/teshari/proc/set_cloned_appearance()
 	f_style = "Shaved"
-	if(dna.species == SPECIES_HUMAN) //no more xenos losing ears/tentacles
+	if(dna.species == SPECIES_teshari) //no more xenos losing ears/tentacles
 		h_style = pick("Bedhead", "Bedhead 2", "Bedhead 3")
 	all_underwear.Cut()
 	regenerate_icons()

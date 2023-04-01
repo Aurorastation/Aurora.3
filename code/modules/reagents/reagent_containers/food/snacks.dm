@@ -51,7 +51,7 @@
 
 	if(isliving(target))
 		var/mob/living/L = target
-		if(L.isSynthetic() && !isipc(L)) //Catches bots, drones, borgs, etc. IPCs are handled below at the human level
+		if(L.isSynthetic() && !isipc(L)) //Catches bots, drones, borgs, etc. IPCs are handled below at the teshari level
 			return FALSE
 
 	if (isanimal(target))
@@ -91,8 +91,8 @@
 
 		var/is_full = (fullness >= user.max_nutrition)
 
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
+		if(isteshari(user))
+			var/mob/living/carbon/teshari/H = user
 			if (H.species && H.species.bypass_food_fullness())
 				is_full = FALSE
 
@@ -433,7 +433,7 @@
 
 /obj/item/reagent_containers/food/snacks/koisbar_clean
 	name = "k'ois bar"
-	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup and injected with extra phoron; it has a label on it warning that it is unsafe for human consumption."
+	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup and injected with extra phoron; it has a label on it warning that it is unsafe for teshari consumption."
 	icon_state = "koisbar"
 	trash = /obj/item/trash/koisbar
 	filling_color = "#dcd9cd"
@@ -1053,12 +1053,12 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("buns" = 3, "spookiness" = 3))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/human
+/obj/item/reagent_containers/food/snacks/teshari
 	var/hname = ""
 	var/job = null
 	filling_color = "#D63C3C"
 
-/obj/item/reagent_containers/food/snacks/human/burger
+/obj/item/reagent_containers/food/snacks/teshari/burger
 	name = "-burger"
 	desc = "A bloody burger."
 	icon_state = "hburger"
@@ -1323,10 +1323,10 @@
 
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
 
-/obj/item/reagent_containers/food/snacks/human/kabob
+/obj/item/reagent_containers/food/snacks/teshari/kabob
 	name = "-kabob"
 	icon_state = "kabob"
-	desc = "A human meat, on a stick."
+	desc = "A teshari meat, on a stick."
 	trash = /obj/item/stack/rods
 	filling_color = "#A85340"
 	center_of_mass = list("x"=17, "y"=15)
@@ -1802,7 +1802,7 @@
 
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 10)
 
-/obj/item/reagent_containers/food/snacks/monkeycube/afterattack(obj/O as obj, var/mob/living/carbon/human/user as mob, proximity)
+/obj/item/reagent_containers/food/snacks/monkeycube/afterattack(obj/O as obj, var/mob/living/carbon/teshari/user as mob, proximity)
 	if(!proximity) return
 	if(( istype(O, /obj/structure/reagent_dispensers/watertank) || istype(O,/obj/structure/sink) ) && !wrapped)
 		to_chat(user, "You place \the [name] under a stream of water...")
@@ -1821,7 +1821,7 @@
 	if(istype(loc, /obj/item/gripper)) // fixes ghost cube when using syringe
 		var/obj/item/gripper/G = loc
 		G.drop_item()
-	var/mob/living/carbon/human/H = new(src.loc)
+	var/mob/living/carbon/teshari/H = new(src.loc)
 	H.set_species(monkey_type)
 	H.real_name = H.species.get_random_name()
 	H.name = H.real_name
@@ -3678,8 +3678,8 @@
 	else
 		..()
 
-// Human Burger + cheese wedge = cheeseburger
-/obj/item/reagent_containers/food/snacks/human/burger/attackby(obj/item/reagent_containers/food/snacks/cheesewedge/W as obj, mob/user as mob)
+// teshari Burger + cheese wedge = cheeseburger
+/obj/item/reagent_containers/food/snacks/teshari/burger/attackby(obj/item/reagent_containers/food/snacks/cheesewedge/W as obj, mob/user as mob)
 	if(istype(W))
 		new /obj/item/reagent_containers/food/snacks/burger/cheese(src)
 		to_chat(user, "You make a cheeseburger.")
@@ -3883,7 +3883,7 @@
 	name = "Go-Go Gwok! Authentic Konyanger moss"
 	desc = "Genuine Konyanger moss packaged into a neat bag for easy consumption. A light amount of salt has been applied to this moss, to enhance the natural flavour. The box features Gwok herself on the \
 	box's cover, smiling broadly and giving a thumbs up!"
-	desc_extended = "Go-Go Gwok! is one of the most unusual brands on Konyang, as it is owned by an IPC rather than a human. Gwok-0783, originally produced by Terraneus Diagnostics as a baseline hydroponicist and now \
+	desc_extended = "Go-Go Gwok! is one of the most unusual brands on Konyang, as it is owned by an IPC rather than a teshari. Gwok-0783, originally produced by Terraneus Diagnostics as a baseline hydroponicist and now \
 	the shell Go-Go Gwok! lovers throughout the Orion Spur know and love, has - through a series of legal technicalities and loopholes that would make an Eridanian Suit blush with envy - managed to become the CEO \
 	and majority shareholder in this fairly small Solarian corporation.	Through her headquarters on Xanu Prime, Gwok-0783 revels in her existence as one of the Orion Spur's wealthiest IPCs, her image now plastered \
 	on delicious (yet affordable) moss packets consumed across the Orion Spur."
@@ -3987,7 +3987,7 @@
 
 /obj/item/reagent_containers/food/snacks/xuqqil
 	name = "xuq'qil"
-	desc = "A large mushroom cap stuffed with cheese and gnazillae. Originally from the Traverse, the recipe has been adapted for the enjoyment of Skrell with an appreciation for the flavors of human cuisine"
+	desc = "A large mushroom cap stuffed with cheese and gnazillae. Originally from the Traverse, the recipe has been adapted for the enjoyment of Skrell with an appreciation for the flavors of teshari cuisine"
 	icon_state = "xuqqil"
 	filling_color = "#833D67"
 	center_of_mass = list("x"=16, "y"=13)
@@ -4751,7 +4751,7 @@
 
 /obj/item/reagent_containers/food/snacks/sliceable/sushi_roll
 	name = "ouerean fish log"
-	desc = "A giant fish roll wrapped in special grass that combines unathi and human cooking techniques. Can be sliced into proper serving sizes."
+	desc = "A giant fish roll wrapped in special grass that combines unathi and teshari cooking techniques. Can be sliced into proper serving sizes."
 	icon_state = "sushi_roll"
 	slice_path = /obj/item/reagent_containers/food/snacks/sushi_serve
 	slices_num = 3
@@ -4761,7 +4761,7 @@
 
 /obj/item/reagent_containers/food/snacks/sushi_serve
 	name = "ouerean fish cake"
-	desc = "A serving of fish roll wrapped in special grass that combines unathi and human cooking techniques."
+	desc = "A serving of fish roll wrapped in special grass that combines unathi and teshari cooking techniques."
 	icon_state = "sushi_serve"
 	filling_color = "#525252"
 
@@ -5725,7 +5725,7 @@
 /obj/item/storage/box/fancy/vkrexitaffy
 	name = "V'krexi Snax"
 	desc = "A packet of V'krexi taffy. Made from free-range V'krexi!"
-	desc_extended = "V'krexi, while edible, hold no nutritional value, either for humans or Vaurca. The V'krexi meat was mostly neglected until human food-processing techniques were introduced to the Zo'ra Hive."
+	desc_extended = "V'krexi, while edible, hold no nutritional value, either for tesharis or Vaurca. The V'krexi meat was mostly neglected until teshari food-processing techniques were introduced to the Zo'ra Hive."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "vkrexitaffy"
 	item_icons = list(

@@ -196,7 +196,7 @@
 /datum/changeling_sting/transformation/can_sting(mob/living/target)
 	. = ..()
 	if(.)
-		if(HAS_FLAG(target.mutations, HUSK) || (!ishuman(target) && !issmall(target)))
+		if(HAS_FLAG(target.mutations, HUSK) || (!isteshari(target) && !issmall(target)))
 			to_chat(owner, SPAN_WARNING("Our sting appears ineffective against its DNA."))
 			return FALSE
 		if(islesserform(target))
@@ -244,11 +244,11 @@
 /datum/changeling_sting/dna_extract/can_sting(mob/living/target)
 	. = ..()
 	if(.)
-		if(!ishuman(target))
-			to_chat(owner, SPAN_WARNING("This sting only works on humanoids!"))
+		if(!isteshari(target))
+			to_chat(owner, SPAN_WARNING("This sting only works on tesharioids!"))
 			return FALSE
 
-/datum/changeling_sting/dna_extract/do_sting(mob/living/carbon/human/target)
+/datum/changeling_sting/dna_extract/do_sting(mob/living/carbon/teshari/target)
 	..()
 	var/datum/absorbed_dna/newDNA = new(target.real_name, target.dna, target.species.get_cloning_variant(), target.languages)
 	owner.absorbDNA(newDNA)

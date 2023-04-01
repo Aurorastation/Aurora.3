@@ -16,7 +16,7 @@
 		if(M.has_brain_worms())
 			return //Borer stuff - RR
 
-		if(istype(M, /mob/living/carbon/human/apparition))
+		if(istype(M, /mob/living/carbon/teshari/apparition))
 			visible_message("<span class='caution'>\The [src] doesn't seem to affect [M] in any way.</span>")
 			return
 
@@ -36,8 +36,8 @@
 		var/options = list("robot", "slime")
 		for(var/t in all_species)
 			options += t
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+		if(isteshari(M))
+			var/mob/living/carbon/teshari/H = M
 			if(H.species)
 				options -= H.species.name
 		else if(isrobot(M))
@@ -59,11 +59,11 @@
 				new_mob = new /mob/living/carbon/slime(M.loc)
 				new_mob.universal_speak = 1
 			else
-				var/mob/living/carbon/human/H
-				if(ishuman(M))
+				var/mob/living/carbon/teshari/H
+				if(isteshari(M))
 					H = M
 				else
-					new_mob = new /mob/living/carbon/human(M.loc)
+					new_mob = new /mob/living/carbon/teshari(M.loc)
 					H = new_mob
 
 				if(M.gender == MALE)
@@ -75,7 +75,7 @@
 				H.name += " [pick(last_names)]"
 				H.real_name = H.name
 
-				INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/human, set_species), randomize)
+				INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/teshari, set_species), randomize)
 				H.universal_speak = 1
 
 		if(new_mob)

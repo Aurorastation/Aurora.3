@@ -7,7 +7,7 @@
 	loc_type = GS_LOC_ATOM
 	atom_add_message = "A technomancer master has requested an apprentice!"
 
-	spawn_mob = /mob/living/carbon/human
+	spawn_mob = /mob/living/carbon/teshari
 
 /datum/ghostspawner/techno_golem
 	short_name = "technogolem"
@@ -18,4 +18,4 @@
 	loc_type = GS_LOC_ATOM
 	atom_add_message = "A technomancer master has requested a loyal golem!"
 
-	spawn_mob = /mob/living/carbon/human/technomancer_golem
+	spawn_mob = /mob/living/carbon/teshari/technomancer_golem

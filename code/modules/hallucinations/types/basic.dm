@@ -5,7 +5,7 @@
 
 /datum/hallucination/announcement/start()
 	var/list/hal_sender = SShallucinations.message_sender
-	for(var/mob/living/carbon/human/H in living_mob_list)
+	for(var/mob/living/carbon/teshari/H in living_mob_list)
 		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE) && isStationLevel(H.z))	//We're not going to add ninjas, mercs, borers, etc to prevent meta. No people off-station, either
 			hal_sender += H
 	switch(rand(1,15))
@@ -74,14 +74,14 @@
 //for REALLY selling that fake delamination
 /datum/hallucination/announcement/proc/delam_call()
 	var/list/people = list()
-	for(var/mob/living/carbon/human/M in living_mob_list)
+	for(var/mob/living/carbon/teshari/M in living_mob_list)
 		if(!M.isMonkey() && !player_is_antag(M, only_offstation_roles = TRUE) && isStationLevel(M.z))	//Antag check prevents meta, isStationLevel prevents people offsite doing it
 			people += M
 	people -= holder
 	if(!length(people))
 		return
 	var/radio_exclaim = pick("Oh SHIT!", "Oh fuck.", "Uhhh!", "That's not good!", "FUCK.", "Engineering?", "It's under control!", "We're fucked!", "Ohhhh boy.", "What?!", "Um, <b>what?!</b>")
-	var/mob/living/carbon/human/caller = pick(people)
+	var/mob/living/carbon/teshari/caller = pick(people)
 
 	to_chat(holder, "[caller.get_accent_icon(null, holder)] <span class='radio'><b>[caller]</b> says, \"[radio_exclaim]\"</span>")
 
@@ -93,7 +93,7 @@
 
 /datum/hallucination/pda/start()
 	var/list/sender = SShallucinations.message_sender
-	for(var/mob/living/carbon/human/H in living_mob_list)
+	for(var/mob/living/carbon/teshari/H in living_mob_list)
 		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))	//adds current players to default list to provide variety. leaves out offstation antags.
 			sender += H
 	to_chat(holder, FONT_SMALL("<i>[pick(sender)]</i>: [pick(SShallucinations.hallucinated_phrases)] (<FONT color = blue><u>reply</u></FONT>)"))
@@ -178,8 +178,8 @@
 	max_power = 75
 
 /datum/hallucination/insides/start()
-	if(ishuman(holder))
-		var/mob/living/carbon/human/H = holder
+	if(isteshari(holder))
+		var/mob/living/carbon/teshari/H = holder
 		var/obj/O = pick(H.organs)
 		to_chat(holder, SPAN_DANGER("You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of your [O.name]!"))
 	else
@@ -199,8 +199,8 @@
 /datum/hallucination/pain/start()
 	var/pain_type = rand(1,5)
 	var/obj/item/organ/external/O
-	if(ishuman(holder))
-		var/mob/living/carbon/human/H = holder
+	if(isteshari(holder))
+		var/mob/living/carbon/teshari/H = holder
 		O = pick(H.organs)
 		O.add_pain(min(holder.hallucination / 3, 25))	//always cause fake pain
 	else
@@ -404,10 +404,10 @@
 	var/list/candidates = list()
 	for(var/mob/living/M in oview(holder))
 		if(!M.stat)
-			if(holder.hallucination >= 75)	//If you're super fucked up you'll imagine more than just humans talking about you
+			if(holder.hallucination >= 75)	//If you're super fucked up you'll imagine more than just tesharis talking about you
 				candidates += M
 			else
-				if(ishuman(M))
+				if(isteshari(M))
 					candidates += M
 
 	if(!length(candidates))	//No candidates, no effect.

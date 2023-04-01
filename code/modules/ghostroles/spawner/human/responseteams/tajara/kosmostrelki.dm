@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/ert/pra_cosmonaut
+/datum/ghostspawner/teshari/ert/pra_cosmonaut
 	short_name = "exp_pra_cosmonaut"
 	name = "Kosmostrelki"
 	desc = "A Kosmostrelki under the service of the People's Republic of Adhomai Orbital Fleet."
@@ -14,7 +14,7 @@
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
 
-/datum/ghostspawner/human/ert/pra_cosmonaut/commissar
+/datum/ghostspawner/teshari/ert/pra_cosmonaut/commissar
 	short_name = "exp_pra_commissar"
 	name = "Expeditionary Kosmostrelki Party Commissar"
 	desc = "A Party Commissar attached to the Kosmostrelki team."
@@ -26,7 +26,7 @@
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
 
-/datum/ghostspawner/human/ert/pra_cosmonaut/leader
+/datum/ghostspawner/teshari/ert/pra_cosmonaut/leader
 	short_name = "exp_pra_leader"
 	name = "Kosmostrelki Commander"
 	desc = "The commander of the Kosmostrelki team."
@@ -37,7 +37,7 @@
 	outfit = /datum/outfit/admin/ert/pra_cosmonaut/commander
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
-/datum/ghostspawner/human/ert/pra_cosmonaut/tesla
+/datum/ghostspawner/teshari/ert/pra_cosmonaut/tesla
 	short_name = "exp_pra_tesla"
 	name = "Expeditionary Tesla Trooper"
 	desc = "A Tesla Trooper attached to the People's Republic of Adhomai Orbital Fleet."
@@ -48,7 +48,7 @@
 	outfit = /datum/outfit/admin/ert/pra_cosmonaut/tesla
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 
-/datum/ghostspawner/human/ert/pra_cosmonaut/medic
+/datum/ghostspawner/teshari/ert/pra_cosmonaut/medic
 	short_name = "exp_pra_medic"
 	name = "Expeditionary Kosmostrelki Combat Medic"
 	desc = "A Kosmostrelki combat medic under the service of the People's Republic of Adhomai Orbital Fleet."
@@ -59,7 +59,7 @@
 	outfit = /datum/outfit/admin/ert/pra_cosmonaut/medic
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 
-/datum/ghostspawner/human/ert/pra_cosmonaut/engineer
+/datum/ghostspawner/teshari/ert/pra_cosmonaut/engineer
 	short_name = "exp_pra_medic"
 	name = "Expeditionary Kosmostrelki Sapper"
 	desc = "A Kosmostrelki sapper under the service of the People's Republic of Adhomai Orbital Fleet."

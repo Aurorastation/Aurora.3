@@ -43,7 +43,7 @@
 
 /obj/machinery/ammunition_loader/attackby(obj/item/W, mob/user)
 	if(isliving(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/teshari/H = user
 		if(istype(W, /obj/item/ship_ammunition))
 			var/obj/item/ship_ammunition/SA = W
 			return load_ammo(SA, H)

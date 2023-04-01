@@ -7,15 +7,15 @@
 
 datum/unit_test/template
 	name = "Ghost Spawner Tests"		// If it's a template leave the word "template" in it's name so it's not ran.
-	
+
 
 datum/unit_test/template/start_test()
 	var/list/ignore_spawners = list(
-		/datum/ghostspawner/human,
-		/datum/ghostspawner/human/admin,
-		/datum/ghostspawner/human/admin/corporate,
+		/datum/ghostspawner/teshari,
+		/datum/ghostspawner/teshari/admin,
+		/datum/ghostspawner/teshari/admin/corporate,
 		/datum/ghostspawner/simplemob,
-		/datum/ghostspawner/human/ert
+		/datum/ghostspawner/teshari/ert
 		)
 	var/failed_checks = 0
 	var/checks = 0

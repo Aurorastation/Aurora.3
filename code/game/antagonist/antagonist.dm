@@ -47,7 +47,7 @@
 
 	// Misc.
 	var/landmark_id                         // Spawn point identifier.
-	var/mob_path = /mob/living/carbon/human // Mobtype this antag will use if none is provided.
+	var/mob_path = /mob/living/carbon/teshari // Mobtype this antag will use if none is provided.
 	var/feedback_tag = "traitor_objective"  // End of round
 	var/bantype = "Syndicate"               // Ban to check when spawning this antag.
 	var/suspicion_chance = 50               // Prob of being on the initial Command report
@@ -55,7 +55,7 @@
 	var/db_log_id = null                    // ID of the db entry used to track that antagonist
 
 	// Used for setting appearance.
-	var/list/valid_species =       list(SPECIES_UNATHI,SPECIES_TAJARA,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI,SPECIES_HUMAN)
+	var/list/valid_species =       list(SPECIES_UNATHI,SPECIES_TAJARA,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI,SPECIES_teshari)
 
 	// Runtime vars.
 	var/datum/mind/leader                   // Current leader, if any.

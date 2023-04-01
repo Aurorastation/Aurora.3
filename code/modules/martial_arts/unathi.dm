@@ -8,7 +8,7 @@
 	no_guns = TRUE
 	no_guns_message = "Use of ranged weaponry would be dishonorable."
 
-/datum/martial_art/kis_khan/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/kis_khan/proc/check_streak(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(findtext(streak,TAIL_SWEEP))
 		streak = ""
 		tail_sweep(A,D)
@@ -23,7 +23,7 @@
 		return 1
 	return 0
 
-/datum/martial_art/kis_khan/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/kis_khan/grab_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("G",D)
 	if(check_streak(A,D))
 		return 1
@@ -34,21 +34,21 @@
 		D.visible_message("<span class='danger'>[A] gets a strong grip on [D]!</span>")
 	return 1
 
-/datum/martial_art/kis_khan/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/kis_khan/harm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("H",D)
 	if(check_streak(A,D))
 		return 1
 	basic_hit(A,D)
 	return 1
 
-/datum/martial_art/kis_khan/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/kis_khan/disarm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("D",D)
 	if(check_streak(A,D))
 		return 1
 	basic_hit(A,D)
 	return 1
 
-/datum/martial_art/kis_khan/proc/tail_sweep(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/kis_khan/proc/tail_sweep(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(D.stat || D.weakened)
 		return 0
 	if(!isunathi(A))
@@ -60,7 +60,7 @@
 	D.Weaken(2)
 	return 1
 
-/datum/martial_art/kis_khan/proc/swift_disarm(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/kis_khan/proc/swift_disarm(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	A.do_attack_animation(D)
 	if(prob(80))
 		if(D.hand)
@@ -80,7 +80,7 @@
 		playsound(D, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
 	return 1
 
-/datum/martial_art/kis_khan/proc/hammering_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/kis_khan/proc/hammering_strike(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	A.do_attack_animation(D)
 	A.visible_message("<span class='danger'>[A] slams [D] away!</span>")
 	playsound(D.loc, "punch", 50, 1, -1)

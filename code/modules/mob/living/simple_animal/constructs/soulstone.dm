@@ -15,11 +15,11 @@
 
 //////////////////////////////Capturing////////////////////////////////////////////////////////
 
-/obj/item/device/soulstone/attack(mob/living/carbon/human/M as mob, mob/user as mob)
+/obj/item/device/soulstone/attack(mob/living/carbon/teshari/M as mob, mob/user as mob)
 	user.setClickCooldown(20)
-	if(!istype(M, /mob/living/carbon/human))//If target is not a human.
+	if(!istype(M, /mob/living/carbon/teshari))//If target is not a teshari.
 		return ..()
-	if(istype(M, /mob/living/carbon/human/apparition))
+	if(istype(M, /mob/living/carbon/teshari/apparition))
 		return..()
 
 	if(M.has_brain_worms()) //Borer stuff - RR
@@ -101,7 +101,7 @@
 
 
 ////////////////////////////Proc for moving soul in and out off stone//////////////////////////////////////
-/obj/item/device/soulstone/proc/transfer_human(var/mob/living/carbon/human/T,var/mob/U)
+/obj/item/device/soulstone/proc/transfer_teshari(var/mob/living/carbon/teshari/T,var/mob/U)
 	if(!istype(T))
 		return
 	if(src.imprinted != "empty")
@@ -220,7 +220,7 @@
 /obj/item/device/soulstone/proc/transfer_soul(var/choice as text, var/target, var/mob/U as mob)
 	switch(choice)
 		if("VICTIM")
-			transfer_human(target,U)
+			transfer_teshari(target,U)
 		if("SHADE")
 			transfer_shade(target,U)
 		if("CONSTRUCT")

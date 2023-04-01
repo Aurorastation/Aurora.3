@@ -1,4 +1,4 @@
-#define HEAT_CAPACITY_HUMAN 100 //249840 J/K, for a 72 kg person.
+#define HEAT_CAPACITY_teshari 100 //249840 J/K, for a 72 kg person.
 
 /obj/machinery/atmospherics/unary/cryo_cell
 	name = "cryo cell"
@@ -32,7 +32,7 @@
 	clickvol = 30
 
 	var/temperature_archived
-	var/mob/living/carbon/human/occupant = null
+	var/mob/living/carbon/teshari/occupant = null
 	var/obj/item/reagent_containers/glass/beaker = null
 
 	var/current_heat_capacity = 50
@@ -330,7 +330,7 @@
 	update_use_power(POWER_USE_IDLE)
 	update_icon()
 
-/obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/human/M as mob)
+/obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/teshari/M as mob)
 	if (stat & (NOPOWER|BROKEN))
 		to_chat(usr, "<span class='warning'>The cryo cell is not functioning.</span>")
 		return
@@ -355,7 +355,7 @@
 	if(M.health > -100 && (M.health < 0 || M.sleeping))
 		to_chat(M, "<span class='notice'><b>You feel a cold liquid surround you. Your skin starts to freeze up.</b></span>")
 	occupant = M
-	current_heat_capacity = HEAT_CAPACITY_HUMAN
+	current_heat_capacity = HEAT_CAPACITY_teshari
 	update_use_power(POWER_USE_ACTIVE)
 //	M.metabslow = 1
 	add_fingerprint(usr)

@@ -7,7 +7,7 @@
 	var/list/compatible_tail_type = list()
 	var/list/compatible_animated_tail = list()
 
-/obj/item/clothing/tail_accessory/proc/compatible_with_human(var/mob/living/carbon/human/H)
+/obj/item/clothing/tail_accessory/proc/compatible_with_teshari(var/mob/living/carbon/teshari/H)
 	if(!is_type_in_list(H.species, compatible_species_type))
 		to_chat(H, SPAN_WARNING("\The [src] doesn't fit on your tail!"))
 		return FALSE

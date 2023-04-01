@@ -168,7 +168,7 @@
 
 	/*
 	Forcegloves.  They amplify force from melee hits as well as muck up disarm and stuff a little.
-	Has bits of code in item_attack.dm, stungloves.dm, human_attackhand, human_defense
+	Has bits of code in item_attack.dm, stungloves.dm, teshari_attackhand, teshari_defense
 	*/
 
 
@@ -248,8 +248,8 @@
 		var/T = get_turf(user)
 		spark(T, 3, alldirs)
 		L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
-		if(ishuman(L))
-			var/mob/living/carbon/human/H = L
+		if(isteshari(L))
+			var/mob/living/carbon/teshari/H = L
 			H.apply_effect(2, WEAKEN)
 
 /obj/item/clothing/gloves/claws

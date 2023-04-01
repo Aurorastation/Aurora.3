@@ -14,8 +14,8 @@
 	reagents.my_atom = src
 
 /obj/item/projectile/bullet/chemdart/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
-	if(blocked < 100 && ishuman(target))
-		var/mob/living/carbon/human/H = target
+	if(blocked < 100 && isteshari(target))
+		var/mob/living/carbon/teshari/H = target
 		if(H.can_inject(target_zone=def_zone))
 			reagents.trans_to_mob(H, reagent_amount, CHEM_BLOOD)
 

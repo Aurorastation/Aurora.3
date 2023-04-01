@@ -20,7 +20,7 @@
 
 //ghostroles
 
-/datum/ghostspawner/human/adhomai_pra_miner
+/datum/ghostspawner/teshari/adhomai_pra_miner
 	short_name = "adhomai_pra_miner."
 	name = "Adhomai Corporate Miner"
 	desc = "Work for a mining joint operation between the PRA and NanoTrasen."
@@ -54,7 +54,7 @@
 
 	backpack_contents = list(/obj/item/storage/wallet/random = 1)
 
-/datum/ghostspawner/human/adhomai_pra_miner_teslabody
+/datum/ghostspawner/teshari/adhomai_pra_miner_teslabody
 	short_name = "adhomai_pra_miner_teslabody."
 	name = "Tesla Rejuvenation Suit Mining Worker"
 	desc = "Work for a mining joint operation between the PRA and NanoTrasen as a Tajara grafted into a Tesla Rejuvenation Body."

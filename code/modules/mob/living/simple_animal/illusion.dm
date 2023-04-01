@@ -25,7 +25,7 @@
 
 /mob/living/simple_animal/illusion/Destroy()
 	copying = null
-	return ..()	
+	return ..()
 
 // Because we can't perfectly duplicate some examine() output, we directly examine the AM it is copying.  It's messy but
 // this is to prevent easy checks from the opposing force.
@@ -44,7 +44,7 @@
 
 	return PROJECTILE_FORCE_MISS
 
-/mob/living/simple_animal/illusion/attack_hand(mob/living/carbon/human/M)
+/mob/living/simple_animal/illusion/attack_hand(mob/living/carbon/teshari/M)
 	if(!realistic)
 		playsound(src, 'sound/weapons/punchmiss1.ogg', 25, 1, -1)
 		visible_message(SPAN_NOTICE("\The [M]'s hand goes through \the [src]!"))

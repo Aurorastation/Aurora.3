@@ -64,7 +64,7 @@
 /obj/item/reagent_containers/toothbrush/attack(atom/target as obj|turf|area, mob/user as mob , flag)
 	if(isliving(target))
 		var/mob/living/M = target
-		if(ishuman(M))
+		if(isteshari(M))
 			if(!reagents.total_volume)
 				to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
 			else if(reagents.total_volume)

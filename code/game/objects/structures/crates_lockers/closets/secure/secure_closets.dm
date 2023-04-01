@@ -80,7 +80,7 @@
 	set category = "Object"
 	set name = "Toggle Lock"
 
-	if(ishuman(usr))
+	if(isteshari(usr))
 		add_fingerprint(usr)
 		togglelock(usr)
 	else if(istype(usr, /mob/living/silicon/robot) && Adjacent(usr))

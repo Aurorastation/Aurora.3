@@ -471,14 +471,14 @@ log transactions
 	src.attack_hand(usr)
 
 //stolen wholesale and then edited a bit from newscasters, which are awesome and by Agouri
-/obj/machinery/atm/proc/scan_user(mob/living/carbon/human/human_user as mob)
+/obj/machinery/atm/proc/scan_user(mob/living/carbon/teshari/teshari_user as mob)
 	if(!authenticated_account)
-		if(istype(human_user))
-			var/obj/item/card/id/I = human_user.GetIdCard()
+		if(istype(teshari_user))
+			var/obj/item/card/id/I = teshari_user.GetIdCard()
 			if(istype(I))
 				authenticated_account = SSeconomy.attempt_account_access(I.associated_account_number)
 				if(authenticated_account)
-					to_chat(human_user, "<span class='notice'>[icon2html(src, usr)] Access granted. Welcome user '[authenticated_account.owner_name].'</span>")
+					to_chat(teshari_user, "<span class='notice'>[icon2html(src, usr)] Access granted. Welcome user '[authenticated_account.owner_name].'</span>")
 
 					//create a transaction log entry
 					var/datum/transaction/T = new()
@@ -509,28 +509,28 @@ log transactions
 	release_held_id(user)
 
 // put the currently held id on the ground or in the hand of the user
-/obj/machinery/atm/proc/release_held_id(mob/living/carbon/human/human_user as mob)
+/obj/machinery/atm/proc/release_held_id(mob/living/carbon/teshari/teshari_user as mob)
 
-	if (!ishuman(human_user))
+	if (!isteshari(teshari_user))
 		return
 
 	if(!held_card)
 		return
 
-	if(human_user.stat || human_user.lying || human_user.restrained() || !Adjacent(human_user))	return
+	if(teshari_user.stat || teshari_user.lying || teshari_user.restrained() || !Adjacent(teshari_user))	return
 
 	held_card.forceMove(src.loc)
 	authenticated_account = null
 
-	if(!human_user.get_active_hand())
-		human_user.put_in_hands(held_card)
+	if(!teshari_user.get_active_hand())
+		teshari_user.put_in_hands(held_card)
 	held_card = null
 	update_icon()
 
 
-/obj/machinery/atm/proc/spawn_ewallet(var/sum, loc, mob/living/carbon/human/human_user as mob)
+/obj/machinery/atm/proc/spawn_ewallet(var/sum, loc, mob/living/carbon/teshari/teshari_user as mob)
 	var/obj/item/spacecash/ewallet/E = new /obj/item/spacecash/ewallet(loc)
-	if(ishuman(human_user) && !human_user.get_active_hand())
-		human_user.put_in_hands(E)
+	if(isteshari(teshari_user) && !teshari_user.get_active_hand())
+		teshari_user.put_in_hands(E)
 	E.worth = sum
 	E.owner_name = authenticated_account.owner_name

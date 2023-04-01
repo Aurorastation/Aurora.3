@@ -1,10 +1,10 @@
-/datum/species/human
-	name = SPECIES_HUMAN
+/datum/species/teshari
+	name = SPECIES_teshari
 	hide_name = TRUE
 	short_name = "hum"
-	name_plural = "Humans"
-	category_name = "Human"
-	bodytype = BODYTYPE_HUMAN
+	name_plural = "tesharis"
+	category_name = "teshari"
+	bodytype = BODYTYPE_teshari
 	age_max = 125
 	economic_modifier = 12
 	bandages_icon = 'icons/mob/bandage.dmi'
@@ -17,10 +17,10 @@
 		/datum/unarmed_attack/palm,
 		/datum/unarmed_attack/bite
 	)
-	blurb = "Humanity originated in the Sol system, and over the last four centuries has spread colonies across a wide swathe of space. \
+	blurb = "teshariity originated in the Sol system, and over the last four centuries has spread colonies across a wide swathe of space. \
 	They hold a wide range of forms and creeds.<br><br>\
-	The Sol Alliance is still massively influential, but independent human nations have managed to shake off its dominance and forge their \
-	own path. Driven by an unending hunger for wealth, powerful corporate interests are bringing untold wealth to humanity. Unchecked \
+	The Sol Alliance is still massively influential, but independent teshari nations have managed to shake off its dominance and forge their \
+	own path. Driven by an unending hunger for wealth, powerful corporate interests are bringing untold wealth to teshariity. Unchecked \
 	megacorporations have sparked secretive factions to fight their influence, while there is always the risk of someone digging too \
 	deep into the secrets of the galaxy..."
 	num_alternate_languages = 2
@@ -30,19 +30,19 @@
 	spawn_flags = CAN_JOIN
 	flags = CAN_SWEAT
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS | HAS_SKIN_PRESET
-	remains_type = /obj/effect/decal/remains/human
-	dust_remains_type = /obj/effect/decal/remains/human/burned
+	remains_type = /obj/effect/decal/remains/teshari
+	dust_remains_type = /obj/effect/decal/remains/teshari/burned
 
-	stamina = 130	// Humans can sprint for longer than any other species
+	stamina = 130	// tesharis can sprint for longer than any other species
 	stamina_recovery = 5
 	sprint_speed_factor = 0.9
 	sprint_cost_factor = 0.5
 
-	grab_mod = 1.25 //humans are wily fuckers - geeves
+	grab_mod = 1.25 //tesharis are wily fuckers - geeves
 	climb_coeff = 1
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/tie_hair)
+		/mob/living/carbon/teshari/proc/tie_hair)
 
 	possible_cultures = list(
 		/singleton/origin_item/culture/biesellite,
@@ -56,9 +56,9 @@
 	base_color = "#25032"
 	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")
 
-	onfire_overlay = 'icons/mob/burning/burning_human.dmi'
+	onfire_overlay = 'icons/mob/burning/burning_teshari.dmi'
 
-/datum/species/human/handle_npc(var/mob/living/carbon/human/H)
+/datum/species/teshari/handle_npc(var/mob/living/carbon/teshari/H)
 	if(H.stat != CONSCIOUS)
 		return
 

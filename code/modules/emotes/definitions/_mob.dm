@@ -81,7 +81,7 @@
 		/singleton/emote/visible/flash
 		)
 
-/mob/living/carbon/human
+/mob/living/carbon/teshari
 	default_emotes = list(
 		/singleton/emote/visible/blink,
 		/singleton/emote/audible/synth,
@@ -114,8 +114,8 @@
 		/singleton/emote/audible/grunt,
 		/singleton/emote/audible/slap,
 		/singleton/emote/audible/snap,
-		/singleton/emote/human/vomit,
-		/singleton/emote/human/deathgasp,
+		/singleton/emote/teshari/vomit,
+		/singleton/emote/teshari/deathgasp,
 		/singleton/emote/audible/giggle,
 		/singleton/emote/audible/scream,
 		/singleton/emote/visible/airguitar,

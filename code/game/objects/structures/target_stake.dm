@@ -30,7 +30,7 @@
 
 /obj/structure/target_stake/attack_hand(var/mob/user)
 	. = ..()
-	if(pinned_target && ishuman(user))
+	if(pinned_target && isteshari(user))
 		var/obj/item/target/T = pinned_target
 		to_chat(user, SPAN_NOTICE("You take \the [T] out of the stake."))
 		set_target(null)

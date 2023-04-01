@@ -53,7 +53,7 @@
 		// Nothing to validate. Leave.
 		return
 
-	var/datum/species/S = all_species[pref.species] || all_species[SPECIES_HUMAN]
+	var/datum/species/S = all_species[pref.species] || all_species[SPECIES_teshari]
 
 	if (pref.alternate_languages.len > S.num_alternate_languages)
 		if(pref.client)

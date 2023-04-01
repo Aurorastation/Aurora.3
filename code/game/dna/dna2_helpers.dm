@@ -12,8 +12,8 @@
 // Give Random Bad Mutation to M
 /proc/randmutb(var/mob/living/M)
 	if(!M) return
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(H.species && H.species.flags & NO_SCAN)
 			return
 	M.dna.check_integrity()
@@ -23,8 +23,8 @@
 // Give Random Good Mutation to M
 /proc/randmutg(var/mob/living/M)
 	if(!M) return
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(H.species && H.species.flags & NO_SCAN)
 			return
 	M.dna.check_integrity()
@@ -122,12 +122,12 @@
 
 // Simpler. Don't specify UI in order for the mob to use its own.
 /mob/proc/UpdateAppearance(var/list/UI=null)
-	if(istype(src, /mob/living/carbon/human))
+	if(istype(src, /mob/living/carbon/teshari))
 		if(UI!=null)
 			src.dna.UI=UI
 			src.dna.UpdateUI()
 		dna.check_integrity()
-		var/mob/living/carbon/human/H = src
+		var/mob/living/carbon/teshari/H = src
 		H.r_hair   = dna.GetUIValueRange(DNA_UI_HAIR_R,    255)
 		H.g_hair   = dna.GetUIValueRange(DNA_UI_HAIR_G,    255)
 		H.b_hair   = dna.GetUIValueRange(DNA_UI_HAIR_B,    255)

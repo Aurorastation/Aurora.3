@@ -6,21 +6,21 @@
 	no_guns = TRUE
 	no_guns_message = "Revenants cannot use guns."
 
-/datum/martial_art/revenant/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/revenant/proc/check_streak(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(findtext(streak, BASH_SLASH))
 		streak = ""
 		bash_slash(A, D)
 		return TRUE
 	return FALSE
 
-/datum/martial_art/revenant/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/revenant/harm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("H", D)
 	if(check_streak(A, D))
 		return TRUE
 	basic_hit(A, D)
 	return TRUE
 
-/datum/martial_art/revenant/proc/bash_slash(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/revenant/proc/bash_slash(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	A.do_attack_animation(D)
 	D.visible_message(SPAN_DANGER("[A] bashes [D] away!"), SPAN_DANGER("[A] bashes you away!"))
 	D.apply_damage(rand(5, 10), DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP)

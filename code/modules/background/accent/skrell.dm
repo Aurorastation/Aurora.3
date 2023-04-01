@@ -8,7 +8,7 @@
 /datum/accent/skrell/homeworld
 	name = ACCENT_HOMEWORLD
 	description = "The typical accent of the Homeworld (or Qerrbalak), is very much more distinct and enunciated than other variations of Nral'Malic. It puts specific emphasis on a \
-	melodious manner of speaking, their tones often jumping out of the standard human hearing range."
+	melodious manner of speaking, their tones often jumping out of the standard teshari hearing range."
 	tag_icon = "skrell_homeworld"
 	text_tag = "QER"
 

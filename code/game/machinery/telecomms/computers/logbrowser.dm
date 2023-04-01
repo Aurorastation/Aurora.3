@@ -17,7 +17,7 @@
 	var/network = "NULL"		// the network to probe
 	var/temp = ""				// temporary feedback messages
 
-	var/universal_translate = 0 // set to 1 if it can translate nonhuman speech
+	var/universal_translate = 0 // set to 1 if it can translate nonteshari speech
 
 	req_access = list(access_tcomsat)
 

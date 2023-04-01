@@ -33,8 +33,8 @@
 		M.splat()
 	else
 		var/zone = BP_CHEST
-		if(ishuman(target) && target.mob_size)
-			var/mob/living/carbon/human/H = target
+		if(isteshari(target) && target.mob_size)
+			var/mob/living/carbon/teshari/H = target
 			switch(type)
 				if("feet")
 					zone = pick(BP_L_FOOT, BP_R_FOOT)
@@ -85,8 +85,8 @@
 	if(armed)
 		if(israt(AM))
 			triggered(AM)
-		else if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
+		else if(isteshari(AM))
+			var/mob/living/carbon/teshari/H = AM
 			if(!(H.shoes?.item_flags & LIGHTSTEP))
 				triggered(H)
 				H.visible_message(SPAN_WARNING("\The [H] accidentally steps on \the [src]."), SPAN_WARNING("You accidentally step on \the [src]."))

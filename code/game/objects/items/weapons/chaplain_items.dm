@@ -118,7 +118,7 @@
 		user.Paralyse(20)
 		return
 
-	if(M.stat != DEAD && ishuman(M) && user.a_intent != I_HURT)
+	if(M.stat != DEAD && isteshari(M) && user.a_intent != I_HURT)
 		var/mob/living/K = M
 		if(cult && (K.mind in cult.current_antagonists) && prob(75))
 			if(do_after(user, 15))

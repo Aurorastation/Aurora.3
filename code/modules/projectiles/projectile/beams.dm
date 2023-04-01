@@ -152,8 +152,8 @@
 	impact_type = /obj/effect/projectile/impact/laser
 
 /obj/item/projectile/beam/laser_tag/on_hit(var/atom/target, var/blocked = 0)
-	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
+	if(isteshari(target))
+		var/mob/living/carbon/teshari/H = target
 		var/obj/item/clothing/suit/armor/riot/laser_tag/LT = H.wear_suit
 		if(istype(LT) && laser_tag_color != LT.laser_tag_color)
 			LT.laser_hit()
@@ -488,8 +488,8 @@
 		var/mob/living/L = target
 		L.bodytemperature -= 40
 
-		if(ishuman(L))
-			var/mob/living/carbon/human/H = L
+		if(isteshari(L))
+			var/mob/living/carbon/teshari/H = L
 			if(H.bodytemperature <= H.species.cold_level_2)
 				new /obj/structure/closet/statue/ice(H.loc, H)
 				H.visible_message(SPAN_WARNING("\The [H] freezes!"))

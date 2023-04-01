@@ -57,7 +57,7 @@
 	log.parameters["language"] = signal.language || all_languages[LANGUAGE_TCB]
 
 	var/race = "Unidentifiable"
-	if(ishuman(speaker) || isbrain(speaker))
+	if(isteshari(speaker) || isbrain(speaker))
 		race = "Sapient Species"
 	else if(speaker.isMonkey())
 		race = "Monkey"

@@ -60,7 +60,7 @@
 
 	var/I = card_slot.stored_item.name
 
-	if(ishuman(usr))
+	if(isteshari(usr))
 		usr.put_in_hands(card_slot.stored_item)
 	else
 		card_slot.stored_item.forceMove(get_turf(src))
@@ -106,7 +106,7 @@
 		to_chat(usr, SPAN_WARNING("There is no intellicard connected to \the [src]."))
 		return
 
-	if(ishuman(usr))
+	if(isteshari(usr))
 		usr.put_in_hands(ai_slot.stored_card)
 	else
 		ai_slot.stored_card.forceMove(get_turf(src))

@@ -326,7 +326,7 @@
 
 	is_wieldable = TRUE
 
-/obj/item/gun/energy/vaurca/typec/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/gun/energy/vaurca/typec/attack(mob/living/carbon/teshari/M as mob, mob/living/carbon/user as mob)
 	user.setClickCooldown(16)
 	..()
 
@@ -360,7 +360,7 @@
 
 /obj/item/gun/energy/vaurca/typec/attack_hand(mob/user as mob)
 	if(loc != user)
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/teshari/H = user
 		if(H.mob_size >= 30)
 			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 			anchored = 1

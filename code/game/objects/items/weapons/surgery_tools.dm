@@ -264,13 +264,13 @@
 	update_icon()
 
 /obj/item/storage/box/fancy/tray/attack_hand(mob/user as mob)
-	if(ishuman(user))
+	if(isteshari(user))
 		src.open(user)
 
 /obj/item/storage/box/fancy/tray/MouseDrop(mob/user as mob)
 	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(ishuman(user) && !user.get_active_hand())
-			var/mob/living/carbon/human/H = user
+		if(isteshari(user) && !user.get_active_hand())
+			var/mob/living/carbon/teshari/H = user
 			var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 
 			if (H.hand)

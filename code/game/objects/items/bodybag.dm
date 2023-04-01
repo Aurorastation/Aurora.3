@@ -126,7 +126,7 @@
 		fold(usr)
 
 /obj/structure/closet/body_bag/proc/fold(var/user)
-	if(!(ishuman(user)))
+	if(!(isteshari(user)))
 		return FALSE
 	if(opened)
 		return 0
@@ -180,12 +180,12 @@
 	return ..()
 
 /obj/structure/closet/body_bag/cryobag/Entered(atom/movable/AM)
-	if(ishuman(AM))
+	if(isteshari(AM))
 		START_PROCESSING(SSprocessing, src)
 	..()
 
 /obj/structure/closet/body_bag/cryobag/Exited(atom/movable/AM)
-	if(ishuman(AM))
+	if(isteshari(AM))
 		STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
@@ -215,7 +215,7 @@
 /obj/structure/closet/body_bag/cryobag/process()
 	if(stasis_power < 2)
 		return PROCESS_KILL
-	var/mob/living/carbon/human/H = locate() in src
+	var/mob/living/carbon/teshari/H = locate() in src
 	if(!H)
 		return PROCESS_KILL
 	degradation_time--

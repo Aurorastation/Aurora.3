@@ -3,7 +3,7 @@
 	desc = "A monstrous six-legged Greimorian."
 	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
 	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
-	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
+	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of teshari vessels to spread wildly."
 	icon = 'icons/mob/npc/spider_queen.dmi'
 	icon_state = "spider_queen"
 	icon_living = "spider_queen"
@@ -33,7 +33,7 @@
 	cold_damage_per_tick = 20
 	faction = "spiders"
 
-	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
+	mob_swap_flags = teshari|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
 	attacktext = "bit"

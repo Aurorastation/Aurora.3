@@ -25,7 +25,7 @@
 /obj/effect/plant/proc/trodden_on(var/mob/living/victim)
 	if(!is_mature())
 		return
-	var/mob/living/carbon/human/H = victim
+	var/mob/living/carbon/teshari/H = victim
 	if(istype(H) && H.shoes)
 		return
 	seed.do_thorns(victim,src)
@@ -75,8 +75,8 @@
 	//grabbing people
 	if(!victim.anchored && Adjacent(victim) && victim.loc != get_turf(src))
 		var/can_grab = 1
-		if(istype(victim, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = victim
+		if(istype(victim, /mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = victim
 			if(H.Check_Shoegrip(FALSE))
 				can_grab = 0
 		if(can_grab)

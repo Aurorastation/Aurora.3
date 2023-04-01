@@ -42,7 +42,7 @@
 	var/mob/living/carbon/self = W?.resolve()
 	if(!(MODE_VAMPIRE in self?.mind?.antag_datums) && blood_incompatible(LAZYACCESS(newdata, "blood_type"), LAZYACCESS(data, "blood_type"), LAZYACCESS(newdata, "species"), LAZYACCESS(data, "species")))
 		remove_self(newamount * 0.5, holder) // So the blood isn't *entirely* useless
-		var/mob/living/carbon/human/recipient = holder.my_atom
+		var/mob/living/carbon/teshari/recipient = holder.my_atom
 		if(istype(recipient) && holder == recipient.vessel)
 			recipient.reagents.add_reagent(/singleton/reagent/toxin/coagulated_blood, newamount * 0.5)
 			// it has no effect if added to the vessel
@@ -59,7 +59,7 @@
 		return
 	var/datum/weakref/W = rdata["donor"]
 	var/mob/living/carbon/C = W?.resolve()
-	if (!C || istype(C, /mob/living/carbon/human))
+	if (!C || istype(C, /mob/living/carbon/teshari))
 		blood_splatter(T, src, 1)
 		return
 
@@ -69,7 +69,7 @@
 			B.blood_DNA["UNKNOWN DNA STRUCTURE"] = "X*"
 
 /singleton/reagent/blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(ishuman(M))
+	if(isteshari(M))
 		if (M.mind && (MODE_VAMPIRE in M.mind.antag_datums))
 			if(LAZYLEN(REAGENT_DATA(holder, type) && M.dna.unique_enzymes == LAZYACCESS(holder.reagent_data[type], "blood_DNA"))) //so vampires can't drink their own blood
 				return

@@ -235,7 +235,7 @@
 			friends -= user
 
 
-/mob/living/simple_animal/hostile/commanded/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/hostile/commanded/attack_hand(mob/living/carbon/teshari/M as mob)
 	..()
 
 	// We forgive our master

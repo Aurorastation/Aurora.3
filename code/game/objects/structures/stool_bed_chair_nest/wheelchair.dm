@@ -12,7 +12,7 @@
 
 	var/bloodiness
 
-/obj/structure/bed/stool/chair/office/wheelchair/New(var/newloc) // Colorable wheelchairs? 
+/obj/structure/bed/stool/chair/office/wheelchair/New(var/newloc) // Colorable wheelchairs?
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
 
 /obj/structure/bed/stool/chair/office/wheelchair/set_dir()
@@ -90,7 +90,7 @@
 
 /obj/structure/bed/stool/chair/office/wheelchair/CtrlClick(var/mob/user)
 	if(in_range(src, user))
-		if(!ishuman(user))	return
+		if(!isteshari(user))	return
 		if(user == buckled)
 			to_chat(user, SPAN_WARNING("You realize you are unable to push the wheelchair you sit in."))
 			return

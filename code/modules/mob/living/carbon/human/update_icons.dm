@@ -1,4 +1,4 @@
-// Human caches have been moved to SSicon_cache.
+// teshari caches have been moved to SSicon_cache.
 
 	///////////////////////
 	//UPDATE_ICONS SYSTEM//
@@ -17,7 +17,7 @@ We also can put raw /icon instances directly in the list this way and SSoverlays
 a more client-friendly format.
 
 In the old system, we updated all our overlays every life() call, even if we were standing still inside a crate!
-or dead!. 25ish overlays, all generated from scratch every second for every xeno/human/monkey and then applied.
+or dead!. 25ish overlays, all generated from scratch every second for every xeno/teshari/monkey and then applied.
 More often than not update_clothing was being called a few times in addition to that! CPU was not the only issue,
 all those icons had to be sent to every client. So really the cost was extremely cumulative. To the point where
 update_clothing would frequently appear in the top 10 most CPU intensive procs during profiling.
@@ -84,7 +84,7 @@ There are several things that need to be remembered:
 	The idea behind it is icons are regenerated only once, even if multiple events requested it.
 */
 
-// Human Overlays Indexes //
+// teshari Overlays Indexes //
 // Layer 1 intentionally left empty.
 #define FIRE_LAYER_LOWER      2
 #define MUTATIONS_LAYER       3
@@ -135,12 +135,12 @@ There are several things that need to be remembered:
 	ret.appearance_flags = PIXEL_SCALE | flags
 	return ret
 
-/mob/living/carbon/human
+/mob/living/carbon/teshari
 	var/list/overlays_raw[TOTAL_LAYERS] // Our set of "raw" overlays that can be modified, but cannot be directly applied to the mob without preprocessing.
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
 
 // Updates overlays from overlays_raw.
-/mob/living/carbon/human/update_icon()
+/mob/living/carbon/teshari/update_icon()
 	if (QDELING(src))
 		return	// No point.
 
@@ -148,7 +148,7 @@ There are several things that need to be remembered:
 	cut_overlays()
 
 	if(cloaked)
-		icon = 'icons/mob/human.dmi'
+		icon = 'icons/mob/teshari.dmi'
 		icon_state = "body_cloaked"
 		add_overlay(list(overlays_raw[L_HAND_LAYER], overlays_raw[R_HAND_LAYER]))
 
@@ -190,7 +190,7 @@ There are several things that need to be remembered:
 
 //DAMAGE OVERLAYS
 //constructs damage icon for each organ from mask * damage field and saves it in our overlays_raw list (as a list of icons).
-/mob/living/carbon/human/UpdateDamageIcon(var/update_icons = 1)
+/mob/living/carbon/teshari/UpdateDamageIcon(var/update_icons = 1)
 	// first check whether something actually changed about damage appearance
 	var/damage_appearance = ""
 
@@ -222,7 +222,7 @@ There are several things that need to be remembered:
 		var/list/damage_icon_parts = SSicon_cache.damage_icon_parts
 		var/icon/DI = damage_icon_parts[cache_index]
 		if(!DI)
-			DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
+			DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole teshari
 			DI.Blend(new /icon(species.damage_mask, O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
 			DI.Blend(species.blood_color, ICON_MULTIPLY)
 			damage_icon_parts[cache_index] = DI
@@ -234,7 +234,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/proc/update_bandages(var/update_icons = TRUE)
+/mob/living/carbon/teshari/proc/update_bandages(var/update_icons = TRUE)
 	var/bandage_icon = species.bandages_icon
 	if(!bandage_icon)
 		return
@@ -301,7 +301,7 @@ There are several things that need to be remembered:
 	return ""
 
 //BASE MOB SPRITE
-/mob/living/carbon/human/proc/update_body(var/update_icons=1, var/force_base_icon = FALSE)
+/mob/living/carbon/teshari/proc/update_body(var/update_icons=1, var/force_base_icon = FALSE)
 	if (QDELING(src))
 		return
 
@@ -321,7 +321,7 @@ There are several things that need to be remembered:
 	//Create a new, blank icon for our mob to use.
 	if(stand_icon)
 		qdel(stand_icon)
-	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
+	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/teshari.dmi',"blank")
 
 	var/is_frenzied = "nofrenzy"
 	if(mind)
@@ -342,7 +342,7 @@ There are several things that need to be remembered:
 
 		icon_key += SSicon_cache.get_organ_shortcode(part)
 
-	var/icon/base_icon = SSicon_cache.human_icon_cache[icon_key]
+	var/icon/base_icon = SSicon_cache.teshari_icon_cache[icon_key]
 	if (!base_icon || force_base_icon)	// Icon ain't in the cache, so generate it.
 		//BEGIN CACHED ICON GENERATION.
 		var/obj/item/organ/external/chest = get_organ(BP_CHEST)
@@ -352,10 +352,10 @@ There are several things that need to be remembered:
 			if(isnull(part) || part.is_stump())
 				continue
 			var/icon/temp = part.get_icon(skeleton)//The color comes from this function
-			//That part makes left and right legs drawn topmost and lowermost when human looks WEST or EAST
+			//That part makes left and right legs drawn topmost and lowermost when teshari looks WEST or EAST
 			//And no change in rendering for other parts (they icon_position is 0, so goes to 'else' part)
 			if(part.icon_position&(LEFT|RIGHT))
-				var/icon/temp2 = new('icons/mob/human.dmi',"blank")
+				var/icon/temp2 = new('icons/mob/teshari.dmi',"blank")
 				temp2.Insert(new /icon(temp ,dir = NORTH), dir = NORTH)
 				temp2.Insert(new /icon(temp, dir = SOUTH), dir = SOUTH)
 				if(!(part.icon_position & LEFT))
@@ -383,7 +383,7 @@ There are several things that need to be remembered:
 			husk_over.Blend(mask, ICON_ADD)
 			base_icon.Blend(husk_over, ICON_OVERLAY)
 
-		SSicon_cache.human_icon_cache[icon_key] = base_icon
+		SSicon_cache.teshari_icon_cache[icon_key] = base_icon
 
 	for(var/thing in organs)
 		var/obj/item/organ/external/part = thing
@@ -402,7 +402,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/proc/update_underwear(update_icons = TRUE)
+/mob/living/carbon/teshari/proc/update_underwear(update_icons = TRUE)
 	overlays_raw[UNDERWEAR_LAYER] = list()
 
 	if(species.appearance_flags & HAS_UNDERWEAR)
@@ -417,12 +417,12 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-// This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
+// This proc generates & returns an icon representing a teshari's hair, using a cached icon from SSicon_cache if possible.
 // If `hair_is_visible` is FALSE, only facial hair will be drawn.
-/mob/living/carbon/human/proc/generate_hair_icon(hair_is_visible = TRUE)
+/mob/living/carbon/teshari/proc/generate_hair_icon(hair_is_visible = TRUE)
 	var/cache_key = "[f_style ? "[f_style][r_facial][g_facial][b_facial]" : "nofacial"]_[(h_style && hair_is_visible) ? "[h_style][r_hair][g_hair][b_hair]" : "nohair"]_[(g_style && g_style != "None" && hair_is_visible) ? "[g_style][r_grad][g_grad][b_grad]" : "nograd"]"
 
-	var/icon/face_standing = SSicon_cache.human_hair_cache[cache_key]
+	var/icon/face_standing = SSicon_cache.teshari_hair_cache[cache_key]
 	if (!face_standing)	// Not cached, generate it from scratch.
 		face_standing = new /icon(species.canvas_icon, "blank")
 		// Beard.
@@ -456,12 +456,12 @@ There are several things that need to be remembered:
 				face_standing.Blend(hair_s, ICON_OVERLAY)
 
 		// Add it to the cache.
-		SSicon_cache.human_hair_cache[cache_key] = face_standing
+		SSicon_cache.teshari_hair_cache[cache_key] = face_standing
 
 	return face_standing
 
 //HAIR OVERLAY
-/mob/living/carbon/human/proc/update_hair(var/update_icons=1)
+/mob/living/carbon/teshari/proc/update_hair(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -499,7 +499,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_mutations(var/update_icons=1)
+/mob/living/carbon/teshari/update_mutations(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -532,7 +532,7 @@ There are several things that need to be remembered:
 
 /* --------------------------------------- */
 //For legacy support.
-/mob/living/carbon/human/regenerate_icons()
+/mob/living/carbon/teshari/regenerate_icons()
 	if (QDELING(src))
 		return
 
@@ -574,7 +574,7 @@ There are several things that need to be remembered:
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
 
-/mob/living/carbon/human/update_inv_w_uniform(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_w_uniform(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -620,7 +620,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_wear_id(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_wear_id(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -663,7 +663,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_gloves(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_gloves(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -700,7 +700,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_glasses(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_glasses(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -743,7 +743,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_l_ear(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_l_ear(var/update_icons=1)
 	if(QDELING(src))
 		return
 
@@ -775,7 +775,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_r_ear(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_r_ear(var/update_icons=1)
 	if(QDELING(src))
 		return
 
@@ -807,7 +807,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_shoes(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_shoes(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -866,7 +866,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_s_store(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_s_store(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -889,7 +889,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_head(update_icons = TRUE, recurse = TRUE)
+/mob/living/carbon/teshari/update_inv_head(update_icons = TRUE, recurse = TRUE)
 	if (QDELING(src))
 		return
 
@@ -926,7 +926,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_belt(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_belt(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -967,7 +967,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_wear_suit(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_wear_suit(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -1004,7 +1004,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 
-/mob/living/carbon/human/update_inv_pockets(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_pockets(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -1012,7 +1012,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 
-/mob/living/carbon/human/update_inv_wear_mask(update_icons = TRUE, recurse = TRUE)
+/mob/living/carbon/teshari/update_inv_wear_mask(update_icons = TRUE, recurse = TRUE)
 	if (QDELING(src))
 		return
 
@@ -1051,7 +1051,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 
-/mob/living/carbon/human/update_inv_back(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_back(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -1090,7 +1090,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 
-/mob/living/carbon/human/update_hud()	//TODO: do away with this if possible
+/mob/living/carbon/teshari/update_hud()	//TODO: do away with this if possible
 	if(client)
 		client.screen |= contents
 		if(hud_used)
@@ -1104,7 +1104,7 @@ There are several things that need to be remembered:
 	if(hud_used?.r_hand_hud_object)
 		hud_used.r_hand_hud_object.update_icon()
 
-/mob/living/carbon/human/update_inv_handcuffed(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_handcuffed(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -1129,7 +1129,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_legcuffed(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_legcuffed(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -1155,7 +1155,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_l_hand(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_l_hand(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -1192,7 +1192,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_r_hand(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -1228,7 +1228,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_wrists(var/update_icons=1)
+/mob/living/carbon/teshari/update_inv_wrists(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -1278,7 +1278,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
+/mob/living/carbon/teshari/proc/update_tail_showing(var/update_icons=1)
 
 	if (QDELING(src))
 		return
@@ -1297,7 +1297,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/proc/get_tail_icon()
+/mob/living/carbon/teshari/proc/get_tail_icon()
 	if (QDELING(src))
 		return
 
@@ -1316,7 +1316,7 @@ There are several things that need to be remembered:
 
 	return tail_icon
 
-/mob/living/carbon/human/proc/set_tail_state(var/mob_state)
+/mob/living/carbon/teshari/proc/set_tail_state(var/mob_state)
 	if(!tail_style)
 		return
 
@@ -1337,7 +1337,7 @@ There are several things that need to be remembered:
 
 //Not really once, since BYOND can't do that.
 //Update this if the ability to flick() images or make looping animation start at the first frame is ever added.
-/mob/living/carbon/human/proc/animate_tail_once()
+/mob/living/carbon/teshari/proc/animate_tail_once()
 	var/mob_state = "[tail_style]_once"
 
 	var/tail_layer = GET_TAIL_LAYER
@@ -1350,29 +1350,29 @@ There are several things that need to be remembered:
 	if(tail_overlay)
 		addtimer(CALLBACK(src, PROC_REF(end_animate_tail_once), tail_overlay), 20, TIMER_CLIENT_TIME)
 
-/mob/living/carbon/human/proc/end_animate_tail_once(image/tail_overlay)
+/mob/living/carbon/teshari/proc/end_animate_tail_once(image/tail_overlay)
 	//check that the animation hasn't changed in the meantime
 	var/tail_layer = GET_TAIL_LAYER
 	if(overlays_raw[tail_layer] == tail_overlay && tail_overlay.icon_state == "[tail_style]_once")
 		animate_tail_stop()
 		update_tail_accessory()
 
-/mob/living/carbon/human/proc/animate_tail_start()
+/mob/living/carbon/teshari/proc/animate_tail_start()
 	set_tail_state("[tail_style]_slow")
 
-/mob/living/carbon/human/proc/animate_tail_fast()
+/mob/living/carbon/teshari/proc/animate_tail_fast()
 	set_tail_state("[tail_style]_loop")
 
-/mob/living/carbon/human/proc/animate_tail_reset()
+/mob/living/carbon/teshari/proc/animate_tail_reset()
 	if(stat != DEAD && !lying)
 		set_tail_state("[tail_style]_idle")
 	else
 		set_tail_state("[tail_style]_static")
 
-/mob/living/carbon/human/proc/animate_tail_stop(var/update_icons=1)
+/mob/living/carbon/teshari/proc/animate_tail_stop(var/update_icons=1)
 	set_tail_state("[tail_style]_static")
 
-/mob/living/carbon/human/proc/update_tail_accessory(var/update_icons=1)
+/mob/living/carbon/teshari/proc/update_tail_accessory(var/update_icons=1)
 	overlays_raw[TAIL_NORTH_ACC_LAYER] = null
 	overlays_raw[TAIL_SOUTH_ACC_LAYER] = null
 
@@ -1392,7 +1392,7 @@ There are several things that need to be remembered:
 
 //Adds a collar overlay above the helmet layer if the suit has one
 //	Suit needs an identically named sprite in icons/mob/collar.dmi
-/mob/living/carbon/human/proc/update_collar(var/update_icons=1)
+/mob/living/carbon/teshari/proc/update_collar(var/update_icons=1)
 	if (QDELING(src))
 		return
 
@@ -1409,7 +1409,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 // update_fire()
-/mob/living/carbon/human/update_fire(var/update_icons = TRUE)
+/mob/living/carbon/teshari/update_fire(var/update_icons = TRUE)
 	if(QDELING(src))
 		return
 
@@ -1422,7 +1422,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/proc/update_surgery(var/update_icons=1)
+/mob/living/carbon/teshari/proc/update_surgery(var/update_icons=1)
 	overlays_raw[SURGERY_LAYER] = null
 
 	var/image/total = new
@@ -1464,7 +1464,7 @@ There are several things that need to be remembered:
 
 //Drawcheck functions
 //These functions check if an item should be drawn, or if its covered up by something else
-/mob/living/carbon/human/proc/check_draw_gloves()
+/mob/living/carbon/teshari/proc/check_draw_gloves()
 	if (!gloves)
 		return FALSE
 	else if (gloves.flags_inv & ALWAYSDRAW)
@@ -1474,7 +1474,7 @@ There are several things that need to be remembered:
 	else
 		return TRUE
 
-/mob/living/carbon/human/proc/check_draw_right_ear()
+/mob/living/carbon/teshari/proc/check_draw_right_ear()
 	if (!r_ear)
 		return FALSE
 	else if (r_ear.flags_inv & ALWAYSDRAW)
@@ -1484,7 +1484,7 @@ There are several things that need to be remembered:
 	return TRUE
 
 
-/mob/living/carbon/human/proc/check_draw_left_ear()
+/mob/living/carbon/teshari/proc/check_draw_left_ear()
 	if (!l_ear)
 		return FALSE
 	else if (l_ear.flags_inv & ALWAYSDRAW)
@@ -1493,7 +1493,7 @@ There are several things that need to be remembered:
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/human/proc/check_draw_glasses()
+/mob/living/carbon/teshari/proc/check_draw_glasses()
 	if (!glasses)
 		return FALSE
 	else if (glasses.flags_inv & ALWAYSDRAW)
@@ -1504,7 +1504,7 @@ There are several things that need to be remembered:
 		return TRUE
 
 
-/mob/living/carbon/human/proc/check_draw_mask()
+/mob/living/carbon/teshari/proc/check_draw_mask()
 	if (!wear_mask)
 		return FALSE
 	else if (wear_mask.flags_inv & ALWAYSDRAW)
@@ -1514,7 +1514,7 @@ There are several things that need to be remembered:
 	else
 		return TRUE
 
-/mob/living/carbon/human/proc/check_draw_shoes()
+/mob/living/carbon/teshari/proc/check_draw_shoes()
 	if (!shoes)
 		return FALSE
 	else if (shoes.flags_inv & ALWAYSDRAW)
@@ -1524,7 +1524,7 @@ There are several things that need to be remembered:
 	else
 		return TRUE
 
-/mob/living/carbon/human/proc/check_draw_underclothing()
+/mob/living/carbon/teshari/proc/check_draw_underclothing()
 	if (!w_uniform)
 		return FALSE
 	else if (w_uniform.flags_inv & ALWAYSDRAW)
@@ -1534,7 +1534,7 @@ There are several things that need to be remembered:
 	else
 		return TRUE
 
-/mob/living/carbon/human/proc/check_draw_wrists()
+/mob/living/carbon/teshari/proc/check_draw_wrists()
 	if (!wrists)
 		return FALSE
 	else if (wrists.flags_inv & ALWAYSDRAW)
@@ -1544,7 +1544,7 @@ There are several things that need to be remembered:
 	else
 		return TRUE
 
-//Human Overlays Indexes/////////
+//teshari Overlays Indexes/////////
 #undef FIRE_LAYER_LOWER
 #undef MUTATIONS_LAYER
 #undef DAMAGE_LAYER

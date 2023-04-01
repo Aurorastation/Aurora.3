@@ -1,13 +1,13 @@
-/datum/species/human/offworlder
-	name = SPECIES_HUMAN_OFFWORLD
-	name_plural = "Off-Worlder Humans"
-	blurb = "The Offworlders are humans that have adapted to zero-G conditions through a lifetime of conditioning, exposure, and physical modification. \
-	They thrive in thinner atmosphere and weightlessness, more often than not utilizing advanced life support and body-bracing equipment to sustain themselves in normal Human environments."
+/datum/species/teshari/offworlder
+	name = SPECIES_teshari_OFFWORLD
+	name_plural = "Off-Worlder tesharis"
+	blurb = "The Offworlders are tesharis that have adapted to zero-G conditions through a lifetime of conditioning, exposure, and physical modification. \
+	They thrive in thinner atmosphere and weightlessness, more often than not utilizing advanced life support and body-bracing equipment to sustain themselves in normal teshari environments."
 	hide_name = FALSE
 
-	icobase = 'icons/mob/human_races/human/r_offworlder.dmi'
-	deform = 'icons/mob/human_races/human/r_offworlder.dmi'
-	preview_icon = 'icons/mob/human_races/human/offworlder_preview.dmi'
+	icobase = 'icons/mob/teshari_races/teshari/r_offworlder.dmi'
+	deform = 'icons/mob/teshari_races/teshari/r_offworlder.dmi'
+	preview_icon = 'icons/mob/teshari_races/teshari/offworlder_preview.dmi'
 
 	flash_mod = 1.2
 	oxy_mod = 0.8
@@ -22,13 +22,13 @@
 
 	examine_color = "#C2AE95"
 
-/datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
+/datum/species/teshari/offworlder/equip_later_gear(var/mob/living/carbon/teshari/H)
 	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack) && H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/rmt(H.back), slot_in_backpack))
 		return
 	var/obj/item/storage/pill_bottle/rmt/PB = new /obj/item/storage/pill_bottle/rmt(get_turf(H))
 	H.put_in_hands(PB)
 
-/datum/species/human/offworlder/get_species_tally(var/mob/living/carbon/human/H)
+/datum/species/teshari/offworlder/get_species_tally(var/mob/living/carbon/teshari/H)
 
 	if(istype(H.back, /obj/item/rig/light/offworlder))
 		var/obj/item/rig/light/offworlder/rig = H.back
@@ -56,7 +56,7 @@
 
 	return 4
 
-/datum/species/human/offworlder/handle_environment_special(var/mob/living/carbon/human/H)
+/datum/species/teshari/offworlder/handle_environment_special(var/mob/living/carbon/teshari/H)
 	if(prob(5))
 		if(!H.can_feel_pain())
 			return

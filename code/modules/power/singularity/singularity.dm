@@ -244,7 +244,7 @@
 			event_chance = 25 //Events will fire off more often.
 			if(chained)
 				overlays = "chain_s9"
-			visible_message("<span class='danger'><font size='3'>You witness the creation of a destructive force that cannot possibly be stopped by human hands.</font></span>")
+			visible_message("<span class='danger'><font size='3'>You witness the creation of a destructive force that cannot possibly be stopped by teshari hands.</font></span>")
 
 	if (current_size == allowed_size)
 		investigate_log("<span class='warning'>grew to size [current_size].</span>", I_SINGULO)
@@ -443,8 +443,8 @@
 		if(M.status_flags & GODMODE)
 			continue
 		if(M.stat == CONSCIOUS)
-			if (istype(M,/mob/living/carbon/human))
-				var/mob/living/carbon/human/H = M
+			if (istype(M,/mob/living/carbon/teshari))
+				var/mob/living/carbon/teshari/H = M
 				if(istype(H.glasses,/obj/item/clothing/glasses/safety) && current_size != 11)
 					to_chat(H, "<span class=\"notice\">You look directly into The [src.name], good thing you had your protective eyewear on!</span>")
 					return

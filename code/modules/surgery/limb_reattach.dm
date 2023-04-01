@@ -7,7 +7,7 @@
 	priority = 3 // Must be higher than /singleton/surgery_step/internal
 	can_infect = FALSE
 
-/singleton/surgery_step/limb/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/limb/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -28,12 +28,12 @@
 	min_duration = 50
 	max_duration = 70
 
-/singleton/surgery_step/limb/attach/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/limb/attach/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = tool
 	user.visible_message("<b>[user]</b> starts attaching [E.name] to [target]'s [E.amputation_point].", \
 		SPAN_NOTICE("You start attaching [E.name] to [target]'s [E.amputation_point]."))
 
-/singleton/surgery_step/limb/attach/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/limb/attach/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = tool
 	user.visible_message("<b>[user]</b> attaches [target]'s [E.name] to the [E.amputation_point].",	\
 		SPAN_NOTICE("You have attached [target]'s [E.name] to the [E.amputation_point]."))
@@ -43,7 +43,7 @@
 	target.updatehealth()
 	target.UpdateDamageIcon()
 
-/singleton/surgery_step/limb/attach/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/limb/attach/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = tool
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging [target]'s [E.amputation_point]!"), \
 		SPAN_WARNING("Your hand slips, damaging [target]'s [E.amputation_point]!"))
@@ -61,19 +61,19 @@
 	min_duration = 100
 	max_duration = 120
 
-/singleton/surgery_step/limb/connect/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/limb/connect/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 
 	var/obj/item/organ/external/E = target.get_organ(target_zone)
 	return E && !E.is_stump() && (E.status & ORGAN_DESTROYED)
 
-/singleton/surgery_step/limb/connect/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/limb/connect/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = target.get_organ(target_zone)
 	user.visible_message("[user] starts connecting tendons and muscles in [target]'s [E.amputation_point] with [tool].", \
 		"You start connecting tendons and muscle in [target]'s [E.amputation_point].")
 
-/singleton/surgery_step/limb/connect/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/limb/connect/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> has connected tendons and muscles in [target]'s [E.amputation_point] with [tool].",	\
 		SPAN_NOTICE("You have connected tendons and muscles in [target]'s [E.amputation_point] with [tool]."))
@@ -85,7 +85,7 @@
 	target.updatehealth()
 	target.UpdateDamageIcon()
 
-/singleton/surgery_step/limb/connect/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/limb/connect/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = tool
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging [target]'s [E.amputation_point]!"), \
 		SPAN_WARNING("Your hand slips, damaging [target]'s [E.amputation_point]!"))
@@ -98,7 +98,7 @@
 	min_duration = 80
 	max_duration = 100
 
-/singleton/surgery_step/limb/mechanize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/limb/mechanize/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 	var/obj/item/robot_parts/p = tool
@@ -107,11 +107,11 @@
 			return FALSE
 	return isnull(target.get_organ(target_zone))
 
-/singleton/surgery_step/limb/mechanize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/limb/mechanize/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> starts attaching \the [tool] to [target].", \
 		SPAN_NOTICE("You start attaching \the [tool] to [target]."))
 
-/singleton/surgery_step/limb/mechanize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/limb/mechanize/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/robot_parts/L = tool
 	user.visible_message("<b>[user]</b> has attached \the [tool] to [target].",	\
 		SPAN_NOTICE("You have attached \the [tool] to [target]."))
@@ -135,7 +135,7 @@
 
 	qdel(tool)
 
-/singleton/surgery_step/limb/mechanize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/limb/mechanize/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging [target]'s flesh!"), \
 		SPAN_WARNING("Your hand slips, damaging [target]'s flesh!"))
 	target.apply_damage(10, DAMAGE_BRUTE, null, damage_flags = DAMAGE_FLAG_SHARP)

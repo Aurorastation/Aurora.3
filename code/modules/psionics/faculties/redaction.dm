@@ -45,7 +45,7 @@
 	min_rank =        PSI_RANK_OPERANT
 	use_description = "Target a patient while on help intent at melee range to mend a variety of maladies, such as bleeding, or broken bones. Zone selection will affect which limb will be healed. Higher ranks in this faculty allow you to mend a wider range of problems."
 
-/datum/psionic_power/redaction/mend/invoke(var/mob/living/user, var/mob/living/carbon/human/target)
+/datum/psionic_power/redaction/mend/invoke(var/mob/living/user, var/mob/living/carbon/teshari/target)
 	if(!istype(user) || !istype(target))
 		return FALSE
 	. = ..()
@@ -123,7 +123,7 @@
 	min_rank =        PSI_RANK_GRANDMASTER
 	use_description = "Target a patient while on help intent at melee range to cleanse radiation and genetic damage from a patient."
 
-/datum/psionic_power/redaction/cleanse/invoke(var/mob/living/user, var/mob/living/carbon/human/target)
+/datum/psionic_power/redaction/cleanse/invoke(var/mob/living/user, var/mob/living/carbon/teshari/target)
 	if(!istype(user) || !istype(target))
 		return FALSE
 	. = ..()

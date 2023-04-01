@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/shopkeeper
+/datum/ghostspawner/teshari/shopkeeper
 	short_name = "shopkeeper"
 	name = "Station Shopkeeper"
 	desc = "Run your store aboard the civilian station. Remember to stock your empty shelves with things from the warehouse!"
@@ -8,7 +8,7 @@
 	max_count = 2
 
 	outfit = /datum/outfit/admin/shopkeeper
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	possible_species = list(SPECIES_teshari, SPECIES_teshari_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Station Shopkeeper"
@@ -29,7 +29,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/shopkeeper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/shopkeeper/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
@@ -37,7 +37,7 @@
 /datum/outfit/admin/shopkeeper/get_id_access()
 	return list(access_external_airlocks, access_civilian_station)
 
-/datum/ghostspawner/human/shopkeeper/administrator
+/datum/ghostspawner/teshari/shopkeeper/administrator
 	short_name = "station_administrator"
 	name = "Station Administrator"
 	desc = "Run the civilian station, overseeing all operations aboard. Command your security guards."
@@ -46,7 +46,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/shopkeeper/administrator
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	possible_species = list(SPECIES_teshari, SPECIES_teshari_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Station Administrator"
@@ -58,7 +58,7 @@
 
 	uniform = /obj/item/clothing/under/suit_jacket/charcoal
 
-/datum/ghostspawner/human/shopkeeper/foodcourt
+/datum/ghostspawner/teshari/shopkeeper/foodcourt
 	short_name = "foodcourt_worker"
 	name = "Station Foodcourt Worker"
 	desc = "Run the civilian station's foodcourt."
@@ -67,7 +67,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/shopkeeper/foodcourt
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	possible_species = list(SPECIES_teshari, SPECIES_teshari_OFFWORLD, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Foodcourt Worker"
@@ -79,7 +79,7 @@
 
 	uniform = /obj/item/clothing/under/waiter
 
-/datum/ghostspawner/human/shopkeeper/security
+/datum/ghostspawner/teshari/shopkeeper/security
 	short_name = "station_security"
 	name = "Station Security Guard"
 	desc = "Guard the civilian station. Listen to the administrator."
@@ -88,7 +88,7 @@
 	max_count = 2
 
 	outfit = /datum/outfit/admin/shopkeeper/security
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	possible_species = list(SPECIES_teshari, SPECIES_teshari_OFFWORLD)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Station Security Guard"
@@ -100,7 +100,7 @@
 	uniform = /obj/item/clothing/under/tactical
 	shoes = /obj/item/clothing/shoes/jackboots
 
-/datum/ghostspawner/human/station_visitor
+/datum/ghostspawner/teshari/station_visitor
 	short_name = "station_visitor"
 	name = "Station Visitor"
 	desc = "Enjoy the civilian station."
@@ -112,11 +112,11 @@
 	outfit = /datum/outfit/admin/random/space_bar_patron
 	species_outfits = list(SPECIES_VAURCA_WORKER = /datum/outfit/admin/random/space_bar_patron/vaurca,
 					SPECIES_VAURCA_WARRIOR = /datum/outfit/admin/random/space_bar_patron/vaurca,
-					SPECIES_HUMAN_OFFWORLD = /datum/outfit/admin/random/space_bar_patron/offworlder)
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+					SPECIES_teshari_OFFWORLD = /datum/outfit/admin/random/space_bar_patron/offworlder)
+	possible_species = list(SPECIES_teshari, SPECIES_teshari_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-/datum/ghostspawner/human/shopkeeper/custodian
+/datum/ghostspawner/teshari/shopkeeper/custodian
 	short_name = "station_custodian"
 	name = "Station Custodian"
 	desc = "Maintain and clean the civilian station."
@@ -126,7 +126,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/shopkeeper/custodian
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
+	possible_species = list(SPECIES_teshari, SPECIES_teshari_OFFWORLD, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 /datum/outfit/admin/shopkeeper/custodian

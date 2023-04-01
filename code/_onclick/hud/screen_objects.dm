@@ -266,8 +266,8 @@
 			usr.hud_used.hidden_inventory_update()
 
 		if("equip")
-			if(ishuman(usr))
-				var/mob/living/carbon/human/H = usr
+			if(isteshari(usr))
+				var/mob/living/carbon/teshari/H = usr
 				H.quick_equip()
 
 		if("resist")
@@ -301,8 +301,8 @@
 
 		if("up hint")
 			if(modifiers["shift"])
-				if(ishuman(usr))
-					var/mob/living/carbon/human/H = usr
+				if(isteshari(usr))
+					var/mob/living/carbon/teshari/H = usr
 					if(H.last_special + 50 > world.time)
 						return
 					H.last_special = world.time
@@ -490,8 +490,8 @@
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_removed" : "r_hand_removed"
 		removed_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
 	cut_overlays()
-	if(hud.mymob && ishuman(hud.mymob))
-		var/mob/living/carbon/human/H = hud.mymob
+	if(hud.mymob && isteshari(hud.mymob))
+		var/mob/living/carbon/teshari/H = hud.mymob
 		var/obj/item/organ/external/O
 		if(hud.l_hand_hud_object == src)
 			O = H.organs_by_name[BP_L_HAND]

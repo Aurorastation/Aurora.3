@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/ert/elyra
+/datum/ghostspawner/teshari/ert/elyra
 	short_name = "elyra_trooper"
 	name = "Elyran Navy Crewman"
 	desc = "Rank and file of the Elyran Navy."
@@ -6,11 +6,11 @@
 	max_count = 3
 	mob_name_prefix = "Cm. "
 	outfit = /datum/outfit/admin/ert/elyran_trooper
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_teshari)
 
 	extra_languages = list(LANGUAGE_ELYRAN_STANDARD)
 
-/datum/ghostspawner/human/ert/elyra/leader
+/datum/ghostspawner/teshari/ert/elyra/leader
 	short_name = "elyra_leadertrooper"
 	name = "Elyran Navy Officer"
 	desc = "The leader of the Elyran Navy squad."
@@ -19,7 +19,7 @@
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/elyran_trooper/leader
 
-/datum/ghostspawner/human/ert/elyra/engineer
+/datum/ghostspawner/teshari/ert/elyra/engineer
 	short_name = "elyra_engtrooper"
 	name = "Elyran Navy Engineer"
 	desc = "The engineering trooper of the Elyran Navy team."
@@ -27,7 +27,7 @@
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/elyran_trooper/engineer
 
-/datum/ghostspawner/human/ert/elyra/heavy
+/datum/ghostspawner/teshari/ert/elyra/heavy
 	short_name = "elyra_heavy"
 	name = "Elyran Navy Heavy Specialist"
 	desc = "The heavy trooper of the Elyran Navy team."
@@ -35,7 +35,7 @@
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/elyran_trooper/heavy
 
-/datum/ghostspawner/human/ert/elyra/medical
+/datum/ghostspawner/teshari/ert/elyra/medical
 	short_name = "elyra_medtrooper"
 	name = "Elyran Navy Corpsman"
 	desc = "The medical trooper of the Elyran Navy team."

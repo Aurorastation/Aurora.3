@@ -10,7 +10,7 @@
 	light_color = LIGHT_COLOR_BLUE
 
 	circuit = /obj/item/circuitboard/operating
-	var/mob/living/carbon/human/victim = null
+	var/mob/living/carbon/teshari/victim = null
 	var/obj/machinery/optable/table = null
 	var/obj/machinery/body_scanconsole/internal_bodyscanner = null
 	var/obj/item/paper/medscan/input_scan = null
@@ -213,8 +213,8 @@
 	S.set_content_unsafe("Scan ([victim])", internal_bodyscanner.format_occupant_data(get_medical_data(victim)))
 	playsound(src, 'sound/bureaucracy/print.ogg', 50, 1)
 
-/obj/machinery/computer/operating/proc/get_medical_data(var/mob/living/carbon/human/H)
-	if (!ishuman(H))
+/obj/machinery/computer/operating/proc/get_medical_data(var/mob/living/carbon/teshari/H)
+	if (!isteshari(H))
 		return
 
 	var/list/medical_data = list(

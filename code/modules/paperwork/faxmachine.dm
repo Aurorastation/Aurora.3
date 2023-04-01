@@ -103,7 +103,7 @@ var/list/admin_departments
 
 	if(href_list["scan"])
 		if (scan)
-			if(ishuman(usr))
+			if(isteshari(usr))
 				scan.forceMove(usr.loc)
 				if(!usr.get_active_hand())
 					usr.put_in_hands(scan)

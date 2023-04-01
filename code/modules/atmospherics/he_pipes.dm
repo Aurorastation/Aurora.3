@@ -80,7 +80,7 @@
 
 			var/heat_limit = 1000
 
-			var/mob/living/carbon/human/H = buckled
+			var/mob/living/carbon/teshari/H = buckled
 			if(istype(H) && H.species)
 				heat_limit = H.species.heat_level_3
 

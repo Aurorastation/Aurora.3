@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/monkeyize(var/kpg=0)
+/mob/living/carbon/teshari/proc/monkeyize(var/kpg=0)
 	if (transforming)
 		return
 	for(var/obj/item/W in src)
@@ -39,7 +39,7 @@
 
 	return src
 
-/mob/living/carbon/human/proc/humanize(var/kpg=0) // we needed this a lot to be honest, why wasn't it made before?
+/mob/living/carbon/teshari/proc/teshariize(var/kpg=0) // we needed this a lot to be honest, why wasn't it made before?
 	if (transforming)
 		return
 	for(var/obj/item/W in src)
@@ -84,7 +84,7 @@
 	spawning = 1
 	return ..()
 
-/mob/living/carbon/human/AIize(move=1) // 'move' argument needs defining here too because BYOND is dumb
+/mob/living/carbon/teshari/AIize(move=1) // 'move' argument needs defining here too because BYOND is dumb
 	if (transforming)
 		return
 	for(var/t in organs)
@@ -147,8 +147,8 @@
 		qdel(src)
 	return O
 
-//human -> robot
-/mob/living/carbon/human/proc/Robotize()
+//teshari -> robot
+/mob/living/carbon/teshari/proc/Robotize()
 	if (transforming)
 		return
 	for(var/obj/item/W in src)
@@ -170,7 +170,7 @@
 
 	O.gender = gender
 	O.invisibility = 0
-	
+
 	if(mind)		//TODO
 		mind.transfer_to(O)
 		if(O.mind.assigned_role == "Cyborg")
@@ -199,9 +199,9 @@
 		qdel(src)
 	return O
 
-//human -> alien
+//teshari -> alien
 
-/mob/living/carbon/human/proc/slimeize(adult as num, reproduce as num)
+/mob/living/carbon/teshari/proc/slimeize(adult as num, reproduce as num)
 	if (transforming)
 		return
 	for(var/obj/item/W in src)
@@ -235,7 +235,7 @@
 	qdel(src)
 	return
 
-/mob/living/carbon/human/proc/corgize()
+/mob/living/carbon/teshari/proc/corgize()
 	if (transforming)
 		return
 	for(var/obj/item/W in src)
@@ -256,7 +256,7 @@
 	qdel(src)
 	return
 
-/mob/living/carbon/human/Animalize()
+/mob/living/carbon/teshari/Animalize()
 
 	var/list/mobtypes = typesof(/mob/living/simple_animal)
 	var/mobpath = input("Which type of mob should [src] turn into?", "Choose a type") in mobtypes

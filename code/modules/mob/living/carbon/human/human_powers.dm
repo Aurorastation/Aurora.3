@@ -1,7 +1,7 @@
-// These should all be procs, you can add them to humans/subspecies by
+// These should all be procs, you can add them to tesharis/subspecies by
 // species.dm's inherent_verbs ~ Z
 
-/mob/living/carbon/human/proc/tie_hair()
+/mob/living/carbon/teshari/proc/tie_hair()
 	set name = "Tie Hair"
 	set desc = "Style your hair."
 	set category = "IC"
@@ -30,7 +30,7 @@
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
-/mob/living/carbon/human/proc/adjust_headtails()
+/mob/living/carbon/teshari/proc/adjust_headtails()
 	set name = "Adjust Headtails"
 	set desc = "Adjust your headtails."
 	set category = "IC"
@@ -55,7 +55,7 @@
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
-mob/living/carbon/human/proc/change_monitor()
+mob/living/carbon/teshari/proc/change_monitor()
 	set name = "Change IPC Screen"
 	set desc = "Change the display on your screen."
 	set category = "Abilities"
@@ -76,7 +76,7 @@ mob/living/carbon/human/proc/change_monitor()
 		else
 			to_chat(src, "<span class ='notice'>You're already using that screen.</span>")
 
-/mob/living/carbon/human/proc/tackle()
+/mob/living/carbon/teshari/proc/tackle()
 	set category = "Abilities"
 	set name = "Tackle"
 	set desc = "Tackle someone down."
@@ -124,14 +124,14 @@ mob/living/carbon/human/proc/change_monitor()
 		if ((O.client && !( O.blinded )))
 			O.show_message(text("<span class='danger'>[] [failed ? "tried to tackle" : "has tackled"] down []!</span>", src, T), 1)
 
-/mob/living/carbon/human/proc/leap(mob/living/T as mob in oview(4))
+/mob/living/carbon/teshari/proc/leap(mob/living/T as mob in oview(4))
 	set category = "Abilities"
 	set name = "Leap"
 	set desc = "Leap at a target and grab them aggressively."
 
 	do_leap(T)
 
-/mob/living/carbon/human/proc/do_leap(mob/living/T, max_range = 4, restrict_special = TRUE)
+/mob/living/carbon/teshari/proc/do_leap(mob/living/T, max_range = 4, restrict_special = TRUE)
 	if(restrict_special && last_special > world.time)
 		to_chat(src, "<span class='notice'>You're too tired to leap!</span>")
 		return FALSE
@@ -201,7 +201,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	return TRUE
 
-/mob/living/carbon/human/proc/gut()
+/mob/living/carbon/teshari/proc/gut()
 	set category = "Abilities"
 	set name = "Gut"
 	set desc = "While grabbing someone aggressively, rip their guts out or tear them apart."
@@ -226,8 +226,8 @@ mob/living/carbon/human/proc/change_monitor()
 
 	visible_message("<span class='warning'><b>[src]</b> rips viciously at \the [G.affecting]'s body with its claws!</span>")
 
-	if(istype(G.affecting,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = G.affecting
+	if(istype(G.affecting,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = G.affecting
 		H.apply_damage(50,DAMAGE_BRUTE)
 		if(H.stat == 2)
 			H.gib()
@@ -243,13 +243,13 @@ mob/living/carbon/human/proc/change_monitor()
 /mob/proc/can_commune()
 	return FALSE
 
-/mob/living/carbon/human/can_commune()
+/mob/living/carbon/teshari/can_commune()
 	if(psi)
 		return TRUE
 	else
 		return species ? species.can_commune() : FALSE
 
-/mob/living/carbon/human/proc/commune()
+/mob/living/carbon/teshari/proc/commune()
 	set category = "Abilities"
 	set name = "Commune with creature"
 	set desc = "Send a telepathic message to a recipient."
@@ -322,7 +322,7 @@ mob/living/carbon/human/proc/change_monitor()
 		else if(M.stat == DEAD &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
 			to_chat(M,"<span class='notice'>[src] telepathically says to [target]:</span> [text]")
 
-	var/mob/living/carbon/human/H = target
+	var/mob/living/carbon/teshari/H = target
 	if (target.can_commune())
 		to_chat(H,"<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]")
 	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
@@ -340,7 +340,7 @@ mob/living/carbon/human/proc/change_monitor()
 			else if(prob(50))
 				to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
 
-/mob/living/carbon/human/proc/psychic_whisper(mob/M as mob in oview())
+/mob/living/carbon/teshari/proc/psychic_whisper(mob/M as mob in oview())
 	set name = "Psychic Whisper"
 	set desc = "Whisper silently to someone over a distance."
 	set category = "Abilities"
@@ -352,14 +352,14 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class ='alium'>You said: \"[msg]\" to [M]</span>")
 	return
 
-/mob/living/carbon/human/proc/bugbite()
+/mob/living/carbon/teshari/proc/bugbite()
 	set category = "Abilities"
 	set name = "Bite"
 	set desc = "While grabbing someone aggressively, tear into them with your mandibles."
 
 	do_bugbite()
 
-/mob/living/carbon/human/proc/do_bugbite(var/ignore_grab = FALSE)
+/mob/living/carbon/teshari/proc/do_bugbite(var/ignore_grab = FALSE)
 	if(last_special > world.time)
 		to_chat(src, SPAN_WARNING("Your mandibles still ache!"))
 		return
@@ -384,8 +384,8 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, SPAN_WARNING("You must have a strangling grip to bite someone!"))
 		return
 
-	if(ishuman(G.affecting))
-		var/mob/living/carbon/human/H = G.affecting
+	if(isteshari(G.affecting))
+		var/mob/living/carbon/teshari/H = G.affecting
 		var/hit_zone = zone_sel.selecting
 		var/obj/item/organ/external/affected = H.get_organ(hit_zone)
 
@@ -406,7 +406,7 @@ mob/living/carbon/human/proc/change_monitor()
 	playsound(get_turf(src), 'sound/weapons/slash.ogg', 50, TRUE)
 	last_special = world.time + 100
 
-/mob/living/carbon/human/proc/detonate_flechettes()
+/mob/living/carbon/teshari/proc/detonate_flechettes()
 	set category = "Military Frame"
 	set name = "Detonate Flechettes"
 	set desc = "Detonate all explosive flechettes in a range of seven meters."
@@ -432,7 +432,7 @@ mob/living/carbon/human/proc/change_monitor()
 			qdel(F)
 
 
-/mob/living/carbon/human/proc/state_laws()
+/mob/living/carbon/teshari/proc/state_laws()
 	set category = "Military Frame"
 	set name = "State Laws"
 	set desc = "State your laws aloud."
@@ -453,7 +453,7 @@ mob/living/carbon/human/proc/change_monitor()
 	sleep(10)
 	say("Law 3: [src.real_name] will allow no tampering of its systems or modifications of its laws.")
 
-/mob/living/carbon/human/proc/get_aggressive_grab()
+/mob/living/carbon/teshari/proc/get_aggressive_grab()
 
 	var/obj/item/grab/G = locate() in src
 	if(!G || !istype(G))
@@ -466,7 +466,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	return G
 
-/mob/living/carbon/human/proc/devour_head()
+/mob/living/carbon/teshari/proc/devour_head()
 	set category = "Abilities"
 	set name = "Devour Head"
 	set desc = "While grabbing someone aggressively, bite their head off."
@@ -489,8 +489,8 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='warning'>We must have a tighter grip to devour their head.</span>")
 		return
 
-	if(istype(G.affecting,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = G.affecting
+	if(istype(G.affecting,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = G.affecting
 
 		if(!H.species.has_limbs[BP_HEAD])
 			to_chat(src, "<span class='warning'>\The [H] does not have a head!</span>")
@@ -518,7 +518,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	last_special = world.time + 200
 
-/mob/living/carbon/human/proc/self_destruct()
+/mob/living/carbon/teshari/proc/self_destruct()
 	set category = "Military Frame"
 	set name = "Engage Self-Destruct"
 	set desc = "When all else has failed, bite the bullet."
@@ -537,7 +537,7 @@ mob/living/carbon/human/proc/change_monitor()
 	explosion(src, -1, 1, 5)
 	src.gib()
 
-/mob/living/carbon/human/proc/hivenet()
+/mob/living/carbon/teshari/proc/hivenet()
 	set category = "Abilities"
 	set name = "Hivenet Control"
 	set desc = "Issue an order over the hivenet."
@@ -573,19 +573,19 @@ mob/living/carbon/human/proc/change_monitor()
 
 	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]",ckey=key_name(src))
 
-	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
+	if(istype(M, /mob/living/carbon/teshari) && isvaurca(M))
 		to_chat(M, "<span class='danger'>You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:</span>")
 		to_chat(M, "<span class='notice'> [text]</span>")
 	else
 		to_chat(M, "<span class='danger'>Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>")
-		if(istype(M,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
+		if(istype(M,/mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = M
 			if(H.species.name == src.species.name)
 				return
 			to_chat(H, "<span class='danger'>Your nose begins to bleed...</span>")
 			H.drip(1)
 
-/mob/living/carbon/human/proc/quillboar(mob/target as mob in oview())
+/mob/living/carbon/teshari/proc/quillboar(mob/target as mob in oview())
 	set name = "Launch Quill"
 	set desc = "Launches a quill in self-defense. Painful, but effective."
 	set category = "Abilities"
@@ -608,7 +608,7 @@ mob/living/carbon/human/proc/change_monitor()
 	A.throw_at(target, 10, 30, usr)
 	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))
 
-/mob/living/carbon/human/proc/dissolve()
+/mob/living/carbon/teshari/proc/dissolve()
 	set name = "Dissolve Self"
 	set desc = "Dissolve yourself in order to escape permanent imprisonment."
 	set category = "Abilities"
@@ -618,7 +618,7 @@ mob/living/carbon/human/proc/change_monitor()
 	visible_message(SPAN_DANGER("[src] dissolves!"), SPAN_WARNING("You dissolve yourself, rejoining your brethren in bluespace."))
 	death()
 
-/mob/living/carbon/human/proc/shatter_light()
+/mob/living/carbon/teshari/proc/shatter_light()
 	set category = "Abilities"
 	set name = "Shatter Lights"
 	set desc = "Shatter all lights around yourself."
@@ -631,7 +631,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	visible_message("<span class='danger'>\The [src] shrieks!</span>")
 	playsound(src.loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
-	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
+	for (var/mob/living/carbon/teshari/T in hearers(4, src) - src)
 		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 			continue
 		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
@@ -642,7 +642,7 @@ mob/living/carbon/human/proc/change_monitor()
 	for(var/obj/machinery/light/L in range(7))
 		L.broken()
 
-/mob/living/carbon/human/proc/create_darkness()
+/mob/living/carbon/teshari/proc/create_darkness()
 	set category = "Abilities"
 	set name = "Create Darkness"
 	set desc = "Create a field of darkness around yourself."
@@ -659,7 +659,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 30 SECONDS)
 
-/mob/living/carbon/human/proc/darkness_eyes()
+/mob/living/carbon/teshari/proc/darkness_eyes()
 	set category = "Abilities"
 	set name = "Toggle Shadow Vision"
 	set desc = "Toggle between seeing shadows or not."
@@ -673,7 +673,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='notice'>You return your vision to normal.</span>")
 		src.stop_sight_update = 0
 
-/mob/living/carbon/human/proc/shadow_step(var/turf/T in turfs)
+/mob/living/carbon/teshari/proc/shadow_step(var/turf/T in turfs)
 	set category = "Abilities"
 	set name = "Shadow Step"
 	set desc = "Travel from place to place using the shadows."
@@ -712,7 +712,7 @@ mob/living/carbon/human/proc/change_monitor()
 		else
 			qdel(G)
 
-/mob/living/carbon/human/proc/trample()
+/mob/living/carbon/teshari/proc/trample()
 	set category = "Abilities"
 	set name = "Trample"
 	set desc = "Charge forward, trampling anything in your path until you hit something more stubborn than you are."
@@ -735,7 +735,7 @@ mob/living/carbon/human/proc/change_monitor()
 		trampling()
 
 
-/mob/living/carbon/human/proc/trampling()
+/mob/living/carbon/teshari/proc/trampling()
 
 	var/brokesomething = 0//true if we break anything
 	var/done = 0//Set true if we fail to break something. We won't try to break anything for the rest of the proc
@@ -784,7 +784,7 @@ mob/living/carbon/human/proc/change_monitor()
 		target = get_step(src, dir)
 		do_attack_animation(target)
 
-/mob/living/carbon/human/proc/crash_into(var/atom/A)
+/mob/living/carbon/teshari/proc/crash_into(var/atom/A)
 	var/aname = A.name
 	var/oldtype = A.type
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
@@ -805,7 +805,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	return 1
 
-/mob/living/carbon/human/proc/rebel_yell()
+/mob/living/carbon/teshari/proc/rebel_yell()
 	set category = "Abilities"
 	set name = "Screech"
 	set desc = "Emit a powerful screech which stuns hearers in a two-tile radius."
@@ -828,7 +828,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	var/list/victims = list()
 
-	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
+	for (var/mob/living/carbon/teshari/T in hearers(4, src) - src)
 		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 			continue
 		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
@@ -836,7 +836,7 @@ mob/living/carbon/human/proc/change_monitor()
 		else if (T in range(src, 2))
 			earpain(2, TRUE, 2)
 
-	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
+	for (var/mob/living/carbon/teshari/T in hearers(2, src) - src)
 		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 			continue
 
@@ -857,7 +857,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if (victims.len)
 		admin_attacker_log_many_victims(src, victims, "used rebel yell to stun", "was stunned by [key_name(src)] using rebel yell", "used rebel yell to stun")
 
-/mob/living/carbon/human/proc/formic_spray()
+/mob/living/carbon/teshari/proc/formic_spray()
 	set category = "Abilities"
 	set name = "Napalm"
 	set desc = "Spew a cone of ignited napalm in front of you"
@@ -900,7 +900,7 @@ mob/living/carbon/human/proc/change_monitor()
 			D.set_up(my_target, rand(6,8), 1, 50)
 	return
 
-/mob/living/carbon/human/proc/thunder()
+/mob/living/carbon/teshari/proc/thunder()
 	set category = "Abilities"
 	set name = "Thunderbolt"
 	set desc = "Release your inner electricity, creating a powerful discharge of lightning."
@@ -920,7 +920,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	last_special = world.time + 50
 
-/mob/living/carbon/human/proc/consume_material()
+/mob/living/carbon/teshari/proc/consume_material()
 	set category = "Abilities"
 	set name = "Incorporate Matter"
 	set desc = "Repair your damage body by using the same materials you were made from."
@@ -944,7 +944,7 @@ mob/living/carbon/human/proc/change_monitor()
 			qdel(O)
 			last_special = world.time + 50
 
-/mob/living/carbon/human/proc/breath_of_life()
+/mob/living/carbon/teshari/proc/breath_of_life()
 	set category = "Abilities"
 	set name = "Breath of Life"
 	set desc = "Bring back a fallen golem back into this world using their chelm."
@@ -971,14 +971,14 @@ mob/living/carbon/human/proc/change_monitor()
 		if(!O.dna)
 			to_chat(src,"<span class='warning'>\The [O] is blank, you can not bring it back to life.</span>")
 
-		var/mob/living/carbon/human/G = new(src.loc)
+		var/mob/living/carbon/teshari/G = new(src.loc)
 		G.key = O.brainmob.key
-		INVOKE_ASYNC(G, TYPE_PROC_REF(/mob/living/carbon/human, set_species), O.dna.species)
+		INVOKE_ASYNC(G, TYPE_PROC_REF(/mob/living/carbon/teshari, set_species), O.dna.species)
 		to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
 		qdel(O)
 		last_special = world.time + 200
 
-/mob/living/carbon/human/proc/detach_limb()
+/mob/living/carbon/teshari/proc/detach_limb()
 	set category = "Abilities"
 	set name = "Detach Limb"
 	set desc = "Detach one of your robotic appendages."
@@ -1024,7 +1024,7 @@ mob/living/carbon/human/proc/change_monitor()
 	visible_message("<span class='notice'>\The [src] detaches [get_pronoun("his")] [E]!</span>",
 			"<span class='notice'>You detach your [E]!</span>")
 
-/mob/living/carbon/human/proc/attach_limb()
+/mob/living/carbon/teshari/proc/attach_limb()
 	set category = "Abilities"
 	set name = "Attach Limb"
 	set desc = "Attach a robotic limb to your body."
@@ -1071,7 +1071,7 @@ mob/living/carbon/human/proc/change_monitor()
 		visible_message("<span class='notice'>\The [src] attaches \the [O] to [get_pronoun("his")] body!</span>",
 				"<span class='notice'>You attach \the [O] to your body!</span>")
 
-/mob/living/carbon/human/proc/self_diagnostics()
+/mob/living/carbon/teshari/proc/self_diagnostics()
 	set name = "Self-Diagnostics"
 	set desc = "Run an internal self-diagnostic to check for damage."
 	set category = "Abilities"
@@ -1110,7 +1110,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 		to_chat(src, output)
 
-/mob/living/carbon/human/proc/check_tag()
+/mob/living/carbon/teshari/proc/check_tag()
 	set name = "Check Tag"
 	set desc = "Run diagnostics on your tag to display its information."
 	set category = "Abilities"
@@ -1127,7 +1127,7 @@ mob/living/carbon/human/proc/change_monitor()
 	to_chat(src, SPAN_NOTICE("<b>Ownership Status:</b> [tag.ownership_info]"))
 	to_chat(src, SPAN_NOTICE("<b>Citizenship Info:</b> [tag.citizenship_info]"))
 
-/mob/living/carbon/human/proc/sonar_ping()
+/mob/living/carbon/teshari/proc/sonar_ping()
 	set name = "Psychic Ping"
 	set desc = "Allows you to listen in to psychic traces of organisms around you."
 	set category = "Abilities"
@@ -1183,7 +1183,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, SPAN_NOTICE("You detect no psionic signatures but your own."))
 
 // flick tongue out to read gasses
-/mob/living/carbon/human/proc/tongue_flick()
+/mob/living/carbon/teshari/proc/tongue_flick()
 	set name = "Tongue-flick"
 	set desc = "Flick out your tongue to sense the gas in the room."
 	set category = "Abilities"
@@ -1236,7 +1236,7 @@ mob/living/carbon/human/proc/change_monitor()
 			to_chat(src, SPAN_NOTICE("[line]"))
 		return
 
-/mob/living/carbon/human/proc/select_primary_martial_art()
+/mob/living/carbon/teshari/proc/select_primary_martial_art()
 	set name = "Select Martial Art"
 	set desc = "Set the martial art you want to use when fighting barehanded."
 	set category = "Abilities"
@@ -1252,8 +1252,8 @@ mob/living/carbon/human/proc/change_monitor()
 	primary_martial_art = selected_martial_art
 	to_chat(src, SPAN_NOTICE("You will now use [primary_martial_art.name] when fighting barehanded."))
 
-//Used to rename monkey mobs since they are humans with a monkey species applied
-/mob/living/carbon/human/proc/change_animal_name()
+//Used to rename monkey mobs since they are tesharis with a monkey species applied
+/mob/living/carbon/teshari/proc/change_animal_name()
 	set name = "Name Animal"
 	set desc = "Name a monkeylike animal."
 	set category = "IC"
@@ -1263,7 +1263,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(!istype(M))
 		to_chat(usr, SPAN_WARNING("You aren't allowed to rename \the [src]."))
 		return
-	 
+
 	if(usr == src)
 		to_chat(usr, SPAN_WARNING("You're a simple creature, you can't rename yourself!"))
 		return
@@ -1279,7 +1279,7 @@ mob/living/carbon/human/proc/change_monitor()
 			named = TRUE
 
 //Used only to check for renaming of monkey mobs
-/mob/living/carbon/human/can_name(var/mob/living/M)
+/mob/living/carbon/teshari/can_name(var/mob/living/M)
 	if(named)
 		to_chat(M, SPAN_NOTICE("\The [src] already has a name!"))
 		return FALSE
@@ -1288,13 +1288,13 @@ mob/living/carbon/human/proc/change_monitor()
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/human/proc/intent_listen(var/source,var/message)
+/mob/living/carbon/teshari/proc/intent_listen(var/source,var/message)
 	if(air_sound(src))
 		if (is_listening() && (ear_deaf <= 0 || !ear_deaf))
 			var/sound_dir = angle2text(Get_Angle(get_turf(src), get_turf(source)))
 			to_chat(src, SPAN_WARNING(message + " from \the [sound_dir]."))
 
-/mob/living/carbon/human/proc/listening_close()
+/mob/living/carbon/teshari/proc/listening_close()
 	set category = "Abilities"
 	set name = "Listen closely"
 
@@ -1311,17 +1311,17 @@ mob/living/carbon/human/proc/change_monitor()
 
 	last_special = world.time + 20
 
-/mob/living/carbon/human/proc/start_listening()
+/mob/living/carbon/teshari/proc/start_listening()
 	if (!is_listening())
 		visible_message("<b>[src]</b> begins to listen intently.")
 		intent_listener |= src
 
-/mob/living/carbon/human/proc/stop_listening()
+/mob/living/carbon/teshari/proc/stop_listening()
 	if (is_listening())
 		visible_message("<b>[src]</b> stops listening intently.")
 		intent_listener -= src
 
-/mob/living/carbon/human/proc/open_tail_storage()
+/mob/living/carbon/teshari/proc/open_tail_storage()
 	set name = "Tail Accessories"
 	set desc = "Opens the tail accessory slot."
 	set category = "Abilities"

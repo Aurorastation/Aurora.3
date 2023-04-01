@@ -1,5 +1,5 @@
 //Updates the mob's health from organs and mob damage variables
-/mob/living/carbon/human/updatehealth()
+/mob/living/carbon/teshari/updatehealth()
 	if(is_diona())
 		return ..()
 
@@ -24,11 +24,11 @@
 
 	UpdateDamageIcon() // to fix that darn overlay bug
 
-/mob/living/carbon/human/proc/get_total_health()
+/mob/living/carbon/teshari/proc/get_total_health()
 	var/amount = maxHealth - getFireLoss() - getBruteLoss() - getOxyLoss() - getToxLoss() - getBrainLoss()
 	return amount
 
-/mob/living/carbon/human/adjustBrainLoss(var/amount)
+/mob/living/carbon/teshari/adjustBrainLoss(var/amount)
 	if(status_flags & GODMODE)
 		return 0	//godmode
 	if(should_have_organ(BP_BRAIN))
@@ -36,7 +36,7 @@
 		if(sponge)
 			sponge.take_internal_damage(amount)
 
-/mob/living/carbon/human/setBrainLoss(var/amount)
+/mob/living/carbon/teshari/setBrainLoss(var/amount)
 	if(status_flags & GODMODE)
 		return 0	//godmode
 	if(should_have_organ(BP_BRAIN))
@@ -45,7 +45,7 @@
 			sponge.damage = min(max(amount, 0),sponge.species.total_health)
 			updatehealth()
 
-/mob/living/carbon/human/getBrainLoss()
+/mob/living/carbon/teshari/getBrainLoss()
 	if(status_flags & GODMODE)
 		return 0	//godmode
 	if(should_have_organ(BP_BRAIN))
@@ -59,14 +59,14 @@
 			return species.total_health
 	return 0
 
-/mob/living/carbon/human/getHalLoss()
+/mob/living/carbon/teshari/getHalLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/E in organs)
 		amount += E.get_pain()
 	return amount
 
 //These procs fetch a cumulative total damage from all organs
-/mob/living/carbon/human/getBruteLoss()
+/mob/living/carbon/teshari/getBruteLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/O in organs)
 		if(BP_IS_ROBOTIC(O) && !O.vital)
@@ -74,7 +74,7 @@
 		amount += O.brute_dam
 	return amount
 
-/mob/living/carbon/human/getFireLoss()
+/mob/living/carbon/teshari/getFireLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/O in organs)
 		if(BP_IS_ROBOTIC(O) && !O.vital)
@@ -82,31 +82,31 @@
 		amount += O.burn_dam
 	return amount
 
-/mob/living/carbon/human/adjustBruteLoss(var/amount)
+/mob/living/carbon/teshari/adjustBruteLoss(var/amount)
 	if(amount > 0)
 		take_overall_damage(amount, 0)
 	else
 		heal_overall_damage(-amount, 0)
 	BITSET(hud_updateflag, HEALTH_HUD)
 
-/mob/living/carbon/human/adjustFireLoss(var/amount)
+/mob/living/carbon/teshari/adjustFireLoss(var/amount)
 	if(amount > 0)
 		take_overall_damage(0, amount)
 	else
 		heal_overall_damage(0, -amount)
 	BITSET(hud_updateflag, HEALTH_HUD)
 
-/mob/living/carbon/human/Stun(amount)
+/mob/living/carbon/teshari/Stun(amount)
 	if(HAS_FLAG(mutations, HULK))
 		return
 	..()
 
-/mob/living/carbon/human/Weaken(amount)
+/mob/living/carbon/teshari/Weaken(amount)
 	if(HAS_FLAG(mutations, HULK))
 		return
 	..()
 
-/mob/living/carbon/human/Paralyse(amount)
+/mob/living/carbon/teshari/Paralyse(amount)
 	if(HAS_FLAG(mutations, HULK))
 		return
 	// Notify our AI if they can now control the suit.
@@ -114,22 +114,22 @@
 		wearing_rig.notify_ai("<span class='danger'>Warning: user consciousness failure. Mobility control passed to integrated intelligence system.</span>")
 	..()
 
-/mob/living/carbon/human/update_canmove()
+/mob/living/carbon/teshari/update_canmove()
 	var/old_lying = lying
 	. = ..()
 	if(lying && !old_lying && !resting && !buckled_to && isturf(loc)) // fell down
 		playsound(loc, species.bodyfall_sound, 50, 1, -1)
 
-/mob/living/carbon/human/getCloneLoss()
+/mob/living/carbon/teshari/getCloneLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/E in organs)
 		amount += E.get_genetic_damage()
 	return amount
 
-/mob/living/carbon/human/setCloneLoss(var/amount)
+/mob/living/carbon/teshari/setCloneLoss(var/amount)
 	adjustCloneLoss(getCloneLoss()-amount)
 
-/mob/living/carbon/human/adjustCloneLoss(var/amount)
+/mob/living/carbon/teshari/adjustCloneLoss(var/amount)
 	var/heal = amount < 0
 	amount = abs(amount)
 
@@ -144,7 +144,7 @@
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 // Defined here solely to take species flags into account without having to recast at mob/living level.
-/mob/living/carbon/human/getOxyLoss()
+/mob/living/carbon/teshari/getOxyLoss()
 	if(!need_breathe())
 		return 0
 	else
@@ -153,13 +153,13 @@
 			return maxHealth/2
 		return breathe_organ.get_oxygen_deprivation()
 
-/mob/living/carbon/human/setOxyLoss(var/amount)
+/mob/living/carbon/teshari/setOxyLoss(var/amount)
 	if(!need_breathe())
 		return 0
 	else
 		adjustOxyLoss(getOxyLoss()-amount)
 
-/mob/living/carbon/human/adjustOxyLoss(var/amount)
+/mob/living/carbon/teshari/adjustOxyLoss(var/amount)
 	if(!need_breathe())
 		return
 	var/heal = amount < 0
@@ -171,7 +171,7 @@
 			breathe_organ.add_oxygen_deprivation(abs(amount*species.oxy_mod))
 	BITSET(hud_updateflag, HEALTH_HUD)
 
-/mob/living/carbon/human/getToxLoss()
+/mob/living/carbon/teshari/getToxLoss()
 	if(species.flags & NO_POISON)
 		return 0
 
@@ -180,7 +180,7 @@
 		amount += I.getToxLoss()
 	return amount
 
-/mob/living/carbon/human/adjustToxLoss(var/amount)
+/mob/living/carbon/teshari/adjustToxLoss(var/amount)
 	if(species && species.toxins_mod && amount > 0)
 		amount *= species.toxins_mod
 	if(species.flags & NO_POISON)
@@ -234,13 +234,13 @@
 				I.take_internal_damage(amount, silent=TRUE)
 				amount = 0
 
-/mob/living/carbon/human/setToxLoss(var/amount)
+/mob/living/carbon/teshari/setToxLoss(var/amount)
 	if(species.flags & NO_POISON)
 		return
 	else
 		adjustToxLoss(getToxLoss()-amount)
 
-/mob/living/carbon/human/adjustHalLoss(var/amount)
+/mob/living/carbon/teshari/adjustHalLoss(var/amount)
 	var/heal = (amount < 0)
 	amount = abs(amount)
 	var/list/pick_organs = organs.Copy()
@@ -259,7 +259,7 @@
 ////////////////////////////////////////////
 
 //Returns a list of damaged organs
-/mob/living/carbon/human/proc/get_damaged_organs(var/brute, var/burn, var/prosthetic = TRUE)
+/mob/living/carbon/teshari/proc/get_damaged_organs(var/brute, var/burn, var/prosthetic = TRUE)
 	var/list/obj/item/organ/external/parts = list()
 	for(var/obj/item/organ/external/O in organs)
 		if(!prosthetic && BP_IS_ROBOTIC(O))
@@ -269,7 +269,7 @@
 	return parts
 
 //Returns a list of damageable organs
-/mob/living/carbon/human/proc/get_damageable_organs()
+/mob/living/carbon/teshari/proc/get_damageable_organs()
 	var/list/obj/item/organ/external/parts = list()
 	for(var/obj/item/organ/external/O in organs)
 		if(O.is_damageable())
@@ -279,7 +279,7 @@
 //Heals ONE external organ, organ gets randomly selected from damaged ones.
 //It automatically updates damage overlays if necesary
 //It automatically updates health status
-/mob/living/carbon/human/heal_organ_damage(var/brute, var/burn, var/prosthetic = TRUE)
+/mob/living/carbon/teshari/heal_organ_damage(var/brute, var/burn, var/prosthetic = TRUE)
 	var/list/obj/item/organ/external/parts = get_damaged_organs(brute, burn, prosthetic)
 	if(!length(parts))
 		return
@@ -296,7 +296,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 //Damages ONE external organ, organ gets randomly selected from damagable ones.
 //It automatically updates damage overlays if necesary
 //It automatically updates health status
-/mob/living/carbon/human/take_organ_damage(var/brute, var/burn, var/damage_flags)
+/mob/living/carbon/teshari/take_organ_damage(var/brute, var/burn, var/damage_flags)
 	var/list/obj/item/organ/external/parts = get_damageable_organs()
 	if(!parts.len)
 		return
@@ -308,7 +308,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 
 
 //Heal MANY external organs, in random order
-/mob/living/carbon/human/heal_overall_damage(var/brute, var/burn)
+/mob/living/carbon/teshari/heal_overall_damage(var/brute, var/burn)
 	var/list/obj/item/organ/external/parts = get_damaged_organs(brute,burn)
 
 	var/update = 0
@@ -330,7 +330,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 		UpdateDamageIcon()
 
 // damage MANY external organs, in random order
-/mob/living/carbon/human/take_overall_damage(var/brute, var/burn, var/damage_flags, var/used_weapon = null)
+/mob/living/carbon/teshari/take_overall_damage(var/brute, var/burn, var/damage_flags, var/used_weapon = null)
 	if(status_flags & GODMODE)
 		return	//godmode
 	var/list/obj/item/organ/external/parts = get_damageable_organs()
@@ -357,7 +357,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 /*
 This function restores the subjects blood to max.
 */
-/mob/living/carbon/human/proc/restore_blood()
+/mob/living/carbon/teshari/proc/restore_blood()
 	if(!(species.flags & NO_BLOOD))
 		var/total_blood = REAGENT_VOLUME(vessel, /singleton/reagent/blood)
 		vessel.add_reagent(/singleton/reagent/blood,560.0-total_blood, temperature = species.body_temperature)
@@ -366,11 +366,11 @@ This function restores the subjects blood to max.
 /*
 This function restores all organs.
 */
-/mob/living/carbon/human/restore_all_organs()
+/mob/living/carbon/teshari/restore_all_organs()
 	for(var/obj/item/organ/external/current_organ in organs)
 		current_organ.rejuvenate()
 
-/mob/living/carbon/human/proc/HealDamage(zone, brute, burn)
+/mob/living/carbon/teshari/proc/HealDamage(zone, brute, burn)
 	var/obj/item/organ/external/E = get_organ(zone)
 	if(istype(E, /obj/item/organ/external))
 		if (E.heal_damage(brute, burn))
@@ -381,7 +381,7 @@ This function restores all organs.
 	return
 
 
-/mob/living/carbon/human/proc/get_organ(var/zone, var/allow_no_result = FALSE)
+/mob/living/carbon/teshari/proc/get_organ(var/zone, var/allow_no_result = FALSE)
 	if(!zone)
 		if(allow_no_result)
 			return
@@ -391,7 +391,7 @@ This function restores all organs.
 		zone = BP_HEAD
 	return organs_by_name[zone]
 
-/mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = DAMAGE_BRUTE, var/def_zone, var/obj/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
+/mob/living/carbon/teshari/apply_damage(var/damage = 0, var/damagetype = DAMAGE_BRUTE, var/def_zone, var/obj/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
 	if (invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
 		if(damage > 0)
 			to_chat(src, "<span class='danger'>You are now visible.</span>")
@@ -460,12 +460,12 @@ This function restores all organs.
 	BITSET(hud_updateflag, HEALTH_HUD)
 	return TRUE
 
-/mob/living/carbon/human/apply_radiation(var/rads)
+/mob/living/carbon/teshari/apply_radiation(var/rads)
 	if(species && rads > 0)
 		rads = rads * species.radiation_mod
 	..(rads)
 
-/mob/living/carbon/human/get_shock()
+/mob/living/carbon/teshari/get_shock()
 	if(!can_feel_pain())
 		return 0
 
@@ -474,6 +474,6 @@ This function restores all organs.
 
 	return max(0,traumatic_shock)
 
-/mob/living/carbon/human/remove_blood_simple(var/blood)
+/mob/living/carbon/teshari/remove_blood_simple(var/blood)
 	if(should_have_organ(BP_HEART))
 		vessel.remove_reagent(/singleton/reagent/blood, blood)

@@ -30,7 +30,7 @@
 			return
 		else
 			var/obj/item/I = pick(contents)
-			if(ishuman(user))
+			if(isteshari(user))
 				user.put_in_hands(I)
 			else
 				I.forceMove(get_turf(src))
@@ -253,8 +253,8 @@
 			var/remove_amount = M.touching.maximum_volume * M.reagent_permeability() //take off your suit first
 			M.touching.remove_any(remove_amount)
 
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+		if(isteshari(M))
+			var/mob/living/carbon/teshari/H = M
 			var/washgloves = TRUE
 			var/washshoes = TRUE
 			var/washmask = TRUE
@@ -324,7 +324,7 @@
 					update_icons_required = TRUE
 			H.clean_blood(washshoes)
 		else
-			if(M.wear_mask)						//if the mob is not human, it cleans the mask without asking for bitflags
+			if(M.wear_mask)						//if the mob is not teshari, it cleans the mask without asking for bitflags
 				if(M.wear_mask.clean_blood())
 					M.update_inv_wear_mask(0)
 					update_icons_required = TRUE
@@ -381,8 +381,8 @@
 	var/temp_adj = between(BODYTEMP_COOLING_MAX, temperature - M.bodytemperature, BODYTEMP_HEATING_MAX)
 	M.bodytemperature += temp_adj
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(temperature >= H.species.heat_level_1)
 			to_chat(H, SPAN_DANGER("The water is searing hot!"))
 		else if(temperature <= H.species.cold_level_1)
@@ -415,8 +415,8 @@
 		amount_per_transfer_from_this = N
 
 /obj/structure/sink/attack_hand(mob/user as mob)
-	if (ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if (isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 		if (user.hand)
 			temp = H.organs_by_name[BP_L_HAND]

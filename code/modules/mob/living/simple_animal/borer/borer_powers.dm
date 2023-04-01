@@ -42,7 +42,7 @@
 /mob/living/simple_animal/borer/verb/infest()
 	set category = "Abilities"
 	set name = "Infest"
-	set desc = "Infest a suitable humanoid host."
+	set desc = "Infest a suitable tesharioid host."
 
 	if(host)
 		to_chat(src, SPAN_NOTICE("You are already within a host."))
@@ -79,8 +79,8 @@
 		to_chat(src, SPAN_WARNING("You cannot infest someone who is already infested!"))
 		return
 
-	if(istype(M,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if(istype(M,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = M
 
 		var/obj/item/organ/external/E = H.organs_by_name[BP_HEAD]
 		if(!E || E.is_stump())
@@ -128,8 +128,8 @@
 		if(host.mind)
 			borers.add_antagonist_mind(host.mind, 1, borers.faction_role_text, borers.faction_welcome)
 
-		if(istype(M,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
+		if(istype(M,/mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = M
 			var/obj/item/organ/I = H.internal_organs_by_name[BP_BRAIN]
 			if(!I) // No brain organ, so the borer moves in and replaces it permanently.
 				replace_brain()
@@ -163,7 +163,7 @@
 
 // BRAIN WORM ZOMBIES AAAAH.
 /mob/living/simple_animal/borer/proc/replace_brain()
-	var/mob/living/carbon/human/H = host
+	var/mob/living/carbon/teshari/H = host
 
 	if(!istype(host))
 		to_chat(src, SPAN_WARNING("This host does not have a suitable brain."))
@@ -175,10 +175,10 @@
 	H.add_language(LANGUAGE_BORER_HIVEMIND)
 
 	if(host.stat == DEAD)
-		H.verbs |= /mob/living/carbon/human/proc/jumpstart
+		H.verbs |= /mob/living/carbon/teshari/proc/jumpstart
 
-	H.verbs |= /mob/living/carbon/human/proc/psychic_whisper
-	H.verbs |= /mob/living/carbon/human/proc/tackle
+	H.verbs |= /mob/living/carbon/teshari/proc/psychic_whisper
+	H.verbs |= /mob/living/carbon/teshari/proc/tackle
 	H.verbs |= /mob/living/carbon/proc/spawn_larvae
 
 	if(H.client)
@@ -359,7 +359,7 @@
 	host.verbs += /mob/living/carbon/proc/punish_host
 	host.verbs += /mob/living/carbon/proc/spawn_larvae
 
-/mob/living/carbon/human/proc/jumpstart()
+/mob/living/carbon/teshari/proc/jumpstart()
 	set category = "Abilities"
 	set name = "Revive Host"
 	set desc = "Muster all psionic energies to pulse through a dead host, restoring them to a prime state."
@@ -368,7 +368,7 @@
 		to_chat(usr, SPAN_WARNING("Your host is already alive."))
 		return
 
-	verbs -= /mob/living/carbon/human/proc/jumpstart
+	verbs -= /mob/living/carbon/teshari/proc/jumpstart
 	visible_message(SPAN_WARNING("With a hideous, rattling moan, [src] shudders back to life!"))
 
 	rejuvenate()

@@ -15,7 +15,7 @@
 			A.process()
 
 //This can be overriden in case a game mode needs to do stuff when a player latejoins
-/datum/game_mode/proc/handle_latejoin(var/mob/living/carbon/human/character)
+/datum/game_mode/proc/handle_latejoin(var/mob/living/carbon/teshari/character)
 	return 0
 
 /datum/game_mode/proc/process_autoantag()

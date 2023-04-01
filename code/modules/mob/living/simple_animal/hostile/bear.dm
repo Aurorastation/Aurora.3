@@ -265,7 +265,7 @@
 			instant_aggro(1)
 
 
-/mob/living/simple_animal/hostile/bear/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/hostile/bear/attack_hand(mob/living/carbon/teshari/M as mob)
 	var/healthbefore = health
 	..()
 	spawn(1)

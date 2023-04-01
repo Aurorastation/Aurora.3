@@ -85,8 +85,8 @@
 			return water_breath
 		else
 			var/gasid = GAS_CO2
-			if(ishuman(L))
-				var/mob/living/carbon/human/H = L
+			if(isteshari(L))
+				var/mob/living/carbon/teshari/H = L
 				if(H.species && H.species.exhale_type)
 					gasid = H.species.exhale_type
 			var/datum/gas_mixture/water_breath = new()
@@ -138,7 +138,7 @@
 /mob/living/proc/can_breathe_water()
 	return FALSE
 
-/mob/living/carbon/human/can_breathe_water()
+/mob/living/carbon/teshari/can_breathe_water()
 	if(species)
 		return species.can_breathe_water()
 	return ..()
@@ -166,8 +166,8 @@
 			var/remove_amount = M.touching.maximum_volume * M.reagent_permeability() //take off your suit first
 			M.touching.remove_any(remove_amount)
 
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+		if(isteshari(M))
+			var/mob/living/carbon/teshari/H = M
 			var/washgloves = TRUE
 			var/washshoes = TRUE
 			var/washmask = TRUE
@@ -226,7 +226,7 @@
 					H.update_inv_wrists(0)
 			H.clean_blood(washshoes)
 		else
-			if(M.wear_mask)						//if the mob is not human, it cleans the mask without asking for bitflags
+			if(M.wear_mask)						//if the mob is not teshari, it cleans the mask without asking for bitflags
 				if(M.wear_mask.clean_blood())
 					M.update_inv_wear_mask(0)
 			M.clean_blood()

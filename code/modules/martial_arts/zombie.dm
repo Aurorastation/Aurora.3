@@ -6,14 +6,14 @@
 	no_guns = TRUE
 	no_guns_message = "A zombie cannot use a gun."
 
-/datum/martial_art/zombie/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/zombie/proc/check_streak(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(findtext(streak, STRONG_BITE))
 		streak = ""
 		strong_bite(A, D)
 		return TRUE
 	return FALSE
 
-/datum/martial_art/zombie/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/zombie/harm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("H", D)
 	if(check_streak(A, D))
 		return TRUE
@@ -21,7 +21,7 @@
 	return TRUE
 
 
-/datum/martial_art/zombie/proc/strong_bite(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/zombie/proc/strong_bite(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	A.do_attack_animation(D)
 	var/atk_verb = pick("chomps", "bites")
 	D.visible_message(SPAN_DANGER("[A] [atk_verb] down hard on [D]!"), SPAN_DANGER("[A] [atk_verb] down hard on you!"))

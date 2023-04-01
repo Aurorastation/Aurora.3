@@ -2,8 +2,8 @@
 	name = "blood draining rune"
 	desc = "This rune is used to drain the blood of non-believers into a fellow acolyte. All must be standing on the rune."
 	rune_flags = NO_TALISMAN
-	var/list/mob/living/carbon/human/lambs
-	var/mob/living/carbon/human/target
+	var/list/mob/living/carbon/teshari/lambs
+	var/mob/living/carbon/teshari/target
 
 /datum/rune/blood_drain/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -13,7 +13,7 @@
 
 /datum/rune/blood_drain/do_rune_action(mob/living/user, atom/movable/A)
 	LAZYINITLIST(lambs)
-	for(var/mob/living/carbon/human/H in get_turf(A))
+	for(var/mob/living/carbon/teshari/H in get_turf(A))
 		if(iscultist(H))
 			if(!target)
 				target = H
@@ -31,7 +31,7 @@
 
 /datum/rune/blood_drain/process()
 	if(target && length(lambs) && (get_turf(target) == get_turf(parent)))
-		for(var/mob/living/carbon/human/H in lambs)
+		for(var/mob/living/carbon/teshari/H in lambs)
 			if(get_turf(H) == get_turf(parent))
 				if(REAGENT_VOLUME(target.vessel, /singleton/reagent/blood) + 10 > H.species.blood_volume)
 					to_chat(target, SPAN_CULT("You feel refreshed!"))

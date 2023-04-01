@@ -19,7 +19,7 @@
 	brute_dam_coeff = 0.5
 	var/status = READY
 
-	var/mob/humanload
+	var/mob/teshariload
 	var/mob/passenger
 
 	var/connected_blastdoor //Connect a blast door's _wifi_id here to have it close when the droppod is launched.
@@ -46,7 +46,7 @@
 	return
 
 /obj/vehicle/droppod/attackby(obj/item/I as obj, mob/user as mob)
-	if(I.iswelder() && status == USED && !humanload && !passenger)
+	if(I.iswelder() && status == USED && !teshariload && !passenger)
 		var/obj/item/weldingtool/W = I
 		if(W.welding)
 			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."))
@@ -82,12 +82,12 @@
 		return 0
 	if(!isturf(C.loc))
 		return 0
-	if((humanload && passenger) || C.anchored)
+	if((teshariload && passenger) || C.anchored)
 		return 0
-	if(humanload)
+	if(teshariload)
 		passenger = C
 	else
-		humanload = C
+		teshariload = C
 
 	C.forceMove(src)
 
@@ -99,7 +99,7 @@
 	return 1
 
 /obj/vehicle/droppod/unload(var/mob/user, var/direction) // this also won't call the parent proc because it relies on load and doesn't expect a 2nd person
-	if(!(humanload || passenger))
+	if(!(teshariload || passenger))
 		return 0
 
 	var/turf/dest = null
@@ -139,19 +139,19 @@
 			var/obj/O = a
 			O.forceMove(src.loc)
 
-	humanload = null
+	teshariload = null
 	passenger = null
 	icon_state = "[initial(icon_state)]_open"
 	return 1
 
 /obj/vehicle/droppod/attack_hand(mob/user as mob)
 	..()
-	if(user == humanload || user == passenger)
+	if(user == teshariload || user == passenger)
 		if(status != USED)
 			launchinterface()
 		else
 			unload(user)
-	else if ((!humanload || !passenger) && status != USED)
+	else if ((!teshariload || !passenger) && status != USED)
 		load(user)
 		launchinterface()
 
@@ -272,8 +272,8 @@
 	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
 	S.set_up(5, 0, A)
 	S.start()
-	if(humanload)
-		var/mob/M = humanload
+	if(teshariload)
+		var/mob/M = teshariload
 		shake_camera(M, 5, 1)
 	forceMove(A)
 	set_light(5,1,LIGHT_COLOR_EMERGENCY_SOFT)

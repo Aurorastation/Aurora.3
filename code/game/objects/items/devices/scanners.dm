@@ -99,16 +99,16 @@ BREATH ANALYZER
 
 		user.visible_message("<b>[user]</b> runs a scanner over [M].","<span class='notice'>You run the scanner over [M].</span>")
 
-	if(!istype(M, /mob/living/carbon/human))
-		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
+	if(!istype(M, /mob/living/carbon/teshari))
+		to_chat(user, "<span class='warning'>This scanner is designed for tesharioid patients only.</span>")
 		if(sound_scan)
 			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
 		return
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 
 	if(H.isSynthetic() && !H.isFBP())
-		to_chat(user, "<span class='warning'>This scanner is designed for organic humanoid patients only.</span>")
+		to_chat(user, "<span class='warning'>This scanner is designed for organic tesharioid patients only.</span>")
 		if(sound_scan)
 			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
 		return
@@ -587,7 +587,7 @@ BREATH ANALYZER
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 
-/obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)
+/obj/item/device/breath_analyzer/attack(mob/living/carbon/teshari/H, mob/living/user as mob)
 
 	if (!istype(H))
 		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on [H]!</span>")
@@ -716,12 +716,12 @@ BREATH ANALYZER
 	R.color = "#eeffe8"
 	R.set_content_unsafe("Scan ([M.name])", internal_bodyscanner.format_occupant_data(get_medical_data(M)))
 
-	if(ishuman(user) && !(user.l_hand && user.r_hand))
+	if(isteshari(user) && !(user.l_hand && user.r_hand))
 		user.put_in_hands(R)
 	user.visible_message("\The [src] spits out a piece of paper.")
 
-/obj/item/device/advanced_healthanalyzer/proc/get_medical_data(var/mob/living/carbon/human/H)
-	if (!ishuman(H))
+/obj/item/device/advanced_healthanalyzer/proc/get_medical_data(var/mob/living/carbon/teshari/H)
+	if (!isteshari(H))
 		return
 
 	var/list/medical_data = list(

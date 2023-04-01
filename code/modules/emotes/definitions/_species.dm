@@ -21,13 +21,13 @@
 
 /datum/species/unathi
 	default_emotes = list(
-		/singleton/emote/human/swish,
-		/singleton/emote/human/wag,
-		/singleton/emote/human/sway,
-		/singleton/emote/human/qwag,
-		/singleton/emote/human/fastsway,
-		/singleton/emote/human/swag,
-		/singleton/emote/human/stopsway,
+		/singleton/emote/teshari/swish,
+		/singleton/emote/teshari/wag,
+		/singleton/emote/teshari/sway,
+		/singleton/emote/teshari/qwag,
+		/singleton/emote/teshari/fastsway,
+		/singleton/emote/teshari/swag,
+		/singleton/emote/teshari/stopsway,
 		/singleton/emote/visible/tflick,
 		/singleton/emote/audible/lizard_bellow,
 		/singleton/emote/audible/hiss,
@@ -75,13 +75,13 @@
 		/singleton/emote/audible/hiss,
 		/singleton/emote/visible/flick,
 		/singleton/emote/visible/tflick,
-		/singleton/emote/human/swish,
-		/singleton/emote/human/wag,
-		/singleton/emote/human/sway,
-		/singleton/emote/human/qwag,
-		/singleton/emote/human/fastsway,
-		/singleton/emote/human/swag,
-		/singleton/emote/human/stopsway
+		/singleton/emote/teshari/swish,
+		/singleton/emote/teshari/wag,
+		/singleton/emote/teshari/sway,
+		/singleton/emote/teshari/qwag,
+		/singleton/emote/teshari/fastsway,
+		/singleton/emote/teshari/swag,
+		/singleton/emote/teshari/stopsway
 	)
 	pain_emotes_with_pain_level = list(
 		list(/singleton/emote/audible/scream, /singleton/emote/audible/whimper, /singleton/emote/audible/moan, /singleton/emote/audible/cry, /singleton/emote/audible/howl) = 70,
@@ -96,6 +96,6 @@
 		/singleton/emote/audible/lowarble,
 		/singleton/emote/audible/croak
 	)
-/mob/living/carbon/human/set_species(var/new_species, var/default_colour = 1)
+/mob/living/carbon/teshari/set_species(var/new_species, var/default_colour = 1)
 	UNLINT(. = ..())
 	update_emotes()

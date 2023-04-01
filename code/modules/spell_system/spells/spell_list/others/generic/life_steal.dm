@@ -10,7 +10,7 @@
 	range = 5
 	max_targets = 1
 
-	compatible_mobs = list(/mob/living/carbon/human)
+	compatible_mobs = list(/mob/living/carbon/teshari)
 
 	hud_state = "wiz_vampire"
 	cast_sound = 'sound/magic/enter_blood.ogg'

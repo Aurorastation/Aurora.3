@@ -4,13 +4,13 @@
 
 datum/unit_test/vision_glasses/
 	name = "EQUIPMENT: Vision Template"
-	var/mob/living/carbon/human/H = null
+	var/mob/living/carbon/teshari/H = null
 	var/expectation = SEE_INVISIBLE_NOLIGHTING
 	var/glasses_type = null
 	async = 1
 
 datum/unit_test/vision_glasses/start_test()
-	var/list/test = create_test_mob_with_mind(null, /mob/living/carbon/human)
+	var/list/test = create_test_mob_with_mind(null, /mob/living/carbon/teshari)
 	if(isnull(test))
 		fail("Check Runtimed in Mob creation")
 

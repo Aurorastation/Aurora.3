@@ -9,7 +9,7 @@
 	var/name_plural                                      // Pluralized name (since "[name]s" is not always valid)
 	var/hide_name = FALSE                                // If TRUE, the species' name won't be visible on examine.
 	var/short_name                                       // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
-	var/category_name                                    // a name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation
+	var/category_name                                    // a name for this overarching species, ie 'teshari', 'Skrell', 'IPC'. only used in character creation
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
 	var/bodytype
 	var/age_min = 18
@@ -20,18 +20,18 @@
 
 	// Icon/appearance vars.
 	var/canvas_icon = 'icons/mob/base_32.dmi'                  // Used to blend parts and icons onto this, to avoid clipping issues.
-	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
-	var/deform = 'icons/mob/human_races/human/r_def_human.dmi' // Mutated icon set.
-	var/skeleton_icon = 'icons/mob/human_races/r_skeleton.dmi'
-	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
+	var/icobase = 'icons/mob/teshari_races/teshari/r_teshari.dmi'    // Normal icon set.
+	var/deform = 'icons/mob/teshari_races/teshari/r_def_teshari.dmi' // Mutated icon set.
+	var/skeleton_icon = 'icons/mob/teshari_races/r_skeleton.dmi'
+	var/preview_icon = 'icons/mob/teshari_races/teshari/teshari_preview.dmi'
 	var/bandages_icon
 
 	var/talk_bubble_icon
 
 	// Damage overlay and masks.
-	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
-	var/damage_mask = 'icons/mob/human_races/masks/dam_mask_human.dmi'
-	var/blood_mask = 'icons/mob/human_races/masks/blood_human.dmi'
+	var/damage_overlays = 'icons/mob/teshari_races/masks/dam_teshari.dmi'
+	var/damage_mask = 'icons/mob/teshari_races/masks/dam_mask_teshari.dmi'
+	var/blood_mask = 'icons/mob/teshari_races/masks/blood_teshari.dmi'
 	var/onfire_overlay = 'icons/mob/burning/burning_generic.dmi'
 
 	var/prone_icon                                       // If set, draws this from icobase when mob is prone.
@@ -39,7 +39,7 @@
 	var/icon_y_offset = 0
 	var/floating_chat_x_offset = null
 	var/eyes = "eyes_s"                                  // Icon for eyes.
-	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
+	var/eyes_icons = 'icons/mob/teshari_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
 	var/eyes_icon_blend = ICON_ADD                       // The icon blending mode to use for eyes.
 	var/blood_type = "blood"
@@ -106,8 +106,8 @@
 
 	// Death vars.
 	var/respawn_type = CREW
-	var/meat_type = /obj/item/reagent_containers/food/snacks/meat/human
-	var/gibber_type = /obj/effect/gibspawner/human
+	var/meat_type = /obj/item/reagent_containers/food/snacks/meat/teshari
+	var/gibber_type = /obj/effect/gibspawner/teshari
 	var/single_gib_type = /obj/effect/decal/cleanable/blood/gibs
 	var/remains_type = /obj/effect/decal/remains/xeno
 	var/dust_remains_type =  /obj/effect/decal/remains/xeno/burned
@@ -196,8 +196,8 @@
 	var/appearance_flags = 0      // Appearance/display related features.
 	var/spawn_flags = 0           // Flags that specify who can spawn as this species
 	var/slowdown = 0              // Passive movement speed malus (or boost, if negative)
-	var/primitive_form            // Lesser form, if any (ie. monkey for humans)
-	var/greater_form              // Greater form, if any, ie. human for monkeys.
+	var/primitive_form            // Lesser form, if any (ie. monkey for tesharis)
+	var/greater_form              // Greater form, if any, ie. teshari for monkeys.
 	var/holder_type
 	var/rarity_value = 1          // Relative rarity/collector value for this species.
 	var/ethanol_resistance = 1	  // How well the mob resists alcohol, lower values get drunk faster, higher values need to drink more
@@ -264,7 +264,7 @@
 	var/list/natural_armor
 
 	// Bump vars
-	var/bump_flag = HUMAN	// What are we considered to be when bumped?
+	var/bump_flag = teshari	// What are we considered to be when bumped?
 	var/push_flags = ~HEAVY	// What can we push?
 	var/swap_flags = ~HEAVY	// What can we swap place with?
 
@@ -290,7 +290,7 @@
 
 	var/use_alt_hair_layer = FALSE
 
-/datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
+/datum/species/proc/get_eyes(var/mob/living/carbon/teshari/H)
 	return
 
 /datum/species/New()
@@ -319,10 +319,10 @@
 		bodytype = name
 	return bodytype
 
-/datum/species/proc/get_surgery_overlay_icon(var/mob/living/carbon/human/H)
+/datum/species/proc/get_surgery_overlay_icon(var/mob/living/carbon/teshari/H)
 	return 'icons/mob/surgery.dmi'
 
-/datum/species/proc/get_environment_discomfort(var/mob/living/carbon/human/H, var/msg_type)
+/datum/species/proc/get_environment_discomfort(var/mob/living/carbon/teshari/H, var/msg_type)
 
 	if(!prob(5))
 		return
@@ -360,13 +360,13 @@
 		return "unknown"
 	return species_language.get_random_name(gender)
 
-/datum/species/proc/before_equip(mob/living/carbon/human/H, visualsOnly = FALSE, datum/job/J)
+/datum/species/proc/before_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE, datum/job/J)
 	return
 
-/datum/species/proc/after_equip(mob/living/carbon/human/H, visualsOnly = FALSE, datum/job/J)
+/datum/species/proc/after_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE, datum/job/J)
 	return
 
-/datum/species/proc/create_organs(var/mob/living/carbon/human/H) //Handles creation of mob organs.
+/datum/species/proc/create_organs(var/mob/living/carbon/teshari/H) //Handles creation of mob organs.
 	for(var/obj/item/organ/organ in H.contents)
 		if((organ in H.organs) || (organ in H.internal_organs))
 			qdel(organ)
@@ -415,7 +415,7 @@
 	if(natural_armor)
 		H.AddComponent(/datum/component/armor, natural_armor)
 
-/datum/species/proc/tap(var/mob/living/carbon/human/H,var/mob/living/target)
+/datum/species/proc/tap(var/mob/living/carbon/teshari/H,var/mob/living/target)
 	if(H.on_fire)
 		target.fire_stacks += 1
 		target.IgniteMob()
@@ -426,7 +426,7 @@
 		H.visible_message("<span class='notice'>[H] taps [target] to get [target.get_pronoun("his")] attention!</span>", \
 						"<span class='notice'>You tap [target] to get [target.get_pronoun("his")] attention!</span>")
 
-/datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
+/datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/teshari/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
 			H.verbs -= verb_path
@@ -438,7 +438,7 @@
 					H.remove_spell(spell)
 	return
 
-/datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
+/datum/species/proc/add_inherent_verbs(var/mob/living/carbon/teshari/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
 			H.verbs |= verb_path
@@ -449,7 +449,7 @@
 
 	return
 
-/datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H,var/kpg = 0) //Handles anything not already covered by basic species assignment. Keepgene value should only be used by genetics.
+/datum/species/proc/handle_post_spawn(var/mob/living/carbon/teshari/H,var/kpg = 0) //Handles anything not already covered by basic species assignment. Keepgene value should only be used by genetics.
 	add_inherent_verbs(H)
 	H.mob_bump_flag = bump_flag
 	H.mob_swap_flags = swap_flags
@@ -466,24 +466,24 @@
 		H.gender = pick(default_genders)
 		H.pronouns = H.gender
 
-/datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
+/datum/species/proc/handle_death(var/mob/living/carbon/teshari/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
 
 // Only used for alien plasma weeds atm, but could be used for Dionaea later.
-/datum/species/proc/handle_environment_special(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_environment_special(var/mob/living/carbon/teshari/H)
 	return
 
 // Used to update alien icons for aliens.
-/datum/species/proc/handle_login_special(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_login_special(var/mob/living/carbon/teshari/H)
 	if(has_autohiss && H.client)
 		H.client.autohiss_mode = H.client.prefs.autohiss_setting
 
 // As above.
-/datum/species/proc/handle_logout_special(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_logout_special(var/mob/living/carbon/teshari/H)
 	return
 
 // Builds the HUD using species-specific icons and usable slots.
-/datum/species/proc/build_hud(var/mob/living/carbon/human/H)
+/datum/species/proc/build_hud(var/mob/living/carbon/teshari/H)
 	return
 
 //Used by xenos understanding larvae and dionaea understanding nymphs.
@@ -491,7 +491,7 @@
 	return
 
 // Called when using the shredding behavior.
-/datum/species/proc/can_shred(var/mob/living/carbon/human/H, var/ignore_intent)
+/datum/species/proc/can_shred(var/mob/living/carbon/teshari/H, var/ignore_intent)
 
 	if(!ignore_intent && H.a_intent != I_HURT)
 		return 0
@@ -505,13 +505,13 @@
 	return 0
 
 // Called in life() when the mob has no client.
-/datum/species/proc/handle_npc(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_npc(var/mob/living/carbon/teshari/H)
 	return
 
-/datum/species/proc/get_vision_flags(var/mob/living/carbon/human/H)
+/datum/species/proc/get_vision_flags(var/mob/living/carbon/teshari/H)
 	return vision_flags
 
-/datum/species/proc/handle_vision(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_vision(var/mob/living/carbon/teshari/H)
 	var/list/vision = H.get_accumulated_vision_handlers()
 	H.update_sight()
 	if(H.machine && H.machine.check_eye(H) >= 0 && H.client.eye != H)
@@ -568,7 +568,7 @@
 
 	return 1
 
-/datum/species/proc/get_how_nearsighted(var/mob/living/carbon/human/H)
+/datum/species/proc/get_how_nearsighted(var/mob/living/carbon/teshari/H)
 	var/prescriptions = short_sighted
 	if(H.disabilities & NEARSIGHTED)
 		prescriptions += 7
@@ -578,7 +578,7 @@
 
 // pre_move is set to TRUE when the mob checks whether it's even possible to move, so resources aren't drained until after the move completes
 // once the mob moves and its loc actually changes, the pre_move is set to FALSE and all the proper resources are drained
-/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
+/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/teshari/H, var/cost, var/pre_move)
 	if (!H.exhaust_threshold)
 		return 1 // Handled.
 
@@ -640,13 +640,13 @@
 		H.hud_used.move_intent.update_move_icon(H)
 	return 1
 
-/datum/species/proc/get_light_color(mob/living/carbon/human/H)
+/datum/species/proc/get_light_color(mob/living/carbon/teshari/H)
 	return
 
 /datum/species/proc/can_breathe_water()
 	return FALSE
 
-/datum/species/proc/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
+/datum/species/proc/handle_trail(var/mob/living/carbon/teshari/H, var/turf/T)
 	var/list/trail_info = list()
 	if(H.shoes)
 		var/obj/item/clothing/shoes/S = H.shoes
@@ -666,7 +666,7 @@
 
 	return trail_info
 
-/datum/species/proc/deploy_trail(var/mob/living/carbon/human/H, var/turf/T)
+/datum/species/proc/deploy_trail(var/mob/living/carbon/teshari/H, var/turf/T)
 	var/list/trail_info = handle_trail(H, T)
 	if(length(trail_info))
 		var/track_path = trail_info["footprint_type"]
@@ -675,7 +675,7 @@
 		if(istype(from))
 			from.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], 0, H.dir, trail_info["footprint_color"]) // Going
 
-/datum/species/proc/get_move_trail(var/mob/living/carbon/human/H)
+/datum/species/proc/get_move_trail(var/mob/living/carbon/teshari/H)
 	if(H.lying)
 		return /obj/effect/decal/cleanable/blood/tracks/body
 	else if(H.shoes || (H.wear_suit && (H.wear_suit.body_parts_covered & FEET)))
@@ -689,40 +689,40 @@
 	if(!.)
 		return move_trail
 
-/datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+/datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/teshari/H)
 	return 0
 
-/datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)
+/datum/species/proc/handle_speech_problems(mob/living/carbon/teshari/H, message, say_verb, message_mode, message_range)
 	return
 
-/datum/species/proc/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
+/datum/species/proc/handle_speech_sound(mob/living/carbon/teshari/H, list/current_flags)
 	if(speech_sounds && prob(speech_chance))
 		current_flags[1] = sound(pick(speech_sounds))
 		current_flags[2] = 50
 	return current_flags
 
-/datum/species/proc/get_vision_organ(mob/living/carbon/human/H)
+/datum/species/proc/get_vision_organ(mob/living/carbon/teshari/H)
 	return H.internal_organs_by_name[vision_organ]
 
-/datum/species/proc/set_default_hair(var/mob/living/carbon/human/H)
+/datum/species/proc/set_default_hair(var/mob/living/carbon/teshari/H)
 	H.h_style = H.species.default_h_style
 	H.f_style = H.species.default_f_style
 	H.g_style = H.species.default_g_style
 	H.update_hair()
 
-/datum/species/proc/set_default_tail(var/mob/living/carbon/human/H)
+/datum/species/proc/set_default_tail(var/mob/living/carbon/teshari/H)
 	H.set_tail_style(H.species.tail)
 
-/datum/species/proc/get_species_tally(var/mob/living/carbon/human/H)
+/datum/species/proc/get_species_tally(var/mob/living/carbon/teshari/H)
 	return 0
 
-/datum/species/proc/equip_later_gear(var/mob/living/carbon/human/H) //this handles anything not covered by survival gear, it is only called after everything else is equiped to the mob
+/datum/species/proc/equip_later_gear(var/mob/living/carbon/teshari/H) //this handles anything not covered by survival gear, it is only called after everything else is equiped to the mob
 	return
 
 /datum/species/proc/get_cloning_variant()
 	return name
 
-/datum/species/proc/handle_death_check(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_death_check(var/mob/living/carbon/teshari/H)
 	return FALSE
 
 /datum/species/proc/get_digestion_product()
@@ -737,13 +737,13 @@
 /datum/species/proc/handle_despawn()
 	return
 
-/datum/species/proc/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
+/datum/species/proc/handle_strip(var/mob/user, var/mob/living/carbon/teshari/H, var/action)
 	return
 
 /datum/species/proc/get_strip_info(var/reference)
 	return ""
 
-/datum/species/proc/get_pain_emote(var/mob/living/carbon/human/H, var/pain_power)
+/datum/species/proc/get_pain_emote(var/mob/living/carbon/teshari/H, var/pain_power)
 	if(flags & NO_PAIN)
 		return
 	for(var/pain_emotes in pain_emotes_with_pain_level)
@@ -759,20 +759,20 @@
 /datum/species/proc/is_naturally_insulated()
 	return FALSE
 
-/datum/species/proc/bypass_food_fullness(var/mob/living/carbon/human/H) //proc used to see if the species can eat more than their nutrition value allows
+/datum/species/proc/bypass_food_fullness(var/mob/living/carbon/teshari/H) //proc used to see if the species can eat more than their nutrition value allows
 	return FALSE
 
-// the records var is so that untagged shells can appear human
-/datum/species/proc/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
+// the records var is so that untagged shells can appear teshari
+/datum/species/proc/get_species(var/reference, var/mob/living/carbon/teshari/H, var/records)
 	if(reference)
 		return src
 	return name
 
 // prevents EMP damage if return it returns TRUE
-/datum/species/proc/handle_emp_act(var/mob/living/carbon/human/H, var/severity)
+/datum/species/proc/handle_emp_act(var/mob/living/carbon/teshari/H, var/severity)
 	return FALSE
 
-/datum/species/proc/handle_movement_tally(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_movement_tally(var/mob/living/carbon/teshari/H)
 	var/tally = 0
 	if(istype(H.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
 		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
@@ -794,7 +794,7 @@
 				tally += 0.5
 	return tally
 
-/datum/species/proc/handle_stance_damage(var/mob/living/carbon/human/H, var/damage_only = FALSE)
+/datum/species/proc/handle_stance_damage(var/mob/living/carbon/teshari/H, var/damage_only = FALSE)
 	var/static/support_limbs = list(
 		BP_L_LEG = BP_R_LEG,
 		BP_L_FOOT = BP_R_FOOT
@@ -838,12 +838,12 @@
 /datum/species/proc/can_double_fireman_carry()
 	return FALSE
 
-/datum/species/proc/has_stamina_for_pushup(var/mob/living/carbon/human/human)
-	return human.stamina > (human.max_stamina / 10)
+/datum/species/proc/has_stamina_for_pushup(var/mob/living/carbon/teshari/teshari)
+	return teshari.stamina > (teshari.max_stamina / 10)
 
-/datum/species/proc/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
-	human.stamina -= stamina_cost
-	human.hud_used.move_intent.update_move_icon(human)
+/datum/species/proc/drain_stamina(var/mob/living/carbon/teshari/teshari, var/stamina_cost)
+	teshari.stamina -= stamina_cost
+	teshari.hud_used.move_intent.update_move_icon(teshari)
 
 /datum/species/proc/handle_middle_mouse_click(var/atom/target)
 	return

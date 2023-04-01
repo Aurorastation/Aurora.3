@@ -38,8 +38,8 @@
 	update_worn_icon()
 	update_clothing_icon()
 	update_icon()
-	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+	if(isteshari(usr))
+		var/mob/living/carbon/teshari/H = usr
 		H.update_hair()
 
 /obj/item/clothing/accessory/unathi
@@ -55,8 +55,8 @@
 	name = "Th'akhist maxtlatl"
 	desc = "A traditional garment worn by Th'akh shamans. Popular adornments include dried and pressed grass and \
 	flowers, in addition to colorful stones placed into and hanging off of the mantle."
-	desc_extended = "The term \" maxtlatl\" was given by humanity upon seeing this due to its resemblance to ancient \
-	human cultures. However, it is more appropriately called a zlukti, or 'spirit garb'. Each adornment, whether \
+	desc_extended = "The term \" maxtlatl\" was given by teshariity upon seeing this due to its resemblance to ancient \
+	teshari cultures. However, it is more appropriately called a zlukti, or 'spirit garb'. Each adornment, whether \
 	feathers, stones, or metals, is made by another shaman who has passed away: the more colorful the attire, the \
 	older it is."
 	icon = 'icons/obj/unathi_items.dmi'
@@ -121,7 +121,7 @@
 	chain.appearance_flags = RESET_COLOR
 	add_overlay(chain)
 
-/obj/item/clothing/accessory/poncho/rockstone/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/clothing/accessory/poncho/rockstone/get_mob_overlay(var/mob/living/carbon/teshari/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/gem = image(mob_icon, null, "rockstone_un_gem")
@@ -133,7 +133,7 @@
 		I.add_overlay(chain)
 	return I
 
-/obj/item/clothing/accessory/poncho/rockstone/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
+/obj/item/clothing/accessory/poncho/rockstone/get_accessory_mob_overlay(mob/living/carbon/teshari/H, force)
 	var/image/base = ..()
 	var/image/gem = image(icon, null, "rockstone_un_gem")
 	gem.appearance_flags = RESET_COLOR

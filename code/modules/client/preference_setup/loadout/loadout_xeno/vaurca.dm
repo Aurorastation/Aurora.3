@@ -22,7 +22,7 @@
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/vaurca_expression
-	display_name = "human expression mask"
+	display_name = "teshari expression mask"
 	path = /obj/item/clothing/head/expression
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)

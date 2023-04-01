@@ -58,8 +58,8 @@
 		record.rank = assignment
 		record.real_rank = assignment
 	else
-		var/mob/living/carbon/human/H
-		if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/teshari/H
+		if(istype(user,/mob/living/carbon/teshari))
 			H = user
 			record.age = H.age
 			record.employer = H.employer_faction

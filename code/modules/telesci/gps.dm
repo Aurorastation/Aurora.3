@@ -34,8 +34,8 @@ var/list/GPS_list = list()
 	update_position()
 
 	if(ismob(loc))
-		if(ishuman(loc))
-			var/mob/living/carbon/human/H = loc
+		if(isteshari(loc))
+			var/mob/living/carbon/teshari/H = loc
 			if(src in H.get_equipped_items())
 				held_by = H
 			else
@@ -325,8 +325,8 @@ var/list/GPS_list = list()
 	update_position()
 
 	if(ismob(loc))
-		if(ishuman(loc))
-			var/mob/living/carbon/human/H = loc
+		if(isteshari(loc))
+			var/mob/living/carbon/teshari/H = loc
 			if(src in H.get_equipped_items())
 				held_by = H
 			else

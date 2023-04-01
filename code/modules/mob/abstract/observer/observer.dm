@@ -25,7 +25,7 @@
 	var/admin_ghosted = 0
 	var/anonsay = 0
 	var/image/ghostimage = null //this mobs ghost image, for deleting and stuff
-	var/ghostvision = 1 //is the ghost able to see things humans can't?
+	var/ghostvision = 1 //is the ghost able to see things tesharis can't?
 	var/seedarkness = 1
 
 	var/is_manifest = 0
@@ -214,13 +214,13 @@ Works together with spawning an observer, noted above.
 
 /mob/abstract/observer/proc/process_medHUD(var/mob/M)
 	var/client/C = M.client
-	for(var/mob/living/carbon/human/patient in oview(M, 14))
+	for(var/mob/living/carbon/teshari/patient in oview(M, 14))
 		C.images += patient.hud_list[HEALTH_HUD]
 		C.images += patient.hud_list[STATUS_HUD_OOC]
 
 /mob/abstract/observer/proc/assess_targets(list/target_list, mob/abstract/observer/U)
 	var/client/C = U.client
-	for(var/mob/living/carbon/human/target in target_list)
+	for(var/mob/living/carbon/teshari/target in target_list)
 		C.images += target.hud_list[SPECIALROLE_HUD]
 	for(var/mob/living/silicon/target in target_list)
 		C.images += target.hud_list[SPECIALROLE_HUD]
@@ -339,7 +339,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	if(isipc(following) || isrobot(following))
 		robotic_analyze_mob(following, usr, TRUE)
-	else if(ishuman(following))
+	else if(isteshari(following))
 		health_scan_mob(following, usr, TRUE, TRUE)
 	else
 		to_chat(src, SPAN_WARNING("This isn't a scannable target."))

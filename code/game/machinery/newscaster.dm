@@ -160,12 +160,12 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	if(!user.IsAdvancedToolUser())
 		return 0
 
-	if(istype(user, /mob/living/carbon/human) || istype(user,/mob/living/silicon) )
-		var/mob/living/human_or_robot_user = user
+	if(istype(user, /mob/living/carbon/teshari) || istype(user,/mob/living/silicon) )
+		var/mob/living/teshari_or_robot_user = user
 		var/dat
 		dat = text("<H3>Newscaster Unit #[src.unit_no]</H3>")
 
-		src.scan_user(human_or_robot_user) //Newscaster scans you
+		src.scan_user(teshari_or_robot_user) //Newscaster scans you
 
 		if(isNotStationLevel(z))
 			screen = 24 // No network connectivity
@@ -181,7 +181,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+= "<BR><A href='?src=\ref[src];create_feed_story=1'>Submit new Feed story</A>"
 				dat+= "<BR><A href='?src=\ref[src];menu_paper=1'>Print newspaper</A>"
 				dat+= "<BR><A href='?src=\ref[src];refresh=1'>Re-scan User</A>"
-				dat+= "<BR><BR><A href='?src=\ref[human_or_robot_user];mach_close=newscaster_main'>Exit</A>"
+				dat+= "<BR><BR><A href='?src=\ref[teshari_or_robot_user];mach_close=newscaster_main'>Exit</A>"
 				if(src.securityCaster)
 					var/wanted_already = 0
 					if(SSnews.wanted_issue)
@@ -427,9 +427,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat += "<B>ERROR: Newscaster unit cannot access main news server!</B></BR>"
 				dat += "<BR><A href='?src=\ref[src];setScreen=[0]'>ATTEMPT RESET</A>"
 
-		send_theme_resources(human_or_robot_user)
-		human_or_robot_user << browse(enable_ui_theme(human_or_robot_user, dat), "window=newscaster_main;size=600x900")
-		onclose(human_or_robot_user, "newscaster_main")
+		send_theme_resources(teshari_or_robot_user)
+		teshari_or_robot_user << browse(enable_ui_theme(teshari_or_robot_user, dat), "window=newscaster_main;size=600x900")
+		onclose(teshari_or_robot_user, "newscaster_main")
 
 /obj/machinery/newscaster/Topic(href, href_list)
 	if(..())
@@ -845,8 +845,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to read it."),\
 						     SPAN_NOTICE("You unroll \the [src] to read it."))
 		rolled(user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/human_user = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/teshari_user = user
 		var/dat
 		src.pages = 0
 		switch(screen)
@@ -871,7 +871,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					dat+="</ul>"
 				if(scribble_page==curr_page)
 					dat+="<BR><I>There is a small scribble near the end of this page... It reads: \"[src.scribble]\"</I>"
-				dat+= "<HR><DIV STYLE='float:right;'><A href='?src=\ref[src];next_page=1'>Next Page</A></DIV> <div style='float:left;'><A href='?src=\ref[human_user];mach_close=newspaper_main'>Done reading</A></DIV>"
+				dat+= "<HR><DIV STYLE='float:right;'><A href='?src=\ref[src];next_page=1'>Next Page</A></DIV> <div style='float:left;'><A href='?src=\ref[teshari_user];mach_close=newspaper_main'>Done reading</A></DIV>"
 			if(1) // X channel pages inbetween.
 				for(var/datum/feed_channel/NP in src.news_content)
 					src.pages++ //Let's get it right again.
@@ -919,8 +919,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 		dat+="<BR><HR><div align='center'>[src.curr_page+1]</div>"
 		send_theme_resources(src)
-		human_user << browse(enable_ui_theme(human_user, dat), "window=newspaper_main;size=300x400")
-		onclose(human_user, "newspaper_main")
+		teshari_user << browse(enable_ui_theme(teshari_user, dat), "window=newspaper_main;size=300x400")
+		onclose(teshari_user, "newspaper_main")
 	else
 		to_chat(user, "The paper is full of intelligible symbols!")
 
@@ -978,7 +978,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		return TRUE
 
 /obj/item/newspaper/proc/rolled(mob/user)
-	if(ishuman(user) && Adjacent(user) && !user.incapacitated())
+	if(isteshari(user) && Adjacent(user) && !user.incapacitated())
 		if(rolled)
 			playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 		else
@@ -993,8 +993,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 // Newscaster scans you
 // autorecognition, woo!
 /obj/machinery/newscaster/proc/scan_user(mob/living/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		var/obj/item/card/id/ID = H.GetIdCard()
 		if(ID)
 			scanned_user = GetNameAndAssignmentFromId(ID)

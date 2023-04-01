@@ -17,13 +17,13 @@
 	turf_flags = TURF_FLAG_BACKGROUND
 
 	// A lazy list to contain a list of mobs who are currently scaling
-	// up this turf. Used in human/can_fall.
+	// up this turf. Used in teshari/can_fall.
 
 	var/tmp/list/climbers
 
 // An override of turf/Enter() to make it so that magboots allow you to stop
 // falling off the damned rock.
-/turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
+/turf/simulated/open/Enter(mob/living/carbon/teshari/mover, atom/oldloc)
 	if (istype(mover) && isturf(oldloc))
 		if (mover.Check_Shoegrip(FALSE) && mover.can_fall(below, src))
 			to_chat(mover, SPAN_NOTICE("You are stopped from falling off the edge by \the [mover.shoes] you're wearing!"))
@@ -247,8 +247,8 @@
 
 /turf/simulated/open/attack_hand(var/mob/user)
 
-	if(ishuman(user) && user.a_intent == I_GRAB)
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user) && user.a_intent == I_GRAB)
+		var/mob/living/carbon/teshari/H = user
 		var/turf/climbing_wall = GetBelow(H)
 		var/climb_bonus = 0
 		if(istype(climbing_wall, /turf/simulated/mineral))

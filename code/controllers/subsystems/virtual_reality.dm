@@ -103,7 +103,7 @@
 		to_chat(src, SPAN_DANGER("Interface error, you cannot exit the system at this time."))
 		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
 
-/mob/living/carbon/human/virtual_reality/body_return()
+/mob/living/carbon/teshari/virtual_reality/body_return()
 	set name = "Return to Body"
 	set category = "IC"
 
@@ -257,9 +257,9 @@
 
 	mind_transfer(user, bound[choice])
 
-/datum/controller/subsystem/virtualreality/proc/create_virtual_reality_avatar(var/mob/living/carbon/human/user)
+/datum/controller/subsystem/virtualreality/proc/create_virtual_reality_avatar(var/mob/living/carbon/teshari/user)
 	if(virtual_reality_spawn.len)
-		var/mob/living/carbon/human/virtual_reality/H = new /mob/living/carbon/human/virtual_reality(pick(virtual_reality_spawn))
+		var/mob/living/carbon/teshari/virtual_reality/H = new /mob/living/carbon/teshari/virtual_reality(pick(virtual_reality_spawn))
 		H.set_species(user.species.name, 1)
 
 		H.gender = user.gender

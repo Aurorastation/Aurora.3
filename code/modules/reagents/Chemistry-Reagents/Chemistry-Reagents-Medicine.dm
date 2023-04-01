@@ -47,7 +47,7 @@
 	M.adjustHydrationLoss(5*removed)
 	M.adjustNutritionLoss(5*removed)
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(M.chem_doses[type] > 30) //Bicaridine treats arterial bleeding when dose is greater than 30u and when the drug is overdosing (chemical volume in blood greater than 20).
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_ARTERY_CUT && prob(2))
@@ -87,7 +87,7 @@
 		M.adjustCloneLoss(2.5*removed) //Cell regeneration spiralling out of control resulting in genetic damage.
 
 /singleton/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 	if(!(head.disfigured))
 		if(prob(10))
@@ -177,8 +177,8 @@
 //Hyperoxia causes brain and eye damage
 /singleton/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_NEUROTOXIC, removed*0.5)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
 		if(E && istype(E))
 			E.take_damage(removed * (strength / 12))
@@ -294,7 +294,7 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/singleton/reagent/mortaphenyl/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+/singleton/reagent/mortaphenyl/initial_effect(var/mob/living/carbon/teshari/M, var/alien, var/holder)
 	to_chat(M, SPAN_GOOD(pick("You lean back and begin to fall... and fall... and fall.", "A feeling of ecstasy builds within you.", "You're startled by just how amazing you suddenly feel.")))
 
 /singleton/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -308,7 +308,7 @@
 		if(!M.chem_effects[CE_STRAIGHTWALK])
 			M.confused = max(M.confused, 10)
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(!istype(H))
 		return
 	var/bac = H.get_blood_alcohol()
@@ -360,7 +360,7 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/singleton/reagent/oxycomorphine/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+/singleton/reagent/oxycomorphine/initial_effect(var/mob/living/carbon/teshari/M, var/alien, var/holder)
 	to_chat(M, SPAN_GOOD(pick("You lean back and begin to fall... and fall... and fall.", "A feeling of ecstasy builds within you.", "You're startled by just how amazing you suddenly feel.")))
 
 /singleton/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -374,7 +374,7 @@
 		if(!M.chem_effects[CE_STRAIGHTWALK])
 			M.confused = max(M.confused, 20)
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(!istype(H))
 		return
 	var/bac = H.get_blood_alcohol()
@@ -491,8 +491,8 @@
 /singleton/reagent/oculine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.eye_blurry = max(M.eye_blurry - 5 * removed, 0)
 	M.eye_blind = max(M.eye_blind - 5 * removed, 0)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
 		if(E && istype(E))
 			if(E.damage > 0)
@@ -521,8 +521,8 @@
 	taste_description = "bitterness"
 
 /singleton/reagent/peridaxon/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		H.add_chemical_effect(CE_CLUMSY, 1)
 		for(var/obj/item/organ/internal/I in H.internal_organs)
 			if(I.organ_tag == BP_BRAIN)
@@ -555,8 +555,8 @@
 	M.sdisabilities = 0
 
 	// Might need to update appearance for hulk etc.
-	if(needs_mutation_update && ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(needs_mutation_update && isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		H.update_mutations()
 
 /singleton/reagent/hyperzine
@@ -756,7 +756,7 @@
 	taste_description = "bleach"
 	fallback_specific_heat = 0.605
 
-/singleton/reagent/steramycin/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/steramycin/affect_blood(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M, 1))
 		for(var/obj/item/organ/external/E in M.organs)
 			if(E.germ_level >= INFECTION_LEVEL_ONE || !E.germ_level) //No effect if it's not infected or the infection has progressed.
@@ -800,7 +800,7 @@
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
 
-/singleton/reagent/antidexafen/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder) // effects based loosely on DXM
+/singleton/reagent/antidexafen/overdose(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder) // effects based loosely on DXM
 	M.hallucination = max(M.hallucination, 40)
 	M.add_chemical_effect(CE_PAINKILLER, 20) // stronger at higher doses
 	if(prob(M.chem_doses[type]))
@@ -844,8 +844,8 @@
 	for(var/obj/item/I in M.contents)
 		I.was_bloodied = null
 	M.was_bloodied = null
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		for (var/obj/item/organ/external/E in H.organs)//For each external bodypart
 			for (var/datum/wound/W in E.wounds)//We check each wound on that bodypart
 				W.germ_level -= min(removed*germ_adjust, W.germ_level)//Clean the wound a bit. Note we only clean wounds on the part, not the part itself.
@@ -961,7 +961,7 @@
 	LAZYSET(data, "last_tick_time", world.time + (messagedelay / 2)) //Small startup delay
 	return data
 
-/singleton/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/mental/affect_blood(var/mob/living/carbon/teshari/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(H) || world.time < holder.reagent_data[type]["last_tick_time"] || messagedelay == -1)
 		return
 
@@ -1155,7 +1155,7 @@
 	metabolism_min = REM * 0.25
 
 
-/singleton/reagent/cataleptinol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/cataleptinol/affect_blood(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	M.dizziness = max(100, M.dizziness)
 	M.make_dizzy(5)
@@ -1219,7 +1219,7 @@
 	taste_description = "coarse dust"
 	reagent_state = SOLID
 
-/singleton/reagent/pulmodeiectionem/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/pulmodeiectionem/affect_breathe(var/mob/living/carbon/teshari/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(istype(H))
 		var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
 		if(istype(L) && !L.robotic && !L.is_broken())
@@ -1240,7 +1240,7 @@
 				H.add_chemical_effect(CE_PNEUMOTOXIC, 0.2*removed)
 	. = ..()
 
-/singleton/reagent/pulmodeiectionem/affect_ingest(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/pulmodeiectionem/affect_ingest(var/mob/living/carbon/teshari/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(H, 5))
 		if(prob(50))
 			H.visible_message("<b>[H]</b> splutters, coughing up a cloud of purple dust.", "You cough up a cloud of purple dust.")
@@ -1262,7 +1262,7 @@
 	taste_description = "fine dust"
 	reagent_state = SOLID
 
-/singleton/reagent/pneumalin/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/pneumalin/affect_breathe(var/mob/living/carbon/teshari/H, var/alien, var/removed, var/datum/reagents/holder)
 	H.adjustOxyLoss(removed) //Every unit heals 1 oxy damage
 	H.add_chemical_effect(CE_PNEUMOTOXIC, -removed * 1.5)
 	H.add_chemical_effect(CE_PULSE, -1)
@@ -1274,7 +1274,7 @@
 
 	. = ..()
 
-/singleton/reagent/pneumalin/overdose(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/pneumalin/overdose(var/mob/living/carbon/teshari/H, var/alien, var/removed, var/datum/reagents/holder)
 	H.add_chemical_effect(CE_PULSE, -H.chem_doses[type] * 0.33)
 
 /singleton/reagent/rezadone
@@ -1340,7 +1340,7 @@
 		M.resuscitate()
 	if(M.chem_doses[type] > 3)
 		M.status_flags &= ~DISFIGURED
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
 	M.add_chemical_effect(CE_UNDEXTROUS, 1)
@@ -1391,8 +1391,8 @@
 
 /singleton/reagent/azoth/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		for (var/A in H.organs)
 			var/obj/item/organ/external/E = A
 			if((E.tendon_status() & TENDON_CUT) && E.tendon.can_recover())
@@ -1420,14 +1420,14 @@
 	scannable = TRUE
 	taste_description = "bitterness"
 
-/singleton/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/adipemcina/affect_blood(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_CARDIOTOXIC, -removed*2)
 	var/obj/item/organ/internal/heart/H = M.internal_organs_by_name[BP_HEART]
 	if(istype(H) && !BP_IS_ROBOTIC(H))
 		H.damage = max(H.damage - (removed * 2), 0)
 	..()
 
-/singleton/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien, var/datum/reagents/holder)
+/singleton/reagent/adipemcina/overdose(var/mob/living/carbon/teshari/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
 	if(istype(M))
 		if(prob(25))
@@ -1477,7 +1477,7 @@
 	breathe_mul = 0
 	ingest_mul = 0
 
-/singleton/reagent/adrenaline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/adrenaline/affect_blood(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		return
 	if(M.chem_doses[type] < 0.2)	//not that effective after initial rush
@@ -1504,7 +1504,7 @@
 	fallback_specific_heat = 2
 
 /singleton/reagent/elixir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(ishuman(M))
+	if(isteshari(M))
 		if(M && M.stat == DEAD)
 			M.adjustOxyLoss(-rand(15,20))
 			M.visible_message(SPAN_DANGER("\The [M] shudders violently!"))
@@ -1606,9 +1606,9 @@
 		M.add_up_to_chemical_effect(CE_ADRENALINE, 1)
 
 /singleton/reagent/kilosemine/overdose(mob/living/carbon/M, alien, removed, scale, datum/reagents/holder)
-	if(!ishuman(M))
+	if(!isteshari(M))
 		return
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(prob(H.chem_doses[type] / 2))
 		to_chat(H, SPAN_WARNING(pick("You feel like you're on limited time...", "Something in the left side of your chest feels like it's bursting!",
 									 "You feel like today is your last day, and you should make it count...")))

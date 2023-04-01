@@ -47,7 +47,7 @@
 #define MATERIAL_HIDE_MONKEY             "monkey hide"
 #define MATERIAL_HIDE_LIZARD             "lizard hide"
 #define MATERIAL_HIDE_ALIEN              "alien hide"
-#define MATERIAL_HIDE_HUMAN              "human hide"
+#define MATERIAL_HIDE_teshari              "teshari hide"
 
 // Wood.
 #define MATERIAL_WOOD                    "wood"

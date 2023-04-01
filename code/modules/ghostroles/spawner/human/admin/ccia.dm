@@ -2,7 +2,7 @@
 	Agents and their Escorts
 */
 
-/datum/ghostspawner/human/admin/corporate
+/datum/ghostspawner/teshari/admin/corporate
 	short_name = null
 	name = "Corporate Entity"
 	desc = "A corporate entity so dull it doesn't even exist. Thrilling!"
@@ -11,13 +11,13 @@
 	landmark_name = "CCIAAgent"
 	req_perms = R_CCIAA
 
-	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	possible_species = list(SPECIES_teshari, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	respawn_flag = null
 	mob_name = null
 
-/datum/ghostspawner/human/admin/corporate/ccia_agent
+/datum/ghostspawner/teshari/admin/corporate/ccia_agent
 	short_name = "cciaagent"
 	name = "CCIA Agent"
 
@@ -28,11 +28,11 @@
 
 	mob_name_pick_message = "Pick a name."
 
-/datum/ghostspawner/human/admin/corporate/ccia_agent/New()
+/datum/ghostspawner/teshari/admin/corporate/ccia_agent/New()
 	desc = "Board the [current_map.station_name], annoy crew with your interviews and get squashed by your own shuttle."
 	..()
 
-/datum/ghostspawner/human/admin/corporate/ccia_escort
+/datum/ghostspawner/teshari/admin/corporate/ccia_escort
 	short_name = "cciaescort"
 	name = "CCIA Escort"
 	desc = "Escort CCIA agents, watch them annoy the crew and prevent them from throwing themselves under their own shuttle."
@@ -43,7 +43,7 @@
 	req_perms_edit = R_CCIAA
 	max_count = 1
 
-	//Vars related to human mobs
+	//Vars related to teshari mobs
 	outfit = /datum/outfit/admin/nt/protection_detail
 
 	assigned_role = "Civil Protection Officer"
@@ -52,7 +52,7 @@
 	mob_name_prefix = "Ofc. "
 	mob_name_pick_message = "Pick a callsign or last-name."
 
-/datum/ghostspawner/human/admin/corporate/scc_agent
+/datum/ghostspawner/teshari/admin/corporate/scc_agent
 	short_name = "sccagent"
 	name = "SCC Agent"
 
@@ -65,11 +65,11 @@
 	assigned_role = "SCC Agent"
 	special_role = "SCC Agent"
 
-/datum/ghostspawner/human/admin/corporate/scc_agent/New()
+/datum/ghostspawner/teshari/admin/corporate/scc_agent/New()
 	desc = "Board the [current_map.station_name], annoy crew with your interviews and get squashed by your own shuttle. But this time you're blue."
 	..()
 
-/datum/ghostspawner/human/admin/corporate/scc_bodyguard
+/datum/ghostspawner/teshari/admin/corporate/scc_bodyguard
 	short_name = "sccbodyguard"
 	name = "SCC Bodyguard"
 	desc = "Protect the SCC agent you're assigned to with your life. In fact, protect them if you die as well, if possible."
@@ -89,13 +89,13 @@
 	mob_name_prefix = "Spc. "
 	mob_name_pick_message = "Pick a name."
 
-/datum/ghostspawner/human/admin/corporate/fib
+/datum/ghostspawner/teshari/admin/corporate/fib
 	short_name = "fib"
 	name = "FIB Agent"
 	desc = "Investigate issues related to crimes under the jurisdiction of the Federal Investigations Bureau."
 
 	outfit = /datum/outfit/admin/nt/fib
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_teshari)
 
 	assigned_role = "FIB Agent"
 	special_role = "FIB Agent"
@@ -103,7 +103,7 @@
 	mob_name_prefix = "S/Agt. "
 	mob_name_pick_message = "Pick a name."
 
-/datum/ghostspawner/human/admin/corporate/fib/escort
+/datum/ghostspawner/teshari/admin/corporate/fib/escort
 	short_name = "fibescort"
 	name = "FIB Escort"
 	desc = "Protect the agents of the Federal Investigations Bureau while on the field."
@@ -128,7 +128,7 @@
 	ERT and Similar Commanders
 */
 
-/datum/ghostspawner/human/admin/ert_commander
+/datum/ghostspawner/teshari/admin/ert_commander
 	short_name = "ertcommander"
 	name = "ERT Commander"
 	desc = "Command the response team from Central Command"
@@ -137,9 +137,9 @@
 	landmark_name = "ERTCommander"
 	req_perms = R_CCIAA
 
-	//Vars related to human mobs
+	//Vars related to teshari mobs
 	outfit = /datum/outfit/admin/nt/ert_commander
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_teshari)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Emergency Response Team Commander"
@@ -149,7 +149,7 @@
 	mob_name = null
 	mob_name_pick_message = "Pick a name."
 
-/datum/ghostspawner/human/admin/legion_commander
+/datum/ghostspawner/teshari/admin/legion_commander
 	short_name = "legionlegate"
 	name = "TCFL Legate"
 	desc = "Command the TCFL onboard BLV The Tower, a legion patrolship from where Task Force XIII - Fortune operates from."
@@ -158,9 +158,9 @@
 	landmark_name = "TCFLLegate"
 	req_perms = R_CCIAA
 
-	//Vars related to human mobs
+	//Vars related to teshari mobs
 	outfit = /datum/outfit/admin/tcfl
-	possible_species = list(SPECIES_HUMAN,SPECIES_TAJARA_MSAI,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI,SPECIES_IPC)
+	possible_species = list(SPECIES_teshari,SPECIES_TAJARA_MSAI,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Tau Ceti Foreign Legion Legate"
@@ -175,7 +175,7 @@
 	Misc. Odin Roles
 */
 
-/datum/ghostspawner/human/admin/checkpointsec/prepatory
+/datum/ghostspawner/teshari/admin/checkpointsec/prepatory
 	short_name = "checkpointsec_prepatory"
 	name = "Aurora Prepatory Wing Security"
 	desc = "Act as an Odin security officer, guide lost newcomers onto the arrivals shuttle if the need arises."

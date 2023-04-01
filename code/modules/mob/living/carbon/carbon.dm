@@ -78,8 +78,8 @@
 			var/obj/item/I = user.get_active_hand()
 			if(I && I.force)
 				var/d = rand(round(I.force / 4), I.force)
-				if(istype(src, /mob/living/carbon/human))
-					var/mob/living/carbon/human/H = src
+				if(istype(src, /mob/living/carbon/teshari))
+					var/mob/living/carbon/teshari/H = src
 					var/obj/item/organ/external/organ = H.get_organ(BP_CHEST)
 					if (istype(organ))
 						if(organ.take_damage(d, 0))
@@ -120,8 +120,8 @@
 		else if (src.gender == FEMALE)
 			t_him = "her"
 		var/show_ssd
-		var/mob/living/carbon/human/H
-		if(ishuman(src))
+		var/mob/living/carbon/teshari/H
+		if(isteshari(src))
 			H = src
 			show_ssd = H.species.show_ssd
 		if(H && show_ssd && !client && !teleop)
@@ -207,8 +207,8 @@
 						M.visible_message(SPAN_WARNING("[M] successfully pats out [src]'s flames."),
 						SPAN_WARNING("You successfully pat out [src]'s flames."))
 	else if (!is_asystole())
-		if(src == M && istype(src, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = src
+		if(src == M && istype(src, /mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = src
 			src.visible_message(
 				SPAN_NOTICE("[src] examines [src.get_pronoun("himself")]."), \
 				SPAN_NOTICE("You check yourself for injuries.") \
@@ -265,13 +265,13 @@
 				t_him = "him"
 			else if (src.gender == FEMALE)
 				t_him = "her"
-			if (istype(src,/mob/living/carbon/human) && src:w_uniform)
-				var/mob/living/carbon/human/H = src
+			if (istype(src,/mob/living/carbon/teshari) && src:w_uniform)
+				var/mob/living/carbon/teshari/H = src
 				H.w_uniform.add_fingerprint(M)
 
 			var/show_ssd
-			var/mob/living/carbon/human/H
-			if(ishuman(src))
+			var/mob/living/carbon/teshari/H
+			if(isteshari(src))
 				H = src
 				show_ssd = H.species.show_ssd
 			if(H && show_ssd && !client && !teleop)
@@ -294,7 +294,7 @@
 						M.visible_message(SPAN_WARNING("[M] retracts their hand from [src]'s direction."), \
 											SPAN_WARNING("You retract your hand from [src]'s direction."))
 			else
-				var/mob/living/carbon/human/tapper = M
+				var/mob/living/carbon/teshari/tapper = M
 				if(M.resting)
 					if(src.help_up_offer)
 						M.visible_message(SPAN_NOTICE("[M] grabs onto [src]'s hand and is hoisted up."), \

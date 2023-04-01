@@ -32,8 +32,8 @@
 			bundle = W
 		bundle.worth += src.worth
 		bundle.update_icon()
-		if(istype(user, /mob/living/carbon/human))
-			var/mob/living/carbon/human/h_user = user
+		if(istype(user, /mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/h_user = user
 			//TODO: Find out a better way to do this
 			h_user.drop_from_inventory(src)
 			h_user.drop_from_inventory(bundle)
@@ -153,18 +153,18 @@
 	desc = "It's worth 1000 credits."
 	worth = 1000
 
-proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
+proc/spawn_money(var/sum, spawnloc, mob/living/carbon/teshari/teshari_user as mob)
 	if(sum in list(1000,500,200,100,50,20,10,1))
 		var/cash_type = text2path("/obj/item/spacecash/c[sum]")
 		var/obj/cash = new cash_type (usr.loc)
-		if(ishuman(human_user) && !human_user.get_active_hand())
-			human_user.put_in_hands(cash)
+		if(isteshari(teshari_user) && !teshari_user.get_active_hand())
+			teshari_user.put_in_hands(cash)
 	else
 		var/obj/item/spacecash/bundle/bundle = new (spawnloc)
 		bundle.worth = sum
 		bundle.update_icon()
-		if (ishuman(human_user) && !human_user.get_active_hand())
-			human_user.put_in_hands(bundle)
+		if (isteshari(teshari_user) && !teshari_user.get_active_hand())
+			teshari_user.put_in_hands(bundle)
 	return
 
 /obj/item/spacecash/ewallet

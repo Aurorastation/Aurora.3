@@ -31,8 +31,8 @@
 	if(!.)
 		if(istype(mover, /mob/living/simple_animal/hostile/morph))
 			return TRUE
-		if(ishuman(mover))
-			var/mob/living/carbon/human/H = mover
+		if(isteshari(mover))
+			var/mob/living/carbon/teshari/H = mover
 			if(H.mind.antag_datums[MODE_CHANGELING])
 				return TRUE
 

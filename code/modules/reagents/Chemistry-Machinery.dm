@@ -506,7 +506,7 @@
 	if(!beaker || (beaker && beaker.reagents.total_volume >= beaker.reagents.maximum_volume))
 		return
 
-	if(ishuman(user))
+	if(isteshari(user))
 		do_hair_pull(user)
 
 	playsound(get_turf(src), 'sound/machines/blender.ogg', 50, 1)
@@ -553,7 +553,7 @@
 	updateUsrDialog()
 
 
-/obj/machinery/reagentgrinder/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
+/obj/machinery/reagentgrinder/MouseDrop_T(mob/living/carbon/teshari/target as mob, mob/user as mob)
 	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
 	if(target == user)

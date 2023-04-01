@@ -178,7 +178,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(reagents && reagents.total_volume && burn_rate && !istype(loc, /obj/item/storage))
 		if(!initial_volume)
 			initial_volume = reagents.total_volume
-		var/mob/living/carbon/human/C = loc
+		var/mob/living/carbon/teshari/C = loc
 		if(istype(C) && src == C.wear_mask)
 			reagents.trans_to_mob(C, burn_rate*initial_volume, CHEM_BREATHE, 0.75)
 			if(C.check_has_mouth() && prob(5))
@@ -300,7 +300,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
-	icon_on = "cigon" 
+	icon_on = "cigon"
 	icon_off = "cigoff"
 	has_blood_overlay = FALSE
 	type_butt = /obj/item/trash/cigbutt
@@ -332,7 +332,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(lit)
 		die(TRUE)
 
-/obj/item/clothing/mask/smokable/cigarette/attack(mob/living/carbon/human/H, mob/user, def_zone)
+/obj/item/clothing/mask/smokable/cigarette/attack(mob/living/carbon/teshari/H, mob/user, def_zone)
 	if(lit && H == user && istype(H))
 		var/obj/item/blocked = H.check_mouth_coverage()
 		if(blocked)

@@ -7,12 +7,12 @@
 	return
 
 /*
-	Humans:
+	tesharis:
 	Adds an exception for gloves, to allow special glove types like the ninja ones.
 
 	Otherwise pretty standard.
 */
-/mob/living/carbon/human/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/carbon/teshari/UnarmedAttack(var/atom/A, var/proximity)
 
 	if(!..())
 		return
@@ -24,7 +24,7 @@
 	var/obj/item/clothing/glasses/GS = glasses
 	if(istype(G) && G.Touch(A,src,1))
 		return
-	
+
 	else if(istype(GS) && GS.Look(A,src,1)) // for goggles
 		return
 
@@ -39,16 +39,16 @@
 /mob/proc/attack_empty_hand(var/bp_hand)
 	return
 
-/mob/living/carbon/human/RestrainedClickOn(var/atom/A)
+/mob/living/carbon/teshari/RestrainedClickOn(var/atom/A)
 	return
 
-/mob/living/carbon/human/RangedAttack(var/atom/A)
+/mob/living/carbon/teshari/RangedAttack(var/atom/A)
 	var/obj/item/clothing/gloves/GV = gloves
 	var/obj/item/clothing/glasses/GS = glasses
-	
+
 	if(istype(GS) && GS.Look(A,src,0)) // for goggles
 		return
-	
+
 	if(istype(GV) && GV.Touch(A,src,0)) // for magic gloves
 		return
 
@@ -94,7 +94,7 @@
 	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	var/mob/living/M = A
-	if(ishuman(M) && !istype(M, /mob/living/carbon/human/monkey) && content)
+	if(isteshari(M) && !istype(M, /mob/living/carbon/teshari/monkey) && content)
 		return
 	if(istype(M))
 		switch(src.a_intent)
@@ -104,8 +104,8 @@
 				var/stunprob = 1
 				var/power = max(0, min(10, (powerlevel + rand(0, 3))))
 				if (powerlevel > 0 && !istype(A, /mob/living/carbon/slime))
-					if(ishuman(M))
-						var/mob/living/carbon/human/H = M
+					if(isteshari(M))
+						var/mob/living/carbon/teshari/H = M
 						stunprob *= H.species.siemens_coefficient
 
 					switch(power * 10)

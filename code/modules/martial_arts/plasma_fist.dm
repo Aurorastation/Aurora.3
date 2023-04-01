@@ -7,7 +7,7 @@
 	help_verb = /datum/martial_art/plasma_fist/proc/plasma_fist_help
 
 
-/datum/martial_art/plasma_fist/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/plasma_fist/proc/check_streak(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(findtext(streak,TORNADO_COMBO))
 		streak = ""
 		Tornado(A,D)
@@ -22,7 +22,7 @@
 		return 1
 	return 0
 
-/datum/martial_art/plasma_fist/proc/Tornado(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/plasma_fist/proc/Tornado(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	A.say("Tornado sweep!")
 	TornadoAnimate(A)
 	var/list/thrownatoms = list()
@@ -56,7 +56,7 @@
 	log_and_message_admins("used tornado sweep(Plasma Fist)", "[A]")
 	return
 
-/datum/martial_art/plasma_fist/proc/Throwback(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/plasma_fist/proc/Throwback(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	D.visible_message("<span class='danger'>[A] has hit [D] with plasma punch!</span>", \
 								"<span class='danger'>[A] has hit [D] with plasma punch!</span>")
 	playsound(D.loc, "punch", 50, 1, -1)
@@ -66,7 +66,7 @@
 	log_and_message_admins("[A] used threw back (Plasma Fist) against [D]")
 	return
 
-/datum/martial_art/plasma_fist/proc/Plasma(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/plasma_fist/proc/Plasma(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	A.do_attack_animation(D)
 	playsound(D.loc, 'sound/magic/Disintegrate.ogg', 50, 1, -1)
 	A.say("PLASMA FIST!")
@@ -76,21 +76,21 @@
 	log_and_message_admins("[A] gibbed [D] with the plasma fist (Plasma Fist)")
 	return
 
-/datum/martial_art/plasma_fist/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/plasma_fist/harm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("H",D)
 	if(check_streak(A,D))
 		return 1
 	basic_hit(A,D)
 	return 1
 
-/datum/martial_art/plasma_fist/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/plasma_fist/disarm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("D",D)
 	if(check_streak(A,D))
 		return 1
 	basic_hit(A,D)
 	return 1
 
-/datum/martial_art/plasma_fist/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/plasma_fist/grab_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("G",D)
 	if(check_streak(A,D))
 		return 1

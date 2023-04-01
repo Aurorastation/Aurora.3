@@ -26,8 +26,8 @@
 /obj/item/watertank/verb/toggle_mister()
 	set name = "Toggle Mister"
 	set category = "Object"
-	var/mob/living/carbon/human/user
-	if(istype(usr,/mob/living/carbon/human))
+	var/mob/living/carbon/teshari/user
+	if(istype(usr,/mob/living/carbon/teshari))
 		user = usr
 	else
 		return

@@ -46,11 +46,11 @@ var/regex/is_http_protocol = regex("^https?://")
 				icon_state = initial(A.icon_state)
 				if (isnull(dir))
 					dir = initial(A.dir)
-		
+
 		if (isnull(dir))
 			dir = A.dir
-		
-		if (ishuman(thing)) // Shitty workaround for a BYOND issue.
+
+		if (isteshari(thing)) // Shitty workaround for a BYOND issue.
 			var/icon/temp = I
 			I = icon()
 			I.Insert(temp, dir = SOUTH)
@@ -98,7 +98,7 @@ var/regex/is_http_protocol = regex("^https?://")
 
 	if (!bicon_cache[key]) // Doesn't exist, make it.
 		var/icon/I = icon(A.icon, A.icon_state, SOUTH, 1)
-		if (ishuman(thing)) // Shitty workaround for a BYOND issue.
+		if (isteshari(thing)) // Shitty workaround for a BYOND issue.
 			var/icon/temp = I
 			I = icon()
 			I.Insert(temp, dir = SOUTH)

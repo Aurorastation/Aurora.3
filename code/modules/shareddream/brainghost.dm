@@ -6,12 +6,12 @@
 	alpha = 200
 
 	var/image/ghostimage = null
-	var/mob/living/carbon/human/body = null
+	var/mob/living/carbon/teshari/body = null
 
 
 /mob/living/brain_ghost/Initialize()
 	. = ..()
-	var/mob/living/carbon/human/form = loc
+	var/mob/living/carbon/teshari/form = loc
 	if(!istype(form))
 		qdel(src)
 		return

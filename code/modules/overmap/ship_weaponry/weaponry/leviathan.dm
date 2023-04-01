@@ -245,7 +245,7 @@
 		icon_state = "key_case"
 
 /obj/item/leviathan_case/attack_hand(mob/user)
-	if(!open || !LK || !ishuman(loc))
+	if(!open || !LK || !isteshari(loc))
 		. = ..()
 		return
 	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))

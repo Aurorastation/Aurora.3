@@ -17,7 +17,7 @@
 
 /datum/religion/raskara
 	name = RELIGION_RASKARA
-	description = "Raskariim, commonly known as The Cult of Raskara are a prolific cult on Adhomai. The religion has been created on Adhomai but with the free commerce, a few human \
+	description = "Raskariim, commonly known as The Cult of Raskara are a prolific cult on Adhomai. The religion has been created on Adhomai but with the free commerce, a few teshari \
 	members have been recorded. While Raskara may seem like a single deity it is in fact split into three aspects, each one leading down a different path and seemingly every path \
 	subverting something S'rendarr and Messa stands for."
 	book_name = "ma'ta'ke legends"

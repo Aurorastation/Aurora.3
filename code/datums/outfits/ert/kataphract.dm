@@ -28,7 +28,7 @@
 
 	id_iff = IFF_KATAPHRACT
 
-/datum/outfit/admin/ert/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ert/kataphract/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")
 	if(H?.shoes)
@@ -60,7 +60,7 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 3
 	)
 
-/datum/outfit/admin/ert/kataphract/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ert/kataphract/klax/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
@@ -108,7 +108,7 @@
 		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1
 	)
 
-/datum/outfit/admin/ert/kataphract/specialist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ert/kataphract/specialist/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")
 	if(H?.shoes)
@@ -122,7 +122,7 @@
 	suit = /obj/item/clothing/suit/space/void/kataphract/lead
 	glasses = /obj/item/clothing/glasses/thermal
 
-/datum/outfit/admin/ert/kataphract/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ert/kataphract/leader/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")
 	if(H?.shoes)

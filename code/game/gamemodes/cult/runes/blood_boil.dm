@@ -19,7 +19,7 @@
 			M.take_overall_damage(50, 50)
 			to_chat(M, SPAN_DANGER(FONT_HUGE("You're burning from the inside!")))
 			victims += M
-		for(var/mob/living/carbon/human/C in orange(1, A))
+		for(var/mob/living/carbon/teshari/C in orange(1, A))
 			if(iscultist(C) && !C.stat)
 				C.say("Dedo ol'btoh! A'oil'e!")
 				C.take_overall_damage(15, 0)

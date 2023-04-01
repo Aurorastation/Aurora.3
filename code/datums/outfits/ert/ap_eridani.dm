@@ -42,7 +42,7 @@
 /datum/outfit/admin/ert/ap_eridani/get_id_access()
 	return get_distress_access()
 
-/datum/outfit/admin/ert/ap_eridani/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ert/ap_eridani/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return

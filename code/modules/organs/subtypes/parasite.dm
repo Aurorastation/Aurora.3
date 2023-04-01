@@ -25,7 +25,7 @@
 		return
 
 	if(stage < max_stage)
-		stage_ticker += infection_speed 
+		stage_ticker += infection_speed
 
 	if(stage_ticker >= stage*stage_interval)
 		stage = min(stage+1,max_stage)
@@ -213,7 +213,7 @@
 				owner.drip(5)
 				owner.delayed_vomit()
 
-/obj/item/organ/internal/parasite/blackkois/removed(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/parasite/blackkois/removed(var/mob/living/carbon/teshari/target)
 	if(all_languages[LANGUAGE_VAURCA] in target.languages && stage >= 3 && !isvaurca(target))
 		target.remove_language(LANGUAGE_VAURCA)
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")

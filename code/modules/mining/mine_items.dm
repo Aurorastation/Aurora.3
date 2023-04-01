@@ -95,8 +95,8 @@
 	if(!can_wield)
 		return
 
-	if(istype(user, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
+	if(istype(user, /mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = user
 		if(issmall(H))
 			to_chat(user, SPAN_WARNING("It's too heavy for you to wield fully."))
 			return
@@ -127,8 +127,8 @@
 		O.desc = "Your second grip on the [initial(name)]."
 		user.put_in_inactive_hand(O)
 
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
+	if(istype(user,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 
@@ -756,9 +756,9 @@
 			if(iscarbon(M))
 				var/mob/living/carbon/L = M
 				L.Weaken(3)
-				if(ishuman(L))
+				if(isteshari(L))
 					shake_camera(L, 20, 1)
-					addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living/carbon/human, vomit), 20))
+					addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living/carbon/teshari, vomit), 20))
 
 /**********************Lazarus Injector**********************/
 
@@ -911,7 +911,7 @@ var/list/total_extraction_beacons = list()
 			return
 		beacon = A
 
-/obj/item/extraction_pack/afterattack(atom/movable/A, mob/living/carbon/human/user)
+/obj/item/extraction_pack/afterattack(atom/movable/A, mob/living/carbon/teshari/user)
 	if(istype(A, /obj/item/storage/bag/ore))
 		return
 	if(!beacon)
@@ -1353,7 +1353,7 @@ var/list/total_extraction_beacons = list()
 	density = TRUE
 	anchored = TRUE
 
-/obj/structure/weightlifter/attack_hand(var/mob/living/carbon/human/user)
+/obj/structure/weightlifter/attack_hand(var/mob/living/carbon/teshari/user)
 	if(!istype(user))
 		return
 	if(in_use)
@@ -1429,8 +1429,8 @@ var/list/total_extraction_beacons = list()
 					var/mob/living/carbon/L = A
 					L.Weaken(3)
 					shake_camera(L, 20, 1)
-					if(!isipc(L) && ishuman(L))
-						addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living/carbon/human, vomit)), 20)
+					if(!isipc(L) && isteshari(L))
+						addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living/carbon/teshari, vomit)), 20)
 
 		addtimer(CALLBACK(src, PROC_REF(drill), location), 2)
 

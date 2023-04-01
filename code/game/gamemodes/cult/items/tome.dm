@@ -38,10 +38,10 @@
 
 
 /obj/item/book/tome/attack_self(mob/living/user)
-	if(!ishuman(user))
+	if(!isteshari(user))
 		return
 
-	var/mob/living/carbon/human/scribe = user
+	var/mob/living/carbon/teshari/scribe = user
 	if(use_check_and_message(scribe))
 		return
 

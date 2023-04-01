@@ -11,7 +11,7 @@
 
 		add_overlay(organ.mob_icon)
 
-/obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
+/obj/item/organ/external/proc/sync_colour_to_teshari(var/mob/living/carbon/teshari/teshari)
 	s_tone = null
 	skin_color = null
 	hair_color = null
@@ -22,13 +22,13 @@
 			limb_exception = TRUE
 	if((status & ORGAN_ROBOT) && !limb_exception)
 		return
-	if(species && human.species && species.name != human.species.name)
+	if(species && teshari.species && species.name != teshari.species.name)
 		return
-	if(!isnull(human.s_tone) && (human.species.appearance_flags & HAS_SKIN_TONE))
-		s_tone = human.s_tone
-	if((human.species.appearance_flags & HAS_SKIN_COLOR) || (human.species.appearance_flags & HAS_SKIN_PRESET))
-		skin_color = rgb(human.r_skin, human.g_skin, human.b_skin)
-	hair_color = rgb(human.r_hair, human.g_hair, human.b_hair)
+	if(!isnull(teshari.s_tone) && (teshari.species.appearance_flags & HAS_SKIN_TONE))
+		s_tone = teshari.s_tone
+	if((teshari.species.appearance_flags & HAS_SKIN_COLOR) || (teshari.species.appearance_flags & HAS_SKIN_PRESET))
+		skin_color = rgb(teshari.r_skin, teshari.g_skin, teshari.b_skin)
+	hair_color = rgb(teshari.r_hair, teshari.g_hair, teshari.b_hair)
 
 /obj/item/organ/external/proc/sync_colour_to_dna()
 	s_tone = null
@@ -42,7 +42,7 @@
 		skin_color = rgb(dna.GetUIValue(DNA_UI_SKIN_R), dna.GetUIValue(DNA_UI_SKIN_G), dna.GetUIValue(DNA_UI_SKIN_B))
 	hair_color = rgb(dna.GetUIValue(DNA_UI_HAIR_R),dna.GetUIValue(DNA_UI_HAIR_G),dna.GetUIValue(DNA_UI_HAIR_B))
 
-/obj/item/organ/external/head/sync_colour_to_human(var/mob/living/carbon/human/human)
+/obj/item/organ/external/head/sync_colour_to_teshari(var/mob/living/carbon/teshari/teshari)
 	..()
 	var/obj/item/organ/internal/eyes/eyes = owner.get_eyes()
 	if(eyes)
@@ -71,7 +71,7 @@
 
 			var/cache_key = "[species.eyes]_[eyecolor || "nocolor"]"
 
-			var/icon/eyes_icon = SSicon_cache.human_eye_cache[cache_key]
+			var/icon/eyes_icon = SSicon_cache.teshari_eye_cache[cache_key]
 			if (!eyes_icon)
 				eyes_icon = new/icon(species.eyes_icons, species.eyes)
 				if(eyecolor)
@@ -79,16 +79,16 @@
 				else
 					eyes_icon.Blend(rgb(128,0,0), species.eyes_icon_blend)
 
-				SSicon_cache.human_eye_cache[cache_key] = eyes_icon
+				SSicon_cache.teshari_eye_cache[cache_key] = eyes_icon
 
 			mob_icon.Blend(eyes_icon, ICON_OVERLAY)
 			add_overlay(eyes_icon)
 
 	if(owner.lip_style && (species && (species.appearance_flags & HAS_LIPS)))
-		var/icon/lip_icon = SSicon_cache.human_lip_cache["[owner.lip_style]"]
+		var/icon/lip_icon = SSicon_cache.teshari_lip_cache["[owner.lip_style]"]
 		if (!lip_icon)
-			lip_icon = new/icon('icons/mob/human_face/lips.dmi', "[owner.lip_style]")
-			SSicon_cache.human_lip_cache["[owner.lip_style]"] = lip_icon
+			lip_icon = new/icon('icons/mob/teshari_face/lips.dmi', "[owner.lip_style]")
+			SSicon_cache.teshari_lip_cache["[owner.lip_style]"] = lip_icon
 
 		add_overlay(lip_icon)
 		mob_icon.Blend(lip_icon, ICON_OVERLAY)
@@ -103,7 +103,7 @@
 
 	return mob_icon
 
-/obj/item/organ/external/head/get_additional_images(var/mob/living/carbon/human/H)
+/obj/item/organ/external/head/get_additional_images(var/mob/living/carbon/teshari/H)
 	if(!H.mind)
 		return
 	var/datum/vampire/vampire = H.mind.antag_datums[MODE_VAMPIRE]
@@ -168,7 +168,7 @@
 		get_internal_organs_overlay()
 	else
 		if(!dna)
-			mob_icon = new /icon('icons/mob/human_races/human/r_human.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")
+			mob_icon = new /icon('icons/mob/teshari_races/teshari/r_teshari.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")
 		else
 			if(!gendered_icon)
 				gender = null
@@ -181,7 +181,7 @@
 			if(skeletal)
 				mob_icon = new /icon(species.skeleton_icon, "[icon_name][gender ? "_[gender]" : ""]")
 			else if (status & ORGAN_ROBOT && !force_skintone)
-				mob_icon = new /icon('icons/mob/human_races/ipc/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
+				mob_icon = new /icon('icons/mob/teshari_races/ipc/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
 			else
 				if (status & ORGAN_MUTATED)
 					mob_icon = new /icon(species.deform, "[icon_name][gender ? "_[gender]" : ""]")
@@ -219,10 +219,10 @@
 
 	return mob_icon
 
-/obj/item/organ/external/proc/get_additional_images(var/mob/living/carbon/human/H)
+/obj/item/organ/external/proc/get_additional_images(var/mob/living/carbon/teshari/H)
 	return
 
-/obj/item/organ/external/proc/cut_additional_images(var/mob/living/carbon/human/H)
+/obj/item/organ/external/proc/cut_additional_images(var/mob/living/carbon/teshari/H)
 	if(LAZYLEN(additional_images))
 		H.cut_overlay(additional_images, TRUE)
 		LAZYCLEARLIST(additional_images)

@@ -29,7 +29,7 @@ var/datum/antagonist/highlander/highlanders
 	hijack_objective.owner = player
 	player.objectives |= hijack_objective
 
-/datum/antagonist/highlander/equip(var/mob/living/carbon/human/player)
+/datum/antagonist/highlander/equip(var/mob/living/carbon/teshari/player)
 
 	if(!..())
 		return FALSE
@@ -53,7 +53,7 @@ var/datum/antagonist/highlander/highlanders
 		alert("The game hasn't started yet!")
 		return
 
-	for(var/mob/living/carbon/human/H in player_list)
+	for(var/mob/living/carbon/teshari/H in player_list)
 		if(H.stat == 2 || !(H.client)) continue
 		if(is_special_character(H)) continue
 		highlanders.add_antagonist(H.mind)

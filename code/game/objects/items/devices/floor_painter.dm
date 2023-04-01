@@ -178,8 +178,8 @@
 	return FALSE
 
 /turf/simulated/floor/Click(location, control, params)
-	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+	if(isteshari(usr))
+		var/mob/living/carbon/teshari/H = usr
 		var/list/modifiers = params2list(params)
 		var/obj/item/device/floor_painter/paint_sprayer = H.get_active_hand()
 		if(istype(paint_sprayer))

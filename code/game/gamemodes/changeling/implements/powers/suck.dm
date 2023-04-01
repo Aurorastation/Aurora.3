@@ -13,7 +13,7 @@
 	if(!src.get_pressure_weakness())
 		to_chat(src, "<span class='warning'>We cannot absorb this creature from inside a sealed environment.</span>")
 		return
-	var/mob/living/carbon/human/T = G.affecting
+	var/mob/living/carbon/teshari/T = G.affecting
 	if(!istype(T))
 		to_chat(src, "<span class='warning'>[T] is not compatible with our biology.</span>")
 		return

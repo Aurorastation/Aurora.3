@@ -10,7 +10,7 @@
 	gibdirections = list(list(WEST, NORTHWEST, SOUTHWEST, NORTH),list(EAST, NORTHEAST, SOUTHEAST, SOUTH), list())
 	. = ..()
 
-/obj/effect/gibspawner/human
+/obj/effect/gibspawner/teshari
 	gibtypes = list(
 	/obj/effect/decal/cleanable/blood/gibs,
 	/obj/effect/decal/cleanable/blood/gibs/down,
@@ -21,7 +21,7 @@
 	/obj/effect/decal/cleanable/blood/gibs/core)
 	gibamounts = list(1,1,1,1,1,1,1)
 
-/obj/effect/gibspawner/human/Initialize()
+/obj/effect/gibspawner/teshari/Initialize()
 	gibdirections = list(list(NORTH, NORTHEAST, NORTHWEST),list(SOUTH, SOUTHEAST, SOUTHWEST),list(WEST, NORTHWEST, SOUTHWEST),list(EAST, NORTHEAST, SOUTHEAST), alldirs, alldirs, list())
 	gibamounts[6] = pick(0,1,2)
 	. = ..()

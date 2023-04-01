@@ -58,13 +58,13 @@
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 	var/can_support = TRUE
 
-/obj/item/cane/attack(mob/living/target, mob/living/carbon/human/user, target_zone = BP_CHEST)
+/obj/item/cane/attack(mob/living/target, mob/living/carbon/teshari/user, target_zone = BP_CHEST)
 
 	if(!(istype(target) && istype(user)))
 		return ..()
 
-	var/targetIsHuman = ishuman(target)
-	var/mob/living/carbon/human/targetashuman = target
+	var/targetIsteshari = isteshari(target)
+	var/mob/living/carbon/teshari/targetasteshari = target
 	var/wasselfattack = 0
 	var/verbtouse = pick(attack_verb)
 	var/punct = "!"
@@ -76,17 +76,17 @@
 	var/damagetype = DAMAGE_PAIN
 	var/chargedelay = 4 // 4 half frames = 2 seconds
 
-	if(targetIsHuman && targetashuman == user)
+	if(targetIsteshari && targetasteshari == user)
 		wasselfattack = 1
 
 	if (user.a_intent == I_HURT)
 		target_zone = get_zone_with_miss_chance(target_zone, target) //Vary the attack
 		damagetype = DAMAGE_BRUTE
 
-	if (targetIsHuman)
-		var/mob/living/carbon/human/targethuman = target
-		armorpercent = targethuman.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage = force)*100
-		wasblocked = targethuman.check_shields(force, src, user, target_zone, null)
+	if (targetIsteshari)
+		var/mob/living/carbon/teshari/targetteshari = target
+		armorpercent = targetteshari.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage = force)*100
+		wasblocked = targetteshari.check_shields(force, src, user, target_zone, null)
 
 	var/damageamount = force
 
@@ -103,7 +103,7 @@
 		if(I_DISARM)
 			verbtouse = pick("smacked","slapped")
 			soundname = "punch"
-			if(targetIsHuman)
+			if(targetIsteshari)
 				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a disarm...</span>")
 				if (do_mob(user,target,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
@@ -126,7 +126,7 @@
 		if(I_GRAB)
 			verbtouse = pick("hooked")
 			soundname = "punch"
-			if(targetIsHuman)
+			if(targetIsteshari)
 				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a grab...</span>")
 				if (do_mob(user,target,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
@@ -175,9 +175,9 @@
 			else
 				noun = "[target]'s grip"
 				selfnoun = noun
-		if (targetIsHuman && shoulddisarm != 3) // Query: Can non-humans hold objects in hands?
-			var/mob/living/carbon/human/targethuman = target
-			var/obj/item/organ/external/O = targethuman.get_organ(target_zone)
+		if (targetIsteshari && shoulddisarm != 3) // Query: Can non-tesharis hold objects in hands?
+			var/mob/living/carbon/teshari/targetteshari = target
+			var/obj/item/organ/external/O = targetteshari.get_organ(target_zone)
 			if (O.is_stump())
 				if(wasselfattack)
 					selfnoun = "your missing [O.name]"
@@ -340,8 +340,8 @@
 		attack_verb = list("hit", "punched")
 		can_support = FALSE
 
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
+	if(istype(user,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 

@@ -5,7 +5,7 @@
 	var/demonym
 	var/list/job_species_blacklist = list()
 
-/datum/citizenship/proc/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/proc/get_objectives(mission_level, var/mob/living/carbon/teshari/H)
 	var/rep_objectives
 
 	switch(mission_level)

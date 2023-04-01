@@ -66,7 +66,7 @@
 	if(reagents && reagents.total_volume)
 		add_overlay(overlay_image('icons/obj/bloodpack.dmi', "[icon_state][get_filling_state()]", color = reagents.get_color()))
 
-/obj/item/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
+/obj/item/reagent_containers/blood/attack(mob/living/carbon/teshari/M as mob, mob/living/carbon/teshari/user as mob, var/target_zone)
 	if(user == M && (MODE_VAMPIRE in user.mind?.antag_datums))
 		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
 		if (being_feed)
@@ -106,7 +106,7 @@
 		return
 	if(attached_mob)
 		remove_iv_mob()
-	else if(ishuman(over_object))
+	else if(isteshari(over_object))
 		visible_message(SPAN_WARNING("\The [usr] starts hooking \the [over_object] up to \the [src]."))
 		if(do_after(usr, 30))
 			to_chat(usr, SPAN_NOTICE("You hook \the [over_object] up to \the [src]."))
@@ -115,7 +115,7 @@
 	update_icon()
 
 /obj/item/reagent_containers/blood/process()
-	var/mob/living/carbon/human/attached
+	var/mob/living/carbon/teshari/attached
 	if(attached_mob)
 		attached = attached_mob.resolve()
 		if(!attached)
@@ -144,7 +144,7 @@
 
 /obj/item/reagent_containers/blood/proc/remove_iv_mob(var/safe = TRUE)
 	if(attached_mob)
-		var/mob/living/carbon/human/attached = attached_mob.resolve()
+		var/mob/living/carbon/teshari/attached = attached_mob.resolve()
 		if(attached)
 			if(safe)
 				visible_message(SPAN_NOTICE("\The [attached] is taken off \the [src]."))
@@ -187,7 +187,7 @@
 		return
 
 	if (istype(P, /obj/item/) && P.sharp == 1)
-		var/mob/living/carbon/human/H = usr
+		var/mob/living/carbon/teshari/H = usr
 		if(LAZYLEN(P.attack_verb))
 			user.visible_message(SPAN_DANGER("[src] has been [pick(P.attack_verb)] with \the [P] by [user]!"))
 		var/atkmsg_filled = null
@@ -227,8 +227,8 @@
 								break spray_loop
 							var/turf/base = get_turf(target)
 							for (var/atom/A in base) // Stops your blood spray if it meets a person, wall, door or window
-								if (istype(A, /mob/living/carbon/human/))
-									var/mob/living/carbon/human/K = A
+								if (istype(A, /mob/living/carbon/teshari/))
+									var/mob/living/carbon/teshari/K = A
 									K.bloody_body()
 									break spray_loop
 								if ((!istype(A, /obj/) && A.density) || istype(A, /obj/structure/window/) || istype(A, /obj/machinery/door/airlock/))

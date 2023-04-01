@@ -10,7 +10,7 @@ proc/is_complete_print(var/print)
 
 atom/var/list/suit_fibers
 
-atom/proc/add_fibers(mob/living/carbon/human/M)
+atom/proc/add_fibers(mob/living/carbon/teshari/M)
 	if(M.gloves && istype(M.gloves,/obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = M.gloves
 		if(G.transfer_blood && G.bloody_hands_mob?.resolve()) //bloodied gloves transfer blood to touched objects

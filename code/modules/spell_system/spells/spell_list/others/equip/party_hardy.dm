@@ -16,7 +16,7 @@
 
 	hud_state = "wiz_party"
 
-	compatible_mobs = list(/mob/living/carbon/human)
+	compatible_mobs = list(/mob/living/carbon/teshari)
 	equipped_summons = list("active hand" = /obj/item/reagent_containers/food/drinks/bottle/small/beer)
 
 /spell/targeted/equip_item/party_hardy/empower_spell()

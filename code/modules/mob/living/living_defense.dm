@@ -142,7 +142,7 @@
 
 	. = standard_weapon_hit_effects(I, user, effective_force, hit_zone)
 
-	if(I.damtype == DAMAGE_BRUTE && prob(33) && I.force) // Added blood for whacking non-humans too
+	if(I.damtype == DAMAGE_BRUTE && prob(33) && I.force) // Added blood for whacking non-tesharis too
 		var/turf/simulated/location = get_turf(src)
 		if(istype(location)) location.add_blood_floor(src)
 
@@ -210,7 +210,7 @@
 				return
 
 			if(O.sharp) //Projectile is suitable for pinning.
-				//Handles embedding for non-humans and simple_animals.
+				//Handles embedding for non-tesharis and simple_animals.
 				embed(O)
 
 				var/turf/T = near_wall(dir,2)

@@ -10,8 +10,8 @@
 	var/obj/item/warhead/longbow/warhead
 
 /obj/item/ship_ammunition/longbow/attackby(obj/item/I, mob/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(istype(I, /obj/item/primer) && !primer)
 			var/obj/item/primer/P = I
 			user.visible_message(SPAN_NOTICE("[H] starts connecting \the [P] to the casing..."), SPAN_NOTICE("You start connecting \the [P] to the casing..."))

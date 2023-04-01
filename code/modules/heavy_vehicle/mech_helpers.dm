@@ -54,7 +54,7 @@
 /mob/living/heavy_vehicle/proc/can_listen()
 	return TRUE
 
-/mob/living/heavy_vehicle/proc/assign_leader(var/mob/living/carbon/human/H)
+/mob/living/heavy_vehicle/proc/assign_leader(var/mob/living/carbon/teshari/H)
 	leader_name = H.name
 	leader = WEAKREF(H)
 
@@ -62,7 +62,7 @@
 	leader = null
 	leader_name = null
 
-/mob/living/heavy_vehicle/proc/assign_following(var/mob/living/carbon/human/H)
+/mob/living/heavy_vehicle/proc/assign_following(var/mob/living/carbon/teshari/H)
 	following_name = H.name
 	following = WEAKREF(H)
 

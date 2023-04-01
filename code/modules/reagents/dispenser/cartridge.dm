@@ -44,7 +44,7 @@
 	set category = "Object"
 	set src in view(usr, 1)
 
-	if (!ishuman(usr))
+	if (!isteshari(usr))
 		return
 
 	if (usr.stat)

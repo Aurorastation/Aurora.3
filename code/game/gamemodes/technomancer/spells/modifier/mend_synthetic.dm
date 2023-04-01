@@ -30,8 +30,8 @@
 		if(!M.getBruteLoss() && !M.getFireLoss()) // No point existing if the spell can't heal.
 			stop()
 			return
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = target
+		if(isteshari(M))
+			var/mob/living/carbon/teshari/H = target
 			for(var/obj/item/organ/external/E in H.organs)
 				var/obj/item/organ/external/O = E
 				if(O.robotic >= ORGAN_ROBOT)

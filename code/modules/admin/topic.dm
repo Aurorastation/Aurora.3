@@ -156,7 +156,7 @@
 		switch(href_list["simplemake"])
 			if("observer")			M.change_mob_type( /mob/abstract/observer , null, null, delmob )
 			if("nymph")				M.change_mob_type( /mob/living/carbon/alien/diona , null, null, delmob )
-			if("human")				spawn_humanoid_species_admin(usr, M, delmob)
+			if("teshari")				spawn_tesharioid_species_admin(usr, M, delmob)
 			if("slime")				M.change_mob_type( /mob/living/carbon/slime , null, null, delmob )
 			if("ai")				M.change_mob_type( /mob/living/silicon/ai , null, null, delmob )
 			if("robot")				M.change_mob_type( /mob/living/silicon/robot , null, null, delmob )
@@ -437,9 +437,9 @@
 	else if(href_list["monkeyone"])
 		if(!check_rights(R_SPAWN))	return
 
-		var/mob/living/carbon/human/H = locate(href_list["monkeyone"])
+		var/mob/living/carbon/teshari/H = locate(href_list["monkeyone"])
 		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
+			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/teshari")
 			return
 
 		log_admin("[key_name(usr)] attempting to monkeyize [key_name(H)]",admin_key=key_name(usr))
@@ -449,9 +449,9 @@
 	else if(href_list["corgione"])
 		if(!check_rights(R_SPAWN))	return
 
-		var/mob/living/carbon/human/H = locate(href_list["corgione"])
+		var/mob/living/carbon/teshari/H = locate(href_list["corgione"])
 		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
+			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/teshari")
 			return
 
 		log_admin("[key_name(usr)] attempting to corgize [key_name(H)]",admin_key=key_name(usr),ckey=key_name(H))
@@ -585,8 +585,8 @@
 		for(var/obj/item/I in M)
 			M.drop_from_inventory(I)
 
-		if(istype(M, /mob/living/carbon/human))
-			var/mob/living/carbon/human/observer = M
+		if(istype(M, /mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/observer = M
 			observer.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket(observer), slot_w_uniform)
 			observer.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(observer), slot_shoes)
 		M.Paralyse(5)
@@ -615,9 +615,9 @@
 	else if(href_list["makeai"])
 		if(!check_rights(R_SPAWN))	return
 
-		var/mob/living/carbon/human/H = locate(href_list["makeai"])
+		var/mob/living/carbon/teshari/H = locate(href_list["makeai"])
 		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
+			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/teshari")
 			return
 
 		message_admins("<span class='danger'>Admin [key_name_admin(usr)] AIized [key_name_admin(H)]!</span>", 1)
@@ -627,9 +627,9 @@
 	else if(href_list["makeslime"])
 		if(!check_rights(R_SPAWN))	return
 
-		var/mob/living/carbon/human/H = locate(href_list["makeslime"])
+		var/mob/living/carbon/teshari/H = locate(href_list["makeslime"])
 		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
+			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/teshari")
 			return
 
 		usr.client.cmd_admin_slimeize(H)
@@ -637,9 +637,9 @@
 	else if(href_list["makerobot"])
 		if(!check_rights(R_SPAWN))	return
 
-		var/mob/living/carbon/human/H = locate(href_list["makerobot"])
+		var/mob/living/carbon/teshari/H = locate(href_list["makerobot"])
 		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
+			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/teshari")
 			return
 
 		usr.client.cmd_admin_robotize(H)
@@ -657,9 +657,9 @@
 	else if(href_list["togmutate"])
 		if(!check_rights(R_SPAWN))	return
 
-		var/mob/living/carbon/human/H = locate(href_list["togmutate"])
+		var/mob/living/carbon/teshari/H = locate(href_list["togmutate"])
 		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
+			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/teshari")
 			return
 		var/block=text2num(href_list["block"])
 		//testing("togmutate([href_list["block"]] -> [block])")
@@ -747,8 +747,8 @@
 			health_description = "This mob type has no health to speak of."
 
 		//Species
-		if (ishuman(M))
-			var/mob/living/carbon/human/H = M
+		if (isteshari(M))
+			var/mob/living/carbon/teshari/H = M
 			if (H.species)
 				species_description = "<b>[H.species.name]</b>"
 
@@ -779,9 +779,9 @@
 	else if(href_list["adminspawncookie"])
 		if(!check_rights(R_ADMIN|R_FUN))	return
 
-		var/mob/living/carbon/human/H = locate(href_list["adminspawncookie"])
-		if(!ishuman(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
+		var/mob/living/carbon/teshari/H = locate(href_list["adminspawncookie"])
+		if(!isteshari(H))
+			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/teshari")
 			return
 
 		H.equip_to_slot_or_del( new /obj/item/reagent_containers/food/snacks/cookie(H), slot_l_hand )
@@ -867,9 +867,9 @@
 
 
 	else if(href_list["SyndicateReply"])
-		var/mob/living/carbon/human/H = locate(href_list["SyndicateReply"])
+		var/mob/living/carbon/teshari/H = locate(href_list["SyndicateReply"])
 		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
+			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/teshari")
 			return
 		if(!istype(H.l_ear, /obj/item/device/radio/headset) && !istype(H.r_ear, /obj/item/device/radio/headset))
 			to_chat(usr, "The person you are trying to contact is not wearing a headset")
@@ -1054,9 +1054,9 @@
 			to_chat(usr, "Support for inhand not available yet. Will spawn on floor.")
 			where = "onfloor"
 
-		if ( where == "inhand" )	//Can only give when human or monkey
-			if ( !( ishuman(usr) || issmall(usr) ) )
-				to_chat(usr, "Can only spawn in hand when you're a human or a monkey.")
+		if ( where == "inhand" )	//Can only give when teshari or monkey
+			if ( !( isteshari(usr) || issmall(usr) ) )
+				to_chat(usr, "Can only spawn in hand when you're a teshari or a monkey.")
 				where = "onfloor"
 			else if ( usr.get_active_hand() )
 				to_chat(usr, "Your active hand is full. Spawning on floor.")
@@ -1471,7 +1471,7 @@
 mob/living/proc/can_centcom_reply()
 	return 0
 
-mob/living/carbon/human/can_centcom_reply()
+mob/living/carbon/teshari/can_centcom_reply()
 	return istype(l_ear, /obj/item/device/radio/headset) || istype(r_ear, /obj/item/device/radio/headset)
 
 mob/living/silicon/ai/can_centcom_reply()
@@ -1502,8 +1502,8 @@ mob/living/silicon/ai/can_centcom_reply()
 	. = "<A HREF='?[source];adminplayerobservejump=\ref[target]'>JMP</A>"
 	. += target.extra_admin_link(source)
 
-/proc/spawn_humanoid_species_admin(var/mob/user, var/mob/M, var/delmob)
+/proc/spawn_tesharioid_species_admin(var/mob/user, var/mob/M, var/delmob)
 	var/input = input(user, "Select a species:") as null|anything in all_species
 	if(!input)
 		return
-	M.change_mob_type( /mob/living/carbon/human , null, null, delmob, input)
+	M.change_mob_type( /mob/living/carbon/teshari , null, null, delmob, input)

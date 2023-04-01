@@ -93,7 +93,7 @@
 	else if(istype(W,/obj/item/grab))
 		if( (state == 1) && hacked)
 			var/obj/item/grab/G = W
-			if(ishuman(G.assailant) && iscorgi(G.affecting))
+			if(isteshari(G.assailant) && iscorgi(G.affecting))
 				G.affecting.forceMove(src)
 				qdel(G)
 				state = 3

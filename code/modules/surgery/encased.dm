@@ -8,7 +8,7 @@
 	can_infect = TRUE
 	blood_level = 1
 
-/singleton/surgery_step/open_encased/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/open_encased/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 
@@ -27,14 +27,14 @@
 	min_duration = 50
 	max_duration = 70
 
-/singleton/surgery_step/open_encased/saw/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/open_encased/saw/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && affected.open == ORGAN_OPEN_RETRACTED
 
-/singleton/surgery_step/open_encased/saw/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
+/singleton/surgery_step/open_encased/saw/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
+	if(!isteshari(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -43,8 +43,8 @@
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
-/singleton/surgery_step/open_encased/saw/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
+/singleton/surgery_step/open_encased/saw/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
+	if(!isteshari(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -52,8 +52,8 @@
 		SPAN_NOTICE("You have cut [target]'s [affected.encased] open with \the [tool]."))
 	affected.open = ORGAN_ENCASED_OPEN
 
-/singleton/surgery_step/open_encased/saw/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
+/singleton/surgery_step/open_encased/saw/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
+	if(!isteshari(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -74,14 +74,14 @@
 	min_duration = 30
 	max_duration = 40
 
-/singleton/surgery_step/open_encased/retract/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/open_encased/retract/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && affected.open == ORGAN_ENCASED_OPEN
 
-/singleton/surgery_step/open_encased/retract/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
+/singleton/surgery_step/open_encased/retract/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
+	if(!isteshari(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -91,8 +91,8 @@
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
-/singleton/surgery_step/open_encased/retract/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
+/singleton/surgery_step/open_encased/retract/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
+	if(!isteshari(target))
 		return
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -103,8 +103,8 @@
 
 	affected.open = ORGAN_ENCASED_RETRACTED
 
-/singleton/surgery_step/open_encased/retract/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
+/singleton/surgery_step/open_encased/retract/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
+	if(!isteshari(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -125,14 +125,14 @@
 	min_duration = 20
 	max_duration = 40
 
-/singleton/surgery_step/open_encased/close/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/open_encased/close/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && affected.open == ORGAN_ENCASED_RETRACTED
 
-/singleton/surgery_step/open_encased/close/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
+/singleton/surgery_step/open_encased/close/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
+	if(!isteshari(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -142,8 +142,8 @@
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
-/singleton/surgery_step/open_encased/close/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
+/singleton/surgery_step/open_encased/close/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
+	if(!isteshari(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -155,8 +155,8 @@
 
 	affected.open = ORGAN_ENCASED_OPEN
 
-/singleton/surgery_step/open_encased/close/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
+/singleton/surgery_step/open_encased/close/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
+	if(!isteshari(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -183,14 +183,14 @@
 	min_duration = 20
 	max_duration = 40
 
-/singleton/surgery_step/open_encased/mend/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/open_encased/mend/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && affected.open == ORGAN_ENCASED_OPEN
 
-/singleton/surgery_step/open_encased/mend/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
+/singleton/surgery_step/open_encased/mend/begin_step(mob/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
+	if(!isteshari(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -200,8 +200,8 @@
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
-/singleton/surgery_step/open_encased/mend/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
+/singleton/surgery_step/open_encased/mend/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
+	if(!isteshari(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 

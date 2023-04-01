@@ -241,7 +241,7 @@
 		return
 	if(!H)
 		return
-	if(!istype(H, /mob/living/carbon/human) && !istype(H, /mob/living/silicon/robot))
+	if(!istype(H, /mob/living/carbon/teshari) && !istype(H, /mob/living/silicon/robot))
 		return
 	if(!H.key || !H.mind)
 		return

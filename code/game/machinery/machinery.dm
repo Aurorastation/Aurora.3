@@ -265,7 +265,7 @@ Class Procs:
 		return 1
 	if(user.lying || user.stat)
 		return 1
-	if ( ! (istype(usr, /mob/living/carbon/human) || \
+	if ( ! (istype(usr, /mob/living/carbon/teshari) || \
 			istype(usr, /mob/living/silicon)))
 		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return 1
@@ -274,8 +274,8 @@ Class Procs:
 	if ((get_dist(src, user) > 1 || !istype(src.loc, /turf)) && !istype(user, /mob/living/silicon))
 		return 1
 */
-	if (ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if (isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.getBrainLoss() >= 60)
 			visible_message("<span class='warning'>[H] stares cluelessly at [src] and drools.</span>")
 			return 1
@@ -478,7 +478,7 @@ Class Procs:
 	if(P.get_structure_damage() > 5)
 		bullet_ping(P)
 
-/obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
+/obj/machinery/proc/do_hair_pull(mob/living/carbon/teshari/H)
 	if(stat & (NOPOWER|BROKEN))
 		return
 

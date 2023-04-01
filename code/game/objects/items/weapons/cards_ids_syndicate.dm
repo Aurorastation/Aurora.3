@@ -169,8 +169,8 @@
 					. = 1
 			if("Blood Type")
 				var/default = blood_type
-				if(default == initial(blood_type) && ishuman(user))
-					var/mob/living/carbon/human/H = user
+				if(default == initial(blood_type) && isteshari(user))
+					var/mob/living/carbon/teshari/H = user
 					if(H.dna)
 						default = H.dna.b_type
 				var/new_blood_type = sanitize(input(user,"What blood type would you like to be written on this card?","Agent Card Blood Type",default) as null|text)
@@ -180,8 +180,8 @@
 					. = 1
 			if("DNA Hash")
 				var/default = dna_hash
-				if(default == initial(dna_hash) && ishuman(user))
-					var/mob/living/carbon/human/H = user
+				if(default == initial(dna_hash) && isteshari(user))
+					var/mob/living/carbon/teshari/H = user
 					if(H.dna)
 						default = H.dna.unique_enzymes
 				var/new_dna_hash = sanitize(input(user,"What DNA hash would you like to be written on this card?","Agent Card DNA Hash",default) as null|text)
@@ -191,8 +191,8 @@
 					. = 1
 			if("Fingerprint Hash")
 				var/default = fingerprint_hash
-				if(default == initial(fingerprint_hash) && ishuman(user))
-					var/mob/living/carbon/human/H = user
+				if(default == initial(fingerprint_hash) && isteshari(user))
+					var/mob/living/carbon/teshari/H = user
 					if(H.dna)
 						default = md5(H.dna.uni_identity)
 				var/new_fingerprint_hash = sanitize(input(user,"What fingerprint hash would you like to be written on this card?","Agent Card Fingerprint Hash",default) as null|text)

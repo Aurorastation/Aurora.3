@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/sfa_navy_crewman
+/datum/ghostspawner/teshari/sfa_navy_crewman
 	short_name = "sfa_navy_crewman"
 	name = "SFA Navy Crewman"
 	desc = "Crew the Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead."
@@ -9,7 +9,7 @@
 	max_count = 2
 
 	outfit = /datum/outfit/admin/sfa_navy_crewman
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_teshari)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "SFA Navy Crewman"
@@ -38,7 +38,7 @@
 /datum/outfit/admin/sfa_navy_crewman/get_id_access()
 	return list(access_sol_ships, access_external_airlocks)
 
-/datum/ghostspawner/human/sfa_navy_officer
+/datum/ghostspawner/teshari/sfa_navy_officer
 	short_name = "sfa_navy_officer"
 	name = "SFA Navy Officer"
 	desc = "Pilot and command a Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead."
@@ -49,7 +49,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/sfa_navy_officer
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_teshari)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "SFA Navy Officer"
@@ -77,7 +77,7 @@
 /datum/outfit/admin/sfa_navy_officer/get_id_access()
 	return list(access_sol_ships, access_external_airlocks)
 
-/datum/ghostspawner/human/sfa_marine
+/datum/ghostspawner/teshari/sfa_marine
 	short_name = "sfa_marine"
 	name = "SFA Marine"
 	desc = "Protect the Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead."
@@ -88,7 +88,7 @@
 	max_count = 2
 
 	outfit = /datum/outfit/admin/sfa_marine
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_teshari)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "SFA Marine"

@@ -29,7 +29,7 @@
 	return ..()
 
 /obj/structure/flora/pottedplant/attackby(obj/item/W, mob/user)
-	if(!ishuman(user))
+	if(!isteshari(user))
 		return
 	if(istype(W, /obj/item/holder))
 		return //no hiding mobs in there

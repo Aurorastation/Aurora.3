@@ -1,7 +1,7 @@
 //magic poppet
 /obj/item/poppet
 	name = "poppet"
-	desc = "A rustic doll with a vague humanoid shape."
+	desc = "A rustic doll with a vague tesharioid shape."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "poppet"
 	w_class = ITEMSIZE_SMALL
@@ -28,7 +28,7 @@
 	if(A.blood_DNA)
 		var/marked = pick(A.blood_DNA)
 
-		for(var/mob/living/carbon/human/H in mob_list)
+		for(var/mob/living/carbon/teshari/H in mob_list)
 			if(H.dna.unique_enzymes == marked)
 				target = WEAKREF(H)
 				countenance = H.dna.species
@@ -36,7 +36,7 @@
 
 
 /obj/item/poppet/attack_self(mob/user as mob)
-	var/mob/living/carbon/human/H = target.resolve()
+	var/mob/living/carbon/teshari/H = target.resolve()
 	if(H && cooldown < world.time)
 		var/target_zone = user.zone_sel.selecting
 
@@ -74,7 +74,7 @@
 		cooldown = world.time + cooldown_time
 
 /obj/item/poppet/attackby(obj/item/W as obj, mob/user as mob)
-	var/mob/living/carbon/human/H = target.resolve()
+	var/mob/living/carbon/teshari/H = target.resolve()
 	if(H && cooldown < world.time)
 		cooldown = world.time + cooldown_time
 		var/target_zone = user.zone_sel.selecting
@@ -118,40 +118,40 @@
 
 /obj/item/poppet/throw_impact(atom/hit_atom)
 	..()
-	var/mob/living/carbon/human/H = target.resolve()
+	var/mob/living/carbon/teshari/H = target.resolve()
 	if(H)
 		H.throw_at(get_edge_target_turf(H,pick(alldirs)), 5, 1)
 
 /obj/item/poppet/emp_act(severity)
-	var/mob/living/carbon/human/H = target.resolve()
+	var/mob/living/carbon/teshari/H = target.resolve()
 	if(H)
 		H.emp_act(severity)
 		playsound(get_turf(H), 'sound/effects/EMPulse.ogg', 50, 1, -1)
 
 /obj/item/poppet/ex_act(severity)
-	var/mob/living/carbon/human/H = target.resolve()
+	var/mob/living/carbon/teshari/H = target.resolve()
 	if(H)
 		H.ex_act(severity)
 
 /obj/item/poppet/tesla_act(var/power)
-	var/mob/living/carbon/human/H = target.resolve()
+	var/mob/living/carbon/teshari/H = target.resolve()
 	if(H)
 		H.electrocute_act(power, src)
 
 /obj/item/poppet/bullet_act(var/obj/item/projectile/Proj)
-	var/mob/living/carbon/human/H = target.resolve()
+	var/mob/living/carbon/teshari/H = target.resolve()
 	if(H)
 		H.apply_damage(Proj.damage, DAMAGE_PAIN)
 
 /obj/item/poppet/fire_act()
-	var/mob/living/carbon/human/H = target.resolve()
+	var/mob/living/carbon/teshari/H = target.resolve()
 	if(H)
 		H.adjust_fire_stacks(2)
 		H.IgniteMob()
 		to_chat(H, "<span class='danger'>You suddenly burst into flames!!</span>")
 
 /obj/item/poppet/crush_act()
-	var/mob/living/carbon/human/H = target.resolve()
+	var/mob/living/carbon/teshari/H = target.resolve()
 	if(H)
 		to_chat(H, "<span class='danger'>You feel an outworldly force crushing you!</span>")
 		H.adjustBruteLoss(35)

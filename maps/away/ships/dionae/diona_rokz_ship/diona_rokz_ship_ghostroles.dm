@@ -1,6 +1,6 @@
 //Dionae Rokz Ship
 
-/datum/ghostspawner/human/rokz_voidtamer
+/datum/ghostspawner/teshari/rokz_voidtamer
 	short_name = "rokz_voidtamer"
 	name = "Rokz Clan Voidtamer"
 	desc = "A Member of the Rokz clan of Dionae voidtamers, a group known for selling products associated with space xenofauna as well as occasional live specimens. Generally will have appearances consistent with Unathi due to most of the clan members coming from in or around Moghes. (Info on the faction is located in the Dionae minor factions page.)"
@@ -30,11 +30,11 @@
 	l_pocket = /obj/item/device/radio
 	backpack_contents = list(/obj/item/device/flashlight/lantern = 1, /obj/item/device/flashlight/survival = 1)
 
-/datum/outfit/admin/serz_voidtamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/serz_voidtamer/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#6D3175"
 
-/datum/ghostspawner/human/rokz_voidtamer/captain
+/datum/ghostspawner/teshari/rokz_voidtamer/captain
 	short_name = "rokz_voidtamer_captain"
 	name = "Rokz Clan Voidtamer Captain"
 	desc = "Dionae captain of the Rokz ship. Generally will have appearances consistent with Unathi due to most of the clan members coming from in or around Moghes."

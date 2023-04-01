@@ -61,12 +61,12 @@
 	else
 		stop_siphoning()
 
-/obj/item/spell/energy_siphon/proc/populate_siphon_list(atom/movable/target) 
+/obj/item/spell/energy_siphon/proc/populate_siphon_list(atom/movable/target)
 	things_to_siphon.Cut()
 	things_to_siphon |= target.GetAllContents()
 	for(var/atom/movable/AM in things_to_siphon)
-		if(ishuman(AM)) // We can drain FBPs, so we can skip the test below.
-			var/mob/living/carbon/human/H = AM
+		if(isteshari(AM)) // We can drain FBPs, so we can skip the test below.
+			var/mob/living/carbon/teshari/H = AM
 			if(H.isSynthetic())
 				continue
 		if(AM.drain_power(1) <= 0) // This checks if whatever's in the list can be drained from.
@@ -113,8 +113,8 @@
 		charge_to_give = charge_to_give + (flow_rate - flow_remaining) * SIPHON_CELL_TO_ENERGY
 	// If we have 'leftover' flow, let's try to do more.
 	if(round(flow_remaining))
-		if(ishuman(siphoning))
-			var/mob/living/carbon/human/H = siphoning
+		if(isteshari(siphoning))
+			var/mob/living/carbon/teshari/H = siphoning
 			// Let's drain from FBPs.  Note that it is possible for the caster to drain themselves if they are an FBP and desperate.
 			if(H.isSynthetic())
 				var/nutrition_to_steal = flow_remaining * 0.025 // Should steal about 25 nutrition per second by default.
@@ -138,8 +138,8 @@
 		give_energy(charge_to_give)
 		to_chat(user, "<span class='notice'>Stolen [charge_to_give * CELLRATE] kJ and converted to [charge_to_give] Core energy.</span>")
 		if((core.max_energy - core.energy) < charge_to_give ) // We have some overflow, if this is true.
-			if(user.isSynthetic() && ishuman(user)) // Let's do something with it, if we're a robot.
-				var/mob/living/carbon/human/H = user
+			if(user.isSynthetic() && isteshari(user)) // Let's do something with it, if we're a robot.
+				var/mob/living/carbon/teshari/H = user
 				charge_to_give = charge_to_give - (core.max_energy - core.energy)
 				var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
 				var/obj/item/cell/potato = C.get_cell()
@@ -193,8 +193,8 @@
 /obj/item/projectile/beam/lightning/energy_siphon/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
 	if(target_mob == firer) // This shouldn't actually occur due to Bump(), but just in-case.
 		return 1
-	if(ishuman(target_mob)) // Otherwise someone else stood in the beam and is going to pay for it.
-		var/mob/living/carbon/human/H = target_mob
+	if(isteshari(target_mob)) // Otherwise someone else stood in the beam and is going to pay for it.
+		var/mob/living/carbon/teshari/H = target_mob
 		var/obj/item/organ/external/affected = H.get_organ(check_zone(BP_CHEST))
 		H.electrocute_act(power, src, H.get_siemens_coefficient_organ(affected), BP_CHEST, 0)
 	else

@@ -117,8 +117,8 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 
 	idle ++
 
-	if(ishuman(loc))
-		var/mob/living/carbon/human/C = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/C = loc
 
 		if (!active || !ec_cartridge || !ec_cartridge.reagents.total_volume)//no cartridge
 			if(!ec_cartridge.reagents.total_volume)
@@ -219,13 +219,13 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	else
 		..()
 
-/obj/item/clothing/mask/smokable/ecig/attack(mob/living/carbon/human/C, mob/user, def_zone)
+/obj/item/clothing/mask/smokable/ecig/attack(mob/living/carbon/teshari/C, mob/user, def_zone)
 	if(active && C == user && istype(C))
 		var/obj/item/blocked = C.check_mouth_coverage()
 		if(blocked)
 			to_chat(C, SPAN_WARNING("\The [blocked] is in the way!"))
 			return TRUE
-		if(last_drag <= world.time - 30) 
+		if(last_drag <= world.time - 30)
 			if(!cig_cell.checked_use(power_usage * CELLRATE)) //if this passes, there's not enough power in the battery
 				deactivate()
 				to_chat(C,SPAN_WARNING("\The [src]'s power meter flashes a low battery warning and shuts down."))
@@ -234,7 +234,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 			idle = 0
 			C.visible_message(SPAN_NOTICE("[C.name] takes a drag of their [name]."))
 			playsound(C, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
-			ec_cartridge.reagents.trans_to_mob(C, REM, CHEM_BREATHE, 0.4) 
+			ec_cartridge.reagents.trans_to_mob(C, REM, CHEM_BREATHE, 0.4)
 			return TRUE
 	return ..()
 

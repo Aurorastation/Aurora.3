@@ -17,7 +17,7 @@
 /obj/item/towel/attack_self(mob/living/user as mob)
 	attack(user,user)
 
-/obj/item/towel/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/towel/attack(mob/living/carbon/teshari/M as mob, mob/living/carbon/user as mob)
 	if(istype(M) && user.a_intent == I_HELP)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(user.on_fire)

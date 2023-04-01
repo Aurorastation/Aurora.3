@@ -1,11 +1,11 @@
-/mob/living/carbon/human/verb/pose()
+/mob/living/carbon/teshari/verb/pose()
 	set name = "Set Pose"
 	set desc = "Sets a description which will be shown when someone examines you."
 	set category = "IC"
 
 	pose = sanitize(input(usr, "This is [src]. [get_pronoun("He")]...", "Pose", html_decode(pose))  as message)
 
-/mob/living/carbon/human/verb/set_flavor()
+/mob/living/carbon/teshari/verb/set_flavor()
 	set name = "Set Flavour Text"
 	set desc = "Sets an extended description of your character's features."
 	set category = "IC"

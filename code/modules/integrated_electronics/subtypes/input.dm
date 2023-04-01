@@ -111,7 +111,7 @@
 	power_draw_per_use = 40
 
 /obj/item/integrated_circuit/input/med_scanner/do_work()
-	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
+	var/mob/living/carbon/teshari/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/teshari)
 	if(!istype(H)) //Invalid input
 		return
 	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
@@ -146,7 +146,7 @@
 	power_draw_per_use = 80
 
 /obj/item/integrated_circuit/input/adv_med_scanner/do_work()
-	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
+	var/mob/living/carbon/teshari/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/teshari)
 	if(!istype(H)) //Invalid input
 		return
 	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.

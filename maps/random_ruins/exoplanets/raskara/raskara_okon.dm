@@ -55,7 +55,7 @@
 
 //ghost roles
 
-/datum/ghostspawner/human/okon_crew
+/datum/ghostspawner/teshari/okon_crew
 	short_name = "okon_crew"
 	name = "Okon Crewmember"
 	desc = "Man the Okon 011 observation outpost on Raskara."

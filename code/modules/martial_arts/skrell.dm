@@ -6,7 +6,7 @@
 	name = "Karak Virul"
 	help_verb = /datum/martial_art/karak_virul/proc/karak_virul_help
 
-/datum/martial_art/karak_virul/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/karak_virul/proc/check_streak(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(findtext(streak, PAINFUL_PALM))
 		streak = ""
 		painful_palm(A,D)
@@ -21,7 +21,7 @@
 		return 1
 	return 0
 
-/datum/martial_art/karak_virul/proc/leg_sweep(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/karak_virul/proc/leg_sweep(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	A.do_attack_animation(D)
 	if(D.stat || D.weakened)
 		return 0
@@ -31,7 +31,7 @@
 	D.Weaken(2)
 	return 1
 
-/datum/martial_art/karak_virul/proc/painful_palm(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
+/datum/martial_art/karak_virul/proc/painful_palm(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)//is actually lung punch
 	A.do_attack_animation(D)
 	A.visible_message("<span class='warning'>[A] strikes [D] with their open palm!</span>")
 	playsound(get_turf(A), /singleton/sound_category/punch_sound, 50, 1, -1)
@@ -39,7 +39,7 @@
 	D.apply_damage(25, DAMAGE_PAIN, affecting)
 	return 1
 
-/datum/martial_art/karak_virul/proc/dislocating_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/karak_virul/proc/dislocating_strike(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	A.do_attack_animation(D)
 	if(prob(30))
 		var/obj/item/organ/external/organ = D.get_organ(A.zone_sel.selecting)
@@ -57,12 +57,12 @@
 		A.visible_message("<span class='warning'>[A] strikes [D] with their closed fist!</span>")
 	return 1
 
-datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(check_streak(A,D))
 		return 1
 	..()
 
-/datum/martial_art/karak_virul/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/karak_virul/harm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("H",D)
 	if(check_streak(A,D))
 		return 1
@@ -70,7 +70,7 @@ datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/li
 	return 1
 
 
-/datum/martial_art/karak_virul/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/karak_virul/disarm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("D",D)
 	if(check_streak(A,D))
 		return 1

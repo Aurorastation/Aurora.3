@@ -833,9 +833,9 @@
 		return
 	add_fingerprint(user)
 
-	//Human mob special interaction goes here.
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	//teshari mob special interaction goes here.
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 
 		if(isipc(H) && H.a_intent == I_GRAB)
 			if(emagged || stat & BROKEN)
@@ -1017,7 +1017,7 @@
 				to_chat(user, SPAN_DANGER("[src] has AI control disabled!"))
 			return FALSE
 
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/teshari/H = user
 	if (istype(H))
 		if(H.getBrainLoss() >= 60)
 			H.visible_message(SPAN_DANGER("[H] stares cluelessly at [src] and drools."))

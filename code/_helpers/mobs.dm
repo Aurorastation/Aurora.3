@@ -19,7 +19,7 @@
 
 		. += AM.get_mob()
 
-/proc/random_hair_style(gender, species = SPECIES_HUMAN)
+/proc/random_hair_style(gender, species = SPECIES_teshari)
 	var/h_style = "Bald"
 
 	var/list/valid_hairstyles = list()
@@ -38,7 +38,7 @@
 
 	return h_style
 
-/proc/random_facial_hair_style(gender, species = SPECIES_HUMAN)
+/proc/random_facial_hair_style(gender, species = SPECIES_teshari)
 	var/f_style = "Shaved"
 
 	var/list/valid_facialhairstyles = list()
@@ -58,14 +58,14 @@
 
 		return f_style
 
-/proc/sanitize_name(name, species = SPECIES_HUMAN)
+/proc/sanitize_name(name, species = SPECIES_teshari)
 	var/datum/species/current_species
 	if(species)
 		current_species = all_species[species]
 
 	return current_species ? current_species.sanitize_name(name) : sanitizeName(name)
 
-/proc/random_name(gender, species = SPECIES_HUMAN)
+/proc/random_name(gender, species = SPECIES_teshari)
 	var/datum/species/current_species
 	if(species)
 		current_species = all_species[species]

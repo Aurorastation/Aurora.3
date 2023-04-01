@@ -245,7 +245,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/h_chocolate
 	name = "\improper Red Gaia hot coco"
-	desc = "A Mars favorite. Usually dispensed at a temperature hotter than any human can stand."
+	desc = "A Mars favorite. Usually dispensed at a temperature hotter than any teshari can stand."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee

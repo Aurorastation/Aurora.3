@@ -108,8 +108,8 @@
 
 	..()
 
-	if(istype(user, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
+	if(istype(user, /mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = user
 		if(issmall(H))
 			to_chat(user, "<span class='warning'>It's too heavy for you to wield fully.</span>")
 			return
@@ -141,8 +141,8 @@
 		O.desc = "Your second grip on the [base_name]."
 		user.put_in_inactive_hand(O)
 
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
+	if(istype(user,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 
@@ -586,7 +586,7 @@
 	set name = "Plant Flag"
 	set category = "Object"
 
-	if(ishuman(usr))
+	if(isteshari(usr))
 		var/mob/living/user = usr
 		user.drop_from_inventory(src)
 		icon_state = "[base_icon]_planted"

@@ -100,12 +100,12 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	siemens_coefficient = 0
-	var/mob/living/carbon/human/wearer = null
+	var/mob/living/carbon/teshari/wearer = null
 	var/suit_temp = T20C
 
 /obj/item/clothing/suit/bomb_suit/equipped(var/mob/user, var/slot)
 	if (slot == slot_wear_suit)
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/teshari/H = user
 		H.visible_message("<span class='notice'>[H] starts putting on \the [src]...</span>", "<span class='notice'>You start putting on \the [src]...</span>")
 		if(!do_after(H,50))
 			if(H && H.wear_suit == src)
@@ -125,7 +125,7 @@
 
 #define 	BOMBSUIT_THERMAL	0.27
 #define		BOMBHOOD_THERMAL	0.12
-#define		BOMBSUIT_MAX_TEMPERATURE	420	//heat 2 for humans, heat 1 for unathi
+#define		BOMBSUIT_MAX_TEMPERATURE	420	//heat 2 for tesharis, heat 1 for unathi
 /obj/item/clothing/suit/bomb_suit/process()
 	if (!checkworn())//If nobody's wearing the suit, then it cools down
 		suit_temp -= 0.5
@@ -152,7 +152,7 @@
 		if (wearer.wear_suit == src)
 			return 1
 
-	if (istype(loc, /mob/living/carbon/human))
+	if (istype(loc, /mob/living/carbon/teshari))
 		wearer = loc
 		if (wearer.wear_suit == src)
 			return 1

@@ -3,8 +3,8 @@
 	name_plural = "slimes"
 	mob_size = MOB_SMALL
 
-	icobase = 'icons/mob/human_races/r_slime.dmi'
-	deform = 'icons/mob/human_races/r_slime.dmi'
+	icobase = 'icons/mob/teshari_races/r_slime.dmi'
+	deform = 'icons/mob/teshari_races/r_slime.dmi'
 
 	language = null //todo?
 	unarmed_types = list(/datum/unarmed_attack/slime_glomp)
@@ -51,7 +51,7 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/unbreakable)
 		)
 
-/datum/species/slime/handle_death(var/mob/living/carbon/human/H)
+/datum/species/slime/handle_death(var/mob/living/carbon/teshari/H)
 	spawn(1)
 		if(H)
 			H.gib()

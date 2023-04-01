@@ -24,7 +24,7 @@
 			stop_launch_countdown()
 			shuttle.try_jump()
 			for(var/thing in current_mobs)
-				var/mob/living/carbon/human/M = locate(thing)
+				var/mob/living/carbon/teshari/M = locate(thing)
 				if (istype(M) && M.centcomm_despawn_timer)
 					deltimer(M.centcomm_despawn_timer)
 					M.centcomm_despawn_timer = null

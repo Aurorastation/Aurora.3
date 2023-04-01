@@ -116,7 +116,7 @@
 	var/mob/living/L = target
 	if(damage_type == DAMAGE_BRUTE && damage > 5) //weak hits shouldn't make you gush blood
 		var/splatter_color = "#A10808"
-		var/mob/living/carbon/human/H = target
+		var/mob/living/carbon/teshari/H = target
 		if (istype(H) && H.species && H.species.blood_color)
 			splatter_color = H.species.blood_color
 		var/splatter_dir = starting ? get_dir(starting, target.loc) : dir

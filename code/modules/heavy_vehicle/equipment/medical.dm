@@ -38,7 +38,7 @@
 /obj/item/mecha_equipment/sleeper/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
 	if(.)
-		if(ishuman(target) && !sleeper.occupant)
+		if(isteshari(target) && !sleeper.occupant)
 			visible_message("<span class='notice'>\The [src] begins loading \the [target] into \the [src].</span>")
 			sleeper.go_in(target, user)
 		else
@@ -231,8 +231,8 @@
 		L.adjustHalLoss(hal_heal * -1)
 		L.add_chemical_effect(CE_PAINKILLER, 50) //Pain is bad :(
 
-		if(ishuman(L) && bone_heal)
-			var/mob/living/carbon/human/H = L
+		if(isteshari(L) && bone_heal)
+			var/mob/living/carbon/teshari/H = L
 
 			if(H.bad_external_organs.len)
 				for(var/obj/item/organ/external/E in H.bad_external_organs)
@@ -267,7 +267,7 @@
 /obj/item/device/healthanalyzer/mech //Used to set up the full body scan feature
 	var/obj/machinery/body_scanconsole/internal_bodyscanner = null
 	var/fullScan = FALSE //Toggle whether to do full or basic scan
-	
+
 /obj/item/device/healthanalyzer/mech/Initialize()
 	. = ..()
 	internal_bodyscanner = new /obj/machinery/body_scanconsole(src)
@@ -298,12 +298,12 @@
 	R.color = "#eeffe8"
 	R.set_content_unsafe("Scan ([M.name])", internal_bodyscanner.format_occupant_data(get_medical_data(M)))
 
-	if(ishuman(user) && !(user.l_hand && user.r_hand))
+	if(isteshari(user) && !(user.l_hand && user.r_hand))
 		user.put_in_hands(R)
 	user.visible_message(SPAN_NOTICE("\The [src] spits out a piece of paper."))
 
-/obj/item/device/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/human/H)
-	if (!ishuman(H))
+/obj/item/device/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/teshari/H)
+	if (!isteshari(H))
 		return
 
 	var/list/medical_data = list(

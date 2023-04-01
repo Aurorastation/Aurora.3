@@ -483,7 +483,7 @@
 /obj/item/clothing/accessory/flagpatch/pra
 	name = "pra flagpatch"
 	desc = "A flagpatch representing the People's Republic of Adhomai. As tajara abroad find themselves increasingly exposed \
-	to human equipment, these patches have found themselves mass-produced by state-run corporations."
+	to teshari equipment, these patches have found themselves mass-produced by state-run corporations."
 	icon_state = "flagpatch_pra"
 	item_state = "flagpatch_pra"
 

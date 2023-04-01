@@ -323,7 +323,7 @@
 	appearance_flags = NO_CLIENT_COLOR
 
 /obj/structure/girder/cult/dismantle()
-	new /obj/effect/decal/remains/human(get_turf(src))
+	new /obj/effect/decal/remains/teshari(get_turf(src))
 	qdel(src)
 
 /obj/structure/girder/cult/attackby(obj/item/W as obj, mob/user as mob)
@@ -341,7 +341,7 @@
 
 	else if(istype(W, /obj/item/pickaxe/diamonddrill))
 		to_chat(user, "<span class='notice'>You drill through the girder!</span>")
-		new /obj/effect/decal/remains/human(get_turf(src))
+		new /obj/effect/decal/remains/teshari(get_turf(src))
 		dismantle()
 
 	else if(istype(W, /obj/item/melee/energy))

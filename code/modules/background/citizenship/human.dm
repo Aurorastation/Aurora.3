@@ -1,7 +1,7 @@
 /datum/citizenship/tau_ceti
 	name = CITIZENSHIP_BIESEL
-	description = "The Republic of Biesel is an independent system within the Core of human space. It is heavily tied to the NanoTrasen corporation at nearly every level of government. \
-	It is one of the most populated systems in human space, a financial center, industrial powerhouse and one of the most prestigious systems in the galaxy. It is also very known for \
+	description = "The Republic of Biesel is an independent system within the Core of teshari space. It is heavily tied to the NanoTrasen corporation at nearly every level of government. \
+	It is one of the most populated systems in teshari space, a financial center, industrial powerhouse and one of the most prestigious systems in the galaxy. It is also very known for \
 	its large xeno population which enjoys various privileges compared to other space powers. With a very lax migration policy, virtually everyone is welcome to live here. However, \
 	unrest and gridlock undermine the government, and the aggressive attitude of the Sol Alliance against its former system has made many worried for the future of the Republic."
 	consular_outfit = /datum/outfit/job/representative/consular/ceti
@@ -14,7 +14,7 @@
 		)
 	)
 
-/datum/citizenship/tau_ceti/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/tau_ceti/get_objectives(mission_level, var/mob/living/carbon/teshari/H)
 	var/rep_objectives
 
 	switch(mission_level)
@@ -44,7 +44,7 @@
 		/obj/item/stamp/biesel = 1,
 	)
 
-/datum/outfit/job/representative/consular/ceti/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/representative/consular/ceti/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
@@ -63,15 +63,15 @@
 	name = CITIZENSHIP_SOL
 	description = "Once considered a juggernaut in terms of cultural and political influence, the Alliance of Sovereign Solarian Nations (ASSN), commonly referred to as the Sol Alliance, has greatly declined in the wake of the phoron crisis and the Solarian collapse of 2462. \
 	Once the spur's largest interstellar power, in recent times the Sol Alliance has retreated to its wealthy so-called Jewel Worlds and inner colonies, with its reach barely extending to a few select middle colonies. \
-    However, it still controls the largest human military in the entire spur, and their cooperation with Einstein Engines and the Nralakk Federation has contributed to it gradually regaining some of its pre-collapse influence and power. \
-	Presently ruled by a military junta that is gradually giving way to civilian control, the Alliance is also generally xenophobic, and most non-humans find themselves discriminated against in Solarian territory. \
+    However, it still controls the largest teshari military in the entire spur, and their cooperation with Einstein Engines and the Nralakk Federation has contributed to it gradually regaining some of its pre-collapse influence and power. \
+	Presently ruled by a military junta that is gradually giving way to civilian control, the Alliance is also generally xenophobic, and most non-tesharis find themselves discriminated against in Solarian territory. \
 	Though much of its former possessions are now occupied by warlord statelets and other interstellar powers, the Alliance still maintains a revanchist outlook, refusing to relinquish its claims to its lost territories."
 	consular_outfit = /datum/outfit/job/representative/consular/sol
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
-			SPECIES_HUMAN,
-			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_teshari,
+			SPECIES_teshari_OFFWORLD,
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -95,7 +95,7 @@
 		)
 	)
 
-/datum/citizenship/sol_alliance/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/sol_alliance/get_objectives(mission_level, var/mob/living/carbon/teshari/H)
 	var/rep_objectives
 
 	switch(mission_level)
@@ -136,7 +136,7 @@
 
 /datum/citizenship/coalition
 	name = CITIZENSHIP_COALITION
-	description = "The Coalition of Colonies is a loose confederation of united \"entities\" within the human frontier. These entities range \
+	description = "The Coalition of Colonies is a loose confederation of united \"entities\" within the teshari frontier. These entities range \
 	from whole colonial systems to travelling super ships to mining and farming outposts. Most communities here are, although not as developed as many galactic powers, very \
 	tightly-knit. Almost anything and anyone can be found in these wild, mostly uncharted lands. "
 	demonym = "frontiersman"
@@ -209,7 +209,7 @@
 		)
 	)
 
-/datum/citizenship/dominia/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/dominia/get_objectives(mission_level, var/mob/living/carbon/teshari/H)
 	var/rep_objectives
 
 	switch(mission_level)

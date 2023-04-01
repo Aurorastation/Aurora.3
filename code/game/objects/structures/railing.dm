@@ -201,7 +201,7 @@
 	// Handle harm intent grabbing/tabling.
 	if(istype(W, /obj/item/grab) && user.Adjacent(src))
 		var/obj/item/grab/G = W
-		if(ishuman(G.affecting))
+		if(isteshari(G.affecting))
 			var/obj/occupied = turf_is_crowded(TRUE)
 			if(occupied)
 				to_chat(user, SPAN_WARNING("There's \a [occupied] in the way!"))

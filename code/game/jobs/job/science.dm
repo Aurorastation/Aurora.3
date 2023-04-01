@@ -12,7 +12,7 @@
 	economic_modifier = 15
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 35,
+		SPECIES_teshari = 35,
 		SPECIES_SKRELL = 80,
 		SPECIES_SKRELL_AXIORI = 80
 	)
@@ -31,7 +31,7 @@
 	)
 	minimal_player_age = 14
 	ideal_character_age = list(
-		SPECIES_HUMAN = 50,
+		SPECIES_teshari = 50,
 		SPECIES_SKRELL = 100,
 		SPECIES_SKRELL_AXIORI = 100
 	)
@@ -76,7 +76,7 @@
 	economic_modifier = 7
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -128,7 +128,7 @@
 	economic_modifier = 7
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -159,7 +159,7 @@
 	economic_modifier = 7
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -191,7 +191,7 @@
 	economic_modifier = 7
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)

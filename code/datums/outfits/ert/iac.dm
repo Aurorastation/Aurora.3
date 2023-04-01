@@ -41,7 +41,7 @@
 /datum/outfit/admin/ert/iac/get_id_access()
 	return get_distress_access()
 
-/datum/outfit/admin/iac/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/iac/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return

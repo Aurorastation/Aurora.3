@@ -97,7 +97,7 @@
 
 
 // Blood colors
-#define COLOR_HUMAN_BLOOD      "#A10808"
+#define COLOR_teshari_BLOOD      "#A10808"
 #define COLOR_DIONA_BLOOD      "#97DD7C"
 #define COLOR_IPC_BLOOD        "#1F181F"
 #define COLOR_SKRELL_BLOOD     "#0081CD"

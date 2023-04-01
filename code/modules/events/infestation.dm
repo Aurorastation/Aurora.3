@@ -29,7 +29,7 @@
 
 /datum/event/infestation/major/setup()
 	var/player_count = 0
-	for(var/mob/living/carbon/human/H in living_mob_list)
+	for(var/mob/living/carbon/teshari/H in living_mob_list)
 		if(H.stat == CONSCIOUS && H.client)
 			player_count++
 	if(player_count >= 15)

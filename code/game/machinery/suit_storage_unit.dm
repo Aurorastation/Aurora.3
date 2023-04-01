@@ -10,7 +10,7 @@
 	icon_state = "base"
 	anchored = TRUE
 	density = TRUE
-	var/mob/living/carbon/human/OCCUPANT
+	var/mob/living/carbon/teshari/OCCUPANT
 	var/obj/item/clothing/suit/space/SUIT
 	var/SUIT_TYPE
 	var/obj/item/clothing/head/helmet/space/HELMET
@@ -54,7 +54,7 @@
 		if(issuperUV)
 			add_overlay("super")
 		else if(OCCUPANT)
-			add_overlay("uvhuman")
+			add_overlay("uvteshari")
 		else
 			add_overlay("uv")
 	if(!isopen)
@@ -71,7 +71,7 @@
 			if(MASK)
 				add_overlay("storage")
 	else if(OCCUPANT)
-		add_overlay("human")
+		add_overlay("teshari")
 
 /obj/machinery/suit_storage_unit/power_change()
 	..()
@@ -215,7 +215,7 @@
 
 /obj/machinery/suit_storage_unit/proc/toggleUV(mob/user as mob)
 //	var/protected = 0
-//	var/mob/living/carbon/human/H = user
+//	var/mob/living/carbon/teshari/H = user
 	if(!src.panelopen)
 		return
 
@@ -241,7 +241,7 @@
 
 /obj/machinery/suit_storage_unit/proc/togglesafeties(mob/user as mob)
 //	var/protected = 0
-//	var/mob/living/carbon/human/H = user
+//	var/mob/living/carbon/teshari/H = user
 	if(!src.panelopen) //Needed check due to bugs
 		return
 

@@ -4,9 +4,9 @@
 	name_plural = "Tajara"
 	category_name = "Tajara"
 	bodytype = BODYTYPE_TAJARA
-	icobase = 'icons/mob/human_races/tajara/r_tajaran.dmi'
-	deform = 'icons/mob/human_races/tajara/r_def_tajaran.dmi'
-	preview_icon = 'icons/mob/human_races/tajara/tajaran_preview.dmi'
+	icobase = 'icons/mob/teshari_races/tajara/r_tajaran.dmi'
+	deform = 'icons/mob/teshari_races/tajara/r_def_tajaran.dmi'
+	preview_icon = 'icons/mob/teshari_races/tajara/tajaran_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
 	tail = "Tail"
 	tail_animation = 'icons/mob/species/tajaran/tail.dmi'
@@ -31,9 +31,9 @@
 
 	age_max = 80
 
-	damage_overlays = 'icons/mob/human_races/masks/dam_tajara.dmi'
-	damage_mask = 'icons/mob/human_races/masks/dam_mask_tajara.dmi'
-	blood_mask = 'icons/mob/human_races/masks/blood_tajara.dmi'
+	damage_overlays = 'icons/mob/teshari_races/masks/dam_tajara.dmi'
+	damage_mask = 'icons/mob/teshari_races/masks/dam_mask_tajara.dmi'
+	blood_mask = 'icons/mob/teshari_races/masks/blood_tajara.dmi'
 
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
@@ -59,10 +59,10 @@
 	hearing_sensitivity = HEARING_SENSITIVE // Default HEARING_NORMAL
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Adhomai in the S'rendarr \
-	system. They have been brought up into the space age by the Humans and Skrell, who alledgedly influenced their \
+	system. They have been brought up into the space age by the tesharis and Skrell, who alledgedly influenced their \
 	eventual revolution that overthrew their ancient monarchies to become totalitarian - and NanoTrasen friendly - \
 	republics. Adhomai is still enduring a global war in the aftermath of the new world order, and many Tajara are \
-	fleeing their homeworld to seek safety and employment in human space. They prefer colder environments, and speak \
+	fleeing their homeworld to seek safety and employment in teshari space. They prefer colder environments, and speak \
 	a variety of languages, mostly Siik'Maas, using unique inflections their mouths form."
 
 	cold_level_1 = 200 //Default 260
@@ -101,7 +101,7 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/tie_hair)
+		/mob/living/carbon/teshari/proc/tie_hair)
 
 	zombie_type = SPECIES_ZOMBIE_TAJARA
 
@@ -127,7 +127,7 @@
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 
-/datum/species/tajaran/after_equip(var/mob/living/carbon/human/H)
+/datum/species/tajaran/after_equip(var/mob/living/carbon/teshari/H)
 	. = ..()
 	if(H.shoes)
 		return

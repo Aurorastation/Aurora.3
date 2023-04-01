@@ -26,8 +26,8 @@
 	var/locked
 	var/obj/machinery/body_scanconsole/connected
 	var/list/allowed_species = list(
-		SPECIES_HUMAN,
-		SPECIES_HUMAN_OFFWORLD,
+		SPECIES_teshari,
+		SPECIES_teshari_OFFWORLD,
 		SPECIES_SKRELL,
 		SPECIES_SKRELL_AXIORI,
 		SPECIES_UNATHI,
@@ -230,9 +230,9 @@
 	return
 
 /obj/machinery/bodyscanner/proc/check_species()
-	if (!occupant || !ishuman(occupant))
+	if (!occupant || !isteshari(occupant))
 		return TRUE
-	var/mob/living/carbon/human/O = occupant
+	var/mob/living/carbon/teshari/O = occupant
 	if (!O)
 		return TRUE
 	return !(O.get_species() in allowed_species)
@@ -392,7 +392,7 @@
 			"hasmissing" = null
 		)
 
-	var/mob/living/carbon/human/occupant
+	var/mob/living/carbon/teshari/occupant
 	if (connected)
 		occupant = connected.occupant
 
@@ -488,7 +488,7 @@
 		return "Minor"
 	return "None"
 
-/obj/machinery/body_scanconsole/proc/get_missing_organs(var/mob/living/carbon/human/H)
+/obj/machinery/body_scanconsole/proc/get_missing_organs(var/mob/living/carbon/teshari/H)
 	var/list/missingOrgans = list()
 	var/list/species_organs = H.species.has_organ
 	for (var/organ_name in H.species.has_organ)
@@ -496,7 +496,7 @@
 			missingOrgans += organ_name
 	return missingOrgans
 
-/obj/machinery/body_scanconsole/proc/get_external_wound_data(var/mob/living/carbon/human/H)
+/obj/machinery/body_scanconsole/proc/get_external_wound_data(var/mob/living/carbon/teshari/H)
 	// Limbs.
 	var/organs = list()
 	for (var/obj/item/organ/external/O in H.organs)
@@ -557,7 +557,7 @@
 
 	return organs
 
-/obj/machinery/body_scanconsole/proc/get_internal_wound_data(var/mob/living/carbon/human/H)
+/obj/machinery/body_scanconsole/proc/get_internal_wound_data(var/mob/living/carbon/teshari/H)
 	var/list/organs = list()
 	// Internal Organs. (Duh.)
 	for (var/obj/item/organ/internal/O in H.internal_organs)
@@ -642,9 +642,9 @@
 // These are old procs used for printing.
 
 /obj/machinery/bodyscanner/proc/get_occupant_data()
-	if (!occupant || !istype(occupant, /mob/living/carbon/human))
+	if (!occupant || !istype(occupant, /mob/living/carbon/teshari))
 		return
-	var/mob/living/carbon/human/H = occupant
+	var/mob/living/carbon/teshari/H = occupant
 
 	var/list/occupant_data = list(
 		"stationtime" = worldtime2text(),

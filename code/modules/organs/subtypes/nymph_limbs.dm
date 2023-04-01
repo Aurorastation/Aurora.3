@@ -156,7 +156,7 @@
 		nymph_out(E, limb_nymph, forced = TRUE)
 
 // Host detach
-/mob/living/carbon/human/proc/detach_nymph_limb()
+/mob/living/carbon/teshari/proc/detach_nymph_limb()
 	set category = "Abilities"
 	set name = "Detach Nymph"
 
@@ -186,7 +186,7 @@
 	if(!do_after(src, delay = 3 SECONDS, needhand = FALSE))
 		return
 	if(E.detach_nymph_limb() && my_nymph_limbs.len == 1)
-		verbs -= /mob/living/carbon/human/proc/detach_nymph_limb
+		verbs -= /mob/living/carbon/teshari/proc/detach_nymph_limb
 
 	regenerate_icons()
 
@@ -229,11 +229,11 @@
 
 	AddComponent(/datum/component/nymph_limb)
 	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	var/list/mob/living/carbon/human/mob_list = list()
+	var/list/mob/living/carbon/teshari/mob_list = list()
 
 	// Find a new host
-	for(var/mob/living/carbon/human/H in view(1))
-		if(ishuman(H) && (H.species?.name in N.valid_species) && \
+	for(var/mob/living/carbon/teshari/H in view(1))
+		if(isteshari(H) && (H.species?.name in N.valid_species) && \
 		H.client && H.stat == CONSCIOUS)
 			mob_list += H
 
@@ -242,7 +242,7 @@
 		return FALSE
 
 	var/choice = input(src, "Choose a host to bond to:", "Attach to Host") in mob_list
-	var/mob/living/carbon/human/target = choice
+	var/mob/living/carbon/teshari/target = choice
 	if(!Adjacent(target) || target.stat || !target.client)
 		return
 
@@ -285,7 +285,7 @@
 	set desc = "Replaces a missing limb with a dionae nymph."
 	set src in view(1)
 
-	if(!ishuman(usr))
+	if(!isteshari(usr))
 		return
 
 	if(incapacitated())
@@ -295,7 +295,7 @@
 	if(!can_attach)
 		to_chat(usr, SPAN_WARNING("\The [src] does not have the strength to attach to another host so soon."))
 
-	var/mob/living/carbon/human/target = usr
+	var/mob/living/carbon/teshari/target = usr
 
 	if(!Adjacent(target) || target.stat || !target.client)
 		return
@@ -372,7 +372,7 @@
 		to_chat(nymph, SPAN_NOTICE("Your body has regained enough strength to attach to a new host, if you can find one."))
 
 // For limbs created by character setup
-/datum/component/nymph_limb/proc/nymphize(var/mob/living/carbon/human/H, var/organ_name, var/forced = FALSE)
+/datum/component/nymph_limb/proc/nymphize(var/mob/living/carbon/teshari/H, var/organ_name, var/forced = FALSE)
 	if(!H.should_have_limb(organ_name))
 		return
 	if(H.organs_by_name[organ_name])
@@ -388,15 +388,15 @@
 	E.replaced(H)
 	for(var/obj/item/organ/external/child in E.children)
 		nymphize(H, child.organ_tag, TRUE)
-	H.verbs |= /mob/living/carbon/human/proc/detach_nymph_limb
+	H.verbs |= /mob/living/carbon/teshari/proc/detach_nymph_limb
 
 /datum/species/diona/nymph_limb // For use on nymph-limb organs only
 	name = "Nymph Limb"
 	short_name = "nym"
 	name_plural = "Nymph Limbs"
 	bodytype = "Nymph"
-	icobase = 'icons/mob/human_races/limbs_nymph.dmi'
-	deform = 'icons/mob/human_races/limbs_nymph.dmi'
+	icobase = 'icons/mob/teshari_races/limbs_nymph.dmi'
+	deform = 'icons/mob/teshari_races/limbs_nymph.dmi'
 
 	has_organ = list()
 

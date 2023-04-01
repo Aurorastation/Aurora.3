@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/tajara_mining_jack
+/datum/ghostspawner/teshari/tajara_mining_jack
 	short_name = "mining_jack."
 	name = "Tajaran Miner"
 	desc = "Crew the Tajaran Mining Jack."

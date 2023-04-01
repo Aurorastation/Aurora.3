@@ -4,7 +4,7 @@
 
 	do_give(target)
 
-/mob/living/carbon/proc/do_give(var/mob/living/carbon/human/target)
+/mob/living/carbon/proc/do_give(var/mob/living/carbon/teshari/target)
 	if(use_check(target))
 		to_chat(usr, SPAN_WARNING("[target.name] is in no condition to handle items!"))
 		return
@@ -15,7 +15,7 @@
 	if(!I)
 		to_chat(usr, SPAN_WARNING("You don't have anything in your hands to give to \the [target]."))
 		return
-	
+
 	if(I.too_heavy_to_throw())
 		to_chat(src, SPAN_WARNING("You can barely lift \the [I] up, how do you expect to hand it over to someone?"))
 		return FALSE

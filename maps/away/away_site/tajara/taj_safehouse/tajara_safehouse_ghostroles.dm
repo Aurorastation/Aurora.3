@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/tajaran_migrant
+/datum/ghostspawner/teshari/tajaran_migrant
 	short_name = "tajaran_migrant"
 	name = "Tajaran Migrant"
 	desc = "Survive and try to reach Tau Ceti."
@@ -48,7 +48,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 
 
-/datum/ghostspawner/human/tajara_revolutionary_army_agent
+/datum/ghostspawner/teshari/tajara_revolutionary_army_agent
 	short_name = "tajara_revolutionary_army_agent"
 	name = "Tajaran Revolutionary Army Agent"
 	desc = "Protect the Tajaran migrants."

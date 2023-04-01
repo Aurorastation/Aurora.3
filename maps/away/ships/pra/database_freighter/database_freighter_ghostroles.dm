@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/database_freighter_crew
+/datum/ghostspawner/teshari/database_freighter_crew
 	short_name = "database_freighter_crew"
 	name = "Database Freighter Surveyor"
 	desc = "Crew the Orbital Fleet Database Freighter and survey nearby planets."
@@ -33,7 +33,7 @@
 /datum/outfit/admin/database_freighter_crew/get_id_access()
 	return list(access_pra, access_external_airlocks)
 
-/datum/ghostspawner/human/database_freighter_crew/captain
+/datum/ghostspawner/teshari/database_freighter_crew/captain
 	short_name = "database_freighter_captain"
 	name = "Database Head Surveyor"
 	desc = "Command the Orbital Fleet Database Freighter in its mission of surveying nearby planets."

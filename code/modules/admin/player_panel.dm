@@ -58,8 +58,8 @@
 		VUEUI_SET_CHECK(data["players"][ref]["name"], M.name, ., data)
 		var/real_name = GetMobRealName(M)
 		VUEUI_SET_CHECK(data["players"][ref]["real_name"], real_name, ., data)
-		if(istype(M,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
+		if(istype(M,/mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = M
 			if(H.mind?.assigned_role)
 				VUEUI_SET_CHECK(data["players"][ref]["assigment"], H.mind.assigned_role, ., data)
 		else
@@ -94,7 +94,7 @@
 		return "AI"
 	if(isrobot(M))
 		return "Cyborg"
-	if(ishuman(M))
+	if(isteshari(M))
 		if(M.real_name)
 			return M.real_name
 		return "Unknown"

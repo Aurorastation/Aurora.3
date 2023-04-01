@@ -8,7 +8,7 @@ emp_act
 
 */
 
-/mob/living/carbon/human/bullet_act(var/obj/item/projectile/P, var/def_zone)
+/mob/living/carbon/teshari/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	var/species_check = src.species.bullet_act(P, def_zone, src)
 
 	if(species_check)
@@ -51,7 +51,7 @@ emp_act
 
 	return blocked
 
-/mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
+/mob/living/carbon/teshari/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
 	var/obj/item/organ/external/affected = get_organ(check_zone(def_zone))
 	var/siemens_coeff = get_siemens_coefficient_organ(affected)
 	stun_amount *= siemens_coeff
@@ -80,7 +80,7 @@ emp_act
 
 	..(stun_amount, agony_amount, def_zone, used_weapon, damage_flags)
 
-/mob/living/carbon/human/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
+/mob/living/carbon/teshari/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
 	if(!def_zone && (damage_flags & DAMAGE_FLAG_DISPERSED))
 		var/tally
 		for(var/zone in organ_rel_size)
@@ -91,7 +91,7 @@ emp_act
 		return
 	return ..()
 
-/mob/living/carbon/human/get_armors_by_zone(obj/item/organ/external/def_zone, damage_type, damage_flags)
+/mob/living/carbon/teshari/get_armors_by_zone(obj/item/organ/external/def_zone, damage_type, damage_flags)
 	. = ..()
 	if(!def_zone)
 		def_zone = ran_zone()
@@ -113,7 +113,7 @@ emp_act
 				. += armor
 
 //this proc returns the Siemens coefficient of electrical resistivity for a particular external organ.
-/mob/living/carbon/human/proc/get_siemens_coefficient_organ(var/obj/item/organ/external/def_zone)
+/mob/living/carbon/teshari/proc/get_siemens_coefficient_organ(var/obj/item/organ/external/def_zone)
 	if (!def_zone)
 		return 1.0
 
@@ -127,7 +127,7 @@ emp_act
 	return siemens_coefficient
 
 // Returns a list of clothing that is currently covering def_zone.
-/mob/living/carbon/human/proc/get_clothing_list_organ(var/obj/item/organ/external/def_zone, var/type)
+/mob/living/carbon/teshari/proc/get_clothing_list_organ(var/obj/item/organ/external/def_zone, var/type)
 	var/list/results = list()
 	var/list/clothing_items = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes)
 	for(var/obj/item/clothing/C in clothing_items)
@@ -135,7 +135,7 @@ emp_act
 			results.Add(C)
 	return results
 
-/mob/living/carbon/human/proc/check_head_coverage()
+/mob/living/carbon/teshari/proc/check_head_coverage()
 	var/list/body_parts = list(head, wear_mask, wear_suit, w_uniform)
 	for(var/bp in body_parts)
 		if(!bp)
@@ -146,7 +146,7 @@ emp_act
 				return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/check_head_airtight_coverage()
+/mob/living/carbon/teshari/proc/check_head_airtight_coverage()
 	var/list/clothing = list(head, wear_mask, wear_suit)
 	for(var/obj/item/clothing/C in clothing)
 		if((C.body_parts_covered & HEAD) && (C.item_flags & (AIRTIGHT)))
@@ -154,14 +154,14 @@ emp_act
 	return FALSE
 
 //Used to check if they can be fed food/drinks/pills
-/mob/living/carbon/human/proc/check_mouth_coverage()
+/mob/living/carbon/teshari/proc/check_mouth_coverage()
 	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform)
 	for(var/obj/item/gear in protective_gear)
 		if(istype(gear) && (gear.body_parts_covered & FACE) && !(gear.item_flags & FLEXIBLEMATERIAL))
 			return gear
 	return null
 
-/mob/living/carbon/human/proc/check_shields(var/damage = 0, var/atom/damage_source = null, var/mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/mob/living/carbon/teshari/proc/check_shields(var/damage = 0, var/atom/damage_source = null, var/mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit, back))
 		if(!shield)
 			continue
@@ -175,14 +175,14 @@ emp_act
 			return
 	return FALSE
 
-/mob/living/carbon/human/emp_act(severity)
+/mob/living/carbon/teshari/emp_act(severity)
 	if(species.handle_emp_act(src, severity))
 		return // blocks the EMP
 	for(var/obj/O in src)
 		O.emp_act(severity)
 	..()
 
-/mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
+/mob/living/carbon/teshari/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	if(a_intent != I_HELP)
 		var/list/holding = list(get_active_hand() = 60, get_inactive_hand() = 40)
 		for(var/obj/item/grab/G in holding)
@@ -191,7 +191,7 @@ emp_act
 				return G.affecting
 	return src
 
-/mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
+/mob/living/carbon/teshari/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
 	if(check_attack_throat(I, user))
 		return null
 
@@ -217,7 +217,7 @@ emp_act
 
 	return hit_zone
 
-/mob/living/carbon/human/hit_with_weapon(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
+/mob/living/carbon/teshari/hit_with_weapon(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if(!affecting)
 		return //should be prevented by attacked_with_item() but for sanity.
@@ -225,7 +225,7 @@ emp_act
 	visible_message("<span class='danger'>[src] has been [LAZYPICK(I.attack_verb, "attacked")] in the [affecting.name] with [I] by [user]!</span>")
 	return standard_weapon_hit_effects(I, user, effective_force, hit_zone)
 
-/mob/living/carbon/human/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
+/mob/living/carbon/teshari/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if(!affecting)
 		return 0
@@ -248,8 +248,8 @@ emp_act
 		return FALSE
 
 	// forceglove amplification
-	if(ishuman(user))
-		var/mob/living/carbon/human/X = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/X = user
 		if(X.gloves && istype(X.gloves,/obj/item/clothing/gloves/force))
 			var/obj/item/clothing/gloves/force/G = X.gloves
 			effective_force *= G.amplification
@@ -282,8 +282,8 @@ emp_act
 					if(splatter_turf)
 						var/obj/effect/decal/cleanable/blood/B = blood_splatter(splatter_turf, src, TRUE, get_dir(src, splatter_turf))
 						B.icon_state = pick("dir_splatter_1", "dir_splatter_2")
-			if(ishuman(user))
-				var/mob/living/carbon/human/H = user
+			if(isteshari(user))
+				var/mob/living/carbon/teshari/H = user
 				if(get_dist(H, src) <= 1) //people with TK won't get smeared with blood
 					H.bloody_body(src)
 					H.bloody_hands(src)
@@ -304,7 +304,7 @@ emp_act
 
 	return TRUE
 
-/mob/living/carbon/human/proc/attack_joint(var/obj/item/organ/external/organ, var/obj/item/W, var/blocked)
+/mob/living/carbon/teshari/proc/attack_joint(var/obj/item/organ/external/organ, var/obj/item/W, var/blocked)
 	if(!organ || (organ.dislocated == 2) || (organ.dislocated == -1))
 		return 0
 
@@ -315,7 +315,7 @@ emp_act
 		return 1
 	return 0
 
-/mob/living/carbon/human/emag_act(var/remaining_charges, mob/user, var/emag_source)
+/mob/living/carbon/teshari/emag_act(var/remaining_charges, mob/user, var/emag_source)
 	var/obj/item/organ/external/affecting = get_organ(user.zone_sel.selecting)
 	if(!affecting || !(affecting.status & ORGAN_ROBOT))
 		to_chat(user, "<span class='warning'>That limb isn't robotic.</span>")
@@ -328,7 +328,7 @@ emp_act
 	return 1
 
 //this proc handles being hit by a thrown atom
-/mob/living/carbon/human/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
+/mob/living/carbon/teshari/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
 	if(istype(AM,/obj/))
 		var/obj/O = AM
 
@@ -426,13 +426,13 @@ emp_act
 					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
 					src.anchored = 1
 					src.pinned += O
-	else if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	else if(isteshari(AM))
+		var/mob/living/carbon/teshari/H = AM
 		H.Weaken(3)
 		Weaken(3)
 		visible_message(SPAN_WARNING("[src] get knocked over by [H]!"), SPAN_WARNING("You get knocked over by [H]!"))
 
-/mob/living/carbon/human/embed(var/obj/O, var/def_zone=null)
+/mob/living/carbon/teshari/embed(var/obj/O, var/def_zone=null)
 	if(!def_zone) ..()
 
 	var/obj/item/organ/external/affecting = get_organ(def_zone)
@@ -440,7 +440,7 @@ emp_act
 		affecting.embed(O)
 
 
-/mob/living/carbon/human/proc/bloody_hands(var/mob/living/source, var/amount = 2)
+/mob/living/carbon/teshari/proc/bloody_hands(var/mob/living/source, var/amount = 2)
 	if(istype(gloves, /obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = gloves
 		G.add_blood(source)
@@ -452,7 +452,7 @@ emp_act
 		bloody_hands_mob = WEAKREF(source)
 	update_inv_gloves()		//updates on-mob overlays for bloody hands and/or bloody gloves
 
-/mob/living/carbon/human/proc/bloody_body(var/mob/living/source)
+/mob/living/carbon/teshari/proc/bloody_body(var/mob/living/source)
 	if(wear_suit)
 		wear_suit.add_blood(source)
 		update_inv_wear_suit(0)
@@ -460,7 +460,7 @@ emp_act
 		w_uniform.add_blood(source)
 		update_inv_w_uniform(0)
 
-/mob/living/carbon/human/proc/handle_suit_punctures(var/damtype, var/damage, var/def_zone)
+/mob/living/carbon/teshari/proc/handle_suit_punctures(var/damtype, var/damage, var/def_zone)
 
 	// Tox and oxy don't matter to suits.
 	if(damtype != DAMAGE_BURN && damtype != DAMAGE_BRUTE) return
@@ -477,7 +477,7 @@ emp_act
 	var/penetrated_dam = max(0,(damage - SS.breach_threshold))
 	if(penetrated_dam) SS.create_breaches(damtype, penetrated_dam)
 
-/mob/living/carbon/human/reagent_permeability()
+/mob/living/carbon/teshari/reagent_permeability()
 	var/perm = 0
 
 	var/list/perm_by_part = list(
@@ -513,7 +513,7 @@ emp_act
 
 	return perm
 
-/mob/living/carbon/human/proc/grabbedby(mob/living/carbon/human/user,var/supress_message = 0)
+/mob/living/carbon/teshari/proc/grabbedby(mob/living/carbon/teshari/user,var/supress_message = 0)
 	if(user == src || anchored)
 		return 0
 	if(user.is_pacified())
@@ -552,12 +552,12 @@ emp_act
 	visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")
 	return 1
 
-/mob/living/carbon/human/set_on_fire()
+/mob/living/carbon/teshari/set_on_fire()
 	..()
 	for(var/obj/item/I in contents)
 		I.catch_fire()
 
-/mob/living/carbon/human/extinguish_fire()
+/mob/living/carbon/teshari/extinguish_fire()
 	..()
 	for(var/obj/item/I in contents)
 		I.extinguish_fire()

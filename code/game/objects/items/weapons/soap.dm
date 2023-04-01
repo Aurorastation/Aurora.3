@@ -48,8 +48,8 @@
 
 /obj/item/soap/Crossed(AM as mob|obj)
 	if(isliving(AM))
-		if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
+		if(isteshari(AM))
+			var/mob/living/carbon/teshari/H = AM
 			if(H.shoes?.item_flags & LIGHTSTEP)
 				return
 		var/mob/living/M =	AM
@@ -90,7 +90,7 @@
 
 //attack_as_weapon
 /obj/item/soap/attack(mob/living/target, mob/living/user, var/target_zone)
-	if(target && user && ishuman(target) && ishuman(user) && !target.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == BP_MOUTH )
+	if(target && user && isteshari(target) && isteshari(user) && !target.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == BP_MOUTH )
 		user.visible_message(SPAN_DANGER("\The [user] washes \the [target]'s mouth out with soap!"))
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //prevent spam
 		return

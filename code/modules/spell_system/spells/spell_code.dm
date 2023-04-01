@@ -226,7 +226,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 			to_chat(usr, SPAN_WARNING("Not when you're incapacitated."))
 			return 0
 
-		if(ishuman(user) && !(invocation_type in list(SpI_EMOTE, SpI_NONE)))
+		if(isteshari(user) && !(invocation_type in list(SpI_EMOTE, SpI_NONE)))
 			if(istype(user.wear_mask, /obj/item/clothing/mask/muzzle))
 				to_chat(user, "Mmmf mrrfff!")
 				return 0

@@ -59,7 +59,7 @@
 /obj/effect/bluegoast
 	name = "bluespace echo"
 	desc = "It's not going to punch you, is it?"
-	var/mob/living/carbon/human/daddy
+	var/mob/living/carbon/teshari/daddy
 	anchored = TRUE
 	var/reality = 0
 	simulated = FALSE
@@ -106,8 +106,8 @@
 	return daddy?.examine(arglist(args))
 
 /obj/effect/bluegoast/proc/blueswitch()
-	var/mob/living/carbon/human/H
-	if(ishuman(daddy))
+	var/mob/living/carbon/teshari/H
+	if(isteshari(daddy))
 		H = new(get_turf(src), daddy.species.name)
 		H.dna = daddy.dna.Clone()
 		H.sync_organ_dna()

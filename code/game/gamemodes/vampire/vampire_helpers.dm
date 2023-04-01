@@ -48,7 +48,7 @@
 /mob/proc/vampire_power(var/required_blood = 0, var/max_stat = 0, var/ignore_holder = 0, var/disrupt_healing = 1, var/required_vampire_blood = 0)
 	if (!mind)
 		return
-	if (!ishuman(src))
+	if (!isteshari(src))
 		return
 
 	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
@@ -71,7 +71,7 @@
 	return vampire
 
 // Checks whether or not the target can be affected by a vampire's abilities.
-/mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T, var/notify = 1, var/account_loyalty_implant = 0, var/ignore_thrall = FALSE, var/affect_ipc = TRUE)
+/mob/proc/vampire_can_affect_target(var/mob/living/carbon/teshari/T, var/notify = 1, var/account_loyalty_implant = 0, var/ignore_thrall = FALSE, var/affect_ipc = TRUE)
 	if (!T || !istype(T))
 		return FALSE
 	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
@@ -198,11 +198,11 @@
 
 		sight |= SEE_MOBS
 
-		verbs += /mob/living/carbon/human/proc/grapple
+		verbs += /mob/living/carbon/teshari/proc/grapple
 
 		return TRUE
 
-/mob/living/carbon/human/vampire_start_frenzy()
+/mob/living/carbon/teshari/vampire_start_frenzy()
 	. = ..()
 	if(.)
 		update_body(force_base_icon = TRUE)
@@ -224,12 +224,12 @@
 
 		visible_message("<span class='danger'>[src.name]'s eyes no longer glow with violent rage, their form reverting to resemble that of a normal person's.</span>", "<span class='danger'>The beast within you retreats. You gain control over your body once more.</span>")
 
-		verbs -= /mob/living/carbon/human/proc/grapple
+		verbs -= /mob/living/carbon/teshari/proc/grapple
 		regenerate_icons()
 
 		return TRUE
 
-/mob/living/carbon/human/vampire_stop_frenzy()
+/mob/living/carbon/teshari/vampire_stop_frenzy()
 	. = ..()
 	if(.)
 		update_body(force_base_icon = TRUE)
@@ -287,7 +287,7 @@
 				animate(vampire.frenzy_hud, 1 SECOND, alpha = 0, LINEAR_EASING)
 			vampire.frenzy_hud.maptext = null
 
-/mob/living/carbon/human/proc/finish_vamp_timeout(vamp_flags = 0)
+/mob/living/carbon/teshari/proc/finish_vamp_timeout(vamp_flags = 0)
 	if(!mind)
 		return FALSE
 	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]

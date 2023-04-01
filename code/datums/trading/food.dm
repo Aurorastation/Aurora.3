@@ -122,9 +122,9 @@
 		/obj/item/reagent_containers/food/drinks/bottle/small         = TRADER_BLACKLIST,
 		/obj/item/reagent_containers/food/snacks/fruit_slice          = TRADER_BLACKLIST,
 		/obj/item/reagent_containers/food/snacks/grown                = TRADER_BLACKLIST_ALL,
-		/obj/item/reagent_containers/food/snacks/human                = TRADER_BLACKLIST_ALL,
+		/obj/item/reagent_containers/food/snacks/teshari                = TRADER_BLACKLIST_ALL,
 		/obj/item/reagent_containers/food/snacks/sliceable/cake/brain = TRADER_BLACKLIST,
-		/obj/item/reagent_containers/food/snacks/meat/human           = TRADER_BLACKLIST,
+		/obj/item/reagent_containers/food/snacks/meat/teshari           = TRADER_BLACKLIST,
 		/obj/item/reagent_containers/food/snacks/variable             = TRADER_BLACKLIST_ALL
 	)
 

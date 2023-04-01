@@ -11,11 +11,11 @@
 	var/bare = FALSE //is this hair devoid of fur, hair, scales, carapace? Prevents re-stripping. Can also apply it to a hide type if we don't want to tan, like, xeno hide.
 	var/hide_type = "hair" //type of skin this animal has; scales for lizard, carapace for xeno.
 
-/obj/item/stack/material/animalhide/human
-	name = "human skin"
-	desc = "The by-product of human farming."
-	singular_name = "human skin piece"
-	default_type = "human hide"
+/obj/item/stack/material/animalhide/teshari
+	name = "teshari skin"
+	desc = "The by-product of teshari farming."
+	singular_name = "teshari skin piece"
+	default_type = "teshari hide"
 
 /obj/item/stack/material/animalhide/corgi
 	name = "corgi hide"

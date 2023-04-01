@@ -16,7 +16,7 @@
 	corpseid = FALSE
 	species = SPECIES_TAJARA_MSAI
 
-/obj/effect/landmark/corpse/pra_soldier/do_extra_customization(var/mob/living/carbon/human/M)
+/obj/effect/landmark/corpse/pra_soldier/do_extra_customization(var/mob/living/carbon/teshari/M)
 	if(prob(25))
 		M.equip_to_slot_or_del(new /obj/item/photo/soldier(M), slot_r_store)
 	if(prob(50))

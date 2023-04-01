@@ -4,8 +4,8 @@
 	icon = 'icons/obj/hardsuit_token.dmi'
 	icon_state = "hardsuit_token"
 
-/obj/item/hardsuit_token/attack_self(mob/living/carbon/human/user)
-	if(!ishuman(user))
+/obj/item/hardsuit_token/attack_self(mob/living/carbon/teshari/user)
+	if(!isteshari(user))
 		to_chat(user, SPAN_WARNING("You can't use \the [src]."))
 		return
 	var/list/hardsuit_options = list(

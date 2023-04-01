@@ -8,9 +8,9 @@
 	age_max = 500
 	default_genders = list(PLURAL)
 	economic_modifier = 12
-	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
-	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
-	preview_icon = 'icons/mob/human_races/skrell/skrell_preview.dmi'
+	icobase = 'icons/mob/teshari_races/skrell/r_skrell.dmi'
+	deform = 'icons/mob/teshari_races/skrell/r_def_skrell.dmi'
+	preview_icon = 'icons/mob/teshari_races/skrell/skrell_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
 	tail = "No Tail"
 	tail_animation = 'icons/mob/species/skrell/tail.dmi'
@@ -93,9 +93,9 @@
 		/singleton/origin_item/culture/federation,
 		/singleton/origin_item/culture/non_federation
 	)
-	
+
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/adjust_headtails
+		/mob/living/carbon/teshari/proc/adjust_headtails
 	)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
@@ -104,7 +104,7 @@
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
-/datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
+/datum/species/skrell/handle_trail(var/mob/living/carbon/teshari/H, var/turf/T)
 	var/list/trail_info = ..()
 	if(!length(trail_info) && !H.shoes)
 		var/list/blood_data = REAGENT_DATA(H.vessel, /singleton/reagent/blood)
@@ -114,18 +114,18 @@
 
 	return trail_info
 
-/datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
+/datum/species/skrell/handle_post_spawn(mob/living/carbon/teshari/H)
 	..()
 	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)
 
-/datum/species/skrell/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
+/datum/species/skrell/handle_strip(var/mob/user, var/mob/living/carbon/teshari/H, var/action)
 	switch(action)
 		if("headtail")
 			if(!H.organs_by_name[BP_HEAD] || istype(H.organs_by_name[BP_HEAD], /obj/item/organ/external/stump))
 				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head!"))
 				return
 			user.visible_message(SPAN_WARNING("\The [user] is trying to remove something from \the [H]'s headtails!"))
-			if(do_after(user, HUMAN_STRIP_DELAY, act_target = H))
+			if(do_after(user, teshari_STRIP_DELAY, act_target = H))
 				var/obj/item/storage/internal/skrell/S = locate() in H.organs_by_name[BP_HEAD]
 				var/obj/item/I = locate() in S
 				if(!I)

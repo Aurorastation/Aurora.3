@@ -45,8 +45,8 @@
 
 /singleton/reagent/proc/remove_self(var/amount, var/datum/reagents/holder) // Shortcut
 	holder.remove_reagent(type, amount) // Don't typecheck this, fix anywhere this is called with a null holder.
-	if(ishuman(holder.my_atom))
-		var/mob/living/carbon/human/H = holder.my_atom
+	if(isteshari(holder.my_atom))
+		var/mob/living/carbon/teshari/H = holder.my_atom
 		if(H.vessel && (/singleton/reagent/blood in H.vessel.reagent_data))
 			if(H.vessel.reagent_data[/singleton/reagent/blood]["trace_chem"][type])
 				H.vessel.reagent_data[/singleton/reagent/blood]["trace_chem"][type] += amount

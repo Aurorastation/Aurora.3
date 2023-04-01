@@ -90,7 +90,7 @@
 						/obj/item/material/knife/trench = 1
 						)
 
-/datum/outfit/admin/ert/pra_cosmonaut/tesla/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ert/pra_cosmonaut/tesla/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	var/obj/item/organ/A = new /obj/item/organ/internal/augment/tesla/advanced(H)
 	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
 	A.replaced(H, affected)

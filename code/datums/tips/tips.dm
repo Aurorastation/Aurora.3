@@ -143,7 +143,7 @@ var/global/list/tips_by_category = list()
 		"As a Scientist, researchable machine parts can seriously improve the efficiency and speed of machines around the ship. In some cases, it can even unlock new functions.",
 		"As a Scientist, the teleporter in Telescience can be set-up to teleport across the whole ship! All you need to do is crack the formula, but be careful to not teleport into space.",
 		"As a Scientist, you can attach limbs from one species to the torso of another species. You too can make your own Frankenstein monster!",
-		"As a Xenobiologist, your monkeys are perfectly suitable for human consumption even after your slimes are done with them, perhaps you can work something out with the Chef?"
+		"As a Xenobiologist, your monkeys are perfectly suitable for teshari consumption even after your slimes are done with them, perhaps you can work something out with the Chef?"
 	)
 
 
@@ -237,7 +237,7 @@ var/global/list/tips_by_category = list()
 		"As a Mercenary, stick together! While your equipment is robust, your fellow operatives are much better at saving your life: they can drag you away from danger while stunned and provide cover fire.",
 		"As a Mercenary, you might end up in a situation where the AI has bolted you into a room. Having some spare C4 in your pocket can save your life.",
 		"As a Monkey, you can crawl through air vents by alt+left clicking them. You must drop everything you are wearing and holding to do this, however.",
-		"As a Monkey, you can still wear a few human items, such as backpacks, gas masks and hats, and still have two free hands.",
+		"As a Monkey, you can still wear a few teshari items, such as backpacks, gas masks and hats, and still have two free hands.",
 		"As the Malfunctioning AI, you should either order your cyborgs to dismantle the robotics console or blow it up yourself in order to protect them. Make sure to hunt down all those laptops too!",
 		"As a Revolutionary, you cannot convert a head of staff or someone who has a mindshield implant. Implants can however be surgically removed. Take control of medbay to keep control of conversions!",
 		"As a Revolutionary, cargo can be your best friend or your worst nightmare. In the best case scenario you will be able to order a limitless amount of guns and armor, in the worst case scenario security will take control and order a limitless number of loyalty implants to turn your fellow revolutionaries against you.",
@@ -277,7 +277,7 @@ var/global/list/tips_by_category = list()
 		"As the AI, you can take pictures with your camera and upload them to newscasters, or print them out on request.",
 		"As the AI, you can check the status of any stationbounds on the robotics console in your core, in the Reasearch Director's office.",
 		"As a Cyborg, choose your module carefully, as only a roboticist can let you repick it. Remember that you don't need to choose immediately after you spawn!",
-		"As a Cyborg, you are immune to most forms of stunning, and excel at almost everything far better than humans. However, flashes can easily make you blind and you cannot do any precision work as you lack hands.",
+		"As a Cyborg, you are immune to most forms of stunning, and excel at almost everything far better than tesharis. However, flashes can easily make you blind and you cannot do any precision work as you lack hands.",
 		"As a Cyborg, you are almost impervious to fires and heat. If you are rogue, you can release phoron fires everywhere and walk through them without a care in the world, if you can handle the bwoink afterwards.",
 		"As a Cyborg, you are extremely vulnerable to EMPs as EMPs both stun you and damage you. Ion rifles or a traitor with an EMP kit can kill you in seconds.",
 		"As a Maintenance Drone, you can put on hats, but not take them off.",
@@ -298,8 +298,8 @@ var/global/list/tips_by_category = list()
 		"As a Tajara, your resistance to cold probably doesn't actually help you in space. Feel free to try, though.",
 		"As a Skrell, you can look pretty and...uhh...not slip?",
 		"As a Skrell, you have free reign to validhunt synthetics. (Not really, please don't do this oh God what have I done).",
-		"As a Human, you are the best. Why do you care about your mechanics?",
-		"As a Human, you are really very great.",
+		"As a teshari, you are the best. Why do you care about your mechanics?",
+		"As a teshari, you are really very great.",
 		"Due to IPCs' synthetic nature, they're immune to most chemicals and gasses.",
 		"IPCs can survive longer than most species in space, despite their supposed \"weakness\".",
 		"As a Diona, you can survive pretty much anything.",

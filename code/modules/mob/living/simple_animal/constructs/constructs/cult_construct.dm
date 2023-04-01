@@ -35,7 +35,7 @@
 
 	var/nullblock = FALSE
 
-	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
+	mob_swap_flags = teshari|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 	hunger_enabled = FALSE
 	var/list/construct_spells = list()

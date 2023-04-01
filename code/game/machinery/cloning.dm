@@ -14,8 +14,8 @@
 		if((M.stat != 2) || (!M.client))
 			continue
 		//They need a brain!
-		if(istype(M, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
+		if(istype(M, /mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = M
 			if(H.species.has_organ[BP_BRAIN] && !H.has_brain())
 				continue
 		if(M.ckey == find_key)
@@ -73,7 +73,7 @@
 
 //Clonepod
 
-//Start growing a human clone in the pod!
+//Start growing a teshari clone in the pod!
 /obj/machinery/clonepod/proc/growclone(var/datum/dna2/record/R)
 	if(mess || attempting)
 		return 0
@@ -101,7 +101,7 @@
 	spawn(30)
 		eject_wait = 0
 
-	var/mob/living/carbon/human/H = new /mob/living/carbon/human(src, R.cloning_species)
+	var/mob/living/carbon/teshari/H = new /mob/living/carbon/teshari(src, R.cloning_species)
 	occupant = H
 
 	if(!R.dna.real_name)	//to prevent null names
@@ -479,7 +479,7 @@
 	name = "H-87 Cloning Apparatus Manual"
 	info = {"<h4>Getting Started</h4>
 	Congratulations, your station has purchased the H-87 industrial cloning device!<br>
-	Using the H-87 is almost as simple as brain surgery! Simply insert the target humanoid into the scanning chamber and select the scan option to create a new profile!<br>
+	Using the H-87 is almost as simple as brain surgery! Simply insert the target tesharioid into the scanning chamber and select the scan option to create a new profile!<br>
 	<b>That's all there is to it!</b><br>
 	<i>Notice, cloning system cannot scan inorganic life or small primates.  Scan may fail if subject has suffered extreme brain damage.</i><br>
 	<p>Clone profiles may be viewed through the profiles menu. Scanning implants a complementary HEALTH MONITOR IMPLANT into the subject, which may be viewed from each profile.

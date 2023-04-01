@@ -54,8 +54,8 @@
 	else
 		activate(user)
 
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
+	if(istype(user,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 
@@ -162,7 +162,7 @@
 	icon_state = initial(icon_state)
 	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
 
-/obj/item/melee/energy/glaive/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/melee/energy/glaive/attack(mob/living/carbon/teshari/M as mob, mob/living/carbon/user as mob)
 	user.setClickCooldown(16)
 	..()
 
@@ -420,7 +420,7 @@
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
 		// Tidy up a bit.
 		if(istype(loc,/mob/living))
-			var/mob/living/carbon/human/host = loc
+			var/mob/living/carbon/teshari/host = loc
 			if(istype(host))
 				for(var/obj/item/organ/external/organ in host.organs)
 					for(var/obj/item/O in organ.implants)

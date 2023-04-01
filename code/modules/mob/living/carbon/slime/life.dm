@@ -224,8 +224,8 @@
 				if(issilicon(L) && (rabid || attacked)) // They can't eat silicons, but they can glomp them in defence
 					targets += L // Possible target found!
 
-				if(ishuman(L)) //Ignore slime(wo)men
-					var/mob/living/carbon/human/H = L
+				if(isteshari(L)) //Ignore slime(wo)men
+					var/mob/living/carbon/teshari/H = L
 					if(H.species.name == SPECIES_SLIMEPERSON)
 						continue
 
@@ -244,7 +244,7 @@
 					target = targets[1] // I am attacked and am fighting back or so hungry I don't even care
 				else
 					for(var/mob/living/carbon/C in targets)
-						if(ishuman(C) && !discipline && prob(5))
+						if(isteshari(C) && !discipline && prob(5))
 							target = C
 							break
 

@@ -31,7 +31,7 @@ var/datum/antagonist/technomancer/technomancers
 	technomancer.current.real_name = random_name(technomancer.current.gender, technomancer.current.get_species())
 	technomancer.current.name = technomancer.current.real_name
 
-/datum/antagonist/technomancer/equip(var/mob/living/carbon/human/technomancer_mob)
+/datum/antagonist/technomancer/equip(var/mob/living/carbon/teshari/technomancer_mob)
 	if(!..())
 		return FALSE
 
@@ -40,7 +40,7 @@ var/datum/antagonist/technomancer/technomancers
 
 	return TRUE
 
-/datum/antagonist/technomancer/proc/equip_apprentice(var/mob/living/carbon/human/technomancer_mob)
+/datum/antagonist/technomancer/proc/equip_apprentice(var/mob/living/carbon/teshari/technomancer_mob)
 	technomancer_mob.preEquipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
 	technomancer_mob.equipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
 	return TRUE

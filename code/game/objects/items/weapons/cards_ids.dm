@@ -171,7 +171,7 @@ var/const/NO_EMAG_ACT = -50
 		id_card.fingerprint_hash = md5(dna.uni_identity)
 	id_card.update_name()
 
-/mob/living/carbon/human/set_id_info(var/obj/item/card/id/id_card)
+/mob/living/carbon/teshari/set_id_info(var/obj/item/card/id/id_card)
 	..()
 	id_card.age 				= age
 	id_card.citizenship			= citizenship
@@ -196,10 +196,10 @@ var/const/NO_EMAG_ACT = -50
 	return dat
 
 /obj/item/card/id/attack_self(mob/user as mob)
-	if(dna_hash == ID_CARD_UNSET && ishuman(user))
+	if(dna_hash == ID_CARD_UNSET && isteshari(user))
 		var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint yours now?", "Biometric Imprinting", "Yes", "No")
 		if (response == "Yes")
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/teshari/H = user
 			if(H.gloves)
 				to_chat(user, "<span class='warning'>You cannot imprint [src] while wearing \the [H.gloves].</span>")
 				return
@@ -233,10 +233,10 @@ var/const/NO_EMAG_ACT = -50
 
 	if(user.zone_sel.selecting == BP_R_HAND || user.zone_sel.selecting == BP_L_HAND)
 
-		if(!ishuman(M))
+		if(!isteshari(M))
 			return ..()
 
-		if (dna_hash == ID_CARD_UNSET && ishuman(user))
+		if (dna_hash == ID_CARD_UNSET && isteshari(user))
 			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [M]'s now?", "Biometric Imprinting", "Yes", "No")
 			if (response == "Yes")
 
@@ -244,7 +244,7 @@ var/const/NO_EMAG_ACT = -50
 					to_chat(user, "<span class='warning'>You must remain adjacent to [M] to scan their biometric data.</span>")
 					return
 
-				var/mob/living/carbon/human/H = M
+				var/mob/living/carbon/teshari/H = M
 
 				if(H.gloves)
 					to_chat(user, "<span class='warning'>\The [H] is wearing gloves.</span>")

@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/kataphract
+/datum/ghostspawner/teshari/kataphract
 	short_name = "kataphract_hop"
 	name = "Kataphract-Hopeful"
 	desc = "A Zo'saa (squire) of the traveling Kataphract Guild. Display honour in everything you do. Be an excellent person. Listen to the Saa's (Knights). Remember, you serve the Izweski Hegemony."
@@ -22,7 +22,7 @@
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	away_site = TRUE
 
-/datum/ghostspawner/human/kataphract/klax
+/datum/ghostspawner/teshari/kataphract/klax
 	short_name = "kataphract_hop_klax"
 	name = "Kataphract-Hopeful Klaxan"
 	desc = "A Zo'saa (squire) from the K'lax Hive, here to learn what it means to be honourable. Remember, you serve the Izweski Hegemony on behalf of your K'laxan compatriots."
@@ -35,7 +35,7 @@
 	possible_species = list(SPECIES_VAURCA_WARRIOR)
 	extra_languages = list(LANGUAGE_VAURCA)
 
-/datum/ghostspawner/human/kataphract/knight
+/datum/ghostspawner/teshari/kataphract/knight
 	short_name = "kataphract_knight"
 	name = "Kataphract Knight Captain"
 	desc = "A Saa (Knight) of the traveling Kataphract Guild. Display honour in everything you do. Be an excellent person. You are the foremost authority on your vessel. Lead by example."
@@ -52,7 +52,7 @@
 	assigned_role = "Kataphract Knight Captain"
 	special_role = "Kataphract Knight Captain"
 
-/datum/ghostspawner/human/kataphract/specialist
+/datum/ghostspawner/teshari/kataphract/specialist
 	short_name = "kataphract_specialist"
 	name = "Kataphract Specialist"
 	desc = "A Saa (Knight) of the traveling Kataphract Guild. Display honour in everything you do. Support your Knight Captain and lead by example. Remember, you serve the Izweski Hegemony."
@@ -84,7 +84,7 @@
 		/obj/item/storage/box/donkpockets = 1
 	)
 
-/datum/outfit/admin/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/kataphract/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
 
@@ -107,7 +107,7 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 3
 	)
 
-/datum/outfit/admin/kataphract/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/kataphract/klax/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve

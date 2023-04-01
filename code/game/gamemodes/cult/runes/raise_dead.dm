@@ -4,11 +4,11 @@
 	rune_flags = NO_TALISMAN | CAN_MEMORIZE
 
 /datum/rune/raise_dead/do_rune_action(mob/living/user, atom/movable/A)
-	var/mob/living/carbon/human/corpse_to_raise
-	var/mob/living/carbon/human/body_to_maim
+	var/mob/living/carbon/teshari/corpse_to_raise
+	var/mob/living/carbon/teshari/body_to_maim
 
 	var/is_sacrifice_target
-	for(var/mob/living/carbon/human/M in get_turf(A))
+	for(var/mob/living/carbon/teshari/M in get_turf(A))
 		if(M.stat == DEAD)
 			if(M.mind == cult?.sacrifice_target)
 				is_sacrifice_target = TRUE
@@ -25,7 +25,7 @@
 	is_sacrifice_target = FALSE
 	for(var/datum/rune/R in SScult.rune_list)
 		var/found_sacrifice = FALSE
-		for(var/mob/living/carbon/human/N in get_turf(R.parent))
+		for(var/mob/living/carbon/teshari/N in get_turf(R.parent))
 			if(N?.mind == cult?.sacrifice_target)
 				is_sacrifice_target = TRUE
 			else

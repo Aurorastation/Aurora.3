@@ -51,8 +51,8 @@
 	if(!originator.eating)
 		return
 	var/mob/living/L = C
-	if(istype(L,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = L
+	if(istype(L,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = L
 		H.visible_message(
 			"<span class='danger'>\The [src] snaps tight across [H]'s upper body, swallowing it in three grisly gulps.</span>",
 			"<span class='danger'>You feel a searing pain as \the [src] severs your lower body and sends you careening into its grotesque gullet!</span>",

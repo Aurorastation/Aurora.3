@@ -37,7 +37,7 @@ effective or pretty fucking useless.
 
 	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used [src] to knock down people in the area.</span>")
 
-	for(var/mob/living/carbon/human/M in orange(10, user))
+	for(var/mob/living/carbon/teshari/M in orange(10, user))
 		spawn()
 			if(prob(50))
 

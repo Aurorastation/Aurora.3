@@ -3,10 +3,10 @@
 	if(!changeling)
 		return
 
-	if(!ishuman(src))
+	if(!isteshari(src))
 		return 0
 
-	var/mob/living/carbon/human/M = src
+	var/mob/living/carbon/teshari/M = src
 
 	var/success = FALSE
 
@@ -78,8 +78,8 @@
 /obj/item/clothing/under/chameleon/changeling/verb/shred() //Remove individual pieces if needed.
 	set name = "Shred Jumpsuit"
 	set category = "Chameleon Items"
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message("<span class='warning'>[H] tears off [src]!</span>",
 		"<span class='notice'>We remove [src].</span>")
@@ -103,8 +103,8 @@
 /obj/item/clothing/head/chameleon/changeling/verb/shred() //The copypasta is real.
 	set name = "Shred Helmet"
 	set category = "Chameleon Items"
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message("<span class='warning'>[H] tears off [src]!</span>",
 		"<span class='notice'>We remove [src].</span>")
@@ -127,8 +127,8 @@
 /obj/item/clothing/suit/chameleon/changeling/verb/shred()
 	set name = "Shred Suit"
 	set category = "Chameleon Items"
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message("<span class='warning'>[H] tears off [src]!</span>",
 		"<span class='notice'>We remove [src].</span>")
@@ -151,8 +151,8 @@
 /obj/item/clothing/shoes/chameleon/changeling/verb/shred()
 	set name = "Shred Shoes"
 	set category = "Chameleon Items"
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message("<span class='warning'>[H] tears off [src]!</span>",
 		"<span class='notice'>We remove [src].</span>")
@@ -175,8 +175,8 @@
 /obj/item/storage/backpack/chameleon/changeling/verb/shred()
 	set name = "Shred Backpack"
 	set category = "Chameleon Items"
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message("<span class='warning'>[H] tears off [src]!</span>",
 		"<span class='notice'>We remove [src].</span>")
@@ -202,8 +202,8 @@
 /obj/item/clothing/gloves/chameleon/changeling/verb/shred()
 	set name = "Shred Gloves"
 	set category = "Chameleon Items"
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message("<span class='warning'>[H] tears off [src]!</span>",
 		"<span class='notice'>We remove [src].</span>")
@@ -227,8 +227,8 @@
 /obj/item/clothing/mask/chameleon/changeling/verb/shred()
 	set name = "Shred Mask"
 	set category = "Chameleon Items"
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message("<span class='warning'>[H] tears off [src]!</span>",
 		"<span class='notice'>We remove [src].</span>")
@@ -252,8 +252,8 @@
 /obj/item/clothing/glasses/chameleon/changeling/verb/shred()
 	set name = "Shred Glasses"
 	set category = "Chameleon Items"
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message("<span class='warning'>[H] tears off [src]!</span>",
 		"<span class='notice'>We remove [src].</span>")
@@ -276,8 +276,8 @@
 /obj/item/storage/belt/chameleon/changeling/verb/shred()
 	set name = "Shred Belt"
 	set category = "Chameleon Items"
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message("<span class='warning'>[H] tears off [src]!</span>",
 		"<span class='notice'>We remove [src].</span>")
@@ -307,8 +307,8 @@
 /obj/item/card/id/syndicate/changeling/verb/shred()
 	set name = "Shred ID Card"
 	set category = "Chameleon Items"
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message("<span class='warning'>[H] tears off [src]!</span>",
 		"<span class='notice'>We remove [src].</span>")

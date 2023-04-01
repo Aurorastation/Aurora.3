@@ -4,9 +4,9 @@
 	rune_flags = NO_TALISMAN
 
 /datum/rune/freedom/do_rune_action(mob/living/user, atom/movable/A)
-	var/list/mob/living/carbon/human/cultists = list()
+	var/list/mob/living/carbon/teshari/cultists = list()
 	for(var/datum/mind/H in cult.current_antagonists)
-		if(ishuman(H.current))
+		if(isteshari(H.current))
 			cultists += H.current
 
 	var/list/mob/living/carbon/users = list()
@@ -15,12 +15,12 @@
 			users += C
 
 	if(length(users) >= 3)
-		var/mob/living/carbon/human/cultist = input("Choose a cultist you wish to free.", "Followers of Geometer") as null|anything in (cultists - users)
+		var/mob/living/carbon/teshari/cultist = input("Choose a cultist you wish to free.", "Followers of Geometer") as null|anything in (cultists - users)
 		if(!cultist)
 			return fizzle(user, A)
 		if(cultist == user) //just to be sure.
 			return
-		
+
 		var/cultist_free = TRUE
 		if(cultist.buckled_to)
 			cultist_free = FALSE
@@ -52,7 +52,7 @@
 				cultist_free = FALSE
 				door.unlock()
 				door.open()
-		
+
 		if(!cultist_free)
 			to_chat(cultist, SPAN_CULT("Your fellow cultists have freed you!"))
 

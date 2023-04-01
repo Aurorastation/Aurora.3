@@ -67,8 +67,8 @@
 
 		to_chat(M, SPAN_DANGER("You step on \the [src]!"))
 		playsound(src.loc, 'sound/effects/glass_step.ogg', 50, 1) // not sure how to handle metal shards with sounds
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+		if(isteshari(M))
+			var/mob/living/carbon/teshari/H = M
 
 			if(H.species.siemens_coefficient<0.5 || isunathi(H) || isvaurca(H) || (H.species.flags & (NO_EMBED))) //Thick skin.
 				return

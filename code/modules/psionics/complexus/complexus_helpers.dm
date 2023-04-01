@@ -85,8 +85,8 @@
 	// Your head asplode.
 	owner.adjustBrainLoss(value)
 	owner.adjustHalLoss(value * 25) //Ouch.
-	if(ishuman(owner))
-		var/mob/living/carbon/human/pop = owner
+	if(isteshari(owner))
+		var/mob/living/carbon/teshari/pop = owner
 		if(pop.should_have_organ(BP_BRAIN))
 			var/obj/item/organ/internal/brain/sponge = pop.internal_organs_by_name[BP_BRAIN]
 			if(sponge && sponge.damage >= sponge.max_damage)

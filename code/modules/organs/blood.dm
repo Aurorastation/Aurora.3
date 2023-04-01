@@ -2,10 +2,10 @@
 				BLOOD SYSTEM
 ****************************************************/
 
-/mob/living/carbon/human/var/datum/reagents/vessel	//Container for blood and BLOOD ONLY. Do not transfer other chems here.
+/mob/living/carbon/teshari/var/datum/reagents/vessel	//Container for blood and BLOOD ONLY. Do not transfer other chems here.
 
 //Initializes blood vessels
-/mob/living/carbon/human/proc/make_blood()
+/mob/living/carbon/teshari/proc/make_blood()
 	if(vessel)
 		return
 
@@ -18,14 +18,14 @@
 	fixblood()
 
 //Resets blood data
-/mob/living/carbon/human/proc/fixblood()
+/mob/living/carbon/teshari/proc/fixblood()
 	if(!REAGENT_VOLUME(vessel, /singleton/reagent/blood))
 		return
 	LAZYINITLIST(vessel.reagent_data)
 	LAZYSET(vessel.reagent_data, /singleton/reagent/blood, get_blood_data())
 
 //Makes a blood drop, leaking amt units of blood from the mob
-/mob/living/carbon/human/proc/drip(var/amt as num, var/tar = src, var/spraydir)
+/mob/living/carbon/teshari/proc/drip(var/amt as num, var/tar = src, var/spraydir)
 
 	if(species && species.flags & NO_BLOOD) //TODO: Make drips come from the reagents instead.
 		return
@@ -37,7 +37,7 @@
 	blood_splatter(tar, src, spray_dir = spraydir)
 
 #define BLOOD_SPRAY_DISTANCE 2
-/mob/living/carbon/human/proc/blood_squirt(var/amt, var/turf/sprayloc)
+/mob/living/carbon/teshari/proc/blood_squirt(var/amt, var/turf/sprayloc)
 	if(amt <= 0 || !istype(sprayloc))
 		return
 	var/spraydir = pick(alldirs)
@@ -54,8 +54,8 @@
 				if(!A.simulated)
 					continue
 
-				if(ishuman(A))
-					var/mob/living/carbon/human/H = A
+				if(isteshari(A))
+					var/mob/living/carbon/teshari/H = A
 					if(!H.lying)
 						H.bloody_body(src)
 						H.bloody_hands(src)
@@ -84,10 +84,10 @@
 	return bled
 #undef BLOOD_SPRAY_DISTANCE
 
-/mob/living/carbon/human/proc/get_blood_volume()
+/mob/living/carbon/teshari/proc/get_blood_volume()
 	return round((REAGENT_VOLUME(vessel, /singleton/reagent/blood)/species.blood_volume)*100)
 
-/mob/living/carbon/human/proc/get_blood_circulation()
+/mob/living/carbon/teshari/proc/get_blood_circulation()
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 	var/blood_volume = get_blood_volume()
 	if(!heart)
@@ -117,7 +117,7 @@
 
 	return min(blood_volume, 100)
 
-/mob/living/carbon/human/proc/get_blood_oxygenation()
+/mob/living/carbon/teshari/proc/get_blood_oxygenation()
 	var/blood_volume = get_blood_circulation()
 	if(is_asystole()) // Heart is missing or isn't beating and we're not breathing (hardcrit)
 		return min(blood_volume, BLOOD_VOLUME_SURVIVE)
@@ -144,8 +144,8 @@
 	container.reagents.add_reagent(/singleton/reagent/blood, amount, get_blood_data(), temperature = species?.body_temperature)
 	return TRUE
 
-//For humans, blood does not appear from blue, it comes from vessels.
-/mob/living/carbon/human/take_blood(obj/item/reagent_containers/container, var/amount)
+//For tesharis, blood does not appear from blue, it comes from vessels.
+/mob/living/carbon/teshari/take_blood(obj/item/reagent_containers/container, var/amount)
 	if(!should_have_organ(BP_HEART))
 		reagents.trans_to_obj(container, amount)
 		return TRUE
@@ -168,7 +168,7 @@
 		reagents.add_reagent(C, (text2num(chems[C]) / species.blood_volume) * amount)//adds trace chemicals to owner's blood
 
 //Transfers blood from reagents to vessel, respecting blood types compatability.
-/mob/living/carbon/human/inject_blood(var/amount, var/datum/reagents/donor)
+/mob/living/carbon/teshari/inject_blood(var/amount, var/datum/reagents/donor)
 	if(!should_have_organ(BP_HEART))
 		reagents.add_reagent(/singleton/reagent/blood, amount, REAGENT_DATA(donor, /singleton/reagent/blood), temperature = species?.body_temperature)
 		return
@@ -218,7 +218,7 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 	data["dose_chem"] = chem_doses.Copy()
 	return data
 
-/mob/living/carbon/human/get_blood_data()
+/mob/living/carbon/teshari/get_blood_data()
 	. = ..()
 	var/list/trace_chems = list()
 	if(LAZYLEN(vessel.reagent_data))
@@ -261,8 +261,8 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/source
 	var/list/blood_data
 	if(islist(source))
 		blood_data = source
-	if(ishuman(source))
-		var/mob/living/carbon/human/donor = source
+	if(isteshari(source))
+		var/mob/living/carbon/teshari/donor = source
 		blood_data = donor.get_blood_data()
 	else if(isatom(source))
 		var/atom/donor = source

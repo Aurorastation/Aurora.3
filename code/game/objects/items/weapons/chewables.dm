@@ -40,7 +40,7 @@ obj/item/clothing/mask/chewable/Initialize()
 /obj/item/clothing/mask/chewable/equipped(var/mob/living/user, var/slot)
 	..()
 	if(slot == slot_wear_mask)
-		var/mob/living/carbon/human/C = user
+		var/mob/living/carbon/teshari/C = user
 		if(C.check_has_mouth())
 			START_PROCESSING(SSprocessing, src)
 		else
@@ -57,8 +57,8 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/clothing/mask/chewable/proc/chew()
 	chewtime--
 	if(reagents && reagents.total_volume)
-		if(ishuman(loc))
-			var/mob/living/carbon/human/C = loc
+		if(isteshari(loc))
+			var/mob/living/carbon/teshari/C = loc
 			if (src == C.wear_mask && C.check_has_mouth())
 				reagents.trans_to_mob(C, REM, CHEM_INGEST, 0.2)
 				if(isnum(damage_per_crunch && !crunching))
@@ -67,7 +67,7 @@ obj/item/clothing/mask/chewable/Destroy()
 		else
 			STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/mask/chewable/proc/damagecrunch(mob/living/carbon/human/user)
+/obj/item/clothing/mask/chewable/proc/damagecrunch(mob/living/carbon/teshari/user)
 	if(src == user.wear_mask) // are we still chewing the gum?
 		user.apply_damage(damage_per_crunch, DAMAGE_BRUTE, BP_HEAD)
 		user.apply_damage(damage_per_crunch/2, DAMAGE_PAIN, BP_HEAD)

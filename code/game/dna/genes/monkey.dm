@@ -5,11 +5,11 @@
 	block = MONKEYBLOCK
 
 /datum/dna/gene/monkey/can_activate(var/mob/M,var/flags)
-	return ishuman(M)
+	return isteshari(M)
 
 /datum/dna/gene/monkey/activate(var/mob/living/carbon/C)
-	var/mob/living/carbon/human/H
-	if(ishuman(C))
+	var/mob/living/carbon/teshari/H
+	if(isteshari(C))
 		H = C
 	else
 		return
@@ -18,14 +18,14 @@
 		H.name = H.species.get_random_name() // keep the realname
 
 /datum/dna/gene/monkey/deactivate(var/mob/living/carbon/C)
-	var/mob/living/carbon/human/H
-	if(ishuman(C))
+	var/mob/living/carbon/teshari/H
+	if(isteshari(C))
 		H = C
 	else
 		return
 
 	if(islesserform(H))
-		H = H.humanize(1) // woo transform procs!
+		H = H.teshariize(1) // woo transform procs!
 
 		if(!H.dna.real_name)
 			var/randomname = H.species.get_random_name()

@@ -1,5 +1,5 @@
 /datum/job/hra
-	title = "Human Resources Assistant"
+	title = "teshari Resources Assistant"
 	faction = "Station"
 	flag = HRA
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
@@ -10,7 +10,7 @@
 	minimal_player_age = 10
 	economic_modifier = 10
 	ideal_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -23,11 +23,11 @@
 			            access_construction, access_research, access_gateway, access_weapons, access_bridge_crew, access_intrepid, access_cent_ccia)
 
 	outfit = /datum/outfit/job/hra
-	blacklisted_species = list(SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	blacklisted_species = list(SPECIES_teshari_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 
 
 /datum/outfit/job/hra
-	name = "Human Resources Assistant"
+	name = "teshari Resources Assistant"
 	jobtype = /datum/job/hra
 
 	uniform = /obj/item/clothing/under/rank/scc2

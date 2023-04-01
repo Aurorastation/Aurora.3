@@ -35,10 +35,10 @@
 		center_of_mass = list("x"=16, "y"=10)
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/afterattack(var/atom/target, var/mob/user, var/proximity, var/params)
-	if(ishuman(target) && user.a_intent == I_HELP && (user.zone_sel.selecting == BP_L_HAND || user.zone_sel.selecting == BP_R_HAND))
+	if(isteshari(target) && user.a_intent == I_HELP && (user.zone_sel.selecting == BP_L_HAND || user.zone_sel.selecting == BP_R_HAND))
 		if(!user.Adjacent(target))
 			return
-		var/mob/living/carbon/human/H = target
+		var/mob/living/carbon/teshari/H = target
 		var/obj/item/reagent_containers/food/drinks/drinkingglass/glass = H.get_type_in_hands(/obj/item/reagent_containers/food/drinks/drinkingglass)
 		if(!use_check(H))
 			to_chat(user, SPAN_WARNING("[H] is in no condition to perform a toast!"))

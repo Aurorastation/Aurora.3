@@ -16,7 +16,7 @@
 	round_description = "There is a foreign agent or traitor on the [current_map.station_type]. Do not let the traitor succeed!"
 	extended_round_description = "The Company's monopolistic control over the phoron supplies of Tau Ceti has marked the \
 		[current_map.station_type] to be a highly valuable target for many competing organizations and individuals. The varied pasts \
-		and experiences of your coworkers have left them susceptible to the vices and temptations of humanity. \
+		and experiences of your coworkers have left them susceptible to the vices and temptations of teshariity. \
 		Is the [current_map.station_type] the safe self-contained workplace you once thought it was, or has it become a playground \
 		for the evils of the galaxy? Who can you trust? Watch your front. Watch your sides. Watch your back. \
 		The familiar faces that you've passed hundreds of times down the hallways before can be hiding terrible \

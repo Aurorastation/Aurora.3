@@ -19,7 +19,7 @@
 											   "Wraith"     = /mob/living/simple_animal/construct/wraith,
 											   "Artificer"  = /mob/living/simple_animal/construct/builder,
 											   "Harvester"  = /mob/living/simple_animal/construct/harvester)
-		
+
 		var/construct_path = construct_types[construct_class]
 		var/mob/living/simple_animal/construct/Z = new construct_path(get_turf(C))
 		Z.health = Z.health * (C.health / C.maxHealth)
@@ -29,8 +29,8 @@
 		C.death()
 		construct_msg(Z, construct_class)
 		Z.cancel_camera()
-	
-	else if(ishuman(user))
+
+	else if(isteshari(user))
 		user.equip_to_slot_or_del(new /obj/item/clothing/head/culthood/alt(user), slot_head)
 		user.equip_to_slot_or_del(new /obj/item/clothing/suit/cultrobes/alt(user), slot_wear_suit)
 		user.equip_to_slot_or_del(new /obj/item/clothing/shoes/cult(user), slot_shoes)

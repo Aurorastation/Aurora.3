@@ -1,6 +1,6 @@
 //elyran naval infantry
 
-/datum/ghostspawner/human/elyran_naval_infantry
+/datum/ghostspawner/teshari/elyran_naval_infantry
 	short_name = "elyran_naval_infantry"
 	name = "Elyran Naval Infantryman"
 	desc = "Crew the Elyran naval infantry interdiction craft. Follow your Ensign's orders. (OOC Note: All characters must be of Elyran ethnic origin and background, this is enforceable by admin/moderator action.)"
@@ -11,7 +11,7 @@
 	max_count = 3
 
 	outfit = /datum/outfit/admin/elyran_naval_infantry
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_teshari)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Elyran Naval Infantryman"
@@ -32,7 +32,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/elyran_naval_infantry/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/elyran_naval_infantry/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
@@ -46,7 +46,7 @@
 /datum/outfit/admin/elyran_naval_infantry/get_id_access()
 	return list(access_elyran_naval_infantry_ship, access_external_airlocks)
 
-/datum/ghostspawner/human/elyran_naval_infantry/officer
+/datum/ghostspawner/teshari/elyran_naval_infantry/officer
 	short_name = "elyran_naval_infantry_officer"
 	name = "Elyran Naval Infantry Officer"
 	desc = "Command and pilot the Elyran naval infantry strike craft. (OOC Note: All characters must be of Elyran ethnic origin and background, this is enforceable by admin/moderator action.)"
@@ -66,7 +66,7 @@
 	uniform = /obj/item/clothing/under/rank/elyran_fatigues/commander
 
 
-/datum/ghostspawner/human/elyran_naval_infantry/nco
+/datum/ghostspawner/teshari/elyran_naval_infantry/nco
 	short_name = "elyran_naval_infantry_nco"
 	name = "Elyran Naval Infantry Fireteam Leader"
 	desc = "Lead the Elyran naval infantry strike craft's riflemen. Serve as the Ensign's second-in-command, and follow their orders. (OOC Note: All characters must be of Elyran ethnic origin and background, this is enforceable by admin/moderator action.)"

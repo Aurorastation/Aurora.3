@@ -39,8 +39,8 @@
 
 	var/accent_icon = speaker.get_accent_icon(language, src)
 	var/speaker_name = speaker.name
-	if(ishuman(speaker))
-		var/mob/living/carbon/human/H = speaker
+	if(isteshari(speaker))
+		var/mob/living/carbon/teshari/H = speaker
 		speaker_name = H.GetVoice()
 
 	if(italics)
@@ -157,7 +157,7 @@
 	else
 		speaker_name = "Unknown"
 
-	if(ishuman(speaker))
+	if(isteshari(speaker))
 		speaker_name = speaker.GetVoice()
 
 	if(hard_to_hear)
@@ -171,17 +171,17 @@
 
 	if(istype(src, /mob/living/silicon/ai) && !hard_to_hear)
 		var/jobname // the mob's "job"
-		var/mob/living/carbon/human/impersonating //The crew member being impersonated, if any.
+		var/mob/living/carbon/teshari/impersonating //The crew member being impersonated, if any.
 
-		if (ishuman(speaker))
-			var/mob/living/carbon/human/H = speaker
+		if (isteshari(speaker))
+			var/mob/living/carbon/teshari/H = speaker
 
 			if(H.wear_mask && istype(H.wear_mask,/obj/item/clothing/mask/gas/voice))
 				changed_voice = 1
 				var/list/impersonated = list()
-				var/mob/living/carbon/human/I = impersonated[speaker_name]
+				var/mob/living/carbon/teshari/I = impersonated[speaker_name]
 				if(!I)
-					for(var/mob/living/carbon/human/M in mob_list)
+					for(var/mob/living/carbon/teshari/M in mob_list)
 						if(M.real_name == speaker_name)
 							I = M
 							impersonated[speaker_name] = I
@@ -197,7 +197,7 @@
 			else
 				jobname = H.get_assignment()
 
-		else if (iscarbon(speaker)) // Nonhuman carbon mob
+		else if (iscarbon(speaker)) // Nonteshari carbon mob
 			jobname = "No id"
 		else if (isAI(speaker))
 			jobname = "AI"

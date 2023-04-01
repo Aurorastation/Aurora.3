@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/tajaran_scrapper
+/datum/ghostspawner/teshari/tajaran_scrapper
 	short_name = "tajaran_scrapper"
 	name = "Tajaran Scrapper"
 	desc = "Crew the Tajaran Scrapper ship."

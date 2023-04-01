@@ -478,7 +478,7 @@
 /mob/living/simple_animal/proc/handle_attack_by(var/mob/M)
 	return
 
-/mob/living/simple_animal/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/attack_hand(mob/living/carbon/teshari/M as mob)
 	..()
 	switch(M.a_intent)
 
@@ -522,14 +522,14 @@
 
 	return
 
-/mob/living/simple_animal/proc/unarmed_harm_attack(var/mob/living/carbon/human/user)
+/mob/living/simple_animal/proc/unarmed_harm_attack(var/mob/living/carbon/teshari/user)
 	if(istype(user))
 		var/datum/unarmed_attack/attack = user.get_unarmed_attack(src)
 		if(!attack)
 			simple_harm_attack(user)
 			return
 		attack.show_attack_simple(user, src, pick(organ_names))
-		var/actual_damage = attack.get_unarmed_damage(user) //Punch and kick no longer have get_unarmed_damage due to how humanmob combat works. If we have none, we'll apply a small random amount.
+		var/actual_damage = attack.get_unarmed_damage(user) //Punch and kick no longer have get_unarmed_damage due to how tesharimob combat works. If we have none, we'll apply a small random amount.
 		if(!actual_damage)
 			actual_damage = harm_intent_damage ? rand(1, harm_intent_damage) : 0
 		apply_damage(actual_damage, attack.damage_type)
@@ -659,8 +659,8 @@
 	return tally+config.animal_delay
 
 /mob/living/simple_animal/cat/proc/handle_movement_target()
-	//if our target is neither inside a turf or inside a human(???), stop
-	if((movement_target) && !(isturf(movement_target.loc) || ishuman(movement_target.loc) ))
+	//if our target is neither inside a turf or inside a teshari(???), stop
+	if((movement_target) && !(isturf(movement_target.loc) || isteshari(movement_target.loc) ))
 		movement_target = null
 		stop_automated_movement = 0
 	//if we have no target or our current one is out of sight/too far away
@@ -957,7 +957,7 @@
 	else
 		return FALSE
 
-/mob/living/simple_animal/proc/reflect_unarmed_damage(var/mob/living/carbon/human/attacker, var/damage_type, var/description)
+/mob/living/simple_animal/proc/reflect_unarmed_damage(var/mob/living/carbon/teshari/attacker, var/damage_type, var/description)
 	if(attacker.a_intent == I_HURT)
 		var/hand_hurtie
 		if(attacker.hand)

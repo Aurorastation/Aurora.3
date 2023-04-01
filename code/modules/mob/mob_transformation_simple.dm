@@ -48,8 +48,8 @@
 	else
 		M.key = key
 
-	if(subspecies && istype(M,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if(subspecies && istype(M,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = M
 		H.set_species(subspecies)
 
 	if(delete_old_mob)

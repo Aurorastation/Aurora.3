@@ -131,8 +131,8 @@
 			user.visible_message(SPAN_DANGER("\The [user] hits \the [target] with \the [src]!"))
 			user.do_attack_animation(src)
 			M.IgniteMob()
-		else if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+		else if(isteshari(M))
+			var/mob/living/carbon/teshari/H = M
 			var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 			if(LAZYLEN(affecting.wounds))
 				for (var/datum/wound/W in affecting.wounds)

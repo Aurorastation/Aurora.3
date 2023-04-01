@@ -2,7 +2,7 @@
 #define UPGRADE_KILL_TIMER	100
 
 
-//This is called from human_attackhand.dm before grabbing happens.
+//This is called from teshari_attackhand.dm before grabbing happens.
 //IT is called when grabber tries to grab this mob
 //Override this for special grab behaviour.
 //Returning 0 will make grab fail, returning 1 will suceed
@@ -32,7 +32,7 @@
 	flags = 0
 	var/obj/screen/grab/hud = null
 	var/mob/living/affecting = null
-	var/mob/living/carbon/human/assailant = null
+	var/mob/living/carbon/teshari/assailant = null
 	var/state = GRAB_PASSIVE
 
 	var/allow_upgrade = 1
@@ -162,8 +162,8 @@
 	if(state >= GRAB_KILL)
 		affecting.stuttering = max(affecting.stuttering, 5) //It will hamper your voice, being choked and all.
 		affecting.Weaken(7)	//Should keep you down unless you get help.
-		if(ishuman(affecting))
-			var/mob/living/carbon/human/A = affecting
+		if(isteshari(affecting))
+			var/mob/living/carbon/teshari/A = affecting
 			var/obj/item/clothing/C = A.head
 			if(C && (C.item_flags & THICKMATERIAL))
 				return
@@ -269,8 +269,8 @@
 		return
 
 	var/grab_coeff = 1
-	if(ishuman(affecting))
-		var/mob/living/carbon/human/H = affecting
+	if(isteshari(affecting))
+		var/mob/living/carbon/teshari/H = affecting
 		if(H.species)
 			grab_coeff = H.species.grab_mod
 
@@ -306,8 +306,8 @@
 		hud.name = "kill"
 		affecting.Stun(10) //10 ticks of ensured grab
 	else if(state < GRAB_UPGRADING)
-		if(ishuman(affecting))
-			var/mob/living/carbon/human/H = affecting
+		if(isteshari(affecting))
+			var/mob/living/carbon/teshari/H = affecting
 			if(H.head && (H.head.item_flags & AIRTIGHT))
 				assailant.visible_message(SPAN_WARNING("[affecting]'s headgear prevents [assailant] from choking them out!"), SPAN_WARNING("[affecting]'s headgear prevents you from choking them out!"))
 				return
@@ -322,8 +322,8 @@
 		msg_admin_attack("[key_name_admin(assailant)] is strangling [key_name_admin(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
 
 		affecting.setClickCooldown(10)
-		if(ishuman(affecting))
-			var/mob/living/carbon/human/A = affecting
+		if(isteshari(affecting))
+			var/mob/living/carbon/teshari/A = affecting
 			if (!(A.species.flags & NO_BREATHE))
 				A.losebreath += 4
 		affecting.set_dir(WEST)
@@ -351,8 +351,8 @@
 	if(!affecting)
 		return
 
-	if(ishuman(user) && affecting == M)
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user) && affecting == M)
+		var/mob/living/carbon/teshari/H = user
 		if(H.check_psi_grab(src))
 			return
 
@@ -364,7 +364,7 @@
 
 	//clicking on the victim while grabbing them
 	if(M == affecting)
-		if(ishuman(affecting))
+		if(isteshari(affecting))
 			var/hit_zone = target_zone
 			flick(hud.icon_state, hud)
 			switch(assailant.a_intent)
@@ -436,15 +436,15 @@
 	destroying = 1 // stops us calling qdel(src) on dropped()
 	return ..()
 
-/obj/item/grab/MouseDrop(mob/living/carbon/human/H)
+/obj/item/grab/MouseDrop(mob/living/carbon/teshari/H)
 	if(wielded || affecting.buckled_to || !istype(H) || assailant != H || H.get_active_hand() != src)
 		return
-	if(!ishuman(affecting))
-		to_chat(H, SPAN_WARNING("You can only fireman carry humanoids!"))
+	if(!isteshari(affecting))
+		to_chat(H, SPAN_WARNING("You can only fireman carry tesharioids!"))
 		return
-	var/mob/living/carbon/human/affected_human = affecting
-	if(affected_human.species.mob_size > 25)
-		to_chat(H, SPAN_WARNING("\The [affected_human] is way too big to fireman carry!"))
+	var/mob/living/carbon/teshari/affected_teshari = affecting
+	if(affected_teshari.species.mob_size > 25)
+		to_chat(H, SPAN_WARNING("\The [affected_teshari] is way too big to fireman carry!"))
 		return
 	if(state < GRAB_AGGRESSIVE)
 		to_chat(H, SPAN_WARNING("You need an aggressive grab before you can fireman carry someone!"))
@@ -489,8 +489,8 @@
 		affecting.forceMove(assailant.loc)
 
 /obj/item/grab/can_swap_hands(mob/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.species.can_double_fireman_carry())
 			return TRUE
 	if(wielded)

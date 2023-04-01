@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/ert
+/datum/ghostspawner/teshari/ert
 	tags = list("Response Teams")
 
 	enabled = FALSE
@@ -7,8 +7,8 @@
 
 	spawnpoints = list("ERTSpawn")
 
-	//Vars related to human mobs
-	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_IPC)
+	//Vars related to teshari mobs
+	possible_species = list(SPECIES_teshari, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Emergency Responder"
@@ -19,7 +19,7 @@
 
 	mob_name = null
 
-/datum/ghostspawner/human/ert/post_spawn(mob/user)
+/datum/ghostspawner/teshari/ert/post_spawn(mob/user)
 	if(name)
 		to_chat(user, "<span class='danger'><font size=3>You are [max_count > 1 ? "a" : "the"] [name]!</font></span>")
 	return ..()

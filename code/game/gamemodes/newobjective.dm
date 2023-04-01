@@ -23,7 +23,7 @@
 	var/list/datum/objective/assassinate/missions = list()
 
 	for(var/datum/mind/target in ticker.minds)
-		if((target != traitor) && istype(target.current, /mob/living/carbon/human))
+		if((target != traitor) && istype(target.current, /mob/living/carbon/teshari))
 			if(target && target.current)
 				var/datum/objective/target_obj = new /datum/objective/assassinate(null,job,target)
 				missions += target_obj
@@ -34,7 +34,7 @@
 	var/list/datum/objective/frame/missions = list()
 
 	for(var/datum/mind/target in ticker.minds)
-		if((target != traitor) && istype(target.current, /mob/living/carbon/human))
+		if((target != traitor) && istype(target.current, /mob/living/carbon/teshari))
 			if(target && target.current)
 				var/datum/objective/target_obj = new /datum/objective/frame(null,job,target)
 				missions += target_obj
@@ -45,7 +45,7 @@
 	var/list/datum/objective/frame/missions = list()
 
 	for(var/datum/mind/target in ticker.minds)
-		if((target != traitor) && istype(target.current, /mob/living/carbon/human))
+		if((target != traitor) && istype(target.current, /mob/living/carbon/teshari))
 			if(target && target.current)
 				var/datum/objective/target_obj = new /datum/objective/protection(null,job,target)
 				missions += target_obj
@@ -254,7 +254,7 @@ datum
 			return INFINITY
 		proc/find_target_by_role(role, role_type=0)//Option sets either to check assigned role or special role. Default to assigned.
 			for(var/datum/mind/possible_target in ticker.minds)
-				if((possible_target != owner) && ishuman(possible_target.current) && ((role_type ? possible_target.special_role : possible_target.assigned_role) == role) )
+				if((possible_target != owner) && isteshari(possible_target.current) && ((role_type ? possible_target.special_role : possible_target.assigned_role) == role) )
 					target = possible_target
 					break
 
@@ -388,7 +388,7 @@ datum
 
 			find_target_by_role(var/role)
 				for(var/datum/mind/possible_target in ticker.minds)
-					if((possible_target != owner) && istype(possible_target.current, /mob/living/carbon/human) && (possible_target.assigned_role == role))
+					if((possible_target != owner) && istype(possible_target.current, /mob/living/carbon/teshari) && (possible_target.assigned_role == role))
 						target = possible_target
 						break
 
@@ -404,7 +404,7 @@ datum
 				var/list/possible_targets = list()
 
 				for(var/datum/mind/possible_target in ticker.minds)
-					if((possible_target != owner) && istype(possible_target.current, /mob/living/carbon/human))
+					if((possible_target != owner) && istype(possible_target.current, /mob/living/carbon/teshari))
 						possible_targets += possible_target
 
 				if(possible_targets.len > 0)
@@ -439,7 +439,7 @@ datum
 
 			find_target_by_role(var/role)
 				for(var/datum/mind/possible_target in ticker.minds)
-					if((possible_target != owner) && istype(possible_target.current, /mob/living/carbon/human) && (possible_target.assigned_role == role))
+					if((possible_target != owner) && istype(possible_target.current, /mob/living/carbon/teshari) && (possible_target.assigned_role == role))
 						target = possible_target
 						break
 
@@ -680,8 +680,8 @@ datum
 
 
 			/*burger
-				steal_target = /obj/item/reagent_containers/food/snacks/human/burger
-				explanation_text = "Steal a burger made out of human organs, this will be presented as proof of NanoTrasen's chronic lack of standards."
+				steal_target = /obj/item/reagent_containers/food/snacks/teshari/burger
+				explanation_text = "Steal a burger made out of teshari organs, this will be presented as proof of NanoTrasen's chronic lack of standards."
 				weight = 60
 
 				get_points(var/job)
@@ -1224,7 +1224,7 @@ datum
 
 
 		block
-			explanation_text = "Do not allow any humans to escape on the shuttle alive."
+			explanation_text = "Do not allow any tesharis to escape on the shuttle alive."
 
 
 			check_completion()
@@ -1290,7 +1290,7 @@ datum
 							if(P.client && P.ready && P.mind!=owner)
 								n_p ++
 					else if (ticker.current_state == GAME_STATE_PLAYING)
-						for(var/mob/living/carbon/human/P in human_mob_list)
+						for(var/mob/living/carbon/teshari/P in teshari_mob_list)
 							if(P.client && !(P.mind in ticker.mode.changelings) && P.mind!=owner)
 								n_p ++
 					target_amount = min(target_amount, n_p)
@@ -1309,7 +1309,7 @@ datum
 			proc/gen_amount_goal(var/lowbound = 4, var/highbound = 6)
 				target_amount = rand (lowbound,highbound)
 
-				explanation_text = "Attune [target_amount] humanoid brains."
+				explanation_text = "Attune [target_amount] tesharioid brains."
 				return target_amount
 
 			check_completion()
@@ -1327,15 +1327,15 @@ datum
 
 
 			check_completion()
-				if(!ishuman(owner.current))
+				if(!isteshari(owner.current))
 					return 0
 				if(!owner.current || owner.current.stat == 2)
 					return 0
 
 				var/current_amount
 				var/obj/item/rig/S
-				if(istype(owner.current,/mob/living/carbon/human))
-					var/mob/living/carbon/human/H = owner.current
+				if(istype(owner.current,/mob/living/carbon/teshari))
+					var/mob/living/carbon/teshari/H = owner.current
 					S = H.back
 				if(!S || !istype(S) || !S.stored_research.len)
 					return 0
@@ -1424,15 +1424,15 @@ datum
 			check_completion()//Basically runs through all the mobs in the area to determine how much they are worth.
 				var/captured_amount = 0
 				var/area/centcom/holding/A = locate()
-				for(var/mob/living/carbon/human/M in A)//Humans.
+				for(var/mob/living/carbon/teshari/M in A)//tesharis.
 					if(M.stat==2)//Dead folks are worth less.
 						captured_amount+=0.5
 						continue
 					captured_amount+=1
 				for(var/mob/living/carbon/monkey/M in A)//Monkeys are almost worthless, you failure.
 					captured_amount+=0.1
-				for(var/mob/living/carbon/alien/humanoid/M in A)//Aliens are worth twice as much as humans.
-					if(istype(M, /mob/living/carbon/alien/humanoid/queen))//Queens are worth three times as much as humans.
+				for(var/mob/living/carbon/alien/tesharioid/M in A)//Aliens are worth twice as much as tesharis.
+					if(istype(M, /mob/living/carbon/alien/tesharioid/queen))//Queens are worth three times as much as tesharis.
 						if(M.stat==2)
 							captured_amount+=1.5
 						else

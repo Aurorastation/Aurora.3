@@ -19,14 +19,14 @@
 	var/list/alt_titles                   // List of alternate titles, if any
 	var/list/title_accesses               // A map of title -> list of accesses to add if the person has this title.
 	var/minimal_player_age = 0            // If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
-	var/list/minimum_character_age = list(// Age restriction, assoc list of species define -> age; if species isn't found, defaults to SPECIES_HUMAN entry
-		SPECIES_HUMAN = 17,
+	var/list/minimum_character_age = list(// Age restriction, assoc list of species define -> age; if species isn't found, defaults to SPECIES_teshari entry
+		SPECIES_teshari = 17,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
 	var/list/alt_ages = null              // assoc list of alt titles to minimum character ages assoc lists (see above -- yes this is slightly awful)
 	var/list/ideal_character_age = list(  // Ideal character ages (for heads), assoc list of species define -> age, see above
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 100,
 		SPECIES_SKRELL_AXIORI = 100
 	)
@@ -44,11 +44,11 @@
 	var/list/blacklisted_species = null   // A blacklist of species that can't be this job
 
 //Only override this proc
-/datum/job/proc/after_spawn(mob/living/carbon/human/H)
+/datum/job/proc/after_spawn(mob/living/carbon/teshari/H)
 
-/datum/job/proc/announce(mob/living/carbon/human/H)
+/datum/job/proc/announce(mob/living/carbon/teshari/H)
 
-/datum/job/proc/get_outfit(mob/living/carbon/human/H, alt_title=null)
+/datum/job/proc/get_outfit(mob/living/carbon/teshari/H, alt_title=null)
 	//Check if we have a speical outfit for that alt title
 	alt_title = H?.mind?.role_alt_title || alt_title
 
@@ -66,14 +66,14 @@
 	else if (outfit)
 		return outfit
 
-/datum/job/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE, alt_title = null)
+/datum/job/proc/pre_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE, alt_title = null)
 	if(!H)
 		return 0
 
 	H.species.before_equip(H, visualsOnly, src)
 	H.preEquipOutfit(get_outfit(H, alt_title), visualsOnly)
 
-/datum/job/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE, announce = TRUE, alt_title = null)
+/datum/job/proc/equip(mob/living/carbon/teshari/H, visualsOnly = FALSE, announce = TRUE, alt_title = null)
 	if(!H)
 		return 0
 	H.equipOutfit(get_outfit(H, alt_title), visualsOnly)
@@ -83,7 +83,7 @@
 	if(!visualsOnly && announce)
 		announce(H)
 
-/datum/job/proc/setup_account(var/mob/living/carbon/human/H)
+/datum/job/proc/setup_account(var/mob/living/carbon/teshari/H)
 	if(!account_allowed || (H.mind && H.mind.initial_account))
 		return
 
@@ -100,8 +100,8 @@
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)
 	if (!species_modifier)
-		var/datum/species/human_species = global.all_species[SPECIES_HUMAN]
-		species_modifier = human_species.economic_modifier
+		var/datum/species/teshari_species = global.all_species[SPECIES_teshari]
+		species_modifier = teshari_species.economic_modifier
 
 	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,50) + rand(5, 50)) * econ_status * economic_modifier * species_modifier
 	var/datum/money_account/M = SSeconomy.create_account(H.real_name, money_amount, null, public_account)
@@ -121,7 +121,7 @@
 	to_chat(H, "<span class='notice'><b>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</b></span>")
 
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/del()
-/datum/job/proc/equip_preview(mob/living/carbon/human/H, var/alt_title, var/faction_override)
+/datum/job/proc/equip_preview(mob/living/carbon/teshari/H, var/alt_title, var/faction_override)
 	if(faction_override)
 		var/faction = SSjobs.name_factions[faction_override]
 		if(faction)
@@ -157,32 +157,32 @@
 
 /datum/job/proc/get_minimum_character_age(var/species)
 	if(!species || !(species in minimum_character_age))
-		species = SPECIES_HUMAN
+		species = SPECIES_teshari
 	return minimum_character_age[species]
 
 /datum/job/proc/get_alt_character_age(var/species, var/title)
 	// call this w/o title to get the most minimum of alt ages, used in occupation.dm:/datum/category_item/player_setup_item/occupation/content
 	if(!species)
-		species = SPECIES_HUMAN
+		species = SPECIES_teshari
 	var/min_alt_age
 	if(!title)
 		for(var/t in alt_ages)
 			if(species in alt_ages[t])
 				min_alt_age = min(min_alt_age, alt_ages[t][species])
 			else
-				min_alt_age = min(min_alt_age, alt_ages[t][SPECIES_HUMAN])
+				min_alt_age = min(min_alt_age, alt_ages[t][SPECIES_teshari])
 		return min_alt_age
 	else if(title in alt_ages)
-		return (species in alt_ages[title]) ? alt_ages[title][species] : alt_ages[title][SPECIES_HUMAN]
+		return (species in alt_ages[title]) ? alt_ages[title][species] : alt_ages[title][SPECIES_teshari]
 
 /datum/job/proc/get_ideal_character_age(var/species)
 	if(!species)
-		species = SPECIES_HUMAN
+		species = SPECIES_teshari
 	else if(!(species in ideal_character_age))
-		// try to see if there's a min age set -- ideally this shouldn't happen, but better to take a min age than fall back to human just yet
+		// try to see if there's a min age set -- ideally this shouldn't happen, but better to take a min age than fall back to teshari just yet
 		if(species in minimum_character_age) // if there is one, just add 20 and send it
 			return minimum_character_age[species] + 20
-		species = SPECIES_HUMAN // no such luck
+		species = SPECIES_teshari // no such luck
 	return ideal_character_age[species]
 
 /datum/job/proc/fetch_age_restriction()
@@ -224,7 +224,7 @@
 
 	var/box = /obj/item/storage/box/survival
 
-/datum/outfit/job/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	back = null //Nulling the backpack here, since we already equipped the backpack in pre_equip
 	if(box)
 		var/spawnbox = box
@@ -232,16 +232,16 @@
 		backpack_contents[spawnbox] = 1
 	. = ..()
 
-/datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 
-/datum/outfit/job/get_id_access(mob/living/carbon/human/H)
+/datum/outfit/job/get_id_access(mob/living/carbon/teshari/H)
 	var/datum/job/J = SSjobs.GetJobType(jobtype)
 	if(!J)
 		J = SSjobs.GetJob(H.job)
 	return J.get_access(get_id_assignment(H))
 
-/datum/outfit/job/get_id_rank(mob/living/carbon/human/H)
+/datum/outfit/job/get_id_rank(mob/living/carbon/teshari/H)
 	var/datum/job/J = SSjobs.GetJobType(jobtype)
 	if(!J)
 		J = SSjobs.GetJob(H.job)

@@ -333,7 +333,7 @@
 	output += "<option value=''>--</option>"
 	for(var/j in get_all_jobs())
 		output += "<option value='[j]'>[j]</option>"
-	for(var/j in nonhuman_positions)
+	for(var/j in nonteshari_positions)
 		output += "<option value='[j]'>[j]</option>"
 	var/list/bantypes = list("traitor","changeling","vampire","operative","revolutionary","cultist","wizard") //For legacy bans.
 	for(var/antag_type in all_antag_types) // Grab other bans.

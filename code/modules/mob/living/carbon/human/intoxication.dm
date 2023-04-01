@@ -1,5 +1,5 @@
 //This proc handles the effects of being intoxicated. Removal of intoxication is done elswhere: By the liver, in organ_internal.dm
-/mob/living/carbon/human/proc/handle_intoxication()
+/mob/living/carbon/teshari/proc/handle_intoxication()
 
 
 	var/SR = species.ethanol_resistance
@@ -84,7 +84,7 @@
 		adjustOxyLoss(3,100)
 		adjustBrainLoss(1,50)
 
-/mob/living/carbon/human/proc/is_drunk()
+/mob/living/carbon/teshari/proc/is_drunk()
 	var/SR = species.ethanol_resistance
 	if(SR == -1)
 		return FALSE

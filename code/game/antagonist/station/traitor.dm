@@ -84,8 +84,8 @@ var/datum/antagonist/traitor/traitors
 					traitor.objectives += hijack_objective
 	return
 
-/datum/antagonist/traitor/equip(var/mob/living/carbon/human/traitor_mob)
-	if(istype(traitor_mob, /mob/living/silicon)) // this needs to be here because ..() returns false if the mob isn't human
+/datum/antagonist/traitor/equip(var/mob/living/carbon/teshari/traitor_mob)
+	if(istype(traitor_mob, /mob/living/silicon)) // this needs to be here because ..() returns false if the mob isn't teshari
 		add_law_zero(traitor_mob)
 		if(isrobot(traitor_mob))
 			var/mob/living/silicon/robot/R = traitor_mob
@@ -101,7 +101,7 @@ var/datum/antagonist/traitor/traitors
 	traitor_mob.faction = "syndicate"
 	spawn_uplink(traitor_mob)
 	// Tell them about people they might want to contact.
-	var/mob/living/carbon/human/M = get_poor()
+	var/mob/living/carbon/teshari/M = get_poor()
 	if(M && M != traitor_mob)
 		to_chat(traitor_mob, "We have received credible reports that [M.real_name] might be susceptible to bribes. If you need assistance, consider contacting them.")
 		traitor_mob.mind.store_memory("<b>Potential Collaborator</b>: [M.real_name]")
@@ -109,7 +109,7 @@ var/datum/antagonist/traitor/traitors
 	//Begin code phrase.
 	give_codewords(traitor_mob)
 
-/datum/antagonist/traitor/proc/spawn_uplink(var/mob/living/carbon/human/traitor_mob)
+/datum/antagonist/traitor/proc/spawn_uplink(var/mob/living/carbon/teshari/traitor_mob)
 	if(!istype(traitor_mob))
 		return
 

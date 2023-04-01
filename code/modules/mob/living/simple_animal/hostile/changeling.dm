@@ -11,7 +11,7 @@
 	universal_speak = TRUE
 	universal_understand = TRUE
 
-	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
+	mob_swap_flags = teshari|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
 	tameable = FALSE
@@ -47,7 +47,7 @@
 	max_tox = 0
 
 	var/is_devouring = FALSE
-	var/mob/living/carbon/human/occupant = null
+	var/mob/living/carbon/teshari/occupant = null
 	var/loud_sounds = list('sound/effects/creatures/bear_loud_1.ogg',
 	'sound/effects/creatures/bear_loud_2.ogg',
 	'sound/effects/creatures/bear_loud_3.ogg',
@@ -182,7 +182,7 @@
 
 	speed = -1
 
-	var/mob/living/carbon/human/occupant = null
+	var/mob/living/carbon/teshari/occupant = null
 
 /mob/living/simple_animal/hostile/lesser_changeling/Initialize()
 	. = ..()

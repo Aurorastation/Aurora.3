@@ -7,12 +7,12 @@
 	anchored = TRUE
 
 	buckle_lying = TRUE
-	can_buckle = list(/mob/living/carbon/human)
+	can_buckle = list(/mob/living/carbon/teshari)
 
 	idle_power_usage = 40
 	active_power_usage = 340
 
-	var/mob/living/carbon/human/occupant
+	var/mob/living/carbon/teshari/occupant
 
 	var/stasis_enabled = FALSE
 	var/chilled_occupant = FALSE
@@ -104,7 +104,7 @@
 	occupant = null
 	chilled_occupant = FALSE
 
-/obj/machinery/stasis_bed/post_buckle(mob/living/carbon/human/H)
+/obj/machinery/stasis_bed/post_buckle(mob/living/carbon/teshari/H)
 	if(H.buckled_to == src)
 		occupant = H
 		if(stasis_running())

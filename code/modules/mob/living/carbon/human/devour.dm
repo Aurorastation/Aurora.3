@@ -5,7 +5,7 @@
  *
  *  Returns TRUE on success, FALSE on failure
  */
-/mob/living/carbon/human/proc/devour(atom/movable/victim)
+/mob/living/carbon/teshari/proc/devour(atom/movable/victim)
 	var/can_eat = can_devour(victim)
 	if(!can_eat)
 		return FALSE
@@ -32,12 +32,12 @@
 
 	return TRUE
 
-/mob/living/carbon/human/proc/move_to_stomach(atom/movable/victim)
+/mob/living/carbon/teshari/proc/move_to_stomach(atom/movable/victim)
 	return
 
 // Snowflake procs for unathi. Because lore said so.
 
-/mob/living/carbon/human/proc/do_gradual_devour(var/mob/living/victim, var/eat_speed)
+/mob/living/carbon/teshari/proc/do_gradual_devour(var/mob/living/victim, var/eat_speed)
 	set waitfor = FALSE
 
 	//This function will start consuming the victim by taking bites out of them.
@@ -102,7 +102,7 @@
 				to_chat(src, "<span class='danger'>You moved! Devouring cancelled.</span>")
 			break
 
-/mob/living/carbon/human/proc/devouring_equals(var/mob/victim)
+/mob/living/carbon/teshari/proc/devouring_equals(var/mob/victim)
 	for(var/obj/item/grab/G in victim.grabbed_by)
 		if(G && G.state >= GRAB_NECK)
 			return TRUE
@@ -119,8 +119,8 @@
 		"You gobble \the [victim]'s flesh.")
 
 /proc/handle_devour_mess(var/mob/user, var/mob/living/victim, var/finish = 0)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		H.add_blood(victim)
 	if (!turf_hasblood(get_turf(victim)))
 		blood_splatter(get_turf(victim), victim, TRUE)

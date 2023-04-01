@@ -227,8 +227,8 @@ var/list/diona_banned_languages = list(
 		updatehealth()
 		return FALSE
 
-// Continuation of the Diona regen proc, but for human specific actions.
-/mob/living/carbon/human/diona_handle_regeneration(var/datum/dionastats/DS, var/bypass = FALSE)
+// Continuation of the Diona regen proc, but for teshari specific actions.
+/mob/living/carbon/teshari/diona_handle_regeneration(var/datum/dionastats/DS, var/bypass = FALSE)
 	..()
 
 	// We cancel with regening organ, as it's meant to stop all other regenerative
@@ -364,7 +364,7 @@ var/list/diona_banned_languages = list(
 
 	updatehealth()
 
-/mob/living/carbon/human/proc/diona_regen_progress(var/datum/dionastats/DS)
+/mob/living/carbon/teshari/proc/diona_regen_progress(var/datum/dionastats/DS)
 	if(!DS)
 		return
 	if(DS.regen_limb_progress > LIMB_REGROW_REQUIREMENT)
@@ -384,7 +384,7 @@ var/list/diona_banned_languages = list(
 
 	DS.regen_limb_progress += progress
 
-/mob/living/carbon/human/proc/diona_regen_callback(organ_path, var/datum/dionastats/DS)
+/mob/living/carbon/teshari/proc/diona_regen_callback(organ_path, var/datum/dionastats/DS)
 	if (!organ_path || !DS)
 		return
 
@@ -489,7 +489,7 @@ var/list/diona_banned_languages = list(
 /mob/living/carbon/alien/diona/get_dionastats()
 	return DS
 
-/mob/living/carbon/human/get_dionastats()
+/mob/living/carbon/teshari/get_dionastats()
 	return DS
 
 //Called on a nymph when it merges with a gestalt
@@ -547,12 +547,12 @@ var/list/diona_banned_languages = list(
 	set desc = "Allows you to merge back to your parent Gestalt."
 	set category = "Abilities"
 
-	for(var/mob/living/carbon/human/H in range(1))
+	for(var/mob/living/carbon/teshari/H in range(1))
 		if(!H.is_diona())
 			continue
 		if(!Adjacent(H))
 			continue
-		var/mob/living/carbon/human/diona/C = H
+		var/mob/living/carbon/teshari/diona/C = H
 		if(C == gestalt)
 			C.nutrition += REGROW_FOOD_REQ * 0.75
 			C.DS.stored_energy += REGROW_ENERGY_REQ * 0.75
@@ -567,7 +567,7 @@ var/list/diona_banned_languages = list(
 			to_chat(C, SPAN_NOTICE("Your lost nymph merged back."))
 			C.add_nymph()
 			verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
-			C.verbs -= /mob/living/carbon/human/proc/switch_to_nymph
+			C.verbs -= /mob/living/carbon/teshari/proc/switch_to_nymph
 			C.DS.nym = null
 			detached = FALSE
 			src.forceMove(C)
@@ -606,7 +606,7 @@ var/list/diona_banned_languages = list(
 	var/regen_limb_progress
 	var/pause_regen = FALSE
 
-/datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/human/H)
+/datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/teshari/H)
 	user.visible_message(SPAN_DANGER("[user] is trying to bite [H.name]."), SPAN_DANGER("You start biting \the [H], you both must stay still!"))
 	user.face_atom(get_turf(H))
 	if(do_mob(user, H, 40, needhand = FALSE))

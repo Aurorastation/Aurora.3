@@ -194,7 +194,7 @@
 	if((user && (!use_check(user))) && (user.contents.Find(src)) || in_range(src, user))
 		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
 			if( !user.get_active_hand() )		//if active hand is empty
-				var/mob/living/carbon/human/H = user
+				var/mob/living/carbon/teshari/H = user
 				var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
 				if (H.hand)
 					temp = H.organs_by_name["l_hand"]

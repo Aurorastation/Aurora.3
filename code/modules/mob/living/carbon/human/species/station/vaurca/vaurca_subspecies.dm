@@ -5,7 +5,7 @@
 	language = LANGUAGE_VAURCA
 	primitive_form = SPECIES_VAURCA_WORKER
 	greater_form = SPECIES_VAURCA_BREEDER
-	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
+	icobase = 'icons/mob/teshari_races/vaurca/r_vaurcab.dmi'
 	slowdown = 0
 
 	brute_mod = 0.8
@@ -51,9 +51,9 @@
 	name_plural = "Type CB"
 	bodytype = BODYTYPE_VAURCA_BREEDER
 	primitive_form = SPECIES_VAURCA_WARRIOR
-	icon_template = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
-	icobase = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
-	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
+	icon_template = 'icons/mob/teshari_races/vaurca/r_vaurcac.dmi'
+	icobase = 'icons/mob/teshari_races/vaurca/r_vaurcac.dmi'
+	deform = 'icons/mob/teshari_races/vaurca/r_vaurcac.dmi'
 	icon_x_offset = -8
 	healths_x = 22
 	healths_overlay_x = 9
@@ -61,9 +61,9 @@
 	rarity_value = 10
 	slowdown = 2
 	eyes = "breeder_eyes" //makes it so that eye colour is not changed when skin colour is.
-	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
+	eyes_icons = 'icons/mob/teshari_face/eyes48x48.dmi'
 	grab_mod = 4
-	toxins_mod = 1 //they're not used to all our weird human bacteria.
+	toxins_mod = 1 //they're not used to all our weird teshari bacteria.
 	break_cuffs = TRUE
 	mob_size = 30
 	taste_sensitivity = TASTE_DULL
@@ -80,9 +80,9 @@
 	speech_chance = 100
 
 	death_sound = 'sound/voice/hiss6.ogg'
-	damage_overlays = 'icons/mob/human_races/masks/dam_breeder.dmi'
-	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
-	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
+	damage_overlays = 'icons/mob/teshari_races/masks/dam_breeder.dmi'
+	damage_mask = 'icons/mob/teshari_races/masks/dam_mask_breeder.dmi'
+	blood_mask = 'icons/mob/teshari_races/masks/blood_breeder.dmi'
 	canvas_icon = 'icons/mob/base_48.dmi'
 
 
@@ -100,7 +100,7 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite
+		/mob/living/carbon/teshari/proc/bugbite
 	)
 
 	default_h_style = "Bald"
@@ -112,7 +112,7 @@
 		slot_r_hand_str = list("[NORTH]" = list("x" = 11, "y" = 8), "[EAST]" = list("x" = 25, "y" = 4), "[SOUTH]" = list("x" = 2, "y" = 8),  "[WEST]" = list("x" = 1, "y" = 5))
 	)
 
-/datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	..()
 	H.gender = FEMALE
 	return
@@ -123,9 +123,9 @@
 	name_plural = "Type BA"
 	bodytype = BODYTYPE_VAURCA_WARFORM
 	primitive_form = SPECIES_VAURCA_WARRIOR
-	icon_template = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
-	icobase = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
-	deform = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
+	icon_template = 'icons/mob/teshari_races/vaurca/r_vaurcamecha.dmi'
+	icobase = 'icons/mob/teshari_races/vaurca/r_vaurcamecha.dmi'
+	deform = 'icons/mob/teshari_races/vaurca/r_vaurcamecha.dmi'
 	default_language = LANGUAGE_GIBBERING
 	language = LANGUAGE_VAURCA
 	icon_x_offset = -8
@@ -133,7 +133,7 @@
 	rarity_value = 10
 	slowdown = 0
 	eyes = "warform_eyes"
-	eyes_icons = 'icons/mob/human_face/warform_eyes.dmi'
+	eyes_icons = 'icons/mob/teshari_face/warform_eyes.dmi'
 	brute_mod = 0.5
 	burn_mod = 0.1
 	fall_mod = 0
@@ -147,9 +147,9 @@
 	speech_chance = 100
 
 	death_sound = 'sound/voice/hiss6.ogg'
-	damage_overlays = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
-	damage_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
-	blood_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
+	damage_overlays = 'icons/mob/teshari_races/masks/dam_mask_warform.dmi'
+	damage_mask = 'icons/mob/teshari_races/masks/dam_mask_warform.dmi'
+	blood_mask = 'icons/mob/teshari_races/masks/dam_mask_warform.dmi'
 
 
 	stamina = 200
@@ -167,10 +167,10 @@
 	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/rebel_yell,
-		/mob/living/carbon/human/proc/devour_head,
-		/mob/living/carbon/human/proc/formic_spray,
-		/mob/living/carbon/human/proc/trample
+		/mob/living/carbon/teshari/proc/rebel_yell,
+		/mob/living/carbon/teshari/proc/devour_head,
+		/mob/living/carbon/teshari/proc/formic_spray,
+		/mob/living/carbon/teshari/proc/trample
 		)
 
 	has_organ = list(
@@ -188,7 +188,7 @@
 
 	default_h_style = "Bald"
 
-/datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.mutations |= HULK
 	return ..()
 
@@ -197,10 +197,10 @@
 	short_name = "vak"
 	name_plural = "Type E"
 	bodytype = BODYTYPE_VAURCA_BULWARK
-	preview_icon = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
-	icon_template = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
-	icobase = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
-	deform = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
+	preview_icon = 'icons/mob/teshari_races/vaurca/r_vaurcae.dmi'
+	icon_template = 'icons/mob/teshari_races/vaurca/r_vaurcae.dmi'
+	icobase = 'icons/mob/teshari_races/vaurca/r_vaurcae.dmi'
+	deform = 'icons/mob/teshari_races/vaurca/r_vaurcae.dmi'
 	canvas_icon = 'icons/mob/base_48.dmi'
 	talk_bubble_icon = 'icons/mob/talk_bulwark.dmi'
 
@@ -211,11 +211,11 @@
 	healths_overlay_x = 9
 	floating_chat_x_offset = 6
 
-	damage_overlays = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
-	damage_mask = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
-	blood_mask = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
+	damage_overlays = 'icons/mob/teshari_races/masks/dam_mask_bulwark.dmi'
+	damage_mask = 'icons/mob/teshari_races/masks/dam_mask_bulwark.dmi'
+	blood_mask = 'icons/mob/teshari_races/masks/dam_mask_bulwark.dmi'
 
-	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
+	eyes_icons = 'icons/mob/teshari_face/eyes48x48.dmi'
 	eyes = "bulwark_eyes"
 
 	slowdown = 2

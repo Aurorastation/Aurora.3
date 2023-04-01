@@ -12,7 +12,7 @@
 	economic_modifier = 10
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 80,
 		SPECIES_SKRELL_AXIORI = 80
 	)
@@ -30,7 +30,7 @@
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/hos
 
-	blacklisted_species = list(SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_IPC_ZENGHU, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_teshari_OFFWORLD, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_IPC_ZENGHU, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/hos
 	name = "Head of Security"
@@ -60,7 +60,7 @@
 	dufflebag = /obj/item/storage/backpack/duffel/hos
 	messengerbag = /obj/item/storage/backpack/messenger/hos
 
-/datum/outfit/job/hos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/hos/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
@@ -85,7 +85,7 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
+		SPECIES_teshari = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -120,7 +120,7 @@
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
-/datum/outfit/job/warden/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/warden/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
@@ -145,7 +145,7 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
+		SPECIES_teshari = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -181,7 +181,7 @@
 		/obj/item/storage/box/evidence = 1
 	)
 
-/datum/outfit/job/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/forensics/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	H.equip_or_collect(new /obj/item/clothing/gloves/black/forensic(H), slot_gloves)
 
@@ -198,7 +198,7 @@
 	economic_modifier = 4
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18,
+		SPECIES_teshari = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
@@ -231,7 +231,7 @@
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
-/datum/outfit/job/officer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/officer/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
@@ -257,7 +257,7 @@
 	minimal_access = list(access_security, access_sec_doors)
 	outfit = /datum/outfit/job/intern_sec
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18,
+		SPECIES_teshari = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
@@ -287,7 +287,7 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
 	tablet = /obj/item/modular_computer/handheld/preset/security
 
-/datum/outfit/job/intern_sec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/intern_sec/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)

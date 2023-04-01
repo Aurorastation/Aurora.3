@@ -14,7 +14,7 @@
 
 /obj/item/clothing/glasses/hud/health
 	name = "health scanner HUD"
-	desc = "A heads-up display that scans the humans in view and provides accurate data about their health status."
+	desc = "A heads-up display that scans the tesharis in view and provides accurate data about their health status."
 	icon_state = "healthhud"
 	item_state = "healthhud"
 	body_parts_covered = 0
@@ -46,7 +46,7 @@
 
 /obj/item/clothing/glasses/hud/security
 	name = "security HUD"
-	desc = "A heads-up display that scans the humans in view and provides accurate data about their ID status and security records."
+	desc = "A heads-up display that scans the tesharis in view and provides accurate data about their ID status and security records."
 	icon_state = "securityhud"
 	item_state = "securityhud"
 	body_parts_covered = 0

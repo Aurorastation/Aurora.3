@@ -11,7 +11,7 @@
 	economic_modifier = 15
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 80,
 		SPECIES_SKRELL_AXIORI = 80
 	)
@@ -51,13 +51,13 @@
 		/obj/item/gun/energy/pistol = 1
 	)
 
-/datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/representative/post_equip(mob/living/carbon/teshari/H, visualsOnly)
 	. = ..()
 	if(H && !visualsOnly)
 		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
-/datum/outfit/job/representative/proc/send_representative_mission(var/mob/living/carbon/human/H)
+/datum/outfit/job/representative/proc/send_representative_mission(var/mob/living/carbon/teshari/H)
 	var/faxtext = "<center><br><h2><br><b>Directives Report</h2></b></FONT size><HR></center>"
 	faxtext += "<b><font face='Courier New'>Attention [name], the following directives are to be fulfilled during your stay in the station:</font></b><br><ul>"
 
@@ -77,7 +77,7 @@
 			P.update_icon()
 	return
 
-/datum/outfit/job/representative/proc/get_objectives(var/mob/living/carbon/human/H, var/mission_level)
+/datum/outfit/job/representative/proc/get_objectives(var/mob/living/carbon/teshari/H, var/mission_level)
 	var/rep_objectives
 
 	for (var/datum/faction/faction in SSjobs.factions)
@@ -101,13 +101,13 @@
 	economic_modifier = 15
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 150,
 		SPECIES_SKRELL_AXIORI = 150
 	)
 
 	ideal_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 170,
 		SPECIES_SKRELL_AXIORI = 170
 	)
@@ -117,7 +117,7 @@
 	outfit = /datum/outfit/job/representative/consular
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
-/datum/job/consular/get_outfit(mob/living/carbon/human/H, alt_title = null)
+/datum/job/consular/get_outfit(mob/living/carbon/teshari/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	if(citizenship)
 		return citizenship.consular_outfit
@@ -136,7 +136,7 @@
 	)
 	implants = null
 
-/datum/outfit/job/representative/consular/get_objectives(var/mob/living/carbon/human/H, var/mission_level)
+/datum/outfit/job/representative/consular/get_objectives(var/mob/living/carbon/teshari/H, var/mission_level)
 	var/rep_objectives
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	if(citizenship)

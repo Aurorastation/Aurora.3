@@ -288,7 +288,7 @@
 
 /obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
 	name = "hijab"
-	desc = "Encompassing cloth headwear worn by some human cultures and religions."
+	desc = "Encompassing cloth headwear worn by some teshari cultures and religions."
 	icon = 'icons/obj/clothing/hijabs.dmi'
 	icon_state = "hijab_white"
 	item_state = "hijab_white"

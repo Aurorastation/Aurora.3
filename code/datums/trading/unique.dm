@@ -81,9 +81,9 @@
 	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 
 	possible_wanted_items = list(
-		/obj/item/reagent_containers/food/snacks/human      = TRADER_SUBTYPES_ONLY,
-		/obj/item/reagent_containers/food/snacks/meat/human = TRADER_THIS_TYPE,
-		/mob/living/carbon/human                                   = TRADER_ALL
+		/obj/item/reagent_containers/food/snacks/teshari      = TRADER_SUBTYPES_ONLY,
+		/obj/item/reagent_containers/food/snacks/meat/teshari = TRADER_THIS_TYPE,
+		/mob/living/carbon/teshari                                   = TRADER_ALL
 	)
 
 	possible_trading_items = list(

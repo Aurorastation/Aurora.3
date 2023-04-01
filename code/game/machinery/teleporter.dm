@@ -51,7 +51,7 @@
 		do_teleport(M, locate(rand((2*TRANSITIONEDGE), world.maxx - (2*TRANSITIONEDGE)), rand((2*TRANSITIONEDGE), world.maxy - (2*TRANSITIONEDGE)), pick(GetConnectedZlevels(z))), 2)
 	else
 		do_teleport(M, teleport_obj) //dead-on precision
-	if(ishuman(M))
+	if(isteshari(M))
 		calibration = min(calibration + 5, 100)
 
 /obj/machinery/teleport/pad/update_icon()

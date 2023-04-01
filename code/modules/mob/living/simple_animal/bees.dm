@@ -77,7 +77,7 @@
 
 /mob/living/simple_animal/bee/proc/do_sting()
 	//if we're strong enough, sting some people
-	var/mob/living/carbon/human/M = target_mob
+	var/mob/living/carbon/teshari/M = target_mob
 	if(!verify_stingable(M)) //If we can't sting this, why is it our target?
 		target_mob = null
 		return FALSE
@@ -100,7 +100,7 @@
 			M.apply_damage(min(strength*0.85,2)+mut, DAMAGE_BURN, damage_flags = DAMAGE_FLAG_SHARP) // Stinging. The more mutated I am, the harder I sting.
 			var/venom_strength = max(strength*0.2, (round(feral/10,1) * (max(round(strength/20,1), 1)))) + toxic // Bee venom based on how angry I am and how many there are of me!
 			M.apply_damage(venom_strength, DAMAGE_PAIN)  //Bee venom causes pain, not organ failure
-			if(prob(max(80, strength * 10))) //If there's enough of a swarm, it can also cause breathing trouble. Yes, even without being allergic. 
+			if(prob(max(80, strength * 10))) //If there's enough of a swarm, it can also cause breathing trouble. Yes, even without being allergic.
 				M.apply_damage(venom_strength, DAMAGE_OXY)
 			update_icon()
 			to_chat(M, "<span class='warning'>You have been stung!</span>")

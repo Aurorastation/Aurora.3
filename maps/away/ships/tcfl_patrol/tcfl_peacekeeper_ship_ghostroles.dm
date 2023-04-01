@@ -1,6 +1,6 @@
 //biesel peacekeeper ship
 
-/datum/ghostspawner/human/tcfl_peacekeeper
+/datum/ghostspawner/teshari/tcfl_peacekeeper
 	short_name = "tcfl_peacekeeper"
 	name = "TCFL Peacekeeper"
 	desc = "Crew the Tau Ceti Foreign Legion Peacekeeping ship. Follow your Prefect's orders."
@@ -11,7 +11,7 @@
 	max_count = 3
 
 	outfit = /datum/outfit/admin/tcfl_peacekeeper
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	possible_species = list(SPECIES_teshari, SPECIES_teshari_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "TCFL Peacekeeper"
@@ -42,7 +42,7 @@
 		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/jackboots/toeless
 	)
 
-/datum/outfit/admin/tcfl_peacekeeper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/tcfl_peacekeeper/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
@@ -56,7 +56,7 @@
 /datum/outfit/admin/tcfl_peacekeeper/get_id_access()
 	return list(access_tcfl_peacekeeper_ship, access_external_airlocks)
 
-/datum/ghostspawner/human/tcfl_peacekeeper/prefect
+/datum/ghostspawner/teshari/tcfl_peacekeeper/prefect
 	short_name = "tcfl_peacekeeper_prefect"
 	name = "TCFL Peacekeeper Prefect"
 	desc = "Command the Tau Ceti Foreign Legion Peacekeeping ship. Make sure your prisoners are taken care of."
@@ -76,7 +76,7 @@
 	accessory = /obj/item/clothing/accessory/legion
 
 
-/datum/ghostspawner/human/tcfl_peacekeeper/pilot
+/datum/ghostspawner/teshari/tcfl_peacekeeper/pilot
 	short_name = "tcfl_peacekeeper_pilot"
 	name = "TCFL Peacekeeper Pilot"
 	desc = "Pilot the Tau Ceti Foreign Legion Peacekeeping ship."

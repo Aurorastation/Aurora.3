@@ -39,7 +39,7 @@
 		hold.max_storage_space = slots * ITEMSIZE_SMALL
 		hold.max_w_class = ITEMSIZE_SMALL
 
-/obj/item/clothing/head/helmet/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/clothing/head/helmet/get_mob_overlay(var/mob/living/carbon/teshari/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(has_storage && slot == slot_head_str && length(hold.contents))
 		for(var/obj/item/thing in hold.contents)

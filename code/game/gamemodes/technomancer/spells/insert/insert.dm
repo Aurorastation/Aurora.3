@@ -16,7 +16,7 @@
 	set_light(spell_light_range, spell_light_intensity, l_color = light_color)
 
 /obj/item/inserted_spell
-	var/mob/living/carbon/human/origin = null
+	var/mob/living/carbon/teshari/origin = null
 	var/mob/living/host = null
 	var/spell_power_at_creation = 1.0 // This is here because the spell object that made this object probably won't exist.
 

@@ -144,7 +144,7 @@
 		return
 	src.attack_hand(user)
 
-/obj/machinery/bot/attack_hand(var/mob/living/carbon/human/user)
+/obj/machinery/bot/attack_hand(var/mob/living/carbon/teshari/user)
 
 	if(!istype(user))
 		return ..()

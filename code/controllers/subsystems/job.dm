@@ -307,7 +307,7 @@
 			unassigned -= player
 	return TRUE
 
-/datum/controller/subsystem/jobs/proc/EquipRank(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at)
+/datum/controller/subsystem/jobs/proc/EquipRank(mob/living/carbon/teshari/H, rank, joined_late = FALSE, spawning_at)
 	if(!H)
 		return null
 
@@ -390,7 +390,7 @@
 
 	to_chat(H, "<B>You are [job.get_total_positions() == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
 
-	if(istype(H)) //give humans wheelchairs, if they need them.
+	if(istype(H)) //give tesharis wheelchairs, if they need them.
 		if(H.needs_wheelchair())
 			H.equip_wheelchair()
 
@@ -435,7 +435,7 @@
 	Debug("ER/([H]): Completed.")
 	return H
 
-/mob/living/carbon/human
+/mob/living/carbon/teshari
 	var/tmp/centcomm_despawn_timer
 
 /mob/living/proc/centcomm_timeout()
@@ -448,7 +448,7 @@
 
 	return TRUE
 
-/mob/living/carbon/human/centcomm_timeout()
+/mob/living/carbon/teshari/centcomm_timeout()
 	. = ..()
 
 	if (!.)
@@ -484,7 +484,7 @@
 
 // Convenience wrapper.
 /datum/controller/subsystem/jobs/proc/centcomm_despawn_mob(mob/living/H)
-	if(ishuman(H))
+	if(isteshari(H))
 		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[current_map.dock_name] Cryogenic Oversight")
 		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s cryostorage, and depart.</span>", range = 3)
 		DespawnMob(H)
@@ -573,7 +573,7 @@
 		tmp_str += "HIGH=[level1]|MEDIUM=[level2]|LOW=[level3]|NEVER=[level4]|BANNED=[level5]|-"
 		feedback_add_details("job_preferences",tmp_str)
 
-/datum/controller/subsystem/jobs/proc/LateSpawn(mob/living/carbon/human/H, rank)
+/datum/controller/subsystem/jobs/proc/LateSpawn(mob/living/carbon/teshari/H, rank)
 	//spawn at one of the latespawn locations
 	Debug("LS/([H]): Entry; rank=[rank]")
 
@@ -630,7 +630,7 @@
 
 	Debug("LS/([H]): Completed, spawning at area [H.loc.loc].")
 
-/datum/controller/subsystem/jobs/proc/DespawnMob(mob/living/carbon/human/H)
+/datum/controller/subsystem/jobs/proc/DespawnMob(mob/living/carbon/teshari/H)
 	//Update any existing objectives involving this mob.
 	for(var/datum/objective/O in all_objectives)
 		// We don't want revs to get objectives that aren't for heads of staff. Letting
@@ -651,7 +651,7 @@
 			H.mind.special_role = null
 
 	// Delete them from datacore.
-	if(ishuman(H))
+	if(isteshari(H))
 		SSrecords.remove_record_by_field("fingerprint", H.get_full_print())
 		if(H.species)
 			H.species.handle_despawn(H)
@@ -666,11 +666,11 @@
 	// Delete the mob.
 	qdel(H)
 
-// Equips a human-type with their custom loadout crap.
+// Equips a teshari-type with their custom loadout crap.
 // Returns TRUE on success, FALSE otherwise.
 // H, job, and prefs MUST be supplied and not null.
 // leftovers, storage, custom_equip_slots can be passed if their return values are required (proc mutates passed list), or ignored if not required.
-/datum/controller/subsystem/jobs/proc/EquipCustom(mob/living/carbon/human/H, datum/job/job, datum/preferences/prefs, list/leftovers = null, list/storage = null, list/custom_equip_slots = list())
+/datum/controller/subsystem/jobs/proc/EquipCustom(mob/living/carbon/teshari/H, datum/job/job, datum/preferences/prefs, list/leftovers = null, list/storage = null, list/custom_equip_slots = list())
 	Debug("EC/([H]): Entry.")
 	if (!istype(H) || !job)
 		Debug("EC/([H]): Abort: invalid arguments.")
@@ -721,7 +721,7 @@
 // Attempts to equip custom items that failed to equip in EquipCustom.
 // Returns a list of items that failed to equip & should be put in storage if possible.
 // H and prefs must not be null.
-/datum/controller/subsystem/jobs/proc/EquipCustomDeferred(mob/living/carbon/human/H, datum/preferences/prefs, list/items, list/used_slots)
+/datum/controller/subsystem/jobs/proc/EquipCustomDeferred(mob/living/carbon/teshari/H, datum/preferences/prefs, list/items, list/used_slots)
 	. = list()
 	Debug("ECD/([H]): Entry.")
 	for (var/thing in items)
@@ -751,7 +751,7 @@
 // Attempts to place everything in items into a storage object located on H, deleting them if they're unable to be inserted.
 // H and prefs must not be null.
 // Returns nothing.
-/datum/controller/subsystem/jobs/proc/EquipItemsStorage(mob/living/carbon/human/H, datum/preferences/prefs, list/items)
+/datum/controller/subsystem/jobs/proc/EquipItemsStorage(mob/living/carbon/teshari/H, datum/preferences/prefs, list/items)
 	Debug("EIS/([H]): Entry.")
 	if (LAZYLEN(items))
 		Debug("EIS/([H]): [items.len] items.")
@@ -786,7 +786,7 @@
 	else
 		return locate("start*[rank]") // use old stype
 
-/datum/controller/subsystem/jobs/proc/GetFaction(mob/living/carbon/human/H)
+/datum/controller/subsystem/jobs/proc/GetFaction(mob/living/carbon/teshari/H)
 	var/faction_name = H?.client?.prefs?.faction
 	if (faction_name)
 		return name_factions[faction_name]
@@ -803,7 +803,7 @@
 	deferred_preference_sanitizations.Cut()
 
 
-/datum/controller/subsystem/jobs/proc/EquipAugments(mob/living/carbon/human/H, datum/preferences/prefs)
+/datum/controller/subsystem/jobs/proc/EquipAugments(mob/living/carbon/teshari/H, datum/preferences/prefs)
 	Debug("EA/([H]): Entry.")
 	if(!istype(H))
 		Debug("EA/([H]): Abort: invalid arguments.")
@@ -878,7 +878,7 @@
 		C.screen -= T
 	qdel(T)
 
-/datum/controller/subsystem/jobs/proc/UniformReturn(mob/living/carbon/human/H, datum/preferences/prefs, datum/job/job)
+/datum/controller/subsystem/jobs/proc/UniformReturn(mob/living/carbon/teshari/H, datum/preferences/prefs, datum/job/job)
 	var/uniform = job.get_outfit(H)
 	if(!uniform) // silicons don't have uniforms or gear
 		return

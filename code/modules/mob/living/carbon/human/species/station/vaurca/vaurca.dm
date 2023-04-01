@@ -12,9 +12,9 @@
 	language = LANGUAGE_VAURCA
 	primitive_form = SPECIES_MONKEY_VAURCA
 	greater_form = SPECIES_VAURCA_WARRIOR
-	icobase = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
-	deform = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
-	preview_icon = 'icons/mob/human_races/vaurca/vaurca_preview.dmi'
+	icobase = 'icons/mob/teshari_races/vaurca/r_vaurca.dmi'
+	deform = 'icons/mob/teshari_races/vaurca/r_vaurca.dmi'
+	preview_icon = 'icons/mob/teshari_races/vaurca/vaurca_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
 	name_language = LANGUAGE_VAURCA
 	unarmed_types = list(
@@ -33,7 +33,7 @@
 
 	brute_mod = 0.5
 	burn_mod = 1.5 //2x was a bit too much. we'll see how this goes.
-	toxins_mod = 2 //they're not used to all our weird human bacteria.
+	toxins_mod = 2 //they're not used to all our weird teshari bacteria.
 	oxy_mod = 0.6
 	radiation_mod = 0.2 //almost total radiation protection
 	bleed_mod = 2.2
@@ -139,19 +139,19 @@
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
 
-/datum/species/bug/before_equip(var/mob/living/carbon/human/H)
+/datum/species/bug/before_equip(var/mob/living/carbon/teshari/H)
 	. = ..()
 	H.gender = NEUTER
 	var/obj/item/clothing/mask/breath/vaurca/filter/M = new /obj/item/clothing/mask/breath/vaurca/filter(H)
 	H.equip_to_slot_or_del(M, slot_wear_mask)
 
-/datum/species/bug/after_equip(var/mob/living/carbon/human/H)
+/datum/species/bug/after_equip(var/mob/living/carbon/teshari/H)
 	if(H.shoes)
 		return
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	H.equip_to_slot_or_del(S,slot_shoes)
 
-/datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/bug/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	H.gender = NEUTER
 	return ..()
 

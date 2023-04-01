@@ -202,8 +202,8 @@ var/list/tape_roll_applications = list()
 		return
 
 /obj/item/tape/proc/crumple(var/mob/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		var/obj/item/card/id/ID = H.GetIdCard(TRUE)
 		if(ID && ID.registered_name)
 			LAZYDISTINCTADD(crumplers, ID.registered_name)

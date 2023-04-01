@@ -187,7 +187,7 @@
 /obj/machinery/artifact/attack_hand(mob/user)
 	if(use_check_and_message(user, USE_ALLOW_NON_ADV_TOOL_USR))
 		return
-	if(ishuman(user) && user:gloves)
+	if(isteshari(user) && user:gloves)
 		to_chat(user, "<b>You touch \the [src]</b> with your gloved hands, [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
 		return
 
@@ -263,7 +263,7 @@
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_FORCE)
 				secondary_effect.ToggleActivate()
-	else if(ishuman(M) && !istype(M:gloves,/obj/item/clothing/gloves))
+	else if(isteshari(M) && !istype(M:gloves,/obj/item/clothing/gloves))
 		var/warn = 0
 
 		if (my_effect.trigger == TRIGGER_TOUCH && prob(50))
@@ -325,7 +325,7 @@
 	if(secondary_effect)
 		secondary_effect.UpdateMove()
 
-/obj/machinery/artifact/attack_ai(mob/user) //AI can't interfact with weird artifacts. Borgs can but not remotely. 
+/obj/machinery/artifact/attack_ai(mob/user) //AI can't interfact with weird artifacts. Borgs can but not remotely.
 	if(!isrobot(user) || !Adjacent(user))
 		return
 	return ..()

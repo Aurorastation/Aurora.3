@@ -36,7 +36,7 @@
 	var/scan_type
 	if(istype(M, /mob/living/silicon/robot))
 		scan_type = "robot"
-	else if(istype(M, /mob/living/carbon/human))
+	else if(istype(M, /mob/living/carbon/teshari))
 		scan_type = "prosthetics"
 	else
 		to_chat(user, SPAN_WARNING("You can't analyze non-robotic things!"))
@@ -71,7 +71,7 @@
 				to_chat(user, SPAN_WARNING("ERROR: INTERNAL SYSTEMS COMPROMISED"))
 			to_chat(user, SPAN_NOTICE("Operating Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)"))
 		if("prosthetics")
-			var/mob/living/carbon/human/H = M
+			var/mob/living/carbon/teshari/H = M
 			to_chat(user, SPAN_NOTICE("Analyzing Results for \the [H]:"))
 			to_chat(user, "Key: <font color='#FFA500'>Electronics</font>/<span class='warning'>Brute</span>")
 			var/obj/item/organ/internal/cell/IC = H.internal_organs_by_name[BP_CELL]

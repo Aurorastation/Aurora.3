@@ -11,7 +11,7 @@
 /datum/event/disease_outbreak/start()
 	var/virus_type = pick(/datum/disease/dnaspread, /datum/disease/advance/flu, /datum/disease/advance/cold, /datum/disease/brainrot, /datum/disease/magnitis)
 
-	for(var/mob/living/carbon/human/H in shuffle(living_mob_list))
+	for(var/mob/living/carbon/teshari/H in shuffle(living_mob_list))
 		var/foundAlready = 0	// don't infect someone that already has the virus
 		var/turf/T = get_turf(H)
 		if(!T)

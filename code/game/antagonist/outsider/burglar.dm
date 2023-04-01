@@ -35,7 +35,7 @@ var/datum/antagonist/burglar/burglars
 			id.registered_name = player.real_name
 			W.name = "[initial(W.name)] ([id.name])"
 
-/datum/antagonist/burglar/equip(var/mob/living/carbon/human/player)
+/datum/antagonist/burglar/equip(var/mob/living/carbon/teshari/player)
 	if(!..())
 		return FALSE
 

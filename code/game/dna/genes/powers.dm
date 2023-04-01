@@ -20,7 +20,7 @@
 
 	activate(var/mob/M, var/connected, var/flags)
 		..(M,connected,flags)
-		M.verbs += /mob/living/carbon/human/proc/remoteobserve
+		M.verbs += /mob/living/carbon/teshari/proc/remoteobserve
 
 /datum/dna/gene/basic/regenerate
 	name="Regenerate"
@@ -48,7 +48,7 @@
 
 	activate(var/mob/M, var/connected, var/flags)
 		..(M,connected,flags)
-		M.verbs += /mob/living/carbon/human/proc/remotesay
+		M.verbs += /mob/living/carbon/teshari/proc/remotesay
 
 /datum/dna/gene/basic/morph
 	name="Morph"
@@ -60,7 +60,7 @@
 
 	activate(var/mob/M)
 		..(M)
-		M.verbs += /mob/living/carbon/human/proc/morph
+		M.verbs += /mob/living/carbon/teshari/proc/morph
 
 /* Not used on bay
 /datum/dna/gene/basic/heat_resist
@@ -143,7 +143,7 @@
 
 	deactivate(var/mob/M, var/connected, var/flags)
 		..(M,connected,flags)
-		M.pass_flags &= ~1 //This may cause issues down the track, but offhand I can't think of any other way for humans to get passtable short of varediting so it should be fine. ~Z
+		M.pass_flags &= ~1 //This may cause issues down the track, but offhand I can't think of any other way for tesharis to get passtable short of varediting so it should be fine. ~Z
 
 /datum/dna/gene/basic/hulk
 	name="Hulk"
@@ -159,7 +159,7 @@
 			return 0
 		return ..(M,flags)
 
-	OnMobLife(var/mob/living/carbon/human/M)
+	OnMobLife(var/mob/living/carbon/teshari/M)
 		if(!istype(M)) return
 		if(M.health <= 25)
 			M.mutations &= ~HULK

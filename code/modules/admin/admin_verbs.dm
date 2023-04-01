@@ -82,8 +82,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/event_manager_panel,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/aooc,
-	/client/proc/change_human_appearance_admin,	// Allows an admin to change the basic appearance of human-based mobs ,
-	/client/proc/change_human_appearance_self,	// Allows the human-based mob itself change its basic appearance ,
+	/client/proc/change_teshari_appearance_admin,	// Allows an admin to change the basic appearance of teshari-based mobs ,
+	/client/proc/change_teshari_appearance_self,	// Allows the teshari-based mob itself change its basic appearance ,
 	/client/proc/change_security_level,
 	/client/proc/view_chemical_reaction_logs,
 	/client/proc/makePAI,
@@ -255,8 +255,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/Getkey,
 	/datum/admins/proc/announce,
 	/client/proc/togglebuildmodeself,
-	/client/proc/change_human_appearance_admin,
-	/client/proc/change_human_appearance_self,
+	/client/proc/change_teshari_appearance_admin,
+	/client/proc/change_teshari_appearance_self,
 	/client/proc/change_security_level,
 	/client/proc/makePAI,
 	/client/proc/wipe_ai,
@@ -850,28 +850,28 @@ var/list/admin_verbs_cciaa = list(
 	log_and_message_admins("has opened [S]'s law manager.")
 	feedback_add_details("admin_verb","MSL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/change_human_appearance_admin()
+/client/proc/change_teshari_appearance_admin()
 	set name = "Change Mob Appearance - Admin"
 	set desc = "Allows you to change the mob appearance"
 	set category = "Admin"
 
 	if(!check_rights(R_FUN)) return
 
-	var/mob/living/carbon/human/H = input("Select mob.", "Change Mob Appearance - Admin") as null|anything in human_mob_list
+	var/mob/living/carbon/teshari/H = input("Select mob.", "Change Mob Appearance - Admin") as null|anything in teshari_mob_list
 	if(!H) return
 
 	log_and_message_admins("is altering the appearance of [H].")
 	H.change_appearance(APPEARANCE_ALL, usr, FALSE)
 	feedback_add_details("admin_verb","CHAA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/change_human_appearance_self()
+/client/proc/change_teshari_appearance_self()
 	set name = "Change Mob Appearance - Self"
 	set desc = "Allows the mob to change its appearance"
 	set category = "Admin"
 
 	if(!check_rights(R_FUN)) return
 
-	var/mob/living/carbon/human/H = input("Select mob.", "Change Mob Appearance - Self") as null|anything in human_mob_list
+	var/mob/living/carbon/teshari/H = input("Select mob.", "Change Mob Appearance - Self") as null|anything in teshari_mob_list
 	if(!H) return
 
 	if(!H.client)
@@ -914,10 +914,10 @@ var/list/admin_verbs_cciaa = list(
 
 	if(!check_rights(R_FUN))	return
 
-	var/mob/living/carbon/human/M = input("Select mob.", "Edit Appearance") as null|anything in human_mob_list
+	var/mob/living/carbon/teshari/M = input("Select mob.", "Edit Appearance") as null|anything in teshari_mob_list
 
-	if(!istype(M, /mob/living/carbon/human))
-		to_chat(usr, "<span class='warning'>You can only do this to humans!</span>")
+	if(!istype(M, /mob/living/carbon/teshari))
+		to_chat(usr, "<span class='warning'>You can only do this to tesharis!</span>")
 		return
 	switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi and Tajaran can result in unintended consequences.",,"Yes","No"))
 		if("No")
@@ -1050,9 +1050,9 @@ var/list/admin_verbs_cciaa = list(
 	else
 		to_chat(usr, "You now won't get debug log messages")
 
-/client/proc/damage_menu(mob/living/carbon/human/H as null|mob in human_mob_list)
+/client/proc/damage_menu(mob/living/carbon/teshari/H as null|mob in teshari_mob_list)
 	set name = "Damage Menu"
-	set desc = "Access a human mob's damage menu, allowing you to make their life hell."
+	set desc = "Access a teshari mob's damage menu, allowing you to make their life hell."
 	set category = "Fun"
 
 	if(H)
@@ -1205,11 +1205,11 @@ var/list/admin_verbs_cciaa = list(
 	if(!check_rights(R_DEV))
 		return
 
-	if(!ishuman(T))
-		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
+	if(!isteshari(T))
+		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/teshari")
 		return
 
-	var/mob/living/carbon/human/C = T
+	var/mob/living/carbon/teshari/C = T
 
 	var/rr = input("Enter color value", "Red-Red") as num|null
 	var/rg = input("Enter color value", "Red-Green") as num|null

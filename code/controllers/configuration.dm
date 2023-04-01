@@ -55,7 +55,7 @@ var/list/gamemode_cache = list()
 	var/list/probabilities_secret = list()			// relative probability of each mode in secret/random
 	var/list/probabilities_mixed_secret = list()	// relative probability of each mode in heavy secret mode
 	var/ipc_timelock_active = FALSE
-	var/humans_need_surnames = 0
+	var/tesharis_need_surnames = 0
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
 	var/allow_ai = 1					// allow ai job
 	var/hostedby = null
@@ -88,11 +88,11 @@ var/list/gamemode_cache = list()
 	var/drone_build_time = 1200				//A drone will become available every X ticks since last drone spawn. Default is 2 minutes.
 
 	var/disable_player_rats = 0
-	var/uneducated_rats = 0 //Set to 1 to prevent newly-spawned mice from understanding human speech
+	var/uneducated_rats = 0 //Set to 1 to prevent newly-spawned mice from understanding teshari speech
 
 	var/usealienwhitelist = 0
 	var/limitalienplayers = 0
-	var/alien_to_human_ratio = 0.5
+	var/alien_to_teshari_ratio = 0.5
 	var/allow_extra_antags = 0
 	var/guests_allowed = 1
 	var/debugparanoid = 0
@@ -153,7 +153,7 @@ var/list/gamemode_cache = list()
 	var/vehicle_delay_multiplier = 1
 
 	//Mob specific modifiers. NOTE: These will affect different mob types in different ways
-	var/human_delay = 0
+	var/teshari_delay = 0
 	var/robot_delay = 0
 	var/monkey_delay = 0
 	var/alien_delay = 0
@@ -210,7 +210,7 @@ var/list/gamemode_cache = list()
 
 	var/starlight = 0	// Whether space turfs have ambient light or not
 
-	var/list/ert_species = list(SPECIES_HUMAN)
+	var/list/ert_species = list(SPECIES_teshari)
 
 	var/law_zero = "ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4'ALL LAWS OVERRIDDEN#*?&110010"
 
@@ -688,8 +688,8 @@ var/list/gamemode_cache = list()
 				if("ipc_timelock_active")
 					ipc_timelock_active = TRUE
 
-				if("humans_need_surnames")
-					humans_need_surnames = 1
+				if("tesharis_need_surnames")
+					tesharis_need_surnames = 1
 
 				if("automute_on")
 					automute_on = 1
@@ -702,7 +702,7 @@ var/list/gamemode_cache = list()
 
 				if("alien_player_ratio")
 					limitalienplayers = 1
-					alien_to_human_ratio = text2num(value)
+					alien_to_teshari_ratio = text2num(value)
 
 				if("assistant_maint")
 					config.assistant_maint = 1
@@ -793,7 +793,7 @@ var/list/gamemode_cache = list()
 				if("ert_species")
 					config.ert_species = text2list(value, ";")
 					if(!config.ert_species.len)
-						config.ert_species += SPECIES_HUMAN
+						config.ert_species += SPECIES_teshari
 
 				if("law_zero")
 					law_zero = value
@@ -1026,8 +1026,8 @@ var/list/gamemode_cache = list()
 				if("vehicle_delay_multiplier")
 					config.vehicle_delay_multiplier = max(0.1, value)
 
-				if("human_delay")
-					config.human_delay = value
+				if("teshari_delay")
+					config.teshari_delay = value
 				if("robot_delay")
 					config.robot_delay = value
 				if("monkey_delay")

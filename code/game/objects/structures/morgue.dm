@@ -183,7 +183,7 @@
 
 /obj/structure/morgue/crematorium
 	name = "crematorium"
-	desc = "A human incinerator. Works well on barbeque nights."
+	desc = "A teshari incinerator. Works well on barbeque nights."
 	icon_state = "crema1"
 	dir = SOUTH
 	tray = /obj/structure/m_tray/c_tray

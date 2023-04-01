@@ -22,7 +22,7 @@
 	if(atmosphere)
 		var/limit = 1000
 		if(habitability_class <= HABITABILITY_OKAY)
-			var/datum/species/human/H = /datum/species/human
+			var/datum/species/teshari/H = /datum/species/teshari
 			limit = initial(H.heat_level_1) - rand(1,10)
 		atmosphere.temperature = min(T20C + rand(20, 100), limit)
 		atmosphere.update_values()

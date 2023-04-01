@@ -428,8 +428,8 @@
 			else
 				to_chat(usr, "<span class='warning'>The sounds of battle fill your ears...</span>")
 		if(ORION_TRAIL_ILLNESS)
-			if(istype(usr,/mob/living/carbon/human))
-				var/mob/living/carbon/human/M = usr
+			if(istype(usr,/mob/living/carbon/teshari))
+				var/mob/living/carbon/teshari/M = usr
 				to_chat(M, "<span class='warning'>An overpowering wave of nausea consumes over you. You hunch over, your stomach's contents preparing for a spectacular exit.</span>")
 				M.vomit()
 			else

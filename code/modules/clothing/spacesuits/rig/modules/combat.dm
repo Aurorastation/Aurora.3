@@ -397,7 +397,7 @@
 	if(!..())
 		return FALSE
 
-	var/mob/living/carbon/human/H = holder.wearer
+	var/mob/living/carbon/teshari/H = holder.wearer
 
 	H.visible_message(SPAN_DANGER("\The [H] crackles with energy!"))
 	playsound(H, 'sound/magic/LightningShock.ogg', 75, 1)

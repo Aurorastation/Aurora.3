@@ -43,8 +43,8 @@
 /obj/item/minigunpack/verb/toggle_gun()
 	set name = "Deploy the gatling machine gun"
 	set category = "Object"
-	var/mob/living/carbon/human/user
-	if(istype(usr,/mob/living/carbon/human))
+	var/mob/living/carbon/teshari/user
+	if(istype(usr,/mob/living/carbon/teshari))
 		user = usr
 	else
 		return

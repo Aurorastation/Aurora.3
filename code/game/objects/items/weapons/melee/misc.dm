@@ -126,8 +126,8 @@
 		sleep(1)
 		step_away(target,user,15)
 		sleep(1)
-		if(ishuman(target))
-			var/mob/living/carbon/human/H = target
+		if(isteshari(target))
+			var/mob/living/carbon/teshari/H = target
 			H.apply_effect(2, WEAKEN)
 		on = FALSE
 		update_icon()
@@ -164,7 +164,7 @@
 
 /obj/item/melee/whip/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
 	..()
-	if(ishuman(target))
+	if(isteshari(target))
 		if(prob(25))
 			if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
 				if (target.l_hand && target.l_hand != src)

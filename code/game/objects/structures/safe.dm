@@ -156,8 +156,8 @@ FLOOR SAFES
 
 
 /obj/structure/safe/Topic(href, href_list)
-	if(!ishuman(usr))	return
-	var/mob/living/carbon/human/user = usr
+	if(!isteshari(usr))	return
+	var/mob/living/carbon/teshari/user = usr
 
 	var/canhear = 0
 	if(istype(user.l_hand, /obj/item/clothing/accessory/stethoscope) || istype(user.r_hand, /obj/item/clothing/accessory/stethoscope))

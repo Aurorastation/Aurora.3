@@ -21,7 +21,7 @@
 
 #define RADIATION_SPEED_COEFFICIENT 0.1
 
-/mob/living/carbon/human
+/mob/living/carbon/teshari
 	var/oxygen_alert = 0
 	var/phoron_alert = 0
 	var/co2_alert = 0
@@ -29,7 +29,7 @@
 	var/pressure_alert = 0
 	var/temperature_alert = 0
 
-/mob/living/carbon/human/Life()
+/mob/living/carbon/teshari/Life()
 	set background = BACKGROUND_ENABLED
 
 	if (transforming)
@@ -91,23 +91,23 @@
 		if(vampire)
 			handle_vampire()
 
-/mob/living/carbon/human/think()
+/mob/living/carbon/teshari/think()
 	..()
 	species.handle_npc(src)
 
-/mob/living/carbon/human/proc/handle_some_updates()
+/mob/living/carbon/teshari/proc/handle_some_updates()
 	if(life_tick > 5 && timeofdeath && (timeofdeath < 5 || world.time - timeofdeath > 6000))	//We are long dead, or we're junk mobs spawned like the clowns on the clown shuttle
 		return 0
 	return 1
 
-/mob/living/carbon/human/breathe()
+/mob/living/carbon/teshari/breathe()
 	if(!InStasis())
 		..()
 
-// Calculate how vulnerable the human is to the current pressure.
+// Calculate how vulnerable the teshari is to the current pressure.
 // Returns 0 (equals 0 %) if sealed in an undamaged suit that's rated for the pressure, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
-/mob/living/carbon/human/get_pressure_weakness(pressure)
+/mob/living/carbon/teshari/get_pressure_weakness(pressure)
 	var/pressure_adjustment_coefficient = 0
 	var/list/zones = list(HEAD, UPPER_TORSO, LOWER_TORSO, LEGS, FEET, ARMS, HANDS)
 	for(var/zone in zones)
@@ -122,8 +122,8 @@
 
 	return pressure_adjustment_coefficient
 
-// Calculate how much of the enviroment pressure-difference affects the human.
-/mob/living/carbon/human/calculate_affecting_pressure(var/pressure)
+// Calculate how much of the enviroment pressure-difference affects the teshari.
+/mob/living/carbon/teshari/calculate_affecting_pressure(var/pressure)
 	var/pressure_difference
 
 	// First get the absolute pressure difference.
@@ -143,13 +143,13 @@
 
 	// The difference is always positive to avoid extra calculations.
 	// Apply the relative difference on a standard atmosphere to get the final result.
-	// The return value will be the adjusted_pressure of the human that is the basis of pressure warnings and damage.
+	// The return value will be the adjusted_pressure of the teshari that is the basis of pressure warnings and damage.
 	if(pressure < ONE_ATMOSPHERE)
 		return ONE_ATMOSPHERE - pressure_difference
 	else
 		return ONE_ATMOSPHERE + pressure_difference
 
-/mob/living/carbon/human/handle_disabilities()
+/mob/living/carbon/teshari/handle_disabilities()
 	..()
 	//Vision
 	var/obj/item/organ/vision
@@ -202,7 +202,7 @@
 		if(aid < 3 && prob(10/aid)) //NOSTUTTER at 2 or above prevents it completely.
 			stuttering = max(10/aid, stuttering)
 
-/mob/living/carbon/human/handle_mutations_and_radiation()
+/mob/living/carbon/teshari/handle_mutations_and_radiation()
 	if(InStasis())
 		return
 
@@ -238,7 +238,7 @@
 					Weaken(3)
 					if(!lying)
 						emote("collapse")
-				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == SPECIES_HUMAN) //apes go bald
+				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == SPECIES_teshari) //apes go bald
 					if((h_style != "Bald" || f_style != "Shaved" ))
 						to_chat(src, "<span class='warning'>Your hair falls out.</span>")
 						h_style = "Bald"
@@ -266,7 +266,7 @@
 
 	/** breathing **/
 
-/mob/living/carbon/human/handle_chemical_smoke(var/datum/gas_mixture/environment)
+/mob/living/carbon/teshari/handle_chemical_smoke(var/datum/gas_mixture/environment)
 	if(wear_mask && (wear_mask.item_flags & BLOCK_GAS_SMOKE_EFFECT))
 		return
 	if(glasses && (glasses.item_flags & BLOCK_GAS_SMOKE_EFFECT))
@@ -275,7 +275,7 @@
 		return
 	..()
 
-/mob/living/carbon/human/get_breath_from_internal(volume_needed=BREATH_VOLUME)
+/mob/living/carbon/teshari/get_breath_from_internal(volume_needed=BREATH_VOLUME)
 	if(internal)
 
 		var/obj/item/tank/rig_supply
@@ -293,7 +293,7 @@
 			internals.icon_state = "internal0"
 	return null
 
-/mob/living/carbon/human/get_breath_from_environment(var/volume_needed=BREATH_VOLUME)
+/mob/living/carbon/teshari/get_breath_from_environment(var/volume_needed=BREATH_VOLUME)
 	var/datum/gas_mixture/breath = ..()
 
 	if(breath)
@@ -305,7 +305,7 @@
 
 	return breath
 
-/mob/living/carbon/human/handle_environment(datum/gas_mixture/environment)
+/mob/living/carbon/teshari/handle_environment(datum/gas_mixture/environment)
 	if(!environment)
 		return
 
@@ -327,10 +327,10 @@
 
 	if(istype(get_turf(src), /turf/space))
 		//Don't bother if the temperature drop is less than 0.1 anyways. Hopefully BYOND is smart enough to turn this constant expression into a constant
-		if(bodytemperature > (0.1 * HUMAN_HEAT_CAPACITY/(HUMAN_EXPOSED_SURFACE_AREA*STEFAN_BOLTZMANN_CONSTANT))**(1/4) + COSMIC_RADIATION_TEMPERATURE)
+		if(bodytemperature > (0.1 * teshari_HEAT_CAPACITY/(teshari_EXPOSED_SURFACE_AREA*STEFAN_BOLTZMANN_CONSTANT))**(1/4) + COSMIC_RADIATION_TEMPERATURE)
 			//Thermal radiation into space
-			var/heat_loss = HUMAN_EXPOSED_SURFACE_AREA * STEFAN_BOLTZMANN_CONSTANT * ((bodytemperature - COSMIC_RADIATION_TEMPERATURE)**4)
-			var/temperature_loss = heat_loss/HUMAN_HEAT_CAPACITY
+			var/heat_loss = teshari_EXPOSED_SURFACE_AREA * STEFAN_BOLTZMANN_CONSTANT * ((bodytemperature - COSMIC_RADIATION_TEMPERATURE)**4)
+			var/temperature_loss = heat_loss/teshari_HEAT_CAPACITY
 			bodytemperature -= temperature_loss
 	else
 		var/loc_temp = T0C
@@ -431,13 +431,13 @@
 	if (is_diona())
 		diona_handle_temperature(DS)
 
-/mob/living/carbon/human/proc/get_baseline_body_temperature()
+/mob/living/carbon/teshari/proc/get_baseline_body_temperature()
 	var/baseline = species.body_temperature
 	for(var/obj/item/clothing/clothing in list(w_uniform, wear_suit))
 		baseline += clothing.body_temperature_change
 	return baseline
 
-/mob/living/carbon/human/proc/stabilize_body_temperature()
+/mob/living/carbon/teshari/proc/stabilize_body_temperature()
 	if (species.passive_temp_gain) // We produce heat naturally.
 		bodytemperature += species.passive_temp_gain
 	if (species.body_temperature == null)
@@ -467,7 +467,7 @@
 		bodytemperature += recovery_amt
 
 	//This proc returns a number made up of the flags for body parts which you are protected on. (such as HEAD, UPPER_TORSO, LOWER_TORSO, etc. See setup.dm for the full list)
-/mob/living/carbon/human/proc/get_heat_protection_flags(temperature) //Temperature is the temperature you're being exposed to.
+/mob/living/carbon/teshari/proc/get_heat_protection_flags(temperature) //Temperature is the temperature you're being exposed to.
 	var/thermal_protection_flags = 0
 	//Handle normal clothing
 	if(head)
@@ -491,7 +491,7 @@
 
 	return thermal_protection_flags
 
-/mob/living/carbon/human/get_heat_protection(temperature) //Temperature is the temperature you're being exposed to.
+/mob/living/carbon/teshari/get_heat_protection(temperature) //Temperature is the temperature you're being exposed to.
 	var/thermal_protection_flags = get_heat_protection_flags(temperature)
 
 	var/thermal_protection = 0.0
@@ -523,7 +523,7 @@
 	return min(1,thermal_protection)
 
 //See proc/get_heat_protection_flags(temperature) for the description of this proc.
-/mob/living/carbon/human/proc/get_cold_protection_flags(temperature)
+/mob/living/carbon/teshari/proc/get_cold_protection_flags(temperature)
 	var/thermal_protection_flags = 0
 	//Handle normal clothing
 
@@ -548,7 +548,7 @@
 
 	return thermal_protection_flags
 
-/mob/living/carbon/human/get_cold_protection(temperature)
+/mob/living/carbon/teshari/get_cold_protection(temperature)
 	if(HAS_FLAG(mutations, COLD_RESISTANCE))
 		return 1 //Fully protected from the cold.
 
@@ -582,7 +582,7 @@
 
 	return min(1,thermal_protection)
 
-/mob/living/carbon/human/handle_chemicals_in_body()
+/mob/living/carbon/teshari/handle_chemicals_in_body()
 	if(InStasis())
 		return
 
@@ -727,7 +727,7 @@
 
 	return //TODO: DEFERRED
 
-/mob/living/carbon/human/handle_regular_status_updates()
+/mob/living/carbon/teshari/handle_regular_status_updates()
 	if(!handle_some_updates())
 		return 0
 
@@ -835,14 +835,14 @@
 	return 1
 
 
-/mob/living/carbon/human
+/mob/living/carbon/teshari
 	var/tmp/last_brute_overlay
 	var/tmp/last_frenzy_state
 	var/tmp/last_oxy_overlay
 
 	var/list/status_overlays = null
 
-/mob/living/carbon/human/can_update_hud()
+/mob/living/carbon/teshari/can_update_hud()
 	if((!client && !bg) || QDELETED(src))
 		return FALSE
 	return TRUE
@@ -851,7 +851,7 @@
 #define DRUNK_STRING "drunk"
 #define BLEEDING_STRING "bleeding"
 
-/mob/living/carbon/human/handle_regular_hud_updates()
+/mob/living/carbon/teshari/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
 		handle_hud_list()
 
@@ -1117,7 +1117,7 @@
 #undef DRUNK_STRING
 #undef BLEEDING_STRING
 
-/mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
+/mob/living/carbon/teshari/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
 	var/obj/screen/status/new_status = new /obj/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
 	new_status.alpha = client.prefs.UI_style_alpha
 	new_status.color = client.prefs.UI_style_color
@@ -1125,7 +1125,7 @@
 	client.screen += new_status
 	LAZYSET(status_overlays, set_overlay, new_status)
 
-/mob/living/carbon/human/proc/get_status_loc(var/placement)
+/mob/living/carbon/teshari/proc/get_status_loc(var/placement)
 	var/col = ((placement - 1)%(13)) + 1
 	var/coord_col = "-[col-1]"
 	var/coord_col_offset = "-[4+2*col]"
@@ -1135,7 +1135,7 @@
 	var/coord_row_offset = 8
 	return "EAST[coord_col]:[coord_col_offset],NORTH[coord_row]:[coord_row_offset]"
 
-/mob/living/carbon/human/handle_random_events()
+/mob/living/carbon/teshari/handle_random_events()
 	if(InStasis())
 		return
 
@@ -1175,13 +1175,13 @@
 						)
 						to_chat(src, SPAN_WARNING(pick(eye_sensitivity_messages)))
 
-/mob/living/carbon/human/proc/handle_changeling()
+/mob/living/carbon/teshari/proc/handle_changeling()
 	if(mind)
 		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 		if(changeling)
 			changeling.regenerate()
 
-/mob/living/carbon/human/proc/handle_shock()
+/mob/living/carbon/teshari/proc/handle_shock()
 	if(status_flags & GODMODE)
 		return 0
 	var/is_asystole = is_asystole()
@@ -1259,7 +1259,7 @@
 */
 
 
-/mob/living/carbon/human/proc/handle_hud_list(var/force_update = FALSE)
+/mob/living/carbon/teshari/proc/handle_hud_list(var/force_update = FALSE)
 	if(force_update)
 		hud_updateflag = 1022
 
@@ -1373,7 +1373,7 @@
 			hud_list[SPECIALROLE_HUD] = holder
 	hud_updateflag = 0
 
-/mob/living/carbon/human/handle_fire()
+/mob/living/carbon/teshari/handle_fire()
 	if(..())
 		return
 
@@ -1383,11 +1383,11 @@
 	if (thermal_protection < 1 && bodytemperature < burn_temperature)
 		bodytemperature += round(BODYTEMP_HEATING_MAX*(1-thermal_protection), 1)
 
-/mob/living/carbon/human/rejuvenate()
+/mob/living/carbon/teshari/rejuvenate()
 	restore_blood()
 	..()
 
-/mob/living/carbon/human/handle_vision()
+/mob/living/carbon/teshari/handle_vision()
 	if(client)
 		client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
 	if(machine)
@@ -1413,7 +1413,7 @@
 	update_equipment_vision()
 	species.handle_vision(src)
 
-/mob/living/carbon/human/handle_hearing()
+/mob/living/carbon/teshari/handle_hearing()
 	..()
 
 	if(ear_damage < HEARING_DAMAGE_LIMIT)
@@ -1431,14 +1431,14 @@
 		else if(ear_damage < HEARING_DAMAGE_SLOW_HEAL)	//ear damage heals slowly under this threshold. otherwise you'll need earmuffs
 			adjustEarDamage(-0.05, 0)
 
-/mob/living/carbon/human/update_sight()
+/mob/living/carbon/teshari/update_sight()
 	..()
 	if(stat == DEAD)
 		return
 	if(HAS_FLAG(mutations, XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 
-/mob/living/carbon/human/proc/handle_stamina()
+/mob/living/carbon/teshari/proc/handle_stamina()
 	if (species.stamina == -1) //If species stamina is -1, it has special mechanics which will be handled elsewhere
 		return //so quit this function
 
@@ -1473,7 +1473,7 @@
 			if (client)
 				hud_used.move_intent.update_move_icon(src)
 
-/mob/living/carbon/human/proc/update_oxy_overlay()
+/mob/living/carbon/teshari/proc/update_oxy_overlay()
 	var/new_oxy
 	if(getOxyLoss())
 		var/severity = 0
@@ -1497,7 +1497,7 @@
 
 //Fevers
 //This handles infection fevers as well as fevers caused by chem effects
-/mob/living/carbon/human/proc/handle_fever()
+/mob/living/carbon/teshari/proc/handle_fever()
 	var/normal_temp = species?.body_temperature || (T0C+37)
 	//If we have infections, they give us a fever. Get all of their germ levels and find what our bodytemp will raise by.
 	var/fever = get_infection_germ_level() / INFECTION_LEVEL_ONE
@@ -1523,7 +1523,7 @@
 
 
 //Getting the total germ level for all infected organs, affects fever
-/mob/living/carbon/human/proc/get_infection_germ_level()
+/mob/living/carbon/teshari/proc/get_infection_germ_level()
 	var/germs
 	for(var/obj/item/organ/I in internal_organs)
 		if(I.is_infected())
@@ -1533,7 +1533,7 @@
 			germs += E.germ_level
 	return germs
 
-/mob/living/carbon/human/proc/do_fever_effects(var/fever)
+/mob/living/carbon/teshari/proc/do_fever_effects(var/fever)
 	if(prob(20/3)) // every 30 seconds, roughly
 		to_chat(src, SPAN_WARNING(pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
 	if(prob(25)) // once every 8 seconds, roughly

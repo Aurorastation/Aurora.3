@@ -21,7 +21,7 @@
 
 //ghost roles
 
-/datum/ghostspawner/human/psis_outpost
+/datum/ghostspawner/teshari/psis_outpost
 	short_name = "psis_outpost"
 	name = "People's Strategic Intelligence Service Agent"
 	desc = "Man the People's Strategic Intelligence Service's outpost."

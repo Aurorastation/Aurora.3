@@ -1,4 +1,4 @@
-/mob/living/carbon/human/movement_delay()
+/mob/living/carbon/teshari/movement_delay()
 
 	var/tally = 0
 	if(species.slowdown)
@@ -71,7 +71,7 @@
 		if(!changeling)
 			tally += T.movement_cost
 
-	tally += config.human_delay
+	tally += config.teshari_delay
 
 	if(!isnull(facing_dir) && facing_dir != dir)
 		tally += 3
@@ -81,7 +81,7 @@
 	return tally
 
 
-/mob/living/carbon/human/Allow_Spacemove(var/check_drift = 0)
+/mob/living/carbon/teshari/Allow_Spacemove(var/check_drift = 0)
 	//Can we act?
 	if(restrained())	return 0
 
@@ -97,7 +97,7 @@
 	. = ..()
 
 
-/mob/living/carbon/human/slip_chance(var/prob_slip = 5)
+/mob/living/carbon/teshari/slip_chance(var/prob_slip = 5)
 	if(!..())
 		return 0
 
@@ -109,17 +109,17 @@
 
 	return prob_slip
 
-/mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
+/mob/living/carbon/teshari/Check_Shoegrip(checkSpecies = TRUE)
 	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots) && !lying && !buckled_to && !length(grabbed_by))  //magboots + dense_object = no floating. Doesn't work if lying. Grabbedby and buckled_to are for mob carrying, wheelchairs, roller beds, etc.
 		return TRUE
 	return FALSE
 
-/mob/living/carbon/human/set_dir(var/new_dir, ignore_facing_dir = FALSE)
+/mob/living/carbon/teshari/set_dir(var/new_dir, ignore_facing_dir = FALSE)
 	. = ..()
 	if(. && tail_style)
 		update_tail_showing(1)
 
-/mob/living/carbon/human/Move()
+/mob/living/carbon/teshari/Move()
 	. = ..()
 	if(.) //We moved
 		handle_leg_damage()
@@ -156,7 +156,7 @@
 			if (footstep % 2)
 				playsound(src, is_noisy ? footsound : species.footsound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 
-/mob/living/carbon/human/proc/handle_leg_damage()
+/mob/living/carbon/teshari/proc/handle_leg_damage()
 	if(!can_feel_pain())
 		return
 	var/crutches = 0
@@ -171,24 +171,24 @@
 			else
 				E.add_pain(10)
 
-/mob/living/carbon/human/mob_has_gravity()
+/mob/living/carbon/teshari/mob_has_gravity()
 	. = ..()
 	if(!. && mob_negates_gravity())
 		. = 1
 
-/mob/living/carbon/human/mob_negates_gravity()
+/mob/living/carbon/teshari/mob_negates_gravity()
 	return (shoes && shoes.negates_gravity())
 
-/mob/living/carbon/human/proc/ClothesSlowdown()
+/mob/living/carbon/teshari/proc/ClothesSlowdown()
 	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head, wear_mask, shoes, l_ear, r_ear, glasses, belt))
 		. += I.slowdown
 		. += I.slowdown_accessory
 
-/mob/living/carbon/human/get_pulling_movement_delay()
+/mob/living/carbon/teshari/get_pulling_movement_delay()
 	. = ..()
 
-	if(ishuman(pulling))
-		var/mob/living/carbon/human/H = pulling
+	if(isteshari(pulling))
+		var/mob/living/carbon/teshari/H = pulling
 		if(H.species.slowdown > species.slowdown)
 			. += H.species.slowdown - species.slowdown
 		. += H.ClothesSlowdown()

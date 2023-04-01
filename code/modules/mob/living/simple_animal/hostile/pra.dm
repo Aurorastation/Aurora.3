@@ -73,8 +73,8 @@
 	if(L in friends)
 		return FALSE
 
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
+	if(isteshari(L))
+		var/mob/living/carbon/teshari/H = L
 		if(H.w_uniform)
 			var/obj/item/clothing/under/suit = H.w_uniform
 			if((locate(/obj/item/clothing/accessory/hadii_pin) in suit.accessories) || (locate(/obj/item/clothing/accessory/badge/hadii_card) in suit.accessories))
@@ -232,7 +232,7 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/FoundTarget()
-	if(!ishuman(target_mob))
+	if(!isteshari(target_mob))
 		say("Hostile xenofauna detected!")
 	else if(istajara(target_mob))
 		say("Subversive element detected!")

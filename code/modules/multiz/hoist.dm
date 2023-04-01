@@ -170,7 +170,7 @@
 
 
 /obj/structure/hoist/attack_hand(mob/living/user)
-	if (!ishuman(user) || use_check_and_message(user, USE_DISALLOW_SILICONS))
+	if (!isteshari(user) || use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 
 	if(broken)

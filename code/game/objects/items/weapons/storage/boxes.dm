@@ -61,7 +61,7 @@
 	if(istype(user, /mob/living))
 		var/mob/living/L = user
 
-		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/human))//Monkey-like things do attack_generic, not crew
+		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/teshari))//Monkey-like things do attack_generic, not crew
 			if(contents.len && !locate(/obj/item/reagent_containers/food) in src) // you can tear open empty boxes for nesting material, or for food
 				to_chat(user, SPAN_WARNING("There's no food in that box!"))
 				return

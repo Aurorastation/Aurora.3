@@ -83,7 +83,7 @@
 		STOP_PROCESSING(SSfast_process, src)
 		return
 
-	var/mob/living/carbon/human/H = thrall.resolve()
+	var/mob/living/carbon/teshari/H = thrall.resolve()
 	if(!H)
 		thrall = null
 		STOP_PROCESSING(SSfast_process, src)
@@ -111,7 +111,7 @@
 		to_chat(user, "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		return
 
-	var/mob/living/carbon/human/H = thrall.resolve()
+	var/mob/living/carbon/teshari/H = thrall.resolve()
 
 	var/response = alert(user, "Would you like to make a suggestion to [thrall], or release them?", "Mesmetron", "Suggestion", "Release")
 
@@ -134,7 +134,7 @@
 		else
 			thrall = null
 
-/obj/item/mesmetron/afterattack(mob/living/carbon/human/H, mob/user, proximity)
+/obj/item/mesmetron/afterattack(mob/living/carbon/teshari/H, mob/user, proximity)
 	if(closed)
 		return
 
@@ -202,10 +202,10 @@
 
 	time_last_ran = world.time
 	var/counter = 0
-	var/mob/living/carbon/human/H
+	var/mob/living/carbon/teshari/H
 	for(var/mob/living/L in view(3,src.loc))
 		counter++
-		if(ishuman(L))
+		if(isteshari(L))
 			H = L
 
 	if(counter == 1 && H)

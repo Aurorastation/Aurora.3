@@ -12,7 +12,7 @@
 	var/icon_base = "magboots"
 	action_button_name = "Toggle Magboots"
 	var/obj/item/clothing/shoes/shoes = null	//Undershoes
-	var/mob/living/carbon/human/wearer = null	//For shoe procs
+	var/mob/living/carbon/teshari/wearer = null	//For shoe procs
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 
@@ -25,7 +25,7 @@
 	if(!wearer)
 		return
 
-	var/mob/living/carbon/human/H = wearer
+	var/mob/living/carbon/teshari/H = wearer
 	if(shoes && istype(H))
 		if(!H.equip_to_slot_if_possible(shoes, slot_shoes))
 			shoes.forceMove(get_turf(src))
@@ -63,7 +63,7 @@
 	if(slot != slot_shoes)
 		return ..()
 
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/teshari/H = user
 	if(H.shoes)
 		shoes = H.shoes
 		if(shoes.overshoes)

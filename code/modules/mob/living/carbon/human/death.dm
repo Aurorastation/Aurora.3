@@ -1,4 +1,4 @@
-/mob/living/carbon/human/gib()
+/mob/living/carbon/teshari/gib()
 	vr_disconnect()
 
 	for(var/obj/item/organ/I in internal_organs)
@@ -18,7 +18,7 @@
 	..(species.gibbed_anim)
 	gibs(loc, viruses, dna, null, species.flesh_color, species.blood_color)
 
-/mob/living/carbon/human/dust()
+/mob/living/carbon/teshari/dust()
 	vr_disconnect()
 
 	if(species)
@@ -26,7 +26,7 @@
 	else
 		..()
 
-/mob/living/carbon/human/death(gibbed)
+/mob/living/carbon/teshari/death(gibbed)
 	if(stat == DEAD)
 		return
 
@@ -82,7 +82,7 @@
 
 	updatehealth()
 
-/mob/living/carbon/human/proc/ChangeToHusk()
+/mob/living/carbon/teshari/proc/ChangeToHusk()
 	if(HAS_FLAG(mutations, HUSK))
 		return
 
@@ -102,12 +102,12 @@
 	update_body(TRUE)
 	return
 
-/mob/living/carbon/human/proc/Drain()
+/mob/living/carbon/teshari/proc/Drain()
 	ChangeToHusk()
 	mutations |= HUSK
 	return
 
-/mob/living/carbon/human/proc/ChangeToSkeleton(var/keep_name = FALSE)
+/mob/living/carbon/teshari/proc/ChangeToSkeleton(var/keep_name = FALSE)
 	if(HAS_FLAG(mutations, SKELETON))
 		return
 
@@ -126,16 +126,16 @@
 	status_flags |= DISFIGURED
 	update_body(TRUE)
 
-/mob/living/carbon/human/proc/scrub_flavor_text()
+/mob/living/carbon/teshari/proc/scrub_flavor_text()
 	for(var/text in flavor_texts)
 		flavor_texts[text] = null
 
-/mob/living/carbon/human/proc/vr_disconnect()
+/mob/living/carbon/teshari/proc/vr_disconnect()
 	if(remote_network)
 		SSvirtualreality.remove_robot(src, remote_network)
 		remote_network = null
 
-/mob/living/carbon/human/proc/drop_all_limbs(var/droplimb_type = DROPLIMB_BLUNT)
+/mob/living/carbon/teshari/proc/drop_all_limbs(var/droplimb_type = DROPLIMB_BLUNT)
 	for(var/thing in organs)
 		var/obj/item/organ/external/limb = thing
 		var/limb_can_amputate = (limb.limb_flags & ORGAN_CAN_AMPUTATE)

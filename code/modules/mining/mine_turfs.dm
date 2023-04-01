@@ -156,8 +156,8 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/CollidedWith(AM)
 	. = ..()
-	if(istype(AM,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = AM
+	if(istype(AM,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = AM
 		if((istype(H.l_hand,/obj/item/pickaxe)) && (!H.hand))
 			var/obj/item/pickaxe/P = H.l_hand
 			if(P.autodrill)
@@ -591,8 +591,8 @@ var/list/mineral_can_smooth_with = list(
 	add_fingerprint(user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-	if(ishuman(user) && user.a_intent == I_GRAB)
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user) && user.a_intent == I_GRAB)
+		var/mob/living/carbon/teshari/H = user
 		var/turf/destination = GetAbove(H)
 		if(destination)
 			var/turf/start = get_turf(H)

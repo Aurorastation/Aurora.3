@@ -18,8 +18,8 @@ calculate text size per text.
 	var/minimum_percent = 15
 	if(force_taste_sensitivity)
 		minimum_percent = round(15 / force_taste_sensitivity)
-	else if(ishuman(taster))
-		var/mob/living/carbon/human/H = taster
+	else if(isteshari(taster))
+		var/mob/living/carbon/teshari/H = taster
 		var/total_taste_sensitivity
 
 		var/obj/item/organ/internal/augment/taste_booster/booster = H.internal_organs_by_name[BP_AUG_TASTE_BOOSTER]

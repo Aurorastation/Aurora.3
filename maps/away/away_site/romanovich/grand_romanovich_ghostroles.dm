@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/grand_romanovich_host
+/datum/ghostspawner/teshari/grand_romanovich_host
 	short_name = "casino_host"
 	name = "Grand Romanovich Host"
 	desc = "Be the head for the Adhomian casino, the Grand Romanovich."
@@ -33,7 +33,7 @@
 /datum/outfit/admin/grand_romanovich_host/get_id_access()
 	return list(access_generic_away_site, access_external_airlocks)
 
-/datum/ghostspawner/human/grand_romanovich_staff
+/datum/ghostspawner/teshari/grand_romanovich_staff
 	short_name = "casino_staff"
 	name = "Grand Romanovich Staff"
 	desc = "Staff the Adhomian casino, the Grand Romanovich."
@@ -68,7 +68,7 @@
 /datum/outfit/admin/grand_romanovich_staff/get_id_access()
 	return list(access_generic_away_site, access_external_airlocks)
 
-/datum/ghostspawner/human/grand_romanovich_guard
+/datum/ghostspawner/teshari/grand_romanovich_guard
 	short_name = "casino_guard"
 	name = "Grand Romanovich Guard"
 	desc = "Guard the Adhomian casino, the Grand Romanovich."
@@ -117,7 +117,7 @@
 /datum/outfit/admin/grand_romanovich_guard/get_id_access()
 	return list(access_generic_away_site, access_external_airlocks)
 
-/datum/ghostspawner/human/casino_patron
+/datum/ghostspawner/teshari/casino_patron
 	short_name = "casino_patron"
 	name = "Grand Romanovich Patron"
 	desc = "Gamble in the Grand Romanovich."
@@ -127,7 +127,7 @@
 	max_count = 4
 
 	outfit = /datum/outfit/admin/random/casino_patron
-	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER)
+	possible_species = list(SPECIES_teshari,SPECIES_teshari_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Grand Romanovich"

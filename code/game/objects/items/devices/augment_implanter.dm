@@ -30,11 +30,11 @@
 		to_chat(user, SPAN_WARNING("\The [src] is empty!"))
 		return
 
-	if(!ishuman(L))
+	if(!isteshari(L))
 		to_chat(user, SPAN_WARNING("\The [src] has no effect on \the [L]."))
 		return
 
-	var/mob/living/carbon/human/H = L
+	var/mob/living/carbon/teshari/H = L
 
 	if(!(H.species.name in augment_type.species_restricted))
 		to_chat(user, SPAN_WARNING("\The [augment_type] is not compatible with \the [H]'s body."))

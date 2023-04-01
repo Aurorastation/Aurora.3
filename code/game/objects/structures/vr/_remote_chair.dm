@@ -42,8 +42,8 @@
 	if(!A.powered(EQUIP))
 		to_chat(user, SPAN_WARNING("\The [src] is not powered."))
 		return FALSE
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.old_mob)
 			to_chat(H, SPAN_WARNING("The chair rejects you! You cannot recursively control bodies."))
 			return

@@ -11,7 +11,7 @@
  *   Tests that require time to run we instead just check back on their results later instead of waiting around in a sleep(1) for each test.
  *   This allows us to finish unit testing quicker since we can start other tests while we're waiting on that one to finish.
  *
- *   An example of that is listed in mob_tests.dm with the human_breath test.  We spawn the mob in space and set the async flag to 1 so that we run the check later.
+ *   An example of that is listed in mob_tests.dm with the teshari_breath test.  We spawn the mob in space and set the async flag to 1 so that we run the check later.
  *   After 10 life ticks for that mob we check it's oxyloss but while that is going on we've already ran other tests.
  *
  *   If your test requires a significant amount of time...cheat on the timers.  Either speed up the process/life runs or do as we did in the timers for the shuttle

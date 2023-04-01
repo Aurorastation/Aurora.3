@@ -385,8 +385,8 @@
 		location.hotspot_expose(700, 5)
 
 /obj/item/weldingtool/attack(mob/living/M, mob/user, var/target_zone)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/external/S = H.organs_by_name[target_zone]
 
 		if(!S)
@@ -415,7 +415,7 @@
 	else
 		return ..()
 
-/obj/item/weldingtool/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
+/obj/item/weldingtool/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/teshari/target, var/obj/item/organ/external/affecting)
 	if(!affecting.brute_dam)
 		user.visible_message(SPAN_NOTICE("\The [user] finishes repairing the physical damage on \the [target]'s [affecting.name]."))
 		return
@@ -941,8 +941,8 @@
 
 /obj/item/steelwool/proc/endburn()
 	visible_message(SPAN_NOTICE("The steel wool burns out."))
-	if(ishuman(loc))
-		var/mob/living/carbon/human/user = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/user = loc
 		if(!user.gloves)
 			var/UserLoc = get_equip_slot()
 			if(UserLoc == slot_l_hand)

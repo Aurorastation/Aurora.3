@@ -25,7 +25,7 @@ Contains helper procs for airflow, handled in /connection_group.
 /mob/living/carbon/slime/airflow_stun()
 	return
 
-/mob/living/carbon/human/airflow_stun()
+/mob/living/carbon/teshari/airflow_stun()
 	if(shoes)
 		if(shoes.item_flags & NOSLIP) return 0
 	..()
@@ -108,7 +108,7 @@ Contains helper procs for airflow, handled in /connection_group.
 	airflow_speed = 0
 	airflow_dest = null
 
-/mob/living/carbon/human/airflow_hit(atom/A)
+/mob/living/carbon/teshari/airflow_hit(atom/A)
 //	for(var/mob/M in hearers(src))
 //		M.show_message("<span class='danger'>[src] slams into [A]!</span>",1,"<span class='danger'>You hear a loud slam!</span>",2)
 	playsound(src.loc, /singleton/sound_category/punch_sound, 25, 1, -1)

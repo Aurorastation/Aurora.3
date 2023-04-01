@@ -36,7 +36,7 @@
 	var/mob/living/target = null // AI variable - tells the slime to hunt this down
 	var/mob/living/leader = null // AI variable - tells the slime to follow this person
 
-	var/content = FALSE		// Don't attack humanoids while content, this gives xenobiologists the time to move slimes post-splitting
+	var/content = FALSE		// Don't attack tesharioids while content, this gives xenobiologists the time to move slimes post-splitting
 	var/attacked = 0		// Determines if it's been attacked recently. Can be any number, is a cooloff-ish variable
 	var/rabid = 0			// If set to 1, the slime will attack and eat anything it comes in contact with
 	var/holding_still = 0	// AI variable, cooloff-ish for how long it's going to stay in one place
@@ -52,7 +52,7 @@
 	var/AIproc = 0					// If it's 0, we need to launch an AI proc
 	var/Atkcool = 0					// Attack cooldown
 	var/SStun = 0					// NPC stun variable. Used to calm them down when they are attacked while feeding, or they will immediately re-attach
-	var/discipline = 0				// If a slime has been hit with a freeze gun, or wrestled/attacked off a human, they become disciplined and don't attack anymore for a while. The part about freeze gun is a lie
+	var/discipline = 0				// If a slime has been hit with a freeze gun, or wrestled/attacked off a teshari, they become disciplined and don't attack anymore for a while. The part about freeze gun is a lie
 	var/hurt_temperature = T0C-50	// Slime keeps taking damage when its bodytemperature is below this
 	var/die_temperature = 50		// Slime dies instantly when its bodytemperature is below this
 
@@ -210,12 +210,12 @@
 		var/mob/tmob = AM
 
 		if(is_adult)
-			if(istype(tmob, /mob/living/carbon/human))
+			if(istype(tmob, /mob/living/carbon/teshari))
 				if(prob(90))
 					now_pushing = FALSE
 					return
 		else
-			if(istype(tmob, /mob/living/carbon/human))
+			if(istype(tmob, /mob/living/carbon/teshari))
 				now_pushing = FALSE
 				return
 
@@ -284,7 +284,7 @@
 /mob/living/carbon/slime/attack_ui(slot)
 	return
 
-/mob/living/carbon/slime/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/carbon/slime/attack_hand(mob/living/carbon/teshari/M as mob)
 	..()
 
 	if(victim)

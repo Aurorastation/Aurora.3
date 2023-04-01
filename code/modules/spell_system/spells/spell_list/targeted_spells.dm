@@ -149,8 +149,8 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 	target.dizziness += amt_dizziness
 	target.confused += amt_confused
 	target.stuttering += amt_stuttering
-	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
+	if(isteshari(target))
+		var/mob/living/carbon/teshari/H = target
 		for(var/obj/item/organ/O in H.internal_organs)
 			if(amt_organ > 0)
 				O.take_damage(amt_organ)

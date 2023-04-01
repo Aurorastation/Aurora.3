@@ -23,15 +23,15 @@
 
 /datum/modifier/technomancer/haste/activate()
 	. = ..()
-	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
+	if(isteshari(target))
+		var/mob/living/carbon/teshari/H = target
 		H.move_delay_mod += -0.8
 		H.sprint_cost_factor += -0.2
 
 /datum/modifier/technomancer/haste/deactivate()
 	. = ..()
-	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
+	if(isteshari(target))
+		var/mob/living/carbon/teshari/H = target
 		H.move_delay_mod += 0.8
 		H.sprint_cost_factor += 0.2
 

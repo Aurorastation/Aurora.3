@@ -2,7 +2,7 @@
 adds a dizziness amount to a mob
 use this rather than directly changing var/dizziness
 since this ensures that the dizzy_process proc is started
-currently only humans get dizzy
+currently only tesharis get dizzy
 
 value of dizziness ranges from 0 to 1000
 below 100 is not dizzy
@@ -12,7 +12,7 @@ below 100 is not dizzy
 /mob/var/is_dizzy = 0
 
 /mob/proc/make_dizzy(var/amount)
-	if(!istype(src, /mob/living/carbon/human)) // for the moment, only humans get dizzy
+	if(!istype(src, /mob/living/carbon/teshari)) // for the moment, only tesharis get dizzy
 		return
 
 	dizziness = min(1000, dizziness + amount)	// store what will be new value
@@ -46,7 +46,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 /mob/var/is_jittery = 0
 /mob/var/jitteriness = 0//Carbon
 /mob/proc/make_jittery(var/amount)
-	if(!istype(src, /mob/living/carbon/human)) // for the moment, only humans get dizzy
+	if(!istype(src, /mob/living/carbon/teshari)) // for the moment, only tesharis get dizzy
 		return
 
 	jitteriness = min(1000, jitteriness + amount)	// store what will be new value

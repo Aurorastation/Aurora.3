@@ -15,7 +15,7 @@
 	allowed_role_types = SCC_ROLES
 
 	allowed_species_types = list(
-		/datum/species/human,
+		/datum/species/teshari,
 		/datum/species/skrell,
 		/datum/species/tajaran,
 		/datum/species/unathi,

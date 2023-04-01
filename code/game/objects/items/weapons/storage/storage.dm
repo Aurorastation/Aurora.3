@@ -71,7 +71,7 @@
 		var/obj/screen/inventory/S = over_object
 		if(S.slot_id == src.equip_slot)
 			return
-	if(ishuman(usr) || issmall(usr)) //so monkeys can take off their backpacks -- Urist
+	if(isteshari(usr) || issmall(usr)) //so monkeys can take off their backpacks -- Urist
 		if(over_object == usr && Adjacent(usr)) // this must come before the screen objects only block
 			src.open(usr)
 			return
@@ -571,8 +571,8 @@
 	return
 
 /obj/item/storage/attack_hand(mob/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.l_store == src && !H.get_active_hand())	//Prevents opening if it's in a pocket.
 			H.put_in_hands(src)
 			H.l_store = null
@@ -614,7 +614,7 @@
 	set name = "Empty Contents"
 	set category = "Object"
 
-	if((!ishuman(usr) && (src.loc != usr)) || usr.stat || usr.restrained())
+	if((!isteshari(usr) && (src.loc != usr)) || usr.stat || usr.restrained())
 		return
 
 	if(empty_delay)

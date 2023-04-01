@@ -1,4 +1,4 @@
-// Interface for humans.
+// Interface for tesharis.
 /obj/item/rig/verb/hardsuit_interface()
 	set name = "Open Hardsuit Interface"
 	set desc = "Open the hardsuit system interface."

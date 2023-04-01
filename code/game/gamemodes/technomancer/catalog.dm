@@ -36,7 +36,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	slot_flags = SLOT_BELT
 	var/budget = 1000
 	var/max_budget = 1000
-	var/mob/living/carbon/human/owner = null
+	var/mob/living/carbon/teshari/owner = null
 	var/list/spell_instances = list()
 	var/list/equipment_instances = list()
 	var/list/consumable_instances = list()
@@ -64,7 +64,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 // Proc: bind_to_owner()
 // Parameters: 1 (new_owner - mob that the book is trying to bind to)
 // Description: Links the catalog to hopefully the technomancer, so that only they can access it.
-/obj/item/technomancer_catalog/proc/bind_to_owner(var/mob/living/carbon/human/new_owner)
+/obj/item/technomancer_catalog/proc/bind_to_owner(var/mob/living/carbon/teshari/new_owner)
 	if(!owner && technomancers.is_technomancer(new_owner.mind))
 		owner = new_owner
 
@@ -290,12 +290,12 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 // Description: Acts upon clicks on links for the catalog, if they are the rightful owner.
 /obj/item/technomancer_catalog/Topic(href, href_list)
 	..()
-	var/mob/living/carbon/human/H = usr
+	var/mob/living/carbon/teshari/H = usr
 
 	if(use_check_and_message(H))
 		return
 
-	if(!ishuman(H))
+	if(!isteshari(H))
 		return 1 //why does this return 1?
 
 	if(H != owner)

@@ -82,7 +82,7 @@
 /*		WIZARD SPELL FLAGS		*/
 #define GHOSTCAST		0x1		//can a ghost cast it?
 #define NEEDSCLOTHES	0x2		//does it need the wizard garb to cast? Nonwizard spells should not have this
-#define NEEDSHUMAN		0x4		//does it require the caster to be human?
+#define NEEDSteshari		0x4		//does it require the caster to be teshari?
 #define Z2NOCAST		0x8		//if this is added, the spell can't be cast at centcomm
 #define STATALLOWED		0x10	//if set, the user doesn't have to be conscious to cast. Required for ghost spells
 #define IGNOREPREV		0x20	//if set, each new target does not overlap with the previous one

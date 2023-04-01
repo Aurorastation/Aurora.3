@@ -23,14 +23,14 @@
 // Proc: adjust_instability()
 // Parameters: 1 (amount - how much instability to give)
 // Description: Adds or subtracks instability to the mob, then updates the hud.
-/mob/living/carbon/human/adjust_instability(var/amount)
+/mob/living/carbon/teshari/adjust_instability(var/amount)
 	..()
 	instability_update_hud()
 
 // Proc: instability_update_hud()
 // Parameters: 0
 // Description: Sets the HUD icon to the correct state.
-/mob/living/carbon/human/proc/instability_update_hud()
+/mob/living/carbon/teshari/proc/instability_update_hud()
 	if(client && hud_used)
 		switch(instability)
 			if(0 to 10)
@@ -69,7 +69,7 @@
 	adjust_instability(-instability_decayed)
 	radiate_instability(instability_decayed)
 
-/mob/living/carbon/human/handle_instability()
+/mob/living/carbon/teshari/handle_instability()
 	..()
 	instability_update_hud()
 
@@ -186,7 +186,7 @@
 						adjustBruteLoss(instability * 0.4) //40 brute @ 100 instability
 						to_chat(src, "<span class='danger'>Your chassis makes the sound of metal groaning and tearing!</span>")
 
-/mob/living/carbon/human/instability_effects()
+/mob/living/carbon/teshari/instability_effects()
 	if(instability)
 		var/rng = 0
 		..()

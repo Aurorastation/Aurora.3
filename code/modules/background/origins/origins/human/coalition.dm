@@ -4,7 +4,7 @@
 
 /singleton/origin_item/culture/coalition
 	name = "Coalition of Colonies"
-	desc = "The Coalition of Colonies was born out of the fires of the Interstellar War, the bloodiest war humanity has seen since its dawn as a species. The majority of its citizens prize their freedom above all else, which has led to problems with governance for the Coalition: to this day, it remains a very decentralized and fragmented entity that can only be brought together as a unified front in moments of extreme crisis. But with the recent growth of the Republic of Biesel, retreat of the Solarian Alliance, and an increasingly militaristic Empire of Dominia, perhaps this matter shall change in the years to come."
+	desc = "The Coalition of Colonies was born out of the fires of the Interstellar War, the bloodiest war teshariity has seen since its dawn as a species. The majority of its citizens prize their freedom above all else, which has led to problems with governance for the Coalition: to this day, it remains a very decentralized and fragmented entity that can only be brought together as a unified front in moments of extreme crisis. But with the recent growth of the Republic of Biesel, retreat of the Solarian Alliance, and an increasingly militaristic Empire of Dominia, perhaps this matter shall change in the years to come."
 	possible_origins = list(
 		/singleton/origin_item/origin/xanu_free_league,
 		/singleton/origin_item/origin/himeo,
@@ -50,7 +50,7 @@
 
 /singleton/origin_item/origin/gadpathur
 	name = "Gadpathur"
-	desc = "During the Interstellar War, Gadpathur was orbitally bombarded by the Solarian Alliance until the planet was barely able to sustain human life. The planet has clawed its way back into stability over the intervening centuries, and is currently an ultra-militarized regime absolutely dedicated to ensuring that the Alliance is never again able to challenge the Coalition."
+	desc = "During the Interstellar War, Gadpathur was orbitally bombarded by the Solarian Alliance until the planet was barely able to sustain teshari life. The planet has clawed its way back into stability over the intervening centuries, and is currently an ultra-militarized regime absolutely dedicated to ensuring that the Alliance is never again able to challenge the Coalition."
 	important_information = "Because of Gadpathur's insular nature that is unwelcome to outsiders and its origins of being settled by Indian colonists, <b>characters born on the planet must have names and physical characteristics typical of people from the modern-day Indian Subcontinent.</b> Only native Gadpathurians may take the Gadpathuri accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_GADPATHUR)
 	possible_citizenships = list(CITIZENSHIP_COALITION)
@@ -58,7 +58,7 @@
 	origin_traits = list(TRAIT_ORIGIN_LIGHT_SENSITIVE)
 	origin_traits_descriptions = list("have a small resistance to radiation", "are more sensitive to bright lights")
 
-/singleton/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/human/H)
+/singleton/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/teshari/H)
   H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/gadpathur_exile
@@ -70,12 +70,12 @@
 	origin_traits = list(TRAIT_ORIGIN_LIGHT_SENSITIVE)
 	origin_traits_descriptions = list("have a small resistance to radiation", "are more sensitive to bright lights")
 
-/singleton/origin_item/origin/gadpathur_exile/on_apply(var/mob/living/carbon/human/H)
+/singleton/origin_item/origin/gadpathur_exile/on_apply(var/mob/living/carbon/teshari/H)
   H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/assunzione
 	name = "Republic of Assunzione"
-	desc = "One of the most remote planets colonized by humanity, the Republic of Assunzione is widely known for its lack of a functional sun - which burnt out mysteriously shortly after the planet was colonized - and its unusual native faith, Luceism. Luceism itself is an offshoot of traditional Abrahamic faiths and is centered around the worship of Ennoia, an abstract representation of light. Assunzionii society is quite insular and is centered around the planet's faith, with an overwhelming majority of the planet's residents adhering to Luceism."
+	desc = "One of the most remote planets colonized by teshariity, the Republic of Assunzione is widely known for its lack of a functional sun - which burnt out mysteriously shortly after the planet was colonized - and its unusual native faith, Luceism. Luceism itself is an offshoot of traditional Abrahamic faiths and is centered around the worship of Ennoia, an abstract representation of light. Assunzionii society is quite insular and is centered around the planet's faith, with an overwhelming majority of the planet's residents adhering to Luceism."
 	important_information = "Assunzione's remote location and urban planning which places a premium on available housing and space has made it unattractive to outsiders as a destination for immigration. Because of this, <b>characters born on Assunzione will have names and appearances consistent with the peoples living on or around the Mediterranean Sea, much like the planet's original colonists.</b> Only native Assunzioniis may take the Assunzionii accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_ASSUNZIONE)
 	possible_citizenships = CITIZENSHIPS_COALITION
@@ -85,7 +85,7 @@
 
 /singleton/origin_item/origin/ncf
 	name = "Non-Coalition Frontier"
-	desc = "The frontier beyond the Coalition of Colonies before unexplored \"deadspace,\" has seen limited human colonization, but still dwells mostly outside of the influence of any government. Most residents of this distant frontier that drift back to the more populated Orion Spur eventually claim citizenship with the Coalition of Colonies due to its ease of acquisition."
+	desc = "The frontier beyond the Coalition of Colonies before unexplored \"deadspace,\" has seen limited teshari colonization, but still dwells mostly outside of the influence of any government. Most residents of this distant frontier that drift back to the more populated Orion Spur eventually claim citizenship with the Coalition of Colonies due to its ease of acquisition."
 	possible_accents = list(ACCENT_NCF)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL)
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_LUCEISM, RELIGION_MOROZ, RELIGION_SCARAB)

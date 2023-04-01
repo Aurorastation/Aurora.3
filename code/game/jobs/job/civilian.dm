@@ -10,7 +10,7 @@
 	selection_color = "#90524b"
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18,
+		SPECIES_teshari = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
@@ -56,7 +56,7 @@
 	selection_color = "#90524b"
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18,
+		SPECIES_teshari = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
@@ -106,7 +106,7 @@
 	selection_color = "#90524b"
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18,
+		SPECIES_teshari = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
@@ -144,7 +144,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/hyd
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
-/datum/outfit/job/hydro/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/hydro/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_or_collect(new /obj/item/clothing/gloves/botanic_leather/tajara(H), slot_gloves)
@@ -203,7 +203,7 @@
 	selection_color = "#90524b"
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 20,
+		SPECIES_teshari = 20,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
@@ -318,7 +318,7 @@
 	l_hand = /obj/item/modular_computer/laptop/preset
 	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
-/datum/outfit/job/librarian/tech_support/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/librarian/tech_support/equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		r_hand = null
 	else
@@ -362,7 +362,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
-/datum/outfit/job/chaplain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/chaplain/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 
 	if(visualsOnly)
@@ -402,7 +402,7 @@
 	economic_modifier = 10
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_teshari = 30,
 		SPECIES_SKRELL = 70,
 		SPECIES_SKRELL_AXIORI = 70
 	)
@@ -413,7 +413,7 @@
 						access_sec_doors, access_research, access_medical, access_robotics, access_engine, access_teleporter, access_eva, access_intrepid)
 
 	ideal_character_age = list(
-		SPECIES_HUMAN = 40,
+		SPECIES_teshari = 40,
 		SPECIES_SKRELL = 90,
 		SPECIES_SKRELL_AXIORI = 90
 	)
@@ -459,7 +459,7 @@
 	selection_color = "#7B431C"
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18,
+		SPECIES_teshari = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
@@ -500,7 +500,7 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18,
+		SPECIES_teshari = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
@@ -552,7 +552,7 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
+		SPECIES_teshari = 25,
 		SPECIES_SKRELL = 55,
 		SPECIES_SKRELL_AXIORI = 55
 	)

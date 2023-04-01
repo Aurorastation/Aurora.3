@@ -12,8 +12,8 @@
 			var/mob/living/carbon/C = toucher
 			to_chat(C, SPAN_NOTICE("You feel a soothing energy invigorate you."))
 
-			if(ishuman(toucher))
-				var/mob/living/carbon/human/H = toucher
+			if(isteshari(toucher))
+				var/mob/living/carbon/teshari/H = toucher
 				for(var/obj/item/organ/external/affecting in H.organs)
 					if(affecting && istype(affecting))
 						affecting.heal_damage(25 * weakness, 25 * weakness)
@@ -222,8 +222,8 @@
 	if(toucher)
 		var/weakness = GetAnomalySusceptibility(toucher)
 		if(!toucher.isSynthetic())
-			if(ishuman(toucher) && prob(weakness * 100))
-				var/mob/living/carbon/human/H = toucher
+			if(isteshari(toucher) && prob(weakness * 100))
+				var/mob/living/carbon/teshari/H = toucher
 				to_chat(H, pick("<span class='notice'>You feel like taking a nap.</span>","<span class='notice'>You feel a yawn coming on.</span>","<span class='notice'>You feel a little tired.</span>"))
 				H.drowsiness = min(H.drowsiness + rand(5,25) * weakness, 50 * weakness)
 				H.eye_blurry = min(H.eye_blurry + rand(1,3) * weakness, 50 * weakness)
@@ -238,8 +238,8 @@
 			if(L.isSynthetic())
 				to_chat(L, SPAN_WARNING("SYSTEM ALERT: CPU cycles slowing down!"))
 				continue
-			else if(ishuman(L))
-				var/mob/living/carbon/human/H = L
+			else if(isteshari(L))
+				var/mob/living/carbon/teshari/H = L
 				var/weakness = GetAnomalySusceptibility(H)
 				if(prob(weakness * 100))
 					if(prob(10))
@@ -255,8 +255,8 @@
 			if(L.isSynthetic())
 				to_chat(L, SPAN_WARNING("SYSTEM ALERT: CPU cycles slowing down!"))
 				continue
-			else if(ishuman(L))
-				var/mob/living/carbon/human/H = L
+			else if(isteshari(L))
+				var/mob/living/carbon/teshari/H = L
 				var/weakness = GetAnomalySusceptibility(H)
 				if(prob(weakness * 100))
 					to_chat(H, pick("<span class='notice'>You feel like taking a nap.</span>","<span class='notice'>You feel a yawn coming on.</span>","<span class='notice'>You feel a little tired.</span>"))

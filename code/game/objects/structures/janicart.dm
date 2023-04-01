@@ -400,7 +400,7 @@
 
 /obj/structure/janitorialcart/CtrlClick(var/mob/user)
 	if(in_range(src, user))
-		if(!ishuman(user))	return
+		if(!isteshari(user))	return
 		if(!pulling)
 			pulling = user
 			user.pulledby = src

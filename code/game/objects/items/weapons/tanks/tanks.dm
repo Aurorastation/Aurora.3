@@ -126,8 +126,8 @@
 		if(mask_check)
 			if(location.wear_mask && (location.wear_mask.item_flags & AIRTIGHT))
 				data["maskConnected"] = 1
-			else if(istype(location, /mob/living/carbon/human))
-				var/mob/living/carbon/human/H = location
+			else if(istype(location, /mob/living/carbon/teshari))
+				var/mob/living/carbon/teshari/H = location
 				if(H.head && (H.head.item_flags & AIRTIGHT))
 					data["maskConnected"] = 1
 
@@ -174,8 +174,8 @@
 				var/can_open_valve
 				if(location.wear_mask && (location.wear_mask.item_flags & AIRTIGHT))
 					can_open_valve = 1
-				else if(istype(location,/mob/living/carbon/human))
-					var/mob/living/carbon/human/H = location
+				else if(istype(location,/mob/living/carbon/teshari))
+					var/mob/living/carbon/teshari/H = location
 					if(H.head && (H.head.item_flags & AIRTIGHT))
 						can_open_valve = 1
 

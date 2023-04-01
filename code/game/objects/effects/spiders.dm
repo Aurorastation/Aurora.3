@@ -134,7 +134,7 @@
 	desc = "A small, agile alien creature. It oozes some disgusting slime."
 	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
 	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
-	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
+	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of teshari vessels to spread wildly."
 	icon_state = "spiderling"
 	anchored = 0
 	layer = 2.7
@@ -288,9 +288,9 @@
 /**
  * Makes the organ spew out all of the spiderlings it has. It's triggered at the point
  * of the first spiderling reaching 80% of more amount grown. This stops them from growing
- * to full size inside a human.
+ * to full size inside a teshari.
  *
- * The proc also drops the limb if it's on a human, or gibs it if it's on the floor. For
+ * The proc also drops the limb if it's on a teshari, or gibs it if it's on the floor. For
  * maximum drama, of course!
  *
  * @param	O The organ/external limb the src is located inside of.

@@ -37,7 +37,7 @@ var/datum/antagonist/xenos/borer/borers
 		var/mob/living/simple_animal/borer/borer = M
 
 		var/list/hosts = list()
-		for(var/mob/living/carbon/human/H in mob_list)
+		for(var/mob/living/carbon/teshari/H in mob_list)
 			if(!H.mind)
 				continue
 			if(H.mind?.special_role)
@@ -53,7 +53,7 @@ var/datum/antagonist/xenos/borer/borers
 			hosts += H
 
 		if(length(hosts))
-			var/mob/living/carbon/human/chosen_host = pick(hosts)
+			var/mob/living/carbon/teshari/chosen_host = pick(hosts)
 
 			borer.host = chosen_host
 			borer.host.status_flags |= PASSEMOTES

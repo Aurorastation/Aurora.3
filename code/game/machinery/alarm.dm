@@ -185,7 +185,7 @@
 		change_power_consumption(active_power_usage * 6, POWER_USE_ACTIVE)
 		change_power_consumption(idle_power_usage * 3, POWER_USE_IDLE)
 
-	// breathable air according to human/Life()
+	// breathable air according to teshari/Life()
 	TLV[GAS_OXYGEN] =			list(16, 19, 135, 140) // Partial pressure, kpa
 	TLV[GAS_CO2] = 				list(-1.0, -1.0, 5, 10) // Partial pressure, kpa
 	TLV[GAS_PHORON] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa

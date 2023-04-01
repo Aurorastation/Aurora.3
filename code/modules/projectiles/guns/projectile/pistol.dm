@@ -280,7 +280,7 @@
 
 /obj/item/gun/projectile/pistol
 	name = "9mm pistol"
-	desc = "A compact 9mm handgun, extremely popular all throughout human space."
+	desc = "A compact 9mm handgun, extremely popular all throughout teshari space."
 	desc_extended = "The Zavodskoi Interstellar Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"
@@ -512,8 +512,8 @@
 	if(wielded)
 		return
 	else
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
+		if(isteshari(user))
+			var/mob/living/carbon/teshari/H = user
 			if(H.mob_size <10)
 				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)

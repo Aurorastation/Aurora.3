@@ -4,11 +4,11 @@
 	rune_flags = NO_TALISMAN | CAN_MEMORIZE
 
 /datum/rune/sacrifice/do_rune_action(mob/living/user, atom/movable/A)
-	var/list/mob/living/carbon/human/cultists_in_range = list()
-	var/list/mob/living/carbon/human/victims = list()
+	var/list/mob/living/carbon/teshari/cultists_in_range = list()
+	var/list/mob/living/carbon/teshari/victims = list()
 
-	for(var/mob/living/carbon/human/V in get_turf(A)) // Checks for non-cultist humans to sacrifice
-		if(ishuman(V) && !iscultist(V))
+	for(var/mob/living/carbon/teshari/V in get_turf(A)) // Checks for non-cultist tesharis to sacrifice
+		if(isteshari(V) && !iscultist(V))
 			victims += V // Checks for cult status and mob type
 
 	for(var/obj/item/I in get_turf(A)) // Checks for MMIs/brains/Intellicards
@@ -23,7 +23,7 @@
 		else if(istype(I,/obj/item/aicard))
 			for(var/mob/living/silicon/ai/AI in I)
 				victims += AI
-	
+
 	for(var/mob/living/carbon/C in orange(1, A))
 		if(iscultist(C) && !C.stat)
 			cultists_in_range += C
@@ -31,8 +31,8 @@
 
 	for(var/mob/H in victims)
 		var/worthy = FALSE
-		if(istype(H,/mob/living/carbon/human))
-			var/mob/living/carbon/human/lamb = H
+		if(istype(H,/mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/lamb = H
 			if(lamb.species.rarity_value > 3)
 				worthy = TRUE
 
@@ -52,7 +52,7 @@
 				do_sacrifice(cultists_in_range, H, H.stat, 80, worthy)
 		else
 			fizzle(user)
-		
+
 		if(output)
 			for(var/mob/C in cultists_in_range)
 				to_chat(C, output)

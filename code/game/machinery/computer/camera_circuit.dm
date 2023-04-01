@@ -45,14 +45,14 @@
 		return
 
 	attack_self(var/mob/user)
-		if(!secured && ishuman(user))
+		if(!secured && isteshari(user))
 			user.machine = src
 			interact(user, 0)
 
 	proc/interact(var/mob/user, var/ai=0)
 		if(secured)
 			return
-		if (!ishuman(user))
+		if (!isteshari(user))
 			return ..(user)
 		var/t = "<B>Circuitboard Console - Camera Monitoring Computer</B><BR>"
 		t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"

@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/fsf_navy_crewman
+/datum/ghostspawner/teshari/fsf_navy_crewman
 	short_name = "fsf_navy_crewman"
 	name = "FSF Navy Crewman"
 	desc = "Crew the Free Solarian Fleets patrol corvette. Look for work, or some other source of income."
@@ -9,7 +9,7 @@
 	max_count = 3
 
 	outfit = /datum/outfit/admin/fsf_navy_crewman
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_teshari)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "FSF Navy Crewman"
@@ -37,7 +37,7 @@
 /datum/outfit/admin/fsf_navy_crewman/get_id_access()
 	return list(access_sol_ships, access_external_airlocks)
 
-/datum/ghostspawner/human/fsf_navy_officer
+/datum/ghostspawner/teshari/fsf_navy_officer
 	short_name = "fsf_navy_officer"
 	name = "FSF Navy Officer"
 	desc = "Command the Free Solarian Fleets patrol corvette. Look for work, or some other source of income."
@@ -48,7 +48,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/fsf_navy_officer
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_teshari)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "FSF Navy Officer"
@@ -75,7 +75,7 @@
 /datum/outfit/admin/fsf_navy_officer/get_id_access()
 	return list(access_sol_ships, access_external_airlocks)
 
-/datum/ghostspawner/human/fsf_navy_crewman/senior
+/datum/ghostspawner/teshari/fsf_navy_crewman/senior
 	short_name = "fsf_navy_senior_crewman"
 	name = "FSF Navy Senior Crewman"
 	desc = "Serve as the second-in-command of the Free Solarian Fleets patrol corvette. Look for work, or some other source of income."

@@ -17,8 +17,8 @@
 
 /obj/item/material/caltrops/Crossed(AM as mob|obj)
 	..()
-	if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	if(isteshari(AM))
+		var/mob/living/carbon/teshari/H = AM
 		var/damage_coef = 1
 		if(H.buckled_to)
 			return

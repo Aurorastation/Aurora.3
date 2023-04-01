@@ -5,12 +5,12 @@
 	icon_state = "remains"
 	anchored = FALSE
 
-/obj/effect/decal/remains/human
-	desc = "They look like human remains. They have a strange aura about them."
+/obj/effect/decal/remains/teshari
+	desc = "They look like teshari remains. They have a strange aura about them."
 
-/obj/effect/decal/remains/human/burned
+/obj/effect/decal/remains/teshari/burned
 	name = "burned remains"
-	desc = "They look like burned human remains. They have a strange aura about them."
+	desc = "They look like burned teshari remains. They have a strange aura about them."
 	icon_state = "remains_burned"
 
 /obj/effect/decal/remains/xeno

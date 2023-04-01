@@ -479,9 +479,9 @@
 	if(connected?.active)
 		to_chat(user, SPAN_WARNING("You know you ought not work with the brace of a <i>running</i> drill, but you do anyways."))
 		sleep(5)
-		if(istype(user, /mob/living/carbon/human))
+		if(istype(user, /mob/living/carbon/teshari))
 			//Save the users active hand
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/teshari/H = user
 			var/obj/item/organ/external/LA = H.get_organ(BP_L_HAND)
 			var/obj/item/organ/external/RA = H.get_organ(BP_R_HAND)
 			var/active_hand = H.hand

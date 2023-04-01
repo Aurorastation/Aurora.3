@@ -410,7 +410,7 @@
 
 	if(usr.incapacitated())
 		return
-	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
+	if(isteshari(usr) || istype(usr, /mob/living/silicon/robot))
 		var/new_light = input("Specify a light level.") as null|anything in list(0,1,2,3,4,5,6,7,8,9,10)
 		if(new_light)
 			tray_light = new_light
@@ -683,7 +683,7 @@
 	if(usr.incapacitated())
 		return
 
-	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
+	if(isteshari(usr) || istype(usr, /mob/living/silicon/robot))
 		close_lid(usr)
 	return
 

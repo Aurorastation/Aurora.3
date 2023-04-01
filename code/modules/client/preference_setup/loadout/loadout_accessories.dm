@@ -419,7 +419,7 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/passcard
-	display_name = "human passcard selection"
+	display_name = "teshari passcard selection"
 	path = /obj/item/clothing/accessory/badge/passcard
 	cost = 0
 
@@ -453,7 +453,7 @@
 	cost = 0
 
 /datum/gear/accessory/passport
-	display_name = "human passport selection"
+	display_name = "teshari passport selection"
 	path = /obj/item/clothing/accessory/badge/passport
 	cost = 0
 

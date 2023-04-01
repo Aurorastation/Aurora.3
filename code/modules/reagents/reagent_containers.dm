@@ -230,12 +230,12 @@
 
 	//var/types = target.find_type()
 
-	var/mob/living/carbon/human/H
-	if(istype(target, /mob/living/carbon/human))
+	var/mob/living/carbon/teshari/H
+	if(istype(target, /mob/living/carbon/teshari))
 		H = target
 
 	if(target == user)
-		if(istype(user, /mob/living/carbon/human))
+		if(istype(user, /mob/living/carbon/teshari))
 			H = user
 			if(!H.can_drink(src))
 				return
@@ -246,7 +246,7 @@
 		feed_sound(user)
 		return TRUE
 	else
-		if(istype(target, /mob/living/carbon/human))
+		if(istype(target, /mob/living/carbon/teshari))
 			H = target
 			if(!H.check_has_mouth())
 				to_chat(user, "Where do you intend to put \the [src]? \The [H] doesn't have a mouth!")
@@ -280,8 +280,8 @@
 
 /obj/item/reagent_containers/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
-	if(ishuman(over))
-		var/mob/living/carbon/human/H = over
+	if(isteshari(over))
+		var/mob/living/carbon/teshari/H = over
 		if(usr != H)
 			return
 

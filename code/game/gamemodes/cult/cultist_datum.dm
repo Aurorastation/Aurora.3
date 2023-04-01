@@ -6,7 +6,7 @@
 	set desc = "Stand atop a rune and memorize it, allowing you to draw it without your tome."
 	set category = "Cultist"
 
-	if(!ishuman(usr))
+	if(!isteshari(usr))
 		to_chat(usr, SPAN_WARNING("Your form is too simple to memorize runes!"))
 		return
 
@@ -20,7 +20,7 @@
 		to_chat(usr, SPAN_WARNING("You can only memorize up to three runes!"))
 		return
 
-	var/mob/living/carbon/human/H = usr
+	var/mob/living/carbon/teshari/H = usr
 	var/obj/effect/rune/R = locate() in get_turf(H)
 	if(R)
 		if(!R.rune.can_memorize())
@@ -42,7 +42,7 @@
 	set desc = "Cleanse the knowledge of a rune from your memory, freeing up space for another."
 	set category = "Cultist"
 
-	if(!ishuman(usr))
+	if(!isteshari(usr))
 		to_chat(usr, SPAN_WARNING("Your form is too simple to memorize runes!"))
 		return
 
@@ -66,7 +66,7 @@
 	set desc = "Scribe a rune that you have memorized."
 	set category = "Cultist"
 
-	if(!ishuman(usr))
+	if(!isteshari(usr))
 		to_chat(usr, SPAN_WARNING("Your form is too simple to memorize runes!"))
 		return
 
@@ -84,14 +84,14 @@
 	if(!chosen_rune)
 		return
 
-	var/mob/living/carbon/human/H = usr
+	var/mob/living/carbon/teshari/H = usr
 	H.visible_message(SPAN_CULT("Blood flows out from \the [H]'s hands, taking shape beneath them..."))
 	H.drip(4)
 
 	if(do_after(H, 15 SECONDS))
 		create_rune(H, chosen_rune)
 
-/proc/create_rune(var/mob/living/carbon/human/scribe, var/chosen_rune)
+/proc/create_rune(var/mob/living/carbon/teshari/scribe, var/chosen_rune)
 	if(scribe.stat || scribe.incapacitated())
 		to_chat(scribe, SPAN_WARNING("You are in no shape to do this."))
 		return

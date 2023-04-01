@@ -20,7 +20,7 @@
 
 //ghost roles
 
-/datum/ghostspawner/human/silo_guard
+/datum/ghostspawner/teshari/silo_guard
 	short_name = "silo_guard"
 	name = "Hadiist Missile Silo Guard"
 	desc = "Guard the Hadiist missile silo."

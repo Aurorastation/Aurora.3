@@ -254,8 +254,8 @@
 		if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show that it is available.
 			to_chat(user, FONT_SMALL(SPAN_ALERT("- This object has additional information for antagonists.")))
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.glasses)
 			H.glasses.glasses_examine_atom(src, H)
 
@@ -283,8 +283,8 @@
 	if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show it.
 		to_chat(user, FONT_SMALL(SPAN_ALERT("- [desc_antag]")))
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(H.glasses)
 			H.glasses.glasses_examine_atom(src, H)
 
@@ -339,8 +339,8 @@
 	if(isnull(M)) return
 	if(!istype(M, /mob)) return
 	if(isnull(M.key)) return
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if (!istype(H.dna, /datum/dna))
 			return 0
 		if (H.gloves)
@@ -364,7 +364,7 @@
 	if(!istype(M, /mob)) return
 	if(issilicon(M)) return
 	if(isnull(M.key)) return
-	if (ishuman(M))
+	if (isteshari(M))
 		// Add the list if it does not exist.
 		if(!fingerprintshidden)
 			fingerprintshidden = list()
@@ -379,7 +379,7 @@
 				fingerprintslast = M.key
 			return 0 //Now, lets get to the dirty work.
 		// First, make sure their DNA makes sense.
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/teshari/H = M
 		if (!istype(H.dna, /datum/dna) || !H.dna.uni_identity || (length(H.dna.uni_identity) != 32))
 			if(!istype(H.dna, /datum/dna))
 				H.dna = new /datum/dna(null)
@@ -481,7 +481,7 @@
 
 
 // Returns 1 if made bloody, returns 0 otherwise.
-/atom/proc/add_blood(mob/living/carbon/human/M)
+/atom/proc/add_blood(mob/living/carbon/teshari/M)
 
 	if(flags & NOBLOODY)
 		return 0
@@ -610,7 +610,7 @@
 	if(air_sound(src))
 		if(!hearers.len)
 			hearers = get_hearers_in_view(range, src)
-		for(var/mob/living/carbon/human/H as anything in intent_listener)
+		for(var/mob/living/carbon/teshari/H as anything in intent_listener)
 			if(!(H in hearers))
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)

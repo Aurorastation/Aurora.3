@@ -15,7 +15,7 @@
 	disable_night_vision()
 	. = ..()
 
-/obj/item/organ/internal/eyes/night/removed(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/eyes/night/removed(var/mob/living/carbon/teshari/target)
 	. = ..()
 	disable_night_vision()
 
@@ -136,7 +136,7 @@
 	icon = 'icons/obj/organs/tajara_organs.dmi'
 
 /obj/item/organ/internal/heart/tajara/tesla_body
-	on_mob_icon = 'icons/mob/human_races/tesla_body_augments.dmi'
+	on_mob_icon = 'icons/mob/teshari_races/tesla_body_augments.dmi'
 
 /obj/item/organ/internal/kidneys/tajara
 	desc = "Alien kidneys adapted to the Tajaran physiology."

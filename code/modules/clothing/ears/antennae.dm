@@ -13,10 +13,10 @@
 	set desc = "Lock your antenna(e) in place."
 	set category = "Object"
 
-	if(!ishuman(usr))
+	if(!isteshari(usr))
 		return
 
-	var/mob/living/carbon/human/user = usr
+	var/mob/living/carbon/teshari/user = usr
 
 	if(use_check_and_message(user))
 		return

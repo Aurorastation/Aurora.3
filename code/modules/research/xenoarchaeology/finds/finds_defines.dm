@@ -30,7 +30,7 @@
 #define ARCHAEO_FOSSIL 29
 #define ARCHAEO_SHELL 30
 #define ARCHAEO_PLANT 31
-#define ARCHAEO_REMAINS_HUMANOID 32
+#define ARCHAEO_REMAINS_teshariOID 32
 #define ARCHAEO_REMAINS_ROBOT 33
 #define ARCHAEO_REMAINS_XENO 34
 #define ARCHAEO_GASMASK 35
@@ -114,7 +114,7 @@
 			return "carbon"
 		if(ARCHAEO_PLANT)
 			return "carbon"
-		if(ARCHAEO_REMAINS_HUMANOID)
+		if(ARCHAEO_REMAINS_teshariOID)
 			return "carbon"
 		if(ARCHAEO_REMAINS_ROBOT)
 			return "carbon"
@@ -215,27 +215,27 @@
 	return find_type
 
 var/list/responsive_carriers = list(
-	"carbon", 
+	"carbon",
 	"potassium",
-	"hydrogen", 
-	"nitrogen", 
-	"mercury", 
-	"iron", 
-	"chlorine", 
-	"phosphorus", 
+	"hydrogen",
+	"nitrogen",
+	"mercury",
+	"iron",
+	"chlorine",
+	"phosphorus",
 	"phoron"
 	)
 
 var/list/finds_as_strings = list(
-	"Trace organic cells", 
-	"Long exposure particles", 
-	"Trace water particles", 
-	"Crystalline structures", 
-	"Metallic derivative", 
-	"Metallic composite", 
-	"Metamorphic/igneous rock composite", 
+	"Trace organic cells",
+	"Long exposure particles",
+	"Trace water particles",
+	"Crystalline structures",
+	"Metallic derivative",
+	"Metallic composite",
+	"Metamorphic/igneous rock composite",
 	"Metamorphic/sedimentary rock composite",
-	"Anomalous material" 
+	"Anomalous material"
 	)
 
 #undef ARCHAEO_BOWL
@@ -269,7 +269,7 @@ var/list/finds_as_strings = list(
 #undef ARCHAEO_FOSSIL
 #undef ARCHAEO_SHELL
 #undef ARCHAEO_PLANT
-#undef ARCHAEO_REMAINS_HUMANOID
+#undef ARCHAEO_REMAINS_teshariOID
 #undef ARCHAEO_REMAINS_ROBOT
 #undef ARCHAEO_REMAINS_XENO
 #undef ARCHAEO_GASMASK

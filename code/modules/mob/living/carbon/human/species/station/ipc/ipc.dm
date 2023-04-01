@@ -10,11 +10,11 @@
 	default_genders = list(NEUTER)
 	selectable_pronouns = list(NEUTER, PLURAL)
 
-	blurb = "IPCs are, quite simply, \"Integrated Positronic Chassis.\" In this scenario, 'positronic' implies that the chassis possesses a positronic processing core (or positronic brain), meaning that an IPC must be positronic to be considered an IPC. The Baseline model is more of a category - the long of the short is that they represent all unbound synthetic units. Baseline models cover anything that is not an Industrial chassis or a Shell chassis. They can be custom made or assembly made. The most common feature of the Baseline model is a simple design, skeletal or semi-humanoid, and ordinary atmospheric diffusion cooling systems."
+	blurb = "IPCs are, quite simply, \"Integrated Positronic Chassis.\" In this scenario, 'positronic' implies that the chassis possesses a positronic processing core (or positronic brain), meaning that an IPC must be positronic to be considered an IPC. The Baseline model is more of a category - the long of the short is that they represent all unbound synthetic units. Baseline models cover anything that is not an Industrial chassis or a Shell chassis. They can be custom made or assembly made. The most common feature of the Baseline model is a simple design, skeletal or semi-tesharioid, and ordinary atmospheric diffusion cooling systems."
 
-	icobase = 'icons/mob/human_races/ipc/r_machine.dmi'
-	deform = 'icons/mob/human_races/ipc/r_machine.dmi'
-	preview_icon = 'icons/mob/human_races/ipc/machine_preview.dmi'
+	icobase = 'icons/mob/teshari_races/ipc/r_machine.dmi'
+	deform = 'icons/mob/teshari_races/ipc/r_machine.dmi'
+	preview_icon = 'icons/mob/teshari_races/ipc/machine_preview.dmi'
 	eyes = "blank_eyes"
 
 	light_range = 2
@@ -70,9 +70,9 @@
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/change_monitor,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/teshari/proc/self_diagnostics,
+		/mob/living/carbon/teshari/proc/change_monitor,
+		/mob/living/carbon/teshari/proc/check_tag
 	)
 
 	flags = IS_IPC
@@ -113,7 +113,7 @@
 		"Your CPU temperature probes warn you that you are approaching critical heat levels!"
 		)
 	stamina = -1	// Machines use power and generate heat, stamina is not a thing
-	sprint_speed_factor = 1  // About as capable of speed as a human
+	sprint_speed_factor = 1  // About as capable of speed as a teshari
 	sprint_cost_factor = 1.5
 
 	max_hydration_factor = -1
@@ -140,14 +140,14 @@
 
 	use_alt_hair_layer = TRUE
 
-/datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/machine/handle_post_spawn(var/mob/living/carbon/teshari/H)
 	. = ..()
 	check_tag(H, H.client)
 	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
 	if(C)
 		C.move_charge_factor = move_charge_factor
 
-/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
+/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/teshari/H, var/cost, var/pre_move)
 	if(!pre_move && H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
 	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
@@ -155,7 +155,7 @@
 		C.use(cost * sprint_cost_factor)
 	return TRUE
 
-/datum/species/machine/handle_emp_act(mob/living/carbon/human/H, var/severity)
+/datum/species/machine/handle_emp_act(mob/living/carbon/teshari/H, var/severity)
 	var/obj/item/organ/internal/surge/S = H.internal_organs_by_name["surge"]
 	if(!isnull(S))
 		if(S.surge_left >= 1)
@@ -172,15 +172,15 @@
 			to_chat(src, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended."))
 	return FALSE
 
-/datum/species/machine/handle_death(var/mob/living/carbon/human/H)
+/datum/species/machine/handle_death(var/mob/living/carbon/teshari/H)
 	..()
 	H.f_style = ""
-	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, update_hair)), 100)
+	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/teshari, update_hair)), 100)
 
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
 
-/datum/species/machine/proc/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
+/datum/species/machine/proc/check_tag(var/mob/living/carbon/teshari/new_machine, var/client/player)
 	if(!new_machine || !player)
 		var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
 		if(tag)
@@ -200,7 +200,7 @@
 		new_machine.internal_organs -= tag
 		qdel(tag)
 
-/datum/species/machine/proc/update_tag(var/mob/living/carbon/human/target, var/client/player)
+/datum/species/machine/proc/update_tag(var/mob/living/carbon/teshari/target, var/client/player)
 	if (!target || !player)
 		return
 
@@ -223,7 +223,7 @@
 			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status: WHERE player_ckey = :ckey: AND character_name = :character_name:")
 			update_query.Execute(query_details)
 
-/datum/species/machine/get_light_color(mob/living/carbon/human/H)
+/datum/species/machine/get_light_color(mob/living/carbon/teshari/H)
 	if (!istype(H))
 		return null
 
@@ -365,25 +365,25 @@
 		if ("trinary perfection IPC screen")
 			return LIGHT_COLOR_RED
 
-/datum/species/machine/before_equip(var/mob/living/carbon/human/H)
+/datum/species/machine/before_equip(var/mob/living/carbon/teshari/H)
 	. = ..()
 	check_tag(H, H.client)
 
 /datum/species/machine/has_psi_potential()
 	return FALSE
 
-/datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
+/datum/species/machine/handle_death_check(var/mob/living/carbon/teshari/H)
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
 
-/datum/species/machine/has_stamina_for_pushup(var/mob/living/carbon/human/human)
-	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
+/datum/species/machine/has_stamina_for_pushup(var/mob/living/carbon/teshari/teshari)
+	var/obj/item/organ/internal/cell/C = teshari.internal_organs_by_name[BP_CELL]
 	if(!C.cell)
 		return FALSE
 	return C.cell.charge > (C.cell.maxcharge / 10)
 
-/datum/species/machine/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
-	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
+/datum/species/machine/drain_stamina(var/mob/living/carbon/teshari/teshari, var/stamina_cost)
+	var/obj/item/organ/internal/cell/C = teshari.internal_organs_by_name[BP_CELL]
 	if(C)
 		C.use(stamina_cost * 8)

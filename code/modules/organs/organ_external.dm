@@ -194,7 +194,7 @@
 		dislocated = 2
 	else
 		dislocated = 1
-	owner.verbs |= /mob/living/carbon/human/proc/undislocate
+	owner.verbs |= /mob/living/carbon/teshari/proc/undislocate
 	if(children && children.len)
 		for(var/obj/item/organ/external/child in children)
 			child.dislocate()
@@ -213,7 +213,7 @@
 		for(var/obj/item/organ/external/limb in owner.organs)
 			if(limb.dislocated == 2)
 				return
-		owner.verbs -= /mob/living/carbon/human/proc/undislocate
+		owner.verbs -= /mob/living/carbon/teshari/proc/undislocate
 
 /obj/item/organ/external/update_health()
 	damage = min(max_damage, (brute_dam + burn_dam))
@@ -230,7 +230,7 @@
 		pain_disability_threshold = (max_damage * 0.75)
 	if(owner)
 		replaced(owner)
-		sync_colour_to_human(owner)
+		sync_colour_to_teshari(owner)
 
 	if ((status & ORGAN_PLANT))
 		limb_flags &= ~ORGAN_CAN_BREAK
@@ -242,7 +242,7 @@
 	else if(limb_flags & ORGAN_HAS_TENDON)
 		limb_flags &= ~ORGAN_HAS_TENDON
 
-/obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
+/obj/item/organ/external/replaced(var/mob/living/carbon/teshari/target)
 	..()
 	if(istype(owner))
 		owner.organs_by_name[limb_name] = src
@@ -405,7 +405,7 @@
 				var/blunt_eligible = FALSE
 				var/maim_bonus = 0
 				var/dam_flags = 0
-				
+
 				if(isitem(used_weapon))
 					var/obj/item/W = used_weapon
 					dam_flags = W.damage_flags()
@@ -627,8 +627,8 @@ This function completely restores a damaged organ to perfect condition.
 
 /obj/item/organ/external/proc/check_rigsplints()
 	if((status & ORGAN_BROKEN) && !(status & ORGAN_SPLINTED))
-		if(istype(owner,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = owner
+		if(istype(owner,/mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = owner
 			if(H.back && istype(H.back, /obj/item/rig))
 				var/obj/item/rig/R = H.back
 				if(R.offline)
@@ -826,8 +826,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 	status &= ~ORGAN_BLEEDING
 	var/clamped = 0
 
-	var/mob/living/carbon/human/H
-	if(istype(owner,/mob/living/carbon/human))
+	var/mob/living/carbon/teshari/H
+	if(istype(owner,/mob/living/carbon/teshari))
 		H = owner
 
 	//update damage counts
@@ -900,7 +900,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			   DISMEMBERMENT
 ****************************************************/
 
-/obj/item/organ/external/proc/post_droplimb(mob/living/carbon/human/victim)
+/obj/item/organ/external/proc/post_droplimb(mob/living/carbon/teshari/victim)
 	victim.updatehealth()
 	victim.UpdateDamageIcon()
 	victim.regenerate_icons()
@@ -933,14 +933,14 @@ Note that amputating the affected organ does in fact remove the infection from t
 				"<span class='moderate'><b><font size=3>Your [src.name] explodes[gore]!</font></b></span>",\
 				"<span class='danger'>You hear the [gore_sound].</span>")
 
-	var/mob/living/carbon/human/victim = owner //Keep a reference for post-removed().
+	var/mob/living/carbon/teshari/victim = owner //Keep a reference for post-removed().
 	var/obj/item/organ/external/parent_organ = parent
 
 	if(!clean)
 		victim.shock_stage += min_broken_damage
 		victim.flash_strong_pain()
 
-	var/mob/living/carbon/human/last_owner = owner
+	var/mob/living/carbon/teshari/last_owner = owner
 	removed(null, ignore_children)
 	if(istype(last_owner) && !QDELETED(last_owner) && length(last_owner.organs) <= 1)
 		last_owner.drop_all_limbs(disintegrate) // drops the last remaining part, usually the torso, as an item
@@ -1009,7 +1009,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/is_stump()
 	return FALSE
 
-/obj/item/organ/external/proc/release_restraints(var/mob/living/carbon/human/holder)
+/obj/item/organ/external/proc/release_restraints(var/mob/living/carbon/teshari/holder)
 	if(!holder)
 		holder = owner
 	if(!holder)
@@ -1237,7 +1237,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(!owner)
 		return
 	var/is_robotic = status & ORGAN_ROBOT
-	var/mob/living/carbon/human/victim = owner
+	var/mob/living/carbon/teshari/victim = owner
 
 	..(null, user)
 
@@ -1479,15 +1479,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 		owner.undo_srom_pull()
 	return pain-last_pain
 
-/mob/living/carbon/human/proc/undo_srom_pull()
+/mob/living/carbon/teshari/proc/undo_srom_pull()
 	if(srom_pulled_by)
 		to_chat(src, SPAN_DANGER("You are ripped out of the Srom by a sudden shock!"))
-		var/mob/living/carbon/human/srom_puller = srom_pulling.resolve()
+		var/mob/living/carbon/teshari/srom_puller = srom_pulling.resolve()
 		srom_puller.srom_pulling = null
 		to_chat(srom_puller, SPAN_WARNING("A vibration like a jackhammer resonates in your consciousness, and the person you pulled into the Srom disappears in the next instant."))
 		srom_pulled_by = null
 	if(srom_pulling)
 		to_chat(src, SPAN_DANGER("Your Srom pull is disturbed by a sudden shock!"))
-		var/mob/living/carbon/human/victim = srom_pulling.resolve()
+		var/mob/living/carbon/teshari/victim = srom_pulling.resolve()
 		victim.srom_pulled_by = null
 		srom_pulling = null

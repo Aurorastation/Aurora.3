@@ -289,8 +289,8 @@
 			//Toss away all this snowflake code here, and rewrite wheelchairs as a vehicle.
 			else if(istype(mob.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
 				var/min_move_delay = 0
-				if(ishuman(mob.buckled_to))
-					var/mob/living/carbon/human/driver = mob.buckled_to
+				if(isteshari(mob.buckled_to))
+					var/mob/living/carbon/teshari/driver = mob.buckled_to
 					var/obj/item/organ/external/l_hand = driver.get_organ(BP_L_HAND)
 					var/obj/item/organ/external/r_hand = driver.get_organ(BP_R_HAND)
 					if((!l_hand || l_hand.is_stump()) && (!r_hand || r_hand.is_stump()))
@@ -304,11 +304,11 @@
 
 		var/tally = mob.movement_delay() + config.walk_speed
 
-		// Apply human specific modifiers.
-		var/mob_is_human = ishuman(mob)	// Only check this once and just reuse the value.
+		// Apply teshari specific modifiers.
+		var/mob_is_teshari = isteshari(mob)	// Only check this once and just reuse the value.
 		var/sprint_tally = 0
-		if (mob_is_human)
-			var/mob/living/carbon/human/H = mob
+		if (mob_is_teshari)
+			var/mob/living/carbon/teshari/H = mob
 			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
 			if (H.m_intent == M_RUN && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE))) //This will return false if we collapse from exhaustion
 				sprint_tally = tally
@@ -320,8 +320,8 @@
 
 		move_delay += tally
 
-		if(mob_is_human && mob.lying)
-			var/mob/living/carbon/human/H = mob
+		if(mob_is_teshari && mob.lying)
+			var/mob/living/carbon/teshari/H = mob
 			var/crawl_tally = H.get_crawl_tally()
 			if(crawl_tally >= 120)
 				return FALSE
@@ -347,7 +347,7 @@
 
 		//We are now going to move
 		moving = 1
-		if(mob_is_human)
+		if(mob_is_teshari)
 			for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
 				switch(G.get_grab_type())
 					if(MOB_GRAB_FIREMAN)
@@ -372,14 +372,14 @@
 		moving = 0
 
 		if(sprint_tally && mob.loc != old_loc)
-			var/mob/living/carbon/human/H = mob
+			var/mob/living/carbon/teshari/H = mob
 			H.species.handle_sprint_cost(H, sprint_tally, FALSE)
 
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we moved
 		var/atom/O = mob.loc
 		return O.relaymove(mob, direct)
 
-/mob/living/carbon/human/proc/get_crawl_tally()
+/mob/living/carbon/teshari/proc/get_crawl_tally()
 	var/obj/item/organ/external/rhand = organs_by_name[BP_R_HAND]
 	. += limb_check(rhand)
 
@@ -393,7 +393,7 @@
 	. += limb_check(lfoot)
 
 // Checks status of limb, returns an amount to
-/mob/living/carbon/human/proc/limb_check(var/obj/item/organ/external/limb)
+/mob/living/carbon/teshari/proc/limb_check(var/obj/item/organ/external/limb)
 	if(!limb) // Limb is null, thus missing.
 		return 30
 	else if(!limb.is_usable() || limb.is_broken()) // You can't use the limb, but it's still there to maneuvre yourself

@@ -88,7 +88,7 @@
 /datum/computer_file/program/proc/process_tick()
 	return TRUE
 
-// Check if the user can run program. Only humans can operate computer. Automatically called in run_program()
+// Check if the user can run program. Only tesharis can operate computer. Automatically called in run_program()
 // User has to wear their ID or have it inhand for ID Scan to work.
 // Can also be called manually, with optional parameter being access_to_check to scan the user's ID
 // Check type determines how the access should be checked PROGRAM_ACCESS_ONE, PROGRAM_ACCESS_LIST_ONE, PROGRAM_ACCESS_LIST_ALL
@@ -139,7 +139,7 @@
 /datum/computer_file/program/proc/program_hidden()
 	return FALSE
 
-// Check if the user can run program. Only humans can operate computer. Automatically called in run_program()
+// Check if the user can run program. Only tesharis can operate computer. Automatically called in run_program()
 // User has to wear their ID or have it inhand for ID Scan to work.
 // Can also be called manually, with optional parameter being access_to_check to scan the user's ID
 // Check type determines how the access should be checked PROGRAM_ACCESS_ONE, PROGRAM_ACCESS_LIST_ONE, PROGRAM_ACCESS_LIST_ALL

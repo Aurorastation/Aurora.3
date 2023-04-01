@@ -19,8 +19,8 @@
 		var/dam = (strength * removed)
 		if(HAS_TRAIT(M, TRAIT_ORIGIN_TOX_RESISTANCE))
 			dam = max(dam - 1, 1)
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+		if(isteshari(M))
+			var/mob/living/carbon/teshari/H = M
 			if(target_organ)
 				var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
 				if(I)
@@ -94,8 +94,8 @@
 	fallback_specific_heat = 12 //Phoron is very dense and can hold a lot of energy.
 
 /singleton/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 
 		var/obj/item/organ/internal/parasite/PA = H.internal_organs_by_name["blackkois"]
 		if((istype(PA) && PA.stage >= 3))
@@ -131,8 +131,8 @@
 		L.adjust_fire_stacks(amount / 5)
 
 /singleton/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if(istype(M, /mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
 		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 			return
@@ -142,8 +142,8 @@
 		M.pl_effects()
 
 /singleton/reagent/toxin/phoron/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if(istype(M, /mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
 		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 			return
@@ -170,7 +170,7 @@
 	strength = 1
 	touch_mul = 0.75
 
-/singleton/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 
@@ -218,7 +218,7 @@
 
 /singleton/reagent/toxin/cyanide/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.adjustOxyLoss(20 * removed)
@@ -235,7 +235,7 @@
 
 /singleton/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
 	M.add_chemical_effect(CE_NOPULSE, 1)
@@ -257,7 +257,7 @@
 
 /singleton/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
 	M.add_chemical_effect(CE_NOPULSE, 1)
@@ -280,7 +280,7 @@
 
 /singleton/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
 	M.add_chemical_effect(CE_NOPULSE, 1)
@@ -440,7 +440,7 @@
 	taste_description = "acid"
 
 /singleton/reagent/lexorin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.adjustOxyLoss(2 * removed)
@@ -469,7 +469,7 @@
 		slime.mutation_chance = min(slime.mutation_chance + removed, 100)
 		return
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
 	if(M.dna)
@@ -498,7 +498,7 @@
 		slime.mutation_chance = max(slime.mutation_chance - removed, 0)
 		return
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 
@@ -520,13 +520,13 @@
 	var/total_strength = 0
 
 /singleton/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if((istype(H) && (H.species.flags & NO_BLOOD)) || alien == IS_DIONA)
 		return
 	M.add_chemical_effect(CE_PULSE, -2)
 	var/dose = M.chem_doses[type]
 	if(dose < 2)
-		if(ishuman(M) && (dose == metabolism * 2 || prob(5)))
+		if(isteshari(M) && (dose == metabolism * 2 || prob(5)))
 			M.emote("yawn")
 	else if(dose < 3.5)
 		M.eye_blurry = max(M.eye_blurry, 10)
@@ -550,7 +550,7 @@
 	breathe_met = REM * 0.5 * 0.5
 
 /singleton/reagent/polysomnine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	var/dose = M.chem_doses[type]
@@ -661,9 +661,9 @@
 	taste_description = "acrid smoke"
 	nicotine = 0.1
 
-/singleton/reagent/toxin/tobacco/sweet 
+/singleton/reagent/toxin/tobacco/sweet
 	name = "Sweet Tobacco"
-	description = "This tobacco is much sweeter than the strains usually found in human space."
+	description = "This tobacco is much sweeter than the strains usually found in teshari space."
 	taste_description = "sweet tobacco"
 	nicotine = 0.3
 
@@ -674,7 +674,7 @@
 	nicotine = REM * 0.1
 	taste_mult = 2
 
-/mob/living/carbon/human/proc/berserk_start()
+/mob/living/carbon/teshari/proc/berserk_start()
 	to_chat(src, SPAN_DANGER("An uncontrollable rage courses through your body and overtakes your thoughts - your blood begins to boil with fury!"))
 	add_client_color(/datum/client_color/berserk)
 	shock_stage = 0
@@ -685,14 +685,14 @@
 	lying = 0
 	update_canmove()
 
-/mob/living/carbon/human/proc/berserk_process()
+/mob/living/carbon/teshari/proc/berserk_process()
 	drowsiness = max(drowsiness - 5, 0)
 	AdjustParalysis(-1)
 	AdjustStunned(-1)
 	AdjustWeakened(-1)
 	adjustHalLoss(-1)
 
-/mob/living/carbon/human/proc/berserk_stop()
+/mob/living/carbon/teshari/proc/berserk_stop()
 	to_chat(src, SPAN_DANGER("Your rage fades away and the boiling sensation subsides, your thoughts are clear once more."))
 	remove_client_color(/datum/client_color/berserk)
 
@@ -707,20 +707,20 @@
 	metabolism = REM*0.3 //10u = ~5 minutes of being berserk.
 	unaffected_species = IS_DIONA | IS_MACHINE
 
-/singleton/reagent/toxin/berserk/initial_effect(var/mob/living/carbon/human/H, var/alien, var/holder)
+/singleton/reagent/toxin/berserk/initial_effect(var/mob/living/carbon/teshari/H, var/alien, var/holder)
 	. = ..()
 	if(istype(H))
 		H.berserk_start()
 
-/singleton/reagent/toxin/berserk/final_effect(var/mob/living/carbon/human/H, var/alien, var/holder)
+/singleton/reagent/toxin/berserk/final_effect(var/mob/living/carbon/teshari/H, var/alien, var/holder)
 	. = ..()
 	if(istype(H))
 		H.berserk_stop()
 
 /singleton/reagent/toxin/berserk/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		H.berserk_process()
 	M.make_jittery(20)
 	M.add_chemical_effect(CE_BERSERK, 1)
@@ -752,17 +752,17 @@
 	M.add_chemical_effect(CE_HAUNTED, M.chem_doses[type])
 
 /singleton/reagent/toxin/spectrocybin/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
-	var/mob/living/carbon/human/H = M
-	if(ishuman(M) && !berserked)
+	var/mob/living/carbon/teshari/H = M
+	if(isteshari(M) && !berserked)
 		H.berserk_start()
 		berserked = TRUE
-	else if(ishuman(M) && berserked)
+	else if(isteshari(M) && berserked)
 		H.berserk_process()
 	M.add_chemical_effect(CE_BERSERK, 1)
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
 
-/singleton/reagent/toxin/spectrocybin/final_effect(mob/living/carbon/human/H, datum/reagents/holder)
+/singleton/reagent/toxin/spectrocybin/final_effect(mob/living/carbon/teshari/H, datum/reagents/holder)
 	. = ..()
 	if(istype(H) && H.chem_doses[type] >= get_overdose(H, holder = holder))
 		H.berserk_stop()
@@ -781,8 +781,8 @@
 
 /singleton/reagent/toxin/trioxin/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
-	if(istype(M,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if(istype(M,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = M
 
 		if(H.reagents.has_reagent(/singleton/reagent/thetamycin, 15))
 			return
@@ -827,7 +827,7 @@
 
 /singleton/reagent/toxin/dextrotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
 	M.add_chemical_effect(CE_UNDEXTROUS, 1)

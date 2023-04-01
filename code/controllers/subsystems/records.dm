@@ -87,7 +87,7 @@
 		"spread_type" = "",
 	)
 
-/datum/controller/subsystem/records/proc/generate_record(var/mob/living/carbon/human/H)
+/datum/controller/subsystem/records/proc/generate_record(var/mob/living/carbon/teshari/H)
 	if(H.mind && SSjobs.ShouldCreateRecords(H.mind))
 		var/datum/record/general/r = new(H)
 		//Locked Data
@@ -173,7 +173,7 @@
 				return r
 
 /datum/controller/subsystem/records/proc/build_records()
-	for(var/mob/living/carbon/human/H in player_list)
+	for(var/mob/living/carbon/teshari/H in player_list)
 		generate_record(H)
 
 /datum/controller/subsystem/records/proc/reset_manifest()
@@ -294,7 +294,7 @@
 /*
  * Helping functions for everyone
  */
-/proc/GetAssignment(var/mob/living/carbon/human/H, var/include_faction_prefix)
+/proc/GetAssignment(var/mob/living/carbon/teshari/H, var/include_faction_prefix)
 	var/return_value = "Unassigned"
 	if(H.mind?.role_alt_title)
 		return_value = H.mind.role_alt_title

@@ -49,16 +49,16 @@
 	STOP_PROCESSING(SSfast_process, src)
 	primmed = FALSE
 	if(prob(25) && buckled) //has a chance of being thrown off when it explodes
-		if(ishuman(buckled))
-			var/mob/living/carbon/human/C = buckled
+		if(isteshari(buckled))
+			var/mob/living/carbon/teshari/C = buckled
 			C.visible_message(SPAN_DANGER ("\The [C] is thrown off from \the [src]!"))
 			unload(C)
 			C.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 			C.apply_effect(2, WEAKEN)
 	if(buckled)
 		unload(buckled)
-		if(ishuman(buckled))
-			var/mob/living/carbon/human/V = buckled
+		if(isteshari(buckled))
+			var/mob/living/carbon/teshari/V = buckled
 			V.apply_effect(2, WEAKEN)
 	explosion(loc, 1, 2, 4, 8)
 	visible_message(SPAN_DANGER ("\The [src] detonates!"))

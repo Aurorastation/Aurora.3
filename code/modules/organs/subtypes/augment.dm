@@ -7,7 +7,7 @@
 	robotic = ROBOTIC_MECHANICAL
 	emp_coeff = 2
 	is_augment = TRUE
-	species_restricted = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,
+	species_restricted = list(SPECIES_teshari,SPECIES_teshari_OFFWORLD,
 							SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI,
 							SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1,
 							SPECIES_IPC_G2, SPECIES_IPC_XION,
@@ -217,7 +217,7 @@
 	name = "tesla spine"
 	icon_state = "tesla_spine"
 	organ_tag = BP_AUG_TESLA
-	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
+	on_mob_icon = 'icons/mob/teshari_races/augments_external.dmi'
 	species_restricted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	var/max_charges = 1
 	var/actual_charges = 0
@@ -277,7 +277,7 @@
 	name = "massive tesla spine"
 	icon_state = "tesla_spine"
 	organ_tag = BP_AUG_TESLA
-	on_mob_icon = 'icons/mob/human_races/tesla_body_augments.dmi'
+	on_mob_icon = 'icons/mob/teshari_races/tesla_body_augments.dmi'
 	species_restricted = list(SPECIES_TAJARA_TESLA_BODY)
 
 /obj/item/organ/internal/augment/eye_sensors
@@ -383,7 +383,7 @@
 	organ_tag = BP_AUG_HAIR
 	activable = TRUE
 	action_button_name = "Activate Synthetic Hair Extensions"
-	species_restricted = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_IPC_SHELL)
+	species_restricted = list(SPECIES_teshari,SPECIES_teshari_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_IPC_SHELL)
 
 /obj/item/organ/internal/augment/cyber_hair/attack_self(var/mob/user)
 	. = ..()
@@ -433,14 +433,14 @@
 	var/list/augment_languages = list() // a list of languages that this augment will add. add your language to this
 	var/list/added_languages = list() // a list of languages that get added when it's installed. used to remove languages later. don't touch this.
 
-/obj/item/organ/internal/augment/language/replaced(var/mob/living/carbon/human/target, obj/item/organ/external/affected)
+/obj/item/organ/internal/augment/language/replaced(var/mob/living/carbon/teshari/target, obj/item/organ/external/affected)
 	. = ..()
 	for(var/language in augment_languages)
 		if(!(language in target.languages))
 			target.add_language(language)
 			added_languages += language
 
-/obj/item/organ/internal/augment/language/removed(var/mob/living/carbon/human/target, mob/living/user)
+/obj/item/organ/internal/augment/language/removed(var/mob/living/carbon/teshari/target, mob/living/user)
 	for(var/language in added_languages)
 		target.remove_language(language)
 	added_languages = list()
@@ -514,11 +514,11 @@
     organ_tag = BP_AUG_ACC_CORDS
     var/accent = ACCENT_TTS
 
-/obj/item/organ/internal/augment/synthetic_cords/replaced(var/mob/living/carbon/human/target, obj/item/organ/external/affected)
+/obj/item/organ/internal/augment/synthetic_cords/replaced(var/mob/living/carbon/teshari/target, obj/item/organ/external/affected)
 	. = ..()
 	target.sdisabilities &= ~MUTE
 
-/obj/item/organ/internal/augment/synthetic_cords/removed(var/mob/living/carbon/human/target, mob/living/user)
+/obj/item/organ/internal/augment/synthetic_cords/removed(var/mob/living/carbon/teshari/target, mob/living/user)
 	target.sdisabilities |= MUTE
 	..()
 
@@ -689,7 +689,7 @@
 	name = "zeng-hu veterancy plate "
 	desc = " A clear sign of Zeng-Hu's best, this plate bearing the company's symbol is installed on those who prove themselves in the hyper-competitive environment."
 	icon_state = "zenghu_plate"
-	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
+	on_mob_icon = 'icons/mob/teshari_races/augments_external.dmi'
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/augments_external.dmi'
 	)

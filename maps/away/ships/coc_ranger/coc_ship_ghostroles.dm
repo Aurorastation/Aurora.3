@@ -1,6 +1,6 @@
 //rangers
 
-/datum/ghostspawner/human/ranger
+/datum/ghostspawner/teshari/ranger
 	short_name = "ranger"
 	name = "Coalition Ranger"
 	desc = "Crew the Ranger gunboat. Protect the interests of the Coalition of Colonies and your member-state."
@@ -10,7 +10,7 @@
 	max_count = 5
 
 	outfit = /datum/outfit/admin/ranger
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	possible_species = list(SPECIES_teshari, SPECIES_teshari_OFFWORLD)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Coalition Ranger"
@@ -31,7 +31,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/ranger/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ranger/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
@@ -39,7 +39,7 @@
 /datum/outfit/admin/ranger/get_id_access()
 	return list(access_external_airlocks)
 
-/datum/ghostspawner/human/ranger/captain
+/datum/ghostspawner/teshari/ranger/captain
 	short_name = "ranger_leader"
 	name = "Coalition Ranger Leader"
 	desc = "Lead the Ranger gunboat. Protect the interests of the Coalition of Colonies and your member-state."
@@ -48,7 +48,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/ranger/captain
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	possible_species = list(SPECIES_teshari, SPECIES_teshari_OFFWORLD)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Coalition Ranger Leader"

@@ -116,7 +116,7 @@ var/datum/antagonist/raider/raiders
 			return 0
 	return 1
 
-/datum/antagonist/raider/equip(var/mob/living/carbon/human/player)
+/datum/antagonist/raider/equip(var/mob/living/carbon/teshari/player)
 
 	if(!..())
 		return 0

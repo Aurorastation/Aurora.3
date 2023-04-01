@@ -161,7 +161,7 @@
 /obj/item/modular_computer/handheld/preset/command/bst/attack_hand()
 	if(!usr)
 		return
-	if(!istype(usr, /mob/living/carbon/human/bst))
+	if(!istype(usr, /mob/living/carbon/teshari/bst))
 		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else

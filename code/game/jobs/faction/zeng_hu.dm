@@ -17,7 +17,7 @@
 	allowed_role_types = ZENG_ROLES
 
 	allowed_species_types = list(
-		/datum/species/human,
+		/datum/species/teshari,
 		/datum/species/skrell,
 		/datum/species/machine,
 		/datum/species/bug = TRUE,
@@ -79,7 +79,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
-/datum/outfit/job/doctor/surgeon/zeng_hu/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/doctor/surgeon/zeng_hu/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(!isskrell(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/zeng(H), slot_head)
 

@@ -4,14 +4,14 @@
 	Kal'lo on the core planet Nralakk IV, also known as Qerrbalak, within the Nralakk system. While the majority of Skrell live within the Nralakk Federation, a sizable portion live \
 	abroad. The quality of life within Federation is considered to be the best in the galaxy due to their technological advances, allowing Federation Citizens access to a quality of \
 	life almost unmatched anywhere else in the Spur. \
-	A rogue artificial intelligence, Glorsh-Omega, has traumatized this nation for centuries to come. The Federation is very wary of humanity, who has acquired AI technology \
+	A rogue artificial intelligence, Glorsh-Omega, has traumatized this nation for centuries to come. The Federation is very wary of teshariity, who has acquired AI technology \
 	after a Federation tech leak provided them with the research required to create their own AI, as well as allowing them to create IPCs."
 	consular_outfit = /datum/outfit/job/representative/consular/nralakk
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
-			SPECIES_HUMAN,
-			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_teshari,
+			SPECIES_teshari_OFFWORLD,
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -31,7 +31,7 @@
 		)
 	)
 
-/datum/citizenship/nralakk/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/nralakk/get_objectives(mission_level, var/mob/living/carbon/teshari/H)
 	var/rep_objectives
 
 	switch(mission_level)
@@ -55,7 +55,7 @@
 
 	uniform = /obj/item/clothing/under/skrell
 
-/datum/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H)) // there should be a system for this but for now this will have to do i guess
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)

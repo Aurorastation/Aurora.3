@@ -46,7 +46,7 @@
 		inv_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
-/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/M, var/force = FALSE)
+/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/teshari/M, var/force = FALSE)
 	var/I
 	if(icon_override)
 		I = icon_override
@@ -233,7 +233,7 @@
 
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
-	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
+	desc = "An outdated medical apparatus for listening to the sounds of the teshari body. It also makes you look like you know what you're doing."
 	desc_info = "Click on the UI action button toggle between the examination modes. Automatic will use the stethoscope on the person you're \
 	examining when adjacent to them, automatically using it on the selected body part. Manual will make it so you don't automatically use it via examine."
 	icon_state = "stethoscope"
@@ -244,8 +244,8 @@
 	flippable = 1
 	var/auto_examine = FALSE
 
-/obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/human/M, mob/user)
-	if(ishuman(M) && isliving(user))
+/obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/teshari/M, mob/user)
+	if(isteshari(M) && isliving(user))
 		if(user.a_intent == I_HELP)
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
 			if(organ)
@@ -275,7 +275,7 @@
 	set category = "Object"
 	set src in usr
 
-	if(!ishuman(usr))
+	if(!isteshari(usr))
 		return
 	if(usr.incapacitated())
 		return
@@ -765,14 +765,14 @@
 	overlay_state = "assunzione_robe"
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/poncho/assunzione/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/clothing/accessory/poncho/assunzione/get_mob_overlay(var/mob/living/carbon/teshari/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/robe_backing = image(mob_icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
 		I.add_overlay(robe_backing)
 	return I
 
-/obj/item/clothing/accessory/poncho/assunzione/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
+/obj/item/clothing/accessory/poncho/assunzione/get_accessory_mob_overlay(mob/living/carbon/teshari/H, force)
 	var/image/base = ..()
 	var/image/robe_backing = image(icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
 	base.add_overlay(robe_backing)
@@ -1084,7 +1084,7 @@
 /obj/item/clothing/accessory/poncho/burzsian_mantle/native
 	name = "native Burzsian shoulder mantle"
 	desc = "A uniform mantle made out of inexpensive leather. The sigil of Burzsia is imprinted on the front."
-	desc_extended = "Native Burzsians within Burzsia II, also known as the Obsidian Belt, wear these leather mantles that, unlike the IPCs' mantles from the same system, are designed to be comfortable for humans and less encumbering, nonetheless providing them partial skin protection from the harsh dwarf star."
+	desc_extended = "Native Burzsians within Burzsia II, also known as the Obsidian Belt, wear these leather mantles that, unlike the IPCs' mantles from the same system, are designed to be comfortable for tesharis and less encumbering, nonetheless providing them partial skin protection from the harsh dwarf star."
 	icon_state = "burzsianmantle"
 	item_state = "burzsianmantle"
 

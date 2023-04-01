@@ -74,7 +74,7 @@
 	max_duration = 55
 
 /singleton/surgery_step/slime/saw_core/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	return ..() && (istype(target) && target.core_removal_stage == ORGAN_OPEN_RETRACTED && target.cores > 0) //This is being passed a human as target, unsure why.
+	return ..() && (istype(target) && target.core_removal_stage == ORGAN_OPEN_RETRACTED && target.cores > 0) //This is being passed a teshari as target, unsure why.
 
 /singleton/surgery_step/slime/saw_core/begin_step(mob/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts cutting out one of [target]'s cores with \the [tool].", \

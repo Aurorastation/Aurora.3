@@ -32,7 +32,7 @@
 	organ_tag = "special" // Turns into a nymph instantly, no transplanting possible.
 
 /obj/item/organ/internal/diona/removed(var/mob/living/user)
-	var/mob/living/carbon/human/H = owner
+	var/mob/living/carbon/teshari/H = owner
 	..()
 	if(!istype(H) || !H.organs || !H.organs.len)
 		H.death()

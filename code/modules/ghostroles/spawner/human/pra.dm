@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/pra_cosmonaut
+/datum/ghostspawner/teshari/pra_cosmonaut
 	short_name = "pra_cosmonaut"
 	name = "Kosmostrelki"
 	desc = "Protect the People's Republic of Adhomai's possessions on space."
@@ -20,7 +20,7 @@
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	away_site = TRUE
 
-/datum/ghostspawner/human/pra_cosmonaut/commissar
+/datum/ghostspawner/teshari/pra_cosmonaut/commissar
 	short_name = "pra_commissar"
 	name = "Kosmostrelki Party Commissar"
 	desc = "Protect the People's Republic of Adhomai's possessions on space, and ensure that the Kosmostrelki follow the principles of Hadiism."

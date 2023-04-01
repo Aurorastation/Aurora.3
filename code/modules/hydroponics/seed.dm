@@ -102,7 +102,7 @@
 	S.start()
 
 // Does brute damage to a target.
-/datum/seed/proc/do_thorns(var/mob/living/carbon/human/target, var/obj/item/fruit, var/target_limb)
+/datum/seed/proc/do_thorns(var/mob/living/carbon/teshari/target, var/obj/item/fruit, var/target_limb)
 
 	if(!get_trait(TRAIT_CARNIVOROUS))
 		return
@@ -146,7 +146,7 @@
 	target.updatehealth()
 
 // Adds reagents to a target.
-/datum/seed/proc/do_sting(var/mob/living/carbon/human/target, var/obj/item/fruit)
+/datum/seed/proc/do_sting(var/mob/living/carbon/teshari/target, var/obj/item/fruit)
 	if(!get_trait(TRAIT_STINGS))
 		return
 	if(chems && chems.len)

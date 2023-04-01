@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/nka_merchant_crew
+/datum/ghostspawner/teshari/nka_merchant_crew
 	short_name = "nka_merchant_crew"
 	name = "New Kingdom Merchant Navy Crew"
 	desc = "Crew a Her Majesty's Mercantile Flotilla ship."
@@ -33,7 +33,7 @@
 /datum/outfit/admin/nka_merchant_crew/get_id_access()
 	return list(access_nka, access_external_airlocks)
 
-/datum/ghostspawner/human/nka_merchant_crew/captain
+/datum/ghostspawner/teshari/nka_merchant_crew/captain
 	short_name = "nka_merchant_captain"
 	name = "New Kingdom Merchant Navy Captain"
 	desc = "Command a Her Majesty's Mercantile Flotilla ship."
@@ -61,7 +61,7 @@
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/revolver/adhomian = 1)
 
-/datum/ghostspawner/human/nka_merchant_crew/guard
+/datum/ghostspawner/teshari/nka_merchant_crew/guard
 	short_name = "nka_merchant_guard"
 	name = "New Kingdom Merchant Navy PMCG Guard"
 	desc = "Protect a Her Majesty's Mercantile Flotilla ship."

@@ -28,7 +28,7 @@
 			to_chat(user, SPAN_NOTICE("[target] is full."))
 			return
 
-		if(!target.is_open_container() && !ismob(target) && !istype(target, /obj/item/reagent_containers/food) && !istype(target, /obj/item/clothing/mask/smokable/cigarette)) //You can inject humans and food but you cant remove the shit.
+		if(!target.is_open_container() && !ismob(target) && !istype(target, /obj/item/reagent_containers/food) && !istype(target, /obj/item/clothing/mask/smokable/cigarette)) //You can inject tesharis and food but you cant remove the shit.
 			to_chat(user, SPAN_NOTICE("You cannot directly fill this object."))
 			return
 
@@ -41,8 +41,8 @@
 			if(!do_mob(user, target, time))
 				return
 
-			if(istype(target, /mob/living/carbon/human))
-				var/mob/living/carbon/human/victim = target
+			if(istype(target, /mob/living/carbon/teshari))
+				var/mob/living/carbon/teshari/victim = target
 
 				if(victim.isSynthetic())
 					return

@@ -4,9 +4,9 @@
 	name_plural = "Unathi"
 	category_name = "Unathi"
 	bodytype = BODYTYPE_UNATHI
-	icobase = 'icons/mob/human_races/unathi/r_unathi.dmi'
-	deform = 'icons/mob/human_races/unathi/r_def_unathi.dmi'
-	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
+	icobase = 'icons/mob/teshari_races/unathi/r_unathi.dmi'
+	deform = 'icons/mob/teshari_races/unathi/r_def_unathi.dmi'
+	preview_icon = 'icons/mob/teshari_races/unathi/unathi_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
 	tail = "Tail"
 	tail_animation = 'icons/mob/species/unathi/tail.dmi'
@@ -60,7 +60,7 @@
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
 	system, which roughly translates to 'burning mother'. A relatively recent addition to the galactic stage, they \
-	suffered immense turmoil after the cultural and economic disruption following first contact with humanity.<br><br>\
+	suffered immense turmoil after the cultural and economic disruption following first contact with teshariity.<br><br>\
 	With their homeworld of Moghes suffering catastrophic climate change from a nuclear war in the recent past, the \
 	Hegemony that rules the majority of the species struggles to find itself in a galaxy filled with dangers far \
 	greater than themselves. They mostly hold ideals of honesty, virtue, martial combat and spirituality above all \
@@ -75,7 +75,7 @@
 	heat_level_3 = 1100 //Default 1000
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/tongue_flick
+		/mob/living/carbon/teshari/proc/tongue_flick
 	)
 
 
@@ -128,7 +128,7 @@
 
 	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
 
-/datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
+/datum/species/unathi/after_equip(var/mob/living/carbon/teshari/H)
 	. = ..()
 	if(H.shoes)
 		return

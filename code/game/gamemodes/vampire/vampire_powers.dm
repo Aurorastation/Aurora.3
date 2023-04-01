@@ -1,7 +1,7 @@
 // Contains all /mob/procs that relate to vampire.
 
 // Makes vampire's victim not get paralyzed, and remember the suckings
-/mob/living/carbon/human/proc/vampire_alertness()
+/mob/living/carbon/teshari/proc/vampire_alertness()
 	set category = "Vampire"
 	set name = "Victim Alertness"
 	set desc = "Toggle whether you wish for your victims to get paralyzed and forget your deeds."
@@ -14,10 +14,10 @@
 		to_chat(src, SPAN_NOTICE("Your victims will now remember your interactions."))
 
 // Drains the target's blood.
-/mob/living/carbon/human/proc/vampire_drain_blood()
+/mob/living/carbon/teshari/proc/vampire_drain_blood()
 	set category = "Vampire"
 	set name = "Drain Blood"
-	set desc = "Drain the blood of a humanoid creature."
+	set desc = "Drain the blood of a tesharioid creature."
 
 	var/datum/vampire/vampire = vampire_power(0, 0)
 	if(!vampire)
@@ -40,7 +40,7 @@
 		to_chat(src, SPAN_WARNING("You must have a better grip of the victim to drain their blood."))
 		return
 
-	var/mob/living/carbon/human/T = G.affecting
+	var/mob/living/carbon/teshari/T = G.affecting
 	if(!istype(T) || T.species.flags & NO_BLOOD)
 		//Added this to prevent vampires draining diona and IPCs
 		//Diona have 'blood' but its really green sap and shouldn't help vampires
@@ -119,7 +119,7 @@
 				vampire_check_frenzy()
 
 				frenzy_lower_chance = 0
-		// SSD/protohuman or dead.
+		// SSD/prototeshari or dead.
 		else
 			blood = min(5, REAGENT_VOLUME(T.vessel, /singleton/reagent/blood))
 			vampire.blood_usable += blood
@@ -155,13 +155,13 @@
 				to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember everything about being fed upon. How you react to [src]'s actions is up to you."))
 
 // Check that our target is alive, logged in, and any other special cases
-/mob/living/carbon/human/proc/check_drain_target_state(var/mob/living/carbon/human/T)
+/mob/living/carbon/teshari/proc/check_drain_target_state(var/mob/living/carbon/teshari/T)
 	if(T.stat < DEAD)
 		if(T.client || (T.bg && T.bg.client))
 			return TRUE
 
 // Small area of effect stun.
-/mob/living/carbon/human/proc/vampire_glare()
+/mob/living/carbon/teshari/proc/vampire_glare()
 	set category = "Vampire"
 	set name = "Glare"
 	set desc = "Your eyes flash a bright light, stunning any who are watching."
@@ -178,7 +178,7 @@
 	visible_message(SPAN_DANGER("[src.name]'s eyes emit a blinding flash!"))
 	var/list/victims = list()
 	for(var/mob/living/L in viewers(2) - src)
-		if(ishuman(L))
+		if(isteshari(L))
 			if(!vampire_can_affect_target(L, 0, affect_ipc = TRUE))
 				continue
 
@@ -194,11 +194,11 @@
 
 	admin_attacker_log_many_victims(src, victims, "used glare to stun", "was stunned by [key_name(src)] using glare", "used glare to stun")
 
-	verbs -= /mob/living/carbon/human/proc/vampire_glare
-	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/vampire_glare, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
+	verbs -= /mob/living/carbon/teshari/proc/vampire_glare
+	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/teshari/proc/vampire_glare, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Targeted stun ability, moderate duration.
-/mob/living/carbon/human/proc/vampire_hypnotise()
+/mob/living/carbon/teshari/proc/vampire_hypnotise()
 	set category = "Vampire"
 	set name = "Hypnotise (10)"
 	set desc = "Through blood magic, you dominate the victim's mind and force them into a hypnotic transe."
@@ -211,7 +211,7 @@
 		return
 
 	var/list/victims = list()
-	for(var/mob/living/carbon/human/H in view(3))
+	for(var/mob/living/carbon/teshari/H in view(3))
 		if(H == src)
 			continue
 		victims += H
@@ -219,7 +219,7 @@
 		to_chat(src, SPAN_WARNING("No suitable targets."))
 		return
 
-	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
+	var/mob/living/carbon/teshari/T = input(src, "Select Victim") as null|mob in victims
 	if(!vampire_can_affect_target(T))
 		return
 
@@ -235,13 +235,13 @@
 		vampire.use_blood(10)
 		admin_attack_log(src, T, "used hypnotise to stun [key_name(T)]", "was stunned by [key_name(src)] using hypnotise", "used hypnotise on")
 
-		verbs -= /mob/living/carbon/human/proc/vampire_hypnotise
-		ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_hypnotise, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
+		verbs -= /mob/living/carbon/teshari/proc/vampire_hypnotise
+		ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/teshari/proc/vampire_hypnotise, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 	else
 		to_chat(src, SPAN_WARNING("You broke your gaze."))
 
 // Targeted teleportation, must be to a low-light tile.
-/mob/living/carbon/human/proc/vampire_veilstep(var/turf/T in turfs)
+/mob/living/carbon/teshari/proc/vampire_veilstep(var/turf/T in turfs)
 	set category = "Vampire"
 	set name = "Veil Step (20)"
 	set desc = "For a moment, move through the Veil and emerge at a shadow of your choice."
@@ -281,11 +281,11 @@
 	log_and_message_admins("activated veil step.")
 
 	vampire.use_blood(20)
-	verbs -= /mob/living/carbon/human/proc/vampire_veilstep
-	ADD_VERB_IN_IF(src, 300, /mob/living/carbon/human/proc/vampire_veilstep, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
+	verbs -= /mob/living/carbon/teshari/proc/vampire_veilstep
+	ADD_VERB_IN_IF(src, 300, /mob/living/carbon/teshari/proc/vampire_veilstep, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Summons bats.
-/mob/living/carbon/human/proc/vampire_bats()
+/mob/living/carbon/teshari/proc/vampire_bats()
 	set category = "Vampire"
 	set name = "Summon Bats (60)"
 	set desc = "You tear open the Veil for just a moment, in order to summon a pair of bats to assist you in combat."
@@ -325,11 +325,11 @@
 	log_and_message_admins("summoned bats.")
 
 	vampire.use_blood(60)
-	verbs -= /mob/living/carbon/human/proc/vampire_bats
-	ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_bats, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
+	verbs -= /mob/living/carbon/teshari/proc/vampire_bats
+	ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/teshari/proc/vampire_bats, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Chiropteran Screech
-/mob/living/carbon/human/proc/vampire_screech()
+/mob/living/carbon/teshari/proc/vampire_screech()
 	set category = "Vampire"
 	set name = "Chiropteran Screech (90)"
 	set desc = "Emit a powerful screech which shatters glass within a seven-tile radius, and stuns hearers in a four-tile radius."
@@ -341,7 +341,7 @@
 	visible_message(SPAN_DANGER("[src] lets out an ear piercing shriek!"), SPAN_DANGER("You let out an ear-shattering shriek!"), SPAN_DANGER("You hear a painfully loud shriek!"))
 
 	var/list/victims = list()
-	for(var/mob/living/carbon/human/T in hearers(4, src) - src)
+	for(var/mob/living/carbon/teshari/T in hearers(4, src) - src)
 		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 			continue
 		if(!vampire_can_affect_target(T, 0))
@@ -384,11 +384,11 @@
 	else
 		log_and_message_admins("used chiropteran screech.")
 
-	verbs -= /mob/living/carbon/human/proc/vampire_screech
-	ADD_VERB_IN_IF(src, 3600, /mob/living/carbon/human/proc/vampire_screech, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
+	verbs -= /mob/living/carbon/teshari/proc/vampire_screech
+	ADD_VERB_IN_IF(src, 3600, /mob/living/carbon/teshari/proc/vampire_screech, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Enables the vampire to be untouchable and walk through walls and other solid things.
-/mob/living/carbon/human/proc/vampire_veilwalk()
+/mob/living/carbon/teshari/proc/vampire_veilwalk()
 	set category = "Vampire"
 	set name = "Toggle Veil Walking (80)"
 	set desc = "You enter the veil, leaving only an incorporeal manifestation of you visible to the others."
@@ -561,7 +561,7 @@
 	return
 
 // Heals the vampire at the cost of blood.
-/mob/living/carbon/human/proc/vampire_bloodheal()
+/mob/living/carbon/teshari/proc/vampire_bloodheal()
 	set category = "Vampire"
 	set name = "Blood Heal"
 	set desc = "At the cost of blood and time, heal any injuries you have sustained."
@@ -625,7 +625,7 @@
 		if(missing_blood)
 			to_heal = min(20, missing_blood)
 			vessel.add_reagent(/singleton/reagent/blood, to_heal)
-			blood_used += round(to_heal * 0.1) // gonna need to regen a shitton of blood, since human mobs have around 560 normally
+			blood_used += round(to_heal * 0.1) // gonna need to regen a shitton of blood, since teshari mobs have around 560 normally
 
 		for(var/A in organs)
 			var/healed = FALSE
@@ -698,7 +698,7 @@
 	return
 
 // Enthralls a person, giving the vampire a mortal slave.
-/mob/living/carbon/human/proc/vampire_enthrall()
+/mob/living/carbon/teshari/proc/vampire_enthrall()
 	set category = "Vampire"
 	set name = "Enthrall (150)"
 	set desc = "Bind a mortal soul with a bloodbond to obey your every command."
@@ -715,7 +715,7 @@
 		to_chat(src, SPAN_WARNING("You must have a better grip of the victim to enthrall them."))
 		return
 
-	var/mob/living/carbon/human/T = G.affecting
+	var/mob/living/carbon/teshari/T = G.affecting
 	if(isipc(T))
 		to_chat(src, SPAN_WARNING("[T] is not a creature you can enthrall."))
 		return
@@ -748,11 +748,11 @@
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
 
 	vampire.use_blood(150)
-	verbs -= /mob/living/carbon/human/proc/vampire_enthrall
-	ADD_VERB_IN_IF(src, 2800, /mob/living/carbon/human/proc/vampire_enthrall, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
+	verbs -= /mob/living/carbon/teshari/proc/vampire_enthrall
+	ADD_VERB_IN_IF(src, 2800, /mob/living/carbon/teshari/proc/vampire_enthrall, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Makes the vampire appear 'friendlier' to others.
-/mob/living/carbon/human/proc/vampire_presence()
+/mob/living/carbon/teshari/proc/vampire_presence()
 	set category = "Vampire"
 	set name = "Presence (10)"
 	set desc = "Influences those weak of mind to look at you in a friendlier light."
@@ -772,7 +772,7 @@
 	to_chat(src, SPAN_NOTICE("You begin passively influencing the weak minded."))
 	vampire.status |= VAMP_PRESENCE
 
-	var/list/mob/living/carbon/human/affected = list()
+	var/list/mob/living/carbon/teshari/affected = list()
 	var/list/emotes = list("[src] looks trusthworthy.",
 							"You feel as if [src] is a relatively friendly individual.",
 							"You feel yourself paying more attention to what [src] is saying.",
@@ -792,7 +792,7 @@
 			vampire.status &= ~VAMP_PRESENCE
 			break
 
-		for(var/mob/living/carbon/human/T in view(5))
+		for(var/mob/living/carbon/teshari/T in view(5))
 			if(T == src)
 				continue
 			if(!vampire_can_affect_target(T, 0, 1, affect_ipc = FALSE)) //Will only affect IPCs at full power.
@@ -815,7 +815,7 @@
 			to_chat(src, SPAN_WARNING("You are no longer influencing those weak of mind."))
 			break
 
-/mob/living/carbon/human/proc/vampire_touch_of_life()
+/mob/living/carbon/teshari/proc/vampire_touch_of_life()
 	set category = "Vampire"
 	set name = "Touch of Life (50)"
 	set desc = "You lay your hands on the target, transferring healing chemicals to them."
@@ -829,7 +829,7 @@
 		to_chat(src, SPAN_WARNING("You must be grabbing a victim in your active hand to touch them."))
 		return
 
-	var/mob/living/carbon/human/T = G.affecting
+	var/mob/living/carbon/teshari/T = G.affecting
 	if(T.species.flags & NO_BLOOD)
 		to_chat(src, SPAN_WARNING("[T] has no blood and can not be affected by your powers!"))
 		return
@@ -841,8 +841,8 @@
 	T.reagents.add_reagent(/singleton/reagent/rezadone, 3)
 	T.reagents.add_reagent(/singleton/reagent/oxycomorphine, 0.15) //enough to get back onto their feet
 
-// Convert a human into a vampire.
-/mob/living/carbon/human/proc/vampire_embrace()
+// Convert a teshari into a vampire.
+/mob/living/carbon/teshari/proc/vampire_embrace()
 	set category = "Vampire"
 	set name = "The Embrace"
 	set desc = "Spread your corruption to an innocent soul, turning them into a spawn of the Veil, much akin to yourself."
@@ -860,7 +860,7 @@
 		to_chat(src, SPAN_WARNING("You must have a better grip of the victim to drain their blood."))
 		return
 
-	var/mob/living/carbon/human/T = G.affecting
+	var/mob/living/carbon/teshari/T = G.affecting
 	if(!vampire_can_affect_target(T, ignore_thrall = TRUE))
 		return
 	if(!T.client)
@@ -949,7 +949,7 @@
 	vampire.status &= ~VAMP_DRAINING
 
 // Grapple a victim by leaping onto them.
-/mob/living/carbon/human/proc/grapple()
+/mob/living/carbon/teshari/proc/grapple()
 	set category = "Vampire"
 	set name = "Grapple"
 	set desc = "Lunge towards a target like an animal, and grapple them."
@@ -961,7 +961,7 @@
 		return
 
 	var/list/targets = list()
-	for (var/mob/living/carbon/human/H in view(4, src))
+	for (var/mob/living/carbon/teshari/H in view(4, src))
 		targets += H
 
 	targets -= src
@@ -970,7 +970,7 @@
 		to_chat(src, SPAN_WARNING("No valid targets visible or in range."))
 		return
 
-	var/mob/living/carbon/human/T = pick(targets)
+	var/mob/living/carbon/teshari/T = pick(targets)
 
 	visible_message(SPAN_DANGER("[src] leaps at [T]!"))
 	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src)
@@ -1009,5 +1009,5 @@
 	G.icon_state = "grabbed1"
 	G.synch()
 
-	verbs -= /mob/living/carbon/human/proc/grapple
-	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/grapple, CALLBACK(src, PROC_REF(finish_vamp_timeout), VAMP_FRENZIED))
+	verbs -= /mob/living/carbon/teshari/proc/grapple
+	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/teshari/proc/grapple, CALLBACK(src, PROC_REF(finish_vamp_timeout), VAMP_FRENZIED))

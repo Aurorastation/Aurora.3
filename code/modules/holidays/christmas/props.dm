@@ -9,7 +9,7 @@
 	var/cracked = 0
 
 /obj/item/toy/xmas_cracker/attack(mob/target, mob/user, var/target_zone)
-	if( !cracked && istype(target,/mob/living/carbon/human) && (target.stat == CONSCIOUS) && !target.get_active_hand() )
+	if( !cracked && istype(target,/mob/living/carbon/teshari) && (target.stat == CONSCIOUS) && !target.get_active_hand() )
 		target.visible_message("<span class='notice'>[user] and [target] pop \an [src]! *pop*</span>", "<span class='notice'>You pull \an [src] with [target]! *pop*</span>", "<span class='notice'>You hear a *pop*.</span>")
 		var/obj/item/paper/Joke = new /obj/item/paper(user.loc)
 		var/title = "[pick("awful","terrible","unfunny")] joke"
@@ -233,7 +233,7 @@
 		/obj/item/stack/material/animalhide/lizard,
 		/obj/item/stack/material/animalhide/cat,
 		/obj/item/stack/material/animalhide/corgi,
-		/obj/item/stack/material/animalhide/human,
+		/obj/item/stack/material/animalhide/teshari,
 		/obj/item/stack/material/animalhide/monkey,
 		/obj/item/xmasgift/medium,
 		/obj/item/toy/balloon/syndicate,
@@ -348,7 +348,7 @@
 		/mob/living/simple_animal/ice_tunneler,
 		/mob/living/simple_animal/carp/baby,
 		/mob/living/simple_animal/schlorrgo,
-		/mob/living/carbon/human/monkey/nupnup,
+		/mob/living/carbon/teshari/monkey/nupnup,
 		/obj/item/xmasgift/medium,
 		/obj/item/tank/jetpack,
 		/obj/item/toy/plushie/drone,

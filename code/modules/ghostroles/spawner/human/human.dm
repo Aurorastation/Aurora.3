@@ -1,4 +1,4 @@
-/datum/ghostspawner/human
+/datum/ghostspawner/teshari
 	short_name = null
 	name = null
 	desc = null
@@ -6,14 +6,14 @@
 	respawn_flag = CREW //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
 
 	//Vars regarding the mob to use
-	spawn_mob = /mob/living/carbon/human //The mob that should be spawned
+	spawn_mob = /mob/living/carbon/teshari //The mob that should be spawned
 	variables = list() //Variables of that mob
 
-	//Vars related to human mobs
+	//Vars related to teshari mobs
 	var/datum/outfit/outfit = null //Outfit to equip
 	var/list/species_outfits = list() //Outfit overwrite for the species
 	var/uses_species_whitelist = TRUE //Do you need the whitelist to play the species?
-	var/possible_species = list(SPECIES_HUMAN)
+	var/possible_species = list(SPECIES_teshari)
 	var/allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	var/list/extra_languages = list() //Which languages are added to this mob
 
@@ -29,7 +29,7 @@
 	mob_name = null
 
 //Return a error message if the user CANT spawn. Otherwise FALSE
-/datum/ghostspawner/human/cant_spawn(mob/user)
+/datum/ghostspawner/teshari/cant_spawn(mob/user)
 	//If whitelist is required, check if user can spawn in ANY of the possible species
 	if(uses_species_whitelist)
 		var/can_spawn_as_any = FALSE
@@ -42,10 +42,10 @@
 	. = ..()
 
 //Proc executed before someone is spawned in
-/datum/ghostspawner/human/pre_spawn(mob/user)
+/datum/ghostspawner/teshari/pre_spawn(mob/user)
 	. = ..()
 
-/datum/ghostspawner/human/proc/get_mob_name(mob/user, var/species, var/gender)
+/datum/ghostspawner/teshari/proc/get_mob_name(mob/user, var/species, var/gender)
 	var/mname = mob_name
 	if(isnull(mname))
 		var/pick_message = "[mob_name_pick_message] ([species])"
@@ -70,7 +70,7 @@
 	return mname
 
 //The proc to actually spawn in the user
-/datum/ghostspawner/human/spawn_mob(mob/user)
+/datum/ghostspawner/teshari/spawn_mob(mob/user)
 	//Select a spawnpoint (if available)
 	var/turf/T = select_spawnlocation()
 	if(!T)
@@ -97,7 +97,7 @@
 	var/age = input(user, "Enter your characters age:","Num") as num
 
 	//Spawn in the mob
-	var/mob/living/carbon/human/M = new spawn_mob(newplayer_start)
+	var/mob/living/carbon/teshari/M = new spawn_mob(newplayer_start)
 
 	M.change_gender(assigned_gender)
 
@@ -178,9 +178,9 @@
 	return M
 
 /// Used for cryo to free up a slot when a ghost cryos.
-/mob/living/carbon/human
+/mob/living/carbon/teshari
 	var/datum/weakref/ghost_spawner
 
-/mob/living/carbon/human/Destroy()
+/mob/living/carbon/teshari/Destroy()
 	ghost_spawner = null
 	return ..()

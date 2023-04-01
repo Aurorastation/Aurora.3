@@ -49,7 +49,7 @@
 
 // Convinience proc.  Collects crap that fails to equip either onto the mob's back, or drops it.
 // Used in job equipping so shit doesn't pile up at the start loc.
-/mob/living/carbon/human/proc/equip_or_collect(var/obj/item/W, var/slot)
+/mob/living/carbon/teshari/proc/equip_or_collect(var/obj/item/W, var/slot)
 	if(!istype(W))
 		log_debug("MobEquip: Error when equipping [W] for [src] in [slot]")
 		return
@@ -94,7 +94,7 @@ var/list/slot_equipment_priority = list( \
 /mob/proc/slot_is_accessible(var/slot, var/obj/item/I, mob/user=null)
 	return 1
 
-//puts the item "W" into an appropriate slot in a human's inventory
+//puts the item "W" into an appropriate slot in a teshari's inventory
 //returns 0 if it cannot, 1 if successful
 /mob/proc/equip_to_appropriate_slot(obj/item/W)
 	if(!istype(W)) return 0
@@ -150,7 +150,7 @@ var/list/slot_equipment_priority = list( \
 
 //Puts the item into our active hand if possible. returns 1 on success.
 /mob/proc/put_in_active_hand(var/obj/item/W)
-	return 0 // Moved to human procs because only they need to use hands.
+	return 0 // Moved to teshari procs because only they need to use hands.
 
 //Puts the item into our inactive hand if possible. returns 1 on success.
 /mob/proc/put_in_inactive_hand(var/obj/item/W)
@@ -318,7 +318,7 @@ var/list/slot_equipment_priority = list( \
 		if(slot_wear_mask) return wear_mask
 	return null
 
-//Outdated but still in use apparently. This should at least be a human proc.
+//Outdated but still in use apparently. This should at least be a teshari proc.
 /mob/proc/get_equipped_items(var/include_carried = 0)
 	. = list()
 	if(back) . += back
@@ -379,8 +379,8 @@ var/list/slot_equipment_priority = list( \
 
 	if(a_intent == I_HELP && Adjacent(target) && isitem(item))
 		var/obj/item/I = item
-		if(ishuman(target))
-			var/mob/living/carbon/human/H = target
+		if(isteshari(target))
+			var/mob/living/carbon/teshari/H = target
 			if(H.in_throw_mode && H.a_intent == I_HELP && unEquip(I))
 				I.on_give(src, target)
 				if(!QDELETED(I)) // if on_give deletes the item, we don't want runtimes below
@@ -451,7 +451,7 @@ var/list/slot_equipment_priority = list( \
 		if(I.body_parts_covered & body_parts)
 			. += I
 
-/mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE)
+/mob/living/carbon/teshari/proc/equipOutfit(outfit, visualsOnly = FALSE)
 	var/datum/outfit/O = null
 
 	if(ispath(outfit))
@@ -465,7 +465,7 @@ var/list/slot_equipment_priority = list( \
 
 	return O.equip(src, visualsOnly)
 
-/mob/living/carbon/human/proc/preEquipOutfit(outfit, visualsOnly = FALSE)
+/mob/living/carbon/teshari/proc/preEquipOutfit(outfit, visualsOnly = FALSE)
 	var/datum/outfit/O = null
 
 	if(ispath(outfit))

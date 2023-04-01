@@ -13,7 +13,7 @@
 	message = "<span class='danger'>So much pain! All you can hear is screaming!</span>"
 
 	max_targets = 0
-	compatible_mobs = list(/mob/living/carbon/human)
+	compatible_mobs = list(/mob/living/carbon/teshari)
 
 	var/loss = 30
 
@@ -22,7 +22,7 @@
 
 /spell/targeted/torment/cast(var/list/targets, var/mob/user)
 	gibs(user.loc)
-	for(var/mob/living/carbon/human/H in targets)
+	for(var/mob/living/carbon/teshari/H in targets)
 		H.adjustHalLoss(loss)
 
 /spell/targeted/torment/empower_spell()

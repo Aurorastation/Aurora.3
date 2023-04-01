@@ -58,7 +58,7 @@
 	desc_info = "In order to accurately fire this revolver, it must be wielded. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
 	desc_extended = "A Zavodskoi Interstellar design from the mid 2450s intended for export to the Eridani Corporate Federation and the Republic of Biesel, the Protektor \
 	revolver was never designed with practicality in mind. The .454 rounds fired from this weapon are liable to snap the wrist of an unprepared shooter and \
-	any following shots will be difficult to place onto a human-sized target due to the recoil, let alone a skrell. But nobody buys a Protektor for the purpose of \
+	any following shots will be difficult to place onto a teshari-sized target due to the recoil, let alone a skrell. But nobody buys a Protektor for the purpose of \
 	practicality: they buy it due to having too much money and wanting a revolver large enough for their ego."
 	icon = 'icons/obj/guns/captain_revolver.dmi'
 	icon_state = "captain_revolver"
@@ -78,8 +78,8 @@
 	if(wielded)
 		return
 	else
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
+		if(isteshari(user))
+			var/mob/living/carbon/teshari/H = user
 			if(H.mob_size <10)
 				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)

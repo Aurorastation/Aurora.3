@@ -22,7 +22,7 @@
 // 'basic' language; spoken by default.
 /datum/language/common
 	name = LANGUAGE_TCB
-	desc = "A spiritual successor of Esperanto, established in 2404 in Tau Ceti by Ceti intellectuals. Its unique, fully customized alphabet and structure allow it to be spoken even by most alien species. It's the official language of Tau Ceti and has growing traction in diplomatic circles and Universalists across human space."
+	desc = "A spiritual successor of Esperanto, established in 2404 in Tau Ceti by Ceti intellectuals. Its unique, fully customized alphabet and structure allow it to be spoken even by most alien species. It's the official language of Tau Ceti and has growing traction in diplomatic circles and Universalists across teshari space."
 	speech_verb = list("says")
 	key = "0"
 	flags = RESTRICTED|TCOMSSIM
@@ -38,7 +38,7 @@
 /datum/language/trader
 	name = LANGUAGE_TRADEBAND
 	short = "TRADE"
-	desc = "Descended from latin and romance languages of old Earth, Tradeband remains the main tongue of the upper class of humanity. The language sounds elegant and well structured to most ears. It remains in popular use with traders, diplomats, and those seeking to hold onto a piece of a romantic past."
+	desc = "Descended from latin and romance languages of old Earth, Tradeband remains the main tongue of the upper class of teshariity. The language sounds elegant and well structured to most ears. It remains in popular use with traders, diplomats, and those seeking to hold onto a piece of a romantic past."
 	speech_verb = list("enunciates")
 	sing_verb = list("performs")
 	colour = "tradeband"
@@ -58,7 +58,7 @@
 /datum/language/gutter
 	name = LANGUAGE_GUTTER
 	short = "FREE"
-	desc = "A language of renegades and frontiersmen descending from various languages from Earth like Hindi combined into a multi-rooted jumble that sounds incoherent or even barbarian to non-native speakers. This language is the only common cultural identity for humans in the frontier. Speaking this language in itself boldly declares the speaker a free spirit. Often called 'Gutter' by Alliance citizens."
+	desc = "A language of renegades and frontiersmen descending from various languages from Earth like Hindi combined into a multi-rooted jumble that sounds incoherent or even barbarian to non-native speakers. This language is the only common cultural identity for tesharis in the frontier. Speaking this language in itself boldly declares the speaker a free spirit. Often called 'Gutter' by Alliance citizens."
 	speech_verb = list("says")
 	sing_verb = list("croons")
 	colour = "freespeak"

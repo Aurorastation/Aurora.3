@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/get_unarmed_attack(var/mob/living/carbon/human/target, var/hit_zone)
+/mob/living/carbon/teshari/proc/get_unarmed_attack(var/mob/living/carbon/teshari/target, var/hit_zone)
 
 	if(src.default_attack && src.default_attack.is_usable(src, target, hit_zone))
 		if(pulling_punches)
@@ -16,9 +16,9 @@
 			return u_attack
 	return null
 
-/mob/living/carbon/human/attack_hand(mob/living/carbon/M as mob)
+/mob/living/carbon/teshari/attack_hand(mob/living/carbon/M as mob)
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(!M.can_use_hand())
 		return
 
@@ -454,7 +454,7 @@
 			visible_message("<span class='danger'>[M] attempted to disarm [src]!</span>")
 	return
 
-/mob/living/carbon/human/proc/cpr(mob/living/carbon/human/H, var/starting = FALSE, var/cpr_mode)
+/mob/living/carbon/teshari/proc/cpr(mob/living/carbon/teshari/H, var/starting = FALSE, var/cpr_mode)
 	var/obj/item/main_hand = H.get_active_hand()
 	var/obj/item/off_hand = H.get_inactive_hand()
 	if(istype(main_hand) || istype(off_hand))
@@ -498,7 +498,7 @@
 
 	cpr(H, FALSE, cpr_mode) //Again.
 
-/mob/living/carbon/human/proc/cpr_compressions(mob/living/carbon/human/H)
+/mob/living/carbon/teshari/proc/cpr_compressions(mob/living/carbon/teshari/H)
 	if(is_asystole())
 		if(prob(5 * rand(2, 3)))
 			var/obj/item/organ/external/chest = get_organ(BP_CHEST)
@@ -512,7 +512,7 @@
 		if(stat != DEAD && prob(10 * rand(0.5, 1)))
 			resuscitate()
 
-/mob/living/carbon/human/proc/cpr_ventilation(mob/living/carbon/human/H)
+/mob/living/carbon/teshari/proc/cpr_ventilation(mob/living/carbon/teshari/H)
 	if(!H.check_has_mouth())
 		to_chat(H, SPAN_WARNING("You don't have a mouth, you cannot do mouth-to-mouth resuscitation!"))
 		return
@@ -539,10 +539,10 @@
 				losebreath = 0
 				to_chat(src, SPAN_NOTICE("You feel a breath of fresh air enter your lungs. It feels good."))
 
-/mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
+/mob/living/carbon/teshari/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
 	return
 
-/mob/living/carbon/human/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags)
+/mob/living/carbon/teshari/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags)
 	if(!damage)
 		return
 
@@ -562,7 +562,7 @@
 	return affecting
 
 //Used to attack a joint through grabbing
-/mob/living/carbon/human/proc/grab_joint(var/mob/living/user, var/def_zone)
+/mob/living/carbon/teshari/proc/grab_joint(var/mob/living/user, var/def_zone)
 	var/has_grab = 0
 
 	if(user.limb_breaking)
@@ -596,7 +596,7 @@
 	return 0
 
 //Breaks all grips and pulls that the mob currently has.
-/mob/living/carbon/human/proc/break_all_grabs(mob/living/carbon/user)
+/mob/living/carbon/teshari/proc/break_all_grabs(mob/living/carbon/user)
 	var/success = 0
 	if(pulling)
 		visible_message("<span class='danger'>[user] has broken [src]'s grip on [pulling]!</span>")
@@ -620,7 +620,7 @@
 	return success
 
 //Apply pressure to wounds.
-/mob/living/carbon/human/proc/apply_pressure(mob/living/user, var/target_zone)
+/mob/living/carbon/teshari/proc/apply_pressure(mob/living/user, var/target_zone)
 	var/obj/item/organ/external/organ = get_organ(target_zone)
 	if(!organ || !(organ.status & ORGAN_BLEEDING) || organ.status & ORGAN_ROBOT)
 		return 0
@@ -650,7 +650,7 @@
 	return 1
 
 
-/mob/living/carbon/human/verb/check_attacks()
+/mob/living/carbon/teshari/verb/check_attacks()
 	set name = "Check Attacks"
 	set category = "IC"
 	set src = usr
@@ -663,7 +663,7 @@
 	src << browse(dat, "window=checkattack")
 	return
 
-/mob/living/carbon/human/check_attacks()
+/mob/living/carbon/teshari/check_attacks()
 	var/dat = ""
 
 	if(default_attack)
@@ -689,7 +689,7 @@
 	attack_win.set_content(dat)
 	attack_win.open()
 
-/mob/living/carbon/human/Topic(href, href_list)
+/mob/living/carbon/teshari/Topic(href, href_list)
 	if(href_list["default_attk"])
 		if(href_list["default_attk"] == "reset_attk")
 			set_default_attack(null)
@@ -702,5 +702,5 @@
 	else
 		return ..()
 
-/mob/living/carbon/human/proc/set_default_attack(var/datum/unarmed_attack/u_attack)
+/mob/living/carbon/teshari/proc/set_default_attack(var/datum/unarmed_attack/u_attack)
 	default_attack = u_attack

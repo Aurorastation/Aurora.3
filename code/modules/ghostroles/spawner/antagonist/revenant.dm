@@ -11,7 +11,7 @@
 	landmark_name = "Revenant"
 	max_count = 0
 
-	spawn_mob = /mob/living/carbon/human/revenant
+	spawn_mob = /mob/living/carbon/teshari/revenant
 	respawn_flag = ANIMAL
 
 	var/spawn_index = 1 // used to add a numerical identifier to the revenant. increases by 1 per spawn
@@ -26,9 +26,9 @@
 
 /datum/ghostspawner/revenant/spawn_mob(mob/user)
 	var/turf/T = select_spawnlocation()
-	var/mob/living/carbon/human/revenant/R
+	var/mob/living/carbon/teshari/revenant/R
 	if(T)
-		R = new /mob/living/carbon/human/revenant(T)
+		R = new /mob/living/carbon/teshari/revenant(T)
 	else
 		to_chat(user, SPAN_WARNING("Unable to find any spawn point."))
 		return
@@ -49,7 +49,7 @@
 
 	return R
 
-/datum/ghostspawner/revenant/proc/play_ambience(var/mob/living/carbon/human/H)
+/datum/ghostspawner/revenant/proc/play_ambience(var/mob/living/carbon/teshari/H)
 	for(var/m in player_list - H)
 		var/mob/M = m
 		if(M.ear_deaf)

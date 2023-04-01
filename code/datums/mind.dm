@@ -7,7 +7,7 @@
 	-	Never mind.transfer_to(ghost). The var/current and var/original of a mind must always be of type mob/living!
 		ghost.mind is however used as a reference to the ghost's corpse
 
-	-	When creating a new mob for an existing IC character (e.g. cloning a dead guy or borging a brain of a human)
+	-	When creating a new mob for an existing IC character (e.g. cloning a dead guy or borging a brain of a teshari)
 		the existing mind of the old mob should be transfered to the new mob like so:
 
 			mind.transfer_to(new_mob)
@@ -254,7 +254,7 @@
 
 				var/list/possible_targets = list("Free objective")
 				for(var/datum/mind/possible_target in SSticker.minds)
-					if ((possible_target != src) && istype(possible_target.current, /mob/living/carbon/human))
+					if ((possible_target != src) && istype(possible_target.current, /mob/living/carbon/teshari))
 						possible_targets += possible_target.current
 
 				var/mob/def_target = null
@@ -356,7 +356,7 @@
 		objective.completed = !objective.completed
 
 	else if(href_list["implant"])
-		var/mob/living/carbon/human/H = current
+		var/mob/living/carbon/teshari/H = current
 
 		BITSET(H.hud_updateflag, IMPLOYAL_HUD)   // updates that players HUD images so secHUD's pick up they are implanted or not.
 
@@ -520,8 +520,8 @@
 			mind.signfont = client.prefs.signfont
 	mind.current = src
 
-//HUMAN
-/mob/living/carbon/human/mind_initialize()
+//teshari
+/mob/living/carbon/teshari/mind_initialize()
 	..()
 	if(!mind.assigned_role)
 		mind.assigned_role = "Assistant"	//defualt

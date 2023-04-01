@@ -1,9 +1,9 @@
-/obj/structure/bed/stool/chair/remote/human
+/obj/structure/bed/stool/chair/remote/teshari
 	name = "virtual reality centre"
 	desc = "A comfortable chair with full audio-visual transposition centres. This one gives you access to a virtual reality body."
 
-/obj/structure/bed/stool/chair/remote/human/user_buckle(mob/user)
+/obj/structure/bed/stool/chair/remote/teshari/user_buckle(mob/user)
 	..()
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		SSvirtualreality.create_virtual_reality_avatar(H)

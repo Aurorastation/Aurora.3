@@ -32,8 +32,8 @@
 	return FALSE
 
 	// Checks if this step applies to the user mob at all
-/singleton/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
-	if(!ishuman(target))
+/singleton/surgery_step/proc/is_valid_target(mob/living/carbon/teshari/target)
+	if(!isteshari(target))
 		return FALSE
 
 	if(allowed_species)
@@ -50,18 +50,18 @@
 
 
 // checks whether this step can be applied with the given user and target
-/singleton/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
+/singleton/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
+	if(!isteshari(target))
 		return FALSE
 	return TRUE
 
 // does stuff to begin the step, usually just printing messages. Moved germs transfering and bloodying here too
-/singleton/surgery_step/proc/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/proc/begin_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(can_infect && affected)
 		spread_germs_to_organ(affected, user)
-	if(ishuman(user) && prob(60))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user) && prob(60))
+		var/mob/living/carbon/teshari/H = user
 		if(blood_level)
 			H.bloody_hands(target,0)
 		if(blood_level > 1)
@@ -69,14 +69,14 @@
 	return
 
 // does stuff to end the step, which is normally print a message + do whatever this step changes
-/singleton/surgery_step/proc/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/proc/end_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	return FALSE
 
 // stuff that happens when the step fails
-/singleton/surgery_step/proc/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/proc/fail_step(mob/living/user, mob/living/carbon/teshari/target, target_zone, obj/item/tool)
 	return null
 
-proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/human/user)
+proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/teshari/user)
 	if(!istype(user) || !istype(E))
 		return FALSE
 
@@ -156,8 +156,8 @@ proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/
 				to_chat(user, SPAN_WARNING("You must remain close to your patient to conduct surgery."))
 			if(!QDELETED(M))
 				M.op_stage.in_progress -= zone
-				if(ishuman(M))
-					var/mob/living/carbon/human/H = M
+				if(isteshari(M))
+					var/mob/living/carbon/teshari/H = M
 					H.update_surgery()
 		return TRUE
 	return TRUE

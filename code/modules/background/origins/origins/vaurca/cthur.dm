@@ -32,7 +32,7 @@
 
 /singleton/origin_item/origin/xetl
 	name = "Xetl Brood"
-	desc = "While Queen Xetl is kept away from negotiations, her brood is usually exported to human space for their labor."
+	desc = "While Queen Xetl is kept away from negotiations, her brood is usually exported to teshari space for their labor."
 	possible_accents = list(ACCENT_CTHUR, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_NONE)

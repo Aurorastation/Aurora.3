@@ -301,7 +301,7 @@
 
 	spark(get_turf(src), 10, alldirs)
 
-	var/mob/living/carbon/human/G = new(src.loc)
+	var/mob/living/carbon/teshari/G = new(src.loc)
 
 	G.key = user.key
 	G.set_species(golem_type)

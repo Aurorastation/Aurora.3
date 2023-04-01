@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/tirakqi_crew
+/datum/ghostspawner/teshari/tirakqi_crew
 	short_name = "tirakqi_crew"
 	name = "Ti'Rakqi Qu'fup"
 	desc = "You crew the ship, mop the floors, cook the meals, and shoot whoever gets too close to the goods. Try to show some initiative!"
@@ -86,7 +86,7 @@
 /datum/outfit/admin/tirakqi_crew/get_id_access()
 	return list(access_skrell, access_external_airlocks)
 
-/datum/outfit/admin/tirakqi_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/tirakqi_crew/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	. = ..()
 
 	H.h_style = pick("Headtails", "Headtails", "Long Headtails", "Short Headtails", "Very Short Headtails", "Short Headtails, tucked", "Short Headtails, slicked", "Headtails, behind")
@@ -104,7 +104,7 @@
 	H.g_facial = H.g_hair
 	H.b_facial = H.b_hair
 
-/datum/ghostspawner/human/tirakqi_captain
+/datum/ghostspawner/teshari/tirakqi_captain
 	short_name = "tirakqi_captain"
 	name = "Ti'Rakqi Qu'oot"
 	desc = "Lead the Qu'fup under your command. Smuggle, cheat, lie, and profit. You've got a crew and a ship to maintain."
@@ -138,7 +138,7 @@
 		)
 
 
-/datum/ghostspawner/human/tirakqi_medic
+/datum/ghostspawner/teshari/tirakqi_medic
 	short_name = "tirakqi_medic"
 	name = "Ti'Rakqi Medic"
 	desc = "You're a trained doctor serving with the Ti'Rakqi! Try to keep the crew alive or you may find yourself stranded in space."
@@ -165,7 +165,7 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 
 
-/datum/ghostspawner/human/tirakqi_engineer
+/datum/ghostspawner/teshari/tirakqi_engineer
 	short_name = "tirakqi_engineer"
 	name = "Ti'Rakqi Engineer"
 	desc = "You're a trained engineer serving with the Ti'Rakqi! Try to keep the ship functioning or you may find yourself stranded in space."

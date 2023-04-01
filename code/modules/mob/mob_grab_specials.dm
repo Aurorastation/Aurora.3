@@ -1,5 +1,5 @@
 
-/obj/item/grab/proc/inspect_organ(mob/living/carbon/human/H, mob/user, var/target_zone)
+/obj/item/grab/proc/inspect_organ(mob/living/carbon/teshari/H, mob/user, var/target_zone)
 
 	var/obj/item/organ/external/E = H.get_organ(target_zone)
 
@@ -45,7 +45,7 @@
 		if(!bad)
 			to_chat(user, "<span class='notice'>[H]'s skin is normal.</span>")
 
-/obj/item/grab/proc/jointlock(mob/living/carbon/human/target, mob/attacker, var/target_zone)
+/obj/item/grab/proc/jointlock(mob/living/carbon/teshari/target, mob/attacker, var/target_zone)
 	if(state < GRAB_AGGRESSIVE)
 		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
@@ -60,7 +60,7 @@
 		to_chat(target, "<span class='danger'>You feel extreme pain!</span>")
 		affecting.adjustHalLoss(Clamp(0, 60 - affecting.getHalLoss(), 30)) //up to 60 halloss
 
-/obj/item/grab/proc/attack_eye(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
+/obj/item/grab/proc/attack_eye(mob/living/carbon/teshari/target, mob/living/carbon/teshari/attacker)
 	if(!istype(attacker))
 		return
 
@@ -86,7 +86,7 @@
 
 	attack.handle_eye_attack(attacker, target)
 
-/obj/item/grab/proc/headbutt(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
+/obj/item/grab/proc/headbutt(mob/living/carbon/teshari/target, mob/living/carbon/teshari/attacker)
 	if(!istype(attacker))
 		return
 	if(target.lying)
@@ -119,7 +119,7 @@
 	qdel(src)
 	return
 
-/obj/item/grab/proc/dislocate(mob/living/carbon/human/target, mob/living/attacker, var/target_zone)
+/obj/item/grab/proc/dislocate(mob/living/carbon/teshari/target, mob/living/attacker, var/target_zone)
 	if(state < GRAB_NECK)
 		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
@@ -149,11 +149,11 @@
 	target.set_dir(SOUTH) //face up
 
 /obj/item/grab/proc/devour(mob/target, mob/user)
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/teshari/H = user
 	H.devour(target)
 
 
-/obj/item/grab/proc/hair_pull(mob/living/carbon/human/target, mob/attacker, var/target_zone)
+/obj/item/grab/proc/hair_pull(mob/living/carbon/teshari/target, mob/attacker, var/target_zone)
 
 
 	var/datum/sprite_accessory/hair/hair_style = hair_styles_list[target.h_style]

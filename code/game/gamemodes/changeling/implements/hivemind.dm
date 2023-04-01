@@ -3,7 +3,7 @@
 	see_in_dark = 2
 	see_invisible = SEE_INVISIBLE_LIVING
 
-	var/mob/living/carbon/human/changeling_mob // the head honcho
+	var/mob/living/carbon/teshari/changeling_mob // the head honcho
 
 /mob/abstract/hivemind/Destroy()
 	changeling_mob = null
@@ -19,7 +19,7 @@
 	changeling.hivemind_members -= src
 	relay_hivemind(SPAN_NOTICE("[src] has left our hivemind to join the living dead."), changeling_mob)
 
-/mob/abstract/hivemind/proc/add_to_hivemind(var/mob/original_body, var/mob/living/carbon/human/ling)
+/mob/abstract/hivemind/proc/add_to_hivemind(var/mob/original_body, var/mob/living/carbon/teshari/ling)
 	name = original_body.real_name
 	languages = original_body.languages
 	for(var/language in ling.languages)
@@ -33,7 +33,7 @@
 		changeling.hivemind_members[name] = src
 		introduction(changeling_mob)
 
-/mob/abstract/hivemind/proc/introduction(var/mob/living/carbon/human/ling)
+/mob/abstract/hivemind/proc/introduction(var/mob/living/carbon/teshari/ling)
 	to_chat(src, SPAN_DANGER(FONT_LARGE("You are a member of a Changeling's Hivemind!")))
 	to_chat(src, SPAN_DANGER("You have been absorbed by [ling]! Do not fret."))
 	to_chat(src, SPAN_DANGER("You are now a part of their hivemind."))

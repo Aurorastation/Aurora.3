@@ -7,10 +7,10 @@
 	req_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
 	build_path = /obj/item/aiModule/safeguard
 
-/datum/design/circuit/aimodule/onehuman
+/datum/design/circuit/aimodule/oneteshari
 	name = "OneCrewMember"
 	req_tech = list(TECH_DATA = 4, TECH_MATERIAL = 6)
-	build_path = /obj/item/aiModule/oneHuman
+	build_path = /obj/item/aiModule/oneteshari
 
 /datum/design/circuit/aimodule/protectstation
 	name = "ProtectStation"
@@ -28,7 +28,7 @@
 	build_path = /obj/item/aiModule/quarantine
 
 /datum/design/circuit/aimodule/oxygen
-	name = "OxygenIsToxicToHumans"
+	name = "OxygenIsToxicTotesharis"
 	req_tech = list(TECH_DATA = 3, TECH_BIO = 2, TECH_MATERIAL = 4)
 	build_path = /obj/item/aiModule/oxygen
 

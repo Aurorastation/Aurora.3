@@ -6,7 +6,7 @@
 	name = "Solarian Combat"
 	help_verb = /datum/martial_art/sol_combat/proc/sol_combat_help
 
-/datum/martial_art/sol_combat/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/sol_combat/proc/check_streak(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(findtext(streak,NECK_CHOP))
 		streak = ""
 		neck_chop(A,D)
@@ -21,7 +21,7 @@
 		return 1
 	return 0
 
-/datum/martial_art/sol_combat/proc/leg_sweep(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/sol_combat/proc/leg_sweep(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	A.do_attack_animation(D)
 	if(D.stat || D.weakened)
 		return 0
@@ -31,7 +31,7 @@
 	D.Weaken(2)
 	return 1
 
-/datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
+/datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)//is actually lung punch
 	A.do_attack_animation(D)
 	A.visible_message("<span class='warning'>[A] pounds [D] on the chest!</span>")
 	playsound(get_turf(A), "punch", 50, 1, -1)
@@ -40,7 +40,7 @@
 		D.adjustOxyLoss(10)
 	return 1
 
-/datum/martial_art/sol_combat/proc/neck_chop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/sol_combat/proc/neck_chop(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	A.do_attack_animation(D)
 	A.visible_message("<span class='warning'>[A] karate chops [D]'s neck!</span>")
 	playsound(get_turf(A), /singleton/sound_category/punch_sound, 50, 1, -1)
@@ -48,12 +48,12 @@
 	D.silent += 10
 	return 1
 
-datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	if(check_streak(A,D))
 		return 1
 	..()
 
-/datum/martial_art/sol_combat/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/sol_combat/harm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("H",D)
 	if(check_streak(A,D))
 		return 1
@@ -77,7 +77,7 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 
 	return 1
 
-/datum/martial_art/sol_combat/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/sol_combat/disarm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	add_to_streak("D",D)
 	A.do_attack_animation(D)
 	if(check_streak(A,D))

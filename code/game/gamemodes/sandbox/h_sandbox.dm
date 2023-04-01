@@ -60,7 +60,7 @@ datum/hSB
 						hsboxspawn = 1
 						return
 				if("hsbsuit")
-					var/mob/living/carbon/human/P = usr
+					var/mob/living/carbon/teshari/P = usr
 					if(P.wear_suit)
 						P.wear_suit.forceMove(P.loc)
 						P.wear_suit.layer = initial(P.wear_suit.layer)

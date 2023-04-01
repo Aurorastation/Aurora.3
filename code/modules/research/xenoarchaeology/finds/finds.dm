@@ -375,7 +375,7 @@
 			new_item.icon_state = "gun[rand(1,4)]"
 			new_item.icon = 'icons/obj/xenoarchaeology.dmi'
 
-			//33% chance to be able to reload the gun with human ammunition
+			//33% chance to be able to reload the gun with teshari ammunition
 			if(prob(66))
 				new_gun.caliber = "999"
 
@@ -439,12 +439,12 @@
 			apply_material_decorations = 0
 			apply_prefix = 0
 		if(32)
-			//humanoid remains
+			//tesharioid remains
 			apply_prefix = 0
-			item_type = "humanoid [pick("remains","skeleton")]"
+			item_type = "tesharioid [pick("remains","skeleton")]"
 			icon = 'icons/effects/blood.dmi'
 			icon_state = "remains"
-			additional_desc = pick("They appear almost human.",\
+			additional_desc = pick("They appear almost teshari.",\
 			"They are contorted in a most gruesome way.",\
 			"They look almost peaceful.",\
 			"The bones are yellowing and old, but remarkably well preserved.",\
@@ -481,7 +481,7 @@
 			"The bones are scored by numerous burns and partially melted.",\
 			"The are battered and broken, in some cases less than splinters are left.",\
 			"This creature would have been twisted and monstrous when it was alive.",\
-			"It doesn't look human.")
+			"It doesn't look teshari.")
 			apply_image_decorations = 0
 			apply_material_decorations = 0
 		if(35)
@@ -523,9 +523,9 @@
 	var/engravings = ""
 	if(apply_image_decorations)
 		engravings = "[pick("Engraved","Carved","Etched")] on the item is [pick("an image of","a frieze of","a depiction of")] \
-		[pick("an alien humanoid","an amorphic blob","a short, hairy being","a rodent-like creature","a robot","a primate","a reptilian alien","an unidentifiable object","a statue","a starship","unusual devices","a structure")] \
+		[pick("an alien tesharioid","an amorphic blob","a short, hairy being","a rodent-like creature","a robot","a primate","a reptilian alien","an unidentifiable object","a statue","a starship","unusual devices","a structure")] \
 		[pick("surrounded by","being held aloft by","being struck by","being examined by","communicating with")] \
-		[pick("alien humanoids","amorphic blobs","short, hairy beings","rodent-like creatures","robots","primates","reptilian aliens")]"
+		[pick("alien tesharioids","amorphic blobs","short, hairy beings","rodent-like creatures","robots","primates","reptilian aliens")]"
 		if(prob(50))
 			engravings += ", [pick("they seem to be enjoying themselves","they seem extremely angry","they look pensive","they are making gestures of supplication","the scene is one of subtle horror","the scene conveys a sense of desperation","the scene is completely bizarre")]"
 		engravings += "."

@@ -109,8 +109,8 @@
 
 /obj/structure/boulder/CollidedWith(AM)
 	. = ..()
-	if(istype(AM,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = AM
+	if(istype(AM,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = AM
 		if((istype(H.l_hand,/obj/item/pickaxe)) && (!H.hand))
 			var/obj/item/pickaxe/P = H.l_hand
 			if(P.autodrill)

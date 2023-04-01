@@ -12,19 +12,19 @@
 	var/parry_multiplier = 1	//if this martial art increases the chance of parrying with the weapon
 	var/list/possible_weapons //if any weapon is spawned when you use the martial art manual
 
-/datum/martial_art/proc/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/proc/disarm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	return 0
 
-/datum/martial_art/proc/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/proc/harm_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	return 0
 
-/datum/martial_art/proc/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/proc/grab_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	return 0
 
-/datum/martial_art/proc/help_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/proc/help_act(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)
 	return 0
 
-/datum/martial_art/proc/add_to_streak(var/element,var/mob/living/carbon/human/D)
+/datum/martial_art/proc/add_to_streak(var/element,var/mob/living/carbon/teshari/D)
 	if(D != current_target)
 		current_target = D
 		streak = ""
@@ -33,7 +33,7 @@
 		streak = copytext(streak,2)
 	return
 
-/datum/martial_art/proc/basic_hit(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)	//copy pasta of the regular unarmed attack, but can be replaced by something else
+/datum/martial_art/proc/basic_hit(var/mob/living/carbon/teshari/A, var/mob/living/carbon/teshari/D)	//copy pasta of the regular unarmed attack, but can be replaced by something else
 	var/rand_damage = rand(1, 5)
 	var/block = 0
 	var/accurate = 0
@@ -137,7 +137,7 @@
 
 	return 1
 
-/datum/martial_art/proc/teach(var/mob/living/carbon/human/H)
+/datum/martial_art/proc/teach(var/mob/living/carbon/teshari/H)
 	if(help_verb)
 		H.verbs += help_verb
 		to_chat(H, SPAN_NOTICE("You can review the combos by recalling the teachings of this art in your abilities tab."))
@@ -147,9 +147,9 @@
 		H.primary_martial_art = src
 	if(length(H.known_martial_arts) > 1)
 		to_chat(H, SPAN_NOTICE("Now that you know more than one martial art, you can select your primary martial art in the abilities tab."))
-		H.verbs += /mob/living/carbon/human/proc/select_primary_martial_art
+		H.verbs += /mob/living/carbon/teshari/proc/select_primary_martial_art
 
-/datum/martial_art/proc/remove(var/mob/living/carbon/human/H)
+/datum/martial_art/proc/remove(var/mob/living/carbon/teshari/H)
 	LAZYREMOVE(H.known_martial_arts, src)
 	if(H.primary_martial_art == src)
 		if(length(H.known_martial_arts))
@@ -160,7 +160,7 @@
 		H.verbs -= help_verb
 	qdel(src)
 
-/datum/martial_art/proc/TornadoAnimate(mob/living/carbon/human/A)
+/datum/martial_art/proc/TornadoAnimate(mob/living/carbon/teshari/A)
 	set waitfor = FALSE
 	for(var/i in list(NORTH,SOUTH,EAST,WEST,EAST,SOUTH,NORTH,SOUTH,EAST,WEST,EAST,SOUTH))
 		if(!A)
@@ -170,7 +170,7 @@
 
 /obj/item/martial_manual
 	name = "SolCom manual"
-	desc = "A manual designated to teach the user about the martial art of solarian combat, a style based on traditional human martial arts."
+	desc = "A manual designated to teach the user about the martial art of solarian combat, a style based on traditional teshari martial arts."
 	icon = 'icons/obj/library.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_books.dmi',
@@ -181,9 +181,9 @@
 	var/martial_art = /datum/martial_art/sol_combat
 
 /obj/item/martial_manual/attack_self(mob/user as mob)
-	if(!ishuman(user))
+	if(!isteshari(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/teshari/H = user
 	var/datum/martial_art/F = new martial_art(null)
 	F.teach(H)
 	to_chat(H, "<span class='notice'>You have learned the martial art of [F.name].</span>")

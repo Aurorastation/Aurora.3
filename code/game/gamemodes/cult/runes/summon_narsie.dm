@@ -14,7 +14,7 @@
 
 	var/list/cultists = list()
 	for(var/mob/M in range(1, A))
-		if(istype(M, /mob/living/carbon/human/apparition))
+		if(istype(M, /mob/living/carbon/teshari/apparition))
 			to_chat(M, SPAN_WARNING("Apparitions cannot partake in the summoning of the Great Dark One! Clear the area and defend the cultists!"))
 			continue
 		if(iscultist(M) && !M.stat)

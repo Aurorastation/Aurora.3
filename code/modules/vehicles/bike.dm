@@ -95,8 +95,8 @@
 	return ..(M)
 
 /obj/vehicle/bike/MouseDrop(atom/over)
-	if(usr == over && ishuman(over))
-		var/mob/living/carbon/human/H = over
+	if(usr == over && isteshari(over))
+		var/mob/living/carbon/teshari/H = over
 		storage_compartment.open(H)
 
 /obj/vehicle/bike/MouseDrop_T(var/atom/movable/C, mob/user as mob)
@@ -209,23 +209,23 @@
 			var/obj/vehicle/V = AM
 			if(prob(50))
 				if(V.buckled)
-					if(ishuman(V.buckled))
-						var/mob/living/carbon/human/I = V.buckled
+					if(isteshari(V.buckled))
+						var/mob/living/carbon/teshari/I = V.buckled
 						I.visible_message(SPAN_DANGER("\The [I] falls off from \the [V]"))
 						V.unload(I)
 						I.throw_at(get_edge_target_turf(V.loc, V.loc.dir), 5, 1)
 						I.apply_effect(2, WEAKEN)
 				if(prob(25))
-					if(ishuman(buckled))
-						var/mob/living/carbon/human/C = buckled
+					if(isteshari(buckled))
+						var/mob/living/carbon/teshari/C = buckled
 						C.visible_message(SPAN_DANGER ("\The [C] falls off from \the [src]!"))
 						unload(C)
 						C.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 						C.apply_effect(2, WEAKEN)
 
 		if(isliving(AM))
-			if(ishuman(AM))
-				var/mob/living/carbon/human/H = AM
+			if(isteshari(AM))
+				var/mob/living/carbon/teshari/H = AM
 				M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 				M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
@@ -283,7 +283,7 @@
 
 	can_hover = FALSE
 
-/obj/vehicle/bike/monowheel/RunOver(var/mob/living/carbon/human/H)
+/obj/vehicle/bike/monowheel/RunOver(var/mob/living/carbon/teshari/H)
 	var/mob/living/M
 	if(!buckled)
 		return

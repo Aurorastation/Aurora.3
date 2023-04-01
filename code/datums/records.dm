@@ -129,10 +129,10 @@
 	excluded_fields = list("photo_front", "photo_side", "advanced_fields", "real_rank")
 	excluded_print_fields = list("ccia_actions")
 
-/datum/record/general/New(var/mob/living/carbon/human/H, var/nid)
+/datum/record/general/New(var/mob/living/carbon/teshari/H, var/nid)
 	..()
 	if (!H)
-		var/mob/living/carbon/human/dummy/mannequin/dummy = SSmob.get_mannequin("New record")
+		var/mob/living/carbon/teshari/dummy/mannequin/dummy = SSmob.get_mannequin("New record")
 		photo_front = getFlatIcon(dummy, SOUTH)
 		photo_side = getFlatIcon(dummy, WEST)
 	else
@@ -167,7 +167,7 @@
 	var/identity
 	var/exploit_record = "No additional information acquired."
 
-/datum/record/general/locked/New(var/mob/living/carbon/human/H)
+/datum/record/general/locked/New(var/mob/living/carbon/teshari/H)
 	..()
 	// Only init things that aqre needed
 	if(H)
@@ -186,7 +186,7 @@
 	var/diseases = "No diseases have been diagnosed at the moment."
 	var/list/comments = list()
 
-/datum/record/medical/New(var/mob/living/carbon/human/H, var/nid)
+/datum/record/medical/New(var/mob/living/carbon/teshari/H, var/nid)
 	..()
 	if(!nid)
 		nid = generate_record_id()
@@ -204,7 +204,7 @@
 	var/list/incidents = list()
 	var/list/comments = list()
 
-/datum/record/security/New(var/mob/living/carbon/human/H, var/nid)
+/datum/record/security/New(var/mob/living/carbon/teshari/H, var/nid)
 	..()
 	if(!nid)
 		nid = generate_record_id()

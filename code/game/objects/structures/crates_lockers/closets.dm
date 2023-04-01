@@ -534,7 +534,7 @@
 	if(!usr.canmove || usr.stat || usr.restrained())
 		return
 
-	if(ishuman(usr))
+	if(isteshari(usr))
 		add_fingerprint(usr)
 		toggle(usr)
 	else

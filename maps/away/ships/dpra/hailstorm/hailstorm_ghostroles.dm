@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/hailstorm_crew
+/datum/ghostspawner/teshari/hailstorm_crew
 	short_name = "hailstorm_crew"
 	name = "Hailstorm Ship Crew"
 	desc = "Crew a People's Volunteer Spacer Militia ship."
@@ -35,7 +35,7 @@
 /datum/outfit/admin/hailstorm_crew/get_id_access()
 	return list(access_dpra, access_external_airlocks)
 
-/datum/ghostspawner/human/hailstorm_crew/captain
+/datum/ghostspawner/teshari/hailstorm_crew/captain
 	short_name = "hailstorm_captain"
 	name = "Hailstorm Ship Captain"
 	desc = "Command a People's Volunteer Spacer Militia ship."
@@ -60,7 +60,7 @@
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/silenced = 1)
 
-/datum/ghostspawner/human/hailstorm_crew/advisor
+/datum/ghostspawner/teshari/hailstorm_crew/advisor
 	short_name = "hailstorm_advisor"
 	name = "Hailstorm ALA Advisor"
 	desc = "Help train and guide the crew of the Hailstorm as an advisor from the Adhomai Liberation Army."

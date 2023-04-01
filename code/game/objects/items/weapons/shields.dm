@@ -41,7 +41,7 @@
 
 /obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
 	var/shield_dir = on_back ? user.dir : reverse_dir[user.dir]
-	
+
 	if(user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
 		return FALSE
 
@@ -143,7 +143,7 @@
 	var/next_action
 	var/sound_token
 	var/sound_id
-	
+
 /obj/item/shield/energy/Destroy()
 	QDEL_NULL(sound_token)
 	return ..()
@@ -151,14 +151,14 @@
 /obj/item/shield/energy/Initialize()
 	. = ..()
 	sound_id = "[sequential_id(/obj/item/shield/energy)]"
-	
+
 /obj/item/shield/energy/update_icon()
 	icon_state = "eshield[active]"
 	if(active)
 		set_light(1.5, 1.5, "#006AFF")
 	else
 		set_light(0)
-		
+
 /obj/item/shield/energy/attack_self(mob/living/user)
 	var/time = world.time
 	if(time < next_action)
@@ -228,19 +228,19 @@
 		if((is_sharp(damage_source) && damage > 10) || isbeam(damage_source))
 			return (base_block_chance - round(damage / 3))
 	return base_block_chance
-	
+
 /obj/item/shield/energy/proc/HandleTurnOn()
 	addtimer(CALLBACK(src, /obj/item/shield/energy/proc/UpdateSoundLoop), 0.25 SECONDS)
 	playsound(src, 'sound/items/shield/energy/shield-start.ogg', 40)
 	force = 10
 	w_class = ITEMSIZE_LARGE
-	
+
 /obj/item/shield/energy/proc/HandleShutOff()
 	addtimer(CALLBACK(src, /obj/item/shield/energy/proc/UpdateSoundLoop), 0.1 SECONDS)
 	playsound(src, 'sound/items/shield/energy/shield-stop.ogg', 40)
 	force = initial(force)
 	w_class = initial(w_class)
-	
+
 /obj/item/shield/energy/proc/UpdateSoundLoop()
 	if (!active)
 		QDEL_NULL(sound_token)
@@ -336,8 +336,8 @@
 		slot_flags = 0
 		to_chat(user, SPAN_NOTICE("\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame."))
 
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
+	if(istype(user,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 

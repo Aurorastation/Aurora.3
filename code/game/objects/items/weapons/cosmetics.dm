@@ -100,8 +100,8 @@
 
 	if(!istype(M, /mob))	return
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(H.lip_style)	//if they already have lipstick on
 			to_chat(user, "<span class='notice'>You need to wipe off the old lipstick first!</span>")
 			return
@@ -147,7 +147,7 @@
 	icon_state = "razor"
 	w_class = ITEMSIZE_SMALL
 
-/obj/item/razor/proc/shave(mob/living/carbon/human/H, location)
+/obj/item/razor/proc/shave(mob/living/carbon/teshari/H, location)
 	if(location == BP_HEAD)
 		H.h_style = H.species.default_h_style
 	else
@@ -158,17 +158,17 @@
 
 
 /obj/item/razor/attack(mob/M, mob/user, var/target_zone)
-	if(!ishuman(M))
+	if(!isteshari(M))
 		return ..()
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	var/obj/item/organ/external/E = H.get_organ(target_zone)
 
 	if(!E || E.is_stump())
 		to_chat(user, "<span class='danger'>They are missing that limb!</span>")
 		return FALSE
 
-	if(!ishuman_species(H) && !istajara(H))	//you can only shave humans and tajara for obvious reasons
+	if(!isteshari_species(H) && !istajara(H))	//you can only shave tesharis and tajara for obvious reasons
 		return FALSE
 
 

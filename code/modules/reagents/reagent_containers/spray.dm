@@ -96,8 +96,8 @@
 		D.set_color()
 		D.set_up(my_target, spray_size, 10)
 
-	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
+		var/mob/living/carbon/teshari/H = user
 		if(istype(H.back,/obj/item/rig))
 			var/obj/item/rig/R = H.back
 			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)

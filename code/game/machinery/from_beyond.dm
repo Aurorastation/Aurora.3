@@ -33,7 +33,7 @@
 			"There is no escape..."
 			)
 
-/obj/machinery/from_beyond/attack_hand(var/mob/living/carbon/human/user as mob)
+/obj/machinery/from_beyond/attack_hand(var/mob/living/carbon/teshari/user as mob)
 
 	if(!active)
 		src.visible_message("<span class='warning'>[user] switches \the [src] on.</span>")
@@ -65,7 +65,7 @@
 			for(var/obj/machinery/light/P in view(7, src))
 				P.flicker(1)
 
-		for(var/mob/living/carbon/human/L in view(7, src))
+		for(var/mob/living/carbon/teshari/L in view(7, src))
 			L.see_invisible = SEE_INVISIBLE_CULT
 			if(prob(15))
 				var/message = pick(whispers)

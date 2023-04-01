@@ -1,6 +1,6 @@
 /obj/item/organ/internal/stomach/unathi
 	name = "massive gizzard"
-	desc = "A much larger stomach than what humans have. Looks to belong to a carnivore."
+	desc = "A much larger stomach than what tesharis have. Looks to belong to a carnivore."
 	icon = 'icons/obj/organs/unathi_organs.dmi'
 
 /obj/item/organ/internal/brain/unathi
@@ -8,7 +8,7 @@
 
 /obj/item/organ/internal/lungs/unathi
 	name = "large lungs"
-	desc = "A pair of two large lungs belonging to Unathi, similar in appearance to yet much larger than Human lungs."
+	desc = "A pair of two large lungs belonging to Unathi, similar in appearance to yet much larger than teshari lungs."
 	icon = 'icons/obj/organs/unathi_organs.dmi'
 
 /obj/item/organ/internal/heart/unathi

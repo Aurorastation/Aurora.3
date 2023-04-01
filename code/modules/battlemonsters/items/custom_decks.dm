@@ -1,10 +1,10 @@
 /obj/item/battle_monsters/wrapped/species
-	name = "battle monsters human boosterpack"
-	desc = "A battle monsters 15 card boosterpack, containing exclusively human monsters."
+	name = "battle monsters teshari boosterpack"
+	desc = "A battle monsters 15 card boosterpack, containing exclusively teshari monsters."
 	contained_cards = 15
 	var/list/species = list(
-		"human_male" = 1,
-		"human_female" = 1,
+		"teshari_male" = 1,
+		"teshari_female" = 1,
 		"mage" = 0.5,
 		"sage" = 0.5,
 		"wizard" = 0.25,

@@ -11,8 +11,8 @@
 	var/kois_type = 1
 	fallback_specific_heat = 0.75
 
-/singleton/reagent/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(!ishuman(M))
+/singleton/reagent/kois/affect_ingest(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(!isteshari(M))
 		return
 	var/is_vaurcalike = (alien == IS_VAURCA)
 	if(!is_vaurcalike)
@@ -26,7 +26,7 @@
 		infect(M, alien, removed)
 
 /singleton/reagent/kois/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(ishuman(M))
+	if(isteshari(M))
 		infect(M, alien, removed)
 
 /singleton/reagent/kois/affect_chem_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
@@ -38,7 +38,7 @@
 	if(is_vaurcalike)
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 
-/singleton/reagent/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
+/singleton/reagent/kois/proc/infect(var/mob/living/carbon/teshari/H, var/alien, var/removed)
 	var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
 	if((alien != IS_VAURCA) && !(istype(P) && P.stage >= 3))
 		H.adjustToxLoss(1 * removed)
@@ -160,8 +160,8 @@
 /singleton/reagent/nutriment/coating/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if (!holder.reagent_data[type]["cooked"])
 		//Raw coatings will sometimes cause vomiting
-		if (ishuman(M) && prob(1))
-			var/mob/living/carbon/human/H = M
+		if (isteshari(M) && prob(1))
+			var/mob/living/carbon/teshari/H = M
 			H.delayed_vomit()
 	. = ..()
 
@@ -318,7 +318,7 @@
 
 //Calculates a scaling factor for scalding damage, based on the temperature of the oil and creature's heat resistance
 /singleton/reagent/nutriment/triglyceride/oil/proc/heatdamage(var/mob/living/carbon/M, var/datum/reagents/holder)
-	var/threshold = 360//Human heatdamage threshold
+	var/threshold = 360//teshari heatdamage threshold
 	var/datum/species/S = M.get_species(1)
 	if (S && istype(S))
 		threshold = S.heat_level_1
@@ -781,8 +781,8 @@
 	to_chat(M, discomfort_message)
 
 /singleton/reagent/capsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(!H.can_feel_pain())
 			return
 
@@ -824,10 +824,10 @@
 	var/obj/item/face_protection = null
 
 	var/list/protection
-	if(istype(M, /mob/living/carbon/human))
+	if(istype(M, /mob/living/carbon/teshari))
 		if(M.isSynthetic())
 			return
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/teshari/H = M
 		protection = list(H.head, H.glasses, H.wear_mask)
 		if(!H.can_feel_pain())
 			no_pain = 1
@@ -873,8 +873,8 @@
 		M.apply_effect(30, DAMAGE_PAIN)
 
 /singleton/reagent/capsaicin/condensed/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(!H.can_feel_pain())
 			return
 	M.apply_effect(10, DAMAGE_PAIN)
@@ -1300,8 +1300,8 @@
 
 /singleton/reagent/drink/milk/adhomai/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(alien != IS_TAJARA && prob(5))
 			H.delayed_vomit()
 
@@ -1340,7 +1340,7 @@
 /singleton/reagent/drink/milk/schlorrgo/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	if(alien == IS_TAJARA && prob(5))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/teshari/H = M
 		if(H.can_feel_pain())
 			H.custom_pain("You feel a stinging pain in your abdomen!")
 			H.Stun(3)
@@ -1649,7 +1649,7 @@
 
 	glass_icon_state = "thewake"
 	glass_name = "cup of The Wake"
-	glass_desc = "Most young skrell get a kick out of letting humans try this."
+	glass_desc = "Most young skrell get a kick out of letting tesharis try this."
 
 /singleton/reagent/drink/tea/tomatea
 	name = "Tomatea"
@@ -2301,7 +2301,7 @@
 	glass_desc = "Dentists recommend drinking zero glasses a day, and instead brushing normally."
 	glass_center_of_mass = list("x"=7, "y"=8)
 
-/singleton/reagent/drink/toothpaste/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drink/toothpaste/affect_ingest(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
 
 	if(!istype(M))
 		return
@@ -3524,7 +3524,7 @@
 		M.adjustToxLoss(2 * removed)
 
 	if(dose > 60 && prob(5))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/teshari/H = M
 		var/obj/item/organ/internal/heart/L = H.internal_organs_by_name[BP_HEART]
 		if (L && istype(L))
 			if(dose < 120)
@@ -4193,8 +4193,8 @@
 
 /singleton/reagent/alcohol/fireball/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien != IS_DIONA)
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+		if(isteshari(M))
+			var/mob/living/carbon/teshari/H = M
 			if(!H.can_feel_pain())
 				return
 		if(M.chem_doses[type] < agony_dose)
@@ -4444,8 +4444,8 @@
 
 /singleton/reagent/alcohol/mountain_marauder/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(alien != IS_TAJARA && prob(5))
 			H.delayed_vomit()
 
@@ -4681,14 +4681,14 @@
 //What an exciting time we live in, that lizards may drink fruity girl drinks.
 /singleton/reagent/alcohol/butanol/moghesmargarita
 	name = "Moghes Margarita"
-	description = "A classic human cocktail, now ruined with cactus juice instead of tequila."
+	description = "A classic teshari cocktail, now ruined with cactus juice instead of tequila."
 	color = "#8CFF8C"
 	strength = 30
 	taste_description = "lime juice"
 
 	glass_icon_state = "cactusmargarita"
 	glass_name = "glass of Moghes Margarita"
-	glass_desc = "A classic human cocktail, now ruined with cactus juice instead of tequila."
+	glass_desc = "A classic teshari cocktail, now ruined with cactus juice instead of tequila."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/alcohol/butanol/cactuscreme
@@ -4956,7 +4956,7 @@
 	taste_description = "viscous stale cola mixed with gasoline"
 	carbonated = TRUE
 
-/singleton/reagent/drink/zorasoda/drone/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drink/zorasoda/drone/affect_ingest(var/mob/living/carbon/teshari/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 

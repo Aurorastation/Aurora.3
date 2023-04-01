@@ -208,8 +208,8 @@
 				var/mob/living/L = teleatom
 				boominess += L.mob_size/4
 				if(!L.incorporeal_move)
-					if(istype(L, /mob/living/carbon/human))
-						var/mob/living/carbon/human/H = L
+					if(istype(L, /mob/living/carbon/teshari))
+						var/mob/living/carbon/teshari/H = L
 						if(newdest)
 							var/list/organs_to_gib = list()
 							for(var/obj/item/organ/external/ext in H.organs)

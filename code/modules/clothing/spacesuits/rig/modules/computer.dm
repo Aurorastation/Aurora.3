@@ -148,7 +148,7 @@
 	if(!..())
 		return FALSE
 
-	var/mob/living/carbon/human/H = holder.wearer
+	var/mob/living/carbon/teshari/H = holder.wearer
 
 	if(!target)
 		if(ai_card)
@@ -256,7 +256,7 @@
 		return FALSE
 
 	if(target)
-		var/mob/living/carbon/human/H = holder.wearer
+		var/mob/living/carbon/teshari/H = holder.wearer
 		if(!accepts_item(target,H))
 			return FALSE
 	return TRUE
@@ -405,7 +405,7 @@
 		return TRUE
 
 	// Are we close enough?
-	var/mob/living/carbon/human/H = holder.wearer
+	var/mob/living/carbon/teshari/H = holder.wearer
 	if(!target.Adjacent(H))
 		return FALSE
 
@@ -433,7 +433,7 @@
 	if(!interfaced_with)
 		return ..()
 
-	var/mob/living/carbon/human/H
+	var/mob/living/carbon/teshari/H
 	if(holder && holder.wearer)
 		H = holder.wearer
 

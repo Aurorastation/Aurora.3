@@ -117,7 +117,7 @@
 /mob/living/silicon/pai/movement_delay()
 	return 0.8
 
-/mob/living/silicon/pai/attack_hand(mob/living/carbon/human/M)
+/mob/living/silicon/pai/attack_hand(mob/living/carbon/teshari/M)
 	..()
 
 	switch(M.a_intent)
@@ -331,8 +331,8 @@
 		return FALSE
 	else if(istype(card.loc,/mob))
 		var/mob/holder = card.loc
-		if(ishuman(holder))
-			var/mob/living/carbon/human/H = holder
+		if(isteshari(holder))
+			var/mob/living/carbon/teshari/H = holder
 			for(var/obj/item/organ/external/affecting in H.organs)
 				if(card in affecting.implants)
 					affecting.take_damage(rand(30,50))
@@ -418,7 +418,7 @@
 	set name = "Rest"
 	set category = "IC"
 
-	// Pass lying down or getting up to our pet human, if we're in a rig.
+	// Pass lying down or getting up to our pet teshari, if we're in a rig.
 	if(istype(src.loc,/obj/item/device/paicard))
 		resting = 0
 		var/obj/item/rig/rig = src.get_rig()

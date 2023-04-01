@@ -153,9 +153,9 @@
 		if(2)
 			if(istype(user, /mob/living/silicon/ai) || istype(user, /mob/living/silicon/robot))
 				dat += "Brute-forcing for server key.<br> It will take 20 seconds for every character that the password has."
-				dat += "In the meantime, this console can reveal your true intentions if you let someone access it. Make sure no humans enter the room during that time."
+				dat += "In the meantime, this console can reveal your true intentions if you let someone access it. Make sure no tesharis enter the room during that time."
 			else
-				//It's the same message as the one above but in binary. Because robots understand binary and humans don't... well I thought it was clever.
+				//It's the same message as the one above but in binary. Because robots understand binary and tesharis don't... well I thought it was clever.
 				dat += {"01000010011100100111010101110100011001010010110<br>
 				10110011001101111011100100110001101101001011011100110011<br>
 				10010000001100110011011110111001000100000011100110110010<br>

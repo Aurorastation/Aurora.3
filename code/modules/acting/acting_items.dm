@@ -24,7 +24,7 @@
 	anchored = 1
 	density = 1
 
-/obj/machinery/acting/changer/attack_hand(var/mob/living/carbon/human/H)
+/obj/machinery/acting/changer/attack_hand(var/mob/living/carbon/teshari/H)
 	if(!istype(H))
 		return
 

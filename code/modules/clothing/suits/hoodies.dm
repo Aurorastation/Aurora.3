@@ -86,7 +86,7 @@
 /obj/item/clothing/head/winterhood/proc/change_hood(var/parent)
 	if(!hooded)
 		if(CheckSlot(parent))
-			var/mob/living/carbon/human/H = get_human(parent)
+			var/mob/living/carbon/teshari/H = get_teshari(parent)
 			hooded = TRUE
 			update_icon(H)
 			H.equip_to_slot_if_possible(src,slot_head,0,0,1)
@@ -96,24 +96,24 @@
 		usr.visible_message(SPAN_NOTICE("[usr] pulls down the hood on \the [src]."))
 
 /obj/item/clothing/head/winterhood/proc/RemoveHood(var/parent)
-	if(ishuman(loc))
+	if(isteshari(loc))
 		var/mob/living/carbon/H = loc
 		H.unEquip(src, 1)
 		forceMove(parent)
 		update_icon(H)
 		hooded = FALSE
 
-/obj/item/clothing/head/winterhood/proc/get_human(var/obj/parent)
-	var/mob/living/carbon/human/H
+/obj/item/clothing/head/winterhood/proc/get_teshari(var/obj/parent)
+	var/mob/living/carbon/teshari/H
 	if(isclothing(parent.loc))
-		if(ishuman(parent.loc.loc))
+		if(isteshari(parent.loc.loc))
 			H = parent.loc.loc
-	else if(ishuman(parent.loc))
+	else if(isteshari(parent.loc))
 		H = parent.loc
 	return H
 
 /obj/item/clothing/head/winterhood/proc/CheckSlot(var/parent)
-	var/mob/living/carbon/human/H = get_human(parent)
+	var/mob/living/carbon/teshari/H = get_teshari(parent)
 	var/obj/base_item = loc
 	if(isclothing(loc.loc))
 		base_item = loc.loc

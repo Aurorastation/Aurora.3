@@ -182,8 +182,8 @@ datum/hud/New(mob/owner)
 
 /datum/hud/proc/hidden_inventory_update()
 	if(!mymob) return
-	if(ishuman(mymob))
-		var/mob/living/carbon/human/H = mymob
+	if(isteshari(mymob))
+		var/mob/living/carbon/teshari/H = mymob
 		for(var/gear_slot in H.species.hud.gear)
 			var/list/hud_data = H.species.hud.gear[gear_slot]
 			if(inventory_shown && hud_shown)
@@ -255,8 +255,8 @@ datum/hud/New(mob/owner)
 	if(!mymob)
 		return
 
-	if(ishuman(mymob))
-		var/mob/living/carbon/human/H = mymob
+	if(isteshari(mymob))
+		var/mob/living/carbon/teshari/H = mymob
 		for(var/gear_slot in H.species.hud.gear)
 			var/list/hud_data = H.species.hud.gear[gear_slot]
 			if(hud_shown)
@@ -322,8 +322,8 @@ datum/hud/New(mob/owner)
 		to_chat(usr, "<span class='warning'>This mob type does not use a HUD.</span>")
 		return
 
-	if(!ishuman(src))
-		to_chat(usr, "<span class='warning'>Inventory hiding is currently only supported for human mobs, sorry.</span>")
+	if(!isteshari(src))
+		to_chat(usr, "<span class='warning'>Inventory hiding is currently only supported for teshari mobs, sorry.</span>")
 		return
 
 	if(!client) return
@@ -379,7 +379,7 @@ datum/hud/New(mob/owner)
 /mob/proc/toggle_zoom_hud()
 	if(!hud_used)
 		return
-	if(!ishuman(src))
+	if(!isteshari(src))
 		return
 	if(!client)
 		return

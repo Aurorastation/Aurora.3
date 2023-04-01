@@ -1,16 +1,16 @@
 /datum/citizenship/zora
 	name = CITIZENSHIP_ZORA
-	description = "Zo'ra, the largest and most powerful Hive, and also the first one discovered by Humanity following their Hive-ship 'Titan Prime.' Information gained through contact \
+	description = "Zo'ra, the largest and most powerful Hive, and also the first one discovered by teshariity following their Hive-ship 'Titan Prime.' Information gained through contact \
 	with Vaurca present in Tau Ceti has lead to unconfirmed projections putting their population in Vaurca space at 77 billion (17.1 million in known space). Zo'ra believe themselves to \
-	be the Alpha of the Vaurca and the face of their species. They make up the majority of the Vaurca present in Tau Ceti and human space.Zo'ra have cold relations with other Hives. In \
+	be the Alpha of the Vaurca and the face of their species. They make up the majority of the Vaurca present in Tau Ceti and teshari space.Zo'ra have cold relations with other Hives. In \
 	Tau Ceti, this has lead to confrontations between them and other Hives arriving in the system. The Zo'ra are the most politically developed Hive, recently helping in the funding of \
 	the Tau Ceti Foreign Legion, and making active progress to spread their influence."
 	consular_outfit = /datum/outfit/job/representative/consular/zora
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
-			SPECIES_HUMAN,
-			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_teshari,
+			SPECIES_teshari_OFFWORLD,
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -33,7 +33,7 @@
 		)
 	)
 
-/datum/citizenship/zora/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/zora/get_objectives(mission_level, var/mob/living/carbon/teshari/H)
 	var/rep_objectives
 
 	switch(mission_level)
@@ -62,7 +62,7 @@
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder
 
-/datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
 
@@ -75,7 +75,7 @@
 
 /datum/citizenship/klax
 	name = CITIZENSHIP_KLAX
-	description = "The second Hive discovered by humanity,  Hiveship, Klo'zxera, appeared in the Skrellian system of Glorashi. \
+	description = "The second Hive discovered by teshariity,  Hiveship, Klo'zxera, appeared in the Skrellian system of Glorashi. \
 	K'lax is known as a client state of the Zo'ra, but since the Exodus from Sedantis they have struggled for political independence. \
 	Now parting their own ways, both Hives have developed differently.  the K'lax became the newest vassal of the Izweski Nation, and have largely settled in Tret. \
 	They maintain subtly warm, if terse relations with the Hegemony as a whole, and have committed to its terraforming agenda, being instrumental in the implementation of such a monumental undertaking. \
@@ -84,8 +84,8 @@
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
-			SPECIES_HUMAN,
-			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_teshari,
+			SPECIES_teshari_OFFWORLD,
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -107,7 +107,7 @@
 		)
 	)
 
-/datum/citizenship/klax/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/klax/get_objectives(mission_level, var/mob/living/carbon/teshari/H)
 	var/rep_objectives
 
 	switch(mission_level)
@@ -134,7 +134,7 @@
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/klax
 
-/datum/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
 
@@ -154,8 +154,8 @@
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
-			SPECIES_HUMAN,
-			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_teshari,
+			SPECIES_teshari_OFFWORLD,
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -177,7 +177,7 @@
 		)
 	)
 
-/datum/citizenship/cthur/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/cthur/get_objectives(mission_level, var/mob/living/carbon/teshari/H)
 	var/rep_objectives
 
 	switch(mission_level)
@@ -205,7 +205,7 @@
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/cthur
 
-/datum/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)

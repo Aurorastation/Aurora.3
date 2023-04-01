@@ -407,20 +407,20 @@ var/list/gear_datums = list()
 	src.location = location
 	src.faction_requirement = faction
 
-/datum/gear/proc/cant_spawn_item_reason(var/location, var/metadata, var/mob/living/carbon/human/human, var/datum/job/job, var/datum/preferences/prefs)
+/datum/gear/proc/cant_spawn_item_reason(var/location, var/metadata, var/mob/living/carbon/teshari/teshari, var/datum/job/job, var/datum/preferences/prefs)
 	var/datum/gear_data/gd = new(path, location, faction)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		if(metadata["[gt]"])
-			gt.tweak_gear_data(metadata["[gt]"], gd, human)
+			gt.tweak_gear_data(metadata["[gt]"], gd, teshari)
 		else
-			gt.tweak_gear_data(gt.get_default(), gd, human)
+			gt.tweak_gear_data(gt.get_default(), gd, teshari)
 
 	var/obj/spawning_item = gd.path
 	if(length(allowed_roles) && !(job.title in allowed_roles))
 		return "You cannot spawn with the [initial(spawning_item.name)] with your current job!"
-	if(!check_species_whitelist(human))
+	if(!check_species_whitelist(teshari))
 		return "You cannot spawn with the [initial(spawning_item.name)] with your current species!"
-	if(gd.faction_requirement && (human.employer_faction != "Stellar Corporate Conglomerate" && gd.faction_requirement != human.employer_faction))
+	if(gd.faction_requirement && (teshari.employer_faction != "Stellar Corporate Conglomerate" && gd.faction_requirement != teshari.employer_faction))
 		return "You cannot spawn with the [initial(spawning_item.name)] with your current faction!"
 	var/our_culture = text2path(prefs.culture)
 	if(culture_restriction && !(our_culture in culture_restriction))
@@ -430,7 +430,7 @@ var/list/gear_datums = list()
 		return "You cannot spawn with the [initial(spawning_item.name)] with your current origin!"
 	return null
 
-/datum/gear/proc/spawn_item(var/location, var/metadata, var/mob/living/carbon/human/H)
+/datum/gear/proc/spawn_item(var/location, var/metadata, var/mob/living/carbon/teshari/H)
 	var/datum/gear_data/gd = new(path, location, faction)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		if(metadata["[gt]"])
@@ -459,7 +459,7 @@ var/list/gear_datums = list()
 		gt.tweak_item(item, gt.get_random())
 	return item
 
-/datum/gear/proc/check_species_whitelist(mob/living/carbon/human/H)
+/datum/gear/proc/check_species_whitelist(mob/living/carbon/teshari/H)
 	if(whitelisted && (!(H.species.name in whitelisted)))
 		return FALSE
 	return TRUE

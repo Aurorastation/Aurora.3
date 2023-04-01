@@ -10,7 +10,7 @@
 	desc = "A deep purple carapace covers this vicious Greimorian warrior."
 	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
 	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
-	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
+	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of teshari vessels to spread wildly."
 	icon = 'icons/mob/npc/greimorian.dmi'
 	icon_state = "greimorian"
 	icon_living = "greimorian"
@@ -120,15 +120,15 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
 	. = ..()
-	if(ishuman(hit_mob) && istype(limb) && !BP_IS_ROBOTIC(limb) && prob(poison_per_bite))
+	if(isteshari(hit_mob) && istype(limb) && !BP_IS_ROBOTIC(limb) && prob(poison_per_bite))
 		var/eggs = new /obj/effect/spider/eggcluster(limb, src)
 		limb.implants += eggs
 		to_chat(hit_mob, SPAN_WARNING("\The [src] injects something into your [limb.name]!"))
 
 /mob/living/simple_animal/hostile/giant_spider/emp/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
 	. = ..()
-	if(ishuman(hit_mob))
-		var/mob/living/carbon/human/H = hit_mob
+	if(isteshari(hit_mob))
+		var/mob/living/carbon/teshari/H = hit_mob
 		if(prob(20))
 			var/obj/item/organ/internal/cell/cell_holder = locate() in H.internal_organs
 			if(cell_holder)

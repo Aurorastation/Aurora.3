@@ -2,14 +2,14 @@
 Exercise Verbs
 */
 
-/mob/living/carbon/human/verb/pushup()
+/mob/living/carbon/teshari/verb/pushup()
 	set name = "Do Pushup"
 	set desc = "Makes you do a pushup."
 	set category = "IC"
 
 	do_pushups()
 
-/mob/living/carbon/human/proc/do_pushups()
+/mob/living/carbon/teshari/proc/do_pushups()
 	if(!can_do_pushup())
 		return
 
@@ -24,10 +24,10 @@ Exercise Verbs
 			visible_message(SPAN_NOTICE("[src] shifts [get_pronoun("his")] weight onto [get_pronoun("his")] knees."), SPAN_NOTICE("You move your weight onto your knees."), SPAN_NOTICE("You hear rustling."))
 			execute_pushups(on_knees = TRUE)
 
-/mob/living/carbon/human/proc/stop_pushups()
+/mob/living/carbon/teshari/proc/stop_pushups()
 	set_face_dir(null)
 
-/mob/living/carbon/human/proc/execute_pushups(var/on_knees = FALSE)
+/mob/living/carbon/teshari/proc/execute_pushups(var/on_knees = FALSE)
 	if(!can_do_pushup())
 		return
 	var/target_y = -5
@@ -58,7 +58,7 @@ Exercise Verbs
 	to_chat(src, SPAN_WARNING("You slump down to the floor, too tired to keep going."))
 	stop_pushups()
 
-/mob/living/carbon/human/proc/can_do_pushup()
+/mob/living/carbon/teshari/proc/can_do_pushup()
 	if(incapacitated(INCAPACITATION_RESTRAINED|INCAPACITATION_STUNNED|INCAPACITATION_KNOCKOUT))
 		return FALSE
 
@@ -86,7 +86,7 @@ Exercise Verbs
 
 	return TRUE
 
-/mob/living/carbon/human/proc/calculate_stamina_loss_per_pushup(var/on_knees = FALSE)
+/mob/living/carbon/teshari/proc/calculate_stamina_loss_per_pushup(var/on_knees = FALSE)
 	var/stamina_loss = 6 + (4 * sprint_cost_factor)
 	if(wear_suit)
 		stamina_loss += 2

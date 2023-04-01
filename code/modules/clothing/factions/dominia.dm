@@ -56,16 +56,16 @@
 	item_state = "dominian_capew"
 	cape_backing_state = "capew_backing"
 
-/obj/item/clothing/accessory/poncho/dominia_cape/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
+/obj/item/clothing/accessory/poncho/dominia_cape/get_mob_overlay(var/mob/living/carbon/teshari/teshari, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
-		var/image/cape_backing = image(mob_icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
+		var/image/cape_backing = image(mob_icon, null, cape_backing_state, teshari ? teshari.layer - 0.01 : MOB_LAYER - 0.01)
 		I.add_overlay(cape_backing)
 	return I
 
-/obj/item/clothing/accessory/poncho/dominia_cape/get_accessory_mob_overlay(mob/living/carbon/human/human, force)
+/obj/item/clothing/accessory/poncho/dominia_cape/get_accessory_mob_overlay(mob/living/carbon/teshari/teshari, force)
 	var/image/base = ..()
-	var/image/cape_backing = image(icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
+	var/image/cape_backing = image(icon, null, cape_backing_state, teshari ? teshari.layer - 0.01 : MOB_LAYER - 0.01)
 	base.add_overlay(cape_backing)
 	return base
 
@@ -308,7 +308,7 @@
 	// Mask got nuked. Probably because of RIGs or the like.
 	create_mask()
 
-	if(ishuman(mask.loc))
+	if(isteshari(mask.loc))
 		var/mob/living/carbon/H = mask.loc
 		H.unEquip(mask, 1)
 		item_state = initial(item_state)
@@ -328,8 +328,8 @@
 	create_mask()
 
 	if(!hood_raised)
-		if(ishuman(loc))
-			var/mob/living/carbon/human/H = src.loc
+		if(isteshari(loc))
+			var/mob/living/carbon/teshari/H = src.loc
 			if(H.w_uniform != src)
 				to_chat(H, SPAN_WARNING("You must be wearing \the [src] to put up the hood!"))
 				return

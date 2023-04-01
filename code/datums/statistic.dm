@@ -56,13 +56,13 @@
 	return value > 1
 
 /datum/statistic/numeric/openturf_falls
-	name = "Human Open Space Falls"
-	key = "openturf_human_falls"
+	name = "teshari Open Space Falls"
+	key = "openturf_teshari_falls"
 	write_to_db = TRUE
 
 /datum/statistic/numeric/openturf_deaths
-	name = "Human Open Space Fatalities"
-	key = "openturf_human_deaths"
+	name = "teshari Open Space Fatalities"
+	key = "openturf_teshari_deaths"
 	write_to_db = TRUE
 
 /datum/statistic/numeric/gibbings
@@ -127,7 +127,7 @@
 	var/ckey = values[1]
 	. = "[ckey], with [values[ckey]] deaths."
 
-/hook/death/proc/increment_statistics(mob/living/carbon/human/H, gibbed)
+/hook/death/proc/increment_statistics(mob/living/carbon/teshari/H, gibbed)
 	. = TRUE
 	if (!H.ckey)
 		return
@@ -136,7 +136,7 @@
 	if (gibbed)
 		SSfeedback.IncrementSimpleStat("gibs")
 
-/hook/clone/proc/increment_statistics(mob/living/carbon/human/H)
+/hook/clone/proc/increment_statistics(mob/living/carbon/teshari/H)
 	. = TRUE
 	if (!H.ckey)
 		return

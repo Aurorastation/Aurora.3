@@ -104,7 +104,7 @@
 
 
 /obj/item/storage/wallet/AltClick(mob/user)
-	if (user != loc || user.incapacitated() || !ishuman(user))
+	if (user != loc || user.incapacitated() || !isteshari(user))
 		return ..()
 
 	var/obj/item/card/id/id = GetID()
@@ -234,7 +234,7 @@
 		var/image/film_image = overlay_image(icon, "[initial(icon_state)]-film", flags = RESET_COLOR)
 		add_overlay(film_image)
 
-/obj/item/storage/wallet/lanyard/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+/obj/item/storage/wallet/lanyard/get_mob_overlay(mob/living/carbon/teshari/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(front_id)
 		I.add_overlay(image('icons/mob/lanyard_overlays.dmi', icon_state = "lanyard-[front_id_overlay_state]"))

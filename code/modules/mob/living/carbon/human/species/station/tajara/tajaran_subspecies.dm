@@ -120,13 +120,13 @@
 
 	default_h_style = "Tesla Rejuvenation Suit Ears"
 
-	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
+	eyes_icons = 'icons/mob/teshari_face/eyes48x48.dmi'
 	eyes = "eyes_tesla_body"
 
-	icon_template = 'icons/mob/human_races/tajara/r_tesla_body.dmi'
-	icobase = 'icons/mob/human_races/tajara/r_tesla_body.dmi'
-	deform = 'icons/mob/human_races/tajara/r_tesla_body.dmi'
-	preview_icon = 'icons/mob/human_races/tajara/tesla_body_preview.dmi'
+	icon_template = 'icons/mob/teshari_races/tajara/r_tesla_body.dmi'
+	icobase = 'icons/mob/teshari_races/tajara/r_tesla_body.dmi'
+	deform = 'icons/mob/teshari_races/tajara/r_tesla_body.dmi'
+	preview_icon = 'icons/mob/teshari_races/tajara/tesla_body_preview.dmi'
 	canvas_icon = 'icons/mob/base_48.dmi'
 	bandages_icon = null
 	tail = null
@@ -142,9 +142,9 @@
 		/singleton/maneuver/leap/tesla_body
 	)
 
-	damage_overlays = 'icons/mob/human_races/masks/dam_mask_tesla_body.dmi'
-	damage_mask = 'icons/mob/human_races/masks/dam_mask_tesla_body.dmi'
-	blood_mask = 'icons/mob/human_races/masks/blood_tesla_body.dmi'
+	damage_overlays = 'icons/mob/teshari_races/masks/dam_mask_tesla_body.dmi'
+	damage_mask = 'icons/mob/teshari_races/masks/dam_mask_tesla_body.dmi'
+	blood_mask = 'icons/mob/teshari_races/masks/blood_tesla_body.dmi'
 
 	stamina = 30
 	stamina_recovery = 3

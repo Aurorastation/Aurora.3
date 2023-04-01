@@ -7,7 +7,7 @@
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
-/obj/item/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user, var/target_zone)
+/obj/item/tape_roll/attack(var/mob/living/carbon/teshari/H, var/mob/user, var/target_zone)
 	if(istype(H))
 		if(target_zone == BP_EYES)
 

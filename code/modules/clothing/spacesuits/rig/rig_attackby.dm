@@ -68,8 +68,8 @@
 		else if(istype(W,/obj/item/rig_module))
 
 			var/obj/item/rig_module/module = W
-			if(istype(src.loc,/mob/living/carbon/human))
-				var/mob/living/carbon/human/H = src.loc
+			if(istype(src.loc,/mob/living/carbon/teshari))
+				var/mob/living/carbon/teshari/H = src.loc
 				if(H.back == src)
 					to_chat(user, "<span class='danger'>You can't install a hardsuit module while the suit is being worn.</span>")
 					return 1
@@ -133,8 +133,8 @@
 			if(!to_remove)
 				return
 
-			if(istype(src.loc,/mob/living/carbon/human) && to_remove != "cell")
-				var/mob/living/carbon/human/H = src.loc
+			if(istype(src.loc,/mob/living/carbon/teshari) && to_remove != "cell")
+				var/mob/living/carbon/teshari/H = src.loc
 				if(H.back == src)
 					to_chat(user, "You can't remove an installed device while the hardsuit is being worn.")
 					return

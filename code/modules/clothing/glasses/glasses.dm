@@ -20,7 +20,7 @@ BLIND     // can't see anything
 	slot_flags = SLOT_EYES
 	body_parts_covered = EYES
 	var/vision_flags = 0
-	var/darkness_view = 0//Base human is 2
+	var/darkness_view = 0//Base teshari is 2
 	var/prescription = 0
 	var/see_invisible = -1
 	var/toggleable = 0
@@ -918,8 +918,8 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	item_flags = AIRTIGHT
 
 /obj/item/clothing/glasses/thermal/emp_act(severity)
-	if(istype(src.loc, /mob/living/carbon/human))
-		var/mob/living/carbon/human/M = src.loc
+	if(istype(src.loc, /mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/M = src.loc
 		to_chat(M, "<span class='danger'>\The [src] overloads and blinds you!</span>")
 		if(M.glasses == src)
 			M.eye_blind = 3
@@ -927,14 +927,14 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 			// Don't cure being nearsighted
 			if(!(M.disabilities & NEARSIGHTED))
 				M.disabilities |= NEARSIGHTED
-				addtimer(CALLBACK(M, TYPE_PROC_REF(/mob/living/carbon/human, thermal_reset_blindness)), 100)
+				addtimer(CALLBACK(M, TYPE_PROC_REF(/mob/living/carbon/teshari, thermal_reset_blindness)), 100)
 	..()
 
 /obj/item/clothing/glasses/thermal/Initialize()
 	. = ..()
 	overlay = global_hud.thermal
 
-/mob/living/carbon/human/proc/thermal_reset_blindness()
+/mob/living/carbon/teshari/proc/thermal_reset_blindness()
 	disabilities &= ~NEARSIGHTED
 
 /obj/item/clothing/glasses/thermal/syndi	//These are now a traitor item, concealed as mesons.	-Pete
@@ -1004,16 +1004,16 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	handle_mob_overlay()
 
 /obj/item/clothing/glasses/eyepatch/hud/proc/handle_mob_overlay()
-	if(mob_overlay && ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+	if(mob_overlay && isteshari(loc))
+		var/mob/living/carbon/teshari/H = loc
 		if(H.glasses == src)
 			H.cut_overlay(mob_overlay, TRUE)
 	mob_overlay = image('icons/obj/clothing/glasses.dmi', "[icon_state]_eye")
 	mob_overlay.appearance_flags = RESET_COLOR
 	mob_overlay.color = eye_color
 	mob_overlay.layer = LIGHTING_LAYER + 1
-	if(active && ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+	if(active && isteshari(loc))
+		var/mob/living/carbon/teshari/H = loc
 		if(H.glasses == src)
 			H.add_overlay(mob_overlay, TRUE)
 	update_icon()
@@ -1030,7 +1030,7 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	return ..()
 
 /obj/item/clothing/glasses/eyepatch/hud/Destroy()
-	if (ishuman(loc))
+	if (isteshari(loc))
 		loc.cut_overlay(mob_overlay, TRUE)
 	QDEL_NULL(mob_overlay)
 	return ..()
@@ -1048,7 +1048,7 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 		add_overlay(eye)
 
 /obj/item/clothing/glasses/eyepatch/hud/forceMove(atom/newloc)
-	if (!ishuman(loc))
+	if (!isteshari(loc))
 		return ..()
 
 	var/mob/M = loc

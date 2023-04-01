@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/faithless
 	name = "faithless"
 	desc = "A creature. Darkness incarnate?"
-	icon = 'icons/mob/npc/human.dmi'
+	icon = 'icons/mob/npc/teshari.dmi'
 	icon_state = "faithless"
 	icon_living = "faithless"
 	icon_dead = "faithless_dead"

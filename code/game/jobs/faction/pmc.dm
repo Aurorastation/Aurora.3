@@ -15,7 +15,7 @@
 	allowed_role_types = PMC_ROLES
 
 	allowed_species_types = list(
-		/datum/species/human,
+		/datum/species/teshari,
 		/datum/species/skrell,
 		/datum/species/tajaran,
 		/datum/species/unathi,
@@ -124,7 +124,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
 	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
 
-/datum/outfit/job/doctor/surgeon/pmc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/doctor/surgeon/pmc/post_equip(mob/living/carbon/teshari/H, visualsOnly = FALSE)
 	if(!isskrell(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/pmc(H), slot_head)
 

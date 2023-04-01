@@ -15,7 +15,7 @@
 		src.verbs -= PROC_REF(remove_label)
 		return FALSE
 
-	var/mob/living/carbon/human/H = usr
+	var/mob/living/carbon/teshari/H = usr
 
 	name = name_unlabel
 	name_unlabel = ""
@@ -59,7 +59,7 @@
 	if(length(A.name) + length(label) > 64)
 		to_chat(user, SPAN_NOTICE("Label too big."))
 		return
-	if(ishuman(A))
+	if(isteshari(A))
 		to_chat(user, SPAN_NOTICE("The label refuses to stick to [A.name]."))
 		return
 	if(issilicon(A))

@@ -137,8 +137,8 @@
 	)
 	vend_delay = 15
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-	product_slogans = "I hope nobody asks me for a bloody cup o' tea...;Alcohol is humanity's friend. Would you abandon a friend?;Quite delighted to serve you!;Is nobody thirsty on this station?"
-	product_ads = "Drink up!;Booze is good for you!;Alcohol is humanity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
+	product_slogans = "I hope nobody asks me for a bloody cup o' tea...;Alcohol is teshariity's friend. Would you abandon a friend?;Quite delighted to serve you!;Is nobody thirsty on this station?"
+	product_ads = "Drink up!;Booze is good for you!;Alcohol is teshariity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
 	req_access = list(access_bar)
 	random_itemcount = 0
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
@@ -1250,7 +1250,7 @@
 		/obj/item/battle_monsters/wrapped/basic = 20,
 		/obj/item/battle_monsters/wrapped = 20,
 		/obj/item/battle_monsters/wrapped/pro = 20,
-		/obj/item/battle_monsters/wrapped/species = 10, //Human monsters
+		/obj/item/battle_monsters/wrapped/species = 10, //teshari monsters
 		/obj/item/battle_monsters/wrapped/species/lizard = 10, //Reptile Monsters
 		/obj/item/battle_monsters/wrapped/species/cat = 10, //Feline Monsters
 		/obj/item/battle_monsters/wrapped/species/ant = 10, //Ant Monsters

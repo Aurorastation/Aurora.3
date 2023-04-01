@@ -113,20 +113,20 @@
 
 
 
-/atom/proc/BorgCtrlShiftClick(var/mob/living/silicon/robot/user) //forward to human click if not overriden
+/atom/proc/BorgCtrlShiftClick(var/mob/living/silicon/robot/user) //forward to teshari click if not overriden
 	CtrlShiftClick(user)
 
 /obj/machinery/door/airlock/BorgCtrlShiftClick()
 	AICtrlShiftClick()
 
-/atom/proc/BorgShiftClick(var/mob/living/silicon/robot/user) //forward to human click if not overriden
+/atom/proc/BorgShiftClick(var/mob/living/silicon/robot/user) //forward to teshari click if not overriden
 	ShiftClick(user)
 
 /obj/machinery/door/airlock/BorgShiftClick()  // Opens and closes doors! Forwards to AI code.
 	AIShiftClick()
 
 
-/atom/proc/BorgCtrlClick(var/mob/living/silicon/robot/user) //forward to human click if not overriden
+/atom/proc/BorgCtrlClick(var/mob/living/silicon/robot/user) //forward to teshari click if not overriden
 	CtrlClick(user)
 
 /obj/machinery/door/airlock/BorgCtrlClick(mob/user) // Bolts doors. Forwards to AI code.

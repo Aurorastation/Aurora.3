@@ -1,4 +1,4 @@
-/mob/living/carbon/human/get_acrobatics_multiplier(var/singleton/maneuver/attempting_maneuver)
+/mob/living/carbon/teshari/get_acrobatics_multiplier(var/singleton/maneuver/attempting_maneuver)
 	. = ..()
 
 	// Broken limb checks
@@ -7,15 +7,15 @@
 		if (limb.status & ORGAN_BROKEN)
 			. -= limb.status & ORGAN_SPLINTED ? 0.25 : 0.5
 
-/mob/living/carbon/human/get_jump_distance()
+/mob/living/carbon/teshari/get_jump_distance()
 	. = species.standing_jump_range
-	
+
 	var/obj/item/organ/internal/augment/suspension/suspension = internal_organs_by_name[BP_AUG_SUSPENSION]
 
 	if(suspension && . < 3)
-		. = max(. + suspension.jump_bonus, 3) 
+		. = max(. + suspension.jump_bonus, 3)
 
-/mob/living/carbon/human/can_do_maneuver(var/singleton/maneuver/maneuver, var/silent = FALSE)
+/mob/living/carbon/teshari/can_do_maneuver(var/singleton/maneuver/maneuver, var/silent = FALSE)
 	. = ..()
 	if(.)
 		if(nutrition <= 20)
@@ -27,7 +27,7 @@
 				to_chat(src, SPAN_WARNING("You are too thirsty to jump around."))
 			return FALSE
 
-/mob/living/carbon/human/post_maneuver()
+/mob/living/carbon/teshari/post_maneuver()
 	..()
 
 	var/broken_limb_fail_chance = 0

@@ -20,7 +20,7 @@
 
 //ghost roles
 
-/datum/ghostspawner/human/adhomai_bar_innkeeper
+/datum/ghostspawner/teshari/adhomai_bar_innkeeper
 	short_name = "adhomai_bar_innkeeper"
 	name = "Adhomian Innkeeper"
 	desc = "Staff the Adhomian bar."
@@ -54,7 +54,7 @@
 	id = null
 	backpack_contents = list(/obj/item/storage/wallet/random = 1)
 
-/datum/ghostspawner/human/adhomai_bar_server
+/datum/ghostspawner/teshari/adhomai_bar_server
 	short_name = "adhomai_bar_server"
 	name = "Adhomian Inn Staff"
 	desc = "Serve the Adhomian bar patrons."
@@ -86,7 +86,7 @@
 	id = null
 	backpack_contents = list(/obj/item/storage/wallet/random = 1)
 
-/datum/ghostspawner/human/adhomai_bar_patron
+/datum/ghostspawner/teshari/adhomai_bar_patron
 	short_name = "adhomai_bar_patron"
 	name = "Adhomian Patron"
 	desc = "Drink, eat, and gamble at the Adhomian inn."

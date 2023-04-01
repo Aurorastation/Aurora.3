@@ -75,7 +75,7 @@
 			else
 				user.visible_message("<span class='notice'>[user] displays their [src.name].</span>","<span class='notice'>You display your [src.name].</span>")
 
-/obj/item/clothing/accessory/badge/attack(mob/living/carbon/human/M, mob/living/user)
+/obj/item/clothing/accessory/badge/attack(mob/living/carbon/teshari/M, mob/living/user)
 	if(isliving(user))
 		user.visible_message("<span class='danger'>[user] invades [M]'s personal space, thrusting [src] into their face insistently.</span>","<span class='danger'>You invade [M]'s personal space, thrusting [src] into their face insistently.</span>")
 
@@ -273,7 +273,7 @@
 	name = "republic of biesel passcard"
 	desc = "A passcard issued to citizens of the Republic of Biesel, typically from planets in Biesel proper and smaller territories."
 	desc_extended = "A passcard is a modern evolution of the state-issued identification card, with all the functionality of a driver's license, birth certificate, passport, or other document, \
-	updated as necessary or able by a central government. The concept was pioneered in the early days of the Sol Alliance, and continues in most human stellar nations to this day, owing to the availability \
+	updated as necessary or able by a central government. The concept was pioneered in the early days of the Sol Alliance, and continues in most teshari stellar nations to this day, owing to the availability \
 	and price of consumer plastics and self-powered microholograms."
 	icon = 'icons/clothing/accessories/passcards.dmi'
 	icon_state = "passcard_ceti"
@@ -300,7 +300,7 @@
 	name = "\improper ASSN passcard"
 	desc = "A passcard issued to citizens of the Alliance of Sovereign Solarian Nations, typically from planets such as the Jewel Worlds or smaller zones of authority."
 	desc_extended = "A passcard is a modern evolution of the state-issued identification card, with all the functionality of a driver's license, birth certificate, passport, or other document, \
-	updated as necessary or able by a central government. The concept was pioneered in the early days of the Sol Alliance, and continues in most human stellar nations to this day, owing to the availability \
+	updated as necessary or able by a central government. The concept was pioneered in the early days of the Sol Alliance, and continues in most teshari stellar nations to this day, owing to the availability \
 	and price of consumer plastics and self-powered microholograms."
 	icon_state = "passcard_sol"
 	item_state = "passcard_sol"
@@ -463,7 +463,7 @@
 /obj/item/clothing/accessory/badge/passcard/konyang
 	name = "konyanger passcard"
 	desc = "A passcard issued to residents of the planet Konyang."
-	desc_extended = "The 'homeworld' of the human positronic intelligence, life on Konyang is a tightly-knit tapestry of organic-synthetic relations. The planet's unique conditions are reflected by a small piece of preserved moss stored in the card's plastic casing."
+	desc_extended = "The 'homeworld' of the teshari positronic intelligence, life on Konyang is a tightly-knit tapestry of organic-synthetic relations. The planet's unique conditions are reflected by a small piece of preserved moss stored in the card's plastic casing."
 	icon_state = "passcard_konyang"
 	item_state = "passcard_konyang"
 

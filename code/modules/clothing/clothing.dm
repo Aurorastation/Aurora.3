@@ -70,10 +70,10 @@
 	if (!..())
 		return 0
 
-	if(species_restricted && ishuman(M) && !(slot in list(slot_l_hand, slot_r_hand)))
+	if(species_restricted && isteshari(M) && !(slot in list(slot_l_hand, slot_r_hand)))
 		var/exclusive = null
 		var/wearable = null
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/teshari/H = M
 
 		if("exclude" in species_restricted)
 			exclusive = 1
@@ -127,13 +127,13 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)	//humanoid bodytypes
+		if(BODYTYPE_teshari, BODYTYPE_SKRELL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)	//tesharioid bodytypes
 			species_restricted = list(
-				BODYTYPE_HUMAN,
+				BODYTYPE_teshari,
 				BODYTYPE_SKRELL,
 				BODYTYPE_IPC_ZENGHU,
 				BODYTYPE_IPC_BISHOP
-			) //skrell/humans like to share with IPCs
+			) //skrell/tesharis like to share with IPCs
 		else
 			species_restricted = list(target_species)
 
@@ -154,8 +154,8 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if(BODYTYPE_SKRELL, BODYTYPE_HUMAN)
-			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC) // skrell helmets like to share
+		if(BODYTYPE_SKRELL, BODYTYPE_teshari)
+			species_restricted = list(BODYTYPE_teshari, BODYTYPE_SKRELL, BODYTYPE_IPC) // skrell helmets like to share
 
 		else
 			species_restricted = list(target_species)
@@ -324,11 +324,11 @@
 /obj/item/clothing/ears/attack_hand(mob/user as mob)
 	if (!user) return
 
-	if (src.loc != user || !istype(user,/mob/living/carbon/human))
+	if (src.loc != user || !istype(user,/mob/living/carbon/teshari))
 		..()
 		return
 
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/teshari/H = user
 	if(H.l_ear != src && H.r_ear != src)
 		..()
 		return
@@ -370,13 +370,13 @@
 	overlays = O.overlays
 	set_dir(O.dir)
 
-/obj/item/clothing/ears/offear/attack_hand(mob/living/carbon/human/H)
+/obj/item/clothing/ears/offear/attack_hand(mob/living/carbon/teshari/H)
 	var/obj/item/clothing/ears/OE = (H.l_ear == src ? H.r_ear : H.l_ear)
 	OE.attack_hand(H)
 	qdel(src)
 
 /obj/item/clothing/ears/offear/attackby(obj/item/I, mob/user)
-	var/mob/living/carbon/human/H = loc // we will never not be on a humanoid
+	var/mob/living/carbon/teshari/H = loc // we will never not be on a tesharioid
 	var/obj/item/clothing/ears/OE = (H.l_ear == src ? H.r_ear : H.l_ear)
 	OE.attackby(I, user)
 
@@ -397,7 +397,7 @@
 	var/clipped = 0
 	var/fingerprint_chance = 0
 	var/obj/item/clothing/ring/ring = null		//Covered ring
-	var/mob/living/carbon/human/wearer = null	//Used for covered rings when dropping
+	var/mob/living/carbon/teshari/wearer = null	//Used for covered rings when dropping
 	var/punch_force = 0			//How much damage do these gloves add to a punch?
 	var/punch_damtype = DAMAGE_BRUTE	//What type of damage does this make fists be?
 	body_parts_covered = HANDS
@@ -412,7 +412,7 @@
 		var/mob/M = src.loc
 		M.update_inv_gloves()
 
-/obj/item/clothing/gloves/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+/obj/item/clothing/gloves/get_mob_overlay(mob/living/carbon/teshari/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(H.species.blood_mask, "bloodyhands")
@@ -456,7 +456,7 @@
 		return
 
 /obj/item/clothing/gloves/mob_can_equip(mob/user, slot, disable_warning = FALSE)
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/teshari/H = user
 	if(slot && slot == slot_gloves)
 		if(istype(H.gloves, /obj/item/clothing/ring))
 			ring = H.gloves
@@ -481,7 +481,7 @@
 	if(!wearer)
 		return
 
-	var/mob/living/carbon/human/H = wearer
+	var/mob/living/carbon/teshari/H = wearer
 	if(ring && istype(H))
 		if(!H.equip_to_slot_if_possible(ring, slot_gloves))
 			ring.forceMove(get_turf(src))
@@ -539,8 +539,8 @@
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
 		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
-		if(ishuman(usr))
-			var/mob/living/carbon/human/H = usr
+		if(isteshari(usr))
+			var/mob/living/carbon/teshari/H = usr
 			H.update_hair()
 
 /obj/item/clothing/head/get_image_key_mod()
@@ -627,8 +627,8 @@
 
 /obj/item/clothing/head/update_icon(var/mob/user)
 	cut_overlays()
-	var/mob/living/carbon/human/H
-	if(istype(user,/mob/living/carbon/human))
+	var/mob/living/carbon/teshari/H
+	if(istype(user,/mob/living/carbon/teshari))
 		H = user
 
 	if(on)
@@ -648,7 +648,7 @@
 	if(H)
 		H.update_inv_head()
 
-/obj/item/clothing/head/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+/obj/item/clothing/head/get_mob_overlay(mob/living/carbon/teshari/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
 		for(var/obj/item/clothing/accessory/A in accessories)
@@ -665,14 +665,14 @@
 		I.add_overlay(bloodsies)
 	return I
 
-/obj/item/clothing/head/build_shifted_additional_parts(mob/living/carbon/human/H, mob_icon, slot, var/icon/canvas, var/list/facing_list, use_dir)
+/obj/item/clothing/head/build_shifted_additional_parts(mob/living/carbon/teshari/H, mob_icon, slot, var/icon/canvas, var/list/facing_list, use_dir)
 	canvas = ..()
 	if(on && slot == slot_head_str)
 		var/icon/lights_icon = new('icons/mob/light_overlays.dmi', icon_state = light_overlay, dir = use_dir)
 		canvas.Blend(lights_icon, ICON_OVERLAY, facing_list["x"]+1, facing_list["y"]+1)
 	return canvas
 
-/obj/item/clothing/head/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+/obj/item/clothing/head/build_additional_parts(mob/living/carbon/teshari/H, mob_icon, slot)
 	var/image/I = ..()
 	if(!I)
 		I = image(null)
@@ -732,7 +732,7 @@
 		var/mob/M = src.loc
 		M.update_inv_wear_mask()
 
-/obj/item/clothing/mask/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+/obj/item/clothing/mask/get_mob_overlay(mob/living/carbon/teshari/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(blood_DNA && has_blood_overlay && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(H.species.blood_mask, "maskblood")
@@ -896,7 +896,7 @@
 		M.update_inv_shoes()
 	return ..()
 
-/obj/item/clothing/shoes/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+/obj/item/clothing/shoes/get_mob_overlay(mob/living/carbon/teshari/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
@@ -942,8 +942,8 @@
 /obj/item/clothing/shoes/proc/do_special_footsteps(var/running)
 	if(!footstep_sound_override)
 		return FALSE
-	if(ishuman(loc))
-		var/mob/living/carbon/human/wearer = loc
+	if(isteshari(loc))
+		var/mob/living/carbon/teshari/wearer = loc
 		if(running)
 			playsound(wearer, footstep_sound_override, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
@@ -990,7 +990,7 @@
 	our_image.color = color
 	return our_image
 
-/obj/item/clothing/suit/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+/obj/item/clothing/suit/get_mob_overlay(mob/living/carbon/teshari/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
 		for(var/obj/item/clothing/accessory/A in accessories)
@@ -1055,7 +1055,7 @@
 /obj/item/clothing/under/attack_hand(var/mob/user)
 	if(LAZYLEN(accessories))
 		..()
-	if ((ishuman(usr) || issmall(usr)) && src.loc == user)
+	if ((isteshari(usr) || issmall(usr)) && src.loc == user)
 		return
 	..()
 
@@ -1086,7 +1086,7 @@
 			rolled_sleeves = 0
 			verbs += /obj/item/clothing/under/proc/rollsleeves
 
-/obj/item/clothing/under/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+/obj/item/clothing/under/get_mob_overlay(mob/living/carbon/teshari/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(slot == slot_l_hand_str | slot == slot_r_hand_str)
 		for(var/obj/item/clothing/accessory/A in accessories)
@@ -1103,8 +1103,8 @@
 	return I
 
 /obj/item/clothing/under/proc/update_rolldown_status()
-	var/mob/living/carbon/human/H
-	if(istype(src.loc, /mob/living/carbon/human))
+	var/mob/living/carbon/teshari/H
+	if(istype(src.loc, /mob/living/carbon/teshari))
 		H = src.loc
 
 	var/icon/under_icon
@@ -1128,8 +1128,8 @@
 	if(H) update_clothing_icon()
 
 /obj/item/clothing/under/proc/update_rollsleeves_status()
-	var/mob/living/carbon/human/H
-	if(istype(src.loc, /mob/living/carbon/human))
+	var/mob/living/carbon/teshari/H
+	if(istype(src.loc, /mob/living/carbon/teshari))
 		H = src.loc
 
 	var/icon/under_icon

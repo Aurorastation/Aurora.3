@@ -24,8 +24,8 @@
 	visible_message("<span class='notice'>\The [src] lands on \the [pick_constellation()].</span>")
 
 /obj/item/stellascope/attack_self(mob/user as mob)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		if(isskrell(H))
 			H.visible_message("<span class='notice'>\The [H] holds the brassy instrument up to [H.get_pronoun("his")] eye and peers at something unseen.</span>",
 							"<span class='notice'>You see the starry edge of srom floating on the void of space.</span>")
@@ -231,12 +231,12 @@
 	contained_sprite = TRUE
 	var/fried = FALSE // Doesn't work anymore
 
-/obj/item/nralakktag/equipped(mob/living/carbon/human/M)
+/obj/item/nralakktag/equipped(mob/living/carbon/teshari/M)
 	..()
 	if(fried)
 		return
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(isteshari(M))
+		var/mob/living/carbon/teshari/H = M
 		if(H.l_ear == src || H.r_ear == src)
 			clamp_on(H)
 

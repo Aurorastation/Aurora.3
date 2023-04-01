@@ -174,7 +174,7 @@
 	else
 		heard_dying_message = 0
 		if(isunathi(L))
-			var/mob/living/carbon/human/H = L
+			var/mob/living/carbon/teshari/H = L
 			H.stamina = min(H.max_stamina, H.stamina+(6 * H.stamina_recovery))
 			H.adjustBruteLoss(-1)
 			H.adjustFireLoss(-1)
@@ -313,8 +313,8 @@
 		to_chat(src, "<span class='warning'>You are too faded to squeeze into another's lifestream.</span>")
 		return
 
-	var/list/mob/living/carbon/human/choices = list()
-	for(var/mob/living/carbon/human/H in view(1, src))
+	var/list/mob/living/carbon/teshari/choices = list()
+	for(var/mob/living/carbon/teshari/H in view(1, src))
 		if(!isSynthetic(H) && !isvaurca(H) && !H.is_diona())
 			choices += H
 
@@ -322,7 +322,7 @@
 		to_chat(src, "<span class='warning'>There are no suitable lifestreams nearby.</span>")
 		return
 
-	var/mob/living/carbon/human/H = input(src, "What lifestream would you like to meld with?") as null|anything in choices
+	var/mob/living/carbon/teshari/H = input(src, "What lifestream would you like to meld with?") as null|anything in choices
 	if(!H || !(H in view(7, src)))
 		return
 

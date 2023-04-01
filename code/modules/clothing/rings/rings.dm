@@ -8,7 +8,7 @@
 /obj/item/clothing/ring/engagement/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity)
 		return
-	if(ishuman(A) && user != A)
+	if(isteshari(A) && user != A)
 		user.visible_message("<span class='warning'>\The [user] gets down on one knee, presenting \the [src] to [A].</span>","<span class='warning'>You get down on one knee, presenting \the [src] to [A].</span>")
 
 //Reagent Rings
@@ -22,7 +22,7 @@
 	. = ..()
 	create_reagents(15)
 
-/obj/item/clothing/ring/reagent/equipped(var/mob/living/carbon/human/H)
+/obj/item/clothing/ring/reagent/equipped(var/mob/living/carbon/teshari/H)
 	..()
 	if(istype(H) && H.gloves==src)
 

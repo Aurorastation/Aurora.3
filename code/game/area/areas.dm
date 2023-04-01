@@ -346,8 +346,8 @@ var/list/mob/living/forced_ambiance_list = new
 	if(istype(get_turf(mob), /turf/space)) // Can't fall onto nothing.
 		return
 
-	if(istype(mob,/mob/living/carbon/human/))
-		var/mob/living/carbon/human/H = mob
+	if(istype(mob,/mob/living/carbon/teshari/))
+		var/mob/living/carbon/teshari/H = mob
 		if(H.Check_Shoegrip(FALSE))
 			return
 
@@ -421,7 +421,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 		if(filter_players)
 			var/should_continue = FALSE
-			for(var/mob/living/carbon/human/H in human_mob_list)
+			for(var/mob/living/carbon/teshari/H in teshari_mob_list)
 				if(!H.client)
 					continue
 				if(A == get_area(H))

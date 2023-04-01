@@ -1,13 +1,13 @@
-// the damage menu is a menu which you can use to damage human mobs
-// it's accessible via the drop down list when you VV a human mob
+// the damage menu is a menu which you can use to damage teshari mobs
+// it's accessible via the drop down list when you VV a teshari mob
 
 /datum/vueui_module/damage_menu
-	var/datum/weakref/target_human
+	var/datum/weakref/target_teshari
 
 /datum/vueui_module/damage_menu/New(var/datum/weakref/target, var/mob/user)
-	var/mob/living/carbon/human/H = target.resolve()
+	var/mob/living/carbon/teshari/H = target.resolve()
 	if(istype(H))
-		target_human = target
+		target_teshari = target
 	ui_interact(user)
 
 /datum/vueui_module/damage_menu/ui_interact(mob/user)
@@ -15,14 +15,14 @@
 		return
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		var/human_name = "Geoff"
-		var/human_ckey = "None"
-		var/mob/living/carbon/H = target_human.resolve()
+		var/teshari_name = "Geoff"
+		var/teshari_ckey = "None"
+		var/mob/living/carbon/H = target_teshari.resolve()
 		if(H)
-			human_name = H.real_name
+			teshari_name = H.real_name
 			if(H.ckey)
-				human_ckey = H.ckey
-		ui = new(user, src, "admin-damage-menu", 600, 600, "Damage Menu | [human_name] | [human_ckey]", state = interactive_state)
+				teshari_ckey = H.ckey
+		ui = new(user, src, "admin-damage-menu", 600, 600, "Damage Menu | [teshari_name] | [teshari_ckey]", state = interactive_state)
 		ui.header = "minimal"
 	ui.open()
 
@@ -32,9 +32,9 @@
 	if(!user.client.holder)
 		return
 
-	var/mob/living/carbon/H = target_human.resolve()
+	var/mob/living/carbon/H = target_teshari.resolve()
 	if(!istype(H))
-		to_chat(user, SPAN_DANGER("The humanoid target couldn't be found, closing UI."))
+		to_chat(user, SPAN_DANGER("The tesharioid target couldn't be found, closing UI."))
 		ui.close()
 
 	var/list/limbs = list()
@@ -53,7 +53,7 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/mob/living/carbon/human/H = target_human.resolve()
+	var/mob/living/carbon/teshari/H = target_teshari.resolve()
 	if(!istype(H))
 		return
 

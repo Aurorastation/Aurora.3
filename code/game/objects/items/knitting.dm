@@ -27,7 +27,7 @@
 		to_chat(usr, SPAN_WARNING("You can't remove \the [ball] while using \the [src]!"))
 		return
 
-	var/mob/living/carbon/human/H = usr
+	var/mob/living/carbon/teshari/H = usr
 
 	H.put_in_hands(ball)
 	ball = null

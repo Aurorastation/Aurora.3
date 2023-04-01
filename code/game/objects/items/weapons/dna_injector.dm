@@ -122,7 +122,7 @@
 
 	M.visible_message("<span class='danger'>\The [M] has been injected with \the [src] by \the [user].</span>")
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/teshari/H = M
 	if(!istype(H))
 		to_chat(user, "<span class='warning'>Apparently it didn't work...</span>")
 		return
@@ -588,7 +588,7 @@
 		..()
 
 /obj/item/dnainjector/h2m
-	name = "\improper DNA injector (Human > Monkey)"
+	name = "\improper DNA injector (teshari > Monkey)"
 	desc = "Will make you a flea bag."
 	datatype = DNA2_BUF_SE
 	value = 0xFFF
@@ -598,7 +598,7 @@
 		..()
 
 /obj/item/dnainjector/m2h
-	name = "\improper DNA injector (Monkey > Human)"
+	name = "\improper DNA injector (Monkey > teshari)"
 	desc = "Will make you...less hairy."
 	datatype = DNA2_BUF_SE
 	value = 0x001

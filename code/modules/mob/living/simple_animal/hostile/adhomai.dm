@@ -90,7 +90,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 
-	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
+	mob_swap_flags = teshari|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
 	attacktext = "strangled"
@@ -148,7 +148,7 @@
 
 	blood_overlay_icon = null
 
-/mob/living/simple_animal/hostile/plasmageist/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/hostile/plasmageist/attack_hand(mob/living/carbon/teshari/M as mob)
 	M.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	visible_message(SPAN_WARNING("\The [M] tries to touch \the [src]!"))
 	tesla_zap(M, 5, 5000)

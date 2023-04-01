@@ -144,7 +144,7 @@
 
 /obj/structure/pit/closed/grave/Initialize()
 	var/obj/structure/closet/crate/coffin/C = new(src.loc)
-	var/obj/effect/decal/remains/human/bones = new(C)
+	var/obj/effect/decal/remains/teshari/bones = new(C)
 	bones.layer = BELOW_MOB_LAYER
 	var/obj/structure/gravemarker/random/R = new(src.loc)
 	R.generate()
@@ -175,7 +175,7 @@
 	icon_state = pick("wood","cross")
 
 
-	var/nam = random_name(MALE, SPECIES_HUMAN)
+	var/nam = random_name(MALE, SPECIES_teshari)
 	message = "Here lies [nam]."
 
 /obj/structure/gravemarker/attackby(obj/item/W, mob/user)

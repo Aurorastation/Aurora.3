@@ -748,7 +748,7 @@
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
 	flag_path = "dpra"
 	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
-	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
+	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of teshariity, they aim \
 	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
 	nation they were fighting for the Democratic People's Republic of Adhomai."
 
@@ -761,7 +761,7 @@
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
 	icon_state = "dpra"
 	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
-	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
+	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of teshariity, they aim \
 	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
 	nation they were fighting for the Democratic People's Republic of Adhomai."
 

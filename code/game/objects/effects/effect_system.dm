@@ -130,8 +130,8 @@ steam.start() -- spawns the effect
 	if (M.internal != null)
 		if(M.wear_mask && (M.wear_mask.item_flags & AIRTIGHT))
 			return 0
-		if(istype(M,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
+		if(istype(M,/mob/living/carbon/teshari))
+			var/mob/living/carbon/teshari/H = M
 			if(H.head && (H.head.item_flags & AIRTIGHT))
 				return 0
 		return 0
@@ -214,10 +214,10 @@ steam.start() -- spawns the effect
 
 /obj/effect/effect/smoke/mustard/Move()
 	..()
-	for(var/mob/living/carbon/human/R in get_turf(src))
+	for(var/mob/living/carbon/teshari/R in get_turf(src))
 		affect(R)
 
-/obj/effect/effect/smoke/mustard/affect(var/mob/living/carbon/human/R)
+/obj/effect/effect/smoke/mustard/affect(var/mob/living/carbon/teshari/R)
 	if (!..())
 		return 0
 	if (R.wear_suit != null)

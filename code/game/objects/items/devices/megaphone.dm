@@ -22,7 +22,7 @@
 		if(user.client.prefs.muted & MUTE_IC)
 			to_chat(src, SPAN_WARNING("You cannot speak in IC (muted)."))
 			return
-	if(!ishuman(user))
+	if(!isteshari(user))
 		to_chat(user, SPAN_WARNING("You don't know how to use this!"))
 		return
 	if(user.silent)
@@ -49,7 +49,7 @@
 			user.audible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[message]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 7)
 		if(activation_sound)
 			playsound(loc, activation_sound, 100, 0, 1)
-		for (var/mob/living/carbon/human/C in range(user, 2) - user)
+		for (var/mob/living/carbon/teshari/C in range(user, 2) - user)
 			if (C in range(user, 1))
 				C.earpain(3, TRUE, 2)
 			else

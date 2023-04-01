@@ -45,7 +45,7 @@
 /obj/item/storage/bible/proc/Set_Religion(mob/user)
 	if(use_check(user))
 		return
-	if(!ishuman(user))
+	if(!isteshari(user))
 		return
 
 	var/religion_name = "Christianity"

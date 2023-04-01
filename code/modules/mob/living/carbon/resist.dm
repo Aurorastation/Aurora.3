@@ -28,13 +28,13 @@
 	else if (legcuffed)
 		INVOKE_ASYNC(src, PROC_REF(escape_legcuffs))
 
-/mob/living/carbon/human/process_resist()
+/mob/living/carbon/teshari/process_resist()
 	if (istype(wear_suit, /obj/item/clothing/suit/straight_jacket))
 		INVOKE_ASYNC(src, PROC_REF(escape_jacket))
 		return
 	..()
 
-/mob/living/carbon/human/proc/escape_jacket()
+/mob/living/carbon/teshari/proc/escape_jacket()
 	visible_message(
 		SPAN_DANGER("\The [src] attempts to escape [wear_suit]!"),
 		SPAN_WARNING("You attempt to escape [wear_suit]. (This will take around 6 minutes and you need to stand still)")
@@ -87,7 +87,7 @@
 
 	displaytime = breakouttime / 600 //Minutes
 
-	var/mob/living/carbon/human/H = src
+	var/mob/living/carbon/teshari/H = src
 	if(istype(H) && H.gloves && istype(H.gloves,/obj/item/clothing/gloves/rig))
 		breakouttime /= 2
 		displaytime /= 2
@@ -229,11 +229,11 @@
 		legcuffed = null
 		update_inv_legcuffed()
 
-/mob/living/carbon/human/can_break_cuffs()
+/mob/living/carbon/teshari/can_break_cuffs()
 	if(species.can_shred(src,1))
 		return 1
 	return ..()
 
-/mob/living/carbon/human/escape_buckle()
+/mob/living/carbon/teshari/escape_buckle()
 	if(!restrained())
 		..()

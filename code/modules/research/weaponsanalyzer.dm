@@ -25,10 +25,10 @@
 	to_chat(user, SPAN_NOTICE("It has [name_of_thing ? "[name_of_thing]" : "nothing"] attached."))
 
 /obj/machinery/weapons_analyzer/attackby(var/obj/item/I, var/mob/user as mob)
-	if(!I || !user || !ishuman(user))
+	if(!I || !user || !isteshari(user))
 		return
 
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/teshari/H = user
 
 	if(istype(I, /obj/item/gun))
 		check_swap(user, I)

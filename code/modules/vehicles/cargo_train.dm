@@ -160,20 +160,20 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/vehicle/train/cargo/trolley/insert_cell(var/obj/item/cell/C, var/mob/living/carbon/human/H)
+/obj/vehicle/train/cargo/trolley/insert_cell(var/obj/item/cell/C, var/mob/living/carbon/teshari/H)
 	return
 
-/obj/vehicle/train/cargo/engine/insert_cell(var/obj/item/cell/C, var/mob/living/carbon/human/H)
+/obj/vehicle/train/cargo/engine/insert_cell(var/obj/item/cell/C, var/mob/living/carbon/teshari/H)
 	..()
 	update_stats()
 
-/obj/vehicle/train/cargo/engine/remove_cell(var/mob/living/carbon/human/H)
+/obj/vehicle/train/cargo/engine/remove_cell(var/mob/living/carbon/teshari/H)
 	..()
 	update_stats()
 
 /obj/vehicle/train/cargo/engine/Collide(atom/Obstacle)
 	var/obj/machinery/door/D = Obstacle
-	var/mob/living/carbon/human/H = load
+	var/mob/living/carbon/teshari/H = load
 	if(istype(D) && istype(H))
 		H.Collide(D)		//a little hacky, but hey, it works, and respects access rights
 
@@ -205,7 +205,7 @@
 	to_chat(user, SPAN_NOTICE("You turn off \the [src]\s ignition."))
 	playsound(src, 'sound/machines/vehicles/button.ogg', 50, FALSE)
 
-/obj/vehicle/train/cargo/RunOver(var/mob/living/carbon/human/H)
+/obj/vehicle/train/cargo/RunOver(var/mob/living/carbon/teshari/H)
 	var/list/parts = list(BP_HEAD, BP_CHEST, BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM)
 
 	H.apply_effects(5, 5)
@@ -213,15 +213,15 @@
 		var/def_zone = pick(parts)
 		H.apply_damage(rand(5,10), DAMAGE_BRUTE, def_zone)
 
-/obj/vehicle/train/cargo/trolley/RunOver(var/mob/living/carbon/human/H)
+/obj/vehicle/train/cargo/trolley/RunOver(var/mob/living/carbon/teshari/H)
 	..()
 	attack_log += text("\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey])</span>")
 
-/obj/vehicle/train/cargo/engine/RunOver(var/mob/living/carbon/human/H)
+/obj/vehicle/train/cargo/engine/RunOver(var/mob/living/carbon/teshari/H)
 	..()
 
-	if(is_train_head() && istype(load, /mob/living/carbon/human))
-		var/mob/living/carbon/human/D = load
+	if(is_train_head() && istype(load, /mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/D = load
 		to_chat(D, "<span class='danger'>You ran over [H]!</span>")
 		visible_message("<span class='danger'>\The [src] ran over [H]!</span>")
 		attack_log += text("\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey]), driven by [D.name] ([D.ckey])</span>")
@@ -253,7 +253,7 @@
 	if(!..(user, 1))
 		return
 
-	if(!istype(usr, /mob/living/carbon/human))
+	if(!istype(usr, /mob/living/carbon/teshari))
 		return
 
 	to_chat(user, "The power light is [on ? "on" : "off"].\nThere are[key ? "" : " no"] keys in the ignition.")
@@ -310,7 +310,7 @@
 /obj/vehicle/train/cargo/trolley/load(var/atom/movable/C)
 	if(ismob(C) && !passenger_allowed)
 		return 0
-	if(!istype(C,/obj/machinery) && !istype(C,/obj/structure/closet) && !istype(C,/obj/structure/largecrate) && !istype(C,/obj/structure/reagent_dispensers) && !istype(C,/obj/structure/ore_box) && !istype(C, /mob/living/carbon/human))
+	if(!istype(C,/obj/machinery) && !istype(C,/obj/structure/closet) && !istype(C,/obj/structure/largecrate) && !istype(C,/obj/structure/reagent_dispensers) && !istype(C,/obj/structure/ore_box) && !istype(C, /mob/living/carbon/teshari))
 		return 0
 
 	//if there are any items you don't want to be able to interact with, add them to this check
@@ -324,7 +324,7 @@
 		return 1
 
 /obj/vehicle/train/cargo/engine/load(var/atom/movable/C)
-	if(!istype(C, /mob/living/carbon/human))
+	if(!istype(C, /mob/living/carbon/teshari))
 		return 0
 
 	return ..()

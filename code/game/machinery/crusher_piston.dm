@@ -86,8 +86,8 @@
 	return ..()
 
 /obj/machinery/crusher_base/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(status != "idle" && prob(40) && ishuman(user))
-		var/mob/living/carbon/human/M = user
+	if(status != "idle" && prob(40) && isteshari(user))
+		var/mob/living/carbon/teshari/M = user
 		M.apply_damage(45, DAMAGE_BRUTE, user.get_active_hand())
 		M.apply_damage(45, DAMAGE_PAIN)
 		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")

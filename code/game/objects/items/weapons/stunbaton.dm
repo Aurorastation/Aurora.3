@@ -143,8 +143,8 @@
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.do_attack_animation(L)
-		//copied from human_defense.dm - human defence code should really be refactored some time.
-		if (ishuman(L))
+		//copied from teshari_defense.dm - teshari defence code should really be refactored some time.
+		if (isteshari(L))
 			user.lastattacked = L	//are these used at all, if we have logs?
 			L.lastattacker = user
 
@@ -155,7 +155,7 @@
 				L.visible_message("<span class='warning'>[user] misses [L] with \the [src]!</span>")
 				return 0
 
-			var/mob/living/carbon/human/H = L
+			var/mob/living/carbon/teshari/H = L
 			var/obj/item/organ/external/affecting = H.get_organ(target_zone)
 			if (affecting)
 				if(!status)

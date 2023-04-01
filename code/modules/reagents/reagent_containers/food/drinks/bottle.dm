@@ -150,7 +150,7 @@
 	if(blocked < 100)
 		weaken_duration = smash_duration + min(0, force - target.get_blocked_ratio(hit_zone, DAMAGE_BRUTE) * 100 + 10)
 
-	var/mob/living/carbon/human/H = target
+	var/mob/living/carbon/teshari/H = target
 	if(istype(H) && H.headcheck(hit_zone))
 		var/obj/item/organ/affecting = H.get_organ(hit_zone) //headcheck should ensure that affecting is not null
 		user.visible_message("<span class='danger'>[user] smashes [src] into [H]'s [affecting.name]!</span>")
@@ -274,7 +274,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/bitters
 	name = "Nojosuru Aromatic Bitters"
-	desc = "Only the finest and highest quality herbs find their way into our cocktail bitters, both human <i>and</i> skrellian."
+	desc = "Only the finest and highest quality herbs find their way into our cocktail bitters, both teshari <i>and</i> skrellian."
 	desc_extended = "This drink is made by Nojosuru Foods, a subsidiary of Zeng-Hu Pharmaceuticals, founded on Earth in 2252. \
 				  They are known for their surprisingly affordable and incredible quality foods, as well as growing many crops used in pharmaceuticals and luxury items."
 	icon_state = "bitters"

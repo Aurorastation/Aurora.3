@@ -1,4 +1,4 @@
-/datum/antagonist/proc/equip(var/mob/living/carbon/human/player)
+/datum/antagonist/proc/equip(var/mob/living/carbon/teshari/player)
 
 	if(!istype(player))
 		return 0
@@ -12,7 +12,7 @@
 	player.species.before_equip(player)
 	return 1
 
-/datum/antagonist/proc/unequip(var/mob/living/carbon/human/player)
+/datum/antagonist/proc/unequip(var/mob/living/carbon/teshari/player)
 	if(!istype(player))
 		return 0
 	return 1

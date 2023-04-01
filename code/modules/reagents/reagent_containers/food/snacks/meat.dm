@@ -26,7 +26,7 @@
 	desc = "A synthetic slab of flesh."
 
 // TODO cancelled, subtypes are fine. recipes use istype checks
-/obj/item/reagent_containers/food/snacks/meat/human
+/obj/item/reagent_containers/food/snacks/meat/teshari
 
 /obj/item/reagent_containers/food/snacks/meat/bug
 	filling_color = "#E6E600"

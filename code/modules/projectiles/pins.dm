@@ -73,7 +73,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 /obj/item/device/firing_pin/proc/pin_auth(mob/living/user)
 	return 1
 
-/obj/item/device/firing_pin/proc/auth_fail(mob/living/carbon/human/user)
+/obj/item/device/firing_pin/proc/auth_fail(mob/living/carbon/teshari/user)
 	to_chat(user, fail_message)
 	if(selfdestruct)//sound stolen from the lawgiver. todo, remove this from the lawgiver. there can only be one.
 		user.show_message("<span class='danger'>SELF-DESTRUCTING...</span><br>", 1)
@@ -194,8 +194,8 @@ Pins Below.
 	var/tag_color = ""
 
 /obj/item/device/firing_pin/tag/pin_auth(mob/living/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(isteshari(user))
+		var/mob/living/carbon/teshari/H = user
 		var/obj/item/clothing/suit/armor/riot/laser_tag/LT = H.wear_suit
 		if(istype(LT) && tag_color == LT.laser_tag_color)
 			return TRUE

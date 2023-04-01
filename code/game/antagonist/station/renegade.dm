@@ -22,7 +22,7 @@ var/datum/antagonist/renegade/renegades
 
 /datum/antagonist/renegade/can_become_antag(var/datum/mind/player, var/ignore_role)
 	if(..())
-		if(player.current && ishuman(player.current))
+		if(player.current && isteshari(player.current))
 			return TRUE
 	return FALSE
 
@@ -34,7 +34,7 @@ var/datum/antagonist/renegade/renegades
 	survive.owner = player
 	player.objectives |= survive
 
-/datum/antagonist/renegade/equip(var/mob/living/carbon/human/player)
+/datum/antagonist/renegade/equip(var/mob/living/carbon/teshari/player)
 	if(!..())
 		return
 
@@ -45,7 +45,7 @@ var/datum/antagonist/renegade/renegades
 /proc/rightandwrong()
 	to_chat(usr, "<B>You summoned guns!</B>")
 	message_admins("[key_name_admin(usr, 1)] summoned guns!")
-	for(var/mob/living/carbon/human/H in player_list)
+	for(var/mob/living/carbon/teshari/H in player_list)
 		if(H.stat == 2 || !(H.client)) continue
 		if(is_special_character(H)) continue
 		renegades.add_antagonist(H.mind)

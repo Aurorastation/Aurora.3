@@ -32,10 +32,10 @@
 	var/ability_start_time = 0
 	var/obj/screen/borer/chemicals/chem_hud
 	var/chemicals = 10                      // Chemicals used for reproduction and spitting neurotoxin.
-	var/mob/living/carbon/human/host        // Human host for the brain worm.
+	var/mob/living/carbon/teshari/host        // teshari host for the brain worm.
 	var/truename                            // Name used for brainworm-speak.
 	var/mob/living/captive_brain/host_brain // Used for swapping control of the body back and forth.
-	var/controlling                         // Used in human death check.
+	var/controlling                         // Used in teshari death check.
 	var/list/static/controlling_emotes = list("blink","blink_r","choke","drool","twitch","twitch_v","gasp")
 	var/has_reproduced
 	var/request_player = TRUE
@@ -119,8 +119,8 @@
 	if(ability_bar)
 		QDEL_NULL(ability_bar)
 
-	if(istype(host,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = host
+	if(istype(host,/mob/living/carbon/teshari))
+		var/mob/living/carbon/teshari/H = host
 		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 		head.implants -= src
 

@@ -1,4 +1,4 @@
-/mob/living/carbon/alien/diona/attack_hand(mob/living/carbon/human/M)
+/mob/living/carbon/alien/diona/attack_hand(mob/living/carbon/teshari/M)
 	if(istype(M) && M.a_intent == I_HELP && !stat)
 		if(M.is_diona() && do_merge(M))
 			return
