@@ -19,7 +19,7 @@
 	minimal_access = list(access_bar)
 	alt_titles = list("Barista")
 	outfit = /datum/outfit/job/bartender
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 /datum/outfit/job/bartender
 	name = "Bartender"
@@ -65,7 +65,7 @@
 	minimal_access = list(access_kitchen)
 	alt_titles = list("Cook")
 	outfit = /datum/outfit/job/chef
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 /datum/outfit/job/chef
 	name = "Chef"
@@ -114,7 +114,7 @@
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_hydroponics)
 	outfit = /datum/outfit/job/hydro
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 	alt_titles = list("Hydroponicist")
 
 /datum/outfit/job/hydro
@@ -166,7 +166,7 @@
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
 	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
 	outfit = /datum/outfit/job/janitor
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 
 /datum/outfit/job/janitor
@@ -214,7 +214,7 @@
 	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
 	title_accesses = list("Corporate Reporter" = list(access_medical, access_sec_doors, access_research, access_engine))
 	outfit = /datum/outfit/job/journalist
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 /datum/outfit/job/journalist
 	name = "Corporate Reporter"
@@ -274,7 +274,7 @@
 	title_accesses = list("Tech Support" = access_it)
 	outfit = /datum/outfit/job/librarian
 
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 /datum/outfit/job/librarian
 	name = "Librarian"
@@ -340,7 +340,7 @@
 	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Shaman", "Counselor")
 	outfit = /datum/outfit/job/chaplain
 
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 /datum/outfit/job/chaplain
 	name = "Chaplain"
@@ -420,7 +420,7 @@
 
 	outfit = /datum/outfit/job/operations_manager
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/operations_manager
 	name = "Operations Manager"
@@ -468,7 +468,7 @@
 	minimal_access = list(access_cargo, access_cargo_bot, access_ship_weapons, access_mailsorting)
 	outfit = /datum/outfit/job/hangar_tech
 
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 /datum/outfit/job/hangar_tech
 	name = "Hangar Technician"
@@ -509,7 +509,7 @@
 	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
 	outfit = /datum/outfit/job/mining
 
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 /datum/outfit/job/mining
 	name = "Shaft Miner"
@@ -564,7 +564,7 @@
 
 	outfit = /datum/outfit/job/machinist
 
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 /datum/outfit/job/machinist
 	name = "Machinist"

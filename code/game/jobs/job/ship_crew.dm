@@ -13,7 +13,13 @@
 	access = list()			//See /datum/job/assistant/get_access()
 	minimal_access = list()	//See /datum/job/assistant/get_access()
 	outfit = /datum/outfit/job/assistant
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(
+		    SPECIES_VAURCA_BREEDER,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_TESLA_BODY
+			)
 
 /datum/job/assistant/get_access(selected_title)
 	if(config.assistant_maint && selected_title == "Assistant")
@@ -42,7 +48,13 @@
 	access = list()
 	minimal_access = list()
 	outfit = /datum/outfit/job/visitor
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(
+		    SPECIES_VAURCA_BREEDER,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_TESLA_BODY
+			)
 
 /datum/outfit/job/visitor
 	name = "Off-Duty Crew Member"
@@ -70,4 +82,10 @@
 	minimal_access = list()
 	outfit = /datum/outfit/job/visitor/passenger
 	blacklisted_species = null
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(
+		    SPECIES_VAURCA_BREEDER,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_TESLA_BODY
+			)

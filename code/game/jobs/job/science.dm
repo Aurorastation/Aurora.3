@@ -37,7 +37,7 @@
 	)
 	outfit = /datum/outfit/job/rd
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 /datum/outfit/job/rd
 	name = "Research Director"
@@ -86,7 +86,7 @@
 
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/scientist
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 /datum/outfit/job/scientist
 	name = "Scientist"
@@ -138,7 +138,7 @@
 
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/scientist/xenoarchaeologist
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 /datum/outfit/job/scientist/xenoarchaeologist
 	name = "Xenoarchaeologist"
@@ -170,7 +170,7 @@
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
@@ -202,7 +202,7 @@
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobotanist
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 
 /datum/outfit/job/scientist/xenobotanist
@@ -224,7 +224,7 @@
 	access = list(access_research, access_tox)
 	minimal_access = list(access_research, access_tox)
 	outfit = /datum/outfit/job/intern_sci
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_TESLA_BODY)
 
 /datum/outfit/job/intern_sci
 	name = "Lab Assistant"
