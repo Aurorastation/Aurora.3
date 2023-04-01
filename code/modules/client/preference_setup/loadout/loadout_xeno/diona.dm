@@ -33,7 +33,23 @@
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/singleton/origin_item/culture/narrows)
+	culture_restriction = list(/singleton/origin_item/culture/eum)
+	
+/datum/gear/uniform/diona/dionatunic
+	display_name = "floral tunic"
+	description = "A tunic made up of several colorful fabrics and adorned with seemingly still-living vines and flowers, typically worn by those hailing from the Mada on EUM."
+	path = /obj/item/clothing/under/diona/dionatunic
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	
+/datum/gear/suit/eumponcho
+	display_name = "dionae poncho"
+	path = /obj/item/clothing/accessory/poncho/eumponcho
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
 
 /datum/gear/suit/diona/carp
 	display_name = "carp hide poncho"
