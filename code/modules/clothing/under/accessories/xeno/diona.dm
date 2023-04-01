@@ -18,7 +18,7 @@
 	
 /obj/item/clothing/accessory/poncho/eumponcho
 	name = "adorned poncho"
-	desc = "A poncho made of some sort of mesh weave material adorned by a piece of colored fabric wrapped around it. "
+	desc = "A poncho made of some sort of mesh weave material adorned by a piece of colored fabric wrapped around it."
 	icon = 'icons/obj/diona_items.dmi'
 	icon_state = "eumponcho"
 	item_state = "eumponcho"
