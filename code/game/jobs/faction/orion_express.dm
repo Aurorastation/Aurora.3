@@ -21,7 +21,6 @@
 		/datum/species/bug = TRUE,
 		/datum/species/bug/type_b = TRUE,
 		/datum/species/bug/type_e = TRUE,
-		/datum/species/tajaran,
 		/datum/species/diona
 	)
 
@@ -31,7 +30,11 @@
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_BULWARK,
-			SPECIES_VAURCA_BREEDER
+			SPECIES_VAURCA_BREEDER,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_TESLA_BODY
 		)
 	)
 	titles_to_loadout = list(

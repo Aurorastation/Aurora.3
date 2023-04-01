@@ -18,7 +18,6 @@
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/machine,
-		/datum/species/tajaran,
 		/datum/species/diona
 	)
 
@@ -34,6 +33,7 @@
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
+			SPECIES_TAJARA_TESLA_BODY,
 			SPECIES_DIONA,
 			SPECIES_DIONA_COEUS,
 			SPECIES_UNATHI,
