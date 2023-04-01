@@ -278,9 +278,9 @@
 /obj/item/material/stool/chair/fancy
 	name = "fancy chair"
 	desc = "Meeting brawl essential. Now all that's missing is corporate ukulele."
-	icon_state = "chair_item"
-	item_state = "chair"
-	base_icon = "chair"
+	icon_state = "chair_fancy_item"
+	item_state = "chair_fancy"
+	base_icon = "chair_fancy"
 	origin_type = /obj/structure/bed/stool/chair/fancy
 
 // Because wood chairs are snowflake sprites.
