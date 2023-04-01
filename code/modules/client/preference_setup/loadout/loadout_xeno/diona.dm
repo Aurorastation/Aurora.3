@@ -45,6 +45,7 @@
 	
 /datum/gear/suit/eumponcho
 	display_name = "dionae poncho"
+	description = "A poncho made of some sort of mesh weave material adorned by a piece of colored fabric wrapped around it, sometimes worn by citizens of the CT-EUM, with the fabric around the poncho indicating which nation they belong to."
 	path = /obj/item/clothing/accessory/poncho/eumponcho
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
