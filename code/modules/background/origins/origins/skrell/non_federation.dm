@@ -5,6 +5,7 @@
 		/singleton/origin_item/origin/skrell_alliance,
 		/singleton/origin_item/origin/skrell_biesel,
 		/singleton/origin_item/origin/skrell_coalition
+		/singleton/origin_item/origin/skrell_eum
 	)
 
 /singleton/origin_item/origin/skrell_alliance
