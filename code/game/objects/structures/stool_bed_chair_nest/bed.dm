@@ -225,7 +225,7 @@
 		W.pixel_x = 10 //make sure they reach the pillow
 		W.pixel_y = -6
 
-	else if(istype(W, /obj/item/device/floor_painter))
+	else if(istype(W, /obj/item/device/paint_sprayer))
 		return
 
 	else if(!istype(W, /obj/item/bedsheet))

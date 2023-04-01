@@ -3330,7 +3330,7 @@
 /area/hangar/intrepid)
 "cCg" = (
 /obj/structure/table/rack,
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/item/hoist_kit{

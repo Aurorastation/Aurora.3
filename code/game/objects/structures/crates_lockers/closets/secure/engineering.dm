@@ -78,7 +78,7 @@
 	new /obj/item/grenade/chem_grenade/antifuel(src)
 
 	// Painters
-	new /obj/item/device/floor_painter(src)
+	new /obj/item/device/paint_sprayer(src)
 	new /obj/item/device/pipe_painter(src)
 
 // Atmospherics Technician
@@ -111,7 +111,7 @@
 	new /obj/item/grenade/chem_grenade/antifuel(src)
 
 	// Painters
-	new /obj/item/device/floor_painter(src)
+	new /obj/item/device/paint_sprayer(src)
 	new /obj/item/device/pipe_painter(src)
 
 // Electrical Supplies

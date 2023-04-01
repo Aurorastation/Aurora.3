@@ -20204,7 +20204,7 @@
 /obj/machinery/firealarm/south,
 /obj/structure/table/standard,
 /obj/item/storage/bag/circuits/basic,
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "aJb" = (
@@ -59924,7 +59924,7 @@
 /area/security/forensics_morgue)
 "etG" = (
 /obj/structure/table/rack,
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "euo" = (

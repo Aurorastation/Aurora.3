@@ -27542,7 +27542,7 @@
 /obj/item/storage/box/lights/coloredmixed,
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
@@ -35727,7 +35727,7 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
 "weI" = (

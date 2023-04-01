@@ -3861,7 +3861,7 @@
 	},
 /obj/item/storage/toolbox/electrical,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssmd_corvette/mechbay)
 "kGa" = (

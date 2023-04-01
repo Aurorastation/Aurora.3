@@ -8,7 +8,6 @@
 	var/working = 1
 	var/time = 10
 	var/timing = 0
-	var/lockdownbyai = 0
 	init_flags = 0 // Processing is only for timed alarms now
 	anchored = 1
 	idle_power_usage = 2

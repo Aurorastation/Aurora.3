@@ -47612,7 +47612,7 @@
 	pixel_y = -2;
 	randpixel = 0
 	},
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /obj/item/reagent_containers/weldpack,
 /obj/effect/floor_decal/corner/black{
 	dir = 10

@@ -62,7 +62,7 @@
 		return FALSE
 	if(istype(target, /obj/machinery/door/airlock))
 		var/obj/machinery/door/airlock/door = target
-		if(door.hackProof)
+		if(door.hack_proof)
 			to_chat(user, SPAN_WARNING("Hacking [target] is beyond the capabilities of this device!"))
 			return FALSE
 	var/found = known_targets.Find(target)

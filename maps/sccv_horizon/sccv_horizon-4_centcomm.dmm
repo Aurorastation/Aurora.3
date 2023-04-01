@@ -6613,7 +6613,7 @@
 /obj/structure/closet{
 	name = "materials"
 	},
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "apg" = (
