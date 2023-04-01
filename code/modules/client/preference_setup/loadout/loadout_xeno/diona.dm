@@ -25,6 +25,15 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_NO_SELECTION
+	
+/datum/gear/suit/diona/eternal/blood
+	display_name = "red mesh weave robes"
+	description = "A set of red mesh weave robes worn almost exclusively by priests of the Blood Eternal faith."
+	path = /obj/item/clothing/suit/diona/eternal/blood
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_NO_SELECTION
 
 /datum/gear/uniform/diona/narrows
 	display_name = "antiquated hephaestus prison uniform"
