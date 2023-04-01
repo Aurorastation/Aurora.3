@@ -8,6 +8,12 @@
 	supervisors = "yourself and the market"
 	minimal_player_age = 10
 	economic_modifier = 5
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_TAJARAN = 19,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 	ideal_character_age = list(
 		SPECIES_HUMAN = 30,
 		SPECIES_SKRELL = 60,

@@ -19,6 +19,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	minimum_character_age = list(
 		SPECIES_HUMAN = 35,
 		SPECIES_SKRELL = 100,
+		SPECIES_TAJARA = 999,
 		SPECIES_SKRELL_AXIORI = 100
 	)
 

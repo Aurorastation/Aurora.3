@@ -18,5 +18,6 @@
 		/datum/species/skrell,
 		/datum/species/unathi,
 		/datum/species/diona,
+		/datum/species/tajaran,
 		/datum/species/machine
 	)
