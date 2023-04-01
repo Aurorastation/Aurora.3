@@ -17,9 +17,8 @@
 	pickup_sound = 'sound/items/pickup/card.ogg'
 	
 /obj/item/clothing/accessory/poncho/eumponcho
-	name = "dionae poncho"
-	desc = "placeholder"
-	desc_extended = "placeholder."
+	name = "adorned poncho"
+	desc = "A poncho made of some sort of mesh weave material adorned by a piece of colored fabric wrapped around it. "
 	icon = 'icons/obj/diona_items.dmi'
 	icon_state = "eumponcho"
 	item_state = "eumponcho"
