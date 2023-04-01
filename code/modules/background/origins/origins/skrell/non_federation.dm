@@ -4,7 +4,7 @@
 	possible_origins = list(
 		/singleton/origin_item/origin/skrell_alliance,
 		/singleton/origin_item/origin/skrell_biesel,
-		/singleton/origin_item/origin/skrell_coalition
+		/singleton/origin_item/origin/skrell_coalition,
 		/singleton/origin_item/origin/skrell_eum
 	)
 
