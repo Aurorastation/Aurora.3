@@ -2091,7 +2091,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "freedom_coat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/fluff/schlosser_hat 
+/obj/item/clothing/head/fluff/schlosser_hat // Schlosser - NewOriginalSchwann
 	name = "national defense force schiffchen"
 	desc = "A side cap known as a Schiffchen on Visegrad, a term roughly translating to “little boat” in Basic, which is commonly worn by members of the Visegradi National Defense Force. The NDF’s symbol – a silver fortress standing upon a crimson background – is prominently featured on the Schiffchen’s badge. “Totschlager” has been written on the inside of the band by somebody with a marker."
 	desc_extended = "The Schiffchen has a long, storied, and somewhat controversial history upon Visegrad, which dates back to its initial colonization. The planet’s first security service, the Visegradi People’s Security Service, used the Schiffchen as its standard headwear for security personnel in an effort to invoke \
