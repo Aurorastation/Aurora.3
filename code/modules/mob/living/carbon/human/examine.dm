@@ -473,11 +473,11 @@
 					descriptor = "miniscule"
 				if(-99 to -50)
 					descriptor = "tiny"
-				if(-49 to -20)
+				if(-49 to -11)
 					descriptor = "small"
-				if(-19 to 20)
+				if(-10 to 10)
 					descriptor = "about average height"
-				if(21 to 50)
+				if(11 to 50)
 					descriptor = "tall"
 				if(51 to 100)
 					descriptor = "huge"
@@ -494,11 +494,11 @@
 			descriptor = "absolutely tiny compared to"
 		if(-99 to -50)
 			descriptor = "much smaller than"
-		if(-49 to -20)
+		if(-49 to -11)
 			descriptor = "shorter than"
-		if(-19 to 20)
+		if(-10 to 10)
 			descriptor = "around about the same height"
-		if(21 to 50)
+		if(11 to 50)
 			descriptor = "taller than"
 		if(51 to 100)
 			descriptor = "much larger than"
