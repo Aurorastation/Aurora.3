@@ -459,3 +459,52 @@
 
 	var/output_text = color_map[supplied_color] || "fluid"
 	return output_text
+
+/mob/living/carbon/human/assembleHeightString(mob/examiner)
+	var/heightString = null
+	var/descriptor
+	if(height == HEIGHT_NOT_USED)
+		return heightString
+
+	// Compare to Species Average
+		if(species.species_height != HEIGHT_NOT_USED)
+			switch(height - species.species_height)
+				if(-999 to -100)
+					descriptor = "miniscule"
+				if(-99 to -50)
+					descriptor = "tiny"
+				if(-49 to -20)
+					descriptor = "small"
+				if(-19 to 20)
+					descriptor = "about average height"
+				if(21 to 50)
+					descriptor = "tall"
+				if(51 to 100)
+					descriptor = "huge"
+				else
+					descriptor = "gargantuan"
+			heightString = "[get_pronoun("He")] look[get_pronoun("end")] [descriptor] for \a [species.name]"
+
+
+	if(examiner.height == HEIGHT_NOT_USED)
+		return heightString
+
+	switch(height - examiner.height)
+		if(-999 to -100)
+			descriptor = "absolutely tiny compared to"
+		if(-99 to -50)
+			descriptor = "much smaller than"
+		if(-49 to -20)
+			descriptor = "shorter than"
+		if(-19 to 20)
+			descriptor = "around about the same height"
+		if(21 to 50)
+			descriptor = "taller than"
+		if(51 to 100)
+			descriptor = "much larger than"
+		else
+			descriptor = "to tower over"
+	if(heightString)
+		return heightString + ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
+	return "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."
+

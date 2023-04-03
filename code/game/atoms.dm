@@ -244,12 +244,6 @@
 	to_chat(user, "[icon2html(src, user)] That's [f_name] [suffix]") // Object name. I.e. "This is an Object. It is a normal-sized item."
 	to_chat(user, desc)	// Object description.
 
-	// Height for Mobs -- Overwritten by examine proc for human; also called there
-	if(ismob(src))
-		var/mob/M = src
-		if(M.assembleHeightString(user))
-			to_chat(user, SPAN_NOTICE(M.assembleHeightString(user)))
-
 	// Extra object descriptions examination code.
 	if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available. <a href=?src=\ref[src];examine_fluff=1>\[Show In Chat\]</a>"))) // If any of the above are true, show that the object has more information available.
