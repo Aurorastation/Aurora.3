@@ -51,7 +51,7 @@
 
 # ZAS, the dreaded and esoteric atmos system, since Matt is the last to have touched it and
 # all others I can find are long gone...
-/code/__defines/ZAS.dm
+/code/__defines/ZAS.dm @NonQueueingMatt
 /code/ZAS/ @NonQueueingMatt
 
 # Matt is also the implementer/porter of the observable design pattern
