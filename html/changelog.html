@@ -41,6 +41,17 @@
 				<li class="imageadd">Added sprites for wielding the adhomian assault rifle.</li>
 				<li class="rscadd">Added golden plated version of the adhomian assault rifle.</li>
 			</ul>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Refactored the various unit tests to use macros to indicate pass/fail and logging.</li>
+				<li class="backend">Added a new unit tests logging system that integrates with github output, prettifying it, and is able to be switched back to terminal-reading mode with a flick of a commented header/define.</li>
+				<li class="rscadd">Added a manual unit tests define file, for when you want to run the unit tests locally, with logging to terminal output readability.</li>
+				<li class="rscadd">Added some assertion macros to be used for unit tests, to make their writing less annoying.</li>
+				<li class="rscadd">All unit tests logging now report from what file and line they come from, instead of having you guess and search around for where they originate.</li>
+				<li class="rscadd">Added a create and destroy unit test, it verifies that all items can be created and destroyed without issues, do not sleep during, runtime, error out, are not set as initialized, and returns an hint during initialization, and do not harddel at their destroy, at least in their default state.</li>
+				<li class="rscadd">Added a subsystem initialization unit test, that verify all subsystems initialize correctly.</li>
+				<li class="rscadd">Added an SStimer unit test, that verify the bucket does not go negative.</li>
+			</ul>
 			<h3 class="author">kyres1 updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="rscadd">Adds a more complete readout of information to scan results. These readouts include non-mechanical statistics for the scanned objects, like its length, or an exoplanet&#x27;s geology.</li>
