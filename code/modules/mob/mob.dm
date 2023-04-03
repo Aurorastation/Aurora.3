@@ -1473,7 +1473,7 @@
 	var/obj/screen/zone_sel/selector = mob.zone_sel
 	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))
 
-/mob/examine(mob/user)
+/mob/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
 	..()
 	if(assembleHeightString(user))
 		to_chat(user, SPAN_NOTICE(assembleHeightString(user)))

@@ -467,23 +467,23 @@
 		return heightString
 
 	// Compare to Species Average
-		if(species.species_height != HEIGHT_NOT_USED)
-			switch(height - species.species_height)
-				if(-999 to -100)
-					descriptor = "miniscule"
-				if(-99 to -50)
-					descriptor = "tiny"
-				if(-49 to -11)
-					descriptor = "small"
-				if(-10 to 10)
-					descriptor = "about average height"
-				if(11 to 50)
-					descriptor = "tall"
-				if(51 to 100)
-					descriptor = "huge"
-				else
-					descriptor = "gargantuan"
-			heightString = "[get_pronoun("He")] look[get_pronoun("end")] [descriptor] for \a [species.name]"
+	if(species.species_height != HEIGHT_NOT_USED)
+		switch(height - species.species_height)
+			if(-999 to -100)
+				descriptor = "miniscule"
+			if(-99 to -50)
+				descriptor = "tiny"
+			if(-49 to -11)
+				descriptor = "small"
+			if(-10 to 10)
+				descriptor = "about average height"
+			if(11 to 50)
+				descriptor = "tall"
+			if(51 to 100)
+				descriptor = "huge"
+			else
+				descriptor = "gargantuan"
+		heightString = "[get_pronoun("He")] look[get_pronoun("end")] [descriptor] for \a [species.name]"
 
 
 	if(examiner.height == HEIGHT_NOT_USED)
