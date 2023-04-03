@@ -1,8 +1,0 @@
-author: kyres1
-
-delete-after: True
-
-changes:
-  - rscadd: "Adds a more complete readout of information to scan results. These readouts include non-mechanical statistics for the scanned objects, like its length, or an exoplanet's geology."
-  - rscadd: "Added visible scan images for all exoplanets and third-party ships seen ingame, with exception to most shuttles. These show up on printed papers, too!"
-  - bugfix: "Fixed the skybox sprites of the TCFL corvette and the tramp freighter being swapped."
