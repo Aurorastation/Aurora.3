@@ -35,6 +35,70 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">03 April 2023</h2>
+			<h3 class="author">Alberyk, Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Added sprites for wielding the adhomian assault rifle.</li>
+				<li class="rscadd">Added golden plated version of the adhomian assault rifle.</li>
+			</ul>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Refactored the various unit tests to use macros to indicate pass/fail and logging.</li>
+				<li class="backend">Added a new unit tests logging system that integrates with github output, prettifying it, and is able to be switched back to terminal-reading mode with a flick of a commented header/define.</li>
+				<li class="rscadd">Added a manual unit tests define file, for when you want to run the unit tests locally, with logging to terminal output readability.</li>
+				<li class="rscadd">Added some assertion macros to be used for unit tests, to make their writing less annoying.</li>
+				<li class="rscadd">All unit tests logging now report from what file and line they come from, instead of having you guess and search around for where they originate.</li>
+				<li class="rscadd">Added a create and destroy unit test, it verifies that all items can be created and destroyed without issues, do not sleep during, runtime, error out, are not set as initialized, and returns an hint during initialization, and do not harddel at their destroy, at least in their default state.</li>
+				<li class="rscadd">Added a subsystem initialization unit test, that verify all subsystems initialize correctly.</li>
+				<li class="rscadd">Added an SStimer unit test, that verify the bucket does not go negative.</li>
+			</ul>
+			<h3 class="author">kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a more complete readout of information to scan results. These readouts include non-mechanical statistics for the scanned objects, like its length, or an exoplanet&#x27;s geology.</li>
+				<li class="rscadd">Added visible scan images for all exoplanets and third-party ships seen ingame, with exception to most shuttles. These show up on printed papers, too!</li>
+				<li class="bugfix">Fixed the skybox sprites of the TCFL corvette and the tramp freighter being swapped.</li>
+			</ul>
+
+			<h2 class="date">02 April 2023</h2>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed OM not having access to the vault.</li>
+			</ul>
+			<h3 class="author">Sniblet updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">A whole lot of spellchecks and clarity/brevity/grammatical rewrites in accent description texts for all races.</li>
+			</ul>
+
+			<h2 class="date">31 March 2023</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed mixing bowls turning invisible.</li>
+				<li class="bugfix">Fixed the scrapper outpost being invisible.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Flashlights now consume power. They accept device power cells, with the exception of the lantern which uses standard cells.</li>
+				<li class="rscadd">Flashlights have various brightness modes. The higher the brightness, the more light produced but also the more power consumed.</li>
+				<li class="bugfix">The lantern and maglight&#x27;s on states are actually used.</li>
+				<li class="bugfix">Added more sanity checking to catch illegal calls in flashlights.</li>
+				<li class="refactor">Cleaned up flashlight code to make it more flexible.</li>
+				<li class="imageadd">Added a sprite for device power cells. (Credit to Pebbles, Baystation12.)</li>
+				<li class="imageadd">Power cells now have a distinct sprite for low power, and no power.</li>
+				<li class="rscadd">Added advanced device power cells. (Sprite credit to Pebbles, Baystation12.)</li>
+				<li class="soundadd">Added sounds for toggling flashlights, and the green desk lamp.</li>
+				<li class="tweak">Flashlights are now fabricated from plastic, instead of steel.</li>
+				<li class="tweak">Electronic cigarettes now use device power cells. Power consumption has been reduced in half to compensate.</li>
+				<li class="tweak">Dim lights can no longer be used to inspect eyes, and robotic eyes can no longer be inspected with flashlights.</li>
+				<li class="tweak">Lanterns are now considered large items. Their attack force was increased to 10 to compensate.</li>
+				<li class="bugfix">The health analyzer now has an inactive sprite, as intended.</li>
+			</ul>
+
+			<h2 class="date">30 March 2023</h2>
+			<h3 class="author">RyverStyx updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changes the core world origin to inner systems.</li>
+			</ul>
+
 			<h2 class="date">29 March 2023</h2>
 			<h3 class="author">Alberyk updated:</h3>
 			<ul class="changes bgimages16">

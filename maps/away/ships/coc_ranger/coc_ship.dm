@@ -80,6 +80,13 @@
 	icon_state = "xansan"
 	moving_state = "xansan_moving"
 	colors = list("#8492fd", "#4d61fc")
+	scanimage = "ranger.png"
+	designer = "Coalition of Colonies, Xanu Prime"
+	volume = "65 meters length, 31 meters beam/width, 14 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Dual extruding starboard-mounted medium caliber ballistic armament, starboard obscured flight craft bay"
+	sizeclass = "Xansan-class Gunboat"
+	shiptype = "Military patrol and combat utility"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000

@@ -34,6 +34,13 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	scanimage = "tramp_freighter.png"
+	designer = "Independent, Unknown"
+	volume = "49 meters length, 46 meters beam/width, 12 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Starboard low-end ballistic weapon mount, aft obscured flight craft bay"
+	sizeclass = "Catspaw Class Freighter"
+	shiptype = "Long-term shipping utilities"
 	initial_restricted_waypoints = list(
 		"Freight Shuttle" = list("nav_hangar_tramp")
 	)
@@ -50,7 +57,7 @@
     ..()
 
 /obj/effect/overmap/visitable/ship/tramp_freighter/get_skybox_representation()
-	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "tcfl_corvette")
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "tramp_freighter")
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image

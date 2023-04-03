@@ -30,6 +30,11 @@
 	icon_state = "waystation"
 	moving_state = "waystation"
 	colors = list("#a1a8e2", "#818be0")
+	scanimage = "oe_platform.png"
+	designer = "Orion Express, Refurbished Design"
+	volume = "51 meters length, 55 meters beam/width, 29 meters vertical height"
+	sizeclass = "Traveler-class Mobile Waystation"
+	shiptype = "Refuel, resupply and commercial logistics services"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000

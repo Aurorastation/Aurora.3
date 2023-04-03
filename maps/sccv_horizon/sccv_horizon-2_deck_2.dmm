@@ -3737,7 +3737,7 @@
 	pixel_x = -38;
 	pixel_y = 32;
 	specialfunctions = 4;
-	req_access = list(20)
+	req_one_access = list(20,41)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -33168,7 +33168,7 @@
 "qgL" = (
 /obj/machinery/door/airlock/vault/bolted{
 	id_tag = "Vault_Airlock";
-	req_access = list(20)
+	req_one_access = list(20,41)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -33189,7 +33189,8 @@
 	pixel_x = 6;
 	name = "Vault Turret Control";
 	pixel_y = 32;
-	req_access = list(20)
+	req_one_access = list(20,41);
+	req_access = null
 	},
 /turf/simulated/floor/tiled/full,
 /area/storage/secure)

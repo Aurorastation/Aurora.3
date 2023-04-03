@@ -23,6 +23,13 @@
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
+	scanimage = "pra_freighter.png"
+	designer = "People's Republic of Adhomai"
+	volume = "51 meters length, 28 meters beam/width, 12 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Not apparent, port obscured flight craft bay"
+	sizeclass = "Database Freighter"
+	shiptype = "Stellar, cosmic study and long-term research missions"
 	initial_generic_waypoints = list(
 		"nav_database_freighter_1",
 		"nav_database_freighter_2",
