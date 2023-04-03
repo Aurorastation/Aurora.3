@@ -42,10 +42,6 @@
 # Tools, often binary in nature, let arrow and alb know
 /tools/ @Arrow768 @Alberyk
 
-# Sounds and images often requires licensing reviews, alb seems the best suited for it
-/sound/ @Alberyk
-/icons/ @Alberyk
-
 # Pipeline/CI stuffs, arrow
 /scripts/ @Arrow768
 /.github/ @Arrow768
@@ -61,10 +57,15 @@
 # Matt is also the implementer/porter of the observable design pattern
 /code/datums/observation/ @NonQueueingMatt
 
-# Spatial gridmap, Windinks
+# Spatial gridmap, Wildkins
 /code/__defines/spatial_gridmap.dm @JohnWildkins
 /code/_helpers/spatial_info.dm @JohnWildkins
 /controllers/subsystems/spatial_gridmap.dm @JohnWildkins
+
+# Tcomms and radios, Wildkins
+/code/game/machinery/telecomms/ @JohnWildkins
+/code/game/objects/items/devices/radio/ @JohnWildkins
+
 # Whatever else
 /code/controllers/subsystems/cargo.dm @Arrow768
 /code/datums/cargo.dm @Arrow768
