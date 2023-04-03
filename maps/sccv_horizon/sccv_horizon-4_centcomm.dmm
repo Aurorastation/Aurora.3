@@ -35914,8 +35914,6 @@
 	blocks_air = 1;
 	density = 1;
 	name = "\proper srom space";
-	light_power = 1;
-	light_range = 5;
 	use_starlight = 0
 	},
 /area/centcom/shared_dream)
@@ -35996,8 +35994,6 @@
 	blocks_air = 1;
 	density = 1;
 	name = "\proper srom space";
-	light_power = 1;
-	light_range = 5;
 	use_starlight = 0
 	},
 /area/centcom/shared_dream)
@@ -36542,8 +36538,6 @@
 	blocks_air = 1;
 	density = 1;
 	name = "\proper srom space";
-	light_power = 1;
-	light_range = 5;
 	use_starlight = 0
 	},
 /area/centcom/shared_dream)
@@ -36842,8 +36836,6 @@
 	blocks_air = 1;
 	density = 1;
 	name = "\proper srom space";
-	light_power = 1;
-	light_range = 5;
 	use_starlight = 0
 	},
 /area/centcom/shared_dream)
@@ -36927,8 +36919,6 @@
 	blocks_air = 1;
 	density = 1;
 	name = "\proper srom space";
-	light_power = 1;
-	light_range = 5;
 	use_starlight = 0
 	},
 /area/centcom/shared_dream)
@@ -37615,7 +37605,6 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
 "mAv" = (
-/obj/structure/flora/ausbushes/lavendergrass,
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
@@ -37722,8 +37711,6 @@
 	blocks_air = 1;
 	density = 1;
 	name = "\proper srom space";
-	light_power = 1;
-	light_range = 5;
 	use_starlight = 0
 	},
 /area/centcom/shared_dream)
@@ -38315,8 +38302,6 @@
 	blocks_air = 1;
 	density = 1;
 	name = "\proper srom space";
-	light_power = 1;
-	light_range = 5;
 	use_starlight = 0
 	},
 /area/centcom/shared_dream)
@@ -38367,8 +38352,6 @@
 	blocks_air = 1;
 	density = 1;
 	name = "\proper srom space";
-	light_power = 1;
-	light_range = 5;
 	use_starlight = 0
 	},
 /area/centcom/shared_dream)
@@ -38517,18 +38500,6 @@
 /obj/structure/grille/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
-"tex" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 6
-	},
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#64C864";
-	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
-	},
-/turf/simulated/floor/exoplanet/grass/grove,
-/area/centcom/shared_dream)
 "thp" = (
 /obj/structure/bed/stool/chair/sofa/corner/brown{
 	dir = 4
@@ -38582,8 +38553,6 @@
 	blocks_air = 1;
 	density = 1;
 	name = "\proper srom space";
-	light_power = 1;
-	light_range = 5;
 	use_starlight = 0
 	},
 /area/centcom/shared_dream)
@@ -38601,9 +38570,9 @@
 	},
 /area/centcom/shared_dream)
 "trr" = (
-/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/ausbushes/lavendergrass,
 /obj/effect/floor_decal/spline/plain{
-	dir = 4
+	dir = 6
 	},
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
@@ -38824,6 +38793,19 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"ved" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/centcom/shared_dream)
 "vgn" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -39015,8 +38997,6 @@
 	blocks_air = 1;
 	density = 1;
 	name = "\proper srom space";
-	light_power = 1;
-	light_range = 5;
 	use_starlight = 0
 	},
 /area/centcom/shared_dream)
@@ -102478,7 +102458,7 @@ bMV
 bMK
 bMF
 smA
-tex
+mAv
 rZP
 rZP
 bMl
@@ -102981,13 +102961,13 @@ cUc
 rrI
 exP
 njp
-trr
+ved
 rrI
 gzZ
 njp
 njp
 uHf
-mAv
+trr
 rZP
 rZP
 rZP
