@@ -5,8 +5,8 @@
 	category_name = "Unathi"
 	bodytype = BODYTYPE_UNATHI
 	species_height = HEIGHT_CLASS_TALL
-	height_min = 170
-	height_max = 220
+	height_min = 175
+	height_max = 215
 	icobase = 'icons/mob/human_races/unathi/r_unathi.dmi'
 	deform = 'icons/mob/human_races/unathi/r_def_unathi.dmi'
 	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
