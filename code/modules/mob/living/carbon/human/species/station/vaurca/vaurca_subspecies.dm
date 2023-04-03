@@ -56,7 +56,7 @@
 	primitive_form = SPECIES_VAURCA_WARRIOR
 	species_height = HEIGHT_CLASS_GIGANTIC
 	height_min = 220
-	height_max = 320
+	height_max = 335
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'

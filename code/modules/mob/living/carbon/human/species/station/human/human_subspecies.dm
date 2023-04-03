@@ -5,7 +5,7 @@
 	They thrive in thinner atmosphere and weightlessness, more often than not utilizing advanced life support and body-bracing equipment to sustain themselves in normal Human environments."
 	hide_name = FALSE
 	species_height = HEIGHT_CLASS_TALL
-	height_min = 150
+	height_min = 180
 	height_max = 230
 
 	icobase = 'icons/mob/human_races/human/r_offworlder.dmi'
