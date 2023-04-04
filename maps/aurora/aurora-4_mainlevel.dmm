@@ -179,7 +179,6 @@
 /area/maintenance/security_starboard)
 "aaz" = (
 /obj/structure/lattice,
-/obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aaA" = (
@@ -244,8 +243,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aaH" = (
-/obj/structure/grille/broken,
-/obj/structure/lattice,
 /obj/structure/grille/broken,
 /obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -50684,7 +50681,6 @@
 /obj/machinery/newscaster{
 	pixel_y = -30
 	},
-/obj/machinery/vending/battlemonsters,
 /turf/simulated/floor/wood,
 /area/library)
 "bQR" = (
@@ -59009,7 +59005,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -65054,7 +65050,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "odf" = (
@@ -68474,7 +68470,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/flour,
 /obj/structure/table,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/machinery/light_construct{
 	dir = 8
 	},

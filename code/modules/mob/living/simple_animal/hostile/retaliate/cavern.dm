@@ -151,7 +151,7 @@
 		scan_timer--
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/proc/FindOre()
-	if(enemies.len)
+	if(enemies?.len)
 		return
 
 	setClickCooldown(attack_delay)

@@ -63,9 +63,7 @@
 		if(!tags_in_use[tag]) // is unused
 			if(print_all_unused_tags)
 				var/lstr = english_list(tags_available[tag])
-				log_unit_test(
-					"[ascii_yellow]--------------- Unused '[tag]', defined by [lstr].[ascii_reset]"
-				)
+				TEST_WARN(" Unused '[tag]', defined by [lstr].")
 		else
 			n_found += 1
 
@@ -74,22 +72,20 @@
 	if(length(not_found))
 		for (var/tag in not_found)
 			var/lstr = english_list(tags_required[tag])
-			log_unit_test(
-				"[ascii_red]--------------- Undefined '[tag]', required by [lstr]![ascii_reset]"
-			)
+			TEST_FAIL("Undefined '[tag]', required by [lstr]!")
 
 		var/msg = "[n_affected] of [length(recipes)] could not find [length(not_found)] tags!"
 		if(n_unused)
 			msg += " With [n_unused] unsued tags found."
 		else
 			msg += " With no unused tags."
-		fail(msg)
+		TEST_FAIL(msg)
 	else
 		var/msg = "All [length(recipes)] recipes could find all [n_found] needed tags!"
 		if(n_unused)
 			msg += " With [n_unused] unsued tags found."
 		else
 			msg += " With no unused tags."
-		pass(msg)
+		TEST_PASS(msg)
 
 	return 1

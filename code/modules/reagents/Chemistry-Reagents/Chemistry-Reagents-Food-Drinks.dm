@@ -4469,7 +4469,7 @@
 	color = "#1936a0"
 	strength = 10
 	description = "A controversial drink popular with the punk youth of the Nralakk Federation. Represents blood, eggs, and tears."
-	taste_description = "genophage sadness"
+	taste_description = "X'Lu'oa sadness"
 
 	glass_icon_state = "thirdincident"
 	glass_name = "glass of the Third Incident"

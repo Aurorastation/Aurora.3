@@ -21,6 +21,13 @@
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
 	colors = list("#c3c7eb", "#a0a8ec")
+	scanimage = "tramp_freighter.png"
+	designer = "Independent/no designation"
+	volume = "55 meters length, 25 meters beam/width, 18 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Not apparent, port obscured flight craft bay"
+	sizeclass = "Zhsram Freighter"
+	shiptype = "Long-term shipping utilities"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000

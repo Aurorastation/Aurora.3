@@ -66,7 +66,7 @@
 		addtimer(CALLBACK(src, PROC_REF(activate_beacon)), 450)
 	latest_area = get_area(src)
 	icon_state = "hivebotbeacon_off"
-	generate_warp_destinations()
+	addtimer(CALLBACK(src, PROC_REF(generate_warp_destinations)), 10) //So we don't sleep during init
 	set_light(6,0.5,LIGHT_COLOR_GREEN)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/generate_warp_destinations()

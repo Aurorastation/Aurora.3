@@ -17,6 +17,13 @@
 	icon_state = "voidbreaker"
 	moving_state = "voidbreaker_moving"
 	colors = list("#e38222", "#f0ba3e")
+	scanimage = "unathi_corvette.png"
+	designer = "Hephaestus Industries, Izweski Hegemonic Naval Guilds"
+	volume = "65 meters length, 45 meters beam/width, 21 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Not apparent, port obscured flight craft bay"
+	sizeclass = "Voidbreaker-class Armored Corvette"
+	shiptype = "Specialist long-distance extended-duration combat utility"
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH

@@ -13,9 +13,9 @@ datum/unit_test/foundation/step_shall_return_true_on_success/start_test()
 	var/obj_step_result = TestStep(/obj)
 
 	if(mob_step_result && obj_step_result)
-		pass("step() returned true.")
+		TEST_PASS("step() returned true.")
 	else
-		fail("step() did not return true: Mob result: [mob_step_result] - Obj result: [obj_step_result].")
+		TEST_FAIL("step() did not return true: Mob result: [mob_step_result] - Obj result: [obj_step_result].")
 
 	return 1
 

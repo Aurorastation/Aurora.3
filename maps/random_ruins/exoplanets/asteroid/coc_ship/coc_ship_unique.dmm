@@ -1710,7 +1710,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "Po" = (
-/obj/item/reagent_containers/cooking_container/plate/bowl{
+/obj/item/reagent_containers/cooking_container/board/bowl{
 	pixel_y = 8
 	},
 /obj/item/storage/box/fancy/cigarettes,
