@@ -130,7 +130,6 @@
 #define ACCENT_TRAD_PEASANT "Peasant Traditional"
 #define ACCENT_WASTELAND "Deep Wastelander"
 #define ACCENT_AUTAKH "Aut'akh Dialect"
-#define ACCENT_UNATHI_DREG "Sintese Eridanian Dreg"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 #define ACCENT_HOMEWORLD "Qerrbalak"

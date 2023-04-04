@@ -2,7 +2,11 @@
 	name = "Aut'akh"
 	desc = "The Aut'akh are a decentralized, leaderless religious movement and society. Formed by a group of scientists and engineers on Ouerea after the Contact War, they took the Th'akh faith to extremes through ritualistic augmentation in the pursuit of self-actualization. After revealing themselves to the galaxy, these transhumanists seek to carve out a small space for themselves wherever they can seek refuge. Many disabled and elderly form these religious communes that seize and control their own spiritual destiny, and others who feel displaced by society - Guwan, those who claim their bodies and souls do not align, and even those of other species - they are found within these communes as well."
 	possible_origins = list(
-		/singleton/origin_item/origin/autakh
+		/singleton/origin_item/origin/autakh,
+		/singleton/origin_item/origin/autakh/undercity,
+		/singleton/origin_item/origin/autakh/eridani,
+		/singleton/origin_item/origin/autakh/razortail,
+		/singleton/origin_item/origin/autakh/hidden
 	)
 
 /singleton/origin_item/origin/autakh
@@ -19,7 +23,6 @@
 /singleton/origin_item/origin/autakh/eridani
 	name = "Eridani Underworld Commune"
 	desc = "In the depths of Eridani I under the city, a small commune of Unathi have made some order out of the chaos. The first Aut'akh to come here didn't have the credits or the legal standing to make it on top in the corporate over-world; however, they did have enough muscle to clear out a mining drone factory of drug-addicted dregs. A few years is all it took for a community of Aut'akh to grow, walling off the Factory and setting up a safe spot for them to fit. Over time, the surrounding local dreg community came to accept the Aut'akh in. Even still, some have treated the augmented Unathi as just another gang they have to deal with."
-	possible_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_AUTAKH, ACCENT_UNATHI_DREG)
 	possible_citizenships = list(CITIZENSHIP_ERIDANI)
 
 /singleton/origin_item/origin/autakh/razortail
@@ -29,5 +32,5 @@
 
 /singleton/origin_item/origin/autakh/hidden
 	name = "Unknown Aut'akh Commune"
-	desc = "TO-DO get a writer to write this"
-	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI)
+	desc = "Either due to their fellow Unathi rejecting them and their way of life, or life among other species and cultures feeling too alien when away from Hegemonic space, most Aut'akh inevitably end up forming communes and living among each other in these. Aside from the few notable, larger communes, many more minor communes exist across the Spur."
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI)

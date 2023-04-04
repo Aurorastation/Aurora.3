@@ -1,6 +1,6 @@
-author: Geeves
+author: Geeves, CNEGecko
 
 delete-after: True
 
 changes:
-  - rscadd: "Added a culture for Aut'akh, as well as an origin for the various communes. Additionally, added a unique accent for Aut'akh, and Sinta dregs living in the Eridani underbelly."
+  - rscadd: "Added a culture for Aut'akh, as well as an origin for the various communes. Additionally, added a unique accent for Aut'akh."
