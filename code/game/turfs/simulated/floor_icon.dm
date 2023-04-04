@@ -105,6 +105,8 @@
 
 /singleton/flooring/proc/test_link(turf/origin, turf/T)
 	var/is_linked = FALSE
+	if(!T)
+		return
 	//is_wall is true for wall turfs and for floors containing a low wall
 	if(T.is_wall())
 		if(wall_smooth == SMOOTH_ALL)
@@ -114,7 +116,6 @@
 	else if(T.is_open())
 		if(space_smooth == SMOOTH_ALL)
 			is_linked = TRUE
-
 
 	//If we get here then its a normal floor
 	else if (T.is_floor())
