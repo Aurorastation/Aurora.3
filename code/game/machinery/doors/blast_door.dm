@@ -31,6 +31,7 @@
 	var/open_sound = 'sound/machines/blastdooropen.ogg'
 	var/close_sound = 'sound/machines/blastdoorclose.ogg'
 	var/damage = BLAST_DOOR_CRUSH_DAMAGE
+	closed_layer = ABOVE_WINDOW_LAYER
 	var/id = 1.0
 
 	var/_wifi_id

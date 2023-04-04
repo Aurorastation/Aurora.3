@@ -17,7 +17,7 @@
 	icon_state = "mixer0"
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
-	layer = 2.9
+	layer = BELOW_OBJ_LAYER
 	clicksound = /singleton/sound_category/button_sound
 
 	var/obj/item/reagent_containers/glass/beaker = null
@@ -328,7 +328,7 @@
 	name = "All-In-One Grinder"
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "juicer1"
-	layer = 2.99
+	layer = BELOW_OBJ_LAYER
 	density = 0
 	anchored = 0
 	use_power = POWER_USE_IDLE

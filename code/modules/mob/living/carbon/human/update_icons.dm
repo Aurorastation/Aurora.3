@@ -239,7 +239,7 @@ There are several things that need to be remembered:
 
 		LAZYADD(ovr, DI)
 
-	overlays_raw[DAMAGE_LAYER] = ovr
+	overlays_raw[MOB_DAMAGE_LAYER] = ovr
 	update_bandages(update_icons)
 	if(update_icons)
 		update_icon()

@@ -594,7 +594,7 @@
 		var/angle = door_anim_angle * (closing ? 1 - (I/num_steps) : (I/num_steps))
 		var/matrix/M = get_door_transform(angle)
 		var/door_state = angle >= 90 ? "[icon_door_override ? icon_door : icon_state]_back" : "[icon_door || icon_state]_door"
-		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_MOB_LAYER
+		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_HUMAN_LAYER
 
 		if(I == 0)
 			door_obj.transform = M
@@ -625,7 +625,7 @@
 		var/angle = door_anim_angle * (closing ? 1 - (I/num_steps) : (I/num_steps))
 		var/matrix/M = get_door_transform(angle, TRUE)
 		var/door_state = angle >= 90 ? "[icon_door_override ? icon_door : icon_state]_back_alt" : "[icon_door || icon_state]_door_alt"
-		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_MOB_LAYER
+		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_HUMAN_LAYER
 
 		if(I == 0)
 			door_obj_alt.transform = M

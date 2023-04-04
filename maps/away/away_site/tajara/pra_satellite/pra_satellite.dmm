@@ -33,7 +33,6 @@
 "aH" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -732,7 +731,6 @@
 "oR" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/structure/window/reinforced{
 	dir = 8

@@ -225,7 +225,7 @@
 /obj/structure/bed/stool/chair/shuttle/update_icon()
 	..()
 	if(!buckled)
-		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_MOB_LAYER)
+		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_HUMAN_LAYER)
 
 /obj/structure/bed/stool/chair/cockpit
 	name = "cockpit seating"
