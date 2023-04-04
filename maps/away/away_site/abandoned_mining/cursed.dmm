@@ -169,7 +169,6 @@
 "aQn" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
@@ -1145,7 +1144,6 @@
 /obj/item/bodybag/cryobag,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/storage/firstaid/fire{
-	layer = 3.01
 	},
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
@@ -1700,7 +1698,6 @@
 /obj/structure/flora/rock/pile{
 	density = 0;
 	icon_state = "basalt2";
-	layer = 3;
 	pixel_x = -13;
 	pixel_y = 5
 	},
@@ -1846,7 +1843,6 @@
 "lrD" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
@@ -2183,7 +2179,6 @@
 "mTG" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/cursed/engineering)
@@ -3103,7 +3098,6 @@
 /area/cursed/living_area)
 "rwC" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	layer = 3.5;
 	start_pressure = 5066.26;
 	dir = 4
 	},

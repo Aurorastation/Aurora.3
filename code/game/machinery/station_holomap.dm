@@ -16,7 +16,7 @@
 	var/light_power_on = 1
 	var/light_range_on = 2
 
-	layer = 3.25	// Above windows.
+	layer = ABOVE_WINDOW_LAYER
 
 	var/mob/watching_mob = null
 	var/image/small_station_map = null
@@ -63,7 +63,7 @@
 /obj/machinery/station_map/proc/add_floor_decal()
 	floor_markings = image('icons/obj/machinery/stationmap.dmi', "decal_station_map")
 	floor_markings.dir = src.dir
-	floor_markings.layer = ON_TURF_LAYER
+	floor_markings.layer = TURF_DETAIL_LAYER
 	update_icon()
 
 /obj/machinery/station_map/attack_hand(var/mob/user)

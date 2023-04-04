@@ -36,7 +36,7 @@ Possible to do for anyone motivated enough:
 	icon_state = "holopad0"
 	var/icon_state_suffix = ""
 
-	layer = ON_TURF_LAYER //Preventing rats and drones from sneaking under them.
+	layer = ABOVE_TILE_LAYER
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5

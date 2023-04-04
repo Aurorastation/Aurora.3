@@ -20,13 +20,11 @@
 	blobpwrdisplay.name = "blob power"
 	blobpwrdisplay.icon_state = "block"
 	blobpwrdisplay.screen_loc = ui_health
-	blobpwrdisplay.layer = SCREEN_LAYER
 
 	blobhealthdisplay = new /obj/screen()
 	blobhealthdisplay.name = "blob health"
 	blobhealthdisplay.icon_state = "block"
 	blobhealthdisplay.screen_loc = ui_internal
-	blobhealthdisplay.layer = SCREEN_LAYER
 
 	mymob.client.screen = null
 
@@ -47,7 +45,6 @@
 	using.icon = ui_style
 	using.icon_state = "intent_"+mymob.a_intent
 	using.screen_loc = ui_zonesel
-	using.layer = SCREEN_LAYER
 	src.adding += using
 	action_intent = using
 
@@ -61,7 +58,6 @@
 	using.name = "help"
 	using.icon = ico
 	using.screen_loc = ui_zonesel
-	using.layer = SCREEN_LAYER
 	src.adding += using
 	help_intent = using
 
@@ -72,7 +68,6 @@
 	using.name = "disarm"
 	using.icon = ico
 	using.screen_loc = ui_zonesel
-	using.layer = SCREEN_LAYER
 	src.adding += using
 	disarm_intent = using
 
@@ -83,7 +78,6 @@
 	using.name = "grab"
 	using.icon = ico
 	using.screen_loc = ui_zonesel
-	using.layer = SCREEN_LAYER
 	src.adding += using
 	grab_intent = using
 
@@ -94,7 +88,6 @@
 	using.name = I_HURT
 	using.icon = ico
 	using.screen_loc = ui_zonesel
-	using.layer = SCREEN_LAYER
 	src.adding += using
 	hurt_intent = using
 

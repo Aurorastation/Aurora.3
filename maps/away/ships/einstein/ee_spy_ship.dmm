@@ -109,7 +109,6 @@
 "aJd" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -385,7 +384,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "ee_spy_ship_port";
-	layer = 3.3;
 	pixel_y = 28;
 	tag_airpump = "ee_spy_ship_pump";
 	tag_chamber_sensor = "ee_spy_ship_sensor";
@@ -492,7 +490,6 @@
 "hdb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
@@ -834,7 +831,6 @@
 /area/ship/ee_spy_ship)
 "ofY" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,

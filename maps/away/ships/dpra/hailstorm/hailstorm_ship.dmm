@@ -1342,7 +1342,6 @@
 /area/hailstorm_ship)
 "iW" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/empty{
@@ -3653,7 +3652,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
 	frequency = 1380;
 	id_tag = "hailstorm_shuttle";
-	layer = 3.3;
 	master_tag = "hailstorm_shuttle";
 	tag_airpump = "hailstorm_shuttle_pump";
 	tag_chamber_sensor = "hailstorm_shuttle_sensor";
@@ -3755,7 +3753,6 @@
 /area/hailstorm_ship/gun_deck/second)
 "Uy" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,

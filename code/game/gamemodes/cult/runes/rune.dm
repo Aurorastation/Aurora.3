@@ -4,7 +4,7 @@
 	icon = 'icons/obj/rune.dmi'
 	icon_state = "1"
 	unacidable = TRUE
-	layer = AO_LAYER
+	layer = RUNE_LAYER
 	var/datum/rune/rune
 
 /obj/effect/rune/Initialize(mapload, var/R)

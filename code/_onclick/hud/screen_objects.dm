@@ -9,7 +9,7 @@
 /obj/screen
 	name = ""
 	icon = 'icons/mob/screen/generic.dmi'
-	layer = SCREEN_LAYER
+	layer = HUD_BASE_LAYER
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
 	var/datum/hud/hud = null // A reference to the owner HUD, if any.
@@ -121,7 +121,6 @@
 
 /obj/screen/storage
 	name = "storage"
-	layer = SCREEN_LAYER
 	screen_loc = "7,7 to 10,8"
 
 /obj/screen/storage/Click()
@@ -187,7 +186,7 @@
 	mouse_opacity = 0
 	alpha = 128
 	anchored = TRUE
-	layer = SCREEN_LAYER + 0.1
+	plane = HUD_ITEM_LAYER
 
 /obj/screen/zone_sel/MouseExited(location, control, params)
 	if(!isobserver(usr) && hovering_choice)
@@ -418,7 +417,6 @@
 /obj/screen/movement_intent
 	name = "mov_intent"
 	screen_loc = ui_movi
-	layer = SCREEN_LAYER
 
 //This updates the run/walk button on the hud
 /obj/screen/movement_intent/proc/update_move_icon(var/mob/living/user)

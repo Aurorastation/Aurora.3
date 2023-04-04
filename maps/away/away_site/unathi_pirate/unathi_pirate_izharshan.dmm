@@ -330,7 +330,6 @@
 "lE" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/item/bedsheet/brown,
@@ -557,7 +556,6 @@
 	},
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/item/bedsheet/brown,

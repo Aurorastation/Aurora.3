@@ -28,7 +28,6 @@ var/list/global_huds
 	screen.screen_loc = "SOUTHWEST to NORTHEAST" // Will tile up to the whole screen, scaling beyond 15x15 if needed.
 	screen.icon = 'icons/obj/hud_tiled.dmi'
 	screen.icon_state = icon_state
-	screen.layer = SCREEN_LAYER
 	screen.mouse_opacity = 0
 	screen.color = color
 
@@ -39,7 +38,7 @@ var/list/global_huds
 	druggy = new /obj/screen()
 	druggy.screen_loc = ui_entire_screen
 	druggy.icon_state = "druggy"
-	druggy.layer = 17
+	druggy.layer = IMPAIRED_LAYER
 	druggy.mouse_opacity = 0
 	druggy.alpha = 127
 	druggy.blend_mode = BLEND_MULTIPLY
@@ -48,7 +47,7 @@ var/list/global_huds
 	blurry = new /obj/screen()
 	blurry.screen_loc = ui_entire_screen
 	blurry.icon_state = "blurry"
-	blurry.layer = 17
+	blurry.layer = IMPAIRED_LAYER
 	blurry.mouse_opacity = 0
 	blurry.alpha = 100
 
@@ -111,18 +110,18 @@ var/list/global_huds
 	for(i = 1, i <= 4, i++)
 		O = vimpaired[i]
 		O.icon_state = "dither50"
-		O.layer = 17
+		O.layer = IMPAIRED_LAYER
 		O.mouse_opacity = 0
 
 		O = darkMask[i]
 		O.icon_state = "dither50"
-		O.layer = 17
+		O.layer = IMPAIRED_LAYER
 		O.mouse_opacity = 0
 
 	for(i = 5, i <= 8, i++)
 		O = darkMask[i]
 		O.icon_state = "black"
-		O.layer = 17
+		O.layer = IMPAIRED_LAYER
 		O.mouse_opacity = 0
 
 /*

@@ -5,7 +5,7 @@
 	icon_state = "plasticflaps"
 	density = 0
 	anchored = 1
-	layer = 4
+	layer = ABOVE_HUMAN_LAYER
 	explosion_resistance = 5
 	build_amt = 4
 
@@ -104,7 +104,6 @@
 /obj/structure/plasticflaps/airtight
 	name = "airtight plastic flaps"
 	desc = "Heavy duty, airtight, plastic flaps."
-	layer = 3
 	airtight = TRUE
 
 /obj/structure/plasticflaps/airtight/Initialize()

@@ -130,7 +130,7 @@ var/global/list/can_enter_vent_with = list(
 		else
 			return
 
-/mob/living/var/ventcrawl_layer = 3
+/mob/living/var/ventcrawl_layer = OBJ_LAYER
 
 /mob/living/proc/handle_ventcrawl(var/atom/clicked_on)
 
@@ -228,12 +228,12 @@ var/global/list/can_enter_vent_with = list(
 	for(var/datum/pipeline/pipeline in network.line_members)
 		for(var/obj/machinery/atmospherics/A in (pipeline.members || pipeline.edges)) // Adds pipe and manifold images
 			if(!A.pipe_image)
-				A.pipe_image = image(A, A.loc, layer = SCREEN_LAYER+0.01, dir = A.dir)
+				A.pipe_image = image(A, A.loc, layer = ABOVE_LIGHTING_LAYER, dir = A.dir)
 			pipes_shown += A.pipe_image
 			client.images += A.pipe_image
 	for (var/obj/machinery/atmospherics/V in network.normal_members) // Adds vent and scrubber images
 		if (!V.pipe_image || istype(V, /obj/machinery/atmospherics/unary/vent_pump/))
-			V.pipe_image = image(V, V.loc, layer = SCREEN_LAYER+0.01, dir = V.dir)
+			V.pipe_image = image(V, V.loc, layer = ABOVE_LIGHTING_LAYER, dir = V.dir)
 		pipes_shown += V.pipe_image
 		client.images += V.pipe_image
 

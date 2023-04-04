@@ -3,7 +3,7 @@
 	icon_state = null
 	duration = 5
 	randomdir = FALSE
-	layer = BELOW_MOB_LAYER
+	layer = LYING_HUMAN_LAYER
 	var/splatter_type = "splatter"
 
 /obj/effect/temp_visual/dir_setting/bloodsplatter/Initialize(mapload, set_dir, _color)
@@ -22,7 +22,7 @@
 			target_pixel_y = 16
 		if(SOUTH)
 			target_pixel_y = -16
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		if(EAST)
 			target_pixel_x = 16
 		if(WEST)
@@ -36,9 +36,9 @@
 		if(SOUTHEAST)
 			target_pixel_x = 16
 			target_pixel_y = -16
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		if(SOUTHWEST)
 			target_pixel_x = -16
 			target_pixel_y = -16
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 	animate(src, pixel_x = target_pixel_x, pixel_y = target_pixel_y, alpha = 0, time = duration)

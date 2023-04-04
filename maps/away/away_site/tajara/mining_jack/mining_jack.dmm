@@ -4,7 +4,6 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/conveyor{
 	id = "mining_jack_base_belt";
-	layer = 2.9
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -247,7 +246,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_jack_base_belt";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -298,7 +296,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining_jack_base_belt";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -356,7 +353,6 @@
 "eZ" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating{
@@ -384,7 +380,6 @@
 /area/mining_jack_outpost/storage)
 "fG" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/empty{
@@ -518,7 +513,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining_jack_base_belt";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -553,7 +547,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "mining_jack_base_belt";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -577,7 +570,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_jack_base_belt";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -603,7 +595,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_jack_base_belt";
-	layer = 2.9
 	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
@@ -736,7 +727,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_jack_base_belt";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -792,7 +782,6 @@
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "mining_jack_base_belt";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
@@ -864,7 +853,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining_jack_belt";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
@@ -1007,7 +995,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_jack_base_belt";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1291,7 +1278,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "mining_jack_base_belt";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1476,7 +1462,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_jack_base_belt";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1769,7 +1754,6 @@
 /area/shuttle/mining_jack/bridge)
 "DS" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating{
@@ -1826,7 +1810,6 @@
 /area/shuttle/mining_jack/engines)
 "EO" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -1887,7 +1870,6 @@
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "tajara_mining_jack_hatch";
-	layer = 2.8;
 	name = "Ship External Access";
 	open_layer = 2.8
 	},
@@ -2130,7 +2112,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining_jack_base_belt";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2309,7 +2290,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining_jack_belt";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -2411,7 +2391,6 @@
 /obj/machinery/conveyor{
 	dir = 5;
 	id = "mining_jack_base_belt";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -2547,7 +2526,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining_jack_belt";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4

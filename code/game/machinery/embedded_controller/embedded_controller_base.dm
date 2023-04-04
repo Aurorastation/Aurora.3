@@ -3,7 +3,6 @@
 
 	name = "Embedded Controller"
 	anchored = 1
-	layer = OBJ_LAYER
 
 	idle_power_usage = 10
 	var/checks_for_access = FALSE

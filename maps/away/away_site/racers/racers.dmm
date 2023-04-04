@@ -446,11 +446,9 @@
 	pixel_y = 9
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled/white,
@@ -1552,7 +1550,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
@@ -1910,7 +1907,6 @@
 "jjQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /turf/simulated/floor/shuttle/white,
 /area/racers)
@@ -2560,7 +2556,6 @@
 "mxk" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/structure/lattice/catwalk/indoor/grate,

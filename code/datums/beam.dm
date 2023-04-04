@@ -198,7 +198,7 @@
 /obj/effect/ebeam
 	mouse_opacity = 0
 	anchored = 1
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	layer = BEAM_PROJECTILE_LAYER
 	blend_mode = BLEND_ADD
 	var/datum/beam/owner
 

@@ -864,7 +864,6 @@
 	req_access = null
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},

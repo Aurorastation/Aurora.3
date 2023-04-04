@@ -260,7 +260,6 @@
 "aJd" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engine2)
@@ -914,7 +913,6 @@
 /area/ship/sfa_patrol_ship/Engine2)
 "dTw" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
@@ -1037,7 +1035,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1832,7 +1829,6 @@
 "hdb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/decal/cleanable/dirt,
@@ -2015,7 +2011,6 @@
 /area/ship/sfa_patrol_ship/Quarters)
 "hYx" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/structure/window/reinforced{
@@ -2085,7 +2080,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "sfa_patrol_ship_port";
-	layer = 3.3;
 	pixel_y = 28;
 	tag_airpump = "sfa_patrol_ship_pump";
 	tag_chamber_sensor = "sfa_patrol_ship_sensor";
@@ -2487,7 +2481,6 @@
 "jEV" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engine1)
@@ -3844,7 +3837,6 @@
 	name = "trashbin"
 	},
 /obj/item/clothing/gloves/black_leather{
-	layer = 2.98
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4346,7 +4338,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engineering)

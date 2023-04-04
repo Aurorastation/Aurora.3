@@ -383,7 +383,6 @@
 "bIQ" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine1)
@@ -435,7 +434,6 @@
 /area/ship/ranger_corvette/canteen)
 "cfi" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -524,7 +522,6 @@
 "cpO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
-	layer = 2.71
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "coc_fore";
@@ -689,7 +686,6 @@
 "dwE" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine2)
@@ -716,7 +712,6 @@
 "dHA" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -784,7 +779,6 @@
 "epG" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1573,7 +1567,6 @@
 "ian" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/generic{
-	layer = 2.81
 	},
 /obj/item/trash/dipbowl,
 /turf/simulated/floor/carpet,
@@ -2489,7 +2482,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/atmospherics)
@@ -2664,7 +2656,6 @@
 "nCd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
-	layer = 2.71
 	},
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
@@ -2812,7 +2803,6 @@
 /area/ship/ranger_corvette/atmospherics)
 "oJk" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/dark_blue,
@@ -2848,7 +2838,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -3425,12 +3414,10 @@
 "qSw" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey{
-	layer = 3.1;
 	pixel_x = 2;
 	pixel_y = 17
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
-	layer = 3.2;
 	pixel_x = -5;
 	pixel_y = 11
 	},
@@ -3756,7 +3743,6 @@
 "sEf" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3843,10 +3829,8 @@
 "sSQ" = (
 /obj/structure/coatrack,
 /obj/item/clothing/suit/storage/toggle/himeo{
-	layer = 4.2
 	},
 /obj/item/clothing/head/softcap/himeo{
-	layer = 4.21;
 	pixel_y = 12
 	},
 /obj/item/clothing/accessory/flagpatch/himeo,
@@ -4259,7 +4243,6 @@
 /area/ship/ranger_corvette/engine1)
 "tXd" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/button/remote/blast_door{
@@ -4346,7 +4329,6 @@
 	},
 /obj/item/bedsheet/black,
 /obj/item/clothing/head/bearpelt{
-	layer = 4;
 	name = "bear pelt blanket"
 	},
 /obj/machinery/light{
@@ -4597,7 +4579,6 @@
 "vyy" = (
 /obj/structure/table/steel,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/machinery/door/window/northleft{
@@ -4940,7 +4921,6 @@
 "wSM" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/decal/cleanable/ash{
-	layer = 3;
 	pixel_y = 10
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,

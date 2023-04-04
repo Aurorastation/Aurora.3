@@ -42,7 +42,7 @@
 /obj/effect/bmode//Cleaning up the tree a bit
 	density = 1
 	anchored = 1
-	layer = SCREEN_LAYER
+	layer = HUD_BASE_LAYER
 	dir = NORTH
 	icon = 'icons/misc/buildmode.dmi'
 	var/obj/effect/bmode/buildholder/master = null
@@ -340,7 +340,7 @@
 
 	var/turf/T = get_turf(user)
 	var/name = input(user, "Which template would you like to load?", "Load Template", null) as null|anything in templates["templates_list"]
-	
+
 	if (!name || !T)
 		return
 

@@ -409,7 +409,6 @@
 	dir = 5
 	},
 /obj/structure/sign/emergency/evacuation/stairs{
-	layer = 2.1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -931,7 +930,6 @@
 	pixel_y = 5
 	},
 /obj/item/reagent_containers/hypospray{
-	layer = 2.99;
 	pixel_x = 4;
 	pixel_y = 5
 	},
@@ -1886,7 +1884,6 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1380;
-	layer = 3.3;
 	master_tag = "centcom_shuttle_dock_airlock";
 	name = "interior access button";
 	pixel_x = -25;
@@ -2252,7 +2249,6 @@
 "aYI" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/structure/window/reinforced{
@@ -5417,7 +5413,6 @@
 "cGJ" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -8187,7 +8182,6 @@
 /area/operations/lobby)
 "ebm" = (
 /obj/structure/extinguisher_cabinet{
-	layer = 3.3;
 	pixel_x = 26
 	},
 /obj/structure/table/standard,
@@ -9255,7 +9249,6 @@
 	dir = 4
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/structure/window/reinforced{
@@ -14517,7 +14510,6 @@
 "gYm" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/structure/window/reinforced{
@@ -14962,7 +14954,6 @@
 /area/medical/icu)
 "hkt" = (
 /obj/structure/extinguisher_cabinet{
-	layer = 3.3;
 	pixel_x = 26
 	},
 /turf/simulated/floor/tiled/dark,
@@ -18869,7 +18860,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	id = "EngineEmitterPortWest";
-	layer = 3.3;
 	name = "Supermatter Reactor Waste Management Blast Door"
 	},
 /turf/simulated/floor/tiled/full,
@@ -19303,14 +19293,12 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "massdriver";
-	layer = 3.2;
 	name = "Mass Driver Interior Blast Door";
 	pixel_x = 25;
 	pixel_y = 3
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "chapel_driver";
-	layer = 3.2;
 	name = "Mass Driver Exterior Blast Door";
 	pixel_x = 25;
 	pixel_y = -7
@@ -19318,7 +19306,6 @@
 /obj/machinery/button/mass_driver{
 	_wifi_id = "chapel_driver";
 	id = "chapel_driver";
-	layer = 3.2;
 	pixel_x = 35;
 	pixel_y = -3
 	},
@@ -23026,7 +23013,6 @@
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet{
-	layer = 3.3;
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -25319,7 +25305,6 @@
 /area/maintenance/wing/starboard)
 "msO" = (
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 34
 	},
@@ -25328,7 +25313,6 @@
 	dir = 5
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 23
 	},
@@ -34628,11 +34612,9 @@
 	pixel_y = 10
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -35694,11 +35676,9 @@
 	pixel_y = 10
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -36384,7 +36364,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	id = "EngineEmitterPortWest";
-	layer = 3.3;
 	name = "Supermatter Reactor Waste Management Blast Door"
 	},
 /turf/simulated/floor/tiled/full,
@@ -37176,7 +37155,6 @@
 "sjV" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/plasticflaps/airtight{
-	layer = 2.5
 	},
 /obj/machinery/door/window/brigdoor/northright{
 	dir = 8;
@@ -37662,7 +37640,6 @@
 /obj/item/device/assembly/timer,
 /obj/structure/closet/crate/drop/grey{
 	desc = "A large, sturdy crate, that stores grenade components.";
-	layer = 2.79;
 	name = "grenade crate";
 	pixel_y = -4;
 	tablestatus = -1
@@ -39445,7 +39422,6 @@
 "tvX" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
@@ -42927,7 +42903,6 @@
 /obj/structure/cable/yellow,
 /obj/machinery/power/terminal{
 	dir = 8;
-	layer = 5
 	},
 /obj/machinery/light{
 	dir = 4
@@ -44334,7 +44309,6 @@
 	dir = 9
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/structure/table/wood,
@@ -48978,7 +48952,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	id = "EngineEmitterPortWest";
-	layer = 3.3;
 	name = "Supermatter Reactor Waste Management Blast Door"
 	},
 /turf/simulated/floor/tiled/full,
@@ -49488,7 +49461,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/paleblue{

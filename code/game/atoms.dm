@@ -1,5 +1,4 @@
 /atom
-	layer = 2
 	var/level = 2
 	var/flags = 0
 	var/init_flags = 0

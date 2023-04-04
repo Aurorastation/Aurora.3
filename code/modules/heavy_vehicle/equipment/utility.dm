@@ -190,7 +190,7 @@
 	desc = "An exosuit-mounted light."
 	icon_state = "mech_floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
-	mech_layer = MECH_DECAL_LAYER
+	mech_layer = MECH_GEAR_LAYER
 
 	var/on = 0
 	var/brightness_on = 12		//can't remember what the maxed out value is

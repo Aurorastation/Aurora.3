@@ -6,8 +6,6 @@
 	var/datum/pipeline/parent
 	var/volume = 0
 	force = 20
-
-	layer = PIPE_LAYER
 	use_power = POWER_USE_OFF
 
 	var/alert_pressure = ATMOS_DEFAULT_ALERT_PRESSURE
@@ -353,7 +351,6 @@
 	a Universal Adapter pipe."
 	icon_state = "intact-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
-	layer = 2.38
 	icon_connect_type = "-scrubbers"
 	color = PIPE_COLOR_RED
 
@@ -364,7 +361,6 @@
 	a Universal Adapter pipe."
 	icon_state = "intact-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
-	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
@@ -423,7 +419,6 @@
 	a Universal Adapter pipe."
 	icon_state = "intact-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
-	layer = 2.38
 	icon_connect_type = "-scrubbers"
 	color = PIPE_COLOR_RED
 
@@ -434,7 +429,6 @@
 	a Universal Adapter pipe."
 	icon_state = "intact-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
-	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
@@ -496,7 +490,6 @@
 	var/obj/machinery/atmospherics/node3
 
 	level = 1
-	layer = 2.4 //under wires with their 2.44
 
 	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
@@ -683,7 +676,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
-	layer = 2.38
 	icon_connect_type = "-scrubbers"
 	color = PIPE_COLOR_RED
 
@@ -694,7 +686,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
-	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
@@ -753,7 +744,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
-	layer = 2.38
 	icon_connect_type = "-scrubbers"
 	color = PIPE_COLOR_RED
 
@@ -764,7 +754,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
-	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
@@ -827,7 +816,6 @@
 	var/obj/machinery/atmospherics/node4
 
 	level = 1
-	layer = 2.4 //under wires with their 2.44
 
 /obj/machinery/atmospherics/pipe/manifold4w/Initialize(mapload)
 	if(mapload)
@@ -1015,7 +1003,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map_4way-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
-	layer = 2.38
 	icon_connect_type = "-scrubbers"
 	color = PIPE_COLOR_RED
 
@@ -1026,7 +1013,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map_4way-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
-	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
@@ -1085,7 +1071,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map_4way-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
-	layer = 2.38
 	icon_connect_type = "-scrubbers"
 	color = PIPE_COLOR_RED
 
@@ -1096,7 +1081,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map_4way-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
-	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
@@ -1150,7 +1134,6 @@
 	icon = 'icons/atmos/pipes.dmi'
 	icon_state = ""
 	level = 2
-	layer = 2.4 //under wires with their 2.44
 
 	volume = 35
 
@@ -1232,7 +1215,6 @@
 	name = "scrubbers pipe endcap"
 	desc = "An endcap for scrubbers pipes"
 	connect_types = CONNECT_TYPE_SCRUBBER
-	layer = 2.38
 	icon_connect_type = "-scrubbers"
 	color = PIPE_COLOR_RED
 
@@ -1240,7 +1222,6 @@
 	name = "supply pipe endcap"
 	desc = "An endcap for supply pipes"
 	connect_types = CONNECT_TYPE_SUPPLY
-	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
@@ -1269,7 +1250,6 @@
 	name = "scrubbers pipe endcap"
 	desc = "An endcap for scrubbers pipes"
 	connect_types = CONNECT_TYPE_SCRUBBER
-	layer = 2.38
 	icon_connect_type = "-scrubbers"
 	color = PIPE_COLOR_RED
 
@@ -1277,7 +1257,6 @@
 	name = "supply pipe endcap"
 	desc = "An endcap for supply pipes"
 	connect_types = CONNECT_TYPE_SUPPLY
-	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 

@@ -111,7 +111,6 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	layer = 2.1
 	var/eating = 0
 	var/sated = 0
 	var/asleep = 0
@@ -408,7 +407,6 @@
 	icon_state = "sarlaccend"
 	anchored = 1
 	density = 0
-	layer = 2.1
 
 /obj/structure/greatworm/Initialize()
 	. = ..()

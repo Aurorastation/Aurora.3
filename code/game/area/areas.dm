@@ -19,7 +19,7 @@
 	name = "Unknown"
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "unknown"
-	layer = 10
+	layer = AREA_LAYER
 	luminosity = 0
 	mouse_opacity = 0
 
@@ -73,7 +73,6 @@
 
 /area/Initialize(mapload)
 	icon_state = "white"
-	layer = 10
 
 	blend_mode = BLEND_MULTIPLY
 

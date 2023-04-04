@@ -13,7 +13,7 @@
 	name = "status display"
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
-	layer = OBJ_LAYER
+	layer = ABOVE_WINDOW_LAYER
 	anchored = 1
 	density = 0
 	idle_power_usage = 10

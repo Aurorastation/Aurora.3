@@ -304,9 +304,9 @@
 			if(S.aura)
 				S.aura.dir = direction
 				if(S.aura.dir == NORTH)
-					S.aura.layer = MECH_UNDER_LAYER
+					S.aura.layer = MOB_LAYER
 				else
-					S.aura.layer = ABOVE_MOB_LAYER
+					S.aura.layer = ABOVE_HUMAN_LAYER
 		update_icon()
 
 	if(!turn_only)

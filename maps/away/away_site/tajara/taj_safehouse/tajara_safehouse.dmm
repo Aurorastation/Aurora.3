@@ -1,7 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ab" = (
 /obj/structure/extinguisher_cabinet{
-	layer = 3.3;
 	pixel_x = -26
 	},
 /turf/simulated/floor/tiled/dark,
@@ -211,7 +210,6 @@
 	pixel_y = 20
 	},
 /obj/structure/mirror{
-	layer = 2.98;
 	pixel_y = 34
 	},
 /obj/machinery/light/small{
@@ -652,7 +650,6 @@
 /area/tajara_safehouse/hangar)
 "th" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
@@ -1049,7 +1046,6 @@
 /area/tajara_safehouse)
 "JI" = (
 /obj/structure/extinguisher_cabinet{
-	layer = 3.3;
 	pixel_x = 26
 	},
 /turf/simulated/floor/tiled/dark,

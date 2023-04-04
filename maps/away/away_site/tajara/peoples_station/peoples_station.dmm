@@ -1656,7 +1656,6 @@
 	req_access = null
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -2066,7 +2065,6 @@
 	name = "waste canister"
 	},
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/alarm/cold{
 	pixel_y = 32;
@@ -5869,7 +5867,6 @@
 "Ae" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating{
@@ -6242,7 +6239,6 @@
 /area/peoples_station/atmos)
 "BU" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	layer = 3.5;
 	start_pressure = 5066.26
 	},
 /turf/simulated/floor/plating{
@@ -9873,7 +9869,6 @@
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "fang_hatch";
-	layer = 2.8;
 	name = "Ship External Access";
 	open_layer = 2.8
 	},
@@ -10931,7 +10926,6 @@
 	pixel_y = 28
 	},
 /obj/structure/mirror{
-	layer = 2.98;
 	pixel_y = 34
 	},
 /turf/simulated/floor/tiled/freezer{

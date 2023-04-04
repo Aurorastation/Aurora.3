@@ -42,7 +42,6 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1337;
-	layer = 3.4;
 	master_tag = "specops_shuttle_dock_airlock";
 	name = "exterior access button";
 	pixel_x = 7;
@@ -264,7 +263,6 @@
 "agT" = (
 /obj/machinery/ringer_button{
 	id = "Consular";
-	layer = 3.3;
 	name = "Consular ringer button";
 	pixel_x = -32
 	},
@@ -1613,7 +1611,6 @@
 "biw" = (
 /obj/machinery/vending/zora,
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/green/full{
@@ -1795,7 +1792,6 @@
 	dir = 1
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
@@ -3013,7 +3009,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -4572,7 +4567,6 @@
 	},
 /obj/structure/table/glass,
 /obj/item/storage/box/masks{
-	layer = 2.8;
 	pixel_x = 7;
 	pixel_y = 8
 	},
@@ -6072,7 +6066,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/newscaster{
-	layer = 3.3;
 	pixel_y = -30
 	},
 /turf/simulated/floor/tiled,
@@ -6853,7 +6846,6 @@
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "medicalisolation";
-	layer = 5;
 	name = "Isolation Ward Shutters"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -7156,7 +7148,6 @@
 /obj/machinery/airlock_sensor{
 	frequency = 1337;
 	id_tag = "green_dock_aft_sensor";
-	layer = 3.4;
 	pixel_x = -28
 	},
 /obj/machinery/light/small/emergency{
@@ -7611,7 +7602,6 @@
 	dir = 1
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /turf/simulated/floor/holofloor/tiled/ramp{
@@ -8138,7 +8128,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -9600,7 +9589,6 @@
 "hWx" = (
 /obj/machinery/ringer_button{
 	id = "Representative";
-	layer = 3.3;
 	name = "Representative ringer button";
 	pixel_x = 32
 	},
@@ -12256,7 +12244,6 @@
 	dir = 5
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -12504,7 +12491,6 @@
 /obj/structure/closet/lawcloset,
 /obj/item/stamp/denied,
 /obj/item/stamp{
-	layer = 3.1;
 	name = "representative stamp"
 	},
 /obj/item/paper_scanner,
@@ -12613,7 +12599,6 @@
 "ksS" = (
 /obj/structure/table/standard,
 /obj/structure/closet/crate/plastic{
-	layer = 2.79;
 	pixel_y = -4;
 	tablestatus = -1
 	},
@@ -12652,7 +12637,6 @@
 	dir = 4
 	},
 /obj/structure/noticeboard{
-	layer = 3.3;
 	pixel_x = 32
 	},
 /turf/simulated/floor/lino/grey,
@@ -14388,7 +14372,6 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1337;
-	layer = 3.4;
 	master_tag = "green_dock_aft_airlock";
 	name = "exterior access button";
 	pixel_x = 27;
@@ -16464,7 +16447,6 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -18203,7 +18185,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
 	frequency = 1337;
 	id_tag = "green_dock_aft_airlock";
-	layer = 3.4;
 	master_tag = "legion_shuttle_dock";
 	pixel_x = 28;
 	tag_airpump = "green_dock_aft_pump";
@@ -18305,7 +18286,6 @@
 	dir = 4
 	},
 /obj/structure/sign/emergency/evacuation/stairs{
-	layer = 2.1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -18555,7 +18535,6 @@
 "pda" = (
 /obj/machinery/light,
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = -32
 	},
 /turf/simulated/floor/holofloor/tiled/ramp{
@@ -18963,7 +18942,6 @@
 /area/crew_quarters/lounge/secondary)
 "pGv" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/structure/disposalpipe/segment{
@@ -21684,7 +21662,6 @@
 	c_tag = "Bridge - Port 1"
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -22559,7 +22536,6 @@
 "sBT" = (
 /obj/machinery/power/terminal{
 	dir = 8;
-	layer = 5
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -23282,7 +23258,6 @@
 	dir = 10
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -23865,7 +23840,6 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1337;
-	layer = 3.4;
 	master_tag = "green_dock_aft_airlock";
 	name = "interior access button";
 	pixel_x = 26;
@@ -24858,7 +24832,6 @@
 	dir = 1
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
@@ -27832,7 +27805,6 @@
 /area/bridge)
 "wNz" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /turf/simulated/wall,
@@ -28714,7 +28686,6 @@
 /area/horizon/hallway/deck_three/primary/central)
 "xus" = (
 /obj/machinery/computer/security/telescreen{
-	layer = 4;
 	name = "Observation Screen";
 	network = list("Interrogation");
 	pixel_y = -32
@@ -29251,7 +29222,6 @@
 	dir = 8
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,

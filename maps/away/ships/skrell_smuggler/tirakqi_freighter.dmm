@@ -112,7 +112,6 @@
 "bge" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
@@ -276,7 +275,6 @@
 /area/ship/tirakqi_freighter)
 "dPD" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
@@ -659,12 +657,10 @@
 /obj/item/reagent_containers/food/drinks/milk,
 /obj/item/reagent_containers/food/drinks/milk,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1121,7 +1117,6 @@
 /area/ship/tirakqi_freighter)
 "jGO" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/decal/cleanable/dirt,
@@ -1883,7 +1878,6 @@
 /area/ship/tirakqi_freighter)
 "tNm" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,

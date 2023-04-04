@@ -4,7 +4,7 @@
 	desc_extended = "Has a touch display for inputting a frequency, with proper authentication. Used to communicate when you have lost your radio. \
 		Otherwise, you would likely just use a handheld shortwave radio instead."
 	icon_state = "intercom"
-	layer = 2.99
+	layer = ABOVE_WINDOW_LAYER
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	w_class = ITEMSIZE_LARGE

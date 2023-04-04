@@ -317,7 +317,7 @@ var/list/GPS_list = list()
 	desc = "A static global positioning system."
 	anchored = TRUE
 	unacidable = TRUE
-	layer = 2.1
+	layer = BASE_ABOVE_OBJ_LAYER
 	gpstag = "STAT0"
 
 /obj/item/device/gps/stationary/Initialize()

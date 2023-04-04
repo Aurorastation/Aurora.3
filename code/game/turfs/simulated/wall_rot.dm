@@ -5,7 +5,7 @@
 	icon_state = "wallrot"
 	anchored = TRUE
 	density = TRUE
-	layer = 5
+	layer = ABOVE_TILE_LAYER
 	mouse_opacity = 0
 
 /obj/effect/overlay/wallrot/Initialize(mapload, ...)

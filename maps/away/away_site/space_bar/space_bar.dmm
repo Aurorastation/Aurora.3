@@ -259,11 +259,9 @@
 	pixel_y = 9
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3
 	},
 /obj/item/material/hatchet/butch,

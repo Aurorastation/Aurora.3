@@ -96,7 +96,7 @@
 		density = FALSE
 	if(head)
 		new_overlays += get_mech_image("[head.icon_state]", head.on_mech_icon, head.color, MECH_HEAD_LAYER)
-		new_overlays += get_mech_image("[head.icon_state]_eyes", head.on_mech_icon, null, MECH_EYES_LAYER)
+		new_overlays += get_mech_image("[head.icon_state]_eyes", head.on_mech_icon, null, EYEGLOW_LAYER)
 	if(arms)
 		new_overlays += get_mech_image(arms.icon_state, arms.on_mech_icon, arms.color, MECH_ARM_LAYER)
 	if(legs)

@@ -275,7 +275,6 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/conveyor{
 	id = "okon_base_belt";
-	layer = 2.9
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -516,7 +515,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "okon_base_belt";
-	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor/plating{
@@ -1142,7 +1140,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "okon_base_belt";
-	layer = 2.9
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1669,7 +1666,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "okon_base_belt";
-	layer = 2.9
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1837,7 +1833,6 @@
 /obj/machinery/conveyor{
 	dir = 5;
 	id = "okon_base_belt";
-	layer = 2.9;
 	reversed = 0
 	},
 /turf/simulated/floor/plating{
@@ -2628,7 +2623,6 @@
 	req_access = null
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -2961,7 +2955,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "okon_base_belt";
-	layer = 2.9
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3420,7 +3413,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "okon_base_belt";
-	layer = 2.9
 	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15

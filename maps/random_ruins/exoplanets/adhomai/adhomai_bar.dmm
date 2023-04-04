@@ -257,7 +257,6 @@
 /area/adhomai_bar)
 "lk" = (
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -266,7 +265,6 @@
 	pixel_y = 10
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/structure/table/wood,

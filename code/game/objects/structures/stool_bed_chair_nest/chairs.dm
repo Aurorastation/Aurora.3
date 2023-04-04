@@ -364,7 +364,7 @@
 /obj/structure/bed/stool/chair/shuttle/update_icon()
 	..()
 	if(!buckled)
-		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_MOB_LAYER)
+		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_HUMAN_LAYER)
 
 // pool chair, to sit with your feet in the water. only works when facing south, because water overlays weirdly otherwise
 /obj/structure/bed/stool/chair/pool

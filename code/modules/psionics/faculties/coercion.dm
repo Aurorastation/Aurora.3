@@ -304,7 +304,7 @@
 				continue
 			if(!L.is_psi_pingable())
 				continue
-			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = our_turf, layer = OBFUSCATION_LAYER + 0.1)
+			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = our_turf, layer = UNDER_HUD_LAYER)
 			pixel_shift_to_turf(ping_image, our_turf, T)
 			user << ping_image
 			QDEL_IN(ping_image, 8)

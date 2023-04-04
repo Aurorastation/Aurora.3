@@ -10,7 +10,7 @@
 	icon = 'icons/obj/structures.dmi'
 	density = TRUE
 	w_class = ITEMSIZE_NORMAL
-	layer = 3.2 // Just above doors.
+	layer = SIDE_WINDOW_LAYER
 	anchored = TRUE
 	flags = ON_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
@@ -540,7 +540,7 @@
 	dir = 5
 	smooth = SMOOTH_TRUE
 	can_be_unanchored = TRUE
-	layer = 2.99
+	layer = FULL_WINDOW_LAYER
 
 /obj/structure/window/shuttle/legion
 	name = "reinforced cockpit window"
@@ -601,7 +601,7 @@
 	maxhealth = 28 // Two glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	glasstype = /obj/item/stack/material/glass
 	shardtype = /obj/item/material/shard
-	layer = 2.99
+	layer = FULL_WINDOW_LAYER
 	base_frame = /obj/structure/window_frame
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
@@ -787,7 +787,7 @@
 	reinf = TRUE
 	maximal_heat = T0C + 750
 	glasstype = /obj/item/stack/material/glass/reinforced
-	layer = 2.99
+	layer = FULL_WINDOW_LAYER
 	base_frame = /obj/structure/window_frame
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(

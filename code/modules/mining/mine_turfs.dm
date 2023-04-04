@@ -22,7 +22,6 @@ var/list/mineral_can_smooth_with = list(
 	desc = "It's a greyish rock. Exciting."
 	gender = PLURAL
 	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
-	layer = ON_TURF_LAYER
 
 	// canSmoothWith is set in Initialize().
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON

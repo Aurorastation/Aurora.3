@@ -364,7 +364,6 @@
 /area/headmaster_ship/engineering)
 "aX" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black{
@@ -963,7 +962,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_y = 32
 	},
@@ -2743,7 +2741,6 @@
 /area/headmaster_ship/mess_hall)
 "iF" = (
 /obj/structure/extinguisher_cabinet{
-	layer = 3.3;
 	pixel_x = 26
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -3799,7 +3796,6 @@
 /area/headmaster_ship/commissar_quarters)
 "mf" = (
 /obj/structure/extinguisher_cabinet{
-	layer = 3.3;
 	pixel_x = 26
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -5984,7 +5980,6 @@
 	req_access = null
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -6236,7 +6231,6 @@
 "Si" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/structure/extinguisher_cabinet{
-	layer = 3.3;
 	pixel_x = 26
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,

@@ -1,11 +1,8 @@
-#define SHOWER_OPEN_LAYER OBJ_LAYER + 0.4
-#define SHOWER_CLOSED_LAYER MOB_LAYER + 0.1
-
 /obj/structure/curtain
 	name = "curtain"
 	icon = 'icons/obj/curtain.dmi'
 	icon_state = "closed"
-	layer = SHOWER_OPEN_LAYER
+	layer = ABOVE_WINDOW_LAYER
 	opacity = 1
 	density = 0
 	anchored = TRUE //curtains start secured in place
@@ -20,7 +17,7 @@
 
 /obj/structure/curtain/open
 	icon_state = "open"
-	layer = SHOWER_CLOSED_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	opacity = 0
 
 /obj/structure/curtain/bullet_act(obj/item/projectile/P, def_zone)
@@ -67,10 +64,10 @@
 	src.set_opacity(!src.opacity)
 	if(opacity)
 		icon_state = "closed"
-		layer = SHOWER_CLOSED_LAYER
+		layer = ABOVE_HUMAN_LAYER
 	else
 		icon_state = "open"
-		layer = SHOWER_OPEN_LAYER
+		layer = ABOVE_WINDOW_LAYER
 
 /obj/structure/curtain/black
 	name = "black curtain"
@@ -109,6 +106,3 @@
 
 /obj/structure/curtain/open/shower/security
 	color = "#AA0000"
-
-#undef SHOWER_OPEN_LAYER
-#undef SHOWER_CLOSED_LAYER

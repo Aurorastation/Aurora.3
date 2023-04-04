@@ -130,7 +130,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "wavey_fire"
 	light_color = LIGHT_COLOR_FIRE
-	layer = ABOVE_MOB_LAYER
+	layer = FIRE_LAYER
 
 	var/firelevel = 1 //Calculated by gas_mixture.calculate_firelevel()
 
@@ -152,7 +152,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 		set_light(7, FIRE_LIGHT_2, no_update = TRUE)
 	else
 		set_light(5, FIRE_LIGHT_1, no_update = TRUE)
-	
+
 	air_contents.adjust_gas(GAS_CO2, firelevel * 0.07)
 
 	for(var/mob/living/L in loc)

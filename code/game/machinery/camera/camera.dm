@@ -6,7 +6,7 @@
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 5
 	active_power_usage = 10
-	layer = 5
+	layer = CAMERA_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/list/network = list(NETWORK_STATION)

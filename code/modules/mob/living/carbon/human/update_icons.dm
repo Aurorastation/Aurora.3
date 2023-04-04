@@ -88,7 +88,7 @@ There are several things that need to be remembered:
 // Layer 1 intentionally left empty.
 #define FIRE_LAYER_LOWER      2
 #define MUTATIONS_LAYER       3
-#define DAMAGE_LAYER          4
+#define MOB_DAMAGE_LAYER      4
 #define SURGERY_LAYER         5
 #define UNDERWEAR_LAYER       6
 #define TAIL_SOUTH_LAYER      7
@@ -229,7 +229,7 @@ There are several things that need to be remembered:
 
 		LAZYADD(ovr, DI)
 
-	overlays_raw[DAMAGE_LAYER] = ovr
+	overlays_raw[MOB_DAMAGE_LAYER] = ovr
 	update_bandages(update_icons)
 	if(update_icons)
 		update_icon()
@@ -238,7 +238,7 @@ There are several things that need to be remembered:
 	var/bandage_icon = species.bandages_icon
 	if(!bandage_icon)
 		return
-	var/image/standing_image = overlays_raw[DAMAGE_LAYER]
+	var/image/standing_image = overlays_raw[MOB_DAMAGE_LAYER]
 	if(standing_image)
 		for(var/obj/item/organ/external/O in organs)
 			if(O.is_stump())
@@ -247,7 +247,7 @@ There are several things that need to be remembered:
 			if(bandage_level)
 				standing_image += image(bandage_icon, "[O.icon_name][bandage_level]")
 
-		overlays_raw[DAMAGE_LAYER] = standing_image
+		overlays_raw[MOB_DAMAGE_LAYER] = standing_image
 
 	if(update_icons)
 		update_icon()
@@ -1547,7 +1547,7 @@ There are several things that need to be remembered:
 //Human Overlays Indexes/////////
 #undef FIRE_LAYER_LOWER
 #undef MUTATIONS_LAYER
-#undef DAMAGE_LAYER
+#undef MOB_DAMAGE_LAYER
 #undef SURGERY_LAYER
 #undef UNIFORM_LAYER
 #undef ID_LAYER

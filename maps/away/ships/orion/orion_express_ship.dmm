@@ -595,7 +595,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "orion_traveler_n_port";
-	layer = 3.3;
 	pixel_x = -32;
 	tag_airpump = "orion_traveler_n_pump";
 	tag_chamber_sensor = "orion_traveler_n_sensor";
@@ -843,7 +842,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1060,7 +1058,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass{
-	layer = 2.71;
 	name = "Commissary";
 	open_layer = 2.71
 	},
@@ -1254,7 +1251,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "orion_traveler_e_port";
-	layer = 3.3;
 	pixel_x = null;
 	pixel_y = 32;
 	tag_airpump = "orion_traveler_e_pump";
@@ -1498,7 +1494,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "orion_traveler_w_port";
-	layer = 3.3;
 	pixel_y = 32;
 	tag_airpump = "orion_traveler_w_pump";
 	tag_chamber_sensor = "orion_traveler_w_sensor";
@@ -1584,7 +1579,6 @@
 	pixel_y = 12
 	},
 /obj/item/reagent_containers/food/drinks/cans/peach_soda{
-	layer = 3.1;
 	pixel_x = 17;
 	pixel_y = 24
 	},
@@ -1639,7 +1633,6 @@
 "mcN" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor,
@@ -1677,7 +1670,6 @@
 /obj/item/bedsheet/brown,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /turf/simulated/floor/wood,
@@ -2055,7 +2047,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "orion_traveler_port";
-	layer = 3.3;
 	pixel_x = -32;
 	tag_airpump = "orion_traveler_pump";
 	tag_chamber_sensor = "orion_traveler_sensor";
@@ -2107,7 +2098,6 @@
 "pHQ" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor,
@@ -2723,7 +2713,6 @@
 "tmL" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass{
-	layer = 2.71;
 	name = "Primary Hall";
 	open_layer = 2.71
 	},
@@ -3417,7 +3406,6 @@
 "xzg" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)

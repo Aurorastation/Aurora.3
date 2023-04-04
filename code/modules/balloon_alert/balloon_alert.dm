@@ -40,7 +40,7 @@
 		var/atom/movable/movable_source = src
 		bound_width = movable_source.bound_width
 
-	var/image/balloon_alert = image(loc = get_atom_on_turf(src), layer = ABOVE_MOB_LAYER)
+	var/image/balloon_alert = image(loc = get_atom_on_turf(src), layer = ABOVE_HUMAN_LAYER)
 	balloon_alert.alpha = 0
 	balloon_alert.maptext = SMALL_FONTS(7, "<span style='text-align: center;'>[text]</span>")
 	balloon_alert.maptext_x = (BALLOON_TEXT_WIDTH - bound_width) * -0.5

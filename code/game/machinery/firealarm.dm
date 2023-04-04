@@ -66,7 +66,7 @@
 				if("delta")
 					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_ORANGE)
 
-		add_overlay(image(icon, "overlay_[seclevel]", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
+		add_overlay(image(icon, "overlay_[seclevel]"))
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
 	if(src.detecting)

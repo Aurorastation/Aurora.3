@@ -2,7 +2,7 @@
 	name = "pew"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = null
-	layer = 4.5
+	layer = PROJECTILE_LAYER
 	anchored = TRUE
 	unacidable = TRUE
 	light_power = 1

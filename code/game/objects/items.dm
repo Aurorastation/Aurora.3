@@ -378,7 +378,7 @@
 // slot uses the slot_X defines found in setup.dm
 // for items that can be placed in multiple slots
 /obj/item/proc/equipped(var/mob/user, var/slot)
-	layer = SCREEN_LAYER+0.01
+	hud_layerise()
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
@@ -1054,7 +1054,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/can_swap_hands(var/mob/user)
 	return TRUE
 
-/obj/item/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
+/obj/item/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, layer + 0.1, dir, pixel_x, pixel_y))
 	if(!isturf(loc))
 		return
 	if(overlays.len)

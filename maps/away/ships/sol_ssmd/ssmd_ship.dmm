@@ -17,7 +17,6 @@
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 8;
-	layer = 2.41
 	},
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/starboardengine)
@@ -159,7 +158,6 @@
 /obj/structure/closet/crate/loot,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/outline/yellow{
-	layer = 2.71
 	},
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -317,7 +315,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -528,7 +525,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
-	layer = 2.71
 	},
 /obj/structure/railing/mapped{
 	dir = 1
@@ -886,7 +882,6 @@
 	dir = 4;
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor-broken";
-	layer = 2.4;
 	name = "conveyor"
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -912,7 +907,6 @@
 "cLC" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light/small/emergency{
@@ -984,7 +978,6 @@
 /obj/machinery/button/mass_driver{
 	_wifi_id = "ssmd_driver";
 	id = "ssmd_driver";
-	layer = 3.2;
 	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1231,7 +1224,6 @@
 	color = "#B6B64B";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-5";
-	layer = 4;
 	name = "suspension cable";
 	pixel_x = -27;
 	pixel_y = 13
@@ -1240,7 +1232,6 @@
 	color = "#B6B64B";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "8-9";
-	layer = 4;
 	name = "suspension cable";
 	pixel_x = 26;
 	pixel_y = 13
@@ -1250,7 +1241,6 @@
 	desc = "A set of suspended exosuit arms. These ones are out of commission for now.";
 	icon = 'icons/mecha/mech_parts.dmi';
 	icon_state = "heavy_arms";
-	layer = 4;
 	name = "suspended exosuit arms";
 	pixel_x = -8
 	},
@@ -1408,7 +1398,6 @@
 "dQZ" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor,
@@ -1735,7 +1724,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning";
-	layer = 2.71
 	},
 /obj/structure/railing/mapped{
 	dir = 4
@@ -1813,7 +1801,6 @@
 "eIb" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{
@@ -2242,7 +2229,6 @@
 /obj/structure/closet/crate/freezer/rations,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/outline/yellow{
-	layer = 2.71
 	},
 /obj/item/reagent_containers/food/drinks/bottle/gin,
 /obj/item/reagent_containers/food/drinks/bottle/whitewine,
@@ -2255,7 +2241,6 @@
 "fQq" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{
@@ -2659,7 +2644,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71
 	},
 /obj/structure/sign/securearea{
 	pixel_x = 32
@@ -2752,7 +2736,6 @@
 	dir = 4;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	layer = 4.1;
 	name = "suspension bar";
 	pixel_y = -5
 	},
@@ -2958,7 +2941,6 @@
 "hOP" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor,
@@ -3009,7 +2991,6 @@
 "iaK" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{
@@ -3099,7 +3080,6 @@
 	dir = 4;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	layer = 4.1;
 	name = "suspension bar";
 	pixel_y = -5
 	},
@@ -3291,7 +3271,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
-	layer = 2.71
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -3668,7 +3647,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4;
-	layer = 2.71
 	},
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor,
@@ -3701,7 +3679,6 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/remains/rat{
-	layer = 2.6
 	},
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/mechbay)
@@ -3731,7 +3708,6 @@
 	color = "#B6B64B";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-5";
-	layer = 4;
 	name = "suspension cable";
 	pixel_x = -6;
 	pixel_y = 13
@@ -3768,7 +3744,6 @@
 "kwe" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4;
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -3783,14 +3758,12 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
-	layer = 2.71
 	},
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/starboardengine)
 "kAt" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{
@@ -4579,7 +4552,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning";
-	layer = 2.71
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -4784,7 +4756,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
-	layer = 2.71
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -5470,7 +5441,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8;
-	layer = 2.71
 	},
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -5695,7 +5665,6 @@
 /obj/machinery/meter,
 /obj/effect/floor_decal/spline/plain{
 	dir = 4;
-	layer = 2.41
 	},
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/starboardengine)
@@ -6010,7 +5979,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71
 	},
 /obj/machinery/light/colored/blue{
 	dir = 1
@@ -6195,13 +6163,11 @@
 /obj/item/stack/material/glass/full,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/outline/yellow{
-	layer = 2.71
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71
 	},
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/storage)
@@ -6245,7 +6211,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
-	layer = 2.71
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/starboardengine)
@@ -6464,7 +6429,6 @@
 	desc = "A set of suspended exosuit legs. These ones are out of commission for now.";
 	icon = 'icons/mecha/mech_parts.dmi';
 	icon_state = "strider_legs";
-	layer = 4.1;
 	name = "suspended exosuit legs";
 	pixel_x = -20;
 	pixel_y = 10
@@ -6474,7 +6438,6 @@
 	dir = 1;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	layer = 4;
 	name = "suspension bar";
 	pixel_x = 14
 	},
@@ -6482,7 +6445,6 @@
 	color = "#B6B64B";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "8-9";
-	layer = 4;
 	name = "suspension cable";
 	pixel_x = 13;
 	pixel_y = 13
@@ -6717,7 +6679,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
-	layer = 2.71
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6752,7 +6713,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -7022,7 +6982,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning";
-	layer = 2.71
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7417,7 +7376,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -7715,7 +7673,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1;
-	layer = 2.71
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7789,7 +7746,6 @@
 	dir = 4;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	layer = 4.1;
 	name = "suspension bar";
 	pixel_x = -1;
 	pixel_y = -5
@@ -7799,7 +7755,6 @@
 	dir = 10;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	layer = 4.2;
 	name = "suspension bar";
 	pixel_x = 14;
 	pixel_y = -5
@@ -8027,11 +7982,9 @@
 /obj/structure/closet/crate/loot,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/outline/yellow{
-	layer = 2.71
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4;
-	layer = 2.71
 	},
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/storage)

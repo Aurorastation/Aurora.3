@@ -13,7 +13,7 @@
 	desc = "A lighting fixture."
 	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
-	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
+	layer = ABOVE_HUMAN_LAYER
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20

@@ -8,7 +8,7 @@
 	w_class = ITEMSIZE_SMALL
 	throw_range = 2
 	throw_speed = 1
-	layer = 4
+	layer = ABOVE_OBJ_LAYER
 	attack_verb = list("bapped")
 	var/page = 1    // current page
 	var/list/pages = list()  // Ordered list of pages as they are to be displayed. Can be different order than src.contents.
@@ -226,7 +226,7 @@
 		return
 
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the bundle?", "Bundle Labelling", null)  as text, MAX_NAME_LEN)
-	
+
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
 		return
 
@@ -247,7 +247,7 @@
 	to_chat(usr, "<span class='notice'>You loosen the bundle.</span>")
 	for(var/obj/O in src)
 		O.forceMove(usr.loc)
-		O.layer = initial(O.layer)
+		O.reset_plane_and_layer()
 		O.add_fingerprint(usr)
 	qdel(src)
 	return

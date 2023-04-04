@@ -6,7 +6,7 @@
 	density = 1
 	anchored = 1
 	climbable = TRUE
-	layer = LAYER_TABLE
+	layer = TABLE_LAYER
 	throwpass = 1
 	var/flipped = 0
 	var/maxhealth = 10

@@ -12,7 +12,7 @@
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
 	req_access = list(access_brig)
-	layer = OBJ_LAYER
+	layer = ABOVE_WINDOW_LAYER
 	anchored = TRUE
 	density = FALSE
 	var/id = null     		// id of door it controls.
@@ -59,7 +59,7 @@
 /obj/machinery/door_timer/examine(mob/user)
 	. = ..()
 	if(stat & (NOPOWER|BROKEN))	return
-	
+
 	if(src.timing)
 		var/second = round(timeleft() % 60)
 		var/minute = round((timeleft() - second) / 60)

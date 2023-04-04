@@ -9,7 +9,7 @@
 	alpha = 0
 	mouse_opacity = 0
 	anchored = 1
-	layer = 4.1		//just above mobs
+	layer = ABOVE_HUMAN_LAYER
 	density = 0
 	var/strength = 0
 	var/ticks_recovering = 10

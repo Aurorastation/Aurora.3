@@ -6,8 +6,8 @@
 	if(stat == DEAD || paralysis || weakened || stunned || restrained())
 		return
 
-	if (layer != 2.45)
-		layer = 2.45 //Just above cables with their 2.44
+	if (layer != HIDING_MOB_LAYER)
+		layer = HIDING_MOB_LAYER //Just above cables with their 2.44
 		to_chat(src, text("<span class='notice'>You are now hiding.</span>"))
 	else
 		layer = MOB_LAYER

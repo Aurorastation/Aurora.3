@@ -157,7 +157,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -194,7 +193,6 @@
 /area/crashed_elyran_tanker/engineering)
 "bk" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
@@ -448,7 +446,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/structure/cable{
@@ -722,7 +719,6 @@
 	},
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4;
-	layer = 2.8
 	},
 /obj/item/stack/material/steel,
 /obj/item/tape_roll,
@@ -790,7 +786,6 @@
 /area/crashed_elyran_tanker/engineering)
 "hO" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
@@ -979,7 +974,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -1078,7 +1072,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -1223,7 +1216,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -1455,7 +1447,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
@@ -1543,7 +1534,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/crashed_elyran_tanker/engineering)
@@ -1588,7 +1578,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/structure/cable{
@@ -1890,7 +1879,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
@@ -1961,7 +1949,6 @@
 /area/crashed_elyran_tanker/tanks)
 "tS" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
@@ -2088,7 +2075,6 @@
 /area/crashed_elyran_tanker/tanks)
 "vI" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -2176,7 +2162,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -2291,7 +2276,6 @@
 /area/crashed_elyran_tanker/tanks)
 "xF" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
@@ -2975,7 +2959,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -3033,7 +3016,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -3045,7 +3027,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -3104,7 +3085,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/structure/cable{
@@ -3239,7 +3219,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -3594,7 +3573,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/phoron,
@@ -3715,7 +3693,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/phoron,
@@ -3848,7 +3825,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3969,7 +3945,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
@@ -3997,7 +3972,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/hydrogen,
@@ -4174,7 +4148,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/structure/cable{
@@ -4276,7 +4249,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -4662,7 +4634,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/hydrogen,
@@ -4787,7 +4758,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/structure/cable{
@@ -4850,7 +4820,6 @@
 /area/crashed_elyran_tanker/tanks)
 "VN" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/item/clothing/suit/space/emergency,
@@ -4981,7 +4950,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -5137,7 +5105,6 @@
 /area/crashed_elyran_tanker/tanks)
 "Yq" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
@@ -5273,7 +5240,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph5";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
@@ -5308,7 +5274,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/structure/cable{
@@ -5336,7 +5301,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/effect/decal/cleanable/dirt,

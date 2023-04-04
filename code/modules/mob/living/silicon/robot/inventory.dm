@@ -210,19 +210,19 @@
 		return
 	if(!module_state_1)
 		module_state_1 = O
-		O.layer = SCREEN_LAYER
+		O.hud_layerise()
 		O.screen_loc = inv1.screen_loc
 		contents += O
 		O.on_module_hotbar(src)
 	else if(!module_state_2)
 		module_state_2 = O
-		O.layer = SCREEN_LAYER
+		O.hud_layerise()
 		O.screen_loc = inv2.screen_loc
 		contents += O
 		O.on_module_hotbar(src)
 	else if(!module_state_3)
 		module_state_3 = O
-		O.layer = SCREEN_LAYER
+		O.hud_layerise()
 		O.screen_loc = inv3.screen_loc
 		contents += O
 		O.on_module_hotbar(src)
@@ -265,7 +265,7 @@
 	uneq_active()
 
 /mob/living/silicon/robot/drop_from_inventory(var/obj/item/W, var/atom/target = null)
-	var/do_feedback = target ? FALSE : TRUE //Do not do feedback messages if dropping to a target, to avoid duplicate "You release X" messages. 
+	var/do_feedback = target ? FALSE : TRUE //Do not do feedback messages if dropping to a target, to avoid duplicate "You release X" messages.
 	if(W)
 		if(!target)
 			target = loc

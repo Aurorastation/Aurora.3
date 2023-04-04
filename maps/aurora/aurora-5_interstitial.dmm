@@ -5041,7 +5041,6 @@
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_main)
@@ -5351,7 +5350,6 @@
 /area/mine/unexplored)
 "oB" = (
 /obj/item/device/radio/intercom{
-	layer = 4;
 	pixel_y = -29
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -6852,7 +6850,6 @@
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
 	icon_state = "door_locked";
@@ -7588,7 +7585,6 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
 	dir = 8;
-	layer = 2.45
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
 	dir = 8
@@ -7869,7 +7865,6 @@
 /area/maintenance/engineering_ladder)
 "EK" = (
 /obj/structure/lattice/catwalk/indoor{
-	layer = 2.5;
 	name = "adjusted catwalk"
 	},
 /obj/structure/cable/green{

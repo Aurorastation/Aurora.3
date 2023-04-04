@@ -3,7 +3,7 @@
 	desc = "A blue flag emblazoned with a golden logo of NanoTrasen hanging from a wooden stand."
 	anchored = TRUE
 	density = TRUE
-	layer = 9
+	layer = BASE_ABOVE_OBJ_LAYER
 	var/icon_up = "banner_up"
 	icon = 'icons/obj/banner.dmi'
 	icon_state = "banner_down"

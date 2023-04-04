@@ -115,7 +115,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
-	layer = 2.78
 	},
 /obj/structure/sign/directions/engineering{
 	dir = 8;
@@ -1174,7 +1173,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor,
@@ -1219,7 +1217,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
-	layer = 2.71
 	},
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
@@ -1334,7 +1331,6 @@
 	name = "Battle Bridge Lockdown";
 	pixel_x = 20;
 	pixel_y = -4;
-	layer = 3.01
 	},
 /obj/effect/overmap/visitable/ship/dominian_corvette,
 /turf/simulated/floor/tiled/dark,
@@ -1577,7 +1573,6 @@
 "fNe" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{
@@ -1703,7 +1698,6 @@
 "grx" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{
@@ -1913,7 +1907,6 @@
 "hhf" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/door/window/northleft{
@@ -1972,7 +1965,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
-	layer = 2.71
 	},
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
@@ -2229,7 +2221,6 @@
 "ioR" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{
@@ -2361,7 +2352,6 @@
 "iNt" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
@@ -2453,7 +2443,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
-	layer = 2.78
 	},
 /obj/machinery/firealarm/west,
 /turf/simulated/floor,
@@ -2639,7 +2628,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
-	layer = 2.71
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor,
@@ -2662,7 +2650,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
-	layer = 2.71
 	},
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
@@ -3285,7 +3272,6 @@
 "mpK" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -3418,7 +3404,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
-	layer = 2.78
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -3443,7 +3428,6 @@
 "mLa" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
@@ -3856,7 +3840,6 @@
 /area/ship/dominian_corvette/franny)
 "opS" = (
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -4044,7 +4027,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8;
-	layer = 2.71
 	},
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
@@ -4343,7 +4325,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
-	layer = 2.71
 	},
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
@@ -4554,7 +4535,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.78
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -4664,7 +4644,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
-	layer = 2.71
 	},
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
@@ -4916,7 +4895,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
-	layer = 2.71
 	},
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
@@ -4939,7 +4917,6 @@
 /area/ship/dominian_corvette/cannon)
 "szY" = (
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -5166,7 +5143,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4;
-	layer = 2.78
 	},
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
@@ -5330,7 +5306,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
-	layer = 2.78
 	},
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
@@ -5536,7 +5511,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
-	layer = 2.71
 	},
 /obj/structure/sign/directions/com{
 	pixel_y = -32
@@ -5682,7 +5656,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1;
-	layer = 2.71
 	},
 /obj/structure/sign/emergency/meetingpoint{
 	pixel_x = -32
@@ -5693,7 +5666,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1;
-	layer = 2.71
 	},
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
@@ -6262,7 +6234,6 @@
 /obj/item/coin/gold{
 	name = "His Imperial Majesty's First Battle Fleet challenge coin";
 	desc = "A flat disc or piece of metal with an official stamp. Never go to the Bar without it, who knows when you might get challenged.";
-	layer = 2.8;
 	pixel_x = 7;
 	pixel_y = -10
 	},

@@ -384,7 +384,6 @@
 /area/nka_merchant/eva)
 "bh" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black{
@@ -818,7 +817,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "merchant_navy";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -983,7 +981,6 @@
 	req_access = null
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1188,7 +1185,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "merchant_navy";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating{
@@ -1284,7 +1280,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "merchant_navy";
-	layer = 2.9
 	},
 /obj/structure/plasticflaps/mining,
 /obj/machinery/door/blast/shutters{
@@ -1363,7 +1358,6 @@
 /obj/machinery/conveyor{
 	dir = 6;
 	id = "merchant_navy";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -2214,7 +2208,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "merchant_navy";
-	layer = 2.9
 	},
 /obj/structure/plasticflaps/mining,
 /obj/machinery/door/blast/shutters{
@@ -2268,7 +2261,6 @@
 /area/nka_merchant/merchant)
 "jl" = (
 /obj/structure/extinguisher_cabinet{
-	layer = 3.3;
 	pixel_x = 24;
 	pixel_y = 1
 	},
@@ -2494,7 +2486,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "merchant_navy";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
@@ -2898,7 +2889,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "merchant_navy";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -3434,7 +3424,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "merchant_navy";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -3592,7 +3581,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "merchant_navy";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -3829,7 +3817,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "merchant_navy";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -3965,7 +3952,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "merchant_navy";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;

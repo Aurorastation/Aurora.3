@@ -3,6 +3,7 @@
 	desc = "A potted plant."
 	icon = 'icons/obj/plants.dmi'
 	icon_state = "plant-26"
+	layer = ABOVE_HUMAN_LAYER
 	anchored = FALSE
 	density = FALSE
 	var/dead = FALSE

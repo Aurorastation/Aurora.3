@@ -7,6 +7,7 @@
 	icon_state = "base"
 	initialize_directions = 0
 	level = 1
+	layer = ABOVE_CATWALK_LAYER
 
 	var/configuring = 0
 	//var/target_pressure = ONE_ATMOSPHERE	//a base type as abstract as this should NOT be making these kinds of assumptions

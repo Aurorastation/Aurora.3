@@ -105,7 +105,6 @@
 "anK" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
@@ -113,7 +112,6 @@
 "aou" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -1353,7 +1351,6 @@
 /area/ship/elyran_strike_craft)
 "mJF" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
@@ -1406,7 +1403,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "elyran_ship_port";
-	layer = 3.3;
 	pixel_y = 28;
 	tag_airpump = "elyran_ship_pump";
 	tag_chamber_sensor = "elyran_ship_sensor";
@@ -1727,7 +1723,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK"
 	},
 /obj/machinery/door/blast/regular{

@@ -5,7 +5,7 @@
 /obj/effect/floor_decal
 	name = "floor decal"
 	icon = 'icons/turf/decals/decals.dmi'
-	layer = TURF_LAYER + 0.01
+	layer = DECAL_LAYER
 	var/supplied_dir
 
 /obj/effect/floor_decal/LateInitialize()

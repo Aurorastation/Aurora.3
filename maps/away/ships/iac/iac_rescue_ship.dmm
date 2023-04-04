@@ -1278,7 +1278,6 @@
 /area/space)
 "gqO" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
@@ -1364,7 +1363,6 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
@@ -1460,7 +1458,6 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
@@ -1681,7 +1678,6 @@
 	pixel_y = 5
 	},
 /obj/item/reagent_containers/hypospray{
-	layer = 2.99;
 	pixel_x = 4;
 	pixel_y = 5
 	},
@@ -2278,7 +2274,6 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
@@ -3244,7 +3239,6 @@
 "tDO" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
@@ -3738,7 +3732,6 @@
 "xns" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/starboardengine)

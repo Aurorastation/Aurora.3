@@ -70,7 +70,6 @@
 "anK" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
@@ -220,7 +219,6 @@
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
 	icon_state = "lattice";
-	layer = 2.31;
 	name = "lattice"
 	},
 /turf/simulated/floor,
@@ -285,7 +283,6 @@
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
 	icon_state = "lattice";
-	layer = 2.31;
 	name = "lattice"
 	},
 /turf/simulated/floor,
@@ -317,7 +314,6 @@
 /area/ship/tramp_freighter)
 "bFk" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
@@ -431,7 +427,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "freight_ship_port";
-	layer = 3.3;
 	pixel_y = 28;
 	tag_airpump = "freight_ship_pump";
 	tag_chamber_sensor = "freight_ship_sensor";
@@ -549,7 +544,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -805,7 +799,6 @@
 /obj/item/bedsheet/brown,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
@@ -853,7 +846,6 @@
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
 	icon_state = "lattice";
-	layer = 2.31;
 	name = "lattice"
 	},
 /turf/simulated/floor,
@@ -1516,7 +1508,6 @@
 	},
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1787,7 +1778,6 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
@@ -2034,7 +2024,6 @@
 "vwF" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)

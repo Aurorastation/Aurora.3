@@ -97,7 +97,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /turf/simulated/floor/lino/grey,
@@ -317,7 +316,6 @@
 "eu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/structure/window/reinforced{
@@ -1076,7 +1074,6 @@
 /area/hideout)
 "pL" = (
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/structure/window/reinforced{
@@ -1514,7 +1511,6 @@
 "wu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/structure/table/steel,
@@ -1735,7 +1731,6 @@
 "AA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/item/landmine{
@@ -2360,7 +2355,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /turf/simulated/floor/lino/grey,
@@ -2578,7 +2572,6 @@
 "Nu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/structure/table/steel,
@@ -2899,7 +2892,6 @@
 "SP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/structure/table/steel,
@@ -3139,7 +3131,6 @@
 /area/hideout)
 "WT" = (
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3204,7 +3195,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/item/gun/custom_ka/frameB,

@@ -9,7 +9,7 @@
 	resist.icon = 'icons/mob/screen/captive_brain.dmi'
 	resist.icon_state = "resist"
 	resist.screen_loc = "EAST-8,BOTTOM:8"
-	resist.layer = SCREEN_LAYER
+	resist.layer = HUD_ABOVE_ITEM_LAYER
 	adding += resist
 
 	mymob.client.screen += src.adding

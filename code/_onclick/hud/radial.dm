@@ -5,7 +5,7 @@ var/global/list/radial_menus = list()
 
 /obj/screen/radial
 	icon = 'icons/mob/screen/radial.dmi'
-	layer = HUD_LAYER
+	layer = RADIAL_BASE_LAYER
 	var/datum/radial_menu/parent
 
 /obj/screen/radial/slice
@@ -236,7 +236,7 @@ var/global/list/radial_menus = list()
 /datum/radial_menu/proc/extract_image(E)
 	var/mutable_appearance/MA = new /mutable_appearance(E)
 	if(MA)
-		MA.layer = HUD_LAYER
+		MA.layer = RADIAL_CONTENT_LAYER
 		MA.appearance_flags |= RESET_TRANSFORM
 	return MA
 
@@ -253,7 +253,7 @@ var/global/list/radial_menus = list()
 		return
 	current_user = M.client
 	//Blank
-	menu_holder = image(icon = 'icons/effects/effects.dmi', loc = anchor, icon_state = "nothing", layer = HUD_LAYER)
+	menu_holder = image(icon = 'icons/effects/effects.dmi', loc = anchor, icon_state = "nothing", layer = RADIAL_BACKGROUND_LAYER)
 	menu_holder.appearance_flags |= KEEP_APART|RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM
 	menu_holder.vis_contents += elements + close_button
 	current_user.images += menu_holder

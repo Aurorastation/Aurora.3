@@ -1,5 +1,5 @@
 /obj/effect/map_effect/door_helper
-	layer = DOOR_CLOSED_LAYER + 0.1
+	layer = ABOVE_DOOR_LAYER
 
 /obj/effect/map_effect/door_helper/unres
 	icon_state = "unres_door"
