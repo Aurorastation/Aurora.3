@@ -4,7 +4,7 @@
 	color = "#ad9c9c"
 	planetary_area = /area/exoplanet/barren
 	rock_colors = list(COLOR_BEIGE, COLOR_GRAY80, COLOR_BROWN)
-	possible_themes = list(/datum/exoplanet_theme/mountains)
+	possible_themes = list(/datum/exoplanet_theme/barren)
 	map_generators = list(/datum/random_map/noise/exoplanet/barren, /datum/random_map/noise/ore)
 	ruin_tags_blacklist = RUIN_HABITAT|RUIN_WATER
 	features_budget = 6
@@ -74,7 +74,8 @@
 	name = "mineral asteroid"
 	desc = "A large, resource rich asteroid."
 	surface_color = COLOR_GRAY
-	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich)
+	map_generators = list(/datum/random_map/noise/ore/rich)
+	possible_themes = list(/datum/exoplanet_theme/barren/asteroid)
 	rock_colors = list(COLOR_ASTEROID_ROCK)
 	planetary_area = /area/exoplanet/barren/asteroid
 
@@ -109,8 +110,8 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/romanovich
 	name = "romanovich cloud asteroid"
 	desc = "A phoron rich asteroid."
-	possible_themes = list(/datum/exoplanet_theme/mountains/phoron)
-	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich/phoron)
+	// possible_themes = list(/datum/exoplanet_theme/mountains/phoron)
+	// map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich/phoron)
 
 /datum/random_map/noise/exoplanet/barren/asteroid
 	descriptor = "asteroid exoplanet"

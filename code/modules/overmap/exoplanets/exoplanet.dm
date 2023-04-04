@@ -189,6 +189,7 @@
 
 	if(istype(theme))
 		theme.before_map_generation(src)
+		theme.generate_map(src, map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE))
 
 	for (var/zlevel in map_z)
 		var/list/edges
@@ -205,10 +206,13 @@
 			else
 				new map_type(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area)
 
+	if(istype(theme))
+		theme.cleanup(src, map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE))
+
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_features()
 	spawned_features = seedRuins(map_z, features_budget, possible_features, /area/exoplanet, maxx, maxy)
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/get_biostuff(var/datum/random_map/noise/exoplanet/random_map)
+/obj/effect/overmap/visitable/sector/exoplanet/proc/get_biostuff(datum/random_map/noise/exoplanet/random_map)
 	if(!istype(random_map))
 		return
 	seeds += random_map.small_flora_types

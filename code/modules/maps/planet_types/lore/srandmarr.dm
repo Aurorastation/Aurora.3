@@ -5,7 +5,6 @@
 	color = "#bf7c39"
 	icon_state = "globe1"
 	rock_colors = list(COLOR_GRAY80)
-	possible_themes = list(/datum/exoplanet_theme/mountains)
 	map_generators = list(/datum/random_map/noise/exoplanet/barren, /datum/random_map/noise/ore)
 	features_budget = 1
 	surface_color = "#B1A69B"
@@ -34,7 +33,6 @@
 	rock_colors = null
 	plant_colors = null
 	rock_colors = list("#4a3f41")
-	possible_themes = list(/datum/exoplanet_theme/mountains)
 	map_generators = list(/datum/random_map/noise/exoplanet/barren, /datum/random_map/noise/ore)
 	features_budget = 1
 	surface_color = "#4a3f41"
@@ -78,7 +76,6 @@
 	color = "#ab46d4"
 	rock_colors = list("#373737")
 	planetary_area = /area/exoplanet/barren/raskara
-	possible_themes = list(/datum/exoplanet_theme/mountains)
 	map_generators = list(/datum/random_map/noise/exoplanet/barren/raskara, /datum/random_map/noise/ore)
 	features_budget = 1
 	surface_color = "#373737"
@@ -124,7 +121,6 @@
 	planetary_area = /area/exoplanet/adhomai
 	rock_colors = null
 	plant_colors = null
-	possible_themes = list(/datum/exoplanet_theme/mountains/adhomai)
 	map_generators = list(/datum/random_map/noise/exoplanet/snow/adhomai, /datum/random_map/noise/ore/rich)
 	features_budget = 8
 	surface_color = "#e8faff"
@@ -299,4 +295,3 @@
 /turf/simulated/floor/exoplanet/mineral/adhomai/Initialize(mapload)
 	. = ..()
 	icon_state = "icy_rock[rand(1,19)]"
-

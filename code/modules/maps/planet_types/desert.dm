@@ -5,8 +5,8 @@
 	planetary_area = /area/exoplanet/desert
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#420d22")
-	map_generators = list(/datum/random_map/noise/exoplanet/desert, /datum/random_map/noise/ore)
-	possible_themes = list(/datum/exoplanet_theme/mountains/breathable)
+	map_generators = list(/datum/random_map/noise/ore)
+	possible_themes = list(/datum/exoplanet_theme/arid)
 	surface_color = "#d6cca4"
 	water_color = null
 
@@ -14,8 +14,7 @@
 		/datum/map_template/ruin/exoplanet/desert_oasis)
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/generate_map()
-	if(prob(70))
-		lightlevel = rand(5,10)/10	//deserts are usually :lit:
+	lightlevel = rand(5,10)/10	//deserts are usually :lit:
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/generate_atmosphere()

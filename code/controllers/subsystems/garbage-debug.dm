@@ -734,6 +734,7 @@
 	SearchVar(minevendor_list)
 	SearchVar(total_extraction_beacons)
 	SearchVar(ore_data)
+	SearchVar(ore_to_turf)
 	SearchVar(dview_mob)
 	SearchVar(holder_mob_icon_cache)
 	SearchVar(slot_equipment_priority)

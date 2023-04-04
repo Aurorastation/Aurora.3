@@ -4,7 +4,6 @@
 	color = "#575d5e"
 	planetary_area = /area/exoplanet/barren
 	rock_colors = list(COLOR_DARK_GRAY)
-	possible_themes = list(/datum/exoplanet_theme/mountains)
 	map_generators = list(/datum/random_map/noise/exoplanet/lava, /datum/random_map/noise/ore)
 	ruin_tags_blacklist = RUIN_HABITAT|RUIN_WATER
 	features_budget = 4

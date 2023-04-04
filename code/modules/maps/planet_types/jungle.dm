@@ -7,7 +7,6 @@
 	grass_color = null
 	plant_colors = null
 	map_generators = list(/datum/random_map/noise/exoplanet/grass/grove)
-	possible_themes = list(/datum/exoplanet_theme/mountains/breathable)
 	ruin_tags_blacklist = RUIN_VOID
 
 	possible_random_ruins = list(
