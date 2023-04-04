@@ -17,8 +17,8 @@
 /datum/accent/trad_noble
 	name = ACCENT_TRAD_NOBLE
 	description = "A more guttural, droning accent - although one that would demand respect on Moghes before the Contact War, and still demands it in the Wasteland. Primarily born from the \
-	guttural intonations and physical movement required to communicate in Sinta'Azaziba, this Noble Traditional accent requires clan-training from a family member or shaman - and has \
-	become either a sign of survival or defeat to most who see this ancient accent fading from existence."
+	guttural intonations and physical movement required to communicate in Sinta'Azaziba, this Noble Traditional accent requires clan-training from a family member or shaman - and as \
+	this accent fades from existence, it has taken on a dual symbol of either survival or defeat."
 	tag_icon = "trad_noble"
 	text_tag = "TRN"
 

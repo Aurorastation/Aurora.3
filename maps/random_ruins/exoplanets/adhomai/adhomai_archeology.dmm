@@ -114,7 +114,7 @@
 	},
 /area/adhomai_archeology)
 "s" = (
-/obj/structure/flora/grass/brown,
+/obj/structure/flora/grass/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -136,6 +136,9 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/mechanical,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/stack/medical/splint/full,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 268.15
 	},
@@ -206,7 +209,7 @@
 	},
 /area/adhomai_archeology)
 "H" = (
-/obj/structure/flora/bush,
+/obj/structure/flora/bush/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -298,7 +301,7 @@
 	},
 /area/adhomai_archeology)
 "X" = (
-/obj/structure/flora/tree/dead,
+/obj/structure/flora/tree/adhomai,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},

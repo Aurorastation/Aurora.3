@@ -27,7 +27,7 @@
 
 	images += marker
 
-	radar = image(loc = effect, icon = 'icons/obj/overmap.dmi', icon_state = "sensor_range")
+	radar = image(loc = effect, icon = 'icons/obj/overmap/overmap_effects.dmi', icon_state = "sensor_range")
 	radar.color = source.color
 	radar.tag = "radar"
 	radar.add_filter("blur", 1, list("blur", size = 1))

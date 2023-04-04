@@ -228,6 +228,9 @@
 		cleave(user, target)
 	..()
 
+/obj/item/material/twohanded/fireaxe/can_woodcut()
+	return TRUE
+
 //spears, bay edition
 /obj/item/material/twohanded/spear
 	icon_state = "spearglass0"
@@ -373,6 +376,12 @@
 /obj/item/material/twohanded/chainsaw/fueled/Initialize()
 	. = ..()
 	reagents.add_reagent(fuel_type, max_fuel)
+
+/obj/item/material/twohanded/chainsaw/can_woodcut()
+	if(powered)
+		return TRUE
+	else
+		return ..()
 
 /obj/item/material/twohanded/chainsaw/op //For events or whatever
 	opendelay = 5
@@ -547,6 +556,12 @@
 	sharp = 1
 	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed")
 
+/obj/item/material/twohanded/pike/halberd/can_woodcut()
+	if(wielded)
+		return TRUE
+	else
+		return ..()
+
 /obj/item/material/twohanded/pike/pitchfork
 	icon_state = "pitchfork0"
 	base_icon = "pitchfork"
@@ -605,7 +620,7 @@
 	icon_state = "flag_hegemony0"
 	base_icon = "flag_hegemony"
 	contained_sprite = TRUE
-	damtype = BURN
+	damtype = DAMAGE_BURN
 
 /obj/item/material/twohanded/pike/silver/Initialize(newloc, material_key)
 	. = ..(newloc, MATERIAL_SILVER)

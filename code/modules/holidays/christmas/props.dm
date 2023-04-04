@@ -101,7 +101,6 @@
 		/obj/item/storage/photo_album,
 		/obj/item/storage/box/snappops,
 		/obj/item/storage/box/fancy/crayons,
-		/obj/item/storage/backpack/holding,
 		/obj/item/storage/belt/champion,
 		/obj/item/soap/deluxe,
 		/obj/item/pickaxe/silver,
@@ -163,7 +162,7 @@
 	var/gift_type
 
 /obj/item/xmasgift/Initialize()
-	..()
+	. = ..()
 	randpixel_xy()
 	var/gift_benefactor = pick("the NanoTrasen Department of Christmas Affairs", "Miranda Trasen", "Joseph Dorne", "Isaac Asimov", "Baal D. Griffon", "the Sol Alliance (Sorry about the blockade!)",
 		"Hephaestus Industries", "Idris Incorporated", "Glorsh Omega II", "the Nralakk Federation", "the People's Republic of Adhomai", "the Adhomai Liberation Army", "the Izweski Hegemony",

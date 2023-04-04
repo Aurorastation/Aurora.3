@@ -5,12 +5,13 @@
 
 	spawn_weight = 0.5
 	spawn_cost = 2
+	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
 	suffixes = list("adhomai/adhomai_cavern_geist.dmm")
 
 //ghost roles
 
-/datum/ghostspawner/human/adhomai_cavern_geist
+/datum/ghostspawner/simplemob/adhomai_cavern_geist
 	short_name = "adhomai_cavern_geist"
 	name = "Cavern Geist"
 	desc = "Terrorize the land as a feared cavern geist, the apex predator of Adhomai."

@@ -13,10 +13,18 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship
 	name = "generic ship"
 	desc = "Space faring vessel."
-	icon_state = "ship"
+	icon = 'icons/obj/overmap/overmap_ships.dmi'
+	icon_state = "generic"
 	requires_contact = TRUE
 	obfuscated_name = "unidentified vessel"
+	sensor_range_override = FALSE
+	hide_from_reports = TRUE
+	generic_object = FALSE
 	var/moving_state = "ship_moving"
+
+//RP fluff details to appear on scan readouts for mobile objects.
+	var/propulsion = "Chemical Composite Gas Thrust" 	//Slower than light propulsion method. No variation in this currently exists yet except the Horizon which heats its gas.
+	var/drive = "None equipped, FTL incapable" 			//Faster than light propulsion method, will usually be warp drives for third party ships and nothing for shuttles
 
 	var/list/known_ships = list()		//List of ships known at roundstart - put types here.
 	var/base_sensor_visibility
@@ -41,6 +49,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 	comms_support = TRUE
 
+	var/list/colors = list() //Pick a color from this list on init
+
 /obj/effect/overmap/visitable/ship/Initialize()
 	. = ..()
 	glide_size = world.icon_size
@@ -48,6 +58,9 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	max_speed = round(max_speed, SHIP_MOVE_RESOLUTION)
 	base_sensor_visibility = round((vessel_mass/SENSOR_COEFFICENT),1)
 	SSshuttle.ships += src
+
+	if(LAZYLEN(colors))
+		color = pick(colors)
 
 /obj/effect/overmap/visitable/ship/find_z_levels(var/fore_direction)
 	. = ..(fore_dir)
@@ -71,11 +84,27 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 /obj/effect/overmap/visitable/ship/get_scan_data(mob/user)
 	. = ..()
-	. += "<br>Mass: [vessel_mass] tons."
 	if(!is_still())
 		. += "<br>Heading: [dir2angle(get_heading())], speed [get_speed() * 1000]"
 	if(instant_contact)
 		. += "<br>It is broadcasting a distress signal."
+	. += "<hr>"
+	. += "<br><center><large><b>Scan Details</b></large>"
+	. += "<br><large><b>[name]</b></large></center>"
+	. += "<br><small><b>Estimated Mass:</b> [vessel_mass]"
+	. += "<br><b>Projected Volume:</b> [volume]"
+	. += "<br><b>STL Propulsion:</b> [propulsion]"
+	. += "<br><b>FTL Drive:</b> [drive]</small>"
+	. += "<hr>"
+	. += "<br><center><b>Native Database Specifications</b>"
+	. += "<br><img src = [scanimage]></center>"
+	. += "<br><small><b>Manufacturer:</b> [designer]"
+	. += "<br><b>Class Designation:</b> [sizeclass]"
+	. += "<br><b>Designated Purpose:</b> [shiptype]"
+	. += "<br><b>Weapons Estimation:</b> [weapons]</small>"
+	. += "<hr>"
+	. += "<br><center><b>Native Database Notes</b></center>"
+	. += "<br><small>[desc]</small>"
 
 //Projected acceleration based on information from engines
 /obj/effect/overmap/visitable/ship/proc/get_acceleration()

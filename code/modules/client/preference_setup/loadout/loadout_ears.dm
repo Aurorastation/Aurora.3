@@ -37,8 +37,11 @@
 /datum/gear/ears/earrings/New()
 	..()
 	var/list/earrings = list()
-	earrings["stud earrings"] = /obj/item/clothing/ears/earring/stud
+	earrings["stud earrings"] = /obj/item/clothing/ears/earring
 	earrings["dangle earrings"] = /obj/item/clothing/ears/earring/dangle
+	earrings["circular bangle earrings"] = /obj/item/clothing/ears/earring/bangle
+	earrings["crescent earrings"] = /obj/item/clothing/ears/earring/crescent
+	earrings["oversized earrings"] = /obj/item/clothing/ears/earring/heavy
 	gear_tweaks += new /datum/gear_tweak/path(earrings)
 
 /datum/gear/ears/hearing_aid

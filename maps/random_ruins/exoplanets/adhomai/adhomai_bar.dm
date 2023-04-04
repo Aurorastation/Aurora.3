@@ -5,6 +5,7 @@
 
 	spawn_weight = 1
 	spawn_cost = 2
+	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
 	suffixes = list("adhomai/adhomai_bar.dmm")
 
@@ -47,7 +48,7 @@
 	shoes = /obj/item/clothing/shoes/tajara/workboots/adhomian_boots
 	back = /obj/item/storage/backpack/satchel/leather
 	suit = /obj/item/clothing/suit/storage/hooded/tajaran/maroon
-
+	l_pocket = /obj/item/pocketwatch/adhomai
 	l_ear = null
 
 	id = null

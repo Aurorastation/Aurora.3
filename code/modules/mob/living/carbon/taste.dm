@@ -37,7 +37,7 @@ calculate text size per text.
 			var/singleton/reagent/R = GET_SINGLETON(_R)
 			if(!R.taste_mult)
 				continue
-			if(_R == /singleton/reagent/nutriment)
+			if(istype(R, /singleton/reagent/nutriment) && (_R in reagent_data))
 				var/list/taste_data = REAGENT_DATA(src, _R)
 				for(var/taste in taste_data)
 					if(taste in tastes)

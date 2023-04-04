@@ -401,7 +401,7 @@ EVENT_CUSTOM_START_MAJOR 80;100
 ## Respawn delay in minutes before one may respawn as a crew member.
 #RESPAWN_DELAY 30
 
-## Strength of ambient star light. Set to 0 or less to turn off. A value of 1 is unlikely to have a noticeable effect in most lighting systems.
+## Determines whether or not starlight is enabled. 0 will disable starlight, any other number will enable it.
 STARLIGHT 0
 
 ## If defined, starlight applies to open space turfs as well. Causes a significant number of lighting updates at round-start, may increase server's memory usage.
@@ -529,7 +529,7 @@ FASTBOOT
 CARGO_LOAD_ITEMS_FROM json
 
 
-# Forces the maploader to load the specified map path. Valid options: sccv_horizon, runtime, aurora, away_sites_testing
+# Forces the maploader to load the specified map path. Valid options: sccv_horizon, runtime, aurora, away_sites_testing, exoplanet_testing
 FORCE_MAP runtime
 
 # Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.

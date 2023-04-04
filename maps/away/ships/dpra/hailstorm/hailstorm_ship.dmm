@@ -14,6 +14,9 @@
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -30,6 +33,9 @@
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -50,6 +56,9 @@
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -69,6 +78,9 @@
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -85,6 +97,9 @@
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -105,6 +120,9 @@
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -290,7 +308,7 @@
 	master_tag = "hailstorm_shuttle";
 	name = "exterior access button";
 	pixel_y = -23;
-	req_access = list(113);
+	req_access = list(214);
 	pixel_x = -8
 	},
 /turf/simulated/floor/plating{
@@ -446,7 +464,7 @@
 /area/hailstorm_ship/eva)
 "bS" = (
 /obj/machinery/vending/tool{
-	req_access = list(209)
+	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/firealarm/east,
@@ -1014,6 +1032,17 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship)
+"fH" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Telecomms";
+	req_access = list(214)
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/hailstorm_ship/atmospherics)
 "fJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1350,7 +1379,7 @@
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
 	id_tag = "hailstorm_shuttle_sensor";
-	req_access = list(113);
+	req_access = list(214);
 	pixel_y = 25
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -1628,7 +1657,7 @@
 /area/hailstorm_ship/gun_deck/second)
 "lR" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(214);
 	name = "gun cabinet (bayonets)"
 	},
 /obj/effect/floor_decal/industrial/outline/security,
@@ -1680,8 +1709,7 @@
 /area/hailstorm_ship/engineering)
 "mj" = (
 /obj/structure/closet/secure_closet/engineering_welding{
-	req_access = null;
-	req_one_access = list(113)
+	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/power/apc/high{
@@ -1828,10 +1856,9 @@
 /area/hailstorm_ship/gun_deck/second)
 "nT" = (
 /obj/structure/viewport,
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "headmaster_gun";
-	icon_state = "pdoor0"
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "hailstorm_bridge"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hailstorm_ship/gun_deck/second)
@@ -1854,6 +1881,16 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship/engine)
+"oc" = (
+/obj/machinery/telecomms/allinone/ship,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/hailstorm_ship/atmospherics)
 "og" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
@@ -2088,10 +2125,9 @@
 /area/hailstorm_ship)
 "rp" = (
 /obj/structure/viewport,
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "headmaster_gun";
-	icon_state = "pdoor0"
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "hailstorm_bridge"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hailstorm_ship/gun_deck)
@@ -13664,8 +13700,8 @@ eJ
 Pv
 Pv
 Pv
-iB
-iB
+Pv
+Pv
 iB
 iB
 iB
@@ -13825,9 +13861,9 @@ gg
 Pv
 gY
 sb
+fH
+oc
 Pv
-iB
-iB
 iB
 iB
 iB

@@ -580,14 +580,9 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 /obj/machinery/door/airlock/uranium/process()
 	if(world.time > last_event+20)
 		if(prob(50))
-			radiate()
+			SSradiation.radiate(src, 50)
 		last_event = world.time
 	..()
-
-/obj/machinery/door/airlock/uranium/proc/radiate()
-	for(var/mob/living/L in range (3,src))
-		L.apply_damage(15, IRRADIATE, damage_flags = DAM_DISPERSED)
-	return
 
 //---Phoron door
 /obj/machinery/door/airlock/phoron
@@ -1555,7 +1550,7 @@ About the new airlock wires panel:
 /mob/living/airlock_crush(var/crush_damage)
 	. = ..()
 	for(var/i = 1, i <= AIRLOCK_CRUSH_DIVISOR, i++)
-		apply_damage((crush_damage / AIRLOCK_CRUSH_DIVISOR), BRUTE)
+		apply_damage((crush_damage / AIRLOCK_CRUSH_DIVISOR), DAMAGE_BRUTE)
 
 	SetStunned(5)
 	SetWeakened(5)

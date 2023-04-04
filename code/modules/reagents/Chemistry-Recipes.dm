@@ -493,7 +493,7 @@
 	name = "Coagzolug"
 	id = "coagzolug"
 	result = /singleton/reagent/coagzolug
-	required_reagents = list(/singleton/reagent/tricordrazine = 1, /singleton/reagent/coughsyrup = 1)
+	required_reagents = list(/singleton/reagent/tricordrazine = 1, /singleton/reagent/antidexafen = 1)
 	result_amount = 1 // result is 1. i imagine it's because of some whacky reaction
 
 /datum/chemical_reaction/surfactant
@@ -647,7 +647,7 @@
 	name = "Pneumalin"
 	id = "pneumalin"
 	result = /singleton/reagent/pneumalin
-	required_reagents = list(/singleton/reagent/coughsyrup = 1, /singleton/reagent/copper = 1, /singleton/reagent/pulmodeiectionem = 1)
+	required_reagents = list(/singleton/reagent/antidexafen = 1, /singleton/reagent/copper = 1, /singleton/reagent/pulmodeiectionem = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/saline
@@ -668,7 +668,7 @@
 /datum/chemical_reaction/coughsyrup
 	name = "Cough Syrup"
 	id = "coughsyrup"
-	result = /singleton/reagent/coughsyrup
+	result = /singleton/reagent/antidexafen
 	required_reagents = list(/singleton/reagent/carbon = 1, /singleton/reagent/tungsten = 1, /singleton/reagent/water = 1)
 	result_amount = 3
 
@@ -1179,7 +1179,12 @@
 		/mob/living/simple_animal/hostile/hivebotbeacon/incendiary,
 		/mob/living/simple_animal/hostile/republicon,
 		/mob/living/simple_animal/hostile/republicon/ranged,
-		/mob/living/simple_animal/hostile/spider_queen
+		/mob/living/simple_animal/hostile/spider_queen,
+		/mob/living/simple_animal/hostile/tree,
+		/mob/living/simple_animal/hostile/mimic,
+		/mob/living/simple_animal/hostile/cavern_geist,
+		/mob/living/simple_animal/hostile/cavern_geist/augmented,
+		/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone
 	)
 	//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
@@ -2368,6 +2373,13 @@
 	result = /singleton/reagent/alcohol/grog
 	required_reagents = list(/singleton/reagent/alcohol/rum = 1, /singleton/reagent/water = 1)
 	result_amount = 2
+
+/datum/chemical_reaction/drink/ration_coffee
+    name = "Ration Coffee"
+    id = "ration_coffee"
+    result = /singleton/reagent/drink/coffee/ration
+    required_reagents = list(/singleton/reagent/drink/coffee = 2, /singleton/reagent/water = 1)
+    result_amount = 3
 
 /datum/chemical_reaction/drink/soy_latte
 	name = "Soy Latte"

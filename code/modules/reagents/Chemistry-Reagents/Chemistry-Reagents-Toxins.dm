@@ -482,7 +482,7 @@
 				randmutg(M)
 			domutcheck(M, null)
 			M.UpdateAppearance()
-	M.apply_effect(10 * removed, IRRADIATE, blocked = 0)
+	M.apply_damage(10 * removed, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /singleton/reagent/slimejelly
 	name = "Slime Jelly"
@@ -660,6 +660,12 @@
 	description = "This actually appears to be mostly ground up leaves masquerading as tobacco. There's maybe some nicotine in there somewhere..."
 	taste_description = "acrid smoke"
 	nicotine = 0.1
+
+/singleton/reagent/toxin/tobacco/sweet 
+	name = "Sweet Tobacco"
+	description = "This tobacco is much sweeter than the strains usually found in human space."
+	taste_description = "sweet tobacco"
+	nicotine = 0.3
 
 /singleton/reagent/toxin/tobacco/liquid
 	name = "Nicotine Solution"

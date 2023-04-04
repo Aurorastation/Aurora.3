@@ -140,6 +140,46 @@
 	desc = "A coffee cup with the British flag emblazoned on it."
 	icon_state = "coffeecup_brit"
 
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/shumaila
+	name = "shumaila coffee cup"
+	desc = "A coffee cup with a portrait of Shumaila, the current monarch of the New Kingdom of Adhomai."
+	icon_state = "coffeecup_shumaila"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nated
+	name = "nated coffee cup"
+	desc = "A coffee cup with a portrait of Supreme Commander Nated'Hakhan, the leader of the Adhomian Liberation Army."
+	icon_state = "coffeecup_nated"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/kingazunja
+	name = "vahzirthaamro coffee cup"
+	desc = "A coffee cup with a portrait of the late King Vahzirthaamro Azunja, the previous monarch of the New Kingdom of Adhomai."
+	icon_state = "coffeecup_kingazunja"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hadii
+	name = "hadii coffee cup"
+	desc = "A coffee cup with a portrait of Njadrasanukii Hadii, the president of the People's Republic of Adhomai."
+	icon_state = "coffeecup_hadii"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/njarir
+	name = "njarir coffee cup"
+	desc = "A coffee cup featuring the image of a Njarir Priest of S'rendarr."
+	icon_state = "coffeecup_njarir"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/msai
+	name = "m'sai coffee cup"
+	desc = "A coffee cup featuring the image of a M'sai hunter."
+	icon_state = "coffeecup_msai"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hharar
+	name = "hharar coffee cup"
+	desc = "A coffee cup featuring the image of a Hharar janitor."
+	icon_state = "coffeecup_hharar"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zhan
+	name = "zhan coffee cup"
+	desc = "A coffee cup featuring the image of a Zhan miner."
+	icon_state = "coffeecup_zhan"
+
 // Pure colors & other
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black
 	name = "black coffee cup"

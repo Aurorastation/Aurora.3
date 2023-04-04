@@ -3,16 +3,15 @@
 	id = "adhomai_hunting"
 	description = "A cruel and dangerous vestige of the previous wars."
 
-	spawn_weight = 1
-	spawn_cost = 1
+	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
 	suffixes = list("adhomai/adhomai_minefield.dmm")
 
 /obj/structure/adhomai_minefield
 	name = "siik'maas sign"
 	desc = "A sign with something written in Siik'maas."
-	icon = 'icons/obj/gravestone.dmi'
-	icon_state = "wood"
+	icon = 'icons/obj/minefield.dmi'
+	icon_state = "landmine_post"
 	anchored = TRUE
 
 /obj/structure/adhomai_minefield/examine(mob/user)

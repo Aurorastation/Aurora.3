@@ -13030,7 +13030,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -17561,7 +17561,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "wMw" = (
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/trauma,
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/o2,
 /obj/item/storage/firstaid/toxin,

@@ -54,7 +54,7 @@
 /obj/item/projectile/beam/cavern
 	name = "electrical discharge"
 	icon_state = "stun"
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	check_armor = "energy"
 	damage = 5
 
@@ -151,7 +151,7 @@
 		scan_timer--
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/proc/FindOre()
-	if(enemies.len)
+	if(enemies?.len)
 		return
 
 	setClickCooldown(attack_delay)
