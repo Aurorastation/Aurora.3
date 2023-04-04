@@ -24,7 +24,7 @@
   on the planet intentionally, granting them a blissful haven via the use of technology. Once the prominent and only religion on the planet, Shrkh-ism was quickly displaced when \
   Skrell explorers crashlanded and their memories, thoughts, emotions, everything was consumed, and doubt was first seeded in the minds of all Dionae on Xrim. The premise \
   behind the religion itself is simple; revere, help sustain and maintain synthetic life. As synthetic life brought dionae into this haven, so too shall it be preserved. In the \
-  minds of the Shrkh worshippers, the Skrell that brought Ksshr to the planet were misguided. To the Shrkh, the genophage was something that never happened, a myth made up by \
+  minds of the Shrkh worshippers, the Skrell that brought Ksshr to the planet were misguided. To the Shrkh, the X'Lu'oa was something that never happened, a myth made up by \
   the Federation to indoctrinate its population into its anti-synthetic and authoritarian beliefs. \
   \
   Note that due to their beliefs, those that are openly members of the faith are barred from command, machinist, and chaplain positions. They are also completely barred from \

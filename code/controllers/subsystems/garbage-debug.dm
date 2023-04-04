@@ -837,7 +837,7 @@
 	SearchVar(can_enter_vent_with)
 	SearchVar(ALL_ANTIGENS)
 	SearchVar(all_unit_tests_passed)
-	SearchVar(failed_unit_tests)
+	SearchVar(unit_tests_failures)
 	SearchVar(total_unit_tests)
 	SearchVar(ascii_esc)
 	SearchVar(ascii_red)

@@ -2,8 +2,7 @@
 	name = "Adhomian Fallout Bunker"
 	id = "adhomai_fallout_bunker"
 	description = "A fallout bunker built by the People's Republic of Adhomai after the armistice."
-	spawn_weight = 1
-	spawn_cost = 1
+	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
 	suffixes = list("adhomai/adhomai_fallout_bunker.dmm")
 

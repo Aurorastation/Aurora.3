@@ -46,6 +46,12 @@
 /// SS_BACKGROUND has its own priority bracket, this overrides SS_TICKER's priority bump
 #define SS_BACKGROUND 4
 
+/// If this subsystem doesn't initialize, it should not report as a hard error in CI.
+/// This should be used for subsystems that are flaky for complicated reasons, such as
+/// the Lua subsystem, which relies on auxtools, which is unstable.
+/// It should not be used simply to silence CI.
+#define SS_OK_TO_FAIL_INIT (1 << 6)
+
 //subsystem does not tick check, and should not run unless there is enough time (or its running behind (unless background))
 #define SS_NO_TICK_CHECK 8
 
