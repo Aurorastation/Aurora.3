@@ -199,7 +199,7 @@
 /singleton/flooring/tiling/white
 	desc = "How sterile."
 	icon_base = "white"
-	color = COLOR_OFF_WHITE
+	color = COLOR_SILVER
 	build_type = /obj/item/stack/tile/floor_white
 
 /singleton/flooring/tiling/yellow

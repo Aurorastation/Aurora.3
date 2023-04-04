@@ -158,7 +158,7 @@
 /obj/effect/floor_decal/corner/yellow
 	name = "yellow corner"
 	icon_state = "preview_corner"
-	color = COLOR_YELLOW_ENGI
+	color = COLOR_BROWN
 
 /obj/effect/floor_decal/corner/yellow/diagonal
 	icon_state = "preview_diagonal"
@@ -230,7 +230,7 @@
 
 /obj/effect/floor_decal/corner/orange
 	name = "orange corner"
-	color = COLOR_ORANGE
+	color = COLOR_DARK_ORANGE
 
 /obj/effect/floor_decal/corner/orange/diagonal
 	icon_state = "preview_diagonal"
@@ -242,7 +242,7 @@
 
 /obj/effect/floor_decal/corner/brown
 	name = "brown corner"
-	color = COLOR_BROWN
+	color = COLOR_DARK_BROWN
 
 /obj/effect/floor_decal/corner/brown/diagonal
 	icon_state = "preview_diagonal"
@@ -348,7 +348,7 @@
 	name = "yellow corner"
 	icon_state = "preview_wide_corner"
 	blend_state = "wide_corner"
-	color = COLOR_YELLOW_ENGI
+	color = COLOR_BROWN
 
 /obj/effect/floor_decal/corner_wide/yellow/diagonal
 	icon_state = "preview_wide_diagonal"
@@ -420,7 +420,7 @@
 
 /obj/effect/floor_decal/corner_wide/orange
 	name = "orange corner"
-	color = COLOR_ORANGE
+	color = COLOR_DARK_ORANGE
 
 /obj/effect/floor_decal/corner_wide/orange/diagonal
 	icon_state = "preview_wide_diagonal"
@@ -432,7 +432,7 @@
 
 /obj/effect/floor_decal/corner_wide/brown
 	name = "brown corner"
-	color = COLOR_BROWN
+	color = COLOR_DARK_BROWN
 
 /obj/effect/floor_decal/corner_wide/brown/diagonal
 	icon_state = "preview_wide_diagonal"
@@ -600,7 +600,7 @@
 
 /obj/effect/floor_decal/industrial/outline/engineering
 	name = "engineering yellow outline"
-	color = COLOR_YELLOW_ENGI
+	color = COLOR_BROWN
 
 /obj/effect/floor_decal/industrial/outline/service
 	name = "service green outline"
