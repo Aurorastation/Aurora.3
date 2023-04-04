@@ -16,6 +16,7 @@
 	var/turf/T = get_turf(src)
 	var/list/floor_decals = SSicon_cache.floor_decals
 	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
+		layer = T.is_plating() ? DECAL_PLATING_LAYER : ON_TURF_LAYER
 		var/cache_key = "[name]-[alpha]-[color]-[dir]-[icon_state]-[layer]-[blend_state ? blend_state : ""]-[blend_process]-[T.icon]-[T.icon_state]-[T.tile_outline ? T.tile_outline : ""]-[T.tile_outline_blend_process]"
 		if(!floor_decals[cache_key])
 			var/icon/decal_icon
@@ -39,7 +40,7 @@
 				decal_icon.Blend(decal_blend_icon, decal_blend_process)
 				decal_icon.SwapColor(color_to_swap, rgb(0, 0, 0, 0)) // cut it up, schiesse
 			var/image/I = image(icon = decal_icon)
-			I.turf_decal_layerise()
+			I.layer = layer
 			I.appearance_flags = appearance_flags
 			I.color = src.color
 			I.alpha = src.alpha
