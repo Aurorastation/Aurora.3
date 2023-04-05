@@ -25,7 +25,7 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 /datum/controller/subsystem/icon_smooth/fire()
 	if (explosion_in_progress)
 		return
-		
+
 	while(smooth_queue.len)
 		var/atom/A = smooth_queue[smooth_queue.len]
 		smooth_queue.len--

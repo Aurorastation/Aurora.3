@@ -45,7 +45,7 @@
 /proc/log_runtime(text)
 	WRITE_LOG(config.world_runtime_log, text)
 
-/proc/log_signal(text)
+/proc/_log_signal(text)
 	if(config.logsettings["log_signals"])
 		WRITE_LOG(config.signals_log, text)
 

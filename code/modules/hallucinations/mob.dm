@@ -34,7 +34,7 @@
 		return
 
 	var/hall_delay = rand(30, 40) SECONDS	//Time between hallucinations, modified below.
-	
+
 	//Modifying time between effects based on strength and chemicals
 	switch(hallucination)	//26-149 are intentionally left off, as they do not modify the delay. This is a pretty common range for hallucinations.
 		if(1 to 25)		//Winding down, less frequent.

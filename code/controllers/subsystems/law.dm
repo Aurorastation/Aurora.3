@@ -34,7 +34,7 @@
 	if(!establish_db_connection(dbcon))
 		log_debug("SSlaw: SQL ERROR - Failed to connect.")
 		return load_from_code()
-	
+
 	var/DBQuery/law_query = dbcon.NewQuery("SELECT law_id, name, description, min_fine, max_fine, min_brig_time, max_brig_time, severity, felony FROM ss13_law WHERE deleted_at IS NULL ORDER BY law_id ASC")
 	law_query.Execute()
 	while(law_query.NextRow())
@@ -62,7 +62,7 @@
 				qdel(L)
 		catch(var/exception/el)
 			log_debug("SSlaw: Error when loading law: [el]")
-	
+
 	laws = low_severity + med_severity + high_severity
 	if(!laws.len)
 		log_debug("SSlaw: No laws loaded. Loading from code and migrating to SQL")
@@ -75,7 +75,7 @@
 		var/DBQuery/law_update_query = dbcon.NewQuery({"
 		INSERT IGNORE INTO ss13_law
 			(law_id, name, description, min_fine, max_fine, min_brig_time, max_brig_time, severity, felony)
-		VALUES 
+		VALUES
 			(:law_id:, :name:, :desc:, :min_fine:, :max_fine:, :min_brig_time:, :max_brig_time:, :severity:, :felony:)
 		"})
 		law_update_query.Execute(list(

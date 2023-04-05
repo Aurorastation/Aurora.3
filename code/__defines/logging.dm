@@ -25,4 +25,5 @@
 
 #define WRITE_LOG_NO_FORMAT(file, text) rustg_log_write(file, text, "false")
 
-#define game_log(category, text) rustg_log_write(diary, "[game_id] [category]: [text][log_end]", "true")
+
+#define LOG_DEBUG(msg, otherparams...) log_debug(msg + " @@@ [__FILE__]:[__LINE__]", otherparams...)

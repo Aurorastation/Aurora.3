@@ -1,5 +1,5 @@
 
-/* 
+/*
 
 Just some quick documentation about how this works
 
@@ -57,7 +57,7 @@ paiicon is the pai icon sprite name
 	customsynthsprites.Execute()
 	while(customsynthsprites.NextRow())
 		CHECK_TICK
-			
+
 		var/datum/custom_synth/synth = new()
 		synth.synthname = customsynthsprites.item[1]
 		synth.synthckey = customsynthsprites.item[2]

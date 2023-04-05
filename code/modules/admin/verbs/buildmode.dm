@@ -340,7 +340,7 @@
 
 	var/turf/T = get_turf(user)
 	var/name = input(user, "Which template would you like to load?", "Load Template", null) as null|anything in templates["templates_list"]
-	
+
 	if (!name || !T)
 		return
 

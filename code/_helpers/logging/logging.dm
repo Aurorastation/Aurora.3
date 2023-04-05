@@ -35,14 +35,17 @@
 	_log_admin(text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ADMIN",additional_data=list("_ckey"=html_encode(ckey),"_admin_key"=html_encode(admin_key),"_ckey_target"=html_encode(ckey_target)))
 
-// /proc/log_signal(var/text)
-// 	if(length(signal_log) >= 100)
-// 		signal_log.Cut(1, 2)
-// 	signal_log.Add("|[time_stamp()]| [text]")
-// 	if(config.logsettings["log_signaler"])
-// 		game_log("SIGNALER", text)
-// 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=SEVERITY_NOTICE,category="SIGNALER")
+/proc/log_signal(var/text)
+	if(length(signal_log) >= 100)
+		signal_log.Cut(1, 2)
+	signal_log.Add("|[time_stamp()]| [text]")
+	_log_signal(text)
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=SEVERITY_NOTICE,category="SIGNALER")
 
+/**
+ * Use the macro LOG_DEBUG instead of calling this directly.
+ * Used for general_purpose debug logging, please use more specific ones if available, or consider adding your own
+ */
 /proc/log_debug(text,level = SEVERITY_DEBUG)
 	if (config.logsettings["log_debug"])
 		log_world("DEBUG [text]")
@@ -95,20 +98,19 @@
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]",level = SEVERITY_NOTICE, category = "ADMINSAY")
 
 /proc/log_ntirc(text, level = SEVERITY_NOTICE, ckey = "", conversation = "")
-	if (config.logsettings["log_pda"])
-		log_world("NTIRC [text]")
+	log_chat(text)
 	send_gelf_log(short_message = text,	long_message="[time_stamp()]: [text]",	level = level,	category = "NTIRC",	additional_data = list("_ckey" = html_encode(ckey), "_ntirc_conversation" = html_encode(conversation)))
 
 /proc/log_misc(text)
-	log_world("MISC [text]")
+	log_world("MISC: [text]")
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = SEVERITY_NOTICE, category="MISC")
 
 /proc/log_tgs(text, severity = SEVERITY_INFO)
-	log_world("TGS[SEVERITY_INFO] [text]")
+	log_world("TGS[SEVERITY_INFO]: [text]")
 	send_gelf_log(short_message = text,	long_message="[time_stamp()]: [text]",	level = severity, category = "TGS")
 
 /proc/log_ntsl(text, severity = SEVERITY_NOTICE, ckey = "")
-	game_log("NTSL", text)
+	log_world("NTSL: [text]")
 	send_gelf_log(text, "[time_stamp()]: [text]", severity, "NTSL", additional_data = list("_ckey" = ckey))
 
 /proc/log_unit_test(text)
