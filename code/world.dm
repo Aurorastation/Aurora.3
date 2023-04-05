@@ -67,7 +67,7 @@ var/global/datum/global_init/init = new ()
 	log_startup()
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
 
-	if(config.log_runtime)
+	if(config.logsettings["log_runtime"])
 		diary_runtime = file("data/logs/_runtime/[diary_date_string]-runtime.log")
 
 	if(byond_version < RECOMMENDED_VERSION)

@@ -56,7 +56,7 @@
 /proc/send_gelf_log(short_message="", long_message="", level = 5, category="", additional_data=list())
 	if (!config)
 		return "Configuration not loaded."
-	if (!config.log_gelf_enabled)
+	if (!config.logsettings["log_gelf_enabled"])
 		return "Gelf logging not enabled."
 	var/list/log_data = list()
 	log_data["version"] = "1.1"
@@ -69,7 +69,7 @@
 
 	log_data.Add(additional_data)
 	var/gelf_log = json_encode(log_data)
-	return send_udp_data(config.log_gelf_addr, gelf_log)
+	return send_udp_data(config.logsettings["log_gelf_addr"], gelf_log)
 
 /obj/item/device/udp_debugger
 	name = "udp_debugger"
@@ -83,7 +83,7 @@
 	throw_speed = 3
 	desc = "You can use this to debug sending udp logs to the log server"
 
-/obj/item/device/udp_debugger/proc/raw(addr=config.log_gelf_addr, data="RAW Test String")
+/obj/item/device/udp_debugger/proc/raw(addr=config.logsettings["log_gelf_addr"], data="RAW Test String")
 	return send_udp_data(addr,data)
 
 /obj/item/device/udp_debugger/proc/gelf(short_message="", long_message="", level = 1)

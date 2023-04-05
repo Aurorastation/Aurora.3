@@ -107,7 +107,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 
 			// Something's still referring to the qdel'd object.  Kill it.
 			var/type = A.type
-			log_gc("-- \ref[A] | [type] was unable to be GC'd and was deleted --", type)
+			log_harddel("-- \ref[A] | [type] was unable to be GC'd and was deleted --", type)
 			didntgc["[type]"]++
 
 			HardDelete(A)

@@ -4,21 +4,89 @@ var/list/gamemode_cache = list()
 	var/server_name = null				// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
 
-	var/log_ooc = 0						// log OOC channel
-	var/log_access = 0					// log login/logout
-	var/log_say = 0						// log client say
-	var/log_admin = 0					// log admin actions
-	var/log_signaler = 0				// log signaler actions
-	var/log_debug = 1					// log debug output
-	var/log_game = 0					// log game events
-	var/log_vote = 0					// log voting
-	var/log_whisper = 0					// log client whisper
-	var/log_emote = 0					// log emotes
-	var/log_attack = 0					// log attack messages
-	var/log_adminchat = 0				// log admin chat messages
-	var/log_pda = 0						// log NTIRC messages
-	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
-	var/log_runtime = 0					// logs world.log to a file
+	/////// START LOGGING SETTINGS ///////
+
+
+	/**
+	 * This is the nuclear option, this will make Hadii proud of you, and the players/other staff VERY VERY
+	 * ANGRY at you if you flip this on in production, also, everyone connected will be able to see the logs
+	 * so once again:
+	 *
+	 *		 NUCLEAR OPTION, TEST ENVIRONMENT/LOCAL INSTANCE/EVERYTHING IS FUCKED ONLY
+	 *
+	 * don't come cry to me if you fuck this up, but at least you can unfuck it just as easily. If the server survives.
+	*/
+	var/all_logs_to_chat = 0
+
+	// Enable/Disable Logging
+	var/list/logsettings = list(
+	"log_ooc" = FALSE,						// log OOC channel
+	"log_access" = FALSE,					// log login/logout
+	"log_say" = FALSE,						// log client say
+	"log_admin" = FALSE,					// log admin actions
+	"log_signaler" = FALSE,				// log signaler actions
+	"log_debug" = TRUE,					// log debug output
+	"log_game" = FALSE,					// log game events
+	"log_vote" = FALSE,					// log voting
+	"log_whisper" = FALSE,					// log client whisper
+	"log_emote" = FALSE,					// log emotes
+	"log_attack" = FALSE,					// log attack messages
+	"log_adminchat" = FALSE,				// log admin chat messages
+	"log_pda" = FALSE,						// log NTIRC messages
+	"log_hrefs" = FALSE,					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
+	"log_runtime" = FALSE,					// logs world.log to a file
+	"log_asset" = FALSE,
+	"log_job_debug" = FALSE,
+	"log_signals" = FALSE,
+	"log_admin" = TRUE,
+	"log_adminchat" = TRUE,
+	"log_suspicious_login" = TRUE,
+	"log_traitor" = TRUE,
+	"log_uplink" = TRUE,
+	"log_game" = TRUE,
+	"log_emote" = TRUE,
+	"log_ooc" = TRUE,
+	"log_prayer" = TRUE,
+	"log_access" = TRUE,
+	"log_vote" = FALSE,
+	"log_pda" = TRUE,
+	"log_telecomms" = FALSE,
+	"log_speech_indicators" = FALSE,
+	"log_tools" = FALSE,
+	"log_manifest" = TRUE
+
+	)
+
+	// Files to send the logs to
+	var/world_asset_log = "world_asset.log"
+	var/config_error_log = "config_error.log"
+	var/filter_log = "filter.log"
+	var/lua_log = "lua.log"
+	var/world_map_error_log = "world_map_error.log"
+	var/perf_log = "perf.log"
+	var/world_qdel_log = "world_qdel.log"
+	var/query_debug_log = "query_debug.log"
+	var/world_runtime_log = "world_runtime.log"
+	var/sql_error_log = "sql_error.log"
+	var/world_game_log = "world_game.log"
+	var/world_job_debug_log = "world_job_debug.log"
+	var/signals_log = "signals.log"
+	var/world_suspicious_login_log = "world_suspicious_login.log"
+	var/world_uplink_log = "world_uplink.log"
+	var/world_attack_log = "world_attack.log"
+	var/combat_log = "combat.log"
+	var/world_pda_log = "world_pda.log"
+	var/world_telecomms_log = "world_telecomms.log"
+	var/world_speech_indicators_log = "world_speech_indicators.log"
+	var/world_tool_log = "world_tool.log"
+	var/garbage_collector_log = "garbage_collector.log"
+	var/harddel_log = "harddel.log"
+	var/world_paper_log = "world_paper.log"
+	var/world_manifest_log = "world_manifest.log"
+
+
+	/////// END LOGGING SETTINGS ///////
+
 	var/log_world_output = 0			// log world.log <<  messages
 	var/sql_enabled = 0					// for sql switching
 	var/allow_admin_ooccolor = 0		// Allows admins with relevant permissions to have their own ooc colour
@@ -394,58 +462,58 @@ var/list/gamemode_cache = list()
 					use_spreading_explosions = 1
 
 				if ("log_ooc")
-					config.log_ooc = 1
+					config.logsettings["log_ooc"] = 1
 
 				if ("log_access")
-					config.log_access = 1
+					config.logsettings["log_access"] = 1
 
 				if ("sql_enabled")
 					config.sql_enabled = 1
 
 				if ("log_say")
-					config.log_say = 1
+					config.logsettings["log_say"] = 1
 
 				if ("debug_paranoid")
 					config.debugparanoid = 1
 
 				if ("log_admin")
-					config.log_admin = 1
+					config.logsettings["log_admin"] = 1
 
 				if ("log_signaler")
-					config.log_signaler = 1
+					config.logsettings["log_signaler"] = 1
 
 				if ("log_debug")
-					config.log_debug = text2num(value)
+					config.logsettings["log_debug"] = text2num(value)
 
 				if ("log_game")
-					config.log_game = 1
+					config.logsettings["log_game"] = 1
 
 				if ("log_vote")
-					config.log_vote = 1
+					config.logsettings["log_vote"] = 1
 
 				if ("log_whisper")
-					config.log_whisper = 1
+					config.logsettings["log_whisper"] = 1
 
 				if ("log_attack")
-					config.log_attack = 1
+					config.logsettings["log_attack"] = 1
 
 				if ("log_emote")
-					config.log_emote = 1
+					config.logsettings["log_emote"] = 1
 
 				if ("log_adminchat")
-					config.log_adminchat = 1
+					config.logsettings["log_adminchat"] = 1
 
 				if ("log_pda")
-					config.log_pda = 1
+					config.logsettings["log_pda"] = 1
 
 				if ("log_world_output")
-					config.log_world_output = 1
+					config.logsettings["log_world_output"] = 1
 
 				if ("log_hrefs")
-					config.log_hrefs = 1
+					config.logsettings["log_hrefs"] = 1
 
 				if ("log_runtime")
-					config.log_runtime = text2num(value)
+					config.logsettings["log_runtime"] = text2num(value)
 
 				if ("dungeon_chance")
 					config.dungeon_chance = text2num(value)
@@ -859,10 +927,10 @@ var/list/gamemode_cache = list()
 					config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
 
 				if("log_gelf_enabled")
-					config.log_gelf_enabled = text2num(value)
+					config.logsettings["log_gelf_enabled"] = text2num(value)
 
 				if("log_gelf_addr")
-					config.log_gelf_addr = value
+					config.logsettings["log_gelf_addr"] = value
 
 				if("ipintel_email")
 					if (value != "ch@nge.me")

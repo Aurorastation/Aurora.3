@@ -1,0 +1,35 @@
+/// Logging for generic/unsorted game messages
+/proc/_log_game(text)
+	if (config.logsettings["log_game"])
+		WRITE_LOG(config.world_game_log, "GAME: [text]")
+
+/// Logging for emotes
+/proc/_log_emote(text)
+	if (config.logsettings["log_emote"])
+		WRITE_LOG(config.world_game_log, "EMOTE: [text]")
+
+/// Logging for emotes sent over the radio
+/proc/log_radio_emote(text)
+	if (config.logsettings["log_emote"])
+		WRITE_LOG(config.world_game_log, "RADIOEMOTE: [text]")
+
+/// Logging for messages sent in OOC
+/proc/_log_ooc(text)
+	if (config.logsettings["log_ooc"])
+		WRITE_LOG(config.world_game_log, "OOC: [text]")
+
+/// Logging for prayed messages
+/proc/log_prayer(text)
+	if (config.logsettings["log_prayer"])
+		WRITE_LOG(config.world_game_log, "PRAY: [text]")
+
+/// Logging for logging in & out of the game, with error messages.
+/proc/_log_access(text)
+	if (config.logsettings["log_access"])
+		WRITE_LOG(config.world_game_log, "ACCESS: [text]")
+
+/// Logging for OOC votes
+/proc/_log_vote(text)
+	if (config.logsettings["log_vote"])
+		WRITE_LOG(config.world_game_log, "VOTE: [text]")
+

@@ -179,6 +179,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
 	/client/proc/cmd_admin_list_open_jobs,
 	/client/proc/Debug2,
+	/client/proc/DebugToggle,
+	/client/proc/DebugToggleAll,
 	/client/proc/kill_air,
 	/client/proc/ZASSettings,
 	/client/proc/cmd_debug_make_powernets,
@@ -358,6 +360,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_admin_list_open_jobs,
 	/client/proc/reset_openturf,
 	/client/proc/Debug2,
+	/client/proc/DebugToggle,
+	/client/proc/DebugToggleAll,
 	/client/proc/ZASSettings,
 	/client/proc/cmd_debug_make_powernets,
 	/client/proc/debug_antagonist_template,
@@ -447,6 +451,8 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/cmd_debug_make_powernets,
 	/client/proc/cmd_debug_mob_lists,
 	/client/proc/Debug2,
+	/client/proc/DebugToggle,
+	/client/proc/DebugToggleAll,
 	/client/proc/debug_controller,
 	/client/proc/debug_variables,
 	/client/proc/dsay,
@@ -808,11 +814,11 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Server"
 	if(!holder)	return
 	if(config)
-		if(config.log_hrefs)
-			config.log_hrefs = 0
+		if(config.logsettings["log_hrefs"])
+			config.logsettings["log_hrefs"] = 0
 			to_chat(src, "<b>Stopped logging hrefs</b>")
 		else
-			config.log_hrefs = 1
+			config.logsettings["log_hrefs"] = 1
 			to_chat(src, "<b>Started logging hrefs</b>")
 
 /client/proc/check_ai_laws()
