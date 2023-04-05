@@ -86,7 +86,16 @@ var/global/datum/global_init/init = new ()
 	. = ..()
 
 #ifdef UNIT_TEST
-	log_unit_test("Unit Tests Enabled.  This will destroy the world when testing is complete.")
+	#if defined(MANUAL_UNIT_TEST)
+
+	world.log << "[ascii_green] *** NOTICE *** [ascii_reset] Unit Tests Enabled.  This will destroy the world when testing is complete."
+
+	#else
+
+	world.log << "::notice::Unit Tests Enabled.  This will destroy the world when testing is complete."
+
+	#endif
+
 	load_unit_test_changes()
 #endif
 

@@ -1,7 +1,11 @@
 /obj/effect/overmap/visitable/sector/exoplanet/lava
 	name = "lava exoplanet"
-	desc = "An exoplanet with a lot of volcanic activity."
+	desc = "An exoplanet with an excess of volcanic activity."
 	color = "#575d5e"
+	scanimage = "lava.png"
+	geology = "Extreme, surface-apparent tectonic activity. Unreadable high-energy geothermal readings. Surface traversal demands caution"
+	weather = "Global sub-atmospheric volcanic ambient weather system. Exercise extreme caution with unpredictable volcanic eruption"
+	surfacewater = "Majority superheated methane, silicon and metallic substances, 7% liquid surface area."
 	planetary_area = /area/exoplanet/barren
 	rock_colors = list(COLOR_DARK_GRAY)
 	possible_themes = list(/datum/exoplanet_theme/mountains)

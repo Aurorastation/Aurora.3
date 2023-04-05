@@ -14,6 +14,10 @@
 	icon_state = "generic"
 	moving_state = "generic_moving"
 	colors = list("#c3c7eb", "#a0a8ec")
+	designer = "Idris Incorporated"
+	volume = "27 meters length, 19 meters beam/width, 11 meters vertical height"
+	sizeclass = "Starfarer-line Pleasure Yacht"
+	shiptype = "Private passenger utility, long-distance travel case"
 	vessel_mass = 3000
 	max_speed = 1/(2 SECONDS)
 	initial_generic_waypoints = list(
