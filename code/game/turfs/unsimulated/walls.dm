@@ -38,7 +38,7 @@
 	desc = "That looks like it doesn't open easily."
 
 /turf/unsimulated/wall/steel
-	icon = 'icons/turf/smooth/composite_solid.dmi'
+	icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	icon_state = "map_steel"
 	desc = "It's a wall. It appears to be composed of a highly durable alloy and plated with steel."
 	color = "#666666"

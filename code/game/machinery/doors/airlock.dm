@@ -77,7 +77,7 @@
 	var/mineral = null
 	/// Boolean. Whether or not the door's safeties are enabled. Tied to the safety wire.
 	var/safe = TRUE
-	
+
 	var/obj/item/airlock_electronics/electronics = null
 	/// Boolean. Whether or not the door has just electrocuted someone.
 	var/has_shocked = FALSE
@@ -230,6 +230,68 @@
 	if(mineral)
 		return SSmaterials.get_material_by_name(mineral)
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
+
+//new airlocks dont fucking delete it this time dingus
+/obj/machinery/door/airlock/generic // the start
+	icon = 'icons/obj/doors/basic/single/generic/door.dmi'
+	door_color = "#909299"
+	pixel_x = -16
+	pixel_y = -7
+	assembly_type = /obj/structure/door_assembly/door_assembly_generic
+	fill_file = 'icons/obj/doors/basic/single/generic/fill_steel.dmi'
+	color_file = 'icons/obj/doors/basic/single/generic/color.dmi'
+	color_fill_file = 'icons/obj/doors/basic/single/generic/fill_color.dmi'
+	stripe_file = 'icons/obj/doors/basic/single/generic/stripe.dmi'
+	stripe_fill_file = 'icons/obj/doors/basic/single/generic/fill_stripe.dmi'
+	glass_file = 'icons/obj/doors/basic/single/generic/fill_glass.dmi'
+	bolts_file = 'icons/obj/doors/basic/single/generic/lights_bolts.dmi'
+	deny_file = 'icons/obj/doors/basic/single/generic/lights_deny.dmi'
+	lights_file = 'icons/obj/doors/basic/single/generic/lights_green.dmi'
+	panel_file = 'icons/obj/doors/basic/single/generic/panel.dmi'
+	sparks_damaged_file = 'icons/obj/doors/basic/single/generic/sparks_damaged.dmi'
+	sparks_broken_file = 'icons/obj/doors/basic/single/generic/sparks_broken.dmi'
+	welded_file = 'icons/obj/doors/basic/single/generic/welded.dmi'
+	emag_file = 'icons/obj/doors/basic/single/generic/emag.dmi'
+
+/obj/machinery/door/airlock/generic/glass
+	icon_state = "preview_glass"
+	glass = 1
+
+/obj/machinery/door/airlock/generic/command
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#516487"
+	stripe_color = "#ffc443"
+
+/obj/machinery/door/airlock/generic/command/glass
+	icon_state = "preview_glass"
+	glass = 1
+
+/obj/machinery/door/airlock/generic/engineering
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#caa638"
+	stripe_color = "#ff7f43"
+
+/obj/machinery/door/airlock/generic/engineering/glass
+	icon_state = "preview_glass"
+	glass = 1
+
+/obj/machinery/door/airlock/generic/maintenance
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#4d4d4d"
+	stripe_color = "#a88029"
+
+/obj/machinery/door/airlock/generic/service
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#6f8751"
+
+/obj/machinery/door/airlock/generic/service/glass
+	icon_state = "preview_glass"
+	glass = 1
+
+/obj/machinery/door/airlock/service // Service Airlock
+	icon = 'icons/obj/doors/doorser.dmi'
+	assembly_type = /obj/structure/door_assembly/door_assembly_ser
+	hatch_colour = "#6f8751"
 
 /obj/machinery/door/airlock/service // Service Airlock
 	icon = 'icons/obj/doors/doorser.dmi'

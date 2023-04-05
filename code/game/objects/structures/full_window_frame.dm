@@ -1,7 +1,7 @@
 /obj/structure/window_frame
 	name = "steel window frame"
 	desc = "A steel window frame."
-	icon = 'icons/obj/smooth/full_window_frame.dmi'
+	icon = 'icons/obj/smooth/full_window_frame_color.dmi'
 	icon_state = "window_frame"
 	color = "#545c68"
 	build_amt = 4

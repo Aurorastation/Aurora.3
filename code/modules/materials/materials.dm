@@ -153,7 +153,7 @@
 	var/skip_blend = FALSE
 	switch (icon_base)
 		if ("solid")
-			wall_icon = 'icons/turf/smooth/composite_solid.dmi'
+			wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 		if ("stone")
 			wall_icon = 'icons/turf/smooth/composite_stone.dmi'
 			multipart_reinf_icon = 'icons/turf/smooth/composite_stone_reinf.dmi'
@@ -458,7 +458,7 @@
 	name = MATERIAL_GLASS
 	stack_type = /obj/item/stack/material/glass
 	flags = MATERIAL_BRITTLE
-	icon_colour = "#00E1FF"
+	icon_colour = null
 	opacity = 0.3
 	integrity = 100
 	shard_type = SHARD_SHARD

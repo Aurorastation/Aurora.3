@@ -566,8 +566,8 @@
 /obj/structure/window/shuttle/scc_space_ship
 	name = "advanced borosilicate alloy window"
 	desc = "It looks extremely strong. Might take many good hits to crack it."
-	icon = 'icons/obj/smooth/scc_space_ship.dmi'
-	icon_state = "scc_space_ship"
+	icon = 'icons/turf/smooth/scc_ship_window2.dmi'
+	icon_state = "map-shuttle"
 	health = 500
 	maxhealth = 500
 	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
@@ -578,6 +578,51 @@
 
 /obj/structure/window/shuttle/scc_space_ship/cardinal
 	smooth = SMOOTH_MORE
+
+/obj/structure/window/shuttle/scc_space_ship/cardinal_smooth(adjacencies, var/list/dir_mods)
+	LAZYINITLIST(dir_mods)
+	var/north_wall = FALSE
+	var/east_wall = FALSE
+	var/south_wall = FALSE
+	var/west_wall = FALSE
+
+	if(adjacencies & N_NORTH)
+		var/turf/T = get_step(src, NORTH)
+		if(iswall(T))
+			dir_mods["[N_NORTH]"] = "-wall"
+			add_overlay("n_attach")
+			north_wall = TRUE
+	if(adjacencies & N_EAST)
+		var/turf/T = get_step(src, EAST)
+		if(iswall(T))
+			dir_mods["[N_EAST]"] = "-wall"
+			add_overlay("e_attach")
+			east_wall = TRUE
+	if(adjacencies & N_SOUTH)
+		var/turf/T = get_step(src, SOUTH)
+		if(iswall(T))
+			dir_mods["[N_SOUTH]"] = "-wall"
+			add_overlay("s_attach")
+			south_wall = TRUE
+	if(adjacencies & N_WEST)
+		var/turf/T = get_step(src, WEST)
+		if(iswall(T))
+			dir_mods["[N_WEST]"] = "-wall"
+			add_overlay("w_attach")
+			west_wall = TRUE
+	if(((adjacencies & N_NORTH) && (adjacencies & N_WEST)) && (north_wall || west_wall))
+		dir_mods["[N_NORTH][N_WEST]"] = "-n[north_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
+	//	add_overlay("nw_attach")
+	if(((adjacencies & N_NORTH) && (adjacencies & N_EAST)) && (north_wall || east_wall))
+		dir_mods["[N_NORTH][N_EAST]"] = "-n[north_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
+	//	add_overlay("ne_attach")
+	if(((adjacencies & N_SOUTH) && (adjacencies & N_WEST)) && (south_wall || west_wall))
+		dir_mods["[N_SOUTH][N_WEST]"] = "-s[south_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
+	//	add_overlay("sw_attach")
+	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST) && (south_wall || east_wall))
+		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
+	//	add_overlay("se_attach")
+	return ..(adjacencies, dir_mods)
 
 /obj/structure/window/shuttle/scc
 	icon = 'icons/obj/smooth/scc_shuttle_window.dmi'
@@ -793,18 +838,23 @@
 	glasstype = /obj/item/stack/material/glass/reinforced
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
-	smooth = SMOOTH_TRUE
+	smooth = SMOOTH_MORE
 	canSmoothWith = list(
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/turf/unsimulated/wall/steel,
+		/turf/unsimulated/wall/darkshuttlewall,
+		/turf/unsimulated/wall/riveted,
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty,
 		/obj/structure/window/full/reinforced,
 		/obj/structure/window/full/reinforced/indestructible,
 		/obj/structure/window/full/reinforced/polarized,
 		/obj/structure/window/full/reinforced/polarized/indestructible,
 		/obj/structure/window/full/phoron/reinforced,
-		/turf/simulated/wall,
-		/turf/simulated/wall/r_wall,
-		/turf/unsimulated/wall/steel,
-		/turf/unsimulated/wall/darkshuttlewall,
-		/turf/unsimulated/wall/riveted
+		/obj/structure/window/shuttle/scc_space_ship,
+		/turf/simulated/wall/shuttle/scc_space_ship
 	)
 
 /obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
