@@ -119,6 +119,7 @@
 #include "code\_helpers\logging\manifest.dm"
 #include "code\_helpers\logging\paper.dm"
 #include "code\_helpers\logging\pda.dm"
+#include "code\_helpers\logging\subsystems.dm"
 #include "code\_helpers\logging\talk.dm"
 #include "code\_helpers\logging\tool.dm"
 #include "code\_helpers\maths.dm"

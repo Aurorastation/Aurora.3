@@ -18,14 +18,9 @@
 /proc/log_topic(T, addr, master, key, var/list/queryparams)
 	_log_topic("[game_id] TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]")
 
-/proc/log_error(msg)
-	world.log <<  "## ERROR: [msg][log_end]"
-	log_world("ERROR: [msg]")
-
 /proc/shutdown_logging()
 	dll_call(RUST_G, "log_close_all")
 
-#define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
 /proc/warning(msg)
 	world.log <<  "## WARNING: [msg][log_end]"
@@ -53,7 +48,7 @@
 		log_world("DEBUG [text]")
 
 	if (level == SEVERITY_ERROR) // Errors are always logged
-		log_error(text)
+		log_world("ERROR: [text]")
 
 	for(var/s in staff)
 		var/client/C = s
@@ -107,28 +102,6 @@
 /proc/log_misc(text)
 	log_world("MISC [text]")
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = SEVERITY_NOTICE, category="MISC")
-
-/proc/log_mc(text)
-	log_world("MASTER [text]")
-	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_INFO, "MASTER")
-
-/proc/log_ss(subsystem, text, log_world = TRUE, severity = SEVERITY_DEBUG)
-	if (!subsystem)
-		subsystem = "UNKNOWN"
-	var/msg = "[subsystem]: [text]"
-	log_world("SS [msg]")
-	send_gelf_log(msg, "[time_stamp()]: [msg]", severity, "SUBSYSTEM", additional_data = list("_subsystem" = subsystem))
-	if (log_world)
-		world.log <<  "SS[subsystem]: [text]"
-
-/proc/log_ss_init(text)
-	log_world("SSInit [text]")
-	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_INFO, "SS Init")
-
-// Generally only used when something has gone very wrong.
-/proc/log_failsafe(text)
-	log_world("FAILSAFE [text]")
-	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_ALERT, "FAILSAFE")
 
 /proc/log_tgs(text, severity = SEVERITY_INFO)
 	log_world("TGS[SEVERITY_INFO] [text]")
