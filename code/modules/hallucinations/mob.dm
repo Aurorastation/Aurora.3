@@ -54,7 +54,7 @@
 	next_hallucination = world.time + hall_delay
 	var/datum/hallucination/H = SShallucinations.get_hallucination(src)
 	if(isnull(H))
-		log_debug("Returned null hallucination for [src]")
+		LOG_DEBUG("Returned null hallucination for [src]")
 		return
 	H.holder = src
 	H.activate()

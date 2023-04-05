@@ -144,7 +144,7 @@
 						bar.update(C.charge)
 
 		else if (cell == DEVICE_NO_CELL)
-			log_debug("recharger: Item [DEBUG_REF(charging)] was in charger, but claims to have no internal cell slot; booting item.")
+			LOG_DEBUG("recharger: Item [DEBUG_REF(charging)] was in charger, but claims to have no internal cell slot; booting item.")
 			charging.forceMove(loc)
 			charging.visible_message("\The [charging] falls out of [src].")
 			charging = null

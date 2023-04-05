@@ -25,7 +25,7 @@
 	var/file = file2text(filename)
 
 	if (!file)
-		log_debug("SSpersist_config: file [filename] not found, falling back to default values.")
+		LOG_DEBUG("SSpersist_config: file [filename] not found, falling back to default values.")
 		return
 
 	var/list/decoded = null

@@ -37,7 +37,7 @@
 
 /obj/item/device/assembly/prox_sensor/HasProximity(atom/movable/AM as mob|obj)
 	if(!istype(AM))
-		log_debug("DEBUG: HasProximity called with [AM] on [src] ([usr]).")
+		LOG_DEBUG("DEBUG: HasProximity called with [AM] on [src] ([usr]).")
 		return
 	if(istype(AM, /obj/effect/beam))
 		return

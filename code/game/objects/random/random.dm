@@ -27,7 +27,7 @@
 	return 0
 
 /obj/random/proc/post_spawn(obj/thing)
-	log_debug("random_obj: [DEBUG_REF(src)] registered itself as having post_spawn, but did not override post_spawn()!")
+	LOG_DEBUG("random_obj: [DEBUG_REF(src)] registered itself as having post_spawn, but did not override post_spawn()!")
 
 // creates the random item
 /obj/random/proc/spawn_item()
@@ -44,7 +44,7 @@
 		. = new itemtype(loc)
 
 	if (!.)
-		log_debug("random_obj: [DEBUG_REF(src)] returned null item!")
+		LOG_DEBUG("random_obj: [DEBUG_REF(src)] returned null item!")
 
 /obj/random/single
 	name = "randomly spawned object"
@@ -553,7 +553,7 @@
 	if (helmet)
 		new helmet(loc)
 	else
-		log_debug("random_obj (voidsuit): Type [suit.type] was unable to spawn a matching helmet!")
+		LOG_DEBUG("random_obj (voidsuit): Type [suit.type] was unable to spawn a matching helmet!")
 	new /obj/item/clothing/shoes/magboots(loc)
 	if (damaged && prob(60))
 		suit.create_breaches(pick(DAMAGE_BRUTE, DAMAGE_BURN), rand(1, 5))

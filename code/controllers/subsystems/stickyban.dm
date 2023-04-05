@@ -27,7 +27,7 @@
 			var/list/ban = params2list(world.GetConfig("ban", oldban))
 			if (ban && !ban["fromdb"])
 				if (!import_raw_stickyban_to_db(ckey, ban))
-					log_debug("PRISM: Could not import stickyban on [oldban] into the database. Ignoring.")
+					LOG_DEBUG("PRISM: Could not import stickyban on [oldban] into the database. Ignoring.")
 					continue
 				dbcacheexpire = 0
 				bannedkeys += ckey

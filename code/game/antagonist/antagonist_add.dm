@@ -88,7 +88,7 @@
 		return
 
 	if(!establish_db_connection(dbcon))
-		log_debug("AntagLog: SQL ERROR - Failed to connect.")
+		LOG_DEBUG("AntagLog: SQL ERROR - Failed to connect.")
 		return
 
 	//Try to get the char id
@@ -115,7 +115,7 @@
 		return
 
 	if(!establish_db_connection(dbcon))
-		log_debug("AntagLog: SQL ERROR - Failed to connect.")
+		LOG_DEBUG("AntagLog: SQL ERROR - Failed to connect.")
 		return
 
 	if(!db_log_id)

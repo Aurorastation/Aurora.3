@@ -233,7 +233,7 @@ var/datum/controller/subsystem/timer/SStimer
   * Destroys the existing buckets and creates new buckets from the existing timed events
   */
 /datum/controller/subsystem/timer/proc/reset_buckets()
-	log_debug("Timer buckets have been reset, this may cause timers to lag")
+	LOG_DEBUG("Timer buckets have been reset, this may cause timers to lag")
 	bucket_reset_count++
 
 	var/list/bucket_list = src.bucket_list // Store local reference to datum var, this is faster

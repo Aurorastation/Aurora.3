@@ -62,7 +62,7 @@ var/list/banned_ruin_ids = list()
 		log_admin("Ruin loader had no ruins to pick from with [budget] left to spend.")
 
 	if (length(selected))
-		log_debug("Finished selecting planet ruins ([english_list(selected)]) for [budget - remaining] cost of [budget] budget.")
+		LOG_DEBUG("Finished selecting planet ruins ([english_list(selected)]) for [budget - remaining] cost of [budget] budget.")
 
 	return selected
 

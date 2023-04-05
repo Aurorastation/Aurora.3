@@ -63,7 +63,7 @@
 		if("Supreme Commander")
 			return get_all_centcom_access()
 
-	log_debug("Invalid job [job] passed to get_centcom_access")
+	LOG_DEBUG("Invalid job [job] passed to get_centcom_access")
 	return list()
 
 /proc/get_syndicate_access(job)
@@ -76,7 +76,7 @@
 			return list(access_syndicate, access_maint_tunnels)
 		if("Syndicate Commando")
 			return list(access_syndicate, access_syndicate_leader)
-	log_debug("Invalid job [job] passed to get_syndicate_access")
+	LOG_DEBUG("Invalid job [job] passed to get_syndicate_access")
 	return list()
 
 /proc/get_distress_access()

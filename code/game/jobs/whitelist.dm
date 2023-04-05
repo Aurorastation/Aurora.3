@@ -19,11 +19,11 @@ var/list/whitelist_jobconfig = list()
 
 /proc/load_whitelist_jobconfig()
 	if(fexists("config/whitelist_jobconfig.json"))
-		log_debug("Whitelist JobConfig: Loading from json")
+		LOG_DEBUG("Whitelist JobConfig: Loading from json")
 		try
 			whitelist_jobconfig = json_decode(return_file_text("config/whitelist_jobconfig.json"))
 		catch(var/exception/e)
-			log_debug("Whitelist JobConfig: Failed to load whitelist_jobconfig.json: [e]")
+			LOG_DEBUG("Whitelist JobConfig: Failed to load whitelist_jobconfig.json: [e]")
 
 /proc/load_whitelist()
 	if (config.sql_whitelists)

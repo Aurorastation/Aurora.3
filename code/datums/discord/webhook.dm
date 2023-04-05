@@ -60,7 +60,7 @@ var/list/global_webhooks = list()
 	var/datum/http_response/res = req.into_response()
 
 	if (res.errored)
-		log_debug("Webhooks: proc error while sending: [res.error]")
+		LOG_DEBUG("Webhooks: proc error while sending: [res.error]")
 		return FALSE
 	else
 		return TRUE

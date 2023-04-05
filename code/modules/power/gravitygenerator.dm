@@ -127,7 +127,7 @@
 	var/eventon = 0
 
 /obj/machinery/gravity_generator/main/Destroy()
-	log_debug("Gravity Generator Destroyed")
+	LOG_DEBUG("Gravity Generator Destroyed")
 	investigate_log("was destroyed!", "gravity")
 	on = 0
 	QDEL_NULL(soundloop)

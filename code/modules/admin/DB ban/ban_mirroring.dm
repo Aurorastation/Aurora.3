@@ -258,10 +258,10 @@
 
 	catch(var/exception/E)
 		data_object = list()
-		log_debug("CONN DATA: [E] encountered when loading data for [C.ckey].")
+		LOG_DEBUG("CONN DATA: [E] encountered when loading data for [C.ckey].")
 
 	if (!data_object || !data_object.len)
-		log_debug("CONN DATA: [C.ckey] has no connection data to showcase.")
+		LOG_DEBUG("CONN DATA: [C.ckey] has no connection data to showcase.")
 		return
 
 	if (data_object["vms"])
@@ -289,7 +289,7 @@
 	if (!conn_info || !conn_info.len)
 		return
 	else if (conn_info.len > 100)
-		log_debug("MIRROR BANS: [C.ckey] has [conn_info.len] unique sets. They were dropped and not processed.")
+		LOG_DEBUG("MIRROR BANS: [C.ckey] has [conn_info.len] unique sets. They were dropped and not processed.")
 		update_connection_data(C)
 		return
 

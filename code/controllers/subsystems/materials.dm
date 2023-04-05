@@ -36,7 +36,7 @@ var/datum/controller/subsystem/materials/SSmaterials
 		create_material_lists()
 	. = materials_by_name[M]
 	if(!.)
-		log_debug("Material not found: [M].")
+		LOG_DEBUG("Material not found: [M].")
 
 /datum/controller/subsystem/materials/proc/material_display_name(var/M)
 	var/material/material = get_material_by_name(M)

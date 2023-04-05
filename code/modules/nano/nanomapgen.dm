@@ -54,7 +54,7 @@
 		sleep(3)
 		return NANOMAP_TERMINALERR
 
-	log_debug("NanoMapGen: <B>GENERATE MAP ([startX],[startY],[currentZ]) to ([endX],[endY],[currentZ])</B>")
+	LOG_DEBUG("NanoMapGen: <B>GENERATE MAP ([startX],[startY],[currentZ]) to ([endX],[endY],[currentZ])</B>")
 	to_chat(usr, "NanoMapGen: <B>GENERATE MAP ([startX],[startY],[currentZ]) to ([endX],[endY],[currentZ])</B>")
 
 	var/count = 0;
@@ -71,16 +71,16 @@
 			count++
 
 			if (count % 8000 == 0)
-				log_debug("NanoMapGen: <B>[count] tiles done</B>")
+				LOG_DEBUG("NanoMapGen: <B>[count] tiles done</B>")
 				sleep(1)
 
 	var/mapFilename = "new_Aurora[currentZ]"
 
-	log_debug("NanoMapGen: <B>sending [mapFilename] to client</B>")
+	LOG_DEBUG("NanoMapGen: <B>sending [mapFilename] to client</B>")
 
 	usr << browse(Tile, "window=picture;file=[mapFilename];display=0")
 
-	log_debug("NanoMapGen: <B>Done.</B>")
+	LOG_DEBUG("NanoMapGen: <B>Done.</B>")
 
 	to_chat(usr, "NanoMapGen: <B>Done. File [mapFilename] uploaded to your cache.</B>")
 

@@ -11,12 +11,12 @@
 	if(istype(req_access))
 		access.req_access = req_access
 	else if(req_access)
-		log_debug("\The [src] was given an unepxected req_access: [req_access]")
+		LOG_DEBUG("\The [src] was given an unepxected req_access: [req_access]")
 
 	if(istype(req_one_access))
 		access.req_one_access = req_one_access
 	else if(req_one_access)
-		log_debug("\The [src] given an unepxected req_one_access: [req_one_access]")
+		LOG_DEBUG("\The [src] given an unepxected req_one_access: [req_one_access]")
 
 	if(monitored_alarm_ids)
 		for(var/obj/machinery/alarm/alarm in SSmachinery.processing)

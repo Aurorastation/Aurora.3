@@ -154,7 +154,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 	for (var/type in subtypesof(/datum/map))
 		M = new type
 		if (!M.path)
-			log_debug("SSatlas: Map [M.name] ([M.type]) has no path set, discarding.")
+			LOG_DEBUG("SSatlas: Map [M.name] ([M.type]) has no path set, discarding.")
 			qdel(M)
 			continue
 
@@ -205,9 +205,9 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	if(!selected_sector)
 		if(using_sector_config)
-			log_debug("atlas: [chosen_sector] used in the config file is not a valid space sector")
+			LOG_DEBUG("atlas: [chosen_sector] used in the config file is not a valid space sector")
 		current_sector = new /datum/space_sector/tau_ceti //if all fails, we go with tau ceti
-		log_debug("atlas: Unable to select [chosen_sector] as a valid space sector. Tau Ceti will be used instead.")
+		LOG_DEBUG("atlas: Unable to select [chosen_sector] as a valid space sector. Tau Ceti will be used instead.")
 	else
 		current_sector = selected_sector
 
@@ -271,7 +271,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 	priority_announcement = new(do_log = 0)
 	command_announcement = new(do_log = 0, do_newscast = 1)
 
-	log_debug("atlas: running [LAZYLEN(mapload_callbacks)] mapload callbacks.")
+	LOG_DEBUG("atlas: running [LAZYLEN(mapload_callbacks)] mapload callbacks.")
 	for (var/thing in mapload_callbacks)
 		var/datum/callback/cb = thing
 		cb.InvokeAsync()

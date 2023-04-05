@@ -102,7 +102,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 		if (QDELETED(holder))
 			active_holders -= holder
-			log_debug("SSchemistry: QDELETED holder found in processing list!")
+			LOG_DEBUG("SSchemistry: QDELETED holder found in processing list!")
 			if (MC_TICK_CHECK)
 				return
 			continue
@@ -130,19 +130,19 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	try
 		chemconfig = json_decode(return_file_text("config/secretchem.json"))
 	catch(var/exception/e)
-		log_debug("SSchemistry: Warning: Could not load config, as secretchem.json is missing - [e]")
+		LOG_DEBUG("SSchemistry: Warning: Could not load config, as secretchem.json is missing - [e]")
 		return
 
 	chemconfig = chemconfig["chemicals"]
 	for (var/chemical in chemconfig)
-		log_debug("SSchemistry: Loading chemical: [chemical]")
+		LOG_DEBUG("SSchemistry: Loading chemical: [chemical]")
 		var/datum/chemical_reaction/cc = new()
 		cc.name = chemconfig[chemical]["name"]
 		cc.id = chemconfig[chemical]["id"]
 		cc.result = text2path(chemconfig[chemical]["result"])
 		cc.result_amount = chemconfig[chemical]["resultamount"]
 		if(!ispath(cc.result, /singleton/reagent))
-			log_debug("SSchemistry: Warning: Invalid result [cc.result] in [cc.name] reactions list.")
+			LOG_DEBUG("SSchemistry: Warning: Invalid result [cc.result] in [cc.name] reactions list.")
 			qdel(cc)
 			break
 
@@ -150,7 +150,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			var/result_chem = text2path(key)
 			LAZYSET(cc.required_reagents, result_chem, chemconfig[chemical]["required_reagents"][key])
 			if(!ispath(result_chem, /singleton/reagent))
-				log_debug("SSchemistry: Warning: Invalid chemical [key] in [cc.name] required reagents list.")
+				LOG_DEBUG("SSchemistry: Warning: Invalid chemical [key] in [cc.name] required reagents list.")
 				qdel(cc)
 				break
 

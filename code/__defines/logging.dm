@@ -26,4 +26,4 @@
 #define WRITE_LOG_NO_FORMAT(file, text) rustg_log_write(file, text, "false")
 
 
-#define LOG_DEBUG(msg, otherparams...) log_debug(msg + " @@@ [__FILE__]:[__LINE__]", otherparams...)
+#define LOG_DEBUG(msg) log_debug(msg + " @@@ [__FILE__]:[__LINE__]")

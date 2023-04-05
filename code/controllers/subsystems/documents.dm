@@ -21,10 +21,10 @@ var/datum/controller/subsystem/docs/SSdocs
 /datum/controller/subsystem/docs/Initialize(timeofday)
 	//Load in the docs config
 	if(config.docs_load_docs_from == "sql")
-		log_debug("SSdocs: Attempting to Load from SQL")
+		LOG_DEBUG("SSdocs: Attempting to Load from SQL")
 		load_from_sql()
 	else if(config.docs_load_docs_from == "json")
-		log_debug("SSdocs: Attempting to Load from JSON")
+		LOG_DEBUG("SSdocs: Attempting to Load from JSON")
 		load_from_json()
 	else
 		log_game("SSdocs: invalid load option specified in config")
@@ -112,7 +112,7 @@ var/datum/controller/subsystem/docs/SSdocs
 //Load the document data from SQL
 /datum/controller/subsystem/docs/proc/load_from_sql()
 	if(!establish_db_connection(dbcon))
-		log_debug("SSdocs: SQL ERROR - Failed to connect. - Falling back to JSON")
+		LOG_DEBUG("SSdocs: SQL ERROR - Failed to connect. - Falling back to JSON")
 		return load_from_json()
 	else
 		//Reset the currently loaded data
@@ -131,7 +131,7 @@ var/datum/controller/subsystem/docs/SSdocs
 					document_query.item[4],
 					json_decode(document_query.item[5]))
 			catch(var/exception/ec)
-				log_debug("SSdocs: Error when loading document: [ec]")
+				LOG_DEBUG("SSdocs: Error when loading document: [ec]")
 	return 1
 
 //Loads the document data from JSON
@@ -141,7 +141,7 @@ var/datum/controller/subsystem/docs/SSdocs
 	if(isfile("config/docs.json"))
 		docsconfig = json_decode(return_file_text("config/docs.json"))
 	else
-		log_debug("SSdocs: Warning: Could not load config, as docs.json is missing")
+		LOG_DEBUG("SSdocs: Warning: Could not load config, as docs.json is missing")
 		return 0
 
 	//Reset the currently loaded data

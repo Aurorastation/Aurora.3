@@ -47,14 +47,14 @@ var/datum/controller/subsystem/vote/SSvote
 
 /datum/controller/subsystem/vote/proc/autotransfer()
 	initiate_vote("crew_transfer","the server", 1)
-	log_debug("The server has called a crew transfer vote")
+	LOG_DEBUG("The server has called a crew transfer vote")
 
 /datum/controller/subsystem/vote/proc/autogamemode()
 	for(var/thing in clients)
 		var/client/C = thing
 		window_flash(C)
 	initiate_vote("gamemode","the server", 1)
-	log_debug("The server has called a gamemode vote")
+	LOG_DEBUG("The server has called a gamemode vote")
 
 /datum/controller/subsystem/vote/proc/reset()
 	initiator = null

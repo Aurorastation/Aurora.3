@@ -85,7 +85,7 @@
 		if(am.autoselect)
 			weighted_mission_list[am.name] = am.weight
 		else
-			log_debug("[am.name] has a disabled autoselect")
+			LOG_DEBUG("[am.name] has a disabled autoselect")
 
 	if(!length(mission_list))
 		log_ss("map_finalization", "Found no valid ruins for the current map.")
@@ -119,7 +119,7 @@
 	for(var/map in selected_mission.map_files)
 		var/mfile = "[selected_mission.base_dir][map]"
 		var/time = world.time
-		log_debug("Attempting to load [mfile]")
+		LOG_DEBUG("Attempting to load [mfile]")
 
 		if (!maploader.load_map(file(mfile), 0, 0, no_changeturf = TRUE))
 			log_ss("map_finalization", "Failed to load '[mfile]'!")

@@ -96,7 +96,7 @@ var/list/gear_datums = list()
 			try
 				pref.gear_list = json_decode(pref.gear_list)
 			catch
-				log_debug("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
+				LOG_DEBUG("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
 				gear_reset = TRUE
 
 	var/mob/preference_mob = preference_mob()

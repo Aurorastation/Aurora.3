@@ -30,7 +30,7 @@
 	//processing internal organs is pretty cheap, do that first.
 	for(var/obj/item/organ/I in internal_organs)
 		if (QDELETED(I))
-			log_debug("Organ [DEBUG_REF(src)] was not properly removed from its parent!")
+			LOG_DEBUG("Organ [DEBUG_REF(src)] was not properly removed from its parent!")
 			internal_organs -= I
 			continue
 

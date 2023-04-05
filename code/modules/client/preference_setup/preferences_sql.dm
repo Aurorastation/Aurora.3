@@ -13,7 +13,7 @@
 	// We aren't loading this category. Bye.
 	if (role_type && !(sql_role & role_type))
 #ifdef SQL_PREF_DEBUG
-		log_debug("SQL CHARACTER LOAD: Bad role_type, returned. Looking for: [role_type], had: [sql_role]. Conjunction: [sql_role & role_type].")
+		LOG_DEBUG("SQL CHARACTER LOAD: Bad role_type, returned. Looking for: [role_type], had: [sql_role]. Conjunction: [sql_role & role_type].")
 #endif
 		return
 
@@ -78,7 +78,7 @@
 					query += ";"
 
 #ifdef SQL_PREF_DEBUG
-			log_debug("SQL CHARACTER LOAD: Cached query [query] with variables [json_encode(var_names)]")
+			LOG_DEBUG("SQL CHARACTER LOAD: Cached query [query] with variables [json_encode(var_names)]")
 #endif
 			// Save it.
 			query_cache[type][query] = var_names
@@ -90,7 +90,7 @@
 	var/list/arg_list = gather_load_parameters()
 
 #ifdef SQL_PREF_DEBUG
-	log_debug("SQL CHARACTER LOAD: Started loading with arguments: [json_encode(arg_list)]. Role type: [role_type]")
+	LOG_DEBUG("SQL CHARACTER LOAD: Started loading with arguments: [json_encode(arg_list)]. Role type: [role_type]")
 #endif
 
 	for (var/query_text in query_cache[type])
@@ -98,13 +98,13 @@
 		query.Execute(arg_list)
 		if (query.ErrorMsg())
 			log_world("ERROR: SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
-			log_debug("SQL CHARACTER LOAD: query args: [json_encode(arg_list)]")
+			LOG_DEBUG("SQL CHARACTER LOAD: query args: [json_encode(arg_list)]")
 
 			continue
 
 #ifdef SQL_PREF_DEBUG
 		else
-			log_debug("SQL CHARACTER LOAD: Successfully executed query: [query_text]")
+			LOG_DEBUG("SQL CHARACTER LOAD: Successfully executed query: [query_text]")
 #endif
 
 		// Each query should only return exactly 1 row.
@@ -119,7 +119,7 @@
 						cc.preferences.vars[layers[1]][layers[2]] = query.item[i]
 				catch(var/exception/e)
 					log_world("ERROR: SQL CHARACTER LOAD: bad variable name: [e.name]")
-					log_debug("SQL CHARACTER LOAD: var name: [var_names[i]]")
+					LOG_DEBUG("SQL CHARACTER LOAD: var name: [var_names[i]]")
 
 /datum/category_group/player_setup_category/proc/gather_load_parameters()
 	var/list/arg_list = list()
@@ -140,7 +140,7 @@
 	// We aren't loading this category. Bye.
 	if (role_type && !(sql_role & role_type))
 #ifdef SQL_PREF_DEBUG
-		log_debug("SQL CHARACTER SAVE: Bad role_type, returned. Looking for: [role_type], had: [sql_role]. Conjunction: [sql_role & role_type].")
+		LOG_DEBUG("SQL CHARACTER SAVE: Bad role_type, returned. Looking for: [role_type], had: [sql_role]. Conjunction: [sql_role & role_type].")
 #endif
 		return
 
@@ -195,7 +195,7 @@
 			query = replacetext(query, ",", "", length(query) - 1)
 
 #ifdef SQL_PREF_DEBUG
-			log_debug("SQL CHARACTER SAVE: Cached query [query].")
+			LOG_DEBUG("SQL CHARACTER SAVE: Cached query [query].")
 #endif
 
 			// Save it.
@@ -205,7 +205,7 @@
 	var/list/arg_list = gather_save_parameters()
 
 #ifdef SQL_PREF_DEBUG
-	log_debug("SQL CHARACTER SAVE: Started saving with arguments: [json_encode(arg_list)]. Role type: [role_type]")
+	LOG_DEBUG("SQL CHARACTER SAVE: Started saving with arguments: [json_encode(arg_list)]. Role type: [role_type]")
 #endif
 
 	// Typecast the collection so we can access its preferences var.
@@ -216,13 +216,13 @@
 
 		if (query.ErrorMsg())
 			log_world("ERROR: SQL CHARACTER SAVE: SQL query error: [query.ErrorMsg()]")
-			log_debug("SQL CHARACTER SAVE: query args: [json_encode(arg_list)]")
+			LOG_DEBUG("SQL CHARACTER SAVE: query args: [json_encode(arg_list)]")
 
 			continue
 
 #ifdef SQL_PREF_DEBUG
 		else
-			log_debug("SQL CHARACTER SAVE: Successfully executed query: [query_text]")
+			LOG_DEBUG("SQL CHARACTER SAVE: Successfully executed query: [query_text]")
 #endif
 
 		if ((role_type & SQL_CHARACTER) && !cc.preferences.current_character)
@@ -237,7 +237,7 @@
 				cc.preferences.current_character = text2num(query.item[1])
 
 #ifdef SQL_PREF_DEBUG
-				log_debug("SQL CHARACTER SAVE: Successfully set character ID to [cc.preferences.current_character]")
+				LOG_DEBUG("SQL CHARACTER SAVE: Successfully set character ID to [cc.preferences.current_character]")
 #endif
 
 			else

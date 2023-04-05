@@ -266,12 +266,12 @@ var/list/localhost_addresses = list(
 
 	if (config.macro_trigger && (REALTIMEOFDAY - last_message_time) < config.macro_trigger)
 		spam_alert = min(spam_alert + 1, 4)
-		log_debug("SPAM_PROTECT: [src] tripped macro-trigger. Now at alert [spam_alert].")
+		LOG_DEBUG("SPAM_PROTECT: [src] tripped macro-trigger. Now at alert [spam_alert].")
 
 		if (spam_alert > 3 && !(prefs.muted & mute_type))
 			cmd_admin_mute(src.mob, mute_type, 1)
 			to_chat(src, "<span class='danger'>You have tripped the macro-trigger. An auto-mute was applied.</span>")
-			log_debug("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
+			LOG_DEBUG("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
 			return TRUE
 
 	else
@@ -285,17 +285,17 @@ var/list/localhost_addresses = list(
 
 	if (last_message == message)
 		last_message_count++
-		log_debug("SPAM_PROTECT: [src] tripped duplicate message filter. Last message count: [last_message_count]. Message: [message]")
+		LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter. Last message count: [last_message_count]. Message: [message]")
 
 		if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
 			to_chat(src, "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>")
 			cmd_admin_mute(mob, mute_type, 1)
-			log_debug("SPAM_PROTECT: [src] tripped duplicate message filter, now muted.")
+			LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter, now muted.")
 			last_message_count = 0
 			return TRUE
 		else if(last_message_count >= SPAM_TRIGGER_WARNING)
 			to_chat(src, "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>")
-			log_debug("SPAM_PROTECT: [src] tripped duplicate message filter, now warned.")
+			LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter, now warned.")
 			return FALSE
 	else
 		last_message_count = 0
@@ -729,7 +729,7 @@ var/list/localhost_addresses = list(
 			linkURL += new_attributes
 
 		else
-			log_debug("Unrecognized process_webint_link() call used. Route sent: '[route]'.")
+			LOG_DEBUG("Unrecognized process_webint_link() call used. Route sent: '[route]'.")
 			return
 
 	send_link(src, linkURL)
@@ -754,7 +754,7 @@ var/list/localhost_addresses = list(
 /client/proc/findJoinDate()
 	var/list/http = world.Export("http://byond.com/members/[ckey]?format=text")
 	if(!http)
-		log_debug("ACCESS CONTROL: Failed to connect to byond age check for [ckey]")
+		LOG_DEBUG("ACCESS CONTROL: Failed to connect to byond age check for [ckey]")
 		return
 	var/F = file2text(http["CONTENT"])
 	if(F)

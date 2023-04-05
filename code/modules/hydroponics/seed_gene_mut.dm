@@ -1,6 +1,6 @@
 /datum/seed/proc/diverge_mutate_gene(var/singleton/plantgene/G, var/turf/T)
 	if(!istype(G))
-		log_debug("Attempted to mutate [src] with a non-plantgene var.")
+		LOG_DEBUG("Attempted to mutate [src] with a non-plantgene var.")
 		return src
 
 	var/datum/seed/S = diverge()	//Let's not modify all of the seeds.

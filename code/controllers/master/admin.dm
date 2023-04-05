@@ -100,7 +100,7 @@ var/list/panic_targets_data_loss = list(
 			return
 
 	log_and_message_admins(SPAN_DANGER("hard-restarted the [controller] subsystem."))
-	log_debug("SS PANIC: [controller] hard-restart by [usr]!")
+	LOG_DEBUG("SS PANIC: [controller] hard-restart by [usr]!")
 
 	// NEW_SS_GLOBAL will handle destruction of old controller & data transfer, just create a new one and add it to the MC.
 	var/ctype = panic_targets[controller]

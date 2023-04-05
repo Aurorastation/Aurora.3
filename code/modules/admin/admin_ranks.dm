@@ -109,7 +109,7 @@ var/list/forum_groupids_to_ranks = list()
 			//find the client for a ckey if they are connected and associate them with the new admin datum
 			D.associate(directory[ckey])
 
-			log_debug("AdminRanks: Updated Admins from Legacy System")
+			LOG_DEBUG("AdminRanks: Updated Admins from Legacy System")
 
 	else
 		//The current admin system uses SQL
@@ -203,16 +203,16 @@ var/list/forum_groupids_to_ranks = list()
 	if (reload_once_done)
 		load_admins()
 
-	log_debug("AdminRanks: Updated Admins from ForumUserAPI")
+	LOG_DEBUG("AdminRanks: Updated Admins from ForumUserAPI")
 
 	return TRUE
 
 /proc/insert_user_to_admins_table(datum/forum_user/user)
 	if(isnull(user.ckey))
-		log_debug("AdminRanks: [user.forum_name] does not have a ckey linked - Ignoring")
+		LOG_DEBUG("AdminRanks: [user.forum_name] does not have a ckey linked - Ignoring")
 		return
 	if(user.psync_game_disabled)
-		log_debug("AdminRanks: [user.forum_name] has permsync-game disabled - Ignoring")
+		LOG_DEBUG("AdminRanks: [user.forum_name] has permsync-game disabled - Ignoring")
 		return
 	var/rights = 0
 

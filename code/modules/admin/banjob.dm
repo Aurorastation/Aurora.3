@@ -230,7 +230,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	CKEY_OR_MOB(ckey, player)
 
 	if (!ckey)
-		log_debug("JOBBAN: jobban_unban called without a mob and a backup ckey.")
+		LOG_DEBUG("JOBBAN: jobban_unban called without a mob and a backup ckey.")
 		return
 
 	// Check for a player record.

@@ -37,7 +37,7 @@
 /datum/radio_frequency/proc/add_listener(obj/device, filter)
 	if (!filter)
 		filter = RADIO_DEFAULT
-	//log_debug("add_listener(device=[device],filter=[filter]) frequency=[frequency]")
+	//LOG_DEBUG("add_listener(device=[device],filter=[filter]) frequency=[frequency]")
 	var/list/obj/devices_line = devices[filter]
 	if (!devices_line)
 		devices_line = new
@@ -45,8 +45,8 @@
 	devices_line |= device
 //			var/list/obj/devices_line___ = devices[filter_str]
 //			var/l = devices_line___.len
-	//log_debug("DEBUG: devices_line.len=[devices_line.len]")
-	//log_debug("DEBUG: devices(filter_str).len=[l]")
+	//LOG_DEBUG("DEBUG: devices_line.len=[devices_line.len]")
+	//LOG_DEBUG("DEBUG: devices(filter_str).len=[l]")
 
 /datum/radio_frequency/proc/remove_listener(obj/device)
 	for (var/devices_filter in devices)

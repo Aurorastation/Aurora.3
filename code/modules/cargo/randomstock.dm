@@ -77,7 +77,7 @@ STOCK_ITEM_COMMON(bees, 2)
 		var/datum/cargo_master/def = new type()
 		def.register_spawner()
 		i++
-	log_debug("Registered [i] cargo spawners.")
+	LOG_DEBUG("Registered [i] cargo spawners.")
 
 // These lists are populated by the files in `./random_stock` using the above procs.
 var/list/global/random_stock_common = list()

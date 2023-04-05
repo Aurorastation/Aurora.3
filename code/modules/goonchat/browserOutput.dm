@@ -207,7 +207,7 @@ var/savefile/iconCache = new("data/tmp/iconCache.sav") //Cache of icons for the 
 
 //Called by js client on js error
 /datum/chatOutput/proc/debug(error)
-	log_debug("\[[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]\] Client: [(src.owner.key ? src.owner.key : src.owner)] triggered JS error: [error]")
+	LOG_DEBUG("\[[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]\] Client: [(src.owner.key ? src.owner.key : src.owner)] triggered JS error: [error]")
 
 //Global chat procs
 /proc/to_chat_immediate(target, message, handle_whitespace = TRUE, trailing_newline = TRUE)

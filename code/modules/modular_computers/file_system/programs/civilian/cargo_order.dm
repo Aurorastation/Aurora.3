@@ -119,11 +119,11 @@
 				status_message = co.add_item(coi)
 			else
 				status_message = "Unable to add item [text2num(href_list["add_item"])] - Internal Error 601."
-				log_debug("Cargo Order: Warning - Attempted to order item [coi.ci.name] with invalid purchase price")
+				LOG_DEBUG("Cargo Order: Warning - Attempted to order item [coi.ci.name] with invalid purchase price")
 				qdel(coi)
 		else
 			status_message = "Unable to locate item in sales database - Internal Error 602."
-			log_debug("Cargo Order: Warning - Attempted to order item with non-existant id: [href_list["add_item"]]")
+			LOG_DEBUG("Cargo Order: Warning - Attempted to order item with non-existant id: [href_list["add_item"]]")
 			qdel(coi)
 
 		//Reset page to main page - TODO: Maybe add a way to disable jumping back to the main page - Commented out for now

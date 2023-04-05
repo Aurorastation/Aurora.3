@@ -114,7 +114,7 @@
 	var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
 	var/obj/item/modular_computer/console = program.computer
 	if (!shuttle)
-		log_debug("## ERROR: Eek. The supply/shuttle datum is missing somehow.")
+		LOG_DEBUG("## ERROR: Eek. The supply/shuttle datum is missing somehow.")
 		return
 	if(..())
 		return TRUE

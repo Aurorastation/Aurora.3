@@ -131,7 +131,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 			InitAtom(AM, mload_args)
 			++loaded
 
-	log_debug("atoms: force-loaded [loaded] out of [A.contents.len] atoms in [A].")
+	LOG_DEBUG("atoms: force-loaded [loaded] out of [A.contents.len] atoms in [A].")
 
 /datum/controller/subsystem/atoms/proc/InitLog()
 	. = ""
