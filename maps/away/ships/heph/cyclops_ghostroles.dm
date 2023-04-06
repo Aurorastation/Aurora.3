@@ -57,7 +57,7 @@
 /datum/outfit/admin/cyclops_crew/security
 	name = "Hephaestus Security Officer"
 
-	uniform = /obj/item/clothing/under/rank/secuirty/heph
+	uniform = /obj/item/clothing/under/rank/security/heph
 	shoes = /obj/item/clothing/shoes/workboots/dark
 	back = /obj/item/storage/backpack/satchel
 
@@ -75,10 +75,31 @@
 /datum/outfit/admin/cyclops_crew/security/get_id_access()
 	return list(access_external_airlocks)
 
-/datum/outfit/admin/cyclops_crew/captain
-	name = "Coalition Ranger Leader"
+/datum/ghostspawner/human/cyclops_crew/captain
+	short_name = "cyclops_captain"
+	name = "Hephaestus Captain"
+	desc = "Act as the Hephaestus Mining Vessels Captain"
 
-	accessory = /obj/item/clothing/accessory/sash/red
+	spawnpoints = list("cyclops_captain")
+	max_count = 1
+
+	outfit = /datum/outfit/admin/cyclops_crew/captain
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "Hephaestus Industries Captain"
+	special_role = "Hephaestus Industries Captain"
+
+/datum/outfit/admin/cyclops_crew/captain
+	name = "Cyclops Crew Captain"
+
+	uniform = /obj/item/clothing/under/rank/captain/heph
+	shoes = /obj/item/clothing/shoes/workboots/dark
+	back = /obj/item/storage/backpack/satchel/leather
+
+	id = /obj/item/card/id/cyclops_ship
+
+	l_ear = = /obj/item/device/radio/headset/ship
 
 /obj/item/card/id/cyclops_ship
 	name = "Cyclops Ship ID"
