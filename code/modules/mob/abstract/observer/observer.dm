@@ -990,5 +990,5 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 		return TRUE
 	return ..()
 
-/mob/observer/get_speech_bubble_state_modifier()
+/mob/abstract/observer/get_speech_bubble_state_modifier()
 	return "ghost"

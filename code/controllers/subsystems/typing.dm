@@ -124,7 +124,7 @@ var/datum/controller/subsystem/typing/SStyping
 /datum/controller/subsystem/typing/proc/update_indicator(client/client, list/entry)
 	PRIVATE_PROC(TRUE)
 	var/mob/target = client.mob
-	var/display = target.stat == CONSCIOUS && entry[INDEX_PREFERENCE] && (entry[INDEX_INPUT_STATE] || entry[INDEX_VERB_STATE]) && isturf(target.loc)
+	var/display = (target.stat == CONSCIOUS || isobserver(target)) && entry[INDEX_PREFERENCE] && (entry[INDEX_INPUT_STATE] || entry[INDEX_VERB_STATE]) && isturf(target.loc)
 	if(display == target.is_typing)
 		return
 	if(display)
