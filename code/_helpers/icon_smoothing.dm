@@ -38,6 +38,7 @@
 #define SMOOTH_BORDER         8 // atom will smooth with the borders of the map
 #define SMOOTH_QUEUED        16 // atom is currently queued to smooth.
 #define SMOOTH_NO_CLEAR_ICON 32 // don't clear the atom's icon_state on smooth.
+#define SMOOTH_UNDERLAYS     64 // Add underlays, detached from diagonal smoothing.
 
 #define SMOOTHHINT_CUT_F              1 // Don't draw the 'F' state. Useful with SMOOTH_NO_CLEAR_ICON.
 #define SMOOTHHINT_ONLY_MATCH_TURF    2 // Only try to match turfs (this is faster than matching all atoms)
@@ -226,6 +227,30 @@
 			if(!T.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency) && !get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
 				underlay_appearance.icon = DEFAULT_UNDERLAY_ICON
 				underlay_appearance.icon_state = DEFAULT_UNDERLAY_ICON_STATE
+
+		underlays = U
+
+/turf/proc/get_underlays(var/list/adjacencies)
+	//First of all, check if there are turfs like us we can ask for underlays.
+	adjacencies = calculate_adjacencies()
+	var/success = FALSE
+	if (smooth_underlays)
+		var/mutable_appearance/underlay_appearance = mutable_appearance(null, layer = TURF_LAYER)
+		var/list/U = list(underlay_appearance)
+		for(var/direction in alldirs)
+			if(adjacencies & direction)
+				var/turf/T = get_step(src, direction)
+				if(T)
+					if(!T.get_smooth_underlay_icon(underlay_appearance, src, direction))
+						continue
+					else
+						success = TRUE
+						break
+
+		//if all else fails, ask our own turf
+		if(!success)
+			underlay_appearance.icon = base_icon
+			underlay_appearance.icon_state = base_icon_state
 
 		underlays = U
 

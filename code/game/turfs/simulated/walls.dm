@@ -42,7 +42,7 @@
 	var/tmp/image/fake_wall_image
 	var/tmp/cached_adjacency
 
-	smooth = SMOOTH_MORE | SMOOTH_NO_CLEAR_ICON
+	smooth = SMOOTH_MORE | SMOOTH_NO_CLEAR_ICON | SMOOTH_UNDERLAYS
 
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)

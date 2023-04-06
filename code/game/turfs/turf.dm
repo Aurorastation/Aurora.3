@@ -51,8 +51,8 @@
 	// Plating data.
 	var/base_name = "plating"
 	var/base_desc = "The naked hull."
-	var/base_icon = 'icons/turf/flooring/plating.dmi'
-	var/base_icon_state = "plating"
+	var/base_icon = 'icons/turf/flooring/tiles.dmi'
+	var/base_icon_state = "steel"
 	var/last_clean //for clean log spam.
 
 // Parent code is duplicated in here instead of ..() for performance reasons.
