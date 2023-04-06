@@ -114,7 +114,7 @@
 	send_gelf_log(text, "[time_stamp()]: [text]", severity, "NTSL", additional_data = list("_ckey" = ckey))
 
 /proc/log_exception(exception/e)
-	if (config.logsettings["log_runtime"])
+	if (isnull(config) || config.logsettings["log_runtime"])
 		log_runtime("RUNTIME ERROR:\n[e.name] - [e.desc] @@@ [e.file]")
 
 		for(var/k in e.vars)

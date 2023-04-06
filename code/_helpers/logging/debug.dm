@@ -6,7 +6,7 @@
 /// Logging for config errors
 /// Rarely gets called; just here in case the config breaks.
 /proc/log_config(text)
-	WRITE_LOG(config.config_error_log, text)
+	WRITE_LOG(isnull(config) ?"config_error.log" : config.config_error_log, text)
 	SEND_TEXT(world.log, text)
 
 /proc/log_filter_raw(text)
