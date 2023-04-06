@@ -8,8 +8,8 @@
 	can_burn_food = TRUE
 	active_power_usage = 6 KILOWATTS
 	heating_power = 6000
-	on_icon = "stove_on"
-	off_icon = "stove_off"
+	on_icon = "stove"
+	off_icon = "stove"
 
 	resistance = 5000 // Approx. 2 minutes.
 	idle_power_usage = 1 KILOWATTS
@@ -30,6 +30,9 @@
 /obj/machinery/appliance/cooker/stove/update_icon()
 	. = ..()
 	cut_overlays()
+	if (!stat)
+		var/glow = image('icons/obj/cooking_machines.dmi', "stove_burner")
+		add_overlay(glow)
 	var/list/pans = list()
 	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
 		var/image/pan_overlay
