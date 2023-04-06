@@ -43,7 +43,7 @@
 
 /* Log to the logfile only. */
 /proc/log_runtime(text)
-	WRITE_LOG(config.world_runtime_log, text)
+	WRITE_LOG(isnull(config) ? "world_runtime_log" : config.world_runtime_log, text)
 
 /proc/_log_signal(text)
 	if(config.logsettings["log_signals"])
