@@ -184,3 +184,6 @@
 /mob/living/carbon/human/Destroy()
 	ghost_spawner = null
 	return ..()
+
+/mob/living/carbon/human/get_speech_bubble_state_modifier()
+	return species.get_speech_bubble_modifier() || ..()

@@ -1020,3 +1020,6 @@ default behaviour is:
 
 /mob/living/proc/is_anti_materiel_vulnerable()
 	return FALSE
+
+/mob/living/get_speech_bubble_state_modifier()
+	return isSynthetic() ? "synth" : ..()

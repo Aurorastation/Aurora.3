@@ -850,3 +850,7 @@
 
 /datum/species/proc/can_use_guns()
 	return TRUE
+
+/// Leave empty to use default mob modifier.
+/datum/species/proc/get_speech_bubble_modifier()
+	return
