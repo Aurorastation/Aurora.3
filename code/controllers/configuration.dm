@@ -393,7 +393,7 @@ var/list/gamemode_cache = list()
 		if (M.config_tag)
 			gamemode_cache[M.config_tag] = M // So we don't instantiate them repeatedly.
 			if(!(M.config_tag in modes))		// ensure each mode is added only once
-				log_misc("Adding game mode [M.name] ([M.config_tag]) to configuration.")
+				log_config("Adding game mode [M.name] ([M.config_tag]) to configuration.")
 				src.modes += M.config_tag
 				src.mode_names[M.config_tag] = M.name
 				src.probabilities_secret[M.config_tag] = M.probability
@@ -673,9 +673,9 @@ var/list/gamemode_cache = list()
 							else if (prob_type == "ms")
 								config.probabilities_mixed_secret[prob_name] = prob_value
 						else
-							log_misc("Unknown game mode probability configuration definition: [prob_name].")
+							log_config("Unknown game mode probability configuration definition: [prob_name].")
 					else
-						log_misc("Incorrect probability configuration definition: [prob_name]  [prob_value].")
+						log_config("Incorrect probability configuration definition: [prob_name]  [prob_value].")
 
 				if("allow_random_events")
 					config.allow_random_events = 1
@@ -950,7 +950,7 @@ var/list/gamemode_cache = list()
 
 				if("fastboot")
 					fastboot = TRUE
-					LOG_DEBUG("Fastboot is ENABLED.")
+					log_config("Fastboot is ENABLED.")
 
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
@@ -1040,11 +1040,11 @@ var/list/gamemode_cache = list()
 					lore_summary = value
 
 				else
-					log_misc("Unknown setting in configuration: '[name]'")
+					log_config("Unknown setting in configuration: '[name]'")
 
 		else if(type == "game_options")
 			if(!value)
-				log_misc("Unknown value for setting [name] in [filename].")
+				log_config("Unknown value for setting [name] in [filename].")
 			value = text2num(value)
 
 			switch(name)
@@ -1110,7 +1110,7 @@ var/list/gamemode_cache = list()
 					config.sun_target_z = value
 
 				else
-					log_misc("Unknown setting in configuration: '[name]'")
+					log_config("Unknown setting in configuration: '[name]'")
 
 		else if (type == "age_restrictions")
 			name = replacetext(name, "_", " ")
@@ -1134,7 +1134,7 @@ var/list/gamemode_cache = list()
 				if ("alert_visibility")
 					discord_bot.alert_visibility = 1
 				else
-					log_misc("Unknown setting in discord configuration: '[name]'")
+					log_config("Unknown setting in discord configuration: '[name]'")
 
 /datum/configuration/proc/pick_mode(mode_name)
 	// I wish I didn't have to instance the game modes in order to look up
@@ -1146,7 +1146,7 @@ var/list/gamemode_cache = list()
 	return gamemode_cache["extended"]
 
 /datum/configuration/proc/get_runnable_modes(secret_type = ROUNDTYPE_STR_SECRET)
-	LOG_DEBUG("GAMEMODE: Checking runnable modes with secret_type set to [secret_type]...")
+	log_game("GAMEMODE: Checking runnable modes with secret_type set to [secret_type]...")
 
 	var/list/probabilities = config.probabilities_secret
 
@@ -1162,20 +1162,20 @@ var/list/gamemode_cache = list()
 	for(var/game_mode in gamemode_cache)
 		var/datum/game_mode/M = gamemode_cache[game_mode]
 		if(!M)
-			LOG_DEBUG("GAMEMODE: ERROR: [M] does not exist!")
+			log_config("GAMEMODE: ERROR: [M] does not exist!")
 			continue
 
 		var/can_start = M.can_start()
 		if(can_start != GAME_FAILURE_NONE)
-			LOG_DEBUG("GAMEMODE: [M.name] cannot start! Reason: [can_start]")
+			log_game("GAMEMODE: [M.name] cannot start! Reason: [can_start]")
 			continue
 
 		if(!probabilities[M.config_tag])
-			LOG_DEBUG("GAMEMODE: ERROR: [M.name] does not have a config associated with it!")
+			log_config("GAMEMODE: ERROR: [M.name] does not have a config associated with it!")
 			continue
 
 		if(probabilities[M.config_tag] <= 0)
-			LOG_DEBUG("GAMEMODE: ERROR: [M.name] has a probability equal or less than 0!")
+			log_config("GAMEMODE: ERROR: [M.name] has a probability equal or less than 0!")
 			continue
 
 		runnable_modes |= M
@@ -1183,9 +1183,15 @@ var/list/gamemode_cache = list()
 	return runnable_modes
 
 /datum/configuration/proc/post_load()
-	//apply a default value to config.python_path, if needed
+	// Apply a default value to config.python_path, if needed
 	if (!config.python_path)
 		if(world.system_type == UNIX)
 			config.python_path = "/usr/bin/env python2"
 		else //probably windows, if not this should work anyway
 			config.python_path = "python"
+
+	// If we are running the unit tests, turn every logging to on
+	#if defined(UNIT_TEST)
+	for(var/k in config.logsettings)
+		config.logsettings[k] = TRUE
+	#endif
