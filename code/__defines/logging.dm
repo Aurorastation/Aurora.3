@@ -16,11 +16,15 @@
 
 //This is an external call, "true" and "false" are how rust parses out booleans
 
+#if defined(UNIT_TEST)
+#define WRITE_LOG(file, text) to_chat(world, "\[[file]\]: [text]")
 
-#if DM_VERSION < 515
+#elif DM_VERSION < 515
 #define WRITE_LOG(file, text) config.all_logs_to_chat ? to_chat(world, "\[[file]\]: [text]") : rustg_log_write("./data/logs/[game_id]/[file]", "[game_id] \[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+
 #else
 #define WRITE_LOG(file, text) config.all_logs_to_chat ? to_chat(world, "\[[file]\]: [text]") : rustg_log_write("./data/logs/[game_id]/[file]", "[game_id] [nameof(__PROC__)]: [text][log_end]", "true")
+
 #endif
 
 #define WRITE_LOG_NO_FORMAT(file, text) rustg_log_write(file, text, "false")

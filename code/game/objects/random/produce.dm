@@ -40,7 +40,7 @@
 	if(chosen_seed)
 		chosen_seed.spawn_seed(src.loc)
 	else
-		log_world("Cannot spawn random produce [seed_chosen]! Fix this by editing [type]'s produce_list!")
+		LOG_DEBUG("Cannot spawn random produce [seed_chosen]! Fix this by editing [type]'s produce_list!")
 
 	return INITIALIZE_HINT_QDEL
 

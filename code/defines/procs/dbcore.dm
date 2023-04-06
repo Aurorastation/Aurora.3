@@ -193,10 +193,11 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 
 	var/error = ErrorMsg()
 	if (error)
-		log_world("SQL Error: '[error]'")
+		log_sql("SQL Error: '[error]'")
 		// This is hacky and should probably be changed
 		if (error == "MySQL server has gone away")
 			log_game("MySQL connection drop detected, attempting to reconnect.")
+			log_sql("MySQL connection drop detected, attempting to reconnect.")
 			message_admins("MySQL connection drop detected, attempting to reconnect.")
 			db_connection.Reconnect()
 
@@ -272,7 +273,7 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 #ifdef UNIT_TEST
 		log_world("ERROR: SQL ARGPARSE: Invalid arguments sent.")
 #else
-		log_world("ERROR: SQL ARGPARSE: Invalid arguments sent.")
+		log_sql("ERROR: SQL ARGPARSE: Invalid arguments sent.")
 #endif
 		return null
 
@@ -299,7 +300,7 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 #ifdef UNIT_TEST
 			log_world("ERROR: SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
 #else
-			log_world("ERROR: SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
+			log_sql("ERROR: SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
 #endif
 			return null
 
@@ -318,8 +319,8 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 					log_world("ERROR: SQL ARGPARSE: Unpopulated argument found in an SQL query.")
 					log_world("ERROR: SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
 #else
-					LOG_DEBUG("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
-					LOG_DEBUG("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
+					log_sql("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
+					log_sql("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
 #endif
 					return null
 

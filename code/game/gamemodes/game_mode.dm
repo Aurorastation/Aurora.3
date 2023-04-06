@@ -158,7 +158,7 @@ var/global/list/additional_antag_types = list()
 		if(player.client && player.ready)
 			playerC++
 
-	LOG_DEBUG("GAMEMODE: [playerC] players checked and readied.")
+	log_traitor("GAMEMODE: [playerC] players checked and readied.")
 
 	if(required_players && playerC < required_players)
 		LOG_DEBUG("GAMEMODE: There aren't enough players ([playerC]/[required_players]) to start [name]!")
@@ -188,7 +188,7 @@ var/global/list/additional_antag_types = list()
 						if(!(antag.flags & ANTAG_OVERRIDE_JOB) && (player.assigned_role in antag.restricted_jobs))
 							potential -= potential_antag
 							antag.candidates -= player
-							LOG_DEBUG("GAMEMODE: Player [player.name] ([player.key]) was removed from the potential antags list due to being given the role [player.assigned_role] which is a restricted job!")
+							log_traitor("GAMEMODE: Player [player.name] ([player.key]) was removed from the potential antags list due to being given the role [player.assigned_role] which is a restricted job!")
 
 			// Split the for loop here so that we can have a complete set of potential lists for each antag_tag before continuing
 			var/list/total_enemies = list()
@@ -202,16 +202,16 @@ var/global/list/additional_antag_types = list()
 				else
 					potential = antag.candidates
 				if(potential.len)
-					LOG_DEBUG("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
+					log_traitor("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
 					total_enemies |= potential //Only count candidates once for our total enemy pool
 					if(antag.initial_spawn_req && require_all_templates && potential.len < antag.initial_spawn_req)
 						LOG_DEBUG("GAMEMODE: There are not enough antagonists ([potential.len]/[antag.initial_spawn_req]) for the role [antag.role_text]!")
 						returning |= GAME_FAILURE_NO_ANTAGS
 
-			LOG_DEBUG("GAMEMODE: Found [total_enemies.len] total enemies for [name].")
+			log_traitor("GAMEMODE: Found [total_enemies.len] total enemies for [name].")
 
 			if(required_enemies && total_enemies.len < required_enemies)
-				LOG_DEBUG("GAMEMODE: There are not enough total antagonists ([total_enemies.len]/[required_enemies]) to start [name]!")
+				log_traitor("GAMEMODE: There are not enough total antagonists ([total_enemies.len]/[required_enemies]) to start [name]!")
 				returning |= GAME_FAILURE_NO_ANTAGS
 
 	LOG_DEBUG("GAMEMODE: Finished gamemode checking. [name] returned [returning].")
