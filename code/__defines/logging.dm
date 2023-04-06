@@ -28,7 +28,7 @@
 //This is an external call, "true" and "false" are how rust parses out booleans
 
 #if defined(UNIT_TEST)
-#define WRITE_LOG(file, text) log_world("\[[file]\]: [text]")
+#define WRITE_LOG(file, text) SEND_TEXT(world.log, "\[[file]\]: [text]")
 
 #elif DM_VERSION < 515
 #define WRITE_LOG(file, text) config.all_logs_to_chat ? to_chat(world, "\[[file]\]: [text]") : rustg_log_write("./data/logs/[game_id]/[file]", "[game_id] \[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
