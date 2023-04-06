@@ -127,7 +127,8 @@
 	. = stat != new_stat
 	if(.)
 		stat = new_stat
-		SStyping.set_indicator_state(client, FALSE)
+		if(SStyping)
+			SStyping.set_indicator_state(client, FALSE)
 
 /mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
