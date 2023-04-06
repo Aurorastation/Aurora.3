@@ -6,7 +6,7 @@
 /// Logging for config errors
 /// Rarely gets called; just here in case the config breaks.
 /proc/log_config(text)
-	WRITE_LOG(isnull(config) ?"config_error.log" : config.config_error_log, text)
+	WRITE_LOG(isnull(config) ? "config_error.log" : config.config_error_log, text)
 	SEND_TEXT(world.log, text)
 
 /proc/log_filter_raw(text)
@@ -60,6 +60,6 @@
 /// Log to both DD and the logfile.
 /proc/log_world(text)
 #ifdef USE_CUSTOM_ERROR_HANDLER
-	WRITE_LOG(config.world_runtime_log, text)
+	WRITE_LOG(isnull(config) ? "world_runtime.log" : config.world_runtime_log, text)
 #endif
 	SEND_TEXT(world.log, text)
