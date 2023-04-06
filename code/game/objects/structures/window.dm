@@ -575,53 +575,19 @@
 		/obj/structure/window/shuttle/scc_space_ship,
 		/turf/simulated/wall/shuttle/scc_space_ship
 	)
+	blend_overlay = "-wall"
+	attach_overlay = "attach"
+	can_blend_with = list(
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/obj/structure/window/shuttle/scc_space_ship
+	)
+
 
 /obj/structure/window/shuttle/scc_space_ship/cardinal
 	smooth = SMOOTH_MORE
 
 /obj/structure/window/shuttle/scc_space_ship/cardinal_smooth(adjacencies, var/list/dir_mods)
-	LAZYINITLIST(dir_mods)
-	var/north_wall = FALSE
-	var/east_wall = FALSE
-	var/south_wall = FALSE
-	var/west_wall = FALSE
-
-	if(adjacencies & N_NORTH)
-		var/turf/T = get_step(src, NORTH)
-		if(iswall(T))
-			dir_mods["[N_NORTH]"] = "-wall"
-			add_overlay("n_attach")
-			north_wall = TRUE
-	if(adjacencies & N_EAST)
-		var/turf/T = get_step(src, EAST)
-		if(iswall(T))
-			dir_mods["[N_EAST]"] = "-wall"
-			add_overlay("e_attach")
-			east_wall = TRUE
-	if(adjacencies & N_SOUTH)
-		var/turf/T = get_step(src, SOUTH)
-		if(iswall(T))
-			dir_mods["[N_SOUTH]"] = "-wall"
-			add_overlay("s_attach")
-			south_wall = TRUE
-	if(adjacencies & N_WEST)
-		var/turf/T = get_step(src, WEST)
-		if(iswall(T))
-			dir_mods["[N_WEST]"] = "-wall"
-			add_overlay("w_attach")
-			west_wall = TRUE
-	if(((adjacencies & N_NORTH) && (adjacencies & N_WEST)) && (north_wall || west_wall))
-		dir_mods["[N_NORTH][N_WEST]"] = "-n[north_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-	//	add_overlay("nw_attach")
-	if(((adjacencies & N_NORTH) && (adjacencies & N_EAST)) && (north_wall || east_wall))
-		dir_mods["[N_NORTH][N_EAST]"] = "-n[north_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
-	//	add_overlay("ne_attach")
-	if(((adjacencies & N_SOUTH) && (adjacencies & N_WEST)) && (south_wall || west_wall))
-		dir_mods["[N_SOUTH][N_WEST]"] = "-s[south_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-	//	add_overlay("sw_attach")
-	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST) && (south_wall || east_wall))
-		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
-	//	add_overlay("se_attach")
+	dir_mods = handle_blending(adjacencies, dir_mods)
 	return ..(adjacencies, dir_mods)
 
 /obj/structure/window/shuttle/scc
@@ -658,42 +624,6 @@
 		/obj/machinery/door,
 		/obj/machinery/door/airlock
 	)
-
-/obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
-	LAZYINITLIST(dir_mods)
-	var/north_wall = FALSE
-	var/east_wall = FALSE
-	var/south_wall = FALSE
-	var/west_wall = FALSE
-	if(adjacencies & N_NORTH)
-		var/turf/T = get_step(src, NORTH)
-		if(iswall(T))
-			dir_mods["[N_NORTH]"] = "-wall"
-			north_wall = TRUE
-	if(adjacencies & N_EAST)
-		var/turf/T = get_step(src, EAST)
-		if(iswall(T))
-			dir_mods["[N_EAST]"] = "-wall"
-			east_wall = TRUE
-	if(adjacencies & N_SOUTH)
-		var/turf/T = get_step(src, SOUTH)
-		if(iswall(T))
-			dir_mods["[N_SOUTH]"] = "-wall"
-			south_wall = TRUE
-	if(adjacencies & N_WEST)
-		var/turf/T = get_step(src, WEST)
-		if(iswall(T))
-			dir_mods["[N_WEST]"] = "-wall"
-			west_wall = TRUE
-	if(((adjacencies & N_NORTH) && (adjacencies & N_WEST)) && (north_wall || west_wall))
-		dir_mods["[N_NORTH][N_WEST]"] = "-n[north_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-	if(((adjacencies & N_NORTH) && (adjacencies & N_EAST)) && (north_wall || east_wall))
-		dir_mods["[N_NORTH][N_EAST]"] = "-n[north_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
-	if(((adjacencies & N_SOUTH) && (adjacencies & N_WEST)) && (south_wall || west_wall))
-		dir_mods["[N_SOUTH][N_WEST]"] = "-s[south_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST) && (south_wall || east_wall))
-		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
-	return ..(adjacencies, dir_mods)
 
 /obj/structure/window/full/Initialize(mapload, start_dir = null, constructed = 0)
 	if (!mapload && constructed)
@@ -856,51 +786,16 @@
 		/obj/structure/window/shuttle/scc_space_ship,
 		/turf/simulated/wall/shuttle/scc_space_ship
 	)
+	blend_overlay = "wall"
+	attach_overlay = "attach"
+	can_blend_with = list(
+		/turf/simulated/wall,
+		/obj/machinery/door,
+		/obj/structure/window_frame
+	)
 
 /obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
-	LAZYINITLIST(dir_mods)
-	var/north_wall = FALSE
-	var/east_wall = FALSE
-	var/south_wall = FALSE
-	var/west_wall = FALSE
-	var/overlay_layer = 3
-
-	if(adjacencies & N_NORTH)
-		var/turf/T = get_step(src, NORTH)
-		if(iswall(T))
-			dir_mods["[N_NORTH]"] = "-wall"
-			add_overlay("n_attach", overlay_layer)
-			north_wall = TRUE
-	if(adjacencies & N_EAST)
-		var/turf/T = get_step(src, EAST)
-		if(iswall(T))
-			dir_mods["[N_EAST]"] = "-wall"
-			add_overlay("e_attach", overlay_layer)
-			east_wall = TRUE
-	if(adjacencies & N_SOUTH)
-		var/turf/T = get_step(src, SOUTH)
-		if(iswall(T))
-			dir_mods["[N_SOUTH]"] = "-wall"
-			add_overlay("s_attach", overlay_layer)
-			south_wall = TRUE
-	if(adjacencies & N_WEST)
-		var/turf/T = get_step(src, WEST)
-		if(iswall(T))
-			dir_mods["[N_WEST]"] = "-wall"
-			add_overlay("w_attach", overlay_layer)
-			west_wall = TRUE
-	if(((adjacencies & N_NORTH) && (adjacencies & N_WEST)) && (north_wall || west_wall))
-		dir_mods["[N_NORTH][N_WEST]"] = "-n[north_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-		add_overlay("nw_attach", overlay_layer)
-	if(((adjacencies & N_NORTH) && (adjacencies & N_EAST)) && (north_wall || east_wall))
-		dir_mods["[N_NORTH][N_EAST]"] = "-n[north_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
-		add_overlay("ne_attach", overlay_layer)
-	if(((adjacencies & N_SOUTH) && (adjacencies & N_WEST)) && (south_wall || west_wall))
-		dir_mods["[N_SOUTH][N_WEST]"] = "-s[south_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-		add_overlay("sw_attach", overlay_layer)
-	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST) && (south_wall || east_wall))
-		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
-		add_overlay("se_attach", overlay_layer)
+	dir_mods = handle_blending(adjacencies, dir_mods)
 	return ..(adjacencies, dir_mods)
 
 /obj/structure/window_frame/proc/update_nearby_icons()

@@ -58,6 +58,9 @@
 	var/tmp/bottom_left_corner
 	var/tmp/bottom_right_corner
 	var/list/canSmoothWith = null // TYPE PATHS I CAN SMOOTH WITH~~~~~ If this is null and atom is smooth, it smooths only with itself
+	var/list/can_blend_with = null
+	var/blend_overlay //Icon state of the blending overlay.
+	var/attach_overlay //Icon state of the overlay this object uses to attach to other objects.
 
 /atom/movable
 	var/can_be_unanchored = 0
@@ -253,6 +256,41 @@
 			underlay_appearance.icon_state = base_icon_state
 
 		underlays = U
+
+//Blend atoms 
+/atom/proc/handle_blending(adjacencies, var/list/dir_mods, var/overlay_layer = 3)
+	LAZYINITLIST(dir_mods)
+	var/walls_found = 0 //Bitfield of the directions of walls we've found.
+	for(var/adjacency in list(N_NORTH, N_EAST, N_SOUTH, N_WEST))
+		if(adjacencies & adjacency)
+			var/turf/T = get_step(src, reverse_ndir(adjacency))
+			if(is_type_in_list(T, can_blend_with))
+				if(attach_overlay)
+					add_overlay("[reverse_ndir(adjacency)]_[attach_overlay]", overlay_layer)
+				walls_found |= adjacency
+				dir_mods["[adjacency]"] = "-[blend_overlay]"
+	for(var/adjacency in list(N_NORTH, N_SOUTH))
+		for(var/diagonal in list(N_WEST, N_EAST))
+			var/prefix = ndir_to_initial(adjacency)
+			var/suffix = ndir_to_initial(adjacency)
+			var/has_adjacency = walls_found & adjacency
+			var/has_diagonal = walls_found & diagonal
+			if(((adjacencies & adjacency) && (adjacencies && diagonal)) && (has_adjacency || has_diagonal))
+				dir_mods["[adjacency][diagonal]"] = "-[prefix][walls_found & adjacency ? "wall" : "win"]-[suffix][walls_found & diagonal ? "wall" : "win"]"
+				if(attach_overlay)
+					add_overlay("[prefix][suffix]_[attach_overlay]", overlay_layer)
+	return dir_mods
+
+/proc/ndir_to_initial(var/ndir)
+	switch(ndir)
+		if(N_NORTH)
+			return "n"
+		if(N_SOUTH)
+			return "s"
+		if(N_EAST)
+			return "e"
+		if(N_WEST)
+			return "w"
 
 /atom/proc/cardinal_smooth(adjacencies, var/list/dir_mods)
 	//NW CORNER
