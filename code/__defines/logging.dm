@@ -14,6 +14,17 @@
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 
 
+/**
+ * This handles the log_world (and consequently log_debug) to be printed to config.world_runtime_log during debugging or unit testing,
+ * otherwise, they are only printed to world.log
+ */
+#if defined(DEBUG)
+#define USE_CUSTOM_ERROR_HANDLER
+#elif defined(UNIT_TEST)
+#define USE_CUSTOM_ERROR_HANDLER
+#endif
+
+
 //This is an external call, "true" and "false" are how rust parses out booleans
 
 #if defined(UNIT_TEST)

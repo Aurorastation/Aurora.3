@@ -393,7 +393,7 @@ var/list/gamemode_cache = list()
 		if (M.config_tag)
 			gamemode_cache[M.config_tag] = M // So we don't instantiate them repeatedly.
 			if(!(M.config_tag in modes))		// ensure each mode is added only once
-				log_config("Adding game mode [M.name] ([M.config_tag]) to configuration.")
+				LOG_DEBUG("Adding game mode [M.name] ([M.config_tag]) to configuration.")
 				src.modes += M.config_tag
 				src.mode_names[M.config_tag] = M.name
 				src.probabilities_secret[M.config_tag] = M.probability
@@ -950,7 +950,7 @@ var/list/gamemode_cache = list()
 
 				if("fastboot")
 					fastboot = TRUE
-					log_config("Fastboot is ENABLED.")
+					LOG_DEBUG("Fastboot is ENABLED.")
 
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
