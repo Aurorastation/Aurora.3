@@ -47,7 +47,7 @@
  * Used for general_purpose debug logging, please use more specific ones if available, or consider adding your own
  */
 /proc/log_debug(text,level = SEVERITY_DEBUG)
-	if (config.logsettings["log_debug"])
+	if (isnull(config) ? TRUE : config.logsettings["log_debug"])
 		log_world("DEBUG [text]")
 
 	if (level == SEVERITY_ERROR) // Errors are always logged
