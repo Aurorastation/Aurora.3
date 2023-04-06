@@ -12,10 +12,10 @@ datum/unit_test/vision_glasses/
 datum/unit_test/vision_glasses/start_test()
 	var/list/test = create_test_mob_with_mind(null, /mob/living/carbon/human)
 	if(isnull(test))
-		fail("Check Runtimed in Mob creation")
+		TEST_FAIL("Check Runtimed in Mob creation")
 
 	if(test["result"] == FAILURE)
-		fail(test["msg"])
+		TEST_FAIL(test["msg"])
 		async = 0
 
 		return 0
@@ -34,14 +34,14 @@ datum/unit_test/vision_glasses/check_result()
 		return 0
 
 	if(isnull(H.glasses))
-		fail("Mob doesn't have glasses on")
+		TEST_FAIL("Mob doesn't have glasses on")
 
 	H.handle_vision()	// Because Life has a client check that bypasses updating vision
 
 	if(H.see_invisible == expectation)
-		pass("Mob See invisible is [H.see_invisible]")
+		TEST_PASS("Mob See invisible is [H.see_invisible]")
 	else
-		fail("Mob See invisible is [H.see_invisible] / expected [expectation]")
+		TEST_FAIL("Mob See invisible is [H.see_invisible] / expected [expectation]")
 
 	return 1
 

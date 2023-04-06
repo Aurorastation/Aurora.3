@@ -23,6 +23,13 @@
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
+	scanimage = "headmaster.png"
+	designer = "People's Republic of Adhomai"
+	volume = "61 meters length, 35 meters beam/width, 17 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Extruding starboard-mounted medium caliber ballistic armament, starboard obscured flight craft bay"
+	sizeclass = "Headmaster Cruiser"
+	shiptype = "Military patrol and combat utility"
 	initial_generic_waypoints = list(
 		"nav_headmaster_ship_1",
 		"nav_headmaster_ship_2",

@@ -66,6 +66,8 @@
 
 /obj/structure/Initialize(mapload)
 	. = ..()
+	if(!isnull(material) && !istype(material))
+		material = SSmaterials.get_material_by_name(material)
 	if (!mapload)
 		updateVisibility(src)	// No point checking this before visualnet initializes.
 	if(climbable)
