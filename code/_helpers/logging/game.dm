@@ -6,7 +6,7 @@
 /proc/log_game_mode(text)
 // SUppress this in case of unit tests, it's essentially useless
 #if defined(UNIT_TEST)
-	TEST_DEBUG("GHOSTROLES SPAWNER: [text]")
+	LOG_GITHUB_DEBUG("GHOSTROLES SPAWNER: [text]")
 #else
 	if (config.logsettings["log_game"])
 		WRITE_LOG(config.world_game_log, "GAMEMODE: [text]")

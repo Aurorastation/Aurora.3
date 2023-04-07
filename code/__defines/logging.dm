@@ -13,6 +13,9 @@
 
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 
+// This is to suppress their printing out by default, as they are a ton and doesn't seem often
+#define LOG_GITHUB_DEBUG(text) SEND_TEXT(world.log, "::debug::[text]")
+
 
 /**
  * This handles the log_world (and consequently log_debug) to be printed to config.world_runtime_log during debugging or unit testing,
@@ -66,6 +69,7 @@ if(config?.condense_all_logs) { \
 	rustg_log_write("./data/logs/[game_id]/condensed.log", text, "false");\
 }
 
+//// INLINER DEFINES ////
 
 #define LOG_DEBUG(msg)\
 if(config?.logsettings["log_debug"]) { \
