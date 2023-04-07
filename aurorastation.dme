@@ -126,6 +126,7 @@
 #include "code\_helpers\logging\subsystems\atlas.dm"
 #include "code\_helpers\logging\subsystems\chemistry.dm"
 #include "code\_helpers\logging\subsystems\ghostroles.dm"
+#include "code\_helpers\logging\subsystems\law.dm"
 #include "code\_helpers\logging\talk.dm"
 #include "code\_helpers\logging\tool.dm"
 #include "code\_helpers\maths.dm"
