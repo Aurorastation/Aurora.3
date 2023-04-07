@@ -186,4 +186,6 @@
 	return ..()
 
 /mob/living/carbon/human/get_speech_bubble_state_modifier()
-	return species.get_speech_bubble_override() || ..()
+	if(client && client.prefs && client.prefs.speech_bubble_type)
+		return client.prefs.speech_bubble_type
+	return ..()

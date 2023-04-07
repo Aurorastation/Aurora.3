@@ -42,3 +42,4 @@ changes:
   - bugfix: "Fixed speech bubbles persisting when they shouldn't."
   - rscadd: "Added different styles of speech bubbles for ghosts, animals, machines."
   - bugfix: "Speech indicators now work with the command bar."
+  - rscadd: "Added a speech bubble type preference to character setup. Your choices depend on the species' list of possible speech bubble types."

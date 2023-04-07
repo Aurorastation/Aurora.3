@@ -155,6 +155,7 @@ datum/preferences
 	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 0
 	var/floating_chat_color
+	var/speech_bubble_type = "normal"
 
 	var/list/pai = list()	// A list for holding pAI related data.
 
