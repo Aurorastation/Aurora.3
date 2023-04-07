@@ -39,17 +39,35 @@ if(config?.all_logs_to_chat) { \
 }\
 \
 if(config?.condense_all_logs) {\
-	rustg_log_write("./data/logs/[game_id]/["condensed.log"]", "[game_id] \[[__FILE__]:[__LINE__]\]: [text][log_end]", "true");\
+	rustg_log_write("./data/logs/[game_id]/condensed.log", "[game_id] \[[__FILE__]:[__LINE__]\]: [text][log_end]", "true");\
 }
 
 #else
-#define WRITE_LOG(file, text) config.all_logs_to_chat ? to_chat(world, "\[[file]\]: [text]") : rustg_log_write("./data/logs/[game_id]/[file]", "[game_id] [nameof(__PROC__)]: [text][log_end]", "true")
-
+#define WRITE_LOG(file, text)\
+rustg_log_write("./data/logs/[game_id]/[file]", "[game_id] [nameof(__PROC__)]: [text][log_end]", "true");\
+\
+if(config?.all_logs_to_chat) { \
+	to_chat(world, "\[[file]\]: [text]");\
+}\
+if(config?.condense_all_logs) {\
+	rustg_log_write("./data/logs/[game_id]/condensed.log", "[game_id] [nameof(__PROC__)]: [text][log_end]", "true");\
+}
 #endif
 
 
 
-#define WRITE_LOG_NO_FORMAT(file, text) rustg_log_write(file, text, "false")
+#define WRITE_LOG_NO_FORMAT(file, text)\
+rustg_log_write("./data/logs/[game_id]/[file]", text, "false");\
+\
+if(config?.all_logs_to_chat) { \
+	to_chat(world, "\[[file]\]: [text]");\
+}\
+if(config?.condense_all_logs) { \
+	rustg_log_write("./data/logs/[game_id]/condensed.log", text, "false");\
+}
 
 
-#define LOG_DEBUG(msg) log_debug(msg + " @@@ [__FILE__]:[__LINE__]")
+#define LOG_DEBUG(msg)\
+if(config?.logsettings["log_debug"]) { \
+	log_debug(msg + " @@@ [__FILE__]:[__LINE__]");\
+}

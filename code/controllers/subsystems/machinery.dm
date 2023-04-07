@@ -147,12 +147,12 @@ if(Datum.isprocessing) {\
 	for (var/obj/machinery/atmospherics/machine in machines)
 		atmos_machines += machine
 	admin_notice(SPAN_DANGER("Initializing atmos machinery."), R_DEBUG)
-	log_ss("machinery", "Initializing atmos machinery.")
+	log_subsystem("machinery", "Initializing atmos machinery.")
 	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
 		machine.atmos_init()
 		CHECK_TICK
 	admin_notice(SPAN_DANGER("Initializing pipe networks."), R_DEBUG)
-	log_ss("machinery", "Initializing pipe networks.")
+	log_subsystem("machinery", "Initializing pipe networks.")
 	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
 		machine.build_network()
 		CHECK_TICK

@@ -106,7 +106,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	admin_notice(SPAN_DANGER("Processed [processed_overlays] light overlays."), R_DEBUG)
 	admin_notice(SPAN_DANGER("Lighting pre-bake completed in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 
-	log_ss("lighting", "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
+	log_subsystem("lighting", "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
 
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
 	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(handle_roundstart)))
@@ -181,7 +181,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 			O.needs_update = FALSE
 
 			processed_overlays++
-		
+
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)

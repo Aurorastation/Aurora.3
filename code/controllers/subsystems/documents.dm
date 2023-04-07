@@ -87,7 +87,7 @@ var/datum/controller/subsystem/docs/SSdocs
 		if(!docs_by_tags[t])
 			return null
 		tag_sublist &= docs_by_tags[t]
-	log_ss("docs", "Tag sublist has length [tag_sublist.len].")
+	log_subsystem("docs", "Tag sublist has length [tag_sublist.len].")
 	var/subtotal = 0
 	for(var/doc in tag_sublist)
 		var/datum/docs_document/dd = doc
@@ -158,7 +158,7 @@ var/datum/controller/subsystem/docs/SSdocs
 				docsconfig[document]["content"],
 				docsconfig[document]["tags"])
 		catch(var/exception/ec)
-			log_ss("docs","Error when loading document: [ec]")
+			log_subsystem("docs","Error when loading document: [ec]")
 	return 1
 
 /datum/controller/subsystem/docs/proc/add_document(var/name,var/title,var/chance,var/content,var/tags)
@@ -213,10 +213,10 @@ var/datum/controller/subsystem/docs/SSdocs
 		doc = SSdocs.pick_document_by_tags(total_tags)
 
 	if (!istype(doc))
-		log_ss("docs","Null paper acquired in post_spawn!")
+		log_subsystem("docs","Null paper acquired in post_spawn!")
 		return null
 
-	log_ss("docs","Document [doc.name] successfully spawned!")
+	log_subsystem("docs","Document [doc.name] successfully spawned!")
 	var/obj/item/paper/P = spawned
 	P.set_content(doc.title, doc.content)
 
@@ -231,7 +231,7 @@ var/datum/controller/subsystem/docs/SSdocs
 	var/datum/computer_file/data/F = new/datum/computer_file/data()
 	F.filename = file.title
 	F.filetype = "TXT"
-	log_ss("docs","Digital file created: [file.title].TXT")
+	log_subsystem("docs","Digital file created: [file.title].TXT")
 	F.stored_data = file.content
 	F.calculate_size()
 	return F

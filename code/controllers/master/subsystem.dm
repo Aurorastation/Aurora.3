@@ -177,7 +177,7 @@
 	var/msg = "Initialized [name] subsystem within [time] second\s!"
 	admin_notice(SPAN_DANGER(msg), R_DEBUG)
 	world.log <<  "SS Init: [msg]"
-	log_ss_init(msg)
+	log_subsystem_init(msg)
 	return time
 
 //hook for printing stats to the "MC" statuspanel for admins to see performance and related stats etc.

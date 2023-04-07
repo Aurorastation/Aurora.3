@@ -47,7 +47,8 @@ var/list/gamemode_cache = list()
 	"log_telecomms" = FALSE,	// Radiochat / telecommunications
 	"log_speech_indicators" = FALSE,	// Speech indicator
 	"log_tools" = FALSE,	// Tools
-	"log_manifest" = TRUE	// Manifest
+	"log_manifest" = TRUE,	// Manifest
+	"log_subsystems" = TRUE,	// Subsystem
 
 	)
 
@@ -77,6 +78,7 @@ var/list/gamemode_cache = list()
 	var/harddel_log = "harddel.log"
 	var/world_paper_log = "world_paper.log"
 	var/world_manifest_log = "world_manifest.log"
+	var/world_subsystems_log = "world_subsystems.log"
 
 
 	/////// END LOGGING SETTINGS ///////
