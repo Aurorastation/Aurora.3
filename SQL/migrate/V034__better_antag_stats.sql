@@ -16,8 +16,8 @@ CREATE TABLE `ss13_antag_log` (
 	`special_role_added` TIME NOT NULL,
 	`special_role_removed` TIME NULL DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	INDEX `FK_ss13_antag_log_subsystem13_characters` (`char_id`),
-	CONSTRAINT `FK_ss13_antag_log_subsystem13_characters` FOREIGN KEY (`char_id`) REFERENCES `ss13_characters` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
+	INDEX `FK_ss13_antag_log_ss13_characters` (`char_id`),
+	CONSTRAINT `FK_ss13_antag_log_ss13_characters` FOREIGN KEY (`char_id`) REFERENCES `ss13_characters` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB;

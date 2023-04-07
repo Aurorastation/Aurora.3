@@ -817,10 +817,10 @@ ALTER TABLE `ss13_library`
 
 -- Add/Update forein keys for ckeys
 ALTER TABLE `ss13_admin_log`
-	ADD CONSTRAINT `FK_ss13_admin_log_subsystem13_player` FOREIGN KEY (`adminckey`) REFERENCES `ss13_player` (`ckey`) ON UPDATE CASCADE;
+	ADD CONSTRAINT `FK_ss13_admin_log_ss13_player` FOREIGN KEY (`adminckey`) REFERENCES `ss13_player` (`ckey`) ON UPDATE CASCADE;
 
 ALTER TABLE `ss13_antag_log`
-	ADD CONSTRAINT `FK_ss13_antag_log_subsystem13_player` FOREIGN KEY (`ckey`) REFERENCES `ss13_player` (`ckey`) ON UPDATE CASCADE;
+	ADD CONSTRAINT `FK_ss13_antag_log_ss13_player` FOREIGN KEY (`ckey`) REFERENCES `ss13_player` (`ckey`) ON UPDATE CASCADE;
 
 
 INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid)
