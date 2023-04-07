@@ -48,7 +48,7 @@
 	timing_id = null
 	var/turf/origin_turf = get_turf(origin)
 	var/turf/target_turf = get_turf(target)
-	if(!istype(origin_turf) || !istype(target_turf) || !QDELETED(origin) || !QDELETED(target))
+	if(!istype(origin_turf) || !istype(target_turf) || QDELETED(origin) || QDELETED(target))
 		End()
 		return
 	curr_distance = get_dist(origin_turf, target_turf)

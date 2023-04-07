@@ -38,3 +38,9 @@
 	Sinta'Unathi and Sinta'Azaziba."
 	tag_icon = "deep_wastelander"
 	text_tag = "WAS"
+
+/datum/accent/autakh
+	name = ACCENT_AUTAKH
+	description = "Incorporating both Hegemonic and Traditionalist elements, the Aut'akh accent is recognisable for its lack of accentuation and intonations, both owing to the occasional implants of questionable quality having some influence on speech, and the general isolation of most Aut'akh communes."
+	tag_icon = "autakh_valley"
+	text_tag = "AUT"
