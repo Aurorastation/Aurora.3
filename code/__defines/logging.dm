@@ -46,7 +46,8 @@
  * - POST-515: Use nameof(proc) format to reference the proc name
  */
 #if defined(UNIT_TEST)
-#define WRITE_LOG(file, text) SEND_TEXT(world.log, "\[[file]\]: [text]")\
+#define WRITE_LOG(file, text) \
+SEND_TEXT(world.log, "\[[file]\]: [text]");\
 rustg_log_write(LOGPATH("condensed.log"), text, "false")
 
 #elif DM_VERSION < 515
