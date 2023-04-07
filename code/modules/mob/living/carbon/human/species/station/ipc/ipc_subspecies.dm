@@ -88,6 +88,9 @@
 /datum/species/machine/shell/handle_death(var/mob/living/carbon/human/H)
 	return
 
+/datum/species/machine/shell/get_speech_bubble_override()
+	return "normal"
+
 /datum/species/machine/shell/rogue
 	name = SPECIES_IPC_SHELL_ROGUE
 	short_name = "roguejak"

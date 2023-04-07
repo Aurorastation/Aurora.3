@@ -852,5 +852,5 @@
 	return TRUE
 
 /// Leave empty to use default mob modifier.
-/datum/species/proc/get_speech_bubble_modifier()
+/datum/species/proc/get_speech_bubble_override()
 	return
