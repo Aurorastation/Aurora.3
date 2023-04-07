@@ -100,7 +100,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "ay" = (
 /turf/simulated/floor/carpet,
@@ -157,7 +157,7 @@
 	dir = 8
 	},
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "aW" = (
 /obj/machinery/door/airlock/sac{
@@ -578,7 +578,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "dh" = (
 /obj/machinery/smartfridge/foodheater,
@@ -793,7 +793,7 @@
 /obj/machinery/atm{
 	pixel_y = 30
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "en" = (
 /obj/effect/landmark{
@@ -822,7 +822,7 @@
 	},
 /area/city/mendell/interior)
 "ey" = (
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell)
 "ez" = (
 /obj/structure/railing/mapped{
@@ -939,7 +939,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "eW" = (
 /obj/structure/sign/greencross,
@@ -1438,10 +1438,7 @@
 /area/city/mendell/interior)
 "hl" = (
 /obj/structure/flora/pottedplant,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "hm" = (
 /obj/structure/railing/mapped{
@@ -1480,7 +1477,7 @@
 	opacity = 1
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "hx" = (
 /obj/structure/railing/mapped{
@@ -1497,7 +1494,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "hC" = (
 /obj/effect/floor_decal/industrial/loading{
@@ -1512,10 +1509,7 @@
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-30"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "hJ" = (
 /obj/structure/table/standard,
@@ -1664,7 +1658,7 @@
 /obj/effect/landmark{
 	name = "Observer-Start"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell)
 "iM" = (
 /obj/machinery/light/small,
@@ -2023,10 +2017,7 @@
 /area/city/mendell)
 "kM" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "kN" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -2235,7 +2226,7 @@
 	name = "glamorous sign";
 	pixel_y = 33
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "lV" = (
 /obj/structure/closet/secure_closet/cabinet/bar,
@@ -2432,7 +2423,7 @@
 	dir = 4
 	},
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "nm" = (
 /obj/machinery/light/small{
@@ -2608,7 +2599,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/city)
 "oA" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -2680,7 +2671,7 @@
 /area/city/mendell)
 "oQ" = (
 /obj/machinery/vending/cigarette,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "oT" = (
 /obj/machinery/light/small,
@@ -3325,7 +3316,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "st" = (
 /obj/structure/bed/padded,
@@ -3643,16 +3634,13 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "uM" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-21"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "uO" = (
 /obj/structure/railing/mapped,
@@ -3736,16 +3724,13 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "vs" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-30"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "vt" = (
 /obj/machinery/light/small{
@@ -3828,7 +3813,7 @@
 /area/city/mendell)
 "vH" = (
 /obj/structure/flora/grass/jungle/b,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/grass{
@@ -3856,7 +3841,7 @@
 	layer = 4.1;
 	opacity = 0
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "vT" = (
 /obj/machinery/door/airlock/centcom{
@@ -3909,10 +3894,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "wc" = (
 /obj/structure/simple_door/wood,
@@ -3936,7 +3918,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "wo" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -4109,7 +4091,7 @@
 /area/city/mendell)
 "xx" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "xz" = (
 /obj/effect/floor_decal/industrial/loading{
@@ -4177,7 +4159,7 @@
 	pixel_x = 29;
 	poster_type = "/datum/poster/bay_68"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "xM" = (
 /obj/structure/closet/cabinet,
@@ -4297,10 +4279,7 @@
 "ya" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "yb" = (
 /obj/machinery/light/small{
@@ -4380,7 +4359,7 @@
 	name = "glamorous sign";
 	pixel_y = 33
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "yu" = (
 /obj/machinery/light/small{
@@ -4452,7 +4431,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "yW" = (
 /obj/machinery/vending/boozeomat,
@@ -4642,7 +4621,7 @@
 /area/city/mendell)
 "Af" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Aj" = (
 /obj/structure/window/reinforced{
@@ -4729,7 +4708,7 @@
 	pixel_x = 28;
 	pixel_y = -2
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "AN" = (
 /obj/structure/flora/pottedplant/random,
@@ -4807,7 +4786,7 @@
 /area/city/mendell/interior)
 "Bs" = (
 /obj/structure/railing/mapped,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Bx" = (
 /obj/machinery/light/small{
@@ -4896,10 +4875,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "BQ" = (
 /obj/effect/decal/fake_object{
@@ -4917,7 +4893,7 @@
 	},
 /area/city/mendell/interior)
 "BR" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -4962,7 +4938,7 @@
 	},
 /area/city/mendell/interior)
 "Cg" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -5131,7 +5107,7 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Da" = (
 /obj/machinery/door/airlock/centcom{
@@ -5246,7 +5222,7 @@
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "Dt" = (
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Dw" = (
 /obj/machinery/light/small{
@@ -5266,7 +5242,7 @@
 /area/city/mendell/interior)
 "Dy" = (
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "DF" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -5279,7 +5255,7 @@
 /area/city/mendell)
 "DG" = (
 /obj/machinery/cryopod,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "DH" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -5313,7 +5289,7 @@
 /area/city/mendell)
 "DI" = (
 /obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "DJ" = (
 /obj/machinery/acting/changer,
@@ -5406,7 +5382,7 @@
 	dir = 8
 	},
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Eq" = (
 /turf/unsimulated/floor{
@@ -5450,7 +5426,7 @@
 	dir = 4
 	},
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "EF" = (
 /obj/structure/bookcase,
@@ -5481,13 +5457,10 @@
 	},
 /area/city/mendell/interior)
 "EP" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "EZ" = (
 /obj/machinery/door/window/eastleft,
@@ -5572,13 +5545,10 @@
 /area/city/mendell)
 "FL" = (
 /obj/structure/bed/stool/chair/wood,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "FM" = (
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "FS" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -5601,14 +5571,11 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Ga" = (
 /obj/structure/bed/stool/chair/wood,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "Gd" = (
 /obj/structure/railing/mapped{
@@ -5662,7 +5629,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Gx" = (
 /obj/machinery/photocopier,
@@ -5716,10 +5683,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "GX" = (
 /turf/simulated/floor/tiled,
@@ -5767,10 +5731,7 @@
 /area/city/mendell)
 "Hk" = (
 /obj/structure/table/stone/marble,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "Hl" = (
 /obj/structure/bed/stool/chair/padded/blue,
@@ -5789,7 +5750,7 @@
 /area/city/mendell/interior)
 "Hs" = (
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Hw" = (
 /obj/structure/table/stone/marble,
@@ -5817,7 +5778,7 @@
 	pixel_y = 31;
 	poster_type = "/datum/poster/bay_67"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "HG" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -5872,7 +5833,7 @@
 	},
 /area/city/mendell/interior)
 "HS" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/grass{
@@ -5962,7 +5923,7 @@
 /area/city/mendell)
 "IH" = (
 /obj/machinery/light/small,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -6105,7 +6066,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Ju" = (
 /obj/effect/decal{
@@ -6145,7 +6106,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "JF" = (
 /obj/machinery/light/small{
@@ -6192,7 +6153,7 @@
 /area/city/mendell/interior)
 "JQ" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "JS" = (
 /obj/structure/railing/mapped{
@@ -6355,10 +6316,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "KX" = (
 /obj/machinery/light/small{
@@ -6406,7 +6364,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "Lu" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -6468,10 +6426,7 @@
 	dir = 8
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "LB" = (
 /obj/machinery/vending/cola,
@@ -6673,7 +6628,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Mt" = (
 /obj/structure/table/rack,
@@ -6710,7 +6665,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "MA" = (
 /obj/structure/bookcase,
@@ -6722,10 +6677,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "MC" = (
 /obj/machinery/door/airlock/centcom{
@@ -6805,16 +6757,13 @@
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "MQ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-30"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "MS" = (
 /obj/machinery/door/airlock/centcom{
@@ -6957,10 +6906,7 @@
 /area/city/mendell)
 "NO" = (
 /obj/machinery/light/small,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "NS" = (
 /turf/simulated/wall/elevator,
@@ -7071,7 +7017,7 @@
 	},
 /area/city/mendell/interior)
 "OB" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -7201,7 +7147,7 @@
 /area/city/mendell)
 "OU" = (
 /obj/machinery/vending/cola,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "OZ" = (
 /obj/machinery/light/small,
@@ -7238,17 +7184,14 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Pj" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/machinery/light/small,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "Pk" = (
 /turf/simulated/floor/tiled/dark,
@@ -7338,7 +7281,7 @@
 	},
 /area/city/mendell)
 "Px" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/grass{
@@ -7392,7 +7335,7 @@
 /area/city/mendell)
 "PQ" = (
 /obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "PT" = (
 /obj/structure/railing/mapped{
@@ -7420,7 +7363,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Qj" = (
 /obj/structure/railing/mapped{
@@ -7471,7 +7414,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Qs" = (
 /obj/structure/bed/stool/chair/remote/human,
@@ -7493,7 +7436,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Qx" = (
 /obj/machinery/light/small,
@@ -7667,7 +7610,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "Rm" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
@@ -7700,7 +7643,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Rx" = (
 /obj/machinery/door/airlock/glass_centcom{
@@ -7731,7 +7674,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell)
 "RD" = (
 /obj/structure/closet/secure_closet/custodial,
@@ -7746,7 +7689,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell)
 "RG" = (
 /obj/structure/railing/mapped{
@@ -7755,16 +7698,13 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell)
 "RI" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "RK" = (
 /obj/effect/shuttle_landmark/city/interim,
@@ -7911,7 +7851,7 @@
 	pixel_y = 5
 	},
 /obj/item/device/megaphone/command,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell)
 "SX" = (
 /obj/structure/table/stone/marble,
@@ -7953,7 +7893,7 @@
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "Th" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/structure/table/stone/marble,
@@ -8256,7 +8196,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell)
 "UZ" = (
 /turf/unsimulated/floor{
@@ -8302,7 +8242,7 @@
 /area/city/mendell/interior)
 "Vg" = (
 /obj/structure/railing/mapped,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell)
 "Vh" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
@@ -8328,7 +8268,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell)
 "Vo" = (
 /obj/structure/table/stone/marble,
@@ -8398,10 +8338,7 @@
 /area/city/mendell/interior)
 "VM" = (
 /obj/structure/simple_door/wood,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/city/mendell/interior)
 "VN" = (
 /obj/structure/bed/stool/chair/wood{
@@ -8594,7 +8531,7 @@
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "WC" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/wood{
@@ -8723,7 +8660,7 @@
 /obj/structure/sign/poster{
 	pixel_x = -32
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/city/mendell/interior)
 "Xt" = (
 /obj/structure/bed/stool/chair/wood{
@@ -9110,7 +9047,7 @@
 	},
 /area/city/mendell/interior)
 "ZP" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor{

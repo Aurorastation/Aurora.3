@@ -58,7 +58,7 @@
 /area/racers)
 "afE" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "aho" = (
 /obj/machinery/light_switch{
@@ -90,7 +90,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "amd" = (
 /obj/structure/disposalpipe/segment{
@@ -127,7 +127,7 @@
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_y = 17
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "aou" = (
 /obj/structure/table/stone/marble,
@@ -475,7 +475,7 @@
 /area/racers)
 "bsl" = (
 /obj/item/trash/ramen,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "bwf" = (
 /obj/structure/closet/walllocker/medical{
@@ -492,7 +492,7 @@
 /area/racers)
 "bwR" = (
 /obj/structure/closet/walllocker/emerglocker/north,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "bzZ" = (
 /obj/machinery/door/airlock/glass{
@@ -1109,7 +1109,7 @@
 	dir = 2
 	},
 /obj/item/trash/ramen,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "fpS" = (
 /obj/machinery/light{
@@ -1135,7 +1135,7 @@
 /obj/machinery/smartfridge/drinks{
 	opacity = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "fsx" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -1221,7 +1221,7 @@
 "fSX" = (
 /obj/structure/disposalpipe/segment,
 /obj/item/trash/ramen,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "fVz" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -1926,7 +1926,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/item/trash/ramen,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "jnH" = (
 /obj/structure/largecrate/hoverpod,
@@ -2242,7 +2242,7 @@
 	req_access = list(202)
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "kML" = (
 /obj/structure/closet/crate/hydroponics,
@@ -2510,7 +2510,7 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 6
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "mkM" = (
 /obj/item/material/lock_construct,
@@ -2939,7 +2939,7 @@
 "okW" = (
 /obj/item/reagent_containers/food/snacks/pizzacrunchslice,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "olo" = (
 /obj/structure/dispenser/oxygen,
@@ -3168,7 +3168,7 @@
 /obj/machinery/chemical_dispenser/bar_alc/full{
 	pixel_y = 5
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "pyN" = (
 /mob/living/simple_animal/hostile/carp,
@@ -3191,7 +3191,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/racers)
 "pDX" = (
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "pEO" = (
 /turf/simulated/mineral,
@@ -3303,7 +3303,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "qjE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4226,7 +4226,7 @@
 /obj/item/reagent_containers/food/drinks/shaker{
 	pixel_x = -5
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "uAm" = (
 /obj/machinery/suit_cycler/mining,
@@ -4287,7 +4287,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "uOx" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4469,7 +4469,7 @@
 	opacity = 1;
 	req_access = list(202)
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "vDp" = (
 /obj/machinery/atm{
@@ -4642,7 +4642,7 @@
 "wJk" = (
 /obj/item/reagent_containers/food/snacks/meatpizzaslice,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/racers)
 "wKE" = (
 /obj/structure/blocker,

@@ -40,13 +40,13 @@
 /turf/template_noop,
 /area/template_noop)
 "aag" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "aah" = (
-/obj/effect/floor_decal/spline/plain/cee{
+/obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -60,7 +60,7 @@
 	},
 /area/centcom/shared_dream)
 "aaj" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "aak" = (
@@ -929,7 +929,7 @@
 /area/shuttle/administration)
 "acQ" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -944,19 +944,19 @@
 /area/shuttle/administration)
 "acR" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 4
 	},
 /area/shuttle/administration)
 "acS" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/reinforced,
 /area/shuttle/administration)
 "acT" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 8
 	},
@@ -965,7 +965,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1076,7 +1076,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1123,7 +1123,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2324,14 +2324,14 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "afy" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "afz" = (
@@ -2343,7 +2343,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "afA" = (
@@ -2484,7 +2484,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2644,7 +2644,7 @@
 	icon_state = "rightsecure";
 	name = "Tram Boarding"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
 "agc" = (
@@ -2657,7 +2657,7 @@
 	icon_state = "leftsecure";
 	name = "Tram Boarding"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
 "agd" = (
@@ -2689,7 +2689,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/clothing/gloves/yellow,
@@ -2714,7 +2714,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/closet/crate/freezer/rations,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
@@ -2729,7 +2729,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2797,7 +2797,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -2812,7 +2812,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -2989,14 +2989,14 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/administration)
 "agH" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/administration)
 "agI" = (
@@ -3796,7 +3796,7 @@
 	name = "AI Core Door";
 	req_access = list(109)
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/circuit.dmi';
 	icon_state = "bcircuit"
@@ -5362,7 +5362,7 @@
 	pixel_x = 1;
 	pixel_y = 6
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -5383,7 +5383,7 @@
 	pixel_x = 4;
 	pixel_y = -2
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "alP" = (
 /obj/structure/undies_wardrobe,
@@ -5587,7 +5587,7 @@
 /area/merchant_station)
 "amf" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/vending/dinnerware{
 	random_itemcount = 1
 	},
@@ -5631,7 +5631,7 @@
 /area/merchant_station)
 "amk" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/table/standard,
@@ -5820,7 +5820,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "amH" = (
 /obj/structure/bed/stool/padded/brown{
@@ -5829,7 +5829,7 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "amI" = (
 /obj/effect/landmark{
@@ -5899,7 +5899,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/media/jukebox,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "amU" = (
 /obj/structure/noticeboard{
@@ -6099,7 +6099,7 @@
 /obj/structure/bed/stool/padded/brown{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "anr" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -6134,7 +6134,7 @@
 /area/merchant_station/warehouse)
 "anA" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "anB" = (
@@ -6287,14 +6287,14 @@
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "aog" = (
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "aoh" = (
 /obj/machinery/door/airlock/glass{
 	name = "Lounge";
 	req_access = list(110)
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "aoj" = (
 /turf/simulated/floor/tiled,
@@ -6334,7 +6334,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "rampbottom"
 	},
@@ -6348,7 +6348,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "rampbottom"
 	},
@@ -6650,7 +6650,7 @@
 /obj/machinery/vending/cigarette/merchant{
 	pixel_x = 2
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "apk" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
@@ -6872,12 +6872,12 @@
 /area/centcom/evac)
 "aqb" = (
 /obj/structure/bed/stool/padded/brown,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "aqc" = (
 /obj/item/material/ashtray/bronze,
 /obj/structure/table/wood,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "aqd" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -7004,7 +7004,7 @@
 	layer = 4.1;
 	opacity = 0
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor,
@@ -7650,7 +7650,7 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "asp" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/snow/corner{
@@ -8141,7 +8141,7 @@
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
 "atK" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/merchant_station/warehouse)
 "atM" = (
@@ -8463,7 +8463,7 @@
 /turf/unsimulated/floor,
 /area/centcom/checkpoint/fore)
 "auu" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -8622,7 +8622,7 @@
 /area/shuttle/merchant)
 "auX" = (
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "auY" = (
 /obj/effect/floor_decal/corner/beige/full,
@@ -8892,7 +8892,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "avy" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -11181,7 +11181,7 @@
 	name = "operation map";
 	pixel_y = 31
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -11822,7 +11822,7 @@
 	},
 /area/centcom/specops)
 "aBK" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "rampbottom"
 	},
@@ -11853,7 +11853,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/table/standard,
@@ -11940,7 +11940,7 @@
 /obj/machinery/cryopod{
 	dir = 2
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -12083,7 +12083,7 @@
 	},
 /area/centcom/specops)
 "aCx" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -12228,7 +12228,7 @@
 /turf/unsimulated/floor,
 /area/centcom/checkpoint/aft)
 "aCJ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -12441,7 +12441,7 @@
 	layer = 6;
 	name = "adjusted railing"
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -12556,7 +12556,7 @@
 	layer = 4.1;
 	name = "adjusted railing"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -12706,7 +12706,7 @@
 /obj/machinery/cryopod{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -12964,7 +12964,7 @@
 	name = "adjusted railing"
 	},
 /obj/structure/table/steel,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -12978,7 +12978,7 @@
 	layer = 6;
 	name = "adjusted railing"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -12997,7 +12997,7 @@
 	layer = 6;
 	name = "adjusted railing"
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/unsimulated/floor{
@@ -15007,7 +15007,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -15019,7 +15019,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -15275,7 +15275,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -15287,7 +15287,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -15377,7 +15377,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -15485,7 +15485,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
@@ -15615,7 +15615,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/vending/coffee/free{
@@ -21937,7 +21937,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bbh" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /obj/structure/table/stone/marble,
@@ -21947,7 +21947,7 @@
 	},
 /area/antag/loner)
 "bbi" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /obj/structure/table/stone/marble,
@@ -24189,7 +24189,7 @@
 	pixel_x = -6;
 	pixel_y = 5
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -24204,7 +24204,7 @@
 	pixel_x = 9;
 	pixel_y = 1
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -24661,7 +24661,7 @@
 /area/shuttle/burglar)
 "bgs" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -25844,7 +25844,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "biP" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/machinery/door/window/westright,
@@ -25882,7 +25882,7 @@
 	},
 /area/centcom/legion/hangar5)
 "biY" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/door/window/northleft{
 	name = "cockpit";
 	req_access = list(150)
@@ -26011,7 +26011,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
@@ -26625,7 +26625,7 @@
 	},
 /area/antag/raider)
 "bkQ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -26643,7 +26643,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "bkS" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -27546,7 +27546,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bno" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "ramptop"
 	},
@@ -28544,7 +28544,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bpb" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -28553,7 +28553,7 @@
 	},
 /area/antag/mercenary)
 "bpc" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -28562,13 +28562,13 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bpd" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bpe" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -28879,24 +28879,24 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bpM" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bpN" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bpO" = (
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bpP" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -28964,7 +28964,7 @@
 /area/antag/raider)
 "bpX" = (
 /obj/effect/decal/cleanable/cobweb,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -29259,13 +29259,13 @@
 	},
 /area/antag/mercenary)
 "bqD" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bqE" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -29379,7 +29379,7 @@
 	},
 /area/antag/raider)
 "bqL" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -29584,7 +29584,7 @@
 	pixel_x = 4;
 	pixel_y = 22
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen{
@@ -30049,7 +30049,7 @@
 /turf/space/dynamic,
 /area/antag/raider)
 "brX" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -30208,7 +30208,7 @@
 	},
 /area/antag/mercenary)
 "bsm" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -30217,7 +30217,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bsn" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -30641,19 +30641,19 @@
 	},
 /area/antag/mercenary)
 "bsT" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bsU" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bsV" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /turf/unsimulated/floor,
@@ -30929,7 +30929,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/bed/roller,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -30937,14 +30937,14 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "btG" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -30952,7 +30952,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/sleeper{
 	dir = 8
 	},
@@ -31060,7 +31060,7 @@
 /area/centcom/distress_prep)
 "btS" = (
 /obj/machinery/recharge_station,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -31276,25 +31276,25 @@
 	},
 /area/antag/mercenary)
 "buj" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "buk" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bul" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bum" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/machinery/light{
@@ -31472,14 +31472,14 @@
 	},
 /area/antag/mercenary)
 "buP" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "buQ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -32317,7 +32317,7 @@
 	},
 /area/centcom/distress_prep)
 "bxZ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -32492,7 +32492,7 @@
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "byF" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -34183,7 +34183,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/horizon/holodeck/source_gym)
 "bFS" = (
@@ -34972,7 +34972,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_courtroom)
 "bIv" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -34993,7 +34993,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_chapel)
 "bIy" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -35003,7 +35003,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/horizon/holodeck/source_gym)
 "bIC" = (
@@ -35129,7 +35129,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_meetinghall)
 "bIZ" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -35177,7 +35177,7 @@
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJg" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -35190,7 +35190,7 @@
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bJi" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -35240,7 +35240,7 @@
 	},
 /area/horizon/holodeck/source_beach)
 "bJr" = (
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/horizon/holodeck/source_gym)
 "bJs" = (
@@ -35324,7 +35324,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -35359,7 +35359,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_chessboard)
 "bJS" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -35376,7 +35376,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_chapel)
 "bJX" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -35429,7 +35429,7 @@
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_chessboard)
 "bKj" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -35439,7 +35439,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -35453,7 +35453,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_chapel)
 "bKn" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/structure/weightlifter,
@@ -35508,7 +35508,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_basketball)
 "bKx" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -35544,7 +35544,7 @@
 	},
 /area/horizon/holodeck/source_desert)
 "bKG" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/horizon/holodeck/source_gym)
 "bKH" = (
@@ -35564,7 +35564,7 @@
 	},
 /area/horizon/holodeck/source_desert)
 "bKL" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -35766,18 +35766,18 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "bLM" = (
-/obj/effect/floor_decal/spline/plain/corner,
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black,
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "bLN" = (
-/obj/effect/floor_decal/spline/plain/cee{
+/obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
@@ -35795,25 +35795,25 @@
 	},
 /area/centcom/shared_dream)
 "bLQ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "bLS" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "bLT" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -35828,7 +35828,7 @@
 /turf/space/transit/north,
 /area/template_noop)
 "bLW" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
@@ -35837,7 +35837,7 @@
 /turf/simulated/mineral/random/high_chance/phoron,
 /area/centcom/shared_dream)
 "bLY" = (
-/obj/effect/floor_decal/spline/plain/cee,
+/obj/effect/floor_decal/spline/plain/cee/black,
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -35846,23 +35846,23 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "bMa" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "bMb" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "bMc" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
@@ -35871,7 +35871,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/coloured/yew,
+/turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
 "bMe" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -35901,13 +35901,13 @@
 /turf/simulated/mineral/planet,
 /area/centcom/shared_dream)
 "bMm" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "bMn" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass,
@@ -35920,7 +35920,7 @@
 /turf/space/transit/north,
 /area/template_noop)
 "bMr" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "bMs" = (
@@ -35959,14 +35959,14 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "bMC" = (
-/obj/effect/floor_decal/spline/plain/cee{
+/obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "bME" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
@@ -36026,7 +36026,7 @@
 	},
 /area/centcom/shared_dream)
 "bMP" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -36049,7 +36049,7 @@
 /turf/space/transit/north,
 /area/template_noop)
 "bMU" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/airless/lava{
@@ -36061,13 +36061,13 @@
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "bMW" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "bMZ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /obj/effect/landmark{
@@ -36095,7 +36095,7 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "bNe" = (
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "bNf" = (
@@ -36111,20 +36111,20 @@
 	},
 /area/centcom/shared_dream)
 "bNg" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "bNh" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
@@ -36132,7 +36132,7 @@
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "bNi" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/beach/sand{
@@ -36160,10 +36160,10 @@
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
 "bNm" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/fullgrass,
@@ -36171,7 +36171,7 @@
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "bNn" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/beach/sand{
@@ -36249,19 +36249,19 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
 "bTg" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "clm" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "coz" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /obj/effect/floor_decal/snow/corner{
@@ -36270,7 +36270,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "coR" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/beach/sand{
@@ -36284,7 +36284,7 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "cEk" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/flora/tree/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -36304,13 +36304,13 @@
 /area/centcom/shared_dream)
 "cUc" = (
 /obj/structure/flora/grass/jungle,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "cWf" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/plating/snow,
@@ -36323,13 +36323,13 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "dac" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -36340,7 +36340,7 @@
 /turf/simulated/floor/exoplanet/ice,
 /area/centcom/shared_dream)
 "doG" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/beach/sand{
@@ -36353,7 +36353,7 @@
 	},
 /area/horizon/holodeck/source_theatre)
 "drI" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -36365,10 +36365,10 @@
 	},
 /area/centcom/shared_dream)
 "dsb" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
@@ -36410,7 +36410,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
 "dFd" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/beach/sand{
@@ -36426,7 +36426,7 @@
 /area/horizon/holodeck/source_snowfield)
 "dIc" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "dMF" = (
@@ -36439,7 +36439,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_courtroom)
 "dPA" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/ywflowers,
@@ -36473,13 +36473,13 @@
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "ecI" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "ecJ" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/snow/corner{
@@ -36505,12 +36505,12 @@
 /area/supply/dock)
 "eoI" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "epL" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -36550,7 +36550,7 @@
 /area/centcom/shared_dream)
 "exP" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -36561,7 +36561,7 @@
 	},
 /area/horizon/holodeck/source_desert)
 "eHO" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/snow/surround{
@@ -36612,7 +36612,7 @@
 /turf/simulated/floor/beach/water/alt,
 /area/centcom/shared_dream)
 "eSG" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow,
@@ -36639,7 +36639,7 @@
 /area/shuttle/transport1)
 "eWy" = (
 /obj/structure/flora/rock,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -36662,7 +36662,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_theatre)
 "feN" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /obj/effect/landmark{
@@ -36703,7 +36703,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_emptycourt)
 "fDU" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -36721,7 +36721,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
 "fHN" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
@@ -36764,7 +36764,7 @@
 "fVy" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -36775,7 +36775,7 @@
 /area/horizon/holodeck/source_thunderdomecourt)
 "gaz" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/exoplanet/grass,
@@ -36806,10 +36806,10 @@
 /turf/simulated/lava,
 /area/antag/ninja)
 "goW" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
@@ -36817,16 +36817,16 @@
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "gpw" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -36840,7 +36840,7 @@
 /area/horizon/holodeck/source_desert)
 "gzZ" = (
 /obj/structure/flora/bush/grove,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -36861,7 +36861,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/yew,
+/turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
 "gDm" = (
 /obj/effect/floor_decal/snow/corner{
@@ -36879,27 +36879,27 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
 "gIA" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/ice,
 /area/centcom/shared_dream)
 "gJy" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
 /area/centcom/shared_dream)
 "gOl" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/item/bucket_sensor,
 /turf/simulated/floor/wood,
 /area/centcom/shared_dream)
 "gQq" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass,
@@ -36917,11 +36917,11 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_courtroom)
 "gRZ" = (
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "gSD" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/sunnybush,
@@ -37022,7 +37022,7 @@
 /turf/simulated/floor/exoplanet/ice,
 /area/centcom/shared_dream)
 "hXi" = (
-/obj/effect/floor_decal/spline/plain/cee,
+/obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "hXA" = (
@@ -37033,7 +37033,7 @@
 "hYG" = (
 /obj/effect/overlay/palmtree_r,
 /obj/effect/overlay/coconut,
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/beach/sand{
@@ -37046,7 +37046,7 @@
 /turf/simulated/floor/holofloor/beach/sand,
 /area/horizon/holodeck/source_dininghall)
 "iae" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -37079,13 +37079,13 @@
 	},
 /area/centcom/ferry)
 "iIo" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "iIP" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
@@ -37095,10 +37095,10 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/yew,
+/turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
 "iJD" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/snow,
@@ -37110,7 +37110,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/yew,
+/turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
 "iPb" = (
 /obj/structure/curtain/open/shower/security,
@@ -37118,7 +37118,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/coloured/yew,
+/turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
 "iPO" = (
 /obj/effect/floor_decal/snowdrift{
@@ -37136,7 +37136,7 @@
 	},
 /area/centcom/shared_dream)
 "iVa" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -37166,10 +37166,10 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
 "jac" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
@@ -37183,7 +37183,7 @@
 /area/centcom/shared_dream)
 "jlo" = (
 /obj/effect/spider/stickyweb,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
@@ -37240,7 +37240,7 @@
 	},
 /area/horizon/holodeck/source_beach)
 "jGo" = (
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
@@ -37254,7 +37254,7 @@
 /area/centcom/shared_dream)
 "jLR" = (
 /obj/structure/flora/ausbushes/leafybush,
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -37264,14 +37264,14 @@
 /area/centcom/shared_dream)
 "jOZ" = (
 /obj/structure/flora/grass/green,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "jQg" = (
-/obj/effect/floor_decal/spline/plain/corner,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/corner/black,
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -37288,7 +37288,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_meetinghall)
 "kdV" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/beach/sand{
 	icon_state = "seashallow"
 	},
@@ -37309,7 +37309,7 @@
 	pixel_x = 2
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/wood/coloured/yew,
+/turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
 "kjJ" = (
 /obj/effect/map_effect/window_spawner/reinforced,
@@ -37324,7 +37324,7 @@
 "kjP" = (
 /obj/structure/flora/rock/pile,
 /obj/item/clothing/mask/skrell/skull,
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "klh" = (
@@ -37334,7 +37334,7 @@
 /turf/simulated/floor/carpet/purple,
 /area/centcom/shared_dream)
 "knT" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -37375,7 +37375,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_emptycourt)
 "kAJ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /obj/effect/landmark{
@@ -37387,7 +37387,7 @@
 /obj/effect/floor_decal/snow/corner{
 	dir = 9
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/ice,
@@ -37440,7 +37440,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
 "lfP" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/beach/sand{
@@ -37449,7 +37449,7 @@
 	},
 /area/centcom/shared_dream)
 "lnJ" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/beach/sand{
 	dir = 5;
 	icon_state = "beach"
@@ -37460,7 +37460,7 @@
 /turf/template_noop,
 /area/template_noop)
 "lok" = (
-/obj/effect/floor_decal/spline/plain/cee,
+/obj/effect/floor_decal/spline/plain/cee/black,
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
@@ -37546,7 +37546,7 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "lRN" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/snow/corner{
@@ -37573,7 +37573,7 @@
 	},
 /area/horizon/holodeck/source_desert)
 "mjN" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/beach/sand{
@@ -37581,7 +37581,7 @@
 	},
 /area/centcom/shared_dream)
 "mun" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
@@ -37611,7 +37611,7 @@
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
 "mEy" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
@@ -37622,15 +37622,15 @@
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "mLu" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "mLF" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/grass,
@@ -37648,17 +37648,17 @@
 	},
 /area/centcom/shared_dream)
 "mPD" = (
-/obj/effect/floor_decal/spline/plain/cee{
+/obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "mZu" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
@@ -37676,13 +37676,13 @@
 /area/centcom/shared_dream)
 "neN" = (
 /obj/effect/decal/cleanable/spiderling_remains,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "njp" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -37692,14 +37692,14 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "nnX" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "nrf" = (
 /obj/item/beach_ball,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/beach/sand{
@@ -37708,13 +37708,13 @@
 /area/centcom/shared_dream)
 "nue" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "nut" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/beach/sand{
@@ -37723,7 +37723,7 @@
 /area/centcom/shared_dream)
 "nxQ" = (
 /obj/structure/flora/ausbushes/leafybush,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "nCh" = (
@@ -37744,15 +37744,15 @@
 /area/shuttle/mercenary)
 "nDU" = (
 /obj/structure/flora/tree/jungle,
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "nFy" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -37790,11 +37790,11 @@
 /area/centcom/shared_dream)
 "oim" = (
 /obj/structure/flora/tree/grove,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "oln" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/beach/sand{
@@ -37811,7 +37811,7 @@
 /area/horizon/holodeck/source_courtroom)
 "omk" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -37880,7 +37880,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/turf/simulated/floor/wood/coloured/yew,
+/turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
 "oTZ" = (
 /obj/item/shovel,
@@ -37891,7 +37891,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
 "oXx" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow,
@@ -37920,10 +37920,10 @@
 /area/centcom/ferry)
 "plZ" = (
 /obj/structure/flora/stump/log,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass,
@@ -37942,7 +37942,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/transport1)
 "pyG" = (
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
@@ -37954,11 +37954,11 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_basketball)
 "pEO" = (
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "pGl" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/palebush,
@@ -38022,7 +38022,7 @@
 /area/template_noop)
 "qfC" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/beach/sand{
@@ -38056,7 +38056,7 @@
 	},
 /area/centcom/shared_dream)
 "qrQ" = (
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/beach/sand{
 	dir = 1;
 	icon_state = "beach"
@@ -38076,14 +38076,14 @@
 /turf/simulated/floor/exoplanet/ice,
 /area/centcom/shared_dream)
 "qAh" = (
-/obj/effect/floor_decal/spline/plain/cee{
+/obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "qBi" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -38102,10 +38102,10 @@
 	},
 /area/centcom/shared_dream)
 "qHa" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fullgrass,
@@ -38113,7 +38113,7 @@
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "qOd" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass,
@@ -38122,7 +38122,7 @@
 /obj/effect/floor_decal/snow/corner{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/ice,
@@ -38147,7 +38147,7 @@
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
 "rfc" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/beach/sand{
 	dir = 9;
 	icon_state = "beach"
@@ -38164,7 +38164,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/turf/simulated/floor/wood/coloured/yew,
+/turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
 "rkZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -38173,10 +38173,10 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
 "rlf" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -38229,7 +38229,7 @@
 /area/horizon/holodeck/source_courtroom)
 "rrI" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -38268,13 +38268,13 @@
 /obj/effect/floor_decal/snow/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "rNr" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/wood,
 /area/centcom/shared_dream)
 "rRN" = (
@@ -38285,7 +38285,7 @@
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
 "rWI" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/snow/corner{
@@ -38297,14 +38297,14 @@
 /turf/space,
 /area/centcom/shared_dream)
 "seI" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "skt" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /turf/simulated/floor/beach/sand{
@@ -38313,7 +38313,7 @@
 /area/centcom/shared_dream)
 "smA" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "sqb" = (
@@ -38335,7 +38335,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/coloured/yew,
+/turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
 "sCp" = (
 /obj/effect/step_trigger/thrower/shuttle/northeast,
@@ -38360,17 +38360,17 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/merchant)
 "sMO" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "sOZ" = (
 /obj/structure/flora/grass/jungle,
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass,
@@ -38403,11 +38403,11 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/turf/simulated/floor/wood/coloured/yew,
+/turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
 "sYz" = (
 /obj/structure/flora/tree/jungle/small,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass,
@@ -38429,7 +38429,7 @@
 /turf/simulated/floor/carpet/purple,
 /area/centcom/shared_dream)
 "tlI" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/ore_box{
 	icon_state = "orebox1"
 	},
@@ -38437,7 +38437,7 @@
 /area/centcom/shared_dream)
 "tlX" = (
 /obj/item/inflatable_duck,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/beach/sand{
@@ -38445,7 +38445,7 @@
 	},
 /area/centcom/shared_dream)
 "tnC" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /obj/effect/decal/fake_object{
@@ -38485,7 +38485,7 @@
 	},
 /area/centcom/shared_dream)
 "trr" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -38508,7 +38508,7 @@
 	},
 /area/centcom/shared_dream)
 "txp" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/sunnybush,
@@ -38574,7 +38574,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
 "tMw" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/exoplanet/grass,
@@ -38597,7 +38597,7 @@
 	},
 /area/centcom/shared_dream)
 "ulM" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/beach/sand{
@@ -38613,7 +38613,7 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "uph" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -38634,14 +38634,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mercenary)
 "uux" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/beach/sand{
 	dir = 1;
 	icon_state = "beach"
 	},
 /area/centcom/shared_dream)
 "uAv" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/airless/lava{
@@ -38650,7 +38650,7 @@
 /area/centcom/shared_dream)
 "uHf" = (
 /obj/structure/flora/ausbushes/ywflowers,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -38666,7 +38666,7 @@
 "uMu" = (
 /obj/structure/flora/tree/pine,
 /obj/effect/decal/fake_object/light_source/invisible,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow,
@@ -38679,7 +38679,7 @@
 	},
 /area/centcom/shared_dream)
 "uUV" = (
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "uYd" = (
@@ -38703,23 +38703,23 @@
 	},
 /area/centcom/shared_dream)
 "vdb" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "vgn" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/centcom/shared_dream)
 "vgq" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -38742,7 +38742,7 @@
 /turf/space/transit/east,
 /area/template_noop)
 "vtV" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /turf/simulated/floor/beach/sand{
@@ -38756,7 +38756,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/yew,
+/turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
 "vEO" = (
 /obj/structure/shuttle_part/ccia{
@@ -38765,7 +38765,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
 "vFS" = (
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
@@ -38786,7 +38786,7 @@
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
 "vPL" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow,
@@ -38795,7 +38795,7 @@
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/centcom/shared_dream)
 "vVW" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/beach/sand{
 	dir = 4;
 	icon_state = "beachcorner"
@@ -38808,7 +38808,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/transport1)
 "waQ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /obj/effect/landmark{
@@ -38818,14 +38818,14 @@
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "wkS" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/snow/corner{
 	dir = 9
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "wnt" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
@@ -38843,7 +38843,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
 "wpC" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -38857,24 +38857,24 @@
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
 "wrH" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
 /area/centcom/shared_dream)
 "wto" = (
 /obj/structure/flora/ausbushes/leafybush,
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "wxV" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "wEr" = (
@@ -38886,7 +38886,7 @@
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
 "wWn" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/beach/sand{
 	dir = 8;
 	icon_state = "beachcorner"
@@ -38915,7 +38915,7 @@
 /area/centcom/shared_dream)
 "xew" = (
 /obj/structure/flora/grass/jungle,
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "xhA" = (
@@ -38923,7 +38923,7 @@
 /turf/simulated/floor/exoplanet/ice,
 /area/centcom/shared_dream)
 "xkM" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/beach/sand{
@@ -38936,7 +38936,7 @@
 	},
 /area/shuttle/transport1)
 "xqx" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -38946,7 +38946,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "xrA" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -38971,7 +38971,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
 "xJB" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/airless/lava{
@@ -39036,7 +39036,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_theatre)
 "xYy" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/airless/lava{
@@ -39044,7 +39044,7 @@
 	},
 /area/centcom/shared_dream)
 "yhM" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /turf/simulated/floor/airless/lava{
@@ -39063,10 +39063,10 @@
 	},
 /area/centcom/ferry)
 "ylA" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#4d7d5c"
 	},

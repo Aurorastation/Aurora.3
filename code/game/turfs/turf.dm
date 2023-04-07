@@ -402,7 +402,11 @@ var/const/enterloopsanity = 100
 		if(istype(src, /turf/simulated))
 			var/turf/simulated/T = src
 			T.dirt = 0
-			T.color = null
+			if(istype(src, /turf/simulated/floor))
+				var/turf/simulated/floor/F = src
+				F.color = F.flooring.color
+			else
+				T.color = null
 		for(var/obj/effect/O in src)
 			if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
 				qdel(O)

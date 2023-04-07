@@ -7,7 +7,7 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	tile_outline = "carpet"
-	damage_overlay = "carpet"
+	broken_overlay = "carpet"
 	initial_flooring = /singleton/flooring/carpet
 	footstep_sound = /singleton/sound_category/carpet_footstep
 
@@ -85,42 +85,39 @@
 //Wood Flooring
 /turf/simulated/floor/wood
 	name = "wooden floor"
-	icon = 'icons/turf/flooring/wood.dmi'
+	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "wood"
 	initial_flooring = /singleton/flooring/wood
 	footstep_sound = /singleton/sound_category/wood_footstep
 	tile_outline = "wood"
-	tile_decal_state = "woodcolour"
+	tile_decal_state = "wood"
+	broken_overlay = "wood"
 	tile_outline_alpha = 75
 
 /turf/simulated/floor/wood/airless
 	oxygen = 0
 	nitrogen = 0
 
-/turf/simulated/floor/wood/coloured
-	icon_state = "woodcolour"
-	initial_flooring = /singleton/flooring/wood/coloured
+/turf/simulated/floor/wood/birch
+	initial_flooring = /singleton/flooring/wood/birch
 
-/turf/simulated/floor/wood/coloured/birch
-	initial_flooring = /singleton/flooring/wood/coloured/birch
+/turf/simulated/floor/wood/mahogany
+	initial_flooring = /singleton/flooring/wood/mahogany
 
-/turf/simulated/floor/wood/coloured/mahogany
-	initial_flooring = /singleton/flooring/wood/coloured/mahogany
+/turf/simulated/floor/wood/walnut
+	initial_flooring = /singleton/flooring/wood/walnut
 
-/turf/simulated/floor/wood/coloured/walnut
-	initial_flooring = /singleton/flooring/wood/coloured/walnut
+/turf/simulated/floor/wood/bamboo
+	initial_flooring = /singleton/flooring/wood/bamboo
 
-/turf/simulated/floor/wood/coloured/bamboo
-	initial_flooring = /singleton/flooring/wood/coloured/bamboo
+/turf/simulated/floor/wood/ebony
+	initial_flooring = /singleton/flooring/wood/ebony
 
-/turf/simulated/floor/wood/coloured/ebony
-	initial_flooring = /singleton/flooring/wood/coloured/ebony
+/turf/simulated/floor/wood/walnut
+	initial_flooring = /singleton/flooring/wood/walnut
 
-/turf/simulated/floor/wood/coloured/walnut
-	initial_flooring = /singleton/flooring/wood/coloured/walnut
-
-/turf/simulated/floor/wood/coloured/yew
-	initial_flooring = /singleton/flooring/wood/coloured/yew
+/turf/simulated/floor/wood/yew
+	initial_flooring = /singleton/flooring/wood/yew
 
 //Grass
 /turf/simulated/floor/grass
@@ -152,7 +149,8 @@
 	tile_outline = "tiled"
 	tile_decal_state = "tiled_light"
 	tile_outline_alpha = 125
-	damage_overlay = "tiled"
+	broken_overlay = "tiled"
+	burned_overlay = "tiled"
 
 /turf/simulated/floor/tiled/cooled
 	name = "cooled steel tiles"
@@ -164,7 +162,8 @@
 	initial_flooring = /singleton/flooring/tiling/mono
 	tile_outline = "monotile"
 	tile_decal_state = "monotile_light"
-	damage_overlay = null
+	broken_overlay = null
+	burned_overlay = null
 
 /turf/simulated/floor/tiled/full/airless
 	name = "airless full steel tile"
@@ -266,7 +265,8 @@
 	initial_flooring = /singleton/flooring/tiling/dark/full
 	tile_outline = "monotile"
 	tile_decal_state = "monotile_dark_light"
-	damage_overlay = null
+	broken_overlay = null
+	burned_overlay = null
 
 /turf/simulated/floor/tiled/dark/full/airless
 	name = "airless full plasteel tile"
@@ -284,7 +284,7 @@
 
 /turf/simulated/floor/tiled/rust/update_icon()
 	. = ..()
-	var/image/rust = image('icons/turf/flooring/damage.dmi', "rust")
+	var/image/rust = image('icons/turf/decals/damage.dmi', "rust")
 	rust.appearance_flags = RESET_COLOR
 	add_overlay(rust)
 
@@ -296,7 +296,8 @@
 /turf/simulated/floor/tiled/asteroid
 	icon_state = "asteroidfloor"
 	initial_flooring = /singleton/flooring/tiling/asteroid
-	damage_overlay = null
+	broken_overlay = null
+	burned_overlay = null
 
 /turf/simulated/floor/tiled/asteroid/airless
 	oxygen = 0
@@ -316,7 +317,8 @@
 	tile_outline_alpha = 75
 	tile_decal_state = "white"
 	initial_flooring = /singleton/flooring/tiling/white
-	damage_overlay = null
+	broken_overlay = null
+	burned_overlay = null
 
 /turf/simulated/floor/tiled/yellow
 	name = "yellow floor"
@@ -348,11 +350,12 @@
 	initial_flooring = /singleton/flooring/linoleum
 	tile_outline = "linoleum"
 
-/turf/simulated/floor/lino/grey
+/turf/simulated/floor/lino/diamond
 	icon_state = "lino_diamond"
 	initial_flooring = /singleton/flooring/linoleum/diamond
 	tile_outline = "tiled"
-	damage_overlay = "tiled"
+	broken_overlay = "tiled"
+	burned_overlay = "tiled"
 
 //ATMOS PREMADES
 /turf/simulated/floor/reinforced/airless
@@ -462,21 +465,19 @@
 //chessboard
 
 /turf/simulated/floor/marble
-	name = "light marble floor"
+	name = "marble floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
-	icon_state = "lightmarble"
+	icon_state = "textured"
 	initial_flooring = /singleton/flooring/marble
 
 /turf/simulated/floor/marble/dark
-	name = "dark marble floor"
-	icon_state = "darkmarble"
-	initial_flooring = /singleton/flooring/marble/dark
+	color = COLOR_DARK_GRAY
 
 // other
 
 /turf/simulated/floor/vaurca
 	name = "alien floor"
-	icon = 'icons/turf/flooring/misc.dmi'
+	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "vaurca"
 
 /turf/simulated/floor/foamedmetal
@@ -489,3 +490,18 @@
 	if(ishuman(user))
 		ChangeTurf(/turf/space)
 		to_chat(user, SPAN_NOTICE("You clear away the metal foam."))
+
+/turf/simulated/floor/concrete // The more conk they crete the more brutalismer it is
+	name = "concrete"
+	icon = 'icons/turf/flooring/concrete.dmi'
+	icon_state = "concrete0"
+	initial_flooring = /singleton/flooring/concrete
+
+/turf/simulated/floor/concrete/square
+	icon_state = "concrete3"
+	tile_outline = "tiled"
+	tile_decal_state = "tiled_light"
+	tile_outline_alpha = 125
+	broken_overlay = "tiled"
+	burned_overlay = "tiled"
+	initial_flooring = /singleton/flooring/concrete/square

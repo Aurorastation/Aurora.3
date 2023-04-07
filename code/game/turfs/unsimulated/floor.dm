@@ -1,8 +1,7 @@
 /turf/unsimulated/floor
 	name = "floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
-	icon_state = "tiled"
-	color = COLOR_DARK_GUNMETAL
+	icon_state = "tiled_preview"
 
 /turf/unsimulated/floor/elevatorshaft
 	name = "elevator machinery"
@@ -18,6 +17,11 @@
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "snow0"
 	footstep_sound = /singleton/sound_category/snow_footstep
+
+/turf/unsimulated/floor/concrete
+	name = "concrete"
+	icon = 'icons/turf/flooring/concrete.dmi'
+	icon_state = "concrete0"
 
 /turf/unsimulated/mask
 	name = "mask"

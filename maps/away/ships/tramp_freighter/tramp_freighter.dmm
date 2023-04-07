@@ -366,7 +366,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
 "bXv" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/item/clothing/head/bearpelt{
 	anchored = 1;
 	name = "bear pelt wall rug";
@@ -379,7 +379,7 @@
 "ckN" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp/green,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/art,
@@ -974,7 +974,7 @@
 /area/ship/tramp_freighter)
 "gcq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1182,7 +1182,7 @@
 "hGK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1641,7 +1641,7 @@
 /area/ship/tramp_freighter)
 "oGo" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/vending/cigarette/hacked,
@@ -1692,7 +1692,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/art,
@@ -1807,7 +1807,7 @@
 /turf/unsimulated/wall/fakepdoor,
 /area/ship/tramp_freighter)
 "rBU" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/art,
@@ -1838,7 +1838,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
 "rVB" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/art,
@@ -1941,7 +1941,7 @@
 /obj/structure/table/steel,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/art,

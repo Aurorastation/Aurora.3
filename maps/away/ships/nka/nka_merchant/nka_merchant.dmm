@@ -37,7 +37,7 @@
 /area/nka_merchant/merchant)
 "ai" = (
 /obj/machinery/appliance/cooker/stove,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
@@ -589,7 +589,7 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
@@ -1002,7 +1002,7 @@
 /obj/item/storage/field_ration/nka,
 /obj/item/storage/field_ration/nka,
 /obj/item/storage/field_ration/nka,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
@@ -1516,7 +1516,7 @@
 "fx" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_alc/full,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
@@ -1664,7 +1664,7 @@
 	},
 /area/nka_merchant/eva)
 "fY" = (
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
@@ -2993,7 +2993,7 @@
 /area/nka_merchant/hangar)
 "mG" = (
 /obj/machinery/appliance/cooker/fryer,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
@@ -3081,7 +3081,7 @@
 	dir = 2;
 	req_access = list(213)
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
@@ -4066,7 +4066,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
@@ -4299,7 +4299,7 @@
 /area/nka_merchant/hangar)
 "KT" = (
 /obj/machinery/vending/dinnerware,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)

@@ -16,9 +16,10 @@
 	var/color
 
 	var/has_base_range // basically if you want your turf to have variants, e.g. snow and grass. this number sets upper bound, starts at 0.
-	var/has_damage_range = 2
+	var/has_damage_range = 7
 	var/has_damage_state // if you've got unique damage sprites, hard-baked, not overlays. if you use overlays use the range system.
-	var/has_burn_range = 2
+	var/has_burn_range = 4
+	var/damage_uses_color = FALSE // see wood.
 	var/damage_temperature
 	var/apply_thermal_conductivity
 	var/apply_heat_capacity
@@ -94,6 +95,7 @@
 	floor_smooth = SMOOTH_NONE
 	wall_smooth = SMOOTH_NONE
 	space_smooth = SMOOTH_NONE
+	has_damage_range = 2
 
 /singleton/flooring/carpet/blue
 	name = "carpet"
@@ -157,6 +159,8 @@
 	build_type = /obj/item/stack/tile/floor
 	can_paint = TRUE
 	footstep_sound = /singleton/sound_category/tiles_footstep
+	has_damage_range = 4
+	has_burn_range = 1
 
 /singleton/flooring/tiling/mono
 	icon_base = "monotile"
@@ -199,7 +203,7 @@
 /singleton/flooring/tiling/white
 	desc = "How sterile."
 	icon_base = "white"
-	color = COLOR_SILVER
+	color = COLOR_OFF_WHITE
 	build_type = /obj/item/stack/tile/floor_white
 
 /singleton/flooring/tiling/yellow
@@ -227,11 +231,12 @@
 //Wood
 /singleton/flooring/wood
 	name = "wooden floor"
-	desc = "Polished redwood planks."
-	icon = 'icons/turf/flooring/wood.dmi'
+	desc = "Polished wooden planks."
+	color = WOOD_COLOR_GENERIC
+	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "wood"
-	has_damage_range = 6
-	has_damage_state = TRUE
+	has_damage_range = 7
+	damage_uses_color = TRUE
 	damage_temperature = T0C+200
 	descriptor = "planks"
 	build_type = /obj/item/stack/tile/wood
@@ -239,38 +244,33 @@
 	footstep_sound = /singleton/sound_category/wood_footstep
 	can_paint = TRUE
 
-/singleton/flooring/wood/coloured
-	icon_base = "woodcolour"
-	desc = "Polished wooden planks."
-	build_type = /obj/item/stack/tile/wood/coloured
-
-/singleton/flooring/wood/coloured/birch
+/singleton/flooring/wood/birch
 	color = WOOD_COLOR_BIRCH
-	build_type = /obj/item/stack/tile/wood/coloured/birch
+	build_type = /obj/item/stack/tile/wood/birch
 
-/singleton/flooring/wood/coloured/mahogany
+/singleton/flooring/wood/mahogany
 	color = WOOD_COLOR_RICH
-	build_type = /obj/item/stack/tile/wood/coloured/mahogany
+	build_type = /obj/item/stack/tile/wood/mahogany
 
-/singleton/flooring/wood/coloured/maple
+/singleton/flooring/wood/maple
 	color = WOOD_COLOR_PALE
-	build_type = /obj/item/stack/tile/wood/coloured/maple
+	build_type = /obj/item/stack/tile/wood/maple
 
-/singleton/flooring/wood/coloured/bamboo
+/singleton/flooring/wood/bamboo
 	color = WOOD_COLOR_PALE2
-	build_type = /obj/item/stack/tile/wood/coloured/bamboo
+	build_type = /obj/item/stack/tile/wood/bamboo
 
-/singleton/flooring/wood/coloured/ebony
+/singleton/flooring/wood/ebony
 	color = WOOD_COLOR_BLACK
-	build_type = /obj/item/stack/tile/wood/coloured/ebony
+	build_type = /obj/item/stack/tile/wood/ebony
 
-/singleton/flooring/wood/coloured/walnut
+/singleton/flooring/wood/walnut
 	color = WOOD_COLOR_CHOCOLATE
-	build_type = /obj/item/stack/tile/wood/coloured/walnut
+	build_type = /obj/item/stack/tile/wood/walnut
 
-/singleton/flooring/wood/coloured/yew
+/singleton/flooring/wood/yew
 	color = WOOD_COLOR_YELLOW
-	build_type = /obj/item/stack/tile/wood/coloured/yew
+	build_type = /obj/item/stack/tile/wood/yew
 
 /singleton/flooring/reinforced
 	name = "reinforced floor"
@@ -393,20 +393,24 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/diamond
 
-//chessboard
-
 /singleton/flooring/marble
-	name = "light marble floor"
+	name = "marble floor"
 	desc = "A robust floor made from marble."
+	color = COLOR_GRAY
 	icon = 'icons/turf/flooring/tiles.dmi'
-	icon_base = "lightmarble"
+	icon_base = "textured"
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/marble
 
-/singleton/flooring/marble/dark
-	name = "dark marble floor"
-	icon_base = "darkmarble"
-	build_type = /obj/item/stack/tile/marble/dark
+/singleton/flooring/concrete
+	name = "concrete"
+	desc = "Stone-like artificial material. Brutalist and utilitarian."
+	icon = 'icons/turf/flooring/concrete.dmi'
+	icon_base = "concrete"
+	has_base_range = 2
+
+/singleton/flooring/concrete/square
+	has_base_range = 0
 
 //Shuttle turfs
 

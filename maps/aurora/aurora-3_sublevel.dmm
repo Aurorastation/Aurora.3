@@ -64,7 +64,7 @@
 /area/engineering/atmos)
 "aao" = (
 /obj/machinery/artifact_harvester,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/bluegrid,
@@ -893,7 +893,7 @@
 /area/outpost/engineering/power)
 "aci" = (
 /obj/machinery/artifact_harvester,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/bluegrid,
@@ -1124,10 +1124,10 @@
 /area/engineering/storage_sublevel)
 "acN" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/bluegrid,
@@ -1196,10 +1196,10 @@
 /area/engineering/atmos)
 "adc" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/bluegrid,
@@ -2567,17 +2567,17 @@
 /area/rnd/isolation_b)
 "agn" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/bluegrid,
 /area/rnd/isolation_b)
 "ago" = (
 /obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/bluegrid,
@@ -4975,7 +4975,7 @@
 /area/rnd/xenoarch_atrium)
 "alq" = (
 /obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /obj/structure/window/reinforced{
@@ -5761,7 +5761,7 @@
 /area/rnd/xenobiology)
 "amJ" = (
 /obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/bluegrid,
@@ -10648,10 +10648,10 @@
 /area/rnd/xenoarch_atrium)
 "atV" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/greengrid,
@@ -11859,10 +11859,10 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "avN" = (
@@ -22091,10 +22091,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
 "aVp" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "aVt" = (
@@ -27356,7 +27356,7 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "eCm" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/beach/water/pool,
 /area/medical/patient_wing_gym)
 "eCz" = (
@@ -28031,7 +28031,7 @@
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/xenobotany,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -30282,10 +30282,10 @@
 /area/outpost/engineering/power)
 "ljj" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/bluegrid,
@@ -31394,7 +31394,7 @@
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/xenobotany,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -36577,7 +36577,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
 "xLk" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/beach/water/pool,
@@ -36748,10 +36748,10 @@
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "xZp" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/beach/water/pool,

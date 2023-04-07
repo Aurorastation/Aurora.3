@@ -2414,7 +2414,7 @@
 /area/raskara_okon/mining)
 "Ef" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain/cee,
+/obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/bluegrid{
 	temperature = 278.15
 	},
@@ -3650,7 +3650,7 @@
 /area/raskara_okon/entry)
 "Wp" = (
 /obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain/cee{
+/obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
 	},
 /obj/machinery/light{

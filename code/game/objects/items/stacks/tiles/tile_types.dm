@@ -61,43 +61,40 @@
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	pickup_sound = 'sound/items/pickup/wooden.ogg'
 
-/obj/item/stack/tile/wood/coloured
-	icon_state = "tile_woodcoloured"
-
-/obj/item/stack/tile/wood/coloured/birch
+/obj/item/stack/tile/wood/birch
 	name = "birch wood floor tile"
 	color = WOOD_COLOR_BIRCH
-	build_type = /obj/item/stack/tile/wood/coloured/birch
+	build_type = /obj/item/stack/tile/wood/birch
 
-/obj/item/stack/tile/wood/coloured/mahogany
+/obj/item/stack/tile/wood/mahogany
 	name = "mahogany wood floor tile"
 	color = WOOD_COLOR_RICH
-	build_type = /obj/item/stack/tile/wood/coloured/mahogany
+	build_type = /obj/item/stack/tile/wood/mahogany
 
-/obj/item/stack/tile/wood/coloured/maple
+/obj/item/stack/tile/wood/maple
 	name = "maple wood floor tile"
 	color = WOOD_COLOR_PALE
-	build_type = /obj/item/stack/tile/wood/coloured/maple
+	build_type = /obj/item/stack/tile/wood/maple
 
-/obj/item/stack/tile/wood/coloured/bamboo
+/obj/item/stack/tile/wood/bamboo
 	name = "bamboo wood floor tile"
 	color = WOOD_COLOR_PALE2
-	build_type = /obj/item/stack/tile/wood/coloured/bamboo
+	build_type = /obj/item/stack/tile/wood/bamboo
 
-/obj/item/stack/tile/wood/coloured/ebony
+/obj/item/stack/tile/wood/ebony
 	name = "ebony wood floor tile"
 	color = WOOD_COLOR_BLACK
-	build_type = /obj/item/stack/tile/wood/coloured/ebony
+	build_type = /obj/item/stack/tile/wood/ebony
 
-/obj/item/stack/tile/wood/coloured/walnut
+/obj/item/stack/tile/wood/walnut
 	name = "walnut wood floor tile"
 	color = WOOD_COLOR_CHOCOLATE
-	build_type = /obj/item/stack/tile/wood/coloured/walnut
+	build_type = /obj/item/stack/tile/wood/walnut
 
-/obj/item/stack/tile/wood/coloured/yew
+/obj/item/stack/tile/wood/yew
 	name = "yew wood floor tile"
 	color = WOOD_COLOR_YELLOW
-	build_type = /obj/item/stack/tile/wood/coloured/yew
+	build_type = /obj/item/stack/tile/wood/yew
 
 /*
  * Carpets
@@ -336,15 +333,10 @@
 	matter = list(MATERIAL_DIAMOND = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/marble
-	name = "light marble floor tile"
-	singular_name = "light marble floor tile"
+	name = "marble floor tile"
+	singular_name = "marble floor tile"
 	icon_state = "tile_lightmarble"
 	matter = list(MATERIAL_MARBLE = TILE_MATERIAL_AMOUNT)
-
-/obj/item/stack/tile/marble/dark
-	name = "dark marble floor tile"
-	singular_name = "dark marble floor tile"
-	icon_state = "tile_darkmarble"
 
 /*
  * Cyborg modules

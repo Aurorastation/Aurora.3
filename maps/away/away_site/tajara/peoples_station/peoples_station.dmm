@@ -16,7 +16,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1494,7 +1494,7 @@
 /area/peoples_station/bridge)
 "gt" = (
 /obj/structure/punching_bag,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1503,7 +1503,7 @@
 	},
 /area/peoples_station/training)
 "gz" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber{
@@ -3611,7 +3611,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3907,7 +3907,7 @@
 /turf/space/transit/north,
 /area/space)
 "rp" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber{
@@ -5324,7 +5324,7 @@
 	},
 /area/peoples_station/solars)
 "xW" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 278.15
 	},
@@ -8513,7 +8513,7 @@
 /area/peoples_station/visitor)
 "Nn" = (
 /obj/structure/punching_bag,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8985,7 +8985,7 @@
 /obj/structure/sink{
 	pixel_y = 28
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber{

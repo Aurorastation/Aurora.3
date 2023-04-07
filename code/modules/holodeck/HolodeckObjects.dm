@@ -46,7 +46,7 @@
 
 /turf/simulated/floor/holofloor/tiled/dark
 	name = "dark floor"
-	icon_state = "grippy_preview"
+	icon_state = "dark_preview"
 	initial_flooring = /singleton/flooring/tiling/dark
 
 /turf/simulated/floor/holofloor/lino
@@ -54,14 +54,16 @@
 	icon = 'icons/turf/flooring/linoleum.dmi'
 	icon_state = "lino_diamond"
 	initial_flooring = /singleton/flooring/linoleum/diamond
+	color = COLOR_LINOLEUM
 
 /turf/simulated/floor/holofloor/wood
 	name = "wooden floor"
-	icon = 'icons/turf/flooring/wood.dmi'
+	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "wood"
 	initial_flooring = /singleton/flooring/wood
 	tile_outline = "wood"
 	tile_outline_blend_process = ICON_ADD
+	color = WOOD_COLOR_GENERIC
 
 /turf/simulated/floor/holofloor/grass
 	name = "lush grass"

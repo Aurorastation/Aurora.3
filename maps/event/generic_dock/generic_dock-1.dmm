@@ -505,7 +505,7 @@
 	layer = 4.1;
 	name = "adjusted railing"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -1333,7 +1333,7 @@
 	anchored = 1;
 	pixel_y = 2
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -2441,7 +2441,7 @@
 /area/shuttle/escape)
 "buU" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -2480,7 +2480,7 @@
 /area/centcom/specops)
 "bwY" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 8
 	},
@@ -2798,7 +2798,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3900,7 +3900,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "dqu" = (
@@ -4168,8 +4168,8 @@
 	layer = 5;
 	name = "adjusted window"
 	},
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -4758,7 +4758,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4922,7 +4922,7 @@
 /area/centcom/bar)
 "eHl" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 4
 	},
@@ -5073,7 +5073,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
@@ -5364,7 +5364,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/clothing/gloves/yellow,
@@ -5396,7 +5396,7 @@
 	layer = 4.1;
 	opacity = 0
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor,
@@ -5441,7 +5441,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "fuy" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "rampbottom"
 	},
@@ -5721,7 +5721,7 @@
 	layer = 6;
 	name = "adjusted railing"
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/unsimulated/floor{
@@ -5993,7 +5993,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -6103,7 +6103,7 @@
 	layer = 6;
 	name = "adjusted railing"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -6320,7 +6320,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -6426,7 +6426,7 @@
 /area/centcom/spawning)
 "gyU" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/reinforced,
 /area/shuttle/administration)
 "gAb" = (
@@ -6969,7 +6969,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7282,7 +7282,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "hEz" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -7692,7 +7692,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/effect/landmark/force_spawnpoint{
@@ -7858,7 +7858,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "iqJ" = (
@@ -8251,7 +8251,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -8347,7 +8347,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/administration)
 "iSu" = (
@@ -8633,7 +8633,7 @@
 	name = "AI Core Door";
 	req_access = list(109)
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/circuit.dmi';
 	icon_state = "bcircuit"
@@ -8661,7 +8661,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -8694,7 +8694,7 @@
 	},
 /area/tdome/tdomeadmin)
 "jrq" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "rampbottom"
 	},
@@ -8975,7 +8975,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -9200,7 +9200,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/closet/crate/freezer/rations,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
@@ -9388,7 +9388,7 @@
 	},
 /area/centcom/holding)
 "kop" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -9489,7 +9489,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -10206,7 +10206,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -10703,8 +10703,8 @@
 	layer = 5;
 	name = "adjusted window"
 	},
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -10731,7 +10731,7 @@
 	anchored = 1;
 	pixel_y = 2
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -11626,7 +11626,7 @@
 	name = "Romanovich Cloud, Tau Ceti"
 	})
 "nli" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -11832,7 +11832,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -12462,7 +12462,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -12706,7 +12706,7 @@
 	},
 /area/centcom/specops)
 "oNt" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -12770,7 +12770,7 @@
 	name = "adjusted railing"
 	},
 /obj/structure/table/steel,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -12884,7 +12884,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/administration)
 "oZm" = (
@@ -13922,7 +13922,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/table/standard,
@@ -14037,7 +14037,7 @@
 	layer = 6;
 	name = "adjusted railing"
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -14073,7 +14073,7 @@
 	icon_state = "leftsecure";
 	name = "Tram Boarding"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
 "qHx" = (
@@ -14787,7 +14787,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/effect/landmark/force_spawnpoint{
@@ -15017,7 +15017,7 @@
 /obj/machinery/cryopod{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -15144,7 +15144,7 @@
 	icon_state = "rightsecure";
 	name = "Tram Boarding"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
 "sFL" = (
@@ -16238,7 +16238,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -16298,7 +16298,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "uGz" = (
@@ -17006,7 +17006,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "rampbottom"
 	},
@@ -17076,7 +17076,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -17310,7 +17310,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "rampbottom"
 	},
@@ -17493,7 +17493,7 @@
 /obj/machinery/cryopod{
 	dir = 2
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -17636,7 +17636,7 @@
 	name = "operation map";
 	pixel_y = 31
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{

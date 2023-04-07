@@ -118,7 +118,7 @@
 /area/maintenance/wing/starboard/deck1)
 "afl" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -3398,10 +3398,10 @@
 /area/hangar/intrepid)
 "cHx" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/greengrid,
@@ -4392,7 +4392,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
@@ -4576,10 +4576,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -4937,7 +4937,7 @@
 /obj/structure/morgue{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /obj/structure/railing/mapped{
@@ -4985,7 +4985,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
@@ -6105,7 +6105,7 @@
 "eKo" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -6556,7 +6556,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/grass,
@@ -6757,7 +6757,7 @@
 /area/hallway/primary/aft)
 "fgW" = (
 /obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/bluegrid,
@@ -7221,7 +7221,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -7892,7 +7892,7 @@
 /area/maintenance/wing/starboard/deck1)
 "fXy" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/grass,
@@ -8392,7 +8392,7 @@
 /area/operations/storage)
 "grm" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/morgue{
 	dir = 8
 	},
@@ -8618,7 +8618,7 @@
 "gye" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -9181,7 +9181,7 @@
 /area/security/checkpoint)
 "gTU" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/grass,
@@ -9544,7 +9544,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -9998,7 +9998,7 @@
 /obj/machinery/computer/cryopod/robot{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -10043,7 +10043,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -10353,7 +10353,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "hQO" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 278.15
@@ -11388,7 +11388,7 @@
 /obj/item/modular_computer/console/preset/command/teleporter{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/cee,
+/obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/carpet/rubber,
 /area/teleporter)
 "iMY" = (
@@ -11830,10 +11830,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -12609,8 +12609,8 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -13477,7 +13477,7 @@
 	pixel_x = -24
 	},
 /obj/machinery/teleport/pad,
-/obj/effect/floor_decal/spline/plain/cee{
+/obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -13609,7 +13609,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -15001,7 +15001,7 @@
 	name = "sink";
 	pixel_x = 21
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -15640,7 +15640,7 @@
 /area/maintenance/wing/starboard/deck1)
 "mfu" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/bluegrid,
@@ -16279,7 +16279,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -16621,7 +16621,7 @@
 /area/hangar/auxiliary)
 "mST" = (
 /obj/structure/morgue,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/structure/railing/mapped{
@@ -16984,7 +16984,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "ngD" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/brown/full{
@@ -18361,7 +18361,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -19210,7 +19210,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -19821,7 +19821,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "pAD" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/wall,
@@ -19831,7 +19831,7 @@
 	name = "Gardener"
 	},
 /obj/effect/floor_decal/corner/green/full,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -20279,7 +20279,7 @@
 /area/storage/eva)
 "pUK" = (
 /obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /obj/structure/window/reinforced{
@@ -20351,7 +20351,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -21476,7 +21476,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -21733,9 +21733,9 @@
 /area/operations/storage)
 "qXZ" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/morgue,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /obj/structure/railing/mapped{
@@ -22602,7 +22602,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -22850,7 +22850,7 @@
 /area/outpost/mining_main/refinery)
 "rRi" = (
 /mob/living/simple_animal/cow,
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/grass,
@@ -23163,7 +23163,7 @@
 /area/outpost/mining_main/refinery)
 "sdV" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/bluegrid,
@@ -23405,7 +23405,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/effect/floor_decal/spline/plain/cee{
+/obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -23414,7 +23414,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -23595,7 +23595,7 @@
 /obj/structure/morgue{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
@@ -23651,7 +23651,7 @@
 "sxx" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -24600,10 +24600,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -24637,7 +24637,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -24806,7 +24806,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "tsD" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -26250,8 +26250,8 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -27576,10 +27576,10 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
 "vxw" = (
@@ -27853,7 +27853,7 @@
 /area/hangar/control)
 "vJy" = (
 /obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/bluegrid,
@@ -27924,7 +27924,7 @@
 	dir = 8
 	},
 /obj/machinery/light/small,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -28039,7 +28039,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -28051,10 +28051,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -28610,7 +28610,7 @@
 /area/engineering/atmos/propulsion/starboard)
 "wmD" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/morgue,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -29050,7 +29050,7 @@
 /area/shuttle/intrepid/cockpit)
 "wGn" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/effect/floor_decal/spline/plain/cee,
+/obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "wHJ" = (
@@ -30211,8 +30211,8 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,

@@ -194,10 +194,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "agC" = (
 /obj/structure/railing/mapped,
@@ -4750,7 +4747,7 @@
 /area/cruise/e_supplies)
 "dJt" = (
 /obj/item/device/flashlight/lamp/stage,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/structure/railing/mapped,
@@ -4823,10 +4820,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "dOv" = (
 /obj/structure/bed/stool/chair/folding{
@@ -5135,10 +5129,7 @@
 	light_range = 6;
 	name = "rusty lamp"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "ehP" = (
 /obj/structure/railing/mapped{
@@ -8780,7 +8771,7 @@
 /area/cruise/security)
 "gPT" = (
 /obj/item/device/flashlight/lamp/stage,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -10154,10 +10145,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "icI" = (
 /obj/structure/undies_wardrobe,
@@ -12234,10 +12222,7 @@
 /area/cruise/fore)
 "jKN" = (
 /obj/structure/table/rack,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "jMg" = (
 /obj/structure/flora/rock/pile{
@@ -13777,10 +13762,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "kWz" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -13807,10 +13789,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "kYt" = (
 /obj/structure/bed/roller,
@@ -14722,10 +14701,7 @@
 	light_range = 6;
 	name = "rusty lamp"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "lFn" = (
 /obj/machinery/power/emitter{
@@ -15163,10 +15139,7 @@
 	light_range = 6;
 	name = "rusty lamp"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "lWi" = (
 /obj/machinery/door/window/westright,
@@ -17861,10 +17834,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "oeh" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -18677,10 +18647,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "oOc" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -19398,10 +19365,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "pqj" = (
 /obj/structure/window/reinforced{
@@ -19819,7 +19783,7 @@
 	},
 /area/cruise/beach_cave)
 "pGs" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -20374,10 +20338,7 @@
 	},
 /area/cruise/beach)
 "qjQ" = (
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "qkr" = (
 /obj/structure/table/wood,
@@ -22648,10 +22609,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "shq" = (
 /obj/effect/decal/fake_object{
@@ -22851,10 +22809,7 @@
 	},
 /area/cruise/e_supplies)
 "srw" = (
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "sry" = (
 /obj/effect/floor_decal/industrial/loading{
@@ -24778,10 +24733,7 @@
 /area/cruise/centerline)
 "tQI" = (
 /obj/item/banhammer,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "tQK" = (
 /obj/structure/lattice/catwalk,
@@ -26509,10 +26461,7 @@
 /area/cruise/central)
 "vdP" = (
 /obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "vdS" = (
 /obj/structure/flora/grass/jungle{
@@ -27763,10 +27712,7 @@
 /area/cruise/beach)
 "whY" = (
 /obj/item/beach_ball,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "whZ" = (
 /obj/effect/landmark/force_spawnpoint{
@@ -29172,10 +29118,7 @@
 	light_range = 6;
 	name = "rusty lamp"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "xqc" = (
 /obj/structure/barricade/plasteel/wired{

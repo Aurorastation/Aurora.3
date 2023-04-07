@@ -2082,9 +2082,7 @@
 	},
 /area/wrecked_nt_ship)
 "Uk" = (
-/obj/effect/floor_decal/asteroid{
-	icon_state = "asteroid_dug_overlay"
-	},
+/obj/effect/floor_decal/asteroid_dug
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "Uo" = (

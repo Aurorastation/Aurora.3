@@ -59,11 +59,11 @@
 
 	if(!isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
 		if(flooring.has_damage_state)
-			add_overlay(get_damage_overlay("[flooring.icon_base]_broken[broken]", flooring_icon = flooring.icon))
-		else
-			add_overlay(get_damage_overlay("broken[damage_overlay ? "_[damage_overlay]" : ""][broken]", BLEND_MULTIPLY))
+			add_overlay(get_damage_overlay("[flooring.icon_base]_broken[broken]", flooring_icon = flooring.icon, flooring_color = flooring.damage_uses_color ? flooring.color : null)) //example, material floors damage. like diamond_broken0.
+		else // EVERYTHING BELOW, SEE DAMAGE.DMI
+			add_overlay(get_damage_overlay("[broken_overlay ? "[broken_overlay]_" : ""]broken[broken]", BLEND_MULTIPLY, flooring_color = flooring.damage_uses_color ? flooring.color : null)) //example, broken overlay. carpet_broken0.
 	if(!isnull(burnt) && (flooring.flags & TURF_CAN_BURN))
-		add_overlay(get_damage_overlay("burned[damage_overlay ? "_[damage_overlay]" : ""][burnt]"))
+		add_overlay(get_damage_overlay("[burned_overlay ? "[burned_overlay]_" : ""]burned[burnt]")) //example, carpets have burned_overlay set to null. means it just falls back on default burned overlay.
 
 	if(update_neighbors)
 		for(var/turf/simulated/floor/F in RANGE_TURFS(1, src))
@@ -93,12 +93,14 @@
 		flooring_cache[cache_key] = I
 	return flooring_cache[cache_key]
 
-/turf/simulated/floor/proc/get_damage_overlay(var/cache_key, blend, var/flooring_icon)
+/turf/simulated/floor/proc/get_damage_overlay(var/cache_key, blend, var/flooring_icon, var/flooring_color)
 	var/list/flooring_cache = SSicon_cache.flooring_cache
 	if(!flooring_cache[cache_key])
-		var/image/I = image(icon = flooring_icon ? flooring_icon : 'icons/turf/flooring/damage.dmi', icon_state = cache_key)
+		var/image/I = image(icon = flooring_icon ? flooring_icon : 'icons/turf/decals/damage.dmi', icon_state = cache_key)
 		if(blend)
 			I.blend_mode = blend
+		if(flooring_color)
+			I.color = flooring_color
 		I.turf_decal_layerise()
 		flooring_cache[cache_key] = I
 	return flooring_cache[cache_key]

@@ -579,7 +579,7 @@
 /area/database_freighter/engineering)
 "co" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain/cee,
+/obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/bluegrid{
 	temperature = 278.15
 	},
@@ -3812,7 +3812,7 @@
 /area/shuttle/database_freighter_shuttle)
 "GV" = (
 /obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain/cee{
+/obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
 	},
 /obj/machinery/light{

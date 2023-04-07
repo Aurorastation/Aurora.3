@@ -61,4 +61,4 @@
 
 /image/proc/turf_decal_layerise()
 	plane = PLANE_DEFAULT
-	layer = ON_TURF_LAYER
+	layer = DECAL_LAYER

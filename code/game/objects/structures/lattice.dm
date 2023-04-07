@@ -10,7 +10,6 @@
 	w_class = ITEMSIZE_NORMAL
 	layer = UNDER_PIPE_LAYER //under pipes
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/restrict_placement = TRUE
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/lattice,
@@ -26,10 +25,6 @@
 
 /obj/structure/lattice/Initialize()
 	. = ..()
-	// TG does not have this, and it seems to trigger on the horizon, I do not know what this is supposed to do, perhaps we could get rid of it?
-	if (restrict_placement)
-		if(!(istype(loc, /turf/space) || isopenturf(loc) || istype(loc, /turf/unsimulated/floor/asteroid)))
-			return INITIALIZE_HINT_QDEL
 	for(var/obj/structure/lattice/LAT in loc)
 		if(LAT == src)
 			continue
@@ -89,7 +84,6 @@
 // Special catwalk that can be placed on regular flooring.
 /obj/structure/lattice/catwalk/indoor
 	desc = "A floor-mounted catwalk designed to protect pipes & station wiring from passing feet."
-	restrict_placement = FALSE
 	can_be_unanchored = TRUE
 	layer = 2.7	// Above wires.
 

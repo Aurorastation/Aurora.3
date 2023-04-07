@@ -180,7 +180,8 @@ datum/preferences
 		"reinforced",
 		"white_preview",
 		"freezer",
-		"carpet"
+		"carpet",
+		"reinforced"
 		)
 
 	var/fov_cone_alpha = 255
