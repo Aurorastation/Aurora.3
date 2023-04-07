@@ -48,7 +48,13 @@ var/list/gamemode_cache = list()
 	"log_speech_indicators" = FALSE,	// Speech indicator
 	"log_tools" = FALSE,	// Tools
 	"log_manifest" = TRUE,	// Manifest
-	"log_subsystems" = TRUE,	// Subsystem
+
+	//// SUBSYSTEMS ////
+
+	"log_subsystems" = TRUE,	// General Subsystems
+	"log_subsystems_chemistry" = TRUE,	// SSChemistry
+	"log_subsystems_atlas" = TRUE,	// ATLAS
+	"log_subsystems_ghostroles" = TRUE,	// Ghost Roles
 
 	)
 
@@ -78,7 +84,13 @@ var/list/gamemode_cache = list()
 	var/harddel_log = "harddel.log"
 	var/world_paper_log = "world_paper.log"
 	var/world_manifest_log = "world_manifest.log"
-	var/world_subsystems_log = "world_subsystems.log"
+
+	//// SUBSYSTEMS ////
+
+	var/world_subsystems_log = "subsystems/world_subsystems.log"
+	var/world_subsystems_chemistry_log = "subsystems/chemistry.log"
+	var/world_subsystems_atlas_log = "subsystems/atlas.log"
+	var/world_subsystems_ghostroles_log = "subsystems/ghostroles.log"
 
 
 	/////// END LOGGING SETTINGS ///////

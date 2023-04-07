@@ -42,25 +42,6 @@
 	_log_signal(text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=SEVERITY_NOTICE,category="SIGNALER")
 
-/**
- * Use the macro LOG_DEBUG instead of calling this directly.
- * Used for general_purpose debug logging, please use more specific ones if available, or consider adding your own
- */
-/proc/log_debug(text,level = SEVERITY_DEBUG)
-	if (isnull(config) ? TRUE : config.logsettings["log_debug"])
-		log_world("DEBUG: [text]")
-
-	if (level == SEVERITY_ERROR) // Errors are always logged
-		log_world("ERROR: [text]")
-
-	for(var/s in staff)
-		var/client/C = s
-		if(!C.prefs) //This is to avoid null.toggles runtime error while still initialyzing players preferences
-			return
-		if(C.prefs.toggles & CHAT_DEBUGLOGS)
-			to_chat(C, "DEBUG: [text]")
-	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = level, category = "DEBUG")
-
 /proc/log_game(text, level = SEVERITY_NOTICE, ckey = "", admin_key = "", ckey_target = "")
 	_log_game(text)
 	send_gelf_log(short_message = text,	long_message = "[time_stamp()]: [text]", level = level,	category = "GAME", additional_data = list("_ckey" = html_encode(ckey), "_admin_key" = html_encode(admin_key), "_target" = html_encode(ckey_target)))

@@ -146,7 +146,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 	// Quick sanity check.
 	if (world.maxx != WORLD_MIN_SIZE || world.maxy != WORLD_MIN_SIZE || world.maxz != 1)
 		to_world("<span class='warning'>WARNING: Suspected pre-compiled map: things may break horribly!</span>")
-		log_subsystem("atlas", "-- WARNING: Suspected pre-compiled map! --")
+		log_subsystem_atlas("-- WARNING: Suspected pre-compiled map! --")
 
 	maploader = new
 
@@ -154,7 +154,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 	for (var/type in subtypesof(/datum/map))
 		M = new type
 		if (!M.path)
-			LOG_DEBUG("SSatlas: Map [M.name] ([M.type]) has no path set, discarding.")
+			log_subsystem_atlas("Map [M.name] ([M.type]) has no path set, discarding.")
 			qdel(M)
 			continue
 
@@ -162,13 +162,13 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 #ifdef DEFAULT_MAP
 	map_override = DEFAULT_MAP
-	log_subsystem("atlas", "Using compile-selected map.")
+	log_subsystem_atlas("Using compile-selected map.")
 #endif
 	if (!map_override)
 		map_override = get_selected_map()
 
 	admin_notice("<span class='danger'>Loading map [map_override].</span>", R_DEBUG)
-	log_subsystem("atlas", "Using map '[map_override]'.")
+	log_subsystem_atlas("Using map '[map_override]'.")
 
 	current_map = known_maps[map_override]
 	if (!current_map)
@@ -182,7 +182,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 	// Begin loading the maps.
 	var/maps_loaded = load_map_directory("maps/[current_map.path]/", TRUE)
 
-	log_subsystem("atlas", "Loaded [maps_loaded] maps.")
+	log_subsystem_atlas("Loaded [maps_loaded] maps.")
 	admin_notice("<span class='danger'>Loaded [maps_loaded] levels.</span>")
 
 	if (!maps_loaded)
@@ -205,9 +205,10 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	if(!selected_sector)
 		if(using_sector_config)
-			LOG_DEBUG("atlas: [chosen_sector] used in the config file is not a valid space sector")
+			log_config("[chosen_sector] used in the config file is not a valid space sector")
+			log_subsystem_atlas("[chosen_sector] used in the config file is not a valid space sector")
 		current_sector = new /datum/space_sector/tau_ceti //if all fails, we go with tau ceti
-		LOG_DEBUG("atlas: Unable to select [chosen_sector] as a valid space sector. Tau Ceti will be used instead.")
+		log_subsystem_atlas("Unable to select [chosen_sector] as a valid space sector. Tau Ceti will be used instead.")
 	else
 		current_sector = selected_sector
 
@@ -238,12 +239,12 @@ var/datum/controller/subsystem/atlas/SSatlas
 		if (overwrite_default_z && first_dmm)
 			target_z = 1
 			first_dmm = FALSE
-			log_subsystem("atlas", "Overwriting first Z.")
+			log_subsystem_atlas("Overwriting first Z.")
 
 		if (!maploader.load_map(file(mfile), 0, 0, target_z, no_changeturf = TRUE))
-			log_subsystem("atlas", "Failed to load '[mfile]'!")
+			log_subsystem_atlas("Failed to load '[mfile]'!")
 		else
-			log_subsystem("atlas", "Loaded level in [(world.time - time)/10] seconds.")
+			log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")
 
 		.++
 		CHECK_TICK
@@ -252,9 +253,10 @@ var/datum/controller/subsystem/atlas/SSatlas
 	if (config.override_map)
 		if (known_maps[config.override_map])
 			. = config.override_map
-			log_subsystem("atlas", "Using configured map.")
+			log_subsystem_atlas("Using configured map.")
 		else
-			log_subsystem("atlas", "-- WARNING: CONFIGURED MAP DOES NOT EXIST, IGNORING! --")
+			log_config("-- WARNING: CONFIGURED MAP DOES NOT EXIST, IGNORING! --")
+			log_subsystem_atlas("-- WARNING: CONFIGURED MAP DOES NOT EXIST, IGNORING! --")
 			. = "sccv_horizon"
 	else
 		. = "sccv_horizon"
@@ -271,7 +273,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 	priority_announcement = new(do_log = 0)
 	command_announcement = new(do_log = 0, do_newscast = 1)
 
-	LOG_DEBUG("atlas: running [LAZYLEN(mapload_callbacks)] mapload callbacks.")
+	log_subsystem_atlas("running [LAZYLEN(mapload_callbacks)] mapload callbacks.")
 	for (var/thing in mapload_callbacks)
 		var/datum/callback/cb = thing
 		cb.InvokeAsync()
@@ -303,7 +305,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
 /world/proc/map_panic(reason)
 	to_chat(world, "<span class='danger'>Fatal error during map setup, unable to continue! Server will reboot in 60 seconds.</span>")
-	log_subsystem("atlas", "-- FATAL ERROR DURING MAP SETUP: [uppertext(reason)] --")
+	log_subsystem_atlas("-- FATAL ERROR DURING MAP SETUP: [uppertext(reason)] --")
 	sleep(1 MINUTE)
 	world.Reboot()
 

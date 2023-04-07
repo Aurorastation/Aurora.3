@@ -149,7 +149,7 @@ var/global/list/additional_antag_types = list()
 ///Checks to see if the game can be setup and ran with the current number of players or whatnot.
 /datum/game_mode/proc/can_start()
 
-	LOG_DEBUG("GAMEMODE: Checking gamemode possibility selection for: [name]...")
+	log_game_mode("Checking gamemode possibility selection for: [name]...")
 
 	var/returning = GAME_FAILURE_NONE
 
@@ -158,25 +158,25 @@ var/global/list/additional_antag_types = list()
 		if(player.client && player.ready)
 			playerC++
 
-	log_traitor("GAMEMODE: [playerC] players checked and readied.")
+	log_traitor("[playerC] players checked and readied.")
 
 	if(required_players && playerC < required_players)
-		LOG_DEBUG("GAMEMODE: There aren't enough players ([playerC]/[required_players]) to start [name]!")
+		log_game_mode("There aren't enough players ([playerC]/[required_players]) to start [name]!")
 		returning |= GAME_FAILURE_NO_PLAYERS
 
 	if(max_players && playerC > max_players)
-		LOG_DEBUG("GAMEMODE: There are too many players ([playerC]/[max_players]) to start [name]!")
+		log_game_mode("There are too many players ([playerC]/[max_players]) to start [name]!")
 		returning |= GAME_FAILURE_TOO_MANY_PLAYERS
 
 	if(antag_templates && antag_templates.len)
-		LOG_DEBUG("GAMEMODE: Checking antag templates...")
+		log_game_mode("Checking antag templates...")
 		if(antag_tags && antag_tags.len)
-			LOG_DEBUG("GAMEMODE: Checking antag tags...")
+			log_game_mode("Checking antag tags...")
 			for(var/antag_tag in antag_tags)
 				var/datum/antagonist/antag = all_antag_types[antag_tag]
 				if(!antag)
 					continue
-				LOG_DEBUG("GAMEMODE: Checking antag tag: [antag.role_text]...")
+				log_game_mode("Checking antag tag: [antag.role_text]...")
 				var/list/potential = list() //List of potential players to spawn as antagonists
 				if(antag.flags & ANTAG_OVERRIDE_JOB)
 					potential = antag.pending_antagonists
@@ -205,7 +205,7 @@ var/global/list/additional_antag_types = list()
 					log_traitor("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
 					total_enemies |= potential //Only count candidates once for our total enemy pool
 					if(antag.initial_spawn_req && require_all_templates && potential.len < antag.initial_spawn_req)
-						LOG_DEBUG("GAMEMODE: There are not enough antagonists ([potential.len]/[antag.initial_spawn_req]) for the role [antag.role_text]!")
+						log_game_mode("There are not enough antagonists ([potential.len]/[antag.initial_spawn_req]) for the role [antag.role_text]!")
 						returning |= GAME_FAILURE_NO_ANTAGS
 
 			log_traitor("GAMEMODE: Found [total_enemies.len] total enemies for [name].")
@@ -214,7 +214,7 @@ var/global/list/additional_antag_types = list()
 				log_traitor("GAMEMODE: There are not enough total antagonists ([total_enemies.len]/[required_enemies]) to start [name]!")
 				returning |= GAME_FAILURE_NO_ANTAGS
 
-	LOG_DEBUG("GAMEMODE: Finished gamemode checking. [name] returned [returning].")
+	log_game_mode("Finished gamemode checking. [name] returned [returning].")
 
 	return returning
 
@@ -433,7 +433,7 @@ var/global/list/additional_antag_types = list()
 			if(istype(player, /mob/abstract/new_player))
 				continue
 			if(!role || (role in player.client.prefs.be_special_role))
-				LOG_DEBUG("[player.key] had [antag_id] enabled, so we are drafting them.")
+				log_traitor("[player.key] had [antag_id] enabled, so we are drafting them.")
 				candidates |= player.mind
 	else
 		// Assemble a list of active players without jobbans.
@@ -444,7 +444,7 @@ var/global/list/additional_antag_types = list()
 		// Get a list of all the people who want to be the antagonist for this round
 		for(var/mob/abstract/new_player/player in players)
 			if(!role || (role in player.client.prefs.be_special_role))
-				LOG_DEBUG("[player.key] had [antag_id] enabled, so we are drafting them.")
+				log_traitor("[player.key] had [antag_id] enabled, so we are drafting them.")
 				candidates += player.mind
 				players -= player
 

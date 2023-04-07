@@ -24,7 +24,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	if(recipe)
 		for(var/chem in recipe.required_reagents)
 			if(!has_valid_specific_heat(chem))
-				log_subsystem("chemistry", "ERROR: [recipe.type] has an improper recipe!")
+				log_subsystem_chemistry("ERROR: [recipe.type] has an improper recipe!")
 				return R.fallback_specific_heat > 0
 
 		return TRUE
@@ -32,7 +32,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		if(R.fallback_specific_heat > 0)
 			return TRUE
 		else
-			log_subsystem("chemistry", "ERROR: [_R] does not have a valid specific heat ([R.specific_heat]) or a valid fallback specific heat ([R.fallback_specific_heat]) assigned!")
+			log_subsystem_chemistry("ERROR: [_R] does not have a valid specific heat ([R.specific_heat]) or a valid fallback specific heat ([R.fallback_specific_heat]) assigned!")
 			return FALSE
 
 /datum/controller/subsystem/chemistry/proc/check_specific_heat(var/_R)
@@ -50,7 +50,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		for(var/chem in recipe.required_reagents)
 			var/chem_specific_heat = check_specific_heat(chem)
 			if(chem_specific_heat <= 0)
-				log_subsystem("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
+				log_subsystem_chemistry("ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
 				final_heat = 0
 				break
 			final_heat += chem_specific_heat * (recipe.required_reagents[chem]/result_amount)
@@ -63,7 +63,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		R.specific_heat = R.fallback_specific_heat
 		return R.fallback_specific_heat
 
-	log_subsystem("chemistry", "ERROR: [_R] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
+	log_subsystem_chemistry("ERROR: [_R] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
 	R.specific_heat = 1
 	return 1
 
@@ -87,8 +87,8 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	initialize_chemical_reactions()
 	initialize_codex_data()
 	var/pre_secret_len = chemical_reactions.len
-	log_subsystem("chemistry", "Found [pre_secret_len] reactions.")
-	log_subsystem("chemistry", "Loaded [load_secret_chemicals()] secret reactions.")
+	log_subsystem_chemistry("Found [pre_secret_len] reactions.")
+	log_subsystem_chemistry("Loaded [load_secret_chemicals()] secret reactions.")
 	initialize_specific_heats() // must be after reactions
 	..()
 
@@ -130,19 +130,19 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	try
 		chemconfig = json_decode(return_file_text("config/secretchem.json"))
 	catch(var/exception/e)
-		LOG_DEBUG("SSchemistry: Warning: Could not load config, as secretchem.json is missing - [e]")
+		log_subsystem_chemistry("Warning: Could not load config, as secretchem.json is missing - [e]")
 		return
 
 	chemconfig = chemconfig["chemicals"]
 	for (var/chemical in chemconfig)
-		LOG_DEBUG("SSchemistry: Loading chemical: [chemical]")
+		log_subsystem_chemistry("Loading chemical: [chemical]")
 		var/datum/chemical_reaction/cc = new()
 		cc.name = chemconfig[chemical]["name"]
 		cc.id = chemconfig[chemical]["id"]
 		cc.result = text2path(chemconfig[chemical]["result"])
 		cc.result_amount = chemconfig[chemical]["resultamount"]
 		if(!ispath(cc.result, /singleton/reagent))
-			LOG_DEBUG("SSchemistry: Warning: Invalid result [cc.result] in [cc.name] reactions list.")
+			log_subsystem_chemistry("Warning: Invalid result [cc.result] in [cc.name] reactions list.")
 			qdel(cc)
 			break
 
@@ -150,7 +150,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			var/result_chem = text2path(key)
 			LAZYSET(cc.required_reagents, result_chem, chemconfig[chemical]["required_reagents"][key])
 			if(!ispath(result_chem, /singleton/reagent))
-				LOG_DEBUG("SSchemistry: Warning: Invalid chemical [key] in [cc.name] required reagents list.")
+				log_subsystem_chemistry("Warning: Invalid chemical [key] in [cc.name] required reagents list.")
 				qdel(cc)
 				break
 
