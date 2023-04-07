@@ -56,6 +56,7 @@ var/list/gamemode_cache = list()
 	"log_subsystems_atlas" = TRUE,	// ATLAS
 	"log_subsystems_ghostroles" = TRUE,	// Ghost Roles
 	"log_subsystems_law" = TRUE,	// Law
+	"log_subsystems_cargo" = TRUE, // Cargo
 
 	//// MODULES ////
 
@@ -98,6 +99,7 @@ var/list/gamemode_cache = list()
 	var/world_subsystems_atlas_log = "subsystems/atlas.log"
 	var/world_subsystems_ghostroles_log = "subsystems/ghostroles.log"
 	var/world_subsystems_law_log = "subsystems/law.log"
+	var/world_subsystems_cargo_log = "subsystems/cargo.log"
 
 	//// MODULES ////
 

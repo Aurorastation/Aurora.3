@@ -125,6 +125,7 @@
 #include "code\_helpers\logging\modules\ghostroles.dm"
 #include "code\_helpers\logging\subsystems\_subsystems.dm"
 #include "code\_helpers\logging\subsystems\atlas.dm"
+#include "code\_helpers\logging\subsystems\cargo.dm"
 #include "code\_helpers\logging\subsystems\chemistry.dm"
 #include "code\_helpers\logging\subsystems\ghostroles.dm"
 #include "code\_helpers\logging\subsystems\law.dm"
