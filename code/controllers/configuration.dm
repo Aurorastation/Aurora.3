@@ -55,11 +55,12 @@ var/list/gamemode_cache = list()
 	"log_subsystems_chemistry" = TRUE,	// SSChemistry
 	"log_subsystems_atlas" = TRUE,	// ATLAS
 	"log_subsystems_ghostroles" = TRUE,	// Ghost Roles
-	"log_subsystems_law" = TRUE,	// Ghost Roles
+	"log_subsystems_law" = TRUE,	// Law
 
 	//// MODULES ////
 
 	"log_modules_ghostroles" = TRUE,	// Ghost Roles
+	"log_modules_customitems" = TRUE,	// Custom Items
 
 	)
 
@@ -101,6 +102,7 @@ var/list/gamemode_cache = list()
 	//// MODULES ////
 
 	var/world_modules_ghostroles_log = "modules/ghostroles.log"
+	var/world_modules_customitems_log = "modules/customitems.log"
 
 
 	/////// END LOGGING SETTINGS ///////
