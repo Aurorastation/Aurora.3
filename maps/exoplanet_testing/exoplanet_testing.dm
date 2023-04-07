@@ -40,16 +40,17 @@
 	var/sanity_count = 0
 	while(all_ruins.len)
 		sanity_count++
-		var/types_needed = list()
+		var/types_needed = 0
 		var/planets_to_spawn = list()
 		for(var/datum/map_template/ruin/exoplanet/R in all_ruins)
 			if(!R.planet_types)
 				continue
-			types_needed |= R.planet_types[1]
+			types_needed |= R.planet_types
 		for(var/EP in subtypesof(/obj/effect/overmap/visitable/sector/exoplanet))
 			var/obj/effect/overmap/visitable/sector/exoplanet/E = EP
-			if(initial(E.ruin_planet_type) in types_needed)
+			if(initial(E.ruin_planet_type) & types_needed)
 				planets_to_spawn += EP
+				types_needed &= ~E.ruin_planet_type
 		all_ruins = build_exoplanets_for_testing(all_ruins, planets_to_spawn)
 		if(!planets_to_spawn || (sanity_count > 3))
 			testing("[ascii_red]FAILED SPAWNING RUINS:[ascii_reset] [sanity_count > 3 ? "EXCEEDED SANITY COUNT" : "NO VALID PLANETS"] for ruins [english_list(all_ruins)]")
@@ -63,7 +64,7 @@
 			continue
 		new_planet = new new_planet(null, planet_size[1], planet_size[2])
 		for(var/datum/map_template/ruin/exoplanet/R in ruins_to_test)
-			if(new_planet.ruin_planet_type in R.planet_types)
+			if(new_planet.ruin_planet_type & R.planet_types)
 				ruins_to_spawn |= R
 
 		testing("[ascii_green]LOADING EXOPLANET:[ascii_reset] Spawning [new_planet.name] on Z [english_list(GetConnectedZlevels(world.maxz))]")

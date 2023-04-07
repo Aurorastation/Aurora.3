@@ -6,7 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 0.5
 
-	planet_types = list(PLANET_DESERT, PLANET_GRASS, PLANET_GROVE, PLANET_SNOW)
+	planet_types = PLANET_DESERT|PLANET_GRASS|PLANET_GROVE|PLANET_SNOW
 	ruin_tags = RUIN_LOWPOP|RUIN_SCIENCE
 
 /datum/map_template/ruin/exoplanet/crashsurvivors
@@ -19,5 +19,5 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffixes = list("grove/crashsurvivors/crashsurvivors.dmm")
 
-	planet_types = list(PLANET_GROVE)
+	planet_types = PLANET_GROVE
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK|RUIN_HOSTILE
