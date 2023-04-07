@@ -16,7 +16,9 @@ var/list/gamemode_cache = list()
 	 *
 	 * don't come cry to me if you fuck this up, but at least you can unfuck it just as easily. If the server survives.
 	*/
-	var/all_logs_to_chat = 0
+	var/all_logs_to_chat = FALSE
+
+	var/condense_all_logs = TRUE
 
 	// Enable/Disable Logging
 	var/list/logsettings = list(

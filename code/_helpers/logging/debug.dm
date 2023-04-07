@@ -7,7 +7,7 @@
 /// Rarely gets called; just here in case the config breaks.
 /proc/log_config(text)
 	WRITE_LOG(isnull(config) ? "config_error.log" : config.config_error_log, text)
-	SEND_TEXT(world.log, text)
+	SEND_TEXT(world.log, "CONFIG: [text]")
 
 /proc/log_filter_raw(text)
 	WRITE_LOG(config.filter_log, "FILTER: [text]")
@@ -23,10 +23,10 @@
 
 /// Logging for mapping errors
 /proc/log_mapping(text, skip_world_log)
-	WRITE_LOG(config.world_map_error_log, text)
+	WRITE_LOG(config.world_map_error_log, "MAPPING: [text]")
 	if(skip_world_log)
 		return
-	SEND_TEXT(world.log, text)
+	SEND_TEXT(world.log, "MAPPING: [text]")
 
 /// Logging for game performance
 /proc/log_perf(list/perf_info)
@@ -43,11 +43,11 @@
 
 /* Log to the logfile only. */
 /proc/log_runtime(text)
-	WRITE_LOG(isnull(config) ? "world_runtime_log" : config.world_runtime_log, text)
+	WRITE_LOG(isnull(config) ? "world_runtime.log" : config.world_runtime_log, "RUNTIME: [text]")
 
 /proc/_log_signal(text)
 	if(config.logsettings["log_signals"])
-		WRITE_LOG(config.signals_log, text)
+		WRITE_LOG(config.signals_log, "SIGNAL: [text]")
 
 /// Logging for DB errors
 /proc/log_sql(text)
@@ -60,6 +60,6 @@
 /// Log to both DD and the logfile.
 /proc/log_world(text)
 #ifdef USE_CUSTOM_ERROR_HANDLER
-	WRITE_LOG(isnull(config) ? "world_runtime.log" : config.world_runtime_log, text)
+	WRITE_LOG(isnull(config) ? "world_runtime.log" : config.world_runtime_log, "WORLD: [text]")
 #endif
-	SEND_TEXT(world.log, text)
+	SEND_TEXT(world.log, "WORLD: [text]")

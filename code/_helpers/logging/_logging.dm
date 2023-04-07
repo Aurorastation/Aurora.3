@@ -29,7 +29,7 @@
 //print a testing-mode debug message to world.log
 /proc/testing(msg)
 	world.log <<  "## TESTING: [msg][log_end]"
-	log_world("TESTING [msg]")
+	log_world("TESTING: [msg]")
 
 /proc/log_admin(text,level=SEVERITY_NOTICE,ckey="",admin_key="",ckey_target="")
 	_log_admin(text)
@@ -48,7 +48,7 @@
  */
 /proc/log_debug(text,level = SEVERITY_DEBUG)
 	if (isnull(config) ? TRUE : config.logsettings["log_debug"])
-		log_world("DEBUG [text]")
+		log_world("DEBUG: [text]")
 
 	if (level == SEVERITY_ERROR) // Errors are always logged
 		log_world("ERROR: [text]")
