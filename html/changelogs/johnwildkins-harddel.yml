@@ -1,0 +1,12 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed several hard-deletion issues that were causing a severe performance impact."
+  - bugfix: "Fixed mobs not being removed from AI targeting spatial grid cells when they moved to a new cell."
+  - bugfix: "Fixed valves not properly disconnecting, leading to a hanging hardref."
+  - backend: "Added several procs to allow removing body parts from mechs, and fixed mech wreckage deleting contained parts."
+  - backend: "Adjusted SSatoms init loops to be slightly more performant."
+  - backend: "Changed failsafe messages to a more visible color."
+  - backend: "Ported an updated version of reference tracking from tgstation; included optional debug flags to track down hardref issues."

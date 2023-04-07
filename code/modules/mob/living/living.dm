@@ -913,6 +913,12 @@ default behaviour is:
 	QDEL_NULL(reagents)
 	clear_from_target_grid()
 
+	if(auras)
+		for(var/a in auras)
+			remove_aura(a)
+
+	QDEL_NULL(ability_master)
+
 	return ..()
 
 /mob/living/proc/nervous_system_failure()
@@ -992,12 +998,6 @@ default behaviour is:
 	if(A.flags & RAD_SHIELDED)
 		return FALSE
 	. = TRUE
-
-/mob/living/Destroy()
-	if(auras)
-		for(var/a in auras)
-			remove_aura(a)
-	return ..()
 
 /mob/living/proc/needs_wheelchair()
 	return FALSE
