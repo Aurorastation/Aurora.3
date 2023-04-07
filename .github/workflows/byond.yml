@@ -100,3 +100,8 @@ jobs:
           $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
+      - name: Upload Condensed UT Log
+        uses: actions/upload-artifact@v3
+        with:
+          name: condensed.log
+          path: ./data/logs/**/condensed.log

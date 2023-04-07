@@ -41,12 +41,13 @@
 /**
  * Handles the log writing in different scenarios:
  *
- * - UNIT_TEST: Send to world.log, which gets captured by github
+ * - UNIT_TEST: Send to world.log, which gets captured by github, and the condensed logfile
  * - PRE-515: Use FILE:LINE format to reference the location
  * - POST-515: Use nameof(proc) format to reference the proc name
  */
 #if defined(UNIT_TEST)
-#define WRITE_LOG(file, text) SEND_TEXT(world.log, "\[[file]\]: [text]")
+#define WRITE_LOG(file, text) SEND_TEXT(world.log, "\[[file]\]: [text]")\
+rustg_log_write(LOGPATH("condensed.log"), text, "false")
 
 #elif DM_VERSION < 515
 #define WRITE_LOG(file, text)\
@@ -76,7 +77,9 @@ if(config?.condense_all_logs) {\
  * Basically the same as WRITE_LOG, but do not format the text
  */
 #if defined(UNIT_TEST)
-#define WRITE_LOG_NO_FORMAT(file, text) SEND_TEXT(world.log, "\[[file]\]: [text]")
+#define WRITE_LOG_NO_FORMAT(file, text) \
+SEND_TEXT(world.log, "\[[file]\]: [text]");\
+rustg_log_write(LOGPATH("condensed.log"), text, "false");
 
 #else
 #define WRITE_LOG_NO_FORMAT(file, text)\

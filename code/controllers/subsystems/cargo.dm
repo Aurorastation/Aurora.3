@@ -73,10 +73,10 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	//Load in the cargo items config
 	if(config.cargo_load_items_from == "sql")
-		LOG_DEBUG("SScargo: Attempting to Load from SQL")
+		log_subsystem_cargo("SScargo: Attempting to Load from SQL")
 		load_from_sql()
 	else if(config.cargo_load_items_from == "json")
-		LOG_DEBUG("SScargo: Attempting to Load from JSON")
+		log_subsystem_cargo("SScargo: Attempting to Load from JSON")
 		load_from_json()
 	else
 		log_game("SScargo: invalid load option specified in config")
@@ -162,7 +162,7 @@ var/datum/controller/subsystem/cargo/SScargo
 				item_query.item[10],
 				item_query.item[11])
 			if(error_message && istext(error_message))
-				LOG_DEBUG("SScargo: Error when loading item [item_id] from sql: [error_message]")
+				log_subsystem_cargo("SScargo: Error when loading item [item_id] from sql: [error_message]")
 				var/DBQuery/item_error_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET error_message = :error_message: WHERE id = :id:")
 				item_error_query.Execute(list("id"=item_id,"error_message"=error_message))
 
@@ -336,7 +336,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		if(cc) //Check if the category exists
 			cc.items.Add(ci)
 		else
-			LOG_DEBUG("SScargo: Warning - Attempted to add [ci.name] item to category [category] that does not exist.")
+			log_subsystem_cargo("Warning - Attempted to add [ci.name] item to category [category] that does not exist.")
 
 	return ci
 

@@ -1197,7 +1197,10 @@ var/list/gamemode_cache = list()
 
 		var/can_start = M.can_start()
 		if(can_start != GAME_FAILURE_NONE)
+			#if !defined(UNIT_TEST) // Do not print this useless log during unit tests
 			log_game("GAMEMODE: [M.name] cannot start! Reason: [can_start]")
+			#endif
+
 			continue
 
 		if(!probabilities[M.config_tag])
