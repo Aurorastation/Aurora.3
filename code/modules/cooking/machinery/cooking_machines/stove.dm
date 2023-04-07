@@ -1,7 +1,7 @@
 /obj/machinery/appliance/cooker/stove
 	name = "stove"
 	desc = "Don't touch it!"
-	icon_state = "stove_off"
+	icon_state = "stove"
 	cook_type = "pan-fried"
 	appliancetype = SKILLET | SAUCEPAN | POT
 	food_color = "#a34719"
