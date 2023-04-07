@@ -48,7 +48,7 @@
 #if defined(UNIT_TEST)
 #define WRITE_LOG(file, text) \
 SEND_TEXT(world.log, "\[[file]\]: [text]");\
-rustg_log_write(LOGPATH("condensed.log"), text, "false")
+rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
 
 #elif DM_VERSION < 515
 #define WRITE_LOG(file, text)\

@@ -104,4 +104,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: condensed.log
-          path: ./data/logs/**/condensed.log
+          path: ./data/logs/**/condensed-${{ matrix.map }}.log
+          retention-days: 5
