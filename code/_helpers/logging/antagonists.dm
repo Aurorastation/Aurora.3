@@ -1,7 +1,11 @@
 /// Logging for traitor objectives
 /proc/log_traitor(text)
+#if defined(UNIT_TEST)
+	LOG_GITHUB_DEBUG("TRAITOR: [text]")
+#else
 	if (config.logsettings["log_traitor"])
 		WRITE_LOG(config.world_game_log, "TRAITOR: [text]")
+#endif
 
 /// Logging for items purchased from a traitor uplink
 /proc/log_uplink(text)
