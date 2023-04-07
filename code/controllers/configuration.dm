@@ -56,6 +56,10 @@ var/list/gamemode_cache = list()
 	"log_subsystems_atlas" = TRUE,	// ATLAS
 	"log_subsystems_ghostroles" = TRUE,	// Ghost Roles
 
+	//// MODULES ////
+
+	"log_modules_ghostroles" = TRUE,	// Ghost Roles
+
 	)
 
 	// Files to send the logs to
@@ -91,6 +95,10 @@ var/list/gamemode_cache = list()
 	var/world_subsystems_chemistry_log = "subsystems/chemistry.log"
 	var/world_subsystems_atlas_log = "subsystems/atlas.log"
 	var/world_subsystems_ghostroles_log = "subsystems/ghostroles.log"
+
+	//// MODULES ////
+
+	var/world_modules_ghostroles_log = "modules/ghostroles.log"
 
 
 	/////// END LOGGING SETTINGS ///////
