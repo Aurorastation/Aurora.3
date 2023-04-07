@@ -103,6 +103,6 @@ jobs:
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v3
         with:
-          name: condensed.log
-          path: ./data/logs/**/condensed-${{ matrix.map }}.log
+          name: condensed-${{ matrix.map }}.log
+          path: ./data/logs/**/condensed.log
           retention-days: 5
