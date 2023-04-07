@@ -1,0 +1,8 @@
+author: atteria
+
+delete-after: True
+
+changes:
+  - imageadd: "Resprited most kitchen appliances."
+  - imageadd: "Added smoke effects to show when food is about to burn."
+  - bugfix: "Fixed the stove's turned on animation not displaying."
