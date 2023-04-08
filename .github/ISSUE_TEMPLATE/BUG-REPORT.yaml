@@ -34,7 +34,7 @@ body:
       - Overmap
       - Event / Other
   validations:
-    required: false
+    required: true
 
 - type: textarea
   id: what-happened
