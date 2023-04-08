@@ -28,7 +28,7 @@
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_GLEANERS, RELIGION_OTHER, RELIGION_NONE)
 	
 /singleton/origin_item/origin/nraldaaq
-	name = "Nral’Daaq"
+	name = "Nral'Daaq"
 	desc = "Playing host to the vast majority of the planet’s non-dionae population, Nral’Daaq is a city-state under the CT-EUM that is known for being the planet’s hub of off-world trading, as well as for its quite diverse majority-skrell population, with both Pro-Federation and Anti-Federation Skrell calling the city home. Due to the city’s border with the sea, Nral’Daaq is also a quite popular trading spot for the Ekane, with the vast majority of their goods ending up in the city to be later resold off-world. "
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_ANCIENTSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
