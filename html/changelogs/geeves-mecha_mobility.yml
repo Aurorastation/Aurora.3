@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Exosuits are now more responsive when moving, they turn and take a step as one action, they turn when the facedir command is used, and will permanently face a direction if you lock yourself to one direction."
