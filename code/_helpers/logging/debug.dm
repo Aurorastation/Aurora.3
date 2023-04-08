@@ -26,7 +26,11 @@
 /// Rarely gets called; just here in case the config breaks.
 /proc/log_config(text)
 	WRITE_LOG(isnull(config) ? "config_error.log" : config.config_error_log, "CONFIG: [text]")
+
+	// Do not print to world.log during unit tests
+	#if !defined(UNIT_TEST)
 	SEND_TEXT(world.log, "CONFIG: [text]")
+	#endif
 
 /proc/log_filter_raw(text)
 	WRITE_LOG(config.filter_log, "FILTER: [text]")

@@ -65,6 +65,7 @@ var/list/gamemode_cache = list()
 
 	"log_modules_ghostroles" = TRUE,	// Ghost Roles
 	"log_modules_customitems" = TRUE,	// Custom Items
+	"log_modules_exoplanets" = TRUE,	// Exoplanets
 
 	)
 
@@ -111,6 +112,7 @@ var/list/gamemode_cache = list()
 
 	var/world_modules_ghostroles_log = "modules/ghostroles.log"
 	var/world_modules_customitems_log = "modules/customitems.log"
+	var/world_modules_exoplanets_log = "modules/exoplanets.log"
 
 
 	/////// END LOGGING SETTINGS ///////

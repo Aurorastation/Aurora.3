@@ -122,6 +122,7 @@
 #include "code\_helpers\logging\paper.dm"
 #include "code\_helpers\logging\pda.dm"
 #include "code\_helpers\logging\modules\customitems.dm"
+#include "code\_helpers\logging\modules\exoplanets.dm"
 #include "code\_helpers\logging\modules\ghostroles.dm"
 #include "code\_helpers\logging\subsystems\_subsystems.dm"
 #include "code\_helpers\logging\subsystems\atlas.dm"

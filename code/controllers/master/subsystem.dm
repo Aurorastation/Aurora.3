@@ -176,7 +176,12 @@
 	init_time = time
 	var/msg = "Initialized [name] subsystem within [time] second\s!"
 	admin_notice(SPAN_DANGER(msg), R_DEBUG)
+
+	// Do not print to world.log if we're running the unit tests
+	#if !defined(UNIT_TEST)
 	world.log <<  "SS Init: [msg]"
+	#endif
+
 	log_subsystem_init(msg)
 	return time
 

@@ -47,7 +47,7 @@
 //Adds a spawnpoint to the spawnpoint list
 /datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/effect/ghostspawpoint/P)
 	if(!P.identifier) //If the spawnpoint has no identifier -> Abort
-		log_subsystem_ghostroles("Spawner [P] at [P.x],[P.y],[P.z] has no identifier set")
+		log_subsystem_ghostroles_error("Spawner [P] at [P.x],[P.y],[P.z] has no identifier set")
 		qdel(P)
 		return
 
