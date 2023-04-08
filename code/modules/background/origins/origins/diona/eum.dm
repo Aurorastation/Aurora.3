@@ -15,7 +15,7 @@
 	
 /singleton/origin_item/origin/united
 	name = "United"
-	desc = "Widely considered the capital of the CT-EUM, the city-state of United is the newest independent nation, formed alongside the formation of the CT-EUM, to act as a neutral meeting place for the Council of Delegates, and to represent the central governing body, as well as acting as a mediator between the two other city-states should a conflict arise. United is the second most-visited city on EUM after Nral’Daaq, and has influence from both off-world and the other city-states in its structure, and operation."
+	desc = "Widely considered the capital of the CT-EUM, the city-state of United is the newest independent nation, formed alongside the formation of the CT-EUM, to act as a neutral meeting place for the Council of Delegates, and to represent the central governing body, as well as acting as a mediator between the two other city-states should a conflict arise. United is the second most-visited city on EUM after Nral'Daaq, and has influence from both off-world and the other city-states in its structure, and operation."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_ANCIENTSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_MADA, RELIGION_GLEANERS, RELIGION_OTHER, RELIGION_NONE)
