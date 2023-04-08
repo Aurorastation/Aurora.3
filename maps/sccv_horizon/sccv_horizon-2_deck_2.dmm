@@ -7759,7 +7759,7 @@
 	req_one_access = list(11,19,20,24,31,41)
 	},
 /turf/simulated/floor/tiled,
-/area/operations/lobby)
+/area/horizon/secure_ammunition_storage)
 "dMf" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
