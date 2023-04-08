@@ -22,14 +22,30 @@
  * This is mainly used to prettify and highlight the logs in github, as well as hide the unlikely useful ones (debug)
  */
 #if defined(MANUAL_UNIT_TEST)
-#define LOG_GITHUB_DEBUG(text) SEND_TEXT(world.log, "DEBUG: [text]")
-#define LOG_GITHUB_NOTICE(text) SEND_TEXT(world.log, "NOTICE: [text] @@@ → [__FILE__]:[__LINE__]")
-#define LOG_GITHUB_ERROR(text) SEND_TEXT(world.log, "ERROR: [text] @@@ → [__FILE__]:[__LINE__]")
+#define LOG_GITHUB_DEBUG(text)\
+SEND_TEXT(world.log, "DEBUG: [text]");\
+rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+
+#define LOG_GITHUB_NOTICE(text)\
+SEND_TEXT(world.log, "NOTICE: [text] @@@ → [__FILE__]:[__LINE__]");\
+rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+
+#define LOG_GITHUB_ERROR(text)\
+SEND_TEXT(world.log, "ERROR: [text] @@@ → [__FILE__]:[__LINE__]");\
+rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
 
 #else
-#define LOG_GITHUB_DEBUG(text) SEND_TEXT(world.log, "::debug::[text]")
-#define LOG_GITHUB_NOTICE(text) SEND_TEXT(world.log, "::notice file=[__FILE__],line=[__LINE__]::[text]")
-#define LOG_GITHUB_ERROR(text) SEND_TEXT(world.log, "::error file=[__FILE__],line=[__LINE__]::[text]")
+#define LOG_GITHUB_DEBUG(text)\
+SEND_TEXT(world.log, "::debug::[text]");\
+rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+
+#define LOG_GITHUB_NOTICE(text)\
+SEND_TEXT(world.log, "::notice file=[__FILE__],line=[__LINE__]::[text]");\
+rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+
+#define LOG_GITHUB_ERROR(text)\
+SEND_TEXT(world.log, "::error file=[__FILE__],line=[__LINE__]::[text]");\
+rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
 
 #endif
 

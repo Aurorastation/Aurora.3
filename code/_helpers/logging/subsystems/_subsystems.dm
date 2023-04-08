@@ -17,10 +17,14 @@
 	// 	world.log <<  "SS[subsystem]: [text]"
 
 /proc/log_subsystem_init(text)
+#if defined(UNIT_TEST)
+	LOG_GITHUB_DEBUG("SUBSYSTEM INIT: [text]")
+#else
 	if (config?.logsettings["log_subsystems"])
 		WRITE_LOG(config.world_subsystems_log, "SUBSYSTEM INIT: [text]")
 
 	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_INFO, "SS Init")
+#endif
 
 // Generally only used when something has gone very wrong.
 /proc/log_failsafe(text)
