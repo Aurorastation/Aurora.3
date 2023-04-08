@@ -14,8 +14,12 @@
 
 /// Logging for emotes
 /proc/_log_emote(text)
+#if defined(UNIT_TEST)
+	LOG_GITHUB_DEBUG("EMOTE: [text]")
+#else
 	if (config.logsettings["log_emote"])
 		WRITE_LOG(config.world_game_log, "EMOTE: [text]")
+#endif
 
 /// Logging for emotes sent over the radio
 /proc/log_radio_emote(text)

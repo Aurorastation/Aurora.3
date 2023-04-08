@@ -18,8 +18,12 @@
 
 /// Logging for generic spoken messages
 /proc/_log_say(text)
+#if defined(UNIT_TEST)
+	LOG_GITHUB_DEBUG("SAY: [text]")
+#else
 	if (config.logsettings["log_say"])
 		WRITE_LOG(config.world_game_log, "SAY: [text]")
+#endif
 
 /// Logging for whispered messages
 /proc/_log_whisper(text)
