@@ -44,9 +44,6 @@
 	spawn_weight = 0.5
 	spawn_cost = 2
 
-	spawn_weight = 0.5
-	spawn_cost = 2
-
 	planet_types = PLANET_ASTEROID
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_HOSTILE|RUIN_WRECK
 
