@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - backend: "Slightly reduced init time required to build vending UI spritesheets."
