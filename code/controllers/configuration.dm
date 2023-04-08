@@ -57,6 +57,9 @@ var/list/gamemode_cache = list()
 	"log_subsystems_ghostroles" = TRUE,	// Ghost Roles
 	"log_subsystems_law" = TRUE,	// Law
 	"log_subsystems_cargo" = TRUE, // Cargo
+	"log_subsystems_documents" = TRUE, // Documents
+	"log_subsystems_fail2topic" = TRUE, // Fail2Topic
+	"log_subsystems_mapfinalization" = TRUE, // Fail2Topic
 
 	//// MODULES ////
 
@@ -100,6 +103,9 @@ var/list/gamemode_cache = list()
 	var/world_subsystems_ghostroles_log = "subsystems/ghostroles.log"
 	var/world_subsystems_law_log = "subsystems/law.log"
 	var/world_subsystems_cargo_log = "subsystems/cargo.log"
+	var/world_subsystems_documents_log = "subsystems/documents.log"
+	var/world_subsystems_fail2topic_log = "subsystems/fail2topic.log"
+	var/world_subsystems_mapfinalization_log = "subsystems/mapfinalization.log"
 
 	//// MODULES ////
 

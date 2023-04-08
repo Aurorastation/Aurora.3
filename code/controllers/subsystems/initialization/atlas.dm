@@ -230,7 +230,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 		if (!mapregex.Find(mfile))
 			continue
 
-		log_subsystem("atlas", "Loading '[mfile]'.")
+		log_subsystem_atlas("Loading '[mfile]'.")
 		time = world.time
 
 		mfile = "[directory][mfile]"

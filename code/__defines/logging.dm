@@ -19,13 +19,19 @@
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 
 /**
- * This is to suppress their printing out in github by default, as they are a ton and doesn't seem often useful
- * Run the UTs in debug mode to see them
- *
- * Eventually to pack them up and upload as artifact?
+ * This is mainly used to prettify and highlight the logs in github, as well as hide the unlikely useful ones (debug)
  */
-#define LOG_GITHUB_DEBUG(text) SEND_TEXT(world.log, "::debug::[text]")
+#if defined(MANUAL_UNIT_TEST)
+#define LOG_GITHUB_DEBUG(text) SEND_TEXT(world.log, "DEBUG: [text]")
+#define LOG_GITHUB_NOTICE(text) SEND_TEXT(world.log, "NOTICE: [text] @@@ → [__FILE__]:[__LINE__]")
+#define LOG_GITHUB_ERROR(text) SEND_TEXT(world.log, "ERROR: [text] @@@ → [__FILE__]:[__LINE__]")
 
+#else
+#define LOG_GITHUB_DEBUG(text) SEND_TEXT(world.log, "::debug::[text]")
+#define LOG_GITHUB_NOTICE(text) SEND_TEXT(world.log, "::notice file=[__FILE__],line=[__LINE__]::[text]")
+#define LOG_GITHUB_ERROR(text) SEND_TEXT(world.log, "::error file=[__FILE__],line=[__LINE__]::[text]")
+
+#endif
 
 /**
  * This handles the log_world (and consequently log_debug) to be printed to config.world_runtime_log during debugging or unit testing,
