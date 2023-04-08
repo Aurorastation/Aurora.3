@@ -5,6 +5,7 @@
 #else
 	WRITE_LOG(config.garbage_collector_log, "SSGarbage [text]")
 	send_gelf_log(text, "[time_stamp()]: [text]", high_severity ? SEVERITY_WARNING : SEVERITY_DEBUG, "GARBAGE", additional_data = list("_type" = "[type]"))
+#endif
 
 /proc/log_subsystem_garbage_warning(text, type, high_severity = FALSE)
 #if defined(UNIT_TEST)
@@ -12,6 +13,7 @@
 #else
 	WRITE_LOG(config.garbage_collector_log, "SSGarbage [text]")
 	send_gelf_log(text, "[time_stamp()]: [text]", high_severity ? SEVERITY_WARNING : SEVERITY_DEBUG, "GARBAGE", additional_data = list("_type" = "[type]"))
+#endif
 
 /proc/log_subsystem_garbage_error(text, type, high_severity = FALSE)
 #if defined(UNIT_TEST)
@@ -19,6 +21,7 @@
 #else
 	WRITE_LOG(config.garbage_collector_log, "SSGarbage [text]")
 	send_gelf_log(text, "[time_stamp()]: [text]", high_severity ? SEVERITY_WARNING : SEVERITY_DEBUG, "GARBAGE", additional_data = list("_type" = "[type]"))
+#endif
 
 /proc/log_subsystem_garbage_harddel(text)
 #if defined(UNIT_TEST)
