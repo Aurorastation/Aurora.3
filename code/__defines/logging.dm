@@ -30,9 +30,15 @@ rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log
 SEND_TEXT(world.log, "NOTICE: [text] @@@ → [__FILE__]:[__LINE__]");\
 rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
 
+#define LOG_GITHUB_WARNING(text)\
+SEND_TEXT(world.log, "WARNING: [text] @@@ → [__FILE__]:[__LINE__]");\
+rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+
 #define LOG_GITHUB_ERROR(text)\
 SEND_TEXT(world.log, "ERROR: [text] @@@ → [__FILE__]:[__LINE__]");\
 rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+
+
 
 #else
 #define LOG_GITHUB_DEBUG(text)\
@@ -41,6 +47,10 @@ rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log
 
 #define LOG_GITHUB_NOTICE(text)\
 SEND_TEXT(world.log, "::notice file=[__FILE__],line=[__LINE__]::[text]");\
+rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+
+#define LOG_GITHUB_WARNING(text)\
+SEND_TEXT(world.log, "::warning file=[__FILE__],line=[__LINE__]::[text]");\
 rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
 
 #define LOG_GITHUB_ERROR(text)\

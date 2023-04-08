@@ -86,7 +86,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	update_name()
 
-	testing("Located sector \"[name]\" at [start_x],[start_y], containing Z [english_list(map_z)]")
+	log_module_sectors("Located sector \"[name]\" at [start_x],[start_y], containing Z [english_list(map_z)]")
 
 	LAZYADD(SSshuttle.sectors_to_initialize, src) //Queued for further init. Will populate the waypoint lists; waypoints not spawned yet will be added in as they spawn.
 	SSshuttle.clear_init_queue()
@@ -228,12 +228,12 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	if(!current_map.use_overmap)
 		return 1
 
-	testing("Building overmap...")
+	log_module_sectors("Building overmap...")
 	world.maxz++
 	current_map.overmap_z = world.maxz
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
-	testing("Putting overmap on [current_map.overmap_z]")
+	log_module_sectors("Putting overmap on [current_map.overmap_z]")
 	var/area/overmap/A = new
 	global.map_overmap = A
 	for (var/square in block(locate(1,1,current_map.overmap_z), locate(current_map.overmap_size,current_map.overmap_size,current_map.overmap_z)))
@@ -246,7 +246,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	current_map.sealed_levels |= current_map.overmap_z
 
-	testing("Overmap build complete.")
+	log_module_sectors("Overmap build complete.")
 	return 1
 
 /// A circular random coordinate pair from 0, unit by default, scaled by radius, then rounded if round.

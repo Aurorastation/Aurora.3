@@ -44,21 +44,10 @@
 /proc/log_lua(text)
 	WRITE_LOG(config.lua_log, "LUA: [text]")
 
-/// Logging for mapping errors
-/proc/log_mapping(text, skip_world_log)
-	WRITE_LOG(config.world_map_error_log, "MAPPING: [text]")
-	if(skip_world_log)
-		return
-	SEND_TEXT(world.log, "MAPPING: [text]")
-
 /// Logging for game performance
 /proc/log_perf(list/perf_info)
 	. = "[perf_info.Join(",")]\n"
 	WRITE_LOG_NO_FORMAT(config.perf_log, .)
-
-/// Logging for hard deletes
-/proc/log_qdel(text)
-	WRITE_LOG(config.world_qdel_log, "QDEL: [text]")
 
 /// Logging for SQL errors
 /proc/log_query_debug(text)
