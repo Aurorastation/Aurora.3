@@ -50,7 +50,8 @@
 			var/obj/effect/overmap/visitable/sector/exoplanet/E = EP
 			if(initial(E.ruin_planet_type) & types_needed)
 				planets_to_spawn += EP
-				types_needed &= ~E.ruin_planet_type
+				var/PT = initial(E.ruin_planet_type)
+				types_needed &= ~PT
 		all_ruins = build_exoplanets_for_testing(all_ruins, planets_to_spawn)
 		if(!planets_to_spawn || (sanity_count > 3))
 			testing("[ascii_red]FAILED SPAWNING RUINS:[ascii_reset] [sanity_count > 3 ? "EXCEEDED SANITY COUNT" : "NO VALID PLANETS"] for ruins [english_list(all_ruins)]")
