@@ -16,6 +16,7 @@
 	var/list/contacts = list() // Contacts, aka overmap effects, in view of the probe
 	var/scan_range = 4	// How far the probe "sees", aka how strong the radar is, aka in what radius it will reveal effects
 	var/obj/effect/overmap/visitable/ship/ship = null // The ship that shot us, aka the one to datalink send contacts to
+	speed = 40
 
 	icon_state = "missle_probe"
 	instant_contact = TRUE
