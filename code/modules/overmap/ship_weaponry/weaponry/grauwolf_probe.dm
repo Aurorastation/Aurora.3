@@ -9,41 +9,25 @@
 	impact_type = SHIP_AMMO_IMPACT_PROBE
 	overmap_behaviour = null	// This ammo cannot hit anything
 	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf_probe
+	overmap_projectile_type_override = /obj/effect/overmap/projectile/probe
 	burst = 1
 
-/obj/item/ship_ammunition/grauwolf_probe/transfer_to_overmap(var/new_z)
-	var/obj/effect/overmap/start_object = map_sectors["[new_z]"]
-	if(!start_object)
-		return FALSE
-
-	var/obj/effect/overmap/projectile/probe/P = new(null, start_object.x, start_object.y, origin)
-	P.name = name_override ? name_override : name
-	P.desc = desc
-	P.ammunition = src
-	P.target = overmap_target
-	P.range = range
-	if(istype(origin, /obj/effect/overmap/visitable/ship))
-		var/obj/effect/overmap/visitable/ship/S = origin
-		P.dir = S.dir
-	P.icon_state = overmap_icon_state
-	P.speed = 32
-	P.entry_target = entry_point
-	forceMove(P)
-	log_and_message_admins("A projectile ([name]) has entered the Overmap! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
-	return TRUE
 /obj/effect/overmap/projectile/probe
-	var/obj/effect/overmap/visitable/origin = null
 	var/list/contacts = list() // Contacts, aka overmap effects, in view of the probe
 	var/scan_range = 4	// How far the probe "sees", aka how strong the radar is, aka in what radius it will reveal effects
+	var/obj/effect/overmap/visitable/ship/ship = null // The ship that shot us, aka the one to datalink send contacts to
 
 	icon_state = "missle_probe"
 	instant_contact = TRUE
 	requires_contact = FALSE
 
+/obj/effect/overmap/projectile/probe/Initialize(maploading, sx, sy, origin)
+	. = ..()
+	ship = origin
+
 /obj/effect/overmap/projectile/probe/Move()
 
 	var/list/diff_contacts = contacts.Copy()	//Stores the previous-cycle viewed effects that are no longer visible
-	var/obj/effect/overmap/visitable/ship/ship = origin
 
 	// Get a list of effects in a radius that the probe sees
 	contacts = list()
@@ -76,12 +60,11 @@
 			sensor_console.datalink_add_contact(contact, ship)
 	. = ..()
 
-/obj/effect/overmap/projectile/probe/Initialize(var/maploading, var/sx, var/sy, var/obj/effect/overmap/visitable/shooter)
-	origin = shooter
-	. = ..(maploading, sx, sy, shooter)
+// /obj/effect/overmap/projectile/probe/Initialize(var/maploading, var/sx, var/sy, var/obj/effect/overmap/visitable/shooter)
+// 	// origin = shooter
+// 	. = ..(maploading, sx, sy, shooter)
 
 /obj/effect/overmap/projectile/probe/Destroy()
-	var/obj/effect/overmap/visitable/ship/ship = origin
 
 	remove_contacts:
 		for(var/obj/effect/overmap/contact in contacts)
