@@ -5,7 +5,7 @@
 	planetary_area = /area/exoplanet/desert
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#420d22")
-	map_generators = list(/datum/random_map/noise/ore)
+	map_generators = list()
 	possible_themes = list(/datum/exoplanet_theme/arid)
 	surface_color = "#d6cca4"
 	water_color = null

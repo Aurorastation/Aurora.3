@@ -95,10 +95,6 @@ var/global/list/ore_to_turf = list(
 		canSmoothWith = mineral_can_smooth_with
 		pixel_x = -4
 		pixel_y = -4
-		queue_smooth(src)
-
-	if(!mapload)
-		queue_smooth_neighbors(src)
 
 	rock_health = rand(10,20)
 
@@ -107,11 +103,6 @@ var/global/list/ore_to_turf = list(
 	if(!baseturf)
 		// Hard-coding this for performance reasons.
 		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
-
-	if (current_map.use_overmap && istype(A, /area/exoplanet))
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
-		if (istype(E) && istype(E.theme))
-			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -224,15 +215,6 @@ var/global/list/ore_to_turf = list(
 		canSmoothWith = asteroid_can_smooth_with
 		pixel_x = -4
 		pixel_y = -4
-		queue_smooth(src)
-
-	if(!mapload)
-		queue_smooth_neighbors(src)
-
-	if (current_map.use_overmap && istype(loc, /area/exoplanet))
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
-		if (istype(E) && istype(E.theme))
-			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -718,18 +700,9 @@ var/list/asteroid_floor_smooth = list(
 		canSmoothWith = asteroid_floor_smooth
 		pixel_x = -4
 		pixel_y = -4
-		queue_smooth(src)
-
-	if(!mapload)
-		queue_smooth_neighbors(src)
 
 	if(light_range && light_power)
 		update_light()
-
-	if (current_map.use_overmap && istype(loc, /area/exoplanet))
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
-		if (istype(E) && istype(E.theme))
-			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 

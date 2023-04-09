@@ -1,118 +1,74 @@
 #define FUDGE_VALUE 1.1 // This is needed for math reasons; changing it will wildly change resource distribution, so uh, be careful
 
 /singleton/biome
-	/// Type of turf this biome creates
+	/// Base turf this biome generates
 	var/turf_type
-	/// Chance of having a structure from the flora types list spawn
-	var/flora_density = 0
-	/// Chance of having a mob from the fauna types list spawn
-	var/fauna_density = 0
-	var/grass_density = 0
-	/// List of lists of type paths of objects that can be spawned when the turf spawns flora, associated to a weighted value
-	var/list/flora_types = list(
-		list(/obj/structure/flora/grass/jungle) = 3,
-		list(/obj/structure/flora/tree/jungle) = 1
-	)
-	/// List of lists of type paths of mobs that can be spawned when the turf spawns fauna, associated to a weighted value
-	var/list/fauna_types = list()
-
+	/*
+	 * Flora and fauna generation works off of poisson disk sampling. In short, that means uniformly placed random points within the biome.
+	 * The values below are the radius (in turfs, more or less) that one object must be from another to be able to spawn.
+	 * Thus, a value of 1 would cause very tight clumps, while 3 would be dense but walkable, and 7 would be more spread out.
+	 * Grass works off a strict binary (because otherwise it looks weird); if you define grass types, it will pick between them. Otherwise, it will not.
+	 */
+	/// Minimum radius one chosen piece of flora must be from another
+	var/radius_flora = 0
+	/// As above, for fauna (mobs)
+	var/radius_fauna = 0
+	/// Weighted list of flora types to spawn; for example setting one type to 3 and the other to 1 will result in a 75% / 25% mix on average
+	var/list/avail_flora = list()
+	/// Weighted list of fauna types to spawn
+	var/list/avail_fauna = list()
+	/// Weighted list of grass types to spawn
 	var/list/grass_types = list()
-
-/// This proc handles the creation of a turf of a specific biome type
-/singleton/biome/proc/generate_turf(turf/gen_turf, obj/effect/overmap/visitable/sector/exoplanet/E, height)
-	gen_turf.ChangeTurf(turf_type)
-	E.theme.on_turf_generation(gen_turf, E.planetary_area)
-
-	if(gen_turf.density)
-		return
-
-	if(length(fauna_types) && prob(fauna_density))
-		var/mob/fauna = pick(pickweight(fauna_types))
-		new fauna(gen_turf)
-
-	if(length(grass_types) && prob(grass_density))
-		var/obj/structure/grass = pick(pickweight(grass_types))
-		new grass(gen_turf)
-
-	if(length(flora_types) && prob(flora_density))
-		var/obj/structure/flora = pick(pickweight(flora_types))
-		new flora(gen_turf)
-
-/singleton/biome/mountain/generate_turf(turf/gen_turf, obj/effect/overmap/visitable/sector/exoplanet/E, noise)
-	var/turf_type_gen = turf_type
-	var/datum/exoplanet_theme/ET = E.theme
-
-	var/zoom_x = gen_turf.x / ore_zoom
-	var/zoom_y = gen_turf.y / ore_zoom
-
-	for(var/ore in ET.ore_levels)
-		var/ore_val = 0
-		var/ore_div = 0
-		if(!(ore in ET.ore_seeds))
-			ET.ore_seeds[ore] = rand(0, 50000) // This should never happen, which means it definitely will
-
-		for(var/i = 1 to ore_octaves)
-			var/octave = 2 ** (i - 1)
-			var/octave_offset = 33 * (octave - 1) // a bit of a magic number, but this is just so we don't use the same seed for each octave w.o needing to store 800 seeds
-			ore_val += (1 / octave) * text2num(rustg_noise_get_at_coordinates("[ET.ore_seeds[ore] + octave_offset]", "[octave * zoom_x]", "[octave * zoom_y]"))
-			ore_div += (1 / octave)
-
-		ore_val = (ore_val / ore_div) * FUDGE_VALUE
-		ore_val = ore_val ** ore_exponent
-
-		if(ore_val >= ET.ore_levels[ore])
-			turf_type_gen = ore_to_turf[ore]
-			if(!LAZYISIN(ET.ore_counts, ore))
-				LAZYSET(ET.ore_counts, ore, 0)
-			ET.ore_counts[ore]++
-			break
-
-	gen_turf.ChangeTurf(turf_type_gen)
-	E.theme.on_turf_generation(gen_turf, E.planetary_area)
 
 /singleton/biome/barren
 	turf_type = /turf/simulated/floor/exoplanet/barren
+	radius_fauna = 15
+	avail_fauna = list(
+		/mob/living/simple_animal/hostile/gnat = 5,
+		/mob/living/simple_animal/hostile/carp/asteroid = 3,
+		/mob/living/simple_animal/hostile/carp/bloater = 1,
+		/mob/living/simple_animal/hostile/carp/shark/reaver = 1,
+		/mob/living/simple_animal/hostile/carp/shark/reaver/eel = 1
+	)
 
 /singleton/biome/barren/asteroid
 	turf_type = /turf/unsimulated/floor/asteroid/ash
 
 /singleton/biome/arid
 	turf_type = /turf/simulated/floor/exoplanet/desert/sand
-	flora_density = 1
-	flora_types = list(
-		list(/obj/structure/flora/rock/desert) = 3,
-		list(/obj/structure/flora/rock/desert/scrub) = 2,
-		list(/obj/structure/flora/tree/desert/tiny) = 1
+	radius_flora = 7
+	avail_flora = list(
+		/obj/structure/flora/rock/desert = 3,
+		/obj/structure/flora/rock/desert/scrub = 2,
+		/obj/structure/flora/tree/desert/tiny = 1
 	)
 
 /singleton/biome/arid/scrub
-	grass_density = 100
-	flora_density = 2
+	radius_flora = 4
 	grass_types = list(
-		list(/obj/structure/flora/grass/desert/bush) = 1,
-		list(/obj/structure/flora/grass/desert) = 3
+		/obj/structure/flora/grass/desert/bush = 1,
+		/obj/structure/flora/grass/desert = 3
 	)
-	flora_types = list(
-		list(/obj/structure/flora/tree/desert/tiny) = 5,
-		list(/obj/structure/flora/rock/desert) = 1,
-		list(/obj/structure/flora/rock/desert/scrub) = 4,
+	avail_flora = list(
+		/obj/structure/flora/tree/desert/tiny = 5,
+		/obj/structure/flora/rock/desert = 1,
+		/obj/structure/flora/rock/desert/scrub = 4,
 	)
 
 /singleton/biome/arid/thorn
 	turf_type = /turf/simulated/floor/exoplanet/desert/sand/dune
 	grass_types = list(
-		list(/obj/structure/flora/grass/desert/bush) = 3,
-		list(/obj/structure/flora/grass/desert) = 2
+		/obj/structure/flora/grass/desert/bush = 3,
+		/obj/structure/flora/grass/desert = 2
 	)
-	flora_types = list(
-		list(/obj/structure/flora/rock/desert) = 1,
-		list(/obj/structure/flora/rock/desert/scrub) = 1,
-		list(/obj/structure/flora/tree/desert/tiny) = 10,
-		list(/obj/structure/flora/tree/desert/small) = 8,
-		list(/obj/structure/flora/tree/desert) = 6
+	radius_flora = 3
+	avail_flora = list(
+		/obj/structure/flora/rock/desert = 1,
+		/obj/structure/flora/rock/desert/scrub = 1,
+		/obj/structure/flora/tree/desert/tiny = 10,
+		/obj/structure/flora/tree/desert/small = 8,
+		/obj/structure/flora/tree/desert = 6
 	)
-	grass_density = 100
-	flora_density = 10
 
 /singleton/biome/mountain
 	turf_type = /turf/simulated/mineral

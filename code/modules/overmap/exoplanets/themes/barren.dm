@@ -22,6 +22,8 @@
 		BIOME_ARID = 1.0
 	)
 
+	seed_flora = FALSE
+
 /datum/exoplanet_theme/barren/asteroid
 	name = "Asteroid"
 	mountain_threshold = 0.5
