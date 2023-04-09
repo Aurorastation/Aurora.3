@@ -397,25 +397,22 @@ This function restores all organs.
 			to_chat(src, "<span class='danger'>You are now visible.</span>")
 			src.invisibility = 0
 
-	var/obj/item/organ/external/organ = get_organ(def_zone, TRUE)
+	var/obj/item/organ/external/organ = isorgan(def_zone) ? def_zone : get_organ(def_zone, TRUE)
 	if(!organ)
-		if(isorgan(def_zone))
-			organ = def_zone
-		else
-			if(!def_zone)
-				if(damage_flags & DAMAGE_FLAG_DISPERSED)
-					var/old_damage = damage
-					var/tally
-					silent = TRUE // Will damage a lot of organs, probably, so avoid spam.
-					for(var/zone in organ_rel_size)
-						tally += organ_rel_size[zone]
-					for(var/zone in organ_rel_size)
-						damage = old_damage * organ_rel_size[zone]/tally
-						def_zone = zone
-						. = .() || .
-					return
-				def_zone = ran_zone(def_zone)
-			organ = get_organ(check_zone(def_zone))
+		if(!def_zone)
+			if(damage_flags & DAMAGE_FLAG_DISPERSED)
+				var/old_damage = damage
+				var/tally
+				silent = TRUE // Will damage a lot of organs, probably, so avoid spam.
+				for(var/zone in organ_rel_size)
+					tally += organ_rel_size[zone]
+				for(var/zone in organ_rel_size)
+					damage = old_damage * organ_rel_size[zone]/tally
+					def_zone = zone
+					. = .() || .
+				return
+			def_zone = ran_zone(def_zone)
+		organ = get_organ(check_zone(def_zone))
 
 	//Handle other types of damage
 	if(!(damagetype in list(DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_PAIN, DAMAGE_CLONE)))
@@ -468,7 +465,7 @@ This function restores all organs.
 		rads = rads * species.radiation_mod
 	..(rads)
 
-/mob/living/carbon/human/proc/get_shock()
+/mob/living/carbon/human/get_shock()
 	if(!can_feel_pain())
 		return 0
 

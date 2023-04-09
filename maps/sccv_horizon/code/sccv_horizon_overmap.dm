@@ -10,6 +10,15 @@
 	burn_delay = 2 SECONDS
 	base = TRUE
 
+	scanimage = "horizon.png"
+	designer = "Stellar Corporate Conglomerate, Vickers Shipwright Dock - Valkyrie"
+	volume = "97 meters length, 161 meters beam/width, 48 meters vertical height"
+	drive = "First-Gen Warp Capable, Hybrid Phoron Bluespace Drive"
+	propulsion = "Superheated Composite Gas Thrust"
+	weapons = "Two extruding naval ballistic weapon mounts, unidentifiable spinal artillery mount"
+	sizeclass = "Venator Class Cruiser"
+	shiptype = "Prototype exploration and survey vessel"
+
 	initial_restricted_waypoints = list(
 		"Spark" = list("nav_hangar_mining"), 	//can't have random shuttles popping inside the ship
 		"Intrepid" = list("nav_hangar_intrepid")
@@ -36,10 +45,16 @@
 	"deck_two_starboard_aft",
 	"deck_three_fore_of_horizon",
 	"deck_three_fore_starboard_of_horizon",
-	"deck_three_fore_port_of_horizon",
+	"deck_three_port_fore_of_horizon",
 	"deck_three_aft_of_horizon",
-	"deck_three_aft_port_of_horizon"
+	"deck_three_port_aft_of_horizon"
 	)
+
+/obj/effect/overmap/visitable/ship/sccv_horizon/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "horizon")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/overmap/visitable/ship/landable/intrepid
 	name = "Intrepid"
@@ -56,6 +71,18 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	scanimage = "intrepid.png"
+	designer = "Hephaestus Industries"
+	volume = "21 meters length, 16 meters beam/width, 6 meters vertical height"
+	weapons = "Extruding fore-mounted low-caliber ballistic rotary armament"
+	sizeclass = "Pathfinder Exploration Shuttle"
+	shiptype = "Field expeditions and private research uses"
+
+/obj/effect/overmap/visitable/ship/landable/intrepid/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "intrepid")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/machinery/computer/shuttle_control/explore/intrepid
 	name = "\improper Intrepid control console"
@@ -71,11 +98,22 @@
 	icon_state = "spark"
 	moving_state = "spark_moving"
 	colors = list("#cfd4ff", "#78adf8")
+	scanimage = "spark.png"
+	designer = "Hephaestus Industries"
+	volume = "11 meters length, 9 meters beam/width, 4 meters vertical height"
+	sizeclass = "Pickaxe-Class Mining Shuttle"
+	shiptype = "Field survey and specialized prospecting"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
+
+/obj/effect/overmap/visitable/ship/landable/mining_shuttle/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "spark")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/machinery/computer/shuttle_control/explore/mining_shuttle
 	name = "\improper Spark control console"
@@ -193,16 +231,16 @@
 	landmark_tag = "deck_three_fore_of_horizon"
 
 /obj/effect/shuttle_landmark/horizon/deckthree/starboardfore
-	name = "Deck Three, Starboard of Horizon"
+	name = "Deck Three, Starboard Fore of Horizon"
 	landmark_tag = "deck_three_fore_starboard_of_horizon"
 
 /obj/effect/shuttle_landmark/horizon/deckthree/portfore
-	name = "Deck Three, Starboard of Horizon"
+	name = "Deck Three, Fore Port of Horizon"
 	landmark_tag = "deck_three_port_fore_of_horizon"
 
 /obj/effect/shuttle_landmark/horizon/deckthree/portaft
 	name = "Deck Three, Aft Port of Horizon"
-	landmark_tag = "deck_three_port_of_horizon"
+	landmark_tag = "deck_three_port_aft_of_horizon"
 
 /obj/effect/shuttle_landmark/horizon/deckthree/aft
 	name = "Deck Three, Aft of Horizon"

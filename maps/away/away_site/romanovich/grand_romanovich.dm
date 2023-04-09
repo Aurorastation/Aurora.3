@@ -92,7 +92,7 @@
 	return
 
 /obj/item/storage/bag/money/casino/Initialize()
-	..()
+	. = ..()
 	new /obj/item/coin/casino(src)
 	new /obj/item/coin/casino(src)
 	new /obj/item/coin/casino(src)

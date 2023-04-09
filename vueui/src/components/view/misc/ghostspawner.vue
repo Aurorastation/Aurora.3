@@ -18,9 +18,10 @@
         <td v-else-if="data.spawnatoms > 0">{{data.spawnatoms}}</td>
         <td v-else>&infin;</td>
         <td class="action">
-          <vui-button :disabled="(data.cant_spawn !== 0)" :params="{spawn: index, spawnpoint: spawnpoint}" icon="star">Spawn</vui-button> 
-          <vui-button v-if="data.can_edit == 1" :disabled="(data.enabled == 1)" :params="{enable: index}">Enable</vui-button> 
-          <vui-button v-if="data.can_edit == 1" :disabled="(data.enabled == 0)" :params="{disable: index}">Disable</vui-button> 
+          <vui-button :disabled="(data.cant_spawn !== 0)" :params="{spawn: index, spawnpoint: spawnpoint}" icon="star">Spawn</vui-button>
+          <vui-button v-if="data.can_jump_to" :params="{jump_to: index, spawnpoint: spawnpoint}">Jump To</vui-button>
+          <vui-button v-if="data.can_edit == 1" :disabled="(data.enabled == 1)" :params="{enable: index}">Enable</vui-button>
+          <vui-button v-if="data.can_edit == 1" :disabled="(data.enabled == 0)" :params="{disable: index}">Disable</vui-button>
         </td>
       </tr>
     </table>

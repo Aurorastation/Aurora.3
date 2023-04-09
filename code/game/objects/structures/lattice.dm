@@ -26,12 +26,16 @@
 
 /obj/structure/lattice/Initialize()
 	. = ..()
+	// TG does not have this, and it seems to trigger on the horizon, I do not know what this is supposed to do, perhaps we could get rid of it?
 	if (restrict_placement)
 		if(!(istype(loc, /turf/space) || isopenturf(loc) || istype(loc, /turf/unsimulated/floor/asteroid)))
 			return INITIALIZE_HINT_QDEL
 	for(var/obj/structure/lattice/LAT in loc)
-		if(LAT != src)
-			qdel(LAT)
+		if(LAT == src)
+			continue
+		stack_trace("multiple lattices found in ([loc.x], [loc.y], [loc.z])")
+		return INITIALIZE_HINT_QDEL
+
 	if(isturf(loc))
 		var/turf/turf = loc
 		turf.is_hole = FALSE
@@ -50,14 +54,14 @@
 			qdel(src)
 	return
 
-/obj/structure/lattice/attackby(obj/item/C as obj, mob/user as mob)
+/obj/structure/lattice/attackby(obj/item/C, mob/user)
 	if (istype(C, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
 		T.attackby(C, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
 	if (C.iswelder())
 		var/obj/item/weldingtool/WT = C
-		if(WT.use(0, user))
+		if(WT.use(1, user))
 			to_chat(user, "<span class='notice'>Slicing lattice joints ...</span>")
 		new /obj/item/stack/rods(src.loc)
 		qdel(src)
@@ -136,7 +140,7 @@
 	damaged = TRUE
 
 /obj/structure/lattice/catwalk/indoor/grate/damaged/Initialize()
-	.=..()
+	. = ..()
 	icon_state = "[base_icon_state]_dam[rand(0,3)]"
 
 /obj/structure/lattice/catwalk/indoor/grate/light
@@ -152,7 +156,7 @@
 	damaged = TRUE
 
 /obj/structure/lattice/catwalk/indoor/grate/light/damaged/Initialize()
-	.=..()
+	. = ..()
 	icon_state = "[base_icon_state]_dam[rand(0,3)]"
 
 /obj/structure/lattice/catwalk/indoor/grate/attackby(obj/item/C, mob/user)

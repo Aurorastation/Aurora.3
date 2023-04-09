@@ -365,6 +365,13 @@
 ///find the spatial map cell that target belongs to, then add target's important_recusive_contents to it.
 ///make sure to provide the turf new_target is "in"
 /datum/controller/subsystem/spatial_grid/proc/enter_cell(atom/movable/new_target, turf/target_turf)
+
+	// This contraption only applies to unit tests, as during the destroy phase some have an MMI machine that is being deleted
+	#ifdef UNIT_TEST
+	if(QDELETED(new_target) && istype(new_target, /obj/item/organ/internal/mmi_holder))
+		return
+	#endif
+
 	if(QDELETED(new_target))
 		CRASH("qdeleted or null target trying to enter the spatial grid!")
 

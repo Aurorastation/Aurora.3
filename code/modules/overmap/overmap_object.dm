@@ -4,6 +4,17 @@
 	icon_state = "object"
 	color = "#fffffe"
 
+//RP fluff details to appear on scan readouts for any object we want to include these details with
+	var/scanimage = "no_data.png"
+	var/designer = "Unknown" 							//The shipyard or designer of the object if applicable
+	var/volume = "Unestimated" 							//Length height width of the object in tiles ingame
+	var/weapons = "Not apparent"						//The expected armament or scale of armament that the design comes with if applicable. Can vary in visibility for obvious reasons
+	var/sizeclass = "Unknown"							//The class of the design if applicable. Not a prefix. Should be things like battlestations or corvettes
+	var/shiptype = "Unknown"							//The designated purpose of the design. Should briefly describe whether it's a combatant or study vessel for example
+
+	var/generic_object = TRUE //Used to give basic scan descriptions of every generic overmap object that excludes noteworthy locations, ships and exoplanets
+	var/static_vessel = FALSE //Used to expand scan details for visible space stations
+
 	var/list/map_z = list()
 
 	var/known = 0		//shows up on nav computers automatically
@@ -11,10 +22,10 @@
 	var/unknown_id                      // A unique identifier used when this entity is scanned. Assigned in Initialize().
 	var/requires_contact = TRUE //whether or not the effect must be identified by ship sensors before being seen.
 	var/instant_contact  = FALSE //do we instantly identify ourselves to any ship in sensors range?
+	var/sensor_range_override = FALSE //When true, this overmap object will be scanned with range instead of view.
 
 	var/sensor_visibility = 10	 //how likely it is to increase identification process each scan.
 	var/vessel_mass = 10000             // metric tonnes, very rough number, affects acceleration provided by engines
-
 
 	var/image/targeted_overlay
 
@@ -23,7 +34,23 @@
 	return
 
 /obj/effect/overmap/proc/get_scan_data(mob/user)
-	return desc
+	if(static_vessel == TRUE)
+		. += "<hr>"
+		. += "<br><center><large><b>Scan Details</b></large>"
+		. += "<br><large><b>[name]</b></large></center>"
+		. += "<br><small><b>Estimated Mass:</b> [vessel_mass]"
+		. += "<br><b>Projected Volume:</b> [volume]"
+		. += "<hr>"
+		. += "<br><center><b>Native Database Specifications</b>"
+		. += "<br><img src = [scanimage]></center>"
+		. += "<br><small><b>Manufacturer:</b> [designer]"
+		. += "<br><b>Class Designation:</b> [sizeclass]"
+		. += "<br><b>Weapons Estimation:</b> [weapons]</small>"
+		. += "<hr>"
+		. += "<br><center><b>Native Database Notes</b></center>"
+		. += "<br><small>[desc]</small>"
+	else if(generic_object == TRUE)
+		return desc
 
 /obj/effect/overmap/proc/handle_wraparound()
 	var/nx = x

@@ -1,5 +1,5 @@
 name: VueUi
-on: [push, pull_request]
+on: [push, pull_request, merge_group]
 jobs:
   build-test:
     runs-on: ubuntu-latest
@@ -8,6 +8,8 @@ jobs:
         uses: actions/checkout@master
       - name: Install node
         uses: actions/setup-node@master
+        with:
+          node-version: 16
       - name: Cache dependencies
         uses: actions/cache@v2
         with:

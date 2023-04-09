@@ -38,6 +38,7 @@
 #define OUTFIT_BOWMAN 3
 #define OUTFIT_DOUBLE 4
 #define OUTFIT_WRISTRAD 5
+#define OUTFIT_THIN_WRISTRAD 6
 
 /datum/outfit
 	var/name = "Naked"
@@ -190,7 +191,9 @@
 					back = /obj/item/storage/backpack/satchel/leather/recolorable
 
 	if(back)
-		var/obj/item/storage/backpack/B = new back(H) //i'll be honest with you - i'm kinda retarded
+		if(islist(back))
+			back = pick(back)
+		var/obj/item/storage/backpack/B = new back(H)
 		if (H.backbag == OUTFIT_SATCHEL_ALT || H.backbag == OUTFIT_RUCKSACK || H.backbag == OUTFIT_POCKETBOOK)
 			switch (H.backbag_color)
 				if (OUTFIT_NOTHING)
@@ -229,6 +232,7 @@
 		else
 			H.equip_or_collect(B, slot_back)
 
+	var/datum/callback/radio_callback
 	if(allow_headset_choice)
 		switch(H.headset_choice)
 			if (OUTFIT_NOTHING)
@@ -237,21 +241,26 @@
 				l_ear = bowman
 			if (OUTFIT_DOUBLE)
 				l_ear = double_headset
-			if (OUTFIT_WRISTRAD)
+			if (OUTFIT_WRISTRAD, OUTFIT_THIN_WRISTRAD)
 				l_ear = null
 				wrist = wrist_radio
+				if(H.headset_choice == OUTFIT_THIN_WRISTRAD)
+					radio_callback = CALLBACK(src, PROC_REF(turn_into_thinset))
 			else
 				l_ear = headset //Department headset
 	if(l_ear)
-		equip_item(H, l_ear, slot_l_ear)
+		equip_item(H, l_ear, slot_l_ear, callback = radio_callback)
 	else if (wrist)
-		equip_item(H, wrist, slot_wrists)
+		equip_item(H, wrist, slot_wrists, callback = radio_callback)
 
-	return
+/datum/outfit/proc/turn_into_thinset(var/obj/item/device/radio/headset/wrist/radio)
+	if(istype(radio))
+		radio.icon_state = replacetext(radio.icon_state, "wrist", "thin")
+		radio.item_state = replacetext(radio.item_state, "wrist", "thin")
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
 //override_collect temporarily allows equip_or_collect without enabling it for the job. Mostly used to prevent weirdness with hand equips when the player is missing one
-/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE, var/item_color)
+/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE, var/item_color, var/datum/callback/callback)
 	var/obj/item/I
 
 	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
@@ -265,6 +274,9 @@
 		I = G.spawn_random()
 	else
 		I = new path(H) //As fallback treat it as a path
+
+	if(I && callback)
+		callback.Invoke(I)
 
 	if(collect_not_del || override_collect)
 		H.equip_or_collect(I, slot)

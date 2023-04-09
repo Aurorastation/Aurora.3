@@ -91,6 +91,8 @@
 	new /obj/item/device/beacon_locator(src)
 	new /obj/item/device/radio/beacon(src)
 	new /obj/item/pickaxe(src)
+	new /obj/item/material/hatchet/machete/steel(src)
+	new /obj/item/clothing/accessory/holster/utility/machete(src)
 	new /obj/item/device/measuring_tape(src)
 	new /obj/item/pickaxe/hand(src)
 	new /obj/item/storage/bag/fossils(src)

@@ -52,7 +52,7 @@
 				if(B != src)
 					if (B.blood_DNA)
 						blood_DNA |= B.blood_DNA.Copy()
-					qdel(B)
+					QDEL_IN(B, 1 SECOND)
 	drytime = DRYING_TIME * (amount+1)
 	bleed_time = world.time
 	if (dries)

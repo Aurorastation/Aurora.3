@@ -1584,6 +1584,7 @@
 	color = "#EE4B2B"
 	overdose = 15
 	metabolism = REM * 3 //0.6 units per tick
+	specific_heat = 1
 	taste_description = "pure alcohol"
 
 /singleton/reagent/kilosemine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)

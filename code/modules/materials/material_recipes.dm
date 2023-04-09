@@ -160,6 +160,7 @@
 	recipes += new /datum/stack_recipe_list("[display_name] recipes",
 		list(
 			new /datum/stack_recipe("wooden barricade", /obj/structure/barricade/wooden, BUILD_AMT, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE),
+			new /datum/stack_recipe("bonfire", /obj/structure/bonfire, BUILD_AMT, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE),
 			new /datum/stack_recipe("wooden sandals", /obj/item/clothing/shoes/sandal, 1),
 			new /datum/stack_recipe("wood circlet", /obj/item/woodcirclet, 1),
 			new /datum/stack_recipe("wood floor tile", /obj/item/stack/tile/wood, 1, 4, 20),
@@ -293,3 +294,13 @@
 			new /datum/stack_recipe("leather briefcase", /obj/item/storage/briefcase/real, 4, 1, time = 20),
 			new /datum/stack_recipe("leather whip", /obj/item/melee/whip, 15, 1, time = 20)
 		))
+
+/material/wood/log/generate_recipes()
+	recipes = list()
+	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 3, time = 50, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("log bench", /obj/structure/flora/log_bench, 2, time = 20, one_per_turf = 1, on_floor = 1)
+
+/material/wood/branch/generate_recipes()
+	recipes = list()
+	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 10, time = 50, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("torch handle", /obj/item/torch, 1, time = 15, one_per_turf = 0, on_floor = 0)

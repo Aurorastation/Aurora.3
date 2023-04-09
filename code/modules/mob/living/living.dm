@@ -11,7 +11,7 @@
 //mob verbs are faster than object verbs. See above.
 var/mob/living/next_point_time = 0
 /mob/living/pointed(atom/A as mob|obj|turf in view())
-	if(src.stat || !src.canmove || src.restrained())
+	if(src.stat || src.restrained())
 		return FALSE
 	if(src.status_flags & FAKEDEATH)
 		return FALSE
@@ -297,6 +297,9 @@ default behaviour is:
 
 /mob/living/proc/getHalLoss()
 	return 0
+
+/mob/living/proc/get_shock()
+	return getHalLoss()
 
 /mob/living/proc/getCloneLoss()
 	return 0
