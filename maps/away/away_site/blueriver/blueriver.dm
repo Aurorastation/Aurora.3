@@ -84,10 +84,9 @@
 	dynamic_lighting = 0
 
 /turf/unsimulated/wall/supermatter/no_spread/blueriver/Initialize()
-	.=..()
+	. = ..()
 	icon_state = "bluespacecrystal[rand(1,3)]"
 	set_light(0.7, 1, 5, l_color = "#0066ff")
-	return PROCESS_KILL
 
 /obj/structure/deity
 	name = "crystal altar"

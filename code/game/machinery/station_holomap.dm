@@ -199,7 +199,9 @@
 
 /obj/machinery/station_map/mobile/Initialize()
 	init_map()
-	return
+
+	initialized = TRUE
+	return INITIALIZE_HINT_NORMAL
 
 /obj/machinery/station_map/mobile/startWatching(var/mob/user)
 	if(!user)

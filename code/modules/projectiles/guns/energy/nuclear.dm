@@ -95,7 +95,7 @@
 	if (crit_fail)
 		add_overlay("nucgun-whee")
 		return
-	var/ratio = power_supply.charge / power_supply.maxcharge
+	var/ratio = max((power_supply?.charge / power_supply?.maxcharge), 0)
 	ratio = round(ratio, 0.25) * 100
 	add_overlay("nucgun-[ratio]")
 
@@ -105,7 +105,7 @@
 		return
 	if(lightfail)
 		add_overlay("nucgun-medium")
-	else if ((power_supply.charge/power_supply.maxcharge) <= 0.5)
+	else if ((power_supply?.charge/power_supply?.maxcharge) <= 0.5)
 		add_overlay("nucgun-light")
 	else
 		add_overlay("nucgun-clean")

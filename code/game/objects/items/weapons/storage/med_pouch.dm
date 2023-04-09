@@ -30,7 +30,7 @@ Single Use Emergency Pouches
 	var/injury_type = "generic"
 
 /obj/item/storage/box/fancy/med_pouch/Initialize()
-	..()
+	. = ..()
 	name = "emergency [injury_type] pouch"
 	make_exact_fit()
 	for(var/obj/item/reagent_containers/pill/P in contents)
