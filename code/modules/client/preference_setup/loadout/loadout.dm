@@ -356,7 +356,7 @@ var/list/gear_datums = list()
 
 	else if(href_list["select_category"])
 		current_tab = href_list["select_category"]
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return TOPIC_REFRESH
 	else if(href_list["clear_loadout"])
 		pref.gear.Cut()
 		return TOPIC_REFRESH_UPDATE_PREVIEW

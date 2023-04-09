@@ -324,6 +324,7 @@ datum/preferences
 	else if(href_list["new_character_sql"])
 		new_setup(1)
 		to_chat(usr, "<span class='notice'>Your setup has been refreshed.</span>")
+		usr.client.prefs.update_preview_icon()
 		close_load_dialog(usr)
 	else if(href_list["close_load_dialog"])
 		close_load_dialog(usr)
