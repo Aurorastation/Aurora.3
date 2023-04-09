@@ -619,6 +619,16 @@
 /obj/item/flag/traverse/l
 	name = "Large Free Traverser flag"
 	flag_size = 1
+	
+/obj/item/flag/cteum
+	name = "Co-operative Territories of Epsilon Ursae Minoris Flag"
+	desc = "The flag of the CT-EUM."
+	flag_path = "cteum"
+
+/obj/structure/sign/flag/cteum
+	name = "Co-operative Territories of Epsilon Ursae Minoris Flag"
+	desc = "The flag of the CT-EUM."
+	icon_state = "cteum"
 
 /obj/structure/sign/flag/nanotrasen
 	name = "NanoTrasen Corporation flag"
