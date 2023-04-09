@@ -28261,6 +28261,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/structure/reagent_dispensers/peppertank/spacecleaner{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
 "wbO" = (
