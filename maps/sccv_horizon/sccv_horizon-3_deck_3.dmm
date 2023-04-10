@@ -27125,6 +27125,21 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "shutters_bunker";
+	name = "Command Bunker Blast Door";
+	pixel_x = 30;
+	pixel_y = -32;
+	req_access = list(19)
+	},
+/obj/machinery/button/remote/airlock{
+	id = "airlocks_bunker";
+	name = "Command Bunker Bolts";
+	req_access = list(19);
+	specialfunctions = 4;
+	pixel_y = -23;
+	pixel_x = 30
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
 "wSG" = (
