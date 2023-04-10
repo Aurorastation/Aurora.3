@@ -225,12 +225,15 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 		trace_chems = LAZYACCESS(vessel.reagent_data[/singleton/reagent/blood], "trace_chem") || list()
 	.["trace_chem"] = trace_chems.Copy()
 
-proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/sourceless_color)
-
+/proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/sourceless_color)
 	var/obj/effect/decal/cleanable/blood/splatter
 	var/decal_type = /obj/effect/decal/cleanable/blood/splatter
 	if(sourceless_color == COLOR_OIL)
 		decal_type = /obj/effect/decal/cleanable/blood/oil/streak
+	if(ishuman(source))
+		var/mob/living/carbon/human/H = source
+		if(H.isSynthetic())
+			decal_type = /obj/effect/decal/cleanable/blood/oil/streak
 	var/turf/T = get_turf(target)
 
 	// Are we dripping or splattering?

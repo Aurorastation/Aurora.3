@@ -21,6 +21,10 @@
 		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
 		return
 
+	if(silent)
+		to_chat(src, SPAN_WARNING("You try to speak, but nothing comes out!"))
+		return
+
 	var/had_speaking = !!speaking
 	speaking = speaking ? speaking : parse_language(message)
 
