@@ -214,10 +214,7 @@ var/global/maint_all_access = 0
 	if(!I)
 		return ..(M)
 	var/list/A = I.GetAccess()
-	var/maint_sec_access = (
-		(security_level > SEC_LEVEL_GREEN)
-		&& (has_access(access_security, accesses = A) || has_access(access_bridge_crew, accesses = A))
-	)
+	var/maint_sec_access = ((security_level > SEC_LEVEL_GREEN) && (has_access(access_security, accesses = A) || has_access(access_bridge_crew, accesses = A)))
 	var/exceptional_circumstances = maint_all_access || maint_sec_access
 	if(exceptional_circumstances && src.check_access_list(list(access_maint_tunnels)))
 		return 1
