@@ -68,13 +68,13 @@
 	 * These values reflect both the raw distribution of ores in the ground, and spawned minerals in rocks.
 	 */
 	var/list/ore_levels = list(
-		ORE_PLATINUM 	= 0.13,
-		ORE_DIAMOND 	= 0.11,
-		ORE_URANIUM 	= 0.14,
-		ORE_GOLD 		= 0.13,
-		ORE_SILVER 		= 0.14,
-		ORE_COAL 		= 0.2,
-		ORE_IRON 		= 0.2,
+		ORE_PLATINUM 	= 0.15,
+		ORE_DIAMOND 	= 0.15,
+		ORE_URANIUM 	= 0.17,
+		ORE_GOLD 		= 0.16,
+		ORE_SILVER 		= 0.17,
+		ORE_COAL 		= 0.23,
+		ORE_IRON 		= 0.23,
 	)
 	/// List of random seeds used for ore noise generation. Automatically generated on New() using ore_levels.
 	var/list/ore_seeds
@@ -178,6 +178,9 @@
 		if(gen_turf.density) // No need to check flora/fauna/grass if we're a wall
 			continue
 
+		// Down here is essentially a bit of code-duplication-avoidance via using properties of preprocessor defines
+		// We're seeding a poisson disk sampling string in SEED_LANDSCAPE, and then converting our turf coord to the position on the string
+		// in GEN_LANDSCAPE; it returns TRUE if there's a 1 in the noise there, which means we pick a flora or fauna respectively
 		if(seed_flora)
 			SEED_LANDSCAPE(flora)
 			var/atom/A = GEN_LANDSCAPE(flora, coord_to_str) ? pickweight(selected_biome.avail_flora) : null
@@ -195,7 +198,7 @@
 		CHECK_TICK
 
 /datum/exoplanet_theme/proc/on_turf_generation(turf/T, area/use_area)
-	if(use_area && T.loc == world.area)
+	if(use_area && istype(T.loc, world.area))
 		ChangeArea(T, use_area)
 	if(surface_color && is_type_in_list(T, surface_turfs))
 		T.color = surface_color
@@ -218,9 +221,7 @@
 	if(!length(ore_seeds))
 		return
 
-	var/list/turfs_to_gen = block(locate(min_x, min_y, z_to_check), locate(max_x, max_y, z_to_check))
-	for(var/t in turfs_to_gen)
-		var/turf/simulated/mineral/M = t
+	for(var/turf/simulated/mineral/M in block(locate(min_x, min_y, z_to_check), locate(max_x, max_y, z_to_check)))
 		if(!istype(M) || M.mineral)
 			continue
 		var/coord_to_str = (world.maxx * M.y) + M.x

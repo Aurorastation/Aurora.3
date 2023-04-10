@@ -42,12 +42,12 @@
 /datum/exoplanet_theme/barren/asteroid/phoron
 	name = "Romanovich Asteroid"
 	ore_levels = list(
-		ORE_PLATINUM 	= 0.9,
-		ORE_DIAMOND 	= 0.97,
-		ORE_PHORON		= 0.85,
-		ORE_URANIUM 	= 0.85,
-		ORE_GOLD 		= 0.85,
-		ORE_SILVER 		= 0.85,
-		ORE_COAL 		= 0.6,
-		ORE_IRON 		= 0.5,
+		ORE_PHORON		= 0.17,
+		ORE_PLATINUM 	= 0.15,
+		ORE_DIAMOND 	= 0.15,
+		ORE_URANIUM 	= 0.17,
+		ORE_GOLD 		= 0.16,
+		ORE_SILVER 		= 0.17,
+		ORE_COAL 		= 0.23,
+		ORE_IRON 		= 0.23,
 	)
