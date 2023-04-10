@@ -14389,13 +14389,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
-"mkT" = (
-/obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck_control/beta)
 "mlv" = (
 /obj/machinery/power/apc/low{
 	dir = 1;
@@ -46898,7 +46891,7 @@ uBG
 ruh
 orG
 rNN
-mkT
+xmD
 bbI
 gDJ
 gDJ
