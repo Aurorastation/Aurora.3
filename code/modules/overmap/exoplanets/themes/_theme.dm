@@ -122,8 +122,7 @@
 		height_seeds += rand(0, 50000)
 	var/humidity_seed = rand(0, 50000)
 
-	var/list/turfs_to_gen = block(locate(min_x, min_y, z_to_gen), locate(max_x, max_y, z_to_gen))
-	for(var/t in turfs_to_gen)
+	for(var/t in block(locate(min_x, min_y, z_to_gen), locate(max_x, max_y, z_to_gen)))
 		var/turf/gen_turf = t
 
 		// Drift here gives us a bit of extra noise on the edges of biomes, to make it transition slightly more naturally
