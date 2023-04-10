@@ -2258,6 +2258,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
 "caX" = (
@@ -11320,7 +11321,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
@@ -13181,7 +13181,6 @@
 	pixel_x = 32
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
@@ -14631,14 +14630,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "mrb" = (
-/obj/item/modular_computer/console/preset/command{
-	dir = 8
-	},
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/computer/ship/navigation{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "mrd" = (
@@ -24698,6 +24697,9 @@
 "uSE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
 "uTn" = (
@@ -28547,13 +28549,13 @@
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "yfs" = (
-/obj/machinery/computer/ship/navigation,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
+/obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "ygn" = (
