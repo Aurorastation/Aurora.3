@@ -5,6 +5,8 @@
 	icon = 'icons/mob/human.dmi'
 	icon_state = "body_m_s"
 
+	mob_size = 9 //Based on average weight of a human
+
 	var/pronouns = NEUTER
 
 	var/species_items_equipped // used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
@@ -12,7 +14,8 @@
 	var/list/hud_list[11]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
-	mob_size = 9 //Based on average weight of a human
+	/// Pref holder for the speech bubble style.
+	var/speech_bubble_type
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
@@ -2218,3 +2221,9 @@
 		to_chat(src, "<span class='notice'>You can see \the [T ? T : "floor"].</span>")
 	else
 		to_chat(src, "<span class='notice'>You can't look below right now.</span>")
+
+/mob/living/carbon/human/get_speech_bubble_state_modifier()
+	if(speech_bubble_type)
+		return speech_bubble_type
+	else
+		return ..()
