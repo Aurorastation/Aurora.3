@@ -33,7 +33,7 @@
 /obj/effect/decal/cleanable/blood/clean_blood()
 	fluorescent = 0
 	if(invisibility != 100)
-		invisibility = 100
+		set_invisibility(100)
 		amount = 0
 	..(ignore=1)
 

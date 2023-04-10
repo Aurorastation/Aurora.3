@@ -321,7 +321,7 @@
 	observer.appearance_flags = KEEP_TOGETHER
 	observer.alpha = 127
 	observer.layer = initial(observer.layer)
-	observer.invisibility = initial(observer.invisibility)
+	observer.set_invisibility(initial(observer.invisibility))
 	observer.desc = initial(observer.desc)
 
 	observer.real_name = client.prefs.real_name
