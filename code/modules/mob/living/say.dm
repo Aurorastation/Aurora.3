@@ -183,6 +183,10 @@ proc/get_radio_key_from_channel(var/channel)
 			return say_dead(message)
 		return
 
+	if(silent)
+		to_chat(src, SPAN_WARNING("You try to speak, but nothing comes out!"))
+		return
+
 	var/message_mode = parse_message_mode(message, "headset")
 
 	var/regex/emote = regex("^(\[\\*^\])\[^*\]+$")

@@ -620,7 +620,7 @@
 /area/adhomai_bar)
 "BZ" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/cooking_container/plate,
+/obj/item/reagent_containers/bowl/plate,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
