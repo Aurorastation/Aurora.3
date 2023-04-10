@@ -98,20 +98,6 @@
 /datum/random_map/noise/exoplanet/barren/raskara
 	land_type = /turf/simulated/floor/exoplanet/barren/raskara
 
-/turf/simulated/floor/exoplanet/barren/raskara
-	name = "ground"
-	icon = 'icons/turf/flooring/asteroid.dmi'
-	icon_state = "asteroid"
-	color = "#373737"
-
-/turf/simulated/floor/exoplanet/barren/update_icon()
-	overlays.Cut()
-
-/area/exoplanet/barren/raskara
-	name = "Raskara Surface"
-	ambience = AMBIENCE_OTHERWORLDLY
-	base_turf = /turf/simulated/floor/exoplanet/barren/raskara
-
 //Adhomai
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai
 	name = "Adhomai"
@@ -279,19 +265,3 @@
 		if(6)
 			if(prob(10))
 				new /obj/effect/floor_decal/snowdrift/large(T)
-
-/area/exoplanet/adhomai
-	name = "Adhomian Wilderness"
-	ambience = list('sound/effects/wind/tundra0.ogg', 'sound/effects/wind/tundra1.ogg', 'sound/effects/wind/tundra2.ogg', 'sound/effects/wind/spooky0.ogg', 'sound/effects/wind/spooky1.ogg')
-	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
-
-/turf/simulated/floor/exoplanet/mineral/adhomai
-	name = "icy rock"
-	icon = 'icons/turf/flooring/ice_cavern.dmi'
-	icon_state = "icy_rock"
-	temperature = T0C - 5
-	has_edge_icon = FALSE
-
-/turf/simulated/floor/exoplanet/mineral/adhomai/Initialize(mapload)
-	. = ..()
-	icon_state = "icy_rock[rand(1,19)]"

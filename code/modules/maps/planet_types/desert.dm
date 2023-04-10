@@ -57,10 +57,6 @@
 		if(prob(10))
 			new/obj/structure/quicksand(T)
 
-/area/exoplanet/desert
-	ambience = list('sound/effects/wind/desert0.ogg','sound/effects/wind/desert1.ogg','sound/effects/wind/desert2.ogg','sound/effects/wind/desert3.ogg','sound/effects/wind/desert4.ogg','sound/effects/wind/desert5.ogg')
-	base_turf = /turf/simulated/floor/exoplanet/desert
-
 /obj/structure/quicksand
 	name = "sand"
 	icon = 'icons/obj/quicksand.dmi'

@@ -15,9 +15,6 @@
 /obj/effect/overmap/visitable/sector/exoplanet/grass/grove/get_surface_color()
 	return "#5C7F34"
 
-/area/exoplanet/grass/grove
-	base_turf = /turf/simulated/floor/exoplanet/grass/grove
-
 /datum/random_map/noise/exoplanet/grass/grove
 	descriptor = "grove exoplanet"
 	smoothing_iterations = 2

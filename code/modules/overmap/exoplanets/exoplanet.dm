@@ -434,8 +434,3 @@
 			colors += gas_data.tile_overlay_color[g]
 	if(colors.len)
 		return MixColors(colors)
-
-/area/exoplanet
-	name = "\improper Planetary surface"
-	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
-	always_unpowered = 1

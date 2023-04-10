@@ -36,8 +36,3 @@
 	flora_prob = 0
 	flora_diversity = 0
 	fauna_prob = 0
-
-/area/exoplanet/lava
-	name = "\improper Planetary surface"
-	ambience = AMBIENCE_LAVA
-	base_turf = /turf/unsimulated/floor/asteroid/basalt

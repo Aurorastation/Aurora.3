@@ -191,8 +191,8 @@
 			var/atom/B = GEN_LANDSCAPE(fauna, coord_to_str) ? pickweight(selected_biome.avail_fauna) : null
 			if(B) new B(gen_turf)
 
-		if(length(selected_biome.grass_types))
-			var/atom/C = pickweight(selected_biome.grass_types)
+		if(length(selected_biome.avail_grass))
+			var/atom/C = pickweight(selected_biome.avail_grass)
 			new C(gen_turf)
 
 		CHECK_TICK
