@@ -4,6 +4,7 @@
 	living_mob_list -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
+	lose_hearing_sensitivity()
 	if(client)
 		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
 			qdel(spell_master)
