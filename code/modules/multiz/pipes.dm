@@ -59,7 +59,7 @@
 
 /obj/machinery/atmospherics/pipe/zpipe/hide(var/i)
 	if(istype(loc, /turf/simulated))
-		invisibility = i ? 101 : 0
+		set_invisibility(i ? 101 : 0)
 	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/zpipe/process()

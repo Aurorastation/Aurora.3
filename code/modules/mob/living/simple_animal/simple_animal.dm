@@ -968,6 +968,10 @@
 		if(rand(25))
 			to_chat(attacker, SPAN_WARNING("Your attack has no obvious effect on \the [src]'s [description]!"))
 
+/mob/living/simple_animal/get_speech_bubble_state_modifier()
+	return ..() || "rough"
+
+
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT
 #undef BLOOD_MEDIUM

@@ -292,5 +292,5 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/source
 			splatter.blood_DNA[blood_data["blood_DNA"]] = "O+"
 
 	splatter.fluorescent  = 0
-	splatter.invisibility = 0
+	splatter.set_invisibility(0)
 	return splatter
