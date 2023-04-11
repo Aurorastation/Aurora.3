@@ -356,7 +356,7 @@ var/list/gear_datums = list()
 
 	else if(href_list["select_category"])
 		current_tab = href_list["select_category"]
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return TOPIC_REFRESH
 	else if(href_list["clear_loadout"])
 		pref.gear.Cut()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -437,6 +437,11 @@ var/list/gear_datums = list()
 			gt.tweak_gear_data(metadata["[gt]"], gd, H)
 		else
 			gt.tweak_gear_data(gt.get_default(), gd, H)
+	if(ispath(gd.path, /obj/item/organ/external))
+		var/obj/item/organ/external/external_aug = gd.path
+		var/obj/item/organ/external/replaced_limb = H.get_organ(initial(external_aug.limb_name))
+		replaced_limb.droplimb(TRUE, DROPLIMB_EDGE, FALSE)
+		qdel(replaced_limb)
 	var/item = new gd.path(gd.location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		if(metadata["[gt]"])

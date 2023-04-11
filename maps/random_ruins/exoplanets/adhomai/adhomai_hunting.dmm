@@ -1,0 +1,1565 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bp" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"bP" = (
+/obj/structure/flora/bush/adhomai,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"bR" = (
+/obj/structure/flora/grass/adhomai,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"ey" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/ramp,
+/area/adhomai_hunting)
+"eB" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/yellow,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"eV" = (
+/obj/structure/closet/crate/drop,
+/obj/item/trap,
+/obj/item/trap,
+/obj/item/trap,
+/obj/item/trap,
+/obj/item/trap,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"he" = (
+/obj/structure/window/basic{
+	dir = 4
+	},
+/obj/structure/curtain/black,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"hD" = (
+/obj/structure/table/wood,
+/obj/item/toy/plushie/farwa,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"jh" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"jk" = (
+/obj/structure/flora/tree/adhomai,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"jy" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"jU" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"kH" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/commanded/dog/harron{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"kO" = (
+/obj/structure/table/wood,
+/obj/item/storage/chewables/tobacco/bad,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"kX" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/storage/pill_bottle/dice/tajara,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"le" = (
+/obj/structure/window/basic{
+	dir = 8
+	},
+/obj/structure/curtain/black,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"lh" = (
+/obj/structure/bed/stool/chair/sofa/right/brown{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomai_hunting)
+"lk" = (
+/obj/structure/bed/stool/wood,
+/obj/effect/ghostspawpoint{
+	identifier = "adhomai_hunter";
+	name = "igs - adhomai_hunter"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"lz" = (
+/obj/structure/closet/crate/medical,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/splint/full,
+/obj/item/stack/medical/splint/full,
+/obj/item/storage/firstaid/empty,
+/obj/item/stack/medical/ointment,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"lT" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/reagent_containers/food/drinks/cans/adhomai_milk,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"lX" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze,
+/obj/item/flame/lighter/adhomai{
+	pixel_x = 7
+	},
+/obj/item/clothing/mask/smokable/cigarette/adhomai{
+	pixel_x = -5
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"pI" = (
+/obj/structure/closet/crate/drop,
+/obj/item/device/binoculars,
+/obj/item/device/binoculars,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"rg" = (
+/turf/simulated/wall/wood,
+/area/adhomai_hunting)
+"rO" = (
+/obj/structure/bed/stool/chair/sofa/brown{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomai_hunting)
+"rT" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"sU" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/material/knife/bayonet,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"uc" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/deck/tarot/adhomai,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"vq" = (
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"wa" = (
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "An Adhomian television. Due to bad reception, there is nothing to watch.";
+	icon = 'icons/obj/computer.dmi';
+	icon_state = "television";
+	name = "adhomian television"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"wj" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/seeds/mtearseed,
+/obj/item/seeds/nifberries,
+/obj/item/seeds/sugartree,
+/obj/item/seeds/earthenroot,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"xH" = (
+/obj/structure/flora/rock/ice,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"zC" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"Av" = (
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Cy" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"CX" = (
+/mob/living/simple_animal/hostile/commanded/dog/harron{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Dt" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"Dx" = (
+/obj/structure/closet/cabinet,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/clothing/suit/storage/tajaran/hunting,
+/obj/item/device/flashlight/heavy,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"DP" = (
+/obj/structure/cult/tome{
+	desc = "A stone altar dedicated to Ma'take, the god of hunting.";
+	icon_state = "churchaltar";
+	name = "altar"
+	},
+/obj/item/clothing/accessory/tajaran/charm/steel/silver{
+	desc = "An expensive silver charm of tajaran origin. This one has the arrowhead of Ma'take";
+	name = "mata'ke charm"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"DY" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"EB" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Hj" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"HC" = (
+/obj/machinery/appliance/cooker/oven/adhomai,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"Im" = (
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"IE" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"KI" = (
+/mob/living/simple_animal/hostile/commanded/dog/harron{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Lc" = (
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomai_hunting)
+"Nd" = (
+/obj/structure/table/wood/gamblingtable,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"Ne" = (
+/obj/effect/ghostspawpoint{
+	identifier = "matake_hunter";
+	name = "igs - matake_hunter"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"Sm" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"TL" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"Vg" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/deck/cards,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"Vo" = (
+/obj/structure/table/wood,
+/obj/item/material/hatchet/butch,
+/obj/item/material/kitchen/utensil/knife,
+/obj/item/material/kitchen/utensil/knife,
+/obj/item/material/kitchen/utensil/fork,
+/obj/item/material/kitchen/utensil/fork,
+/obj/item/material/kitchen/utensil/spoon,
+/obj/item/material/kitchen/utensil/spoon,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 5
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -5
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"VA" = (
+/turf/simulated/floor/exoplanet/ice,
+/area/exoplanet/adhomai)
+"VL" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"VU" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/ramp,
+/area/adhomai_hunting)
+"Xy" = (
+/obj/structure/bed/stool/chair/sofa/left/brown{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomai_hunting)
+"XA" = (
+/obj/structure/table/wood,
+/obj/item/flame/candle/waxcandles{
+	pixel_y = 7;
+	pixel_x = -5
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"Yx" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"YA" = (
+/obj/structure/closet/crate/drop,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
+"YT" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+
+(1,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+bP
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(2,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+jk
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(3,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(4,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+jk
+Hj
+Hj
+Hj
+bR
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(5,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+jk
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+xH
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bR
+Hj
+Hj
+Hj
+Hj
+"}
+(6,1,1) = {"
+Hj
+Hj
+bR
+Hj
+Hj
+xH
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bR
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(7,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(8,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bR
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bR
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bR
+"}
+(9,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+rg
+rg
+le
+rg
+EB
+EB
+EB
+Hj
+vq
+Hj
+Hj
+Hj
+jk
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(10,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bR
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+rg
+eB
+Im
+rg
+Dt
+Hj
+Hj
+Hj
+Av
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(11,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+rg
+rg
+le
+rg
+rg
+rg
+TL
+Im
+rg
+EB
+EB
+EB
+Hj
+Hj
+Hj
+bR
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(12,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+rg
+jU
+Im
+Sm
+zC
+rg
+Dx
+Im
+rg
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(13,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+rg
+rg
+rg
+rg
+HC
+Im
+Im
+Vo
+rg
+rg
+VL
+rg
+wj
+Hj
+Hj
+Hj
+Hj
+bP
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(14,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+rg
+rg
+Im
+Sm
+VU
+Im
+Im
+Im
+Im
+Im
+Sm
+Im
+rg
+rg
+rg
+rg
+rg
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(15,1,1) = {"
+Hj
+Hj
+Hj
+bP
+Hj
+rg
+XA
+Im
+jy
+Im
+Im
+lk
+Vg
+Nd
+lk
+Im
+Im
+VL
+Im
+Im
+TL
+rg
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bR
+Hj
+"}
+(16,1,1) = {"
+Hj
+bR
+Hj
+Hj
+Hj
+rg
+DP
+Ne
+jy
+Im
+Im
+lk
+sU
+kX
+lk
+Im
+Im
+rg
+Dx
+Im
+Yx
+rg
+Hj
+Hj
+Hj
+Hj
+Hj
+jk
+Hj
+Hj
+Hj
+Hj
+"}
+(17,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+rg
+XA
+Im
+jy
+lz
+Im
+lk
+uc
+lT
+lk
+Im
+DY
+rg
+rg
+he
+rg
+rg
+Hj
+Hj
+bP
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(18,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+rg
+rg
+Im
+IE
+ey
+Im
+Im
+Im
+Im
+Im
+Im
+Im
+VL
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(19,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+rg
+rg
+rg
+rg
+pI
+eV
+YA
+Im
+Im
+Im
+lX
+rg
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(20,1,1) = {"
+Hj
+bR
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bp
+rg
+rg
+rg
+rg
+hD
+Im
+Lc
+lh
+rg
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(21,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bR
+Hj
+bp
+Hj
+Hj
+KI
+rg
+wa
+Im
+Lc
+rO
+rg
+Hj
+Hj
+Hj
+Hj
+bR
+Hj
+bR
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(22,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+KI
+Hj
+jh
+rg
+kO
+IE
+Lc
+Xy
+rg
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bR
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(23,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+VA
+Hj
+Hj
+Hj
+bp
+Hj
+Hj
+CX
+rg
+rg
+rg
+he
+rg
+rg
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(24,1,1) = {"
+Hj
+Hj
+Hj
+VA
+VA
+VA
+Hj
+Hj
+Cy
+kH
+rT
+rT
+YT
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(25,1,1) = {"
+Hj
+Hj
+Hj
+VA
+VA
+VA
+VA
+Hj
+Hj
+Hj
+Hj
+Hj
+bR
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(26,1,1) = {"
+Hj
+Hj
+VA
+VA
+VA
+VA
+Hj
+Hj
+Hj
+xH
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bR
+Hj
+Hj
+Hj
+bR
+Hj
+Hj
+Hj
+jk
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(27,1,1) = {"
+Hj
+bR
+Hj
+VA
+VA
+VA
+VA
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(28,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+VA
+VA
+VA
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bR
+Hj
+"}
+(29,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+VA
+VA
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bR
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+jk
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(30,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+bP
+Hj
+Hj
+Hj
+Hj
+Hj
+bP
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(31,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(32,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}

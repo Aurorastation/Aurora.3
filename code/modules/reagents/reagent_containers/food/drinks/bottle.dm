@@ -148,7 +148,7 @@
 	// You are going to knock someone out for longer if they are not wearing a helmet.
 	var/weaken_duration = 0
 	if(blocked < 100)
-		weaken_duration = smash_duration + min(0, force - target.get_blocked_ratio(hit_zone, BRUTE) * 100 + 10)
+		weaken_duration = smash_duration + min(0, force - target.get_blocked_ratio(hit_zone, DAMAGE_BRUTE) * 100 + 10)
 
 	var/mob/living/carbon/human/H = target
 	if(istype(H) && H.headcheck(hit_zone))
@@ -563,7 +563,7 @@
 	icon_state = "messa_mead"
 	center_of_mass = list("x" = 16,"y" = 5)
 	desc_extended = "A fermented alcoholic drink made from earthen-root juice and Messa's tears leaves. It has a relatively low alcohol content and characteristic honey flavor. \
-	Messa's Mead is one of the most popular alcoholic drinks in Adhomai; it is consumed both during celebrations and daily meals. Any proper Adhomian bar will have at least a keg or \
+	Messa's Mead is one of the most popular alcoholic drinks on Adhomai; it is consumed both during celebrations and daily meals. Any proper Adhomian bar will have at least a keg or \
 	some bottles of the mead."
 	reagents_to_add = list(/singleton/reagent/alcohol/messa_mead = 100)
 

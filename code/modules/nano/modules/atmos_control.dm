@@ -18,9 +18,11 @@
 	else if(req_one_access)
 		log_debug("\The [src] given an unepxected req_one_access: [req_one_access]")
 
+	var/datum/computer_file/program/H = host
+	var/obj/computer = H.computer
 	if(monitored_alarm_ids)
 		for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
-			if(alarm.alarm_id && (alarm.alarm_id in monitored_alarm_ids))
+			if(alarm.alarm_id && (alarm.alarm_id in monitored_alarm_ids) && AreConnectedZLevels(computer.z, alarm.z))
 				monitored_alarms += alarm
 		// machines may not yet be ordered at this point
 		sortTim(monitored_alarms, GLOBAL_PROC_REF(cmp_alarm), FALSE)

@@ -342,7 +342,7 @@
 
 	var/list/victims = list()
 	for(var/mob/living/carbon/human/T in hearers(4, src) - src)
-		if(T.get_hearing_protection())
+		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 			continue
 		if(!vampire_can_affect_target(T, 0))
 			continue

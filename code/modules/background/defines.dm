@@ -59,6 +59,8 @@
 #define RELIGION_ETERNAL "The Eternal"
 #define RELIGION_KSSHR "Ksshr"
 #define RELIGION_SHRKH "Shrkh"
+#define RELIGION_MADA "Maraka"
+#define RELIGION_GLEANERS "Lights Accord"
 
 //accent defines
 
@@ -107,6 +109,7 @@
 #define ACCENT_ANTILLIA "Port Antillia"
 #define ACCENT_XANU "Xanu"
 #define ACCENT_SANCOLETTE "San Colette"
+#define ACCENT_BURZSIA "Burzsia"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"
@@ -128,6 +131,7 @@
 #define ACCENT_TRAD_NOBLE "Noble Traditional"
 #define ACCENT_TRAD_PEASANT "Peasant Traditional"
 #define ACCENT_WASTELAND "Deep Wastelander"
+#define ACCENT_AUTAKH "Aut'akh Dialect"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 #define ACCENT_HOMEWORLD "Qerrbalak"
@@ -139,11 +143,13 @@
 #define ACCENT_SKRELLSOL "Solarian Skrell Standard"
 #define ACCENT_SKRELLCOC "Coalition Skrell Standard"
 #define ACCENT_SKRELLCETI "Biesellite Skrell Standard"
+#define ACCENT_SKRELLEUM "Nral'Daaq"
 #define ACCENT_SROM "Inner Voice"
 #define ACCENT_TATTUQIG "Tattuqig"
 
 #define ACCENT_ROOTSONG "Rootsong"
 #define ACCENT_VOIDSONG "Voidsong"
+#define ACCENT_ANCIENTSONG "Ancientsong"
 
 #define ACCENT_TTS "Text-to-Speech"
 

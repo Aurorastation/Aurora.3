@@ -232,17 +232,38 @@
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 	armor = list(melee = ARMOR_MELEE_SMALL)
 
+/obj/item/clothing/under/tajaran/nka_uniform/commander
+	name = "imperial adhomian army officer uniform"
+	desc = "A military uniform used by the officers of the New Kingdom of Adhomai's army."
+	icon_state = "nka_commander"
+	item_state = "nka_commander"
+	starting_accessories = null
+
+/obj/item/clothing/under/tajaran/nka_uniform/sailor
+	name = "royal navy sailor uniform"
+	desc = "A military uniform used by the sailor of the New Kingdom of Adhomai's navy."
+	icon_state = "nka_sailor"
+	item_state = "nka_sailor"
+
 /obj/item/clothing/under/tajaran/consular
 	name = "people's republic consular uniform"
 	desc = "An olive uniform used by the diplomatic service of the People's Republic of Adhomai."
 	icon_state = "pra_consular"
 	item_state = "pra_consular"
 
+/obj/item/clothing/under/tajaran/consular/female
+	icon_state = "pra_con_f"
+	item_state = "pra_con_f"
+
 /obj/item/clothing/under/tajaran/consular/dpra
 	name = "democratic people's republic consular uniform"
 	desc = "A grey uniform used by the diplomatic service of the Democratic People's Republic of Adhomai."
 	icon_state = "dpra_consular"
 	item_state = "dpra_consular"
+
+/obj/item/clothing/under/tajaran/consular/dpra/female
+	icon_state = "dpra_con_f"
+	item_state = "dpra_con_f"
 
 /obj/item/clothing/under/tajaran/consular/nka
 	name = "new kingdom consular uniform"
@@ -282,7 +303,7 @@
 
 /obj/item/clothing/under/tajaran/nka_merchant_navy
 	name = "her majesty's mercantile flotilla crew uniform"
-	desc = "An uniform used by the crew of the New Kingdom's merchant space ships. It is clearly inspired on the ones used back in Adhomai."
+	desc = "An uniform used by the crew of the New Kingdom's merchant space ships. It is clearly inspired by the ones used back on Adhomai."
 	icon_state = "nka_merchant_navy"
 	item_state = "nka_merchant_navy"
 
@@ -353,3 +374,31 @@
 	item_state = "tesla_body_jumpsuit"
 	species_restricted = list(BODYTYPE_TESLA_BODY)
 	sprite_sheets = list(BODYTYPE_TESLA_BODY = 'icons/mob/species/tajaran/tesla_body/uniform.dmi')
+
+/obj/item/clothing/under/tajaran/archeologist
+	name = "archaeologist uniform"
+	desc = "A rugged uniform used by Adhomian archaeologists. It is already covered in dirt and ancient dust."
+	icon_state = "explorer_uniform"
+	item_state = "explorer_uniform"
+
+/obj/item/clothing/under/tajaran/army_commissar
+	name = "army commissar uniform"
+	desc = "A military uniform used by Party Commissars attached to military units."
+	desc_extended = "Party Commissars are high ranking members of the Party of the Free Tajara under the Leadership of Hadii attached to army units, who ensures that soldiers and \
+	their commanders follow the principles of Hadiism. Their duties are not only limited to enforcing the republican ideals among the troops and reporting possible subversive elements, \
+	they are expected to display bravery in combat and lead by example."
+	icon_state = "pracommisar"
+	item_state = "pracommisar"
+	starting_accessories = (/obj/item/clothing/accessory/holster/hip)
+
+/obj/item/clothing/under/tajaran/psis
+	name = "people's strategic intelligence service uniform"
+	desc = "An uniform used by the agents of the People's Strategic Intelligence Service. The sight of this uniform is feared by most Tajara."
+	desc_extended = "The People's Strategic Intelligence service is the main intelligence agency of the People's Republic. In the wake of the revolution that had won the species their independence, \
+	the budding government recognized the need for covert operations. Several agents and informants are employed by the PSIS, both in domestic and foreign theaters. The agency makes use of \
+	espionage, sabotage, assassination, interrogation, blackmail, and all other short of subterfuge, during their operations. Subversive elements within the People's Republican are dealt with \
+	quickly, usually through night raids and abductions conducted with aid of black unmarked cars. Tajara residing in other systems are not truly safe from the Intelligence Service, as they are \
+	known to deploy their agents against off-world targets. Republican spies, enforces and collaborators are present in Mendell City's district six, carrying out orders or watching their fellow Tajara."
+	icon_state = "psis"
+	item_state = "psis"
+	starting_accessories = (/obj/item/clothing/accessory/holster/hip)

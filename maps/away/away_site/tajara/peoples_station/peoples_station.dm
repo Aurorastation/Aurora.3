@@ -15,6 +15,18 @@
 /obj/effect/overmap/visitable/sector/peoples_station
 	name = "People's Space Station"
 	desc = "Built in the interwar period, the People's Space Station bears the prestige of being the first space installation designed, constructed, and manned by Tajara."
+
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "battlestation"
+	color = "#8C8A81"
+	static_vessel = TRUE
+	generic_object = FALSE
+	scanimage = "pss.png"
+	designer = "People's Republic of Adhomai"
+	volume = "101 meters length, 115 meters beam/width, 32 meters vertical height"
+	weapons = "Dual extruding starboard-mounted medium and small caliber ballistic armament, two port obscured flight craft bays"
+	sizeclass = "Armed military surveillance and waypoint station"
+
 	initial_generic_waypoints = list(
 		"nav_peoples_station_ship_1",
 		"nav_peoples_station_ship_1",
@@ -24,8 +36,14 @@
 		"Orbital Fleet Fang" = list("nav_hangar_peoples_station_fang"),
 		"Intrepid" = list("nav_peoples_station_dockintrepid")
 	)
-	light_power = 3
-	light_range = 2
+	comms_support = TRUE
+	comms_name = "people's station"
+
+/obj/effect/overmap/visitable/sector/peoples_station/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "pss")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/nav_peoples_station/dockintrepid
 	name = "People's Space Station Intrepid Docking"
@@ -52,7 +70,7 @@
 	desc = "An interceptor used by the Orbital Fleet in its carriers and stations."
 	shuttle = "Orbital Fleet Fang"
 	icon_state = "shuttle"
-	moving_state = "shuttle_red_moving"
+	moving_state = "shuttle_moving"
 	max_speed = 1/(1 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 3000

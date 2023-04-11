@@ -7,7 +7,7 @@
 		return
 
 	if (!establish_db_connection(dbcon))
-		error("Ban database connection failure while attempting to mirror. Key passed for mirror handling: [ckey].")
+		log_error("Ban database connection failure while attempting to mirror. Key passed for mirror handling: [ckey].")
 		log_misc("Ban database connection failure while attempting to mirror. Key passed for mirror handling: [ckey].")
 		return
 
@@ -49,7 +49,7 @@
 		return
 
 	else
-		error("No ban retreived while attempting to handle ban mirroring. Passed ban_id: [ban_id], ckey: [ckey].")
+		log_error("No ban retreived while attempting to handle ban mirroring. Passed ban_id: [ban_id], ckey: [ckey].")
 		log_misc("No ban retreived while attempting to handle ban mirroring. Passed ban_id: [ban_id], ckey: [ckey].")
 		return
 
@@ -58,7 +58,7 @@
 		return null
 
 	if (!establish_db_connection(dbcon))
-		error("Ban database connection failure while attempting to check mirrors. Key passed for mirror checking: [ckey].")
+		log_error("Ban database connection failure while attempting to check mirrors. Key passed for mirror checking: [ckey].")
 		log_misc("Ban database connection failure while attempting to check mirrors. Key passed for mirror checking: [ckey].")
 		return null
 

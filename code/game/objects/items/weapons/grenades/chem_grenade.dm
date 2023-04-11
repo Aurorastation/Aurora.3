@@ -15,6 +15,8 @@
 	var/list/allowed_containers = list(/obj/item/reagent_containers/glass/beaker, /obj/item/reagent_containers/glass/bottle)
 	var/affected_area = 3
 
+	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 300)
+
 /obj/item/grenade/chem_grenade/Initialize()
 	. = ..()
 	create_reagents(1000)
@@ -176,7 +178,7 @@
 		C.drop_from_inventory(src)
 		C.throw_mode_off()
 
-	invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
+	set_invisibility(INVISIBILITY_MAXIMUM) //Why am i doing this?
 	//To make sure all reagents can work
 	//correctly before deleting the grenade.
 	QDEL_IN(src, 50)
@@ -189,6 +191,8 @@
 	allowed_containers = list(/obj/item/reagent_containers/glass)
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	affected_area = 4
+
+	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 500)
 
 /obj/item/grenade/chem_grenade/metalfoam
 	name = "metal-foam grenade"

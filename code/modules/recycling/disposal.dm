@@ -679,7 +679,7 @@
 	if (hasmob && prob(3))
 		for(var/mob/living/H in src)
 			if(!istype(H,/mob/living/silicon/robot/drone)) //Drones use the mailing code to move through the disposal system,
-				H.take_overall_damage(20, 0, DAM_SHARP, "Blunt Trauma")//horribly maim any living creature jumping down disposals.  c'est la vie
+				H.take_overall_damage(20, 0, DAMAGE_FLAG_SHARP, "Blunt Trauma")//horribly maim any living creature jumping down disposals.  c'est la vie
 
 	var/obj/structure/disposalpipe/curr = loc
 	if (!loc)
@@ -860,7 +860,7 @@
 // hide called by levelupdate if turf intact status changes
 // change visibility status and force update of icon
 /obj/structure/disposalpipe/hide(var/intact)
-	invisibility = intact ? 101: 0	// hide if floor is intact
+	set_invisibility(intact ? 101: 0)	// hide if floor is intact
 
 	// expel the held objects into a turf
 	// called when there is a break in the pipe
@@ -923,7 +923,7 @@
 				var/obj/structure/disposalpipe/broken/P = new(src.loc)
 				P.set_dir(D)
 
-	src.invisibility = 101	// make invisible (since we won't delete the pipe immediately)
+	set_invisibility(101)	// make invisible (since we won't delete the pipe immediately)
 	var/obj/disposalholder/H = locate() in src
 	if(H)
 		// holder was present

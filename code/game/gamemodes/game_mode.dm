@@ -29,8 +29,8 @@ var/global/list/additional_antag_types = list()
 
 	var/station_was_nuked = 0                // See nuclearbomb.dm and malfunction.dm.
 	var/explosion_in_progress = 0            // Sit back and relax
-	var/waittime_l = 600                     // Lower bound on time before intercept arrives (in tenths of seconds)
-	var/waittime_h = 1800                    // Upper bound on time before intercept arrives (in tenths of seconds)
+	var/waittime_l = 60 SECONDS                     // Lower bound on time before intercept arrives (in tenths of seconds)
+	var/waittime_h = 180 SECONDS                    // Upper bound on time before intercept arrives (in tenths of seconds)
 
 	var/event_delay_mod_moderate             // Modifies the timing of random events.
 	var/event_delay_mod_major                // As above.
@@ -276,6 +276,9 @@ var/global/list/additional_antag_types = list()
 
 	spawn (ROUNDSTART_LOGOUT_REPORT_TIME)
 		display_logout_report()
+
+	var/welcome_delay = rand(waittime_l, waittime_h)
+	addtimer(CALLBACK(current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)
 
 	//Assign all antag types for this game mode. Any players spawned as antags earlier should have been removed from the pending list, so no need to worry about those.
 	for(var/datum/antagonist/antag in antag_templates)

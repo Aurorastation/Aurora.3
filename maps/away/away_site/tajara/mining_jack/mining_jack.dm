@@ -15,6 +15,11 @@
 /obj/effect/overmap/visitable/sector/tajara_mining_jack
 	name = "adhomian mining outpost"
 	desc = "An outpost used by the crew of adhomian mining jacks."
+
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "outpost"
+	color = "#DAA06D"
+
 	initial_generic_waypoints = list(
 		"nav_tajara_mining_jack_1",
 		"nav_tajara_mining_jack_2",
@@ -24,7 +29,7 @@
 		"Mining Jack" = list("nav_hangar_tajara_mining_jack")
 	)
 	comms_support = TRUE
-	comms_name = "adhomian"
+	comms_name = "adhomian mining"
 
 /obj/effect/shuttle_landmark/tajara_mining_jack
 	base_turf = /turf/space
@@ -49,8 +54,13 @@
 	class = "ACV"
 	desc = "A modified skipjack used by Tajaran miners. These models have been modified to mine as much as possible with a small crew. Due to its limited fuel supply, it usually does not go too far from its home base."
 	shuttle = "Mining Jack"
-	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#DAA06D")
+	designer = "Independent/no designation"
+	volume = "18 meters length, 15 meters beam/width, 7 meters vertical height"
+	sizeclass = "Multi-purpose Civilian Skipjack"
+	shiptype = "Short-term industrial prospecting, raw goods transport"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

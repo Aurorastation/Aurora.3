@@ -28740,7 +28740,7 @@
 /obj/item/clothing/head/surgery/pmc,
 /obj/item/clothing/head/surgery/pmc,
 /obj/item/clothing/head/surgery/pmc,
-/obj/item/clothing/suit/apron/surgery,
+/obj/item/clothing/accessory/apron/surgery,
 /obj/item/bodybag,
 /obj/item/bodybag,
 /obj/item/bodybag,
@@ -29758,7 +29758,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -40970,7 +40970,7 @@
 	},
 /area/centcom/legion)
 "wMw" = (
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/trauma,
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/o2,
 /obj/item/storage/firstaid/toxin,

@@ -40,7 +40,7 @@
 	record_prefix = "Medical "
 
 	required_access_run = list(access_medical_equip, access_forensics_lockers, access_robotics, access_hop)
-	required_access_download = list(access_heads, access_medical_equip, access_forensics_lockers)
+	required_access_download = list(access_heads, access_medical_equip, access_forensics_lockers, access_robotics)
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_MEDICAL | RECORD_VIRUS

@@ -26,8 +26,9 @@
 	name = "Einstein Engines Research Ship"
 	class = "EERV"
 	desc = "A research ship belonging to Einstein Engines, the Stellar Corporate Conglomerate's main competitor."
-	icon_state = "ship_green"
-	moving_state = "ship_green_moving"
+	icon_state = "light_cruiser"
+	moving_state = "light_cruiser_moving"
+	colors = list("#18e9b5", "#6aa9dd")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -41,6 +42,8 @@
 		"nav_ee_spy_ship_1",
 		"nav_ee_spy_ship_2"
 	)
+
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/ee_spy_ship/New()
 	designation = "[pick("Brilliance", "Oppenheimer", "Fermi", "Slingshot", "Shanghai", "Bern", "Hadron", "Positron", "Invention", "Nikola Tesla", "Quark")]"
@@ -70,8 +73,9 @@
 	designation = "Canary"
 	desc = "A shuttle used by Einstein Engines. For research purposes only."
 	shuttle = "Einstein Engines Shuttle"
-	icon_state = "shuttle_green"
-	moving_state = "shuttle_green_moving"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#18e9b5", "#6aa9dd")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

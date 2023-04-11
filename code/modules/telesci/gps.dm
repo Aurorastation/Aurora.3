@@ -50,10 +50,10 @@ var/list/GPS_list = list()
 	update_icon()
 
 	if(held_by)
-		moved_event.register(held_by, src, /obj/item/device/gps/proc/update_position)
+		moved_event.register(held_by, src, PROC_REF(update_position))
 	if(implanted_into)
-		moved_event.register(implanted_into, src, /obj/item/device/gps/proc/update_position)
-	moved_event.register(src, src, /obj/item/device/gps/proc/update_position)
+		moved_event.register(implanted_into, src, PROC_REF(update_position))
+	moved_event.register(src, src, PROC_REF(update_position))
 
 	for(var/gps in GPS_list)
 		tracking += GPS_list[gps]["tag"]
@@ -86,7 +86,7 @@ var/list/GPS_list = list()
 	if(held_by)
 		moved_event.unregister(held_by, src)
 	held_by = user
-	moved_event.register(user, src, /obj/item/device/gps/proc/update_position)
+	moved_event.register(user, src, PROC_REF(update_position))
 	update_icon()
 
 /obj/item/device/gps/dropped(var/mob/user)
@@ -341,15 +341,18 @@ var/list/GPS_list = list()
 	update_icon()
 
 	if(held_by)
-		moved_event.register(held_by, src, /obj/item/device/gps/proc/update_position)
+		moved_event.register(held_by, src, PROC_REF(update_position))
 	if(implanted_into)
-		moved_event.register(implanted_into, src, /obj/item/device/gps/proc/update_position)
-	moved_event.register(src, src, /obj/item/device/gps/proc/update_position)
+		moved_event.register(implanted_into, src, PROC_REF(update_position))
+	moved_event.register(src, src, PROC_REF(update_position))
 
 	for(var/gps in GPS_list)
 		tracking += GPS_list[gps]["tag"]
 
 	START_PROCESSING(SSprocessing, src)
+
+	initialized = TRUE
+	return INITIALIZE_HINT_NORMAL
 
 /obj/item/device/gps/stationary/attack_hand() // Don't let users pick it up.
 	return

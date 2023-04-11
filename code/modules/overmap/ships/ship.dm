@@ -13,11 +13,23 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship
 	name = "generic ship"
 	desc = "Space faring vessel."
-	icon_state = "ship"
+	icon = 'icons/obj/overmap/overmap_ships.dmi'
+	icon_state = "generic"
+	requires_contact = TRUE
 	obfuscated_name = "unidentified vessel"
+	sensor_range_override = FALSE
+	hide_from_reports = TRUE
+	generic_object = FALSE
 	var/moving_state = "ship_moving"
 
-	var/vessel_mass = 10000             //tonnes, arbitrary number, affects acceleration provided by engines
+//RP fluff details to appear on scan readouts for mobile objects.
+	var/propulsion = "Chemical Composite Gas Thrust" 	//Slower than light propulsion method. No variation in this currently exists yet except the Horizon which heats its gas.
+	var/drive = "None equipped, FTL incapable" 			//Faster than light propulsion method, will usually be warp drives for third party ships and nothing for shuttles
+
+	var/list/known_ships = list()		//List of ships known at roundstart - put types here.
+	var/base_sensor_visibility
+
+	vessel_mass = 10000             	//tonnes, arbitrary number, affects acceleration provided by engines
 	var/vessel_size = SHIP_SIZE_LARGE	//arbitrary number, affects how likely are we to evade meteors
 	var/max_speed = 1/(1 SECOND)        //"speed of light" for the ship, in turfs/tick.
 	var/min_speed = 1/(2 MINUTES)       // Below this, we round speed to 0 to avoid math errors.
@@ -35,16 +47,20 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	var/thrust_limit = 1  //global thrust limit for all engines, 0..1
 	var/halted = 0        //admin halt or other stop.
 
-	var/list/consoles
-
 	comms_support = TRUE
+
+	var/list/colors = list() //Pick a color from this list on init
 
 /obj/effect/overmap/visitable/ship/Initialize()
 	. = ..()
 	glide_size = world.icon_size
 	min_speed = round(min_speed, SHIP_MOVE_RESOLUTION)
 	max_speed = round(max_speed, SHIP_MOVE_RESOLUTION)
+	base_sensor_visibility = round((vessel_mass/SENSOR_COEFFICENT),1)
 	SSshuttle.ships += src
+
+	if(LAZYLEN(colors))
+		color = pick(colors)
 
 /obj/effect/overmap/visitable/ship/find_z_levels(var/fore_direction)
 	. = ..(fore_dir)
@@ -70,6 +86,25 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	. = ..()
 	if(!is_still())
 		. += "<br>Heading: [dir2angle(get_heading())], speed [get_speed() * 1000]"
+	if(instant_contact)
+		. += "<br>It is broadcasting a distress signal."
+	. += "<hr>"
+	. += "<br><center><large><b>Scan Details</b></large>"
+	. += "<br><large><b>[name]</b></large></center>"
+	. += "<br><small><b>Estimated Mass:</b> [vessel_mass]"
+	. += "<br><b>Projected Volume:</b> [volume]"
+	. += "<br><b>STL Propulsion:</b> [propulsion]"
+	. += "<br><b>FTL Drive:</b> [drive]</small>"
+	. += "<hr>"
+	. += "<br><center><b>Native Database Specifications</b>"
+	. += "<br><img src = [scanimage]></center>"
+	. += "<br><small><b>Manufacturer:</b> [designer]"
+	. += "<br><b>Class Designation:</b> [sizeclass]"
+	. += "<br><b>Designated Purpose:</b> [shiptype]"
+	. += "<br><b>Weapons Estimation:</b> [weapons]</small>"
+	. += "<hr>"
+	. += "<br><center><b>Native Database Notes</b></center>"
+	. += "<br><small>[desc]</small>"
 
 //Projected acceleration based on information from engines
 /obj/effect/overmap/visitable/ship/proc/get_acceleration()
@@ -165,6 +200,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		if(newloc && loc != newloc)
 			Move(newloc)
 			handle_wraparound()
+	sensor_visibility = min(round(base_sensor_visibility + get_speed_sensor_increase(), 1), 100)
 
 /obj/effect/overmap/visitable/ship/update_icon()
 	pixel_x = position[1] * (world.icon_size/2)
@@ -305,6 +341,9 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship/signal_hit(var/list/hit_data)
 	for(var/obj/machinery/computer/ship/targeting/TR in consoles)
 		TR.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(TR)))] Hit confirmed on [hit_data["target_name"]] in [hit_data["target_area"]] at coordinates [hit_data["coordinates"]]."), range = 2)
+
+/obj/effect/overmap/visitable/ship/proc/get_speed_sensor_increase()
+	return min(get_speed() * 1000, 50) //Engines should never increase sensor visibility by more than 50.
 
 #undef MOVING
 #undef SANITIZE_SPEED

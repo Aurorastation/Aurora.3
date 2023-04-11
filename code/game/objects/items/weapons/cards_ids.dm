@@ -86,25 +86,26 @@ var/const/NO_EMAG_ACT = -50
 
 	return 1
 
+#define ID_CARD_UNSET "\[UNSET\]"
+
 /obj/item/card/id
 	name = "identification card"
-	desc = "A card used to provide ID and determine access across the station."
+	desc = "A card used to identify people and determine access."
 	icon_state = "id"
 	item_state = "card-id"
 	overlay_state = "id"
 
 	var/list/access = list()
-	var/registered_name = "Unknown" // The name registered_name on the card
+	var/registered_name = ID_CARD_UNSET // The name registered_name on the card
 	var/datum/weakref/mob_id
 	slot_flags = SLOT_ID
 
-	var/age = "\[UNSET\]"
-	var/blood_type = "\[UNSET\]"
-	var/dna_hash = "\[UNSET\]"
-	var/fingerprint_hash = "\[UNSET\]"
-	var/citizenship = "\[UNSET\]"
-	var/religion = "\[UNSET\]"
-	var/sex = "\[UNSET\]"
+	var/age = ID_CARD_UNSET
+	var/blood_type = ID_CARD_UNSET
+	var/dna_hash = ID_CARD_UNSET
+	var/fingerprint_hash = ID_CARD_UNSET
+	var/citizenship = ID_CARD_UNSET
+	var/sex = ID_CARD_UNSET
 	var/icon/front
 	var/icon/side
 	var/mining_points //miners gotta eat
@@ -119,7 +120,6 @@ var/const/NO_EMAG_ACT = -50
 	var/assignment = null	//can be alt title or the actual job
 	var/rank = null			//actual job
 	var/employer_faction = null
-	var/dorm = 0			// determines if this ID has claimed a dorm already
 	var/datum/ntnet_user/chat_user
 
 	var/iff_faction = IFF_DEFAULT
@@ -149,7 +149,7 @@ var/const/NO_EMAG_ACT = -50
 	return
 
 /obj/item/card/id/proc/update_name()
-	name = "ID Card ([src.registered_name] ([src.assignment]))"
+	name = "workplace ID card - [src.registered_name], [src.assignment]"
 	if(istype(chat_user))
 		chat_user.username = chat_user.generateUsernameIdCard(src)
 
@@ -161,44 +161,42 @@ var/const/NO_EMAG_ACT = -50
 
 /mob/proc/set_id_info(var/obj/item/card/id/id_card)
 	id_card.age = 0
-	id_card.registered_name		= real_name
-	id_card.sex 				= capitalize(gender)
+	id_card.registered_name	= real_name
+	id_card.sex = capitalize(gender)
 	id_card.set_id_photo(src)
 
 	if(dna)
-		id_card.blood_type		= dna.b_type
-		id_card.dna_hash		= dna.unique_enzymes
-		id_card.fingerprint_hash= md5(dna.uni_identity)
+		id_card.blood_type = dna.b_type
+		id_card.dna_hash  = dna.unique_enzymes
+		id_card.fingerprint_hash = md5(dna.uni_identity)
 	id_card.update_name()
 
 /mob/living/carbon/human/set_id_info(var/obj/item/card/id/id_card)
 	..()
 	id_card.age 				= age
 	id_card.citizenship			= citizenship
-	id_card.religion 			= SSrecords.get_religion_record_name(religion)
 	id_card.mob_id				= WEAKREF(src)
 	id_card.employer_faction    = employer_faction
 
 /obj/item/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
-	dat += text("Name: []</A><BR>", registered_name)
-	dat += text("Sex: []</A><BR>\n", sex)
-	dat += text("Age: []</A><BR>\n", age)
-	dat += text("Citizenship: []</A><BR>\n", citizenship)
-	dat += text("Religion: []</A><BR>\n", religion)
-	dat += text("Rank: []</A><BR>\n", assignment)
-	dat += text("Fingerprint: []</A><BR>\n", fingerprint_hash)
-	dat += text("Blood Type: []<BR>\n", blood_type)
-	dat += text("DNA Hash: []<BR><BR>\n", dna_hash)
+	dat += text("Name: []<br>", registered_name)
+	dat += text("Age: []<br>\n", age)
+	dat += text("Sex: []<br>\n", sex)
+	dat += text("Citizenship: []<br>\n", citizenship)
+	dat += text("Assignment and Employer: []<br>\n", assignment)
+	dat += text("Blood Type: []<br>\n", blood_type)
+	dat += text("Fingerprint Hash: []<br>\n", fingerprint_hash)
+	dat += text("DNA Hash: []\n", dna_hash)
 	if(mining_points)
-		dat += text("Ore Redemption Points: []<BR><BR>\n", mining_points)
+		dat += text("<br>Ore Redemption Points: []\n", mining_points)
 	if(front && side)
-		dat +="<td align = center valign = top>Photo:<br><img src=front.png height=128 width=128 border=4><img src=side.png height=128 width=128 border=4></td>"
+		dat +="<td align = center valign = top>Front and Side Photograph<br><img src=front.png height=128 width=128 border=4><img src=side.png height=128 width=128 border=4></td>"
 	dat += "</tr></table>"
 	return dat
 
 /obj/item/card/id/attack_self(mob/user as mob)
-	if(dna_hash == "\[UNSET\]" && ishuman(user))
+	if(dna_hash == ID_CARD_UNSET && ishuman(user))
 		var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint yours now?", "Biometric Imprinting", "Yes", "No")
 		if (response == "Yes")
 			var/mob/living/carbon/human/H = user
@@ -211,9 +209,8 @@ var/const/NO_EMAG_ACT = -50
 				dna_hash = H.dna.unique_enzymes
 				fingerprint_hash = md5(H.dna.uni_identity)
 				citizenship = H.citizenship
-				religion = SSrecords.get_religion_record_name(H.religion)
 				age = H.age
-				to_chat(user, "<span class='notice'>Biometric Imprinting successful!</span>")
+				to_chat(user, "<span class='notice'>Biometric imprinting successful!</span>")
 				return
 	if(last_flash <= world.time - 20)
 		last_flash = world.time
@@ -239,7 +236,7 @@ var/const/NO_EMAG_ACT = -50
 		if(!ishuman(M))
 			return ..()
 
-		if (dna_hash == "\[UNSET\]" && ishuman(user))
+		if (dna_hash == ID_CARD_UNSET && ishuman(user))
 			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [M]'s now?", "Biometric Imprinting", "Yes", "No")
 			if (response == "Yes")
 
@@ -274,7 +271,6 @@ var/const/NO_EMAG_ACT = -50
 				dna_hash = H.dna.unique_enzymes
 				fingerprint_hash = md5(H.dna.uni_identity)
 				citizenship = H.citizenship
-				religion = H.religion
 				age = H.age
 				src.add_fingerprint(H)
 				to_chat(user, SPAN_NOTICE("Biometric Imprinting Successful!"))
@@ -298,24 +294,8 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/GetID()
 	return src
 
-/obj/item/card/id/verb/read()
-	set name = "Read ID Card"
-	set category = "Object"
-	set src in usr
-
-	to_chat(usr, text("[icon2html(src, usr)] []: The current assignment on the card is [].", src.name, src.assignment))
-	to_chat(usr, "The age on the card is [age].")
-	to_chat(usr, "The citizenship on the card is [citizenship].")
-	to_chat(usr, "The religion on the card is [religion].")
-	to_chat(usr, "The blood type on the card is [blood_type].")
-	to_chat(usr, "The DNA hash on the card is [dna_hash].")
-	to_chat(usr, "The fingerprint hash on the card is [fingerprint_hash].")
-	if(mining_points)
-		to_chat(usr, "A ticker indicates the card has [mining_points] ore redemption points available.")
-	return
-
 /obj/item/card/id/proc/mob_icon_update()
-	if (ismob(src.loc))
+	if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wear_id()
 
@@ -375,15 +355,15 @@ var/const/NO_EMAG_ACT = -50
 	overlay_state = "gold"
 
 /obj/item/card/id/syndicate/command
-	name = "syndicate ID card"
-	desc = "An ID straight from the Syndicate."
+	name = "illicit identification card"
+	desc = "An identification card."
 	icon_state = "dark"
 	registered_name = "Syndicate"
 	assignment = "Syndicate Overlord"
 	access = list(access_syndicate, access_external_airlocks)
 
 /obj/item/card/id/syndicate/ert
-	name = "\improper Syndicate Commando ID"
+	name = "illicit commando identification card"
 	assignment = "Commando"
 	icon_state = "centcom"
 
@@ -396,7 +376,7 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Visitor"
 
 /obj/item/card/id/highlander
-	name = "\improper Highlander ID"
+	name = "highlander identification card"
 	assignment = "Highlander"
 	icon_state = "centcom"
 
@@ -405,8 +385,8 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/captains_spare
-	name = "captain's spare ID"
-	desc = "The spare ID of the High Lord himself."
+	name = "captain's spare identification card"
+	desc = "A captain's spare identification card."
 	icon_state = "gold"
 	item_state = "gold_id"
 	overlay_state = "gold"
@@ -418,14 +398,14 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/merchant
-	name = "merchant pass"
+	name = "merchant identification card"
+	desc = "An identification card issued to SCC-sanctioned merchants, indicating their right to sell and buy goods."
 	icon_state = "centcom"
 	overlay_state = "centcom"
-	desc = "An identification card issued to NanoTrasen sanctioned merchants, indicating their right to sell and buy goods."
 	access = list(access_merchant)
 
 /obj/item/card/id/synthetic
-	name = "\improper Equipment ID"
+	name = "\improper SCC equipment identification card"
 	desc = "Access module for SCC equipment."
 	icon_state = "id-robot"
 	item_state = "tdgreen"
@@ -436,7 +416,7 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/synthetic/cyborg
-	name = "\improper Equipment ID"
+	name = "\improper SCC equipment identification card"
 	desc = "Access module for SCC equipment."
 	icon_state = "id-robot"
 	item_state = "tdgreen"
@@ -447,8 +427,8 @@ var/const/NO_EMAG_ACT = -50
 	access = list(access_equipment, access_ai_upload, access_external_airlocks) // barebones cyborg access. Job special added in different place
 
 /obj/item/card/id/minedrone
-	name = "\improper Minedrone ID"
-	desc = "Access module for NanoTrasen Minedrones"
+	name = "mine drone identification card"
+	desc = "Access module for mine drones."
 	icon_state = "id-robot"
 	item_state = "tdgreen"
 	assignment = "Minedrone"
@@ -458,7 +438,7 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/centcom
-	name = "\improper CentCom. ID"
+	name = "\improper CentCom identification card"
 	desc = "An ID straight from CentCom."
 	icon_state = "centcom"
 	overlay_state = "centcom"
@@ -470,7 +450,7 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/ccia
-	name = "\improper CentCom. Internal Affairs ID"
+	name = "\improper CentCom. Internal Affairs identification card"
 	desc = "An ID straight from CentCom. Internal Affairs."
 	icon_state = "ccia"
 	overlay_state = "ccia"
@@ -483,12 +463,12 @@ var/const/NO_EMAG_ACT = -50
     return ..(user, add_text, blind_add_text)
 
 /obj/item/card/id/ccia/fib
-	name = "\improper Federal Investigations Bureau ID"
+	name = "\improper Federal Investigations Bureau identification card"
 	desc = "An ID straight from the Federal Investigations Bureau."
 	icon_state = "fib"
 
 /obj/item/card/id/ert
-	name = "\improper NanoTrasen Emergency Response Team ID"
+	name = "\improper NanoTrasen Emergency Response Team identification card"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Emergency Response Team"
@@ -498,7 +478,7 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/asset_protection
-	name = "\improper NanoTrasen Asset Protection ID"
+	name = "\improper NanoTrasen Asset Protection identification card"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Asset Protection"
@@ -508,7 +488,7 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/distress
-	name = "\improper Freelancer Mercenary ID"
+	name = "\improper Freelancer Mercenary identification card"
 	icon_state = "centcom"
 	assignment = "Freelancer Mercenary"
 
@@ -517,17 +497,17 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/distress/fsf
-	name = "\improper Free Solarian Fleets ID"
+	name = "\improper Free Solarian Fleets identification card"
 	icon_state = "centcom"
-	assignment = "Free Solarian Fleets Marine ID"
+	assignment = "Free Solarian Fleets Marine"
 
 /obj/item/card/id/distress/kataphract
-	name = "\improper Kataphract ID"
+	name = "\improper Kataphract identification card"
 	icon_state = "centcom"
 	assignment = "Kataphract"
 
 /obj/item/card/id/distress/legion
-	name = "\improper Tau Ceti Foreign Legion ID"
+	name = "\improper Tau Ceti Foreign Legion identification card"
 	assignment = "Tau Ceti Foreign Legion Volunteer"
 	icon_state = "legion"
 
@@ -536,7 +516,7 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/distress/ap_eridani
-	name = "\improper Eridani Private Military Contractor ID"
+	name = "\improper Eridani Private Military Contractor identification card"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
 	assignment = "EPMC Asset Protection"
 	icon_state = "pmc_card"
@@ -547,7 +527,7 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/distress/iac
-	name = "\improper Interstellar Aid Corps ID"
+	name = "\improper Interstellar Aid Corps identification card"
 	assignment = "Interstellar Aid Corps Responder"
 	icon_state = "centcom"
 
@@ -556,8 +536,8 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/all_access
-	name = "\improper Administrator's spare ID"
-	desc = "The spare ID of the Lord of Lords himself."
+	name = "\improper Administrator's spare identification card"
+	desc = "An administrator's spare identification card."
 	icon_state = "data"
 	item_state = "tdgreen"
 	overlay_state = "data"
@@ -630,7 +610,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"
-	desc = "A bizarre imitation of NanoTrasen identification cards. It seems to function normally as well."
+	desc = "A bizarre imitation of an ID card; shifting and moving."
 	desc_antag = "Access can be copied from other ID cards by clicking on them."
 	icon_state = "crystalid"
 	iff_faction = IFF_BLUESPACE
@@ -652,3 +632,5 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/away_site
 	access = list(access_generic_away_site, access_external_airlocks)
+
+#undef ID_CARD_UNSET

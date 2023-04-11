@@ -25,7 +25,7 @@
 	..()
 	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/rig)))
 		to_chat(H, "<span class='danger'>You are now visible.</span>")
-		H.invisibility = 0
+		H.set_invisibility(0)
 
 		anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
 		anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
@@ -53,14 +53,14 @@
 						msg_admin_attack("[key_name_admin(M)] stungloved [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 
 						apply_effects(5,5,0,0,5,0,0,0,0)
-						apply_damage(rand(5,25), BURN, M.zone_sel.selecting)
+						apply_damage(rand(5,25), DAMAGE_BURN, M.zone_sel.selecting)
 
 						if(prob(15))
 							playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 							M.visible_message("<span class='warning'>The power source on [M]'s stun gloves overloads in a terrific fashion!</span>", "<span class='warning'>Your jury rigged stun gloves malfunction!</span>", "<span class='warning'>You hear a loud sparking.</span>")
 
 							if(prob(50))
-								M.apply_damage(rand(1,5), BURN)
+								M.apply_damage(rand(1,5), DAMAGE_BURN)
 
 							for(M in viewers(3, null))
 								M.flash_act(ignore_inherent = TRUE)
@@ -88,7 +88,7 @@
 
 			visible_message("<span class='danger'>[H] has punched [src]!</span>")
 
-			apply_damage(damage, PAIN, affecting)
+			apply_damage(damage, DAMAGE_PAIN, affecting)
 			if(damage >= 9)
 				visible_message("<span class='danger'>[H] has weakened [src]!</span>")
 				apply_effect(4, WEAKEN)
@@ -276,7 +276,7 @@
 					real_damage += G.punch_force
 					hit_dam_type = G.punch_damtype
 					if(H.pulling_punches)
-						hit_dam_type = PAIN
+						hit_dam_type = DAMAGE_PAIN
 
 					if(istype(H.gloves,/obj/item/clothing/gloves/force))
 						var/obj/item/clothing/gloves/force/X = H.gloves
@@ -410,7 +410,7 @@
 					return
 
 				else
-					var/armor_check = 100 * get_blocked_ratio(affecting, BRUTE, damage = 20)
+					var/armor_check = 100 * get_blocked_ratio(affecting, DAMAGE_BRUTE, damage = 20)
 					apply_effect(3, WEAKEN, armor_check)
 					if(armor_check < 100)
 						visible_message("<span class='danger'>[M] has pushed [src]!</span>")
@@ -432,7 +432,7 @@
 					sleep(1)
 					step_away(src,M,15)
 					sleep(1)
-					apply_effect(1, WEAKEN, get_blocked_ratio(M.zone_sel.selecting, BRUTE, damage = 20)*100)
+					apply_effect(1, WEAKEN, get_blocked_ratio(M.zone_sel.selecting, DAMAGE_BRUTE, damage = 20)*100)
 					return
 
 				//See about breaking grips or pulls
@@ -555,12 +555,11 @@
 	visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))
 
 	var/dam_zone = user.zone_sel?.selecting
-	if(!dam_zone)
-		dam_zone = pick(organs)
-	var/obj/item/organ/external/affecting = get_organ(dam_zone)
-	apply_damage(damage, BRUTE, affecting, armor_pen = armor_penetration, damage_flags = attack_flags)
-	updatehealth()
-	return TRUE
+	var/obj/item/organ/external/affecting = dam_zone ? get_organ(dam_zone) : pick(organs)
+	if(affecting)
+		apply_damage(damage, DAMAGE_BRUTE, affecting, armor_pen = armor_penetration, damage_flags = attack_flags)
+		updatehealth()
+	return affecting
 
 //Used to attack a joint through grabbing
 /mob/living/carbon/human/proc/grab_joint(var/mob/living/user, var/def_zone)

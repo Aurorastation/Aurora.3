@@ -281,9 +281,9 @@
 	brute *= brute_mod
 	burn *= burn_mod
 
-	var/laser = (damage_flags & DAM_LASER)
-	var/sharp = (damage_flags & DAM_SHARP)
-	var/edge = (damage_flags & DAM_EDGE)
+	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
+	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
+	var/edge = (damage_flags & DAMAGE_FLAG_EDGE)
 	var/blunt = !!(brute && !sharp && !edge)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
@@ -329,7 +329,7 @@
 		if(laser)
 			createwound(LASER, burn)
 		else
-			createwound(BURN, burn)
+			createwound(DAMAGE_BURN, burn)
 
 	add_pain(0.6 * burn + 0.4 * brute)
 
@@ -352,8 +352,8 @@
 
 	var/damage_amt = brute
 	var/cur_damage = brute_dam
-	var/sharp = (damage_flags & DAM_SHARP)
-	var/laser = (damage_flags & DAM_LASER)
+	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
+	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
 
 	if(BP_IS_ROBOTIC(src) || laser)
 		damage_amt += burn
@@ -411,17 +411,17 @@
 					dam_flags = W.damage_flags()
 					if(isprojectile(W))
 						var/obj/item/projectile/P = W
-						if(dam_flags & DAM_BULLET)
+						if(dam_flags & DAMAGE_FLAG_BULLET)
 							blunt_eligible = TRUE
 						maim_bonus += P.maim_rate
-					if(W.w_class >= w_class && (dam_flags & DAM_EDGE))
+					if(W.w_class >= w_class && (dam_flags & DAMAGE_FLAG_EDGE))
 						edge_eligible = TRUE
 
 				if(!blunt_eligible && edge_eligible && (brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus)))
 					droplimb(0, DROPLIMB_EDGE)
-				else if(burn >= max_damage / ((dam_flags & DAM_LASER ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus))
+				else if(burn >= max_damage / ((dam_flags & DAMAGE_FLAG_LASER ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus))
 					droplimb(0, DROPLIMB_BURN)
-				else if(blunt_eligible && brute >= max_damage / ((dam_flags & DAM_BULLET ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus))
+				else if(blunt_eligible && brute >= max_damage / ((dam_flags & DAMAGE_FLAG_BULLET ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus))
 					droplimb(0, DROPLIMB_BLUNT)
 				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus))
 					droplimb(0, DROPLIMB_EDGE)
@@ -436,7 +436,7 @@
 			break
 
 		// heal brute damage
-		if(W.damage_type == BURN)
+		if(W.damage_type == DAMAGE_BURN)
 			burn = W.heal_damage(burn)
 		else
 			brute = W.heal_damage(brute)
@@ -481,7 +481,7 @@ This function completely restores a damaged organ to perfect condition.
 
 
 /obj/item/organ/external/proc/createwound(var/type = CUT, var/damage)
-	if(damage <= 0)
+	if(damage <= 0 || !owner)
 		return
 
 	//moved this before the open_wound check so that having many small wounds for example doesn't somehow protect you from taking internal damage (because of the return)
@@ -489,7 +489,7 @@ This function completely restores a damaged organ to perfect condition.
 	var/local_damage = brute_dam + burn_dam + damage
 
 	if(damage > (min_broken_damage / 2) && local_damage > min_broken_damage && !(status & ORGAN_ROBOT))
-		if(!(type in list(BURN, LASER)))
+		if(!(type in list(DAMAGE_BURN, LASER)))
 			if(prob(damage) && sever_artery())
 				owner.custom_pain("You feel something rip in your [name]!", 25)
 
@@ -501,10 +501,10 @@ This function completely restores a damaged organ to perfect condition.
 			tendon.damage(new_brute)
 
 	//Burn damage can cause fluid loss due to blistering and cook-off
-	if((type in list(BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
+	if((type in list(DAMAGE_BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
 		var/fluid_loss_severity
 		switch(type)
-			if(BURN)
+			if(DAMAGE_BURN)
 				fluid_loss_severity = FLUIDLOSS_WIDE_BURN
 			if(LASER)
 				fluid_loss_severity = FLUIDLOSS_CONC_BURN
@@ -832,7 +832,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	//update damage counts
 	for(var/datum/wound/W in wounds)
-		if(W.damage_type == BURN)
+		if(W.damage_type == DAMAGE_BURN)
 			burn_dam += W.damage
 		else
 			brute_dam += W.damage
@@ -1336,7 +1336,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		wound_descriptors["an incision"] = 1
 	for(var/datum/wound/W in wounds)
 		var/this_wound_desc = W.desc
-		if(W.damage_type == BURN && W.salved) this_wound_desc = "salved [this_wound_desc]"
+		if(W.damage_type == DAMAGE_BURN && W.salved) this_wound_desc = "salved [this_wound_desc]"
 		if(W.bleeding()) this_wound_desc = "bleeding [this_wound_desc]"
 		if(W.bandaged == 1)
 			this_wound_desc = "bandaged [this_wound_desc]"

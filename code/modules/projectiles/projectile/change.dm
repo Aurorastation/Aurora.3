@@ -2,7 +2,7 @@
 	name = "bolt of change"
 	icon_state = "ice_1"
 	damage = 0
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	nodamage = 1
 	check_armor = "energy"
 
@@ -50,7 +50,7 @@
 			if("robot")
 				new_mob = new /mob/living/silicon/robot(M.loc)
 				new_mob.gender = M.gender
-				new_mob.invisibility = 0
+				new_mob.set_invisibility(0)
 				new_mob.job = "Cyborg"
 				var/mob/living/silicon/robot/Robot = new_mob
 				Robot.mmi = new /obj/item/device/mmi(new_mob)

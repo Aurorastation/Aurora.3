@@ -32,7 +32,7 @@ datum/unit_test/mob_hear
 datum/unit_test/mob_hear/start_test()
 	var/mobloc = pick(tdome1)
 	if(!mobloc)
-		fail("Unable to find a location to create test mob")
+		TEST_FAIL("Unable to find a location to create test mob")
 		return 0
 	for(var/mob/M in get_turf(mobloc))
 		QDEL_NULL(M)
@@ -40,45 +40,45 @@ datum/unit_test/mob_hear/start_test()
 	var/list/test_listener = create_test_mob_with_mind(mobloc, mob_type, TRUE)
 
 	if(isnull(test_speaker) || isnull(test_listener))
-		fail("Check Runtimed in Mob creation")
+		TEST_FAIL("Check Runtimed in Mob creation")
 		return 0
 
 	if(test_speaker["result"] == FAILURE )
-		fail(test_speaker["msg"])
+		TEST_FAIL(test_speaker["msg"])
 		return 0
 	else if(test_listener ["result"] == FAILURE)
-		fail(test_listener["msg"])
+		TEST_FAIL(test_listener["msg"])
 		return 0
 
 	var/mob/living/test/test_speaker_mob = locate(test_speaker["mobref"])
 	var/mob/living/test/test_listener_mob = locate(test_listener["mobref"])
 
 	if(isnull(test_speaker_mob) || isnull(test_listener_mob))
-		fail("Test unable to set test mob from reference")
+		TEST_FAIL("Test unable to set test mob from reference")
 		return 0
 
 	if(test_speaker_mob.stat)
-		fail("Test needs to be re-written, mob has a stat = [test_speaker_mob.stat]")
+		TEST_FAIL("Test needs to be re-written, mob has a stat = [test_speaker_mob.stat]")
 		return 0
 	else if(test_listener_mob.stat)
-		fail("Test needs to be re-written, mob has a stat = [test_speaker_mob.stat]")
+		TEST_FAIL("Test needs to be re-written, mob has a stat = [test_speaker_mob.stat]")
 		return 0
 
 	if(test_speaker_mob.sleeping || test_listener_mob.sleeping)
-		fail("Test needs to be re-written, mob is sleeping for some unknown reason")
+		TEST_FAIL("Test needs to be re-written, mob is sleeping for some unknown reason")
 		return 0
 
 	var/message = "Test, can you hear me?"
 	var/said = test_speaker_mob.say(message)
 
 	if(said && test_listener_mob.heard)
-		pass("speech test complete, speaker said \"[message]\" and listener received it.")
+		TEST_PASS("speech test complete, speaker said \"[message]\" and listener received it.")
 		return 1
 	else if(said)
-		fail("speaker said the words, but listener did not hear it. The message was \"[message]\", the difference were X: [test_listener_mob.loc.x - test_speaker_mob.loc.x], Y: [test_listener_mob.loc.y - test_speaker_mob.loc.y]")
+		TEST_FAIL("speaker said the words, but listener did not hear it. The message was \"[message]\", the difference were X: [test_listener_mob.loc.x - test_speaker_mob.loc.x], Y: [test_listener_mob.loc.y - test_speaker_mob.loc.y]")
 		return 0
 	else
-		fail("speaker did not say the words \"[message]\"")
+		TEST_FAIL("speaker did not say the words \"[message]\"")
 		return 0
 
 datum/unit_test/human_breath
@@ -97,7 +97,7 @@ datum/unit_test/human_breath/start_test()
 
 	H = new(T)
 
-	starting_oxyloss = damage_check(H, OXY)
+	starting_oxyloss = damage_check(H, DAMAGE_OXY)
 
 	return 1
 
@@ -106,24 +106,16 @@ datum/unit_test/human_breath/check_result()
 	if(H.life_tick < 10) 	// Finish Condition
 		return 0	// Return 0 to try again later.
 
-	ending_oxyloss = damage_check(H, OXY)
+	ending_oxyloss = damage_check(H, DAMAGE_OXY)
 
 	if(starting_oxyloss < ending_oxyloss)
-		pass("Oxyloss = [ending_oxyloss]")
+		TEST_PASS("Oxyloss = [ending_oxyloss]")
 	else
-		fail("Mob is not taking oxygen damage.  Damange is [ending_oxyloss]")
+		TEST_FAIL("Mob is not taking oxygen damage.  Damange is [ending_oxyloss]")
 
 	return 1	// return 1 to show we're done and don't want to recheck the result.
 
 // ============================================================================
-
-//#define BRUTE     "brute"
-//#define BURN      "fire"
-//#define TOX       "tox"
-//#define OXY       "oxy"
-//#define CLONE     "clone"
-//#define PAIN   "halloss"
-
 
 proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/carbon/human, var/add_to_playerlist = FALSE)
 	var/list/test_result = list("result" = FAILURE, "msg"    = "", "mobref" = null)
@@ -156,22 +148,22 @@ proc/damage_check(var/mob/living/M, var/damage_type)
 	var/loss = null
 
 	switch(damage_type)
-		if(BRUTE)
+		if(DAMAGE_BRUTE)
 			loss = M.getBruteLoss()
-		if(BURN)
+		if(DAMAGE_BURN)
 			loss = M.getFireLoss()
-		if(TOX)
+		if(DAMAGE_TOXIN)
 			loss = M.getToxLoss()
-		if(OXY)
+		if(DAMAGE_OXY)
 			loss = M.getOxyLoss()
 			if(istype(M,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = M
 				var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name["lungs"]
 				if(L)
 					loss = L.oxygen_deprivation
-		if(CLONE)
+		if(DAMAGE_CLONE)
 			loss = M.getCloneLoss()
-		if(PAIN)
+		if(DAMAGE_PAIN)
 			loss = M.getHalLoss()
 
 	if(!loss && istype(M, /mob/living/carbon/human))          // Revert IPC's when?
@@ -198,7 +190,7 @@ proc/damage_check(var/mob/living/M, var/damage_type)
 datum/unit_test/mob_damage
 	name = "MOB: Template for mob damage"
 	var/mob/living/carbon/human/testmob = null
-	var/damagetype = BRUTE
+	var/damagetype = DAMAGE_BRUTE
 	var/mob_type = /mob/living/carbon/human
 	var/expected_vulnerability = STANDARD
 	var/check_health = 0
@@ -210,26 +202,26 @@ datum/unit_test/mob_damage/start_test()
                                 // Which makes checks impossible.
 
 	if(isnull(test))
-		fail("Check Runtimed in Mob creation")
+		TEST_FAIL("Check Runtimed in Mob creation")
 		return 0
 
 	if(test["result"] == FAILURE)
-		fail(test["msg"])
+		TEST_FAIL(test["msg"])
 		return 0
 
 	var/mob/living/carbon/human/H = locate(test["mobref"])
 
 	if(isnull(H))
-		fail("Test unable to set test mob from reference")
+		TEST_FAIL("Test unable to set test mob from reference")
 		return 0
 
 	if(H.stat)
 
-		fail("Test needs to be re-written, mob has a stat = [H.stat]")
+		TEST_FAIL("Test needs to be re-written, mob has a stat = [H.stat]")
 		return 0
 
 	if(H.sleeping)
-		fail("Test needs to be re-written, mob is sleeping for some unknown reason")
+		TEST_FAIL("Test needs to be re-written, mob is sleeping for some unknown reason")
 		return 0
 
 	// Damage the mob
@@ -281,9 +273,9 @@ datum/unit_test/mob_damage/start_test()
 	var/msg = "Damage taken: [ending_damage] out of [damage_amount] || expected: [expected_msg] \[Overall Health:[ending_health] (Initial: [initial_health])\]"
 
 	if(failure)
-		fail(msg)
+		TEST_FAIL(msg)
 	else
-		pass(msg)
+		TEST_PASS(msg)
 
 	return 1
 
@@ -293,27 +285,27 @@ datum/unit_test/mob_damage/start_test()
 
 datum/unit_test/mob_damage/brute
 	name = "MOB: Human Brute damage check"
-	damagetype = BRUTE
+	damagetype = DAMAGE_BRUTE
 
 datum/unit_test/mob_damage/fire
 	name = "MOB: Human Fire damage check"
-	damagetype = BURN
+	damagetype = DAMAGE_BURN
 
 datum/unit_test/mob_damage/tox
 	name = "MOB: Human Toxin damage check"
-	damagetype = TOX
+	damagetype = DAMAGE_TOXIN
 
 datum/unit_test/mob_damage/oxy
 	name = "MOB: Human Oxygen damage check"
-	damagetype = OXY
+	damagetype = DAMAGE_OXY
 
 datum/unit_test/mob_damage/clone
 	name = "MOB: Human Clone damage check"
-	damagetype = CLONE
+	damagetype = DAMAGE_CLONE
 
 datum/unit_test/mob_damage/halloss
 	name = "MOB: Human Halloss damage check"
-	damagetype = PAIN
+	damagetype = DAMAGE_PAIN
 
 // =================================================================
 // Unathi
@@ -325,28 +317,28 @@ datum/unit_test/mob_damage/unathi
 
 datum/unit_test/mob_damage/unathi/brute
 	name = "MOB: Unathi Brute Damage Check"
-	damagetype = BRUTE
+	damagetype = DAMAGE_BRUTE
 	expected_vulnerability = ARMORED
 
 datum/unit_test/mob_damage/unathi/fire
 	name = "MOB: Unathi Fire Damage Check"
-	damagetype = BURN
+	damagetype = DAMAGE_BURN
 
 datum/unit_test/mob_damage/unathi/tox
 	name = "MOB: Unathi Toxins Damage Check"
-	damagetype = TOX
+	damagetype = DAMAGE_TOXIN
 
 datum/unit_test/mob_damage/unathi/oxy
 	name = "MOB: Unathi Oxygen Damage Check"
-	damagetype = OXY
+	damagetype = DAMAGE_OXY
 
 datum/unit_test/mob_damage/unathi/clone
 	name = "MOB: Unathi Clone Damage Check"
-	damagetype = CLONE
+	damagetype = DAMAGE_CLONE
 
 datum/unit_test/mob_damage/unathi/halloss
 	name = "MOB: Unathi Halloss Damage Check"
-	damagetype = PAIN
+	damagetype = DAMAGE_PAIN
 
 // =================================================================
 // SpessKahjit aka Tajaran
@@ -358,28 +350,28 @@ datum/unit_test/mob_damage/tajaran
 
 datum/unit_test/mob_damage/tajaran/brute
 	name = "MOB: Tajaran Brute Damage Check"
-	damagetype = BRUTE
+	damagetype = DAMAGE_BRUTE
 	expected_vulnerability = EXTRA_VULNERABLE
 
 datum/unit_test/mob_damage/tajaran/fire
 	name = "MOB: Tajaran Fire Damage Check"
-	damagetype = BURN
+	damagetype = DAMAGE_BURN
 
 datum/unit_test/mob_damage/tajaran/tox
 	name = "MOB: Tajaran Toxins Damage Check"
-	damagetype = TOX
+	damagetype = DAMAGE_TOXIN
 
 datum/unit_test/mob_damage/tajaran/oxy
 	name = "MOB: Tajaran Oxygen Damage Check"
-	damagetype = OXY
+	damagetype = DAMAGE_OXY
 
 datum/unit_test/mob_damage/tajaran/clone
 	name = "MOB: Tajaran Clone Damage Check"
-	damagetype = CLONE
+	damagetype = DAMAGE_CLONE
 
 datum/unit_test/mob_damage/tajaran/halloss
 	name = "MOB: Tajaran Halloss Damage Check"
-	damagetype = PAIN
+	damagetype = DAMAGE_PAIN
 
 // =================================================================
 // Skrell
@@ -391,27 +383,27 @@ datum/unit_test/mob_damage/skrell
 
 datum/unit_test/mob_damage/skrell/brute
 	name = "MOB: Skrell Brute Damage Check"
-	damagetype = BRUTE
+	damagetype = DAMAGE_BRUTE
 
 datum/unit_test/mob_damage/skrell/fire
 	name = "MOB: Skrell Fire Damage Check"
-	damagetype = BURN
+	damagetype = DAMAGE_BURN
 
 datum/unit_test/mob_damage/skrell/tox
 	name = "MOB: Skrell Toxins Damage Check"
-	damagetype = TOX
+	damagetype = DAMAGE_TOXIN
 
 datum/unit_test/mob_damage/skrell/oxy
 	name = "MOB: Skrell Oxygen Damage Check"
-	damagetype = OXY
+	damagetype = DAMAGE_OXY
 
 datum/unit_test/mob_damage/skrell/clone
 	name = "MOB: Skrell Clone Damage Check"
-	damagetype = CLONE
+	damagetype = DAMAGE_CLONE
 
 datum/unit_test/mob_damage/skrell/halloss
 	name = "MOB: Skrell Halloss Damage Check"
-	damagetype = PAIN
+	damagetype = DAMAGE_PAIN
 
 // =================================================================
 // Diona
@@ -423,29 +415,29 @@ datum/unit_test/mob_damage/diona
 
 datum/unit_test/mob_damage/diona/brute
 	name = "MOB: Diona Brute Damage Check"
-	damagetype = BRUTE
+	damagetype = DAMAGE_BRUTE
 
 datum/unit_test/mob_damage/diona/fire
 	name = "MOB: Diona Fire Damage Check"
-	damagetype = BURN
+	damagetype = DAMAGE_BURN
 
 datum/unit_test/mob_damage/diona/tox
 	name = "MOB: Diona Toxins Damage Check"
-	damagetype = TOX
+	damagetype = DAMAGE_TOXIN
 
 datum/unit_test/mob_damage/diona/oxy
 	name = "MOB: Diona Oxygen Damage Check"
-	damagetype = OXY
+	damagetype = DAMAGE_OXY
 	expected_vulnerability = IMMUNE
 
 datum/unit_test/mob_damage/diona/clone
 	name = "MOB: Diona Clone Damage Check"
-	damagetype = CLONE
+	damagetype = DAMAGE_CLONE
 	expected_vulnerability = IMMUNE
 
 datum/unit_test/mob_damage/diona/halloss
 	name = "MOB: Diona Halloss Damage Check"
-	damagetype = PAIN
+	damagetype = DAMAGE_PAIN
 	expected_vulnerability = ARMORED
 
 // =================================================================
@@ -458,32 +450,32 @@ datum/unit_test/mob_damage/machine
 
 datum/unit_test/mob_damage/machine/brute
 	name = "MOB: IPC Brute Damage Check"
-	damagetype = BRUTE
+	damagetype = DAMAGE_BRUTE
 	expected_vulnerability = ARMORED
 
 datum/unit_test/mob_damage/machine/fire
 	name = "MOB: IPC Fire Damage Check"
-	damagetype = BURN
+	damagetype = DAMAGE_BURN
 	expected_vulnerability = EXTRA_VULNERABLE
 
 datum/unit_test/mob_damage/machine/tox
 	name = "MOB: IPC Toxins Damage Check"
-	damagetype = TOX
+	damagetype = DAMAGE_TOXIN
 	expected_vulnerability = IMMUNE
 
 datum/unit_test/mob_damage/machine/oxy
 	name = "MOB: IPC Oxygen Damage Check"
-	damagetype = OXY
+	damagetype = DAMAGE_OXY
 	expected_vulnerability = IMMUNE
 
 datum/unit_test/mob_damage/machine/clone
 	name = "MOB: IPC Clone Damage Check"
-	damagetype = CLONE
+	damagetype = DAMAGE_CLONE
 	expected_vulnerability = IMMUNE
 
 datum/unit_test/mob_damage/machine/halloss
 	name = "MOB: IPC Halloss Damage Check"
-	damagetype = PAIN
+	damagetype = DAMAGE_PAIN
 	expected_vulnerability = IMMUNE
 
 // =================================================================
@@ -496,31 +488,31 @@ datum/unit_test/mob_damage/vaurca
 
 datum/unit_test/mob_damage/vaurca/brute
 	name = "MOB: Vaurca Brute Damage Check"
-	damagetype = BRUTE
+	damagetype = DAMAGE_BRUTE
 	expected_vulnerability = ARMORED
 
 datum/unit_test/mob_damage/vaurca/fire
 	name = "MOB: Vaurca Fire Damage Check"
-	damagetype = BURN
+	damagetype = DAMAGE_BURN
 	expected_vulnerability = EXTRA_VULNERABLE
 
 datum/unit_test/mob_damage/vaurca/tox
 	name = "MOB: Vaurca Toxins Damage Check"
-	damagetype = TOX
+	damagetype = DAMAGE_TOXIN
 	expected_vulnerability = EXTRA_VULNERABLE
 
 datum/unit_test/mob_damage/vaurca/oxy
 	name = "MOB: Vaurca Oxygen Damage Check"
-	damagetype = OXY
+	damagetype = DAMAGE_OXY
 	expected_vulnerability = ARMORED
 
 datum/unit_test/mob_damage/vaurca/clone
 	name = "MOB: Vaurca Clone Damage Check"
-	damagetype = CLONE
+	damagetype = DAMAGE_CLONE
 
 datum/unit_test/mob_damage/vaurca/halloss
 	name = "MOB: Vaurca Halloss Damage Check"
-	damagetype = PAIN
+	damagetype = DAMAGE_PAIN
 
 // ==============================================================================
 
@@ -532,7 +524,7 @@ datum/unit_test/robot_module_icons
 datum/unit_test/robot_module_icons/start_test()
 	var/failed = 0
 	if(!isicon(icon_file))
-		fail("[icon_file] is not a valid icon file.")
+		TEST_FAIL("[icon_file] is not a valid icon file.")
 		return 1
 
 	var/list/valid_states = icon_states(icon_file)
@@ -543,13 +535,13 @@ datum/unit_test/robot_module_icons/start_test()
 	for(var/i=1, i<=robot_modules.len, i++)
 		var/bad_msg = "[ascii_red]--------------- [robot_modules[i]]"
 		if(!(lowertext(robot_modules[i]) in valid_states))
-			log_unit_test("[bad_msg] does not contain a valid icon state in [icon_file][ascii_reset]")
+			TEST_FAIL("[bad_msg] does not contain a valid icon state in [icon_file][ascii_reset]")
 			failed=1
 
 	if(failed)
-		fail("Some icon states did not exist")
+		TEST_FAIL("Some icon states did not exist")
 	else
-		pass("All modules had valid icon states")
+		TEST_PASS("All modules had valid icon states")
 
 	return 1
 

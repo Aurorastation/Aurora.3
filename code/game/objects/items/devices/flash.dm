@@ -92,6 +92,11 @@
 	if(!L || !user || !clumsy_check(user) || !cooldown())
 		return
 
+	if(L == user)
+		if(user.a_intent == I_HURT)
+			attack_self(user)
+		return
+
 	L.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been flashed (attempt) with [src.name]  by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [src.name] to flash [L.name] ([L.ckey])</span>")
 	msg_admin_attack("[user.name] ([user.ckey]) Used the [src.name] to flash [L.name] ([L.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(L))
@@ -118,15 +123,12 @@
 	else
 		user.visible_message(SPAN_NOTICE("[user] fails to blind [L] with \the [src]."))
 
-/obj/item/device/flash/attack_hand(mob/living/carbon/user)
-	if(!user || loc != user || user.a_intent != I_HURT)
-		return ..()
-
-	attack_self(user)
-
 /obj/item/device/flash/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
 	// AOE flash
 	if(!user || !clumsy_check(user)|| !cooldown())
+		return
+
+	if(user.a_intent != I_HURT)
 		return
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

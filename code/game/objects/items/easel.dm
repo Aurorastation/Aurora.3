@@ -9,12 +9,12 @@
 
 /obj/structure/easel/Initialize(ml, _mat, _reinf_mat)
 	. = ..()
-	moved_event.register(src, src, /obj/structure/easel/proc/move_painting)
+	moved_event.register(src, src, PROC_REF(move_painting))
 	material = SSmaterials.get_material_by_name(MATERIAL_WOOD)
 
 /obj/structure/easel/Destroy()
 	painting = null
-	moved_event.unregister(src, src, /obj/structure/easel/proc/move_painting)
+	moved_event.unregister(src, src, PROC_REF(move_painting))
 	return ..()
 
 /*

@@ -1,0 +1,903 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 233.15
+	},
+/area/adhomai_archeology)
+"b" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"c" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"d" = (
+/obj/structure/closet/crate,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"e" = (
+/obj/structure/table/rack,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 233.15
+	},
+/area/adhomai_archeology)
+"f" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"g" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/radiocarbon_spectrometer,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"h" = (
+/obj/effect/ghostspawpoint{
+	identifier = "nka_polar_explorer";
+	name = "igs - nka_polar_explorer"
+	},
+/obj/structure/bed/stool/wood,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"i" = (
+/obj/machinery/suspension_gen,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"j" = (
+/obj/structure/sign/flag/nka{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"l" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/artifact_analyser,
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"m" = (
+/obj/structure/closet/secure_closet/cabinet{
+	name = "secure locker (rifle)";
+	req_access = list(213)
+	},
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 233.15
+	},
+/area/adhomai_archeology)
+"n" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = 12
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"p" = (
+/obj/structure/sign/flag/nka{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"r" = (
+/obj/structure/closet/crate/miningcart,
+/obj/structure/sign/flag/nka{
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"s" = (
+/obj/structure/closet/secure_closet/cabinet{
+	name = "secure locker (shotgun)";
+	req_access = list(213)
+	},
+/obj/item/storage/box/shotgunammo,
+/obj/item/storage/box/shotgunshells,
+/obj/item/gun/projectile/shotgun/doublebarrel/pellet,
+/obj/item/clothing/accessory/storage/bandolier,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 233.15
+	},
+/area/adhomai_archeology)
+"t" = (
+/obj/machinery/floodlight,
+/obj/structure/sign/flag/nka{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"u" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"v" = (
+/obj/structure/closet/crate,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"w" = (
+/obj/structure/closet/crate/miningcart,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"x" = (
+/obj/structure/closet/crate,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"y" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"z" = (
+/obj/structure/anomaly_container,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"A" = (
+/obj/structure/closet/crate/secure/large,
+/obj/item/storage/box/dynamite,
+/obj/item/storage/box/dynamite,
+/obj/item/storage/box/dynamite,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"C" = (
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/device/flashlight/lamp{
+	pixel_y = 15
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"D" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/storage/field_ration/nka/navy,
+/obj/item/storage/field_ration/nka/navy,
+/obj/item/storage/field_ration/nka/navy,
+/obj/item/storage/field_ration/nka/navy,
+/obj/item/storage/field_ration/nka/navy,
+/obj/item/storage/field_ration/nka/navy,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"E" = (
+/turf/simulated/floor/carpet/rubber{
+	temperature = 233.15
+	},
+/area/adhomai_archeology)
+"F" = (
+/obj/structure/bonfire/light_up,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"G" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/closet/excavation,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"H" = (
+/obj/structure/table/standard,
+/obj/item/stack/nanopaste,
+/obj/item/stack/nanopaste,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"I" = (
+/obj/structure/curtain/open,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 233.15
+	},
+/area/adhomai_archeology)
+"J" = (
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"K" = (
+/obj/structure/sign/flag/nka{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"M" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 233.15
+	},
+/area/adhomai_archeology)
+"N" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"O" = (
+/obj/structure/sign/flag/nka{
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"P" = (
+/obj/item/trash/cigbutt/cigarbutt,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"Q" = (
+/obj/effect/ghostspawpoint{
+	identifier = "nka_polar_sailor";
+	name = "igs - nka_polar_sailor"
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 233.15
+	},
+/area/adhomai_archeology)
+"R" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"S" = (
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_x = 12
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"T" = (
+/obj/structure/table/rack,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"U" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/tajara/winter,
+/obj/item/clothing/shoes/tajara/winter,
+/obj/item/clothing/shoes/tajara/winter,
+/obj/item/clothing/shoes/tajara/winter,
+/obj/item/clothing/shoes/tajara/winter,
+/obj/item/clothing/suit/storage/hooded/wintercoat,
+/obj/item/clothing/suit/storage/hooded/wintercoat,
+/obj/item/clothing/suit/storage/hooded/wintercoat,
+/obj/item/clothing/suit/storage/hooded/wintercoat,
+/obj/item/clothing/suit/storage/hooded/wintercoat,
+/obj/machinery/light/small,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 233.15
+	},
+/area/adhomai_archeology)
+"V" = (
+/obj/structure/curtain/open,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"W" = (
+/obj/structure/table/rack,
+/obj/item/device/binoculars/spyglass,
+/obj/item/device/binoculars/spyglass,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 233.15
+	},
+/area/adhomai_archeology)
+"X" = (
+/turf/simulated/wall/cloth,
+/area/adhomai_archeology)
+"Y" = (
+/obj/machinery/artifact_scanpad,
+/obj/effect/floor_decal/spline/plain/cee,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"Z" = (
+/obj/structure/closet/excavation,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+
+(1,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(2,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+X
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(3,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+X
+X
+X
+X
+X
+c
+c
+c
+c
+c
+c
+c
+"}
+(4,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+X
+X
+v
+x
+d
+X
+X
+c
+c
+c
+c
+c
+c
+"}
+(5,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+X
+A
+J
+J
+J
+D
+X
+c
+c
+c
+c
+c
+c
+"}
+(6,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+X
+A
+J
+J
+J
+u
+X
+c
+c
+c
+c
+c
+c
+"}
+(7,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+X
+X
+X
+V
+X
+X
+X
+c
+c
+c
+c
+c
+c
+"}
+(8,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+O
+c
+r
+w
+w
+c
+c
+c
+c
+c
+c
+"}
+(9,1,1) = {"
+c
+c
+X
+X
+X
+X
+y
+c
+c
+c
+c
+c
+c
+c
+X
+X
+X
+X
+c
+c
+"}
+(10,1,1) = {"
+c
+X
+X
+N
+C
+X
+y
+c
+c
+c
+c
+c
+c
+c
+X
+a
+M
+X
+X
+c
+"}
+(11,1,1) = {"
+c
+X
+b
+n
+f
+X
+t
+c
+c
+S
+h
+c
+c
+K
+X
+E
+E
+e
+X
+c
+"}
+(12,1,1) = {"
+X
+X
+g
+R
+J
+V
+c
+c
+c
+h
+F
+c
+c
+c
+I
+E
+E
+U
+X
+X
+"}
+(13,1,1) = {"
+c
+X
+H
+R
+J
+X
+j
+c
+c
+c
+h
+P
+c
+K
+X
+Q
+Q
+W
+X
+c
+"}
+(14,1,1) = {"
+c
+X
+X
+l
+Y
+X
+c
+c
+c
+c
+c
+c
+c
+c
+X
+s
+m
+X
+X
+c
+"}
+(15,1,1) = {"
+c
+c
+X
+X
+X
+X
+c
+c
+c
+c
+c
+c
+c
+c
+X
+X
+X
+X
+c
+c
+"}
+(16,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+p
+c
+p
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(17,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+X
+X
+X
+V
+X
+X
+X
+c
+c
+c
+c
+c
+c
+"}
+(18,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+X
+T
+J
+J
+J
+i
+X
+c
+c
+c
+c
+c
+c
+"}
+(19,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+X
+z
+J
+J
+E
+i
+X
+c
+c
+c
+c
+c
+c
+"}
+(20,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+X
+X
+Z
+G
+Z
+X
+X
+c
+c
+c
+c
+c
+c
+"}
+(21,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+X
+X
+X
+X
+X
+c
+c
+c
+c
+c
+c
+c
+"}
+(22,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+X
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(23,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}

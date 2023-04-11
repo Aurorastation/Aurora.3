@@ -45,6 +45,9 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/farwa/Initialize(mapload)
 	. = ..(mapload, SPECIES_MONKEY_TAJARA)
 
+/mob/living/carbon/human/farwa/adhomai
+	faction = "Adhomai"
+
 /mob/living/carbon/human/neaera/Initialize(mapload)
 	. = ..(mapload, SPECIES_MONKEY_SKRELL)
 
@@ -71,11 +74,11 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	var/list/hive = splittext(name, " ")
 	switch(hive[length(hive)])
 		if("K'lax")
-			change_skin_color(33, 63, 33)
+			change_skin_color(20, 170, 20) // Vedhra does bioresearch.
 		if("C'thur")
-			change_skin_color(10, 35, 55)
+			change_skin_color(10, 35, 55) // Vytel tolerates the SCC the most.
 		if("Zo'ra")
-			change_skin_color(111, 21, 21)
+			change_skin_color(71 ,11, 51) // Scay does bioresearch.
 
 /mob/living/carbon/human/type_b/Initialize(mapload)
 	h_style = "Classic Antennae"
