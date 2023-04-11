@@ -99,7 +99,7 @@
 
 	id = /obj/item/card/id/cyclops_ship
 
-	l_ear = = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/device/radio/headset/ship
 
 /obj/item/card/id/cyclops_ship
 	name = "Cyclops Ship ID"
