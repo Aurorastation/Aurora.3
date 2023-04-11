@@ -2878,7 +2878,7 @@
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "cKD" = (
-/obj/structure/lattice/catwalk,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "cLa" = (
@@ -17240,7 +17240,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "oGZ" = (

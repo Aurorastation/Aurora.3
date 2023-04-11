@@ -42196,6 +42196,18 @@
 	icon_state = "desert"
 	},
 /area/centcom/shared_dream)
+"xPN" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/item/beach_ball/holoball{
+	pixel_x = -16
+	},
+/turf/simulated/floor/holofloor/carpet/rubber,
+/area/horizon/holodeck/source_basketball)
 "xQm" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -84814,7 +84826,7 @@ bFf
 bFD
 bKs
 bKs
-bKs
+xPN
 bKs
 bKs
 bGv
