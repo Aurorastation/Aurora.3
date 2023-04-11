@@ -130,6 +130,21 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
+/datum/gear/head/sinta_ronin/New()
+	..()
+	var/list/sinta_ronin = list()
+	sinta_ronin["straw hat"] = /obj/item/clothing/head/unathi
+	sinta_ronin["dark straw hat"] = /obj/item/clothing/head/unathi/dark
+	sinta_ronin["decorated straw hat, red"] = /obj/item/clothing/head/unathi/deco
+	sinta_ronin["decorated straw hat, green"] = /obj/item/clothing/head/unathi/deco/green
+	sinta_ronin["decorated straw hat, blue"] = /obj/item/clothing/head/unathi/deco/blue
+	sinta_ronin["decorated straw hat, orange"] = /obj/item/clothing/head/unathi/deco/orange
+	sinta_ronin["decorated dark straw hat, red"] = /obj/item/clothing/head/unathi/deco/dark
+	sinta_ronin["decorated dark straw hat, green"] = /obj/item/clothing/head/unathi/deco/dark/green
+	sinta_ronin["decorated dark straw hat, blue"] = /obj/item/clothing/head/unathi/deco/dark/blue
+	sinta_ronin["decorated dark straw hat, orange"] = /obj/item/clothing/head/unathi/deco/dark/orange
+	gear_tweaks += new /datum/gear_tweak/path(sinta_ronin)
+
 /datum/gear/eyes/wasteland_goggles
 	display_name = "wasteland goggles"
 	path = /obj/item/clothing/glasses/safety/goggles/wasteland
