@@ -98,6 +98,15 @@
 	they can live up to half a millenia- should enough foolish adventurers try to slay it, that is."
 	worn_overlay = "mountain"
 
+/obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+	name = "hephaestus guild mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the deep green of Hephaestus Industries. These mantles are reserved for guildsmen of Haphaestus Industries, \
+	a sign of their employment with the human megacorporation."
+	desc_extended = "Hephaestus alone of all the megacorporations has integrated itself into the guild system of the Unathi people - they employ thousands of Sinta seeking \
+	greater prosperity than the older guilds can provide, and for many, especially of the younger generation, the Hephaestus mantle is a badge of pride. To more traditional \
+	Unathi, however, this mantle is a badge of betrayal - a sign of alien influence and infiltration."
+	worn_overlay = "hephguild"
+
 /obj/item/clothing/accessory/poncho/rockstone
 	name = "rockstone cape"
 	desc = "A cape seen exclusively on nobility. The chain is adorned with precious, multi-color stones, hence its name."

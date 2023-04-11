@@ -25,6 +25,15 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/suit/unathi_mantle_heph
+	display_name = "hephaestus guild mantle"
+	description = "A deep green mantle, reserved for the guildsmen of Hephaestus Industries"
+	path = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe"
 	path = /obj/item/clothing/suit/unathi/robe
@@ -44,6 +53,15 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+
+/datum/gear/suit/robe_coat/New()
+	..()
+	var/list/robe_coat = list()
+	robe_coat["tzirzi robe, green"] = /obj/item/clothing/suit/unathi/robe/robe_coat
+	robe_coat["tzirzi robe, orange"] = /obj/item/clothing/suit/unathi/robe/robe_coat/orange
+	robe_coat["tzirzi robe, blue"] = /obj/item/clothing/suit/unathi/robe/robe_coat/blue
+	robe_coat["tzirzi robe, red"] = /obj/item/clothing/suit/unathi/robe/robe_coat/red
+	gear_tweaks += new /datum/gear_tweak/path(robe_coat)
 
 /datum/gear/gloves/unathi
 	display_name = "unathi gloves selection"
@@ -173,6 +191,16 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
+/datum/gear/uniform/unathi/jizixi/New()
+	..()
+	var/list/jizixi = list()
+	jizixi["jizixi dress, red"] = /obj/item/clothing/under/unathi/jizixi
+	jizixi["jizixi dress, green"] = /obj/item/clothing/under/unathi/jizixi/green
+	jizixi["jizixi dress, blue"] = /obj/item/clothing/under/unathi/jizixi/blue
+	jizixi["jizixi dress, white"] = /obj/item/clothing/under/unathi/jizixi/white
+	jizixi["jizixi dress, orange"] = /obj/item/clothing/under/unathi/jizixi/orange
+	gear_tweaks += new /datum/gear_tweak/path(jizixi)
+
 /datum/gear/uniform/unathi/sashes
 	display_name = "gyzao sashes"
 	path = /obj/item/clothing/under/unathi/sashes
@@ -185,6 +213,15 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/unathi/mogazali/New()
+	..()
+	var/list/mogazali = list()
+	mogazali["mogazali attire, red"] = /obj/item/clothing/under/unathi/mogazali
+	mogazali["mogazali attire, blue"] = /obj/item/clothing/under/unathi/mogazali/blue
+	mogazali["mogazali attire, green"] = /obj/item/clothing/under/unathi/mogazali/green
+	mogazali["mogazali attire, orange"] = /obj/item/clothing/under/unathi/mogazali/orange
+	gear_tweaks += new /datum/gear_tweak/path(mogazali)
 
 /datum/gear/uniform/unathi/zazali
 	display_name = "zazali garb"
