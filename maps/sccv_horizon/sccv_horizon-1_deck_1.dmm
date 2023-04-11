@@ -29598,7 +29598,9 @@
 	tag_north = 1;
 	tag_north_con = 0.8;
 	tag_south = 1;
-	tag_south_con = 0.2
+	tag_south_con = 0.2;
+	tag_west = 1;
+	tag_west_con = 0.0
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -30402,6 +30404,7 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "xof" = (
@@ -30823,7 +30826,9 @@
 	tag_north_con = 0.8;
 	tag_south = 1;
 	tag_south_con = 0.2;
-	tag_west = 2
+	tag_west = 2;
+	tag_east = 1;
+	tag_east_con = 0.0
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
