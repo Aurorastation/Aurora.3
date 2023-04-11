@@ -388,6 +388,7 @@ datum/preferences
 	character.b_eyes = b_eyes
 
 	character.set_tail_style(tail_style)
+	character.speech_bubble_type = speech_bubble_type
 
 	character.h_style = h_style
 	character.r_hair = r_hair

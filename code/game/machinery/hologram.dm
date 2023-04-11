@@ -325,16 +325,16 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		//This communication is imperfect because the holopad "filters" voices and is only designed to connect to the master only.
 		var/rendered
 		if(speaking)
-			rendered = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [speaking.format_message(text, verb)]</span></i>"
+			rendered = "<i><span class='game say'>Holopad received, <span class='name'>[M.get_accent_icon()] [name_used]</span> [speaking.format_message(text, verb)]</span></i>"
 		else
-			rendered = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
+			rendered = "<i><span class='game say'>Holopad received, <span class='name'>[M.get_accent_icon()] [name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
 		master.show_message(rendered, 2)
 	if(has_established_connection())
 		var/message
 		if(speaking)
-			message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [speaking.format_message(text, verb)]</span></i>"
+			message = "<i><span class='game say'>Holopad received, <span class='name'>[M.get_accent_icon()] [name_used]</span> [speaking.format_message(text, verb)]</span></i>"
 		else
-			message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
+			message = "<i><span class='game say'>Holopad received, <span class='name'>[M.get_accent_icon()] [name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
 		connected_pad.audible_message(message)
 		connected_pad.last_message = message
 

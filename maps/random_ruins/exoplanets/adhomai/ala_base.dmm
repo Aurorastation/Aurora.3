@@ -657,9 +657,9 @@
 	},
 /area/ala_base)
 "wU" = (
-/obj/item/stack/material/woodlog/full,
-/obj/item/stack/material/woodlog/full,
-/obj/item/stack/material/woodlog/full,
+/obj/item/stack/material/wood/log/full,
+/obj/item/stack/material/wood/log/full,
+/obj/item/stack/material/wood/log/full,
 /obj/structure/closet/crate/bin{
 	name = "fire wood bin"
 	},
@@ -1425,7 +1425,7 @@
 	},
 /area/ala_base)
 "Xe" = (
-/obj/item/stack/material/woodlog/full,
+/obj/item/stack/material/wood/log/full,
 /obj/item/crowbar/rescue_axe/red{
 	name = "woodcutting axe";
 	desc = "A short lightweight tool meant to chop, pry and pierce wood."

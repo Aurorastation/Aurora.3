@@ -43,13 +43,13 @@ var/datum/controller/subsystem/atoms/SSatoms
 	if(atoms)
 		created_atoms = list()
 		count = atoms.len
-		for(var/I in atoms)
-			if(InitAtom(I, mapload_arg))
-				atoms -= I
+		for(var/I in 1 to atoms.len)
+			var/atom/A = atoms[I]
+			InitAtom(A, mapload_arg)
 			CHECK_TICK
 	else
 		count = 0
-		for(var/atom/A in world)
+		for(var/atom/A as anything in world)
 			if(!A.initialized)
 				InitAtom(A, mapload_arg)
 				++count
@@ -61,8 +61,10 @@ var/datum/controller/subsystem/atoms/SSatoms
 	initialized = INITIALIZATION_INNEW_REGULAR
 
 	if(late_loaders.len)
-		for(var/I in late_loaders)
-			var/atom/A = I
+		for(var/I in 1 to late_loaders.len)
+			var/atom/A = late_loaders[I]
+			if(QDELETED(A))
+				continue
 			A.LateInitialize()
 		admin_notice(SPAN_DANGER("Late-initialized [late_loaders.len] atoms."), R_DEBUG)
 		log_subsystem("atoms", "Late initialized [late_loaders.len] atoms")
@@ -81,6 +83,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 	if(atoms)
 		. = created_atoms + atoms
 		created_atoms = null
+		// Note this doesn't actually do anything because we didn't finish porting TG init :^)
 
 /datum/controller/subsystem/atoms/proc/InitAtom(atom/A, list/arguments)
 	var/the_type = A.type

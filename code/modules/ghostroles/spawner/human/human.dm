@@ -184,8 +184,3 @@
 /mob/living/carbon/human/Destroy()
 	ghost_spawner = null
 	return ..()
-
-/mob/living/carbon/human/get_speech_bubble_state_modifier()
-	if(client && client.prefs && client.prefs.speech_bubble_type)
-		return client.prefs.speech_bubble_type
-	return ..()

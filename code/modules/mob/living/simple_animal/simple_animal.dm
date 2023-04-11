@@ -851,7 +851,7 @@
 //Wakes the mob up from sleeping
 /mob/living/simple_animal/proc/wake_up()
 	if (stat != DEAD)
-		set_stat(UNCONSCIOUS)
+		set_stat(CONSCIOUS)
 		resting = 0
 		canmove = 1
 		wander = 1

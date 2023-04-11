@@ -150,6 +150,7 @@ Class Procs:
 
 /obj/machinery/Destroy()
 	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_ALL)
+	SSmachinery.machinery -= src
 	if(component_parts)
 		for(var/atom/A in component_parts)
 			if(A.loc == src) // If the components are inside the machine, delete them.
