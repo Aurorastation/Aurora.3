@@ -54,6 +54,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/engineering/atmos/storage)
 "aax" = (
@@ -29902,6 +29903,7 @@
 /obj/structure/ladder{
 	pixel_y = 10
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/open,
 /area/engineering/atmos/storage)
 "oAR" = (
@@ -32449,6 +32451,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
 	dir = 8
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/open,
 /area/engineering/atmos/storage)
 "pSI" = (
@@ -49195,6 +49198,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/engineering/atmos/storage)
 "xWV" = (
