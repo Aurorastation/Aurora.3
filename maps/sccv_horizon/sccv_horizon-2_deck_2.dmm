@@ -17146,11 +17146,6 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/machinery/ringer{
-	pixel_y = -30;
-	name = "Engineering Ringer Terminal";
-	id = "Engineering_Ringer"
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "imA" = (
@@ -19217,12 +19212,6 @@
 	dir = 4;
 	id = "shutters_deck2_eng_frontdesk";
 	name = "Engineering Front Desk Shutter"
-	},
-/obj/machinery/ringer_button{
-	id = "Engineering_Ringer";
-	name = "Engineering Ringer";
-	pixel_y = 10;
-	pixel_x = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/lobby)
