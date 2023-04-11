@@ -1,15 +1,3 @@
-#define BIOME_RANDOM_SQUARE_DRIFT 2
-
-#define BIOME_POLAR "polar"
-#define BIOME_COOL "cool"
-#define BIOME_WARM "warm"
-#define BIOME_TROPICAL "tropical"
-
-#define BIOME_ARID "arid"
-#define BIOME_SUBARID "subarid"
-#define BIOME_SUBHUMID "subhumid"
-#define BIOME_HUMID "humid"
-
 /datum/exoplanet_theme
 	var/name = "Default Theme"
 	/// List of /turf types that should be colored according to surface_color
@@ -55,26 +43,29 @@
 		BIOME_POLAR 	= 0.25,
 		BIOME_COOL 		= 0.5,
 		BIOME_WARM 		= 0.75,
-		BIOME_TROPICAL 	= 1.0
+		BIOME_EQUATOR 	= 1.0
 	)
 	/// Assoc list of humidity level defines to humidity thresholds. Humidity is a seperate noise-map generated only for turfs ensured not to be a mountain.
 	var/list/humidity_levels = list(
 		BIOME_ARID 		= 0.25,
-		BIOME_SUBARID 	= 0.5,
+		BIOME_SEMIARID 	= 0.5,
 		BIOME_SUBHUMID 	= 0.75,
 		BIOME_HUMID 	= 1.0
 	)
 	/* Ore generation
 	 * These values reflect both the raw distribution of ores in the ground, and spawned minerals in rocks.
+	 * The values are somewhat arbitrary, but the comments here should explain what values get what # of ore. You'll need to experiment.
+	 * These values are divided by 4 and then clamped to (-0.5, 0.5); w.o the multiplication the usable range is roughly (-0.35, -0.27), so
+	 * this gives us a bit more room to fine tune (at the cost of arbitrary numbers)
 	 */
 	var/list/ore_levels = list(
-		ORE_PLATINUM 	= 0.15,
-		ORE_DIAMOND 	= 0.15,
-		ORE_URANIUM 	= 0.17,
-		ORE_GOLD 		= 0.16,
-		ORE_SILVER 		= 0.17,
-		ORE_COAL 		= 0.23,
-		ORE_IRON 		= 0.23,
+		ORE_PLATINUM 	= 0.6,
+		ORE_DIAMOND 	= 0.6,
+		ORE_URANIUM 	= 0.7,
+		ORE_GOLD 		= 0.68,
+		ORE_SILVER 		= 0.7,
+		ORE_COAL 		= 0.9,
+		ORE_IRON 		= 0.92,
 	)
 	/// List of random seeds used for ore noise generation. Automatically generated on New() using ore_levels.
 	var/list/ore_seeds
@@ -85,6 +76,7 @@
 	var/seed_flora = TRUE
 	var/seed_fauna = TRUE
 
+	/// Assoc list of selected biome singletons to their associated poisson sample string
 	var/list/map_flora
 	var/list/map_fauna
 
@@ -94,7 +86,7 @@
 
 	sortTim(ore_levels, GLOBAL_PROC_REF(cmp_numeric_dsc), TRUE) // We want the rarest first
 	for(var/o in ore_levels)
-		var/conv_level = max(-0.5, ore_levels[o] - 0.5) // seems like the noise range from DBP noise is (-0.5, 0.5) so we'll convert to that
+		var/conv_level = max(-0.5, (ore_levels[o] / 4) - 0.5) // seems like the noise range from DBP noise is (-0.5, 0.5) so we'll convert to that
 		LAZYSET(ore_seeds, o, rustg_dbp_generate("[rand(0, 50000)]", "16", "8", "[world.maxx]", "-0.5", "[conv_level]"))
 
 	if(seed_flora)
@@ -211,7 +203,9 @@
 	if(!LAZYLEN(ore_counts) || !LAZYLEN(ore_levels))
 		return
 
+	to_world("Ore counts on [E]")
 	for(var/o in ore_counts)
+		to_world("[o] => [ore_counts[o]]")
 		if(ore_counts[o] < 100) // Bit of a magic number but we just want to make sure there's a little bit of every ore
 			var/conv_level = max(-0.5, ore_levels[o] - 0.5) // seems like the noise range from DBP noise is (-0.5, 0.5) so we'll convert to that
 			LAZYSET(ore_seeds, o, rustg_dbp_generate("[rand(0, 50000)]", "16", "8", "[world.maxx]", "-0.5", "[conv_level]"))

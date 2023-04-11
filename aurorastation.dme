@@ -2678,6 +2678,7 @@
 #include "code\modules\overmap\exoplanets\decor\turfs\sand.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\snow.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\water.dm"
+#include "code\modules\overmap\exoplanets\themes\__defines.dm"
 #include "code\modules\overmap\exoplanets\themes\_theme.dm"
 #include "code\modules\overmap\exoplanets\themes\arid.dm"
 #include "code\modules\overmap\exoplanets\themes\barren.dm"
