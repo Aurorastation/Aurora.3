@@ -8552,6 +8552,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
+"gsr" = (
+/turf/template_noop,
+/area/engineering/atmos/propulsion/starboard)
 "gsG" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating/cooled,
@@ -11613,6 +11616,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"iPb" = (
+/turf/template_noop,
+/area/engineering/atmos/propulsion)
 "iPz" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -45547,9 +45553,9 @@ xWM
 dGu
 hqH
 awJ
-vyG
-vyG
-vyG
+gsr
+gsr
+gsr
 awJ
 awJ
 tuP
@@ -45750,9 +45756,9 @@ awJ
 awJ
 jiL
 awJ
-uZU
-iCX
-dCC
+vyG
+vyG
+vyG
 awJ
 awJ
 tuP
@@ -45954,7 +45960,7 @@ jQh
 xGQ
 awJ
 uZU
-gal
+iCX
 dCC
 awJ
 awJ
@@ -57525,7 +57531,7 @@ bQb
 hRF
 uVL
 eBj
-wsF
+moj
 cne
 uVL
 uVL
@@ -57727,9 +57733,9 @@ uVL
 uVL
 hRF
 uVL
-eBj
-moj
-cne
+dLn
+dLn
+dLn
 uVL
 uVL
 vil
@@ -57930,9 +57936,9 @@ uVL
 uVL
 uVL
 uVL
-dLn
-dLn
-dLn
+iPb
+iPb
+iPb
 uVL
 uVL
 oTX
