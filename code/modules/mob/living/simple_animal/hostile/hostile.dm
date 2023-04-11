@@ -70,6 +70,10 @@
 	for (var/atom/A in targets)
 		if(A == src)
 			continue
+		if(ismob(A)) //Don't target mobs with keys that have logged out.
+			var/mob/M = A
+			if(M.key && !M.client)
+				continue
 		if(!isturf(A.loc))
 			A = A.loc
 		var/datum/callback/cb = null
@@ -121,7 +125,7 @@
 		target_mob = user
 		change_stance(HOSTILE_STANCE_ATTACK)
 
-mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+/mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
 	..()
 	if(istype(AM,/obj/))
 		var/obj/O = AM
@@ -168,6 +172,9 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 /mob/living/simple_animal/hostile/proc/AttackTarget()
 	stop_automated_movement = 1
 	if(QDELETED(target_mob) || SA_attackable(target_mob))
+		LoseTarget()
+		return 0
+	if(target_mob.key && !target_mob.client)
 		LoseTarget()
 		return 0
 	if(!(target_mob in targets))
