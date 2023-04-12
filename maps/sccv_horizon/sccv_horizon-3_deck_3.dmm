@@ -124,12 +124,15 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
 "adv" = (
 /obj/machinery/door/airlock{
-	name = "Washroom";
-	id_tag = "sec_deck3_toilet"
+	id_tag = "sec_deck3_toilet";
+	name = "Washroom"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -685,6 +688,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
@@ -1245,10 +1251,10 @@
 /obj/machinery/button/remote/airlock{
 	id = "airlocks_bunker";
 	name = "Command Bunker Bolts";
-	req_access = list(19);
-	specialfunctions = 4;
+	pixel_x = 27;
 	pixel_y = 23;
-	pixel_x = 27
+	req_access = list(19);
+	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_bunker";
@@ -2912,6 +2918,17 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
+"cKD" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
+"cLa" = (
+/obj/structure/table/rack,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "cMi" = (
@@ -4639,8 +4656,8 @@
 	pixel_y = -3
 	},
 /obj/machinery/recharger{
-	pixel_y = 10;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
@@ -4869,9 +4886,9 @@
 	name = "Holodeck Alpha"
 	},
 /obj/machinery/door/blast/shutters/open{
-	name = "Holodeck Alpha Privacy Shutters";
+	dir = 2;
 	id = "holodeck_alpha_shutters";
-	dir = 2
+	name = "Holodeck Alpha Privacy Shutters"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -5446,6 +5463,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "eYD" = (
@@ -5925,15 +5945,15 @@
 	pixel_y = -7
 	},
 /obj/machinery/button/switch/windowtint{
+	dir = 4;
 	id = "holodecktint_a";
 	pixel_x = -22;
-	dir = 4;
 	pixel_y = 2
 	},
 /obj/machinery/light_switch{
+	dir = 4;
 	pixel_x = -22;
-	pixel_y = 10;
-	dir = 4
+	pixel_y = 10
 	},
 /obj/machinery/light/spot,
 /turf/simulated/floor/tiled/dark,
@@ -6675,6 +6695,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
@@ -8007,6 +8030,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -11966,8 +11992,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	name = "Viewing Shutter";
-	id = "shutters_deck3_shieldwindows"
+	id = "shutters_deck3_shieldwindows";
+	name = "Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/storage/shields)
@@ -13160,9 +13186,9 @@
 	dir = 1;
 	id = "crew_armory";
 	name = "Crew Armoury Main Access";
+	pixel_x = 7;
 	pixel_y = -24;
-	req_access = list(60);
-	pixel_x = 7
+	req_access = list(60)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -14566,13 +14592,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
-"mkT" = (
-/obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck_control/beta)
 "mlv" = (
 /obj/machinery/power/apc/low{
 	dir = 1;
@@ -17139,6 +17158,9 @@
 /obj/machinery/door/airlock/glass{
 	name = "Deck 3 Starboard Hallway"
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "osf" = (
@@ -17270,14 +17292,14 @@
 	pixel_y = -7
 	},
 /obj/machinery/light_switch{
+	dir = 4;
 	pixel_x = -22;
-	pixel_y = 10;
-	dir = 4
+	pixel_y = 10
 	},
 /obj/machinery/button/switch/windowtint{
+	dir = 4;
 	id = "holodecktint_b";
 	pixel_x = -22;
-	dir = 4;
 	pixel_y = 2
 	},
 /obj/structure/window/reinforced,
@@ -17499,6 +17521,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/port)
+"oFu" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "oGZ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -20061,8 +20090,8 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/hyper{
-	pixel_y = 24;
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
@@ -23223,8 +23252,8 @@
 "tIh" = (
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	name = "Holodeck Alpha Public Opening Shutters";
-	id = "holodeck_alpha_bigshutters"
+	id = "holodeck_alpha_bigshutters";
+	name = "Holodeck Alpha Public Opening Shutters"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -23417,10 +23446,10 @@
 /obj/machinery/button/remote/airlock{
 	id = "sat2";
 	name = "Scuttling Device Bolts";
-	req_access = list(20);
-	specialfunctions = 4;
+	pixel_x = 24;
 	pixel_y = 40;
-	pixel_x = 24
+	req_access = list(20);
+	specialfunctions = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -25144,9 +25173,9 @@
 	name = "Holodeck Beta"
 	},
 /obj/machinery/door/blast/shutters/open{
-	name = "Holodeck Beta Privacy Shutters";
+	dir = 2;
 	id = "holodeck_beta_shutters";
-	dir = 2
+	name = "Holodeck Beta Privacy Shutters"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -25316,9 +25345,9 @@
 	check_synth = 1;
 	desc = "A firewall prevents AIs from interacting with this device.";
 	name = "Scuttling Device Chamber turrets control";
-	req_access = list(20);
 	pixel_x = 28;
-	pixel_y = -2
+	pixel_y = -2;
+	req_access = list(20)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
@@ -25697,8 +25726,8 @@
 	id = "sec_deck3_toilet";
 	name = "Door Bolt Control";
 	pixel_x = -25;
-	specialfunctions = 4;
-	pixel_y = -7
+	pixel_y = -7;
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/washroom)
@@ -47216,7 +47245,7 @@ uBG
 ruh
 orG
 rNN
-mkT
+xmD
 bbI
 gDJ
 gDJ

@@ -89,6 +89,7 @@
 #include "code\__defines\tips.dm"
 #include "code\__defines\traits.dm"
 #include "code\__defines\turfs.dm"
+#include "code\__defines\typeids.dm"
 #include "code\__defines\vueui.dm"
 #include "code\__defines\webhook.dm"
 #include "code\__defines\ZAS.dm"

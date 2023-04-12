@@ -35,6 +35,20 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">12 April 2023</h2>
+			<h3 class="author">kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a duplicate air alarm in Holodeck Beta.</li>
+				<li class="bugfix">Fixed some catwalks being the wrong type and thus invisible on Deck 3 exterior.</li>
+				<li class="bugfix">Re-added a ball to the holodeck basketball court.</li>
+			</ul>
+
+			<h2 class="date">11 April 2023</h2>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Slightly reduced init time required to build vending UI spritesheets.</li>
+			</ul>
+
 			<h2 class="date">10 April 2023</h2>
 			<h3 class="author">GeneralCamo updated:</h3>
 			<ul class="changes bgimages16">
@@ -47,6 +61,16 @@
 				<li class="maptweak">The Intrepid now has externally cycled airlocks, and utilizes the new pipes.</li>
 				<li class="maptweak">Added a scrubber to the Spark, which is directly vented out into space.</li>
 				<li class="imageadd">Ported Keekenox#1337&#x27;s vents and scrubbers.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed several hard-deletion issues that were causing a severe performance impact.</li>
+				<li class="bugfix">Fixed mobs not being removed from AI targeting spatial grid cells when they moved to a new cell.</li>
+				<li class="bugfix">Fixed valves not properly disconnecting, leading to a hanging hardref.</li>
+				<li class="backend">Added several procs to allow removing body parts from mechs, and fixed mech wreckage deleting contained parts.</li>
+				<li class="backend">Adjusted SSatoms init loops to be slightly more performant.</li>
+				<li class="backend">Changed failsafe messages to a more visible color.</li>
+				<li class="backend">Ported an updated version of reference tracking from tgstation; included optional debug flags to track down hardref issues.</li>
 			</ul>
 			<h3 class="author">MattAtlas updated:</h3>
 			<ul class="changes bgimages16">
@@ -69,6 +93,7 @@
 				<li class="bugfix">Fixed simple mobs being permanently sleepy and falling asleep when they actually want to wake up. The horror.</li>
 				<li class="bugfix">Fixed the secure ammunition storage turrets not being linked to the turret control.</li>
 				<li class="bugfix">Fixed robotic organ repair with nanopaste not working.</li>
+				<li class="bugfix">Fixes D3 wiring.</li>
 			</ul>
 			<h3 class="author">MattAtlas (porting), Spookerton (original author) updated:</h3>
 			<ul class="changes bgimages16">
@@ -82,11 +107,18 @@
 			<ul class="changes bgimages16">
 				<li class="bugfix">Fixes Ammunition storage turret control access</li>
 			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Vaurca Bulwark unarmed attacks no longer have a chance to cause bleeding, but deal slightly more brute damage and have a chance to knock back the unfortunate victim.</li>
+				<li class="tweak">Vaurca Bulwarks are easier to grab and have a higher resist modifier to bring them in line with other large mobs.</li>
+				<li class="tweak">Vaurca Bulwarks now use the heavy sparring attack instead of the light one, because they are giant bugs.</li>
+			</ul>
 			<h3 class="author">atteria updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="imageadd">Resprited most kitchen appliances.</li>
 				<li class="imageadd">Added smoke effects to show when food is about to burn.</li>
 				<li class="bugfix">Fixed the stove&#x27;s turned on animation not displaying.</li>
+				<li class="bugfix">Fixed the cutting board and mixing bowl sprites.</li>
 			</ul>
 			<h3 class="author">kyres1 updated:</h3>
 			<ul class="changes bgimages16">

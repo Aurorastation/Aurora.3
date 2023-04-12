@@ -13,14 +13,14 @@
 	if(exosuit)
 		name = "wreckage of \the [exosuit.name]"
 		if(!gibbed)
-			for(var/obj/item/thing in list(exosuit.arms, exosuit.legs, exosuit.head, exosuit.body))
-				if(thing && prob(40))
-					thing.forceMove(src)
 			for(var/hardpoint in exosuit.hardpoints)
 				if(exosuit.hardpoints[hardpoint] && prob(40))
 					var/obj/item/thing = exosuit.hardpoints[hardpoint]
 					if(exosuit.remove_system(hardpoint))
 						thing.forceMove(src)
+			for(var/obj/item/mech_component/comp in list(exosuit.arms, exosuit.legs, exosuit.head, exosuit.body))
+				if(comp && prob(40))
+					exosuit.remove_body_part(comp, src)
 
 /obj/structure/mech_wreckage/powerloader/Initialize(mapload)
 	var/mob/living/heavy_vehicle/premade/ripley/new_mech = new(loc)
