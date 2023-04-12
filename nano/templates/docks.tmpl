@@ -1,0 +1,14 @@
+
+<h3>Docks</h3>
+{{for data.docks}}
+  <div class='item'>
+    <div class='itemLabel'>
+      {{:value.name}}
+    </div>
+    <div class='itemContent'>
+      {{if value.shuttle}}
+        {{:value.shuttle}}
+      {{/if}}
+    </div>
+  </div>
+{{/for}}
