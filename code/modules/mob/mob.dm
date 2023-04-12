@@ -1039,6 +1039,7 @@
 		buckled_to.set_dir(ndir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
 		setMoveCooldown(movement_delay())
+	SEND_SIGNAL(src, COMSIG_MOB_FACEDIR, ndir)
 	return 1
 
 
