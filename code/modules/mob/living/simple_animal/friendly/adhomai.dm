@@ -318,3 +318,32 @@
 	meat_amount = 20
 	faction = "Adhomai"
 	pixel_x = -8
+
+/mob/living/simple_animal/nosehorn
+	name = "nose-horn"
+	desc = "A domesticated beast of burden used for hitching and dragging. "
+	icon = 'icons/mob/npc/adhomai_96.dmi'
+	icon_state = "nosehorn"
+	icon_living = "nosehorn"
+	icon_dead = "nosehorn_dead"
+	speak_emote = list("chuffs")
+	emote_hear = list("brays")
+	emote_see = list("shakes its head")
+	speak_chance = 1
+	turns_per_move = 5
+	see_in_dark = 6
+	meat_amount = 50
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "kicks"
+	attacktext = "kicked"
+	health = 450
+	maxHealth = 452
+	mob_size = 30
+
+	pixel_x = -32
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	butchering_products = list(/obj/item/stack/material/animalhide = 15, /obj/item/reagent_containers/food/snacks/spreads/lard = 20)
+	faction = "Adhomai"

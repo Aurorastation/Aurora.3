@@ -1,0 +1,7 @@
+author: Alberyk, Kyres1
+
+delete-after: True
+
+changes:
+  - rscadd: "Added two more adhomian animals: the climber and the nose-horn."
+  - rscadd: "You can ride the climber if you use a saddle on it."
