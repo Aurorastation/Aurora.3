@@ -175,6 +175,14 @@ var/list/datum/power/changeling/powerinstances = list()
 	isVerb = FALSE
 	verbpath = /mob/proc/changeling_engorgedglands
 
+/datum/power/changeling/nobreathing
+	name = "UPGRADE: No Breathing"
+	desc = "We no longer have need to breathe, although we go through the motions to fool observers."
+	helptext = "Harmful gas can still irritate your eyes and this doesn't mean you can survive in space without a suit. Lung damage can still hurt somewhat."
+	genomecost = 2
+	isVerb = FALSE
+	verbpath = /mob/proc/changeling_nobreathing
+
 /datum/power/changeling/space_adaption
 	name = "UPGRADE: Space Adaption"
 	desc = "Our body chemistry changes to become resistant to the effects of low pressure, and we no longer have the need to breathe."
@@ -255,9 +263,9 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/horror_form
 	name = "Horror Form"
-	desc = "We tear apart our human disguise, revealing our true form."
-	helptext = "We will return to our current form after ten minutes. Death in our true form is permanent."
-	genomecost = 15
+	desc = "We tear apart our human disguise, revealing our true and ultimate form."
+	helptext = "We will assume our ultimate form. This is irreversible. While we are in this state, we are extremely powerful."
+	genomecost = 10
 	verbpath = /mob/proc/horror_form
 
 // Modularchangling, totally stolen from the new player panel.  YAYY

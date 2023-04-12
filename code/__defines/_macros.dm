@@ -4,6 +4,7 @@
 #define list_find(L, needle, LIMITS...) L.Find(needle, LIMITS)
 #define hex2num(hex) text2num(hex, 16)
 #define num2hex(num, pad) num2text(num, pad, 16)
+#define text_ref(datum) (isdatum(datum) ? (datum:cached_ref ||= "\ref[datum]") : ("\ref[datum]"))
 
 #define span(class, text) ("<span class='[class]'>" + text + "</span>")
 #define SPAN_NOTICE(X) ("<span class='notice'>" + X + "</span>")
@@ -104,9 +105,12 @@
 
 #define isclient(A) istype(A, /client)
 
-#define isprojectile(A) istype(A, /obj/item/projectile)
-
 #define isclothing(A) istype(A, /obj/item/clothing)
+
+/// Projectile helpers
+#define isprojectile(A) istype(A, /obj/item/projectile)
+#define isbeam(A) istype(A, /obj/item/projectile/beam)
+#define isenergy(A) istype(A, /obj/item/projectile/energy)
 
 /// General I/O helpers
 #define to_target(target, payload)                          target << (payload)

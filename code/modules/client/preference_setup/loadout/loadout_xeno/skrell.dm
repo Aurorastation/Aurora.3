@@ -136,6 +136,13 @@
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_NO_SELECTION
 
+/datum/gear/wulu_pouch
+	display_name = "wulumunusha joint pouch"
+	path = /obj/item/storage/box/fancy/cigarettes/wulu
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 /datum/gear/ears/skrell/goop
 	display_name = "glowing algae"
 	path = /obj/item/clothing/ears/skrell/goop

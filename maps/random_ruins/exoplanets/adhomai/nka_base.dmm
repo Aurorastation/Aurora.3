@@ -101,10 +101,12 @@
 	},
 /area/nka_base)
 "hK" = (
+/obj/item/stack/material/wood/log/full,
+/obj/item/stack/material/wood/log/full,
+/obj/item/stack/material/wood/log/full,
 /obj/structure/closet/crate/bin{
 	name = "fire wood bin"
 	},
-/obj/item/stack/material/wood/log/full,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -264,12 +266,6 @@
 	desc = "A tank of water filed by melting local snow."
 	},
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/nka_base)
-"rD" = (
-/obj/structure/sink/puddle,
-/turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -561,14 +557,6 @@
 	temperature = 268.15
 	},
 /area/nka_base)
-"Ei" = (
-/obj/structure/table/wood,
-/obj/item/saddle,
-/obj/item/saddle,
-/turf/simulated/floor/exoplanet/barren{
-	temperature = 268.15
-	},
-/area/nka_base)
 "Em" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp/green{
@@ -697,19 +685,6 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/nka_base)
-"PV" = (
-/obj/structure/railing/fence{
-	dir = 8
-	},
-/obj/structure/railing/fence,
-/obj/structure/railing/fence{
-	dir = 4
-	},
-/obj/vehicle/bike/climber,
-/turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -1495,10 +1470,10 @@ DL
 DL
 EP
 EP
-EP
-EP
-EP
-PV
+DL
+DL
+DL
+DL
 DL
 gU
 "}
@@ -1530,9 +1505,9 @@ DL
 EP
 EP
 DL
-rD
-EP
-PV
+DL
+DL
+DL
 DL
 gU
 "}
@@ -1564,9 +1539,9 @@ DL
 EP
 EP
 DL
-EP
-EP
-PV
+DL
+DL
+pV
 DL
 gU
 "}
@@ -1598,9 +1573,9 @@ DL
 EP
 EP
 DL
-Ei
-EP
-PV
+DL
+DL
+DL
 DL
 gU
 "}
