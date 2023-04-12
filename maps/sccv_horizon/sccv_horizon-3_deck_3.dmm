@@ -2920,17 +2920,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
-"cKD" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
-"cLa" = (
-/obj/structure/table/rack,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "cMi" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -17521,13 +17510,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/port)
-"oFu" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
 "oGZ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -21947,6 +21929,7 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_one_access = list(12)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "sze" = (
