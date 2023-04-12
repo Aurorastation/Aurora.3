@@ -65,10 +65,10 @@
 	var/datum/effect/system/expl_particles/P = new/datum/effect/system/expl_particles()
 	P.set_up(10,location)
 	P.start()
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/effect/system/expl_particles, HandleSmokeSpread)), 5)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/effect/system/explosion, HandleSmokeSpread)), 5)
 
 
-/datum/effect/system/expl_particles/proc/HandleSmokeSpread()
+/datum/effect/system/explosion/proc/HandleSmokeSpread()
 	var/datum/effect/effect/system/smoke_spread/S = new/datum/effect/effect/system/smoke_spread()
 	S.set_up(5,0,location,null)
 	S.start()
