@@ -1,13 +1,25 @@
 
-{{for data.docks}}
-  <div class='item' style="width: 100%;">
-    <div class='itemLabel'>
-      {{:value.name}}
-    </div>
-    <div class='itemContent'>
-      {{if value.shuttle}}
-        {{:value.shuttle}}
-      {{/if}}
-    </div>
-  </div>
-{{/for}}
+{{if data.connected_name}}
+  <h3>
+    Connected to network: {{:data.connected_name}}
+  </h3>
+{{else}}
+  <h3>
+    Connected to network: ?????
+  </h3>
+{{/if}}
+
+<table>
+  {{for data.docks}}
+    <tr>
+      <td>
+        {{:value.name}}
+      </td>
+      <td>
+        {{if value.shuttle}}
+          {{:value.shuttle}}
+        {{/if}}
+      </td>
+    </tr>
+  {{/for}}
+</table>

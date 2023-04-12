@@ -23,6 +23,7 @@
 
 	var/list/docks = list()
 	if(connected)
+		data["connected_name"] = connected.name
 		for(var/landmark_tag in connected.tracked_dock_tags)
 			var/obj/effect/shuttle_landmark/landmark = SSshuttle.registered_shuttle_landmarks[landmark_tag]
 			if(landmark && istype(landmark))
