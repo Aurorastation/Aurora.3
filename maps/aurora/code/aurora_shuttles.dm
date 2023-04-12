@@ -155,7 +155,7 @@ AURORA_ESCAPE_POD(4)
 	base_turf = /turf/space/transit/bluespace/west
 
 /obj/effect/shuttle_landmark/merchant/dock
-	name = "Merchant Shuttle Dock"
+	name = "Second Deck Starboard Dock 1"
 	landmark_tag = "nav_merchant_dock"
 	docking_controller = "merchant_shuttle_dock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
@@ -213,7 +213,7 @@ AURORA_ESCAPE_POD(4)
 	base_area = /area/centcom/ferry
 
 /obj/effect/shuttle_landmark/ccia/dock
-	name = "Agent Shuttle Dock"
+	name = "Second Deck Starboard Dock 2"
 	landmark_tag = "nav_ccia_dock"
 	docking_controller = "centcom_shuttle_dock_airlock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
@@ -237,7 +237,7 @@ AURORA_ESCAPE_POD(4)
 	base_area = /area/centcom/specops
 
 /obj/effect/shuttle_landmark/ert/dock
-	name = "ERT Dock"
+	name = "Third Deck Port Dock 3"
 	landmark_tag = "nav_ert_dock"
 	docking_controller = "specops_dock_airlock"
 	special_dock_targets = list("Phoenix Shuttle" = "specops_shuttle_fore")
@@ -497,7 +497,7 @@ AURORA_ESCAPE_POD(4)
 	base_turf = /turf/space/transit/bluespace/west
 
 /obj/effect/shuttle_landmark/legion/green
-	name = "Emergency Services Dock (Main Entrypoint)"
+	name = "Third Deck Port Dock 1"
 	landmark_tag = "nav_legion_green"
 	docking_controller = "legion_shuttle_dock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
@@ -589,7 +589,7 @@ AURORA_ESCAPE_POD(4)
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/distress/blue
-	name = "Blue Dock"
+	name = "First Deck Port Hangar Bay 2"
 	landmark_tag = "nav_distress_blue"
 	docking_controller = "distress_shuttle_dock"
 	special_dock_targets = list("Distress Shuttle" = "distress_shuttle_fore")

@@ -10,22 +10,24 @@
   {{:helper.link('Reconnect', null, {'action' : 'reconnect'}, null)}}
 {{/if}}
 
-<table>
-  <tr>
-    <td><b>Docking port<b><td>
-    <td><b>Docked ship<b></td>
-  </tr>
-  {{for data.docks}}
+<table style="border: 1px solid black;">
+  <center>
     <tr>
-      <td>
-        {{:value.name}}
-      </td>
-      <td>
-        {{if value.shuttle}}
-          {{:value.shuttle}}
-        {{/if}}
-      </td>
+      <td><b>Docking port<b></td>
+      <td><b>Docked ship<b></td>
     </tr>
-  {{/for}}
+    {{for data.docks}}
+      <tr>
+        <td>
+          {{:value.name}}
+        </td>
+        <td>
+          {{if value.shuttle}}
+            {{:value.shuttle}}
+          {{/if}}
+        </td>
+      </tr>
+    {{/for}}
+  </center>
 </table>
 

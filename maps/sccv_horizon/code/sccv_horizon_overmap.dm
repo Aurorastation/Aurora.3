@@ -138,40 +138,40 @@
 	req_access = list(access_mining)
 
 /obj/effect/shuttle_landmark/horizon/nav1
-	name = "Port Hangar Bay 1"
+	name = "First Deck Port Hangar Bay 1"
 	landmark_tag = "nav_hangar_horizon_1"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/hangar/auxiliary
 
 /obj/effect/shuttle_landmark/horizon/nav2
-	name = "Port Hangar Bay 2"
+	name = "First Deck Port Hangar Bay 2"
 	landmark_tag = "nav_hangar_horizon_2"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/hangar/auxiliary
 
 //external landmarks for overmap ships
 /obj/effect/shuttle_landmark/horizon/dock1
-	name = "Starboard Primary Docking Arm"
+	name = "Third Deck Starboard Dock 2"
 	landmark_tag = "nav_dock_horizon_1"
 	docking_controller = "dock_horizon_1_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/horizon/dock2 //shares a spot with the TCFL ERT shuttle, but having multiple use cases is fine, ERTs are adminspawned only as well
-	name = "Port Primary Docking Arm"
+	name = "Third Deck Starboard Dock 2"
 	landmark_tag = "nav_dock_horizon_2"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/horizon/dock3
-	name = "Starboard Primary Docking Arm-Fore"
+	name = "Third Deck Starboard Dock 3"
 	landmark_tag = "nav_dock_horizon_3"
 	docking_controller = "dock_horizon_3_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/horizon/dock4
-	name = "Port Primary Docking Arm-Fore"
+	name = "Third Deck Port Dock 2"
 	landmark_tag = "nav_dock_horizon_4"
 	docking_controller = "dock_horizon_4_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
