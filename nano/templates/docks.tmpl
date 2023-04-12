@@ -5,11 +5,16 @@
   </h3>
 {{else}}
   <h3>
-    Connected to network: ?????
+    Connected to network: ???
   </h3>
+  {{:helper.link('Reconnect', null, {'action' : 'reconnect'}, null)}}
 {{/if}}
 
 <table>
+  <tr>
+    <td><b>Docking port<b><td>
+    <td><b>Docked ship<b></td>
+  </tr>
   {{for data.docks}}
     <tr>
       <td>
@@ -23,3 +28,4 @@
     </tr>
   {{/for}}
 </table>
+

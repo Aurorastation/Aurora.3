@@ -51,10 +51,16 @@
 		ui.set_initial_data(data)
 		ui.open()
 
-/datum/computer_file/program/docks/Topic(href, href_list)
+datum/nano_module/program/docks/Topic(href, href_list)
 	if(..())
 		return TRUE
 
-	SSnanoui.update_uis(NM)
+	switch(href_list["action"])
+		if("reconnect")
+			var/datum/computer_file/program/program = host
+			var/obj/item/modular_computer/computer = program.computer
+			computer.sync_linked()
+
+	SSnanoui.update_uis(src)
 	return TRUE
 
