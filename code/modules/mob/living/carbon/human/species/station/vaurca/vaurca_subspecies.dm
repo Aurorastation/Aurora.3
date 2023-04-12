@@ -91,7 +91,7 @@
 	sprint_cost_factor = 0.80
 	stamina_recovery = 3
 
-	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
+	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN
 
 	possible_cultures = list(
 		/singleton/origin_item/culture/zora_breeder,
@@ -164,7 +164,7 @@
 	warning_high_pressure = 3250 //Default 325
 
 	spawn_flags = IS_RESTRICTED
-	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE | NO_ARTERIES | PHORON_IMMUNE
+	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/rebel_yell,
@@ -220,7 +220,7 @@
 
 	slowdown = 2
 
-	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
+	unarmed_types = list(/datum/unarmed_attack/vaurca_bulwark)
 	maneuvers = list(
 		/singleton/maneuver/leap/bulwark
 	)
@@ -235,8 +235,8 @@
 	radiation_mod = 0
 	toxins_mod = 3
 
-	grab_mod = 0.8
-	resist_mod = 4
+	grab_mod = 0.5 //very big, very easy to grab
+	resist_mod = 14 //also very strong
 
 	mob_size = 28
 	taste_sensitivity = TASTE_DULL

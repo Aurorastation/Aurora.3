@@ -20,7 +20,7 @@ var/list/admin_datums = list()
 
 /datum/admins/New(initial_rank = "Temporary Admin", initial_rights = 0, ckey)
 	if(!ckey)
-		error("Admin datum created without a ckey argument. Datum has been deleted")
+		log_error("Admin datum created without a ckey argument. Datum has been deleted")
 		qdel(src)
 		return
 

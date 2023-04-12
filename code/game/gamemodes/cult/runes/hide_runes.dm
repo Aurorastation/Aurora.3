@@ -8,7 +8,7 @@
 	for(var/obj/effect/rune/R in orange(4, get_turf(A)))
 		if(R == A)
 			continue
-		R.invisibility = INVISIBILITY_OBSERVER
+		R.set_invisibility(INVISIBILITY_OBSERVER)
 		rune_found = TRUE
 	if(rune_found)
 		user.say("Kla'atu barada nikt'o!")

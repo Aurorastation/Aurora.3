@@ -16,6 +16,17 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
+"bE" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -24
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
 "ch" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
@@ -42,6 +53,16 @@
 /obj/machinery/porta_turret/ballistic,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"dw" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/structure/table/standard,
+/obj/machinery/chemical_dispenser/coffeemaster,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -108,6 +129,30 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
+"fF" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/structure/sign/flag/pra{
+	pixel_x = 32
+	},
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"fL" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/structure/sign/flag/pra{
+	pixel_x = -32
+	},
+/obj/machinery/papershredder,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
 "gi" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -152,10 +197,16 @@
 	dir = 6
 	},
 /obj/item/stamp{
-	pixel_y = 7
+	pixel_y = 7;
+	name = "people's secret intelligence service stamp";
+	icon_state = "stamp-zavod"
 	},
 /obj/item/stamp/denied{
 	pixel_y = -2
+	},
+/obj/item/flame/lighter/adhomai{
+	pixel_y = 10;
+	pixel_x = 9
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -173,13 +224,13 @@
 	},
 /area/psis_outpost)
 "jx" = (
-/obj/structure/blocker/steel/fence{
-	dir = 4
+/obj/structure/sign/securearea{
+	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
-/area/exoplanet/adhomai)
+/area/psis_outpost)
 "jO" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/red/full,
@@ -189,6 +240,7 @@
 /obj/structure/sign/flag/pra/left{
 	pixel_y = -32
 	},
+/obj/item/folder/red,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
 	pixel_y = 5;
 	pixel_x = 8
@@ -260,7 +312,7 @@
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
-/area/exoplanet/adhomai)
+/area/psis_outpost)
 "oR" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -289,13 +341,13 @@
 	},
 /area/psis_outpost)
 "qB" = (
-/obj/structure/sign/securearea{
-	pixel_y = 32
+/obj/structure/blocker/steel/fence{
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
-/area/exoplanet/adhomai)
+/area/psis_outpost)
 "qO" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 8
@@ -326,6 +378,16 @@
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 4
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"tu" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = 8
 	},
 /turf/simulated/floor/reinforced{
 	temperature = 268.15
@@ -409,6 +471,9 @@
 	dir = 10
 	},
 /obj/machinery/light,
+/obj/item/storage/box/lights{
+	pixel_y = 14
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -510,9 +575,6 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"Hq" = (
-/turf/simulated/wall/r_wall,
-/area/exoplanet/adhomai)
 "Iy" = (
 /obj/machinery/door/window/brigdoor{
 	dir = 8;
@@ -557,7 +619,8 @@
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
 	req_one_access = null;
-	req_access = list(209)
+	req_access = list(209);
+	department = "Unknown Signal"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -573,36 +636,21 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
-/turf/simulated/floor/tiled/dark{
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/radiation,
+/obj/machinery/vending/medical{
+	req_access = null;
+	pixel_y = 31
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
 "Kl" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209)
-	},
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/gun/projectile/shotgun/pump/rifle,
-/obj/item/gun/projectile/shotgun/pump/rifle,
-/obj/item/gun/projectile/shotgun/pump/rifle,
-/obj/item/gun/projectile/automatic/tommygun,
-/obj/item/ammo_magazine/submachinedrum,
-/obj/structure/sign/painting_frame/hadii{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark{
+/turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -637,8 +685,39 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
+"Mm" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/light,
+/obj/item/storage/box/folders,
+/obj/structure/closet/crate,
+/obj/item/storage/box/folders,
+/obj/item/storage/box/folders,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
 "Mq" = (
 /turf/simulated/wall/r_wall,
+/area/psis_outpost)
+"MW" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
 /area/psis_outpost)
 "Nf" = (
 /obj/effect/floor_decal/corner/black{
@@ -746,6 +825,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"Ss" = (
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -914,7 +1001,19 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/bedsheetbin,
 /turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"Ys" = (
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -7
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 10
+	},
+/turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -938,6 +1037,36 @@
 /area/psis_outpost)
 "ZG" = (
 /turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"ZP" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(209)
+	},
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/projectile/automatic/tommygun,
+/obj/item/ammo_magazine/submachinedrum,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
+	},
+/obj/item/gun/energy/rifle/icelance,
+/obj/item/gun/energy/pistol,
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -1014,7 +1143,7 @@ Hg
 Hg
 Hg
 Hg
-Hq
+Mq
 on
 on
 on
@@ -1039,7 +1168,7 @@ on
 on
 on
 on
-Hq
+Mq
 Hg
 Hg
 Hg
@@ -1048,32 +1177,32 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1082,32 +1211,32 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1116,32 +1245,32 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1150,32 +1279,32 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-lg
-Mq
-Mq
-Mq
-Mq
-Mq
-Mq
-Mq
 qB
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Ss
+Mq
+Mq
+Mq
+Mq
+Mq
+Mq
+Mq
 jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 CC
 Hg
@@ -1184,16 +1313,16 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Mq
 Tx
 RO
@@ -1201,15 +1330,15 @@ RM
 JZ
 jO
 Mq
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1218,16 +1347,16 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Mq
 Xc
 eJ
@@ -1235,15 +1364,15 @@ Tn
 eJ
 Fc
 Mq
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1252,32 +1381,32 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Mq
+qB
 Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Mq
+ZP
 Tn
 Tn
 Tn
 Bh
 Mq
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1286,16 +1415,16 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Mq
 lH
 gi
@@ -1303,15 +1432,15 @@ Tn
 gi
 VE
 Mq
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 hQ
 Hg
@@ -1320,16 +1449,16 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Mq
 ft
 iI
@@ -1337,15 +1466,15 @@ WA
 WP
 ml
 Mq
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1354,15 +1483,15 @@ Hg
 WW
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Mq
 Mq
 Mq
@@ -1372,14 +1501,14 @@ Mq
 Mq
 Mq
 Mq
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1388,10 +1517,10 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-lg
+qB
+Kl
+Kl
+Ss
 Mq
 Mq
 Mq
@@ -1399,11 +1528,11 @@ Mq
 Mq
 Mq
 Gq
-el
+bE
 KR
 el
-KR
-el
+fL
+dw
 Qx
 Mq
 Mq
@@ -1411,9 +1540,9 @@ Mq
 Mq
 Mq
 Mq
-qB
-Hg
 jx
+Kl
+qB
 Hg
 WW
 Hg
@@ -1422,10 +1551,10 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
+qB
+Kl
+Kl
+Kl
 Mq
 lf
 wW
@@ -1445,9 +1574,9 @@ zx
 uN
 PT
 Mq
-Hg
-Hg
-jx
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1456,9 +1585,9 @@ Hg
 Hg
 Hg
 lg
-Hq
-Hg
-Hg
+Mq
+Kl
+Kl
 om
 Mq
 Tn
@@ -1477,11 +1606,11 @@ Mq
 BW
 ZG
 ZG
-ZG
+Ys
 Mq
-Hg
-Hg
-jx
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1490,10 +1619,10 @@ Hg
 Hg
 Hg
 Hg
-Hg
-Hg
-Hg
-Hg
+Kl
+Kl
+Kl
+Kl
 Cz
 Qq
 Tn
@@ -1513,9 +1642,9 @@ ZG
 ZG
 Cg
 Mq
-Hg
-Hg
-jx
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1524,9 +1653,9 @@ Hg
 Hg
 Hg
 lg
-Hq
-Hg
-Hg
+Mq
+Kl
+Kl
 om
 Mq
 up
@@ -1534,7 +1663,7 @@ Tn
 Tn
 Tn
 Mq
-Pk
+MW
 qO
 KF
 Mq
@@ -1547,9 +1676,9 @@ ZG
 ZG
 ZG
 Mq
-Hg
-Hg
-jx
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1558,10 +1687,10 @@ Hg
 CC
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
+qB
+Kl
+Kl
+Kl
 Mq
 lf
 Hc
@@ -1574,16 +1703,16 @@ qO
 Gu
 Vr
 Tn
-WD
+Mm
 Mq
 TS
 dO
 JG
 oR
 Mq
-Hg
-Hg
-jx
+Kl
+Kl
+qB
 Hg
 Hg
 hQ
@@ -1592,10 +1721,10 @@ hQ
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-lg
+qB
+Kl
+Kl
+Ss
 Mq
 Mq
 Mq
@@ -1606,7 +1735,7 @@ Xm
 vL
 Lo
 WA
-Lo
+fF
 WA
 wx
 Mq
@@ -1615,9 +1744,9 @@ Mq
 Mq
 Mq
 Mq
-qB
-Hg
 jx
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1626,15 +1755,15 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Mq
 Mq
 Mq
@@ -1644,14 +1773,14 @@ Mq
 Mq
 Mq
 Mq
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1660,16 +1789,16 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Mq
 XU
 yD
@@ -1677,15 +1806,15 @@ Tn
 yD
 jt
 Mq
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1694,16 +1823,16 @@ Hg
 WW
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Mq
 gq
 Tn
@@ -1711,15 +1840,15 @@ Tn
 Tn
 YO
 Mq
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1728,16 +1857,16 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Mq
 Iy
 NA
@@ -1745,15 +1874,15 @@ NA
 NA
 NA
 Mq
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 WW
@@ -1762,16 +1891,16 @@ WW
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Mq
 OX
 ZG
@@ -1779,15 +1908,15 @@ qx
 ZG
 ZG
 Mq
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1796,32 +1925,32 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Mq
 as
-ZG
+tu
 to
 qx
 ah
 Mq
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 CC
 Hg
 Hg
@@ -1830,32 +1959,32 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-lg
-Mq
-Mq
-Mq
-Mq
-Mq
-Mq
-Mq
 qB
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Ss
+Mq
+Mq
+Mq
+Mq
+Mq
+Mq
+Mq
 jx
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1864,32 +1993,32 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1898,32 +2027,32 @@ Hg
 Hg
 Hg
 Hg
-jx
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-Hg
-jx
+qB
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+qB
 Hg
 Hg
 Hg
@@ -1932,7 +2061,7 @@ Hg
 Hg
 Hg
 Hg
-Hq
+Mq
 on
 on
 on
@@ -1957,7 +2086,7 @@ on
 on
 on
 on
-Hq
+Mq
 Hg
 hQ
 Hg

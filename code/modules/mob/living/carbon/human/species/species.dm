@@ -287,6 +287,8 @@
 
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
+	/// These are the prefixes of the icon states in talk.dmi.
+	var/list/possible_speech_bubble_types = list("normal")
 
 	var/use_alt_hair_layer = FALSE
 
@@ -562,7 +564,7 @@
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay
 
-	var/obj/item/organ/internal/eyes/night/NE = H.internal_organs_by_name[BP_EYES]
+	var/obj/item/organ/internal/eyes/night/NE = H.get_eyes()
 	if(istype(NE) && NE.night_vision && NE.can_change_invisible())
 		H.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 
@@ -847,3 +849,6 @@
 
 /datum/species/proc/handle_middle_mouse_click(var/atom/target)
 	return
+
+/datum/species/proc/can_use_guns()
+	return TRUE

@@ -128,6 +128,16 @@
 	</tr>
 	{{/for}}
 	</table>
+  {{if data.contact_details}}
+	<class="itemContent">
+	{{:data.contact_details}}
+	<br/>
+	</div>
+	<class="item">
+	{{:helper.link('Print', 'search', { 'scan-action' : 'print' })}}
+	{{:helper.link('Clear', 'refresh', { 'scan-action' : 'clear' })}}
+	</div>
+{{/if}}
 {{/if}}
 </div>
 

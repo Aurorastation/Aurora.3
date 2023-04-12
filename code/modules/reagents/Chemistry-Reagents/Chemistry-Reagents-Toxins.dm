@@ -598,7 +598,7 @@
 	M.canmove = 0
 	M.icon = null
 	M.cut_overlays()
-	M.invisibility = 101
+	M.set_invisibility(101)
 	for(var/obj/item/W in M)
 		if(istype(W, /obj/item/implant)) //TODO: Carn. give implants a dropped() or something
 			qdel(W)
@@ -660,6 +660,12 @@
 	description = "This actually appears to be mostly ground up leaves masquerading as tobacco. There's maybe some nicotine in there somewhere..."
 	taste_description = "acrid smoke"
 	nicotine = 0.1
+
+/singleton/reagent/toxin/tobacco/sweet 
+	name = "Sweet Tobacco"
+	description = "This tobacco is much sweeter than the strains usually found in human space."
+	taste_description = "sweet tobacco"
+	nicotine = 0.3
 
 /singleton/reagent/toxin/tobacco/liquid
 	name = "Nicotine Solution"

@@ -4,10 +4,17 @@
 	icon = 'icons/obj/flora/adhomai_trees.dmi'
 	icon_state = "tree1"
 	pixel_x = -32
+	stumptype = /obj/structure/flora/stump/adhomai
 
 /obj/structure/flora/tree/adhomai/Initialize(mapload)
 	. = ..()
-	icon_state = "tree[rand(1, 13)]"
+	icon_state = "tree[rand(1, 12)]"
+
+/obj/structure/flora/stump/adhomai
+	icon = 'icons/obj/flora/adhomai_trees.dmi'
+	icon_state = "stump"
+	pixel_x = -32
+
 
 //bushes
 /obj/structure/flora/bush/adhomai

@@ -17,6 +17,10 @@
 	/// Is this datum capable of sending signals?
 	/// Set to true when a signal has been registered
 	var/signal_enabled = FALSE
+	/// A cached version of our \ref
+	/// The brunt of \ref costs are in creating entries in the string tree (a tree of immutable strings)
+	/// This avoids doing that more then once per datum by ensuring ref strings always have a reference to them after they're first pulled
+	var/cached_ref
 
 // Default implementation of clean-up code.
 // This should be overridden to remove all references pointing to the object being destroyed.

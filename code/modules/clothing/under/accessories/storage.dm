@@ -50,39 +50,57 @@
 /obj/item/clothing/accessory/storage/webbing
 	name = "webbing"
 	desc = "Sturdy mess of synthcotton belts and buckles, ready to share your burden."
+	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
+	contained_sprite = TRUE
 	icon_state = "webbing"
+	item_state = "webbing"
 
 /obj/item/clothing/accessory/storage/webbing/grayscale
 	icon_state = "webbing_g"
+	item_state = "webbing_g"
 
 /obj/item/clothing/accessory/storage/black_vest
 	name = "black webbing vest"
 	desc = "Robust black synthcotton vest with lots of pockets to hold whatever you need, but cannot hold in hands."
+	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
+	contained_sprite = TRUE
 	icon_state = "vest_black"
+	item_state = "vest_black"
 	slots = 5
 
 /obj/item/clothing/accessory/storage/brown_vest
 	name = "brown webbing vest"
 	desc = "Worn brownish synthcotton vest with lots of pockets to unload your hands."
+	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
+	contained_sprite = TRUE
 	icon_state = "vest_brown"
+	item_state = "vest_brown"
 	slots = 5
 
 /obj/item/clothing/accessory/storage/white_vest
 	name = "white webbing vest"
 	desc = "Durable white synthcotton vest with lots of pockets to carry essentials."
+	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
+	contained_sprite = TRUE
 	icon_state = "vest_white"
+	item_state = "vest_white"
 	slots = 5
 
 /obj/item/clothing/accessory/storage/webbingharness
 	name = "webbing harness"
 	desc = "Durable mess of synthcotton belts and buckles. Has some pouches, but not a lot."
+	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
+	contained_sprite = TRUE
 	icon_state = "vest_harness"
+	item_state = "vest_harness"
 
 /obj/item/clothing/accessory/storage/webbingharness/alt
 	icon_state = "vest_harness_alt"
+	item_state = "vest_harness_alt"
 
 /obj/item/clothing/accessory/storage/webbingharness/pouches
 	icon_state = "vest_harness_pouches"
+	item_state = "vest_harness_pouches"
 
 /obj/item/clothing/accessory/storage/webbingharness/pouches/ert
 	desc = "Durable mess of synthcotton belts and buckles. To better satiate the need for storage and stability."
@@ -90,12 +108,15 @@
 
 /obj/item/clothing/accessory/storage/webbingharness/grayscale
 	icon_state = "vest_harness_g"
+	item_state = "vest_harness_g"
 
 /obj/item/clothing/accessory/storage/webbingharness/alt/grayscale
 	icon_state = "vest_harness_alt_g"
+	item_state = "vest_harness_alt_g"
 
 /obj/item/clothing/accessory/storage/webbingharness/pouches/grayscale
 	icon_state = "vest_harness_pouches_g"
+	item_state = "vest_harness_pouches_g"
 
 /obj/item/clothing/accessory/storage/overalls
 	name = "overalls"
