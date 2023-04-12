@@ -9,6 +9,25 @@
 		</div>
 	</div>
 </div>
+
+<div class='block'>
+	<div class='item'>
+    <h3>Docks</h3>
+    {{for data.docks}}
+      <div class='item'>
+        <div class='itemLabel'>
+          {{:value.name}}
+        </div>
+        <div class='itemContent'>
+          {{if value.shuttle}}
+						{{:value.shuttle}}
+					{{/if}}
+        </div>
+      </div>
+    {{/for}}
+  </div>
+</div>
+
 <div style="float:left;width:50%">
 	<h3>Sector information</h3> 
 	<div class='block'>

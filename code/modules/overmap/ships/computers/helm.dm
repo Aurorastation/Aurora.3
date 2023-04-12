@@ -303,6 +303,27 @@
 	data["heading"] = connected.get_heading() ? dir2angle(connected.get_heading()) : 0
 	data["viewing"] = viewing_overmap(user)
 
+	var/list/docks = list()
+	for(var/landmark_tag in connected.tracked_dock_tags)
+		var/obj/effect/shuttle_landmark/landmark = SSshuttle.registered_shuttle_landmarks[landmark_tag]
+		if(landmark && istype(landmark))
+			docks[++docks.len] = list(
+				"name" = landmark.name,
+				"tag" = landmark.landmark_tag
+			)
+			for(var/shuttle_key in SSshuttle.shuttles)
+				var/datum/shuttle/shuttle = SSshuttle.shuttles[shuttle_key]
+				if(shuttle && shuttle.current_location && shuttle.current_location.landmark_tag == landmark.landmark_tag)
+					docks[docks.len]["shuttle"] = shuttle.name
+					break
+		else
+			docks[++docks.len] = list(
+				"name" = landmark_tag,
+				"tag" = landmark_tag,
+				"shuttle" = "???"
+			)
+	data["docks"] = docks
+
 	if(connected.get_speed())
 		data["ETAnext"] = "[round(connected.ETA()/10)] seconds"
 	else
