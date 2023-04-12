@@ -174,9 +174,10 @@
 	if(QDELETED(target_mob) || SA_attackable(target_mob))
 		LoseTarget()
 		return 0
-	if(target_mob.key && !target_mob.client)
-		LoseTarget()
-		return 0
+	if(ismob(target_mob)) //target_mob is not in fact always a mob
+		if(target_mob.key && !target_mob.client)
+			LoseTarget()
+			return 0
 	if(!(target_mob in targets))
 		LoseTarget()
 		return 0
