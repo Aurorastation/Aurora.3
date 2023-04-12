@@ -1,10 +1,10 @@
 /datum/computer_file/program/docks
 	filename = "docks"
-	filedesc = "Docks Program"
+	filedesc = "Docking Ports Management Program"
 	nanomodule_path = /datum/nano_module/program/docks
 	program_icon_state = "docks"
 	program_key_icon_state = "lightblue_key"
-	extended_desc = "Used to see the docks, and any docked ships."
+	extended_desc = "Used to manage the docks, and any docked ships."
 	required_access_run = access_heads
 	required_access_download = access_heads
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
@@ -13,7 +13,7 @@
 	color = LIGHT_COLOR_BLUE
 
 /datum/nano_module/program/docks
-	name = "Docks Program"
+	name = "Docking Ports Management Program"
 
 /datum/nano_module/program/docks/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
@@ -41,7 +41,7 @@
 					"tag" = landmark_tag,
 					"shuttle" = "???"
 				)
-		data["docks"] = docks
+	data["docks"] = docks
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
