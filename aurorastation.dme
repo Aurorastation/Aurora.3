@@ -3212,6 +3212,7 @@
 #include "code\ZAS\Turf.dm"
 #include "code\ZAS\Variable Settings.dm"
 #include "code\ZAS\Zone.dm"
+#include "icons\clothing\under\uniforms\heph.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
 #include "maps\_common\areas\ai.dm"
