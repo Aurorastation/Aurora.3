@@ -159,7 +159,7 @@ BREATH ANALYZER
 	var/pulse_result = "normal"
 	if(H.should_have_organ(BP_HEART))
 		if(H.status_flags & FAKEDEATH)
-			pulse_result = 0
+			pulse_result = "<span class='danger'>0</span>"
 		else
 			pulse_result = H.get_pulse(GETPULSE_TOOL)
 		pulse_result = "<span class='scan_green'>[pulse_result]</span>"
@@ -186,6 +186,8 @@ BREATH ANALYZER
 				oxygenation_string = "<span class='scan_warning'>[oxygenation_string]</span>"
 			if(-(INFINITY) to BLOOD_VOLUME_SURVIVE)
 				oxygenation_string = "<span class='scan_danger'>[oxygenation_string]</span>"
+		if(H.status_flags & FAKEDEATH)
+			oxygenation_string = "<span class='scan_danger'>0% blood oxygenation</span>"
 
 		var/blood_pressure_string
 		switch(H.get_blood_pressure_alert())

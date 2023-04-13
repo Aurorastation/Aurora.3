@@ -85,3 +85,10 @@
 	a certain stigma attached to it, and is noted as being 'rural' or 'unrefined' by Skrell from the inner systems."
 	tag_icon = "skrell_tattuqig"
 	text_tag = "TAT"
+
+/datum/accent/skrell/EUM
+	name = ACCENT_SKRELLEUM
+	description = "The Nral'Daaq accent draws from the accents of migrating Skrell from the Federation as well as elements of rootsong from the local Dionae population, creating a sing-song accent with \
+    melodic highs and lows. The accent has been compared to the Aweijiin accent, but it does not have the same reputation as it is not used by idols."
+	tag_icon = "skrell_nraldaaq"
+	text_tag = "NDQ"

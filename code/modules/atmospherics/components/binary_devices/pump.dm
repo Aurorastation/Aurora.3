@@ -15,10 +15,11 @@ Thus, the two variables affect pump operation are set in New():
 /obj/machinery/atmospherics/binary/pump
 	name = "gas pump"
 	desc = "A pump."
-	desc_info = "This moves gas from one pipe to another.  A higher target pressure demands more energy.  The side with the red end is the output."
+	desc_info = "This moves gas from one pipe to another. A higher target pressure demands more energy. The side with the colored end is the output."
 	icon = 'icons/atmos/pump.dmi'
 	icon_state = "map_off"
 	level = 1
+	var/base_icon = "pump"
 
 	var/target_pressure = ONE_ATMOSPHERE
 
@@ -45,12 +46,32 @@ Thus, the two variables affect pump operation are set in New():
 	icon_state = "map_on"
 	use_power = POWER_USE_IDLE
 
+/obj/machinery/atmospherics/binary/pump/fuel
+	icon_state = "map_off-fuel"
+	base_icon = "pump-fuel"
+	icon_connect_type = "-fuel"
+	connect_types = CONNECT_TYPE_FUEL
+
+/obj/machinery/atmospherics/binary/pump/fuel/on
+	icon_state = "map_on-fuel"
+	use_power = POWER_USE_IDLE
+
+/obj/machinery/atmospherics/binary/pump/aux
+	icon_state = "map_off-aux"
+	base_icon = "pump-aux"
+	icon_connect_type = "-aux"
+	connect_types = CONNECT_TYPE_AUX
+
+/obj/machinery/atmospherics/binary/pump/aux/on
+	icon_state = "map_on-aux"
+	use_power = POWER_USE_IDLE
+
 
 /obj/machinery/atmospherics/binary/pump/update_icon()
 	if(!powered())
-		icon_state = "off"
+		icon_state = "[base_icon]-off"
 	else
-		icon_state = "[use_power ? "on" : "off"]"
+		icon_state = "[use_power ? "[base_icon]-on" : "[base_icon]-off"]"
 
 /obj/machinery/atmospherics/binary/pump/update_underlays()
 	if(..())
@@ -58,8 +79,8 @@ Thus, the two variables affect pump operation are set in New():
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		add_underlay(T, node1, turn(dir, -180))
-		add_underlay(T, node2, dir)
+		add_underlay(T, node1, turn(dir, -180), node1?.icon_connect_type)
+		add_underlay(T, node2, dir, node2?.icon_connect_type)
 
 /obj/machinery/atmospherics/binary/pump/hide(var/i)
 	update_underlays()

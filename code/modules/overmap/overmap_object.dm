@@ -85,7 +85,7 @@
 	update_icon()
 
 	if(requires_contact)
-		invisibility = INVISIBILITY_OVERMAP // Effects that require identification have their images cast to the client via sensors.
+		set_invisibility(INVISIBILITY_OVERMAP)// Effects that require identification have their images cast to the client via sensors.
 
 /obj/effect/overmap/Crossed(var/obj/effect/overmap/visitable/other)
 	if(istype(other))

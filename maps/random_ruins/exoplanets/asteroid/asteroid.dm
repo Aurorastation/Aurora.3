@@ -6,7 +6,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffixes = list("asteroid/mining_base/mining_base.dmm")
 
-	planet_types = list(PLANET_ASTEROID,PLANET_BARREN)
+	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING
 
 /datum/map_template/ruin/exoplanet/carp_nest
@@ -17,7 +17,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffixes = list("asteroid/carp_nest/carp_nest.dmm")
 
-	planet_types = list(PLANET_ASTEROID,PLANET_BARREN)
+	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_HOSTILE|RUIN_NATURAL
 
 /datum/map_template/ruin/exoplanet/hideout
@@ -30,7 +30,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffixes = list("asteroid/hideout/hideout.dmm")
 
-	planet_types = list(PLANET_ASTEROID,PLANET_BARREN)
+	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_HOSTILE|RUIN_WRECK
 
 /datum/map_template/ruin/exoplanet/crashed_shuttle_01
@@ -44,7 +44,7 @@
 	spawn_weight = 0.5
 	spawn_cost = 2
 
-	planet_types = list(PLANET_ASTEROID)
+	planet_types = PLANET_ASTEROID
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_HOSTILE|RUIN_WRECK
 
 /datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01
@@ -91,7 +91,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 	suffixes = list("asteroid/satelite_crash/satelite_crash_unique.dmm")
 
-	planet_types = list(PLANET_ASTEROID,PLANET_BARREN)
+	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK|RUIN_HOSTILE
 
 /datum/map_template/ruin/exoplanet/abandoned_listening_post
@@ -104,7 +104,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffixes = list("asteroid/listening_post/listening_post_unique.dmm")
 
-	planet_types = list(PLANET_ASTEROID,PLANET_BARREN)
+	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_LOWPOP|RUIN_HOSTILE
 
 /datum/map_template/ruin/exoplanet/crashed_escape_pod_1
@@ -117,7 +117,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
 	suffixes = list("asteroid/escape_pod/escape_pod_unique.dmm")
 
-	planet_types = list(PLANET_ASTEROID,PLANET_BARREN)
+	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK|RUIN_HOSTILE
 
 /datum/map_template/ruin/exoplanet/digsite
@@ -130,7 +130,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
 	suffixes = list("asteroid/digsite/digsite_unique.dmm")
 
-	planet_types = list(PLANET_ASTEROID,PLANET_BARREN)
+	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_LOWPOP|RUIN_SCIENCE
 
 /datum/map_template/ruin/exoplanet/crashed_pod_1
@@ -143,7 +143,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
 	suffixes = list("asteroid/crashed_pod/crashed_pod_unique.dmm")
 
-	planet_types = list(PLANET_ASTEROID)
+	planet_types = PLANET_ASTEROID
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK|RUIN_HOSTILE
 
 /datum/map_template/ruin/exoplanet/crashed_coc_skipjack
@@ -156,5 +156,5 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffixes = list("asteroid/coc_ship/coc_ship_unique.dmm")
 
-	planet_types = list(PLANET_ASTEROID)
+	planet_types = PLANET_ASTEROID
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK|RUIN_HOSTILE

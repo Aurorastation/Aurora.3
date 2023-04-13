@@ -160,7 +160,7 @@
 			if(R == src)
 				continue
 			rune_found = TRUE
-			R.invisibility = 0
+			R.set_invisibility(0)
 		if(rune_found)
 			visible_message(SPAN_NOTICE("A holy glow permeates the air!"))
 		return

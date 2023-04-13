@@ -101,9 +101,9 @@
 	},
 /area/nka_base)
 "hK" = (
-/obj/item/stack/material/woodlog/full,
-/obj/item/stack/material/woodlog/full,
-/obj/item/stack/material/woodlog/full,
+/obj/item/stack/material/wood/log/full,
+/obj/item/stack/material/wood/log/full,
+/obj/item/stack/material/wood/log/full,
 /obj/structure/closet/crate/bin{
 	name = "fire wood bin"
 	},
