@@ -3,6 +3,12 @@
 	<div class="item">
 		{{:data.shuttle_status}}
 	</div>
+  <div class="item">
+		Ship designation and name: {{:data.ship_name}}
+    {{if data.can_rename_ship}}
+      {{:helper.link('Rename', null, {'rename' : '1'}, null , null)}}
+    {{/if}}
+	</div>
 </div>
 <div class="item" style="padding-top: 10px">
 	<div class="item">

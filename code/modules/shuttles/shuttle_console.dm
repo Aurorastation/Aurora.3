@@ -9,6 +9,7 @@
 
 	var/ui_template = "shuttle_control_console.tmpl"
 	var/list/linked_helmets = list()
+	var/can_rename_ship = FALSE
 
 /obj/machinery/computer/shuttle_control/Initialize()
 	. = ..()
@@ -67,6 +68,8 @@
 		"can_launch" = shuttle.can_launch(),
 		"can_cancel" = shuttle.can_cancel(),
 		"can_force" = shuttle.can_force(),
+		"can_rename_ship" = can_rename_ship,
+		"ship_name" = shuttle.name,
 	)
 
 /obj/machinery/computer/shuttle_control/proc/get_shuttle_status(var/datum/shuttle/autodock/shuttle)
@@ -116,6 +119,12 @@
 
 	if(href_list["cancel"])
 		shuttle.cancel_launch(src)
+		return TOPIC_REFRESH
+
+	if(href_list["rename"])
+		var/new_name = input(usr, "Select new name for this ship.", "Rename this ship", shuttle.name)
+		if(new_name)
+			shuttle.name = new_name
 		return TOPIC_REFRESH
 
 /obj/machinery/computer/shuttle_control/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)

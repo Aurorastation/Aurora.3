@@ -35,3 +35,4 @@
 	name = "merchant shuttle control console"
 	req_access = list(access_merchant)
 	shuttle_tag = "Merchant Shuttle"
+	can_rename_ship = TRUE
