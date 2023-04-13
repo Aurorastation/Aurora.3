@@ -96,6 +96,9 @@
 
 #define COLOR_TOOLS            "#eac041"
 
+#define COLOR_STERILE          "#DBDBDB"
+#define COLOR_TILED  		   "#7A6E70"
+
 
 // Blood colors
 #define COLOR_HUMAN_BLOOD      "#A10808"
@@ -107,7 +110,7 @@
 
 // Wood Colours
 
-#define WOOD_COLOR_GENERIC       "#845032"
+#define WOOD_COLOR_GENERIC     "#845032"
 #define WOOD_COLOR_BIRCH       "#d5a66e"
 #define WOOD_COLOR_RICH        "#792f27"
 #define WOOD_COLOR_PALE        "#d2bc9d"

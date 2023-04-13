@@ -19,6 +19,7 @@
 	var/has_damage_range = 7
 	var/has_damage_state // if you've got unique damage sprites, hard-baked, not overlays. if you use overlays use the range system.
 	var/has_burn_range = 4
+	var/has_burn_state // same as damage state for burn.
 	var/damage_uses_color = FALSE // see wood.
 	var/damage_temperature
 	var/apply_thermal_conductivity
@@ -56,8 +57,10 @@
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_base = "grass"
 	has_base_range = 3
+	has_damage_range = 0
+	has_damage_state = TRUE
 	damage_temperature = T0C+80
-	flags = TURF_HAS_EDGES | TURF_HAS_CORNERS | TURF_REMOVE_SHOVEL
+	flags = TURF_HAS_EDGES | TURF_HAS_CORNERS | TURF_REMOVE_SHOVEL | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/grass
 	footstep_sound = /singleton/sound_category/grass_footstep
 	floor_smooth = SMOOTH_NONE
@@ -153,7 +156,7 @@
 	desc = "A solid, heavy set of flooring plates."
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "tiled"
-	color = COLOR_GUNMETAL
+	color = COLOR_TILED
 	damage_temperature = T0C+1400
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/floor
@@ -203,7 +206,7 @@
 /singleton/flooring/tiling/white
 	desc = "How sterile."
 	icon_base = "white"
-	color = COLOR_OFF_WHITE
+	color = COLOR_STERILE
 	build_type = /obj/item/stack/tile/floor_white
 
 /singleton/flooring/tiling/yellow
