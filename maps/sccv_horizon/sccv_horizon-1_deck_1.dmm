@@ -16539,6 +16539,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "mxX" = (
@@ -30818,6 +30819,7 @@
 	name = "Fuel Bay";
 	req_one_access = list(26,29,31,48,67,24,47)
 	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "xmg" = (
