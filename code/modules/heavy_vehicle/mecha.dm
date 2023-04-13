@@ -97,6 +97,12 @@
 
 	selected_system = null
 
+	for(var/hardpoint in hardpoints)
+		var/obj/item/S = remove_system(hardpoint, force = 1)
+		qdel(S)
+
+	hardpoints = null
+
 	for(var/thing in pilots)
 		var/mob/pilot = thing
 		if(pilot.client)
@@ -112,13 +118,19 @@
 
 	hardpoint_hud_elements = null
 
-	hardpoints = null
-
 	QDEL_NULL(access_card)
 	QDEL_NULL(arms)
 	QDEL_NULL(legs)
 	QDEL_NULL(head)
 	QDEL_NULL(body)
+
+	QDEL_NULL(hud_health)
+	QDEL_NULL(hud_open)
+	QDEL_NULL(hud_power)
+	QDEL_NULL(hud_power_control)
+
+	QDEL_NULL(camera)
+	QDEL_NULL(radio)
 
 	. = ..()
 

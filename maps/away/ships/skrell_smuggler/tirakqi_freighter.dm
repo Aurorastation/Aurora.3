@@ -28,6 +28,12 @@
 	icon_state = "tirakqi"
 	moving_state = "tirakqi_moving"
 	colors = list("#27e4ee", "#4febbf")
+	scanimage = "skrell_freighter.png"
+	designer = "Nralakk Federation"
+	volume = "42 meters length, 31 meters beam/width, 19 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "No visible armament, starboard obscured flight craft bay"
+	sizeclass = "Unidentified-type Retrofitted Federation Freighter"
 	class = "ISV"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS

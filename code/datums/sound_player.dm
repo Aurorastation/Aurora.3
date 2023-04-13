@@ -114,7 +114,7 @@ var/singleton/sound_player/sound_player = new()
 	listeners = list()
 	listener_status = list()
 
-	destroyed_event.register(source, src, TYPE_PROC_REF(/datum/, qdel))
+	destroyed_event.register(source, src, TYPE_PROC_REF(/datum, qdel_self))
 
 	PrivLocateListeners()
 	START_PROCESSING(SSprocessing, src)

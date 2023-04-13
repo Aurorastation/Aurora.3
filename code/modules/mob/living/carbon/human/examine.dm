@@ -242,12 +242,12 @@
 		msg += "<span class='warning'><B>[get_pronoun("He")] [get_pronoun("has")] engorged veins, which appear a vibrant red!</B></span>\n"
 
 	var/distance = get_dist(user,src)
-	if(istype(user, /mob/abstract/observer) || user.stat == 2) // ghosts can see anything
+	if(istype(user, /mob/abstract/observer) || user.stat == DEAD) // ghosts can see anything
 		distance = 1
 
-	if(src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
+	if((src.stat || (status_flags & FAKEDEATH)) && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
 		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")]n't responding to anything around [get_pronoun("him")] and seems to be unconscious.</span>\n"
-		if((stat == DEAD || is_asystole() || src.losebreath) && distance <= 3 || (status_flags & FAKEDEATH))
+		if(distance <= 3 && ((stat == DEAD || is_asystole() || src.losebreath) || (status_flags & FAKEDEATH)))
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("does")] not appear to be breathing.</span>\n"
 
 	else if (src.stat)

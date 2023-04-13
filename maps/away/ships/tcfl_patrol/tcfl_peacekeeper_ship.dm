@@ -34,6 +34,13 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	scanimage = "tcfl_cetus.png"
+	designer = "NanoTrasen, Stellar Corporate Conglomerate"
+	volume = "51 meters length, 42 meters beam/width, 12 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Two extruding wing mounted naval ballistic weapon mounts, aft obscured flight craft bay"
+	sizeclass = "Cetus Class Corvette"
+	shiptype = "Military patrol and combat utility"
 	initial_restricted_waypoints = list(
 		"TCFL Shuttle" = list("nav_hangar_tcfl")
 	)
@@ -50,7 +57,7 @@
 	..()
 
 /obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship/get_skybox_representation()
-	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "tramp_freighter")
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "tcfl_corvette")
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
