@@ -104,3 +104,39 @@
 /obj/item/card/id/cyclops_ship
 	name = "Cyclops Ship ID"
 	access = list(access_external_airlocks)
+
+/datum/ghostspawner/human/cyclops_crew/engineer
+	short_name = "cyclops_engineer"
+	name = "Hephaestus Engineer"
+	desc = "Act as the Hephaestus Mining Vessels sole Engineer."
+
+	spawnpoints = list("cyclops_engineer")
+	max_count = 1
+
+	outfit = /datum/outfit/admin/cyclops_crew/engineer
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "Hephaestus Engineer"
+	special_role = "Hephaestus Engineer"
+
+/datum/outfit/admin/cyclops_crew/engineer
+	name = "Hephaestus Engineer"
+
+	uniform = /obj/item/clothing/under/rank/engineer/heph
+	shoes = /obj/item/clothing/shoes/workboots/dark
+	back = /obj/item/storage/backpack/satchel
+
+	id = /obj/item/card/id/cyclops_ship
+
+	l_ear = /obj/item/device/radio/headset/ship
+
+	backpack_contents = list(/obj/item/storage/box/survival = 1)
+
+/datum/outfit/admin/cyclops_miner/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(isoffworlder(H))
+		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+
+/datum/outfit/admin/cyclops_crew/security/get_id_access()
+	return list(access_external_airlocks)
