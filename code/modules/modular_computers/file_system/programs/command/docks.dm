@@ -1,7 +1,6 @@
 /datum/computer_file/program/docks
 	filename = "docks"
 	filedesc = "Docking Ports Management Program"
-	nanomodule_path = /datum/nano_module/program/docks
 	program_icon_state = "docks"
 	program_key_icon_state = "lightblue_key"
 	extended_desc = "Used to manage the docks, and any docked ships."
@@ -12,13 +11,26 @@
 	size = 8
 	color = LIGHT_COLOR_BLUE
 
-/datum/nano_module/program/docks
-	name = "Docking Ports Management Program"
+/datum/computer_file/program/docks/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-command-docks", 580, 700, "Docking Ports Management Program")
+	ui.open()
 
-/datum/nano_module/program/docks/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-	var/list/data = host.initial_data()
-	var/datum/computer_file/program/program = host
-	var/obj/item/modular_computer/computer = program.computer
+/datum/computer_file/program/docks/vueui_transfer(oldobj)
+	SSvueui.transfer_uis(oldobj, src, "mcomputer-command-docks", 580, 700, "Docking Ports Management Program")
+	return TRUE
+
+// Gathers data for ui
+/datum/computer_file/program/docks/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	. = ..()
+	data = . || data || list()
+	// Gather data for computer header
+	var/headerdata = get_header_data(data["_PC"])
+	if(headerdata)
+		data["_PC"] = headerdata
+		. = data
+
 	var/obj/effect/overmap/visitable/connected = computer.linked
 
 	var/list/docks = list()
@@ -44,23 +56,13 @@
 				)
 	data["docks"] = docks
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "docks.tmpl", name, 600, 700, state = state)
-		ui.auto_update_layout = TRUE
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
-datum/nano_module/program/docks/Topic(href, href_list)
-	if(..())
-		return TRUE
+/datum/computer_file/program/docks/Topic(href, href_list)
+	. = ..()
 
 	switch(href_list["action"])
 		if("reconnect")
-			var/datum/computer_file/program/program = host
-			var/obj/item/modular_computer/computer = program.computer
 			computer.sync_linked()
 
-	SSnanoui.update_uis(src)
-	return TRUE
-
+	SSvueui.check_uis_for_change(src)
