@@ -3295,7 +3295,6 @@
 #include "maps\away\ships\heph\cyclops_ghostroles.dm"
 #include "maps\away\ships\heph\heph_mining_areas.dm"
 #include "maps\away\ships\heph\heph_mining_ship.dm"
-#include "maps\away\ships\heph\cyclops.dmm"
 #include "maps\away\ships\iac\iac_rescue_ship.dm"
 #include "maps\away\ships\iac\iac_rescue_ship_ghostroles.dm"
 #include "maps\away\ships\kataphracts\kataphract_areas.dm"

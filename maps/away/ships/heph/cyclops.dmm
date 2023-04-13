@@ -2032,13 +2032,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "xz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/orange/full{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2701,9 +2701,6 @@
 "CV" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
-	},
-/obj/machinery/power/apc{
-	pixel_y = -24
 	},
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3672,15 +3669,6 @@
 /obj/item/clothing/accessory/storage/pouches/brown,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
-"Nw" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
-	},
-/turf/space,
-/area/hephmining_ship/cyclops/cyclops_hangar)
 "Nz" = (
 /obj/machinery/door/airlock/vault{
 	name = "Secure Storage"
@@ -4656,6 +4644,9 @@
 	dir = 10
 	},
 /obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "ZD" = (
@@ -33862,7 +33853,7 @@ mA
 mA
 mA
 Dj
-AY
+WV
 Na
 uM
 Xc
@@ -34118,8 +34109,8 @@ vG
 Jk
 pH
 rp
-mA
-AY
+Dj
+WV
 Mw
 uM
 Ws
@@ -34375,8 +34366,8 @@ wk
 vj
 Sh
 yo
-mA
-AY
+Dj
+WV
 ch
 mY
 Lx
@@ -34632,8 +34623,8 @@ fv
 VE
 Sh
 Vz
-mA
-AY
+Dj
+WV
 WV
 Gg
 WV
@@ -35143,7 +35134,7 @@ pG
 AR
 BM
 mn
-Nw
+pG
 Ef
 CV
 oZ
@@ -35161,7 +35152,7 @@ AH
 Al
 tn
 qw
-Tb
+Hv
 CE
 CE
 CE
@@ -35907,7 +35898,7 @@ zn
 zn
 zn
 zn
-gw
+Ki
 Ki
 pE
 MD
@@ -36164,7 +36155,7 @@ sF
 ra
 gw
 af
-gw
+Ki
 Ki
 tT
 bc
@@ -39001,7 +38992,7 @@ Ty
 TC
 iT
 xz
-gZ
+PZ
 MB
 Ld
 NU

@@ -103,3 +103,7 @@
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
+/obj/effect/shuttle_landmark/cyclops_shuttle/transit
+    name = "In transit"
+    landmark_tag = "nav_transit_cyclops_shuttle"
+    base_turf = /turf/space/transit/north
