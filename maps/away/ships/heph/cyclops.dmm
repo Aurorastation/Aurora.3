@@ -97,7 +97,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_in"
+	id_tag = "cyclops_shuttle_in";
+	locked = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -137,12 +138,6 @@
 "bm" = (
 /obj/effect/map_effect/window_spawner/borosilicate/reinforced,
 /turf/simulated/floor,
-/area/hephmining_ship/cyclops/cyclops_hangar)
-"by" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/wall/shuttle/space_ship/cardinal{
-	color = "#4c4324"
-	},
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "bC" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -308,7 +303,8 @@
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "dF" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Pistols .45"
+	name = "Pistols .45";
+	req_access = null
 	},
 /obj/item/gun/projectile/sec,
 /obj/item/gun/projectile/sec,
@@ -1076,7 +1072,9 @@
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "nb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/secure_closet/freezer/kitchen{
+	req_access = null
+	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
 	dir = 4
@@ -1680,7 +1678,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_in"
+	id_tag = "cyclops_shuttle_in";
+	locked = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1696,7 +1695,6 @@
 	name = "exterior access button";
 	pixel_x = 24;
 	pixel_y = -8;
-	req_one_access = list(31,48,67);
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -2067,7 +2065,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "yb" = (
-/obj/structure/closet/cabinet,
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
@@ -2078,6 +2075,9 @@
 /obj/item/clothing/head/beret/corporate/heph,
 /obj/item/storage/belt/security/full,
 /obj/item/clothing/under/rank/security/heph,
+/obj/structure/closet/cabinet{
+	anchored = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "yg" = (
@@ -2548,7 +2548,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_out"
+	id_tag = "cyclops_shuttle_out";
+	locked = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -2557,7 +2558,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_out"
+	id_tag = "cyclops_shuttle_out";
+	locked = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3152,7 +3154,6 @@
 /turf/unsimulated/wall/fakepdoor,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Iz" = (
-/obj/structure/closet/cabinet,
 /obj/item/clothing/under/rank/miner/heph,
 /obj/item/clothing/under/rank/miner/heph,
 /obj/item/clothing/suit/storage/toggle/corp/heph,
@@ -3167,6 +3168,9 @@
 /obj/item/clothing/accessory/storage/webbing,
 /obj/item/clothing/accessory/storage/webbing,
 /obj/item/clothing/accessory/storage/pouches/brown,
+/obj/structure/closet/cabinet{
+	anchored = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "IA" = (
@@ -3315,7 +3319,8 @@
 /area/hephmining_ship/cyclops)
 "JH" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition"
+	name = "Ammunition";
+	req_access = null
 	},
 /obj/item/ammo_magazine/c45m/auto,
 /obj/item/ammo_magazine/c45m/auto,
@@ -3483,7 +3488,8 @@
 /area/hephmining_ship/cyclops)
 "Ld" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Automatic .45s"
+	name = "Automatic .45s";
+	req_access = null
 	},
 /obj/item/gun/projectile/automatic/x9,
 /obj/item/gun/projectile/automatic/x9,
@@ -3556,7 +3562,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "Mw" = (
-/obj/structure/closet/cabinet,
+/obj/structure/closet/cabinet{
+	anchored = 1
+	},
 /obj/item/clothing/under/rank/engineer/heph,
 /obj/item/flag/heph,
 /obj/item/storage/backpack/satchel/heph,
@@ -3654,7 +3662,6 @@
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "Nt" = (
-/obj/structure/closet/cabinet,
 /obj/item/clothing/under/rank/miner/heph,
 /obj/item/clothing/under/rank/miner/heph,
 /obj/item/clothing/suit/storage/toggle/corp/heph,
@@ -3667,6 +3674,9 @@
 /obj/item/clothing/accessory/storage/webbing,
 /obj/item/clothing/accessory/storage/webbing,
 /obj/item/clothing/accessory/storage/pouches/brown,
+/obj/structure/closet/cabinet{
+	anchored = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Nz" = (
@@ -4076,7 +4086,8 @@
 	pixel_x = 30
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Anti-Piracy Locker"
+	name = "Anti-Piracy Locker";
+	req_access = null
 	},
 /obj/item/gun/projectile/automatic/rifle/carbine,
 /obj/item/ammo_magazine/a556/carbine,
@@ -36162,7 +36173,7 @@ bc
 Ki
 Ki
 Ki
-by
+Dj
 Je
 ex
 Qd
@@ -37190,7 +37201,7 @@ Mk
 xG
 Ki
 Ki
-by
+Dj
 HM
 Pv
 Qd

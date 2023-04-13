@@ -38,7 +38,7 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/cyclops_mining/New()
-    designation = "[pick("Archemedes, Pallas, Crius, Pothos, Nyx")]"
+    designation = "[pick("Archemedes", "Pallas", "Crius", "Pothos", "Nyx")]"
     ..()
 
 /obj/effect/overmap/visitable/ship/cyclops_mining/get_skybox_representation()
