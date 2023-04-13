@@ -73,6 +73,14 @@
 	icon_state = "epmc_alt"
 	item_state = "epmc_alt"
 
+/obj/item/clothing/under/rank/security/heph //Ghost Role Only.
+    name = "hephaestus security officer uniform"
+    desc = "A green-and-orange uniform worn by Security Officers of smaller Hephaestus Industries vessels."
+    icon = 'icons/clothing/under/uniforms/heph.dmi'
+    icon_state = "heph_security"
+    item_state = "heph_security"
+    contained_sprite = TRUE
+
 /obj/item/clothing/under/rank/cadet
 	name = "security cadet's uniform"
 	desc = "It's made of a slightly sturdier material, to allow for robust protection."

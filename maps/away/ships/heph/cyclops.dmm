@@ -16,11 +16,30 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
-"au" = (
-/obj/machinery/computer/shuttle_control/explore/cyclops_shuttle{
-	dir = 4
+"af" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/cyclops_shuttle)
+"ap" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
+"au" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "ax" = (
 /obj/effect/landmark/entry_point/port{
@@ -30,6 +49,16 @@
 	color = "#4c4324"
 	},
 /area/hephmining_ship/cyclops/cyclops_vault)
+"aB" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/machinery/power/apc{
+	pixel_y = -24
+	},
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "aG" = (
 /obj/machinery/iff_beacon,
 /obj/structure/railing/mapped{
@@ -51,6 +80,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
+"aY" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_engineering)
 "ba" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/floor_decal/corner/orange{
@@ -58,6 +92,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
+"bc" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cyclops_shuttle_in"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
 "bd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/vending/engineering{
@@ -70,9 +114,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
-"bg" = (
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/cyclops_shuttle)
 "bj" = (
 /obj/machinery/mineral/processing_unit{
 	id = "processing_3"
@@ -93,6 +134,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
+"bm" = (
+/obj/effect/map_effect/window_spawner/borosilicate/reinforced,
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
+"by" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/wall/shuttle/space_ship/cardinal{
+	color = "#4c4324"
+	},
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "bC" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -104,22 +155,18 @@
 	tag_exterior_door = "cyclops_mining_out";
 	tag_interior_door = "freight_ship_in"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "cyclops_mining_pump"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
-"bF" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
+"bD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/structure/bed/stool/chair/shuttle{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/cyclops_shuttle)
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "ce" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -136,6 +183,10 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
 	},
+/obj/effect/ghostspawpoint{
+	name = "cyclops_engineer";
+	identifier = "cyclops_engineer"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "cl" = (
@@ -150,6 +201,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
+"cp" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/item/clothing/head/cone,
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "cr" = (
 /obj/machinery/door/airlock/mining{
 	name = "Bathroom"
@@ -159,14 +217,26 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
+"cv" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port vault"
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cyclops_mining_out";
+	locked = 1
+	},
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_engineering)
 "cN" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "cyclops_bridge_lockdown"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "cU" = (
@@ -180,11 +250,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "di" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
+/obj/machinery/atmospherics/unary/vent_pump,
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
-/obj/machinery/light{
-	dir = 4
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
+"dn" = (
+/obj/machinery/computer/ship/engines{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
@@ -249,6 +323,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
+"dH" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/shuttle/cyclops_shuttle)
 "dO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -313,24 +397,32 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
 "eg" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
+/obj/structure/fuel_port/phoron{
+	pixel_x = -32
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/table/rack,
+/obj/effect/floor_decal/corner/brown/full,
+/obj/item/stack/material/phoron{
+	pixel_x = -4;
+	pixel_y = 6;
+	amount = 10
+	},
+/obj/item/storage/toolbox/drill{
+	pixel_y = -6
+	},
+/obj/item/storage/toolbox/drill{
+	pixel_y = -6
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "eo" = (
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/shuttle/black,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
-"ev" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops/cyclops_port_thrust)
 "ex" = (
 /obj/structure/ore_box,
 /obj/effect/floor_decal/corner/orange{
@@ -345,24 +437,21 @@
 	},
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"eG" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/bed/handrail{
+	pixel_y = -8
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/shuttle/cyclops_shuttle)
 "eM" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#4c4324"
 	},
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
-"eT" = (
-/obj/machinery/iff_beacon,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/shuttle/cyclops_shuttle)
 "eV" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -377,20 +466,33 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "fa" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/cyclops_shuttle)
-"fb" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_out";
-	locked = 1
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
 	},
 /turf/simulated/floor,
 /area/shuttle/cyclops_shuttle)
+"fb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "fd" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal{
 	color = "#4c4324"
@@ -439,6 +541,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
+"fV" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "fZ" = (
 /obj/machinery/shower,
 /obj/structure/curtain/open/shower,
@@ -454,14 +560,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "gn" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8;
+	layer = 2.8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "gs" = (
@@ -484,6 +588,15 @@
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#4c4324"
 	},
+/area/shuttle/cyclops_shuttle)
+"gF" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "gH" = (
 /obj/structure/closet/crate/secure/large,
@@ -632,6 +745,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
+"iU" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/machinery/floodlight,
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "iX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -647,20 +767,25 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
-"jp" = (
-/obj/machinery/vending/wallmed1{
-	name = "Medical Supplies";
-	pixel_x = -26;
-	pixel_y = -1;
-	req_access = null
+"jd" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible{
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
+"jm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
-/obj/structure/table/steel,
-/obj/item/storage/bag/inflatable,
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "jD" = (
 /obj/effect/floor_decal/corner/orange{
@@ -675,9 +800,54 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
+"jF" = (
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_engineering)
 "jU" = (
-/obj/structure/closet/walllocker/emerglocker/west,
-/turf/simulated/floor/shuttle/black,
+/turf/space,
+/area/space)
+"jZ" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "cyclops_shuttle_interior";
+	pixel_x = -23;
+	pixel_y = -8;
+	dir = 4
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "cyclops_shuttle";
+	name = "interior access button";
+	req_one_access = list(31,48,67);
+	dir = 4;
+	pixel_x = -31;
+	pixel_y = -8
+	},
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "kD" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
@@ -794,6 +964,16 @@
 /obj/structure/bed/stool/bar/padded/orange,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
+"lD" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
 "lV" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/bodybags{
@@ -807,18 +987,37 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "lY" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
-	},
 /obj/effect/floor_decal/corner/orange{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
+	dir = 5
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_hangar)
+"mb" = (
+/obj/effect/shuttle_landmark/cyclops/nav2,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cyclops_mining_out";
+	locked = 1
+	},
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_engineering)
+"mn" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
@@ -843,6 +1042,13 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_engineering)
+"mN" = (
+/obj/machinery/telecomms/allinone/ship,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "mX" = (
 /obj/structure/table/standard,
@@ -878,6 +1084,9 @@
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "nc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
@@ -898,9 +1107,13 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
-"nx" = (
-/obj/machinery/computer/ship/helm,
-/turf/simulated/floor/shuttle/black,
+"np" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "nK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1016,10 +1229,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "pi" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "pl" = (
 /obj/machinery/atmospherics/unary/engine,
@@ -1062,6 +1276,35 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"pE" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4;
+	id_tag = "cyclops_shuttle_pump";
+	frequency = 1385;
+	layer = 2.8
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "cyclops_shuttle_sensor";
+	pixel_x = 7;
+	pixel_y = 32
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -6;
+	pixel_y = 31;
+	tag_exterior_door = "cyclops_shuttle_out";
+	tag_interior_door = "cyclops_shuttle_in";
+	tag_chamber_sensor = "cyclops_shuttle_sensor";
+	tag_interior_sensor = "cyclops_shuttle_interior";
+	tag = "cyclops_shuttle";
+	tag_airpump = "cyclops_shuttle_pump"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
 "pG" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -1080,6 +1323,48 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"pL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
+"pW" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_hangar)
+"qg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,48)
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8;
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
 "qn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1146,11 +1431,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "qH" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_hangar)
+/area/shuttle/cyclops_shuttle)
 "qJ" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht{
@@ -1170,6 +1462,17 @@
 "qU" = (
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"ra" = (
+/obj/machinery/shipsensors/weak,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/shuttle/cyclops_shuttle)
 "rj" = (
 /obj/effect/shuttle_landmark/cyclops_shuttle/transit,
 /turf/space/transit/north,
@@ -1188,13 +1491,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "rr" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
-/obj/effect/landmark/entry_point/north{
-	name = "aft, engines"
+/obj/structure/window/reinforced{
+	dir = 1
 	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/floor,
 /area/shuttle/cyclops_shuttle)
 "rv" = (
 /obj/machinery/conveyor{
@@ -1260,6 +1564,17 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
+"sl" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/cyclops_shuttle,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
 "sA" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/bed/stool/chair/padded/brown{
@@ -1268,17 +1583,29 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
-"sI" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 24
+"sD" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
-/obj/effect/landmark/entry_point/west{
-	name = "starboard, crew compartment"
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#4c4324"
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -57
 	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
+"sF" = (
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/shuttle/cyclops_shuttle)
+"sI" = (
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/door/airlock/hatch{
+	name = "Telecomms";
+	req_access = list(209)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_engineering)
 "sJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1293,15 +1620,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
-"sU" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
-/obj/machinery/computer/ship/engines{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/cyclops_shuttle)
 "tb" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/atmospherics/portables_connector{
@@ -1335,6 +1653,42 @@
 /obj/effect/floor_decal/corner/orange/full,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
+"tT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cyclops_shuttle_in"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
+"tU" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "cyclops_shuttle";
+	name = "exterior access button";
+	pixel_x = 24;
+	pixel_y = -8;
+	req_one_access = list(31,48,67);
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
+"ui" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "uj" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -1364,18 +1718,7 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
-"uy" = (
-/obj/effect/shuttle_landmark/cyclops/nav2,
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "cyclops_mining_out";
-	locked = 1
-	},
-/turf/simulated/floor,
-/area/hephmining_ship/cyclops/cyclops_engineering)
 "uG" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
@@ -1389,6 +1732,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "uM" = (
@@ -1411,9 +1755,8 @@
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "uO" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8
+	dir = 1
 	},
-/obj/effect/shuttle_landmark/cyclops_shuttle/hangar,
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "uT" = (
@@ -1459,13 +1802,13 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "vj" = (
@@ -1489,22 +1832,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "vl" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	name = "Emegency Venting"
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/floodlight,
-/turf/simulated/floor,
-/area/hephmining_ship/cyclops/cyclops_hangar)
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/shuttle/cyclops_shuttle)
 "vs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1575,6 +1916,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
+"wi" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "wk" = (
 /obj/machinery/mineral/stacking_machine{
 	id = "stacking_2"
@@ -1582,6 +1930,17 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"ws" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/shuttle/cyclops_shuttle)
 "wt" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1593,18 +1952,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "wu" = (
-/obj/machinery/shipsensors/weak,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, ore processing"
 	},
-/obj/structure/railing/mapped{
-	dir = 8
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#4c4324"
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/shuttle/cyclops_shuttle)
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "wE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1620,9 +1974,6 @@
 "wL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
-	},
-/obj/machinery/floodlight{
-	dir = 1
 	},
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_hangar)
@@ -1665,15 +2016,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "xG" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 25
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
+/obj/structure/window/reinforced{
+	dir = 1
 	},
+/obj/machinery/door/window{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_port_thrust)
+/area/shuttle/cyclops_shuttle)
 "xK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 10
@@ -1693,8 +2048,8 @@
 /obj/item/clothing/under/rank/liaison/heph,
 /obj/item/clothing/accessory/pin/corporate/heph,
 /obj/item/clothing/head/beret/corporate/heph,
-/obj/item/gun/energy/disruptorpistol,
 /obj/item/storage/belt/security/full,
+/obj/item/clothing/under/rank/security/heph,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "yg" = (
@@ -1744,6 +2099,32 @@
 	},
 /turf/simulated/floor/carpet,
 /area/hephmining_ship/cyclops/cyclops_captain)
+"yw" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/power/apc/mining_shuttle{
+	dir = 4;
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/structure/table/steel,
+/obj/item/clothing/head/helmet/pilot{
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/obj/machinery/cell_charger,
+/obj/random/powercell{
+	pixel_x = -3;
+	pixel_y = 1
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
 "yB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1833,14 +2214,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "ze" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/obj/machinery/light{
+/obj/machinery/computer/shuttle_control/explore/cyclops_shuttle{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_port_thrust)
+/area/shuttle/cyclops_shuttle)
 "zi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1876,14 +2258,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "zW" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+/obj/structure/railing/mapped{
+	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_port_thrust)
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/shuttle/cyclops_shuttle)
 "zX" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
@@ -1891,14 +2274,6 @@
 /obj/effect/floor_decal/corner/orange,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
-"Ae" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, ore processing"
-	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops/cyclops_hangar)
 "Af" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1972,18 +2347,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "AE" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 5
-	},
 /obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/orange/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "AF" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
@@ -2143,6 +2516,30 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"BC" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cyclops_shuttle_out"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
+"BH" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cyclops_shuttle_out"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
 "BM" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -2252,6 +2649,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
+"CB" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
 "CE" = (
 /turf/template_noop,
 /area/space)
@@ -2264,14 +2671,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "CV" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
 	},
+/obj/machinery/power/apc{
+	pixel_y = -24
+	},
+/obj/machinery/light,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
@@ -2286,17 +2697,17 @@
 	color = "#4c4324"
 	},
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
+"Dj" = (
+/turf/simulated/wall/shuttle/space_ship/cardinal{
+	color = "#4c4324"
+	},
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "Dt" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
 	id_tag = "cyclops_mining_dock_sensor";
 	master_tag = "cyclops_mining_dock_airlock";
 	pixel_y = -32
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "cyclops_mining_pump"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
@@ -2338,23 +2749,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
-"DR" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/door/window{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/hephmining_ship/cyclops/cyclops_engineering)
 "DW" = (
 /obj/structure/table/standard,
 /obj/item/device/binoculars,
@@ -2371,23 +2765,30 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Ef" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+/obj/effect/floor_decal/corner/orange{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
-	icon_state = "1-4"
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Ev" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "cyclops_mining_pump"
+	},
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
 	id_tag = "freight_ship_sensor";
 	pixel_y = 26
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
@@ -2408,13 +2809,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "EI" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "EJ" = (
 /obj/structure/closet/crate/secure/large,
@@ -2480,6 +2890,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
+"EY" = (
+/obj/machinery/power/apc{
+	dir = 4;
+	pixel_x = 25
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_engineering)
 "Fk" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -2552,28 +2972,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "GB" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
 	},
-/turf/simulated/floor,
-/area/hephmining_ship/cyclops/cyclops_hangar)
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_engineering)
 "GF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/effect/landmark/entry_point/south{
-	name = "fore, bridge"
+/obj/structure/bed/handrail{
+	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/cyclops_shuttle)
 "GG" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
 /obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
@@ -2600,11 +3019,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "Hc" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/item/clothing/head/cone,
-/turf/simulated/floor,
+/obj/effect/landmark/entry_point/aft,
+/turf/unsimulated/wall/fakepdoor,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Hh" = (
 /obj/structure/cable/green{
@@ -2669,26 +3085,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/orange/full{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
-"HP" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port vault"
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "cyclops_mining_out";
-	locked = 1
-	},
-/turf/simulated/floor,
-/area/hephmining_ship/cyclops/cyclops_engineering)
 "HX" = (
 /obj/structure/closet/cabinet,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2723,9 +3127,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "Iy" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/cyclops_shuttle)
+/turf/unsimulated/wall/fakepdoor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "Iz" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/rank/miner/heph,
@@ -2802,6 +3205,10 @@
 	color = "#4c6324"
 	},
 /obj/effect/floor_decal/corner/orange/full,
+/obj/effect/ghostspawpoint{
+	name = "cyclops_security";
+	identifier = "cylcops_security"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Jb" = (
@@ -2842,10 +3249,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Jq" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "cyclops_bridge_lockdown"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "Jv" = (
@@ -3000,6 +3407,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
+"Kq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "Ku" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -3012,12 +3430,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
-"Kw" = (
-/obj/structure/fuel_port/phoron{
-	pixel_x = -32
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/cyclops_shuttle)
 "KJ" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -3029,7 +3441,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "KP" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "cyclops_mining_pump"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "KV" = (
@@ -3055,23 +3471,6 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
-"Lf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 10
-	},
-/obj/machinery/power/apc{
-	pixel_y = -24
-	},
-/obj/machinery/light,
-/obj/structure/cable/green,
-/turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_hangar)
 "Lj" = (
 /obj/effect/landmark/entry_point/fore,
 /turf/simulated/wall/shuttle/space_ship{
@@ -3111,6 +3510,20 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
+"Mg" = (
+/obj/effect/step_trigger/teleporter,
+/turf/space,
+/area/space)
+"Mk" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
 "Mm" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -3134,7 +3547,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Mx" = (
-/turf/unsimulated/wall/fakepdoor,
+/obj/structure/ore_box,
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Mz" = (
 /obj/effect/step_trigger/teleporter,
@@ -3145,14 +3566,22 @@
 	color = "#4c4324"
 	},
 /area/hephmining_ship/cyclops/cyclops_vault)
-"MV" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 24
+"MD" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4;
+	id_tag = "cyclops_shuttle_pump";
+	frequency = 1385;
+	layer = 2.8
 	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#4c4324"
-	},
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
+"MV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "Na" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
@@ -3184,6 +3613,10 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/ghostspawpoint{
+	name = "cyclops_captain";
+	identifier = "cylcops_captain"
+	},
 /turf/simulated/floor/carpet,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "Nk" = (
@@ -3211,6 +3644,15 @@
 /obj/item/clothing/accessory/storage/pouches/brown,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
+"Nw" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/space,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "Nz" = (
 /obj/machinery/door/airlock/vault{
 	name = "Secure Storage"
@@ -3232,9 +3674,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "NG" = (
-/obj/machinery/hologram/holopad/long_range,
-/obj/effect/overmap/visitable/ship/landable/cyclops_shuttle,
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/corner/brown{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "NU" = (
 /obj/structure/cable/green{
@@ -3260,22 +3703,28 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "Oh" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_out";
-	locked = 1
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
 	},
-/obj/effect/landmark/entry_point/east{
-	name = "port, crew compartment"
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8;
+	layer = 2.8
 	},
-/turf/simulated/floor,
-/area/shuttle/cyclops_shuttle)
-"Om" = (
-/obj/structure/bed/stool/chair/shuttle{
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_engineering)
+"Or" = (
+/obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/cyclops_shuttle)
 "Oy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3304,32 +3753,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
-"OI" = (
-/obj/machinery/portable_atmospherics/canister/empty{
-	name = "waste canister"
-	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
-	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_engineering)
-"OL" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/obj/machinery/floodlight{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/hephmining_ship/cyclops/cyclops_hangar)
 "OP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3343,18 +3766,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Pc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/orange/full,
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_engineering)
+/area/shuttle/cyclops_shuttle)
 "Pe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -3372,13 +3785,7 @@
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Pv" = (
 /obj/structure/table/steel,
-/obj/effect/floor_decal/corner/orange/full{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Pz" = (
@@ -3403,6 +3810,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
+"PT" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "PW" = (
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
@@ -3446,20 +3862,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "Rg" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#4c4324"
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
 	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "Ry" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
 	},
-/obj/machinery/meter,
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/cyclops_shuttle)
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "RO" = (
 /obj/machinery/mineral/processing_unit{
 	id = "processing_2"
@@ -3514,6 +3935,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
+"SD" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/floodlight,
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "SF" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
@@ -3568,11 +3996,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "SK" = (
-/obj/machinery/computer/ship/engines{
-	dir = 8
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_port_thrust)
+/area/hephmining_ship/cyclops/cyclops_engineering)
 "SL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -3626,7 +4058,16 @@
 	dir = 8;
 	pixel_x = 30
 	},
-/obj/structure/table/standard,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Anti-Piracy Locker"
+	},
+/obj/item/gun/projectile/automatic/rifle/carbine,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/gun/projectile/automatic/x9,
+/obj/item/gun/projectile/automatic/x9,
+/obj/item/ammo_magazine/c45m/auto,
+/obj/item/ammo_magazine/c45m/auto,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "SX" = (
@@ -3671,16 +4112,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Ts" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 5
 	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
+/obj/effect/floor_decal/corner/orange/full,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Tu" = (
@@ -3790,6 +4228,10 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
+/obj/effect/ghostspawpoint{
+	name = "cyclops_crew";
+	identifier = "cylcops_crew"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Up" = (
@@ -3817,6 +4259,18 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"UA" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "UN" = (
 /obj/machinery/button/distress{
 	dir = 1;
@@ -3868,6 +4322,17 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"VC" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Atmospherics"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops)
 "VE" = (
 /obj/machinery/conveyor{
 	id = "heph_1";
@@ -3937,6 +4402,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_captain)
+"WR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_engineering)
 "WV" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal{
 	color = "#4c4324"
@@ -3966,16 +4440,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "Xu" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/item/clothing/head/cone,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/obj/machinery/door/airlock/hatch{
-	name = "Atmospherics"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops)
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "Xw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -4028,6 +4498,16 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"Yh" = (
+/obj/machinery/atmospherics/binary/pump/fuel{
+	dir = 8;
+	name = "Fuel Tank to Thrusters"
+	},
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
 "Yj" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
@@ -4066,13 +4546,6 @@
 /obj/machinery/cryopod,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
-"YR" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/floodlight,
-/turf/simulated/floor,
-/area/hephmining_ship/cyclops/cyclops_hangar)
 "YS" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port hangar"
@@ -4111,16 +4584,14 @@
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Zi" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "cyclops_mining_port";
-	name = "exterior access button";
-	pixel_x = -24;
-	pixel_y = -10
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
 	},
-/turf/template_noop,
-/area/space)
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
 "Zn" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
@@ -4154,8 +4625,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "ZD" = (
-/obj/effect/landmark/entry_point/aft,
-/turf/unsimulated/wall/fakepdoor,
+/obj/effect/shuttle_landmark/cyclops_shuttle/hangar,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "ZE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4179,18 +4651,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "ZH" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "cyclops_shuttle";
-	name = "Port docking controller";
-	pixel_x = 6;
-	pixel_y = 28;
-	tag_door = "cyclops_shuttle_out"
-	},
-/obj/machinery/computer/ship/sensors{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/computer/ship/helm,
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "ZI" = (
 /obj/effect/floor_decal/corner/orange/full{
@@ -4214,6 +4677,10 @@
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
+	},
+/obj/effect/ghostspawpoint{
+	name = "cyclops_crew";
+	identifier = "cylcops_crew"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
@@ -6190,63 +6657,63 @@ CE
 CE
 CE
 SY
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -6447,63 +6914,63 @@ CE
 CE
 CE
 SY
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -6704,63 +7171,63 @@ CE
 CE
 CE
 SY
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -6961,63 +7428,63 @@ CE
 CE
 CE
 SY
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -7218,63 +7685,63 @@ CE
 CE
 CE
 SY
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -7475,63 +7942,63 @@ CE
 CE
 CE
 SY
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -7732,63 +8199,63 @@ CE
 CE
 CE
 SY
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -7989,63 +8456,63 @@ CE
 CE
 CE
 SY
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -8246,63 +8713,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -8503,63 +8970,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -8760,63 +9227,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -9017,63 +9484,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -9274,63 +9741,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -9531,63 +9998,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -9788,63 +10255,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -10045,63 +10512,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -10302,63 +10769,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -10559,63 +11026,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -10816,63 +11283,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -11073,63 +11540,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -11330,63 +11797,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -11587,63 +12054,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -11844,63 +12311,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -12101,63 +12568,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -12358,63 +12825,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -12615,63 +13082,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -12872,63 +13339,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -13129,63 +13596,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -13386,63 +13853,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -13643,63 +14110,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -13900,63 +14367,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -14157,63 +14624,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -14414,63 +14881,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -14671,63 +15138,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -14928,63 +15395,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -15185,63 +15652,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -15442,63 +15909,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -15699,63 +16166,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -15956,63 +16423,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -16213,63 +16680,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -16470,63 +16937,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -16727,63 +17194,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -16984,63 +17451,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -17241,63 +17708,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -17498,63 +17965,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -17755,63 +18222,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -18012,63 +18479,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -18269,63 +18736,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -18526,63 +18993,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -18783,63 +19250,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -19040,63 +19507,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -19297,63 +19764,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -19554,63 +20021,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -19811,63 +20278,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -20068,63 +20535,63 @@ CE
 CE
 CE
 SY
-QB
-Mz
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -20325,63 +20792,63 @@ CE
 CE
 CE
 SY
-QB
-li
-Mz
-Mz
-Mz
-Mz
-Mz
-li
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-li
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -20582,63 +21049,63 @@ CE
 CE
 CE
 SY
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -20839,63 +21306,63 @@ CE
 CE
 CE
 SY
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -21096,63 +21563,63 @@ CE
 CE
 CE
 SY
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -21353,63 +21820,63 @@ CE
 CE
 CE
 SY
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -21610,63 +22077,63 @@ CE
 CE
 CE
 SY
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
 QB
 QB
 QB
@@ -22157,26 +22624,26 @@ QB
 QB
 QB
 QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+li
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
+Mz
 QB
 QB
 QB
@@ -22414,26 +22881,26 @@ QB
 QB
 QB
 QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
-QB
+Mg
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+jU
+Mg
 QB
 QB
 QB
@@ -22671,6 +23138,7 @@ QB
 QB
 QB
 QB
+Mz
 QB
 QB
 QB
@@ -22689,8 +23157,7 @@ QB
 QB
 QB
 QB
-QB
-QB
+Mz
 QB
 QB
 QB
@@ -22928,6 +23395,7 @@ QB
 QB
 QB
 QB
+Mz
 QB
 QB
 QB
@@ -22946,8 +23414,7 @@ QB
 QB
 QB
 QB
-QB
-QB
+Mz
 QB
 QB
 QB
@@ -23186,24 +23653,24 @@ QB
 QB
 QB
 li
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
-Mz
+jU
+QB
+jU
+jU
+jU
+jU
+jU
+jU
+QB
+jU
+jU
+jU
+jU
+jU
+QB
+jU
+jU
+QB
 Mz
 QB
 QB
@@ -23966,7 +24433,7 @@ QB
 QB
 QB
 QB
-QB
+rj
 QB
 QB
 QB
@@ -24480,7 +24947,7 @@ QB
 QB
 QB
 QB
-rj
+QB
 QB
 QB
 QB
@@ -33340,26 +33807,26 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+eM
+eM
+eM
+eM
+eM
+eM
+mA
+mA
+mA
+mA
+mA
+mA
+wu
+mA
+mA
+mA
+mA
+mA
+mA
+Dj
 AY
 Na
 uM
@@ -33597,25 +34064,25 @@ CE
 CE
 CE
 CE
+PK
+co
+Ob
+kV
+cU
 eM
-eM
-eM
-eM
-eM
-eM
-mA
-mA
-mA
-mA
-mA
-mA
-Ae
-mA
-mA
-mA
-mA
-mA
-mA
+dD
+Ji
+IA
+vx
+pf
+rv
+bj
+rv
+rv
+vG
+Jk
+pH
+rp
 mA
 AY
 Mw
@@ -33854,25 +34321,25 @@ CE
 CE
 CE
 CE
-PK
-co
-Ob
-kV
-cU
+ZJ
+GU
+ur
+cl
+wt
 eM
-dD
-Ji
-IA
-vx
-pf
-rv
-bj
-rv
-rv
-vG
-Jk
-pH
-rp
+NX
+Pp
+JU
+VK
+vj
+Us
+RO
+Us
+Us
+wk
+vj
+Sh
+yo
 mA
 AY
 ch
@@ -34111,25 +34578,25 @@ CE
 CE
 CE
 CE
-ZJ
-GU
-ur
-cl
-wt
+yX
+Jb
+SG
+Ch
+wE
 eM
-NX
+ee
 Pp
-JU
+Br
 VK
-vj
-Us
-RO
-Us
-Us
-wk
-vj
+VE
+gL
+BB
+gL
+gL
+fv
+VE
 Sh
-yo
+Vz
 mA
 AY
 WV
@@ -34368,25 +34835,25 @@ CE
 CE
 CE
 CE
-yX
-Jb
-SG
-Ch
-wE
-eM
-ee
-Pp
-Br
-VK
-VE
-gL
-BB
-gL
-gL
-fv
-VE
-Sh
-Vz
+ZJ
+ux
+BP
+TG
+Pe
+HB
+zL
+fi
+uT
+DO
+fi
+Kq
+uT
+DO
+fi
+bD
+uT
+pW
+aB
 Qd
 iH
 pc
@@ -34625,23 +35092,23 @@ CE
 CE
 CE
 CE
-ZJ
-ux
-BP
-TG
-Pe
-HB
-zL
-fi
-uT
-DO
-fi
-fi
-uT
-DO
-fi
-fi
-uT
+eM
+eM
+eM
+eM
+eM
+Dh
+AE
+BM
+pG
+AR
+BM
+PT
+pG
+AR
+BM
+mn
+Nw
 Ef
 CV
 oZ
@@ -34882,25 +35349,25 @@ CE
 CE
 CE
 CE
-eM
-eM
-eM
-eM
-eM
-Dh
-AE
-BM
-pG
-AR
-BM
-BM
-pG
-AR
-BM
-BM
-pG
+CE
+CE
+Iy
+iU
+Xw
+eF
+eF
+eF
+eF
+eF
+tU
+ui
+ZD
+fV
+eF
+Xu
+wL
 lY
-Lf
+IS
 Qd
 sP
 zi
@@ -35141,23 +35608,23 @@ CE
 CE
 CE
 CE
-CE
-Mx
-vl
-Xw
-qH
-eF
-Xw
+Iy
 uO
-eF
-eF
-eF
-eF
-eF
-Xw
-wL
+zn
+zn
+zn
+zn
+zn
+zn
+Ki
+BH
+BC
+Ki
+zn
+zn
+Yj
 vs
-IS
+Ry
 Qd
 kI
 zi
@@ -35398,23 +35865,23 @@ CE
 CE
 CE
 CE
-CE
-Mx
-eT
+Iy
+uO
+zn
+zn
+zn
+zn
+zn
+gw
 Ki
-gw
-gw
-gw
-fb
-Oh
-gw
-gw
-gw
-gw
-gw
+pE
+MD
+Ki
+Ki
+zn
 Yj
 Je
-ex
+Mx
 Qd
 BV
 Hr
@@ -35655,21 +36122,21 @@ CE
 CE
 CE
 CE
-CE
-Mx
-zn
+Iy
+uO
+dH
+sF
+ra
+gw
+af
+gw
+Ki
+tT
+bc
 Ki
 Ki
-au
-sU
-bg
-bg
-jU
-Kw
-jp
-Rg
-fa
-Yj
+Ki
+by
 Je
 ex
 Qd
@@ -35912,21 +36379,21 @@ CE
 CE
 CE
 CE
-CE
-ZD
-zn
+Iy
+uO
+eG
 GF
-nx
-Om
-bg
-NG
-bg
-bg
-bg
+gw
+Ki
+ze
+qH
+jZ
+gF
+Zi
 eg
 Rg
 rr
-Yj
+bm
 Je
 ex
 Qd
@@ -36169,21 +36636,21 @@ CE
 CE
 CE
 CE
-CE
-Mx
-zn
-Ki
-Ki
+Hc
+uO
+Or
+vl
+np
 ZH
-pi
-bF
-pi
-eo
-Iy
-Ry
-Rg
+au
+sD
+sl
+di
+pL
+jm
+CB
 fa
-Yj
+bm
 Je
 YZ
 Qd
@@ -36426,21 +36893,21 @@ CE
 CE
 CE
 CE
-CE
-Mx
-wu
+Iy
+uO
+eG
+GF
+gw
 Ki
-gw
-gw
-gw
-gw
-sI
-MV
-gw
-gw
-gw
-gw
-Yj
+ap
+yw
+NG
+Pc
+Pc
+Yh
+qg
+rr
+bm
 Je
 Yc
 Qd
@@ -36683,21 +37150,21 @@ CE
 CE
 CE
 CE
-CE
-Mx
-YR
-Hc
-GB
-GB
-EI
-GB
-GB
-EI
-GB
-GB
-EI
-Hc
-OL
+Iy
+uO
+zW
+sF
+ws
+gw
+af
+gw
+jd
+lD
+Mk
+xG
+Ki
+Ki
+by
 HM
 Pv
 Qd
@@ -36938,26 +37405,26 @@ CE
 CE
 CE
 CE
-Cc
-Cc
-Cc
-Cc
-Cc
-Cc
-PZ
-PZ
-PZ
-PZ
-PZ
-PZ
-PZ
-PZ
-PZ
-PZ
-PZ
-yY
-PZ
-Gu
+CE
+CE
+Iy
+uO
+zn
+zn
+zn
+zn
+zn
+gw
+eo
+pi
+eo
+eo
+Ki
+zn
+Yj
+fb
+Ry
+Qd
 sP
 nK
 qU
@@ -37195,26 +37662,26 @@ CE
 CE
 CE
 CE
-FZ
-Dc
-Sv
-sj
-dE
-JC
-fB
-zx
-iB
-SV
-UY
-Bf
-tb
-Uh
-GP
-jD
-na
-iX
-Pc
-Xu
+CE
+CE
+Iy
+SD
+cp
+MV
+MV
+MV
+MV
+MV
+MV
+MV
+MV
+MV
+MV
+MV
+wi
+EI
+UA
+VC
 vh
 GG
 il
@@ -37452,25 +37919,25 @@ CE
 CE
 CE
 CE
-pl
-ne
-Gd
-Dc
-Pz
 Cc
-DK
-mI
-yg
-Up
-qn
-dp
-xK
-Aw
-yL
-Sn
-bl
-gn
-Ts
+Cc
+Cc
+Cc
+Cc
+Cc
+PZ
+PZ
+PZ
+PZ
+PZ
+PZ
+PZ
+PZ
+PZ
+PZ
+PZ
+yY
+PZ
 Gu
 iR
 Xb
@@ -37709,25 +38176,25 @@ CE
 CE
 CE
 CE
-Ai
-QM
-Bg
-yW
-aH
-Cc
-dq
-Hh
-yg
-Tp
-on
-kD
-wU
-FO
-PM
-XT
-Gs
-ND
-Zv
+FZ
+Dc
+Sv
+sj
+dE
+JC
+fB
+zx
+iB
+SV
+UY
+Bf
+tb
+Uh
+GP
+jD
+na
+iX
+Ts
 Gu
 Gu
 SF
@@ -37966,26 +38433,26 @@ CE
 CE
 CE
 CE
-FZ
-ze
-SK
-zW
-xG
+pl
+ne
+Gd
+Dc
+Pz
 Cc
-EJ
-KJ
-di
-OI
-yZ
-JL
-bd
-VH
-JQ
-Ty
-TC
-iT
-xz
-uG
+DK
+mI
+yg
+Up
+qn
+dp
+xK
+Aw
+yL
+Sn
+bl
+jF
+SK
+PZ
 MB
 MB
 Nz
@@ -38223,26 +38690,26 @@ CE
 CE
 CE
 CE
-ev
-ev
-ev
-ev
-ev
+Ai
+QM
+Bg
+yW
+aH
 Cc
-gZ
-gZ
-gZ
-gZ
-gZ
-gZ
-gZ
-gZ
-gZ
-gZ
-gZ
-nc
-AF
-DR
+dq
+Hh
+yg
+Tp
+on
+kD
+wU
+FO
+PM
+XT
+Gs
+ND
+Zv
+uG
 MB
 AI
 TD
@@ -38480,26 +38947,26 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-YS
-CE
-CE
-CE
-CE
-CE
-Zg
-Ev
-KP
+aY
+WR
+dn
+gn
+EY
 PZ
+EJ
+KJ
+GB
+Oh
+yZ
+JL
+bd
+VH
+JQ
+Ty
+TC
+iT
+xz
+gZ
 MB
 Ld
 NU
@@ -38737,25 +39204,25 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-Zg
-bC
-Dt
+gZ
+gZ
+gZ
+gZ
+gZ
+PZ
+gZ
+gZ
+sI
+gZ
+gZ
+gZ
+gZ
+gZ
+gZ
+gZ
+gZ
+nc
+AF
 gZ
 MB
 gH
@@ -39001,18 +39468,18 @@ CE
 CE
 CE
 CE
+PZ
+mN
+PZ
 CE
 CE
-CE
-CE
-CE
-CE
+YS
 CE
 CE
 CE
 Zg
-yg
-yg
+Ev
+KP
 gZ
 MB
 ax
@@ -39258,9 +39725,9 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
+PZ
+PZ
+PZ
 CE
 CE
 CE
@@ -39268,9 +39735,9 @@ CE
 CE
 CE
 Zg
-uy
-HP
-PZ
+bC
+Dt
+gZ
 CE
 CE
 CE
@@ -39524,10 +39991,10 @@ CE
 CE
 CE
 CE
-Zi
-CE
-CE
-CE
+Zg
+yg
+yg
+PZ
 CE
 CE
 CE
@@ -39781,10 +40248,10 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
+Zg
+mb
+cv
+PZ
 CE
 CE
 CE

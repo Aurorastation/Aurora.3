@@ -3292,6 +3292,7 @@
 #include "maps\away\ships\einstein\ee_spy_ship_ghostroles.dm"
 #include "maps\away\ships\elyra\elyra_strike_craft.dm"
 #include "maps\away\ships\elyra\elyra_strike_craft_ghostroles.dm"
+#include "maps\away\ships\heph\cyclops_ghostroles.dm"
 #include "maps\away\ships\heph\heph_mining_areas.dm"
 #include "maps\away\ships\heph\heph_mining_ship.dm"
 #include "maps\away\ships\heph\cyclops.dmm"

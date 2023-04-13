@@ -2,7 +2,7 @@
 	name = "Cyclops Mining Vessel"
 	description = "This bulky vessel is designed and operated by Hephaestus Industries. From asteroid cracking to planetary operations, this ship can do it all. "
 	suffixes = list("ships/heph/cyclops.dmm")
-	sectors = list(SECTOR_WEEPING_STARS, SECTOR_SRANDMARR, SECTOR_ROMANOVICH)
+	sectors = list(SECTOR_ROMANOVICH)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "Cyclops Mining Vessel"
@@ -35,10 +35,10 @@
 		"nav_hangar_cyclops"
 	)
 
-	invisible_until_ghostrole_spawn = FALSE
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/cyclops_mining/New()
-    designation = "[pick("Tuckerbag", "Do No Harm", "Volatile Cargo", "Stay Clear", "Entrepreneurial", "Good Things Only", "Worthless", "Skip This One", "Pay No Mind", "Customs-Cleared", "Friendly", "Reactor Leak", "Fool's Gold", "Cursed Cargo", "Guards Aboard")]"
+    designation = "[pick("Archemedes, Pallas, Crius, Pothos, Nyx")]"
     ..()
 
 /obj/effect/overmap/visitable/ship/cyclops_mining/get_skybox_representation()
