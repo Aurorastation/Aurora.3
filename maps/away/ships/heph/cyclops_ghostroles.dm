@@ -1,6 +1,6 @@
 //rangers
 
-/datum/ghostspawner/human/cyclops_crew/miner
+/datum/ghostspawner/human/cyclops_crew
 	short_name = "cyclops crew"
 	name = "Cyclops Mining Crew"
 	desc = "Crew the Hephaestus Mining Vessel."
@@ -9,7 +9,7 @@
 	spawnpoints = list("cyclops_crew")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/cyclops_crew/miner
+	outfit = /datum/outfit/admin/cyclops_crew
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -18,7 +18,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/cyclops_crew/miner
+/datum/outfit/admin/cyclops_crew
 	name = "Hephaestus Miner"
 
 	uniform = /obj/item/clothing/under/rank/miner/heph

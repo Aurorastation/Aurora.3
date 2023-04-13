@@ -81,10 +81,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "aY" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
-/area/hephmining_ship/cyclops/cyclops_engineering)
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#4c4324"
+	},
+/area/hephmining_ship/cyclops/cyclops_port_thrust)
 "ba" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/floor_decal/corner/orange{
@@ -261,7 +261,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_engineering)
+/area/hephmining_ship/cyclops/cyclops_port_thrust)
 "dp" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
@@ -567,7 +567,7 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_engineering)
+/area/hephmining_ship/cyclops/cyclops_port_thrust)
 "gs" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1107,6 +1107,16 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
+"no" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light,
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops)
 "np" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
@@ -1133,6 +1143,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
 "oh" = (
@@ -1473,10 +1484,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/cyclops_shuttle)
-"rj" = (
-/obj/effect/shuttle_landmark/cyclops_shuttle/transit,
-/turf/space/transit/north,
-/area/space)
 "rl" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal{
 	color = "#4c4324"
@@ -1581,6 +1588,7 @@
 	dir = 4
 	},
 /obj/machinery/light,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "sD" = (
@@ -1631,12 +1639,24 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
+"tn" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled/white,
+/area/hephmining_ship/cyclops/cyclops_kitchen)
 "tw" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
+"tO" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "tP" = (
 /obj/machinery/computer/ship/engines{
 	dir = 1
@@ -1716,6 +1736,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "uG" = (
@@ -1780,6 +1804,10 @@
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
+	},
+/obj/machinery/firealarm/south{
+	pixel_y = 32;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
@@ -2899,7 +2927,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_engineering)
+/area/hephmining_ship/cyclops/cyclops_port_thrust)
 "Fk" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -3106,9 +3134,6 @@
 /turf/simulated/floor/carpet,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "Ic" = (
-/obj/structure/table/rack,
-/obj/item/soap/fire_soap,
-/obj/item/soap/fire_soap,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -3469,6 +3494,9 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/machinery/alarm{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
 "Lj" = (
@@ -4003,6 +4031,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "SL" = (
@@ -4409,8 +4438,12 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 30
+	},
 /turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_engineering)
+/area/hephmining_ship/cyclops/cyclops_port_thrust)
 "WV" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal{
 	color = "#4c4324"
@@ -4488,6 +4521,7 @@
 	pixel_x = -32;
 	dir = 4
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Yc" = (
@@ -4663,6 +4697,7 @@
 /obj/item/towel/random,
 /obj/item/towel/random,
 /obj/item/towel/random,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "ZJ" = (
@@ -24433,7 +24468,7 @@ QB
 QB
 QB
 QB
-rj
+QB
 QB
 QB
 QB
@@ -35124,7 +35159,7 @@ qw
 uN
 AH
 Al
-Al
+tn
 qw
 Tb
 CE
@@ -36914,7 +36949,7 @@ Qd
 SX
 JV
 IN
-QT
+no
 Gu
 At
 XE
@@ -37423,7 +37458,7 @@ Ki
 zn
 Yj
 fb
-Ry
+tO
 Qd
 sP
 nK
@@ -38947,12 +38982,12 @@ CE
 CE
 CE
 CE
-aY
+FZ
 WR
 dn
 gn
 EY
-PZ
+Cc
 EJ
 KJ
 GB
@@ -39204,12 +39239,12 @@ CE
 CE
 CE
 CE
-gZ
-gZ
-gZ
-gZ
-gZ
-PZ
+aY
+aY
+aY
+aY
+aY
+Cc
 gZ
 gZ
 sI

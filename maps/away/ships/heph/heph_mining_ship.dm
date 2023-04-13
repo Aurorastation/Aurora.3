@@ -63,11 +63,6 @@
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/cyclops/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_cyclops"
-	base_turf = /turf/space/transit/north
-
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/cyclops_shuttle
 	name = "Cyclops Shuttle"
@@ -94,7 +89,7 @@
 	shuttle_area = list(/area/shuttle/cyclops_shuttle)
 	current_location = "nav_hangar_cyclops"
 	landmark_transition = "nav_transit_cyclops_shuttle"
-	dock_target = "cyclops_shuttle"
+	dock_target = "cyclops_shuttle_dock"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_cyclops"
@@ -108,7 +103,3 @@
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/shuttle_landmark/cyclops_shuttle/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_cyclops_shuttle"
-	base_turf = /turf/space/transit/north
