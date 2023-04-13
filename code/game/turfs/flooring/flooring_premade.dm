@@ -86,7 +86,7 @@
 /turf/simulated/floor/wood
 	name = "wooden floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	initial_flooring = /singleton/flooring/wood
 	footstep_sound = /singleton/sound_category/wood_footstep
 	tile_outline = "wood"
@@ -247,7 +247,7 @@
 
 /turf/simulated/floor/tiled/dark
 	name = "plasteel tiles"
-	icon_state = "dark"
+	icon_state = "dark_preview"
 	initial_flooring = /singleton/flooring/tiling/dark
 	tile_decal_state = "dark_light"
 
@@ -261,7 +261,7 @@
 
 /turf/simulated/floor/tiled/dark/full
 	name = "full plasteel tile"
-	icon_state = "monotile_dark"
+	icon_state = "monotile_dark_preview"
 	initial_flooring = /singleton/flooring/tiling/dark/full
 	tile_outline = "monotile"
 	tile_decal_state = "monotile_dark_light"
@@ -313,7 +313,7 @@
 
 /turf/simulated/floor/tiled/white
 	name = "white floor"
-	icon_state = "white"
+	icon_state = "white_preview"
 	tile_outline_alpha = 75
 	tile_decal_state = "white"
 	initial_flooring = /singleton/flooring/tiling/white
@@ -346,12 +346,12 @@
 /turf/simulated/floor/lino
 	name = "linoleum"
 	icon = 'icons/turf/flooring/linoleum.dmi'
-	icon_state = "lino"
+	icon_state = "lino_preview"
 	initial_flooring = /singleton/flooring/linoleum
 	tile_outline = "linoleum"
 
 /turf/simulated/floor/lino/diamond
-	icon_state = "lino_diamond"
+	icon_state = "lino_diamond_preview"
 	initial_flooring = /singleton/flooring/linoleum/diamond
 	tile_outline = "tiled"
 	broken_overlay = "tiled"

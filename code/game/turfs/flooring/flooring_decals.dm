@@ -132,6 +132,18 @@
 	icon_state = "preview_threethirds"
 	blend_state = "threethirds"
 
+/obj/effect/floor_decal/corner/dark_green
+	name = "green corner"
+	color = COLOR_DARK_GREEN_GRAY
+
+/obj/effect/floor_decal/corner/dark_green/diagonal
+	icon_state = "preview_diagonal"
+	blend_state = "diagonal"
+
+/obj/effect/floor_decal/corner/dark_green/full
+	icon_state = "preview_threethirds"
+	blend_state = "threethirds"
+
 /obj/effect/floor_decal/corner/green
 	name = "green corner"
 	color = COLOR_GREEN_GRAY
@@ -266,7 +278,7 @@
 
 /obj/effect/floor_decal/corner/grey
 	name = "grey corner"
-	color = "#8D8C8C"
+	color = COLOR_GRAY
 
 /obj/effect/floor_decal/corner/grey/diagonal
 	icon_state = "preview_diagonal"
@@ -318,6 +330,18 @@
 	blend_state = "wide_diagonal"
 
 /obj/effect/floor_decal/corner_wide/paleblue/full
+	icon_state = "preview_wide_threethirds"
+	blend_state = "wide_threethirds"
+
+/obj/effect/floor_decal/corner_wide/dark_green
+	name = "green corner"
+	color = COLOR_DARK_GREEN_GRAY
+
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal
+	icon_state = "preview_wide_diagonal"
+	blend_state = "wide_diagonal"
+
+/obj/effect/floor_decal/corner_wide/dark_green/full
 	icon_state = "preview_wide_threethirds"
 	blend_state = "wide_threethirds"
 
@@ -458,7 +482,7 @@
 
 /obj/effect/floor_decal/corner_wide/grey
 	name = "grey corner"
-	color = "#8D8C8C"
+	color = COLOR_GRAY
 
 /obj/effect/floor_decal/corner_wide/grey/diagonal
 	icon_state = "preview_wide_diagonal"
@@ -536,7 +560,7 @@
 	color = COLOR_WHITE
 
 /obj/effect/floor_decal/spline/plain/grey
-	color = "#8d8c8c"
+	color = COLOR_GRAY
 
 /obj/effect/floor_decal/spline/plain/corner
 	icon_state = "spline_plain_corner"
@@ -584,7 +608,7 @@
 	color = COLOR_WHITE
 
 /obj/effect/floor_decal/spline/plain/corner/grey
-	color = "#8d8c8c"
+	color = COLOR_GRAY
 
 /obj/effect/floor_decal/spline/plain/cee
 	icon_state = "spline_plain_cee"
@@ -632,7 +656,7 @@
 	color = COLOR_WHITE
 
 /obj/effect/floor_decal/spline/plain/cee/grey
-	color = "#8d8c8c"
+	color = COLOR_GRAY
 
 /obj/effect/floor_decal/spline/plain/full
 	icon_state = "spline_plain_full"
