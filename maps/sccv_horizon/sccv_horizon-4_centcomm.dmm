@@ -3057,7 +3057,7 @@
 "agP" = (
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/bar)
 "agQ" = (
 /obj/structure/railing/mapped,
@@ -3066,13 +3066,13 @@
 	icon_state = "tube1"
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/bar)
 "agR" = (
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/bar)
 "agS" = (
 /obj/structure/railing/mapped,
@@ -3081,7 +3081,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/bar)
 "agT" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -3100,7 +3100,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/bar)
 "agW" = (
 /obj/structure/shuttle_part/hapt{
@@ -3311,7 +3311,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/bar)
 "ahy" = (
 /obj/structure/shuttle_part/hapt{
@@ -3441,7 +3441,7 @@
 	},
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/bar)
 "ahP" = (
 /obj/structure/shuttle_part/hapt{
@@ -5383,7 +5383,7 @@
 	pixel_x = 4;
 	pixel_y = -2
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "alP" = (
 /obj/structure/undies_wardrobe,
@@ -5820,7 +5820,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "amH" = (
 /obj/structure/bed/stool/padded/brown{
@@ -5829,7 +5829,7 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "amI" = (
 /obj/effect/landmark{
@@ -5899,7 +5899,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/media/jukebox,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "amU" = (
 /obj/structure/noticeboard{
@@ -6099,7 +6099,7 @@
 /obj/structure/bed/stool/padded/brown{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "anr" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -6287,14 +6287,14 @@
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "aog" = (
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "aoh" = (
 /obj/machinery/door/airlock/glass{
 	name = "Lounge";
 	req_access = list(110)
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "aoj" = (
 /turf/simulated/floor/tiled,
@@ -6650,7 +6650,7 @@
 /obj/machinery/vending/cigarette/merchant{
 	pixel_x = 2
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "apk" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
@@ -6872,12 +6872,12 @@
 /area/centcom/evac)
 "aqb" = (
 /obj/structure/bed/stool/padded/brown,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "aqc" = (
 /obj/item/material/ashtray/bronze,
 /obj/structure/table/wood,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "aqd" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -8546,7 +8546,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/evac)
 "auI" = (
 /obj/effect/shuttle_landmark/merchant/start,
@@ -8622,7 +8622,7 @@
 /area/shuttle/merchant)
 "auX" = (
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "auY" = (
 /obj/effect/floor_decal/corner/beige/full,
@@ -8936,7 +8936,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/evac)
 "avG" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -9569,7 +9569,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/holding)
 "awJ" = (
 /turf/unsimulated/wall/darkshuttlewall,
@@ -11963,7 +11963,7 @@
 	},
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/holding)
 "aCa" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
@@ -12299,7 +12299,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/evac)
 "aCZ" = (
 /obj/item/gun/projectile/automatic/rifle/w556{
@@ -13157,14 +13157,14 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = 3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/holding)
 "aEL" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = 3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/holding)
 "aFb" = (
 /turf/unsimulated/wall/fakeairlock{
@@ -13917,7 +13917,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = -3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/holding)
 "aHk" = (
 /obj/structure/window/reinforced/crescent{
@@ -13926,7 +13926,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = -3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/holding)
 "aHl" = (
 /obj/machinery/door/airlock/centcom{
@@ -15894,7 +15894,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/spawning)
 "aNH" = (
 /obj/effect/floor_decal/corner/red{
@@ -16029,7 +16029,7 @@
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/spawning)
 "aNX" = (
 /obj/effect/floor_decal/corner/red/full,
@@ -16172,7 +16172,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/spawning)
 "aOq" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -16693,7 +16693,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/spawning)
 "aPG" = (
 /obj/structure/window/reinforced/crescent{
@@ -16705,7 +16705,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/spawning)
 "aPH" = (
 /obj/structure/window/reinforced/crescent{
@@ -16717,7 +16717,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/spawning)
 "aPI" = (
 /obj/structure/window/reinforced/crescent{
@@ -16729,7 +16729,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/spawning)
 "aPJ" = (
 /obj/structure/window/reinforced/crescent{
@@ -16741,7 +16741,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/spawning)
 "aPK" = (
 /obj/structure/window/reinforced/crescent{
@@ -16752,7 +16752,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/spawning)
 "aPL" = (
 /obj/structure/window/reinforced/crescent{
@@ -16764,7 +16764,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/spawning)
 "aPM" = (
 /obj/structure/window/reinforced/crescent{
@@ -16775,7 +16775,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/spawning)
 "aPN" = (
 /obj/structure/window/reinforced/crescent{
@@ -16787,7 +16787,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass
 /area/centcom/spawning)
 "aPO" = (
 /obj/effect/floor_decal/industrial/warning/full,
