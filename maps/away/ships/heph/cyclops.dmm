@@ -28,6 +28,17 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -6;
+	pixel_y = 31;
+	tag_exterior_door = "cyclops_shuttle_out";
+	tag_interior_door = "cyclops_shuttle_in";
+	tag_chamber_sensor = "cyclops_shuttle_sensor";
+	tag_interior_sensor = "cyclops_shuttle_interior";
+	tag_airpump = "cyclops_shuttle_pump";
+	frequency = 1380;
+	id_tag = "cyclops_shuttle"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "au" = (
@@ -98,7 +109,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "cyclops_shuttle_in";
-	locked = 1
+	locked = 1;
+	tag = "cyclops_shuttle_in"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -139,6 +151,19 @@
 /obj/effect/map_effect/window_spawner/borosilicate/reinforced,
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"by" = (
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "cyclops_shuttle_exterior";
+	pixel_x = -10;
+	pixel_y = -20;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/shuttle/cyclops_shuttle)
 "bC" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -592,6 +617,23 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "cyclops_shuttle";
+	name = "interior access button";
+	dir = 4;
+	pixel_x = -24;
+	pixel_y = 25;
+	tag = "cyclops_shuttle_in"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "cyclops_shuttle_interior";
+	pixel_x = -23;
+	pixel_y = 38;
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "gH" = (
@@ -810,23 +852,6 @@
 "jZ" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "cyclops_shuttle_interior";
-	pixel_x = -23;
-	pixel_y = -8;
-	dir = 4
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "cyclops_shuttle";
-	name = "interior access button";
-	req_one_access = list(31,48,67);
-	dir = 4;
-	pixel_x = -31;
-	pixel_y = -8
 	},
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/window/reinforced{
@@ -1289,7 +1314,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4;
 	id_tag = "cyclops_shuttle_pump";
-	frequency = 1385;
+	frequency = 1380;
 	layer = 2.8
 	},
 /obj/machinery/airlock_sensor{
@@ -1298,20 +1323,26 @@
 	pixel_x = 7;
 	pixel_y = 32
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_x = -6;
-	pixel_y = 31;
-	tag_exterior_door = "cyclops_shuttle_out";
-	tag_interior_door = "cyclops_shuttle_in";
-	tag_chamber_sensor = "cyclops_shuttle_sensor";
-	tag_interior_sensor = "cyclops_shuttle_interior";
-	tag = "cyclops_shuttle";
-	tag_airpump = "cyclops_shuttle_pump"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
+	frequency = 1380;
+	id_tag = "cyclops_shuttle";
+	layer = 3.3;
+	master_tag = "cyclops_shuttle";
+	tag_airpump = "cyclops_shuttle_pump";
+	tag_chamber_sensor = "cyclops_shuttle_sensor";
+	tag_exterior_door = "cyclops_shuttle_out";
+	tag_exterior_sensor = "intrepid_shuttle_cargo_exterior_sensor";
+	tag_interior_door = "cyclops_shuttle_in";
+	cycle_to_external_air = 1;
+	tag_interior_sensor = "cyclops_shuttle_interior";
+	pixel_y = 30;
+	pixel_x = -7;
+	tag = "cyclops_shuttle"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "pG" = (
@@ -1559,6 +1590,10 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 8
 	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	pixel_x = -26;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "sj" = (
@@ -1679,7 +1714,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "cyclops_shuttle_in";
-	locked = 1
+	locked = 1;
+	tag = "cyclops_shuttle_in"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1695,7 +1731,8 @@
 	name = "exterior access button";
 	pixel_x = 24;
 	pixel_y = -8;
-	dir = 8
+	dir = 8;
+	tag = "cyclops_shuttle_out"
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
@@ -1938,7 +1975,7 @@
 	dir = 4;
 	pixel_y = -1;
 	pixel_x = -27;
-	id = "Cyclops Capt Windows"
+	id = "capt_window"
 	},
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
@@ -2549,7 +2586,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "cyclops_shuttle_out";
-	locked = 1
+	locked = 1;
+	tag = "cyclops_shuttle_out"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -2559,7 +2597,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "cyclops_shuttle_out";
-	locked = 1
+	locked = 1;
+	tag = "cyclops_shuttle_out"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3233,7 +3272,7 @@
 /obj/effect/floor_decal/corner/orange/full,
 /obj/effect/ghostspawpoint{
 	name = "cyclops_security";
-	identifier = "cylcops_security"
+	identifier = "cyclops_security"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
@@ -3603,7 +3642,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4;
 	id_tag = "cyclops_shuttle_pump";
-	frequency = 1385;
+	frequency = 1380;
 	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -3648,7 +3687,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/ghostspawpoint{
 	name = "cyclops_captain";
-	identifier = "cylcops_captain"
+	identifier = "cyclops_captain"
 	},
 /turf/simulated/floor/carpet,
 /area/hephmining_ship/cyclops/cyclops_captain)
@@ -4258,7 +4297,7 @@
 	},
 /obj/effect/ghostspawpoint{
 	name = "cyclops_crew";
-	identifier = "cylcops_crew"
+	identifier = "cyclops_crew"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
@@ -4407,6 +4446,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
+"Wy" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1385;
+	id_tag = "intrepid_dock";
+	name = "\improper Intrepid docking port controller";
+	pixel_x = -26;
+	pixel_y = -25;
+	req_one_access = list(74)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_bridge)
 "WD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -4426,7 +4476,7 @@
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "WP" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
-	id = "Cyclops Capt Windows"
+	id = "capt_window"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_captain)
@@ -4717,7 +4767,7 @@
 	},
 /obj/effect/ghostspawpoint{
 	name = "cyclops_crew";
-	identifier = "cylcops_crew"
+	identifier = "cyclops_crew"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
@@ -36193,7 +36243,7 @@ py
 Hv
 uZ
 RZ
-PW
+Wy
 PW
 sh
 tR
@@ -36419,7 +36469,7 @@ CE
 Iy
 uO
 eG
-GF
+by
 gw
 Ki
 ze

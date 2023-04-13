@@ -1,4 +1,4 @@
-//Heph ship crew
+//Cyclops Crew
 /datum/ghostspawner/human/cyclops_crew
 	short_name = "cyclops crew"
 	name = "Cyclops Mining Crew"
