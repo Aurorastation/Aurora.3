@@ -303,7 +303,7 @@
 
 /obj/item/clothing/under/tajaran/nka_merchant_navy
 	name = "her majesty's mercantile flotilla crew uniform"
-	desc = "An uniform used by the crew of the New Kingdom's merchant space ships. It is clearly inspired on the ones used back in Adhomai."
+	desc = "An uniform used by the crew of the New Kingdom's merchant space ships. It is clearly inspired by the ones used back on Adhomai."
 	icon_state = "nka_merchant_navy"
 	item_state = "nka_merchant_navy"
 

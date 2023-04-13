@@ -18,6 +18,12 @@
 	var/datum/weakref/sensor_ref
 	var/list/last_scan
 
+/obj/machinery/computer/ship/sensors/Destroy()
+	QDEL_NULL(sound_token)
+	sensors = null
+	identification = null
+	return ..()
+
 /obj/machinery/computer/ship/sensors/proc/get_sensors()
 	return sensors
 

@@ -61,6 +61,10 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	scanimage = "diona.png"
+	volume = "47 meters length, 31 meters beam/width, 15 meters vertical height"
+	drive = "Unknown"
+	sizeclass = "Low-Tonnage Organic Composite Craft"
 	initial_restricted_waypoints = list(
 		"Serz Clan Shuttle" = list("nav_diona_serz_ship_shuttle")
 	)
