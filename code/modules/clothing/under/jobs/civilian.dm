@@ -245,3 +245,12 @@
     icon_state = "heph_security"
     item_state = "heph_security"
     contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/captain/hephaestus
+	name = "hephaestus captain's jumpsuit"
+	desc = "It's a green-and-orange jumpsuit with some gold markings denoting the rank of \"Captain\" used by Hephaestus Industries."
+	icon = 'icons/clothing/under/uniforms/heph_captain.dmi'
+	icon_state = "heph_captain"
+	item_state = "heph_captain"
+	worn_state = "heph_captain"
+	contained_sprite = TRUE

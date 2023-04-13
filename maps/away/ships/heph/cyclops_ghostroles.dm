@@ -93,7 +93,7 @@
 /datum/outfit/admin/cyclops_crew/captain
 	name = "Cyclops Crew Captain"
 
-	uniform = /obj/item/clothing/under/rank/captain/heph
+	uniform = /obj/item/clothing/under/rank/captain/hephaestus
 	shoes = /obj/item/clothing/shoes/workboots/dark
 	back = /obj/item/storage/backpack/satchel/leather
 
