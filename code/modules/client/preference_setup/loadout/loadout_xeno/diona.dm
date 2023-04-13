@@ -42,7 +42,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/singleton/origin_item/culture/eum)
+	culture_restriction = list(/singleton/origin_item/culture/narrows)
 	
 /datum/gear/uniform/diona/dionatunic
 	display_name = "floral tunic"
