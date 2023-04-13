@@ -59,6 +59,8 @@
 #define RELIGION_ETERNAL "The Eternal"
 #define RELIGION_KSSHR "Ksshr"
 #define RELIGION_SHRKH "Shrkh"
+#define RELIGION_MADA "Maraka"
+#define RELIGION_GLEANERS "Lights Accord"
 
 //accent defines
 
@@ -141,11 +143,13 @@
 #define ACCENT_SKRELLSOL "Solarian Skrell Standard"
 #define ACCENT_SKRELLCOC "Coalition Skrell Standard"
 #define ACCENT_SKRELLCETI "Biesellite Skrell Standard"
+#define ACCENT_SKRELLEUM "Nral'Daaq"
 #define ACCENT_SROM "Inner Voice"
 #define ACCENT_TATTUQIG "Tattuqig"
 
 #define ACCENT_ROOTSONG "Rootsong"
 #define ACCENT_VOIDSONG "Voidsong"
+#define ACCENT_ANCIENTSONG "Ancientsong"
 
 #define ACCENT_TTS "Text-to-Speech"
 

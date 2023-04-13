@@ -9,16 +9,20 @@
 	message = sanitize(message)
 	message = formalize_text(message)
 
-	set_typing_indicator(0)
+	SStyping.set_indicator_state(client, FALSE)
 
 	if(client.handle_spam_prevention(message, MUTE_IC))
 		return
 
 	whisper(message)
 
-/mob/living/proc/whisper(var/message, var/datum/language/speaking, var/is_singing = FALSE)
+/mob/living/whisper(var/message, var/datum/language/speaking, var/is_singing = FALSE)
 	if(is_muzzled())
 		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
+		return
+
+	if(silent)
+		to_chat(src, SPAN_WARNING("You try to speak, but nothing comes out!"))
 		return
 
 	var/had_speaking = !!speaking

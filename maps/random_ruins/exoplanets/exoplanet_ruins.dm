@@ -5,5 +5,5 @@
 	spawn_cost = 1
 
 	/// See __defines/ruin_tags.dm
-	var/list/planet_types = ALL_PLANET_TYPES
+	var/planet_types = ALL_PLANET_TYPES
 	var/ruin_tags = RUIN_ALL_TAGS

@@ -22,6 +22,7 @@
 	var/list/ignore = list(
 		//Never meant to be created, errors out the ass for mobcode reasons
 		/mob/living/carbon,
+		/atom/movable/typing_indicator,
 		//Internal organs
 		/obj/item/organ/external,
 		// Requires an organ to init, so would not work here without snowflake code
@@ -154,6 +155,9 @@
 
 	// Requires something in icon update or runtimes
 	ignore += typesof(/obj/item/gun/energy/gun/nuclear)
+
+	// do_spread sleeps and tries to addtimer after the src is qdeleted
+	ignore += typesof(/obj/effect/plant)
 
 	/**
 	 * END EXCLUSIONS OF THE TEST

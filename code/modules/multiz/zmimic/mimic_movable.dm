@@ -100,7 +100,7 @@
 	appearance = LO
 	layer = MIMICED_LIGHTING_LAYER
 	plane = OPENTURF_MAX_PLANE
-	invisibility = 0
+	set_invisibility(101)
 	blend_mode = BLEND_MULTIPLY
 	if (icon_state == null)
 		// We're using a color matrix, so just darken the colors across the board.

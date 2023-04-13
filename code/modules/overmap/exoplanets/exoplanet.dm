@@ -108,7 +108,7 @@
 			var/datum/map_template/ruin/exoplanet/ruin = T
 			if((initial(ruin.template_flags) & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				continue
-			if(!(ruin_planet_type in initial(ruin.planet_types)))
+			if(!(ruin_planet_type & initial(ruin.planet_types)))
 				continue
 			var/filtered_tags = initial(ruin.ruin_tags) & ruin_allowed_tags
 			if(filtered_tags != initial(ruin.ruin_tags))
