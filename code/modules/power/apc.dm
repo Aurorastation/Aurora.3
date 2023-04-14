@@ -129,6 +129,7 @@
 	desc_antag = "This can be emagged to unlock it.  It will cause the APC to have a blue error screen. \
 	Wires can be pulsed remotely with a signaler attached to it.  A powersink will also drain any APCs connected to the same wire the powersink is on."
 
+	icon = 'icons/obj/machinery/power/apc.dmi'
 	icon_state = "apc0"
 	anchored = TRUE
 	use_power = POWER_USE_OFF

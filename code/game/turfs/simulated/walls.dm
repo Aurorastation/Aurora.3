@@ -3,8 +3,8 @@
 	desc = "A huge chunk of metal used to seperate rooms."
 	desc_info = "You can deconstruct this by welding it, and then wrenching the girder.<br>\
 	You can build a wall by using metal sheets and making a girder, then adding more material."
-	icon = 'icons/turf/wall_masks.dmi'
-	icon_state = "generic"
+	icon = 'icons/turf/smooth/composite_solid_color.dmi'
+	icon_state = "map_steel"
 	opacity = TRUE
 	density = TRUE
 	blocks_air = TRUE
@@ -13,6 +13,7 @@
 	canSmoothWith = list(
 		/turf/simulated/wall,
 		/turf/simulated/wall/r_wall,
+		/turf/simulated/wall/shuttle/scc_space_ship,
 		/turf/unsimulated/wall/steel, // Centcomm wall.
 		/turf/unsimulated/wall/darkshuttlewall, // Centcomm wall.
 		/turf/unsimulated/wall/riveted, // Centcomm wall.

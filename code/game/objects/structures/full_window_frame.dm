@@ -1,7 +1,7 @@
 /obj/structure/window_frame
 	name = "steel window frame"
 	desc = "A steel window frame."
-	icon = 'icons/obj/smooth/full_window_frame_color.dmi'
+	icon = 'icons/obj/smooth/window/full_window_frame_color.dmi'
 	icon_state = "window_frame"
 	color = "#545c68"
 	build_amt = 4
@@ -14,6 +14,7 @@
 	canSmoothWith = list(
 		/turf/simulated/wall,
 		/turf/simulated/wall/r_wall,
+		/turf/simulated/wall/shuttle/scc_space_ship,
 		/turf/unsimulated/wall/steel, // Centcomm wall.
 		/turf/unsimulated/wall/darkshuttlewall, // Centcomm wall.
 		/turf/unsimulated/wall/riveted, // Centcomm wall.

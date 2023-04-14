@@ -70,8 +70,8 @@
 
 /turf/simulated/wall/shuttle/scc_space_ship
 	name = "spaceship hull"
-	icon = 'icons/turf/smooth/scc_ship_2.dmi'
-	icon_state = "map-shuttle"
+	icon = 'icons/turf/smooth/scc_ship/scc_ship_exterior.dmi'
+	icon_state = "map-wall"
 	canSmoothWith = null
 
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal
@@ -85,8 +85,8 @@
 
 /obj/structure/shuttle_part/scc_space_ship
 	name = "spaceship alloy wall"
-	icon = 'icons/turf/smooth/scc_ship_2.dmi'
-	icon_state = "map-shuttle"
+	icon = 'icons/turf/smooth/scc_ship/scc_ship_exterior.dmi'
+	icon_state = "map-wall"
 	outside_part = FALSE
 
 /turf/simulated/wall/shuttle/raider

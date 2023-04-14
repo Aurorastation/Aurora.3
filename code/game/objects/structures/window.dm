@@ -566,8 +566,8 @@
 /obj/structure/window/shuttle/scc_space_ship
 	name = "advanced borosilicate alloy window"
 	desc = "It looks extremely strong. Might take many good hits to crack it."
-	icon = 'icons/turf/smooth/scc_ship_window2.dmi'
-	icon_state = "map-shuttle"
+	icon = 'icons/turf/smooth/scc_ship/scc_ship_windows.dmi'
+	icon_state = "map_window"
 	health = 500
 	maxhealth = 500
 	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
@@ -759,7 +759,7 @@
 /obj/structure/window/full/reinforced
 	name = "reinforced window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
-	icon = 'icons/obj/smooth/full_window.dmi'
+	icon = 'icons/obj/smooth/window/full_window.dmi'
 	icon_state = "window_glass"
 	basestate = "window_glass"
 	maxhealth = 80 // Two reinforced panes worth of health, since that's the minimum you need to break through to get to the other side.
@@ -784,7 +784,8 @@
 		/obj/structure/window/full/reinforced/polarized/indestructible,
 		/obj/structure/window/full/phoron/reinforced,
 		/obj/structure/window/shuttle/scc_space_ship,
-		/turf/simulated/wall/shuttle/scc_space_ship
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/obj/machinery/door
 	)
 	blend_overlay = "wall"
 	attach_overlay = "attach"

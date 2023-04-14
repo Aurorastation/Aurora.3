@@ -17,7 +17,7 @@
 
 /obj/structure/grille/over
 	name = "over-frame grille"
-	icon = 'icons/obj/smooth/grille_over.dmi'
+	icon = 'icons/obj/smooth/window/grille_over.dmi'
 	layer = 5.99
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
@@ -42,7 +42,6 @@
 	attach_overlay = "attach"
 	can_blend_with = list(
 		/turf/simulated/wall,
-		/obj/machinery/door,
 		/obj/structure/window_frame
 	)
 
@@ -52,7 +51,12 @@
 
 /obj/structure/grille/over/large //for external windows
 	name = "large over-frame grille"
-	icon = 'icons/obj/smooth/grille_over.dmi'
+	icon = 'icons/obj/smooth/window/grille_over_large.dmi'
+	can_blend_with = list(
+		/turf/simulated/wall,
+		/obj/structure/window_frame,
+		/turf/simulated/wall/shuttle/scc_space_ship
+	)
 
 /obj/structure/grille/ex_act(severity)
 	qdel(src)
