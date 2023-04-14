@@ -440,16 +440,18 @@ function runByond(uri) {
 	window.location = uri;
 }
 
+var cookieNamespace = "nss_aurora_";
+
 function setCookie(cname, cvalue, exdays) {
 	cvalue = escaper(cvalue);
 	var d = new Date();
 	d.setTime(d.getTime() + (exdays*24*60*60*1000));
 	var expires = 'expires='+d.toUTCString();
-	document.cookie = cname + '=' + cvalue + '; ' + expires + "; path=/";
+	document.cookie = cookieNamespace + cname + '=' + cvalue + '; ' + expires + "; path=/";
 }
 
 function getCookie(cname) {
-	var name = cname + '=';
+	var name = cookieNamespace + cname + '=';
 	var ca = document.cookie.split(';');
 	for(var i=0; i < ca.length; i++) {
 	var c = ca[i];
