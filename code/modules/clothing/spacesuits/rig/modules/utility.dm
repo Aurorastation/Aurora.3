@@ -640,9 +640,6 @@
 	return T.name
 
 /obj/item/rig_module/actuators/engage(atom/target, mob/user)
-	if (!..())
-		return FALSE
-
 	// This is for when you toggle it on or off. Why do they both run the same
 	// proc chain ...? :l
 	if (!target)
@@ -669,12 +666,16 @@
 			if (combatType && ismob(aa))
 				continue
 
-			if (aa.density)
+			if (aa.density && NOT_FLAG(aa.flags, ON_BORDER))
 				to_chat(user, SPAN_WARNING("You cannot leap at a location with solid objects on it!"))
 				return FALSE
 
 	if (T.z != H.z || dist > leapDistance)
 		to_chat(user, SPAN_WARNING("You cannot leap at such a distant object!"))
+		return FALSE
+
+	. = ..()
+	if(!.)
 		return FALSE
 
 	// Handle leaping at targets with a combat capable version here.

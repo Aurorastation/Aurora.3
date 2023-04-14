@@ -351,6 +351,9 @@ var/list/GPS_list = list()
 
 	START_PROCESSING(SSprocessing, src)
 
+	initialized = TRUE
+	return INITIALIZE_HINT_NORMAL
+
 /obj/item/device/gps/stationary/attack_hand() // Don't let users pick it up.
 	return
 

@@ -15,6 +15,7 @@
 #define INVISIBILITY_LIGHTING		20
 #define INVISIBILITY_LEVEL_ONE		35
 #define INVISIBILITY_LEVEL_TWO		45
+#define INVISIBILITY_OVERMAP     	50
 #define INVISIBILITY_OBSERVER		60
 #define INVISIBILITY_EYE			61
 #define INVISIBILITY_SYSTEM			99
@@ -437,15 +438,11 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 
 #define Z_ALL_TURFS(Z) block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))
 
-
 // Z-controller stuff - see basic.dm to see why the fuck this is the way it is.
 #define IS_VALID_ZINDEX(z) !((z) > world.maxz || (z) > 17)
 
-#define HAS_ABOVE(z) (IS_VALID_ZINDEX(z) && SSatlas.z_levels & (1 << (z - 1)))
-#define HAS_BELOW(z) (IS_VALID_ZINDEX(z) && (z) != 1 && SSatlas.z_levels & (1 << (z - 2)))
-
-#define GET_ABOVE(A) (HAS_ABOVE(A:z) ? get_step(A, UP) : null)
-#define GET_BELOW(A) (HAS_BELOW(A:z) ? get_step(A, DOWN) : null)
+#define GET_ABOVE(A) (HasAbove(A:z) ? get_step(A, UP) : null)
+#define GET_BELOW(A) (HasBelow(A:z) ? get_step(A, DOWN) : null)
 
 #define GET_Z(A) (get_step(A, 0)?.z || 0)
 
@@ -500,6 +497,13 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define TEMPLATE_FLAG_NO_RUINS         8 // if it should forbid ruins from spawning on top of it
 
 //Ruin map template flags
-#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it.
+#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
 
-#define LANDING_ZONE_RADIUS 25 // Used for autoplacing landmarks on exoplanets
+#define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets
+
+#define RAD_LEVEL_LOW 1 // Around the level at which radiation starts to become harmful
+#define RAD_LEVEL_MODERATE 25
+#define RAD_LEVEL_HIGH 40
+#define RAD_LEVEL_VERY_HIGH 100
+
+#define RADIATION_THRESHOLD_CUTOFF 0.1	// Radiation will not affect a tile when below this value.

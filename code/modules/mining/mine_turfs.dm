@@ -23,7 +23,7 @@ var/list/mineral_can_smooth_with = list(
 	desc = "It's a greyish rock. Exciting."
 	gender = PLURAL
 	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
-	layer = 2.01
+	layer = ON_TURF_LAYER
 
 	// canSmoothWith is set in Initialize().
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
@@ -527,6 +527,11 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/random/exoplanet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
+/turf/simulated/mineral/random/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+
 /turf/simulated/mineral/random/high_chance
 	mineralSpawnChanceList = list(
 		ORE_URANIUM = 2,
@@ -552,6 +557,11 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/random/high_chance/exoplanet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
+/turf/simulated/mineral/random/high_chance/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/random/higher_chance
 	mineralSpawnChanceList = list(
@@ -596,6 +606,11 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/planet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
+/turf/simulated/mineral/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /**********************Asteroid**************************/
 

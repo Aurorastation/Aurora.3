@@ -55,6 +55,8 @@
 	cigarettes["Working Tajara cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/pra
 	cigarettes["Shastar Leaves cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dpra
 	cigarettes["Royal Choice cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nka
+	cigarettes["Eriuyushi Sunset cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/federation
+	cigarettes["Xaqixal Dyn Fields cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dyn
 	gear_tweaks += new /datum/gear_tweak/path(cigarettes)
 
 /datum/gear/smoking/chew
@@ -70,6 +72,8 @@
 	chews["Rredouane Cuts chewing tobacco"] = /obj/item/storage/chewables/tobacco/bad
 	chews["Mendell Smooth chewing tobacco"] = /obj/item/storage/chewables/tobacco
 	chews["Taba-Kamu chewing tobacco"] = /obj/item/storage/chewables/tobacco/fine
+	chews["Leviathan Chew chewing tobacco"] = /obj/item/storage/chewables/tobacco/federation
+	chews["Weibi's Breeze chewing tobacco"] = /obj/item/storage/chewables/tobacco/dyn
 	chews["box of Nico-Tine gum"] = /obj/item/storage/box/fancy/chewables/tobacco/nico
 	gear_tweaks += new /datum/gear_tweak/path(chews)
 
@@ -117,7 +121,7 @@
 /datum/gear/smoking/cigpaper/New()
 	..()
 	var/list/cigpaper = list()
-	cigpaper["Gen. Eric cigarette paper"] = /obj/item/storage/box/fancy/cigpaper
+	cigpaper["Callistean Classic cigarette paper"] = /obj/item/storage/box/fancy/cigpaper
 	cigpaper["Trident cigarette paper"] = /obj/item/storage/box/fancy/cigpaper/fine
 	gear_tweaks += new /datum/gear_tweak/path(cigpaper)
 

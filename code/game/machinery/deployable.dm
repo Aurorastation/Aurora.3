@@ -82,7 +82,7 @@ for reference:
 	if(!material)
 		qdel(src)
 		return
-	name = "[material.display_name] barricade"
+	name = "[material.display_name] [name]"
 	desc = "This space is blocked off by a barricade made of [material.display_name]."
 	color = material.icon_colour
 	maxhealth = material.integrity
@@ -91,9 +91,9 @@ for reference:
 /obj/structure/blocker/bullet_act(obj/item/projectile/P, def_zone)
 	var/damage_modifier = 0.4
 	switch(P.damage_type)
-		if(BURN)
+		if(DAMAGE_BURN)
 			damage_modifier = 1
-		if(BRUTE)
+		if(DAMAGE_BRUTE)
 			damage_modifier = 0.75
 	health -= P.damage * damage_modifier
 	if(!check_dismantle())
@@ -120,9 +120,9 @@ for reference:
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		switch(W.damtype)
-			if(BURN)
+			if(DAMAGE_BURN)
 				src.health -= W.force * 1
-			if(BRUTE)
+			if(DAMAGE_BRUTE)
 				src.health -= W.force * 0.75
 		shake_animation()
 		playsound(src.loc, material.hitsound, W.get_clamped_volume(), 1)
@@ -167,6 +167,11 @@ for reference:
 
 /obj/structure/blocker/steel
 	force_material = MATERIAL_STEEL
+
+/obj/structure/blocker/steel/fence
+	name = "fence"
+	force_material = MATERIAL_STEEL
+	icon_state = "chainfence"
 
 //Actual Deployable machinery stuff
 /obj/machinery/deployable

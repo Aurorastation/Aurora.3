@@ -12,6 +12,9 @@
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
 	preview_icon = 'icons/mob/human_races/skrell/skrell_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
+	tail = "No Tail"
+	tail_animation = 'icons/mob/species/skrell/tail.dmi'
+	selectable_tails = list("No Tail", "Short Tail", "Short Fish Tail", "Short Fringed Tail")
 	eyes = "skrell_eyes_s"
 	primitive_form = SPECIES_MONKEY_SKRELL
 	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/palm, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)

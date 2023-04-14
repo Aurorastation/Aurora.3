@@ -28,6 +28,9 @@
 /proc/Floor(x)
 	return round(x)
 
+/// Value or the next integer in a positive direction: Ceil(-1.5) = -1 , Ceil(1.5) = 2
+#define Ceil(value) ( -round(-(value)) )
+
 /proc/Ceiling(x, y=1)
 	return -round(-x / y) * y
 
@@ -171,6 +174,13 @@
 
 /// Value or the next multiple of divisor in a positive direction. Ceilm(-1.5, 0.3) = -1.5 , Ceilm(-1.5, 0.4) = -1.2
 #define Ceilm(value, divisor) ( -round(-(value) / (divisor)) * (divisor) )
+
+/// Value or the nearest multiple of divisor in either direction
+#define Roundm(value, divisor) round((value), (divisor))
+
+/// A random real number between low and high inclusive
+#define Frand(low, high) ( rand() * ((high) - (low)) + (low) )
+
 
 /**
  * Get a list of turfs in a line from `starting_atom` to `ending_atom`.

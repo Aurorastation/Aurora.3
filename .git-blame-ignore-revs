@@ -1,0 +1,8 @@
+# Ignores big formatting commits when checking blame.
+# To make use of this file by default, run 'git config blame.ignoreRevsFile .git-blame-ignore-revs'
+# in the project folder
+
+# Enforces Lineendings and adds Editorconfig
+cb4a7128515170ad7f8fbe3032e6c2810d481322
+# Removes Weapons
+af16a489a6b6ba790a04d2fde4cb1ae527ba13ca

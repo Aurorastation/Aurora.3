@@ -8,8 +8,9 @@
 	deform = 'icons/mob/human_races/unathi/r_def_unathi.dmi'
 	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
-	tail = "unathtail"
+	tail = "Tail"
 	tail_animation = 'icons/mob/species/unathi/tail.dmi'
+	selectable_tails = list("Tail")
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
@@ -112,12 +113,6 @@
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
-	pain_emotes_with_pain_level = list(
-			list(/singleton/emote/audible/wheeze, /singleton/emote/audible/roar, /singleton/emote/audible/bellow) = 80,
-			list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan, /singleton/emote/audible/wheeze, /singleton/emote/audible/hiss) = 50,
-			list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan, /singleton/emote/audible/hiss) = 20,
-		)
-
 	pain_messages = list("It hurts so much", "You really need some painkillers", "Ancestors, it hurts")
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
@@ -126,7 +121,8 @@
 		/singleton/origin_item/culture/izweski,
 		/singleton/origin_item/culture/traditionalists,
 		/singleton/origin_item/culture/spaceborn,
-		/singleton/origin_item/culture/dominian_unathi
+		/singleton/origin_item/culture/dominian_unathi,
+		/singleton/origin_item/culture/autakh
 	)
 
 	zombie_type = SPECIES_ZOMBIE_UNATHI

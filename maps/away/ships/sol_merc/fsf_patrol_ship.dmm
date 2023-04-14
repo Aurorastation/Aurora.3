@@ -422,6 +422,15 @@
 /obj/item/ship_ammunition/francisca/ap{
 	pixel_y = 8
 	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "cdD" = (
@@ -661,6 +670,8 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/item/device/gps,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "eTq" = (
@@ -698,11 +709,6 @@
 "fhJ" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/ship/fsf_patrol_ship)
-"fji" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "fjy" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1344,6 +1350,8 @@
 /obj/item/clothing/suit/space/void/sol/fsf,
 /obj/item/clothing/head/helmet/space/void/sol/fsf,
 /obj/item/device/gps,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "iQy" = (
@@ -1678,6 +1686,8 @@
 /obj/item/clothing/suit/space/void/sol/fsf,
 /obj/item/clothing/head/helmet/space/void/sol/fsf,
 /obj/item/device/gps,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "lBQ" = (
@@ -2623,6 +2633,8 @@
 /obj/item/clothing/suit/space/void/sol/fsf,
 /obj/item/clothing/head/helmet/space/void/sol/fsf,
 /obj/item/device/gps,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "vgc" = (
@@ -33748,7 +33760,7 @@ sSs
 bcf
 jmA
 yjk
-fji
+hBs
 hBs
 sSs
 sSs

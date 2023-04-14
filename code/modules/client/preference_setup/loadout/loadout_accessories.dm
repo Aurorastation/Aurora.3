@@ -174,16 +174,16 @@
 	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/overalls_mining
-	display_name = "overalls, mining"
-	path = /obj/item/clothing/accessory/storage/overalls/mining
-	allowed_roles = list("Shaft Miner", "Xenoarchaeologist")
-	cost = 2
-
 /datum/gear/accessory/overalls_engineer
 	display_name = "overalls, engineering"
 	path = /obj/item/clothing/accessory/storage/overalls/engineer
 	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	cost = 2
+
+/datum/gear/accessory/overalls_mining
+	display_name = "overalls, mining"
+	path = /obj/item/clothing/accessory/storage/overalls/mining
+	allowed_roles = list("Shaft Miner", "Xenoarchaeologist")
 	cost = 2
 
 /datum/gear/accessory/sweater
@@ -575,3 +575,58 @@
 	aodai["ao dai, new hai phong cut"] = /obj/item/clothing/accessory/aodai/nhp
 	aodai["ao dai, masculine formalwear"] = /obj/item/clothing/accessory/aodai/masc
 	gear_tweaks += new /datum/gear_tweak/path(aodai)
+
+/datum/gear/accessory/temperature
+	display_name = "temperature packs"
+	description = "A nice little pack that heats/cools you when worn under your clothes!"
+	path = /obj/item/clothing/accessory/temperature
+	flags = 0
+
+/datum/gear/accessory/temperature/New()
+	..()
+	var/list/temperature = list()
+	for(var/temp_path in subtypesof(/obj/item/clothing/accessory/temperature))
+		var/obj/item/clothing/accessory/temperature/temp_pack = temp_path
+		temperature[initial(temp_pack.name)] = temp_path
+	gear_tweaks += new /datum/gear_tweak/path(temperature)
+
+/datum/gear/accessory/necklace
+	display_name = "colored necklace selection"
+	description = "A selection of already-colored necklaces."
+	path = /obj/item/clothing/accessory/necklace
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/necklace/New()
+	..()
+	var/list/colored = list()
+	colored["necklace"] = /obj/item/clothing/accessory/necklace
+	colored["golden"] = /obj/item/clothing/accessory/necklace/thin
+	colored["silver"] = /obj/item/clothing/accessory/necklace/thin/silver
+	colored["golden chain"] = /obj/item/clothing/accessory/necklace/chain
+	colored["silver chain"] = /obj/item/clothing/accessory/necklace/chain/silver
+	gear_tweaks += new /datum/gear_tweak/path(colored)
+
+/datum/gear/accessory/necklace_uncolored
+	display_name = "necklace selection (colorable)"
+	description = "A selection of entirely colorable necklaces."
+	path = /obj/item/clothing/accessory/necklace/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/necklace_uncolored/New()
+	..()
+	var/list/necklace_uncolored = list()
+	necklace_uncolored["rounded"] = /obj/item/clothing/accessory/necklace/colorable
+	necklace_uncolored["low hanging"] = /obj/item/clothing/accessory/necklace/colorable/low
+	necklace_uncolored["small"] = /obj/item/clothing/accessory/necklace/colorable/small
+	necklace_uncolored["golden dotted"] = /obj/item/clothing/accessory/necklace/colorable/twopiece
+	necklace_uncolored["silver dotted"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/silver
+	necklace_uncolored["golden pendant"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant
+	necklace_uncolored["silver pendant"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/silver
+	necklace_uncolored["large golden pendant"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/fat
+	necklace_uncolored["large silver pendant"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/silver/fat
+	gear_tweaks += new /datum/gear_tweak/path(necklace_uncolored)
+
+/datum/gear/accessory/visegradi_sweater
+	display_name = "visegradi patterned sweater"
+	path = /obj/item/clothing/accessory/sweater/visegradi
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

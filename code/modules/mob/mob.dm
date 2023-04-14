@@ -4,6 +4,7 @@
 	living_mob_list -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
+	lose_hearing_sensitivity()
 	if(client)
 		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
 			qdel(spell_master)
@@ -81,10 +82,54 @@
 
 	become_hearing_sensitive()
 
+/mob/verb/say_wrapper()
+	set name = ".Say"
+	set hidden = TRUE
+	SStyping.set_indicator_state(client, TRUE)
+	var/message = input("","say (text)") as text|null
+	SStyping.set_indicator_state(client, FALSE)
+	if (message)
+		say_verb(message)
+
+/mob/verb/me_wrapper()
+	set name = ".Me"
+	set hidden = TRUE
+	SStyping.set_indicator_state(client, TRUE)
+	var/message = input("","me (text)") as text|null
+	SStyping.set_indicator_state(client, FALSE)
+	if (message)
+		me_verb(message)
+
+/mob/verb/whisper_wrapper()
+	set name = ".Whisper"
+	set hidden = TRUE
+	SStyping.set_indicator_state(client, TRUE)
+	var/message = input("","me (text)") as text|null
+	SStyping.set_indicator_state(client, FALSE)
+	if (message)
+		whisper(message)
+
+/client/verb/typing_indicator()
+	set name = "Show/Hide Typing Indicator"
+	set category = "Preferences"
+	set desc = "Toggles showing an indicator when you are typing emote or say message."
+	prefs.toggles ^= SHOW_TYPING
+	prefs.save_preferences()
+	to_chat(src, "You will [(prefs.toggles & SHOW_TYPING) ? "no longer" : "now"] display a typing indicator.")
+
+	// Clear out any existing typing indicator.
+	if(prefs.toggles & SHOW_TYPING)
+		if(istype(mob))
+			SStyping.set_indicator_state(mob.client, FALSE)
+
+	feedback_add_details("admin_verb","TID") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /mob/proc/set_stat(var/new_stat)
 	. = stat != new_stat
 	if(.)
 		stat = new_stat
+		if(SStyping)
+			SStyping.set_indicator_state(client, FALSE)
 
 /mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
@@ -364,7 +409,7 @@
 		if(pointing_effect)
 			end_pointing_effect()
 		pointing_effect = new /obj/effect/decal/point(A)
-		pointing_effect.invisibility = invisibility
+		pointing_effect.set_invisibility(invisibility)
 		addtimer(CALLBACK(src, PROC_REF(end_pointing_effect), pointing_effect), 2 SECONDS)
 	else if(!invisibility)
 		var/atom/movable/M = A
@@ -994,6 +1039,7 @@
 		buckled_to.set_dir(ndir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
 		setMoveCooldown(movement_delay())
+	SEND_SIGNAL(src, COMSIG_MOB_FACEDIR, ndir)
 	return 1
 
 
@@ -1155,7 +1201,7 @@
 		affected.implants -= implant
 		if(!surgical_removal)
 			shock_stage += 20
-			apply_damage((implant.w_class * 7), BRUTE, affected)
+			apply_damage((implant.w_class * 7), DAMAGE_BRUTE, affected)
 			if(!BP_IS_ROBOTIC(affected) && prob(implant.w_class * 5) && affected.sever_artery()) //I'M SO ANEMIC I COULD JUST -DIE-.
 				custom_pain("Something tears wetly in your [affected.name] as [implant] is pulled free!", 50, affecting = affected)
 	. = ..()
@@ -1472,3 +1518,6 @@
 		return
 	var/obj/screen/zone_sel/selector = mob.zone_sel
 	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))
+
+/mob/proc/get_speech_bubble_state_modifier()
+	return "normal"

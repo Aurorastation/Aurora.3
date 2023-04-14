@@ -240,6 +240,7 @@ BLIND     // can't see anything
 	var/flip_down = "down to protect your eyes."
 	var/flip_up = "up out of your face."
 	var/up = 0
+	normal_layer = FALSE
 
 /obj/item/clothing/glasses/safety/goggles/Initialize(mapload, material_key)
 	. = ..()
@@ -295,15 +296,41 @@ BLIND     // can't see anything
 	flip_down = "up to protect your eyes."
 	flip_up = "and let it hang around your neck."
 
+//essentially just sunglasses
+/obj/item/clothing/glasses/safety/goggles/tactical
+	name = "tactical goggles"
+	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes."
+	var/brand_name
+	icon = 'icons/clothing/eyes/goon_goggles.dmi'
+	var/sprite_state = "military_goggles"
+	flash_protection = FLASH_PROTECTION_MODERATE //This needs to be set even if the state changes later, otherwise it spawns with no flash protection while appearing to be down
+	contained_sprite = TRUE
+	change_item_state_on_flip = TRUE
+
+/obj/item/clothing/glasses/safety/goggles/tactical/Initialize(mapload, material_key)
+	icon_state = sprite_state
+	item_state = sprite_state
+	off_state = sprite_state
+	. = ..()
+	if(brand_name)
+		desc += " This pair has been made in [brand_name] colors."
+
+/obj/item/clothing/glasses/safety/goggles/tactical/handle_additional_changes()
+	flash_protection = up ? FLASH_PROTECTION_NONE : FLASH_PROTECTION_MODERATE
+
+/obj/item/clothing/glasses/safety/goggles/tactical/generic
+	sprite_state = "security_goggles"
+
+//security hud
 /obj/item/clothing/glasses/safety/goggles/goon
 	name = "tactical goggles"
-	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals."
+	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes. Comes with a security HUD."
 	var/brand_name
 	icon = 'icons/clothing/eyes/goon_goggles.dmi'
 	var/sprite_state = "security_goggles"
+	flash_protection = FLASH_PROTECTION_MODERATE
 	contained_sprite = TRUE
 	change_item_state_on_flip = TRUE
-	normal_layer = FALSE
 
 /obj/item/clothing/glasses/safety/goggles/goon/Initialize(mapload, material_key)
 	icon_state = sprite_state
@@ -313,7 +340,7 @@ BLIND     // can't see anything
 	if(brand_name)
 		desc += " This pair has been made in [brand_name] colors."
 
-/obj/item/clothing/glasses/safety/goggles/goon/security/process_hud(var/mob/M)
+/obj/item/clothing/glasses/safety/goggles/goon/process_hud(var/mob/M)
 	if(!up)
 		process_sec_hud(M, TRUE)
 
@@ -334,6 +361,42 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety/goggles/goon/idris
 	sprite_state = "idris_goggles"
 	brand_name = "Idris"
+
+//medical hud
+/obj/item/clothing/glasses/safety/goggles/medical
+	name = "medical goggles"
+	desc = "A stylish pair of medical goggles that protect the eyes from aerosolized chemicals and debris. Comes with a medical HUD."
+	var/brand_name
+	icon = 'icons/clothing/eyes/goon_goggles.dmi'
+	var/sprite_state = "security_goggles"
+	contained_sprite = TRUE
+	change_item_state_on_flip = TRUE
+
+/obj/item/clothing/glasses/safety/goggles/medical/Initialize(mapload, material_key)
+	icon_state = sprite_state
+	item_state = sprite_state
+	off_state = sprite_state
+	. = ..()
+	if(brand_name)
+		desc += " This pair has been made in [brand_name] colors."
+
+/obj/item/clothing/glasses/safety/goggles/medical/process_hud(var/mob/M)
+	if(!up)
+		process_med_hud(M, TRUE)
+
+/obj/item/clothing/glasses/safety/goggles/medical/is_sec_hud()
+	return FALSE
+
+/obj/item/clothing/glasses/safety/goggles/medical/is_med_hud()
+	return !up
+
+/obj/item/clothing/glasses/safety/goggles/medical/pmc
+	sprite_state = "pmc_goggles"
+	brand_name = "PMCG"
+
+/obj/item/clothing/glasses/safety/goggles/medical/zeng
+	sprite_state = "zeng_goggles"
+	brand_name = "Zeng-Hu"
 
 /obj/item/clothing/glasses/eyepatch
 	name = "eyepatch"
@@ -769,7 +832,7 @@ BLIND     // can't see anything
 	var/hud_holder
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/Initialize()
-	.=..()
+	. = ..()
 	hud_holder = hud
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/Destroy()
@@ -1040,7 +1103,7 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	eye_color = COLOR_PURPLE
 
 /obj/item/clothing/glasses/eyepatch/hud/science/Initialize()
-	..()
+	. = ..()
 	overlay = global_hud.science
 
 /obj/item/clothing/glasses/eyepatch/hud/thermal
@@ -1051,7 +1114,7 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	eye_color = COLOR_ORANGE
 
 /obj/item/clothing/glasses/eyepatch/hud/thermal/Initialize()
-	..()
+	. = ..()
 	overlay = global_hud.thermal
 
 /obj/item/clothing/glasses/eyepatch/hud/welder
@@ -1069,7 +1132,7 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	eye_color = COLOR_GREEN
 
 /obj/item/clothing/glasses/eyepatch/hud/night/Initialize()
-	..()
+	. = ..()
 	overlay = global_hud.nvg
 
 //from verkister

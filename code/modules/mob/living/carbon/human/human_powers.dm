@@ -6,8 +6,7 @@
 	set desc = "Style your hair."
 	set category = "IC"
 
-	if(!use_check_and_message())
-		to_chat(src, SPAN_WARNING("You can't tie your hair when you are incapacitated!"))
+	if(use_check_and_message())
 		return
 
 	if(h_style)
@@ -228,13 +227,13 @@ mob/living/carbon/human/proc/change_monitor()
 
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
-		H.apply_damage(50,BRUTE)
+		H.apply_damage(50,DAMAGE_BRUTE)
 		if(H.stat == 2)
 			H.gib()
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M)) return //wut
-		M.apply_damage(50,BRUTE)
+		M.apply_damage(50,DAMAGE_BRUTE)
 		if(M.stat == 2)
 			M.gib()
 
@@ -393,14 +392,14 @@ mob/living/carbon/human/proc/change_monitor()
 			to_chat(H, SPAN_WARNING("They are missing that limb!"))
 			return
 
-		H.apply_damage(25, BRUTE, hit_zone, damage_flags = DAM_SHARP|DAM_EDGE)
+		H.apply_damage(25, DAMAGE_BRUTE, hit_zone, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
-		M.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
+		M.apply_damage(25, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(get_turf(src), 'sound/weapons/slash.ogg', 50, TRUE)
@@ -421,8 +420,8 @@ mob/living/carbon/human/proc/change_monitor()
 			playsound(F, 'sound/items/countdown.ogg', 125, 1)
 			spawn(20)
 				explosion(F.loc, -1, -1, 2)
-				M.apply_damage(20,BRUTE)
-				M.apply_damage(15,BURN)
+				M.apply_damage(20,DAMAGE_BRUTE)
+				M.apply_damage(15,DAMAGE_BURN)
 				qdel(F)
 
 	for(var/obj/item/material/shard/shrapnel/flechette/F in range(7, src))
@@ -602,7 +601,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	visible_message("<span class='warning'><b>[src]</b> launches a spine-quill at [target]!</span>")
 
-	src.apply_damage(10,BRUTE)
+	src.apply_damage(10,DAMAGE_BRUTE)
 	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 	var/obj/item/arrow/quill/A = new /obj/item/arrow/quill(usr.loc)
 	A.throw_at(target, 10, 30, usr)
@@ -835,7 +834,7 @@ mob/living/carbon/human/proc/change_monitor()
 			earpain(3, TRUE, 1)
 		else if (T in range(src, 2))
 			earpain(2, TRUE, 2)
-	
+
 	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
 		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 			continue
@@ -1320,3 +1319,18 @@ mob/living/carbon/human/proc/change_monitor()
 	if (is_listening())
 		visible_message("<b>[src]</b> stops listening intently.")
 		intent_listener -= src
+
+/mob/living/carbon/human/proc/open_tail_storage()
+	set name = "Tail Accessories"
+	set desc = "Opens the tail accessory slot."
+	set category = "Abilities"
+
+	var/obj/item/organ/external/groin/G = organs_by_name[BP_GROIN]
+	if(!G)
+		to_chat(usr, SPAN_WARNING("You have no tail!"))
+		return
+	if(!G.tail_storage)
+		to_chat(usr, SPAN_WARNING("Your tail storage is missing!"))
+		return
+
+	G.tail_storage.open(usr)

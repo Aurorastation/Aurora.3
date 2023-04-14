@@ -179,7 +179,6 @@
 /area/maintenance/security_starboard)
 "aaz" = (
 /obj/structure/lattice,
-/obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aaA" = (
@@ -244,8 +243,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aaH" = (
-/obj/structure/grille/broken,
-/obj/structure/lattice,
 /obj/structure/grille/broken,
 /obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -6693,9 +6690,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/device/piano{
-	broken = 1;
-	force_piano = 1;
+/obj/structure/synthesized_instrument/synthesizer/piano{
 	pixel_x = 6;
 	pixel_y = -6
 	},
@@ -50686,7 +50681,6 @@
 /obj/machinery/newscaster{
 	pixel_y = -30
 	},
-/obj/machinery/vending/battlemonsters,
 /turf/simulated/floor/wood,
 /area/library)
 "bQR" = (
@@ -50991,7 +50985,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bRW" = (
-/obj/structure/device/piano,
+/obj/structure/synthesized_instrument/synthesizer/piano,
 /obj/structure/table/wood{
 	pixel_x = -2;
 	pixel_y = -1
@@ -58759,14 +58753,8 @@
 /area/maintenance/medbay)
 "coB" = (
 /obj/structure/table/steel,
-/obj/item/storage/firstaid/regular{
-	empty = 1;
-	name = "First-Aid (empty)"
-	},
-/obj/item/storage/firstaid/regular{
-	empty = 1;
-	name = "First-Aid (empty)"
-	},
+/obj/item/storage/firstaid/empty,
+/obj/item/storage/firstaid/empty,
 /obj/item/device/healthanalyzer,
 /obj/item/device/healthanalyzer,
 /obj/machinery/firealarm/south,
@@ -59017,7 +59005,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -65062,7 +65050,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "odf" = (
@@ -67064,7 +67052,7 @@
 /area/maintenance/cargo)
 "ruO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/violin,
+/obj/item/device/synthesized_instrument/violin,
 /obj/structure/table/wood{
 	pixel_x = -2;
 	pixel_y = -1
@@ -68482,7 +68470,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/flour,
 /obj/structure/table,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/machinery/light_construct{
 	dir = 8
 	},

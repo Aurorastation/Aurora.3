@@ -96,6 +96,14 @@
 	coffeecups["pawn coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pawn
 	coffeecups["diona coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/diona
 	coffeecups["british coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/britcup
+	coffeecups["shumaila coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/shumaila
+	coffeecups["nated coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nated
+	coffeecups["vahzirthaamro coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/kingazunja
+	coffeecups["hadii coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hadii
+	coffeecups["njarir coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/njarir
+	coffeecups["m'sai coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/msai
+	coffeecups["hharar coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hharar
+	coffeecups["zhan coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zhan
 	coffeecups["black coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black
 	coffeecups["green coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/green
 	coffeecups["dark green coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/green/dark
@@ -137,7 +145,7 @@
 	banners["banner, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra
 	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
 	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
-	banners["banner, Dominian Diona"] = /obj/item/flag/diona
+	banners["banner, CT-EUM"] = /obj/item/flag/cteum
 	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
 	banners["banner, Hephaestus Industries"] = /obj/item/flag/heph
 	banners["banner, Idris Incorporated"] = /obj/item/flag/idris

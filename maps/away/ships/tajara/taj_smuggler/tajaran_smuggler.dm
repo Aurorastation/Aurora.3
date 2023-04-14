@@ -18,8 +18,16 @@
 	name = "Adhomian Freighter"
 	class = "ACV"
 	desc = "Built with reliability in mind, the Zhsram Freighter is one of the most common Adhomian designs. This vessel is cheap and has a sizeable cargo storage. It is frequently used by Tajaran traders and smugglers."
-	icon_state = "ship_grey"
-	moving_state = "ship_grey_moving"
+	icon_state = "tramp"
+	moving_state = "tramp_moving"
+	colors = list("#c3c7eb", "#a0a8ec")
+	scanimage = "tramp_freighter.png"
+	designer = "Independent/no designation"
+	volume = "55 meters length, 25 meters beam/width, 18 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Not apparent, port obscured flight craft bay"
+	sizeclass = "Zhsram Freighter"
+	shiptype = "Long-term shipping utilities"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -34,6 +42,8 @@
 		"nav_tajaran_smuggler_1",
 		"nav_tajaran_smuggler_2"
 	)
+
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/tajaran_smuggler/New()
     designation = "[pick("Brave Ha'rron", "Trickster Farwa", "Legal and Safe Cargo", "Adhomian Trader", "Minharrzka", "Rredouane's Chosen", "Adhomai's Pride")]"
@@ -63,8 +73,9 @@
 	designation = "Rafama"
 	desc = "An inefficient and rustic looking shuttle. This one's transponder identifies it as belonging to an independent freighter."
 	shuttle = "Adhomian Freight Shuttle"
-	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving" 
+	icon_state = "pod"
+	moving_state = "pod_moving"
+	colors = list("#c3c7eb", "#a0a8ec")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
@@ -110,7 +121,7 @@
 	desc = "A floating cargo container."
 	shuttle = "Adhomian Freight Cargo"
 	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving" 
+	moving_state = "shuttle_grey_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

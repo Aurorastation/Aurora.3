@@ -20,7 +20,7 @@
 VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	watch_var("toner", "toner")
 	watch_var("maxcopies", "maxcopies")
-	watch_var("copyitem", "gotitem", CALLBACK(null, PROC_REF(transform_to_boolean), FALSE))
+	watch_var("copyitem", "gotitem", CALLBACK(src, PROC_REF(transform_to_boolean), FALSE))
 
 /obj/machinery/photocopier/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
@@ -69,6 +69,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 			to_chat(usr, SPAN_NOTICE("You take \the [copyitem] out of \the [src]."))
 			copyitem = null
 			SSvueui.check_uis_for_change(src)
+
 	else if(href_list["aipic"])
 		if(!istype(usr,/mob/living/silicon)) return
 		if(stat & (BROKEN|NOPOWER)) return

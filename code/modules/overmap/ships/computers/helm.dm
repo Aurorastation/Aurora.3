@@ -155,7 +155,7 @@
 /obj/machinery/computer/ship/helm/proc/get_eta()
 	var/ETA = connected.ETA()
 	if(ETA && connected.get_speed())
-		return "[round(ETA/10)] seconds"
+		return "[round(ETA/7)] seconds"
 	else
 		return "N/A"
 
@@ -224,16 +224,21 @@
 		var/ndir = text2num(href_list["roll"])
 		if(ishuman(usr))
 			var/mob/living/carbon/human/H = usr
-			visible_message(SPAN_DANGER("[H] starts tilting the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
-			if(do_after(H, 1 SECOND))
+			var/dir_to_move = turn(connected.dir, ndir == WEST ? 90 : -90)
+			var/turf/new_turf = get_step(connected, dir_to_move)
+			if(new_turf.x > current_map.overmap_size || new_turf.y > current_map.overmap_size)
+				to_chat(H, SPAN_WARNING("Automated piloting safeties prevent you from going into deep space."))
+				return
+			if(do_after(H, 1 SECOND) && connected.can_combat_roll())
+				visible_message(SPAN_DANGER("[H] tilts the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 				connected.combat_roll(ndir)
 
 	if (href_list["turn"])
 		var/ndir = text2num(href_list["turn"])
 		if(ishuman(usr))
 			var/mob/living/carbon/human/H = usr
-			visible_message(SPAN_DANGER("[H] starts twisting the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
-			if(do_after(H, 1 SECOND))
+			if(do_after(H, 1 SECOND) && connected.can_combat_turn())
+				visible_message(SPAN_DANGER("[H] twists the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 				connected.combat_turn(ndir)
 
 	if (href_list["manual"])
@@ -252,6 +257,8 @@
 	if(!issilicon(usr)) // AI and robots aren't allowed to pilot
 		if (href_list["move"])
 			var/ndir = text2num(href_list["move"])
+			if(prob(usr.confused * 5))
+				ndir = turn(ndir, pick(45, -45))
 			connected.relaymove(usr, ndir, accellimit)
 			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1) // remove when turning into vueui
 
@@ -274,6 +281,7 @@
 	icon_screen = "nav"
 	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
+	circuit = /obj/item/circuitboard/ship/navigation
 
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!connected)

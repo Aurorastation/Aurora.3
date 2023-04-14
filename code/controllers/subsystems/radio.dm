@@ -129,12 +129,6 @@ var/datum/controller/subsystem/radio/SSradio
 	if(frequency)
 		frequency.remove_listener(device)
 
-		if(frequency.devices.len == 0)
-			qdel(frequency)
-			frequencies -= f_text
-
-	return 1
-
 /datum/controller/subsystem/radio/proc/remove_object_all(obj/device)
 	for(var/freq in frequencies)
 		SSradio.remove_object(device, text2num(freq))

@@ -66,7 +66,7 @@
 		addtimer(CALLBACK(src, PROC_REF(activate_beacon)), 450)
 	latest_area = get_area(src)
 	icon_state = "hivebotbeacon_off"
-	generate_warp_destinations()
+	addtimer(CALLBACK(src, PROC_REF(generate_warp_destinations)), 10) //So we don't sleep during init
 	set_light(6,0.5,LIGHT_COLOR_GREEN)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/generate_warp_destinations()
@@ -157,7 +157,7 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/emp_act()
 	if(activated != -1)
 		LoseTarget()
-		stance = HOSTILE_STANCE_TIRED
+		change_stance(HOSTILE_STANCE_TIRED)
 		icon_state = "hivebotbeacon_off"
 		activated = -1
 		addtimer(CALLBACK(src, PROC_REF(wakeup)), 900)
@@ -174,7 +174,7 @@
 		do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/wakeup()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
 	activated = 0
 	activate_beacon()
 

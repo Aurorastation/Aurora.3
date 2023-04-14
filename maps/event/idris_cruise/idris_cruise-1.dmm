@@ -1892,34 +1892,34 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/clothing/under/shorts/red,
-/obj/item/clothing/under/shorts/red,
-/obj/item/clothing/under/shorts/red,
-/obj/item/clothing/under/shorts/red,
-/obj/item/clothing/under/shorts/red,
-/obj/item/clothing/under/shorts/red,
-/obj/item/clothing/under/shorts/green,
-/obj/item/clothing/under/shorts/green,
-/obj/item/clothing/under/shorts/green,
-/obj/item/clothing/under/shorts/green,
-/obj/item/clothing/under/shorts/green,
-/obj/item/clothing/under/shorts/green,
-/obj/item/clothing/under/shorts/grey,
-/obj/item/clothing/under/shorts/grey,
-/obj/item/clothing/under/shorts/grey,
-/obj/item/clothing/under/shorts/grey,
-/obj/item/clothing/under/shorts/grey,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/under/shorts/black,
-/obj/item/clothing/under/shorts/black,
-/obj/item/clothing/under/shorts/black,
-/obj/item/clothing/under/shorts/black,
-/obj/item/clothing/under/shorts/black,
+/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/grey,
+/obj/item/clothing/under/shorts/athletic/grey,
+/obj/item/clothing/under/shorts/athletic/grey,
+/obj/item/clothing/under/shorts/athletic/grey,
+/obj/item/clothing/under/shorts/athletic/grey,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/black,
+/obj/item/clothing/under/shorts/athletic/black,
+/obj/item/clothing/under/shorts/athletic/black,
+/obj/item/clothing/under/shorts/athletic/black,
+/obj/item/clothing/under/shorts/athletic/black,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -10674,13 +10674,13 @@
 	},
 /area/cruise/fore)
 "iue" = (
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/combat,
 /obj/item/storage/firstaid/combat,
@@ -14963,7 +14963,7 @@
 "lNL" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = -6;
 	pixel_y = 8
@@ -15667,7 +15667,7 @@
 "mrn" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = -6;
 	pixel_y = 8
@@ -21562,7 +21562,7 @@
 "rog" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = -6;
 	pixel_y = 8

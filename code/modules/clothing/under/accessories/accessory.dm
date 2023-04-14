@@ -223,6 +223,14 @@
 	icon_state = "bow_tie"
 	item_state = "bow_tie"
 
+/obj/item/clothing/accessory/necklace
+	name = "necklace"
+	desc = "A piece of jewelry that goes around your neck."
+	icon = 'icons/obj/item/clothing/accessory/necklace.dmi'
+	icon_state = "necklace"
+	item_state = "necklace"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
@@ -720,6 +728,7 @@
 	in the past been given the privilege of working within or in collaboration with the Nralakk Federation\
 	 as a show of goodwill between the corporation and federation."
 	icon = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
+	icon_override = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
 	icon_state = "ZH_cape"
 	item_state = "ZH_cape"
 	flippable = FALSE
@@ -756,6 +765,19 @@
 	overlay_state = "assunzione_robe"
 	contained_sprite = TRUE
 
+/obj/item/clothing/accessory/poncho/assunzione/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/robe_backing = image(mob_icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
+		I.add_overlay(robe_backing)
+	return I
+
+/obj/item/clothing/accessory/poncho/assunzione/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
+	var/image/base = ..()
+	var/image/robe_backing = image(icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
+	base.add_overlay(robe_backing)
+	return base
+
 /obj/item/clothing/accessory/poncho/assunzione/vine
 	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. This one features a lux vine \
 	inlay that allows the symbol of the Luceian Square to be faintly seen, even in darkness."
@@ -790,6 +812,8 @@
 /obj/item/clothing/accessory/offworlder
 	name = "venter assembly"
 	desc = "A series of complex tubing meant to dissipate heat from the skin passively."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "venter"
 	item_state = "venter"
 	slot = ACCESSORY_SLOT_CAPE
@@ -838,9 +862,31 @@
 	overlay_state = "tags"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	var/can_be_broken = FALSE
+	var/separated = FALSE
+	var/tag_type = /obj/item/dogtag
 
 /obj/item/clothing/accessory/dogtags/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
+
+/obj/item/clothing/accessory/dogtags/attack_self(mob/user)
+	if(can_be_broken)
+		if(!separated)
+			if(user.a_intent == I_HURT)
+				user.visible_message(SPAN_NOTICE("[user] yanks apart \the [src]!"))
+				separated = TRUE
+				var/obj/item/dogtag/tag = new tag_type(get_turf(user))
+				user.put_in_hands(tag)
+				separated = TRUE
+				update_icon()
+
+/obj/item/clothing/accessory/dogtags/update_icon()
+	if(separated)
+		icon_state = "[icon_state]_single"
+		item_state = "[item_state]_single"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
 
 /obj/item/clothing/accessory/badge/namepin
 	name = "pin tag"
@@ -1024,16 +1070,23 @@
 	icon_state = "orion_liaison_badge"
 	item_state = "orion_liaison_badge"
 
-/obj/item/clothing/accessory/poncho/ipc_mantle
+/obj/item/clothing/accessory/poncho/burzsian_mantle
 	name = "\improper Burzsian shoulder mantle"
 	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
 	desc_extended = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
-	icon = 'icons/clothing/accessories/BZ_Gorget.dmi'
-	icon_state = "Burz_gorget"
-	item_state = "Burz_gorget"
+	icon = 'icons/clothing/accessories/bz_gorget.dmi'
+	icon_state = "ipcmantle"
+	item_state = "ipcmantle"
 	contained_sprite = TRUE
 	icon_override = null
 	body_parts_covered = UPPER_TORSO
+
+/obj/item/clothing/accessory/poncho/burzsian_mantle/native
+	name = "native Burzsian shoulder mantle"
+	desc = "A uniform mantle made out of inexpensive leather. The sigil of Burzsia is imprinted on the front."
+	desc_extended = "Native Burzsians within Burzsia II, also known as the Obsidian Belt, wear these leather mantles that, unlike the IPCs' mantles from the same system, are designed to be comfortable for humans and less encumbering, nonetheless providing them partial skin protection from the harsh dwarf star."
+	icon_state = "burzsianmantle"
+	item_state = "burzsianmantle"
 
 /obj/item/clothing/accessory/goon_coif
 	name = "tactical coif"
@@ -1050,3 +1103,160 @@
 
 /obj/item/clothing/accessory/goon_coif/get_mask_examine_text(var/mob/user)
 	return "on [user.get_pronoun("his")] head"
+
+/********** Aprons Start **********/
+// Apron
+/obj/item/clothing/accessory/apron
+	name = "apron"
+	desc = "An apron."
+	icon = 'icons/obj/item/clothing/accessory/aprons.dmi'
+	icon_state = "apron"
+	item_state = "apron"
+	contained_sprite = TRUE
+	slot_flags = SLOT_OCLOTHING | SLOT_TIE
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO
+	no_overheat = TRUE
+	allowed = list(
+		/obj/item/reagent_containers/food/drinks/shaker,
+		/obj/item/material/kitchen/utensil,
+		/obj/item/reagent_containers/food/condiment,
+		/obj/item/reagent_containers/food/drinks/bottle
+	)
+
+// Random Colour Apron
+/obj/item/clothing/accessory/apron/random/Initialize() // Random colour.
+	. = ..()
+	color = get_random_colour(lower = 150)
+
+// Hydroponics Apron
+/obj/item/clothing/accessory/apron/blue // Used for hydroponics.
+	color = "#3429d1"
+	allowed = list(
+		/obj/item/reagent_containers/spray/plantbgone,
+		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/seeds,
+		/obj/item/reagent_containers/glass/fertilizer,
+		/obj/item/material/minihoe
+	)
+
+// Surgical Apron
+/obj/item/clothing/accessory/apron/surgery
+	name = "surgical apron"
+	desc = "A surgical apron."
+	icon_state = "apron_surgeon"
+	item_state = "apron_surgeon"
+	allowed = list(
+		/obj/item/stack/medical,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/device/healthanalyzer,
+		/obj/item/device/flashlight,
+		/obj/item/device/radio,
+		/obj/item/tank/emergency_oxygen,
+		/obj/item/device/breath_analyzer,
+		/obj/item/reagent_containers/blood
+	)
+
+// Zeng-Hu Surgical Apron
+/obj/item/clothing/accessory/apron/surgery/zeng
+	name = "zeng-hu vinyl apron"
+	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. \
+	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
+	icon_state = "apron_surgeon_zeng"
+	item_state = "apron_surgeon_zeng"
+
+// Chef Apron
+/obj/item/clothing/accessory/apron/chef
+	name = "chef apron"
+	desc = "A basic, dull, white chef apron."
+	icon_state = "apron_chef"
+	item_state = "apron_chef"
+	allowed = list(
+		/obj/item/reagent_containers/food/drinks/shaker,
+		/obj/item/material/kitchen/utensil,
+		/obj/item/reagent_containers/food/condiment,
+		/obj/item/reagent_containers/food/drinks/bottle,
+		/obj/item/material/knife
+	)
+/********** Aprons End **********/
+
+/********** Overalls Start **********/
+// Overalls
+/obj/item/clothing/accessory/overalls
+	name = "overalls"
+	desc = "A set of denim overalls."
+	icon = 'icons/obj/item/clothing/accessory/overalls.dmi'
+	icon_state = "overalls"
+	item_state = "overalls"
+	contained_sprite = TRUE
+	slot_flags = SLOT_OCLOTHING | SLOT_TIE
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS
+
+// Random Colour Overalls
+/obj/item/clothing/accessory/overalls/random/Initialize() // Random colour.
+	. = ..()
+	color = get_random_colour(lower = 150)
+
+// Hydroponics Overalls
+/obj/item/clothing/accessory/overalls/blue // Used for hydroponics.
+	color = "#3429d1"
+
+// High Back Overalls
+/obj/item/clothing/accessory/overalls/high_back
+	name = "high back overalls"
+	desc = "A set of denim overalls with a high back."
+	icon_state = "overalls_high"
+	item_state = "overalls_high"
+
+// X-shaped Back Overalls
+/obj/item/clothing/accessory/overalls/x_shaped_back
+	name = "\improper X-shaped back overalls"
+	desc = "A set of denim overalls with a high back."
+	icon_state = "overalls_x"
+	item_state = "overalls_x"
+
+// Overall Shorts
+/obj/item/clothing/accessory/overalls/shorts
+	name = "overall shorts"
+	desc = "A set of denim overall shorts."
+	icon_state = "overall_shorts"
+	item_state = "overall_shorts"
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO
+
+// High Back Overall Shorts
+/obj/item/clothing/accessory/overalls/shorts/high_back
+	name = "high back overall shorts"
+	desc = "A set of denim overall shorts with a high back."
+	icon_state = "overall_shorts_high"
+	item_state = "overall_shorts_high"
+
+// X-shaped Back Overall Shorts
+/obj/item/clothing/accessory/overalls/shorts/x_shaped_back
+	name = "\improper X-shaped back overall shorts"
+	desc = "A set of denim overall shorts with a high back."
+	icon_state = "overall_shorts_x"
+	item_state = "overall_shorts_x"
+
+// Overall Skirt
+/obj/item/clothing/accessory/overalls/skirt
+	name = "overall skirt"
+	desc = "A denim overall skirt."
+	icon_state = "overall_skirt"
+	item_state = "overall_skirt"
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO
+
+// High Back Overall Skirt
+/obj/item/clothing/accessory/overalls/skirt/high_back
+	name = "high back overall skirt"
+	desc = "A denim overall skirt with a high back."
+	icon_state = "overall_skirt_high"
+	item_state = "overall_skirt_high"
+
+// X-shaped Back Overall Skirt
+/obj/item/clothing/accessory/overalls/skirt/x_shaped_back
+	name = "\improper X-shaped back overall skirt"
+	desc = "A denim overall skirt with a high back."
+	icon_state = "overall_skirt_x"
+	item_state = "overall_skirt_x"
+/********** Overalls End **********/

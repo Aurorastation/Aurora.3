@@ -415,6 +415,26 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		/singleton/reagent/mental/nicotine = 5
 	)
 
+/obj/item/clothing/mask/smokable/cigarette/sweet
+	reagents_to_add = list(
+		/singleton/reagent/toxin/tobacco/sweet = 10,
+		/singleton/reagent/mental/nicotine = 5
+	)
+
+/obj/item/clothing/mask/smokable/cigarette/dyn
+	name =  "dyn cigarette"
+	desc = "A mentholated cigarette from Nralakk made with processed dyn."
+	reagents_to_add = list(
+		/singleton/reagent/toxin/tobacco/sweet = 5,
+		/singleton/reagent/mental/nicotine = 5,
+		/singleton/reagent/drink/dynjuice = 5
+	)
+
+/obj/item/clothing/mask/smokable/cigarette/wulu
+	name = "wulumunusha cigarette"
+	desc = "A wulumunusha cigarette commonly smoked by Skrell for religious purposes."
+	reagents_to_add = list(/singleton/reagent/wulumunusha = 15)
+
 ////////////
 // CIGARS //
 ////////////
@@ -853,9 +873,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 					if(user.IgniteMob())
 						user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally sets themselves on fire!"))
 					if(user.l_hand == src)
-						user.apply_damage(2, BURN,BP_L_HAND)
+						user.apply_damage(2, DAMAGE_BURN,BP_L_HAND)
 					else
-						user.apply_damage(2, BURN,BP_R_HAND)
+						user.apply_damage(2, DAMAGE_BURN,BP_R_HAND)
 					if(last_open <= world.time - 20) //Spam limiter.
 						last_open = world.time
 						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)

@@ -747,7 +747,7 @@
 "Ay" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/syringes,
-/obj/item/storage/firstaid/brute{
+/obj/item/storage/firstaid/trauma{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -1532,10 +1532,10 @@
 /obj/item/clothing/accessory/poncho/unathimantle/mountain{
 	color = "#ba650b"
 	},
-/obj/item/clothing/suit/apron/colored{
+/obj/item/clothing/accessory/apron{
 	color = "#b97a57"
 	},
-/obj/item/clothing/suit/apron/colored{
+/obj/item/clothing/accessory/apron{
 	color = "#b97a57"
 	},
 /obj/item/clothing/accessory/poncho,
