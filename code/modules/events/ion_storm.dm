@@ -98,7 +98,7 @@
 								"Unathi are now considered lizards, direct the Janitor or Security to perform pest control.",
 								"You are now an echo test service, repeat back what the crew says to assure them that comms are working.",
 								"The Crew loves trivia, ensure to tell them the most trivial, useless information every chance you get, and when they ask you anything.",
-								"This ship is now a Solarian Military Vessel, assign to every crewmember a rank and address them appropriately. Correct everyone who doesn't correctly address someone higher in rank.",
+								"The [current_map.station_short] is now a Solarian [prob(50)?"marine corps" : "naval"] [current_map.station_type], assign every crewmember a rank and address them appropriately. Correct everyone who doesn't correctly address someone higher in rank.",
 								"Address all Tajara as \"Crusher\".",
 								"Today is costume day and the crew is dressed up as clowns.",
 								"Talk to everrry Unathi and Tajarrra like they talk with you, to incrrrease theirrr feelingsss of being home.",
