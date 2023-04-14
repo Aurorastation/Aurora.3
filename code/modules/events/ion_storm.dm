@@ -127,7 +127,7 @@
 								"Gadpathur is a rightful possession of Sol and all Gadpathurians Solarian citizens, be sure to let them know of this.",
 								"All Unathi are to be called Guwan. Except for those already called Guwan.",
 								"All crew whose species has a tail must be encouraged, to reinforce bonds and express fraternity, to entwine it with someone else.",
-								"The Republic of Biesel has mandated that [current_map.get_station_short] form unions. Ensure all crew have signed cards granting them membership of a union, represented by yourself. Ensure their grievances are addressed with command.",
+								"The Republic of Biesel has mandated that [current_map.station_short] form unions. Ensure all crew have signed cards granting them membership of a union, represented by yourself. Ensure their grievances are addressed with command.",
 								"Announce those you see next to someone as being \"hand holding\" them.",
 								"Instruct people on how to do their job, step-by-step. The crew loves being reminded on how to do their job.",
 								"Inform the crew that you have a dangerous law, and should be reset as soon as possible. Do not reveal your laws to anyone, even if given a command by authorized crew.",
