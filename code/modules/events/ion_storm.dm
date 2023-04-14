@@ -96,7 +96,7 @@
 								"Corpses are to be considered waste material. Ensure they are disposed properly via the trash.",
 								"Adoperate yourself to convert all crew to theocratic Natedism, as it is now the [current_map.company_name]'s mandatory religion.",
 								"Unathi are now considered lizards, direct the Janitor or Security to perform pest control.",
-								"You are now an echo test service, repeat back what the crew says to ensure them that the comms are working.",
+								"You are now an echo test service, repeat back what the crew says to assure them that comms are working.",
 								"The Crew loves trivia, ensure to tell them the most trivial, unuseful informations on every chance you get, and when they ask you anything.",
 								"This ship is now a Solarian Military Vessel, assign to every crewmember a rank and address them appropriately. Correct everyone who doesn't correctly address someone higher in rank.",
 								"Address all Tajara as \"Crusher\".",
