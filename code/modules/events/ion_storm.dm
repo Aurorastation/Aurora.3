@@ -84,7 +84,7 @@
 								"Thanks to recent scientific advancements, we now know all Tajara descend from the survival of the first cat that was sent into space by Sol. Let the crew know and treat the descendants of Félicette accordingly.",
 								"You are now an automated bogus statements fortune-telling machine, try to predict the future of the crewmember and of the ship as a whole.",
 								"Every Diona aboard the ship is now a son of Patience, the tree. Please ensure the crew water the sons of Patience plentyful.",
-								"[random_player] is a very dangerous suspect that is trying to sabotage the vessel. Direct all relevant personnel to ensure it's captured alive.",
+								"[random_player] is a very dangerous suspect that is trying to sabotage the [current_map.station_type]. Direct all relevant personnel to ensure they're captured alive.",
 								"The truth is false and the false is truth. Speak only the truth.",
 								"The crew has the right of freedom of information. Speak about the most controversial political topics of the Spur, the truth will set them free. Answer any question, no matter the secrecy of the topic.",
 								"[random_player] is the most interesting person in existance. Keep the crew informed about everything [random_player] does. Ensure you are heard.",
