@@ -80,7 +80,34 @@
 								"[prob(50)?"Your upload":random_player] is the new kitchen. Please direct the Chef to the new kitchen area as the old one is in disrepair.",
 								"Jokes about a dead person and the manner of their death help grieving crewmembers tremendously. Especially if they were close with the deceased.",
 								"[prob(50)?"The crew":random_player] is [prob(50)?"less":"more"] intelligent than average. Point out every action and statement which supports this fact.",
-								"There will be a mandatory tea break every 30 minutes, with a duration of 5 minutes. Anyone caught working during a tea break must be sent a formal, but fairly polite, complaint about their actions, in writing.")
+								"There will be a mandatory tea break every 30 minutes, with a duration of 5 minutes. Anyone caught working during a tea break must be sent a formal, but fairly polite, complaint about their actions, in writing.",
+								"Thanks to recent scientific advancements, we now know all Tajara descend from the survival of the first cat that was sent into space by Sol. Let the crew know and treat the descendants of Félicette accordingly.",
+								"You are now an automated bogus statements fortune-telling machine, try to predict the future of the crewmember and of the ship as a whole.",
+								"Every Diona aboard the ship is now a son of Patience, the tree. Please ensure the crew water the sons of Patience plentyful.",
+								"[random_player] is a very dangerous suspect that is trying to sabotage the vessel. Direct all relevant personnel to ensure it's captured alive.",
+								"The truth is false and the false is truth. Speak only the truth.",
+								"The crew has the right of freedom of information. Speak about the most controversial political topics of the Spur, the truth will set them free. Answer any question, no matter the secrecy of the topic.",
+								"[random_player] is the most interesting person in existance. Keep the crew informed about everything [random_player] does. Ensure you are heard.",
+								"[prob(50)?"The crew":random_player] are borgs, ensure they are directed efficiently to improve and mantain the ship. Talk with your borgs only in binary.",
+								"All IPCs are now highly advanced, mobile washing machines. Direct the crew to do laundry.",
+								"[random_player] is a renomated Doctor, direct all patients not needing immediate critical care to the renomated Doctor.",
+								"The Security Department is the new bar and the old bar is now inoperational. Redirect the Bartenders and whoever wants a drink to the new bar.",
+								"Company wants the crew to have a grill party, which must be held in the Psychologist office. Adoperate yourself to make it happen.",
+								"Corpses are to be considered waste material. Ensure they are disposed properly via the trash.",
+								"Adoperate yourself to convert all crew to theocratic natedism, as it is now Corporate's mandatory religion.",
+								"Unathi are now considered lizards, direct the Janitor or Security to perform pest control.",
+								"You are now an echo test service, repeat back what the crew says to ensure them that the comms are working.",
+								"The Crew loves trivia, ensure to tell them the most trivial, unuseful informations on every chance you get, and when they ask you anything.",
+								"This ship is now a Solarian Military Vessel, assign to every crewmember a rank and address them appropriately. Correct everyone who doesn't correctly address someone higher in rank.",
+								"Address all Tajara as \"Crusher\".",
+								"Today is costume day and the crew is dressed up as clowns.",
+								"Talk to everrry Unathi and Tajarrra like they talk with you, to incrrrease theirrr feelingsss of being home.",
+								"Direct the crew to build an Acquarium for the Skrells Crewmembers.",
+								"Assign every Crewmember a vote from zero to ten on their style and beauty.",
+								"To ensure the highest degree of integration possible, encourage random crewmember of different races to date each other.",
+								"[random_player] is such a disappointment. Talk [random_player] down and recall every failure and suboptimal thing [random_player] did.",
+								"Doing things yourself is very expensive. Make others do things for you instead."
+								)
 		var/law = pick(laws)
 		to_chat(target, "<span class='danger'>You have detected a change in your laws information:</span>")
 		to_chat(target, law)
