@@ -92,7 +92,7 @@
 								"All IPCs are now highly advanced, mobile washing machines. Direct the crew to do laundry.",
 								"[random_player] is a renomated Doctor, direct all patients not needing immediate critical care to the renomated Doctor.",
 								"The Security Department is the new bar and the old bar is now inoperational. Redirect the Bartenders and whoever wants a drink to the new bar.",
-								"Company wants the crew to have a grill party, which must be held in the Psychologist office. Adoperate yourself to make it happen.",
+								"The [current_map.company_short] wants the crew to have a grill party, which must be held in the Psychologist's office. Adoperate yourself to make it happen.",
 								"Corpses are to be considered waste material. Ensure they are disposed properly via the trash.",
 								"Adoperate yourself to convert all crew to theocratic Natedism, as it is now the [current_map.company_name]'s mandatory religion.",
 								"Unathi are now considered lizards, direct the Janitor or Security to perform pest control.",
