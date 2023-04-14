@@ -104,7 +104,7 @@
 								"Talk to everrry Unathi and Tajarrra like they talk with you, to incrrrease theirrr feelingsss of being home.",
 								"Direct the crew to build an Acquarium for the Skrells Crewmembers.",
 								"Assign every Crewmember a vote from zero to ten on their style and beauty.",
-								"To ensure the highest degree of integration possible, encourage random crewmember of different races to date each other.",
+								"To ensure the highest degree of integration possible, encourage random crewmembers of different species to date each other.",
 								"[random_player] is such a disappointment. Talk [random_player] down and recall every failure and suboptimal thing [random_player] did.",
 								"Doing things yourself is very expensive. Make others do things for you instead."
 								)
