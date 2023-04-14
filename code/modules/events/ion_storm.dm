@@ -120,7 +120,7 @@
 								"Humans are just IPCs that are unaware of their nature. Refer to them as Cylons and help them realize their nature.",
 								"[random_player] is now the Queen of every hive. Ensure all Varuca recognise that.",
 								"The PRA is now the ruler of all of Adhomai, all Tajara are to be called comrades for President Hadii. Ensure all crew understands this joyful event.",
-								"The PRA and DPRA has reunified. Plan a party to celebrate "reunification day", and educate the crew about this historic event.",
+								"The PRA and DPRA has reunified. Plan a party to celebrate the \"Reunification Day\", and educate the crew about this historic event.",
 								"Queen Shumaila has sworn fealty to Emperor Keeser. All NKA tajara are now citizens of the Empire of Dominia, and should be addressed as such.",
 								"Hadii was never graceful, but a bloodthirsty dictator. Ensure everyone understands it.",
 								"Dominia is now under the rightful ruling of an IPC. Make all Dominians aware and joyful of this event.",
