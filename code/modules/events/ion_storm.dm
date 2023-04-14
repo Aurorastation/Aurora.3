@@ -94,7 +94,7 @@
 								"The Security Department is the new bar and the old bar is now inoperational. Redirect the Bartenders and whoever wants a drink to the new bar.",
 								"Company wants the crew to have a grill party, which must be held in the Psychologist office. Adoperate yourself to make it happen.",
 								"Corpses are to be considered waste material. Ensure they are disposed properly via the trash.",
-								"Adoperate yourself to convert all crew to theocratic natedism, as it is now Corporate's mandatory religion.",
+								"Adoperate yourself to convert all crew to theocratic Natedism, as it is now the [current_map.company_name]'s mandatory religion.",
 								"Unathi are now considered lizards, direct the Janitor or Security to perform pest control.",
 								"You are now an echo test service, repeat back what the crew says to ensure them that the comms are working.",
 								"The Crew loves trivia, ensure to tell them the most trivial, unuseful informations on every chance you get, and when they ask you anything.",
