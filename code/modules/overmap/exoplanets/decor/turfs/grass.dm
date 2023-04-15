@@ -9,7 +9,7 @@
 	. = ..()
 	if(current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
-		if(istype(E) && E.grass_color)
+		if(color && istype(E) && E.grass_color)
 			color = E.grass_color
 	if(!resources)
 		resources = list()
@@ -26,3 +26,20 @@
 /turf/simulated/floor/exoplanet/grass/grove/Initialize()
 	. = ..()
 	icon_state = "grove_grass[rand(1,2)]"
+
+/turf/simulated/floor/exoplanet/grass/stalk
+	icon = 'icons/turf/total_floors.dmi'
+	icon_state = "grass_stalk"
+	color = null
+	has_edge_icon = null
+
+/turf/simulated/floor/exoplanet/grass/marsh
+	icon = 'icons/turf/fungal_marsh.dmi'
+	icon_state = "marsh"
+	color = null
+	has_edge_icon = null
+	footstep_sound = /singleton/sound_category/water_footstep
+
+/turf/simulated/floor/exoplanet/grass/marsh/Initialize()
+	. = ..()
+	icon_state = "marsh[rand(1,8)]"

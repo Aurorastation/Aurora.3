@@ -1,21 +1,15 @@
 /turf/simulated/floor/exoplanet/desert
 	name = "sand"
 	desc = "It's coarse and gets everywhere."
+	icon = 'icons/turf/desert.dmi'
+	icon_state = "desert"
 	dirt_color = "#ae9e66"
 	footstep_sound = /singleton/sound_category/sand_footstep
 
 /turf/simulated/floor/exoplanet/desert/Initialize()
 	. = ..()
-	icon_state = "desert[rand(0,4)]"
+	icon_state = "desert[rand(1,4)]"
 
-/turf/simulated/floor/exoplanet/desert/sand
-	icon = 'icons/turf/desert_color_tweak.dmi'
-	icon_state = "desert_sand"
-
-/turf/simulated/floor/exoplanet/desert/sand/Initialize()
+/turf/simulated/floor/exoplanet/desert/rough/Initialize()
 	. = ..()
-	icon_state = "desert_sand[rand(4,7)]"
-
-/turf/simulated/floor/exoplanet/desert/sand/dune/Initialize()
-	. = ..()
-	icon_state = "desert_sand[rand(1,3)]"
+	icon_state = "desert[rand(5,7)]"

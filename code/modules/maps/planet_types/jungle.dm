@@ -6,7 +6,7 @@
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	grass_color = null
 	plant_colors = null
-	map_generators = list(/datum/random_map/noise/exoplanet/grass/grove)
+	possible_themes = list(/datum/exoplanet_theme/jungle)
 	ruin_tags_blacklist = RUIN_VOID
 
 	possible_random_ruins = list(

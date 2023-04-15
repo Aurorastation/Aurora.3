@@ -15,17 +15,6 @@ var/list/mineral_can_smooth_with = list(
 	/turf/unsimulated/wall
 )
 
-var/global/list/ore_to_turf = list(
-	ORE_IRON = /turf/simulated/mineral/preset/iron,
-	ORE_COAL = /turf/simulated/mineral/preset/coal,
-	ORE_SILVER = /turf/simulated/mineral/preset/silver,
-	ORE_GOLD = /turf/simulated/mineral/preset/gold,
-	ORE_DIAMOND = /turf/simulated/mineral/preset/diamond,
-	ORE_PLATINUM = /turf/simulated/mineral/preset/platinum,
-	ORE_URANIUM = /turf/simulated/mineral/preset/uranium,
-	ORE_PHORON = /turf/simulated/mineral/preset/phoron
-)
-
 /turf/simulated/mineral //wall piece
 	name = "rock"
 	icon = 'icons/turf/map_placeholders.dmi'

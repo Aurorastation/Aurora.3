@@ -4,8 +4,8 @@
 	color = "#407c40"
 	planetary_area = /area/exoplanet/grass
 	rock_colors = list(COLOR_ASTEROID_ROCK, COLOR_GRAY80, COLOR_BROWN)
-	plant_colors = list("#0e1e14","#1a3e38","#5a7467","#9eab88","#6e7248", "RANDOM")
-	map_generators = list(/datum/random_map/noise/exoplanet/grass)
+	plant_colors = list("#3c772e","#27614b","#3f8d35","#185f18","#799628", "RANDOM")
+	possible_themes = list(/datum/exoplanet_theme/grass)
 
 	possible_random_ruins = list(
 		/datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01,
@@ -45,6 +45,12 @@
 
 	if(prob(30))
 		S.set_trait(TRAIT_PARASITE,1)
+
+/obj/effect/overmap/visitable/sector/exoplanet/grass/marsh
+	name = "marsh exoplanet"
+	desc = "A swampy planet, home to exotic creatures and flora."
+	possible_themes = list(/datum/exoplanet_theme/grass/marsh)
+	possible_random_ruins = list()
 
 /datum/random_map/noise/exoplanet/grass
 	descriptor = "grass exoplanet"

@@ -2,9 +2,9 @@
 	name = "lava exoplanet"
 	desc = "An exoplanet with a lot of volcanic activity."
 	color = "#575d5e"
-	planetary_area = /area/exoplanet/barren
+	planetary_area = /area/exoplanet/lava
 	rock_colors = list(COLOR_DARK_GRAY)
-	map_generators = list(/datum/random_map/noise/exoplanet/lava, /datum/random_map/noise/ore)
+	possible_themes = list(/datum/exoplanet_theme/volcanic)
 	ruin_tags_blacklist = RUIN_HABITAT|RUIN_WATER
 	features_budget = 4
 	surface_color = "#cf1020"
