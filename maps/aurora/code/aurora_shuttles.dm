@@ -196,7 +196,7 @@ AURORA_ESCAPE_POD(4)
 //-// CCIA Shuttle //-//
 
 /datum/shuttle/autodock/ferry/autoreturn/ccia
-	name = "Agent Shuttle"
+	name = "SCC Shuttle"
 	location = 1
 	warmup_time = 10
 	shuttle_area = /area/shuttle/transport1
