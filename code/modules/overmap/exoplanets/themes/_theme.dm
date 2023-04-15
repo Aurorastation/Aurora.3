@@ -328,9 +328,7 @@
 	if(!LAZYLEN(ore_counts) || !LAZYLEN(wall_ore_levels))
 		return
 
-	to_world("Ore counts on [E]")
 	for(var/o in ore_counts)
-		to_world("[o] => [ore_counts[o]]")
 		if(ore_counts[o] < 100) // Bit of a magic number but we just want to make sure there's a little bit of every ore
 			var/conv_level = max(-0.5, ORE_LEVEL_TO_DBP_RANGE(wall_ore_levels[o])) // seems like the noise range from DBP noise is (-0.5, 0.5) so we'll convert to that
 			LAZYSET(ore_seeds, o, rustg_dbp_generate("[rand(0, 50000)]", "16", "8", "[world.maxx]", "-0.5", "[conv_level]"))
