@@ -15,5 +15,5 @@
 /turf/simulated/floor/exoplanet/barren/raskara
 	color = "#373737"
 
-/turf/simulated/floor/exoplanet/barren/update_icon()
+/turf/simulated/floor/exoplanet/barren/raskara/update_icon()
 	overlays.Cut()
