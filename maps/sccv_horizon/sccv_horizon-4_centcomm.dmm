@@ -1358,7 +1358,7 @@
 /obj/item/storage/lockbox/cciaa/fib{
 	pixel_y = -1
 	},
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -1366,7 +1366,7 @@
 	},
 /area/centcom/control)
 "adR" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/structure/table/rack,
@@ -1418,7 +1418,7 @@
 	name = "FIB Primary";
 	req_access = list(109)
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/item/gun/energy/rifle,
@@ -1439,7 +1439,7 @@
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/item/ammo_magazine/mc9mmt,
@@ -1459,7 +1459,7 @@
 	},
 /area/centcom/control)
 "adU" = (
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
 /obj/structure/closet{
@@ -1655,7 +1655,7 @@
 	},
 /area/centcom/control)
 "aek" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/machinery/light{
@@ -1667,7 +1667,7 @@
 	},
 /area/centcom/control)
 "ael" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/machinery/light{
@@ -1816,7 +1816,7 @@
 	},
 /area/centcom/control)
 "aeC" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/machinery/button/remote/blast_door{
@@ -1832,7 +1832,7 @@
 	},
 /area/centcom/control)
 "aeD" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/unsimulated/floor{
@@ -2063,7 +2063,7 @@
 	},
 /area/centcom/control)
 "aeZ" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/unsimulated/floor{
@@ -2436,7 +2436,7 @@
 	},
 /area/centcom/control)
 "afL" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/machinery/light{
@@ -2532,7 +2532,7 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "afV" = (
-/obj/effect/floor_decal/corner/blue/full,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /obj/structure/table/rack,
 /obj/item/storage/box/cdeathalarm_kit{
 	pixel_x = 1;
@@ -2546,7 +2546,7 @@
 	},
 /area/centcom/control)
 "afW" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/structure/table/rack,
@@ -2586,7 +2586,7 @@
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/unsimulated/floor{
@@ -2606,7 +2606,7 @@
 	},
 /area/centcom/control)
 "afZ" = (
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /obj/structure/table/rack,
@@ -3573,7 +3573,7 @@
 /area/centcom/control)
 "aid" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/unsimulated/floor{
@@ -3586,7 +3586,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/unsimulated/floor{
@@ -3595,7 +3595,7 @@
 /area/centcom/control)
 "aif" = (
 /obj/item/modular_computer/console/preset/security,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/unsimulated/floor{
@@ -3835,7 +3835,7 @@
 	name = "Administrative Wing Processing";
 	req_access = list(101)
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/unsimulated/floor{
@@ -3865,7 +3865,7 @@
 	pixel_y = 9
 	},
 /obj/item/pen,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/structure/window/reinforced/crescent{
@@ -4077,7 +4077,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/unsimulated/floor{
@@ -4321,7 +4321,7 @@
 	},
 /area/centcom/control)
 "ajK" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/machinery/door/blast/odin{
@@ -4336,7 +4336,7 @@
 	},
 /area/centcom/control)
 "ajL" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/machinery/door/blast/odin{
@@ -4577,7 +4577,7 @@
 	},
 /area/centcom/control)
 "akk" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/unsimulated/floor{
@@ -4589,7 +4589,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -7298,7 +7298,7 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "aro" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -7638,13 +7638,13 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "asl" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/unsimulated/floor,
@@ -11269,7 +11269,7 @@
 /obj/machinery/door/window/brigdoor/southright{
 	name = "contraband shelf"
 	},
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -11286,7 +11286,7 @@
 /obj/machinery/door/window/brigdoor/southleft{
 	name = "contraband shelf"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/unsimulated/floor{
@@ -11299,7 +11299,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/unsimulated/floor{
@@ -11307,7 +11307,7 @@
 	},
 /area/centcom/holding)
 "aBb" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/unsimulated/floor{
@@ -11320,7 +11320,7 @@
 /obj/item/gun/energy/rifle,
 /obj/item/gun/energy/rifle,
 /obj/item/gun/energy/rifle,
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
 /obj/machinery/recharger/wallcharger{
@@ -11912,7 +11912,7 @@
 	},
 /area/centcom/holding)
 "aBU" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/unsimulated/floor{
@@ -11929,7 +11929,7 @@
 /obj/item/clothing/mask/gas/tactical,
 /obj/item/clothing/mask/gas/tactical,
 /obj/item/clothing/mask/gas/tactical,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/unsimulated/floor{
@@ -12119,7 +12119,7 @@
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/unsimulated/floor{
@@ -12136,7 +12136,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/unsimulated/floor{
@@ -12469,7 +12469,7 @@
 /area/centcom/specops)
 "aDn" = (
 /obj/structure/table/reinforced,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/unsimulated/floor{
@@ -12494,7 +12494,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/unsimulated/floor{
@@ -12676,13 +12676,13 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/effect/floor_decal/corner/blue/full,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
 "aDQ" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/unsimulated/floor{
@@ -12695,7 +12695,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -15685,7 +15685,7 @@
 	id = "crescent_thunderdome";
 	name = "Thunderdome"
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -15819,7 +15819,7 @@
 	name = "Free Cigarette Machine";
 	prices = list()
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -15828,7 +15828,7 @@
 /obj/structure/table/standard,
 /obj/item/flame/lighter/zippo,
 /obj/item/storage/box/fancy/cigarettes,
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -15838,26 +15838,26 @@
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /obj/structure/table/standard,
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
 /area/tdome/tdomeobserve)
 "aNA" = (
 /obj/structure/reagent_dispensers/keg/beerkeg,
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
 /area/tdome/tdomeobserve)
 "aNB" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
 /area/tdome/tdomeobserve)
 "aNC" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -15869,7 +15869,7 @@
 	name = "Free Hot Drinks machine";
 	prices = list()
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -15983,7 +15983,7 @@
 /obj/effect/landmark{
 	name = "tdomeobserve"
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -15994,7 +15994,7 @@
 /obj/effect/landmark{
 	name = "tdomeobserve"
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -16002,7 +16002,7 @@
 "aNU" = (
 /obj/structure/disposalpipe/trunk,
 /obj/structure/disposaloutlet,
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -16013,7 +16013,7 @@
 	name = "Free Chocolate Corp";
 	prices = list()
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -16126,21 +16126,21 @@
 /area/centcom/suppy)
 "aOj" = (
 /obj/machinery/computer/security/telescreen,
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
 /area/tdome/tdomeobserve)
 "aOk" = (
 /obj/item/device/camera,
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
 /area/tdome/tdomeobserve)
 "aOl" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -16294,7 +16294,7 @@
 /obj/effect/landmark{
 	name = "tdomeobserve"
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -36621,7 +36621,7 @@
 	},
 /area/centcom/shared_dream)
 "bNl" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 5
 	},
@@ -36667,7 +36667,7 @@
 	},
 /area/centcom/shared_dream)
 "bNr" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
@@ -38992,7 +38992,7 @@
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_battlemonsters)
 "kRE" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/spline/fancy,
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
@@ -39205,7 +39205,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_meetinghall)
 "lHP" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 9
 	},
@@ -40658,7 +40658,7 @@
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "rlJ" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
@@ -41245,7 +41245,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
 "tGI" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
 	},

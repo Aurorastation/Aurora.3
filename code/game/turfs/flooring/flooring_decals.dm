@@ -132,8 +132,20 @@
 	icon_state = "preview_threethirds"
 	blend_state = "threethirds"
 
+/obj/effect/floor_decal/corner/dark_blue
+	name = "dark blue corner"
+	color = COLOR_DARK_BLUE_GRAY
+
+/obj/effect/floor_decal/corner/dark_blue/diagonal
+	icon_state = "preview_diagonal"
+	blend_state = "diagonal"
+
+/obj/effect/floor_decal/corner/dark_blue/full
+	icon_state = "preview_threethirds"
+	blend_state = "threethirds"
+
 /obj/effect/floor_decal/corner/dark_green
-	name = "green corner"
+	name = "dark green corner"
 	color = COLOR_DARK_GREEN_GRAY
 
 /obj/effect/floor_decal/corner/dark_green/diagonal
@@ -333,8 +345,20 @@
 	icon_state = "preview_wide_threethirds"
 	blend_state = "wide_threethirds"
 
+/obj/effect/floor_decal/corner_wide/dark_blue
+	name = "dark blue corner"
+	color = COLOR_DARK_BLUE_GRAY
+
+/obj/effect/floor_decal/corner_wide/dark_blue/diagonal
+	icon_state = "preview_diagonal"
+	blend_state = "diagonal"
+
+/obj/effect/floor_decal/corner_wide/dark_blue/full
+	icon_state = "preview_threethirds"
+	blend_state = "threethirds"
+
 /obj/effect/floor_decal/corner_wide/dark_green
-	name = "green corner"
+	name = "dark green corner"
 	color = COLOR_DARK_GREEN_GRAY
 
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal
@@ -797,6 +821,10 @@
 /obj/effect/floor_decal/industrial/outline/medical
 	name = "medical lime outline"
 	color = COLOR_PALE_GREEN_GRAY
+
+/obj/effect/floor_decal/industrial/outline/medical/dark_green
+	name = "medical dark green outline"
+	color = COLOR_DARK_GREEN_GRAY
 
 /obj/effect/floor_decal/industrial/outline/engineering
 	name = "engineering yellow outline"
