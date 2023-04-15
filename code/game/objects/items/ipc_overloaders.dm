@@ -300,7 +300,7 @@
 
 /obj/item/storage/overloader/tranquil
 	name = "overloader box (tranquil)"
-	icon_state = "box-tranquil"
+	icon_state = "box-vanilla"
 	starts_with = list(/obj/item/ipc_overloader/tranquil = 1)
 
 /obj/item/storage/overloader/rainbow
