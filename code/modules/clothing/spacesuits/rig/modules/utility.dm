@@ -780,8 +780,9 @@
 /obj/item/rig_module/springstep/proc/handle_move_delay(var/mob/mob, list/move_data)
 	SIGNAL_HANDLER
 
-	if(holder.cell && holder.cell.use(step_power_cost))
+	if(holder.cell && holder.cell.charge > step_power_cost)
 		move_data["move_delay"] -= 1
+		INVOKE_ASYNC(holder.cell, TYPE_PROC_REF(/obj/item/cell, use), step_power_cost)
 
 /obj/item/rig_module/cooling_unit
 	name = "mounted cooling unit"
