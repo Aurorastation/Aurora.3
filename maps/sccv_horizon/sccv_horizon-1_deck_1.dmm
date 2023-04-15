@@ -2513,6 +2513,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
+"bOr" = (
+/obj/effect/floor_decal/corner/yellow,
+/obj/effect/floor_decal/corner/blue{
+	dir = 8
+	},
+/obj/structure/dispenser,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "bOs" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -52571,7 +52579,7 @@ pZd
 wIO
 lRH
 eNU
-vTT
+bOr
 oDB
 sWB
 slH
