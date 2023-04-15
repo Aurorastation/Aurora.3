@@ -364,7 +364,7 @@ AURORA_ESCAPE_POD(4)
 //-// Mercenary Shuttle //-//
 
 /datum/shuttle/autodock/multi/antag/merc_aurora
-	name = "Mercenary Shuttle"
+	name = "ICV Raskolnikov"
 	current_location = "nav_merc_start"
 	landmark_transition = "nav_merc_interim"
 	dock_target = "merc_shuttle"

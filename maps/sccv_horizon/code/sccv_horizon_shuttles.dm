@@ -99,7 +99,7 @@
 //-// Mercenary Shuttle //-//
 
 /datum/shuttle/autodock/multi/antag/merc_ship
-	name = "Mercenary Shuttle"
+	name = "ICV Raskolnikov"
 	current_location = "nav_merc_start"
 	landmark_transition = "nav_merc_interim"
 	dock_target = "merc_shuttle"

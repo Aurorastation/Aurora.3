@@ -21,7 +21,7 @@
 	icon = 'icons/obj/primitive_computer.dmi'
 	icon_screen = "syndicate"
 	req_access = list(access_syndicate)
-	shuttle_tag = "Mercenary Shuttle"
+	shuttle_tag = "ICV Raskolnikov"
 	light_color = LIGHT_COLOR_RED
 	can_rename_ship = TRUE
 
