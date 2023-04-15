@@ -2152,7 +2152,7 @@
 	name = "Vacuum Fizz"
 	description = "Tastes like a hull breach in your mouth."
 	color = "#aee5e4"
-	taste_description = "a hull breach"
+	taste_description = "hull breach"
 	carbonated = TRUE
 
 	glass_icon_state = "space-up_glass"

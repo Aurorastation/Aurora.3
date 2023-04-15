@@ -851,7 +851,7 @@
 //Wakes the mob up from sleeping
 /mob/living/simple_animal/proc/wake_up()
 	if (stat != DEAD)
-		set_stat(UNCONSCIOUS)
+		set_stat(CONSCIOUS)
 		resting = 0
 		canmove = 1
 		wander = 1
@@ -967,6 +967,10 @@
 		attacker.apply_damage(rand(return_damage_min, return_damage_max), damage_type, hand_hurtie, used_weapon = description)
 		if(rand(25))
 			to_chat(attacker, SPAN_WARNING("Your attack has no obvious effect on \the [src]'s [description]!"))
+
+/mob/living/simple_animal/get_speech_bubble_state_modifier()
+	return ..() || "rough"
+
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

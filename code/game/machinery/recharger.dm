@@ -20,7 +20,7 @@
 		/obj/item/cell,
 		/obj/item/modular_computer,
 		/obj/item/computer_hardware/battery_module,
-		/obj/item/device/flashlight/survival,
+		/obj/item/device/flashlight,
 		/obj/item/clothing/mask/smokable/ecig,
 		/obj/item/inductive_charger/handheld,
 		/obj/item/auto_cpr,

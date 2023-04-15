@@ -147,7 +147,7 @@
 	C.canmove = FALSE
 	C.icon = null
 	C.cut_overlays()
-	C.invisibility = 101
+	C.set_invisibility(101)
 	var/atom/movable/overlay/animation = new /atom/movable/overlay(C.loc)
 	animation.icon_state = "blank"
 	animation.icon = 'icons/mob/mob.dmi'
@@ -262,9 +262,9 @@
 	C.SetStunned(0)
 	C.SetWeakened(0)
 	C.lying = FALSE
-	C.reagents.add_reagent(/singleton/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
-	C.reagents.add_reagent(/singleton/reagent/oxycomorphine, 0.10)
-	C.reagents.add_reagent(/singleton/reagent/synaptizine, 0.5) //To counter oxycomorphine's side-effects.
+	C.reagents.add_reagent(/singleton/reagent/hyperzine, 10) //Certainly this can't be abused. - Geeves
+	C.reagents.add_reagent(/singleton/reagent/oxycomorphine, 10)
+	C.reagents.add_reagent(/singleton/reagent/synaptizine, 5) //To counter oxycomorphine's side-effects.
 	C.update_canmove()
 
 	src.verbs -= /mob/proc/changeling_unstun

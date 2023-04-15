@@ -1,17 +1,17 @@
 /obj/effect/overmap/visitable/sector/exoplanet/grass
 	name = "lush exoplanet"
-	desc = "Planet with abundant flora and fauna."
+	desc = "An exoplanet with abundant flora and fauna."
 	color = "#407c40"
+	scanimage = "jungle.png"
+	geology = "High-energy geothermal signature, tectonic activity non-obstructive to surface environment"
+	weather = "Global full-atmosphere hydrological weather system. Dangerous meteorological activity not present"
+	surfacewater = "63% surface water, majority readings not visibly potable. Expected mineral toxicity or salt presence in water bodies"
 	planetary_area = /area/exoplanet/grass
 	rock_colors = list(COLOR_ASTEROID_ROCK, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#3c772e","#27614b","#3f8d35","#185f18","#799628", "RANDOM")
 	possible_themes = list(/datum/exoplanet_theme/grass)
-
-	possible_random_ruins = list(
-		/datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01,
-		/datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01,
-		/datum/map_template/ruin/exoplanet/mystery_ship_1,
-		/datum/map_template/ruin/exoplanet/hut)
+	ruin_planet_type = PLANET_GRASS
+	ruin_allowed_tags = RUIN_LOWPOP|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/grass/generate_map()
 	if(prob(40))

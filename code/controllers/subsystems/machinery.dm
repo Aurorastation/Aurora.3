@@ -145,6 +145,8 @@ if(Datum.isprocessing) {\
 /datum/controller/subsystem/machinery/proc/setup_atmos_machinery(list/machines)
 	var/list/atmos_machines = list()
 	for (var/obj/machinery/atmospherics/machine in machines)
+		if(QDELETED(machine))
+			continue
 		atmos_machines += machine
 	admin_notice(SPAN_DANGER("Initializing atmos machinery."), R_DEBUG)
 	log_ss("machinery", "Initializing atmos machinery.")

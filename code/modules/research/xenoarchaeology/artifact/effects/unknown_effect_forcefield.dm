@@ -22,7 +22,7 @@
 			E.strength = 1
 			E.density = 1
 			E.anchored = 1
-			E.invisibility = 0
+			E.set_invisibility(0)
 		spawn(10)
 			UpdateMove()
 	return 1
@@ -47,7 +47,7 @@
 			created_field.Add(E)
 			E.anchored = 1
 			E.density = 1
-			E.invisibility = 0
+			E.set_invisibility(0)
 
 		var/obj/effect/energy_field/E = created_field[1]
 		E.forceMove(locate(T.x + 2,T.y + 2,T.z))

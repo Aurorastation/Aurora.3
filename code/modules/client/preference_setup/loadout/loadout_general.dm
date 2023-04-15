@@ -145,7 +145,7 @@
 	banners["banner, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra
 	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
 	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
-	banners["banner, Dominian Diona"] = /obj/item/flag/diona
+	banners["banner, CT-EUM"] = /obj/item/flag/cteum
 	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
 	banners["banner, Hephaestus Industries"] = /obj/item/flag/heph
 	banners["banner, Idris Incorporated"] = /obj/item/flag/idris

@@ -216,7 +216,7 @@
 
 			user.drop_from_inventory(M, O)
 			O.mmi = M
-			O.invisibility = 0
+			O.set_invisibility(0)
 			O.custom_name = "Ai shell"
 
 			O.job = "AI Shell"
@@ -284,7 +284,7 @@
 
 				user.drop_from_inventory(M, O)
 				O.mmi = W
-				O.invisibility = 0
+				O.set_invisibility(101)
 				O.custom_name = created_name
 				O.updatename("Default")
 
