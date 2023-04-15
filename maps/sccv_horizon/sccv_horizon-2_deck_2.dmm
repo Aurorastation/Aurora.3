@@ -650,7 +650,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/table/stone/marble,
 /obj/machinery/door/blast/shutters{
-	dir = 1;
 	id = "bar_shutter";
 	name = "Bar Shutter"
 	},
@@ -9688,7 +9687,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/table/stone/marble,
 /obj/machinery/door/blast/shutters{
-	dir = 1;
 	id = "bar_shutter";
 	name = "Bar Shutter"
 	},
@@ -16191,9 +16189,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/door/window{
-	dir = 2
-	},
+/obj/machinery/door/window,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -17402,9 +17398,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/door/window{
-	dir = 2
-	},
+/obj/machinery/door/window,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -19131,6 +19125,10 @@
 /obj/structure/bed/stool/chair/sofa/left/orange{
 	dir = 8
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
+	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/bar)
 "jjO" = (
@@ -20603,9 +20601,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/vending/overloaders,
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "jRN" = (
@@ -24293,7 +24289,6 @@
 	},
 /obj/item/reagent_containers/glass/rag,
 /obj/machinery/door/blast/shutters{
-	dir = 1;
 	id = "bar_shutter";
 	name = "Bar Shutter"
 	},
@@ -43284,7 +43279,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
-	dir = 1;
 	id = "armory";
 	name = "Armoury Blast Door"
 	},
