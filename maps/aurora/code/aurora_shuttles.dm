@@ -132,7 +132,7 @@ AURORA_ESCAPE_POD(4)
 //-// Merchant Shuttle //-//
 
 /datum/shuttle/autodock/ferry/merchant_aurora
-	name = "Enterprise Shuttle"
+	name = "ICV Enterprise"
 	location = 1
 	warmup_time = 10
 	shuttle_area = /area/shuttle/merchant

@@ -12,7 +12,7 @@
 	icon = 'icons/obj/primitive_computer.dmi'
 	icon_screen = "syndicate"
 	req_access = list(access_syndicate)
-	shuttle_tag = "Burglar Pod"
+	shuttle_tag = "Water Bear"
 	light_color = LIGHT_COLOR_RED
 	can_rename_ship = TRUE
 
