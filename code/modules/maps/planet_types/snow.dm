@@ -22,12 +22,3 @@
 			limit = initial(H.cold_level_1) + rand(1,10)
 		atmosphere.temperature = max(T0C - rand(10, 100), limit)
 		atmosphere.update_values()
-
-/datum/random_map/noise/exoplanet/snow
-	descriptor = "snow exoplanet"
-	smoothing_iterations = 1
-	flora_prob = 5
-	water_level_max = 3
-	land_type = /turf/simulated/floor/exoplanet/snow
-	water_type = /turf/simulated/floor/exoplanet/ice
-	fauna_types = list(/mob/living/simple_animal/hostile/retaliate/samak, /mob/living/simple_animal/hostile/retaliate/diyaab, /mob/living/simple_animal/hostile/retaliate/shantak)

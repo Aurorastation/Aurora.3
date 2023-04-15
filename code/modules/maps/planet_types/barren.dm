@@ -6,7 +6,6 @@
 	planetary_area = /area/exoplanet/barren
 	rock_colors = list(COLOR_BEIGE, COLOR_GRAY80, COLOR_BROWN)
 	possible_themes = list(/datum/exoplanet_theme/barren)
-	map_generators = list()
 	features_budget = 6
 	surface_color = "#807d7a"
 	water_color = null
@@ -22,16 +21,3 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/get_surface_color()
 	return "#6C6251"
-
-/datum/random_map/noise/exoplanet/barren
-	descriptor = "barren exoplanet"
-	smoothing_iterations = 4
-	land_type = /turf/simulated/floor/exoplanet/barren
-	flora_prob = 0.1
-	flora_diversity = 0
-	fauna_prob = 0
-
-/datum/random_map/noise/exoplanet/barren/New()
-	if(prob(10))
-		flora_diversity = 1
-	..()

@@ -50,14 +50,4 @@
 	name = "marsh exoplanet"
 	desc = "A swampy planet, home to exotic creatures and flora."
 	possible_themes = list(/datum/exoplanet_theme/grass/marsh)
-	possible_random_ruins = list()
-
-/datum/random_map/noise/exoplanet/grass
-	descriptor = "grass exoplanet"
-	smoothing_iterations = 2
-	land_type = /turf/simulated/floor/exoplanet/grass
-	water_type = /turf/simulated/floor/exoplanet/water/shallow
-
-	flora_prob = 10
-	flora_diversity = 6
-	fauna_types = list(/mob/living/simple_animal/yithian, /mob/living/simple_animal/tindalos, /mob/living/simple_animal/cosmozoan)
+	ruin_planet_type = PLANET_MARSH

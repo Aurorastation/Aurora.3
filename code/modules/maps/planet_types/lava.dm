@@ -24,14 +24,3 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/get_surface_color()
 	return "#575d5e"
-
-/datum/random_map/noise/exoplanet/lava
-	descriptor = "lava exoplanet"
-	smoothing_iterations = 4
-	land_type = /turf/unsimulated/floor/asteroid/basalt
-	water_type = /turf/simulated/lava
-	water_level_min = 3
-	water_level_max = 5
-	flora_prob = 0
-	flora_diversity = 0
-	fauna_prob = 0

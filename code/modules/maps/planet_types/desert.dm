@@ -8,7 +8,6 @@
 	planetary_area = /area/exoplanet/desert
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#420d22")
-	map_generators = list()
 	possible_themes = list(/datum/exoplanet_theme/desert)
 	surface_color = "#d6cca4"
 	water_color = null
@@ -41,23 +40,6 @@
 	if(prob(75))
 		S.set_trait(TRAIT_CARNIVOROUS,2)
 	S.set_trait(TRAIT_SPREAD,0)
-
-/datum/random_map/noise/exoplanet/desert
-	descriptor = "desert exoplanet"
-	smoothing_iterations = 4
-	land_type = /turf/simulated/floor/exoplanet/desert
-
-	flora_prob = 0
-	fauna_types = list(/mob/living/simple_animal/thinbug, /mob/living/simple_animal/tindalos)
-
-/datum/random_map/noise/exoplanet/desert/get_additional_spawns(var/value, var/turf/T)
-	..()
-	if(is_edge_turf(T))
-		return
-	var/v = noise2value(value)
-	if(v > 6)
-		if(prob(10))
-			new/obj/structure/quicksand(T)
 
 /obj/structure/quicksand
 	name = "sand"
