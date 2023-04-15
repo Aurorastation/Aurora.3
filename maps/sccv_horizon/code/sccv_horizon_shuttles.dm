@@ -32,7 +32,7 @@
 	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/burglar_ship/hangar
-	name = "First Deck Port Hangar Bay 1"
+	name = "First Deck Port Hangar Bay 1b"
 	landmark_tag = "nav_burglar_hangar"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
