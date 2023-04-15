@@ -20073,9 +20073,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/bluespace_beacon,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
