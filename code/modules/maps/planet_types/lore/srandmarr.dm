@@ -5,7 +5,6 @@
 	color = "#bf7c39"
 	icon_state = "globe1"
 	rock_colors = list(COLOR_GRAY80)
-	map_generators = list(/datum/random_map/noise/exoplanet/barren, /datum/random_map/noise/ore)
 	features_budget = 1
 	surface_color = "#B1A69B"
 	generated_name = FALSE
@@ -35,7 +34,6 @@
 	rock_colors = null
 	plant_colors = null
 	rock_colors = list("#4a3f41")
-	map_generators = list(/datum/random_map/noise/exoplanet/barren, /datum/random_map/noise/ore)
 	features_budget = 1
 	surface_color = "#4a3f41"
 	generated_name = FALSE
@@ -86,7 +84,7 @@
 	surfacegravity = "0.25"
 	charted = "Natural satellite of Tajaran homeworld, charted 2418CE, NanoTrasen Corporation"
 	geology = "Zero tectonic heat, completely dormant geothermal signature. Presumed dead core"
-	map_generators = list(/datum/random_map/noise/exoplanet/barren/raskara, /datum/random_map/noise/ore)
+	possible_themes = list(/datum/exoplanet_theme/barren/raskara)
 	features_budget = 1
 	surface_color = "#373737"
 	generated_name = FALSE
@@ -106,9 +104,6 @@
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 
-/datum/random_map/noise/exoplanet/barren/raskara
-	land_type = /turf/simulated/floor/exoplanet/barren/raskara
-
 //Adhomai
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai
 	name = "Adhomai"
@@ -125,7 +120,7 @@
 	surfacewater = "Majority frozen, 78% surface water. Significant tidal forces from natural satellite"
 	rock_colors = null
 	plant_colors = null
-	map_generators = list(/datum/random_map/noise/exoplanet/snow/adhomai, /datum/random_map/noise/ore/rich)
+	possible_themes = list(/datum/exoplanet_theme/snow/adhomai)
 	features_budget = 8
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
@@ -169,7 +164,7 @@
 
 		if("North Pole")
 			features_budget = 1
-			map_generators = list(/datum/random_map/noise/exoplanet/snow/adhomai_north_pole, /datum/random_map/noise/ore/rich)
+			possible_themes = list(/datum/exoplanet_theme/snow/tundra/adhomai)
 			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/north_pole_monolith, /datum/map_template/ruin/exoplanet/north_pole_nka_expedition, /datum/map_template/ruin/exoplanet/north_pole_worm)
 
 	desc += " The landing sites are located at the [landing_faction]'s territory."
@@ -198,105 +193,3 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/update_icon()
 	return
-
-/datum/random_map/noise/exoplanet/snow/adhomai
-	descriptor = "Adhomai"
-	smoothing_iterations = 1
-	flora_prob = 5
-	water_level_max = 2
-	land_type = /turf/simulated/floor/exoplanet/snow
-	water_type = /turf/simulated/floor/exoplanet/ice
-	fauna_types = list(/mob/living/simple_animal/ice_tunneler, /mob/living/simple_animal/ice_tunneler/male, /mob/living/simple_animal/fatshouter, /mob/living/simple_animal/fatshouter/male,
-					/mob/living/simple_animal/hostile/retaliate/rafama, /mob/living/simple_animal/hostile/retaliate/rafama/male, /mob/living/simple_animal/hostile/retaliate/rafama/baby,
-					/mob/living/simple_animal/hostile/wind_devil, /mob/living/carbon/human/farwa/adhomai, /mob/living/simple_animal/hostile/harron)
-
-/datum/random_map/noise/exoplanet/snow/adhomai/generate_flora()
-	for(var/i = 1 to flora_diversity)
-		var/seed_chosen = pick("shand", "mtear", "earthenroot", "nifberries", "nfrihi", "nmshaan")
-		var/datum/seed/chosen_seed = SSplants.seeds[seed_chosen]
-
-		small_flora_types += chosen_seed
-
-/datum/random_map/noise/exoplanet/snow/adhomai/get_additional_spawns(var/value, var/turf/T)
-	..()
-	if(istype(T, water_type))
-		return
-	if(T.density)
-		return
-	var/val = min(10,max(0,round((value/cell_range)*10)))
-	if(isnull(val)) val = 0
-	switch(val)
-		if(2)
-			if(prob(10))
-				new /obj/structure/flora/rock/ice(T)
-		if(3)
-			if(prob(50))
-				new /obj/structure/flora/grass/adhomai(T)
-		if(4)
-			if(prob(50))
-				new /obj/structure/flora/bush/adhomai(T)
-		if(5)
-			if(prob(15))
-				new /obj/structure/flora/tree/adhomai(T)
-		if(6)
-			if(prob(15))
-				new /obj/structure/flora/rock/adhomai(T)
-		if(7)
-			if(prob(15))
-				new /obj/effect/floor_decal/snowdrift(T)
-		if(8)
-			if(prob(10))
-				new /obj/effect/floor_decal/snowdrift/large(T)
-
-/datum/random_map/noise/exoplanet/snow/adhomai_north_pole
-	descriptor = "Adhomai North pole"
-	smoothing_iterations = 1
-	flora_prob = 0
-	water_level_max = 4
-	land_type = /turf/simulated/floor/exoplanet/snow
-	water_type = /turf/simulated/floor/exoplanet/ice/dark
-	fauna_types = list(/mob/living/simple_animal/scavenger, /mob/living/simple_animal/ice_catcher, /mob/living/simple_animal/hostile/plasmageist, /mob/living/simple_animal/hostile/wriggler)
-
-/datum/random_map/noise/exoplanet/snow/adhomai_north_pole/generate_flora()
-	return
-
-/datum/random_map/noise/exoplanet/snow/adhomai_north_pole/get_additional_spawns(var/value, var/turf/T)
-	..()
-	if(istype(T, water_type))
-		return
-	if(T.density)
-		return
-	var/val = min(10,max(0,round((value/cell_range)*10)))
-	if(isnull(val)) val = 0
-	switch(val)
-		if(2)
-			if(prob(25))
-				new /obj/structure/flora/rock/ice(T)
-		if(3)
-			if(prob(10))
-				new /obj/structure/geyser(T)
-		if(4)
-			if(prob(20))
-				new /obj/structure/flora/rock/adhomai(T)
-		if(5)
-			if(prob(15))
-				new /obj/effect/floor_decal/snowdrift(T)
-		if(6)
-			if(prob(10))
-				new /obj/effect/floor_decal/snowdrift/large(T)
-
-/area/exoplanet/adhomai
-	name = "Adhomian Wilderness"
-	ambience = list('sound/effects/wind/tundra0.ogg', 'sound/effects/wind/tundra1.ogg', 'sound/effects/wind/tundra2.ogg', 'sound/effects/wind/spooky0.ogg', 'sound/effects/wind/spooky1.ogg')
-	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
-
-/turf/simulated/floor/exoplanet/mineral/adhomai
-	name = "icy rock"
-	icon = 'icons/turf/flooring/ice_cavern.dmi'
-	icon_state = "icy_rock"
-	temperature = T0C - 5
-	has_edge_icon = FALSE
-
-/turf/simulated/floor/exoplanet/mineral/adhomai/Initialize(mapload)
-	. = ..()
-	icon_state = "icy_rock[rand(1,19)]"

@@ -31,3 +31,29 @@
 		BIOME_COOL = 1.0
 	)
 	mountain_threshold = 0.6
+
+/datum/exoplanet_theme/snow/adhomai
+	name = "Adhomai"
+	possible_biomes = list(
+		BIOME_POLAR = list(
+			BIOME_ARID = /singleton/biome/water/ice,
+			BIOME_SEMIARID = /singleton/biome/snow/adhomai
+		),
+		BIOME_COOL = list(
+			BIOME_ARID = /singleton/biome/snow/adhomai,
+			BIOME_SEMIARID = /singleton/biome/snow/forest/adhomai
+		)
+	)
+
+/datum/exoplanet_theme/snow/tundra/adhomai
+	name = "Adhomai North Pole"
+	possible_biomes = list(
+		BIOME_POLAR = list(
+			BIOME_ARID = /singleton/biome/water/ice/polar,
+			BIOME_SEMIARID = /singleton/biome/snow/adhomai/polar
+		),
+		BIOME_COOL = list(
+			BIOME_ARID = /singleton/biome/snow/adhomai/polar,
+			BIOME_SEMIARID = /singleton/biome/snow/adhomai/polar
+		)
+	)

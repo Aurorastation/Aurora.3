@@ -10,7 +10,7 @@
 			)
 	)
 
-	mountain_threshold = 0.7
+	mountain_threshold = 0.6
 
 	heat_levels = list(
 		BIOME_POLAR = 1.0
@@ -18,6 +18,18 @@
 
 	humidity_levels = list(
 		BIOME_ARID = 1.0
+	)
+
+/datum/exoplanet_theme/barren/raskara
+	name = "Raskara"
+	surface_turfs = list(
+		/turf/simulated/mineral,
+		/turf/simulated/floor/exoplanet/barren/raskara
+	)
+	possible_biomes = list(
+		BIOME_POLAR = list(
+			BIOME_ARID = /singleton/biome/barren/raskara
+			)
 	)
 
 /datum/exoplanet_theme/barren/asteroid

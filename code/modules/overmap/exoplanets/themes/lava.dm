@@ -5,7 +5,7 @@
 	)
 
 	perlin_zoom = 21
-	mountain_threshold = 0.7
+	mountain_threshold = 0.6
 
 	heat_levels = list(
 		BIOME_POLAR = 0.3,

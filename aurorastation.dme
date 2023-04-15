@@ -2659,7 +2659,6 @@
 #include "code\modules\overmap\events\event.dm"
 #include "code\modules\overmap\exoplanets\exoplanet.dm"
 #include "code\modules\overmap\exoplanets\exoplanet_skybox.dm"
-#include "code\modules\overmap\exoplanets\random_map.dm"
 #include "code\modules\overmap\exoplanets\_defines\planetgen.dm"
 #include "code\modules\overmap\exoplanets\biomes\_biome.dm"
 #include "code\modules\overmap\exoplanets\biomes\barren.dm"

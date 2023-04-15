@@ -62,3 +62,90 @@
 			/mob/living/simple_animal/hostile/retaliate/shantak = 1
 		)
 	)
+
+// Adhomai
+
+/singleton/biome/snow/adhomai
+	spawn_types = list(
+		PLANET_TURF = list(/turf/simulated/floor/exoplanet/permafrost = 1),
+		GRASSES = list(
+			/obj/structure/flora/grass/adhomai = 1
+		),
+		LARGE_FLORA = list(
+			/obj/effect/floor_decal/snowdrift/large/random = 1,
+			/obj/structure/flora/rock/adhomai = 1,
+			/obj/structure/flora/tree/adhomai = 1
+		),
+		SMALL_FLORA = list(
+			/obj/structure/flora/bush/adhomai = 3,
+			/obj/effect/floor_decal/snowdrift/random = 1
+		),
+		WILDLIFE = list(
+			/mob/living/simple_animal/ice_tunneler = 1,
+			/mob/living/simple_animal/ice_tunneler/male = 1,
+			/mob/living/simple_animal/fatshouter = 1,
+			/mob/living/simple_animal/fatshouter/male = 1,
+			/mob/living/simple_animal/hostile/retaliate/rafama = 1,
+			/mob/living/simple_animal/hostile/retaliate/rafama/male = 1,
+			/mob/living/simple_animal/hostile/retaliate/rafama/baby = 1,
+			/mob/living/simple_animal/hostile/wind_devil = 1,
+			/mob/living/carbon/human/farwa/adhomai = 1,
+			/mob/living/simple_animal/hostile/harron
+		)
+	)
+
+/singleton/biome/snow/forest/adhomai
+	spawn_types = list(
+		GRASSES = list(
+			/obj/structure/flora/grass/adhomai = 1
+		),
+		LARGE_FLORA = list(
+			/obj/effect/floor_decal/snowdrift/large/random = 1,
+			/obj/structure/flora/rock/adhomai = 1,
+			/obj/structure/flora/tree/adhomai = 4
+		),
+		SMALL_FLORA = list(
+			/obj/structure/flora/bush/adhomai = 3,
+			/obj/effect/floor_decal/snowdrift/random = 1
+		),
+		WILDLIFE = list(
+			/mob/living/simple_animal/ice_tunneler = 1,
+			/mob/living/simple_animal/ice_tunneler/male = 1,
+			/mob/living/simple_animal/fatshouter = 1,
+			/mob/living/simple_animal/fatshouter/male = 1,
+			/mob/living/simple_animal/hostile/retaliate/rafama = 1,
+			/mob/living/simple_animal/hostile/retaliate/rafama/male = 1,
+			/mob/living/simple_animal/hostile/retaliate/rafama/baby = 1,
+			/mob/living/simple_animal/hostile/wind_devil = 1,
+			/mob/living/carbon/human/farwa/adhomai = 1,
+			/mob/living/simple_animal/hostile/harron
+		)
+	)
+
+/singleton/biome/snow/adhomai/polar
+	turf_type = /turf/simulated/floor/exoplanet/snow
+	generators = list(
+		LARGE_FLORA = list(POISSON_SAMPLE, 9),
+		SMALL_FLORA = list(POISSON_SAMPLE, 9),
+		WILDLIFE = list(POISSON_SAMPLE, 15)
+	)
+	spawn_types = list(
+		LARGE_FLORA = list(
+			/obj/effect/floor_decal/snowdrift/large/random = 1,
+			/obj/structure/flora/rock/adhomai = 2,
+			/obj/structure/flora/rock/ice = 3
+		),
+		SMALL_FLORA = list(
+			/obj/structure/geyser = 1,
+			/obj/effect/floor_decal/snowdrift/random = 1
+		),
+		WILDLIFE = list(
+			/mob/living/simple_animal/scavenger = 1,
+			/mob/living/simple_animal/ice_catcher = 1,
+			/mob/living/simple_animal/hostile/plasmageist = 1,
+			/mob/living/simple_animal/hostile/wriggler = 1
+		)
+	)
+
+/singleton/biome/water/ice/polar
+	turf_type = /turf/simulated/floor/exoplanet/ice/dark

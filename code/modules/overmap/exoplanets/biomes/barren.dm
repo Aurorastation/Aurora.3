@@ -15,3 +15,8 @@
 
 /singleton/biome/barren/asteroid
 	turf_type = /turf/unsimulated/floor/asteroid/ash
+
+/singleton/biome/barren/raskara
+	turf_type = /turf/simulated/floor/exoplanet/barren/raskara
+	generators = list()
+	spawn_types = list()
