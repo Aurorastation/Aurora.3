@@ -50,36 +50,6 @@
 	icon_has_variants = FALSE
 	hide_type = "scales"
 
-/obj/item/stack/material/animalhide/xeno
-	name = "alien hide"
-	desc = "The skin of a terrible creature."
-	singular_name = "alien hide piece"
-	icon_state = "sheet-xeno"
-	default_type = "alien hide"
-	icon_has_variants = FALSE
-	hide_type = "carapace"
-
-//don't see anywhere else to put these, maybe together they could be used to make the xenos suit?
-/obj/item/stack/material/xenochitin
-	name = "alien chitin"
-	desc = "A piece of the hide of a terrible creature."
-	singular_name = "alien hide piece"
-	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "chitin"
-	default_type = "alien hide"
-
-/obj/item/xenos_claw
-	name = "alien claw"
-	desc = "The claw of a terrible creature."
-	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "claw"
-
-/obj/item/weed_extract
-	name = "weed extract"
-	desc = "A piece of slimy, purplish weed."
-	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "weed_extract"
-
 /obj/item/stack/material/animalhide/barehide
 	name = "bare hide"
 	desc = "A hide without fur or scales. Can be tanned into leather."
@@ -161,7 +131,7 @@
 			user.visible_message(SPAN_NOTICE("\The [user] starts drying \the [src] with \the [WT]."), SPAN_NOTICE("You start drying the wet leather with \the [WT]..."))
 			being_dried = TRUE
 			while(do_after(user, 20, act_target = src) && wetness > 0)
-				if(!WT.remove_fuel(1) || !WT.isOn())
+				if(!WT.use(1) || !WT.isOn())
 					break
 				if(prob(5))
 					var/msg = pick("You run the tool over \the [src]...", "The leather is drying nicely...", "You spread the heat out evenly...", "You continue to dry out \the [src].")
@@ -173,7 +143,7 @@
 				if(!amount || QDELETED(src)) //Safety
 					break
 			being_dried = FALSE
-				
+
 		else
 			to_chat(user, SPAN_NOTICE("\The [WT] dries better when it's lit."))
 			return

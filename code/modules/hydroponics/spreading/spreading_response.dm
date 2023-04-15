@@ -1,16 +1,20 @@
 /obj/effect/plant/HasProximity(var/atom/movable/AM)
 
-	if(!is_mature() || seed.get_trait(TRAIT_SPREAD) != 2)
+	if(!is_mature() || (seed.get_trait(TRAIT_SPREAD) != 2 && seed.get_trait(TRAIT_CARNIVOROUS) == 0))
 		return
 
 	var/mob/living/M = AM
 	if(!istype(M))
 		return
 
+	if(!issmall(M) && seed.get_trait(TRAIT_SPREAD) != 2 && seed.get_trait(TRAIT_CARNIVOROUS) != 2)
+		// let TRAIT_CARNIVOROUS = 1 plants eat small creatures without murdering every hydroponicist
+		return
+
 	if(!buckled && !M.buckled_to && !M.anchored && (issmall(M) || prob(round(seed.get_trait(TRAIT_POTENCY)/6))))
 		//wait a tick for the Entered() proc that called HasProximity() to finish (and thus the moving animation),
 		//so we don't appear to teleport from two tiles away when moving into a turf adjacent to vines.
-		addtimer(CALLBACK(src, .proc/entangle, M), 1)
+		addtimer(CALLBACK(src, PROC_REF(entangle), M), 1)
 
 /obj/effect/plant/attack_hand(var/mob/user)
 	manual_unbuckle(user)

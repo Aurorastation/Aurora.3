@@ -43,12 +43,17 @@
 	name = "Ian"
 	real_name = "Ian"	//Intended to hold the name without altering it.
 	gender = MALE
-	desc = "It's a corgi."
+	desc = "It's Ian the corgi."
+	icon = 'icons/mob/npc/pets.dmi'
+	icon_state = "ian"
+	icon_living = "ian"
+	icon_dead = "ian_dead"
 	named = TRUE
 	//var/obj/movement_target
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
+	holder_type = /obj/item/holder/ian
 
 /mob/living/simple_animal/corgi/Ian/think()
 	..()
@@ -56,7 +61,7 @@
 	if(!stat && !resting && !buckled_to)
 		if(prob(1))
 			visible_emote(pick("dances around.","chases their tail."),0)
-			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
+			INVOKE_ASYNC(src, PROC_REF(do_dance), list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
 
 /mob/living/simple_animal/corgi/proc/do_dance(list/directions = list())
 	for(var/i in directions)
@@ -79,7 +84,7 @@
 			stop_automated_movement = 0
 			turns_since_scan = 0
 
-			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2))
+			INVOKE_ASYNC(src, PROC_REF(do_dance), list(1,2,4,8,4,2,1,2))
 	else
 		..()
 
@@ -111,6 +116,7 @@
 	icon_state = "puppy"
 	icon_living = "puppy"
 	icon_dead = "puppy_dead"
+	holder_type = /obj/item/holder/corgi
 
 	butchering_products = list(/obj/item/stack/material/animalhide/corgi = 1)
 
@@ -135,6 +141,7 @@
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
+	holder_type = /obj/item/holder/lisa
 	var/puppies = 0
 
 //Lisa already has a cute bow!
@@ -170,4 +177,4 @@
 
 	if (!stat && !resting && !buckled_to && prob(1))
 		visible_emote(pick("dances around","chases her tail"),0)
-		INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
+		INVOKE_ASYNC(src, PROC_REF(do_dance), list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))

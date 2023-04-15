@@ -36,7 +36,7 @@
 	// robots can interact with things they can see within their view range
 	if((src_object in view(src)) && get_dist(src_object, src) <= src.client.view)
 		return STATUS_INTERACTIVE	// interactive (green visibility)
-	return STATUS_DISABLED			// no updates, completely disabled (red visibility)
+	return STATUS_CLOSE			// close the UI if no longer in view
 
 /mob/living/silicon/ai/default_can_use_topic(var/src_object)
 	. = shared_nano_interaction()

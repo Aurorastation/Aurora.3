@@ -4,7 +4,7 @@
 	name_plural = "Skrell"
 	category_name = "Skrell"
 	bodytype = BODYTYPE_SKRELL
-	age_min = 30
+	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
 	economic_modifier = 12
@@ -12,11 +12,14 @@
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
 	preview_icon = 'icons/mob/human_races/skrell/skrell_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
+	tail = "No Tail"
+	tail_animation = 'icons/mob/species/skrell/tail.dmi'
+	selectable_tails = list("No Tail", "Short Tail", "Short Fish Tail", "Short Fringed Tail")
 	eyes = "skrell_eyes_s"
 	primitive_form = SPECIES_MONKEY_SKRELL
 	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/palm, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)
 
-	blurb = "Xiialt can be approximately translated to “coastals” or “land-dwellers”. These Skrell are the \
+	blurb = "Xiialt can be approximately translated to \"coastals\" or \"land-dwellers\". These Skrell are the \
 	biological cousins of the Axiori. They tend to be somewhat short, but the stout nature of the Xiialt \
 	helped them traverse the rough nature of their biome with bipedal movement. Due to this, their feet are \
 	somewhat bigger than those of an Axiori and their leg muscles are more defined. It is theorized that this \
@@ -62,6 +65,8 @@
 		BP_EYES =     /obj/item/organ/internal/eyes/skrell
 		)
 
+	pain_messages = list("I can't feel my headtails", "You really need some painkillers", "Stars above, the pain")
+
 	flesh_color = "#8CD7A3"
 	blood_color = COLOR_SKRELL_BLOOD
 	base_color = "#006666"
@@ -70,8 +75,9 @@
 	ethanol_resistance = 0.5//gets drunk faster
 	taste_sensitivity = TASTE_SENSITIVE
 
-	stamina = 90
-	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
+	stamina = 80
+	sprint_cost_factor = 0.4
+	sprint_speed_factor = 0.8
 	bp_base_systolic = 100 // Default 120
 	bp_base_disatolic = 60 // Default 80
 	low_pulse = 30 // Default 40
@@ -81,25 +87,27 @@
 	max_pulse = 130 // Default 160
 	body_temperature = T0C + 27
 
-	default_h_style = "Skrell Short Tentacles"
+	default_h_style = "Headtails"
 
-	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI, CITIZENSHIP_EUM)
-	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_NONE, RELIGION_OTHER)
-	default_citizenship = CITIZENSHIP_JARGON
-
-	default_accent = ACCENT_SKRELL
-	allowed_accents = list(ACCENT_SKRELL, ACCENT_HOMEWORLD, ACCENT_QERRMALIC, ACCENT_ALIOSE, ACCENT_AWEIJI, ACCENT_TRAVERSE, ACCENT_CETI, ACCENT_GIBSON, ACCENT_COC, ACCENT_ERIDANI,
-							ACCENT_ERIDANIDREG, ACCENT_VENUS, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_EUROPA, ACCENT_VALKYRIE, ACCENT_MICTLAN)
+	possible_cultures = list(
+		/singleton/origin_item/culture/federation,
+		/singleton/origin_item/culture/non_federation
+	)
+	
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/adjust_headtails
+	)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
-	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound
+	bodyfall_sound = /singleton/sound_category/bodyfall_skrell_sound
+	footsound = /singleton/sound_category/footstep_skrell_sound
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
 /datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
 	var/list/trail_info = ..()
 	if(!length(trail_info) && !H.shoes)
-		var/list/blood_data = REAGENT_DATA(H.vessel, /decl/reagent/blood)
+		var/list/blood_data = REAGENT_DATA(H.vessel, /singleton/reagent/blood)
 		trail_info["footprint_DNA"] = list(blood_data["blood_DNA"] = blood_data["blood_type"])
 		trail_info["footprint_color"] = rgb(H.r_skin, H.g_skin, H.b_skin, 25)
 		trail_info["footprint_type"] = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot/del_dry // makes skrellprints del on dry

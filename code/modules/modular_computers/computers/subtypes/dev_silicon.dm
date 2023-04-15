@@ -13,6 +13,7 @@
 	w_class = ITEMSIZE_NORMAL
 	enrolled = 2
 	var/mob/living/silicon/computer_host		// Thing that contains this computer. Used for silicon computers
+	looping_sound = FALSE
 
 /obj/item/modular_computer/silicon/ui_host()
 	. = computer_host
@@ -43,7 +44,7 @@
 
 /obj/item/modular_computer/silicon/Click(location, control, params)
 	return attack_self(usr)
-	
+
 /obj/item/modular_computer/silicon/install_default_hardware()
 	. = ..()
 	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
@@ -55,7 +56,7 @@
 	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
 	hard_drive.store_file(new /datum/computer_file/program/chat_client(src))
 	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))
-	addtimer(CALLBACK(src, .proc/register_chat), 1 SECOND)
+	addtimer(CALLBACK(src, PROC_REF(register_chat)), 1 SECOND)
 
 /obj/item/modular_computer/silicon/proc/register_chat()
 	set_autorun("ntnrc_client")

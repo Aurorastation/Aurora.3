@@ -4,7 +4,7 @@
 /obj/item/ore_detector
 	name = "ore detector"
 	desc = "A device capable of locating and displaying ores to the average untrained hole explorer."
-	icon = 'icons/obj/contained_items/tools/ore_scanner.dmi'
+	icon = 'icons/obj/item/tools/ore_scanner.dmi'
 	icon_state = "ore_scanner"
 	item_state = "ore_scanner"
 	w_class = ITEMSIZE_SMALL
@@ -92,7 +92,7 @@
 		if(isnull(our_user)) // in the event it's dropped midsweep
 			return
 		if((length(mine_turf.finds) && (MINOR_ARTIFACTS in search_ores)) || (mine_turf.artifact_find && (MAJOR_ARTIFACTS in search_ores)) || (mine_turf.mineral && (mine_turf.mineral.display_name in search_ores)))
-			var/image/ore_ping = image(icon = 'icons/obj/contained_items/tools/ore_scanner.dmi', icon_state = "signal_overlay", loc = our_turf, layer = OBFUSCATION_LAYER + 0.1)
+			var/image/ore_ping = image(icon = 'icons/obj/item/tools/ore_scanner.dmi', icon_state = "signal_overlay", loc = our_turf, layer = OBFUSCATION_LAYER + 0.1)
 			pixel_shift_to_turf(ore_ping, our_turf, mine_turf)
 			M << ore_ping
 			QDEL_IN(ore_ping, 4 SECONDS)

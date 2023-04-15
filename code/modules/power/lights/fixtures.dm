@@ -11,13 +11,15 @@
 	var/base_state = "tube"		// base description and icon_state
 	icon_state = "tube_empty"
 	desc = "A lighting fixture."
+	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
 	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
 	var/brightness_power = 0.45
 	var/night_brightness_range = 6
@@ -54,6 +56,7 @@
 		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
 		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
 	)
+	init_flags = 0
 
 /obj/machinery/light/skrell
 	base_state = "skrell"
@@ -85,17 +88,21 @@
 	brightness_range = 6
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
+	randomize_color = FALSE
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_RED
+	randomize_color = FALSE
 
 /obj/machinery/light/colored/blue
 	brightness_color = LIGHT_COLOR_BLUE
+	randomize_color = FALSE
 
 /obj/machinery/light/colored/red
 	brightness_color = LIGHT_COLOR_RED
+	randomize_color = FALSE
 
 /obj/machinery/light/spot
 	name = "spotlight"
@@ -107,7 +114,7 @@
 	supports_nightmode = FALSE
 
 /obj/machinery/light/spot/weak
-	name = "exterior spotlight"
+	name = "low-intensity spotlight"
 	brightness_range = 12
 	brightness_power = 1.2
 
@@ -215,24 +222,29 @@
 				stat |= BROKEN
 				set_light(0)
 		else
-			use_power = 2
-			active_power_usage = light_range * LIGHTING_POWER_FACTOR
+			update_use_power(POWER_USE_ACTIVE)
+			change_power_consumption(light_range * LIGHTING_POWER_FACTOR, POWER_USE_ACTIVE)
 			if (supports_nightmode && nightmode)
 				set_light(night_brightness_range, night_brightness_power, brightness_color)
 			else
 				set_light(brightness_range, brightness_power, brightness_color)
 	else if (has_emergency_power(LIGHT_EMERGENCY_POWER_USE) && !(stat & POWEROFF))
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 		emergency_mode = TRUE
 		var/new_power = round(max(0.5, 0.75 * (cell.charge / cell.maxcharge)), 0.1)
 		set_light(brightness_range * 0.25, new_power, LIGHT_COLOR_EMERGENCY)
 	else
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 		set_light(0)
 
 	update_icon()
 
-	active_power_usage = ((light_range * light_power) * 10)
+	change_power_consumption((light_range * light_power) * 10, POWER_USE_ACTIVE)
+
+	if((status == LIGHT_BROKEN) || emergency_mode || (cell && !cell.fully_charged() && has_power()))
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+	else if(processing_flags)
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 /obj/machinery/light/proc/broken_sparks()
 	if(world.time > next_spark && !(stat & POWEROFF) && has_power())
@@ -240,11 +252,14 @@
 		next_spark = world.time + 1 MINUTE + (rand(-15, 15) SECONDS)
 
 // ehh
-/obj/machinery/light/machinery_process()
-	if (cell && cell.charge != cell.maxcharge && has_power())
-		cell.charge = min(cell.maxcharge, cell.charge + 0.2)
+/obj/machinery/light/process()
+	if (cell && has_power())
+		cell.give(0.2)
+		if(cell.fully_charged())
+			return PROCESS_KILL
 	if (emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
 		update(FALSE)
+		return PROCESS_KILL
 	if(status == LIGHT_BROKEN)
 		broken_sparks()
 
@@ -409,6 +424,7 @@
 		user.visible_message(SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."), SPAN_WARNING("You hit \the [src], but it doesn't break."), SPAN_WARNING("You hear something hitting against glass."))
 
 /obj/machinery/light/bullet_act(obj/item/projectile/P, def_zone)
+	bullet_ping(P)
 	shatter()
 
 // returns whether this light has power
@@ -424,12 +440,12 @@
 
 	flickering = TRUE
 	var/offset = 1
-	var/thecallback = CALLBACK(src, .proc/handle_flicker)
+	var/thecallback = CALLBACK(src, PROC_REF(handle_flicker))
 	for (var/i = 0; i < amount; i++)
 		addtimer(thecallback, offset)
 		offset += rand(5, 15)
 
-	addtimer(CALLBACK(src, .proc/end_flicker), offset)
+	addtimer(CALLBACK(src, PROC_REF(end_flicker)), offset)
 
 /obj/machinery/light/proc/handle_flicker()
 	if (status == LIGHT_OK)
@@ -454,7 +470,6 @@
 // attack with hand - remove tube/bulb
 // if hands aren't protected and the light is on, burn the player
 /obj/machinery/light/attack_hand(mob/user)
-
 	add_fingerprint(user)
 
 	if(status == LIGHT_EMPTY)
@@ -473,28 +488,8 @@
 				shatter()
 				return
 
-	// make it burn hands if not wearing fire-insulated gloves
-	if(!stat)
-		var/prot = 0
-		var/mob/living/carbon/human/H = user
-
-		if(istype(H))
-			if(H.species.heat_level_1 > LIGHT_BULB_TEMPERATURE)
-				prot = 1
-			else if(H.gloves)
-				var/obj/item/clothing/gloves/G = H.gloves
-				if(G.max_heat_protection_temperature && G.max_heat_protection_temperature > LIGHT_BULB_TEMPERATURE)
-					prot = 1
-		else
-			prot = 1
-
-		if(prot || (COLD_RESISTANCE in user.mutations))
-			to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
-		else
-			to_chat(user, SPAN_WARNING("You try to remove the light [fitting], but it's too hot and you don't want to burn your hand."))
-			return				// if burned, don't remove the light
-	else
-		to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
+	if(user.a_intent != I_GRAB && status == LIGHT_OK)
+		return
 
 	// create a light tube/bulb item and put it in the user's hand
 	if(inserted_light)
@@ -513,6 +508,8 @@
 		L.add_fingerprint(user)
 
 		user.put_in_active_hand(L)	//puts it in our active hand
+
+		to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
 
 		inserted_light = null
 
@@ -604,7 +601,7 @@
 // called when area power state changes
 /obj/machinery/light/power_change()
 	SHOULD_CALL_PARENT(FALSE)
-	addtimer(CALLBACK(src, .proc/handle_power_change), rand(1, 2 SECONDS), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
+	addtimer(CALLBACK(src, PROC_REF(handle_power_change)), rand(1, 2 SECONDS), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
 /obj/machinery/light/proc/handle_power_change()
 	if (has_power())

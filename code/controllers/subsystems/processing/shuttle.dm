@@ -22,6 +22,8 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 	var/list/shuttles_to_initialize = list()     //A queue for shuttles to initialize at the appropriate time.
 	var/list/sectors_to_initialize               //Used to find all sector objects at the appropriate time.
 	var/list/initialized_sectors = list()
+	var/list/entry_points_to_initialize = list() //Entrypoints must initialize after the shuttles are done.
+	var/list/weapons_to_initialize = list() 		 //Ditto above but for ship guns.
 	var/block_queue = TRUE
 
 	var/tmp/list/working_shuttles
@@ -59,6 +61,22 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 		return
 	initialize_shuttles()
 	initialize_sectors()
+	initialize_entrypoints()
+	initialize_ship_weapons()
+
+/datum/controller/subsystem/shuttle/proc/initialize_entrypoints()
+	for(var/obj/effect/landmark/entry_point/EP in entry_points_to_initialize)
+		var/obj/effect/overmap/visitable/ship/S = EP.get_candidate()
+		if(istype(S))
+			LAZYADD(S.entry_points, EP)
+	entry_points_to_initialize.Cut()
+
+/datum/controller/subsystem/shuttle/proc/initialize_ship_weapons()
+	for(var/obj/machinery/ship_weapon/SW in weapons_to_initialize)
+		SW.sync_linked()
+		if(SW.linked)
+			LAZYADD(SW.linked.ship_weapons, SW)
+	weapons_to_initialize.Cut()
 
 /datum/controller/subsystem/shuttle/proc/initialize_shuttles()
 	var/list/shuttles_made = list()
@@ -146,7 +164,7 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 				S.motherdock = S.current_location.landmark_tag
 				mothership.shuttle_area |= S.shuttle_area
 			else
-				error("Shuttle [S] was unable to find mothership [mothership]!")
+				log_error("Shuttle [S] was unable to find mothership [mothership]!")
 
 /datum/controller/subsystem/shuttle/proc/toggle_overmap(new_setting)
 	if(overmap_halted == new_setting)
@@ -158,3 +176,9 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 
 /datum/controller/subsystem/shuttle/stat_entry()
 	..("Shuttles:[shuttles.len], Ships:[ships.len], L:[registered_shuttle_landmarks.len][overmap_halted ? ", HALT" : ""]")
+
+/datum/controller/subsystem/shuttle/proc/ship_by_type(type)
+	for (var/obj/effect/overmap/visitable/ship/ship in ships)
+		if (ship.type == type)
+			return ship
+	return null

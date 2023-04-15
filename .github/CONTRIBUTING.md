@@ -7,7 +7,7 @@ All commits whose authorship dates are not prior to `1420675200 +0000` are assum
 
 All assets including icons and sound are under a [Creative Commons 3.0 BY-SA](https://creativecommons.org/licenses/by-sa/3.0/) license unless otherwise indicated.
 
-# Github Standards
+# GitHub Standards
 
 ### Sub-licensing External Content
 **When does this section apply to me?** When you are integrating content that is **not** licensed under [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html) (code)

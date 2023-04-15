@@ -4,7 +4,6 @@
 	icon_state = "motion0"
 	layer = 3
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 10
 	var/uses = 20
 	var/disabled = 1
@@ -52,8 +51,7 @@
 					src.attack_hand(usr)
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
-			return
-	return
+	return TRUE
 
 /obj/machinery/ai_slipper/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))

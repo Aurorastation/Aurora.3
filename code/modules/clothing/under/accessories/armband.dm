@@ -10,8 +10,8 @@
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is navy blue."
 	icon_state = "sec"
 
-/obj/item/clothing/accessory/armband/cargo
-	name = "cargo armband"
+/obj/item/clothing/accessory/armband/operations
+	name = "operations armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is brown."
 	icon_state = "cargo"
 
@@ -48,6 +48,8 @@
 /obj/item/clothing/accessory/armband/offworlder
 	name = "science exo-stellar ribbon"
 	desc = "Durable cloth meant to be worn over or attached to the chest pieces of the ESS modules. This one is purple."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "ribbon_sci"
 	slot = ACCESSORY_SLOT_CAPE
 	flippable = 0
@@ -64,9 +66,19 @@
 
 /obj/item/clothing/accessory/armband/idris
 	name = "\improper Idris Incorporated armband"
-	desc = "A armband, worn by contractors to denote which company they're from. This one shows the Idris Incorporated logo  displayed on a cyan background."
+	desc = "An armband, worn by contractors to denote which company they're from. This one shows the Idris Incorporated logo  displayed on a cyan background."
 	icon_state = "idris_armband"
 	overlay_state = "idris_armband"
+
+/obj/item/clothing/accessory/armband/pmc
+	name = "\improper PMCG armband"
+	desc = "An armband, worn by contractors to denote which company they're from. This one bears the Private Military Contractor Group logo."
+	icon_state = "pmc_armband"
+	overlay_state = "pmc_armband"
+
+/obj/item/clothing/accessory/armband/pmc/alt
+	icon_state = "pmc_alt_armband"
+	overlay_state = "pmc_alt_armband"
 
 /obj/item/clothing/accessory/armband/colourable
 	name = "armband"
@@ -76,12 +88,12 @@
 /obj/item/clothing/accessory/armband/tauceti
 	name = "tau ceti armband"
 	desc = "An armband tailored to look like the flag of the Republic of Biesel."
-	desc_fluff = "While initially adopted during the early days of the TCFL to account for a sudden increase in volunteers and a lack of uniforms, during the height of the Republic of Biesel's conflicts with the Sol Alliance,\
+	desc_extended = "While initially adopted during the early days of the TCFL to account for a sudden increase in volunteers and a lack of uniforms, during the height of the Republic of Biesel's conflicts with the Sol Alliance,\
 	it has been worn as a symbol of independence and patriotism."
 	icon_state = "tauceti"
 
 /obj/item/clothing/accessory/armband/scc
 	name = "Stellar Corporate Conglomerate armband"
 	desc = "An armband, tailored with all the colors of the Sellar Corporate Conglomerate."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon_state = "scc"

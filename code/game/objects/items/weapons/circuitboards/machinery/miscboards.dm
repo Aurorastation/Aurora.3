@@ -172,26 +172,6 @@
 							"/obj/item/stock_parts/capacitor" = 2,
 							"/obj/item/stock_parts/scanning_module" = 1)
 
-/obj/item/circuitboard/crystelpodconsole
-	name = T_BOARD("Crystal Therapy Pod Console")
-	desc = "The circuitboard for a crystal therapy pod console."
-	build_path = /obj/machinery/chakraconsole
-	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
-	board_type = "machine"
-	req_components = list(
-							"/obj/item/stock_parts/scanning_module" = 2,
-							"/obj/item/stock_parts/capacitor" = 1)
-
-/obj/item/circuitboard/crystelpod
-	name = T_BOARD("Crystal Therapy Pod")
-	desc = "The circuitboard for a crystal therapy pod."
-	build_path = /obj/machinery/chakrapod
-	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
-	board_type = "machine"
-	req_components = list(
-							"/obj/item/stock_parts/scanning_module" = 2,
-							"/obj/item/stock_parts/capacitor" = 2)
-
 /obj/item/circuitboard/weapons_analyzer
 	name = T_BOARD("Weapons Analyzer")
 	desc = "The circuitboard for a weapons analyzer."
@@ -202,3 +182,15 @@
 							"/obj/item/stock_parts/scanning_module" = 2,
 							"/obj/item/stock_parts/capacitor" = 1,
 							"/obj/item/stock_parts/console_screen" = 1)
+
+/obj/item/circuitboard/iv_drip
+	name = T_BOARD("IV drip")
+	desc = "The circuitboard for an IV drip."
+	build_path = /obj/machinery/iv_drip
+	origin_tech = list(TECH_DATA = 1, TECH_BIO = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/reagent_containers/syringe" = 1,
+							"/obj/item/stock_parts/matter_bin" = 1,
+							"/obj/item/stock_parts/manipulator" = 1,
+							"/obj/item/stock_parts/scanning_module" = 1)

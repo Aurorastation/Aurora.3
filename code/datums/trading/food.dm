@@ -39,8 +39,8 @@
 		box.pizza = M
 		box.boxtag = "A special order from [origin]"
 
-/datum/trader/chinese
-	name = "Chinese Restaurant"
+/datum/trader/konyang
+	name = "Konyanger Restaurant"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Captain Panda Bistro"
 	trade_flags = TRADER_GOODS|TRADER_MONEY|TRADER_WANTED_ONLY
@@ -51,8 +51,6 @@
 		)
 
 	possible_trading_items = list(
-		/obj/item/reagent_containers/food/snacks/monkeykabob                = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/monkeysdelight             = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/ricepudding                = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/soydope                    = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/stewedsoymeat              = TRADER_THIS_TYPE,
@@ -63,7 +61,13 @@
 		/obj/item/reagent_containers/food/snacks/friedrice                  = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/pisanggoreng               = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/chickenmomo                = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/veggiemomo                 = TRADER_THIS_TYPE
+		/obj/item/reagent_containers/food/snacks/veggiemomo                 = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/mossbowl                   = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/soup/maeuntang             = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/soup/miyeokguk             = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/moss_dumplings             = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/sushi                      = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/sashimi                    = TRADER_THIS_TYPE
 	)
 
 	var/list/fortunes = list(
@@ -80,7 +84,7 @@
 	)
 
 	speech = list(
-		"hail_generic"       = "There are two things constant in life, death and Chinese food. How may I help you?",
+		"hail_generic"       = "There are two things constant in life, death and Konyanger food. How may I help you?",
 		"hail_deny"          = "We do not take orders from rude customers.",
 		"trade_complete"     = "Thank you, sir, for your patronage.",
 		"trade_blacklist"    = "No, that is very odd. Why would you trade that away?",
@@ -96,7 +100,7 @@
 		"bribe_accept"       = "Oh yes! I think I'll stay a few more minutes, then."
 	)
 
-/datum/trader/chinese/trade(var/list/offers, var/num, var/turf/location)
+/datum/trader/konyang/trade(var/list/offers, var/num, var/turf/location)
 	. = ..()
 	if(.)
 		var/obj/item/reagent_containers/food/snacks/fortunecookie/cookie = new(location)
@@ -108,7 +112,7 @@
 /datum/trader/grocery
 	name = "Grocer"
 	name_language = TRADER_DEFAULT_NAME
-	possible_origins = list("HyTee", "Kreugars", "Spaceway", "Privaxs", "FutureValue")
+	possible_origins = list("HyTee", "Kreugars", "Spaceway", "Privaxs", "FutureValue", "Orion Express SpaceMart")
 	trade_flags = TRADER_MONEY
 
 	possible_trading_items = list(
@@ -183,4 +187,139 @@
 		/obj/item/reagent_containers/food/snacks/sliceable/cake/brain            = TRADER_BLACKLIST,
 		/obj/item/reagent_containers/food/snacks/pie                             = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/applepie                        = TRADER_THIS_TYPE
+	)
+
+/datum/trader/liquor_store
+	name = "Liquor Store"
+	name_language = TRADER_DEFAULT_NAME
+	possible_origins = list("Drinks and More", "The Space Stop", "Safe Piloting", "The Beer Shop", "Idris Incorporated Cocktails", "Orion Express Liquor Store")
+	trade_flags = TRADER_MONEY
+
+	possible_trading_items = list(
+		/obj/item/reagent_containers/food/drinks/cans                 = TRADER_SUBTYPES_ONLY,
+		/obj/item/reagent_containers/food/drinks/bottle               = TRADER_SUBTYPES_ONLY,
+		/obj/item/reagent_containers/food/drinks/bottle/small         = TRADER_BLACKLIST,
+	)
+
+	speech = list(
+		"hail_generic"       = "Welcome to ORIGIN, the best choice in alcholic and soft drinks!",
+		"hail_deny"          = "I'm sorry, we've blacklisted your communications due to rude behavior.",
+		"trade_complete"     = "Thank you for shopping at ORIGIN!",
+		"trade_blacklist"    = "We do not accept that.",
+		"trade_no_goods"     = "We only accepts cash.",
+		"trade_not_enough"   = "That is not enough money.",
+		"how_much"           = "That'll cost you VALUE credits. Will that be all?",
+		"compliment_deny"    = "Sir, this is a professional environment. Please don't make me get my manager.",
+		"compliment_accept"  = "Thank you. Remember to do not drink and pilot!",
+		"insult_good"        = "Sir, please do not make a scene.",
+		"insult_bad"         = "Sir, I WILL get my manager if you don't calm down.",
+		"bribe_refusal"      = "Of course sir! ORIGIN is always here for you!"
+	)
+
+/datum/trader/adhomian_food
+	name = "Adhomian Restaurant"
+	name_language = LANGUAGE_SIIK_MAAS
+	origin = "Adhomian Restaurant"
+	possible_origins = list("Adhomian Delicacies", "Little Rafama Cantina", "The Taste of Home", "Tajaran Home Cuisine", "From Adhomai to Them", "The Cauldron")
+	trade_flags = TRADER_MONEY
+
+	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL) //only in places with some tajaran presence
+
+	possible_trading_items = list(
+		/obj/item/reagent_containers/food/snacks/tajaran_bread               = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/hardbread                   = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/soup/earthenroot            = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/adhomian_sausage            = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/nomadskewer                 = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/fermented_worm              = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/cone_cake                   = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/fruit_rikazu                = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/meat_rikazu                 = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/vegetable_rikazu            = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/chocolate_rikazu            = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/dirt_roast                  = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/sliceable/fatshouter_fillet = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull     = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/creamice                    = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/chipplate/tajcandy          = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/explorer_ration             = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/spicy_clams                 = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/adhomian_can                = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/stew/tajaran                = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/lardwich                    = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/victorygin           = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/messa_mead           = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/darmadhir_brew       = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater   = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/veterans_choice      = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water  = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor       = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine    = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz       = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda        = TRADER_THIS_TYPE
+	)
+
+	speech = list(
+		"hail_generic"       = "Welcome to ORIGIN! Only herrre they can find rrreal Adhomian cuisine outside of Adhomai!",
+		"hail_Tajara"        = "They have come to the rrright place if they miss the taste of home.",
+		"hail_deny"          = "They arrre no longer welcome in theirrr restaurant.",
+		"trade_complete"     = "Theirrr thanks!",
+		"trade_blacklist"    = "They do not need it.",
+		"what_want"          = "They need something like this.",
+		"trade_no_goods"     = "They only accept crrredits.",
+		"trade_not_enough"   = "This is not enough to pay forrr theirrr amazing dishes.",
+		"how_much"           = "This wonderrrful dish is only VALUE crrredits.",
+		"compliment_deny"    = "That is strrrange...",
+		"compliment_accept"  = "They will say thanks to theirrr chefs in theirrr behalf.",
+		"insult_good"        = "Grrreat joke. Arrre they interrrested in buying any of theirrr dishes?",
+		"insult_bad"         = "Come down herrre and say that to theirrr faces.",
+		"bribe_refusal"      = "They do not need charrrity.",
+		"bribe_accept"       = "They can stay open for a little longerrr."
+	)
+
+/datum/trader/unathi_food
+	name = "Sinta Restaurant"
+	name_language = LANGUAGE_UNATHI
+	origin = "Sinta Restaurant"
+	possible_origins = list("Esteemed Epicureans of Moghes Trading Company", "The Delicacy Deliverer's Guild", "Mo'gunz Merchants")
+	trade_flags = TRADER_MONEY
+
+	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_GAKAL)
+
+	possible_trading_items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/grilled_carp               = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/sliceable/sushi_roll                 = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/sintapudding                         = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/chilied_eggs                         = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/hatchling_suprise                    = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/red_sun_special                      = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/father_breakfast                     = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/stuffed_meatball                     = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/egg_pancake                          = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/riztizkzi_sea                        = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/razirnoodles                         = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/batwings                             = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/stuffedfish                          = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/stuffedcarp                          = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/roefritters                          = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/jellystew                            = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice              = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine                   = TRADER_THIS_TYPE
+	)
+
+	speech = list(
+		"hail_generic"       = "Good day, and welcome! Feeling hungry?",
+		"hail_Unathi"        = "Ah... a pleasssure, for.. esssteemed kin",
+		"hail_deny"          = "What do you mean they're onto usss- We're closed, sssee you another time!",
+		"trade_complete"     = "Another quick sssca- sssettlement! Thank you, friend!",
+		"trade_blacklist"    = "That jussst won't work.",
+		"trade_no_goods"     = "That jussst won't work.",
+		"trade_not_enough"   = "That jussst won't work.",
+		"how_much"           = "Ah! A mere VALUE.",
+		"compliment_deny"    = "Right, okay, but can we move to the trading part, though? We uh... have places to be.",
+		"compliment_accept"  = "Well thank you! Only the bessst - and mossst legitimate - jussst for you, you very flattering friend!",
+		"insult_good"        = "Where did thisss come from! Are you looking for trouble? Do you know who we are - legitimate tradersss of courssse!",
+		"insult_bad"         = "You think we're just random tradersss?! You have no ideas who you're messsing with!",
+		"bribe_refusal"      = "Thisss iss too little,",
+		"bribe_accept"       = "Thank you for your donation!"
 	)

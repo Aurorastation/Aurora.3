@@ -102,3 +102,20 @@
 /obj/effect/overlay/temp/explosion/fast
 	icon_state = "explosionfast"
 	duration = 4
+
+/obj/effect/overlay/closet_door
+	anchored = TRUE
+	plane = FLOAT_PLANE
+	layer = FLOAT_LAYER
+	vis_flags = VIS_INHERIT_ID
+	appearance_flags = KEEP_TOGETHER | LONG_GLIDE | PIXEL_SCALE
+
+/obj/effect/overlay/teleport_pulse
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "emppulse"
+	mouse_opacity = FALSE
+	anchored = TRUE
+
+/obj/effect/overlay/teleport_pulse/Initialize(mapload, ...)
+	. = ..()
+	QDEL_IN(src, 8)

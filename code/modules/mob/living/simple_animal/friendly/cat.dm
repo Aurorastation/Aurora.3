@@ -59,7 +59,7 @@
 				if(prob(15))
 					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
 
-				addtimer(CALLBACK(src, .proc/attack_mice), 2)
+				addtimer(CALLBACK(src, PROC_REF(attack_mice)), 2)
 				break
 
 
@@ -103,7 +103,7 @@
 /mob/living/simple_animal/cat/Released()
 	//A thrown cat will immediately attack mice near where it lands
 	handle_movement_target()
-	addtimer(CALLBACK(src, .proc/attack_mice), 3)
+	addtimer(CALLBACK(src, PROC_REF(attack_mice)), 3)
 	..()
 
 /mob/living/simple_animal/cat/proc/handle_radiation_light()
@@ -150,7 +150,7 @@
 
 /mob/living/simple_animal/cat/death()
 	.=..()
-	stat = DEAD
+	set_stat(DEAD)
 
 /mob/living/simple_animal/cat/Life()
 	. = ..()
@@ -159,7 +159,7 @@
 /mob/living/simple_animal/cat/apply_radiation_effects()
 	. = ..()
 	if(.)
-		apply_effect((rand(30,60)),IRRADIATE,blocked=0)
+		apply_damage((rand(30,60)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /mob/living/simple_animal/cat/proc/handle_flee_target()
 	//see if we should stop fleeing
@@ -343,3 +343,21 @@
 	icon_dead = "penny_dead"
 	icon_rest = "penny_rest"
 	holder_type = /obj/item/holder/cat/penny
+
+/mob/living/simple_animal/cat/crusher
+	name = "Crusher"
+	desc = "A cream coloured, young, and cuddly cat, with a small tag on her collar that says \"Dr. Crusher\". She never lets an opportunity pass to receive some pets or prey on some unsuspecting mice."
+	named = TRUE
+	gender = FEMALE
+	icon_state = "crusher"
+	icon_state = "crusher"
+	icon_living = "crusher"
+	icon_dead = "crusher_dead"
+	icon_rest = "crusher_rest"
+	can_nap = TRUE
+	holder_type = /obj/item/holder/cat/crusher
+
+/mob/living/simple_animal/cat/crusher/examine(mob/user)
+	..()
+	if(stat == DEAD)
+		to_chat(user, "Crusher's dead. How could this have happened? She counted on you!")

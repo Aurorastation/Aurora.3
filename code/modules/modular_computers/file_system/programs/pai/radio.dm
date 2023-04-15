@@ -2,6 +2,7 @@
 	filename = "pai_radio"
 	filedesc = "Radio Configuration"
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program is used to configure the integrated pAI radio."
 	size = 0
 
@@ -25,7 +26,7 @@
 	var/headerdata = get_header_data(data["_PC"])
 	if(headerdata)
 		data["_PC"] = headerdata
-	
+
 	if(!istype(computer, /obj/item/modular_computer/silicon))
 		return
 	var/obj/item/modular_computer/silicon/true_computer = computer
@@ -33,8 +34,8 @@
 		return
 	var/mob/living/silicon/pai/host = true_computer.computer_host
 
-	data["listening"] = host.radio.broadcasting
-	data["frequency"] = format_frequency(host.radio.frequency)
+	data["listening"] = host.radio.get_broadcasting()
+	data["frequency"] = format_frequency(host.radio.get_frequency())
 	VUEUI_SET_CHECK_IFNOTSET(data["radio_range"], host.radio.canhear_range, ., data)
 	host.radio.canhear_range = data["radio_range"]
 

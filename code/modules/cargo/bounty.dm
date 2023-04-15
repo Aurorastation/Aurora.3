@@ -88,9 +88,7 @@
 // It handles items shipped for bounties.
 /datum/controller/subsystem/cargo/proc/bounty_ship_item_and_contents(atom/movable/AM, dry_run=FALSE)
 	var/list/matched_one = FALSE
-	var/list/contents = list()
-	contents += AM
-	contents += AM.GetAllContents()
+	var/list/contents = AM.GetAllContents()
 	for(var/thing in reverseRange(contents))
 		var/matched_this = FALSE
 		for(var/datum/bounty/B in bounties_list)
@@ -210,7 +208,7 @@
 	try_add_bounty(new r_subtype)
 
 	if(prob(60))
-		//phoron arc bounties. remove when arc is done.
+		//phoron bounties
 		var/datum/bounty/item/phoron_bounty = pick(/datum/bounty/item/phoron_sheet, /datum/bounty/item/solar_array)
 		try_add_bounty(new phoron_bounty)
 	else
@@ -227,4 +225,3 @@
 		if(B.claimed)
 			++count
 	return count
-

@@ -6,7 +6,6 @@
 
 /datum/psionic_power/psychokinesis
 	faculty = PSI_PSYCHOKINESIS
-	use_manifest = TRUE
 	use_sound = null
 
 /datum/psionic_power/psychokinesis/psiblade
@@ -14,6 +13,7 @@
 	cost =            10
 	cooldown =        30
 	min_rank =        PSI_RANK_OPERANT
+	use_manifest = TRUE
 	use_description = "Click on or otherwise activate an empty hand while on harm intent to manifest a psychokinetic cutting blade. The power the blade will vary based on your mastery of the faculty."
 	admin_log = FALSE
 
@@ -37,6 +37,7 @@
 	cost =            5
 	cooldown =        10
 	min_rank =        PSI_RANK_MASTER
+	use_manifest = TRUE
 	use_description = "Click on or otherwise activate an empty hand while on grab intent to manifest a psychokinetic tool. Use it in-hand to switch between tool types."
 	admin_log = FALSE
 

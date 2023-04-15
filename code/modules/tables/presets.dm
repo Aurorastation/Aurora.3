@@ -39,6 +39,11 @@
 	table_mat = MATERIAL_WOOD
 	table_reinf = MATERIAL_WOOD
 
+/obj/structure/table/reinforced/glass
+	table_mat = MATERIAL_GLASS_REINFORCED
+	table_reinf = MATERIAL_GLASS_REINFORCED
+	alpha = 77 // 0.3 * 255
+
 /obj/structure/table/wood
 	icon_state = "plain_preview"
 	table_mat = MATERIAL_WOOD
@@ -55,6 +60,10 @@
 /obj/structure/table/skrell
 	icon_state = "skrell_preview"
 	table_mat = MATERIAL_SHUTTLE_SKRELL
+
+/obj/structure/table/diona
+	icon_state = "biomass_preview"
+	table_mat = MATERIAL_DIONA
 
 /obj/structure/table/holotable
 	icon_state = "holo_preview"

@@ -1,8 +1,8 @@
 /obj/machinery/computer/cloning
 	name = "cloning control console"
-
 	icon_screen = "dna"
-	light_color = "#315ab4"
+	icon_keyboard = "teal_key"
+	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/cloning
 	req_access = list(access_genetics)
 	var/obj/machinery/dna_scannernew/scanner = null //Linked scanner. For scanning.
@@ -94,10 +94,9 @@
 			src.diskette = W
 			to_chat(user, "You insert [W].")
 			src.updateUsrDialog()
-			return
+			return TRUE
 	else
-		..()
-	return
+		return ..()
 
 /obj/machinery/computer/cloning/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
@@ -187,7 +186,7 @@
 					H=locate(src.active_record.implant)
 
 				if ((H) && (istype(H)))
-					dat += "<b>Health:</b> [H.sensehealth()] | OXY-BURN-TOX-BRUTE<br>"
+					dat += "<b>Health:</b> [H.sensehealth()] | OXY-BURN-TOXIN-BRUTE<br>"
 				else
 					dat += "<font color=red>Unable to locate implant.</font><br>"
 
@@ -385,7 +384,7 @@
 	if ((!subject.ckey) || (!subject.client))
 		scantemp = "Error: Mental interface failure."
 		return
-	if (NOCLONE in subject.mutations)
+	if (HAS_FLAG(subject.mutations, NOCLONE))
 		scantemp = "Error: Mental interface failure."
 		return
 	if (subject.species && subject.species.flags & NO_SCAN)

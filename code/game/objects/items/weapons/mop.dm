@@ -54,8 +54,8 @@
 
 /obj/effect/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/mop) || istype(I, /obj/item/soap))
-		return
-	..()
+		return FALSE
+	return ..()
 
 /obj/item/mop/update_icon()
 	icon_state = "[initial(icon_state)][reagents.total_volume > 1 ? "_wet" : null]"
@@ -77,7 +77,7 @@
 	cleantime = 15
 	var/refill_enabled = TRUE //Self-refill toggle for when a janitor decides to mop with something other than water.
 	var/refill_rate = 0.5 //Rate per process() tick mop refills itself
-	var/refill_reagent = /decl/reagent/water //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
+	var/refill_reagent = /singleton/reagent/water //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
 
 /obj/item/mop/advanced/New()
 	..()

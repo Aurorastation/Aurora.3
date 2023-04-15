@@ -67,8 +67,8 @@
 	item_state = "beret_hydro"
 
 /obj/item/clothing/head/beret/cargo
-	name = "cargo beret"
-	desc = "A beret with the cargo insignia emblazoned on it. Get attacked by a manhack hiding in a crate - in style!"
+	name = "operations beret"
+	desc = "A beret with the operations insignia emblazoned on it."
 	icon_state = "beret_cargo"
 	item_state = "beret_cargo"
 
@@ -98,61 +98,13 @@
 	icon_state = "beret_hos"
 	item_state = "beret_hos"
 
-/obj/item/clothing/head/beret/security/hos/corp
-	name = "corporate commander beret"
-	desc = "A beret in corporate black with a commander's rank emblem. For heads of security that are more inclined towards style than safety."
-	icon_state = "corp"
-	item_state = "corp"
-
 /obj/item/clothing/head/beret/security/warden
 	name = "warden beret"
 	desc = "A beret in security navy blue with a warden's rank emblem. For wardens that are more inclined towards style than safety."
 	icon_state = "beret_warden"
 	item_state = "beret_warden"
 
-/obj/item/clothing/head/beret/security/warden/corp
-	name = "corporate warden beret"
-	desc = "A beret in corporate black with a warden's rank emblem. For wardens that are more inclined towards style than safety."
-	icon_state = "corp"
-	item_state = "corp"
-
 // Corporate.
-
-/obj/item/clothing/head/beret/security/corp
-	name = "corporate security beret"
-	desc = "A beret in corporate black. For those who pledge allegiance to no flag nor banner, but their paycheck."
-	icon_state = "corp"
-	item_state = "corp"
-
-/obj/item/clothing/head/beret/security/idris
-	name = "idris beret"
-	desc = "A beret with the Idris Incorporated insignia emblazoned on it in a gold finish."
-	icon_state = "idris"
-	item_state = "idris"
-
-/obj/item/clothing/head/beret/security/idris/alt
-	name = "idris beret"
-	desc = "A beret with the Idris Incorporated insignia emblazoned on it in a cyan finish."
-	icon_state = "idrisalt"
-	item_state = "idrisalt"
-
-/obj/item/clothing/head/beret/security/zavodskoi
-	name = "zavodskoi interstellar security beret"
-	desc = "A black beret with the Zavodskoi Interstellar insignia emblazoned on it."
-	icon_state = "necrosec"
-	item_state = "necrosec"
-
-/obj/item/clothing/head/beret/security/zavodskoi/alt
-	name = "zavodskoi interstellar security beret"
-	desc = "A brown beret with the Zavodskoi Interstellar insignia emblazoned on it."
-	icon_state = "necrosecalt"
-	item_state = "necrosecalt"
-
-/obj/item/clothing/head/beret/security/eri
-	name = "eridani security beret"
-	desc = "A beret with the Eridani PMC insignia emblazoned on it."
-	icon_state = "eridani"
-	item_state = "eridani"
 
 /obj/item/clothing/head/beret/iac
 	name = "IAC beret"
@@ -160,23 +112,67 @@
 	icon_state = "iac"
 	item_state = "iac"
 
-/obj/item/clothing/head/beret/zeng
+/obj/item/clothing/head/beret/corporate
+	name = "nanotrasen beret"
+	desc = "A beret with the NanoTrasen insignia emblazoned on it."
+	icon_state = "nt"
+	item_state = "nt"
+
+/obj/item/clothing/head/beret/corporate/zeng
 	name = "zeng-hu beret"
-	desc = "A purple beret with the Zeng-Hu insignia emblazoned on it."
+	desc = "A beret with the Zeng-Hu insignia emblazoned on it."
 	icon_state = "zenghu"
 	item_state = "zenghu"
 
-/obj/item/clothing/head/beret/zeng/alt
-	name = "zeng-hu beret"
-	desc = "A white beret with the Zeng-Hu insignia emblazoned on it."
+/obj/item/clothing/head/beret/corporate/zeng/alt
 	icon_state = "zenghualt"
 	item_state = "zenghualt"
 
-/obj/item/clothing/head/beret/heph
+/obj/item/clothing/head/beret/corporate/zavod
+	name = "zavodskoi interstellar beret"
+	desc = "A beret with the Zavodskoi Interstellar insignia emblazoned on it."
+	icon_state = "zav"
+	item_state = "zav"
+
+/obj/item/clothing/head/beret/corporate/zavod/alt
+	icon_state = "zavalt"
+	item_state = "zavalt"
+
+/obj/item/clothing/head/beret/corporate/heph
 	name = "hephaestus beret"
 	desc = "A green beret with the Hephaestus insignia emblazoned on it."
 	icon_state = "heph"
 	item_state = "heph"
+
+/obj/item/clothing/head/beret/corporate/pmc
+	name = "PMCG beret"
+	desc = "A beret with the PMCG insignia emblazoned on it."
+	icon_state = "pmc"
+	item_state = "pmc"
+
+/obj/item/clothing/head/beret/corporate/pmc/epmc
+	name = "epmc beret"
+	desc = "A beret with the Eridani Private Military Contractor logo emblazoned on it."
+	icon_state = "epmc"
+	item_state = "epmc"
+
+/obj/item/clothing/head/beret/corporate/idris
+	name = "idris beret"
+	desc = "A beret with the Idris Incorporated insignia emblazoned on it."
+	icon_state = "idris"
+	item_state = "idris"
+
+/obj/item/clothing/head/beret/corporate/idris/alt
+	icon_state = "idrisalt"
+	item_state = "idrisalt"
+
+/obj/item/clothing/head/beret/corporate/orion
+	name = "orion express beret"
+	desc = "A beret with the Orion Express insignia emblazoned on it."
+	icon_state = "orion"
+	item_state = "orion"
+
+// TCFL
 
 /obj/item/clothing/head/beret/legion
 	name = "TCFL dress beret"
@@ -198,12 +194,6 @@
 
 //centcom
 
-/obj/item/clothing/head/beret/centcom/liaison
-	name = "corporate liaison beret"
-	desc = "A stylish beret worn by corporate liaisons."
-	icon_state = "centcomofficer"
-	item_state = "centcomofficer"
-
 /obj/item/clothing/head/beret/centcom/officer
 	name = "officers beret"
 	desc = "A black beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
@@ -224,6 +214,6 @@
 
 /obj/item/clothing/head/beret/centcom/commander
 	name = "commander's beret"
-	desc = "A black beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
+	desc = "A black beret adorned with the crest of an ERT detachment. Worn by commanders of NanoTrasen response teams."
 	icon_state = "centcomcaptain"
 	item_state = "centcomcaptain"

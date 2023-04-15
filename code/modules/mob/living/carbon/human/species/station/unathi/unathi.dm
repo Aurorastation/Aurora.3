@@ -4,12 +4,13 @@
 	name_plural = "Unathi"
 	category_name = "Unathi"
 	bodytype = BODYTYPE_UNATHI
-	icobase = 'icons/mob/human_races/unathi/r_lizard.dmi'
-	deform = 'icons/mob/human_races/unathi/r_def_lizard.dmi'
+	icobase = 'icons/mob/human_races/unathi/r_unathi.dmi'
+	deform = 'icons/mob/human_races/unathi/r_def_unathi.dmi'
 	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
-	tail = "sogtail"
+	tail = "Tail"
 	tail_animation = 'icons/mob/species/unathi/tail.dmi'
+	selectable_tails = list("Tail")
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
@@ -19,12 +20,13 @@
 	)
 	primitive_form = SPECIES_MONKEY_UNATHI
 	darksight = 3
-	gluttonous = GLUT_MESSY
+	gluttonous = GLUT_MESSY|GLUT_ITEM_TINY
 	stomach_capacity = 7
 	slowdown = 0.5
 
 	brute_mod = 0.8
 	fall_mod = 1.2
+	radiation_mod = 0.9 // how else did they survive nuclear armageddon?
 	grab_mod = 1.25 // Huge, usually have horns
 	resist_mod = 2.5 // Arguably our strongest organic species
 
@@ -111,24 +113,19 @@
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
-	pain_emotes_with_pain_level = list(
-			list(/decl/emote/audible/wheeze, /decl/emote/audible/roar, /decl/emote/audible/bellow) = 80,
-			list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/wheeze, /decl/emote/audible/hiss) = 50,
-			list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/hiss) = 20,
-		)
-
 	pain_messages = list("It hurts so much", "You really need some painkillers", "Ancestors, it hurts")
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-	allowed_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI)
-	allowed_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_MOROZ, RELIGION_NONE, RELIGION_OTHER)
-	default_citizenship = CITIZENSHIP_IZWESKI
+	possible_cultures = list(
+		/singleton/origin_item/culture/izweski,
+		/singleton/origin_item/culture/traditionalists,
+		/singleton/origin_item/culture/spaceborn,
+		/singleton/origin_item/culture/dominian_unathi,
+		/singleton/origin_item/culture/autakh
+	)
 
 	zombie_type = SPECIES_ZOMBIE_UNATHI
-
-	default_accent = ACCENT_HEGEMON_PEASANT
-	allowed_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR)
 
 	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
 
@@ -137,5 +134,4 @@
 	if(H.shoes)
 		return
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
-	if(H.equip_to_slot_or_del(S,slot_shoes))
-		S.autodrobe_no_remove = TRUE
+	H.equip_to_slot_or_del(S,slot_shoes)

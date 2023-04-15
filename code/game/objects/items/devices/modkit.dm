@@ -22,7 +22,7 @@
 		return	//it shouldn't be null, okay?
 
 	if(!parts)
-		to_chat(user, "<span class='warning'>This kit has no parts for this modification left.</span>")
+		to_chat(user, SPAN_WARNING("This kit has no parts for this modification left!"))
 		user.drop_from_inventory(src,O)
 		qdel(src)
 		return
@@ -34,22 +34,25 @@
 
 	var/obj/item/clothing/I = O
 	if (!istype(I) || !allowed || !I.refittable)
-		to_chat(user, "<span class='notice'>[src] is unable to modify that.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is unable to modify that."))
 		return
 
 	var/excluding = ("exclude" in I.species_restricted)
 	var/in_list = (target_species in I.species_restricted)
 	if (excluding ^ in_list)
-		to_chat(user, "<span class='notice'>[I] is already modified.</span>")
+		to_chat(user, SPAN_NOTICE("\The [I] is already modified!"))
 		return
 
 	if(!isturf(O.loc))
-		to_chat(user, "<span class='warning'>[O] must be safely placed on the ground for modification.</span>")
+		to_chat(user, SPAN_WARNING("\The [O] must be safely placed on the ground for modification."))
 		return
 
 	playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
 
-	user.visible_message("<span class='notice'>\The [user] opens \the [src] and modifies \the [O].</span>","<span class='notice'>You open \the [src] and modify \the [O].</span>")
+	user.visible_message(
+		SPAN_NOTICE("\The [user] opens \the [src] and modifies \the [O]."),
+		SPAN_NOTICE("You open \the [src] and modify \the [O].")
+	)
 
 	I.refit_for_species(target_species)
 
@@ -68,7 +71,7 @@
 
 /obj/item/device/modkit/tajaran
 	name = "tajaran hardsuit modification kit"
-	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user. This one looks like it's meant for Tajara."
+	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user. This one looks like it's meant for tajara."
 	target_species = BODYTYPE_TAJARA
 
 /obj/item/voidsuit_modkit
@@ -141,14 +144,14 @@
 	icon_state = "himeo_kit"
 	item_state = "himeo_kit"
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit."
-	desc_fluff = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
+	desc_extended = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
 	for use by miners originating from the planet. Most of these suits are assembled in Cannington and painstakingly optimized on-site by their\
 	individual operator leading to a large trail of red tape as NanoTrasen is forced to inspect these suits to ensure their safety."
 
 /obj/item/voidsuit_modkit/himeo/tajara
 	name = "tajaran himeo voidsuit kit"
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit fitted for Tajara."
-	desc_fluff = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
+	desc_extended = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
 	for use by miners and engineers originating from the planet. Most of these suits are assembled in Cannington and painstakingly optimized on-site by their\
 	individual operator leading to a large trail of red tape as NanoTrasen is forced to inspect these suits to ensure their safety."
 	suit_options = list(
@@ -161,3 +164,139 @@
 		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/suit/space/void/atmos/himeo/tajara,
 		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/himeo/tajara
 	)
+
+/obj/item/voidsuit_modkit/srf
+	name = "srf voidsuit kit"
+	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/srf,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/srf
+	)
+
+/obj/item/voidsuit_modkit/league
+	name = "league voidsuit kit"
+	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/league,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/league
+	)
+
+/obj/item/voidsuit_modkit/fsf
+	name = "fsf voidsuit kit"
+	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/fsf,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/fsf
+	)
+
+/obj/item/voidsuit_modkit/ssmd
+	name = "ssmd voidsuit kit"
+	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/ssmd,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/ssmd
+	)
+
+/obj/item/voidsuit_modkit/spg
+	name = "spg voidsuit kit"
+	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/spg,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/spg
+	)
+
+/obj/item/voidsuit_modkit/mrsp
+	name = "mrsp voidsuit kit"
+	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/mrsp,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/mrsp
+	)
+
+/obj/item/voidsuit_modkit/sfa
+	name = "sfa voidsuit kit"
+	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/sfa,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/sfa
+	)
+	
+/obj/item/voidsuit_modkit/dominianvoid
+	name = "dominian voidsman's voidsuit kit"
+	desc = "A highly complicated device that allows you to convert a Dominian prejoroub combat suit into its voidsman counterpart. Practical!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/dominia = /obj/item/clothing/head/helmet/space/void/dominia/voidsman,
+		/obj/item/clothing/suit/space/void/dominia = /obj/item/clothing/suit/space/void/dominia/voidsman
+	)
+
+/obj/item/storage/box/srf
+	name = "srf modkit box"
+	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."
+	starts_with = list(/obj/item/voidsuit_modkit/srf = 4)
+
+/obj/item/storage/box/league
+	name = "league modkit box"
+	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."
+	starts_with = list(/obj/item/voidsuit_modkit/league = 4)
+
+/obj/item/storage/box/fsf
+	name = "fsf modkit box"
+	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."
+	starts_with = list(/obj/item/voidsuit_modkit/fsf = 4)
+
+/obj/item/storage/box/ssmd
+	name = "ssmd modkit box"
+	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."
+	starts_with = list(/obj/item/voidsuit_modkit/ssmd = 4)
+
+/obj/item/storage/box/spg
+	name = "spg modkit box"
+	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."
+	starts_with = list(/obj/item/voidsuit_modkit/spg = 4)
+
+/obj/item/storage/box/mrsp
+	name = "mrsp modkit box"
+	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."
+	starts_with = list(/obj/item/voidsuit_modkit/mrsp = 4)
+
+/obj/item/storage/box/sfa
+	name = "sfa modkit box"
+	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."
+	starts_with = list(/obj/item/voidsuit_modkit/sfa = 4)
+	
+/obj/item/storage/box/dominianvoid
+	name = "dominian voidsman's modkit box"
+	desc = "Contains modkits to convert Dominian voidsuits into a voidsman's variant."
+	starts_with = list(/obj/item/voidsuit_modkit/dominianvoid = 4)

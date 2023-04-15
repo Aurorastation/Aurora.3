@@ -17,7 +17,6 @@
 	SScult.add_rune(rune)
 
 /obj/effect/rune/Destroy()
-	SScult.remove_rune(rune)
 	QDEL_NULL(rune)
 	return ..()
 
@@ -33,12 +32,11 @@
 /obj/effect/rune/attackby(obj/I, mob/user)
 	if(istype(I, /obj/item/book/tome) && iscultist(user))
 		rune.do_tome_action(user, I)
-		return
+		return TRUE
 	else if(istype(I, /obj/item/nullrod))
 		to_chat(user, SPAN_NOTICE("You disrupt the vile magic with the deadening field of \the [I]!"))
 		qdel(src)
-		return
-	return
+		return TRUE
 
 /obj/effect/rune/attack_hand(mob/living/user)
 	if(!iscultist(user))

@@ -50,14 +50,21 @@
 	equipment_darkness_modifier = 0
 	equipment_overlays.Cut()
 
-	if(istype(src.head, /obj/item/clothing/head))
-		add_clothing_protection(head)
-	if(istype(src.glasses, /obj/item/clothing/glasses))
-		process_glasses(glasses)
-	if(istype(src.wear_mask, /obj/item/clothing/mask))
-		add_clothing_protection(wear_mask)
-	if(istype(back,/obj/item/rig))
-		process_rig(back)
+	var/binoc_check
+	if(client)
+		binoc_check = client.view == world.view
+	else
+		binoc_check = TRUE
+
+	if ((!client || client.eye == src || client.eye == loc || client.eye == z_eye) && binoc_check) // !client is so the unit tests function
+		if(istype(src.head, /obj/item/clothing/head))
+			add_clothing_protection(head)
+		if(istype(src.glasses, /obj/item/clothing/glasses))
+			process_glasses(glasses)
+		if(istype(src.wear_mask, /obj/item/clothing/mask))
+			add_clothing_protection(wear_mask)
+		if(istype(back,/obj/item/rig))
+			process_rig(back)
 
 /mob/living/carbon/human/proc/process_glasses(var/obj/item/clothing/glasses/G)
 	if(G && G.active)
@@ -140,11 +147,17 @@
 		var/list/body_markings = prefs.body_markings
 		for(var/M in body_markings)
 			var/datum/sprite_accessory/marking/mark_datum = body_marking_styles_list[M]
+
+			if(!istype(mark_datum))
+				to_chat(usr, SPAN_WARNING("Invalid body marking [M] selected! Please re-save your markings, as they may have changed."))
+				continue
 			var/mark_color = "[body_markings[M]]"
 
 			for(var/BP in mark_datum.body_parts)
 				var/obj/item/organ/external/O = organs_by_name[BP]
 				if(O)
+					if(mark_datum.robotize_type_required && O.robotize_type != mark_datum.robotize_type_required)
+						continue
 					var/list/attr = list("color" = mark_color, "datum" = mark_datum)
 					if (mark_datum.is_genetic)
 						LAZYINITLIST(O.genetic_markings)
@@ -190,7 +203,7 @@
 		custom_pain(SPAN_DANGER("<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
 		set_psi_rank(pick_n_take(faculties), allow_latency ? PSI_RANK_LATENT : PSI_RANK_OPERANT) // if set to latent, it spikes anywhere from OPERANT to PARAMOUNT
 		sleep(30)
-	addtimer(CALLBACK(psi, /datum/psi_complexus/.proc/check_latency_trigger, 100, source, TRUE), 4.5 SECONDS)
+	addtimer(CALLBACK(psi, TYPE_PROC_REF(/datum/psi_complexus, check_latency_trigger), 100, source, TRUE), 4.5 SECONDS)
 
 /mob/living/carbon/human/get_resist_power()
 	return species.resist_mod
@@ -207,6 +220,21 @@
 		return TRUE
 	if(has_functioning_augment(BP_AUG_COCHLEAR))
 		return TRUE
+	return FALSE
+
+/mob/living/carbon/human/proc/has_stethoscope_active()
+	var/obj/item/clothing/under/uniform = w_uniform
+	var/obj/item/clothing/suit/suit = wear_suit
+	if(suit)
+		var/obj/item/clothing/accessory/stethoscope/stet = locate() in suit.accessories
+		if(stet)
+			if(stet.auto_examine)
+				return TRUE
+	if(uniform)
+		var/obj/item/clothing/accessory/stethoscope/stet = locate() in uniform.accessories
+		if(stet)
+			if(stet.auto_examine)
+				return TRUE
 	return FALSE
 
 /mob/living/carbon/human/proc/is_submerged()
@@ -274,8 +302,33 @@
 /mob/living/carbon/human/get_standard_pixel_y()
 	return species.icon_y_offset
 
-/mob/living/carbon/human/proc/protected_from_sound()
-	return (l_ear?.item_flags & SOUNDPROTECTION) || (r_ear?.item_flags & SOUNDPROTECTION) || (head?.item_flags & SOUNDPROTECTION)
+/mob/living/carbon/human/get_hearing_protection()
+	. = EAR_PROTECTION_NONE
+
+	if ((l_ear?.item_flags & SOUNDPROTECTION) || (r_ear?.item_flags & SOUNDPROTECTION) || (head?.item_flags & SOUNDPROTECTION))
+		return EAR_PROTECTION_MAJOR
+
+	if(istype(head, /obj/item/clothing/head/helmet) || HAS_FLAG(mutations, HULK))
+		. = EAR_PROTECTION_MODERATE
+
+	return max(EAR_PROTECTION_REDUCED, . - (get_hearing_sensitivity() / 2))
+
+/mob/living/carbon/human/noise_act(intensity = EAR_PROTECTION_MODERATE, stun_pwr = 0, damage_pwr = 0, deafen_pwr = 0)
+	intensity -= get_hearing_protection()
+
+	if(intensity <= 0)
+		return FALSE
+
+	if(stun_pwr)
+		Weaken(stun_pwr * intensity)
+
+	if(deafen_pwr || damage_pwr)
+		var/ear_damage = damage_pwr * intensity
+		var/deaf = deafen_pwr * intensity
+		adjustEarDamage(rand(1, ear_damage), deaf, TRUE)
+		sound_to(src, sound('sound/weapons/flash_ring.ogg',0,1,0,100))
+
+	return intensity
 
 /mob/living/carbon/human/get_antag_datum(var/antag_role)
 	if(!mind)
@@ -294,7 +347,7 @@
 	. = ..() - organs
 
 /mob/living/carbon/human/proc/pressure_resistant()
-	if(COLD_RESISTANCE in mutations)
+	if(HAS_FLAG(mutations, COLD_RESISTANCE))
 		return TRUE
 	var/datum/changeling/changeling = get_antag_datum(MODE_CHANGELING)
 	if(changeling?.space_adapted)
@@ -321,7 +374,7 @@
 			return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/get_hearing_sensitivity()
+/mob/living/carbon/human/get_hearing_sensitivity()
 	return species.hearing_sensitivity
 
 /mob/living/carbon/human/proc/is_listening()
@@ -352,3 +405,24 @@
 	if(!isnull(species.floating_chat_x_offset))
 		return species.floating_chat_x_offset
 	return species.icon_x_offset
+
+/mob/living/carbon/human/get_stutter_verbs()
+	return species.stutter_verbs
+
+/mob/living/carbon/human/proc/set_tail_style(var/new_style)
+	tail_style = new_style
+	if(tail_style)
+		verbs |= /mob/living/carbon/human/proc/open_tail_storage
+	else
+		verbs -= /mob/living/carbon/human/proc/open_tail_storage
+
+/mob/living/carbon/human/proc/get_tail_accessory()
+	var/obj/item/organ/external/groin/G = organs_by_name[BP_GROIN]
+	if(!G)
+		return
+	if(!G.tail_storage)
+		return
+
+	if(length(G.tail_storage.contents))
+		return G.tail_storage.contents[1]
+	return null

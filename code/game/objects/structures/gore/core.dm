@@ -49,7 +49,7 @@
 				health -= 25
 	healthcheck()
 
-/obj/structure/gore/hitby(atom/movable/AM)
+/obj/structure/gore/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
 	. = ..()
 	visible_message(SPAN_WARNING("\The [src] was hit by \the [AM]."))
 	playsound(loc, 'sound/effects/attackblob.ogg', 100, TRUE)
@@ -69,7 +69,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src, W)
 	var/force_damage = W.force
-	if(W.damtype == BURN)
+	if(W.damtype == DAMAGE_BURN)
 		force_damage *= 1.25
 	health -= force_damage
 	playsound(loc, 'sound/effects/attackblob.ogg', 80, TRUE)

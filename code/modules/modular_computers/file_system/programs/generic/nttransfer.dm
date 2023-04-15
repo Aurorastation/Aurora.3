@@ -5,6 +5,7 @@ var/global/nttransfer_uid = 0
 	filedesc = "NTNet P2P Transfer Client"
 	extended_desc = "This program allows for simple file transfer via direct peer to peer connection."
 	program_icon_state = "comm_logs"
+	program_key_icon_state = "green_key"
 	size = 7
 	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_PEERTOPEER

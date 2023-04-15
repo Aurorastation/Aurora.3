@@ -1,13 +1,12 @@
 
 /obj/machinery/artifact_harvester
 	name = "exotic particle harvester"
-	icon = 'icons/obj/virology.dmi'
-	icon_state = "incubator"	//incubator_on
+	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon_state = "harvester"
 	anchored = 1
 	density = 1
 	idle_power_usage = 50
 	active_power_usage = 750
-	use_power = 1
 	var/harvesting = 0
 	var/obj/item/anobattery/inserted_battery
 	var/obj/machinery/artifact/cur_artifact
@@ -71,7 +70,7 @@
 	harvester_win.set_content(dat)
 	harvester_win.open()
 
-/obj/machinery/artifact_harvester/machinery_process()
+/obj/machinery/artifact_harvester/process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -82,13 +81,13 @@
 
 		//check if we've finished
 		if(inserted_battery.stored_charge >= inserted_battery.capacity)
-			use_power = 1
+			update_use_power(POWER_USE_IDLE)
 			harvesting = 0
 			cur_artifact.anchored = 0
 			cur_artifact.being_used = 0
 			cur_artifact = null
 			src.visible_message("<b>[name]</b> states, \"Battery is full.\"")
-			icon_state = "incubator"
+			icon_state = "harvester"
 
 	else if(harvesting < 0)
 		//dump some charge
@@ -107,13 +106,13 @@
 
 		//if there's no charge left, finish
 		if(inserted_battery.stored_charge <= 0)
-			use_power = 1
+			update_use_power(POWER_USE_IDLE)
 			inserted_battery.stored_charge = 0
 			harvesting = 0
 			if(inserted_battery.battery_effect && inserted_battery.battery_effect.activated)
 				inserted_battery.battery_effect.ToggleActivate()
 			src.visible_message("<b>[name]</b> states, \"Battery dump completed.\"")
-			icon_state = "incubator"
+			icon_state = "harvester"
 
 /obj/machinery/artifact_harvester/Topic(href, href_list)
 
@@ -193,10 +192,10 @@
 
 						if(source_effect)
 							harvesting = 1
-							use_power = 2
+							update_use_power(POWER_USE_ACTIVE)
 							cur_artifact.anchored = 1
 							cur_artifact.being_used = 1
-							icon_state = "incubator_on"
+							icon_state = "harvester_on"
 							var/message = "<b>[src]</b> states, \"Beginning energy harvesting.\""
 							src.visible_message(message)
 							last_process = world.time
@@ -223,7 +222,7 @@
 			cur_artifact.being_used = 0
 			cur_artifact = null
 			src.visible_message("<b>[name]</b> states, \"Energy harvesting interrupted.\"")
-			icon_state = "incubator"
+			icon_state = "harvester"
 
 	if (href_list["ejectbattery"])
 		src.inserted_battery.forceMove(src.loc)
@@ -237,8 +236,8 @@
 						inserted_battery.battery_effect.ToggleActivate(1)
 					last_process = world.time
 					harvesting = -1
-					use_power = 2
-					icon_state = "incubator_on"
+					update_use_power(POWER_USE_ACTIVE)
+					icon_state = "harvester_on"
 					var/message = "<b>[src]</b> states, \"Warning, battery charge dump commencing.\""
 					src.visible_message(message)
 			else

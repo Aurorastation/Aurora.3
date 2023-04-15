@@ -12,7 +12,7 @@
 
 /obj/machinery/floorlayer/Initialize()
 	. = ..()
-	T = new /obj/item/stack/tile/floor/full(src)
+	T = new /obj/item/stack/tile/floor/full_stack(src)
 
 /obj/machinery/floorlayer/Move(new_turf,M_Dir)
 	..()
@@ -39,13 +39,13 @@
 		mode[m] = !mode[m]
 		var/O = mode[m]
 		user.visible_message("<b>[user]</b> has set \the [src] [m] mode [!O ? "off" : "on"].", SPAN_NOTICE("You set \the [src] [m] mode [!O ? "off":"on"]."))
-		return
+		return TRUE
 
 	if(istype(I, /obj/item/stack/tile))
 		to_chat(user, SPAN_NOTICE("You successfully load \the [I] into \the [src]."))
 		user.drop_from_inventory(I, src)
 		TakeTile(I)
-		return
+		return TRUE
 
 	if(I.iscrowbar())
 		if(!length(contents))
@@ -56,11 +56,11 @@
 				to_chat(user, SPAN_NOTICE("You remove \the [E] from \the [src]."))
 				user.put_in_hands(E)
 				T = null
-		return
+		return TRUE
 
 	if(I.isscrewdriver())
 		T = input(user, "Choose which set of tiles you want \the [src] to lay.", "Tiles") as null|anything in contents
-		return
+		return TRUE
 
 /obj/machinery/floorlayer/examine(mob/user)
 	..()

@@ -62,7 +62,7 @@
 
 /datum/outfit/admin/ert/kataphract/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
-		var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
+		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 
@@ -94,7 +94,7 @@
 		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
 		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
 		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
-		/obj/item/reagent_containers/glass/bottle/perconol = 1	
+		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
 	backpack_contents = list(

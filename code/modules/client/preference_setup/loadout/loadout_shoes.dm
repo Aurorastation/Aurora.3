@@ -66,6 +66,11 @@
 	path = /obj/item/clothing/shoes/sandal/flipflop
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/shoes/woodensandals
+	display_name = "wooden sandals"
+	path = /obj/item/clothing/shoes/sandal/wooden
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/shoes/hitops
 	display_name = "high-top selection"
 	description = "High-top sneakers, in a selection of colors."
@@ -107,6 +112,11 @@
 	display_name = "lyodsuit boots"
 	path = /obj/item/clothing/shoes/lyodsuit
 
+/datum/gear/shoes/konyang_gomusin
+	display_name = "gomusin"
+	path = /obj/item/clothing/shoes/konyang
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/shoes/circuitry
 	display_name = "boots, circuitry (empty)"
 	path = /obj/item/clothing/shoes/circuitry
@@ -119,7 +129,7 @@
 	..()
 	var/list/slippers = list()
 	slippers["bunny slippers"] = /obj/item/clothing/shoes/slippers
-	slippers["worn bunny slippers"] = /obj/item/clothing/shoes/slippers_worn
+	slippers["worn bunny slippers"] = /obj/item/clothing/shoes/slippers/worn
 	gear_tweaks += new /datum/gear_tweak/path(slippers)
 
 /datum/gear/shoes/clog

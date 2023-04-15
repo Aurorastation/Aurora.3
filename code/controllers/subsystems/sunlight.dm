@@ -55,7 +55,7 @@
 
 /atom/movable/sunobj
 	name = "sunlight emitter"
-	desc = "Weren't you told to never look directly at the sun? (but seriously, you shouldn't see this)"
+	desc = DESC_PARENT
 	light_novis = TRUE
 	light_range = 16
 	simulated = FALSE

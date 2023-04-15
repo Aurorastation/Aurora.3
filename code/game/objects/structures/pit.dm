@@ -11,7 +11,7 @@
 /obj/structure/pit/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/shovel))
 		visible_message("<span class='notice'>\The [user] starts [open ? "filling" : "digging open"] \the [src]</span>")
-		if(do_after(user, 50))
+		if(W.use_tool(src, user, 50, volume = 50))
 			visible_message("<span class='notice'>\The [user] [open ? "fills" : "digs open"] \the [src]!</span>")
 			if(open)
 				close(user)
@@ -62,8 +62,6 @@
 /obj/structure/pit/return_air()
 	if(open && loc)
 		return loc.return_air()
-	else
-		return null
 
 /obj/structure/pit/proc/digout(mob/escapee)
 	var/breakout_time = 1 //2 minutes by default
@@ -95,10 +93,15 @@
 	playsound(src.loc, 'sound/effects/squelch1.ogg', 100, 1)
 	open()
 
+/obj/structure/pit/Crossed(AM as mob|obj)
+	for(var/obj/item/landmine/I in contents)
+		I.Crossed(AM, TRUE)
+	..()
+
 /obj/structure/pit/closed
 	name = "mound"
 	desc = "Some things are better left buried."
-	open = 0
+	open = FALSE
 
 /obj/structure/pit/closed/Initialize()
 	. = ..()
@@ -110,7 +113,29 @@
 
 /obj/structure/pit/closed/hidden/open()
 	..()
-	invisibility = INVISIBILITY_LEVEL_ONE
+	set_invisibility(INVISIBILITY_LEVEL_ONE)
+
+
+//buried land mines
+
+/obj/structure/pit/landmine
+	name = "mound"
+	desc = "Some things are better left buried."
+	open = FALSE
+	var/landmine_prob = 25
+
+/obj/structure/pit/landmine/Initialize()
+	. = ..()
+	if(prob(landmine_prob))
+		new /obj/item/landmine(src)
+	close()
+
+/obj/structure/pit/landmine/hidden
+	invisibility = INVISIBILITY_OBSERVER
+
+/obj/structure/pit/landmine/hidden/open()
+	..()
+	set_invisibility(INVISIBILITY_LEVEL_ONE)
 
 //spoooky
 /obj/structure/pit/closed/grave
@@ -118,7 +143,7 @@
 	icon_state = "pit0"
 
 /obj/structure/pit/closed/grave/Initialize()
-	var/obj/structure/closet/coffin/C = new(src.loc)
+	var/obj/structure/closet/crate/coffin/C = new(src.loc)
 	var/obj/effect/decal/remains/human/bones = new(C)
 	bones.layer = BELOW_MOB_LAYER
 	var/obj/structure/gravemarker/random/R = new(src.loc)
@@ -149,7 +174,7 @@
 /obj/structure/gravemarker/random/proc/generate()
 	icon_state = pick("wood","cross")
 
-	
+
 	var/nam = random_name(MALE, SPECIES_HUMAN)
 	message = "Here lies [nam]."
 

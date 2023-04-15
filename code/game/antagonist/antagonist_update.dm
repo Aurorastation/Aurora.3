@@ -16,7 +16,7 @@
 		spawn(3)
 			var/mob/living/carbon/human/H = player.current
 			if(istype(H))
-				H.change_appearance(APPEARANCE_ALL, H, valid_species)
+				H.change_appearance(APPEARANCE_ALL, H, valid_species, update_id = TRUE)
 				H.rejuvenate() //So that things like disabilities and stuff get cleared.
 	if((flags & ANTAG_NO_FLAVORTEXT) && ishuman(player.current))
 		var/mob/living/carbon/human/H = player.current

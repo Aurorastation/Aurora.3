@@ -24,10 +24,12 @@
 	origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
 	modifystate = "floramut"
 	self_recharge = 1
+	var/singleton/plantgene/gene = null
 
 	firemodes = list(
 		list(mode_name="induce mutations", projectile_type=/obj/item/projectile/energy/floramut, modifystate="floramut"),
-		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield")
+		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield"),
+		list(mode_name="induce specific mutations", projectile_type=/obj/item/projectile/energy/floramut/gene, modifystate="floramut"),
 		)
 
 	needspin = FALSE
@@ -39,6 +41,22 @@
 		Fire(target,user)
 		return
 	..()
+
+/obj/item/gun/energy/floragun/verb/select_gene()
+	set name = "Select Gene"
+	set category = "Object"
+	set src in view(1)
+
+	var/genemask = input("Choose a gene to modify.") as null|anything in SSplants.plant_gene_datums
+
+	if(!genemask)
+		return
+
+	gene = SSplants.plant_gene_datums[genemask]
+
+	to_chat(usr, SPAN_INFO("You set \the [src]\s targeted genetic area to [genemask]."))
+
+	return
 
 /obj/item/gun/energy/meteorgun
 	name = "meteor gun"
@@ -95,27 +113,6 @@
 	can_turret = 1
 	turret_is_lethal = 0
 	turret_sprite_set = "net"
-
-/obj/item/gun/energy/beegun
-	name = "\improper NanoTrasen Portable Apiary"
-	desc = "An experimental firearm that converts energy into bees, for purely botanical purposes."
-	icon = 'icons/obj/guns/gyrorifle.dmi'
-	icon_state = "gyrorifle"
-	item_state = "gyrorifle"
-	has_item_ratio = FALSE
-	charge_meter = 0
-	w_class = ITEMSIZE_LARGE
-	fire_sound = 'sound/effects/Buzz2.ogg'
-	force = 5
-	projectile_type = /obj/item/projectile/energy/bee
-	slot_flags = SLOT_BACK
-	max_shots = 9
-	sel_mode = 1
-	burst = 3
-	burst_delay = 1
-	move_delay = 3
-	fire_delay = 0
-	dispersion = list(0, 8)
 
 /obj/item/gun/energy/mousegun
 	name = "pest gun"
@@ -177,11 +174,11 @@
 	turret_sprite_set = "net"
 
 /obj/item/gun/energy/net/mounted
-	max_shots = 1
+	max_shots = 2
 	self_recharge = TRUE
 	use_external_power = TRUE
 	has_safety = FALSE
-	recharge_time = 40
+	recharge_time = 30
 	can_turret = FALSE
 
 /* Vaurca Weapons */
@@ -269,30 +266,30 @@
 	return ..()
 
 /obj/item/gun/energy/vaurca/blaster
-	name = "\improper Zo'ra Blaster"
-	desc = "An elegant weapon for a more civilized time."
+	name = "\improper thermic blaster"
+	desc = "Designed after the Zo'ra arrival in the Spur, this modern reimagining of the venerable Zo'rane Thermic Blaster is as much a rare and brutal personal defense weapon as it is a badge of office for the Zo'ra Ta that now wield it. \
+	The design blends visual elements from a revolver, chosen by the Hive for its status as a respected weapon throughout much of the Spur, with the might of Zo'rane energy technology."
+	desc_extended = "The Thermic Blaster, sometimes known as the Zo'ra Blaster, is an incendiary energy weapon capable of tearing through any would-be interloper, though the phoron-powered battery is held back by an unremarkable capacity. \
+	While the blaster's smaller battery may cause problems in longer engagements, its intended use as the sidearm of Zo'ra Diplomats and certain Warriors makes it a low priority to increase given the already remarkably steep cost of the design."
 	icon = 'icons/obj/guns/blaster.dmi'
 	icon_state = "blaster"
 	item_state = "blaster"
 	has_item_ratio = FALSE
-	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4)
+	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_POWER = 4)
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 	accuracy = 1
+	recoil = 1
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster/incendiary
-	max_shots = 6
-	sel_mode = 1
+	max_shots = 7
 	burst = 1
 	burst_delay = 1
-	fire_delay = 0
+	fire_delay = 5
 	can_turret = 1
 	turret_sprite_set = "laser"
-	firemodes = list(
-		list(mode_name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
-		list(mode_name="concentrated burst", burst=3, burst_delay = 1, fire_delay = 5)
-		)
+
 
 /obj/item/gun/energy/vaurca/typec
 	name = "thermal lance"
@@ -413,10 +410,10 @@
 	is_wieldable = TRUE
 
 	firemodes = list(
-		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),
-		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40),
-		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60),
-		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 1, fire_delay = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
+		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20, fire_delay_wielded = 20),
+		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, fire_delay_wielded = 40),
+		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, fire_delay_wielded = 60),
+		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 1, fire_delay = 1, fire_delay_wielded = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 		)
 
 	needspin = FALSE

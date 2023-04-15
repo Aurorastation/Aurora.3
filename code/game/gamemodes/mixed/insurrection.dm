@@ -4,6 +4,6 @@
 	extended_round_description = "Revolutionaries and borers spawn during this round."
 	config_tag = "insurrection"
 	required_players = 20
-	required_enemies = 8
+	required_enemies = 4
 	antag_tags = list(MODE_REVOLUTIONARY, MODE_LOYALIST, MODE_BORER)
 	require_all_templates = TRUE

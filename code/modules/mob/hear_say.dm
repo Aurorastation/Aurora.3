@@ -34,16 +34,8 @@
 		if((!speaker || (src.sdisabilities & BLIND || src.blinded) || !(speaker in view(src))) && !isobserver(src))
 			message = stars(message)
 
-	if(!(language && (language.flags & INNATE))) // skip understanding checks for INNATE languages
-		if(!say_understands(speaker,language))
-			if(istype(speaker,/mob/living/simple_animal))
-				var/mob/living/simple_animal/S = speaker
-				message = pick(S.speak)
-			else
-				if(language)
-					message = language.scramble(message, languages)
-				else
-					message = stars(message)
+	if(!(language && (language.flags & INNATE)) && !say_understands(speaker, language)) // skip understanding checks for INNATE languages
+		message = language ? language.scramble(message, languages) : stars(message)
 
 	var/accent_icon = speaker.get_accent_icon(language, src)
 	var/speaker_name = speaker.name
@@ -78,9 +70,9 @@
 				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [language.format_message(message, verb)]</span>")
 		else
 			if(font_size)
-				on_hear_say("[track]<font size='[font_size]'><span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span></font>")
+				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<font size='[font_size]'><span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span></font>")
 			else
-				on_hear_say("[track]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 		if (speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
 			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
 			playsound_simple(source, speech_sound, sound_vol, use_random_freq = TRUE)
@@ -127,7 +119,7 @@
 	if(vr_mob)
 		to_chat(vr_mob, "[time] [message]")
 
-/mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
+/mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
 	if(!client && !vr_mob)
 		return
 
@@ -165,19 +157,17 @@
 	else
 		speaker_name = "Unknown"
 
-	if(istype(speaker, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = speaker
-		if(H.voice)
-			speaker_name = H.voice
-
-	if(vname)
-		speaker_name = vname
+	if(ishuman(speaker))
+		speaker_name = speaker.GetVoice()
 
 	if(hard_to_hear)
 		speaker_name = "Unknown"
 
 	var/changed_voice
-	var/accent_icon
+
+	var/accent_icon = speaker.get_accent_icon(language, src)
+	accent_icon = accent_icon ? accent_icon + " " : ""
+	part_a = replacetext(part_a, "%ACCENT%", accent_icon)
 
 	if(istype(src, /mob/living/silicon/ai) && !hard_to_hear)
 		var/jobname // the mob's "job"
@@ -220,11 +210,11 @@
 
 		if(changed_voice)
 			if(impersonating)
-				track = "<a href='byond://?src=\ref[src];trackname=[html_encode(speaker_name)];track=\ref[impersonating]'>[speaker_name] ([jobname])</a>"
+				track = "<a class='ai_tracking' href='byond://?src=\ref[src];trackname=[html_encode(speaker_name)];track=\ref[impersonating]'>[speaker_name] ([jobname])</a>"
 			else
 				track = "[speaker_name] ([jobname])"
 		else
-			track = "<a href='byond://?src=\ref[src];trackname=[html_encode(speaker_name)];track=\ref[speaker]'>[speaker_name] ([jobname])</a>"
+			track = "<a class='ai_tracking' href='byond://?src=\ref[src];trackname=[html_encode(speaker_name)];track=\ref[speaker]'>[speaker_name] ([jobname])</a>"
 
 	if(istype(src, /mob/abstract/observer))
 		if(speaker != null)
@@ -294,6 +284,8 @@
 	src.show_message(message)
 
 /mob/proc/hear_sleep(var/message)
+	if (isdeaf(src))
+		return
 	var/heard = ""
 	if(prob(15))
 		var/list/punctuation = list(",", "!", ".", ";", "?")

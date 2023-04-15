@@ -4,11 +4,12 @@
 	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "viscerator_attack"
 	icon_living = "viscerator_attack"
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE|PASSRAILING
 	health = 15
 	maxHealth = 15
 	melee_damage_lower = 10
 	melee_damage_upper = 15
+	armor_penetration = 20
 	density = 0
 	attacktext = "cut"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
@@ -46,17 +47,17 @@
 			return FALSE
 
 /mob/living/simple_animal/hostile/viscerator/proc/wakeup()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
 
 /mob/living/simple_animal/hostile/viscerator/emp_act(severity)
 	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
-	addtimer(CALLBACK(src, .proc/wakeup), 150)
+	change_stance(HOSTILE_STANCE_TIRED)
+	addtimer(CALLBACK(src, PROC_REF(wakeup)), 150)
 	if(severity == 1.0)
 		apply_damage(5)
 
 /mob/living/simple_animal/hostile/viscerator/lube
-	reagents_to_add = list(/decl/reagent/lube = 30)
+	reagents_to_add = list(/singleton/reagent/lube = 30)
 
 /mob/living/simple_animal/hostile/viscerator/lube/death()
 	reagents.splash(get_turf(src), 30)

@@ -7,7 +7,7 @@
 	maptext_y = 11
 
 /obj/screen/mecha/proc/notify_user(var/mob/user, var/text)
-	if(user.loc == owner)
+	if(user && user.loc == owner)
 		to_chat(user, text)
 
 /obj/screen/mecha/radio
@@ -26,7 +26,7 @@
 	. = ..()
 	var/mob/living/heavy_vehicle/newowner = loc
 	if(!istype(newowner))
-		return qdel(src)
+		return INITIALIZE_HINT_QDEL
 	owner = newowner
 
 /obj/screen/mecha/Click()

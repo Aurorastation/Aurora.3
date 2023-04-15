@@ -77,6 +77,7 @@
 			qdel(src)
 		else
 			to_chat(user, "<span class='warning'>You need one length of cable to finish the balloon!</span>")
+	. = ..()
 
 /obj/item/clothing/gloves/latex/nitrile
 	name = "nitrile gloves"
@@ -99,7 +100,7 @@
 	item_state = "nitrile"
 	species_restricted = list(BODYTYPE_TAJARA)
 
-/obj/item/clothing/gloves/latex/nitrile/vaurca 
+/obj/item/clothing/gloves/latex/nitrile/vaurca
 	name = "vaurca nitrile gloves"
 	desc = "Sterile nitrile gloves. Designed for Vaurca use."
 	icon_state = "nitrile"
@@ -139,8 +140,30 @@
 	name = "tajaran leather gloves"
 	species_restricted = list(BODYTYPE_TAJARA)
 
-/obj/item/clothing/gloves/botanic_leather/vaurca 
+/obj/item/clothing/gloves/botanic_leather/vaurca
 	name = "vaurca leather gloves"
+	species_restricted = list(BODYTYPE_VAURCA)
+
+/obj/item/clothing/gloves/janitor
+	name = "rubber cleaning gloves"
+	desc = "A pair of thick, long, yellow rubber gloves, designed to protect the wearer from the splash of industrial strength cleaners. Not certified for electrical work."
+	icon_state = "janitor"
+	item_state = "janitor"
+	permeability_coefficient = 0.01 //Prevents chemical seepage as well as latex, but without any of the sterility or protection
+	siemens_coefficient = 0.50
+	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
+
+/obj/item/clothing/gloves/janitor/unathi
+	name = "unathi cleaning gloves"
+	species_restricted = list(BODYTYPE_UNATHI)
+
+/obj/item/clothing/gloves/janitor/tajara
+	name = "tajaran cleaning gloves"
+	species_restricted = list(BODYTYPE_TAJARA)
+
+/obj/item/clothing/gloves/janitor/vaurca
+	name = "vaurca cleaning gloves"
 	species_restricted = list(BODYTYPE_VAURCA)
 
 	/*
@@ -192,7 +215,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
 
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
@@ -254,8 +277,12 @@
 /obj/item/clothing/gloves/offworlder
 	name = "starmitts"
 	desc = "Thick arm warmers and mittens that reach past the elbow."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "starmittens"
 	item_state = "starmittens"
+	build_from_parts = TRUE
+	worn_overlay = "over"
 
 /obj/item/clothing/gloves/ballistic
 	name = "ballistic gauntlet"
@@ -334,7 +361,7 @@
 /obj/item/clothing/gloves/tesla
 	name = "tesla glove"
 	desc = "A weaponized gauntlet capable of firing lightning bolts."
-	desc_fluff = "A tesla-based weapon created by the People's Republic of Adhomai as part of their Tesla Brigade program. Because of its long recharge time, the gauntlet is commonly \
+	desc_extended = "A tesla-based weapon created by the People's Republic of Adhomai as part of their Tesla Brigade program. Because of its long recharge time, the gauntlet is commonly \
 	used as an ancillary weapon."
 	icon_state = "tesla_glove_on"
 	item_state = "tesla_glove_on"
@@ -361,7 +388,7 @@
 				charged = FALSE
 				update_icon()
 				user.update_inv_gloves()
-				addtimer(CALLBACK(src, .proc/rearm), 10 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(rearm)), 10 SECONDS)
 
 		else
 			var/turf/T = get_turf(user)
@@ -373,7 +400,7 @@
 			charged = FALSE
 			update_icon()
 			user.update_inv_gloves()
-			addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(rearm)), 30 SECONDS)
 
 /obj/item/clothing/gloves/tesla/proc/rearm()
 	visible_message(SPAN_NOTICE("\The [src] surges back with energy!"))

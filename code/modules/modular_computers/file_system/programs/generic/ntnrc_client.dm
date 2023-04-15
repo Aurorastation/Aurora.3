@@ -2,9 +2,10 @@
 	filename = "ntnrc_client"
 	filedesc = "Chat Client"
 	program_icon_state = "command"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program allows communication over the NTRC network."
 	size = 2
-	requires_ntnet = TRUE
+	requires_ntnet = FALSE
 	requires_ntnet_feature = NTNET_COMMUNICATION
 	program_type = PROGRAM_TYPE_ALL
 	network_destination = "NTRC server"
@@ -38,7 +39,7 @@
 /datum/computer_file/program/chat_client/Topic(href, href_list)
 	if(..())
 		return TRUE
-	
+
 	if(href_list["ringtone"])
 		var/newRingtone = href_list["ringtone"]
 		var/obj/item/device/uplink/hidden/H = computer.hidden_uplink
@@ -54,14 +55,15 @@
 	if(href_list["mute_message"])
 		message_mute = !message_mute
 		SSvueui.check_uis_for_change(src)
-	
+
 	// User only commands
 	if(!istype(my_user))
 		return
 	// Following actions require signal
 	if(!get_signal(NTNET_COMMUNICATION))
+		to_chat(usr, FONT_SMALL(SPAN_WARNING("\The [src] displays, \"NETWORK ERROR - Unable to connect to NTNet. Please retry. If problem persists, contact your system administrator.\".")))
 		return
-	
+
 	if(href_list["send"])
 		var/mob/living/user = usr
 		var/datum/ntnet_conversation/conv = locate(href_list["send"]["target"])
@@ -78,10 +80,9 @@
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			if(focused_conv == conv)
 				focused_conv = null
-				listening_objects -= computer
 			else
 				focused_conv = conv
-				listening_objects |= computer
+				computer.become_hearing_sensitive()
 		SSvueui.check_uis_for_change(src)
 	if(href_list["join"])
 		var/datum/ntnet_conversation/conv = locate(href_list["join"]["target"])
@@ -125,7 +126,7 @@
 	if(href_list["direct"])
 		var/datum/ntnet_user/tUser = locate(href_list["direct"])
 		ntnet_global.begin_direct(src, tUser)
-	
+
 	if(href_list["toggleadmin"])
 		if(netadmin_mode)
 			netadmin_mode = FALSE
@@ -172,8 +173,7 @@
 			if((!computer.registered_id && !computer.register_account(src)))
 				return
 	if(service_state == PROGRAM_STATE_DISABLED)
-		if(!computer.enable_service(null, user, src))
-			return
+		computer.enable_service(null, user, src)
 	return ..(user)
 
 /datum/computer_file/program/chat_client/event_registered()
@@ -182,7 +182,7 @@
 	my_user = computer.registered_id.chat_user
 	if(service_state > PROGRAM_STATE_KILLED)
 		activate_chat_client()
-	
+
 
 /datum/computer_file/program/chat_client/event_unregistered()
 	. = ..()
@@ -219,7 +219,7 @@
 	if(headerdata)
 		data["_PC"] = headerdata
 		. = data
-	
+
 	data["service"] = service_state > PROGRAM_STATE_KILLED
 	data["registered"] = istype(my_user)
 	data["signal"] = get_signal(NTNET_COMMUNICATION)
@@ -271,5 +271,5 @@
 		return
 	if(src in my_user.clients)
 		my_user.clients.Remove(src)
-	if(src in ntnet_global.chat_clients)	
+	if(src in ntnet_global.chat_clients)
 		ntnet_global.chat_clients.Remove(src)

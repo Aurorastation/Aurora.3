@@ -5,7 +5,7 @@
 	shoes = /obj/item/clothing/shoes/swat/ert
 	gloves = /obj/item/clothing/gloves/swat/ert
 	belt = /obj/item/storage/belt/military
-	back = /obj/item/storage/backpack/satchel_norm
+	back = /obj/item/storage/backpack/satchel
 	l_hand = /obj/item/clothing/suit/space/void/freelancer
 	r_hand = /obj/item/clothing/head/helmet/space/void/freelancer
 	accessory = /obj/item/clothing/accessory/holster/thigh
@@ -64,7 +64,7 @@
 		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
 		/obj/item/reagent_containers/glass/bottle/perconol = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
-		/obj/item/material/knife/trench = 1	
+		/obj/item/material/knife/trench = 1
 	)
 
 /datum/outfit/admin/ert/mercenary/engineer

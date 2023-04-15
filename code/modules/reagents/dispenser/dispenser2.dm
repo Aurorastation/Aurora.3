@@ -3,7 +3,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
 	var/icon_state_active = "dispenser_active"
-	clicksound = /decl/sound_category/button_sound
+	clicksound = /singleton/sound_category/button_sound
 
 	obj_flags = OBJ_FLAG_ROTATABLE
 
@@ -17,9 +17,8 @@
 	var/accept_drinking = 0
 	var/amount = 30
 	var/list/forbidden_containers = list(/obj/item/reagent_containers/glass/bucket) //For containers we don't want people to shove into the chem machine. Like big-ass buckets.
-	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment) //Allow these cans/glasses/condiment bottles but forbid ACTUAL food. 
+	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment) //Allow these cans/glasses/condiment bottles but forbid ACTUAL food.
 
-	use_power = 1
 	idle_power_usage = 100
 	density = 1
 	anchored = 1
@@ -62,7 +61,7 @@
 		C.forceMove(src)
 
 	cartridges[C.label] = C
-	sortTim(cartridges, /proc/cmp_text_asc)
+	sortTim(cartridges, GLOBAL_PROC_REF(cmp_text_asc))
 	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/chemical_dispenser/proc/remove_cartridge(label)
@@ -72,9 +71,8 @@
 
 /obj/machinery/chemical_dispenser/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
-		playsound(src.loc, W.usesound, 50, 1)
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "un" : ""]fasten [src]."))
-		if (do_after(user, 20))
+		if(W.use_tool(src, user, 20, volume = 50))
 			user.visible_message(
 				SPAN_NOTICE("[user] [anchored ? "un" : ""]fastens [src]."),
 				SPAN_NOTICE("You have [anchored ? "un" : ""]fastened [src]."),
@@ -133,7 +131,7 @@
 	data["beakerCurrentVolume"] = container?.reagents?.total_volume
 	var beakerD[0]
 	for(var/_R in container?.reagents?.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
+		var/singleton/reagent/R = GET_SINGLETON(_R)
 		beakerD[++beakerD.len] = list("name" = R.name, "volume" = REAGENT_VOLUME(container.reagents, _R))
 	data["beakerContents"] = beakerD
 	var chemicals[0]
@@ -146,7 +144,7 @@
 /obj/machinery/chemical_dispenser/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "machinery-chemdisp", 390, 680, ui_title, state = interactive_state)
+		ui = new(user, src, "machinery-chemdisp", 400, 680, ui_title, state = interactive_state)
 	ui.open()
 
 /obj/machinery/chemical_dispenser/Topic(href, href_list)
@@ -163,7 +161,7 @@
 			var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
 			playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
 			C.reagents.trans_to(container, amount)
-			addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 2 SECONDS) //Just in case we get no new data
+			addtimer(CALLBACK(SSvueui, TYPE_PROC_REF(/datum/controller/subsystem/processing/vueui, check_uis_for_change), src), 2 SECONDS) //Just in case we get no new data
 
 	else if(href_list["ejectBeaker"])
 		if(container)

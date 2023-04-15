@@ -145,7 +145,7 @@
 /datum/design/item/mechfab/exosuit/heavy_head
 	name = "Heavy Exosuit Sensors"
 	time = 35
-	materials = list(DEFAULT_WALL_MATERIAL = 12000, MATERIAL_PHORON = 12500, MATERIAL_SILVER = 10000, MATERIAL_GOLD = 10000)
+	materials = list(DEFAULT_WALL_MATERIAL = 12000, MATERIAL_URANIUM = 7000, MATERIAL_SILVER = 7000, MATERIAL_GOLD = 7000)
 	build_path = /obj/item/mech_component/sensors/heavy
 	req_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4)
 
@@ -159,14 +159,14 @@
 /datum/design/item/mechfab/exosuit/heavy_arms
 	name = "Heavy Exosuit Manipulators"
 	time = 35
-	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_PHORON = 12500, MATERIAL_SILVER = 10000, MATERIAL_GOLD = 10000)
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_URANIUM = 5000, MATERIAL_SILVER = 5000, MATERIAL_GOLD = 5000)
 	build_path = /obj/item/mech_component/manipulators/heavy
 	req_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4)
 
 /datum/design/item/mechfab/exosuit/heavy_legs
 	name = "Heavy Exosuit Motivators"
 	time = 35
-	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_PHORON = 12500, MATERIAL_SILVER = 10000, MATERIAL_GOLD = 10000)
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_URANIUM = 5000, MATERIAL_SILVER = 5000, MATERIAL_GOLD = 5000)
 	build_path = /obj/item/mech_component/propulsion/heavy
 	req_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4)
 
@@ -201,4 +201,3 @@
 	time = 35
 	materials = list(DEFAULT_WALL_MATERIAL = 25000)
 	build_path = /obj/item/mech_component/propulsion/tracks
-	req_tech = list(TECH_MATERIAL = 4)

@@ -127,9 +127,9 @@
 		slot_r_hand_str = "sec_helm"
 	)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_MINOR
@@ -147,9 +147,9 @@
 			slot_r_hand_str = "sec_hardsuit"
 	)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_MINOR
@@ -209,10 +209,10 @@
 		slot_r_hand_str = "sec_helm"
 		)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		bomb = ARMOR_BOMB_SHIELDED,
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
@@ -228,10 +228,10 @@
 			slot_r_hand_str = "sec_hardsuit"
 	)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		bomb = ARMOR_BOMB_SHIELDED,
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
@@ -240,7 +240,7 @@
 	//Science
 /obj/item/clothing/head/helmet/space/void/sci
 	name = "research voidsuit helmet"
-	desc = "A special helmet designed for usage by NanoTrasen research personnel in hazardous, low pressure environments."
+	desc = "A special helmet designed for usage by SCC research personnel in hazardous, low pressure environments."
 	icon_state = "rig0-sci"
 	item_state = "research_voidsuit_helmet"
 	armor = list(
@@ -253,7 +253,7 @@
 
 /obj/item/clothing/suit/space/void/sci
 	name = "research voidsuit"
-	desc = "A special suit that designed for usage by NanoTrasen research personnel in hazardous, low pressure environments."
+	desc = "A special suit that designed for usage by SCC research personnel in hazardous, low pressure environments."
 	item_state = "rig-sci"
 	icon_state = "rig-sci"
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)

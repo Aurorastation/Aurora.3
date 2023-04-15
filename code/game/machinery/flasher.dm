@@ -1,11 +1,12 @@
 // It is a gizmo that flashes a small area
 
 /obj/machinery/flasher
-	name = "Mounted flash"
-	desc = "A wall-mounted flashbulb device."
+	name = "mounted flash"
+	desc = "A mounted flash. Disorientates anyone caught in its range."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mflash1"
 	layer = OBJ_LAYER
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/id = null
 	var/range = 2 //this is roughly the size of brig cell
 	var/disable = 0
@@ -13,7 +14,6 @@
 	var/strength = 20 //How weakened targets are when flashed.
 	var/base_state = "mflash"
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 2
 	flags = PROXMOVE
 	var/_wifi_id
@@ -57,6 +57,7 @@
 			user.visible_message("<span class='warning'>[user] has disconnected the [src]'s flashbulb!</span>", "<span class='warning'>You disconnect the [src]'s flashbulb!</span>")
 		if (!src.disable)
 			user.visible_message("<span class='warning'>[user] has connected the [src]'s flashbulb!</span>", "<span class='warning'>You connect the [src]'s flashbulb!</span>")
+		return TRUE
 
 //Let the AI trigger them directly.
 /obj/machinery/flasher/attack_ai(mob/user)
@@ -77,32 +78,18 @@
 	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 	flick("[base_state]_flash", src)
 	src.last_flash = world.time
-	use_power(1500)
+	use_power_oneoff(1500)
 
-	for (var/mob/O in viewers(src, null))
-		if (get_dist(src, O) > src.range)
+	for (var/mob/O in viewers(range, get_turf(src)))
+		if(!O.flash_act(ignore_inherent = TRUE))
 			continue
 
 		var/flash_time = strength
 		if (istype(O, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = O
-			if(!H.eyecheck(TRUE) <= 0)
-				continue
 			flash_time *= H.species.flash_mod
-			var/obj/item/organ/internal/eyes/E = H.get_eyes()
-			if(!E)
-				return
 
-			E.flash_act()
-
-			if(E.is_bruised() && prob(E.damage + 50))
-				flick("e_flash", O:flash)
-				E.damage += rand(1, 5)
-		else
-			if(!O.blinded)
-				flick("flash", O:flash)
 		O.Weaken(flash_time)
-		O.flash_eyes()
 
 /obj/machinery/flasher/emp_act(severity)
 	if(stat & (BROKEN|NOPOWER))
@@ -131,6 +118,7 @@
 		else if (src.anchored)
 			user.show_message(text("<span class='warning'>[src] is now secured.</span>"))
 			add_overlay("[base_state]-s")
+		return TRUE
 
 /obj/machinery/button/flasher
 	name = "flasher button"
@@ -141,12 +129,12 @@
 	if(..())
 		return
 
-	use_power(5)
+	use_power_oneoff(5)
 
 	active = 1
 	icon_state = "launcheract"
 
-	for(var/obj/machinery/flasher/M in SSmachinery.all_machines)
+	for(var/obj/machinery/flasher/M in SSmachinery.machinery)
 		if(M.id == src.id)
 			spawn()
 				M.flash()

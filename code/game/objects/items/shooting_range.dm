@@ -21,15 +21,15 @@
 	if(W.iswelder())
 		if(hp == initial(hp))
 			to_chat(user, SPAN_NOTICE("\The [src] is fully repaired."))
-			return
+			return TRUE
 		var/obj/item/weldingtool/WT = W
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			cut_overlays()
 			LAZYCLEARLIST(bullet_holes)
 			icon = initial(icon)
 			hp = initial(hp)
 			to_chat(user, SPAN_NOTICE("You slice off \the [src]'s uneven chunks of steel and scorch marks."))
-			return
+		return TRUE
 
 /obj/item/target/attack_hand(var/mob/user)
 	// taking pinned targets off!
@@ -51,7 +51,7 @@
 /obj/item/target/bullet_act(var/obj/item/projectile/Proj)
 	var/p_x = Proj.p_x + pick(0,0,0,0,0,-1,1) // really ugly way of coding "sometimes offset Proj.p_x!"
 	var/p_y = Proj.p_y + pick(0,0,0,0,0,-1,1)
-	var/decaltype = (Proj.damage_flags & DAM_BULLET) ? DECAL_BULLET : DECAL_SCORCH
+	var/decaltype = (Proj.damage_flags & DAMAGE_FLAG_BULLET) ? DECAL_BULLET : DECAL_SCORCH
 
 	virtual_icon = new(icon, icon_state)
 

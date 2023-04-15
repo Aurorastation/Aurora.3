@@ -7,7 +7,6 @@ var/global/list/bluespace_inhibitors
 	icon_state = "nopad"
 	anchored = 1
 	density = 1
-	use_power = 1
 	active_power_usage = 5000
 	idle_power_usage = 1000
 
@@ -36,11 +35,11 @@ var/global/list/bluespace_inhibitors
 
 /obj/machinery/anti_bluespace/emag_act()
 	spark(src, 3)
-	playsound(src, /decl/sound_category/spark_sound, 50, 1)
+	playsound(src, /singleton/sound_category/spark_sound, 50, 1)
 	emp_act(1)
 	return TRUE
 
-/obj/machinery/anti_bluespace/machinery_process()
+/obj/machinery/anti_bluespace/process()
 	. = ..()
 	update_icon()
 
@@ -71,12 +70,12 @@ var/global/list/bluespace_inhibitors
 	else
 		visible_message(SPAN_NOTICE("\The [user] [pick("touches","pokes","prods")] \the [src] with \the [W]."))
 		if(prob(66))
-			return
+			return TRUE
 
 	do_break()
 
 /obj/machinery/anti_bluespace/bullet_act(var/obj/item/projectile/Proj)
-	if(!(Proj.damage_type == BRUTE || Proj.damage_type == BURN))
+	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
 		return
 	if(!Proj.damage)
 		return
@@ -113,7 +112,7 @@ var/global/list/bluespace_inhibitors
 	playsound(src.loc, 'sound/magic/lightning_chargeup.ogg', 100, 1, extrarange = 20)
 	visible_message(SPAN_DANGER("\The [src] goes haywire!"))
 	do_break()
-	addtimer(CALLBACK(src, .proc/haywire_teleport), 10 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(haywire_teleport)), 10 SECONDS)
 
 /obj/machinery/anti_bluespace/proc/haywire_teleport()
 
@@ -123,7 +122,7 @@ var/global/list/bluespace_inhibitors
 		if(temp_apc)
 			temp_apc.drain_power(0,TRUE,100000)
 
-	for(var/atom/movable/AM in circlerange(get_turf(src),20))
+	for(var/atom/movable/AM in circle_range(get_turf(src),20))
 		if(AM.anchored)
 			continue
 		var/area/A = random_station_area()
@@ -131,5 +130,3 @@ var/global/list/bluespace_inhibitors
 		to_chat(AM, SPAN_WARNING("Bluespace energy teleports you somewhere else!"))
 		do_teleport(AM, target)
 		AM.visible_message("\The [AM] phases in!")
-
-

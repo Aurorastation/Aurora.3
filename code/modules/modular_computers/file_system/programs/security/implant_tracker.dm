@@ -2,6 +2,7 @@
 	filename = "implnttrckr"
 	filedesc = "Remote Implant Tracking"
 	program_icon_state = "security"
+	program_key_icon_state = "yellow_key"
 	extended_desc = "This program allows authorized security personnel to track and remotely interface with active implants."
 	required_access_run = access_armory
 	requires_ntnet = TRUE
@@ -62,7 +63,8 @@
 			var/area/A = get_area(M)
 			loc_display = A.name
 		if(T.malfunction)
-			loc_display = pick(teleportlocs)
+			var/area/location = pick(the_station_areas)
+			loc_display = location.name
 		var/list/tracker_info = list(
 			"id" = T.id,
 			"loc_display" = loc_display,

@@ -13,7 +13,7 @@
 
 /obj/effect/shuttle_landmark/escape_pod/transit
 	name = "In transit"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/east
 
 /obj/effect/shuttle_landmark/escape_pod/out
 	name = "Escaped"
@@ -44,6 +44,7 @@
 AURORA_ESCAPE_POD(1)
 AURORA_ESCAPE_POD(2)
 AURORA_ESCAPE_POD(3)
+AURORA_ESCAPE_POD(4)
 
 //-// Transfer Shuttle //-//
 
@@ -67,7 +68,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/emergency/interim
 	name = "In Transit"
 	landmark_tag = "nav_emergency_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/bluespace/south
 
 /obj/effect/shuttle_landmark/emergency/dock
 	name = "Escape Shuttle Dock"
@@ -98,7 +99,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/arrival/interim
 	name = "In Transit"
 	landmark_tag = "nav_arrival_interim"
-	base_turf = /turf/space/transit/west
+	base_turf = /turf/space/transit/bluespace/west
 
 /obj/effect/shuttle_landmark/arrival/dock
 	name = "Arrival Shuttle Dock"
@@ -151,7 +152,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/merchant/interim
 	name = "In Transit"
 	landmark_tag = "nav_merchant_interim"
-	base_turf = /turf/space/transit/west
+	base_turf = /turf/space/transit/bluespace/west
 
 /obj/effect/shuttle_landmark/merchant/dock
 	name = "Merchant Shuttle Dock"
@@ -274,7 +275,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/burglar/interim
 	name = "In Transit"
 	landmark_tag = "nav_burglar_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/burglar/surface
 	name = "Exposed Hull, Surface Aft of Cargo"
@@ -332,7 +333,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/skipjack/interim
 	name = "In Transit"
 	landmark_tag = "nav_skipjack_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/skipjack/surface
 	name = "Surface, Aft of Cargo"
@@ -393,7 +394,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/merc/interim
 	name = "In Transit"
 	landmark_tag = "nav_merc_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/merc/dock
 	name = "Yellow Dock"
@@ -493,7 +494,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/legion/interim
 	name = "In Transit"
 	landmark_tag = "nav_legion_interim"
-	base_turf = /turf/space/transit/west
+	base_turf = /turf/space/transit/bluespace/west
 
 /obj/effect/shuttle_landmark/legion/green
 	name = "Emergency Services Dock (Main Entrypoint)"
@@ -545,7 +546,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/research/interim
 	name = "In Transit"
 	landmark_tag = "nav_research_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/research/dock
 	name = "Away Site"
@@ -578,7 +579,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/distress/interim
 	name = "In Transit"
 	landmark_tag = "nav_distress_interim"
-	base_turf = /turf/space/transit/west
+	base_turf = /turf/space/transit/bluespace/west
 
 /obj/effect/shuttle_landmark/distress/green
 	name = "Emergency Services Dock"

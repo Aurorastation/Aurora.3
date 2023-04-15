@@ -4,7 +4,7 @@
 	name = "evidence bag"
 	desc = "An empty evidence bag."
 	desc_info = "Click drag this onto an object to put it inside. Click it in-hand to remove an object from it."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/forensics.dmi'
 	icon_state = "evidenceobj"
 	item_state = ""
 	w_class = ITEMSIZE_SMALL
@@ -48,7 +48,7 @@
 		return
 
 	if(istype(I, /obj/item/evidencebag))
-		to_chat(user, "<span class='notice'>You find putting an evidence bag in another evidence bag to be slightly absurd.</span>")
+		to_chat(user, "<span class='notice'>You find putting a plastic bag in another plastic bag to be slightly absurd and think better of it.</span>")
 		return
 
 	if(I.w_class > 3)
@@ -71,7 +71,7 @@
 	MA.layer = FLOAT_LAYER
 	add_overlay(list(MA, "evidence"))
 
-	desc = "An evidence bag containing [I]."
+	desc = "A plastic bag containing [I]."
 	I.forceMove(src)
 	stored_item = I
 	w_class = I.w_class
@@ -109,7 +109,7 @@
 			label_text = tmp_label
 			update_name_label()
 		return
-	. = ..() 
+	. = ..()
 
 /obj/item/evidencebag/proc/update_name_label(var/base_name = initial(name))
 	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)

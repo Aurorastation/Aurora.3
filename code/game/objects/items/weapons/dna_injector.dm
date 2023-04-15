@@ -71,9 +71,9 @@
 /obj/item/dnainjector/proc/inject(mob/M as mob, mob/user as mob)
 	if(istype(M,/mob/living))
 		var/mob/living/L = M
-		L.apply_effect(rand(5,20), IRRADIATE, blocked = 0)
+		L.apply_damage(rand(5,20), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
-	if (!(NOCLONE in M.mutations)) // prevents drained people from having their DNA changed
+	if (NOT_FLAG(M.mutations, NOCLONE)) // prevents drained people from having their DNA changed
 		if (buf.types & DNA2_BUF_UI)
 			if (!block) //isolated block?
 				M.UpdateAppearance(buf.dna.UI.Copy())

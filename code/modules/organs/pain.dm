@@ -41,15 +41,13 @@ mob/var/next_pain_time = 0
 
 		var/force_emote = species.get_pain_emote(src, power)
 		if(force_emote && prob(power))
-			var/decl/emote/use_emote = usable_emotes[force_emote]
-			if(!(use_emote.message_type == AUDIBLE_MESSAGE && silent))
+			var/singleton/emote/use_emote = usable_emotes[force_emote]
+			if(use_emote && !(use_emote.message_type == AUDIBLE_MESSAGE && silent))
 				emote(force_emote)
 
 	next_pain_time = world.time + 5 SECONDS
 
 /mob/living/carbon/human/proc/handle_pain()
-	if(!can_feel_pain())
-		return
 	if(stat >= DEAD)
 		return
 	if(!can_feel_pain())
@@ -60,7 +58,7 @@ mob/var/next_pain_time = 0
 	var/maxdam = 0
 	var/obj/item/organ/external/damaged_organ = null
 	for(var/obj/item/organ/external/E in organs)
-		if(E.status & (ORGAN_DEAD|ORGAN_ROBOT)) 
+		if(E.status & (ORGAN_DEAD|ORGAN_ROBOT))
 			continue
 		var/dam = E.get_damage()
 		// make the choice of the organ depend on damage,

@@ -7,10 +7,11 @@
 	density = TRUE
 	unacidable = TRUE
 	anchored = TRUE				//There's a reason this is here, Mport. God fucking damn it -Agouri. Find&Fix by Pete. The reason this is here is to stop the curving of emitter shots.
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE|PASSRAILING
 	mouse_opacity = 0
 	animate_movement = 0	//Use SLIDE_STEPS in conjunction with legacy
 	var/projectile_type = /obj/item/projectile
+	var/ping_effect = "ping_b" //Effect displayed when a bullet hits a barricade. See atom/proc/bullet_ping.
 
 	var/def_zone = ""	//Aiming at
 	var/hit_zone		// The place that actually got hit
@@ -27,8 +28,8 @@
 
 	//Effects
 	var/damage = 10
-	var/damage_type = BRUTE		//BRUTE, BURN, TOX, OXY, CLONE, PAIN are the only things that should be in here
-	var/damage_flags = DAM_BULLET
+	var/damage_type = DAMAGE_BRUTE		//DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_TOXIN, DAMAGE_OXY, DAMAGE_CLONE, DAMAGE_PAIN are the only things that should be in here
+	var/damage_flags = DAMAGE_FLAG_BULLET
 	var/nodamage = FALSE		//Determines if the projectile will skip any damage inflictions
 	var/check_armor = "bullet" //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb	//Cael - bio and rad are also valid
 	var/list/impact_sounds	//for different categories, IMPACT_MEAT etc
@@ -113,7 +114,7 @@
 	if(isanimal(target))
 		return FALSE
 	var/mob/living/L = target
-	if(damage_type == BRUTE && damage > 5) //weak hits shouldn't make you gush blood
+	if(damage_type == DAMAGE_BRUTE && damage > 5) //weak hits shouldn't make you gush blood
 		var/splatter_color = "#A10808"
 		var/mob/living/carbon/human/H = target
 		if (istype(H) && H.species && H.species.blood_color)
@@ -125,7 +126,7 @@
 
 	L.apply_effects(0, weaken, paralyze, 0, stutter, eyeblur, drowsy, 0, incinerate, blocked)
 	L.stun_effect_act(stun, agony, def_zone, src, damage_flags)
-	L.apply_damage(irradiate, IRRADIATE, damage_flags = DAM_DISPERSED) //radiation protection is handled separately from other armor types.
+	L.apply_damage(irradiate, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED) //radiation protection is handled separately from other armor types.
 	return 1
 
 //called when the projectile stops flying because it collided with something
@@ -135,7 +136,7 @@
 //Checks if the projectile is eligible for embedding. Not that it necessarily will.
 /obj/item/projectile/proc/can_embed()
 	//embed must be enabled and damage type must be brute
-	if(!embed || damage_type != BRUTE)
+	if(!embed || damage_type != DAMAGE_BRUTE)
 		return FALSE
 	return TRUE
 
@@ -150,7 +151,7 @@
 	return SP
 
 /obj/item/projectile/proc/get_structure_damage()
-	if(damage_type == BRUTE || damage_type == BURN)
+	if(damage_type == DAMAGE_BRUTE || damage_type == DAMAGE_BURN)
 		return damage * anti_materiel_potential
 	return FALSE
 
@@ -193,7 +194,7 @@
 
 	//roll to-hit
 	miss_modifier = max(15*(distance-1) - round(25*accuracy) + miss_modifier, 0)
-	hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, ranged_attack=(distance > 1 || original != target_mob)) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
+	hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, (distance > 1 || original != target_mob), point_blank) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
 
 	var/result = PROJECTILE_FORCE_MISS
 	if(hit_zone)
@@ -207,7 +208,7 @@
 			if(!point_blank)
 				if(!silenced)
 					target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
-					playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
+					playsound(target_mob, /singleton/sound_category/bulletflyby_sound, 50, 1)
 				return FALSE
 		if(PROJECTILE_DODGED)
 			return FALSE
@@ -315,7 +316,6 @@
 
 	//stop flying
 	on_impact(A, hit_zone)
-
 	qdel(src)
 	return TRUE
 
@@ -656,3 +656,28 @@
 		var/obj/shrapnel = new shrapnel_type
 		. += "Shrapnel Type: [shrapnel.name]<br>"
 	. += "Armor Penetration: [initial(armor_penetration)]%<br>"
+
+//This is where the bullet bounces off.
+/atom/proc/bullet_ping(obj/item/projectile/P, var/pixel_x_offset, var/pixel_y_offset)
+	if(!P || !P.ping_effect)
+		return
+
+	var/image/I = image('icons/obj/projectiles.dmi', src,P.ping_effect,10, pixel_x = pixel_x_offset, pixel_y = pixel_y_offset)
+	var/angle = (P.firer && prob(60)) ? round(Get_Angle(P.firer,src)) : round(rand(1,359))
+	I.pixel_x += rand(-6,6)
+	I.pixel_y += rand(-6,6)
+
+	var/matrix/rotate = matrix()
+	rotate.Turn(angle)
+	I.transform = rotate
+	// Need to do this in order to prevent the ping from being deleted
+	addtimer(CALLBACK(I, TYPE_PROC_REF(/image, flick_overlay), src, 3), 1)
+
+
+/image/proc/flick_overlay(var/atom/A, var/duration)
+	A.overlays.Add(src)
+	addtimer(CALLBACK(src, PROC_REF(flick_remove_overlay), A), duration)
+
+/image/proc/flick_remove_overlay(var/atom/A)
+	if(A)
+		A.overlays.Remove(src)

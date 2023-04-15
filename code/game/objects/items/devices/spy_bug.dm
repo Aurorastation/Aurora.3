@@ -23,11 +23,7 @@
 	..()
 	radio = new(src)
 	camera = new(src)
-	listening_objects += src
-
-/obj/item/device/spy_bug/Destroy()
-	listening_objects -= src
-	return ..()
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 /obj/item/device/spy_bug/examine(mob/user)
 	. = ..(user, 0)
@@ -36,16 +32,17 @@
 		to_chat(user, "Needs to be both configured and brought in contact with monitor device to be fully functional.")
 
 /obj/item/device/spy_bug/attack_self(mob/user)
-	radio.broadcasting = !radio.broadcasting
-	to_chat(user, "\The [src]'s radio is [radio.broadcasting ? "broadcasting" : "not broadcasting"] now. The current frequency is [radio.frequency].")
+	radio.set_broadcasting(!radio.get_broadcasting())
+	to_chat(user, "\The [src]'s radio is [radio.get_broadcasting() ? "broadcasting" : "not broadcasting"] now. The current frequency is [radio.get_frequency()].")
 	radio.attack_self(user)
 
 /obj/item/device/spy_bug/attackby(obj/W as obj, mob/living/user as mob)
 	if(istype(W, /obj/item/device/spy_monitor))
 		var/obj/item/device/spy_monitor/SM = W
 		SM.pair(src, user)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/device/spy_bug/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	radio.hear_talk(M, msg, speaking)
@@ -69,11 +66,7 @@
 
 /obj/item/device/spy_monitor/New()
 	radio = new(src)
-	listening_objects += src
-
-/obj/item/device/spy_monitor/Destroy()
-	listening_objects -= src
-	return ..()
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 /obj/item/device/spy_monitor/examine(mob/user)
 	. = ..(user, 1)
@@ -90,6 +83,7 @@
 /obj/item/device/spy_monitor/attackby(obj/W as obj, mob/living/user as mob)
 	if(istype(W, /obj/item/device/spy_bug))
 		pair(W, user)
+		return TRUE
 	else
 		return ..()
 
@@ -148,6 +142,7 @@
 /obj/machinery/camera/spy
 	// These cheap toys are accessible from the mercenary camera console as well
 	network = list(NETWORK_MERCENARY)
+	active_power_usage = 0
 
 /obj/machinery/camera/spy/Initialize()
 	. = ..()
@@ -158,9 +153,12 @@
 	return 0
 
 /obj/item/device/radio/spy
-	listening = FALSE
-	frequency = 1473
-	broadcasting = FALSE
 	canhear_range = 7
 	name = "spy device"
 	icon_state = "syn_cypherkey"
+
+/obj/item/device/radio/spy/Initialize()
+	. = ..()
+	set_broadcasting(FALSE)
+	set_listening(FALSE)
+	set_frequency(1473)

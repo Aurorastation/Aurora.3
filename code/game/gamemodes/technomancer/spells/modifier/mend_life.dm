@@ -39,4 +39,4 @@
 		if(source)
 			var/mob/living/L = source
 			if(istype(L))
-				L.adjust_instability(1) //TODOMATT: Tick this file and figure this out
+				L.adjust_instability(1)

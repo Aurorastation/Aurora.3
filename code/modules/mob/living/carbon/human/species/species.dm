@@ -22,6 +22,7 @@
 	var/canvas_icon = 'icons/mob/base_32.dmi'                  // Used to blend parts and icons onto this, to avoid clipping issues.
 	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
 	var/deform = 'icons/mob/human_races/human/r_def_human.dmi' // Mutated icon set.
+	var/skeleton_icon = 'icons/mob/human_races/r_skeleton.dmi'
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
 	var/bandages_icon
 
@@ -31,7 +32,7 @@
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
 	var/damage_mask = 'icons/mob/human_races/masks/dam_mask_human.dmi'
 	var/blood_mask = 'icons/mob/human_races/masks/blood_human.dmi'
-	var/onfire_overlay = 'icons/mob/OnFire.dmi'
+	var/onfire_overlay = 'icons/mob/burning/burning_generic.dmi'
 
 	var/prone_icon                                       // If set, draws this from icobase when mob is prone.
 	var/icon_x_offset = 0
@@ -49,14 +50,18 @@
 	var/tail                                             // Name of tail state in species effects icon file.
 	var/tail_animation                                   // If set, the icon to obtain tail animation states from.
 	var/tail_hair
+	var/list/selectable_tails
 	var/race_key = 0       	                             // Used for mob icon cache string.
 	var/icon/icon_template                               // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
 	var/show_ssd = "fast asleep"
 	var/short_sighted
 	var/bald = 0
-	var/light_range
-	var/light_power
+
+	// Light
+	var/light_range = null
+	var/light_power = null
+	var/light_color = null
 
 	// Language/culture vars.
 	var/default_language = "Ceti Basic"		 // Default language is used when 'say' is used without modifiers.
@@ -72,8 +77,11 @@
 	var/list/unarmed_types = list(           // Possible unarmed attacks that the mob will use in combat,
 		/datum/unarmed_attack,
 		/datum/unarmed_attack/bite
-		)
+	)
 	var/list/unarmed_attacks = null          // For empty hand harm-intent attack
+	var/standing_jump_range = 2
+	var/list/maneuvers = list(/singleton/maneuver/leap)
+
 	var/pain_mod =      1                    // Pain multiplier
 	var/brute_mod =     1                    // Physical damage multiplier.
 	var/burn_mod =      1                    // Burn damage multiplier.
@@ -102,8 +110,8 @@
 	var/gibber_type = /obj/effect/gibspawner/human
 	var/single_gib_type = /obj/effect/decal/cleanable/blood/gibs
 	var/remains_type = /obj/effect/decal/remains/xeno
+	var/dust_remains_type =  /obj/effect/decal/remains/xeno/burned
 	var/gibbed_anim = "gibbed-h"
-	var/dusted_anim = "dust-h"
 	var/death_sound
 	var/death_message = "falls limp and stops moving..."
 	var/death_message_range = 2
@@ -121,6 +129,8 @@
 	var/organ_low_burn_message = "<span class='danger'>Your %PARTNAME% burns.</span>"
 	var/organ_med_burn_message = "<span class='danger'><font size=3>Your %PARTNAME% burns horribly!</font></span>"
 	var/organ_high_burn_message = "<span class='danger'><font size=4>Your %PARTNAME% feels like it's on fire!</font></span>"
+
+	var/list/stutter_verbs = list("stammers", "stutters")
 
 	// Environment tolerance/life processes vars.
 	var/reagent_tag                                   //Used for metabolizing reagents.
@@ -161,9 +171,9 @@
 
 	// Order matters, higher pain level should be higher up
 	var/list/pain_emotes_with_pain_level = list(
-		list(/decl/emote/audible/scream, /decl/emote/audible/whimper, /decl/emote/audible/moan, /decl/emote/audible/cry) = 70,
-		list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/moan) = 40,
-		list(/decl/emote/audible/grunt, /decl/emote/audible/groan) = 10,
+		list(/singleton/emote/audible/scream, /singleton/emote/audible/whimper, /singleton/emote/audible/moan, /singleton/emote/audible/cry) = 70,
+		list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan, /singleton/emote/audible/moan) = 40,
+		list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan) = 10,
 	)
 
 	// HUD data vars.
@@ -266,19 +276,21 @@
 	var/default_f_style = "Shaved"
 	var/default_g_style = "None"
 
-	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
-	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM, RELIGION_LUCEISM)
-	var/default_citizenship = CITIZENSHIP_BIESEL
-	var/list/allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_PERSEPOLIS, ACCENT_MEDINA, ACCENT_AEMAQ, ACCENT_NEWSUEZ, ACCENT_DAMASCUS, ACCENT_ERIDANI, ACCENT_ERIDANIREINSTATED,
-									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN_ORIGINAL, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR, ACCENT_KONYAN, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_NCF, ACCENT_FISANDUH, ACCENT_GADPATHUR,
-									ACCENT_PLUTO, ACCENT_ASSUNZIONE, ACCENT_VISEGRAD, ACCENT_VALKYRIE, ACCENT_MICTLAN)
-	var/default_accent = ACCENT_CETI
+	var/list/possible_cultures = list(
+		/singleton/origin_item/culture/unknown
+	)
+
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
-	var/bodyfall_sound = /decl/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
+	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
+	var/footsound = /singleton/sound_category/blank_footsteps //same as above but for footsteps without shoes
 
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
+	/// These are the prefixes of the icon states in talk.dmi.
+	var/list/possible_speech_bubble_types = list("normal")
+
+	var/use_alt_hair_layer = FALSE
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -510,21 +522,19 @@
 		H.sight &= ~(H.equipment_vision_flags)
 		H.sight &= ~(vision[1])
 	else
-		H.sight |= get_vision_flags(H)
-		H.sight |= H.equipment_vision_flags
-		H.sight |= vision[1]
+		H.set_sight(H.sight|get_vision_flags(H)|H.equipment_vision_flags|vision[1])
 
 	if(H.stat == DEAD)
 		return 1
 
 	if(!H.druggy)
-		H.see_in_dark = (H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(darksight + H.equipment_darkness_modifier, 8)
+		H.set_see_in_dark((H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(darksight + H.equipment_darkness_modifier, 8))
 		if(H.seer)
 			var/obj/effect/rune/R = locate(/obj/effect/rune) in get_turf(H)
 			if(R && R.type == /datum/rune/see_invisible)
-				H.see_invisible = SEE_INVISIBLE_CULT
+				H.set_see_invisible(SEE_INVISIBLE_CULT)
 		if(H.see_invisible != SEE_INVISIBLE_CULT && H.equipment_see_invis)
-			H.see_invisible = min(H.see_invisible, H.equipment_see_invis)
+			H.set_see_invisible(min(H.see_invisible, H.equipment_see_invis))
 
 	if(H.equipment_tint_total >= TINT_BLIND)
 		H.eye_blind = max(H.eye_blind, 1)
@@ -554,7 +564,7 @@
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay
 
-	var/obj/item/organ/internal/eyes/night/NE = H.internal_organs_by_name[BP_EYES]
+	var/obj/item/organ/internal/eyes/night/NE = H.get_eyes()
 	if(istype(NE) && NE.night_vision && NE.can_change_invisible())
 		H.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 
@@ -614,17 +624,18 @@
 			H.adjustHalLoss(remainder*0.25)
 		H.adjustOxyLoss(remainder * 0.2) //Keeping oxyloss small when out of stamina to prevent old issue where running until exhausted sometimes gave you brain damage.
 
+	var/shock = H.get_shock()
 	if(!pre_move)
 		H.adjustHalLoss(remainder*0.3)
 		H.updatehealth()
-		if((H.get_shock() >= 10) && prob(H.get_shock() *2))
-			H.flash_pain(H.get_shock())
+		if((shock >= 10) && prob(shock *2))
+			H.flash_pain(shock)
 
-	if((H.get_shock() + H.getOxyLoss()*2) >= (exhaust_threshold * 0.8))
+	if((shock + H.getOxyLoss()*2) >= (exhaust_threshold * 0.8))
 		H.m_intent = M_WALK
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
-		H.flash_pain(H.get_shock())
+		H.flash_pain(shock)
 		return 0
 
 	if(!pre_move)
@@ -683,8 +694,8 @@
 /datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	return 0
 
-/datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
-	return current_flags
+/datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)
+	return
 
 /datum/species/proc/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
 	if(speech_sounds && prob(speech_chance))
@@ -701,6 +712,9 @@
 	H.g_style = H.species.default_g_style
 	H.update_hair()
 
+/datum/species/proc/set_default_tail(var/mob/living/carbon/human/H)
+	H.set_tail_style(H.species.tail)
+
 /datum/species/proc/get_species_tally(var/mob/living/carbon/human/H)
 	return 0
 
@@ -714,7 +728,7 @@
 	return FALSE
 
 /datum/species/proc/get_digestion_product()
-	return /decl/reagent/nutriment
+	return /singleton/reagent/nutriment
 
 /datum/species/proc/can_commune()
 	return FALSE
@@ -738,7 +752,7 @@
 		var/pain_level = pain_emotes_with_pain_level[pain_emotes]
 		if(pain_power >= pain_level)
 			// This assumes that if a pain-level has been defined it also has a list of emotes to go with it
-			var/decl/emote/E = decls_repository.get_decl(pick(pain_emotes))
+			var/singleton/emote/E = GET_SINGLETON(pick(pain_emotes))
 			return E.key
 
 /datum/species/proc/get_injection_modifier()
@@ -807,7 +821,7 @@
 				spark(H, 5)
 		else if (E.is_broken() || !E.is_usable())
 			stance_damage += 1
-		else if (E.is_dislocated())
+		else if (ORGAN_IS_DISLOCATED(E))
 			stance_damage += 0.5
 
 	// Canes and crutches help you stand (if the latter is ever added)
@@ -825,3 +839,16 @@
 
 /datum/species/proc/can_double_fireman_carry()
 	return FALSE
+
+/datum/species/proc/has_stamina_for_pushup(var/mob/living/carbon/human/human)
+	return human.stamina > (human.max_stamina / 10)
+
+/datum/species/proc/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
+	human.stamina -= stamina_cost
+	human.hud_used.move_intent.update_move_icon(human)
+
+/datum/species/proc/handle_middle_mouse_click(var/atom/target)
+	return
+
+/datum/species/proc/can_use_guns()
+	return TRUE

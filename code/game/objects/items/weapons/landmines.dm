@@ -55,8 +55,8 @@
 	explosion(loc, 0, 2, 2, 3)
 	qdel(src)
 
-/obj/item/landmine/Crossed(AM as mob|obj)
-	if(deployed)
+/obj/item/landmine/Crossed(AM as mob|obj, var/ignore_deployment = FALSE)
+	if(deployed || ignore_deployment)
 		if(ishuman(AM))
 			var/mob/living/carbon/human/H = AM
 			if(H.shoes?.item_flags & LIGHTSTEP)
@@ -101,7 +101,7 @@
 		var/obj/item/wirecutters/W = I
 		user.visible_message(SPAN_WARNING("\The [user] starts snipping some wires in \the [src] with \the [W]..."), \
 							SPAN_NOTICE("You start snipping some wires in \the [src] with \the [W]..."))
-		if(do_after(user, 150, TRUE, src))
+		if(I.use_tool(src, user, 150, volume = 50))
 			if(prob(W.bomb_defusal_chance))
 				to_chat(user, SPAN_NOTICE("You successfully defuse \the [src], though it's missing some essential wiring now."))
 				deactivated = TRUE

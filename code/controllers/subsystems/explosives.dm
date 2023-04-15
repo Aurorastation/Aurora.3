@@ -12,6 +12,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	wait = 1
 	flags = SS_NO_INIT | SS_BACKGROUND | SS_POST_FIRE_TIMING
 	priority = SS_PRIORITY_EXPLOSIVES
+	runlevels = RUNLEVELS_PLAYING
 
 	suspended = TRUE	// Start disabled, explosions will wake us if need be.
 
@@ -19,7 +20,6 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/ticks_without_work = 0
 	var/list/explosion_turfs
 	var/explosion_in_progress
-	var/powernet_update_pending = 0
 
 	var/mc_notified = FALSE
 
@@ -30,17 +30,12 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	work_queue = SSexplosives.work_queue
 	explosion_in_progress = SSexplosives.explosion_in_progress
 	explosion_turfs = SSexplosives.explosion_turfs
-	powernet_update_pending = SSexplosives.powernet_update_pending
 
 /datum/controller/subsystem/explosives/fire(resumed = FALSE)
 	if(!length(work_queue))
 		ticks_without_work++
-		if (powernet_update_pending && ticks_without_work > 5)
-			SSmachinery.powernet_update_queued = TRUE
-			powernet_update_pending = 0
-
-			// All explosions handled, powernet rebuilt.
-			// We can sleep now.
+		if (ticks_without_work > 5)
+			// All explosions handled, we can sleep now.
 			suspend()
 
 			mc_notified = FALSE
@@ -48,7 +43,6 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		return
 
 	ticks_without_work = 0
-	powernet_update_pending = 1
 
 	if (!mc_notified)
 		Master.ExplosionStart()
@@ -173,10 +167,10 @@ var/datum/controller/subsystem/explosives/SSexplosives
 						// If inside the blast radius + world.view - 2
 						if (dist <= closedist)
 							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a nearby explosion coming from \the [explosion_dir].")))
-							M.playsound_simple(epicenter, get_sfx(/decl/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
+							M.playsound_simple(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
 						else if (dist > closedist && dist <= extendeddist) // People with sensitive hearing get a better idea of how far it is
 							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a semi-close explosion coming from \the [explosion_dir].")))
-							M.playsound_simple(epicenter, get_sfx(/decl/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
+							M.playsound_simple(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
 						else //You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
 							volume = M.playsound_simple(epicenter, 'sound/effects/explosionfar.ogg', volume, use_random_freq = TRUE, falloff = 1000, use_pressure = TRUE)
 							if(volume)
@@ -225,6 +219,9 @@ var/datum/controller/subsystem/explosives/SSexplosives
 			for(var/atom_movable in T.contents)	//bypass type checking since only atom/movable can be contained by turfs anyway
 				var/atom/movable/AM = atom_movable
 				if(!QDELETED(AM) && AM.simulated)
+					var/obj/O = AM
+					if(istype(O) && O.hides_under_flooring() && !T.is_plating())
+						continue
 					AM.ex_act(dist)
 
 				CHECK_TICK
@@ -337,7 +334,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 	var/close_dist = round(power + world.view - 2, 1)
 
-	var/sound/explosion_sound = sound(get_sfx(/decl/sound_category/explosion_sound))
+	var/sound/explosion_sound = sound(get_sfx(/singleton/sound_category/explosion_sound))
 
 	for (var/thing in player_list)
 		var/mob/M = thing
@@ -403,6 +400,9 @@ var/datum/controller/subsystem/explosives/SSexplosives
 			for (var/subthing in T)
 				var/atom/movable/AM = subthing
 				if (AM.simulated)
+					var/obj/O = AM
+					if(istype(O) && O.hides_under_flooring() && !T.is_plating())
+						continue
 					AM.ex_act(severity)
 					movable_tally++
 				CHECK_TICK

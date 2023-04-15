@@ -44,8 +44,8 @@
 	if(R.client)
 		to_chat(R, FONT_LARGE(SPAN_CULT("You can now speak with all revenants in the game world by using \"[R.client.prefs.language_prefixes[1]]rs\" before a message.")))
 	if(!has_fired)
-		INVOKE_ASYNC(src, .proc/play_ambience, R)
-	INVOKE_ASYNC(src, .proc/check_rift)
+		INVOKE_ASYNC(src, PROC_REF(play_ambience), R)
+	INVOKE_ASYNC(src, PROC_REF(check_rift))
 
 	return R
 
@@ -75,7 +75,7 @@
 		if(rift_turf)
 			new /obj/effect/portal/revenant(rift_turf)
 			if(!first_rift_done)
-				command_announcement.Announce("Aurora, we're detecting energy signatures eerily similar to a bluespace rift breach inside your hull. [SScargo.shuttle ? "We're sending you a bluespace neutralizer via the cargo shuttle. If you need more, your research department should be able to print neutralizers as well if they've been increasing their bluespace research levels. " : ""]Locate the rift and shut it down.", "Bluespace Breach Alert")
+				command_announcement.Announce("[current_map.station_name], we're detecting energy signatures eerily similar to a bluespace rift breach inside your hull. [SScargo.shuttle ? "We're sending you a bluespace neutralizer via the cargo shuttle. If you need more, your research department should be able to print neutralizers as well if they've been increasing their bluespace research levels. " : ""]Locate the rift and shut it down.", "Bluespace Breach Alert")
 				first_rift_done = TRUE
 				if(SScargo.shuttle)
 					var/turf/T = pick_area_turf(pick(SScargo.shuttle.shuttle_area), list(/proc/not_turf_contains_dense_objects))

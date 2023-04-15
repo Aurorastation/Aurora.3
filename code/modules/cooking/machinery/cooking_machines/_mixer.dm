@@ -107,7 +107,7 @@ fundamental differences
 	..()
 	stat |= POWEROFF
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
-	use_power = 0
+	update_use_power(POWER_USE_OFF)
 	CI.reset()
 	update_icon()
 
@@ -118,7 +118,7 @@ fundamental differences
 		icon_state = off_icon
 
 
-/obj/machinery/appliance/mixer/machinery_process()
+/obj/machinery/appliance/mixer/process()
 	if (!stat)
 		for (var/i in cooking_objs)
 			do_cooking_tick(i)

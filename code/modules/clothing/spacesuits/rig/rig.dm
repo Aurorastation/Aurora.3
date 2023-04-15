@@ -125,7 +125,7 @@
 
 	spark_system = bind_spark(src, 5)
 
-	START_PROCESSING(SSprocessing, src)
+	START_PROCESSING(SSmob, src)
 
 	last_remote_message = world.time
 
@@ -187,7 +187,7 @@
 /obj/item/rig/Destroy()
 	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
 		qdel(piece)
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSmob, src)
 	qdel(wires)
 	wires = null
 	qdel(spark_system)
@@ -569,7 +569,7 @@
 
 /obj/item/rig/proc/check_suit_access(var/mob/living/carbon/human/user)
 
-	if(!security_check_enabled)
+	if(!security_check_enabled || !locked)
 		return 1
 
 	if(istype(user))

@@ -9,16 +9,16 @@
 	name = "drone fabricator"
 	desc = "A large automated factory for producing maintenance drones."
 
-	icon = 'icons/obj/machines/drone_fab.dmi'
+	icon = 'icons/obj/machinery/drone_fab.dmi'
 	icon_state = "drone_fab_idle"
 
 	density = TRUE
 	anchored = TRUE
-	use_power = TRUE
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
 	active_power_usage = 5000
 
-	var/fabricator_tag = STATION_TAG
+	var/fabricator_tag
 	var/drone_progress = 0
 	var/produce_drones = TRUE
 	var/time_last_drone = 500
@@ -31,18 +31,7 @@
 /obj/machinery/drone_fabricator/Initialize()
 	. = ..()
 	check_add_to_late_firers()
-
-/obj/machinery/drone_fabricator/do_late_fire()
-	enable_drone_spawn()
-
-/obj/machinery/drone_fabricator/Destroy()
-	. = ..()
-	var/datum/ghostspawner/G = SSghostroles.spawners[drone_ghostrole_name]
-	LAZYREMOVE(G.spawnpoints, get_turf(src))
-
-/obj/machinery/drone_fabricator/proc/enable_drone_spawn()
-	var/datum/ghostspawner/G = SSghostroles.spawners[drone_ghostrole_name]
-	LAZYADD(G.spawnpoints, get_turf(src))
+	fabricator_tag = current_map.station_short
 
 /obj/machinery/drone_fabricator/derelict
 	name = "construction drone fabricator"
@@ -54,7 +43,7 @@
 	if(stat & NOPOWER)
 		icon_state = "drone_fab_nopower"
 
-/obj/machinery/drone_fabricator/machinery_process()
+/obj/machinery/drone_fabricator/process()
 	if(!ROUND_IS_STARTED)
 		return
 

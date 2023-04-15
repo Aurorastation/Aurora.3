@@ -14,10 +14,11 @@
 
 /obj/item/organ/internal/appendix/process()
 	..()
-	if(inflamed && owner && !(status & ORGAN_ROBOT))
+	if(inflamed && owner && !BP_IS_ROBOTIC(src))
+		var/can_feel_pain = ORGAN_CAN_FEEL_PAIN(src)
 		inflamed++
 		if(prob(5))
-			if(owner.can_feel_pain())
+			if(can_feel_pain)
 				owner.custom_pain("You feel a stinging pain in your abdomen!")
 				owner.visible_message("<B>\The [owner]</B> winces slightly.")
 				var/obj/item/organ/external/O = owner.get_organ(parent_organ)
@@ -26,7 +27,7 @@
 		if(inflamed > 200)
 			if(prob(3))
 				take_internal_damage(0.1)
-				if(owner.can_feel_pain())
+				if(can_feel_pain)
 					owner.visible_message("<B>\The [owner]</B> winces painfully.")
 					var/obj/item/organ/external/O = owner.get_organ(parent_organ)
 					if(O)
@@ -38,7 +39,7 @@
 				owner.vomit()
 		if(inflamed > 600)
 			if(prob(1))
-				if(owner.can_feel_pain())
+				if(can_feel_pain)
 					owner.custom_pain("You feel a stinging pain in your abdomen!")
 					owner.Weaken(10)
 

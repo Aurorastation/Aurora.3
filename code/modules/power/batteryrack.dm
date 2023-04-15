@@ -141,7 +141,7 @@
 
 
 #define SMESRATE 0.05			// rate of internal charge to external power
-/obj/machinery/power/smes/batteryrack/makeshift/machinery_process()
+/obj/machinery/power/smes/batteryrack/makeshift/process()
 	if(stat & BROKEN)	return
 
 	//store machine state to see if we need to update the icon overlays

@@ -5,7 +5,6 @@
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "kitchenterminal"
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 10
 	var/machine_id = ""
 	var/list/items = list()
@@ -16,7 +15,7 @@
 	var/confirmorder = FALSE // Waits for an id to confirm an order
 	var/receipt = ""
 	var/ticket = ""
-	var/destinationact = "Civilian"
+	var/destinationact = "Service"
 	var/ticket_number = 1
 	req_one_access = list(access_bar, access_kitchen) // Access to change the menu
 
@@ -39,7 +38,7 @@
 	add_overlay(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
-/obj/machinery/orderterminal/machinery_process()
+/obj/machinery/orderterminal/process()
 	if(stat & NOPOWER)
 		cut_overlays()
 		set_light(FALSE)
@@ -78,7 +77,7 @@
 
 /obj/machinery/orderterminal/attackby(obj/O, mob/user)
 	var/obj/item/card/id/I = O.GetID()
-	if (!I) 
+	if (!I)
 		return
 	if (!istype(O))
 		return
@@ -90,7 +89,7 @@
 			unlocking = FALSE
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
-	
+
 	else if (confirmorder)
 		var/transaction_amount = sum
 		var/transaction_purpose = "Idris Ordering Terminal order."
@@ -105,7 +104,7 @@
 				ticket += "<br><b>Customer:</b> [I.registered_name]"
 				receipt += "<br><b>Customer:</b> [I.registered_name]"
 				print_receipt()
-				sum = 0 
+				sum = 0
 				receipt = ""
 				ticket = ""
 				to_chat(src.loc, SPAN_NOTICE("Transaction completed, please return to the home screen."))

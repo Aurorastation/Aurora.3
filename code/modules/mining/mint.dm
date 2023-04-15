@@ -32,7 +32,7 @@
 			break
 	START_PROCESSING(SSprocessing, src)
 
-/obj/machinery/mineral/mint/machinery_process()
+/obj/machinery/mineral/mint/process()
 	if(input)
 		var/obj/item/stack/O
 		O = locate(/obj/item/stack, get_turf(input))

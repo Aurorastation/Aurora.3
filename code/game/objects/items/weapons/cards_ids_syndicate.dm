@@ -66,7 +66,7 @@
 	entries[++entries.len] = list("name" = "Photo", 			"value" = "Update")
 	entries[++entries.len] = list("name" = "Sex", 				"value" = sex)
 	entries[++entries.len] = list("name" = "Citizenship",		"value" = citizenship)
-	entries[++entries.len] = list("name" = "Religion",			"value" = religion)
+	entries[++entries.len] = list("name" = "Faction",			"value" = employer_faction)
 	entries[++entries.len] = list("name" = "Factory Reset",		"value" = "Use With Care")
 	data["electronic_warfare"] = electronic_warfare
 	data["entries"] = entries
@@ -83,7 +83,7 @@
 	unset_registered_user()
 	registered_user = user
 	user.set_id_info(src)
-	destroyed_event.register(user, src, /obj/item/card/id/syndicate/proc/unset_registered_user)
+	destroyed_event.register(user, src, PROC_REF(unset_registered_user))
 	return TRUE
 
 /obj/item/card/id/syndicate/proc/unset_registered_user(var/mob/user)
@@ -223,11 +223,11 @@
 					src.citizenship = new_citizenship
 					to_chat(user, SPAN_NOTICE("Citizenship changed to '[new_citizenship]'."))
 					. = 1
-			if("Religion")
-				var/new_religion = sanitize(input(user,"What religion would you like to put on this card?","Agent Card Religion", religion) as null|text)
-				if(!isnull(new_religion) && CanUseTopic(user,state))
-					src.religion = new_religion
-					to_chat(user, SPAN_NOTICE("Religion changed to '[new_religion]'."))
+			if("Faction")
+				var/new_faction = sanitize(input(user,"Which faction would you like to put on this card?","Agent Card Faction", employer_faction) as null|text)
+				if(!isnull(new_faction) && CanUseTopic(user,state))
+					src.employer_faction = new_faction
+					to_chat(user, SPAN_NOTICE("Faction changed to '[new_faction]'."))
 					. = 1
 			if("Factory Reset")
 				if(alert("This will factory reset the card, including access and owner. Continue?", "Factory Reset", "No", "Yes") == "Yes" && CanUseTopic(user, state))
@@ -243,8 +243,8 @@
 					name = initial(name)
 					registered_name = initial(registered_name)
 					unset_registered_user()
-					religion = initial(religion)
 					sex = initial(sex)
+					employer_faction = initial(employer_faction)
 					to_chat(user, "<span class='notice'>All information has been deleted from \the [src].</span>")
 					. = 1
 
@@ -262,7 +262,7 @@
 			CS.item_state = initial(ID.item_state)
 			CS.name = initial(ID.name) + " - " + initial(ID.icon_state)
 			id_card_states += CS
-		sortTim(id_card_states, /proc/cmp_cardstate, FALSE)
+		sortTim(id_card_states, GLOBAL_PROC_REF(cmp_cardstate), FALSE)
 
 	return id_card_states
 

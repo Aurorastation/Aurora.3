@@ -1,84 +1,8 @@
-/obj/item/storage/box/syndicate/
-	New()
-		..()
-		switch (pickweight(list("bloodyspai" = 1, "stealth" = 1, "screwed" = 1, "guns" = 1, "murder" = 1, "freedom" = 1, "hacker" = 1, "lordsingulo" = 1, "smoothoperator" = 1)))
-			if("bloodyspai")
-				new /obj/item/clothing/under/chameleon(src)
-				new /obj/item/clothing/mask/gas/voice(src)
-				new /obj/item/card/id/syndicate(src)
-				new /obj/item/clothing/shoes/syndigaloshes(src)
-				return
-
-			if("stealth")
-				new /obj/item/gun/energy/crossbow(src)
-				new /obj/item/pen/reagent/healing(src)
-				new /obj/item/pen/reagent/pacifier(src)
-				new /obj/item/pen/reagent/hyperzine(src)
-				new /obj/item/pen/reagent/poison(src)
-				new /obj/item/device/chameleon(src)
-				return
-
-			if("screwed")
-				new /obj/effect/spawner/newbomb/timer/syndicate(src)
-				new /obj/effect/spawner/newbomb/timer/syndicate(src)
-				new /obj/item/device/powersink(src)
-				new /obj/item/clothing/suit/space/syndicate(src)
-				new /obj/item/clothing/head/helmet/space/syndicate(src)
-				new /obj/item/clothing/mask/gas/syndicate(src)
-				new /obj/item/tank/emergency_oxygen/double(src)
-				return
-
-			if("guns")
-				new /obj/item/gun/projectile/revolver(src)
-				new /obj/item/ammo_magazine/a357(src)
-				new /obj/item/card/emag(src)
-				new /obj/item/plastique(src)
-				new /obj/item/plastique(src)
-				return
-
-			if("murder")
-				new /obj/item/melee/energy/sword(src)
-				new /obj/item/clothing/glasses/thermal/syndi(src)
-				new /obj/item/card/emag(src)
-				new /obj/item/clothing/shoes/syndigaloshes(src)
-				return
-
-			if("freedom")
-				var/obj/item/implanter/O = new /obj/item/implanter(src)
-				O.imp = new /obj/item/implant/freedom(O)
-				var/obj/item/implanter/U = new /obj/item/implanter(src)
-				U.imp = new /obj/item/implant/uplink(U)
-				return
-
-			if("hacker")
-				new /obj/item/device/encryptionkey/syndicate(src)
-				new /obj/item/aiModule/syndicate(src)
-				new /obj/item/card/emag(src)
-				new /obj/item/device/encryptionkey/binary(src)
-				return
-
-			if("lordsingulo")
-				new /obj/item/device/radio/beacon/syndicate(src)
-				new /obj/item/clothing/suit/space/syndicate(src)
-				new /obj/item/clothing/head/helmet/space/syndicate(src)
-				new /obj/item/clothing/mask/gas/syndicate(src)
-				new /obj/item/tank/emergency_oxygen/double(src)
-				new /obj/item/card/emag(src)
-				return
-
-			if("smoothoperator")
-				new /obj/item/storage/box/syndie_kit/g9mm(src)
-				new /obj/item/storage/bag/trash(src)
-				new /obj/item/soap/syndie(src)
-				new /obj/item/bodybag(src)
-				new /obj/item/clothing/under/suit_jacket(src)
-				new /obj/item/clothing/shoes/laceup(src)
-				return
-
 /obj/item/storage/box/syndie_kit
 	name = "box"
 	desc = "A sleek, sturdy box"
-	icon_state = "box_of_doom"
+	icon_state = "syndiebox"
+	worn_overlay = "writing_syndie"
 
 /obj/item/storage/box/syndie_kit/imp_freedom
 	name = "box (F)"
@@ -110,6 +34,7 @@
 
 /obj/item/storage/box/syndie_kit/space
 	name = "boxed space suit and helmet"
+	worn_overlay = "syndiesuit"
 	starts_with = list(
 		/obj/item/clothing/suit/space/syndicate = 1,
 		/obj/item/clothing/head/helmet/space/syndicate = 1,
@@ -121,6 +46,7 @@
 /obj/item/storage/box/syndie_kit/chameleon
 	name = "chameleon kit"
 	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
+	worn_overlay = "syndiesuit"
 	starts_with = list(
 		/obj/item/clothing/under/chameleon = 1,
 		/obj/item/clothing/head/chameleon = 1,
@@ -136,6 +62,7 @@
 /obj/item/storage/box/syndie_kit/clerical
 	name = "clerical kit"
 	desc = "Comes with all you need to fake paperwork. Assumes you have passed basic writing lessons."
+	worn_overlay = "pen"
 	starts_with = list(
 		/obj/item/stamp/chameleon = 1,
 		/obj/item/pen/chameleon = 1,
@@ -146,11 +73,20 @@
 	)
 
 /obj/item/storage/box/syndie_kit/special_pens
-	name = "box (P)"
+	name = "penjector kit"
+	worn_overlay = "pen"
 	starts_with = list(
 		/obj/item/pen/reagent/healing = 1,
 		/obj/item/pen/reagent/pacifier = 1,
 		/obj/item/pen/reagent/hyperzine = 1
+	)
+
+/obj/item/storage/box/syndie_kit/parapen
+	name = "parapen kit"
+	worn_overlay = "pen"
+	starts_with = list(
+		/obj/item/pen/reagent/paralysis = 1,
+		/obj/item/pen/reagent/purge = 1
 	)
 
 /obj/item/storage/box/syndie_kit/spy
@@ -172,7 +108,7 @@
 /obj/item/storage/box/syndie_kit/toxin
 	name = "toxin kit"
 	desc = "An apple will not be enough to keep the doctor away after this."
-	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1, /obj/item/reagent_containers/syringe = 1)
+	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 3, /obj/item/reagent_containers/syringe = 1)
 
 /obj/item/storage/box/syndie_kit/cigarette
 	name = "tricky smokes"
@@ -182,31 +118,31 @@
 	..()
 	var/obj/item/storage/box/fancy/cigarettes/pack
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list(/decl/reagent/aluminum = 5, /decl/reagent/potassium = 5, /decl/reagent/sulfur = 5))
+	fill_cigarre_package(pack, list(/singleton/reagent/aluminum = 5, /singleton/reagent/potassium = 5, /singleton/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list(/decl/reagent/aluminum = 5, /decl/reagent/potassium = 5, /decl/reagent/sulfur = 5))
+	fill_cigarre_package(pack, list(/singleton/reagent/aluminum = 5, /singleton/reagent/potassium = 5, /singleton/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list(/decl/reagent/potassium = 5, /decl/reagent/sugar = 5, /decl/reagent/phosphorus = 5))
+	fill_cigarre_package(pack, list(/singleton/reagent/potassium = 5, /singleton/reagent/sugar = 5, /singleton/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list(/decl/reagent/potassium = 5, /decl/reagent/sugar = 5, /decl/reagent/phosphorus = 5))
+	fill_cigarre_package(pack, list(/singleton/reagent/potassium = 5, /singleton/reagent/sugar = 5, /singleton/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
 	// Dylovene. Going with 1.5 rather than 1.6666666...
-	fill_cigarre_package(pack, list(/decl/reagent/potassium = 1.5, /decl/reagent/ammonia = 1.5, /decl/reagent/silicon = 1.5))
+	fill_cigarre_package(pack, list(/singleton/reagent/potassium = 1.5, /singleton/reagent/ammonia = 1.5, /singleton/reagent/silicon = 1.5))
 	// Mindbreaker
-	fill_cigarre_package(pack, list(/decl/reagent/silicon = 4.5, /decl/reagent/hydrazine = 4.5, /decl/reagent/dylovene = 4.5))
+	fill_cigarre_package(pack, list(/singleton/reagent/silicon = 4.5, /singleton/reagent/hydrazine = 4.5, /singleton/reagent/dylovene = 4.5))
 
 	pack.desc += " 'MB' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	pack.reagents.add_reagent(/decl/reagent/tricordrazine, 15 * pack.storage_slots)
+	pack.reagents.add_reagent(/singleton/reagent/tricordrazine, 15 * pack.storage_slots)
 	pack.desc += " 'T' has been scribbled on it."
 
 	new /obj/item/flame/lighter/zippo(src)
@@ -253,4 +189,11 @@
 	desc = "Comes with 4x autoinjectors filled with drugs to counter chemical side-effects. Each injector has 2 uses."
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 4
+	)
+
+/obj/item/storage/box/syndie_kit/berserk_injectors
+	name = "box of berserk injectors"
+	desc = "Comes with 2x autoinjectors filled with Red Nightshade used to induce a berserk state."
+	starts_with = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/berserk = 2
 	)

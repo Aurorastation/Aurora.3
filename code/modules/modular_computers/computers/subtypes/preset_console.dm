@@ -105,6 +105,16 @@
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
 	enrolled = 1
 
+/obj/item/modular_computer/console/preset/command/teleporter
+	name = "teleporter control console"
+	desc = "A computer that has a special teleporter control program loaded."
+	_app_preset_type = /datum/modular_computer_app_presets/command/teleporter
+
+/obj/item/modular_computer/console/preset/command/teleporter/ninja
+	name = "teleporter control console"
+	desc = "A computer that has a special teleporter control program loaded."
+	_app_preset_type = /datum/modular_computer_app_presets/command/teleporter/ninja
+
 // Civilian
 /obj/item/modular_computer/console/preset/civilian
 	name = "civilian console"
@@ -122,6 +132,15 @@
 	nano_printer.max_paper = 25
 	nano_printer.stored_paper = 20
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
+
+/obj/item/modular_computer/console/preset/supply/machinist
+	name = "machinist console"
+	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
+	enrolled = 1
+
+/obj/item/modular_computer/console/preset/supply/machinist/install_default_hardware()
+	..()
+	ai_slot = new /obj/item/computer_hardware/ai_slot(src)
 
 // ERT
 /obj/item/modular_computer/console/preset/ert/install_default_hardware()
@@ -158,6 +177,8 @@
 	ai_slot = new/obj/item/computer_hardware/ai_slot(src)
 	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
+/obj/item/modular_computer/console/preset/merchant/nka
+	_app_preset_type = /datum/modular_computer_app_presets/merchant/nka
 
 // AI
 /obj/item/modular_computer/console/preset/ai

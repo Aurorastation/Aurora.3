@@ -131,7 +131,7 @@
 
 /area/turbolift/research_maintenance
 	name = "Maintenance - Below Research"
-	lift_announce_str = "Arriving at the Research Sub-Level. Facilities in this floor include: Xenoarcheology, Toxins, Bomb Range, Test Range, Xenobiology, Xenobotany."
+	lift_announce_str = "Arriving at the Research Sub-Level. Facilities in this floor include: Xenoarchaeology, Toxins, Bomb Range, Test Range, Xenobiology, Xenobotany."
 	base_turf = /turf/simulated/floor/plating
 
 	lift_floor_label = "Sub-Level (Research)"

@@ -4,10 +4,13 @@
 	name = "Mobs - Life"
 	init_order = SS_INIT_MISC	// doesn't really matter when we init
 	priority = SS_PRIORITY_MOB
+	runlevels = RUNLEVELS_PLAYING
 
 	var/list/slept = list()
 
 	var/list/currentrun = list()
+	var/list/processing = list()
+
 	var/list/all_rats = list()	// Contains all *living* rats.
 	var/list/mannequins = list()	//Contains all mannequins used by character preview
 	var/list/greatworms = list()
@@ -65,12 +68,24 @@
 /datum/controller/subsystem/mobs/fire(resumed = 0)
 	if (!resumed)
 		src.currentrun = mob_list.Copy()
+		src.currentrun += processing.Copy()
 
 	var/list/currentrun = src.currentrun
 
 	while (currentrun.len)
-		var/mob/M = currentrun[currentrun.len]
+		var/datum/thing = currentrun[currentrun.len]
 		currentrun.len--
+		if(!ismob(thing))
+			if(!QDELETED(thing))
+				if(thing.process(wait, times_fired) == PROCESS_KILL)
+					stop_processing(thing)
+			else
+				processing -= thing
+			if (MC_TICK_CHECK)
+				return
+			continue
+
+		var/mob/M = thing
 
 		if (QDELETED(M))
 			log_debug("SSmob: QDELETED mob [DEBUG_REF(M)] left in processing list!")
@@ -102,9 +117,13 @@
 		. = new /mob/living/carbon/human/dummy/mannequin
 		mannequins[ckey] = .
 
-	addtimer(CALLBACK(src, .proc/del_mannequin, ckey), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(del_mannequin), ckey), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /datum/controller/subsystem/mobs/proc/del_mannequin(ckey)
 	var/mannequin = mannequins[ckey]
 	qdel(mannequin)
 	mannequins -= ckey
+
+// Helper so PROCESS_KILL works.
+/datum/controller/subsystem/mobs/proc/stop_processing(datum/D)
+	STOP_PROCESSING(src, D)

@@ -1,5 +1,5 @@
 //
-//Robotic Component Analyser, basically a health analyser for robots
+//Robotic Component Analyzer, basically a health analyzer for robots
 //
 /obj/item/device/robotanalyzer
 	name = "cyborg analyzer"
@@ -16,16 +16,22 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 200)
 
 /obj/item/device/robotanalyzer/attack(mob/living/M, mob/living/user)
-	if((user.is_clumsy() || (DUMB in user.mutations)) && prob(50))
-		to_chat(user, SPAN_WARNING("You try to analyze the floor's vitals!"))
-		visible_message(SPAN_WARNING("\The [user] has analyzed the floor's vitals!"))
+	robotic_analyze_mob(M, user)
+	add_fingerprint(user)
 
-		to_chat(user, SPAN_NOTICE("Analyzing Results for The floor:"))
-		to_chat(user, SPAN_NOTICE("Overall Status: Healthy"))
-		to_chat(user, SPAN_NOTICE("Damage Specifics: [0]-[0]-[0]-[0]"))
-		to_chat(user, SPAN_NOTICE("Key: Suffocation/Toxin/Burns/Brute"))
-		to_chat(user, SPAN_NOTICE("Body Temperature: ???"))
-		return
+
+/proc/robotic_analyze_mob (var/mob/living/M, var/mob/living/user, var/just_scan = FALSE)
+	if(!just_scan)
+		if((user.is_clumsy() || HAS_FLAG(user.mutations, DUMB)) && prob(50))
+			to_chat(user, SPAN_WARNING("You try to analyze the floor's vitals!"))
+			user.visible_message(SPAN_WARNING("\The [user] has analyzed the floor's vitals!"))
+			to_chat(user, SPAN_NOTICE("Analyzing Results for The floor:"))
+			to_chat(user, SPAN_NOTICE("Overall Status: Healthy"))
+			to_chat(user, SPAN_NOTICE("Damage Specifics: [0]-[0]-[0]-[0]"))
+			to_chat(user, SPAN_NOTICE("Key: Suffocation/Toxin/Burns/Brute"))
+			to_chat(user, SPAN_NOTICE("Body Temperature: ???"))
+			return
+		user.visible_message(SPAN_NOTICE("\The [user] has analyzed \the [M]'s components."), SPAN_NOTICE("You have analyzed \the [M]'s components."))
 
 	var/scan_type
 	if(istype(M, /mob/living/silicon/robot))
@@ -36,7 +42,6 @@
 		to_chat(user, SPAN_WARNING("You can't analyze non-robotic things!"))
 		return
 
-	user.visible_message(SPAN_NOTICE("\The [user] has analyzed \the [M]'s components."), SPAN_NOTICE("You have analyzed \the [M]'s components."))
 	switch(scan_type)
 		if("robot")
 			var/BU = M.getFireLoss() > 50 	? 	"<b>[M.getFireLoss()]</b>" 		: M.getFireLoss()
@@ -102,4 +107,18 @@
 			if(!organ_found)
 				to_chat(user, SPAN_NOTICE("No prosthetics located."))
 
-	add_fingerprint(user)
+
+/obj/item/device/robotanalyzer/augment
+	name = "retractable cyborg analyzer"
+	desc = "An scanner implanted directly into the hand, popping through the finger. This scanner can diagnose robotic injuries."
+	icon_state = "robotanalyzer"
+	item_state = "analyzer"
+	slot_flags = null
+	w_class = ITEMSIZE_HUGE
+
+/obj/item/device/robotanalyzer/augment/throw_at(atom/target, range, speed, mob/user)
+	user.drop_from_inventory(src)
+
+/obj/item/device/robotanalyzer/augment/dropped()
+	loc = null
+	qdel(src)

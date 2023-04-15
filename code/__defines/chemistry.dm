@@ -70,6 +70,7 @@
 #define CE_CLEARSIGHT   "clearsight"    // prevents the blurry eye chem side effect
 #define CE_STRAIGHTWALK "straightwalk"  // prevents the confused walking chem side effect
 #define CE_NOSTUTTER    "nostutter"		// helps alleviate stuttering
+#define CE_HAUNTED      "haunted"       // Spectrocybin's ghost vision
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin

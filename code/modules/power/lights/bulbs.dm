@@ -60,13 +60,13 @@
 // attack bulb/tube with object
 // if a syringe, can inject phoron to make it explode
 /obj/item/light/attackby(var/obj/item/I, var/mob/user)
-	..()
+	. = ..()
 	if(istype(I, /obj/item/reagent_containers/syringe))
 		var/obj/item/reagent_containers/syringe/S = I
 
 		to_chat(user, SPAN_NOTICE("You inject the solution into \the [src]."))
 
-		if(S.reagents.has_reagent(/decl/reagent/toxin/phoron, 5))
+		if(S.reagents.has_reagent(/singleton/reagent/toxin/phoron, 5))
 
 			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.",ckey=key_name(user))
 			message_admins("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
@@ -74,9 +74,7 @@
 			rigged = TRUE
 
 		S.reagents.clear_reagents()
-	else
-		..()
-	return
+		return TRUE
 
 // called after an attack with a light item
 // shatter light, unless it was an attempt to put it in a light socket
@@ -111,6 +109,9 @@
 	brightness_range = 8
 	brightness_power = 0.4
 	lighttype = "tube"
+
+/obj/item/light/tube/colored
+	randomize_color = FALSE
 
 /obj/item/light/tube/colored/red
 	name = "red light tube"
@@ -154,6 +155,9 @@
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	lighttype = "bulb"
 
+/obj/item/light/bulb/colored
+	randomize_color = FALSE
+
 /obj/item/light/bulb/colored/red
 	name = "red light bulb"
 	brightness_color = LIGHT_COLOR_SCARLET
@@ -191,3 +195,4 @@
 	brightness_range = 8
 	brightness_power = 0.45
 	randomize_range = FALSE
+	randomize_color = FALSE

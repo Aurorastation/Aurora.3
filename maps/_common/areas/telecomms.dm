@@ -50,5 +50,8 @@
 	icon_state = "tcomsatwest"
 
 /area/tcommsat/mainlvl_tcomms__relay
-	name = "Sublevel - Telecommunications Relay"
+	name = "First Deck Telecommunications Relay"
 	icon_state = "tcomsatcham"
+
+/area/tcommsat/mainlvl_tcomms__relay/second
+	name = "Second Deck Telecommunications Relay"

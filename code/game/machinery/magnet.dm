@@ -13,7 +13,6 @@
 	level = 1		// underfloor
 	layer = 2.5
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 50
 
 	var/freq = 1449		// radio frequency
@@ -35,7 +34,7 @@
 	hide(!T.is_plating())
 	center = T
 
-	addtimer(CALLBACK(src, .proc/magnetic_process), 0, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(magnetic_process)), 0, TIMER_UNIQUE)
 
 /obj/machinery/magnetic_module/LateInitialize()
 	if(SSradio)
@@ -43,7 +42,7 @@
 
 	// update the invisibility and icon
 /obj/machinery/magnetic_module/hide(var/intact)
-	invisibility = intact ? 101 : 0
+	set_invisibility(intact ? 101 : 0)
 	update_icon()
 
 /obj/machinery/magnetic_module/update_icon()
@@ -143,10 +142,10 @@
 
 	// Update power usage:
 	if(on)
-		use_power = 2
-		active_power_usage = electricity_level*15
+		update_use_power(POWER_USE_ACTIVE)
+		change_power_consumption(electricity_level*15, POWER_USE_ACTIVE)
 	else
-		use_power = 0
+		update_use_power(POWER_USE_OFF)
 
 
 	// Overload conditions:
@@ -177,7 +176,7 @@
 				if(istype(S, /mob/living/silicon/ai)) continue
 				step_towards(S, center)
 
-		use_power(electricity_level * 5)
+		use_power_oneoff(electricity_level * 5)
 		sleep(13 - electricity_level)
 
 	pulling = 0
@@ -193,7 +192,6 @@
 	icon_state = "airlock_control_standby"
 	density = 1
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 45
 	var/frequency = 1449
 	var/code = 0
@@ -223,13 +221,13 @@
 		filter_path() // renders rpath
 
 /obj/machinery/magnetic_controller/LateInitialize()
-	for(var/obj/machinery/magnetic_module/M in SSmachinery.all_machines)
+	for(var/obj/machinery/magnetic_module/M in SSmachinery.machinery)
 		if(M.freq == frequency && M.code == code)
 			magnets += M
 
 /obj/machinery/magnetic_controller/process()
 	if(magnets.len == 0 && autolink)
-		for(var/obj/machinery/magnetic_module/M in SSmachinery.all_machines)
+		for(var/obj/machinery/magnetic_module/M in SSmachinery.machinery)
 			if(M.freq == frequency && M.code == code)
 				magnets += M
 

@@ -40,11 +40,6 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 500, MATERIAL_SILVER = 3000)
 	build_path = /obj/item/gun/energy/temperature
 
-/datum/design/item/weapon/large_grenade
-	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 3000)
-	build_path = /obj/item/grenade/chem_grenade/large
-
 /datum/design/item/weapon/eglaive
 	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4, TECH_POWER = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 18750, MATERIAL_PHORON = 3000, MATERIAL_SILVER = 7500)
@@ -61,11 +56,6 @@
 	req_tech = list(TECH_MAGNET = 3, TECH_MATERIAL = 4, TECH_ILLEGAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 3000, MATERIAL_PHORON = 1000)
 	build_path = /obj/item/shield/energy
-
-/datum/design/item/weapon/gun/beegun
-	req_tech = list(TECH_MATERIAL = 6, TECH_BIO = 4, TECH_POWER = 4, TECH_COMBAT = 6, TECH_MAGNET = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000, MATERIAL_SILVER = 500, MATERIAL_DIAMOND = 3000)
-	build_path = /obj/item/gun/energy/beegun
 
 /datum/design/item/weapon/gravity_gun //Hello, Gordon!
 	desc = "This nifty gun disables the gravity in the area you shoot at. Use with caution."

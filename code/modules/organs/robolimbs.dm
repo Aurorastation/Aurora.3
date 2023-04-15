@@ -111,7 +111,7 @@ var/global/datum/robolimb/basic_robolimb
 	company = PROSTHETIC_SYNTHSKIN
 	desc = "This limb is designed to mimic the Human form. It does so with moderate success."
 	icon = 'icons/mob/human_races/human/r_human.dmi'
-	species_can_use = list(SPECIES_HUMAN)
+	species_can_use = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	linked_frame = SPECIES_IPC_SHELL
 	fabricator_available = TRUE
 	paintable = TRUE
@@ -140,6 +140,13 @@ var/global/datum/robolimb/basic_robolimb
 		return FALSE
 	else
 		return TRUE
+
+/datum/robolimb/tesla/industrial
+	company = PROSTHETIC_TESLA_BODY
+	desc = "A heavy version of the Tesla prosthetics created for the Tesla Rejuvenation Suit"
+	icon = 'icons/mob/human_races/tajara/industrial_tesla_limbs.dmi'
+	species_can_use = list(SPECIES_TAJARA_TESLA_BODY)
+	brute_mod = 0.7
 
 /datum/robolimb/vaurca
 	company = PROSTHETIC_VAURCA

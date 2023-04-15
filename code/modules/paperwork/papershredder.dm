@@ -25,8 +25,8 @@
 		playsound(loc, W.usesound, 50, 1)
 		anchored = !anchored
 		user.visible_message(
-			SPAN_NOTICE(anchored ? "\The [user] fastens \the [src] to \the [loc]." : "\The unfastens \the [src] from \the [loc]."),
-			SPAN_NOTICE(anchored ? "You fasten \the [src] to \the [loc]." : "You unfasten \the [src] from \the [loc]."),
+			SPAN_NOTICE("[anchored ? "\The [user] fastens \the [src] to \the [loc]." : "\The unfastens \the [src] from \the [loc]."]"),
+			SPAN_NOTICE("[anchored ? "You fasten \the [src] to \the [loc]." : "You unfasten \the [src] from \the [loc]."]"),
 			"You hear a ratchet."
 		)
 		return
@@ -147,7 +147,7 @@
 			var/obj/item/weldingtool/F = P // NOW THAT'S WHAT I CALL RECYCLING - wezzy
 			if (!F.welding)
 				return
-			if (!F.remove_fuel(1, user))
+			if (!F.use(1, user))
 				return
 		else
 

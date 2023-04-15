@@ -77,6 +77,11 @@
 	var/check_dirs
 	GET_ZONE_NEIGHBOURS(src, check_dirs)
 	. = check_dirs
+
+	//src is only connected to the zone by a single direction, this is a safe removal.
+	if (!(. & (. - 1)))
+		return TRUE
+
 	for(var/dir in csrfz_check)
 		//for each pair of "adjacent" cardinals (e.g. NORTH and WEST, but not NORTH and SOUTH)
 		if((dir & check_dirs) == dir)

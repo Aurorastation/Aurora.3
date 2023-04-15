@@ -22,10 +22,8 @@
 	mob_name_prefix = "Alm."
 
 	max_count = 1
-	uses_species_whitelist = TRUE
 	outfit = /datum/outfit/admin/ert/pra_cosmonaut/commissar
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
-	req_species_whitelist = SPECIES_TAJARA
 
 
 /datum/ghostspawner/human/ert/pra_cosmonaut/leader

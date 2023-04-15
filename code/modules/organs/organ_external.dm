@@ -6,6 +6,7 @@
 #define DROPLIMB_THRESHOLD_EDGE 5
 #define DROPLIMB_THRESHOLD_TEAROFF 2
 #define DROPLIMB_THRESHOLD_DESTROY 1
+#define DROPLIMB_THRESHOLD_DESTROY_PROJECTILE 2
 
 #define FRACTURE_AND_TENDON_DAM_THRESHOLD 30 // if a weapon does more than this amount of damage, it's powerful enough to sever the tendon AND fracture the bone, if it's a sharp weapon
 
@@ -186,27 +187,23 @@
 				return
 	..()
 
-/obj/item/organ/external/proc/is_dislocated()
-	if(dislocated > 0)
-		return 1
-	if(parent)
-		return parent.is_dislocated()
-	return 0
-
 /obj/item/organ/external/proc/dislocate(var/primary)
-	if(dislocated != -1)
-		if(primary)
-			dislocated = 2
-		else
-			dislocated = 1
+	if(dislocated == -1)
+		return
+	if(primary)
+		dislocated = 2
+	else
+		dislocated = 1
 	owner.verbs |= /mob/living/carbon/human/proc/undislocate
 	if(children && children.len)
 		for(var/obj/item/organ/external/child in children)
 			child.dislocate()
 
 /obj/item/organ/external/proc/undislocate()
-	if(dislocated != -1)
-		dislocated = 0
+	if(dislocated == -1)
+		return
+
+	dislocated = 0
 	if(children && children.len)
 		for(var/obj/item/organ/external/child in children)
 			if(child.dislocated == 1)
@@ -284,9 +281,9 @@
 	brute *= brute_mod
 	burn *= burn_mod
 
-	var/laser = (damage_flags & DAM_LASER)
-	var/sharp = (damage_flags & DAM_SHARP)
-	var/edge = (damage_flags & DAM_EDGE)
+	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
+	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
+	var/edge = (damage_flags & DAMAGE_FLAG_EDGE)
 	var/blunt = !!(brute && !sharp && !edge)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
@@ -332,7 +329,7 @@
 		if(laser)
 			createwound(LASER, burn)
 		else
-			createwound(BURN, burn)
+			createwound(DAMAGE_BURN, burn)
 
 	add_pain(0.6 * burn + 0.4 * brute)
 
@@ -355,8 +352,8 @@
 
 	var/damage_amt = brute
 	var/cur_damage = brute_dam
-	var/sharp = (damage_flags & DAM_SHARP)
-	var/laser = (damage_flags & DAM_LASER)
+	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
+	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
 
 	if(BP_IS_ROBOTIC(src) || laser)
 		damage_amt += burn
@@ -369,7 +366,7 @@
 	if(sharp)
 		organ_damage_threshold *= 0.5
 	if(laser)
-		organ_damage_threshold *= 2
+		organ_damage_threshold *= 1.25
 
 	if(!(cur_damage + damage_amt >= max_damage) && !(damage_amt >= organ_damage_threshold))
 		return FALSE
@@ -397,7 +394,7 @@
 		victim.take_internal_damage(damage_amt)
 		return TRUE
 
-/obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon,var/brute,var/burn)
+/obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon, var/brute, var/burn)
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
 		if((limb_flags & ORGAN_CAN_AMPUTATE) && config.limbs_can_break)
@@ -407,23 +404,24 @@
 				var/edge_eligible = FALSE
 				var/blunt_eligible = FALSE
 				var/maim_bonus = 0
-
+				var/dam_flags = 0
+				
 				if(isitem(used_weapon))
 					var/obj/item/W = used_weapon
-					var/dam_flags = W.damage_flags()
+					dam_flags = W.damage_flags()
 					if(isprojectile(W))
 						var/obj/item/projectile/P = W
-						if(dam_flags & DAM_BULLET)
+						if(dam_flags & DAMAGE_FLAG_BULLET)
 							blunt_eligible = TRUE
 						maim_bonus += P.maim_rate
-					if(W.w_class >= w_class && (dam_flags & DAM_EDGE))
+					if(W.w_class >= w_class && (dam_flags & DAMAGE_FLAG_EDGE))
 						edge_eligible = TRUE
 
-				if(!blunt_eligible && edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus))
+				if(!blunt_eligible && edge_eligible && (brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus)))
 					droplimb(0, DROPLIMB_EDGE)
-				else if(burn >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
+				else if(burn >= max_damage / ((dam_flags & DAMAGE_FLAG_LASER ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus))
 					droplimb(0, DROPLIMB_BURN)
-				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
+				else if(blunt_eligible && brute >= max_damage / ((dam_flags & DAMAGE_FLAG_BULLET ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus))
 					droplimb(0, DROPLIMB_BLUNT)
 				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus))
 					droplimb(0, DROPLIMB_EDGE)
@@ -438,7 +436,7 @@
 			break
 
 		// heal brute damage
-		if(W.damage_type == BURN)
+		if(W.damage_type == DAMAGE_BURN)
 			burn = W.heal_damage(burn)
 		else
 			brute = W.heal_damage(brute)
@@ -483,7 +481,7 @@ This function completely restores a damaged organ to perfect condition.
 
 
 /obj/item/organ/external/proc/createwound(var/type = CUT, var/damage)
-	if(damage <= 0)
+	if(damage <= 0 || !owner)
 		return
 
 	//moved this before the open_wound check so that having many small wounds for example doesn't somehow protect you from taking internal damage (because of the return)
@@ -491,7 +489,7 @@ This function completely restores a damaged organ to perfect condition.
 	var/local_damage = brute_dam + burn_dam + damage
 
 	if(damage > (min_broken_damage / 2) && local_damage > min_broken_damage && !(status & ORGAN_ROBOT))
-		if(!(type in list(BURN, LASER)))
+		if(!(type in list(DAMAGE_BURN, LASER)))
 			if(prob(damage) && sever_artery())
 				owner.custom_pain("You feel something rip in your [name]!", 25)
 
@@ -503,10 +501,10 @@ This function completely restores a damaged organ to perfect condition.
 			tendon.damage(new_brute)
 
 	//Burn damage can cause fluid loss due to blistering and cook-off
-	if((type in list(BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
+	if((type in list(DAMAGE_BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
 		var/fluid_loss_severity
 		switch(type)
-			if(BURN)
+			if(DAMAGE_BURN)
 				fluid_loss_severity = FLUIDLOSS_WIDE_BURN
 			if(LASER)
 				fluid_loss_severity = FLUIDLOSS_CONC_BURN
@@ -573,9 +571,13 @@ This function completely restores a damaged organ to perfect condition.
 
 //Determines if we even need to process this organ.
 /obj/item/organ/external/proc/need_process()
-	if(status & (ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED))
+	if((status & ORGAN_ASSISTED) && surge_damage)
 		return TRUE
-	if(surge_damage)
+	if(BP_IS_ROBOTIC(src))
+		return FALSE
+	if(get_pain())
+		return TRUE
+	if(status & (ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED))
 		return TRUE
 	if(brute_dam || burn_dam)
 		return TRUE
@@ -721,7 +723,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	germ_level++
 
-	if(germ_level >= INFECTION_LEVEL_TWO && REAGENT_VOLUME(owner.reagents, /decl/reagent/thetamycin) < 5) //The presence of 5 units of thetamycin will stop infections spreading
+	if(germ_level >= INFECTION_LEVEL_TWO && REAGENT_VOLUME(owner.reagents, /singleton/reagent/thetamycin) < 5) //The presence of 5 units of thetamycin will stop infections spreading
 		//SPREADING TO INTERNAL ORGANS
 		if(isnull(infect_target_internal) || QDELETED(infect_target_internal))
 			infect_target_internal = get_infect_target(internal_organs)
@@ -830,7 +832,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	//update damage counts
 	for(var/datum/wound/W in wounds)
-		if(W.damage_type == BURN)
+		if(W.damage_type == DAMAGE_BURN)
 			burn_dam += W.damage
 		else
 			brute_dam += W.damage
@@ -846,7 +848,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		number_wounds += W.amount
 
 	//things tend to bleed if they are CUT OPEN
-	if (open && !clamped && (H && !(H.species.flags & NO_BLOOD)))
+	if (open && !clamped && (H && !(H.species.flags & NO_BLOOD) && !(status & ORGAN_ROBOT)))
 		status |= ORGAN_BLEEDING
 
 	if (istype(tendon))
@@ -968,7 +970,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(!clean)
 				 //Throw limb around.
 				if(src && istype(loc,/turf))
-					INVOKE_ASYNC(src, /atom/movable/.proc/throw_at, get_edge_target_turf(src,pick(alldirs)), rand(1,3), 30)
+					INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src,pick(alldirs)), rand(1,3), 30)
 				dir = 2
 		if(DROPLIMB_BURN)
 			new /obj/effect/decal/cleanable/ash(get_turf(victim))
@@ -983,12 +985,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(victim.species.blood_color)
 				gore.basecolor = victim.species.blood_color
 			gore.update_icon()
-			INVOKE_ASYNC(gore, /atom/movable/.proc/throw_at, get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
+			INVOKE_ASYNC(gore, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
 
 			for(var/obj/item/organ/I in internal_organs)
 				I.removed()
 				if(istype(loc,/turf))
-					INVOKE_ASYNC(I, /atom/movable/.proc/throw_at, get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
+					INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
 
 			var/turf/Tloc = get_turf(src)
 			for(var/obj/item/I in src)
@@ -996,7 +998,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 					qdel(I)
 					continue
 				I.forceMove(Tloc)
-				INVOKE_ASYNC(I, /atom/movable/.proc/throw_at, get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
+				INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
 
 			qdel(src)
 
@@ -1092,7 +1094,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		owner.emote("scream")
 		owner.flash_strong_pain()
 
-	playsound(src.loc, /decl/sound_category/fracture_sound, 100, 1, -2)
+	playsound(src.loc, /singleton/sound_category/fracture_sound, 100, 1, -2)
 	status |= ORGAN_BROKEN
 	broken_description = pick("Broken","Fracture","Hairline Fracture")
 	perma_injury = brute_dam
@@ -1184,13 +1186,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/is_usable()
 	if(is_stump())
 		return FALSE
-	if(is_dislocated())
+	if(ORGAN_IS_DISLOCATED(src))
 		return FALSE
 	if(tendon_status() & TENDON_CUT)
 		return FALSE
 	if(parent && (parent.tendon_status() & TENDON_CUT))
 		return FALSE
-	if(can_feel_pain() && get_pain() > pain_disability_threshold)
+	if(get_pain() > pain_disability_threshold)
 		return FALSE
 	if(brute_ratio > 1)
 		return FALSE
@@ -1210,6 +1212,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/proc/embed(var/obj/item/W, var/silent = 0, var/supplied_message)
 	if(!owner || loc != owner)
+		return
+	if(!W.canremove || is_robot_module(W)) //Modules and augments cannot embed
 		return
 	if(species.flags & NO_EMBED)
 		return
@@ -1332,7 +1336,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		wound_descriptors["an incision"] = 1
 	for(var/datum/wound/W in wounds)
 		var/this_wound_desc = W.desc
-		if(W.damage_type == BURN && W.salved) this_wound_desc = "salved [this_wound_desc]"
+		if(W.damage_type == DAMAGE_BURN && W.salved) this_wound_desc = "salved [this_wound_desc]"
 		if(W.bleeding()) this_wound_desc = "bleeding [this_wound_desc]"
 		if(W.bandaged == 1)
 			this_wound_desc = "bandaged [this_wound_desc]"
@@ -1440,20 +1444,18 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 // Pain/halloss
 /obj/item/organ/external/proc/get_pain()
-	if(!can_feel_pain() || BP_IS_ROBOTIC(src))
+	if(!ORGAN_CAN_FEEL_PAIN(src) || BP_IS_ROBOTIC(src))
 		return 0
-	var/lasting_pain = 0
+	. = pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.5 * get_genetic_damage()
 	if(is_broken())
-		lasting_pain += 10
-	else if(is_dislocated())
-		lasting_pain += 5
-	var/tox_dam = 0
-	for(var/obj/item/organ/internal/I in internal_organs)
-		tox_dam += I.getToxLoss()
-	return pain + lasting_pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.3 * tox_dam + 0.5 * get_genetic_damage()
+		. += 10
+	else if(ORGAN_IS_DISLOCATED(src))
+		. += 5
+	for(var/obj/item/organ/internal/I as anything in internal_organs)
+		. += 0.3 * I.getToxLoss()
 
 /obj/item/organ/external/proc/remove_pain(var/amount)
-	if(!can_feel_pain())
+	if(!ORGAN_CAN_FEEL_PAIN(src))
 		pain = 0
 		return
 	var/last_pain = pain
@@ -1461,7 +1463,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return -(pain-last_pain)
 
 /obj/item/organ/external/proc/add_pain(var/amount)
-	if(!can_feel_pain())
+	if(!ORGAN_CAN_FEEL_PAIN(src))
 		pain = 0
 		return
 	var/last_pain = pain
@@ -1473,4 +1475,19 @@ Note that amputating the affected organ does in fact remove the infection from t
 	pain = max(0, min(pain + amount, species.total_health * 2))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
+	if(amount > 5 && owner)
+		owner.undo_srom_pull()
 	return pain-last_pain
+
+/mob/living/carbon/human/proc/undo_srom_pull()
+	if(srom_pulled_by)
+		to_chat(src, SPAN_DANGER("You are ripped out of the Srom by a sudden shock!"))
+		var/mob/living/carbon/human/srom_puller = srom_pulling.resolve()
+		srom_puller.srom_pulling = null
+		to_chat(srom_puller, SPAN_WARNING("A vibration like a jackhammer resonates in your consciousness, and the person you pulled into the Srom disappears in the next instant."))
+		srom_pulled_by = null
+	if(srom_pulling)
+		to_chat(src, SPAN_DANGER("Your Srom pull is disturbed by a sudden shock!"))
+		var/mob/living/carbon/human/victim = srom_pulling.resolve()
+		victim.srom_pulled_by = null
+		srom_pulling = null

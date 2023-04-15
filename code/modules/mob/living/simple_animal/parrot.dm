@@ -32,7 +32,7 @@
 	icon_state = "parrot_fly"
 	icon_living = "parrot_fly"
 	icon_dead = "parrot_dead"
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	mob_size = MOB_TINY
 
 	speak = list("Hi","Hello!","Cracker?","BAWWWWK george mellons griffing me")
@@ -41,6 +41,7 @@
 	emote_see = list("flutters its wings")
 
 	speak_chance = 1//1% (1 in 100) chance every tick; So about once per 150 seconds, assuming an average tick is 1.5s
+	universal_speak = FALSE
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/cracker/
 
@@ -65,7 +66,6 @@
 	var/list/speech_buffer = list()
 	var/list/available_channels = list()
 
-	//Headset for Poly to yell at engineers :)
 	var/obj/item/device/radio/headset/ears = null
 
 	//The thing the parrot is currently interested in. This gets used for items the parrot wants to pick up, mobs it wants to steal from,
@@ -121,9 +121,6 @@
 /mob/living/simple_animal/parrot/Stat()
 	..()
 	stat("Held Item", held_item)
-
-/mob/living/simple_animal/parrot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 
 /*
  * Inventory
@@ -211,7 +208,7 @@
 									available_channels.Add(":m")
 								if("Mining")
 									available_channels.Add(":d")
-								if("Cargo")
+								if("Operations")
 									available_channels.Add(":q")
 		else
 			..()
@@ -485,7 +482,7 @@
 				var/mob/living/carbon/human/H = parrot_interest
 				var/obj/item/organ/external/affecting = H.get_organ(ran_zone(pick(parrot_dam_zone)))
 
-				H.apply_damage(damage, BRUTE, affecting, damage_flags = DAM_SHARP)
+				H.apply_damage(damage, DAMAGE_BRUTE, affecting, damage_flags = DAMAGE_FLAG_SHARP)
 				visible_emote(pick("pecks [H]'s [affecting].", "cuts [H]'s [affecting] with its talons."))
 
 			else
@@ -680,19 +677,6 @@
 					return
 	to_chat(src, "<span class='warning'>There is no perch nearby to sit on.</span>")
 	return
-
-/*
- * Sub-types
- */
-/mob/living/simple_animal/parrot/Poly
-	name = "Poly"
-	desc = "Poly the Parrot. An expert on quantum cracker theory."
-	speak = list("Poly wanna cracker!", ":e Check the singlo, you chucklefucks!",":e Wire the solars, you lazy bums!",":e WHO TOOK THE DAMN VOIDSUITS?",":e OH GOD ITS FREE CALL THE SHUTTLE")
-
-/mob/living/simple_animal/parrot/Poly/Initialize()
-	ears = new /obj/item/device/radio/headset/headset_eng(src)
-	available_channels = list(":e")
-	. = ..()
 
 /mob/living/simple_animal/parrot/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 

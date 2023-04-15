@@ -7,14 +7,14 @@
 	var/label_text = ""
 
 /obj/item/sample/Initialize(var/newloc, var/atom/supplied)
-	..(newloc)
+	. = ..(newloc)
 	if(supplied)
 		copy_evidence(supplied)
 		name = "[initial(name)] ([supplied.get_swab_name()])"
 		LAZYADD(source, supplied.get_swab_name())
 
 /obj/item/sample/print/Initialize(var/newloc, var/atom/supplied)
-	..(newloc, supplied)
+	. = ..(newloc, supplied)
 	if(LAZYLEN(evidence))
 		icon_state = "fingerprint1"
 
@@ -50,7 +50,7 @@
 		user.unEquip(O)
 		if(merge_evidence(O, user))
 			qdel(O)
-		return 1
+		return TRUE
 	else if (O.ispen())
 		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
 		if(length(tmp_label) > MAX_NAME_LEN)
@@ -59,7 +59,7 @@
 			to_chat(user, SPAN_NOTICE("You set the label to \"[tmp_label]\"."))
 			label_text = tmp_label
 			update_name_label()
-		return
+		return TRUE
 	return ..()
 
 /obj/item/sample/proc/update_name_label()
@@ -68,12 +68,6 @@
 	else
 		name = "[initial(name)] ([label_text])"
 
-/obj/item/sample/Initialize(var/newloc, var/atom/supplied)
-	..(newloc)
-	if(supplied)
-		copy_evidence(supplied)
-		name = "[initial(name)] ([supplied.get_swab_name()])"
-		LAZYADD(source, supplied.get_swab_name())
 
 /atom/proc/get_swab_name()
   return "\the [initial(name)]"

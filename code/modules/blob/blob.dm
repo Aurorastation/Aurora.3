@@ -99,6 +99,10 @@
 	if(GR)
 		qdel(GR)
 		return
+	var/obj/structure/tank_wall/TW = locate() in T
+	if(TW)
+		TW.take_damage(rand(5,20))
+		return
 	for(var/obj/machinery/door/D in T) // There can be several - and some of them can be open, locate() is not suitable
 		if(D.density)
 			attack_door(D)
@@ -174,7 +178,7 @@
 /obj/effect/blob/proc/attack_living(var/mob/living/L)
 	if(!L)
 		return
-	var/blob_damage = pick(BRUTE, BURN)
+	var/blob_damage = pick(DAMAGE_BRUTE, DAMAGE_BURN)
 	attack_msg(L)
 	L.apply_damage(rand(damage_min, damage_max), blob_damage, used_weapon = "blob tendril")
 
@@ -191,9 +195,9 @@
 		return
 
 	switch(Proj.damage_type)
-		if(BRUTE)
+		if(DAMAGE_BRUTE)
 			take_damage(Proj.damage / brute_resist)
-		if(BURN)
+		if(DAMAGE_BURN)
 			take_damage((Proj.damage / laser_resist) / fire_resist)
 	return FALSE
 
@@ -214,11 +218,11 @@
 
 	var/damage = 0
 	switch(W.damtype)
-		if(BURN)
+		if(DAMAGE_BURN)
 			damage = (W.force / fire_resist)
 			if(W.iswelder())
 				playsound(get_turf(src), 'sound/items/Welder.ogg', 100, TRUE)
-		if(BRUTE)
+		if(DAMAGE_BRUTE)
 			damage = (W.force / brute_resist)
 
 	take_damage(damage)
@@ -387,7 +391,7 @@
 			origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 2)
 		if(TENDRIL_FIRE)
 			desc = "A tendril removed from an asteroclast. It's hot to the touch."
-			damtype = BURN
+			damtype = DAMAGE_BURN
 			force = 15
 			color = COLOR_AMBER
 			origin_tech = list(TECH_POWER = 2, TECH_BIO = 2)

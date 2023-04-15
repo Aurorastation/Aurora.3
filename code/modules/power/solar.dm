@@ -8,7 +8,7 @@
 	icon_state = "sp_base"
 	anchored = 1
 	density = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 	active_power_usage = 0
 	var/id = 0
@@ -37,6 +37,7 @@
 	if(SC && (get_dist(src, SC) > SOLAR_MAX_DIST))
 		return 0
 	control = SC
+	START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	return 1
 
 //set the control of the panel to null and removes it from the control list of the previous control computer if needed
@@ -44,6 +45,7 @@
 	if(control)
 		control.connected_panels.Remove(src)
 	control = null
+	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 /obj/machinery/power/solar/proc/Make(var/obj/item/solar_assembly/S)
 	if(!S)
@@ -62,7 +64,7 @@
 	if(W.iscrowbar())
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		user.visible_message("<span class='notice'>[user] begins to take the glass off the solar panel.</span>")
-		if(do_after(user, 50/W.toolspeed))
+		if(W.use_tool(src, user, 50, volume = 50))
 			var/obj/item/solar_assembly/S = locate() in src
 			if(S)
 				S.forceMove(src.loc)
@@ -118,21 +120,18 @@
 	sunfrac = cos(p_angle) ** 2
 	//isn't the power received from the incoming light proportionnal to cos(p_angle) (Lambert's cosine law) rather than cos(p_angle)^2 ?
 
-/obj/machinery/power/solar/machinery_process()//TODO: remove/add this from machines to save on processing as needed ~Carn PRIORITY
-	if(stat & BROKEN)
-		return
-	if(!sun || !control) //if there's no sun or the panel is not linked to a solar control computer, no need to proceed
-		return
+/obj/machinery/power/solar/process()
+	if(stat & BROKEN || !control || !sun)
+		return PROCESS_KILL
 
-	if(powernet)
-		if(powernet == control.powernet)//check if the panel is still connected to the computer
-			if(obscured) //get no light from the sun, so don't generate power
-				return
-			var/sgen = SOLARGENRATE * sunfrac
-			add_avail(sgen)
-			control.gen += sgen
-		else //if we're no longer on the same powernet, remove from control computer
-			unset_control()
+	if(powernet && powernet == control.powernet)
+		if(obscured) //get no light from the sun, so don't generate power
+			return
+		var/sgen = SOLARGENRATE * sunfrac
+		add_avail(sgen)
+		control.gen += sgen
+	else //if we're no longer on the same powernet, remove from control computer
+		unset_control()
 
 /obj/machinery/power/solar/proc/broken()
 	stat |= BROKEN
@@ -167,7 +166,7 @@
 /obj/machinery/power/solar/fake/Initialize(mapload, var/obj/item/solar_assembly/S)
 	. = ..(mapload, S, 0)
 
-/obj/machinery/power/solar/fake/machinery_process()
+/obj/machinery/power/solar/fake/process()
 	return PROCESS_KILL
 
 //trace towards sun to see if we're in shadow
@@ -236,7 +235,7 @@
 			playsound(src.loc, W.usesound, 75, 1)
 			return 1
 
-		if(istype(W, /obj/item/stack/material) && (W.get_material_name() == "glass" || W.get_material_name() == "rglass"))
+		if(istype(W, /obj/item/stack/material) && (W.get_material_name() == "glass" || W.get_material_name() == MATERIAL_GLASS_REINFORCED))
 			var/obj/item/stack/material/S = W
 			if(S.use(2))
 				glass_type = W.type
@@ -273,11 +272,12 @@
 /obj/machinery/power/solar_control
 	name = "solar panel control"
 	desc = "A controller for solar panel arrays."
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/modular_console.dmi'
 	icon_state = "computer"
+	light_color = LIGHT_COLOR_YELLOW
 	anchored = 1
 	density = 1
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 250
 	var/id = 0
 	var/cdir = 0
@@ -348,21 +348,6 @@
 	if(!connect_to_network()) return
 	set_panels(cdir)
 
-/obj/machinery/power/solar_control/update_icon()
-	icon_state = initial(icon_state)
-	cut_overlays()
-	if(stat & BROKEN)
-		icon_state = "computer-broken"
-		add_overlay("broken")
-		return
-	if(stat & NOPOWER)
-		icon_state = "computer"
-		return
-	add_overlay("solar")
-	if(cdir > -1)
-		add_overlay(image('icons/obj/computer.dmi', "solcon-o", FLY_LAYER, angle2dir(cdir)))
-	return
-
 /obj/machinery/power/solar_control/attack_hand(mob/user)
 	if(!..())
 		interact(user)
@@ -428,7 +413,7 @@
 		src.attack_hand(user)
 	return
 
-/obj/machinery/power/solar_control/machinery_process()
+/obj/machinery/power/solar_control/process()
 	lastgen = gen
 	gen = 0
 
@@ -502,6 +487,10 @@
 /obj/machinery/power/solar_control/power_change()
 	..()
 	update_icon()
+	if(stat & NOPOWER)
+		set_light(0)
+	else
+		set_light(2, 1.3, light_color)
 
 
 /obj/machinery/power/solar_control/proc/broken()
@@ -529,13 +518,33 @@
 
 /obj/machinery/power/solar_control/autostart/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, .proc/do_solars), 1800)
+	power_change()
+	update_icon()
+	addtimer(CALLBACK(src, PROC_REF(do_solars)), 1800)
 
 /obj/machinery/power/solar_control/autostart/proc/do_solars()
 	search_for_connected()
 	if(connected_tracker && track == 2)
 		connected_tracker.modify_angle(sun.angle)
 	set_panels(cdir)
+
+/obj/machinery/power/solar_control/update_icon()
+	cut_overlays()
+	if(stat & NOPOWER)
+		set_light(0)
+		return
+	else
+		set_light(2, 1.3, light_color)
+
+	icon_state = initial(icon_state)
+
+	if(stat & BROKEN)
+		icon_state = "[initial(icon_state)]-broken"
+		holographic_overlay(src, src.icon, "broken")
+		add_overlay("red_key")
+	else
+		holographic_overlay(src, src.icon, "solar")
+		add_overlay("yellow_key")
 
 //
 // MISC

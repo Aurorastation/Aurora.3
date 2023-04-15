@@ -41,6 +41,7 @@
 	var/con_port = 3306
 	var/con_database = ""
 	var/failed_connections = 0
+	var/last_fail
 
 /DBConnection/New(server, port = 3306, database, username, password_handler, cursor_handler = Default_Cursor, dbi_handler)
 	con_user = username
@@ -269,7 +270,7 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 /DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list)
 	if (!query_to_parse || !argument_list || !argument_list.len)
 #ifdef UNIT_TEST
-		error("SQL ARGPARSE: Invalid arguments sent.")
+		log_error("SQL ARGPARSE: Invalid arguments sent.")
 #else
 		log_debug("SQL ARGPARSE: Invalid arguments sent.")
 #endif
@@ -296,7 +297,7 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 			cache[key] = "NULL"
 		else
 #ifdef UNIT_TEST
-			error("SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
+			log_error("SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
 #else
 			log_debug("SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
 #endif
@@ -314,8 +315,8 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 					parsed += cache[curr_arg]
 				else
 #ifdef UNIT_TEST
-					error("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
-					error("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
+					log_error("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
+					log_error("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
 #else
 					log_debug("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
 					log_debug("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")

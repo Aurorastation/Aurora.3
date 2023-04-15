@@ -1,10 +1,10 @@
 /obj/item/gun/energy/gun
 	name = "energy carbine"
-	desc = "A Nanotrasen designed energy-based carbine with two settings: Stun and kill."
+	desc = "A NanoTrasen designed energy-based carbine with two settings: Stun and kill."
 	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
 	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To switch between stun and lethal, click the weapon \
 	in your hand.  To recharge this weapon, use a weapon recharger."
-	desc_fluff = "The NT EC-4 is an energy carbine developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
+	desc_extended = "The NT EC-4 is an energy carbine developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/ecarbine.dmi'
 	icon_state = "energystun"
 	item_state = "energystun"
@@ -71,7 +71,7 @@
 			to_chat(M, "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>")
 		else
 			to_chat(M, "<span class='warning'>You feel a warm sensation.</span>")
-		M.apply_effect(rand(3,120), IRRADIATE)
+	SSradiation.radiate(src, rand(3, 50))
 	return
 
 /obj/item/gun/energy/gun/nuclear/medium_fail(var/mob/user)
@@ -85,7 +85,7 @@
 	to_chat(user, "<span class='danger'>Your gun's reactor overloads!</span>")
 	for (var/mob/living/M in range(rand(1,4),src))
 		to_chat(M, "<span class='warning'>You feel a wave of heat wash over you.</span>")
-		M.apply_effect(300, IRRADIATE)
+	SSradiation.radiate(src, rand(3, 80))
 	crit_fail = 1 //break the gun so it stops recharging
 	self_recharge = FALSE
 	update_icon()
@@ -95,7 +95,7 @@
 	if (crit_fail)
 		add_overlay("nucgun-whee")
 		return
-	var/ratio = power_supply.charge / power_supply.maxcharge
+	var/ratio = max((power_supply?.charge / power_supply?.maxcharge), 0)
 	ratio = round(ratio, 0.25) * 100
 	add_overlay("nucgun-[ratio]")
 
@@ -105,7 +105,7 @@
 		return
 	if(lightfail)
 		add_overlay("nucgun-medium")
-	else if ((power_supply.charge/power_supply.maxcharge) <= 0.5)
+	else if ((power_supply?.charge/power_supply?.maxcharge) <= 0.5)
 		add_overlay("nucgun-light")
 	else
 		add_overlay("nucgun-clean")
@@ -126,8 +126,8 @@
 
 /obj/item/gun/energy/pistol
 	name = "energy pistol"
-	desc = "A Nanotrasen energy-based pistol gun with two settings: Stun and kill."
-	desc_fluff = "The NT EP-3 is an energy sidearm developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
+	desc = "A NanoTrasen energy-based pistol gun with two settings: Stun and kill."
+	desc_extended = "The NT EP-3 is an energy sidearm developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/epistol.dmi'
 	icon_state = "epistolstun100"
 	item_state = "epistolstun100"
@@ -154,7 +154,7 @@
 /obj/item/gun/energy/pistol/hegemony
 	name = "hegemony energy pistol"
 	desc = "An upgraded variant of the standard energy pistol with two settings: Incapacitate and Smite."
-	desc_fluff = "This is the Zkrehk-Guild Beamgun, an energy-based sidearm designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
+	desc_extended = "This is the Zkrehk-Guild Beamgun, an energy-based sidearm designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
 	icon = 'icons/obj/guns/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	item_state = "hegemony_pistol"
@@ -180,7 +180,7 @@
 /obj/item/gun/energy/repeater
 	name = "energy repeater"
 	desc = "A Stellar Corporate Conglomerate created energy repeater, extremely lightweight. It has three settings: Single, Three-Burst, and Full-Auto."
-	desc_fluff = "The SCC-ER1 was designed to be a reliable yet concealable firearm, capable of defending SCC assets and agents from various attackers."
+	desc_extended = "The SCC-ER1 was designed to be a reliable yet concealable firearm, capable of defending SCC assets and agents from various attackers."
 	icon = 'icons/obj/guns/erepeater.dmi'
 	icon_state = "energysmg100"
 	item_state = "energysmg100"
@@ -213,9 +213,9 @@
 	return //Fuck robots.
 
 /obj/item/gun/energy/gun/skrell/pistol
-	name = "jargon particle pistol"
-	desc = "A Jargon Federation particle-beam pistol with two settings: Disable and Lethal."
-	icon = 'icons/obj/guns/jargonpistol.dmi'
+	name = "nralakk particle pistol"
+	desc = "A Nralakk Federation particle-beam pistol with two settings: Disable and Lethal."
+	icon = 'icons/obj/guns/nralakkpistol.dmi'
 	icon_state = "particlepistol"
 	item_state = "particlepistol"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -229,9 +229,9 @@
 		)
 
 /obj/item/gun/energy/gun/skrell/smg
-	name = "jargon particle submachinegun"
-	desc = "A Jargon Federation particle-beam submachine gun with two settings: Disable and Lethal."
-	icon = 'icons/obj/guns/jargonsmg.dmi'
+	name = "nralakk particle submachinegun"
+	desc = "A Nralakk Federation particle-beam submachine gun with two settings: Disable and Lethal."
+	icon = 'icons/obj/guns/nralakksmg.dmi'
 	icon_state = "particlesmg"
 	item_state = "particlesmg"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_BACK
@@ -244,3 +244,29 @@
 		list(mode_name="disable", projectile_type=/obj/item/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pulse/skrell, fire_sound='sound/weapons/Laser3.ogg', burst = 2, burst_delay = 2)
 		)
+
+/obj/item/gun/energy/gun/qukala
+	name = "tqi-qop rifle"
+	desc = "The Tqi-Qop Rifle is the main weapon of the Qukala. Its compact light frame and excellent ammo capacity make it a superb weapon for the Skrell."
+	desc_extended = ""
+	icon = 'icons/obj/item/gun/energy/gun/qukala.dmi'
+	icon_state = "qukalagun"
+	item_state = "qukalagun"
+	fire_sound = 'sound/weapons/Taser.ogg'
+	slot_flags = SLOT_BELT
+	accuracy = 2
+	max_shots = 25
+	secondary_projectile_type = /obj/item/projectile/beam
+	secondary_fire_sound = 'sound/weapons/laser1.ogg'
+	can_switch_modes = 1
+
+	projectile_type = /obj/item/projectile/beam/stun
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
+	modifystate = "qukalagun"
+
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/midlaser/skrell, fire_sound='sound/weapons/laser1.ogg')
+		)
+
+	has_item_ratio = FALSE

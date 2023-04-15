@@ -9,9 +9,24 @@
 	path = /obj/item/clothing/ears/earmuffs
 	slot = null
 
+/datum/gear/ears/double/ear_warmers
+	display_name = "ear warmers, colourable"
+	path = /obj/item/clothing/accessory/ear_warmers
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/ears/double/headphones
-	display_name = "headphones"
-	path = /obj/item/clothing/ears/earmuffs/headphones
+	display_name = "headphone selection"
+	description = "A selection of headphones."
+	path = /obj/item/clothing/ears/earmuffs/earphones/headphones
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/ears/double/headphones/New()
+	..()
+	var/list/headphones = list()
+	headphones["headphones"] = /obj/item/clothing/ears/earmuffs/earphones/headphones
+	headphones["earphones"] = /obj/item/clothing/ears/earmuffs/earphones
+	headphones["earbuds"] = /obj/item/clothing/ears/earmuffs/earphones/earbuds
+	gear_tweaks += new /datum/gear_tweak/path(headphones)
 
 /datum/gear/ears/earrings
 	display_name = "earring selection"
@@ -22,8 +37,11 @@
 /datum/gear/ears/earrings/New()
 	..()
 	var/list/earrings = list()
-	earrings["stud earrings"] = /obj/item/clothing/ears/earring/stud
+	earrings["stud earrings"] = /obj/item/clothing/ears/earring
 	earrings["dangle earrings"] = /obj/item/clothing/ears/earring/dangle
+	earrings["circular bangle earrings"] = /obj/item/clothing/ears/earring/bangle
+	earrings["crescent earrings"] = /obj/item/clothing/ears/earring/crescent
+	earrings["oversized earrings"] = /obj/item/clothing/ears/earring/heavy
 	gear_tweaks += new /datum/gear_tweak/path(earrings)
 
 /datum/gear/ears/hearing_aid
@@ -40,4 +58,3 @@
 	hearingaids["hearing aid, white"] = /obj/item/device/hearing_aid/white
 	hearingaids["hearing aid, skrellian"] = /obj/item/device/hearing_aid/skrell
 	gear_tweaks += new /datum/gear_tweak/path(hearingaids)
-

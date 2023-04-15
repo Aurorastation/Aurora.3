@@ -43,10 +43,12 @@ var/global/universe_has_ended = 0
 	sound_to(world, ('sound/effects/cascade.ogg'))
 
 	for(var/mob/M in player_list)
-		M.flash_eyes()
+		M.flash_act()
 
 	if(evacuation_controller.cancel_evacuation())
 		priority_announcement.Announce("The evacuation has been aborted due to bluespace distortion.")
+
+	SSskybox.change_skybox("cascade", new_use_stars = FALSE, new_use_overmap_details = FALSE)
 
 	AreaSet()
 	MiscSet()
@@ -62,8 +64,8 @@ var/global/universe_has_ended = 0
 	var/time = rand(30, 60)
 	log_debug("universal_state/cascade: Announcing to world in [time] seconds.")
 	log_debug("universal_state/cascade: Ending universe in [(time SECONDS + 5 MINUTES)/10] seconds.")
-	addtimer(CALLBACK(src, .proc/announce_to_world), time SECONDS)
-	addtimer(CALLBACK(src, .proc/end_universe), time SECONDS + 5 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(announce_to_world)), time SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(end_universe)), time SECONDS + 5 MINUTES)
 
 /datum/universal_state/supermatter_cascade/proc/announce_to_world()
 	var/txt = {"
@@ -79,7 +81,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 	"}
 	priority_announcement.Announce(txt,"SUPERMATTER CASCADE DETECTED")
 
-	for(var/obj/machinery/computer/shuttle_control/C in SSmachinery.processing_machines)
+	for(var/obj/machinery/computer/shuttle_control/C in SSmachinery.machinery)
 		if(istype(C, /obj/machinery/computer/shuttle_control/multi/research) || istype(C, /obj/machinery/computer/shuttle_control/mining))
 			C.req_access = list()
 			C.req_one_access = list()
@@ -90,7 +92,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 
 /datum/universal_state/supermatter_cascade/proc/AreaSet()
 	for(var/area/A in all_areas)
-		if(!istype(A,/area) || istype(A, /area/space) || istype(A,/area/beach))
+		if(!istype(A,/area) || istype(A, /area/space))
 			continue
 
 		A.queue_icon_update()
@@ -115,13 +117,13 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/MiscSet()
-	for (var/obj/machinery/firealarm/alm in SSmachinery.processing_machines)
+	for (var/obj/machinery/firealarm/alm in SSmachinery.processing)
 		if (!(alm.stat & BROKEN))
 			alm.ex_act(2)
 		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/APCSet()
-	for (var/obj/machinery/power/apc/APC in SSmachinery.processing_machines)
+	for (var/obj/machinery/power/apc/APC in SSmachinery.processing)
 		if (!(APC.stat & BROKEN) && !APC.is_critical)
 			APC.chargemode = 0
 			if(APC.cell)
@@ -135,8 +137,8 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		if(!istype(M.current,/mob/living))
 			continue
 		if(M.current.stat!=2)
-			M.current.Weaken(10)
-			M.current.flash_eyes()
+			if(M.current.flash_act())
+				M.current.Weaken(10)
 
 		clear_antag_roles(M)
 		CHECK_TICK

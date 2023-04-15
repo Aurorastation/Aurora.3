@@ -12,7 +12,7 @@
 	var/list/ask_verb = list("asks")  // Used when sentence ends in a ?
 	var/list/exclaim_verb = list("exclaims") // Used when sentence ends in a !
 	var/list/shout_verb = list("shouts", "yells", "screams") //Used when a sentence ends in !!
-	var/list/whisper_verb = list("says quietly", "says softly", "whispers")  // Optional. When not specified speech_verb + quietly/softly is used instead.
+	var/list/whisper_verb = null  // Optional. When not specified speech_verb + quietly/softly is used instead.
 	var/list/signlang_verb = list("signs") // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
 	var/list/sing_verb = list("sings")
 	var/list/sign_adv_length = list(" briefly", " a short message", " a message", " a lengthy message", " a very lengthy message") // 5 messages changing depending on the length of the signed language. A space should be added before the sentence as shown

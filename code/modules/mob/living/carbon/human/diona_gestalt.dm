@@ -12,7 +12,7 @@
 
 
 /mob/living/carbon/human/proc/setup_gestalt()
-	composition_reagent = /decl/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
+	composition_reagent = /singleton/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	setup_dionastats()
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
@@ -62,7 +62,7 @@
 		return FALSE
 	var/mob/living/carbon/alien/diona/M = new /mob/living/carbon/alien/diona(src)
 	M.gestalt = src
-	M.stat = CONSCIOUS
+	M.set_stat(CONSCIOUS)
 	M.update_verbs()
 	M.sync_languages(src)
 	return TRUE
@@ -100,7 +100,7 @@
 	if (severity)
 		damage_factor = (1 / severity)
 
-	var/armorval = get_blocked_ratio(BP_CHEST, BRUTE, DAM_DISPERSED, damage = damage)
+	var/armorval = get_blocked_ratio(BP_CHEST, DAMAGE_BRUTE, DAMAGE_FLAG_DISPERSED, damage = damage)
 	if (armorval)
 		damage_factor *= (1 - (armorval * 0.01))
 
@@ -304,7 +304,7 @@
 	var/total_nymph = 0
 	for(var/mob/living/carbon/alien/diona/D in src)
 		if(nymphs_to_kill_off > 0)
-			D.stat = DEAD
+			D.set_stat(DEAD)
 			nymphs_to_kill_off -= 1
 			qdel(D)
 			continue
@@ -322,7 +322,7 @@
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
 		D.gestalt = null
 		total_nymph += 1
-		D.stat = CONSCIOUS
+		D.set_stat(CONSCIOUS)
 		D.stunned = 0
 		D.update_verbs()
 

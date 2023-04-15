@@ -61,7 +61,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 /obj/structure/particle_accelerator
 	name = "Particle Accelerator"
 	desc = "Part of a Particle Accelerator."
-	icon = 'icons/obj/machines/particle_accelerator.dmi'
+	icon = 'icons/obj/machinery/particle_accelerator.dmi'
 	anchored = FALSE
 	density = TRUE
 	obj_flags = OBJ_FLAG_ROTATABLE
@@ -222,10 +222,10 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 /obj/machinery/particle_accelerator
 	name = "Particle Accelerator"
 	desc = "Part of a Particle Accelerator."
-	icon = 'icons/obj/machines/particle_accelerator2.dmi'
+	icon = 'icons/obj/machinery/particle_accelerator2.dmi'
 	anchored = FALSE
 	density = TRUE
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 	active_power_usage = 0
 	var/construction_state = 0
@@ -327,9 +327,9 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 		if(construction_state < 3)//Was taken apart, update state
 			update_state()
 			if(use_power)
-				use_power = 0
+				update_use_power(POWER_USE_OFF)
 		construction_state = temp_state
 		if(construction_state >= 3)
-			use_power = 1
+			update_use_power(POWER_USE_IDLE)
 		update_icon()
 		return TRUE

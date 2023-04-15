@@ -25,9 +25,10 @@
 	var/damage = W.force / 4.0
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			damage = 15
 			playsound(loc, 'sound/items/welder.ogg', 100, 1)
+		return TRUE
 	else
 		user.do_attack_animation(src)
 		playsound(loc, W.hitsound, 50, 1, -1)
@@ -131,7 +132,7 @@
 /obj/effect/spider/spiderling
 	name = "greimorian larva"
 	desc = "A small, agile alien creature. It oozes some disgusting slime."
-	desc_fluff = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
+	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
 	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
 	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
 	icon_state = "spiderling"
@@ -247,7 +248,7 @@
 			burst_out(O)
 		if (O.owner)
 			if(amount_grown > 40 && prob(1))
-				O.owner.apply_damage(1, TOX, O.limb_name)
+				O.owner.apply_damage(1, DAMAGE_TOXIN, O.limb_name)
 				if(world.time > last_itch + 30 SECONDS)
 					last_itch = world.time
 					O.owner.visible_message(
@@ -277,11 +278,12 @@
 	die()
 
 /obj/effect/spider/spiderling/attackby(var/obj/item/W, var/mob/user)
-	..()
+	. = ..()
 	if(istype(W, /obj/item/newspaper))
 		var/obj/item/newspaper/N = W
 		if(N.rolled)
 			die()
+			return TRUE
 
 /**
  * Makes the organ spew out all of the spiderlings it has. It's triggered at the point

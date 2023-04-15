@@ -19,16 +19,26 @@
 	var/update_locked = 0
 
 /obj/machinery/power/breakerbox/Initialize()
-	LAZYADD(SSpower.breaker_boxes, src)
+	LAZYADD(SSmachinery.breaker_boxes, src)
 	return ..()
 
 /obj/machinery/power/breakerbox/update_icon()
 	icon_state = "bbox_[on ? "on" : "off"]"
 
 /obj/machinery/power/breakerbox/Destroy()
-	LAZYREMOVE(SSpower.breaker_boxes, src)
-	SSmachinery.queue_rcon_update()
+	LAZYREMOVE(SSmachinery.breaker_boxes, src)
 	return ..()
+
+/obj/machinery/power/breakerbox/activated
+	icon_state = "bbox_on"
+
+	// Enabled on server startup. Used in substations to keep them in bypass mode.
+/obj/machinery/power/breakerbox/activated/Initialize()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/power/breakerbox/activated/LateInitialize()
+	set_state(1)
 
 /obj/machinery/power/breakerbox/examine(mob/user)
 	..()
@@ -54,7 +64,7 @@
 		set_state(!on)
 		to_chat(user, SPAN_GOOD("Update Completed. New setting:[on ? "on": "off"]"))
 		update_locked = 1
-		addtimer(CALLBACK(src, .proc/reset_locked), 600)
+		addtimer(CALLBACK(src, PROC_REF(reset_locked)), 600)
 	busy = 0
 
 /obj/machinery/power/breakerbox/proc/reset_locked()
@@ -79,7 +89,7 @@
 		user.visible_message(SPAN_NOTICE("[user.name] [on ? "enabled" : "disabled"] the breaker box!"), \
 							 SPAN_NOTICE("You [on ? "enabled" : "disabled"] the breaker box!"))
 		update_locked = 1
-		addtimer(CALLBACK(src, .proc/reset_locked), 600)
+		addtimer(CALLBACK(src, PROC_REF(reset_locked)), 600)
 	busy = 0
 
 /obj/machinery/power/breakerbox/attackby(var/obj/item/W as obj, var/mob/user as mob)
@@ -88,7 +98,6 @@
 		if(newtag)
 			RCon_tag = newtag
 			to_chat(user, SPAN_NOTICE("You changed the RCON tag to: [newtag]"))
-			SSmachinery.queue_rcon_update()
 
 /obj/machinery/power/breakerbox/proc/set_state(var/state)
 	on = state
@@ -126,12 +135,7 @@
 	if(!update_locked)
 		set_state(!on)
 		update_locked = 1
-		addtimer(CALLBACK(src, .proc/reset_locked), 600)
+		addtimer(CALLBACK(src, PROC_REF(reset_locked)), 600)
 
 /obj/machinery/power/breakerbox/activated
 	icon_state = "bbox_on"
-
-	// Enabled on server startup. Used in substations to keep them in bypass mode.
-/obj/machinery/power/breakerbox/activated/Initialize()
-	. = ..()
-	set_state(1)

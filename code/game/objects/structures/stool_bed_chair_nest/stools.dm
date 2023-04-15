@@ -20,7 +20,7 @@
 		if(!held_item || use_check_and_message(usr) || buckled || (anchored && padding_material)) // Make sure held_item = null if you don't want it to get picked up.
 			return
 		usr.visible_message(SPAN_NOTICE("[usr] [withdraw_verb]s \the [src.name]."), SPAN_NOTICE("You [withdraw_verb] \the [src.name]."))
-		var/obj/item/material/stool/S = new held_item(src.loc, material.name, padding_material ? padding_material.name : null) // Handles all the material code so you don't have to.
+		var/obj/item/material/stool/S = new held_item(src.loc, material.name, padding_material ? padding_material.name : null, painted_colour) // Handles all the material code so you don't have to.
 		TransferComponents(S)
 		if(material_alteration & MATERIAL_ALTERATION_COLOR) // For snowflakes like wood chairs.
 			S.color = material.icon_colour
@@ -28,8 +28,6 @@
 			S.name = name // Get the name and desc of the stool, rather. We already went through all the trouble in New in bed.dm
 		if(material_alteration & MATERIAL_ALTERATION_DESC)
 			S.desc = desc
-		if(painted_colour)
-			S.painted_colour = painted_colour
 		if(blood_DNA)
 			S.blood_DNA |= blood_DNA // Transfer blood, if any.
 			S.add_blood()
@@ -163,7 +161,7 @@
 		)
 	icon_state = "stool_item_preview"
 	item_state = "stool"
-	var/base_icon = "stool"
+	base_icon = "stool"
 	desc_info = "Use in-hand or alt-click to right this."
 	randpixel = 0
 	center_of_mass = null
@@ -178,10 +176,12 @@
 	var/deploy_verb = "right"
 	var/painted_colour
 
-/obj/item/material/stool/New(var/newloc, var/new_material, var/new_padding_material)
+/obj/item/material/stool/New(var/newloc, var/new_material, var/new_padding_material, var/new_painted_colour)
 	..(newloc, new_material)	// new_material handled in material_weapons.dm
 	if(new_padding_material)
 		padding_material = SSmaterials.get_material_by_name(new_padding_material)
+	if(new_painted_colour)
+		painted_colour = new_painted_colour
 	update_icon()
 
 /obj/item/material/stool/attack_self(mob/user)
@@ -207,9 +207,9 @@
 
 /obj/item/material/stool/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	if(prob(300 / force)) // Weaker materials are more likely to shatter on people randomly.
-		var/blocked = target.get_blocked_ratio(hit_zone, BRUTE)
+		var/blocked = target.get_blocked_ratio(hit_zone, DAMAGE_BRUTE)
 		target.Weaken(force * BLOCKED_MULT(blocked))
-		target.apply_damage(force * 2, BRUTE, hit_zone, blocked, src)
+		target.apply_damage(force * 2, DAMAGE_BRUTE, hit_zone, blocked, src)
 		user.visible_message(SPAN_DANGER("[user] [material.destruction_desc] \the [src] to pieces against \the [target]'s [hit_zone]!"), SPAN_DANGER("\The [src] [material.destruction_desc] to pieces against \the [target]'s [hit_zone]!"))
 		use_material_shatter = FALSE
 		shatter()
@@ -240,12 +240,12 @@
 	user.visible_message(SPAN_NOTICE("[user] [deploy_verb]s \the [src.name]."), SPAN_NOTICE("You [deploy_verb] \the [name]."))
 	// playsound(src, deploy_sound ? deploy_sound : drop_sound, DROP_SOUND_VOLUME)
 	user.drop_from_inventory(src)
-	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc), material.name, padding_material ? padding_material.name : null) // Fuck me.
-	S.update_icon()
+	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc), material.name, padding_material ? padding_material.name : null, painted_colour) // Fuck me.
 	TransferComponents(S)
 	S.dir = user.dir // Plant it where the user's facing
 	if(blood_DNA)
 		S.blood_DNA |= blood_DNA // Transfer blood.
+	S.update_icon()
 	qdel(src)
 
 /obj/item/material/stool/update_icon()
@@ -299,3 +299,18 @@
 	item_state = "hover_stool"
 	base_icon = "hover_stool"
 	origin_type = /obj/structure/bed/stool/hover
+
+/obj/structure/flora/log_bench
+	name = "log bench"
+	desc = "Apply butt."
+	icon = 'icons/obj/wood.dmi'
+	icon_state = "tree_log"
+	anchored = FALSE
+	density = FALSE
+
+/obj/structure/flora/log_bench/fire_act()
+	for(var/obj/structure/bonfire/B in get_turf(src))
+		if(B.on_fire)
+			B.fuel = min(B.max_fuel, B.fuel + 300)
+	new /obj/effect/decal/cleanable/ash(get_turf(src))
+	qdel(src)

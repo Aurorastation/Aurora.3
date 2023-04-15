@@ -1,17 +1,6 @@
 /////////////////////////////
 // Helpers for DNA2
 /////////////////////////////
-
-// Pads 0s to t until length == u
-/proc/add_zero2(t, u)
-	var/temp1
-	while (length(t) < u)
-		t = "0[t]"
-	temp1 = t
-	if (length(t) > u)
-		temp1 = copytext(t,2,u+1)
-	return temp1
-
 // DNA Gene activation boundaries, see dna2.dm.
 // Returns a list object with 4 numbers.
 /proc/GetDNABounds(var/block)
@@ -28,7 +17,7 @@
 		if(H.species && H.species.flags & NO_SCAN)
 			return
 	M.dna.check_integrity()
-	var/block = pick(GLASSESBLOCK,COUGHBLOCK,FAKEBLOCK,STUTTERBLOCK,CLUMSYBLOCK,TWITCHBLOCK,HEADACHEBLOCK,BLINDBLOCK,DEAFBLOCK,HALLUCINATIONBLOCK)
+	var/block = pick(GLASSESBLOCK,COUGHBLOCK,FAKEBLOCK,STUTTERBLOCK,CLUMSYBLOCK,TWITCHBLOCK,HEADACHEBLOCK,BLINDBLOCK,DEAFBLOCK)
 	M.dna.SetSEState(block, 1)
 
 // Give Random Good Mutation to M

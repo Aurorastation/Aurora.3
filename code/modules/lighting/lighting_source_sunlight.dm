@@ -99,7 +99,7 @@
 		CHECK_TICK
 
 		// Sunlight only checks downwards as it has no need to shine upwards, really.
-		if (T && (T.flags & MIMIC_BELOW) && T.below)
+		if (T && (T.z_flags & ZM_MIMIC_BELOW) && T.below)
 			T = T.below
 			goto check_t
 

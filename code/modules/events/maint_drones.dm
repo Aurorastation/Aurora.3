@@ -22,7 +22,7 @@
 			naming = "serious"
 		if(EVENT_LEVEL_MAJOR)
 			naming = "major"
-	command_announcement.Announce("A [naming] maintenance drone hijacking has occurred. The hacked drones are aggressive and dangerous. Caution is advised when entering maintenance tunnels.", "Drone Behaviour Control")
+	command_announcement.Announce("A [naming] maintenance drone hijacking has occurred. The hacked drones are aggressive and dangerous. Caution is advised when entering maintenance tunnels.", "Drone Behaviour Control", zlevels = affecting_z)
 
 /datum/event/rogue_maint_drones/proc/get_infestation_turfs()
 	var/area/location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area, /proc/is_maint_area))

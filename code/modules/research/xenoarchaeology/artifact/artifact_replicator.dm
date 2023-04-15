@@ -8,7 +8,6 @@
 
 	idle_power_usage = 100
 	active_power_usage = 1000
-	use_power = 1
 
 	var/spawn_progress_time = 0
 	var/max_spawn_time = 50
@@ -85,7 +84,7 @@
 		[pick("front","side","top","bottom","rear","inside")] of [src]. A [pick("slot","funnel","chute","tube")] opens up in the \
 		[pick("front","side","top","bottom","rear","inside")].</span>"
 
-/obj/machinery/replicator/machinery_process()
+/obj/machinery/replicator/process()
 	if(spawning_types.len && powered())
 		spawn_progress_time += world.time - last_process_time
 		if(spawn_progress_time > max_spawn_time)
@@ -108,7 +107,7 @@
 			max_spawn_time = rand(30,100)
 
 			if(!spawning_types.len || !stored_materials.len)
-				use_power = 1
+				update_use_power(POWER_USE_IDLE)
 				icon_state = "borgcharger0(old)"
 
 		else if(prob(5))
@@ -145,7 +144,7 @@
 
 				spawning_types.Add(construction[construction[index]])
 				spawn_progress_time = 0
-				use_power = 2
+				update_use_power(POWER_USE_ACTIVE)
 				icon_state = "borgcharger1(old)"
 			else
 				src.visible_message(fail_message)

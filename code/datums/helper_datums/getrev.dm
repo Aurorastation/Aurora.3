@@ -122,7 +122,7 @@ client/verb/showrevinfo()
 	. += {"<tr><th>Author:</th><td>[html_encode(tm.author)]</td></tr>"}
 
 	if (config.githuburl)
-		. += {"<tr><td colspan="2"><a href="?JSlink=github;pr=[tm.number]">Link to Github</a></td></tr>"}
+		. += {"<tr><td colspan="2"><a href="?JSlink=github;pr=[tm.number]">Link to GitHub</a></td></tr>"}
 
 	. += {"<tr><th>Description:</th><td>[html_encode(tm.body)]</td></tr>"}
 	if(tm.comment)

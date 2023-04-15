@@ -15,9 +15,6 @@ var/list/mineral_can_smooth_with = list(
 	/turf/unsimulated/wall
 )
 
-// Some extra types for the surface to keep things pretty.
-/turf/simulated/mineral/surface
-	mined_turf = /turf/unsimulated/floor/asteroid/ash
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
@@ -26,7 +23,7 @@ var/list/mineral_can_smooth_with = list(
 	desc = "It's a greyish rock. Exciting."
 	gender = PLURAL
 	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
-	layer = 2.01
+	layer = ON_TURF_LAYER
 
 	// canSmoothWith is set in Initialize().
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
@@ -74,6 +71,9 @@ var/list/mineral_can_smooth_with = list(
 
 	turfs += src
 
+	if(isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -91,6 +91,17 @@ var/list/mineral_can_smooth_with = list(
 		queue_smooth_neighbors(src)
 
 	rock_health = rand(10,20)
+
+	var/area/A = loc
+
+	if(!baseturf)
+		// Hard-coding this for performance reasons.
+		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
+
+	if (current_map.use_overmap && istype(A, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -131,7 +142,10 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj, /obj/item/projectile/beam/plasmacutter))
 		var/obj/item/projectile/beam/plasmacutter/PC_beam = Proj
-		. = PC_beam.pass_check(src)
+		var/list/cutter_results = PC_beam.pass_check(src)
+		. = cutter_results[1]
+		if(cutter_results[2]) // the cutter mined the turf, just pass on
+			return
 
 	// Emitter blasts
 	if(istype(Proj, /obj/item/projectile/beam/emitter))
@@ -186,6 +200,9 @@ var/list/mineral_can_smooth_with = list(
 
 	turfs += src
 
+	if(isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -201,6 +218,11 @@ var/list/mineral_can_smooth_with = list(
 
 	if(!mapload)
 		queue_smooth_neighbors(src)
+
+	if (current_map.use_overmap && istype(loc, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -305,7 +327,7 @@ var/list/mineral_can_smooth_with = list(
 					O = new /obj/item/ore(src)
 				if(istype(O))
 					O.geologic_data = get_geodata()
-				addtimer(CALLBACK(O, /atom/movable/.proc/forceMove, user.loc), 1)
+				addtimer(CALLBACK(O, TYPE_PROC_REF(/atom/movable, forceMove), user.loc), 1)
 
 			if(finds?.len)
 				var/datum/find/F = finds[1]
@@ -355,7 +377,7 @@ var/list/mineral_can_smooth_with = list(
 
 		to_chat(user, SPAN_NOTICE("You start chiselling \the [src] into a sculptable block."))
 
-		if(!do_after(user, 80 / W.toolspeed))
+		if(!W.use_tool(src, user, 80, volume = 50))
 			return
 
 		if(!istype(src, /turf/simulated/mineral))
@@ -396,8 +418,8 @@ var/list/mineral_can_smooth_with = list(
 	if(prob(25))
 		var/datum/reagents/R = new/datum/reagents(20)
 		R.my_atom = src
-		R.add_reagent(/decl/reagent/stone_dust,20)
-		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/decl/reagent/stone_dust) // have to explicitly say the type to avoid issues with warnings
+		R.add_reagent(/singleton/reagent/stone_dust,20)
+		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/singleton/reagent/stone_dust) // have to explicitly say the type to avoid issues with warnings
 		S.show_log = 0
 		S.set_up(R, 10, 0, src, 40)
 		S.start()
@@ -477,10 +499,21 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 8,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
+		ORE_SILVER = 2
+	)
+	var/mineralChance = 55
+
+/turf/simulated/mineral/random/phoron
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 2,
+		ORE_PLATINUM = 2,
+		ORE_IRON = 8,
+		ORE_COAL = 8,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 2,
 		ORE_SILVER = 2,
 		ORE_PHORON = 5
 	)
-	var/mineralChance = 55
 
 /turf/simulated/mineral/random/Initialize()
 	if(prob(mineralChance) && !mineral)
@@ -491,6 +524,14 @@ var/list/mineral_can_smooth_with = list(
 		MineralSpread()
 	. = ..()
 
+/turf/simulated/mineral/random/exoplanet
+	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
+/turf/simulated/mineral/random/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+
 /turf/simulated/mineral/random/high_chance
 	mineralSpawnChanceList = list(
 		ORE_URANIUM = 2,
@@ -499,12 +540,42 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 2,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
-		ORE_SILVER = 2,
-		ORE_PHORON = 3
+		ORE_SILVER = 2
 	)
 	mineralChance = 55
 
+/turf/simulated/mineral/random/high_chance/phoron
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 2,
+		ORE_PLATINUM = 2,
+		ORE_IRON = 2,
+		ORE_COAL = 2,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 2,
+		ORE_SILVER = 2
+	)
+
+/turf/simulated/mineral/random/high_chance/exoplanet
+	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
+/turf/simulated/mineral/random/high_chance/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+
 /turf/simulated/mineral/random/higher_chance
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 3,
+		ORE_PLATINUM = 3,
+		ORE_IRON = 1,
+		ORE_COAL = 1,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 3,
+		ORE_SILVER = 3
+	)
+	mineralChance = 75
+
+/turf/simulated/mineral/random/higher_chance/phoron
 	mineralSpawnChanceList = list(
 		ORE_URANIUM = 3,
 		ORE_PLATINUM = 3,
@@ -515,7 +586,6 @@ var/list/mineral_can_smooth_with = list(
 		ORE_SILVER = 3,
 		ORE_PHORON = 2
 	)
-	mineralChance = 75
 
 /turf/simulated/mineral/attack_hand(var/mob/user)
 	add_fingerprint(user)
@@ -529,6 +599,18 @@ var/list/mineral_can_smooth_with = list(
 			if(start.CanZPass(H, UP))
 				if(destination.CanZPass(H, UP))
 					H.climb(UP, src, 20)
+
+// Some extra types for the surface to keep things pretty.
+/turf/simulated/mineral/surface
+	mined_turf = /turf/unsimulated/floor/asteroid/ash
+
+/turf/simulated/mineral/planet
+	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
+/turf/simulated/mineral/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /**********************Asteroid**************************/
 
@@ -551,9 +633,10 @@ var/list/mineral_can_smooth_with = list(
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
 	has_resources = 1
-	footstep_sound = /decl/sound_category/asteroid_footstep
+	footstep_sound = /singleton/sound_category/asteroid_footstep
 
 	roof_type = null
+	turf_flags = TURF_FLAG_BACKGROUND
 
 // Same as the other, this is a global so we don't have a lot of pointless lists floating around.
 // Basalt is explicitly omitted so ash will spill onto basalt turfs.
@@ -577,6 +660,9 @@ var/list/asteroid_floor_smooth = list(
 
 	turfs += src
 
+	if(isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -596,6 +682,11 @@ var/list/asteroid_floor_smooth = list(
 
 	if(light_range && light_power)
 		update_light()
+
+	if (current_map.use_overmap && istype(loc, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -671,7 +762,7 @@ var/list/asteroid_floor_smooth = list(
 			to_chat(user, SPAN_NOTICE("You start digging deeper."))
 			playsound(get_turf(user), 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
 			digging = TRUE
-			if(!do_after(user, 60 / W.toolspeed))
+			if(!W.use_tool(src, user, 60, volume = 50))
 				if(istype(src, /turf/unsimulated/floor/asteroid))
 					digging = FALSE
 				return

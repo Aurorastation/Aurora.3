@@ -6,7 +6,7 @@
 	icon_state = "TheSingGen"
 	anchored = 0
 	density = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	var/energy = 0
 	var/creation_type = /obj/singularity
 
@@ -18,7 +18,7 @@
 		lights_image.layer = EFFECTS_ABOVE_LIGHTING_LAYER
 		add_overlay(lights_image)
 
-/obj/machinery/the_singularitygen/machinery_process()
+/obj/machinery/the_singularitygen/process()
 	var/turf/T = get_turf(src)
 	if(src.energy >= 200)
 		new creation_type(T, 50)

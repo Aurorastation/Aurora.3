@@ -30,15 +30,17 @@
 	layer = ABOVE_MOB_LAYER //so you can mark bodies
 	var/number = 1
 
-/obj/item/csi_marker/afterattack(turf/H, mob/user, proximity)
+/obj/item/csi_marker/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
-	if(!user.Adjacent(H))
-		return
-	if(H.density)
-		return
+	if(!istype(A, /obj/item/storage))
+		if(!user.Adjacent(A))
+			return
+		if(A.density)
+			return
 
-	user.drop_from_inventory(src, get_turf(H))
+		user.drop_from_inventory(src, get_turf(A))
+	return
 
 /obj/item/csi_marker/Initialize(mapload)
 	. = ..()

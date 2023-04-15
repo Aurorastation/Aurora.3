@@ -58,26 +58,26 @@
 /obj/item/storage/box/fancy/yoke/attackby(obj/item/W, mob/user)
 	to_chat(user, SPAN_WARNING("\The [src] cannot be refilled with items!"))
 
-/obj/item/storage/box/fancy/yoke/zorasoda
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zorasoda = 6)
-
-/obj/item/storage/box/fancy/yoke/zorakois
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zorakois = 6)
+/obj/item/storage/box/fancy/yoke/zoracherry
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry = 6)
 
 /obj/item/storage/box/fancy/yoke/zoraphoron
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zoraphoron = 6)
-
-/obj/item/storage/box/fancy/yoke/zorahozm
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zorahozm = 6)
-
-/obj/item/storage/box/fancy/yoke/zoravenom
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zoravenom = 6)
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron = 6)
 
 /obj/item/storage/box/fancy/yoke/zoraklax
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zoraklax = 6)
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zorasoda/klax = 6)
 
 /obj/item/storage/box/fancy/yoke/zoracthur
-	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zoracthur = 6)
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur = 6)
+
+/obj/item/storage/box/fancy/yoke/zoravenom
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass = 6)
+
+/obj/item/storage/box/fancy/yoke/zorahozm
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm = 6)
+
+/obj/item/storage/box/fancy/yoke/zorakois
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois = 6)
 
 /obj/item/storage/box/fancy/yoke/random
 	starts_with = list()
@@ -85,13 +85,13 @@
 /obj/item/storage/box/fancy/yoke/random/fill()
 	for(var/i = 1 to 6)
 		var/list/energy_options = list(
-			/obj/item/reagent_containers/food/drinks/cans/zorasoda,
-			/obj/item/reagent_containers/food/drinks/cans/zorakois,
-			/obj/item/reagent_containers/food/drinks/cans/zoraphoron,
-			/obj/item/reagent_containers/food/drinks/cans/zorahozm,
-			/obj/item/reagent_containers/food/drinks/cans/zoravenom,
-			/obj/item/reagent_containers/food/drinks/cans/zoraklax,
-			/obj/item/reagent_containers/food/drinks/cans/zoracthur
+			/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry,
+			/obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron,
+			/obj/item/reagent_containers/food/drinks/cans/zorasoda/klax,
+			/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur,
+			/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass,
+			/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
+			/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois
 		)
 		var/path = pick(energy_options)
 		if(starts_with[path])

@@ -226,7 +226,7 @@
 				protected = 1
 
 	if(!protected)
-		playsound(src.loc, /decl/sound_category/spark_sound, 75, 1, -1)
+		playsound(src.loc, /singleton/sound_category/spark_sound, 75, 1, -1)
 		to_chat(user, "<span class='warning'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</span>")
 		return*/
 	else  //welp, the guy is protected, we can continue
@@ -252,7 +252,7 @@
 				protected = 1
 
 	if(!protected)
-		playsound(src.loc, /decl/sound_category/spark_sound, 75, 1, -1)
+		playsound(src.loc, /singleton/sound_category/spark_sound, 75, 1, -1)
 		to_chat(user, "<span class='warning'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</span>")
 		return*/
 	else
@@ -460,30 +460,30 @@
 
 /obj/machinery/suit_storage_unit/attackby(obj/item/I as obj, mob/user as mob)
 	if(!src.ispowered)
-		return
+		return TRUE
 	if(I.isscrewdriver())
 		src.panelopen = !src.panelopen
 		playsound(src.loc, I.usesound, 100, 1)
 		to_chat(user, text("<span class='notice'>You [] the unit's maintenance panel.</span>",(src.panelopen ? "open up" : "close") ))
 		update_icon()
 		src.updateUsrDialog()
-		return
+		return TRUE
 	if ( istype(I, /obj/item/grab) )
 		var/obj/item/grab/G = I
 		if( !(ismob(G.affecting)) )
-			return
+			return TRUE
 		if (!src.isopen)
 			to_chat(usr, "<span class='warning'>The unit's doors are shut.</span>")
-			return
+			return TRUE
 		if (!src.ispowered || src.isbroken)
 			to_chat(usr, "<span class='warning'>The unit is not operational.</span>")
-			return
+			return TRUE
 		if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) ) //Unit needs to be absolutely empty
 			to_chat(user, "<span class='warning'>The unit's storage area is too cluttered.</span>")
-			return
+			return TRUE
 		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 		if(do_after(user, 20))
-			if(!G || !G.affecting) return //derpcheck
+			if(!G || !G.affecting) return TRUE //derpcheck
 			var/mob/M = G.affecting
 			if (M.client)
 				M.client.perspective = EYE_PERSPECTIVE
@@ -495,50 +495,49 @@
 			qdel(G)
 			src.updateUsrDialog()
 			src.update_icon()
-			return
-		return
+			return TRUE
+		return TRUE
 	if( istype(I,/obj/item/clothing/suit/space) )
 		if(!src.isopen)
-			return
+			return TRUE
 		var/obj/item/clothing/suit/space/S = I
 		if(src.SUIT)
 			to_chat(user, "<span class='notice'>The unit already contains a suit.</span>")
-			return
+			return TRUE
 		to_chat(user, "You load the [S.name] into the storage compartment.")
 		user.drop_from_inventory(S,src)
 		src.SUIT = S
 		src.update_icon()
 		src.updateUsrDialog()
-		return
+		return TRUE
 	if( istype(I,/obj/item/clothing/head/helmet) )
 		if(!src.isopen)
-			return
+			return TRUE
 		var/obj/item/clothing/head/helmet/H = I
 		if(src.HELMET)
 			to_chat(user, "<span class='notice'>The unit already contains a helmet.</span>")
-			return
+			return TRUE
 		to_chat(user, "You load the [H.name] into the storage compartment.")
 		user.drop_from_inventory(H,src)
 		src.HELMET = H
 		src.update_icon()
 		src.updateUsrDialog()
-		return
+		return TRUE
 	if( istype(I,/obj/item/clothing/mask) )
 		if(!src.isopen)
-			return
+			return TRUE
 		var/obj/item/clothing/mask/M = I
 		if(src.MASK)
 			to_chat(user, "<span class='notice'>The unit already contains a mask.</span>")
-			return
+			return TRUE
 		to_chat(user, "You load the [M.name] into the storage compartment.")
 		user.drop_from_inventory(M,src)
 		src.MASK = M
 		src.update_icon()
 		src.updateUsrDialog()
-		return
+		return TRUE
 	src.update_icon()
 	src.updateUsrDialog()
-	return
 
 
 /obj/machinery/suit_storage_unit/attack_ai(mob/user as mob)

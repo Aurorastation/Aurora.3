@@ -138,8 +138,8 @@
 	user.visible_message("<b>[user]</b> appears out of thin air!", SPAN_NOTICE("You successfully step into your destination."))
 	use()
 
-/obj/item/syndie/teleporter/proc/use()
-	addtimer(CALLBACK(src, .proc/recharge), recharge_time)
+/obj/item/syndie/teleporter/use()
+	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
 	ready_to_use = FALSE
 	check_maptext(SMALL_FONTS(6, "Charge"))
 	when_recharge = world.time + recharge_time

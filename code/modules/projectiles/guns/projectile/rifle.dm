@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/shotgun/pump/rifle
 	name = "bolt action rifle"
-	desc = "A cheap ballistic rifle often found in the hands of crooks and frontiersmen. Uses 7.62mm rounds."
+	desc = "A cheap ballistic rifle often found in the hands of Tajaran conscripts. Uses 7.62mm rounds."
 	icon = 'icons/obj/guns/moistnugget.dmi'
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
@@ -19,6 +19,25 @@
 	knife_y_offset = 13
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
+
+/obj/item/gun/projectile/shotgun/pump/rifle/blank
+	desc = "A replica of a traditional adhomian bolt action rifle. It has the seal of the Grand Romanovich Casino on its stock. Uses 7.62mm rounds."
+	ammo_type = /obj/item/ammo_casing/a762/blank
+
+/obj/item/gun/projectile/shotgun/pump/rifle/scope
+	name = "sniper bolt action rifle"
+	desc = "A cheap ballistic rifle often found in the hands of Tajaran conscripts. This one has a telescopic sight attached to it. Uses 7.62mm rounds."
+	icon = 'icons/obj/guns/bolt_scope.dmi'
+
+/obj/item/gun/projectile/shotgun/pump/rifle/scope/verb/scope()
+	set category = "Object"
+	set name = "Use Scope"
+	set popup_menu = 1
+
+	if(wielded)
+		toggle_scope(2.0, usr)
+	else
+		to_chat(usr, SPAN_WARNING ("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/projectile/shotgun/pump/rifle/saw_off(mob/user, obj/item/tool)
 	icon = 'icons/obj/guns/obrez.dmi'
@@ -290,7 +309,7 @@
 	item_state = "gauss_thumper"
 	caliber = "gauss"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
-	fire_sound = /decl/sound_category/gauss_fire_sound
+	fire_sound = /singleton/sound_category/gauss_fire_sound
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
 
@@ -317,7 +336,7 @@
 	desc = "An outdated and power hungry gauss cannon, modified to deliver high explosive rounds at high velocities."
 	icon = 'icons/obj/guns/gauss_thumper.dmi'
 	icon_state = "gauss_thumper"
-	fire_sound = /decl/sound_category/gauss_fire_sound
+	fire_sound = /singleton/sound_category/gauss_fire_sound
 	fire_delay = 30
 	charge_meter = 0
 	max_shots = 3
@@ -327,3 +346,32 @@
 	use_external_power = 1
 	recharge_time = 12
 	needspin = FALSE
+
+/obj/item/gun/projectile/gauss/carbine
+	name = "gauss carbine"
+	desc = "A simple gun utilizing the gauss technology. It is still reliable and cheap despite being outdated."
+	icon = 'icons/obj/guns/gauss_carbine.dmi'
+	icon_state = "gauss_carbine"
+	item_state = "gauss_carbine"
+	w_class = ITEMSIZE_LARGE
+	slot_flags = SLOT_BACK
+	ammo_type = /obj/item/ammo_casing/gauss/carbine
+	load_method = SINGLE_CASING
+	handle_casings = HOLD_CASINGS
+	max_shells = 1
+
+	fire_delay_wielded = 20
+	accuracy_wielded = 1
+
+/obj/item/gun/projectile/gauss/carbine/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "gauss_carbine"
+	else
+		icon_state = "gauss_carbine-e"
+
+/obj/item/gun/projectile/gauss/carbine/special_check(mob/user)
+	if(!wielded)
+		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
+		return 0
+	return ..()

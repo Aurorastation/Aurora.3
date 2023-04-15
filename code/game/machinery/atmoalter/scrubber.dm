@@ -7,10 +7,10 @@
 
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "pscrubber:0"
-	density = 1
+	density = TRUE
 	w_class = ITEMSIZE_NORMAL
 
-	var/on = 0
+	var/on = FALSE
 	var/volume_rate = 800
 
 	volume = 750
@@ -19,7 +19,7 @@
 	power_losses = 150
 
 	var/minrate = 0
-	var/maxrate = 10 * ONE_ATMOSPHERE
+	var/maxrate = PRESSURE_ONE_THOUSAND
 
 	var/list/scrubbing_gas = list(GAS_PHORON, GAS_CO2, GAS_N2O, GAS_HYDROGEN)
 
@@ -54,7 +54,7 @@
 
 	return
 
-/obj/machinery/portable_atmospherics/powered/scrubber/machinery_process()
+/obj/machinery/portable_atmospherics/powered/scrubber/process()
 	..()
 
 	var/power_draw = -1
@@ -63,8 +63,9 @@
 		var/datum/gas_mixture/environment
 		if(holding)
 			environment = holding.air_contents
-		else
+		else if(loc)
 			environment = loc.return_air()
+		else return
 
 		var/transfer_moles = min(1, volume_rate/environment.volume)*environment.total_moles
 
@@ -155,7 +156,6 @@
 	volume = 50000
 	volume_rate = 5000
 
-	use_power = 1
 	idle_power_usage = 500		//internal circuitry, friction losses and stuff
 	active_power_usage = 100000	//100 kW ~ 135 HP
 
@@ -188,15 +188,17 @@
 	if (old_stat != stat)
 		update_icon()
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/machinery_process()
+/obj/machinery/portable_atmospherics/powered/scrubber/huge/process()
 	if(!on || (stat & (NOPOWER|BROKEN)))
-		update_use_power(0)
+		update_use_power(POWER_USE_OFF)
 		last_flow_rate = 0
 		last_power_draw = 0
 		return 0
 
 	var/power_draw = -1
 
+	if(!loc)
+		return
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	var/transfer_moles = min(1, volume_rate/environment.volume)*environment.total_moles
@@ -207,40 +209,38 @@
 		last_flow_rate = 0
 		last_power_draw = 0
 	else
-		use_power(power_draw)
+		use_power_oneoff(power_draw)
 		update_connected_network()
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/attackby(var/obj/item/I as obj, var/mob/user as mob)
 	if(I.iswrench())
 		if(on)
 			to_chat(user, "<span class='warning'>Turn \the [src] off first!</span>")
-			return
+			return TRUE
 
 		anchored = !anchored
 		playsound(src.loc, I.usesound, 50, 1)
 		to_chat(user, "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 
-		return
+		return TRUE
 
 	//doesn't use power cells
 	if(istype(I, /obj/item/cell))
-		return
+		return TRUE
 	if (I.isscrewdriver())
-		return
+		return TRUE
 
 	//doesn't hold tanks
 	if(istype(I, /obj/item/tank))
-		return
+		return TRUE
 
-	..()
-
-
+	return ..()
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary
 	name = "Stationary Air Scrubber"
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary/attackby(var/obj/item/I as obj, var/mob/user as mob)
 	if(I.iswrench())
 		to_chat(user, "<span class='warning'>The bolts are too tight for you to unscrew!</span>")
-		return
+		return TRUE
 
-	..()
+	return ..()

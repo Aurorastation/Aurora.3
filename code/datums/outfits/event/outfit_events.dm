@@ -95,7 +95,7 @@
 	name = "Lance Operative"
 
 	uniform = /obj/item/clothing/under/dress/lance_dress/male
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	gloves = /obj/item/clothing/gloves/latex
 	shoes = /obj/item/clothing/shoes/laceup
 	belt = /obj/item/storage/belt/utility/very_full
@@ -114,7 +114,7 @@
 /datum/outfit/admin/event/sol_marine
 	name = "Solarian Marine"
 
-	uniform = /obj/item/clothing/under/rank/fatigues
+	uniform = /obj/item/clothing/under/rank/sol
 	shoes = /obj/item/clothing/shoes/magboots
 	gloves = /obj/item/clothing/gloves/combat
 	l_ear = /obj/item/device/radio/headset/syndicate

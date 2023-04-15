@@ -8,7 +8,7 @@
 	extended_round_description = "We are on an unavoidable collision course with an asteroid field. You have only a moment to prepare before you are barraged by dust and meteors. As if it was not enough, all kinds of negative events seem to happen more frequently. Good Luck."
 	config_tag = "meteor"
 	required_players = 15				// Definitely not good for low-pop
-	votable = 0
+	votable = 1
 	shuttle_delay = 2
 	var/next_wave = INFINITY			// Set in post_setup() correctly to take into account potential longer pre-start times.
 	var/alert_sent = 0
@@ -50,9 +50,9 @@
 	alert_sent = 2
 	command_announcement.Announce(start_text, alert_title)
 	if(current_map.use_overmap)
-		var/area/map = locate(/area/overmap)
+		var/area/map = global.map_overmap
 		for(var/turf/T in map)
-			T.overlays += image('icons/obj/overmap.dmi', "meteor[rand(1,4)]")
+			T.overlays += image('icons/obj/overmap/overmap_effects.dmi', "meteor[rand(1,4)]")
 	next_wave = round_duration_in_ticks + meteor_wave_delay
 
 /datum/game_mode/meteor/process()
@@ -82,19 +82,19 @@
 /datum/game_mode/meteor/proc/get_meteor_types()
 	switch(meteor_severity)
 		if(1 to 9)
-			return meteors_dust
+			return SSatlas.current_sector.meteors_dust
 		if(10 to 19)
-			return meteors_normal
+			return SSatlas.current_sector.meteors_normal
 		if(20 to 29)
-			return meteors_threatening
+			return SSatlas.current_sector.meteors_threatening
 		if(30 to 34)
-			return meteors_catastrophic
+			return SSatlas.current_sector.meteors_catastrophic
 		if(35 to 39)
-			return meteors_armageddon
+			return SSatlas.current_sector.meteors_armageddon
 		if(40 to INFINITY)
-			return meteors_cataclysm
+			return SSatlas.current_sector.meteors_cataclysm
 	// Just in case we /somehow/ get here (looking at you, varedit)
-	return meteors_normal
+	return SSatlas.current_sector.meteors_normal
 
 
 #undef METEOR_FAILSAFE_THRESHOLD

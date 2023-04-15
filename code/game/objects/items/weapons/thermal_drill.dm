@@ -6,11 +6,14 @@
 	w_class = ITEMSIZE_HUGE
 	force = 12
 	var/time_multiplier = 1
+	var/datum/looping_sound/thermal_drill/soundloop
 
 /obj/item/thermal_drill/Initialize()
 	. = ..()
+	soundloop = new(list(src), FALSE)
 
 /obj/item/thermal_drill/Destroy()
+	QDEL_NULL(soundloop)
 	return ..()
 
 /obj/item/thermal_drill/diamond_drill

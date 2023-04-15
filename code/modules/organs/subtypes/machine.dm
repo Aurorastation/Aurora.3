@@ -90,7 +90,7 @@
 		return 0
 	return round(cell.charge*(1 - damage/max_damage))
 
-/obj/item/organ/internal/cell/proc/use(var/amount)
+/obj/item/organ/internal/cell/use(var/amount)
 	if(!is_usable() || !cell)
 		return
 	return cell.use(amount)
@@ -317,7 +317,7 @@
 	robotize()
 	stored_mmi = new /obj/item/device/mmi/digital/posibrain(src)
 	. = ..()
-	addtimer(CALLBACK(src, .proc/setup_brain), 30)
+	addtimer(CALLBACK(src, PROC_REF(setup_brain)), 30)
 
 /obj/item/organ/internal/mmi_holder/posibrain/proc/setup_brain()
 	if(owner)
@@ -334,7 +334,7 @@
 	robotize()
 	stored_mmi = new /obj/item/device/mmi/digital/robot(src)
 	. = ..()
-	addtimer(CALLBACK(src, .proc/setup_brain), 1)
+	addtimer(CALLBACK(src, PROC_REF(setup_brain)), 1)
 
 /obj/item/organ/internal/mmi_holder/circuit/proc/setup_brain()
 	if(owner)

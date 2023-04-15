@@ -258,7 +258,7 @@
 /var/const/access_qm = 41
 /datum/access/qm
 	id = access_qm
-	desc = "Quartermaster"
+	desc = "Operations Manager"
 	region = ACCESS_REGION_SUPPLY
 
 /var/const/access_network = 42
@@ -267,7 +267,12 @@
 	desc = "Station Network"
 	region = ACCESS_REGION_RESEARCH
 
-// /var/const/free_access_id = 43
+/var/const/access_leviathan = 43
+/datum/access/leviathan
+	id = access_leviathan
+	desc = "Leviathan"
+	region = ACCESS_REGION_COMMAND
+
 // /var/const/free_access_id = 44
 
 /var/const/access_surgery = 45
@@ -303,7 +308,11 @@
 	region = ACCESS_REGION_SUPPLY
 
 // /var/const/free_access_id = 51
-// /var/const/free_access_id = 52
+/var/const/access_xenobotany = 52
+/datum/access/xenobotany
+	id = access_xenobotany
+	desc = "Xenobotany"
+	region = ACCESS_REGION_RESEARCH
 
 /var/const/access_heads_vault = 53
 /datum/access/heads_vault
@@ -332,7 +341,7 @@
 /var/const/access_hop = 57
 /datum/access/hop
 	id = access_hop
-	desc = "Head of Personnel"
+	desc = "Executive Officer"
 	region = ACCESS_REGION_COMMAND
 
 /var/const/access_hos = 58
@@ -395,11 +404,7 @@
 	desc = "First Responder Equipment"
 	region = ACCESS_REGION_MEDBAY
 
-/var/const/access_detective = 68
-/datum/access/access_detective
-	id = access_detective
-	desc = "Detective Equipment"
-	region = ACCESS_REGION_SECURITY
+// /var/const/free_access_id = 68
 
 /var/const/access_weapons = 69
 /datum/access/access_weapons
@@ -422,6 +427,24 @@ var/const/access_consular = 72
 /datum/access/consular
 	id = access_consular
 	desc = "Consular"
+
+var/const/access_intrepid = 73
+/datum/access/intrepid
+	id = access_intrepid
+	desc = "Intrepid Shuttle"
+	region = ACCESS_REGION_COMMAND
+
+var/const/access_bridge_crew = 74
+/datum/access/bridge_crew
+	id = access_bridge_crew
+	desc = "Bridge Crew"
+	region = ACCESS_REGION_COMMAND
+
+/var/const/access_ship_weapons = 75
+/datum/access/access_ship_weapons
+	id = access_ship_weapons
+	desc = "Ship Weapons"
+	region = ACCESS_REGION_SUPPLY
 
 /******************
 * Central Command *
@@ -518,16 +541,6 @@ var/const/access_kataphract_knight = 114
 	id = access_kataphract_knight
 	desc = "Kataphract Knight Access"
 
-var/const/access_kataphract_quartermaster = 115
-/datum/access/kataphract/quartermaster
-	id = access_kataphract_quartermaster
-	desc = "Kataphract Quartermaster Access"
-
-var/const/access_kataphract_trader = 116
-/datum/access/kataphract/trader
-	id = access_kataphract_trader
-	desc = "Kataphract Trader Access"
-
 /***************
 * Antag access *
 ***************/
@@ -544,10 +557,10 @@ var/const/access_kataphract_trader = 116
 /*******
 * Misc *
 *******/
-/var/const/access_synth = 199
-/datum/access/synthetic
-	id = access_synth
-	desc = "Synthetic"
+/var/const/access_equipment = 199
+/datum/access/equipment
+	id = access_equipment
+	desc = "Equipment"
 	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_crate_cash = 200
@@ -555,8 +568,78 @@ var/const/access_kataphract_trader = 116
 	id = access_crate_cash
 	access_type = ACCESS_TYPE_NONE
 
+/var/const/access_orion_express_ship = 201
+/datum/access/exress_ship
+	id = access_orion_express_ship
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_generic_away_site = 202
+/datum/access/generic_away_site
+	id = access_generic_away_site
+	access_type = ACCESS_TYPE_CENTCOM
+
 /var/const/access_none = -1
 /datum/access/none
 	id = access_none
 	access_type = ACCESS_TYPE_NONE
 
+/var/const/access_sol_ships = 203
+/datum/access/sol_ships
+	id = access_sol_ships
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_tcfl_peacekeeper_ship = 204
+/datum/access/tcfl_peacekeeper_ship
+	id = access_tcfl_peacekeeper_ship
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_ee_spy_ship = 205
+/datum/access/ee_spy_ship
+	id = access_ee_spy_ship
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_civilian_station = 206
+/datum/access/access_civilian_station
+	id = access_civilian_station
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_elyran_naval_infantry_ship = 207
+/datum/access/access_elyran_naval_infantry_ship
+	id = access_elyran_naval_infantry_ship
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_skrell = 208
+/datum/access/access_skrell
+	id = access_skrell
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_pra = 209
+/datum/access/access_pra
+	id = access_pra
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_unathi_pirate = 210
+/datum/access/access_unathi_pirate
+	id = access_unathi_pirate
+	access_type = ACCESS_TYPE_CENTCOM
+
+
+/var/const/access_iac_rescue_ship = 211
+/datum/access/access_iac_rescue_ship
+	id = access_iac_rescue_ship
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_imperial_fleet_voidsman_ship = 212
+/datum/access/access_imperial_fleet_voidsman_ship
+	id = access_imperial_fleet_voidsman_ship
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_nka = 213
+/datum/access/access_nka
+	id = access_nka
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_dpra = 214
+/datum/access/access_dpra
+	id = access_dpra
+	access_type = ACCESS_TYPE_CENTCOM

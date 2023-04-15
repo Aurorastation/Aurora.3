@@ -25,6 +25,10 @@
 	anchored = 1
 	layer = 3
 
+/obj/effect/decal/fake_object/Initialize(mapload)
+	.=..()
+	appearance_flags &= ~TILE_BOUND
+
 /obj/effect/decal/fake_object/light_source
 	name = "light source"
 	icon = 'icons/obj/lighting.dmi'

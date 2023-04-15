@@ -1,6 +1,6 @@
 /obj/item/book/tome
 	name = "arcane tome"
-	description_cult = null
+	desc_antag = null // It's already been forged once.
 	icon_state = "tome"
 	item_state = "tome"
 	throw_speed = 1
@@ -68,34 +68,34 @@
 				tome_win.open()
 				return
 			if("Scribe a rune")
-				// This counts how many runes exist in the game, for some sort of arbitrary rune limit. I trust the old devs had their reasons. - Geeves
-				if(SScult.check_rune_limit())
+				//only check if they want to scribe a rune, so they can still read if standing on a rune
+				if(locate(/obj/effect/rune) in scribe.loc)
+					to_chat(scribe, SPAN_WARNING("There is already a rune in this location."))
+					return
+
+				if(use_check_and_message(scribe))
+					return
+
+				var/chosen_rune
+				//var/network
+				chosen_rune = input("Choose a rune to scribe.") as null|anything in SScult.runes_by_name
+				if(!chosen_rune)
+					return
+
+				var/rune_type = SScult.runes_by_name[chosen_rune]
+				if(SScult.check_rune_limit(rune_type))
 					to_chat(scribe, SPAN_WARNING("The cloth of reality can't take that much of a strain. Remove some runes first!"))
 					return
 
-		//only check if they want to scribe a rune, so they can still read if standing on a rune
-		if(locate(/obj/effect/rune) in scribe.loc)
-			to_chat(scribe, SPAN_WARNING("There is already a rune in this location."))
-			return
+				if(use_check_and_message(scribe))
+					return
 
-		if(use_check_and_message(scribe))
-			return
+				scribe.visible_message(SPAN_CULT("[scribe] slices open their palm with a ceremonial knife, drawing arcane symbols with their blood..."))
+				playsound(scribe, 'sound/weapons/bladeslice.ogg', 50, FALSE)
+				scribe.drip(4)
 
-		var/chosen_rune
-		//var/network
-		chosen_rune = input("Choose a rune to scribe.") as null|anything in SScult.runes_by_name
-		if(!chosen_rune)
-			return
-
-		if(use_check_and_message(scribe))
-			return
-
-		scribe.visible_message(SPAN_CULT("[scribe] slices open their palm with a ceremonial knife, drawing arcane symbols with their blood..."))
-		playsound(scribe, 'sound/weapons/bladeslice.ogg', 50, FALSE)
-		scribe.drip(4)
-
-		if(do_after(scribe, 50))
-			create_rune(scribe, chosen_rune)
+				if(do_after(scribe, 50))
+					create_rune(scribe, chosen_rune)
 	else
 		to_chat(user, SPAN_CULT("The book seems full of illegible scribbles."))
 

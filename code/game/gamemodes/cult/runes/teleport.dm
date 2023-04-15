@@ -6,7 +6,7 @@
 
 /datum/rune/teleport/New()
 	..()
-	addtimer(CALLBACK(src, .proc/random_network), 5) // if this rune somehow spawned without a network, we assign a random one
+	addtimer(CALLBACK(src, PROC_REF(random_network)), 5) // if this rune somehow spawned without a network, we assign a random one
 	SScult.teleport_runes += src
 
 /datum/rune/teleport/Destroy()

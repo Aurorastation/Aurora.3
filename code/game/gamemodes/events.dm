@@ -10,9 +10,9 @@ var/hadevent    = 0
 		if(isNotStationLevel(T.z))
 			continue
 
-		H.apply_damage((rand(15,75)), IRRADIATE, damage_flags = DAM_DISPERSED)
+		H.apply_damage((rand(15,75)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 		if (prob(5))
-			H.apply_damage((rand(90,150)), IRRADIATE, damage_flags = DAM_DISPERSED)
+			H.apply_damage((rand(90,150)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 		if (prob(25))
 			if (prob(75))
 				randmutb(H)
@@ -21,7 +21,7 @@ var/hadevent    = 0
 				randmutg(H)
 				domutcheck(H,null,MUTCHK_FORCED)
 	sleep(100)
-	command_announcement.Announce("High levels of radiation detected near the station. Please report to the Med-bay if you feel strange.", "Anomaly Alert", new_sound = 'sound/AI/radiation.ogg')
+	command_announcement.Announce("High levels of radiation detected near the station. Please report to the Med-bay if you feel strange.", "Anomaly Alert")
 
 
 
@@ -48,7 +48,7 @@ var/hadevent    = 0
 
 			for (var/obj/structure/closet/secure_closet/brig/temp_closet in A)
 				temp_closet.locked = 0
-				temp_closet.icon_state = temp_closet.icon_closed
+				temp_closet.update_icon()
 
 			for (var/obj/machinery/door/airlock/security/temp_airlock in A)
 				spawn(0) temp_airlock.prison_open()
@@ -62,19 +62,11 @@ var/hadevent    = 0
 		sleep(150)
 		command_announcement.Announce("Gr3y.T1d3 virus detected in [station_name()] imprisonment subroutines. Recommend station AI involvement.", "Security Alert")
 	else
-		world.log <<  "ERROR: Could not initate grey-tide. Unable find prison or brig area."
-
-/proc/carp_migration() // -- Darem
-	for(var/obj/effect/landmark/C in landmarks_list)
-		if(C.name == "carpspawn")
-			new /mob/living/simple_animal/hostile/carp(C.loc)
-	//sleep(100)
-	spawn(rand(300, 600)) //Delayed announcements to keep the crew on their toes.
-		command_announcement.Announce("Unknown biological entities have been detected near [station_name()], please stand-by.", "Lifesign Alert", new_sound = 'sound/AI/commandreport.ogg')
+		log_error("ERROR: Could not initate grey-tide. Unable find prison or brig area.")
 
 /proc/lightsout(isEvent = 0, lightsoutAmount = 1,lightsoutRange = 25) //leave lightsoutAmount as 0 to break ALL lights
 	if(isEvent)
-		command_announcement.Announce("An Electrical storm has been detected in your area, please repair potential electronic overloads.","Electrical Storm Alert")
+		command_announcement.Announce("Attention: an electrical storm has been detected in your sector, please repair potential electronic overloads.", "Electrical Storm Alert")
 
 	if(lightsoutAmount)
 		var/list/epicentreList = list()
@@ -97,7 +89,7 @@ var/hadevent    = 0
 				apc.overload_lighting()
 
 	else
-		for(var/obj/machinery/power/apc/apc in SSmachinery.processing_machines)
+		for(var/obj/machinery/power/apc/apc in SSmachinery.processing)
 			apc.overload_lighting()
 
 	return
@@ -208,6 +200,6 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 					M.add_ion_law("THE STATION IS [who2pref] [who2]")
 
 	if(botEmagChance)
-		for(var/obj/machinery/bot/bot in SSmachinery.processing_machines)
+		for(var/obj/machinery/bot/bot in SSmachinery.machinery)
 			if(prob(botEmagChance))
 				bot.emag_act(1)

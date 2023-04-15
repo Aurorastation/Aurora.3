@@ -37,7 +37,7 @@
 	return
 
 /obj/effect/gateway/active/New()
-	addtimer(CALLBACK(src, .proc/do_spawn), rand(30, 60) SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(do_spawn)), rand(30, 60) SECONDS)
 
 /obj/effect/gateway/active/proc/do_spawn()
 	var/thing = pick(spawnable)
@@ -49,3 +49,4 @@
 	if(istype(I, /obj/item/nullrod))
 		to_chat(user, "<span class='notice'>You touch \the [src] with \the [I], closing the path to the otherworld.</span>")
 		qdel(src)
+		return TRUE

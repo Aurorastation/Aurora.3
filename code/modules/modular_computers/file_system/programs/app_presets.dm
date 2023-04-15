@@ -102,6 +102,7 @@
 
 /datum/modular_computer_app_presets/medical/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -160,28 +161,6 @@
 	)
 	return _prg_list
 
-/datum/modular_computer_app_presets/research/robotics
-	name = "research_robotics"
-	display_name = "Research - Robotics"
-	description = "Contains the most common research programs and medical record software."
-	available = TRUE
-
-/datum/modular_computer_app_presets/research/robotics/return_install_programs(obj/item/modular_computer/comp)
-	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(comp),
-		new /datum/computer_file/program/newsbrowser(comp),
-		new /datum/computer_file/program/manifest(comp),
-		new /datum/computer_file/program/filemanager(comp),
-		new /datum/computer_file/program/chat_client(comp),
-		new /datum/computer_file/program/civilian/cargoorder(comp),
-		new /datum/computer_file/program/ntnetmonitor(comp),
-		new /datum/computer_file/program/aidiag(comp),
-		new /datum/computer_file/program/records/medical(comp),
-		new /datum/computer_file/program/scanner/science(comp),
-		new /datum/computer_file/program/scanner/gas(comp)
-	)
-	return _prg_list
-
 /datum/modular_computer_app_presets/research/rd
 	name = "research_head"
 	display_name = "Research - RD"
@@ -220,7 +199,7 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/card_mod(comp),
-		new /datum/computer_file/program/comm(comp, FALSE),
+		new /datum/computer_file/program/comm(comp, TRUE),
 		new /datum/computer_file/program/records/employment(comp)
 	)
 	return _prg_list
@@ -242,6 +221,26 @@
 		new /datum/computer_file/program/comm(comp, FALSE),
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/teleporter(comp)
+	)
+	return _prg_list
+
+/datum/modular_computer_app_presets/command/teleporter/ninja
+	name = "ninja_teleporter"
+	display_name = "Offsite - Teleporter"
+	description = "Contains the most common command programs and has a special teleporter control program loaded."
+	available = FALSE
+
+/datum/modular_computer_app_presets/command/teleporter/ninja/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/civilian/cargoorder(comp),
+		new /datum/computer_file/program/comm(comp, FALSE),
+		new /datum/computer_file/program/records/employment(comp),
+		new /datum/computer_file/program/teleporter/ninja(comp)
 	)
 	return _prg_list
 
@@ -281,7 +280,7 @@
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/card_mod(comp),
-		new /datum/computer_file/program/comm(comp, FALSE),
+		new /datum/computer_file/program/comm(comp, TRUE),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/digitalwarrant(comp),
 		new /datum/computer_file/program/penal_mechs(comp),
@@ -419,9 +418,9 @@
 	return _prg_list
 
 /datum/modular_computer_app_presets/civilian
-	name = "civilian"
-	display_name = "Civilian"
-	description = "Contains the most common civilian programs."
+	name = "service"
+	display_name = "Service"
+	description = "Contains the most common service programs."
 	available = TRUE
 
 /datum/modular_computer_app_presets/civilian/return_install_programs(obj/item/modular_computer/comp)
@@ -457,18 +456,6 @@
 	)
 	return _prg_list
 
-/datum/modular_computer_app_presets/civilian/clown
-	name = "clown"
-	display_name = "Clown"
-	description = "Contains programs for HONK!!!"
-	available = TRUE
-
-/datum/modular_computer_app_presets/civilian/mime
-	name = "mime"
-	display_name = "Mime"
-	description = "Contains programs for janitorial service."
-	available = TRUE
-
 /datum/modular_computer_app_presets/supply
 	name = "supply"
 	display_name = "Supply"
@@ -488,6 +475,26 @@
 	)
 	return _prg_list
 
+/datum/modular_computer_app_presets/supply/om
+	name = "operations manager"
+	display_name = "Operations Manager"
+	description = "Contains the most common cargo programs as well as the OM's ones."
+	available = FALSE
+
+/datum/modular_computer_app_presets/supply/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/civilian/cargocontrol(comp),
+		new /datum/computer_file/program/civilian/cargoorder(comp),
+		new /datum/computer_file/program/civilian/cargodelivery(comp),
+		new /datum/computer_file/program/comm(comp, FALSE)
+	)
+	return _prg_list
+
 /datum/modular_computer_app_presets/cargo_delivery
 	name = "cargo_delivery"
 	display_name = "Cargo Delivery"
@@ -502,6 +509,27 @@
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargodelivery(comp)
+	)
+	return _prg_list
+
+/datum/modular_computer_app_presets/supply/machinist
+	name = "operations_machinist"
+	display_name = "Operations - Machinist"
+	description = "Contains the most common supply programs and medical record software."
+	available = TRUE
+
+/datum/modular_computer_app_presets/supply/machinist/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/civilian/cargoorder(comp),
+		new /datum/computer_file/program/aidiag(comp),
+		new /datum/computer_file/program/records/medical(comp),
+		new /datum/computer_file/program/scanner/science(comp),
+		new /datum/computer_file/program/scanner/gas(comp)
 	)
 	return _prg_list
 
@@ -605,6 +633,16 @@
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/merchant(comp)
+	)
+	return _prg_list
+
+/datum/modular_computer_app_presets/merchant/nka/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/merchant/nka(comp)
 	)
 	return _prg_list
 

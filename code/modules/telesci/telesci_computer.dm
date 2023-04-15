@@ -2,6 +2,7 @@
 	name = "\improper Telepad Control Console"
 	desc = "Used to create bluespace portals using the telescience telepad."
 	icon_screen = "teleport"
+	icon_keyboard = "lightblue_key"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/telesci_console
 	var/sending = 1
@@ -189,7 +190,7 @@
 			teles_left -= 1
 
 			// use a lot of power
-			use_power(power * 10)
+			use_power_oneoff(power * 10)
 
 			spark(telepad, 5, alldirs)
 

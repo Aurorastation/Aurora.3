@@ -23,7 +23,7 @@
 
 /obj/structure/attack_hand(mob/user)
 	if(breakable)
-		if(HULK in user.mutations)
+		if(HAS_FLAG(user.mutations, HULK))
 			user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
 			attack_generic(user,1,"smashes")
 		else if(istype(user,/mob/living/carbon/human))
@@ -60,8 +60,14 @@
 		dismantle_material.place_sheet(loc)
 	qdel(src)
 
+/obj/structure/bullet_act(obj/item/projectile/P, def_zone)
+	. = ..()
+	bullet_ping(P)
+
 /obj/structure/Initialize(mapload)
 	. = ..()
+	if(!isnull(material) && !istype(material))
+		material = SSmaterials.get_material_by_name(material)
 	if (!mapload)
 		updateVisibility(src)	// No point checking this before visualnet initializes.
 	if(climbable)
@@ -127,7 +133,7 @@
 	if (!can_climb(user))
 		return
 
-	usr.visible_message("<span class='warning'>[user] starts climbing onto \the [src]!</span>")
+	user.visible_message(SPAN_WARNING("[user] starts [flags & ON_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
 
 	if(!do_after(user,50))
@@ -138,10 +144,14 @@
 		LAZYREMOVE(climbers, user)
 		return
 
-	usr.forceMove(get_turf(src))
+	var/turf/TT = get_turf(src)
+	if(flags & ON_BORDER)
+		TT = get_step(get_turf(src), dir)
+		if(user.loc == TT)
+			TT = get_turf(src)
 
-	if (get_turf(user) == get_turf(src))
-		usr.visible_message("<span class='warning'>[user] climbs onto \the [src]!</span>")
+	user.visible_message("<span class='warning'>[user] [flags & ON_BORDER ? "leaps over" : "climbs onto"] \the [src]!</span>")
+	user.forceMove(TT)
 	LAZYREMOVE(climbers, user)
 
 /obj/structure/proc/structure_shaken()

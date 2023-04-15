@@ -1,7 +1,7 @@
 /datum/preferences
 	//The mob should have a gender you want before running this proc. Will run fine without H
 
-/datum/preferences/proc/randomize_appearance_for(var/mob/living/carbon/human/H,var/random_gender=TRUE)
+/datum/preferences/proc/randomize_appearance_for(var/mob/living/carbon/human/H, var/random_gender=TRUE, var/list/culture_restriction = list(), var/list/origin_restriction = list())
 	if(random_gender)
 		gender = pick(MALE, FEMALE)
 	else
@@ -16,6 +16,7 @@
 		if(current_species.appearance_flags & HAS_SKIN_COLOR)
 			randomize_skin_color(current_species)
 
+	tail_style = length(current_species.selectable_tails) ? pick(current_species.selectable_tails) : null
 	h_style = random_hair_style(gender, species)
 	f_style = random_facial_hair_style(gender, species)
 	randomize_hair_color("hair")
@@ -24,9 +25,17 @@
 	backbag = 2
 	pda_choice = 2
 	age = rand(getMinAge(),getMaxAge())
+	if(length(culture_restriction))
+		H.culture = GET_SINGLETON(pick(culture_restriction))
+	if(length(origin_restriction))
+		for(var/O in origin_restriction)
+			if(O in culture_restriction)
+				H.origin = GET_SINGLETON(O)
+				break
+		if(!H.origin)
+			crash_with("Invalid origin restrictions [english_list(origin_restriction)] for culture restrictions [english_list(culture_restriction)]!")
 	if(H)
 		copy_to(H,1)
-
 
 /datum/preferences/proc/randomize_hair_color(var/target = "hair")
 	if(prob (75) && target == "facial") // Chance to inherit hair color
@@ -200,10 +209,7 @@
 
 	// Determine what job is marked as 'High' priority, and dress them up as such.
 	var/datum/job/previewJob
-	if(job_civilian_low & ASSISTANT)
-		previewJob = SSjobs.GetJob("Assistant")
-	else
-		previewJob = return_chosen_high_job()
+	previewJob = return_chosen_high_job()
 
 	if(previewJob)
 		mannequin.job = previewJob.title
@@ -228,14 +234,20 @@
 
 /datum/preferences/proc/return_chosen_high_job(var/title = FALSE)
 	var/datum/job/chosenJob
-	if(job_civilian_high)
-		chosenJob = SSjobs.bitflag_to_job["[CIVILIAN]"]["[job_civilian_high]"]
+	if(SSjobs.init_state < SS_INITSTATE_DONE)
+		return
+
+	if(job_civilian_low & ASSISTANT)
+		// Assistant is weird, has to be checked first because it overrides
+		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_low]"]
+	else if(job_civilian_high)
+		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_high]"]
 	else if(job_medsci_high)
 		chosenJob = SSjobs.bitflag_to_job["[MEDSCI]"]["[job_medsci_high]"]
 	else if(job_engsec_high)
 		chosenJob = SSjobs.bitflag_to_job["[ENGSEC]"]["[job_engsec_high]"]
 
-	if(title)
+	if(istype(chosenJob) && title)
 		return chosenJob.title
 	return chosenJob
 

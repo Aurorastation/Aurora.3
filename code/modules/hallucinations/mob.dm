@@ -33,7 +33,7 @@
 	if(!client || stat || world.time < next_hallucination)
 		return
 
-	var/hall_delay = rand(180,250)	//Time between hallucinations, modified below.
+	var/hall_delay = rand(30, 40) SECONDS	//Time between hallucinations, modified below.
 	
 	//Modifying time between effects based on strength and chemicals
 	switch(hallucination)	//26-149 are intentionally left off, as they do not modify the delay. This is a pretty common range for hallucinations.
@@ -49,7 +49,7 @@
 		else
 			hall_delay *= min(1.25, abs(chem_effects[CE_HALLUCINATE])) //if CE_HALLUCINATE is -1, 25% more time between
 	if(chem_effects[CE_HALLUCINATE] > 0)
-		hall_delay /= max(1.25, chem_effects[CE_HALLUCINATE]) //if CE_HALLUCINATE is 1, 25% less time between
+		hall_delay /= max(1.15, chem_effects[CE_HALLUCINATE]) //if CE_HALLUCINATE is 1, 15% less time between
 
 	next_hallucination = world.time + hall_delay
 	var/datum/hallucination/H = SShallucinations.get_hallucination(src)
@@ -62,7 +62,7 @@
 //This is called on every end() so usually occurs a few times. Grants a thought to the user from thoughts list.
 /mob/living/carbon/proc/hallucination_thought()
 	if(prob(min(hallucination/2, 50)))
-		addtimer(CALLBACK(src, .proc/hal_thought_give), rand(30,90))
+		addtimer(CALLBACK(src, PROC_REF(hal_thought_give)), rand(30,90))
 
 /mob/living/carbon/proc/hal_thought_give()
 	to_chat(src, "<I>[pick(SShallucinations.hallucinated_thoughts)]</I>")

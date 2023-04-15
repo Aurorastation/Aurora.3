@@ -4,6 +4,7 @@
 	icon = 'icons/obj/turbolift.dmi'
 	anchored = 1
 	density = 0
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/datum/turbolift/lift
 
@@ -57,6 +58,10 @@
 	var/light_up = FALSE
 	var/datum/turbolift_floor/floor
 
+/obj/structure/lift/button/Initialize(mapload, datum/turbolift/_lift)
+	. = ..()
+	AddComponent(/datum/component/turf_hand)
+
 /obj/structure/lift/button/Destroy()
 	if(floor && floor.ext_panel == src)
 		floor.ext_panel = null
@@ -74,7 +79,7 @@
 	pressed(user)
 	if(floor == lift.current_floor)
 		lift.open_doors()
-		addtimer(CALLBACK(src, .proc/reset), 3)
+		addtimer(CALLBACK(src, PROC_REF(reset)), 3)
 		return
 	lift.queue_move_to(floor)
 
@@ -95,6 +100,9 @@
 	name = "elevator control panel"
 	icon_state = "panel"
 
+/obj/structure/lift/panel/Initialize(mapload, datum/turbolift/_lift)
+	. = ..()
+	AddComponent(/datum/component/turf_hand)
 
 /obj/structure/lift/panel/attack_ghost(var/mob/user)
 	return interact(user)

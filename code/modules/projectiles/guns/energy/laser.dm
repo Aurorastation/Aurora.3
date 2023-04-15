@@ -41,13 +41,15 @@ obj/item/gun/energy/retro
 	icon_state = "retro"
 	item_state = "retro"
 	has_item_ratio = FALSE
-	desc = "An older model of the basic lasergun. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws."
+	desc = "An older model laser pistol, small enough to be concealed but underpowered, inefficient, and deceptively heavy, especially compared \
+	to modern laser weaponry. However, their overbuilt construction means that many examples have stood the test of time, and advances in rechargeable \
+	power cell technology have now turned them into viable backup weapons for outlaws or anyone unable to acquire newer laser weapons."
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 	offhand_accuracy = 1
 	projectile_type = /obj/item/projectile/beam
-	fire_delay = 10 //old technology
+	fire_delay = 5
 	can_turret = 1
 	turret_is_lethal = 1
 	turret_sprite_set = "retro"
@@ -79,7 +81,7 @@ obj/item/gun/energy/retro
 /obj/item/gun/energy/lasercannon
 	name = "laser cannon"
 	desc = "A nanotrasen designed laser cannon capable of acting as a powerful support weapon."
-	desc_fluff = "The NT LC-4 is a laser cannon developed and produced by Nanotrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
+	desc_extended = "The NT LC-4 is a laser cannon developed and produced by NanoTrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
 	icon = 'icons/obj/guns/lasercannon.dmi'
 	icon_state = "lasercannon100"
 	item_state = "lasercannon100"
@@ -109,8 +111,8 @@ obj/item/gun/energy/retro
 
 /obj/item/gun/energy/xray
 	name = "xray laser gun"
-	desc = "A Nanotrasen designed high-power laser sidearm capable of expelling concentrated xray blasts."
-	desc_fluff = "The NT XG-1 is a laser sidearm developed and produced by Nanotrasen. A recent invention, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover. It is compact with relatively high capacity to other sidearms."
+	desc = "A NanoTrasen designed high-power laser sidearm capable of expelling concentrated xray blasts."
+	desc_extended = "The NT XG-1 is a laser sidearm developed and produced by NanoTrasen. A recent invention, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover. It is compact with relatively high capacity to other sidearms."
 	icon = 'icons/obj/guns/xray.dmi'
 	icon_state = "xray"
 	item_state = "xray"
@@ -176,8 +178,8 @@ obj/item/gun/energy/retro
 
 /obj/item/gun/energy/laser/shotgun
 	name = "laser shotgun"
-	desc = "A Nanotrasen designed laser weapon, designed to split a single amplified beam four times."
-	desc_fluff = "The NT QB-2 is a laser weapon developed and produced by Nanotrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
+	desc = "A NanoTrasen designed laser weapon, designed to split a single amplified beam four times."
+	desc_extended = "The NT QB-2 is a laser weapon developed and produced by NanoTrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
 	icon = 'icons/obj/guns/lasershotgun.dmi'
 	icon_state = "lasershotgun"
 	item_state = "lasershotgun"
@@ -205,7 +207,7 @@ obj/item/gun/energy/retro
 
 /obj/item/gun/energy/laser/shotgun/research
 	name = "expedition shotgun"
-	desc = "A Nanotrasen designed laser weapon, designed to split a single amplified beam four times. This one is marked for expeditionary use."
+	desc = "A NanoTrasen designed laser weapon, designed to split a single amplified beam four times. This one is marked for expeditionary use."
 	pin = /obj/item/device/firing_pin/away_site
 
 ////////Laser Tag////////////////////

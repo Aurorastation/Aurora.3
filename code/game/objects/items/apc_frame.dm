@@ -8,10 +8,11 @@
 	flags = CONDUCT
 
 /obj/item/frame/apc/attackby(obj/item/W as obj, mob/user as mob)
-	..()
 	if (W.iswrench())
 		new /obj/item/stack/material/steel( get_turf(src.loc), 2 )
 		qdel(src)
+		return TRUE
+	return ..()
 
 /obj/item/frame/apc/try_build(turf/on_wall)
 	if (get_dist(on_wall,usr)>1)

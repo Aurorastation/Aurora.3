@@ -1,7 +1,7 @@
 /obj/item/clothing/wrists/watch
 	name = "watch"
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in black plastic."
-	desc_fluff = "For those who want too much time on their wrists instead."
+	desc_extended = "For those who want too much time on their wrists instead."
 	icon_state = "watch"
 	item_state = "watch"
 	sprite_sheets = list(
@@ -12,31 +12,31 @@
 
 /obj/item/clothing/wrists/watch/silver
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in silver."
-	desc_fluff = "To unleash the telemarketer in you!"
+	desc_extended = "To unleash the telemarketer in you!"
 	icon_state = "watch_silver"
 	item_state = "watch_silver"
 
 /obj/item/clothing/wrists/watch/gold
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in <b>REAL</b> faux gold."
-	desc_fluff = "Be the jerk-ass pawn shop owner you'll never be."
+	desc_extended = "Be the jerk-ass pawn shop owner you'll never be."
 	icon_state = "watch_gold"
 	item_state = "watch_gold"
 
 /obj/item/clothing/wrists/watch/holo 
 	desc = "It's a GaussIo ZeitMeister with a holographic screen."
-	desc_fluff = "The latest Elyran technology!"
+	desc_extended = "The latest Elyran technology!"
 	icon_state = "watch_holo"
 	item_state = "watch_holo"
 
 /obj/item/clothing/wrists/watch/leather
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in leather."
-	desc_fluff = "Made from real synth leather."
+	desc_extended = "Made from real synth leather."
 	icon_state = "watch_leather"
 	item_state = "watch_leather"
 
 /obj/item/clothing/wrists/watch/spy
 	desc = "It's a GENUINE Spy-Tech Invisi-watch! <b>WARNING</b> : Does not actually make you invisible."
-	desc_fluff = "Makes you want to wear a balaclava and smoke a cigarette."
+	desc_extended = "Makes you want to wear a balaclava and smoke a cigarette."
 	icon_state = "watch_spy"
 	item_state = "watch_silver"
 
@@ -56,7 +56,7 @@
 	if(wired && screwed)
 		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		if (evacuation_controller.get_status_panel_eta())
-			to_chat(usr, SPAN_WARNING("The shuttle's status is reported as: [evacuation_controller.get_status_panel_eta()]."))
+			to_chat(usr, SPAN_WARNING("Time until Bluespace Jump: [evacuation_controller.get_status_panel_eta()]."))
 	else if(wired && !screwed)
 		to_chat(usr, "You check your watch, realising it's still open.")
 	else

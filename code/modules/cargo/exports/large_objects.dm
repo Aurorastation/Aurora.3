@@ -8,7 +8,7 @@
 /datum/export/large/crate/total_printout() // That's why a goddamn metal crate costs that much.
 	. = ..()
 	if(.)
-		. += " Thanks for participating in Nanotrasen Crates Recycling Program."
+		. += " Thanks for participating in NanoTrasen Crates Recycling Program."
 
 /datum/export/large/crate/wooden
 	cost = 100
@@ -29,7 +29,7 @@
 /datum/export/large/crate/coffin
 	cost = 250//50 wooden crates cost 2000 points, and you can make 10 coffins in seconds with those planks. Each coffin selling for 250 means you can make a net gain of 500 points for wasting your time making coffins.
 	unit_name = "coffin"
-	export_types = list(/obj/structure/closet/coffin)
+	export_types = list(/obj/structure/closet/crate/coffin)
 
 /datum/export/large/reagent_dispenser
 	cost = 100 // +0-400 depending on amount of reagents left
@@ -69,17 +69,12 @@
 	unit_name = "field generator"
 	export_types = list(/obj/machinery/field_generator)
 
-/datum/export/large/collector
-	cost = 200
-	unit_name = "collector"
-	export_types = list(/obj/machinery/power/rad_collector)
-
-/datum/export/large/collector/pa
+/datum/export/large/pa
 	cost = 300
 	unit_name = "particle accelerator part"
 	export_types = list(/obj/structure/particle_accelerator)
 
-/datum/export/large/collector/pa/controls
+/datum/export/large/pa/controls
 	cost = 500
 	unit_name = "particle accelerator control console"
 	export_types = list(/obj/machinery/particle_accelerator/control_box)

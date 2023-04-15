@@ -4,6 +4,7 @@
 	desc = "Used to access the station's automated alert system."
 
 	icon_screen = "alert:0"
+	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
 	circuit = /obj/item/circuitboard/stationalert
 	var/datum/nano_module/alarm_monitor/alarm_monitor
@@ -19,11 +20,10 @@
 	monitor_type = /datum/nano_module/alarm_monitor/all
 
 /obj/machinery/computer/station_alert/Initialize()
-	alarm_monitor = new monitor_type(src)
-	alarm_monitor.register_alarm(src, /atom/.proc/update_icon)
 	. = ..()
 	if(monitor_type)
 		register_monitor(new monitor_type(src))
+		alarm_monitor.register_alarm(src, TYPE_PROC_REF(/atom, update_icon))
 
 /obj/machinery/computer/station_alert/Destroy()
 	. = ..()
@@ -64,4 +64,4 @@
 			var/list/alarms = alarm_monitor.major_alarms()
 			if(alarms.len)
 				icon_screen = "alert:2"
-	..()
+	. = ..()

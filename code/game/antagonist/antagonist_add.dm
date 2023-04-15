@@ -6,6 +6,7 @@
 	//do this again, just in case
 	if(flags & ANTAG_OVERRIDE_JOB)
 		player.assigned_role = role_text
+		player.role_alt_title = role_text
 	player.special_role = role_text
 
 	if(istype(player.current, /mob/abstract))

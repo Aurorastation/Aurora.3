@@ -1,35 +1,36 @@
 /obj/structure/closet/crate/secure/gear_loadout
 	desc = "A secure gear crate."
 	name = "gear crate"
-	req_access = list(access_syndicate)
+
+/obj/structure/closet/crate/secure/gear_loadout/legion
+	desc = "A secure crate with Tau Ceti Foreign Legion branding."
+	name = "tcfl gear crate"
+	icon_state = "tcfl_crate"
 
 /obj/structure/closet/crate/gear_loadout/hephaestus
 	desc = "A sturdy crate with Hephaestus Industries branding."
 	name = "hephaestus drop crate"
-	icon_state = "hephcrate"
-	icon_opened = "hephcrateopen"
-	icon_closed = "hephcrate"
+	icon_state = "heph_crate"
+	door_hinge = 0.5
 
 /obj/structure/closet/crate/gear_loadout/zenghu
 	desc = "A sturdy crate with Zeng-Hu Pharmaceuticals branding."
 	name = "zeng-hu drop crate"
-	icon_state = "zenghucrate"
-	icon_opened = "zenghucrateopen"
-	icon_closed = "zenghucrate"
+	icon_state = "zenghu_crate"
+	door_hinge = 0.5
 
 /obj/structure/closet/crate/gear_loadout/einstein
 	desc = "A sturdy crate with Einstein Engines branding."
 	name = "einstein drop crate"
-	icon_state = "einsteincrate"
-	icon_opened = "einsteincrateopen"
-	icon_closed = "einsteincrate"
+	icon_state = "einstein_crate"
+	door_hinge = 0.5
 
 /obj/structure/closet/crate/gear_loadout/zavodskoi
 	desc = "A sturdy crate with Zavodskoi Interstellar branding."
 	name = "zavodskoi interstellar drop crate"
-	icon_state = "necrocrate"
-	icon_opened = "necrocrateopen"
-	icon_closed = "necrocrate"
+	icon_state = "necro_crate"
+	door_hinge = 0.5
+
 
 /obj/structure/closet/crate/secure/gear_loadout/coalition/fill()
 	new /obj/item/rig/gunslinger/equipped(src)
@@ -72,6 +73,19 @@
 	new /obj/item/ammo_magazine/gauss/emp(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/eridani/fill()
+	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
+	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
+	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
+	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
+	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
+	new /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc(src)
+	new /obj/item/clothing/under/rank/security/pmc/epmc/alt(src)
+	new /obj/item/clothing/head/beret/corporate/pmc/epmc(src)
+	new /obj/item/clothing/head/beret/corporate/pmc/epmc(src)
+	new /obj/item/clothing/head/beret/corporate/pmc/epmc(src)
+	new /obj/item/clothing/head/softcap/pmc/epmc(src)
+	new /obj/item/clothing/head/softcap/pmc/epmc(src)
+	new /obj/item/clothing/head/softcap/pmc/epmc(src)
 	new /obj/item/rig/strike/equipped(src)
 	new /obj/item/clothing/head/helmet/space/void/cruiser(src)
 	new /obj/item/clothing/head/helmet/space/void/cruiser(src)
@@ -85,16 +99,23 @@
 	new /obj/item/clothing/suit/space/void/cruiser(src)
 	new /obj/item/gun/energy/gun/nuclear(src)
 	new /obj/item/gun/energy/gun/nuclear(src)
-	new /obj/item/gun/energy/stunrevolver(src)
-	new /obj/item/gun/energy/stunrevolver(src)
+	new /obj/item/gun/energy/disruptorpistol/magnum(src)
+	new /obj/item/gun/energy/disruptorpistol/magnum(src)
 	new /obj/item/gun/energy/net(src)
-	new /obj/item/gun/energy/lawgiver(src)
+	new /obj/item/gun/projectile/automatic/x9(src)
+	new /obj/item/gun/projectile/automatic/x9(src)
+	new /obj/item/ammo_magazine/c45m/auto(src)
+	new /obj/item/ammo_magazine/c45m/auto(src)
+	new /obj/item/ammo_magazine/c45m/auto(src)
+	new /obj/item/ammo_magazine/c45m/auto(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/eridani_single/fill()
+	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
+	new /obj/item/clothing/head/beret/corporate/pmc/epmc(src)
 	new /obj/item/clothing/head/helmet/space/void/cruiser(src)
 	new /obj/item/clothing/suit/space/void/cruiser(src)
 	new /obj/item/gun/energy/gun/nuclear(src)
-	new /obj/item/gun/energy/stunrevolver(src)
+	new /obj/item/gun/energy/disruptorpistol/magnum(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/elyra/fill()
 	new /obj/item/rig/elyran/equipped(src)
@@ -140,12 +161,12 @@
 	new /obj/item/grenade/chem_grenade/large/phoroncleaner(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/sol/fill()
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/rig/military(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
@@ -174,9 +195,16 @@
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/storage/box/srf(src)
+	new /obj/item/storage/box/league(src)
+	new /obj/item/storage/box/fsf(src)
+	new /obj/item/storage/box/ssmd(src)
+	new /obj/item/storage/box/spg(src)
+	new /obj/item/storage/box/mrsp(src)
+	new /obj/item/storage/box/sfa(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/sol_single/fill()
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
 	new /obj/item/clothing/suit/space/void/sol(src)
 	new /obj/item/gun/projectile/automatic/rifle/sol(src)
@@ -184,6 +212,13 @@
 	new /obj/item/ammo_magazine/c762/sol(src)
 	new /obj/item/gun/projectile/pistol/sol(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/storage/box/srf(src)
+	new /obj/item/storage/box/league(src)
+	new /obj/item/storage/box/fsf(src)
+	new /obj/item/storage/box/ssmd(src)
+	new /obj/item/storage/box/spg(src)
+	new /obj/item/storage/box/mrsp(src)
+	new /obj/item/storage/box/sfa(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/syndicate_softsuits
 	req_access = list()
@@ -265,6 +300,19 @@
 	new /obj/item/clothing/shoes/magboots(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/dominia/fill()
+	new /obj/item/clothing/under/dominia/fleet(src)
+	new /obj/item/clothing/under/dominia/fleet(src)
+	new /obj/item/clothing/under/dominia/fleet(src)
+	new /obj/item/clothing/under/dominia/fleet/armsman(src)
+	new /obj/item/clothing/under/dominia/fleet/armsman(src)
+	new /obj/item/clothing/under/dominia/fleet/officer(src)
+	new /obj/item/clothing/head/dominia/fleet(src)
+	new /obj/item/clothing/head/dominia/fleet(src)
+	new /obj/item/clothing/head/dominia/fleet(src)
+	new /obj/item/clothing/head/dominia/fleet/armsman(src)
+	new /obj/item/clothing/head/dominia/fleet/armsman(src)
+	new /obj/item/clothing/head/dominia/fleet/officer(src)
+	new /obj/item/clothing/suit/storage/dominia/fleet(src)
 	new /obj/item/rig/jinxiang/equipped(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
@@ -276,6 +324,22 @@
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
+	new /obj/item/gun/projectile/automatic/rifle/dom(src)
+	new /obj/item/gun/projectile/automatic/rifle/dom(src)
+	new /obj/item/ammo_magazine/c762(src)
+	new /obj/item/ammo_magazine/c762(src)
+	new /obj/item/ammo_magazine/c762(src)
+	new /obj/item/ammo_magazine/c762(src)
+	new /obj/item/gun/projectile/automatic/tommygun/dom(src)
+	new /obj/item/gun/projectile/automatic/tommygun/dom(src)
+	new /obj/item/gun/projectile/automatic/tommygun/dom(src)
+	new /obj/item/ammo_magazine/submachinemag(src)
+	new /obj/item/ammo_magazine/submachinemag(src)
+	new /obj/item/ammo_magazine/submachinemag(src)
+	new /obj/item/ammo_magazine/submachinemag(src)
+	new /obj/item/ammo_magazine/submachinemag(src)
+	new /obj/item/ammo_magazine/submachinemag(src)
+	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/melee/energy/sword/pirate(src)
@@ -284,12 +348,20 @@
 	new /obj/item/shield/energy/dominia(src)
 	new /obj/item/shield/energy/dominia(src)
 	new /obj/item/shield/energy/dominia(src)
+	new /obj/item/shield/energy/dominia(src)
+	new /obj/item/storage/box/dominianvoid(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/dominia/single/fill()
+	new /obj/item/clothing/under/dominia/fleet(src)
+	new /obj/item/clothing/under/dominia/fleet/armsman(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
+	new /obj/item/gun/projectile/automatic/rifle/dom(src)
+	new /obj/item/ammo_magazine/c762(src)
+	new /obj/item/ammo_magazine/c762(src)
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/shield/energy/dominia(src)
+	new /obj/item/voidsuit_modkit/dominianvoid(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/kosmostrelki/fill()
 	new /obj/item/clothing/under/tajaran/cosmonaut(src)
@@ -346,6 +418,125 @@
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 
+/obj/structure/closet/crate/secure/gear_loadout/legion/fill()
+	new /obj/item/clothing/under/legion(src)
+	new /obj/item/clothing/under/legion(src)
+	new /obj/item/clothing/under/legion(src)
+	new /obj/item/clothing/under/legion/sentinel(src)
+	new /obj/item/clothing/under/legion/sentinel(src)
+	new /obj/item/clothing/under/legion/legate(src)
+	new /obj/item/clothing/head/beret/legion/field(src)
+	new /obj/item/clothing/head/beret/legion/field(src)
+	new /obj/item/clothing/head/beret/legion/field(src)
+	new /obj/item/clothing/head/beret/legion/field(src)
+	new /obj/item/clothing/head/legion/legate(src)
+	new /obj/item/clothing/head/helmet/legion(src)
+	new /obj/item/clothing/head/helmet/legion(src)
+	new /obj/item/clothing/head/helmet/legion(src)
+	new /obj/item/clothing/head/helmet/legion(src)
+	new /obj/item/clothing/head/helmet/legion(src)
+	new /obj/item/clothing/accessory/legion(src)
+	new /obj/item/clothing/accessory/legion(src)
+	new /obj/item/clothing/accessory/legion(src)
+	new /obj/item/clothing/accessory/legion(src)
+	new /obj/item/clothing/accessory/legion/specialist(src)
+	new /obj/item/clothing/accessory/legion/specialist(src)
+	new /obj/item/clothing/accessory/legion/specialist(src)
+	new /obj/item/rig/retro(src)
+	new /obj/item/rig/retro(src)
+	new /obj/item/rig/retro(src)
+	new /obj/item/rig/retro(src)
+	new /obj/item/rig/retro(src)
+	new /obj/item/clothing/suit/storage/vest/legion(src)
+	new /obj/item/clothing/suit/storage/vest/legion(src)
+	new /obj/item/clothing/suit/storage/vest/legion(src)
+	new /obj/item/clothing/suit/storage/vest/legion(src)
+	new /obj/item/clothing/suit/storage/vest/legion(src)
+	new /obj/item/storage/backpack/legion(src)
+	new /obj/item/storage/backpack/legion(src)
+	new /obj/item/storage/backpack/legion(src)
+	new /obj/item/storage/backpack/legion(src)
+	new /obj/item/storage/backpack/legion(src)
+	new /obj/item/shield/energy/legion(src)
+	new /obj/item/shield/energy/legion(src)
+	new /obj/item/shield/energy/legion(src)
+	new /obj/item/shield/riot/tact/legion(src)
+	new /obj/item/shield/riot/tact/legion(src)
+	new /obj/item/gun/energy/blaster/revolver(src)
+	new /obj/item/gun/energy/blaster/revolver(src)
+	new /obj/item/gun/energy/blaster/carbine(src)
+	new /obj/item/gun/energy/blaster/carbine(src)
+	new /obj/item/gun/projectile/gauss(src)
+	new /obj/item/gun/projectile/gauss(src)
+	new /obj/item/ammo_magazine/gauss(src)
+	new /obj/item/ammo_magazine/gauss(src)
+	new /obj/item/ammo_magazine/gauss(src)
+	new /obj/item/ammo_magazine/gauss(src)
+	new /obj/item/ammo_magazine/gauss(src)
+	new /obj/item/ammo_magazine/gauss(src)
+	new /obj/item/ammo_magazine/gauss/emp(src)
+	new /obj/item/ammo_magazine/gauss/emp(src)
+	new /obj/item/melee/energy/sword/knife(src)
+	new /obj/item/melee/energy/sword/knife(src)
+	new /obj/item/melee/energy/sword/knife(src)
+	new /obj/item/melee/energy/sword/knife(src)
+	new /obj/item/material/twohanded/pike/flag(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/legion/single/fill()
+	new /obj/item/clothing/under/legion(src)
+	new /obj/item/clothing/head/beret/legion/field(src)
+	new /obj/item/clothing/head/helmet/legion(src)
+	new /obj/item/clothing/accessory/legion(src)
+	new /obj/item/clothing/accessory/legion/specialist(src)
+	new /obj/item/rig/retro(src)
+	new /obj/item/clothing/suit/storage/vest/legion(src)
+	new /obj/item/storage/backpack/legion(src)
+	new /obj/item/shield/energy/legion(src)
+	new /obj/item/gun/energy/blaster/revolver(src)
+	new /obj/item/gun/energy/blaster/carbine(src)
+	new /obj/item/melee/energy/sword/knife(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/einstein/fill()
+    new /obj/item/rig/merc/einstein(src)
+    new /obj/item/clothing/head/helmet/space/void/einstein(src)
+    new /obj/item/clothing/head/helmet/space/void/einstein(src)
+    new /obj/item/clothing/head/helmet/space/void/einstein(src)
+    new /obj/item/clothing/head/helmet/space/void/einstein(src)
+    new /obj/item/clothing/head/helmet/space/void/einstein(src)
+    new /obj/item/clothing/suit/space/void/einstein(src)
+    new /obj/item/clothing/suit/space/void/einstein(src)
+    new /obj/item/clothing/suit/space/void/einstein(src)
+    new /obj/item/clothing/suit/space/void/einstein(src)
+    new /obj/item/clothing/suit/space/void/einstein(src)
+    new /obj/item/gun/energy/laser/shotgun(src)
+    new /obj/item/gun/energy/rifle(src)
+    new /obj/item/gun/energy/rifle(src)
+    new /obj/item/gun/projectile/pistol(src)
+    new /obj/item/gun/projectile/pistol(src)
+    new /obj/item/gun/projectile/pistol(src)
+    new /obj/item/gun/projectile/pistol(src)
+    new /obj/item/silencer(src)
+    new /obj/item/silencer(src)
+    new /obj/item/silencer(src)
+    new /obj/item/silencer(src)
+    new /obj/item/ammo_magazine/mc9mm(src)
+    new /obj/item/ammo_magazine/mc9mm(src)
+    new /obj/item/ammo_magazine/mc9mm(src)
+    new /obj/item/ammo_magazine/mc9mm(src)
+    new /obj/item/ammo_magazine/mc9mm(src)
+    new /obj/item/ammo_magazine/mc9mm(src)
+    new /obj/item/ammo_magazine/mc9mm(src)
+    new /obj/item/ammo_magazine/mc9mm(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/einstein/single/fill()
+    new /obj/item/clothing/head/helmet/space/void/einstein(src)
+    new /obj/item/clothing/suit/space/void/einstein(src)
+    new /obj/item/gun/energy/rifle(src)
+    new /obj/item/gun/projectile/pistol(src)
+    new /obj/item/silencer(src)
+    new /obj/item/ammo_magazine/mc9mm(src)
+    new /obj/item/ammo_magazine/mc9mm(src)
+
 //ninja stuff
 /obj/structure/closet/crate/secure/gear_loadout/ninja
 	var/associated_hardsuit = /obj/item/rig/light/ninja
@@ -365,7 +556,7 @@
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/sol/fill()
 	..()
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/clothing/accessory/holster/armpit/brown(src)
 	new /obj/item/gun/projectile/pistol/sol(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
@@ -439,10 +630,10 @@
 	new /obj/item/gun/energy/crossbow/largecrossbow(src)
 	new /obj/item/melee/energy/sword/red(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/ninja/techno
-	associated_hardsuit = /obj/item/rig/light/offworlder/techno/ninja
+/obj/structure/closet/crate/secure/gear_loadout/ninja/frontier
+	associated_hardsuit = /obj/item/rig/light/offworlder/frontier/ninja
 
-/obj/structure/closet/crate/secure/gear_loadout/ninja/techno/fill()
+/obj/structure/closet/crate/secure/gear_loadout/ninja/frontier/fill()
 	..()
 	new /obj/item/clothing/accessory/holster/armpit/brown(src)
 	new /obj/item/gun/projectile/pistol(src)

@@ -6,7 +6,8 @@ var/datum/controller/subsystem/profiler/SSprofiler
 	wait = 1
 	priority = SS_PRIORITY_PROFILE
 
-	flags = SS_TICKER|SS_FIRE_IN_LOBBY
+	flags = SS_TICKER
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
 	var/last_fire_rt = 0
 	var/threshold = 0
@@ -44,6 +45,7 @@ var/datum/controller/subsystem/profiler/SSprofiler
 	last_fire_rt = .
 
 /datum/controller/subsystem/profiler/proc/DumpData()
+	log_debug("Profiler: dump profile after CPU spike.")
 	admin_notice(SPAN_DANGER("Profiler: dump profile after CPU spike."), R_SERVER|R_DEV)
 
 	var/name = "[game_id]_[time2text(world.timeofday, "hh-mm-ss")]"

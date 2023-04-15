@@ -4,7 +4,7 @@
 	throw_speed = 2
 	throw_range = 1
 	gender = PLURAL
-	icon = 'icons/obj/contained_items/weapons/traps.dmi'
+	icon = 'icons/obj/item/traps.dmi'
 	var/icon_base = "beartrap"
 	icon_state = "beartrap0"
 	randpixel = 0
@@ -90,7 +90,7 @@
 	else
 		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
-	var/success = L.apply_damage(30, BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+	var/success = L.apply_damage(30, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
 	if(!success)
 		return FALSE
 
@@ -249,7 +249,7 @@
 	var/time = 360 * time_to_escape * 2
 	breakout = TRUE
 
-	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, .proc/breakout_callback, escapee)))
+	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, PROC_REF(breakout_callback), escapee)))
 		breakout = FALSE
 		return
 
@@ -378,14 +378,14 @@
 
 	else if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
-		if(!WT.welding)
-			to_chat(user, SPAN_WARNING("Your \the [W] is off!"))
+		if(!WT.isOn())
+			to_chat(user, SPAN_WARNING("\The [WT] is off!"))
 			return
 		user.visible_message("<span class='notice'>[user] is trying to slice \the [src] open!</span>",
 							 "<span class='notice'>You are trying to slice \the [src] open!</span>")
 
-		if (do_after(user, 30/W.toolspeed, act_target = src))
-			if(WT.remove_fuel(2, user))
+		if(WT.use_tool(src, user, 60, volume = 50))
+			if(WT.use(2, user))
 				user.visible_message("<span class='notice'>[user] slices \the [src] open!</span>",
 									"<span class='notice'>You slice \the [src] open!</span>")
 				new /obj/item/stack/rods(src.loc, resources["rods"])
@@ -404,7 +404,7 @@
 							 "<span class='notice'>You are trying to [anchored ? "un" : "" ]secure \the [src]!</span>")
 		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
 
-		if (do_after(user, 30/W.toolspeed, act_target = src))
+		if(W.use_tool(src, user, 30, volume = 50))
 			density = !density
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
@@ -546,7 +546,7 @@
 	. = ..()
 	allowed_mobs = list(
 						/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/cow, /mob/living/simple_animal/corgi/fox,
-						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/alien, /mob/living/simple_animal/hostile/giant_spider,
+						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/giant_spider,
 						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/human,
 						/mob/living/simple_animal/pig)
 
@@ -573,9 +573,8 @@
 
 		user.visible_message("<span class='notice'>[user] begins [anchored ? "un" : "" ]securing \the [src]!</span>",
 							  "<span class='notice'>You begin [anchored ? "un" : "" ]securing \the [src]!</span>")
-		playsound(src.loc, W.usesound, 50, 1)
 
-		if(do_after(user, 30/W.toolspeed, act_target = src))
+		if(W.use_tool(src, user, 30, volume = 50))
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
 								"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
@@ -614,7 +613,7 @@
 /obj/item/large_trap_foundation
 	name = "large trap foundation"
 	desc = "A metal foundation for large trap, it is missing metals rods to hold the prey."
-	icon = 'icons/obj/contained_items/weapons/traps.dmi'
+	icon = 'icons/obj/item/traps.dmi'
 	icon_state = "large_foundation"
 	throwforce = 4
 	force = 5

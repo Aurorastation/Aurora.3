@@ -10,10 +10,15 @@
 #define ALIEN_SELECT_AFK_BUFFER  1    // How many minutes that a person can be AFK before not being allowed to be an alien.
 
 // Channel numbers for power.
+#define POWER_CHAN  -1  // Use default
 #define EQUIP   1
 #define LIGHT   2
 #define ENVIRON 3
 #define TOTAL   4 // For total power used only.
+
+#define POWER_USE_OFF       0
+#define POWER_USE_IDLE      1
+#define POWER_USE_ACTIVE    2
 
 // Bitflags for machine stat variable.
 #define BROKEN   0x1
@@ -21,6 +26,9 @@
 #define POWEROFF 0x4  // TBD.
 #define MAINT    0x8  // Under maintenance.
 #define EMPED    0x10 // Temporary broken by EMP pulse.
+
+#define INOPERABLE(machine)  (machine.stat & (BROKEN|NOPOWER|MAINT|EMPED))
+#define OPERABLE(machine)    !INOPERABLE(machine)
 
 // Used by firelocks
 #define FIREDOOR_OPEN 1
@@ -40,7 +48,7 @@
 #define NETWORK_CIVILIAN_MAIN "Civilian Main"
 #define NETWORK_CIVILIAN_SURFACE "Civilian Surface"
 #define NETWORK_COMMAND "Command"
-#define NETWORK_ENGINE "Engine"
+#define NETWORK_REACTOR "Reactor"
 #define NETWORK_ENGINEERING "Engineering"
 #define NETWORK_ENGINEERING_OUTPOST "Engineering Outpost"
 #define NETWORK_ERT "ZeEmergencyResponseTeam"
@@ -60,11 +68,16 @@
 #define NETWORK_ALARM_ATMOS "Atmosphere Alarms"
 #define NETWORK_ALARM_POWER "Power Alarms"
 #define NETWORK_ALARM_FIRE "Fire Alarms"
-#define NETWORK_SUPPLY "Supply"
+#define NETWORK_SUPPLY "Operations"
 #define NETWORK_SERVICE "Service"
 #define NETWORK_EXPEDITION "Expedition"
 #define NETWORK_CALYPSO "Calypso"
 #define NETWORK_POD "General Utility Pod"
+#define NETWORK_FIRST_DECK "First Deck"
+#define NETWORK_SECOND_DECK "Second Deck"
+#define NETWORK_THIRD_DECK "Third Deck"
+#define NETWORK_INTREPID "Intrepid"
+
 
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.
 var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret")
@@ -90,6 +103,8 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define MAX_SIPHON_FLOWRATE   2500 // L/s. This can be used to balance how fast a room is siphoned. Anything higher than CELL_VOLUME has no effect.
 #define MAX_SCRUBBER_FLOWRATE 200  // L/s. Max flow rate when scrubbing from a turf.
 
+#define ATMOS_PUMP_MAX_PRESSURE 15000
+
 // These balance how easy or hard it is to create huge pressure gradients with pumps and filters.
 // Lower values means it takes longer to create large pressures differences.
 // Has no effect on pumping gasses from high pressure to low, only from low to high.
@@ -103,10 +118,15 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 // The flow rate/effectiveness of various atmos devices is limited by their internal volume,
 // so for many atmos devices these will control maximum flow rates in L/s.
 #define ATMOS_DEFAULT_VOLUME_PUMP   200 // Liters.
-#define ATMOS_DEFAULT_VOLUME_FILTER 200 // L.
-#define ATMOS_DEFAULT_VOLUME_MIXER  200 // L.
+#define ATMOS_DEFAULT_VOLUME_FILTER 500 // L.
+#define ATMOS_DEFAULT_VOLUME_MIXER  500 // L.
 #define ATMOS_DEFAULT_VOLUME_PIPE   70  // L.
+#define ATMOS_DEFAULT_VOLUME_HE_PIPE 70 // L.
 
+// Default maximum pressure for simple pipes
+#define ATMOS_DEFAULT_MAX_PRESSURE     PRESSURE_ONE_THOUSAND * 20 // 20000 kPa.
+#define ATMOS_DEFAULT_FATIGUE_PRESSURE PRESSURE_ONE_THOUSAND * 15 // 15000 kPa.
+#define ATMOS_DEFAULT_ALERT_PRESSURE   ATMOS_DEFAULT_FATIGUE_PRESSURE // See above.
 
 // Misc process flags.
 #define M_PROCESSES 0x1
@@ -118,3 +138,13 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 
 // This controls how much power the AME generates per unit of fuel.
 #define AM_POWER_FACTOR 1000000
+
+// Machinery process flags, for use with START_PROCESSING_MACHINE
+#define MACHINERY_PROCESS_SELF          (1<<0)
+#define MACHINERY_PROCESS_COMPONENTS    (1<<1)
+#define MACHINERY_PROCESS_ALL           (MACHINERY_PROCESS_SELF | MACHINERY_PROCESS_COMPONENTS)
+
+// Machinery init flag masks
+#define INIT_MACHINERY_PROCESS_SELF         0x1
+#define INIT_MACHINERY_PROCESS_COMPONENTS   0x2
+#define INIT_MACHINERY_PROCESS_ALL          0x3

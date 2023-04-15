@@ -3,19 +3,33 @@
 	gender = PLURAL
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "remains"
-	anchored = 0
+	anchored = FALSE
 
 /obj/effect/decal/remains/human
 	desc = "They look like human remains. They have a strange aura about them."
+
+/obj/effect/decal/remains/human/burned
+	name = "burned remains"
+	desc = "They look like burned human remains. They have a strange aura about them."
+	icon_state = "remains_burned"
 
 /obj/effect/decal/remains/xeno
 	desc = "They look like the remains of something... alien. They have a strange aura about them."
 	icon_state = "remainsxeno"
 
+/obj/effect/decal/remains/xeno/burned
+	name = "burned remains"
+	desc = "They look like burned remains of something... alien. They have a strange aura about them."
+	icon_state = "remainsxeno_burned"
+
 /obj/effect/decal/remains/robot
 	desc = "They look like the remains of something mechanical. They have a strange aura about them."
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "remainsrobot"
+
+/obj/effect/decal/remains/robot/burned
+	desc = "They look like the burned remains of something mechanical. They have a strange aura about them."
+	icon_state = "remainsrobot_burned"
 
 /obj/effect/decal/remains/rat
 	name = "rat skeleton"
@@ -29,8 +43,8 @@
 
 /obj/effect/decal/remains/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/gun/energy/rifle/cult))
-		return
-	..()
+		return TRUE
+	return ..()
 
 //Target turns to ash.
 /obj/effect/decal/remains/proc/crumble()

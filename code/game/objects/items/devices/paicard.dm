@@ -48,11 +48,11 @@
 /obj/item/device/paicard/attackby(obj/item/C, mob/user)
 	if(istype(C, /obj/item/card/id))
 		scan_ID(C, user)
-		return
+		return TRUE
 	else if(istype(C, /obj/item/device/encryptionkey))
 		if(length(installed_encryptionkeys) > 2)
 			to_chat(user, SPAN_WARNING("\The [src] already has the full number of possible encryption keys installed!"))
-			return
+			return TRUE
 		var/obj/item/device/encryptionkey/EK = C
 		var/added_channels = FALSE
 		for(var/thing in (EK.channels | EK.additional_channels))
@@ -68,7 +68,7 @@
 				to_chat(pai, SPAN_NOTICE("You now have access to these radio channels: [english_list(radio.channels)]."))
 		else
 			to_chat(user, SPAN_WARNING("\The [src] would not gain any new channels from \the [EK]."))
-		return
+		return TRUE
 	else if(C.isscrewdriver())
 		if(!length(installed_encryptionkeys))
 			to_chat(user, SPAN_WARNING("There are no installed encryption keys to remove!"))
@@ -79,11 +79,11 @@
 			EK.forceMove(get_turf(src))
 			installed_encryptionkeys -= EK
 		recalculateChannels()
-		return
+		return TRUE
 	else if(istype(C, /obj/item/stack/nanopaste))
 		if(!pai)
 			to_chat(user, SPAN_WARNING("You cannot repair a pAI device if there's no active pAI personality installed."))
-			return
+		return TRUE
 	pai.attackby(C, user)
 
 /obj/item/device/paicard/proc/recalculateChannels()
@@ -108,17 +108,17 @@
 //Possible TODO in future, allow emagging a paicard to let it work like an agent ID, accumulating access from any ID
 /obj/item/device/paicard/proc/scan_ID(var/obj/item/card/id/card, var/mob/user)
 	if (!pai)
-		to_chat(user, "<span class='warning'>Error: ID Registration failed. No pAI personality installed.</span>")
+		to_chat(user, SPAN_WARNING("Error: ID Registration failed. No pAI personality installed."))
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
 	if (!pai.master_dna)
-		to_chat(user, "<span class='warning'>Error: ID Registration failed. User not registered as owner. Please complete imprinting process first.</span>")
+		to_chat(user, SPAN_WARNING("Error: ID Registration failed. User not registered as owner. Please complete imprinting process first."))
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
 	if (pai.master_dna != card.dna_hash)
-		to_chat(user, "<span class='warning'>Error: ID Registration failed. Biometric data on ID card does not match DNA sample of registered owner.</span>")
+		to_chat(user, SPAN_WARNING("Error: ID Registration failed. Biometric data on ID card does not match DNA sample of registered owner."))
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
@@ -126,14 +126,14 @@
 	pai.id_card.access = card.access.Copy()
 	pai.id_card.registered_name = card.registered_name
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-	to_chat(user, "<span class='notice'>ID Registration for [pai.id_card.registered_name] is a success. PAI access updated!</span>")
+	to_chat(user, SPAN_NOTICE("ID Registration for [pai.id_card.registered_name] is a success. PAI access updated!"))
 	return 1
 
 /obj/item/device/paicard/proc/ID_readout()
 	if (pai.id_card.registered_name)
-		return "<span class='notice'>Identity of owner: [pai.id_card.registered_name] registered.</span>"
+		return SPAN_NOTICE("Identity of owner: [pai.id_card.registered_name] registered.")
 	else
-		return "<span class='warning'>No ID card registered! Please scan your ID to share access.</span>"
+		return SPAN_WARNING("No ID card registered! Please scan your ID to share access.")
 
 /obj/item/device/paicard/attack_self(mob/user)
 	if (!in_range(src, user))
@@ -280,13 +280,13 @@
 				<table class="request">
 					<tr>
 						<td class="radio">Transmit:</td>
-						<td><a href='byond://?src=\ref[src];wires=4'>[radio.broadcasting ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
+						<td><a href='byond://?src=\ref[src];wires=4'>[radio.get_broadcasting() ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
 
 						</td>
 					</tr>
 					<tr>
 						<td class="radio">Receive:</td>
-						<td><a href='byond://?src=\ref[src];wires=2'>[radio.listening ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
+						<td><a href='byond://?src=\ref[src];wires=2'>[radio.get_listening() ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
 
 						</td>
 					</tr>
@@ -371,9 +371,9 @@
 		var/t1 = text2num(href_list["wires"])
 		switch(t1)
 			if(4)
-				radio.ToggleBroadcast()
+				radio.set_broadcasting(!radio.get_broadcasting())
 			if(2)
-				radio.ToggleReception()
+				radio.set_listening(!radio.get_listening())
 	if(href_list["setlaws"])
 		var/newlaws = sanitize(input("Enter any additional directives you would like your pAI personality to follow. Note that these directives will not override the personality's allegiance to its imprinted master. Conflicting directives will be ignored.", "pAI Directive Configuration", pai.pai_laws) as message)
 		if(newlaws)
@@ -390,6 +390,7 @@
 /obj/item/device/paicard/proc/setPersonality(mob/living/silicon/pai/personality)
 	src.pai = personality
 	add_overlay("pai-happy")
+	playsound(src, 'sound/effects/pai/pai_restore.ogg', 75)
 
 /obj/item/device/paicard/proc/removePersonality()
 	src.pai = null
@@ -425,7 +426,7 @@
 /obj/item/device/paicard/proc/alertUpdate()
 	var/turf/T = get_turf_or_move(src.loc)
 	for (var/mob/M in viewers(T))
-		M.show_message("<span class='notice'>\The [src] flashes a message across its screen, \"Additional personalities available for download.\"</span>", 3, "<span class='notice'>\The [src] bleeps electronically.</span>", 2)
+		M.show_message(SPAN_NOTICE("\The [src] flashes a message across its screen, \"Additional personalities available for download.\""), 3, SPAN_NOTICE("\The [src] bleeps electronically."), 2)
 
 /obj/item/device/paicard/emp_act(severity)
 	for(var/mob/M in src)
@@ -439,7 +440,7 @@
 
 /obj/item/device/paicard/see_emote(mob/living/M, text)
 	if(pai && pai.client && !pai.canmove)
-		var/rendered = "<span class='message'>[text]</span>"
+		var/rendered = span("message", "[text]")
 		pai.show_message(rendered, 2)
 	..()
 
@@ -468,6 +469,6 @@
 
 /obj/item/device/paicard/show_message(msg, type, alt, alt_type)
 	if(pai && pai.client)
-		var/rendered = "<span class='message'>[msg]</span>"
+		var/rendered = span("message", "[msg]")
 		pai.show_message(rendered, type)
 	..()

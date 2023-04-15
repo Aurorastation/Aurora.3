@@ -29,6 +29,10 @@
 	icon_state = "boxers_loveheart"
 	has_color = TRUE
 
+/datum/category_item/underwear/bottom/boxers_Lprint
+	name = "Boxers, Leopard Print"
+	icon_state = "boxers_lprint"
+
 /datum/category_item/underwear/bottom/panties
 	name = "Panties"
 	icon_state = "panties"
@@ -82,9 +86,9 @@
 	name = "Shorts, Zavodskoi Interstellar"
 	icon_state = "shorts_necropolis"
 
-/datum/category_item/underwear/bottom/shorts_epmc
-	name = "Shorts, EPMC"
-	icon_state = "shorts_epmc"
+/datum/category_item/underwear/bottom/shorts_pmc
+	name = "Shorts, PMCG"
+	icon_state = "shorts_pmc"
 
 /datum/category_item/underwear/bottom/midway
 	name = "Midway Briefs"

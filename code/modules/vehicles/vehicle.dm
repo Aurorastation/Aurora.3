@@ -16,6 +16,8 @@
 	buckle_movable = 1
 	buckle_lying = 0
 
+	var/buckling_sound = 'sound/effects/metal_close.ogg'
+
 	var/attack_log = null
 	var/on = 0
 	var/health = 0	//do not forget to set health for your vehicle!
@@ -160,7 +162,7 @@
 	if(on)
 		turn_off()
 
-	addtimer(CALLBACK(src, .proc/post_emp, was_on), severity * 300)
+	addtimer(CALLBACK(src, PROC_REF(post_emp), was_on), severity * 300)
 
 /obj/vehicle/proc/post_emp(was_on)
 	stat &= ~EMPED
@@ -284,10 +286,10 @@
 	if(load || C.anchored)
 		return 0
 
-	// if a create/closet, close before loading
-	var/obj/structure/closet/crate = C
-	if(istype(crate))
-		crate.close()
+	// if a crate/closet, close before loading
+	var/obj/structure/closet/closet = C
+	if(istype(closet))
+		closet.close()
 
 	C.forceMove(loc)
 	C.set_dir(dir)
@@ -295,20 +297,30 @@
 
 	load = C
 
+	C.layer = src.layer + 0.1
 	if(load_item_visible)
 		C.pixel_x += load_offset_x
 		if(ismob(C))
 			C.pixel_y += mob_offset_y
 		else
-			C.pixel_y += load_offset_y
+			if(istype(C, /obj/structure/closet/crate))
+				C.pixel_y += load_offset_y
+			else
+				C.pixel_y += 10
 
 	if(ismob(C))
-		buckle(C)
+		buckle(C, C)
 
 	return 1
 
-/obj/vehicle/user_unbuckle(var/mob/user)
-	unload(user)
+/obj/vehicle/buckle(var/atom/movable/C, mob/user)
+	. = ..()
+	if(. && buckling_sound)
+		playsound(src, buckling_sound, 20)
+
+/obj/vehicle/user_unbuckle(var/mob/user, var/direction)
+	..()
+	unload(user, direction)
 	return
 
 /obj/vehicle/proc/unload(var/mob/user, var/direction)
@@ -316,6 +328,7 @@
 		return
 
 	var/turf/dest = null
+	var/turf/v_turf = get_turf(src)
 
 	//find a turf to unload to
 	if(direction)	//if direction specified, unload in that direction
@@ -327,16 +340,24 @@
 		dest = get_step_to(src, get_step(src, turn(dir, 90))) //try unloading to the side of the vehicle first if neither of the above are present
 
 	//if these all result in the same turf as the vehicle or nullspace, pick a new turf with open space
-	if(!dest || dest == get_turf(src))
+	if(!dest || dest == v_turf || dest.is_hole)
 		var/list/options = new()
+		var/list/safe_options = new()
 		for(var/test_dir in alldirs)
-			var/new_dir = get_step_to(src, get_step(src, test_dir))
-			if(new_dir && load.Adjacent(new_dir))
-				options += new_dir
-		if(options.len)
+			var/turf/T = get_step_to(src, get_step(src, test_dir))
+			if(istype(T) && load.Adjacent(T))
+				options += T
+				if(!T.is_hole)
+					safe_options += T
+		if(safe_options.len)
+			dest = pick(safe_options)
+		else if(!v_turf.is_hole)
+			dest = v_turf
+		else if(options.len) // No safe tiles to unload -- you're going to the shadow realm, jimbo
 			dest = pick(options)
-		else
-			dest = get_turf(src)	//otherwise just dump it on the same turf as the vehicle
+
+	if(!isturf(dest))
+		dest = v_turf	//otherwise just dump it on the same turf as the vehicle
 
 	if(!isturf(dest))	//if there still is nowhere to unload, cancel out since the vehicle is probably in nullspace
 		return 0
@@ -349,7 +370,7 @@
 	load.layer = initial(load.layer)
 
 	if(ismob(load))
-		unbuckle(load)
+		unbuckle(user)
 
 	load = null
 

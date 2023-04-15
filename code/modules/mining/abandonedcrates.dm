@@ -1,9 +1,6 @@
 /obj/structure/closet/crate/secure/loot
 	name = "abandoned crate"
 	desc = "What could be inside?"
-	icon_state = "securecrate"
-	icon_opened = "securecrateopen"
-	icon_closed = "securecrate"
 	var/list/code = list()
 	var/list/lastattempt = list()
 	var/attempts = 15
@@ -48,8 +45,8 @@
 		if(36 to 40)
 			new /obj/item/melee/baton(src)
 		if(41 to 45)
-			new /obj/item/clothing/under/shorts/red(src)
-			new /obj/item/clothing/under/shorts/blue(src)
+			new /obj/item/clothing/under/shorts/athletic/red(src)
+			new /obj/item/clothing/under/shorts/athletic/blue(src)
 		if(46 to 50)
 			new /obj/item/clothing/under/chameleon(src)
 			for(var/i = 0, i < 7, i++)
@@ -60,7 +57,7 @@
 			var/newitem = pick(typesof(/obj/item/toy/balloon) - /obj/item/toy/balloon)
 			new newitem(src)
 		if(55 to 56)
-			var/newitem = pick(typesof(/obj/item/toy/prize) - /obj/item/toy/prize)
+			var/newitem = pick(typesof(/obj/item/toy/mech) - /obj/item/toy/mech)
 			new newitem(src)
 		if(57 to 58)
 			new /obj/item/toy/balloon/syndicate(src)
@@ -100,16 +97,10 @@
 			new /obj/item/toy/katana(src)
 		if(85)
 			new /obj/item/seeds/random(src)
-		if(86)
-			new /obj/item/weed_extract(src)
-		if(87)
-			new /obj/item/xenos_claw(src)
-		if(88)
+		if(86 to 89)
 			new /obj/item/gun/projectile/shotgun/pump/rifle(src)
 			new /obj/item/ammo_magazine/boltaction(src)
 			new /obj/item/clothing/head/ushanka/grey(src)
-		if(89)
-			new /obj/item/stack/material/animalhide/xeno(src)
 		if(90)
 			new /obj/item/organ/internal/heart(src)
 		if(91)
@@ -123,14 +114,6 @@
 			new /obj/item/clothing/head/helmet/space/void/zavodskoi(src)
 			new /obj/item/flag/zavodskoi/l(src)
 		if(95)
-			new /obj/item/clothing/under/mime(src)
-			new /obj/item/clothing/shoes/black(src)
-			new /obj/item/modular_computer/handheld/pda/civilian/mime(src)
-			new /obj/item/clothing/gloves/white(src)
-			new /obj/item/clothing/mask/gas/mime(src)
-			new /obj/item/clothing/head/beret/red(src)
-			new /obj/item/clothing/accessory/suspenders(src)
-			new /obj/item/pen/crayon/mime(src)
 			new /obj/item/reagent_containers/food/drinks/bottle/bottleofnothing(src)
 		if(96)
 			new/obj/item/vampiric(src)
@@ -163,7 +146,8 @@
 	else if(check_input(input))
 		to_chat(user, SPAN_NOTICE("The crate unlocks!"))
 		playsound(user, 'sound/machines/lockreset.ogg', 50, 1)
-		set_locked(FALSE)
+		locked = FALSE
+		update_icon()
 	else
 		visible_message(SPAN_WARNING("A red light on \the [src]'s control panel flashes briefly."))
 		attempts--

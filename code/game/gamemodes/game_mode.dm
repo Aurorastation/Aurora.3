@@ -13,7 +13,6 @@ var/global/list/additional_antag_types = list()
 	var/max_players = 0			 			// Maximum players for round to start for secret voting. 0 means "doesn't matter"
 	var/required_enemies = 0                 // Minimum antagonists for round to start.
 	var/newscaster_announcements = null
-	var/end_on_antag_death = 0               // Round will end when all antagonists are dead.
 	var/ert_disabled = 0                     // ERT cannot be called.
 	var/deny_respawn = 0	                 // Disable respawn during this round.
 
@@ -30,8 +29,8 @@ var/global/list/additional_antag_types = list()
 
 	var/station_was_nuked = 0                // See nuclearbomb.dm and malfunction.dm.
 	var/explosion_in_progress = 0            // Sit back and relax
-	var/waittime_l = 600                     // Lower bound on time before intercept arrives (in tenths of seconds)
-	var/waittime_h = 1800                    // Upper bound on time before intercept arrives (in tenths of seconds)
+	var/waittime_l = 60 SECONDS                     // Lower bound on time before intercept arrives (in tenths of seconds)
+	var/waittime_h = 180 SECONDS                    // Upper bound on time before intercept arrives (in tenths of seconds)
 
 	var/event_delay_mod_moderate             // Modifies the timing of random events.
 	var/event_delay_mod_major                // As above.
@@ -230,6 +229,7 @@ var/global/list/additional_antag_types = list()
 			EMajor.delay_modifier = event_delay_mod_major
 
 /datum/game_mode/proc/pre_setup()
+	SHOULD_CALL_PARENT(TRUE)
 	for(var/datum/antagonist/antag in antag_templates)
 		antag.update_current_antag_max()
 		antag.update_initial_spawn_target()
@@ -245,7 +245,7 @@ var/global/list/additional_antag_types = list()
 			all_candidates += antag.candidates
 			antag_templates_by_initial_spawn_req[antag] = antag.initial_spawn_req
 
-		sortTim(antag_templates_by_initial_spawn_req, /proc/cmp_numeric_asc, TRUE)
+		sortTim(antag_templates_by_initial_spawn_req, GLOBAL_PROC_REF(cmp_numeric_asc), TRUE)
 		antag_templates = list_keys(antag_templates_by_initial_spawn_req)
 
 		var/list/valid_templates_per_candidate = list() // number of roles each candidate can satisfy
@@ -253,7 +253,7 @@ var/global/list/additional_antag_types = list()
 			valid_templates_per_candidate[candidate]++
 
 		valid_templates_per_candidate = shuffle(valid_templates_per_candidate) // shuffle before sorting so that candidates with the same number of templates will be in random order
-		sortTim(valid_templates_per_candidate, /proc/cmp_numeric_asc, TRUE)
+		sortTim(valid_templates_per_candidate, GLOBAL_PROC_REF(cmp_numeric_asc), TRUE)
 
 		for(var/datum/antagonist/antag in antag_templates)
 			antag.candidates = list_keys(valid_templates_per_candidate) & antag.candidates // orders antag.candidates by valid_templates_per_candidate
@@ -276,6 +276,9 @@ var/global/list/additional_antag_types = list()
 
 	spawn (ROUNDSTART_LOGOUT_REPORT_TIME)
 		display_logout_report()
+
+	var/welcome_delay = rand(waittime_l, waittime_h)
+	addtimer(CALLBACK(current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)
 
 	//Assign all antag types for this game mode. Any players spawned as antags earlier should have been removed from the pending list, so no need to worry about those.
 	for(var/datum/antagonist/antag in antag_templates)
@@ -335,17 +338,7 @@ var/global/list/additional_antag_types = list()
 	command_announcement.Announce("The presence of [pick(reasons)] in the region is tying up all available local emergency resources; emergency response teams cannot be called at this time, and post-evacuation recovery efforts will be substantially delayed.","Emergency Transmission")
 
 /datum/game_mode/proc/check_finished()
-	if(evacuation_controller.round_over() || station_was_nuked)
-		return 1
-	if(end_on_antag_death && antag_templates && antag_templates.len)
-		for(var/datum/antagonist/antag in antag_templates)
-			if(!antag.antags_are_dead())
-				return 0
-		if(config.continous_rounds)
-			evacuation_controller.auto_recall(1)
-			return 0
-		return 1
-	return 0
+	return evacuation_controller.round_over() || station_was_nuked
 
 /datum/game_mode/proc/cleanup()	//This is called when the round has ended but not the game, if any cleanup would be necessary in that case.
 	return
@@ -374,57 +367,33 @@ var/global/list/additional_antag_types = list()
 	discord_text = ""
 
 	var/clients = 0
-	var/surviving_humans = 0
 	var/surviving_total = 0
-	var/ghosts = 0
-	var/escaped_humans = 0
 	var/escaped_total = 0
-	var/escaped_on_pod_1 = 0
-	var/escaped_on_pod_2 = 0
-	var/escaped_on_pod_3 = 0
-	var/escaped_on_shuttle = 0
-
-	var/list/area/escape_locations = list(/area/shuttle/escape, /area/shuttle/escape_pod/pod1, /area/shuttle/escape_pod/pod2, /area/shuttle/escape_pod/pod3)
+	var/ghosts = 0
 
 	for(var/mob/M in player_list)
 		if(M.client)
 			clients++
-			if(ishuman(M))
+			if(M.stat != DEAD && isipc(M))
 				var/mob/living/carbon/human/H = M
-				if(M.stat != DEAD)
-					surviving_humans++
-					if(M.loc && M.loc.loc && (M.loc.loc.type in escape_locations))
-						escaped_humans++
-					if (isipc(H))
-						var/datum/species/machine/machine = H.species
-						machine.update_tag(H, H.client)
+				var/datum/species/machine/machine = H.species
+				machine.update_tag(H, H.client)
 			if(M.stat != DEAD)
+				var/turf/playerTurf = get_turf(M)
+				var/area/playerArea = get_area(playerTurf)
 				surviving_total++
-				if(M.loc && M.loc.loc && (M.loc.loc.type in escape_locations))
+				if(isStationLevel(playerTurf.z) && is_station_area(playerArea))
 					escaped_total++
-
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape)
-					escaped_on_shuttle++
-
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod1)
-					escaped_on_pod_1++
-
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod2)
-					escaped_on_pod_2++
-
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod3)
-					escaped_on_pod_3++
-
 			if(isobserver(M))
 				ghosts++
 
 	var/text = ""
 	if(surviving_total > 0)
 		text += "<br>There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]"
-		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "transferred"]</b>) and <b>[ghosts] ghosts</b>.<br>"
+		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "bluespace jumped"]</b>) and <b>[ghosts] ghosts</b>.<br>"
 
 		discord_text += "There [surviving_total>1 ? "were **[surviving_total] survivors**" : "was **one survivor**"]"
-		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "transferred"]) and **[ghosts] ghosts**."
+		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "bluespace jumped"]) and **[ghosts] ghosts**."
 	else
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>)."
 
@@ -435,25 +404,13 @@ var/global/list/additional_antag_types = list()
 	post_webhook_event(WEBHOOK_ROUNDEND, list("survivours"=surviving_total, "escaped"=escaped_total, "ghosts"=ghosts, "gamemode"=name, "gameid"=game_id, "antags"=antag_text))
 
 	if(clients > 0)
-		feedback_set("round_end_clients",clients)
+		feedback_set("round_end_clients", clients)
 	if(ghosts > 0)
-		feedback_set("round_end_ghosts",ghosts)
-	if(surviving_humans > 0)
-		feedback_set("survived_human",surviving_humans)
+		feedback_set("round_end_ghosts", ghosts)
 	if(surviving_total > 0)
-		feedback_set("survived_total",surviving_total)
-	if(escaped_humans > 0)
-		feedback_set("escaped_human",escaped_humans)
+		feedback_set("survived_total", surviving_total)
 	if(escaped_total > 0)
-		feedback_set("escaped_total",escaped_total)
-	if(escaped_on_shuttle > 0)
-		feedback_set("escaped_on_shuttle",escaped_on_shuttle)
-	if(escaped_on_pod_1 > 0)
-		feedback_set("escaped_on_pod_1",escaped_on_pod_1)
-	if(escaped_on_pod_2 > 0)
-		feedback_set("escaped_on_pod_2",escaped_on_pod_2)
-	if(escaped_on_pod_3 > 0)
-		feedback_set("escaped_on_pod_3",escaped_on_pod_3)
+		feedback_set("escaped_total", escaped_total)
 
 	return 0
 
@@ -552,7 +509,7 @@ proc/get_logout_report()
 				continue //AFK client
 			if(L.stat)
 				if(L.stat == UNCONSCIOUS)
-					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Dying)\n"
+					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Unconscious)\n"
 					continue //Unconscious
 				if(L.stat == DEAD)
 					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Dead)\n"
@@ -591,15 +548,19 @@ proc/display_logout_report()
 	to_chat(src,get_logout_report())
 
 proc/get_poor()
-	var/list/dudes = list()
-	for(var/mob/living/carbon/human/man in player_list)
-		if(man.client)
-			if(man.client.prefs.economic_status == ECONOMICALLY_POOR)
-				dudes += man
-			else if(man.client.prefs.economic_status == ECONOMICALLY_POOR && prob(50))
-				dudes += man
-	if(dudes.len == 0) return null
-	return pick(dudes)
+	var/list/characters = list()
+
+	for(var/mob/living/carbon/human/character in player_list)
+		if(character.client)
+			if(character.client.prefs.economic_status == ECONOMICALLY_DESTITUTE) // Discrimination.
+				characters += character
+			else if(character.client.prefs.economic_status == ECONOMICALLY_POOR && prob(50)) // 50% discrimination.
+				characters += character
+
+	if(!length(characters))
+		return
+
+	return pick(characters)
 
 //Announces objectives/generic antag text.
 /proc/show_generic_antag_text(var/datum/mind/player)

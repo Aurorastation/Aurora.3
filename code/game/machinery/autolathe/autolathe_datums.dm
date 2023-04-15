@@ -14,7 +14,7 @@
 
 /datum/autolathe/recipe/flashlight
 	name = "flashlight"
-	path = /obj/item/device/flashlight
+	path = /obj/item/device/flashlight/empty
 	category = "General"
 
 /datum/autolathe/recipe/floor_light
@@ -46,7 +46,7 @@
 
 /datum/autolathe/recipe/bowl
 	name = "bowl"
-	path = /obj/item/reagent_containers/cooking_container/plate/bowl
+	path = /obj/item/reagent_containers/cooking_container/board/bowl
 	category = "General"
 
 /datum/autolathe/recipe/crowbar
@@ -100,7 +100,7 @@
 	category = "General"
 
 /datum/autolathe/recipe/radio_bounced
-	name = "station bounced radio"
+	name = "shortwave radio"
 	path = /obj/item/device/radio/off
 	category = "General"
 
@@ -130,6 +130,12 @@
 /datum/autolathe/recipe/rods
 	name = "metal rods"
 	path = /obj/item/stack/rods
+	category = "General"
+	is_stack = 1
+
+/datum/autolathe/recipe/barbed_wire
+	name = "barbed wire"
+	path = /obj/item/stack/barbed_wire
 	category = "General"
 	is_stack = 1
 
@@ -288,6 +294,10 @@
 	path = /obj/item/reagent_containers/syringe
 	category = "Medical"
 
+/datum/autolathe/recipe/syringe/large
+	name = "large syringe"
+	path = /obj/item/reagent_containers/syringe/large
+
 /datum/autolathe/recipe/syringegun_ammo
 	name = "syringe gun cartridge"
 	path = /obj/item/syringe_cartridge
@@ -404,6 +414,11 @@
 	path = /obj/item/device/destTagger
 	category = "General"
 
+/datum/autolathe/recipe/cratescanner
+	name = "crate contents scanner"
+	path = /obj/item/device/cratescanner
+	category = "General"
+
 /datum/autolathe/recipe/debugger
 	name = "debugger"
 	path = /obj/item/device/debugger
@@ -489,9 +504,21 @@
 	hidden = 1
 	category = "Arms and Ammunition"
 
+/datum/autolathe/recipe/magazine_carbinepolymer
+	name = "ammunition (5.56mm, polymer)"
+	path = /obj/item/ammo_magazine/a556/polymer
+	hidden = 1
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/magazine_smallcarbine
 	name = "ammunition (5.56mm, small)"
 	path = /obj/item/ammo_magazine/a556/carbine
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_smallcarbinepolymer
+	name = "ammunition (5.56mm, small polymer)"
+	path = /obj/item/ammo_magazine/a556/carbine/polymer
 	hidden = 1
 	category = "Arms and Ammunition"
 
@@ -572,3 +599,13 @@
 	path = /obj/item/clothing/gloves/brassknuckles
 	hidden = 1
 	category = "General"
+
+/datum/autolathe/recipe/grenade
+	name = "grenade casing"
+	path = /obj/item/grenade/chem_grenade
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/grenade/large
+	name = "large grenade casing"
+	path = /obj/item/grenade/chem_grenade/large
+	hidden = TRUE

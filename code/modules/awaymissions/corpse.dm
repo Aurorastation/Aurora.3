@@ -32,7 +32,8 @@
 /obj/effect/landmark/corpse/proc/createCorpse() //Creates a mob and checks for gear in each slot before attempting to equip it.
 	var/mob/living/carbon/human/M = new /mob/living/carbon/human (src.loc)
 	M.set_species(species)
-	M.real_name = src.name
+	M.name = random_name(M.gender, M.species.name)
+	M.real_name = M.name
 	M.death(1) //Kills the new mob
 	if(src.corpseuniform)
 		var/obj/item/clothing/under/cuniform = new corpseuniform(M)
@@ -79,9 +80,12 @@
 			W.assignment = corpseidjob
 		M.set_id_info(W)
 		M.equip_to_slot_or_del(W, slot_wear_id)
+	do_extra_customization(M)
 	qdel(src)
 
 
+/obj/effect/landmark/corpse/proc/do_extra_customization(var/mob/living/carbon/human/M)
+	return
 
 // I'll work on making a list of corpses people request for maps, or that I think will be commonly used. Syndicate operatives for example.
 
@@ -127,7 +131,7 @@
 /obj/effect/landmark/corpse/chef
 	name = "Chef"
 	corpseuniform = /obj/item/clothing/under/rank/chef
-	corpsesuit = /obj/item/clothing/suit/chef/classic
+	corpsesuit = /obj/item/clothing/accessory/apron/chef
 	corpseshoes = /obj/item/clothing/shoes/black
 	corpsehelmet = /obj/item/clothing/head/chefhat
 	corpseback = /obj/item/storage/backpack
@@ -176,7 +180,7 @@
 	name = "Scientist"
 	corpseradio = /obj/item/device/radio/headset/headset_sci
 	corpseuniform = /obj/item/clothing/under/rank/scientist
-	corpsesuit = /obj/item/clothing/suit/storage/toggle/labcoat/science
+	corpsesuit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	corpseback = /obj/item/storage/backpack
 	corpseshoes = /obj/item/clothing/shoes/science
 	corpseid = 1
@@ -203,7 +207,7 @@
 
 /obj/effect/landmark/corpse/bridgeofficer
 	name = "Bridge Officer"
-	corpseradio = /obj/item/device/radio/headset/heads/hop
+	corpseradio = /obj/item/device/radio/headset/heads/xo
 	corpseuniform = /obj/item/clothing/under/rank/centcom_officer
 	corpsesuit = /obj/item/clothing/suit/armor/carrier/ballistic
 	corpseshoes = /obj/item/clothing/shoes/black
@@ -226,3 +230,26 @@
 	corpseid = 1
 	corpseidjob = "Commander"
 	corpseidaccess = "Captain"
+
+/*
+	Hideout Corpsespawners
+*/
+
+/obj/effect/landmark/corpse/hideout
+	name = "unidentifiable corpse"
+	corpseuniform = /obj/item/clothing/under/offworlder
+	corpsesuit = /obj/item/clothing/suit/storage/toggle/bomber
+	corpseradio = /obj/item/device/radio/headset
+	corpseglasses = /obj/item/clothing/glasses/sunglasses
+	corpsemask = /obj/item/clothing/mask/breath
+	corpsehelmet = /obj/item/clothing/head/softcap/cargo
+	corpsegloves = /obj/item/clothing/gloves/yellow/budget
+	corpseshoes = /obj/item/clothing/shoes/boots
+
+/obj/effect/landmark/corpse/hideout/captain
+	corpsegloves = /obj/item/clothing/gloves/fingerless
+	corpseshoes = /obj/item/clothing/shoes/jackboots
+	corpsesuit = /obj/item/clothing/suit/armor/carrier/ballistic
+	corpsehelmet = /obj/item/clothing/head/helmet/ballistic
+	corpsemask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
+	corpsepocket1 = /obj/item/flame/lighter/zippo

@@ -54,11 +54,6 @@
 		args[1] = TRUE
 		SSatoms.InitAtom(src, args)
 
-	if(max_damage)
-		min_broken_damage = Floor(max_damage / 2)
-	else
-		max_damage = min_broken_damage * 2
-
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	if(!owner)
@@ -141,9 +136,6 @@
 /obj/item/organ/proc/bruise()
 	damage = max(damage, min_bruised_damage)
 
-/obj/item/organ/proc/can_feel_pain()
-	return (!BP_IS_ROBOTIC(src) && (!species || !(species.flags & NO_PAIN)))
-
 #define ORGAN_RECOVERY_THRESHOLD (5 MINUTES)
 /obj/item/organ/proc/can_recover()
 	return (max_damage > 0) && !(status & ORGAN_DEAD) || death_time >= world.time - ORGAN_RECOVERY_THRESHOLD
@@ -178,8 +170,8 @@
 			log_debug("Organ [DEBUG_REF(src)] had QDELETED reagents! Regenerating.")
 			create_reagents(5)
 
-		if(REAGENT_VOLUME(reagents, /decl/reagent/blood) && !(status & ORGAN_ROBOT) && prob(40))
-			reagents.remove_reagent(/decl/reagent/blood,0.1)
+		if(REAGENT_VOLUME(reagents, /singleton/reagent/blood) && !(status & ORGAN_ROBOT) && prob(40))
+			reagents.remove_reagent(/singleton/reagent/blood,0.1)
 			if (isturf(loc))
 				blood_splatter(src,src,TRUE)
 		if(config.organs_decay) damage += rand(1,3)
@@ -267,7 +259,7 @@
 						germ_level += rand(2,3)
 					if(501 to INFINITY)
 						germ_level += rand(3,5)
-						owner.reagents.add_reagent(/decl/reagent/toxin, rand(1,2))
+						owner.reagents.add_reagent(/singleton/reagent/toxin, rand(1,2))
 
 /obj/item/organ/proc/receive_chem(chemical as obj)
 	return 0
@@ -422,7 +414,7 @@
 	if (!reagents)
 		create_reagents(5)
 
-	var/blood_data = LAZYACCESS(reagents.reagent_data, /decl/reagent/blood)
+	var/blood_data = LAZYACCESS(reagents.reagent_data, /singleton/reagent/blood)
 	if(!("blood_DNA" in blood_data))
 		owner.vessel.trans_to(src, 5, 1, 1)
 

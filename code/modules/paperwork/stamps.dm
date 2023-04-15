@@ -15,13 +15,17 @@
 	name = "captain's rubber stamp"
 	icon_state = "stamp-cap"
 
-/obj/item/stamp/hop
-	name = "head of personnel's rubber stamp"
+/obj/item/stamp/xo
+	name = "executive officer's rubber stamp"
 	icon_state = "stamp-hop"
 
 /obj/item/stamp/hos
 	name = "head of security's rubber stamp"
 	icon_state = "stamp-hos"
+
+/obj/item/stamp/warden
+	name = "warden's rubber stamp"
+	icon_state = "stamp-war"
 
 /obj/item/stamp/ce
 	name = "chief engineer's rubber stamp"
@@ -34,6 +38,14 @@
 /obj/item/stamp/cmo
 	name = "chief medical officer's rubber stamp"
 	icon_state = "stamp-cmo"
+
+/obj/item/stamp/op
+	name = "operation manager's rubber stamp"
+	icon_state = "stamp-qm"
+
+/obj/item/stamp/investigations
+	name = "case closed stamp"
+	icon_state = "stamp-investigator"
 
 /obj/item/stamp/denied
 	name = "\improper DENIED rubber stamp"

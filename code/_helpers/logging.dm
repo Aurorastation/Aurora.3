@@ -29,8 +29,9 @@
 /proc/log_topic(T, addr, master, key, var/list/queryparams)
 	WRITE_LOG(diary, "[game_id] TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]")
 
-/proc/error(msg)
+/proc/log_error(msg)
 	world.log <<  "## ERROR: [msg][log_end]"
+	game_log("ERROR", msg)
 
 /proc/shutdown_logging()
 	dll_call(RUST_G, "log_close_all")
@@ -39,10 +40,12 @@
 //print a warning message to world.log
 /proc/warning(msg)
 	world.log <<  "## WARNING: [msg][log_end]"
+	game_log("WARNING", msg)
 
 //print a testing-mode debug message to world.log
 /proc/testing(msg)
 	world.log <<  "## TESTING: [msg][log_end]"
+	game_log("TESTING", msg)
 
 /proc/game_log(category, text)
 	WRITE_LOG(diary, "[game_id] [category]: [text][log_end]")
@@ -66,7 +69,7 @@
 		game_log("DEBUG", text)
 
 	if (level == SEVERITY_ERROR) // Errors are always logged
-		error(text)
+		log_error(text)
 
 	for(var/s in staff)
 		var/client/C = s
@@ -181,7 +184,7 @@
 	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_ALERT, "FAILSAFE")
 
 /proc/log_tgs(text, severity = SEVERITY_INFO)
-	game_log("TGS", text)
+	game_log("TGS[SEVERITY_INFO]", text)
 	send_gelf_log(
 		short_message = text,
 		long_message="[time_stamp()]: [text]",
@@ -192,9 +195,6 @@
 /proc/log_ntsl(text, severity = SEVERITY_NOTICE, ckey = "")
 	game_log("NTSL", text)
 	send_gelf_log(text, "[time_stamp()]: [text]", severity, "NTSL", additional_data = list("_ckey" = ckey))
-
-/proc/log_unit_test(text)
-	world.log <<  "## UNIT_TEST ##: [text]"
 
 /proc/log_exception(exception/e)
 	if (config.log_runtime)
@@ -279,5 +279,36 @@
 
 /proc/key_name_admin(var/whom, var/include_name = 1)
 	return key_name(whom, 1, include_name, 1)
+
+// Helper procs for building detailed log lines
+/datum/proc/get_log_info_line()
+	return "[src] ([type]) (\ref[src])"
+
+/area/get_log_info_line()
+	return "[..()] ([isnum(z) ? "[x],[y],[z]" : "0,0,0"])"
+
+/turf/get_log_info_line()
+	return "[..()] ([x],[y],[z]) ([loc ? loc.type : "NULL"])"
+
+/atom/movable/get_log_info_line()
+	var/turf/t = get_turf(src)
+	return "[..()] ([t ? t : "NULL"]) ([t ? "[t.x],[t.y],[t.z]" : "0,0,0"]) ([t ? t.type : "NULL"])"
+
+/mob/get_log_info_line()
+	return ckey ? "[..()] ([ckey])" : ..()
+
+/proc/log_info_line(var/datum/d)
+	if(isnull(d))
+		return "*null*"
+	if(islist(d))
+		var/list/L = list()
+		for(var/e in d)
+			// Indexing on numbers just gives us the same number again in the best case and causes an index out of bounds runtime in the worst
+			var/v = isnum(e) ? null : d[e]
+			L += "[log_info_line(e)][v ? " - [log_info_line(v)]" : ""]"
+		return "\[[jointext(L, ", ")]\]" // We format the string ourselves, rather than use json_encode(), because it becomes difficult to read recursively escaped "
+	if(!istype(d))
+		return json_encode(d)
+	return d.get_log_info_line()
 
 #undef WRITE_LOG

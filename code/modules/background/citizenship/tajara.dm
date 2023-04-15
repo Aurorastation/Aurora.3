@@ -36,7 +36,7 @@
 /datum/citizenship/pra/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_LOW)
-			return "Ensure the loyalty of PRA Citizen to the Party and President Hadii. You must also promote the relationship between NanoTrasen and the People's Republic through diplomacy."
+			return "Ensure the loyalty of PRA Citizen to the Party and President Hadii. You must also promote the relationship between the [current_map.boss_name] and the People's Republic through diplomacy."
 
 /datum/outfit/job/representative/consular/pra
 	name = "PRA Consular Officer"
@@ -149,7 +149,7 @@
 /datum/citizenship/nka/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_LOW)
-			return "Ensure that NKA citizens are loyal to the Crown. You must also promote the relationship between NanoTrasen and the New Kingdom through diplomacy."
+			return "Ensure that NKA citizens are loyal to the Crown. You must also promote the relationship between the [current_map.boss_name] and the New Kingdom through diplomacy."
 
 /datum/outfit/job/representative/consular/nka
 	name = "NKA Consular Officer"
@@ -165,3 +165,14 @@
 		/obj/item/storage/box/syndie_kit/spy/hidden = 1
 	)
 	accessory = /obj/item/clothing/accessory/nka_pin
+
+/datum/citizenship/free_council
+	name = CITIZENSHIP_FREE_COUNCIL
+	description = "The Free Tajaran Council is the largest Tajaran community in Himeo. Its origins can be traced back to the First Revolution-era revolutionaries that fled Adhomai. Built upon \
+	radical principles of equality and communal democracy, the Free Tajaran Council remained relatively isolated from the rest of the Tajaran community until the start of the Adhomian Cold War. \
+	Its population was granted a temporary citizenship status as part of an agreement between the Tajaran nations. While the council struggles to decide its future, some of its members travel \
+	the galaxy in search of aid and new allies for their ultimate masterplan."
+
+	job_species_blacklist = list(
+		"Consular Officer" = ALL_SPECIES
+	)

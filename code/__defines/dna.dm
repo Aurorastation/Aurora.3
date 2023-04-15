@@ -3,43 +3,36 @@
 #define   UNIDNASIZE 13
 
 // Generic mutations:
-#define COLD_RESISTANCE 1
-#define XRAY            2
-#define HULK            3
-#define CLUMSY          4
-#define FAT             5
-#define HUSK            6
-#define NOCLONE         7
-#define LASER_EYES      8  // Harm intent - click anywhere to shoot lasers from eyes.
-#define HEAL            9 // Healing people with hands.
-
-#define SKELETON      29
-#define PLANT         30
+#define COLD_RESISTANCE BITFLAG(0)
+#define XRAY            BITFLAG(1)
+#define HULK            BITFLAG(2)
+#define CLUMSY          BITFLAG(3)
+#define FAT             BITFLAG(4)
+#define HUSK            BITFLAG(5)
+#define NOCLONE         BITFLAG(6)
+#define LASER_EYES      BITFLAG(7)  // Harm intent - click anywhere to shoot lasers from eyes.
+#define SKELETON        BITFLAG(8)
 
 // Other Mutations:
-#define mNobreath      100 // No need to breathe.
-#define mRemote        101 // Remote viewing.
-#define mRegen         102 // Health regeneration.
-#define mRun           103 // No slowdown.
-#define mRemotetalk    104 // Remote talking.
-#define mMorph         105 // Hanging appearance.
-#define mBlend         106 // Nothing. (seriously nothing)
-#define mHallucination 107 // Hallucinations.
-#define mFingerprints  108 // No fingerprints.
-#define mShock         109 // Insulated hands.
-#define mSmallsize     110 // Table climbing.
+#define mNobreath       BITFLAG(9) // No need to breathe.
+#define mRemote         BITFLAG(10) // Remote viewing.
+#define mRegen          BITFLAG(11) // Health regeneration.
+#define mRun            BITFLAG(12) // No slowdown.
+#define mRemotetalk     BITFLAG(13) // Remote talking.
+#define mMorph          BITFLAG(14) // Hanging appearance.
+#define mHallucination  BITFLAG(15) // Hallucinations.
+#define mFingerprints   BITFLAG(16) // No fingerprints.
+#define mShock          BITFLAG(17) // Insulated hands.
+#define mSmallsize      BITFLAG(18) // Table climbing.
 
 // disabilities
-#define NEARSIGHTED 1
-#define EPILEPSY    2
-#define COUGHING    4
-#define TOURETTES   8
-#define STUTTERING     16
-#define DUMB            32
-#define PACIFIST        64
-#define UNINTELLIGIBLE  128
-#define GERTIE 128
-#define ASTHMA 256
+#define NEARSIGHTED 	1
+#define EPILEPSY    	2
+#define COUGHING    	4
+#define STUTTERING  	8
+#define DUMB            16
+#define PACIFIST        32
+#define ASTHMA 			64
 
 // sdisabilities
 #define BLIND 0x1

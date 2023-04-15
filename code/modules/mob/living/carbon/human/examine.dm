@@ -14,6 +14,27 @@
 		skipitems |= C.flags_inv
 	return skipitems
 
+/mob/living/carbon/human/proc/examine_pulse(mob/user)
+	if(user.stat || user.incapacitated() || !ishuman(user))
+		return
+
+	var/mob/living/carbon/human/H = user
+	if(H.has_stethoscope_active())
+		var/obj/item/organ/organ = src.get_organ(user.zone_sel.selecting)
+		if(organ)
+			user.visible_message("<b>[user]</b> checks [src] with a stethoscope.", "You check [src] with the stethoscope on your person.")
+			to_chat(user, SPAN_NOTICE("You place the stethoscope against [src]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>."))
+		else
+			to_chat(user, SPAN_WARNING("[src] is missing that limb!"))
+
+	else if(src.stat && !(src.species.flags & NO_BLOOD))
+		user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
+		if(do_mob(user, src, 15))
+			if(pulse() == PULSE_NONE || (status_flags & FAKEDEATH))
+				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] no pulse.</span>")
+			else
+				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
+
 /mob/living/carbon/human/examine(mob/user)
 	var/skipbody = get_covered_body_parts()
 	var/skipbody_thick = get_covered_body_parts(TRUE)
@@ -64,10 +85,6 @@
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(w_uniform, user)] [w_uniform.gender==PLURAL?"some":"a"] [fluid_color_type_map(w_uniform.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>[w_uniform.name]</a>[tie_msg_warn].</span>\n"
 		else
 			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(w_uniform, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>\a [w_uniform]</a>[tie_msg].\n"
-
-	//when the player is winded by an admin
-	if(paralysis > 6000)
-		msg += "<span><font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>This player has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</font></span>\n"
 
 	//head
 	if(head)
@@ -140,18 +157,6 @@
 	else if(blood_color)
 		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [fluid_color_type_map(hand_blood_color)]-stained hands!</span>\n"
 
-	//handcuffed?
-	if(handcuffed)
-		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(handcuffed, user)] handcuffed!</span>\n"
-
-	//handcuffed?
-	if(legcuffed)
-		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(legcuffed, user)] legcuffed!</span>\n"
-
-	//buckled_to
-	if(buckled_to)
-		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(buckled_to, user)] buckled to [buckled_to]!</span>\n"
-
 	//belt
 	if(belt)
 		if(belt.blood_color)
@@ -217,32 +222,47 @@
 			if(o.applied_pressure == src)
 				msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] applying pressure to [get_pronoun("his")] [o.name]!</span>\n"
 
-	if(mSmallsize in mutations)
+	if(HAS_FLAG(mutations, mSmallsize))
 		msg += "[get_pronoun("He")] [get_pronoun("is")] small halfling!\n"
 
+	//buckled_to
+	if(buckled_to)
+		msg += "[get_pronoun("He")] [get_pronoun("is")] buckled to [icon2html(buckled_to, user)] [buckled_to].\n"
+
+	//handcuffed?
+	if(handcuffed)
+		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [icon2html(handcuffed, user)] cuffs around [get_pronoun("his")] wrists!</span>\n"
+
+	//handcuffed?
+	if(legcuffed)
+		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [icon2html(legcuffed, user)] cuffs around [get_pronoun("his")] ankles!</span>\n"
+
+	//Red Nightshade
+	if(is_berserk())
+		msg += "<span class='warning'><B>[get_pronoun("He")] [get_pronoun("has")] engorged veins, which appear a vibrant red!</B></span>\n"
+
 	var/distance = get_dist(user,src)
-	if(istype(user, /mob/abstract/observer) || user.stat == 2) // ghosts can see anything
+	if(istype(user, /mob/abstract/observer) || user.stat == DEAD) // ghosts can see anything
 		distance = 1
-	if (src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
+
+	if((src.stat || (status_flags & FAKEDEATH)) && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
 		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")]n't responding to anything around [get_pronoun("him")] and seems to be unconscious.</span>\n"
-		if((stat == DEAD || is_asystole() || src.losebreath) && distance <= 3 || (status_flags & FAKEDEATH))
+		if(distance <= 3 && ((stat == DEAD || is_asystole() || src.losebreath) || (status_flags & FAKEDEATH)))
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("does")] not appear to be breathing.</span>\n"
-		if(istype(user, /mob/living/carbon/human) && !user.stat && Adjacent(user))
-			spawn (0)
-				user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
-				if (do_mob(user, src, 15))
-					if(pulse() == PULSE_NONE || (status_flags & FAKEDEATH))
-						to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] no pulse.</span>")
-					else
-						to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
 
 	else if (src.stat)
 		msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] not responding to anything around [get_pronoun("him")].\n")
 
 	if(fire_stacks)
 		msg += "[get_pronoun("He")] [get_pronoun("is")] covered in some liquid.\n"
+
 	if(on_fire)
 		msg += "<span class='danger'>[get_pronoun("He")] [get_pronoun("is")] on fire!</span>\n"
+
+	//when the player is winded by an admin
+	if(paralysis > 6000)
+		msg += "<span><font size='3'><font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>This player has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</font></font></span>\n"
+
 	msg += "<span class='warning'>"
 
 	msg += "</span>"
@@ -292,7 +312,7 @@
 				continue
 			var/thin_covering = (skipbody & body_part) ? TRUE : FALSE
 			if((temp.status & ORGAN_ASSISTED) && !thin_covering)
-				if(!(temp.brute_dam + temp.burn_dam))
+				if(!(temp.brute_dam + temp.burn_dam) && !(temp.open))
 					continue
 				else
 					wound_flavor_text["[temp.name]"] = "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [temp.get_wounds_desc()] on [get_pronoun("his")] [temp.name].</span><br>"
@@ -377,11 +397,11 @@
 
 	if(src in intent_listener)
 		msg += SPAN_NOTICE("\n[get_pronoun("He")] looks like [get_pronoun("he")] [get_pronoun("is")] listening intently to [get_pronoun("his")] surroundings.")
-	
+
 	var/datum/vampire/V = get_antag_datum(MODE_VAMPIRE)
 	if(V && (V.status & VAMP_DRAINING))
 		var/obj/item/grab/G = get_active_hand()
-		msg += SPAN_ALERT("\n[get_pronoun("He")] is biting [G.affecting]'[G.affecting.get_pronoun("end")] neck!")
+		msg += SPAN_ALERT(FONT_LARGE("\n[get_pronoun("He")] is biting [G.affecting]'[G.affecting.get_pronoun("end")] neck!"))
 
 	if (pose)
 		if( findtext(pose,".",length(pose)) == 0 && findtext(pose,"!",length(pose)) == 0 && findtext(pose,"?",length(pose)) == 0 )
@@ -389,6 +409,8 @@
 		msg += "\n[get_pronoun("He")] [pose]"
 
 	to_chat(user, msg.Join())
+	if(Adjacent(user))
+		INVOKE_ASYNC(src, PROC_REF(examine_pulse), user)
 
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
 /proc/hasHUD(mob/M, hudtype)

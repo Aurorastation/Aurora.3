@@ -6,4 +6,4 @@
 	power_failure(0, severity)
 
 /datum/event/grid_check/announce()
-	command_announcement.Announce("Abnormal activity detected in [station_name()]'s powernet. As a precautionary measure, the power will be shut off for an indeterminate duration.", "Automated Grid Check", new_sound = 'sound/AI/poweroff.ogg')
+	command_announcement.Announce("Abnormal activity detected in [station_name()]'s powernet. As a precautionary measure, the power will be shut off for an indeterminate duration.", "Automated Grid Check", new_sound = 'sound/AI/poweroff.ogg', zlevels = affecting_z)

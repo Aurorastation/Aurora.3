@@ -20,11 +20,12 @@
 
 	var/mob/living/carbon/human/occupant = null
 	var/list/available_chemicals = list(
-		/decl/reagent/inaprovaline,
-		/decl/reagent/soporific,
-		/decl/reagent/perconol,
-		/decl/reagent/dylovene,
-		/decl/reagent/dexalin
+		/singleton/reagent/inaprovaline,
+		/singleton/reagent/soporific,
+		/singleton/reagent/perconol,
+		/singleton/reagent/dylovene,
+		/singleton/reagent/dexalin,
+		/singleton/reagent/tricordrazine
 		)
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/filtering = FALSE
@@ -35,7 +36,6 @@
 	var/disallow_occupant_types = list()
 	var/display_loading_message = TRUE
 
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 250 //builtin health analyzer, dialysis machine, injectors.
 	var/parts_power_usage
@@ -54,7 +54,7 @@
 	update_icon()
 	parts_power_usage = active_power_usage
 
-/obj/machinery/sleeper/machinery_process()
+/obj/machinery/sleeper/process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -103,7 +103,7 @@
 
 	beaker = locate(/obj/item/reagent_containers/glass/beaker) in component_parts
 
-	active_power_usage = initial(active_power_usage) - (cap_rating + scan_rating)*2
+	change_power_consumption((initial(active_power_usage) - (cap_rating + scan_rating)*2), POWER_USE_ACTIVE)
 	parts_power_usage = active_power_usage
 
 /obj/machinery/sleeper/attack_hand(var/mob/user)
@@ -136,7 +136,7 @@
 		var/list/list/blood_reagents
 		for(var/_R in occupant.reagents.reagent_volumes)
 			var/list/blood_reagent = list()
-			var/decl/reagent/R = decls_repository.get_decl(_R)
+			var/singleton/reagent/R = GET_SINGLETON(_R)
 			blood_reagent["name"] = R.name
 			blood_reagent["amount"] = round(REAGENT_VOLUME(occupant.reagents, _R), 0.1)
 			LAZYADD(blood_reagents, list(blood_reagent))
@@ -150,7 +150,7 @@
 			var/list/list/stomach_reagents
 			for(var/_R in S.ingested.reagent_volumes)
 				var/list/stomach_reagent = list()
-				var/decl/reagent/R = decls_repository.get_decl(_R)
+				var/singleton/reagent/R = GET_SINGLETON(_R)
 				stomach_reagent["name"] = R.name
 				stomach_reagent["amount"] = round(REAGENT_VOLUME(S.ingested, _R), 0.1)
 				LAZYADD(stomach_reagents, list(stomach_reagent))
@@ -164,7 +164,7 @@
 		for(var/T in available_chemicals)
 			var/list/reagent = list()
 			reagent["type"] = T
-			var/decl/reagent/C = T
+			var/singleton/reagent/C = T
 			reagent["name"] = initial(C.name)
 			reagents += list(reagent)
 		data["reagents"] = reagents.Copy()
@@ -209,7 +209,7 @@
 		var/nstasis = text2num(href_list["stasis"])
 		if(stasis != nstasis && (nstasis in stasis_settings))
 			stasis = text2num(href_list["stasis"])
-			active_power_usage = parts_power_usage + (stasis_power * (stasis - 1))
+			change_power_consumption(parts_power_usage + (stasis_power * (stasis-1)), POWER_USE_ACTIVE)
 
 	return TRUE
 
@@ -228,15 +228,18 @@
 			user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
 		else
 			to_chat(user, "<span class='warning'>\The [src] has a beaker already.</span>")
-		return
+		return TRUE
 	else if(istype(I, /obj/item/grab))
 
 		var/obj/item/grab/G = I
 		var/mob/living/L = G.affecting
+		var/bucklestatus = L.bucklecheck(user)
+		if(!bucklestatus)
+			return TRUE
 
 		if(!istype(L))
 			to_chat(user, "<span class='warning'>\The machine won't accept that.</span>")
-			return
+			return TRUE
 
 		if(display_loading_message)
 			user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
@@ -244,33 +247,38 @@
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)
 				to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
-				return
-			var/bucklestatus = L.bucklecheck(user)
-
-			if (!bucklestatus)//incase the patient got buckled_to during the delay
-				return
+				return TRUE
 			if(L != G.affecting)//incase it isn't the same mob we started with
-				return
+				return TRUE
 
 			var/mob/M = G.affecting
 			M.forceMove(src)
-			update_use_power(2)
+			update_use_power(POWER_USE_ACTIVE)
 			occupant = M
 			update_icon()
 			qdel(G)
-			return
+		return TRUE
 	else if(I.isscrewdriver())
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		cut_overlays()
 		if(src.panel_open)
 			add_overlay("[initial(icon_state)]-o")
+		return TRUE
 	else if(default_part_replacement(user, I))
-		return
+		return TRUE
 
 /obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
 	if(user.stat || user.lying || !Adjacent(user) || !target.Adjacent(user)|| !ishuman(target))
 		return
+
+	var/mob/living/L = target
+	var/bucklestatus = L.bucklecheck(user)
+	if(!bucklestatus)
+		return
+	if(bucklestatus == 2)
+		var/obj/structure/LB = L.buckled_to
+		LB.user_unbuckle(user)
 	go_in(target, user)
 
 /obj/machinery/sleeper/relaymove(var/mob/user)
@@ -330,7 +338,7 @@
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
 		M.forceMove(src)
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 		occupant = M
 		update_icon()
 
@@ -346,7 +354,7 @@
 		if(A == beaker)
 			continue
 		A.forceMove(get_turf(src))
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	update_icon()
 	toggle_filter()
 	toggle_pump()
@@ -364,12 +372,12 @@
 
 	if(occupant?.reagents)
 		var/chemical_amount = REAGENT_VOLUME(occupant.reagents, chemical)
-		var/is_dylo = ispath(chemical, /decl/reagent/dylovene)
-		var/is_inaprov = ispath(chemical, /decl/reagent/inaprovaline)
+		var/is_dylo = ispath(chemical, /singleton/reagent/dylovene)
+		var/is_inaprov = ispath(chemical, /singleton/reagent/inaprovaline)
 		if(is_dylo || is_inaprov)
-			var/dylo_amount = REAGENT_VOLUME(occupant.reagents, /decl/reagent/dylovene)
-			var/inaprov_amount = REAGENT_VOLUME(occupant.reagents, /decl/reagent/inaprovaline)
-			var/tricord_amount = REAGENT_VOLUME(occupant.reagents, /decl/reagent/tricordrazine)
+			var/dylo_amount = REAGENT_VOLUME(occupant.reagents, /singleton/reagent/dylovene)
+			var/inaprov_amount = REAGENT_VOLUME(occupant.reagents, /singleton/reagent/inaprovaline)
+			var/tricord_amount = REAGENT_VOLUME(occupant.reagents, /singleton/reagent/tricordrazine)
 			if(tricord_amount > 20)
 				if(is_dylo && inaprov_amount)
 					to_chat(user, SPAN_WARNING("The subject has too much tricordrazine."))
@@ -378,7 +386,7 @@
 					to_chat(user, SPAN_WARNING("The subject has too much tricordrazine."))
 					return
 		if(chemical_amount + add_amount <= REAGENTS_OVERDOSE)
-			use_power(add_amount * CHEM_SYNTH_ENERGY)
+			use_power_oneoff(add_amount * CHEM_SYNTH_ENERGY)
 			occupant.reagents.add_reagent(chemical, add_amount)
 		else
 			to_chat(user, SPAN_WARNING("The subject has too many chemicals."))

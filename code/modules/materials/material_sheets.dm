@@ -135,6 +135,7 @@
 	name = "diamond"
 	icon_state = "sheet-diamond"
 	default_type = MATERIAL_DIAMOND
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/diamond/full/Initialize()
 	. = ..()
@@ -145,6 +146,7 @@
 	name = "uranium"
 	icon_state = "sheet-uranium"
 	default_type = MATERIAL_URANIUM
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/uranium/full/Initialize()
 	. = ..()
@@ -221,7 +223,7 @@
 //Extremely valuable to Research.
 /obj/item/stack/material/mhydrogen
 	name = "metallic hydrogen"
-	icon_state = "sheet-mythril"
+	icon_state = "sheet-metalhydrogen"
 	default_type = MATERIAL_HYDROGEN_METALLIC
 
 /obj/item/stack/material/mhydrogen/full/Initialize()
@@ -229,7 +231,7 @@
 	amount = max_amount
 	update_icon()
 
-//Fuel for MRSPACMAN generator.
+//Fuel for the super portable generator.
 /obj/item/stack/material/tritium
 	name = "tritium"
 	icon_state = "sheet-silver"
@@ -290,32 +292,126 @@
 	amount = max_amount
 	update_icon()
 
+/obj/item/stack/material/shuttle
+	name = "plastitanium"
+	icon_state = "sheet-plastitanium"
+	item_state = "sheet-metal"
+	default_type = MATERIAL_SHUTTLE
+	icon_has_variants = TRUE
+
+/obj/item/stack/material/shuttle/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/wood
 	name = "wooden plank"
 	icon_state = "sheet-wood"
 	default_type = MATERIAL_WOOD
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/wood/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/material/woodlog
-	name = "log"
-	icon_state = "sheet-wood"
-	default_type = MATERIAL_WOOD_LOG
+/obj/item/stack/material/wood/coloured
+	icon_state = "sheet-woodcolour"
 
-/obj/item/stack/material/woodlog/full/Initialize()
+/obj/item/stack/material/wood/coloured/birch
+	color = WOOD_COLOR_BIRCH
+
+/obj/item/stack/material/wood/coloured/birch/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/material/woodbranch
-	name = "branch"
-	icon_state = "sheet-wood"
-	default_type = MATERIAL_WOOD_BRANCH
+/obj/item/stack/material/wood/coloured/mahogany
+	color = WOOD_COLOR_RICH
 
-/obj/item/stack/material/woodbranch/full/Initialize()
+/obj/item/stack/material/wood/coloured/mahogany/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/maple
+	color = WOOD_COLOR_PALE
+
+/obj/item/stack/material/wood/coloured/maple/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/bamboo
+	icon_state = "sheet-bamboo"
+
+/obj/item/stack/material/wood/coloured/bamboo/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/ebony
+	color = WOOD_COLOR_BLACK
+
+/obj/item/stack/material/wood/coloured/ebony/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/walnut
+	color = WOOD_COLOR_CHOCOLATE
+
+/obj/item/stack/material/wood/coloured/walnut/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/yew
+	color = WOOD_COLOR_YELLOW
+
+/obj/item/stack/material/wood/coloured/yew/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/log
+	name = "log"
+	icon_state = "sheet-log"
+	default_type = MATERIAL_WOOD_LOG
+	max_amount = 25
+	icon_has_variants = TRUE
+	var/chopping
+
+/obj/item/stack/material/wood/log/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/log/attackby(obj/item/I, mob/user)
+	if(I.can_woodcut() && isturf(loc) && !chopping)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		chopping = TRUE
+		visible_message(SPAN_NOTICE("\The [user] begins chopping \the [src] into planks."),
+				SPAN_NOTICE("You begin chopping \the [src] into planks."))
+		playsound(get_turf(src), 'sound/effects/woodcutting.ogg', 50, 1)
+		if(do_after(user, 70))
+			if(amount && Adjacent(user))
+				use(1)
+				var/obj/item/stack/material/wood/W = new(get_turf(user))
+				W.amount = rand(2,3)
+		chopping = FALSE
+		return
+	else
+		..()
+
+/obj/item/stack/material/wood/branch
+	name = "branch"
+	icon_state = "sheet-branch"
+	default_type = MATERIAL_WOOD_BRANCH
+	max_amount = 25
+	icon_has_variants = TRUE
+
+/obj/item/stack/material/wood/branch/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()
@@ -336,7 +432,7 @@
 /obj/item/stack/material/cloth/attackby(obj/item/I, mob/user)
 	if(is_sharp(I))
 		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [I].</span>", "<span class='notice'>You begin cutting up [src] with [I].</span>")
-		if(do_after(user, 20)) // takes less time than bedsheets, a second per rag produced on average
+		if(I.use_tool(src, user, 20, volume = 50)) // takes less time than bedsheets, a second per rag produced on average
 			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
 			for(var/i in 1 to rand(1,3)) // average of 2 per
 				new /obj/item/reagent_containers/glass/rag(get_turf(src))
@@ -348,6 +444,7 @@
 	name = "cardboard"
 	icon_state = "sheet-card"
 	default_type = MATERIAL_CARDBOARD
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/cardboard/full/Initialize()
 	. = ..()
@@ -384,7 +481,7 @@
 
 /obj/item/stack/material/glass/wired
 	name = "wired glass"
-	icon = 'icons/obj/stacks/tiles.dmi'
+	icon = 'icons/obj/item/stacks/tiles.dmi'
 	icon_state = "glass_wire"
 	default_type = MATERIAL_GLASS_WIRED
 
@@ -408,7 +505,7 @@
 	name = "borosilicate glass"
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures"
 	singular_name = "borosilicate glass sheet"
-	icon_state = "sheet-phoronglass"
+	icon_state = "sheet-pglass"
 	item_state = "sheet-pglass"
 	default_type = MATERIAL_GLASS_PHORON
 
@@ -421,7 +518,7 @@
 	name = "reinforced borosilicate glass"
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
 	singular_name = "reinforced borosilicate glass sheet"
-	icon_state = "sheet-phoronrglass"
+	icon_state = "sheet-prglass"
 	item_state = "sheet-prglass"
 	default_type = MATERIAL_GLASS_REINFORCED_PHORON
 
@@ -448,6 +545,17 @@
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/titanium/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/graphite
+	name = "graphite"
+	icon_state = "sheet-graphite"
+	default_type = MATERIAL_GRAPHITE
+	icon_has_variants = TRUE
+
+/obj/item/stack/material/graphite/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()

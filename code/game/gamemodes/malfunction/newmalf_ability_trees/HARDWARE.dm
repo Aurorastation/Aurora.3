@@ -105,7 +105,7 @@
 		return
 
 	//Lets find the first self destruct terminal
-	for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.all_machines)
+	for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.machinery)
 		nuke = WEAKREF(N)
 		continue
 

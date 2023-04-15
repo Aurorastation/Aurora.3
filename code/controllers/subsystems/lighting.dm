@@ -1,11 +1,12 @@
 var/datum/controller/subsystem/lighting/SSlighting
 
 /var/lighting_profiling = FALSE
+/var/lighting_overlays_initialized = FALSE
 
 /datum/controller/subsystem/lighting
 	name = "Lighting"
 	wait = LIGHTING_INTERVAL
-	flags = SS_FIRE_IN_LOBBY
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
 	priority = SS_PRIORITY_LIGHTING
 	init_order = SS_INIT_LIGHTING
@@ -51,8 +52,10 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 /datum/controller/subsystem/lighting/ExplosionStart()
 	force_queued = TRUE
+	suspend()
 
 /datum/controller/subsystem/lighting/ExplosionEnd()
+	wake()
 	if (!force_override)
 		force_queued = FALSE
 
@@ -73,6 +76,11 @@ var/datum/controller/subsystem/lighting/SSlighting
 	for (var/zlevel = 1 to world.maxz)
 		for (thing in Z_ALL_TURFS(zlevel))
 			T = thing
+			if(config.starlight)
+				var/turf/space/S = T
+				if(istype(S) && S.use_starlight)
+					S.update_starlight()
+
 			if (!T.dynamic_lighting)
 				continue
 
@@ -84,6 +92,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 			overlaycount++
 
 			CHECK_TICK
+
+	lighting_overlays_initialized = TRUE
 
 	admin_notice(SPAN_DANGER("Created [overlaycount] lighting overlays in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 
@@ -99,7 +109,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	log_ss("lighting", "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
 
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
-	SSticker.OnRoundstart(CALLBACK(src, .proc/handle_roundstart))
+	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(handle_roundstart)))
 #endif
 
 	..()

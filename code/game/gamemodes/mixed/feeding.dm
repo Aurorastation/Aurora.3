@@ -5,7 +5,6 @@
 	config_tag = "feeding"
 	required_players = 20
 	required_enemies = 2
-	end_on_antag_death = 0
 	require_all_templates = 1
 	votable = 1
 	antag_tags = list(MODE_VAMPIRE, MODE_CHANGELING)

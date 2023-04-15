@@ -14,6 +14,7 @@
 	var/obj/item/modular_computer/computer					// Device that runs this program.
 	var/extended_desc = "N/A"								// Short description of this program's function.
 	var/program_icon_state									// Program-specific screen icon state
+	var/program_key_icon_state								// Program-specific keyboard icon state (really only applies to consoles but can be used for other purposes like having mix-n-match screens)
 	var/requires_ntnet = FALSE								// Set to TRUE for program to require nonstop NTNet connection to run. If NTNet connection is lost program crashes.
 	var/requires_ntnet_feature = FALSE						// Optional, if above is set to TRUE checks for specific function of NTNet (currently NTNET_SOFTWAREDOWNLOAD, NTNET_PEERTOPEER, NTNET_SYSTEMCONTROL and NTNET_COMMUNICATION)
 	var/ntnet_status = TRUE									// NTNet status, updated every tick by computer running this program. Don't use this for checks if NTNet works, computers do that. Use this for calculations, etc.

@@ -13,7 +13,6 @@
 	*/
 
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 4
 
@@ -34,7 +33,7 @@
 	if(req_access.len || req_one_access.len)
 		req_access = list()
 		req_one_access = list()
-		playsound(src.loc, /decl/sound_category/spark_sound, 100, 1)
+		playsound(src.loc, /singleton/sound_category/spark_sound, 100, 1)
 		return 1
 
 /obj/machinery/button/remote/attack_hand(mob/user as mob)
@@ -50,7 +49,7 @@
 		flick("doorctrl-denied",src)
 		return
 
-	use_power(5)
+	use_power_oneoff(5)
 	icon_state = "doorctrl1"
 	desiredstate = !desiredstate
 	trigger(user)
@@ -95,7 +94,7 @@
 	*/
 
 /obj/machinery/button/remote/airlock/trigger()
-	for(var/obj/machinery/door/airlock/D in SSmachinery.processing_machines)
+	for(var/obj/machinery/door/airlock/D in SSmachinery.machinery)
 		if(D.id_tag == src.id)
 			if(specialfunctions & OPEN)
 				if (D.density)
@@ -147,19 +146,18 @@
 	desc = "It controls blast doors, remotely."
 
 /obj/machinery/button/remote/blast_door/trigger()
-	for(var/obj/machinery/door/blast/M in SSmachinery.all_machines)
-		if(M.id == src.id)
-			if(M.density)
-				spawn(0)
-					M.open()
-					return
+	var/new_state
+	for(var/obj/machinery/door/blast/M in SSmachinery.machinery)
+		if(M.id == id)
+			if(isnull(new_state))
+				new_state = M.density
+			if(new_state)
+				M.open()
 			else
-				spawn(0)
-					M.close()
-					return
+				M.close()
 
 /obj/machinery/button/remote/blast_door/open_only/trigger()
-	for(var/obj/machinery/door/blast/M in SSmachinery.all_machines)
+	for(var/obj/machinery/door/blast/M in SSmachinery.machinery)
 		if(M.id == src.id)
 			if(M.density)
 				spawn(0)
@@ -174,7 +172,7 @@
 	desc = "It controls emitters, remotely."
 
 /obj/machinery/button/remote/emitter/trigger(mob/user as mob)
-	for(var/obj/machinery/power/emitter/E in SSmachinery.all_machines)
+	for(var/obj/machinery/power/emitter/E in SSmachinery.machinery)
 		if(E.id == src.id)
 			spawn(0)
 				E.activate(user)
@@ -195,21 +193,21 @@
 
 	var/list/same_id = list()
 
-	for(var/obj/machinery/door/blast/M in SSmachinery.all_machines)
+	for(var/obj/machinery/door/blast/M in SSmachinery.machinery)
 		if (M.id == src.id)
 			same_id += M
-			INVOKE_ASYNC(M, /obj/machinery/door/blast/.proc/open)
+			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/door/blast, open))
 
 	sleep(20)
 
-	for(var/obj/machinery/mass_driver/M in SSmachinery.all_machines)
+	for(var/obj/machinery/mass_driver/M in SSmachinery.machinery)
 		if(M.id == src.id)
 			M.drive()
 
 	sleep(50)
 
 	for(var/mm in same_id)
-		INVOKE_ASYNC(mm, /obj/machinery/door/blast/.proc/close)
+		INVOKE_ASYNC(mm, TYPE_PROC_REF(/obj/machinery/door/blast, close))
 
 	icon_state = "launcherbtt"
 	active = 0

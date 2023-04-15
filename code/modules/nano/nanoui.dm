@@ -445,6 +445,9 @@ nanoui is used to open and update nano browser uis
 	state = null
 	master_ui = null
 
+	if(istype(user))
+		user.unset_machine()
+
  /**
   * Set the UI window to call the nanoclose verb when the window is closed
   * This allows Nano to handle closed windows

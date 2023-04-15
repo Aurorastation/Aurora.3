@@ -1,0 +1,1078 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"ab" = (
+/turf/simulated/wall/r_wall,
+/area/dungeon/syndie_listening_post)
+"ac" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	frequency = 1351;
+	id_tag = "listening_post_vent"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/spiderling_remains,
+/turf/simulated/floor,
+/area/dungeon/syndie_listening_post)
+"ad" = (
+/obj/structure/sign/securearea{
+	pixel_x = 32
+	},
+/obj/structure/boulder,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"ae" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	frequency = 1351;
+	id_tag = "listening_post_airlock";
+	pixel_y = 25;
+	tag_airpump = "listening_post_vent";
+	tag_chamber_sensor = "listening_post_sensor";
+	tag_exterior_door = "listening_post_exterior";
+	tag_interior_door = "listening_post_interior"
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	frequency = 1351;
+	id_tag = "listening_post_vent"
+	},
+/turf/simulated/floor,
+/area/dungeon/syndie_listening_post)
+"af" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	frequency = 1351;
+	id_tag = "listening_post_vent"
+	},
+/obj/item/trash/liquidfood,
+/turf/simulated/floor,
+/area/dungeon/syndie_listening_post)
+"ag" = (
+/obj/machinery/access_button/airlock_interior{
+	frequency = 1351;
+	master_tag = "listening_post_airlock";
+	pixel_x = -25
+	},
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"ah" = (
+/obj/effect/decal/cleanable/generic,
+/obj/structure/sink/kitchen{
+	name = "sink";
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"ai" = (
+/obj/machinery/light_construct{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aj" = (
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"ak" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"al" = (
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"am" = (
+/turf/template_noop,
+/area/template_noop)
+"an" = (
+/obj/machinery/door/airlock/hatch{
+	frequency = 1351;
+	icon_state = "door_locked";
+	id_tag = "listening_post_exterior";
+	locked = 1;
+	name = "Listening Post"
+	},
+/turf/simulated/floor,
+/area/dungeon/syndie_listening_post)
+"ao" = (
+/turf/simulated/floor,
+/area/dungeon/syndie_listening_post)
+"ap" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/dungeon/syndie_listening_post)
+"aq" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/dungeon/syndie_listening_post)
+"ar" = (
+/obj/machinery/door/airlock/hatch{
+	frequency = 1351;
+	icon_state = "door_locked";
+	id_tag = "listening_post_interior";
+	locked = 1;
+	name = "Listening Post"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/dungeon/syndie_listening_post)
+"as" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"at" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"av" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aw" = (
+/obj/item/trash/syndi_cakes,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"ax" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1351;
+	id_tag = "listening_post_sensor";
+	pixel_y = -25
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1;
+	frequency = 1351;
+	id_tag = "listening_post_vent"
+	},
+/obj/machinery/light{
+	brightness_color = "#FA8282"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/dungeon/syndie_listening_post)
+"ay" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1;
+	frequency = 1351;
+	id_tag = "listening_post_vent"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/dungeon/syndie_listening_post)
+"az" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/northright,
+/obj/structure/sign/vacuum{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aA" = (
+/obj/structure/computerframe,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"aB" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/northright,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aC" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aD" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aE" = (
+/obj/machinery/light{
+	brightness_color = "#FA8282"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aF" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/clothing/suit/space/void/freelancer,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aG" = (
+/obj/structure/door_assembly/door_assembly_hatch{
+	anchored = 1
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aH" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
+	},
+/obj/item/reagent_containers/food/drinks/bottle/vodka{
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aK" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/sinpockets,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aL" = (
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aM" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aN" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1;
+	frequency = 1351;
+	id_tag = "listening_post_vent"
+	},
+/turf/simulated/floor,
+/area/dungeon/syndie_listening_post)
+"aO" = (
+/obj/structure/table/reinforced,
+/obj/random/contraband,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aP" = (
+/obj/structure/bed/stool/chair/office/dark,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aQ" = (
+/obj/effect/decal/remains/rat,
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"aR" = (
+/obj/random/powercell,
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"aT" = (
+/obj/item/bluespace_crystal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"aU" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"aV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aW" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aX" = (
+/obj/structure/table/reinforced,
+/obj/item/pen/fountain/black,
+/obj/machinery/light_construct{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"aZ" = (
+/obj/machinery/constructable_frame/temp_deco,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"ba" = (
+/obj/item/bluespace_crystal,
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"bb" = (
+/turf/simulated/mineral,
+/area/template_noop)
+"bc" = (
+/obj/machinery/access_button/airlock_exterior{
+	frequency = 1351;
+	master_tag = "listening_post_airlock";
+	pixel_x = 25
+	},
+/obj/structure/boulder,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"bd" = (
+/obj/structure/boulder,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"be" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"bf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/spiderling_remains,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"bg" = (
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
+	},
+/obj/item/trash/syndi_cakes,
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"bh" = (
+/obj/machinery/light_construct{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"bi" = (
+/obj/item/stock_parts/scanning_module/adv,
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"bj" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'SERVER ROOM'.";
+	name = "SERVER ROOM";
+	pixel_y = 32
+	},
+/obj/structure/door_assembly/door_assembly_hatch{
+	anchored = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"bk" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/folder/red,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"bl" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"bm" = (
+/obj/machinery/constructable_frame/temp_deco,
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"bn" = (
+/obj/effect/decal/remains/robot,
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"bo" = (
+/obj/item/stock_parts/capacitor/adv,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"bp" = (
+/obj/effect/overlay/burnt_wall/steel,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"bq" = (
+/obj/item/trash/liquidfood,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"br" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"bs" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"bt" = (
+/obj/item/circuitboard/telecomms/broadcaster,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"bu" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"bv" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"bw" = (
+/obj/structure/computerframe,
+/obj/machinery/light_construct,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"bx" = (
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 32
+	},
+/obj/structure/table/reinforced,
+/obj/item/trash/liquidfood,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"by" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"bz" = (
+/obj/structure/bed,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"bA" = (
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"bB" = (
+/obj/structure/table/reinforced,
+/obj/item/paper/crumpled{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/paper/crumpled{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"dI" = (
+/obj/structure/table/reinforced,
+/obj/item/folder/red,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"gX" = (
+/mob/living/simple_animal/hostile/carp/shark{
+	destroy_surroundings = 0;
+	wander = 0
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"hc" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/item/clothing/head/helmet/space/void/freelancer,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"io" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/carp{
+	destroy_surroundings = 0;
+	wander = 0
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"kH" = (
+/mob/living/simple_animal/hostile/carp{
+	destroy_surroundings = 0;
+	wander = 0
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"lN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/syndi_cakes,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"oy" = (
+/obj/item/trash/liquidfood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"Nr" = (
+/obj/structure/table/reinforced,
+/obj/random/contraband,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+"Vj" = (
+/turf/simulated/wall/r_wall,
+/area/template_noop)
+"WB" = (
+/obj/item/paper/crumpled{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
+
+(1,1,1) = {"
+am
+am
+am
+am
+aa
+aa
+bd
+bb
+am
+am
+bb
+bb
+bb
+bb
+am
+bb
+bb
+am
+am
+am
+am
+"}
+(2,1,1) = {"
+am
+am
+bb
+bb
+bb
+bd
+bd
+bd
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+am
+"}
+(3,1,1) = {"
+am
+am
+bb
+bb
+bb
+bc
+bd
+ad
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+am
+am
+"}
+(4,1,1) = {"
+am
+bb
+bb
+bb
+bb
+ab
+an
+ab
+ab
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+bb
+bb
+bb
+bb
+am
+"}
+(5,1,1) = {"
+bb
+bb
+bb
+bb
+ab
+ab
+ao
+ab
+ab
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+bb
+bb
+bb
+bb
+"}
+(6,1,1) = {"
+am
+bb
+bb
+Vj
+ab
+ac
+ap
+aN
+ab
+Vj
+Vj
+bg
+br
+bh
+bA
+bA
+Vj
+Vj
+bb
+bb
+bb
+"}
+(7,1,1) = {"
+am
+bb
+bb
+Vj
+ab
+ae
+aq
+ax
+ab
+Vj
+Vj
+aQ
+aZ
+bi
+bm
+aT
+Vj
+Vj
+bb
+bb
+bb
+"}
+(8,1,1) = {"
+am
+bb
+bb
+Vj
+ab
+af
+aq
+ay
+ab
+Vj
+Vj
+aR
+ba
+br
+bn
+bs
+Vj
+Vj
+bb
+bb
+bb
+"}
+(9,1,1) = {"
+bb
+bb
+bb
+Vj
+ab
+ab
+ar
+ab
+ab
+Vj
+Vj
+bA
+aZ
+br
+aZ
+br
+Vj
+Vj
+bb
+bb
+bb
+"}
+(10,1,1) = {"
+bb
+bb
+bb
+Vj
+Vj
+ag
+as
+az
+Vj
+Vj
+Vj
+aT
+bA
+br
+bo
+bt
+Vj
+Vj
+bb
+bb
+bb
+"}
+(11,1,1) = {"
+bb
+bb
+bb
+Vj
+Vj
+ah
+at
+aB
+Vj
+Vj
+Vj
+aU
+be
+bj
+aU
+be
+Vj
+Vj
+bb
+bb
+bb
+"}
+(12,1,1) = {"
+am
+bb
+bb
+Vj
+Vj
+ai
+aW
+aC
+Vj
+aH
+aL
+bq
+al
+aW
+oy
+Nr
+Vj
+Vj
+bb
+bb
+bb
+"}
+(13,1,1) = {"
+am
+bb
+bb
+Vj
+Vj
+aj
+aW
+aD
+Vj
+bu
+aM
+kH
+bf
+bk
+aW
+bv
+Vj
+Vj
+bb
+bb
+bb
+"}
+(14,1,1) = {"
+bb
+bb
+bb
+Vj
+Vj
+ak
+aW
+al
+aG
+WB
+gX
+aV
+aW
+aW
+by
+bw
+Vj
+Vj
+bb
+aa
+aa
+"}
+(15,1,1) = {"
+bb
+bb
+bb
+Vj
+Vj
+aw
+al
+aE
+Vj
+bB
+aP
+io
+lN
+aV
+al
+al
+bp
+bp
+aa
+aa
+aa
+"}
+(16,1,1) = {"
+am
+bb
+bb
+Vj
+Vj
+aF
+av
+hc
+Vj
+aK
+aO
+aX
+bx
+bl
+bz
+dI
+Vj
+Vj
+bb
+aA
+aa
+"}
+(17,1,1) = {"
+am
+bb
+bb
+bb
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+bb
+bb
+bb
+bb
+"}
+(18,1,1) = {"
+am
+bb
+bb
+bb
+bb
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+Vj
+bb
+bb
+bb
+bb
+bb
+"}
+(19,1,1) = {"
+am
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+"}
+(20,1,1) = {"
+am
+am
+am
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+bb
+am
+"}
+(21,1,1) = {"
+am
+am
+am
+am
+am
+bb
+bb
+bb
+am
+bb
+bb
+am
+am
+bb
+bb
+bb
+bb
+bb
+bb
+am
+am
+"}

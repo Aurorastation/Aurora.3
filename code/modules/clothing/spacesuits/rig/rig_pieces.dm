@@ -11,6 +11,8 @@
 	cold_protection =    HEAD|FACE|EYES
 	brightness_on = 4
 	light_wedge = LIGHT_WIDE
+	icon = 'icons/obj/clothing/hats.dmi'
+	contained_sprite = FALSE
 
 /obj/item/clothing/gloves/rig
 	name = "gauntlets"
@@ -30,6 +32,7 @@
 	species_restricted = null
 	gender = PLURAL
 	icon_base = null
+	footstep_sound_override = 'sound/machines/rig/rigstep.ogg'
 
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
@@ -44,6 +47,8 @@
 	breach_threshold = 38
 	resilience = 0.2
 	can_breach = 1
+	contained_sprite = FALSE
+	icon = 'icons/obj/clothing/suits.dmi'
 
 	supporting_limbs = list()
 

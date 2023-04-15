@@ -59,10 +59,6 @@
 	build_path = /obj/machinery/computer/arcade/orion_trail
 	origin_tech = list(TECH_DATA = 1)
 
-/obj/item/circuitboard/turbine_control
-	name = T_BOARD("turbine control console")
-	build_path = /obj/machinery/computer/turbine_computer
-
 /obj/item/circuitboard/solar_control
 	name = T_BOARD("solar control console")
 	build_path = /obj/machinery/power/solar_control
@@ -132,3 +128,28 @@
 	name = T_BOARD("Slot Machine")
 	build_path = /obj/machinery/computer/slot_machine
 	origin_tech = list(TECH_DATA = 2)
+
+/obj/item/circuitboard/ship/navigation
+	name = T_BOARD("Navigation Console")
+	origin_tech = list(TECH_ENGINEERING = 2)
+	build_path = /obj/machinery/computer/ship/navigation
+
+/obj/item/circuitboard/ship/helm
+	name = T_BOARD("Helm Control Console")
+	origin_tech = list(TECH_ENGINEERING = 3)
+	build_path = /obj/machinery/computer/ship/helm
+
+/obj/item/circuitboard/ship/sensors
+	name = T_BOARD("Ship Sensors Console")
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 2)
+	build_path = /obj/machinery/computer/ship/sensors
+
+/obj/item/circuitboard/ship/engines
+	name = T_BOARD("Ship Engines Control Console")
+	origin_tech = list(TECH_ENGINEERING = 3)
+	build_path = /obj/machinery/computer/ship/engines
+
+/obj/item/circuitboard/ship/targeting
+	name = T_BOARD("Ajax Targeting Systems Console")
+	origin_tech = list(TECH_ENGINEERING = 3)
+	build_path = /obj/machinery/computer/ship/targeting

@@ -1,8 +1,5 @@
 /obj/item/organ/internal/parasite
 	name = "parasite"
-	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "burst_lie"
-	dead_icon = "bursted_lie"
 
 	organ_tag = "parasite"
 	var/stage = 1
@@ -90,8 +87,8 @@
 		set_light(1, l_color = "#E6E600")
 		if(prob(10))
 			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
-			owner.reagents.add_reagent(/decl/reagent/toxin/phoron, 8)
-			owner.reagents.add_reagent(/decl/reagent/kois, 5)
+			owner.reagents.add_reagent(/singleton/reagent/toxin/phoron, 8)
+			owner.reagents.add_reagent(/singleton/reagent/kois, 5)
 
 	if(stage >= 4)
 		if(prob(10))
@@ -101,8 +98,8 @@
 			var/turf/T = get_turf(owner)
 
 			var/datum/reagents/R = new/datum/reagents(100)
-			R.add_reagent(/decl/reagent/kois,10)
-			R.add_reagent(/decl/reagent/toxin/phoron,10)
+			R.add_reagent(/singleton/reagent/kois,10)
+			R.add_reagent(/singleton/reagent/toxin/phoron,10)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("koisspore")
 
 			S.attach(T)
@@ -157,7 +154,7 @@
 
 		if(prob(5))
 			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
-			owner.reagents.add_reagent(/decl/reagent/kois/black, 4)
+			owner.reagents.add_reagent(/singleton/reagent/kois/black, 4)
 
 		else if(prob(5))
 			to_chat(owner, "In your struggle, a part of you wishes for the spread to continue.")
@@ -178,8 +175,9 @@
 		var/obj/item/organ/internal/brain/B = owner.internal_organs_by_name[BP_BRAIN]
 
 		if(B && !B.prepared)
-			to_chat(owner, "<span class='danger'>As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains...</span>")
-			to_chat(owner, "<b>You have been lobotomized by K'ois infection. All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive.</b>")
+			to_chat(owner, SPAN_GOOD("As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains..."))
+			to_chat(owner, SPAN_HIGHDANGER("You have been lobotomized by K'ois infection."))
+			to_chat(owner, SPAN_NOTICE("All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive."))
 
 			B.prepared = 1
 
@@ -202,7 +200,7 @@
 			var/turf/T = get_turf(owner)
 
 			var/datum/reagents/R = new/datum/reagents(20)
-			R.add_reagent(/decl/reagent/kois/black,5)
+			R.add_reagent(/singleton/reagent/kois/black,5)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("blackkois")
 
 			S.attach(T)
@@ -223,14 +221,15 @@
 	..()
 
 /obj/item/organ/internal/parasite/zombie
-	name = "black tumor"
-	icon = 'icons/obj/surgery.dmi'
-	icon_state = "blacktumor"
-	dead_icon = "blacktumor"
+	name = "black tumour"
+	icon = 'icons/obj/organs/organs.dmi'
+	icon_state = "black_tumour"
+	dead_icon = "black_tumour"
 
 	organ_tag = BP_ZOMBIE_PARASITE
 	parent_organ = BP_HEAD
 	stage_interval = 150
+	relative_size = 0
 
 	var/last_heal = 0
 	var/heal_rate = 5 SECONDS

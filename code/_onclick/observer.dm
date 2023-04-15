@@ -49,8 +49,8 @@
 // Now you can click through portals, wormholes, gateways, and teleporters while observing. -Sayu
 
 /obj/machinery/teleport/pad/attack_ghost(mob/user as mob)
-	if(station?.locked_obj)
-		var/obj/teleport_obj = station.locked_obj.resolve()
+	if(locked_obj)
+		var/obj/teleport_obj = locked_obj.resolve()
 		if(teleport_obj)
 			user.forceMove(get_turf(teleport_obj))
 

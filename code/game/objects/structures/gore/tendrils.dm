@@ -5,6 +5,7 @@
 	desc = "Bloody, pulsating tendrils."
 	icon_state = "tendril"
 	maxHealth = 40
+	pass_flags = PASSTABLE | PASSMOB | PASSTRACE | PASSRAILING
 	var/being_destroyed = FALSE
 	var/is_node = FALSE
 	var/obj/structure/gore/tendrils/node/linked_node = null
@@ -113,14 +114,9 @@
 	var/D = pick(dirs_left)
 	var/turf/T = get_step(U, D)
 
-	var/obj/machinery/door/MD = locate() in T
-	if(MD?.density)
+	if(!T.Enter(src)) //Uses the pass_flags to make sure we can go under tables and things, but not walls and windows
 		return
-	var/obj/structure/simple_door/SD = locate() in T
-	if(SD?.density)
-		return
-
-	if(!isturf(T) || T.is_hole || T.is_space() || T.density || locate(/obj/structure/gore/tendrils, T))
+	if(!isturf(T) || T.is_hole || T.is_space() || locate(/obj/structure/gore/tendrils, T))
 		dirs_left -= D
 		return
 

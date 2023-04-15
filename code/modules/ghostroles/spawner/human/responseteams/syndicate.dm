@@ -3,9 +3,12 @@
 	short_name = "syndc"
 	max_count = 3
 	desc = "Well-equipped commandos of the criminal Syndicate."
-	welcome_message = "The order has been given - the Aurora and its crew are to be wiped off the star-charts, by any means necessary."
 	outfit = /datum/outfit/admin/deathsquad/syndicate
 	spawnpoints = list("SyndERTSpawn")
+
+/datum/ghostspawner/human/ert/commando/New()
+	..()
+	welcome_message = "The order has been given - the [current_map.station_name] and its crew are to be wiped off the star-charts, by any means necessary."
 
 /datum/ghostspawner/human/ert/commando/leader
 	name = "Syndicate Commando Leader"

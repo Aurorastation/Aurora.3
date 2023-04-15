@@ -7,7 +7,7 @@
 	PATHS THAT USE DATUMS
 		turf/simulated/wall
 		obj/item/material
-		obj/structure/barricade
+		obj/structure/blocker
 		obj/item/stack/material
 		obj/structure/table
 
@@ -105,9 +105,9 @@
 	//for use in material weapons. because tiles and stacks sound different. since cardboard baseball bats sound different from wooden ones and et cetera.
 	var/weapon_drop_sound = 'sound/items/drop/metalweapon.ogg'
 	var/weapon_pickup_sound = 'sound/items/pickup/metalweapon.ogg'
-	var/weapon_hitsound = /decl/sound_category/swing_hit_sound
+	var/weapon_hitsound = /singleton/sound_category/swing_hit_sound
 
-	var/shatter_sound = /decl/sound_category/glass_break_sound //sound it makes when it breaks.
+	var/shatter_sound = /singleton/sound_category/glass_break_sound //sound it makes when it breaks.
 
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!rod_product)
@@ -174,6 +174,9 @@
 		if ("shuttle")
 			skip_blend = TRUE
 		if ("skrell")
+			skip_blend = TRUE
+		if("concrete")
+			wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
 			skip_blend = TRUE
 		else
 			world.log <<  "materials: [src] has unknown icon_base [icon_base]."
@@ -374,6 +377,13 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
+/material/stone/concrete
+	name = MATERIAL_CONCRETE
+	icon_base = "concrete"
+	icon_colour = "#D2D1CD"
+	stack_type = null
+	golem = null
+
 /material/steel
 	name = DEFAULT_WALL_MATERIAL
 	stack_type = /obj/item/stack/material/steel
@@ -418,7 +428,7 @@
 	melting_point = 6000
 	icon_base = "solid"
 	icon_reinf = "reinf_over"
-	icon_colour = "#777777"
+	icon_colour = "#666666"
 	explosion_resistance = 25
 	hardness = 80
 	weight = 23
@@ -585,7 +595,7 @@
 	integrity = 100
 	icon_colour = "#FC2BC5"
 	stack_origin_tech = list(TECH_MATERIAL = 4)
-	created_window = /obj/structure/window/phoronbasic
+	created_window = /obj/structure/window/borosilicate
 	wire_product = null
 	rod_product = /obj/item/stack/material/glass/phoronrglass
 	golem = SPECIES_GOLEM_PHORON
@@ -596,7 +606,7 @@
 	stack_type = /obj/item/stack/material/glass/phoronrglass
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	composite_material = list() //todo
-	created_window = /obj/structure/window/phoronreinforced
+	created_window = /obj/structure/window/borosilicate/reinforced
 	hardness = 40
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)
@@ -704,7 +714,7 @@
 	dooropen_noise = 'sound/effects/doorcreaky.ogg'
 	door_icon_base = "wood"
 	destruction_desc = "splinters"
-	shatter_sound = /decl/sound_category/wood_break_sound
+	shatter_sound = /singleton/sound_category/wood_break_sound
 	sheet_singular_name = "plank"
 	sheet_plural_name = "planks"
 	golem = SPECIES_GOLEM_WOOD
@@ -714,11 +724,46 @@
 	weapon_drop_sound = 'sound/items/drop/woodweapon.ogg'
 	weapon_pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 	weapon_hitsound = 'sound/weapons/woodenhit.ogg'
-	shatter_sound = /decl/sound_category/wood_break_sound
+	shatter_sound = /singleton/sound_category/wood_break_sound
+
+/material/wood/birch
+	name = MATERIAL_BIRCH
+	stack_type = /obj/item/stack/material/wood/coloured/birch
+	icon_colour = WOOD_COLOR_BIRCH
+
+/material/wood/mahogany
+	name = MATERIAL_MAHOGANY
+	stack_type = /obj/item/stack/material/wood/coloured/mahogany
+	icon_colour = WOOD_COLOR_RICH
+
+/material/wood/maple
+	name = MATERIAL_MAPLE
+	stack_type = /obj/item/stack/material/wood/coloured/maple
+	icon_colour = WOOD_COLOR_PALE
+
+/material/wood/bamboo
+	name = MATERIAL_BAMBOO
+	stack_type = /obj/item/stack/material/wood/coloured/bamboo
+	icon_colour = WOOD_COLOR_PALE2
+
+/material/wood/ebony
+	name = MATERIAL_EBONY
+	stack_type = /obj/item/stack/material/wood/coloured/ebony
+	icon_colour = WOOD_COLOR_BLACK
+
+/material/wood/walnut
+	name = MATERIAL_WALNUT
+	stack_type = /obj/item/stack/material/wood/coloured/walnut
+	icon_colour = WOOD_COLOR_CHOCOLATE
+
+/material/wood/yew
+	name = MATERIAL_YEW
+	stack_type = /obj/item/stack/material/wood/coloured/yew
+	icon_colour = WOOD_COLOR_YELLOW
 
 /material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
 	name = MATERIAL_WOOD_LOG
-	stack_type = /obj/item/stack/material/woodlog
+	stack_type = /obj/item/stack/material/wood/log
 	icon_colour = "#824B28"
 	integrity = 50
 	icon_base = "solid"
@@ -729,22 +774,22 @@
 	melting_point = T0C+380
 	ignition_point = T0C+328
 	destruction_desc = "splinters"
-	sheet_singular_name = "log"
-	sheet_plural_name = "logs"
+	sheet_singular_name = "pice"
+	sheet_plural_name = "piles"
 
 /material/wood/branch
 	name = MATERIAL_WOOD_BRANCH
-	stack_type = /obj/item/stack/material/woodbranch
+	stack_type = /obj/item/stack/material/wood/branch
 	icon_colour = "#824B28"
-	integrity = 50
+	integrity = 10
 	icon_base = "solid"
 	explosion_resistance = 0
 	hardness = 0.1
 	weight = 7
 	melting_point = T0C+220
 	ignition_point = T0C+218
-	sheet_singular_name = "branch"
-	sheet_plural_name = "branch"
+	sheet_singular_name = "bundle"
+	sheet_plural_name = "bundle"
 
 /material/rust
 	name = MATERIAL_RUST
@@ -780,7 +825,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 1)
 	door_icon_base = "wood"
 	destruction_desc = "crumples"
-	shatter_sound = /decl/sound_category/cardboard_break_sound
+	shatter_sound = /singleton/sound_category/cardboard_break_sound
 	golem = SPECIES_GOLEM_CARDBOARD
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
@@ -929,12 +974,6 @@
 	stack_type = /obj/item/stack/material/animalhide/lizard
 	icon_colour = "#34AF10"
 
-/material/hide/xeno
-	name = MATERIAL_HIDE_ALIEN
-	stack_type = /obj/item/stack/material/animalhide/xeno
-	icon_colour = "#525288"
-	protectiveness = 10 // 33%
-
 /material/hide/human
 	name = MATERIAL_HIDE_HUMAN
 	stack_type = /obj/item/stack/material/animalhide/human
@@ -986,9 +1025,8 @@
 
 /material/shuttle
 	name = MATERIAL_SHUTTLE
-	display_name = "spaceship alloy"
+	display_name = "plastitanium alloy"
 	stack_type = null
-	icon_colour = "#6C7364"
 	icon_base = "shuttle"
 	integrity = 1200
 	melting_point = 6000       // Hull plating.
@@ -996,9 +1034,25 @@
 	hardness = 500
 	weight = 500
 	protectiveness = 80 // 80%
+	cut_delay = 20 SECONDS
 
 /material/shuttle/skrell
 	name = MATERIAL_SHUTTLE_SKRELL
 	display_name = "superadvanced alloy"
 	icon_colour = null
 	icon_base = "skrell"
+
+/material/graphite
+	name = MATERIAL_GRAPHITE
+	stack_type = /obj/item/stack/material/graphite
+	icon_base = "solid"
+	icon_colour = "#666666"
+	shard_type = SHARD_STONE_PIECE
+	weight = 20
+	hardness = 20
+	protectiveness = 5 // 20%
+	conductivity = 5
+	sheet_singular_name = "bar"
+	sheet_plural_name = "bars"
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'

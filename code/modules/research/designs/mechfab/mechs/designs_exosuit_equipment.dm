@@ -33,7 +33,7 @@
 
 /datum/design/item/mechfab/exosuit_equipment/ion
 	name = "Mounted Ion Rifle"
-	materials = list(DEFAULT_WALL_MATERIAL = 10000)
+	materials = list(DEFAULT_WALL_MATERIAL = 10000,  MATERIAL_GOLD = 3000, MATERIAL_URANIUM = 3000, MATERIAL_PHORON = 3000)
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/combat/ion
 
@@ -46,7 +46,7 @@
 /datum/design/item/mechfab/exosuit_equipment/rcd
 	name = "Mounted RFD-C"
 	time = 90
-	materials = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_PHORON = 25000, DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GOLD = 15000)
+	materials = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_PHORON = 8000, DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GOLD = 10000)
 	req_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 3, TECH_MAGNET = 4, TECH_POWER = 4, TECH_ENGINEERING = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/rfd
 
@@ -76,7 +76,7 @@
 	name = "Mounted Flashbang Launcher"
 	req_tech = list(TECH_COMBAT = 3)
 	build_path = /obj/item/mecha_equipment/mounted_system/combat/grenadeflash
-	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GOLD = 6000, MATERIAL_PHORON = 6000)
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GOLD = 3000, MATERIAL_SILVER = 3000)
 
 /datum/design/item/mechfab/exosuit_equipment/cleaner
 	name = "Mounted Cleaner Grenade Launcher"
@@ -88,7 +88,7 @@
 	name = "Mounted Crisis Drone"
 	build_path = /obj/item/mecha_equipment/crisis_drone
 	req_tech = list(TECH_MAGNET = 3, TECH_DATA = 3, TECH_BIO = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GOLD = 1000, MATERIAL_SILVER = 2000, MATERIAL_GLASS = 5000)
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000, MATERIAL_GOLD = 1000, MATERIAL_SILVER = 2000)
 
 /datum/design/item/mechfab/exosuit_equipment/analyzer
 	name = "Mounted Health Analyzer"

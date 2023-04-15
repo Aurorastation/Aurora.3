@@ -52,7 +52,79 @@
 	path = /obj/item/ammo_magazine/boltaction
 	desc = "Contains five rounds of 7.62mm bullets."
 
+/datum/uplink_item/item/ammo/carbine_mag
+	name = "5.56 carbine magazine"
+	item_cost = 1
+	path = /obj/item/ammo_magazine/a556/carbine 
+	desc = "Contains 15 rounds of 5.56."
+
+/datum/uplink_item/item/ammo/lmg_drum
+	name = "7.62 LMG drum"
+	item_cost = 5
+	path = /obj/item/ammo_magazine/a762
+	desc = "Contains 50 rounds of 7.62."
+
 /datum/uplink_item/item/ammo/peac
 	name = "Anti-materiel Cannon Cartridge"
 	path = /obj/item/ammo_casing/peac
 	desc = "Contains one anti-materiel cannon cartridge."
+
+/datum/uplink_item/item/ammo/super_heavy
+	name = "K2557 Magazine"
+	item_cost = 2
+	path = /obj/item/ammo_magazine/super_heavy
+	desc = "A spare magazine, for the super heavy K2557 pistol."
+
+/datum/uplink_item/item/ammo/shotgun_slug
+	name = "Shotgun Slug"
+	item_cost = 1
+	path = /obj/item/ammo_casing/shotgun
+	desc = "A shotgun slug."
+
+/datum/uplink_item/item/ammo/tungsten_ammo_box
+	name = "Tungsten Ammo Box"
+	item_cost = 2
+	path = /obj/item/ammo_magazine/gauss
+	desc = "A tungsten ammo box."
+
+/datum/uplink_item/item/ammo/slug_magazine
+	name = "Slug Magazine"
+	item_cost = 8
+	path = /obj/item/ammo_magazine/assault_shotgun
+	desc = "A magazine for an assault shotgun, loaded with slug shells."
+
+/datum/uplink_item/item/ammo/buckshot_magazine
+	name = "Buckshot Magazine"
+	item_cost = 4
+	path = /obj/item/ammo_magazine/assault_shotgun/shells
+	desc = "A magazine for an assault shotgun, loaded with buckshot shells."
+
+/datum/uplink_item/item/ammo/ar_ammo
+	name = "7.62 Assault Rifle magazine"
+	item_cost = 2
+	path = /obj/item/ammo_magazine/c762
+	desc = "A magazine for an assault rifle."
+
+/datum/uplink_item/item/ammo/sniper_ammo
+	name = "7.62 Sniper Magazine"
+	item_cost = 4
+	path = /obj/item/ammo_magazine/d762
+	desc = "A magazine for a 7.62 sniper rifle."
+
+/datum/uplink_item/item/ammo/bullpup_magazine
+	name = "5.56 Rifle Magazine"
+	item_cost = 2
+	path = /obj/item/ammo_magazine/a556
+	desc = "A magazine for a 5.56 rifle."
+
+/datum/uplink_item/item/ammo/uzi_magazine
+	name = ".45 Autopistol Magazine"
+	item_cost = 1
+	path = /obj/item/ammo_magazine/c45uzi
+	desc = "A magazine for a .45 automatic pistol."
+
+/datum/uplink_item/item/ammo/deagle_magazine
+	name = ".50 Pistol Magazine"
+	item_cost = 1
+	path = /obj/item/ammo_magazine/a50
+	desc = "A magazine for a .50 pistol."

@@ -39,8 +39,17 @@
 		return TRUE
 	. = ..()
 
+/datum/nano_module/nano_host()
+	return host ? host : src
+
+/datum/nano_module/proc/get_host_z()
+	return GET_Z(nano_host())
+
 /datum/proc/initial_data()
 	return list()
 
 /datum/proc/update_layout()
 	return FALSE
+
+/datum/proc/nano_host()
+	return src

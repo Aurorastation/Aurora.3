@@ -5,7 +5,7 @@
 
 	name = "disposal pipe segment"
 	desc = "A huge pipe segment used for constructing disposal systems."
-	icon = 'icons/obj/pipes/disposal.dmi'
+	icon = 'icons/obj/disposals.dmi'
 	icon_state = "conpipe-s"
 	anchored = 0
 	density = 0
@@ -100,7 +100,7 @@
 	// hide called by levelupdate if turf intact status changes
 	// change visibility status and force update of icon
 /obj/structure/disposalconstruct/hide(var/intact)
-	invisibility = (intact && level==1) ? 101: 0	// hide if floor is intact
+	set_invisibility((intact && level==1) ? 101: 0)	// hide if floor is intact
 	update()
 
 
@@ -261,10 +261,9 @@
 	else if(I.iswelder())
 		if(anchored)
 			var/obj/item/weldingtool/W = I
-			if(W.remove_fuel(0,user))
-				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
+			if(W.use(0,user))
 				to_chat(user, "Welding the [nicetype] in place.")
-				if(do_after(user, 20/W.toolspeed))
+				if(W.use_tool(src, user, 20, volume = 50))
 					if(!src || !W.isOn()) return
 					to_chat(user, "The [nicetype] has been welded in place!")
 					update() // TODO: Make this neat

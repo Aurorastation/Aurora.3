@@ -21,6 +21,7 @@
 	flesh_color = "#05FFFB"
 
 	remains_type = /obj/effect/decal/cleanable/ash
+	dust_remains_type = /obj/effect/decal/cleanable/ash
 
 	death_message = "rapidly loses cohesion, splattering across the ground..."
 	death_message_range = 7

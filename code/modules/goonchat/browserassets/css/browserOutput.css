@@ -63,6 +63,7 @@ a {color: #397ea5;}
 a.visited {color: #7c00e6;}
 a:visited {color: #7c00e6;}
 a.popt {text-decoration: none;}
+.ai_tracking, .ai_tracking:link, .ai_tracking:visited, .ai_tracking:active, .ai_tracking:hover {color: #397ea5;}
 
 /*****************************************
 *
@@ -319,6 +320,8 @@ em						{font-style: normal;	font-weight: bold;}
 .centradio				{color: #7272a7;}
 .airadio				{color: #ec00ec;}
 .entradio				{color: #cfcfcf;}
+.hailradio				{color: #8b4cd8;}
+.shipradio				{color: #738465;}
 
 .secradio				{color: #e21111;}
 .engradio				{color: #cc7b01;}

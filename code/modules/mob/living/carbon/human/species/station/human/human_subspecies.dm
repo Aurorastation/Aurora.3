@@ -22,12 +22,6 @@
 
 	examine_color = "#C2AE95"
 
-/datum/species/human/offworlder/New()
-	var/list/offworlder_accents = list(ACCENT_SCARAB)
-	var/list/disallowed_accents = list(ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL, ACCENT_PLUTO, ACCENT_EUROPA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_GADPATHUR, ACCENT_PHONG, ACCENT_VYSOKA, ACCENT_FISANDUH, ACCENT_MICTLAN, ACCENT_KONYAN, ACCENT_VISEGRAD)
-	allowed_accents = offworlder_accents + allowed_accents - disallowed_accents
-	..()
-
 /datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
 	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack) && H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/rmt(H.back), slot_in_backpack))
 		return
@@ -57,7 +51,7 @@
 	var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
 	if(S)
 		for(var/_R in S.ingested.reagent_volumes)
-			if(_R == /decl/reagent/rmt)
+			if(_R == /singleton/reagent/rmt)
 				return 0
 
 	return 4
@@ -90,7 +84,7 @@
 		var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
 		if(S)
 			for(var/_R in S.ingested.reagent_volumes)
-				if(_R == /decl/reagent/rmt)
+				if(_R == /singleton/reagent/rmt)
 					return
 
 		var/pain_message = pick("You feel sluggish as if something is weighing you down.",

@@ -13,7 +13,6 @@
 	var/weed_kill_str = 0
 
 /obj/item/plantspray/weeds // -- Skie
-
 	name = "weed-spray"
 	desc = "It's a toxic mixture, in spray form, to kill small weeds."
 	icon_state = "weedspray"
@@ -24,61 +23,6 @@
 	desc = "It's some pest eliminator spray! <I>Do not inhale!</I>"
 	icon_state = "pestspray"
 	pest_kill_str = 6
-
-/obj/item/plantspray/pests/old
-	name = "bottle of pestkiller"
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle16"
-
-/obj/item/plantspray/pests/old/carbaryl
-	name = "bottle of carbaryl"
-	icon_state = "bottle16"
-	toxicity = 4
-	pest_kill_str = 2
-
-/obj/item/plantspray/pests/old/lindane
-	name = "bottle of lindane"
-	icon_state = "bottle18"
-	toxicity = 6
-	pest_kill_str = 4
-
-/obj/item/plantspray/pests/old/phosmet
-	name = "bottle of phosmet"
-	icon_state = "bottle15"
-	toxicity = 8
-	pest_kill_str = 7
-
-// *************************************
-// Weedkiller defines for hydroponics
-// *************************************
-
-/obj/item/weedkiller
-	name = "bottle of weedkiller"
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle16"
-	var/toxicity = 0
-	var/weed_kill_str = 0
-
-/obj/item/weedkiller/triclopyr
-	name = "bottle of glyphosate"
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle16"
-	toxicity = 4
-	weed_kill_str = 2
-
-/obj/item/weedkiller/lindane
-	name = "bottle of triclopyr"
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle18"
-	toxicity = 6
-	weed_kill_str = 4
-
-/obj/item/weedkiller/D24
-	name = "bottle of 2,4-D"
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle15"
-	toxicity = 8
-	weed_kill_str = 7
 
 // *************************************
 // Nutrient defines for hydroponics
@@ -115,8 +59,8 @@
 	update_icon()
 	if(reagents.total_volume)
 		var/fraction = reagents.total_volume / volume
-		force = max(10 * fraction, 1)
-		throwforce = max(8 * fraction, 1)
+		force = max(5 * fraction, 1)
+		throwforce = max(5 * fraction, 1)
 		hitsound = 'sound/weapons/jug_filled_impact.ogg'
 		drop_sound = 'sound/weapons/jug_filled_impact.ogg'
 	else
@@ -134,14 +78,14 @@
 /obj/item/reagent_containers/glass/fertilizer/ez
 	name = "jug of E-Z-Nutrient"
 	icon_state = "plastic_jug_ez"
-	reagents_to_add = list(/decl/reagent/toxin/fertilizer/eznutrient = 80)
+	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/eznutrient = 80)
 
 /obj/item/reagent_containers/glass/fertilizer/l4z
 	name = "jug of Left-4-Zed"
 	icon_state = "plastic_jug_l4z"
-	reagents_to_add = list(/decl/reagent/toxin/fertilizer/left4zed = 80)
+	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/left4zed = 80)
 
 /obj/item/reagent_containers/glass/fertilizer/rh
 	name = "jug of Robust Harvest"
 	icon_state = "plastic_jug_rh"
-	reagents_to_add = list(/decl/reagent/toxin/fertilizer/robustharvest = 80)
+	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/robustharvest = 80)

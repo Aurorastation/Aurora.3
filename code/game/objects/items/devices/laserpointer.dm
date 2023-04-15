@@ -51,15 +51,14 @@
 			to_chat(user, "<span class='notice'>You install a [diode.name] in [src].</span>")
 		else
 			to_chat(user, "<span class='notice'>[src] already has a laser diode.</span>")
+		return TRUE
 
 	else if(W.isscrewdriver())
 		if(diode)
 			to_chat(user, "<span class='notice'>You remove the [diode.name] from the [src].</span>")
 			diode.forceMove(get_turf(user))
 			diode = null
-			return
-		..()
-	return
+		return TRUE
 
 /obj/item/device/laser_pointer/afterattack(var/atom/target, var/mob/living/user, flag, params)
 	if(flag)	//we're placing the object on a table or in backpack
@@ -100,7 +99,7 @@
 	if(iscarbon(target))
 		if(user.zone_sel.selecting == BP_EYES)
 			var/mob/living/carbon/C = target
-			if(C.eyecheck() <= 0 && prob(30))
+			if(prob(30) && C.flash_act())
 				selfmsg = "<span class='notice'>You blind \the [C] with \the [src].</span>"
 				othermsg = "<b>[user]</b> shines \the [src] at \the [C]'s eyes'."
 				C.eye_blind = 3

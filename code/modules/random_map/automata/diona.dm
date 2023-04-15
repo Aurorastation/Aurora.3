@@ -24,13 +24,12 @@
 		if (!WT.welding)
 			to_chat(user, SPAN_WARNING("\The [WT] must be turned on!"))
 			return
-		else if (WT.remove_fuel(0,user))
+		else if (WT.use(0,user))
 			user.visible_message("<b>[user]</b> begins slicing through the skin of \the [src].", SPAN_NOTICE("You begin slicing through the skin of \the [src]."))
-			if(!do_after(user, 20/W.toolspeed, act_target = src))
+			if(!W.use_tool(src, user, 20, volume = 50))
 				return
 			if(QDELETED(src) || !WT.isOn())
 				return
-			playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
 			user.visible_message("<b>[user]</b> slices through the skin of \the [src].", SPAN_NOTICE("You slice through \the [src]."))
 		qdel(src)
 	else
@@ -38,7 +37,7 @@
 		if(W.force)
 			user.visible_message(SPAN_DANGER("\The [user] [pick(W.attack_verb)] \the [src] with \the [W]!"), SPAN_NOTICE("You [pick(W.attack_verb)] \the [src] with \the [W]!"))
 			playsound(loc, W.hitsound, W.get_clamped_volume(), TRUE)
-			playsound(loc, /decl/sound_category/wood_break_sound, 50, TRUE)
+			playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
 			health -= W.force
 			if(health <= 0)
 				qdel(src)
@@ -88,7 +87,7 @@
 	light_range = 3
 	light_color = "#557733"
 	density = FALSE
-	destroy_spawntype = /mob/living/carbon/alien/diona
+	destroy_spawntype = null
 
 /obj/structure/diona/bulb/unpowered
 	name = "unpowered glow bulb"

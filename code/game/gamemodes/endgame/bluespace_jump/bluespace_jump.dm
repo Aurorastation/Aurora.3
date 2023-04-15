@@ -1,7 +1,6 @@
 /datum/universal_state/bluespace_jump
 	name = "Bluespace Jump"
 	var/list/bluespaced = list()
-	var/list/bluegoasts = list()
 	var/list/affected_levels
 	var/list/old_accessible_z_levels
 
@@ -19,11 +18,6 @@
 					M.forceMove(T)
 			else
 				apply_bluespaced(M)
-
-	for(var/mob/abstract/observer/goast in player_list)
-		goast.mouse_opacity = 0	//can't let you click that Dave
-		goast.invisibility = SEE_INVISIBLE_LIVING
-		goast.alpha = 255
 	old_accessible_z_levels = current_map.accessible_z_levels.Copy()
 	for(var/z in affected_levels)
 		current_map.accessible_z_levels -= "[z]" //not accessible during the jump
@@ -55,20 +49,12 @@
 		to_chat(M,"<span class='notice'>You feel oddly light, and somewhat disoriented as everything around you shimmers and warps ever so slightly.</span>")
 		M.overlay_fullscreen("bluespace", /obj/screen/fullscreen/bluespace_overlay)
 	M.confused = 20
-	bluegoasts += new/obj/effect/bluegoast/(get_turf(M),M)
 
 /datum/universal_state/bluespace_jump/proc/clear_bluespaced(var/mob/living/M)
 	if(M.client)
-		to_chat(M,"<span class='notice'>You feel rooted in material world again.</span>")
+		to_chat(M,"<span class='notice'>You feel rooted in the material world again.</span>")
 		M.clear_fullscreen("bluespace")
 	M.confused = 0
-	for(var/mob/abstract/observer/goast in player_list)
-		goast.mouse_opacity = initial(goast.mouse_opacity)
-		goast.invisibility = goast.invisibility
-		goast.alpha = initial(goast.alpha)
-	for(var/G in bluegoasts)
-		qdel(G)
-	bluegoasts.Cut()
 
 /obj/effect/bluegoast
 	name = "bluespace echo"
@@ -86,9 +72,9 @@
 	daddy = ndaddy
 	set_dir(daddy.dir)
 	appearance = daddy.appearance
-	moved_event.register(daddy, src, /obj/effect/bluegoast/proc/mirror)
-	dir_set_event.register(daddy, src, /obj/effect/bluegoast/proc/mirror_dir)
-	destroyed_event.register(daddy, src, /datum/proc/qdel_self)
+	moved_event.register(daddy, src, PROC_REF(mirror))
+	dir_set_event.register(daddy, src, PROC_REF(mirror_dir))
+	destroyed_event.register(daddy, src, TYPE_PROC_REF(/datum, qdel_self))
 
 /obj/effect/bluegoast/Destroy()
 	destroyed_event.unregister(daddy, src)

@@ -29,7 +29,7 @@
 		"Airlock"				=	'sound/machines/airlock.ogg',
 		"Airlock Creak"			=	'sound/machines/airlock_open_force.ogg',
 
-		"Shotgun Pumping"		=	'sound/weapons/shotgun_pump.ogg',
+		"Shotgun Pumping"		=	'sound/weapons/reloads/shotgun_pump.ogg',
 		"Flash"					=	'sound/weapons/flash.ogg',
 		"Bite"					=	'sound/weapons/bite.ogg',
 		"Low-Caliber Gun Firing"=	'sound/weapons/gunshot/gunshot_light.ogg',
@@ -81,8 +81,6 @@
 		if(selected_sound == 'sound/items/AirHorn.ogg' && pay_energy(3800))
 			adjust_instability(49) // Pay for your sins.
 			for(var/mob/living/carbon/M in ohearers(6, T))
-				//if(M.get_ear_protection() >= 2) todomatt: ear protection
-				//	continue
 				M.SetSleeping(0)
 				M.stuttering += 20
 				M.ear_deaf += 30

@@ -63,7 +63,7 @@
 #define MODE_REVENANT "revenant"
 #define MODE_GOLEM "golem"
 
-#define DEFAULT_TELECRYSTAL_AMOUNT 15
+#define DEFAULT_TELECRYSTAL_AMOUNT 20
 
 // Defines (NOT FLAGS) for making secret, random, and mixed secret less snowflake-string
 // and number dependant.

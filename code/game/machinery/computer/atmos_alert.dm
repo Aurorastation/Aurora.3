@@ -10,11 +10,12 @@ var/global/list/minor_air_alarms = list()
 	circuit = /obj/item/circuitboard/atmos_alert
 
 	icon_screen = "alert:0"
+	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
 
 /obj/machinery/computer/atmos_alert/Initialize()
 	. = ..()
-	atmosphere_alarm.register_alarm(src, /atom/.proc/update_icon)
+	atmosphere_alarm.register_alarm(src, TYPE_PROC_REF(/atom, update_icon))
 
 /obj/machinery/computer/atmos_alert/Destroy()
     atmosphere_alarm.unregister_alarm(src)

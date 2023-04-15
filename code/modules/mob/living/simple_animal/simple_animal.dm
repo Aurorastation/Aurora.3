@@ -27,9 +27,12 @@
 	var/image/blood_overlay
 
 	var/bleeding = FALSE
-	var/blood_amount = 50			// set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
+	var/blood_amount = 20			// set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
 	var/previous_bleed_timer = 0	// they only bleed for as many seconds as force damage was applied to them
-	var/blood_timer_mod = 1			// tweak to change the amount of seconds a mob will bleed
+	var/blood_timer_mod = 0.25		// tweak to change the amount of seconds a mob will bleed
+
+	var/simple_default_language = LANGUAGE_TCB
+	universal_speak = TRUE // since most mobs verbalize sounds, this is the better option, just set this to false on mobs that don't make noise
 
 	var/list/speak = list()
 	var/speak_chance = 0
@@ -82,6 +85,8 @@
 	//LETTING SIMPLE ANIMALS ATTACK? WHAT COULD GO WRONG. Defaults to zero so Ian can still be cuddly
 	var/melee_damage_lower = 0
 	var/melee_damage_upper = 0
+	var/armor_penetration = 0
+	var/attack_flags = 0
 	var/attacktext = "attacked"
 	var/attack_sound = null
 	var/friendly = "nuzzles"
@@ -130,7 +135,7 @@
 
 	var/has_udder = FALSE
 	var/datum/reagents/udder = null
-	var/milk_type = /decl/reagent/drink/milk
+	var/milk_type = /singleton/reagent/drink/milk
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
@@ -142,6 +147,8 @@
 	//for simple animals that reflect damage when attacked in melee
 	var/return_damage_min
 	var/return_damage_max
+
+	var/dead_on_map = FALSE //if true, kills the mob when it spawns (it is for mapping)
 
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
@@ -169,6 +176,13 @@
 
 	if(LAZYLEN(natural_armor))
 		AddComponent(armor_type, natural_armor)
+
+	if(simple_default_language)
+		add_language(simple_default_language)
+		set_default_language(all_languages[simple_default_language])
+
+	if(dead_on_map)
+		death()
 
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()
@@ -269,15 +283,15 @@
 	//Atmos effect
 	if(bodytemperature < minbodytemp)
 		fire_alert = 2
-		apply_damage(cold_damage_per_tick, BURN, used_weapon = "Cold Temperature")
+		apply_damage(cold_damage_per_tick, DAMAGE_BURN, used_weapon = "Cold Temperature")
 	else if(bodytemperature > maxbodytemp)
 		fire_alert = 1
-		apply_damage(heat_damage_per_tick, BURN, used_weapon = "High Temperature")
+		apply_damage(heat_damage_per_tick, DAMAGE_BURN, used_weapon = "High Temperature")
 	else
 		fire_alert = 0
 
 	if(!atmos_suitable)
-		apply_damage(unsuitable_atoms_damage, OXY, used_weapon = "Atmosphere")
+		apply_damage(unsuitable_atoms_damage, DAMAGE_OXY, used_weapon = "Atmosphere")
 
 	if(has_udder)
 		if(stat == CONSCIOUS)
@@ -292,14 +306,10 @@
 	if(stop_thinking)
 		return
 
-	if(!stop_automated_movement && wander && !anchored)
-		if(isturf(loc) && !resting && !buckled_to && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
-			if(turns_since_move >= turns_per_move && !(stop_automated_movement_when_pulled && pulledby))	 //Some animals don't move when pulled
-				var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
-				moving_to = wanders_diagonally ? pick(alldirs) : pick(cardinal)
-				set_dir(moving_to)			//How about we turn them the direction they are moving, yay.
-				Move(get_step(src,moving_to))
-				turns_since_move = 0
+	if(wander && !anchored && !stop_automated_movement)
+		if(isturf(loc) && !resting && !buckled_to && canmove)
+			if(!(pulledby && stop_automated_movement_when_pulled))
+				step_rand(src)
 
 	//Speaking
 	if(speak_chance && rand(0,200) < speak_chance)
@@ -420,10 +430,10 @@
 			return
 
 		for(var/_current in reagents.reagent_volumes)
-			var/decl/reagent/current = decls_repository.get_decl(_current)
+			var/singleton/reagent/current = GET_SINGLETON(_current)
 			var/removed = min(current.metabolism*digest_factor, REAGENT_VOLUME(reagents, _current))
-			if (_current == /decl/reagent/nutriment)//If its food, it feeds us
-				var/decl/reagent/nutriment/N = current
+			if (_current == /singleton/reagent/nutriment)//If its food, it feeds us
+				var/singleton/reagent/nutriment/N = current
 				adjustNutritionLoss(-removed*N.nutriment_factor)
 				var/heal_amount = removed*N.regen_factor
 				if (getBruteLoss() > 0)
@@ -528,7 +538,7 @@
 	simple_harm_attack(user)
 
 /mob/living/simple_animal/proc/simple_harm_attack(var/mob/living/user)
-	apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [user.name]")
+	apply_damage(harm_intent_damage, DAMAGE_BRUTE, used_weapon = "Attack by [user.name]")
 	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	poke(TRUE)
@@ -581,7 +591,7 @@
 
 	if(O.force > resistance)
 		var/damage = O.force
-		if (O.damtype == PAIN)
+		if (O.damtype == DAMAGE_PAIN)
 			damage = 0
 		if(supernatural && istype(O,/obj/item/nullrod))
 			damage *= 2
@@ -625,7 +635,7 @@
 	if(!bleeding || previous_bleed_timer <= damage_inflicted)
 		bleeding = TRUE
 		previous_bleed_timer = damage_inflicted
-		addtimer(CALLBACK(src, .proc/stop_bleeding), (damage_inflicted SECONDS) * blood_timer_mod, TIMER_UNIQUE | TIMER_OVERRIDE)
+		addtimer(CALLBACK(src, PROC_REF(stop_bleeding)), (damage_inflicted SECONDS) * blood_timer_mod, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /mob/living/simple_animal/proc/stop_bleeding()
 	bleeding = FALSE
@@ -685,7 +695,7 @@
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
-		flick("flash", flash)
+		flash_act()
 
 	var/damage
 	switch (severity)
@@ -698,7 +708,7 @@
 		if(3.0)
 			damage = 30
 
-	apply_damage(damage, BRUTE, damage_flags = DAM_EXPLODE)
+	apply_damage(damage, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_EXPLODE)
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
 	if (isliving(target_mob))
@@ -731,7 +741,7 @@
 	playsound(src, pick(emote_sounds), 75, 1)
 	if(client)
 		sound_time = FALSE
-		addtimer(CALLBACK(src, .proc/reset_sound_time), 2 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(reset_sound_time)), 2 SECONDS)
 
 /mob/living/simple_animal/verb/change_name()
 	set name = "Name Animal"
@@ -775,10 +785,7 @@
 		make_noise(sound_chance)
 
 	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
-	..(message, null, verb, ghost_hearing = can_ghosts_hear)
-
-/mob/living/simple_animal/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, pick(speak), language, small, show_to, duration)
+	..(message, speaking, verb, ghost_hearing = can_ghosts_hear)
 
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
@@ -834,7 +841,7 @@
 /mob/living/simple_animal/proc/fall_asleep()
 	if (stat != DEAD)
 		resting = 1
-		stat = UNCONSCIOUS
+		set_stat(UNCONSCIOUS)
 		canmove = 0
 		wander = 0
 		walk_to(src,0)
@@ -844,7 +851,7 @@
 //Wakes the mob up from sleeping
 /mob/living/simple_animal/proc/wake_up()
 	if (stat != DEAD)
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 		resting = 0
 		canmove = 1
 		wander = 1
@@ -873,8 +880,8 @@
 
 //Todo: add snowflakey shit to it.
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
-	apply_damage(shock_damage, BURN)
-	playsound(loc, /decl/sound_category/spark_sound, 50, 1, -1)
+	apply_damage(shock_damage, DAMAGE_BURN)
+	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
 	spark(loc, 5, alldirs)
 	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), SPAN_WARNING("You are shocked by \the [source]!"), SPAN_WARNING("You hear an electrical crack!"))
 
@@ -912,13 +919,13 @@
 			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/get_digestion_product()
-	return /decl/reagent/nutriment
+	return /singleton/reagent/nutriment
 
 /mob/living/simple_animal/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
 	..()
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)
-			if(P.damage_type == BRUTE)
+			if(P.damage_type == DAMAGE_BRUTE)
 				var/hit_dir = get_dir(P.starting, src)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
@@ -960,6 +967,10 @@
 		attacker.apply_damage(rand(return_damage_min, return_damage_max), damage_type, hand_hurtie, used_weapon = description)
 		if(rand(25))
 			to_chat(attacker, SPAN_WARNING("Your attack has no obvious effect on \the [src]'s [description]!"))
+
+/mob/living/simple_animal/get_speech_bubble_state_modifier()
+	return ..() || "rough"
+
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

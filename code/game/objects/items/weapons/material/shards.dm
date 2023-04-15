@@ -16,7 +16,7 @@
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
 	default_material = "glass"
 	unbreakable = 1 //It's already broken.
-	drops_debris = 0
+	drops_debris = FALSE
 	drop_sound = 'sound/effects/glass_step.ogg'
 
 /obj/item/material/shard/set_material(var/new_material)
@@ -51,7 +51,7 @@
 /obj/item/material/shard/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswelder() && material.shard_can_repair)
 		var/obj/item/weldingtool/WT = W
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			material.place_sheet(user.loc)
 			qdel(src)
 			return

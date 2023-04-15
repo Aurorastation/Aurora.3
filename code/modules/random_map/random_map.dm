@@ -50,7 +50,7 @@ var/global/list/map_count = list()
 	if(tlx) limit_x = tlx
 	if(tly) limit_y = tly
 
-	if(used_area)
+	if(!use_area && used_area)
 		if(ispath(used_area))
 			use_area = new(used_area)
 		else
@@ -186,7 +186,7 @@ var/global/list/map_count = list()
 	if(!T || (target_turf_type && !istype(T,target_turf_type)))
 		return 0
 	var/newpath = get_appropriate_path(map[tmp_cell])
-	if(newpath)
+	if(newpath && !istype(T, newpath))
 		T.ChangeTurf(newpath)
 	if(spawn_roof)
 		T.spawn_roof()

@@ -16,7 +16,7 @@
 	fire_sound_text = "a metallic thunk"
 	recoil = 1
 
-	desc_fluff = "Adapted from fishing tools, Frozen Sea Harpoon Guns were found to be useful weapons in the hands of the Royal Navy and Army. Their ammunition can be equipped \
+	desc_extended = "Adapted from fishing tools, Frozen Sea Harpoon Guns were found to be useful weapons in the hands of the Royal Navy and Army. Their ammunition can be equipped \
 	with all shorts of implements, such as explosives and even grappling hooks. Large guns are usually mounted on warships, serving as a complement to their traditional cannons. \
 	While smaller version are carried by sailors and fishermen."
 

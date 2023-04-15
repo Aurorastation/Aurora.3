@@ -2,10 +2,20 @@
 	name = "drill dropper"
 	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. This drill literally pierces the heavens."
 
-	drop_message = "Stand by for drillfall, ETA ten seconds, clear the targetted area."
+	drop_message = "Stand by for drillfall, ETA ten seconds, clear the targeted area."
 	drop_message_emagged = "St%n^ b* for dr$llfa#l, ETA t@n s*c%&ds, RUN."
 
 	map = new /datum/map_template/drill
+
+/obj/item/device/orbital_dropper/minecart
+	name = "minecart train dropper"
+	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. This one is configured to deliver an exoplanet-ready minecart train. Rails not included."
+
+	drop_message = "Stand by for trainfall, ETA ten seconds. Clear the targeted area."
+	drop_message_emagged = "St%n^ b* for tr$infa#l, ETA t@n s*c%&ds, CHOO CHOO!"
+
+	drop_amount = 1
+	map = new /datum/map_template/minecart
 
 /obj/item/device/orbital_dropper/mecha
 	name = "mecha dropper"
@@ -58,7 +68,7 @@
 	emagged = TRUE // to let people drop it in the station
 
 	drop_message_emagged = "NanoTrasen combat drones coming your way! Happy hunting!"
-	announcer_name = "NDV Icarus"
+	announcer_name = "SCCV Horizon Sensor Array"
 
 	map = null
 

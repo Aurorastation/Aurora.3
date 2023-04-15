@@ -1,5 +1,3 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
-
 datum/track
 	var/title
 	var/sound
@@ -8,36 +6,33 @@ datum/track/New(var/title_name, var/audio)
 	title = title_name
 	sound = audio
 
-/obj/machinery/media/jukebox/
-	name = "space jukebox"
+/obj/machinery/media/jukebox
+	name = "jukebox"
 	icon = 'icons/obj/jukebox.dmi'
 	icon_state = "jukebox-nopower"
 	var/state_base = "jukebox"
 	anchored = 0
 	density = 1
 	power_channel = EQUIP
-	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 100
 	clicksound = 'sound/machines/buttonbeep.ogg'
+	var/token = null
 
 	var/playing = 0
 
 	var/datum/track/current_track
 	var/list/datum/track/tracks = list(
-		new/datum/track("Beyond", 'sound/ambience/ambispace.ogg'),
+		new/datum/track("Beyond", 'sound/music/ambispace.ogg'),
 		new/datum/track("Clouds of Fire", 'sound/music/clouds.s3m'),
 		new/datum/track("D`Bert", 'sound/music/title2.ogg'),
-		new/datum/track("D`Fort", 'sound/ambience/song_game.ogg'),
+		new/datum/track("D`Fort", 'sound/music/song_game.ogg'),
 		new/datum/track("Floating", 'sound/music/main.ogg'),
 		new/datum/track("Endless Space", 'sound/music/space.ogg'),
-		new/datum/track("Part A", 'sound/misc/TestLoop1.ogg'),
 		new/datum/track("Scratch", 'sound/music/title1.ogg'),
-		new/datum/track("Trai`Tor", 'sound/music/traitor.ogg'),
-		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg'),
-		new/datum/track("Space Oddity", 'sound/music/space_oddity.ogg'),
-		new/datum/track("Space Asshole", 'sound/music/space_asshole.ogg'),
-		new/datum/track("Velvet Rose", 'sound/music/Velvet-Rose.ogg')
+		new/datum/track("Suspenseful", 'sound/music/traitor.ogg'),
+		new/datum/track("Thunderdome", 'sound/music/thunderdome.ogg'),
+		new/datum/track("Velvet Rose", 'sound/music/velvet_rose.ogg')
 	)
 
 
@@ -95,7 +90,7 @@ datum/track/New(var/title_name, var/audio)
 			for(var/mob/living/carbon/M in ohearers(6, src))
 				if(istype(M, /mob/living/carbon/human))
 					var/mob/living/carbon/human/H = M
-					if(H.protected_from_sound())
+					if(H.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 						continue
 				M.sleeping = 0
 				M.stuttering += 20
@@ -123,7 +118,7 @@ datum/track/New(var/title_name, var/audio)
 	ui_interact(user)
 
 /obj/machinery/media/jukebox/ui_interact(mob/user, ui_key = "jukebox", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/title = "RetroBox - Space Style"
+	var/title = "Music Player"
 	var/data[0]
 
 	if(!(stat & (NOPOWER|BROKEN)))
@@ -178,7 +173,7 @@ datum/track/New(var/title_name, var/audio)
 		playsound(src.loc, W.usesound, 50, 1)
 		power_change()
 		update_icon()
-		return
+		return TRUE
 	return ..()
 
 /obj/machinery/media/jukebox/emag_act(var/remaining_charges, var/mob/user)
@@ -190,14 +185,10 @@ datum/track/New(var/title_name, var/audio)
 		return 1
 
 /obj/machinery/media/jukebox/proc/StopPlaying()
-	var/area/main_area = get_area(src)
-	// Always kill the current sound
-	for(var/mob/living/M in mobs_in_area(main_area))
-		M << sound(null, channel = 1)
+	QDEL_NULL(token)
 
-		main_area.forced_ambience = null
 	playing = 0
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	update_icon()
 
 
@@ -206,14 +197,10 @@ datum/track/New(var/title_name, var/audio)
 	if(!current_track)
 		return
 
-	var/area/main_area = get_area(src)
-	main_area.forced_ambience = list(current_track.sound)
-	for(var/mob/living/M in mobs_in_area(main_area))
-		if(M.mind)
-			main_area.play_ambience(M)
+	token = sound_player.PlayLoopingSound(src, src, current_track.sound, 30, 7, 1, prefer_mute = TRUE, sound_type = ASFX_MUSIC)
 
 	playing = 1
-	update_use_power(2)
+	update_use_power(POWER_USE_ACTIVE)
 	update_icon()
 
 /obj/machinery/media/jukebox/phonograph
@@ -224,14 +211,66 @@ datum/track/New(var/title_name, var/audio)
 	state_base = "record"
 	anchored = 0
 	tracks = list(
-		new/datum/track("Boolean Sisters", 'sound/music/recordplayer/BooleanSisters.ogg'),
-		new/datum/track("Posin'", 'sound/music/recordplayer/Posin.ogg'),
-		new/datum/track("Jazz Instrumental", 'sound/music/recordplayer/JazzInstrumental.ogg'),
-		new/datum/track("Le Swing", 'sound/music/recordplayer/LeSwing.ogg'),
-		new/datum/track("Cosmorot", 'sound/music/recordplayer/Cosmorot.ogg')
+		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
+		new/datum/track("Electro Swing", 'sound/music/phonograph/electro_swing.ogg'),
+		new/datum/track("Jazz Instrumental", 'sound/music/phonograph/jazz_instrumental.ogg'),
+		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
+		new/datum/track("Posin'", 'sound/music/phonograph/posin.ogg')
 	)
 
 /obj/machinery/media/jukebox/phonograph/update_icon()
+	cut_overlays()
+	icon_state = state_base
+	if(playing)
+		add_overlay("[state_base]-running")
+
+/obj/machinery/media/jukebox/audioconsole
+	name = "audioconsole"
+	desc = "An Idris-designed jukebox for the 25th century. Unfortunately, someone made a mistake setting this one up. It isn't connected to the extranet and only plays the demo music it was pre-programmed with."
+	icon = 'icons/obj/audioconsole.dmi'
+	icon_state = "audioconsole-nopower"
+	state_base = "audioconsole"
+	anchored = FALSE
+	tracks = list(
+		new/datum/track("Butterflies", 'sound/music/audioconsole/Butterflies.ogg'),
+		new/datum/track("That Ain't Chopin", 'sound/music/audioconsole/ThatAintChopin.ogg'),
+		new/datum/track("Don't Rush", 'sound/music/audioconsole/DontRush.ogg'),
+		new/datum/track("Phoron Will Make Us Rich", 'sound/music/audioconsole/PhoronWillMakeUsRich.ogg'),
+		new/datum/track("Amsterdam", 'sound/music/audioconsole/Amsterdam.ogg'),
+		new/datum/track("When", 'sound/music/audioconsole/When.ogg'),
+		new/datum/track("Number 0", 'sound/music/audioconsole/Number0.ogg'),
+		new/datum/track("The Pianist", 'sound/music/audioconsole/ThePianist.ogg'),
+		new/datum/track("Lips", 'sound/music/audioconsole/Lips.ogg'),
+		new/datum/track("Childhood", 'sound/music/audioconsole/Childhood.ogg')
+	)
+
+/obj/machinery/media/jukebox/audioconsole/update_icon()
+	cut_overlays()
+	icon_state = state_base
+	if(playing)
+		add_overlay("[state_base]-running")
+
+/obj/machinery/media/jukebox/audioconsole/wall
+	icon = 'icons/obj/audioconsole_wall.dmi'
+	density = FALSE
+	anchored = TRUE
+
+/obj/machinery/media/jukebox/gramophone
+	name = "gramophone"
+	desc = "Play that vintage music!"
+	icon = 'icons/obj/jukebox.dmi'
+	icon_state = "gramophone"
+	state_base = "gramophone"
+	anchored = 0
+	tracks = list(
+		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
+		new/datum/track("Electro Swing", 'sound/music/phonograph/electro_swing.ogg'),
+		new/datum/track("Jazz Instrumental", 'sound/music/phonograph/jazz_instrumental.ogg'),
+		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
+		new/datum/track("Posin'", 'sound/music/phonograph/posin.ogg')
+	)
+
+/obj/machinery/media/jukebox/gramophone/update_icon()
 	cut_overlays()
 	icon_state = state_base
 	if(playing)

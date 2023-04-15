@@ -1,17 +1,16 @@
 /obj/structure/closet/athletic_mixed
 	name = "athletic wardrobe"
 	desc = "It's a storage unit for athletic wear."
-	icon_state = "mixed"
-	icon_closed = "mixed"
+	icon_door = "mixed"
 
 /obj/structure/closet/athletic_mixed/fill()
 	new /obj/item/towel/random(src)
 	new /obj/item/towel/random(src)
-	new /obj/item/clothing/under/shorts/grey(src)
-	new /obj/item/clothing/under/shorts/black(src)
-	new /obj/item/clothing/under/shorts/red(src)
-	new /obj/item/clothing/under/shorts/blue(src)
-	new /obj/item/clothing/under/shorts/green(src)
+	new /obj/item/clothing/under/shorts/athletic/grey(src)
+	new /obj/item/clothing/under/shorts/athletic/black(src)
+	new /obj/item/clothing/under/shorts/athletic/red(src)
+	new /obj/item/clothing/under/shorts/athletic/blue(src)
+	new /obj/item/clothing/under/shorts/athletic/green(src)
 	new /obj/item/clothing/under/swimsuit/red(src)
 	new /obj/item/clothing/under/swimsuit/black(src)
 	new /obj/item/clothing/under/swimsuit/blue(src)
@@ -22,8 +21,6 @@
 	new /obj/item/clothing/shoes/swimmingfins(src)
 	new /obj/item/clothing/shoes/swimmingfins(src)
 
-
-
 /obj/structure/closet/boxinggloves
 	name = "boxing gloves"
 	desc = "It's a storage unit for gloves for use in the boxing ring."
@@ -33,7 +30,6 @@
 	new /obj/item/clothing/gloves/boxing/green(src)
 	new /obj/item/clothing/gloves/boxing/yellow(src)
 	new /obj/item/clothing/gloves/boxing(src)
-
 
 /obj/structure/closet/masks
 	name = "mask closet"

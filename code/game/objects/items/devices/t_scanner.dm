@@ -3,7 +3,7 @@
 /obj/item/device/t_scanner
 	name = "\improper T-ray scanner"
 	desc = "A terahertz-ray emitter and scanner used to detect underfloor objects such as cables and pipes."
-	icon = 'icons/obj/contained_items/tools/t_scanner.dmi'
+	icon = 'icons/obj/item/tools/t_scanner.dmi'
 	icon_state = "t-ray0"
 	item_state = "t-ray"
 	contained_sprite = TRUE

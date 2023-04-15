@@ -1,21 +1,3 @@
-/obj/structure/signpost
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "signpost"
-	anchored = 1
-	density = 1
-
-	attackby(obj/item/W as obj, mob/user as mob)
-		return attack_hand(user)
-
-	attack_hand(mob/user as mob)
-		switch(alert("Travel back to ss13?",,"Yes","No"))
-			if("Yes")
-				if(user.z != src.z)	return
-				user.loc.loc.Exited(user) //what the fuck is this
-				user.forceMove(pick(latejoin))
-			if("No")
-				return
-
 /obj/effect/mark
 		var/mark = ""
 		icon = 'icons/misc/mark.dmi'
@@ -31,7 +13,7 @@
 	unacidable = 1//Just to be sure.
 	var/def_zone
 	flags = PROXMOVE
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 
 /var/list/acting_rank_prefixes = list("acting", "temporary", "interim", "provisional")
 
@@ -79,7 +61,7 @@
 /obj/structure/spaceship
 	name = "Abandoned Shuttle"
 	desc = "An ancient and inoperable shuttle-craft"
-	icon = 'icons/obj/machines/spaceship.dmi'
+	icon = 'icons/obj/machinery/spaceship.dmi'
 	anchored = 1
 	density = 1
 

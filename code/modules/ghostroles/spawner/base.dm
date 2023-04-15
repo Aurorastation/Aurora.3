@@ -22,8 +22,6 @@
 	var/count = 0 //How ofen has this spawner been used
 	var/req_perms = null //What permission flags are required to use this spawner
 	var/req_perms_edit = R_ADMIN
-	var/req_head_whitelist = FALSE //If a head of staff whitelist is required
-	var/req_species_whitelist = null //Name/Datum of the species whitelist that is required, or null
 	var/enabled = TRUE //If the spawnpoint is enabled
 	var/enable_chance = null //If set to a value other than null, has the set chance to become enabled
 	var/enable_dmessage = TRUE //The message to send to deadchat if the ghostspawner is enabled or TRUE for a default message
@@ -63,16 +61,9 @@
 	if(loc_type == GS_LOC_ATOM && !length(spawn_atoms))
 		return "No spawn atoms available"
 
-	if(req_head_whitelist && !check_whitelist(user))
-		return "Missing Head of Staff Whitelist"
-
 	var/ban_reason = jobban_isbanned(user,jobban_job)
 	if(jobban_job && ban_reason)
 		return "[ban_reason]"
-
-	if(req_species_whitelist)
-		if(!is_alien_whitelisted(user, req_species_whitelist))
-			return "Missing Species Whitelist"
 
 	if(observers_only && !isobserver(user))
 		return "Observers Only"
@@ -124,6 +115,9 @@
 		for(var/spawnpoint in spawnpoints) //Loop through the applicable spawnpoints
 			var/turf/T = SSghostroles.get_spawnpoint(spawnpoint, use) //Gets the first matching spawnpoint or null if none are available
 			if(T) //If we have a spawnpoint, return it
+				if(use)
+					spawnpoints -= spawnpoint //Set the spawnpoint at the bottom of the list.
+					spawnpoints += spawnpoint
 				return T
 	if(!isnull(landmark_name))
 		var/list/possible_landmarks = list()
@@ -173,6 +167,13 @@
 	if(welcome_message)
 		to_chat(user, SPAN_NOTICE(welcome_message))
 	universe.OnPlayerLatejoin(user)
+	if(current_map.use_overmap)
+		var/obj/effect/overmap/visitable/sector = map_sectors["[user.z]"]
+		if(sector?.invisible_until_ghostrole_spawn)
+			sector.x = sector.start_x
+			sector.y = sector.start_y
+			sector.z = current_map.overmap_z
+			sector.invisible_until_ghostrole_spawn = FALSE
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)
@@ -180,6 +181,10 @@
 	if(check_rights(req_perms_edit, show_msg=FALSE, user=user))
 		return TRUE
 	return FALSE
+
+//Proc to check if a specific user can jump to this spawner (ghosts should be able to)
+/datum/ghostspawner/proc/can_jump_to(mob/user)
+	return isobserver(user) && loc_type == GS_LOC_POS
 
 /datum/ghostspawner/proc/is_enabled()
 	if(loc_type == GS_LOC_ATOM)

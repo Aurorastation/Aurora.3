@@ -37,7 +37,7 @@ If this zlevel (or any of connected ones for multiz) doesn't have this object, y
 2. Put it anywhere on the ship/sector map. It will do the rest on its own during init.
 If your thing is multiz, only one is needed per multiz sector/ship.
 
-If it's player's main base (e.g Exodus), set 'base' var to 1, so it adds itself to station_levels list.
+If it's player's main base (e.g Aurora), set 'base' var to 1, so it adds itself to station_levels list.
 If this place cannot be reached or left with EVA, set 'in_space' var to 0
 If you want exploration shuttles (look below) to be able to dock here, set up waypoints lists.
 generic_waypoints is list of landmark_tags of waypoints any shttle should be able to visit.

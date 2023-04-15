@@ -371,10 +371,10 @@
 	ntnet_global.intrusion_detection_alarm = 1
 	ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting NTNet relays detected from @!*x&!#*ERS*")
 	//lower the dos capacity of the relay
-	for(var/obj/machinery/ntnet_relay/T in SSmachinery.processing_machines)
+	for(var/obj/machinery/ntnet_relay/T in SSmachinery.processing)
 		T.dos_capacity = 200
 	//And give all computers EMAGGED status so they can all have evil programs on them
-	for(var/obj/item/modular_computer/console/C in SSmachinery.processing_machines)
+	for(var/obj/item/modular_computer/console/C in SSmachinery.processing)
 		C.computer_emagged = 1
 		to_chat(user, "New hacked files available on all current computers hooked to NTNet.")
 	sleep(50) // give the AI some time to read they can download evil files
@@ -386,7 +386,8 @@
 		return
 	for(var/B in get_linked_cyborgs(src))
 		var/mob/living/silicon/robot/target = B
-		target.malf_AI_module = 1
+		target.malf_AI_module = TRUE
+		target.id_card.access = get_all_station_access() + access_equipment // Give full station access
 	to_chat(user, "The robotic transformation machine can now be built. To build get a robot to activate the construction module and use the RTF tool. Be careful, it needs to have empty space to the east and west of it and only one can be built!")
 	sleep(300) //Allows the AI to reset its borgs into combat units
 	to_chat(user, "Bypassing crisis module safeties.")

@@ -5,6 +5,8 @@
 	if (!check_rights(R_ADMIN))
 		return
 
+	if(!usr.loc) return
+
 	var/datum/gas_mixture/environment = usr.loc.return_air()
 	environment.gas[GAS_PHORON] = 0
 	environment.gas[GAS_NITROGEN] = 82.1472

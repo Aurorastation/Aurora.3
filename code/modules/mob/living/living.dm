@@ -10,29 +10,21 @@
 
 //mob verbs are faster than object verbs. See above.
 var/mob/living/next_point_time = 0
-/mob/living/pointed(atom/movable/A as mob|obj|turf in view())
-	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
-		return FALSE
-	if(src.stat || !src.canmove || src.restrained())
+/mob/living/pointed(atom/A as mob|obj|turf in view())
+	if(src.stat || src.restrained())
 		return FALSE
 	if(src.status_flags & FAKEDEATH)
 		return FALSE
-	if(next_point_time >= world.time)
-		return FALSE
 
-	next_point_time = world.time + 25
-	face_atom(A)
-	if(isturf(A))
-		if(pointing_effect)
-			QDEL_NULL(pointing_effect)
-		pointing_effect = new /obj/effect/decal/point(A)
-		pointing_effect.invisibility = invisibility
-		addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
-	else
-		A.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
-		addtimer(CALLBACK(A, /atom/movable.proc/remove_filter, "pointglow"), 2 SECONDS)
-	visible_message("<b>\The [src]</b> points to \the [A].")
-	return TRUE
+	. = ..()
+
+	if(.)
+		visible_message("<b>\The [src]</b> points to \the [A].")
+
+/mob/living/drop_from_inventory(var/obj/item/W, var/atom/target)
+	. = ..(W, target)
+	if(W && W.GetID())
+		BITSET(hud_updateflag, ID_HUD) //If we drop our ID, update ID HUD
 
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
@@ -94,8 +86,8 @@ default behaviour is:
 				return
 
 			if(can_swap_with(tmob)) // mutual brohugs all around!
-				var/turf/tmob_oldloc = tmob.loc
-				var/turf/src_oldloc = loc
+				var/turf/tmob_oldloc = get_turf(tmob)
+				var/turf/src_oldloc = get_turf(src)
 				if(pulling?.density)
 					tmob.forceMove(pulling.loc)
 					forceMove(tmob_oldloc)
@@ -129,8 +121,8 @@ default behaviour is:
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && (FAT in tmob.mutations))
-				if(prob(40) && !(FAT in src.mutations))
+			if(istype(tmob, /mob/living/carbon/human) && HAS_FLAG(tmob.mutations, FAT))
+				if(prob(40) && NOT_FLAG(mutations, FAT))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = FALSE
 					return
@@ -222,12 +214,9 @@ default behaviour is:
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 	else
-		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss() - getHalLoss()
-		//Removed Halloss from here. Halloss isn't supposed to count towards death
-
-
+		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
 
 //This proc is used for mobs which are affected by pressure to calculate the amount of pressure that actually
 //affects them once clothing is factored in. ~Errorage
@@ -237,22 +226,16 @@ default behaviour is:
 
 //sort of a legacy burn method for /electrocute, /shock
 /mob/living/proc/burn_skin(burn_amount)
-	if(istype(src, /mob/living/carbon/human))
-		if(mShock in src.mutations) //shockproof
-			return 0
-		if (COLD_RESISTANCE in src.mutations) //fireproof
-			return 0
-		var/mob/living/carbon/human/H = src	//make this damage method divide the damage to be done among all the body parts, then burn each body part for that much damage. will have better effect then just randomly picking a body part
-		var/divided_damage = (burn_amount)/(H.organs.len)
-		var/extradam = 0	//added to when organ is at max dam
-		for(var/obj/item/organ/external/affecting in H.organs)
-			if(!affecting)	continue
-			if(affecting.take_damage(0, divided_damage+extradam))	//TODO: fix the extradam stuff. Or, ebtter yet...rewrite this entire proc ~Carn
-				H.UpdateDamageIcon()
-		H.updatehealth()
-		return 1
-	else if(istype(src, /mob/living/silicon/ai))
-		return 0
+	take_overall_damage(0, burn_amount)
+	return TRUE
+
+/mob/living/carbon/human/burn_skin(burn_amount)
+	if(HAS_FLAG(mutations, mShock)) //shockproof
+		return FALSE
+	if(HAS_FLAG(mutations, COLD_RESISTANCE)) //fireproof
+		return FALSE
+	. = ..()
+	updatehealth()
 
 /mob/living/proc/adjustBodyTemp(actual, desired, incrementboost)
 	var/temperature = actual
@@ -314,6 +297,9 @@ default behaviour is:
 
 /mob/living/proc/getHalLoss()
 	return 0
+
+/mob/living/proc/get_shock()
+	return getHalLoss()
 
 /mob/living/proc/getCloneLoss()
 	return 0
@@ -511,7 +497,7 @@ default behaviour is:
 		timeofdeath = 0
 
 	// restore us to conciousness
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 
 	// make the icons look correct
 	regenerate_icons()
@@ -534,7 +520,7 @@ default behaviour is:
 		switch_from_dead_to_living_mob_list()
 		timeofdeath = 0
 
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 	regenerate_icons()
 
 	BITSET(hud_updateflag, HEALTH_HUD)
@@ -647,9 +633,9 @@ default behaviour is:
 											location.add_blood(M)
 											if(ishuman(M))
 												var/mob/living/carbon/human/H = M
-												var/total_blood = round(REAGENT_VOLUME(H.vessel, /decl/reagent/blood))
+												var/total_blood = round(REAGENT_VOLUME(H.vessel, /singleton/reagent/blood))
 												if(total_blood > 0)
-													H.vessel.remove_reagent(/decl/reagent/blood, 1)
+													H.vessel.remove_reagent(/singleton/reagent/blood, 1)
 
 
 						step(pulling, get_dir(pulling.loc, T))
@@ -913,6 +899,10 @@ default behaviour is:
 	to_chat(src, "<span class='notice'>Remember to stay in character for a mob of this type!</span>")
 	return 1
 
+/mob/living/Initialize()
+	. = ..()
+	add_to_target_grid()
+
 /mob/living/Destroy()
 	if(loc)
 		for(var/mob/M in contents)
@@ -921,6 +911,13 @@ default behaviour is:
 		for(var/mob/M in contents)
 			qdel(M)
 	QDEL_NULL(reagents)
+	clear_from_target_grid()
+
+	if(auras)
+		for(var/a in auras)
+			remove_aura(a)
+
+	QDEL_NULL(ability_master)
 
 	return ..()
 
@@ -946,9 +943,9 @@ default behaviour is:
 	if (!composition_reagent)//if no reagent has been set, then we'll set one
 		var/type = find_type(src)
 		if (type & TYPE_SYNTHETIC)
-			src.composition_reagent = /decl/reagent/iron
+			src.composition_reagent = /singleton/reagent/iron
 		else
-			src.composition_reagent = /decl/reagent/nutriment/protein
+			src.composition_reagent = /singleton/reagent/nutriment/protein
 
 	//if the mob is a simple animal with a defined meat quantity
 	if (istype(src, /mob/living/simple_animal))
@@ -969,7 +966,7 @@ default behaviour is:
 /mob/living/proc/seizure()
 	if(!paralysis && stat == CONSCIOUS)
 		visible_message("<span class='danger'>\The [src] starts having a seizure!</span>")
-		Paralyse(rand(8,16))
+		Paralyse(rand(16,24))
 		make_jittery(rand(150,200))
 		adjustHalLoss(rand(50,60))
 
@@ -1002,24 +999,8 @@ default behaviour is:
 		return FALSE
 	. = TRUE
 
-/mob/living/Destroy()
-	if(auras)
-		for(var/a in auras)
-			remove_aura(a)
-	return ..()
-
 /mob/living/proc/needs_wheelchair()
 	return FALSE
-
-//called when the mob receives a bright flash
-/mob/living/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
-	if(override_blindness_check || !(disabilities & BLIND))
-		..()
-		overlay_fullscreen("flash", type)
-		spawn(25)
-			if(src)
-				clear_fullscreen("flash", 25)
-		return 1
 
 /mob/living/verb/toggle_run_intent()
 	set hidden = 1
@@ -1039,3 +1020,6 @@ default behaviour is:
 
 /mob/living/proc/is_anti_materiel_vulnerable()
 	return FALSE
+
+/mob/living/get_speech_bubble_state_modifier()
+	return isSynthetic() ? "synth" : ..()

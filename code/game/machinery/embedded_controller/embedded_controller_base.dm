@@ -5,7 +5,6 @@
 	anchored = 1
 	layer = OBJ_LAYER
 
-	use_power = 1
 	idle_power_usage = 10
 	var/checks_for_access = FALSE
 
@@ -26,7 +25,7 @@ obj/machinery/embedded_controller/radio/Destroy()
 		program.receive_signal(signal, receive_method, receive_param)
 			//spawn(5) program.process() //no, program.process sends some signals and machines respond and we here again and we lag -rastaf0
 
-/obj/machinery/embedded_controller/machinery_process()
+/obj/machinery/embedded_controller/process()
 	if(program)
 		program.process()
 
@@ -85,7 +84,7 @@ obj/machinery/embedded_controller/radio/Destroy()
 /obj/machinery/embedded_controller/radio/post_signal(datum/signal/signal, var/filter = null)
 	signal.transmission_method = TRANSMISSION_RADIO
 	if(radio_connection)
-		//use_power(radio_power_use)	//neat idea, but causes way too much lag.
+		//use_power_oneoff(radio_power_use)	//neat idea, but causes way too much lag.
 		return radio_connection.post_signal(src, signal, filter)
 	else
 		qdel(signal)

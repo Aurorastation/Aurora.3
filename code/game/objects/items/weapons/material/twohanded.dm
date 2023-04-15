@@ -21,9 +21,8 @@
 	var/wielded = 0
 	var/force_wielded = 0
 	var/force_unwielded
-	var/wield_sound = /decl/sound_category/generic_wield_sound
+	var/wield_sound = /singleton/sound_category/generic_wield_sound
 	var/unwield_sound = null
-	var/base_icon
 	var/base_name
 	var/unwielded_force_divisor = 0.25
 	var/parry_chance = 15
@@ -34,8 +33,8 @@
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_twohanded.dmi'
 		)
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
-	equip_sound = /decl/sound_category/sword_equip_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /obj/item/material/twohanded/proc/wield()
@@ -93,7 +92,7 @@
 /obj/item/material/twohanded/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-		playsound(user.loc, /decl/sound_category/punchmiss_sound, 50, 1)
+		playsound(user.loc, /singleton/sound_category/punchmiss_sound, 50, 1)
 		return PROJECTILE_STOPPED
 	return FALSE
 
@@ -229,6 +228,9 @@
 		cleave(user, target)
 	..()
 
+/obj/item/material/twohanded/fireaxe/can_woodcut()
+	return TRUE
+
 //spears, bay edition
 /obj/item/material/twohanded/spear
 	icon_state = "spearglass0"
@@ -319,6 +321,9 @@
 /obj/item/material/twohanded/spear/diamond/Initialize(newloc, material_key)
 	. = ..(newloc, MATERIAL_DIAMOND)
 
+/obj/item/material/twohanded/spear/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
+
 /obj/structure/headspear
 	name = "head on a spear"
 	desc = "How barbaric."
@@ -353,7 +358,7 @@
 	applies_material_colour = FALSE
 	default_material = "steel"
 	parry_chance = 5
-	var/fuel_type = /decl/reagent/fuel
+	var/fuel_type = /singleton/reagent/fuel
 	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
 	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
 	var/fuel_cost = 1 // Multiplier for fuel cost.
@@ -371,6 +376,12 @@
 /obj/item/material/twohanded/chainsaw/fueled/Initialize()
 	. = ..()
 	reagents.add_reagent(fuel_type, max_fuel)
+
+/obj/item/material/twohanded/chainsaw/can_woodcut()
+	if(powered)
+		return TRUE
+	else
+		return ..()
 
 /obj/item/material/twohanded/chainsaw/op //For events or whatever
 	opendelay = 5
@@ -446,8 +457,9 @@
 		playsound(loc, 'sound/weapons/saw/chainsawloop2.ogg', 25, 0, 30)
 		if(prob(75))
 			spark(src, 3, alldirs)
-			if(prob(25))
-				eyecheck(2,loc)
+			if(prob(25) && isliving(loc))
+				if(loc.flash_act())
+					to_chat(loc, SPAN_DANGER("Some stray sparks fly into your eyes!"))
 	else
 		playsound(loc, 'sound/weapons/saw/chainsawloop1.ogg', 25, 0, 30)
 
@@ -480,26 +492,12 @@
 			RemoveFuel(3)
 	. = ..()
 
-/obj/item/material/twohanded/chainsaw/proc/eyecheck(var/multiplier, mob/living/carbon/human/H as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
-
-	if (!istype(H) || H.status_flags & GODMODE)
-		return
-
-	var/obj/item/organ/internal/eyes/E = H.get_eyes()
-	if(!istype(E))
-		return
-
-	var/eye_damage = max(0, (2 - H.eyecheck())*multiplier )
-	E.damage += eye_damage
-	if(eye_damage > 0)
-		to_chat(H, "<span class='danger'>Some stray sparks fly in your eyes!</span>")
-
 /obj/item/material/twohanded/chainsaw/AltClick(mob/user)
 	if(powered)
 		PowerDown(user)
 	else if(!wielded)
 		to_chat(user, SPAN_WARNING("You need to hold this with two hands to turn this on."))
-	else if(REAGENT_VOLUME(reagents, /decl/reagent/fuel) <= 0)
+	else if(REAGENT_VOLUME(reagents, /singleton/reagent/fuel) <= 0)
 		user.visible_message(SPAN_WARNING("[user] pulls the cord on \the [src], but nothing happens."), SPAN_WARNING("You pull the cord on \the [src], but nothing happens."), SPAN_NOTICE("You hear a cord being pulled."))
 	else
 		var/max = rand(3,6)
@@ -558,6 +556,12 @@
 	sharp = 1
 	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed")
 
+/obj/item/material/twohanded/pike/halberd/can_woodcut()
+	if(wielded)
+		return TRUE
+	else
+		return ..()
+
 /obj/item/material/twohanded/pike/pitchfork
 	icon_state = "pitchfork0"
 	base_icon = "pitchfork"
@@ -611,12 +615,15 @@
 	name = "izweski hegemony flag"
 	desc = "For the Hegemon!"
 	desc_info = "This is a flagpole with an energy axe attached to it. Sheer strength and stubborness overcomes the unwieldiness."
-	desc_fluff = "\"Honor, Fire, Burn thy Fear\" - the famous motto of the Izweski, the clan that leads the largest nation of Unathi."
+	desc_extended = "\"Honor, Fire, Burn thy Fear\" - the famous motto of the Izweski, the clan that leads the largest nation of Unathi."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "flag_hegemony0"
 	base_icon = "flag_hegemony"
 	contained_sprite = TRUE
-	damtype = BURN
+	damtype = DAMAGE_BURN
+
+/obj/item/material/twohanded/pike/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
 
 /obj/item/material/twohanded/zweihander
 	icon_state = "zweihander0"

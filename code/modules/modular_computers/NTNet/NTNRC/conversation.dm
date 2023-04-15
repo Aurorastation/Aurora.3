@@ -44,7 +44,7 @@ var/global/ntnrc_uid = 0
 	
 	if(update_ui)
 		for(var/datum/ntnet_user/U in users)
-			for(var/datum/computer_file/program/chat_client/Cl)
+			for(var/datum/computer_file/program/chat_client/Cl in U.clients)
 				SSvueui.check_uis_for_change(Cl)
 
 /datum/ntnet_conversation/proc/trim_message_list()

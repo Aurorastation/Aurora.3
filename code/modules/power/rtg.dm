@@ -8,7 +8,7 @@
 	icon_state = "rtg"
 	density = TRUE
 	anchored = TRUE
-	use_power = 0
+	use_power = POWER_USE_OFF
 
 	// You can buckle someone to RTG, then open its panel. Fun stuff.
 	can_buckle = list(/mob/living)
@@ -30,12 +30,12 @@
 	. = ..()
 	connect_to_network()
 
-/obj/machinery/power/rtg/machinery_process()
+/obj/machinery/power/rtg/process()
 	..()
 	add_avail(power_gen)
 	if(panel_open && irradiate)
 		for (var/mob/living/L in range(2, src))
-			L.apply_damage(10, IRRADIATE, damage_flags = DAM_DISPERSED)	// Weak but noticeable.
+			L.apply_damage(10, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)	// Weak but noticeable.
 
 /obj/machinery/power/rtg/update_icon()
 	icon_state = panel_open ? "[initial(icon_state)]-open" : initial(icon_state)

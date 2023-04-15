@@ -11,6 +11,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	icon_state = "newscaster"
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/isbroken = 0  //1 if someone banged it with something heavy
 	var/ispowered = 1 //starts powered, changes with power_change()
 	//var/list/datum/feed_channel/channel_list = list() //This list will contain the names of the feed channels. Each name will refer to a data region where the messages of the feed channels are stored.
@@ -122,7 +123,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		src.ispowered = 1
 		src.update_icon()
 	else
-		addtimer(CALLBACK(src, .proc/post_power_loss), rand(1, 15))
+		addtimer(CALLBACK(src, PROC_REF(post_power_loss)), rand(1, 15))
 
 /obj/machinery/newscaster/proc/post_power_loss()
 	ispowered = 0
@@ -166,10 +167,13 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 		src.scan_user(human_or_robot_user) //Newscaster scans you
 
+		if(isNotStationLevel(z))
+			screen = 24 // No network connectivity
+
 		switch(screen)
 			if(0)
-				dat += "Welcome to Newscasting Unit #[src.unit_no].<BR> Interface & News networks Operational."
-				dat += "<BR><FONT SIZE=1>Property of Nanotransen Inc</font>"
+				dat += "Welcome to Newscasting Unit #[src.unit_no]<BR> Interface & News Networks: Operational"
+				dat += "<BR><FONT SIZE=1>Property of NanoTrasen</font>"
 				if(SSnews.wanted_issue)
 					dat+= "<HR><A href='?src=\ref[src];view_wanted=1'>Read Wanted Issue</A>"
 				dat+= "<HR><BR><A href='?src=\ref[src];create_channel=1'>Create Feed Channel</A>"
@@ -419,6 +423,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					for(var/datum/feed_comment/COMMENT in src.viewing_message.comments)
 						dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='?src=\ref[src];censor_comment=1;comment=\ref[COMMENT]>Censor Comment</A></BLOCKQUOTE>"
 				dat+="<A href='?src=\ref[src];setScreen=[9]'>Return</A>"
+			if(24) //newscaster is not connected to the station-z-level
+				dat += "<B>ERROR: Newscaster unit cannot access main news server!</B></BR>"
+				dat += "<BR><A href='?src=\ref[src];setScreen=[0]'>ATTEMPT RESET</A>"
 
 		send_theme_resources(human_or_robot_user)
 		human_or_robot_user << browse(enable_ui_theme(human_or_robot_user, dat), "window=newscaster_main;size=600x900")
@@ -514,6 +521,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			comment.posted = "[worldtime2text()]"
 			viewing_story.comments += comment
 			to_chat(usr, "Comment successfully added!")
+			src.viewing_message = viewing_story
 			src.screen = 22
 			src.updateUsrDialog()
 
@@ -752,7 +760,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] smashes the [src.name]!" )
 					src.isbroken=1
-					playsound(src.loc, /decl/sound_category/glass_break_sound, 100, 1)
+					playsound(src.loc, /singleton/sound_category/glass_break_sound, 100, 1)
 				else
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] forcefully slams the [src.name] with the [I.name]!" )
@@ -844,7 +852,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		switch(screen)
 			if(0) //Cover
 				dat+="<DIV ALIGN='center'><B><FONT SIZE=6>The Griffon</font></B></div>"
-				dat+="<DIV ALIGN='center'><FONT SIZE=2>[current_map.company_name]-standard newspaper, for use on [current_map.company_name]� Space Facilities</font></div><HR>"
+				dat+="<DIV ALIGN='center'><FONT SIZE=2>[current_map.company_name]-standard newspaper, for use on [current_map.company_name] Vessels.</font></div><HR>"
 				if(isemptylist(src.news_content))
 					if(src.important_message)
 						dat+="Contents:<BR><ul><B><span class='warning'>**</span>Important Security Announcement<span class='warning'>**</span></B> <FONT SIZE=2>\[page [src.pages+2]\]</font><BR></ul>"
@@ -931,7 +939,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				if(curr_page == 0) //We're at the start, get to the middle
 					src.screen=1
 			src.curr_page++
-			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 
 		else if(href_list["prev_page"])
 			if(curr_page == 0)
@@ -943,7 +951,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				if(curr_page == src.pages+1) //we're at the end, let's go back to the middle.
 					src.screen = 1
 			src.curr_page--
-			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 
 		if (istype(src.loc, /mob))
 			src.attack_self(src.loc)
@@ -967,7 +975,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			src.scribble_page = src.curr_page
 			src.scribble = s
 			src.attack_self(user)
-		return
+		return TRUE
 
 /obj/item/newspaper/proc/rolled(mob/user)
 	if(ishuman(user) && Adjacent(user) && !user.incapacitated())
@@ -1011,6 +1019,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	return
 
 /obj/machinery/newscaster/proc/newsAlert(var/news_call)
+	if (isNotStationLevel(z))
+		clearAlert()
+		return
 	var/turf/T = get_turf(src)
 	if(news_call)
 		for(var/mob/O in hearers(world.view-1, T))
@@ -1019,7 +1030,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		if (!alert)
 			alert = 1
 			update_icon()
-			addtimer(CALLBACK(src, .proc/clearAlert), 300, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, PROC_REF(clearAlert)), 300, TIMER_UNIQUE)
 
 		playsound(src.loc, 'sound/machines/twobeep.ogg', 75, 1)
 	else

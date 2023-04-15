@@ -13,8 +13,8 @@
 	if (W.iswrench())
 		new refund_type( get_turf(src.loc), refund_amt)
 		qdel(src)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/frame/proc/try_build(turf/on_wall, mob/user)
 	if(!build_machine_type)

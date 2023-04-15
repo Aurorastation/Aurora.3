@@ -36,12 +36,12 @@
 
 /datum/ship_engine/gas_thruster/toggle()
 	if(nozzle.use_power)
-		nozzle.update_use_power(0)
+		nozzle.update_use_power(POWER_USE_OFF)
 	else
 		if(nozzle.blockage)
 			if(nozzle.check_blockage())
 				return
-		nozzle.update_use_power(1)
+		nozzle.update_use_power(POWER_USE_IDLE)
 		if(nozzle.stat & NOPOWER)//try again
 			nozzle.power_change()
 		if(nozzle.is_on())//if everything is in working order, start booting!
@@ -58,10 +58,11 @@
 	icon = 'icons/obj/ship_engine.dmi'
 	icon_state = "nozzle"
 	opacity = 1
-	density = 1
+	density = TRUE
 	atmos_canpass = CANPASS_NEVER
+	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
 
-	use_power = 0
+	use_power = POWER_USE_OFF
 	power_channel = EQUIP
 	idle_power_usage = 21600 //6 Wh per tick for default 2 capacitor. Gives them a reason to turn it off, really to nerf backup battery
 
@@ -72,6 +73,19 @@
 	var/boot_time = 35
 	var/next_on
 	var/blockage
+	var/exhaust_offset = 1 // for engines that are longer
+	var/exhaust_width = 1 //for engines that are wider
+
+/obj/machinery/atmospherics/unary/engine/scc_ship_engine
+	name = "ship thruster"
+	icon = 'icons/atmos/scc_ship_engine.dmi'
+	icon_state = "engine_0"
+	opacity = FALSE
+	pixel_x = -64
+	exhaust_offset = 3
+
+/obj/machinery/atmospherics/unary/engine/scc_ship_engine/check_blockage()
+	return 0
 
 /obj/machinery/atmospherics/unary/engine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	return 0
@@ -110,6 +124,11 @@
 	update_nearby_tiles()
 	. = ..()
 
+/obj/machinery/atmospherics/unary/engine/update_icon()
+	overlays.Cut()
+	if(is_on())
+		overlays += "nozzle_idle"
+
 /obj/machinery/atmospherics/unary/engine/proc/get_status()
 	. = list()
 	.+= "Location: [get_area(src)]."
@@ -130,7 +149,11 @@
 /obj/machinery/atmospherics/unary/engine/power_change()
 	. = ..()
 	if(stat & NOPOWER)
-		update_use_power(0)
+		update_use_power(POWER_USE_OFF)
+
+/obj/machinery/atmospherics/unary/engine/update_use_power()
+	. = ..()
+	update_icon()
 
 /obj/machinery/atmospherics/unary/engine/proc/is_on()
 	return use_power && operable() && (next_on < world.time)
@@ -148,7 +171,9 @@
 /obj/machinery/atmospherics/unary/engine/proc/check_blockage()
 	blockage = FALSE
 	var/exhaust_dir = reverse_direction(dir)
-	var/turf/A = get_step(src, exhaust_dir)
+	var/turf/A = get_turf(src)
+	for(var/i in 1 to exhaust_offset)
+		A = get_step(A, exhaust_dir)
 	var/turf/B = A
 	while(isturf(A) && !(isspace(A) || isopenspace(A)))
 		if((B.c_airblock(A)) & AIR_BLOCKED)
@@ -161,9 +186,9 @@
 /obj/machinery/atmospherics/unary/engine/proc/burn()
 	if(!is_on())
 		return 0
-	if(!check_fuel() || (0 < use_power(charge_per_burn)) || check_blockage())
+	if(!check_fuel() || (0 < use_power_oneoff(charge_per_burn)) || check_blockage())
 		audible_message(src,"<span class='warning'>[src] coughs once and goes silent!</span>")
-		update_use_power(0)
+		update_use_power(POWER_USE_OFF)
 		return 0
 
 	var/datum/gas_mixture/removed = air_contents.remove_ratio(volume_per_burn * thrust_limit / air_contents.volume)
@@ -175,10 +200,12 @@
 		network.update = 1
 
 	var/exhaust_dir = reverse_direction(dir)
-	var/turf/T = get_step(src,exhaust_dir)
+	var/turf/T = get_turf(src)
+	for(var/i in 1 to exhaust_offset)
+		T = get_step(T, exhaust_dir)
 	if(T)
 		T.assume_air(removed)
-		new/obj/effect/engine_exhaust(T, exhaust_dir, air_contents.check_combustability() && air_contents.temperature >= PHORON_MINIMUM_BURN_TEMPERATURE)
+		new/obj/effect/engine_exhaust(T, dir, air_contents.check_combustability() && air_contents.temperature >= PHORON_MINIMUM_BURN_TEMPERATURE)
 
 /obj/machinery/atmospherics/unary/engine/proc/calculate_thrust(datum/gas_mixture/propellant, used_part = 1)
 	return round(sqrt(propellant.get_mass() * used_part * sqrt(air_contents.return_pressure()/200)),0.1)
@@ -186,9 +213,9 @@
 //Exhaust effect
 /obj/effect/engine_exhaust
 	name = "engine exhaust"
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "smoke"
-	light_color = "#ed9200"
+	icon = 'icons/obj/ship_engine.dmi'
+	icon_state = "nozzle_burn"
+	light_color = "#00a2ff"
 	anchored = 1
 
 /obj/effect/engine_exhaust/New(var/turf/nloc, var/ndir, var/flame)

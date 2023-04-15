@@ -18,12 +18,14 @@
 	else if(req_one_access)
 		log_debug("\The [src] given an unepxected req_one_access: [req_one_access]")
 
+	var/datum/computer_file/program/H = host
+	var/obj/computer = H.computer
 	if(monitored_alarm_ids)
-		for(var/obj/machinery/alarm/alarm in SSmachinery.processing_machines)
-			if(alarm.alarm_id && (alarm.alarm_id in monitored_alarm_ids))
+		for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
+			if(alarm.alarm_id && (alarm.alarm_id in monitored_alarm_ids) && AreConnectedZLevels(computer.z, alarm.z))
 				monitored_alarms += alarm
 		// machines may not yet be ordered at this point
-		sortTim(monitored_alarms, /proc/cmp_alarm, FALSE)
+		sortTim(monitored_alarms, GLOBAL_PROC_REF(cmp_alarm), FALSE)
 
 /datum/nano_module/atmos_control/Topic(href, href_list)
 	if(..())
@@ -31,7 +33,7 @@
 
 	if(href_list["alarm"])
 		if(ui_ref)
-			var/obj/machinery/alarm/alarm = locate(href_list["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing_machines)
+			var/obj/machinery/alarm/alarm = locate(href_list["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
 			if(alarm)
 				var/datum/topic_state/TS = generate_state(alarm)
 				alarm.ui_interact(usr, master_ui = ui_ref, state = TS)
@@ -42,7 +44,7 @@
 	var/alarms[0]
 
 	// TODO: Move these to a cache, similar to cameras
-	for(var/obj/machinery/alarm/alarm in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing_machines))
+	for(var/obj/machinery/alarm/alarm in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing))
 		alarms[++alarms.len] = list("name" = sanitize(alarm.name), "ref"= "\ref[alarm]", "danger" = max(alarm.danger_level, alarm.alarm_area.atmosalm))
 	data["alarms"] = alarms
 

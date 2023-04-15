@@ -432,7 +432,7 @@ datum/objective/steal
 		"a chief engineer's jumpsuit" = /obj/item/clothing/under/rank/chief_engineer,
 		"a chief medical officer's jumpsuit" = /obj/item/clothing/under/rank/chief_medical_officer,
 		"a head of security's jumpsuit" = /obj/item/clothing/under/rank/head_of_security,
-		"a head of personnel's jumpsuit" = /obj/item/clothing/under/rank/head_of_personnel,
+		"a executive officer's jumpsuit" = /obj/item/clothing/under/rank/xo,
 		"the hypospray" = /obj/item/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/carrier/ablative
@@ -578,13 +578,6 @@ datum/objective/capture
 				continue
 			captured_amount += worth
 
-		for(var/mob/living/carbon/alien/larva/M in A)//Larva are important for research.
-			if(M.stat==2)
-				captured_amount+=0.5
-				continue
-			captured_amount+=1
-
-
 		if(captured_amount<target_amount)
 			return 0
 		return 1
@@ -622,7 +615,7 @@ datum/objective/heist
 
 datum/objective/heist/kidnap
 	choose_target()
-		var/list/roles = list("Chief Engineer","Research Director","Roboticist","Pharmacist","Station Engineer")
+		var/list/roles = list("Chief Engineer","Research Director","Machinist","Pharmacist","Engineer")
 		var/list/possible_targets = list()
 		var/list/priority_targets = list()
 
@@ -840,7 +833,7 @@ datum/objective/heist/salvage
 	explanation_text = "Summon Nar-Sie via the use of the appropriate rune (Hell join self). It will only work if nine cultists stand on and around it. The convert rune is join blood self."
 
 /datum/objective/cult/eldergod/check_completion()
-	return (locate(/obj/singularity/narsie/large) in SSmachinery.all_machines)
+	return (locate(/obj/singularity/narsie/large) in SSmachinery.machinery)
 
 /datum/objective/cult/sacrifice
 	explanation_text = "Conduct a ritual sacrifice for the glory of Nar-Sie."

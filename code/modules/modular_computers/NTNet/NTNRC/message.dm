@@ -37,7 +37,7 @@
 
 /datum/ntnet_message/message/format_chat_log(var/datum/ntnet_conversation/Conv)
     . = "[worldtime2text()] [nuser.username]: [message]"
-    
+
 /datum/ntnet_message/message/format_admin_log(var/datum/ntnet_conversation/Conv)
     . = message
 
@@ -45,7 +45,7 @@
     . = "[sanitize(Conv.get_title())] [nuser.username]: [sanitize(message)]"
 
 
-   
+
 /datum/ntnet_message/join/format_chat_notification(var/datum/ntnet_conversation/Conv, var/datum/computer_file/program/chat_client/Cl)
     . = FONT_SMALL("<b>([sanitize(Conv.get_title(Cl))]) <i>[nuser.username]</i> has entered the chat.</b>")
 

@@ -15,55 +15,7 @@
 	)
 
 /turf/simulated/wall/shuttle/Initialize(mapload)
-	. = ..(mapload,"shuttle")
-
-/turf/simulated/wall/shuttle/attackby(obj/item/W as obj, mob/user as mob)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if (!user)
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
-
-	if(!istype(user.loc, /turf))
-		return
-
-	if(locate(/obj/effect/overlay/wallrot) in src)
-		if(W.iswelder() )
-			var/obj/item/weldingtool/WT = W
-			if( WT.remove_fuel(0,user) )
-				to_chat(user, "<span class='notice'>You burn away the fungi with \the [WT].</span>")
-				playsound(src, 'sound/items/welder.ogg', 10, 1)
-				for(var/obj/effect/overlay/wallrot/WR in src)
-					qdel(WR)
-				return
-		else if(!is_sharp(W) && W.force >= 10 || W.force >= 20)
-			to_chat(user, "<span class='notice'>\The [src] crumbles away under the force of your [W.name].</span>")
-			src.dismantle_wall(1)
-			return
-
-	if(thermite)
-		if(W.iswelder() )
-			var/obj/item/weldingtool/WT = W
-			if( WT.remove_fuel(0,user) )
-				thermitemelt(user)
-				return
-
-		else if(istype(W, /obj/item/gun/energy/plasmacutter))
-			thermitemelt(user)
-			return
-
-		else if( istype(W, /obj/item/melee/energy/blade) )
-			var/obj/item/melee/energy/blade/EB = W
-
-			spark(EB, 5)
-			to_chat(user, "<span class='notice'>You slash \the [src] with \the [EB]; the thermite ignites!</span>")
-			playsound(src, /decl/sound_category/spark_sound, 50, 1)
-			playsound(src, 'sound/weapons/blade.ogg', 50, 1)
-
-			thermitemelt(user)
-			return
-
-	if(!istype(W, /obj/item/reagent_containers))
-		return attack_hand(user)
+	. = ..(mapload, "shuttle", "shuttle")
 
 /turf/simulated/wall/shuttle/cardinal
 	smooth = SMOOTH_TRUE
@@ -73,8 +25,25 @@
 	canSmoothWith = null
 
 /turf/simulated/wall/shuttle/dark/cardinal
-	smooth = SMOOTH_TRUE
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle/dark,
+		/obj/structure/shuttle_part/dark
+	)
+
+/turf/simulated/wall/shuttle/dark/long_diagonal_2
+	name = "test diagonal"
+	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
+	icon_state = "d2-we-1"
+	use_set_icon_state = TRUE
+	smooth = null
 	canSmoothWith = null
+
+/obj/structure/shuttle_part/dark
+	name = "spaceship alloy wall"
+	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
+	icon_state = "d2-we-1"
+	outside_part = FALSE
 
 /turf/simulated/wall/shuttle/dark/corner
 	icon = 'icons/turf/shuttle.dmi'
@@ -107,7 +76,8 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
-		/turf/simulated/wall/shuttle/scc_space_ship
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/obj/structure/window/shuttle/scc_space_ship
 	)
 
 /obj/structure/shuttle_part/scc_space_ship
@@ -153,7 +123,7 @@
 		/turf/unsimulated/wall/fakeairlock
 	)
 
-/turf/simulated/wall/shuttle/Initialize(mapload)
+/turf/simulated/wall/shuttle/skrell/Initialize(mapload)
 	. = ..(mapload,"skrell")
 
 /turf/simulated/wall/shuttle/skrell/cardinal
@@ -171,6 +141,26 @@
 
 /turf/simulated/wall/shuttle/scc/cardinal
 	smooth = SMOOTH_MORE
+
+//Corporate shuttle and ship walls//
+/turf/simulated/wall/shuttle/idris
+	icon = 'icons/turf/smooth/idris_ship.dmi'
+
+/turf/simulated/wall/shuttle/idris/cardinal
+	smooth = SMOOTH_MORE
+
+/turf/simulated/wall/shuttle/space_ship
+	icon = 'icons/turf/smooth/generic_shuttle.dmi'
+
+/turf/simulated/wall/shuttle/space_ship/cardinal
+	smooth = SMOOTH_MORE
+
+/turf/simulated/wall/shuttle/space_ship/mercenary
+	color = "#5b5b5b"
+
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal
+	smooth = SMOOTH_MORE
+	color = "#5b5b5b"
 
 //--Unique Shuttles--//
 
@@ -190,6 +180,7 @@
 	density = TRUE
 	var/outside_part = TRUE
 	atmos_canpass = CANPASS_DENSITY
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED|OBJ_FLAG_NOFALL
 
 /obj/structure/shuttle_part/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(density)
@@ -435,62 +426,74 @@
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "floor"
 	permit_ao = 0
-	initial_flooring = /decl/flooring/shuttle
-	footstep_sound = /decl/sound_category/plating_footstep
+	initial_flooring = /singleton/flooring/shuttle
+	footstep_sound = /singleton/sound_category/plating_footstep
 
 /turf/simulated/floor/shuttle/yellow
 	icon_state = "floor2"
-	initial_flooring = /decl/flooring/shuttle/yellow
+	initial_flooring = /singleton/flooring/shuttle/yellow
 
 /turf/simulated/floor/shuttle/white
 	icon_state = "floor3"
-	initial_flooring = /decl/flooring/shuttle/white
+	initial_flooring = /singleton/flooring/shuttle/white
 
 /turf/simulated/floor/shuttle/red
 	icon_state = "floor4"
-	initial_flooring = /decl/flooring/shuttle/red
+	initial_flooring = /singleton/flooring/shuttle/red
 
 /turf/simulated/floor/shuttle/dark_red
 	icon_state = "floor6"
-	initial_flooring = /decl/flooring/shuttle/dark_red
+	initial_flooring = /singleton/flooring/shuttle/dark_red
 
 /turf/simulated/floor/shuttle/black
 	icon_state = "floor7"
-	initial_flooring = /decl/flooring/shuttle/black
+	initial_flooring = /singleton/flooring/shuttle/black
 
 /turf/simulated/floor/shuttle/tan
 	icon_state = "floor8"
-	initial_flooring = /decl/flooring/shuttle/tan
+	initial_flooring = /singleton/flooring/shuttle/tan
 
 /turf/simulated/floor/shuttle/dark_blue
 	icon_state = "floor9"
-	initial_flooring = /decl/flooring/shuttle/dark_blue
+	initial_flooring = /singleton/flooring/shuttle/dark_blue
+
+/turf/simulated/floor/shuttle/dark_blue/airless
+	oxygen = 0
+	nitrogen = 0
 
 /turf/simulated/floor/shuttle/advanced
 	icon_state = "advanced_plating"
-	initial_flooring = /decl/flooring/shuttle/advanced
+	initial_flooring = /singleton/flooring/shuttle/advanced
 
 /turf/simulated/floor/shuttle/advanced/alt
 	icon_state = "advanced_plating_alt"
-	initial_flooring = /decl/flooring/shuttle/advanced/alt
+	initial_flooring = /singleton/flooring/shuttle/advanced/alt
 
 /turf/simulated/floor/shuttle/skrell
 	icon_state = "skrell_purple"
-	initial_flooring = /decl/flooring/shuttle/skrell
-	footstep_sound = /decl/sound_category/sand_footstep
+	initial_flooring = /singleton/flooring/shuttle/skrell
+	footstep_sound = /singleton/sound_category/sand_footstep
+
+/turf/simulated/floor/shuttle/skrell/airless
+	oxygen = 0
+	nitrogen = 0
 
 /turf/simulated/floor/shuttle/skrell/blue
 	icon_state = "skrell_blue"
-	initial_flooring = /decl/flooring/shuttle/skrell/blue
+	initial_flooring = /singleton/flooring/shuttle/skrell/blue
+
+/turf/simulated/floor/shuttle/skrell/blue/airless
+	oxygen = 0
+	nitrogen = 0
 
 /turf/simulated/floor/shuttle/skrell/ramp
 	name = "footramp"
 	icon_state = "skrellramp-bottom"
-	initial_flooring = /decl/flooring/shuttle/skrell/ramp
+	initial_flooring = /singleton/flooring/shuttle/skrell/ramp
 
 /turf/simulated/floor/shuttle/skrell/ramp/top
 	icon_state = "skrellramp-top"
-	initial_flooring = /decl/flooring/shuttle/skrell/ramp/top
+	initial_flooring = /singleton/flooring/shuttle/skrell/ramp/top
 
 //--Roofs--//
 

@@ -10,10 +10,11 @@
 /obj/machinery/turretid
 	name = "turret control panel"
 	desc = "Used to control a room's automated defenses."
-	icon = 'icons/obj/machines/turret_control.dmi'
+	icon = 'icons/obj/machinery/turret_control.dmi'
 	icon_state = "control_standby"
 	anchored = 1
 	density = 0
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/enabled = 0
 	var/lethal = 0
 	var/locked = 1
@@ -63,7 +64,7 @@
 			A.turret_controls += src
 		else
 			control_area = null
-
+	updateTurrets()
 	if (!mapload)
 		power_change() //Checks power and initial settings
 		turretModes()
@@ -103,7 +104,7 @@
 			else
 				locked = !locked
 				to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the panel.</span>")
-		return
+		return TRUE
 	return ..()
 
 /obj/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
@@ -201,7 +202,6 @@
 			else if(href_list["command"] == "check_wildlife")
 				check_wildlife = value
 			updateTurrets()
-			update_icon()
 			SSvueui.check_uis_for_change(src)
 	else if(href_list["turret_ref"])
 		var/obj/machinery/porta_turret/aTurret = locate(href_list["turret_ref"]) in (control_area.turrets)
@@ -209,7 +209,6 @@
 			return
 		. = aTurret.Topic(href, href_list)
 		SSvueui.check_uis_for_change(src)
-		update_icon()
 
 /obj/machinery/turretid/proc/updateTurrets()
 	var/datum/turret_checks/TC = getState()
@@ -221,6 +220,8 @@
 			else
 				TC.enabled = 0
 				aTurret.setState(TC)
+
+	queue_icon_update()
 
 /obj/machinery/turretid/proc/getState()
 	var/datum/turret_checks/TC = new
@@ -256,12 +257,10 @@
 		var/obj/machinery/porta_turret/aTurret = control_area.turrets[1]
 		lethal = aTurret.lethal
 		updateTurrets()
-	update_icon()
 
 /obj/machinery/turretid/power_change()
 	..()
 	updateTurrets()
-	update_icon()
 
 /obj/machinery/turretid/update_icon()
 	..()

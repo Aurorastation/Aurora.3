@@ -52,11 +52,11 @@
 
 	var/turf/start = get_turf(src)
 	if(!start.CanZPass(src, direction))
-		to_chat(src, SPAN_WARNING("\The [start] is in the way."))
+		to_chat(src, SPAN_WARNING("\The [start.GetZPassBlocker()] is in the way."))
 		return FALSE
 
 	if(!destination.CanZPass(src, direction))
-		to_chat(src, SPAN_WARNING("\The [destination] is in the way!"))
+		to_chat(src, SPAN_WARNING("\The [destination.GetZPassBlocker()] is in the way!"))
 		return FALSE
 
 	var/area/area = get_area(src)
@@ -199,7 +199,7 @@
 	if(prob(climb_chance))
 		will_succeed = TRUE
 
-	if(do_after(src, climb_speed, extra_checks  = CALLBACK(src, .proc/climb_check, will_succeed, climb_chance, climb_speed, direction, destination)))
+	if(do_after(src, climb_speed, extra_checks  = CALLBACK(src, PROC_REF(climb_check), will_succeed, climb_chance, climb_speed, direction, destination)))
 		if(will_succeed)
 			visible_message(SPAN_NOTICE("\The [src] climbs [(direction == UP) ? "upwards" : "downwards"]."),
 				SPAN_NOTICE("You climb [(direction == UP) ? "upwards" : "downwards"]."))
@@ -455,16 +455,17 @@
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /decl/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
 		return FALSE
 
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	var/z_velocity = 5*(levels_fallen**2)
+
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
 
-	apply_damage(damage, BRUTE)
+	apply_damage(damage, DAMAGE_BRUTE)
 
 	// The only piece of duplicate code. I was so close. Soooo close. :ree:
 	if(!isSynthetic())
@@ -476,7 +477,7 @@
 			if(51 to INFINITY)
 				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, /decl/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
@@ -492,20 +493,19 @@
 	if (istype(rig))
 		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
 			if (A.active && rig.check_power_cost(src, 10, A, 0))
-				visible_message(SPAN_NOTICE("\The [src] lands flawlessly with [src.get_pronoun("his")] [rig]."),
-					SPAN_NOTICE("You hear an electric <i>*whirr*</i> right after the slam!"))
+				visible_message(SPAN_NOTICE("\The [src] lands flawlessly with [src.get_pronoun("his")] [rig.name]."), SPAN_NOTICE("You land flawlessly with your [rig.name]."), SPAN_NOTICE("You hear an electric <i>*whirr*</i> right after a loud slam!"))
 				return FALSE
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /decl/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
 		return FALSE
 
 	var/combat_roll = 1
 	if(lying)
-		combat_roll = 0.7 //If you're sleeping, you take less damage because your body is less rigid. It's science 'n shit.
+		combat_roll = 0.8 //If you're sleeping, you take less damage because your body is less rigid. It's science 'n shit.
 		if(!sleeping)
-			combat_roll = 0.2 //Combat roll!
+			combat_roll = 0.6 //Combat roll!
 			visible_message(SPAN_NOTICE("\The [src] tucks into a roll as they hit \the [loc]!"),
 				SPAN_NOTICE("You tuck into a roll as you hit \the [loc], minimizing damage!"))
 
@@ -527,15 +527,15 @@
 		var/groin_damage = rand(0,damage/4)
 
 
-		apply_damage(left_damage, BRUTE, BP_L_LEG)
-		apply_damage(right_damage, BRUTE, BP_R_LEG)
+		apply_damage(left_damage, DAMAGE_BRUTE, BP_L_LEG)
+		apply_damage(right_damage, DAMAGE_BRUTE, BP_R_LEG)
 
 		if(prob(50))
-			apply_damage(leftf_damage, BRUTE, BP_R_FOOT)
+			apply_damage(leftf_damage, DAMAGE_BRUTE, BP_R_FOOT)
 		if(prob(50))
-			apply_damage(leftf_damage, BRUTE, BP_L_FOOT)
+			apply_damage(leftf_damage, DAMAGE_BRUTE, BP_L_FOOT)
 		if(prob(50))
-			apply_damage(groin_damage, BRUTE, BP_GROIN)
+			apply_damage(groin_damage, DAMAGE_BRUTE, BP_GROIN)
 
 		visible_message(SPAN_WARNING("\The [src] falls and lands directly on their legs!"),
 			SPAN_DANGER("You land on your feet, and the impact brings you to your knees."))
@@ -544,20 +544,20 @@
 			var/obj/item/organ/external/l_foot = get_organ(BP_L_FOOT)
 			var/obj/item/organ/external/r_foot = get_organ(BP_R_FOOT)
 
-			if(prob(50) && l_foot)
+			if(prob(50) && l_foot && l_foot.dislocated != -1)
 				fall_message("left ankle", "bends unnaturally")
 				l_foot.dislocate(TRUE)
-			else if(r_foot)
+			else if(r_foot && r_foot.dislocated != -1)
 				fall_message("right ankle", "bends unnaturally")
 				r_foot.dislocate(TRUE)
 		else if(prob(15))
 			var/obj/item/organ/external/l_leg = get_organ(BP_L_LEG)
 			var/obj/item/organ/external/r_leg = get_organ(BP_R_LEG)
 
-			if(prob(50) && l_leg)
+			if(prob(50) && l_leg && l_leg.dislocated != -1)
 				fall_message("left knee", "caves in")
 				l_leg.dislocate(TRUE)
-			else if(r_leg)
+			else if(r_leg && r_leg.dislocated != -1)
 				fall_message("right knee", "caves in")
 				l_leg.dislocate(TRUE)
 
@@ -570,13 +570,13 @@
 		var/lefth_damage = rand(0,damage/4)
 		var/righth_damage = rand(0,damage/4)
 
-		apply_damage(left_damage, BRUTE, BP_L_ARM)
-		apply_damage(right_damage, BRUTE, BP_R_ARM)
+		apply_damage(left_damage, DAMAGE_BRUTE, BP_L_ARM)
+		apply_damage(right_damage, DAMAGE_BRUTE, BP_R_ARM)
 
 		if(prob(50))
-			apply_damage(lefth_damage, BRUTE, BP_R_HAND)
+			apply_damage(lefth_damage, DAMAGE_BRUTE, BP_R_HAND)
 		if(prob(50))
-			apply_damage(righth_damage, BRUTE, BP_L_HAND)
+			apply_damage(righth_damage, DAMAGE_BRUTE, BP_L_HAND)
 
 		limb_damage = left_damage + right_damage + lefth_damage + righth_damage
 
@@ -587,30 +587,30 @@
 			var/obj/item/organ/external/l_hand = get_organ(BP_L_HAND)
 			var/obj/item/organ/external/r_hand = get_organ(BP_R_HAND)
 
-			if(prob(50) && l_hand)
+			if(prob(50) && l_hand && l_hand.dislocated != -1)
 				fall_message("left wrist", "bends unnaturally")
 				l_hand.dislocate(TRUE)
-			else if(r_hand)
+			else if(r_hand && r_hand.dislocated != -1)
 				fall_message("right wrist", "bends unnaturally")
 				r_hand.dislocate(TRUE)
 		else if(prob(15))
 			var/obj/item/organ/external/l_arm = get_organ(BP_L_ARM)
 			var/obj/item/organ/external/r_arm = get_organ(BP_R_ARM)
 
-			if(prob(50) && l_arm)
+			if(prob(50) && l_arm && l_arm.dislocated != -1)
 				fall_message("left elbow", "caves in")
 				l_arm.dislocate(TRUE)
-			else if(r_arm)
+			else if(r_arm && r_arm.dislocated != -1)
 				fall_message("right elbow", "caves in")
 				r_arm.dislocate(TRUE)
 
 	else if(prob(30) && combat_roll >= 1)//landed on their head
-		apply_damage(limb_damage, BRUTE, BP_HEAD)
+		apply_damage(limb_damage, DAMAGE_BRUTE, BP_HEAD)
 		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
 			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
 
 		var/obj/item/organ/external/head = get_organ(BP_HEAD)
-		if(prob(20) && head)
+		if(prob(20) && head && head.dislocated != -1)
 			fall_message("jaw", "cracks loose")
 			head.dislocate(TRUE)
 
@@ -621,7 +621,7 @@
 				"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	if(!limb_damage)
-		apply_damage(damage, BRUTE, BP_CHEST)
+		apply_damage(damage, DAMAGE_BRUTE, BP_CHEST)
 
 	Weaken(rand(damage/4, damage/2))
 
@@ -633,17 +633,17 @@
 			if(-INFINITY to 10)
 				playsound(src.loc, "sound/weapons/bladeslice.ogg", 50, 1)
 			if(11 to 50)
-				playsound(src.loc, /decl/sound_category/punch_sound, 75, 1)
+				playsound(src.loc, /singleton/sound_category/punch_sound, 75, 1)
 			if(51 to INFINITY)
 				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, /decl/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
 	// Stats.
 	SSfeedback.IncrementSimpleStat("openturf_human_falls")
-	addtimer(CALLBACK(src, .proc/post_fall_death_check), 2 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(post_fall_death_check)), 2 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 	return TRUE
 
@@ -683,7 +683,7 @@
  *
  * @return	The /mob/living that was hit. null if no mob was hit.
  */
-/atom/movable/proc/fall_collateral(levels_fallen, stopped_early = FALSE)
+/atom/movable/proc/fall_collateral(levels_fallen, stopped_early = FALSE, armor_penetration = 0)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
 	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
@@ -726,13 +726,14 @@
 	if (ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/cranial_damage = rand(0,damage/2)
-		H.apply_damage(cranial_damage, BRUTE, BP_HEAD)
-		H.apply_damage((damage - cranial_damage), BRUTE, BP_CHEST)
+		H.apply_damage(cranial_damage, DAMAGE_BRUTE, BP_HEAD, armor_pen = cranial_damage + armor_penetration)
+		var/new_damage = damage - cranial_damage
+		H.apply_damage(new_damage, DAMAGE_BRUTE, BP_CHEST, armor_pen = new_damage + armor_penetration)
 
 		if (damage >= THROWNOBJ_KNOCKBACK_DIVISOR)
 			H.Weaken(rand(damage / 4, damage / 2))
 	else
-		L.apply_damage(damage, BRUTE)
+		L.apply_damage(damage, DAMAGE_BRUTE)
 
 	L.visible_message(SPAN_DANGER("\The [L] had \the [src] fall onto [src.get_pronoun("him")]!"),
 		SPAN_DANGER("You had \the [src] fall onto you and strike you!"))
@@ -753,6 +754,9 @@
 	if (.)
 		to_chat(src, SPAN_DANGER("You fell ontop of \the [.]!"))
 
+/obj/fall_collateral(levels_fallen, stopped_early = FALSE, armor_penetration)
+	. = ..(levels_fallen, stopped_early, src.armor_penetration)
+
 /**
  * Helper proc for customizing which attributes should be used in fall damage
  * calculations. Allows for greater control over the damage. (Drop pods, anyone?)
@@ -770,3 +774,66 @@
 
 /mob/fall_get_specs(levels_fallen)
 	return list(mob_size, throw_range)
+
+/mob/living
+	var/atom/movable/z_observer/z_eye
+
+/atom/movable/z_observer
+	name = ""
+	simulated = FALSE
+	anchored = TRUE
+	mouse_opacity = FALSE
+	var/mob/living/owner
+	var/tile_shifted = FALSE
+
+/atom/movable/z_observer/Initialize(mapload, var/mob/living/user, var/tile_shift = FALSE)
+	. = ..()
+	owner = user
+	if(tile_shift)
+		var/turf/T = get_step(owner, owner.dir)
+		forceMove(T)
+		tile_shifted = TRUE
+	follow()
+	moved_event.register(owner, src, PROC_REF(follow))
+
+/atom/movable/z_observer/proc/follow()
+
+/atom/movable/z_observer/z_up/follow()
+	forceMove(get_step(owner, UP))
+	if(isturf(src.loc))
+		var/turf/T = src.loc
+		if(T && TURF_IS_MIMICING(T))
+			return
+	owner.reset_view(null)
+	owner.z_eye = null
+	qdel(src)
+
+/atom/movable/z_observer/z_down/follow()
+	forceMove(get_step(tile_shifted ? src : owner, DOWN))
+	var/turf/T = get_turf(tile_shifted ? get_step(owner, owner.dir) : owner)
+	if(T && TURF_IS_MIMICING(T))
+		return
+	owner.reset_view(null)
+	owner.z_eye = null
+	qdel(src)
+
+/atom/movable/z_observer/Destroy()
+	moved_event.unregister(owner, src, PROC_REF(follow))
+	owner = null
+	. = ..()
+
+/atom/movable/z_observer/can_fall()
+	return FALSE
+
+/atom/movable/z_observer/ex_act()
+	SHOULD_CALL_PARENT(FALSE)
+	return
+
+/atom/movable/z_observer/singularity_act()
+	return
+
+/atom/movable/z_observer/singularity_pull()
+	return
+
+/atom/movable/z_observer/singuloCanEat()
+	return

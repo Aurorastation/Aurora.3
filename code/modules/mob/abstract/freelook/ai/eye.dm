@@ -40,6 +40,9 @@
 /mob/living/silicon/ai
 	holo = null
 
+/mob/living/silicon/burn_skin(burn_amount)
+	return FALSE
+
 /mob/living/silicon/ai/proc/destroy_eyeobj(var/atom/new_eye)
 	if(!eyeobj) return
 	if(!new_eye)

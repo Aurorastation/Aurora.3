@@ -90,11 +90,17 @@ main ui datum.
 
 	var/params = "window=[windowid];file=[windowid];titlebar=0;can_resize=0;"
 	if(width && height)
-		params += "size=[width]x[height];"
+		var/winsize = winget(user, "mapwindow", "size")
+		var/map_size = splittext(winsize, "x")
+		var/screen_height = text2num(map_size[2])
+		if(height > screen_height)
+			params += "size=[width]x[max(screen_height - 100, 240)];"
+		else
+			params += "size=[width]x[height];"
 	send_resources_and_assets(user.client, load_asset)
 	user << browse(generate_html(load_asset?.css_tag()), params)
 	winset(user, "mapwindow.map", "focus=true")
-	addtimer(CALLBACK(src, /datum/vueui/proc/setclose), 1)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/vueui, setclose)), 1)
 
 /datum/vueui/proc/setclose()
 	winset(user, windowid, "on-close=\"vueuiclose \ref[src]\"")
@@ -109,6 +115,8 @@ main ui datum.
 	SSvueui.ui_closed(src) // this stops processing and cleans up references to this UI
 	user << browse(null, "window=[windowid]")
 	status = null
+	if(istype(user))
+		user.unset_machine()
 
 /**
   * Resizes UI

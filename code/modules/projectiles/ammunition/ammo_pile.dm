@@ -25,7 +25,7 @@
 		for(var/i = 1, i <= max_ammo - 1, i++)
 			var/obj/C = new ammo_type()
 			add_ammo(C)
-	addtimer(CALLBACK(src, .proc/check_ammo), 5) // if we don't have any ammo in 5 deciseconds, we're an empty pile, which is worthless, so self-delete
+	addtimer(CALLBACK(src, PROC_REF(check_ammo)), 5) // if we don't have any ammo in 5 deciseconds, we're an empty pile, which is worthless, so self-delete
 
 /obj/item/ammo_pile/examine(mob/user)
 	. = ..()
@@ -77,18 +77,18 @@
 	if(istype(W, /obj/item/ammo_casing))
 		if(W.type != ammo_type)
 			to_chat(user, SPAN_WARNING("\The [W] has a different type of ammunition!"))
-			return
+			return TRUE
 		if(length(ammo) >= max_ammo)
 			to_chat(user, SPAN_WARNING("\The [src] is already fully stacked."))
-			return
+			return TRUE
 		var/obj/item/ammo_casing/B = W
 		if(!B.BB)
 			to_chat(user, SPAN_WARNING("\The [B] is spent!"))
-			return
+			return TRUE
 		to_chat(user, SPAN_NOTICE("You add \the [W] to \the [src]."))
 		add_ammo(W)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/ammo_pile/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)

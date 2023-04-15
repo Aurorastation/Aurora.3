@@ -12,6 +12,8 @@
 			. += A
 
 /proc/get_area_turfs(var/area/A, var/list/predicates)
+	set background=1
+
 	. = new/list()
 	A = istype(A) ? A : locate(A)
 	if(!A)
@@ -94,8 +96,8 @@
 /proc/is_not_space_area(var/area/A)
 	. = !istype(A,/area/space)
 
-/proc/is_not_shuttle_area(var/area/A)
-	. = !istype(A,/area/shuttle)
+/proc/is_shuttle_area(var/area/A)
+	. = istype(A,/area/shuttle)
 
 /proc/is_area_with_turf(var/area/A)
 	. = isnum(A.x)

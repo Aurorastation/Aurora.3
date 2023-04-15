@@ -26,10 +26,10 @@
 	tech_rate = 0
 	for(var/obj/item/stock_parts/scanning_module/SM in component_parts)
 		tech_rate += SM.rating / 2
-	idle_power_usage = initial(idle_power_usage) * tech_rate // lots of power
+	change_power_consumption(initial(idle_power_usage) * tech_rate, POWER_USE_IDLE)
 	update_icon()
 
-/obj/machinery/r_n_d/tech_processor/machinery_process()
+/obj/machinery/r_n_d/tech_processor/process()
 	heat_delay--
 	if(!heat_delay)
 		produce_heat()

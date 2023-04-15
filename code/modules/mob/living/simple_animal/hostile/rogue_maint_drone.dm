@@ -7,11 +7,13 @@
 	speak = list("Removing organic waste.", "Pest control in progress.", "Engaging self-preservation protocols.", "Moving to eject unauthorized personnel.")
 	speak_emote = list("blares", "buzzes", "beeps")
 	speak_chance = 1
+	universal_speak = FALSE
 	density = FALSE
 	health = 50
 	maxHealth = 50
 	melee_damage_lower = 5
 	melee_damage_upper = 8
+	armor_penetration = 5
 	attacktext = "sliced"
 	faction = "silicon"
 	min_oxy = 0

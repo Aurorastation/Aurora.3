@@ -1,7 +1,9 @@
 /obj/item/device/holowarrant
 	name = "warrant projector"
 	desc = "The practical paperwork replacement for the officer on the go."
+	icon = 'icons/obj/holowarrant.dmi'
 	icon_state = "holowarrant"
+	item_state = "holowarrant"
 	throwforce = 5
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
@@ -11,7 +13,7 @@
 	var/activename = null
 	var/activecharges = null
 	var/activeauth = null //Currently active warrant
-	var/activetype = null //Is this a search or arrest warrtant?
+	var/activetype = null //Is this a search or arrest warrant?
 
 //look at it
 /obj/item/device/holowarrant/examine(mob/user)
@@ -21,13 +23,18 @@
 	if(in_range(user, src) || isobserver(user))
 		show_content(user)
 	else
-		to_chat(user, "<span class='notice'>You have to go closer if you want to read it.</span>")
+		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
 
 //hit yourself with it
 /obj/item/device/holowarrant/attack_self(mob/living/user as mob)
 	sync(user)
+	if(activename)
+		activename = null
+		activecharges = null
+		activeauth = null
+		activetype = null
 	if(!storedwarrant.len)
-		to_chat(user, "There seem to be no warrants stored in the device.")
+		to_chat(user, SPAN_NOTICE("There are no warrants available at this time."))
 		return
 	var/temp
 	temp = input(usr, "Which warrant would you like to load?") as null|anything in storedwarrant
@@ -37,19 +44,29 @@
 			activecharges = W.notes
 			activeauth = W.authorization
 			activetype = W.wtype
+	update_icon()
 
 //hit other people with it
 /obj/item/device/holowarrant/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	user.visible_message("<span class='notice'>[user] holds up a warrant projector and shows the contents to [M]. </span>", \
-			"<span class='notice'>You show the warrant to [M]. </span>")
-	M.examinate(src)
+	if(activename)
+		user.visible_message(SPAN_NOTICE("[user] holds up a warrant projector and shows the contents to [M]."), \
+				SPAN_NOTICE("You show the warrant to [M]."))
+		M.examinate(src)
+	else
+		to_chat(user, SPAN_WARNING("There are no warrants loaded!"))
+		
+/obj/item/device/holowarrant/update_icon()
+	if(activename)
+		icon_state = "holowarrant_filled"
+	else
+		icon_state = "holowarrant"
 
 //sync with database
 /obj/item/device/holowarrant/proc/sync(var/mob/user)
 	storedwarrant = list()
 	for(var/datum/record/warrant/W in SSrecords.warrants)
 		storedwarrant += W.name
-	to_chat(user, "<span class='notice'>The device hums faintly as it syncs with the station database</span>")
+	to_chat(user, SPAN_NOTICE("The device hums faintly as it syncs with the station database."))
 
 /obj/item/device/holowarrant/proc/show_content(mob/user, forceshow)
 	if(activetype == "arrest")
@@ -57,7 +74,7 @@
 		<HTML><HEAD><TITLE>Arrest Warrant: [activename]</TITLE></HEAD>
 		<BODY bgcolor='#FFFFFF'>
 		<font face="Verdana" color=black><font size = "1">
-		<center><large><b>NanoTrasen Inc.
+		<center><large><b>Stellar Corporate Conglomerate
 		<br>Civilian Branch of Operation</b></large>
 		<br>
 		<br><b>DIGITAL ARREST WARRANT</b></center>
@@ -65,8 +82,8 @@
 		<b>Facility:</b>__<u>[current_map.station_name]</u>__<b>Date:</b>__<u>[worlddate2text()]__</u>
 		<br>
 		<br><small><i>This document serves as a notice and permits the sanctioned arrest of
-		the denoted employee of the NanoTrasen Civilian Branch of Operation by the
-		Security Department of the denoted facility. </br>
+		the denoted employee of the SCC Civilian Branch of Operation by the
+		Security Department of the denoted vessel. </br>
 		In accordance with Corporate Regulations, the denoted employee must be presented with a signed and stamped or
 		digitally authorized warrant before the actions entailed can be conducted legally. </br>
 		The Suspect/Department staff are expected to offer full co-operation.</br>
@@ -93,7 +110,7 @@
 		<HTML><HEAD><TITLE>Search Warrant: [activename]</TITLE></HEAD>
 		<BODY bgcolor='#FFFFFF'>
 		<font face="Verdana" color=black><font size = "1">
-		<center><large><b>NanoTrasen Inc.
+		<center><large><b>Stellar Corporate Conglomerate
 		<br>Civilian Branch of Operation</b></large>
 		<br>
 		<br><b>DIGITAL SEARCH WARRANT</b></center>

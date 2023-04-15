@@ -70,10 +70,10 @@
 	name = "plasma arc"
 	icon_state = "omnilaser"
 	damage = 20
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	check_armor = "laser"
 	range = 5
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE|PASSRAILING
 
 	var/mineral_passes = 2 // amount of mineral turfs it passes through before ending
 
@@ -85,21 +85,21 @@
 
 /obj/item/projectile/beam/plasmacutter/proc/pass_check(var/turf/simulated/mineral/mine_turf)
 	if(mineral_passes <= 0)
-		return null // the projectile stops
+		return list(null, FALSE) // the projectile stops
 	mineral_passes--
-	on_impact(mine_turf)
-	return PROJECTILE_CONTINUE // the projectile tunnels deeper
+	var/mineral_destroyed = on_impact(mine_turf)
+	return list(PROJECTILE_CONTINUE, mineral_destroyed) // the projectile tunnels deeper
 
 /obj/item/projectile/beam/plasmacutter/on_impact(var/atom/A)
 	if(istype(A, /turf/simulated/mineral))
 		var/turf/simulated/mineral/M = A
 		if(prob(33))
 			M.GetDrilled(1)
-			return
+			return TRUE
 		else if(prob(88))
 			M.emitter_blasts_taken += 2
 		M.emitter_blasts_taken += 1
-	. = ..()
+	return ..()
 
 /obj/item/gun/energy/plasmacutter/use_resource(mob/user, var/use_amount)
 	if(use_external_power)

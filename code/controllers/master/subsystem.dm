@@ -9,6 +9,9 @@
 
 	var/flags = 0			//see master_controller.dm in __defines. Most flags must be set on world start to take full effect. (You can also restart the mc to force them to process again)
 
+	/// Levels of the game that the SS can fire. See __defines/subsystem_priority.dm
+	var/runlevels = RUNLEVELS_DEFAULT
+
 	//set to 0 to prevent fire() calls, mostly for admin use.
 	//	use the SS_NO_FIRE flag instead for systems that never fire to keep it from even being added to the list
 	var/can_fire = TRUE
@@ -89,8 +92,8 @@
 		queue_node_priority = queue_node.queued_priority
 		queue_node_flags = queue_node.flags
 
-		if (queue_node_flags & SS_TICKER)
-			if (!(SS_flags & SS_TICKER))
+		if (queue_node_flags & (SS_TICKER|SS_BACKGROUND) == SS_TICKER)
+			if ((SS_flags & (SS_TICKER|SS_BACKGROUND)) != SS_TICKER)
 				continue
 			if (queue_node_priority < SS_priority)
 				break
@@ -104,7 +107,7 @@
 		else
 			if (SS_flags & SS_BACKGROUND)
 				continue
-			if (SS_flags & (SS_TICKER|SS_BACKGROUND) == SS_TICKER)
+			if (SS_flags & SS_TICKER)
 				break
 			if (queue_node_priority < SS_priority)
 				break

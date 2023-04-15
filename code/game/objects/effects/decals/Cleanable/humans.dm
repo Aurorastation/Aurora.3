@@ -19,6 +19,7 @@
 	var/amount = 5
 	var/drytime
 	var/dries = TRUE
+	var/bleed_time
 
 /obj/effect/decal/cleanable/blood/no_dry
 	dries = FALSE
@@ -32,7 +33,7 @@
 /obj/effect/decal/cleanable/blood/clean_blood()
 	fluorescent = 0
 	if(invisibility != 100)
-		invisibility = 100
+		set_invisibility(100)
 		amount = 0
 	..(ignore=1)
 
@@ -51,25 +52,33 @@
 				if(B != src)
 					if (B.blood_DNA)
 						blood_DNA |= B.blood_DNA.Copy()
-					qdel(B)
+					QDEL_IN(B, 1 SECOND)
 	drytime = DRYING_TIME * (amount+1)
-	if (dries && !mapload)
-		addtimer(CALLBACK(src, /obj/effect/decal/cleanable/blood/.proc/dry), drytime)
-	else if (dries)
-		dry()
+	bleed_time = world.time
+	if (dries)
+		animate(src, color = "#000000", time = drytime, loop = 0, flags = ANIMATION_RELATIVE)
+
+/obj/effect/decal/cleanable/blood/examine()
+	if(dries && world.time > (bleed_time + drytime))
+		name = dryname
+		desc = drydesc
+	. = ..()
 
 /obj/effect/decal/cleanable/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/gun/energy/rifle/cult))
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/effect/decal/cleanable/blood/update_icon()
-	if(basecolor == "rainbow") basecolor = get_random_colour(1)
+	if(basecolor == "rainbow")
+		basecolor = get_random_colour(1)
 	color = basecolor
 
 /obj/effect/decal/cleanable/blood/Crossed(mob/living/carbon/human/perp)
 	if (!istype(perp))
 		return
+	if(dries && world.time > (bleed_time + drytime))
+		amount = 0
 	if(amount < 1)
 		return
 
@@ -115,14 +124,10 @@
 	if(amount > 2 && prob(perp.slip_chance(perp.m_intent == M_RUN ? 20 : 5)))
 		perp.slip(src, 4)
 
-/obj/effect/decal/cleanable/blood/proc/dry()
-	name = dryname
-	desc = drydesc
-	color = adjust_brightness(color, -50)
-	amount = 0
-
 /obj/effect/decal/cleanable/blood/attack_hand(mob/living/carbon/human/user)
 	..()
+	if(dries && world.time > (bleed_time + drytime))
+		amount = 0
 	if (amount && istype(user))
 		add_fingerprint(user)
 		if (user.gloves)
@@ -141,8 +146,8 @@
 		user.verbs += /mob/living/carbon/human/proc/bloody_doodle
 
 /obj/effect/decal/cleanable/blood/splatter
-        random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
-        amount = 2
+    random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
+    amount = 2
 
 /obj/effect/decal/cleanable/blood/drip
 	name = "drips of blood"
@@ -254,11 +259,7 @@
 	random_icon_states = null
 
 	var/list/datum/disease2/disease/virus2 = list()
-	var/dry = 0 // Keeps the lag down
 
 /obj/effect/decal/cleanable/mucus/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, .proc/dry), DRYING_TIME * 2)
-
-/obj/effect/decal/cleanable/mucus/proc/dry()
-	dry = TRUE
+	animate(src, color = "#000000", time = DRYING_TIME * 2, loop = 0, flags = ANIMATION_RELATIVE)

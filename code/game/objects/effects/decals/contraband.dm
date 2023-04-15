@@ -64,7 +64,7 @@
 	flick("poster_being_set", P)
 	playsound(W, 'sound/items/package_wrap.ogg', 100, 1)
 
-	addtimer(CALLBACK(src, .proc/place_on_wall, P, user, W), 28, TIMER_CLIENT_TIME)
+	addtimer(CALLBACK(src, PROC_REF(place_on_wall), P, user, W), 28, TIMER_CLIENT_TIME)
 
 /obj/item/contraband/poster/proc/place_on_wall(obj/structure/sign/poster/P, mob/user, turf/W)
 	if (QDELETED(P))
@@ -135,7 +135,7 @@
 		else
 			to_chat(user, "<span class='notice'>You carefully remove the poster from the wall.</span>")
 			roll_and_drop(user.loc)
-		return
+		return TRUE
 
 
 /obj/structure/sign/poster/attack_hand(mob/user as mob)

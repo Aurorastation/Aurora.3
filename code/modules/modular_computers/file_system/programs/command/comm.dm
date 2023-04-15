@@ -8,6 +8,7 @@
 	filename = "comm"
 	filedesc = "Command and Communications Program"
 	program_icon_state = "comm"
+	program_key_icon_state = "lightblue_key"
 	nanomodule_path = /datum/nano_module/program/comm
 	extended_desc = "Used to command and control the station. Can relay long-range communications."
 	required_access_run = access_heads
@@ -171,9 +172,16 @@
 				if(!input || !can_still_topic())
 					SSnanoui.update_uis(src)
 					return
-				crew_announcement.Announce(input)
+				var/was_hearing = HAS_TRAIT(program.computer, TRAIT_HEARING_SENSITIVE)
+				if(!was_hearing)
+					program.computer.become_hearing_sensitive()
+				usr.say(input)
+				if(!was_hearing)
+					program.computer.lose_hearing_sensitivity()
+				var/affected_zlevels = GetConnectedZlevels(GET_Z(program.computer))
+				crew_announcement.Announce(program.computer.registered_message, zlevels = affected_zlevels)
 				set_announcement_cooldown(TRUE)
-				addtimer(CALLBACK(src, .proc/set_announcement_cooldown, FALSE), 600) //One minute cooldown
+				addtimer(CALLBACK(src, PROC_REF(set_announcement_cooldown), FALSE), 600) //One minute cooldown
 		if("message")
 			if(href_list["target"] == "emagged")
 				if(program)
@@ -190,7 +198,7 @@
 						to_chat(usr, SPAN_NOTICE("Message successfully transmitted."))
 						log_say("[key_name(usr)] has sent a message to the syndicate: [input]", ckey = key_name(usr))
 						centcomm_message_cooldown = TRUE
-						addtimer(CALLBACK(src, .proc/set_centcomm_message_cooldown, FALSE), 300) // thirty second cooldown
+						addtimer(CALLBACK(src, PROC_REF(set_centcomm_message_cooldown), FALSE), 300) // thirty second cooldown
 			else if(href_list["target"] == "regular")
 				if(is_authenticated(user) && !issilicon(usr) && ntn_comm)
 					if(centcomm_message_cooldown)
@@ -209,7 +217,7 @@
 					to_chat(usr, SPAN_NOTICE("Message successfully transmitted."))
 					log_say("[key_name(usr)] has sent a message to [current_map.boss_short]: [input]", ckey = key_name(usr))
 					centcomm_message_cooldown = TRUE
-					addtimer(CALLBACK(src, .proc/set_centcomm_message_cooldown, FALSE), 300) // thirty second cooldown
+					addtimer(CALLBACK(src, PROC_REF(set_centcomm_message_cooldown), FALSE), 300) // thirty second cooldown
 		if("evac")
 			if(is_authenticated(user))
 				var/datum/evacuation_option/selected_evac_option = evacuation_controller.evacuation_options[href_list["target"]]
@@ -241,7 +249,7 @@
 						post_display_status(href_list["target"])
 
 		if("setalert")
-			if(is_authenticated(user) && !issilicon(usr) && ntn_cont && ntn_comm)
+			if(is_authenticated(user) && (!issilicon(usr) || isAI(usr)) && ntn_cont && ntn_comm)
 				var/current_level = text2num(href_list["target"])
 				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", name, "No", "Yes")
 				if(confirm == "Yes" && can_still_topic())
@@ -385,7 +393,7 @@ Command action procs
 
 
 /proc/is_relay_online()
-	for(var/obj/machinery/bluespacerelay/M in SSmachinery.all_machines)
+	for(var/obj/machinery/bluespacerelay/M in SSmachinery.machinery)
 		if(M.stat == 0)
 			return TRUE
 	return FALSE
@@ -424,7 +432,7 @@ Command action procs
 		return
 
 	if(current_map.shuttle_call_restarts)
-		current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, .proc/reboot_world), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
+		current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reboot_world)), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
 		log_game("[user? key_name(user) : "Autotransfer"] has called the 'shuttle' round restart.")
 		message_admins("[user? key_name_admin(user) : "Autotransfer"] has called the 'shuttle' round restart.", 1)
 		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_called_message)))

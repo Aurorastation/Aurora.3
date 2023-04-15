@@ -162,6 +162,11 @@
 	desc = "A pair of gloves that reach past the elbow."
 	icon_state = "evening_gloves"
 
+/obj/item/clothing/gloves/evening/unathi
+	name = "evening gloves"
+	desc = "A pair of gloves that reach past the elbow. These ones are designed for Unathi."
+	species_restricted = list(BODYTYPE_UNATHI)
+
 /obj/item/clothing/gloves/black_leather
 	name = "black leather gloves"
 	desc = "A pair of tight-fitting synthleather gloves."
@@ -176,6 +181,10 @@
 /obj/item/clothing/gloves/black_leather/colour
 	icon_state = "full_leather_colour"
 	item_state = "full_leather_colour"
+
+/obj/item/clothing/gloves/black_leather/colour/unathi
+	species_restricted = list(BODYTYPE_UNATHI)
+	desc = "Leather gloves made for Unathi use."
 
 /obj/item/clothing/gloves/fingerless
 	name = "fingerless gloves"
@@ -207,3 +216,20 @@
 	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
 	icon_state = "zeng_gloves"
 	item_state = "zeng_gloves"
+
+/obj/item/clothing/gloves/kala
+	name = "skrell gloves"
+	desc = "A sleek pair of gloves! They seem to be retaining moisture."
+	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon_state = "kala_gloves"
+	item_state = "kala_gloves"
+	contained_sprite = TRUE
+
+/obj/item/clothing/gloves/mittens
+	name = "mittens"
+	desc = "These wool mittens are very warm, if you can handle the impracticality of them lacking individual fingers. They also accomodate most hands, clawed or not."
+	icon = 'icons/obj/item/clothing/gloves/mittens.dmi'
+	icon_state = "mittens"
+	item_state = "mittens"
+	contained_sprite = TRUE
+	species_restricted = list("exclude", null)

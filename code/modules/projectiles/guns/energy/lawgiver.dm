@@ -1,5 +1,5 @@
 /obj/item/gun/energy/lawgiver
-	name = "\improper Lawgiver Mk II"
+	name = "advanced combi-pistol mk2"
 	icon = 'icons/obj/guns/lawgiver.dmi'
 	icon_state = "lawgiver"
 	item_state = "lawgiver"
@@ -7,7 +7,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5)
 	sel_mode = 1
 	var/mode_check = 1
-	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
+	desc = "A highly advanced firearm that is capable of several different and highly lethal firing modes, the SCC's ACP-2 is a weapon to be feared."
 	var/dna	= null//dna-locking the firearm
 	var/emagged = 0 //if the gun is emagged or not
 	var/owner_name = null //Name of the (initial) owner
@@ -15,7 +15,7 @@
 	var/message_delay = 100 //Delay of the message_delay
 	var/message_enabled = 0 //If playing the message should be enabled
 	var/message_disable = 0 //If the loop should be stopped
-	var/default_desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
+	var/default_desc = "A highly advanced firearm that is capable of several different and highly lethal firing modes, the SCC's ACP-2 is a weapon to be feared."
 
 	firemodes = list(
 		list(
@@ -88,13 +88,12 @@
 
 /obj/item/gun/energy/lawgiver/Initialize()
 	. = ..()
-	listening_objects += src
+	become_hearing_sensitive()
 	power_supply = new /obj/item/cell/device/variable(src, 2000)
 	var/datum/firemode/new_mode = firemodes[sel_mode]
 	new_mode.apply_to(src)
 
 /obj/item/gun/energy/lawgiver/Destroy()
-	listening_objects -= src
 	return ..()
 
 /obj/item/gun/energy/lawgiver/proc/play_message()

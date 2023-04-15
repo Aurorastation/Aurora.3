@@ -83,6 +83,8 @@
 	var/displays_maptext = FALSE
 	var/can_ammo_display = TRUE
 	var/obj/item/ammo_display
+	var/empty_sound = /singleton/sound_category/out_of_ammo
+	var/casing_drop_sound = /singleton/sound_category/casing_drop_sound
 	maptext_x = 22
 	maptext_y = 2
 
@@ -107,7 +109,7 @@
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
-	var/wield_sound = /decl/sound_category/generic_wield_sound
+	var/wield_sound = /singleton/sound_category/generic_wield_sound
 	var/unwield_sound = null
 	var/one_hand_fa_penalty = 0 // Additional accuracy/dispersion penalty for using full auto one-handed
 
@@ -137,11 +139,12 @@
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
 
-	if (!pin && needspin)
-		pin = /obj/item/device/firing_pin
-
-	if(pin && needspin)
+	if (needspin)
+		if(!pin)
+			pin = /obj/item/device/firing_pin
 		pin = new pin(src)
+	else
+		pin = null
 
 	if(istype(loc, /obj/item/robot_module))
 		has_safety = FALSE
@@ -215,7 +218,7 @@
 
 	var/mob/living/M = user
 
-	if(HULK in M.mutations)
+	if(HAS_FLAG(M.mutations, HULK))
 		to_chat(M, SPAN_DANGER("Your fingers are much too large for the trigger guard!"))
 		return FALSE
 
@@ -225,7 +228,8 @@
 		if(no_guns_check)
 			to_chat(A, SPAN_WARNING("[no_guns_check]")) // the proc returns the no_guns_message
 			return FALSE
-
+		if(A.species && !A.species.can_use_guns())
+			return FALSE
 	if((M.is_clumsy()) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)
@@ -309,8 +313,9 @@
 
 	var/shoot_time = max((burst - 1) * burst_delay, burst_delay)
 	user.setClickCooldown(shoot_time)
-	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
+
+	user.face_atom(target, TRUE)
 
 	return TRUE
 
@@ -322,7 +327,7 @@
 		var/obj/item/gun/SG = user.get_inactive_hand()
 		if(istype(SG))
 			var/decreased_accuracy = (SG.w_class * 2) - SG.offhand_accuracy
-			addtimer(CALLBACK(SG, .proc/Fire, target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 5)
+			addtimer(CALLBACK(SG, PROC_REF(Fire), target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 5)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -357,7 +362,6 @@
 	update_held_icon()
 
 	user.setClickCooldown(max(burst_delay+1, fire_delay))
-	user.setMoveCooldown(move_delay)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)
@@ -400,7 +404,7 @@
 
 			if (muzzle_flash)
 				set_light(muzzle_flash)
-				addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2, TIMER_UNIQUE | TIMER_OVERRIDE)
+				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 2, TIMER_UNIQUE | TIMER_OVERRIDE)
 			update_icon()
 
 		if(i < burst)
@@ -431,8 +435,8 @@
 	if(user)
 		to_chat(user, SPAN_DANGER("*click*"))
 	else
-		src.visible_message("*click click*")
-	playsound(loc, 'sound/weapons/empty.ogg', 100, 1)
+		src.visible_message("*click*")
+	playsound(loc, empty_sound, 100, 1)
 
 //called after successfully firing
 /obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
@@ -457,7 +461,7 @@
 
 		if(muzzle_flash)
 			set_light(muzzle_flash)
-			addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 2)
 
 	if(recoil)
 		shake_camera(user, recoil + 1, recoil)
@@ -515,7 +519,7 @@
 	if(length(firemodes))
 		F = firemodes[sel_mode]
 	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
-		P.accuracy -= one_hand_fa_penalty/2
+		P.accuracy -= one_hand_fa_penalty * 0.5
 		P.dispersion -= one_hand_fa_penalty * 0.5
 
 //does the actual launching of the projectile
@@ -543,15 +547,15 @@
 	var/mob/living/carbon/human/M = user
 
 	mouthshoot = TRUE
-	M.visible_message(SPAN_WARNING("\The [user] sticks their gun in their mouth, ready to pull the trigger..."))
+	M.visible_message(SPAN_DANGER("\The [user] sticks \the [src] in their mouth, their finger ready to pull the trigger..."))
 	if(!do_after(user, 40))
-		M.visible_message(SPAN_NOTICE("\The [user] decided life was worth living"))
+		M.visible_message(SPAN_GOOD("\The [user] takes \the [src] out of their mouth."))
 		mouthshoot = FALSE
 		return
 	var/obj/item/projectile/in_chamber = consume_next_projectile()
-	if (istype(in_chamber))
-		user.visible_message(SPAN_WARNING("\The [user] pulls the trigger."))
-		if (!pin && needspin)//Checks the pin of the gun.
+	if(istype(in_chamber))
+		user.visible_message(SPAN_DANGER("\The [user] pulls the trigger."))
+		if (!pin && needspin) // Checks the pin of the gun.
 			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
@@ -560,7 +564,6 @@
 			mouthshoot = FALSE
 			return
 		if(safety() && user.a_intent != I_HURT)
-			user.visible_message(SPAN_WARNING("The safety was on. How anticlimatic!"))
 			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
@@ -571,16 +574,15 @@
 
 		in_chamber.on_hit(M)
 
-		if (in_chamber.damage == 0)
+		if(in_chamber.damage == 0)
 			user.show_message(SPAN_WARNING("You feel rather silly, trying to commit suicide with a toy."))
 			mouthshoot = FALSE
 			return
-		else if (in_chamber.damage_type == PAIN)
-			to_chat(user, SPAN_NOTICE("Ow..."))
-			user.apply_effect(110,PAIN,0)
+		else if(in_chamber.damage_type == DAMAGE_PAIN)
+			user.apply_damage(in_chamber.damage * 2, DAMAGE_PAIN, BP_HEAD)
 		else
-			log_and_message_admins("[key_name(user)] commited suicide using \a [src]")
-			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
+			log_and_message_admins("[key_name(user)] commited suicide using \a [src].")
+			user.apply_damage(in_chamber.damage * 20, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAMAGE_FLAG_SHARP)
 			user.death()
 
 		handle_post_fire(user, user, FALSE, FALSE, FALSE)
@@ -789,7 +791,7 @@
 /obj/item/gun/pickup(mob/user)
 	..()
 	queue_icon_update()
-	addtimer(CALLBACK(src, .proc/update_maptext), 1)
+	addtimer(CALLBACK(src, PROC_REF(update_maptext)), 1)
 	if(is_wieldable)
 		unwield()
 
@@ -873,32 +875,32 @@
 
 		if(bayonet)
 			to_chat(user, SPAN_DANGER("There is a bayonet attached to \the [src] already."))
-			return
+			return TRUE
 
 		user.drop_from_inventory(I,src)
 		bayonet = I
 		to_chat(user, SPAN_NOTICE("You attach \the [I] to the front of \the [src]."))
 		update_icon()
-		return
+		return TRUE
 
 	if(istype(pin) && pin.attackby(I, user)) //Allows users to use their ID on a gun with a wireless-control firing pin to register their identity.
-		return
+		return TRUE
 
 	if(istype(I, /obj/item/ammo_display))
 		if(!can_ammo_display)
 			to_chat(user, SPAN_WARNING("\The [I] cannot attach to \the [src]."))
-			return
+			return TRUE
 		if(ammo_display)
 			to_chat(user, SPAN_WARNING("\The [src] already has a holographic ammo display."))
-			return
+			return TRUE
 		if(displays_maptext)
 			to_chat(user, SPAN_WARNING("\The [src] is already displaying its ammo count."))
-			return
+			return TRUE
 		user.drop_from_inventory(I, src)
 		ammo_display = I
 		displays_maptext = TRUE
 		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
-		return
+		return TRUE
 
 	if(I.iscrowbar() && bayonet)
 		to_chat(user, SPAN_NOTICE("You detach \the [bayonet] from \the [src]."))
@@ -906,7 +908,7 @@
 		user.put_in_hands(bayonet)
 		bayonet = null
 		update_icon()
-		return
+		return TRUE
 
 	if(I.iswrench() && ammo_display)
 		to_chat(user, SPAN_NOTICE("You wrench the ammo display loose from \the [src]."))
@@ -915,11 +917,11 @@
 		ammo_display = null
 		displays_maptext = FALSE
 		maptext = ""
-		return
+		return TRUE
 
 	if(pin && I.isscrewdriver())
 		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
-		if(do_after(user, 45 SECONDS))
+		if(I.use_tool(src, user, 45, volume = 50))
 			if(pin.durable || prob(50))
 				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"))
 				pin.forceMove(get_turf(src))
@@ -932,12 +934,12 @@
 				"You hear a metallic crack.")
 				qdel(pin)
 				pin = null
-		return
+		return TRUE
 
 	if(is_sharp(I))
 		user.visible_message("<b>[user]</b> carves a notched mark into \the [src].", SPAN_NOTICE("You carve a notched mark into \the [src]."))
 		markings++
-		return
+		return TRUE
 
 	return ..()
 
@@ -945,7 +947,7 @@
 	return 0
 
 //Autofire
-/obj/item/gun/proc/can_autofire()
+/obj/item/gun/proc/can_autofire(object, location, params)
 	return (can_autofire && world.time >= next_fire_time)
 
 /obj/item/gun/proc/update_maptext()

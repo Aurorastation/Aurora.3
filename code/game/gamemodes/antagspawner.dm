@@ -1,7 +1,7 @@
 // Helper proc to make sure no more than one active syndieborg exists at a time.
 /proc/can_buy_syndieborg()
 	for (var/mob/living/silicon/robot/R in silicon_mob_list)
-		if (istype(R, /mob/living/silicon/robot/syndicate))
+		if (istype(R, /mob/living/silicon/robot/combat))
 			return 0
 
 	return 1
@@ -33,17 +33,17 @@
 	equip_antag(M, user)
 	return M
 
-/obj/item/antag_spawner/borg_tele
-	name = "syndicate cyborg teleporter"
-	desc = "A single-use teleporter used to deploy a Syndicate Cyborg on the field. Due to budget restrictions, it is only possible to deploy a single cyborg at time."
+/obj/item/antag_spawner/combat_robot
+	name = "combat robot teleporter"
+	desc = "A single-use teleporter used to deploy a Combat Robot on the field. Due to budget restrictions, it is only possible to deploy a single robot."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
-	mob_type = /mob/living/silicon/robot/syndicate
-	ghost_role_id = "syndiborg"
+	mob_type = /mob/living/silicon/robot/combat
+	ghost_role_id = "combatrobot"
 
-/obj/item/antag_spawner/borg_tele/equip_antag(mob/target, mob/user)
+/obj/item/antag_spawner/combat_robot/equip_antag(mob/target, mob/user)
 	. = ..()
-	var/mob/living/silicon/robot/syndicate/S = target
+	var/mob/living/silicon/robot/combat/S = target
 	if(user?.mind.special_role)
 		var/datum/antagonist/user_antag = all_antag_types[lowertext(user.mind.special_role)]
 		if(user_antag)

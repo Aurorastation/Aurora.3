@@ -25,11 +25,11 @@
 /obj/machinery/power/sensor/Initialize()
 	. = ..()
 	auto_set_name()
-	SSpower.all_sensors += src
+	SSmachinery.all_sensors += src
 
 /obj/machinery/power/sensor/Destroy()
 	. = ..()
-	SSpower.all_sensors -= src
+	SSmachinery.all_sensors -= src
 
 // Proc: auto_set_name()
 // Parameters: None
@@ -185,8 +185,3 @@
 		data["load_percentage"] = 100
 	data["alarm"] = powernet.problem ? 1 : 0
 	return data
-
-
-
-
-

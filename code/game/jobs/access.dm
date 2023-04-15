@@ -89,7 +89,7 @@
 /proc/get_all_access_datums()
 	if(!priv_all_access_datums)
 		priv_all_access_datums = init_subtypes(/datum/access)
-		sortTim(priv_all_access_datums, /proc/cmp_access, FALSE)
+		sortTim(priv_all_access_datums, GLOBAL_PROC_REF(cmp_access), FALSE)
 
 	return priv_all_access_datums
 
@@ -179,7 +179,7 @@
 		if(ACCESS_REGION_GENERAL) //station general
 			return "Station General"
 		if(ACCESS_REGION_SUPPLY) //supply
-			return "Supply"
+			return "Operations"
 
 /proc/get_access_desc(id)
 	var/list/AS = get_all_access_datums_by_id()

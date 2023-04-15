@@ -11,16 +11,130 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	var/list/known_maps = list()
 	var/dmm_suite/maploader
-	var/list/height_markers = list()
 
 	var/list/mapload_callbacks = list()
 	var/map_override	// If set, SSatlas will forcibly load this map. If the map does not exist, mapload will fail and SSatlas will panic.
 	var/list/spawn_locations = list()
 
-	var/list/list/connected_z_cache = list()
-	var/z_levels = 0	// Each bit represents a connection between adjacent levels.  So the first bit means levels 1 and 2 are connected.
 	var/datum/space_sector/current_sector
-	var/list/possible_sectors = list ()
+	var/list/possible_sectors = list()
+	//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
+	//These are strings because otherwise the list indexes would be out of bounds. Thanks BYOND.
+	var/list/naval_to_dir = list(
+		"1" = list(
+			"starboard" = WEST,
+			"port" = EAST,
+			"fore" = SOUTH,
+			"aft" = NORTH
+		),
+		"2" = list(
+			"starboard" = EAST,
+			"port" = WEST,
+			"fore" = NORTH,
+			"aft" = SOUTH
+		),
+		"4" = list(
+			"starboard" = NORTH,
+			"port" = SOUTH,
+			"fore" = WEST,
+			"aft" = EAST
+		),
+		"4" = list(
+			"starboard" = NORTH,
+			"port" = SOUTH,
+			"fore" = WEST,
+			"aft" = EAST
+		),
+		"8" = list(
+			"starboard" = SOUTH,
+			"port" = NORTH,
+			"fore" = EAST,
+			"aft" = WEST
+		)
+	)
+
+	var/list/headings_to_naval = list(
+		"1" = list(
+			"1" = "aft",
+			"2" = "fore",
+			"4" = "port",
+			"5" = "port",
+			"6" = "port",
+			"8" = "starboard",
+			"9" = "starboard",
+			"10" = "starboard"
+		),
+		"2" = list(
+			"1" = "fore",
+			"2" = "aft",
+			"4" = "starboard",
+			"5" = "starboard",
+			"6" = "starboard",
+			"8" = "port",
+			"9" = "port",
+			"10" = "port"
+		),
+		"4" = list(
+			"1" = "starboard",
+			"2" = "port",
+			"4" = "aft",
+			"5" = "starboard",
+			"6" = "port",
+			"8" = "fore",
+			"9" = "starboard",
+			"10" = "port"
+		),
+		"5" = list( //northeast
+			"1" = "starboard",
+			"2" = "port",
+			"4" = "port",
+			"5" = "aft",
+			"6" = "port",
+			"8" = "starboard",
+			"9" = "starboard",
+			"10" = "fore"
+		),
+		"6" = list( //southeast
+			"1" = "starboard",
+			"2" = "port",
+			"4" = "starboard",
+			"5" = "starboard",
+			"6" = "aft",
+			"8" = "port",
+			"9" = "fore",
+			"10" = "port"
+		),
+		"8" = list(
+			"1" = "port",
+			"2" = "starboard",
+			"4" = "fore",
+			"5" = "port",
+			"6" = "starboard",
+			"8" = "aft",
+			"9" = "port",
+			"10" = "starboard"
+		),
+		"9" = list(  //northwest
+			"1" = "port",
+			"2" = "starboard",
+			"4" = "port",
+			"5" = "port",
+			"6" = "fore",
+			"8" = "starboard",
+			"9" = "aft",
+			"10" = "starboard"
+		),
+		"10" = list( //southwest
+			"1" = "port",
+			"2" = "starboard",
+			"4" = "starboard",
+			"5" = "fore",
+			"6" = "starboard",
+			"8" = "port",
+			"9" = "port",
+			"10" = "aft"
+		)
+	)
 
 /datum/controller/subsystem/atlas/stat_entry()
 	..("W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[z_levels]")
@@ -74,8 +188,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 	if (!maps_loaded)
 		world.map_panic("No maps loaded!")
 
-	setup_multiz()
-
 	QDEL_NULL(maploader)
 
 	InitializeSectors()
@@ -108,7 +220,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	var/static/regex/mapregex = new(".+\\.dmm$")
 	var/list/files = flist(directory)
-	sortTim(files, /proc/cmp_text_asc)
+	sortTim(files, GLOBAL_PROC_REF(cmp_text_asc))
 	var/mfile
 	var/first_dmm = TRUE
 	var/time
@@ -136,14 +248,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 		.++
 		CHECK_TICK
 
-/datum/controller/subsystem/atlas/proc/setup_multiz()
-	for (var/thing in height_markers)
-		var/obj/effect/landmark/map_data/marker = thing
-		log_debug("atlas: setting up Z marker on level [marker.z] with height [marker.height].")
-		marker.setup()
-
-	connected_z_cache.Cut()
-
 /datum/controller/subsystem/atlas/proc/get_selected_map()
 	if (config.override_map)
 		if (known_maps[config.override_map])
@@ -151,9 +255,9 @@ var/datum/controller/subsystem/atlas/SSatlas
 			log_ss("atlas", "Using configured map.")
 		else
 			log_ss("atlas", "-- WARNING: CONFIGURED MAP DOES NOT EXIST, IGNORING! --")
-			. = "aurora"
+			. = "sccv_horizon"
 	else
-		. = "aurora"
+		. = "sccv_horizon"
 
 /datum/controller/subsystem/atlas/proc/load_map_meta()
 	// This needs to be done after current_map is set, but before mapload.

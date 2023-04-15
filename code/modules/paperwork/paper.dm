@@ -8,6 +8,7 @@
 	gender = NEUTER
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
+	var/base_state = "paper"
 	item_state = "paper"
 	contained_sprite = 1
 	throwforce = 0
@@ -42,8 +43,11 @@
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
+	var/can_change_icon_state = TRUE
+
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
+	base_state = initial(icon_state)
 	if (text || title)
 		set_content(title, text ? text : info)
 	else
@@ -51,7 +55,7 @@
 		if (mapload)
 			update_icon()
 		else
-			addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
 
 /obj/item/paper/proc/set_content(title, text)
 	if(title)
@@ -79,12 +83,12 @@
 	updateinfolinks()
 
 /obj/item/paper/update_icon()
-	if(icon_state == "paper_talisman")
+	if(!can_change_icon_state)
 		return
 	else if (info && length(trim(info)))
-		icon_state = "[initial(icon_state)]_words"
+		icon_state = "[base_state]_words"
 	else
-		icon_state = "[initial(icon_state)]"
+		icon_state = "[base_state]"
 
 /obj/item/paper/proc/update_space(var/new_text)
 	if(new_text)
@@ -131,7 +135,7 @@
 		return
 
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
-	
+
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
 		return
 
@@ -167,6 +171,7 @@
 		throw_range = 8
 		old_name = name
 		name = "paper plane"
+		cut_overlays() //Removes stamp icons
 		return
 
 	if (user.a_intent == I_DISARM && icon_state != "scrap" && can_fold)
@@ -179,15 +184,17 @@
 		icon_state = "paper_swan"
 		old_name = name
 		name = "origami swan"
+		cut_overlays() //Removes stamp icons
 		return
 
 	if (user.a_intent == I_HELP && old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
 		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
-		icon_state = initial(icon_state)
+		icon_state = base_state
 		throw_range = initial(throw_range)
 		name = old_name
 		old_name = null
+		restore_stamps()
 		update_icon()
 		return
 
@@ -310,15 +317,22 @@
 		t = replacetext(t, "\[row\]", "")
 		t = replacetext(t, "\[cell\]", "")
 		t = replacetext(t, "\[logo_scc\]", "")
+		t = replacetext(t, "\[logo_scc_small\]", "")
 		t = replacetext(t, "\[logo_nt\]", "")
 		t = replacetext(t, "\[logo_nt_small\]", "")
 		t = replacetext(t, "\[logo_zh\]", "")
+		t = replacetext(t, "\[logo_zh_small\]", "")
 		t = replacetext(t, "\[logo_idris\]", "")
+		t = replacetext(t, "\[logo_idris_small\]", "")
 		t = replacetext(t, "\[logo_eridani\]", "")
-		t = replacetext(t, "\[logo_zavodskoi\]", "")
+		t = replacetext(t, "\[logo_eridani_small\]", "")
+		t = replacetext(t, "\[logo_zavod\]", "")
+		t = replacetext(t, "\[logo_zavod_small\]", "")
 		t = replacetext(t, "\[logo_hp\]", "")
+		t = replacetext(t, "\[logo_hp_small\]", "")
 		t = replacetext(t, "\[logo_be\]", "")
 		t = replacetext(t, "\[logo_golden\]", "")
+		t = replacetext(t, "\[barcode\]", "")
 
 	if(iscrayon)
 		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
@@ -355,7 +369,7 @@
 		else
 			flick("paper_onfire", src)
 
-		addtimer(CALLBACK(src, .proc/burnpaper_callback, P, user, class), 20, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(burnpaper_callback), P, user, class), 20, TIMER_UNIQUE)
 
 /obj/item/paper/proc/burnpaper_callback(obj/item/P, mob/user, class = "warning")
 	if (QDELETED(user) || QDELETED(src))
@@ -374,6 +388,13 @@
 	else
 		to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
 
+
+/obj/item/paper/proc/restore_stamps() //Used when unfolding paper from cranes or planes, restores the stamp overlays.
+	for(var/i = 1, i <= ico.len, i++)
+		var/image/S = image('icons/obj/bureaucracy.dmi', ico[i])
+		S.pixel_x = offset_x[i]
+		S.pixel_y = offset_y[i]
+		add_overlay(S)
 /**
  * Takes the paper's info variable, a user, and parses language markers that exist
  * in it. It returns an HTML string which represents the languages properly.
@@ -409,7 +430,7 @@
 				. = replacetext(., written_lang_regex.match, "")
 			else
 				content = L.scramble(content)
-		
+
 		if(!language_check)
 			// Refer to paper/proc/show_content to edit the spans here.
 			. = replacetext(., written_lang_regex.match, "<span class='[L.written_style] [reader_understands ? "understood" : "scramble"]'>[L.short && reader_understands ? "([L.short]) [content]" : content]</span>")
@@ -458,8 +479,8 @@
 		if(istype(i, /obj/item/pen/crayon))
 			iscrayon = TRUE
 
-		if(istype(i, /obj/item/pen/fountain))
-			var/obj/item/pen/fountain/f = i
+		if(istype(i, /obj/item/pen/fountain) || istype(i, /obj/item/pen/augment))
+			var/obj/item/pen/f = i
 			if(f.cursive)
 				isfountain = TRUE
 			else
@@ -645,30 +666,29 @@
 	var/sentence = 1 // Is this form contain a sentence of guilty?
 
 /obj/item/paper/incident/New()
-	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
-\[center\]\[b\]\[i\]Encoded NanoTrasen Security Incident Report\[/b\]\[/i\]\[hr\]
-\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]
-\[barcode\]\[/center\]"})
+	var/T = parsepencode({"\[center\]\[logo_scc\]\[/center\]
+		\[center\]\[b\]\[i\]Encoded SCC Security Incident Report\[/b\]\[/i\]\[hr\]
+		\[small\]FOR USE BY <b>SCCV HORIZON</b> SECURITY ONLY\[/small\]\[br\]
+		\[barcode\]\[/center\]"})
 	info = T
 
 	..()
 
 /obj/item/paper/sentencing
-	name = "Criminal Sentencing and You"
+	name = "Sentencing and You"
 	icon_state = "pamphlet"
 
 /obj/item/paper/sentencing/New()
-	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
-\[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
-\[small\]In compliance with new NanoTrasen criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
-\[br\]
-While preparing a convicted individual, remove their ID and have the terminal scan it.\[br\]
-Next, select all applicable charges from the menu available. The computer will calculate the sentence based on the minimum recommended sentence - any variables such as repeat offense will need to be manually accounted for.\[br\]
-After all the charges have been applied, the processing officer is invited to add a short description of the incident, any related evidence, and any witness testimonies.\[br\]
-Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.\[br\]
-\[hr\]
-Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form receipt inserted into them.
-\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"})
+	var/T = parsepencode(
+		{"\[center\]\[logo_scc_small\]\[/center\]
+		\[center\]\[b\]\[i\]Operation of Sentencing Consoles\[/b\]\[/i\]\[hr\]
+		\[small\]In compliance with SCC criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing consoles. The operation of these consoles, or computers, is quite simple:
+		While preparing a convicted individual, remove their ID and have the console scan it.\[br\]
+		Next, select all applicable charges from the menu available. The console will calculate the sentence based on the minimum recommended sentence - any variables such as repeat offense will need to be manually accounted for.\[br\]
+		After all the charges have been applied, the processing officer is invited to add a short description of the incident, any related evidence, and any witness testimonies.\[br\]
+		Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.\[br\]
+		\[hr\]Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form report inserted into them."}
+	)
 	info = T
 
 	..()
@@ -682,3 +702,43 @@ Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident f
 
 /obj/item/paper/medscan
 	icon_state = "medscan"
+
+//
+// Fluff Papers
+// Fluff papers that you can map in, for lore or whatever.
+//
+
+// Parent item.
+/obj/item/paper/fluff
+	name = "fluff paper"
+	desc = "You aren't supposed to see this."
+
+// Used in the deck 3 cafe on the SCCV Horizon.
+/obj/item/paper/fluff/microwave
+	name = "\improper RE: Where are our microwaves?"
+	desc = "A paper."
+	info = "<font face=\"Verdana\"><font size=\"1\"><i>2464-04-30 04:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font>\
+		<BR>We are sorry for the lack of a microwave, but the transport got misdirected on the way.<BR>-<font face=\"Courier New\"><i>Orion Express Customer \
+		Service</i></font><BR><BR><font size=\"1\"><i>2464-04-30 07:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font>\
+		<BR>We apologize for the lack of a microwave. As compensation, employees are given a donut box. Please enjoy.<BR>-<font face=\"Courier New\"><i>SCC Internal \
+		Affairs</i></font></font>"
+
+// Used in the bunker on the SCCV Horizon.
+/obj/item/paper/fluff/bunker
+	name = "bunker evacuation route instructions"
+	desc = "A paper. It has evacuation route instructions printed on it."
+	info = "<font face=\"Verdana\"><center>SCCV Horizon Command Bunker<br>Evacuation Route Instructions</center><font size=\"2\"><ol><li>Put on the emergency \
+		welding goggles.</li><li>Grasp the emergency welding tool firmly in your hands, turn it on, and start cutting a hole in the floor.</li><li>Wait for \
+		the newly created hole to cool.<li>Use the emergency crowbar to pry away the metal.</li><li>Deploy the emergency ladder.</li><li>Dispose of the used \
+		equipment, if necessary.</li></ol></font></font>"
+		
+// Used on the IAC ship, meant for distribution.
+/obj/item/paper/fluff/iac
+	name = "interstellar aid corps info pamphlet"
+	desc = "A paper. It has an IAC logo stamped right on front of it."
+	info = "<font face=\"Verdana\"><center><b>The Interstellar Aid Corps Needs YOUR Help!</b></center><br>With the crisis in the Wildlands still affecting billions \
+	of people, now more than ever the IAC needs your help to provide relief to those worst affected by Phoron shortages, Warlord attacks, and even a lack of \
+	basic necessities, such as food and water.<br>The IAC and its personnel have been able to provide relief to hundreds of colonies, but this can only happen \
+	with your support. As such, local IAC vessels and stations are accepting donations of non-perishable foods and water, as well as medical supplies of any type. \
+	Additionally, at the behest of the IAC coordinator in your area of space, you can join for a blood drive or apply to volunteer in the IAC. <br> \
+	<center><i>Remember - it's up to all of us to look after our galaxy!</i></center></font>"

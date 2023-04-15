@@ -6,28 +6,18 @@
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 /datum/controller/subsystem/misc_late/Initialize(timeofday)
-	var/turf/picked
 	// Setup the teleport locs.
-	for (var/thing in all_areas)
-		var/area/AR = thing
-		picked = null
-		if(!(istype(AR, /area/shuttle) || istype(AR, /area/antag/wizard)))
-			picked = pick_area_turf(AR.type, list(/proc/is_station_turf))
-			if (picked)
-				teleportlocs += AR.name
-				teleportlocs[AR.name] = AR
-
-		if(istype(AR, /area/turret_protected/aisat) || istype(AR, /area/tdome) || istype(AR, /area/shuttle/specops))
+	for(var/area/AR as anything in the_station_areas)
+		if(AR.flags & NO_GHOST_TELEPORT_ACCESS)
+			continue
+		var/list/area_turfs = AR.contents
+		if (area_turfs.len) // Check the area is mapped
 			ghostteleportlocs += AR.name
 			ghostteleportlocs[AR.name] = AR
+	if(current_map.use_overmap)
+		ghostteleportlocs[map_overmap.name] = map_overmap
 
-		picked = pick_area_turf(AR.type, list(/proc/is_station_turf))
-		if (picked)
-			ghostteleportlocs += AR.name
-			ghostteleportlocs[AR.name] = AR
-
-	sortTim(teleportlocs, /proc/cmp_text_asc)
-	sortTim(ghostteleportlocs, /proc/cmp_text_asc)
+	sortTim(ghostteleportlocs, GLOBAL_PROC_REF(cmp_text_asc))
 
 	setupgenetics()
 
@@ -44,13 +34,9 @@
 	if (config.use_forumuser_api)
 		update_admins_from_api(TRUE)
 
-	click_catchers = create_click_catcher()
-
-	current_map.build_exoplanets()
-
 	..(timeofday)
 
 /proc/sorted_add_area(area/A)
 	all_areas += A
 
-	sortTim(all_areas, /proc/cmp_name_asc)
+	sortTim(all_areas, GLOBAL_PROC_REF(cmp_name_asc))

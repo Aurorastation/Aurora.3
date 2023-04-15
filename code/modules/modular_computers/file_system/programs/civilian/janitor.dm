@@ -2,6 +2,7 @@
 	filename = "janitor"
 	filedesc = "Custodial Supplies Locator"
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program is used by custodial staff to keep track of work-related supplies."
 	usage_flags = PROGRAM_ALL_REGULAR
 	size = 4

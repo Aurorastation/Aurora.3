@@ -1,11 +1,12 @@
 #define CHANNEL_COMMON "Common"
 #define CHANNEL_ENTERTAINMENT "Entertainment"
+#define CHANNEL_HAILING	"Hailing"
 #define CHANNEL_COMMAND "Command"
 #define CHANNEL_SCIENCE "Science"
 #define CHANNEL_MEDICAL "Medical"
 #define CHANNEL_ENGINEERING "Engineering"
 #define CHANNEL_SECURITY "Security"
-#define CHANNEL_SUPPLY "Supply"
+#define CHANNEL_SUPPLY "Operations"
 #define CHANNEL_SERVICE "Service"
 #define CHANNEL_AI_PRIVATE "AI Private"
 #define CHANNEL_PENAL "Penal"
@@ -21,6 +22,7 @@
 var/global/list/ALL_RADIO_CHANNELS = list(
 	CHANNEL_COMMON = TRUE,
 	CHANNEL_ENTERTAINMENT = TRUE,
+	CHANNEL_HAILING = TRUE,
 	CHANNEL_COMMAND = TRUE,
 	CHANNEL_SCIENCE = TRUE,
 	CHANNEL_MEDICAL = TRUE,

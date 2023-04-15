@@ -43,6 +43,24 @@
 	gendered_icon = 1
 	augment_limit = 3
 
+	var/obj/item/storage/internal/tail/tail_storage
+
+/obj/item/organ/external/groin/Initialize()
+	. = ..()
+	if(owner.species.tail)
+		tail_storage = new /obj/item/storage/internal/tail(src)
+
+/obj/item/organ/external/groin/Destroy()
+	if(owner?.species.tail)
+		QDEL_NULL(tail_storage)
+	return ..()
+
+/obj/item/organ/external/groin/removed()
+	. = ..()
+	if(owner?.species.tail)
+		for(var/thing in tail_storage)
+			tail_storage.remove_from_storage(thing, get_turf(src))
+
 /obj/item/organ/external/groin/body_part_class()
 	return UPPER_TORSO
 
@@ -53,7 +71,7 @@
 	limb_name = BP_L_ARM
 	name = "left arm"
 	icon_name = "l_arm"
-	max_damage = 75
+	max_damage = 65
 	min_broken_damage = 30
 	w_class = ITEMSIZE_NORMAL
 	body_part = ARM_LEFT
@@ -86,7 +104,7 @@
 	limb_name = BP_L_LEG
 	name = "left leg"
 	icon_name = "l_leg"
-	max_damage = 75
+	max_damage = 65
 	min_broken_damage = 30
 	w_class = ITEMSIZE_NORMAL
 	body_part = LEG_LEFT
@@ -119,7 +137,7 @@
 	limb_name = BP_L_FOOT
 	name = "left foot"
 	icon_name = "l_foot"
-	max_damage = 55
+	max_damage = 50
 	min_broken_damage = 15
 	w_class = ITEMSIZE_SMALL
 	body_part = FOOT_LEFT
@@ -156,7 +174,7 @@
 	limb_name = BP_L_HAND
 	name = "left hand"
 	icon_name = "l_hand"
-	max_damage = 55
+	max_damage = 50
 	min_broken_damage = 15
 	w_class = ITEMSIZE_SMALL
 	body_part = HAND_LEFT
@@ -176,7 +194,8 @@
 
 /obj/item/organ/external/hand/take_damage(brute, burn, damage_flags, used_weapon, list/forbidden_limbs, silent)
 	. = ..()
-	owner.update_hud_hands()
+	if(owner)
+		owner.update_hud_hands()
 
 /obj/item/organ/external/hand/removed()
 	owner.drop_from_inventory(owner.gloves)
@@ -200,7 +219,7 @@
 	limb_name = BP_HEAD
 	icon_name = "head"
 	name = BP_HEAD
-	max_damage = 125
+	max_damage = 75
 	min_broken_damage = 35
 	w_class = ITEMSIZE_NORMAL
 	body_part = HEAD | FACE

@@ -17,8 +17,6 @@
 
 	fire_dam_coeff = 0.6
 	brute_dam_coeff = 0.5
-	var/list/validfirelocations = list(1, 7, 9) // above the station, at the centcomm z-level and at derelicts.
-
 	var/status = READY
 
 	var/mob/humanload
@@ -52,9 +50,8 @@
 		var/obj/item/weldingtool/W = I
 		if(W.welding)
 			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."))
-			if(do_after(user, 200))
+			if(I.use_tool(src, user, 200, volume = 50))
 				src.visible_message(SPAN_DANGER("\The [src] is cut apart by [user]!"))
-				playsound(src, 'sound/items/welder.ogg', 100, 1)
 				new /obj/item/stack/material/titanium(src.loc, 10)
 				new /obj/item/stack/material/plasteel(src.loc, 10)
 				var/obj/item/stack/cable_coil/C = new /obj/item/stack/cable_coil(src.loc)
@@ -181,32 +178,30 @@
 		var/area/A = null
 		var/target = href_list["fire"]
 		switch(target)
-			if("arrivals")
-				var/arrivals_destination_list = list(
-					/area/hallway/secondary/entry/fore = 35,
-					/area/hallway/secondary/entry/port = 35,
-					/area/security/vacantoffice = 15,
-					/area/hallway/secondary/entry/departure_lounge = 15
+			if("recreational_areas")
+				var/list/recreational_areas_list = list(
+					/area/horizon/crew_quarters/fitness/hallway = 25,
+					/area/horizon/crew_quarters/fitness/changing = 25,
+					/area/horizon/crew_quarters/fitness/pool = 25,
+					/area/horizon/crew_quarters/fitness/gym = 25
 					)
-				A = pickweight(arrivals_destination_list)
-			if("cargo")
-				var/cargo_destination_list = list(
-					/area/quartermaster/loading = 50,
-					/area/quartermaster/qm = 20,
-					/area/maintenance/store = 10,
-					/area/store = 5,
-					/area/hallway/secondary/entry/aft = 10,
-					/area/sconference_room = 5
+				A = pickweight(recreational_areas_list)
+			if("operations")
+				var/list/ops_list = list(
+					/area/operations/break_room = 15,
+					/area/maintenance/wing/starboard = 20,
+					/area/maintenance/wing/starboard/deck1 = 20,
+					/area/operations/office = 10,
+					/area/operations/storage = 15,
+					/area/outpost/mining_main/refinery = 20
 					)
-				A = pickweight(cargo_destination_list)
-			if("commandescape")
-				var/commandescape_destination_list = list(
-					/area/bridge/levela = 35,
-					/area/bridge/levela/research_dock = 35,
-					/area/security/bridge_surface_checkpoint = 15,
-					/area/maintenance/bridge_elevator/surface = 15
+				A = pickweight(ops_list)
+			if("starboard_wing")
+				var/list/starboard_wing_list = list(
+					/area/maintenance/wing/starboard = 50,
+					/area/maintenance/wing/starboard/far = 50
 					)
-				A = pickweight(commandescape_destination_list)
+				A = pickweight(starboard_wing_list)
 		if(A)
 			var/mob/user = usr
 			if(!(user in src))
@@ -239,28 +234,27 @@
 			else
 				obstacle_found = FALSE
 
+	if(!length(turf_selection)) //If the list of turfs is empty then the pick below would runtime and break the pod.
+		pod_error()
+		return
+
 	var/target_turf = pick(turf_selection)
 	if(!target_turf)
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-		visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
-		status = READY
-		if(connected_blastdoor)
-			blastdoor_interact(TRUE)
+		pod_error()
 		return
 	fire(target_turf)
+
+/obj/vehicle/droppod/proc/pod_error()
+	playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
+	visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
+	status = READY
+	if(connected_blastdoor)
+		blastdoor_interact(TRUE)
 
 /obj/vehicle/droppod/proc/fire(var/turf/A)
 	if(!isturf(A))
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
 		visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
-		status = READY
-		if(connected_blastdoor)
-			blastdoor_interact(TRUE)
-		return
-
-	if(!(src.z in validfirelocations))
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-		visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Pod cannot be launched from this position."))
 		status = READY
 		if(connected_blastdoor)
 			blastdoor_interact(TRUE)

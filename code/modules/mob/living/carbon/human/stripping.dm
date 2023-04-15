@@ -86,24 +86,20 @@
 			return 1
 
 	// Are we placing or stripping?
-	var/stripping
+	var/stripping = target_slot
 	var/obj/item/held = user.get_active_hand()
-
-	if(!istype(held) || is_robot_module(held) || istype(held, /obj/item/grab))
-		if(!istype(target_slot))  // They aren't holding anything valid and there's nothing to remove, why are we even here?
-			return 0
+	
+	if(stripping)
 		if(!target_slot.canremove)
 			to_chat(user, "<span class='warning'>You cannot remove \the [src]'s [target_slot.name].</span>")
 			return 0
-		stripping = 1
-
-	if(stripping)
-		visible_message("<span class='danger'>\The [user] is trying to remove \the [src]'s [target_slot.name]!</span>")
+		else
+			visible_message("<span class='danger'>\The [user] is trying to remove \the [src]'s [target_slot.name]!</span>")
 	else
 		visible_message("<span class='danger'>\The [user] is trying to put \a [held] on \the [src]!</span>")
 	if(!do_mob(user,src,HUMAN_STRIP_DELAY))
 		return 0
-	if(!stripping && user.get_active_hand() != held)
+	if(!stripping && held != user.get_active_hand())
 		return 0
 
 	if(stripping)
@@ -112,9 +108,9 @@
 			var/obj/item/clothing/ears/OE = (l_ear == target_slot ? r_ear : l_ear)
 			qdel(OE)
 		unEquip(target_slot)
+		user.put_in_hands(target_slot)
 	else if(user.unEquip(held))
-		equip_to_slot_if_possible(held, text2num(slot_to_strip), FALSE, TRUE, TRUE, FALSE, TRUE)
-		if(held.loc != src)
+		if(!equip_to_slot_if_possible(held, text2num(slot_to_strip), FALSE, TRUE, TRUE, FALSE, TRUE))
 			user.put_in_hands(held)
 	return 1
 

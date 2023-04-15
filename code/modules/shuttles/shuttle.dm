@@ -86,10 +86,12 @@
 	moving_status = SHUTTLE_WARMUP
 	callHook("shuttle_moved", list(start_location,destination))
 	if(sound_takeoff)
+		if(!fuel_check(TRUE)) // Check for fuel, but don't use any.
+			return
 		playsound(current_location, sound_takeoff, 25, 20, is_global = TRUE)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
-			return FALSE	//someone cancelled the launch
+			return	//someone cancelled the launch
 
 		if(!fuel_check()) //fuel error (probably out of fuel) occured, so cancel the launch
 			var/datum/shuttle/autodock/S = src
@@ -110,6 +112,8 @@
 	moving_status = SHUTTLE_WARMUP
 	callHook("shuttle_moved", list(start_location, destination))
 	if(sound_takeoff)
+		if(!fuel_check(TRUE)) // Check for fuel, but don't use any.
+			return
 		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
@@ -124,6 +128,7 @@
 		arrive_time = world.time + travel_time*10
 		moving_status = SHUTTLE_INTRANSIT
 		if(attempt_move(interim))
+			on_move_interim()
 			var/fwooshed = 0
 			while (world.time < arrive_time)
 				if(!fwooshed && (arrive_time - world.time) < 100)
@@ -168,12 +173,9 @@
 //If you want to conditionally cancel shuttle launches, that logic must go in short_jump(), long_jump() or attempt_move()
 /datum/shuttle/proc/shuttle_moved(var/obj/effect/shuttle_landmark/destination, var/list/turf_translation)
 
-//	log_debug("move_shuttle() called for [shuttle_tag] leaving [origin] en route to [destination].")
-//	log_debug("area_coming_from: [origin]")
-//	log_debug("destination: [destination]")
 	if((flags & SHUTTLE_FLAGS_ZERO_G))
 		var/new_grav = 1
-		if(destination.landmark_flags & SLANDMARK_FLAG_ZERO_G)
+		if(destination.flags & SLANDMARK_FLAG_ZERO_G)
 			var/area/new_area = get_area(destination)
 			new_grav = new_area.has_gravity
 		for(var/area/our_area in shuttle_area)
@@ -184,6 +186,9 @@
 		var/turf/dst_turf = turf_translation[src_turf]
 		if(squishes && src_turf.is_solid_structure()) //in case someone put a hole in the shuttle and you were lucky enough to be under it
 			for(var/atom/movable/AM in dst_turf)
+				if(AM.movable_flags & MOVABLE_FLAG_DEL_SHUTTLE)
+					qdel(AM)
+					continue
 				if(!AM.simulated)
 					continue
 				if(isliving(AM))
@@ -207,8 +212,8 @@
 						shake_camera(M, 3, 1)
 					else if(M.Check_Shoegrip(FALSE))
 						to_chat(M, SPAN_WARNING("You feel immense pressure in your feet as you cling to the floor!"))
-						M.apply_damage(10, PAIN, BP_L_FOOT)
-						M.apply_damage(10, PAIN, BP_R_FOOT)
+						M.apply_damage(10, DAMAGE_PAIN, BP_L_FOOT)
+						M.apply_damage(10, DAMAGE_PAIN, BP_R_FOOT)
 						shake_camera(M, 5, 1)
 					else
 						to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
@@ -220,7 +225,7 @@
 		for(var/obj/structure/cable/C in A)
 			powernets |= C.powernet
 
-	translate_turfs(turf_translation, current_location.base_area, current_location.base_turf)
+	translate_turfs(turf_translation, current_location.base_area, current_location.base_turf, TRUE)
 	current_location = destination
 
 	// if there's a zlevel above our destination, paint in a ceiling on it so we retain our air
@@ -230,7 +235,7 @@
 				TD.update_above()
 				TD.update_icon()
 				var/turf/TA = GetAbove(TD)
-				if(istype(TA, get_base_turf_by_area(TA)) || istype(TA, /turf/simulated/open))
+				if(istype(TA, get_base_turf_by_area(TA)) || (istype(TA) && TA.is_open()))
 					if(get_area(TA) in shuttle_area)
 						continue
 					TA.ChangeTurf(ceiling_type, TRUE, TRUE, TRUE)
@@ -297,3 +302,6 @@
 	process_state = new_state
 	for(var/obj/machinery/computer/shuttle_control/SC as anything in shuttle_computers)
 		SC.update_helmets(src)
+
+/datum/shuttle/proc/on_move_interim()
+	return

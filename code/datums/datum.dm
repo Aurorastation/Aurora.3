@@ -4,6 +4,8 @@
 	var/tmp/isprocessing = 0
 	var/tmp/gcDestroyed //Time when this object was destroyed.
 
+	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
+	var/list/status_traits
 	/// Components attached to this datum
 	/// Lazy associated list in the structure of `type:component/list of components`
 	var/list/datum_components
@@ -15,6 +17,10 @@
 	/// Is this datum capable of sending signals?
 	/// Set to true when a signal has been registered
 	var/signal_enabled = FALSE
+	/// A cached version of our \ref
+	/// The brunt of \ref costs are in creating entries in the string tree (a tree of immutable strings)
+	/// This avoids doing that more then once per datum by ensuring ref strings always have a reference to them after they're first pulled
+	var/cached_ref
 
 // Default implementation of clean-up code.
 // This should be overridden to remove all references pointing to the object being destroyed.
@@ -70,4 +76,5 @@
 	return QDEL_HINT_QUEUE
 
 /datum/proc/process()
+	set waitfor = FALSE
 	return PROCESS_KILL

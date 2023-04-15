@@ -4,7 +4,7 @@
 
 	is_holographic = FALSE
 	icon_screen = "shuttle"
-	light_color = "#00ffff"
+	light_color = LIGHT_COLOR_CYAN
 	var/auth_need = 3.0
 	var/list/authorized = list(  )
 

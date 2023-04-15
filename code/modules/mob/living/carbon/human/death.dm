@@ -22,7 +22,7 @@
 	vr_disconnect()
 
 	if(species)
-		..(species.dusted_anim, species.remains_type)
+		..(species.dust_remains_type)
 	else
 		..()
 
@@ -80,8 +80,10 @@
 
 	handle_hud_list()
 
+	updatehealth()
+
 /mob/living/carbon/human/proc/ChangeToHusk()
-	if(HUSK in mutations)
+	if(HAS_FLAG(mutations, HUSK))
 		return
 
 	if(f_style)
@@ -95,7 +97,7 @@
 
 	scrub_flavor_text()
 
-	mutations.Add(HUSK)
+	mutations |= HUSK
 	status_flags |= DISFIGURED	//makes them unknown without fucking up other stuff like admintools
 	update_body(TRUE)
 	return
@@ -106,7 +108,8 @@
 	return
 
 /mob/living/carbon/human/proc/ChangeToSkeleton(var/keep_name = FALSE)
-	if(SKELETON in src.mutations)	return
+	if(HAS_FLAG(mutations, SKELETON))
+		return
 
 	if(f_style)
 		f_style = "Shaved"
@@ -119,10 +122,9 @@
 		real_name = "Unknown"
 		scrub_flavor_text()
 
-	mutations.Add(SKELETON)
+	mutations |= SKELETON
 	status_flags |= DISFIGURED
 	update_body(TRUE)
-	return
 
 /mob/living/carbon/human/proc/scrub_flavor_text()
 	for(var/text in flavor_texts)

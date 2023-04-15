@@ -21,7 +21,6 @@ var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mob
 var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
 var/global/list/brig_closets = list()				//list of all brig secure_closets. Used by brig timers. Probably should be converted to use SSwireless eventually.
 
-var/global/list/teleportlocs = list()
 var/global/list/ghostteleportlocs = list()
 var/global/list/centcom_areas = list()
 var/global/list/the_station_areas = list()
@@ -29,6 +28,7 @@ var/global/list/the_station_areas = list()
 var/global/list/implants = list()
 
 var/global/list/turfs = list()						//list of all turfs
+var/global/list/station_turfs = list()
 var/global/list/areas_by_type = list()
 var/global/list/all_areas = list()
 
@@ -60,15 +60,17 @@ var/global/list/chargen_disabilities_list = list()
 var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER, PLURAL)
 
 //Backpacks
-var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Leather satchel", "Duffel Bag", "Messenger Bag", "Black Rucksack", "Blue Rucksack", "Green Rucksack", "Navy Rucksack", "Tan Rucksack", "Khaki Satchel", "Black Satchel", "Navy Satchel", "Olive Satchel", "Auburn Satchel", "Black Pocketbook", "Brown Pocketbook", "Auburn Pocketbook", "Classic leather satchel")
-var/global/list/backbagstyles = list("Job-specific", "Grey")
-var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
+var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook")
+var/global/list/backbagstyles = list("Job-specific", "Generic", "Faction-specific")
+var/global/list/backbagcolors = list("None", "Blue", "Green", "Navy", "Tan", "Khaki", "Black", "Olive", "Auburn", "Brown")
+var/global/list/backbagstrap = list("Hidden", "Thin", "Normal", "Thick")
+var/global/list/exclude_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/merchant)
 
 //PDA choice
 var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Tablet", "Wristbound")
 
 //Headset choice
-var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio")
+var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio", "Sleek Wristbound Radio")
 
 // Primary Radio Slot choice
 var/global/list/primary_radio_slot_choice = list("Left Ear", "Right Ear", "Wrist")
@@ -109,9 +111,9 @@ var/global/list/intent_listener = list()
 				hair_styles_male_list += H.name
 				hair_styles_female_list += H.name
 
-	sortTim(hair_styles_list, /proc/cmp_text_asc)
-	sortTim(hair_styles_male_list, /proc/cmp_text_asc)
-	sortTim(hair_styles_female_list, /proc/cmp_text_asc)
+	sortTim(hair_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(hair_styles_male_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(hair_styles_female_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//Gradients - Initialise all /datum/sprite_accessory/hair_gradients into an list indexed by hairgradient-style name
 	paths = subtypesof(/datum/sprite_accessory/hair_gradients)
@@ -119,7 +121,7 @@ var/global/list/intent_listener = list()
 		var/datum/sprite_accessory/hair_gradients/H = new path()
 		hair_gradient_styles_list[H.name] = H
 
-	sortTim(hair_gradient_styles_list, /proc/cmp_text_asc)
+	sortTim(hair_gradient_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//Facial Hair - Initialise all /datum/sprite_accessory/facial_hair into an list indexed by facialhair-style name
 	paths = subtypesof(/datum/sprite_accessory/facial_hair)
@@ -133,9 +135,9 @@ var/global/list/intent_listener = list()
 				facial_hair_styles_male_list += H.name
 				facial_hair_styles_female_list += H.name
 
-	sortTim(facial_hair_styles_list, /proc/cmp_text_asc)
-	sortTim(facial_hair_styles_male_list, /proc/cmp_text_asc)
-	sortTim(facial_hair_styles_female_list, /proc/cmp_text_asc)
+	sortTim(facial_hair_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(facial_hair_styles_male_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(facial_hair_styles_female_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//Body markings
 	paths = subtypesof(/datum/sprite_accessory/marking)
@@ -143,7 +145,7 @@ var/global/list/intent_listener = list()
 		var/datum/sprite_accessory/marking/M = new path()
 		body_marking_styles_list[M.name] = M
 
-	sortTim(body_marking_styles_list, /proc/cmp_text_asc)
+	sortTim(body_marking_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//Disability datums
 	paths = subtypesof(/datum/character_disabilities)
@@ -151,7 +153,7 @@ var/global/list/intent_listener = list()
 		var/datum/character_disabilities/T = new path()
 		chargen_disabilities_list[T.name] = T
 
-	sortTim(chargen_disabilities_list, /proc/cmp_text_asc)
+	sortTim(chargen_disabilities_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//List of job. I can't believe this was calculated multiple times per tick!
 	paths = subtypesof(/datum/job)
@@ -181,7 +183,7 @@ var/global/list/intent_listener = list()
 			S.has_autohiss = TRUE
 		all_species[S.name] = S
 
-	sortTim(all_species, /proc/cmp_text_asc)
+	sortTim(all_species, GLOBAL_PROC_REF(cmp_text_asc))
 
 	// The other lists are generated *after* we sort the main one so they don't need sorting too.
 	for (var/thing in all_species)
@@ -215,3 +217,31 @@ var/global/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = 
 				. += "    has: [t]\n"
 	world << .
 */
+
+//*** params cache
+/*
+	Ported from bay12, this seems to be used to store and retrieve 2D vectors as strings, as well as
+	decoding them into a number
+*/
+var/global/list/paramslist_cache = list()
+
+#define cached_key_number_decode(key_number_data) cached_params_decode(key_number_data, /proc/key_number_decode)
+#define cached_number_list_decode(number_list_data) cached_params_decode(number_list_data, /proc/number_list_decode)
+
+/proc/cached_params_decode(var/params_data, var/decode_proc)
+	. = paramslist_cache[params_data]
+	if(!.)
+		. = call(decode_proc)(params_data)
+		paramslist_cache[params_data] = .
+
+/proc/key_number_decode(var/key_number_data)
+	var/list/L = params2list(key_number_data)
+	for(var/key in L)
+		L[key] = text2num(L[key])
+	return L
+
+/proc/number_list_decode(var/number_list_data)
+	var/list/L = params2list(number_list_data)
+	for(var/i in 1 to L.len)
+		L[i] = text2num(L[i])
+	return L

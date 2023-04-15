@@ -32,6 +32,8 @@
 
 	var/never_remove = FALSE		// whether it can ever be removed
 
+	var/global/list/chameleon_options
+
 /obj/item/technomancer_core/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
@@ -39,6 +41,10 @@
 		verbs += /obj/item/technomancer_core/proc/toggle_lock
 	else
 		canremove = FALSE
+	if(!chameleon_options)
+		var/list/blocked = list(/obj/item/storage/backpack/satchel/leather/withwallet) + typesof(/obj/item/technomancer_core)
+		chameleon_options = list("Reset")
+		chameleon_options += generate_chameleon_choices(/obj/item/storage/backpack, blocked)
 
 /obj/item/technomancer_core/Destroy()
 	dismiss_all_summons()
@@ -121,7 +127,7 @@
 			var/mob/living/L = A
 			if(L.stat == DEAD)
 				summoned_mobs -= L
-				addtimer(CALLBACK(src, .proc/remove_summon, L), 1)
+				addtimer(CALLBACK(src, PROC_REF(remove_summon), L), 1)
 
 /obj/item/technomancer_core/proc/remove_summon(var/mob/living/L)
 	L.visible_message("<span class='notice'>\The [L] begins to fade away...</span>")
@@ -137,6 +143,36 @@
 	for(var/mob/living/ward in wards_in_use)
 		wards_in_use -= ward
 		qdel(ward)
+
+/obj/item/technomancer_core/verb/change_appearance(picked in chameleon_options)
+	set name = "Change Core Appearance"
+	set category = "Chameleon Items"
+	set src in usr
+
+	if(picked != "Reset" && !ispath(chameleon_options[picked]))
+		return
+
+	if(!usr.mind || !technomancers.is_technomancer(usr.mind))
+		to_chat(usr, SPAN_WARNING("You have no idea how to do this!"))
+		return
+
+	var/chameleon_type
+	if(picked == "Reset")
+		chameleon_type = type
+	else
+		chameleon_type = chameleon_options[picked]
+
+	set_appearance_to(chameleon_type)
+
+/obj/item/technomancer_core/proc/set_appearance_to(var/path)
+	disguise(path)
+	if(ismob(loc))
+		var/mob/M = loc
+		M.update_inv_back()
+		update_held_icon()
+
+/obj/item/technomancer_core/emp_act()
+	set_appearance_to(type)
 
 // This is what is clicked on to place a spell in the user's hands.
 /obj/spellbutton
@@ -215,14 +251,14 @@
 	if(client && hud_used)
 		if(istype(back, /obj/item/technomancer_core)) //I reckon there's a better way of doing this.
 			var/obj/item/technomancer_core/core = back
-			energy_display.invisibility = 0
-			instability_display.invisibility = 0
+			energy_display.set_invisibility(0)
+			instability_display.set_invisibility(0)
 			var/ratio = core.energy / core.max_energy
 			ratio = max(round(ratio, 0.05) * 100, 5)
 			energy_display.icon_state = "wiz_energy[ratio]"
 		else
-			energy_display.invisibility = 101
-			instability_display.invisibility = 101
+			energy_display.set_invisibility(101)
+			instability_display.set_invisibility(101)
 
 //Resonance Aperture
 

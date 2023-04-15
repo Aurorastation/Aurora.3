@@ -30,10 +30,13 @@
 
 #define WARNING_DELAY 20			//seconds between warnings.
 
+///to prevent accent sounds from layering
+#define SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN 2 SECONDS
+
 #define LIGHT_POWER_CALC (max(power / 50, 1))
 
 /obj/machinery/power/supermatter
-	name = "Supermatter"
+	name = "supermatter crystal"
 	desc = "A strangely translucent and iridescent crystal. <span class='warning'>You get headaches just from looking at it.</span>"
 	desc_info = "When energized by a laser (or something hitting it), it emits radiation and heat.  If the heat reaches above 7000 kelvin, it will send an alert and start taking damage. \
 	After integrity falls to zero percent, it will delaminate, causing a massive explosion, station-wide radiation spikes, and hallucinations. \
@@ -108,12 +111,19 @@
 	var/debug = 0
 	var/last_message_time = -100 //for message
 
+	var/datum/looping_sound/supermatter/soundloop
+
+	/// cooldown tracker for accent sounds,
+	var/last_accent_sound = 0
+
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
+	soundloop = new(list(src), TRUE)
 
 /obj/machinery/power/supermatter/Destroy()
 	QDEL_NULL(radio)
+	QDEL_NULL(soundloop)
 	. = ..()
 
 /obj/machinery/power/supermatter/proc/explode()
@@ -129,8 +139,7 @@
 				//Hilariously enough, running into a closet should make you get hit the hardest.
 				var/mob/living/carbon/human/H = mob
 				H.hallucination += max(50, min(300, DETONATION_HALLUCINATION * sqrt(1 / (get_dist(mob, src) + 1)) ) )
-			var/rads = DETONATION_RADS * sqrt( 1 / (get_dist(mob, src) + 1) )
-			mob.apply_effect(rads, IRRADIATE)
+	SSradiation.z_radiate(locate(1, 1, z), DETONATION_RADS, TRUE)
 	spawn(pull_time)
 		explosion(get_turf(src), explosion_power, explosion_power * 2, explosion_power * 3, explosion_power * 4, 1)
 		qdel(src)
@@ -195,8 +204,7 @@
 
 	return ..()
 
-/obj/machinery/power/supermatter/machinery_process()
-
+/obj/machinery/power/supermatter/process()
 	var/turf/L = loc
 
 	if(isnull(L))		// We have a null turf...something is wrong, stop processing this entity.
@@ -221,9 +229,27 @@
 	if(grav_pulling)
 		supermatter_pull()
 
+	if(power)
+		soundloop.volume = Clamp((50 + (power / 50)), 50, 100)
+	if(damage >= 300)
+		soundloop.mid_sounds = list('sound/machines/sm/loops/delamming.ogg' = 1)
+	else
+		soundloop.mid_sounds = list('sound/machines/sm/loops/calm.ogg' = 1)
+
+	if(last_accent_sound < world.time && prob(20))
+		var/aggression = min(((damage / 800) * (power / 2500)), 1.0) * 100
+		if(damage >= 300)
+			playsound(src, /singleton/sound_category/supermatter_delam, max(50, aggression), FALSE, 10)
+		else
+			playsound(src, /singleton/sound_category/supermatter_calm, max(50, aggression), FALSE, 10)
+		var/next_sound = round((100 - aggression) * 5)
+		last_accent_sound = world.time + max(SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN, next_sound)
+
+
 	//Ok, get the air from the turf
-	var/datum/gas_mixture/removed = null
 	var/datum/gas_mixture/env = null
+
+	var/datum/gas_mixture/removed = null
 
 	//ensure that damage doesn't increase too quickly due to super high temperatures resulting from no coolant, for example. We dont want the SM exploding before anyone can react.
 	//We want the cap to scale linearly with power (and explosion_point). Let's aim for a cap of 5 at power = 300 (based on testing, equals roughly 5% per SM alert announcement).
@@ -294,11 +320,11 @@
 		var/rads = (power / 10) * ( 1 / (radius**2) )
 		if (!(l in oview(rad_range, src)) && !(l in range(src, round(rad_range * 2/3))))
 			continue
-		l.apply_damage(rads, IRRADIATE, damage_flags = DAM_DISPERSED)
+		l.apply_damage(rads, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 		if(l.is_diona())
 			l.adjustToxLoss(-rads)
 			if(last_message_time + 800 < world.time) // Not to spam message
-				to_chat(l, "<span class='notice'>You can feel an extreme level of energy which flows throught your body and makes you regenerate very fast.</span>")
+				to_chat(l, "<span class='notice'>You can feel an extreme level of energy which flows through your body and makes you regenerate very fast.</span>")
 	last_message_time = world.time
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
@@ -344,7 +370,7 @@
 	data = ..() || list()
 	data["integrity_percentage"] = round(get_integrity())
 	var/datum/gas_mixture/env = null
-	if(!istype(src.loc, /turf/space))
+	if(loc && !istype(src.loc, /turf/space))
 		env = src.loc.return_air()
 	data["ambient_temp"] = round(env?.temperature)
 	data["ambient_pressure"] = round(env?.return_pressure())
@@ -358,16 +384,6 @@
 		ui.auto_update_content = TRUE
 		ui.open()
 
-/*
-/obj/machinery/power/supermatter/proc/transfer_energy()
-	for(var/obj/machinery/power/rad_collector/R in rad_collectors)
-		var/distance = get_dist(R, src)
-		if(distance <= 15)
-			//for collectors using standard phoron tanks at 1013 kPa, the actual power generated will be this power*POWER_FACTOR*20*29 = power*POWER_FACTOR*580
-			R.receive_pulse(power * POWER_FACTOR * (min(3/distance, 1))**2)
-	return
-*/
-
 /obj/machinery/power/supermatter/attackby(obj/item/W as obj, mob/living/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
@@ -376,7 +392,7 @@
 	user.drop_from_inventory(W)
 	Consume(W)
 
-	user.apply_damage(150, IRRADIATE, damage_flags = DAM_DISPERSED)
+	user.apply_damage(150, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 
 /obj/machinery/power/supermatter/CollidedWith(atom/AM as mob|obj)
@@ -412,15 +428,9 @@
 	power += 200
 
 		//Some poor sod got eaten, go ahead and irradiate people nearby.
-	for(var/mob/living/l in range(10))
-		if(l in view())
-			l.show_message("<span class=\"warning\">As \the [src] slowly stops resonating, you find your skin covered in new radiation burns.</span>", 1,\
-				"<span class=\"warning\">The unearthly ringing subsides and you notice you have new radiation burns.</span>", 2)
-		else
-			l.show_message("<span class=\"warning\">You hear an uneartly ringing and notice your skin is covered in fresh radiation burns.</span>", 2)
-		var/rads = 500 * sqrt( 1 / (get_dist(l, src) + 1) )
-		l.apply_damage(rads, IRRADIATE, damage_flags = DAM_DISPERSED)
-
+	for(var/mob/living/L in view(10))
+		to_chat(L, SPAN_WARNING("As \the [src] slowly stops resonating, you find your skin covered in new radiation burns."))
+	SSradiation.radiate(src, 500)
 
 /obj/machinery/power/supermatter/proc/supermatter_pull()
 	//following is adapted from singulo code

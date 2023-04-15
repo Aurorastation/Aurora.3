@@ -76,6 +76,13 @@
 	icon_state = "vacshroudbrown"
 	item_state = "vacshroudbrown"
 
+/obj/item/clothing/head/shroud/colorable
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles."
+	icon_state = "vacshroudcol"
+	item_state = "vacshroudcol"
+	worn_overlay = "over"
+	build_from_parts = TRUE
+
 /obj/item/melee/energy/vaurca
 	name = "thermal knife"
 	desc = "A Vaurcae-designed combat knife with a thermal energy blade designed for close-quarter encounters."
@@ -200,8 +207,7 @@
 		var/turf/T = get_turf(src)
 		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
 		for(var/mob/living/carbon/human/M in viewers(T, null))
-			if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
-				M.flash_eyes()
+			M.flash_act(ignore_inherent = TRUE)
 
 		for(var/i=1, i<=deliveryamt, i++)
 			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new seed())
@@ -299,7 +305,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "commando"
 	item_state = "commando"
-	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
+	desc = "A design perfected by the Zo'ra, this armor is commonly used by frontline warriors of a Hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
@@ -312,7 +318,7 @@
 	)
 /obj/item/clothing/head/helmet/space/void/commando
 	name = "commando helmet"
-	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
+	desc = "A design perfected by the Zo'ra, this helmet is commonly used by frontline warriors of a Hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "helm_commando"
@@ -414,7 +420,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "gaussrifle"
 	item_state = "gaussrifle"
-	fire_sound = /decl/sound_category/gauss_fire_sound
+	fire_sound = /singleton/sound_category/gauss_fire_sound
 	fire_sound_text = "a subdued boom"
 	fire_delay = 12
 	slot_flags = SLOT_BACK
@@ -442,7 +448,7 @@
 	pump(user)
 
 /obj/item/gun/launcher/crossbow/vaurca/proc/pump(mob/M as mob)
-	playsound(M, 'sound/weapons/shotgun_pump.ogg', 60, 1)
+	playsound(M, 'sound/weapons/reloads/shotgun_pump.ogg', 60, 1)
 
 	if(bolt)
 		if(tension < max_tension)

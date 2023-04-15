@@ -12,7 +12,7 @@
 
 /obj/item/hoist_kit/attack_self(mob/user)
 	new /obj/structure/hoist (get_turf(user), user.dir)
-	user.visible_message(SPAN_WARNING("[user] deploys the hoist kit!"), SPAN_NOTICE("You deploy the hoist kit!"), SPAN_NOTICE("You hear the sound of parts snapping into place."))
+	user.visible_message(SPAN_NOTICE("[user] deploys the hoist kit!"), SPAN_NOTICE("You deploy the hoist kit!"), SPAN_NOTICE("You hear the sound of parts snapping into place."))
 	qdel(src)
 
 /obj/effect/hoist_hook
@@ -22,11 +22,17 @@
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_hook"
 	var/obj/structure/hoist/source_hoist
-	can_buckle = 1
-	anchored = 1
+	can_buckle = TRUE
+	anchored = TRUE
 
 /obj/effect/hoist_hook/attack_hand(mob/living/user)
-	return // no, bad
+	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
+		return
+	if(source_hoist && source_hoist.hoistee)
+		source_hoist.check_consistency()
+		source_hoist.hoistee.forceMove(get_turf(src))
+		user.visible_message(SPAN_NOTICE("[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You hear something unclamp."))
+		source_hoist.release_hoistee()
 
 /obj/effect/hoist_hook/MouseDrop_T(atom/movable/AM,mob/user)
 	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
@@ -38,31 +44,26 @@
 	if (source_hoist.hoistee)
 		to_chat(user, SPAN_NOTICE("\The [source_hoist.hoistee] is already attached to \the [src]!"))
 		return
-	source_hoist.attach_hoistee(AM)
-	user.visible_message(SPAN_DANGER("[user] attaches \the [AM] to \the [src]."), SPAN_DANGER("You attach \the [AM] to \the [src]."), SPAN_DANGER("You hear something clamp into place."))
+	source_hoist.attach_hoistee(AM, user)
+	user.visible_message(SPAN_NOTICE("[user] attaches \the [AM] to \the [src]."), SPAN_NOTICE("You attach \the [AM] to \the [src]."), SPAN_NOTICE("You hear something clamp into place."))
 
-/obj/structure/hoist/proc/attach_hoistee(atom/movable/AM)
+/obj/structure/hoist/proc/attach_hoistee(atom/movable/AM, mob/user)
+	if (user && AM.loc == user)
+		user.drop_from_inventory(AM)
 	if (get_turf(AM) != get_turf(source_hook))
 		AM.forceMove(get_turf(source_hook))
 	hoistee = AM
 	if(ismob(AM))
 		source_hook.buckle(AM)
-	AM.anchored = 1 // why isn't this being set by buckle for silicons?
+		if(issilicon(AM))
+			AM.anchored = TRUE
 	source_hook.layer = AM.layer + 0.1
 
 /obj/effect/hoist_hook/MouseDrop(atom/dest)
 	..()
-	if(!Adjacent(usr) || !dest.Adjacent(usr)) return // carried over from the default proc
+	if(!dest.Adjacent(usr)) return // carried over from the default proc
 
-	if (!ishuman(usr))
-		return
-
-	if (usr.incapacitated())
-		to_chat(usr, SPAN_NOTICE("You can't do that while incapacitated."))
-		return
-
-	if (!usr.IsAdvancedToolUser())
-		to_chat(usr, SPAN_NOTICE("You stare cluelessly at \the [src]."))
+	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
 	if (!source_hoist.hoistee)
@@ -76,7 +77,7 @@
 
 	var/turf/desturf = dest
 	source_hoist.hoistee.forceMove(desturf)
-	usr.visible_message(SPAN_DANGER("[usr] detaches \the [source_hoist.hoistee] from the hoist clamp."), SPAN_DANGER("You detach \the [source_hoist.hoistee] from the hoist clamp."), SPAN_DANGER("You hear something unclamp."))
+	usr.visible_message(SPAN_NOTICE("[usr] detaches \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You hear something unclamp."))
 	source_hoist.release_hoistee()
 
 // This will handle mobs unbuckling themselves.
@@ -92,8 +93,8 @@
 	icon_state = "hoist_base"
 	desc_info = "To use the hook, click drag the object you want to it to attach it.\nTo remove an object from the hook, click drag the hook to a nearby turf."
 	var/broken = 0
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	name = "hoist"
 	desc = "A manual hoist, uses a clamp and pulley to hoist things."
 	var/atom/movable/hoistee
@@ -118,24 +119,20 @@
 	return ..()
 
 /obj/structure/hoist/proc/check_consistency()
-	if (!hoistee)
-		return
-	if (hoistee.z != source_hook.z)
+	if(hoistee && (hoistee.z != source_hook.z))
 		release_hoistee()
-		return
 
 /obj/structure/hoist/proc/release_hoistee()
 	if(ismob(hoistee))
 		source_hook.unbuckle(hoistee)
-	else
-		hoistee.anchored = 0
+	hoistee.anchored = initial(hoistee.anchored)
 	hoistee = null
 	layer = NORMAL_LAYER
 
 /obj/structure/hoist/proc/break_hoist()
 	if(broken)
 		return
-	broken = 1
+	broken = TRUE
 	desc += " It looks broken, and the clamp has retracted back into the hoist. Seems like you'd have to re-deploy it to get it to work again."
 	if(hoistee)
 		release_hoistee()
@@ -150,7 +147,6 @@
 			if(prob(50))
 				qdel(src)
 			else
-				visible_message("\The [src] shakes violently, and neatly collapses as its damage sensors go off.")
 				collapse_kit()
 			return
 		if(3.0)
@@ -174,45 +170,41 @@
 
 
 /obj/structure/hoist/attack_hand(mob/living/user)
-	if (!ishuman(user))
-		return
-
-	if (user.incapacitated())
-		to_chat(user, SPAN_NOTICE("You can't do that while incapacitated."))
-		return
-
-	if (!user.IsAdvancedToolUser())
-		to_chat(user, SPAN_NOTICE("You stare cluelessly at \the [src]."))
+	if (!ishuman(user) || use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 
 	if(broken)
 		to_chat(user, SPAN_WARNING("The hoist is broken!"))
 		return
-	var/can = can_move_dir(movedir)
-	var/movtext = movedir == UP ? "raise" : "lower"
-	if (!can) // If you can't...
+
+	if (!can_move_dir(movedir)) // If you can't...
 		movedir = movedir == UP ? DOWN : UP // switch directions!
 		to_chat(user, SPAN_NOTICE("You switch the direction of the pulley."))
 		return
 
-	if (!hoistee)
-		user.visible_message(SPAN_NOTICE("[user] begins to [movtext] the clamp."), SPAN_NOTICE("You begin to [movtext] the clamp."), SPAN_NOTICE("You hear the sound of a crank."))
-		move_dir(movedir, 0)
-		return
-
-	check_consistency()
-
+	var/movtext = movedir == UP ? "raise" : "lower"
 	var/size
-	if (ismob(hoistee))
-		var/mob/M = hoistee
-		size = M.mob_size
-	else if (isobj(hoistee))
-		var/obj/O = hoistee
-		size = O.w_class
 
-	user.visible_message(SPAN_NOTICE("[user] begins to [movtext] \the [hoistee]!"), SPAN_NOTICE("You begin to [movtext] \the [hoistee]!"), SPAN_NOTICE("You hear the sound of a crank."))
+	if(hoistee)
+		check_consistency()
+		if (ismob(hoistee))
+			var/mob/M = hoistee
+			size = M.mob_size
+		else if (isobj(hoistee))
+			var/obj/O = hoistee
+			size = O.w_class
+
+	if(size) // defined size means we're hoisting and it'll take time
+		user.visible_message(SPAN_NOTICE("[user] begins to [movtext] \the [hoistee]!"), SPAN_NOTICE("You begin to [movtext] \the [hoistee]!"), SPAN_NOTICE("You hear the sound of a crank."))
+
 	if (do_after(user, (1 SECONDS) * size / 4, act_target = src))
-		move_dir(movedir, 1)
+		. = move_dir(movedir)
+
+	if(.)
+		if(hoistee)
+			user.visible_message(SPAN_NOTICE("[user] [movtext]s \the [hoistee]!"), SPAN_NOTICE("You [movtext] \the [hoistee]!"), SPAN_NOTICE("You hear the sound of a crank."))
+		else
+			user.visible_message(SPAN_NOTICE("[user] [movtext]s the clamp."), SPAN_NOTICE("You [movtext] the clamp."), SPAN_NOTICE("You hear the sound of a crank."))
 
 /obj/structure/hoist/proc/collapse_kit()
 	new /obj/item/hoist_kit(get_turf(src))
@@ -223,18 +215,13 @@
 	set category = "Object"
 	set src in range(1)
 
-	if (!ishuman(usr))
-		return
-
-	if (isobserver(usr) || usr.incapacitated())
-		return
-	if (!usr.IsAdvancedToolUser()) // thanks nanacode
-		to_chat(usr, SPAN_NOTICE("You stare cluelessly at \the [src]."))
+	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
 	if (hoistee)
 		to_chat(usr, SPAN_NOTICE("You cannot collapse the hoist with \the [hoistee] attached!"))
 		return
+
 	collapse_kit()
 
 /obj/structure/hoist/proc/can_move_dir(direction)
@@ -242,26 +229,25 @@
 	switch(direction)
 		if (UP)
 			if (!isopenturf(dest)) // can't move into a solid tile
-				return 0
+				return FALSE
 			if (source_hook in get_step(src, dir)) // you don't get to move above the hoist
-				return 0
+				return FALSE
 		if (DOWN)
 			if (!isopenturf(get_turf(source_hook))) // can't move down through a solid tile
-				return 0
-	if (!dest) // can't move if there's nothing to move to
-		return 0
-	return 1 // i thought i could trust myself to write something as simple as this, guess i was wrong
+				return FALSE
+			var/obj/structure/lattice/L = locate(/obj/structure/lattice, get_turf(source_hook))
+			if(istype(L) && L.anchored) // if there's a lattice anchored to our turf, we can't go down
+				return FALSE
+	return !!dest
 
-/obj/structure/hoist/proc/move_dir(direction, ishoisting)
-	var/can = can_move_dir(direction)
-	if (!can)
-		return 0
+/obj/structure/hoist/proc/move_dir(direction)
+	if (!can_move_dir(direction))
+		return FALSE
 	var/turf/move_dest = direction == UP ? GetAbove(source_hook) : GetBelow(source_hook)
 	source_hook.forceMove(move_dest)
-	if (!ishoisting)
-		return 1
-	hoistee.hoist_act(move_dest)
-	return 1
+	if (hoistee)
+		hoistee.hoist_act(move_dest)
+	return TRUE
 
 /atom/movable/proc/hoist_act(turf/dest)
 	forceMove(dest)

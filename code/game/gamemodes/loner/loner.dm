@@ -6,5 +6,4 @@
 	required_players = 5
 	round_description = "Does anyone else hear a whistling noise...?"
 	extended_round_description = "A lone operative with a very large brain plans on dropping in and paying the crew a visit."
-	end_on_antag_death = FALSE
 	antag_tags = list(MODE_LONER)

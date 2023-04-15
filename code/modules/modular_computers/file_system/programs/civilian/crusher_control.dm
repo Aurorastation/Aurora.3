@@ -2,11 +2,14 @@
 	filename = "crushercontrol"
 	filedesc = "Crusher Control"
 	extended_desc = "Application to Control the Crusher"
+	program_icon_state = "command"
+	program_key_icon_state = "green_key"
 	size = 8
 	requires_ntnet = FALSE
 	available_on_ntnet = FALSE
+	required_access_run = list(access_janitor, access_first_responder)
 	required_access_download = access_hop
-	required_access_run = access_janitor
+	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 	usage_flags = PROGRAM_TELESCREEN
 	nanomodule_path = /datum/nano_module/program/crushercontrol
 
@@ -66,10 +69,10 @@
 
 		airlocks = list()
 		for(var/obj/machinery/door/airlock/arlk in orange(10, src.ui_host()))
-			if(arlk.id_tag != "crusher")
+			if(arlk.id_tag != "compactor_access")
 				continue
 			airlocks += arlk
-		
+
 		airlock_open()
 
 	if(href_list["hatch_open"])
@@ -84,11 +87,11 @@
 		message = "Crushing"
 		airlock_close()
 		crush_start()
-		
+
 	if(href_list["abort"])
 		message = "Aborting"
 		crush_stop()
-	
+
 	if(href_list["close"])
 		message = null
 
