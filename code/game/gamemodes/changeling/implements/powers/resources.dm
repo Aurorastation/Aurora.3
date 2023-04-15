@@ -20,6 +20,12 @@
 	AddComponent(/datum/component/armor, list(melee = ARMOR_MELEE_RESISTANT, bullet = ARMOR_BALLISTIC_CARBINE, laser = ARMOR_LASER_MEDIUM))
 	return TRUE
 
+//removes the need to breathe
+/mob/proc/changeling_nobreathing()
+	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	changeling.no_breathing = TRUE
+	return TRUE
+
 // HIVE MIND UPLOAD/DOWNLOAD DNA
 
 var/list/datum/absorbed_dna/hivemind_bank = list()

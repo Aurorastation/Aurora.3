@@ -19,6 +19,13 @@
 	icon_state = "hailstorm"
 	moving_state = "hailstorm_moving"
 	colors = list("#B9BDC4")
+	scanimage = "hailstorm.png"
+	designer = "Obfuscated, hull origin uncertain"
+	volume = "37 meters length, 24 meters beam/width, 11 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Dual bow-mounted extruding low-caliber rotary ballistic armament, port obscured flight craft bay"
+	sizeclass = "Hailstorm-type Retrofitted Skipjack"
+	shiptype = "Short-distance military tasking, low-level naval interdiction"
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH

@@ -57,6 +57,10 @@
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	colors = list("#DAA06D")
+	designer = "Independent/no designation"
+	volume = "18 meters length, 15 meters beam/width, 7 meters vertical height"
+	sizeclass = "Multi-purpose Civilian Skipjack"
+	shiptype = "Short-term industrial prospecting, raw goods transport"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

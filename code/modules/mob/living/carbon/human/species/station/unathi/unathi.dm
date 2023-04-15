@@ -121,7 +121,8 @@
 		/singleton/origin_item/culture/izweski,
 		/singleton/origin_item/culture/traditionalists,
 		/singleton/origin_item/culture/spaceborn,
-		/singleton/origin_item/culture/dominian_unathi
+		/singleton/origin_item/culture/dominian_unathi,
+		/singleton/origin_item/culture/autakh
 	)
 
 	zombie_type = SPECIES_ZOMBIE_UNATHI

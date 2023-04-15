@@ -20,6 +20,9 @@
 	icon_state = "generic"
 	moving_state = "generic_moving"
 	colors = list("#c3c7eb", "#a0a8ec")
+	volume = "57 meters length, 35 meters beam/width, 16 meters vertical height"
+	sizeclass = "Passenger Liner"
+	shiptype = "Long-distance freight and leisure transit"
 	vessel_mass = 15000
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECOND

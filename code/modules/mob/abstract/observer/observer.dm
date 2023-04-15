@@ -64,7 +64,7 @@
 		transform = o_transform
 
 		alpha = 127
-		invisibility = initial(invisibility)
+		set_invisibility(initial(invisibility))
 
 		gender = body.gender
 		if(body.mind && body.mind.name)
@@ -780,7 +780,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	else
 		to_chat(src, "<span class='info'>You are now visible!</span>")
 
-	invisibility = invisibility == INVISIBILITY_OBSERVER ? 0 : INVISIBILITY_OBSERVER
+	set_invisibility(invisibility == INVISIBILITY_OBSERVER ? 0 : INVISIBILITY_OBSERVER)
 	mouse_opacity = invisibility == INVISIBILITY_OBSERVER ? 0 : initial(mouse_opacity)
 	// Give the ghost a cult icon which should be visible only to itself
 	toggle_icon("cult")
@@ -989,3 +989,6 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 	if(client && (client.prefs.toggles & CHAT_GHOSTRADIO))
 		return TRUE
 	return ..()
+
+/mob/abstract/observer/get_speech_bubble_state_modifier()
+	return "ghost"

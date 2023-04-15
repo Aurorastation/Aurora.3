@@ -178,7 +178,7 @@
 		C.drop_from_inventory(src)
 		C.throw_mode_off()
 
-	invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
+	set_invisibility(INVISIBILITY_MAXIMUM) //Why am i doing this?
 	//To make sure all reagents can work
 	//correctly before deleting the grenade.
 	QDEL_IN(src, 50)
