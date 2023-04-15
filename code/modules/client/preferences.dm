@@ -39,7 +39,7 @@ datum/preferences
 	var/gender = MALE					//gender of character (well duh)
 	var/pronouns = NEUTER				//what the character will appear as to others when examined
 	var/age = 30						//age of character
-	var/char_height						//character's height
+	var/height						//character's height
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = OUTFIT_BACKPACK		//backpack type (defines in outfit.dm)
@@ -395,7 +395,7 @@ datum/preferences
 	character.pronouns = pronouns
 	character.age = age
 	character.b_type = b_type
-	character.height = char_height
+	character.height = height
 
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
