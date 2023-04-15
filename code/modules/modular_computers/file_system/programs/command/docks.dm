@@ -6,8 +6,8 @@
 	extended_desc = "Used to manage the docks, and any docked ships."
 	required_access_run = access_heads
 	required_access_download = access_heads
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
-	requires_ntnet = FALSE
+	usage_flags = PROGRAM_CONSOLE
+	requires_ntnet = TRUE
 	size = 8
 	color = LIGHT_COLOR_BLUE
 
