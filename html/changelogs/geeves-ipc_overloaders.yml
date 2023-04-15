@@ -1,0 +1,6 @@
+author: Lancer, NiennaB, Stryker, Kyres1, Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added an IPC overloader vendor to the bar lounge. Overloaders are legal luxury items that contain software that act like drugs for IPCs."
