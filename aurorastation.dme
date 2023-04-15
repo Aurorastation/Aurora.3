@@ -2678,6 +2678,7 @@
 #include "code\modules\overmap\ship_weaponry\weaponry\coilgun.dm"
 #include "code\modules\overmap\ship_weaponry\weaponry\francisca.dm"
 #include "code\modules\overmap\ship_weaponry\weaponry\grauwolf.dm"
+#include "code\modules\overmap\ship_weaponry\weaponry\grauwolf_probe.dm"
 #include "code\modules\overmap\ship_weaponry\weaponry\lammergeier.dm"
 #include "code\modules\overmap\ship_weaponry\weaponry\leviathan.dm"
 #include "code\modules\overmap\ship_weaponry\weaponry\longbow.dm"
