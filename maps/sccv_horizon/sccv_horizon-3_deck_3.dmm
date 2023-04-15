@@ -7469,9 +7469,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced,
 /obj/machinery/light/spot,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
 "gyk" = (
@@ -8979,9 +8979,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced,
 /obj/machinery/light/spot,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "hDn" = (
@@ -15593,6 +15593,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - CIC";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
 "nhw" = (
@@ -18094,6 +18098,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Locker Room";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
 "pem" = (
@@ -20479,7 +20487,7 @@
 	pixel_x = 7
 	},
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Holodeck Alpha";
+	c_tag = "Third Deck - Holodeck Alpha 1";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -21206,6 +21214,14 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"rZC" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Holodeck Beta 2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/holodeck_control/beta)
 "saF" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -21280,7 +21296,7 @@
 	pixel_x = 18
 	},
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Holodeck Beta";
+	c_tag = "Third Deck - Holodeck Beta 1";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -24997,6 +25013,14 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/investigators_office)
+"vdt" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Holodeck Alpha 2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/holodeck_control)
 "vdC" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecommunications - Control Room";
@@ -46016,7 +46040,7 @@ lcm
 nac
 orG
 wln
-xmD
+rZC
 gxT
 gDJ
 gDJ
@@ -46027,7 +46051,7 @@ gDJ
 gDJ
 qhP
 rQI
-tfp
+vdt
 hDk
 oVU
 oVU
