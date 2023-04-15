@@ -246,7 +246,7 @@ AURORA_ESCAPE_POD(4)
 //-// Burglar Shuttle //-//
 
 /datum/shuttle/autodock/multi/antag/burglar_aurora
-	name = "Burglar Pod"
+	name = "Water Bear"
 	current_location = "nav_burglar_start"
 	landmark_transition = "nav_burglar_interim"
 	dock_target = "burglar_shuttle"
