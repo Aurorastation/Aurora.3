@@ -34,6 +34,7 @@
 
 /datum/exoplanet_theme/snow/adhomai
 	name = "Adhomai"
+	mountain_threshold = 0.6
 	possible_biomes = list(
 		BIOME_POLAR = list(
 			BIOME_ARID = /singleton/biome/water/ice,
