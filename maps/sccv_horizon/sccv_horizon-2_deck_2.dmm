@@ -7756,7 +7756,6 @@
 	dir = 4;
 	name = "\improper Secure Ammunition Storage Turret Control Console";
 	pixel_x = -26;
-	dir = 4;
 	req_access = null;
 	req_one_access = list(11,19,20,24,31,41)
 	},
@@ -18307,11 +18306,11 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/item/device/eftpos{
-	eftpos_name = "Operations Bay EFTPOS scanner"
-	},
 /obj/item/device/destTagger,
 /obj/item/paper_scanner,
+/obj/item/device/nanoquikpay{
+	destinationact = "Operations"
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "iNY" = (
