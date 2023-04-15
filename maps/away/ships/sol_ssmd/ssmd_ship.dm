@@ -93,6 +93,13 @@
 	icon_state = "corvette"
 	moving_state = "corvette_moving"
 	colors = list("#9dc04c", "#52c24c")
+	scanimage = "corvette.png"
+	designer = "Solarian Navy"
+	volume = "41 meters length, 43 meters beam/width, 19 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Dual extruding fore caliber ballistic armament, fore obscured flight craft bay"
+	sizeclass = "Uhlan-class Corvette"
+	shiptype = "Military reconnaissance and extended-duration combat utility"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000

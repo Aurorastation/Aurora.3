@@ -136,6 +136,7 @@
 	)
 
 	alterable_internal_organs = list()
+	possible_speech_bubble_types = list("synth", "normal")
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15

@@ -12,6 +12,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/sting_range = 1
 	var/space_adapted = FALSE
 	var/using_thermals = FALSE
+	var/no_breathing = FALSE
 	var/changelingID = "Changeling"
 	var/geneticdamage = 0
 	var/isabsorbing = 0

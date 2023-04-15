@@ -35,5 +35,5 @@
 	density = FALSE
 
 /obj/structure/flora/bush/Initialize()
-	..()
+	. = ..()
 	icon_state = "snowbush[rand(1, 6)]"

@@ -182,9 +182,9 @@
 
 /obj/effect/beam/i_beam/proc/check_visiblity()
 	if(master.visible)
-		invisibility = 0
+		set_invisibility(0)
 	else
-		invisibility = 101
+		set_invisibility(101)
 
 /obj/effect/beam/i_beam/process()
 	if(loc?.density || !master)

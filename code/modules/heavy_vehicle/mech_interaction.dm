@@ -239,6 +239,7 @@
 	to_chat(user, "<span class='notice'>You climb into \the [src].</span>")
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
+	RegisterSignal(user, COMSIG_MOB_FACEDIR, PROC_REF(handle_user_turn))
 	sync_access()
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 	if(user.client) user.client.screen |= hud_elements
@@ -277,31 +278,26 @@
 	if(user in pilots)
 		set_intent(I_HURT)
 		LAZYREMOVE(pilots, user)
+		UnregisterSignal(user, COMSIG_MOB_FACEDIR)
 		UNSETEMPTY(pilots)
 
-/mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction)
+/mob/living/heavy_vehicle/proc/handle_user_turn(var/mob/living/user, var/direction)
+	SIGNAL_HANDLER
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, relaymove), user, direction, TRUE)
+
+/mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction, var/turn_only = FALSE)
 	if(!can_move(user))
 		return
 
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
 		direction = pick(cardinal)
 
-	if(dir == direction)
-		var/turf/target_loc = get_step(src, direction)
-		if(!legs.can_move_on(loc, target_loc))
-			return
-		if(incorporeal_move)
-			if(legs && legs.mech_step_sound)
-				playsound(src.loc,legs.mech_step_sound,40,1)
-			use_cell_power(legs.power_use * CELLRATE)
-			user.client.Process_Incorpmove(direction, src)
-		else
-			Move(target_loc, direction)
-	else
+	if(user.facing_dir == null && dir != direction)
 		use_cell_power(legs.power_use * CELLRATE)
 		if(legs && legs.mech_turn_sound)
 			playsound(src.loc,legs.mech_turn_sound,40,1)
-		next_mecha_move = world.time + legs.turn_delay
+		if(world.time + legs.turn_delay > next_mecha_move)
+			next_mecha_move = world.time + legs.turn_delay
 		set_dir(direction)
 		if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/shield))
 			var/obj/item/mecha_equipment/shield/S = hardpoints[HARDPOINT_BACK]
@@ -312,6 +308,18 @@
 				else
 					S.aura.layer = ABOVE_MOB_LAYER
 		update_icon()
+
+	if(!turn_only)
+		var/turf/target_loc = get_step(src, direction)
+		if(!legs.can_move_on(loc, target_loc))
+			return
+		if(incorporeal_move)
+			if(legs && legs.mech_step_sound)
+				playsound(src.loc,legs.mech_step_sound,40,1)
+			use_cell_power(legs.power_use * CELLRATE)
+			user.client.Process_Incorpmove(direction, src)
+		else
+			Move(target_loc, user.facing_dir || direction)
 
 /mob/living/heavy_vehicle/Move()
 	if(..() && !istype(loc, /turf/space))

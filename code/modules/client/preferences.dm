@@ -156,6 +156,7 @@ datum/preferences
 	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 0
 	var/floating_chat_color
+	var/speech_bubble_type = "normal"
 
 	var/list/pai = list()	// A list for holding pAI related data.
 
@@ -337,6 +338,7 @@ datum/preferences
 	else if(href_list["new_character_sql"])
 		new_setup(1)
 		to_chat(usr, "<span class='notice'>Your setup has been refreshed.</span>")
+		usr.client.prefs.update_preview_icon()
 		close_load_dialog(usr)
 	else if(href_list["close_load_dialog"])
 		close_load_dialog(usr)
@@ -400,6 +402,7 @@ datum/preferences
 	character.b_eyes = b_eyes
 
 	character.set_tail_style(tail_style)
+	character.speech_bubble_type = speech_bubble_type
 
 	character.h_style = h_style
 	character.r_hair = r_hair
