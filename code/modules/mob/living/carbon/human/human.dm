@@ -2041,7 +2041,7 @@
 
 	if(istype(gloves,/obj/item/device/radio/gloves/sign)) //checks for sign-to-speech
 		var/obj/item/device/radio/gloves/sign/S = gloves
-		if(S.transign == 1 && S.transign_active == 1)
+		if(S.transign && S.transign_active)
 			used_accent = ACCENT_TTS
 
 	if(mind)
