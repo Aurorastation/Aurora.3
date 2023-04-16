@@ -473,7 +473,7 @@
 	src.damtype = "fire"
 	update_icon()
 	START_PROCESSING(SSprocessing, src)
-	..()
+	. = ..()
 
 // Kinda hacky, but hey, avoids some severe shitcode later on - geeves
 /obj/item/mecha_equipment/sleeper/passenger_compartment

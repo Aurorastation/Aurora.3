@@ -32,7 +32,8 @@
 	desc = "A bush."
 	icon = 'icons/obj/flora/snowflora.dmi'
 	icon_state = "snowbush1"
+	density = FALSE
 
-/obj/structure/flora/bush/New()
-	..()
+/obj/structure/flora/bush/Initialize()
+	. = ..()
 	icon_state = "snowbush[rand(1, 6)]"

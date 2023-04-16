@@ -19,6 +19,13 @@
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "battlestation"
 	color = "#8C8A81"
+	static_vessel = TRUE
+	generic_object = FALSE
+	scanimage = "pss.png"
+	designer = "People's Republic of Adhomai"
+	volume = "101 meters length, 115 meters beam/width, 32 meters vertical height"
+	weapons = "Dual extruding starboard-mounted medium and small caliber ballistic armament, two port obscured flight craft bays"
+	sizeclass = "Armed military surveillance and waypoint station"
 
 	initial_generic_waypoints = list(
 		"nav_peoples_station_ship_1",
@@ -31,6 +38,12 @@
 	)
 	comms_support = TRUE
 	comms_name = "people's station"
+
+/obj/effect/overmap/visitable/sector/peoples_station/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "pss")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/nav_peoples_station/dockintrepid
 	name = "People's Space Station Intrepid Docking"

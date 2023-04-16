@@ -327,6 +327,7 @@
 	icon_screen = "teleport"
 	icon_keyboard = "teal_key"
 	light_color = LIGHT_COLOR_CYAN
+	circuit = /obj/item/circuitboard/ship/targeting
 	var/obj/machinery/ship_weapon/cannon
 	var/selected_entrypoint
 	var/platform_direction

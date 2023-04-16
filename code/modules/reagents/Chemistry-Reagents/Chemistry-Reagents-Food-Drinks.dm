@@ -663,6 +663,7 @@
 	color = "#d8c045"
 	condiment_name = "garlic sauce"
 	condiment_desc = "Perfect for repelling vampires and/or potential dates."
+	condiment_icon_state = "garlic_sauce"
 
 /singleton/reagent/nutriment/mayonnaise
 	name = "Mayonnaise"
@@ -2151,7 +2152,7 @@
 	name = "Vacuum Fizz"
 	description = "Tastes like a hull breach in your mouth."
 	color = "#aee5e4"
-	taste_description = "a hull breach"
+	taste_description = "hull breach"
 	carbonated = TRUE
 
 	glass_icon_state = "space-up_glass"
@@ -3961,7 +3962,7 @@
 
 	glass_icon_state = "peacetreatyglass"
 	glass_name = "glass of Peace Treaty"
-	glass_desc = "A diplomatic overture in a glass"
+	glass_desc = "A diplomatic overture in a glass."
 
 /singleton/reagent/alcohol/caruso
 	name = "Caruso"
@@ -4468,7 +4469,7 @@
 	color = "#1936a0"
 	strength = 10
 	description = "A controversial drink popular with the punk youth of the Nralakk Federation. Represents blood, eggs, and tears."
-	taste_description = "genophage sadness"
+	taste_description = "X'Lu'oa sadness"
 
 	glass_icon_state = "thirdincident"
 	glass_name = "glass of the Third Incident"

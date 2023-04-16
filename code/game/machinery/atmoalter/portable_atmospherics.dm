@@ -13,8 +13,9 @@
 	var/maximum_pressure = 90 * ONE_ATMOSPHERE
 
 /obj/machinery/portable_atmospherics/Destroy()
-	qdel(air_contents)
-	qdel(holding)
+	disconnect()
+	QDEL_NULL(air_contents)
+	QDEL_NULL(holding)
 	return ..()
 
 /obj/machinery/portable_atmospherics/Initialize()
@@ -42,11 +43,6 @@
 	else
 		update_icon()
 		SSvueui.check_uis_for_change(src)
-
-/obj/machinery/portable_atmospherics/Destroy()
-	qdel(air_contents)
-
-	return ..()
 
 /obj/machinery/portable_atmospherics/proc/StandardAirMix()
 	return list(

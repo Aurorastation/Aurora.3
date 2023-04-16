@@ -25,7 +25,7 @@
 	..()
 	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/rig)))
 		to_chat(H, "<span class='danger'>You are now visible.</span>")
-		H.invisibility = 0
+		H.set_invisibility(0)
 
 		anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
 		anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
@@ -555,12 +555,11 @@
 	visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))
 
 	var/dam_zone = user.zone_sel?.selecting
-	if(!dam_zone)
-		dam_zone = pick(organs)
-	var/obj/item/organ/external/affecting = get_organ(dam_zone)
-	apply_damage(damage, DAMAGE_BRUTE, affecting, armor_pen = armor_penetration, damage_flags = attack_flags)
-	updatehealth()
-	return TRUE
+	var/obj/item/organ/external/affecting = dam_zone ? get_organ(dam_zone) : pick(organs)
+	if(affecting)
+		apply_damage(damage, DAMAGE_BRUTE, affecting, armor_pen = armor_penetration, damage_flags = attack_flags)
+		updatehealth()
+	return affecting
 
 //Used to attack a joint through grabbing
 /mob/living/carbon/human/proc/grab_joint(var/mob/living/user, var/def_zone)

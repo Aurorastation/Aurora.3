@@ -335,3 +335,9 @@
 		if(P.focused_conv)
 			P.focused_conv.cl_send(P, text, M)
 	registered_message = text
+
+/obj/item/modular_computer/examine(mob/user)
+	. = ..()
+	var/obj/item/card/id/id = GetID()
+	if(istype(id) && Adjacent(user))
+		id.show(user)

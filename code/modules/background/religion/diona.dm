@@ -24,10 +24,26 @@
   on the planet intentionally, granting them a blissful haven via the use of technology. Once the prominent and only religion on the planet, Shrkh-ism was quickly displaced when \
   Skrell explorers crashlanded and their memories, thoughts, emotions, everything was consumed, and doubt was first seeded in the minds of all Dionae on Xrim. The premise \
   behind the religion itself is simple; revere, help sustain and maintain synthetic life. As synthetic life brought dionae into this haven, so too shall it be preserved. In the \
-  minds of the Shrkh worshippers, the Skrell that brought Ksshr to the planet were misguided. To the Shrkh, the genophage was something that never happened, a myth made up by \
+  minds of the Shrkh worshippers, the Skrell that brought Ksshr to the planet were misguided. To the Shrkh, the X'Lu'oa was something that never happened, a myth made up by \
   the Federation to indoctrinate its population into its anti-synthetic and authoritarian beliefs. \
   \
   Note that due to their beliefs, those that are openly members of the faith are barred from command, machinist, and chaplain positions. They are also completely barred from \
   working for Zeng-Hu due to the megacorporations ties with the Federation."
   book_name = "shrkh codex"
+  book_sprite = "holybook"
+
+/datum/religion/mada
+  name = RELIGION_MADA
+  description = "The Mada religion, translated as Maraka, is practiced by the majority of Mada citizens and has two core tenants central to its practitioners; Spirits are \
+  created through the continued absorption of sunlight, the more sunlight absorbed the stronger these spirits become, chlorophyll and anything capable of producing it are \
+  considered blessed, as they have an increased potency when it comes to creating powerful spirits, doubly so if nurtured and protected. This means that most forms of plant \
+  life are considered holy to the Maraka religion, harming or killing a developing or still-living plant is considered taboo, but once naturally dead there's no issue with \
+  consuming it or utilizing it for any other purpose."
+  book_name = "maraka writ"
+  book_sprite = "holybook"
+  
+/datum/religion/gleaners
+  name = RELIGION_GLEANERS
+  description = "A faith focusing on the worship of the sun and stars originating from EUM."
+  book_name = "lights accord writ"
   book_sprite = "holybook"

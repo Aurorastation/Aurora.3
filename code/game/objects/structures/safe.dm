@@ -275,7 +275,7 @@ FLOOR SAFES
 	update_icon()
 
 /obj/structure/safe/floor/hide(var/intact)
-	invisibility = intact ? 101 : 0
+	set_invisibility(intact ? 101 : 0)
 
 /obj/structure/safe/floor/hides_under_flooring()
 	return 1
@@ -286,6 +286,7 @@ FLOOR SAFES
 
 /obj/structure/safe/station/Initialize()
 	. = ..()
+	new /obj/random/highvalue(src)
 	new /obj/random/highvalue(src)
 	new /obj/random/highvalue(src)
 	new /obj/random/highvalue(src)

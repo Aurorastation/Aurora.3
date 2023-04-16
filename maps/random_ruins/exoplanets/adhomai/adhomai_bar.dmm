@@ -618,16 +618,9 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
-"BW" = (
-/obj/item/fossil/skull/horned{
-	desc = "It's a horned skull.";
-	name = "horned skull"
-	},
-/turf/simulated/wall/wood,
-/area/adhomai_bar)
 "BZ" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/cooking_container/plate,
+/obj/item/reagent_containers/bowl/plate,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -940,6 +933,12 @@
 /obj/item/flame/lighter/adhomai,
 /obj/item/material/knife/trench,
 /obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/fossil/skull/horned{
+	desc = "It's a horned skull.";
+	name = "horned skull";
+	pixel_y = 33
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -1209,7 +1208,7 @@
 	},
 /area/adhomai_bar)
 "Yw" = (
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = -6;
 	pixel_y = 8
@@ -1255,6 +1254,14 @@
 	dir = 9
 	},
 /obj/structure/table/wood,
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 30
+	},
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/splint/full,
+/obj/item/stack/medical/ointment/full,
+/obj/item/stack/medical/ointment/full,
 /turf/simulated/floor/lino/grey{
 	temperature = 268.15
 	},
@@ -1820,7 +1827,7 @@ eS
 eS
 zA
 Zm
-Zc
+WR
 zA
 eS
 eS
@@ -2030,7 +2037,7 @@ nR
 nR
 Xv
 sv
-eS
+mH
 Dn
 Xv
 pr
@@ -2067,7 +2074,7 @@ nR
 (21,1,1) = {"
 nR
 nR
-BW
+Xv
 RR
 eS
 eS
@@ -2209,7 +2216,7 @@ yR
 zA
 eS
 zA
-Zc
+WR
 yR
 zA
 eS
@@ -2243,7 +2250,7 @@ Xv
 zA
 eS
 zA
-Zc
+WR
 Zc
 zA
 eS
