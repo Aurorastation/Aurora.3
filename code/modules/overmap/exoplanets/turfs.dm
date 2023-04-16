@@ -6,6 +6,9 @@
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 	turf_flags = TURF_FLAG_BACKGROUND
 	flags = null
+
+	does_footprint = TRUE
+
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
 	var/has_edge_icon = TRUE
@@ -49,6 +52,7 @@
 
 /turf/simulated/floor/exoplanet/Initialize()
 	. = ..()
+	footprint_color = dirt_color
 	update_icon(1)
 
 /turf/simulated/floor/exoplanet/update_icon(var/update_neighbors)
@@ -72,6 +76,10 @@
 				overlays += rock_side
 			else if(update_neighbors)
 				turf_to_check.update_icon()
+
+
+/turf/simulated/floor/exoplanet/water
+	does_footprint = FALSE
 
 //Water
 /turf/simulated/floor/exoplanet/water/update_icon()
@@ -100,6 +108,7 @@
 	name = "ice"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "ice"
+	does_footprint = FALSE
 
 /turf/simulated/floor/exoplanet/ice/update_icon()
 	return
@@ -149,6 +158,7 @@
 	icon = 'icons/turf/jungle.dmi'
 	icon_state = "greygrass"
 	color = "#799c4b"
+	does_footprint = FALSE
 	footstep_sound = /singleton/sound_category/grass_footstep
 
 /turf/simulated/floor/exoplanet/grass/Initialize()
@@ -196,6 +206,7 @@
 	desc = "Stone-like artificial material."
 	icon = 'icons/turf/flooring/misc.dmi'
 	icon_state = "concrete"
+	does_footprint = FALSE
 
 //Special world edge turf,
 /turf/unsimulated/planet_edge

@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added footprints to exoplanet turfs that would make sense to have footprints."
