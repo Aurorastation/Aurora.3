@@ -360,7 +360,7 @@
 		turfs_checked++
 		var/check_counter = 0
 		for(var/decaltype in T.all_decals)
-			if(decaltype in to_check)
+			if(is_path_in_list(decaltype, to_check))
 				check_counter++
 		if(check_counter > 1)
 			TEST_FAIL("[T] ([T.x], [T.y], [T.z]) has duplicate floor decals mapped in.")
