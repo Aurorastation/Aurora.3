@@ -34,6 +34,7 @@
 	icon_state = "bush"
 	pixel_x = -16
 	pixel_y = -16
+	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/structure/flora/bush/jungle/large/random/Initialize()
 	. = ..()

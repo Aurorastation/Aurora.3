@@ -73,6 +73,9 @@
 			else if(update_neighbors)
 				turf_to_check.update_icon()
 
+/turf/simulated/floor/exoplanet/update_dirt()
+	return // it's already dirt, silly
+
 //Special world edge turf,
 /turf/unsimulated/planet_edge
 	name = "world's edge"
