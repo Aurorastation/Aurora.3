@@ -362,9 +362,9 @@
 		var/fail_message = ""
 		if(problem_decals.len)
 			total_failures++
-			fail_message += "-- [T] ([T.x], [T.y], [T.z]) has duplicate floor decals:\n"
-			for(var/F in problem_decals)
-				fail_message += "\t> [F]\n"
+			fail_message += "-- [capitalize(T.name)] ([T.loc]: [T.x], [T.y], [T.z]) has duplicate floor decals:\n"
+			for(var/obj/effect/floor_decal/F in problem_decals)
+				fail_message += "\t> [F.name] ([F.type])\n"
 			TEST_FAIL(fail_message)
 	#endif
 

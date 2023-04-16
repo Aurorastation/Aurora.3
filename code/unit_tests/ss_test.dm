@@ -26,7 +26,13 @@
 	//Start the Round.
 	//
 
-	for (var/thing in subtypesof(/datum/unit_test) - typecacheof(current_map.excluded_test_types))
+	var/list/tests_to_run = list()
+	if(length(current_map.whitelisted_test_types))
+		tests_to_run = typecacheof(current_map.whitelisted_test_types)
+	else
+		tests_to_run = subtypesof(/datum/unit_test) - typecacheof(current_map.blacklisted_test_types)
+
+	for (var/thing in tests_to_run)
 		var/datum/unit_test/D = new thing
 		if(findtext(D.name, "template"))
 			qdel(D)

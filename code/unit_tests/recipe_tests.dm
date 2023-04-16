@@ -51,14 +51,16 @@
 				if(I.matter && I.recyclable) // non-recyclable items can't be exploited
 					tested_count++
 					for(var/mat in I.matter)
-						if(mat in temp_matter)
-							var/item_matter_value = I.matter[mat] * R.res_amount
-							var/consumed_matter_value = temp_matter[mat] * R.req_amount
-							if(item_matter_value > consumed_matter_value)
-								TEST_FAIL("Recipe '[R.title]' on material '[D.name]' consumes less material '[mat]' ([R.req_amount] × [temp_matter[mat]] = [consumed_matter_value]) than the product is worth ([R.res_amount] × [I.matter[mat]] = [item_matter_value]).")
-								error_count++
-						else
-							TEST_WARN("Recipe '[R.title]' on material '[D.name]' creates product with material '[mat]', but that material is not required by the recipe.")
+						var/material/M = SSmaterials.get_material_by_name(mat)
+						for(var/component_mat in M.get_matter())
+							if(component_mat in temp_matter)
+								var/item_matter_value = I.matter[M] * R.res_amount
+								var/consumed_matter_value = temp_matter[component_mat] * R.req_amount
+								if(item_matter_value > consumed_matter_value)
+									TEST_FAIL("Recipe '[R.title]' on material '[D.name]' consumes less material '[mat]' ([R.req_amount] × [temp_matter[mat]] = [consumed_matter_value]) than the product is worth ([R.res_amount] × [I.matter[mat]] = [item_matter_value]).")
+									error_count++
+							else
+								TEST_WARN("Recipe '[R.title]' on material '[D.name]' creates product with material '[mat]', but that material is not required by the recipe.")
 				qdel(I)
 		qdel(D)
 
