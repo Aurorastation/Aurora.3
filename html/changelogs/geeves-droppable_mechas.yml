@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a droppable mining mecha to the mining vendor."
+  - tweak: "Reduced the price of the thermal drill in the mining vendor."
