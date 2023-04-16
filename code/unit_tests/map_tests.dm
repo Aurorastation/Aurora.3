@@ -340,7 +340,7 @@
 	return 1
 
 /datum/unit_test/map_test/miscellaneous_map_checks
-	name = "MAP: Check for duplicate decals"
+	name = "MAP: Check for duplicate decals" // right now it's just dupe decals but any other small turf in world check could do here
 
 	// Floor decals that should only be one to a turf
 	var/list/to_check = list(
@@ -349,23 +349,29 @@
 		/obj/effect/floor_decal/corner_full
 	)
 
-	var/list/turfs_checked = list()
-	var/list/bad_decal_turfs = list()
+	var/turfs_checked = 0
+	var/bad_decal_turfs = 0
 
 /datum/unit_test/map_test/miscellaneous_map_checks/start_test()
-	for(var/obj/effect/floor_decal/FD in world)
-		if(is_type_in_list(FD, to_check))
-			var/turf/T = FD.loc
-			if(T in turfs_checked)
-				bad_decal_turfs |= T
-				log_unit_test("Duplicate floor decal at [T.x] [T.y] [T.z]")
-			else
-				turfs_checked += T
+	#ifdef UNIT_TEST // why this whole category isn't ifdef'd is beyond me
+	for(var/turf/T in world)
+		if(!T.all_decals || !length(T.all_decals))
+			continue
+		turfs_checked++
+		var/check_counter = 0
+		for(var/decaltype in T.all_decals)
+			if(decaltype in to_check)
+				check_counter++
+		if(check_counter > 1)
+			TEST_FAIL("[T] ([T.x], [T.y], [T.z]) has duplicate floor decals mapped in.")
+			bad_decal_turfs++
+	#endif
 
-	if(bad_decal_turfs.len)
-		fail("\[[bad_decal_turfs.len]\] turfs had more than one unique floor decal assigned.")
+	if(bad_decal_turfs)
+		TEST_FAIL("\[[bad_decal_turfs]\] turfs had more than one unique floor decal assigned.")
 	else
-		pass("All turfs passed miscellaneous checks.")
+		TEST_PASS("All \[[turfs_checked]\] turfs passed duplicate decal checks.")
+
 
 #undef SUCCESS
 #undef FAILURE
