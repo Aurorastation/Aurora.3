@@ -262,7 +262,7 @@ proc/get_radio_key_from_channel(var/channel)
 					var/obj/item/device/radio/gloves/G = H.gloves
 					if(G.transign)
 						var/transmessage = message
-						G.transign_active = 1
+						G.transign_active = TRUE
 						src.say("<i>[transmessage]</i>", all_languages[LANGUAGE_TCB], "chimes", "", GHOSTS_ALL_HEAR, FALSE)
 						if(length(used_radios)) //talk into StS
 							message_range = 1
