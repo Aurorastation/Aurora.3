@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed rock nomads spawning outside Adhomai, causing (among other things) unit test failures."
