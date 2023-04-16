@@ -246,7 +246,7 @@ proc/get_radio_key_from_channel(var/channel)
 		var/randomnote = pick("\u2669", "\u266A", "\u266B")
 		message = "[randomnote] <span class='singing'>[message]</span> [randomnote]"
 
-	var/list/obj/item/used_radios = new //we'll come back to this later.
+	var/list/obj/item/used_radios = list() //we'll come back to this later.
 
 
 	//handle nonverbal and sign languages here
