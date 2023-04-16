@@ -447,7 +447,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		if(G.enabled \
 			&& !("Antagonist" in G.tags) \
 			&& !(G.loc_type == GS_LOC_ATOM && !length(G.spawn_atoms)) \
-			&& (("Simple Mobs" in G.tags) || ("External" in G.tags)) \
+			&& (G.req_perms == null) \
 		)
 			available_ghostroles |= G.name
 
