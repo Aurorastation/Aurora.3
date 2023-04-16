@@ -25,6 +25,15 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/suit/unathi_mantle_heph
+	display_name = "hephaestus guild mantle"
+	description = "A deep green mantle, reserved for the guildsmen of Hephaestus Industries"
+	path = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe"
 	path = /obj/item/clothing/suit/unathi/robe
@@ -44,6 +53,15 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+
+/datum/gear/suit/robe_coat/New()
+	..()
+	var/list/robe_coat = list()
+	robe_coat["tzirzi robe, green"] = /obj/item/clothing/suit/unathi/robe/robe_coat
+	robe_coat["tzirzi robe, orange"] = /obj/item/clothing/suit/unathi/robe/robe_coat/orange
+	robe_coat["tzirzi robe, blue"] = /obj/item/clothing/suit/unathi/robe/robe_coat/blue
+	robe_coat["tzirzi robe, red"] = /obj/item/clothing/suit/unathi/robe/robe_coat/red
+	gear_tweaks += new /datum/gear_tweak/path(robe_coat)
 
 /datum/gear/gloves/unathi
 	display_name = "unathi gloves selection"
@@ -112,6 +130,21 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
+/datum/gear/head/sinta_ronin/New()
+	..()
+	var/list/sinta_ronin = list()
+	sinta_ronin["straw hat"] = /obj/item/clothing/head/unathi
+	sinta_ronin["dark straw hat"] = /obj/item/clothing/head/unathi/dark
+	sinta_ronin["decorated straw hat, red"] = /obj/item/clothing/head/unathi/deco
+	sinta_ronin["decorated straw hat, green"] = /obj/item/clothing/head/unathi/deco/green
+	sinta_ronin["decorated straw hat, blue"] = /obj/item/clothing/head/unathi/deco/blue
+	sinta_ronin["decorated straw hat, orange"] = /obj/item/clothing/head/unathi/deco/orange
+	sinta_ronin["decorated dark straw hat, red"] = /obj/item/clothing/head/unathi/deco/dark
+	sinta_ronin["decorated dark straw hat, green"] = /obj/item/clothing/head/unathi/deco/dark/green
+	sinta_ronin["decorated dark straw hat, blue"] = /obj/item/clothing/head/unathi/deco/dark/blue
+	sinta_ronin["decorated dark straw hat, orange"] = /obj/item/clothing/head/unathi/deco/dark/orange
+	gear_tweaks += new /datum/gear_tweak/path(sinta_ronin)
+
 /datum/gear/eyes/wasteland_goggles
 	display_name = "wasteland goggles"
 	path = /obj/item/clothing/glasses/safety/goggles/wasteland
@@ -133,7 +166,7 @@
 	path = /obj/item/organ/external/hand/right/autakh/tool
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	cost = 3
+	cost = 2
 	allowed_roles = list("Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist")
 	flags = GEAR_NO_SELECTION
 
@@ -143,7 +176,7 @@
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	cost = 3
+	cost = 2
 	allowed_roles = list("Shaft Miner")
 	flags = GEAR_NO_SELECTION
 
@@ -153,7 +186,7 @@
 	path = /obj/item/organ/external/hand/right/autakh/medical
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	cost = 3
+	cost = 2
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
 	flags = GEAR_NO_SELECTION
 
@@ -163,7 +196,7 @@
 	path = /obj/item/organ/external/hand/right/autakh/security
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	cost = 3
+	cost = 2
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
 	flags = GEAR_NO_SELECTION
 
@@ -172,6 +205,16 @@
 	path = /obj/item/clothing/under/unathi/jizixi
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+
+/datum/gear/uniform/unathi/jizixi/New()
+	..()
+	var/list/jizixi = list()
+	jizixi["jizixi dress, red"] = /obj/item/clothing/under/unathi/jizixi
+	jizixi["jizixi dress, green"] = /obj/item/clothing/under/unathi/jizixi/green
+	jizixi["jizixi dress, blue"] = /obj/item/clothing/under/unathi/jizixi/blue
+	jizixi["jizixi dress, white"] = /obj/item/clothing/under/unathi/jizixi/white
+	jizixi["jizixi dress, orange"] = /obj/item/clothing/under/unathi/jizixi/orange
+	gear_tweaks += new /datum/gear_tweak/path(jizixi)
 
 /datum/gear/uniform/unathi/sashes
 	display_name = "gyzao sashes"
@@ -185,6 +228,15 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/unathi/mogazali/New()
+	..()
+	var/list/mogazali = list()
+	mogazali["mogazali attire, red"] = /obj/item/clothing/under/unathi/mogazali
+	mogazali["mogazali attire, blue"] = /obj/item/clothing/under/unathi/mogazali/blue
+	mogazali["mogazali attire, green"] = /obj/item/clothing/under/unathi/mogazali/green
+	mogazali["mogazali attire, orange"] = /obj/item/clothing/under/unathi/mogazali/orange
+	gear_tweaks += new /datum/gear_tweak/path(mogazali)
 
 /datum/gear/uniform/unathi/zazali
 	display_name = "zazali garb"
@@ -228,7 +280,7 @@
 	description = "A rune inscribed mirror or piece of glass placed behind the eyes. Believed to \
 	be the 'Window to the Soul' and house the concentrated spirit of an individual."
 	path = /obj/item/organ/internal/anchor
-	cost = 1
+	cost = 0
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
@@ -237,23 +289,27 @@
 	description = "An Aut'akh augment that allows the user to run at high speeds without the cost \
 	of stamina, causes damage to the lower body when used."
 	path = /obj/item/organ/internal/augment/calf_override
+	cost = 1
 
 /datum/gear/augment/autakh/protein_valve
 	display_name = "protein breakdown valve"
 	description = "An aut'akh valve on the chest that releases a dangerous chemical into the \
 	stomach, forcing rapid digestion for immediate adrenal stimulation. Causes long-term damage."
 	path = /obj/item/organ/internal/augment/protein_valve
+	cost = 1
 
 /datum/gear/augment/autakh/venomous_rest
 	display_name = "venomous rest implant"
 	description = "An aut'akh compartment connected to the blood system that administers a \
 	traditional Unathi healing agent."
 	path = /obj/item/organ/internal/augment/venomous_rest
+	cost = 1
 
 /datum/gear/augment/autakh/eyes
 	display_name = "eye augment selection"
 	description = "A selection of au'takh eye augments."
 	path = /obj/item/organ/internal/augment/farseer_eye
+	cost = 1
 
 /datum/gear/augment/autakh/eyes/New()
 	..()

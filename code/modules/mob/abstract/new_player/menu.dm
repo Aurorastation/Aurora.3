@@ -116,17 +116,29 @@
 
 /obj/screen/new_player/selection
 	var/click_sound = 'sound/effects/menu_click.ogg'
+	var/hud_arrow
 
 /obj/screen/new_player/selection/New(var/datum/hud/H)
 	color = null
 	hud = H
-	if(SSatlas.current_sector.sector_hud_menu_sound)
-		click_sound = SSatlas.current_sector.sector_hud_menu_sound
 	..()
 
-/obj/screen/new_player/selection/MouseEntered(location, control, params)
+/obj/screen/new_player/selection/Initialize()
+	. = ..()
+	set_sector_things()
+
+/obj/screen/new_player/selection/set_sector_things()
+	. = ..()
+	if(SSatlas.current_sector.sector_hud_menu_sound)
+		click_sound = SSatlas.current_sector.sector_hud_menu_sound
 	if(SSatlas.current_sector.sector_hud_arrow)
-		add_overlay(SSatlas.current_sector.sector_hud_arrow)
+		hud_arrow = SSatlas.current_sector.sector_hud_arrow
+		// We'll reset the animation just so it doesn't get stuck
+		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+
+/obj/screen/new_player/selection/MouseEntered(location, control, params)
+	if(hud_arrow)
+		add_overlay(hud_arrow, force_compile = TRUE)
 	else
 		var/matrix/M = matrix()
 		M.Scale(1.1, 1)
@@ -134,11 +146,11 @@
 	return ..()
 
 /obj/screen/new_player/selection/MouseExited(location,control,params)
-	if(SSatlas.current_sector.sector_hud_arrow)
-		cut_overlays()
+	if(hud_arrow)
+		cut_overlays(force_compile = TRUE)
 	else
 		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
-		return ..()
+	return ..()
 
 /obj/screen/new_player/selection/join_game
 	name = "Join Game"
@@ -309,7 +321,7 @@
 	observer.appearance_flags = KEEP_TOGETHER
 	observer.alpha = 127
 	observer.layer = initial(observer.layer)
-	observer.invisibility = initial(observer.invisibility)
+	observer.set_invisibility(initial(observer.invisibility))
 	observer.desc = initial(observer.desc)
 
 	observer.real_name = client.prefs.real_name

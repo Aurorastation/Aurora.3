@@ -228,7 +228,8 @@
 		if(no_guns_check)
 			to_chat(A, SPAN_WARNING("[no_guns_check]")) // the proc returns the no_guns_message
 			return FALSE
-
+		if(A.species && !A.species.can_use_guns())
+			return FALSE
 	if((M.is_clumsy()) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)

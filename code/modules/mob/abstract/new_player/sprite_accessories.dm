@@ -2408,6 +2408,70 @@ Follow by example and make good judgement based on length which list to include 
 
 //skrell tentacles
 
+	skr_tentacle_damaged_long_r
+		icon = 'icons/mob/human_face/skrell_hair.dmi'
+		name = "Long Headtails, damaged (right)"
+		icon_state = "verylong_s_dmg_r"
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+		length = 6
+		chatname = "long headtails"
+		
+	skr_tentacle_damaged_long_l
+		icon = 'icons/mob/human_face/skrell_hair.dmi'
+		name = "Long Headtails, damaged (left)"
+		icon_state = "verylong_s_dmg_l"
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+		length = 6
+		chatname = "long headtails"
+
+	skr_tentacle_damaged_r
+		icon = 'icons/mob/human_face/skrell_hair.dmi'
+		name = "Headtails, damaged (right)"
+		icon_state = "skrell_hair_f_dmg_r"
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+		length = 4
+		chatname = "headtails"
+
+	skr_tentacle_damaged_l
+		icon = 'icons/mob/human_face/skrell_hair.dmi'
+		name = "Headtails, damaged (left)"
+		icon_state = "skrell_hair_f_dmg_l"
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+		length = 4
+		chatname = "headtails"
+
+	skr_tentacle_damaged_b_r
+		icon = 'icons/mob/human_face/skrell_hair.dmi'
+		name = "Headtails, damaged behind (right)"
+		icon_state = "skrell_both_behind_dmg_r"
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+		length = 4
+		chatname = "headtails"
+		
+	skr_tentacle_damaged_b_l
+		icon = 'icons/mob/human_face/skrell_hair.dmi'
+		name = "Headtails, damaged behind (left)"
+		icon_state = "skrell_both_behind_dmg_l"
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+		length = 4
+		chatname = "headtails"
+		
+	skr_tentacle_damaged_blong_l
+		icon = 'icons/mob/human_face/skrell_hair.dmi'
+		name = "Long Headtails, damaged behind (left)"
+		icon_state = "skrell_both_behind_long_dmg_l"
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+		length = 6
+		chatname = "long headtails"
+
+	skr_tentacle_damaged_blong_r
+		icon = 'icons/mob/human_face/skrell_hair.dmi'
+		name = "Long Headtails, damaged behind (right)"
+		icon_state = "skrell_both_behind_long_dmg_r"
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+		length = 6
+		chatname = "long headtails"
+
 	skr_tentacle_m
 		icon = 'icons/mob/human_face/skrell_hair.dmi'
 		name = "Short Headtails"
@@ -4206,6 +4270,20 @@ Follow by example and make good judgement based on length which list to include 
 		glorp
 			name = "Glorp"
 			icon_state = "glorp"
+			
+	tuux_whiskers
+		icon = 'icons/mob/human_face/skrell_beards.dmi'
+		name = "Tuux Tentacle Whiskers"
+		icon_state = "Tuux_Whiskers"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
+		gender = NEUTER
+
+	tuux_whiskers_chin
+		icon = 'icons/mob/human_face/skrell_beards.dmi'
+		name = "Tuux Tentacle Whiskers w/Chin"
+		icon_state = "Tuux_Whiskers_Chin"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
+		gender = NEUTER
 
 	tuux_patch
 		icon = 'icons/mob/human_face/skrell_beards.dmi'

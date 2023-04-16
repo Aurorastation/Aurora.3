@@ -255,9 +255,9 @@ var/datum/controller/subsystem/atlas/SSatlas
 			log_ss("atlas", "Using configured map.")
 		else
 			log_ss("atlas", "-- WARNING: CONFIGURED MAP DOES NOT EXIST, IGNORING! --")
-			. = "aurora"
+			. = "sccv_horizon"
 	else
-		. = "aurora"
+		. = "sccv_horizon"
 
 /datum/controller/subsystem/atlas/proc/load_map_meta()
 	// This needs to be done after current_map is set, but before mapload.

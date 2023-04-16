@@ -8,6 +8,8 @@
 	var/obj/machinery/iff_beacon/identification
 	circuit = /obj/item/circuitboard/ship/sensors
 	linked_type = /obj/effect/overmap/visitable
+	var/contact_details = null
+	var/contact_name = null
 
 	var/working_sound = 'sound/machines/sensors/dradis.ogg'
 	var/datum/sound_token/sound_token
@@ -15,6 +17,12 @@
 
 	var/datum/weakref/sensor_ref
 	var/list/last_scan
+
+/obj/machinery/computer/ship/sensors/Destroy()
+	QDEL_NULL(sound_token)
+	sensors = null
+	identification = null
+	return ..()
 
 /obj/machinery/computer/ship/sensors/proc/get_sensors()
 	return sensors
@@ -153,6 +161,8 @@
 		data["id_name"] = linked.designation
 		data["can_change_class"] = identification.can_change_class
 		data["can_change_name"] = identification.can_change_name
+		if(contact_details)
+			data["contact_details"] = contact_details
 	else
 		data["id_status"] = "NOBEACON" //Should not really happen.
 
@@ -239,6 +249,16 @@
 			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship designation registered.\"</i>"))
 			return TOPIC_REFRESH
 
+	if (href_list["scan-action"])
+		switch(href_list["scan-action"])
+			if("clear")
+				contact_details = null
+			if("print")
+				if(contact_details)
+					playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
+					new/obj/item/paper/(get_turf(src), contact_details, "paper (Sensor Scan - [contact_name])")
+		return TOPIC_HANDLED
+
 	if (href_list["scan"])
 		var/obj/effect/overmap/O = locate(href_list["scan"])
 		if(istype(O) && !QDELETED(O))
@@ -248,8 +268,9 @@
 				LAZYSET(last_scan, "location", "[O.x],[O.y]")
 				LAZYSET(last_scan, "name", "[O]")
 				to_chat(usr, SPAN_NOTICE("Successfully scanned [O]."))
-				new/obj/item/paper/(get_turf(src), O.get_scan_data(usr), "paper (Sensor Scan - [O])")
-			return TOPIC_HANDLED
+				contact_name = O.name
+				contact_details = O.get_scan_data(usr)
+		return TOPIC_HANDLED
 
 	if (href_list["request_datalink"])
 		var/obj/effect/overmap/visitable/O = locate(href_list["request_datalink"])
@@ -258,7 +279,7 @@
 
 				for(var/obj/machinery/computer/ship/sensors/sensor_console in O.consoles)
 					sensor_console.connected.datalink_requests |= src.connected
-					return TOPIC_HANDLED
+		return TOPIC_HANDLED
 
 	if (href_list["accept_datalink_requests"])
 		var/obj/effect/overmap/visitable/O = locate(href_list["accept_datalink_requests"])
