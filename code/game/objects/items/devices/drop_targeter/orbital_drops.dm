@@ -39,6 +39,9 @@
 /obj/item/device/orbital_dropper/mecha/powerloader
 	map = new /datum/map_template/mecha/powerloader
 
+/obj/item/device/orbital_dropper/mecha/miner
+	map = new /datum/map_template/mecha/miner
+
 /obj/item/device/orbital_dropper/armory
 	name = "armory dropper"
 	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. Who's ready to raise hell?"
