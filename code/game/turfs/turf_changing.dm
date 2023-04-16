@@ -34,7 +34,7 @@
 
 //Creates a new turf.
 // N is the type of the turf.
-/turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, var/ignore_override, mapload = FALSE)
+/turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	if (!N)
 		return
 
