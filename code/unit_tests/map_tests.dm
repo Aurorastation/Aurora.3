@@ -368,7 +368,7 @@
 			TEST_FAIL(fail_message)
 	#endif
 
-	if(bad_decal_turfs)
+	if(total_failures)
 		TEST_FAIL("\[[total_failures]\] turfs had more than one unique floor decal assigned.")
 	else
 		TEST_PASS("All turfs passed duplicate decal checks.")
