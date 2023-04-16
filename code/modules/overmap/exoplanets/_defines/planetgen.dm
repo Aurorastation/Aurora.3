@@ -34,17 +34,6 @@
 #define GRASS_2 "grass2"
 #define GRASS_3 "grass3"
 
-var/global/list/ore_to_turf = list(
-	ORE_IRON = /turf/simulated/mineral/preset/iron,
-	ORE_COAL = /turf/simulated/mineral/preset/coal,
-	ORE_SILVER = /turf/simulated/mineral/preset/silver,
-	ORE_GOLD = /turf/simulated/mineral/preset/gold,
-	ORE_DIAMOND = /turf/simulated/mineral/preset/diamond,
-	ORE_PLATINUM = /turf/simulated/mineral/preset/platinum,
-	ORE_URANIUM = /turf/simulated/mineral/preset/uranium,
-	ORE_PHORON = /turf/simulated/mineral/preset/phoron
-)
-
 #define SURFACE_ORES "surface"
 #define RARE_ORES "rare"
 #define DEEP_ORES "deep" // yo that's deep

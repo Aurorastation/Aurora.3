@@ -8,6 +8,9 @@
 /singleton/biome/mountain
 	turf_type = /turf/simulated/mineral
 
+/singleton/biome/mountain/adhomai
+	turf_type = /turf/simulated/mineral/adhomai
+
 /singleton/biome/water
 	turf_type = /turf/simulated/floor/exoplanet/water/shallow
 

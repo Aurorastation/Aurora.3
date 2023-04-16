@@ -238,24 +238,22 @@
 		if(!ispath(turf_type_to_gen, /turf))
 			turf_type_to_gen = selected_biome.turf_type
 
-		// We do this here so that we can override the turf-to-gen with a prefab mineral wall containing the ore we want
-		// That way we save on additional Changeturfs and/or UpdateMinerals later
-		var/ground_resources_roll
+		gen_turf.ChangeTurf(turf_type_to_gen, mapload = TRUE)
 		if(istype(selected_biome, mountain_biome))
 			for(var/ore in ore_seeds)
 				if(text2num(ore_seeds[ore][coord_to_str]))
-					turf_type_to_gen = ore_to_turf[ore]
+					var/turf/simulated/mineral/M = gen_turf
+					M.change_mineral(ore, TRUE)
 					ore_counts[ore]++
 					break
 
-		for(var/ore in gnd_ore_seeds)
-			if(text2num(gnd_ore_seeds[ore][coord_to_str]))
-				ore_counts[ore]++
-				ground_resources_roll = ore
-				break
-
-		gen_turf.ChangeTurf(turf_type_to_gen, mapload = TRUE)
 		if(gen_turf.has_resources)
+			var/ground_resources_roll
+			for(var/ore in gnd_ore_seeds)
+				if(text2num(gnd_ore_seeds[ore][coord_to_str]))
+					ore_counts[ore]++
+					ground_resources_roll = ore
+					break
 			gen_turf.resources = list()
 			gen_turf.resources[ORE_SAND] = rand(3, 5)
 			gen_turf.resources[ORE_COAL] = rand(3, 5)

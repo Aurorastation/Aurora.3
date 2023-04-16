@@ -471,38 +471,12 @@ var/list/mineral_can_smooth_with = list(
 				var/obj/item/stack/material/uranium/R = new(src)
 				R.amount = rand(5, 25)
 
-/turf/simulated/mineral/preset
-	var/mineral_name
-
-/turf/simulated/mineral/preset/Initialize()
-	if(mineral_name && !mineral && (mineral_name in ore_data))
+/turf/simulated/mineral/proc/change_mineral(mineral_name, force = FALSE)
+	if(mineral_name && (mineral_name in ore_data))
+		if(mineral && !force)
+			return FALSE
 		mineral = ore_data[mineral_name]
 		UpdateMineral()
-	. = ..()
-
-/turf/simulated/mineral/preset/iron
-	mineral_name = ORE_IRON
-
-/turf/simulated/mineral/preset/coal
-	mineral_name = ORE_COAL
-
-/turf/simulated/mineral/preset/silver
-	mineral_name = ORE_SILVER
-
-/turf/simulated/mineral/preset/gold
-	mineral_name = ORE_GOLD
-
-/turf/simulated/mineral/preset/diamond
-	mineral_name = ORE_DIAMOND
-
-/turf/simulated/mineral/preset/platinum
-	mineral_name = ORE_PLATINUM
-
-/turf/simulated/mineral/preset/uranium
-	mineral_name = ORE_URANIUM
-
-/turf/simulated/mineral/preset/phoron
-	mineral_name = ORE_PHORON
 
 /turf/simulated/mineral/random
 	name = "mineral deposit"
