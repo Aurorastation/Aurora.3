@@ -372,6 +372,7 @@
 	else
 		TEST_PASS("All \[[turfs_checked]\] turfs passed duplicate decal checks.")
 
+	return TRUE
 
 #undef SUCCESS
 #undef FAILURE
