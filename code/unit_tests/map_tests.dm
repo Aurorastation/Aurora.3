@@ -342,35 +342,36 @@
 /datum/unit_test/map_test/miscellaneous_map_checks
 	name = "MAP: Check for duplicate decals" // right now it's just dupe decals but any other small turf in world check could do here
 
-	// Floor decals that should only be one to a turf
-	var/list/to_check = list(
-		/obj/effect/floor_decal/corner,
-		/obj/effect/floor_decal/corner_wide,
-		/obj/effect/floor_decal/corner_full
-	)
-
-	var/turfs_checked = 0
-	var/bad_decal_turfs = 0
+	var/total_failures = 0
 
 /datum/unit_test/map_test/miscellaneous_map_checks/start_test()
 	#ifdef UNIT_TEST // why this whole category isn't ifdef'd is beyond me
 	for(var/turf/T in world)
-		if(!T.all_decals || !length(T.all_decals))
-			continue
-		turfs_checked++
-		var/check_counter = 0
-		for(var/decaltype in T.all_decals)
-			if(is_path_in_list(decaltype, to_check))
-				check_counter++
-		if(check_counter > 1)
-			TEST_FAIL("[T] ([T.x], [T.y], [T.z]) has duplicate floor decals mapped in.")
-			bad_decal_turfs++
+		var/list/checked_decals = list()
+		var/list/problem_decals = list()
+		for(var/obj/effect/floor_decal/FD in T)
+			for(var/obj/effect/floor_decal/sibling in T)
+				if((FD == sibling))
+					continue
+				checked_decals += sibling
+				if((FD.dir == sibling.dir) && (FD.icon_state == sibling.icon_state))
+					// If something has the same icon state and dir, it's overlapping
+					problem_decals |= FD
+					problem_decals |= sibling
+
+		var/fail_message = ""
+		if(problem_decals.len)
+			total_failures++
+			fail_message += "-- [T] ([T.x], [T.y], [T.z]) has duplicate floor decals:\n"
+			for(var/F in problem_decals)
+				fail_message += "\t> [F]\n"
+			TEST_FAIL(fail_message)
 	#endif
 
 	if(bad_decal_turfs)
-		TEST_FAIL("\[[bad_decal_turfs]\] turfs had more than one unique floor decal assigned.")
+		TEST_FAIL("\[[total_failures]\] turfs had more than one unique floor decal assigned.")
 	else
-		TEST_PASS("All \[[turfs_checked]\] turfs passed duplicate decal checks.")
+		TEST_PASS("All turfs passed duplicate decal checks.")
 
 	return TRUE
 

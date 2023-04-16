@@ -8,11 +8,6 @@
 	layer = TURF_LAYER + 0.01
 	var/supplied_dir
 
-#ifdef UNIT_TEST
-/turf
-	var/list/all_decals = list()
-#endif
-
 /obj/effect/floor_decal/LateInitialize()
 	var/turf/T = get_turf(src)
 	var/list/floor_decals = SSicon_cache.floor_decals
@@ -25,14 +20,13 @@
 			floor_decals[cache_key] = I
 		if(!T.decals) T.decals = list()
 		T.decals |= floor_decals[cache_key]
-		#ifdef UNIT_TEST
-		T.all_decals += src.type
-		#endif
 		T.add_overlay(floor_decals[cache_key])
 		if(desc)
 			T.desc += "<br>There is \a [src] on it with the following inscription:<br><i>[desc]</i>"
 
+	#ifndef UNIT_TEST
 	qdel(src)
+	#endif
 
 /obj/effect/floor_decal/Initialize(mapload, var/newdir, var/newcolour, bypass = FALSE, var/set_icon_state)
 	if (bypass && !mapload)
