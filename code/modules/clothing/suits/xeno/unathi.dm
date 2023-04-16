@@ -25,6 +25,18 @@
 	icon_state = "robe_coat"
 	item_state = "robe_coat"
 
+/obj/item/clothing/suit/unathi/robe/robe_coat/orange
+	icon_state = "robe_coat2"
+	item_state = "robe_coat2"
+
+/obj/item/clothing/suit/unathi/robe/robe_coat/blue
+	icon_state = "robe_coat3"
+	item_state = "robe_coat3"
+
+/obj/item/clothing/suit/unathi/robe/robe_coat/red
+	icon_state = "robe_coat4"
+	item_state = "robe_coat4"
+
 /obj/item/clothing/suit/unathi/jokfar
 	name = "jokfar vest"
 	desc = "The nobility favor this vest for its glamor, but although it isn't a garment to get in the way, it is \

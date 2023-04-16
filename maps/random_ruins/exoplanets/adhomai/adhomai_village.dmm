@@ -294,6 +294,12 @@
 	temperature = 268.15
 	},
 /area/adhomai_village)
+"pz" = (
+/mob/living/simple_animal/climber,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_village)
 "pK" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/item/seeds/earthenroot,
@@ -992,8 +998,9 @@
 /area/adhomai_village)
 "Vv" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lantern,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/saddle,
+/obj/item/device/flashlight/lantern,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -1721,7 +1728,7 @@ Gu
 IJ
 Wa
 BZ
-TQ
+pz
 TQ
 zf
 Gu
