@@ -356,7 +356,7 @@
 						move_delay = max(move_delay, world.time + 7)
 						step(G.affecting, get_dir(G.affecting.loc, mob.loc))
 
-		var/list/move_data = list("move_delay" = move_delay)
+		var/list/move_data = list("move_delay" = move_delay, "current_tally" = tally)
 		SEND_SIGNAL(mob, COMSIG_ADJUST_MOVE_DELAY, move_data)
 		move_delay = move_data["move_delay"]
 

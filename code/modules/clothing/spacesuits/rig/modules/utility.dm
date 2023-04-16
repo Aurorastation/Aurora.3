@@ -755,7 +755,10 @@
 
 	use_power_cost = 0
 	module_cooldown = 5
-	var/step_power_cost = 15
+
+	var/step_power_cost = 25
+	var/tally_reduction = 1
+	var/lowest_possible_tally = 2 // a bit slower than M'sai sprinting speed. springstep cannot make you go faster than this
 
 	toggleable = TRUE
 
@@ -781,8 +784,12 @@
 	SIGNAL_HANDLER
 
 	if(holder.cell && holder.cell.charge > step_power_cost)
-		move_data["move_delay"] -= 1
-		INVOKE_ASYNC(holder.cell, TYPE_PROC_REF(/obj/item/cell, use), step_power_cost)
+		var/current_tally = move_data["current_tally"]
+		var/max_reduction = current_tally - lowest_possible_tally
+		if(max_reduction > 0) // cannot make you go faster than m'sai sprinting speed
+			var/speed_increase = min(max_reduction, tally_reduction)
+			move_data["move_delay"] -= speed_increase
+			INVOKE_ASYNC(holder.cell, TYPE_PROC_REF(/obj/item/cell, use), round(step_power_cost * speed_increase))
 
 /obj/item/rig_module/cooling_unit
 	name = "mounted cooling unit"
