@@ -258,7 +258,7 @@ proc/get_radio_key_from_channel(var/channel)
 		if (speaking.flags & SIGNLANG)
 			if(istype(src,/mob/living/carbon/human)) //Allows for sign-to-speech over radio if radio-gloves with an active translator are worn.
 				var/mob/living/carbon/human/H = src
-				if(H.gloves && istype(H.gloves,/obj/item/device/radio/gloves))
+				if(istype(H.gloves,/obj/item/device/radio/gloves))
 					var/obj/item/device/radio/gloves/G = H.gloves
 					if(G.transign)
 						var/transmessage = message
