@@ -90,7 +90,10 @@
 			/mob/living/simple_animal/hostile/retaliate/rafama/baby = 1,
 			/mob/living/simple_animal/hostile/wind_devil = 1,
 			/mob/living/carbon/human/farwa/adhomai = 1,
-			/mob/living/simple_animal/hostile/harron
+			/mob/living/simple_animal/hostile/harron = 1,
+			/mob/living/simple_animal/climber = 1,
+			/mob/living/simple_animal/snow_strider = 1,
+			/mob/living/simple_animal/nosehorn = 1
 		)
 	)
 
@@ -118,7 +121,10 @@
 			/mob/living/simple_animal/hostile/retaliate/rafama/baby = 1,
 			/mob/living/simple_animal/hostile/wind_devil = 1,
 			/mob/living/carbon/human/farwa/adhomai = 1,
-			/mob/living/simple_animal/hostile/harron
+			/mob/living/simple_animal/hostile/harron = 1,
+			/mob/living/simple_animal/climber = 1,
+			/mob/living/simple_animal/snow_strider = 1,
+			/mob/living/simple_animal/nosehorn = 1
 		)
 	)
 
