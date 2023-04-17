@@ -176,7 +176,7 @@
 	vessel.add_reagent(/decl/reagent/blood, amount, REAGENT_DATA(donor, /decl/reagent/blood), temperature = species?.body_temperature)
 	..()
 
-proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
+/proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 	if(!donor || !receiver) return 0
 
 	if(donor_species && receiver_species)
@@ -225,7 +225,7 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 		trace_chems = LAZYACCESS(vessel.reagent_data[/decl/reagent/blood], "trace_chem") || list()
 	.["trace_chem"] = trace_chems.Copy()
 
-proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/sourceless_color)
+/proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/sourceless_color)
 
 	var/obj/effect/decal/cleanable/blood/splatter
 	var/decal_type = /obj/effect/decal/cleanable/blood/splatter

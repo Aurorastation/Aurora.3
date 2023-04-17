@@ -210,11 +210,11 @@
 	fruit = list("potato" = 1, "ambrosia" = 3)
 	items = list(/obj/item/reagent_containers/food/snacks/meatball)
 	result = /obj/item/reagent_containers/food/snacks/salad/validsalad
-	make_food(var/obj/container as obj)
 
-		. = ..(container)
-		for (var/obj/item/reagent_containers/food/snacks/salad/validsalad/being_cooked in .)
-			being_cooked.reagents.del_reagent(/decl/reagent/toxin)
+/decl/recipe/validsalad/make_food(var/obj/container as obj)
+	. = ..(container)
+	for (var/obj/item/reagent_containers/food/snacks/salad/validsalad/being_cooked in .)
+		being_cooked.reagents.del_reagent(/decl/reagent/toxin)
 
 /*
 /decl/recipe/neuralbroke

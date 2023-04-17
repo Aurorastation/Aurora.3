@@ -29,7 +29,7 @@
 		base_overlay.appearance_flags = RESET_COLOR
 		add_overlay(base_overlay)
 
-obj/item/clothing/mask/chewable/Initialize()
+/obj/item/clothing/mask/chewable/Initialize()
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 	. = ..()
 	flags |= NOREACT // so it doesn't react until you light it
@@ -50,7 +50,7 @@ obj/item/clothing/mask/chewable/Initialize()
 	STOP_PROCESSING(SSprocessing, src)
 	..()
 
-obj/item/clothing/mask/chewable/Destroy()
+/obj/item/clothing/mask/chewable/Destroy()
 	. = ..()
 	STOP_PROCESSING(SSprocessing, src)
 

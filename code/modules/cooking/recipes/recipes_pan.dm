@@ -8,11 +8,11 @@
 	appliance = SAUCEPAN
 	reagents = list(/decl/reagent/water = 5, /decl/reagent/alcohol/vodka = 5, /decl/reagent/toxin/amatoxin = 5)
 	result = /obj/item/reagent_containers/food/snacks/amanitajelly
-	make_food(var/obj/container as obj)
 
-		. = ..(container)
-		for (var/obj/item/reagent_containers/food/snacks/amanitajelly/being_cooked in .)
-			being_cooked.reagents.del_reagent(/decl/reagent/toxin/amatoxin)
+/decl/recipe/amanitajelly/make_food(var/obj/container as obj)
+	. = ..(container)
+	for (var/obj/item/reagent_containers/food/snacks/amanitajelly/being_cooked in .)
+		being_cooked.reagents.del_reagent(/decl/reagent/toxin/amatoxin)
 
 // Ports from the microwave... yeah
 

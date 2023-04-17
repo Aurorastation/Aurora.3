@@ -1,8 +1,8 @@
-datum/track
+/datum/track
 	var/title
 	var/sound
 
-datum/track/New(var/title_name, var/audio)
+/datum/track/New(var/title_name, var/audio)
 	title = title_name
 	sound = audio
 

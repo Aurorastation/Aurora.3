@@ -11,7 +11,7 @@
 /*
  * Borrowbook datum
  */
-datum/borrowbook // Datum used to keep track of who has borrowed what when and for how long.
+/datum/borrowbook // Datum used to keep track of who has borrowed what when and for how long.
 	var/bookname
 	var/mobname
 	var/getdate
@@ -410,7 +410,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 	if(istype(O, /obj/item/book))
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("\The [src] must be secured to the floor first!"))
-			return	
+			return
 		user.drop_from_inventory(O,src)
 	if(O.iswrench())
 		playsound(get_turf(src), O.usesound, 75, TRUE)

@@ -94,18 +94,18 @@
 	storage_cost = 29
 	empty_delay = 0.8 SECOND
 
-	attackby(obj/item/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/storage/backpack/holding))
-			to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
-			qdel(W)
-			return
-		..()
+/obj/item/storage/backpack/holding/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/storage/backpack/holding))
+		to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
+		qdel(W)
+		return
+	..()
 
 	//Please don't clutter the parent storage item with stupid hacks.
-	can_be_inserted(obj/item/W as obj, stop_messages = 0)
-		if(istype(W, /obj/item/storage/backpack/holding))
-			return 1
-		return ..()
+/obj/item/storage/backpack/holding/can_be_inserted(obj/item/W as obj, stop_messages = 0)
+	if(istype(W, /obj/item/storage/backpack/holding))
+		return 1
+	return ..()
 
 /obj/item/storage/backpack/santabag
 	name = "\improper Santa's gift bag"

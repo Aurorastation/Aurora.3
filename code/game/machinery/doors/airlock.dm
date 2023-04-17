@@ -289,7 +289,7 @@
 	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
 	close_sound_powered = 'sound/machines/airlock/vault1c.ogg'
 
-obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
+/obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	if (operating)
 		return TRUE
 

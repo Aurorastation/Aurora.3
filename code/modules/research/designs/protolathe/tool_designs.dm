@@ -20,7 +20,7 @@
 	req_tech = list(TECH_ENGINEERING = 6, TECH_MATERIAL = 5)
 	build_path = /obj/item/overcapacitor
 
-datum/design/item/tool/advanced_light_replacer
+/datum/design/item/tool/advanced_light_replacer
 	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs."
 	req_tech = list(TECH_MAGNET = 3, TECH_MATERIAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 500)

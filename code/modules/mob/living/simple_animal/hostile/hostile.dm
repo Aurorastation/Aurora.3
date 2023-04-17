@@ -105,7 +105,7 @@
 		target_mob = user
 		stance = HOSTILE_STANCE_ATTACK
 
-mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+/mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
 	..()
 	if(istype(AM,/obj/))
 		var/obj/O = AM

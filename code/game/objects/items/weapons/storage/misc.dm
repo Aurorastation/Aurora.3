@@ -70,7 +70,6 @@
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	starts_with = list(/obj/item/paper/cig = 10)
-	make_exact_fit()
 
 /obj/item/storage/box/fancy/cigpaper/update_icon()
 	. = ..()
@@ -91,7 +90,6 @@
 		)
 	w_class = ITEMSIZE_SMALL
 	starts_with = list(/obj/item/cigarette_filter = 10)
-	make_exact_fit()
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/storage/wrapper.ogg'
@@ -122,7 +120,6 @@
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco = 6)
-	make_exact_fit()
 
 /obj/item/storage/chewables/tobacco/bad
 	name = "can of Rredouane Cuts chewing tobacco"

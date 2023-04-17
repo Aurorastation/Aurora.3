@@ -14,7 +14,7 @@
 	allowed = list (/obj/item/reagent_containers/spray/plantbgone,/obj/item/device/analyzer/plant_analyzer,/obj/item/seeds,/obj/item/reagent_containers/glass/fertilizer,/obj/item/material/minihoe)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
-obj/item/clothing/suit/apron/colored
+/obj/item/clothing/suit/apron/colored
 	name = "multipurpose apron"
 	desc = "A multipurpose apron that comes in many colors."
 	icon_state = "apron"
@@ -31,7 +31,7 @@ obj/item/clothing/suit/apron/colored
 	. = ..()
 	color = get_random_colour(lower = 150)
 
-obj/item/clothing/suit/apron/overalls/blue
+/obj/item/clothing/suit/apron/overalls/blue
 	color = "#3429d1"
 
 /obj/item/clothing/suit/apron/surgery
@@ -184,7 +184,7 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/toggle/warden/zavod
 	icon_state = "zav_warden_coat"
 	item_state = "zav_warden_coat"
-	
+
 /obj/item/clothing/suit/storage/toggle/warden/zavod/alt
 	icon_state = "zav_warden_coat_alt"
 	item_state = "zav_warden_coat_alt"

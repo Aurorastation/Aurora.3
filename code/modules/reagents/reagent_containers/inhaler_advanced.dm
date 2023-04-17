@@ -25,7 +25,7 @@
 /obj/item/reagent_containers/personal_inhaler_cartridge/update_icon()
 	cut_overlays()
 	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
-	
+
 	if(reagents.total_volume)
 		var/mutable_appearance/filling = mutable_appearance('icons/obj/syringe.dmi', "[initial(icon_state)][rounded_vol]")
 		filling.color = reagents.get_color()
@@ -210,18 +210,20 @@
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine
 	name = "large inhaler cartridge (hyperzine)"
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/hyperzine, 30)
-		flags ^= OPENCONTAINER
-		update_icon()
-		return
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine/Initialize()
+	. = ..()
+	reagents.add_reagent(/decl/reagent/hyperzine, 30)
+	flags ^= OPENCONTAINER
+	update_icon()
+	return
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline
 	name = "large inhaler cartridge (inaprovaline)"
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/inaprovaline, 30)
-		flags ^= OPENCONTAINER
-		update_icon()
-		return
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline/Initialize()
+	. = ..()
+	reagents.add_reagent(/decl/reagent/inaprovaline, 30)
+	flags ^= OPENCONTAINER
+	update_icon()
+	return
