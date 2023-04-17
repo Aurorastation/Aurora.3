@@ -1,5 +1,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet
 	name = "exoplanet"
+	scanimage = "exoplanet_empty.png"	//Shouldn't be a scarcity of these, but this image would work if there's somehow nothing to give a new planet type
+	generic_object = FALSE
 	var/area/planetary_area
 	var/list/seeds = list()
 	var/list/animals = list()
@@ -13,6 +15,14 @@
 	var/daycycle //How often do we change day and night
 	var/daycolumn = 0 //Which column's light needs to be updated next?
 	var/daycycle_column_delay = 10 SECONDS
+
+// Fluff, specifically for celestial objects.
+	var/massvolume = "0.95~/1.1"							//Should use biesels as measurement as opposed to earths
+	var/surfacegravity = "0.99"								//Should use Gs as measurement
+	var/charted = "No database entry- likely uncharted."	//If it's on star charts or not, and who found it plus when
+	var/geology = "Dormant, unreadable tectonic activity"	//Anything unique about tectonics and its core activity
+	var/weather = "No substantial meteorological readings"	//Anything unique about terrestrial weather conditions
+	var/surfacewater = "NA/None Visible"					//Water visible on the surface
 
 	var/maxx
 	var/maxy
@@ -98,7 +108,7 @@
 			var/datum/map_template/ruin/exoplanet/ruin = T
 			if((initial(ruin.template_flags) & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				continue
-			if(!(ruin_planet_type in initial(ruin.planet_types)))
+			if(!(ruin_planet_type & initial(ruin.planet_types)))
 				continue
 			var/filtered_tags = initial(ruin.ruin_tags) & ruin_allowed_tags
 			if(filtered_tags != initial(ruin.ruin_tags))
@@ -412,22 +422,40 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/get_scan_data(mob/user)
 	. = ..()
+	. += "<br><center><large><b>Scan Details</b></large>"
+	. += "<br><large><b>[name]</b></large></center>"
+	. += "<br><b>Estimated Mass and Volume: </b><small>[massvolume]BSS(Biesels)</small>"
+	. += "<br><b>Surface Gravity: </b><small>[surfacegravity]Gs</small>"
+	. += "<br><b>Charted: </b><small>[charted]</small>"
+	. += "<br><b>Geological Variables: </b><small>[geology]</small>"
+	. += "<br><b>Surface Water Coverage: </b><small>[surfacewater]</small>"
+	. += "<br><b>Apparent Weather Data: </b><small>[weather]</small>"
+	. += "<hr>"
+	. += "<br><center><b>Visible Light Viewport Magnified</b>"
+	. += "<br><img src = [scanimage]>"
+	. += "<br><small>High-Fidelity Image Capture of [name]</small>"
+	. += "<hr>"
+	. += "<br><b>Native Database Notes</b></center>"
+	. += "<br><small>[desc]</small>"
+
 	var/list/extra_data = list("<hr>")
 	if(atmosphere)
 		var/list/gases = list()
 		for(var/g in atmosphere.gas)
 			if(atmosphere.gas[g] > atmosphere.total_moles * 0.05)
 				gases += gas_data.name[g]
-		extra_data += "Atmosphere composition: [english_list(gases)]"
+		extra_data += "<b>Atmosphere composition:</b> [english_list(gases)]"
 		var/inaccuracy = rand(8,12)/10
-		extra_data += "Atmosphere pressure [atmosphere.return_pressure()*inaccuracy] kPa, temperature [atmosphere.temperature*inaccuracy] K"
-		extra_data += "<hr>"
+		extra_data += "<b>Atmosphere pressure:</b> [atmosphere.return_pressure()*inaccuracy] kPa, <b>temperature:</b> [atmosphere.temperature*inaccuracy] K"
 
 	if(seeds.len)
-		extra_data += "Xenoflora detected"
+		extra_data += "<br>Unrecognized xenoflora detected."
 
 	if(animals.len)
-		extra_data += "Life traces detected"
+		extra_data += "<br>Unrecognized xenofauna detected."
+
+	else
+		extra_data += "<br>No unrecognized biological signatures detected."
 
 	if(LAZYLEN(spawned_features))
 		var/ruin_num = 0

@@ -253,6 +253,7 @@
 			var/obj/item/stack/S = I
 			S.amount = multiplier
 		build_item = null
+		I.update_icon()
 
 	updateUsrDialog()
 

@@ -5,7 +5,7 @@
 	transforming = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 	update_canmove()
 	dead_mob_list -= src
 
@@ -39,7 +39,7 @@
 	transforming = TRUE
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 
 	QDEL_IN(animation, 20)
 	QDEL_IN(src, 20)

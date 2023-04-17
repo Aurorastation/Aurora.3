@@ -67,6 +67,11 @@
 	icon_state = "sanctuary"
 	moving_state = "sanctuary_moving"
 	colors = list("#ace8fa", "#71abf7")
+	scanimage = "hospital.png"
+	designer = "Zeng-Hu Pharmaceuticals, Hephaestus Industries"
+	volume = "48 meters length, 32 meters beam/width, 19 meters vertical height"
+	sizeclass = "Sanctuary-class Rescue Ship"
+	shiptype = "Emergency medical logistics relief and distress response"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000

@@ -30,6 +30,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar
 	name = "Az'Mar"
 	desc = "A small planet with a caustic shale crust. The surface is extremely hot and dense."
+	charted = "Tajaran core world, charted 2418CE, NanoTrasen Corporation"
 	color = "#8f4754"
 	icon_state = "globe2"
 	rock_colors = null
@@ -64,6 +65,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul
 	name = "Sahul"
 	desc = "Az'mar's moon is a celestial body composed primarily of molten metals."
+	charted = "Natural satellite of Az'mar, Tajaran core world, charted 2418CE, NanoTrasen Corporation"
 	icon_state = "globe1"
 	color = "#cf1020"
 	generated_name = FALSE
@@ -81,6 +83,11 @@
 	color = "#ab46d4"
 	rock_colors = list("#373737")
 	planetary_area = /area/exoplanet/barren/raskara
+	scanimage = "raskara.png"
+	massvolume = "0.27/0.39"
+	surfacegravity = "0.25"
+	charted = "Natural satellite of Tajaran homeworld, charted 2418CE, NanoTrasen Corporation"
+	geology = "Zero tectonic heat, completely dormant geothermal signature. Presumed dead core"
 	possible_themes = list(/datum/exoplanet_theme/mountains)
 	map_generators = list(/datum/random_map/noise/exoplanet/barren/raskara, /datum/random_map/noise/ore)
 	features_budget = 1
@@ -126,6 +133,13 @@
 	icon_state = "globe2"
 	color = "#b5dfeb"
 	planetary_area = /area/exoplanet/adhomai
+	scanimage = "adhomai.png"
+	massvolume = "0.86/0.98"
+	surfacegravity = "0.80"
+	charted = "Tajaran homeworld, charted 2418CE, NanoTrasen Corporation"
+	geology = "Minimal tectonic heat, miniscule geothermal signature overall"
+	weather = "Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable"
+	surfacewater = "Majority frozen, 78% surface water. Significant tidal forces from natural satellite"
 	rock_colors = null
 	plant_colors = null
 	possible_themes = list(/datum/exoplanet_theme/mountains/adhomai)
@@ -162,14 +176,14 @@
 			/datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 			/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd, /datum/map_template/ruin/exoplanet/adhomai_amohdan,
 			/datum/map_template/ruin/exoplanet/ala_cell, /datum/map_template/ruin/exoplanet/adhomai_chemical_testing, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue_toppled, /datum/map_template/ruin/exoplanet/ala_base,
-			/datum/map_template/ruin/exoplanet/adhomai_deserter, /datum/map_template/ruin/exoplanet/adhomai_nuclear_waste_makeshift, /datum/map_template/ruin/exoplanet/adhomai_rredouane_shrine)
+			/datum/map_template/ruin/exoplanet/adhomai_deserter, /datum/map_template/ruin/exoplanet/adhomai_nuclear_waste_makeshift, /datum/map_template/ruin/exoplanet/adhomai_rredouane_shrine, /datum/map_template/ruin/exoplanet/adhomai_sole_rock_nomad)
 
 		if("New Kingdom of Adhomai")
 			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
 			/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual,
 			/datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout,/datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 			/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd, /datum/map_template/ruin/exoplanet/adhomai_amohdan, /datum/map_template/ruin/exoplanet/adhomai_archeology,
-			/datum/map_template/ruin/exoplanet/nka_base, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue_toppled, /datum/map_template/ruin/exoplanet/adhomai_rredouane_shrine)
+			/datum/map_template/ruin/exoplanet/nka_base, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue_toppled, /datum/map_template/ruin/exoplanet/adhomai_rredouane_shrine, /datum/map_template/ruin/exoplanet/adhomai_sole_rock_nomad)
 
 		if("North Pole")
 			features_budget = 1
@@ -212,7 +226,8 @@
 	water_type = /turf/simulated/floor/exoplanet/ice
 	fauna_types = list(/mob/living/simple_animal/ice_tunneler, /mob/living/simple_animal/ice_tunneler/male, /mob/living/simple_animal/fatshouter, /mob/living/simple_animal/fatshouter/male,
 					/mob/living/simple_animal/hostile/retaliate/rafama, /mob/living/simple_animal/hostile/retaliate/rafama/male, /mob/living/simple_animal/hostile/retaliate/rafama/baby,
-					/mob/living/simple_animal/hostile/wind_devil, /mob/living/carbon/human/farwa/adhomai, /mob/living/simple_animal/hostile/harron)
+					/mob/living/simple_animal/hostile/wind_devil, /mob/living/carbon/human/farwa/adhomai, /mob/living/simple_animal/hostile/harron, /mob/living/simple_animal/climber,
+					/mob/living/simple_animal/snow_strider, /mob/living/simple_animal/nosehorn)
 
 /datum/random_map/noise/exoplanet/snow/adhomai/generate_flora()
 	for(var/i = 1 to flora_diversity)

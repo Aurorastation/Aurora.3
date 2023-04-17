@@ -553,7 +553,7 @@
 		if(talkative)
 			new_item.talking_atom = new(new_item)
 
-		qdel(src)
+		QDEL_IN(src, 1 SECOND)
 
 	else if(talkative)
 		src.talking_atom = new(src)
