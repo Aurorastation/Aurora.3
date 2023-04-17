@@ -4665,6 +4665,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "enA" = (
@@ -21194,10 +21195,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "rTk" = (
-/obj/structure/mirror{
-	pixel_x = 28;
-	pixel_y = 6
-	},
 /obj/machinery/light_switch{
 	dir = 8;
 	pixel_x = 23;
@@ -41987,7 +41984,7 @@ beL
 snv
 wUS
 irl
-mqJ
+oVD
 piX
 iYp
 eWn
