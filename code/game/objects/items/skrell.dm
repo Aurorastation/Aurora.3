@@ -209,7 +209,7 @@
 										"You hear the bubbling of water, as the projector briefly changes to a hologram of the Starlight Zone's underwater city.")
 			if("Diulszi")
 				hologram_message = pick("Projected on the ceiling is a vista of the Kervasii World Amusement Park's floating islands.",
-										"You see the lights of Xervax, the Forbidden City from afar.",
+										"You see massive resort buildings looming high over a crystal-clear ocean.",
 										"You hear light chittering as the projector switches to a depiction of a C'thuric research lab.")
 			
 
