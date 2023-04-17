@@ -27,6 +27,7 @@
 		/datum/unit_test/roundstart_cable_connectivity,
 		/datum/unit_test/areas_apc_uniqueness,
 		/datum/unit_test/area_power_tally_accuracy,
+		/datum/unit_test/timer_sanity,
 		/datum/unit_test/zas_active_edges
 	)
 
