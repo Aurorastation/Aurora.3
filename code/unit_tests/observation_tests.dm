@@ -15,9 +15,9 @@ datum/unit_test/observation/moved_observer_shall_register_on_follow/start_test()
 
 	O.ManualFollow(H)
 	if(is_listening_to_movement(H, O))
-		pass("The observer is now following the mob.")
+		TEST_PASS("The observer is now following the mob.")
 	else
-		fail("The observer is not following the mob.")
+		TEST_FAIL("The observer is not following the mob.")
 
 	QDEL_IN(H, 10 SECONDS)
 	QDEL_IN(O, 10 SECONDS)
@@ -34,9 +34,9 @@ datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow/start_te
 	O.ManualFollow(H)
 	O.stop_following()
 	if(!is_listening_to_movement(H, O))
-		pass("The observer is no longer following the mob.")
+		TEST_PASS("The observer is no longer following the mob.")
 	else
-		fail("The observer is still following the mob.")
+		TEST_FAIL("The observer is still following the mob.")
 
 	QDEL_IN(H, 10 SECONDS)
 	QDEL_IN(O, 10 SECONDS)
@@ -56,9 +56,9 @@ datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener/st
 	var/listening_to_closet = is_listening_to_movement(C, H)
 	var/listening_to_human = is_listening_to_movement(H, O)
 	if(listening_to_closet && listening_to_human)
-		pass("Recursive moved registration succesful.")
+		TEST_PASS("Recursive moved registration succesful.")
 	else
-		fail("Recursive moved registration failed. Human listening to closet: [listening_to_closet] - Observer listening to human: [listening_to_human]")
+		TEST_FAIL("Recursive moved registration failed. Human listening to closet: [listening_to_closet] - Observer listening to human: [listening_to_human]")
 
 	QDEL_IN(C, 10 SECONDS)
 	QDEL_IN(H, 10 SECONDS)
@@ -79,9 +79,9 @@ datum/unit_test/observation/moved_shall_registers_recursively_with_existing_list
 	var/listening_to_closet = is_listening_to_movement(C, H)
 	var/listening_to_human = is_listening_to_movement(H, O)
 	if(listening_to_closet && listening_to_human)
-		pass("Recursive moved registration succesful.")
+		TEST_PASS("Recursive moved registration succesful.")
 	else
-		fail("Recursive moved registration failed. Human listening to closet: [listening_to_closet] - Observer listening to human: [listening_to_human]")
+		TEST_FAIL("Recursive moved registration failed. Human listening to closet: [listening_to_closet] - Observer listening to human: [listening_to_human]")
 
 	QDEL_IN(C, 10 SECONDS)
 	QDEL_IN(H, 10 SECONDS)

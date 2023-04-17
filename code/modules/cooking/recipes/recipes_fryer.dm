@@ -48,15 +48,6 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/cubancarp
 
-/singleton/recipe/batteredsausage
-	appliance = FRYER
-	items = list(
-		/obj/item/reagent_containers/food/snacks/sausage
-	)
-	result = /obj/item/reagent_containers/food/snacks/sausage/battered
-	coating = /singleton/reagent/nutriment/coating/batter
-
-
 /singleton/recipe/katsu
 	appliance = FRYER
 	items = list(

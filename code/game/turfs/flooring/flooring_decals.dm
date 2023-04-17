@@ -49,7 +49,7 @@
 	name = "reset marker"
 
 /obj/effect/floor_decal/reset/Initialize(mapload)
-	..(mapload, bypass = TRUE)
+	. = ..(mapload, bypass = TRUE)
 	var/turf/T = get_turf(src)
 	if(LAZYLEN(T.decals))
 		T.decals.Cut()
@@ -556,7 +556,7 @@
 	icon_state = "asteroid0"
 
 /obj/effect/floor_decal/asteroid/Initialize()
-	..()
+	. = ..()
 	icon_state = "asteroid[rand(0,9)]"
 
 /obj/effect/floor_decal/chapel

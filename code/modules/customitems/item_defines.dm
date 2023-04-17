@@ -2080,7 +2080,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/toggle/fluff/prejoroub_fur_longcoat //Renewed Antiquated Labcoat - Freedom Of Self Shackled By Unending Greed - lmwevil
+/obj/item/clothing/suit/storage/toggle/fluff/freedom_coat //Renewed Antiquated Labcoat - Freedom Of Self Shackled By Unending Greed - lmwevil
 	name = "renewed antiquated labcoat"
 	desc = "An ancient labcoat from the Narrows, recently revitalized with extreme tailoring to become a symbol of unity between the Conglomerate and Dionae across the spur after the \
 	allowance of Dionae as Executive Officers aboard the Horizon. It must have cost a substantial sum to fix the century old labcoat back up to scratch. On the left arm is a beautifully \
@@ -2089,4 +2089,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/freedom_coat.dmi'
 	icon_state = "freedom_coat"
 	item_state = "freedom_coat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/fluff/schlosser_hat // Schlosser - NewOriginalSchwann
+	name = "national defense force schiffchen"
+	desc = "A side cap known as a Schiffchen on Visegrad, a term roughly translating to “little boat” in Basic, which is commonly worn by members of the Visegradi National Defense Force. The NDF’s symbol – a silver fortress standing upon a crimson background – is prominently featured on the Schiffchen’s badge. “Totschlager” has been written on the inside of the band by somebody with a marker."
+	desc_extended = "The Schiffchen has a long, storied, and somewhat controversial history upon Visegrad, which dates back to its initial colonization. The planet’s first security service, the Visegradi People’s Security Service, used the Schiffchen as its standard headwear for security personnel in an effort to invoke \
+	the Warsaw Pact’s security services. Following its dissolution the National Defense Force continued to use the Schiffchen as headwear, and it remains a common sight on Visegrad today even if the NDF, which was dissolved by the Navy shortly after the Solarian Collapse, no longer exists."
+	icon = 'icons/obj/custom_items/schlosser_hat.dmi'
+	icon_override = 'icons/obj/custom_items/schlosser_hat.dmi'
+	icon_state = "schlosser_hat"
+	item_state = "schlosser_hat"
 	contained_sprite = TRUE

@@ -191,7 +191,9 @@
 					back = /obj/item/storage/backpack/satchel/leather/recolorable
 
 	if(back)
-		var/obj/item/storage/backpack/B = new back(H) //i'll be honest with you - i'm kinda retarded
+		if(islist(back))
+			back = pick(back)
+		var/obj/item/storage/backpack/B = new back(H)
 		if (H.backbag == OUTFIT_SATCHEL_ALT || H.backbag == OUTFIT_RUCKSACK || H.backbag == OUTFIT_POCKETBOOK)
 			switch (H.backbag_color)
 				if (OUTFIT_NOTHING)

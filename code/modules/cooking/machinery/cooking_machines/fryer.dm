@@ -78,6 +78,17 @@
 		icon_state = on_icon
 	else
 		icon_state = off_icon
+	cut_overlays()
+	var/list/pans = list()
+	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
+		var/image/pan_overlay
+		if(CC.appliancetype == FRYER)
+			pan_overlay = image('icons/obj/cooking_machines.dmi', "basket[Clamp(length(pans)+1, 1, 2)]")
+		pan_overlay.color = CC.color
+		pans += pan_overlay
+	if(isemptylist(pans))
+		return
+	add_overlay(pans)
 	..()
 
 //Fryer gradually infuses any cooked food with oil. Moar calories

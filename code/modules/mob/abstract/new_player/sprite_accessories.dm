@@ -4270,6 +4270,20 @@ Follow by example and make good judgement based on length which list to include 
 		glorp
 			name = "Glorp"
 			icon_state = "glorp"
+			
+	tuux_whiskers
+		icon = 'icons/mob/human_face/skrell_beards.dmi'
+		name = "Tuux Tentacle Whiskers"
+		icon_state = "Tuux_Whiskers"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
+		gender = NEUTER
+
+	tuux_whiskers_chin
+		icon = 'icons/mob/human_face/skrell_beards.dmi'
+		name = "Tuux Tentacle Whiskers w/Chin"
+		icon_state = "Tuux_Whiskers_Chin"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
+		gender = NEUTER
 
 	tuux_patch
 		icon = 'icons/mob/human_face/skrell_beards.dmi'

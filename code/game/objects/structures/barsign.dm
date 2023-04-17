@@ -1,54 +1,3 @@
-/*
-/obj/structure/sign/double/barsign
-	icon = 'icons/obj/barsigns.dmi'
-	icon_state = "empty"
-	anchored = 1
-	var/cult = 0
-	req_access = list(access_bar) //Has to initalize at first, this is updated by instance's req_access
-
-/obj/structure/sign/double/barsign/proc/get_valid_states(initial=1)
-	. = icon_states(icon)
-	. -= "on"
-	. -= "narsiebistro"
-	. -= "empty"
-	if(initial)
-		. -= "Off"
-
-/obj/structure/sign/double/barsign/examine(mob/user)
-	..()
-	switch(icon_state)
-		if("Off")
-			to_chat(user, "It appears to be switched off.")
-		if("narsiebistro")
-			to_chat(user, "It shows a picture of a large black and red being. Spooky!")
-		if("on", "empty")
-			to_chat(user, "The lights are on, but there's no picture.")
-		else
-			to_chat(user, "It says '[icon_state]'")
-
-/obj/structure/sign/double/barsign/Initialize()
-	. = ..()
-	icon_state = pick(get_valid_states())
-
-/obj/structure/sign/double/barsign/attackby(obj/item/I, mob/user)
-	if(cult)
-		return ..()
-
-	var/obj/item/card/id/card = I.GetID()
-	if(istype(card))
-		if(check_access(card))
-			var/sign_type = input(user, "What would you like to change the barsign to?") as null|anything in get_valid_states(0)
-			if(!sign_type)
-				return
-			icon_state = sign_type
-			to_chat(user, "<span class='notice'>You change the barsign.</span>")
-		else
-			to_chat(user, "<span class='warning'>Access denied.</span>")
-		return
-
-	return ..()
-	*/
-
 /obj/structure/sign/double/barsign
 	icon = 'icons/obj/barsigns.dmi'
 	icon_state = "Off"
@@ -58,12 +7,6 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/cult = 0
 	var/choice_types = /singleton/sign/double/bar
-
-/obj/structure/sign/double/barsign/kitchensign
-	icon = 'icons/obj/kitchensigns.dmi'
-	icon_state = "Off"
-	req_access = list(access_kitchen)
-	choice_types = /singleton/sign/double/kitchen
 
 /obj/structure/sign/double/barsign/attackby(obj/item/I, mob/user)
 	if(cult)
@@ -78,6 +21,38 @@
 		return
 
 	return ..()
+
+/obj/structure/sign/double/barsign/proc/get_sign_choices()
+	var/list/sign_choices = GET_SINGLETON_SUBTYPE_MAP(choice_types)
+	return sign_choices
+
+/obj/structure/sign/double/barsign/proc/set_sign()
+    var/list/sign_choices = get_sign_choices()
+
+    var/list/sign_index = list()
+    for(var/sign in sign_choices)
+        var/singleton/sign/double/B = GET_SINGLETON(sign)
+        sign_index["[B.name]"] = B
+
+    var/sign_choice = input("What should the sign be changed to?") as null|anything in sign_index
+    if(!sign_choice)
+        return
+    var/singleton/sign/double/signselect = sign_index[sign_choice]
+
+    name = signselect.name
+    desc = signselect.desc
+    desc_extended = signselect.desc_extended
+    icon_state = signselect.icon_state
+    update_icon()
+
+/obj/structure/sign/double/barsign/kitchensign
+	icon = 'icons/obj/kitchensigns.dmi'
+	icon_state = "Off"
+	req_access = list(access_kitchen)
+	choice_types = /singleton/sign/double/kitchen
+
+/obj/structure/sign/double/barsign/kitchensign/mirrored // Visible from the other end of the sign.
+	pixel_x = -32
 
 /singleton/sign/double
 	var/name = "Holographic Projector"
@@ -186,26 +161,3 @@
 	icon_state = "City Alive"
 	desc = "City Alive is another popular restaurant chain, originating from Eridani I. It is famous for its light shows."
 	desc_extended = "City Alive is a high class restaurant chain, dotted all over Eridani I and III. Especially on Eridani I they are also famous for their light shows in the evenings. These lights look like pulsating veins, making the city seem alive, especially when observed from orbit."
-
-/obj/structure/sign/double/barsign/proc/get_sign_choices()
-	var/list/sign_choices = GET_SINGLETON_SUBTYPE_MAP(choice_types)
-	return sign_choices
-
-/obj/structure/sign/double/barsign/proc/set_sign()
-    var/list/sign_choices = get_sign_choices()
-
-    var/list/sign_index = list()
-    for(var/sign in sign_choices)
-        var/singleton/sign/double/B = GET_SINGLETON(sign)
-        sign_index["[B.name]"] = B
-
-    var/sign_choice = input("What should the sign be changed to?") as null|anything in sign_index
-    if(!sign_choice)
-        return
-    var/singleton/sign/double/signselect = sign_index[sign_choice]
-
-    name = signselect.name
-    desc = signselect.desc
-    desc_extended = signselect.desc_extended
-    icon_state = signselect.icon_state
-    update_icon()
