@@ -1,5 +1,5 @@
 /mob/living/simple_animal/thinbug
-	name = "taki"
+	name = "stout centipede"
 	desc = "It looks like a bunch of legs."
 	icon_state = "thinbug"
 	icon_living = "thinbug"
@@ -11,7 +11,7 @@
 
 
 /mob/living/simple_animal/hostile/retaliate/royalcrab
-	name = "cragenoy"
+	name = "megacrustacean"
 	desc = "It looks like a crustacean with an exceedingly hard carapace. Watch the pinchers!"
 	faction = "crab"
 	icon_state = "royalcrab"
@@ -30,7 +30,7 @@
 	emote_see = list("skitters","oozes liquid from its mouth", "scratches at the ground", "clicks its claws")
 
 /mob/living/simple_animal/hostile/retaliate/beast/charbaby
-	name = "charbaby"
+	name = "magma grub"
 	desc = "A huge grubby creature."
 	icon_state = "char"
 	icon_living = "char"

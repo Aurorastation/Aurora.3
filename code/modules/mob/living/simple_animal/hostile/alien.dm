@@ -1,6 +1,6 @@
 // Xenoarch aliens.
 /mob/living/simple_animal/hostile/retaliate/samak
-	name = "samak"
+	name = "rammer"
 	desc = "A fast, armored predator accustomed to hiding and ambushing in cold terrain."
 	faction = "samak"
 	icon_state = "samak"
@@ -22,7 +22,7 @@
 	mob_size = 10
 
 /mob/living/simple_animal/hostile/retaliate/diyaab
-	name = "diyaab"
+	name = "snow rodent"
 	desc = "A small pack animal. Although omnivorous, it will hunt meat on occasion."
 	faction = "diyaab"
 	icon_state = "diyaab"
@@ -46,7 +46,7 @@
 	mob_size = 3
 
 /mob/living/simple_animal/hostile/retaliate/shantak
-	name = "shantak"
+	name = "ice runner"
 	desc = "A piglike creature with a bright iridiscent mane that sparkles as though lit by an inner light. Don't be fooled by its beauty though."
 	faction = "shantak"
 	icon_state = "shantak"
@@ -67,7 +67,7 @@
 	mob_size = 5
 
 /mob/living/simple_animal/yithian
-	name = "yithian"
+	name = "snail-slug"
 	desc = "A friendly creature vaguely resembling an oversized snail without a shell."
 	icon_state = "yithian"
 	icon_living = "yithian"
@@ -80,7 +80,7 @@
 	brush = /obj/item/reagent_containers/glass/rag
 
 /mob/living/simple_animal/tindalos
-	name = "tindalos"
+	name = "nymph-hopper"
 	desc = "It looks like a large, flightless grasshopper."
 	icon_state = "tindalos"
 	icon_living = "tindalos"
