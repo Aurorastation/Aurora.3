@@ -25,11 +25,11 @@
 
 /obj/item/device/radio/gloves/sign/verb/toggle_transign()
 	if(transign)
-		transign = 0
-		to_chat(usr, "You disable the translation software on the gloves. They will no longer translate your sign language.")
+		transign = FALSE
+		to_chat(usr, SPAN_NOTICE("You disable the translation software on the gloves. They will no longer translate your sign language."))
 	else
-		transign = 1
-		to_chat(usr, "You enable the translation software on the gloves. They will now translate your sign language.")
+		transign = TRUE
+		to_chat(usr, SPAN_NOTICE("You enable the translation software on the gloves. They will now translate your sign language."))
 
 /obj/item/device/radio/gloves/sign/ui_action_click()
 	if(src in usr)
