@@ -38209,10 +38209,10 @@
 	},
 /area/centcom/shared_dream)
 "rgP" = (
-/obj/structure/bookcase,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
+/obj/structure/bookcase/libraryspawn/nonfiction,
 /turf/simulated/floor/wood/coloured/yew,
 /area/centcom/shared_dream)
 "rkZ" = (
