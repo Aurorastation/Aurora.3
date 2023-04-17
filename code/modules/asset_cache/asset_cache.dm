@@ -312,6 +312,7 @@ var/list/asset_datums = list()
 //DEFINITIONS FOR ASSET DATUMS START HERE.
 
 /datum/asset/simple/faction_icons
+	legacy = TRUE
 	assets = list(
 		"faction_EPMC.png" = 'html/images/factions/ECFlogo.png',
 		"faction_Zeng.png" = 'html/images/factions/zenghulogo.png',
@@ -326,11 +327,13 @@ var/list/asset_datums = list()
 	)
 
 /datum/asset/simple/jquery
+	legacy = TRUE
 	assets = list(
 		"jquery.min.js"            = 'code/modules/goonchat/browserassets/js/jquery.min.js',
 	)
 
 /datum/asset/simple/goonchat
+	legacy = TRUE
 	assets = list(
 		"json2.min.js"             = 'code/modules/goonchat/browserassets/js/json2.min.js',
 		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
@@ -339,6 +342,7 @@ var/list/asset_datums = list()
 	)
 
 /datum/asset/simple/namespaced/fontawesome
+	legacy = TRUE
 	assets = list(
 		"fa-regular-400.eot"  = 'html/font-awesome/webfonts/fa-regular-400.eot',
 		"fa-regular-400.woff" = 'html/font-awesome/webfonts/fa-regular-400.woff',
@@ -358,6 +362,7 @@ var/list/asset_datums = list()
 	)
 
 /datum/asset/simple/misc
+	legacy = TRUE
 	assets = list(
 		"search.js" = 'html/search.js',
 		"panels.css" = 'html/panels.css',
@@ -369,6 +374,7 @@ var/list/asset_datums = list()
 	)
 
 /datum/asset/simple/paper
+	legacy = TRUE
 	assets = list(
 		"talisman.png" = 'html/images/talisman.png',
 		"barcode0.png" = 'html/images/barcode0.png',
@@ -472,12 +478,14 @@ var/list/asset_datums = list()
 	)
 
 /datum/asset/simple/changelog
+	legacy = TRUE
 	assets = list(
 		"changelog.css" = 'html/changelog.css',
 		"changelog.js" = 'html/changelog.js'
 	)
 
 /datum/asset/simple/vueui
+	legacy = TRUE
 	assets = list(
 		"vueui.js" = 'vueui/dist/app.js',
 		"vueui.css" = 'vueui/dist/app.css'

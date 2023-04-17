@@ -1,0 +1,17 @@
+{
+	"configurations": [
+		{
+			"type": "byond",
+			"request": "launch",
+			"name": "Launch with build",
+			"preLaunchTask": "dm: build - aurorastation.dme",
+			"dmb": "${workspaceFolder}/${command:CurrentDMB}"
+		},
+		{
+			"type": "byond",
+			"request": "launch",
+			"name": "Launch WITHOUT BUILD",
+			"dmb": "${workspaceFolder}/${command:CurrentDMB}",
+		}
+	]
+}

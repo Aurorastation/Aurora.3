@@ -236,6 +236,7 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
 					SSassets.transport.register_asset(filename, fcopy_rsc(fullpath))
 
 /datum/asset/simple/nanoui_common
+	legacy = TRUE
 	assets = list(
 		"libraries.min.js" = 'nano/js/libraries.min.js',
 		"nano_base_callbacks.js" = 'nano/js/nano_base_callbacks.js',
