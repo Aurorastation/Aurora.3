@@ -191,31 +191,24 @@ var/global/list/default_medbay_channels = list(
 
 	return ui_interact(user)
 
-/obj/item/device/radio/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/data[0]
-
-	data["mic_status"] = broadcasting
-	data["speaker"] = listening
-	data["freq"] = format_frequency(frequency)
-	data["default_freq"] = format_frequency(default_frequency)
-	data["rawfreq"] = num2text(frequency)
-
-	data["mic_cut"] = (wires.IsIndexCut(WIRE_TRANSMIT) || wires.IsIndexCut(WIRE_SIGNAL))
-	data["spk_cut"] = (wires.IsIndexCut(WIRE_RECEIVE) || wires.IsIndexCut(WIRE_SIGNAL))
-
-	var/list/chanlist = list_channels(user)
-	if(islist(chanlist) && chanlist.len)
-		data["chan_list"] = chanlist
-		data["chan_list_len"] = chanlist.len
-
-	if(syndie)
-		data["useSyndMode"] = 1
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/item/device/radio/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, ui_key, "radio_basic.tmpl", "[name]", 400, 430)
-		ui.set_initial_data(data)
+		ui = new(user, src, "Radio")
 		ui.open()
+
+/obj/item/device/radio/ui_data(mob/user)
+	var/list/data = list()
+	data["frequency"] = get_frequency()
+	return data
+
+/obj/item/device/radio/ui_act(action, params)
+	if(..())
+		return
+	switch(action)
+		if("test")
+			to_chat(usr, "Test action received")
+			. = TRUE
 
 /obj/item/device/radio/proc/setupRadioDescription(var/additional_radio_desc)
 	var/radio_text = ""
