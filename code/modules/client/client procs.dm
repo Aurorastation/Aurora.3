@@ -349,6 +349,9 @@ var/list/localhost_addresses = list(
 
 	clients += src
 	directory[ckey] = src
+	connection_time = world.time
+	connection_realtime = world.realtime
+	connection_timeofday = world.timeofday
 
 	if (LAZYLEN(config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
@@ -474,7 +477,6 @@ var/list/localhost_addresses = list(
 	staff -= src
 	directory -= ckey
 	clients -= src
-	SSassets.handle_disconnect(src)
 	return ..()
 
 
@@ -573,7 +575,8 @@ var/list/localhost_addresses = list(
 	if(inactivity > duration)	return inactivity
 	return 0
 
-//send resources to the client. It's here in its own proc so we can move it around easiliy if need be
+/// Send resources to the client.
+/// Sends both game resources and browser assets.
 /client/proc/send_resources()
 #if (PRELOAD_RSC == 0)
 	var/static/next_external_rsc = 0
@@ -583,7 +586,14 @@ var/list/localhost_addresses = list(
 		preload_rsc = external_rsc_urls[next_external_rsc]
 #endif
 
-	SSassets.handle_connect(src)
+	spawn (10) //removing this spawn causes all clients to not get verbs. (this can't be addtimer because these assets may be needed before the mc inits)
+		//load info on what assets the client has
+		src << browse('code/modules/asset_cache/validate_assets.html', "window=asset_cache_browser")
+
+		//Precache the client with all other assets slowly, so as to not block other browse() calls
+		if (config.asset_simple_preload)
+			addtimer(CALLBACK(SSassets.transport, TYPE_PROC_REF(/datum/asset_transport, send_assets_slow), src, SSassets.transport.preload), 5 SECONDS)
+
 
 /mob/proc/MayRespawn()
 	return 0

@@ -17,6 +17,7 @@ var/list/gamemode_cache = list()
 	var/log_attack = 0					// log attack messages
 	var/log_adminchat = 0				// log admin chat messages
 	var/log_pda = 0						// log NTIRC messages
+	var/log_asset = 0					// log asset caching
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtime = 0					// logs world.log to a file
 	var/log_world_output = 0			// log world.log <<  messages
@@ -324,6 +325,14 @@ var/list/gamemode_cache = list()
 
 	var/current_space_sector
 
+	var/cache_assets = TRUE
+
+	var/asset_transport = "simple"
+
+	var/asset_simple_preload
+	var/asset_cdn_webroot = ""
+	var/asset_cdn_url = null
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -437,6 +446,9 @@ var/list/gamemode_cache = list()
 
 				if ("log_pda")
 					config.log_pda = 1
+
+				if ("log_asset")
+					config.log_asset = 1
 
 				if ("log_world_output")
 					config.log_world_output = 1
@@ -978,6 +990,17 @@ var/list/gamemode_cache = list()
 
 				if("lore_summary")
 					lore_summary = value
+
+				if("cache_assets")
+					cache_assets = text2num(value)
+				if("asset_transport")
+					asset_transport = (value in list("simple", "webroot") ? value : "simple")
+				if("asset_simple_preload")
+					asset_simple_preload = TRUE
+				if("asset_cdn_webroot")
+					asset_cdn_webroot = (value[length(value)] != "/" ? (value + "/") : value)
+				if("asset_cdn_url")
+					asset_cdn_url = (value[length(value)] != "/" ? (value + "/") : value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

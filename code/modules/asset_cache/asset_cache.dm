@@ -14,126 +14,19 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 // This is doubled for the first asset, then added per asset after
 #define ASSET_CACHE_SEND_TIMEOUT 7
 
-//When sending mutiple assets, how many before we give the client a quaint little sending resources message
-#define ASSET_CACHE_TELL_CLIENT_AMOUNT 8
-
-/client
-	var/list/cache = list() // List of all assets sent to this client by the asset cache.
-	var/list/completed_asset_jobs = list() // List of all completed jobs, awaiting acknowledgement.
-	var/list/sending = list()
-	var/last_asset_job = 0 // Last job done.
-
-//This proc sends the asset to the client, but only if it needs it.
-//This proc blocks(sleeps) unless verify is set to false
-/proc/send_asset(client/client, asset_name, verify = TRUE)
-	if(!istype(client))
-		if(ismob(client))
-			var/mob/M = client
-			if(M.client)
-				client = M.client
-
-			else
-				return 0
-
-		else
-			return 0
-
-	if(client.cache.Find(asset_name) || client.sending.Find(asset_name))
-		return 0
-
-	client << browse_rsc(SSassets.cache[asset_name], asset_name)
-
-	if(!verify) // Can't access the asset cache browser, rip.
-		client.cache += asset_name
-		return 1
-
-	client.sending |= asset_name
-	var/job = ++client.last_asset_job
-
-	client << browse("<script>window.location.href=\"?asset_cache_confirm_arrival=[job]\"</script>", "window=asset_cache_browser")
-
-	var/t = 0
-	var/timeout_time = (ASSET_CACHE_SEND_TIMEOUT * client.sending.len) + ASSET_CACHE_SEND_TIMEOUT
-	while(client && !client.completed_asset_jobs.Find(job) && t < timeout_time) // Reception is handled in Topic()
-		sleep(1) // Lock up the caller until this is received.
-		t++
-
-	if(t >= timeout_time)
-		log_admin(SPAN_DANGER("Timeout time [timeout_time] exceeded for asset: [asset_name] for client [client]. Please notify a developer."))
-
-	if(client)
-		client.sending -= asset_name
-		client.cache |= asset_name
-		client.completed_asset_jobs -= job
-
-	return 1
-
-//This proc blocks(sleeps) unless verify is set to false
-/proc/send_asset_list(client/client, list/asset_list, verify = TRUE)
-	if(!istype(client))
-		if(ismob(client))
-			var/mob/M = client
-			if(M.client)
-				client = M.client
-
-			else
-				return 0
-
-		else
-			return 0
-
-	var/list/unreceived = asset_list - (client.cache + client.sending)
-	if(!unreceived || !unreceived.len)
-		return 0
-	if (unreceived.len >= ASSET_CACHE_TELL_CLIENT_AMOUNT)
-		to_chat(client, "Sending Resources...")
-	for(var/asset in unreceived)
-		if (asset in SSassets.cache)
-			client << browse_rsc(SSassets.cache[asset], asset)
-
-	if(!verify) // Can't access the asset cache browser, rip.
-		client.cache += unreceived
-		return 1
-
-	client.sending |= unreceived
-	var/job = ++client.last_asset_job
-
-	client << browse("<script>window.location.href=\"?asset_cache_confirm_arrival=[job]\"</script>", "window=asset_cache_browser")
-
-	var/t = 0
-	var/timeout_time = ASSET_CACHE_SEND_TIMEOUT * client.sending.len
-	while(client && !client.completed_asset_jobs.Find(job) && t < timeout_time) // Reception is handled in Topic()
-		sleep(1) // Lock up the caller until this is received.
-		t++
-
-	if(client)
-		client.sending -= unreceived
-		client.cache |= unreceived
-		client.completed_asset_jobs -= job
-
-	return 1
-
-//This proc "registers" an asset, it adds it to the cache for further use, you cannot touch it from this point on or you'll fuck things up.
-//if it's an icon or something be careful, you'll have to copy it before further use.
-/proc/register_asset(asset_name, asset)
-	SSassets.cache[asset_name] = asset
-
-//Generated names do not include file extention.
-//Used mainly for code that deals with assets in a generic way
-//The same asset will always lead to the same asset name
-/proc/generate_asset_name(file)
-	return "asset.[md5(fcopy_rsc(file))]"
-
-//These datums are used to populate the asset cache, the proc "register()" does this.
+#define ASSET_CROSS_ROUND_CACHE_DIRECTORY "tmp/assets"
 
 //all of our asset datums, used for referring to these later
 var/list/asset_datums = list()
 
-//get a assetdatum or make a new one
-/proc/get_asset_datum(var/type)
-	if (!(type in asset_datums))
-		return new type()
-	return asset_datums[type]
+//get an assetdatum or make a new one
+//does NOT ensure it's filled, if you want that use get_asset_datum()
+/proc/load_asset_datum(type)
+	return asset_datums[type] || new type()
+
+/proc/get_asset_datum(type)
+	var/datum/asset/loaded_asset = asset_datums[type] || new type()
+	return loaded_asset.ensure_ready()
 
 /proc/simple_asset_ensure_is_sent(client, type)
 	var/datum/asset/simple/asset = get_asset_datum(type)
@@ -142,10 +35,40 @@ var/list/asset_datums = list()
 
 /datum/asset
 	var/_abstract = /datum/asset
+	var/cached_serialized_url_mappings
+	var/cached_serialized_url_mappings_transport_type
+
+	/// Whether or not this asset should be loaded in the "early assets" SS
+	var/early = FALSE
+
+	/// Whether or not this asset can be cached across rounds of the same commit under the `CACHE_ASSETS` config.
+	/// This is not a *guarantee* the asset will be cached. Not all asset subtypes respect this field, and the
+	/// config can, of course, be disabled.
+	var/cross_round_cachable = FALSE
 
 /datum/asset/New()
 	asset_datums[type] = src
 	register()
+
+/// Stub that allows us to react to something trying to get us
+/// Not useful here, more handy for sprite sheets
+/datum/asset/proc/ensure_ready()
+	return src
+
+/// Stub to hook into if your asset is having its generation queued by SSasset_loading
+/datum/asset/proc/queued_generation()
+	CRASH("[type] inserted into SSasset_loading despite not implementing /proc/queued_generation")
+
+/datum/asset/proc/get_url_mappings()
+	return list()
+
+/// Returns a cached tgui message of URL mappings
+/datum/asset/proc/get_serialized_url_mappings()
+	if (isnull(cached_serialized_url_mappings) || cached_serialized_url_mappings_transport_type != SSassets.transport.type)
+		cached_serialized_url_mappings = TGUI_CREATE_MESSAGE("asset/mappings", get_url_mappings())
+		cached_serialized_url_mappings_transport_type = SSassets.transport.type
+
+	return cached_serialized_url_mappings
 
 /datum/asset/proc/register()
 	return
@@ -153,18 +76,42 @@ var/list/asset_datums = list()
 /datum/asset/proc/send(client)
 	return
 
+/// Returns whether or not the asset should attempt to read from cache
+/datum/asset/proc/should_refresh()
+	return !cross_round_cachable || !config.cache_assets
+
 //If you don't need anything complicated.
 /datum/asset/simple
 	_abstract = /datum/asset/simple
+	/// list of assets for this datum in the form of:
+	/// asset_filename = asset_file. At runtime the asset_file will be
+	/// converted into a asset_cache datum.
 	var/list/assets = list()
-	var/verify = FALSE
+	/// Set to true to have this asset also be sent via the legacy browse_rsc
+	/// system when cdn transports are enabled?
+	var/legacy = FALSE
+	/// TRUE for keeping local asset names when browse_rsc backend is used
+	var/keep_local_name = FALSE
 
 /datum/asset/simple/register()
 	for(var/asset_name in assets)
-		register_asset(asset_name, assets[asset_name])
+		var/datum/asset_cache_item/ACI = SSassets.transport.register_asset(asset_name, assets[asset_name])
+		if (!ACI)
+			log_asset("ERROR: Invalid asset: [type]:[asset_name]:[ACI]")
+			continue
+		if (legacy)
+			ACI.legacy = legacy
+		if (keep_local_name)
+			ACI.keep_local_name = keep_local_name
+		assets[asset_name] = ACI
 
 /datum/asset/simple/send(client)
-	send_asset_list(client,assets,verify)
+	. = SSassets.transport.send_assets(client, assets)
+
+/datum/asset/simple/get_url_mappings()
+	. = list()
+	for (var/asset_name in assets)
+		.[asset_name] = SSassets.transport.get_asset_url(asset_name, assets[asset_name])
 
 /datum/asset/group
 	_abstract = /datum/asset/group
@@ -177,13 +124,18 @@ var/list/asset_datums = list()
 /datum/asset/group/send(client/C)
 	for(var/type in children)
 		var/datum/asset/A = get_asset_datum(type)
-		A.send(C)
+		A.send(C) || .
 
+/datum/asset/group/get_url_mappings()
+	. = list()
+	for(var/type in children)
+		var/datum/asset/A = get_asset_datum(type)
+		. += A.get_url_mappings()
 /datum/asset/group/goonchat
 	children = list(
 		/datum/asset/simple/jquery,
 		/datum/asset/simple/goonchat,
-		/datum/asset/simple/fontawesome,
+		/datum/asset/simple/namespaced/fontawesome,
 		/datum/asset/spritesheet/goonchat
 	)
 
@@ -209,11 +161,11 @@ var/list/asset_datums = list()
 	var/res_name = "spritesheet_[name].css"
 	var/fname = "data/spritesheets/[res_name]"
 	dll_call(RUST_G, "file_write", generate_css(), fname)
-	register_asset(res_name, file(fname))
+	SSassets.transport.register_asset(res_name, file(fname))
 
 	for(var/size_id in sizes)
 		var/size = sizes[size_id]
-		register_asset("[name]_[size_id].png", size[SPRSZ_STRIPPED])
+		SSassets.transport.register_asset("[name]_[size_id].png", size[SPRSZ_STRIPPED])
 
 /datum/asset/spritesheet/send(client/C)
 	if(!name)
@@ -221,7 +173,7 @@ var/list/asset_datums = list()
 	var/all = list("spritesheet_[name].css")
 	for(var/size_id in sizes)
 		all += "[name]_[size_id].png"
-	send_asset_list(C, all, verify)
+	. = SSassets.transport.send_assets(C, all)
 
 /datum/asset/spritesheet/proc/ensure_stripped(sizes_to_strip = sizes)
 	for(var/size_id in sizes_to_strip)
@@ -298,6 +250,9 @@ var/list/asset_datums = list()
 /datum/asset/spritesheet/proc/css_tag()
 	return {"<link rel="stylesheet" href="spritesheet_[name].css" />"}
 
+/datum/asset/spritesheet/proc/css_filename()
+	return SSassets.transport.get_asset_url("spritesheet_[name].css")
+
 /datum/asset/spritesheet/proc/icon_tag(sprite_name, var/html=TRUE)
 	var/sprite = sprites[sprite_name]
 	if (!sprite)
@@ -332,7 +287,7 @@ var/list/asset_datums = list()
 	var/movement_states = FALSE
 	var/prefix = "default" //asset_name = "[prefix].[icon_state_name].png"
 	var/generic_icon_names = FALSE //generate icon filenames using generate_asset_name() instead the above format
-	verify = FALSE
+
 /datum/asset/simple/icon_states/register(_icon = icon)
 	for(var/icon_state_name in icon_states(_icon))
 		for(var/direction in directions)
@@ -344,7 +299,7 @@ var/list/asset_datums = list()
 			var/asset_name = sanitize_filename("[prefix].[prefix2][icon_state_name].png")
 			if (generic_icon_names)
 				asset_name = "[generate_asset_name(asset)].png"
-			register_asset(asset_name, asset)
+			SSassets.transport.register_asset(asset_name, asset)
 
 /datum/asset/simple/icon_states/multiple_icons
 	_abstract = /datum/asset/simple/icon_states/multiple_icons
@@ -371,13 +326,11 @@ var/list/asset_datums = list()
 	)
 
 /datum/asset/simple/jquery
-	verify = FALSE
 	assets = list(
 		"jquery.min.js"            = 'code/modules/goonchat/browserassets/js/jquery.min.js',
 	)
 
 /datum/asset/simple/goonchat
-	verify = TRUE
 	assets = list(
 		"json2.min.js"             = 'code/modules/goonchat/browserassets/js/json2.min.js',
 		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
@@ -385,15 +338,23 @@ var/list/asset_datums = list()
 		"browserOutput_white.css"  = 'code/modules/goonchat/browserassets/css/browserOutput_white.css'
 	)
 
-/datum/asset/simple/fontawesome
-	verify = FALSE
+/datum/asset/simple/namespaced/fontawesome
 	assets = list(
 		"fa-regular-400.eot"  = 'html/font-awesome/webfonts/fa-regular-400.eot',
 		"fa-regular-400.woff" = 'html/font-awesome/webfonts/fa-regular-400.woff',
 		"fa-solid-900.eot"    = 'html/font-awesome/webfonts/fa-solid-900.eot',
 		"fa-solid-900.woff"   = 'html/font-awesome/webfonts/fa-solid-900.woff',
-		"font-awesome.css"    = 'html/font-awesome/css/all.min.css',
 		"v4shim.css"          = 'html/font-awesome/css/v4-shims.min.css'
+	)
+	parents = list("font-awesome.css" = 'html/font-awesome/css/all.min.css')
+
+/datum/asset/simple/namespaced/tgfont
+	assets = list(
+		"tgfont.eot" = file("tgui/packages/tgfont/static/tgfont.eot"),
+		"tgfont.woff2" = file("tgui/packages/tgfont/static/tgfont.woff2"),
+	)
+	parents = list(
+		"tgfont.css" = file("tgui/packages/tgfont/static/tgfont.css"),
 	)
 
 /datum/asset/simple/misc
@@ -606,3 +567,58 @@ var/list/asset_datums = list()
 	for (var/sprite in bottle_sprites)
 		Insert(sprite, icon('icons/obj/chemical.dmi', sprite))
 	return ..()
+
+/// Namespace'ed assets (for static css and html files)
+/// When sent over a cdn transport, all assets in the same asset datum will exist in the same folder, as their plain names.
+/// Used to ensure css files can reference files by url() without having to generate the css at runtime, both the css file and the files it depends on must exist in the same namespace asset datum. (Also works for html)
+/// For example `blah.css` with asset `blah.png` will get loaded as `namespaces/a3d..14f/f12..d3c.css` and `namespaces/a3d..14f/blah.png`. allowing the css file to load `blah.png` by a relative url rather then compute the generated url with get_url_mappings().
+/// The namespace folder's name will change if any of the assets change. (excluding parent assets)
+/datum/asset/simple/namespaced
+	_abstract = /datum/asset/simple/namespaced
+	/// parents - list of the parent asset or assets (in name = file assoicated format) for this namespace.
+	/// parent assets must be referenced by their generated url, but if an update changes a parent asset, it won't change the namespace's identity.
+	var/list/parents = list()
+
+/datum/asset/simple/namespaced/register()
+	if (legacy)
+		assets |= parents
+	var/list/hashlist = list()
+	var/list/sorted_assets = sort_list(assets)
+
+	for (var/asset_name in sorted_assets)
+		var/datum/asset_cache_item/ACI = new(asset_name, sorted_assets[asset_name])
+		if (!ACI?.hash)
+			log_asset("ERROR: Invalid asset: [type]:[asset_name]:[ACI]")
+			continue
+		hashlist += ACI.hash
+		sorted_assets[asset_name] = ACI
+	var/namespace = md5(hashlist.Join())
+
+	for (var/asset_name in parents)
+		var/datum/asset_cache_item/ACI = new(asset_name, parents[asset_name])
+		if (!ACI?.hash)
+			log_asset("ERROR: Invalid asset: [type]:[asset_name]:[ACI]")
+			continue
+		ACI.namespace_parent = TRUE
+		sorted_assets[asset_name] = ACI
+
+	for (var/asset_name in sorted_assets)
+		var/datum/asset_cache_item/ACI = sorted_assets[asset_name]
+		if (!ACI?.hash)
+			log_asset("ERROR: Invalid asset: [type]:[asset_name]:[ACI]")
+			continue
+		ACI.namespace = namespace
+
+	assets = sorted_assets
+	..()
+
+/// Get a html string that will load a html asset.
+/// Needed because byond doesn't allow you to browse() to a url.
+/datum/asset/simple/namespaced/proc/get_htmlloader(filename)
+	return url2htmlloader(SSassets.transport.get_asset_url(filename, assets[filename]))
+
+/// Generate a filename for this asset
+/// The same asset will always lead to the same asset name
+/// (Generated names do not include file extention.)
+/proc/generate_asset_name(file)
+	return "asset.[md5(fcopy_rsc(file))]"

@@ -33,9 +33,9 @@ var/regex/is_http_protocol = regex("^https?://")
 	if (!isicon(I))
 		if (isfile(thing)) //special snowflake
 			var/name = "[generate_asset_name(thing)].png"
-			register_asset(name, thing)
+			SSassets.transport.register_asset(name, thing)
 			for (var/thing2 in targets)
-				send_asset(thing2, key, FALSE)
+				SSassets.transport.send_assets(thing2, key)
 			return "<img class='icon icon-misc [class]' src=\"[url_encode(name)]\">"
 		var/atom/A = thing
 
@@ -64,9 +64,9 @@ var/regex/is_http_protocol = regex("^https?://")
 	I = icon(I, icon_state, dir, frame, moving)
 
 	key = "[generate_asset_name(I)].png"
-	register_asset(key, I)
+	SSassets.transport.register_asset(key, I)
 	for (var/thing2 in targets)
-		send_asset(thing2, key, FALSE)
+		SSassets.transport.send_assets(thing2, key)
 
 	if(realsize)
 		return "<img class='icon icon-[icon_state] [class]' style='width:[I.Width()]px;height:[I.Height()]px;min-height:[I.Height()]px' src=\"[url_encode(key)]\">"

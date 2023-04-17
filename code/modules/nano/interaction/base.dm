@@ -1,4 +1,4 @@
-/datum/proc/ui_host()
+/datum/proc/nanoui_host()
 	return src
 
 /datum/proc/nano_container()

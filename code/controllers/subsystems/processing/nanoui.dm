@@ -233,7 +233,7 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
 			if(copytext(filename, length(filename)) != "/") // filenames which end in "/" are actually directories, which we want to ignore
 				var/fullpath = path + filename
 				if(fexists(fullpath))
-					register_asset(filename, fcopy_rsc(fullpath))
+					SSassets.transport.register_asset(filename, fcopy_rsc(fullpath))
 
 /datum/asset/simple/nanoui_common
 	assets = list(
