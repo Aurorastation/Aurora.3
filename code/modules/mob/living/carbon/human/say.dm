@@ -253,24 +253,25 @@
 	return FALSE
 
 /mob/living/carbon/human/say(var/message, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
-	if (speaking.flags & SIGNLANG)
-		if(istype(src,/mob/living/carbon/human)) //Allows for sign-to-speech over radio if radio-gloves with an active translator are worn.
-			var/mob/living/carbon/human/H = src
-			if(istype(H.gloves,/obj/item/device/radio/gloves))
-				var/obj/item/device/radio/gloves/G = H.gloves
-				if(G.transign)
-					var/transmessage = message
-					G.transign_active = TRUE
-					src.say("<i>[transmessage]</i>", all_languages[LANGUAGE_TCB], "chimes", "", GHOSTS_ALL_HEAR, FALSE)
-					if(length(used_radios)) //talk into StS
-						message_range = 1
-						if(speaking)
-							message_range = speaking.get_talkinto_msg_range(message)
-						if(!speaking || !(speaking.flags & NO_TALK_MSG))
-							var/msg = SPAN_NOTICE("\The [src] signs using \the [used_radios[1]].")
-							for (var/mob/living/L in get_hearers_in_view(5, src) - src)
-								L.show_message(msg)
-					G.transign_active = 0
-		return say_signlang(message, pick(speaking.signlang_verb), speaking, speaking.sign_adv_length)
+	if (speaking)
+		if (speaking.flags & SIGNLANG)
+			if(istype(src,/mob/living/carbon/human)) //Allows for sign-to-speech over radio if radio-gloves with an active translator are worn.
+				var/mob/living/carbon/human/H = src
+				if(istype(H.gloves,/obj/item/device/radio/gloves))
+					var/obj/item/device/radio/gloves/G = H.gloves
+					if(G.transign)
+						var/transmessage = message
+						G.transign_active = TRUE
+						src.say("<i>[transmessage]</i>", all_languages[LANGUAGE_TCB], "chimes", "", GHOSTS_ALL_HEAR, FALSE)
+						if(length(used_radios)) //talk into StS
+							message_range = 1
+							if(speaking)
+								message_range = speaking.get_talkinto_msg_range(message)
+							if(!speaking || !(speaking.flags & NO_TALK_MSG))
+								var/msg = SPAN_NOTICE("\The [src] signs using \the [used_radios[1]].")
+								for (var/mob/living/L in get_hearers_in_view(5, src) - src)
+									L.show_message(msg)
+						G.transign_active = 0
+			return say_signlang(message, pick(speaking.signlang_verb), speaking, speaking.sign_adv_length)
 		//This isn't ready for merge until someone smart tells me that the above block works.
 		//I have no idea what I'm doing and haven't removed the original istype(src) thing yet.
