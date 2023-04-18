@@ -18186,11 +18186,11 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/item/device/eftpos{
-	eftpos_name = "Operations Bay EFTPOS scanner"
-	},
 /obj/item/device/destTagger,
 /obj/item/paper_scanner,
+/obj/item/device/nanoquikpay{
+	destinationact = "Operations"
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "iNY" = (
