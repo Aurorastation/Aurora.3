@@ -3,7 +3,8 @@ var/datum/controller/subsystem/vote/SSvote
 /datum/controller/subsystem/vote
 	name = "Voting"
 	wait = 1 SECOND
-	flags = SS_KEEP_TIMING | SS_FIRE_IN_LOBBY | SS_NO_TICK_CHECK
+	flags = SS_KEEP_TIMING | SS_NO_TICK_CHECK
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	priority = SS_PRIORITY_VOTE
 
 	var/next_transfer_time
@@ -352,7 +353,7 @@ var/datum/controller/subsystem/vote/SSvote
 						if (X.is_afk())
 							admin_number_afk++
 						if (X.prefs.toggles & SOUND_ADMINHELP)
-							to_chat(X, 'sound/effects/adminhelp.ogg')
+							sound_to(X, 'sound/effects/adminhelp.ogg')
 
 				if ((admin_number_present - admin_number_afk) <= 0)
 					initiate_vote("restart", usr.key)

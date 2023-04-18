@@ -19,7 +19,7 @@
 		return
 	if(!in_range(user, A))
 		return
-	else if(is_type_in_list(A, list(/obj/machinery/atmospherics/pipe/tank, /obj/machinery/atmospherics/pipe/vent, /obj/machinery/atmospherics/pipe/simple/heat_exchanging, /obj/machinery/atmospherics/pipe/simple/insulated)))
+	else if(is_type_in_list(A, list(/obj/machinery/atmospherics/pipe/tank, /obj/machinery/atmospherics/pipe/simple/heat_exchanging)))
 		return
 	else if(istype(A,/obj/machinery/atmospherics/pipe))
 		var/obj/machinery/atmospherics/pipe/P = A

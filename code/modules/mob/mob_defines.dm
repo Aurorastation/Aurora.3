@@ -136,7 +136,6 @@
 	var/stunned = 0
 	var/weakened = 0
 	var/losebreath = 0 //Carbon
-	var/intent = null//Living -- Depreciated? (a_intent below is your help/disarm/grab/harm)
 	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
 	var/m_intent = M_WALK //Living
@@ -172,7 +171,7 @@
 
 	var/datum/dna/dna = null//Carbon
 
-	var/list/mutations = list() //Carbon -- Doohl
+	var/mutations = 0 //Carbon -- Doohl
 	//see: setup.dm for list of mutations
 
 	var/voice_name = "unidentifiable voice"
@@ -246,3 +245,8 @@
 
 	var/authed = TRUE
 	var/player_age = "Requires database"
+
+	/// If this mob is or was piloted by a player with typing indicators enabled, an instance of one.
+	var/atom/movable/typing_indicator/typing_indicator
+	/// Whether this mob is currently typing, if piloted by a player.
+	var/is_typing

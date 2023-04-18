@@ -41,9 +41,9 @@
 		return
 
 	if (ROUND_IS_STARTED)
-		addtimer(CALLBACK(src, .proc/execute_current_command), 2 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+		addtimer(CALLBACK(src, PROC_REF(execute_current_command)), 2 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 	else
-		SSticker.OnRoundstart(CALLBACK(src, .proc/handle_queue_command))
+		SSticker.OnRoundstart(CALLBACK(src, PROC_REF(handle_queue_command)))
 		waiting_for_roundstart = TRUE
 
 /obj/machinery/door/airlock/proc/handle_queue_command()
@@ -165,6 +165,7 @@
 
 	anchored = 1
 	power_channel = ENVIRON
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/id_tag
 	var/master_tag
@@ -242,6 +243,7 @@
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "access_button_standby"
 	layer = OBJ_LAYER
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	anchored = 1
 	power_channel = ENVIRON
@@ -312,4 +314,4 @@
 
 	//if there's no power, receive the signal but just don't do anything. This allows airlocks to continue to work normally once power is restored
 	if(arePowerSystemsOn())
-		INVOKE_ASYNC(src, .proc/execute_current_command)
+		INVOKE_ASYNC(src, PROC_REF(execute_current_command))

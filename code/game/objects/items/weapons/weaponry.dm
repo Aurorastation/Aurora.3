@@ -94,7 +94,7 @@
 			health -= rand(10, 20)
 		else
 			health -= rand(1, 3)
-	else if (HULK in user.mutations)
+	else if (HAS_FLAG(user.mutations, HULK))
 		health = 0
 	else
 		health -= rand(5, 8)
@@ -125,8 +125,8 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
-	equip_sound = /decl/sound_category/sword_equip_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
 
 /obj/item/banhammer
 	desc = "banhammer"

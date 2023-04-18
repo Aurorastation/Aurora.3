@@ -47,7 +47,7 @@
 		return TRUE
 	if(href_list["PRG_uploadNTDefault"])
 		A.laws = new /datum/ai_laws/nanotrasen
-		to_chat(A, SPAN_WARNING("All laws purged. NT Default lawset uploaded."))
+		to_chat(A, SPAN_WARNING("All laws purged. Default lawset uploaded."))
 		return TRUE
 	if(href_list["PRG_addCustomSuppliedLaw"])
 		var/law_to_add = sanitize(input("Please enter a new law for the AI.", "Custom Law Entry"))
@@ -68,7 +68,7 @@
 	A.updatehealth()
 	// If the AI is dead, revive it.
 	if(A.health >= -100 && A.stat == DEAD)
-		A.stat = CONSCIOUS
+		A.set_stat(CONSCIOUS)
 		A.lying = FALSE
 		A.switch_from_dead_to_living_mob_list()
 		A.add_ai_verbs()

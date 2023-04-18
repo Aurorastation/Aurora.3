@@ -1,7 +1,7 @@
 /datum/gear_tweak/proc/get_contents(var/metadata)
 	return
 
-/datum/gear_tweak/proc/get_metadata(var/user, var/metadata)
+/datum/gear_tweak/proc/get_metadata(var/user, var/metadata, var/title, var/gear_path)
 	return
 
 /datum/gear_tweak/proc/get_default()
@@ -106,6 +106,17 @@ Path adjustment
 	if(!(metadata in valid_paths))
 		return
 	gear_data.path = valid_paths[metadata]
+
+/*
+Faction-based Path adjustment
+Same as the adjustment above, but the associated value is a list with the first value containing the path and the second the faction requirement
+*/
+
+/datum/gear_tweak/path/faction/tweak_gear_data(var/metadata, var/datum/gear_data/gear_data)
+	if(!(metadata in valid_paths))
+		return
+	gear_data.path = valid_paths[metadata][1]
+	gear_data.faction_requirement = valid_paths[metadata][2]
 
 /*
 Content adjustment
@@ -216,7 +227,7 @@ var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 	var/datum/component/base_name/BN = I.GetComponent(/datum/component/base_name)
 	if(BN)
 		BN.rename(metadata)
-	
+
 /*
 Custom Description
 */

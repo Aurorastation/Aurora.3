@@ -30,6 +30,7 @@
 // /atom signals
 
 // /area signals
+#define COMSIG_AREA_FIRE_ALARM "fire_alarm"
 
 // /turf signals
 
@@ -50,6 +51,7 @@
 #define SPATIAL_GRID_CELL_EXITED(contents_type) "spatial_grid_cell_exited_[contents_type]"
 
 // /mob signals
+#define COMSIG_MOB_FACEDIR "mob_facedir"
 
 // /obj signals
 /// when a hood is unequipped

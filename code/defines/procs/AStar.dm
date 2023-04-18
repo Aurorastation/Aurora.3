@@ -37,18 +37,18 @@ length to avoid portals or something i guess?? Not that they're counted right no
 // Also added 'exclude' turf to avoid travelling over; defaults to null
 
 
-/datum/PriorityQueue
+//PriorityQueue
 	var/list/queue
 	var/comparison_function
 
-/datum/PriorityQueue/New(compare)
+//PriorityQueue/New(compare)
 	queue = list()
 	comparison_function = compare
 
-/datum/PriorityQueue/proc/IsEmpty()
+//PriorityQueue/proc/IsEmpty()
 	return !queue.len
 
-/datum/PriorityQueue/proc/Enqueue(var/data)
+//PriorityQueue/proc/Enqueue(var/data)
 	queue.Add(data)
 	var/index = queue.len
 
@@ -57,12 +57,12 @@ length to avoid portals or something i guess?? Not that they're counted right no
 		queue.Swap(index, index / 2)
 		index /= 2
 
-/datum/PriorityQueue/proc/Dequeue()
+//PriorityQueue/proc/Dequeue()
 	if(!queue.len)
 		return 0
 	return Remove(1)
 
-/datum/PriorityQueue/proc/Remove(var/index)
+//PriorityQueue/proc/Remove(var/index)
 	if(index > queue.len)
 		return 0
 
@@ -73,7 +73,7 @@ length to avoid portals or something i guess?? Not that they're counted right no
 		FixQueue(index)
 	return thing
 
-/datum/PriorityQueue/proc/FixQueue(var/index)
+//PriorityQueue/proc/FixQueue(var/index)
 	var/child = 2 * index
 	var/item = queue[index]
 
@@ -88,20 +88,20 @@ length to avoid portals or something i guess?? Not that they're counted right no
 		child = 2 * index
 	queue[index] = item
 
-/datum/PriorityQueue/proc/List()
+//PriorityQueue/proc/List()
 	return queue.Copy()
 
-/datum/PriorityQueue/proc/Length()
+//PriorityQueue/proc/Length()
 	return queue.len
 
-/datum/PriorityQueue/proc/RemoveItem(data)
+//PriorityQueue/proc/RemoveItem(data)
 	var/index = queue.Find(data)
 	if(index)
 		return Remove(index)
 
-/datum/PathNode
+//PathNode
 	var/datum/position
-	var/datum/PathNode/previous_node
+	var/PathNode/previous_node
 
 	var/best_estimated_cost
 	var/estimated_cost
@@ -109,7 +109,7 @@ length to avoid portals or something i guess?? Not that they're counted right no
 	var/cost
 	var/nodes_traversed
 
-/datum/PathNode/New(_position, _previous_node, _known_cost, _cost, _nodes_traversed)
+//PathNode/New(_position, _previous_node, _known_cost, _cost, _nodes_traversed)
 	position = _position
 	previous_node = _previous_node
 

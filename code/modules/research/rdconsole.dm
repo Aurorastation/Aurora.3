@@ -78,7 +78,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	return return_name
 
 /obj/machinery/computer/rdconsole/proc/CallReagentName(ID)
-	var/decl/reagent/R = decls_repository.get_decl(ID)
+	var/singleton/reagent/R = GET_SINGLETON(ID)
 	return R ? R.name : "(none)"
 
 /obj/machinery/computer/rdconsole/proc/SyncRDevices() //Makes sure it is properly sync'ed up with the devices attached to it (if any).
@@ -306,7 +306,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			to_chat(usr, "<span class='notice'>You must connect to the network first.</span>")
 		else
 			griefProtection() //Putting this here because I dont trust the sync process
-			addtimer(CALLBACK(src, .proc/SyncTechs), 30)
+			addtimer(CALLBACK(src, PROC_REF(SyncTechs)), 30)
 
 	else if(href_list["togglesync"]) //Prevents the console from being synced by other consoles. Can still send data.
 		sync = !sync
@@ -742,7 +742,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><HR>"
 			dat += "<b><u>Chemical Storage</u></b><BR><HR>"
 			for(var/_R in linked_lathe.reagents.reagent_volumes)
-				var/decl/reagent/R = decls_repository.get_decl(_R)
+				var/singleton/reagent/R = GET_SINGLETON(_R)
 				dat += "Name: [R.name] | Units: [linked_lathe.reagents.reagent_volumes[_R]] "
 				dat += "<A href='?src=\ref[src];disposeP=[_R]'>(Purge)</A><BR>"
 				dat += "<A href='?src=\ref[src];disposeallP=1'><U>Disposal All Chemicals in Storage</U></A><BR>"
@@ -811,7 +811,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];menu=4.1'>Imprinter Menu</A><HR>"
 			dat += "<b><u>Chemical Storage</u></b><BR><HR>"
 			for(var/_R in linked_imprinter.reagents.reagent_volumes)
-				var/decl/reagent/R = decls_repository.get_decl(_R)
+				var/singleton/reagent/R = GET_SINGLETON(_R)
 				dat += "Name: [R.name] | Units: [linked_imprinter.reagents.reagent_volumes[_R]] "
 				dat += "<A href='?src=\ref[src];disposeI=[_R]'>(Purge)</A><BR>"
 				dat += "<A href='?src=\ref[src];disposeallI=1'><U>Disposal All Chemicals in Storage</U></A><BR>"

@@ -71,7 +71,6 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggledebuglogs,
 	/client/proc/toggleghostwriters,
 	/client/proc/toggledrones,
-	/datum/admins/proc/show_skills,
 	/client/proc/damage_menu,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
@@ -174,7 +173,6 @@ var/list/admin_verbs_server = list(
 	/client/proc/cmd_ss_panic,
 	/client/proc/configure_access_control,
 	/datum/admins/proc/togglehubvisibility, //toggles visibility on the BYOND Hub
-	/client/proc/dump_memory_usage,
 	/client/proc/force_away_mission
 	)
 var/list/admin_verbs_debug = list(
@@ -219,12 +217,17 @@ var/list/admin_verbs_debug = list(
 	/client/proc/cmd_ss_panic,
 	/client/proc/reset_openturf,
 	/datum/admins/proc/capture_map,
+	/datum/admins/proc/map_template_load,
+	/datum/admins/proc/map_template_load_new_z,
+	/datum/admins/proc/map_template_upload,
 	/client/proc/global_ao_regenerate,
 	/client/proc/add_client_color,
 	/client/proc/connect_ntsl,
 	/client/proc/disconnect_ntsl,
 	/turf/proc/view_chunk,
-	/turf/proc/update_chunk
+	/turf/proc/update_chunk,
+	/client/proc/profiler_start,
+	/client/proc/rustg_send_udp
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -260,7 +263,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/wipe_ai,
 	/client/proc/toggleghostwriters,
 	/client/proc/toggledrones,
-	/datum/admins/proc/show_skills,
 	/client/proc/restart_sql,
 	/client/proc/damage_menu,
 	/client/proc/man_up,
@@ -398,7 +400,9 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/edit_admin_permissions,
 	/proc/possess,
 	/proc/release,
-	/client/proc/force_away_mission
+	/client/proc/force_away_mission,
+	/client/proc/profiler_start,
+	/client/proc/rustg_send_udp
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -410,7 +414,6 @@ var/list/admin_verbs_mod = list(
 	/client/proc/cmd_mod_say,
 	/datum/admins/proc/show_player_info,
 	/client/proc/dsay,
-	/datum/admins/proc/show_skills,
 	/datum/admins/proc/show_player_panel,
 	/client/proc/check_antagonists,
 	/client/proc/jobbans,
@@ -462,7 +465,9 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/lighting_show_verbs,
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_init_log,
-	/client/proc/create_poll //Allows to create polls
+	/client/proc/create_poll, //Allows to create polls
+	/client/proc/profiler_start,
+	/client/proc/rustg_send_udp
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
@@ -589,11 +594,11 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Toggles ghost-like invisibility (Don't abuse this)"
 	if(holder && mob)
 		if(mob.invisibility == INVISIBILITY_OBSERVER)
-			mob.invisibility = initial(mob.invisibility)
+			mob.set_invisibility(initial(mob.invisibility))
 			to_chat(mob, "<span class='danger'>Invisimin off. Invisibility reset.</span>")
 			mob.alpha = max(mob.alpha + 100, 255)
 		else
-			mob.invisibility = INVISIBILITY_OBSERVER
+			mob.set_invisibility(INVISIBILITY_OBSERVER)
 			to_chat(mob, "<span class='notice'><b>Invisimin on. You are now as invisible as a ghost.</b></span>")
 			mob.alpha = max(mob.alpha - 100, 0)
 
@@ -1230,7 +1235,7 @@ var/list/admin_verbs_cciaa = list(
 		CC.client_color = list(rr,rg,rb, gr,gg,gb, br,bg,bb)
 		CC.priority = priority
 		C.client_colors |= CC
-		sortTim(C.client_colors, /proc/cmp_clientcolor_priority)
+		sortTim(C.client_colors, GLOBAL_PROC_REF(cmp_clientcolor_priority))
 		C.update_client_color()
 
 	log_and_message_admins("<span class='notice'>gave [key_name(C)] a new client color.</span>")
@@ -1258,33 +1263,6 @@ var/list/admin_verbs_cciaa = list(
 	to_chat(usr, "The sunlight system is disabled.")
 #endif
 
-/client/proc/dump_memory_usage()
-	set name = "Dump Server Memory Usage"
-	set category = "Server"
-
-	if (!check_rights(R_SERVER))
-		return
-
-	if (alert(usr, "This will momentarily block the server. Proceed?", "Alert", "Yes", "No") != "Yes")
-		return
-
-	var/fname = "[game_id]-[time2text(world.timeofday, "MM-DD-hhmm")].json"
-
-	to_world(SPAN_DANGER("The server will momentarily freeze in 2 seconds!"))
-	log_and_message_admins("has initiated a memory dump into \"[fname]\".", usr)
-
-	sleep(20)
-
-	if (!dump_memory_profile("data/logs/memory/[fname]"))
-		to_chat(usr, SPAN_WARNING("Dumping memory failed at dll call."))
-		return
-
-	if (!fexists("data/logs/memory/[fname]"))
-		to_chat(usr, SPAN_WARNING("File creation failed. Please check to see if the data/logs/memory folder actually exists."))
-	else
-		to_chat(usr, SPAN_NOTICE("Memory dump completed."))
-
-
 /client/proc/force_away_mission()
 	set category = "Server"
 	set name = "Force Away Mission"
@@ -1302,9 +1280,10 @@ var/list/admin_verbs_cciaa = list(
 		log_and_message_admins("forced the following away mission: [mission_name].")
 
 /client/proc/alooc(msg as text)
-	set name = "Admin LOOC"
+	set name = "ALOOC"
 	set desc = "Admin Local OOC, seen only by those in view, regardless of their LOOC preferences."
 	set category = "Admin"
+	set hidden = 1
 
 	if(!check_rights(R_ADMIN|R_MOD))
 		return

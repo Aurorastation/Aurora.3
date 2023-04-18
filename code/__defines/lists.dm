@@ -4,6 +4,7 @@
 #define LAZYREMOVE(L, I) if(L) { L -= I; if(!length(L)) { L = null; } }
 #define LAZYADD(L, I) if(!L) { L = list(); } L += I;
 #define LAZYACCESS(L, I) (L ? (isnum(I) ? (I > 0 && I <= L.len ? L[I] : null) : L[I]) : null)
+#define LAZYINSERT(L, I, X) if(!L) { L = list(); } L.Insert(X, I);
 #define LAZYLEN(L) length(L)
 #define LAZYCLEARLIST(L) if(L) L.Cut()
 #define LAZYSET(L, K, V) if (!L) { L = list(); } L[K] = V;
@@ -13,6 +14,7 @@
 #define LAZYADDASSOCLIST(L, K, V) if(!L) { L = list(); } L[K] += list(V);
 #define LAZYREMOVEASSOC(L, K, V) if(L) { if(L[K]) { L[K] -= V; if(!length(L[K])) L -= K; } if(!length(L)) L = null; }
 #define LAZYACCESSASSOC(L, I, K) L ? L[I] ? L[I][K] ? L[I][K] : null : null : null
+#define LAZYREPLACEKEY(L, K, NK) if(L) { if(L[K]) { L[NK] = L[K] } else {L += NK} L -= K; }
 
 /// Performs an insertion on the given lazy list with the given key and value. If the value already exists, a new one will not be made.
 #define LAZYORASSOCLIST(lazy_list, key, value) \

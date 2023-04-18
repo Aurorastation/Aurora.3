@@ -6,11 +6,12 @@
 	icon_state = "cabinet"
 	anchored = 1
 	density = 0
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/obj/item/extinguisher/has_extinguisher
 	var/opened = 0
 
 /obj/structure/extinguisher_cabinet/Initialize()
-	..()
+	. = ..()
 	has_extinguisher = new/obj/item/extinguisher(src)
 	update_icon()
 

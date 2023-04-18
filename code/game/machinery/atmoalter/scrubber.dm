@@ -63,8 +63,9 @@
 		var/datum/gas_mixture/environment
 		if(holding)
 			environment = holding.air_contents
-		else
+		else if(loc)
 			environment = loc.return_air()
+		else return
 
 		var/transfer_moles = min(1, volume_rate/environment.volume)*environment.total_moles
 
@@ -196,6 +197,8 @@
 
 	var/power_draw = -1
 
+	if(!loc)
+		return
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	var/transfer_moles = min(1, volume_rate/environment.volume)*environment.total_moles

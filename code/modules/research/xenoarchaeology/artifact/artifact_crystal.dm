@@ -1,14 +1,13 @@
 
 /obj/structure/crystal
 	name = "large crystal"
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "crystal"
 	density = 1
 
 /obj/structure/crystal/New()
 	..()
-
-	icon_state = pick("crystal","crystal2")
+	icon_state = "crystal[rand(1, 3)]"
 
 	desc = pick(\
 	"It shines faintly as it catches the light.",\

@@ -29,8 +29,8 @@
 	if(!accessory_mob_overlay)
 		get_accessory_mob_overlay(M, force)
 	var/I = accessory_mob_overlay.icon
+	var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 	if(!inv_overlay || force)
-		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
 			if(contained_sprite)
 				tmp_icon_state = "[tmp_icon_state]_w"
@@ -43,7 +43,7 @@
 		inv_overlay.color = color
 	if(build_from_parts)
 		inv_overlay.cut_overlays()
-		inv_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		inv_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/M, var/force = FALSE)
@@ -89,7 +89,7 @@
 /obj/item/clothing/accessory/proc/on_removed(var/mob/user)
 	if(!has_suit)
 		return
-	has_suit.cut_overlay(get_inv_overlay())
+	has_suit.cut_overlay(get_inv_overlay(user, TRUE))
 	has_suit = null
 	if(user)
 		usr.put_in_hands(src)
@@ -223,6 +223,14 @@
 	icon_state = "bow_tie"
 	item_state = "bow_tie"
 
+/obj/item/clothing/accessory/necklace
+	name = "necklace"
+	desc = "A piece of jewelry that goes around your neck."
+	icon = 'icons/obj/item/clothing/accessory/necklace.dmi'
+	icon_state = "necklace"
+	item_state = "necklace"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
@@ -292,6 +300,38 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
+/obj/item/clothing/accessory/crucifix
+	name = "crucifix"
+	desc = "A small cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
+	icon = 'icons/clothing/accessories/crucifix.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/crucifix/gold
+	name = "gold crucifix"
+	desc = "A small, gold cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
+	icon_state = "golden_crucifix"
+	item_state = "golden_crucifix"
+
+/obj/item/clothing/accessory/crucifix/gold/saint_peter
+	name = "gold Saint Peter crucifix"
+	desc = "A small, gold cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symbol \
+	which has been re-purposed as a satanic symbol since the 21st century as well."
+	icon_state = "golden_crucifix_ud"
+	item_state = "golden_crucifix_ud"
+
+/obj/item/clothing/accessory/crucifix/silver
+	name = "silver crucifix"
+	desc = "A small, silver cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
+	icon_state = "silver_crucifix"
+	item_state = "silver_crucifix"
+
+/obj/item/clothing/accessory/crucifix/silver/saint_peter
+	name = "silver Saint Peter crucifix"
+	desc = "A small, silver cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symbol \
+	which has been re-purposed as a satanic symbol since the 21st century as well."
+	icon_state = "silver_crucifix_ud"
+	item_state = "silver_crucifix_ud"
+
 /obj/item/clothing/accessory/assunzione
 	name = "luceian amulet"
 	desc = "A common symbol of the Luceian faith abroad, this amulet featuring the religion's all-seeing eye and eight-pointed crest \
@@ -311,16 +351,46 @@
 /obj/item/clothing/accessory/scarf
 	name = "scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
-	icon_state = "scarf"
-	item_state = "scarf"
-	overlay_state = "scarf"
-	flippable = 1
+	icon = 'icons/obj/clothing/scarves.dmi'
+	icon_state = "scarf0"
+	item_state = "scarf0"
+	contained_sprite = TRUE
+	var/list/alternatives = list(
+		"drape" = "scarf0",
+		"drape, flipped" = "scarf0_f",
+		"single wrap" = "scarf1",
+		"double wrap" = "scarf2",
+		"parisian" = "scarf3"
+	)
+	var/list/overlay_alternatives = null
+
+/obj/item/clothing/accessory/scarf/attack_self(mob/user)
+	if(alternatives)
+		var/list/options = list()
+		for(var/i in alternatives)
+			var/image/radial_button = image(icon = icon, icon_state = alternatives[i])
+			if(color)
+				radial_button.color = color
+			if(build_from_parts&&worn_overlay)
+				radial_button.cut_overlays()
+				radial_button.add_overlay(overlay_image(icon, "[alternatives[i]]_[worn_overlay]", flags=RESET_COLOR))
+			options[i] = radial_button
+		var/alt = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
+		if(!alt)
+			return
+		icon_state = alternatives[alt]
+		item_state = icon_state
+		update_icon()
+		update_clothing_icon()
+		inv_overlay = null
+		accessory_mob_overlay = null
+		to_chat(user, SPAN_NOTICE("You retie \the [src] as \an [alt]."))
+	return ..()
 
 /obj/item/clothing/accessory/scarf/zebra
 	name = "zebra scarf"
-	icon_state = "zebrascarf"
-	item_state = "zebrascarf"
-	overlay_state = "zebrascarf"
+	build_from_parts = TRUE
+	worn_overlay = "stripes"
 
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"
@@ -658,6 +728,7 @@
 	in the past been given the privilege of working within or in collaboration with the Nralakk Federation\
 	 as a show of goodwill between the corporation and federation."
 	icon = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
+	icon_override = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
 	icon_state = "ZH_cape"
 	item_state = "ZH_cape"
 	flippable = FALSE
@@ -694,6 +765,19 @@
 	overlay_state = "assunzione_robe"
 	contained_sprite = TRUE
 
+/obj/item/clothing/accessory/poncho/assunzione/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/robe_backing = image(mob_icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
+		I.add_overlay(robe_backing)
+	return I
+
+/obj/item/clothing/accessory/poncho/assunzione/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
+	var/image/base = ..()
+	var/image/robe_backing = image(icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
+	base.add_overlay(robe_backing)
+	return base
+
 /obj/item/clothing/accessory/poncho/assunzione/vine
 	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. This one features a lux vine \
 	inlay that allows the symbol of the Luceian Square to be faintly seen, even in darkness."
@@ -728,6 +812,8 @@
 /obj/item/clothing/accessory/offworlder
 	name = "venter assembly"
 	desc = "A series of complex tubing meant to dissipate heat from the skin passively."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "venter"
 	item_state = "venter"
 	slot = ACCESSORY_SLOT_CAPE
@@ -776,9 +862,31 @@
 	overlay_state = "tags"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	var/can_be_broken = FALSE
+	var/separated = FALSE
+	var/tag_type = /obj/item/dogtag
 
 /obj/item/clothing/accessory/dogtags/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
+
+/obj/item/clothing/accessory/dogtags/attack_self(mob/user)
+	if(can_be_broken)
+		if(!separated)
+			if(user.a_intent == I_HURT)
+				user.visible_message(SPAN_NOTICE("[user] yanks apart \the [src]!"))
+				separated = TRUE
+				var/obj/item/dogtag/tag = new tag_type(get_turf(user))
+				user.put_in_hands(tag)
+				separated = TRUE
+				update_icon()
+
+/obj/item/clothing/accessory/dogtags/update_icon()
+	if(separated)
+		icon_state = "[icon_state]_single"
+		item_state = "[item_state]_single"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
 
 /obj/item/clothing/accessory/badge/namepin
 	name = "pin tag"
@@ -962,13 +1070,193 @@
 	icon_state = "orion_liaison_badge"
 	item_state = "orion_liaison_badge"
 
-/obj/item/clothing/accessory/poncho/ipc_mantle
+/obj/item/clothing/accessory/poncho/burzsian_mantle
 	name = "\improper Burzsian shoulder mantle"
 	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
 	desc_extended = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
-	icon = 'icons/clothing/accessories/BZ_Gorget.dmi'
-	icon_state = "Burz_gorget"
-	item_state = "Burz_gorget"
+	icon = 'icons/clothing/accessories/bz_gorget.dmi'
+	icon_state = "ipcmantle"
+	item_state = "ipcmantle"
 	contained_sprite = TRUE
 	icon_override = null
 	body_parts_covered = UPPER_TORSO
+
+/obj/item/clothing/accessory/poncho/burzsian_mantle/native
+	name = "native Burzsian shoulder mantle"
+	desc = "A uniform mantle made out of inexpensive leather. The sigil of Burzsia is imprinted on the front."
+	desc_extended = "Native Burzsians within Burzsia II, also known as the Obsidian Belt, wear these leather mantles that, unlike the IPCs' mantles from the same system, are designed to be comfortable for humans and less encumbering, nonetheless providing them partial skin protection from the harsh dwarf star."
+	icon_state = "burzsianmantle"
+	item_state = "burzsianmantle"
+
+/obj/item/clothing/accessory/goon_coif
+	name = "tactical coif"
+	desc = "A comfortable tactical coif that goes around the head."
+	icon = 'icons/clothing/accessories/goon_coif.dmi'
+	body_parts_covered = HEAD
+	icon_state = "goon_coif"
+	item_state = "goon_coif"
+	contained_sprite = TRUE
+	slot_flags = SLOT_MASK | SLOT_EARS | SLOT_TIE
+
+/obj/item/clothing/accessory/goon_coif/get_ear_examine_text(var/mob/user, var/ear_text = "left")
+	return "on [user.get_pronoun("his")] head"
+
+/obj/item/clothing/accessory/goon_coif/get_mask_examine_text(var/mob/user)
+	return "on [user.get_pronoun("his")] head"
+
+/********** Aprons Start **********/
+// Apron
+/obj/item/clothing/accessory/apron
+	name = "apron"
+	desc = "An apron."
+	icon = 'icons/obj/item/clothing/accessory/aprons.dmi'
+	icon_state = "apron"
+	item_state = "apron"
+	contained_sprite = TRUE
+	slot_flags = SLOT_OCLOTHING | SLOT_TIE
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO
+	no_overheat = TRUE
+	allowed = list(
+		/obj/item/reagent_containers/food/drinks/shaker,
+		/obj/item/material/kitchen/utensil,
+		/obj/item/reagent_containers/food/condiment,
+		/obj/item/reagent_containers/food/drinks/bottle
+	)
+
+// Random Colour Apron
+/obj/item/clothing/accessory/apron/random/Initialize() // Random colour.
+	. = ..()
+	color = get_random_colour(lower = 150)
+
+// Hydroponics Apron
+/obj/item/clothing/accessory/apron/blue // Used for hydroponics.
+	color = "#3429d1"
+	allowed = list(
+		/obj/item/reagent_containers/spray/plantbgone,
+		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/seeds,
+		/obj/item/reagent_containers/glass/fertilizer,
+		/obj/item/material/minihoe
+	)
+
+// Surgical Apron
+/obj/item/clothing/accessory/apron/surgery
+	name = "surgical apron"
+	desc = "A surgical apron."
+	icon_state = "apron_surgeon"
+	item_state = "apron_surgeon"
+	allowed = list(
+		/obj/item/stack/medical,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/device/healthanalyzer,
+		/obj/item/device/flashlight,
+		/obj/item/device/radio,
+		/obj/item/tank/emergency_oxygen,
+		/obj/item/device/breath_analyzer,
+		/obj/item/reagent_containers/blood
+	)
+
+// Zeng-Hu Surgical Apron
+/obj/item/clothing/accessory/apron/surgery/zeng
+	name = "zeng-hu vinyl apron"
+	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. \
+	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
+	icon_state = "apron_surgeon_zeng"
+	item_state = "apron_surgeon_zeng"
+
+// Chef Apron
+/obj/item/clothing/accessory/apron/chef
+	name = "chef apron"
+	desc = "A basic, dull, white chef apron."
+	icon_state = "apron_chef"
+	item_state = "apron_chef"
+	allowed = list(
+		/obj/item/reagent_containers/food/drinks/shaker,
+		/obj/item/material/kitchen/utensil,
+		/obj/item/reagent_containers/food/condiment,
+		/obj/item/reagent_containers/food/drinks/bottle,
+		/obj/item/material/knife
+	)
+/********** Aprons End **********/
+
+/********** Overalls Start **********/
+// Overalls
+/obj/item/clothing/accessory/overalls
+	name = "overalls"
+	desc = "A set of denim overalls."
+	icon = 'icons/obj/item/clothing/accessory/overalls.dmi'
+	icon_state = "overalls"
+	item_state = "overalls"
+	contained_sprite = TRUE
+	slot_flags = SLOT_OCLOTHING | SLOT_TIE
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS
+
+// Random Colour Overalls
+/obj/item/clothing/accessory/overalls/random/Initialize() // Random colour.
+	. = ..()
+	color = get_random_colour(lower = 150)
+
+// Hydroponics Overalls
+/obj/item/clothing/accessory/overalls/blue // Used for hydroponics.
+	color = "#3429d1"
+
+// High Back Overalls
+/obj/item/clothing/accessory/overalls/high_back
+	name = "high back overalls"
+	desc = "A set of denim overalls with a high back."
+	icon_state = "overalls_high"
+	item_state = "overalls_high"
+
+// X-shaped Back Overalls
+/obj/item/clothing/accessory/overalls/x_shaped_back
+	name = "\improper X-shaped back overalls"
+	desc = "A set of denim overalls with a high back."
+	icon_state = "overalls_x"
+	item_state = "overalls_x"
+
+// Overall Shorts
+/obj/item/clothing/accessory/overalls/shorts
+	name = "overall shorts"
+	desc = "A set of denim overall shorts."
+	icon_state = "overall_shorts"
+	item_state = "overall_shorts"
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO
+
+// High Back Overall Shorts
+/obj/item/clothing/accessory/overalls/shorts/high_back
+	name = "high back overall shorts"
+	desc = "A set of denim overall shorts with a high back."
+	icon_state = "overall_shorts_high"
+	item_state = "overall_shorts_high"
+
+// X-shaped Back Overall Shorts
+/obj/item/clothing/accessory/overalls/shorts/x_shaped_back
+	name = "\improper X-shaped back overall shorts"
+	desc = "A set of denim overall shorts with a high back."
+	icon_state = "overall_shorts_x"
+	item_state = "overall_shorts_x"
+
+// Overall Skirt
+/obj/item/clothing/accessory/overalls/skirt
+	name = "overall skirt"
+	desc = "A denim overall skirt."
+	icon_state = "overall_skirt"
+	item_state = "overall_skirt"
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO
+
+// High Back Overall Skirt
+/obj/item/clothing/accessory/overalls/skirt/high_back
+	name = "high back overall skirt"
+	desc = "A denim overall skirt with a high back."
+	icon_state = "overall_skirt_high"
+	item_state = "overall_skirt_high"
+
+// X-shaped Back Overall Skirt
+/obj/item/clothing/accessory/overalls/skirt/x_shaped_back
+	name = "\improper X-shaped back overall skirt"
+	desc = "A denim overall skirt with a high back."
+	icon_state = "overall_skirt_x"
+	item_state = "overall_skirt_x"
+/********** Overalls End **********/

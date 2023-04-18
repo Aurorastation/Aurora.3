@@ -3,7 +3,6 @@
 	desc = "It seems to be pulsing with suspiciously enticing energies."
 	desc_antag = "Telecrystals can be activated by utilizing them on devices with an actively running uplink. They will not activate on unactivated uplinks."
 	singular_name = "telecrystal"
-	icon = 'icons/obj/telescience.dmi'
 	icon_state = "telecrystal"
 	w_class = ITEMSIZE_TINY
 	max_amount = 50
@@ -34,4 +33,4 @@
 			I.hidden_uplink.update_nano_data()
 			SSnanoui.update_uis(I.hidden_uplink)
 			use(amount)
-			to_chat(user, "<span class='notice'>You slot \the [src] into \the [I] and charge its internal uplink.</span>")
+			to_chat(user, SPAN_NOTICE("You slot \the [src] into \the [I] and charge its internal uplink."))

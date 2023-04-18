@@ -41,6 +41,30 @@
 			playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
 			return
 
+			if (W.isscrewdriver())
+				if(W.use_tool(src, user, 20, volume = 50))
+					src.open =! src.open
+					to_chat(user, SPAN_NOTICE("You [src.open ? "open" : "close"] the service panel."))
+				return
+			if ((W.ismultitool()) && (src.open == 1)&& (!src.l_hacking))
+				to_chat(user, SPAN_NOTICE("Now attempting to reset internal memory, please hold."))
+				src.l_hacking = 1
+				if (do_after(usr, 100))
+					if (prob(40))
+						src.l_setshort = 1
+						src.l_set = 0
+						to_chat(user, SPAN_NOTICE("Internal memory reset. Please give it a few seconds to reinitialize."))
+						sleep(80)
+						src.l_setshort = 0
+						src.l_hacking = 0
+					else
+						to_chat(user, SPAN_WARNING("Unable to reset internal memory."))
+						src.l_hacking = 0
+				else	src.l_hacking = 0
+				return
+			//At this point you have exhausted all the special things to do when locked
+			// ... but it's still locked.
+
 		if (W.isscrewdriver())
 			if(W.use_tool(src, user, 20, volume = 50))
 				src.open =! src.open

@@ -156,7 +156,7 @@
 /datum/shuttle/autodock/overmap/intrepid
 	name = "Intrepid"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/intrepid/crew_compartment, /area/shuttle/intrepid/cargo_bay, /area/shuttle/intrepid/medical_compartment, /area/shuttle/intrepid/engine_compartment, /area/shuttle/intrepid/atmos_compartment, /area/shuttle/intrepid/cockpit, /area/shuttle/intrepid/rotary)
+	shuttle_area = list(/area/shuttle/intrepid/crew_compartment, /area/shuttle/intrepid/cargo_bay, /area/shuttle/intrepid/engine_compartment, /area/shuttle/intrepid/atmos_compartment, /area/shuttle/intrepid/cockpit, /area/shuttle/intrepid/rotary)
 	dock_target = "intrepid_shuttle"
 	current_location = "nav_hangar_intrepid"
 	landmark_transition = "nav_transit_intrepid"
@@ -194,6 +194,7 @@
 	docking_controller = "mining_shuttle_dock"
 	base_turf = /turf/simulated/floor/airless
 	base_area = /area/hangar/operations
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/mining/transit
 	name = "In transit"

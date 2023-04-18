@@ -17,8 +17,8 @@
 	can_embed = 0
 	var/parry_chance = 40
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
-	equip_sound = /decl/sound_category/sword_equip_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
 
 /obj/item/material/sword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	var/parry_bonus = 1
@@ -36,7 +36,7 @@
 	return FALSE
 
 /obj/item/material/sword/perform_technique(var/mob/living/carbon/human/target, var/mob/living/carbon/human/user, var/target_zone)
-	var/armor_reduction = target.get_blocked_ratio(target_zone, BRUTE, DAM_EDGE|DAM_SHARP, damage = force)*100
+	var/armor_reduction = target.get_blocked_ratio(target_zone, DAMAGE_BRUTE, DAMAGE_FLAG_EDGE|DAMAGE_FLAG_SHARP, damage = force)*100
 	var/obj/item/organ/external/affecting = target.get_organ(target_zone)
 	if(!affecting)
 		return
@@ -99,6 +99,9 @@
 	item_state = "sabre"
 	slot_flags = SLOT_BELT
 
+/obj/item/material/sword/sabre/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
+
 /obj/item/material/sword/axe
 	name = "battle axe"
 	desc = "A one handed battle axe, still a deadly weapon."
@@ -115,6 +118,9 @@
 	if(istype(target))
 		cleave(user, target)
 	..()
+
+/obj/item/material/sword/axe/can_woodcut()
+	return TRUE
 
 /obj/item/material/sword/khopesh
 	name = "khopesh"

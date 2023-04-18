@@ -17,11 +17,11 @@
 	fragile = 0
 	var/paint_reagent = null //name of the reagent responsible for colouring the paint
 	var/paint_type = null //used for colouring detective technicolor coat and hat
-	reagents_to_add = list(/decl/reagent/paint = 4/5)
+	reagents_to_add = list(/singleton/reagent/paint = 4/5)
 
 /obj/item/reagent_containers/glass/paint/Initialize()
 	reagents_to_add[paint_reagent] = 1/5
-	for(var/decl/reagent/R in reagents_to_add)
+	for(var/singleton/reagent/R in reagents_to_add)
 		reagents_to_add[R] *= volume
 	. = ..()
 	reagents.handle_reactions()
@@ -54,29 +54,29 @@
 	update_icon()
 
 /obj/item/reagent_containers/glass/paint/red
-	paint_reagent = /decl/reagent/crayon_dust/red
+	paint_reagent = /singleton/reagent/crayon_dust/red
 	paint_type = "red"
 
 /obj/item/reagent_containers/glass/paint/yellow
-	paint_reagent = /decl/reagent/crayon_dust/yellow
+	paint_reagent = /singleton/reagent/crayon_dust/yellow
 	paint_type = "yellow"
 
 /obj/item/reagent_containers/glass/paint/green
-	paint_reagent = /decl/reagent/crayon_dust/green
+	paint_reagent = /singleton/reagent/crayon_dust/green
 	paint_type = "green"
 
 /obj/item/reagent_containers/glass/paint/blue
-	paint_reagent = /decl/reagent/crayon_dust/blue
+	paint_reagent = /singleton/reagent/crayon_dust/blue
 	paint_type = "blue"
 
 /obj/item/reagent_containers/glass/paint/purple
-	paint_reagent = /decl/reagent/crayon_dust/purple
+	paint_reagent = /singleton/reagent/crayon_dust/purple
 	paint_type = "purple"
 
 /obj/item/reagent_containers/glass/paint/black
-	paint_reagent = /decl/reagent/carbon
+	paint_reagent = /singleton/reagent/carbon
 	paint_type = "black"
 
 /obj/item/reagent_containers/glass/paint/white
-	paint_reagent = /decl/reagent/aluminum
+	paint_reagent = /singleton/reagent/aluminum
 	paint_type = "white"

@@ -150,6 +150,7 @@ Class Procs:
 
 /obj/machinery/Destroy()
 	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_ALL)
+	SSmachinery.machinery -= src
 	if(component_parts)
 		for(var/atom/A in component_parts)
 			if(A.loc == src) // If the components are inside the machine, delete them.
@@ -442,7 +443,7 @@ Class Procs:
 	return 1
 
 /obj/machinery/proc/dismantle()
-	playsound(loc, /decl/sound_category/crowbar_sound, 50, 1)
+	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
 	M.state = 3
@@ -465,7 +466,7 @@ Class Procs:
 		message = "\The [src] rattles to life and spits out a paper titled [paper]."
 	visible_message(SPAN_NOTICE(message))
 
-	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
+	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper), print_delay)
 
 	return 1
 
@@ -497,12 +498,12 @@ Class Procs:
 			return
 
 	if(hair_style.length >= 4 && prob(25))
-		H.apply_damage(30, BRUTE, BP_HEAD)
+		H.apply_damage(30, DAMAGE_BRUTE, BP_HEAD)
 		H.visible_message(SPAN_DANGER("\The [H]'s hair catches in \the [src]!"),
 					SPAN_DANGER("Your hair gets caught in \the [src]!"))
 		if(H.can_feel_pain())
 			H.emote("scream")
-			H.apply_damage(45, PAIN)
+			H.apply_damage(45, DAMAGE_PAIN)
 
 /obj/machinery/proc/do_signaler() // override this to customize effects
 	return

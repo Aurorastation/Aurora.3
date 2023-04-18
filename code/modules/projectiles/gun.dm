@@ -83,8 +83,8 @@
 	var/displays_maptext = FALSE
 	var/can_ammo_display = TRUE
 	var/obj/item/ammo_display
-	var/empty_sound = /decl/sound_category/out_of_ammo
-	var/casing_drop_sound = /decl/sound_category/casing_drop_sound
+	var/empty_sound = /singleton/sound_category/out_of_ammo
+	var/casing_drop_sound = /singleton/sound_category/casing_drop_sound
 	maptext_x = 22
 	maptext_y = 2
 
@@ -109,7 +109,7 @@
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
-	var/wield_sound = /decl/sound_category/generic_wield_sound
+	var/wield_sound = /singleton/sound_category/generic_wield_sound
 	var/unwield_sound = null
 	var/one_hand_fa_penalty = 0 // Additional accuracy/dispersion penalty for using full auto one-handed
 
@@ -218,7 +218,7 @@
 
 	var/mob/living/M = user
 
-	if(HULK in M.mutations)
+	if(HAS_FLAG(M.mutations, HULK))
 		to_chat(M, SPAN_DANGER("Your fingers are much too large for the trigger guard!"))
 		return FALSE
 
@@ -228,7 +228,8 @@
 		if(no_guns_check)
 			to_chat(A, SPAN_WARNING("[no_guns_check]")) // the proc returns the no_guns_message
 			return FALSE
-
+		if(A.species && !A.species.can_use_guns())
+			return FALSE
 	if((M.is_clumsy()) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)
@@ -312,7 +313,6 @@
 
 	var/shoot_time = max((burst - 1) * burst_delay, burst_delay)
 	user.setClickCooldown(shoot_time)
-	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
 
 	user.face_atom(target, TRUE)
@@ -327,7 +327,7 @@
 		var/obj/item/gun/SG = user.get_inactive_hand()
 		if(istype(SG))
 			var/decreased_accuracy = (SG.w_class * 2) - SG.offhand_accuracy
-			addtimer(CALLBACK(SG, .proc/Fire, target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 5)
+			addtimer(CALLBACK(SG, PROC_REF(Fire), target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 5)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -362,7 +362,6 @@
 	update_held_icon()
 
 	user.setClickCooldown(max(burst_delay+1, fire_delay))
-	user.setMoveCooldown(move_delay)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)
@@ -405,7 +404,7 @@
 
 			if (muzzle_flash)
 				set_light(muzzle_flash)
-				addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2, TIMER_UNIQUE | TIMER_OVERRIDE)
+				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 2, TIMER_UNIQUE | TIMER_OVERRIDE)
 			update_icon()
 
 		if(i < burst)
@@ -462,7 +461,7 @@
 
 		if(muzzle_flash)
 			set_light(muzzle_flash)
-			addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 2)
 
 	if(recoil)
 		shake_camera(user, recoil + 1, recoil)
@@ -520,7 +519,7 @@
 	if(length(firemodes))
 		F = firemodes[sel_mode]
 	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
-		P.accuracy -= one_hand_fa_penalty/2
+		P.accuracy -= one_hand_fa_penalty * 0.5
 		P.dispersion -= one_hand_fa_penalty * 0.5
 
 //does the actual launching of the projectile
@@ -579,11 +578,11 @@
 			user.show_message(SPAN_WARNING("You feel rather silly, trying to commit suicide with a toy."))
 			mouthshoot = FALSE
 			return
-		else if(in_chamber.damage_type == PAIN)
-			user.apply_damage(in_chamber.damage * 2, PAIN, BP_HEAD)
+		else if(in_chamber.damage_type == DAMAGE_PAIN)
+			user.apply_damage(in_chamber.damage * 2, DAMAGE_PAIN, BP_HEAD)
 		else
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src].")
-			user.apply_damage(in_chamber.damage * 20, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
+			user.apply_damage(in_chamber.damage * 20, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAMAGE_FLAG_SHARP)
 			user.death()
 
 		handle_post_fire(user, user, FALSE, FALSE, FALSE)
@@ -792,7 +791,7 @@
 /obj/item/gun/pickup(mob/user)
 	..()
 	queue_icon_update()
-	addtimer(CALLBACK(src, .proc/update_maptext), 1)
+	addtimer(CALLBACK(src, PROC_REF(update_maptext)), 1)
 	if(is_wieldable)
 		unwield()
 

@@ -52,7 +52,7 @@
 /obj/item/nullrod/charm
 	name = "obsidian charm"
 	desc = "A tajaran charm created from obsidian created to ward off the supernatural and bring good fortune."
-	desc_extended = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off raskara and other evils."
+	desc_extended = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off Raskara and other evils."
 	icon = 'icons/obj/tajara_items.dmi'
 	contained_sprite = TRUE
 	item_icons = null
@@ -160,7 +160,7 @@
 			if(R == src)
 				continue
 			rune_found = TRUE
-			R.invisibility = 0
+			R.set_invisibility(0)
 		if(rune_found)
 			visible_message(SPAN_NOTICE("A holy glow permeates the air!"))
 		return

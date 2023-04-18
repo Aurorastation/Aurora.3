@@ -52,86 +52,86 @@
 	// Reagent information for process(), consider moving this to a controller along
 	// with cycle information under 'mechanical concerns' at some point.
 	var/global/list/toxic_reagents = list(
-		/decl/reagent/dylovene =			 -2,
-		/decl/reagent/toxin =				  2,
-		/decl/reagent/hydrazine =			2.5,
-		/decl/reagent/acetone =			  1,
-		/decl/reagent/acid =				1.5,
-		/decl/reagent/acid/hydrochloric =	1.5,
-		/decl/reagent/acid/polyacid =		  3,
-		/decl/reagent/toxin/plantbgone =	  3,
-		/decl/reagent/cryoxadone =			 -3,
-		/decl/reagent/radium =				  2,
-		/decl/reagent/raskara_dust =		2.5
+		/singleton/reagent/dylovene =			 -2,
+		/singleton/reagent/toxin =				  2,
+		/singleton/reagent/hydrazine =			2.5,
+		/singleton/reagent/acetone =			  1,
+		/singleton/reagent/acid =				1.5,
+		/singleton/reagent/acid/hydrochloric =	1.5,
+		/singleton/reagent/acid/polyacid =		  3,
+		/singleton/reagent/toxin/plantbgone =	  3,
+		/singleton/reagent/cryoxadone =			 -3,
+		/singleton/reagent/radium =				  2,
+		/singleton/reagent/raskara_dust =		2.5
 		)
 	var/global/list/nutrient_reagents = list(
-		/decl/reagent/drink/milk =				 0.1,
-		/decl/reagent/alcohol/beer =	0.25,
-		/decl/reagent/phosphorus =				 0.1,
-		/decl/reagent/sugar =					 0.1,
-		/decl/reagent/drink/sodawater =		 0.1,
-		/decl/reagent/ammonia =				   1,
-		/decl/reagent/diethylamine =			   2,
-		/decl/reagent/nutriment =				   1,
-		/decl/reagent/adminordrazine =			   1,
+		/singleton/reagent/drink/milk =				 0.1,
+		/singleton/reagent/alcohol/beer =	0.25,
+		/singleton/reagent/phosphorus =				 0.1,
+		/singleton/reagent/sugar =					 0.1,
+		/singleton/reagent/drink/sodawater =		 0.1,
+		/singleton/reagent/ammonia =				   1,
+		/singleton/reagent/diethylamine =			   2,
+		/singleton/reagent/nutriment =				   1,
+		/singleton/reagent/adminordrazine =			   1,
 		// Fertilizers
-		/decl/reagent/toxin/fertilizer/eznutrient =			1,
-		/decl/reagent/toxin/fertilizer/robustharvest =			1,
-		/decl/reagent/toxin/fertilizer/left4zed =				1,
-		/decl/reagent/toxin/fertilizer/monoammoniumphosphate =	1
+		/singleton/reagent/toxin/fertilizer/eznutrient =			1,
+		/singleton/reagent/toxin/fertilizer/robustharvest =			1,
+		/singleton/reagent/toxin/fertilizer/left4zed =				1,
+		/singleton/reagent/toxin/fertilizer/monoammoniumphosphate =	1
 		)
 	var/global/list/weedkiller_reagents = list(
-		/decl/reagent/hydrazine =			-4,
-		/decl/reagent/phosphorus =			-2,
-		/decl/reagent/sugar =				 2,
-		/decl/reagent/acid =				-2,
-		/decl/reagent/acid/hydrochloric =	-2,
-		/decl/reagent/acid/polyacid =		-4,
-		/decl/reagent/toxin/plantbgone =	-8,
-		/decl/reagent/adminordrazine =		-5
+		/singleton/reagent/hydrazine =			-4,
+		/singleton/reagent/phosphorus =			-2,
+		/singleton/reagent/sugar =				 2,
+		/singleton/reagent/acid =				-2,
+		/singleton/reagent/acid/hydrochloric =	-2,
+		/singleton/reagent/acid/polyacid =		-4,
+		/singleton/reagent/toxin/plantbgone =	-8,
+		/singleton/reagent/adminordrazine =		-5
 		)
 	var/global/list/pestkiller_reagents = list(
-		/decl/reagent/sugar =           2,
-		/decl/reagent/diethylamine =   -2,
-		/decl/reagent/adminordrazine = -5
+		/singleton/reagent/sugar =           2,
+		/singleton/reagent/diethylamine =   -2,
+		/singleton/reagent/adminordrazine = -5
 		)
 	var/global/list/water_reagents = list(
-		/decl/reagent/water =					  1,
-		/decl/reagent/adminordrazine =			  1,
-		/decl/reagent/drink/milk =				0.9,
-		/decl/reagent/alcohol/beer =	0.7,
-		/decl/reagent/hydrazine =				 -2,
-		/decl/reagent/phosphorus =			   -0.5,
-		/decl/reagent/water =					  1,
-		/decl/reagent/drink/sodawater =		  1
+		/singleton/reagent/water =					  1,
+		/singleton/reagent/adminordrazine =			  1,
+		/singleton/reagent/drink/milk =				0.9,
+		/singleton/reagent/alcohol/beer =	0.7,
+		/singleton/reagent/hydrazine =				 -2,
+		/singleton/reagent/phosphorus =			   -0.5,
+		/singleton/reagent/water =					  1,
+		/singleton/reagent/drink/sodawater =		  1
 		)
 
 	// Beneficial reagents also have values for modifying yield_mod and mut_mod (in that order).
 	var/global/list/beneficial_reagents = list(
-		/decl/reagent/alcohol/beer=list( -0.05, 0,   0  ),
-		/decl/reagent/hydrazine =			list( -2,    0,   0  ),
-		/decl/reagent/phosphorus =			list( -0.75, 0,   0  ),
-		/decl/reagent/drink/sodawater =	list(  0.1,  0,   0  ),
-		/decl/reagent/acid =		  		list( -1,    0,   0  ),
-		/decl/reagent/acid/hydrochloric =	list( -1,    0,   0  ),
-		/decl/reagent/acid/polyacid =		list( -2,    0,   0  ),
-		/decl/reagent/toxin/plantbgone =	list( -2,    0,   0.2),
-		/decl/reagent/cryoxadone =	 		list(  3,    0,   0  ),
-		/decl/reagent/ammonia =			list(  0.5,  0,   0  ),
-		/decl/reagent/diethylamine =		list(  1,    0,   0  ),
-		/decl/reagent/nutriment =			list(  0.5,  0.1, 0  ),
-		/decl/reagent/radium =				list( -1.5,  0,   0.2),
-		/decl/reagent/adminordrazine =		list(  1,    1,   1  ),
+		/singleton/reagent/alcohol/beer=list( -0.05, 0,   0  ),
+		/singleton/reagent/hydrazine =			list( -2,    0,   0  ),
+		/singleton/reagent/phosphorus =			list( -0.75, 0,   0  ),
+		/singleton/reagent/drink/sodawater =	list(  0.1,  0,   0  ),
+		/singleton/reagent/acid =		  		list( -1,    0,   0  ),
+		/singleton/reagent/acid/hydrochloric =	list( -1,    0,   0  ),
+		/singleton/reagent/acid/polyacid =		list( -2,    0,   0  ),
+		/singleton/reagent/toxin/plantbgone =	list( -2,    0,   0.2),
+		/singleton/reagent/cryoxadone =	 		list(  3,    0,   0  ),
+		/singleton/reagent/ammonia =			list(  0.5,  0,   0  ),
+		/singleton/reagent/diethylamine =		list(  1,    0,   0  ),
+		/singleton/reagent/nutriment =			list(  0.5,  0.1, 0  ),
+		/singleton/reagent/radium =				list( -1.5,  0,   0.2),
+		/singleton/reagent/adminordrazine =		list(  1,    1,   1  ),
 		// Fertilizers
-		/decl/reagent/toxin/fertilizer/robustharvest =	list(  0,	0.2, 0  ),
-		/decl/reagent/toxin/fertilizer/left4zed =		list(  0,	0,   0.2)
+		/singleton/reagent/toxin/fertilizer/robustharvest =	list(  0,	0.2, 0  ),
+		/singleton/reagent/toxin/fertilizer/left4zed =		list(  0,	0,   0.2)
 		)
 
 	// Mutagen list specifies minimum value for the mutation to take place, rather
 	// than a bound as the lists above specify.
 	var/global/list/mutagenic_reagents = list(
-		/decl/reagent/radium =   8,
-		/decl/reagent/mutagen = 15
+		/singleton/reagent/radium =   8,
+		/singleton/reagent/mutagen = 15
 		)
 
 /obj/machinery/portable_atmospherics/hydroponics/AltClick()
@@ -178,12 +178,12 @@
 		if(nymph.stat == DEAD || nymph.paralysis || nymph.weakened || nymph.stunned || nymph.restrained())
 			return
 		if(weedlevel > 0)
-			nymph.ingested.add_reagent(/decl/reagent/nutriment, weedlevel/6)
+			nymph.ingested.add_reagent(/singleton/reagent/nutriment, weedlevel/6)
 			weedlevel = 0
 			nymph.visible_message("<span class='notice'><b>[nymph]</b> roots through [src], ripping out weeds and eating them noisily.</span>","<span class='notice'>You root through [src], ripping out weeds and eating them noisily.</span>")
 			return
 		if (dead)//Let nymphs eat dead plants
-			nymph.ingested.add_reagent(/decl/reagent/nutriment, 1)
+			nymph.ingested.add_reagent(/singleton/reagent/nutriment, 1)
 			nymph.visible_message("<span class='notice'><b>[nymph]</b> rips out the dead plants from [src], and loudly munches them.</span>","<span class='notice'>You root out the dead plants in [src], eating them with loud chewing sounds.</span>")
 			remove_dead(user)
 			return
@@ -463,10 +463,10 @@
 			to_chat(user, SPAN_WARNING("You need to open \the [RC] first!"))
 			return
 		if (LAZYLEN(RC.reagents.reagent_volumes) == 1)
-			if (RC.reagents.has_reagent(/decl/reagent/water, 1))
+			if (RC.reagents.has_reagent(/singleton/reagent/water, 1))
 				if (waterlevel < maxWaterLevel)
 					var/amountToRemove = min((maxWaterLevel - waterlevel), RC.reagents.total_volume)
-					RC.reagents.remove_reagent(/decl/reagent/water, amountToRemove, 1)
+					RC.reagents.remove_reagent(/singleton/reagent/water, amountToRemove, 1)
 					waterlevel += amountToRemove
 					user.visible_message("<b>[user]</b> transfers some water to the tray.", "You transfer about [amountToRemove] units of water to the tray.")
 				else

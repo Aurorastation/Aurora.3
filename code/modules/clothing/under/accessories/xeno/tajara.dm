@@ -312,7 +312,7 @@
 	desc = "A hand carved wooden charm of tajaran origin."
 	icon_state = "wooden_talisman"
 	item_state = "wooden_talisman"
-	desc_extended = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off raskara and other evils. \
+	desc_extended = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off Raskara and other evils. \
 	Hand-carved tajani charms are held in special regards, often being thought of as being particularly fortunate."
 	w_class = ITEMSIZE_TINY
 	flags = NOBLUDGEON
@@ -377,6 +377,13 @@
 	desc = "A hand carved charm of one of the mythical tajani."
 	desc_extended = "Tajani, also known as 'short people' in basic, are good-willed tiny elder Tajara who serve as guardians of nature and homes. \
 	Hand carved charms of them is considered a symbol of luck and as such many superstitious tajara keeps one around."
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim
+	name = "metal amulet"
+	desc = "An amulet made of some light metal."
+	icon_state = "raskara_amulet"
+	item_state = "raskara_amulet"
+	overlay_state = "raskara_amulet"
 
 /obj/item/clothing/accessory/tajaran/tanker_pin
 	name = "golden sun pin"
@@ -485,8 +492,145 @@
 	icon_state = "nka_waistcoat"
 	item_state = "nka_waistcoat"
 
+/obj/item/clothing/accessory/tajaran/nka_waistcoat/update_icon()
+	cut_overlays()
+	var/image/buttons = image(icon, null, "nka_waistcoat_buttons")
+	buttons.appearance_flags = RESET_COLOR
+	add_overlay(buttons)
+
+/obj/item/clothing/accessory/tajaran/nka_waistcoat/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/buttons = image(mob_icon, null, "nka_waistcoat_un_buttons")
+		buttons.appearance_flags = RESET_COLOR
+		I.add_overlay(buttons)
+	return I
+
+/obj/item/clothing/accessory/tajaran/nka_waistcoat/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
+	var/image/base = ..()
+	var/image/buttons = image(icon, null, "nka_waistcoat_un_buttons")
+	buttons.appearance_flags = RESET_COLOR
+	base.add_overlay(buttons)
+	return base
+
 /obj/item/clothing/accessory/tajaran/nka_vest
 	name = "noble adhomian vest"
 	desc = "A fancy vest worn by the New Kingdom's nobility. Likely a hand-me-down."
 	icon_state = "nka_vest"
 	item_state = "nka_vest"
+
+/obj/item/clothing/accessory/tajaran/nka_vest/update_icon()
+	cut_overlays()
+	var/image/buttons = image(icon, null, "nka_vest_buttons")
+	buttons.appearance_flags = RESET_COLOR
+	add_overlay(buttons)
+
+/obj/item/clothing/accessory/tajaran/nka_vest/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/buttons = image(mob_icon, null, "nka_vest_un_buttons")
+		buttons.appearance_flags = RESET_COLOR
+		I.add_overlay(buttons)
+	return I
+
+/obj/item/clothing/accessory/tajaran/nka_vest/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
+	var/image/base = ..()
+	var/image/buttons = image(icon, null, "nka_vest_un_buttons")
+	buttons.appearance_flags = RESET_COLOR
+	base.add_overlay(buttons)
+	return base
+
+/obj/item/clothing/accessory/dogtags/adhomai
+	name = "adhomian dogtags"
+	desc = "Dogtags issued to the Tajaran soldiers of all Adhomian factions. Veterans usually bring them back home."
+	icon_state = "adhomai_dogtags"
+	item_state = "adhomai_dogtags"
+	can_be_broken = TRUE
+	tag_type = /obj/item/dogtag/adhomai_tag
+
+/obj/item/dogtag/adhomai_tag
+	name = "adhomian dogtag"
+	desc = "Dogtags issued to the Tajaran soldiers of all Adhomian factions. Veterans usually bring them back home."
+	icon = 'icons/clothing/accessories/dogtags.dmi'
+	icon_state = "adhomai_tag"
+	w_class = ITEMSIZE_SMALL
+
+//medals
+
+/obj/item/clothing/accessory/medal/pra_courage
+	name = "president hadii medal for courage"
+	desc = "A medal awarded to the soldiers and PSIS agents who performed acts of bravery during the war, security operations, or during military duties."
+	icon_state = "hadii_courage"
+	overlay_state = "iron"
+
+/obj/item/clothing/accessory/medal/pra_hero
+	name = "hero of the people's republic medal"
+	desc = "The highest distinction in the People's Republic of Adhomai, awarded for great service or heroic act while in duty to the nation. It can be bestowed to civilian and military recipients."
+	icon_state = "pra_hero"
+	overlay_state = "iron"
+
+/obj/item/clothing/accessory/medal/messa_virtue
+	name = "messa's virtue medal"
+	desc = "A posthumous award bestowed to Tajara who lost their lives while serving the People's Republic."
+	icon_state = "messa_virtue"
+	overlay_state = "bronze"
+
+/obj/item/clothing/accessory/medal/dasnrra_evac
+	name = "medal for the evacuation of das'nrra"
+	desc = "A medal given to anyone who participated in the evacuation of the Republican Army from Das'nrra in 2460."
+	icon_state = "dasnrra_evac"
+	overlay_state = "iron"
+
+/obj/item/clothing/accessory/medal/homeland_defense
+	name = "medal for the defense of the homeland"
+	desc = "A medal awarded to those who fought alongside the S'rand'marr Coalition in 2461. This was the last medal issued concerning the Second Revolution."
+	icon_state = "homeland_defense"
+	overlay_state = "gold"
+
+/obj/item/clothing/accessory/medal/dpra_liberation
+	name = "adhomai hero of the liberation medal"
+	desc = "The highest decoration given to any Al'mariist citizen for their service to the Democratic People's Republic."
+	icon_state = "dpra_liberation"
+	overlay_state = "gold"
+
+/obj/item/clothing/accessory/medal/ala_martyr
+	name = "al'mariist martyr medal"
+	desc = "An award granted to those who perished or were gravely wounded while fighting for the Liberation Army."
+	icon_state = "ala_martyr"
+	overlay_state = "gold"
+
+/obj/item/clothing/accessory/medal/dasnrra_liberation
+	name = "medal for the liberation of das'nrra"
+	desc = "Awarded to the Liberation Army soldiers who fought to expel the People's Republic army from the continent of Das'nrra."
+	icon_state = "dasnrra_liberation"
+	overlay_state = "silver"
+
+/obj/item/clothing/accessory/medal/gakalzaal_liberation
+	name = "medal for the liberation of gakal'zaal"
+	desc = "The first medal to be created after the Second Revolution. Tt was awarded to the Tajara who took part in the liberation of Gakal'zaal."
+	icon_state = "gakalzaal_liberation"
+	overlay_state = "gold"
+
+/obj/item/clothing/accessory/medal/victorius_sun
+	name = "order of the victorious sun"
+	desc = "The highest order in the New Kingdom, granted for exceptional service to the Royalist cause or for leading the military to victory."
+	icon_state = "victorius_sun"
+	overlay_state = "gold"
+
+/obj/item/clothing/accessory/medal/order_heart
+	name = "order of the blue heart"
+	desc = "A decoration awarded to those killed while serving the Kingdom's military."
+	icon_state = "order_heart"
+	overlay_state = "silver"
+
+/obj/item/clothing/accessory/medal/kingdom_defense
+	name = "medal for the defense of the kingdom"
+	desc = "A medal awarded to those who participated in the defense of Northern Harr'masir during the Hadiist offensive of 2458."
+	icon_state = "kingdom_defense"
+	overlay_state = "iron"
+
+/obj/item/clothing/accessory/medal/harrmasir_offensive
+	name = "medal for the harr'masir offensive"
+	desc = "An award bestowed to the military personnel who took part in the final offensive to liberate Harr'masir from Hadiist occupation in 2461."
+	icon_state = "harrmasir_offensive"
+	overlay_state = "iron"

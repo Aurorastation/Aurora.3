@@ -20,12 +20,12 @@ var/list/admin_datums = list()
 
 /datum/admins/New(initial_rank = "Temporary Admin", initial_rights = 0, ckey)
 	if(!ckey)
-		error("Admin datum created without a ckey argument. Datum has been deleted")
+		log_error("Admin datum created without a ckey argument. Datum has been deleted")
 		qdel(src)
 		return
 
 	if (!current_map)
-		SSatlas.OnMapload(CALLBACK(src, .proc/update_newscaster_sig))
+		SSatlas.OnMapload(CALLBACK(src, PROC_REF(update_newscaster_sig)))
 	else
 		update_newscaster_sig()
 

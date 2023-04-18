@@ -68,6 +68,7 @@
 	display_name = "pioneer scarf"
 	path = /obj/item/clothing/mask/offworlder
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)
 
 /datum/gear/gloves/offworlder
 	display_name = "starmitts"
@@ -87,3 +88,13 @@
 	path = /obj/item/clothing/accessory/badge/passcard/scarab
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
 	sort_category = "Xenowear - Human"
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)
+
+/datum/gear/accessory/offworlder_mantle
+	display_name = "native Burzsian mantle"
+	path = /obj/item/clothing/accessory/poncho/burzsian_mantle/native
+	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
+	sort_category = "Xenowear - Human"
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)

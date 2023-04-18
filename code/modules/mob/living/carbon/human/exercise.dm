@@ -17,7 +17,7 @@ Exercise Verbs
 	visible_message(SPAN_NOTICE("[src] gets down and prepares to do some pushups."), SPAN_NOTICE("You get down for some pushups."), SPAN_NOTICE("You hear rustling."))
 
 	switch(alert(src, "Regular pushups or on your knees?", "Pushups", "Regular", "On Knees"))
-		if("Proper Ones")
+		if("Regular")
 			visible_message(SPAN_NOTICE("[src] shifts [get_pronoun("his")] weight onto [get_pronoun("his")] hands and feet."), SPAN_NOTICE("You move your weight onto your hands and feet."), SPAN_NOTICE("You hear rustling."))
 			execute_pushups(on_knees = FALSE)
 		if("On Knees")

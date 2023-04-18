@@ -22,7 +22,7 @@
 		return	//it shouldn't be null, okay?
 
 	if(!parts)
-		to_chat(user, "<span class='warning'>This kit has no parts for this modification left.</span>")
+		to_chat(user, SPAN_WARNING("This kit has no parts for this modification left!"))
 		user.drop_from_inventory(src,O)
 		qdel(src)
 		return
@@ -34,22 +34,25 @@
 
 	var/obj/item/clothing/I = O
 	if (!istype(I) || !allowed || !I.refittable)
-		to_chat(user, "<span class='notice'>[src] is unable to modify that.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is unable to modify that."))
 		return
 
 	var/excluding = ("exclude" in I.species_restricted)
 	var/in_list = (target_species in I.species_restricted)
 	if (excluding ^ in_list)
-		to_chat(user, "<span class='notice'>[I] is already modified.</span>")
+		to_chat(user, SPAN_NOTICE("\The [I] is already modified!"))
 		return
 
 	if(!isturf(O.loc))
-		to_chat(user, "<span class='warning'>[O] must be safely placed on the ground for modification.</span>")
+		to_chat(user, SPAN_WARNING("\The [O] must be safely placed on the ground for modification."))
 		return
 
 	playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
 
-	user.visible_message("<span class='notice'>\The [user] opens \the [src] and modifies \the [O].</span>","<span class='notice'>You open \the [src] and modify \the [O].</span>")
+	user.visible_message(
+		SPAN_NOTICE("\The [user] opens \the [src] and modifies \the [O]."),
+		SPAN_NOTICE("You open \the [src] and modify \the [O].")
+	)
 
 	I.refit_for_species(target_species)
 
@@ -68,7 +71,7 @@
 
 /obj/item/device/modkit/tajaran
 	name = "tajaran hardsuit modification kit"
-	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user. This one looks like it's meant for Tajara."
+	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user. This one looks like it's meant for tajara."
 	target_species = BODYTYPE_TAJARA
 
 /obj/item/voidsuit_modkit
@@ -245,6 +248,18 @@
 		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/sfa,
 		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/sfa
 	)
+	
+/obj/item/voidsuit_modkit/dominianvoid
+	name = "dominian voidsman's voidsuit kit"
+	desc = "A highly complicated device that allows you to convert a Dominian prejoroub combat suit into its voidsman counterpart. Practical!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/dominia = /obj/item/clothing/head/helmet/space/void/dominia/voidsman,
+		/obj/item/clothing/suit/space/void/dominia = /obj/item/clothing/suit/space/void/dominia/voidsman
+	)
 
 /obj/item/storage/box/srf
 	name = "srf modkit box"
@@ -280,3 +295,8 @@
 	name = "sfa modkit box"
 	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."
 	starts_with = list(/obj/item/voidsuit_modkit/sfa = 4)
+	
+/obj/item/storage/box/dominianvoid
+	name = "dominian voidsman's modkit box"
+	desc = "Contains modkits to convert Dominian voidsuits into a voidsman's variant."
+	starts_with = list(/obj/item/voidsuit_modkit/dominianvoid = 4)

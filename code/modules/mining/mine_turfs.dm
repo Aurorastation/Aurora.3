@@ -23,7 +23,7 @@ var/list/mineral_can_smooth_with = list(
 	desc = "It's a greyish rock. Exciting."
 	gender = PLURAL
 	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
-	layer = 2.01
+	layer = ON_TURF_LAYER
 
 	// canSmoothWith is set in Initialize().
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
@@ -327,7 +327,7 @@ var/list/mineral_can_smooth_with = list(
 					O = new /obj/item/ore(src)
 				if(istype(O))
 					O.geologic_data = get_geodata()
-				addtimer(CALLBACK(O, /atom/movable/.proc/forceMove, user.loc), 1)
+				addtimer(CALLBACK(O, TYPE_PROC_REF(/atom/movable, forceMove), user.loc), 1)
 
 			if(finds?.len)
 				var/datum/find/F = finds[1]
@@ -418,8 +418,8 @@ var/list/mineral_can_smooth_with = list(
 	if(prob(25))
 		var/datum/reagents/R = new/datum/reagents(20)
 		R.my_atom = src
-		R.add_reagent(/decl/reagent/stone_dust,20)
-		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/decl/reagent/stone_dust) // have to explicitly say the type to avoid issues with warnings
+		R.add_reagent(/singleton/reagent/stone_dust,20)
+		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/singleton/reagent/stone_dust) // have to explicitly say the type to avoid issues with warnings
 		S.show_log = 0
 		S.set_up(R, 10, 0, src, 40)
 		S.start()
@@ -527,6 +527,11 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/random/exoplanet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
+/turf/simulated/mineral/random/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+
 /turf/simulated/mineral/random/high_chance
 	mineralSpawnChanceList = list(
 		ORE_URANIUM = 2,
@@ -552,6 +557,11 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/random/high_chance/exoplanet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
+/turf/simulated/mineral/random/high_chance/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/random/higher_chance
 	mineralSpawnChanceList = list(
@@ -597,6 +607,11 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/planet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
+/turf/simulated/mineral/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+
 /**********************Asteroid**************************/
 
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
@@ -618,9 +633,10 @@ var/list/mineral_can_smooth_with = list(
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
 	has_resources = 1
-	footstep_sound = /decl/sound_category/asteroid_footstep
+	footstep_sound = /singleton/sound_category/asteroid_footstep
 
 	roof_type = null
+	turf_flags = TURF_FLAG_BACKGROUND
 
 // Same as the other, this is a global so we don't have a lot of pointless lists floating around.
 // Basalt is explicitly omitted so ash will spill onto basalt turfs.

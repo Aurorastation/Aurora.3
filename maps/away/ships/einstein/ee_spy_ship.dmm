@@ -80,6 +80,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/suit/space/void/einstein,
 /obj/item/clothing/head/helmet/space/void/einstein,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "aHs" = (
@@ -1247,6 +1248,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/einstein,
 /obj/item/clothing/head/helmet/space/void/einstein,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "wZf" = (

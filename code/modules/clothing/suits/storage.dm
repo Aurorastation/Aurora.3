@@ -21,6 +21,12 @@
 	if (pockets.handle_mousedrop(usr, over_object))
 		..(over_object)
 
+/obj/item/clothing/suit/storage/handle_middle_mouse_click(mob/user)
+	if(Adjacent(user))
+		pockets.open(user)
+		return TRUE
+	return FALSE
+
 /obj/item/clothing/suit/storage/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if(istype(W, /obj/item/clothing/accessory))
@@ -52,7 +58,7 @@
 /obj/item/clothing/suit/storage/toggle/proc/toggle_open()
 	opened = !opened
 	to_chat(usr, SPAN_NOTICE("You [opened ? "unbutton" : "button up"] \the [src]."))
-	playsound(src, /decl/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
+	playsound(src, /singleton/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
 	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 	item_state = icon_state
 	update_icon()

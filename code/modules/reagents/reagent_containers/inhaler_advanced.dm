@@ -137,7 +137,7 @@
 		to_chat(user,"<span class='warning'>\The [src]'s cartridge is empty!</span>")
 		return
 
-	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
+	if (((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		if(M.eyes_protected(src, FALSE))
 			eyestab(M,user)
@@ -213,7 +213,7 @@
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine/Initialize()
 	. = ..()
-	reagents.add_reagent(/decl/reagent/hyperzine, 30)
+	reagents.add_reagent(/singleton/reagent/hyperzine, 30)
 	flags ^= OPENCONTAINER
 	update_icon()
 	return
@@ -223,7 +223,7 @@
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline/Initialize()
 	. = ..()
-	reagents.add_reagent(/decl/reagent/inaprovaline, 30)
+	reagents.add_reagent(/singleton/reagent/inaprovaline, 30)
 	flags ^= OPENCONTAINER
 	update_icon()
 	return

@@ -86,7 +86,7 @@
 
 	if(stat != DEAD)
 		if(paralysis || stunned || weakened || !has_power) //Stunned etc.
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 			if(stunned > 0)
 				AdjustStunned(-1)
 			if(weakened > 0)
@@ -98,11 +98,11 @@
 				blinded = FALSE
 
 		else //Not stunned.
-			stat = CONSCIOUS
+			set_stat(CONSCIOUS)
 
 	else //Dead.
 		blinded = TRUE
-		stat = DEAD
+		set_stat(DEAD)
 
 	if(stuttering)
 		stuttering--
@@ -135,10 +135,8 @@
 		uneq_all()
 
 	if(common_radio)
-		if(!is_component_functioning("radio"))
-			common_radio.set_on(FALSE)
-		else
-			common_radio.set_on(TRUE)
+		if(common_radio.is_on() != is_component_functioning("radio"))
+			common_radio.set_on(!common_radio.is_on())
 
 	if(is_component_functioning("camera"))
 		blinded = FALSE
@@ -149,7 +147,7 @@
 
 /mob/living/silicon/robot/handle_regular_hud_updates()
 	..()
-	if(stat == DEAD || (XRAY in mutations) || (sight_mode & BORGXRAY))
+	if(stat == DEAD || HAS_FLAG(mutations, XRAY) || (sight_mode & BORGXRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
@@ -198,21 +196,20 @@
 					else
 						healths.icon_state = "health6"
 			else
-				switch(health)
-					if(200 to INFINITY)
-						healths.icon_state = "health0"
-					if(150 to 200)
-						healths.icon_state = "health1"
-					if(100 to 150)
-						healths.icon_state = "health2"
-					if(50 to 100)
-						healths.icon_state = "health3"
-					if(0 to 50)
-						healths.icon_state = "health4"
-					if(config.health_threshold_dead to 0)
-						healths.icon_state = "health5"
-					else
-						healths.icon_state = "health6"
+				if(health >= 200)
+					healths.icon_state = "health0"
+				else if(health >= 150)
+					healths.icon_state = "health1"
+				else if(health >= 100)
+					healths.icon_state = "health2"
+				else if(health >= 50)
+					healths.icon_state = "health3"
+				else if(health >= 0)
+					healths.icon_state = "health4"
+				else if(health >= config.health_threshold_dead)
+					healths.icon_state = "health5"
+				else
+					healths.icon_state = "health6"
 		else
 			healths.icon_state = "health7"
 

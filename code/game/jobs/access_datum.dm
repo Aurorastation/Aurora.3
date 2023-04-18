@@ -622,3 +622,24 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_unathi_pirate
 	id = access_unathi_pirate
 	access_type = ACCESS_TYPE_CENTCOM
+
+
+/var/const/access_iac_rescue_ship = 211
+/datum/access/access_iac_rescue_ship
+	id = access_iac_rescue_ship
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_imperial_fleet_voidsman_ship = 212
+/datum/access/access_imperial_fleet_voidsman_ship
+	id = access_imperial_fleet_voidsman_ship
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_nka = 213
+/datum/access/access_nka
+	id = access_nka
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_dpra = 214
+/datum/access/access_dpra
+	id = access_dpra
+	access_type = ACCESS_TYPE_CENTCOM

@@ -319,7 +319,7 @@
 		SSvueui.check_uis_for_change(src)
 		return
 
-	if(istype(O, /obj/item/storage/bag) || istype(O, /obj/item/storage/box/produce))
+	if(istype(O, /obj/item/storage))
 		var/obj/item/storage/P = O
 		var/plants_loaded = 0
 		for(var/obj/G in P.contents)

@@ -101,7 +101,7 @@
 	. = ..()
 	name = "[initial(name)] ([spawn_category])"
 
-	addtimer(CALLBACK(src, .proc/populate_shelves), 1)
+	addtimer(CALLBACK(src, PROC_REF(populate_shelves)), 1)
 
 /obj/structure/bookcase/libraryspawn/proc/populate_shelves()
 	if (!establish_db_connection(dbcon))
@@ -150,7 +150,7 @@
 
 /obj/structure/bookcase/manuals/medical/New()
 	..()
-	new /obj/item/book/manual/medical_cloning(src)
+	new /obj/item/book/manual/medical_diagnostics_manual(src)
 	new /obj/item/book/manual/medical_diagnostics_manual(src)
 	new /obj/item/book/manual/medical_diagnostics_manual(src)
 	new /obj/item/book/manual/medical_diagnostics_manual(src)
@@ -322,15 +322,15 @@
  * Barcode Scanner
  */
 /obj/item/barcodescanner
-	name = "barcode scanner"
+	name = "book scanner"
 	icon = 'icons/obj/library.dmi'
 	icon_state ="scanner"
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEMSIZE_SMALL
 	var/obj/machinery/librarycomp/computer // Associated computer - Modes 1 to 3 use this
-	var/obj/item/book/book	 //  Currently scanned book
-	var/mode = 0 					// 0 - Scan only, 1 - Scan and Set Buffer, 2 - Scan and Attempt to Check In, 3 - Scan and Attempt to Add to Inventory
+	var/obj/item/book/book //  Currently scanned book
+	var/mode = 0 // 0 - Scan only, 1 - Scan and Set Buffer, 2 - Scan and Attempt to Check In, 3 - Scan and Attempt to Add to Inventory
 
 /obj/item/barcodescanner/attack_self(mob/user as mob)
 	mode += 1
@@ -351,7 +351,7 @@
 			modedesc = "ERROR"
 	to_chat(user, " - Mode [mode] : [modedesc]")
 	if(src.computer)
-		to_chat(user, "<font color=green>Computer has been associated with this unit.</font>")
+		to_chat(user, SPAN_NOTICE("Computer has been associated with this unit."))
 	else
-		to_chat(user, "<span class='attack'>No associated computer found. Only local scans will function properly.</span>")
+		to_chat(user, SPAN_WARNING("No associated computer found. Only local scans will function properly."))
 	to_chat(user, "\n")

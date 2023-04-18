@@ -419,7 +419,7 @@
 /area/dungeon/skrell_ship)
 "by" = (
 /obj/structure/table/skrell,
-/obj/item/jargontag,
+/obj/item/nralakktag,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "bz" = (

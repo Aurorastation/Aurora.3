@@ -49,7 +49,7 @@
 	name = "reset marker"
 
 /obj/effect/floor_decal/reset/Initialize(mapload)
-	..(mapload, bypass = TRUE)
+	. = ..(mapload, bypass = TRUE)
 	var/turf/T = get_turf(src)
 	if(LAZYLEN(T.decals))
 		T.decals.Cut()
@@ -556,7 +556,7 @@
 	icon_state = "asteroid0"
 
 /obj/effect/floor_decal/asteroid/Initialize()
-	..()
+	. = ..()
 	icon_state = "asteroid[rand(0,9)]"
 
 /obj/effect/floor_decal/chapel
@@ -758,3 +758,25 @@
 	name = "\improper 5x5 Sol Alliance logo"
 	icon = 'icons/turf/decals/big/sol_5x5.dmi'
 	icon_state = "0,0"
+
+// Concrete Decals
+/obj/effect/floor_decal/concrete
+	icon_state = "corner_concrete"
+
+/obj/effect/floor_decal/concrete/large
+	icon_state = "corner_concrete_large"
+
+/obj/effect/floor_decal/concrete/large/cee
+	icon_state = "corner_concrete_large_cee"
+
+/obj/effect/floor_decal/concrete/large/full
+	icon_state = "corner_concrete_large_full"
+
+/obj/effect/floor_decal/concrete/square
+	icon_state = "corner_concrete_square"
+
+/obj/effect/floor_decal/concrete/gutter
+	icon_state = "concrete_gutter"
+
+/obj/effect/floor_decal/concrete/gutter/corner
+	icon_state = "concrete_gutter_corner"

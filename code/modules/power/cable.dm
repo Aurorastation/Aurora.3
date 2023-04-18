@@ -29,6 +29,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	desc = "A flexible superconducting cable for heavy-duty power transfer."
 	icon = 'icons/obj/power_cond_white.dmi'
 	icon_state = "0-1"
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/d1 = 0
 	var/d2 = 1
 	layer = CABLE_LAYER //Just below unary stuff, which is at 2.45 and above pipes, which are at 2.4
@@ -103,7 +104,7 @@ By design, d1 is the smallest direction and d2 is the highest
 //If underfloor, hide the cable
 /obj/structure/cable/hide(var/i)
 	if(istype(loc, /turf))
-		invisibility = i ? 101 : 0
+		set_invisibility(i ? 101 : 0)
 	update_icon()
 
 /obj/structure/cable/hides_under_flooring()
@@ -451,7 +452,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		if(first)
 			first = FALSE
 			continue
-		addtimer(CALLBACK(O, .proc/auto_propagate_cut_cable, O), 0)
+		addtimer(CALLBACK(O, PROC_REF(auto_propagate_cut_cable), O), 0)
 		// prevents rebuilding the powernet X times when an explosion cuts X cables
 
 ///////////////////////////////////////////////
@@ -545,7 +546,7 @@ By design, d1 is the smallest direction and d2 is the highest
 							if(!do_mob(user, M, 200))
 								user.visible_message(SPAN_DANGER("[user]'s hand slips and tears open the wound on [M]'s [affecting.name]!"), \
 														SPAN_DANGER("<font size=2>The wound on your [affecting.name] is torn open!</font>"))
-								M.apply_damage(rand(1,10), BRUTE)
+								M.apply_damage(rand(1,10), DAMAGE_BRUTE)
 								break
 							user.visible_message(SPAN_NOTICE("\The [user] barely manages to stitch \a [W.desc] on [M]'s [affecting.name]."), \
 														SPAN_NOTICE("You barely manage to stitch \a [W.desc] on [M]'s [affecting.name].") )

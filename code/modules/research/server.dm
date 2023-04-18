@@ -59,6 +59,7 @@
 	if(stat & (NOPOWER|BROKEN))
 		return
 
+	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 	switch(environment.temperature)
 		if(0 to T0C)

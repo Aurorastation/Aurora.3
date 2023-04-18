@@ -68,7 +68,6 @@
 		new /obj/item/device/electronic_assembly/large/industrial,
 		new /obj/item/device/electronic_assembly/drone/default,
 		new /obj/item/device/electronic_assembly/drone/arms,
-		new /obj/item/device/electronic_assembly/drone/secbot,
 		new /obj/item/device/electronic_assembly/drone/medbot,
 		new /obj/item/device/electronic_assembly/drone/genbot,
 		new /obj/item/device/electronic_assembly/drone/android,

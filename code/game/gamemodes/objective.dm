@@ -48,6 +48,8 @@ var/global/list/process_objectives = list()
 	return
 
 
+/datum/objective/assassinate
+
 /datum/objective/assassinate/find_target()
 	..()
 	if(target && target.current)
@@ -74,6 +76,7 @@ var/global/list/process_objectives = list()
 	return 1
 
 
+/datum/objective/anti_revolution/execute
 
 /datum/objective/anti_revolution/execute/find_target()
 	..()
@@ -132,7 +135,9 @@ var/global/list/process_objectives = list()
 		return 0
 	return 0
 
-/datum/objective/anti_revolution/demotefind_target()
+/datum/objective/anti_revolution/demote
+
+/datum/objective/anti_revolution/demote/find_target()
 	..()
 	if(target && target.current)
 		explanation_text = "[target.current.real_name], the [target.assigned_role]  has been classified as harmful to [current_map.company_name]'s goals. Demote [target.current.get_pronoun("him")] to assistant."
@@ -161,7 +166,8 @@ var/global/list/process_objectives = list()
 			return 0
 	return 1
 
-//I want braaaainssss
+/datum/objective/debrain//I want braaaainssss
+
 /datum/objective/debrain/find_target()
 	..()
 	if(target && target.current)
@@ -194,7 +200,8 @@ var/global/list/process_objectives = list()
 	return 0
 
 
-//The opposite of killing a dude.
+/datum/objective/protect//The opposite of killing a dude.
+
 /datum/objective/protect/find_target()
 	..()
 	if(target && target.current)
@@ -407,8 +414,6 @@ var/global/list/process_objectives = list()
 /datum/objective/nuclear
 	explanation_text = "Destroy the station with a nuclear device."
 
-
-
 /datum/objective/steal
 	var/obj/item/steal_target
 	var/target_name
@@ -526,6 +531,7 @@ var/global/list/process_objectives = list()
 					return 1
 	return 0
 
+/datum/objective/download
 
 /datum/objective/download/proc/gen_amount_goal()
 	target_amount = rand(10,20)
@@ -558,6 +564,8 @@ var/global/list/process_objectives = list()
 
 	return (current_amount<target_amount) ? 0 : 1
 
+/datum/objective/capture
+
 /datum/objective/capture/proc/gen_amount_goal()
 	target_amount = rand(5,10)
 	explanation_text = "Accumulate [target_amount] capture points."
@@ -575,17 +583,12 @@ var/global/list/process_objectives = list()
 			continue
 		captured_amount += worth
 
-	for(var/mob/living/carbon/alien/larva/M in A)//Larva are important for research.
-		if(M.stat==2)
-			captured_amount+=0.5
-			continue
-		captured_amount+=1
-
-
 	if(captured_amount<target_amount)
 		return 0
 	return 1
 
+
+/datum/objective/absorb
 
 /datum/objective/absorb/proc/gen_amount_goal(var/lowbound = 4, var/highbound = 6)
 	target_amount = rand (lowbound,highbound)
@@ -604,7 +607,6 @@ var/global/list/process_objectives = list()
 	explanation_text = "Absorb [target_amount] compatible genomes."
 	return target_amount
 
-
 /datum/objective/absorb/check_completion()
 	var/datum/changeling/changeling = owner.antag_datums[MODE_CHANGELING]
 	if(owner && changeling?.absorbed_dna && (changeling.absorbedcount >= target_amount))
@@ -613,8 +615,12 @@ var/global/list/process_objectives = list()
 		return 0
 
 // Heist objectives.
+/datum/objective/heist
+
 /datum/objective/heist/proc/choose_target()
 	return
+
+/datum/objective/heist/kidnap
 
 /datum/objective/heist/kidnap/choose_target()
 	var/list/roles = list("Chief Engineer","Research Director","Machinist","Pharmacist","Engineer")
@@ -653,6 +659,8 @@ var/global/list/process_objectives = list()
 				return 1 //They're restrained on the shuttle. Success.
 	else
 		return 0
+
+/datum/objective/heist/loot
 
 /datum/objective/heist/loot/choose_target()
 	var/loot = "an object"
@@ -709,6 +717,7 @@ var/global/list/process_objectives = list()
 
 	return 0
 
+/datum/objective/heist/salvage
 
 /datum/objective/heist/salvage/choose_target()
 	switch(rand(1,8))

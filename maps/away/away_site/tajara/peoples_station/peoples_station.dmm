@@ -1380,6 +1380,12 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1829,6 +1835,12 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1869,6 +1881,16 @@
 	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
+"iq" = (
+/obj/machinery/telecomms/allinone/ship,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/peoples_station/solars)
 "ir" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -2256,9 +2278,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/table/rack,
 /obj/item/inflatable_dispenser,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3690,6 +3712,14 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"qn" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/template_noop,
+/area/peoples_station/bridge)
 "qo" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -4852,11 +4882,11 @@
 	},
 /area/peoples_station/training)
 "vH" = (
-/obj/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/sign/flag/pra{
 	pixel_x = 32
 	},
+/obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -6091,6 +6121,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/training)
+"Bw" = (
+/obj/machinery/door/window/brigdoor/southleft{
+	name = "Robot Storage";
+	req_access = list(209)
+	},
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/heavy_vehicle/premade/pra_egg/armored,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/robotics_bay)
 "Bx" = (
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6803,12 +6847,12 @@
 	},
 /area/peoples_station/medbay)
 "EJ" = (
-/obj/item/modular_computer/console/preset/civilian{
-	dir = 1
-	},
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
+	},
+/obj/machinery/computer/ship/sensors{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6877,6 +6921,13 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
+"Fo" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/template_noop,
+/area/peoples_station/bridge)
 "Fs" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -7336,7 +7387,7 @@
 "Hj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = -6;
 	pixel_y = 8
@@ -7612,6 +7663,16 @@
 	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
+"IM" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/template_noop,
+/area/peoples_station/bridge)
 "IS" = (
 /obj/structure/table/rack,
 /obj/machinery/door/window{
@@ -8145,6 +8206,16 @@
 	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
+"LJ" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
+/area/peoples_station/bridge)
 "LK" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -8298,11 +8369,11 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8601,6 +8672,13 @@
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
+"NP" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
+/area/peoples_station/bridge)
 "NU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -8609,6 +8687,11 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
+"NV" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/turf/template_noop,
+/area/peoples_station/bridge)
 "Od" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -8689,6 +8772,15 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
+"Ou" = (
+/obj/effect/floor_decal/plaque{
+	name = "people's station plaque";
+	desc = "A plaque commemorating the founding of the People's Space Station."
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/visitor)
 "Ow" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8900,7 +8992,7 @@
 "Pj" = (
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
-	department = "HMV Supreme";
+	department = "People's Space Station";
 	req_access = list(209);
 	req_one_access = null
 	},
@@ -9750,6 +9842,11 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9942,11 +10039,8 @@
 /obj/effect/floor_decal/corner_wide/white/full{
 	dir = 6
 	},
+/obj/structure/hadii_statue,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/plaque{
-	name = "people's station plaque";
-	desc = "A plaque commemorating the founding of the People's Space Station."
-	},
 /turf/simulated/floor/tiled{
 	temperature = 268.15
 	},
@@ -10171,8 +10265,16 @@
 	},
 /area/peoples_station/training)
 "UH" = (
-/turf/simulated/wall/shuttle/raider,
-/area/space)
+/obj/machinery/door/airlock/hatch{
+	name = "Telecomms";
+	req_access = list(209)
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/peoples_station/solars)
 "UI" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -10206,7 +10308,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/visitor)
+/area/peoples_station/bridge)
 "UQ" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -10387,6 +10489,13 @@
 	temperature = 278.15
 	},
 /area/peoples_station/range)
+"VS" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/template_noop,
+/area/peoples_station/bridge)
 "VT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -10589,6 +10698,11 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
+"WP" = (
+/obj/machinery/shipsensors/strong,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/airless,
+/area/peoples_station/bridge)
 "WT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -42288,7 +42402,7 @@ dt
 fa
 wj
 dt
-lO
+Bw
 yu
 Zc
 cJ
@@ -42777,8 +42891,8 @@ nz
 HK
 pr
 Kn
-Kn
-Kn
+nU
+nU
 nU
 He
 PX
@@ -42802,7 +42916,7 @@ dt
 fa
 wj
 dt
-fa
+Bw
 yu
 zs
 Ss
@@ -43034,8 +43148,8 @@ nz
 EI
 pr
 Kn
-Kn
-Kn
+nU
+iq
 nU
 FH
 Dk
@@ -43290,8 +43404,8 @@ pr
 pr
 pr
 pr
-UH
-UH
+nU
+nU
 UH
 nU
 jO
@@ -43830,7 +43944,7 @@ dt
 fi
 wj
 dt
-fi
+lO
 xN
 zs
 tk
@@ -47658,9 +47772,9 @@ yv
 lf
 RQ
 iD
-Kn
-Kn
-Kn
+LJ
+NP
+qn
 CR
 Nr
 Ms
@@ -47693,13 +47807,13 @@ EN
 Gk
 Ns
 FS
-UP
+tK
 Mc
 wY
 TN
 wY
 qw
-tK
+Ou
 tK
 uL
 sf
@@ -47909,15 +48023,15 @@ Ox
 bL
 sA
 bs
-DJ
+UP
 Gz
 DJ
 Mx
 EJ
 iD
-Kn
-Kn
-Kn
+VS
+WP
+NV
 CR
 Iu
 Ms
@@ -48172,9 +48286,9 @@ DJ
 Fv
 kQ
 iD
-Kn
-Kn
-Kn
+IM
+Fo
+NV
 CR
 Nr
 Ms

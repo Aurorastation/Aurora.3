@@ -1,6 +1,6 @@
 /obj/machinery/ship_weapon
 	name = "ship weapon"
-	desc = "You shouldn't be seeing this."
+	desc = DESC_PARENT
 	icon = 'icons/obj/machinery/ship_guns/longbow.dmi'
 	idle_power_usage = 1500
 	active_power_usage = 50000
@@ -327,6 +327,7 @@
 	icon_screen = "teleport"
 	icon_keyboard = "teal_key"
 	light_color = LIGHT_COLOR_CYAN
+	circuit = /obj/item/circuitboard/ship/targeting
 	var/obj/machinery/ship_weapon/cannon
 	var/selected_entrypoint
 	var/platform_direction

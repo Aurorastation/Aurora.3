@@ -52,7 +52,7 @@
 
 
 		if(!establish_db_connection(dbcon))
-			error("Ban database connection failure. Key [ckey] not checked")
+			log_error("Ban database connection failure. Key [ckey] not checked")
 			log_misc("Ban database connection failure. Key [ckey] not checked")
 			return ..()
 

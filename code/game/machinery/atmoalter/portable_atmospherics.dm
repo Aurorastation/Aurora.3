@@ -13,8 +13,9 @@
 	var/maximum_pressure = 90 * ONE_ATMOSPHERE
 
 /obj/machinery/portable_atmospherics/Destroy()
-	qdel(air_contents)
-	qdel(holding)
+	disconnect()
+	QDEL_NULL(air_contents)
+	QDEL_NULL(holding)
 	return ..()
 
 /obj/machinery/portable_atmospherics/Initialize()
@@ -43,11 +44,6 @@
 		update_icon()
 		SSvueui.check_uis_for_change(src)
 
-/obj/machinery/portable_atmospherics/Destroy()
-	qdel(air_contents)
-
-	return ..()
-
 /obj/machinery/portable_atmospherics/proc/StandardAirMix()
 	return list(
 		GAS_OXYGEN = O2STANDARD * MolesForPressure(),
@@ -71,7 +67,7 @@
 	//Perform the connection
 	connected_port = new_port
 	connected_port.connected_device = src
-	connected_port.on = 1 //Activate port updates
+	connected_port.toggle_process()
 
 	anchored = 1 //Prevent movement
 
@@ -92,8 +88,10 @@
 		network.gases -= air_contents
 
 	anchored = 0
+	if(connected_port)
+		connected_port.toggle_process()
+		connected_port.connected_device = null
 
-	connected_port.connected_device = null
 	connected_port = null
 
 	return 1

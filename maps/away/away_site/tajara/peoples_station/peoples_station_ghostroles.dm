@@ -16,6 +16,7 @@
 	assigned_role = "People's Space Station Crewmember"
 	special_role = "People's Space Station Crewmember"
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
+	respawn_flag = null
 
 /datum/outfit/admin/peoples_station_crew
 	name = "People's Space Station Crewmember"
@@ -56,6 +57,7 @@
 
 	head = /obj/item/clothing/head/tajaran/orbital_captain
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut/captain
+	accessory = /obj/item/clothing/accessory/hadii_pin
 	belt = /obj/item/storage/belt/military
 	belt_contents = list(
 						/obj/item/ammo_magazine/mc9mm = 1,
