@@ -243,7 +243,7 @@
 	spawn_reagent = /singleton/reagent/clonexadone
 
 /obj/item/reagent_containers/chem_disp_cartridge/coughsyrup
-	spawn_reagent = /singleton/reagent/coughsyrup
+	spawn_reagent = /singleton/reagent/antidexafen
 
 /obj/item/reagent_containers/chem_disp_cartridge/cryoxadone
 	spawn_reagent = /singleton/reagent/cryoxadone

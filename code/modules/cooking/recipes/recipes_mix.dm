@@ -211,7 +211,7 @@
 	items = list(/obj/item/reagent_containers/food/snacks/meatball)
 	result = /obj/item/reagent_containers/food/snacks/salad/validsalad
 
-/decl/recipe/validsalad/make_food(var/obj/container as obj)
+/singleton/recipe/validsalad/make_food(var/obj/container as obj)
 	. = ..(container)
 	for (var/obj/item/reagent_containers/food/snacks/salad/validsalad/being_cooked in .)
 		being_cooked.reagents.del_reagent(/singleton/reagent/toxin)

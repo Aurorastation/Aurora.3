@@ -450,7 +450,7 @@
 	Supplementary build proc: Takes a list of turfs, plus an item
 	type. Actually the list doesn't have to be just turfs.
 */
-/swapmap/proc/proc/BuildInTurfs(list/turfs,item)
+/swapmap/proc/BuildInTurfs(list/turfs,item)
 		for(var/T in turfs) new item(T)
 
 /atom/Write(savefile/S)

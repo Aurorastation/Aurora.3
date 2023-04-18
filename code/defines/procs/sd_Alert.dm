@@ -87,25 +87,25 @@ Version 1 changes (from version 0):
 	T.Display(message,title,buttons,default,unfocus,size,table,style,select,flags)
 	. = T.Response()
 
-/datum/sd_alert
+/sd_alert
 	var/client/target
 	var/response
 	var/list/validation
 
-/datum/sd_alert/Destroy()
-		target << browse(null,"window=\ref[src]")
-		return ..()
+/sd_alert/Destroy()
+	target << browse(null,"window=\ref[src]")
+	return ..()
 
-/datum/sd_alert/New(who, tag)
-		..()
-		target = who
-		src.tag = tag
+/sd_alert/New(who, tag)
+	..()
+	target = who
+	src.tag = tag
 
-/datum/sd_alert/Topic(href,params[])
-		if(usr.client != target) return
-		response = params["clk"]
+/sd_alert/Topic(href,params[])
+	if(usr.client != target) return
+	response = params["clk"]
 
-/datum/sd_alert/proc/Display(message,title,list/buttons,default,unfocus,size,table,style,select,flags)
+/sd_alert/proc/Display(message,title,list/buttons,default,unfocus,size,table,style,select,flags)
 	if(unfocus) spawn() target << browse(null,null)
 	if(istext(buttons)) buttons = list(buttons)
 	if(!default) default = buttons[1]
@@ -149,7 +149,7 @@ Version 1 changes (from version 0):
 
 	target << browse(html,"window=\ref[src];size=[size];can_close=0")
 
-/datum/sd_alert/proc/Response()
+/sd_alert/proc/Response()
 	var/validated
 	while(!validated)
 		while(target && !response)	// wait for a response
