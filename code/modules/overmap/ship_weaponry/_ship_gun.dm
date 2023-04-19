@@ -350,36 +350,36 @@
 	names_to_entries.Cut()
 	return ..()
 
-/obj/machinery/computer/ship/targeting/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+/obj/machinery/computer/ship/targeting/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "machinery-gunnery", 400, 400, "Ajax Targeting Systems")
-		ui.auto_update_content = TRUE
-	ui.open()
+		ui = new(user, src, "Gunnery", "Gunnery")
+		ui.open()
 
-/obj/machinery/computer/ship/targeting/proc/build_gun_lists()
+/obj/machinery/computer/ship/targeting/ui_data(mob/user)
+	var/list/data = list()
+	data["guns"] = list()
 	for(var/obj/machinery/ship_weapon/SW in linked.ship_weapons)
-		if(!SW.special_firing_mechanism)
-			var/gun_name = capitalize_first_letters(SW.weapon_id)
-			names_to_guns[gun_name] = SW
+		var/ammo_status = length(SW.ammunition) ? "Loaded, [length(SW.ammunition)] shots" : "Unloaded"
+		data["guns"] |= list(SW.name, ammo_status, SW.caliber)
+	data["is_targeting"] = !!linked.targeting
 
-/obj/machinery/computer/ship/targeting/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+/*/obj/machinery/computer/ship/targeting/ui_data(mob/user)
 	build_gun_lists()
-	if(!data)
-		data = list()
-		if(!cannon)
-			var/cannon_name = names_to_guns[1]
-			cannon = names_to_guns[cannon_name]
-			data["status"] = cannon.stat ? "MALFUNCTIONING" : "OK"
-			data["ammunition"] = length(cannon.ammunition) ? "Loaded, [length(cannon.ammunition)] shots" : "Unloaded"
-			data["caliber"] = cannon.caliber
-		data["new_ship_weapon"] = capitalize_first_letters(cannon.weapon_id)
-		data["entry_points"] = list()
-		data["entry_point"] = null
-		data["show_z_list"] = FALSE
-		data["mobile_platform"] = FALSE
-		data["platform_direction"] = 0
-		data["selected_z"] = 0
+	var/list/data = list()
+	if(!cannon)
+		var/cannon_name = names_to_guns[1]
+		cannon = names_to_guns[cannon_name]
+		data["status"] = cannon.stat ? "MALFUNCTIONING" : "OK"
+		data["ammunition"] = length(cannon.ammunition) ? "Loaded, [length(cannon.ammunition)] shots" : "Unloaded"
+		data["caliber"] = cannon.caliber
+	data["new_ship_weapon"] = capitalize_first_letters(cannon.weapon_id)
+	data["entry_points"] = list()
+	data["entry_point"] = null
+	data["show_z_list"] = FALSE
+	data["mobile_platform"] = FALSE
+	data["platform_direction"] = 0
+	data["selected_z"] = 0
 	data["power"] = stat & (NOPOWER|BROKEN) ? FALSE : TRUE
 	data["linked"] = linked ? TRUE : FALSE
 
@@ -424,42 +424,44 @@
 			data["entry_points"] = copy_entrypoints(data["selected_z"])
 			if(data["entry_point"])
 				selected_entrypoint = data["entry_point"]
-	return data
+	return data*/
 
-/obj/machinery/computer/ship/targeting/Topic(href, href_list)
-	var/datum/vueui/ui = href_list["vueui"]
-	if(!istype(ui))
-		return
-	if(..())
+/obj/machinery/computer/ship/targeting/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(!.)
 		return
 
 	playsound(src, clicksound, clickvol)
 
-	if(href_list["fire"])
-		var/obj/effect/landmark/LM
-		if(!selected_entrypoint)
-			return
-		if(!istype(linked.loc, /turf/unsimulated/map))
-			to_chat(usr, SPAN_WARNING("The safeties are engaged! You need to be undocked in order to fire."))
-			return
-		if(selected_entrypoint == SHIP_HAZARD_TARGET || !selected_entrypoint)
-			LM = null
-		else
-			LM = names_to_entries[selected_entrypoint]
-		var/result = cannon.firing_command(linked.targeting, LM, platform_direction ? text2dir(platform_direction) : 0)
-		if(isliving(usr) && !isAI(usr) && usr.Adjacent(src))
-			visible_message(SPAN_WARNING("[usr] presses the fire button!"))
-			playsound(src, 'sound/machines/compbeep1.ogg')
-		switch(result)
-			if(SHIP_GUN_ERROR_NO_AMMO)
-				to_chat(usr, SPAN_WARNING("The console shows an error screen: the weapon isn't loaded!"))
-			if(SHIP_GUN_FIRING_SUCCESSFUL)
-				to_chat(usr, SPAN_WARNING("The console shows a positive message: firing sequence successful!"))
-				log_and_message_admins("[usr] has fired [cannon] with target [linked.targeting] and entry point [LM]!", location = get_turf(usr))
+	. = FALSE
+	switch(action)
+		if("fire")
+			var/obj/effect/landmark/LM
+			if(!selected_entrypoint)
+				return
+			if(!istype(linked.loc, /turf/unsimulated/map))
+				to_chat(usr, SPAN_WARNING("The safeties are engaged! You need to be undocked in order to fire."))
+				return
+			if(selected_entrypoint == SHIP_HAZARD_TARGET || !selected_entrypoint)
+				LM = null
+			else
+				LM = names_to_entries[selected_entrypoint]
+			var/result = cannon.firing_command(linked.targeting, LM, platform_direction ? text2dir(platform_direction) : 0)
+			if(isliving(usr) && !isAI(usr) && usr.Adjacent(src))
+				visible_message(SPAN_WARNING("[usr] presses the fire button!"))
+				playsound(src, 'sound/machines/compbeep1.ogg')
+			switch(result)
+				if(SHIP_GUN_ERROR_NO_AMMO)
+					to_chat(usr, SPAN_WARNING("The console shows an error screen: the weapon isn't loaded!"))
+				if(SHIP_GUN_FIRING_SUCCESSFUL)
+					to_chat(usr, SPAN_WARNING("The console shows a positive message: firing sequence successful!"))
+					log_and_message_admins("[usr] has fired [cannon] with target [linked.targeting] and entry point [LM]!", location = get_turf(usr))
+					. = TRUE
 
-	if(href_list["viewing"])
-		if(usr)
-			viewing_overmap(usr) ? unlook(usr) : look(usr)
+		if("viewing")
+			if(usr)
+				viewing_overmap(usr) ? unlook(usr) : look(usr)
+				. = TRUE
 
 /obj/machinery/computer/ship/targeting/proc/copy_entrypoints(var/z_level_filter = 0)
 	. = list()
