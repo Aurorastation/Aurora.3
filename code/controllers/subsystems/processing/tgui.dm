@@ -35,7 +35,7 @@ var/datum/controller/subsystem/processing/tgui/SStgui
 	var/polyfill = file2text('tgui/public/tgui-polyfill.min.js')
 	polyfill = "<script>\n[polyfill]\n</script>"
 	basehtml = replacetextEx(basehtml, "<!-- tgui:inline-polyfill -->", polyfill)
-	basehtml = replacetextEx(basehtml, "<!-- tgui:nt-copyright -->", "NanoTrasen (c) 2422-[game_year]")
+	basehtml = replacetextEx(basehtml, "<!-- tgui:nt-copyright -->", "NanoTrasen © 2457-[text2num(time2text(world.realtime, "YYYY")) + 442]")
 
 /datum/controller/subsystem/processing/tgui/Shutdown()
 	close_all_uis()
