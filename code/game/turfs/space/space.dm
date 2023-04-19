@@ -38,8 +38,6 @@
 	for(var/atom/movable/AM as mob|obj in src)
 		src.Entered(AM, AM.loc)
 
-	turfs += src
-
 	if (isStationLevel(z))
 		station_turfs += src
 
