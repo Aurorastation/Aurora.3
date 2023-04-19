@@ -28981,6 +28981,12 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
+"oeK" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/starboard)
 "ofb" = (
 /obj/structure/sign/nosmoking_2{
 	pixel_x = 32
@@ -29652,6 +29658,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "owY" = (
@@ -38699,8 +38706,11 @@
 /area/rnd/xenobiology/xenoflora)
 "tbu" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small/emergency{
-	dir = 1
+/obj/structure/ladder/up{
+	pixel_y = 13
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
@@ -63587,7 +63597,7 @@ juH
 fAm
 fNc
 nlr
-oXY
+oeK
 xhW
 bmS
 qbq
