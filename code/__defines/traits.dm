@@ -135,3 +135,16 @@
 
 // every hearing sensitive atom has this trait
 #define TRAIT_HEARING_SENSITIVE "hearing_sensitive"
+
+/// forces the mob to speak gibberish, like highly damaged borgs
+#define TRAIT_SPEAKING_GIBBERISH "speaking_gibberish"
+
+/// lets mobs that traditionally don't hallucinate, hallucinate
+#define TRAIT_BYPASS_HALLUCINATION_RESTRICTION "bypassing_hallucination_restriction"
+
+
+// IPC OVERLOADER OVERDOSE STATES
+#define TRAIT_SOURCE_OVERLOADER "overloader"
+#define TRAIT_OVERLOADER_OD_INITIAL "overloader_od_initial"
+#define TRAIT_OVERLOADER_OD_MEDIUM "overloader_od_medium"
+#define TRAIT_OVERLOADER_OD_EFFECT "overloader_od_effect"

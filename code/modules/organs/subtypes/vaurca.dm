@@ -92,6 +92,30 @@ obj/item/organ/vaurca/neuralsocket/process()
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
 	..()
 
+/obj/item/organ/internal/augment/tool/combitool/vaurca
+	name = "vaurca integrated toolset"
+	icon_state = "vaurcatool"
+	action_button_name = "Deploy Toolset"
+	action_button_icon = "vaurcatool"
+	augment_type = /obj/item/combitool/robotic/vaurca
+
+/obj/item/organ/internal/augment/tool/combitool/vaurca/left
+	parent_organ = BP_L_HAND
+	aug_slot = slot_l_hand
+
+/obj/item/combitool/robotic/vaurca
+	name = "vaurca toolset"
+	desc = "An integrated toolset in the arm designed for use by Bound Workers."
+	icon_state = "vaurcatool"
+	item_state = "vaurcatool"
+	tools = list(
+		"crowbar",
+		"screwdriver",
+		"wrench",
+		"wirecutters"
+		)
+
+
 /obj/item/organ/internal/vaurca/preserve
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_PHORON_RESERVE
