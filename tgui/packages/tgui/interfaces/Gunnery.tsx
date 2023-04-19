@@ -8,8 +8,12 @@ type ShipGun = {
   ammunition: string;
 };
 
+type GunneryData = {
+  targeting: string;
+};
+
 export const Gunnery = (props, context) => {
-  const { act, data } = useBackend(context);
+  const { act, data } = useBackend<GunneryData>(context);
   return (
     <Window resizable>
       <Window.Content scrollable>
@@ -20,9 +24,7 @@ export const Gunnery = (props, context) => {
             onClick={() => act('viewing')}
           />
 
-          {!!!data.targeting && (
-            <Box bold>{'No target designated.'}</Box>
-        )}
+          {!data.targeting && <Box bold>{'No target designated.'}</Box>}
         </Section>
       </Window.Content>
     </Window>
