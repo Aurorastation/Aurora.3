@@ -33,7 +33,7 @@
 /obj/item/aicard/attack_self(mob/user)
 	ui_interact(user)
 
-/obj/item/aicard/ui_interact(mob/user, datum/topic_state/state = inventory_state)
+/obj/item/aicard/ui_interact(mob/user, datum/ui_state/state = inventory_state)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 
 	if (!ui)

@@ -117,3 +117,14 @@
 
 /mob/living/carbon/human/shared_living_ui_distance(atom/movable/src_object, viewcheck = TRUE, allow_tk = TRUE)
 	return ..()
+
+/// NanoUI compat, remove when done
+/datum/proc/CanUseTopic(mob/user, datum/ui_state/state = default_state)
+	var/datum/src_object = ui_host()
+	return state.can_use_topic(src_object, user)
+
+/datum/ui_state/proc/href_list(mob/user)
+	return list()
+
+/datum/proc/nano_container()
+	return src

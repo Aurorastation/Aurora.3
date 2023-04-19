@@ -19,7 +19,7 @@
 			..()
 		
 
-/obj/item/board/ui_interact(mob/user, var/datum/topic_state/state = default_state)
+/obj/item/board/ui_interact(mob/user, var/datum/ui_state/state = default_state)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	. = TRUE
 	if (!ui)

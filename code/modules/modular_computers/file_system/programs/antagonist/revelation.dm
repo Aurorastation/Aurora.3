@@ -57,7 +57,7 @@
 /datum/nano_module/program/revelation
 	name = "Revelation Virus"
 
-/datum/nano_module/program/revelation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/revelation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
 	var/list/data = list()
 	var/datum/computer_file/program/revelation/PRG = program
 	if(!istype(PRG))

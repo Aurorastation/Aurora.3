@@ -17,7 +17,7 @@
 
     var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
     if(!ui)
-        ui = new(user, src, "admin-extended-list", 800, 600, "Extended List Viewer", state = interactive_state)
+        ui = new(user, src, "admin-extended-list", 800, 600, "Extended List Viewer", state = always_state)
         ui.header = "minimal"
 
     ui.open()

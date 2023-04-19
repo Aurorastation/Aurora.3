@@ -268,7 +268,7 @@
 		ui.send_asset("icon")
 	ui.open()
 
-/obj/machinery/weapons_analyzer/Topic(href, href_list, datum/topic_state/state)
+/obj/machinery/weapons_analyzer/Topic(href, href_list, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

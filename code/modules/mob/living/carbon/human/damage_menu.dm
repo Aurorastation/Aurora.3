@@ -22,7 +22,7 @@
 			human_name = H.real_name
 			if(H.ckey)
 				human_ckey = H.ckey
-		ui = new(user, src, "admin-damage-menu", 600, 600, "Damage Menu | [human_name] | [human_ckey]", state = interactive_state)
+		ui = new(user, src, "admin-damage-menu", 600, 600, "Damage Menu | [human_name] | [human_ckey]", state = always_state)
 		ui.header = "minimal"
 	ui.open()
 

@@ -21,7 +21,7 @@ main ui datum.
 	var/list/assets
 	// current status of ui
 	var/status = STATUS_INTERACTIVE
-	var/datum/topic_state/state = null
+	var/datum/ui_state/state = null
 	// currently active ui component
 	var/activeui = "test"
 	// header used for this ui, should be set before open()
@@ -47,7 +47,7 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/ntitle, var/list/ndata, var/datum/topic_state/state = default_state, var/datum/set_state_object)
+/datum/vueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/ntitle, var/list/ndata, var/datum/ui_state/state = default_state, var/datum/set_state_object)
 	user = nuser
 	object = nobject
 	data = ndata

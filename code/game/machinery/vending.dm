@@ -513,7 +513,7 @@
 		ui_interact(user)
 
 // VueUI implementation of vending machines.
-/obj/machinery/vending/ui_interact(mob/user, var/datum/topic_state/state = default_state)
+/obj/machinery/vending/ui_interact(mob/user, var/datum/ui_state/state = default_state)
 
 	user.set_machine(src)
 

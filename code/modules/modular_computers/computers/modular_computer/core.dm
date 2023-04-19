@@ -291,8 +291,7 @@
 		active_program = P
 		idle_threads.Remove(P)
 		update_icon()
-		if(!P.vueui_transfer(src))
-			SSvueui.close_uis(src)
+		ui_interact(user)
 		return
 
 	if(idle_threads.len >= processor_unit.max_idle_programs+1)
@@ -308,8 +307,7 @@
 
 	if(P.run_program(user))
 		active_program = P
-		if(!P.vueui_transfer(src))
-			SSvueui.close_uis(src)
+		ui_interact(user)
 		update_icon()
 	return TRUE
 

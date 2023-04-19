@@ -30,7 +30,7 @@
 			data["max_bucket_capacity"] = B.volume
 	return data
 
-/obj/vehicle/train/cargo/engine/pussywagon/Topic(href, href_list, datum/topic_state/state)
+/obj/vehicle/train/cargo/engine/pussywagon/Topic(href, href_list, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return TRUE

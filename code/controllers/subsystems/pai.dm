@@ -129,7 +129,7 @@
 			"description" = candidate.description,
 			"role" = candidate.role,
 			"comments" = candidate.comments),
-		state = interactive_state)
+		state = always_state)
 		ui.metadata = list("candidate" = candidate)
 		ui.header = "minimal"
 

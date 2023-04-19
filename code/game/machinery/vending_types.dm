@@ -146,7 +146,7 @@
 	exclusive_screen = FALSE
 	ui_size = 60
 
-/obj/machinery/vending/boozeomat/ui_interact(mob/user, var/datum/topic_state/state = default_state)
+/obj/machinery/vending/boozeomat/ui_interact(mob/user, var/datum/ui_state/state = default_state)
 	user.set_machine(src)
 
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)

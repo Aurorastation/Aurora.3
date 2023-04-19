@@ -42,7 +42,7 @@
 /datum/nano_module/program/computer_dos
 	name = "DoS Traffic Generator"
 
-/datum/nano_module/program/computer_dos/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/computer_dos/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
 	if(!ntnet_global)
 		return
 	var/datum/computer_file/program/ntnet_dos/PRG = program

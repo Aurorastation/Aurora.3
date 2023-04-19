@@ -50,7 +50,7 @@
 	..()
 	crew_announcement.newscast = TRUE
 
-/datum/nano_module/program/comm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/comm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/ui_state/state = default_state)
 	var/list/data = host.initial_data()
 
 	if(program)

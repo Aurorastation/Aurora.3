@@ -92,7 +92,7 @@ var/global/nttransfer_uid = 0
 /datum/nano_module/program/computer_nttransfer
 	name = "NTNet P2P Transfer Client"
 
-/datum/nano_module/program/computer_nttransfer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/computer_nttransfer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/ui_state/state = default_state)
 	if(!program)
 		return
 	var/datum/computer_file/program/nttransfer/PRG = program

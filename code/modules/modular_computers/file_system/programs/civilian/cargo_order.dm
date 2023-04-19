@@ -20,7 +20,7 @@
 	var/user_tracking_id = 0 //Tracking id of the user
 	var/user_tracking_code = 0 //Tracking Code of the user
 
-/datum/nano_module/program/civilian/cargoorder/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/civilian/cargoorder/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/ui_state/state = default_state)
 	//Check if a cargo order exists. If not create a new one
 	if(!co)
 		var/datum/cargo_order/crord = new

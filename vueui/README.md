@@ -9,7 +9,7 @@ This UI framework is mostly composed of four main parts:
 ### Step 1: Open ui
 First we have to create a way to open ui, for example, a proc that's called when we want to open ui:
 ```DM
-/datum/mydatum/ui_interact(mob/user, var/datum/topic_state/state = default_state)
+/datum/mydatum/ui_interact(mob/user, var/datum/ui_state/state = default_state)
     var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
     if (!ui)
         ui = new(user, src, "uiname", 300, 300, "Title of ui", state = state)

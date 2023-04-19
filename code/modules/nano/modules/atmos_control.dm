@@ -35,11 +35,11 @@
 		if(ui_ref)
 			var/obj/machinery/alarm/alarm = locate(href_list["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
 			if(alarm)
-				var/datum/topic_state/TS = generate_state(alarm)
+				var/datum/ui_state/TS = generate_state(alarm)
 				alarm.ui_interact(usr, master_ui = ui_ref, state = TS)
 		return 1
 
-/datum/nano_module/atmos_control/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/master_ui = null, var/datum/topic_state/state = default_state)
+/datum/nano_module/atmos_control/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/master_ui = null, var/datum/ui_state/state = default_state)
 	var/list/data = host.initial_data()
 	var/alarms[0]
 
@@ -59,26 +59,26 @@
 	ui_ref = ui
 
 /datum/nano_module/atmos_control/proc/generate_state(air_alarm)
-	var/datum/topic_state/air_alarm/state = new()
+	var/datum/ui_state/air_alarm/state = new()
 	state.atmos_control = src
 	state.air_alarm = air_alarm
 	return state
 
-/datum/topic_state/air_alarm
+/datum/ui_state/air_alarm
 	var/datum/nano_module/atmos_control/atmos_control	= null
 	var/obj/machinery/alarm/air_alarm					= null
 
-/datum/topic_state/air_alarm/can_use_topic(var/src_object, var/mob/user)
+/datum/ui_state/air_alarm/can_use_topic(var/src_object, var/mob/user)
 	if(has_access(user))
 		return STATUS_INTERACTIVE
 	return STATUS_UPDATE
 
-/datum/topic_state/air_alarm/href_list(var/mob/user)
+/datum/ui_state/air_alarm/href_list(var/mob/user)
 	var/list/extra_href = list()
 	extra_href["remote_connection"] = 1
 	extra_href["remote_access"] = has_access(user)
 
 	return extra_href
 
-/datum/topic_state/air_alarm/proc/has_access(var/mob/user)
+/datum/ui_state/air_alarm/proc/has_access(var/mob/user)
 	return user && (isAI(user) || atmos_control.access.allowed(user) || atmos_control.emagged || air_alarm.rcon_setting == RCON_YES || (air_alarm.alarm_area.atmosalm && air_alarm.rcon_setting == RCON_AUTO))

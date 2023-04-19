@@ -472,7 +472,7 @@
 	ui_interact(user)
 	wires.Interact(user)
 
-/obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/topic_state/state = default_state)
+/obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/ui_state/state = default_state)
 	var/data[0]
 	var/remote_connection = 0
 	var/remote_access = 0
@@ -602,7 +602,7 @@
 
 			data["thresholds"] = thresholds
 
-/obj/machinery/alarm/CanUseTopic(var/mob/user, var/datum/topic_state/state, var/href_list = list())
+/obj/machinery/alarm/CanUseTopic(var/mob/user, var/datum/ui_state/state, var/href_list = list())
 	if(buildstage != 2)
 		return STATUS_CLOSE
 
@@ -620,7 +620,7 @@
 
 	return min(..(), .)
 
-/obj/machinery/alarm/Topic(href, href_list, var/datum/topic_state/state)
+/obj/machinery/alarm/Topic(href, href_list, var/datum/ui_state/state)
 	if(..(href, href_list, state))
 		return 1
 

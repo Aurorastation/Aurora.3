@@ -8,8 +8,6 @@
 	var/required_access_download							// List of required accesses to download the program.
 	var/requires_access_to_run = PROGRAM_ACCESS_ONE			// Whether the program checks for required_access when run. (1 = requires single access, 2 = requires single access from list, 3 = requires all access from list)
 	var/requires_access_to_download = PROGRAM_ACCESS_ONE	// Whether the program checks for required_access when downloading. (1 = requires single access, 2 = requires single access from list, 3 = requires all access from list)
-	var/datum/nano_module/NM								// If the program uses NanoModule, put it here and it will be automagically opened. Otherwise implement ui_interact.
-	var/nanomodule_path										// Path to nanomodule, make sure to set this if implementing new program.
 	var/program_state = PROGRAM_STATE_KILLED				// PROGRAM_STATE_KILLED or PROGRAM_STATE_BACKGROUND or PROGRAM_STATE_ACTIVE - specifies whether this program is running.
 	var/obj/item/modular_computer/computer					// Device that runs this program.
 	var/extended_desc = "N/A"								// Short description of this program's function.
@@ -27,6 +25,12 @@
 	var/color = "#FFFFFF"									// The color of light the computer should emit when this program is open.
 	var/service_state = PROGRAM_STATE_DISABLED				// PROGRAM_STATE_KILLED or PROGRAM_STATE_ACTIVE - specifies whether this program's service is running.
 	var/silent = FALSE
+	/// Name of the TGUI Interface
+	var/tgui_id
+
+	// TO BE DEPRECATED:
+	var/datum/nano_module/NM								// If the program uses NanoModule, put it here and it will be automagically opened. Otherwise implement ui_interact.
+	var/nanomodule_path										// Path to nanomodule, make sure to set this if implementing new program.
 
 /datum/computer_file/program/New(var/obj/item/modular_computer/comp)
 	..()

@@ -106,7 +106,7 @@
 /datum/controller/subsystem/ghostroles/proc/vui_interact(mob/user,var/spawnpoint=null)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user,src)
 	if(!ui)
-		ui = new(user,src,"misc-ghostspawner",950,700,"Ghost Role Spawner", state = interactive_state)
+		ui = new(user,src,"misc-ghostspawner",950,700,"Ghost Role Spawner", state = always_state)
 		ui.data = vueui_data_change(list("spawnpoint"=spawnpoint,"current_tag"="All"),user,ui)
 	ui.open()
 

@@ -2,7 +2,7 @@
 	var/name = "Appearance Changer"
 	var/flags = APPEARANCE_ALL_HAIR
 
-	var/datum/topic_state/ui_state
+	var/datum/ui_state/ui_state
 	var/datum/state_object
 
 	var/datum/weakref/target_human
@@ -26,7 +26,7 @@
 	var/list/culture_restrictions = list()
 	var/list/origin_restrictions = list()
 
-/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/list/culture_restriction = list(), var/list/origin_restriction = list(), var/datum/topic_state/set_ui_state = interactive_state, var/datum/set_state_object = null, var/update_id)
+/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/list/culture_restriction = list(), var/list/origin_restriction = list(), var/datum/ui_state/set_ui_state = always_state, var/datum/set_state_object = null, var/update_id)
 	..()
 	ui_state = set_ui_state
 	state_object = set_state_object
@@ -43,7 +43,7 @@
 	origin_restrictions = culture_restriction
 	generate_data(check_whitelist, whitelist, blacklist)
 
-/datum/vueui_module/appearance_changer/Topic(ref, href_list, var/datum/topic_state/state = ui_state)
+/datum/vueui_module/appearance_changer/Topic(ref, href_list, var/datum/ui_state/state = ui_state)
 	if(..())
 		return 1
 

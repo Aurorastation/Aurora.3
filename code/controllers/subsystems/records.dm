@@ -179,14 +179,11 @@
 /datum/controller/subsystem/records/proc/reset_manifest()
 	manifest.Cut()
 
-/datum/controller/subsystem/records/CanUseTopic(var/mob/user, var/datum/topic_state/state = default_state) // this is needed because VueUI closes otherwise
-	if(isnewplayer(user))
-		return STATUS_INTERACTIVE
-	if(isobserver(user))
-		return STATUS_INTERACTIVE
-	if(issilicon(user)) // silicons have the show manifest verb
-		return STATUS_INTERACTIVE
-	return ..()
+/datum/controller/subsystem/records/ui_state(mob/user)
+	return always_state
+
+/datum/controller/subsystem/records/ui_status(mob/user, datum/ui_state/state)
+	return (isnewplayer(user) || isobserver(user) || issilicon(user)) ? UI_INTERACTIVE : UI_CLOSE
 
 /datum/controller/subsystem/records/Topic(href, href_list)
 	if(href_list["action"] == "follow") // from manifest.vue
@@ -198,19 +195,11 @@
 					break
 	. = ..()
 
-/datum/controller/subsystem/records/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data || list()
-
-	VUEUI_SET_CHECK_LIST(data["manifest"], SSrecords.get_manifest_list(), ., data)
-	VUEUI_SET_CHECK(data["allow_follow"], isobserver(usr), ., data)
-
-/datum/controller/subsystem/records/proc/open_manifest_vueui(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "manifest", 580, 700, "Crew Manifest")
-		ui.header = "minimal"
-	ui.open()
+/datum/controller/subsystem/records/proc/open_manifest_tgui(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "CrewManifest")
+		ui.open()
 
 /datum/controller/subsystem/records/proc/get_manifest_text()
 	var/dat = "<h2>Crew Manifest</h2><em>as of [worlddate2text()] [worldtime2text()]</em>"
@@ -266,6 +255,10 @@
 			var/mob/living/silicon/ai/A = S
 			manifest[dept][++manifest[dept].len] = list("name" = sanitize(A.name), "rank" = "Station Intelligence", "active" = "Online", "head" = TRUE)
 			manifest[dept].Swap(1, manifest[dept].len)
+
+	for(var/department in manifest)
+		if(!length(manifest[department]))
+			manifest -= department
 
 	manifest_json = json_encode(manifest)
 	return manifest

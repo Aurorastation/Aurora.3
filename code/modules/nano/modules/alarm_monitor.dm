@@ -71,7 +71,7 @@
 		usr.switch_to_camera(C)
 		return 1
 
-/datum/nano_module/alarm_monitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/alarm_monitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
 	var/list/data = host.initial_data()
 
 	var/categories[0]

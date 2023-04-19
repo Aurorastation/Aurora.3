@@ -15,7 +15,7 @@
 	QDEL_NULL(ui)
 	return ..()
 
-/datum/late_choices/CanUseTopic(var/mob/user, var/datum/topic_state/state = default_state) // this is needed because VueUI closes otherwise
+/datum/late_choices/CanUseTopic(var/mob/user, var/datum/ui_state/state = default_state) // this is needed because VueUI closes otherwise
 	if(isnewplayer(user))
 		return STATUS_INTERACTIVE
 	return ..()

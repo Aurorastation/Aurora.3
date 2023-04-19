@@ -1,7 +1,7 @@
 /datum/vueui_module/ghost_menu/ui_interact(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "misc-ghostmenu", 800, 450, "Ghost Menu", state = interactive_state)
+		ui = new(user, src, "misc-ghostmenu", 800, 450, "Ghost Menu", state = always_state)
 	ui.open()
 
 /datum/vueui_module/ghost_menu/Topic(ref, href_list)

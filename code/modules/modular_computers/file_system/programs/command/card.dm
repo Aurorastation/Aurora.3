@@ -17,7 +17,7 @@
 	var/is_centcom = FALSE
 	var/show_assignments = FALSE
 
-/datum/nano_module/program/card_mod/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/card_mod/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
 	var/list/data = host.initial_data()
 
 	data["src"] = "\ref[src]"

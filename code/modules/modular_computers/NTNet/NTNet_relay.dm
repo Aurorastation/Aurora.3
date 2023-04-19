@@ -69,7 +69,7 @@
 		ntnet_global.add_log("Quantum relay switched from overload recovery mode to normal operation mode.")
 	..()
 
-/obj/machinery/ntnet_relay/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/obj/machinery/ntnet_relay/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
 	var/list/data = list()
 	data["enabled"] = enabled
 	data["dos_capacity"] = dos_capacity

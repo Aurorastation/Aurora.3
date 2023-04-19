@@ -382,7 +382,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	return new_character
 
 /mob/abstract/new_player/proc/ViewManifest()
-	SSrecords.open_manifest_vueui(src)
+	SSrecords.open_manifest_tgui(src)
 
 /mob/abstract/new_player/Move()
 	return TRUE

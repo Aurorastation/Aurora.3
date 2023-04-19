@@ -41,7 +41,7 @@
 	var/collapse = FALSE
 	var/width = 900
 
-/datum/nano_module/program/sudoku/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = FALSE, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/sudoku/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = FALSE, var/datum/ui_state/state = default_state)
 	var/list/data = host.initial_data()
 
 	if (!grid)

@@ -20,7 +20,7 @@
 	var/speed = 0
 
 
-/datum/computer_file/program/ntnetdownload/ui_interact(mob/user, var/datum/topic_state/state = default_state)
+/datum/computer_file/program/ntnetdownload/ui_interact(mob/user, var/datum/ui_state/state = default_state)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-system-downloader", 575, 700, "NTNet Download Program", state = state)

@@ -408,7 +408,7 @@ var/datum/controller/subsystem/vote/SSvote
 /datum/controller/subsystem/vote/proc/OpenVotingUI(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, SSvote, "misc-voting", 400, 500, "Voting panel", state = interactive_state)
+		ui = new(user, SSvote, "misc-voting", 400, 500, "Voting panel", state = always_state)
 		ui.header = "minimal"
 	ui.open()
 

@@ -17,11 +17,14 @@ export const NtosWindow = (props, context) => {
     PC_batteryicon,
     PC_showbatteryicon,
     PC_batterypercent,
+    PC_apclinkicon,
     PC_ntneticon,
     PC_stationdate,
     PC_stationtime,
     PC_programheaders = [],
     PC_showexitprogram,
+    PC_haslight,
+    PC_lighton,
   } = data;
   return (
     <Window title={title} width={width} height={height} theme={PC_device_theme}>
@@ -69,6 +72,27 @@ export const NtosWindow = (props, context) => {
                 />
                 {PC_batterypercent && PC_batterypercent}
               </Box>
+            )}
+            {!!PC_apclinkicon && (
+              <Box inline>
+                <img
+                  className="NtosHeader__icon"
+                  src={resolveAsset(PC_apclinkicon)}
+                />
+              </Box>
+            )}
+            {!!PC_haslight && (
+              <Button
+                width="26px"
+                lineHeight="22px"
+                textAlign="center"
+                color="transparent"
+                icon="lightbulb"
+                selected={PC_lighton}
+                tooltip="Toggle Flashlight"
+                tooltipPosition="bottom"
+                onClick={() => act('PC_togglelight')}
+              />
             )}
             {!!PC_showexitprogram && (
               <Button

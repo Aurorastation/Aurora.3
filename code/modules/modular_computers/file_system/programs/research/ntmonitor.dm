@@ -18,7 +18,7 @@
 	name = "NTNet Diagnostics and Monitoring"
 	available_to_ai = TRUE
 
-/datum/nano_module/computer_ntnetmonitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/computer_ntnetmonitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
 	if(!ntnet_global)
 		return
 	var/list/data = host.initial_data()
