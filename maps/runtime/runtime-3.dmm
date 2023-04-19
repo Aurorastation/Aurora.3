@@ -33,7 +33,7 @@
 	locked = 0;
 	pixel_y = 5;
 	dir = 4;
-	pixel_x = -26
+	pixel_x = -30
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
@@ -64,6 +64,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/camera/network{
+	pixel_y = 18
+	},
 /turf/simulated/floor/tiled/dark,
 /area/construction/solars)
 "gi" = (
@@ -79,6 +82,14 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled,
+/area/construction/hallway)
+"gH" = (
+/obj/machinery/camera/network{
+	pixel_y = 22;
+	dir = 4;
+	pixel_x = -13
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
@@ -276,7 +287,7 @@
 "um" = (
 /obj/machinery/power/apc{
 	dir = 1;
-	pixel_y = 32
+	pixel_y = 30
 	},
 /obj/structure/cable{
 	d2 = 2;
@@ -343,7 +354,7 @@
 	locked = 0;
 	pixel_y = 5;
 	dir = 4;
-	pixel_x = -26
+	pixel_x = -30
 	},
 /turf/simulated/floor/tiled/dark,
 /area/construction/solarscontrol)
@@ -359,7 +370,7 @@
 "Bv" = (
 /obj/machinery/alarm{
 	locked = 0;
-	pixel_y = 32
+	pixel_y = 31
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -393,6 +404,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"Da" = (
+/obj/machinery/firealarm/north{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/dark,
+/area/construction/solars)
 "Dg" = (
 /obj/structure/cable{
 	d1 = 32;
@@ -427,6 +444,13 @@
 "GT" = (
 /turf/simulated/floor,
 /area/construction/qmaint)
+"Hr" = (
+/obj/machinery/camera/network{
+	dir = 8;
+	pixel_x = 13
+	},
+/turf/simulated/floor/tiled/dark,
+/area/construction/hallway)
 "Hs" = (
 /obj/machinery/power/apc{
 	pixel_y = -18
@@ -466,7 +490,7 @@
 "Kn" = (
 /obj/machinery/alarm{
 	locked = 0;
-	pixel_y = 32
+	pixel_y = 31
 	},
 /turf/simulated/floor/airless,
 /area/construction/supplyshuttle)
@@ -588,6 +612,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"SV" = (
+/obj/machinery/firealarm/north{
+	pixel_y = 28
+	},
+/turf/simulated/floor/airless,
+/area/construction/supplyshuttle)
 "SW" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -638,6 +668,10 @@
 	icon_state = "1-4";
 	dir = 8
 	},
+/obj/machinery/alarm{
+	locked = 0;
+	pixel_y = 31
+	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
 "WB" = (
@@ -654,6 +688,13 @@
 /area/construction/supplyshuttle)
 "Yi" = (
 /turf/simulated/floor/tiled/dark,
+/area/construction/hallway)
+"YN" = (
+/obj/machinery/camera/network{
+	dir = 1;
+	pixel_y = -6
+	},
+/turf/simulated/floor/tiled,
 /area/construction/hallway)
 "Zc" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -8638,7 +8679,7 @@ ZC
 Yi
 Yi
 Yi
-Yi
+Hr
 mX
 nA
 pM
@@ -9149,7 +9190,7 @@ ZT
 Mj
 ZT
 hQ
-yO
+Da
 yO
 yO
 yO
@@ -9914,7 +9955,7 @@ yd
 jD
 Vr
 Mj
-ZT
+YN
 tZ
 ZT
 Mj
@@ -10419,7 +10460,7 @@ Bc
 Bc
 Bc
 xs
-MD
+SV
 Di
 kQ
 Di
@@ -10694,7 +10735,7 @@ np
 ZT
 ZT
 ZT
-ZT
+gH
 wG
 nA
 pM
