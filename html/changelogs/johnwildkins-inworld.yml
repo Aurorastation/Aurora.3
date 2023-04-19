@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - refactor: "Increase init speed by removing the global turfs list and reverting to turf in world loops."
