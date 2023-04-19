@@ -5001,15 +5001,23 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/paper_bin{
-	pixel_y = 6
+/obj/item/modular_computer/laptop/preset/supply/om,
+/obj/item/stamp/denied{
+	pixel_x = 5;
+	pixel_y = 13
 	},
-/obj/item/pen,
-/obj/machinery/firealarm/west,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+/obj/item/stamp/op{
+	pixel_x = -5;
+	pixel_y = 13
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/requests_console{
+	announcementConsole = 1;
+	department = "Operations Manager";
+	departmentType = 5;
+	name = "Operations Manager Request Console";
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
 /area/operations/qm)
 "cok" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -8570,16 +8578,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "ens" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/effect/landmark/start{
-	name = "Operations Manager"
-	},
-/turf/simulated/floor/wood,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/full,
 /area/operations/qm)
 "env" = (
 /obj/structure/table/standard,
@@ -8654,7 +8657,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "epw" = (
-/obj/structure/table/standard,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -8663,15 +8665,12 @@
 	name = "north bump";
 	pixel_y = 24
 	},
-/obj/item/device/flashlight/lamp,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
-/turf/simulated/floor/wood,
+/obj/structure/closet/secure_closet/operations_manager,
+/turf/simulated/floor/tiled,
 /area/operations/qm)
 "epN" = (
 /obj/machinery/light,
@@ -9287,11 +9286,15 @@
 	dir = 1;
 	pixel_y = -25
 	},
-/obj/structure/closet/secure_closet/operations_manager,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
+/obj/structure/table/standard,
+/obj/item/paper_bin{
+	pixel_y = 3;
+	pixel_x = -3
 	},
-/turf/simulated/floor/wood,
+/obj/item/pen{
+	pixel_x = -2
+	},
+/turf/simulated/floor/tiled,
 /area/operations/qm)
 "eED" = (
 /obj/structure/cable/green{
@@ -21234,7 +21237,9 @@
 /turf/simulated/wall,
 /area/operations/qm)
 "kmr" = (
-/obj/machinery/hologram/holopad,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "kmx" = (
@@ -23521,6 +23526,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
+"lBq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/operations/qm)
 "lBw" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -27278,10 +27292,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/full,
 /area/operations/qm)
 "nkb" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
@@ -27613,7 +27624,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "nry" = (
-/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "nsn" = (
@@ -28756,7 +28769,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
+	dir = 9
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
@@ -30572,27 +30585,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "oVk" = (
-/obj/structure/table/standard,
-/obj/item/stamp/denied{
-	pixel_x = 5;
-	pixel_y = 13
+/obj/item/modular_computer/console/preset/command{
+	dir = 4
 	},
-/obj/item/stamp/op{
-	pixel_x = -5;
-	pixel_y = 13
-	},
-/obj/machinery/requests_console{
-	announcementConsole = 1;
-	department = "Operations Manager";
-	departmentType = 5;
-	name = "Operations Manager Request Console";
-	pixel_x = -32
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/item/modular_computer/laptop/preset/supply/om,
-/turf/simulated/floor/wood,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
 /area/operations/qm)
 "oWm" = (
 /obj/structure/table/reinforced/steel,
@@ -33698,14 +33695,30 @@
 /area/operations/lobby)
 "qxK" = (
 /obj/machinery/keycard_auth{
-	pixel_y = -24
+	pixel_y = -24;
+	pixel_x = -3
 	},
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations - Quartermaster's Office";
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood,
+/obj/structure/table/standard,
+/obj/machinery/photocopier/faxmachine{
+	department = "Operations Manager's Office"
+	},
+/obj/machinery/button/switch/windowtint{
+	dir = 1;
+	id = "OM Windows";
+	pixel_y = -34;
+	req_access = list(41);
+	pixel_x = 8
+	},
+/obj/machinery/light_switch{
+	pixel_x = 8;
+	pixel_y = -23;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
 /area/operations/qm)
 "qyh" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -34115,9 +34128,12 @@
 /obj/machinery/newscaster{
 	pixel_x = 29
 	},
-/obj/item/material/ashtray/bronze,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
+	},
+/obj/item/device/flashlight/lamp{
+	pixel_y = 7;
+	pixel_x = 1
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
@@ -34951,7 +34967,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "rew" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "OM Windows"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/qm)
 "rez" = (
@@ -39885,11 +39903,13 @@
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "tFX" = (
-/obj/structure/table/standard,
-/obj/machinery/photocopier/faxmachine{
-	department = "Operations Manager's Office"
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
 	},
-/turf/simulated/floor/wood,
+/obj/effect/landmark/start{
+	name = "Operations Manager"
+	},
+/turf/simulated/floor/tiled/full,
 /area/operations/qm)
 "tGb" = (
 /obj/structure/railing/mapped{
@@ -61200,7 +61220,7 @@ kRZ
 rtF
 rew
 nZZ
-gHo
+lBq
 kmr
 nry
 rew
