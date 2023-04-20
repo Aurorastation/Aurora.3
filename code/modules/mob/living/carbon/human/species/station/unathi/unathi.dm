@@ -122,6 +122,7 @@
 		/singleton/origin_item/culture/traditionalists,
 		/singleton/origin_item/culture/spaceborn,
 		/singleton/origin_item/culture/dominian_unathi,
+		/singleton/origin_item/culture/queendom,
 		/singleton/origin_item/culture/autakh
 	)
 

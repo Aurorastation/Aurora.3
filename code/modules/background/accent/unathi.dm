@@ -44,3 +44,9 @@
 	description = "Incorporating both Hegemonic and Traditionalist elements, the Aut'akh accent is recognisable for its lack of accentuation and intonations, both owing to the occasional implants of questionable quality having some influence on speech, and the general isolation of most Aut'akh communes."
 	tag_icon = "autakh_valley"
 	text_tag = "AUT"
+
+/datum/accent/queendom
+	name = ACCENT_QUEENDOM
+	description = "DESCRIPTION 3"
+	tag_icon = "trad_queendom"
+	text_tag = "QEN"
