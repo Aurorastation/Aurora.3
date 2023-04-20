@@ -13608,7 +13608,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "ltM" = (
@@ -14862,7 +14862,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/wood,
 /area/horizon/security/meeting_room)
 "mvx" = (
@@ -17076,7 +17076,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "omR" = (
@@ -18779,7 +18779,7 @@
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "pTJ" = (
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
@@ -22298,7 +22298,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/wood,
 /area/horizon/security/meeting_room)
 "sLD" = (

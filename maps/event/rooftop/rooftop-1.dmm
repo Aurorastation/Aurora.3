@@ -3239,7 +3239,7 @@
 	},
 /area/city/mendell/interior)
 "rO" = (
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "rP" = (
@@ -3285,8 +3285,8 @@
 /turf/simulated/floor/tiled/ramp,
 /area/city/mendell)
 "rZ" = (
-/obj/structure/banner/scc,
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "sc" = (
@@ -8716,7 +8716,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "Xo" = (
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/wood,
 /area/city/mendell)
 "Xs" = (

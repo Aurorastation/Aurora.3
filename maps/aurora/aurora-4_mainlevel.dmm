@@ -12309,7 +12309,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awP" = (
@@ -12347,7 +12347,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awT" = (
@@ -20502,7 +20502,7 @@
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJE" = (
@@ -25046,7 +25046,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aRu" = (
@@ -25189,7 +25189,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aRG" = (
@@ -28544,7 +28544,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aXu" = (

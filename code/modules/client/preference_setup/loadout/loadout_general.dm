@@ -157,6 +157,10 @@
 	banners["banner, Vysoka"] = /obj/item/flag/vysoka
 	banners["banner, Konyang"] = /obj/item/flag/konyang
 	banners["banner, Red Coalition"] = /obj/item/flag/red_coalition
+	banners["banner, Private Military Contracting Group"] = /obj/item/flag/pmcg
+	banners["banner, United Syndicates of Himeo"] = /obj/item/flag/himeo
+	banners["banner, Republic of Assunzione"] = /obj/item/flag/assunzione
+	banners["banner, New Gibson"] = /obj/item/flag/newgibson
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -208,6 +212,9 @@
 	flags["flag, Vysoka"] = /obj/item/flag/vysoka/l
 	flags["flag, Konyang"] = /obj/item/flag/konyang/l
 	flags["flag, Red Coalition"] = /obj/item/flag/red_coalition/l
+	flags["flag, Private Military Contracting Group"] = /obj/item/flag/pmcg/l
+	flags["flag, United Syndicates of Himeo"] = /obj/item/flag/himeo/l
+	flags["flag, Republic of Assunzione"] = /obj/item/flag/assunzione/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel

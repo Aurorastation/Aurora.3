@@ -40,3 +40,5 @@ delete-after: True
 changes:
   - imageadd: "New flag sprites, by NiennaB."
   - rscadd: "Ripping up flags gives you cloth now."
+  - rscadd: "Adds more flags, namely, PMCG, New Gibson, Himeo flags to the loadout."
+  - rscadd: "Banners (one tile flags) can be deployed on turfs as well now."

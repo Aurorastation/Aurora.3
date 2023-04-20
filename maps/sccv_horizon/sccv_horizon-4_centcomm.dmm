@@ -15964,7 +15964,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNP" = (
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
@@ -16624,7 +16624,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aPv" = (
@@ -16644,7 +16644,7 @@
 /area/tdome/tdome2)
 "aPz" = (
 /obj/machinery/igniter,
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor,
 /area/tdome)
 "aPA" = (
@@ -17087,7 +17087,7 @@
 	},
 /area/centcom/spawning)
 "aQy" = (
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},

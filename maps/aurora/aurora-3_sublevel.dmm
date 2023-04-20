@@ -27229,7 +27229,7 @@
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_gym)
 "ejX" = (
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony/warden)
 "emk" = (

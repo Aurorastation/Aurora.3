@@ -838,7 +838,7 @@
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
 /area/holodeck/source_chapel)
 "abY" = (
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_chapel)
 "abZ" = (
@@ -5676,7 +5676,7 @@
 	},
 /area/shuttle/arrival)
 "aMa" = (
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_battlemonsters)
 "aMf" = (
@@ -6430,7 +6430,7 @@
 	},
 /area/centcom/spawning)
 "aQm" = (
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -6613,7 +6613,7 @@
 /area/shuttle/arrival)
 "aTW" = (
 /obj/machinery/igniter,
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor,
 /area/tdome)
 "aTX" = (
@@ -15788,7 +15788,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "goO" = (
@@ -41590,7 +41590,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "xfN" = (
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},

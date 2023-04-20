@@ -1857,7 +1857,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/sfa_shuttle)
 "hko" = (
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "hkY" = (
