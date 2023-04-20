@@ -518,6 +518,13 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/investigations_hallway)
+"aoq" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass{
+	name = "Deck 3 Starboard Docks"
+	},
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/starboard)
 "aoA" = (
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -1558,7 +1565,7 @@
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "bfL" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -2390,7 +2397,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/tiled,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "cdh" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -7490,7 +7497,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "gqH" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -11295,7 +11302,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "jvA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -11685,7 +11692,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/full,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "jJh" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
@@ -24224,7 +24231,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "tSs" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
@@ -26008,22 +26015,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "vlC" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/medical{
-	name = "Staff Showers";
-	req_access = list(5)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/full,
-/area/medical/washroom)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/hallway/deck_three/primary/starboard)
 "vlW" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -27496,7 +27489,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "wuA" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/item/crowbar/red,
@@ -27633,16 +27626,21 @@
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "wEU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/medical{
+	name = "Staff Showers";
+	req_access = list(5)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "4-8"
 	},
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/medical/washroom)
 "wFq" = (
 /obj/machinery/door/airlock/maintenance{
@@ -28640,7 +28638,7 @@
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "xoR" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
@@ -29538,7 +29536,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/full,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "ykD" = (
 /obj/structure/railing/mapped,
 /turf/simulated/open,
@@ -42396,11 +42394,11 @@ qGg
 fxk
 gvG
 cEy
-cEy
-cEy
-cEy
-cEy
-iEg
+vlC
+vlC
+vlC
+vlC
+aoq
 trI
 iEg
 uba
@@ -43005,7 +43003,7 @@ vLY
 tQA
 jIW
 ccQ
-wEU
+ouY
 ouY
 uJa
 xAc
@@ -43201,7 +43199,7 @@ vLY
 vLY
 vLY
 vLY
-vlC
+wEU
 vLY
 vLY
 biw
