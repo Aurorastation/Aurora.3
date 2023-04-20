@@ -47,6 +47,6 @@
 
 /datum/accent/queendom
 	name = ACCENT_QUEENDOM
-	description = "DESCRIPTION 3"
+	description = "From deep in the Wasteland there are some who hail from a society unlike most others that inhabit the radioactive sands, those from the Queendom. Those from the Queendom are recognizable by their traditionalist inflections in speech, but with slight differences that have evolved in the decades since first contact."
 	tag_icon = "trad_queendom"
 	text_tag = "QEN"
