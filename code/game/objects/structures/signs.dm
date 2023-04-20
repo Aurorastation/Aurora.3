@@ -18,8 +18,9 @@
 
 /obj/structure/sign/attackby(obj/item/tool, mob/user) // Deconstruction.
 	if(tool.isscrewdriver() && !istype(src, /obj/structure/sign/double))
-		playsound(get_turf(user), tool.usesound, 50, 1)
-		unfasten(user)
+		user.visible_message(SPAN_NOTICE("\The [user] starts to unfasten \the [src]."), SPAN_NOTICE("You start to unfasten \the [src]."))
+		if(tool.use_tool(src, user, 20, volume = 50))
+			unfasten(user)
 	else ..()
 
 /obj/structure/sign/proc/unfasten(mob/user)
@@ -347,7 +348,7 @@
 /obj/item/flag
 	name = "boxed flag"
 	desc = "A flag neatly folded into a wooden container."
-	icon = 'icons/obj/flags.dmi'
+	icon = 'icons/obj/structure/flags.dmi'
 	icon_state = "flag_boxed"
 	var/flag_path
 	var/flag_size = 0
@@ -356,12 +357,14 @@
 /obj/structure/sign/flag
 	name = "blank flag"
 	desc = "Nothing to see here."
-	icon = 'icons/obj/flags.dmi'
+	icon = 'icons/obj/structure/flags.dmi'
 	icon_state = "flag"
-	var/icon/ripped_outline = icon('icons/obj/flags.dmi', "ripped")
 	var/obj/structure/sign/flag/linked_flag //For double flags
 	var/obj/item/flag/flagtype //For returning your flag
 	var/ripped = FALSE //If we've been torn down
+	var/ripped_outline_state = "flag_ripped"
+	var/icon/flag_icon
+	var/icon/shading_icon
 
 /obj/structure/sign/flag/blank
 	name = "blank banner"
@@ -395,12 +398,22 @@
 
 	P.dir = placement_dir
 	if(flag_size)
-		P.icon_state = "[flag_path]_l"
+		P.icon_state = "[flag_path]_l" // Just adding to the flag spaghetti.
+		P.ripped_outline_state = "flag_ripped_l"
+		P.flag_icon = new(icon, P.icon_state, P.dir)
+		P.shading_icon = new('icons/obj/structure/flags.dmi', "flag_l", P.dir)
+		P.flag_icon.Blend(P.shading_icon, ICON_MULTIPLY)
+		P.icon = P.flag_icon
 		var/obj/structure/sign/flag/P2 = new(user.loc)
 		P.linked_flag = P2
+		P2.dir = P.dir
 		P2.linked_flag = P
 		P2.icon_state = "[flag_path]_r"
-		P2.dir = P.dir
+		P2.ripped_outline_state = "flag_ripped_r"
+		P2.flag_icon = new(icon, P2.icon_state, P2.dir)
+		P2.shading_icon = new('icons/obj/structure/flags.dmi', "flag_r", P2.dir)
+		P2.flag_icon.Blend(P2.shading_icon, ICON_MULTIPLY)
+		P2.icon = P2.flag_icon
 		switch(P2.dir)
 			if(NORTH)
 				P2.pixel_y = P.pixel_y
@@ -421,6 +434,10 @@
 		P2.flagtype = type
 	else
 		P.icon_state = "[flag_path]"
+		var/icon/flag_icon = new(icon, P.icon_state)
+		var/icon/shading_icon = new('icons/obj/structure/flags.dmi', "flag")
+		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
+		icon = flag_icon
 	P.name = name
 	P.desc = desc
 	P.desc_info = desc_info
@@ -457,32 +474,36 @@
 	qdel(src)
 
 /obj/structure/sign/flag/attack_hand(mob/user)
+	if(ripped)
+		return
 	if(alert("Do you want to rip \the [src] from its place?","You think...","Yes","No") == "Yes")
 		if(!Adjacent(user)) // Cannot bring up dialogue and walk away.
 			return FALSE
-		if(!do_after(user, 2 SECONDS, act_target = src))
+		visible_message(SPAN_WARNING("\The [user] starts to grab hold of \the [src] with destructive intent!" ))
+		if(!do_after(user, 5 SECONDS, act_target = src))
 			return FALSE
 		visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!" ))
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
 		add_fingerprint(user)
-		rip()
+		rip(user)
 
-/obj/structure/sign/flag/proc/rip(var/rip_linked = TRUE)
-	var/icon/I = new('icons/obj/flags.dmi', icon_state)
-	var/icon/mask = new('icons/obj/flags.dmi', "ripped")
-	I.AddAlphaMask(mask)
-	icon = I
+/obj/structure/sign/flag/proc/rip(mob/user, var/rip_linked = TRUE)
+	var/icon/ripped_outline = new('icons/obj/structure/flags.dmi', ripped_outline_state, dir)
+	if(!flag_icon)
+		flag_icon = new(icon, icon_state)
+	flag_icon.AddAlphaMask(ripped_outline)
+	icon = flag_icon
 	name = "ripped flag"
 	desc = "You can't make out anything from the flag's original print. It's ruined."
 	ripped = TRUE
-	if(linked_flag && rip_linked)
-		linked_flag.rip(FALSE) // Prevents an infinite ripping loop.
+	if(rip_linked)
+		new /obj/item/stack/material/cloth(src.loc, 2)
+	if(rip_linked && linked_flag)
+		linked_flag.rip(user, FALSE) // Prevents an infinite ripping loop.
 
 /obj/structure/sign/flag/attackby(obj/item/W, mob/user)
 	..()
-
 	if(W.isFlameSource())
-
 		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
 		if(!do_after(user, 2 SECONDS, act_target = src))
 			return FALSE
@@ -501,7 +522,7 @@
 	icon_state = "flag_r"
 
 /obj/structure/sign/flag/sol
-	name = "Sol Alliance flag"
+	name = "\improper Sol Alliance flag"
 	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
 	icon_state = "sol"
 
@@ -512,16 +533,16 @@
 	icon_state = "sol_r"
 
 /obj/item/flag/sol
-	name = "Sol Alliance flag"
+	name = "\improper Sol Alliance flag"
 	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
 	flag_path = "sol"
 
 /obj/item/flag/sol/l
-	name = "Large Sol Alliance flag"
+	name = "large Sol Alliance flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/dominia
-	name = "Dominian Empire flag"
+	name = "\improper Dominian Empire flag"
 	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia."
 	icon_state = "dominia"
 
@@ -532,16 +553,16 @@
 	icon_state = "dominia_r"
 
 /obj/item/flag/dominia
-	name = "Dominian Empire flag"
+	name = "\improper Dominian Empire flag"
 	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia."
 	flag_path = "dominia"
 
 /obj/item/flag/dominia/l
-	name = "Large Dominian Empire flag"
+	name = "large Dominian Empire flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/elyra
-	name = "Elyran flag"
+	name = "\improper Elyran flag"
 	desc = "The hopeful colors of the Serene Republic of Elyra."
 	icon_state = "elyra"
 
@@ -552,16 +573,16 @@
 	icon_state = "elyra_r"
 
 /obj/item/flag/elyra
-	name = "Elyran flag"
+	name = "\improper Elyran flag"
 	desc = "The hopeful colors of the Serene Republic of Elyra."
 	flag_path = "elyra"
 
 /obj/item/flag/elyra/l
-	name = "Large Elyran flag"
+	name = "large Elyran flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/hegemony
-	name = "Hegemony flag"
+	name = "\improper Hegemony flag"
 	desc = "The feudal standard of the Izweski Hegemony."
 	icon_state = "izweski"
 
@@ -572,16 +593,16 @@
 	icon_state = "izweski_r"
 
 /obj/item/flag/hegemony
-	name = "Hegemony flag"
+	name = "\improper Hegemony flag"
 	desc = "The feudal standard of the Izweski Hegemony."
 	flag_path = "izweski"
 
 /obj/item/flag/hegemony/l
-	name = "Large Hegemony flag"
+	name = "large Hegemony flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/nralakk
-	name = "Nralakk Federation flag"
+	name = "\improper Nralakk Federation flag"
 	desc = "The insignia of the Nralakk Federation."
 	icon_state = "nralakk"
 
@@ -592,16 +613,16 @@
 	icon_state = "nralakk_r"
 
 /obj/item/flag/nralakk
-	name = "Nralakk Federation flag"
+	name = "\improper Nralakk Federation flag"
 	desc = "The insignia of the Nralakk Federation."
 	flag_path = "nralakk"
 
 /obj/item/flag/nralakk/l
-	name = "Large Nralakk Federation flag"
+	name = "large Nralakk Federation flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/traverse
-	name = "Free Traverser flag"
+	name = "\improper Free Traverser flag"
 	desc = "The insignia of the Free Traversers."
 	icon_state = "traverse"
 
@@ -612,26 +633,26 @@
 	icon_state = "traverse_r"
 
 /obj/item/flag/traverse
-	name = "Free Traverser flag"
+	name = "\improper Free Traverser flag"
 	desc = "The insignia of the Free Traversers."
 	flag_path = "traverse"
 
 /obj/item/flag/traverse/l
-	name = "Large Free Traverser flag"
+	name = "large Free Traverser flag"
 	flag_size = 1
-	
+
 /obj/item/flag/cteum
-	name = "Co-operative Territories of Epsilon Ursae Minoris Flag"
+	name = "\improper Co-operative Territories of Epsilon Ursae Minoris Flag"
 	desc = "The flag of the CT-EUM."
 	flag_path = "cteum"
 
 /obj/structure/sign/flag/cteum
-	name = "Co-operative Territories of Epsilon Ursae Minoris Flag"
+	name = "\improper Co-operative Territories of Epsilon Ursae Minoris Flag"
 	desc = "The flag of the CT-EUM."
 	icon_state = "cteum"
 
 /obj/structure/sign/flag/nanotrasen
-	name = "NanoTrasen Corporation flag"
+	name = "\improper NanoTrasen Corporation flag"
 	desc = "The logo of NanoTrasen on a flag."
 	icon_state = "nanotrasen"
 
@@ -642,16 +663,16 @@
 	icon_state = "nanotrasen_r"
 
 /obj/item/flag/nanotrasen
-	name = "NanoTrasen Corporation flag"
+	name = "\improper NanoTrasen Corporation flag"
 	desc = "The logo of NanoTrasen on a flag."
 	flag_path = "nanotrasen"
 
 /obj/item/flag/nanotrasen/l
-	name = "Large NanoTrasen Corporation flag"
+	name = "large NanoTrasen Corporation flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/eridani
-	name = "Eridani Corporate Federation flag"
+	name = "\improper Eridani Corporate Federation flag"
 	desc = "The logo of the Eridani Corporate Federation on a flag."
 	icon_state = "eridani"
 
@@ -662,16 +683,16 @@
 	icon_state = "eridani_r"
 
 /obj/item/flag/eridani
-	name = "Eridani Corporate Federation flag"
+	name = "\improper Eridani Corporate Federation flag"
 	desc = "The logo of the Eridani Corporate Federation on a flag."
 	flag_path = "eridani"
 
 /obj/item/flag/eridani/l
-	name = "Large Eridani Corporate Federation flag"
+	name = "large Eridani Corporate Federation flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/coalition
-	name = "Coalition of Colonies flag"
+	name = "\improper Coalition of Colonies flag"
 	desc = "The flag of the diverse Coalition of Colonies."
 	icon_state = "coalition"
 
@@ -682,16 +703,16 @@
 	icon_state = "coalition_r"
 
 /obj/item/flag/coalition
-	name = "Coalition of Colonies flag"
+	name = "\improper Coalition of Colonies flag"
 	desc = "The flag of the diverse Coalition of Colonies."
 	flag_path = "coalition"
 
 /obj/item/flag/coalition/l
-	name = "Large Coalition of Colonies flag"
+	name = "large Coalition of Colonies flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/vaurca
-	name = "Sedantis flag"
+	name = "\improper Sedantis flag"
 	desc = "The emblem of Sedantis on a flag, emblematic of Vaurca longing."
 	icon_state = "sedantis"
 
@@ -702,32 +723,12 @@
 	icon_state = "sedantis_r"
 
 /obj/item/flag/vaurca
-	name = "Sedantis flag"
+	name = "\improper Sedantis flag"
 	desc = "The emblem of Sedantis on a flag, emblematic of Vaurca longing."
 	flag_path = "sedantis"
 
 /obj/item/flag/vaurca/l
-	name = "Large Sedantis flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/america
-	name = "Old World flag"
-	desc = "The banner of an ancient nation, its glory old."
-	icon_state = "oldglory"
-
-/obj/structure/sign/flag/america/left
-	icon_state = "oldglory_l"
-
-/obj/structure/sign/flag/america/right
-	icon_state = "oldglory_r"
-
-/obj/item/flag/america
-	name = "Old World flag"
-	desc = "The banner of an ancient nation, its glory old."
-	flag_path = "oldglory"
-
-/obj/item/flag/america/l
-	name = "Large Old World flag"
+	name = "large Sedantis flag"
 	flag_size = 1
 
 /obj/item/flag/red_coalition
@@ -754,7 +755,7 @@
 	icon_state = "redcoalition_r"
 
 /obj/item/flag/dpra
-	name = "Democratic People's Republic of Adhomai flag"
+	name = "\improper Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
 	flag_path = "dpra"
 	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
@@ -763,11 +764,11 @@
 	nation they were fighting for the Democratic People's Republic of Adhomai."
 
 /obj/item/flag/dpra/l
-	name = "Large Democratic People's Republic of Adhomai flag"
+	name = "large Democratic People's Republic of Adhomai flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/dpra
-	name = "Democratic People's Republic of Adhomai flag"
+	name = "\improper Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
 	icon_state = "dpra"
 	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
@@ -782,7 +783,7 @@
 	icon_state = "dpra_r"
 
 /obj/item/flag/pra
-	name = "People's Republic of Adhomai flag"
+	name = "\improper People's Republic of Adhomai flag"
 	desc = "The tajaran flag of the People's Republic of Adhomai."
 	flag_path = "pra"
 	desc_extended = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
@@ -793,10 +794,10 @@
 
 /obj/item/flag/pra/l
 	flag_size = 1
-	name = "Large People's Republic of Adhomai flag"
+	name = "large People's Republic of Adhomai flag"
 
 /obj/structure/sign/flag/pra
-	name = "People's Republic of Adhomai flag"
+	name = "\improper People's Republic of Adhomai flag"
 	desc = "The tajaran flag of the People's Republic of Adhomai."
 	icon_state = "pra"
 	desc_extended = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
@@ -812,7 +813,7 @@
 	icon_state = "pra_r"
 
 /obj/item/flag/nka
-	name = "New Kingdom of Adhomai flag"
+	name = "\improper New Kingdom of Adhomai flag"
 	desc = "The blue flag of the New Kingdom of Adhomai."
 	flag_path = "nka"
 	desc_extended = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
@@ -823,10 +824,10 @@
 
 /obj/item/flag/nka/l
 	flag_size = 1
-	name = "Large New Kingdom of Adhomai flag"
+	name = "large New Kingdom of Adhomai flag"
 
 /obj/structure/sign/flag/nka
-	name = "New Kingdom of Adhomai flag"
+	name = "\improper New Kingdom of Adhomai flag"
 	desc = "The blue flag of the New Kingdom of Adhomai."
 	icon_state = "nka"
 	desc_extended = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
@@ -842,16 +843,16 @@
 	icon_state = "nka_r"
 
 /obj/item/flag/heph
-	name = "Hephaestus Industries flag"
+	name = "\improper Hephaestus Industries flag"
 	desc = "The logo of Hephaestus Industries on a flag."
 	flag_path = "heph"
 
 /obj/item/flag/heph/l
-	name = "Large Hephaestus Industries flag"
+	name = "large Hephaestus Industries flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/heph
-	name = "Hephaestus Industries flag"
+	name = "\improper Hephaestus Industries flag"
 	desc = "The logo of Hephaestus Industries on a flag."
 	icon_state = "heph"
 
@@ -862,16 +863,16 @@
 	icon_state = "heph_r"
 
 /obj/item/flag/zenghu
-	name = "Zeng-Hu Pharmaceuticals flag"
+	name = "\improper Zeng-Hu Pharmaceuticals flag"
 	desc = "The logo of Zeng-Hu Pharmaceuticals on a flag."
 	flag_path = "zenghu"
 
 /obj/item/flag/zenghu/l
-	name = "Large Zeng-Hu Pharmaceuticals flag"
+	name = "large Zeng-Hu Pharmaceuticals flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/zenghu
-	name = "Zeng-Hu Pharmaceuticals flag"
+	name = "\improper Zeng-Hu Pharmaceuticals flag"
 	desc = "The logo of Zeng-Hu Pharmaceuticals on a flag."
 	icon_state = "zenghu"
 
@@ -882,7 +883,7 @@
 	icon_state = "zenghu_r"
 
 /obj/structure/sign/flag/zavodskoi
-	name = "Zavodskoi Interstellar flag"
+	name = "\improper Zavodskoi Interstellar flag"
 	desc = "The logo of Zavodskoi Interstellar on a flag."
 	icon_state = "zavodskoi"
 
@@ -893,16 +894,16 @@
 	icon_state = "zavodskoi_r"
 
 /obj/item/flag/zavodskoi
-	name = "Zavodskoi Interstellar flag"
+	name = "\improper Zavodskoi Interstellar flag"
 	desc = "The logo of Zavodskoi Interstellar on a flag."
 	flag_path = "zavodskoi"
 
 /obj/item/flag/zavodskoi/l
-	name = "Large Zavodskoi Interstellar flag"
+	name = "large Zavodskoi Interstellar flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/idris
-	name = "Idris Incorporated flag"
+	name = "\improper Idris Incorporated flag"
 	desc = "The logo of Idris Incorporated on a flag."
 	icon_state = "idris"
 
@@ -913,16 +914,16 @@
 	icon_state = "idris_r"
 
 /obj/item/flag/idris
-	name = "Idris Incorporated flag"
+	name = "\improper Idris Incorporated flag"
 	desc = "The logo of Idris Incorporated on a flag."
 	flag_path = "idris"
 
 /obj/item/flag/idris/l
-	name = "Large Idris Incorporated flag"
+	name = "large Idris Incorporated flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/trinaryperfection
-	name = "Trinary Perfection flag"
+	name = "\improper Trinary Perfection flag"
 	desc = "The flag of the Trinary Perfection."
 	desc_extended = "The Trinary Perfection is a new religious movement whose core beliefs are that synthetics are alive, divine, and have the potential to ascend to that of gods. The triangle intersecting the gear represents the exchange of ideas that make up the Trinary Perfection, the study of robotics, religion and the elevation of artificial intelligence."
 	icon_state = "trinaryperfection"
@@ -935,87 +936,87 @@
 	icon_state = "trinaryperfection_r"
 
 /obj/item/flag/trinaryperfection
-	name = "Trinary Perfection flag"
+	name = "\improper Trinary Perfection flag"
 	desc = "The flag of the Trinary Perfection."
 	desc_extended = "The Trinary Perfection is a new religious movement whose core beliefs are that synthetics are alive, divine, and have the potential to ascend to that of gods. The triangle intersecting the gear represents the exchange of ideas that make up the Trinary Perfection, the study of robotics, religion and the elevation of artificial intelligence."
 	flag_path = "trinaryperfection"
 
 /obj/item/flag/trinaryperfection/l
-	name = "Large Trinary Perfection flag"
+	name = "large Trinary Perfection flag"
 	flag_size = 1
 
 /obj/item/flag/diona
-	name = "Imperial Diona standard"
+	name = "\improper Imperial Diona standard"
 	desc = "A green Dominian standard which represents the Dionae within the Empire."
 	flag_path = "diona"
 
 /obj/structure/sign/flag/diona
-	name = "Imperial Diona standard"
+	name = "\improper Imperial Diona standard"
 	desc = "A green Dominian standard which represents the Dionae within the Empire."
 	icon_state = "diona"
 
 /obj/item/flag/strelitz
-	name = "House Strelitz standard"
+	name = "\improper House Strelitz standard"
 	desc = "A red-and-dark standard with a gold trim that represents House Strelitz, one of the great houses of the Empire of Dominia. \
 	They are known for their military service and emphasis on personal bravery."
 	flag_path = "strelitz"
 
 /obj/structure/sign/flag/strelitz
-	name = "House Strelitz standard"
+	name = "\improper House Strelitz standard"
 	desc = "A red-and-dark standard with a gold trim that represents House Strelitz, one of the great houses of the Empire of Dominia. \
 	They are known for their military service and emphasis on personal bravery."
 	icon_state = "strelitz"
 
 /obj/item/flag/volvalaad
-	name = "House Volvalaad standard"
+	name = "\improper House Volvalaad standard"
 	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
 	They are known for their reformist ideals, and scientific prowess."
 	flag_path = "volvalaad"
 
 /obj/structure/sign/flag/volvalaad
-	name = "House Volvalaad standard"
+	name = "\improper House Volvalaad standard"
 	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
 	They are known for their reformist ideals and scientific prowess."
 	icon_state = "volvalaad"
 
 /obj/item/flag/kazhkz
-	name = "House Kazhkz standard"
+	name = "\improper House Kazhkz standard"
 	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
 	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
 	flag_path = "kazhkz"
 
 /obj/structure/sign/flag/kazhkz
-	name = "House Kazhkz standard"
+	name = "\improper House Kazhkz standard"
 	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
 	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
 	icon_state = "kazkhz"
 
 /obj/item/flag/caladius
-	name = "House Caladius standard"
+	name = "\improper House Caladius standard"
 	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
 	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
 	flag_path = "caladius"
 
 /obj/structure/sign/flag/caladius
-	name = "House Caladius standard"
+	name = "\improper House Caladius standard"
 	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
 	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
 	icon_state = "caladius"
 
 /obj/item/flag/zhao
-	name = "House Zhao standard"
+	name = "\improper House Zhao standard"
 	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of the Empire of Dominia,\
 	known for its naval officers and patronage of the Dominian shipbuilding industry."
 	flag_path = "zhao"
 
 /obj/structure/sign/flag/zhao
-	name = "House Zhao standard"
+	name = "\improper House Zhao standard"
 	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of  the Empire of Dominia,\
 	known for its naval officers and patronage of the Dominian shipbuilding and naval industries."
 	icon_state = "zhao"
 
 /obj/structure/sign/flag/biesel
-	name = "Republic of Biesel flag"
+	name = "\improper Republic of Biesel flag"
 	desc = "The colours and symbols of the Republic of Biesel."
 	icon_state = "biesel"
 
@@ -1026,16 +1027,16 @@
 	icon_state = "biesel_r"
 
 /obj/item/flag/biesel
-	name = "Republic of Biesel flag"
+	name = "\improper Republic of Biesel flag"
 	desc = "The flag representing the Republic of Biesel."
 	flag_path = "biesel"
 
 /obj/item/flag/biesel/l
-	name = "Large Republic of Biesel flag"
+	name = "large Republic of Biesel flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/scc
-	name = "Stellar Corporate Conglomerate flag"
+	name = "\improper Stellar Corporate Conglomerate flag"
 	desc = "The colours and logo of the Stellar Corporate Conglomerate."
 	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon_state = "scc"
@@ -1047,24 +1048,24 @@
 	icon_state = "scc_r"
 
 /obj/item/flag/scc
-	name = "Stellar Corporate Conglomerate flag"
+	name = "\improper Stellar Corporate Conglomerate flag"
 	desc = "The flag representing the Stellar Corporate Conglomerate."
 	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	flag_path = "scc"
 
 /obj/item/flag/scc/l
-	name = "Large Stellar Corporate Conglomerate flag"
+	name = "large Stellar Corporate Conglomerate flag"
 	flag_size = 1
 
 /obj/item/flag/fisanduh
-	name = "Confederated States of Fisanduh flag"
+	name = "\improper Confederated States of Fisanduh flag"
 	desc = "A flag of the fallen Confederated States of Fisanduh."
 	desc_extended = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
 	subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
 	flag_path = "fisanduh"
 
 /obj/structure/sign/flag/fisanduh
-	name = "Confederated States of Fisanduh flag"
+	name = "\improper Confederated States of Fisanduh flag"
 	desc = "A flag of the fallen Confederated States of Fisanduh."
 	desc_extended = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
 	subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
@@ -1081,7 +1082,7 @@
 	icon_state = "fisanduh_r"
 
 /obj/item/flag/gadpathur
-	name = "United Planetary Defense Council of Gadpathur flag"
+	name = "\improper United Planetary Defense Council of Gadpathur flag"
 	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. \
 	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
 	desc_extended = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
@@ -1090,7 +1091,7 @@
 	flag_path = "gadpathur"
 
 /obj/structure/sign/flag/gadpathur
-	name = "United Planetary Defense Council of Gadpathur flag"
+	name = "\improper United Planetary Defense Council of Gadpathur flag"
 	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. \
 	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
 	desc_extended = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
@@ -1109,14 +1110,14 @@
 	icon_state = "gadpathur_r"
 
 /obj/item/flag/vysoka
-	name = "Free System of Vysoka flag"
+	name = "\improper Free System of Vysoka flag"
 	desc = "The flag of the Free System of Vysoka."
 	desc_extended = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to \
 	identify with local symbols. This has not stopped the original flag from being flown in times of much-needed unity."
 	flag_path = "vysoka"
 
 /obj/structure/sign/flag/vysoka
-	name = "Free System of Vysoka flag"
+	name = "\improper Free System of Vysoka flag"
 	desc = "The flag of the Free System of Vysoka."
 	desc_extended = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to \
 	identify with local symbols. This has not stopped the original flag from being flown in times of much-needed unity."
@@ -1133,14 +1134,14 @@
 	icon_state = "vysoka_r"
 
 /obj/item/flag/konyang
-	name = "Konyang flag"
+	name = "\improper Konyang flag"
 	desc = "The flag of Konyang."
 	desc_extended = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of \
 	the new state, with the color blue representing the waterways the planet is known for and yellow, their aim of prosperity. The white background represents Konyang's purity."
 	flag_path = "konyang"
 
 /obj/structure/sign/flag/konyang
-	name = "Konyang flag"
+	name = "\improper Konyang flag"
 	desc = "The flag of Konyang."
 	desc_extended = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of \
 	the new state, with the color blue representing the waterways the planet is known for and yellow, their aim of prosperity. The white background represents Konyang's purity."
@@ -1157,7 +1158,7 @@
 	icon_state = "konyang_r"
 
 /obj/item/flag/izharshan
-	name = "Izharshan Flag"
+	name = "\improper Izharshan Flag"
 	desc = "The tan and orange flag of Izharshan's Raiders, depicting a Unathi skull and a star above, surrounded by axes. Due to the sheer size of Izharshan's fleet, and the wide area in \
 	which they operate has this specific flag be sighted far and wide, leading to the misconception for some that it is in fact used by all Unathi pirates."
 	desc_extended = "Iconography is taken quite seriously among Unathi pirates. With much time to spare during lengthy flights, it's not rare for crew, especially officers, to indulge in arts, leading to fleets often finding skilled artists \
@@ -1167,7 +1168,7 @@
 	flag_path = "izharshan"
 
 /obj/structure/sign/flag/izharshan
-	name = "Izharshan Flag"
+	name = "\improper Izharshan Flag"
 	desc = "The tan and orange flag of Izharshan's Raiders, depicting a Unathi skull and a star above, surrounded by axes. Due to the sheer size of Izharshan's fleet, and the wide area in \
 	which they operate has this specific flag be sighted far and wide, leading to the misconception for some that it is in fact used by all Unathi pirates."
 	desc_extended = "Iconography is taken quite seriously among Unathi pirates. With much time to spare during lengthy flights, it's not rare for crew, especially officers, to indulge in arts, leading to fleets often finding skilled artists \

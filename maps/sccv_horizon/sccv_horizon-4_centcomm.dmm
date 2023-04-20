@@ -34303,7 +34303,7 @@
 "bFW" = (
 /obj/effect/decal/fake_object{
 	desc = "The flag of the Trinary Perfection.";
-	icon = 'icons/obj/flags.dmi';
+	icon = 'icons/obj/structure/flags.dmi';
 	icon_state = "trinaryperfection";
 	name = "Trinary Perfection flag";
 	layer = 2.9;
@@ -34357,7 +34357,7 @@
 	},
 /obj/effect/decal/fake_object{
 	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia.";
-	icon = 'icons/obj/flags.dmi';
+	icon = 'icons/obj/structure/flags.dmi';
 	icon_state = "dominia";
 	name = "Dominian Empire flag";
 	layer = 2.9;
@@ -40061,7 +40061,7 @@
 	},
 /obj/effect/decal/fake_object{
 	desc = "The flag of the Trinary Perfection.";
-	icon = 'icons/obj/flags.dmi';
+	icon = 'icons/obj/structure/flags.dmi';
 	icon_state = "trinaryperfection";
 	name = "Trinary Perfection flag";
 	layer = 2.9;
