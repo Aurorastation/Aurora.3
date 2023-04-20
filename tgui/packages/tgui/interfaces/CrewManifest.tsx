@@ -3,7 +3,7 @@ import { Manifest } from './common/Manifest';
 
 export const CrewManifest = () => {
   return (
-    <Window>
+    <Window title={'Crew Manifest'}>
       <Window.Content scrollable>
         <Manifest />
       </Window.Content>

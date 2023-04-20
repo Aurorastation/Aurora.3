@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../../common/react';
 import { useBackend } from '../../backend';
-import { Section, Table } from '../../components';
+import { Icon, Section, Table, Tooltip } from '../../components';
 import { TableCell, TableRow } from '../../components/Table';
 
 type ManifestData = {
@@ -10,7 +10,7 @@ type ManifestData = {
 type Crew = {
   name: string;
   rank: string;
-  active: BooleanLike;
+  active: string;
   head: BooleanLike;
 };
 
@@ -23,14 +23,32 @@ export const Manifest = (props, context) => {
       {Object.keys(manifest).map((dept) => {
         const deptCrew = manifest[dept];
         return (
-          <Section key={dept} title={dept} textAlign="center">
+          <Section
+            key={dept}
+            title={dept}
+            textAlign="center"
+            className={'border-dept-' + dept.toLowerCase()}>
             <Table>
               {deptCrew.map((crewmate) => {
                 return (
-                  <TableRow key={crewmate.name}>
-                    <TableCell width="50%">{crewmate.name}</TableCell>
-                    <TableCell width="35%">{crewmate.rank}</TableCell>
-                    <TableCell>{crewmate.active}</TableCell>
+                  <TableRow key={crewmate.name} bold={crewmate.head}>
+                    <TableCell width="50%" overflow="hidden">
+                      {crewmate.name}
+                    </TableCell>
+                    <TableCell width="50%" overflow="hidden">
+                      {crewmate.rank}
+                    </TableCell>
+                    <TableCell textAlign="right">
+                      <Tooltip content={crewmate.active}>
+                        <Icon
+                          name="circle"
+                          className={
+                            'manifest-indicator-' +
+                            crewmate.active.toLowerCase()
+                          }
+                        />
+                      </Tooltip>
+                    </TableCell>
                   </TableRow>
                 );
               })}

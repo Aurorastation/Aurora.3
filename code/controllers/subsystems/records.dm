@@ -178,6 +178,7 @@
 
 /datum/controller/subsystem/records/proc/reset_manifest()
 	manifest.Cut()
+	update_static_data_for_all_viewers()
 
 /datum/controller/subsystem/records/ui_state(mob/user)
 	return always_state
@@ -194,6 +195,11 @@
 					O.ManualFollow(M)
 					break
 	. = ..()
+
+/datum/controller/subsystem/records/ui_static_data(mob/user)
+	var/list/data = list()
+	data["manifest"] = SSrecords.get_manifest_list()
+	return data
 
 /datum/controller/subsystem/records/proc/open_manifest_tgui(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
