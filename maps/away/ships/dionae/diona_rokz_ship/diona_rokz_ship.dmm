@@ -994,6 +994,14 @@
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
+"MP" = (
+/obj/item/gun/energy/net,
+/obj/item/gun/energy/net,
+/obj/item/gun/energy/net,
+/obj/structure/closet/crate/drop,
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship/bridge)
 "Nn" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -30990,7 +30998,7 @@ eO
 WA
 vS
 vS
-rV
+MP
 eO
 Eh
 Wg
