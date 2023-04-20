@@ -4759,13 +4759,10 @@
 "eny" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/machinery/firealarm/south,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "enA" = (
@@ -10152,9 +10149,7 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "iya" = (
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 9
-	},
+/obj/effect/floor_decal/corner_wide/green/full,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "iyP" = (
@@ -17590,20 +17585,20 @@
 /turf/simulated/floor/plating,
 /area/horizon/security/firing_range)
 "ooA" = (
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/power/apc{
 	name = "south bump";
 	pixel_y = -24
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/cable/green,
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/structure/closet/secure_closet/personal,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55);
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "ooU" = (
@@ -17620,14 +17615,14 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge)
 "opw" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28;
-	req_one_access = list(24,11,55)
-	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = 24;
+	pixel_y = -7
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "opC" = (
@@ -18079,9 +18074,13 @@
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "oIL" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "oIR" = (
@@ -19810,15 +19809,6 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
 "qrw" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -21641,14 +21631,16 @@
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "rTk" = (
-/obj/machinery/light_switch{
-	dir = 8;
-	pixel_x = 23;
-	pixel_y = -9
-	},
-/obj/structure/closet/secure_closet/personal,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "rTt" = (
@@ -26016,11 +26008,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "vlC" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/medical{
+	name = "Staff Showers";
+	req_access = list(5)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -26028,12 +26019,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/medical{
-	name = "Staff Showers";
-	req_access = list(5)
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/full,
 /area/medical/washroom)
 "vlW" = (
 /obj/structure/cable/green{
@@ -27600,15 +27589,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
 "wAv" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 4
 	},
@@ -27617,6 +27597,11 @@
 	},
 /obj/structure/disposalpipe/junction{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -43216,8 +43201,8 @@ vLY
 vLY
 vLY
 vLY
-vLY
 vlC
+vLY
 vLY
 biw
 qVa
@@ -43418,8 +43403,8 @@ qSM
 gHo
 rXj
 kvB
-iya
 pBE
+iya
 ajj
 jWd
 hzK
