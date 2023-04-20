@@ -4861,10 +4861,6 @@
 "erx" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/mirror{
-	pixel_x = 26;
-	pixel_y = 3
-	},
-/obj/structure/mirror{
 	pixel_y = 32
 	},
 /obj/structure/sink{
@@ -20635,6 +20631,7 @@
 /obj/machinery/shower{
 	pixel_y = 24
 	},
+/obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
 "rhT" = (
