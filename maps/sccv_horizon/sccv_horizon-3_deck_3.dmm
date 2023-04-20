@@ -10149,8 +10149,11 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "iya" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/hallway/deck_three/primary/starboard)
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/vacantoffice)
 "iyP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -12213,12 +12216,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
-"kdU" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/security/vacantoffice)
 "kfc" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -25202,13 +25199,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
-"uJb" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Docks"
-	},
-/turf/simulated/floor/tiled/full,
-/area/horizon/hallway/deck_three/primary/starboard)
 "uJh" = (
 /obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -25507,6 +25497,23 @@
 	},
 /turf/simulated/open/airless,
 /area/template_noop)
+"uSe" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/medical{
+	name = "Staff Showers";
+	req_access = list(5)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/full,
+/area/medical/washroom)
 "uSE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -26020,9 +26027,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "vlC" = (
-/obj/effect/floor_decal/corner_wide/green/full,
-/turf/simulated/floor/tiled/white,
-/area/hallway/medical/upper)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/hallway/deck_three/primary/starboard)
 "vlW" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -27187,6 +27193,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
+"wlr" = (
+/obj/effect/floor_decal/corner_wide/green/full,
+/turf/simulated/floor/tiled/white,
+/area/hallway/medical/upper)
 "wlV" = (
 /obj/machinery/telecomms/server/presets/science,
 /turf/simulated/floor/bluegrid,
@@ -27633,21 +27643,11 @@
 /area/maintenance/bridge)
 "wEU" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/medical{
-	name = "Staff Showers";
-	req_access = list(5)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/machinery/door/airlock/glass{
+	name = "Deck 3 Starboard Docks"
 	},
 /turf/simulated/floor/tiled/full,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "wFq" = (
 /obj/machinery/door/airlock/maintenance{
 	req_one_access = list(5,12)
@@ -42400,11 +42400,11 @@ qGg
 fxk
 gvG
 cEy
-iya
-iya
-iya
-iya
-uJb
+vlC
+vlC
+vlC
+vlC
+wEU
 trI
 iEg
 uba
@@ -43205,7 +43205,7 @@ vLY
 vLY
 vLY
 vLY
-wEU
+uSe
 vLY
 vLY
 biw
@@ -43408,7 +43408,7 @@ gHo
 rXj
 kvB
 pBE
-vlC
+wlr
 ajj
 jWd
 hzK
@@ -45033,7 +45033,7 @@ gdT
 ihI
 gqJ
 qhK
-kdU
+iya
 kQw
 itg
 mzm
