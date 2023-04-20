@@ -37,6 +37,7 @@
 		banner_icon = new('icons/obj/structure/flags.dmi', "banner_stand")
 		flag_icon.Blend(banner_icon, ICON_UNDERLAY)
 	icon = flag_icon
+	verbs += /obj/structure/sign/flag/proc/toggle
 
 /obj/structure/sign/flag/blank
 	name = "blank banner"
