@@ -518,13 +518,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/investigations_hallway)
-"aoq" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Docks"
-	},
-/turf/simulated/floor/tiled/full,
-/area/horizon/hallway/deck_three/primary/starboard)
 "aoA" = (
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -10156,9 +10149,8 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "iya" = (
-/obj/effect/floor_decal/corner_wide/green/full,
-/turf/simulated/floor/tiled/white,
-/area/hallway/medical/upper)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/hallway/deck_three/primary/starboard)
 "iyP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -12221,6 +12213,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
+"kdU" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/vacantoffice)
 "kfc" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -25204,6 +25202,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"uJb" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass{
+	name = "Deck 3 Starboard Docks"
+	},
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/starboard)
 "uJh" = (
 /obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -26015,8 +26020,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "vlC" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/hallway/deck_three/primary/starboard)
+/obj/effect/floor_decal/corner_wide/green/full,
+/turf/simulated/floor/tiled/white,
+/area/hallway/medical/upper)
 "vlW" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -42394,11 +42400,11 @@ qGg
 fxk
 gvG
 cEy
-vlC
-vlC
-vlC
-vlC
-aoq
+iya
+iya
+iya
+iya
+uJb
 trI
 iEg
 uba
@@ -43402,7 +43408,7 @@ gHo
 rXj
 kvB
 pBE
-iya
+vlC
 ajj
 jWd
 hzK
@@ -45027,7 +45033,7 @@ gdT
 ihI
 gqJ
 qhK
-bas
+kdU
 kQw
 itg
 mzm
