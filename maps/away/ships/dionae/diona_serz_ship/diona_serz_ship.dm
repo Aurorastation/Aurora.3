@@ -53,8 +53,8 @@
 	name = "Serz Clan Ship"
 	class = "SCS"
 	desc = "A ship belonging to the Serz voidtamer clan, a group of dionae who specialize in selling space fauna."
-	icon_state = "diona"
-	moving_state = "diona_moving"
+	icon_state = "asteroid_cluster"
+	moving_state = "asteroid_cluster_moving"
 	colors = list("#5cc04c", "#78f898")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
