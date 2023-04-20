@@ -324,11 +324,6 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
-"be" = (
-/obj/effect/decal/cleanable/blood/tracks/footprints,
-/obj/item/stack/material/steel,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
 "bf" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "loadingarea";
@@ -453,10 +448,6 @@
 /obj/item/clothing/suit/space/void/skrell/black,
 /obj/item/clothing/under/skrell,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
-"bA" = (
-/obj/effect/decal/cleanable/blood/tracks/footprints,
-/turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "bB" = (
 /obj/machinery/cryopod,
@@ -656,9 +647,7 @@
 "ck" = (
 /obj/effect/decal/cleanable/blood/tracks/footprints,
 /obj/item/clothing/under/offworlder,
-/obj/random/weapon_and_ammo{
-	chosen_rarity = "Common"
-	},
+/obj/item/gun/energy/pistol,
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "cl" = (
@@ -773,7 +762,11 @@
 /turf/simulated/floor/shuttle/advanced,
 /area/template_noop)
 "cH" = (
-/obj/structure/shuttle/engine/propulsion,
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1;
+	name = "advanced rocket nozzle";
+	desc = "Advanced rocket nozzle, expelling gas at hypersonic velocities to propell the ship. This one used to be very efficient."
+	},
 /turf/simulated/floor/shuttle/advanced,
 /area/template_noop)
 "cI" = (
@@ -783,7 +776,6 @@
 "cJ" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
-/obj/item/plastique,
 /turf/simulated/floor/shuttle/advanced,
 /area/template_noop)
 "cK" = (
@@ -1152,7 +1144,7 @@ al
 al
 al
 ap
-bA
+aH
 aH
 ap
 aR
@@ -1186,7 +1178,7 @@ al
 ct
 al
 bc
-bA
+aH
 aH
 ap
 aR
@@ -1220,7 +1212,7 @@ al
 bP
 cu
 ap
-be
+cM
 aH
 cO
 cx
