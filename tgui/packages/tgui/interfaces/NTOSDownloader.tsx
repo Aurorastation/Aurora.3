@@ -1,14 +1,12 @@
+import { toFixed } from 'common/math';
 import { useBackend } from '../backend';
-import { BlockQuote, Button, Collapsible, Section, Stack } from '../components';
+import { Box, BlockQuote, Button, Collapsible, Section, Stack, ProgressBar } from '../components';
 import { NtosWindow } from '../layouts';
 
-type NTOSProgram = {
+type NTOSDownloadable = {
   name: string;
   filename: string;
   size: number;
-};
-
-type NTOSDownloadable = NTOSProgram & {
   desc: string;
   stat: number;
 };
@@ -19,7 +17,6 @@ type NTOSDownload = {
 };
 
 type NTOSDownloaderData = {
-  installed: NTOSProgram[];
   available: NTOSDownloadable[];
   disk_size: number;
   disk_used: number;
@@ -28,42 +25,59 @@ type NTOSDownloaderData = {
   queue: NTOSDownload[];
 };
 
+const DownloadListing = (props, context) => {
+  const { act, data } = useBackend<NTOSDownloaderData>(context);
+  const { available } = data;
+  const filteredAvailable = available.filter((prg) => !prg.stat);
+  return (
+    <Stack fill vertical>
+      {filteredAvailable.map((prg) => {
+        return (
+          <Stack.Item key={prg.filename} my={0}>
+            <Collapsible
+              color="transparent"
+              title={prg.name}
+              buttons={
+                <Button
+                  icon="download"
+                  color="blue"
+                  tooltip="Download"
+                  onClick={() => act('download', prg)}
+                />
+              }>
+              <Stack>
+                <Stack.Item grow>
+                  <BlockQuote ml={2}>{prg.desc}</BlockQuote>
+                </Stack.Item>
+                <Stack.Item>
+                  <Box mr={1} color="label">
+                    {prg.size} GQ
+                  </Box>
+                </Stack.Item>
+              </Stack>
+            </Collapsible>
+          </Stack.Item>
+        );
+      })}
+    </Stack>
+  );
+};
+
 export const NTOSDownloader = (props, context) => {
   const { act, data } = useBackend<NTOSDownloaderData>(context);
-  const {
-    installed,
-    available,
-    disk_size,
-    disk_used,
-    queue_size,
-    speed,
-    queue,
-  } = data;
-  const filteredAvailable = available.filter((prg) => !prg.stat);
+  const { available, disk_size, disk_used, queue_size, speed, queue } = data;
   return (
     <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section title="NtOS Software Download Utility">
-          <Stack fill vertical>
-            {filteredAvailable.map((prg) => {
-              return (
-                <Stack.Item key={prg.filename} my={0}>
-                  <Collapsible
-                    color="transparent"
-                    title={prg.name}
-                    buttons={
-                      <Button
-                        icon="download"
-                        color="transparent"
-                        tooltip="Download"
-                      />
-                    }>
-                    <BlockQuote ml={2}>{prg.desc}</BlockQuote>
-                  </Collapsible>
-                </Stack.Item>
-              );
-            })}
-          </Stack>
+          <ProgressBar
+            mb={2}
+            mt={1}
+            value={disk_used / disk_size}
+            ranges={{ average: [0.75, 0.9], bad: [0.9, Infinity] }}>
+            {disk_used} / {disk_size} GQ ({toFixed(disk_used / disk_size)}%)
+          </ProgressBar>
+          <DownloadListing />
         </Section>
       </NtosWindow.Content>
     </NtosWindow>

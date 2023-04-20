@@ -32,14 +32,6 @@
 
 /datum/computer_file/program/ntnetdownload/ui_static_data(mob/user)
 	var/list/data = list()
-	data["installed"] = list()
-	for(var/datum/computer_file/program/I in hard_drive.stored_files)
-		data["installed"] += list(list(
-			"filename" = I.filename,
-			"name" = I.filedesc,
-			"size" = I.size
-		))
-
 	for(var/datum/computer_file/program/P in ntnet_global.available_software)
 		if(P in hard_drive.stored_files)
 			continue
