@@ -413,11 +413,30 @@
 	icon_state = "6,2"
 
 //scc shuttle pieces
-
 /turf/simulated/wall/shuttle/unique/scc
 	name = "shuttle hull"
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
+	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi'
 	icon_state = "c1"
+
+/obj/structure/shuttle_part/scc
+	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi'
+	icon_state = "c1"
+
+/obj/structure/window/shuttle/unique/scc
+	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi'
+	icon_state = "c1"
+
+/turf/simulated/wall/shuttle/unique/scc/scout
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
+	icon_state = "4,1"
+
+/obj/structure/shuttle_part/scc/scout
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/scc/scout
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
+	icon_state = "4,1"
 
 //--Floors--//
 

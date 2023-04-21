@@ -366,6 +366,14 @@
 	if(!buckled)
 		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_MOB_LAYER)
 
+/obj/structure/bed/stool/chair/shuttle/cockpit
+	name = "cockpit seating"
+	desc = "A heavy set of belts and buckles, completed by a hinging arm mechanism that surrounds the occupant. Perfect for flying shuttles."
+	icon = 'icons/obj/cockpit_chair.dmi'
+	icon_state = "cockpit_chair_preview"
+	base_icon = "cockpit_chair"
+	obj_flags = null
+
 // pool chair, to sit with your feet in the water. only works when facing south, because water overlays weirdly otherwise
 /obj/structure/bed/stool/chair/pool
 	name = "pool chair"

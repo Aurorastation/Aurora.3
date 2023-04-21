@@ -1394,6 +1394,9 @@
 	. = ..()
 	icon_state = "air"
 
+/obj/machinery/atmospherics/pipe/tank/air/scc_shuttle
+	icon = 'icons/obj/spaceship/scc/atmos.dmi'
+
 /obj/machinery/atmospherics/pipe/tank/oxygen
 	name = "Pressure Tank (Oxygen)"
 	icon_state = "o2_map"
@@ -1435,6 +1438,9 @@
 
 	. = ..()
 	icon_state = "co2"
+
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide/scc_shuttle
+	icon = 'icons/obj/spaceship/scc/atmos.dmi'
 
 /obj/machinery/atmospherics/pipe/tank/phoron
 	name = "Pressure Tank (Phoron)"
