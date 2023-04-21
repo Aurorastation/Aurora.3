@@ -294,6 +294,12 @@
 	temperature = 268.15
 	},
 /area/adhomai_village)
+"pz" = (
+/mob/living/simple_animal/climber,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_village)
 "pK" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/item/seeds/earthenroot,
@@ -959,6 +965,7 @@
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -991,8 +998,9 @@
 /area/adhomai_village)
 "Vv" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lantern,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/saddle,
+/obj/item/device/flashlight/lantern,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -1033,7 +1041,7 @@
 "Yn" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = -6;
 	pixel_y = 8
@@ -1720,7 +1728,7 @@ Gu
 IJ
 Wa
 BZ
-TQ
+pz
 TQ
 zf
 Gu

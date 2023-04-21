@@ -16,6 +16,16 @@
 	changeling.space_adapted = TRUE
 	return TRUE
 
+/mob/proc/changeling_armor()
+	AddComponent(/datum/component/armor, list(melee = ARMOR_MELEE_RESISTANT, bullet = ARMOR_BALLISTIC_CARBINE, laser = ARMOR_LASER_MEDIUM))
+	return TRUE
+
+//removes the need to breathe
+/mob/proc/changeling_nobreathing()
+	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	changeling.no_breathing = TRUE
+	return TRUE
+
 // HIVE MIND UPLOAD/DOWNLOAD DNA
 
 var/list/datum/absorbed_dna/hivemind_bank = list()
@@ -51,7 +61,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	if(!chosen_dna)
 		return
 
-	changeling.chem_charges -= 10
+	changeling.use_charges(10)
 	hivemind_bank += chosen_dna
 	to_chat(src, "<span class='notice'>We channel the DNA of [S] to the air.</span>")
 	feedback_add_details("changeling_powers", "HU")
@@ -83,7 +93,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	if(!chosen_dna)
 		return
 
-	changeling.chem_charges -= 20
+	changeling.use_charges(20)
 	absorbDNA(chosen_dna)
 	to_chat(src, "<span class='notice'>We absorb the DNA of [S] from the air.</span>")
 	feedback_add_details("changeling_powers", "HD")

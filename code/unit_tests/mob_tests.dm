@@ -32,7 +32,7 @@ datum/unit_test/mob_hear
 datum/unit_test/mob_hear/start_test()
 	var/mobloc = pick(tdome1)
 	if(!mobloc)
-		fail("Unable to find a location to create test mob")
+		TEST_FAIL("Unable to find a location to create test mob")
 		return 0
 	for(var/mob/M in get_turf(mobloc))
 		QDEL_NULL(M)
@@ -40,45 +40,45 @@ datum/unit_test/mob_hear/start_test()
 	var/list/test_listener = create_test_mob_with_mind(mobloc, mob_type, TRUE)
 
 	if(isnull(test_speaker) || isnull(test_listener))
-		fail("Check Runtimed in Mob creation")
+		TEST_FAIL("Check Runtimed in Mob creation")
 		return 0
 
 	if(test_speaker["result"] == FAILURE )
-		fail(test_speaker["msg"])
+		TEST_FAIL(test_speaker["msg"])
 		return 0
 	else if(test_listener ["result"] == FAILURE)
-		fail(test_listener["msg"])
+		TEST_FAIL(test_listener["msg"])
 		return 0
 
 	var/mob/living/test/test_speaker_mob = locate(test_speaker["mobref"])
 	var/mob/living/test/test_listener_mob = locate(test_listener["mobref"])
 
 	if(isnull(test_speaker_mob) || isnull(test_listener_mob))
-		fail("Test unable to set test mob from reference")
+		TEST_FAIL("Test unable to set test mob from reference")
 		return 0
 
 	if(test_speaker_mob.stat)
-		fail("Test needs to be re-written, mob has a stat = [test_speaker_mob.stat]")
+		TEST_FAIL("Test needs to be re-written, mob has a stat = [test_speaker_mob.stat]")
 		return 0
 	else if(test_listener_mob.stat)
-		fail("Test needs to be re-written, mob has a stat = [test_speaker_mob.stat]")
+		TEST_FAIL("Test needs to be re-written, mob has a stat = [test_speaker_mob.stat]")
 		return 0
 
 	if(test_speaker_mob.sleeping || test_listener_mob.sleeping)
-		fail("Test needs to be re-written, mob is sleeping for some unknown reason")
+		TEST_FAIL("Test needs to be re-written, mob is sleeping for some unknown reason")
 		return 0
 
 	var/message = "Test, can you hear me?"
 	var/said = test_speaker_mob.say(message)
 
 	if(said && test_listener_mob.heard)
-		pass("speech test complete, speaker said \"[message]\" and listener received it.")
+		TEST_PASS("speech test complete, speaker said \"[message]\" and listener received it.")
 		return 1
 	else if(said)
-		fail("speaker said the words, but listener did not hear it. The message was \"[message]\", the difference were X: [test_listener_mob.loc.x - test_speaker_mob.loc.x], Y: [test_listener_mob.loc.y - test_speaker_mob.loc.y]")
+		TEST_FAIL("speaker said the words, but listener did not hear it. The message was \"[message]\", the difference were X: [test_listener_mob.loc.x - test_speaker_mob.loc.x], Y: [test_listener_mob.loc.y - test_speaker_mob.loc.y]")
 		return 0
 	else
-		fail("speaker did not say the words \"[message]\"")
+		TEST_FAIL("speaker did not say the words \"[message]\"")
 		return 0
 
 datum/unit_test/human_breath
@@ -109,9 +109,9 @@ datum/unit_test/human_breath/check_result()
 	ending_oxyloss = damage_check(H, DAMAGE_OXY)
 
 	if(starting_oxyloss < ending_oxyloss)
-		pass("Oxyloss = [ending_oxyloss]")
+		TEST_PASS("Oxyloss = [ending_oxyloss]")
 	else
-		fail("Mob is not taking oxygen damage.  Damange is [ending_oxyloss]")
+		TEST_FAIL("Mob is not taking oxygen damage.  Damange is [ending_oxyloss]")
 
 	return 1	// return 1 to show we're done and don't want to recheck the result.
 
@@ -202,26 +202,26 @@ datum/unit_test/mob_damage/start_test()
                                 // Which makes checks impossible.
 
 	if(isnull(test))
-		fail("Check Runtimed in Mob creation")
+		TEST_FAIL("Check Runtimed in Mob creation")
 		return 0
 
 	if(test["result"] == FAILURE)
-		fail(test["msg"])
+		TEST_FAIL(test["msg"])
 		return 0
 
 	var/mob/living/carbon/human/H = locate(test["mobref"])
 
 	if(isnull(H))
-		fail("Test unable to set test mob from reference")
+		TEST_FAIL("Test unable to set test mob from reference")
 		return 0
 
 	if(H.stat)
 
-		fail("Test needs to be re-written, mob has a stat = [H.stat]")
+		TEST_FAIL("Test needs to be re-written, mob has a stat = [H.stat]")
 		return 0
 
 	if(H.sleeping)
-		fail("Test needs to be re-written, mob is sleeping for some unknown reason")
+		TEST_FAIL("Test needs to be re-written, mob is sleeping for some unknown reason")
 		return 0
 
 	// Damage the mob
@@ -273,9 +273,9 @@ datum/unit_test/mob_damage/start_test()
 	var/msg = "Damage taken: [ending_damage] out of [damage_amount] || expected: [expected_msg] \[Overall Health:[ending_health] (Initial: [initial_health])\]"
 
 	if(failure)
-		fail(msg)
+		TEST_FAIL(msg)
 	else
-		pass(msg)
+		TEST_PASS(msg)
 
 	return 1
 
@@ -524,7 +524,7 @@ datum/unit_test/robot_module_icons
 datum/unit_test/robot_module_icons/start_test()
 	var/failed = 0
 	if(!isicon(icon_file))
-		fail("[icon_file] is not a valid icon file.")
+		TEST_FAIL("[icon_file] is not a valid icon file.")
 		return 1
 
 	var/list/valid_states = icon_states(icon_file)
@@ -535,13 +535,13 @@ datum/unit_test/robot_module_icons/start_test()
 	for(var/i=1, i<=robot_modules.len, i++)
 		var/bad_msg = "[ascii_red]--------------- [robot_modules[i]]"
 		if(!(lowertext(robot_modules[i]) in valid_states))
-			log_unit_test("[bad_msg] does not contain a valid icon state in [icon_file][ascii_reset]")
+			TEST_FAIL("[bad_msg] does not contain a valid icon state in [icon_file][ascii_reset]")
 			failed=1
 
 	if(failed)
-		fail("Some icon states did not exist")
+		TEST_FAIL("Some icon states did not exist")
 	else
-		pass("All modules had valid icon states")
+		TEST_PASS("All modules had valid icon states")
 
 	return 1
 

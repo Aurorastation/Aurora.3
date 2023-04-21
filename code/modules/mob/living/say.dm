@@ -112,6 +112,8 @@ proc/get_radio_key_from_channel(var/channel)
 				Weaken(3)
 			if(11 to 60)
 				to_chat(src, SPAN_WARNING("You struggle to speak with your dislocated jaw!"))
+			else
+				. = null //This does nothing, it's to avoid a dreamchecker error
 		. = TRUE
 	else if(stuttering)
 		message = get_stuttered_message(message)
@@ -120,6 +122,10 @@ proc/get_radio_key_from_channel(var/channel)
 	else if(slurring)
 		message = slur(message, slurring)
 		say_verb = pick("slobbers", "slurs")
+		. = TRUE
+	else if(HAS_TRAIT(src, TRAIT_SPEAKING_GIBBERISH))
+		message = Gibberish(message, 40)
+		say_verb = pick("blurbles", "blorps")
 		. = TRUE
 
 	if(.)
@@ -166,10 +172,23 @@ proc/get_radio_key_from_channel(var/channel)
 			return FONT_SIZE_LARGE
 	return null
 
+/mob/proc/check_speech_punctuation_state(var/text)
+	var/ending = copytext(text, length(text))
+	if (ending == "?")
+		return "question"
+	else if (ending == "!")
+		return "exclamation"
+	return "statement"
+
+
 /mob/living/say(var/message, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(stat)
 		if(stat == DEAD)
 			return say_dead(message)
+		return
+
+	if(silent)
+		to_chat(src, SPAN_WARNING("You try to speak, but nothing comes out!"))
 		return
 
 	var/message_mode = parse_message_mode(message, "headset")
@@ -312,10 +331,20 @@ proc/get_radio_key_from_channel(var/channel)
 			hear_clients += M.client
 		listening -= M
 
-	var/speech_bubble_test = say_test(message)
-	var/image/speech_bubble = image(get_talk_bubble(),src,"h[speech_bubble_test]")
+	var/speech_bubble_state = check_speech_punctuation_state(message)
+	var/speech_state_modifier = get_speech_bubble_state_modifier()
+	if(speech_bubble_state && speech_state_modifier)
+		speech_bubble_state = "[speech_state_modifier]_[speech_bubble_state]"
+
+	var/image/speech_bubble
+	if(speech_bubble_state)
+		speech_bubble = image('icons/mob/talk.dmi', src, speech_bubble_state)
+		speech_bubble.layer = layer
+		speech_bubble.plane = plane
+
 	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, hear_clients, 30)
+
 	do_animate_chat(message, speaking, italics, hear_clients, 30)
 
 	var/bypass_listen_obj = (speaking && (speaking.flags & PASSLISTENOBJ))

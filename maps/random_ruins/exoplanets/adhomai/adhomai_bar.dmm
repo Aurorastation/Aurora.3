@@ -618,16 +618,9 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
-"BW" = (
-/obj/item/fossil/skull/horned{
-	desc = "It's a horned skull.";
-	name = "horned skull"
-	},
-/turf/simulated/wall/wood,
-/area/adhomai_bar)
 "BZ" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/cooking_container/plate,
+/obj/item/reagent_containers/bowl/plate,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -941,6 +934,11 @@
 /obj/item/material/knife/trench,
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/storage/box/fancy/candle_box,
+/obj/item/fossil/skull/horned{
+	desc = "It's a horned skull.";
+	name = "horned skull";
+	pixel_y = 33
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -1210,7 +1208,7 @@
 	},
 /area/adhomai_bar)
 "Yw" = (
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = -6;
 	pixel_y = 8
@@ -2076,7 +2074,7 @@ nR
 (21,1,1) = {"
 nR
 nR
-BW
+Xv
 RR
 eS
 eS

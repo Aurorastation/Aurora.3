@@ -149,7 +149,7 @@
 	var/return_damage_max
 
 	var/dead_on_map = FALSE //if true, kills the mob when it spawns (it is for mapping)
-
+	var/vehicle_version = null
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
@@ -306,14 +306,10 @@
 	if(stop_thinking)
 		return
 
-	if(!stop_automated_movement && wander && !anchored)
-		if(isturf(loc) && !resting && !buckled_to && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
-			if(turns_since_move >= turns_per_move && !(stop_automated_movement_when_pulled && pulledby))	 //Some animals don't move when pulled
-				var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
-				moving_to = wanders_diagonally ? pick(alldirs) : pick(cardinal)
-				set_dir(moving_to)			//How about we turn them the direction they are moving, yay.
-				Move(get_step(src,moving_to))
-				turns_since_move = 0
+	if(wander && !anchored && !stop_automated_movement)
+		if(isturf(loc) && !resting && !buckled_to && canmove)
+			if(!(pulledby && stop_automated_movement_when_pulled))
+				step_rand(src)
 
 	//Speaking
 	if(speak_chance && rand(0,200) < speak_chance)
@@ -548,6 +544,16 @@
 	poke(TRUE)
 
 /mob/living/simple_animal/attackby(obj/item/O, mob/user)
+	if(istype(O, /obj/item/saddle) && vehicle_version && (stat != DEAD))
+		var/obj/vehicle/V = new vehicle_version (get_turf(src))
+		V.health = health
+		V.maxhealth = maxHealth
+		to_chat(user, SPAN_WARNING("You place \the [O] on the \the [src]."))
+		user.drop_from_inventory(O)
+		O.forceMove(get_turf(src))
+		qdel(O)
+		qdel(src)
+
 	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
 		attacked_with_item(O, user)
 		return
@@ -855,7 +861,7 @@
 //Wakes the mob up from sleeping
 /mob/living/simple_animal/proc/wake_up()
 	if (stat != DEAD)
-		set_stat(UNCONSCIOUS)
+		set_stat(CONSCIOUS)
 		resting = 0
 		canmove = 1
 		wander = 1
@@ -971,6 +977,10 @@
 		attacker.apply_damage(rand(return_damage_min, return_damage_max), damage_type, hand_hurtie, used_weapon = description)
 		if(rand(25))
 			to_chat(attacker, SPAN_WARNING("Your attack has no obvious effect on \the [src]'s [description]!"))
+
+/mob/living/simple_animal/get_speech_bubble_state_modifier()
+	return ..() || "rough"
+
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

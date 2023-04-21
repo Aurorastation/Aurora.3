@@ -832,7 +832,7 @@ BLIND     // can't see anything
 	var/hud_holder
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/Initialize()
-	.=..()
+	. = ..()
 	hud_holder = hud
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/Destroy()
@@ -1103,7 +1103,7 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	eye_color = COLOR_PURPLE
 
 /obj/item/clothing/glasses/eyepatch/hud/science/Initialize()
-	..()
+	. = ..()
 	overlay = global_hud.science
 
 /obj/item/clothing/glasses/eyepatch/hud/thermal
@@ -1114,7 +1114,7 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	eye_color = COLOR_ORANGE
 
 /obj/item/clothing/glasses/eyepatch/hud/thermal/Initialize()
-	..()
+	. = ..()
 	overlay = global_hud.thermal
 
 /obj/item/clothing/glasses/eyepatch/hud/welder
@@ -1132,7 +1132,7 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	eye_color = COLOR_GREEN
 
 /obj/item/clothing/glasses/eyepatch/hud/night/Initialize()
-	..()
+	. = ..()
 	overlay = global_hud.nvg
 
 //from verkister

@@ -395,7 +395,7 @@ This function restores all organs.
 	if (invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
 		if(damage > 0)
 			to_chat(src, "<span class='danger'>You are now visible.</span>")
-			src.invisibility = 0
+			set_invisibility(0)
 
 	var/obj/item/organ/external/organ = isorgan(def_zone) ? def_zone : get_organ(def_zone, TRUE)
 	if(!organ)
@@ -465,7 +465,7 @@ This function restores all organs.
 		rads = rads * species.radiation_mod
 	..(rads)
 
-/mob/living/carbon/human/proc/get_shock()
+/mob/living/carbon/human/get_shock()
 	if(!can_feel_pain())
 		return 0
 

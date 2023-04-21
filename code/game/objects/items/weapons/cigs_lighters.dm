@@ -415,6 +415,26 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		/singleton/reagent/mental/nicotine = 5
 	)
 
+/obj/item/clothing/mask/smokable/cigarette/sweet
+	reagents_to_add = list(
+		/singleton/reagent/toxin/tobacco/sweet = 10,
+		/singleton/reagent/mental/nicotine = 5
+	)
+
+/obj/item/clothing/mask/smokable/cigarette/dyn
+	name =  "dyn cigarette"
+	desc = "A mentholated cigarette from Nralakk made with processed dyn."
+	reagents_to_add = list(
+		/singleton/reagent/toxin/tobacco/sweet = 5,
+		/singleton/reagent/mental/nicotine = 5,
+		/singleton/reagent/drink/dynjuice = 5
+	)
+
+/obj/item/clothing/mask/smokable/cigarette/wulu
+	name = "wulumunusha cigarette"
+	desc = "A wulumunusha cigarette commonly smoked by Skrell for religious purposes."
+	reagents_to_add = list(/singleton/reagent/wulumunusha = 15)
+
 ////////////
 // CIGARS //
 ////////////

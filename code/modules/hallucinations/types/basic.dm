@@ -147,6 +147,8 @@
 			holder.make_dizzy(105)
 		if(3)
 			to_chat(holder, SPAN_GOOD("You feel good."))
+		else
+			. = null //This does nothing, it's to avoid a dreamchecker error
 	..()
 
 //the prick feeling but you actually imagine someone injecting you

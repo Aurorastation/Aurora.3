@@ -113,7 +113,7 @@
 
 /obj/structure/pit/closed/hidden/open()
 	..()
-	invisibility = INVISIBILITY_LEVEL_ONE
+	set_invisibility(INVISIBILITY_LEVEL_ONE)
 
 
 //buried land mines
@@ -135,7 +135,7 @@
 
 /obj/structure/pit/landmine/hidden/open()
 	..()
-	invisibility = INVISIBILITY_LEVEL_ONE
+	set_invisibility(INVISIBILITY_LEVEL_ONE)
 
 //spoooky
 /obj/structure/pit/closed/grave

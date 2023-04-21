@@ -48,10 +48,9 @@
 /obj/item/clothing/under/chameleon
 //starts off as black
 	name = "black jumpsuit"
-	icon_state = "black"
-	item_state = "bl_suit"
-	worn_state = "black"
 	desc = "It's a plain jumpsuit. It seems to have a small dial on the wrist."
+	icon_state = "ninja"
+	item_state = "ninja"
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
 
@@ -89,6 +88,7 @@
 	desc = "It looks like a softcap in a tasteless color, but upon closer inspection there's an advanced holographic array installed inside. It seems to have a small dial inside."
 	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
+	item_state = "softcap"
 	origin_tech = list(TECH_ILLEGAL = 3)
 	body_parts_covered = 0
 	var/global/list/clothing_choices

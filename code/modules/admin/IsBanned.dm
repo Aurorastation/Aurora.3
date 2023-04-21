@@ -52,7 +52,7 @@ world/IsBanned(key, address, computer_id, type, real_bans_only = FALSE)
 
 
 		if(!establish_db_connection(dbcon))
-			error("Ban database connection failure. Key [ckey] not checked")
+			log_error("Ban database connection failure. Key [ckey] not checked")
 			log_misc("Ban database connection failure. Key [ckey] not checked")
 			return ..()
 

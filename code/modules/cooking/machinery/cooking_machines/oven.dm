@@ -51,12 +51,13 @@
 
 /obj/machinery/appliance/cooker/oven/update_icon()
 	if (!open)
-		if (!stat)
-			icon_state = "ovenclosed_on"
-		else
-			icon_state = "ovenclosed_off"
+		icon_state = "ovenclosed"
 	else
 		icon_state = "ovenopen"
+	cut_overlays()
+	if (!stat)
+		var/glow = image('icons/obj/cooking_machines.dmi', "oven_on", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(glow)
 	..()
 
 /obj/machinery/appliance/cooker/oven/AltClick(var/mob/user)

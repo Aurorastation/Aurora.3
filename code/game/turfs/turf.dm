@@ -66,8 +66,6 @@
 	for(var/atom/movable/AM as mob|obj in src)
 		Entered(AM, src)
 
-	turfs += src
-
 	if (isStationLevel(z))
 		station_turfs += src
 
@@ -112,7 +110,6 @@
 		crash_with("Improper turf qdeletion.")
 
 	changing_turf = FALSE
-	turfs -= src
 
 	if (isStationLevel(z))
 		station_turfs -= src

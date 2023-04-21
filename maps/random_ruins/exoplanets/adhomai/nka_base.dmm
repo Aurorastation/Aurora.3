@@ -101,9 +101,9 @@
 	},
 /area/nka_base)
 "hK" = (
-/obj/item/stack/material/woodlog/full,
-/obj/item/stack/material/woodlog/full,
-/obj/item/stack/material/woodlog/full,
+/obj/item/stack/material/wood/log/full,
+/obj/item/stack/material/wood/log/full,
+/obj/item/stack/material/wood/log/full,
 /obj/structure/closet/crate/bin{
 	name = "fire wood bin"
 	},
@@ -117,6 +117,14 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"ji" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
 "jN" = (
 /obj/structure/table/rack,
 /obj/item/shovel,
@@ -206,6 +214,18 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"nA" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/nka_base)
 "oA" = (
 /obj/structure/simple_door/iron{
 	initial_lock_value = "nka_base_entry"
@@ -247,6 +267,16 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"qE" = (
+/obj/structure/reagent_dispensers/coolanttank{
+	reagents_to_add = list(/singleton/reagent/water=1000);
+	name = "water tank";
+	desc = "A tank of water filed by melting local snow."
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
 "rV" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -266,7 +296,6 @@
 /obj/item/stack/medical/splint/full,
 /obj/item/stack/medical/splint/full,
 /obj/item/stack/medical/ointment/full,
-/obj/item/clothing/mask/breath/medical,
 /obj/item/clothing/suit/storage/hooded/tajaran/surgery,
 /obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/wood{
@@ -305,6 +334,8 @@
 /obj/item/flame/lighter/adhomai,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/item/surgery/circular_saw,
+/obj/item/tape_roll,
+/obj/item/stack/cable_coil,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -314,6 +345,22 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"vl" = (
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = 9
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"vs" = (
+/obj/structure/table/wood,
+/obj/item/saddle,
+/obj/item/saddle,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
 "vQ" = (
 /obj/structure/closet/secure_closet/cabinet{
 	req_access = list(213);
@@ -327,6 +374,15 @@
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
 /turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
+"vX" = (
+/obj/structure/reagent_dispensers/keg/mead{
+	reagents_to_add = list(/singleton/reagent/water=1000);
+	name = "water barrel"
+	},
+/turf/simulated/floor/wood{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -393,6 +449,18 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/nka_base)
+"yk" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
 /area/nka_base)
@@ -721,6 +789,14 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"Vn" = (
+/obj/structure/simple_door/wood{
+	name = "shower"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/nka_base)
 "Vy" = (
 /obj/structure/table/wood,
 /obj/item/book/manual/nka_manifesto,
@@ -784,6 +860,19 @@
 	temperature = 268.15
 	},
 /area/nka_base)
+"Yv" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/vehicle/bike/climber,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
 "YC" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -799,6 +888,14 @@
 /obj/machinery/photocopier/faxmachine{
 	department = "NKA Outpost";
 	req_one_access = null
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"YT" = (
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_y = 19
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -911,6 +1008,7 @@ vi
 DL
 DL
 DL
+CO
 EK
 EK
 EK
@@ -938,8 +1036,7 @@ EK
 EK
 EK
 EK
-EK
-EK
+CO
 "}
 (5,1,1) = {"
 DL
@@ -1002,10 +1099,10 @@ DL
 DL
 DL
 DL
-DL
-DL
-DL
-DL
+qE
+yB
+yB
+yB
 DL
 gU
 "}
@@ -1037,9 +1134,9 @@ DL
 DL
 DL
 DL
-DL
-DL
-DL
+Vn
+yk
+yB
 DL
 gU
 "}
@@ -1071,9 +1168,9 @@ EP
 EP
 EP
 DL
-DL
-DL
-DL
+yB
+yB
+yB
 DL
 gU
 "}
@@ -1105,9 +1202,9 @@ EP
 EP
 EP
 DL
-DL
-DL
-DL
+Vn
+nA
+yB
 DL
 gU
 "}
@@ -1139,9 +1236,9 @@ EP
 EP
 EP
 DL
-DL
-DL
-DL
+yB
+yB
+yB
 DL
 gU
 "}
@@ -1149,17 +1246,17 @@ gU
 DL
 DL
 DL
-gU
+CO
 EK
 EK
-EK
-DL
+CO
 DL
 DL
 DL
 DL
 DL
 EP
+DL
 wB
 DL
 DL
@@ -1191,9 +1288,9 @@ DL
 DL
 DL
 DL
-DL
 yB
 WG
+yB
 yB
 yB
 yB
@@ -1225,7 +1322,6 @@ DL
 DL
 DL
 DL
-DL
 yB
 mB
 WS
@@ -1234,7 +1330,8 @@ pB
 Sr
 Ec
 nc
-mB
+vX
+YT
 UX
 yB
 DL
@@ -1256,12 +1353,12 @@ DL
 DL
 DL
 DL
-DL
 bK
 DL
 DL
 yB
 Yr
+mB
 mB
 mB
 mB
@@ -1282,11 +1379,10 @@ yB
 gU
 "}
 (15,1,1) = {"
-vi
-vi
+DL
+DL
 DL
 gU
-DL
 DL
 DL
 DL
@@ -1297,6 +1393,7 @@ DL
 yB
 mb
 UX
+mB
 mB
 mB
 mB
@@ -1327,7 +1424,6 @@ DL
 DL
 DL
 DL
-DL
 yB
 Ab
 Vy
@@ -1336,6 +1432,7 @@ pB
 nc
 Et
 nc
+mB
 mB
 UX
 yB
@@ -1351,7 +1448,7 @@ gU
 "}
 (17,1,1) = {"
 DL
-vi
+DL
 DL
 gU
 DL
@@ -1361,7 +1458,7 @@ DL
 DL
 DL
 DL
-DL
+yB
 yB
 yB
 yB
@@ -1378,14 +1475,14 @@ EP
 EP
 DL
 DL
-DL
+yx
 DL
 DL
 gU
 "}
 (18,1,1) = {"
-vi
-vi
+DL
+DL
 DL
 gU
 DL
@@ -1411,9 +1508,9 @@ DL
 EP
 EP
 DL
-DL
-DL
-DL
+mB
+mB
+Yv
 DL
 gU
 "}
@@ -1445,15 +1542,15 @@ DL
 EP
 EP
 DL
-DL
-DL
-DL
+mB
+mB
+Yv
 DL
 gU
 "}
 (20,1,1) = {"
-vi
-vi
+DL
+DL
 DL
 gU
 DL
@@ -1479,15 +1576,15 @@ DL
 EP
 EP
 DL
-DL
-DL
-pV
+vl
+mB
+Yv
 DL
 gU
 "}
 (21,1,1) = {"
 DL
-vi
+DL
 DL
 gU
 DL
@@ -1513,9 +1610,9 @@ DL
 EP
 EP
 DL
-DL
-DL
-DL
+vs
+mB
+Yv
 DL
 gU
 "}
@@ -1548,14 +1645,14 @@ EP
 EP
 DL
 DL
-DL
+ji
 DL
 DL
 gU
 "}
 (23,1,1) = {"
 DL
-vi
+DL
 DL
 gU
 DL
@@ -1761,6 +1858,7 @@ gU
 DL
 pV
 DL
+CO
 EK
 EK
 EK
@@ -1788,8 +1886,7 @@ EK
 EK
 EK
 EK
-EK
-EK
+CO
 "}
 (30,1,1) = {"
 DL
