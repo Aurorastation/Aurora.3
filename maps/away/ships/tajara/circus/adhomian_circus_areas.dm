@@ -2,9 +2,9 @@
 /area/adhomian_circus
 	name = "Adhomian Traveling Circus"
 	icon_state = "bluenew"
-	requires_power = 1
-	dynamic_lighting = 1
-	no_light_control = 0
+	requires_power = TRUE
+	dynamic_lighting = TRUE
+	no_light_control = FALSE
 	base_turf = /turf/space
 	flags = RAD_SHIELDED
 
@@ -44,8 +44,12 @@
 	name = "Adhomian Traveling Circus Engine"
 	icon_state = "substation"
 
-/area/adhomian_circus/atmospherics
-	name = "Adhomian Traveling Circus Atmospherics"
+/area/adhomian_circus/engine
+	name = "Adhomian Traveling Circus Starboard Engine"
+	icon_state = "construction"
+
+/area/adhomian_circus/engine/port
+	name = "Adhomian Traveling Circus Port Engine"
 	icon_state = "construction"
 
 /area/adhomian_circus/hangar
@@ -56,3 +60,4 @@
 /area/shuttle/adhomian_circus_shuttle
 	name = "Adhomian Traveling Circus Shuttle"
 	icon_state = "shuttle2"
+	requires_power = TRUE
