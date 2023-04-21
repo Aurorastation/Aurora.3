@@ -1610,6 +1610,7 @@
 #include "code\modules\clothing\factions\portantillia.dm"
 #include "code\modules\clothing\factions\scc.dm"
 #include "code\modules\clothing\factions\vysoka.dm"
+#include "code\modules\clothing\glasses\colorable.dm"
 #include "code\modules\clothing\glasses\glasses.dm"
 #include "code\modules\clothing\glasses\hud.dm"
 #include "code\modules\clothing\gloves\attackby.dm"
