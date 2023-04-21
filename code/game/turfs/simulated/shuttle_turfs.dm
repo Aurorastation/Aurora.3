@@ -438,6 +438,11 @@
 	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
 	icon_state = "4,1"
 
+/obj/structure/window/shuttle/unique/scc/scout/over
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/cockpit_windows.dmi'
+	icon_state = "4,1"
+	layer = ABOVE_ALL_MOB_LAYER
+
 //--Floors--//
 
 /turf/simulated/floor/shuttle
