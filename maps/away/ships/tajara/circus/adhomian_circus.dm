@@ -20,12 +20,18 @@
 	desc = "The N'hanzafu class is a bulky Adhomian freighter designed with a large crew and cargo in mind. This one is painted in bright colors."
 	icon_state = "generic"
 	moving_state = "generic_moving"
-	colors = list(COLOR_CYAN, COLOR_WARM_YELLOW, COLOR_BOTTLE_GREEN, COLOR_HOT_PINK)
+	colors = list(COLOR_CYAN, COLOR_WARM_YELLOW, COLOR_PALE_BTL_GREEN, COLOR_HOT_PINK)
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	initial_generic_waypoints = list(
+		"nav_adhomian_circus_1",
+		"nav_adhomian_circus_2",
+		"nav_adhomian_circus_3",
+		"nav_adhomian_circus_4"
+	)
 	initial_restricted_waypoints = list(
 		"Adhomian Circus Shuttle" = list("nav_hangar_adhomian_circus")
 	)
@@ -41,6 +47,22 @@
 	landmark_tag = "nav_transit_adhomian_circus"
 	base_turf = /turf/space/transit/north
 
+/obj/effect/shuttle_landmark/adhomian_circus/nav1
+	name = "Adhomian Traveling Circus Fore Navpoint #1"
+	landmark_tag = "nav_adhomian_circus_1"
+
+/obj/effect/shuttle_landmark/adhomian_circus/nav2
+	name = "Adhomian Traveling Circus Starboard Navpoint #2"
+	landmark_tag = "nav_adhomian_circus_ship_2"
+
+/obj/effect/shuttle_landmark/nav_hailstorm_ship/nav3
+	name = "Adhomian Traveling Circus Port Navpoint #3"
+	landmark_tag = "nav_adhomian_circus_3"
+
+/obj/effect/shuttle_landmark/nav_hailstorm_ship/nav4
+	name = "Adhomian Traveling Circus Aft Navpoint"
+	landmark_tag = "nav_adhomian_circus_4"
+
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/adhomian_circus_shuttle
 	name = "Adhomian Circus Shuttle"
@@ -53,7 +75,7 @@
 	vessel_mass = 3000 //very inefficient pod
 	icon_state = "pod"
 	moving_state = "pod_moving"
-	colors = list(COLOR_CYAN, COLOR_WARM_YELLOW, COLOR_BOTTLE_GREEN, COLOR_HOT_PINK)
+	colors = list(COLOR_CYAN, COLOR_WARM_YELLOW, COLOR_PALE_BTL_GREEN, COLOR_HOT_PINK)
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
