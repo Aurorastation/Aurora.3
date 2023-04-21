@@ -21,7 +21,7 @@
 		ui.interface = active_program.tgui_id
 		ui.title = active_program.filedesc
 	else
-		ui.title = "NTOSMain"
+		ui.interface = "NTOSMain"
 
 	if(old_open_ui != ui.interface)
 		// We've switched UIs!
@@ -45,6 +45,14 @@
 	data["PC_showexitprogram"] = !!active_program
 	data["PC_haslight"] = !!flashlight
 	data["PC_lighton"] = flashlight?.enabled ? TRUE : FALSE
+	data["PC_programheaders"] = list()
+	if(idle_threads.len)
+		var/list/program_headers = list()
+		for(var/datum/computer_file/program/P as anything in idle_threads)
+			if(!P.ui_header)
+				continue
+			program_headers.Add(list(list("icon" = P.ui_header)))
+		data["PC_programheaders"] = program_headers
 	return data
 
 /obj/item/modular_computer/ui_static_data(mob/user)
@@ -79,6 +87,7 @@
 				"desc" = P.filedesc,
 				"running" = (P in enabled_services) && (P.service_state > PROGRAM_STATE_KILLED)
 			))
+
 	return data
 
 /obj/item/modular_computer/proc/get_battery_icon()
@@ -114,6 +123,10 @@
 	. = ..()
 	if(.)
 		return
+
+	if(active_program)
+		active_program.ui_act(action, params, ui, state)
+
 	if(action == "PC_exit")
 		kill_program()
 		return TRUE

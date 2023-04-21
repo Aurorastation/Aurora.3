@@ -1,18 +1,20 @@
 import { toFixed } from 'common/math';
 import { useBackend } from '../backend';
-import { Box, BlockQuote, Button, Collapsible, Section, Stack, ProgressBar } from '../components';
+import { Box, BlockQuote, Button, Collapsible, Section, Stack, ProgressBar, Divider } from '../components';
 import { NtosWindow } from '../layouts';
 
-type NTOSDownloadable = {
+type NTOSProgram = {
   name: string;
   filename: string;
   size: number;
+};
+
+type NTOSDownloadable = NTOSProgram & {
   desc: string;
   stat: number;
 };
 
-type NTOSDownload = {
-  name: string;
+type NTOSDownload = NTOSProgram & {
   progress: number;
 };
 
@@ -22,13 +24,15 @@ type NTOSDownloaderData = {
   disk_used: number;
   queue_size: number;
   speed: number;
+  active_download: string;
   queue: NTOSDownload[];
 };
 
-const DownloadListing = (props, context) => {
+const AvailableDownloads = (props, context) => {
   const { act, data } = useBackend<NTOSDownloaderData>(context);
-  const { available } = data;
-  const filteredAvailable = available.filter((prg) => !prg.stat);
+  const { available = [], disk_size, disk_used, queue_size } = data;
+  let remainingSpace = disk_size - (disk_used + queue_size);
+  let filteredAvailable = available.filter((prg) => !prg.stat);
   return (
     <Stack fill vertical>
       {filteredAvailable.map((prg) => {
@@ -41,8 +45,13 @@ const DownloadListing = (props, context) => {
                 <Button
                   icon="download"
                   color="blue"
-                  tooltip="Download"
+                  tooltip={
+                    prg.size > remainingSpace
+                      ? 'Insufficient space'
+                      : 'Download'
+                  }
                   onClick={() => act('download', prg)}
+                  disabled={prg.size > remainingSpace}
                 />
               }>
               <Stack>
@@ -63,21 +72,68 @@ const DownloadListing = (props, context) => {
   );
 };
 
+const DownloadQueue = (props, context) => {
+  const { act, data } = useBackend<NTOSDownloaderData>(context);
+  const { queue_size, speed, queue, active_download } = data;
+  return (
+    <Stack fill vertical>
+      <Section
+        title="Downloads"
+        mx={4}
+        mb={2}
+        mt={1}
+        style={{ 'border': '2px solid #4972a1' }}
+        backgroundColor={'#111'}
+        fitted>
+        {queue.map((prg) => {
+          return (
+            <Section
+              title={prg.name}
+              key={prg.filename}
+              mx={4}
+              mt={1}
+              mb={0}
+              fitted>
+              <ProgressBar
+                mb={2}
+                mt={1}
+                value={prg.progress / prg.size}
+                color={prg.filename === active_download ? 'good' : 'label'}>
+                {prg.progress} GQ of {prg.size} GQ ({speed} GQps)
+              </ProgressBar>
+            </Section>
+          );
+        })}
+      </Section>
+    </Stack>
+  );
+};
+
 export const NTOSDownloader = (props, context) => {
   const { act, data } = useBackend<NTOSDownloaderData>(context);
-  const { available, disk_size, disk_used, queue_size, speed, queue } = data;
+  const {
+    available,
+    disk_size,
+    disk_used,
+    queue_size,
+    speed,
+    queue = [],
+  } = data;
+  let remainingSpace = disk_size - disk_used;
   return (
     <NtosWindow>
       <NtosWindow.Content scrollable>
-        <Section title="NtOS Software Download Utility">
+        <Section title="Disk Usage" fitted px={2}>
           <ProgressBar
-            mb={2}
             mt={1}
             value={disk_used / disk_size}
             ranges={{ average: [0.75, 0.9], bad: [0.9, Infinity] }}>
-            {disk_used} / {disk_size} GQ ({toFixed(disk_used / disk_size)}%)
+            {remainingSpace} GQ free of {disk_size} GQ (
+            {toFixed((disk_used / disk_size) * 100)}%)
           </ProgressBar>
-          <DownloadListing />
+          <Divider />
+          {!!queue.length && <DownloadQueue />}
+          <AvailableDownloads />
         </Section>
       </NtosWindow.Content>
     </NtosWindow>

@@ -33,7 +33,10 @@
 /datum/computer_file/program/ntnetdownload/ui_static_data(mob/user)
 	var/list/data = list()
 	for(var/datum/computer_file/program/P in ntnet_global.available_software)
-		if(P in hard_drive.stored_files)
+		if(hard_drive.find_file_by_name(P.filename))
+			continue
+
+		if(P.filename in download_queue)
 			continue
 
 		data["available"] += list(list(
@@ -52,10 +55,15 @@
 	var/list/data = list()
 	data["queue_size"] = queue_size
 	data["speed"] = speed
+	data["active_download"] = active_download
 	data["queue"] = list()
 	for(var/name in download_queue)
+		var/datum/computer_file/program/PRG = download_files[name]
 		data["queue"] += list(list(
-			"name" = download_queue[name]
+			"name" = PRG ? PRG.filedesc : name,
+			"filename" = name,
+			"progress" = download_queue[name],
+			"size" = PRG?.size
 		))
 	return data
 
@@ -107,14 +115,13 @@
 	else
 		generate_network_log("Began downloading file [PRG.filename].[PRG.filetype] from unspecified server.")
 
+	if(!length(download_queue))
+		last_update = world.time
 
 	download_files[PRG.filename] = PRG.clone(FALSE, computer)
 	queue_size += PRG.size
 	download_queue[PRG.filename] = 0
-	for(var/i in SSvueui.get_open_uis(src))
-		var/datum/vueui/ui = i
-		ui.data["queue"][PRG.filename] = 0
-		ui.push_change()
+	computer.update_static_data_for_all_viewers()
 	return TRUE
 
 /datum/computer_file/program/ntnetdownload/proc/cancel_from_queue(var/name)
@@ -126,10 +133,7 @@
 	download_queue -= name
 	download_files -= name
 	queue_size -= PRG.size
-	for(var/i in SSvueui.get_open_uis(src))
-		var/datum/vueui/ui = i
-		ui.data["queue"] -= name
-		ui.push_change()
+	computer.update_static_data_for_all_viewers()
 
 /datum/computer_file/program/ntnetdownload/proc/finish_from_queue(var/name)
 	if(!download_files[name])
@@ -140,24 +144,20 @@
 	generate_network_log("Completed download of file [hacked_download ? "**ENCRYPTED**" : PRG.filename].[PRG.filetype].")
 	if(!computer?.hard_drive?.store_file(PRG))
 		download_queue[name] = -1
-		for(var/i in SSvueui.get_open_uis(src))
-			var/datum/vueui/ui = i
-			ui.data["queue"] = -1
-			ui.push_change()
+		computer.update_static_data_for_all_viewers()
 		return
 
 	download_queue -= name
 	download_files -= name
 	queue_size -= PRG.size
-	for(var/i in SSvueui.get_open_uis(src))
-		var/datum/vueui/ui = i
-		ui.data["queue"] -= name
-		ui.push_change()
-
+	computer.update_static_data_for_all_viewers()
 
 /datum/computer_file/program/ntnetdownload/process_tick()
 	if(!queue_size)
+		var/old_header = ui_header
 		ui_header = "downloader_finished.gif"
+		if(old_header != ui_header)
+			computer.update_static_data_for_all_viewers()
 		return
 	ui_header = "downloader_running.gif"
 
@@ -188,12 +188,15 @@
 
 		var/delta = ((rand() - 0.5) * 2) * variance * speed
 		//Download speed varies +/- 10% each proc. Adds a more realistic feels
+		to_world("speed [speed] + delta [delta]")
 		speed += delta
 		speed = round(speed, 0.002)//3 decimal places
 
 		var/delta_seconds = (world.time - last_update) / 10
 
+		to_world("[active_download] at [download_queue[active_download]] of [active_download_file.size]")
 		download_queue[active_download] = min(download_queue[active_download] + delta_seconds * speed, active_download_file.size)
+		to_world("min([download_queue[active_download]] + [delta_seconds] * [speed], [active_download_file.size])")
 
 		// No connection, so cancel the download.
 		// This is done at the end because of logic reasons.
@@ -210,7 +213,6 @@
 		computer.output_message("[icon2html(computer, viewers(get_turf(computer)), computer.icon_state)] <b>[capitalize_first_letters(computer.name)]</b> pings: \"[active_download_file.filedesc ? active_download_file.filedesc : active_download_file.filename] downloaded successfully!\"", 1)
 		active_download = null
 
-	SSvueui.check_uis_for_change(src)
 
 #undef DL_OK
 #undef DL_ERR_ACCESS

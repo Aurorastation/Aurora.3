@@ -217,7 +217,7 @@
 	return ntnet_global.add_log(text, network_card)
 
 /obj/item/modular_computer/proc/shutdown_computer(var/loud = TRUE)
-	SSvueui.close_uis(active_program)
+	SStgui.close_uis(active_program)
 	kill_program(TRUE)
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.kill_program(TRUE)
@@ -231,7 +231,7 @@
 
 	if(loud)
 		visible_message(SPAN_NOTICE("\The [src] shuts down."))
-	SSvueui.close_uis(src)
+	SStgui.close_uis(src)
 	enabled = FALSE
 	if(looping_sound)
 		soundloop.stop(src)
@@ -263,8 +263,6 @@
 
 	idle_threads.Add(active_program)
 	active_program.program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
-	SSnanoui.close_uis(active_program.NM ? active_program.NM : active_program)
-	src.vueui_transfer(active_program)
 	active_program = null
 	update_icon()
 	if(istype(user))
