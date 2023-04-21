@@ -188,15 +188,12 @@
 
 		var/delta = ((rand() - 0.5) * 2) * variance * speed
 		//Download speed varies +/- 10% each proc. Adds a more realistic feels
-		to_world("speed [speed] + delta [delta]")
 		speed += delta
 		speed = round(speed, 0.002)//3 decimal places
 
 		var/delta_seconds = (world.time - last_update) / 10
 
-		to_world("[active_download] at [download_queue[active_download]] of [active_download_file.size]")
 		download_queue[active_download] = min(download_queue[active_download] + delta_seconds * speed, active_download_file.size)
-		to_world("min([download_queue[active_download]] + [delta_seconds] * [speed], [active_download_file.size])")
 
 		// No connection, so cancel the download.
 		// This is done at the end because of logic reasons.
