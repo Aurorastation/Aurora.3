@@ -144,7 +144,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "aRr" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -230,7 +230,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "bhJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -253,7 +253,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "bmD" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -281,7 +281,7 @@
 /area/adhomian_circus/port)
 "bql" = (
 /turf/simulated/wall/shuttle/space_ship,
-/area/space)
+/area/adhomian_circus/maintenance)
 "bsf" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -656,7 +656,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "djf" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -927,7 +927,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "eCC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -938,7 +938,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "eDa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/hatch{
@@ -953,7 +953,7 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "eFz" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/door/airlock{
@@ -1208,7 +1208,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "gdx" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/hangar)
@@ -1345,7 +1345,7 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "gTj" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -1500,7 +1500,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "iew" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1649,7 +1649,7 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "iWU" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
@@ -1683,7 +1683,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "jcV" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /turf/simulated/floor/plating{
@@ -1770,7 +1770,7 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "jAc" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -1831,7 +1831,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "jSL" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 8
@@ -2094,7 +2094,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "lia" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/plating{
@@ -2189,7 +2189,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "luu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/largecrate/animal/adhomai/rafama,
@@ -2435,7 +2435,7 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "mNK" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -2604,7 +2604,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "nug" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -2680,7 +2680,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "nDF" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
@@ -2766,7 +2766,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "oaV" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -2983,7 +2983,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "pjU" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3071,7 +3071,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "qam" = (
 /obj/structure/reagent_dispensers/lube,
 /turf/simulated/floor/tiled{
@@ -3244,7 +3244,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "qRs" = (
 /obj/structure/closet/cabinet,
 /obj/machinery/light_switch{
@@ -3495,7 +3495,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "suQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3601,7 +3601,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "sSb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
@@ -3746,7 +3746,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "tHx" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 6
@@ -3842,7 +3842,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "uLe" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -4285,7 +4285,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/adhomian_circus/maintenance)
 "wLD" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
