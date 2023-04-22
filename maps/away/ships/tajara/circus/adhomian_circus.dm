@@ -89,7 +89,7 @@
 	shuttle_area = list(/area/shuttle/adhomian_circus_shuttle)
 	dock_target = "adhomian_circus_shuttle"
 	current_location = "nav_hangar_adhomian_circus_shuttle"
-	landmark_transition = "nav_transit_adhomian_circus_shuttler"
+	landmark_transition = "nav_transit_adhomian_circus_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_adhomian_circus_shuttle"
