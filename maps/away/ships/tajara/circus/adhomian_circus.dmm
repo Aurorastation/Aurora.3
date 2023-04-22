@@ -2351,10 +2351,6 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/tamer)
-"mdl" = (
-/obj/effect/shuttle_landmark/adhomian_circus/nav4,
-/turf/template_noop,
-/area/space)
 "mew" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -2858,16 +2854,14 @@
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/shuttle/adhomian_circus_shuttle)
 "oGi" = (
+/obj/machinery/computer/shuttle_control/explore/adhomian_circus_shuttle{
+	dir = 4
+	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1337;
 	id_tag = "adhomian_circus_shuttle";
-	name = "Port docking controller";
-	pixel_x = -28;
 	tag_door = "adhomian_circus_shuttle_out";
-	pixel_y = -6
-	},
-/obj/machinery/computer/shuttle_control/explore/adhomian_circus_shuttle{
-	dir = 4
+	pixel_x = -24
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3160,15 +3154,6 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
-"qpv" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1337;
-	id_tag = "adhomian_circus_shuttle_dock";
-	pixel_x = -24;
-	tag_door = "adhomian_circus_shuttle_door"
-	},
-/turf/template_noop,
-/area/space)
 "qqE" = (
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -4324,6 +4309,10 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/hangar)
+"wLN" = (
+/obj/effect/shuttle_landmark/adhomian_circus/nav4,
+/turf/template_noop,
+/area/space)
 "wNw" = (
 /obj/item/dumbbell/barbell/threehundred,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -25141,7 +25130,7 @@ xRX
 xRX
 xRX
 xRX
-ojf
+xRX
 xRX
 xRX
 xRX
@@ -28198,7 +28187,7 @@ xRX
 xRX
 xRX
 xRX
-ojf
+xRX
 xRX
 xRX
 xRX
@@ -38262,7 +38251,7 @@ xRX
 xRX
 xRX
 xRX
-qpv
+xRX
 xRX
 xRX
 xRX
@@ -44395,7 +44384,7 @@ xRX
 xRX
 xRX
 xRX
-mdl
+wLN
 xRX
 xRX
 xRX
@@ -49096,7 +49085,7 @@ xRX
 xRX
 xRX
 xRX
-qpv
+xRX
 xRX
 xRX
 xRX

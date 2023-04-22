@@ -7,7 +7,7 @@
 	spawn_cost = 1
 	id = "adhomian_circus_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/adhomian_circus_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
 /singleton/submap_archetype/adhomian_circus
 	map = "Adhomian Traveling Circus"
 	descriptor = "The N'hanzafu class is a bulky Adhomian freighter designed with a large crew and cargo in mind. This one is painted in bright colors."
@@ -87,16 +87,16 @@
 	name = "Adhomian Circus Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/adhomian_circus_shuttle)
-	current_location = "nav_hangar_adhomian_circus_shuttle"
-	landmark_transition = "nav_transit_adhomian_circus_shuttle"
 	dock_target = "adhomian_circus_shuttle"
+	current_location = "nav_hangar_adhomian_circus_shuttle"
+	landmark_transition = "nav_transit_adhomian_circus_shuttler"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_adhomian_circus_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/adhomian_circus_shuttle/hangar
-	name = "Adhomian Circus Shuttle"
+	name = "Adhomian Circus Shuttle Hangar"
 	landmark_tag = "nav_hangar_adhomian_circus_shuttle"
 	docking_controller = "adhomian_circus_shuttle_dock"
 	base_area = /area/space
