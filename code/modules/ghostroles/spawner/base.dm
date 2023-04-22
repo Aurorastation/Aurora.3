@@ -164,8 +164,12 @@
 /datum/ghostspawner/proc/post_spawn(mob/user)
 	if(max_count && count >= max_count)
 		disable()
+	if(name)
+		to_chat(user, SPAN_INFO("You are spawning as: ") + name)
+	if(desc)
+		to_chat(user, SPAN_INFO("Role description: ") + desc)
 	if(welcome_message)
-		to_chat(user, SPAN_NOTICE(welcome_message))
+		to_chat(user, SPAN_INFO("Role welcome message: ") + SPAN_NOTICE(welcome_message))
 	universe.OnPlayerLatejoin(user)
 	if(current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector = map_sectors["[user.z]"]
