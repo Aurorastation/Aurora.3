@@ -7,7 +7,7 @@
 	spawn_cost = 1
 	id = "adhomian_circus_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/adhomian_circus_shuttle)
-
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 /singleton/submap_archetype/adhomian_circus
 	map = "Adhomian Traveling Circus"
 	descriptor = "The N'hanzafu class is a bulky Adhomian freighter designed with a large crew and cargo in mind. This one is painted in bright colors."
@@ -33,7 +33,7 @@
 		"nav_adhomian_circus_4"
 	)
 	initial_restricted_waypoints = list(
-		"Adhomian Circus Shuttle" = list("nav_hangar_adhomian_circus")
+		"Adhomian Circus Shuttle" = list("nav_hangar_adhomian_circus_shuttle")
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -55,11 +55,11 @@
 	name = "Adhomian Traveling Circus Starboard Navpoint #2"
 	landmark_tag = "nav_adhomian_circus_ship_2"
 
-/obj/effect/shuttle_landmark/nav_hailstorm_ship/nav3
+/obj/effect/shuttle_landmark/adhomian_circus/nav3
 	name = "Adhomian Traveling Circus Port Navpoint #3"
 	landmark_tag = "nav_adhomian_circus_3"
 
-/obj/effect/shuttle_landmark/nav_hailstorm_ship/nav4
+/obj/effect/shuttle_landmark/adhomian_circus/nav4
 	name = "Adhomian Traveling Circus Aft Navpoint"
 	landmark_tag = "nav_adhomian_circus_4"
 
@@ -89,17 +89,18 @@
 	shuttle_area = list(/area/shuttle/adhomian_circus_shuttle)
 	current_location = "nav_hangar_adhomian_circus_shuttle"
 	landmark_transition = "nav_transit_adhomian_circus_shuttle"
+	dock_target = "adhomian_circus_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_adhomian_circus_shuttle"
+	logging_home_tag = "adhomian_circus_shuttle_dock"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/adhomian_circus_shuttle/hangar
 	name = "Adhomian Circus Shuttle"
 	landmark_tag = "nav_hangar_adhomian_circus_shuttle"
 	docking_controller = "adhomian_circus_shuttle_dock"
-	base_area = /area/adhomian_circus/hangar
-	base_turf = /turf/simulated/floor/plating
+	base_area = /area/space
+	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/adhomian_circus_shuttle/transit
