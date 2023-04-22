@@ -30,20 +30,16 @@
 /obj/machinery/computer/ship/targeting/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Gunnery", "Ajax Targeting Console")
+		ui = new(user, src, "Gunnery", "Ajax Targeting Console", 400, 650)
 		ui.open()
 
 /obj/machinery/computer/ship/targeting/ui_data(mob/user)
 	var/list/data = list()
 	data["guns"] = list()
+	data["selected_entrypoint"] = selected_entrypoint
 	if(linked.targeting)
 		for(var/obj/machinery/ship_weapon/SW in linked.ship_weapons)
-			var/ammo_status = length(SW.ammunition) ? "Loaded, [length(SW.ammunition)] shots" : "Unloaded"
-			data["guns"] += list(list(
-				"name" = SW.name,
-				"caliber" = SW.caliber,
-				"ammunition" = ammo_status
-			))
+			data["guns"] += list(get_gun_data(SW))
 		data["targeting"] = list(
 			"name" = linked.targeting.name,
 			"shiptype" = linked.targeting.shiptype,
@@ -56,7 +52,23 @@
 			if(length(V.map_z) > 1)
 				data["show_z_list"] = TRUE
 		data["entry_points"] = copy_entrypoints(data["selected_z"])
+		if(cannon)
+			data["cannon"] = get_gun_data(cannon);
+	else
+		data["targeting"] = null
 	return data
+
+/obj/machinery/computer/ship/targeting/proc/get_gun_data(var/obj/machinery/ship_weapon/SW)
+	var/ammo_status = length(SW.ammunition) ? "Loaded, [length(SW.ammunition)] shots" : "Unloaded"
+	var/obj/item/ship_ammunition/SA
+	if(length(SW.ammunition))
+		SA = SW.ammunition[1]
+	. = list(
+		"name" = SW.name,
+		"caliber" = SW.caliber,
+		"ammunition" = ammo_status,
+		"ammunition_type" = capitalize_first_letters(SA ? SA.impact_type : "None Loaded")
+	);
 
 /*/obj/machinery/computer/ship/targeting/ui_data(mob/user)
 	build_gun_lists()
@@ -156,6 +168,21 @@
 			if(usr)
 				viewing_overmap(usr) ? unlook(usr) : look(usr)
 				. = TRUE
+
+		if("select_entrypoint")
+			if(!params["entrypoint"])
+				return
+			selected_entrypoint = params["entrypoint"]
+			. = TRUE
+
+		if("select_gun")
+			if(!params["gun"])
+				return
+			var/gun_name = lowertext(params["gun"])
+			for(var/obj/machinery/ship_weapon/SW in linked.ship_weapons)
+				if(lowertext(SW.name) == gun_name)
+					cannon = SW
+					. = TRUE
 
 /obj/machinery/computer/ship/targeting/proc/copy_entrypoints(var/z_level_filter = 0)
 	. = list()
