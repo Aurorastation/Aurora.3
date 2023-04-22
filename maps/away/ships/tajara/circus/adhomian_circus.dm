@@ -92,7 +92,7 @@
 	dock_target = "adhomian_circus_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "adhomian_circus_shuttle_dock"
+	logging_home_tag = "nav_hangar_adhomian_circus_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/adhomian_circus_shuttle/hangar

@@ -2351,6 +2351,10 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/tamer)
+"mdl" = (
+/obj/effect/shuttle_landmark/adhomian_circus/nav4,
+/turf/template_noop,
+/area/space)
 "mew" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -3974,10 +3978,6 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/clown)
-"vpZ" = (
-/obj/effect/shuttle_landmark/adhomian_circus/nav4,
-/turf/template_noop,
-/area/space)
 "vrg" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -44395,7 +44395,7 @@ xRX
 xRX
 xRX
 xRX
-vpZ
+mdl
 xRX
 xRX
 xRX
