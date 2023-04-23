@@ -342,6 +342,15 @@
 	icon_state = "assunzione_amulet"
 	contained_sprite = TRUE
 
+/obj/item/clothing/accessory/tallit
+	name = "tallit"
+	desc = "A tallit is a fringed garment worn as a prayer shawl by religious Jews. \
+	The tallit has special twined and knotted fringes known as tzitzit attached to its four corners."
+	icon = 'icons/clothing/accessories/tallit.dmi'
+	item_state = "tallit"
+	icon_state = "tallit"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
 	desc = "They suspend the illusion of the mime's play."
