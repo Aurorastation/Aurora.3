@@ -71,7 +71,7 @@
 	display_name = "tallit"
 	description = "A prayer shawl commonly worn by those of Jewish faith."
 	path = /obj/item/clothing/accessory/tallit
-	slot = slot_wear_suit
+	slot = slot_tie
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/religion/dominia/robe
