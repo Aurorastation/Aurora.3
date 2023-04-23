@@ -67,6 +67,13 @@
 	slot = slot_head
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/religion/tallit
+	display_name = "tallit"
+	description = "A prayer shawl commonly worn by those of Jewish faith."
+	path = /obj/item/clothing/accessory/tallit
+	slot = slot_wear_suit
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/religion/dominia/robe
 	display_name = "dominian robe selection"
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."
