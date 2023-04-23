@@ -16,8 +16,13 @@ export type GunneryData = {
   cannon: ShipGun;
   gun_list: string[];
   entry_points: string[];
+  z_levels: string[];
+  selected_z: number;
   targeting: Targeting;
   selected_entrypoint: string;
+  mobile_platform: boolean;
+  platform_directions: string[];
+  platform_direction: string;
 };
 
 type Targeting = {
@@ -29,12 +34,24 @@ type Targeting = {
 export const GunneryWindow = (props, context) => {
   const { act, data } = useBackend<GunneryData>(context);
   const { entry_points } = data;
+  const { z_levels } = data;
   const { guns } = data;
+  const { platform_directions } = data;
   let gun_names: String[];
   gun_names = [];
   gun_names = guns.map((gun) => {
     return capitalizeAll(gun.name);
   });
+  let target_name;
+  if (data.targeting) {
+    target_name = capitalizeAll(data.targeting.name);
+  }
+  let cannon_name;
+  let cannon_caliber;
+  if (data.cannon) {
+    cannon_name = capitalizeAll(data.cannon.name);
+    cannon_caliber = capitalizeAll(data.cannon.caliber);
+  }
   if (!data.targeting) {
     return (
       <Section collapsing title="Targeting Information">
@@ -46,7 +63,7 @@ export const GunneryWindow = (props, context) => {
       <Section>
         <Section collapsing title="Lock-On Information">
           <Box bold>Target:</Box>
-          <BlockQuote>{data.targeting.name}</BlockQuote>
+          <BlockQuote>{target_name}</BlockQuote>
           <Box bold>Type: </Box>{' '}
           <BlockQuote>{data.targeting.shiptype}</BlockQuote>
           <Box bold>Distance: </Box>{' '}
@@ -61,23 +78,55 @@ export const GunneryWindow = (props, context) => {
               act('select_entrypoint', { entrypoint: value })
             }
           />
+          {data.z_levels && (
+            <Section>
+              <Box as bold>
+                Deck Filter
+              </Box>
+              <Dropdown
+                options={z_levels}
+                displayText={data.selected_z}
+                width="100%"
+                onSelected={(value) => act('select_z', { z: value })}
+              />
+            </Section>
+          )}
+          {data.mobile_platform && (
+            <Section>
+              <Dropdown
+                options={platform_directions}
+                displayText={data.platform_direction}
+                width="100%"
+                onSelected={(value) =>
+                  act('platform_direction', { dir: value })
+                }
+              />
+            </Section>
+          )}
         </Section>
         <Section collapsing title="Weaponry Control">
           <Dropdown
             options={gun_names}
             width="100%"
+            displayText={cannon_name ? cannon_name : ''}
             onSelected={(value) => act('select_gun', { gun: value })}
           />
           {data.cannon && (
             <Section>
               <Box bold>Type:</Box>
-              <BlockQuote>{data.cannon.name}</BlockQuote>
+              <BlockQuote>{cannon_name}</BlockQuote>
               <Box bold>Caliber:</Box>
-              <BlockQuote>{data.cannon.caliber}</BlockQuote>
+              <BlockQuote>{cannon_caliber}</BlockQuote>
               <Box bold>Loaded:</Box>
-              <BlockQuote>{data.cannon.ammunition_type}</BlockQuote>
+              <BlockQuote>{data.cannon.ammunition}</BlockQuote>
               <Box bold>Ammunition Type:</Box>
               <BlockQuote>{data.cannon.ammunition_type}</BlockQuote>
+              <Button
+                color="red"
+                icon="exclamation-triangle"
+                content="FIRE"
+                onClick={() => act('fire')}
+              />
             </Section>
           )}
         </Section>
