@@ -320,36 +320,51 @@ var/datum/controller/subsystem/vote/SSvote
 		display_name = name
 	choices[name] = list("name" = display_name, "extra" = extra_text, "votes" = 0)
 
+/datum/controller/subsystem/vote/ui_state(mob/user)
+    return always_state
+
+/datum/controller/subsystem/vote/ui_status(mob/user, datum/ui_state/state)
+    return UI_INTERACTIVE
+
+/datum/controller/subsystem/vote/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "Voting", "Voting", 400, 500)
+		ui.open()
+
+/datum/controller/subsystem/vote/Topic(href, href_list)
+	. = ..()
+	if(href_list["open"])
+		SSvote.ui_interact(usr)
+		return TRUE
+
 /datum/controller/subsystem/vote/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
 
-	. = FALSE
+	. = TRUE
 	var/isstaff = ui.user.client.holder && (ui.user.client.holder.rights & (R_ADMIN|R_MOD))
 
 	switch(action)
-		if("open")
-			open_voting_ui(ui.user)
-			. = TRUE
 		if("cancel")
 			if(isstaff)
 				reset()
-				. = TRUE
+				return TRUE
 		if("toggle_restart")
 			if(isstaff)
 				config.allow_vote_restart = !config.allow_vote_restart
 				SStgui.update_uis(src)
-				. = TRUE
+				return TRUE
 		if("toggle_gamemode")
 			if(isstaff)
 				config.allow_vote_mode = !config.allow_vote_mode
 				SStgui.update_uis(src)
-				. = TRUE
+				return TRUE
 		if("restart")
 			if(isstaff)
 				initiate_vote("restart", ui.user.key)
-				. = TRUE
+				return TRUE
 			else if (config.allow_vote_restart)
 				var/admin_number_present = 0
 				var/admin_number_afk = 0
@@ -365,33 +380,33 @@ var/datum/controller/subsystem/vote/SSvote
 
 				if ((admin_number_present - admin_number_afk) <= 0)
 					initiate_vote("restart", ui.user.key)
-					. = TRUE
+					return TRUE
 				else
 					log_and_message_admins("tried to start a restart vote.", usr, null)
 					to_chat(ui.user, "<span class='notice'><b>There are active admins around! You cannot start a restart vote due to this.</b></span>")
 		if("gamemode")
 			if(config.allow_vote_mode || isstaff)
 				initiate_vote("gamemode", ui.user.key)
-				. = TRUE
+				return TRUE
 		if("crew_transfer")
 			if(config.allow_vote_restart || isstaff)
 				initiate_vote("crew_transfer", ui.user.key)
-				. = TRUE
+				return TRUE
 		if("add_antagonist")
 			if(!antag_add_failed && config.allow_extra_antags)
 				initiate_vote("add_antagonist", ui.user.key)
-				. = TRUE
+				return TRUE
 		if("custom")
 			if(isstaff)
 				initiate_vote("custom", ui.user.key)
-				. = TRUE
+				return TRUE
 		if("vote")
 			var/list/T = params["vote"]
 			var/our_vote = T["choice"]
-			if(our_vote) // It starts from 1, so there's no problem
+			if(our_vote)
 				if(submit_vote(ui.user.ckey, our_vote))
 					SStgui.update_uis(src)
-					. = TRUE
+			return TRUE
 
 /datum/controller/subsystem/vote/ui_data(mob/user)
 	var/list/data = list()
@@ -400,7 +415,8 @@ var/datum/controller/subsystem/vote/SSvote
 	for(var/choice in choices)
 		data["choices"] += list(list(
 			"choice" = choice,
-			"votes" = choices[choice]["votes"]
+			"votes" = choices[choice]["votes"],
+			"extra" = choices[choice]["extra"]
 		))
 
 	data["mode"] = mode
@@ -419,15 +435,8 @@ var/datum/controller/subsystem/vote/SSvote
 	data["is_code_red"] = (slevel == "red" || slevel == "delta")
 	return data
 
-/datum/controller/subsystem/vote/proc/open_voting_ui(var/mob/user)
-	var/datum/tgui/ui
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "Voting", "Voting", 400, 500)
-		ui.open()
-
 /mob/verb/vote()
 	set category = "OOC"
 	set name = "Vote"
 
-	SSvote.open_voting_ui(src)
+	SSvote.ui_interact(src)

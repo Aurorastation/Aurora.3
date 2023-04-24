@@ -1,10 +1,12 @@
 import { useBackend } from '../backend';
+import { capitalizeAll } from '../../common/string';
 import { Window } from '../layouts';
 import { Section, Button, Box, Table } from '../components';
 
 type VoteChoice = {
   choice: string;
   votes: number;
+  extra: string;
 };
 
 export type VotingData = {
@@ -35,35 +37,32 @@ export const VoteWindow = (props, context) => {
   return (
     <Section collapsing title={data.question}>
       <Table>
-        <Table.Row>
+        <Table.Row header>
           <Table.Cell>
-            <Box as bold>
-              Choices
-            </Box>
+            <Box bold>Choices</Box>
           </Table.Cell>
-          <Table.Cell collapsing textAlign="center">
-            <Box as bold>
-              Votes
-            </Box>
+          <Table.Cell textAlign="right">
+            <Box bold>Votes</Box>
           </Table.Cell>
-          {data.mode === 'gamemode' && <Table.Cell>Minimum Players</Table.Cell>}
+          {data.mode === 'gamemode' && (
+            <Table.Cell textAlign="center">Minimum Players</Table.Cell>
+          )}
         </Table.Row>
-        <Table.Row>
-          {data.choices.map((choice) => (
-            <Section key={choice.choice}>
-              <Table.Cell>
-                <Button
-                  content={choice.choice}
-                  selected={choice.choice === data.voted}
-                  onClick={(value) => act('vote', { vote: choice })}
-                />
-              </Table.Cell>
-              <Table.Cell collapsing textAlign="center">
-                {choice.votes}
-              </Table.Cell>
-            </Section>
-          ))}
-        </Table.Row>
+        {data.choices.map((choice) => (
+          <Table.Row key={choice.choice}>
+            <Table.Cell>
+              <Button
+                content={capitalizeAll(choice.choice)}
+                selected={choice.choice === data.voted}
+                onClick={(value) => act('vote', { vote: choice })}
+              />
+            </Table.Cell>
+            <Table.Cell textAlign="center">{choice.votes}</Table.Cell>
+            {data.mode === 'gamemode' && (
+              <Table.Cell textAlign="center">{choice.extra}</Table.Cell>
+            )}
+          </Table.Row>
+        ))}
       </Table>
     </Section>
   );
