@@ -2102,3 +2102,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "schlosser_hat"
 	item_state = "schlosser_hat"
 	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/konyang/dbjacket/provenance_jacket // Double-Breasted Cropped Jacket - Z.I Provenance - niennab
+	name = "double-breasted cropped jacket"
+	desc = "Styled after the latest fashion trends on Konyang, this hybrid leather and polyester mesh jacket was built with the planet’s humid climate in mind. This particular jacket appears to be emblematic of Konyang's stylings but hand-made, sporting a distinctive fur collar."
+	icon = 'icons/obj/custom_items/provenance_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/provenance_jacket.dmi'
+	icon_state = "provenance_coat"
+	item_state = "provenance_coat"
