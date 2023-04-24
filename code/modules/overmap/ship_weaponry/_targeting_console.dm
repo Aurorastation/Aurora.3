@@ -38,7 +38,7 @@
 	var/list/data = list()
 	data["guns"] = list()
 	data["selected_entrypoint"] = selected_entrypoint
-	data["mobile_platform"] = !!cannon.mobile_platform
+	data["mobile_platform"] = cannon ? cannon.mobile_platform : null
 	if(data["mobile_platform"])
 		data["platform_direction"] = platform_direction
 		data["platform_directions"] = list("NORTH", "NORTHEAST", "EAST", "SOUTHEAST", "SOUTH", "SOUTHWEST", "WEST", "NORTHWEST")

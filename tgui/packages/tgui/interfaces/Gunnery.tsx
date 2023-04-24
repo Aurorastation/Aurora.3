@@ -33,10 +33,7 @@ type Targeting = {
 
 export const GunneryWindow = (props, context) => {
   const { act, data } = useBackend<GunneryData>(context);
-  const { entry_points } = data;
-  const { z_levels } = data;
-  const { guns } = data;
-  const { platform_directions } = data;
+  const { entry_points, z_levels, guns, platform_directions } = data;
   let gun_names: String[];
   gun_names = [];
   gun_names = guns.map((gun) => {
