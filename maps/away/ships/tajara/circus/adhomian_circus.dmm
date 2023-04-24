@@ -3834,6 +3834,17 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/clown)
+"uub" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Telecomms";
+	req_access = list(202)
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/adhomian_circus/port)
 "uDE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4338,6 +4349,16 @@
 	},
 /turf/simulated/floor/lino/grey{
 	temperature = 278.15
+	},
+/area/adhomian_circus/port)
+"xix" = (
+/obj/machinery/telecomms/allinone/ship,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
 	},
 /area/adhomian_circus/port)
 "xju" = (
@@ -46994,9 +47015,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 ppy
+xix
+uub
 sVk
 sVk
 sVk

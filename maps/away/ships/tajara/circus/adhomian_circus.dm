@@ -20,6 +20,15 @@
 	desc = "The N'hanzafu class is a bulky Adhomian freighter designed with a large crew and cargo in mind. This one is painted in bright colors."
 	icon_state = "generic"
 	moving_state = "generic_moving"
+
+	scanimage = "tramp_freighter.png"
+	designer = "Independent/no designation"
+	volume = "60 meters length, 27 meters beam/width, 20 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Not apparent"
+	sizeclass = "Hanzafu Freighter"
+	shiptype = "Long-term shipping utilities"
+
 	colors = list(COLOR_CYAN, COLOR_WARM_YELLOW, COLOR_PALE_BTL_GREEN, COLOR_HOT_PINK)
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
