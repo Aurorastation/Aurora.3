@@ -5111,18 +5111,13 @@
 	pixel_x = -2;
 	pixel_y = 7
 	},
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
 /area/centcom/bar)
 "alu" = (
 /obj/structure/table/reinforced/wood,
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_y = 30
-	},
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	pixel_x = -8;
 	pixel_y = 7
@@ -8391,14 +8386,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aun" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -1;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 31;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor,
@@ -9368,14 +9356,7 @@
 	},
 /area/centcom/specops)
 "awr" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -11199,14 +11180,7 @@
 	},
 /area/centcom/specops)
 "aAS" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/item/deck/cards,
 /obj/structure/table/steel,
 /turf/unsimulated/floor{
@@ -12326,15 +12300,9 @@
 	},
 /area/centcom/specops)
 "aDb" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 32;
-	pixel_y = 30
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -14383,9 +14351,7 @@
 	},
 /area/centcom/ferry)
 "aJa" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
@@ -14393,9 +14359,6 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "aJb" = (
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_y = 30
-	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
@@ -19653,9 +19616,7 @@
 /area/centcom/legion/hangar5)
 "aWp" = (
 /obj/vehicle/bike/speeder,
-/obj/structure/sign/flag/biesel/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/biesel/north,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "aWq" = (
@@ -19663,9 +19624,6 @@
 	dir = 4
 	},
 /obj/vehicle/bike/speeder,
-/obj/structure/sign/flag/biesel/right{
-	pixel_y = 32
-	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "aWr" = (
@@ -21570,9 +21528,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/structure/sign/flag/biesel/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/biesel/north,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -21584,9 +21540,6 @@
 /obj/item/reagent_containers/spray/cleaner,
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
-	},
-/obj/structure/sign/flag/biesel/right{
-	pixel_y = 32
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -22802,9 +22755,7 @@
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/structure/sign/flag/biesel/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/biesel/north,
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 8;
@@ -22830,9 +22781,6 @@
 /obj/item/reagent_containers/food/snacks/nathisnack{
 	pixel_x = 5;
 	pixel_y = 12
-	},
-/obj/structure/sign/flag/biesel/right{
-	pixel_y = 32
 	},
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/condiment/shaker/salt{

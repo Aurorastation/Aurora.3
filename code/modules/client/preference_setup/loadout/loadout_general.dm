@@ -140,7 +140,7 @@
 	banners["banner, Traverse"] = /obj/item/flag/traverse
 	banners["banner, NanoTrasen"] = /obj/item/flag/nanotrasen
 	banners["banner, Eridani Fed"] = /obj/item/flag/eridani
-	banners["banner, Sedantis"] = /obj/item/flag/vaurca
+	banners["banner, Sedantis"] = /obj/item/flag/sedantis
 	banners["banner, People's Republic of Adhomai"] = /obj/item/flag/pra
 	banners["banner, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra
 	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
@@ -196,7 +196,7 @@
 	flags["flag, Traverse"] = /obj/item/flag/traverse/l
 	flags["flag, NanoTrasen"] = /obj/item/flag/nanotrasen/l
 	flags["flag, Eridani Fed"] = /obj/item/flag/eridani/l
-	flags["flag, Sedantis"] = /obj/item/flag/vaurca/l
+	flags["flag, Sedantis"] = /obj/item/flag/sedantis/l
 	flags["flag, People's Republic of Adhomai"] = /obj/item/flag/pra/l
 	flags["flag, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra/l
 	flags["flag, New Kingdom of Adhomai"] = /obj/item/flag/nka/l

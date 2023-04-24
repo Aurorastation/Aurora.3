@@ -144,9 +144,7 @@
 	},
 /area/pra_base)
 "fY" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -314,9 +312,6 @@
 	},
 /area/pra_base)
 "mB" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -852,9 +847,7 @@
 "FZ" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -898,9 +891,7 @@
 	},
 /area/pra_base)
 "Iq" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/structure/hadii_statue,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -925,9 +916,6 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/book/manual/pra_manifesto,
 /obj/item/clothing/accessory/badge/pra_passport,
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -1072,9 +1060,6 @@
 /turf/simulated/floor/wood,
 /area/pra_base)
 "Or" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /obj/structure/hadii_statue,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -1150,9 +1135,7 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/book/manual/pra_manifesto,
 /obj/item/clothing/accessory/badge/pra_passport,
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -1385,9 +1368,6 @@
 "Yr" = (
 /obj/structure/table/standard,
 /obj/item/storage/pill_bottle/dice/tajara,
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},

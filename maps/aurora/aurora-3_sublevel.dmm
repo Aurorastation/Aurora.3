@@ -26712,14 +26712,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
 	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "dyi" = (

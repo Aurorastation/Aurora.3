@@ -170,9 +170,6 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "jr" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "jC" = (
@@ -209,9 +206,7 @@
 /turf/simulated/floor/tiled,
 /area/derelict)
 "jK" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/sol/large/north,
 /obj/machinery/light_construct{
 	dir = 1
 	},
@@ -223,15 +218,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "ki" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/sol/large/north,
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "kj" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "ku" = (
@@ -385,9 +375,6 @@
 /turf/simulated/floor/tiled,
 /area/derelict)
 "pA" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 32
-	},
 /obj/machinery/light_construct{
 	dir = 1
 	},
@@ -908,9 +895,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict)
 "Mi" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/sol/large/south,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
@@ -1102,9 +1087,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "Vs" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/sol/large/south,
 /obj/item/landmine/frag{
 	deployed = 1
 	},
@@ -1181,9 +1164,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "Yp" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = -32
-	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "YV" = (
