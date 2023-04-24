@@ -44,7 +44,7 @@ var/list/admin_departments
 		VUEUI_SET_CHECK(newdata["idname"], scan.name, ., newdata)
 	else
 		VUEUI_SET_CHECK(newdata["idname"], "", ., newdata)
-	VUEUI_SET_CHECK(newdata["paper"], (copyitem ? copyitem.name : ""), ., newdata)
+	VUEUI_SET_CHECK(newdata["paper"], (copy_item ? copy_item.name : ""), ., newdata)
 
 	VUEUI_SET_CHECK_LIST(newdata["alertpdas"], alert_pdas, ., newdata)
 	newdata["alertpdas"] = list()
@@ -81,7 +81,7 @@ var/list/admin_departments
 		if(!istype(ui))
 			return
 		var/destination = ui.data["destination"]
-		if(copyitem && is_authenticated())
+		if(copy_item && is_authenticated())
 			if (destination in admin_departments)
 				send_admin_fax(usr, destination)
 			else if (destination == broadcast_departments)
@@ -91,14 +91,14 @@ var/list/admin_departments
 			SSvueui.check_uis_for_change(src)
 
 	else if(href_list["remove"])
-		if(copyitem)
-			copyitem.forceMove(loc)
+		if(copy_item)
+			copy_item.forceMove(loc)
 			if (get_dist(usr, src) < 2)
-				usr.put_in_hands(copyitem)
-				to_chat(usr, "<span class='notice'>You take \the [copyitem] out of \the [src].</span>")
+				usr.put_in_hands(copy_item)
+				to_chat(usr, "<span class='notice'>You take \the [copy_item] out of \the [src].</span>")
 			else
-				to_chat(usr, "<span class='notice'>You eject \the [copyitem] from \the [src].</span>")
-			copyitem = null
+				to_chat(usr, "<span class='notice'>You eject \the [copy_item] from \the [src].</span>")
+			copy_item = null
 			SSvueui.check_uis_for_change(src)
 
 	if(href_list["scan"])
@@ -190,7 +190,7 @@ var/list/admin_departments
 	var/success = 0
 	for(var/obj/machinery/photocopier/faxmachine/F in allfaxes)
 		if( F.department == destination )
-			success = F.receivefax(copyitem)
+			success = F.receivefax(copy_item)
 
 	if (success)
 		set_cooldown(normalfax_cooldown)
@@ -252,12 +252,12 @@ var/list/admin_departments
 	use_power_oneoff(200)
 
 	var/obj/item/rcvdcopy
-	if (istype(copyitem, /obj/item/paper))
-		rcvdcopy = copy(src, copyitem, 0)
-	else if (istype(copyitem, /obj/item/photo))
-		rcvdcopy = photocopy(src, copyitem)
-	else if (istype(copyitem, /obj/item/paper_bundle))
-		rcvdcopy = bundlecopy(src, copyitem, 0)
+	if (istype(copy_item, /obj/item/paper))
+		rcvdcopy = copy(src, copy_item, 0)
+	else if (istype(copy_item, /obj/item/photo))
+		rcvdcopy = photocopy(src, copy_item)
+	else if (istype(copy_item, /obj/item/paper_bundle))
+		rcvdcopy = bundlecopy(src, copy_item, 0)
 	else
 		visible_message("[src] beeps, \"Error transmitting message.\"")
 		return
