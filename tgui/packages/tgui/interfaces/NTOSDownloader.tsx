@@ -31,8 +31,8 @@ type NTOSDownloaderData = {
 const AvailableDownloads = (props, context) => {
   const { act, data } = useBackend<NTOSDownloaderData>(context);
   const { available = [], disk_size, disk_used, queue_size } = data;
-  let remainingSpace = disk_size - (disk_used + queue_size);
-  let filteredAvailable = available.filter((prg) => !prg.stat);
+  const remainingSpace = disk_size - (disk_used + queue_size);
+  const filteredAvailable = available.filter((prg) => !prg.stat);
   return (
     <Stack fill vertical>
       {filteredAvailable.map((prg) => {
@@ -93,7 +93,12 @@ const DownloadQueue = (props, context) => {
               mx={4}
               mt={1}
               mb={0}
-              fitted>
+              fitted
+              buttons={
+                <Button icon="times" onClick={() => act('cancel', prg)}>
+                  Cancel
+                </Button>
+              }>
               <ProgressBar
                 mb={2}
                 mt={1}
@@ -119,7 +124,7 @@ export const NTOSDownloader = (props, context) => {
     speed,
     queue = [],
   } = data;
-  let remainingSpace = disk_size - disk_used;
+  const remainingSpace = disk_size - disk_used;
   return (
     <NtosWindow>
       <NtosWindow.Content scrollable>

@@ -125,20 +125,18 @@
 		return
 
 	if(active_program)
-		active_program.ui_act(action, params, ui, state)
+		. = active_program.ui_act(action, params, ui, state)
 
 	if(action == "PC_exit")
 		kill_program()
 		return TRUE
-	if(action == "PC_enable_component")
-		var/obj/item/computer_hardware/H = find_hardware_by_name(params["component_to_enable"])
-		if(istype(H) && !H.enabled)
-			H.enable()
-		. = TRUE
-	if(action == "PC_disable_component")
-		var/obj/item/computer_hardware/H = find_hardware_by_name(params["component_to_disable"])
-		if(H?.enabled)
-			H.disable()
+	if(action == "PC_toggle_component")
+		var/obj/item/computer_hardware/H = find_hardware_by_name(params["component"])
+		if(istype(H))
+			if(H.enabled)
+				H.disable()
+			else
+				H.enable()
 		. = TRUE
 	if(action == "PC_togglelight")
 		if(flashlight)
