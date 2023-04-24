@@ -151,7 +151,7 @@
 			var/obj/item/card/id/ID = H.GetIdCard()
 			if(access_it in ID.access)
 				is_usr_tech_support = TRUE
-		if(!is_usr_tech_support && computer.enrolled != 2 && istype(F, /datum/computer_file/program))
+		if(!is_usr_tech_support && computer.enrolled != DEVICE_PRIVATE && istype(F, /datum/computer_file/program))
 			to_chat(usr, SPAN_WARNING("Work devices can't export programs to portable drives! Contact Tech Support to get them to load it."))
 			return TRUE
 		if(!RHDD.can_store_file(F.size))
@@ -179,7 +179,7 @@
 			var/obj/item/card/id/ID = H.GetIdCard()
 			if(access_it in ID.access)
 				is_usr_tech_support = TRUE
-		if(!is_usr_tech_support && computer.enrolled != 2 && istype(F, /datum/computer_file/program))
+		if(!is_usr_tech_support && computer.enrolled != DEVICE_PRIVATE && istype(F, /datum/computer_file/program))
 			to_chat(usr, SPAN_WARNING("Work devices can't import programs from portable drives! Contact Tech Support to get them to load it."))
 			return TRUE
 		if(!HDD.can_store_file(F.size))

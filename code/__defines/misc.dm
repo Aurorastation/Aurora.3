@@ -226,13 +226,14 @@
 #define PROGRAM_SERVICE 2
 #define PROGRAM_TYPE_ALL (PROGRAM_NORMAL | PROGRAM_SERVICE)
 
-#define DEVICE_UNKNOWN 0
-#define DEVICE_COMPANY 1
-#define DEVICE_PRIVATE 2
+#define DEVICE_UNKNOWN BITFLAG(0)
+#define DEVICE_COMPANY BITFLAG(1)
+#define DEVICE_PRIVATE BITFLAG(2)
+#define ALL_DEVICE_ENROLLMENTS DEVICE_COMPANY|DEVICE_PRIVATE
 
-#define SCANNER_MEDICAL 1
-#define SCANNER_REAGENT 2
-#define SCANNER_GAS 4
+#define SCANNER_MEDICAL BITFLAG(1)
+#define SCANNER_REAGENT BITFLAG(2)
+#define SCANNER_GAS BITFLAG(4)
 
 // Special return values from bullet_act(). Positive return values are already used to indicate the blocked level of the projectile.
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()

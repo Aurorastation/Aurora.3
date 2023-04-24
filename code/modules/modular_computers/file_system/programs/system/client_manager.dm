@@ -1,6 +1,4 @@
-// This is special hardware configuration program.
-// It is to be used only with modular computers.
-// It allows you to toggle components of your device.
+/// Special software that allows for the configuration of software, and the device's status as a personal/company device.
 
 /datum/computer_file/program/clientmanager
 	filename = "clientmanager"
@@ -68,7 +66,7 @@
 /datum/computer_file/program/clientmanager/proc/enroll_private_device()
 	if(!computer)
 		return FALSE
-	computer.enrolled = 2 // private devices
+	computer.enrolled = DEVICE_PRIVATE // private devices
 	computer.hard_drive.store_file(new /datum/computer_file/program/filemanager(computer))
 	computer.hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(computer))
 	computer.hard_drive.store_file(new /datum/computer_file/program/chat_client(computer))
@@ -86,6 +84,6 @@
 				if(!prog.is_supported_by_hardware(computer.hardware_flag, FALSE))
 					continue
 				computer.hard_drive.store_file(prog)
-			computer.enrolled = 1 // enroll as company device after finding matching preset and storing software
+			computer.enrolled = DEVICE_COMPANY // enroll as company device after finding matching preset and storing software
 			return TRUE
 	return FALSE
