@@ -1,8 +1,8 @@
 /singleton/biome/barren
 	turf_type = /turf/simulated/floor/exoplanet/barren
-	generators = list(
-		WILDLIFE = list(POISSON_SAMPLE, 15)
-	)
+
+/singleton/biome/barren/asteroid
+	turf_type = /turf/unsimulated/floor/asteroid/ash
 	spawn_types = list(
 		WILDLIFE = list(
 			/mob/living/simple_animal/hostile/gnat = 5,
@@ -12,9 +12,6 @@
 			/mob/living/simple_animal/hostile/carp/shark/reaver/eel = 1
 		)
 	)
-
-/singleton/biome/barren/asteroid
-	turf_type = /turf/unsimulated/floor/asteroid/ash
 
 /singleton/biome/barren/raskara
 	turf_type = /turf/simulated/floor/exoplanet/barren/raskara

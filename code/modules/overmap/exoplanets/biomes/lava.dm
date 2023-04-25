@@ -16,12 +16,5 @@
 		SMALL_FLORA = list(
 			/obj/structure/flora/rock/random = 1,
 			/obj/structure/flora/rock/pile/random = 2
-		),
-		WILDLIFE = list(
-			/mob/living/simple_animal/hostile/gnat = 5,
-			/mob/living/simple_animal/hostile/carp/asteroid = 3,
-			/mob/living/simple_animal/hostile/carp/bloater = 1,
-			/mob/living/simple_animal/hostile/carp/shark/reaver = 1,
-			/mob/living/simple_animal/hostile/carp/shark/reaver/eel = 1
 		)
 	)
