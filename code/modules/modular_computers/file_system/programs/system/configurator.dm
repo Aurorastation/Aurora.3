@@ -22,12 +22,12 @@
 		return TRUE
 
 	if(action == "brightness" && computer.flashlight)
-		var/new_brightness = Clamp(0, data["new_brightness"]/10, 1)
+		var/new_brightness = Clamp(0, params["new_brightness"]/10, 1)
 		computer.flashlight.tweak_brightness(new_brightness)
 		. = TRUE
 
 	if(action == "audmessage")
-		computer.message_output_range = clamp(data["new_range"], 0, initial(computer.message_output_range) + 3)
+		computer.message_output_range = clamp(params["new_range"], 0, initial(computer.message_output_range) + 3)
 		. = TRUE
 
 /datum/computer_file/program/computerconfig/ui_static_data(mob/user)
@@ -37,7 +37,6 @@
 	data["card_slot"] = !!computer.card_slot
 	data["registered"] = computer.registered_id ? computer.registered_id.registered_name : ""
 
-	data["message_range"] = computer.message_output_range
 	data["max_message_range"] = initial(computer.message_output_range) + 3
 
 	data["hardware"] = list()
@@ -57,6 +56,7 @@
 /datum/computer_file/program/computerconfig/ui_data(mob/user)
 	var/list/data = list()
 	data["power_usage"] = computer.last_power_usage * (CELLRATE / 2)
+	data["message_range"] = computer.message_output_range
 
 	data["battery"] = list()
 	if(computer.battery_module)
@@ -64,7 +64,7 @@
 		data["battery"]["percent"] = round(computer.battery_module.battery.percent())
 
 	if(computer.flashlight)
-		var/brightness = Clamp(0, round(computer.flashlight.power) * 10, 10)
+		var/brightness = Clamp(0, round(computer.flashlight.power, 0.1) * 10, 10)
 		data["brightness"] = brightness
 
 	return data

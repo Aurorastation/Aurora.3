@@ -31,14 +31,11 @@ export const Photocopier = (props, context) => {
             <BlockQuote>No object to copy inserted.</BlockQuote>
           )}
         </Section>
-        {data.is_silicon &&
+        {data.is_silicon && (
           <Section title="Artificial Intelligence Overrides">
-            <Button
-              content="Print Photo"
-              onClick={(value) => act('aipic')}
-            />
+            <Button content="Print Photo" onClick={(value) => act('aipic')} />
           </Section>
-        }
+        )}
       </Window.Content>
     </Window>
   );

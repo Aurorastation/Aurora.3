@@ -1,3 +1,4 @@
+import { BooleanLike } from 'common/react';
 import { capitalizeAll } from '../../common/string';
 import { useBackend } from '../backend';
 import { Button, Section, Box, BlockQuote } from '../components';
@@ -20,7 +21,7 @@ export type GunneryData = {
   selected_z: number;
   targeting: Targeting;
   selected_entrypoint: string;
-  mobile_platform: boolean;
+  mobile_platform: BooleanLike;
   platform_directions: string[];
   platform_direction: string;
 };
@@ -77,9 +78,7 @@ export const GunneryWindow = (props, context) => {
           />
           {data.z_levels && (
             <Section>
-              <Box as bold>
-                Deck Filter
-              </Box>
+              <Box bold>Deck Filter</Box>
               <Dropdown
                 options={z_levels}
                 displayText={data.selected_z}

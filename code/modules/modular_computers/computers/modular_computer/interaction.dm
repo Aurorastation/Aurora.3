@@ -215,7 +215,7 @@
 		if(!hard_drive)
 			to_chat(user, SPAN_WARNING("You cannot reset a device that has no hard drive."))
 			return TRUE
-		enrolled = DEVICE_UNKNOWN
+		enrolled = DEVICE_UNSET
 		hard_drive.reset_drive()
 		audible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> pings, <span class='notice'>\"Enrollment status reset! Have a NanoTrasen day.\"</span>")
 		return TRUE
