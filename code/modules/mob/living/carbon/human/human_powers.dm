@@ -672,7 +672,7 @@
 		to_chat(src, "<span class='notice'>You return your vision to normal.</span>")
 		src.stop_sight_update = 0
 
-/mob/living/carbon/human/proc/shadow_step(var/turf/T in turfs)
+/mob/living/carbon/human/proc/shadow_step(var/turf/T in world)
 	set category = "Abilities"
 	set name = "Shadow Step"
 	set desc = "Travel from place to place using the shadows."
