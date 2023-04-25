@@ -19,6 +19,8 @@
 	var/num_copies = 1
 	/// Item insert animation.
 	var/insert_anim = "photocopier_scan"
+	/// Print animation.
+	var/print_animation = "photocopier_print"
 
 /obj/machinery/photocopier/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
@@ -213,9 +215,9 @@
 
 	c.set_content_unsafe(pname, info)
 	if (print)
-		if(target.type == /obj/machinery/photocopier)
+		if(istype(T, /obj/machinery/photocopier))
 			var/obj/machinery/photocopier/T = target
-			flick("photocopier_print", target)
+			flick(T.print_animation, target)
 			--T.toner
 		target.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay)
 	return c
