@@ -4270,6 +4270,20 @@ Follow by example and make good judgement based on length which list to include 
 		glorp
 			name = "Glorp"
 			icon_state = "glorp"
+			
+	tuux_whiskers
+		icon = 'icons/mob/human_face/skrell_beards.dmi'
+		name = "Tuux Tentacle Whiskers"
+		icon_state = "Tuux_Whiskers"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
+		gender = NEUTER
+
+	tuux_whiskers_chin
+		icon = 'icons/mob/human_face/skrell_beards.dmi'
+		name = "Tuux Tentacle Whiskers w/Chin"
+		icon_state = "Tuux_Whiskers_Chin"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
+		gender = NEUTER
 
 	tuux_patch
 		icon = 'icons/mob/human_face/skrell_beards.dmi'
@@ -5145,6 +5159,18 @@ Follow by example and make good judgement based on length which list to include 
 	eyelash_left
 		name = "Eyelash Left"
 		icon_state = "eyelash_l"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/skrell/axiori, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	eyebrows
+		name = "Eyebrows"
+		icon_state = "eyebrows"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/skrell/axiori, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	unibrow
+		name = "Unibrow"
+		icon_state = "unibrow"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/skrell/axiori, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 

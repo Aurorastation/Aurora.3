@@ -559,16 +559,16 @@ var/datum/controller/subsystem/timer/SStimer
 		CRASH("addtimer called without a callback")
 
 	if (wait < 0)
-		CRASH("addtimer called with a negative wait. Converting to [world.tick_lag]")
+		stack_trace("addtimer called with a negative wait. Converting to [world.tick_lag]")
 
 	if (callback.object != GLOBAL_PROC && QDELETED(callback.object) && !QDESTROYING(callback.object))
-		CRASH("addtimer called with a callback assigned to a qdeleted object. In the future such timers will not \
+		stack_trace("addtimer called with a callback assigned to a qdeleted object. In the future such timers will not \
 			be supported and may refuse to run or run with a 0 wait")
 
 	wait = max(Ceilm(wait, world.tick_lag), world.tick_lag)
 
 	if(wait >= INFINITY)
-		CRASH("Attempted to create timer with INFINITY delay")
+		stack_trace("Attempted to create timer with INFINITY delay")
 
 	// Generate hash if relevant for timed events with the TIMER_UNIQUE flag
 	var/hash

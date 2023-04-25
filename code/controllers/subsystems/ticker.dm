@@ -444,7 +444,11 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	for(var/s in SSghostroles.spawners)
 		var/datum/ghostspawner/G = SSghostroles.spawners[s]
-		if(G.enabled && !("Antagonist" in G.tags) && !(G.loc_type == GS_LOC_ATOM && !length(G.spawn_atoms)))
+		if(G.enabled \
+			&& !("Antagonist" in G.tags) \
+			&& !(G.loc_type == GS_LOC_ATOM && !length(G.spawn_atoms)) \
+			&& (G.req_perms == null) \
+		)
 			available_ghostroles |= G.name
 
 	// Special case, to list the Merchant in case it is available at roundstart
@@ -452,8 +456,12 @@ var/datum/controller/subsystem/ticker/SSticker
 		available_ghostroles |= SSjobs.type_occupations[/datum/job/merchant].title
 
 	if(length(available_ghostroles))
-		to_world("<br /><br />" + SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round:")) + "[english_list(available_ghostroles)].<br />" + \
-		SPAN_INFO("Please note that the actual availability depends on additional things, including your user (eg. job bans)"))
+		to_world("<br>" \
+			+ SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round: ")) \
+			+ "[english_list(available_ghostroles)]. " \
+			+ SPAN_INFO("Actual availability may vary.") \
+			+ "<br>" \
+		)
 
 	callHook("pregame_start")
 

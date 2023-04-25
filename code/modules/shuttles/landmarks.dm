@@ -108,9 +108,11 @@
 	var/radius = LANDING_ZONE_RADIUS
 
 /obj/effect/shuttle_landmark/automatic/clearing/LateInitialize()
-	for(var/turf/T in range(radius, src))
+	for(var/turf/T in RANGE_TURFS(LANDING_ZONE_RADIUS, src))
 		if(T.density)
 			T.ChangeTurf(get_base_turf_by_area(T))
+		for(var/obj/structure/S in T)
+			qdel(S)
 	..()
 
 /obj/item/device/spaceflare
