@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { BooleanLike } from 'common/react';
+import { BooleanLike } from '../../common/react';
 import { round } from '../../common/math';
 import { capitalizeAll } from '../../common/string';
 import { Section, Box, Button, BlockQuote, Dropdown } from '../components';
@@ -71,7 +71,9 @@ const FaxWindow = (props, context) => {
       ) : (
         <Box>
           Transmitter arrays re-aligning. Please stand by.{' '}
-          <Box>{round(remaining_cooldown / 10, 0)} seconds remaining.</Box>
+          <Box>
+            <b>{round(remaining_cooldown / 10, 0)}</b> seconds remaining.
+          </Box>
         </Box>
       )}
     </Section>

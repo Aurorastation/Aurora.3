@@ -215,7 +215,7 @@
 
 	c.set_content_unsafe(pname, info)
 	if (print)
-		if(istype(T, /obj/machinery/photocopier))
+		if(istype(target, /obj/machinery/photocopier))
 			var/obj/machinery/photocopier/T = target
 			flick(T.print_animation, target)
 			--T.toner
