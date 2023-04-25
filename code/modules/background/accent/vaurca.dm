@@ -10,7 +10,7 @@
 /datum/accent/klax
     name = ACCENT_KLAX
     description = "K'laxane is the modern day dialect of the K'lax Hive. Primitive modulators manage to capture a similarity to the \
-    peasantry of the Izweski Hegemony on Moghes - however, they do not fully replicate it, retaining a more drawn out and dreamy tone. To other vaurcae, this is \
+    peasantry of the Izweski Hegemony on Moghes - however, they do not fully replicate it, retaining a more drawn out and dreamy tone. To other Vaurcae, this is \
     a more subservient manner of speaking, akin to how Bound tend to draw out their thoughts - a common trait instilled in most vassal hives as a brand. Their \
     vocal augments stereotypically have difficulty, typically when producing sounds related to the letter 's', instead substituting with a harsh buzzing in the \
     throat - the K'lax experience less of this - no Unathi would be content listening to a Vaurca buzz incessantly when trying to hiss a sentence in the \
@@ -20,7 +20,7 @@
 
 /datum/accent/cthur
     name = ACCENT_CTHUR
-    description = "C'thuric is the modern day dialect of the C'thur Hive, a sly and sneering take on the unyielding Nral'Malic. Other Vaurcae would associate this tone with \
+    description = "C'thuric is the modern day dialect of the C'thur Hive, a sly and sneering take on the unyielding Nral'Malic. Other Vaurcae would associate this tone with the \
 	C'thur's infamous past deeds. Modulators are unfortunately still cheap, leading to a monotone method of speaking. \
 	Voices are also warped into being clear and concise, many C'thur adopting a blunt and to-the-point style when speaking casually. \
 	Their vocal augments stereotypically have difficulty, typically when producing sounds related to the letter 's', instead \
