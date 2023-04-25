@@ -306,6 +306,8 @@
 				if(M.is_drowsy())
 					disarm_cost *= 1.25
 				usesStamina = TRUE
+			if(attacker_style && attacker_style.disarm_act(H, src))
+				usesStamina = FALSE
 			else if(M.max_stamina <= 0)
 				if(M.isSynthetic())
 					disarm_cost = potato.maxcharge / 24
