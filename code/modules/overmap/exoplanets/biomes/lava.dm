@@ -5,8 +5,7 @@
 	turf_type = /turf/unsimulated/floor/asteroid/basalt
 	generators = list(
 		PLANET_TURF = list(BATCHED_NOISE, -0.1, 360, 32),
-		SMALL_FLORA = list(POISSON_SAMPLE, 9),
-		WILDLIFE = list(POISSON_SAMPLE, 15)
+		SMALL_FLORA = list(POISSON_SAMPLE, 9)
 	)
 	exclusive_generators = list(PLANET_TURF)
 	spawn_types = list(
