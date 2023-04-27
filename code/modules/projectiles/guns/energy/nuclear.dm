@@ -193,6 +193,7 @@
 	turret_is_lethal = TRUE
 	projectile_type = /obj/item/projectile/beam/midlaser/hegemony
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 4)
+	is_wieldable = TRUE
 	modifystate = "hegemonyrifle"
 
 /obj/item/gun/energy/repeater
