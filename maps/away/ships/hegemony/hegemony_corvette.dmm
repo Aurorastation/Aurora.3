@@ -670,7 +670,6 @@
 /turf/simulated/floor,
 /area/hegemony_ship/engineering)
 "eI" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	id = "headmaster_bridge";
@@ -679,7 +678,8 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, captains quarters"
 	},
-/turf/space,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor,
 /area/hegemony_ship/captains_quarters)
 "eO" = (
 /obj/structure/window/reinforced,
@@ -2150,7 +2150,6 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/warpriests_quarters)
 "oG" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	id = "headmaster_bridge";
@@ -2159,11 +2158,12 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, center"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
 /area/hegemony_ship)
 "oI" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor,
 /area/hegemony_ship/canteen)
 "oP" = (
 /obj/structure/table/rack,
@@ -3480,7 +3480,7 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/armory)
 "wB" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/brig)
 "wC" = (
@@ -4082,7 +4082,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/obj/effect/map_effect/window_spawner/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor,
 /area/hegemony_ship/engineering)
 "zO" = (
@@ -4809,7 +4809,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/bridge)
 "Eq" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
 /area/hegemony_ship/temple)
 "Es" = (
@@ -5402,15 +5402,6 @@
 /obj/item/clothing/suit/unathi/robe/robe_coat/orange,
 /turf/simulated/floor/wood,
 /area/hegemony_ship/captains_quarters)
-"HT" = (
-/obj/effect/map_effect/window_spawner/borosilicate/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "headmaster_bridge";
-	icon_state = "pdoor0"
-	},
-/turf/simulated/floor,
-/area/hegemony_ship/engineering)
 "Ie" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -5955,12 +5946,12 @@
 /turf/simulated/floor/tiled/white,
 /area/hegemony_ship/restroom)
 "Lp" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	id = "headmaster_bridge";
 	icon_state = "pdoor0"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
 /area/hegemony_ship)
 "Lq" = (
@@ -6435,13 +6426,13 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "NI" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	id = "headmaster_bridge";
 	icon_state = "pdoor0"
 	},
-/turf/space,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor,
 /area/hegemony_ship/captains_quarters)
 "NP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6693,11 +6684,8 @@
 /turf/template_noop,
 /area/space)
 "PO" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
 /obj/effect/map_effect/airlock/w_to_e,
-/turf/simulated/floor/tiled,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship)
 "PQ" = (
 /obj/structure/sign/poster{
@@ -7847,12 +7835,12 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/brig)
 "Yq" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	id = "headmaster_bridge";
 	icon_state = "pdoor0"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
 /area/hegemony_ship/trophy_room)
 "Yt" = (
@@ -8008,12 +7996,7 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_flak)
 "Zo" = (
-/obj/effect/map_effect/window_spawner/borosilicate/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "headmaster_bridge";
-	icon_state = "pdoor0"
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor,
 /area/hegemony_ship/engineering)
 "Zu" = (
@@ -23627,7 +23610,7 @@ zQ
 yV
 sG
 QU
-HT
+Zo
 zr
 LR
 Ya
@@ -23789,7 +23772,7 @@ TI
 tB
 fe
 sC
-HT
+Zo
 VP
 JA
 kj
@@ -23951,7 +23934,7 @@ eE
 Ta
 Xf
 pI
-HT
+Zo
 Qh
 lW
 wF
