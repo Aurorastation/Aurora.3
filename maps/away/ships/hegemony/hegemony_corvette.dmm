@@ -1119,10 +1119,6 @@
 	dir = 9
 	},
 /obj/structure/table/steel,
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
-	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "hI" = (
@@ -4330,11 +4326,6 @@
 	dir = 9
 	},
 /obj/structure/table/steel,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -5402,6 +5393,10 @@
 /obj/item/clothing/suit/unathi/robe/robe_coat/orange,
 /turf/simulated/floor/wood,
 /area/hegemony_ship/captains_quarters)
+"HT" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor,
+/area/hegemony_ship/engineering)
 "Ie" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -7996,9 +7991,8 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_flak)
 "Zo" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor,
-/area/hegemony_ship/engineering)
+/area/hegemony_ship)
 "Zu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -23449,9 +23443,9 @@ dx
 sG
 uJ
 KR
-Zo
+HT
 uu
-Zo
+HT
 Ot
 aJ
 aJ
@@ -23610,7 +23604,7 @@ zQ
 yV
 sG
 QU
-Zo
+HT
 zr
 LR
 Ya
@@ -23772,7 +23766,7 @@ TI
 tB
 fe
 sC
-Zo
+HT
 VP
 JA
 kj
@@ -23934,7 +23928,7 @@ eE
 Ta
 Xf
 pI
-Zo
+HT
 Qh
 lW
 wF
@@ -24247,9 +24241,9 @@ aJ
 aJ
 aJ
 aJ
-aJ
-aJ
-aJ
+wQ
+Zo
+wQ
 aJ
 aJ
 aJ
