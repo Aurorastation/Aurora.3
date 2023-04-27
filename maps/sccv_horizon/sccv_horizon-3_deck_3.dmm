@@ -4820,17 +4820,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/shields)
-"epJ" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/port)
 "eqk" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/security_starboard)
@@ -5332,6 +5321,17 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
+"eIH" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/central)
 "eIO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -10660,6 +10660,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
+"iUb" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/lino/grey,
+/area/horizon/security/investigators_office)
 "iUc" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -16694,6 +16700,19 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/medical/ward/isolation)
+"nGI" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/hallway/deck_three/primary/port)
 "nHe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
@@ -21563,7 +21582,7 @@
 /area/medical/washroom)
 "rTt" = (
 /obj/effect/floor_decal/corner/green{
-	dir = 5
+	dir = 10
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -21571,7 +21590,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/central)
+/area/horizon/hallway/deck_three/primary/port)
 "rUd" = (
 /obj/machinery/light{
 	dir = 8
@@ -22234,19 +22253,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"sps" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/horizon/hallway/deck_three/primary/port)
 "spJ" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -23043,9 +23049,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "taN" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal/small/south,
@@ -53642,12 +53645,12 @@ lbi
 lbi
 lbi
 ozd
-sps
+nGI
 fWT
 kyE
-epJ
-eCV
 rTt
+eCV
+eIH
 sVV
 seF
 ybk
@@ -54250,8 +54253,8 @@ ahB
 ahB
 bUo
 bUo
-ahB
-ahB
+bUo
+bUo
 ahB
 uly
 pAs
@@ -54451,7 +54454,7 @@ hmC
 dNi
 taN
 blU
-iAY
+iUb
 iAY
 nIt
 ahB

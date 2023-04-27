@@ -5452,6 +5452,11 @@
 	dir = 6
 	},
 /obj/machinery/computer/shuttle_control/multi/robotics,
+/obj/machinery/computer/shuttle_control/lift{
+	pixel_x = 12;
+	pixel_y = 22;
+	shuttle_tag = "Robotics Lift"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/robotics_lift)
 "cIr" = (
@@ -41383,11 +41388,6 @@
 "uoU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
-	},
-/obj/machinery/computer/shuttle_control/lift{
-	pixel_x = 12;
-	pixel_y = 22;
-	shuttle_tag = "Robotics Lift"
 	},
 /obj/effect/shuttle_landmark/lift/robotics_second_deck,
 /turf/simulated/floor/tiled/dark/full,
