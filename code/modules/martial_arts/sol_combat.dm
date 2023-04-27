@@ -43,11 +43,10 @@
 				D.apply_damage(25, DAMAGE_BRUTE)
 				A.visible_message("<span class='danger'>[A] hits [M] with a powerful kick!</span>")
 			else
-				if(istype(AM, /mob/living))
-					A.spin(10,1)
-					M.Weaken(3)
-					A.visible_message(M, "<span class='danger'>[A] swiftly leg sweeps [M]!</span>")
-					AM.throw_at(sweeptarget, ((Clamp((1 - (Clamp(distfromcaster - 2, 0, distfromcaster))), 1, 1))), 1)
+				A.spin(10,1)
+				M.Weaken(3)
+				A.visible_message(M, "<span class='danger'>[A] swiftly leg sweeps [M]!</span>")
+				AM.throw_at(sweeptarget, ((Clamp((1 - (Clamp(distfromcaster - 2, 0, distfromcaster))), 1, 1))), 1)
 
 /datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
 	A.do_attack_animation(D)
