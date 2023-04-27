@@ -3268,6 +3268,8 @@
 	icon_state = "rwindow"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/shield/energy/dominia,
+/obj/item/clothing/accessory/poncho/dominia_cape/kazhkz,
 /turf/simulated/floor,
 /area/hegemony_ship/trophy_room)
 "vB" = (
@@ -4842,6 +4844,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/sign/flag/kazhkz{
+	pixel_y = 30
+	},
+/obj/item/clothing/head/dominia/fleet/officer,
+/obj/item/clothing/head/helmet/space/void/dominia/unathi,
 /turf/simulated/floor,
 /area/hegemony_ship/trophy_room)
 "FO" = (
@@ -5707,6 +5714,8 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/book/manual/dominia_honor,
+/obj/item/clothing/head/beret/dominia/priest/red,
 /turf/simulated/floor,
 /area/hegemony_ship/trophy_room)
 "KN" = (
