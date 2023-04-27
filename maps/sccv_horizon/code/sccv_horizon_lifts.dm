@@ -161,6 +161,8 @@
 	knockdown = FALSE
 	squishes = FALSE
 	ceiling_type = null
+	sound_takeoff = 'sound/effects/lift_heavy_start.ogg'
+	sound_landing = 'sound/effects/lift_heavy_stop.ogg'
 	shuttle_area = /area/turbolift/scc_ship/robotics_lift
 	destination_tags = list(
 		"nav_robotics_lift_first_deck",
