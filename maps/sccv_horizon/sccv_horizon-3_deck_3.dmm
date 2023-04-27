@@ -24216,13 +24216,10 @@
 	pixel_x = 32;
 	pixel_y = 16
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "tVP" = (
@@ -24447,11 +24444,10 @@
 	dir = 5
 	},
 /obj/machinery/door/window/northleft,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/loading/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "udU" = (

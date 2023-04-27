@@ -2581,6 +2581,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bhR" = (
@@ -25644,6 +25645,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/computer/shuttle_control/multi/lift/wall/robotics{
 	dir = 1;
 	pixel_y = -28;
@@ -49306,6 +49308,13 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 8;
+	name = "Deck 2 Port Stairwell Auxiliary Hangar Elevator"
+	},
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 8
+	},
 /obj/structure/sign/crush{
 	pixel_y = -32;
 	pixel_x = -32
@@ -49928,6 +49937,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "ylu" = (
