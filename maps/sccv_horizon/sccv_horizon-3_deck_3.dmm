@@ -16427,6 +16427,10 @@
 	dir = 4
 	},
 /obj/machinery/light,
+/obj/machinery/computer/shuttle_control/multi/lift/robotics{
+	pixel_y = 21;
+	pixel_x = 11
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "nwE" = (

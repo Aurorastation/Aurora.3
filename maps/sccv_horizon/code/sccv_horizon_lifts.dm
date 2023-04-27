@@ -189,16 +189,34 @@
 	base_area = /area/hallway/medical
 	base_turf = /turf/simulated/open
 
-/obj/machinery/computer/shuttle_control/multi/robotics
-	name = "lift control console"
-	icon = 'icons/obj/primitive_computer.dmi'
-	icon_screen = "syndicate"
+/obj/machinery/computer/shuttle_control/multi/lift
+	name = "lift controller"
+	icon = 'icons/obj/computer.dmi'
+	icon_state = "lift"
+	icon_screen = null
+	density = FALSE
 	req_access = null
+
+/obj/machinery/computer/shuttle_control/multi/lift
+	name = "lift controller"
+	icon = 'icons/obj/computer.dmi'
+	icon_state = "lift"
+	icon_screen = null
+	density = FALSE
+	req_access = null
+
+/obj/machinery/computer/shuttle_control/multi/lift/wall
+	icon_state = "lift_wall"
+
+/obj/machinery/computer/shuttle_control/multi/lift/robotics
 	shuttle_tag = "Robotics Lift 2"
-	light_color = LIGHT_COLOR_RED
+
+/obj/machinery/computer/shuttle_control/multi/lift/wall/robotics
+	shuttle_tag = "Robotics Lift 2"
 
 // /area/turbolift/scc_ship/robotics_lift
 // 	name = "Robotics Lift"
 // 	sound_env = TUNNEL_ENCLOSED
 // 	ambience = AMBIENCE_GHOSTLY
+
 

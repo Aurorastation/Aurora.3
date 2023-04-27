@@ -16247,16 +16247,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "mmA" = (
-/obj/machinery/computer/shuttle_control/lift/wall{
-	dir = 1;
-	pixel_y = -32;
-	shuttle_tag = "Robotics Lift"
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "shutters_deck2_portstairwellsec";
+	name = "Elevator Security Shutters";
+	pixel_y = -37;
+	req_one_access = list(1,19);
+	dir = 1
+	},
+/obj/machinery/computer/shuttle_control/multi/lift/wall/robotics{
+	dir = 1;
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
@@ -26610,10 +26616,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "ugY" = (
-/obj/machinery/computer/shuttle_control/lift/wall{
-	pixel_y = 26;
-	shuttle_tag = "Robotics Lift"
-	},
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_deck2_portstairwellsec";
 	name = "Elevator Security Shutters";
@@ -26629,6 +26631,10 @@
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/machinery/computer/shuttle_control/multi/lift/wall/robotics{
+	dir = 2;
+	pixel_y = 28
+	},
 /turf/simulated/floor/wood,
 /area/hangar/auxiliary)
 "uhE" = (
