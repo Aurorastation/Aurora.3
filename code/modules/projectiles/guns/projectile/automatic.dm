@@ -15,6 +15,7 @@
 	multi_aim = 1
 	burst_delay = 2
 	sel_mode = 1
+	fire_delay = ROF_SMG
 
 	firemodes = list(
 		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=ROF_SMG),
@@ -129,6 +130,7 @@
 	empty_sound = /singleton/sound_category/out_of_ammo_rifle
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
+	fire_delay = ROF_RIFLE
 
 	is_wieldable = TRUE
 
