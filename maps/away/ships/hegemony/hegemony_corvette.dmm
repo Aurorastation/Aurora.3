@@ -2882,12 +2882,6 @@
 	},
 /obj/item/ship_ammunition/bruiser/real/he,
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -5052,9 +5046,6 @@
 	},
 /obj/item/ship_ammunition/bruiser/real/he,
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/gun_deck_bruiser)
 "Gn" = (
@@ -7977,9 +7968,8 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "YZ" = (
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/hegemony_ship/engineering)
+/turf/simulated/floor,
+/area/hegemony_ship)
 "Zi" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -7990,9 +7980,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_flak)
-"Zo" = (
-/turf/simulated/floor,
-/area/hegemony_ship)
 "Zu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -22960,7 +22947,7 @@ ZF
 As
 Dn
 ZF
-YZ
+Ot
 aJ
 aJ
 aJ
@@ -24242,7 +24229,7 @@ aJ
 aJ
 aJ
 wQ
-Zo
+YZ
 wQ
 aJ
 aJ
