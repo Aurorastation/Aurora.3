@@ -3,10 +3,9 @@
 	description = "Ship with lizards."
 	suffixes = list("ships/hegemony/hegemony_corvette.dmm")
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
-	//spawn_weight = 1
-	//ship_cost = 1
+	spawn_weight = 1
+	ship_cost = 1
 	id = "hegemony_corvette"
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hegemony_shuttle)
 
 /singleton/submap_archetype/hegemony_corvette
@@ -16,7 +15,7 @@
 /obj/effect/overmap/visitable/ship/hegemony_corvette
 	name = "Hegemony Corvette"
 	class = "HMV" //Hegemony Military Vessel
-	desc = "stuff goes here"
+	desc = "The Foundation-class corvette is the backbone of the Izweski Hegemony Navy, especially as many of their larger ships cannot operate without ready supplies of phoron. Under Not'zar's reign, Foundation-class vessels are often seen patrolling the Badlands and Sparring Sea, to secure Izweski trade routes against pirate incursion."
 	icon_state = "foundation"
 	moving_state = "foundation-moving"
 	colors = list("#e38222", "#f0ba3e")
@@ -33,8 +32,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_restricted_waypoints = list(
-		"Hegemony Shuttle" = list("nav_hegemony_corvette_shuttle"),
-		"Intrepid" = list("nav_hegemony_corvette_intrepid")
+		"Hegemony Shuttle" = list("nav_hegemony_corvette_shuttle")
 	)
 	initial_generic_waypoints = list(
 		"nav_hegemony_corvette1",
