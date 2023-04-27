@@ -1180,7 +1180,7 @@
 	},
 /obj/effect/ghostspawpoint{
 	name = "igs - hegemony_crew";
-	identifier = hegemony_crew
+	identifier = "hegemony_crew"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
@@ -3269,7 +3269,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/item/shield/energy/dominia,
-/obj/item/clothing/accessory/poncho/dominia_cape/kazhkz,
 /turf/simulated/floor,
 /area/hegemony_ship/trophy_room)
 "vB" = (
@@ -3571,7 +3570,7 @@
 	},
 /obj/effect/ghostspawpoint{
 	name = "igs - hegemony_crew";
-	identifier = hegemony_crew
+	identifier = "hegemony_crew"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
@@ -3791,7 +3790,7 @@
 /obj/structure/curtain/open/bed,
 /obj/effect/ghostspawpoint{
 	name = "igs - hegemony_warpriest";
-	identifier = hegemony_warpriest
+	identifier = "hegemony_warpriest"
 	},
 /turf/simulated/floor/wood,
 /area/hegemony_ship/warpriests_quarters)
@@ -3909,7 +3908,7 @@
 	},
 /obj/effect/ghostspawpoint{
 	name = "igs - hegemony_klax";
-	identifier = hegemony_klax
+	identifier = "hegemony_klax"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
@@ -3950,7 +3949,7 @@
 	},
 /obj/effect/ghostspawpoint{
 	name = "igs - hegemony_crew";
-	identifier = hegemony_crew
+	identifier = "hegemony_crew"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
@@ -4848,7 +4847,6 @@
 	pixel_y = 30
 	},
 /obj/item/clothing/head/dominia/fleet/officer,
-/obj/item/clothing/head/helmet/space/void/dominia/unathi,
 /turf/simulated/floor,
 /area/hegemony_ship/trophy_room)
 "FO" = (
@@ -6982,7 +6980,7 @@
 /obj/structure/curtain/open/bed,
 /obj/effect/ghostspawpoint{
 	name = "igs - hegemony_cap";
-	identifier = hegemony_cap
+	identifier = "hegemony_cap"
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/hegemony_ship/captains_quarters)
