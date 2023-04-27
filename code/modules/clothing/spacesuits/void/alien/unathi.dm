@@ -135,7 +135,7 @@
 /obj/item/clothing/suit/space/void/hegemony
 	name = "hegemony military voidsuit"
 	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. The standard spacefaring attire of the Izweski Hegemony Navy."
-	icon = "icons/obj/clothing/voidsuit/hegemony.dmi"
+	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
 	icon_state = "hegemony-voidsuit"
 	item_state = "hegemony-voidsuit_item"
 	w_class = ITEMSIZE_NORMAL
@@ -155,7 +155,7 @@
 /obj/item/clothing/head/helmet/space/void/hegemony
 	name = "hegemony military helmet"
 	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. Usually seen on soldiers of the Izweski Hegemony Navy."
-	icon = "icons/obj/clothing/voidsuit/hegemony.dmi"
+	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
 	icon_state = "hegemony-voidhelm"
 	item_state = "hegemony-voidhelm_item"
 	armor = list(
