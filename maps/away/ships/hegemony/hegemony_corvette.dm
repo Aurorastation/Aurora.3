@@ -65,14 +65,9 @@
 	name = "Hegemony Corvette - Starboard"
 	landmark_tag = "nav_hegemony_corvette4"
 
-/obj/effect/shuttle_landmark/hegemony_corvette/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_hegemony_corvette"
-	base_turf = /turf/space/transit/north
-
-/obj/effect/shuttle_landmark/hegemony_corvette/dock
-	name = "Hegemony Corvette - Shuttle Dock"
-	landmark_tag = "nav_hegemony_corvette_shuttle"
+/obj/effect/shuttle_landmark/hegemony_corvette/dock2
+	name = "Hegemony Corvette - Auxiliary Dock"
+	landmark_tag = "nav_hegemony_corvette_generic"
 
 /obj/effect/shuttle_landmark/hegemony_corvette/intrepid
 	name = "Hegemony Corvette - Intrepid Dock"
@@ -85,9 +80,9 @@
 	name = "Hegemony Shuttle"
 	class = "HMV"
 	designation = "Hatchling"
-	desc = "An inefficient design of ultra-light shuttle. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus."
-	icon_state = "pod"
-	moving_state = "pod_moving"
+	desc = "The Siro-class shuttle is the standard troop transport of the Izweski Hegemony, usually found attached to their smaller naval ships. While it is unarmed, it is agile, and armored for aggressive boarding maneuvers."
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
 	shuttle = "Hegemony Shuttle"
 	colors = list("#e38222", "#f0ba3e")
 	max_speed = 1/(3 SECONDS)
@@ -106,7 +101,21 @@
 	shuttle_area = list(/area/shuttle/hegemony)
 	current_location = "nav_hegemony_corvette_shuttle"
 	landmark_transition = "nav_transit_hegemony_corvette"
+	dock_target = "hegemony_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hegemony_corvette_shuttle"
 	defer_initialisation = TRUE
+
+/obj/effect/shuttle_landmark/hegemony_shuttle/transit
+	name = "In transit"
+	landmark_tag = "nav_transit_hegemony_corvette"
+	base_turf = /turf/space/transit/north
+
+/obj/effect/shuttle_landmark/hegemony_shuttle/dock
+	name = "Hegemony Corvette - Shuttle Dock"
+	landmark_tag = "nav_hegemony_corvette_shuttle"
+	docking_controller = "hegemony_shuttle_dock"
+	base_area = /area/space
+	base_turf = /turf/space
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
