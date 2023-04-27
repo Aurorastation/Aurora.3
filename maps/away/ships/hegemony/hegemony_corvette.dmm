@@ -3336,7 +3336,7 @@
 	},
 /obj/item/ship_ammunition/bruiser/real/beehive{
 	pixel_x = 7;
-	desc = s"An expensive shell actually designed for a bruiser cannon. Very popular among sinta; this shell bursts into many slugger projectiles that punch through the hull with less mass, but more force."
+	desc = "An expensive shell actually designed for a bruiser cannon. Very popular among sinta; this shell bursts into many slugger projectiles that punch through the hull with less mass, but more force."
 	},
 /obj/item/ship_ammunition/bruiser/real/beehive,
 /obj/effect/floor_decal/industrial/hatch/red,
