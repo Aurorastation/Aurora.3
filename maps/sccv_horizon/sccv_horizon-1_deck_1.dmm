@@ -27037,7 +27037,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "uwf" = (
-/obj/effect/shuttle_landmark/lift/robotics_bottom,
+/obj/effect/shuttle_landmark/lift/robotics_first_deck,
 /turf/simulated/floor/plating,
 /area/rnd/eva)
 "uwm" = (

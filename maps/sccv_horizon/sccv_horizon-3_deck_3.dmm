@@ -2155,13 +2155,16 @@
 /turf/simulated/floor,
 /area/hallway/medical/upper)
 "bNF" = (
-/obj/machinery/light{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
 	},
-/obj/effect/floor_decal/corner/green{
-	dir = 6
+/obj/machinery/computer/shuttle_control/lift{
+	pixel_x = 12;
+	pixel_y = 22;
+	shuttle_tag = "Robotics Lift"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/shuttle_landmark/lift/robotics_second_deck,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/port)
 "bNJ" = (
 /obj/structure/bed/stool/chair/padded/brown{
@@ -4826,10 +4829,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/shields)
 "epJ" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/computer/shuttle_control/multi/robotics,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/port)
 "eqk" = (
 /turf/simulated/wall/r_wall,
@@ -21584,11 +21588,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "rTt" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/port)
 "rUd" = (
 /obj/machinery/light{
@@ -22258,11 +22261,10 @@
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "sps" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/port)
 "spJ" = (
 /obj/machinery/light/small{
