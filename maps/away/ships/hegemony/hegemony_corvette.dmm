@@ -16,6 +16,28 @@
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/hegemony_ship/canteen)
+"ag" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "hegemony2";
+	name = "blast door"
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "ah" = (
 /obj/item/bikehorn/rubberducky{
 	name = "Clem"
@@ -37,6 +59,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "hegemony1";
+	name = "blast door"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -315,7 +341,8 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/button/remote/blast_door{
 	pixel_x = 32;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	id = "hegemony3"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -568,12 +595,14 @@
 	pixel_x = -32;
 	pixel_y = -7;
 	name = "Auxiliary CIC Blastdoors";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	id = "hegemony_cic"
 	},
 /obj/machinery/button/remote/blast_door{
 	pixel_x = -32;
 	pixel_y = 3;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	id = "hegemony3"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -602,6 +631,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "hegemony_cic";
+	name = "blast door"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/aux_cic)
@@ -814,6 +847,20 @@
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
+"fB" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	name = "\improper WARNING: BLAST DOOR sign";
+	pixel_x = 32
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "hegemony3";
+	name = "blast door"
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "fC" = (
 /obj/effect/floor_decal/spline/plain/cee,
 /turf/simulated/floor/carpet/rubber,
@@ -882,7 +929,8 @@
 /obj/machinery/firealarm/west,
 /obj/machinery/button/remote/blast_door{
 	name = "Auxiliary CIC Blastdoors";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	id = "hegemony_cic"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_ship/aux_cic)
@@ -1268,6 +1316,11 @@
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "hegemony5";
+	name = "blast door"
+	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "jk" = (
@@ -1622,7 +1675,8 @@
 /obj/machinery/light,
 /obj/machinery/button/remote/blast_door{
 	pixel_y = -32;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	id = "hegemony1"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -2196,6 +2250,20 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/hegemony_ship/gun_deck_bruiser)
+"pi" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	name = "\improper WARNING: BLAST DOOR sign";
+	pixel_x = -32
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "hegemony3";
+	name = "blast door"
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "po" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2841,6 +2909,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
+"td" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	name = "\improper WARNING: BLAST DOOR sign";
+	pixel_x = 32
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "hegemony4";
+	name = "blast door"
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "tj" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -2949,6 +3031,11 @@
 	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "hegemony4";
+	name = "blast door"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -3151,6 +3238,10 @@
 	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_y = 32
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "hegemony2";
+	name = "blast door"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -3632,6 +3723,20 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/hegemony_ship/atmos_waste)
+"yd" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	name = "\improper WARNING: BLAST DOOR sign";
+	pixel_x = -32
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "hegemony5";
+	name = "blast door"
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "ye" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4156,6 +4261,11 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "hegemony4";
+	name = "blast door"
+	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "AH" = (
@@ -4376,6 +4486,22 @@
 "Cb" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/captains_quarters)
+"Ck" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "hegemony5";
+	name = "blast door"
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "Cr" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/hegemony_ship)
@@ -4773,7 +4899,8 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	pixel_x = -32;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	id = "hegemony5"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -5293,7 +5420,8 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	pixel_x = -32;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	id = "hegemony4"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -5585,7 +5713,21 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	pixel_y = 32;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	id = "hegemony2"
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
+"JW" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	name = "\improper WARNING: BLAST DOOR sign";
+	pixel_y = 32
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "hegemony1";
+	name = "blast door"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -6018,7 +6160,8 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	pixel_x = 32;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	id = "hegemony5"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -6056,7 +6199,8 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	pixel_x = 32;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	id = "hegemony4"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -6285,7 +6429,8 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	pixel_y = 32;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	id = "hegemony1"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -6349,7 +6494,8 @@
 /obj/machinery/light,
 /obj/machinery/button/remote/blast_door{
 	pixel_y = -32;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	id = "hegemony2"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -7253,6 +7399,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
+"US" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "hegemony3";
+	name = "blast door"
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "UT" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/holofloor/desert,
@@ -7452,6 +7614,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "hegemony_cic";
+	name = "blast door"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/aux_cic)
@@ -7821,6 +7987,10 @@
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_y = -32
 	},
+/obj/machinery/door/blast/regular/open{
+	id = "hegemony1";
+	name = "blast door"
+	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "YZ" = (
@@ -7927,6 +8097,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/brig)
+"ZN" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	name = "\improper WARNING: BLAST DOOR sign";
+	pixel_y = -32
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "hegemony2";
+	name = "blast door"
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "ZO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -19061,7 +19244,7 @@ Gp
 Gp
 Gp
 Gp
-uW
+JW
 aj
 YX
 wQ
@@ -20362,7 +20545,7 @@ Gt
 XG
 zI
 fo
-tP
+pi
 ee
 FQ
 LC
@@ -20389,7 +20572,7 @@ ll
 rE
 Pc
 zu
-tP
+yd
 Fp
 rE
 Pc
@@ -20524,7 +20707,7 @@ Hb
 SL
 kh
 sF
-AG
+US
 ZW
 Sx
 xq
@@ -20551,7 +20734,7 @@ sQ
 SL
 Oo
 Lu
-AG
+Ck
 ss
 IK
 Jt
@@ -20686,14 +20869,14 @@ Gt
 TA
 Qt
 cr
-jb
+fB
 TC
 tj
 JD
 ro
 IH
 MJ
-jb
+td
 Pb
 rg
 GB
@@ -21978,8 +22161,8 @@ wQ
 wQ
 wQ
 uW
-aj
-YX
+ag
+ZN
 wQ
 wQ
 wQ
