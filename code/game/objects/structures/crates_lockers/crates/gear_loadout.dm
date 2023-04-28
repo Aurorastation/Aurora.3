@@ -1,7 +1,7 @@
 /obj/structure/closet/crate/secure/gear_loadout
 	desc = "A secure gear crate."
 	name = "gear crate"
-	
+
 /obj/structure/closet/crate/secure/gear_loadout/legion
 	desc = "A secure crate with Tau Ceti Foreign Legion branding."
 	name = "tcfl gear crate"
@@ -417,7 +417,7 @@
 	new /obj/item/gun/projectile/pistol/adhomai(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
-	
+
 /obj/structure/closet/crate/secure/gear_loadout/legion/fill()
 	new /obj/item/clothing/under/legion(src)
 	new /obj/item/clothing/under/legion(src)
@@ -481,7 +481,7 @@
 	new /obj/item/melee/energy/sword/knife(src)
 	new /obj/item/melee/energy/sword/knife(src)
 	new /obj/item/material/twohanded/pike/flag(src)
-	
+
 /obj/structure/closet/crate/secure/gear_loadout/legion/single/fill()
 	new /obj/item/clothing/under/legion(src)
 	new /obj/item/clothing/head/beret/legion/field(src)

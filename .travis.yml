@@ -1,19 +1,19 @@
 language: generic
-dist: xenial
+dist: jammy
 sudo: false
 
 env:
   global:
-    BYOND_MAJOR="513"
-    BYOND_MINOR="1517"
+    BYOND_MAJOR="514"
+    BYOND_MINOR="1589"
     MACRO_COUNT=0
     GENDER_COUNT=6
     TO_WORLD_COUNT=209
-    FLYWAY_BUILD="5.2.4"
+    FLYWAY_BUILD="9.9.0"
     NODE_VERSION=10
-    RUST_G_VERSION="0.4.2+a2"
+    RUST_G_VERSION="v1.2.0+a4"
     PATH=/opt/python/3.7.1/bin:$PATH
-    SPACEMAN_DMM_VERSION="suite-1.6"
+    SPACEMAN_DMM_VERSION="suite-1.7.3"
   matrix:
     - USE_MAP=aurora
     - USE_MAP=runtime

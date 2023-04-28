@@ -25,6 +25,15 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_NO_SELECTION
+	
+/datum/gear/suit/diona/eternal/blood
+	display_name = "red mesh weave robes"
+	description = "A set of red mesh weave robes worn almost exclusively by priests of the Blood Eternal faith."
+	path = /obj/item/clothing/suit/diona/eternal/blood
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_NO_SELECTION
 
 /datum/gear/uniform/diona/narrows
 	display_name = "antiquated hephaestus prison uniform"
@@ -34,6 +43,23 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/narrows)
+	
+/datum/gear/uniform/diona/dionatunic
+	display_name = "floral tunic"
+	description = "A tunic made up of several colorful fabrics and adorned with seemingly still-living vines and flowers, typically worn by those hailing from the Mada on EUM."
+	path = /obj/item/clothing/under/diona/dionatunic
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	
+/datum/gear/suit/eumponcho
+	display_name = "dionae poncho"
+	description = "A poncho made of some sort of mesh weave material adorned by a piece of colored fabric wrapped around it, sometimes worn by citizens of the CT-EUM, with the fabric around the poncho indicating which nation they belong to."
+	path = /obj/item/clothing/accessory/poncho/eumponcho
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
 
 /datum/gear/suit/diona/carp
 	display_name = "carp hide poncho"

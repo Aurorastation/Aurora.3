@@ -70,6 +70,7 @@
 /datum/gear/toy/plushie/New()
 	..()
 	var/list/plushies = list()
+	plushies["plushie, herring gull"] = /obj/item/toy/plushie/herring_gull
 	plushies["plushie, nymph"] = /obj/item/toy/plushie/nymph
 	plushies["plushie, mouse"] = /obj/item/toy/plushie/mouse
 	plushies["plushie, kitten"] = /obj/item/toy/plushie/kitten

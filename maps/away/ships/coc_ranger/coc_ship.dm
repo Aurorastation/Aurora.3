@@ -80,6 +80,13 @@
 	icon_state = "xansan"
 	moving_state = "xansan_moving"
 	colors = list("#8492fd", "#4d61fc")
+	scanimage = "ranger.png"
+	designer = "Coalition of Colonies, Xanu Prime"
+	volume = "65 meters length, 31 meters beam/width, 14 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Dual extruding starboard-mounted medium caliber ballistic armament, starboard obscured flight craft bay"
+	sizeclass = "Xansan-class Gunboat"
+	shiptype = "Military patrol and combat utility"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -99,6 +106,12 @@
 /obj/effect/overmap/visitable/ship/ranger_corvette/New()
 	designation = "[pick("Argia sa Mar", "Kuenoi", "Xansan", "Greentree", "Rautakaivos Kaupunki", "Dorshafen", "Inverkeithing", "Uusi Viipuri", "Horner Station", "Commander Ashia Patvardhan", "Sevaschaiv", "Rahe", "Czsari", "Suwon", "Kamoga", "Jagalaw", "Dalakyhr", "Gurmori", "Ohdker", "Dainshu", "Boch-Zivir", "Kill Emperor Boleslaw", "Expletive Sol", "Letter of Marque", "Free Fisanduh", "Gaucho", "Treaty of Xansan", "Pirates Beware", "Moroz Here We Come!", "This Ship Kills Privateers", "Lower The Black Flag", "Frontier Spirit", "Freedom", "Independence", "Self-Determination", "Let's Have A Second Collapse", "Send More Solarians", "You Can Run But You Can't Hide", "Frontier Alliance", "Here's To You, Governor Hawkins", "Remember Jamestown", "Good Riddance to Kambiz Entezam", "We're Coming For You In Hell, Terrence Hopper", "Warpway Safari Company", "Badlands Gun Club", "Light's Edge Light Foot", "Now Entering Free Xanu", "Weeping Stars, Weep No More", "Rebel's Reach Outreach Program", "Rugged Individualism", "Don't Tread On Me", "Snake In The Grass", "Konyang Yacht Club", "Ranger Ship")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/ranger_corvette/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "ranger")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/ranger_corvette/nav1
 	name = "Ranger Gunboat - Port Side"

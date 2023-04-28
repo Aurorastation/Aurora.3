@@ -1,8 +1,8 @@
 #!/bin/sh
 
 export BYOND_MAJOR=514
-export BYOND_MINOR=1560
+export BYOND_MINOR=1589
 
-export RUST_G_VERSION=v0.5.0+a2
-export FLYWAY_BUILD=5.2.4
-export SPACEMAN_DMM_VERSION=suite-1.7
+export RUST_G_VERSION=v1.2.0+a4
+export FLYWAY_BUILD=9.9.0
+export SPACEMAN_DMM_VERSION=suite-1.7.3

@@ -59,8 +59,8 @@
 	qdel(src)
 
 /obj/machinery/atmospherics/cultify()
-	if(src.invisibility != INVISIBILITY_MAXIMUM)
-		src.invisibility = INVISIBILITY_MAXIMUM
+	if(invisibility != INVISIBILITY_MAXIMUM)
+		set_invisibility(INVISIBILITY_MAXIMUM)
 		density = FALSE
 
 /obj/machinery/cooker/cultify()
@@ -95,8 +95,8 @@
 	qdel(src)
 
 /obj/machinery/power/apc/cultify()
-	if(src.invisibility != INVISIBILITY_MAXIMUM)
-		src.invisibility = INVISIBILITY_MAXIMUM
+	if(invisibility != INVISIBILITY_MAXIMUM)
+		set_invisibility(INVISIBILITY_MAXIMUM)
 
 /obj/machinery/vending/cultify()
 	new /obj/structure/cult/forge(get_turf(src))

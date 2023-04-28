@@ -111,6 +111,15 @@ else
     echo "PASS: Did not find outdated proc references."
 fi
 
+echo "Checking for erroneous map inclusion in the compiler" >> code_error.log
+grep -rE '^#include "(.)*\.dmm"' >> code_error.log
+if [ $? -eq 0 ]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo -e "FAIL: You are trying to include a map in the compilation! Remove it."
+else
+    echo "PASS: Did not find any DMM being included to be compiled."
+fi
+
 echo "Found $ERROR_COUNT errors while performing code check"
 
 if [ $ERROR_COUNT -ne 0 ]; then
