@@ -32,7 +32,7 @@
 	var/obj/item/cell/cell
 	var/cell_type = /obj/item/cell/device
 	var/list/brightness_levels
-	var/brightness_level = "medium"
+	var/brightness_level = "high"
 	var/power_usage
 	/// Does the light use power?
 	var/power_use = TRUE
@@ -52,7 +52,7 @@
 	if(power_use && cell_type)
 		if(starts_with_cell)
 			cell = new cell_type(src)
-		brightness_levels = list("low" = 0.25, "medium" = 0.5, "high" = 1)
+		brightness_levels = list("low" = 0.0625, "medium" = 0.125, "high" = 0.25)
 		power_usage = (brightness_levels[brightness_level] / efficiency_modifier)
 	else
 		verbs -= /obj/item/device/flashlight/verb/toggle_brightness
@@ -393,7 +393,7 @@
 		)
 	force = 10
 	attack_verb = list("bludgeoned, bashed, whacked")
-	w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_SMALL
 	matter = list(MATERIAL_STEEL = 200,MATERIAL_GLASS = 100)
 	flashlight_power = 1
 	brightness_on = 4

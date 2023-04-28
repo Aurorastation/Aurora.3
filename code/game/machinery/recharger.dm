@@ -179,7 +179,8 @@
 	active_power_usage = 75 KILOWATTS
 	allowed_devices = list(
 		/obj/item/gun/energy,
-		/obj/item/melee/baton
+		/obj/item/melee/baton,
+		/obj/item/device/flashlight
 	)
 	icon_state_charged = "wrecharger100"
 	icon_state_charging = "wrecharger"
