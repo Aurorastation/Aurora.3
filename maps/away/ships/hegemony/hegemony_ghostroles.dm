@@ -30,6 +30,7 @@
 	spawnpoints = list("hegemony_klax")
 	possible_species = list(SPECIES_VAURCA_WARRIOR)
 	extra_languages = list(LANGUAGE_VAURCA)
+	mob_name_pick_message = "Pick a Vaurca name."
 
 /datum/ghostspawner/human/izweski/captain
 	short_name = "heg_cap"
