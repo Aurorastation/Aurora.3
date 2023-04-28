@@ -80,9 +80,9 @@
 	},
 /area/exoplanet/adhomai)
 "dg" = (
-/obj/item/stack/material/woodlog,
-/obj/item/stack/material/woodlog,
-/obj/item/stack/material/woodlog,
+/obj/item/stack/material/wood/log,
+/obj/item/stack/material/wood/log,
+/obj/item/stack/material/wood/log,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},

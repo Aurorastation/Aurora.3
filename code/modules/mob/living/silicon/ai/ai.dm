@@ -675,7 +675,7 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/proc/set_hologram_unique(var/icon/I)
 	QDEL_NULL(holo_icon)
 	holo_icon = new /mob/abstract(src)
-	holo_icon.invisibility = 0
+	holo_icon.set_invisibility(0)
 	holo_icon.icon = I
 
 //Toggles the luminosity and applies it by re-entereing the camera.

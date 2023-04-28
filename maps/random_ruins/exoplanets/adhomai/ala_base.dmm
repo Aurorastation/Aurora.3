@@ -657,9 +657,9 @@
 	},
 /area/ala_base)
 "wU" = (
-/obj/item/stack/material/woodlog/full,
-/obj/item/stack/material/woodlog/full,
-/obj/item/stack/material/woodlog/full,
+/obj/item/stack/material/wood/log/full,
+/obj/item/stack/material/wood/log/full,
+/obj/item/stack/material/wood/log/full,
 /obj/structure/closet/crate/bin{
 	name = "fire wood bin"
 	},
@@ -1425,7 +1425,7 @@
 	},
 /area/ala_base)
 "Xe" = (
-/obj/item/stack/material/woodlog/full,
+/obj/item/stack/material/wood/log/full,
 /obj/item/crowbar/rescue_axe/red{
 	name = "woodcutting axe";
 	desc = "A short lightweight tool meant to chop, pry and pierce wood."
@@ -1669,7 +1669,7 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (6,1,1) = {"
 hT
@@ -1708,7 +1708,7 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (7,1,1) = {"
 vi
@@ -1747,7 +1747,7 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (8,1,1) = {"
 vi
@@ -1786,7 +1786,7 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (9,1,1) = {"
 vi
@@ -1825,7 +1825,7 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (10,1,1) = {"
 vi
@@ -1864,7 +1864,7 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (11,1,1) = {"
 vi
@@ -1903,7 +1903,7 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (12,1,1) = {"
 Fo
@@ -1942,7 +1942,7 @@ Hq
 Hq
 Hq
 DB
-yB
+EP
 "}
 (13,1,1) = {"
 Fo
@@ -1981,7 +1981,7 @@ LV
 uM
 Hq
 DB
-yB
+EP
 "}
 (14,1,1) = {"
 vi
@@ -2020,7 +2020,7 @@ lr
 oA
 Hq
 DB
-yB
+EP
 "}
 (15,1,1) = {"
 vi
@@ -2059,7 +2059,7 @@ oA
 oA
 Hq
 DB
-yB
+EP
 "}
 (16,1,1) = {"
 vi
@@ -2098,7 +2098,7 @@ oA
 vJ
 Hq
 DB
-yB
+EP
 "}
 (17,1,1) = {"
 vi
@@ -2137,7 +2137,7 @@ oA
 ES
 Hq
 DB
-yB
+EP
 "}
 (18,1,1) = {"
 vi
@@ -2176,7 +2176,7 @@ dg
 uK
 Hq
 DB
-yB
+EP
 "}
 (19,1,1) = {"
 vi
@@ -2215,7 +2215,7 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (20,1,1) = {"
 vi
@@ -2254,7 +2254,7 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (21,1,1) = {"
 vi
@@ -2293,7 +2293,7 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (22,1,1) = {"
 vi
@@ -2332,7 +2332,7 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (23,1,1) = {"
 vi
@@ -2371,13 +2371,13 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (24,1,1) = {"
 vi
 vi
 vi
-yB
+EP
 DB
 DB
 DB
@@ -2388,7 +2388,7 @@ nE
 yS
 yS
 DB
-yB
+EP
 rp
 EN
 EN
@@ -2410,13 +2410,13 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (25,1,1) = {"
 vi
 vi
 ZQ
-yB
+EP
 DB
 DB
 DB
@@ -2427,7 +2427,7 @@ oA
 Ed
 yS
 DB
-yB
+EP
 DB
 DB
 DB
@@ -2449,13 +2449,13 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (26,1,1) = {"
 vi
 vi
 vi
-yB
+EP
 DB
 DB
 DB
@@ -2466,7 +2466,7 @@ oA
 eo
 yS
 DB
-yB
+EP
 DB
 DB
 DB
@@ -2488,13 +2488,13 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (27,1,1) = {"
 vi
 vi
 vi
-yB
+EP
 DB
 DB
 jH
@@ -2505,7 +2505,7 @@ sD
 bR
 yS
 DB
-yB
+EP
 DB
 DB
 DB
@@ -2527,13 +2527,13 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (28,1,1) = {"
 vi
 vi
 vi
-yB
+EP
 DB
 DB
 DB
@@ -2544,7 +2544,7 @@ yS
 yS
 yS
 DB
-yB
+EP
 DB
 DB
 DB
@@ -2566,13 +2566,13 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (29,1,1) = {"
 vi
 hT
 vi
-yB
+EP
 DB
 DB
 DB
@@ -2583,7 +2583,7 @@ DB
 DB
 DB
 DB
-yB
+EP
 DB
 DB
 DB
@@ -2605,7 +2605,7 @@ DB
 DB
 DB
 DB
-yB
+EP
 "}
 (30,1,1) = {"
 vi
