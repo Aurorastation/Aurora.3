@@ -3472,7 +3472,9 @@
 	icon_state = "rwindow"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/shield/energy/dominia,
+/obj/item/clothing/suit/space/void/sol/sfa,
+/obj/item/clothing/head/helmet/space/void/sol/sfa,
+/obj/item/gun/projectile/pistol/sol,
 /turf/simulated/floor,
 /area/hegemony_ship/trophy_room)
 "vB" = (
@@ -4307,7 +4309,7 @@
 /obj/structure/sign/flag/hegemony/left{
 	pixel_y = 32
 	},
-/obj/item/material/twohanded/pike/flag/hegemony,
+/obj/item/rig/unathi/fancy,
 /turf/simulated/floor,
 /area/hegemony_ship/armory)
 "Ai" = (
@@ -5165,6 +5167,8 @@
 	pixel_y = 30
 	},
 /obj/item/clothing/head/dominia/fleet/officer,
+/obj/item/shield/energy/dominia,
+/obj/item/gun/projectile/automatic/rifle/dom,
 /turf/simulated/floor,
 /area/hegemony_ship/trophy_room)
 "FO" = (
@@ -6614,10 +6618,7 @@
 /obj/machinery/light/colored/red{
 	dir = 8
 	},
-/obj/item/grenade/frag,
-/obj/item/grenade/frag,
-/obj/item/grenade/frag,
-/obj/item/grenade/frag,
+/obj/item/material/twohanded/pike/flag/hegemony,
 /turf/simulated/floor,
 /area/hegemony_ship/armory)
 "Nu" = (
