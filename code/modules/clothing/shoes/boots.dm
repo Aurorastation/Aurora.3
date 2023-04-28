@@ -173,7 +173,6 @@
 	desc = "A crisp, clean set of boots for working long hours on the beat."
 	icon_state = "aerostatic"
 	item_state = "aerostatic"
-	inhand_icon_state = null
 
 /obj/item/clothing/shoes/jackboots/kala
 	name = "skrell boots"
