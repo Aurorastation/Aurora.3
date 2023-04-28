@@ -7,7 +7,7 @@
 /datum/uplink_item/item/stealth_items/syndigaloshes
 	name = "No-Slip Shoes"
 	item_cost = 1
-	path = /obj/item/clothing/shoes/syndigaloshes
+	path = /obj/item/clothing/shoes/galoshes/syndie
 
 /datum/uplink_item/item/stealth_items/spy
 	name = "Bug Kit"

@@ -34,6 +34,8 @@
 	/// Measured in Celsius, when worn, the clothing modifies the baseline temperature by this much
 	var/body_temperature_change = 0
 
+	var/inhands_ignore_icon_auto_adapt = FALSE
+
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
 	. = ..(mapload)
 	if(!material_key)
@@ -97,6 +99,11 @@
 	. = ..()
 	if(tint)
 		user.handle_vision()
+	if(inhands_ignore_icon_auto_adapt)
+		if(slot == slot_l_hand || slot == slot_r_hand)
+			icon_auto_adapt = FALSE
+		else
+			icon_auto_adapt = TRUE
 
 // taking off
 /obj/item/clothing/dropped(mob/user)
@@ -803,10 +810,6 @@
 /obj/item/clothing/shoes
 	name = "shoes"
 	icon = 'icons/obj/clothing/shoes.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_shoes.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_shoes.dmi'
-		)
 	desc = "Comfortable-looking shoes."
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	siemens_coefficient = 0.9
@@ -815,6 +818,8 @@
 	var/blood_overlay_type = "shoe"
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
+
+	inhands_ignore_icon_auto_adapt = TRUE
 
 	var/can_hold_knife
 	var/footstep = 1
@@ -837,7 +842,7 @@
 	set category = "Object"
 	set src in usr
 
-	if(usr.stat || usr.restrained() || usr.incapacitated())
+	if(use_check_and_message(usr))
 		return
 
 	holding.forceMove(get_turf(usr))

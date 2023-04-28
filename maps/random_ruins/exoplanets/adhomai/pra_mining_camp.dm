@@ -44,7 +44,7 @@
 
 	uniform = /obj/item/clothing/under/tajaran/nt
 	head = /obj/item/clothing/head/hardhat
-	shoes = /obj/item/clothing/shoes/tajara/workboots
+	shoes = /obj/item/clothing/shoes/workboots/tajara
 	belt = /obj/item/storage/belt/mining
 	back = /obj/item/storage/backpack/industrial
 

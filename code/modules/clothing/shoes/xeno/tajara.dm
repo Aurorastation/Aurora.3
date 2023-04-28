@@ -14,157 +14,54 @@
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
-/obj/item/clothing/shoes/flats/tajara
-	desc = "A pair of black women's flats. Refitted for Tajara."
-	name = "black dress flats"
-	icon = 'icons/mob/species/tajaran/shoes.dmi'
-	icon_state = "tblackdf"
-	item_state = "tblackdf"
-	body_parts_covered = FEET
-	species_restricted = list(BODYTYPE_TAJARA)
-	contained_sprite = TRUE
-
-/obj/item/clothing/shoes/flats/tajara/red
-	desc = "A pair of red women's flats. Refitted for Tajara."
-	name = "red dress flats"
-	icon = 'icons/mob/species/tajaran/shoes.dmi'
-	icon_state = "treddf"
-	item_state = "treddf"
-
-/obj/item/clothing/shoes/flats/tajara/blue
-	desc = "A pair of blue women's flats. Refitted for Tajara."
-	name = "blue dress flats"
-	icon_state = "tbluedf"
-	item_state = "tbluedf"
-
-/obj/item/clothing/shoes/flats/tajara/green
-	desc = "A pair of green women's flats. Refitted for Tajara."
-	name = "green dress flats"
-	icon_state = "tgreendf"
-	item_state = "tgreendf"
-
-/obj/item/clothing/shoes/flats/tajara/purple
-	desc = "A pair of purple  women's flats. Refitted for Tajara."
-	name = "purple dress flats"
-	icon_state = "tpurpledf"
-	item_state = "tpurpledf"
-
-/obj/item/clothing/shoes/flats/tajara/white
-	desc = "A pair of white women's flats. Refitted for Tajara."
-	name = "white dress flats"
-	icon_state = "twhitedf"
-	item_state = "twhitedf"
-
-/obj/item/clothing/shoes/tajara/jackboots // Because yes, Tajara don't leave their toes out all the time.
+/obj/item/clothing/shoes/jackboots/tajara // Because yes, Tajara don't leave their toes out all the time.
 	name = "black boots"
 	desc = "Tall synthleather boots with an artificial shine. Fitted for Tajara."
-	icon = 'icons/mob/species/tajaran/shoes.dmi'
-	icon_state = "taj_jackboots"
-	item_state = "taj_jackboots"
-	force = 3
-	armor = list(
-		melee = ARMOR_MELEE_KNIVES
-	)
-	siemens_coefficient = 0.75
-	can_hold_knife = TRUE
-	build_from_parts = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
-	drop_sound = 'sound/items/drop/boots.ogg'
-	pickup_sound = 'sound/items/pickup/boots.ogg'
-	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/tajara/jackboots/knee
+/obj/item/clothing/shoes/jackboots/tajara/knee
 	name = "knee-length black boots"
 	desc = "Taller synthleather boots with an artificial shine. Fitted for Tajara."
-	icon_state = "taj_kneeboots"
-	item_state = "taj_kneeboots"
+	icon_state = "kneeboots"
+	item_state = "kneeboots"
 
-/obj/item/clothing/shoes/tajara/jackboots/thigh
+/obj/item/clothing/shoes/jackboots/tajara/thigh
 	name = "thigh-length black boots"
 	desc = "Even taller synthleather boots with an artificial shine. Fitted for Tajara."
-	icon_state = "taj_thighboots"
-	item_state = "taj_thighboots"
+	icon_state = "thighboots"
+	item_state = "thighboots"
 
-/obj/item/clothing/shoes/tajara/workboots
+/obj/item/clothing/shoes/workboots/tajara
 	name = "workboots"
 	desc = "A pair of steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara."
-	icon = 'icons/mob/species/tajaran/shoes.dmi'
-	icon_state = "taj_workboots"
-	item_state = "taj_workboots"
-	force = 3
-	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR,
-		rad = ARMOR_RAD_MINOR
-	)
-	siemens_coefficient = 0.75
-	can_hold_knife = TRUE
-	build_from_parts = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
-	drop_sound = 'sound/items/drop/boots.ogg'
-	pickup_sound = 'sound/items/pickup/boots.ogg'
-	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/tajara/workboots/grey
+/obj/item/clothing/shoes/workboots/tajara/brown
+	name = "brown workboots"
+	desc = "A pair of brown steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara."
+	icon_state = "workboots_brown"
+	item_state = "workboots_brown"
+
+/obj/item/clothing/shoes/workboots/tajara/grey
 	name = "grey workboots"
 	desc = "A pair of grey steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara."
-	icon_state = "taj_workboots_grey"
-	item_state = "taj_workboots_grey"
+	icon_state = "workboots_grey"
+	item_state = "workboots_grey"
 
-/obj/item/clothing/shoes/tajara/workboots/dark
+/obj/item/clothing/shoes/workboots/tajara/dark
 	name = "dark workboots"
 	desc = "A pair of dark steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara."
-	icon_state = "taj_workboots_dark"
-	item_state = "taj_workboots_dark"
+	icon_state = "workboots_dark"
+	item_state = "workboots_dark"
 
-/obj/item/clothing/shoes/tajara/combat
-	name = "tajaran combat boots"
-	desc = "When you REALLY want to turn up the heat."
-	icon = 'icons/mob/species/tajaran/shoes.dmi'
-	icon_state = "taj_jungle"
-	item_state = "taj_jungle"
-	force = 5
-	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_MINOR
-	)
-	item_flags = NOSLIP
-	siemens_coefficient = 0.35
-	can_hold_knife = TRUE
-	build_from_parts = TRUE
-	species_restricted = list(BODYTYPE_TAJARA)
-	cold_protection = FEET
-	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
-	heat_protection = FEET
-	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
-	contained_sprite = TRUE
-
-/obj/item/clothing/shoes/tajara/winter
+/obj/item/clothing/shoes/winter/tajara
 	name = "tajaran winter boots"
 	desc = "A pair of heavy winter boots made out of animal furs, reaching up to the knee. Fitted for Tajara."
-	icon = 'icons/mob/species/tajaran/shoes.dmi'
-	icon_state = "taj_winterboots"
-	item_state = "taj_winterboots"
-	cold_protection = FEET|LEGS
-	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
-	heat_protection = FEET|LEGS
-	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
-	armor = list(
-			melee = ARMOR_MELEE_MINOR,
-			bio = ARMOR_BIO_MINOR
-			)
-	siemens_coefficient = 0.75
-	can_hold_knife = TRUE
+	icon_state = "winterboots"
+	item_state = "winterboots"
 	species_restricted = list(BODYTYPE_TAJARA)
-	build_from_parts = TRUE
-	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+/obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	name = "adhomian boots"
 	icon = 'icons/obj/tajara_items.dmi'
 	desc = "A pair of Tajaran boots designed for the rough terrain of Adhomai."

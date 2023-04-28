@@ -67,7 +67,7 @@
 		/obj/item/clothing/shoes/laceup/brown,
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/clothing/shoes/workboots,
-		/obj/item/clothing/shoes/black,
+		/obj/item/clothing/shoes/sneakers/black,
 		/obj/item/clothing/shoes/cowboy
 		)
 	head = list(

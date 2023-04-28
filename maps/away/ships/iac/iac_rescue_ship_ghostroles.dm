@@ -22,7 +22,7 @@
 	name = "IAC Volunteer"
 
 	uniform = /obj/item/clothing/under/rank/iacjumpsuit
-	shoes = /obj/item/clothing/shoes/iac
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/pmc
 	back = /obj/item/storage/backpack/satchel
 	accessory = /obj/item/clothing/accessory/armband/iac
 

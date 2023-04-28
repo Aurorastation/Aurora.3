@@ -17,14 +17,14 @@
 	new /obj/item/card/id/syndicate(src)
 	new /obj/item/device/multitool(src)
 	new /obj/item/shield/energy(src)
-	new /obj/item/clothing/shoes/magboots(src)
+	new /obj/item/clothing/shoes/magboots/syndie(src)
 
 /obj/structure/closet/syndicate/suit
 	desc = "It's a storage unit for voidsuits."
 
 /obj/structure/closet/syndicate/suit/fill()
 	new /obj/item/tank/jetpack/oxygen(src)
-	new /obj/item/clothing/shoes/magboots(src)
+	new /obj/item/clothing/shoes/magboots/syndie(src)
 	new /obj/item/clothing/suit/space/void/merc(src)
 	new /obj/item/clothing/mask/gas/syndicate(src)
 	new /obj/item/clothing/head/helmet/space/void/merc(src)

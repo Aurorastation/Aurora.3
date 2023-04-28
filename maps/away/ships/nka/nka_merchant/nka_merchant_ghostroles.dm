@@ -21,7 +21,7 @@
 	name = "New Kingdom Merchant Navy Crew"
 
 	id = /obj/item/card/id
-	shoes = /obj/item/clothing/shoes/tajara/workboots
+	shoes = /obj/item/clothing/shoes/workboots/tajara
 
 	uniform = /obj/item/clothing/under/tajaran/nka_merchant_navy
 	head = /obj/item/clothing/head/tajaran/nka_merchant_navy
@@ -53,7 +53,7 @@
 /datum/outfit/admin/nka_merchant_crew/captain
 	name = "New Kingdom Merchant Navy Captain"
 
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	uniform = /obj/item/clothing/under/tajaran/nka_merchant_navy/captain
 	head = /obj/item/clothing/head/tajaran/nka_merchant_navy/captain
@@ -78,7 +78,7 @@
 /datum/outfit/admin/nka_merchant_crew/guard
 	name = "New Kingdom Merchant Navy PMCG Guard"
 
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	uniform = /obj/item/clothing/under/pmc_modsuit
 	head = /obj/item/clothing/head/beret/corporate/pmc

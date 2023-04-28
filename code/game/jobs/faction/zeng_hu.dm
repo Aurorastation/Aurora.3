@@ -61,6 +61,7 @@
 	uniform = /obj/item/clothing/under/rank/medical/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	id = /obj/item/card/id/zeng_hu
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 
 	backpack_faction = /obj/item/storage/backpack/zeng
 	satchel_faction = /obj/item/storage/backpack/satchel/zeng
@@ -73,6 +74,7 @@
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	id = /obj/item/card/id/zeng_hu
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 
 	backpack_faction = /obj/item/storage/backpack/zeng
 	satchel_faction = /obj/item/storage/backpack/satchel/zeng
@@ -89,6 +91,7 @@
 	uniform = /obj/item/clothing/under/rank/medical/pharmacist/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	id = /obj/item/card/id/zeng_hu
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 
 	backpack_faction = /obj/item/storage/backpack/zeng
 	satchel_faction = /obj/item/storage/backpack/satchel/zeng
@@ -101,6 +104,7 @@
 	uniform = /obj/item/clothing/under/rank/medical/psych/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	id = /obj/item/card/id/zeng_hu
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 
 	backpack_faction = /obj/item/storage/backpack/zeng
 	satchel_faction = /obj/item/storage/backpack/satchel/zeng
@@ -125,6 +129,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/intern/zeng
 	id = /obj/item/card/id/zeng_hu
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 
 	backpack_faction = /obj/item/storage/backpack/zeng
 	satchel_faction = /obj/item/storage/backpack/satchel/zeng
@@ -137,6 +142,7 @@
 	uniform = /obj/item/clothing/under/rank/scientist/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 
 	backpack_faction = /obj/item/storage/backpack/zeng
 	satchel_faction = /obj/item/storage/backpack/satchel/zeng
@@ -149,6 +155,7 @@
 	uniform = /obj/item/clothing/under/rank/scientist/xenobio/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 
 	backpack_faction = /obj/item/storage/backpack/zeng
 	satchel_faction = /obj/item/storage/backpack/satchel/zeng
@@ -161,6 +168,7 @@
 	uniform = /obj/item/clothing/under/rank/scientist/botany/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	id = /obj/item/card/id/zeng_hu
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 
 	backpack_faction = /obj/item/storage/backpack/zeng
 	satchel_faction = /obj/item/storage/backpack/satchel/zeng
@@ -173,6 +181,7 @@
 	uniform = /obj/item/clothing/under/rank/scientist/xenoarchaeologist/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 
 	backpack_faction = /obj/item/storage/backpack/zeng
 	satchel_faction = /obj/item/storage/backpack/satchel/zeng
@@ -184,6 +193,7 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/intern/zeng
 	id = /obj/item/card/id/zeng_hu
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 
 	backpack_faction = /obj/item/storage/backpack/zeng
 	satchel_faction = /obj/item/storage/backpack/satchel/zeng

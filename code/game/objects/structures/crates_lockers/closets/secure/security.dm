@@ -40,7 +40,7 @@
 	new /obj/item/clothing/head/bandana/captain(src)
 	new /obj/item/clothing/under/rank/captain(src)
 	new /obj/item/clothing/suit/storage/vest(src)
-	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/gloves/captain(src)
 	new /obj/item/clothing/under/dress/dress_cap(src)
 	new /obj/item/clothing/head/helmet/formalcaptain(src)
@@ -84,10 +84,10 @@
 	new /obj/item/clothing/under/rank/xo(src)
 	new /obj/random/suit(src)
 	new /obj/random/suit(src)
-	new /obj/item/clothing/shoes/brown(src)
-	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)
-	new /obj/item/clothing/shoes/white(src)
+	new /obj/item/clothing/shoes/sneakers(src)
 	new /obj/item/clothing/head/caphat/cap/beret/xo(src)
 	new /obj/item/clothing/gloves/captain/white/xo(src)
 
@@ -279,8 +279,8 @@
 	new /obj/item/clothing/under/det/pmc(src)
 	new /obj/item/clothing/under/det/zavod(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
-	new /obj/item/clothing/shoes/laceup/all_species(src)
-	new /obj/item/clothing/shoes/laceup/all_species(src)
+	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/clothing/shoes/laceup(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
@@ -323,7 +323,7 @@
 
 /obj/structure/closet/secure_closet/brig/fill()
 	new /obj/item/clothing/under/color/orange( src )
-	new /obj/item/clothing/shoes/orange( src )
+	new /obj/item/clothing/shoes/sneakers/orange( src )
 
 /obj/structure/closet/secure_closet/courtroom
 	name = "courtroom locker"
@@ -333,7 +333,7 @@
 	..()
 	//Appearance
 	new /obj/item/clothing/head/powdered_wig (src)
-	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/suit/judgerobe (src)
 	//Tools
 	new /obj/item/paper/Court (src)

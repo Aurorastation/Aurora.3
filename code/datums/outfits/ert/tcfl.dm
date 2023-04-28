@@ -4,7 +4,7 @@
 	head = /obj/item/clothing/head/beret/legion/field
 	uniform = /obj/item/clothing/under/legion
 	l_ear = /obj/item/device/radio/headset/legion
-	shoes = /obj/item/clothing/shoes/swat/ert
+	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/swat/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
 	back = /obj/item/storage/backpack/legion

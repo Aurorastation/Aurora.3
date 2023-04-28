@@ -8,13 +8,14 @@
 /datum/gear/shoes/tajara/boots/New()
 	..()
 	var/list/boots = list()
-	boots["black boots, short"] = /obj/item/clothing/shoes/tajara/jackboots
-	boots["black boots, knee"] = /obj/item/clothing/shoes/tajara/jackboots/knee
-	boots["black boots, thigh"] = /obj/item/clothing/shoes/tajara/jackboots/thigh
-	boots["brown workboots"] = /obj/item/clothing/shoes/tajara/workboots
-	boots["grey workboots"] = /obj/item/clothing/shoes/tajara/workboots/grey
-	boots["dark workboots"] = /obj/item/clothing/shoes/tajara/workboots/dark
-	boots["adhomian boots"] = /obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+	boots["black boots, short"] = /obj/item/clothing/shoes/jackboots/tajara
+	boots["black boots, knee"] = /obj/item/clothing/shoes/jackboots/tajara/knee
+	boots["black boots, thigh"] = /obj/item/clothing/shoes/jackboots/tajara/thigh
+	boots["workboots"] = /obj/item/clothing/shoes/workboots/tajara
+	boots["brown workboots"] = /obj/item/clothing/shoes/workboots/tajara/brown
+	boots["grey workboots"] = /obj/item/clothing/shoes/workboots/tajara/grey
+	boots["dark workboots"] = /obj/item/clothing/shoes/workboots/tajara/dark
+	boots["adhomian boots"] = /obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	gear_tweaks += new /datum/gear_tweak/path(boots)
 
 /datum/gear/gloves/tajara
@@ -197,25 +198,6 @@
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-
-/datum/gear/shoes/tajara/flats
-	display_name = "tajaran flats selection"
-	description = "Dress flats, in a selection of colors. Refitted for Tajara"
-	path = /obj/item/clothing/shoes/tajara
-	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
-
-/datum/gear/shoes/tajara/flats/New()
-	..()
-	var/list/flats = list()
-	flats["dress flats, black"] = /obj/item/clothing/shoes/flats/tajara
-	flats["dress flats, white"] = /obj/item/clothing/shoes/flats/tajara/white
-	flats["dress flats, red"] = /obj/item/clothing/shoes/flats/tajara/red
-	flats["dress flats, blue"] = /obj/item/clothing/shoes/flats/tajara/blue
-	flats["dress flats, green"] = /obj/item/clothing/shoes/flats/tajara/green
-	flats["dress flats, purple"] = /obj/item/clothing/shoes/flats/tajara/purple
-	gear_tweaks += new /datum/gear_tweak/path(flats)
 
 /datum/gear/accessory/tajara
 	display_name = "fur scarf"

@@ -106,6 +106,7 @@
 	uniform = /obj/item/clothing/under/rank/medical/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	id = /obj/item/card/id/pmc
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/pmc
 
 	backpack_faction = /obj/item/storage/backpack/pmcg
 	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
@@ -118,6 +119,7 @@
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	id = /obj/item/card/id/pmc
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/pmc
 
 	backpack_faction = /obj/item/storage/backpack/pmcg
 	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
@@ -134,6 +136,7 @@
 	uniform = /obj/item/clothing/under/rank/medical/pharmacist/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	id = /obj/item/card/id/pmc
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/pmc
 
 	backpack_faction = /obj/item/storage/backpack/pmcg
 	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
@@ -145,6 +148,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/psych/pmc
 	id = /obj/item/card/id/pmc
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/pmc
 
 	backpack_faction = /obj/item/storage/backpack/pmcg
 	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
@@ -169,6 +173,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/intern/pmc
 	id = /obj/item/card/id/pmc
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/pmc
 
 	backpack_faction = /obj/item/storage/backpack/pmcg
 	satchel_faction = /obj/item/storage/backpack/satchel/pmcg

@@ -2,7 +2,7 @@
 	name = "Free Solarian Fleets Marine"
 
 	uniform = /obj/item/clothing/under/rank/sol/marine
-	shoes = /obj/item/clothing/shoes/swat/ert
+	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/swat/ert
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/satchel/leather

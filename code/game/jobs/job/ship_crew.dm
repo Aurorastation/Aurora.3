@@ -26,7 +26,7 @@
 	jobtype = /datum/job/assistant
 
 	uniform = /obj/item/clothing/under/color/grey
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 
 /datum/job/visitor
 	title = "Off-Duty Crew Member"
@@ -49,7 +49,7 @@
 	jobtype = /datum/job/visitor
 
 	uniform = /obj/item/clothing/under/color/black
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 
 /datum/outfit/job/visitor/passenger
 	name = "Passenger"

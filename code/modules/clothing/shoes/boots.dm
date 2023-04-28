@@ -1,22 +1,8 @@
-/obj/item/clothing/shoes/galoshes
-	desc = "A waterproof overshoe, made of rubber."
-	name = "galoshes"
-	icon_state = "galoshes"
-	item_state = "galoshes"
-	permeability_coefficient = 0.05
-	item_flags = NOSLIP
-	slowdown = 1
-	species_restricted = null
-	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
-	)
-	drop_sound = 'sound/items/drop/rubber.ogg'
-	pickup_sound = 'sound/items/pickup/rubber.ogg'
-	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
-
 /obj/item/clothing/shoes/jackboots
 	name = "black boots"
 	desc = "Tall synthleather boots with an artificial shine."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
 	icon_state = "jackboots"
 	item_state = "jackboots"
 	force = 3
@@ -28,15 +14,14 @@
 	build_from_parts = TRUE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj", "vak")
 
 /obj/item/clothing/shoes/jackboots/knee
 	name = "knee-length black boots"
 	desc = "Taller synthleather boots with an artificial shine."
 	icon_state = "kneeboots"
 	item_state = "kneeboots"
-	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
-	)
 
 /obj/item/clothing/shoes/jackboots/thigh
 	name = "thigh-length black boots"
@@ -49,7 +34,6 @@
 	desc = "Modified pair of boots, particularly friendly to those species whose toes hold claws."
 	icon_state = "jackboots_toeless"
 	species_restricted = null
-	sprite_sheets = list(BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi', BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi')
 
 /obj/item/clothing/shoes/jackboots/toeless/knee
 	name = "knee-high toeless black boots"
@@ -66,6 +50,8 @@
 /obj/item/clothing/shoes/workboots
 	name = "workboots"
 	desc = "A pair of steel-toed work boots designed for use in industrial settings. Safety first."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
 	icon_state = "workboots"
 	item_state = "workboots"
 	force = 3
@@ -75,9 +61,8 @@
 		bomb = ARMOR_BOMB_MINOR,
 		rad = ARMOR_RAD_MINOR
 	)
-	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
-	)
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj", "vak")
 	siemens_coefficient = 0.75
 	can_hold_knife = TRUE
 	build_from_parts = TRUE
@@ -89,7 +74,20 @@
 	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
 	icon_state = "workboots_toeless"
 	species_restricted = null
-	sprite_sheets = list(BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi', BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi')
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj", "vak")
+
+/obj/item/clothing/shoes/workboots/brown
+	name = "brown workboots"
+	desc = "A pair of brown steel-toed work boots designed for use in industrial settings. Safety first."
+	icon_state = "workboots_brown"
+	item_state = "workboots_brown"
+
+/obj/item/clothing/shoes/workboots/toeless/brown
+	name = "toe-less brown workboots"
+	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
+	icon_state = "workboots_brown_toeless"
+	item_state = "workboots_brown"
 
 /obj/item/clothing/shoes/workboots/grey
 	name = "grey workboots"
@@ -114,3 +112,73 @@
 	desc = "A pair of toeless dark work boots designed for use in industrial settings. Modified for species whose toes have claws."
 	icon_state = "workboots_dark_toeless"
 	item_state = "workboots_dark"
+
+/obj/item/clothing/shoes/combat //basic syndicate combat boots for nuke ops and mob corpses
+	name = "combat boots"
+	desc = "High speed, low drag combat boots."
+	icon_state = "combat"
+	item_state = "combat"
+	force = 5
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_MINOR
+	)
+	item_flags = NOSLIP
+	siemens_coefficient = 0.35
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
+	species_restricted = null
+
+	cold_protection = FEET
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = FEET
+	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/shoes/winter
+	name = "winter boots"
+	desc = "A pair of heavy winter boots made out of animal furs, reaching up to the knee."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "winterboots"
+	item_state = "winterboots"
+	cold_protection = FEET|LEGS
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = FEET|LEGS
+	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+	armor = list(
+			melee = ARMOR_MELEE_MINOR,
+			bio = ARMOR_BIO_MINOR
+			)
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj", "vak")
+	siemens_coefficient = 0.75
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
+
+/obj/item/clothing/shoes/winter/toeless
+	name = "toe-less winter boots"
+	desc = "A pair of toe-less heavy winter boots made out of animal furs, reaching up to the knee.  Modified for species whose toes have claws."
+	icon_state = "winterboots_toeless"
+	item_state = "winterboots_toeless"
+	species_restricted = null
+
+/obj/item/clothing/shoes/aerostatic
+	name = "aerostatic boots"
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	desc = "A crisp, clean set of boots for working long hours on the beat."
+	icon_state = "aerostatic"
+	item_state = "aerostatic"
+	inhand_icon_state = null
+
+/obj/item/clothing/shoes/jackboots/kala
+	name = "skrell boots"
+	desc = "A sleek pair of boots. They seem to be retaining moisture."
+	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon_state = "kala_boots"
+	item_state = "kala_boots"
+	contained_sprite = TRUE

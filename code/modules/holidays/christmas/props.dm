@@ -203,7 +203,7 @@
 		/obj/item/pen/invisible,
 		/obj/item/clothing/wrists/watch,
 		/obj/item/lipstick/random,
-		/obj/item/clothing/shoes/carp,
+		/obj/item/clothing/shoes/slippers/carp,
 		/obj/item/bikehorn,
 		/obj/item/toy/waterballoon,
 		/obj/item/toy/blink,

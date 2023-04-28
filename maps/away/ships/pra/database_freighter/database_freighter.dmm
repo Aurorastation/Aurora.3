@@ -874,7 +874,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 32
 	},
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/database_freighter,
 /obj/item/storage/backpack/satchel/eng,
 /turf/simulated/floor/tiled/dark{
@@ -1757,7 +1757,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/database_freighter,
 /obj/item/storage/backpack/messenger/engi,
 /turf/simulated/floor/tiled/dark{
@@ -1781,7 +1781,7 @@
 /area/database_freighter/checkpoint)
 "ik" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/database_freighter/captain,
 /obj/item/clothing/suit/storage/toggle/labcoat,
 /turf/simulated/floor/wood{
@@ -4609,7 +4609,7 @@
 /area/database_freighter)
 "Wi" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/database_freighter,
 /obj/item/storage/backpack/duffel/eng,
 /turf/simulated/floor/tiled/dark{

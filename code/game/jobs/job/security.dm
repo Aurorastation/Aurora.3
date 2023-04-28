@@ -161,7 +161,7 @@
 	jobtype = /datum/job/investigator
 
 	uniform = /obj/item/clothing/under/det
-	shoes = /obj/item/clothing/shoes/laceup/all_species
+	shoes = /obj/item/clothing/shoes/laceup
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt

@@ -5,7 +5,7 @@
 	suit = null
 	suit_store = null
 	belt = /obj/item/storage/belt/military
-	shoes = /obj/item/clothing/shoes/swat
+	shoes = /obj/item/clothing/shoes/combat
 	accessory = /obj/item/clothing/accessory/storage/black_vest
 	gloves = null
 	id = /obj/item/card/id/ert
@@ -45,7 +45,7 @@
 		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
 		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
 		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
-		/obj/item/reagent_containers/glass/bottle/perconol = 1	
+		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
 /datum/outfit/admin/ert/nanotrasen/leader
