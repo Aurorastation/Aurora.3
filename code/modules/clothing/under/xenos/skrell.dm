@@ -1,6 +1,6 @@
 /obj/item/clothing/under/skrell
 	name = "federation uniform"
-	desc = "The uniform worn by Official Jagon Federation Representatives and Diplomats.  It looks pretty waterproof."
+	desc = "The uniform worn by official Nralakk Federation representatives and diplomats.  It looks waterproof."
 	icon = 'icons/obj/item/clothing/under/skrell/federation_uniform.dmi'
 	icon_state = "skrell_formal"
 	item_state = "skrell_formal"

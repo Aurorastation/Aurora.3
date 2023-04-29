@@ -749,7 +749,7 @@
 			silent = 0
 			return 1
 
-		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
+		if(hallucination && (HAS_TRAIT(src, TRAIT_BYPASS_HALLUCINATION_RESTRICTION) || !HAS_FLAG(species.flags, NO_POISON|IS_PLANT)))
 			handle_hallucinations()
 
 		if(get_shock() >= species.total_health)
