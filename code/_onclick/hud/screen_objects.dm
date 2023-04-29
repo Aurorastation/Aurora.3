@@ -147,9 +147,7 @@
 	icon_state = set_icon_state
 
 /obj/screen/storage/background/Click()
-	if(!usr.canClick())
-		return TRUE
-	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
+	if(usr.incapacitated())
 		return TRUE
 	if(master)
 		usr.ClickOn(master)
