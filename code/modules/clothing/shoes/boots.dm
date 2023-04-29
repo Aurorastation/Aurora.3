@@ -29,7 +29,7 @@
 	icon_state = "jackboots_toeless"
 	species_restricted = null
 
-/obj/item/clothing/shoes/jackboots/toeless/thigh
+/obj/item/clothing/shoes/jackboots/toeless/cavalry
 	name = "toe-less cavalry jackboots"
 	desc = "Calf-length cavalry synthleather boots, particularly friendly to those species whose toes hold claws."
 	icon_state = "cavalryboots_toeless"

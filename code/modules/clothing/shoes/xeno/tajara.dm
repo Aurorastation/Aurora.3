@@ -19,7 +19,7 @@
 	desc = "Tall synthleather boots with an artificial shine. Fitted for Tajara."
 	species_restricted = list(BODYTYPE_TAJARA)
 
-/obj/item/clothing/shoes/jackboots/tajara/thigh
+/obj/item/clothing/shoes/jackboots/tajara/cavalry
 	name = "cavalry jackboots"
 	desc = "Calf-length cavalry synthleather boots, Fitted for Tajara."
 	icon_state = "cavalryboots"
