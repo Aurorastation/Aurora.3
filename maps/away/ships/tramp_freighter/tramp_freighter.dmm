@@ -2158,7 +2158,7 @@
 /obj/structure/closet/crate/medical{
 	name = "IAC crate"
 	},
-/obj/item/clothing/shoes/sneakers/pmc,
+/obj/item/clothing/shoes/sneakers/medsci/pmc,
 /obj/item/clothing/under/rank/iacjumpsuit,
 /obj/item/clothing/suit/storage/hazardvest/iac,
 /obj/item/clothing/mask/balaclava/iac,

@@ -61726,7 +61726,7 @@
 /area/maintenance/medbay)
 "hqT" = (
 /obj/item/clothing/mask/gas/mime,
-/obj/item/clothing/shoes/sneakers/white,
+/obj/item/clothing/shoes/sneakers,
 /obj/item/toy/figure/mime,
 /obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,

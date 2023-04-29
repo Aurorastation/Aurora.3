@@ -104,7 +104,7 @@
 	name = "treated shoes"
 	desc = "A pair of treated shoes for safety around patients. Resistant to chemical and gas spills."
 	icon_state = "nt"
-	item_state = "white"
+	item_state = "nt"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	armor = list(
@@ -113,12 +113,15 @@
 
 /obj/item/clothing/shoes/sneakers/medsci/zeng
 	icon_state = "zeng"
+	item_state = "zeng"
 
 /obj/item/clothing/shoes/sneakers/medsci/zavod
 	icon_state = "zavod"
+	item_state = "zavod"
 
 /obj/item/clothing/shoes/sneakers/medsci/pmc
 	icon_state = "pmc"
+	item_state = "pmc"
 
 // flats
 
