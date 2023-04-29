@@ -15,19 +15,13 @@
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
 /obj/item/clothing/shoes/jackboots/tajara // Because yes, Tajara don't leave their toes out all the time.
-	name = "black boots"
+	name = "jackboots"
 	desc = "Tall synthleather boots with an artificial shine. Fitted for Tajara."
 	species_restricted = list(BODYTYPE_TAJARA)
 
-/obj/item/clothing/shoes/jackboots/tajara/knee
-	name = "knee-length black boots"
-	desc = "Taller synthleather boots with an artificial shine. Fitted for Tajara."
-	icon_state = "kneeboots"
-	item_state = "kneeboots"
-
 /obj/item/clothing/shoes/jackboots/tajara/thigh
-	name = "thigh-length black boots"
-	desc = "Even taller synthleather boots with an artificial shine. Fitted for Tajara."
+	name = "cavalry jackboots"
+	desc = "Calf-length cavalry synthleather boots, Fitted for Tajara."
 	icon_state = "thighboots"
 	item_state = "thighboots"
 

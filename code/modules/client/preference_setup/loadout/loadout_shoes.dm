@@ -105,9 +105,8 @@
 /datum/gear/shoes/boots/New()
 	..()
 	var/list/shoes = list()
-	shoes["black boots"] = /obj/item/clothing/shoes/jackboots
-	shoes["black boots, knee"] = /obj/item/clothing/shoes/jackboots/knee
-	shoes["black boots, thigh"] = /obj/item/clothing/shoes/jackboots/thigh
+	shoes["jackboots"] = /obj/item/clothing/shoes/jackboots
+	shoes["jackboots, cavalry"] = /obj/item/clothing/shoes/jackboots/thigh
 	shoes["cowboy boots"] = /obj/item/clothing/shoes/cowboy
 	shoes["classic cowboy boots"] = /obj/item/clothing/shoes/cowboy/classic
 	shoes["snakeskin cowboy boots"] = /obj/item/clothing/shoes/cowboy/snakeskin
