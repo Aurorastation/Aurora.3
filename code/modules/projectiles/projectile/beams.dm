@@ -55,8 +55,7 @@
 	armor_penetration = 20
 
 /obj/item/projectile/beam/midlaser/hegemony
-	damage = 40
-	armor_penetration = 20
+	armor_penetration = 30
 	muzzle_type = /obj/effect/projectile/muzzle/hegemony
 	tracer_type = /obj/effect/projectile/tracer/hegemony
 	impact_type = /obj/effect/projectile/impact/hegemony
