@@ -667,7 +667,7 @@
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine,
 /obj/item/paper{
-	info = "[center][flag_sol][/center][center][small][i]This paper has been transmitted by Solarian Naval Fleet Command, 39th Fleet[/i][/small][/center][hr][hr][small]Date: 09/22/2452 Orders sent by: Admiral Sooraj Sirasikar, 39th FleetRecipient: Captain Obasie UchiePosition: Commanding Officer of Marine Garrison Installation Tango Charlie-22 Priority: CriticalSubject: EvacuationTransmission: Tau Ceti independence imminent. Bunker must be evacuated in accordance to independence agreement. Scrub all databases and activate automated defenses. Leave nothing valuable. Do not destroy installation. It may be needed again one day. Evacuation shuttle will arrive in one hour."
+	info = "\[center]\[flag_sol]\[/center]\[center]\[small]\[i]This paper has been transmitted by Solarian Naval Fleet Command, 39th Fleet\[/i]\[/small]\[/center]\[hr]\[hr]\[small]Date: 09/22/2452 Orders sent by: Admiral Sooraj Sirasikar, 39th FleetRecipient: Captain Obasie UchiePosition: Commanding Officer of Marine Garrison Installation Tango Charlie-22 Priority: CriticalSubject: EvacuationTransmission: Tau Ceti independence imminent. Bunker must be evacuated in accordance to independence agreement. Scrub all databases and activate automated defenses. Leave nothing valuable. Do not destroy installation. It may be needed again one day. Evacuation shuttle will arrive in one hour."
 	},
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/wood,
