@@ -30,14 +30,14 @@
 		for(var/atom/movable/AM in T)
 			sweepedatoms += AM
 
-	for(var/am in sweepedatoms)
+	for(var/am in sweepedatoms - A)
 		var/atom/movable/AM = am
-		if(AM == A || AM.anchored)
+		if(AM.anchored)
 			continue
 
 		sweeptarget = get_edge_target_turf(A, get_dir(A, get_step_away(AM, A)))
 		distfromcaster = get_dist(A, AM)
-		if(istype(AM, /mob/living))
+		if(isliving(AM))
 			var/mob/living/M = AM
 			if(M.stat || M.incapacitated() || distfromcaster == 0)
 				D.apply_damage(25, DAMAGE_BRUTE)
