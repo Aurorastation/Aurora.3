@@ -394,6 +394,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
+"cE" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/space)
 "cF" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24;
@@ -915,6 +921,11 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/gun_deck_bruiser)
+"fV" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/shipsensors,
+/turf/simulated/floor,
+/area/shuttle/hegemony)
 "ga" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5064,11 +5075,6 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/hegemony)
-"EO" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/shipsensors,
-/turf/simulated/floor,
-/area/shuttle/hegemony)
 "EY" = (
 /obj/machinery/computer/ship/helm,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5772,6 +5778,11 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/hegemony_ship/temple)
+"IQ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/iff_beacon,
+/turf/simulated/floor,
+/area/shuttle/hegemony)
 "IU" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/light/colored/red{
@@ -8199,11 +8210,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/bridge)
-"XZ" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/iff_beacon,
-/turf/simulated/floor,
-/area/shuttle/hegemony)
 "Ya" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10;
@@ -13483,7 +13489,7 @@ aJ
 aJ
 aJ
 aJ
-aJ
+cE
 aJ
 aJ
 aJ
@@ -13989,7 +13995,7 @@ aJ
 aJ
 aJ
 aJ
-aJ
+cE
 aJ
 aJ
 aJ
@@ -15308,7 +15314,7 @@ aJ
 aJ
 aJ
 aJ
-aJ
+cE
 aJ
 aJ
 aJ
@@ -17346,6 +17352,7 @@ aJ
 aJ
 aJ
 aJ
+cE
 aJ
 aJ
 aJ
@@ -17431,8 +17438,7 @@ aJ
 aJ
 aJ
 aJ
-aJ
-aJ
+cE
 aJ
 aJ
 aJ
@@ -22460,7 +22466,7 @@ aJ
 aJ
 aJ
 aJ
-aJ
+cE
 aJ
 aJ
 aJ
@@ -23015,7 +23021,7 @@ aJ
 aJ
 aJ
 aJ
-aJ
+cE
 aJ
 aJ
 aJ
@@ -23073,7 +23079,7 @@ co
 rL
 rL
 rL
-EO
+fV
 aJ
 aJ
 aJ
@@ -24045,7 +24051,7 @@ IU
 rL
 rL
 rL
-XZ
+IQ
 aJ
 aJ
 aJ
@@ -27305,7 +27311,7 @@ aJ
 aJ
 aJ
 aJ
-aJ
+cE
 aJ
 aJ
 aJ
@@ -28052,7 +28058,7 @@ aJ
 aJ
 aJ
 aJ
-aJ
+cE
 aJ
 aJ
 aJ
@@ -28403,7 +28409,7 @@ aJ
 aJ
 aJ
 aJ
-aJ
+cE
 aJ
 aJ
 aJ
