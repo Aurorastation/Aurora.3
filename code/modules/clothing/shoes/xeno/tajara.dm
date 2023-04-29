@@ -22,8 +22,8 @@
 /obj/item/clothing/shoes/jackboots/tajara/thigh
 	name = "cavalry jackboots"
 	desc = "Calf-length cavalry synthleather boots, Fitted for Tajara."
-	icon_state = "thighboots"
-	item_state = "thighboots"
+	icon_state = "cavalryboots"
+	item_state = "cavalryboots"
 
 /obj/item/clothing/shoes/workboots/tajara
 	name = "workboots"

@@ -32,8 +32,8 @@
 /obj/item/clothing/shoes/jackboots/toeless/thigh
 	name = "toe-less cavalry jackboots"
 	desc = "Calf-length cavalry synthleather boots, particularly friendly to those species whose toes hold claws."
-	icon_state = "thighboots_toeless"
-	item_state = "thighboots_toeless"
+	icon_state = "cavalryboots_toeless"
+	item_state = "cavalryboots_toeless"
 
 /obj/item/clothing/shoes/workboots
 	name = "workboots"
