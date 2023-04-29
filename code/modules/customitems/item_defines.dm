@@ -669,7 +669,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
+/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
 	name = "holo-symphette"
 	desc = "A cheap, collapsible musical instrument which utilizes holographic projections to generate a rough noise. It's shaped like a small harp, and seems to be  \
 	able to be tuned to mimic several old stringed Solarian instruments with some distorted audio. It's still got its price tag sticker on it."
@@ -682,7 +682,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	var/deployed = FALSE
 
-/obj/item/fluff/akinyi_symphette/update_icon()
+/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/update_icon()
 	if(deployed)
 		icon_state = "akinyi_symphette_on"
 		item_state = "akinyi_symphette_on"
@@ -690,7 +690,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = "akinyi_symphette"
 		item_state = "akinyi_symphette"
 
-/obj/item/fluff/akinyi_symphette/attack_self(var/mob/user)
+/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/AltClick(var/mob/user)
 	deployed = !deployed
 	to_chat(user, "<span class='notice'>You [deployed ? "expand" : "collapse"] \the [src].</span>")
 	update_icon()
@@ -1077,12 +1077,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	can_hold = list(
 		/obj/item/device/megaphone/fluff/akinyi_mic,
 		/obj/item/fluff/akinyi_stand,
-		/obj/item/fluff/akinyi_symphette
+		/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette
 		)
 	starts_with = list(
 		/obj/item/device/megaphone/fluff/akinyi_mic = 1,
 		/obj/item/fluff/akinyi_stand = 1,
-		/obj/item/fluff/akinyi_symphette = 1
+		/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette = 1
 	)
 
 
