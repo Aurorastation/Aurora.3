@@ -10,6 +10,7 @@
 	uses_species_whitelist = FALSE
 	mob_name_prefix = "Cn. "
 	mob_name_pick_message = "Pick an Unathi last name."
+	welcome_message = "As an Unathi warrior, abide by the Warrior's Code - act with righteousness, mercy, integrity, courage and loyalty. Defend the life and honor of Hegemony citizens, and ensure that enemies of the Izweski cannot threaten your vessel."
 
 	outfit = /datum/outfit/admin/izweski
 	possible_species = list(SPECIES_UNATHI)
@@ -31,6 +32,7 @@
 	possible_species = list(SPECIES_VAURCA_WARRIOR)
 	extra_languages = list(LANGUAGE_VAURCA)
 	mob_name_pick_message = "Pick a Vaurca name."
+	welcome_message = "As a K'laxan auxiliary, you are fundamentally an outsider to the ship and the crew you have been assigned to. Attempt to act according to Unathi codes of honor, even if you do not fully understand them yourself."
 
 /datum/ghostspawner/human/izweski/captain
 	short_name = "heg_cap"
@@ -42,6 +44,7 @@
 	assigned_role = "Izweski Navy Captain"
 	special_role = "Izweski Navy Captain"
 	mob_name_prefix = "Cpt. "
+	welcome_message = "As an Unathi warrior, abide by the Warrior's Code - act with righteousness, mercy, integrity, courage and loyalty. Your duty is to protect the Hegemony, your ship, and the warriors under your command - and to lead them to triumph over whatever foes you may face."
 
 	spawnpoints = list("hegemony_cap")
 
@@ -65,6 +68,8 @@
 	outfit = /datum/outfit/admin/izweski/priest
 	mob_name_prefix = "Lt. "
 	spawnpoints = list("hegemony_warpriest")
+	welcome_message = "As a Priest of the Aspect, you are sworn more than any others to embody the honor of the Warrior, and to live by the Warrior's Code - to act with righteousness, mercy, integrity, courage and loyalty. Ensure that your crew does the same, \
+	and guide their souls towards te glory befitting true warriors. However, you are still a soldier, and should follow your captain's orders."
 
 /datum/outfit/admin/izweski
 	name = "Izweski Crewman"
