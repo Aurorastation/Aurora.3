@@ -13935,14 +13935,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/sign/flag/biesel/right{
-	pixel_x = 16;
-	pixel_y = 29
-	},
-/obj/structure/sign/flag/biesel/left{
-	pixel_x = -16;
-	pixel_y = 29
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "qzr" = (

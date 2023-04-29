@@ -245,6 +245,14 @@
 
 // Flags
 
+/obj/item/flag/blank
+	flag_path = "blank"
+	flag_structure = /obj/structure/sign/flag/blank
+
+/obj/structure/sign/flag/blank
+	flag_path = "flag"
+	flag_item = /obj/item/flag/blank
+
 // Sol
 
 /obj/item/flag/sol

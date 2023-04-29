@@ -13234,14 +13234,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/sign/flag/biesel/right{
-	pixel_x = 16;
-	pixel_y = 29
-	},
-/obj/structure/sign/flag/biesel/left{
-	pixel_x = -16;
-	pixel_y = 29
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aFm" = (
@@ -19616,7 +19609,7 @@
 /area/centcom/legion/hangar5)
 "aWp" = (
 /obj/vehicle/bike/speeder,
-/obj/structure/sign/flag/biesel/north,
+/obj/structure/sign/flag/biesel/large/north,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "aWq" = (
@@ -21528,7 +21521,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/structure/sign/flag/biesel/north,
+/obj/structure/sign/flag/biesel/large/north,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -22755,7 +22748,7 @@
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/structure/sign/flag/biesel/north,
+/obj/structure/sign/flag/biesel/large/north,
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 8;

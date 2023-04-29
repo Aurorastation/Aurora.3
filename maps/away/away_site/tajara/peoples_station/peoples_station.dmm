@@ -9190,10 +9190,7 @@
 /area/peoples_station/ammo_storage)
 "Qj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/sign/flag/pra/left{
-	dir = 4;
-	pixel_x = 32
-	},
+/obj/structure/sign/flag/pra/large/east,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

@@ -75,10 +75,6 @@
 	},
 /area/pra_base)
 "dy" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_x = 31;
-	dir = 4
-	},
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine{
 	req_access = list(209);
@@ -231,10 +227,7 @@
 	},
 /area/pra_base)
 "ly" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_x = 31;
-	dir = 4
-	},
+/obj/structure/sign/flag/pra/large/east,
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
