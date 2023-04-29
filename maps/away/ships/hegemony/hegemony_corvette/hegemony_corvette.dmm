@@ -1605,6 +1605,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/hegemony_ship)
+"kZ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/iff_beacon,
+/turf/simulated/floor,
+/area/shuttle/hegemony)
 "le" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
@@ -3680,6 +3685,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
+"xe" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/shipsensors,
+/turf/simulated/floor,
+/area/shuttle/hegemony)
 "xh" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -23060,7 +23070,7 @@ co
 rL
 rL
 rL
-aJ
+xe
 aJ
 aJ
 aJ
@@ -24032,7 +24042,7 @@ IU
 rL
 rL
 rL
-aJ
+kZ
 aJ
 aJ
 aJ
