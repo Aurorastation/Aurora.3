@@ -924,7 +924,7 @@
 "fV" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/shipsensors,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/hegemony)
 "ga" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -5781,7 +5781,7 @@
 "IQ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/iff_beacon,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/hegemony)
 "IU" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
