@@ -44,9 +44,7 @@
 	name = "Atmospherics Locker Room";
 	req_access = list(24)
 	},
-/obj/effect/floor_decal/corner_wide/blue{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner_wide/blue,
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 8
 	},
@@ -74,8 +72,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/sortjunction/flipped{
 	name = "CE Office";
-	sortType = "CE Office";
-	tag = null
+	sortType = "CE Office"
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
@@ -136,9 +133,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "abR" = (
-/obj/effect/floor_decal/corner_wide/blue{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner_wide/blue,
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 8
 	},
@@ -3151,8 +3146,7 @@
 "bvV" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/window/westleft{
-	name = "Server Room";
-	req_access = null
+	name = "Server Room"
 	},
 /obj/machinery/door/window/eastleft{
 	name = "Server Room"
@@ -4897,8 +4891,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
-	name = "Medical Reception";
-	req_access = null
+	name = "Medical Reception"
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -6290,7 +6283,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Break Room";
-	req_access = null;
 	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
@@ -6608,7 +6600,6 @@
 	name = "Primary Armament Interior Bolts";
 	pixel_x = 22;
 	pixel_y = -20;
-	req_access = null;
 	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
@@ -6643,7 +6634,6 @@
 "dlQ" = (
 /obj/machinery/door/airlock/glass_mining{
 	name = "Operations Bay";
-	req_access = null;
 	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
@@ -10105,9 +10095,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "fbT" = (
-/obj/effect/floor_decal/corner_wide/blue{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner_wide/blue,
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 8
 	},
@@ -12916,7 +12904,6 @@
 	name = "Viewing Blast Doors";
 	pixel_x = 7;
 	pixel_y = -23;
-	req_access = null;
 	req_one_access = list(19,11)
 	},
 /obj/structure/table/standard,
@@ -13755,7 +13742,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Operations Bay";
-	req_access = null;
 	req_one_access = list(26,29,31,48,67)
 	},
 /obj/effect/map_effect/door_helper/unres{
@@ -14399,8 +14385,7 @@
 "gUA" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	name = "Research Hallway";
-	req_one_access = null
+	name = "Research Hallway"
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -17331,7 +17316,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Operations Bay";
-	req_access = null;
 	req_one_access = list(26,29,31,48,67)
 	},
 /obj/effect/map_effect/door_helper/unres{
@@ -21423,8 +21407,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Research and Development Maintenance";
-	req_access = list(7);
-	req_one_access = null
+	req_access = list(7)
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
@@ -23185,7 +23168,6 @@
 	name = "External Blast Doors";
 	pixel_x = 7;
 	pixel_y = -23;
-	req_access = null;
 	req_one_access = list(19,11)
 	},
 /obj/machinery/light/small,
@@ -23589,8 +23571,7 @@
 	name = "Xenobiology Emergency Lockdown Control";
 	pixel_x = -6;
 	pixel_y = -30;
-	req_access = list(47);
-	req_one_access = null
+	req_access = list(47)
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 1;
@@ -23803,7 +23784,6 @@
 	id_tag = "bolts_cannon_entrance";
 	locked = 1;
 	name = "Primary Armament";
-	req_access = null;
 	req_one_access = list(19,43)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -25173,9 +25153,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "mpX" = (
-/obj/effect/floor_decal/corner_wide/blue{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner_wide/blue,
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 4
 	},
@@ -27078,7 +27056,6 @@
 	name = "Entrance Airlock Bolts";
 	pixel_x = 22;
 	pixel_y = 12;
-	req_access = null;
 	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
@@ -27088,7 +27065,6 @@
 	name = "Primary Armament Exterior Bolts";
 	pixel_x = 22;
 	pixel_y = -13;
-	req_access = null;
 	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
@@ -27506,8 +27482,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Deck 1, 2, and 3 Medical Substation";
-	req_access = list(66);
-	req_one_access = null
+	req_access = list(66)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -31303,8 +31278,7 @@
 	id = "xenobio";
 	name = "Xenobiology Emergency Lockdown Control";
 	pixel_x = 25;
-	req_access = list(47);
-	req_one_access = null
+	req_access = list(47)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
@@ -33435,7 +33409,6 @@
 	id_tag = "bolts_cannon_internal";
 	locked = 1;
 	name = "Primary Armament Interior";
-	req_access = null;
 	req_one_access = list(19,43);
 	secured_wires = 1
 	},
@@ -35617,8 +35590,7 @@
 "rvf" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	name = "Research Hallway";
-	req_one_access = null
+	name = "Research Hallway"
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -36774,6 +36746,23 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
+"rYL" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/grauwolf)
 "rYM" = (
 /obj/effect/floor_decal/corner/purple/full,
 /obj/structure/closet/hazmat/custodial,
@@ -38837,7 +38826,6 @@
 	name = "Primary Armament Interior Bolts";
 	pixel_x = 22;
 	pixel_y = 22;
-	req_access = null;
 	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
@@ -39648,9 +39636,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "tBf" = (
-/obj/effect/floor_decal/corner_wide/blue{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner_wide/blue,
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 8
 	},
@@ -40389,7 +40375,6 @@
 /obj/machinery/door/airlock/hatch{
 	id_tag = "bolts_cannon_external";
 	name = "Primary Armament Exterior";
-	req_access = null;
 	req_one_access = list(19,43);
 	secured_wires = 1
 	},
@@ -42227,9 +42212,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "uIx" = (
-/obj/effect/floor_decal/corner_wide/blue{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner_wide/blue,
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 4
 	},
@@ -45234,8 +45217,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor/multi_tile,
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Medical Reception";
-	req_access = null
+	name = "Medical Reception"
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -48415,7 +48397,6 @@
 	name = "Entrance Airlock Bolts";
 	pixel_x = 22;
 	pixel_y = -22;
-	req_access = null;
 	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
@@ -49874,7 +49855,6 @@
 	name = "Primary Armament Exterior Bolts";
 	pixel_x = -6;
 	pixel_y = -38;
-	req_access = null;
 	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
@@ -49884,7 +49864,6 @@
 	name = "Entrance Airlock Bolts";
 	pixel_x = 6;
 	pixel_y = -38;
-	req_access = null;
 	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
@@ -49894,7 +49873,6 @@
 	name = "Primary Armament Interior Bolts";
 	pixel_x = -6;
 	pixel_y = -28;
-	req_access = null;
 	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
@@ -57791,7 +57769,7 @@ wRu
 wRu
 wRu
 wCS
-jJU
+rYL
 uKV
 aFy
 hFU

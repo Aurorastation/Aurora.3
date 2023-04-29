@@ -83,7 +83,7 @@
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
-	var/list/worlds_selection = list("Nralakk", "Qerrbalak", "Qerr'Malic", "Aliose", "Aweiji", "Xrim", "the Traverse", "Europa", "New Gibson", "Mictlan", "the Starlight Zone")
+	var/list/worlds_selection = list("Nralakk", "Qerrbalak", "Qerr'Malic", "Aliose", "Aweiji", "Xrim", "the Traverse", "Europa", "New Gibson", "Mictlan", "the Starlight Zone", "Diulszi")
 	var/selected_world
 	var/working = FALSE
 	var/message_frequency = 10
@@ -140,6 +140,8 @@
 			light_color = "#FF1C1C"
 		if("the Starlight Zone")
 			light_color = "#00D6FF"
+		if("Diulszi")
+			light_color = "#002373"
 		else
 			brightness = 0
 			working = FALSE
@@ -205,6 +207,11 @@
 				hologram_message = pick("You see a holographic projection of the Weishiin sanctuaries around Severson's Rift.",
 										"You see the homes of Lekan Village projected on the ceiling, and beneath them the deep waters that would contain Severson City.",
 										"You hear the bubbling of water, as the projector briefly changes to a hologram of the Starlight Zone's underwater city.")
+			if("Diulszi")
+				hologram_message = pick("Projected on the ceiling is a vista of the Kervasii World Amusement Park's floating islands.",
+										"You see massive resort buildings looming high over a crystal-clear ocean.",
+										"You hear light chittering as the projector switches to a depiction of a C'thuric research lab.")
+			
 
 		if(hologram_message)
 			visible_message("<span class='notice'>[hologram_message]</span>")
