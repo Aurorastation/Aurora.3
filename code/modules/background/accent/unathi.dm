@@ -50,3 +50,24 @@
 	description = "From deep in the Wasteland there are some who hail from a society unlike most others that inhabit the radioactive sands, those from the Queendom. Those from the Queendom are recognizable by their traditionalist inflections in speech, but with slight differences that have evolved in the decades since first contact."
 	tag_icon = "trad_queendom"
 	text_tag = "QEN"
+
+/datum/accent/tza_noble
+	name = ACCENT_TZA_NOBLE
+	description = "A slow, droning and guttural accent, with heavy physical movement involved, the noble accent of the Tza Prairie has remained unchanged for centuries, passed down the ancient lines of the mountains. \
+	While it sounds similar to the accent of Traditionalist nobles, most with a noble's education would be able to clearly tell the difference."
+	tag_icon = "unathi_tza_noble"
+	text_tag = "TZN"
+
+/datum/accent/southlands_peasant
+	name = ACCENT_SOUTHLANDS_PEASANT
+	description = "Centuries of trade and immigration have shaped the Southlands accent into an odd blend of sounds from many regions and languages. The result is a sharp, nasal and rapid-paced accent, \
+	where the original influences can be vaguely heard to a keen listener. The fast manner of speech and the general energy with which it is spoken is one of the first things that comes to mind from an outsider when considering the region."
+	tag_icon = "unathi_southlands_peasant"
+	text_tag = "SLP"
+
+/datum/accent/southlands_noble
+	name = ACCENT_SOUTHLANDS_NOBLE
+	description = "The accent of the Southlands nobility is somewhat slower than that of the peasants, as it has remained less changed by migration to the region. While it has diverged from the original accent of the Southlands, \
+	it is closer to that than the fast-paced speech of the peasants. The Southlands noble accent is widely considered pleasing to the ear, with some merchants and bards attempting to mimic it to aid in their own business."
+	tag_icon = "unathi_southlands_noble"
+	text_tag = "SLN"

@@ -133,6 +133,10 @@
 #define ACCENT_WASTELAND "Deep Wastelander"
 #define ACCENT_AUTAKH "Aut'akh Dialect"
 #define ACCENT_QUEENDOM "Queendom Dialect"
+#define ACCENT_TZA_PEASANT "Tza Prairie Peasant"
+#define ACCENT_TZA_NOBLE "Tza Prairie Noble"
+#define ACCENT_SOUTHLANDS_PEASANT "Southlands Peasant"
+#define ACCENT_SOUTHLANDS_NOBLE "Southlands Noble"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 #define ACCENT_HOMEWORLD "Qerrbalak"
