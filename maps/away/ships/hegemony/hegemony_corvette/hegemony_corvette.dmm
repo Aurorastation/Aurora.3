@@ -1605,11 +1605,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/hegemony_ship)
-"kZ" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/iff_beacon,
-/turf/simulated/floor,
-/area/shuttle/hegemony)
 "le" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
@@ -2920,6 +2915,9 @@
 	pixel_y = -23;
 	dir = 8
 	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, airlock"
+	},
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "sJ" = (
@@ -3685,11 +3683,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
-"xe" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/shipsensors,
-/turf/simulated/floor,
-/area/shuttle/hegemony)
 "xh" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -5070,6 +5063,11 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/hegemony)
+"EO" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/shipsensors,
+/turf/simulated/floor,
 /area/shuttle/hegemony)
 "EY" = (
 /obj/machinery/computer/ship/helm,
@@ -8201,6 +8199,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/bridge)
+"XZ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/iff_beacon,
+/turf/simulated/floor,
+/area/shuttle/hegemony)
 "Ya" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10;
@@ -23070,7 +23073,7 @@ co
 rL
 rL
 rL
-xe
+EO
 aJ
 aJ
 aJ
@@ -24042,7 +24045,7 @@ IU
 rL
 rL
 rL
-kZ
+XZ
 aJ
 aJ
 aJ
