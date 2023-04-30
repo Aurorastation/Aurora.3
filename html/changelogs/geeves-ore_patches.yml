@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added visible ore patches to exoplanets. You can set up industrial drills on top of them to retrieve the deep ore."
+  - rscadd: "Destroying a wall on an exoplanet that has deep ore beneath it will now longer delete the deep ore."
+  - tweak: "Reduced the amount of deep ore that spawns, now that it's easier to detect."
