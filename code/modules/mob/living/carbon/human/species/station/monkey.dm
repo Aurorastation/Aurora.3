@@ -182,12 +182,12 @@
 	darksight = 8
 	death_message = "chitters faintly before crumbling to the ground, their eyes dead and lifeless..."
 	halloss_message = "crumbles to the ground, too weak to continue fighting."
-	list/heat_discomfort_strings = list(
+	heat_discomfort_strings = list(
 		"Your blood feels like its boiling in the heat.",
 		"You feel uncomfortably warm.",
 		"Your carapace feels hot as the sun."
 		)
-	list/cold_discomfort_strings = list(
+	cold_discomfort_strings = list(
 		"You chitter in the cold.",
 		"You shiver suddenly.",
 		"Your carapace is ice to the touch."
