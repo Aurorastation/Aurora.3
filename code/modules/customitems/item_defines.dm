@@ -442,14 +442,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_SMALL
 
 
-/obj/item/spirit_board/fluff/klavdiya_board //Ghostly Board - Klavdiya Tikhomirov - alberyk
-	name = "ghostly board"
-	desc = "An adhomian ghostly board, used in divination rituals. This one is blue and has the symbol of a moon on it."
-	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
-	icon_override = 'icons/obj/custom_items/klavdiya_amulet.dmi'
-	icon_state = "klavdiya_board" //thanks to kyres1 for the sprites
-
-
 /obj/item/clothing/head/fluff/aavs_mask //Reflective Mask - Aavs Guwan - dronzthewolf
 	name = "reflective mask"
 	desc = "This odd mask and hood combination covers the wearer, and seems to be made of a one-way dome mirror and some old cloth or rope."

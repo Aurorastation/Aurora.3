@@ -80,6 +80,8 @@
 				return 1
 			if (SPECIES_ZOMBIE_TAJARA)
 				return 1
+			if (SPECIES_TAJARA_TESLA_BODY)
+				return 1
 	return 0
 
 /proc/isskrell(A)
