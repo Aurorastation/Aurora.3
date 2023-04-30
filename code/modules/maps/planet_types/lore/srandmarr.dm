@@ -65,7 +65,8 @@
 	icon_state = "globe1"
 	color = "#cf1020"
 	generated_name = FALSE
-	ruin_planet_type = PLANET_LAVA
+	ruin_planet_type = PLANET_LORE
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
 	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul/update_icon()

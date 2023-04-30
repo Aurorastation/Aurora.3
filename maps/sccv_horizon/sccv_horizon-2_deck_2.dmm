@@ -1003,6 +1003,9 @@
 "axa" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/closet/wardrobe/atmospherics_yellow,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "axB" = (
@@ -13460,6 +13463,9 @@
 /obj/item/clothing/head/helmet/space/void/atmos,
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "gAN" = (
@@ -21606,6 +21612,9 @@
 	name = "Atmos RC";
 	pixel_y = 32
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "kyX" = (
@@ -21937,6 +21946,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
+"kJZ" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/atmos/storage)
 "kKk" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -46996,6 +47014,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
+"wTF" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/atmos/storage)
 "wTU" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -48330,6 +48357,15 @@
 /obj/structure/closet/secure_closet/medical_fr,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
+"xBU" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/secure_closet/atmos_personal,
+/obj/item/clothing/gloves/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/atmos/storage)
 "xCr" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/eastleft{
@@ -70657,10 +70693,10 @@ lmf
 wZK
 fnn
 fnn
-aFm
+wTF
 bwU
 bPf
-jkb
+kJZ
 puO
 aWi
 iVp
@@ -72272,7 +72308,7 @@ wfD
 esX
 wfD
 nlG
-aem
+xBU
 cdq
 aem
 wrO
