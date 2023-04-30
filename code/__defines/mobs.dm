@@ -144,6 +144,7 @@
 #define BP_ZOMBIE_PARASITE "black tumour"
 
 //Augment organs
+#define BP_AUG_POWER        "internal unified power supply"
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
 #define BP_AUG_TOOL         "retractable combitool"
 #define BP_AUG_PEN          "retractable combipen"
@@ -173,6 +174,7 @@
 #define BP_AUG_CORRECTIVE_LENS "corrective lenses"
 #define BP_AUG_GLARE_DAMPENER "glare dampeners"
 #define BP_AUG_ACC_CORDS       "modified synthetic vocal cords"
+#define BP_AUG_JOINT_TORSION   "joint torsion ratchet"
 
 //Organ defines
 #define PROCESS_ACCURACY 10

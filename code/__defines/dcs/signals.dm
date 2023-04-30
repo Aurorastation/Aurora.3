@@ -51,7 +51,9 @@
 #define SPATIAL_GRID_CELL_EXITED(contents_type) "spatial_grid_cell_exited_[contents_type]"
 
 // /mob signals
+#define COMSIG_MOB_STAT "mob_stat"
 #define COMSIG_MOB_FACEDIR "mob_facedir"
+#define COMSIG_MOB_MOVE "mob_move"
 
 // /obj signals
 /// when a hood is unequipped

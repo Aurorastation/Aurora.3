@@ -949,6 +949,12 @@
 							continue
 						stat(A)
 
+		if(statpanel("Status"))
+			var/list/stat_data = list()
+			SEND_SIGNAL(src, COMSIG_MOB_STAT, stat_data)
+			for(var/stat_entry in stat_data)
+				stat(stat_entry, stat_data[stat_entry])
+
 
 // facing verbs
 /mob/proc/canface()

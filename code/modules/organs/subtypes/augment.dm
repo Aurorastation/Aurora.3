@@ -18,10 +18,24 @@
 	var/activable = FALSE
 	var/bypass_implant = FALSE
 	var/supports_limb = FALSE // if true, will make parent limb not count as broken, as long as it's not bruised (40%) and not broken (0%)
+	var/power_cost = 0
 
 /obj/item/organ/internal/augment/Initialize()
 	robotize()
 	. = ..()
+
+/obj/item/organ/internal/augment/proc/use_charge(var/charge_override)
+	var/obj/item/organ/internal/augment/power/ups = owner.internal_organs_by_name[BP_AUG_POWER]
+	if(!ups || !ups.cell || ups.is_broken())
+		return FALSE
+	var/drain_amount = charge_override || power_cost
+	return ups.use_charge(drain_amount)
+
+/obj/item/organ/internal/augment/proc/add_charge(var/charge_amount)
+	var/obj/item/organ/internal/augment/power/ups = owner.internal_organs_by_name[BP_AUG_POWER]
+	if(!ups || !ups.cell || ups.is_broken())
+		return FALSE
+	return ups.add_charge(charge_amount)
 
 /obj/item/organ/internal/augment/refresh_action_button()
 	. = ..()
@@ -55,6 +69,10 @@
 			for (var/obj/item/implant/anti_augment/I in owner)
 				if (I.implanted)
 					return FALSE
+
+		if(power_cost && !use_charge())
+			to_chat(owner, SPAN_WARNING("You don't have enough charge to do that!"))
+			return FALSE
 
 		owner.last_special = world.time + cooldown
 		return TRUE
@@ -747,3 +765,20 @@
 	action_button_name = "Deploy Glare Dampeners"
 	organ_tag = BP_AUG_GLARE_DAMPENER
 	augment_type = /obj/item/clothing/glasses/aug/welding
+
+/obj/item/organ/internal/augment/torsion_ratchet
+	name = BP_AUG_JOINT_TORSION
+	desc = "This device generates power by using the kinetic energy produced by movement to charge the unified power system."
+	parent_organ = BP_GROIN
+	organ_tag = BP_AUG_JOINT_TORSION
+
+/obj/item/organ/internal/augment/torsion_ratchet/replaced(mob/living/carbon/human/target, obj/item/organ/external/affected)
+	. = ..()
+	RegisterSignal(target, COMSIG_MOB_MOVE, PROC_REF(generate_power))
+
+/obj/item/organ/internal/augment/torsion_ratchet/removed(mob/living/carbon/human/target, mob/living/user)
+	. = ..()
+	UnregisterSignal(target, COMSIG_MOB_MOVE)
+
+/obj/item/organ/internal/augment/torsion_ratchet/proc/generate_power(var/mob/user)
+	add_charge(5)

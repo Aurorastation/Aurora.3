@@ -2635,6 +2635,7 @@
 #include "code\modules\organs\internal\species\unathi.dm"
 #include "code\modules\organs\internal\species\vaurca.dm"
 #include "code\modules\organs\subtypes\augment.dm"
+#include "code\modules\organs\subtypes\augment_power.dm"
 #include "code\modules\organs\subtypes\autakh.dm"
 #include "code\modules\organs\subtypes\diona.dm"
 #include "code\modules\organs\subtypes\industrial.dm"

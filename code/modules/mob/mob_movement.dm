@@ -356,6 +356,8 @@
 						move_delay = max(move_delay, world.time + 7)
 						step(G.affecting, get_dir(G.affecting.loc, mob.loc))
 
+		SEND_SIGNAL(mob, COMSIG_MOB_MOVE)
+
 		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
 			step(mob, pick(cardinal))
 		else

@@ -8,6 +8,12 @@
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
 	flags = GEAR_NO_SELECTION
 
+/datum/gear/augment/power
+	display_name = "internal unified power supply"
+	description = "The central power source for all augments within a system."
+	path = /obj/item/organ/internal/augment/power
+	cost = 0
+
 /datum/gear/augment/eye_sensors
 	display_name = "integrated eye sensors selection"
 	description = "An eye augment that allows the user to deploy medical or security sensors."
@@ -238,3 +244,9 @@
 	path = /obj/item/organ/internal/augment/head_fluff/lhand_fluff
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
+
+/datum/gear/augment/joint_torsion
+	display_name = "joint torsion ratchet"
+	description = "This device generates power by using the kinetic energy produced by movement to charge the unified power system."
+	path = /obj/item/organ/internal/augment/torsion_ratchet
+	cost = 1
