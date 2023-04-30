@@ -6,6 +6,9 @@
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 	turf_flags = TURF_FLAG_BACKGROUND
 	flags = null
+
+	does_footprint = TRUE
+
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
 	var/has_edge_icon = TRUE
@@ -49,6 +52,7 @@
 
 /turf/simulated/floor/exoplanet/Initialize()
 	. = ..()
+	footprint_color = dirt_color
 	update_icon(1)
 
 /turf/simulated/floor/exoplanet/update_icon(var/update_neighbors)

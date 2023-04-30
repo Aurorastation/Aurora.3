@@ -65,7 +65,8 @@
 	icon_state = "globe1"
 	color = "#cf1020"
 	generated_name = FALSE
-	ruin_planet_type = PLANET_LAVA
+	ruin_planet_type = PLANET_LORE
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
 	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul/update_icon()
@@ -153,14 +154,14 @@
 			/datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 			/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd, /datum/map_template/ruin/exoplanet/adhomai_amohdan,
 			/datum/map_template/ruin/exoplanet/ala_cell, /datum/map_template/ruin/exoplanet/adhomai_chemical_testing, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue_toppled, /datum/map_template/ruin/exoplanet/ala_base,
-			/datum/map_template/ruin/exoplanet/adhomai_deserter, /datum/map_template/ruin/exoplanet/adhomai_nuclear_waste_makeshift, /datum/map_template/ruin/exoplanet/adhomai_rredouane_shrine)
+			/datum/map_template/ruin/exoplanet/adhomai_deserter, /datum/map_template/ruin/exoplanet/adhomai_nuclear_waste_makeshift, /datum/map_template/ruin/exoplanet/adhomai_rredouane_shrine, /datum/map_template/ruin/exoplanet/adhomai_sole_rock_nomad)
 
 		if("New Kingdom of Adhomai")
 			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
 			/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual,
 			/datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout,/datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 			/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd, /datum/map_template/ruin/exoplanet/adhomai_amohdan, /datum/map_template/ruin/exoplanet/adhomai_archeology,
-			/datum/map_template/ruin/exoplanet/nka_base, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue_toppled, /datum/map_template/ruin/exoplanet/adhomai_rredouane_shrine)
+			/datum/map_template/ruin/exoplanet/nka_base, /datum/map_template/ruin/exoplanet/adhomai_president_hadii_statue_toppled, /datum/map_template/ruin/exoplanet/adhomai_rredouane_shrine, /datum/map_template/ruin/exoplanet/adhomai_sole_rock_nomad)
 
 		if("North Pole")
 			features_budget = 1

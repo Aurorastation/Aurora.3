@@ -328,6 +328,10 @@
 
 /area/horizon/maintenance/deck_two/fore/port
 	name = "Horizon - Maintenance - Deck Two - Fore Port"
+
+/area/horizon/maintenance/deck_three/aft/starboard
+	name = "Horizon - Maintenance - Deck Three - Aft Starboard"
+
 /********** Maintenance End **********/
 
 /********** Hallways Start **********/

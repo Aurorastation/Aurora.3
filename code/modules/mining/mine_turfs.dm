@@ -68,8 +68,6 @@ var/list/mineral_can_smooth_with = list(
 
 	initialized = TRUE
 
-	turfs += src
-
 	if(isStationLevel(z))
 		station_turfs += src
 
@@ -187,8 +185,6 @@ var/list/mineral_can_smooth_with = list(
 		icon = actual_icon
 
 	initialized = TRUE
-
-	turfs += src
 
 	if(isStationLevel(z))
 		station_turfs += src
@@ -660,8 +656,6 @@ var/list/asteroid_floor_smooth = list(
 
 	base_desc = desc
 	base_name = name
-
-	turfs += src
 
 	if(isStationLevel(z))
 		station_turfs += src
