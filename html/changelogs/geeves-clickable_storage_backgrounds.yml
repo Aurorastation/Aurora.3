@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "You can now click on the background of an item inside a box/backpack to pick it up. This only affects storages that don't use the square slots for now."
