@@ -23,7 +23,7 @@
 	item_state = "oxford_colour"
 
 /obj/item/clothing/shoes/laceup/steeltoed
-	name = "steel-toed  shoes"
+	name = "steel-toed oxford shoes"
 	desc = "Steel-toed and intimidating."
 	icon_state = "oxford_st"
 	item_state = "oxford_st"
