@@ -1448,6 +1448,7 @@
 #include "code\modules\background\origins\origins\tajara\offworld.dm"
 #include "code\modules\background\origins\origins\unathi\autakh.dm"
 #include "code\modules\background\origins\origins\unathi\izweski.dm"
+#include "code\modules\background\origins\origins\unathi\queendom.dm"
 #include "code\modules\background\origins\origins\unathi\spaceborn.dm"
 #include "code\modules\background\origins\origins\unathi\traditionalist.dm"
 #include "code\modules\background\origins\origins\unknown\unknown.dm"
