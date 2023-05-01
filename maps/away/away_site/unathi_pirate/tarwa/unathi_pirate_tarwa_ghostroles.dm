@@ -1,0 +1,67 @@
+/datum/ghostspawner/human/tarwa
+	short_name = "tarwa_crew"
+	name = "Tarwa Conglomerate Crewman"
+	desc = "You are a pirate, serving with the enigmetic Tarwa Conglomerate - also called the living-dead fleet. Obey your captain, defend your ship and crew, and survive another day. NOT AN ANTAGONIST! Do not act as such."
+	tags = list("External")
+
+	spawnpoints = list("tarwa_crew")
+	max_count = 3
+	uses_species_whitelist = FALSE
+
+	outfit = /datum/outfit/admin/tarwa
+	possible_species = list(SPECIES_UNATHI)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "Tarwa Conglomerate Crewman"
+	special_role = "Tarwa Conglomerate Crewman"
+	respawn_flag = null
+	extra_languages = list(LANGUAGE_AZAZIBA)
+	away_site = TRUE
+
+/datum/ghostspawner/human/tarwa/diona
+	short_name = "tarwa_diona"
+	name = "Tarwa Conglomerate Diona Crewman"
+	desc = "You are a diona gestalt serving with the pirate crew of the Tarwa Conglomerate, and likely grown among their number. Obey your captain, defend your ship and crew, and survive another day. NOT AN ANTAGONIST! Do not act as such."
+	max_count = 1
+	possible_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	uses_species_whitelist = TRUE
+	spawnpoints = list("tarwa_diona")
+	outfit = /datum/outfit/admin/tarwa/diona
+
+/datum/ghostspawner/human/tarwa/captain
+	short_name = "tarwa_captain"
+	name = "Tarwa Conglomerate Captain"
+	desc = "You are the captain of a pirate crew of the Tarwa Conglomerate - also called the living-dead fleet. Lead your crew to profit and glory, for the sake of your fleet. NOT AN ANTAGONIST! Do not act as such."
+	max_count = 1
+	uses_species_whitelist = TRUE
+	spawnpoints = list("tarwa_captain")
+	outfit = /datum/outfit/admin/tarwa/captain
+
+/datum/outfit/admin/tarwa
+	name = "Tarwa Conglomerate Crew"
+	uniform = /obj/item/clothing/under/unathi
+	shoes = /obj/item/clothing/shoes/caligae
+	id = /obj/item/card/id
+	back = /obj/item/storage/backpack/satchel
+	accessory = /obj/item/clothing/accessory/storage/webbing
+	gloves = /obj/item/clothing/gloves/unathi
+	l_ear = /obj/item/device/radio/headset/ship
+
+	backpack_contents = list(
+		/obj/item/storage/box/survival = 1
+	)
+
+/datum/outfit/admin/tarwa/get_id_access()
+	return list(access_unathi_pirate, access_external_airlocks)
+
+/datum/outfit/admin/tarwa/diona
+	name = "Tarwa Conglomerate Diona"
+	suit = /obj/item/clothing/accessory/poncho/green
+	head = /obj/item/clothing/head/bandana/pirate
+
+/datum/outfit/admin/tarwa/captain
+	name = "Tarwa Conglomerate Captain"
+	suit = /obj/item/clothing/suit/storage/toggle/asymmetriccoat
+	gloves = /obj/item/clothing/gloves/green/unathi
+	accessory = /obj/item/clothing/accessory/holster/thigh
+	accessory_contents = list(/obj/item/gun/energy/pistol/hegemony = 1)
