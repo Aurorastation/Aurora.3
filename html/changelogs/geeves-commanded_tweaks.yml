@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now use pointing to command commandable animals. Pointing them with any intent will make them either follow you or stop following you, provided you're their master or one of their friends (being set to follow adds you to their friend list). While the animal is following you, pointing at someone with grab intent will make it follow them. Pointing at them on harm intent will make it attack them."
