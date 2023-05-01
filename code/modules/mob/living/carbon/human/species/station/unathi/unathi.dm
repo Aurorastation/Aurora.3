@@ -126,11 +126,7 @@
 		/singleton/origin_item/culture/spaceborn,
 		/singleton/origin_item/culture/dominian_unathi,
 		/singleton/origin_item/culture/queendom,
-		/singleton/origin_item/culture/autakh,
-		/singleton/origin_item/culture/tza_noble,
-		/singleton/origin_item/culture/tza_peasant,
-		/singleton/origin_item/culture/southlands_noble,
-		/singleton/origin_item/culture/southlands_peasant
+		/singleton/origin_item/culture/autakh
 	)
 
 	zombie_type = SPECIES_ZOMBIE_UNATHI
