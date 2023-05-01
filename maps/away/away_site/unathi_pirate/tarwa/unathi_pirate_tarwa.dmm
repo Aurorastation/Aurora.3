@@ -289,6 +289,9 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/hangar)
 "dd" = (
+/obj/structure/sign/flag/tarwa{
+	pixel_y = 25
+	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "dg" = (
@@ -550,6 +553,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/sign/flag/tarwa{
+	pixel_y = 25
+	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/cic)
 "iv" = (
@@ -801,12 +807,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(215)
-	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/sign/flag/tarwa{
+	pixel_y = 25
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
@@ -863,6 +868,9 @@
 /area/shuttle/tarwa)
 "ns" = (
 /obj/structure/closet,
+/obj/structure/sign/flag/tarwa{
+	pixel_y = 25
+	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "nz" = (
@@ -940,6 +948,9 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
+	},
+/obj/structure/sign/flag/tarwa{
+	pixel_y = 25
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
@@ -1024,6 +1035,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
+"pV" = (
+/obj/structure/bed/stool/padded/green,
+/obj/structure/sign/flag/tarwa{
+	pixel_y = 25
+	},
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/canteen)
 "pZ" = (
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona,
@@ -1205,6 +1223,9 @@
 	color = "#202420"
 	},
 /obj/item/clothing/suit/unathi/robe/robe_coat/blue,
+/obj/structure/sign/flag/tarwa{
+	pixel_y = 25
+	},
 /turf/simulated/floor/carpet/orange,
 /area/tarwa_ship/captain)
 "tK" = (
@@ -1646,6 +1667,9 @@
 /obj/item/ship_ammunition/bruiser,
 /obj/item/ship_ammunition/bruiser,
 /obj/item/ship_ammunition/bruiser,
+/obj/structure/sign/flag/tarwa{
+	pixel_y = 25
+	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 "BD" = (
@@ -1801,6 +1825,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/machinery/alarm{
+	pixel_y = 25;
+	req_one_access = list(215)
+	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
 "Ee" = (
@@ -1893,6 +1921,9 @@
 	},
 /obj/item/clothing/accessory/poncho/unathimantle/mountain{
 	color = "#ba650b"
+	},
+/obj/structure/sign/flag/tarwa{
+	pixel_y = 25
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
@@ -2718,6 +2749,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
+"PJ" = (
+/obj/structure/diona/bulb,
+/obj/structure/sign/flag/tarwa{
+	pixel_y = 25
+	},
+/turf/simulated/floor/diona,
+/area/tarwa_ship/gun)
 "PL" = (
 /obj/machinery/alarm{
 	pixel_y = 25;
@@ -3192,6 +3230,15 @@
 /obj/machinery/vending/tool,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
+"XX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/sign/flag/tarwa{
+	pixel_y = 25
+	},
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/bridge)
 "Ym" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -12259,7 +12306,7 @@ uB
 uB
 uB
 cy
-zq
+PJ
 NT
 xT
 CR
@@ -15343,7 +15390,7 @@ Uw
 fI
 Uw
 Uw
-oN
+XX
 aA
 aA
 aA
@@ -16780,7 +16827,7 @@ gw
 wP
 Kw
 Jg
-Ie
+pV
 jD
 jD
 Ie

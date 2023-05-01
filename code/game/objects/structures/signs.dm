@@ -619,7 +619,7 @@
 /obj/item/flag/traverse/l
 	name = "Large Free Traverser flag"
 	flag_size = 1
-	
+
 /obj/item/flag/cteum
 	name = "Co-operative Territories of Epsilon Ursae Minoris Flag"
 	desc = "The flag of the CT-EUM."
@@ -1175,6 +1175,24 @@
 	and weaponry, there are no proper rules in creating a flag for ones Unathi fleets... Still, the sheer popularity of Izharshan's flag, and the fact that it was one of the first flags created by a Unathi Pirate fleet made it a model to follow \
 	for many others, with a Sinta (or their head or skull) taking a central place in the picture, and other elements complimenting it, generally in a symmetrical fashion."
 	icon_state = "izharshan"
+
+/obj/item/flag/tarwa
+	name = "Tarwa Conglomerate Flag"
+	desc = "The black, white and green flag of the Tarwa Conglomerate, depicting an Unathi skeleton with a diona gestalt growing within it. This flag is rarely seen within civilised space, and only \
+	occasionally mentioned in spacer tales, speaking of a 'fleet of the living dead'."
+	desc_extended = "The Tarwa Conglomerate's banner was, according to legend, designed by Tarskin Tarwa himself, once a brilliant scientist at the Skalamar University of Medicine. When he was expelled \
+	for his experiments on 'Sinta-Diona compatibility', he took to the stars as a pirate. The Conglomerate's ships are rare sightings in civilised space, clinging to the edges of the known Spur. Little is known \
+	of this enigmatic pirate fleet, but every now and then a tale will be heard of wrecked ships moving again, crewed by the living dead..."
+	flag_path = "tarwa"
+
+/obj/structure/sign/flag/tarwa
+	name = "Tarwa Conglomerate Flag"
+	desc = "The black, white and green flag of the Tarwa Conglomerate, depicting an Unathi skeleton with a diona gestalt growing within it. This flag is rarely seen within civilised space, and only \
+	occasionally mentioned in spacer tales, speaking of a 'fleet of the living dead'."
+	desc_extended = "The Tarwa Conglomerate's banner was, according to legend, designed by Tarskin Tarwa himself, once a brilliant scientist at the Skalamar University of Medicine. When he was expelled \
+	for his experiments on 'Sinta-Diona compatibility', he took to the stars as a pirate. The Conglomerate's ships are rare sightings in civilised space, clinging to the edges of the known Spur. Little is known \
+	of this enigmatic pirate fleet, but every now and then a tale will be heard of wrecked ships moving again, crewed by the living dead..."
+	icon_state = "tarwa"
 
 /obj/item/flag/visegrad
 	name = "\improper Visegrad flag"
