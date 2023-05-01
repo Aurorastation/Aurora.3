@@ -1905,6 +1905,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/structure/sign/flag/unathi_fleet
 	name = "unathi fleet flag"
 	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
+	icon = 'icons/obj/custom_items/ahzi_items.dmi'
 	icon_state = "unathi_fleet"
 
 /obj/structure/sign/flag/unathi_fleet/left
@@ -2109,4 +2110,3 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/provenance_jacket.dmi'
 	icon_state = "provenance_coat"
 	item_state = "provenance_coat"
-
