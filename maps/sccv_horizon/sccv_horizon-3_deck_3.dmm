@@ -11273,10 +11273,6 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "jvH" = (
-/obj/structure/sign/flag/sol/right{
-	dir = 4;
-	pixel_x = 32
-	},
 /obj/structure/ladder{
 	pixel_y = 10
 	},
@@ -13959,7 +13955,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "ltM" = (
@@ -15220,7 +15216,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/wood,
 /area/horizon/security/meeting_room)
 "mvx" = (
@@ -17475,7 +17471,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "omR" = (
@@ -19194,7 +19190,7 @@
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "pTJ" = (
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
@@ -22157,10 +22153,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/flag/sol/left{
-	dir = 4;
-	pixel_x = 32
-	},
+/obj/structure/sign/flag/sol/large/east,
 /obj/structure/railing/mapped,
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -22779,7 +22772,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/wood,
 /area/horizon/security/meeting_room)
 "sLD" = (

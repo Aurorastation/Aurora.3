@@ -300,7 +300,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
-	icon_on = "cigon" 
+	icon_on = "cigon"
 	icon_off = "cigoff"
 	has_blood_overlay = FALSE
 	type_butt = /obj/item/trash/cigbutt
@@ -489,6 +489,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		/singleton/reagent/toxin/tobacco/rich = 30,
 		/singleton/reagent/mental/nicotine = 10,
 		/singleton/reagent/tricordrazine = 20
+	)
+
+/obj/item/clothing/mask/smokable/cigarette/cigar/prank
+	reagents_to_add = list(
+		/singleton/reagent/toxin/tobacco/rich = 20,
+		/singleton/reagent/mental/nicotine = 5,
+		/singleton/reagent/fuel = 5
 	)
 
 /obj/item/trash/cigbutt
