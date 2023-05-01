@@ -251,10 +251,10 @@
 
 	switch(pointer.a_intent)
 		if(I_GRAB)
-			follow_command(pointer, mob_target = pointed_at)
+			INVOKE_ASYNC(src, PROC_REF(follow_command), pointer, null, pointed_at)
 		if(I_HURT)
 			if(pointed_at != master || (!(pointed_at in friends) || pointer == master))
-				attack_command(pointer, mob_target = pointed_at)
+				INVOKE_ASYNC(src, PROC_REF(attack_command), pointer, null, pointed_at)
 
 /mob/living/simple_animal/hostile/commanded/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 	//if they attack us, we want to kill them. None of that "you weren't given a command so free kill" bullshit.
