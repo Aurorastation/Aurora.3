@@ -137,7 +137,7 @@
 /*
 //Makes a list where all indicies in a string is a seperate index in the list
 // JUST A HELPER DON'T ADD TO NTSCRIPT
-proc/string_tolist(var/string)
+/proc/string_tolist(var/string)
 	var/list/L = new/list()
 
 	var/i
@@ -146,7 +146,7 @@ proc/string_tolist(var/string)
 
 	return L
 
-proc/string_explode(var/string, var/separator)
+/proc/string_explode(var/string, var/separator)
 	if(istext(string))
 		if(istext(separator) && separator == "")
 			return string_tolist(string)
@@ -165,11 +165,11 @@ proc/string_explode(var/string, var/separator)
 
 Just found out there was already a string explode function, did some benchmarking, and that function were a bit faster, sticking to that.
 */
-proc/string_explode(var/string, var/separator)
+/proc/string_explode(var/string, var/separator)
 	if(istext(string) && istext(separator))
 		return text2list(string, separator)
 
-proc/n_repeat(var/string, var/amount)
+/proc/n_repeat(var/string, var/amount)
 	if(istext(string) && isnum(amount))
 		var/i
 		var/newstring = ""
@@ -182,7 +182,7 @@ proc/n_repeat(var/string, var/amount)
 
 		return newstring
 
-proc/n_reverse(var/string)
+/proc/n_reverse(var/string)
 	if(istext(string))
 		var/newstring = ""
 		var/i
@@ -194,22 +194,22 @@ proc/n_reverse(var/string)
 		return newstring
 
 // I don't know if it's neccesary to make my own proc, but I think I have to to be able to check for istext.
-proc/n_str2num(var/string)
+/proc/n_str2num(var/string)
 	if(istext(string))
 		return text2num(string)
 
 // Number shit
-proc/n_num2str(var/num)
+/proc/n_num2str(var/num)
 	if(isnum(num))
 		return num2text(num)
 
 // Squareroot
-proc/n_sqrt(var/num)
+/proc/n_sqrt(var/num)
 	if(isnum(num))
 		return sqrt(num)
 
 // Magnitude of num
-proc/n_abs(var/num)
+/proc/n_abs(var/num)
 	if(isnum(num))
 		return abs(num)
 

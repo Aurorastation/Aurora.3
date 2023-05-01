@@ -35,6 +35,8 @@
 			mind.name = real_name
 		if(get_hearing_sensitivity())
 			verbs += /mob/living/carbon/human/proc/listening_close
+		if(!height)
+			height = species.species_height
 
 	// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
 	if(max_nutrition > 0)

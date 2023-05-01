@@ -6,7 +6,7 @@
 	sort_category = "Suits and Overwear"
 	cost = 1
 
-datum/gear/suit/colorvest
+/datum/gear/suit/colorvest
 	display_name = "colorable vest"
 	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

@@ -61,7 +61,7 @@
 	. = ..()
 	color = pick(ecig_colors)
 
-obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
+/obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	. = ..()
 	if(ec_cartridge)
 		to_chat(user, SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining."))
@@ -225,7 +225,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 		if(blocked)
 			to_chat(C, SPAN_WARNING("\The [blocked] is in the way!"))
 			return TRUE
-		if(last_drag <= world.time - 30) 
+		if(last_drag <= world.time - 30)
 			if(!cig_cell.checked_use(power_usage * CELLRATE)) //if this passes, there's not enough power in the battery
 				deactivate()
 				to_chat(C,SPAN_WARNING("\The [src]'s power meter flashes a low battery warning and shuts down."))
@@ -234,7 +234,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 			idle = 0
 			C.visible_message(SPAN_NOTICE("[C.name] takes a drag of their [name]."))
 			playsound(C, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
-			ec_cartridge.reagents.trans_to_mob(C, REM, CHEM_BREATHE, 0.4) 
+			ec_cartridge.reagents.trans_to_mob(C, REM, CHEM_BREATHE, 0.4)
 			return TRUE
 	return ..()
 
