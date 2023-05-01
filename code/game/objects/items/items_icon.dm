@@ -31,6 +31,7 @@ var/list/mob_icon_icon_states = list()
 		I.appearance = H.species.equip_overlays[image_key]
 		return I
 	var/image/I = overlay_image(mob_icon, mob_state, color, RESET_COLOR|RESET_ALPHA)
+	I.alpha = alpha
 	if(alpha_mask)
 		var/icon/mob_overlay_icon = new(mob_icon, mob_state)
 		var/icon/mask = new(mob_icon, alpha_mask)
