@@ -68,7 +68,7 @@
 
 /obj/effect/overmap/visitable/ship/landable/tarwa_shuttle
 	name = "Tarwa Conglomerate Shuttle"
-	class = ""
+	class = "ICV"
 	designation = "Clash Of Sabers And Burning Steel In The Skies Of Ha'zana"
 	desc = "A large diona gestalt, which seems to have grown around the framework of a cargo shuttle."
 	icon_state = "pod"

@@ -203,6 +203,9 @@
 /area/tarwa_ship/engineering1)
 "cl" = (
 /obj/structure/ship_weapon_dummy/barrel,
+/obj/effect/landmark/entry_point/fore{
+	name = "starboard"
+	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/gun)
 "cq" = (
@@ -375,6 +378,13 @@
 /obj/effect/shuttle_landmark/tarwa_ship/nav1,
 /turf/template_noop,
 /area/space)
+"ep" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/landmark/entry_point/port{
+	name = "fore"
+	},
+/turf/simulated/floor/diona,
+/area/shuttle/tarwa)
 "eq" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -516,6 +526,15 @@
 "hn" = (
 /turf/simulated/floor/tiled,
 /area/tarwa_ship)
+"hu" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "starboard"
+	},
+/turf/simulated/floor/diona,
+/area/shuttle/tarwa)
 "hx" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /turf/simulated/floor/diona,
@@ -830,6 +849,12 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/canteen)
+"mj" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "starboard"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/tarwa_ship/medical)
 "my" = (
 /obj/machinery/computer/shuttle_control/explore/tarwa_shuttle{
 	dir = 8
@@ -873,6 +898,14 @@
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
+"nt" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, hangar"
+	},
+/turf/unsimulated/wall/fakepdoor{
+	dir = 4
+	},
+/area/tarwa_ship/hangar)
 "nz" = (
 /obj/machinery/light{
 	dir = 8
@@ -1133,6 +1166,12 @@
 /obj/machinery/power/smes/buildable/horizon_shuttle,
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
+"rS" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, hangar"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/tarwa_ship/engineering1)
 "sb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1238,6 +1277,12 @@
 	},
 /turf/simulated/floor/carpet/orange,
 /area/tarwa_ship/captain)
+"tO" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, hangar"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/tarwa_ship/canteen)
 "tW" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1567,6 +1612,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
+"zw" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, fuel bay"
+	},
+/turf/simulated/wall/diona,
+/area/tarwa_ship/oldhangar)
 "zy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -1672,9 +1723,23 @@
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
+"BC" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/borosilicate/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engines"
+	},
+/turf/simulated/floor/plating,
+/area/tarwa_ship/engineering2)
 "BD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/diona,
+/area/tarwa_ship)
+"BH" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
+	},
+/turf/template_noop,
 /area/tarwa_ship)
 "BJ" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
@@ -1927,6 +1992,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
+"EZ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/landmark/entry_point/fore{
+	name = "starboard"
+	},
+/turf/simulated/floor/plating,
+/area/tarwa_ship/bridge)
 "Fc" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
@@ -2591,6 +2663,12 @@
 "Nw" = (
 /turf/simulated/wall/shuttle/raider,
 /area/tarwa_ship/engineering1)
+"NC" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "port"
+	},
+/turf/simulated/wall/diona,
+/area/shuttle/tarwa)
 "ND" = (
 /turf/simulated/wall/diona,
 /area/tarwa_ship/oldhangar)
@@ -2767,6 +2845,12 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
 /area/space)
+"PT" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, hangar"
+	},
+/turf/simulated/wall/diona,
+/area/tarwa_ship/diona)
 "Qa" = (
 /obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/tiled{
@@ -3025,6 +3109,18 @@
 "Up" = (
 /turf/simulated/floor/plating,
 /area/tarwa_ship/oldhangar)
+"Uv" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 4
+	},
+/obj/structure/window/borosilicate/reinforced{
+	dir = 4
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "aft"
+	},
+/turf/simulated/floor/diona,
+/area/shuttle/tarwa)
 "Uw" = (
 /turf/simulated/wall/shuttle/raider,
 /area/tarwa_ship/eva)
@@ -3140,6 +3236,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship)
+"Ww" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, fuel bay"
+	},
+/turf/simulated/wall/diona,
+/area/tarwa_ship/engineering2)
 "Wx" = (
 /turf/template_noop,
 /area/tarwa_ship/engineering1)
@@ -3206,6 +3308,14 @@
 "XL" = (
 /turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
+"XO" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/borosilicate/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engines"
+	},
+/turf/simulated/floor/diona,
+/area/tarwa_ship/engineering1)
 "XP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -13101,7 +13211,7 @@ UV
 UV
 UV
 UV
-UV
+PT
 UV
 uB
 uB
@@ -13253,7 +13363,7 @@ ef
 ef
 ef
 ef
-Rz
+Ww
 Rz
 Rz
 Rz
@@ -13272,7 +13382,7 @@ UV
 ND
 uB
 ND
-ND
+zw
 pd
 pd
 lA
@@ -14218,7 +14328,7 @@ ef
 ef
 ef
 ef
-AS
+BC
 Yv
 hd
 Gd
@@ -15685,7 +15795,7 @@ ef
 aY
 ef
 ef
-ab
+BH
 hR
 hR
 hR
@@ -15719,7 +15829,7 @@ ol
 kx
 kR
 aA
-jE
+EZ
 ef
 ef
 ef
@@ -16512,7 +16622,7 @@ Wz
 MG
 wj
 Fx
-Fx
+Uv
 Fx
 wj
 TG
@@ -17135,7 +17245,7 @@ ef
 ef
 ef
 ef
-KI
+XO
 mC
 wm
 jz
@@ -17157,7 +17267,7 @@ yk
 yk
 fe
 Wz
-wj
+NC
 rN
 Ri
 tW
@@ -17166,7 +17276,7 @@ xa
 tW
 tW
 tW
-tW
+hu
 ly
 NU
 yx
@@ -17495,7 +17605,7 @@ MG
 NU
 yx
 HD
-NU
+mj
 ef
 ef
 ef
@@ -17639,7 +17749,7 @@ Nw
 Jg
 Jg
 Jg
-Jg
+tO
 Jg
 Jg
 Wz
@@ -17952,7 +18062,7 @@ Nw
 Nw
 Nw
 Nw
-Nw
+rS
 Nw
 Nw
 Nw
@@ -17971,7 +18081,7 @@ MG
 ey
 wj
 ZW
-ZW
+ep
 ZW
 wj
 Rc
@@ -18134,7 +18244,7 @@ vv
 vv
 vv
 vv
-vv
+nt
 vv
 vv
 vv
