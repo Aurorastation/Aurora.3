@@ -51,6 +51,13 @@
 	tag_icon = "trad_queendom"
 	text_tag = "QEN"
 
+/datum/accent/tza_peasant
+	name = ACCENT_TZA_PEASANT
+	description = "A guttural, deep accent, the accent of the Tza Prairie has heavy Azaziba inflections, as the language that has most often been spoken in the region. While the region did support the Izweski during \
+	the Contact War, it was originally a kingdom of the Traditionalist Coalition, and can sound similar to that accent to the untrained ear."
+	tag_icon = "unathi_tza_peasant"
+	text_tag = "TZP"
+
 /datum/accent/tza_noble
 	name = ACCENT_TZA_NOBLE
 	description = "A slow, droning and guttural accent, with heavy physical movement involved, the noble accent of the Tza Prairie has remained unchanged for centuries, passed down the ancient lines of the mountains. \
