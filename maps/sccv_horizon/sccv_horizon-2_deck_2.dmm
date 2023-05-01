@@ -1052,20 +1052,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/secure)
 "aya" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Anti-Materiel)"
-	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
-/obj/item/ammo_casing/peac,
-/obj/item/ammo_casing/peac,
-/obj/item/ammo_casing/peac,
-/obj/item/gun/projectile/peac,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/structure/closet/secure_closet/guncabinet/peac,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "ayc" = (
@@ -9281,8 +9275,8 @@
 	},
 /obj/structure/table/standard,
 /obj/item/paper_bin{
-	pixel_y = 3;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = 3
 	},
 /obj/item/pen{
 	pixel_x = -2
@@ -33686,8 +33680,8 @@
 /area/operations/lobby)
 "qxK" = (
 /obj/machinery/keycard_auth{
-	pixel_y = -24;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = -24
 	},
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations - Quartermaster's Office";
@@ -33700,14 +33694,14 @@
 /obj/machinery/button/switch/windowtint{
 	dir = 1;
 	id = "OM Windows";
+	pixel_x = 8;
 	pixel_y = -34;
-	req_access = list(41);
-	pixel_x = 8
+	req_access = list(41)
 	},
 /obj/machinery/light_switch{
+	dir = 1;
 	pixel_x = 8;
-	pixel_y = -23;
-	dir = 1
+	pixel_y = -23
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/qm)
@@ -34123,8 +34117,8 @@
 	dir = 5
 	},
 /obj/item/device/flashlight/lamp{
-	pixel_y = 7;
-	pixel_x = 1
+	pixel_x = 1;
+	pixel_y = 7
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
