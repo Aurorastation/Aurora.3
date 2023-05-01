@@ -17,6 +17,7 @@
 	respawn_flag = null
 	extra_languages = list(LANGUAGE_AZAZIBA)
 	away_site = TRUE
+	welcome_message = "The Tarwa Conglomerate is a pirate group, largely operating towards the southeastern edge of the Spur. Little is known of them to others, and your ship likely thrives on this mystique. The wiki page for Unathi Piracy contains more information on this group, and how they operate."
 
 /datum/ghostspawner/human/tarwa/diona
 	short_name = "tarwa_diona"
@@ -27,6 +28,8 @@
 	uses_species_whitelist = TRUE
 	spawnpoints = list("tarwa_diona")
 	outfit = /datum/outfit/admin/tarwa/diona
+	welcome_message = "As a diona gestalt of the Tarwa Conglomerate, most of the blood you have consumed would likely be from Unathi pirates, meaning that your gestalt would likely resemble an Unathi to some degree. Remember, even though you are a pirate, you are still \
+	a diona gestalt, and should roleplay diona conditional pacifism accordingly."
 
 /datum/ghostspawner/human/tarwa/captain
 	short_name = "tarwa_captain"
