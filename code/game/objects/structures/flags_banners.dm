@@ -1444,7 +1444,7 @@
 //Tarwa Conglomerate
 
 /obj/item/flag/tarwa
-	name = "\improperTarwa Conglomerate flag"
+	name = "\improper Tarwa Conglomerate flag"
 	desc = "The black, white and green flag of the Tarwa Conglomerate, depicting an Unathi skeleton with a diona gestalt growing within it. This flag is rarely seen within civilised space, and only \
 	occasionally mentioned in spacer tales, speaking of a 'fleet of the living dead'."
 	desc_extended = "The Tarwa Conglomerate's banner was, according to legend, designed by Tarskin Tarwa himself, once a brilliant scientist at the Skalamar University of Medicine. When he was expelled \
@@ -1454,7 +1454,7 @@
 	flag_structure = /obj/structure/sign/flag/tarwa
 
 /obj/structure/sign/flag/tarwa
-	name = "\improperTarwa Conglomerate Flag"
+	name = "\improper Tarwa Conglomerate Flag"
 	desc = "The black, white and green flag of the Tarwa Conglomerate, depicting an Unathi skeleton with a diona gestalt growing within it. This flag is rarely seen within civilised space, and only \
 	occasionally mentioned in spacer tales, speaking of a 'fleet of the living dead'."
 	desc_extended = "The Tarwa Conglomerate's banner was, according to legend, designed by Tarskin Tarwa himself, once a brilliant scientist at the Skalamar University of Medicine. When he was expelled \

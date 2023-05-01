@@ -103,7 +103,7 @@
 /area/tarwa_ship/medical)
 "aY" = (
 /obj/structure/diona/bulb,
-/turf/simulated/floor/diona,
+/turf/simulated/floor/diona/airless,
 /area/space)
 "aZ" = (
 /obj/effect/shuttle_landmark/tarwa_shuttle/transit,
@@ -1239,7 +1239,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/tarwa_ship/engineering2)
 "sP" = (
-/turf/simulated/floor/diona,
+/turf/simulated/floor/diona/airless,
 /area/space)
 "sT" = (
 /obj/machinery/atmospherics/binary/pump,
@@ -1674,7 +1674,7 @@
 "AS" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/diona/airless,
 /area/tarwa_ship/engineering2)
 "AT" = (
 /obj/structure/cable/green{
@@ -1729,7 +1729,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard engines"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/diona/airless,
 /area/tarwa_ship/engineering2)
 "BD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -2252,7 +2252,7 @@
 /area/tarwa_ship/crew)
 "Iz" = (
 /obj/machinery/iff_beacon/name_change,
-/turf/simulated/floor/diona,
+/turf/simulated/floor/diona/airless,
 /area/tarwa_ship/bridge)
 "ID" = (
 /turf/simulated/wall/shuttle/raider,
@@ -2391,7 +2391,7 @@
 "KI" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
-/turf/simulated/floor/diona,
+/turf/simulated/floor/diona/airless,
 /area/tarwa_ship/engineering1)
 "KS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3242,9 +3242,6 @@
 	},
 /turf/simulated/wall/diona,
 /area/tarwa_ship/engineering2)
-"Wx" = (
-/turf/template_noop,
-/area/tarwa_ship/engineering1)
 "Wz" = (
 /turf/simulated/wall/shuttle/raider,
 /area/tarwa_ship/hangar)
@@ -3314,7 +3311,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port engines"
 	},
-/turf/simulated/floor/diona,
+/turf/simulated/floor/diona/airless,
 /area/tarwa_ship/engineering1)
 "XP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -13514,7 +13511,7 @@ ef
 ef
 ef
 ef
-ef
+sP
 ef
 ef
 ef
@@ -16919,7 +16916,7 @@ ef
 ef
 ef
 ef
-Wx
+ef
 Zj
 mN
 pZ
