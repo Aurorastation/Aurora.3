@@ -132,7 +132,7 @@
 	colors = list("#cfd4ff", "#78adf8")
 	scanimage = "canary.png"
 	designer = "Hephaestus Industries, NanoTrasen"
-	volume = "11 meters length, 9 meters beam/width, 4 meters vertical height"
+	volume = "14 meters length, 7 meters beam/width, 5 meters vertical height"
 	sizeclass = "Jester-type Scout Runabout"
 	shiptype = "Exploratory survey and scouting, high-speed target interception"
 	max_speed = 1/(2 SECONDS)
@@ -151,6 +151,12 @@
 	name = "\improper Canary control console"
 	shuttle_tag = "Canary"
 	req_access = list(access_intrepid)
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "right"
+	icon_screen = "blue"
+	icon_keyboard = null
+	circuit = null
 
 /obj/effect/shuttle_landmark/horizon/nav1
 	name = "Port Hangar Bay 1"

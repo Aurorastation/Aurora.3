@@ -111,6 +111,7 @@
 		/datum/shuttle/autodock/multi/distress,
 		/datum/shuttle/autodock/overmap/intrepid,
 		/datum/shuttle/autodock/overmap/mining,
+		/datum/shuttle/autodock/overmap/canary,
 		/datum/shuttle/autodock/ferry/merchant_aurora,
 		/datum/shuttle/autodock/ferry/autoreturn/ccia,
 		/datum/shuttle/autodock/overmap/orion_express_shuttle,

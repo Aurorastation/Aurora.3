@@ -383,9 +383,11 @@
 	return 1
 
 /obj/machinery/shipsensors/update_icon()
-	icon_state = "[base_icon_state]_off"
 	if(!use_power)
+		icon_state = "[base_icon_state]_off"
 		cut_overlays()
+	if(use_power)
+		icon_state = "[base_icon_state]_on"
 		return
 
 	var/overlay = "[base_icon_state]-effect"

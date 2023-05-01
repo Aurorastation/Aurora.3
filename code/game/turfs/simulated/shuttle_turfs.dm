@@ -427,18 +427,26 @@
 	icon_state = "c1"
 
 /turf/simulated/wall/shuttle/unique/scc/scout
+	name = "jester-type shuttle hull"
+	desc = "The hull and reinforcement of a Jester-type corporate runabout. The phoron-purple colored bands indicate this, in bold text as the SCCV Canary."
 	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
 	icon_state = "4,1"
 
 /obj/structure/shuttle_part/scc/scout
+	name = "jester-type shuttle hull"
+	desc = "The hull and reinforcement of a Jester-type corporate runabout. The phoron-purple colored bands indicate this, in bold text as the SCCV Canary."
 	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
 	icon_state = "4,1"
 
 /obj/structure/window/shuttle/unique/scc/scout
+	name = "jester-type shuttle hull"
+	desc = "The hull and reinforcement of a Jester-type corporate runabout. This particular piece looks fragile and frames a cockpit viewport."
 	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
 	icon_state = "4,1"
 
 /obj/structure/window/shuttle/unique/scc/scout/over
+	name = "jester-type shuttle cockpit"
+	desc = "The strong glass face of a Jester-type shuttle cockpit."
 	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/cockpit_windows.dmi'
 	icon_state = "4,1"
 	layer = ABOVE_ALL_MOB_LAYER

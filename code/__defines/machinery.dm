@@ -77,6 +77,7 @@
 #define NETWORK_SECOND_DECK "Second Deck"
 #define NETWORK_THIRD_DECK "Third Deck"
 #define NETWORK_INTREPID "Intrepid"
+#define NETWORK_CANARY "Canary"
 
 
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.
