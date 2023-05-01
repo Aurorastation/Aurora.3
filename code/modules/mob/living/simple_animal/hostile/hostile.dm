@@ -119,7 +119,7 @@
 		target_mob = P.firer
 		change_stance(HOSTILE_STANCE_ATTACK)
 
-/mob/living/simple_animal/hostile/attackby(var/obj/item/O, var/mob/user)
+/mob/living/simple_animal/hostile/handle_attack_by(var/mob/user)
 	..()
 	if(target_mob != user)
 		target_mob = user

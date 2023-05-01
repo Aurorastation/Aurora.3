@@ -317,9 +317,8 @@
 		change_stance(HOSTILE_STANCE_IDLE)
 		audible_emote("[pick(sad_emote)].",0)
 
-/mob/living/simple_animal/hostile/commanded/attackby(var/obj/item/O, var/mob/user)
+/mob/living/simple_animal/hostile/commanded/handle_attack_by(var/obj/item/O, var/mob/user)
 	..()
-
 	// We forgive our master
 	if(user == master)
 		target_mob = null
