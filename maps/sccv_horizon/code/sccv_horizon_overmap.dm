@@ -21,7 +21,8 @@
 
 	initial_restricted_waypoints = list(
 		"Spark" = list("nav_hangar_mining"), 	//can't have random shuttles popping inside the ship
-		"Intrepid" = list("nav_hangar_intrepid")
+		"Intrepid" = list("nav_hangar_intrepid"),
+		"Canary" = list("nav_hangar_canary")
 	)
 
 	initial_generic_waypoints = list(
@@ -119,6 +120,37 @@
 	name = "\improper Spark control console"
 	shuttle_tag = "Spark"
 	req_access = list(access_mining)
+
+/obj/effect/overmap/visitable/ship/landable/canary
+	name = "Canary"
+	class = "SCCV"
+	designation = "Canary"
+	desc = "A high-speed scouting craft akin to a less-maneuverable aerospace fighter. The Jester-type was originally an interceptor platform produced to populate the hangars of corporate defense vessels. While outdated, the solid design has found much appeal in long-term voyages due to minimal maintenance and compact size. This one has obvious thruster upgrades from similar obsolete counterparts."
+	shuttle = "Canary"
+	icon_state = "canary"
+	moving_state = "canary_moving"
+	colors = list("#cfd4ff", "#78adf8")
+	scanimage = "canary.png"
+	designer = "Hephaestus Industries, NanoTrasen"
+	volume = "11 meters length, 9 meters beam/width, 4 meters vertical height"
+	sizeclass = "Jester-type Scout Runabout"
+	shiptype = "Exploratory survey and scouting, high-speed target interception"
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 5000
+	fore_dir = SOUTH
+	vessel_size = SHIP_SIZE_TINY
+
+/obj/effect/overmap/visitable/ship/landable/canary/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "canary")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
+
+/obj/machinery/computer/shuttle_control/explore/canary
+	name = "\improper Canary control console"
+	shuttle_tag = "Canary"
+	req_access = list(access_intrepid)
 
 /obj/effect/shuttle_landmark/horizon/nav1
 	name = "Port Hangar Bay 1"
