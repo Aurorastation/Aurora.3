@@ -22,7 +22,7 @@
 	icon_state = "thongsandal"
 	item_state = "thongsandal"
 
-obj/item/clothing/shoes/sandals/clogs
+/obj/item/clothing/shoes/sandals/clogs
 	name = "rubber clogs"
 	desc = "A favorite of barbecue loving fathers, beachgoers, and people with no fashion sense. Don't wear these with socks."
 	icon_state = "clogs"
