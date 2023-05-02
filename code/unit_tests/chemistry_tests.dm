@@ -5,10 +5,10 @@
  *
  */
 
-datum/unit_test/specific_heat
+/datum/unit_test/specific_heat
 	name = "Chemistry Test - Specific Heat"
 
-datum/unit_test/specific_heat/start_test()
+/datum/unit_test/specific_heat/start_test()
 
 	var/error_count = 0
 

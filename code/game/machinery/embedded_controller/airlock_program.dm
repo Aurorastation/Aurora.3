@@ -272,7 +272,7 @@
 	state = STATE_IDLE
 	target_state = TARGET_INOPEN
 	memory["purge"] = cycle_to_external_air
-	
+
 /datum/computer/file/embedded_program/airlock/proc/begin_dock_cycle()
 	state = STATE_IDLE
 	target_state = TARGET_INOPEN
@@ -339,7 +339,7 @@
 			signalDoor(tag_exterior_door, command)
 			signalDoor(tag_interior_door, command)
 
-datum/computer/file/embedded_program/airlock/proc/signal_mech_sensor(var/command, var/sensor)
+/datum/computer/file/embedded_program/airlock/proc/signal_mech_sensor(var/command, var/sensor)
 	var/datum/signal/signal = new
 	signal.data["tag"] = sensor
 	signal.data["command"] = command

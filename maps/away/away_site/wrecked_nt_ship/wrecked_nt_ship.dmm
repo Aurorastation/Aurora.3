@@ -193,7 +193,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "dP" = (
-/obj/structure/sign/flag/nanotrasen/left,
+/obj/structure/sign/flag/nanotrasen/large/north,
 /turf/simulated/wall/r_wall,
 /area/wrecked_nt_ship)
 "dR" = (
@@ -683,7 +683,6 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "ot" = (
-/obj/structure/sign/flag/nanotrasen/right,
 /turf/simulated/wall/r_wall,
 /area/wrecked_nt_ship)
 "ox" = (

@@ -35,7 +35,7 @@
 	desc = "A modified version of the HI G40E, this one fires less concentrated energy bolts designed for target practice."
 	projectile_type = /obj/item/projectile/beam/practice
 
-obj/item/gun/energy/retro
+/obj/item/gun/energy/retro
 	name = "retro laser"
 	icon = 'icons/obj/guns/retro.dmi'
 	icon_state = "retro"
