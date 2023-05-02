@@ -91,6 +91,7 @@
 	shuttle_area = list(/area/shuttle/tarwa)
 	current_location = "nav_hangar_tarwa"
 	landmark_transition = "nav_transit_tarwa"
+	dock_target = "tarwa_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_tarwa"
@@ -101,6 +102,7 @@
 	landmark_tag = "nav_hangar_tarwa"
 	base_area = /area/tarwa_ship/hangar
 	base_turf = /turf/simulated/floor/plating
+	docking_controller = "tarwa_shuttle_dock"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/tarwa_shuttle/transit
