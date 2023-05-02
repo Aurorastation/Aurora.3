@@ -2,9 +2,6 @@
 "aa" = (
 /turf/simulated/wall/shuttle/raider,
 /area/tarwa_ship/cic)
-"ab" = (
-/turf/template_noop,
-/area/tarwa_ship)
 "ac" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
@@ -1739,7 +1736,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
 	},
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/tarwa_ship)
 "BJ" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
@@ -15630,7 +15627,7 @@ ef
 sP
 ef
 ef
-ab
+hR
 hR
 hR
 hR
