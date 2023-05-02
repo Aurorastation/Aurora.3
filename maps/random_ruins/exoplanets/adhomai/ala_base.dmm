@@ -89,9 +89,7 @@
 	},
 /area/ala_base)
 "dg" = (
-/obj/structure/sign/flag/dpra/left{
-	dir = 4
-	},
+/obj/structure/sign/flag/dpra/large/east,
 /turf/simulated/wall/iron,
 /area/ala_base)
 "dF" = (
@@ -192,9 +190,7 @@
 	},
 /area/ala_base)
 "gW" = (
-/obj/structure/sign/flag/dpra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/dpra/large/north,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -532,9 +528,6 @@
 	},
 /area/ala_base)
 "uK" = (
-/obj/structure/sign/flag/dpra/right{
-	dir = 4
-	},
 /turf/simulated/wall/iron,
 /area/ala_base)
 "uM" = (
@@ -632,9 +625,6 @@
 "wB" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/obj/structure/sign/flag/dpra/right{
-	pixel_y = 32
-	},
 /obj/effect/ghostspawpoint{
 	identifier = "ala_base_soldier";
 	name = "igs - ala_base_soldier"
@@ -1130,9 +1120,7 @@
 "KV" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/obj/structure/sign/flag/dpra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/dpra/large/north,
 /obj/effect/ghostspawpoint{
 	identifier = "ala_base_soldier";
 	name = "igs - ala_base_soldier"
@@ -1199,9 +1187,6 @@
 	},
 /area/ala_base)
 "Ma" = (
-/obj/structure/sign/flag/dpra/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
