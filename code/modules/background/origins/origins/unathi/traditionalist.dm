@@ -4,7 +4,9 @@
 	possible_origins = list(
 		/singleton/origin_item/origin/trad_peasants,
 		/singleton/origin_item/origin/trad_nobles,
-		/singleton/origin_item/origin/wastelander
+		/singleton/origin_item/origin/wastelander,
+		/singleton/origin_item/origin/broken_peasants,
+		/singleton/origin_item/origin/broken_nobles
 	)
 
 /singleton/origin_item/origin/trad_peasants //Do not make the joke. Do not make the joke. Do not m
@@ -21,6 +23,24 @@
 	important_information = "Traditionalists are the most likely to emigrate decades before showing up on ship, so they are the least restricted when it comes to their background."
 	possible_accents = list(ACCENT_TRAD_NOBLE)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION)
+	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_SIAKH, RELIGION_NONE)
+
+/singleton/origin_item/origin/broken_peasants
+	name = "Broken Coalition Peasant"
+	desc = "The peasantry of the Broken Coalition once pledged fealty to the Azarak Kingdom, heartland of the Traditionalist Coalition. Now they try their best to make a living in the ruins of their once-great cities, and endure the difficulties faced by the region as it rebuilds from the Contact War. \
+	Strong, stubborn and quick to hold grudges, these Unathi are some of the most vengeful and resilient to be found across Moghes. Some few of these peasants have fled the Hegemony entirely, and can be found throughout the Spur. They are majority Th'akh."
+	important_information = "Should one run away and stop paying tithes back home, especially if they have renounced their Izweski citizenship, they are at risk of having a bounty put on them or being found out and deported."
+	possible_accents = list(ACCENT_BROKEN_PEASANT)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_SIAKH, RELIGION_NONE)
+
+/singleton/origin_item/origin/broken_nobles
+	name = "Broken Coalition Noble"
+	desc = "The Nobles of the Broken Coalition, once the Azarak Kingdom, are some of those clinging tightest to the scars of the Contact War. They are known for being vengeful and bitter, resenting the Izweski Hegemony greatly for their victory in the Contact War. \
+	While some nobles of the Broken Coalition have embraced their new Izweski rulers, they are a definite minority, with most of the nobles of the region clinging fiercely to their hatred of the Izweski. Some of these nobles have fled the Hegemony entirely rather than admit defeat, and can be found across the Spur."
+	important_information = "While the nobles of the Broken Coalition can have other citizenships, those who have done so would be considered as traitors to the Hegemony."
+	possible_accents = list(ACCENT_BROKEN_NOBLE)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_SIAKH, RELIGION_NONE)
 
 /singleton/origin_item/origin/wastelander

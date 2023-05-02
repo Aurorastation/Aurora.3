@@ -137,6 +137,8 @@
 #define ACCENT_TZA_NOBLE "Tza Prairie Noble"
 #define ACCENT_SOUTHLANDS_PEASANT "Southlands Peasant"
 #define ACCENT_SOUTHLANDS_NOBLE "Southlands Noble"
+#define ACCENT_BROKEN_PEASANT "Broken Coalition Peasant"
+#define ACCENT_BROKEN_NOBLE "Broken Coalition Noble"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 #define ACCENT_HOMEWORLD "Qerrbalak"

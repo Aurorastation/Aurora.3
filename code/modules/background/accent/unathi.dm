@@ -78,3 +78,17 @@
 	it is closer to that than the fast-paced speech of the peasants. The Southlands noble accent is widely considered pleasing to the ear, with some merchants and bards attempting to mimic it to aid in their own business."
 	tag_icon = "unathi_southlands_noble"
 	text_tag = "SLN"
+
+/datum/accent/broken_peasant
+	name = ACCENT_BROKEN_PEASANT
+	description = "The accent of the Broken Coalition is what would come first to the mind when asked to describe a Traditionalist accent. It is primarily derived from the guttural intonations and physical gestures of Sinta'Azaziba. \
+	This gravelly dialect was once associated with the peasantry of the Azarak Kingdom, which lay at the center of the Traditionalist Coalition and is now a shattered ruin of its former glory."
+	tag_icon = "unathi_broken_peasant"
+	text_tag = "AZP"
+
+/datum/accent/broken_noble
+	name = ACCENT_BROKEN_NOBLE
+	description = "The accent of the Broken Coalition is what would come first to the mind when asked to describe a Traditionalist accent. It is primarily derived from the guttural intonations and physical gestures of Sinta'Azaziba. \
+	This guttural, droning dialect was once associated with the nobility of the Azarak Kingdom, which lay at the center of the Traditionalist Coalition and is now a shattered ruin of its former glory."
+	tag_icon = "unathi_broken_noble"
+	text_tag = "AZN"
