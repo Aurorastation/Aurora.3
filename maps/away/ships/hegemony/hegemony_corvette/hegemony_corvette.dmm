@@ -1315,16 +1315,6 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_ship/tcomms)
-"iF" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/structure/sign/flag/hegemony/large/west,
-/turf/simulated/floor/tiled,
-/area/hegemony_ship/gun_deck_bruiser)
 "iG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1680,6 +1670,7 @@
 	dir = 9
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/sign/flag/hegemony/large/west,
 /turf/simulated/floor/holofloor/desert,
 /area/hegemony_ship)
 "lz" = (
@@ -2305,9 +2296,6 @@
 	},
 /obj/machinery/light{
 	dir = 8
-	},
-/obj/structure/sign/flag/hegemony{
-	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -5873,15 +5861,15 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "Jq" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 8
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/obj/structure/sign/flag/hegemony{
-	pixel_x = -32
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
 	},
+/obj/structure/sign/flag/hegemony/large/west,
 /turf/simulated/floor/tiled,
-/area/hegemony_ship)
+/area/hegemony_ship/gun_deck_bruiser)
 "Jt" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -18048,7 +18036,7 @@ zq
 rs
 we
 Je
-iF
+Jq
 tw
 Vd
 xh
@@ -20161,7 +20149,7 @@ wQ
 pa
 Ml
 Ml
-Jq
+wZ
 ly
 gQ
 iW
