@@ -92,3 +92,17 @@
 	This guttural, droning dialect was once associated with the nobility of the Azarak Kingdom, which lay at the center of the Traditionalist Coalition and is now a shattered ruin of its former glory."
 	tag_icon = "unathi_broken_noble"
 	text_tag = "AZN"
+
+/datum/accent/unathi_spacer
+	name = ACCENT_UNATHI_SPACER
+	description = "The Hegemony has been, for long, the only power on Moghes with access to interstellar travel technology. Naturally, then, most Spacers and Unathi colonists on distant worlds speak Sinta'Unathi. details of this accent vary between communities, \
+	but these Unathi pioneers generally speak with a surprisingly softer tones than most accents. Rumors say that it is to save every bit of energy while working on developing new colonies, or living in ships for extended periods of time."
+	tag_icon = "unathi_spacer"
+	text_tag = "UNS"
+
+/datum/accent/hazana
+	name = ACCENT_HAZANA
+	description = "It often rains on Ha'zana, and and it rains hard, so hard in fact that it's often complicated for people to hear each other, with some sounds like more subtle, faint hissings literally drowned in the pirate world's downpours. Thus, the Ha'zanan accent was born, \
+	one in which Sinta speaking it speak loudly, and clearly. Accentuations sometimes demand that a Sinta nearly roars, and insistence on originally quieter sounds leads to more guttural tones here and there. In a discussion between Unathi of all places, the Ha'zanan are the most likely ones to get heard over anyone else, for better or for worse."
+	tag_icon = "unathi_pirate"
+	text_tag = "HAZ"

@@ -139,6 +139,8 @@
 #define ACCENT_SOUTHLANDS_NOBLE "Southlands Noble"
 #define ACCENT_BROKEN_PEASANT "Broken Coalition Peasant"
 #define ACCENT_BROKEN_NOBLE "Broken Coalition Noble"
+#define ACCENT_UNATHI_SPACER "Spacer"
+#define ACCENT_HAZANA "Hazana"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 #define ACCENT_HOMEWORLD "Qerrbalak"

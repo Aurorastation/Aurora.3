@@ -14,7 +14,7 @@
 	desc = "Though not necessarily restricted to a caste structure like the Hegemony, there is still a clear divide between the rich and the poor, and the peasantry show this. Strong, hardy, and stubborn, these folk are arguably the most hardy among Unathi, willing to stick their claws in the mud to do what needs to be done to survive and even thrive. Their religions, traditions, and practices vary strongly, and it is likely that two Unathi from the same Traditionalist town may look completely different from each other, both literally and figuratively. Some that used to be considered nobles are now peasants due to losing their land, riches, and clans."
 	important_information = "Traditionalists are the most likely to emigrate decades before showing up on ship, so they are the least restricted when it comes to their background."
 	possible_accents = list(ACCENT_TRAD_PEASANT, ACCENT_TRAD_NOBLE)
-	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_NONE)
 
 /singleton/origin_item/origin/trad_nobles
@@ -22,7 +22,7 @@
 	desc = "The wealthy of the Traditionalists managed to find better purchase than most of their kin. Some fled to Dominia to form the Great House Kazhkz and others left Moghes to join them later; some decided to stake their chances abroad while clinging to their beliefs, such as on Ouerea; some still, stubborn as they were, stayed firmly in their spot and tried to survive on the fringes of Unathite society. These former nobles, depending on who you ask, are now trying to build up their former lives and luxuries, though sometimes to no avail. To most, they hold little standing other than titles above the average peasant. Despite this, Traditionalists managed to find success on Ouerea, where they hold a semblance of their former societies while living under the rule of the Hegemon and Hephaestus Industries."
 	important_information = "Traditionalists are the most likely to emigrate decades before showing up on ship, so they are the least restricted when it comes to their background."
 	possible_accents = list(ACCENT_TRAD_NOBLE)
-	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_SIAKH, RELIGION_NONE)
 
 /singleton/origin_item/origin/broken_peasants
