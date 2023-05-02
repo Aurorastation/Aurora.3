@@ -474,6 +474,7 @@
 "da" = (
 /obj/machinery/computer/ship/helm,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/flag/hegemony/large/south,
 /turf/simulated/floor,
 /area/hegemony_ship/aux_cic)
 "de" = (
@@ -1067,7 +1068,7 @@
 /area/hegemony_ship)
 "gK" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/structure/sign/flag/hegemony/right{
+/obj/structure/sign/flag/hegemony{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -1086,7 +1087,9 @@
 /area/hegemony_ship)
 "ha" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/structure/sign/flag/hegemony,
+/obj/structure/sign/flag/hegemony{
+	pixel_y = -32
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1207,6 +1210,9 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/structure/sign/flag/hegemony{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/docking_port)
 "hL" = (
@@ -1333,9 +1339,6 @@
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
-	},
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/armory)
@@ -1854,9 +1857,6 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
 "mA" = (
-/obj/structure/sign/flag/hegemony/left{
-	pixel_y = -32
-	},
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -2088,9 +2088,6 @@
 /area/hegemony_ship/canteen)
 "od" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = 32
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -2240,6 +2237,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/sign/flag/hegemony/large/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/gun_deck_flak)
 "oB" = (
@@ -2313,9 +2311,6 @@
 /area/hegemony_ship)
 "pb" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/sign/flag/hegemony/left{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2327,6 +2322,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/sign/flag/hegemony/large/north,
 /turf/simulated/floor,
 /area/hegemony_ship/bridge)
 "pf" = (
@@ -2593,9 +2589,6 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "qA" = (
-/obj/structure/sign/flag/hegemony/left{
-	pixel_y = 32
-	},
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -3871,7 +3864,9 @@
 /area/hegemony_ship/captains_quarters)
 "xS" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/structure/sign/flag/hegemony,
+/obj/structure/sign/flag/hegemony{
+	pixel_y = -32
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -4020,9 +4015,6 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "yN" = (
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = -32
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
@@ -4187,9 +4179,6 @@
 /area/hegemony_ship/tcomms)
 "zz" = (
 /obj/structure/curtain/open/bed,
-/obj/structure/sign/flag/vaurca{
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
@@ -4197,6 +4186,9 @@
 /obj/effect/ghostspawpoint{
 	name = "igs - hegemony_klax";
 	identifier = "hegemony_klax"
+	},
+/obj/structure/sign/flag/sedantis{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
@@ -4335,9 +4327,6 @@
 "Af" = (
 /obj/structure/table/rack,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/sign/flag/hegemony/left{
-	pixel_y = 32
-	},
 /obj/item/rig/unathi/fancy,
 /turf/simulated/floor,
 /area/hegemony_ship/armory)
@@ -5675,9 +5664,6 @@
 /area/hegemony_ship/starboard_propulsion)
 "Ip" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/structure/sign/flag/hegemony/left{
-	pixel_y = 32
-	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -5884,17 +5870,15 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "Jq" = (
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = 32
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 4
+/obj/structure/sign/flag/hegemony{
+	pixel_x = -32
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hegemony_ship/bridge)
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "Jt" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -6650,6 +6634,16 @@
 	},
 /turf/simulated/floor/holofloor/desert,
 /area/hegemony_ship)
+"Nq" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/structure/sign/flag/hegemony/large/east,
+/turf/simulated/floor/tiled,
+/area/hegemony_ship/gun_deck_bruiser)
 "Ns" = (
 /obj/structure/table/rack,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -6875,6 +6869,13 @@
 /obj/structure/magshield/nav_light,
 /turf/template_noop,
 /area/space)
+"OX" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/structure/sign/flag/hegemony{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship/docking_port)
 "OY" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/cable{
@@ -7782,9 +7783,6 @@
 /area/hegemony_ship/tcomms)
 "UH" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/sign/flag/hegemony/left{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
@@ -7793,6 +7791,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/sign/flag/hegemony/large/north,
 /turf/simulated/floor,
 /area/hegemony_ship/bridge)
 "UI" = (
@@ -8336,9 +8335,6 @@
 /area/hegemony_ship)
 "Yy" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -18072,7 +18068,7 @@ zq
 rs
 we
 Je
-Je
+Nq
 tw
 Vd
 xh
@@ -20185,7 +20181,7 @@ wQ
 pa
 Ml
 Ml
-wZ
+Jq
 ly
 gQ
 iW
@@ -21970,7 +21966,7 @@ gK
 Rw
 om
 Rw
-Rw
+OX
 bk
 iO
 WH
@@ -22293,7 +22289,7 @@ yW
 bk
 bk
 hK
-Rw
+OX
 bk
 bk
 lP
@@ -22468,7 +22464,7 @@ Aq
 hn
 eO
 Ep
-Jq
+HM
 HM
 HM
 yN
