@@ -35,11 +35,11 @@
 	possible_citizenships = list(CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL)
 	possible_religions = list(RELIGION_MOROZ, RELIGION_THAKH)
 
-/singleton/origin_item/mictlan_unathi
+/singleton/origin_item/origin/mictlan_unathi
 	name = "Mictlan Unathi"
 	desc = "Following the Contact War, many Unathi refugees fled the ravaged Wasteland to the wider Spur, arriving in the space of the Sol Alliance. To prevent the Jewel Worlds from being flooded with alien refugees, the Alliance resettled the \
 	Unathi refugees on the planet of Mictlan, where they began to rebuild - and eventually established the Free City of Vezdukh. The Unathi of Mictlan have restructured their society, creating one which is far more meritocratic than the feudal states of Moghes, \
 	and have integrated into the population smoothly. Following the Republic of Biesel's annexation of Mictlan, the Unathi of the planet have largely refused to involve themselves in the ongoing struggle between the Samaritan movement and Biesel, simply wishing not to see another home consumed in war."
 	possible_accents = list(ACCENT_MICTLAN)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
-	possible_religions = (RELIGION_THAKH, RELIGION_SKAKH, RELIGION_NONE)
+	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_NONE)
