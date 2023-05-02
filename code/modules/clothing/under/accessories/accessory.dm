@@ -1074,7 +1074,7 @@
 	name = "\improper Burzsian shoulder mantle"
 	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
 	desc_extended = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
-	icon = 'icons/clothing/accessories/bz_gorget.dmi'
+	icon = 'icons/clothing/accessories/bz_mantle.dmi'
 	icon_state = "ipcmantle"
 	item_state = "ipcmantle"
 	contained_sprite = TRUE
