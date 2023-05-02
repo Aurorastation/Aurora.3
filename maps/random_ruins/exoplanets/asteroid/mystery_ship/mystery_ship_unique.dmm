@@ -2,16 +2,6 @@
 "aa" = (
 /turf/template_noop,
 /area/template_noop)
-"ab" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 9
-	},
-/area/ship/mystery_ship/resting_area)
-"ac" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 5
-	},
-/area/ship/mystery_ship/cockpit)
 "ad" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/mystery_ship/armoury)
@@ -74,11 +64,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/equipment)
-"an" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 5
-	},
-/area/ship/mystery_ship/medical)
 "ao" = (
 /obj/structure/closet/crate/loot,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -318,6 +303,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "north bump";
+	pixel_x = 24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/atmospherics)
 "aS" = (
@@ -498,11 +488,6 @@
 /obj/structure/computerframe,
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/cockpit)
-"bt" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 6
-	},
-/area/ship/mystery_ship/research)
 "bu" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/mystery_ship/resting_area)
@@ -569,11 +554,6 @@
 "bD" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/mystery_ship/starboard_airlock)
-"bE" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 6
-	},
-/area/ship/mystery_ship/atmospherics)
 "bQ" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -602,11 +582,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/crew_seating)
-"cv" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 5
-	},
-/area/ship/mystery_ship/starboard_airlock)
 "cy" = (
 /obj/machinery/light/small,
 /obj/structure/cable/green{
@@ -674,16 +649,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/crew_seating)
-"gv" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 10
-	},
-/area/ship/mystery_ship/armoury)
-"hB" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 6
-	},
-/area/ship/mystery_ship/power)
 "if" = (
 /obj/structure/table/standard,
 /obj/item/robot_parts/chest/hephaestus,
@@ -994,11 +959,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/starboard_airlock)
-"xf" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 9
-	},
-/area/ship/mystery_ship/cockpit)
 "xI" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -1086,11 +1046,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/port_airlock)
-"Ag" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 5
-	},
-/area/ship/mystery_ship/power)
 "As" = (
 /obj/structure/dispenser/oxygen,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1182,11 +1137,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/starboard_airlock)
-"Eo" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 10
-	},
-/area/ship/mystery_ship/resting_area)
 "Ff" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1460,11 +1410,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/power)
-"Rj" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 10
-	},
-/area/ship/mystery_ship/atmospherics)
 "Sl" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -1581,11 +1526,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/armoury)
-"Vf" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 9
-	},
-/area/ship/mystery_ship/port_airlock)
 "Vi" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -1637,11 +1577,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/crew_seating)
-"WE" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 9
-	},
-/area/ship/mystery_ship/equipment)
 "XI" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -1744,14 +1679,14 @@ aa
 aa
 aa
 aa
-ab
+aa
 bu
 bu
 bu
 bu
 bu
 bu
-Eo
+aa
 aa
 aa
 aa
@@ -1839,7 +1774,7 @@ aa
 aa
 aa
 aa
-ab
+aa
 bu
 aN
 qj
@@ -1848,7 +1783,7 @@ wv
 rr
 bq
 bu
-Eo
+aa
 aa
 aa
 aa
@@ -1870,7 +1805,7 @@ aa
 aa
 aa
 aa
-WE
+aa
 ba
 ba
 ba
@@ -1881,7 +1816,7 @@ ad
 by
 ad
 ad
-gv
+aa
 aa
 aa
 aa
@@ -1901,7 +1836,7 @@ aa
 aa
 aa
 aa
-WE
+aa
 ba
 ba
 if
@@ -1928,7 +1863,7 @@ aa
 aa
 aa
 aa
-Vf
+aa
 HO
 dZ
 dZ
@@ -1959,7 +1894,7 @@ aa
 aa
 aa
 aa
-Vf
+aa
 HO
 HO
 as
@@ -1990,7 +1925,7 @@ aa
 aa
 aa
 aa
-Vf
+HO
 HO
 HO
 qR
@@ -2018,7 +1953,7 @@ aa
 aa
 aa
 aa
-xf
+al
 al
 al
 al
@@ -2042,14 +1977,14 @@ bl
 GG
 bl
 bl
-Rj
+bl
 aa
 aa
 "}
 (12,1,1) = {"
 aa
 aa
-xf
+al
 al
 al
 OY
@@ -2113,7 +2048,7 @@ aa
 (14,1,1) = {"
 aa
 aa
-ac
+al
 al
 al
 cF
@@ -2146,7 +2081,7 @@ aa
 aa
 aa
 aa
-ac
+al
 al
 al
 al
@@ -2170,7 +2105,7 @@ bl
 GG
 bl
 bl
-bE
+bl
 aa
 aa
 "}
@@ -2182,7 +2117,7 @@ aa
 aa
 aa
 aa
-cv
+bD
 bD
 bD
 Yc
@@ -2215,7 +2150,7 @@ aa
 aa
 aa
 aa
-cv
+aa
 bD
 bD
 ax
@@ -2248,7 +2183,7 @@ aa
 aa
 aa
 aa
-cv
+aa
 bD
 ri
 ri
@@ -2285,7 +2220,7 @@ aa
 at
 at
 aa
-an
+aa
 aM
 aM
 aL
@@ -2318,7 +2253,7 @@ aH
 Cf
 aH
 aa
-an
+aa
 aM
 aM
 aM
@@ -2329,7 +2264,7 @@ ae
 TK
 ae
 ae
-bt
+aa
 aa
 aa
 aa
@@ -2351,7 +2286,7 @@ Cf
 aH
 aa
 aa
-Ag
+aa
 aT
 Jj
 az
@@ -2360,7 +2295,7 @@ Vq
 SY
 br
 aT
-bt
+aa
 aa
 aa
 aa
@@ -2448,14 +2383,14 @@ aH
 aa
 aa
 aa
-Ag
+aa
 aT
 aT
 aT
 aT
 aT
 aT
-hB
+aa
 aa
 aa
 aa
