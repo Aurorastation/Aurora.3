@@ -999,6 +999,9 @@
 	icon_state = "door_locked";
 	id_tag = "hegemony_shuttle_out"
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 6
+	},
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "gm" = (
@@ -1683,6 +1686,15 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
+/area/shuttle/hegemony)
+"lH" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	id_tag = "hegemony_shuttle_pump_out_external";
+	frequency = 1385;
+	layer = 2.8
+	},
+/turf/simulated/floor/airless,
 /area/shuttle/hegemony)
 "lI" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
@@ -2928,6 +2940,9 @@
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, airlock"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/red{
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/shuttle/hegemony)
@@ -5804,6 +5819,10 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/hegemony)
+"Jb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/hegemony)
 "Je" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -7074,6 +7093,12 @@
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = -32
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	id_tag = "hegemony_shuttle_pump_out_internal";
+	frequency = 1385;
+	layer = 2.8
+	},
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "Qv" = (
@@ -7272,6 +7297,12 @@
 	tag_chamber_sensor = "hegemony_shuttle_chamber_sensor";
 	tag_airpump = "hegemony_shuttle_pump_in";
 	frequency = 1385
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	id_tag = "hegemony_shuttle_pump_out_internal";
+	frequency = 1385;
+	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/shuttle/hegemony)
@@ -22749,8 +22780,8 @@ Cp
 rL
 gk
 sI
-rL
-aJ
+Jb
+lH
 aJ
 aJ
 aJ
