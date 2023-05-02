@@ -1068,11 +1068,12 @@
 /area/hegemony_ship)
 "gK" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/structure/sign/flag/hegemony{
-	pixel_y = 32
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
 	},
+/obj/structure/sign/flag/hegemony/large/east,
 /turf/simulated/floor/tiled,
-/area/hegemony_ship/docking_port)
+/area/shuttle/hegemony)
 "gQ" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -1087,9 +1088,6 @@
 /area/hegemony_ship)
 "ha" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/structure/sign/flag/hegemony{
-	pixel_y = -32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1210,9 +1208,6 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/structure/sign/flag/hegemony{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/docking_port)
 "hL" = (
@@ -1320,10 +1315,17 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_ship/tcomms)
-"iG" = (
-/obj/structure/sign/flag/hegemony{
-	pixel_y = 32
+"iF" = (
+/obj/structure/railing/mapped{
+	dir = 4
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/structure/sign/flag/hegemony/large/west,
+/turf/simulated/floor/tiled,
+/area/hegemony_ship/gun_deck_bruiser)
+"iG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
@@ -2278,9 +2280,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
 "oS" = (
-/obj/structure/sign/flag/hegemony{
-	pixel_y = 32
-	},
 /obj/item/modular_computer/laptop,
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2306,6 +2305,9 @@
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/structure/sign/flag/hegemony{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -3502,6 +3504,7 @@
 "vB" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/sign/flag/hegemony/large/north,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/eva_storage)
 "vM" = (
@@ -3816,9 +3819,6 @@
 /obj/structure/curtain/open/bed,
 /obj/structure/bed,
 /obj/item/bedsheet/red,
-/obj/structure/sign/flag/hegemony{
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
@@ -3829,6 +3829,9 @@
 /obj/effect/ghostspawpoint{
 	name = "igs - hegemony_crew";
 	identifier = "hegemony_crew"
+	},
+/obj/structure/sign/flag/hegemony{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
@@ -3864,9 +3867,6 @@
 /area/hegemony_ship/captains_quarters)
 "xS" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/structure/sign/flag/hegemony{
-	pixel_y = -32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -4328,6 +4328,7 @@
 /obj/structure/table/rack,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/item/rig/unathi/fancy,
+/obj/structure/sign/flag/hegemony/large/north,
 /turf/simulated/floor,
 /area/hegemony_ship/armory)
 "Ai" = (
@@ -4511,6 +4512,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/structure/sign/flag/hegemony/large/west,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "Ba" = (
@@ -5726,6 +5728,7 @@
 	pixel_x = -24
 	},
 /obj/structure/cable/green,
+/obj/structure/sign/flag/hegemony/large/south,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/docking_port)
 "IH" = (
@@ -6623,9 +6626,6 @@
 	},
 /obj/structure/table/steel,
 /obj/item/device/binoculars,
-/obj/structure/sign/flag/hegemony{
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
 "Nk" = (
@@ -6634,16 +6634,6 @@
 	},
 /turf/simulated/floor/holofloor/desert,
 /area/hegemony_ship)
-"Nq" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/structure/sign/flag/hegemony/large/east,
-/turf/simulated/floor/tiled,
-/area/hegemony_ship/gun_deck_bruiser)
 "Ns" = (
 /obj/structure/table/rack,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -6869,13 +6859,6 @@
 /obj/structure/magshield/nav_light,
 /turf/template_noop,
 /area/space)
-"OX" = (
-/obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/structure/sign/flag/hegemony{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship/docking_port)
 "OY" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/cable{
@@ -7405,9 +7388,6 @@
 	},
 /obj/structure/table/steel,
 /obj/item/storage/bag/inflatable,
-/obj/structure/sign/flag/hegemony{
-	pixel_x = -32
-	},
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
 "SB" = (
@@ -18068,7 +18048,7 @@ zq
 rs
 we
 Je
-Nq
+iF
 tw
 Vd
 xh
@@ -21962,11 +21942,11 @@ Ln
 uO
 fi
 yW
-gK
+Rw
 Rw
 om
 Rw
-OX
+Rw
 bk
 iO
 WH
@@ -22289,7 +22269,7 @@ yW
 bk
 bk
 hK
-OX
+Rw
 bk
 bk
 lP
@@ -24073,7 +24053,7 @@ rL
 JO
 OL
 OL
-OL
+gK
 IU
 rL
 rL
