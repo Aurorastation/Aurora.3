@@ -4,3 +4,5 @@ delete-after: True
 
 changes:
   - bugfix: "Fixed the adhomian circus roles being whitelisted when they should not."
+  - bugfix: " Moved the circus shuttle landing spot, so it does not crush stuffs."
+  - maptweak: "Made the circus shuttle smaller."
