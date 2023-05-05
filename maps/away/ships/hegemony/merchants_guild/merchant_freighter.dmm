@@ -83,7 +83,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard thruster"
 	},
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/merchants_guild)
 "bx" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -3331,9 +3331,6 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/merchants_guild)
-"Tn" = (
-/turf/template_noop,
 /area/merchants_guild)
 "TA" = (
 /obj/structure/closet,
@@ -16474,7 +16471,7 @@ UP
 UP
 UP
 UP
-Tn
+dO
 dO
 dO
 dO
