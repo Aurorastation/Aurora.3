@@ -863,6 +863,8 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(215)
 	},
+/obj/item/gun/energy/laser/shotgun,
+/obj/item/gun/energy/laser/shotgun,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
 "kH" = (

@@ -77,5 +77,5 @@
 							/obj/item/clothing/accessory/arm_guard = 1,
 							/obj/item/clothing/accessory/leg_guard = 1,
 							/obj/item/clothing/head/helmet/security = 1)
-	//l_pocket = hegemony energy shield
+	l_pocket = /obj/item/shield/energy/hegemony
 	suit = /obj/item/clothing/accessory/poncho/unathimantle/fighter
