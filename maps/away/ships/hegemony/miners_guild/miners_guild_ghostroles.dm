@@ -29,15 +29,8 @@
 /datum/outfit/admin/miners_guild
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/unathi/himation)
 	shoes = /obj/item/clothing/shoes/caligae
-	//suit = miners guild mantle
-	back = list(
-		/obj/item/storage/backpack/industrial,
-		/obj/item/storage/backpack/rucksack/tan,
-		/obj/item/storage/backpack/satchel/eng,
-		/obj/item/storage/backpack/duffel/eng,
-		/obj/item/storage/backpack/messenger/engi
-	)
-
+	suit = /obj/item/clothing/accessory/poncho/unathimantle/miner
+	back = /obj/item/storage/backpack/satchel/eng
 	l_ear = /obj/item/device/radio/headset/ship
 	id = /obj/item/card/id
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
@@ -48,3 +41,5 @@
 /datum/outfit/admin/miners_guild/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#b07810", "#4f3911")
+	if(H?.wear_suit)
+		H.wear_suit.color = pick("#4f3911", "#292826")

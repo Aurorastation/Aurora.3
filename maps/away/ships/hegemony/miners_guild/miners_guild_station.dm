@@ -14,7 +14,8 @@
 
 /obj/effect/overmap/visitable/sector/miners_guild_station
 	name = "Miners' Guild Outpost"
-	desc = "A station constructed by the Miners' Guild of the Izweski Hegemony. These stations can be found scattered all around the borders of Hegemony space, as the Unathi of the Miners' Guild work tirelessly to strip planets and asteroids for all they are worth."
+	desc = "A Kutah-class mining station, owned and operated by the Hegemony Miners' Guild. These stations are usually temporary, constructed in mineral-rich systems and operated until \
+	the local celestial bodies have been stripped of any minerals of value. They have earned a reputation for being slapdash and shoddily-constructed, though this one seems to be in good shape."
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "outpost"
 	color = "#b07810"
@@ -54,14 +55,15 @@
 /obj/effect/overmap/visitable/ship/landable/miners_guild
 	name = "Miners' Guild Shuttle"
 	class = "IHGV" //Izweski Hegemony Guild Vessel
-	desc = "A"
+	desc = "Commonly used by the Miners’ Guild, Glizkin-class shuttles are short-range mining vessels, designed for persistent mining of celestial bodies. \
+	They are viewed by their crews as small, yet reliable and enduring - much like the Tza Prairie folk hero for which they are named. They are usually found attached to larger stations or mining vessels."
 	shuttle = "Miners' Guild Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	color = "#b07810"
 	designer = "Hegeranzi Starworks"
 	volume = "18 meters length, 15 meters beam/width, 7 meters vertical height"
-	sizeclass = "Multi-purpose civilian transport shuttle"
+	sizeclass = "Short-range crew transport and mineral extraction pod"
 	shiptype = "Short-term industrial prospecting, raw goods transport"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
