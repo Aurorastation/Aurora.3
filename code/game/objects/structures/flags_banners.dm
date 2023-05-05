@@ -81,10 +81,16 @@
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag")
 		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
 		var/turf/T = get_step(loc, dir)
-		if(!iswall(T))
-			banner_icon = new('icons/obj/structure/flags.dmi', "banner_stand")
-			flag_icon.Blend(banner_icon, ICON_UNDERLAY)
-			verbs += /obj/structure/sign/flag/proc/toggle
+		if(iswall(T))
+			icon = flag_icon
+			return
+		for(var/obj/A in T)
+			if(istype(A, /obj/structure/window))
+				icon = flag_icon
+				return
+		banner_icon = new('icons/obj/structure/flags.dmi', "banner_stand")
+		flag_icon.Blend(banner_icon, ICON_UNDERLAY)
+		verbs += /obj/structure/sign/flag/proc/toggle
 		icon = flag_icon
 
 /obj/item/flag/attack_self(mob/user)
