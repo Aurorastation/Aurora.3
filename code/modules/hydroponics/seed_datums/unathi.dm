@@ -45,7 +45,7 @@
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
-/obj/item/seeds/sarezhi
+/obj/item/seeds/sarezhiseed
 	seed_type = "sarezhi berry"
 
 /datum/seed/gukhe
