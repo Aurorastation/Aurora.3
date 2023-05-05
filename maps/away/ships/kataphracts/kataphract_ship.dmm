@@ -1321,9 +1321,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "df" = (
-/obj/structure/sign/flag/hegemony/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/hegemony/large/north,
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
 	icon_state = "corner_white"
@@ -1336,9 +1334,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "dg" = (
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
 	icon_state = "corner_white"
@@ -3674,15 +3669,10 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "hF" = (
-/obj/structure/sign/flag/hegemony/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/hegemony/large/south,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "hG" = (
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "hH" = (
@@ -3982,9 +3972,7 @@
 	req_access = "116";
 	req_one_access = null
 	},
-/obj/structure/sign/flag/hegemony/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/hegemony/large/north,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "iq" = (
@@ -4640,9 +4628,6 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "jz" = (
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/papershredder{
 	pixel_x = 24
@@ -5282,7 +5267,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "kE" = (
-/obj/structure/sign/flag/vaurca{
+/obj/structure/sign/flag/sedantis{
 	pixel_y = -32
 	},
 /obj/effect/ghostspawpoint/repeat{
@@ -5670,9 +5655,6 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "lw" = (
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = 32
-	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
@@ -7281,10 +7263,6 @@
 	dir = 4;
 	status = 2
 	},
-/obj/structure/sign/flag/hegemony/right{
-	dir = 4;
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "st" = (
@@ -8002,9 +7980,7 @@
 /area/kataphract_chapter/hangar)
 "Aa" = (
 /obj/machinery/iv_drip,
-/obj/structure/sign/flag/hegemony/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/hegemony/large/south,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "Af" = (
@@ -8113,10 +8089,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "AD" = (
-/obj/structure/sign/flag/hegemony/right{
-	dir = 4;
-	pixel_x = 32
-	},
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/unathi/klax,
 /obj/item/clothing/head/helmet/unathi/klax,
@@ -8199,10 +8171,7 @@
 /turf/template_noop,
 /area/space)
 "BI" = (
-/obj/structure/sign/flag/hegemony/left{
-	dir = 4;
-	pixel_x = 32
-	},
+/obj/structure/sign/flag/hegemony/large/east,
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
@@ -8597,10 +8566,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Fk" = (
-/obj/structure/sign/flag/hegemony/left{
-	dir = 4;
-	pixel_x = 32
-	},
+/obj/structure/sign/flag/hegemony/large/east,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "Fn" = (
@@ -8702,9 +8668,6 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "Gk" = (
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = -32
-	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
@@ -8860,9 +8823,6 @@
 "HG" = (
 /obj/structure/bed/roller,
 /obj/structure/curtain/open/medical,
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = -32
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -10107,9 +10067,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/port_solars)
 "Sz" = (
-/obj/structure/sign/flag/hegemony/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/hegemony/large/north,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
 "SG" = (
@@ -10256,10 +10214,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/sign/flag/hegemony/left{
-	dir = 4;
-	pixel_x = 32
-	},
+/obj/structure/sign/flag/hegemony/large/east,
 /obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
@@ -10276,10 +10231,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "TV" = (
-/obj/structure/sign/flag/hegemony/right{
-	dir = 4;
-	pixel_x = 32
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
