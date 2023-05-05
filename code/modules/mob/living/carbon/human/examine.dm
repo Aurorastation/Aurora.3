@@ -476,14 +476,17 @@
 			if(-49 to -11)
 				descriptor = "small"
 			if(-10 to 10)
-				descriptor = "about average height"
+				descriptor = "average heights"
 			if(11 to 50)
 				descriptor = "tall"
 			if(51 to 100)
 				descriptor = "huge"
 			else
 				descriptor = "gargantuan"
-		heightString = "[get_pronoun("He")] look[get_pronoun("end")] [descriptor] for \a [species.name]"
+		if(species.name == SPECIES_IPC_SHELL || species.name == SPECIES_IPC_SHELL_ROGUE)
+			heightString = "[get_pronoun("He")] look[get_pronoun("end")] [descriptor] for an average Human."
+		else
+			heightString = "[get_pronoun("He")] look[get_pronoun("end")] [descriptor] for an average [species.name]"
 
 
 	if(examiner.height == HEIGHT_NOT_USED)
