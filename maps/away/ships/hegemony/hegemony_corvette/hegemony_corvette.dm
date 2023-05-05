@@ -80,7 +80,7 @@
 	name = "Hegemony Shuttle"
 	class = "HMV"
 	designation = "Hatchling"
-	desc = "The Siro-class shuttle is the standard troop transport of the Izweski Hegemony, usually found attached to their smaller naval ships. While it is unarmed, it is agile, and armored for aggressive boarding maneuvers."
+	desc = "The Hunter-class shuttle is the standard troop transport of the Izweski Hegemony, usually found attached to their smaller naval ships. While it is unarmed, it is agile, and armored for aggressive boarding maneuvers."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	shuttle = "Hegemony Shuttle"
