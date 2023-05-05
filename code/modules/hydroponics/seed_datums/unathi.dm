@@ -53,8 +53,8 @@
 	seed_name = "gukhe bloom"
 	display_name = "gukhe bloom"
 	mutants = null
-	chems = list()
-	kitchen_tag = "gukhe bloom"
+	chems = list(/singleton/reagent/nutriment = list(2,12), /singleton/reagent/capsaicin = list(10,10))
+	kitchen_tag = "gukhe"
 
 /datum/seed/gukhe/setup_traits()
 	..()
