@@ -375,6 +375,7 @@
 "fz" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/filingcabinet/chestdrawer,
+/obj/structure/sign/flag/hegemony/large/north,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/bridge)
 "fF" = (
@@ -606,6 +607,10 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/miners_guild/canteen)
+"hY" = (
+/obj/effect/shuttle_landmark/miners_guild/nav2,
+/turf/template_noop,
+/area/space)
 "hZ" = (
 /turf/space,
 /area/space)
@@ -643,6 +648,13 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
+"iq" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/structure/sign/flag/hegemony/large/east,
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild/processing)
 "ir" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -1102,6 +1114,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
 	},
+/obj/structure/sign/flag/hegemony/large/east,
 /turf/simulated/floor/tiled/steel,
 /area/shuttle/miners_guild)
 "ng" = (
@@ -2145,6 +2158,10 @@
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/bridge)
+"yZ" = (
+/obj/effect/shuttle_landmark/miners_guild/nav3,
+/turf/template_noop,
+/area/space)
 "zb" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -2289,6 +2306,10 @@
 /obj/machinery/mineral/processing_unit,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
+"AB" = (
+/obj/effect/shuttle_landmark/miners_guild/nav4,
+/turf/template_noop,
+/area/space)
 "AG" = (
 /obj/effect/floor_decal/corner/orange/full,
 /obj/machinery/light,
@@ -2614,6 +2635,10 @@
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/bridge)
+"Ej" = (
+/obj/effect/shuttle_landmark/miners_guild/nav1,
+/turf/template_noop,
+/area/space)
 "El" = (
 /obj/machinery/mineral/processing_unit_console{
 	pixel_y = 28
@@ -6651,7 +6676,7 @@ di
 di
 di
 di
-di
+hY
 di
 di
 di
@@ -13919,7 +13944,7 @@ lE
 lE
 sR
 lE
-lE
+iq
 lE
 zb
 ZU
@@ -16000,7 +16025,7 @@ di
 di
 di
 di
-di
+Ej
 di
 di
 di
@@ -17551,7 +17576,7 @@ di
 di
 di
 di
-di
+AB
 di
 di
 di
@@ -26902,7 +26927,7 @@ di
 di
 di
 di
-di
+yZ
 di
 di
 di
