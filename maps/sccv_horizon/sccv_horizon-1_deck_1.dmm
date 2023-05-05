@@ -2514,6 +2514,9 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "bNx" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, compartment"
+	},
 /turf/simulated/wall/shuttle/unique/scc/scout{
 	icon_state = "2,7"
 	},
@@ -3434,6 +3437,9 @@
 /area/rnd/xenoarch_atrium)
 "czo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/landmark/entry_point/port{
+	name = "port, compartment"
+	},
 /turf/simulated/wall/shuttle/unique/scc/scout{
 	icon_state = "6,7"
 	},
@@ -4962,7 +4968,6 @@
 /area/shuttle/canary)
 "dJJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/firealarm/west,
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -4970,6 +4975,9 @@
 /obj/machinery/light/spot/weak{
 	dir = 8;
 	must_start_working = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/canary)
@@ -11255,10 +11263,12 @@
 /turf/simulated/floor/tiled/full,
 /area/teleporter)
 "ifP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/canary)
@@ -11449,7 +11459,7 @@
 "iqf" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list(73)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -12430,6 +12440,7 @@
 	id = "canary_hangar";
 	name = "Canary Hangar"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/hangar/control)
 "jio" = (
@@ -16149,6 +16160,18 @@
 "lTz" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod1)
+"lTU" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/canary)
 "lTY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -16431,6 +16454,9 @@
 	icon_state = "3,1";
 	density = 0;
 	pixel_x = -32
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, cockpit"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -29752,6 +29778,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
 "vVI" = (
@@ -31647,13 +31676,17 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "xkK" = (
-/obj/structure/window/shuttle/scc,
-/obj/machinery/door/firedoor,
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, gunnery"
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/intrepid/cockpit)
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/canary)
 "xlb" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -52748,7 +52781,7 @@ tfR
 qtp
 ncP
 dKn
-xkK
+con
 iRC
 iRC
 cLV
@@ -57409,8 +57442,8 @@ ndN
 mio
 mio
 mio
-mio
-mio
+lTU
+xkK
 mio
 mio
 mio
