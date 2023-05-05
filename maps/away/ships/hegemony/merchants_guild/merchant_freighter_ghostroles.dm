@@ -26,7 +26,7 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	r_pocket = /obj/item/storage/wallet/random
 	uniform = /obj/item/clothing/under/unathi
-	//suit = merchant guild mantle
+	suit = /obj/item/clothing/accessory/poncho/unathimantle/merchant
 
 /datum/outfit/admin/merchant_guild/get_id_access()
 	return list(access_merchants_guild, access_external_airlocks)
@@ -34,6 +34,8 @@
 /datum/outfit/admin/merchant_guild/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
+	if(H?.wear_suit)
+		H.wear_suit.color = "#2a2b2e"
 
 /datum/ghostspawner/human/merchant_guild/captain
 	short_name = "merchant_guildcap"
@@ -54,15 +56,15 @@
 
 /datum/ghostspawner/human/merchant_guild/guard
 	short_name = "merchant_guildguard"
-	name = "Merchant Freighter Fighters' Guild Guard"
-	desc = "You are a warrior of the Unathi Fighters' Guild, hired to protect a cargo freighter for the Merchants' Guild. Keep your ship, crew and cargo safe, and earn your paycheck in the process."
+	name = "Merchant Freighter Fighters' Lodge Guard"
+	desc = "You are a warrior of the Unathi Fighters' Lodge Guild, hired to protect a cargo freighter for the Merchants' Guild. Keep your ship, crew and cargo safe, and earn your paycheck in the process."
 	max_count = 1
 	uses_species_whitelist = TRUE
 	outfit = /datum/outfit/admin/merchant_guild/guard
 	assigned_role = "Merchants' Guild Freighter Security"
 	special_role = "Merchants' Guild Freighter Security"
 	spawnpoints = list("merchant_guildguard")
-	welcome_message = "As a guildsman of the Fighters' guild, your job is to ensure the security of the ship so that the merchants can continue to do what they do best. While you should try and act with honor, the most important thing remains keeping yourself and your crew alive."
+	welcome_message = "As a guildsman of the Fighters' Lodge, your job is to ensure the security of the ship so that the merchants can continue to do what they do best. While you should try and act with honor, the most important thing remains keeping yourself and your crew alive."
 
 /datum/outfit/admin/merchant_guild/guard
 	uniform = /obj/item/clothing/under/unathi/zazali
@@ -76,4 +78,4 @@
 							/obj/item/clothing/accessory/leg_guard = 1,
 							/obj/item/clothing/head/helmet/security = 1)
 	//l_pocket = hegemony energy shield
-	//suit = fighters guild mantle
+	suit = /obj/item/clothing/accessory/poncho/unathimantle/fighter
