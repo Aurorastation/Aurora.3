@@ -153,16 +153,9 @@
 
 // =============================================
 //Robotics Lift
-/datum/shuttle/autodock/multi/robotics
+/datum/shuttle/autodock/multi/lift/robotics
 	name = "Robotics Lift 2"
 	current_location = "nav_robotics_lift_second_deck"
-	warmup_time = 3
-	move_time = 3
-	knockdown = FALSE
-	squishes = FALSE
-	ceiling_type = null
-	sound_takeoff = 'sound/effects/lift_heavy_start.ogg'
-	sound_landing = 'sound/effects/lift_heavy_stop.ogg'
 	shuttle_area = /area/turbolift/scc_ship/robotics_lift
 	destination_tags = list(
 		"nav_robotics_lift_first_deck",
@@ -190,25 +183,6 @@
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 	base_area = /area/hallway/medical
 	base_turf = /turf/simulated/open
-
-/obj/machinery/computer/shuttle_control/multi/lift
-	name = "lift controller"
-	icon = 'icons/obj/computer.dmi'
-	icon_state = "lift"
-	icon_screen = null
-	density = FALSE
-	req_access = null
-
-/obj/machinery/computer/shuttle_control/multi/lift
-	name = "lift controller"
-	icon = 'icons/obj/computer.dmi'
-	icon_state = "lift"
-	icon_screen = null
-	density = FALSE
-	req_access = null
-
-/obj/machinery/computer/shuttle_control/multi/lift/wall
-	icon_state = "lift_wall"
 
 /obj/machinery/computer/shuttle_control/multi/lift/robotics
 	shuttle_tag = "Robotics Lift 2"
