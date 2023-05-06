@@ -476,7 +476,7 @@
 			if(-49 to -11)
 				descriptor = "small"
 			if(-10 to 10)
-				descriptor = "average heights"
+				descriptor = "average height"
 			if(11 to 50)
 				descriptor = "tall"
 			if(51 to 100)
