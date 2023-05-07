@@ -1809,6 +1809,7 @@
 #include "code\modules\economy\TradeDestinations.dm"
 #include "code\modules\effects\effect_system.dm"
 #include "code\modules\effects\ion_trail_follow.dm"
+#include "code\modules\effects\shuttle_landing_warning.dm"
 #include "code\modules\effects\visual_effect.dm"
 #include "code\modules\effects\map_effects\airlock_spawner.dm"
 #include "code\modules\effects\map_effects\beam_point.dm"
