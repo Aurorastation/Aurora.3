@@ -461,7 +461,7 @@
 	return output_text
 
 /mob/living/carbon/human/assembleHeightString(mob/examiner)
-	var/heightString = null
+	var/list/heightString = null
 	var/descriptor
 	if(height == HEIGHT_NOT_USED)
 		return heightString
@@ -485,7 +485,7 @@
 				descriptor = "gargantuan"
 		heightString = "[get_pronoun("He")] look[get_pronoun("end")] [descriptor]"
 		if(!species.hide_name)
-			return heightString + " for \a [species.name]"
+			heightString += " for a [species.name]"
 
 
 	if(examiner.height == HEIGHT_NOT_USED)
@@ -507,5 +507,5 @@
 		else
 			descriptor = "to tower over"
 	if(heightString)
-		return heightString + ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
+		heightString += ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
 	return "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."
