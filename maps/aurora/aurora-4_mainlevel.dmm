@@ -179,7 +179,6 @@
 /area/maintenance/security_starboard)
 "aaz" = (
 /obj/structure/lattice,
-/obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aaA" = (
@@ -244,8 +243,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aaH" = (
-/obj/structure/grille/broken,
-/obj/structure/lattice,
 /obj/structure/grille/broken,
 /obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -12312,7 +12309,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awP" = (
@@ -12350,7 +12347,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awT" = (
@@ -20505,7 +20502,7 @@
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJE" = (
@@ -21008,9 +21005,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
-/obj/structure/sign/flag/scc/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/scc/large/north,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aKu" = (
@@ -25049,7 +25044,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aRu" = (
@@ -25192,7 +25187,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aRG" = (
@@ -28547,7 +28542,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aXu" = (
@@ -30962,14 +30957,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
-/obj/structure/sign/flag/scc/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/scc/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/scc/large/north,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics_cyborgification)
 "bbD" = (
@@ -50684,7 +50672,6 @@
 /obj/machinery/newscaster{
 	pixel_y = -30
 	},
-/obj/machinery/vending/battlemonsters,
 /turf/simulated/floor/wood,
 /area/library)
 "bQR" = (
@@ -59009,7 +58996,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -64374,9 +64361,7 @@
 /obj/structure/table/wood{
 	table_reinf = "wood"
 	},
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 31
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Representative Office"
 	},
@@ -65054,7 +65039,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "odf" = (
@@ -66265,9 +66250,6 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
-/obj/structure/sign/flag/scc/right{
-	pixel_y = 30
-	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "qgs" = (
@@ -67460,9 +67442,6 @@
 /obj/structure/table/wood{
 	table_reinf = "wood"
 	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_y = 31
-	},
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
 "sig" = (
@@ -68474,7 +68453,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/flour,
 /obj/structure/table,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/machinery/light_construct{
 	dir = 8
 	},

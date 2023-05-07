@@ -266,7 +266,7 @@
 
 	else if(reference==node3)
 		qdel(network_node3)
-		node2 = null
+		node3 = null
 
 	update_underlays()
 

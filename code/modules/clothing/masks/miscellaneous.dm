@@ -159,7 +159,7 @@
 		qdel(eye)
 		eye = null
 
-	..()
+	. = ..()
 
 /obj/item/clothing/mask/ai/attack_self(mob/user)
 	if(user.incapacitated())

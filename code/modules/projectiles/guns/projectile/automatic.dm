@@ -497,13 +497,19 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/c762/dpra)
 
 /obj/item/gun/projectile/automatic/rifle/dpra/update_icon()
-	..()
 	if(ammo_magazine)
 		icon_state = "mrrazhak"
 		item_state = "mrrazhak"
 	else
 		icon_state = "mrrazhak_nomag"
 		item_state = "mrrazhak_nomag"
+	..()
+
+/obj/item/gun/projectile/automatic/rifle/dpra/gold
+	name = "gold plated adhomian assault rifle"
+	desc = "The Mrrazhak Model-1 is the newest Al'mariist automatic rifle. The Mrrazhak is notorious for its simple and reliable design; it can be fabricated and assembled without the \
+	need of a specialized industry or a highly trained workforce. This one is golden plated."
+	icon = 'icons/obj/guns/golden_mrrazhak.dmi'
 
 /obj/item/gun/projectile/automatic/tommygun
 	name = "submachine gun"

@@ -234,7 +234,8 @@ var/obj/machinery/blackbox_recorder/blackbox
 	if(blackbox)
 		if(istype(blackbox,/obj/machinery/blackbox_recorder))
 			qdel(src)
-	blackbox = src
+	else
+		blackbox = src
 
 /obj/machinery/blackbox_recorder/Destroy()
 	feedback_set_details("blackbox_destroyed","true")

@@ -47,6 +47,7 @@
 		H.real_name = chosen_dna.name
 		H.sync_organ_dna()
 		H.flavor_text = ""
+		H.height = chosen_dna.height
 		domutcheck(H, null) //donut check heh heh heh - Geeves
 		H.UpdateAppearance()
 
@@ -147,7 +148,7 @@
 	C.canmove = FALSE
 	C.icon = null
 	C.cut_overlays()
-	C.invisibility = 101
+	C.set_invisibility(101)
 	var/atom/movable/overlay/animation = new /atom/movable/overlay(C.loc)
 	animation.icon_state = "blank"
 	animation.icon = 'icons/mob/mob.dmi'
@@ -262,9 +263,9 @@
 	C.SetStunned(0)
 	C.SetWeakened(0)
 	C.lying = FALSE
-	C.reagents.add_reagent(/singleton/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
-	C.reagents.add_reagent(/singleton/reagent/oxycomorphine, 0.10)
-	C.reagents.add_reagent(/singleton/reagent/synaptizine, 0.5) //To counter oxycomorphine's side-effects.
+	C.reagents.add_reagent(/singleton/reagent/hyperzine, 10) //Certainly this can't be abused. - Geeves
+	C.reagents.add_reagent(/singleton/reagent/oxycomorphine, 10)
+	C.reagents.add_reagent(/singleton/reagent/synaptizine, 5) //To counter oxycomorphine's side-effects.
 	C.update_canmove()
 
 	src.verbs -= /mob/proc/changeling_unstun
@@ -580,7 +581,7 @@
 	var/datum/changeling/changeling = changeling_power(30,0,0)
 	if(!changeling)
 		return FALSE
-	
+
 	visible_message(SPAN_DANGER("<font size=4>[src] opens their mouth and a horrid, high-pitched noise comes out!</font>"))
 	log_and_message_admins("used dissonant shriek.")
 	empulse(get_turf(src), 2, 3)
@@ -639,4 +640,4 @@
 		to_chat(H, SPAN_NOTICE("We have recreated our finger to act like an electric lockpick."))
 		changeling.use_charges(5)
 
-	
+

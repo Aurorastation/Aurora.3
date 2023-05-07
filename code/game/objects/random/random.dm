@@ -51,8 +51,9 @@
 	desc = "This item type is used to randomly spawn a given object at round-start"
 	icon_state = "x3"
 	var/spawn_object = null
-	item_to_spawn()
-		return ispath(spawn_object) ? spawn_object : text2path(spawn_object)
+
+/obj/random/single/item_to_spawn()
+	return ispath(spawn_object) ? spawn_object : text2path(spawn_object)
 
 /obj/random/tool
 	name = "random tool"
@@ -229,7 +230,9 @@
 		/obj/item/storage/box/fancy/cigarettes/rugged = 10,
 		/obj/item/storage/box/fancy/cigarettes/pra = 5,
 		/obj/item/storage/box/fancy/cigarettes/dpra = 2,
-		/obj/item/storage/box/fancy/cigarettes/nka = 2
+		/obj/item/storage/box/fancy/cigarettes/nka = 2,
+		/obj/item/storage/box/fancy/cigarettes/federation = 2,
+		/obj/item/storage/box/fancy/cigarettes/dyn = 2
 	)
 
 /obj/random/energy
@@ -1004,8 +1007,6 @@
 		/obj/item/contraband/poster = 1.3,
 		/obj/item/extinguisher = 1.3,
 		/obj/item/extinguisher/mini = 0.9,
-		/obj/item/flag/america = 0.1,
-		/obj/item/flag/america/l = 0.1,
 		/obj/item/flame/lighter = 0.9,
 		/obj/item/flame/lighter/zippo = 0.7,
 		/obj/item/grenade/chem_grenade/cleaner = 0.1,
@@ -1023,7 +1024,7 @@
 		/obj/item/reagent_containers/food/drinks/flask/lithium = 0.3,
 		/obj/item/reagent_containers/food/drinks/flask/shiny = 0.3,
 		/obj/item/reagent_containers/food/drinks/teapot = 0.4,
-		/obj/item/reagent_containers/cooking_container/plate/bowl = 0.8,
+		/obj/item/reagent_containers/cooking_container/board/bowl = 0.8,
 		/obj/item/reagent_containers/inhaler/hyperzine = 0.1,
 		/obj/item/reagent_containers/spray/cleaner = 0.6,
 		/obj/item/reagent_containers/spray/sterilizine = 0.4,
@@ -1225,6 +1226,23 @@
 		/obj/item/clothing/head/beret/miner = 3,
 		/obj/item/clothing/head/beret/security = 2,
 		/obj/item/clothing/head/beret/captain = 1
+	)
+
+/obj/random/hardhat
+	name = "random hardhat"
+	desc = "This is a random hardhat."
+	icon = 'icons/obj/clothing/hats/hardhats.dmi'
+	icon_state = "hardhat_yellow"
+	problist = list(
+		/obj/item/clothing/head/hardhat = 1,
+		/obj/item/clothing/head/hardhat/orange = 1,
+		/obj/item/clothing/head/hardhat/red = 1,
+		/obj/item/clothing/head/hardhat/green = 1,
+		/obj/item/clothing/head/hardhat/dblue = 1,
+		/obj/item/clothing/head/hardhat/white = 0.5,
+		/obj/item/clothing/head/hardhat/atmos = 0.1,
+		/obj/item/clothing/head/hardhat/first_responder = 0.1,
+		/obj/item/clothing/head/hardhat/firefighter = 0.1
 	)
 
 /obj/random/highvalue
@@ -1468,46 +1486,47 @@
 		/obj/item/toy/mech/honk
 	)
 	has_postspawn = TRUE
-	post_spawn(obj/thing)
-		var/list/frames = list(
-			/obj/item/gun/custom_ka/frame01 = 1,
-			/obj/item/gun/custom_ka/frame02 = 2,
-			/obj/item/gun/custom_ka/frame03 = 3,
-			/obj/item/gun/custom_ka/frame04 = 2,
-			/obj/item/gun/custom_ka/frame05 = 1
-		)
 
-		var/list/cells = list(
-			/obj/item/custom_ka_upgrade/cells/cell01 = 2,
-			/obj/item/custom_ka_upgrade/cells/cell02 = 3,
-			/obj/item/custom_ka_upgrade/cells/cell03 = 2,
-			/obj/item/custom_ka_upgrade/cells/cell04 = 1,
-			/obj/item/custom_ka_upgrade/cells/cell05 = 1
-		)
+/obj/random/custom_ka/post_spawn(obj/thing)
+	var/list/frames = list(
+		/obj/item/gun/custom_ka/frame01 = 1,
+		/obj/item/gun/custom_ka/frame02 = 2,
+		/obj/item/gun/custom_ka/frame03 = 3,
+		/obj/item/gun/custom_ka/frame04 = 2,
+		/obj/item/gun/custom_ka/frame05 = 1
+	)
 
-		var/list/barrels = list(
-			/obj/item/custom_ka_upgrade/barrels/barrel01 = 2,
-			/obj/item/custom_ka_upgrade/barrels/barrel02 = 3,
-			/obj/item/custom_ka_upgrade/barrels/barrel03 = 2,
-			/obj/item/custom_ka_upgrade/barrels/barrel04 = 1,
-			/obj/item/custom_ka_upgrade/barrels/barrel05 = 1
-		)
+	var/list/cells = list(
+		/obj/item/custom_ka_upgrade/cells/cell01 = 2,
+		/obj/item/custom_ka_upgrade/cells/cell02 = 3,
+		/obj/item/custom_ka_upgrade/cells/cell03 = 2,
+		/obj/item/custom_ka_upgrade/cells/cell04 = 1,
+		/obj/item/custom_ka_upgrade/cells/cell05 = 1
+	)
 
-		var/frame_type = pickweight(frames)
-		var/obj/item/gun/custom_ka/spawned_frame = new frame_type(thing.loc)
+	var/list/barrels = list(
+		/obj/item/custom_ka_upgrade/barrels/barrel01 = 2,
+		/obj/item/custom_ka_upgrade/barrels/barrel02 = 3,
+		/obj/item/custom_ka_upgrade/barrels/barrel03 = 2,
+		/obj/item/custom_ka_upgrade/barrels/barrel04 = 1,
+		/obj/item/custom_ka_upgrade/barrels/barrel05 = 1
+	)
 
-		var/cell_type = pickweight(cells)
-		spawned_frame.installed_cell = new cell_type(spawned_frame)
+	var/frame_type = pickweight(frames)
+	var/obj/item/gun/custom_ka/spawned_frame = new frame_type(thing.loc)
 
-		var/barrel_type = pickweight(barrels)
-		spawned_frame.installed_barrel = new barrel_type(spawned_frame)
+	var/cell_type = pickweight(cells)
+	spawned_frame.installed_cell = new cell_type(spawned_frame)
 
-		spawned_frame.installed_upgrade_chip = new /obj/item/custom_ka_upgrade/upgrade_chips/capacity(spawned_frame)
+	var/barrel_type = pickweight(barrels)
+	spawned_frame.installed_barrel = new barrel_type(spawned_frame)
 
-		spawned_frame.update_icon()
-		spawned_frame.update_stats()
+	spawned_frame.installed_upgrade_chip = new /obj/item/custom_ka_upgrade/upgrade_chips/capacity(spawned_frame)
 
-		qdel(thing)
+	spawned_frame.update_icon()
+	spawned_frame.update_stats()
+
+	qdel(thing)
 
 /obj/random/prebuilt_ka
 	name = "random prebuilt kinetic accelerator"
@@ -1701,8 +1720,8 @@
 		/obj/item/flag/pra/l,
 		/obj/item/flag/sol,
 		/obj/item/flag/sol/l,
-		/obj/item/flag/vaurca,
-		/obj/item/flag/vaurca/l,
+		/obj/item/flag/sedantis,
+		/obj/item/flag/sedantis/l,
 		/obj/item/flag/zenghu,
 		/obj/item/flag/zenghu/l,
 		/obj/item/flag/coalition,

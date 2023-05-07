@@ -115,6 +115,11 @@
 
 	return ..()
 
+/obj/item/storage/wallet/examine(mob/user)
+	. = ..()
+	var/obj/item/card/id/id = GetID()
+	if(istype(id) && Adjacent(user))
+		id.show(user)
 
 /obj/item/storage/wallet/random/fill()
 	..()

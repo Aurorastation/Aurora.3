@@ -69,6 +69,7 @@
 
 	changeling.prepared_sting = new datum_path(src, verb_path, required_chems, stealthy)
 	to_chat(src, SPAN_NOTICE("You prepare to fire the <b>[changeling.prepared_sting.name]</b>."))
+	to_chat(src, SPAN_NOTICE("In order to use a sting, click a mob with an empty hand on harm intent."))
 	return TRUE
 
 /mob/proc/changeling_hallucinate_sting()

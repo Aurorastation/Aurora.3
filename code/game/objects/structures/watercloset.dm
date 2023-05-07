@@ -537,6 +537,12 @@
 		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return
 
+	else if(istype(O, /obj/item/reagent_containers/bowl))
+		var/obj/item/reagent_containers/bowl/B = O
+		if(B.grease)
+			B.grease = FALSE
+			B.update_icon()
+
 	var/turf/location = user.loc
 	if(!isturf(location)) return
 

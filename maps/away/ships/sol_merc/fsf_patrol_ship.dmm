@@ -681,16 +681,11 @@
 /area/ship/fsf_patrol_ship)
 "eTH" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/sol/large/north,
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
 "eYk" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 30
-	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
 "eYX" = (
@@ -709,11 +704,6 @@
 "fhJ" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/ship/fsf_patrol_ship)
-"fji" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "fjy" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -33765,7 +33755,7 @@ sSs
 bcf
 jmA
 yjk
-fji
+hBs
 hBs
 sSs
 sSs

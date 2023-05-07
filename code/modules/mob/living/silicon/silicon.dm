@@ -400,3 +400,6 @@
 
 /mob/living/silicon/get_radio()
 	return common_radio
+
+/mob/living/silicon/get_speech_bubble_state_modifier()
+	return "synth"

@@ -196,15 +196,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "aO" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/sol/large/north,
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "aP" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 32
-	},
 /obj/machinery/light_construct{
 	dir = 1
 	},
@@ -214,18 +209,13 @@
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "aR" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/sol/large/north,
 /obj/machinery/light_construct{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "aS" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "aT" = (
@@ -458,9 +448,7 @@
 /turf/simulated/floor,
 /area/dungeon/sol_outpost)
 "bC" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/sol/large/south,
 /obj/item/landmine/frag{
 	deployed = 1
 	},
@@ -1040,9 +1028,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
 "de" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = -32
-	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "df" = (
@@ -1115,9 +1100,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
 "dq" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/sol/large/south,
 /obj/effect/decal/fake_object{
 	density = 1;
 	icon = 'icons/obj/turrets.dmi';
@@ -1136,9 +1119,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
 "dr" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = -32
-	},
 /obj/effect/decal/fake_object{
 	density = 1;
 	icon = 'icons/obj/turrets.dmi';

@@ -442,14 +442,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_SMALL
 
 
-/obj/item/spirit_board/fluff/klavdiya_board //Ghostly Board - Klavdiya Tikhomirov - alberyk
-	name = "ghostly board"
-	desc = "An adhomian ghostly board, used in divination rituals. This one is blue and has the symbol of a moon on it."
-	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
-	icon_override = 'icons/obj/custom_items/klavdiya_amulet.dmi'
-	icon_state = "klavdiya_board" //thanks to kyres1 for the sprites
-
-
 /obj/item/clothing/head/fluff/aavs_mask //Reflective Mask - Aavs Guwan - dronzthewolf
 	name = "reflective mask"
 	desc = "This odd mask and hood combination covers the wearer, and seems to be made of a one-way dome mirror and some old cloth or rope."
@@ -669,7 +661,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
+/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
 	name = "holo-symphette"
 	desc = "A cheap, collapsible musical instrument which utilizes holographic projections to generate a rough noise. It's shaped like a small harp, and seems to be  \
 	able to be tuned to mimic several old stringed Solarian instruments with some distorted audio. It's still got its price tag sticker on it."
@@ -682,7 +674,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	var/deployed = FALSE
 
-/obj/item/fluff/akinyi_symphette/update_icon()
+/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/update_icon()
 	if(deployed)
 		icon_state = "akinyi_symphette_on"
 		item_state = "akinyi_symphette_on"
@@ -690,7 +682,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = "akinyi_symphette"
 		item_state = "akinyi_symphette"
 
-/obj/item/fluff/akinyi_symphette/attack_self(var/mob/user)
+/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/AltClick(var/mob/user)
 	deployed = !deployed
 	to_chat(user, "<span class='notice'>You [deployed ? "expand" : "collapse"] \the [src].</span>")
 	update_icon()
@@ -1077,12 +1069,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	can_hold = list(
 		/obj/item/device/megaphone/fluff/akinyi_mic,
 		/obj/item/fluff/akinyi_stand,
-		/obj/item/fluff/akinyi_symphette
+		/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette
 		)
 	starts_with = list(
 		/obj/item/device/megaphone/fluff/akinyi_mic = 1,
 		/obj/item/fluff/akinyi_stand = 1,
-		/obj/item/fluff/akinyi_symphette = 1
+		/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette = 1
 	)
 
 
@@ -1905,6 +1897,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/structure/sign/flag/unathi_fleet
 	name = "unathi fleet flag"
 	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
+	icon = 'icons/obj/custom_items/ahzi_items.dmi'
 	icon_state = "unathi_fleet"
 
 /obj/structure/sign/flag/unathi_fleet/left
@@ -2090,3 +2083,22 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "freedom_coat"
 	item_state = "freedom_coat"
 	contained_sprite = TRUE
+
+/obj/item/clothing/head/fluff/schlosser_hat // Schlosser - NewOriginalSchwann
+	name = "national defense force schiffchen"
+	desc = "A side cap known as a Schiffchen on Visegrad, a term roughly translating to “little boat” in Basic, which is commonly worn by members of the Visegradi National Defense Force. The NDF’s symbol – a silver fortress standing upon a crimson background – is prominently featured on the Schiffchen’s badge. “Totschlager” has been written on the inside of the band by somebody with a marker."
+	desc_extended = "The Schiffchen has a long, storied, and somewhat controversial history upon Visegrad, which dates back to its initial colonization. The planet’s first security service, the Visegradi People’s Security Service, used the Schiffchen as its standard headwear for security personnel in an effort to invoke \
+	the Warsaw Pact’s security services. Following its dissolution the National Defense Force continued to use the Schiffchen as headwear, and it remains a common sight on Visegrad today even if the NDF, which was dissolved by the Navy shortly after the Solarian Collapse, no longer exists."
+	icon = 'icons/obj/custom_items/schlosser_hat.dmi'
+	icon_override = 'icons/obj/custom_items/schlosser_hat.dmi'
+	icon_state = "schlosser_hat"
+	item_state = "schlosser_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/konyang/dbjacket/provenance_jacket // Double-Breasted Cropped Jacket - Z.I Provenance - niennab
+	name = "double-breasted cropped jacket"
+	desc = "Styled after the latest fashion trends on Konyang, this hybrid leather and polyester mesh jacket was built with the planet’s humid climate in mind. This particular jacket appears to be emblematic of Konyang's stylings but hand-made, sporting a distinctive fur collar."
+	icon = 'icons/obj/custom_items/provenance_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/provenance_jacket.dmi'
+	icon_state = "provenance_coat"
+	item_state = "provenance_coat"
