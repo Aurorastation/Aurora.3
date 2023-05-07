@@ -485,7 +485,7 @@
 				descriptor = "gargantuan"
 		heightString = "[get_pronoun("He")] look[get_pronoun("end")] [descriptor]"
 		if(!species.hide_name)
-			return heightString += " for a [species.name]"
+			heightString += " for a [species.name]"
 
 
 	if(examiner.height == HEIGHT_NOT_USED)
