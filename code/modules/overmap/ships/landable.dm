@@ -9,6 +9,7 @@
 	var/status = SHIP_STATUS_LANDED
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	layer = OVERMAP_SHUTTLE_LAYER
 
 /obj/effect/overmap/visitable/ship/landable/Destroy()
 	shuttle_moved_event.unregister(SSshuttle.shuttles[shuttle], src)
