@@ -59,6 +59,17 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/starboard)
+"akn" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/adhomian_circus_shuttle)
 "alY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -284,7 +295,7 @@
 /area/adhomian_circus/maintenance)
 "bsf" = (
 /obj/structure/bed/stool/chair/shuttle{
-	dir = 1
+	dir = 8
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -720,9 +731,8 @@
 /turf/simulated/floor/carpet/darkblue,
 /area/adhomian_circus/fortune)
 "dzv" = (
-/obj/structure/bed/stool/chair/shuttle,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1229,18 +1239,15 @@
 	},
 /area/adhomian_circus/port)
 "gkO" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 1
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/obj/machinery/vending/wallmed1{
-	name = "Medical Supplies";
-	pixel_x = -26;
-	pixel_y = -1;
-	req_access = null
+/obj/structure/railing/mapped,
+/obj/machinery/iff_beacon/name_change,
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/shuttle/adhomian_circus_shuttle)
 "gly" = (
 /obj/effect/floor_decal/corner/light{
@@ -1862,6 +1869,14 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/fortune)
+"kbv" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/adhomian_circus_shuttle)
 "kls" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
@@ -2768,13 +2783,9 @@
 	},
 /area/adhomian_circus/maintenance)
 "oaV" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/obj/machinery/iff_beacon/name_change,
-/turf/simulated/floor/airless,
-/area/shuttle/adhomian_circus_shuttle)
+/obj/effect/shuttle_landmark/adhomian_circus_shuttle/hangar,
+/turf/template_noop,
+/area/space)
 "ocw" = (
 /obj/item/dumbbell/barbell/hundredeighty,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3022,10 +3033,11 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/bridge)
 "pLA" = (
-/obj/machinery/alarm/cold{
-	req_one_access = null;
-	pixel_y = 32;
-	req_access = list(202)
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -25
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3732,6 +3744,19 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/engine/port)
+"tAG" = (
+/obj/machinery/alarm/cold{
+	req_one_access = null;
+	pixel_y = 32;
+	req_access = list(202)
+	},
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/adhomian_circus_shuttle)
 "tHa" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -3778,7 +3803,6 @@
 	locked = 1;
 	req_access = list(202)
 	},
-/obj/effect/shuttle_landmark/adhomian_circus_shuttle/hangar,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3806,6 +3830,9 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/adhomian_circus_shuttle)
 "ujs" = (
@@ -43144,10 +43171,10 @@ xRX
 xRX
 xRX
 xRX
-kRJ
-bsl
-kRJ
-kRJ
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -43401,11 +43428,11 @@ xRX
 xRX
 xRX
 xRX
-kRJ
-skB
-gkO
-kRJ
+xRX
 oaV
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -43653,18 +43680,18 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 kRJ
 kRJ
 kRJ
-oFG
-dzv
-bsf
-oFG
 kRJ
 kRJ
-xRX
+kRJ
+bsl
+kRJ
+kRJ
+kRJ
+kRJ
+gkO
 xRX
 xRX
 xRX
@@ -43910,14 +43937,14 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 sTW
 lYK
 jjZ
 kUb
-bOm
-bOm
+pLA
+akn
+dzv
+dzv
 oGi
 raB
 cBJ
@@ -44167,12 +44194,12 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 kls
 jcV
 prU
 sBE
+bOm
+bOm
 bOm
 eQz
 skB
@@ -44424,12 +44451,12 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 sTW
 mvI
 pgu
 fay
+kbv
+kbv
 bmD
 iGV
 qtp
@@ -44681,18 +44708,18 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 kRJ
 kRJ
 kRJ
 oFG
-pLA
+tAG
+bsf
+bOm
 bNj
 oFG
 kRJ
 kRJ
-xRX
+tZg
 xRX
 xRX
 xRX
@@ -44941,13 +44968,13 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+kRJ
+kRJ
 kRJ
 tmJ
 nNZ
 kRJ
-tZg
+xRX
 xRX
 xRX
 xRX

@@ -21006,7 +21006,7 @@
 	dir = 8;
 	pixel_x = 18
 	},
-/obj/structure/filingcabinet/medical{
+/obj/structure/filingcabinet{
 	pixel_x = -9
 	},
 /obj/structure/filingcabinet/chestdrawer{
