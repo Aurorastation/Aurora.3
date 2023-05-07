@@ -189,7 +189,14 @@ Frequency:
 		if(linked_pad.stat & (NOPOWER|BROKEN))
 			to_chat(user, SPAN_WARNING("The pad \the [src] is connected doesn't seem to be responding!"))
 			return
-		if(!AreConnectedZLevels(current_location.z, linked_pad.z))
+		var/obj/effect/overmap/current_sector
+		if(current_map.use_overmap)
+			current_sector = map_sectors["[current_location.z]"]
+		var/list/nearby_z_levels = GetConnectedZlevels(current_location.z)
+		if(current_sector)
+			for(var/obj/effect/overmap/visitable/visitable in current_sector.loc)
+				nearby_z_levels |= visitable.map_z
+		if(!(linked_pad.z in nearby_z_levels))
 			to_chat(user, SPAN_WARNING("The pad \the [src] is connected to isn't close enough to lock onto now!"))
 			return
 		if(linked_pad.locked_obj)

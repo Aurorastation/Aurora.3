@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "If you're linked to a teleport hub via hand-tele and are within the same overmap tile, you can now use the hand-tele to generate portals."
