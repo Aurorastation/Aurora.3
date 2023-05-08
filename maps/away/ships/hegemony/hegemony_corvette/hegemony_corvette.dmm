@@ -720,6 +720,7 @@
 	req_access = list(113);
 	dir = 1
 	},
+/obj/item/device/gps,
 /turf/simulated/floor,
 /area/hegemony_ship/eva_storage)
 "eQ" = (
@@ -2455,6 +2456,7 @@
 	req_access = list(113);
 	dir = 1
 	},
+/obj/item/device/gps,
 /turf/simulated/floor,
 /area/hegemony_ship/eva_storage)
 "pI" = (
@@ -2630,6 +2632,7 @@
 	req_access = list(113);
 	dir = 1
 	},
+/obj/item/device/gps,
 /turf/simulated/floor,
 /area/hegemony_ship/eva_storage)
 "qO" = (
@@ -4390,14 +4393,9 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/eva_storage)
 "As" = (
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 9
-	},
-/obj/machinery/vending/medical{
-	req_access = list(113)
-	},
-/turf/simulated/floor/tiled/white,
-/area/hegemony_ship/medbay)
+/obj/machinery/pipedispenser,
+/turf/simulated/floor,
+/area/hegemony_ship/engineering)
 "At" = (
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/bruiser/real/ap{
@@ -7160,6 +7158,7 @@
 /obj/machinery/door/window/brigdoor/southright{
 	req_access = list(114)
 	},
+/obj/item/device/gps,
 /turf/simulated/floor,
 /area/hegemony_ship/eva_storage)
 "QM" = (
@@ -7749,10 +7748,6 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/space)
-"Uq" = (
-/obj/machinery/pipedispenser,
-/turf/simulated/floor,
-/area/hegemony_ship/engineering)
 "Ut" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
@@ -8074,6 +8069,15 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
+"Wq" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 9
+	},
+/obj/machinery/vending/medical{
+	req_access = list(113)
+	},
+/turf/simulated/floor/tiled/white,
+/area/hegemony_ship/medbay)
 "Wt" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -8406,6 +8410,7 @@
 	req_access = list(113);
 	dir = 1
 	},
+/obj/item/device/gps,
 /turf/simulated/floor,
 /area/hegemony_ship/eva_storage)
 "YK" = (
@@ -21656,7 +21661,7 @@ wI
 qm
 jn
 LE
-As
+Wq
 Um
 uq
 le
@@ -23440,7 +23445,7 @@ sG
 ZF
 Dn
 Dn
-Uq
+As
 Ot
 aJ
 aJ
