@@ -363,12 +363,12 @@
 	status = ORGAN_ASSISTED
 	robotic = ROBOTIC_ASSISTED
 	switch(organ_tag)
-				if(BP_HEART)
-					name = "pacemaker-assisted [initial(name)]"
-				if(BP_EYES)
-					name = "retinal overlayed [initial(name)]"
-				else
-					name = "mechanically assisted [initial(name)]"
+		if(BP_HEART)
+			name = "pacemaker-assisted [initial(name)]"
+		if(BP_EYES)
+			name = "retinal overlayed [initial(name)]"
+		else
+			name = "mechanically assisted [initial(name)]"
 	icon_state = initial(icon_state)
 
 /obj/item/organ/emp_act(var/severity)
