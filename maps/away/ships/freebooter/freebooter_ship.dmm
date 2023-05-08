@@ -70,6 +70,19 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"ajb" = (
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	layer = 2.31;
+	name = "lattice"
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor{
+	icon_state = "dmg2"
+	},
+/area/space)
 "ajL" = (
 /obj/machinery/mineral/stacking_unit_console{
 	pixel_x = -32
@@ -345,6 +358,7 @@
 	pixel_x = 32;
 	req_one_access = null
 	},
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "aHs" = (
@@ -540,13 +554,14 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/obj/item/paper/crumpled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "aSJ" = (
@@ -669,6 +684,8 @@
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/civgun,
+/obj/item/melee/energy/sword/knife,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "bdI" = (
@@ -1119,6 +1136,8 @@
 	},
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/mechanical,
+/obj/item/grenade/dynamite,
+/obj/item/grenade/dynamite,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "cgU" = (
@@ -1891,8 +1910,12 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
+"ewy" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
 "ewW" = (
-/obj/structure/viewport,
+/obj/structure/viewport/unathi,
 /turf/simulated/floor,
 /area/space)
 "exg" = (
@@ -2281,6 +2304,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "fRD" = (
@@ -2294,6 +2324,7 @@
 /obj/effect/floor_decal/corner/red/full,
 /obj/item/primer/low,
 /obj/structure/table/rack,
+/obj/item/grenade/frag,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "fTG" = (
@@ -2544,6 +2575,11 @@
 /obj/item/clothing/accessory/holster/armpit/brown,
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/civgun,
+/obj/random/civgun,
+/obj/item/material/knife/tacknife,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/butterfly,
 /turf/simulated/floor,
 /area/space)
 "gBh" = (
@@ -2829,14 +2865,11 @@
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
 /area/space)
 "hBs" = (
-/obj/machinery/ship_weapon/grauwolf{
-	pixel_x = -32;
-	pixel_y = -192;
-	weapon_id = "SSMD Grauwolf Flak Battery"
-	},
 /obj/structure/ship_weapon_dummy,
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/machinery/ship_weapon/bruiser{
+	weapon_id = "Hegemony Corvette Bruiser";
+	pixel_x = -32;
+	pixel_y = -128
 	},
 /turf/simulated/floor,
 /area/space)
@@ -3239,16 +3272,13 @@
 /turf/simulated/floor,
 /area/space)
 "iNM" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "iOV" = (
@@ -3290,6 +3320,10 @@
 	dir = 1
 	},
 /obj/machinery/firealarm/east,
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/obj/item/paper/crumpled,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "iUd" = (
@@ -4115,6 +4149,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"lfB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "lgr" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
@@ -4674,6 +4713,12 @@
 	},
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/civgun,
+/obj/random/civgun/rifle,
+/obj/random/civgun/rifle,
+/obj/item/material/knife/bayonet,
+/obj/item/material/knife/bayonet,
+/obj/item/material/knife/butterfly/switchblade,
 /turf/simulated/floor,
 /area/space)
 "mCb" = (
@@ -5452,6 +5497,9 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
 	},
+/obj/random/civgun/rifle,
+/obj/random/civgun/rifle,
+/obj/item/grenade/frag,
 /turf/simulated/floor,
 /area/space)
 "osl" = (
@@ -5567,6 +5615,14 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"oGN" = (
+/obj/structure/ship_weapon_dummy,
+/obj/machinery/ammunition_loader/bruiser{
+	dir = 1;
+	weapon_id = "Hegemony Corvette Bruiser"s
+	},
+/turf/simulated/floor,
 /area/space)
 "oGU" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5800,6 +5856,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark/full,
+/area/space)
+"pfg" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "pfE" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6083,9 +6147,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "pEN" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor,
 /area/space)
 "pEW" = (
 /obj/effect/decal/cleanable/blood,
@@ -6519,6 +6584,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "qCu" = (
@@ -6782,6 +6854,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_casing/rifle/used,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "rkc" = (
@@ -6916,6 +6989,7 @@
 	pixel_x = 32
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "rvC" = (
@@ -7622,6 +7696,11 @@
 	icon_state = "dmg4"
 	},
 /area/space)
+"tAn" = (
+/obj/structure/grille,
+/obj/structure/barricade/wooden,
+/turf/simulated/floor/plating,
+/area/space)
 "tDp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped,
@@ -7666,6 +7745,10 @@
 	name = "lattice"
 	},
 /turf/simulated/floor,
+/area/space)
+"tMA" = (
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/space)
 "tOu" = (
 /obj/structure/railing/mapped,
@@ -7819,6 +7902,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/item/gun/projectile/revolver/knife,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/gun/projectile/recoilless_rifle,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "ufC" = (
@@ -8647,10 +8734,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "wCo" = (
-/obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "SSMD Grauwolf Flak Battery"
-	},
-/turf/simulated/floor,
+/obj/structure/grille/broken,
+/obj/structure/blocker,
+/turf/simulated/floor/plating,
 /area/space)
 "wIJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -8791,6 +8877,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
+/obj/item/material/twohanded/baseballbat/metal,
+/obj/item/material/twohanded/baseballbat/metal,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "wYH" = (
@@ -8879,6 +8967,7 @@
 	pixel_y = 7;
 	pixel_x = -7
 	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor,
 /area/space)
 "xkS" = (
@@ -9046,6 +9135,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
+/obj/item/material/kitchen/utensil/knife/boot,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "xMA" = (
@@ -37650,9 +37740,9 @@ aOU
 tuT
 xhE
 fnE
-fnE
-fnE
-fnE
+mkb
+mkb
+mkb
 pwR
 xRX
 xRX
@@ -37905,8 +37995,8 @@ oUu
 vRc
 aOU
 xKj
+miq
 hBs
-fnE
 fnE
 fnE
 fnE
@@ -38163,10 +38253,10 @@ oxR
 aOU
 sxk
 miq
-fnE
-fnE
-fnE
-fnE
+oGN
+eTH
+mkb
+mkb
 pwR
 xRX
 xRX
@@ -38419,7 +38509,7 @@ wpf
 jhd
 aOU
 nwH
-wCo
+mkb
 pEN
 ewW
 mkb
@@ -38683,7 +38773,7 @@ eTH
 xRX
 xRX
 xRX
-xRX
+wCo
 xRX
 xRX
 xRX
@@ -38940,8 +39030,8 @@ aEB
 xRX
 xRX
 xRX
-xRX
-xRX
+tMA
+tAn
 xRX
 xRX
 xRX
@@ -39195,10 +39285,10 @@ dTO
 gqj
 eTH
 eTH
-xRX
-xRX
-xRX
-xRX
+ewy
+ewy
+ewy
+tAn
 xRX
 xRX
 xRX
@@ -39455,7 +39545,7 @@ eTH
 xRX
 xRX
 xRX
-xRX
+wCo
 xRX
 xRX
 xRX
@@ -39712,8 +39802,8 @@ eTH
 xRX
 xRX
 xRX
-xRX
-xRX
+tMA
+tMA
 xRX
 xRX
 xRX
@@ -39970,7 +40060,7 @@ eTH
 xRX
 xRX
 xRX
-xRX
+tAn
 xRX
 xRX
 xRX
@@ -40227,8 +40317,8 @@ eTH
 xRX
 xRX
 xRX
-xRX
-xRX
+tMA
+tAn
 xRX
 xRX
 xRX
@@ -40482,10 +40572,10 @@ eTH
 aOU
 eTH
 eTH
-xRX
-xRX
-xRX
-xRX
+ewy
+ewy
+ewy
+tMA
 xRX
 xRX
 xRX
@@ -40742,7 +40832,7 @@ eTH
 xRX
 xRX
 xRX
-xRX
+tAn
 xRX
 xRX
 xRX
@@ -40999,7 +41089,7 @@ sCs
 xRX
 xRX
 xRX
-xRX
+tAn
 xRX
 xRX
 xRX
@@ -41256,7 +41346,7 @@ sCs
 xRX
 xRX
 xRX
-xRX
+wCo
 xRX
 xRX
 xRX
@@ -41513,7 +41603,7 @@ sCs
 xRX
 xRX
 xRX
-xRX
+tMA
 xRX
 xRX
 xRX
@@ -41725,12 +41815,12 @@ lHL
 rnp
 mvP
 ruW
-pfE
-pfE
+lfB
+lfB
 rjL
-gVT
+pfg
 aGy
-buK
+ajb
 kAa
 vOo
 kuG
@@ -41770,7 +41860,7 @@ sCs
 xRX
 xRX
 xRX
-xRX
+tAn
 xRX
 xRX
 xRX
@@ -42027,7 +42117,7 @@ sCs
 xRX
 xRX
 xRX
-xRX
+tAn
 xRX
 xRX
 xRX
@@ -42284,7 +42374,7 @@ eTH
 xRX
 xRX
 xRX
-xRX
+tMA
 xRX
 xRX
 xRX
@@ -42538,10 +42628,10 @@ aOU
 aOU
 eTH
 eTH
-xRX
-xRX
-xRX
-xRX
+ewy
+ewy
+ewy
+wCo
 xRX
 xRX
 xRX
@@ -42797,8 +42887,8 @@ eTH
 xRX
 xRX
 xRX
-xRX
-xRX
+tMA
+tMA
 xRX
 xRX
 xRX
@@ -43054,7 +43144,7 @@ eTH
 xRX
 xRX
 xRX
-xRX
+tAn
 xRX
 xRX
 xRX
@@ -43311,7 +43401,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+wCo
 xRX
 xRX
 xRX
@@ -43567,8 +43657,8 @@ eTH
 xRX
 xRX
 xRX
-xRX
-xRX
+tMA
+tMA
 xRX
 xRX
 xRX
@@ -43821,10 +43911,10 @@ dut
 gMa
 eTH
 eTH
-xRX
-xRX
-xRX
-xRX
+ewy
+ewy
+ewy
+wCo
 xRX
 xRX
 xRX
@@ -44080,8 +44170,8 @@ eTH
 xRX
 xRX
 xRX
-xRX
-xRX
+tMA
+tAn
 xRX
 xRX
 xRX
@@ -44337,7 +44427,7 @@ eTH
 xRX
 xRX
 xRX
-xRX
+tMA
 xRX
 xRX
 xRX
