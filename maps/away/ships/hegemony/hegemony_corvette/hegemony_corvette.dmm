@@ -327,6 +327,8 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/item/melee/energy/glaive/hegemony,
 /obj/item/melee/energy/glaive/hegemony,
+/obj/item/melee/hammer/powered/hegemony,
+/obj/item/melee/hammer/powered/hegemony,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/armory)
 "cd" = (
@@ -4393,9 +4395,14 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/eva_storage)
 "As" = (
-/obj/machinery/pipedispenser,
-/turf/simulated/floor,
-/area/hegemony_ship/engineering)
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 9
+	},
+/obj/machinery/vending/medical{
+	req_access = list(113)
+	},
+/turf/simulated/floor/tiled/white,
+/area/hegemony_ship/medbay)
 "At" = (
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/bruiser/real/ap{
@@ -7174,6 +7181,10 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/engineering)
+"QP" = (
+/obj/machinery/pipedispenser,
+/turf/simulated/floor,
+/area/hegemony_ship/engineering)
 "QR" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 1984;
@@ -8069,15 +8080,6 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
-"Wq" = (
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 9
-	},
-/obj/machinery/vending/medical{
-	req_access = list(113)
-	},
-/turf/simulated/floor/tiled/white,
-/area/hegemony_ship/medbay)
 "Wt" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -21661,7 +21663,7 @@ wI
 qm
 jn
 LE
-Wq
+As
 Um
 uq
 le
@@ -23445,7 +23447,7 @@ sG
 ZF
 Dn
 Dn
-As
+QP
 Ot
 aJ
 aJ
