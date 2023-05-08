@@ -483,7 +483,7 @@
 				descriptor = "huge"
 			else
 				descriptor = "gargantuan"
-		heightString = "[get_pronoun("He")] look[get_pronoun("end")] [descriptor]"
+		heightString += "[get_pronoun("He")] look[get_pronoun("end")] [descriptor]"
 		if(!species.hide_name)
 			heightString += " for a [species.name]"
 
