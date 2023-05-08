@@ -412,7 +412,8 @@
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/alarm{
 	dir = 8;
-	pixel_x = 28
+	pixel_x = 28;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/armory)
@@ -941,7 +942,8 @@
 	pixel_y = 0
 	},
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = null
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1629,7 +1631,8 @@
 	dir = 10
 	},
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = null
 	},
 /turf/simulated/floor/wood,
 /area/hegemony_ship/trophy_room)
@@ -1776,7 +1779,8 @@
 	dir = 10
 	},
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8;
@@ -1876,7 +1880,8 @@
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/alarm{
 	dir = 4;
-	pixel_x = -28
+	pixel_x = -28;
+	req_one_access = null
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2110,7 +2115,8 @@
 	},
 /obj/machinery/alarm{
 	dir = 8;
-	pixel_x = 28
+	pixel_x = 28;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_flak)
@@ -2411,7 +2417,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28;
-	req_one_access = list(24,11,55)
+	req_one_access = null
 	},
 /turf/simulated/floor/wood,
 /area/hegemony_ship/temple)
@@ -3208,7 +3214,8 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = null
 	},
 /obj/machinery/light{
 	dir = 1
@@ -3542,7 +3549,8 @@
 	},
 /obj/machinery/alarm{
 	dir = 8;
-	pixel_x = 28
+	pixel_x = 28;
+	req_one_access = null
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -3771,6 +3779,9 @@
 	icon_state = "rwindow"
 	},
 /obj/effect/shuttle_landmark/hegemony_shuttle/dock,
+/obj/machinery/door/window{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/hegemony_ship/docking_port)
 "xw" = (
@@ -4216,7 +4227,8 @@
 	},
 /obj/machinery/alarm{
 	dir = 4;
-	pixel_x = -28
+	pixel_x = -28;
+	req_one_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_ship/aux_cic)
@@ -4243,7 +4255,8 @@
 	},
 /obj/machinery/alarm{
 	dir = 4;
-	pixel_x = -28
+	pixel_x = -28;
+	req_one_access = null
 	},
 /obj/machinery/light{
 	dir = 8
@@ -4377,9 +4390,14 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/eva_storage)
 "As" = (
-/obj/machinery/pipedispenser,
-/turf/simulated/floor,
-/area/hegemony_ship/engineering)
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 9
+	},
+/obj/machinery/vending/medical{
+	req_access = list(113)
+	},
+/turf/simulated/floor/tiled/white,
+/area/hegemony_ship/medbay)
 "At" = (
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/bruiser/real/ap{
@@ -5361,7 +5379,8 @@
 "GF" = (
 /obj/machinery/alarm{
 	dir = 4;
-	pixel_x = -28
+	pixel_x = -28;
+	req_one_access = null
 	},
 /turf/simulated/floor/wood,
 /area/hegemony_ship/canteen)
@@ -5953,7 +5972,8 @@
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/alarm{
 	dir = 8;
-	pixel_x = 28
+	pixel_x = 28;
+	req_one_access = null
 	},
 /obj/machinery/light/colored/red{
 	dir = 4
@@ -6098,7 +6118,8 @@
 /obj/structure/table/steel,
 /obj/item/storage/box/zipties,
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/brig)
@@ -6606,7 +6627,8 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = null
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -6658,7 +6680,8 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/medbay)
@@ -6829,6 +6852,9 @@
 /area/hegemony_ship)
 "OF" = (
 /obj/structure/window/reinforced,
+/obj/machinery/door/window{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/hegemony_ship/docking_port)
 "OG" = (
@@ -7246,7 +7272,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = null
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -7429,7 +7456,8 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = null
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony{
 	pixel_y = -4
@@ -7638,11 +7666,15 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "TW" = (
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = null
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -7675,7 +7707,8 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
@@ -7716,6 +7749,10 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/space)
+"Uq" = (
+/obj/machinery/pipedispenser,
+/turf/simulated/floor,
+/area/hegemony_ship/engineering)
 "Ut" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
@@ -8440,7 +8477,8 @@
 	pixel_y = 0
 	},
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = null
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -21618,7 +21656,7 @@ wI
 qm
 jn
 LE
-ra
+As
 Um
 uq
 le
@@ -23402,7 +23440,7 @@ sG
 ZF
 Dn
 Dn
-As
+Uq
 Ot
 aJ
 aJ
