@@ -384,8 +384,8 @@
 	gear_tweaks += new /datum/gear_tweak/path(vysoka)
 
 /datum/gear/head/joku
-	display_name = "vysokan fancy cap selection"
-	description = "A placeholder description for a fancy hat."
+	display_name = "vysokan joku cap"
+	description = "A warm-looking expensive cap made from fine, dyed dalakyhr fur."
 	path = /obj/item/clothing/head/vysoka/joku
 	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)

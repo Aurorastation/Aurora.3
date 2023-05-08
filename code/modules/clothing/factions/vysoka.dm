@@ -89,9 +89,9 @@
 	item_state = "fur_red"
 
 /obj/item/clothing/head/vysoka/joku
-	name = "fancy vysokan hat placeholder"
-	desc = "A placeholder description."
-	desc_extended = "A placeholder fluff description."
+	name = "vysokan joku cap"
+	desc = "A warm-looking expensive cap made from fine, dyed dalakyhr fur and a few dainshu feathers sticking out of its crown. It has golden thread delicately embroidered into it depicting a stylised natural scene that looks like it took a craftsperson hours upon hours to make. "
+	desc_extended = null
 	icon_state = "joku"
 	item_state = "joku"
 
