@@ -383,6 +383,7 @@
 
 	if(stage >= 4) //after ~15 minutes
 		if(prob(2))
+			to_chat(owner, SPAN_WARNING(pick("A deep, tingling sensation paralyses your left arm.", "You feel as if you just struck your funny bone.", "You feel a pulsing sensation within your left arm.")))
 			owner.emote(pick("twitch", "shiver"))
 			owner.stuttering = 20
 		if(prob(1))
@@ -428,7 +429,7 @@
 		if(prob(7))
 			heart.take_damage(rand(2,5))
 		if(prob(5))
-			to_chat(owner, SPAN_WARNING(pick("Your chest feels tight.", "Your chest is aching.", "You feel a stabbing pain in your chest!")))
+			to_chat(owner, SPAN_WARNING(pick("Your chest feels tight.", "Your chest is aching.", "You feel a stabbing pain in your chest!", "You feel a painful, tickly sensation within your chest.")))
 			owner.adjustHalLoss(15)
 
 	if(stage >= 4)  //after ~22.5 minutes
