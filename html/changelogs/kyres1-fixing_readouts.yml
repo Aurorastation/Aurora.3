@@ -1,6 +1,0 @@
-author: kyres1
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the scan readout for asteroids having the wrong readout for its mass, volume and gravity."
