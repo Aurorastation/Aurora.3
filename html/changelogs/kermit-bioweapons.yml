@@ -1,0 +1,14 @@
+author: kermit
+delete-after: True
+
+changes:
+  - rscadd: "Added a Chemical, Biological & Radiological Weapons tab on the Traitor Uplink"
+  - rscadd: "Adds a 2 different parasitic worm kits: Nerve Flukes (3TC) which are non-lethal, incapacitating; Heart Flukes (4TC) which are lethal if left untreated."
+  - rscadd: "Adds Helmizole (1u Dylovene, 1u Fluvectionem, 1u Leporazine) which is used to treat parasitic infections (does not treat k'ois mycosis parasites). 2x syringes spawn in the Medications Cabinet. ODing will make the parasite drug resistant, forcing surgical extraction."
+  - rscadd: "Garlic(juice/sauce) also has weak antiparasitic properties. Only enough to slow progression."
+  - rscadd: "Adds Greimorian Eggs (4C) which are planted on the ground on-purchase."
+  - rscadd: "Adds a Dirty Bomb (4TC). It functions like a plastic explosive but irradiates the room it detonates in for ~10 minutes. It has a minimum timer of 5 minutes. This is alongside a Radiation Suit Kit (1TC)"
+  - tweak: "The Random Toxin Kit is under the new CBR tab."
+  - tweak: "Pill bottle naming consistency."
+  - tweak: "Asinodryl now works properly. In addition to actually preventing vomiting, it now prevents dizziness (screen wobbling) and confusion (random step direction)."
+  - tweak: "Updated the warehouse/strange crate spawns to include more recently added medical items/drugs (coagzolug, helmizole, pill bottles of x, stabiliser harnesses)."

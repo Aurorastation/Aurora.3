@@ -380,6 +380,7 @@
 #include "code\datums\uplink\ammunition.dm"
 #include "code\datums\uplink\announcements.dm"
 #include "code\datums\uplink\badassery.dm"
+#include "code\datums\uplink\bioweapons.dm"
 #include "code\datums\uplink\corporate_equipment.dm"
 #include "code\datums\uplink\devices_and_tools.dm"
 #include "code\datums\uplink\exosuit.dm"
