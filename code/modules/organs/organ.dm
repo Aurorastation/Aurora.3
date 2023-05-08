@@ -361,7 +361,7 @@
 
 /obj/item/organ/proc/mechassist() //Used to add things like pacemakers, etc
 	status = ORGAN_ASSISTED
-	robotic = 1
+	robotic = ROBOTIC_ASSISTED
 	switch(organ_tag)
 				if(BP_HEART)
 					name = "pacemaker-assisted [initial(name)]"
