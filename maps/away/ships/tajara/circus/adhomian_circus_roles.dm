@@ -27,6 +27,7 @@
 	special_role = "Adhomian Circus Crew"
 
 	respawn_flag = null
+	uses_species_whitelist = FALSE
 
 /datum/outfit/admin/adhomian_circus/crew
 	name = "Adhomian Circus Crew"
