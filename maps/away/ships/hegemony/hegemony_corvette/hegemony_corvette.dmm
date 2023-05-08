@@ -1704,6 +1704,11 @@
 	frequency = 1385;
 	layer = 2.8
 	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	frequency = 1385;
+	id_tag = "hegemony_shuttle_exterior_sensor";
+	pixel_y = 30
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/hegemony)
 "lI" = (
@@ -4707,13 +4712,9 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "Cp" = (
-/obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1385;
-	id_tag = "hegemony_shuttle_exterior_sensor";
-	pixel_y = -30
-	},
-/turf/template_noop,
-/area/space)
+/obj/machinery/pipedispenser,
+/turf/simulated/floor,
+/area/hegemony_ship/engineering)
 "Cr" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/hegemony_ship)
@@ -7180,10 +7181,6 @@
 	name = "port, engineering"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/hegemony_ship/engineering)
-"QP" = (
-/obj/machinery/pipedispenser,
-/turf/simulated/floor,
 /area/hegemony_ship/engineering)
 "QR" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -22809,7 +22806,7 @@ rL
 rL
 rL
 aJ
-Cp
+aJ
 rL
 gk
 sI
@@ -23447,7 +23444,7 @@ sG
 ZF
 Dn
 Dn
-QP
+Cp
 Ot
 aJ
 aJ
