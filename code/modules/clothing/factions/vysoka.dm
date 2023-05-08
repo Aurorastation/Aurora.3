@@ -95,14 +95,38 @@
 	icon_state = "joku"
 	item_state = "joku"
 
-/obj/item/clothing/head/vysoka/purple
+/obj/item/clothing/head/vysoka/joku/purple
 	icon_state = "joku_purple"
 	item_state = "joku_purple"
 
-/obj/item/clothing/head/vysoka/blue
+/obj/item/clothing/head/vysoka/joku/blue
 	icon_state = "joku_blue"
 	item_state = "joku_blue"
 
-/obj/item/clothing/head/vysoka/red
+/obj/item/clothing/head/vysoka/joku/red
 	icon_state = "joku_red"
 	item_state = "joku_red"
+
+/obj/item/clothing/head/pin/dainshu
+	name = "vysokan dainshu feather"
+	desc = "The feather of a Vysokan dainshu, a domesticated flying beast whose companionship is akin to that of an Earth falcon."
+	icon = 'icons/obj/item/clothing/head/vysoka_caps.dmi'
+	icon_state = "dainshu"
+	item_state = "dainshu"
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/gurmori
+	name = "gurmori hide boots"
+	desc = "A pair of hide boots with a shining, scaled appearance, this is produced from the mantle of a Vysokan Gurmori - oftentimes to the memory of a rider's past mount and companion."
+	icon = 'icons/obj/item/clothing/shoes/vysoka_shoes.dmi'
+	icon_state = "gurmori"
+	item_state = "gurmori"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/vysoka
+	name = "thin temperwear"
+	desc = "A loose outfit of thinned and shredded ohdker fur. The particular process of its threading makes these a popular appearance in Vysokan wardrobes, owing to their comfort in varying conditions - mostly the sweltering summer heat or heavy wind of their native plains."
+	icon = 'icons/obj/item/clothing/under/vysoka_under.dmi'
+	icon_state = "temperwear"
+	item_state = "temperwear"
+	contained_sprite = TRUE
