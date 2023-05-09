@@ -3343,6 +3343,7 @@
 #include "maps\away\ships\einstein\ee_spy_ship_ghostroles.dm"
 #include "maps\away\ships\elyra\elyra_strike_craft.dm"
 #include "maps\away\ships\elyra\elyra_strike_craft_ghostroles.dm"
+#include "maps\away\ships\freebooter\freebooter_ship_ghostroles.dm"
 #include "maps\away\ships\hegemony\hegemony_corvette\hegemony_corvette.dm"
 #include "maps\away\ships\hegemony\hegemony_corvette\hegemony_corvette_areas.dm"
 #include "maps\away\ships\hegemony\hegemony_corvette\hegemony_ghostroles.dm"

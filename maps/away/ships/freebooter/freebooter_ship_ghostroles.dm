@@ -19,8 +19,8 @@
 /datum/outfit/admin/freebooter_crew
 	name = "Freebooter Crewman"
 
-	uniform = /obj/item/clothing/under/syndicate/tracksuit
-	shoes = /obj/item/clothing/shoes/workboots
+	uniform = /obj/item/clothing/under/tactical
+	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
 
 	id = /obj/item/card/id/freebooter_crew_ship
@@ -69,9 +69,6 @@
 
 /datum/outfit/admin/freebooter_crew/captain
 	name = "Freebooter Captain"
-
-	uniform = /obj/item/clothing/under/tactical
-	shoes = /obj/item/clothing/shoes/workboots/grey
 
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless/grey,
