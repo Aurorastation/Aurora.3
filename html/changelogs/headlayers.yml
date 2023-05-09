@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the ability to show head clothing items under suit slots. Currently only used by hijabs."

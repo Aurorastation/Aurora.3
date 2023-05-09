@@ -100,29 +100,30 @@ There are several things that need to be remembered:
 #define GLOVES_LAYER          13
 #define BELT_LAYER            14
 #define WRISTS_LAYER_ALT      15
-#define SUIT_LAYER            16
-#define ID_LAYER_ALT          17
-#define TAIL_NORTH_LAYER      18
-#define TAIL_NORTH_ACC_LAYER  19
-#define HAIR_LAYER_ALT        20
-#define GLASSES_LAYER         21
-#define BELT_LAYER_ALT        22
-#define SUIT_STORE_LAYER      23
-#define BACK_LAYER            24
-#define HAIR_LAYER            25
-#define GLASSES_LAYER_ALT     26
-#define L_EAR_LAYER           27
-#define R_EAR_LAYER           28
-#define FACEMASK_LAYER        29
-#define HEAD_LAYER            30
-#define COLLAR_LAYER          31
-#define HANDCUFF_LAYER        32
-#define LEGCUFF_LAYER         33
-#define L_HAND_LAYER          34
-#define R_HAND_LAYER          35
-#define WRISTS_LAYER          36
-#define FIRE_LAYER_UPPER      37
-#define TOTAL_LAYERS          37
+#define HEAD_LAYER_ALT		  16
+#define SUIT_LAYER            17
+#define ID_LAYER_ALT          18
+#define TAIL_NORTH_LAYER      19
+#define TAIL_NORTH_ACC_LAYER  20
+#define HAIR_LAYER_ALT        21
+#define GLASSES_LAYER         22
+#define BELT_LAYER_ALT        23
+#define SUIT_STORE_LAYER      24
+#define BACK_LAYER            25
+#define HAIR_LAYER            26
+#define GLASSES_LAYER_ALT     27
+#define L_EAR_LAYER           28
+#define R_EAR_LAYER           29
+#define FACEMASK_LAYER        30
+#define HEAD_LAYER            31
+#define COLLAR_LAYER          32
+#define HANDCUFF_LAYER        33
+#define LEGCUFF_LAYER         34
+#define L_HAND_LAYER          35
+#define R_HAND_LAYER          36
+#define WRISTS_LAYER          37
+#define FIRE_LAYER_UPPER      38
+#define TOTAL_LAYERS          38
 ////////////////////////////
 
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
@@ -768,7 +769,21 @@ There are several things that need to be remembered:
 			else if(l_ear.item_icons && (slot_l_ear_str in l_ear.item_icons))
 				mob_icon = l_ear.item_icons[slot_l_ear_str]
 
-			overlays_raw[L_EAR_LAYER] = l_ear.get_mob_overlay(src, mob_icon, mob_state, slot_l_ear_str)
+			if(istype(l_ear, /obj/item/clothing/head))
+				var/obj/item/clothing/head/H = l_ear
+				if(H.over_suit != -1) // Can it change layers?
+					var/ear_layer = L_EAR_LAYER
+					var/null_layer = HEAD_LAYER_ALT
+					if(H.over_suit == FALSE)
+						ear_layer = HEAD_LAYER_ALT
+						null_layer = L_EAR_LAYER
+					overlays_raw[ear_layer] = l_ear.get_mob_overlay(src, mob_icon, mob_state, slot_l_ear_str)
+					overlays_raw[null_layer] = null
+				else
+					overlays_raw[L_EAR_LAYER] = l_ear.get_mob_overlay(src, mob_icon, mob_state, slot_l_ear_str)
+			else
+				overlays_raw[L_EAR_LAYER] = l_ear.get_mob_overlay(src, mob_icon, mob_state, slot_l_ear_str)
+			
 	else
 		overlays_raw[L_EAR_LAYER] = null
 
@@ -800,7 +815,20 @@ There are several things that need to be remembered:
 			else if(r_ear.item_icons && (slot_r_ear_str in r_ear.item_icons))
 				mob_icon = r_ear.item_icons[slot_r_ear_str]
 
-			overlays_raw[R_EAR_LAYER] = r_ear.get_mob_overlay(src, mob_icon, mob_state, slot_r_ear_str)
+			if(istype(r_ear, /obj/item/clothing/head))
+				var/obj/item/clothing/head/H = r_ear
+				if(H.over_suit != -1) // Can it change layers?
+					var/ear_layer = R_EAR_LAYER
+					var/null_layer = HEAD_LAYER_ALT
+					if(H.over_suit == FALSE)
+						ear_layer = HEAD_LAYER_ALT
+						null_layer = R_EAR_LAYER
+					overlays_raw[ear_layer] = r_ear.get_mob_overlay(src, mob_icon, mob_state, slot_r_ear_str)
+					overlays_raw[null_layer] = null
+				else
+					overlays_raw[R_EAR_LAYER] = r_ear.get_mob_overlay(src, mob_icon, mob_state, slot_r_ear_str)
+			else
+				overlays_raw[R_EAR_LAYER] = r_ear.get_mob_overlay(src, mob_icon, mob_state, slot_r_ear_str)
 	else
 		overlays_raw[R_EAR_LAYER] = null
 
@@ -893,7 +921,6 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	overlays_raw[HEAD_LAYER] = null
 	if(head)
 		var/mob_icon = INV_HEAD_DEF_ICON
 		var/mob_state = head.icon_state
@@ -916,8 +943,23 @@ There are several things that need to be remembered:
 			mob_icon = head.item_icons[slot_head_str]
 		else
 			mob_icon = INV_HEAD_DEF_ICON
-
-		overlays_raw[HEAD_LAYER] = head.get_mob_overlay(src, mob_icon, mob_state, slot_head_str)
+		if(istype(head, /obj/item/clothing/head))
+			var/obj/item/clothing/head/H = head
+			if(H.over_suit != -1) // Can it change layers?
+				var/head_layer = HEAD_LAYER
+				var/null_layer = HEAD_LAYER_ALT
+				if(H.over_suit == FALSE)
+					head_layer = HEAD_LAYER_ALT
+					null_layer = HEAD_LAYER
+				overlays_raw[head_layer] = head.get_mob_overlay(src, mob_icon, mob_state, slot_head_str)
+				overlays_raw[null_layer] = null
+			else
+				overlays_raw[HEAD_LAYER] = head.get_mob_overlay(src, mob_icon, mob_state, slot_head_str)
+		else
+			overlays_raw[HEAD_LAYER] = head.get_mob_overlay(src, mob_icon, mob_state, slot_head_str)
+			
+	else
+		overlays_raw[HEAD_LAYER] = null
 
 	if (recurse)
 		update_hair(FALSE)
@@ -1555,6 +1597,7 @@ There are several things that need to be remembered:
 #undef GLOVES_LAYER
 #undef BELT_LAYER
 #undef WRISTS_LAYER_ALT
+#undef HEAD_LAYER_ALT
 #undef SUIT_LAYER
 #undef TAIL_NORTH_LAYER
 #undef TAIL_SOUTH_LAYER

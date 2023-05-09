@@ -246,6 +246,8 @@
 
 /datum/gear/head/hijab/New()
 	..()
+	gear_tweaks += list(gear_tweak_head_layer)
+
 	var/list/hijab = list()
 	hijab["white hijab"] = /obj/item/clothing/head/hijab
 	hijab["grey hijab"] = /obj/item/clothing/head/hijab/grey
@@ -262,6 +264,10 @@
 	path = /obj/item/clothing/head/hijab
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	slot = slot_r_ear
+
+/datum/gear/head/hijab_colorable/New()
+	..()
+	gear_tweaks += list(gear_tweak_head_layer)
 
 /datum/gear/head/turban
 	display_name = "turban selection"
@@ -444,3 +450,27 @@ var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
 			H.flags_inv |= BLOCKHEADHAIR
 		if("No")
 			H.flags_inv &= ~BLOCKHEADHAIR
+
+/*
+	Head Layer Adjustment
+*/
+var/datum/gear_tweak/head_layer/gear_tweak_head_layer = new()
+
+/datum/gear_tweak/head_layer/get_contents(var/metadata)
+	return "Head Layer: [metadata] Suit"
+
+/datum/gear_tweak/head_layer/get_default()
+	return "Over"
+
+/datum/gear_tweak/head_layer/get_metadata(var/user, var/metadata)
+	return input(user, "Choose whether you want the headwear to go over or under the suit.", "Head Layer", metadata) as anything in list("Over", "Under")
+
+/datum/gear_tweak/head_layer/tweak_item(var/obj/item/clothing/head/H, var/metadata)
+	if(!istype(H))
+		return
+	if(H.over_suit == -1)
+		return
+	if(metadata == "Over")
+		H.over_suit = TRUE
+	else
+		H.over_suit = FALSE

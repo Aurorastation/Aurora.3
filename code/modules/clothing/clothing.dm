@@ -550,6 +550,7 @@
 	var/light_applied
 	var/brightness_on
 	var/on = 0
+	var/over_suit = -1
 
 /obj/item/clothing/head/Initialize(mapload, material_key)
 	. = ..()
@@ -566,6 +567,21 @@
 		if(ishuman(usr))
 			var/mob/living/carbon/human/H = usr
 			H.update_hair()
+
+/obj/item/clothing/head/verb/toggle_layer()
+	set name = "Switch Head Layer"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return 0
+	if(over_suit == -1)
+		to_chat(usr, SPAN_NOTICE("[src] cannot be worn under your suit!"))
+		return 0
+	
+	over_suit = !over_suit
+	update_icon()
+	update_clothing_icon()
 
 /obj/item/clothing/head/get_image_key_mod()
 	return on
@@ -708,7 +724,11 @@
 /obj/item/clothing/head/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
+		if(slot_flags & SLOT_EARS) // Update ears if we can go there
+			M.update_inv_l_ear()
+			M.update_inv_r_ear()
 		M.update_inv_head()
+		return
 
 /obj/item/clothing/head/clothing_class()
 	return "helmet"

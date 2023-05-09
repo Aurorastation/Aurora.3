@@ -296,6 +296,7 @@
 	body_parts_covered = 0
 	contained_sprite = 1
 	slot_flags = SLOT_EARS  | SLOT_HEAD
+	over_suit = TRUE
 
 /obj/item/clothing/head/hijab/get_ear_examine_text(var/mob/user, var/ear_text = "left")
 	return "on [user.get_pronoun("his")] head"
