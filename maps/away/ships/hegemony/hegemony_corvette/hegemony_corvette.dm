@@ -2,7 +2,7 @@
 	name = "Hegemony Corvette"
 	description = "Ship with lizards."
 	suffixes = list("ships/hegemony/hegemony_corvette/hegemony_corvette.dmm")
-	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
+	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_SPARRING_SEA)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "hegemony_corvette"
