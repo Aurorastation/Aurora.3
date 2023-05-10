@@ -4,6 +4,9 @@
 	name_plural = "Baselines"
 	category_name = "Integrated Positronic Chassis"
 	bodytype = BODYTYPE_IPC
+	species_height = HEIGHT_CLASS_SHORT
+	height_min = 100
+	height_max = 250
 	age_min = 1
 	age_max = 60
 	economic_modifier = 3
@@ -133,10 +136,13 @@
 	)
 
 	alterable_internal_organs = list()
+	possible_speech_bubble_types = list("synth", "normal")
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
 	var/move_charge_factor = 1
+
+	use_alt_hair_layer = TRUE
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
@@ -173,7 +179,7 @@
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
 	H.f_style = ""
-	addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/update_hair), 100)
+	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, update_hair)), 100)
 
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)

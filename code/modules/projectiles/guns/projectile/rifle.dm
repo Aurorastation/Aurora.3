@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/shotgun/pump/rifle
 	name = "bolt action rifle"
-	desc = "A cheap ballistic rifle often found in the hands of crooks and frontiersmen. Uses 7.62mm rounds."
+	desc = "A cheap ballistic rifle often found in the hands of Tajaran conscripts. Uses 7.62mm rounds."
 	icon = 'icons/obj/guns/moistnugget.dmi'
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
@@ -23,6 +23,21 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/blank
 	desc = "A replica of a traditional adhomian bolt action rifle. It has the seal of the Grand Romanovich Casino on its stock. Uses 7.62mm rounds."
 	ammo_type = /obj/item/ammo_casing/a762/blank
+
+/obj/item/gun/projectile/shotgun/pump/rifle/scope
+	name = "sniper bolt action rifle"
+	desc = "A cheap ballistic rifle often found in the hands of Tajaran conscripts. This one has a telescopic sight attached to it. Uses 7.62mm rounds."
+	icon = 'icons/obj/guns/bolt_scope.dmi'
+
+/obj/item/gun/projectile/shotgun/pump/rifle/scope/verb/scope()
+	set category = "Object"
+	set name = "Use Scope"
+	set popup_menu = 1
+
+	if(wielded)
+		toggle_scope(2.0, usr)
+	else
+		to_chat(usr, SPAN_WARNING ("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/projectile/shotgun/pump/rifle/saw_off(mob/user, obj/item/tool)
 	icon = 'icons/obj/guns/obrez.dmi'
@@ -304,10 +319,10 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 
-	fire_delay = 25
+	fire_delay = ROF_UNWIELDY
 	accuracy = -1
 
-	fire_delay_wielded = 10
+	fire_delay_wielded = ROF_HEAVY
 	accuracy_wielded = 2
 
 	is_wieldable = TRUE
@@ -322,7 +337,7 @@
 	icon = 'icons/obj/guns/gauss_thumper.dmi'
 	icon_state = "gauss_thumper"
 	fire_sound = /singleton/sound_category/gauss_fire_sound
-	fire_delay = 30
+	fire_delay = ROF_UNWIELDY
 	charge_meter = 0
 	max_shots = 3
 	charge_cost = 500
@@ -345,7 +360,7 @@
 	handle_casings = HOLD_CASINGS
 	max_shells = 1
 
-	fire_delay_wielded = 20
+	fire_delay_wielded = ROF_INTERMEDIATE
 	accuracy_wielded = 1
 
 /obj/item/gun/projectile/gauss/carbine/update_icon()

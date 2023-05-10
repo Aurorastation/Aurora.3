@@ -47,6 +47,27 @@ Color adjustment
 	I.color = sanitize_hexcolor(metadata, I.color)
 
 /*
+Alpha adjustment
+*/
+
+/datum/gear_tweak/alpha/get_contents(var/metadata)
+	return "Alpha (0-255): [metadata]"
+
+/datum/gear_tweak/alpha/get_default()
+	return 255
+
+/datum/gear_tweak/alpha/get_random()
+	return 255
+
+/datum/gear_tweak/alpha/get_metadata(var/user, var/metadata, var/title = "Character Preference")
+	var/selected_alpha = input(user, "Choose a color.", title, metadata) as num|null
+	selected_alpha = Clamp(selected_alpha, 0, 255)
+	return selected_alpha
+
+/datum/gear_tweak/alpha/tweak_item(var/obj/item/item, var/metadata, var/mob/living/carbon/human/H)
+	item.alpha = metadata
+
+/*
 	Additional Color adjustment
 */
 
@@ -106,6 +127,17 @@ Path adjustment
 	if(!(metadata in valid_paths))
 		return
 	gear_data.path = valid_paths[metadata]
+
+/*
+Faction-based Path adjustment
+Same as the adjustment above, but the associated value is a list with the first value containing the path and the second the faction requirement
+*/
+
+/datum/gear_tweak/path/faction/tweak_gear_data(var/metadata, var/datum/gear_data/gear_data)
+	if(!(metadata in valid_paths))
+		return
+	gear_data.path = valid_paths[metadata][1]
+	gear_data.faction_requirement = valid_paths[metadata][2]
 
 /*
 Content adjustment

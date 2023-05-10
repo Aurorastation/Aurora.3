@@ -102,6 +102,7 @@
 
 /datum/modular_computer_app_presets/medical/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -160,28 +161,6 @@
 	)
 	return _prg_list
 
-/datum/modular_computer_app_presets/research/robotics
-	name = "research_robotics"
-	display_name = "Research - Robotics"
-	description = "Contains the most common research programs and medical record software."
-	available = TRUE
-
-/datum/modular_computer_app_presets/research/robotics/return_install_programs(obj/item/modular_computer/comp)
-	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(comp),
-		new /datum/computer_file/program/newsbrowser(comp),
-		new /datum/computer_file/program/manifest(comp),
-		new /datum/computer_file/program/filemanager(comp),
-		new /datum/computer_file/program/chat_client(comp),
-		new /datum/computer_file/program/civilian/cargoorder(comp),
-		new /datum/computer_file/program/ntnetmonitor(comp),
-		new /datum/computer_file/program/aidiag(comp),
-		new /datum/computer_file/program/records/medical(comp),
-		new /datum/computer_file/program/scanner/science(comp),
-		new /datum/computer_file/program/scanner/gas(comp)
-	)
-	return _prg_list
-
 /datum/modular_computer_app_presets/research/rd
 	name = "research_head"
 	display_name = "Research - RD"
@@ -220,7 +199,7 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/card_mod(comp),
-		new /datum/computer_file/program/comm(comp, FALSE),
+		new /datum/computer_file/program/comm(comp, TRUE),
 		new /datum/computer_file/program/records/employment(comp)
 	)
 	return _prg_list
@@ -301,7 +280,7 @@
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/card_mod(comp),
-		new /datum/computer_file/program/comm(comp, FALSE),
+		new /datum/computer_file/program/comm(comp, TRUE),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/digitalwarrant(comp),
 		new /datum/computer_file/program/penal_mechs(comp),
@@ -496,6 +475,26 @@
 	)
 	return _prg_list
 
+/datum/modular_computer_app_presets/supply/om
+	name = "operations manager"
+	display_name = "Operations Manager"
+	description = "Contains the most common cargo programs as well as the OM's ones."
+	available = FALSE
+
+/datum/modular_computer_app_presets/supply/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/civilian/cargocontrol(comp),
+		new /datum/computer_file/program/civilian/cargoorder(comp),
+		new /datum/computer_file/program/civilian/cargodelivery(comp),
+		new /datum/computer_file/program/comm(comp, FALSE)
+	)
+	return _prg_list
+
 /datum/modular_computer_app_presets/cargo_delivery
 	name = "cargo_delivery"
 	display_name = "Cargo Delivery"
@@ -510,6 +509,27 @@
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargodelivery(comp)
+	)
+	return _prg_list
+
+/datum/modular_computer_app_presets/supply/machinist
+	name = "operations_machinist"
+	display_name = "Operations - Machinist"
+	description = "Contains the most common supply programs and medical record software."
+	available = TRUE
+
+/datum/modular_computer_app_presets/supply/machinist/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/civilian/cargoorder(comp),
+		new /datum/computer_file/program/aidiag(comp),
+		new /datum/computer_file/program/records/medical(comp),
+		new /datum/computer_file/program/scanner/science(comp),
+		new /datum/computer_file/program/scanner/gas(comp)
 	)
 	return _prg_list
 

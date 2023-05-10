@@ -2036,7 +2036,6 @@
 /area/tajaran_smuggler)
 "kpn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -2514,6 +2513,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/item/device/gps/engineering,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2956,6 +2956,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3799,6 +3800,7 @@
 	req_one_access = null;
 	pixel_y = 32
 	},
+/obj/item/device/gps/engineering,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -41044,19 +41046,19 @@ xRX
 xRX
 xRX
 xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 afL
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
 xRX
 xRX
 xRX

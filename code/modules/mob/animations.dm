@@ -46,33 +46,26 @@ note dizziness decrements automatically in the mob's Life() proc.
 /mob/var/is_jittery = 0
 /mob/var/jitteriness = 0//Carbon
 /mob/proc/make_jittery(var/amount)
-	if(!istype(src, /mob/living/carbon/human)) // for the moment, only humans get dizzy
-		return
+	return
 
+/mob/living/carbon/human/make_jittery(amount)	
 	jitteriness = min(1000, jitteriness + amount)	// store what will be new value
 													// clamped to max 1000
-	if(jitteriness > 100 && !is_jittery)
+	if(jitteriness > 100 && !is_jittery && stat != DEAD && !(status_flags & FAKEDEATH))
 		spawn(0)
 			jittery_process()
 
-
-// Typo from the oriignal coder here, below lies the jitteriness process. So make of his code what you will, the previous comment here was just a copypaste of the above.
 /mob/proc/jittery_process()
-	//var/old_x = pixel_x
-	//var/old_y = pixel_y
-	is_jittery = 1
+	is_jittery = TRUE
 	while(jitteriness > 100)
-//		var/amplitude = jitteriness*(sin(jitteriness * 0.044 * world.time) + 1) / 70
-//		pixel_x = amplitude * sin(0.008 * jitteriness * world.time)
-//		pixel_y = amplitude * cos(0.008 * jitteriness * world.time)
-
 		var/amplitude = min(4, jitteriness / 100)
 		pixel_x = old_x + rand(-amplitude, amplitude)
 		pixel_y = old_y + rand(-amplitude/3, amplitude/3)
-
+		if(stat == DEAD || (status_flags & FAKEDEATH))
+			break
 		sleep(1)
 	//endwhile - reset the pixel offsets to zero
-	is_jittery = 0
+	is_jittery = FALSE
 	pixel_x = old_x
 	pixel_y = old_y
 
@@ -96,6 +89,13 @@ note dizziness decrements automatically in the mob's Life() proc.
 			if(shoegrip)
 				set_floating(FALSE)
 				return
+	else
+		if(CanAvoidGravity())
+			set_floating(TRUE)
+			return
+		else
+			set_floating(FALSE)
+			return
 
 	set_floating(TRUE)
 
@@ -189,7 +189,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 	..(A, attack_item, attack_image, initial_pixel_x, initial_pixel_y)
 
 	if(is_floating)
-		addtimer(CALLBACK(src, .proc/start_floating), 4)
+		addtimer(CALLBACK(src, PROC_REF(start_floating)), 4)
 
 	if(attack_item == FIST_ATTACK_ANIMATION) // only play the physical movement
 		return
@@ -287,4 +287,4 @@ note dizziness decrements automatically in the mob's Life() proc.
 	animate(transform = M, time = 0.6, easing = EASE_IN)
 
 	if(is_floating)
-		addtimer(CALLBACK(src, .proc/start_floating), 2.4)
+		addtimer(CALLBACK(src, PROC_REF(start_floating)), 2.4)

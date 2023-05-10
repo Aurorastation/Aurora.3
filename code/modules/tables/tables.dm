@@ -164,7 +164,7 @@
 			update_material()
 		return 1
 
-	if(!material && can_plate && istype(W, /obj/item/reagent_containers/cooking_container/plate/bowl))
+	if(!material && can_plate && istype(W, /obj/item/reagent_containers/cooking_container/board/bowl))
 		new /obj/structure/chemkit(loc)
 		qdel(W)
 		qdel(src)
@@ -421,8 +421,8 @@
 		if(material && T.material && material.name == T.material.name && flipped == T.flipped)
 			connection_dirs |= T_dir
 		if(propagate)
-			INVOKE_ASYNC(T, .proc/update_connections)
-			INVOKE_ASYNC(T, /atom/.proc/queue_icon_update)
+			INVOKE_ASYNC(T, PROC_REF(update_connections))
+			INVOKE_ASYNC(T, TYPE_PROC_REF(/atom, queue_icon_update))
 
 	connections = dirs_to_corner_states(connection_dirs)
 

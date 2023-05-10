@@ -1,5 +1,5 @@
 //like orange but only checks north/south/east/west for one step
-proc/cardinalrange(var/center)
+/proc/cardinalrange(var/center)
 	var/list/things = list()
 	for(var/direction in cardinal)
 		var/turf/T = get_step(center, direction)
@@ -35,7 +35,7 @@ proc/cardinalrange(var/center)
 	mapped = TRUE
 
 /obj/machinery/am_shielding/Initialize(mapload, var/obj/machinery/power/am_control_unit/AMC)
-	..()
+	. = ..()
 	if(!AMC)
 		if (!mapped)
 			WARNING("AME sector somehow created without a parent control unit!")
@@ -84,8 +84,7 @@ proc/cardinalrange(var/center)
 				break
 		if(!mapped) // Prevent rescanning and suicide if it's part of the map
 			if(!priorscan)
-				sleep(20)
-				controllerscan(TRUE)//Last chance
+				addtimer(CALLBACK(src, PROC_REF(controllerscan), TRUE), 20)
 				return
 			qdel(src)
 

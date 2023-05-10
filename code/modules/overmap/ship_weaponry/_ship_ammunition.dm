@@ -7,6 +7,7 @@
 	slowdown = 2
 	drop_sound = 'sound/items/drop/shell_drop.ogg'
 	var/projectile_type_override //Override projectile type fired by the gun. This is because certain guns don't use ammo (the Leviathan) but with some we want the ammo to matter.
+	var/overmap_projectile_type_override //Override projectile type on the overmap, fired by the gun. Like the Grauwolf Probe.
 	var/name_override //If set, this will override the ammunition name for the overmap effect.
 	var/written_message
 	var/wielded = FALSE
@@ -173,7 +174,12 @@
 	if(!start_object)
 		return FALSE
 
-	var/obj/effect/overmap/projectile/P = new(null, start_object.x, start_object.y)
+	var/obj/effect/overmap/projectile/P = null
+	if(overmap_projectile_type_override)
+		P = new overmap_projectile_type_override(null, start_object.x, start_object.y, origin)
+	else
+		P = new(null, start_object.x, start_object.y, origin)
+
 	P.name = name_override ? name_override : name
 	P.desc = desc
 	P.ammunition = src

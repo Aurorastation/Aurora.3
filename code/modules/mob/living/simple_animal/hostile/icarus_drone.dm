@@ -72,7 +72,7 @@
 	ion_trail = new(src)
 	ion_trail.start()
 	if(!malfunctioning)
-		addtimer(CALLBACK(src, .proc/beam_out), 15 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(beam_out)), 15 MINUTES)
 
 	// warp in effect
 	var/matrix/M = matrix()
@@ -156,13 +156,13 @@
 /mob/living/simple_animal/hostile/icarus_drone/Life()
 	//emps and lots of damage can temporarily shut us down
 	if(disabled > 0)
-		stat = UNCONSCIOUS
+		set_stat(UNCONSCIOUS)
 		icon_state = "drone_dead"
 		disabled--
 		wander = FALSE
 		speak_chance = 0
 	else
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 		icon_state = "drone0"
 		wander = TRUE
 		speak_chance = 5
@@ -219,7 +219,7 @@
 
 	if(!exploding && !disabled && prob(explode_chance))
 		exploding = TRUE
-		stat = UNCONSCIOUS
+		set_stat(UNCONSCIOUS)
 		wander = 1
 		walk(src, 0)
 		spawn(rand(50, 150))

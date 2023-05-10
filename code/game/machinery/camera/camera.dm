@@ -7,6 +7,7 @@
 	idle_power_usage = 5
 	active_power_usage = 10
 	layer = 5
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/list/network = list(NETWORK_STATION)
 	var/c_tag = null
@@ -49,9 +50,9 @@
 	*/
 	if(!src.network || src.network.len < 1)
 		if(loc)
-			error("[src.name] in [get_area(src)] (x:[src.x] y:[src.y] z:[src.z] has errored. [src.network?"Empty network list":"Null network list"]")
+			log_error("[src.name] in [get_area(src)] (x:[src.x] y:[src.y] z:[src.z] has errored. [src.network?"Empty network list":"Null network list"]")
 		else
-			error("[src.name] in [get_area(src)]has errored. [src.network?"Empty network list":"Null network list"]")
+			log_error("[src.name] in [get_area(src)]has errored. [src.network?"Empty network list":"Null network list"]")
 		ASSERT(src.network)
 		ASSERT(src.network.len > 0)
 	return ..()
@@ -202,7 +203,7 @@
 			src.bugged = 1
 		return TRUE
 
-	else if(W.damtype == BRUTE || W.damtype == BURN) //bashing cameras
+	else if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN) //bashing cameras
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if (W.force >= src.toughness)
 			user.do_attack_animation(src)
@@ -367,7 +368,7 @@
 	// Do after stuff here
 	to_chat(user, "<span class='notice'>You start to weld the [src]..</span>")
 	playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
-	WT.eyecheck(user)
+	user.flash_act(FLASH_PROTECTION_MAJOR)
 	busy = 1
 	if(WT.use_tool(src, user, 100, volume = 50))
 		busy = 0

@@ -71,11 +71,11 @@
 	icon_state = "industrial_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MINOR,
+		laser = ARMOR_LASER_SMALL,
 		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
+		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
@@ -206,6 +206,7 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/rfd_c,
+		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/actuators
 		)
 

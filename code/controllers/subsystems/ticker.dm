@@ -11,7 +11,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	name = "Ticker"
 
 	priority = SS_PRIORITY_TICKER
-	flags = SS_NO_TICK_CHECK | SS_FIRE_IN_LOBBY
+	flags = SS_NO_TICK_CHECK
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	init_order = SS_INIT_LOBBY
 
 	wait = 1 SECOND
@@ -40,8 +41,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/delay_end = 0	//if set to nonzero, the round will not restart on it's own
 
 	var/triai = 0	//Global holder for Triumvirate
-	var/tipped = FALSE						//Did we broadcast the tip of the day yet?
-	var/selected_tip						// What will be the tip of the day?
+	var/tipped = FALSE	//Did we broadcast the tip of the day yet?
 	var/testmerges_printed = FALSE
 
 	var/round_end_announced = 0 // Spam Prevention. Announce round end only once.
@@ -112,8 +112,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	delay_end = SSticker.delay_end
 
 	triai = SSticker.triai
-	tipped = SSticker.tipped
-	selected_tip = SSticker.selected_tip
 
 	round_end_announced = SSticker.round_end_announced
 
@@ -152,11 +150,13 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if (pregame_timeleft <= 0 || current_state == GAME_STATE_SETTING_UP)
 		current_state = GAME_STATE_SETTING_UP
+		Master.SetRunLevel(RUNLEVEL_SETUP)
 		wait = 2 SECONDS
 		switch (setup())
 			if (SETUP_REVOTE)
 				wait = 1 SECOND
 				is_revote = TRUE
+				Master.SetRunLevel(RUNLEVEL_LOBBY)
 				pregame()
 			if (SETUP_REATTEMPT)
 				pregame_timeleft = 1 SECOND
@@ -179,6 +179,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if(!mode.explosion_in_progress && game_finished && (mode_finished || post_game))
 		current_state = GAME_STATE_FINISHED
+		Master.SetRunLevel(RUNLEVEL_POSTGAME)
 
 		declare_completion()
 
@@ -338,7 +339,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	for(var/dept in ready_job.departments)
 		LAZYDISTINCTADD(ready_player_jobs[dept], prefs.real_name)
 		LAZYSET(ready_player_jobs[dept], prefs.real_name, ready_job.title)
-		sortTim(ready_player_jobs[dept], /proc/cmp_text_asc)
+		sortTim(ready_player_jobs[dept], GLOBAL_PROC_REF(cmp_text_asc))
 		. = TRUE
 
 	if(.)
@@ -393,18 +394,17 @@ var/datum/controller/subsystem/ticker/SSticker
 		if(NP.ready)
 			update_ready_list(NP)
 
-/datum/controller/subsystem/ticker/proc/send_tip_of_the_round()
-	var/m
-	if(selected_tip)
-		m = selected_tip
+/datum/controller/subsystem/ticker/proc/send_tip_of_the_round(var/tip_override)
+	var/message
+	if(tip_override)
+		message = tip_override
 	else
-		var/list/randomtips = file2list("config/tips.txt")
-		if(randomtips.len)
-			m = pick(randomtips)
+		var/chosen_tip_category = pick(tips_by_category)
+		var/datum/tip/tip_datum = tips_by_category[chosen_tip_category]
+		message = pick(tip_datum.messages)
 
-	if(m)
-		to_world("<span class='vote'><b>Tip of the round: \
-			</b>[html_encode(m)]</span>")
+	if(message)
+		to_world(SPAN_VOTE(SPAN_BOLD("Tip of the round:") + " [html_encode(message)]"))
 
 /datum/controller/subsystem/ticker/proc/print_testmerges()
 	var/data = revdata.testmerge_overview()
@@ -438,6 +438,31 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	to_world("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>")
 	to_world("Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
+
+	// Compute and, if available, print the ghost roles in the pre-round lobby. Begone, people who do not ready up to see what ghost roles will be available!
+	var/list/available_ghostroles = list()
+
+	for(var/s in SSghostroles.spawners)
+		var/datum/ghostspawner/G = SSghostroles.spawners[s]
+		if(G.enabled \
+			&& !("Antagonist" in G.tags) \
+			&& !(G.loc_type == GS_LOC_ATOM && !length(G.spawn_atoms)) \
+			&& (G.req_perms == null) \
+		)
+			available_ghostroles |= G.name
+
+	// Special case, to list the Merchant in case it is available at roundstart
+	if(SSjobs.type_occupations[/datum/job/merchant].total_positions)
+		available_ghostroles |= SSjobs.type_occupations[/datum/job/merchant].title
+
+	if(length(available_ghostroles))
+		to_world("<br>" \
+			+ SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round: ")) \
+			+ "[english_list(available_ghostroles)]. " \
+			+ SPAN_INFO("Actual availability may vary.") \
+			+ "<br>" \
+		)
+
 	callHook("pregame_start")
 
 /datum/controller/subsystem/ticker/proc/setup()
@@ -536,12 +561,12 @@ var/datum/controller/subsystem/ticker/SSticker
 	equip_characters()
 	SSrecords.build_records()
 
-	Master.RoundStart()
+	Master.SetRunLevel(RUNLEVEL_GAME)
 	real_round_start_time = REALTIMEOFDAY
 	round_start_time = world.time
 
 	callHook("roundstart")
-	INVOKE_ASYNC(src, .proc/roundstart)
+	INVOKE_ASYNC(src, PROC_REF(roundstart))
 
 	log_debug("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
 	run_callback_list(roundstart_callbacks)
@@ -565,7 +590,10 @@ var/datum/controller/subsystem/ticker/SSticker
 		var/obj/screen/new_player/selection/join_game/JG = locate() in NP.client.screen
 		JG.update_icon(NP)
 	to_world(SPAN_NOTICE("<b>Enjoy the round!</b>"))
-	sound_to(world, sound('sound/AI/welcome.ogg'))
+	if(SSatlas.current_sector.sector_welcome_message)
+		sound_to(world, sound(SSatlas.current_sector.sector_welcome_message))
+	else
+		sound_to(world, sound('sound/AI/welcome.ogg'))
 	//Holiday Round-start stuff	~Carn
 	Holiday_Game_Start()
 

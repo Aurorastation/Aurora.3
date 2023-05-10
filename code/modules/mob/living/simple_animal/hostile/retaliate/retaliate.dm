@@ -5,16 +5,7 @@
 	enemies = null
 	return ..()
 
-/mob/living/simple_animal/hostile/retaliate/Found(var/atom/A)
-	if(isliving(A))
-		var/mob/living/L = A
-		if(!L.stat)
-			stance = HOSTILE_STANCE_ATTACK
-			return L
-		else
-			enemies -= L
-
-/mob/living/simple_animal/hostile/retaliate/ListTargets()
+/mob/living/simple_animal/hostile/retaliate/get_targets()
 	if(!length(enemies))
 		return list()
 	var/list/see = ..()

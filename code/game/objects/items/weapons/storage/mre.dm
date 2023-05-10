@@ -14,7 +14,7 @@ MRE Stuff
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/storage/wrapper.ogg'
-	open_sound = 'sound/items/rip1.ogg'
+	open_sound = /singleton/sound_category/rip_sound
 	open_message = "You tear open the bag, breaking the vacuum seal."
 	var/main_meal = /obj/item/storage/box/fancy/mrebag
 	var/meal_desc = "This one is menu 1, meat pizza."
@@ -223,7 +223,7 @@ MRE Stuff
 	name = "dessert"
 	desc = "A vacuum-sealed bag containing a MRE's dessert."
 	icon_state = "pouch_small"
-	open_sound = 'sound/items/rip1.ogg'
+	open_sound = /singleton/sound_category/rip_sound
 	open_message = "You tear open the bag, breaking the vacuum seal."
 	starts_with = list(/obj/random/mre/dessert = 1)
 

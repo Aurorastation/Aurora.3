@@ -151,7 +151,7 @@
 	updatename(mod_type)
 
 	if(!client)
-		stat = UNCONSCIOUS
+		set_stat(UNCONSCIOUS)
 
 	if(mmi?.brainobj)
 		mmi.brainobj.prepared = TRUE
@@ -511,7 +511,7 @@
 	set category = "Robot Commands"
 	set name = "View Holomap"
 	set desc = "View a virtual map of the surrounding area."
-	
+
 	var/obj/machinery/station_map/mobile/holo_map_object
 	if(src.holo_map)
 		holo_map_object = src.holo_map.resolve()
@@ -520,7 +520,7 @@
 	if(!holo_map_object)
 		holo_map_object = new(src)
 		src.holo_map = WEAKREF(holo_map)
-	
+
 	holo_map_object.startWatching(src)
 
 /mob/living/silicon/robot/verb/rebuild_overlays()
@@ -1046,7 +1046,7 @@
 	else
 		say("WARNING! Self-destruct initiated. Unit [src] will self destruct in five seconds.")
 
-	addtimer(CALLBACK(src, .proc/self_destruct_warning, 1), 2 SECONDS, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(self_destruct_warning), 1), 2 SECONDS, TIMER_UNIQUE)
 
 /mob/living/silicon/robot/proc/self_destruct_warning(var/warning_level)
 	if(!process_level_restrictions()) // Robot has returned to a turf where it is safe
@@ -1057,10 +1057,10 @@
 	switch(warning_level)
 		if(1)
 			playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
-			addtimer(CALLBACK(src, .proc/self_destruct_warning, 2), 2 SECONDS, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, PROC_REF(self_destruct_warning), 2), 2 SECONDS, TIMER_UNIQUE)
 		if(2)
 			playsound(get_turf(src), 'sound/effects/alert.ogg', 125, TRUE)
-			addtimer(CALLBACK(src, .proc/self_destruct_warning, 3), 1 SECONDS, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, PROC_REF(self_destruct_warning), 3), 1 SECONDS, TIMER_UNIQUE)
 		if(3)
 			self_destruct()
 
@@ -1296,3 +1296,11 @@
 			to_chat(src, SPAN_DANGER("Hack attempt detected and thwarted. Evacuate the area immediately."))
 		return SMOOTH_TRUE
 	return
+
+/mob/living/silicon/robot/succumb()
+	set hidden = TRUE
+	if(health < maxHealth / 3)
+		death()
+		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
+	else
+		to_chat(src, SPAN_NOTICE("You are not injured enough to succumb to death!"))

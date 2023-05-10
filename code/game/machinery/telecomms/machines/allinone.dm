@@ -43,7 +43,7 @@
 	LAZYADD(recent_broadcasts, signal_message)
 
 	if(signal.data["slow"] > 0)
-		addtimer(CALLBACK(signal, /datum/signal/subspace/proc/broadcast), signal.data["slow"]) // network lag
+		addtimer(TYPE_PROC_REF(/datum/signal/subspace, broadcast), signal.data["slow"]) // network lag
 	else
 		signal.broadcast()
 
@@ -81,6 +81,7 @@
 /obj/machinery/telecomms/allinone/ship/station_relay/LateInitialize()
 	. = ..()
 	desc = replacetext(desc, "%STATIONNAME", current_map.station_name)
-	freq_listening |= AWAY_FREQS_ASSIGNED
+	for(var/ch in AWAY_FREQS_ASSIGNED)
+		freq_listening |= AWAY_FREQS_ASSIGNED[ch]
 	freq_listening |= AWAY_FREQS_UNASSIGNED
 	freq_listening |= ANTAG_FREQS

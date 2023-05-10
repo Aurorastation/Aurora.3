@@ -61,7 +61,7 @@
 			color="black"
 	else
 		color="red"
-	addtimer(CALLBACK(src, .proc/give_result, n, color), 5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(give_result), n, color), 5 SECONDS)
 
 
 /obj/structure/casino/roulette/proc/give_result(var/n, var/color)
@@ -92,7 +92,7 @@
 	return
 
 /obj/item/storage/bag/money/casino/Initialize()
-	..()
+	. = ..()
 	new /obj/item/coin/casino(src)
 	new /obj/item/coin/casino(src)
 	new /obj/item/coin/casino(src)

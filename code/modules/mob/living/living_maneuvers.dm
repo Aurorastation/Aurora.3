@@ -15,7 +15,7 @@
 			if(!can_fall(check))
 				break
 		if(check && check != loc)
-			addtimer(CALLBACK(src, /mob/living/proc/reflexive_maneuver_callback, lastloc, check), 0)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/mob/living, reflexive_maneuver_callback), lastloc, check), 0)
 		return
 	. = ..()
 

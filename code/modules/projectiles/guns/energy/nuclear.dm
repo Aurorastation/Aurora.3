@@ -71,7 +71,7 @@
 			to_chat(M, "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>")
 		else
 			to_chat(M, "<span class='warning'>You feel a warm sensation.</span>")
-		M.apply_effect(rand(3,120), IRRADIATE)
+	SSradiation.radiate(src, rand(3, 50))
 	return
 
 /obj/item/gun/energy/gun/nuclear/medium_fail(var/mob/user)
@@ -85,7 +85,7 @@
 	to_chat(user, "<span class='danger'>Your gun's reactor overloads!</span>")
 	for (var/mob/living/M in range(rand(1,4),src))
 		to_chat(M, "<span class='warning'>You feel a wave of heat wash over you.</span>")
-		M.apply_effect(300, IRRADIATE)
+	SSradiation.radiate(src, rand(3, 80))
 	crit_fail = 1 //break the gun so it stops recharging
 	self_recharge = FALSE
 	update_icon()
@@ -95,7 +95,7 @@
 	if (crit_fail)
 		add_overlay("nucgun-whee")
 		return
-	var/ratio = power_supply.charge / power_supply.maxcharge
+	var/ratio = max((power_supply?.charge / power_supply?.maxcharge), 0)
 	ratio = round(ratio, 0.25) * 100
 	add_overlay("nucgun-[ratio]")
 
@@ -105,7 +105,7 @@
 		return
 	if(lightfail)
 		add_overlay("nucgun-medium")
-	else if ((power_supply.charge/power_supply.maxcharge) <= 0.5)
+	else if ((power_supply?.charge/power_supply?.maxcharge) <= 0.5)
 		add_overlay("nucgun-light")
 	else
 		add_overlay("nucgun-clean")
@@ -176,6 +176,25 @@
 		list(mode_name="incapacitate", projectile_type=/obj/item/projectile/beam/stun, modifystate="hegemony_pistol", fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="smite", projectile_type=/obj/item/projectile/beam/pistol/hegemony, modifystate="hegemony_pistol", fire_sound='sound/weapons/laser1.ogg')
 		)
+
+/obj/item/gun/energy/hegemonyrifle
+	name = "hegemony energy rifle"
+	desc = "An upgraded variant of the standard laser rifle. It does not have a stun setting."
+	desc_extended = "The Zkrehk-Guild Heavy Beamgun, an energy-based rifle designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
+	icon = 'icons/obj/guns/hegemony_rifle.dmi'
+	icon_state = "hegemonyrifle"
+	item_state = "hegemonyrifle"
+	has_item_ratio = FALSE
+	fire_sound = 'sound/weapons/laser1.ogg'
+	slot_flags = SLOT_BELT|SLOT_BACK
+	max_shots = 15
+	can_switch_modes = FALSE
+	can_turret = TRUE
+	turret_is_lethal = TRUE
+	projectile_type = /obj/item/projectile/beam/midlaser/hegemony
+	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 4)
+	is_wieldable = TRUE
+	modifystate = "hegemonyrifle"
 
 /obj/item/gun/energy/repeater
 	name = "energy repeater"

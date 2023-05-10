@@ -60,8 +60,7 @@ In short:
 
 /datum/universal_state/hell/OverlayAndAmbientSet()
 	set waitfor = FALSE
-	for(var/thing in turfs)	// Expensive, but CHECK_TICK should prevent lag.
-		var/turf/T = thing
+	for(var/turf/T in world)	// Expensive, but CHECK_TICK should prevent lag.
 		if(istype(T, /turf/space))
 			T.add_overlay("hell01")
 		else
@@ -99,5 +98,5 @@ In short:
 /datum/universal_state/hell/proc/KillMobs()
 	for(var/mob/living/simple_animal/M in mob_list)
 		if(M && !M.client)
-			M.stat = DEAD
+			M.set_stat(DEAD)
 		CHECK_TICK

@@ -11,7 +11,7 @@
 //mob verbs are faster than object verbs. See above.
 var/mob/living/next_point_time = 0
 /mob/living/pointed(atom/A as mob|obj|turf in view())
-	if(src.stat || !src.canmove || src.restrained())
+	if(src.stat || src.restrained())
 		return FALSE
 	if(src.status_flags & FAKEDEATH)
 		return FALSE
@@ -214,7 +214,7 @@ default behaviour is:
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 	else
 		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
 
@@ -297,6 +297,9 @@ default behaviour is:
 
 /mob/living/proc/getHalLoss()
 	return 0
+
+/mob/living/proc/get_shock()
+	return getHalLoss()
 
 /mob/living/proc/getCloneLoss()
 	return 0
@@ -494,7 +497,7 @@ default behaviour is:
 		timeofdeath = 0
 
 	// restore us to conciousness
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 
 	// make the icons look correct
 	regenerate_icons()
@@ -517,7 +520,7 @@ default behaviour is:
 		switch_from_dead_to_living_mob_list()
 		timeofdeath = 0
 
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 	regenerate_icons()
 
 	BITSET(hud_updateflag, HEALTH_HUD)
@@ -910,6 +913,12 @@ default behaviour is:
 	QDEL_NULL(reagents)
 	clear_from_target_grid()
 
+	if(auras)
+		for(var/a in auras)
+			remove_aura(a)
+
+	QDEL_NULL(ability_master)
+
 	return ..()
 
 /mob/living/proc/nervous_system_failure()
@@ -990,24 +999,8 @@ default behaviour is:
 		return FALSE
 	. = TRUE
 
-/mob/living/Destroy()
-	if(auras)
-		for(var/a in auras)
-			remove_aura(a)
-	return ..()
-
 /mob/living/proc/needs_wheelchair()
 	return FALSE
-
-//called when the mob receives a bright flash
-/mob/living/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
-	if(override_blindness_check || !(disabilities & BLIND))
-		..()
-		overlay_fullscreen("flash", type)
-		spawn(25)
-			if(src)
-				clear_fullscreen("flash", 25)
-		return 1
 
 /mob/living/verb/toggle_run_intent()
 	set hidden = 1
@@ -1027,3 +1020,6 @@ default behaviour is:
 
 /mob/living/proc/is_anti_materiel_vulnerable()
 	return FALSE
+
+/mob/living/get_speech_bubble_state_modifier()
+	return isSynthetic() ? "synth" : ..()

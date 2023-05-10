@@ -230,7 +230,7 @@
 	for(var/spray_index = 1 to spray_size)
 		if(reagents.total_volume < 1)
 			break
-		INVOKE_ASYNC(src, .proc/handle_spray, the_targets[spray_index])
+		INVOKE_ASYNC(src, PROC_REF(handle_spray), the_targets[spray_index])
 
 	if(reagents_after_spray <= 0)
 		to_chat(user, SPAN_WARNING("\The [src] is <b>empty</b>!"))

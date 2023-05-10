@@ -422,6 +422,8 @@
 		/obj/item/storage/box/fancy/cigarettes/pra = 6,
 		/obj/item/storage/box/fancy/cigarettes/dpra = 6,
 		/obj/item/storage/box/fancy/cigarettes/nka = 6,
+		/obj/item/storage/box/fancy/cigarettes/federation = 3,
+		/obj/item/storage/box/fancy/cigarettes/dyn = 3,
 		/obj/item/storage/chewables/rollable = 8,
 		/obj/item/storage/chewables/rollable/unathi = 6,
 		/obj/item/storage/chewables/rollable/fine = 5,
@@ -429,6 +431,8 @@
 		/obj/item/storage/chewables/tobacco/bad = 6,
 		/obj/item/storage/chewables/tobacco = 8,
 		/obj/item/storage/chewables/tobacco/fine = 5,
+		/obj/item/storage/chewables/tobacco/federation = 2,
+		/obj/item/storage/chewables/tobacco/dyn = 2,
 		/obj/item/storage/box/fancy/chewables/tobacco/nico = 3,
 		/obj/item/storage/cigfilters = 6,
 		/obj/item/storage/box/fancy/cigpaper = 6,
@@ -461,6 +465,8 @@
 		/obj/item/storage/box/fancy/cigarettes/pra = 79,
 		/obj/item/storage/box/fancy/cigarettes/dpra = 84,
 		/obj/item/storage/box/fancy/cigarettes/nka = 74,
+		/obj/item/storage/box/fancy/cigarettes/federation = 93,
+		/obj/item/storage/box/fancy/cigarettes/dyn = 84,
 		/obj/item/storage/chewables/rollable = 63,
 		/obj/item/storage/chewables/rollable/unathi = 65,
 		/obj/item/storage/chewables/rollable/fine = 69,
@@ -468,6 +474,8 @@
 		/obj/item/storage/chewables/tobacco/bad = 55,
 		/obj/item/storage/chewables/tobacco = 74,
 		/obj/item/storage/chewables/tobacco/fine = 86,
+		/obj/item/storage/chewables/tobacco/federation = 88,
+		/obj/item/storage/chewables/tobacco/dyn = 85,
 		/obj/item/storage/box/fancy/chewables/tobacco/nico = 91,
 		/obj/item/storage/box/fancy/matches = 12,
 		/obj/item/flame/lighter/random = 12,
@@ -582,7 +590,7 @@
 
 
 /obj/machinery/vending/wallmed1
-	name = "NanoMed"
+	name = "\improper NanoMed"
 	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
@@ -591,10 +599,13 @@
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
-		/obj/item/stack/medical/bruise_pack = 2,
-		/obj/item/stack/medical/ointment = 2,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 4,
-		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 4,
+		/obj/item/stack/medical/bruise_pack = 3,
+		/obj/item/stack/medical/ointment = 3,
+		/obj/item/reagent_containers/pill/perconol = 4,
+		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
+		/obj/item/storage/box/fancy/med_pouch/burn = 1,
+		/obj/item/storage/box/fancy/med_pouch/oxyloss = 1,
+		/obj/item/storage/box/fancy/med_pouch/toxin = 1,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/device/breath_analyzer  = 1
 	)
@@ -608,10 +619,10 @@
 	random_itemcount = 0
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
-
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 /obj/machinery/vending/wallmed2
-	name = "NanoMed"
+	name = "\improper NanoMed Mini"
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
 	deny_time = 15
@@ -620,10 +631,15 @@
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
-		/obj/item/reagent_containers/syringe/dylovene = 3,
-		/obj/item/stack/medical/bruise_pack = 3,
-		/obj/item/stack/medical/ointment = 3,
-		/obj/item/device/healthanalyzer = 3
+		/obj/item/stack/medical/bruise_pack = 4,
+		/obj/item/stack/medical/ointment = 4,
+		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
+		/obj/item/storage/box/fancy/med_pouch/burn = 1,
+		/obj/item/storage/box/fancy/med_pouch/oxyloss = 1,
+		/obj/item/storage/box/fancy/med_pouch/toxin = 1,
+		/obj/item/storage/box/fancy/med_pouch/radiation = 1,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/device/breath_analyzer = 1
 	)
 	contraband = list(
 		/obj/item/reagent_containers/pill/tox = 3
@@ -634,7 +650,7 @@
 	random_itemcount = 0
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
-
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 /obj/machinery/vending/security
 	name = "SecTech"
@@ -909,20 +925,24 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/food/drinks/pitcher = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
-		/obj/item/clothing/suit/chef/classic = 2,
+		/obj/item/clothing/accessory/apron/chef = 2,
+		/obj/item/clothing/suit/chef_jacket = 2,
 		/obj/item/material/kitchen/rollingpin = 2,
 		/obj/item/reagent_containers/cooking_container/oven = 5,
 		/obj/item/reagent_containers/cooking_container/fryer = 4,
 		/obj/item/reagent_containers/cooking_container/skillet = 4,
 		/obj/item/reagent_containers/cooking_container/saucepan = 4,
 		/obj/item/reagent_containers/cooking_container/pot = 4,
-		/obj/item/reagent_containers/cooking_container/plate = 3,
-		/obj/item/reagent_containers/cooking_container/plate/bowl = 2,
+		/obj/item/reagent_containers/cooking_container/board = 3,
+		/obj/item/reagent_containers/cooking_container/board/bowl = 2,
 		/obj/item/reagent_containers/ladle = 4,
 		/obj/item/storage/toolbox/lunchbox/nt = 6,
 		/obj/item/reagent_containers/glass/rag = 8,
 		/obj/item/evidencebag/plasticbag = 20,
 		/obj/item/tray = 12,
+		/obj/item/tray/plate = 10,
+		/obj/item/reagent_containers/bowl = 10,
+		/obj/item/reagent_containers/bowl/plate = 10
 	)
 	contraband = list(
 		/obj/item/storage/toolbox/lunchbox/syndicate = 2
@@ -935,13 +955,23 @@
 	light_color = COLOR_STEEL
 
 /obj/machinery/vending/dinnerware/plastic
-	name = "Utensil Vendor"
+	name = "utensil vendor"
 	desc = "A kitchen and restaurant utensil vendor."
 	products = list(
 		/obj/item/material/kitchen/utensil/fork/plastic = 12,
 		/obj/item/material/kitchen/utensil/spoon/plastic = 12,
 		/obj/item/material/kitchen/utensil/knife/plastic = 12,
 		/obj/item/material/kitchen/utensil/fork/chopsticks/cheap = 12,
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
+		/obj/item/reagent_containers/food/drinks/pitcher = 3,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6
+	)
+
+/obj/machinery/vending/dinnerware/bar
+	name = "utensil vendor"
+	desc = "A bar utensil vendor."
+	products = list(
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/food/drinks/pitcher = 3,
@@ -1343,3 +1373,31 @@
 	)
 	vend_delay = 15
 	idle_power_usage = 211 // Cold MREs...
+
+/obj/machinery/vending/overloaders
+	name = "GwokBuzz Vendor"
+	desc = "An entertainment software machine supplied by Gwok Software, a member of the Gwok Group."
+	desc_extended = "Previously the realm of amateur programmers and niche companies, the Gwok Group acquired and amalgamated a number of popular Port Verdant overloader brands in order to capitalize on the growing industry. Seeing untapped markets abroad, the corporation has begun exporting to nations with free IPC populations."
+	icon_state = "synth"
+	icon_vend = "synth-vend"
+	product_slogans = "GwokBuzz, to take the edge off!;Try our new Rainbow Essence flavour!;Safe and sanctioned by the authorities!"
+	vend_id = "overloaders"
+	products = list(
+		/obj/item/storage/overloader/classic = 5,
+		/obj/item/storage/overloader/tranquil = 5,
+		/obj/item/storage/overloader/rainbow = 5,
+		/obj/item/storage/overloader/screenshaker = 5
+	)
+	prices = list(
+		/obj/item/storage/overloader/classic = 200,
+		/obj/item/storage/overloader/tranquil = 200,
+		/obj/item/storage/overloader/rainbow = 200,
+		/obj/item/storage/overloader/screenshaker = 200
+	)
+	contraband = list(
+		/obj/item/storage/overloader/rainbow = 2
+	)
+	premium = list(
+		/obj/item/storage/overloader/jitterbug = 5
+	)
+	light_color = LIGHT_COLOR_CYAN

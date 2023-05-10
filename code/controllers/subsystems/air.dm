@@ -68,6 +68,7 @@ Class Procs:
 	priority = SS_PRIORITY_AIR
 	init_order = SS_INIT_AIR
 	flags = SS_POST_FIRE_TIMING
+	runlevels = RUNLEVELS_PLAYING
 
 	//Geometry lists
 	var/list/zones = list()
@@ -137,7 +138,10 @@ Class Procs:
 	admin_notice(SPAN_DANGER("Processing Geometry..."), R_DEBUG)
 
 	var/simulated_turf_count = 0
-	for(var/turf/simulated/S in turfs)
+	for(var/turf/T in world)
+		var/turf/simulated/S = T
+		if(!istype(S))
+			continue
 		simulated_turf_count++
 		S.update_air_properties()
 

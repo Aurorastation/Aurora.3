@@ -2579,9 +2579,7 @@
 /area/cursed/medical)
 "poY" = (
 /obj/structure/bed/padded,
-/obj/structure/sign/flag/dpra/right{
-	pixel_y = 28
-	},
+/obj/structure/sign/flag/dpra/large/north,
 /mob/living/simple_animal/rat/irish,
 /obj/item/bedsheet/grey,
 /turf/simulated/floor/wood,
@@ -3633,9 +3631,6 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
 "uGE" = (
-/obj/structure/sign/flag/dpra/left{
-	pixel_y = 28
-	},
 /obj/structure/closet,
 /obj/item/clothing/head/beret/tajaran/dpra,
 /obj/item/clothing/head/beret/tajaran/dpra,
@@ -3650,7 +3645,7 @@
 /obj/item/clothing/accessory/storage/overalls,
 /obj/item/clothing/accessory/storage/overalls,
 /obj/item/clothing/accessory/storage/overalls,
-/obj/item/clothing/under/serviceoveralls,
+/obj/item/clothing/under/service_overalls,
 /obj/item/clothing/under/rank/miner/heph,
 /obj/item/clothing/under/rank/miner/heph,
 /turf/simulated/floor/wood,

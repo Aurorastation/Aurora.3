@@ -327,7 +327,7 @@
 	A.launch_projectile(target)
 	next_shot = world.time + shot_delay
 	A = null //So projectiles can GC
-	addtimer(CALLBACK(src, .proc/handle_firing), shot_delay + 1)
+	addtimer(CALLBACK(src, PROC_REF(handle_firing)), shot_delay + 1)
 
 /obj/structure/cult/pylon/attack_hand(mob/M)
 	if (M.a_intent == "help")
@@ -380,7 +380,7 @@
 		if(istype(I, /obj/item/nullrod))
 			shatter()
 			return
-		if(I.damtype != BRUTE)
+		if(I.damtype != DAMAGE_BRUTE)
 			to_chat(user, SPAN_WARNING("You swing at the pylon to no effect."))
 			return
 
@@ -388,7 +388,7 @@
 		if(istype(source, /obj/item/projectile/beam/cult))
 			return //No feedback loops
 		var/obj/item/projectile/proj = source
-		if(proj.damage_type == BURN)
+		if(proj.damage_type == DAMAGE_BURN)
 			if(empowered <= 0)
 				visible_message(SPAN_CULT("The beam refracts inside the pylon, splitting into an indistinct violet glow. The crystal takes on a new, more ominous aura!"))
 			empowered += damage * 0.2
@@ -398,7 +398,7 @@
 			start_process()
 			update_icon()
 			return
-		else if(proj.damage_type != BRUTE)
+		else if(proj.damage_type != DAMAGE_BRUTE)
 			return
 		ranged = TRUE
 

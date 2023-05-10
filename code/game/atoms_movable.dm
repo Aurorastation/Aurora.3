@@ -42,11 +42,14 @@
 	..()*/
 
 /atom/movable/Destroy()
-	if (important_recursive_contents && (important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS] || important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))
+	if (HAS_SPATIAL_GRID_CONTENTS(src))
 		SSspatial_grid.force_remove_from_cell(src)
 
 	LAZYCLEARLIST(contained_mobs)
 	LAZYCLEARLIST(important_recursive_contents)
+
+	moved_event.unregister_all_movement(loc, src)
+
 	. = ..()
 
 	for(var/atom/movable/AM in contents)
@@ -392,6 +395,9 @@
 			for (var/atom/movable/location as anything in nested_locs)
 				LAZYREMOVEASSOC(location.important_recursive_contents, channel, gone.important_recursive_contents[channel])
 
+	if(LAZYLEN(gone.stored_chat_text))
+		return_floating_text(gone)
+
 /atom/movable/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 
@@ -400,6 +406,9 @@
 		for (var/channel in arrived.important_recursive_contents)
 			for (var/atom/movable/location as anything in nested_locs)
 				LAZYORASSOCLIST(location.important_recursive_contents, channel, arrived.important_recursive_contents[channel])
+
+	if (LAZYLEN(arrived.stored_chat_text))
+		give_floating_text(arrived)
 
 //allows this movable to hear and adds itself to the important_recursive_contents list of itself and every movable loc its in
 /atom/movable/proc/become_hearing_sensitive(trait_source = TRAIT_GENERIC)
@@ -430,7 +439,7 @@
 
 	var/turf/our_turf = get_turf(src)
 	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
-		SSspatial_grid.exit_cell(src, our_turf)
+		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
 	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
 		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
 
@@ -496,7 +505,7 @@
 /atom/movable/proc/clear_from_target_grid()
 	var/turf/our_turf = get_turf(src)
 	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
-		SSspatial_grid.exit_cell(src, our_turf)
+		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_AI_TARGETS)
 	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
 		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
 
