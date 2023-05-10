@@ -276,7 +276,7 @@
 "aVu" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Systems";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -491,7 +491,7 @@
 "dhp" = (
 /obj/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -591,8 +591,7 @@
 /obj/item/bedsheet/black,
 /obj/effect/ghostspawpoint{
 	identifier = "fsf_navy_officer";
-	name = "igs - fsf_navy_officer";
-	antag_valid = 1
+	name = "igs - fsf_navy_officer"
 	},
 /obj/structure/curtain/open/bed,
 /obj/effect/floor_decal/carpet/blue{
@@ -1067,7 +1066,7 @@
 "hiw" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
@@ -1151,7 +1150,7 @@
 "hxl" = (
 /obj/machinery/door/airlock/security{
 	name = "Small Arms Locker";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -1193,8 +1192,7 @@
 "hZe" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "gun cabinet (rifles)";
-	req_access = null;
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/item/grenade/frag,
@@ -1207,7 +1205,7 @@
 /area/ship/fsf_patrol_ship)
 "hZq" = (
 /obj/machinery/computer/ship/helm{
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/fsf_shuttle)
@@ -1312,9 +1310,7 @@
 /area/ship/fsf_patrol_ship)
 "iJB" = (
 /obj/machinery/computer/shuttle_control/explore/fsf_shuttle{
-	dir = 4;
-	req_access = null;
-	req_one_access = list(203,150)
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/fsf_shuttle)
@@ -1446,7 +1442,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/door/airlock/security{
 	name = "Messhall";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
@@ -1515,7 +1511,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/computer/ship/helm{
 	dir = 1;
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
@@ -1655,7 +1651,7 @@
 "lmO" = (
 /obj/machinery/computer/ship/helm{
 	dir = 8;
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -1814,8 +1810,7 @@
 	},
 /obj/effect/ghostspawpoint{
 	identifier = "fsf_navy_crewman";
-	name = "igs - fsf_navy_crewman";
-	antag_valid = 1
+	name = "igs - fsf_navy_crewman"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -1837,8 +1832,7 @@
 	},
 /obj/effect/ghostspawpoint{
 	identifier = "fsf_navy_crewman";
-	name = "igs - fsf_navy_crewman";
-	antag_valid = 1
+	name = "igs - fsf_navy_crewman"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -1950,7 +1944,7 @@
 "nty" = (
 /obj/machinery/door/airlock/security{
 	name = "Head";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
@@ -1985,7 +1979,7 @@
 "nTM" = (
 /obj/machinery/door/airlock/security{
 	name = "EVA";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -1994,8 +1988,7 @@
 /obj/item/bedsheet/black,
 /obj/effect/ghostspawpoint{
 	identifier = "fsf_navy_crewman";
-	name = "igs - fsf_navy_crewman";
-	antag_valid = 1
+	name = "igs - fsf_navy_crewman"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2087,8 +2080,7 @@
 "oRr" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "gun cabinet (LTL)";
-	req_access = null;
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /obj/item/storage/box/zipties,
 /obj/item/storage/box/zipties,
@@ -2108,7 +2100,7 @@
 "oSU" = (
 /obj/machinery/door/airlock/security{
 	name = "Crew Quarters";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2223,7 +2215,7 @@
 "qgw" = (
 /obj/machinery/door/airlock/security{
 	name = "Lieutenant's Quarters";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2380,7 +2372,7 @@
 "srj" = (
 /obj/machinery/door/airlock/security{
 	name = "Bridge";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2402,7 +2394,7 @@
 "sKE" = (
 /obj/machinery/door/airlock/security{
 	name = "Briefing Room";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2572,7 +2564,7 @@
 "udB" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Cell";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2605,7 +2597,7 @@
 "uHi" = (
 /obj/machinery/door/airlock/security{
 	name = "Gym";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -2704,8 +2696,7 @@
 "vAi" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "gun cabinet (SMGs)";
-	req_access = null;
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/item/gun/projectile/automatic/c20r/sol,
@@ -2739,7 +2730,7 @@
 /obj/structure/table/steel,
 /obj/machinery/door/window/northleft{
 	name = "Desk";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2792,7 +2783,7 @@
 "vTv" = (
 /obj/machinery/door/airlock/security{
 	name = "Engineering";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2805,7 +2796,7 @@
 "wfy" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2869,8 +2860,7 @@
 "wTJ" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "gun cabinet (sidearms)";
-	req_access = null;
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/gun/projectile/pistol/sol,
@@ -3029,7 +3019,7 @@
 "xKJ" = (
 /obj/machinery/door/airlock/security{
 	name = "Brig";
-	req_one_access = list(203,150)
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)

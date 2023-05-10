@@ -68,7 +68,7 @@ var/datum/antagonist/overmap_mercenary/overmap_mercs
 
 		//In case no valid ship spawned to host the overmap mercenaries, spawn one that does
 		if(!starting_locations.len)
-			var/datum/map_template/ruin/away_site/fsf_patrol_ship/antagShip = new()
+			var/datum/map_template/ruin/away_site/ranger_corvette/antagShip = new()
 			antagShip.load_new_z()
 
 			//Try to populate the starting locations again
