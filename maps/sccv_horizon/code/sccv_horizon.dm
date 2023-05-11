@@ -63,10 +63,14 @@
 		NETWORK_INTREPID
 	)
 
-	shuttle_docked_message = "Attention all hands: Bluespace jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETA%."
-	shuttle_leaving_dock = "Attention all hands: Bluespace jump initiated, exiting bluespace in %ETA%."
-	shuttle_called_message = "Attention all hands: Bluespace jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
-	shuttle_recall_message = "Attention all hands: Bluespace jump sequence aborted, return to normal operating conditions."
+	shuttle_docked_message = "Attention all hands: the crew transfer preparations are over. It will start in approximately %ETA%."
+	shuttle_leaving_dock = "Attention all hands: the crew transfer is underway, concluding in %ETA%."
+	shuttle_called_message = "Attention all hands: the crew transfer has been scheduled. The swap will begin in %ETA%."
+	shuttle_recall_message = "Attention all hands: the crew transfer has been cancelled, return to normal operating conditions."
+	bluespace_docked_message = "Attention all hands: Bluespace jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETA%."
+	bluespace_leaving_dock = "Attention all hands: Bluespace jump initiated, exiting bluespace in %ETA%."
+	bluespace_called_message = "Attention all hands: Bluespace jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
+	bluespace_recall_message = "Attention all hands: Bluespace jump sequence aborted, return to normal operating conditions."
 	emergency_shuttle_docked_message = "Attention all hands: the emergency evacuation has started. You have approximately %ETA% minutes to board the emergency pods."
 	emergency_shuttle_leaving_dock = "Attention all hands: the emergency evacuation has been completed."
 	emergency_shuttle_recall_message = "Attention all hands: the emergency evacuation has been canceled."

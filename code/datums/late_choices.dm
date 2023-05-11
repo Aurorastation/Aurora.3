@@ -65,7 +65,7 @@
 		if(evacuation_controller.has_evacuated()) //Shuttle is going to centcomm, not recalled
 			shuttle_status = "post-evac"
 		if(evacuation_controller.is_evacuating())
-			if (evacuation_controller.emergency_evacuation) // Emergency shuttle is past the point of no recall
+			if (evacuation_controller.evacuation_type == "emergency") // Emergency shuttle is past the point of no recall
 				shuttle_status = "evac"
 			else // Crew transfer initiated
 				shuttle_status = "transfer"

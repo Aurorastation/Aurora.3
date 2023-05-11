@@ -438,7 +438,7 @@ Command action procs
 		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_called_message)))
 		return
 
-	. = evacuation_controller.call_evacuation(null, _emergency_evac = FALSE, autotransfer = TRUE)
+	. = evacuation_controller.call_evacuation(null, _evac_type = "transfer", autotransfer = TRUE)
 
 	//delay events in case of an autotransfer
 	if(.)
