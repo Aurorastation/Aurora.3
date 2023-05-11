@@ -44,8 +44,6 @@
 	var/list/possible_themes = list(/datum/exoplanet_theme)
 	var/datum/exoplanet_theme/theme
 
-	var/list/map_generators = list()
-
 	var/features_budget = 4
 	var/list/possible_features = list()
 	var/list/spawned_features
@@ -210,14 +208,16 @@
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
+	if(!istype(theme))
+		CRASH("Exoplanet [src] attempted to generate without valid theme!")
 	if(plant_colors)
 		var/list/grasscolors = plant_colors.Copy()
 		grasscolors -= "RANDOM"
 		if(length(grasscolors))
 			grass_color = pick(grasscolors)
 
-	if(istype(theme))
-		theme.before_map_generation(src)
+	theme.before_map_generation(src)
+	theme.generate_map(src, map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE))
 
 	for (var/zlevel in map_z)
 		var/list/edges
@@ -227,30 +227,11 @@
 		edges |= block(locate(1, maxy-TRANSITIONEDGE, zlevel),locate(maxx, maxy, zlevel))
 		for (var/turf/T in edges)
 			T.ChangeTurf(/turf/unsimulated/planet_edge)
-		var/padding = TRANSITIONEDGE
-		for (var/map_type in map_generators)
-			if (ispath(map_type, /datum/random_map/noise/exoplanet))
-				new map_type(null,padding,padding,zlevel,maxx-padding,maxy-padding,0,1,1,planetary_area, plant_colors, theme)
-			else
-				new map_type(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area)
+
+	theme.cleanup(src, map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE))
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_features()
 	spawned_features = seedRuins(map_z, features_budget, possible_features, /area/exoplanet, maxx, maxy)
-
-/obj/effect/overmap/visitable/sector/exoplanet/proc/get_biostuff(var/datum/random_map/noise/exoplanet/random_map)
-	if(!istype(random_map))
-		return
-	seeds += random_map.small_flora_types
-	if(random_map.big_flora_types)
-		seeds += random_map.big_flora_types
-	for(var/mob/living/simple_animal/A in living_mob_list)
-		if(A.z in map_z)
-			animals += A
-			death_event.register(A, src, PROC_REF(remove_animal))
-			destroyed_event.register(A, src, PROC_REF(remove_animal))
-	max_animal_count = animals.len
-	for(var/type in random_map.fauna_types)
-		mobs_to_tolerate[type] = TRUE
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/update_biome()
 	for(var/datum/seed/S as anything in seeds)
@@ -481,8 +462,3 @@
 			colors += gas_data.tile_overlay_color[g]
 	if(colors.len)
 		return MixColors(colors)
-
-/area/exoplanet
-	name = "\improper Planetary surface"
-	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
-	always_unpowered = 1

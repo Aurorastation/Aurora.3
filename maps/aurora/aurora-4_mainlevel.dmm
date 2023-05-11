@@ -12309,7 +12309,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awP" = (
@@ -12347,7 +12347,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awT" = (
@@ -20502,7 +20502,7 @@
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJE" = (
@@ -21005,9 +21005,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
-/obj/structure/sign/flag/scc/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/scc/large/north,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aKu" = (
@@ -25046,7 +25044,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aRu" = (
@@ -25189,7 +25187,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aRG" = (
@@ -28544,7 +28542,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aXu" = (
@@ -30959,14 +30957,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
-/obj/structure/sign/flag/scc/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/scc/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/scc/large/north,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics_cyborgification)
 "bbD" = (
@@ -64370,9 +64361,7 @@
 /obj/structure/table/wood{
 	table_reinf = "wood"
 	},
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 31
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Representative Office"
 	},
@@ -66261,9 +66250,6 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
-/obj/structure/sign/flag/scc/right{
-	pixel_y = 30
-	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "qgs" = (
@@ -67455,9 +67441,6 @@
 	},
 /obj/structure/table/wood{
 	table_reinf = "wood"
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_y = 31
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
