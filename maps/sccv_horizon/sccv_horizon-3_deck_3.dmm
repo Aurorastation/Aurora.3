@@ -1585,7 +1585,7 @@
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "bfL" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -7608,7 +7608,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "gqH" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -10318,7 +10318,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "iyM" = (
 /obj/structure/bed/stool/chair/office/bridge{
 	dir = 8
@@ -11471,7 +11471,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "jvA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -12939,17 +12939,8 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "kvM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/medical/washroom)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/hallway/deck_three/primary/starboard)
 "kvP" = (
 /obj/structure/closet/toolcloset,
 /obj/item/wrench,
@@ -23695,6 +23686,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
+"tjt" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass{
+	name = "Deck 3 Starboard Docks"
+	},
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/starboard)
 "tjC" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -24389,7 +24387,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/tiled,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "tKk" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
@@ -26411,7 +26409,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/full,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "vlW" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -29056,7 +29054,7 @@
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "xoR" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
@@ -29315,7 +29313,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "xAy" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/vending/cola,
@@ -29964,7 +29962,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/full,
-/area/medical/washroom)
+/area/horizon/hallway/deck_three/primary/starboard)
 "ykD" = (
 /obj/structure/railing/mapped,
 /turf/simulated/open,
@@ -42822,11 +42820,11 @@ qGg
 fxk
 gvG
 cEy
-cEy
-cEy
-cEy
-cEy
-iEg
+kvM
+kvM
+kvM
+kvM
+tjt
 trI
 iEg
 uba
@@ -43431,7 +43429,7 @@ vLY
 iya
 yjY
 tJS
-kvM
+ouY
 ouY
 uJa
 qVa
