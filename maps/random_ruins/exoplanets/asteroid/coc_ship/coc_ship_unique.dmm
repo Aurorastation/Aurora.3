@@ -551,10 +551,7 @@
 	icon_state = "11,16";
 	name = "skipjack cockpit"
 	},
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/space,
 /area/template_noop)
 "lP" = (
 /obj/structure/shuttle_part/raider{

@@ -70,6 +70,11 @@
 	name = "cooled mainframe floor"
 	temperature = 278
 
+/turf/simulated/floor/bluegrid/server
+	name = "cooled mainframe floor"
+	temperature = 80
+	initial_gas = list("nitrogen" = MOLES_CELLSTANDARD) //one atmosphere of nitrogen
+
 /turf/simulated/floor/greengrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
