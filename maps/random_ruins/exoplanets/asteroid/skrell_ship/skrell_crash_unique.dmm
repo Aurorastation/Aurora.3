@@ -57,7 +57,7 @@
 	name = "Command Copula"
 	},
 /turf/simulated/floor/shuttle/skrell/ramp{
-	initial_gas = null
+	initial_gas = list()
 	},
 /area/template_noop)
 "an" = (
@@ -796,12 +796,6 @@
 /obj/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
-"IN" = (
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/template_noop)
 "OB" = (
 /obj/structure/closet/skrell,
 /obj/random/weapon_and_ammo,
@@ -1233,7 +1227,7 @@ Vf
 ba
 au
 az
-IN
+Ug
 aI
 Ug
 ap
