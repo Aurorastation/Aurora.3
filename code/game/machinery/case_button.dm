@@ -107,7 +107,7 @@
 
 /obj/machinery/case_button/shuttle/activate(mob/user)
 	..()
-	return call_shuttle_proc(user, TRUE)
+	return call_shuttle_proc(user, "emergency")
 
 /obj/machinery/case_button/shuttle/deactivate(mob/user)
 	..()

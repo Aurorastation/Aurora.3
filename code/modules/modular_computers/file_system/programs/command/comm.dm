@@ -399,7 +399,7 @@ Command action procs
 	return FALSE
 
 //Returns 1 if called 0 if not
-/proc/call_shuttle_proc(var/mob/user, var/emergency = FALSE)
+/proc/call_shuttle_proc(var/mob/user, var/_evac_type = "transfer")
 	if((!(ROUND_IS_STARTED) || !evacuation_controller))
 		return FALSE
 
@@ -422,7 +422,7 @@ Command action procs
 		to_chat(user, "An evacuation is already underway.")
 		return
 
-	if(evacuation_controller.call_evacuation(user, emergency))
+	if(evacuation_controller.call_evacuation(user, _evac_type))
 		log_and_message_admins("[user? key_name(user) : "Autotransfer"] has called a shuttle.")
 
 	return TRUE
