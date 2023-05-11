@@ -802,7 +802,9 @@
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "kV" = (
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/engivend{
+	req_access = list(210)
+	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "kW" = (
@@ -2366,6 +2368,10 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
+"Jc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/diona,
+/area/tarwa_ship/engineering2)
 "Jg" = (
 /turf/simulated/wall/shuttle/raider,
 /area/tarwa_ship/canteen)
@@ -3202,9 +3208,8 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "TC" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
-	dir = 8;
-	target_pressure = 250
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
@@ -14805,7 +14810,7 @@ sC
 Gd
 zu
 kA
-HG
+Jc
 kA
 kA
 kA
