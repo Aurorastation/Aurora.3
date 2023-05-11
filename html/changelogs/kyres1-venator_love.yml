@@ -1,7 +1,0 @@
-author: kyres1
-
-delete-after: True
-
-changes:
-  - tweak: "Resprited all IFF beacons and sensor machinery icons."
-  - tweak: "Remapped the Horizon's Venator-class sensors to be much more prominent, located outside the bridge conference room on the hull."
