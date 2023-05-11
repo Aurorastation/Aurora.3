@@ -25,7 +25,7 @@
 	else
 		alert("Admin jumping disabled")
 
-/client/proc/jumptoturf(var/turf/T in turfs)
+/client/proc/jumptoturf(var/turf/T in world)
 	set name = "Jump to Turf"
 	set category = "Admin"
 

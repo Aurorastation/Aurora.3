@@ -44,3 +44,9 @@
 	description = "Incorporating both Hegemonic and Traditionalist elements, the Aut'akh accent is recognisable for its lack of accentuation and intonations, both owing to the occasional implants of questionable quality having some influence on speech, and the general isolation of most Aut'akh communes."
 	tag_icon = "autakh_valley"
 	text_tag = "AUT"
+
+/datum/accent/queendom
+	name = ACCENT_QUEENDOM
+	description = "From deep in the Wasteland there are some who hail from a society unlike most others that inhabit the radioactive sands, those from the Queendom. Those from the Queendom are recognizable by their traditionalist inflections in speech, but with slight differences that have evolved in the decades since first contact."
+	tag_icon = "trad_queendom"
+	text_tag = "QEN"
