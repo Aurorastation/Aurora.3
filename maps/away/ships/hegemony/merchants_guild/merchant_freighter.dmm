@@ -596,9 +596,8 @@
 /turf/simulated/wall/shuttle/raider,
 /area/merchants_guild/canteen)
 "hf" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
-	dir = 8;
-	target_pressure = 250
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
@@ -863,8 +862,8 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(215)
 	},
-/obj/item/gun/energy/laser/shotgun,
-/obj/item/gun/energy/laser/shotgun,
+/obj/item/gun/energy/hegemonyrifle,
+/obj/item/gun/energy/hegemonyrifle,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
 "kH" = (
@@ -2078,7 +2077,9 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "Bu" = (
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/engivend{
+	req_access = list(215)
+	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "Bx" = (
