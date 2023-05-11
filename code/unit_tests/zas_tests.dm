@@ -217,8 +217,7 @@
 			var/zone/A = U.A
 			var/offending_turfs = "Problem turfs: \n"
 			for(var/turf/simulated/S in A.contents)
-				if(S.initial_gas)
-					offending_turfs += "[S] ([S.x], [S.y], [S.z])\t"
+				offending_turfs += "[S] ([S.x], [S.y], [S.z])\t"
 
 			fail_message += "[offending_turfs]"
 
@@ -243,8 +242,7 @@
 
 			var/offending_turfs = "Problem turfs: "
 			for(var/turf/simulated/S in problem.contents)
-				if(S.initial_gas)
-					offending_turfs += "[S] ([S.x], [S.y], [S.z])\t"
+				offending_turfs += "[S] ([S.x], [S.y], [S.z])\t"
 
 			fail_message += "[offending_turfs]"
 
