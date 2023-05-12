@@ -1,0 +1,6 @@
+author: RyverStyx
+
+delete-after: True
+
+changes:
+  - tweak: "Fixes the Assunzione Amulet so that the side sprite does not clip into the chest. It now rests on the front pixel of the sprite."
