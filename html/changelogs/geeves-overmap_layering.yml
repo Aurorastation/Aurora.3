@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added layering to the overmap, which sectors being on the bottom, ships in the middle, and shuttles on top."
