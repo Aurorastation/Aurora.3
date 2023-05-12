@@ -119,6 +119,8 @@
 	siemens_coefficient = 0.35
 	can_hold_knife = TRUE
 	build_from_parts = TRUE
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
 	species_restricted = null
 
 	cold_protection = FEET
@@ -146,6 +148,8 @@
 	siemens_coefficient = 0.75
 	can_hold_knife = TRUE
 	build_from_parts = TRUE
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
 
 /obj/item/clothing/shoes/winter/toeless
 	name = "toe-less winter boots"

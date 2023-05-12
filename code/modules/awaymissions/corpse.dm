@@ -244,11 +244,10 @@
 	corpsemask = /obj/item/clothing/mask/breath
 	corpsehelmet = /obj/item/clothing/head/softcap/cargo
 	corpsegloves = /obj/item/clothing/gloves/yellow/budget
-	corpseshoes = /obj/item/clothing/shoes/boots
+	corpseshoes = /obj/item/clothing/shoes/jackboots
 
 /obj/effect/landmark/corpse/hideout/captain
 	corpsegloves = /obj/item/clothing/gloves/fingerless
-	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpsesuit = /obj/item/clothing/suit/armor/carrier/ballistic
 	corpsehelmet = /obj/item/clothing/head/helmet/ballistic
 	corpsemask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
