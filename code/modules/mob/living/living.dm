@@ -1008,6 +1008,44 @@ default behaviour is:
 	if(hud_used?.move_intent)
 		hud_used.move_intent.Click()
 
+/**
+ * Used by a macro in skin.dmf to toggle the throw
+ */
+/mob/living/verb/throw_intent_keyDown()
+	set hidden = 1
+	set name = "throw_intent"
+	if(!(src.in_throw_mode))
+		toggle_throw_mode()
+
+/mob/living/verb/throw_intent_keyUp()
+	set hidden = 1
+	set name = "throw_intent_up"
+	if(src.in_throw_mode)
+		toggle_throw_mode()
+
+/**
+ * User by a macro in skin.dmf to toggle the running
+ */
+/mob/living/verb/run_intent_keyDown()
+	set hidden = 1
+	set name = "run_intent"
+
+	if(usr?.m_intent != M_WALK)
+		return
+
+	if(hud_used?.move_intent)
+		hud_used.move_intent.Click()
+
+/mob/living/verb/run_intent_keyUp()
+	set hidden = 1
+	set name = "run_intent_up"
+
+	if(usr?.m_intent != M_RUN)
+		return
+
+	if(hud_used?.move_intent)
+		hud_used.move_intent.Click()
+
 /mob/living/proc/add_hallucinate(var/amount)
 	hallucination += amount
 	hallucination += amount
