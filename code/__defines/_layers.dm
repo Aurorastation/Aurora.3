@@ -20,6 +20,7 @@
 #define BELOW_MOB_LAYER 3.7
 #define ABOVE_MOB_LAYER 4.1
 #define ABOVE_ALL_MOB_LAYER 4.5
+#define INGAME_HUD_EFFECT_LAYER 5
 #define LIGHTING_LAYER 11
 #define EFFECTS_ABOVE_LIGHTING_LAYER 12 // For overlays you want to be above light.
 #define UNDER_HUD_LAYER 19
