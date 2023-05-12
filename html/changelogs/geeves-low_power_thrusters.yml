@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Mapped in two always-active lower maneuvering thrusters for the Horizon, which allows it to move around slowly."

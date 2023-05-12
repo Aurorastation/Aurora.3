@@ -3196,6 +3196,12 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
+"bxO" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/starboard/far)
 "byh" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -5406,6 +5412,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/starboard)
+"cDU" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/port/far)
 "cDV" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -6772,6 +6784,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
+"doc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/starboard/far)
 "doE" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -9309,8 +9327,8 @@
 	},
 /obj/structure/table/standard,
 /obj/item/paper_bin{
-	pixel_y = 3;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = 3
 	},
 /obj/item/pen{
 	pixel_x = -2
@@ -9340,18 +9358,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "eFS" = (
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "eGh" = (
@@ -10617,7 +10627,11 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "fnd" = (
-/obj/structure/foamedmetal,
+/obj/structure/shuttle/engine/heater{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "fnh" = (
@@ -17170,6 +17184,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
+"imp" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/wing/starboard/far)
 "imA" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light{
@@ -17445,6 +17465,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
+"itj" = (
+/obj/structure/shuttle/engine/heater{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/far)
 "itS" = (
 /obj/machinery/porta_turret/sniper,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -19386,6 +19414,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
+"jpF" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/starboard/far)
 "jpO" = (
 /mob/living/carbon/slime,
 /turf/simulated/floor/reinforced,
@@ -20012,6 +20046,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora_hazard)
+"jFh" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/port/far)
 "jFi" = (
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "server_door_lock";
@@ -22453,6 +22493,12 @@
 /obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/reinforced,
 /area/horizon/zta)
+"kVO" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/wing/port/far)
 "kWg" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -23075,6 +23121,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
+"llG" = (
+/obj/machinery/maneuvering_engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard maneuvering engines"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/wing/starboard/far)
 "llI" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -29506,6 +29559,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
+"oqv" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Starboard Maneuvering Propulsion";
+	req_one_access = list(11,24)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/far)
 "oqB" = (
 /obj/machinery/light_switch{
 	dir = 1;
@@ -33740,8 +33801,8 @@
 /area/operations/lobby)
 "qxK" = (
 /obj/machinery/keycard_auth{
-	pixel_y = -24;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = -24
 	},
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations - Quartermaster's Office";
@@ -33754,14 +33815,14 @@
 /obj/machinery/button/switch/windowtint{
 	dir = 1;
 	id = "OM Windows";
+	pixel_x = 8;
 	pixel_y = -34;
-	req_access = list(41);
-	pixel_x = 8
+	req_access = list(41)
 	},
 /obj/machinery/light_switch{
+	dir = 1;
 	pixel_x = 8;
-	pixel_y = -23;
-	dir = 1
+	pixel_y = -23
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/qm)
@@ -34177,8 +34238,8 @@
 	dir = 5
 	},
 /obj/item/device/flashlight/lamp{
-	pixel_y = 7;
-	pixel_x = 1
+	pixel_x = 1;
+	pixel_y = 7
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
@@ -34726,6 +34787,13 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
+"qXp" = (
+/obj/machinery/maneuvering_engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port maneuvering engines"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/wing/port/far)
 "qXx" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 1
@@ -34970,6 +35038,14 @@
 	},
 /turf/simulated/open/airless,
 /area/template_noop)
+"rdW" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Port Maneuvering Propulsion";
+	req_one_access = list(11,24)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "rdZ" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -38503,6 +38579,21 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
+"sUI" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/obj/machinery/power/apc/low{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "sVn" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/railing/mapped,
@@ -43632,6 +43723,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/far)
+"vvc" = (
+/turf/simulated/floor/tiled,
+/area/maintenance/wing/port/far)
 "vvh" = (
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
@@ -46604,6 +46698,12 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
+"wKu" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/port/far)
 "wKK" = (
 /obj/machinery/button/remote/emitter{
 	desc = "A remote control-switch for the supermatter reactor's emitter.";
@@ -54629,8 +54729,8 @@ qgN
 qgN
 kDC
 kDC
-bAF
-bAF
+bxO
+nox
 dEz
 lHi
 exw
@@ -54830,11 +54930,11 @@ qgN
 qgN
 qgN
 kDC
-bAF
-bAF
-bAF
+itj
+doc
+nox
 dEz
-ubt
+uOq
 uOq
 uOq
 uOq
@@ -55031,12 +55131,12 @@ qgN
 qgN
 qgN
 qgN
-kDC
-bAF
-bAF
-bAF
-dEz
+llG
+itj
+imp
 ubt
+oqv
+uOq
 uOq
 uOq
 uOq
@@ -55234,11 +55334,11 @@ qgN
 qgN
 qgN
 kDC
-bAF
-bAF
-bAF
+itj
+doc
+nox
 dEz
-ubt
+uOq
 uOq
 uOq
 uOq
@@ -55437,8 +55537,8 @@ qgN
 qgN
 kDC
 kDC
-bAF
-bAF
+jpF
+nox
 dEz
 sdX
 atB
@@ -85131,8 +85231,8 @@ qgN
 qgN
 tVu
 tVu
-fnd
-fnd
+wKu
+ueH
 fuu
 ueH
 jAo
@@ -85333,10 +85433,10 @@ qgN
 qgN
 tVu
 fnd
-fnd
-fnd
-fuu
+jFh
 ueH
+fuu
+sUI
 lBd
 lBd
 lBd
@@ -85533,11 +85633,11 @@ qgN
 qgN
 qgN
 qgN
-tVu
+qXp
 fnd
-fnd
-fnd
-fuu
+kVO
+vvc
+rdW
 eFS
 oNE
 oNE
@@ -85737,10 +85837,10 @@ qgN
 qgN
 tVu
 fnd
-fnd
-fnd
-fuu
+jFh
 ueH
+fuu
+lBd
 lBd
 lBd
 lBd
@@ -85939,8 +86039,8 @@ qgN
 qgN
 tVu
 tVu
-fnd
-fnd
+cDU
+ueH
 fuu
 upl
 afe
