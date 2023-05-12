@@ -221,6 +221,12 @@ macro "borghotkeymode"
 	elem
 		name = "CTRL+Southeast"
 		command = "Move-Down"
+	elem
+		name = ","
+		command = "Move-Upwards"
+	elem
+		name = "."
+		command = "Move-Down"
 
 
 macro "macro"
@@ -397,6 +403,12 @@ macro "macro"
 		command = "Move-Upwards"
 	elem
 		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
+		name = ","
+		command = "Move-Upwards"
+	elem
+		name = "."
 		command = "Move-Down"
 	elem
 		name = "Space"
@@ -651,6 +663,12 @@ macro "hotkeymode"
 		name = "CTRL+Southeast"
 		command = "Move-Down"
 	elem
+		name = ","
+		command = "Move-Upwards"
+	elem
+		name = "."
+		command = "Move-Down"
+	elem
 		name = "Space"
 		command = "run_intent"
 	elem
@@ -835,6 +853,12 @@ macro "borgmacro"
 		command = "Move-Upwards"
 	elem
 		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
+		name = ","
+		command = "Move-Upwards"
+	elem
+		name = "."
 		command = "Move-Down"
 
 

@@ -1014,13 +1014,13 @@ default behaviour is:
 /mob/living/verb/throw_intent_keyDown()
 	set hidden = 1
 	set name = "throw_intent"
-	if(!(src.in_throw_mode))
+	if((usr.client.prefs.toggles_secondary & PREF_THROW_TOGGLE) || !(src.in_throw_mode))
 		toggle_throw_mode()
 
 /mob/living/verb/throw_intent_keyUp()
 	set hidden = 1
 	set name = "throw_intent_up"
-	if(src.in_throw_mode)
+	if(src.in_throw_mode && !(usr.client.prefs.toggles_secondary & PREF_THROW_TOGGLE))
 		toggle_throw_mode()
 
 /**
