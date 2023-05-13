@@ -455,6 +455,40 @@ var/list/asset_datums = list()
 		"izweskiflag_small.png" = 'html/images/izweskiflag_small.png',
 		"goldenlogo.png" = 'html/images/factions/goldenlogo.png',
 		"goldenlogo_small.png" = 'html/images/factions/goldenlogo_small.png',
+		//scan images that appear on sensors
+		"no_data.png" = 'html/images/scans/no_data.png',
+		"horizon.png" = 'html/images/scans/horizon.png',
+		"intrepid.png" = 'html/images/scans/intrepid.png',
+		"spark.png" = 'html/images/scans/spark.png',
+		"corvette.png" = 'html/images/scans/corvette.png',
+		"elyran_corvette.png" = 'html/images/scans/elyran_corvette.png',
+		"dominian_corvette.png" = 'html/images/scans/dominian_corvette.png',
+		"tcfl_cetus.png" = 'html/images/scans/tcfl_cetus.png',
+		"unathi_corvette.png" = 'html/images/scans/unathi_corvette.png',
+		"ranger.png" = 'html/images/scans/ranger.png',
+		"oe_platform.png" = 'html/images/scans/oe_platform.png',
+		"hospital.png" = 'html/images/scans/hospital.png',
+		"skrell_freighter.png" = 'html/images/scans/skrell_freighter.png',
+		"diona.png" = 'html/images/scans/diona.png',
+		"hailstorm.png" = 'html/images/scans/hailstorm.png',
+		"headmaster.png" = 'html/images/scans/headmaster.png',
+		"pss.png" = 'html/images/scans/pss.png',
+		"nka_freighter.png" = 'html/images/scans/nka_freighter.png',
+		"pra_freighter.png" = 'html/images/scans/pra_freighter.png',
+		"tramp_freighter.png" = 'html/images/scans/tramp_freighter.png',
+		"line_cruiser.png" = 'html/images/scans/line_cruiser.png',
+		//planet scan images
+		"exoplanet_empty.png" = 'html/images/scans/exoplanets/exoplanet_empty.png',
+		"barren.png" = 'html/images/scans/exoplanets/barren.png',
+		"lava.png" = 'html/images/scans/exoplanets/lava.png',
+		"grove.png" = 'html/images/scans/exoplanets/grove.png',
+		"desert.png" = 'html/images/scans/exoplanets/desert.png',
+		"snow.png" = 'html/images/scans/exoplanets/snow.png',
+		"adhomai.png" = 'html/images/scans/exoplanets/adhomai.png',
+		"raskara.png" = 'html/images/scans/exoplanets/raskara.png',
+		"comet.png" = 'html/images/scans/exoplanets/comet.png',
+		"asteroid.png" = 'html/images/scans/exoplanets/asteroid.png',
+		//end scan images
 		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
 		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',
 		"lashema.woff" = 'html/fonts/OFL/Lashema.woff',
@@ -503,51 +537,61 @@ var/list/asset_datums = list()
 	name = "vending"
 
 /datum/asset/spritesheet/vending/register()
-	var/list/vending_products = list()
-	for(var/v_type in typesof(/obj/machinery/vending))
-		var/obj/machinery/vending/V = new v_type
-		for(var/list/p in list(V.products, V.contraband, V.premium))
-			for(var/k in p)
-				vending_products += k
+	var/vending_products = list()
+	for(var/obj/machinery/vending/vendor as anything in typesof(/obj/machinery/vending))
+		vendor = new vendor()
+		for(var/each in list(vendor.products, vendor.contraband, vendor.premium))
+			vending_products |= each
+		qdel(vendor)
+
 	for(var/path in vending_products)
-		var/obj/O = new path
-		var/icon_file = O.icon
-		var/icon_state = O.icon_state
-		var/icon/I
+		var/atom/item = path
+		if(!ispath(item, /atom))
+			continue
+
+		var/icon_file = initial(item.icon)
+		var/icon_state = initial(item.icon_state)
+
+		#ifdef UNIT_TEST
 		var/icon_states_list = icon_states(icon_file)
-		if(icon_state in icon_states_list)
-			I = icon(icon_file, icon_state, SOUTH)
-			var/c = O.color
-			if(!isnull(c) && c != "#FFFFFF")
-				I.Blend(c, ICON_MULTIPLY)
-		else
+		if(!(icon_state in icon_states_list))
 			var/icon_states_string
 			for(var/s in icon_states_list)
 				if(!icon_states_string)
 					icon_states_string = "[json_encode(s)](\ref[s])"
 				else
 					icon_states_string += ", [json_encode(s)](\ref[s])"
-			error("[O] has an invalid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)](\ref[icon_state]), icon_states=[icon_states_string]")
-			I = icon('icons/turf/floors.dmi', "", SOUTH)
 
-		var/imgid = ckey("[path]")
+			stack_trace("[item] has an invalid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)](\ref[icon_state]), icon_states=[icon_states_string]")
+			continue
+		#endif
 
-		if(istype(O, /obj/item/seeds))
+		var/icon/I = icon(icon_file, icon_state, SOUTH)
+		var/c = initial(item.color)
+		if(!isnull(c) && c != "#FFFFFF")
+			I.Blend(c, ICON_MULTIPLY)
+
+		var/imgid = ckey("[item]")
+		item = new item()
+
+		if(ispath(item, /obj/item/seeds))
 			// thanks seeds for being overlays defined at runtime
-			var/obj/item/seeds/S = O
+			var/obj/item/seeds/S = item
 			if(!S.seed && S.seed_type && !isnull(SSplants.seeds) && SSplants.seeds[S.seed_type])
 				S.seed = SSplants.seeds[S.seed_type]
 			I = S.update_appearance(TRUE)
 			Insert(imgid, I, forced=I)
 		else
-			O.update_icon()
-			if(O.overlay_queued)
-				O.compile_overlays()
-			if(O.overlays.len)
-				I = getFlatIcon(O) // forgive me for my performance sins
+			item.update_icon()
+			if(item.overlay_queued)
+				item.compile_overlays()
+			if(item.overlays.len)
+				I = getFlatIcon(item) // forgive me for my performance sins
 				Insert(imgid, I, forced=I)
 			else
 				Insert(imgid, I)
+
+		qdel(item)
 	return ..()
 
 /datum/asset/spritesheet/chem_master

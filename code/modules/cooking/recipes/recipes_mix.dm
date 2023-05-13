@@ -210,11 +210,11 @@
 	fruit = list("potato" = 1, "ambrosia" = 3)
 	items = list(/obj/item/reagent_containers/food/snacks/meatball)
 	result = /obj/item/reagent_containers/food/snacks/salad/validsalad
-	make_food(var/obj/container as obj)
 
-		. = ..(container)
-		for (var/obj/item/reagent_containers/food/snacks/salad/validsalad/being_cooked in .)
-			being_cooked.reagents.del_reagent(/singleton/reagent/toxin)
+/singleton/recipe/validsalad/make_food(var/obj/container as obj)
+	. = ..(container)
+	for (var/obj/item/reagent_containers/food/snacks/salad/validsalad/being_cooked in .)
+		being_cooked.reagents.del_reagent(/singleton/reagent/toxin)
 
 /*
 /singleton/recipe/neuralbroke
@@ -257,10 +257,10 @@
 
 /singleton/recipe/donerkebab
 	fruit = list("tomato" = 1, "cabbage" = 1)
-	reagents = list(/singleton/reagent/sodiumchloride = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/spacespice = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meatsteak,
-		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/cutlet
 	)
 	result = /obj/item/reagent_containers/food/snacks/donerkebab
 

@@ -64,11 +64,11 @@
 /obj/item/clothing/head/winterhood/Initialize(mapload, material_key)
 	. = ..()
 	if(isclothing(loc))
-		RegisterSignal(loc, COMSIG_ITEM_REMOVE, .proc/RemoveHood)
-		RegisterSignal(loc, COMSIG_PARENT_QDELETING, /datum/.proc/Destroy)
-		RegisterSignal(loc, COMSIG_ITEM_STATE_CHECK, .proc/hooded)
-		RegisterSignal(loc, COMSIG_ITEM_UPDATE_STATE, .proc/change_hood)
-		RegisterSignal(loc, COMSIG_ITEM_ICON_UPDATE, /atom/.proc/update_icon)
+		RegisterSignal(loc, COMSIG_ITEM_REMOVE, PROC_REF(RemoveHood))
+		RegisterSignal(loc, COMSIG_PARENT_QDELETING, TYPE_PROC_REF(/datum, Destroy))
+		RegisterSignal(loc, COMSIG_ITEM_STATE_CHECK, PROC_REF(hooded))
+		RegisterSignal(loc, COMSIG_ITEM_UPDATE_STATE, PROC_REF(change_hood))
+		RegisterSignal(loc, COMSIG_ITEM_ICON_UPDATE, TYPE_PROC_REF(/atom, update_icon))
 		color = loc.color
 		icon_state = "[loc.icon_state]_hood"
 		item_state = "[loc.icon_state]_hood"
@@ -357,3 +357,13 @@
 /obj/item/clothing/head/winterhood/colorable/update_icon(mob/user)
 	. = ..()
 
+/obj/item/clothing/suit/storage/hooded/wintercoat/colorable/ponczo
+	name = "visegradi ponczo"
+	desc = "A type of shelter-half or zeltbahn, the ponczo is a ubiquitous article of clothing on the planet of Visegrad. Resembling a long smock or raincoat, the ponczo is as waterproof as it is rugged. While true shelter-halves can be made into a tent, most ponczos are no longer capable of this."
+	icon_state = "ponczo"
+	item_state = "ponczo"
+	hoodtype = /obj/item/clothing/head/winterhood/colorable/ponczo
+
+/obj/item/clothing/head/winterhood/colorable/ponczo
+	name = "visegradi ponczo hood"
+	desc = "A hood for a Visegradi ponczo."

@@ -1144,6 +1144,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/nka,
 /obj/item/clothing/head/helmet/space/void/nka,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1175,9 +1176,6 @@
 	dir = 5
 	},
 /obj/structure/bed/stool/bar/padded/red,
-/obj/structure/sign/flag/nka/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1336,9 +1334,7 @@
 "em" = (
 /obj/structure/table/standard,
 /obj/item/book/manual/nka_manifesto,
-/obj/structure/sign/flag/nka/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/nka/large/south,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1863,6 +1859,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/security,
 /obj/item/clothing/head/helmet/space/void/security,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2027,6 +2024,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/nka,
 /obj/item/clothing/head/helmet/space/void/nka,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2362,9 +2360,6 @@
 "jE" = (
 /obj/structure/table/standard,
 /obj/item/toy/comic/azmarian/issue_4,
-/obj/structure/sign/flag/nka/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2748,9 +2743,7 @@
 	pixel_x = -32;
 	req_one_access = list(212)
 	},
-/obj/structure/sign/flag/nka/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/nka/large/north,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2792,9 +2785,7 @@
 	},
 /area/nka_merchant)
 "lu" = (
-/obj/structure/sign/flag/nka/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/nka/large/south,
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
@@ -3326,17 +3317,11 @@
 /area/shuttle/nka_merchant_shuttle)
 "qY" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/structure/sign/flag/nka/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
 "rc" = (
-/obj/structure/sign/flag/nka/right{
-	pixel_y = -32
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
@@ -4269,9 +4254,7 @@
 /area/nka_merchant)
 "Kg" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/structure/sign/flag/nka/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/nka/large/south,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

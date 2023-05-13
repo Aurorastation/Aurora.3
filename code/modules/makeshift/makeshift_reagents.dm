@@ -125,7 +125,7 @@
 
 /obj/structure/chemkit/dismantle()
 	new /obj/structure/table(loc)
-	new /obj/item/reagent_containers/cooking_container/plate/bowl(loc)
+	new /obj/item/reagent_containers/cooking_container/board/bowl(loc)
 	if(analyzer)
 		analyzer.forceMove(loc)
 		analyzer = null
@@ -248,7 +248,7 @@
 		return
 	if(W.isFlameSource() && istype(welder))
 		to_chat(user, SPAN_NOTICE("You light \the [src] and begin the distillation process."))
-		addtimer(CALLBACK(src, .proc/distill), 60 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(distill)), 60 SECONDS)
 		src.icon_state = "distillery-active"
 		return
 	. = ..()

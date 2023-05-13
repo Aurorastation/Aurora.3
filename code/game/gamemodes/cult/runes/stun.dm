@@ -9,27 +9,22 @@
 /datum/rune/stun/do_talisman_action(mob/living/user, atom/movable/A)
 	do_stun(user, A, 3, FALSE)
 
-/datum/rune/stun/proc/do_stun(mob/living/user, atom/movable/A, var/radius, var/is_rune)
+/datum/rune/stun/proc/do_stun(mob/living/user, atom/movable/A, radius, is_rune)
 	user.say("Fuu ma'jin!")
-	for(var/mob/living/L in range(radius, get_turf(A)))
+	for(var/mob/living/L in viewers(radius, get_turf(A)))
 		if(iscultist(L))
 			continue
 		if(iscarbon(L))
-			var/mob/living/carbon/C = L
-			C.flash_eyes()
-			if(C.stuttering < 1 && NOT_FLAG(C.mutations, HULK))
-				C.stuttering = 1
-			C.Weaken(3)
-			C.confused = 10
-			C.Stun(3)
-			C.silent += 15
-			to_chat(C, SPAN_DANGER("The rune explodes in a bright flash!"))
-			admin_attack_log(user, C, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
+			L.stuttering = max(L.stuttering, 1)
+			L.confused = 10
+			L.Weaken(3)
+			L.Stun(3)
 		else if(issilicon(L))
-			var/mob/living/silicon/S = L
-			S.Weaken(5)
-			S.flash_eyes()
-			S.silent += 15
-			to_chat(S, SPAN_DANGER("BZZZT... The rune has exploded in a bright flash!"))
-			admin_attack_log(user, S, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
+			L.Weaken(5)
+
+		to_chat(L, SPAN_DANGER("The rune explodes in a bright flash!"))
+		L.flash_act()
+		L.silent += 15
+		admin_attack_log(user, L, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
+
 	qdel(A)

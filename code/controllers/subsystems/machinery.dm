@@ -145,6 +145,8 @@ if(Datum.isprocessing) {\
 /datum/controller/subsystem/machinery/proc/setup_atmos_machinery(list/machines)
 	var/list/atmos_machines = list()
 	for (var/obj/machinery/atmospherics/machine in machines)
+		if(QDELETED(machine))
+			continue
 		atmos_machines += machine
 	admin_notice(SPAN_DANGER("Initializing atmos machinery."), R_DEBUG)
 	log_ss("machinery", "Initializing atmos machinery.")
@@ -268,8 +270,8 @@ if(Datum.isprocessing) {\
 			rcon_breaker_units += breaker
 			rcon_breaker_units_by_tag[breaker.RCon_tag] = breaker
 
-	sortTim(rcon_smes_units, /proc/cmp_rcon_smes)
-	sortTim(rcon_breaker_units, /proc/cmp_rcon_bbox)
+	sortTim(rcon_smes_units, GLOBAL_PROC_REF(cmp_rcon_smes))
+	sortTim(rcon_breaker_units, GLOBAL_PROC_REF(cmp_rcon_bbox))
 
 #undef SSMACHINERY_PIPENETS
 #undef SSMACHINERY_MACHINERY

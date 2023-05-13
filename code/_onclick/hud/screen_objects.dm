@@ -65,7 +65,7 @@
 	var/old_color = color
 	color = set_color
 	color_changed = TRUE
-	addtimer(CALLBACK(src, .proc/set_color_to, old_color), set_time)
+	addtimer(CALLBACK(src, PROC_REF(set_color_to), old_color), set_time)
 
 /obj/screen/inventory/proc/set_color_to(var/set_color)
 	color = set_color
@@ -133,6 +133,24 @@
 		var/obj/item/I = usr.get_active_hand()
 		if(I)
 			usr.ClickOn(master)
+	return TRUE
+
+/obj/screen/storage/background
+	name = "background storage"
+	layer = SCREEN_LAYER+0.01
+
+/obj/screen/storage/background/Initialize(mapload, var/obj/set_master, var/set_icon_state)
+	. = ..()
+	master = set_master
+	if(master)
+		name = master.name
+	icon_state = set_icon_state
+
+/obj/screen/storage/background/Click()
+	if(usr.incapacitated())
+		return TRUE
+	if(master)
+		usr.ClickOn(master)
 	return TRUE
 
 /obj/screen/zone_sel
@@ -317,7 +335,7 @@
 					up_image.plane = LIGHTING_LAYER + 1
 					up_image.layer = LIGHTING_LAYER + 1
 					usr << up_image
-					addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, up_image), 12)
+					QDEL_IN(up_image, 12)
 				return
 			var/turf/T = GetAbove(usr)
 			if (!T)

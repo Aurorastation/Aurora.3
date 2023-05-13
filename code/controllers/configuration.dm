@@ -126,7 +126,7 @@ var/list/gamemode_cache = list()
 	var/default_brain_health = 400
 
 	//Paincrit knocks someone down once they hit 60 shock_stage, so by default make it so that close to 100 additional damage needs to be dealt,
-	//so that it's similar to PAIN. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
+	//so that it's similar to DAMAGE_PAIN. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
 	var/organ_damage_spillover_multiplier = 0.5
 
 	var/bones_can_break = 0
@@ -890,7 +890,7 @@ var/list/gamemode_cache = list()
 
 				if("fastboot")
 					fastboot = TRUE
-					world.log <<  "Fastboot is ENABLED."
+					log_debug("Fastboot is ENABLED.")
 
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)

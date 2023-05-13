@@ -95,6 +95,7 @@
 	if(looping_sound)
 		soundloop = new(src, enabled)
 	initial_name = name
+	listener = new(LISTENER_MODULAR_COMPUTER, src)
 
 /obj/item/modular_computer/Destroy()
 	kill_program(TRUE)
@@ -105,6 +106,7 @@
 		qdel(CH)
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(soundloop)
+	QDEL_NULL(listener)
 	return ..()
 
 /obj/item/modular_computer/CouldUseTopic(var/mob/user)
@@ -430,18 +432,18 @@
 
 // TODO: Make pretty much everything use these helpers.
 /obj/item/modular_computer/proc/output_notice(var/message, var/message_range)
-	message = "[icon2html(src, viewers(message_range, get_turf(src)))][src]: " + message
+	message = "[icon2html(src, viewers(message_range, get_turf(src)))] [src]: " + message
 	output_message(SPAN_NOTICE(message), message_range)
 
 /obj/item/modular_computer/proc/output_error(var/message, var/message_range)
-	message = "[icon2html(src, viewers(message_range, get_turf(src)))][src]: " + message
+	message = "[icon2html(src, viewers(message_range, get_turf(src)))] [src]: " + message
 	output_message(SPAN_WARNING(message), message_range)
 
 /obj/item/modular_computer/proc/get_notification(var/message, var/message_range = 1, var/atom/source)
 	if(silent)
 		return
 	playsound(get_turf(src), 'sound/machines/twobeep.ogg', 20, 1)
-	message = "[icon2html(src, viewers(message_range, get_turf(src)))][src]: [SPAN_DANGER("-!-")] Notification from [source]: " + message
+	message = "[icon2html(src, viewers(message_range, get_turf(src)))] [src]: [SPAN_DANGER("-!-")] Notification from [source]: " + message
 	output_message(FONT_SMALL(SPAN_BOLD(message)), message_range)
 
 /obj/item/modular_computer/proc/register_account(var/datum/computer_file/program/PRG = null)

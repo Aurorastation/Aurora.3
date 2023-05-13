@@ -29,8 +29,8 @@ var/global/list/additional_antag_types = list()
 
 	var/station_was_nuked = 0                // See nuclearbomb.dm and malfunction.dm.
 	var/explosion_in_progress = 0            // Sit back and relax
-	var/waittime_l = 600                     // Lower bound on time before intercept arrives (in tenths of seconds)
-	var/waittime_h = 1800                    // Upper bound on time before intercept arrives (in tenths of seconds)
+	var/waittime_l = 60 SECONDS                     // Lower bound on time before intercept arrives (in tenths of seconds)
+	var/waittime_h = 180 SECONDS                    // Upper bound on time before intercept arrives (in tenths of seconds)
 
 	var/event_delay_mod_moderate             // Modifies the timing of random events.
 	var/event_delay_mod_major                // As above.
@@ -245,7 +245,7 @@ var/global/list/additional_antag_types = list()
 			all_candidates += antag.candidates
 			antag_templates_by_initial_spawn_req[antag] = antag.initial_spawn_req
 
-		sortTim(antag_templates_by_initial_spawn_req, /proc/cmp_numeric_asc, TRUE)
+		sortTim(antag_templates_by_initial_spawn_req, GLOBAL_PROC_REF(cmp_numeric_asc), TRUE)
 		antag_templates = list_keys(antag_templates_by_initial_spawn_req)
 
 		var/list/valid_templates_per_candidate = list() // number of roles each candidate can satisfy
@@ -253,7 +253,7 @@ var/global/list/additional_antag_types = list()
 			valid_templates_per_candidate[candidate]++
 
 		valid_templates_per_candidate = shuffle(valid_templates_per_candidate) // shuffle before sorting so that candidates with the same number of templates will be in random order
-		sortTim(valid_templates_per_candidate, /proc/cmp_numeric_asc, TRUE)
+		sortTim(valid_templates_per_candidate, GLOBAL_PROC_REF(cmp_numeric_asc), TRUE)
 
 		for(var/datum/antagonist/antag in antag_templates)
 			antag.candidates = list_keys(valid_templates_per_candidate) & antag.candidates // orders antag.candidates by valid_templates_per_candidate
@@ -276,6 +276,9 @@ var/global/list/additional_antag_types = list()
 
 	spawn (ROUNDSTART_LOGOUT_REPORT_TIME)
 		display_logout_report()
+
+	var/welcome_delay = rand(waittime_l, waittime_h)
+	addtimer(CALLBACK(current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)
 
 	//Assign all antag types for this game mode. Any players spawned as antags earlier should have been removed from the pending list, so no need to worry about those.
 	for(var/datum/antagonist/antag in antag_templates)
@@ -487,7 +490,7 @@ var/global/list/additional_antag_types = list()
 //////////////////////////
 //Reports player logouts//
 //////////////////////////
-proc/get_logout_report()
+/proc/get_logout_report()
 	var/msg = "<span class='notice'><b>Logout report</b>\n\n"
 	for(var/mob/living/L in mob_list)
 
@@ -529,7 +532,7 @@ proc/get_logout_report()
 	msg += "</span>" // close the span from right at the top
 	return msg
 
-proc/display_logout_report()
+/proc/display_logout_report()
 	var/logout_report = get_logout_report()
 	for(var/s in staff)
 		var/client/C = s
@@ -544,7 +547,7 @@ proc/display_logout_report()
 		return
 	to_chat(src,get_logout_report())
 
-proc/get_poor()
+/proc/get_poor()
 	var/list/characters = list()
 
 	for(var/mob/living/carbon/human/character in player_list)

@@ -125,7 +125,7 @@
 	spread_chance = seed.get_trait(TRAIT_POTENCY)
 	spread_distance = ((growth_type > 0) ? round(spread_chance * 0.6) : round(spread_chance * 0.3))
 	update_icon()
-	addtimer(CALLBACK(src, .proc/post_initialize), 1)
+	addtimer(CALLBACK(src, PROC_REF(post_initialize)), 1)
 
 // Plants will sometimes be spawned in the turf adjacent to the one they need to end up in, for the sake of correct dir/etc being set.
 /obj/effect/plant/proc/post_initialize()

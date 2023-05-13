@@ -663,6 +663,7 @@
 	color = "#d8c045"
 	condiment_name = "garlic sauce"
 	condiment_desc = "Perfect for repelling vampires and/or potential dates."
+	condiment_icon_state = "garlic_sauce"
 
 /singleton/reagent/nutriment/mayonnaise
 	name = "Mayonnaise"
@@ -792,7 +793,7 @@
 		to_chat(M, discomfort_message)
 
 		M.visible_message("<b>[M]</b> [pick("dry heaves!", "coughs!", "splutters!")]")
-		M.apply_effect(agony_amount, PAIN, 0)
+		M.apply_effect(agony_amount, DAMAGE_PAIN, 0)
 
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
@@ -869,14 +870,14 @@
 		message = "<span class='danger'>Your face and throat burn!</span>"
 		if(prob(25))
 			M.visible_message("<b>[M]</b> [pick("coughs!","coughs hysterically!","splutters!")]")
-		M.apply_effect(30, PAIN)
+		M.apply_effect(30, DAMAGE_PAIN)
 
 /singleton/reagent/capsaicin/condensed/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(!H.can_feel_pain())
 			return
-	M.apply_effect(10, PAIN)
+	M.apply_effect(10, DAMAGE_PAIN)
 	if(prob(5))
 		M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
@@ -1057,6 +1058,24 @@
 	glass_icon_state = "berryjuice"
 	glass_name = "glass of ylpha berry juice"
 	glass_desc = "Ylpha berry juice. Or maybe it's jam. Who cares?"
+
+/singleton/reagent/drink/sarezhiberryjuice
+	name = "Sarezhi Berry Juice"
+	description = "The tart juice of the sarezhi berry, a rare Moghresian crop which is fermented into the famed Sarezshi Wine"
+	color = "#bf8fbc"
+	taste_description = "tart, bitter berry juice"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of sarezhi berry juice"
+	glass_desc = "A glass of bitter, tart sarezhi juice. You know you're meant to make this into wine before drinking it, right?"
+
+/singleton/reagent/drink/sthberryjuice
+	name = "S'th Berry Juice"
+	description = "The sweet, delectable juice of the S'th berry, a Moghresian fruit found in the Izweski Heartland"
+	color = ""
+	taste_description = "sweet berry juice"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of S'th berry juice"
+	glass_desc = "A glass of S'th berry juice, an Unathi delicacy"
 
 /singleton/reagent/drink/carrotjuice
 	name = "Carrot juice"
@@ -1762,6 +1781,17 @@
 	glass_desc = "A strong coffee made by passing nearly boiling water through coffee seeds at high pressure."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
+/singleton/reagent/drink/coffee/ration
+    name = "Ration Coffee"
+    description = "Watered-down coffee. One cup now becomes four!"
+    color = "#664300" // rgb: 102, 67, 0
+    taste_description = "weak, watered-down coffee"
+
+    glass_icon_state = "hot_coffee"
+    glass_name = "glass of ration coffee"
+    glass_desc = "Coffee, watered-down."
+    glass_center_of_mass = list("x"=15, "y"=9)
+
 /singleton/reagent/drink/coffee/freddo_espresso
 	name = "Freddo Espresso"
 	description = "Espresso with ice cubes poured over ice."
@@ -2002,15 +2032,15 @@
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 /singleton/reagent/drink/brownstar
-	name = "Brown Star"
-	description = "It's not what it sounds like..."
+	name = "Orange Starshine"
+	description = "A citrusy orange soda."
 	color = "#9F3400"
 	taste_description = "orange and cola soda"
 	carbonated = TRUE
 
 	glass_icon_state = "brownstar"
-	glass_name = "glass of Brown Star"
-	glass_desc = "It's not what it sounds like..."
+	glass_name = "glass of Orange Starshine"
+	glass_desc = "A citrusy orange soda."
 
 /singleton/reagent/drink/mintsyrup
 	name = "Mint Syrup"
@@ -2069,7 +2099,6 @@
 /singleton/reagent/drink/nuka_cola/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	if(alien != IS_DIONA)
-		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		M.make_jittery(20)
 		M.druggy = max(M.druggy, 30)
 		M.dizziness += 5
@@ -2141,7 +2170,7 @@
 	name = "Vacuum Fizz"
 	description = "Tastes like a hull breach in your mouth."
 	color = "#aee5e4"
-	taste_description = "a hull breach"
+	taste_description = "hull breach"
 	carbonated = TRUE
 
 	glass_icon_state = "space-up_glass"
@@ -2630,7 +2659,7 @@
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 /singleton/reagent/alcohol/thirteenloko
-	name = "Thirteen Loko"
+	name = "Getmore Energy"
 	description = "A potent mixture of caffeine and alcohol."
 	color = "#ffb928"
 	strength = 10
@@ -2640,8 +2669,8 @@
 	carbonated = TRUE
 
 	glass_icon_state = "thirteen_loko_glass"
-	glass_name = "glass of Thirteen Loko"
-	glass_desc = "This is a glass of Thirteen Loko, it appears to be of the highest quality. The drink, not the glass."
+	glass_name = "glass of Getmore Energy"
+	glass_desc = "This is a glass of Getmore Energy, a potent mixture of caffeine and alcohol."
 
 /singleton/reagent/alcohol/thirteenloko/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
@@ -2681,7 +2710,7 @@
 
 /singleton/reagent/alcohol/vodka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, blocked = 0)
+	M.apply_effect(max(M.total_radiation - 1 * removed, 0), DAMAGE_RADIATION, blocked = 0)
 
 /singleton/reagent/alcohol/vodka/mushroom
 	name = "Mushroom Vodka"
@@ -2869,7 +2898,7 @@
 
 /singleton/reagent/alcohol/bananahonk
 	name = "Banana Mama"
-	description = "A drink from Clown Heaven."
+	description = "Banana heaven."
 	nutriment_factor = 1
 	color = "#FFFF91"
 	strength = 15
@@ -2877,19 +2906,19 @@
 
 	glass_icon_state = "bananahonkglass"
 	glass_name = "glass of Banana Honk"
-	glass_desc = "A drink from Banana Heaven."
+	glass_desc = "A drink from banana heaven."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/alcohol/barefoot
 	name = "Barefoot"
-	description = "Barefoot and pregnant"
+	description = "Creamy berries."
 	color = "#ff66cc"
 	strength = 15
 	taste_description = "creamy berries"
 
 	glass_icon_state = "b&p"
 	glass_name = "glass of Barefoot"
-	glass_desc = "Barefoot and pregnant"
+	glass_desc = "A drink made of berry juice, cream, and vermouth."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
 /singleton/reagent/alcohol/beepsky_smash
@@ -3814,19 +3843,19 @@
 
 // Snowflake drinks
 /singleton/reagent/drink/dr_gibb_diet
-	name = "Diet Dr. Gibb"
+	name = "Getmore Root-Cola"
 	description = "A delicious blend of 42 different flavours, one of which is water."
 	color = "#93230b"
 	taste_description = "watered down liquid sunshine"
 	carbonated = TRUE
 
 	glass_icon_state = "dr_gibb_glass"
-	glass_name = "glass of Diet Dr. Gibb"
-	glass_desc = "Regular Dr.Gibb is probably healthier than this cocktail of artificial flavors."
+	glass_name = "glass of Diet Getmore Root Cola"
+	glass_desc = "Regular Root Cola is probably healthier than this cocktail of artificial flavors."
 
 /singleton/reagent/alcohol/drdaniels
 	name = "Dr. Daniels"
-	description = "A limited edition tallboy of Dr. Gibb's Infusions."
+	description = "A limited edition tallboy of Getmore Root Cola's Infusions."
 	color = "#35240f"
 	caffeine = 0.2
 	overdose = 80
@@ -3837,7 +3866,7 @@
 
 	glass_icon_state = "drdaniels"
 	glass_name = "glass of Dr. Daniels"
-	glass_desc = "A tall glass of honey, whiskey, and diet Dr. Gibb. The perfect blend of throat-soothing liquid."
+	glass_desc = "A tall glass of honey, whiskey, and diet Getmore Root Cola. The perfect blend of throat-soothing liquid."
 
 //aurora unique drinks
 
@@ -3951,7 +3980,7 @@
 
 	glass_icon_state = "peacetreatyglass"
 	glass_name = "glass of Peace Treaty"
-	glass_desc = "A diplomatic overture in a glass"
+	glass_desc = "A diplomatic overture in a glass."
 
 /singleton/reagent/alcohol/caruso
 	name = "Caruso"
@@ -4190,7 +4219,7 @@
 			if(prob(5))
 				to_chat(M, discomfort_message)
 		else
-			M.apply_effect(agony_amount, PAIN, 0)
+			M.apply_effect(agony_amount, DAMAGE_PAIN, 0)
 			if(prob(5))
 				M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
 				to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
@@ -4458,7 +4487,7 @@
 	color = "#1936a0"
 	strength = 10
 	description = "A controversial drink popular with the punk youth of the Nralakk Federation. Represents blood, eggs, and tears."
-	taste_description = "genophage sadness"
+	taste_description = "X'Lu'oa sadness"
 
 	glass_icon_state = "thirdincident"
 	glass_name = "glass of the Third Incident"
@@ -4639,6 +4668,9 @@
 	color = "#91de47"
 	strength = 5
 	taste_description = "water"
+	species_taste_description = list(
+		SPECIES_UNATHI = "a bit of watermelon and strawberry with a hint of salt"
+	)
 
 	glass_icon_state = "xuiziglass"
 	glass_name = "glass of Xuizi Juice"
@@ -5174,14 +5206,14 @@
 
 /singleton/reagent/drink/toothpaste/caprician_coffee
 	name = "Caprician Coffee"
-	description = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
+	description = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra Hive."
 	color = "#C00000"
 	taste_description = "minty coffee"
 	strength = 15
 
 	glass_icon_state = "caprician_coffee"
 	glass_name = "glass of caprician coffee"
-	glass_desc = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
+	glass_desc = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra Hive."
 
 /singleton/reagent/drink/toothpaste/ichor
 	name = "Xsain Ichor"
@@ -5227,15 +5259,15 @@
 	glass_desc = "Prepared just like in Silversun."
 
 /singleton/reagent/drink/gibbfloats
-	name = "Gibb Floats"
-	description = "A floating soda of icecream and Dr. Gibb."
+	name = "Root-Cola Floats"
+	description = "A floating soda of icecream and Getmore Root-Cola."
 	color = "#93230b"
 	taste_description = "cherry soda and icecream"
 	carbonated = TRUE
 
 	glass_icon_state = "gibbfloats"
-	glass_name = "glass of gibb floats"
-	glass_desc = "A floating soda of icecream and Dr. Gibb."
+	glass_name = "glass of root-cola floats"
+	glass_desc = "A floating soda of icecream and Getmore Root-Cola."
 
 /singleton/reagent/drink/diet_cola
 	name = "Diet Cola"

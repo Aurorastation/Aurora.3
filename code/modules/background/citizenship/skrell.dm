@@ -65,17 +65,5 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/nralakk(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
 		else
-			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
-
-/datum/citizenship/epsilon
-	name = CITIZENSHIP_EUM
-	description =  "An independent nation on the edge of Skrell space, the Co-Operative Territories of Epsilon Ursae Minoris, \
-	also known as the CT-EUM, is a nation primarily comprised of Dionae with a minority of skrell mostly situated \
-	in the city of Nral'Daaq. The CT-EUM is compromised of a myriad of smaller nations and city-states that make up \
-	the whole of the nation. While the nation is independent it does have heavy ties to the Nralakk Federation, \
-	being instrumental in the nations' founding and contact with the rest of the galaxy. "
-
-	job_species_blacklist = list(
-		"Consular Officer" = ALL_SPECIES
-	)

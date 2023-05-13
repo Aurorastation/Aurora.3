@@ -136,32 +136,54 @@
 	icon_state = "armsman_mantle"
 	item_state = "armsman_mantle"
 
+/obj/item/clothing/suit/storage/dominia
+	name = "dominian great coat"
+	desc = "This is a great coat in the style of Dominian nobility. It's the latest fashion across Dominian space."
+	icon = 'icons/clothing/suits/coats/dominia_noble_coats.dmi'
+	icon_state = "greatcoat_red"
+	item_state = "greatcoat_red"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/dominia/gold
+	icon_state = "greatcoat_gold"
+	item_state = "greatcoat_gold"
+
+/obj/item/clothing/suit/storage/dominia/black
+	icon_state = "greatcoat_black"
+	item_state = "greatcoat_black"
+
+/obj/item/clothing/suit/storage/dominia/coat
+	name = "dominian coat"
+	desc = "This is a coat in the style of Dominia nobility. It's the latest fashion across Dominian space."
+	icon_state = "coat_red"
+	item_state = "coat_red"
+
+/obj/item/clothing/suit/storage/dominia/coat/gold
+	icon_state = "coat_gold"
+	item_state = "coat_gold"
+
+/obj/item/clothing/suit/storage/dominia/coat/black
+	icon_state = "coat_black"
+	item_state = "coat_black"
+
 /obj/item/clothing/suit/storage/dominia/consular
-	name = "Dominian consular officer's greatcoat"
+	name = "dominian consular's greatcoat"
 	desc = "A Dominian greatcoat issued to members of His Majesty's Diplomatic Service, designed in the typical Dominian fashion."
 	desc_extended = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though \
 	the Service also employs many commoners - as long as they can pass the rigorous examinations required to become a full member."
-	icon = 'icons/clothing/suits/coats/dominia_consular_coat.dmi'
+	icon_state = "dominia_consular_greatcoat"
+	item_state = "dominia_consular_greatcoat"
+
+/obj/item/clothing/suit/storage/dominia/consular/coat
+	name = "dominian consular's coat"
+	desc = "A Dominian coat issued to members of His Majesty's Diplomatic Service, designed in the typical Dominian fashion."
+	desc_extended = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though \
+	the Service also employs many commoners - as long as they can pass the rigorous examinations required to become a full member."
 	icon_state = "dominia_consular_coat"
 	item_state = "dominia_consular_coat"
 
 /obj/item/clothing/suit/storage/toggle/dominia
-	name = "dominia great coat"
-	desc = "This is a great coat in the style of Dominia nobility. It's the latest fashion across Dominian space."
-	icon = 'icons/clothing/suits/coats/dominia_noble_red.dmi'
-	icon_state = "dominia_noble_red"
-	item_state = "dominia_noble_red"
 	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/dominia/gold
-	icon = 'icons/clothing/suits/coats/dominia_noble_gold.dmi'
-	icon_state = "dominia_noble_gold"
-	item_state = "dominia_noble_gold"
-
-/obj/item/clothing/suit/storage/toggle/dominia/black
-	icon = 'icons/clothing/suits/coats/dominia_noble_black.dmi'
-	icon_state = "dominia_noble_black"
-	item_state = "dominia_noble_black"
 
 /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	name = "fisanduhian bomber jacket"

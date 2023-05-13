@@ -71,7 +71,7 @@
 	//This gives the last one a 30% chance of infection.
 	if(prob(dirtiness+(targets.len-1)*10))
 		log_and_message_admins("[loc] infected [target]'s [eo.name] with \the [src].")
-		addtimer(CALLBACK(src, .proc/infect_limb, eo), rand(5 MINUTES, 10 MINUTES))
+		addtimer(CALLBACK(src, PROC_REF(infect_limb), eo), rand(5 MINUTES, 10 MINUTES))
 
 	if(!used)
 		START_PROCESSING(SSprocessing, src)
@@ -143,12 +143,12 @@
 				last_jab = 0 //Resets to try again immediately
 				user.visible_message("<b>[user]</b> fumbles with \the [src]!", SPAN_NOTICE("You fumble with \the [src]!"))
 				return
-			var/blocked = H.get_blocked_ratio(BP_CHEST, BRUTE, DAM_SHARP, damage = 5)
+			var/blocked = H.get_blocked_ratio(BP_CHEST, DAMAGE_BRUTE, DAMAGE_FLAG_SHARP, damage = 5)
 			if(blocked > 20)
 				user.visible_message("<b>[user]</b> jabs \the [src] into [H], but their armor blocks it!", SPAN_WARNING("You jab \the [src] into [H], but their armor blocks it!"))
 				return
 			user.visible_message("<b>[user]</b> jabs \the [src] between [P] ribs!", SPAN_NOTICE("You jab \the [src] between [SM] ribs!"))
-			H.apply_damage(3, BRUTE, BP_CHEST)
+			H.apply_damage(3, DAMAGE_BRUTE, BP_CHEST)
 			H.custom_pain("The pain in your chest is living hell!", 50, affecting = H.organs_by_name[BP_CHEST])
 			L.oxygen_deprivation = 0
 			L.rescued = TRUE
@@ -317,7 +317,7 @@
 		if((user != target) && H.check_shields(7, src, user, "\the [src]"))
 			return
 
-		var/armor = H.get_blocked_ratio(target_zone, BRUTE, damage_flags = DAM_SHARP, damage = 5)*100
+		var/armor = H.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP, damage = 5)*100
 		if (target != user && armor > 50)
 			user.visible_message(SPAN_DANGER("[user] tries to stab \the [target] in the [hit_area] with \the [src], but the attack is deflected by [target.get_pronoun("his")] armor!"), SPAN_WARNING("You try to stab \the [target] in the [hit_area] with \the [src], but the attack is deflected by [target.get_pronoun("his")] armor!"))
 			user.remove_from_mob(src)

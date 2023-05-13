@@ -39,7 +39,7 @@
 					shake_camera(L, 2, 4)
 				for(var/mob/living/rebecca in T)
 					if(rebecca.lying || from_above)
-						rebecca.apply_damage(40 * damage_mod, BRUTE, pick(BP_ALL_LIMBS), used_weapon = "landing", armor_pen = 30) //so true choomfie
+						rebecca.apply_damage(40 * damage_mod, DAMAGE_BRUTE, pick(BP_ALL_LIMBS), used_weapon = "landing", armor_pen = 30) //so true choomfie
 						T.visible_message(SPAN_DANGER("<font size=4>[H] lands on [rebecca]!</font>"))
 						to_chat(H, SPAN_DANGER("<font size=4>You land on [rebecca]!</font>")) //since the mob won't be on the turf yet
 	user.post_maneuver()
@@ -110,3 +110,8 @@
 /singleton/maneuver/leap/tajara/msai
 	delay = 1 SECOND
 	cooldown = 4 SECONDS
+
+/singleton/maneuver/leap/tesla_body
+	cooldown = 20 SECONDS
+	delay = 4 SECONDS
+	stamina_cost = 30

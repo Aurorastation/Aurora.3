@@ -1,19 +1,3 @@
-/******************************Lantern*******************************/
-
-/obj/item/device/flashlight/lantern
-	name = "lantern"
-	desc = "A mining lantern."
-	icon_state = "lantern"
-	item_state = "lantern"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
-		)
-	light_power = 1
-	brightness_on = 4
-	light_wedge = LIGHT_OMNI
-	light_color = LIGHT_COLOR_FIRE
-
 /*****************************Pickaxe********************************/
 
 /obj/item/pickaxe
@@ -352,6 +336,9 @@
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	usesound = /singleton/sound_category/shovel_sound
+
+/obj/item/shovel/is_shovel()
+	return TRUE
 
 /obj/item/shovel/spade
 	name = "spade"
@@ -771,7 +758,7 @@
 				L.Weaken(3)
 				if(ishuman(L))
 					shake_camera(L, 20, 1)
-					addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
+					addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living/carbon/human, vomit), 20))
 
 /**********************Lazarus Injector**********************/
 
@@ -822,7 +809,7 @@
 	if(isliving(target) && proximity_flag)
 		if(istype(target, /mob/living/simple_animal))
 			var/mob/living/simple_animal/M = target
-			if(!(M.find_type() & revive_type))
+			if(!(M.find_type() & revive_type) || !(M.tameable))
 				to_chat(user, SPAN_INFO("\The [src] does not work on this sort of creature."))
 				return
 			if(M.stat == DEAD)
@@ -1079,7 +1066,7 @@ var/list/total_extraction_beacons = list()
 		name = "strong resonance field"
 		resonance_damage = 60
 
-	addtimer(CALLBACK(src, .proc/burst, loc), timetoburst)
+	addtimer(CALLBACK(src, PROC_REF(burst), loc), timetoburst)
 
 /obj/effect/resonance/Destroy()
 	if(res)
@@ -1095,7 +1082,7 @@ var/list/total_extraction_beacons = list()
 		if(creator)
 			add_logs(creator, L, "used a resonator field on", "resonator")
 		to_chat(L, SPAN_DANGER("\The [src] ruptured with you in it!"))
-		L.apply_damage(resonance_damage, BRUTE)
+		L.apply_damage(resonance_damage, DAMAGE_BRUTE)
 	qdel(src)
 
 
@@ -1443,9 +1430,9 @@ var/list/total_extraction_beacons = list()
 					L.Weaken(3)
 					shake_camera(L, 20, 1)
 					if(!isipc(L) && ishuman(L))
-						addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
+						addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living/carbon/human, vomit)), 20)
 
-		addtimer(CALLBACK(src, .proc/drill, location), 2)
+		addtimer(CALLBACK(src, PROC_REF(drill), location), 2)
 
 	qdel(src)
 

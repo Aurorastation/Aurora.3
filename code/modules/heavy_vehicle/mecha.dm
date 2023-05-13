@@ -45,6 +45,7 @@
 
 	// Remote control stuff
 	var/remote = FALSE // Spawns a robotic pilot to be remote controlled
+	var/remote_type = /obj/item/remote_mecha
 	var/does_hardpoint_lock = TRUE
 	var/mob/living/simple_animal/spiderbot/dummy // The remote controlled dummy
 	var/dummy_type = /mob/living/simple_animal/spiderbot
@@ -96,6 +97,12 @@
 
 	selected_system = null
 
+	for(var/hardpoint in hardpoints)
+		var/obj/item/S = remove_system(hardpoint, force = 1)
+		qdel(S)
+
+	hardpoints = null
+
 	for(var/thing in pilots)
 		var/mob/pilot = thing
 		if(pilot.client)
@@ -111,13 +118,19 @@
 
 	hardpoint_hud_elements = null
 
-	hardpoints = null
-
 	QDEL_NULL(access_card)
 	QDEL_NULL(arms)
 	QDEL_NULL(legs)
 	QDEL_NULL(head)
 	QDEL_NULL(body)
+
+	QDEL_NULL(hud_health)
+	QDEL_NULL(hud_open)
+	QDEL_NULL(hud_power)
+	QDEL_NULL(hud_power_control)
+
+	QDEL_NULL(camera)
+	QDEL_NULL(radio)
 
 	. = ..()
 
@@ -150,7 +163,7 @@
 	for(var/obj/item/mech_component/thing in list(arms, legs, head, body))
 		if(!thing)
 			continue
-		var/damage_string = "destroyed"
+		var/damage_string = ""
 		switch(thing.damage_state)
 			if(1)
 				damage_string = "undamaged"
@@ -159,7 +172,7 @@
 			if(3)
 				damage_string = "<span class='warning'>badly damaged</span>"
 			if(4)
-				damage_string = "<span class='danger'>almost destroyed</span>"
+				damage_string = "<span class='danger'>destroyed</span>"
 		to_chat(user, "Its <b>[thing.name]</b> [thing.gender == PLURAL ? "are" : "is"] [damage_string].")
 
 /mob/living/heavy_vehicle/Topic(href,href_list[])
@@ -306,10 +319,8 @@
 	dummy = new dummy_type(get_turf(src))
 	dummy.real_name = "Remote-Bot"
 	dummy.name = dummy.real_name
-	dummy.mmi = new /obj/item/device/mmi(dummy) // this is literally just because i luck the aesthetics - geeves
 	dummy.verbs -= /mob/living/proc/ventcrawl
 	dummy.verbs -= /mob/living/proc/hide
-	dummy.update_icon()
 	if(dummy_colour)
 		dummy.color = dummy_colour
 	enter(dummy, TRUE)

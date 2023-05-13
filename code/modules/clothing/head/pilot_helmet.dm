@@ -29,6 +29,8 @@
 	var/obj/pilot_overlay_holder/hud_overlay
 	var/obj/pilot_overlay_holder/ship_hud/ship_overlay
 
+	has_storage = FALSE
+
 /obj/item/clothing/head/helmet/pilot/Initialize()
 	. = ..()
 	hud_overlay = new(src)
@@ -48,7 +50,7 @@
 	if(linked_helm)
 		linked_helm.linked_helmets -= src
 		linked_helm = null
-	
+
 	if(!isnull(C))
 		if(istype(C, /obj/machinery/computer/shuttle_control))
 			linked_console = C

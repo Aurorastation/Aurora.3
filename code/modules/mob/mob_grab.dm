@@ -419,7 +419,7 @@
 			affecting.buckled_to = null
 			affecting.update_canmove()
 			affecting.anchored = FALSE
-		moved_event.unregister(assailant, src, /obj/item/grab/proc/move_affecting)
+		moved_event.unregister(assailant, src, PROC_REF(move_affecting))
 
 	animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
 	affecting.layer = initial(affecting.layer)
@@ -476,7 +476,7 @@
 	affecting.buckled_to = assailant
 	affecting.forceMove(H.loc)
 	adjust_position()
-	moved_event.register(assailant, src, /obj/item/grab/proc/move_affecting)
+	moved_event.register(assailant, src, PROC_REF(move_affecting))
 
 /obj/item/grab/proc/set_wielding()
 	wielded = TRUE

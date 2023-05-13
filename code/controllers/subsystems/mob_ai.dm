@@ -4,6 +4,7 @@
 	name = "Mobs - AI"
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_MOB
+	runlevels = RUNLEVELS_PLAYING
 
 	var/list/processing = list()
 	var/list/currentrun = list()

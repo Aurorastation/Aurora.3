@@ -80,6 +80,8 @@
 				return 1
 			if (SPECIES_ZOMBIE_TAJARA)
 				return 1
+			if (SPECIES_TAJARA_TESLA_BODY)
+				return 1
 	return 0
 
 /proc/isskrell(A)
@@ -198,27 +200,27 @@
 				return 1
 	return 0
 
-proc/isdeaf(A)
+/proc/isdeaf(A)
 	if(istype(A, /mob))
 		var/mob/M = A
 		return M.ear_deaf
 	return 0
 
-proc/iscuffed(A)
+/proc/iscuffed(A)
 	if(istype(A, /mob/living/carbon))
 		var/mob/living/carbon/C = A
 		if(C.handcuffed)
 			return 1
 	return 0
 
-proc/hassensorlevel(A, var/level)
+/proc/hassensorlevel(A, var/level)
 	var/mob/living/carbon/human/H = A
 	if(istype(H) && istype(H.w_uniform, /obj/item/clothing/under))
 		var/obj/item/clothing/under/U = H.w_uniform
 		return U.sensor_mode >= level
 	return 0
 
-proc/getsensorlevel(A)
+/proc/getsensorlevel(A)
 	var/mob/living/carbon/human/H = A
 	if(istype(H) && istype(H.w_uniform, /obj/item/clothing/under))
 		var/obj/item/clothing/under/U = H.w_uniform
@@ -236,6 +238,9 @@ proc/getsensorlevel(A)
 
 /mob/proc/is_pacified()
 	return FALSE
+
+/mob/proc/is_blind()
+	return (sdisabilities & BLIND) || blinded
 
 /*
 	Miss Chance
@@ -366,7 +371,7 @@ var/list/global/organ_rel_size = list(
 		p++
 	return t
 
-proc/slur(phrase, strength = 100)
+/proc/slur(phrase, strength = 100)
 	phrase = html_decode(phrase)
 	var/leng=length(phrase)
 	var/counter=length(phrase)
@@ -381,13 +386,18 @@ proc/slur(phrase, strength = 100)
 				if(lowertext(newletter)=="a")	newletter="ah"
 				if(lowertext(newletter)=="c")	newletter="k"
 			switch(rand(1,15))
-				if(1,3,5,8)	newletter="[lowertext(newletter)]"
-				if(2,4,6,15)	newletter="[uppertext(newletter)]"
-				if(7)	newletter+="'"
+				if(1,3,5,8)
+					newletter="[lowertext(newletter)]"
+				if(2,4,6,15)
+					newletter="[uppertext(newletter)]"
+				if(7)
+					newletter+="'"
+				else
+					. = null // For dreamchecker, does nothing
 		newphrase+="[newletter]";counter-=1
 	return newphrase
 
-proc/Gibberish(t, p)//t is the inputted message, and any value higher than 70 for p will cause letters to be replaced instead of added
+/proc/Gibberish(t, p)//t is the inputted message, and any value higher than 70 for p will cause letters to be replaced instead of added
 	/* Turn text into complete gibberish! */
 	var/returntext = ""
 	for(var/i = 1, i <= length(t), i++)
@@ -440,6 +450,8 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 /proc/shake_camera(mob/M, duration, strength = 1)
 	var/current_time = world.time
 	if(!M || !M.client || (M.shakecamera > current_time)|| M.stat || isEye(M) || isAI(M))
+		return
+	if(((M.client.view != world.view) || (M.client.pixel_x != 0) || (M.client.pixel_y != 0))) //to prevent it while zooming, because zoom does not play well with this code
 		return
 	M.shakecamera = current_time + max(TICKS_PER_RECOIL_ANIM, duration)
 	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
@@ -511,13 +523,6 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 				hud_used.action_intent.icon_state = I_HURT
 			else
 				hud_used.action_intent.icon_state = I_HELP
-
-proc/is_blind(A)
-	if(istype(A, /mob/living/carbon))
-		var/mob/living/carbon/C = A
-		if(C.sdisabilities & BLIND || C.blinded)
-			return 1
-	return 0
 
 /proc/broadcast_security_hud_message(var/message, var/broadcast_source)
 	broadcast_hud_message(message, broadcast_source, sec_hud_users, /obj/item/clothing/glasses/hud/security)
@@ -1191,12 +1196,6 @@ proc/is_blind(A)
 				var/final_icon = a.tag_icon
 				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
 				return {"<span onclick="window.location.href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'">[S.icon_tag(final_icon)]</span>"}
-				
-
-/mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
-	for(var/mob/M in contents)
-		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
-		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
 
 /mob/assign_player(var/mob/user)
 	ckey = user.ckey

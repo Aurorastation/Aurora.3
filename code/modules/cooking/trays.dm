@@ -106,8 +106,8 @@
 	current_weight += I.w_class
 	vis_contents += I
 	I.vis_flags |= VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
-	item_equipped_event.register(I, src, /obj/item/tray/proc/pick_up)
-	destroyed_event.register(I, src, /obj/item/tray/proc/unload_item)
+	item_equipped_event.register(I, src, PROC_REF(pick_up))
+	destroyed_event.register(I, src, PROC_REF(unload_item))
 
 /obj/item/tray/verb/unload()
 	set name = "Unload Tray"
@@ -206,3 +206,15 @@
 	if(istype(A,/obj/structure/table))
 		safedrop = TRUE
 	return ..(A, user, click_parameters)
+
+/obj/item/tray/plate
+	name = "serving plate"
+	desc = "A large plate for serving meals on."
+	icon = 'icons/obj/kitchen.dmi'
+	icon_state = "l_plate"
+	throwforce = 4
+	force = 3
+	flags = null
+	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
+	recyclable = TRUE
+	max_carry = 7 // That's 3 dishes, a knife, spoon and fork and a glass

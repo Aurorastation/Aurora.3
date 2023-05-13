@@ -903,7 +903,11 @@
 /obj/item/storage/box/tranquilizer
 	name = "box of tranquilizer darts"
 	desc = "It has a picture of a tranquilizer dart and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "incendiaryshot_box"
+	icon_state = "shellbox"
+	item_state = "shellbox"
+	illustration = "incendiaryshot"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/tranq = 8)
 
 /obj/item/storage/box/toothpaste
@@ -1006,6 +1010,7 @@
 	desc = "An ordinary wooden crate."
 	icon_state = "dynamite"
 	foldable = null
+	illustration = null
 	use_sound = 'sound/effects/doorcreaky.ogg'
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	pickup_sound = 'sound/items/pickup/wooden.ogg'

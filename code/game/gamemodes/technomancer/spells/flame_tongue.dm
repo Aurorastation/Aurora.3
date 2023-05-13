@@ -27,6 +27,7 @@
 
 /obj/item/weldingtool/spell
 	name = "flame"
+	produces_flash = FALSE
 
 /obj/item/weldingtool/spell/process()
 	return
@@ -34,9 +35,6 @@
 //Needed to make the spell welder have infinite fuel.  Don't worry, it uses energy instead.
 /obj/item/weldingtool/spell/use(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
 	return 1
-
-/obj/item/weldingtool/spell/eyecheck(mob/user as mob)
-	return
 
 /obj/item/spell/flame_tongue/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	if(isliving(hit_atom) && user.a_intent != I_HELP)

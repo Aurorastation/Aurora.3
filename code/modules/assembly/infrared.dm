@@ -125,7 +125,7 @@
 	if(!holder)
 		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*")
 	cooldown = 2
-	addtimer(CALLBACK(src, .proc/process_cooldown), 10)
+	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 10)
 
 /obj/item/device/assembly/infra/interact(mob/user)
 	if(!secured)
@@ -182,9 +182,9 @@
 
 /obj/effect/beam/i_beam/proc/check_visiblity()
 	if(master.visible)
-		invisibility = 0
+		set_invisibility(0)
 	else
-		invisibility = 101
+		set_invisibility(101)
 
 /obj/effect/beam/i_beam/process()
 	if(loc?.density || !master)

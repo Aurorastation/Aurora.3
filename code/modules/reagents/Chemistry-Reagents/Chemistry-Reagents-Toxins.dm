@@ -389,6 +389,11 @@
 		if(S.chem_doses[type] == removed)
 			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the foam touches it!"), SPAN_DANGER("Your flesh burns in the foam!"))
 
+/singleton/reagent/toxin/fertilizer/monoammoniumphosphate/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+	if(istype(O, /obj/structure/bonfire))
+		var/obj/structure/bonfire/B = O
+		B.fuel = max(0, B.fuel - (150 * amount))
+
 /singleton/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
 	description = "A harmful toxic mixture to kill plantlife. Do not ingest!"
@@ -477,7 +482,7 @@
 				randmutg(M)
 			domutcheck(M, null)
 			M.UpdateAppearance()
-	M.apply_effect(10 * removed, IRRADIATE, blocked = 0)
+	M.apply_damage(10 * removed, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /singleton/reagent/slimejelly
 	name = "Slime Jelly"
@@ -593,7 +598,7 @@
 	M.canmove = 0
 	M.icon = null
 	M.cut_overlays()
-	M.invisibility = 101
+	M.set_invisibility(101)
 	for(var/obj/item/W in M)
 		if(istype(W, /obj/item/implant)) //TODO: Carn. give implants a dropped() or something
 			qdel(W)
@@ -655,6 +660,12 @@
 	description = "This actually appears to be mostly ground up leaves masquerading as tobacco. There's maybe some nicotine in there somewhere..."
 	taste_description = "acrid smoke"
 	nicotine = 0.1
+
+/singleton/reagent/toxin/tobacco/sweet 
+	name = "Sweet Tobacco"
+	description = "This tobacco is much sweeter than the strains usually found in human space."
+	taste_description = "sweet tobacco"
+	nicotine = 0.3
 
 /singleton/reagent/toxin/tobacco/liquid
 	name = "Nicotine Solution"

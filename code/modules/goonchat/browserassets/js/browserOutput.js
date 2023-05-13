@@ -24,8 +24,10 @@ window.status = 'Output';
 var $messages, $subTheme, $subOptions, $subFont, $selectedSub, $contextMenu, $filterMessages, $last_message;
 var opts = {
 	//General
-	'messageCount': 0, //A count...of messages...
-	'messageLimit': 2053, //A limit...for the messages...
+	'messageCount': 0, //A count of messages
+	'messageLimit': 2048, //A limit for the messages
+	'messageLimitMin': 2048,
+	'messageLimitMax': 16384,
 	'scrollSnapTolerance': 10, //If within x pixels of bottom
 	'clickTolerance': 10, //Keep focus if outside x pixels of mousedown position on mouseup
 	'imageRetryDelay': 50, //how long between attempts to reload images (in ms)
@@ -40,7 +42,6 @@ var opts = {
 	'selectedSubLoop': null, //Contains the interval loop for closing the selected sub menu
 	'suppressSubClose': false, //Whether or not we should be hiding the selected sub menu
 	'highlightTerms': [],
-	'highlightLimit': 5,
 	'highlightColor': '#FFFF00', //The color of the highlighted message
 	'pingDisabled': false, //Has the user disabled the ping counter
 
@@ -348,9 +349,9 @@ function output(message, flag) {
 	opts.messageCount++;
 
 	//Pop the top message off if history limit reached
-	if (opts.messageCount >= opts.messageLimit) {
+	while (opts.messageCount >= opts.messageLimit) {
 		$messages.children('div.entry:first-child').remove();
-		opts.messageCount--; //I guess the count should only ever equal the limit
+		opts.messageCount--;
 	}
 
 	// Create the element - if combining is off, we use it, and if it's on, we
@@ -439,16 +440,18 @@ function runByond(uri) {
 	window.location = uri;
 }
 
+var cookieNamespace = "nss_aurora_";
+
 function setCookie(cname, cvalue, exdays) {
 	cvalue = escaper(cvalue);
 	var d = new Date();
 	d.setTime(d.getTime() + (exdays*24*60*60*1000));
 	var expires = 'expires='+d.toUTCString();
-	document.cookie = cname + '=' + cvalue + '; ' + expires + "; path=/";
+	document.cookie = cookieNamespace + cname + '=' + cvalue + '; ' + expires + "; path=/";
 }
 
 function getCookie(cname) {
-	var name = cname + '=';
+	var name = cookieNamespace + cname + '=';
 	var ca = document.cookie.split(';');
 	for(var i=0; i < ca.length; i++) {
 	var c = ca[i];
@@ -670,6 +673,7 @@ $(function() {
 		fontsize: getCookie('fontsize'),
 		iconsize: getCookie('iconsize'),
 		lineheight: getCookie('lineheight'),
+		'smessageLimit': getCookie('messageLimit'),
 		'spingDisabled': getCookie('pingdisabled'),
 		'shighlightTerms': getCookie('highlightterms'),
 		'shighlightColor': getCookie('highlightcolor'),
@@ -693,6 +697,17 @@ $(function() {
 	}
 	if(savedConfig.stheme){
 		setTheme(savedConfig.stheme);
+	}
+	if (savedConfig.smessageLimit) {
+		var limit = parseInt(savedConfig.smessageLimit);
+		if(isNaN(limit) || limit < opts.messageLimitMin) {
+			limit = opts.messageLimitMin
+		}
+		if(limit > opts.messageLimitMax) {
+			limit = opts.messageLimitMax
+		}
+		opts.messageLimit = limit;
+		internalOutput('<span class="internal boldnshit">Loaded message limit of '+opts.messageLimit+'</span>', 'internal');
 	}
 	if (savedConfig.spingDisabled) {
 		if (savedConfig.spingDisabled == 'true') {
@@ -945,15 +960,12 @@ $(function() {
 
 	$('#highlightTerm').click(function(e) {
 		if ($('.popup .highlightTerm').is(':visible')) {return;}
-		var termInputs = '';
-		for (var i = 0; i < opts.highlightLimit; i++) {
-			termInputs += '<div><input type="text" name="highlightTermInput'+i+'" id="highlightTermInput'+i+'" class="highlightTermInput'+i+'" maxlength="255" value="'+(opts.highlightTerms[i] ? opts.highlightTerms[i] : '')+'" /></div>';
-		}
 		var popupContent = '<div class="head">String Highlighting</div>' +
 			'<div class="highlightPopup" id="highlightPopup">' +
-				'<div>Choose up to '+opts.highlightLimit+' strings that will highlight the line when they appear in chat.</div>' +
+				'<div>Choose strings that will be highlighted when they appear in chat. Max length of input is 256 characters. ' +
+					'Separate strings by ",". Example: "a,b,c" will highlight "a", "b", and "c".</div>' +
 				'<form id="highlightTermForm">' +
-					termInputs +
+					'<div><input type="text" name="highlightTermInput" id="highlightTermInput" class="highlightTermInput" maxlength="256" value="'+(opts.highlightTerms ? opts.highlightTerms : '')+'" /></div>' +
 					'<div><input type="text" name="highlightColor" id="highlightColor" class="highlightColor" '+
 						'style="background-color: '+(opts.highlightColor ? opts.highlightColor : '#FFFF00')+'" value="'+(opts.highlightColor ? opts.highlightColor : '#FFFF00')+'" maxlength="7" /></div>' +
 					'<div><input type="submit" name="highlightTermSubmit" id="highlightTermSubmit" class="highlightTermSubmit" value="Save" /></div>' +
@@ -973,11 +985,12 @@ $(function() {
 		e.preventDefault();
 
 		opts.highlightTerms = [];
-		for (var count = 0; count < opts.highlightLimit; count++) {
-			var term = $('#highlightTermInput'+count).val();
-			if (term !== null && /\S/.test(term)) {
-				opts.highlightTerms.push(term.trim().toLowerCase());
-			}
+		var term = $('#highlightTermInput').val();
+		if (term !== null && /\S/.test(term)) {
+			function mapFn (element) {
+				return element.trim();
+			};
+			opts.highlightTerms = term.trim().toLowerCase().split(',').map(mapFn);
 		}
 
 		var color = $('#highlightColor').val();
@@ -992,6 +1005,44 @@ $(function() {
 
 		setCookie('highlightterms', JSON.stringify(opts.highlightTerms), 365);
 		setCookie('highlightcolor', opts.highlightColor, 365);
+	});
+
+	$('#messageLimit').click(function(e) {
+		if ($('.popup .messageLimit').is(':visible')) {return;}
+		var popupContent = '<div class="head">Chat Message Limit</div>' +
+			'<div class="messageLimitPopup" id="messageLimitPopup">' +
+				'<div>Choose the limit of messages in the chat. Default value is '+opts.messageLimitMin+', min is '+opts.messageLimitMin+', max is '+opts.messageLimitMax+'. ' +
+					'If limit is reached, oldest messages at the top will be deleted. Higher limits may cause lower performance during long rounds.</div>' +
+				'<form id="messageLimitForm">' +
+				'<div><input type="text" name="messageLimitInput" id="messageLimitInput" class="messageLimitInput" maxlength="255" value="'+(opts.messageLimit ? opts.messageLimit : '')+'" /></div>' +
+					'<div><input type="submit" name="messageLimitSubmit" id="messageLimitSubmit" class="messageLimitSubmit" value="Save" /></div>' +
+				'</form>' +
+			'</div>';
+		createPopup(popupContent, 250);
+	});
+
+	$('body').on('submit', '#messageLimitForm', function(e) {
+		e.preventDefault();
+
+		var limit = $('#messageLimitInput').val();
+		limit = parseInt(limit);
+
+		if(isNaN(limit) || limit < opts.messageLimitMin) {
+			limit = opts.messageLimitMin
+			internalOutput('<span class="internal boldnshit">Message limit invalid or below min value.</span>', 'internal');
+		}
+		if(limit > opts.messageLimitMax) {
+			limit = opts.messageLimitMax
+			internalOutput('<span class="internal boldnshit">Message limit above max value.</span>', 'internal');
+		}
+
+		opts.messageLimit = limit
+		internalOutput('<span class="internal boldnshit">Message limit set to '+opts.messageLimit+'</span>', 'internal');
+
+		var $popup = $('#messageLimitPopup').closest('.popup');
+		$popup.remove();
+
+		setCookie('messageLimit', opts.messageLimit, 365);
 	});
 
 	$('#clearMessages').click(function() {

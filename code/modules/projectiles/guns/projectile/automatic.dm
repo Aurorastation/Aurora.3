@@ -15,12 +15,13 @@
 	multi_aim = 1
 	burst_delay = 2
 	sel_mode = 1
+	fire_delay = ROF_SMG
 
 	firemodes = list(
-		list(mode_name="semiauto",       can_autofire=0, burst=1),
+		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=ROF_SMG),
 		list(mode_name="3-round bursts", can_autofire=0, burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10, 15)),
 		list(mode_name="short bursts",   can_autofire=0, burst=5, burst_accuracy=list(1,0,,-1,-1), dispersion=list(5, 10, 15, 20)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
 
 //Submachine guns and personal defence weapons, go.
@@ -129,14 +130,15 @@
 	empty_sound = /singleton/sound_category/out_of_ammo_rifle
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
+	fire_delay = ROF_RIFLE
 
 	is_wieldable = TRUE
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=10),
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
 		list(mode_name="short bursts",   burst=5, burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
 		)
 
 	//slower to regain aim, more inaccurate if not wielding
@@ -180,11 +182,10 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=8),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, fire_delay_wielded=1, one_hand_fa_penalty=22, burst_accuracy = list(0,-1,-1,-1,-2,-2,-2,-3), dispersion = list(5, 5, 10, 15, 20)),
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_HEAVY),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=1, one_hand_fa_penalty=22, burst_accuracy = list(0,-1,-1,-1,-2,-2,-2,-3), dispersion = list(5, 5, 10, 15, 20)),
 		)
 
-	fire_delay = 8
 	accuracy = 2
 
 /obj/item/gun/projectile/automatic/rifle/shorty/update_icon()
@@ -209,7 +210,7 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 
-	firemodes = list(mode_name="semiauto", burst=1, fire_delay=12, fire_delay_wielded=12)
+	firemodes = list(mode_name="semiauto", burst=1, fire_delay=ROF_HEAVY, fire_delay_wielded=ROF_INTERMEDIATE)
 
 /obj/item/gun/projectile/automatic/rifle/carbine/update_icon()
 	..()
@@ -219,7 +220,7 @@
 	name = "bullpup carbine"
 	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, chambered in the same 5.56 caliber but only capable of accepting smaller magazines. It lacks the integral grenade launcher and the burst fire of the Bulldog."
 	desc_extended = "It makes you feel like a corporate goon when you hold it."
-	icon = 'icons/obj/guns/civcarbine.dmi'
+	icon = 'icons/obj/guns/crew_rifle.dmi'
 	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
 	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine, /obj/item/ammo_magazine/a556/carbine/polymer)
 	icon_state = "civcarbine"
@@ -293,7 +294,7 @@
 
 	burst_delay = 4
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=10),
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_INTERMEDIATE),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(2,1,1), dispersion=list(0, 7.5)),
 		list(mode_name="fire grenades", use_launcher=1)
 		)
@@ -341,11 +342,11 @@
 
 /obj/item/gun/projectile/automatic/rifle/jingya
 	name = "burst rifle"
-	desc = "The Jingya A-1 is the first of a new line of NanoTrasen rifles, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. They are made to be sleek, easy to use by users with minimal training and cheap to mass produce while still being reliable."
+	desc = "The Jingya A-1 is the first of a new line of NanoTrasen rifles, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. Primarily made of high strength polymers, the rifle is designed to be cheap to mass produce while remaining reliable."
 	desc_extended = "The Jingya A-1 won a hard-fought victory in the ballistic side of the SCC Future Firearms contest hosted in 2463, which was also its first unveiling: this rifle is made to function where laser weaponry may be either too risky or not functional for the engagement at hand. It is slated to be deployed for trial usage by a select few special TCFL regiments in Mictlan."
-	icon = 'icons/obj/guns/crew_rifle.dmi'
-	icon_state = "arifle"
-	item_state = "arifle"
+	icon = 'icons/obj/guns/burst_rifle.dmi'
+	icon_state = "arx"
+	item_state = "arx"
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	caliber = "a556"
@@ -359,16 +360,16 @@
 
 	burst_delay = 4
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=12),
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_RIFLE),
 		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(1, 1))
 	)
 
 /obj/item/gun/projectile/automatic/rifle/jingya/update_icon()
 	..()
 	if(ammo_magazine)
-		icon_state = "arifle"
+		icon_state = "arx"
 	else
-		icon_state = "arifle-empty"
+		icon_state = "arx-empty"
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"
@@ -394,7 +395,7 @@
 	firemodes = list(
 		list(mode_name="short bursts",	burst=5, burst_accuracy = list(1,0,0,-1,-1), dispersion = list(3, 6, 9)),
 		list(mode_name="long bursts",	burst=8, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
-		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=1, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
 
 	var/cover_open = 0
@@ -447,15 +448,15 @@
 
 /obj/item/gun/projectile/automatic/rifle/adhomian
 	name = "adhomian automatic rifle"
-	desc = "The Tsarrayut'yan rifle is a select-fire, crew-served automatic rifle producted by the People's Republic of Adhomai."
+	desc = "The Tsarrayut'yan rifle is a select-fire automatic rifle producted by the People's Republic of Adhomai."
 	icon = 'icons/obj/guns/tsarrayut.dmi'
 	icon_state = "tsarrayut"
 	item_state = "tsarrayut"
 	contained_sprite = TRUE
 
-	desc_extended = "People's Republic military hardware is the most advanced among the Tajaran nations. Laser weapons, alongside simple ballistic guns, are used by high ranking soldiers or \
-	special operatives. The majority of military is still equipped with simple bolt action rifles, that are being slowly replaced by the Tsarrayut'yan rifle; a select-fire, crew-served \
-	automatic rifle. Regardless of advances in the small arms field, artillery is the Republican army's main weapon and pride."
+	desc_extended = "Unlike the other Adhomian factions, the Hadiist military has fully adopted automatic weapons. Their service rifle is the Tsarrayut'yan rifle, a select-fire, \
+	automatic rifle. Laser weapons are usually used by high-ranking soldiers or special operatives. Regardless of advances in the small arms field, artillery is the Republican army’s \
+	main weapon and pride."
 
 	load_method = SINGLE_CASING|SPEEDLOADER
 
@@ -472,6 +473,44 @@
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 14
+
+/obj/item/gun/projectile/automatic/rifle/dpra
+	name = "adhomian assault rifle"
+	desc = "The Mrrazhak Model-1 is the newest Al'mariist automatic rifle. The Mrrazhak is notorious for its simple and reliable design; it can be fabricated and assembled without the \
+	need of a specialized industry or a highly trained workforce."
+	icon = 'icons/obj/guns/mrrazhak.dmi'
+	icon_state = "mrrazhak"
+	item_state = "mrrazhak"
+
+	can_bayonet = TRUE
+	knife_x_offset = 22
+	knife_y_offset = 13
+
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
+
+	is_wieldable = TRUE
+
+	can_bayonet = TRUE
+
+
+	magazine_type = /obj/item/ammo_magazine/c762/dpra
+	allowed_magazines = list(/obj/item/ammo_magazine/c762/dpra)
+
+/obj/item/gun/projectile/automatic/rifle/dpra/update_icon()
+	if(ammo_magazine)
+		icon_state = "mrrazhak"
+		item_state = "mrrazhak"
+	else
+		icon_state = "mrrazhak_nomag"
+		item_state = "mrrazhak_nomag"
+	..()
+
+/obj/item/gun/projectile/automatic/rifle/dpra/gold
+	name = "gold plated adhomian assault rifle"
+	desc = "The Mrrazhak Model-1 is the newest Al'mariist automatic rifle. The Mrrazhak is notorious for its simple and reliable design; it can be fabricated and assembled without the \
+	need of a specialized industry or a highly trained workforce. This one is golden plated."
+	icon = 'icons/obj/guns/golden_mrrazhak.dmi'
 
 /obj/item/gun/projectile/automatic/tommygun
 	name = "submachine gun"
@@ -559,11 +598,11 @@
 		)
 
 
-	fire_delay = 20
+	fire_delay = ROF_UNWIELDY
 	accuracy = -1
 
 	//wielding information
-	fire_delay_wielded = 5
+	fire_delay_wielded = ROF_SUPERHEAVY
 	accuracy_wielded = 2
 	scoped_accuracy = 2
 
@@ -597,14 +636,12 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
 
 	accuracy = -2
-	fire_delay = 10
 	recoil_wielded = 0
 
-	fire_delay_wielded = 6
 	accuracy_wielded = 0
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay= 10, fire_delay_wielded=10),
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_SUPERHEAVY, fire_delay_wielded=ROF_HEAVY),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(0,-1,-1), dispersion=list(0, 10, 15))
 		)
 

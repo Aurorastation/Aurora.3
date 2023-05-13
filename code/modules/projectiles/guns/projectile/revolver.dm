@@ -14,6 +14,7 @@
 	magazine_type = /obj/item/ammo_magazine/a357
 	fire_sound = 'sound/weapons/gunshot/gunshot_revolver.ogg'
 	empty_sound = /singleton/sound_category/out_of_ammo_revolver
+	fire_delay = ROF_RIFLE
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
 /obj/item/gun/projectile/revolver/verb/spin_cylinder()
@@ -52,6 +53,39 @@
 	ammo_type = /obj/item/ammo_casing/a454
 	magazine_type = /obj/item/ammo_magazine/a454
 
+/obj/item/gun/projectile/revolver/mateba/captain
+	name = "\improper SCC command autorevolver"
+	desc = "A ludicrously powerful .454 autorevolver with equally ludicrous recoil which is issued by the SCC to the administrators of critical facilities and vessels. While revolvers may be a thing of the past, the stopping power displayed by this weapon is second to none."
+	desc_info = "In order to accurately fire this revolver, it must be wielded. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
+	desc_extended = "A Zavodskoi Interstellar design from the mid 2450s intended for export to the Eridani Corporate Federation and the Republic of Biesel, the Protektor \
+	revolver was never designed with practicality in mind. The .454 rounds fired from this weapon are liable to snap the wrist of an unprepared shooter and \
+	any following shots will be difficult to place onto a human-sized target due to the recoil, let alone a skrell. But nobody buys a Protektor for the purpose of \
+	practicality: they buy it due to having too much money and wanting a revolver large enough for their ego."
+	icon = 'icons/obj/guns/captain_revolver.dmi'
+	icon_state = "captain_revolver"
+	item_state = "captain_revolver"
+	is_wieldable = TRUE
+	handle_casings = EJECT_CASINGS
+	accuracy = -2
+	accuracy_wielded = 1
+	fire_delay = ROF_UNWIELDY
+	fire_delay_wielded = ROF_SUPERHEAVY
+	force = 10
+	recoil = 10
+	recoil_wielded = 5
+
+/obj/item/gun/projectile/revolver/mateba/captain/handle_post_fire(mob/user)
+	..()
+	if(wielded)
+		return
+	else
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(H.mob_size <10)
+				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
+				H.drop_item(src)
+				src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 2, 2)
+
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
 	desc = "An old, obsolete revolver. It has no identifying marks. Chambered in the antiquated .38 caliber. Maybe the Tajara made it?"
@@ -65,6 +99,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 	magazine_type = /obj/item/ammo_magazine/c38
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/revolver/detective/verb/rename_gun()
 	set name = "Name Gun"
@@ -98,6 +133,7 @@
 	max_shells = 2
 	ammo_type = /obj/item/ammo_casing/a357
 	magazine_type = null
+	fire_delay = ROF_INTERMEDIATE
 
 /obj/item/gun/projectile/revolver/capgun
 	name = "cap gun"
@@ -142,6 +178,7 @@
 	var/flipped_firing = 0
 	var/list/secondary_loaded = list()
 	var/list/tertiary_loaded = list()
+	fire_delay = ROF_INTERMEDIATE
 
 
 /obj/item/gun/projectile/revolver/lemat/Initialize()
@@ -221,6 +258,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 	magazine_type = null
+	fire_delay = ROF_PISTOL
 
 	desc_extended = "A simple and reliable double action revolver, favored by the nobility, officers and law enforcement. The design is known for having an outdated reloading \
 	mechanism, with the need to manually eject each of the used cartridges, and reload one cartridge at a time through a loading gate. However, their cheap manufacturing cost has \
@@ -241,6 +279,7 @@
 	force = 15
 	sharp = TRUE
 	edge = TRUE
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/revolver/knife/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(default_parry_check(user, attacker, damage_source) && prob(20))

@@ -19,7 +19,7 @@
 	if(!host.stat)
 		to_chat(host, SPAN_WARNING("An odd, uncomfortable pressure begins to build inside your skull, behind your ear..."))
 
-	addtimer(CALLBACK(src, .proc/exit_host), exit_time)
+	addtimer(CALLBACK(src, PROC_REF(exit_host)), exit_time)
 
 /mob/living/simple_animal/borer/proc/exit_host()
 	if(!host || !src)
@@ -208,7 +208,7 @@
 
 	// Since the host is dead, we want to kick it back into action immediately, then redo it to ensure they're good to go
 	H.rejuvenate()
-	addtimer(CALLBACK(H, .proc/rejuvenate), 30)
+	addtimer(CALLBACK(H, PROC_REF(rejuvenate)), 30)
 
 /mob/living/simple_animal/borer/verb/secrete_chemicals()
 	set category = "Abilities"
@@ -309,7 +309,7 @@
 	to_chat(src, SPAN_WARNING("You begin delicately adjusting your connection to the host brain..."))
 	to_chat(host, SPAN_WARNING("You feel a tingling sensation at the back of your head."))
 
-	addtimer(CALLBACK(src, .proc/host_takeover), takeover_time)
+	addtimer(CALLBACK(src, PROC_REF(host_takeover)), takeover_time)
 
 /mob/living/simple_animal/borer/proc/host_takeover()
 	if(!host || !src || controlling)
@@ -474,7 +474,7 @@
 	to_chat(host, SPAN_DANGER("You feel some tendrils probe at the back of your head..."))
 	to_chat(host, FONT_LARGE(SPAN_WARNING("You feel something terrible coming on...")))
 
-	addtimer(CALLBACK(src, .proc/jumpstart_psi), jumpstart_time)
+	addtimer(CALLBACK(src, PROC_REF(jumpstart_psi)), jumpstart_time)
 
 /mob/living/simple_animal/borer/proc/jumpstart_psi()
 	if(!host)
@@ -526,7 +526,7 @@
 	to_chat(src, SPAN_NOTICE("You probe your tendrils deep within your host's zona bovinae, seeking to upgrade their abilities."))
 	to_chat(host, SPAN_WARNING("You feel a burning, tingling sensation at the back of your head..."))
 
-	addtimer(CALLBACK(src, .proc/faculty_upgrade, selected_faculty), faculty_time)
+	addtimer(CALLBACK(src, PROC_REF(faculty_upgrade), selected_faculty), faculty_time)
 
 /mob/living/simple_animal/borer/proc/faculty_upgrade(var/selected_faculty)
 	if(!host)

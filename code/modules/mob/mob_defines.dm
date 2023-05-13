@@ -59,6 +59,7 @@
 	var/character_id = 0
 	var/obj/machinery/machine = null
 	var/other_mobs = null
+	var/height = HEIGHT_NOT_USED
 	var/sdisabilities = 0				//Carbon
 	var/disabilities = 0				//Carbon
 	var/atom/movable/pulling = null
@@ -245,3 +246,8 @@
 
 	var/authed = TRUE
 	var/player_age = "Requires database"
+
+	/// If this mob is or was piloted by a player with typing indicators enabled, an instance of one.
+	var/atom/movable/typing_indicator/typing_indicator
+	/// Whether this mob is currently typing, if piloted by a player.
+	var/is_typing

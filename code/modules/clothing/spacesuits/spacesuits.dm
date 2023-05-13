@@ -26,11 +26,17 @@
 	flash_protection = FLASH_PROTECTION_MAJOR
 	allow_hair_covering = FALSE
 
+	has_storage = FALSE
+
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light"
 	brightness_on = 4
 	light_wedge = LIGHT_WIDE
 	on = 0
+
+/obj/item/clothing/head/helmet/space/Initialize()
+	. = ..()
+	build_and_apply_species_adaption()
 
 /obj/item/clothing/suit/space
 	name = "softsuit"
@@ -60,6 +66,10 @@
 	species_restricted = list("exclude",BODYTYPE_DIONA,BODYTYPE_GOLEM,BODYTYPE_VAURCA_BULWARK)
 
 	var/list/supporting_limbs //If not-null, automatically splints breaks. Checked when removing the suit.
+
+/obj/item/clothing/suit/space/Initialize()
+	. = ..()
+	build_and_apply_species_adaption()
 
 /obj/item/clothing/suit/space/equipped(mob/M)
 	check_limb_support()

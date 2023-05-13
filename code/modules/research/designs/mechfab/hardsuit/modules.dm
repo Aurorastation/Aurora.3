@@ -3,10 +3,17 @@
 	category = "Hardsuit (Modules)"
 	time = 10
 
+/datum/design/hardsuitmodules/storage
+	name = "Storage Module"
+	desc = "A storage unit for storing a precious few items in a hardsuit."
+	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 20000)
+	build_path = /obj/item/rig_module/storage
+
 /datum/design/hardsuitmodules/iss_module
 	name = "IIS Module"
 	desc = "An integrated intelligence system module suitable for most hardsuits."
-	req_tech = list(TECH_DATA = 4, TECH_MATERIAL = 3)
+	req_tech = list(TECH_DATA = 3, TECH_MATERIAL = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 7500)
 	build_path = /obj/item/rig_module/ai_container
 
@@ -84,7 +91,7 @@
 	name = "Leg Actuators"
 	desc = "A set of electromechanical actuators, for safe traversal of multilevelled areas."
 	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_POWER = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 85000, MATERIAL_GLASS = 1250, MATERIAL_SILVER = 5250, MATERIAL_GOLD = 2750)
+	materials = list(DEFAULT_WALL_MATERIAL = 85000, MATERIAL_GLASS = 1250)
 	build_path = /obj/item/rig_module/actuators
 
 /datum/design/hardsuitmodules/taser_module

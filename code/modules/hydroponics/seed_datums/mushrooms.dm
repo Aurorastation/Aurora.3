@@ -107,7 +107,7 @@
 	name = "plumphelmet"
 	seed_name = "plump helmet"
 	display_name = "plump helmet mushrooms"
-	mutants = list("walkingmushroom","towercap")
+	mutants = list("towercap")
 	chems = list(/singleton/reagent/nutriment = list(2,10))
 	kitchen_tag = "plumphelmet"
 

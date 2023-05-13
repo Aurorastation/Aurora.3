@@ -74,8 +74,8 @@
 		words = words.Copy(words_start, word_count + words_start) // Copy the chunk of the message we mumbled.
 		var/mumble_message = "[mumble_into][words.Join(" ")]..."
 
-		body.stat = CONSCIOUS // FILTHY hack to get the sleeping person to say something.
+		body.set_stat(CONSCIOUS) // FILTHY hack to get the sleeping person to say something.
 		body.say(mumble_message) // Mumble in Nral Malic
-		body.stat = UNCONSCIOUS // Toggled before anything else can happen. Ideally.
+		body.set_stat(UNCONSCIOUS) // Toggled before anything else can happen. Ideally.
 
 	..(message, speaking, verb="says", alt_name="")

@@ -1003,7 +1003,7 @@
 
 /obj/item/toy/plushie/kitten
 	name = "kitten plush"
-	desc = "A plushie of a cute kitten! Watch as it purrs it's way right into your heart."
+	desc = "A plushie of a cute kitten! Watch as it purrs its way right into your heart."
 	icon_state = "kittenplushie"
 	slot_flags = SLOT_HEAD
 
@@ -1188,6 +1188,59 @@
 	// slot_flags = SLOT_HEAD - head sprite may come someday, but not today.
 	phrase = "Blub!"
 
+// Herring Gull Plushie
+/obj/item/toy/plushie/herring_gull
+	name = "herring gull plushie"
+	desc = "A herring gull plushie. Adorable!"
+	desc_extended = "The European herring gull, also known as <i>Larus argentatus</i>, is a common seabird originating from Earth. It can be found on and around \
+	the coasts as well as cities on Earth and wherever it may have been transplanted to. Commonly seen as something that symbolizes the sea as well as freedom."
+	icon_state = "herring_gull"
+	item_state = "herring_gull"
+	phrase = "Kek kek kek!"
+	var/lying = FALSE
+
+/obj/item/toy/plushie/herring_gull/attack_self(mob/user)
+	if(user.a_intent == I_HELP)
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> pets \the [src]."),
+			SPAN_NOTICE("You pet \the [src].")
+		)
+	else if(user.a_intent == I_DISARM)
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> squeezes \the [src]."),
+			SPAN_NOTICE("You squeeze \the [src].")
+		)
+	else if(user.a_intent == I_GRAB)
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> hugs \the [src]."),
+			SPAN_NOTICE("You hug \the [src].")
+		)
+	else if(user.a_intent == I_HURT)
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> pokes \the [src]."),
+			SPAN_NOTICE("You poke \the [src].")
+		)
+		playsound(src, 'sound/items/plushies/herring_gull/alarm_call.ogg', 75, FALSE)
+		visible_message("<b>\The [src]</b> says, \"[phrase]\"")
+
+/obj/item/toy/plushie/herring_gull/AltClick(mob/user)
+	if(lying)
+		lying = !lying
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> extends \the [src]'s legs."),
+			SPAN_NOTICE("You extend \the [src]'s legs.")
+		)
+		icon_state = "herring_gull"
+		item_state = "herring_gull"
+	else
+		lying = !lying
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> tucks in \the [src]'s legs."),
+			SPAN_NOTICE("You tuck in \the [src]'s legs.")
+		)
+		icon_state = "herring_gull_lying"
+		item_state = "herring_gull_lying"
+
 //Toy cult sword
 /obj/item/toy/cultsword
 	name = "foam sword"
@@ -1214,6 +1267,11 @@
 	desc = "A miniature of a space station, built into an asteroid. A tiny suspension field keeps it afloat. A small plaque on the front reads: NSS Aurora, Tau Ceti, Romanovich Cloud, 2464. Onward to new horizons."
 	desc_info = "This miniature was given out on the 9th of April 2464 to all former crew members of the Aurora as a memento, before setting off to their new mission on the SCCV Horizon."
 	icon_state = "aurora"
+
+/obj/item/toy/adhomian_map
+	name = "ancient adhomian map"
+	desc = "A replica of an Adhomian map found three years ago in Tau Ceti. What it leads to is unknown."
+	icon_state = "map"
 
 /obj/item/toy/ringbell
 	name = "ringside bell"
