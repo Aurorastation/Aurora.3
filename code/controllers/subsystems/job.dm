@@ -816,6 +816,7 @@
 			Debug("EA/([H]): Abort: synthetic.")
 			return FALSE
 
+	var/spawned_power_system = FALSE
 	for(var/thing in prefs.gear)
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
@@ -833,6 +834,12 @@
 			if(cant_spawn_reason)
 				to_chat(H, SPAN_WARNING(cant_spawn_reason))
 				continue
+
+			if(!spawned_power_system)
+				var/obj/item/organ/internal/augment/power/ups = new /obj/item/organ/internal/augment/power(H)
+				var/obj/item/organ/external/ups_affected = H.get_organ(ups.parent_organ)
+				ups.replaced(H, ups_affected)
+				spawned_power_system = TRUE
 
 			var/obj/item/organ/A = G.spawn_item(H, metadata, H)
 			if(!istype(A, /obj/item/organ/external))

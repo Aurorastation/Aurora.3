@@ -3,6 +3,6 @@ author: Geeves
 delete-after: True
 
 changes:
-  - rscadd: "Added a unified power system augment, which holds 1000 units of charge that can be used by other augments."
-  - rscadd: "Added a joint torsion ratchet, an augment installed in the groin that provides 5 units of charge for every tile moved."
+  - rscadd: "Added a unified power system augment, which holds 1000 units of charge that can be used by other augments. This is added to your character automatically if they have any augments."
+  - rscadd: "Added a joint torsion ratchet, an augment installed in the groin that provides 5 units of charge for every tile moved. This is in the augment loadout list."
   - tweak: "The Aut'akh calf override augment now uses 100 units of charge per tile moved. If no charge is available, it will instead damage the groin."
