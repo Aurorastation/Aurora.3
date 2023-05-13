@@ -463,7 +463,7 @@ var/datum/gear_tweak/head_layer/gear_tweak_head_layer = new()
 	return "Over"
 
 /datum/gear_tweak/head_layer/get_metadata(var/user, var/metadata)
-	return input(user, "Choose whether you want the headwear to go over or under the suit.", "Head Layer", metadata) as anything in list("Over", "Under")
+	return input(user, "Choose whether you want the headwear to go over or under your jacket.", "Head Layer", metadata) as anything in list("Over", "Under")
 
 /datum/gear_tweak/head_layer/tweak_item(var/obj/item/clothing/head/H, var/metadata)
 	if(!istype(H))

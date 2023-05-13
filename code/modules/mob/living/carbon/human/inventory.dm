@@ -134,11 +134,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 		glasses = null
 		update_inv_glasses()
 	else if (W == head)
-		if(istype(head, /obj/item/clothing/head))
-			var/obj/item/clothing/head/H = head
-			if(H.over_suit == FALSE) // Reset layer changes on removal
-				H.over_suit = TRUE
-				update_inv_head()
 		head = null
 		if(istype(W, /obj/item))
 			var/obj/item/I = W
@@ -149,13 +144,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 				update_inv_wear_mask(0)
 		if(internal && internals && !internals.has_internals_mask(src))
 			internals.lose_internals(src)
-		update_inv_head()
+		update_inv_head(I = W)
 	else if (W == l_ear)
-		if(istype(l_ear, /obj/item/clothing/head))
-			var/obj/item/clothing/head/H = l_ear
-			if(H.over_suit == FALSE) // Reset layer changes on removal
-				H.over_suit = TRUE
-				update_inv_l_ear()
 		l_ear = null
 		if(istype(W, /obj/item))
 			var/obj/item/I = W
@@ -163,13 +153,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 				update_hair(0)	//rebuild hair
 				update_inv_r_ear(0)
 				update_inv_wear_mask(0)
-		update_inv_l_ear()
+		update_inv_l_ear(I = W)
 	else if (W == r_ear)
-		if(istype(r_ear, /obj/item/clothing/head))
-			var/obj/item/clothing/head/H = r_ear
-			if(H.over_suit == FALSE) // Reset layer changes on removal
-				H.over_suit = TRUE
-				update_inv_r_ear()
 		r_ear = null
 		if(istype(W, /obj/item))
 			var/obj/item/I = W
@@ -177,7 +162,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 				update_hair(0)	//rebuild hair
 				update_inv_l_ear(0)
 				update_inv_wear_mask(0)
-		update_inv_r_ear()
+		update_inv_r_ear(I = W)
 	else if (W == shoes)
 		shoes = null
 		update_inv_shoes()

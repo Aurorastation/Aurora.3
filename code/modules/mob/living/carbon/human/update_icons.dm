@@ -744,10 +744,11 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_l_ear(var/update_icons=1)
+/mob/living/carbon/human/update_inv_l_ear(var/update_icons=1, var/obj/item/I = null)
 	if(QDELING(src))
 		return
-
+	if(!I)
+		I = head
 	if(check_draw_left_ear())
 		if(l_ear)
 			var/mob_icon = INV_L_EAR_DEF_ICON
@@ -771,29 +772,36 @@ There are several things that need to be remembered:
 
 			if(istype(l_ear, /obj/item/clothing/head))
 				var/obj/item/clothing/head/H = l_ear
-				if(H.over_suit != -1) // Can it change layers?
+				if(H.can_wear_under)
 					var/ear_layer = L_EAR_LAYER
-					var/null_layer = HEAD_LAYER_ALT
-					if(H.over_suit == FALSE)
+					var/null_layer = HEAD_LAYER_ALT	
+					if(!H.over_suit) // Can it change layers?
 						ear_layer = HEAD_LAYER_ALT
-						null_layer = L_EAR_LAYER
+						null_layer = L_EAR_LAYER	
 					overlays_raw[ear_layer] = l_ear.get_mob_overlay(src, mob_icon, mob_state, slot_l_ear_str)
 					overlays_raw[null_layer] = null
 				else
 					overlays_raw[L_EAR_LAYER] = l_ear.get_mob_overlay(src, mob_icon, mob_state, slot_l_ear_str)
 			else
-				overlays_raw[L_EAR_LAYER] = l_ear.get_mob_overlay(src, mob_icon, mob_state, slot_l_ear_str)
-			
+				overlays_raw[L_EAR_LAYER] = l_ear.get_mob_overlay(src, mob_icon, mob_state, slot_l_ear_str)			
 	else
-		overlays_raw[L_EAR_LAYER] = null
+		if(istype(I, /obj/item/clothing/head)) // Clear the alt-layer if we were using that
+			var/obj/item/clothing/head/H = I
+			if(!H.over_suit)
+				overlays_raw[HEAD_LAYER_ALT] = null
+			else
+				overlays_raw[L_EAR_LAYER] = null
+		else
+			overlays_raw[L_EAR_LAYER] = null
 
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_r_ear(var/update_icons=1)
+/mob/living/carbon/human/update_inv_r_ear(var/update_icons=1, var/obj/item/I = null)
 	if(QDELING(src))
 		return
-
+	if(!I)
+		I = head
 	if(check_draw_right_ear())
 		if(r_ear)
 			var/mob_icon = INV_R_EAR_DEF_ICON
@@ -817,20 +825,27 @@ There are several things that need to be remembered:
 
 			if(istype(r_ear, /obj/item/clothing/head))
 				var/obj/item/clothing/head/H = r_ear
-				if(H.over_suit != -1) // Can it change layers?
+				if(H.can_wear_under)
 					var/ear_layer = R_EAR_LAYER
-					var/null_layer = HEAD_LAYER_ALT
-					if(H.over_suit == FALSE)
+					var/null_layer = HEAD_LAYER_ALT	
+					if(!H.over_suit) // Can it change layers?
 						ear_layer = HEAD_LAYER_ALT
-						null_layer = R_EAR_LAYER
+						null_layer = R_EAR_LAYER	
 					overlays_raw[ear_layer] = r_ear.get_mob_overlay(src, mob_icon, mob_state, slot_r_ear_str)
 					overlays_raw[null_layer] = null
 				else
 					overlays_raw[R_EAR_LAYER] = r_ear.get_mob_overlay(src, mob_icon, mob_state, slot_r_ear_str)
 			else
-				overlays_raw[R_EAR_LAYER] = r_ear.get_mob_overlay(src, mob_icon, mob_state, slot_r_ear_str)
+				overlays_raw[L_EAR_LAYER] = r_ear.get_mob_overlay(src, mob_icon, mob_state, slot_r_ear_str)		
 	else
-		overlays_raw[R_EAR_LAYER] = null
+		if(istype(I, /obj/item/clothing/head)) // Clear the alt-layer if we were using that
+			var/obj/item/clothing/head/H = I
+			if(!H.over_suit)
+				overlays_raw[HEAD_LAYER_ALT] = null
+			else
+				overlays_raw[R_EAR_LAYER] = null
+		else
+			overlays_raw[R_EAR_LAYER] = null
 
 	if(update_icons)
 		update_icon()
@@ -917,10 +932,11 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_head(update_icons = TRUE, recurse = TRUE)
+/mob/living/carbon/human/update_inv_head(update_icons = TRUE, recurse = TRUE, var/obj/item/I = null)
 	if (QDELING(src))
 		return
-
+	if(!I)
+		I = head
 	if(head)
 		var/mob_icon = INV_HEAD_DEF_ICON
 		var/mob_state = head.icon_state
@@ -945,21 +961,28 @@ There are several things that need to be remembered:
 			mob_icon = INV_HEAD_DEF_ICON
 		if(istype(head, /obj/item/clothing/head))
 			var/obj/item/clothing/head/H = head
-			if(H.over_suit != -1) // Can it change layers?
+			if(H.can_wear_under)
 				var/head_layer = HEAD_LAYER
-				var/null_layer = HEAD_LAYER_ALT
-				if(H.over_suit == FALSE)
+				var/null_layer = HEAD_LAYER_ALT	
+				if(!H.over_suit) // Can it change layers?
 					head_layer = HEAD_LAYER_ALT
-					null_layer = HEAD_LAYER
+					null_layer = HEAD_LAYER	
 				overlays_raw[head_layer] = head.get_mob_overlay(src, mob_icon, mob_state, slot_head_str)
 				overlays_raw[null_layer] = null
 			else
-				overlays_raw[HEAD_LAYER] = head.get_mob_overlay(src, mob_icon, mob_state, slot_head_str)
+				overlays_raw[HEAD_LAYER] = head.get_mob_overlay(src, mob_icon, mob_state, slot_head_str)	
 		else
 			overlays_raw[HEAD_LAYER] = head.get_mob_overlay(src, mob_icon, mob_state, slot_head_str)
 			
 	else
-		overlays_raw[HEAD_LAYER] = null
+		if(istype(I, /obj/item/clothing/head)) // Clear the alt-layer if we were using that
+			var/obj/item/clothing/head/H = I
+			if(!H.over_suit)
+				overlays_raw[HEAD_LAYER_ALT] = null
+			else
+				overlays_raw[HEAD_LAYER] = null
+		else
+			overlays_raw[HEAD_LAYER] = null
 
 	if (recurse)
 		update_hair(FALSE)

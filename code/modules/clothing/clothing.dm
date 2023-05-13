@@ -550,7 +550,8 @@
 	var/light_applied
 	var/brightness_on
 	var/on = 0
-	var/over_suit = -1
+	var/over_suit = TRUE
+	var/can_wear_under = FALSE
 
 /obj/item/clothing/head/Initialize(mapload, material_key)
 	. = ..()
@@ -574,10 +575,10 @@
 	set src in usr
 
 	if(use_check_and_message(usr))
-		return 0
-	if(over_suit == -1)
+		return FALSE
+	if(!can_wear_under)
 		to_chat(usr, SPAN_NOTICE("[src] cannot be worn under your suit!"))
-		return 0
+		return FALSE
 	
 	over_suit = !over_suit
 	update_icon()
