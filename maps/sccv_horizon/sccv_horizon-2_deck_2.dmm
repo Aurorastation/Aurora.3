@@ -1506,8 +1506,8 @@
 "aIh" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/teapot{
-	pixel_y = 7;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 7
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/wing/starboard)
@@ -32484,8 +32484,8 @@
 "pQq" = (
 /obj/structure/table/wood,
 /obj/item/flame/candle{
-	pixel_y = 3;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 3
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -48484,6 +48484,12 @@
 /obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = 8;
 	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/sprinkles{
+	pixel_x = -3
+	},
+/obj/item/reagent_containers/food/condiment/shaker/sprinkles{
+	pixel_x = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
