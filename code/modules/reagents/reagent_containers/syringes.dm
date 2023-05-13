@@ -284,9 +284,9 @@
 		worn_overlay = Clamp(round((reagents.total_volume / volume * 15),5), 1, 15) //rounded_vol
 		add_overlay(overlay_image('icons/obj/reagentfillings.dmi', "[iconstring][worn_overlay]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
-		update_held_icon()
 	else
-		worn_overlay = 0
+		worn_overlay = 0 // don't change this to null
+	update_held_icon()
 	icon_state = "[worn_overlay]"
 	if(ismob(loc))
 		var/injoverlay

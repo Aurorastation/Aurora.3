@@ -98,10 +98,9 @@
 		worn_overlay = "filling"
 		add_overlay(overlay_image('icons/obj/reagentfillings.dmi', "dropper-[get_filling_state()]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
-		update_held_icon()
 	else
 		worn_overlay = null
-		update_held_icon()
+	update_held_icon()
 
 /obj/item/reagent_containers/dropper/examine(mob/user)
 	..(user)
