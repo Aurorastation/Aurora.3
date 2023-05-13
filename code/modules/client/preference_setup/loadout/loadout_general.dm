@@ -161,6 +161,9 @@
 	banners["banner, United Syndicates of Himeo"] = /obj/item/flag/himeo
 	banners["banner, Republic of Assunzione"] = /obj/item/flag/assunzione
 	banners["banner, New Gibson"] = /obj/item/flag/newgibson
+	banners["banner, Union of Port Antillia"] = /obj/item/flag/portantillia
+	banners["banner, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette
+	banners["banner, Mictlan"] = /obj/item/flag/mictlan
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -215,6 +218,9 @@
 	flags["flag, Private Military Contracting Group"] = /obj/item/flag/pmcg/l
 	flags["flag, United Syndicates of Himeo"] = /obj/item/flag/himeo/l
 	flags["flag, Republic of Assunzione"] = /obj/item/flag/assunzione/l
+	flags["flag, Union of Port Antillia"] = /obj/item/flag/portantillia/l
+	flags["flag, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/l
+	flags["flag, Mictlan"] = /obj/item/flag/mictlan/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel

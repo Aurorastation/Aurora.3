@@ -1630,3 +1630,126 @@
 	desc = "The flag of New Gibson."
 	flag_path = "newgibson"
 	flag_structure = /obj/structure/sign/flag/newgibson
+
+// Port Antillia
+
+/obj/item/flag/portantillia
+	name = "\improper Union of Port Antillia flag"
+	desc = "The flag of the Union of Port Antillia."
+	flag_path = "portantillia"
+	flag_structure = /obj/structure/sign/flag/portantillia
+
+/obj/structure/sign/flag/portantillia
+	name = "\improper Union of Port Antillia flag"
+	desc = "The flag of the Union of Port Antillia."
+	flag_path = "portantillia"
+	icon_state = "portantillia"
+	flag_item = /obj/item/flag/portantillia
+
+/obj/structure/sign/flag/portantillia/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/portantillia/l
+	name = "large Union of Port Antillia flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/portantillia/large
+
+/obj/structure/sign/flag/portantillia/large
+	icon_state = "portantillia_l"
+	flag_path = "portantillia"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/portantillia/l
+
+/obj/structure/sign/flag/portantillia/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/portantillia/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/portantillia/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/portantillia/large/west/New()
+	..(loc, WEST)
+
+// San Colette
+
+/obj/item/flag/sancolette
+	name = "\improper Sovereign Solarian Republic of San Colette flag"
+	desc = "The flag of the Sovereign Solarian Republic of San Colette."
+	flag_path = "sancolette"
+	flag_structure = /obj/structure/sign/flag/sancolette
+
+/obj/structure/sign/flag/sancolette
+	name = "\improper Sovereign Solarian Republic of San Colette flag"
+	desc = "The flag of the Sovereign Solarian Republic of San Colette."
+	flag_path = "sancolette"
+	icon_state = "sancolette"
+	flag_item = /obj/item/flag/sancolette
+
+/obj/structure/sign/flag/sancolette/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/sancolette/l
+	name = "large Sovereign Solarian Republic of San Colette flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/sancolette/large
+
+/obj/structure/sign/flag/sancolette/large
+	icon_state = "sancolette_l"
+	flag_path = "sancolette"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/sancolette/l
+
+/obj/structure/sign/flag/sancolette/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/sancolette/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/sancolette/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/sancolette/large/west/New()
+	..(loc, WEST)
+
+// Mictlan
+
+/obj/item/flag/mictlan
+	name = "\improper Mictlan flag"
+	desc = "The flag of Mictlan."
+	flag_path = "mictlan"
+	flag_structure = /obj/structure/sign/flag/mictlan
+
+/obj/structure/sign/flag/mictlan
+	name = "\improper Mictlan flag"
+	desc = "The flag of Mictlan."
+	flag_path = "mictlan"
+	icon_state = "mictlan"
+	flag_item = /obj/item/flag/mictlan
+
+/obj/structure/sign/flag/mictlan/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/mictlan/l
+	name = "large Mictlan flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/mictlan/large
+
+/obj/structure/sign/flag/mictlan/large
+	icon_state = "mictlan_l"
+	flag_path = "mictlan"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/mictlan/l
+
+/obj/structure/sign/flag/mictlan/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/mictlan/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/mictlan/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/mictlan/large/west/New()
+	..(loc, WEST)
