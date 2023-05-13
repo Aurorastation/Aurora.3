@@ -11,10 +11,7 @@
 	desc = "A syringe."
 	desc_info = "This tool can be used to reinflate a collapsed lung. To do this, activate grab intent, select the patient's chest, then click on them. It will hurt a lot, but it will buy time until surgery can be performed."
 	icon = 'icons/obj/syringe.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
+	contained_sprite = TRUE
 	icon_state = "0"
 	item_state = "syringe"
 	build_from_parts = TRUE

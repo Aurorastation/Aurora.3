@@ -2,10 +2,7 @@
 	name = "\improper DNA injector"
 	desc = "This injects the person with DNA."
 	icon = 'icons/obj/medical.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
+	contained_sprite = TRUE
 	icon_state = "dnainjector"
 	item_state = "dnainjector"
 	var/block=0
