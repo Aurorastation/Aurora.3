@@ -24,7 +24,7 @@
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "bed"
 	anchored = TRUE
-	buckle_dir = SOUTH
+	buckle_dir = EAST
 	buckle_lying = 1
 	build_amt = 2
 	var/material/padding_material
