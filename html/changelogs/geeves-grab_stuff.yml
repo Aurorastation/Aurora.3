@@ -4,7 +4,7 @@ delete-after: True
 
 changes:
   - tweak: "Tweaked movement code's interaction with grabs. You can no longer walk out of grabs."
-  - tweak: "It's more diffiult to break out of aggressive grabs now (base 50% reduced to 30%)."
+  - tweak: "It's more difficult to break out of aggressive grabs now (base 50% reduced to 30%)."
   - tweak: "You can now only break out of one grab at a time, and resisting a grab will now add a 0.5 second movement delay."
   - rscadd: "When you have someone grabbed, clicking on a tile will now move them there."
   - rscadd: "You can now pass through people that are pulling or grabbing you."
