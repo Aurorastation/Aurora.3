@@ -262,6 +262,7 @@
 	if(choice != selecting)
 		selecting = choice
 		update_icon()
+		SEND_SIGNAL(user, COMSIG_MOB_ZONE_SEL_CHANGE, user)
 
 /obj/screen/zone_sel/update_icon()
 	cut_overlays()

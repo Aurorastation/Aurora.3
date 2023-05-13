@@ -169,6 +169,11 @@
 
 	adjust_position()
 
+/obj/item/grab/proc/handle_eye_mouth_covering_wrapper()
+	SIGNAL_HANDLER
+
+	INVOKE_ASYNC(src, PROC_REF(handle_eye_mouth_covering), affecting, assailant, assailant.zone_sel.selecting)
+
 /obj/item/grab/proc/handle_eye_mouth_covering(mob/living/carbon/target, mob/user, var/target_zone)
 	var/announce = (target_zone != last_hit_zone) //only display messages when switching between different target zones
 	last_hit_zone = target_zone
@@ -280,6 +285,8 @@
 		state = GRAB_AGGRESSIVE
 		icon_state = "grabbed1"
 		hud.icon_state = "reinforce1"
+		RegisterSignal(assailant, COMSIG_MOB_ZONE_SEL_CHANGE, PROC_REF(handle_eye_mouth_covering_wrapper))
+		handle_eye_mouth_covering(affecting, assailant, assailant.zone_sel.selecting)
 	else if(state < GRAB_NECK)
 		if(isslime(affecting))
 			assailant.visible_message(SPAN_WARNING("[assailant] tries to squeeze [affecting], but [assailant.get_pronoun("his")] hands sink right through!"), SPAN_WARNING("You try to squeeze [affecting], but your hands sink right through!"))
@@ -399,6 +406,8 @@
 /obj/item/grab/Destroy()
 	if(!QDELETED(linked_grab))
 		qdel(linked_grab)
+
+	UnregisterSignal(assailant, COMSIG_MOB_ZONE_SEL_CHANGE)
 
 	if(wielded)
 		if(affecting.buckled_to == assailant)

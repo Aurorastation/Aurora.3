@@ -999,7 +999,7 @@
 			lying = 0
 		else
 			lying = incapacitated(INCAPACITATION_KNOCKDOWN)
-			canmove = !incapacitated(INCAPACITATION_KNOCKOUT)
+			canmove = !incapacitated(INCAPACITATION_KNOCKOUT) && !weakened
 
 	if(lying)
 		density = 0
