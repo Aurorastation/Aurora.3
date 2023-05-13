@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Nearsighted characters now have working vision on sensors / helm as long as they have their prescription glasses on."
