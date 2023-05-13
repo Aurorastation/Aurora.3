@@ -1,7 +1,7 @@
 /obj/item/dnainjector
 	name = "\improper DNA injector"
 	desc = "This injects the person with DNA."
-	icon = 'icons/obj/medical.dmi'
+	icon = 'icons/obj/syringe.dmi'
 	contained_sprite = TRUE
 	icon_state = "dnainjector"
 	item_state = "dnainjector"
