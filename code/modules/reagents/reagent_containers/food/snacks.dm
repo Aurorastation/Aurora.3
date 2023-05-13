@@ -1032,16 +1032,6 @@
 	reagents.add_reagent(/singleton/reagent/hyperzine, 1.5)
 	reagents.add_reagent(/singleton/reagent/synaptizine, 1.25)
 
-/obj/item/reagent_containers/food/snacks/burger/brain
-	name = "brainburger"
-	desc = "A strange looking burger. It looks almost sentient."
-	icon_state = "brainburger"
-	filling_color = "#F2B6EA"
-	center_of_mass = list("x"=15, "y"=11)
-	bitesize = 2
-
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 6, /singleton/reagent/alkysine = 6)
-
 /obj/item/reagent_containers/food/snacks/burger/ghost
 	name = "ghost burger"
 	desc = "Spooky! It doesn't look very filling."
