@@ -356,7 +356,7 @@
 
 /singleton/recipe/fairy_bread
 	appliance = MIX
-	reagents = list(/singleton/reagent/sprinkles = 3)
+	reagents = list(/singleton/reagent/nutriment/sprinkles = 3)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice
 	)

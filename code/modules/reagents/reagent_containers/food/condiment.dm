@@ -98,7 +98,7 @@
 /obj/item/reagent_containers/food/condiment/shaker/sprinkles
 	icon_state = "sprinklesbottle"
 	volume = 40
-	reagents_to_add = list(/singleton/reagent/sprinkles = 40)
+	reagents_to_add = list(/singleton/reagent/nutriment/sprinkles = 40)
 
 /obj/item/reagent_containers/food/condiment/flour
 	name = "flour sack"

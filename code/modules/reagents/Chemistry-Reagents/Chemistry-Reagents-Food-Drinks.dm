@@ -612,6 +612,9 @@
 	nutriment_factor = 1
 	color = "#FF00FF"
 	taste_description = "sweetness"
+	condiment_name = "bottle of sprinkles"
+	condiment_icon_state = "sprinklesbottle"
+	condiment_center_of_mass = list("x"=16, "y"=10)
 
 /singleton/reagent/nutriment/mint
 	name = "Mint"
@@ -897,18 +900,6 @@
 	fallback_specific_heat = 2
 	condiment_name = "bottle of space spice"
 	condiment_icon_state = "spacespicebottle"
-	condiment_center_of_mass = list("x"=16, "y"=10)
-
-/singleton/reagent/sprinkles
-	name = "Sprinkle"
-	description = "A colorful mix of sprinkles. Popular in the southern hemisphere of every known inhabited world."
-	reagent_state = SOLID
-	color = "#e00202"
-	taste_description = "sugary sprinkles"
-	taste_mult = 1.5
-	fallback_specific_heat = 2
-	condiment_name = "bottle of sprinkles"
-	condiment_icon_state = "sprinklesbottle"
 	condiment_center_of_mass = list("x"=16, "y"=10)
 
 /singleton/reagent/browniemix
