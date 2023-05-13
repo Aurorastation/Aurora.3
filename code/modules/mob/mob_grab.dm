@@ -14,17 +14,6 @@
 	return 1
 
 
-///Process_Grab()
-///Called by client/Move()
-///Checks to see if you are grabbing or being grabbed by anything and if moving will affect your grab.
-/client/proc/Process_Grab()
-	if(isliving(mob)) //if we are being grabbed
-		var/mob/living/L = mob
-		if(!L.canmove && L.grabbed_by.len)
-			L.resist() //shortcut for resisting grabs
-	for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
-		G.reset_kill_state() //no wandering across the station/asteroid while choking someone
-
 /obj/item/grab
 	name = "grab"
 	icon = 'icons/mob/screen/generic.dmi'
@@ -362,8 +351,7 @@
 	last_action = world.time
 	reset_kill_state() //using special grab moves will interrupt choking them
 
-	//clicking on the victim while grabbing them
-	if(M == affecting)
+	if(M == affecting) //clicking on the victim while grabbing them
 		if(ishuman(affecting))
 			var/hit_zone = target_zone
 			flick(hud.icon_state, hud)
@@ -391,9 +379,7 @@
 						pin_down(affecting, assailant)
 					if(hit_zone == BP_HEAD)
 						hair_pull(affecting, assailant)
-
-	//clicking on yourself while grabbing them
-	if(M == assailant && state >= GRAB_AGGRESSIVE)
+	else if(M == assailant && state >= GRAB_AGGRESSIVE) //clicking on yourself while grabbing them
 		devour(affecting, assailant)
 
 /obj/item/grab/dropped()

@@ -749,7 +749,7 @@ default behaviour is:
 				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
 					resist_chance = 15 * resist_power
 				else
-					resist_chance = 50 * resist_power
+					resist_chance = 30 * resist_power
 				resist_msg = SPAN_WARNING("[src] has broken free of [G.assailant]'s grip!")
 			if(GRAB_NECK)
 				//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
@@ -762,10 +762,12 @@ default behaviour is:
 		if(prob(resist_chance))
 			visible_message(resist_msg)
 			qdel(G)
+			break
 
 	if(resisting)
 		visible_message(SPAN_WARNING("[src] resists!"))
-		setClickCooldown(25)
+		setClickCooldown(2.5 SECONDS)
+		setMoveCooldown(0.5 SECONDS)
 
 /mob/living/verb/lay_down()
 	set name = "Rest"
