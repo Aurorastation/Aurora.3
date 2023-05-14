@@ -40228,7 +40228,7 @@
 "tJa" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/smartfridge/secure/medbay,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/wall/r_wall,
 /area/medical/pharmacy)
 "tJr" = (
 /obj/effect/floor_decal/corner/paleblue{
