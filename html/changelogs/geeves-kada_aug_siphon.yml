@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Tweaked how disarm costs are calculated, IPCs should no longer gain charge from disarming."
