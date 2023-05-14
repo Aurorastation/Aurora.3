@@ -87,17 +87,19 @@ var/datum/evacuation_controller/evacuation_controller
 	auto_recall_time =  rand(evac_called_at + evac_range, evac_launch_time - evac_range)
 
 	state = EVAC_PREPPING
-
-	if(evacuation_type == "emergency")
-		for(var/area/A in all_areas)
-			if(istype(A, /area/hallway))
-				A.readyalert()
-		if(!skip_announce)
-			priority_announcement.Announce(replacetext(replacetext(current_map.emergency_shuttle_called_message, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60)] minute\s"), new_sound = 'sound/AI/emergency_shuttle_called_message.ogg')
-	else
-		if(!skip_announce)
-			priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_called_message, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60)] minute\s"), new_sound = 'sound/AI/bluespace_jump_called.ogg')
-
+	switch(evacuation_type)
+		if("emergency")
+			for(var/area/A in all_areas)
+				if(istype(A, /area/hallway))
+					A.readyalert()
+			if(!skip_announce)
+				priority_announcement.Announce(replacetext(replacetext(current_map.emergency_shuttle_called_message, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60)] minute\s"), new_sound = 'sound/AI/emergency_shuttle_called_message.ogg')
+		if("transfer")
+			if(!skip_announce)
+				priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_called_message, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60)] minute\s"), new_sound = 'sound/AI/bluespace_jump_called.ogg')
+		if("jump")
+			if(!skip_announce)
+				priority_announcement.Announce(replacetext(replacetext(current_map.bluespace_called_message, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60)] minute\s"), new_sound = 'sound/AI/bluespace_jump_called.ogg')
 	return TRUE
 
 /datum/evacuation_controller/proc/cancel_evacuation()
