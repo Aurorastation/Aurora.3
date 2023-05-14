@@ -162,16 +162,14 @@
 
 
 
-#define APS_WALL_ALWAYS_DEFLECTS -1
-#define APS_SOUND_EFFECT_EXTRA_RANGE 6
+#define APS_WALL_ALWAYS_DEFLECTS -1 // If the wall should always deflect this type of shots
+#define APS_SOUND_EFFECT_EXTRA_RANGE 6 // Additional range of playsound()
 /**
  * Resistant walls
  *
  * The créme de la créme of military engineering, resistant walls are the fear of every engineer with an emitter,
  *  or a force not equipped enough to face their robustness
  */
-
-// If the wall should always deflect this type of shots
 /turf/simulated/wall/reinforced_aps
 	name = "APS Wall" // APS Stands for Active Protection System
 	desc = "A wall with an Active Protection System."
