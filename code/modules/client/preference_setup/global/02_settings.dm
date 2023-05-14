@@ -88,8 +88,7 @@
 		"<b>Observer LOOC:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTLOOC]'><b>[(pref.toggles & CHAT_GHOSTLOOC) ? "Visible" : "Hidden"]</b></a><br>",
 		"<b>Progress Bars:</b> <a href='?src=\ref[src];paratoggle=[PROGRESS_BARS]'><b>[(pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
 		"<b>Floating Messages:</b> <a href='?src=\ref[src];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
-		"<b>Hotkey Mode Default:</b> <a href='?src=\ref[src];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>",
-		"<b>Hotkey Toggle Thow:</b> <a href='?src=\ref[src];paratoggle=[PREF_THROW_TOGGLE]'><b>[(pref.toggles_secondary & PREF_THROW_TOGGLE) ? "On" : "Off"]</b></a><br>"
+		"<b>Hotkey Mode Default:</b> <a href='?src=\ref[src];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>"
 	)
 
 	. = dat.Join()
