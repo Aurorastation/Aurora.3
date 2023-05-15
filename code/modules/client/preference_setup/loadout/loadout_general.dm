@@ -161,6 +161,7 @@
 	banners["banner, United Syndicates of Himeo"] = /obj/item/flag/himeo
 	banners["banner, Republic of Assunzione"] = /obj/item/flag/assunzione
 	banners["banner, New Gibson"] = /obj/item/flag/newgibson
+	banners["banner, Visegrad"] = /obj/item/flag/visegrad
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard

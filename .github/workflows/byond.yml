@@ -68,7 +68,7 @@ jobs:
           source .versions.sh
           sudo dpkg --add-architecture i386
           sudo apt-get update
-          sudo apt-get install -y gcc-multilib zlib1g-dev:i386 libssl-dev:i386
+          sudo apt-get install -y gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           echo "Getting rust_g from https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so"
