@@ -14084,10 +14084,10 @@
 /turf/simulated/wall,
 /area/horizon/security/meeting_room)
 "lnX" = (
-/obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "lou" = (
