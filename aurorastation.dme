@@ -2016,6 +2016,7 @@
 #include "code\modules\hydroponics\seed_datums\root_vegetables.dm"
 #include "code\modules\hydroponics\seed_datums\smokables.dm"
 #include "code\modules\hydroponics\seed_datums\tomato.dm"
+#include "code\modules\hydroponics\seed_datums\unathi.dm"
 #include "code\modules\hydroponics\seed_datums\vegetables.dm"
 #include "code\modules\hydroponics\spreading\spreading.dm"
 #include "code\modules\hydroponics\spreading\spreading_growth.dm"
