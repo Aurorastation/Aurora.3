@@ -311,7 +311,6 @@
 					return FALSE
 				potato.use(disarm_cost)
 			else
-
 				if(M.max_stamina > 0)
 					disarm_cost = M.max_stamina / 6
 					if(attacker_style && attacker_style.disarm_act(H, src))

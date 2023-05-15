@@ -53,14 +53,24 @@
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "aai" = (
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/space/dynamic{
-	blocks_air = 1;
-	density = 1
+/obj/effect/floor_decal/spline/plain{
+	dir = 6
 	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "aaj" = (
 /obj/effect/floor_decal/spline/plain,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "aak" = (
@@ -5111,18 +5121,13 @@
 	pixel_x = -2;
 	pixel_y = 7
 	},
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
 /area/centcom/bar)
 "alu" = (
 /obj/structure/table/reinforced/wood,
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_y = 30
-	},
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	pixel_x = -8;
 	pixel_y = 7
@@ -7649,15 +7654,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/evac)
-"asp" = (
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 4
-	},
-/obj/effect/floor_decal/snow/corner{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/barren/raskara,
-/area/centcom/shared_dream)
 "asu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -8391,14 +8387,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aun" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -1;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 31;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor,
@@ -9368,14 +9357,7 @@
 	},
 /area/centcom/specops)
 "awr" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -11199,14 +11181,7 @@
 	},
 /area/centcom/specops)
 "aAS" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/item/deck/cards,
 /obj/structure/table/steel,
 /turf/unsimulated/floor{
@@ -12326,15 +12301,9 @@
 	},
 /area/centcom/specops)
 "aDb" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 32;
-	pixel_y = 30
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -13266,14 +13235,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/sign/flag/biesel/right{
-	pixel_x = 16;
-	pixel_y = 29
-	},
-/obj/structure/sign/flag/biesel/left{
-	pixel_x = -16;
-	pixel_y = 29
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aFm" = (
@@ -14383,9 +14345,7 @@
 	},
 /area/centcom/ferry)
 "aJa" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
@@ -14393,9 +14353,6 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "aJb" = (
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_y = 30
-	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
@@ -15964,7 +15921,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNP" = (
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
@@ -16624,7 +16581,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aPv" = (
@@ -16644,7 +16601,7 @@
 /area/tdome/tdome2)
 "aPz" = (
 /obj/machinery/igniter,
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor,
 /area/tdome)
 "aPA" = (
@@ -17087,7 +17044,7 @@
 	},
 /area/centcom/spawning)
 "aQy" = (
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -19653,9 +19610,7 @@
 /area/centcom/legion/hangar5)
 "aWp" = (
 /obj/vehicle/bike/speeder,
-/obj/structure/sign/flag/biesel/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "aWq" = (
@@ -19663,9 +19618,6 @@
 	dir = 4
 	},
 /obj/vehicle/bike/speeder,
-/obj/structure/sign/flag/biesel/right{
-	pixel_y = 32
-	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "aWr" = (
@@ -21570,9 +21522,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/structure/sign/flag/biesel/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -21584,9 +21534,6 @@
 /obj/item/reagent_containers/spray/cleaner,
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
-	},
-/obj/structure/sign/flag/biesel/right{
-	pixel_y = 32
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -22802,9 +22749,7 @@
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/structure/sign/flag/biesel/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 8;
@@ -22830,9 +22775,6 @@
 /obj/item/reagent_containers/food/snacks/nathisnack{
 	pixel_x = 5;
 	pixel_y = 12
-	},
-/obj/structure/sign/flag/biesel/right{
-	pixel_y = 32
 	},
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/condiment/shaker/salt{
@@ -34303,7 +34245,7 @@
 "bFW" = (
 /obj/effect/decal/fake_object{
 	desc = "The flag of the Trinary Perfection.";
-	icon = 'icons/obj/flags.dmi';
+	icon = 'icons/obj/structure/flags.dmi';
 	icon_state = "trinaryperfection";
 	name = "Trinary Perfection flag";
 	layer = 2.9;
@@ -34357,7 +34299,7 @@
 	},
 /obj/effect/decal/fake_object{
 	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia.";
-	icon = 'icons/obj/flags.dmi';
+	icon = 'icons/obj/structure/flags.dmi';
 	icon_state = "dominia";
 	name = "Dominian Empire flag";
 	layer = 2.9;
@@ -36178,16 +36120,17 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_courtroom)
 "bLr" = (
-/turf/space/dynamic{
-	blocks_air = 1;
-	density = 1
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
 	},
-/area/centcom/shared_dream)
-"bLt" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 9
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
 	},
-/turf/simulated/floor/exoplanet/barren/raskara,
+/turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "bLu" = (
 /obj/effect/floor_decal/snowdrift/large{
@@ -36201,7 +36144,6 @@
 /area/centcom/shared_dream)
 "bLw" = (
 /obj/structure/flora/tree/pine,
-/obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "bLy" = (
@@ -36258,10 +36200,12 @@
 /area/centcom/shared_dream)
 "bLP" = (
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#A020F0"
+	light_color = "#C48A18";
+	light_power = 2;
+	light_range = 3;
+	name = "srom fire light"
 	},
-/turf/space/dynamic{
-	blocks_air = 1;
+/turf/simulated/floor/airless/lava{
 	density = 1
 	},
 /area/centcom/shared_dream)
@@ -36323,11 +36267,14 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "bMb" = (
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 1
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
 	},
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "bMc" = (
 /obj/effect/floor_decal/spline/plain{
@@ -36352,10 +36299,11 @@
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
 "bMf" = (
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#4d7d5c"
+/obj/effect/floor_decal/spline/plain{
+	dir = 9
 	},
-/turf/simulated/floor/exoplanet/grass/grove,
+/obj/item/device/binoculars/spyglass,
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "bMg" = (
 /obj/structure/flora/tree/jungle,
@@ -36405,18 +36353,14 @@
 "bMw" = (
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
-"bMx" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 8
-	},
-/turf/space/dynamic{
-	blocks_air = 1;
-	density = 1
-	},
-/area/centcom/shared_dream)
 "bMy" = (
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/exoplanet/grass,
+/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
+/turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "bMz" = (
 /obj/structure/flora/ausbushes/leafybush,
@@ -36481,26 +36425,16 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
-"bMN" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 5
-	},
-/turf/simulated/floor/exoplanet/barren,
-/area/centcom/shared_dream)
-"bMO" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 1
-	},
-/turf/space/dynamic{
-	blocks_air = 1;
-	density = 1
-	},
-/area/centcom/shared_dream)
 "bMP" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_range = 6;
+	name = "srom white light"
+	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "bMQ" = (
@@ -36522,6 +36456,12 @@
 "bMU" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C48A18";
+	light_power = 2;
+	light_range = 3;
+	name = "srom fire light"
 	},
 /turf/simulated/floor/airless/lava{
 	density = 1
@@ -36551,12 +36491,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/purple,
-/area/centcom/shared_dream)
-"bNb" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "bNc" = (
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -36800,9 +36734,6 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/snow/corner{
-	dir = 4
-	},
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "coR" = (
@@ -36889,9 +36820,6 @@
 /area/horizon/holodeck/source_basketball)
 "cNb" = (
 /obj/effect/decal/cleanable/cobweb2,
-/obj/effect/floor_decal/snow/corner{
-	dir = 8
-	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "cTG" = (
@@ -36966,12 +36894,6 @@
 /obj/effect/floor_decal/spline/plain,
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/centcom/shared_dream)
-"dfL" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 9
-	},
-/turf/simulated/floor/exoplanet/ice,
 /area/centcom/shared_dream)
 "dgN" = (
 /obj/structure/railing/mapped,
@@ -37218,9 +37140,6 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/snow/corner{
-	dir = 1
-	},
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "edO" = (
@@ -37298,13 +37217,6 @@
 	icon_state = "desert"
 	},
 /area/centcom/shared_dream)
-"ewR" = (
-/obj/effect/floor_decal/snow/corner,
-/turf/space/dynamic{
-	blocks_air = 1;
-	density = 1
-	},
-/area/centcom/shared_dream)
 "exq" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -37361,15 +37273,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_biesel)
-"eHO" = (
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 4
-	},
-/obj/effect/floor_decal/snow/surround{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/barren,
-/area/centcom/shared_dream)
 "eIK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -37398,6 +37301,12 @@
 "ePz" = (
 /obj/item/device/flashlight/lantern,
 /obj/item/pickaxe,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C48A18";
+	light_power = 2;
+	light_range = 3;
+	name = "srom fire light"
+	},
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "eQN" = (
@@ -37475,8 +37384,9 @@
 /area/centcom/shared_dream)
 "fgU" = (
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#fff917";
-	light_range = 7
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
 	},
 /turf/simulated/floor/beach/sand{
 	dir = 1;
@@ -37486,9 +37396,6 @@
 "fir" = (
 /obj/effect/spider/cocoon,
 /obj/effect/spider/stickyweb,
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#ff0000"
-	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "fsa" = (
@@ -37600,9 +37507,12 @@
 /obj/item/reagent_containers/food/snacks/applepie{
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/drinks/bottle/whitewine,
+/obj/item/reagent_containers/food/drinks/bottle/bluecuracao,
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#4d7d5c"
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
 	},
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
@@ -37644,6 +37554,12 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
@@ -37706,15 +37622,6 @@
 "glL" = (
 /obj/structure/sign/christmas/snowman/hat,
 /turf/simulated/floor/exoplanet/snow,
-/area/centcom/shared_dream)
-"gme" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 10
-	},
-/turf/space/dynamic{
-	blocks_air = 1;
-	density = 1
-	},
 /area/centcom/shared_dream)
 "goM" = (
 /turf/simulated/lava,
@@ -37829,15 +37736,6 @@
 /obj/item/flame/candle,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_chapel)
-"gDm" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 5
-	},
-/turf/space/dynamic{
-	blocks_air = 1;
-	density = 1
-	},
-/area/centcom/shared_dream)
 "gHp" = (
 /obj/structure/shuttle_part/ccia{
 	icon_state = "3,4"
@@ -38093,16 +37991,6 @@
 	},
 /turf/simulated/floor/holofloor/lino,
 /area/horizon/holodeck/source_meetinghall)
-"hEj" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#fff917";
-	light_range = 7
-	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
-/area/centcom/shared_dream)
 "hIs" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
@@ -38159,20 +38047,26 @@
 	},
 /turf/simulated/floor/holofloor/grass/alt,
 /area/horizon/holodeck/source_picnicarea)
-"hWW" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 10
-	},
-/turf/simulated/floor/exoplanet/ice,
-/area/centcom/shared_dream)
 "hXi" = (
 /obj/effect/floor_decal/spline/plain/cee,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "hXA" = (
-/obj/effect/spider/cocoon,
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/exoplanet/barren/raskara,
+/obj/structure/flora/grass/jungle,
+/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
+/turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "hYG" = (
 /obj/effect/overlay/palmtree_r,
@@ -38201,6 +38095,11 @@
 "iae" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_range = 6;
+	name = "srom white light"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -38287,12 +38186,6 @@
 	dir = 1
 	},
 /area/horizon/holodeck/source_konyang)
-"ikY" = (
-/obj/effect/floor_decal/snow/surround{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/ice,
-/area/centcom/shared_dream)
 "ipe" = (
 /obj/structure/sign/vacuum{
 	pixel_x = -32
@@ -38386,11 +38279,11 @@
 	},
 /area/horizon/holodeck/source_moghes)
 "iNk" = (
-/obj/structure/weapon_rack{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
+	},
+/obj/structure/weapon_rack/double{
+	pixel_y = 32
 	},
 /turf/simulated/floor/wood/coloured/yew,
 /area/centcom/shared_dream)
@@ -38410,12 +38303,12 @@
 /area/centcom/shared_dream)
 "iTm" = (
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#fff917";
-	light_range = 7
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/beach/water/alt,
 /area/centcom/shared_dream)
 "iVa" = (
 /obj/effect/floor_decal/spline/plain{
@@ -38425,7 +38318,10 @@
 /area/centcom/shared_dream)
 "iWv" = (
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#4d7d5c"
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
@@ -38434,13 +38330,6 @@
 /obj/machinery/telecomms/allinone,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"iWC" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#4d7d5c"
-	},
-/turf/simulated/floor/exoplanet/grass/grove,
-/area/centcom/shared_dream)
 "iWH" = (
 /obj/effect/decal{
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
@@ -38626,10 +38515,6 @@
 /turf/simulated/floor/carpet/purple,
 /area/centcom/shared_dream)
 "jvc" = (
-/obj/item/reagent_containers/food/drinks/cans/peach_soda{
-	pixel_y = 18;
-	pixel_x = -10
-	},
 /obj/structure/flora/log_bench{
 	dir = 8
 	},
@@ -38657,9 +38542,11 @@
 /area/centcom/shared_dream)
 "jIr" = (
 /obj/structure/flora/grass/green,
-/obj/effect/decal/fake_object/light_source/invisible,
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#368BC1"
+	light_color = "#66ccff";
+	light_power = 0.75;
+	light_range = 6;
+	name = "srom snow light"
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
@@ -38667,9 +38554,6 @@
 /obj/structure/flora/ausbushes/leafybush,
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
-	},
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#4d7d5c"
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
@@ -38769,18 +38653,17 @@
 	density = 0;
 	pixel_x = 2
 	},
-/obj/effect/decal/fake_object/light_source/invisible,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C48A18";
+	light_power = 2;
+	light_range = 3;
+	name = "srom fire light"
+	},
 /turf/simulated/floor/wood/coloured/yew,
 /area/centcom/shared_dream)
 "kjJ" = (
 /obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
-/area/centcom/shared_dream)
-"kjO" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 5
-	},
-/turf/simulated/floor/exoplanet/ice,
 /area/centcom/shared_dream)
 "kjP" = (
 /obj/structure/flora/rock/pile,
@@ -38842,19 +38725,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
-"kzl" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 9
-	},
-/turf/simulated/floor/exoplanet/barren,
-/area/centcom/shared_dream)
-"kzw" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#4d7d5c"
-	},
-/turf/simulated/floor/exoplanet/grass,
-/area/centcom/shared_dream)
 "kzB" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 8
@@ -38864,12 +38734,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_pool)
-"kzN" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/barren/raskara,
-/area/centcom/shared_dream)
 "kAb" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -38897,15 +38761,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
-"kGB" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/ice,
-/area/centcom/shared_dream)
 "kGH" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -38945,14 +38800,14 @@
 /turf/simulated/floor/holofloor/grass/alt,
 /area/horizon/holodeck/source_battlemonsters)
 "kLW" = (
+/obj/effect/floor_decal/snowdrift,
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#fff917";
-	light_range = 7
+	light_color = "#66ccff";
+	light_power = 0.75;
+	light_range = 6;
+	name = "srom snow light"
 	},
-/turf/simulated/floor/beach/sand{
-	dir = 2;
-	icon_state = "beach"
-	},
+/turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "kNq" = (
 /obj/effect/decal/fake_object{
@@ -38994,6 +38849,11 @@
 "kRE" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/spline/fancy,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_range = 6;
+	name = "srom white light"
+	},
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
 "kRF" = (
@@ -39158,8 +39018,17 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "lyK" = (
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/exoplanet/water/shallow,
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/effect/floor_decal/spline/plain{
+	dir = 6
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "lDj" = (
 /obj/structure/table/stone/marble,
@@ -39172,6 +39041,10 @@
 "lDn" = (
 /obj/structure/flora/log_bench{
 	dir = 4
+	},
+/obj/item/reagent_containers/food/drinks/cans/dyn{
+	pixel_y = -20;
+	pixel_x = 13
 	},
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
@@ -39214,15 +39087,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
-"lJl" = (
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#fff917";
-	light_range = 7
-	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "beach"
-	},
-/area/centcom/shared_dream)
 "lJV" = (
 /obj/effect/overlay/palmtree_r,
 /obj/effect/overlay/coconut,
@@ -39234,15 +39098,6 @@
 /obj/structure/flora/tree/dead,
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/exoplanet/snow,
-/area/centcom/shared_dream)
-"lRN" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/obj/effect/floor_decal/snow/corner{
-	dir = 10
-	},
-/turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "lSe" = (
 /obj/structure/bed/stool/chair/sofa/left/black{
@@ -39376,7 +39231,6 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
-/obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "muL" = (
@@ -39419,8 +39273,9 @@
 /area/horizon/holodeck/source_konyang)
 "mvn" = (
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#808080";
-	light_range = 7
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
@@ -39542,7 +39397,9 @@
 /area/centcom/shared_dream)
 "mLG" = (
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#ff0000"
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
@@ -39610,22 +39467,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_battlemonsters)
-"ndO" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 6
-	},
-/turf/space/dynamic{
-	blocks_air = 1;
-	density = 1
-	},
-/area/centcom/shared_dream)
-"neN" = (
-/obj/effect/decal/cleanable/spiderling_remains,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/barren/raskara,
-/area/centcom/shared_dream)
 "njp" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -39695,7 +39536,6 @@
 /turf/simulated/floor/holofloor/grass/alt,
 /area/horizon/holodeck/source_battlemonsters)
 "nDU" = (
-/obj/structure/flora/tree/jungle,
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 4
 	},
@@ -39769,19 +39609,24 @@
 	desc = "A hearty apple drink, spiced just right.";
 	icon = 'icons/obj/drinks.dmi';
 	icon_state = "ciderhot";
-	name = "Hot cider";
+	name = "Hot Cider";
 	pixel_x = -8;
 	pixel_y = 10
 	},
 /obj/effect/decal/fake_object{
-	desc = "A cup of hot chocolate.";
+	desc = "A cup of The Wake. Most young skrell get a kick out of letting humans try this.";
 	icon = 'icons/obj/drinks.dmi';
-	icon_state = "chocolateglass";
-	name = "Hot chocolate";
+	icon_state = "thewake";
+	name = "The Wake";
 	pixel_x = 6;
 	pixel_y = 7
 	},
-/obj/effect/decal/fake_object/light_source/invisible,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C48A18";
+	light_power = 2;
+	light_range = 3;
+	name = "srom fire light"
+	},
 /turf/simulated/floor/carpet/purple,
 /area/centcom/shared_dream)
 "ogo" = (
@@ -39879,17 +39724,12 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
-/area/centcom/shared_dream)
-"osZ" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 5
-	},
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#808080";
-	light_range = 7
+	light_color = "#ffffff";
+	light_range = 6;
+	name = "srom white light"
 	},
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
 "oyi" = (
 /obj/effect/decal/fake_object/light_source{
@@ -39927,12 +39767,6 @@
 	dir = 9;
 	icon_state = "beach"
 	},
-/area/centcom/shared_dream)
-"oDV" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "oIf" = (
 /obj/effect/floor_decal/carpet{
@@ -40061,7 +39895,7 @@
 	},
 /obj/effect/decal/fake_object{
 	desc = "The flag of the Trinary Perfection.";
-	icon = 'icons/obj/flags.dmi';
+	icon = 'icons/obj/structure/flags.dmi';
 	icon_state = "trinaryperfection";
 	name = "Trinary Perfection flag";
 	layer = 2.9;
@@ -40237,18 +40071,15 @@
 /obj/structure/flora/tree/pine,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_snowfield)
-"pIp" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/barren,
-/area/centcom/shared_dream)
 "pJb" = (
-/obj/effect/spider/stickyweb,
+/obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#ff0000"
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
 	},
-/turf/simulated/floor/exoplanet/barren/raskara,
+/turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "pJW" = (
 /obj/structure/window/reinforced/holowindow{
@@ -40325,6 +40156,11 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
@@ -40357,16 +40193,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
-"qpi" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 8
-	},
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/space/dynamic{
-	blocks_air = 1;
-	density = 1
-	},
-/area/centcom/shared_dream)
 "qrO" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 1
@@ -40407,12 +40233,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_biesel)
-"qAd" = (
-/obj/effect/floor_decal/snow/surround{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/ice,
-/area/centcom/shared_dream)
 "qAh" = (
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 8
@@ -40550,15 +40370,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_theatre)
-"qZS" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 6
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/ice,
-/area/centcom/shared_dream)
 "rbx" = (
 /turf/simulated/floor/exoplanet/water/shallow{
 	icon_state = "beach";
@@ -40607,16 +40418,10 @@
 	},
 /area/centcom/shared_dream)
 "rgP" = (
-/obj/structure/bookcase,
-/obj/item/book/manual/psych,
-/obj/item/device/versebook,
-/obj/item/device/versebook/biesel,
-/obj/item/device/versebook/gadpathur,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/trinary,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
+/obj/structure/bookcase/libraryspawn/nonfiction,
 /turf/simulated/floor/wood/coloured/yew,
 /area/centcom/shared_dream)
 "rkm" = (
@@ -40664,7 +40469,10 @@
 	},
 /obj/structure/table/wood,
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#4d7d5c"
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
 	},
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
@@ -40738,16 +40546,6 @@
 	},
 /turf/simulated/floor/beach/water/alt,
 /area/centcom/shared_dream)
-"rwM" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 8
-	},
-/obj/effect/floor_decal/snow/corner,
-/turf/space/dynamic{
-	blocks_air = 1;
-	density = 1
-	},
-/area/centcom/shared_dream)
 "rzL" = (
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
@@ -40761,10 +40559,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
-"rHJ" = (
-/obj/effect/floor_decal/snow/surround,
-/turf/simulated/floor/exoplanet/ice,
-/area/centcom/shared_dream)
 "rIW" = (
 /obj/structure/window/reinforced/holowindow,
 /obj/structure/bed/stool/chair/holochair,
@@ -40777,15 +40571,6 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_courtroom)
-"rKB" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/barren,
-/area/centcom/shared_dream)
 "rKO" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
@@ -40808,15 +40593,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
-"rWI" = (
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 4
-	},
-/obj/effect/floor_decal/snow/corner{
-	dir = 6
-	},
-/turf/simulated/floor/exoplanet/barren,
-/area/centcom/shared_dream)
 "rYl" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/railing/mapped{
@@ -40836,7 +40612,12 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_chapel)
 "rZP" = (
-/turf/space,
+/turf/space/dynamic{
+	blocks_air = 1;
+	density = 1;
+	name = "\proper srom space";
+	use_starlight = 0
+	},
 /area/centcom/shared_dream)
 "seI" = (
 /obj/effect/floor_decal/spline/plain{
@@ -40882,12 +40663,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
-"sts" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 6
-	},
-/turf/simulated/floor/exoplanet/ice,
-/area/centcom/shared_dream)
 "szG" = (
 /obj/structure/bonfire/fireplace,
 /obj/item/clothing/accessory/scarf/zebra{
@@ -41080,6 +40855,11 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
+	},
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
@@ -41125,15 +40905,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
-"tnQ" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 4
-	},
-/turf/space/dynamic{
-	blocks_air = 1;
-	density = 1
-	},
-/area/centcom/shared_dream)
 "tqP" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/misc/beach.dmi';
@@ -41152,7 +40923,9 @@
 	dir = 1
 	},
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#ff0000"
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
@@ -41169,12 +40942,14 @@
 /turf/simulated/floor/plating,
 /area/shuttle/transport1)
 "twC" = (
-/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda{
-	pixel_y = 20
+/obj/structure/flora/ausbushes/leafybush,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "txp" = (
 /obj/effect/floor_decal/spline/plain{
@@ -41184,11 +40959,14 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "txP" = (
-/obj/effect/floor_decal/snowdrift,
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#368BC1"
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
 	},
-/turf/simulated/floor/exoplanet/snow,
+/turf/simulated/floor/beach/sand{
+	icon_state = "desert"
+	},
 /area/centcom/shared_dream)
 "txW" = (
 /turf/unsimulated/floor{
@@ -41215,7 +40993,10 @@
 /area/horizon/holodeck/source_dininghall)
 "tCk" = (
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#368BC1"
+	light_color = "#66ccff";
+	light_power = 0.75;
+	light_range = 6;
+	name = "srom snow light"
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
@@ -41268,12 +41049,6 @@
 	dir = 5
 	},
 /turf/simulated/floor/exoplanet/grass,
-/area/centcom/shared_dream)
-"tPe" = (
-/obj/effect/floor_decal/snow/surround{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "tSH" = (
 /obj/effect/decal/fake_object/light_source{
@@ -41382,6 +41157,12 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C48A18";
+	light_power = 2;
+	light_range = 3;
+	name = "srom fire light"
+	},
 /turf/simulated/floor/airless/lava{
 	density = 1
 	},
@@ -41471,17 +41252,8 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_sauna)
-"uKD" = (
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#ff0000"
-	},
-/turf/simulated/floor/airless/lava{
-	density = 1
-	},
-/area/centcom/shared_dream)
 "uMu" = (
 /obj/structure/flora/tree/pine,
-/obj/effect/decal/fake_object/light_source/invisible,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
@@ -41517,12 +41289,6 @@
 /obj/effect/floor_decal/corner/light/full,
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_tribunal)
-"uYd" = (
-/obj/effect/floor_decal/snow/surround{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/ice,
-/area/centcom/shared_dream)
 "uZh" = (
 /obj/structure/flora/rock{
 	icon_state = "basalt2";
@@ -41596,9 +41362,12 @@
 /area/centcom/shared_dream)
 "vha" = (
 /obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#4d7d5c"
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
 	},
-/turf/simulated/floor/beach/water/alt,
+/turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "vjo" = (
 /obj/effect/floor_decal/corner/red/full,
@@ -41802,9 +41571,6 @@
 /area/horizon/holodeck/source_tribunal)
 "wkS" = (
 /obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/snow/corner{
-	dir = 9
-	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
 "wlW" = (
@@ -41905,12 +41671,14 @@
 /turf/simulated/floor/holofloor/lino,
 /area/horizon/holodeck/source_theatre)
 "wEr" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/structure/flora/grass/jungle,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#64C864";
+	light_range = 4;
+	name = "srom green light";
+	light_power = 0.75
 	},
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "wUz" = (
 /obj/structure/table/wood,
@@ -41932,15 +41700,6 @@
 /obj/effect/floor_decal/corner/white,
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_battlemonsters)
-"wWJ" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 9
-	},
-/turf/space/dynamic{
-	blocks_air = 1;
-	density = 1
-	},
-/area/centcom/shared_dream)
 "wXq" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/carpet{
@@ -41971,12 +41730,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_biesel)
-"xdF" = (
-/obj/effect/floor_decal/snow/corner{
-	dir = 10
-	},
-/turf/simulated/floor/exoplanet/barren/raskara,
-/area/centcom/shared_dream)
 "xew" = (
 /obj/structure/flora/grass/jungle,
 /obj/effect/floor_decal/spline/plain/corner,
@@ -41991,10 +41744,6 @@
 /obj/item/trash/match,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_tribunal)
-"xhA" = (
-/obj/effect/floor_decal/snow/corner,
-/turf/simulated/floor/exoplanet/ice,
-/area/centcom/shared_dream)
 "xiL" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
@@ -42013,6 +41762,11 @@
 "xkM" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C46518";
+	light_power = 0.75;
+	name = "srom brown light"
 	},
 /turf/simulated/floor/beach/sand{
 	icon_state = "beach"
@@ -42035,16 +41789,6 @@
 	icon_state = "10,1"
 	},
 /area/shuttle/transport1)
-"xqx" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#808080";
-	light_range = 7
-	},
-/turf/simulated/floor/exoplanet/barren,
-/area/centcom/shared_dream)
 "xrl" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -42063,13 +41807,13 @@
 	},
 /area/horizon/holodeck/source_moghes)
 "xrA" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
+/obj/item/reagent_containers/food/snacks/skrellsnacks{
+	pixel_y = 12;
+	pixel_x = 8
 	},
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#368BC1"
+/turf/simulated/floor/beach/sand{
+	icon_state = "desert"
 	},
-/turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "xst" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
@@ -42334,9 +42078,6 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/spline/plain/corner,
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#4d7d5c"
-	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 
@@ -95324,13 +95065,6 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
 bMl
 bMl
 bMl
@@ -95340,38 +95074,45 @@ bMl
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -95581,13 +95322,6 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
 bMl
 bMl
 bMl
@@ -95597,38 +95331,45 @@ bMl
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
 bMl
 bMl
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
 bMl
-bLr
-bLr
-bLr
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -95838,27 +95579,27 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
 bMl
 bMl
-bLP
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
@@ -95867,25 +95608,25 @@ bMl
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
-bLr
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -96096,29 +95837,26 @@ aaa
 aaa
 aaa
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bMl
-bMl
-bMl
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
@@ -96126,23 +95864,26 @@ bMl
 bMl
 bMl
 bMl
-bLr
-bLr
-bLP
-bLr
+bMl
+bMl
+bMl
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
-bLr
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -96354,26 +96095,26 @@ aaa
 aaa
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLP
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLP
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
@@ -96383,23 +96124,23 @@ bMl
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
-bLr
+rZP
 bMl
-bLr
-bLr
-bMl
-bMl
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
+bMl
+bMl
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -96611,26 +96352,26 @@ aaa
 aaa
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
@@ -96641,22 +96382,22 @@ bMl
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -96869,23 +96610,23 @@ aaa
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 bMA
 bMA
 bMA
 bMA
 bMA
 oXx
-bMO
-bLr
-bLr
-bLr
-bLr
-knT
-rKB
-rKB
+rZP
+rZP
+rZP
+rZP
+rZP
+bMf
+iIo
+iIo
 iIo
 bMl
 bMl
@@ -96902,18 +96643,18 @@ bMl
 bNn
 bNn
 qfC
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -97126,25 +96867,25 @@ aaa
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 bMA
 gBO
 jrX
 thp
 bMA
 dRB
-gDm
-bLr
-bLr
-tnQ
+rZP
+rZP
+rZP
+rZP
 knT
-rWI
+aag
+tCk
 bMw
-bMw
-osZ
-oDV
+bLO
+bLO
 bMl
 bMl
 bMl
@@ -97157,20 +96898,20 @@ bMl
 bMl
 bLO
 bMG
-iTm
+bMQ
 hYG
 bNn
 bNn
 xkM
-bLr
-bLr
-bLr
-bLP
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -97382,27 +97123,27 @@ aaa
 aaa
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
 bMA
 szG
 ogd
 jds
 kjJ
-txP
+bLv
 uoQ
-gDm
-ndO
+rZP
+rZP
 bMw
-eHO
-dfL
-hWW
+aag
+gsd
+gsd
 bMw
 bMw
 bMw
-bMN
+bLO
 bLO
 bMl
 bMl
@@ -97416,18 +97157,18 @@ bLO
 bLO
 bMQ
 ifr
-iTm
+bMQ
 bMk
 ulM
 nrf
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -97637,12 +97378,12 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
 bMA
 bMd
 bNa
@@ -97651,16 +97392,16 @@ bMA
 vsW
 bLv
 bMw
-bMw
+tCk
 uoQ
 bMw
-kjO
 gsd
-rHJ
+gsd
+gsd
 bMw
 bLu
 bMw
-bMN
+bLO
 bLO
 bMl
 bMl
@@ -97677,14 +97418,14 @@ bMG
 mOA
 bNk
 kdV
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -97894,12 +97635,12 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLP
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
 bMA
 iPb
 bMA
@@ -97909,39 +97650,39 @@ bMw
 bLw
 bMw
 lLY
-tCk
 bMw
 bMw
-qAd
+bMw
+gsd
 bMw
 bMw
 bMw
 dRB
 bMw
-bMN
+bLO
 bMl
 bMl
 kjP
 drI
-xqx
+drI
 tnC
 bMl
 bMl
 bMl
-bLO
+mvn
 bMQ
 bMQ
 jpK
 bNk
 coR
 oln
-bLr
-bLr
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
-bLr
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -98151,12 +97892,12 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
 bMA
 vzm
 rgP
@@ -98173,13 +97914,13 @@ bLv
 bMw
 bLw
 bLv
-tCk
+bMw
 uoQ
 bMw
-bMN
+bLO
 bMl
 bLX
-bLr
+rZP
 wpY
 bMl
 bMl
@@ -98193,12 +97934,12 @@ ozQ
 bNq
 lfP
 tlX
-bLr
+rZP
 bMl
 bMl
 bMl
-bLr
-bLr
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -98408,12 +98149,12 @@ aaa
 aaa
 aaa
 aaa
-bLr
 bMl
-bLr
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
 bMA
 iNk
 kiI
@@ -98426,19 +98167,19 @@ gRZ
 bTg
 bTg
 eSG
-tCk
 bMw
 bMw
-dRB
+bMw
+jIr
 pRF
 bMw
 bMw
 dRB
-pIp
+bLO
 bMl
 bMl
 wpY
-bLr
+rZP
 bMl
 bLO
 cYQ
@@ -98450,12 +98191,12 @@ bNo
 jnr
 bMI
 wWn
-bLr
-bLr
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -98668,9 +98409,9 @@ aaa
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 bMA
 sVf
 oPh
@@ -98691,28 +98432,28 @@ bMw
 bMw
 bMw
 bMw
-osZ
+bLO
 bLO
 tlI
 wpY
-bLr
+rZP
 bMW
 bLO
-mvn
+bLO
 bLO
 bLO
 bMQ
 bMQ
 xPK
-kLW
+ozQ
 bNq
 lnJ
-bLr
-bLr
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -98924,10 +98665,10 @@ aaa
 aaa
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
 bMA
 iJa
 bMA
@@ -98939,8 +98680,8 @@ bMw
 bMw
 rRN
 tSJ
-bMx
-gme
+rZP
+rZP
 bMw
 bMw
 bMw
@@ -98949,12 +98690,12 @@ bLw
 cwS
 iPO
 bMw
-bMN
+bLO
 coz
 iIo
 vgq
 aag
-bLO
+mvn
 bLO
 bLO
 egX
@@ -98964,12 +98705,12 @@ bMk
 ozQ
 bNq
 kdV
-bLr
-bLr
+rZP
+rZP
 bMl
-bLr
-bLr
-bLr
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -99180,25 +98921,25 @@ aaa
 aaa
 aaa
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-xrA
+rZP
+rZP
+rZP
+rZP
+rZP
+nnX
 bMw
 bLv
 bMw
 bMw
 bLw
 bMw
-wWJ
-bMx
+rZP
+rZP
 rRN
 tSJ
-bLr
-bLr
-gme
+rZP
+rZP
+rZP
 bMw
 lLY
 bMw
@@ -99208,7 +98949,7 @@ tCk
 bMw
 bMw
 bMw
-bMN
+bLO
 bLO
 cYQ
 bLO
@@ -99221,12 +98962,12 @@ bMQ
 ozQ
 bNq
 kdV
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -99436,12 +99177,12 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
 jOZ
 bMw
 bMw
@@ -99449,24 +99190,24 @@ bMw
 bMw
 bMw
 wkS
-bLr
-bLr
+rZP
+rZP
 rRN
 tSJ
-bLr
+rZP
 ecI
 bLW
-asp
-bNb
-bNb
-xdF
+mEy
+bLz
+bLz
+bLz
 bMw
 bMw
 bMw
 bLw
 dRB
 bMw
-bMN
+bLO
 bLO
 bMl
 bMl
@@ -99478,12 +99219,12 @@ bMG
 bNo
 xQO
 kdV
-bLr
-bLP
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -99693,54 +99434,54 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
 uMu
-uYd
+gsd
+bMw
 tCk
 bMw
-bMw
-bLt
+bLz
 iIP
 fHN
-bLr
+rZP
 rRN
 tSJ
 jlo
 bMl
 bMl
 bLz
+bLz
 mLG
 bLz
 bLz
-xdF
 dRB
 bMw
 pRF
 bMw
 bMw
 bMw
-bMN
+bLO
 bMl
 bLO
 bLO
 bMQ
 bMQ
-bMQ
+txP
 bMQ
 bMQ
 ozQ
 rfc
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -99950,17 +99691,17 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
 bMl
-bLr
-bLP
-bLr
-kGB
-xhA
+rZP
+bMl
+rZP
+rZP
+rZP
+gIA
+gsd
 bNd
 iPO
-bLt
+bLz
 bMl
 mIr
 iIP
@@ -99973,17 +99714,17 @@ bMl
 pEO
 bMs
 bLK
-neN
 bME
-lRN
+bME
+bME
 bMw
 bNd
 bMw
 lLY
-dfL
-rHJ
-pIp
-mvn
+gsd
+gsd
+bLO
+bLO
 bLO
 bMG
 bMQ
@@ -99992,12 +99733,12 @@ bMQ
 ifr
 ozQ
 uux
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -100207,14 +99948,14 @@ aaa
 aaa
 aaa
 aaa
-bLr
 bMl
 bMl
 bMl
-bLr
-bLr
+bMl
+rZP
+rZP
 gIA
-sts
+gsd
 dRB
 bMw
 bMl
@@ -100223,38 +99964,38 @@ bMl
 sTs
 bLz
 bLz
-bLz
+mLG
 bLz
 unw
 bLz
 aaj
-bLr
-bLr
-wEr
+rZP
+rZP
+rRN
 tSJ
-ewR
+rZP
 bMw
 uoQ
-bLv
-ikY
-sts
-kzl
+kLW
+gsd
+gsd
+bLO
 bLO
 bLO
 cYQ
 bMQ
-hEj
+bMG
 bMQ
 bMQ
 lJV
-kLW
+ozQ
 uux
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -100467,14 +100208,14 @@ aaa
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
-qZS
+rZP
+rZP
+rZP
+gIA
+tCk
 bMw
-bMw
-bLt
-pJb
+bLz
+bMs
 bMl
 bMl
 bLz
@@ -100485,18 +100226,18 @@ bLz
 bMz
 xew
 mLF
-bLr
-bLr
+rZP
+rZP
 rRN
 qAh
-bLr
-rwM
+rZP
+rZP
 glL
 vsW
-txP
+bLv
 dRB
-pIp
 bLO
+mvn
 bLO
 bMQ
 ifr
@@ -100506,12 +100247,12 @@ bMQ
 qEC
 ozQ
 uux
-bLr
-bLr
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -100721,16 +100462,16 @@ aaa
 aaa
 aaa
 aaa
-bLr
 bMl
 bMl
 bMl
-bLr
-bLr
+bMl
+rZP
+rZP
 cWf
 glL
-tPe
-mLG
+bLz
+bLz
 bLz
 qhk
 bMs
@@ -100739,20 +100480,20 @@ bLz
 bLz
 bLz
 lyb
-iWv
+bMR
 bMr
-bLr
-bLr
+rZP
+rZP
 mPD
 vOL
 goW
 bMZ
-ewR
+rZP
 bMw
 bMw
 bMw
 bMw
-pIp
+bLO
 bLO
 bLO
 bMQ
@@ -100763,12 +100504,12 @@ bMG
 bNj
 cTS
 uux
-bLr
+rZP
 bMl
 bMl
 bMl
 bMl
-bLr
+bMl
 aaa
 aaa
 aaa
@@ -100978,17 +100719,17 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
 nnX
 pRF
 bMw
-kzN
 bLz
+mLG
 bLz
 bLz
 bLz
@@ -100998,34 +100739,34 @@ bMR
 bMR
 jGo
 mLF
-bLr
-aai
+rZP
+rZP
 gpw
 mZu
 rlf
 fDU
-aai
-gme
+rZP
+rZP
 bMw
 bMw
-kzl
+bLO
 bLO
 bLO
 bMQ
 bMQ
 erT
-bMQ
+xrA
 bMQ
 bNj
 bNp
 oDu
 vVW
-bLr
-bLr
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
+bMl
 aaa
 aaa
 aaa
@@ -101235,35 +100976,35 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
 nnX
 bLw
 uoQ
-kzN
+bLz
 bLK
 bMl
 bLz
 bLz
 bLz
 bMR
-bMH
+wEr
 bNe
 mLF
-bLr
-bLr
+rZP
+rZP
 bNg
 bNm
 vSj
 bMP
 qHa
 bMZ
-bLr
-gme
+rZP
+rZP
 bMw
 ecJ
 mvn
@@ -101277,12 +101018,12 @@ bNk
 oDu
 exw
 wrH
-bLr
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-bMl
-bLr
 aaa
 aaa
 aaa
@@ -101492,36 +101233,36 @@ aaa
 aaa
 aaa
 aaa
-bLr
 bMl
 bMl
-bLr
-bLr
-bLr
-xrA
+bMl
+rZP
+rZP
+rZP
+nnX
 dRB
-bLt
-hXA
-bMl
-bMl
 bLz
+sTs
+bMl
+bMl
+mLG
 bMR
 bMR
-bMy
+bMR
 bMg
 nxQ
-aai
-bLr
+rZP
+rZP
 aah
 dac
 vSj
-lyK
+vSj
 vSj
 jQg
 dsb
 bLY
-bLr
-qpi
+rZP
+rZP
 bMW
 cYQ
 bLO
@@ -101530,16 +101271,16 @@ bMG
 pJY
 wnF
 bMQ
-lJl
+bNk
 uiN
-bMQ
+txP
 wrH
-bLr
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
-bLr
 aaa
 aaa
 aaa
@@ -101751,10 +101492,10 @@ aaa
 aaa
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
 bMl
 cNb
 bLz
@@ -101767,18 +101508,18 @@ bMR
 bMR
 bLL
 wxV
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 bNh
 iVa
 vSj
 vSj
 vSj
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
 bMW
 bLO
 bLO
@@ -101786,17 +101527,17 @@ bMQ
 bMQ
 bMQ
 lDn
-twC
+bMQ
 bNk
 bMI
 tqP
 wrH
-bLr
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
-bLr
 aaa
 aaa
 aaa
@@ -102008,39 +101749,39 @@ aaa
 aaa
 bMl
 bMl
-bLr
-bLr
-bLP
-bLr
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 mIr
-mLG
+bLz
 bMl
 bMM
 bLz
 bMR
 bMR
-kzw
+bMB
 bMR
 oim
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 waQ
 jac
 iae
 seI
 bLM
 lok
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 eWy
-bLO
+mvn
 bLO
 bMQ
-iTm
+bMQ
 bMQ
 bMG
 bMQ
@@ -102048,12 +101789,12 @@ uZh
 jnr
 qrQ
 nut
-bLr
+rZP
+rZP
+rZP
+rZP
 bMl
-bLr
-bLr
-bLr
-bLr
+bMl
 aaa
 aaa
 aaa
@@ -102263,16 +102004,16 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-pEO
+bMy
 bME
 bMm
 bMR
@@ -102283,14 +102024,14 @@ bNc
 wpC
 bNn
 doG
-bLr
-aai
+rZP
+rZP
 kAJ
 bLT
 qBi
 feN
-aai
-bLr
+rZP
+rZP
 knT
 iIo
 aag
@@ -102304,13 +102045,13 @@ pyG
 skt
 bNp
 uux
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -102520,12 +102261,12 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
@@ -102541,12 +102282,12 @@ bNc
 bMQ
 pGl
 doG
-bLr
-bLr
+rZP
+rZP
 bMC
 tSJ
-bLr
-bLr
+rZP
+rZP
 knT
 aag
 bMl
@@ -102558,16 +102299,16 @@ bMQ
 bMQ
 bMQ
 wxV
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -102777,33 +102518,33 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
 bMl
-bLr
-bLr
-bLr
+rZP
+bMl
+rZP
+rZP
+rZP
 bMU
 xYy
 bMl
 hIs
-txX
+bLP
 txX
 txp
 bMR
-bMz
+twC
 bMF
 bMK
 bMF
 bNc
 bMQ
 wrH
-bLr
-bLr
+rZP
+rZP
 rRN
 tSJ
-bLr
-bLr
+rZP
+rZP
 bMW
 bMl
 bMl
@@ -102811,20 +102552,20 @@ bLO
 bLO
 bMQ
 bMQ
-bMQ
+txP
 bMQ
 bNc
 dPA
 iVa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -103034,12 +102775,12 @@ aaa
 aaa
 aaa
 aaa
-bLr
 bMl
 bMl
 bMl
-bLr
-bLr
+bMl
+rZP
+rZP
 txX
 xJB
 bMU
@@ -103055,12 +102796,12 @@ bMV
 bNu
 bMQ
 gJy
-bLr
-bLr
+rZP
+rZP
 rRN
 tSJ
-bLr
-bLr
+rZP
+rZP
 bMW
 bMl
 bLO
@@ -103071,17 +102812,17 @@ row
 bMQ
 ifr
 bNu
-bMf
+bNc
 dIc
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -103291,15 +103032,15 @@ aaa
 aaa
 aaa
 aaa
-bLr
+bMl
 rZP
 bMl
 bMl
-bLr
-bLr
+rZP
+rZP
 txX
 txX
-uKD
+txX
 hIs
 ecI
 qOd
@@ -103308,15 +103049,15 @@ bMB
 bMR
 bMH
 bNu
-bMf
+bNc
 bMF
 bNc
 bNi
 doG
-bLr
-wEr
+rZP
+rRN
 tSJ
-bLr
+rZP
 mjN
 vtV
 bLO
@@ -103325,20 +103066,20 @@ bLO
 bLO
 bMQ
 bMQ
-iTm
+bMQ
 bMQ
 bNc
 bNu
 cEk
-bLr
-bLr
-bLr
-bLP
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -103548,32 +103289,32 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
 uAv
 yhM
 sMO
 bLW
 mEy
-bMy
+bMR
 lyb
-iWv
+bMR
 bMB
 bMR
 bNc
 bNc
 tCK
 bMQ
-iTm
+bMQ
 bNi
 bNn
 doG
 tSJ
-bLr
+rZP
 dFd
 bMQ
 bMQ
@@ -103588,14 +103329,14 @@ bMF
 bNc
 wpC
 iVa
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -103805,17 +103546,17 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLP
-bLr
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bLN
 bLS
 bLz
-bLz
+mLG
 bMR
 bMR
 bMR
@@ -103826,7 +103567,7 @@ bNc
 bNc
 bNc
 bMQ
-bMQ
+txP
 bMQ
 bNi
 bNn
@@ -103845,14 +103586,14 @@ bMV
 bNc
 bNc
 nFy
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
-bLr
+bMl
 aaa
 aaa
 aaa
@@ -104063,13 +103804,13 @@ aaa
 aaa
 aaa
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 trr
 bLz
 bMH
@@ -104078,7 +103819,7 @@ bMR
 bMR
 bMg
 bMR
-bNc
+vha
 bNc
 bMK
 bMF
@@ -104086,9 +103827,9 @@ bMQ
 ifr
 bMQ
 bMG
-iTm
 bMQ
 bMQ
+txP
 bMQ
 bMQ
 bMQ
@@ -104103,13 +103844,13 @@ ppx
 hqA
 mLu
 hXi
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
+bMl
 aaa
 aaa
 aaa
@@ -104321,18 +104062,18 @@ aaa
 aaa
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bLQ
 bLz
 bLZ
 bMR
 bMR
-bMR
+iWv
 bMz
 bNu
 bMF
@@ -104347,7 +104088,7 @@ bMQ
 bMQ
 bMG
 bNv
-iTm
+bMQ
 bMQ
 bMG
 bMQ
@@ -104359,14 +104100,14 @@ oqe
 fTD
 reI
 wxV
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
-bLr
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -104577,16 +104318,16 @@ aaa
 aaa
 aaa
 bMl
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 bMl
-bLr
-bLr
+rZP
+rZP
 bLN
 bLS
 bLz
-iWv
+bMR
 bMz
 bMR
 bMH
@@ -104595,7 +104336,7 @@ bMB
 bMR
 bNc
 bMV
-bMf
+bNc
 bMJ
 bMV
 bMQ
@@ -104616,14 +104357,14 @@ mEa
 bML
 vFS
 uph
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -104833,26 +104574,26 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 clm
-bMb
+bMa
 bMg
 bMR
 eNh
 bMR
 bMR
-iWv
+bMR
 bLL
 bMR
 bMF
-bNu
+pJb
 bNc
 bMF
 bNc
@@ -104872,15 +104613,15 @@ bMK
 bNu
 uUV
 epL
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
-bLr
-bLr
-bLr
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -105090,22 +104831,22 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 gQq
 bLL
 nkn
 bMt
 hbU
 bMR
-bMy
+bMR
 lyb
 bMH
 bMR
@@ -105123,21 +104864,21 @@ bNc
 bMQ
 bNc
 bNc
-iWC
+bMF
 bNc
 uUV
 vdb
 omk
-bLr
-bLr
-bLr
-bLP
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -105347,17 +105088,17 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-aai
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 sYz
-xew
+hXA
 bMn
 bMa
 bMR
@@ -105383,18 +105124,18 @@ bNc
 bNc
 eoI
 epL
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -105604,15 +105345,15 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLP
-bLr
 bMl
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+bMl
+rZP
+rZP
+rZP
 bMc
 nue
 bMo
@@ -105631,27 +105372,27 @@ exq
 bMF
 bNc
 bMV
-bMF
+bMb
 bNc
-bMf
+bNc
 bMV
 bMK
 bMF
 smA
-uph
-bLr
-bLr
+aai
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -105861,14 +105602,14 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bMl
-bLr
-bLr
 bMl
 bMl
+rZP
+rZP
 bMl
-bLr
+bMl
+bMl
+rZP
 ylA
 wto
 bMo
@@ -105885,7 +105626,7 @@ bMB
 bNu
 bMF
 bNc
-bMf
+bNc
 bNc
 bNu
 tCK
@@ -105895,20 +105636,20 @@ njp
 njp
 njp
 fVy
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
-bLr
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -106121,8 +105862,8 @@ aaa
 bMl
 bMl
 bMl
-bLr
-bLr
+rZP
+rZP
 bMl
 bMl
 mun
@@ -106141,31 +105882,31 @@ cUc
 rrI
 exP
 njp
-uHf
+bLr
 rrI
 gzZ
 njp
 njp
 uHf
-omk
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+lyK
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -106375,54 +106116,54 @@ aaa
 aaa
 aaa
 aaa
-bLr
 bMl
 bMl
-bLr
-bLr
+bMl
+rZP
+rZP
 bMl
 bMl
 bMl
 bMo
 bMo
-vha
+bMo
+bMo
+iTm
 bMo
 bMo
 bMo
-vha
 bMo
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMo
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -106632,54 +106373,54 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bMl
-bLr
-bLr
-bLr
 bMl
 bMl
+rZP
+rZP
+rZP
 bMl
-bLr
+bMl
+bMl
+rZP
 bMo
 bMo
 bMo
 bMo
 bMo
 bMo
-bLr
-bLr
+bMo
+bMo
 bMl
 bMl
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
 bMl
 bMl
-bLr
-bLr
-bLP
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -106889,54 +106630,54 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
-bLr
-bLr
+rZP
+rZP
 bMo
 bMo
 bMo
 bMo
-bLr
-bLr
+bMo
+rZP
 bMl
 bMl
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -107146,54 +106887,54 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
-bMl
-bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
 bMl
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
 bMl
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+bMl
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -107403,54 +107144,54 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLP
-bLr
-bLr
-bLr
-bLr
-bLr
-bLP
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLP
-bLr
-bLr
-bLr
-bLr
-bLr
 bMl
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+rZP
+bMl
+bMl
 aaa
 aaa
 aaa
@@ -107660,54 +107401,54 @@ aaa
 aaa
 aaa
 aaa
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
-bLr
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
+bMl
 aaa
 aaa
 aaa

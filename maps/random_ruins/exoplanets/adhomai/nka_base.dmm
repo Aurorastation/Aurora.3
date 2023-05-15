@@ -68,9 +68,6 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/blue,
-/obj/structure/sign/flag/nka/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -159,9 +156,6 @@
 	},
 /area/nka_base)
 "mb" = (
-/obj/structure/sign/flag/nka/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -646,9 +640,6 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug,
 /obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/obj/structure/sign/flag/nka/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -713,9 +704,7 @@
 	},
 /area/nka_base)
 "Qx" = (
-/obj/structure/sign/flag/nka/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/nka/large/south,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -769,9 +758,7 @@
 "Up" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/obj/structure/sign/flag/nka/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/nka/large/north,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -853,9 +840,7 @@
 	},
 /area/nka_base)
 "Yr" = (
-/obj/structure/sign/flag/nka/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/nka/large/north,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},

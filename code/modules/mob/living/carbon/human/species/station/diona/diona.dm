@@ -4,6 +4,9 @@
 	name_plural = "Dionaea"
 	category_name = "Diona"
 	bodytype = BODYTYPE_DIONA
+	species_height = HEIGHT_CLASS_AVERAGE
+	height_min = 100
+	height_max = 250
 	total_health = 240
 	age_min = 30
 	age_max = 1000

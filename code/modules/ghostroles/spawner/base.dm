@@ -166,6 +166,11 @@
 		disable()
 	if(welcome_message)
 		to_chat(user, SPAN_NOTICE(welcome_message))
+	else
+		if(name)
+			to_chat(user, SPAN_INFO("You are spawning as: ") + name)
+		if(desc)
+			to_chat(user, SPAN_INFO("Role description: ") + desc)
 	universe.OnPlayerLatejoin(user)
 	if(current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector = map_sectors["[user.z]"]

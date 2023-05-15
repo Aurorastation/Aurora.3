@@ -4,7 +4,7 @@
 
 // #define EMPDEBUG 10
 
-proc/empulse(turf/epicenter, heavy_range, light_range, log = FALSE, list/exclude = null)
+/proc/empulse(turf/epicenter, heavy_range, light_range, log = FALSE, list/exclude = null)
 	if(!epicenter) return
 
 	if(!istype(epicenter, /turf))
