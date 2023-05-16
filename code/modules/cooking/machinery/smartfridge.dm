@@ -262,11 +262,15 @@
 		return
 
 	if(O.iswrench())
-		anchored = !anchored
-		user.visible_message("\The [user] [anchored ? "secures" : "unsecures"] the bolts holding \the [src] to the floor.", "You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.")
-		playsound(get_turf(src), O.usesound, 50, 1)
-		power_change()
-		return
+		if(O.toolspeed >= 2)
+			anchored = !anchored
+			user.visible_message("\The [user] [anchored ? "secures" : "unsecures"] the bolts holding \the [src] to the floor.", "You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.")
+			playsound(get_turf(src), O.usesound, 50, 1)
+			power_change()
+			return
+		else
+			to_chat(user, SPAN_NOTICE("\The [O] isn't strong enough to unwrench this!"))
+			return
 
 	if(O.ismultitool()||O.iswirecutter())
 		if(panel_open)
