@@ -2,7 +2,7 @@
 	name = "HI-M96 mining blaster"
 	desc = "An old, but functional, Hephaestus Industries Model 2396 mining blaster intended, in theory, to smash apart rocks and other mineral sites in order to extract their resources more easily. This particular HI-M96 has been field-modified to remove the normal safety limits on detonation range and can be used as a weapon if one is so inclined."
 	desc_extended = "Originally produced during the waning years of Solarian hegemony over much of the Orion Spur, the Model 2396 remains, despite its age, a very common piece of mining equipment in remote or underdeveloped areas of the Spur such as the former Solarian Frontier Sectors where newer equipment is either too rare to use widely. Threats from pirates and privateers have driven miners and independent merchants in these areas to long rely on field-modified M96s as improvised ship-to-ship artillery pieces as their mining charges are perfectly capable of ripping through hulls as effectively as they rip through rock. It is, however, awkward and kludgy to aim due to its nature as an improvised weapon and most discard the M96 when more modern -- or practical -- weaponry is acquired."
-	icon = 'icons/obj/machines/ship_guns/blaster.dmi'
+	icon = 'icons/obj/machinery/ship_guns/blaster.dmi'
 	icon_state = "weapon_base"
 	projectile_type = /obj/item/projectile/ship_ammo/blaster
 

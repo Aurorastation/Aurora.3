@@ -19,65 +19,38 @@
 	name = "Freebooter Ship"
 	requires_power = TRUE
 
+/area/ship/freebooter_ship/foyer
+	name = "Freebooter Foyer"
+
+/area/ship/freebooter_ship/gunnery
+	name = "Freebooter Gunnery"
+
 /area/ship/freebooter_ship/bridge
-	name = "Freebooter Ship Bridge"
+	name = "Freebooter Bridge"
 
-/area/ship/freebooter_ship/hangar
-	name = "Freebooter Ship Hangar"
+/area/ship/freebooter_ship/pod1
+	name = "Freebooter Pod One"
 
-/area/ship/freebooter_ship/starboardengine
-	name = "Freebooter Ship Starboard Engine"
+/area/ship/freebooter_ship/pod2
+	name = "Freebooter Pod Two"
 
-/area/ship/freebooter_ship/portengine
-	name = "Freebooter Ship Port Engine"
+/area/ship/freebooter_ship/pod3
+	name = "Freebooter Pod Three"
 
-/area/ship/freebooter_ship/synthroom
-	name = "Freebooter Ship Synthetic Room"
+/area/ship/freebooter_ship/pod4
+	name = "Freebooter Pod Four"
 
-/area/ship/freebooter_ship/dorms
-	name = "Freebooter Ship Dorms"
+/area/ship/freebooter_ship/pod5
+	name = "Freebooter Pod Five"
 
-/area/ship/freebooter_ship/brig
-	name = "Freebooter Ship Brig"
+/area/ship/freebooter_ship/pod6
+	name = "Freebooter Pod Six"
 
-/area/ship/freebooter_ship/starboardfoyer
-	name = "Freebooter Ship Starboard Foyer"
+/area/ship/freebooter_ship/pod7
+	name = "Freebooter Pod Seven"
 
-/area/ship/freebooter_ship/francisca
-	name = "Freebooter Ship Francisca Gunnery Compartment"
-
-/area/ship/freebooter_ship/grauwolf
-	name = "Freebooter Ship Grauwolf Gunnery Compartment"
-
-/area/ship/freebooter_ship/bathroom
-	name = "Freebooter Ship Bathroom"
-
-/area/ship/freebooter_ship/captain
-	name = "Freebooter Ship Captain's Office"
-
-/area/ship/freebooter_ship/storage
-	name = "Freebooter Ship Storage Compartment"
-
-/area/ship/freebooter_ship/hangar
-	name = "Freebooter Ship Hangar"
-
-/area/ship/freebooter_ship/canteen
-	name = "Freebooter Ship Canteen"
-
-/area/ship/freebooter_ship/mechbay
-	name = "Freebooter Ship Mechbay"
-
-/area/ship/freebooter_ship/medbay
-	name = "Freebooter Ship Medbay"
-
-/area/ship/freebooter_ship/cryo
-	name = "Freebooter Ship Cryogenics"
-
-/area/ship/freebooter_ship/nuke
-	name = "Freebooter Ship Reactor Compartment"
-
-/area/ship/freebooter_ship/portfoyer
-	name = "Freebooter Ship Port Foyer"
+/area/ship/freebooter_ship/pod8
+	name = "Freebooter Pod Eight"
 
 /area/shuttle/Freebooter_shuttle
 	name = "Freebooter Shuttle"

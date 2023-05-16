@@ -270,6 +270,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/hyronalin,
 /obj/item/reagent_containers/hypospray/autoinjector/hyronalin,
 /obj/effect/floor_decal/corner_wide/paleblue/full,
+/obj/item/reagent_containers/food/drinks/bottle/vodka,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "aCd" = (
@@ -1458,11 +1459,7 @@
 	layer = 2.71;
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 10
-	},
-/turf/simulated/floor/airless,
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/space)
 "drP" = (
 /obj/item/ammo_casing/rifle/used,
@@ -1910,8 +1907,14 @@
 /turf/template_noop,
 /area/space)
 "ewW" = (
-/obj/structure/viewport/unathi,
-/turf/simulated/floor,
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/suit_cycler/freelancer,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "exg" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
@@ -2158,8 +2161,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "fnE" = (
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor,
+/obj/structure/viewport/unathi,
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/space)
 "fnY" = (
 /turf/simulated/floor/tiled/dark,
@@ -3762,6 +3765,7 @@
 	pixel_x = 32
 	},
 /obj/item/paper/crumpled,
+/obj/machinery/suit_cycler/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "kuV" = (
@@ -4332,6 +4336,7 @@
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
+/obj/machinery/suit_cycler/syndicate,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "lzu" = (
@@ -4590,13 +4595,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
-"miq" = (
-/obj/structure/ship_weapon_dummy,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor,
 /area/space)
 "mjX" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6022,13 +6020,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
-"pwR" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	name = "blast door"
-	},
-/turf/simulated/floor,
-/area/space)
 "pzX" = (
 /obj/structure/toilet,
 /obj/effect/floor_decal/corner/light{
@@ -6829,14 +6820,11 @@
 /turf/simulated/floor/airless,
 /area/space)
 "rjL" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 9
+/obj/machinery/ship_weapon/blaster{
+	pixel_y = -195;
+	pixel_x = -24
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/ammo_casing/rifle/used,
-/obj/structure/table/rack,
-/obj/random/voidsuit/freebooter,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor,
 /area/space)
 "rkc" = (
 /turf/simulated/floor/carpet/rubber,
@@ -8443,6 +8431,7 @@
 	desc = "A display for module #3. This one describes the connected module as: Hephaestus Cargo Module 5.1";
 	pixel_x = 32
 	},
+/obj/machinery/suit_cycler/mining,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "vOL" = (
@@ -8639,11 +8628,7 @@
 	layer = 2.71;
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 6
-	},
-/turf/simulated/floor/airless,
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/space)
 "wnq" = (
 /obj/structure/table/steel,
@@ -8670,6 +8655,11 @@
 /area/space)
 "wpf" = (
 /obj/structure/table/rack,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
 /obj/item/ship_ammunition/blaster,
 /obj/item/ship_ammunition/blaster,
 /obj/item/ship_ammunition/blaster,
@@ -8941,19 +8931,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "xhE" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/bed/stool/padded/red,
-/obj/item/weldingtool{
-	pixel_x = 6;
-	pixel_y = 9
-	},
-/obj/item/clothing/head/welding{
-	pixel_y = 7;
-	pixel_x = -7
-	},
-/obj/structure/ship_weapon_dummy,
+/obj/machinery/ammunition_loader/blaster,
 /turf/simulated/floor,
 /area/space)
 "xkS" = (
@@ -37472,7 +37450,7 @@ eTH
 eTH
 eTH
 iOV
-xRX
+iOV
 xRX
 xRX
 xRX
@@ -37725,12 +37703,12 @@ xZo
 aOU
 tuT
 xhE
-fnE
+mkb
+rjL
 mkb
 mkb
 mkb
-pwR
-xRX
+iOV
 xRX
 xRX
 xRX
@@ -37981,13 +37959,13 @@ oUu
 vRc
 aOU
 xKj
-miq
-fnE
-fnE
-fnE
-fnE
-pwR
-xRX
+pEN
+mkb
+mkb
+mkb
+mkb
+mkb
+iOV
 xRX
 xRX
 xRX
@@ -38238,12 +38216,12 @@ npb
 oxR
 aOU
 sxk
-miq
-fnE
+mkb
+mkb
+mkb
 eTH
-mkb
-mkb
-pwR
+iOV
+iOV
 xRX
 xRX
 xRX
@@ -38496,10 +38474,10 @@ jhd
 aOU
 nwH
 mkb
-pEN
-ewW
 mkb
-iOV
+mkb
+fnE
+xRX
 xRX
 xRX
 xRX
@@ -41803,14 +41781,14 @@ mvP
 ruW
 lfB
 lfB
-rjL
+pfg
 pfg
 aGy
 ajb
 kAa
 vOo
 kuG
-oWj
+ewW
 lwB
 kXq
 rsh
