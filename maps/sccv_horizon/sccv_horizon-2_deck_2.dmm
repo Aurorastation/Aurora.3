@@ -19311,6 +19311,8 @@
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/pill_bottle/dermaline,
 /obj/item/storage/pill_bottle/bicaridine,
+/obj/item/reagent_containers/syringe/antiparasitic,
+/obj/item/reagent_containers/syringe/antiparasitic,
 /obj/item/reagent_containers/glass/bottle/antitoxin,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
