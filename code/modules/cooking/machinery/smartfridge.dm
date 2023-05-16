@@ -459,3 +459,10 @@
 			to_chat(usr, SPAN_WARNING("Access denied."))
 			return FALSE
 	return ..()
+
+//medical smartfridge
+/obj/machinery/smartfridge/secure/medbay/attackby(obj/item/O, mob/user)
+	if(O.iswrench())
+		user.visible_message("<span class='warning'>[user] tries to unsecure the bolts holding \the [src] to the floor. They're on tight, they won't budge!</span>","<span class='warning'>You try to unsecure the bolts holding \the [src] to the floor. They're on tight, they won't budge!</span>")
+		playsound(get_turf(src), O.usesound, 50, 1)
+		return

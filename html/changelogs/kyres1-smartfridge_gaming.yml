@@ -1,0 +1,6 @@
+author: kyres1
+
+delete-after: True
+
+changes:
+  - tweak: "Adjusted the smartfridge in Medical to be permanently anchored, to prevent easily moving it for entry."
