@@ -1003,7 +1003,7 @@
 
 /obj/item/toy/plushie/kitten
 	name = "kitten plush"
-	desc = "A plushie of a cute kitten! Watch as it purrs it's way right into your heart."
+	desc = "A plushie of a cute kitten! Watch as it purrs its way right into your heart."
 	icon_state = "kittenplushie"
 	slot_flags = SLOT_HEAD
 
