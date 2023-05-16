@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/freebooter_crew
 	short_name = "freebooter_crew"
 	name = "Freebooter Crewman"
-	desc = "Crew the tramp freighter. Be a tramp - carry cargo, do some mining, go salvaging, and try not to get into anything you can't get out of!"
+	desc = "Crew the Freebooter ship. Listen to your captain - you follow no laws but his. You like to think of yourself as an adventurer and a businessman. Others, though, would call you a pirate, a bandit, a smuggler, a thug, a thief and a knave. It doesn't matter to you what they say: you're here to make money, by any means necessary. Just don't let the law catch up to you."
 	tags = list("External")
 
 	spawnpoints = list("freebooter_crew")
@@ -29,12 +29,12 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 	species_shoes = list(
-		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/workboots/toeless
+		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
 /datum/outfit/admin/freebooter_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -54,7 +54,7 @@
 /datum/ghostspawner/human/freebooter_crew/captain
 	short_name = "freebooter_crew_captain"
 	name = "Freebooter Captain"
-	desc = "Captain the tramp freighter. Be a tramp - carry cargo, do some mining, go salvaging, and try not to get into anything you can't get out of!"
+	desc = "Captain the freebooter ship. You like to think of yourself as an adventurer and a businessman. Others, though, would call you a pirate, a bandit, a smuggler, a thug, a thief and a knave. It doesn't matter to you what they say: you're here to make money, by any means necessary. Just don't let the law catch up to you."
 
 	spawnpoints = list("freebooter_crew_captain")
 	max_count = 1
@@ -71,10 +71,10 @@
 	name = "Freebooter Captain"
 
 	species_shoes = list(
-		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless/grey,
-		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless/grey,
-		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless/grey,
-		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless/grey
+		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
 /obj/item/card/id/freebooter_crew_ship
