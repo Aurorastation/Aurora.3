@@ -527,7 +527,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/brandy
 	name = "Admiral Cindy's brandy"
-	desc = "Cheap knock off for Silverport cognac; Getmore's attempt to ride off the cognac fad of the 2420s."
+	desc = "Cheap knock off for Cytherean cognac; Getmore's attempt to ride off the cognac fad of the 2420s."
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "brandybottle"
 	center_of_mass = list("x" = 15,"y" = 8)
