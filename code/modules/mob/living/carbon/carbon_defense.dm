@@ -7,11 +7,6 @@
 
 /mob/living/carbon/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
 	..(AM, speed)
-	var/t_him = "it"
-	if (src.gender == MALE)
-		t_him = "him"
-	else if (src.gender == FEMALE)
-		t_him = "her"
 	var/show_ssd
 	var/mob/living/carbon/human/H
 	if(ishuman(src))
@@ -19,7 +14,7 @@
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
-			visible_message(SPAN_DANGER("[src] is hit by [AM] waking [t_him] up!"))
+			visible_message(SPAN_DANGER("[src] is hit by [AM] waking [get_pronoun("him")] up!"))
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
@@ -29,17 +24,12 @@
 		else if(!vr_mob)
 			visible_message(SPAN_DANGER("[src] is hit by [AM], but they do not respond... Maybe they have S.S.D?"))
 	else if(client && willfully_sleeping)
-		visible_message(SPAN_DANGER("[src] is hit by [AM] waking [t_him] up!"))
+		visible_message(SPAN_DANGER("[src] is hit by [AM] waking [get_pronoun("him")] up!"))
 		sleeping = 0
 		willfully_sleeping = FALSE
 
 /mob/living/carbon/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..(P, def_zone)
-	var/t_him = "it"
-	if (src.gender == MALE)
-		t_him = "him"
-	else if (src.gender == FEMALE)
-		t_him = "her"
 	var/show_ssd
 	var/mob/living/carbon/human/H
 	if(ishuman(src))
@@ -47,7 +37,7 @@
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
-			visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
+			visible_message("<span class='danger'>[P] hit [src] waking [get_pronoun("him")] up!</span>")
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
@@ -57,16 +47,11 @@
 		else if(!vr_mob)
 			visible_message("<span class='danger'>[P] hit [src], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
-		visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
+		visible_message("<span class='danger'>[P] hit [src] waking [get_pronoun("him")] up!</span>")
 		sleeping = 0
 		willfully_sleeping = FALSE
 
 /mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
-	var/t_him = "it"
-	if (src.gender == MALE)
-		t_him = "him"
-	else if (src.gender == FEMALE)
-		t_him = "her"
 	var/show_ssd
 	var/mob/living/carbon/human/H
 	if(ishuman(src))
@@ -81,11 +66,11 @@
 			else
 				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
 		else if(!vr_mob)
-			user.visible_message("<span class='danger'>[user] attacks [src] with [I] waking [t_him] up!</span>", \
+			user.visible_message("<span class='danger'>[user] attacks [src] with [I] waking [get_pronoun("him")] up!</span>", \
 					    "<span class='danger'>You attack [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
-		user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
-							"<span class='danger'>You attack [src] with [I], waking [t_him] up!</span>")
+		user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [get_pronoun("him")] up!</span>", \
+							"<span class='danger'>You attack [src] with [I], waking [get_pronoun("him")] up!</span>")
 		sleeping = 0
 		willfully_sleeping = FALSE
 

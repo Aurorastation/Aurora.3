@@ -765,6 +765,19 @@
 	overlay_state = "assunzione_robe"
 	contained_sprite = TRUE
 
+/obj/item/clothing/accessory/poncho/assunzione/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/robe_backing = image(mob_icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
+		I.add_overlay(robe_backing)
+	return I
+
+/obj/item/clothing/accessory/poncho/assunzione/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
+	var/image/base = ..()
+	var/image/robe_backing = image(icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
+	base.add_overlay(robe_backing)
+	return base
+
 /obj/item/clothing/accessory/poncho/assunzione/vine
 	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. This one features a lux vine \
 	inlay that allows the symbol of the Luceian Square to be faintly seen, even in darkness."
@@ -1061,7 +1074,7 @@
 	name = "\improper Burzsian shoulder mantle"
 	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
 	desc_extended = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
-	icon = 'icons/clothing/accessories/bz_gorget.dmi'
+	icon = 'icons/clothing/accessories/bz_mantle.dmi'
 	icon_state = "ipcmantle"
 	item_state = "ipcmantle"
 	contained_sprite = TRUE

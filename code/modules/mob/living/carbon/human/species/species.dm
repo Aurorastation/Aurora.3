@@ -11,6 +11,9 @@
 	var/short_name                                       // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
 	var/category_name                                    // a name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
+	var/species_height = HEIGHT_NOT_USED				 // Average Height of the species
+	var/height_min = 120
+	var/height_max = 350
 	var/bodytype
 	var/age_min = 18
 	var/age_max = 85
@@ -287,6 +290,8 @@
 
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
+	/// These are the prefixes of the icon states in talk.dmi.
+	var/list/possible_speech_bubble_types = list("normal")
 
 	var/use_alt_hair_layer = FALSE
 
@@ -562,7 +567,7 @@
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay
 
-	var/obj/item/organ/internal/eyes/night/NE = H.internal_organs_by_name[BP_EYES]
+	var/obj/item/organ/internal/eyes/night/NE = H.get_eyes()
 	if(istype(NE) && NE.night_vision && NE.can_change_invisible())
 		H.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 

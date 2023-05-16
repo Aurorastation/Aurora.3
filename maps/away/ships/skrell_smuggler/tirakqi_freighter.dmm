@@ -330,7 +330,6 @@
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "epH" = (
-/obj/structure/sign/flag/traverse/right,
 /turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "erL" = (
@@ -753,7 +752,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "gTr" = (
-/obj/structure/sign/flag/traverse/left,
+/obj/structure/sign/flag/traverse/large/north,
 /turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "gTw" = (
@@ -1355,7 +1354,7 @@
 	pixel_x = 3;
 	pixel_y = 6
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
 	pixel_x = -4;
 	pixel_y = 11

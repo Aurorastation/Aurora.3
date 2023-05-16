@@ -128,6 +128,9 @@
 		/obj/item/storage/box/fancy/cigarettes/pra = HELMET_GARB_PASS_ICON,
 		/obj/item/storage/box/fancy/cigarettes/dpra = HELMET_GARB_PASS_ICON,
 		/obj/item/storage/box/fancy/cigarettes/nka = HELMET_GARB_PASS_ICON,
+		/obj/item/storage/box/fancy/cigarettes/federation = HELMET_GARB_PASS_ICON,
+		/obj/item/storage/box/fancy/cigarettes/dyn = HELMET_GARB_PASS_ICON,
+		/obj/item/storage/box/fancy/cigarettes/wulu = HELMET_GARB_PASS_ICON,
 		/obj/item/clothing/head/hachimaki = HELMET_GARB_PASS_ICON,
 		/obj/item/clothing/head/leader_headband = HELMET_GARB_PASS_ICON
 	)

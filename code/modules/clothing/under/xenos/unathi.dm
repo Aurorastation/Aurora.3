@@ -13,6 +13,22 @@
 	icon_state = "jizixi"
 	item_state = "jizixi"
 
+/obj/item/clothing/under/unathi/jizixi/green
+	icon_state = "jizixi2"
+	item_state = "jizixi2"
+
+/obj/item/clothing/under/unathi/jizixi/blue
+	icon_state = "jizixi3"
+	item_state = "jizixi3"
+
+/obj/item/clothing/under/unathi/jizixi/white
+	icon_state = "jizixi4"
+	item_state = "jizixi4"
+
+/obj/item/clothing/under/unathi/jizixi/orange
+	icon_state = "jizixi5"
+	item_state = "jizixi5"
+
 /obj/item/clothing/under/unathi/sashes
 	name = "gy'zao sashes"
 	gender = PLURAL
@@ -26,6 +42,18 @@
 	desc = "A traditional Moghean uniform worn by men of high status, whether merchants, priests, or nobility."
 	icon_state = "mogazali"
 	item_state = "mogazali"
+
+/obj/item/clothing/under/unathi/mogazali/blue
+	icon_state = "mogazali2"
+	item_state = "mogazali2"
+
+/obj/item/clothing/under/unathi/mogazali/green
+	icon_state = "mogazali3"
+	item_state = "mogazali3"
+
+/obj/item/clothing/under/unathi/mogazali/orange
+	icon_state = "mogazali4"
+	item_state = "mogazali4"
 
 /obj/item/clothing/under/unathi/zazali
 	name = "zazali garb"

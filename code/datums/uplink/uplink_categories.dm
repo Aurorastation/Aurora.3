@@ -88,3 +88,6 @@
 
 /datum/uplink_category/martial_arts
 	name = "Martial Arts"
+
+/datum/uplink_category/bioweapons
+	name = "Chemical, Biological & Radiological Weaponary"

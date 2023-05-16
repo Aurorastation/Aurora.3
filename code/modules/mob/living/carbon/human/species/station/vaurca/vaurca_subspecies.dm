@@ -3,6 +3,9 @@
 	short_name = "vaw"
 	name_plural = "Type BA"
 	language = LANGUAGE_VAURCA
+	species_height = HEIGHT_CLASS_TALL
+	height_min = 150
+	height_max = 250
 	primitive_form = SPECIES_VAURCA_WORKER
 	greater_form = SPECIES_VAURCA_BREEDER
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
@@ -51,6 +54,9 @@
 	name_plural = "Type CB"
 	bodytype = BODYTYPE_VAURCA_BREEDER
 	primitive_form = SPECIES_VAURCA_WARRIOR
+	species_height = HEIGHT_CLASS_GIGANTIC
+	height_min = 220
+	height_max = 335
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
@@ -197,6 +203,9 @@
 	short_name = "vak"
 	name_plural = "Type E"
 	bodytype = BODYTYPE_VAURCA_BULWARK
+	species_height = HEIGHT_CLASS_GIGANTIC
+	height_min = 220
+	height_max = 320
 	preview_icon = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
@@ -220,7 +229,7 @@
 
 	slowdown = 2
 
-	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
+	unarmed_types = list(/datum/unarmed_attack/vaurca_bulwark)
 	maneuvers = list(
 		/singleton/maneuver/leap/bulwark
 	)
@@ -235,8 +244,8 @@
 	radiation_mod = 0
 	toxins_mod = 3
 
-	grab_mod = 0.8
-	resist_mod = 4
+	grab_mod = 0.5 //very big, very easy to grab
+	resist_mod = 14 //also very strong
 
 	mob_size = 28
 	taste_sensitivity = TASTE_DULL

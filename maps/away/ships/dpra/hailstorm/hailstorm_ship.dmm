@@ -308,7 +308,7 @@
 	master_tag = "hailstorm_shuttle";
 	name = "exterior access button";
 	pixel_y = -23;
-	req_access = list(113);
+	req_access = list(214);
 	pixel_x = -8
 	},
 /turf/simulated/floor/plating{
@@ -464,7 +464,7 @@
 /area/hailstorm_ship/eva)
 "bS" = (
 /obj/machinery/vending/tool{
-	req_access = list(209)
+	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/firealarm/east,
@@ -1379,7 +1379,7 @@
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
 	id_tag = "hailstorm_shuttle_sensor";
-	req_access = list(113);
+	req_access = list(214);
 	pixel_y = 25
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -1709,8 +1709,7 @@
 /area/hailstorm_ship/engineering)
 "mj" = (
 /obj/structure/closet/secure_closet/engineering_welding{
-	req_access = null;
-	req_one_access = list(113)
+	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/power/apc/high{
@@ -2676,9 +2675,7 @@
 	},
 /area/hailstorm_ship/engineering)
 "CE" = (
-/obj/structure/sign/flag/dpra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/dpra/large/north,
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
@@ -2718,9 +2715,6 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/hailstorm_shuttle)
 "Dx" = (
-/obj/structure/sign/flag/dpra/right{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
@@ -2779,9 +2773,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/eva)
 "DU" = (
-/obj/structure/sign/flag/dpra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/dpra/large/north,
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},

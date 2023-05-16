@@ -5,6 +5,8 @@
 	icon = 'icons/mob/human.dmi'
 	icon_state = "body_m_s"
 
+	mob_size = 9 //Based on average weight of a human
+
 	var/pronouns = NEUTER
 
 	var/species_items_equipped // used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
@@ -12,7 +14,8 @@
 	var/list/hud_list[11]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
-	mob_size = 9 //Based on average weight of a human
+	/// Pref holder for the speech bubble style.
+	var/speech_bubble_type
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
@@ -32,6 +35,8 @@
 			mind.name = real_name
 		if(get_hearing_sensitivity())
 			verbs += /mob/living/carbon/human/proc/listening_close
+		if(!height)
+			height = species.species_height
 
 	// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
 	if(max_nutrition > 0)
@@ -968,6 +973,10 @@
 
 	if(stomach.ingested.total_volume)
 		stomach.ingested.trans_to_obj(splat, min(15, stomach.ingested.total_volume))
+	for(var/obj/item/organ/internal/parasite/P in src.internal_organs)
+		if(P)
+			if(P.egg && (P.stage == P.max_stage))
+				splat.reagents.add_reagent(P.egg, 2)
 	handle_additional_vomit_reagents(splat)
 	splat.update_icon()
 
@@ -978,6 +987,10 @@
 	set waitfor = 0
 
 	if(!check_has_mouth() || isSynthetic() || !timevomit || !level || stat == DEAD || lastpuke)
+		return
+
+	if(chem_effects[CE_ANTIEMETIC])
+		to_chat(src, SPAN_WARNING("You feel a very brief wave of nausea, but it quickly disapparates."))
 		return
 
 	if(deliberate)
@@ -1897,7 +1910,7 @@
 //Get fluffy numbers
 /mob/living/carbon/human/proc/blood_pressure()
 	if(status_flags & FAKEDEATH)
-		return list(Floor(species.bp_base_systolic+rand(-5,5))*0.25, Floor(species.bp_base_disatolic+rand(-5,5)*0.25))
+		return list(Floor(species.bp_base_systolic+rand(-5,5))*0.25, Floor(species.bp_base_disatolic+rand(-5,5))*0.25)
 	var/blood_result = get_blood_circulation()
 	return list(Floor((species.bp_base_systolic+rand(-5,5))*(blood_result/100)), Floor((species.bp_base_disatolic+rand(-5,5))*(blood_result/100)))
 
@@ -2218,3 +2231,9 @@
 		to_chat(src, "<span class='notice'>You can see \the [T ? T : "floor"].</span>")
 	else
 		to_chat(src, "<span class='notice'>You can't look below right now.</span>")
+
+/mob/living/carbon/human/get_speech_bubble_state_modifier()
+	if(speech_bubble_type)
+		return speech_bubble_type
+	else
+		return ..()

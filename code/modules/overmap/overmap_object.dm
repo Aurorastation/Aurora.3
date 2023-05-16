@@ -4,6 +4,19 @@
 	icon_state = "object"
 	color = "#fffffe"
 
+//RP fluff details to appear on scan readouts for any object we want to include these details with
+	var/scanimage = "no_data.png"
+	var/designer = "Unknown" 							//The shipyard or designer of the object if applicable
+	var/volume = "Unestimated" 							//Length height width of the object in tiles ingame
+	var/weapons = "Not apparent"						//The expected armament or scale of armament that the design comes with if applicable. Can vary in visibility for obvious reasons
+	var/sizeclass = "Unknown"							//The class of the design if applicable. Not a prefix. Should be things like battlestations or corvettes
+	var/shiptype = "Unknown"							//The designated purpose of the design. Should briefly describe whether it's a combatant or study vessel for example
+
+	var/generic_object = TRUE //Used to give basic scan descriptions of every generic overmap object that excludes noteworthy locations, ships and exoplanets
+	var/static_vessel = FALSE //Used to expand scan details for visible space stations
+
+	layer = OVERMAP_SECTOR_LAYER
+
 	var/list/map_z = list()
 
 	var/known = 0		//shows up on nav computers automatically
@@ -16,7 +29,6 @@
 	var/sensor_visibility = 10	 //how likely it is to increase identification process each scan.
 	var/vessel_mass = 10000             // metric tonnes, very rough number, affects acceleration provided by engines
 
-
 	var/image/targeted_overlay
 
 //Overlay of how this object should look on other skyboxes
@@ -24,7 +36,23 @@
 	return
 
 /obj/effect/overmap/proc/get_scan_data(mob/user)
-	return desc
+	if(static_vessel == TRUE)
+		. += "<hr>"
+		. += "<br><center><large><b>Scan Details</b></large>"
+		. += "<br><large><b>[name]</b></large></center>"
+		. += "<br><small><b>Estimated Mass:</b> [vessel_mass]"
+		. += "<br><b>Projected Volume:</b> [volume]"
+		. += "<hr>"
+		. += "<br><center><b>Native Database Specifications</b>"
+		. += "<br><img src = [scanimage]></center>"
+		. += "<br><small><b>Manufacturer:</b> [designer]"
+		. += "<br><b>Class Designation:</b> [sizeclass]"
+		. += "<br><b>Weapons Estimation:</b> [weapons]</small>"
+		. += "<hr>"
+		. += "<br><center><b>Native Database Notes</b></center>"
+		. += "<br><small>[desc]</small>"
+	else if(generic_object == TRUE)
+		return desc
 
 /obj/effect/overmap/proc/handle_wraparound()
 	var/nx = x
@@ -59,7 +87,7 @@
 	update_icon()
 
 	if(requires_contact)
-		invisibility = INVISIBILITY_OVERMAP // Effects that require identification have their images cast to the client via sensors.
+		set_invisibility(INVISIBILITY_OVERMAP)// Effects that require identification have their images cast to the client via sensors.
 
 /obj/effect/overmap/Crossed(var/obj/effect/overmap/visitable/other)
 	if(istype(other))

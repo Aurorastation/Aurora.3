@@ -660,6 +660,9 @@
 	update_nearby_tiles(need_rebuild=1)
 	update_icon()
 	update_nearby_icons()
+	initialized = TRUE
+
+	return INITIALIZE_HINT_NORMAL
 
 /obj/structure/window/full/Destroy()
 	var/obj/structure/window_frame/WF = locate(/obj/structure/window_frame) in get_turf(src)

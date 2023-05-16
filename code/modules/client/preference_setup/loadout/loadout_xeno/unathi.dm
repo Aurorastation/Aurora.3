@@ -25,6 +25,29 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/suit/unathi_mantle_guild
+	display_name = "guild mantle selection"
+	description = "A selection of hide mantles, each showing affiliation with one of the guilds of Moghes."
+	path = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/unathi_mantle_guild/New()
+	..()
+	var/list/guildmantles = list()
+	guildmantles["hephaestus guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+	guildmantles["merchants' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/merchant
+	guildmantles["miners' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/miner
+	guildmantles["junzi electric guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/junzi
+	guildmantles["bards' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/bard
+	guildmantles["house of medicine guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/med
+	guildmantles["construction coalition guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/construction
+	guildmantles["hearts of industry guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/union
+	guildmantles["fighters' lodge guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/fighter
+	gear_tweaks += new /datum/gear_tweak/path(guildmantles)
+
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe"
 	path = /obj/item/clothing/suit/unathi/robe
@@ -44,6 +67,15 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+
+/datum/gear/suit/robe_coat/New()
+	..()
+	var/list/robe_coat = list()
+	robe_coat["tzirzi robe, green"] = /obj/item/clothing/suit/unathi/robe/robe_coat
+	robe_coat["tzirzi robe, orange"] = /obj/item/clothing/suit/unathi/robe/robe_coat/orange
+	robe_coat["tzirzi robe, blue"] = /obj/item/clothing/suit/unathi/robe/robe_coat/blue
+	robe_coat["tzirzi robe, red"] = /obj/item/clothing/suit/unathi/robe/robe_coat/red
+	gear_tweaks += new /datum/gear_tweak/path(robe_coat)
 
 /datum/gear/gloves/unathi
 	display_name = "unathi gloves selection"
@@ -112,6 +144,21 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
+/datum/gear/head/sinta_ronin/New()
+	..()
+	var/list/sinta_ronin = list()
+	sinta_ronin["straw hat"] = /obj/item/clothing/head/unathi
+	sinta_ronin["dark straw hat"] = /obj/item/clothing/head/unathi/dark
+	sinta_ronin["decorated straw hat, red"] = /obj/item/clothing/head/unathi/deco
+	sinta_ronin["decorated straw hat, green"] = /obj/item/clothing/head/unathi/deco/green
+	sinta_ronin["decorated straw hat, blue"] = /obj/item/clothing/head/unathi/deco/blue
+	sinta_ronin["decorated straw hat, orange"] = /obj/item/clothing/head/unathi/deco/orange
+	sinta_ronin["decorated dark straw hat, red"] = /obj/item/clothing/head/unathi/deco/dark
+	sinta_ronin["decorated dark straw hat, green"] = /obj/item/clothing/head/unathi/deco/dark/green
+	sinta_ronin["decorated dark straw hat, blue"] = /obj/item/clothing/head/unathi/deco/dark/blue
+	sinta_ronin["decorated dark straw hat, orange"] = /obj/item/clothing/head/unathi/deco/dark/orange
+	gear_tweaks += new /datum/gear_tweak/path(sinta_ronin)
+
 /datum/gear/eyes/wasteland_goggles
 	display_name = "wasteland goggles"
 	path = /obj/item/clothing/glasses/safety/goggles/wasteland
@@ -173,6 +220,16 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
+/datum/gear/uniform/unathi/jizixi/New()
+	..()
+	var/list/jizixi = list()
+	jizixi["jizixi dress, red"] = /obj/item/clothing/under/unathi/jizixi
+	jizixi["jizixi dress, green"] = /obj/item/clothing/under/unathi/jizixi/green
+	jizixi["jizixi dress, blue"] = /obj/item/clothing/under/unathi/jizixi/blue
+	jizixi["jizixi dress, white"] = /obj/item/clothing/under/unathi/jizixi/white
+	jizixi["jizixi dress, orange"] = /obj/item/clothing/under/unathi/jizixi/orange
+	gear_tweaks += new /datum/gear_tweak/path(jizixi)
+
 /datum/gear/uniform/unathi/sashes
 	display_name = "gyzao sashes"
 	path = /obj/item/clothing/under/unathi/sashes
@@ -185,6 +242,15 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/unathi/mogazali/New()
+	..()
+	var/list/mogazali = list()
+	mogazali["mogazali attire, red"] = /obj/item/clothing/under/unathi/mogazali
+	mogazali["mogazali attire, blue"] = /obj/item/clothing/under/unathi/mogazali/blue
+	mogazali["mogazali attire, green"] = /obj/item/clothing/under/unathi/mogazali/green
+	mogazali["mogazali attire, orange"] = /obj/item/clothing/under/unathi/mogazali/orange
+	gear_tweaks += new /datum/gear_tweak/path(mogazali)
 
 /datum/gear/uniform/unathi/zazali
 	display_name = "zazali garb"

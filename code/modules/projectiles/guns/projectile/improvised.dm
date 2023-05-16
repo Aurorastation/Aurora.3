@@ -140,7 +140,7 @@
 	recoil = 2
 	accuracy = -1
 	offhand_accuracy = 1
-	fire_delay = 9
+	fire_delay = ROF_PISTOL
 	icon = 'icons/obj/guns/ipistol.dmi'
 	icon_state = "ipistol"
 	item_state = "ipistol"
@@ -220,11 +220,10 @@
 	caliber = ".45"
 	sel_mode = 1
 	accuracy = -1
-	fire_delay = 5
+	fire_delay = ROF_PISTOL
 	burst = 3
 	burst_delay = 3
 	move_delay = 3
-	fire_delay = 2
 	dispersion = list(5, 10, 15, 20)
 	jam_chance = 20
 

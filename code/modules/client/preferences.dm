@@ -2,7 +2,7 @@
 
 var/list/preferences_datums = list()
 
-datum/preferences
+/datum/preferences
 	//doohickeys for savefiles
 	var/path
 	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
@@ -39,6 +39,7 @@ datum/preferences
 	var/gender = MALE					//gender of character (well duh)
 	var/pronouns = NEUTER				//what the character will appear as to others when examined
 	var/age = 30						//age of character
+	var/height						//character's height
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = OUTFIT_BACKPACK		//backpack type (defines in outfit.dm)
@@ -155,6 +156,7 @@ datum/preferences
 	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 0
 	var/floating_chat_color
+	var/speech_bubble_type = "normal"
 
 	var/list/pai = list()	// A list for holding pAI related data.
 
@@ -210,6 +212,18 @@ datum/preferences
 /datum/preferences/proc/getMaxAge()
 	var/datum/species/mob_species = all_species[species]
 	return mob_species.age_max
+
+/datum/preferences/proc/getMinHeight()
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.height_min
+
+/datum/preferences/proc/getMaxHeight()
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.height_max
+
+/datum/preferences/proc/getAvgHeight()
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.species_height
 
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)	return
@@ -324,6 +338,7 @@ datum/preferences
 	else if(href_list["new_character_sql"])
 		new_setup(1)
 		to_chat(usr, "<span class='notice'>Your setup has been refreshed.</span>")
+		usr.client.prefs.update_preview_icon()
 		close_load_dialog(usr)
 	else if(href_list["close_load_dialog"])
 		close_load_dialog(usr)
@@ -380,12 +395,14 @@ datum/preferences
 	character.pronouns = pronouns
 	character.age = age
 	character.b_type = b_type
+	character.height = height
 
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
 	character.b_eyes = b_eyes
 
 	character.set_tail_style(tail_style)
+	character.speech_bubble_type = speech_bubble_type
 
 	character.h_style = h_style
 	character.r_hair = r_hair
