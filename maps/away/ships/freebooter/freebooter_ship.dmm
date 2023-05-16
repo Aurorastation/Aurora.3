@@ -1428,11 +1428,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"dkU" = (
-/obj/structure/table/rack,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
 "doC" = (
 /mob/living/bot/farmbot,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -2864,15 +2859,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
 /area/space)
-"hBs" = (
-/obj/structure/ship_weapon_dummy,
-/obj/machinery/ship_weapon/bruiser{
-	weapon_id = "Hegemony Corvette Bruiser";
-	pixel_x = -32;
-	pixel_y = -128
-	},
-/turf/simulated/floor,
-/area/space)
 "hFX" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -4152,6 +4138,7 @@
 "lfB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
+/obj/random/voidsuit/freebooter,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "lgr" = (
@@ -5616,14 +5603,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"oGN" = (
-/obj/structure/ship_weapon_dummy,
-/obj/machinery/ammunition_loader/bruiser{
-	dir = 1;
-	weapon_id = "Hegemony Corvette Bruiser"s
-	},
-/turf/simulated/floor,
-/area/space)
 "oGU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -5863,6 +5842,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
+/obj/random/voidsuit/freebooter,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "pfE" = (
@@ -6855,6 +6835,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_casing/rifle/used,
 /obj/structure/table/rack,
+/obj/random/voidsuit/freebooter,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "rkc" = (
@@ -6990,6 +6971,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
+/obj/random/voidsuit/freebooter,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "rvC" = (
@@ -8688,7 +8670,11 @@
 /area/space)
 "wpf" = (
 /obj/structure/table/rack,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "wrx" = (
@@ -37996,7 +37982,7 @@ vRc
 aOU
 xKj
 miq
-hBs
+fnE
 fnE
 fnE
 fnE
@@ -38253,7 +38239,7 @@ oxR
 aOU
 sxk
 miq
-oGN
+fnE
 eTH
 mkb
 mkb
@@ -38504,7 +38490,7 @@ xRX
 xRX
 kqx
 eTH
-dkU
+wpf
 wpf
 jhd
 aOU
