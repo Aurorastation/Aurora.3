@@ -82,6 +82,7 @@
 /obj/structure/closet/secure_closet/xo2/fill()
 	..()
 	new /obj/item/clothing/under/rank/xo(src)
+	new /obj/item/clothing/head/caphat/xo(src)
 	new /obj/random/suit(src)
 	new /obj/random/suit(src)
 	new /obj/item/clothing/shoes/brown(src)
