@@ -612,6 +612,9 @@
 	nutriment_factor = 1
 	color = "#FF00FF"
 	taste_description = "sweetness"
+	condiment_name = "bottle of sprinkles"
+	condiment_icon_state = "sprinklesbottle"
+	condiment_center_of_mass = list("x"=16, "y"=10)
 
 /singleton/reagent/nutriment/mint
 	name = "Mint"
