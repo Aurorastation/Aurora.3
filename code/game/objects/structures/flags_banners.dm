@@ -499,6 +499,7 @@
 	name = "\improper Co-operative Territories of Epsilon Ursae Minoris Flag"
 	desc = "The flag of the CT-EUM."
 	icon_state = "cteum"
+	flag_path = "cteum"
 	flag_item = /obj/item/flag/cteum
 
 // Nanotrasen.
