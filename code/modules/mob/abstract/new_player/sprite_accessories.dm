@@ -105,7 +105,7 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair/afro3
 	name = "Afro, Big"
 	icon_state = "hair_afrobig"
-	length = 4
+	length = 3
 	chatname = "big afro"
 
 /datum/sprite_accessory/hair/amanita
