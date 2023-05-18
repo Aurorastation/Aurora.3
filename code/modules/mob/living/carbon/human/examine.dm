@@ -461,7 +461,7 @@
 	return output_text
 
 /mob/living/carbon/human/assembleHeightString(mob/examiner)
-	var/list/heightString = list()
+	var/heightString = null
 	var/descriptor
 	if(height == HEIGHT_NOT_USED)
 		return heightString
@@ -483,9 +483,7 @@
 				descriptor = "huge"
 			else
 				descriptor = "gargantuan"
-		heightString += "[get_pronoun("He")] look[get_pronoun("end")] [descriptor]"
-		if(!species.hide_name)
-			heightString += " for a [species.name]"
+		heightString = "[get_pronoun("He")] look[get_pronoun("end")] [descriptor] for \a [species.name]"
 
 
 	if(examiner.height == HEIGHT_NOT_USED)
@@ -503,7 +501,7 @@
 		if(-10 to -6)
 			descriptor = "slightly shorter than"
 		if(-5 to 5)
-			descriptor = "around the same height as"
+			descriptor = "around about the same height"
 		if(6 to 10)
 			descriptor = "slightly taller than"
 		if(11 to 20)
@@ -515,5 +513,6 @@
 		else
 			descriptor = "to tower over"
 	if(heightString)
-		return heightString += ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
+		return heightString + ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
 	return "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."
+

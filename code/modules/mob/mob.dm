@@ -1542,7 +1542,7 @@
 		if(-49 to -11)
 			descriptor = "shorter than"
 		if(-10 to 10)
-			descriptor = "about the same height as"
+			descriptor = "around about the same height"
 		if(11 to 50)
 			descriptor = "taller than"
 		if(51 to 100)
