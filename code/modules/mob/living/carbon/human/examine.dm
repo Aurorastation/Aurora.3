@@ -464,7 +464,7 @@
 	var/list/heightString = list()
 	var/descriptor
 	if(height == HEIGHT_NOT_USED)
-		return heightString
+		return null
 
 	// Compare to Species Average
 	if(species.species_height != HEIGHT_NOT_USED)
