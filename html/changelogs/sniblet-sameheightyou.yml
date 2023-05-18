@@ -10,5 +10,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - spellcheck: "Fixed a missing 'as' and redundant 'about' in the same-height flavor string."
-  - tweak: "Height strings no longer display the race of races that are not supposed to show race on examine (humans, shells, zombies)."
+  - tweak: "Height strings now work, and no longer display the race of races that are not supposed to show race on examine (humans, shells, zombies)."
