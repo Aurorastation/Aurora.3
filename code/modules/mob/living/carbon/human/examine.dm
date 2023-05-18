@@ -501,7 +501,7 @@
 		if(-10 to -6)
 			descriptor = "slightly shorter than"
 		if(-5 to 5)
-			descriptor = "around about the same height"
+			descriptor = "around the same height as"
 		if(6 to 10)
 			descriptor = "slightly taller than"
 		if(11 to 20)
