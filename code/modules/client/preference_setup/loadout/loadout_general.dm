@@ -161,6 +161,7 @@
 	banners["banner, United Syndicates of Himeo"] = /obj/item/flag/himeo
 	banners["banner, Republic of Assunzione"] = /obj/item/flag/assunzione
 	banners["banner, New Gibson"] = /obj/item/flag/newgibson
+	banners["banner, Visegrad"] = /obj/item/flag/visegrad
 	banners["banner, Union of Port Antillia"] = /obj/item/flag/portantillia
 	banners["banner, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette
 	banners["banner, Mictlan"] = /obj/item/flag/mictlan
