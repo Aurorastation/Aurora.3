@@ -164,6 +164,9 @@
 	banners["banner, Union of Port Antillia"] = /obj/item/flag/portantillia
 	banners["banner, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette
 	banners["banner, Mictlan"] = /obj/item/flag/mictlan
+	banners["banner, Hive Zo'ra"] = /obj/item/flag/zora
+	banners["banner, Hive K'lax"] = /obj/item/flag/klax
+	banners["banner, Hive C'thur"] = /obj/item/flag/cthur
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -221,6 +224,9 @@
 	flags["flag, Union of Port Antillia"] = /obj/item/flag/portantillia/l
 	flags["flag, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/l
 	flags["flag, Mictlan"] = /obj/item/flag/mictlan/l
+	flags["flag, Hive Zo'ra"] = /obj/item/flag/zora/l
+	flags["flag, Hive K'lax"] = /obj/item/flag/klax/l
+	flags["flag, Hive C'thur"] = /obj/item/flag/cthur/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel

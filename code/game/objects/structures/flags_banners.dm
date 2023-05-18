@@ -1753,3 +1753,126 @@
 
 /obj/structure/sign/flag/mictlan/large/west/New()
 	..(loc, WEST)
+
+// Hive Zo'ra
+
+/obj/item/flag/zora
+	name = "\improper Hive Zo'ra flag"
+	desc = "The flag of Hive Zo'ra."
+	flag_path = "zora"
+	flag_structure = /obj/structure/sign/flag/zora
+
+/obj/structure/sign/flag/zora
+	name = "\improper Hive Zo'ra flag"
+	desc = "The flag of Hive Zo'ra."
+	flag_path = "zora"
+	icon_state = "zora"
+	flag_item = /obj/item/flag/zora
+
+/obj/structure/sign/flag/zora/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/zora/l
+	name = "large Hive Zo'ra flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/zora/large
+
+/obj/structure/sign/flag/zora/large
+	icon_state = "zora_l"
+	flag_path = "zora"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/zora/l
+
+/obj/structure/sign/flag/zora/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/zora/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/zora/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/zora/large/west/New()
+	..(loc, WEST)
+
+// Hive K'lax
+
+/obj/item/flag/klax
+	name = "\improper Hive K'lax flag"
+	desc = "The flag of Hive K'lax."
+	flag_path = "klax"
+	flag_structure = /obj/structure/sign/flag/klax
+
+/obj/structure/sign/flag/klax
+	name = "\improper Hive K'lax flag"
+	desc = "The flag of Hive K'lax."
+	flag_path = "klax"
+	icon_state = "klax"
+	flag_item = /obj/item/flag/klax
+
+/obj/structure/sign/flag/klax/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/klax/l
+	name = "large Hive K'lax flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/klax/large
+
+/obj/structure/sign/flag/klax/large
+	icon_state = "klax_l"
+	flag_path = "klax"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/klax/l
+
+/obj/structure/sign/flag/klax/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/klax/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/klax/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/klax/large/west/New()
+	..(loc, WEST)
+
+// Hive C'thur
+
+/obj/item/flag/cthur
+	name = "\improper Hive C'thur flag"
+	desc = "The flag of Hive C'thur."
+	flag_path = "cthur"
+	flag_structure = /obj/structure/sign/flag/cthur
+
+/obj/structure/sign/flag/cthur
+	name = "\improper Hive C'thur flag"
+	desc = "The flag of Hive C'thur."
+	flag_path = "cthur"
+	icon_state = "cthur"
+	flag_item = /obj/item/flag/cthur
+
+/obj/structure/sign/flag/cthur/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/cthur/l
+	name = "large Hive C'thur flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/cthur/large
+
+/obj/structure/sign/flag/cthur/large
+	icon_state = "cthur_l"
+	flag_path = "cthur"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/cthur/l
+
+/obj/structure/sign/flag/cthur/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/cthur/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/cthur/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/cthur/large/west/New()
+	..(loc, WEST)
