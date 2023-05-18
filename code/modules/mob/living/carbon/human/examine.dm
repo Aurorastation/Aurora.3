@@ -461,10 +461,10 @@
 	return output_text
 
 /mob/living/carbon/human/assembleHeightString(mob/examiner)
-	var/list/heightString = list()
+	var/heightString = null
 	var/descriptor
 	if(height == HEIGHT_NOT_USED)
-		return null
+		return heightString
 
 	// Compare to Species Average
 	if(species.species_height != HEIGHT_NOT_USED)
