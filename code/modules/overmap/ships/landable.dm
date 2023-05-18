@@ -9,6 +9,7 @@
 	var/status = SHIP_STATUS_LANDED
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	layer = OVERMAP_SHUTTLE_LAYER
 
 /obj/effect/overmap/visitable/ship/landable/Destroy()
 	shuttle_moved_event.unregister(SSshuttle.shuttles[shuttle], src)
@@ -116,6 +117,7 @@
 		return FALSE
 
 /obj/effect/shuttle_landmark/visiting_shuttle/shuttle_arrived(datum/shuttle/shuttle)
+	..()
 	LAZYSET(core_landmark.visitors, src, shuttle)
 	shuttle_moved_event.register(shuttle, src, PROC_REF(shuttle_left))
 

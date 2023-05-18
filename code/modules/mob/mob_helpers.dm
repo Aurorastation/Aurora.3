@@ -731,6 +731,10 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 		return
 	if(stat == DEAD)
 		return
+	if(chem_effects[CE_ANTIEMETIC])
+		to_chat(src, SPAN_WARNING("You feel a very brief wave of nausea, but it quickly disapparates."))
+		return
+
 	if(!lastpuke)
 		lastpuke = 1
 		to_chat(src, "<span class='warning'>You feel nauseous...</span>")

@@ -494,14 +494,22 @@
 	switch(height - examiner.height)
 		if(-999 to -100)
 			descriptor = "absolutely tiny compared to"
-		if(-99 to -50)
+		if(-99 to -51)
 			descriptor = "much smaller than"
-		if(-49 to -11)
+		if(-50 to -21)
+			descriptor = "significantly shorter than"
+		if(-20 to -11)
 			descriptor = "shorter than"
-		if(-10 to 10)
+		if(-10 to -6)
+			descriptor = "slightly shorter than"
+		if(-5 to 5)
 			descriptor = "around the same height as"
-		if(11 to 50)
+		if(6 to 10)
+			descriptor = "slightly taller than"
+		if(11 to 20)
 			descriptor = "taller than"
+		if(21 to 50)
+			descriptor = "significantly taller than"
 		if(51 to 100)
 			descriptor = "much larger than"
 		else

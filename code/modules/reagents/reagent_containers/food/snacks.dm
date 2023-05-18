@@ -5817,6 +5817,30 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("iron" = 3))
 	bitesize = 6
 
+/obj/item/reagent_containers/food/snacks/stokkebab
+	name = "stok skewers"
+	desc = "Two hearty skewers of seared meat, glazed in a tangy spice. A popular Skalamar street food - despite the name, it can be made with just about any meat."
+	icon_state = "stok-skewers"
+	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/protein = 2, /singleton/reagent/capsaicin = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("tangy and gamey meat" = 3))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/gukhefish
+	name = "gukhe fish"
+	desc = "A fish cutlet cured in a bitter gukhe rub, served with a tangy dipping sauce and a garnish of seaweed. A staple of Ouerean and Mictlani Unathi cooking."
+	icon_state = "gukhe-fish"
+	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/capsaicin = 2, /singleton/reagent/sodiumchloride = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("tangy fish" = 3, "bitter gukhe" = 3))
+	bitesize = 5
+
+/obj/item/reagent_containers/food/snacks/aghrasshcake
+	name = "aghrassh cake"
+	desc = "A dense, calorie-packed puck of aghrassh paste, spices, and ground meat, usually eaten as an Unathi field ration. This one has an egg cracked over it to make it a bit more palatable."
+	icon_state = "aghrassh-cake"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 8, /singleton/reagent/nutriment/coco = 3, /singleton/reagent/blackpepper = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("aghrassh nuts" = 3, "mealy paste" = 3))
+	bitesize = 5
+
 /obj/item/reagent_containers/food/snacks/phoroncandy
 	name = "phoron rock candy"
 	desc = "Rock candy popular in Flagsdale. Actually contains phoron."
@@ -5833,5 +5857,45 @@
 	filling_color = "#EBE699"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("pickled lettuce" = 4))
+	bitesize = 2
+	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/hummus
+	name = "hummus"
+	desc = "A tasty spread made from chickpeas and sesame seed paste."
+	icon_state = "hummus"
+	filling_color = "#F1DA96"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("smooth chickpeas" = 4, "garlic" = 1))
+	bitesize = 3
+	trash = /obj/item/trash/snack_bowl
+
+/obj/item/reagent_containers/food/snacks/fairy_bread
+	name = "fairy bread"
+	desc = "A piece of bread covered in sprinkles. Absolutely delicious!"
+	icon_state = "fairy_bread"
+	item_state = "toast"
+	slot_flags = SLOT_MASK
+	contained_sprite = TRUE
+	filling_color = "#FEFECC"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/bagel
+	name = "bagel"
+	desc = "Goes great with cream cheese and smoked salmon."
+	icon_state = "bagel"
+	filling_color = "#F1B45E"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("toasty dough" = 2))
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/chana_masala
+	name = "chana masala"
+	desc = "Curried chickpeas on rice."
+	icon_state = "chana_masala"
+	filling_color = "#C97F02"
+	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/nutriment/rice = 10, /singleton/reagent/spacespice = 2, /singleton/reagent/capsaicin = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("spicy chickpeas" = 4))
 	bitesize = 2
 	trash = /obj/item/trash/plate
