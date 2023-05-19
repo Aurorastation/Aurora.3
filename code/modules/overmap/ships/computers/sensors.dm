@@ -18,14 +18,6 @@
 	var/datum/weakref/sensor_ref
 	var/list/last_scan
 
-/obj/machinery/computer/ship/sensors/cockpit
-	density = 0
-	icon = 'icons/obj/cockpit_console.dmi'
-	icon_state = "left_wide"
-	icon_screen = "sensors"
-	icon_keyboard = null
-	circuit = null
-
 /obj/machinery/computer/ship/sensors/Destroy()
 	QDEL_NULL(sound_token)
 	sensors = null
@@ -383,9 +375,10 @@
 	return 1
 
 /obj/machinery/shipsensors/update_icon()
+	icon_state = "[base_icon_state]_off"
 	if(!use_power)
-		icon_state = "[base_icon_state]_off"
 		cut_overlays()
+
 	if(use_power)
 		icon_state = "[base_icon_state]_on"
 		return
@@ -497,18 +490,17 @@
 
 /obj/machinery/shipsensors/strong
 	desc = "An upgrade to the standard ship-mounted sensor array, this beast has massive cooling systems running beneath it, allowing it to run hotter for much longer. Can only run in vacuum to protect delicate quantum BS elements."
-	icon_state = "sensor_suite"
 	heat_reduction = 3.7 // can sustain range 6
 	max_range = 14
 	deep_scan_range = 6
 	deep_scan_sensor_name = "High-Power Sensor Array"
 
-/obj/machinery/shipsensors/strong/scc_shuttle //Exclusively for the Horizon scout shuttle.
-	icon_state = "sensors"
-	icon = 'icons/obj/spaceship/scc/shuttle_sensors.dmi'
-
 /obj/machinery/shipsensors/strong/venator
 	name = "venator-class quantum sensor array"
 	desc = "An incredibly advanced sensor array, created using top of the line technology in every conceivable area. Not only does it far outperform and outclass every other sensors system, it also boasts revolutionary quantum long-range sensors."
+	icon = 'icons/obj/machinery/sensors_venator.dmi'
 	deep_scan_range = 12
 	deep_scan_sensor_name = "Venator-Class Ultra-High Depth Sensors"
+	layer = ABOVE_ALL_MOB_LAYER
+	pixel_x = -32
+	pixel_y = -32
