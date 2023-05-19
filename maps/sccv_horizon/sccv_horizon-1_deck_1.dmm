@@ -602,7 +602,9 @@
 /area/engineering/atmos)
 "aBK" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "1,12"
+	icon_state = "1,12";
+	density = 0;
+	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -3278,14 +3280,14 @@
 	pixel_y = -18;
 	layer = 3.1
 	},
-/obj/machinery/computer/ship/sensors/cockpit{
-	pixel_x = -25;
-	layer = 3
-	},
 /obj/machinery/light/spot,
 /obj/structure/bed/stool/chair/cockpit,
 /obj/machinery/computer/shuttle_control/explore/canary{
 	pixel_x = 25;
+	layer = 3
+	},
+/obj/machinery/computer/ship/sensors/cockpit{
+	pixel_x = -25;
 	layer = 3
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -3346,10 +3348,24 @@
 /area/medical/emergency_storage)
 "cxc" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "2,10"
+	icon_state = "2,10";
+	opacity = 1;
+	outside_part = 0
 	},
-/obj/machinery/atmospherics/unary/engine/scc_shuttle,
-/turf/simulated/floor/plating,
+/obj/structure/shuttle_part/scc/scout{
+	icon_state = "nozzle";
+	outside_part = 0;
+	opacity = 1;
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
+	layer = 2.4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/reinforced{
+	blocks_air = 1;
+	density = 1;
+	name = "thruster mount";
+	opacity = 1
+	},
 /area/shuttle/canary)
 "cxe" = (
 /obj/structure/shuttle_part/scc/scout{
@@ -10088,7 +10104,9 @@
 /area/storage/eva)
 "hmD" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "7,11"
+	icon_state = "7,11";
+	density = 0;
+	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -10795,7 +10813,9 @@
 /area/engineering/atmos)
 "hPZ" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "1,11"
+	icon_state = "1,11";
+	density = 0;
+	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -13234,7 +13254,8 @@
 	},
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "2,8";
-	outside_part = 0
+	outside_part = 0;
+	opacity = 1
 	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
@@ -13257,6 +13278,23 @@
 "jJb" = (
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
+"jJc" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/machinery/power/apc/low{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/canary)
 "jJp" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/corner/brown{
@@ -17168,8 +17206,12 @@
 /area/shuttle/intrepid/crew_compartment)
 "mJD" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "6,11"
+	icon_state = "6,11";
+	density = 0;
+	layer = 9;
+	outside_part = 0
 	},
+/obj/machinery/atmospherics/unary/engine/scc_shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
 "mJN" = (
@@ -17850,7 +17892,9 @@
 /area/shuttle/intrepid/cockpit)
 "ndI" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "2,12"
+	icon_state = "2,12";
+	density = 0;
+	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -19034,6 +19078,9 @@
 	dir = 4;
 	must_start_working = 1
 	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/canary)
 "nYx" = (
@@ -19346,7 +19393,9 @@
 /area/shuttle/canary)
 "oji" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "7,12"
+	icon_state = "7,12";
+	density = 0;
+	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -19976,10 +20025,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "oPw" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "6,8";
-	outside_part = 0
+	outside_part = 0;
+	opacity = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
@@ -22870,7 +22922,9 @@
 /area/hangar/auxiliary)
 "qSi" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "6,12"
+	icon_state = "6,12";
+	density = 0;
+	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -25470,7 +25524,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "2,9";
-	outside_part = 0
+	outside_part = 0;
+	opacity = 1
 	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
@@ -27492,10 +27547,24 @@
 /area/rnd/xenoarch_atrium)
 "ulp" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "6,10"
+	icon_state = "6,10";
+	opacity = 1;
+	outside_part = 0
 	},
-/obj/machinery/atmospherics/unary/engine/scc_shuttle,
-/turf/simulated/floor/plating,
+/obj/structure/shuttle_part/scc/scout{
+	icon_state = "nozzle";
+	outside_part = 0;
+	opacity = 1;
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
+	layer = 2.4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/reinforced{
+	blocks_air = 1;
+	density = 1;
+	name = "thruster mount";
+	opacity = 1
+	},
 /area/shuttle/canary)
 "ulE" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -28314,7 +28383,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "6,9";
-	outside_part = 0
+	outside_part = 0;
+	opacity = 1
 	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
@@ -29337,8 +29407,12 @@
 /area/hangar/intrepid/interstitial)
 "vDu" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "2,11"
+	icon_state = "2,11";
+	density = 0;
+	layer = 9;
+	outside_part = 0
 	},
+/obj/machinery/atmospherics/unary/engine/scc_shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
 "vDP" = (
@@ -59465,7 +59539,7 @@ xBw
 hot
 eOR
 pPV
-mOv
+jJc
 mOv
 xjq
 xjq
