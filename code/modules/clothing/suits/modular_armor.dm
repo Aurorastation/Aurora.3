@@ -258,7 +258,7 @@
 /obj/item/clothing/head/helmet/security/scc
 	name = "scc helmet"
 	desc = "A helmet in SCC colors. Often issued to untrained personnel."
-	icon_state = "helm_blue"
+	icon_state = "helm_scc"
 	item_state = "helm_scc"
 
 /obj/item/clothing/head/helmet/security/generic
