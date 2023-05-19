@@ -112,6 +112,12 @@
 	icon_state = "plate_generic"
 	item_state = "plate_generic"
 
+/obj/item/clothing/accessory/armor_plate/scc
+	name = "scc armor plate"
+	desc = "A light-weight kevlar armor plate in SCC corporate colors. Often issued to untrained personnel, to help with identification."
+	icon_state = "plate_scc"
+	item_state = "plate_blue"
+
 /obj/item/clothing/accessory/armor_plate/hos
 	name = "commander armor plate"
 	desc = "A particularly light-weight armor plate with really cool gold bands. Even more stylish when the gold bands are covered in the blood of your goons!"
@@ -242,6 +248,12 @@
 	contained_sprite = TRUE
 	icon_state = "helm_sec"
 	item_state = "helm_sec"
+
+/obj/item/clothing/head/helmet/security/scc
+	name = "scc helmet"
+	desc = "A helmet in SCC colors. Often issued to untrained personnel."
+	icon_state = "helm_scc"
+	item_state = "helm_blue"
 
 /obj/item/clothing/head/helmet/security/generic
 	name = "standard helmet"
