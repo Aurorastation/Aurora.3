@@ -121,8 +121,8 @@
 /obj/item/clothing/accessory/armor_plate/scc
 	name = "scc armor plate"
 	desc = "A light-weight kevlar armor plate in SCC corporate colors. Often issued to untrained personnel, to help with identification."
-	icon_state = "plate_scc"
-	item_state = "plate_blue"
+	icon_state = "plate_blue"
+	item_state = "plate_scc"
 
 /obj/item/clothing/accessory/armor_plate/hos
 	name = "commander armor plate"
@@ -258,8 +258,8 @@
 /obj/item/clothing/head/helmet/security/scc
 	name = "scc helmet"
 	desc = "A helmet in SCC colors. Often issued to untrained personnel."
-	icon_state = "helm_scc"
-	item_state = "helm_blue"
+	icon_state = "helm_blue"
+	item_state = "helm_scc"
 
 /obj/item/clothing/head/helmet/security/generic
 	name = "standard helmet"

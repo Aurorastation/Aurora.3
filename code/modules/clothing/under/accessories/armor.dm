@@ -28,8 +28,8 @@
 
 /obj/item/clothing/accessory/leg_guard/scc
 	name = "scc leg guards"
-	icon_state = "legguards_scc"
-	item_state = "legguards_blue"
+	icon_state = "legguards_blue"
+	item_state = "legguards_scc"
 
 /obj/item/clothing/accessory/leg_guard/ablative
 	name = "ablative leg guards"
@@ -142,8 +142,8 @@
 
 /obj/item/clothing/accessory/arm_guard/scc
 	name = "scc arm guards"
-	icon_state = "armguards_scc"
-	item_state = "armguards_blue"
+	icon_state = "armguards_blue"
+	item_state = "armguards_scc"
 
 /obj/item/clothing/accessory/arm_guard/ablative
 	name = "ablative arm guards"
