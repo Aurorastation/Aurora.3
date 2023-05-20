@@ -441,3 +441,13 @@
 	. = ..()
 	mode = SYRINGE_INJECT
 	update_icon()
+
+/obj/item/reagent_containers/syringe/antiparasitic
+	name = "Syringe (helmizole)"
+	desc = "Contains an antiparasitic medication."
+	reagents_to_add = list(/singleton/reagent/antiparasitic = 10)
+
+/obj/item/reagent_containers/syringe/antiparasitic/Initialize()
+	. = ..()
+	mode = SYRINGE_INJECT
+	update_icon()
