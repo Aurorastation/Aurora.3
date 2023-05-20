@@ -32,7 +32,7 @@
 		"GREIMORIAN HUNTER"		=	/mob/living/simple_animal/hostile/giant_spider/hunter,
 		"GREIMORIAN BOMBARDIER"	=	/mob/living/simple_animal/hostile/giant_spider/bombardier,
 		"GREIMORIAN NURSE"		=	/mob/living/simple_animal/hostile/giant_spider/nurse,
-		"CARP"					=	/mob/living/simple_anismal/hostile/carp,
+		"CARP"					=	/mob/living/simple_animal/hostile/carp,
 		"BEAR"					=	/mob/living/simple_animal/hostile/bear
 		)
 	cooldown = 30
