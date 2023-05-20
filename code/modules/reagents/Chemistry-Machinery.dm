@@ -486,7 +486,7 @@
 		if(!H.put_in_active_hand(beaker))
 			beaker.forceMove(get_turf(src))
 	else
-		forceMove(get_turf(src))
+		beaker.forceMove(get_turf(src))
 	beaker = null
 	update_icon()
 
