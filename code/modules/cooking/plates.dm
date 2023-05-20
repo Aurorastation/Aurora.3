@@ -114,7 +114,8 @@ Plates that can hold your cooking stuff
 /obj/item/reagent_containers/bowl/plate/examine(mob/user, distance)
 	. = ..()
 	if(holding)
-		to_chat(user, "It looks like there is \a [holding.name] on \the [src].")
+		to_chat(user, "It looks like there is \a [SPAN_INFO(holding.name)] on \the [src].")
+		to_chat(user, SPAN_INFO(" - [holding.desc]"))
 
 /obj/item/reagent_containers/bowl/plate/attackby(obj/item/I, mob/user)
 	if((istype(I, /obj/item/reagent_containers/food/snacks) || istype(I, /obj/item/trash)) && !holding)
