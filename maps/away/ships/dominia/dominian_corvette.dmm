@@ -1095,10 +1095,7 @@
 	},
 /obj/structure/table/steel,
 /obj/item/pen/drafting/blue,
-/obj/structure/sign/flag/dominia/right{
-	dir = 8;
-	pixel_x = -32
-	},
+/obj/structure/sign/flag/dominia/large/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "ehr" = (
@@ -4482,10 +4479,6 @@
 	item_icons = null;
 	item_state = null;
 	name = "ship blueprints"
-	},
-/obj/structure/sign/flag/dominia/left{
-	dir = 8;
-	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)

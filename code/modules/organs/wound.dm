@@ -288,7 +288,7 @@
 	max_bleeding_stage = 3
 	stages = list("big gaping wound" = 60, "healing gaping wound" = 40, "large blood soaked clot" = 25, "large angry scar" = 10, "large straight scar" = 0)
 
-datum/wound/cut/massive
+/datum/wound/cut/massive
 	max_bleeding_stage = 3
 	stages = list("massive wound" = 70, "massive healing wound" = 50, "massive blood soaked clot" = 25, "massive angry scar" = 10,  "massive jagged scar" = 0)
 
@@ -317,7 +317,7 @@ datum/wound/cut/massive
 	max_bleeding_stage = 3
 	stages = list("big gaping hole" = 50, "healing gaping hole" = 20, "large blood soaked clot" = 15, "large angry scar" = 10, "large round scar" = 0)
 
-datum/wound/puncture/massive
+/datum/wound/puncture/massive
 	max_bleeding_stage = 3
 	stages = list("massive wound" = 60, "massive healing wound" = 30, "massive blood soaked clot" = 25, "massive angry scar" = 10,  "massive jagged scar" = 0)
 

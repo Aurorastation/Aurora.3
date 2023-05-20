@@ -155,13 +155,15 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/datum/dna/dna
 	var/speciesName
 	var/list/languages
+	var/height
 
-/datum/absorbed_dna/New(var/newName, var/newDNA, var/newSpecies, var/newLanguages)
+/datum/absorbed_dna/New(var/newName, var/newDNA, var/newSpecies, var/newLanguages, newHeight)
 	..()
 	name = newName
 	dna = newDNA
 	speciesName = newSpecies
 	languages = newLanguages
+	height = newHeight
 
 //Helper for stingcode
 

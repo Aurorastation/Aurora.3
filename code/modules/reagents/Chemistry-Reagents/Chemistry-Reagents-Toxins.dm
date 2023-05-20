@@ -661,7 +661,7 @@
 	taste_description = "acrid smoke"
 	nicotine = 0.1
 
-/singleton/reagent/toxin/tobacco/sweet 
+/singleton/reagent/toxin/tobacco/sweet
 	name = "Sweet Tobacco"
 	description = "This tobacco is much sweeter than the strains usually found in human space."
 	taste_description = "sweet tobacco"
@@ -854,3 +854,53 @@
 /singleton/reagent/toxin/coagulated_blood/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.add_chemical_effect(CE_NEPHROTOXIC, 0) // deal no damage, but prevent regeneration
 	..()
+
+/singleton/reagent/toxin/nerveworm_eggs
+	name = "Nerve Fluke Eggs"
+	description = "The eggs of a parasitic worm. These ones grow to infest the nervous system, working their way up from the peripheral to the central nervous system. The infection is gradual: lethargy, issues with motor coordination, then eventually seizures."
+	reagent_state = SOLID
+	color = "#b9b9d9"
+	metabolism = REM*2
+	ingest_met = REM*2
+	touch_met = REM*5
+	taste_description = "something tingly"
+	taste_mult = 0.25
+	strength = 0
+
+/singleton/reagent/toxin/nerveworm_eggs/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	if(istype(M,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+
+		if(H.chem_effects[CE_ANTIPARASITE])
+			return
+
+		if(!H.internal_organs_by_name[BP_WORM_NERVE])
+			var/obj/item/organ/external/affected = H.get_organ(BP_L_ARM)
+			var/obj/item/organ/internal/parasite/nerveworm/infest = new()
+			infest.replaced(H, affected)
+
+/singleton/reagent/toxin/heartworm_eggs
+	name = "Heart Fluke Eggs"
+	description = "The eggs of a parasitic worm. These ones grow to infest the cardiac tissue of the heart. The infection is gradual: coughing first, then eventually heart failure."
+	reagent_state = SOLID
+	color = "#caaaaa"
+	metabolism = REM/2 //Slow metabolisation so medical can potentially screen it early, given it's danger.
+	ingest_met = REM/2
+	touch_met = REM*5
+	taste_description = "something quite sour"
+	taste_mult = 0.75
+	strength = 0
+
+/singleton/reagent/toxin/heartworm_eggs/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	if(istype(M,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+
+		if(H.chem_effects[CE_ANTIPARASITE])
+			return
+
+		if(!H.internal_organs_by_name[BP_WORM_HEART])
+			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
+			var/obj/item/organ/internal/parasite/heartworm/infest = new()
+			infest.replaced(H, affected)
