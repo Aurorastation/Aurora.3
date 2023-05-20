@@ -294,7 +294,25 @@
 	reagents_to_add = list(/singleton/reagent/iron = 5, /singleton/reagent/sugar = 10)
 
 /obj/item/reagent_containers/pill/antidexafen
-	name = "15u antidexafen"
+	name = "15u Antidexafen"
 	desc = "Common cold mediciation. Safe for babies!"
 	icon_state = "pill4"
 	reagents_to_add = list(/singleton/reagent/antidexafen = 10, /singleton/reagent/drink/lemonjuice = 5, /singleton/reagent/nutriment/mint = REM*0.2)
+
+/obj/item/reagent_containers/pill/antiparasitic
+	name = "5u Helmizole"
+	desc = "An antiparasitic used to treat worms."
+	icon_state = "pill11"
+	reagents_to_add = list(/singleton/reagent/antiparasitic = 5)
+
+/obj/item/reagent_containers/pill/asinodryl
+	name = "10u Asinodryl"
+	desc = "An antiemetic which prevents vomiting."
+	icon_state = "pill20"
+	reagents_to_add = list(/singleton/reagent/asinodryl = 10)
+
+/obj/item/reagent_containers/pill/steramycin
+	name = "5u Steramycin"
+	desc = "A prophylactic antibiotic that kills infections before they start."
+	icon_state = "pill8"
+	reagents_to_add = list(/singleton/reagent/steramycin = 5)

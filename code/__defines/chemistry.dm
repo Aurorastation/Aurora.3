@@ -80,6 +80,7 @@
 #define CE_OXYGENATED   "oxygenated"	// Dexalin
 #define CE_BLOODCLOT    "bloodclot"		// Coagzolug
 #define CE_ORGANREPAIR  "organrepair"	// Rezadone
+#define CE_ANTIPARASITE "antiparasite"  // Helmizole, garlic
 
 // Deal damage
 #define CE_BREATHLOSS   "breathloss"
