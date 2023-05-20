@@ -6,6 +6,7 @@
 	var/attack_same = 0
 	var/ranged = 0
 	var/rapid = 0
+	var/ranged_attack_range = 6
 	var/projectiletype
 	var/projectilesound
 	var/casingtype
@@ -160,7 +161,7 @@
 		LoseTarget()
 	if(target_mob in targets)
 		if(ranged)
-			if(get_dist(src, target_mob) <= 6)
+			if(get_dist(src, target_mob) <= ranged_attack_range)
 				walk(src, 0) // We gotta stop moving if we are in range
 				OpenFire(target_mob)
 			else
