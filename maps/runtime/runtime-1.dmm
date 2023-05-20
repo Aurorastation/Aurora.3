@@ -1650,6 +1650,16 @@
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
+"zC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/flora/pottedplant{
+	desc = "A quiet voice tells you that Geoff should be considered a friend.";
+	name = "Geoff"
+	},
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "zP" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor 2";
@@ -9336,7 +9346,7 @@ dk
 dc
 dn
 cZ
-cZ
+zC
 cP
 ae
 ac
