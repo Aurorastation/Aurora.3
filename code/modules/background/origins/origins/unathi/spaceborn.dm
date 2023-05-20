@@ -3,7 +3,8 @@
 	desc = "Whether colonists in the far reaches of space, pirates that have forsaken their lives to find a new culture, or those that are merely living on ships and roaming or serving the Hegemon, the Spaceborn Unathi are a vast collective of emerging or niche cultures found across the Orion Spur."
 	possible_origins = list(
 		/singleton/origin_item/origin/unathi_pirate,
-		/singleton/origin_item/origin/colonist
+		/singleton/origin_item/origin/colonist,
+		/singleton/origin_item/origin/mictlan_unathi
 	)
 
 /singleton/origin_item/origin/unathi_pirate
@@ -11,7 +12,7 @@
 	desc = "Pirates have no common group holding them all together to work as one. They tend towards ambition and passion, acting impulsively towards what they desire. With Not'zar Izweski's call to pirates to forsake their lifestyles and join his space navy, any pirate that has served four or more years under the Hegemony has their crimes pardoned by him (but not necessarily other states). With this, a good handful of pirates that knew no normalcy are now finding it abroad. Unathi pirates don't have citizenship in their respective countries, typically having a work or visitation visa instead."
 	important_information = "Outside of the Hegemony, records should say they have some kind of visa instead of citizenship."
 	possible_accents = list(ACCENT_TRAD_PEASANT, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_WASTELAND, ACCENT_UNATHI_SPACER, ACCENT_HAZANA)
-	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/colonist

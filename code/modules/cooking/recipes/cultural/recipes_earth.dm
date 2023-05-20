@@ -332,3 +332,32 @@
 	fruit = list("dried peanut" = 10)
 	result = /obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/chana_masala
+	appliance = POT | SAUCEPAN
+	reagents = list(/singleton/reagent/spacespice = 2, /singleton/reagent/nutriment/rice = 10)
+	fruit = list("chickpeas" = 2, "tomato" = 1, "chili" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/chana_masala
+
+/singleton/recipe/hummus
+	appliance = MIX
+	reagents = list(/singleton/reagent/nutriment/garlicsauce = 10, /singleton/reagent/spacespice = 2)
+	fruit = list("chickpeas" = 2)
+	result = /obj/item/reagent_containers/food/snacks/hummus
+
+/singleton/recipe/bagel
+	appliance = OVEN
+	fruit = list("poppy" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/doughslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/bagel
+
+/singleton/recipe/fairy_bread
+	appliance = MIX
+	reagents = list(/singleton/reagent/nutriment/sprinkles = 3)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/fairy_bread

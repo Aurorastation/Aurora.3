@@ -411,6 +411,8 @@
 	var/list/zenghu_headwear = list()
 	zenghu_headwear["beret, zeng-hu"] = /obj/item/clothing/head/beret/corporate/zeng
 	zenghu_headwear["beret alt, zeng-hu"] = /obj/item/clothing/head/beret/corporate/zeng/alt
+	zenghu_headwear["cap, zeng-hu"] = /obj/item/clothing/head/softcap/zeng
+	zenghu_headwear["cap alt, zeng-hu"] = /obj/item/clothing/head/softcap/zeng/alt
 	zenghu_headwear["zeng-hu woolen hat"] = /obj/item/clothing/head/wool/zeng
 	zenghu_headwear["zeng-hu woolen hat, alt"] = /obj/item/clothing/head/wool/zeng/alt
 	gear_tweaks += new /datum/gear_tweak/path(zenghu_headwear)
