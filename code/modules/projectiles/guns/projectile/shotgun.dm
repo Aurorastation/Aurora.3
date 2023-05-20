@@ -140,6 +140,7 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
+	fire_delay = ROF_INTERMEDIATE
 
 	burst_delay = 0
 	firemodes = list(

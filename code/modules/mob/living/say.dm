@@ -64,7 +64,7 @@ var/list/department_radio_keys = list(
 
 
 var/list/channel_to_radio_key = new
-proc/get_radio_key_from_channel(var/channel)
+/proc/get_radio_key_from_channel(var/channel)
 	var/key = channel_to_radio_key[channel]
 	if(!key)
 		for(var/radio_key in department_radio_keys)
@@ -122,6 +122,10 @@ proc/get_radio_key_from_channel(var/channel)
 	else if(slurring)
 		message = slur(message, slurring)
 		say_verb = pick("slobbers", "slurs")
+		. = TRUE
+	else if(HAS_TRAIT(src, TRAIT_SPEAKING_GIBBERISH))
+		message = Gibberish(message, 40)
+		say_verb = pick("blurbles", "blorps")
 		. = TRUE
 
 	if(.)

@@ -140,8 +140,10 @@
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
 
-// Zombie organ
+// Parasite organs
 #define BP_ZOMBIE_PARASITE "black tumour"
+#define BP_WORM_HEART "heart fluke"
+#define BP_WORM_NERVE "nerve fluke"
 
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
@@ -469,3 +471,12 @@
 #define ROBOT_EYES		"eyetype"
 
 #define BLOOD_REGEN_RATE 0.1
+
+// Height Defines
+#define HEIGHT_NOT_USED 0
+#define HEIGHT_CLASS_TINY 130
+#define HEIGHT_CLASS_SHORT 150
+#define HEIGHT_CLASS_AVERAGE 170
+#define HEIGHT_CLASS_TALL 190
+#define HEIGHT_CLASS_HUGE 240
+#define HEIGHT_CLASS_GIGANTIC 300

@@ -6,7 +6,7 @@
 	sort_category = "Suits and Overwear"
 	cost = 1
 
-datum/gear/suit/colorvest
+/datum/gear/suit/colorvest
 	display_name = "colorable vest"
 	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -434,6 +434,9 @@ datum/gear/suit/colorvest
 	konyangcoat["red konyanger jumpjacket"] = /obj/item/clothing/suit/storage/toggle/konyang/pants
 	konyangcoat["orange konyanger jumpjacket"] = /obj/item/clothing/suit/storage/toggle/konyang/orange
 	konyangcoat["blue konyanger jumpjacket"] = /obj/item/clothing/suit/storage/toggle/konyang/blue
+	konyangcoat["biege double-breasted Konyanger jacket"] = /obj/item/clothing/suit/storage/toggle/konyang/dbjacket
+	konyangcoat["black double-breasted Konyanger jacket"] = /obj/item/clothing/suit/storage/toggle/konyang/dbjacket/black
+	konyangcoat["blue double-breasted Konyanger jacket"] = /obj/item/clothing/suit/storage/toggle/konyang/dbjacket/blue
 	gear_tweaks += new /datum/gear_tweak/path(konyangcoat)
 
 /datum/gear/suit/gadpathur

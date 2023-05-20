@@ -9,7 +9,7 @@ var/list/servernames = list()
 var/list/adminfiles = list()
 var/list/adminkeys = list()
 
-proc/gen_configs()
+/proc/gen_configs()
 
 	config_stream = dd_file2list("config.txt")
 
