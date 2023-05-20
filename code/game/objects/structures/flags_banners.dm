@@ -30,7 +30,7 @@
 	var/icon/rolled_outline
 	var/unmovable = FALSE
 
-/obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy)
+/obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy, var/icon_file)
 	. = ..()
 	dir = newdir
 	if(!deploy)
@@ -46,7 +46,7 @@
 	if(linked_flag_path)
 		icon_state = "[linked_flag_path]_r"
 		ripped_outline_state = "flag_ripped_r"
-		flag_icon = new(icon, icon_state, dir)
+		flag_icon = new(icon_file, icon_state, dir)
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag_r", dir)
 		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
 		icon = flag_icon
@@ -57,8 +57,8 @@
 		flag_icon = new(icon, icon_state, dir)
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag_l", dir)
 		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
+		var/obj/structure/sign/flag/F2 = new(loc, dir, linked_flag_path = flag_path, icon_file = icon)
 		icon = flag_icon
-		var/obj/structure/sign/flag/F2 = new(loc, dir, linked_flag_path = flag_path)
 		linked_flag = F2
 		switch(F2.dir)
 			if(NORTH)
@@ -499,6 +499,7 @@
 	name = "\improper Co-operative Territories of Epsilon Ursae Minoris Flag"
 	desc = "The flag of the CT-EUM."
 	icon_state = "cteum"
+	flag_path = "cteum"
 	flag_item = /obj/item/flag/cteum
 
 // Nanotrasen.
