@@ -14,6 +14,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/colt/update_icon()
 	..()
@@ -102,6 +103,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/sec/update_icon()
 	..()
@@ -182,7 +184,7 @@
 	sel_mode = 1
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0, fire_delay_wielded=0),
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_PISTOL, fire_delay_wielded=ROF_SMG),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10))
 		)
 
@@ -213,6 +215,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/silenced/update_icon()
 	..()
@@ -235,6 +238,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/a50)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	fire_delay = ROF_RIFLE
 
 /obj/item/gun/projectile/deagle/update_icon()
 	..()
@@ -270,6 +274,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/a75)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	fire_delay = ROF_UNWIELDY
 
 /obj/item/gun/projectile/gyropistol/update_icon()
 	..()
@@ -296,6 +301,7 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
 	var/can_silence = TRUE
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/pistol/flash
 	name = "9mm signal pistol"
@@ -424,6 +430,7 @@
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = SINGLE_CASING|SPEEDLOADER
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/leyon/update_icon()
 	..()
@@ -487,8 +494,8 @@
 	ammo_type = /obj/item/ammo_casing/kumar_super
 	magazine_type = /obj/item/ammo_magazine/super_heavy
 	allowed_magazines = list(/obj/item/ammo_magazine/super_heavy)
-	fire_delay = 18
-	fire_delay_wielded = 18
+	fire_delay = ROF_UNWIELDY
+	fire_delay_wielded = ROF_SUPERHEAVY
 	max_shells = 5
 	force = 3
 	recoil = 5

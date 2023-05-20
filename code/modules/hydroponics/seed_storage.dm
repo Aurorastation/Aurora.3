@@ -105,7 +105,8 @@
 		/obj/item/seeds/barnacle = 15,
 		/obj/item/seeds/mollusc = 15,
 		/obj/item/seeds/clam/rasval = 15,
-		/obj/item/seeds/fjylozyn = 1
+		/obj/item/seeds/fjylozyn = 1,
+		/obj/item/seeds/chickpeas = 3
 	)
 
 /obj/machinery/seed_storage/xenobotany
@@ -173,7 +174,8 @@
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/wulumunushaseed = 3,
 		/obj/item/seeds/dynseed = 3,
-		/obj/item/seeds/fjylozyn = 3
+		/obj/item/seeds/fjylozyn = 3,
+		/obj/item/seeds/chickpeas = 3
 	)
 
 /obj/machinery/seed_storage/attack_hand(mob/user as mob)

@@ -1,4 +1,4 @@
-datum/battle_monsters/
+/datum/battle_monsters
 	var/name = "ERROR"
 	var/icon_state
 	var/id
