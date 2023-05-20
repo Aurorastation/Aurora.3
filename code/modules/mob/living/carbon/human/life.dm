@@ -605,10 +605,7 @@
 			adjustToxLoss(chem_effects[CE_TOXIN])
 
 		if(CE_EMETIC in chem_effects)
-			var/nausea = chem_effects[CE_EMETIC]
-			if(CE_ANTIEMETIC in chem_effects)
-				nausea -= min(nausea, chem_effects[CE_ANTIEMETIC]) // so it can only go down to 0
-			if(prob(nausea))
+			if(prob(chem_effects[CE_EMETIC]))
 				delayed_vomit()
 
 		if(CE_ITCH in chem_effects)
@@ -749,7 +746,7 @@
 			silent = 0
 			return 1
 
-		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
+		if(hallucination && (HAS_TRAIT(src, TRAIT_BYPASS_HALLUCINATION_RESTRICTION) || !HAS_FLAG(species.flags, NO_POISON|IS_PLANT)))
 			handle_hallucinations()
 
 		if(get_shock() >= species.total_health)

@@ -135,6 +135,24 @@
 			usr.ClickOn(master)
 	return TRUE
 
+/obj/screen/storage/background
+	name = "background storage"
+	layer = SCREEN_LAYER+0.01
+
+/obj/screen/storage/background/Initialize(mapload, var/obj/set_master, var/set_icon_state)
+	. = ..()
+	master = set_master
+	if(master)
+		name = master.name
+	icon_state = set_icon_state
+
+/obj/screen/storage/background/Click()
+	if(usr.incapacitated())
+		return TRUE
+	if(master)
+		usr.ClickOn(master)
+	return TRUE
+
 /obj/screen/zone_sel
 	name = "damage zone"
 	icon_state = "zone_sel"
