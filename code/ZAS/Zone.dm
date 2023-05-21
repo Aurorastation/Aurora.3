@@ -161,9 +161,9 @@ Class Procs:
 			T.update_graphic(graphic_add, graphic_remove)
 		graphic_add.Cut()
 		graphic_remove.Cut()
-    var/delta_time = world.time - world_time_counter
-    if(delta_time > 5 SECONDS)
-        log_admin("AN AREA IS TAKING EXTREMELY LONG TO UPDATE: [name] WITH CONTENTS LENGTH [length(contents)] TELL MATT WITH THE ROUND ID!")
+	var/delta_time = world.time - world_time_counter
+	if(delta_time > 5 SECONDS)
+		log_admin("AN AREA IS TAKING EXTREMELY LONG TO UPDATE: [name] WITH CONTENTS LENGTH [length(contents)] TELL MATT WITH THE ROUND ID!")
 
 	for(var/connection_edge/E in edges)
 		if(E.sleeping)
