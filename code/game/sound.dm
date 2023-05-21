@@ -937,3 +937,9 @@
 		'sound/items/ointment2.ogg',
 		'sound/items/ointment3.ogg'
 	)
+
+/singleton/sound_category/clown_sound
+	sounds = list(
+		'sound/effects/clownstep1.ogg',
+		'sound/effects/clownstep2.ogg'
+	)

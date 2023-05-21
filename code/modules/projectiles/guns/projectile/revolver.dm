@@ -14,6 +14,7 @@
 	magazine_type = /obj/item/ammo_magazine/a357
 	fire_sound = 'sound/weapons/gunshot/gunshot_revolver.ogg'
 	empty_sound = /singleton/sound_category/out_of_ammo_revolver
+	fire_delay = ROF_RIFLE
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
 /obj/item/gun/projectile/revolver/verb/spin_cylinder()
@@ -67,8 +68,8 @@
 	handle_casings = EJECT_CASINGS
 	accuracy = -2
 	accuracy_wielded = 1
-	fire_delay = 18
-	fire_delay_wielded = 18
+	fire_delay = ROF_UNWIELDY
+	fire_delay_wielded = ROF_SUPERHEAVY
 	force = 10
 	recoil = 10
 	recoil_wielded = 5
@@ -98,6 +99,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 	magazine_type = /obj/item/ammo_magazine/c38
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/revolver/detective/verb/rename_gun()
 	set name = "Name Gun"
@@ -131,6 +133,7 @@
 	max_shells = 2
 	ammo_type = /obj/item/ammo_casing/a357
 	magazine_type = null
+	fire_delay = ROF_INTERMEDIATE
 
 /obj/item/gun/projectile/revolver/capgun
 	name = "cap gun"
@@ -175,6 +178,7 @@
 	var/flipped_firing = 0
 	var/list/secondary_loaded = list()
 	var/list/tertiary_loaded = list()
+	fire_delay = ROF_INTERMEDIATE
 
 
 /obj/item/gun/projectile/revolver/lemat/Initialize()
@@ -254,6 +258,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 	magazine_type = null
+	fire_delay = ROF_PISTOL
 
 	desc_extended = "A simple and reliable double action revolver, favored by the nobility, officers and law enforcement. The design is known for having an outdated reloading \
 	mechanism, with the need to manually eject each of the used cartridges, and reload one cartridge at a time through a loading gate. However, their cheap manufacturing cost has \
@@ -274,6 +279,7 @@
 	force = 15
 	sharp = TRUE
 	edge = TRUE
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/revolver/knife/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(default_parry_check(user, attacker, damage_source) && prob(20))

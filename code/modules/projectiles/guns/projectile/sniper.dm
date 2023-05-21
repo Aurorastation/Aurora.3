@@ -110,6 +110,7 @@
 	ammo_type = /obj/item/ammo_casing/slugger
 	magazine_type = null
 	has_scope = FALSE
+	fire_delay = ROF_UNWIELDY
 
 /obj/item/gun/projectile/heavysniper/unathi/update_icon()
 	..()
@@ -200,6 +201,7 @@
 
 	recoil_wielded = 1
 	accuracy_wielded = 1
+	fire_delay = ROF_SUPERHEAVY
 
 /obj/item/gun/projectile/dragunov/update_icon()
 	..()
@@ -253,7 +255,7 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0, fire_delay_wielded=0),
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_SUPERHEAVY, fire_delay_wielded=ROF_HEAVY),
 		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(0,-1,-1), dispersion=list(0, 8))
 		)
 
