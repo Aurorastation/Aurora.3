@@ -26,6 +26,7 @@
 
 /datum/uplink_item/item/telecrystal/all
 	name = "Telecrystals - Empty Uplink"
+	telecrystal_cost = 1
 
 /datum/uplink_item/item/telecrystal/all/telecrystal_cost(var/telecrystals)
 	return max(1, telecrystals)
@@ -55,7 +56,8 @@
 
 /datum/uplink_item/item/bluecrystal/all
 	name = "Bluecrystals - Empty Uplink"
+	bluecrystal_cost = 1
 
-/datum/uplink_item/item/telecrystal/all/bluecrystal_cost(var/bluecrystals)
+/datum/uplink_item/item/bluecrystal/all/bluecrystal_cost(var/bluecrystals)
 	return max(1, bluecrystals)
 

@@ -88,7 +88,10 @@ var/datum/uplink/uplink
 	return 1
 
 /datum/uplink_item/proc/can_buy_telecrystals(obj/item/device/uplink/U)
-	if(!isnull(telecrystal_cost) && (telecrystal_cost(U.telecrystals) > U.telecrystals))
+	if(isnull(telecrystal_cost))
+		return FALSE
+
+	if(telecrystal_cost(U.telecrystals) > U.telecrystals)
 		return FALSE
 
 	if(items_left(U) <= 0)
@@ -97,7 +100,10 @@ var/datum/uplink/uplink
 	return can_view(U)
 
 /datum/uplink_item/proc/can_buy_bluecrystals(obj/item/device/uplink/U)
-	if(!isnull(bluecrystal_cost) && (bluecrystal_cost(U.bluecrystals) > U.bluecrystals))
+	if(isnull(bluecrystal_cost))
+		return FALSE
+
+	if(bluecrystal_cost(U.bluecrystals) > U.bluecrystals)
 		return FALSE
 
 	if(items_left(U) <= 0)
