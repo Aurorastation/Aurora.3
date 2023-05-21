@@ -50,8 +50,6 @@ Class Procs:
 	var/needs_update = 0
 
 	var/list/edges
-	var/list/graphic_add = list()
-	var/list/graphic_remove = list()
 
 	var/datum/gas_mixture/air = new
 
@@ -156,11 +154,11 @@ Class Procs:
 			T.create_fire(vsc.fire_firelevel_multiplier)
 
 	var/world_time_counter = world.time
+	var/list/graphic_add = list()
+	var/list/graphic_remove = list()
 	if(air.check_tile_graphic(graphic_add, graphic_remove))
 		for(var/turf/simulated/T in contents)
 			T.update_graphic(graphic_add, graphic_remove)
-		graphic_add.Cut()
-		graphic_remove.Cut()
 	var/delta_time = world.time - world_time_counter
 	if(delta_time > 5 SECONDS)
 		log_admin("AN AREA IS TAKING EXTREMELY LONG TO UPDATE: [name] WITH CONTENTS LENGTH [length(contents)] TELL MATT WITH THE ROUND ID!")
