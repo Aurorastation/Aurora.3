@@ -6,11 +6,7 @@
 	var/holy = 0
 
 	// Initial air contents (in moles)
-	var/oxygen = 0
-	var/carbon_dioxide = 0
-	var/nitrogen = 0
-	var/phoron = 0
-	var/hydrogen = 0
+	var/list/initial_gas
 
 	//Properties for airtight tiles (/wall)
 	var/thermal_conductivity = 0.05

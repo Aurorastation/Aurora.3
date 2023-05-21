@@ -5,11 +5,14 @@
 	var/stage = 1
 	var/max_stage = 4
 	var/stage_ticker = 0
+	var/recession = 0
 	var/infection_speed = 2 //Will be determined by get_infect_speed()
 	var/infect_speed_high = 35	//The fastest this parasite will advance stages
 	var/infect_speed_low = 15	//The slowest this parasite will advance stages
-	var/stage_interval = 600 //time between stages, in seconds
+	var/stage_interval = 300 //time between stages, in seconds. interval of 300 allows convenient treating with antiparasitics, higher will require spaced dosing of medications.
 	var/subtle = 0 //will the body reject the parasite naturally?
+	var/egg = null //does the parasite have a reagent which seeds an infection?
+	var/drug_resistance = 0 //is the parasite resistant to antiparasitic medications?
 
 /obj/item/organ/internal/parasite/Initialize()
 	. = ..()
@@ -20,17 +23,28 @@
 
 /obj/item/organ/internal/parasite/process()
 	..()
-
 	if(!owner)
 		return
 
-	if(stage < max_stage)
-		stage_ticker += infection_speed 
+	if(owner.chem_effects[CE_ANTIPARASITE] && !drug_resistance)
+		recession = owner.chem_effects[CE_ANTIPARASITE]/10
 
-	if(stage_ticker >= stage*stage_interval)
-		stage = min(stage+1,max_stage)
-		get_infect_speed() //Each stage may progress faster or slower than the previous one
-		stage_effect()
+	if((stage < max_stage) && !recession)
+		stage_ticker = Clamp(stage_ticker+=infection_speed, 0, stage_interval*max_stage)
+		if(stage_ticker >= stage*stage_interval)
+			stage = min(stage+1,max_stage)
+			get_infect_speed() //Each stage may progress faster or slower than the previous one
+			stage_effect()
+
+	if(recession)
+		stage_ticker = Clamp(stage_ticker-=recession, 0, stage_interval*max_stage)
+		if(stage_ticker <= stage*stage_interval-stage_interval)
+			stage = max(stage-1, 1)
+			stage_effect()
+		if(!owner.chem_effects[CE_ANTIPARASITE] || drug_resistance)
+			recession = 0
+		if(stage_ticker == 0)
+			qdel(src)
 
 /obj/item/organ/internal/parasite/handle_rejection()
 	if(subtle)
@@ -57,8 +71,11 @@
 
 	parent_organ = BP_CHEST
 	stage_interval = 150
+	drug_resistance = 1
 
 	origin_tech = list(TECH_BIO = 3)
+
+	egg = /singleton/reagent/kois
 
 /obj/item/organ/internal/parasite/kois/process()
 	..()
@@ -128,7 +145,11 @@
 	parent_organ = BP_HEAD
 	var/removed_langs = 0
 	stage_interval = 150
+	drug_resistance = 1
+
 	origin_tech = list(TECH_BIO = 7)
+
+	egg = /singleton/reagent/kois/black
 
 /obj/item/organ/internal/parasite/blackkois/process()
 	..()
@@ -229,7 +250,10 @@
 	organ_tag = BP_ZOMBIE_PARASITE
 	parent_organ = BP_HEAD
 	stage_interval = 150
+	drug_resistance = 1
 	relative_size = 0
+
+	egg = /singleton/reagent/toxin/trioxin
 
 	var/last_heal = 0
 	var/heal_rate = 5 SECONDS
@@ -320,3 +344,97 @@
 					owner.update_dna()
 				else
 					owner.adjustToxLoss(50)
+
+//Parasitic Worms//
+
+/obj/item/organ/internal/parasite/nerveworm
+	name = "bundle of nerve flukes"
+	icon = 'icons/obj/organs/organs.dmi'
+	icon_state = "helminth"
+	dead_icon = "helminth_dead"
+
+	organ_tag = BP_WORM_NERVE
+	parent_organ = BP_L_ARM //if desperate, can lop your arm off to remove the infection :)
+	subtle = 1
+
+	origin_tech = list(TECH_BIO = 4)
+
+	egg = /singleton/reagent/toxin/nerveworm_eggs
+
+/obj/item/organ/internal/parasite/nerveworm/process()
+	..()
+
+	if (!owner)
+		return
+
+	if(prob(10))
+		owner.adjustNutritionLoss(10)
+
+	if(stage >= 2) //after ~5 minutes
+		owner.confused = max(owner.confused, 10)
+
+	if(stage >= 3) //after ~10 minutes
+		owner.slurring = max(owner.slurring, 100)
+		owner.drowsiness = max(owner.drowsiness, 20)
+		if(prob(1))
+			owner.delayed_vomit()
+		if(prob(2))
+			to_chat(owner, SPAN_WARNING(pick("You feel a tingly sensation in your fingers.", "Is that pins and needles?", "An electric sensation jolts its way up your left arm.", "You smell something funny.", "You taste something funny.")))
+
+	if(stage >= 4) //after ~15 minutes
+		if(prob(2))
+			to_chat(owner, SPAN_WARNING(pick("A deep, tingling sensation paralyses your left arm.", "You feel as if you just struck your funny bone.", "You feel a pulsing sensation within your left arm.")))
+			owner.emote(pick("twitch", "shiver"))
+			owner.stuttering = 20
+		if(prob(1))
+			owner.seizure()
+		if(prob(5))
+			owner.reagents.add_reagent(/singleton/reagent/toxin/nerveworm_eggs, 2)
+			owner.adjustHalLoss(15)
+			to_chat(owner, SPAN_WARNING("An <b>extreme</b>, nauseating pain erupts from deep within your left arm!"))
+
+
+/obj/item/organ/internal/parasite/heartworm
+	name = "bundle of heart flukes"
+	icon = 'icons/obj/organs/organs.dmi'
+	icon_state = "helminth"
+	dead_icon = "helminth_dead"
+
+	organ_tag = BP_WORM_HEART
+	parent_organ = BP_CHEST
+	subtle = 1
+
+	stage_interval = 450 //~7.5 minutes/stage
+
+	origin_tech = list(TECH_BIO = 4)
+
+	egg = /singleton/reagent/toxin/heartworm_eggs
+
+/obj/item/organ/internal/parasite/heartworm/process()
+	..()
+
+	var/obj/item/organ/internal/heart = owner.internal_organs_by_name[BP_HEART]
+
+	if (!owner)
+		return
+
+	if(prob(10))
+		owner.adjustNutritionLoss(10)
+
+	if(stage >= 2) //after ~7.5 minutes
+		if(prob(2))
+			owner.emote("cough")
+
+	if(stage >= 3)  //after ~15 minutes
+		if(prob(7))
+			heart.take_damage(rand(2,5))
+		if(prob(5))
+			to_chat(owner, SPAN_WARNING(pick("Your chest feels tight.", "Your chest is aching.", "You feel a stabbing pain in your chest!", "You feel a painful, tickly sensation within your chest.")))
+			owner.adjustHalLoss(15)
+
+	if(stage >= 4)  //after ~22.5 minutes
+		if(prob(5))
+			owner.reagents.add_reagent(/singleton/reagent/toxin/heartworm_eggs, 2)
+			owner.adjustHalLoss(15)
+			to_chat(owner, SPAN_WARNING("An <b>extreme</b>, nauseating pain erupts from the centre of your chest!"))
+

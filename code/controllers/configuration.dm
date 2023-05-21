@@ -46,7 +46,6 @@ var/list/gamemode_cache = list()
 	var/allow_Metadata = 0				// Metadata is supported.
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
 	var/Ticklag = 0.4
-	var/Tickcomp = 0
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
 	var/antag_hud_restricted = 0                    // Ghosts that turn on Antagovision cannot rejoin the round.
 	var/list/mode_names = list()
@@ -681,9 +680,6 @@ var/list/gamemode_cache = list()
 					config.antag_hud_allowed = 1
 				if("antag_hud_restricted")
 					config.antag_hud_restricted = 1
-
-				if("tickcomp")
-					Tickcomp = 1
 
 				if("ipc_timelock_active")
 					ipc_timelock_active = TRUE

@@ -1506,8 +1506,8 @@
 "aIh" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/teapot{
-	pixel_y = 7;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 7
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/wing/starboard)
@@ -3917,12 +3917,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "bOA" = (
 /obj/structure/cable/green{
@@ -4538,12 +4533,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "caB" = (
 /obj/structure/table/standard,
@@ -11688,6 +11678,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
+"fMQ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/white,
+/area/horizon/kitchen)
 "fNc" = (
 /obj/machinery/power/tesla_beacon,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -12785,12 +12780,7 @@
 /obj/machinery/alarm/server{
 	pixel_y = 28
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "gma" = (
 /obj/machinery/camera/network/research{
@@ -16185,12 +16175,12 @@
 /area/horizon/security/armoury)
 "hLJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 4
+	},
 /obj/machinery/vending/dinnerware{
 	density = 0;
 	pixel_y = 24
-	},
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
@@ -19311,6 +19301,8 @@
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/pill_bottle/dermaline,
 /obj/item/storage/pill_bottle/bicaridine,
+/obj/item/reagent_containers/syringe/antiparasitic,
+/obj/item/reagent_containers/syringe/antiparasitic,
 /obj/item/reagent_containers/glass/bottle/antitoxin,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
@@ -23170,12 +23162,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "lmz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -24361,15 +24348,13 @@
 /area/horizon/crew_quarters/lounge/bar)
 "lSH" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/smartfridge/foodheater{
-	opacity = 1
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "shutters_deck2_smartheater";
 	name = "SmartHeater Shutter"
 	},
+/obj/machinery/smartfridge/foodheater,
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "lSK" = (
@@ -25533,12 +25518,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "mvc" = (
 /obj/structure/cable{
@@ -32342,12 +32322,7 @@
 	pump_direction = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "pMT" = (
 /obj/effect/floor_decal/corner/lime{
@@ -32484,8 +32459,8 @@
 "pQq" = (
 /obj/structure/table/wood,
 /obj/item/flame/candle{
-	pixel_y = 3;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 3
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -48484,6 +48459,12 @@
 /obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = 8;
 	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/sprinkles{
+	pixel_x = -3
+	},
+/obj/item/reagent_containers/food/condiment/shaker/sprinkles{
+	pixel_x = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
@@ -71946,7 +71927,7 @@ cWf
 dvw
 hUW
 lSH
-upP
+fMQ
 hLJ
 cUR
 rxC

@@ -458,8 +458,7 @@
 	initial_flooring = /singleton/flooring/shuttle/dark_blue
 
 /turf/simulated/floor/shuttle/dark_blue/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/shuttle/advanced
 	icon_state = "advanced_plating"
@@ -475,16 +474,14 @@
 	footstep_sound = /singleton/sound_category/sand_footstep
 
 /turf/simulated/floor/shuttle/skrell/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/shuttle/skrell/blue
 	icon_state = "skrell_blue"
 	initial_flooring = /singleton/flooring/shuttle/skrell/blue
 
 /turf/simulated/floor/shuttle/skrell/blue/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/shuttle/skrell/ramp
 	name = "footramp"
@@ -503,8 +500,7 @@
 	icon_state = "roof_white"
 	smooth = SMOOTH_DIAGONAL|SMOOTH_TRUE
 	smooth_underlays = TRUE
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	roof_type = null
 	permit_ao = 0
 	canSmoothWith = list(

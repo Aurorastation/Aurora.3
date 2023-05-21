@@ -52,6 +52,7 @@
 
 // /mob signals
 #define COMSIG_MOB_FACEDIR "mob_facedir"
+#define COMSIG_MOB_POINT "mob_point"
 #define COMSIG_MOB_ZONE_SEL_CHANGE "mob_zone_sel_change"
 
 // /obj signals
