@@ -427,11 +427,12 @@
 					var/obj/item/device/uplink/hidden/suplink = find_syndicate_uplink()
 					var/crystals
 					if (suplink)
-						crystals = suplink.uses
-					crystals = input("Amount of telecrystals for [key]","Operative uplink", crystals) as null|num
+						crystals = suplink.telecrystals + suplink.bluecrystals
+					crystals = input("Amount of telecrystals and bluecrystals for [key]","Operative uplink", crystals) as null|num
 					if (!isnull(crystals))
 						if (suplink)
-							suplink.uses = crystals
+							suplink.telecrystals = crystals
+							suplink.bluecrystals = crystals
 
 	else if (href_list["obj_announce"])
 		var/obj_count = 1

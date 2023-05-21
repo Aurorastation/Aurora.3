@@ -69,8 +69,8 @@
 /datum/uplink_category/corporate_equipment
 	name = "Corporate Equipment"
 
-/datum/uplink_category/telecrystals
-	name = "Telecrystals"
+/datum/uplink_category/crystals
+	name = "Crystals"
 
 /datum/uplink_category/specialty //snowflake antag items - a brave new frontier!
 	name = "Specialised Items"

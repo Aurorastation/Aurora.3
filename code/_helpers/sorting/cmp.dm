@@ -49,7 +49,7 @@
 	return sorttext(b.last_name, a.last_name)
 
 /proc/cmp_uplink_item(datum/uplink_item/a, datum/uplink_item/b)
-	return b.cost(INFINITY) - a.cost(INFINITY)
+	return b.telecrystal_cost(INFINITY) - a.telecrystal_cost(INFINITY)
 
 /proc/cmp_access(datum/access/a, datum/access/b)
 	return sorttext("[b.access_type][b.desc]", "[a.access_type][a.desc]")
