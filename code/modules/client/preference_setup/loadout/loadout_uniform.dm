@@ -296,6 +296,13 @@
 	flags = GEAR_HAS_DESC_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
+/datum/gear/uniform/turtleneck
+	display_name = "vysokan temperwear"
+	description = "A loose outfit of thinned and shredded ohdker fur."
+	path = /obj/item/clothing/under/vysoka
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
+
 /datum/gear/uniform/elyra_holo
 	display_name = "elyran holographic suit selection"
 	description = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Persepolis clothes respectively."

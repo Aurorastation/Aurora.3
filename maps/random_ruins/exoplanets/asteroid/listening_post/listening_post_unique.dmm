@@ -285,23 +285,20 @@
 "aQ" = (
 /obj/effect/decal/remains/rat,
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "aR" = (
 /obj/random/powercell,
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "aT" = (
 /obj/item/bluespace_crystal,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "aU" = (
@@ -338,15 +335,13 @@
 /obj/machinery/constructable_frame/temp_deco,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "ba" = (
 /obj/item/bluespace_crystal,
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "bb" = (
@@ -387,8 +382,7 @@
 	},
 /obj/item/trash/syndi_cakes,
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "bh" = (
@@ -396,15 +390,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "bi" = (
 /obj/item/stock_parts/scanning_module/adv,
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "bj" = (
@@ -431,23 +423,20 @@
 "bm" = (
 /obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "bn" = (
 /obj/effect/decal/remains/robot,
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "bo" = (
 /obj/item/stock_parts/capacitor/adv,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "bp" = (
@@ -461,24 +450,21 @@
 "br" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "bs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "bt" = (
 /obj/item/circuitboard/telecomms/broadcaster,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "bu" = (
@@ -514,8 +500,7 @@
 /area/template_noop)
 "bA" = (
 /turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "bB" = (
