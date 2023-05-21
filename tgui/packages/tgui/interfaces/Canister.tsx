@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Section, Box, ProgressBar, Knob, Button } from '../components';
+import { Section, Box, ProgressBar, Knob, Button, BlockQuote } from '../components';
 import { Window } from '../layouts';
 import { BooleanLike } from '../../common/react';
 
@@ -40,14 +40,17 @@ export const Canister = (props, context) => {
             )
           }>
           <Box>
-            <b>Tank Label:</b> {data.name}
+            <b>Tank Label:</b>
           </Box>
+          <BlockQuote>{data.name}</BlockQuote>
           <Box>
-            <b>Tank Pressure:</b> {data.tankPressure} kPa
+            <b>Tank Pressure:</b>
           </Box>
+          <BlockQuote>{data.tankPressure} kPa</BlockQuote>
           <Box>
-            <b>Port Status:</b> {port_string}
+            <b>Port Status:</b>
           </Box>
+          <BlockQuote>{port_string}</BlockQuote>
         </Section>
         <Section
           title="Holding Tank Status"
@@ -124,11 +127,13 @@ export const HoldingTankWindow = (props, context) => {
   return (
     <Section>
       <Box>
-        <b>Tank Label:</b> {data.holdingTank.name}
+        <b>Tank Label:</b>
       </Box>
+      <BlockQuote>{data.holdingTank.name}</BlockQuote>
       <Box>
-        <b>Tank Pressure:</b> {data.holdingTank.tankPressure} kPa
+        <b>Tank Pressure:</b>
       </Box>
+      <BlockQuote>{data.holdingTank.tankPressure} kPa</BlockQuote>
     </Section>
   );
 };

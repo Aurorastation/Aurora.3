@@ -350,7 +350,7 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Canister", "Canister", 480, 400)
+		ui = new(user, src, "Canister", "Canister", 480, 500)
 		ui.open()
 
 /obj/machinery/portable_atmospherics/canister/ui_data(mob/user)
