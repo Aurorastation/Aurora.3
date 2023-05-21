@@ -398,7 +398,10 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	icon_state = "radio"
 	flags = CONDUCT
 	w_class = ITEMSIZE_SMALL
-	var/starting_telecrystals // how much telecrystals the uplink should spawn with, defaults to default amount if not set
+	 // Amount of starting telecrystals. Defaults to default amount if not set.
+	var/starting_telecrystals
+	/// Amount of starting bluecrystals, used to buy support/medical/gimmick items. Defaults to default amount if not set.
+	var/starting_bluecrystals
 
 /obj/item/device/special_uplink/New(var/loc, var/mind)
 	..()
@@ -407,6 +410,10 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		hidden_uplink.uses = DEFAULT_TELECRYSTAL_AMOUNT
 	else
 		hidden_uplink.uses = starting_telecrystals
+	if(!starting_bluecrystals)
+		hidden_uplink.bluecrystals = DEFAULT_BLUECRYSTAL_AMOUNT
+	else
+		hidden_uplink.bluecrystals = DEFAULT_BLUECRYSTAL_AMOUNT
 	hidden_uplink.nanoui_menu = 1
 
 /obj/item/device/special_uplink/attack_self(mob/user as mob)
