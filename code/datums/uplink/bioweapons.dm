@@ -30,6 +30,7 @@
 	name = "Radiation Suit"
 	desc = "A kit containing a radiation suit. Complete with a geiger counter and one anti-radiation tablet."
 	telecrystal_cost = 1
+	bluecrystal_cost = 1
 	path = /obj/item/storage/box/syndie_kit/radsuit
 
 /datum/uplink_item/item/bioweapons/dirtybomb
@@ -42,4 +43,5 @@
 	name = "Syringe Gun Kit"
 	desc = "A kit containing a syringe gun and 3 disassembled darts. Fill a syringe, add it to a dart, then load into the rifle."
 	telecrystal_cost = 3
+	bluecrystal_cost = 3
 	path = /obj/item/storage/box/syndie_kit/syringe_gun

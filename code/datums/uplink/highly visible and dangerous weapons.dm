@@ -7,6 +7,7 @@
 /datum/uplink_item/item/visible_weapons/dartgun
 	name = "Dart Gun"
 	telecrystal_cost = 3
+	bluecrystal_cost = 3
 	path = /obj/item/gun/projectile/dartgun
 
 /datum/uplink_item/item/visible_weapons/crossbow

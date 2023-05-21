@@ -11,6 +11,7 @@
 	max_amount = 50
 	flags = NOBLUDGEON
 	origin_tech = list(TECH_MATERIAL = 6, TECH_BLUESPACE = 4)
+	icon_has_variants = TRUE
 	var/crystal_type = CRYSTAL_TYPE_TELECRYSTAL
 
 /obj/item/stack/telecrystal/five/Initialize()

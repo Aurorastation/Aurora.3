@@ -19,6 +19,7 @@
 /datum/uplink_item/item/grenades/smoke
 	name = "5xSmoke Grenades"
 	telecrystal_cost = 1
+	bluecrystal_cost = 1
 	path = /obj/item/storage/box/smokes
 	desc = "A box of five grenades that deploy smoke in the thrown area. Targets hidden in smoke are much harder to hit with ranged weaponry."
 
