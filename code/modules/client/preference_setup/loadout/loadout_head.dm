@@ -368,9 +368,43 @@
 	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
 
 /datum/gear/head/vysoka
-	display_name = "vysokan fur cap"
-	path = /obj/item/clothing/head/softcap/vysoka
+	display_name = "vysokan fur cap selection"
+	description = "A fur hat from Vysoka made of authentic ohdker fur."
+	path = /obj/item/clothing/head/vysoka
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
+
+/datum/gear/head/vysoka/New()
+	..()
+	var/list/vysoka = list()
+	vysoka["fur cap"] = /obj/item/clothing/head/vysoka
+	vysoka["fur cap, purple"] = /obj/item/clothing/head/vysoka/purple
+	vysoka["fur cap, blue"] = /obj/item/clothing/head/vysoka/blue
+	vysoka["fur cap, red"] = /obj/item/clothing/head/vysoka/red
+	gear_tweaks += new /datum/gear_tweak/path(vysoka)
+
+/datum/gear/head/joku
+	display_name = "vysokan joku cap"
+	description = "A warm-looking expensive cap made from fine, dyed dalakyhr fur."
+	path = /obj/item/clothing/head/vysoka/joku
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
+
+/datum/gear/head/joku/New()
+	..()
+	var/list/joku = list()
+	joku["fancy cap"] = /obj/item/clothing/head/vysoka/joku
+	joku["fancy cap, purple"] = /obj/item/clothing/head/vysoka/joku/purple
+	joku["fancy cap, blue"] = /obj/item/clothing/head/vysoka/joku/blue
+	joku["fancy cap, red"] = /obj/item/clothing/head/vysoka/joku/red
+	gear_tweaks += new /datum/gear_tweak/path(joku)
+
+/datum/gear/head/dainshu
+	display_name = "vysokan dainshu feather"
+	description = "The feather of a Vysokan dainshu, a domesticated flying beast."
+	path = /obj/item/clothing/head/pin/dainshu
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
 
 /datum/gear/head/buckethat
 	display_name = "bucket hat"

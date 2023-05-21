@@ -646,6 +646,16 @@
 	)
 	return _prg_list
 
+/datum/modular_computer_app_presets/merchant/guild/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/merchant/guild(comp)
+	)
+	return _prg_list
+
 /datum/modular_computer_app_presets/ai
 	name = "ai"
 	display_name = "AI"

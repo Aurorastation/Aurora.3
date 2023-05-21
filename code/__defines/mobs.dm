@@ -140,8 +140,10 @@
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
 
-// Zombie organ
+// Parasite organs
 #define BP_ZOMBIE_PARASITE "black tumour"
+#define BP_WORM_HEART "heart fluke"
+#define BP_WORM_NERVE "nerve fluke"
 
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"

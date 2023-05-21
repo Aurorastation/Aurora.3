@@ -5859,3 +5859,43 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("pickled lettuce" = 4))
 	bitesize = 2
 	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/hummus
+	name = "hummus"
+	desc = "A tasty spread made from chickpeas and sesame seed paste."
+	icon_state = "hummus"
+	filling_color = "#F1DA96"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("smooth chickpeas" = 4, "garlic" = 1))
+	bitesize = 3
+	trash = /obj/item/trash/snack_bowl
+
+/obj/item/reagent_containers/food/snacks/fairy_bread
+	name = "fairy bread"
+	desc = "A piece of bread covered in sprinkles. Absolutely delicious!"
+	icon_state = "fairy_bread"
+	item_state = "toast"
+	slot_flags = SLOT_MASK
+	contained_sprite = TRUE
+	filling_color = "#FEFECC"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/bagel
+	name = "bagel"
+	desc = "Goes great with cream cheese and smoked salmon."
+	icon_state = "bagel"
+	filling_color = "#F1B45E"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("toasty dough" = 2))
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/chana_masala
+	name = "chana masala"
+	desc = "Curried chickpeas on rice."
+	icon_state = "chana_masala"
+	filling_color = "#C97F02"
+	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/nutriment/rice = 10, /singleton/reagent/spacespice = 2, /singleton/reagent/capsaicin = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("spicy chickpeas" = 4))
+	bitesize = 2
+	trash = /obj/item/trash/plate
