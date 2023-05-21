@@ -53,6 +53,23 @@
 /datum/computer_file/program/ui_host()
 	return computer.ui_host()
 
+/datum/computer_file/program/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
+	if(tgui_id) // we shouldn't use ui_interact on TGUI programs; see [code/modules/modular_computers/computers/modular_computer/ui.dm]
+		stack_trace("Computer program tgUI [src] with tgui_id [tgui_id] called ui_interact on program datum")
+	if(computer)
+		. = computer.ui_interact(user, ui)
+
+/datum/computer_file/program/update_static_data(mob/user, datum/tgui/ui)
+	. = ..()
+	if(computer)
+		. = computer.update_static_data(user, ui)
+
+/datum/computer_file/program/update_static_data_for_all_viewers()
+	. = ..()
+	if(computer)
+		. = computer.update_static_data_for_all_viewers()
+
 /datum/computer_file/program/clone(var/rename = FALSE, var/computer)
 	var/datum/computer_file/program/temp = ..(rename, computer)
 	temp.required_access_run = required_access_run
