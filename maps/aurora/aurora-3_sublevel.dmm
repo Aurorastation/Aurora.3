@@ -1342,11 +1342,7 @@
 	pump_direction = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced{
-	name = "vacuum floor";
-	nitrogen = 0.01;
-	oxygen = 0.01
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "adr" = (
 /obj/structure/grille,
@@ -1757,11 +1753,7 @@
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/reinforced{
-	name = "vacuum floor";
-	nitrogen = 0.01;
-	oxygen = 0.01
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "aeg" = (
 /obj/machinery/door/firedoor,
@@ -2019,11 +2011,7 @@
 	pixel_y = 1;
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced{
-	name = "vacuum floor";
-	nitrogen = 0.01;
-	oxygen = 0.01
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "aeQ" = (
 /obj/machinery/door/firedoor,

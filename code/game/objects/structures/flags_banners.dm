@@ -30,7 +30,7 @@
 	var/icon/rolled_outline
 	var/unmovable = FALSE
 
-/obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy)
+/obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy, var/icon_file)
 	. = ..()
 	dir = newdir
 	if(!deploy)
@@ -46,7 +46,7 @@
 	if(linked_flag_path)
 		icon_state = "[linked_flag_path]_r"
 		ripped_outline_state = "flag_ripped_r"
-		flag_icon = new(icon, icon_state, dir)
+		flag_icon = new(icon_file, icon_state, dir)
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag_r", dir)
 		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
 		icon = flag_icon
@@ -57,8 +57,8 @@
 		flag_icon = new(icon, icon_state, dir)
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag_l", dir)
 		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
+		var/obj/structure/sign/flag/F2 = new(loc, dir, linked_flag_path = flag_path, icon_file = icon)
 		icon = flag_icon
-		var/obj/structure/sign/flag/F2 = new(loc, dir, linked_flag_path = flag_path)
 		linked_flag = F2
 		switch(F2.dir)
 			if(NORTH)
@@ -81,10 +81,16 @@
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag")
 		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
 		var/turf/T = get_step(loc, dir)
-		if(!iswall(T))
-			banner_icon = new('icons/obj/structure/flags.dmi', "banner_stand")
-			flag_icon.Blend(banner_icon, ICON_UNDERLAY)
-			verbs += /obj/structure/sign/flag/proc/toggle
+		if(iswall(T))
+			icon = flag_icon
+			return
+		for(var/obj/A in T)
+			if(istype(A, /obj/structure/window))
+				icon = flag_icon
+				return
+		banner_icon = new('icons/obj/structure/flags.dmi', "banner_stand")
+		flag_icon.Blend(banner_icon, ICON_UNDERLAY)
+		verbs += /obj/structure/sign/flag/proc/toggle
 		icon = flag_icon
 
 /obj/item/flag/attack_self(mob/user)
@@ -493,6 +499,7 @@
 	name = "\improper Co-operative Territories of Epsilon Ursae Minoris Flag"
 	desc = "The flag of the CT-EUM."
 	icon_state = "cteum"
+	flag_path = "cteum"
 	flag_item = /obj/item/flag/cteum
 
 // Nanotrasen.
@@ -1282,7 +1289,7 @@
 	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
 	desc_extended = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
 	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
-	these variant flags before the League's reunification. The black and brown represent the plant itself, while the red-and-gold sun represents that the people of the plant are still alive and burning with a desire to never again fall."
+	these variant flags before the League's reunification. The black and brown represent the planet itself, while the red-and-gold sun represents that the people of the planet are still alive and burning with a desire to never again fall."
 	flag_path = "gadpathur"
 	flag_structure = /obj/structure/sign/flag/gadpathur
 
@@ -1292,7 +1299,7 @@
 	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
 	desc_extended = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
 	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
-	these variant flags before the League's reunification. The black and brown represent the plant itself, while the red-and-gold sun represents that the people of the plant are still alive and burning with a desire to never again fall."
+	these variant flags before the League's reunification. The black and brown represent the planet itself, while the red-and-gold sun represents that the people of the planet are still alive and burning with a desire to never again fall."
 	flag_path = "gadpathur"
 	icon_state = "gadpathur"
 	flag_item = /obj/item/flag/gadpathur
@@ -1441,6 +1448,31 @@
 /obj/structure/sign/flag/izharshan/unmovable
 	unmovable = TRUE
 
+//Tarwa Conglomerate
+
+/obj/item/flag/tarwa
+	name = "\improper Tarwa Conglomerate flag"
+	desc = "The black, white and green flag of the Tarwa Conglomerate, depicting an Unathi skeleton with a diona gestalt growing within it. This flag is rarely seen within civilised space, and only \
+	occasionally mentioned in spacer tales, speaking of a 'fleet of the living dead'."
+	desc_extended = "The Tarwa Conglomerate's banner was, according to legend, designed by Tarskin Tarwa himself, once a brilliant scientist at the Skalamar University of Medicine. When he was expelled \
+	for his experiments on 'Sinta-Diona compatibility', he took to the stars as a pirate. The Conglomerate's ships are rare sightings in civilised space, clinging to the edges of the known Spur. Little is known \
+	of this enigmatic pirate fleet, but every now and then a tale will be heard of wrecked ships moving again, crewed by the living dead..."
+	flag_path = "tarwa"
+	flag_structure = /obj/structure/sign/flag/tarwa
+
+/obj/structure/sign/flag/tarwa
+	name = "\improper Tarwa Conglomerate Flag"
+	desc = "The black, white and green flag of the Tarwa Conglomerate, depicting an Unathi skeleton with a diona gestalt growing within it. This flag is rarely seen within civilised space, and only \
+	occasionally mentioned in spacer tales, speaking of a 'fleet of the living dead'."
+	desc_extended = "The Tarwa Conglomerate's banner was, according to legend, designed by Tarskin Tarwa himself, once a brilliant scientist at the Skalamar University of Medicine. When he was expelled \
+	for his experiments on 'Sinta-Diona compatibility', he took to the stars as a pirate. The Conglomerate's ships are rare sightings in civilised space, clinging to the edges of the known Spur. Little is known \
+	of this enigmatic pirate fleet, but every now and then a tale will be heard of wrecked ships moving again, crewed by the living dead..."
+	flag_path = "tarwa"
+	icon_state = "tarwa"
+	flag_item = /obj/item/flag/tarwa
+
+/obj/structure/sign/flag/tarwa/unmovable
+	unmovable = TRUE
 // Visegrad
 
 /obj/item/flag/visegrad

@@ -305,9 +305,6 @@ ALLOW_HOLIDAYS
 ##Defines the ticklag for the world.  0.33 (30 FPS) is the normal one, though you can go as low as 0.2 (50 FPS) for low-load servers.
 TICKLAG 0.33
 
-## Defines if Tick Compensation is used.  It results in a minor slowdown of movement of all mobs, but attempts to result in a level movement speed across all ticks.
-#TICKCOMP
-
 ## Uncomment this to activate the five day from character creation timelock on modifying IPC tags
 #IPC_TIMELOCK_ACTIVE
 

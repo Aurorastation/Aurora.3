@@ -27,6 +27,7 @@
 	special_role = "Adhomian Circus Crew"
 
 	respawn_flag = null
+	uses_species_whitelist = FALSE
 
 /datum/outfit/admin/adhomian_circus/crew
 	name = "Adhomian Circus Crew"
@@ -145,7 +146,7 @@
 
 	assigned_role = "Adhomian Circus Clown"
 	special_role = "Adhomian Circus Clown"
-
+	uses_species_whitelist = TRUE
 
 /datum/outfit/admin/adhomian_circus/clown
 	name = "Adhomian Circus Clown"
