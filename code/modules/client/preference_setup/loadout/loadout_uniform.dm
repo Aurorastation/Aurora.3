@@ -296,7 +296,7 @@
 	flags = GEAR_HAS_DESC_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
-/datum/gear/uniform/turtleneck
+/datum/gear/uniform/vysoka
 	display_name = "vysokan temperwear"
 	description = "A loose outfit of thinned and shredded ohdker fur."
 	path = /obj/item/clothing/under/vysoka

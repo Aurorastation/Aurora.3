@@ -1,0 +1,6 @@
+author: kyres1
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed tactical turtlenecks not being an option anymore in the loadout."
