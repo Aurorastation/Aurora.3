@@ -292,6 +292,7 @@ FLOOR SAFES
 	new /obj/random/highvalue/safe(src)
 	new /obj/random/highvalue/safe(src)
 	new /obj/random/highvalue/safe(src)
+	new /obj/random/highvalue/safe(src)
 
 /obj/structure/safe/cash
 	name = "credit safe"
