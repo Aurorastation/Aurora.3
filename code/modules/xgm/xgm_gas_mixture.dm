@@ -360,7 +360,7 @@
 			//Overlay isn't applied for this gas, check if it's valid and needs to be added.
 			if(gas[g] > gas_data.overlay_limit[g])
 				if(!(gas_data.tile_overlay[g] in graphic))
-					LAZYDADD(graphic_add, gas_data.tile_overlay[g])
+					LAZYADD(graphic_add, gas_data.tile_overlay[g])
 
 	. = 0
 	//Apply changes
