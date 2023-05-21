@@ -1,3 +1,6 @@
+#define CRYSTAL_TYPE_TELECRYSTAL "telecrystal"
+#define CRYSTAL_TYPE_BLUECRYSTAL "bluecrystal"
+
 /obj/item/stack/telecrystal
 	name = "telecrystal"
 	desc = "It seems to be pulsing with suspiciously enticing energies."
@@ -8,7 +11,7 @@
 	max_amount = 50
 	flags = NOBLUDGEON
 	origin_tech = list(TECH_MATERIAL = 6, TECH_BLUESPACE = 4)
-	var/crystal_type = "telecrystal"
+	var/crystal_type = CRYSTAL_TYPE_TELECRYSTAL
 
 /obj/item/stack/telecrystal/five/Initialize()
 	. = ..()
@@ -30,9 +33,9 @@
 		return
 	if(istype(I, /obj/item))
 		if(I.hidden_uplink && I.hidden_uplink.active) //No metagaming by using this on every PDA around just to see if it gets used up.
-			if(type == "telecrystal")
+			if(crystal_type == CRYSTAL_TYPE_TELECRYSTAL)
 				I.hidden_uplink.telecrystals += amount
-			else if(crystal_type == "bluecrystal")
+			else if(crystal_type == CRYSTAL_TYPE_BLUECRYSTAL)
 				I.hidden_uplink.bluecrystals += amount
 			I.hidden_uplink.update_nano_data()
 			SSnanoui.update_uis(I.hidden_uplink)
@@ -43,7 +46,7 @@
 	name = "bluecrystal"
 	singular_name = "bluecrystal"
 	icon_state = "bluecrystal"
-	crystal_type = "bluecrystal"
+	crystal_type = CRYSTAL_TYPE_BLUECRYSTAL
 
 /obj/item/stack/telecrystal/blue/five/Initialize()
 	. = ..()
@@ -59,3 +62,6 @@
 	. = ..()
 	amount = 50
 	update_icon()
+
+#undef CRYSTAL_TYPE_TELECRYSTAL
+#undef CRYSTAL_TYPE_BLUECRYSTAL
