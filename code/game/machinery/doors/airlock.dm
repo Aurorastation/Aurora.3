@@ -107,6 +107,7 @@
 
 	var/fill_file = 'icons/obj/doors/station/fill_steel.dmi'
 	var/color_file = 'icons/obj/doors/station/color.dmi'
+	var/frame_color_file = 'icons/obj/doors/station/color.dmi'
 	var/color_fill_file = 'icons/obj/doors/station/fill_color.dmi'
 	var/stripe_file = 'icons/obj/doors/station/stripe.dmi'
 	var/stripe_fill_file = 'icons/obj/doors/station/fill_stripe.dmi'
@@ -128,6 +129,8 @@
 	var/paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	/// Color. The color of the main door body.
 	var/door_color = null
+	/// Frame color. The color of the door frame connecting it to walls if applicable.
+	var/door_frame_color = null
 	/// Color. The color of the stripe detail.
 	var/stripe_color = null
 	/// Color. The color of the symbol detail.
@@ -234,12 +237,14 @@
 //new airlocks dont fucking delete it this time dingus
 /obj/machinery/door/airlock/generic // the start
 	icon = 'icons/obj/doors/basic/single/generic/door.dmi'
-	door_color = "#909299"
+	door_color = "#909299"//The color of the door itself
+	door_frame_color = "#545c68"//The color of the frame that surrounds the door connecting its sprite to walls
 	pixel_x = -16
 	pixel_y = -7
 	assembly_type = /obj/structure/door_assembly/door_assembly_generic
 	fill_file = 'icons/obj/doors/basic/single/generic/fill_steel.dmi'
 	color_file = 'icons/obj/doors/basic/single/generic/color.dmi'
+	frame_color_file = 'icons/obj/doors/basic/single/generic/frame_color.dmi'
 	color_fill_file = 'icons/obj/doors/basic/single/generic/fill_color.dmi'
 	stripe_file = 'icons/obj/doors/basic/single/generic/stripe.dmi'
 	stripe_fill_file = 'icons/obj/doors/basic/single/generic/fill_stripe.dmi'
@@ -253,7 +258,7 @@
 	welded_file = 'icons/obj/doors/basic/single/generic/welded.dmi'
 	emag_file = 'icons/obj/doors/basic/single/generic/emag.dmi'
 
-/obj/machinery/door/airlock/generic/glass
+/obj/machinery/door/airlock/generic_glass
 	icon_state = "preview_glass"
 	glass = 1
 
@@ -262,8 +267,10 @@
 	door_color = "#516487"
 	stripe_color = "#ffc443"
 
-/obj/machinery/door/airlock/generic/command/glass
+/obj/machinery/door/airlock/generic/command_glass
 	icon_state = "preview_glass"
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#516487"
 	glass = 1
 
 /obj/machinery/door/airlock/generic/engineering
@@ -271,8 +278,10 @@
 	door_color = "#caa638"
 	stripe_color = "#ff7f43"
 
-/obj/machinery/door/airlock/generic/engineering/glass
+/obj/machinery/door/airlock/generic/engineering_glass
 	icon_state = "preview_glass"
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#caa638"
 	glass = 1
 
 /obj/machinery/door/airlock/generic/maintenance
@@ -284,14 +293,11 @@
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#6f8751"
 
-/obj/machinery/door/airlock/generic/service/glass
+/obj/machinery/door/airlock/generic/service_glass
 	icon_state = "preview_glass"
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#6f8751"
 	glass = 1
-
-/obj/machinery/door/airlock/service // Service Airlock
-	icon = 'icons/obj/doors/doorser.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_ser
-	hatch_colour = "#6f8751"
 
 /obj/machinery/door/airlock/service // Service Airlock
 	icon = 'icons/obj/doors/doorser.dmi'
@@ -984,6 +990,7 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/set_airlock_overlays(state, force_compile)
 	var/icon/color_overlay
+	var/icon/frame_color_overlay
 	var/icon/filling_overlay
 	var/icon/stripe_overlay
 	var/icon/stripe_filling_overlay
@@ -996,7 +1003,14 @@ About the new airlock wires panel:
 
 	set_light(0)
 
-	if(door_color && !(door_color == "none"))
+	if(door_frame_color && !(door_frame_color == "none"))//frame
+		var/ikey = "[airlock_type]-[door_frame_color]-color"
+		frame_color_overlay = SSicon_cache.airlock_icon_cache["[ikey]"]
+		if(!frame_color_overlay)
+			frame_color_overlay = new(frame_color_file)
+			frame_color_overlay.Blend(door_frame_color, ICON_MULTIPLY)
+			SSicon_cache.airlock_icon_cache["[ikey]"] = frame_color_overlay
+	if(door_color && !(door_color == "none"))//door itself
 		var/ikey = "[airlock_type]-[door_color]-color"
 		color_overlay = SSicon_cache.airlock_icon_cache["[ikey]"]
 		if(!color_overlay)
@@ -1076,10 +1090,11 @@ About the new airlock wires panel:
 
 	cut_overlays()
 
-	add_overlay(color_overlay)
+	add_overlay(frame_color_overlay)
 	add_overlay(filling_overlay)
 	add_overlay(stripe_overlay)
 	add_overlay(stripe_filling_overlay)
+	add_overlay(color_overlay)
 	add_overlay(panel_overlay)
 	add_overlay(weld_overlay)
 	add_overlay(brace_overlay)

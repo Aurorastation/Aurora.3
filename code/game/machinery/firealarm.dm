@@ -263,15 +263,15 @@
 
 /obj/machinery/firealarm/east
 	dir = EAST
-	pixel_x = 18
+	pixel_x = 10
 
 /obj/machinery/firealarm/west
 	dir = WEST
-	pixel_x = -18
+	pixel_x = -10
 
 /obj/machinery/firealarm/south
 	dir = SOUTH
-	pixel_y = -18
+	pixel_y = -6
 
 /*
 FIRE ALARM CIRCUIT

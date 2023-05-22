@@ -237,7 +237,7 @@
 		set_dir(ndir)
 
 	pixel_x = DIR2PIXEL_X(dir)
-	pixel_y = DIR2PIXEL_Y(dir)
+	pixel_y = DIR2PIXEL_Y_APC(dir)
 
 	if (!building)
 		init(mapload)
