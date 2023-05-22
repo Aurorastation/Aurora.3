@@ -31,7 +31,7 @@
 	sizeclass = "Modified Azkrazal-class cargo freighter"
 	shiptype = "Unknown"
 	initial_restricted_waypoints = list(
-		"Tarwa Shuttle" = list()
+		"Tarwa Conglomerate Shuttle" = list("nav_hangar_tarwa")
 	)
 	initial_generic_waypoints = list(
 		"nav_tarwa1",
