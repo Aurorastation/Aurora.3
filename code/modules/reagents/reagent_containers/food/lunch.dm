@@ -14,7 +14,10 @@ var/list/lunchables_lunches_ = list(
 	/obj/item/reagent_containers/food/snacks/funnelcake,
 	/obj/item/reagent_containers/food/snacks/hotdog,
 	/obj/item/reagent_containers/food/snacks/tajaran_bread,
-	/obj/item/reagent_containers/food/snacks/soup/earthenroot
+	/obj/item/reagent_containers/food/snacks/soup/earthenroot,
+	/obj/item/reagent_containers/food/snacks/redcurry,
+	/obj/item/reagent_containers/food/snacks/greencurry,
+	/obj/item/reagent_containers/food/snacks/yellowcurry
 )
 
 var/list/lunchables_snacks_ = list(
