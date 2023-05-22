@@ -140,3 +140,36 @@
 /obj/structure/window_frame/empty
 	should_check_mapload = FALSE // No glass.
 
+/obj/structure/window_frame/shuttle
+	icon = 'icons/obj/smooth/window/shuttle_window_dark_frame.dmi'
+	color = null
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle,
+		/turf/simulated/wall/shuttle/cardinal,
+		/turf/simulated/wall/shuttle/dark,
+		/turf/simulated/wall/shuttle/dark/cardinal,
+		/obj/structure/window_frame/shuttle,
+		/obj/machinery/door
+	)
+
+	can_blend_with = list(
+		/turf/simulated/wall/shuttle,
+		/turf/simulated/wall/shuttle/cardinal,
+		/obj/machinery/door
+	)
+
+/obj/structure/window_frame/shuttle/merc
+	color = "#8b7d86"
+
+/obj/structure/window_frame/shuttle/khaki
+	color = "#ac8b78"
+
+/obj/structure/window_frame/shuttle/purple
+	color = "#7846b1"
+
+/obj/structure/window_frame/shuttle/red
+	color = "#c24f4f"
+
+/obj/structure/window_frame/shuttle/blue
+	color = "#6176a1"

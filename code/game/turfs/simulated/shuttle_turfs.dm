@@ -28,8 +28,24 @@
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/dark,
-		/obj/structure/shuttle_part/dark
+		/obj/structure/shuttle_part/dark,
+		/obj/structure/window_frame/shuttle
 	)
+
+/turf/simulated/wall/shuttle/dark/cardinal/merc
+	color = "#8b7d86"
+
+/turf/simulated/wall/shuttle/dark/cardinal/khaki
+	color = "#ac8b78"
+
+/turf/simulated/wall/shuttle/dark/cardinal/purple
+	color = "#7846b1"
+
+/turf/simulated/wall/shuttle/dark/cardinal/red
+	color = "#c24f4f"
+
+/turf/simulated/wall/shuttle/dark/cardinal/blue
+	color = "#6176a1"
 
 /turf/simulated/wall/shuttle/dark/long_diagonal_2
 	name = "test diagonal"

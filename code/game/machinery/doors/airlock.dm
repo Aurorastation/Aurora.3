@@ -264,8 +264,14 @@
 
 /obj/machinery/door/airlock/generic/command
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#516487"
+	door_color = "#353c4b"
 	stripe_color = "#ffc443"
+
+/obj/machinery/door/airlock/generic/military
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#364664"
+	stripe_color = "#ff4343"
+	door_frame_color = "#613e3e"
 
 /obj/machinery/door/airlock/generic/command_glass
 	icon_state = "preview_glass"

@@ -66,6 +66,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/construction/solarscontrol)
+"cJ" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/antag/mercenary)
 "dv" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -273,6 +276,12 @@
 	},
 /turf/simulated/floor,
 /area/construction/supplyshuttle)
+"mH" = (
+/obj/structure/grille/over/large,
+/obj/structure/window/full/reinforced/shuttle/black,
+/obj/structure/window_frame/shuttle/red,
+/turf/simulated/floor,
+/area/antag/mercenary)
 "mX" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/construction/hallway)
@@ -293,6 +302,12 @@
 "nA" = (
 /turf/template_noop,
 /area/template_noop)
+"nO" = (
+/obj/structure/grille/over/large,
+/obj/structure/window/full/reinforced/shuttle,
+/obj/structure/window_frame/shuttle/merc,
+/turf/simulated/floor,
+/area/antag/mercenary)
 "nP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -437,6 +452,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"tY" = (
+/turf/simulated/wall/shuttle/dark/cardinal/red,
+/area/antag/mercenary)
 "tZ" = (
 /turf/simulated/wall,
 /area/construction/hallway)
@@ -455,6 +473,10 @@
 	},
 /turf/simulated/floor/wood/coloured/birch,
 /area/construction/storage)
+"wo" = (
+/obj/machinery/door/airlock/generic/military,
+/turf/simulated/floor,
+/area/antag/mercenary)
 "wx" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -513,11 +535,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/construction/solarscontrol)
 "yN" = (
-/obj/effect/landmark{
-	name = "Observer-Start"
-	},
-/turf/simulated/floor/tiled,
-/area/construction/hallway)
+/obj/structure/window/full/reinforced/shuttle/red,
+/obj/structure/grille/over/large,
+/obj/structure/window_frame/shuttle/khaki,
+/turf/simulated/floor,
+/area/antag/mercenary)
 "yO" = (
 /obj/structure/table/wood,
 /obj/item/folder/sec,
@@ -535,6 +557,12 @@
 	},
 /turf/simulated/floor/wood/coloured/bamboo,
 /area/construction/qmaint)
+"zO" = (
+/obj/structure/grille/over/large,
+/obj/structure/window/full/reinforced/shuttle/green,
+/obj/structure/window_frame/shuttle/purple,
+/turf/simulated/floor,
+/area/antag/mercenary)
 "AC" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -553,6 +581,9 @@
 "Bc" = (
 /turf/simulated/floor/airless,
 /area/template_noop)
+"Bd" = (
+/turf/simulated/floor,
+/area/antag/mercenary)
 "Bv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood/coloured/birch,
@@ -584,6 +615,9 @@
 /obj/machinery/door/airlock/generic/engineering_glass,
 /turf/simulated/floor/tiled/full,
 /area/construction/hallway)
+"CJ" = (
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/antag/mercenary)
 "CW" = (
 /obj/machinery/door/airlock/generic/command,
 /obj/structure/cable{
@@ -692,6 +726,9 @@
 /obj/structure/grille/over/large,
 /turf/simulated/floor/tiled/full,
 /area/construction/supplyshuttle)
+"IO" = (
+/turf/simulated/wall/shuttle/dark/cardinal/purple,
+/area/antag/mercenary)
 "IS" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -706,6 +743,15 @@
 	},
 /turf/simulated/floor/wood/coloured/birch,
 /area/construction/storage)
+"JH" = (
+/obj/effect/landmark{
+	name = "Observer-Start"
+	},
+/turf/simulated/floor,
+/area/antag/mercenary)
+"Km" = (
+/turf/simulated/wall/shuttle/dark/cardinal/merc,
+/area/antag/mercenary)
 "Kx" = (
 /obj/machinery/door/airlock/generic/service_glass{
 	dir = 4
@@ -726,6 +772,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"KZ" = (
+/obj/structure/bed/stool/chair/padded/red,
+/turf/simulated/floor/tiled/dark,
+/area/antag/mercenary)
 "Lz" = (
 /obj/machinery/camera/network{
 	pixel_y = 18
@@ -773,6 +823,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"NM" = (
+/obj/structure/grille/over/large,
+/obj/structure/window/full/reinforced/shuttle,
+/obj/structure/window_frame/shuttle/blue,
+/turf/simulated/floor,
+/area/antag/mercenary)
 "NW" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -801,6 +857,9 @@
 "Pz" = (
 /turf/simulated/wall/r_wall,
 /area/construction/hallway)
+"PK" = (
+/turf/simulated/floor/tiled/dark,
+/area/antag/mercenary)
 "PQ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -26457,7 +26516,7 @@ hf
 MI
 RL
 hf
-yN
+ZT
 ZT
 tZ
 ZT
@@ -29545,15 +29604,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+cJ
+cJ
+cJ
+cJ
+cJ
+NM
+NM
+NM
+NM
 pz
 pz
 pz
@@ -29802,15 +29861,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+cJ
+JH
+cJ
+PK
+PK
+PK
+PK
+PK
+NM
 pz
 pz
 pz
@@ -30059,15 +30118,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+cJ
+Bd
+wo
+PK
+PK
+PK
+KZ
+PK
+NM
 pz
 pz
 pz
@@ -30316,15 +30375,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+cJ
+Bd
+cJ
+PK
+PK
+PK
+PK
+PK
+NM
 pz
 pz
 pz
@@ -30573,15 +30632,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+cJ
+cJ
+cJ
+cJ
+cJ
+NM
+NM
+NM
+NM
 pz
 pz
 pz
@@ -31087,15 +31146,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+IO
+IO
+IO
+IO
+IO
+zO
+zO
+zO
+zO
 pz
 pz
 pz
@@ -31344,15 +31403,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+IO
+Bd
+IO
+PK
+PK
+PK
+PK
+PK
+zO
 pz
 pz
 pz
@@ -31601,15 +31660,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+IO
+Bd
+wo
+PK
+PK
+PK
+KZ
+PK
+zO
 pz
 pz
 pz
@@ -31858,15 +31917,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+IO
+Bd
+IO
+PK
+PK
+PK
+PK
+PK
+zO
 pz
 pz
 pz
@@ -32115,15 +32174,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+IO
+IO
+IO
+IO
+IO
+zO
+zO
+zO
+zO
 pz
 pz
 pz
@@ -32629,15 +32688,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+CJ
+CJ
+CJ
+CJ
+CJ
+yN
+yN
+yN
+yN
 pz
 pz
 pz
@@ -32886,15 +32945,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+CJ
+Bd
+CJ
+PK
+PK
+PK
+PK
+PK
+yN
 pz
 pz
 pz
@@ -33143,15 +33202,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+CJ
+Bd
+wo
+PK
+PK
+PK
+KZ
+PK
+yN
 pz
 pz
 pz
@@ -33400,15 +33459,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+CJ
+Bd
+CJ
+PK
+PK
+PK
+PK
+PK
+yN
 pz
 pz
 pz
@@ -33657,15 +33716,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+CJ
+CJ
+CJ
+CJ
+CJ
+yN
+yN
+yN
+yN
 pz
 pz
 pz
@@ -34171,15 +34230,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+tY
+tY
+tY
+tY
+tY
+mH
+mH
+mH
+mH
 pz
 pz
 pz
@@ -34428,15 +34487,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+tY
+Bd
+tY
+PK
+PK
+PK
+PK
+PK
+mH
 pz
 pz
 pz
@@ -34685,15 +34744,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+tY
+Bd
+wo
+PK
+PK
+PK
+KZ
+PK
+mH
 pz
 pz
 pz
@@ -34942,15 +35001,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+tY
+Bd
+tY
+PK
+PK
+PK
+PK
+PK
+mH
 pz
 pz
 pz
@@ -35199,15 +35258,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+tY
+tY
+tY
+tY
+tY
+mH
+mH
+mH
+mH
 pz
 pz
 pz
@@ -35713,15 +35772,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Km
+Km
+Km
+Km
+Km
+nO
+nO
+nO
+nO
 pz
 pz
 pz
@@ -35970,15 +36029,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Km
+Bd
+Km
+PK
+PK
+PK
+PK
+PK
+nO
 pz
 pz
 pz
@@ -36227,15 +36286,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Km
+Bd
+wo
+PK
+PK
+PK
+KZ
+PK
+nO
 pz
 pz
 pz
@@ -36484,15 +36543,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Km
+Bd
+Km
+PK
+PK
+PK
+PK
+PK
+nO
 pz
 pz
 pz
@@ -36741,15 +36800,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Km
+Km
+Km
+Km
+Km
+nO
+nO
+nO
+nO
 pz
 pz
 pz

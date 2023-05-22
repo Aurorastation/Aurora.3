@@ -857,6 +857,22 @@
 /obj/structure/window/full/reinforced/polarized/indestructible/shatter()
 	return
 
+//Shuttle exterior window
+/obj/structure/window/full/reinforced/shuttle
+	icon = 'icons/obj/smooth/window/shuttle_window_dark.dmi'
+	color = "#006eff"
+	icon_state = "window_glass"
+	basestate = "window_glass"
+
+/obj/structure/window/full/reinforced/shuttle/red
+	color = "#ff0000"
+
+/obj/structure/window/full/reinforced/shuttle/green
+	color = "#00ff40"
+
+/obj/structure/window/full/reinforced/shuttle/black
+	color = "#150b41"
+
 // Borosilicate Window (I.e. Phoron Window)
 /obj/structure/window/full/phoron
 	name = "borosilicate window"
