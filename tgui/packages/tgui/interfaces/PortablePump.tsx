@@ -6,7 +6,7 @@ import { Window } from '../layouts';
 export type PumpData = {
   portConnected: BooleanLike;
   tankPressure: number;
-  targetPressure: number;
+  targetpressure: number;
   pump_dir: BooleanLike;
   minpressure: number;
   maxpressure: number;
@@ -30,13 +30,38 @@ export const PortablePump = (props, context) => {
   return (
     <Window resizable>
       <Window.Content scrollable>
-        <Section title="Pump Status">
-          <Box bold>Tank Pressure: </Box>
-          {data.tankPressure}
-          <Box bold>Port Status: </Box>{' '}
-          {data.portConnected ? 'Connected ' : 'Disconnected'}
-          <Box bold>Power Draw: </Box> {data.powerDraw} W
-          <Box bold>Cell Charge: </Box>
+        <Section
+          title="Pump Status"
+          buttons={
+            <>
+              <Button
+                content={data.on ? 'On' : 'Off'}
+                icon={data.on ? 'power-off' : 'times'}
+                color={!data.on && 'danger'}
+                onClick={() => act('power')}
+              />
+              <Button
+                content={data.pump_dir ? 'Out' : 'In'}
+                icon={data.pump_dir ? 'arrow-up' : 'arrow-down'}
+                onClick={() => act('direction')}
+              />
+            </>
+          }>
+          <Box>
+            <b>Tank Pressure: </b>
+            {data.tankPressure} kPa
+          </Box>
+          <Box>
+            <b>Port Status: </b>
+            {data.portConnected ? 'Connected ' : 'Disconnected'}
+          </Box>
+          <Box>
+            <b>Power Draw: </b>
+            {data.powerDraw} W
+          </Box>
+          <Box>
+            <b>Cell Charge: </b>
+          </Box>
           <ProgressBar
             ranges={{
               good: [data.cellMaxCharge * 0.8, data.cellMaxCharge],
@@ -45,6 +70,7 @@ export const PortablePump = (props, context) => {
             }}
             value={data.cellCharge}
             minValue={0}
+            maxValue={data.cellMaxCharge}
           />
         </Section>
         <Section
@@ -72,20 +98,19 @@ export const PortablePump = (props, context) => {
               average: [data.maxpressure * 0.4, data.maxpressure * 0.8],
               bad: [0, data.maxpressure * 0.4],
             }}
-            value={data.targetPressure}
+            value={data.targetpressure}
             minValue={data.minpressure}
+            maxValue={data.maxpressure}
           />
           <Knob
             size={1.25}
-            value={data.targetPressure}
+            value={data.targetpressure}
             unit="kPa"
             minValue={data.minpressure}
             maxValue={data.maxpressure}
-            step={5}
-            stepPixelSize={1}
             onDrag={(e, value) =>
               act('pressure_set', {
-                pressure: value,
+                pressure_set: value,
               })
             }
           />
