@@ -12,8 +12,7 @@
 	initial_flooring = /singleton/flooring/carpet/blue
 
 /turf/simulated/floor/carpet/blue/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/carpet/rubber
 	name = "rubber carpet"
@@ -71,6 +70,11 @@
 	name = "cooled mainframe floor"
 	temperature = 278
 
+/turf/simulated/floor/bluegrid/server
+	name = "cooled mainframe floor"
+	temperature = 80
+	initial_gas = list("nitrogen" = MOLES_CELLSTANDARD) //one atmosphere of nitrogen
+
 /turf/simulated/floor/greengrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
@@ -86,8 +90,7 @@
 	footstep_sound = /singleton/sound_category/wood_footstep
 
 /turf/simulated/floor/wood/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/wood/coloured
 	icon_state = "woodcolour"
@@ -145,8 +148,7 @@
 
 /turf/simulated/floor/tiled/full/airless
 	name = "airless full steel tile"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/reinforced
 	name = "reinforced floor"
@@ -160,56 +162,38 @@
 	temperature = 278
 
 /turf/simulated/floor/reinforced/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 	roof_type = null
 
 /turf/simulated/floor/reinforced/airmix
-	oxygen = MOLES_O2ATMOS
-	nitrogen = MOLES_N2ATMOS
+	initial_gas = list("oxygen" = MOLES_O2ATMOS, "nitrogen" = MOLES_N2ATMOS)
 
 /turf/simulated/floor/reinforced/nitrogen
-	oxygen = 0
-	nitrogen = ATMOSTANK_NITROGEN
+	initial_gas = list("nitrogen" = ATMOSTANK_NITROGEN)
 
 // Reinforced Reactor Flooring
 /turf/simulated/floor/reinforced/reactor
 	name = "reinforced reactor floor"
-	oxygen = 0
-	nitrogen = MOLES_CELLSTANDARD // One atmosphere of nitrogen.
+	initial_gas = list("nitrogen" = MOLES_CELLSTANDARD) // One atmosphere of nitrogen.
 
 /turf/simulated/floor/reinforced/oxygen
-	oxygen = ATMOSTANK_OXYGEN
-	nitrogen = 0
+	initial_gas = list("oxygen" = ATMOSTANK_OXYGEN)
 
 /turf/simulated/floor/reinforced/phoron
-	oxygen = 0
-	nitrogen = 0
-	phoron = ATMOSTANK_PHORON
+	initial_gas = list("phoron" = ATMOSTANK_PHORON)
 
 /turf/simulated/floor/reinforced/phoron/scarce
-	phoron = ATMOSTANK_PHORON_SCARCE
+	initial_gas = list("phoron" = ATMOSTANK_PHORON_SCARCE)
 
 /turf/simulated/floor/reinforced/carbon_dioxide
-	oxygen = 0
-	nitrogen = 0
-	carbon_dioxide = ATMOSTANK_CO2
+	initial_gas = list("carbon_dioxide" = ATMOSTANK_CO2)
 
 /turf/simulated/floor/reinforced/n20
-	oxygen = 0
-	nitrogen = 0
-
-/turf/simulated/floor/reinforced/n20/Initialize()
-	. = ..()
-	if(!air)
-		make_air()
-	air.adjust_gas(GAS_N2O, ATMOSTANK_NITROUSOXIDE)
+	initial_gas = list("sleeping_agent" = ATMOSTANK_NITROUSOXIDE)
 
 /turf/simulated/floor/reinforced/hydrogen
-	oxygen = 0
-	nitrogen = 0
-	hydrogen = ATMOSTANK_HYDROGEN
+	initial_gas = list("hydrogen" = ATMOSTANK_HYDROGEN)
 
 /turf/simulated/floor/cult
 	name = "engraved floor"
@@ -231,8 +215,7 @@
 	temperature = 278
 
 /turf/simulated/floor/tiled/dark/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/tiled/dark/full
 	name = "full plasteel tile"
@@ -241,8 +224,7 @@
 
 /turf/simulated/floor/tiled/dark/full/airless
 	name = "airless full plasteel tile"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/tiled/red
 	name = "red floor"
@@ -257,8 +239,7 @@
 	initial_flooring = /singleton/flooring/tiling/steel
 
 /turf/simulated/floor/tiled/steel/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	roof_type = null
 
 /turf/simulated/floor/tiled/old
@@ -285,8 +266,7 @@
 	initial_flooring = /singleton/flooring/tiling/asteroid
 
 /turf/simulated/floor/tiled/asteroid/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	roof_type = null
 
 /turf/simulated/floor/plating/cooled
@@ -338,15 +318,13 @@
 //ATMOS PREMADES
 /turf/simulated/floor/reinforced/airless
 	name = "vacuum floor"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 	roof_type = null
 
 /turf/simulated/floor/airless
 	name = "airless plating"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 	footstep_sound = /singleton/sound_category/plating_footstep
 
@@ -354,29 +332,25 @@
 
 /turf/simulated/floor/tiled/airless
 	name = "airless floor"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 
 /turf/simulated/floor/bluegrid/airless
 	name = "airless floor"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 
 /turf/simulated/floor/greengrid/airless
 	name = "airless floor"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 
 /turf/simulated/floor/greengrid/nitrogen
-	oxygen = 0
+	initial_gas = list("nitrogen" = MOLES_N2STANDARD)
 
 /turf/simulated/floor/tiled/white/airless
 	name = "airless floor"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 
 // Placeholders

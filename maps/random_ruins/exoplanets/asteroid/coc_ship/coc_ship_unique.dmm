@@ -551,10 +551,7 @@
 	icon_state = "11,16";
 	name = "skipjack cockpit"
 	},
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/space,
 /area/template_noop)
 "lP" = (
 /obj/structure/shuttle_part/raider{
@@ -1042,10 +1039,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /mob/living/simple_animal/carp/baby,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating/asteroid{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "vQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -1128,10 +1122,7 @@
 "xj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating/asteroid{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "xL" = (
 /obj/structure/shuttle_part/raider{
@@ -1865,10 +1856,7 @@
 "XI" = (
 /obj/structure/girder,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating/asteroid{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "XY" = (
 /obj/item/material/shard/shrapnel,
