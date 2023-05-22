@@ -431,7 +431,7 @@ var/list/slot_equipment_priority = list( \
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))
-			if(prob((itemsize * itemsize * 10) * MOB_MEDIUM/src.mob_size)) // 10% chance with a tiny item, 90% with normal, guaranteed above
+			if(prob((itemsize * itemsize * 20) * MOB_MEDIUM/src.mob_size)) // 20% chance with a tiny item, 40% with small, guaranteed above
 				src.inertia_dir = get_dir(target, src)
 				step(src, inertia_dir)
 		if(istype(item,/obj/item))
