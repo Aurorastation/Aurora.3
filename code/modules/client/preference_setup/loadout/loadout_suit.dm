@@ -6,7 +6,7 @@
 	sort_category = "Suits and Overwear"
 	cost = 1
 
-datum/gear/suit/colorvest
+/datum/gear/suit/colorvest
 	display_name = "colorable vest"
 	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -404,14 +404,28 @@ datum/gear/suit/colorvest
 	display_name = "chokha selection"
 	description = "A selection of Vysokan chokhas."
 	path = /obj/item/clothing/suit/storage/vysoka
-	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
 
 /datum/gear/suit/vysoka/New()
 	..()
 	var/list/coat = list()
 	coat["feminine chokha"] = /obj/item/clothing/suit/storage/vysoka/f
+	coat["feminine chokha, purple"] = /obj/item/clothing/suit/storage/vysoka/f/purple
+	coat["feminine chokha, blue"] = /obj/item/clothing/suit/storage/vysoka/f/blue
+	coat["feminine chokha, red"] = /obj/item/clothing/suit/storage/vysoka/f/red
 	coat["masculine chokha"] = /obj/item/clothing/suit/storage/vysoka
+	coat["masculine chokha, purple"] = /obj/item/clothing/suit/storage/vysoka/purple
+	coat["masculine chokha, blue"] = /obj/item/clothing/suit/storage/vysoka/blue
+	coat["masculine chokha, red"] = /obj/item/clothing/suit/storage/vysoka/red
+	coat["heavy feminine chokha"] = /obj/item/clothing/suit/storage/vysoka/f/winter
+	coat["heavy feminine chokha, purple"] = /obj/item/clothing/suit/storage/vysoka/f/winter/purple
+	coat["heavy feminine chokha, blue"] = /obj/item/clothing/suit/storage/vysoka/f/winter/blue
+	coat["heavy feminine chokha, red"] = /obj/item/clothing/suit/storage/vysoka/f/winter/red
+	coat["heavy masculine chokha"] = /obj/item/clothing/suit/storage/vysoka/winter
+	coat["heavy masculine chokha, purple"] = /obj/item/clothing/suit/storage/vysoka/winter/purple
+	coat["heavy masculine chokha, blue"] = /obj/item/clothing/suit/storage/vysoka/winter/blue
+	coat["heavy masculine chokha, red"] = /obj/item/clothing/suit/storage/vysoka/winter/red
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/submariner
@@ -434,6 +448,9 @@ datum/gear/suit/colorvest
 	konyangcoat["red konyanger jumpjacket"] = /obj/item/clothing/suit/storage/toggle/konyang/pants
 	konyangcoat["orange konyanger jumpjacket"] = /obj/item/clothing/suit/storage/toggle/konyang/orange
 	konyangcoat["blue konyanger jumpjacket"] = /obj/item/clothing/suit/storage/toggle/konyang/blue
+	konyangcoat["biege double-breasted Konyanger jacket"] = /obj/item/clothing/suit/storage/toggle/konyang/dbjacket
+	konyangcoat["black double-breasted Konyanger jacket"] = /obj/item/clothing/suit/storage/toggle/konyang/dbjacket/black
+	konyangcoat["blue double-breasted Konyanger jacket"] = /obj/item/clothing/suit/storage/toggle/konyang/dbjacket/blue
 	gear_tweaks += new /datum/gear_tweak/path(konyangcoat)
 
 /datum/gear/suit/gadpathur

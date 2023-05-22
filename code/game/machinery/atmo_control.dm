@@ -78,7 +78,7 @@
 	. = ..()
 	set_frequency(frequency)
 
-obj/machinery/air_sensor/Destroy()
+/obj/machinery/air_sensor/Destroy()
 	if(SSradio)
 		SSradio.remove_object(src,frequency)
 	return ..()
@@ -97,7 +97,7 @@ obj/machinery/air_sensor/Destroy()
 	var/datum/radio_frequency/radio_connection
 	circuit = /obj/item/circuitboard/air_management
 
-obj/machinery/computer/general_air_control/Destroy()
+/obj/machinery/computer/general_air_control/Destroy()
 	if(SSradio)
 		SSradio.remove_object(src, frequency)
 	return ..()

@@ -894,7 +894,7 @@ BLIND     // can't see anything
 	icon_state = "aviator_sec_idris"
 	off_state = "aviator_sec_idris_off"
 
-obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	name = "security HUD visor"
 	desc = "NanoTrasen security visor glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "visor_sec"

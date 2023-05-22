@@ -120,13 +120,7 @@
 /turf/template_noop,
 /area/template_noop)
 "abc" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 32;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -523,14 +517,7 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "avs" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -1;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 31;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor,
@@ -1764,7 +1751,7 @@
 	},
 /area/centcom/spawning)
 "aQm" = (
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -1852,7 +1839,7 @@
 /area/shuttle/arrival)
 "aTW" = (
 /obj/machinery/igniter,
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor,
 /area/tdome)
 "aTX" = (
@@ -2498,9 +2485,6 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/administration)
 "byi" = (
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_y = 30
-	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
@@ -3126,9 +3110,7 @@
 	pixel_x = -2;
 	pixel_y = 7
 	},
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -5113,9 +5095,6 @@
 /area/centcom/specops)
 "eUc" = (
 /obj/structure/table/reinforced/wood,
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_y = 30
-	},
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	pixel_x = -8;
 	pixel_y = 7
@@ -6229,7 +6208,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "goO" = (
@@ -9759,9 +9738,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "kIY" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
@@ -12539,14 +12516,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "ouV" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/item/deck/cards,
 /obj/structure/table/steel,
 /turf/unsimulated/floor{
@@ -13965,14 +13935,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/sign/flag/biesel/right{
-	pixel_x = 16;
-	pixel_y = 29
-	},
-/obj/structure/sign/flag/biesel/left{
-	pixel_x = -16;
-	pixel_y = 29
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "qzr" = (
@@ -17102,14 +17065,7 @@
 /turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "wgf" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -17902,7 +17858,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "xfN" = (
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},

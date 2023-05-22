@@ -236,9 +236,7 @@
 	},
 /area/pra_satellite)
 "du" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -463,9 +461,6 @@
 	},
 /area/pra_satellite)
 "hM" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -758,10 +753,6 @@
 /area/pra_satellite)
 "pc" = (
 /obj/structure/bed/stool/chair/sofa/right,
-/obj/structure/sign/flag/pra/right{
-	dir = 8;
-	pixel_x = -32
-	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -1053,9 +1044,6 @@
 	},
 /area/pra_satellite)
 "wU" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
-	},
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
@@ -1085,9 +1073,7 @@
 	},
 /area/pra_satellite)
 "yE" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
@@ -1410,10 +1396,7 @@
 	},
 /area/pra_satellite)
 "HQ" = (
-/obj/structure/sign/flag/pra/left{
-	dir = 8;
-	pixel_x = -32
-	},
+/obj/structure/sign/flag/pra/large/west,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -1428,9 +1411,6 @@
 	},
 /area/pra_satellite)
 "Jy" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -1567,9 +1547,7 @@
 	},
 /area/pra_satellite)
 "PQ" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},

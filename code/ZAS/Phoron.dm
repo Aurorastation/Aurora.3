@@ -169,7 +169,7 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	if(gloves) gloves.contaminate()
 
 
-turf/Entered(atom/movable/thing, turf/oldLoc)
+/turf/Entered(atom/movable/thing, turf/oldLoc)
 	. = ..(thing, oldLoc)
 	//Items that are in phoron, but not on a mob, can still be contaminated.
 	var/obj/item/I = thing

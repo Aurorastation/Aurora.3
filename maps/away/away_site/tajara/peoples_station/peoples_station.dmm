@@ -1,9 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ab" = (
 /obj/machinery/light,
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -192,9 +189,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -411,9 +406,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -775,9 +768,6 @@
 /obj/item/book/manual/pra_manifesto,
 /obj/item/ammo_magazine/a50,
 /obj/item/ammo_magazine/a50,
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/wood,
 /area/peoples_station/commissar_quarters)
 "dC" = (
@@ -981,9 +971,7 @@
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/heavy_vehicle/premade/ripley/loader,
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1169,9 +1157,7 @@
 	},
 /area/peoples_station/robotics_bay)
 "fb" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -2835,9 +2821,7 @@
 	},
 /area/shuttle/fang/engine)
 "md" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
 	icon_state = "corner_white"
@@ -3078,9 +3062,6 @@
 "nk" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 5
-	},
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4480,9 +4461,7 @@
 /area/peoples_station)
 "tu" = (
 /obj/machinery/light,
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -4673,9 +4652,7 @@
 	},
 /area/peoples_station/defenses)
 "uz" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -5207,9 +5184,6 @@
 	},
 /area/peoples_station/robotics_bay)
 "xu" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
 	icon_state = "corner_white"
@@ -5931,9 +5905,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -6492,9 +6463,7 @@
 	},
 /area/peoples_station/solars)
 "Dl" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra,
@@ -7086,9 +7055,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
@@ -7442,9 +7408,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
@@ -7891,9 +7855,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8234,10 +8195,6 @@
 /area/peoples_station/defenses)
 "LV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/sign/flag/pra/right{
-	pixel_x = 32;
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9210,9 +9167,6 @@
 	},
 /area/peoples_station)
 "Qg" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -9236,10 +9190,7 @@
 /area/peoples_station/ammo_storage)
 "Qj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/sign/flag/pra/left{
-	dir = 4;
-	pixel_x = 32
-	},
+/obj/structure/sign/flag/pra/large/east,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9363,9 +9314,7 @@
 	},
 /area/shuttle/fang/bridge)
 "QX" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9752,9 +9701,6 @@
 	},
 /area/peoples_station/fang)
 "SJ" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -9895,9 +9841,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -10561,9 +10505,6 @@
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/captain_quarters)
 "Wl" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -10721,9 +10662,6 @@
 "WY" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical,
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

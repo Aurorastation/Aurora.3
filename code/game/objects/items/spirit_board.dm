@@ -74,3 +74,9 @@
 		return 0
 
 	return 1
+
+
+/obj/item/spirit_board/tajara
+	name = "ghostly board"
+	desc = "An adhomian ghostly board, used in divination rituals. This one is blue and has the symbol of a moon on it."
+	icon_state = "tajara_board"
