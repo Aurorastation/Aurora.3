@@ -134,6 +134,7 @@
 	deform = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
 	default_language = LANGUAGE_GIBBERING
 	language = LANGUAGE_VAURCA
+	species_height = HEIGHT_NOT_USED
 	icon_x_offset = -8
 	unarmed_types = list(/datum/unarmed_attack/claws/cleave, /datum/unarmed_attack/bite/strong)
 	rarity_value = 10
