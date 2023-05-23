@@ -131,7 +131,7 @@
 /singleton/origin_item/origin/harrnrr
 	name = "Peninsula of Harr'nrr"
 	desc = "Settled in the very beginning of the Colonization Age and the Suns Wars, the Peninsula of Harr'nrr is a venerable section of the continent. Its largest city, Baltor, was the first settlement to be constructed on Harr'masir. During the Second Revolution, the population initially supported the Republic in its war effort. But the introduction of the PRA draft in 2458 led to mass protests in the cities and towns. When those protests were suppressed by the PSIS, support for other factions rose and the NKA and ALA began to compete for influence. Today, Baltor is a cultural centre of the NKA with its traditional artisans, artists, and filmographers gaining immense popularity across the nation. The Harr'nrri themselves are considered a more pacifistic and arts-inclined people, with a heavy emphasis on respect towards their fathers and faith."
-	possible_accents = list(ACCENT_HARRNRRI)
+	possible_accents = list(ACCENT_HARRNRRI, ACCENT_NEWYASSA)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
 
