@@ -612,6 +612,9 @@
 	nutriment_factor = 1
 	color = "#FF00FF"
 	taste_description = "sweetness"
+	condiment_name = "bottle of sprinkles"
+	condiment_icon_state = "sprinklesbottle"
+	condiment_center_of_mass = list("x"=16, "y"=10)
 
 /singleton/reagent/nutriment/mint
 	name = "Mint"
@@ -664,6 +667,11 @@
 	condiment_name = "garlic sauce"
 	condiment_desc = "Perfect for repelling vampires and/or potential dates."
 	condiment_icon_state = "garlic_sauce"
+
+/singleton/reagent/nutriment/garlicsauce/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_ANTIPARASITE, 10)
 
 /singleton/reagent/nutriment/mayonnaise
 	name = "Mayonnaise"
@@ -1213,6 +1221,11 @@
 	glass_desc = "Who would even drink juice from garlic?"
 
 	germ_adjust = 7.5 // has allicin, an antibiotic
+
+/singleton/reagent/drink/garlicjuice/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_ANTIPARASITE, 10)
 
 /singleton/reagent/drink/onionjuice
 	name = "Onion Juice"

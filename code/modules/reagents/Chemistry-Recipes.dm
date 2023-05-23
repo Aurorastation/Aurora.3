@@ -389,6 +389,13 @@
 	required_reagents = list(/singleton/reagent/thetamycin = 2, /singleton/reagent/sterilizine = 1, /singleton/reagent/radium = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/antiparasitic
+	name = "Helmizole"
+	id = "helmizole"
+	result = /singleton/reagent/antiparasitic
+	required_reagents = list(/singleton/reagent/dylovene = 1, /singleton/reagent/fluvectionem = 1, /singleton/reagent/leporazine = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/cetahydramine
 	name = "Cetahydramine"
 	id = "cetahydramine"
