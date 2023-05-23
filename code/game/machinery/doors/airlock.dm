@@ -902,6 +902,7 @@ About the new airlock wires panel:
 	data["lights"] = lights
 	data["safeties"] = safe
 	data["timing"] = normalspeed
+	data["wtime"] = world.time
 
 	var/antag = player_is_antag(user.mind)
 	var/isAdmin = isobserver(user) && check_rights(R_ADMIN, FALSE, user)
