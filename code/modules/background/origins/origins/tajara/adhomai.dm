@@ -121,7 +121,7 @@
 /singleton/origin_item/origin/kaltir
 	name = "Old Kaltir"
 	desc = "Stretching from Nusinsk, up the imthus, and towards the northern borders of the New Kingdom are the lands referred to as Old Kaltir. As the name implies, these lands were ruled by the Azjuna line before the First Revolution and the collapse of the Kingdom of Kaltir. This is the homeland of the most loyal of the NKA. Previously devastated in the First Revolution and once again during the Second Revolution, Old Kaltir is steadily rebuilding itself post-armistice. Life in the villages continues on as always, but the trappings of modern corporate life slowly creep in thanks to increasing megacorporation presence in the New Kingdom."
-	possible_accents = list(ACCENT_HIGHHARRSIIK)
+	possible_accents = list(ACCENT_HIGHHARRSIIK, ACCENT_NEWYASSA)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
 
