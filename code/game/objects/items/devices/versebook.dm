@@ -112,8 +112,20 @@
 	desc_extended "Variations of this tome have been published for centuries, in one form or another, often changing to deal with recent developments for the Unathi people. This variation looks to have been published \
 	fairly recently, and examining it shows several verses speaking on matters such as the new rise of the Aut'akh and Si'akh faiths."
 	icon_state = "book3"
-	item_state = "book3
+	item_state = "book3"
 
 /obj/item/device/versebook/skakh/Initialize()
 	. = ..()
 	randomquip = file2list("ingame_manuals/skakh.txt")
+
+/obj/item/device/versebook/thakh
+	name = "\improper Sk'akh Legends"
+	desc = ""
+	desc_extended ""
+	icon_state = "holybook"
+	item_state = "holybook"
+
+/obj/item/device/versebook/thakh/Initialize()
+	. = ..()
+	randomquip = file2list("ingame_manuals/thakh.txt")
+
