@@ -81,3 +81,15 @@
 /obj/item/device/versebook/trinary/Initialize()
 	. = ..()
 	randomquip = file2list("ingame_manuals/trinary.txt")
+
+/obj/item/device/versebook/siakh
+	name = "\improper Writings of Judizah Si'akh"
+	desc = "A collection of musings, commands and theological discussions, copied many times over from the alleged words of the controversi lprophet Judizah Si'akh himself."
+	desc_extended = "As close to a 'holy text' as the Si'akh faith has, this book can be found across Moghes and rarely beyond, despite efforts of the nobility to stamp out the firebrand religion. It lays down the \
+	commandments and philosophies that a follower of Si'akh must live by, in the hope of redeeming themselves and their world from damnation."
+	icon_state = "holybook"
+	item_state = "book1"
+
+/obj/item/device/versebook/siakh/Initialize()
+	. = ..()
+	randomquip = file2list("ingame_manuals/siakh.txt")
