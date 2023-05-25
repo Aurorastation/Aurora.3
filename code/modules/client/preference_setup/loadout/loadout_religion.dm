@@ -72,7 +72,7 @@
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
 	slot = slot_w_uniform
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/robe/New()
 	..()
@@ -86,7 +86,7 @@
 	description = "A selection of modified berets belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
 	slot= slot_head
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/beret/New()
 	..()
@@ -101,7 +101,7 @@
 	description = "A selection of capes and outerwear worn by the Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
 	slot = slot_wear_suit
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/cape/New()
 	..()
@@ -130,14 +130,14 @@
 	display_name = "tribunal necklace"
 	path = /obj/item/clothing/accessory/dominia
 	slot = slot_tie
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/medical
 	display_name = "tribunalist medical beret"
 	path = /obj/item/clothing/head/beret/dominia/medical
 	slot = slot_head
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/shaman_staff
 	display_name = "shaman staff"
@@ -150,7 +150,7 @@
 	path = /obj/item/clothing/under/dominia/priest/consular
 	slot = slot_w_uniform
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/beret_consular
 	display_name = "tribunalist consular beret"
@@ -158,7 +158,7 @@
 	path = /obj/item/clothing/head/beret/dominia/consular
 	slot = slot_head
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/cape_consular
 	display_name = "tribunalist cousular cape"
@@ -166,7 +166,7 @@
 	path = /obj/item/clothing/accessory/poncho/dominia/consular
 	slot = slot_wear_suit
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/assunzione/accessory
 	display_name = "luceian amulet"
@@ -189,4 +189,4 @@
 /datum/gear/religion/dominia/codex
 	display_name = "tribunal codex"
 	path = /obj/item/device/versebook/tribunal
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
