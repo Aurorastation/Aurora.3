@@ -138,7 +138,7 @@
 	var/list/unathi_book = list()
 	unathi_book["Sk'akh Legends"] = /obj/item/device/versebook/skakh
 	unathi_book["assorted Th'akh fables"] = /obj/item/device/versebook/thakh
-	unathi_book["Reflections of Emzal Paossini"] = /obj/item/device/versebook/autakh
+	unathi_book["Reflections on the Aut'akh Faith"] = /obj/item/device/versebook/autakh
 	unathi_book["Writings of Judizah Si'akh"] = /obj/item/device/versebook/siakh
 	gear_tweaks += new /datum/gear_tweak/path(unathi_book)
 
