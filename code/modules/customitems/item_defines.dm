@@ -1376,27 +1376,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "valetzrhonaja_cloak"
 	contained_sprite = TRUE
 
-
-/obj/structure/sign/flag/fisanduh_coalition
-	name = "coalition fisanduh unity flag"
-	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
-	icon_state = "coalition-fisanduh"
-
-/obj/structure/sign/flag/fisanduh_coalition/left
-	icon_state = "fisanduh_coalition_l"
-
-/obj/structure/sign/flag/fisanduh_coalition/right
-	icon_state = "fisanduh_coalition_r"
-
 /obj/item/flag/fluff/bian_flag //Coalition Fisanduh Unity Flag - Bian Quy Le - persephoneq
-	name = "coalition fisanduh unity flag"
+	name = "large coalition fisanduh unity flag"
+	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
 	icon = 'icons/obj/custom_items/bian_flag.dmi'
 	icon_override = 'icons/obj/custom_items/bian_flag.dmi'
 	icon_state = "bian_flag"
-	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
 	flag_path = "fisanduh_coalition"
-	flag_size = 1
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/fisanduh_coalition
 
+/obj/structure/sign/flag/fisanduh_coalition
+	name = "large coalition fisanduh unity flag"
+	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
+	icon = 'icons/obj/custom_items/bian_flag.dmi'
+	flag_path = "fisanduh_coalition"
+	flag_item = /obj/item/flag/fluff/bian_flag
+	flag_size = TRUE
 
 /obj/item/organ/internal/augment/fluff/goldman_eye //Moneymaker Cybernetic Eye Overlay - Kobi Goldman - sleepywolf
 	name = "moneymaker cybernetic eye overlay"
@@ -1893,19 +1889,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "aheke_coat"
 	contained_sprite = TRUE
 
-
-/obj/structure/sign/flag/unathi_fleet
-	name = "unathi fleet flag"
-	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
-	icon = 'icons/obj/custom_items/ahzi_items.dmi'
-	icon_state = "unathi_fleet"
-
-/obj/structure/sign/flag/unathi_fleet/left
-	icon_state = "unathi_fleet_l"
-
-/obj/structure/sign/flag/unathi_fleet/right
-	icon_state = "unathi_fleet_r"
-
 /obj/item/flag/fluff/ahzi_flag //Unathi Fleet Flag - Ankala Ahzi - captaingecko
 	name = "unathi fleet flag"
 	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
@@ -1913,9 +1896,26 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/ahzi_items.dmi'
 	icon_state = "ahzi_flag"
 	flag_path = "unathi_fleet"
+	flag_structure = /obj/structure/sign/flag/unathi_fleet
+
+/obj/structure/sign/flag/unathi_fleet
+	name = "unathi fleet flag"
+	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
+	icon = 'icons/obj/custom_items/ahzi_items.dmi'
+	icon_state = "unathi_fleet"
+	flag_path = "unathi_fleet"
+	flag_item = /obj/item/flag/fluff/ahzi_flag
 
 /obj/item/flag/fluff/ahzi_flag/l
-	flag_size = 1
+	name = "large unathi fleet flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/unathi_fleet/large
+
+/obj/structure/sign/flag/unathi_fleet/large
+	icon_state = "unathi_fleet_l"
+	flag_path = "unathi_fleet"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/fluff/ahzi_flag/l
 
 /obj/item/clothing/accessory/armband/fluff/ahzi_armband //Unathi Fleet Armband - Ankala Ahzi - captaingecko
 	name = "unathi fleet armband"

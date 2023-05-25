@@ -142,6 +142,8 @@
 /// lets mobs that traditionally don't hallucinate, hallucinate
 #define TRAIT_BYPASS_HALLUCINATION_RESTRICTION "bypassing_hallucination_restriction"
 
+/// when mobs are viewing something via a computer, currently used for the helm computer
+#define TRAIT_COMPUTER_VIEW "computer_view"
 
 // IPC OVERLOADER OVERDOSE STATES
 #define TRAIT_SOURCE_OVERLOADER "overloader"

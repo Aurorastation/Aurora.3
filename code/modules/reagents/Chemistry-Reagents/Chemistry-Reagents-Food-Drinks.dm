@@ -2531,7 +2531,7 @@
 
 	glass_icon_state = "ginvodkaglass"
 	glass_name = "glass of gin"
-	glass_desc = "A crystal clear glass of Griffeater gin."
+	glass_desc = "A crystal clear glass of Borovicka gin."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 /singleton/reagent/alcohol/victorygin

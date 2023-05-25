@@ -8969,11 +8969,7 @@
 	pixel_x = 5;
 	pixel_y = 16
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "ccF" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -10807,11 +10803,7 @@
 /obj/structure/ore_box{
 	icon_state = "orebox1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "dio" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -10953,11 +10945,7 @@
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "dob" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -14090,11 +14078,7 @@
 	can_buckle = 0;
 	name = "dusty chair"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "fri" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -26264,11 +26248,7 @@
 	},
 /area/centcom/bar)
 "mZh" = (
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "mZj" = (
 /turf/unsimulated/mineral/asteroid,
@@ -28002,11 +27982,7 @@
 	icon_state = "boulder1";
 	name = "rubble"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "nYo" = (
 /obj/structure/bed/stool/chair/office/bridge{
@@ -29968,11 +29944,7 @@
 /area/centcom/bar)
 "pux" = (
 /obj/item/pickaxe,
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "puD" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -30824,11 +30796,7 @@
 	pixel_x = 11;
 	pixel_y = -6
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "pUh" = (
 /obj/structure/shuttle_part/merchant{
@@ -31753,11 +31721,7 @@
 	name = "beacon";
 	pixel_y = -2
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "qGr" = (
 /obj/structure/window/shuttle/unique/merchant{
@@ -38613,11 +38577,7 @@
 "vze" = (
 /obj/structure/table/steel,
 /obj/item/deck/cards,
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "vzG" = (
 /obj/machinery/vending/snack{

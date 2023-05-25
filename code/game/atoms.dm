@@ -672,3 +672,6 @@
 
 /atom/proc/handle_middle_mouse_click(var/mob/user)
 	return FALSE
+
+/atom/proc/handle_pointed_at(var/mob/pointer)
+	return

@@ -1155,9 +1155,8 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/ramp{
-	dir = 4;
-	nitrogen = 0;
-	oxygen = 0
+	dir = 8;
+	initial_gas = list()
 	},
 /area/ship/orion_express_ship)
 "iCX" = (
@@ -2353,9 +2352,8 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/ramp{
-	dir = 8;
-	nitrogen = 0;
-	oxygen = 0
+	dir = 4;
+	initial_gas = list()
 	},
 /area/ship/orion_express_ship)
 "rvq" = (
