@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Added a guaranteed 25 telecrystals in the vault safe. Reduced the chance for thermal goggles to spawn, and made only high power melee weapons spawn in it."
+  - rscadd: "Added a chance for the spaceproof infiltrator suit to spawn in the vaults safe."
+  - bugfix: "Fixed thermal drill offsets on the safe, as well as the soundloop not stopping correctly."
