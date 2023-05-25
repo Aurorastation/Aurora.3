@@ -125,6 +125,23 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/religion/unathi_book
+	display_name = "unathi religious texts"
+	path = /obj/item/device/versebook/skakh
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/religion/unathi_book/New()
+	..()
+	var/list/unathi_book = list()
+	unathi_book["Sk'akh Legends"] = /obj/item/device/versebook/skakh
+	unathi_book["assorted Th'akh fables"] = /obj/item/device/versebook/thakh
+	unathi_book["Reflections of Emzal Paossini"] = /obj/item/device/versebook/autakh
+	unathi_book["Writings of Judizah Si'akh"] = /obj/item/device/versebook/siakh
+	gear_tweaks += new /datum/gear_tweak/path(unathi_book)
+
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic"
 	path = /obj/item/clothing/under/unathi

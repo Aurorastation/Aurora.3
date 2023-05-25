@@ -84,7 +84,7 @@
 
 /obj/item/device/versebook/siakh
 	name = "\improper Writings of Judizah Si'akh"
-	desc = "A collection of musings, commands and theological discussions, copied many times over from the alleged words of the controversi lprophet Judizah Si'akh himself."
+	desc = "A collection of musings, commands and theological discussions, copied many times over from the alleged words of the controversial prophet Judizah Si'akh himself."
 	desc_extended = "As close to a 'holy text' as the Si'akh faith has, this book can be found across Moghes and rarely beyond, despite efforts of the nobility to stamp out the firebrand religion. It lays down the \
 	commandments and philosophies that a follower of Si'akh must live by, in the hope of redeeming themselves and their world from damnation."
 	icon_state = "holybook"
@@ -95,8 +95,8 @@
 	randomquip = file2list("ingame_manuals/siakh.txt")
 
 /obj/item/device/versebook/autakh
-	name = "\improper Reflections of Emzal Paossini"
-	desc = "An illegal tome in the Izweski Hegemony, Reflections is a short book penned by the Unathi known as Emzal Paossini, infamous for their role in the creation of the Aut'akh faith."
+	name = "\improper Reflections upon the Aut'akh Faith"
+	desc = "An illegal tome in the Izweski Hegemony, Reflections is a short book penned by the Unathi known as Emzal Paossini, known by Aut'akh as 'Creator of Paradigms', infamous for their role in the creation of the Aut'akh faith."
 	desc_extended = "The Aut'akh faith is highly decentralised and does not have holy texts per se. This book is simply a collection of personal musings from one of the Aut'akh's most influential figures.\
 	While many of the core ideas of the faith can be traced back to Paossini's words, they are explicit in their desire that it not be venerated or treated as some divine mandate."
 	icon_state = "book10"
@@ -109,7 +109,7 @@
 /obj/item/device/versebook/skakh
 	name = "\improper Sk'akh Legends"
 	desc = "This is a collection of legends, commandments and doctrines of the Sk'akh faith, published by the Church."
-	desc_extended "Variations of this tome have been published for centuries, in one form or another, often changing to deal with recent developments for the Unathi people. This variation looks to have been published \
+	desc_extended = "Variations of this tome have been published for centuries, in one form or another, often changing to deal with recent developments for the Unathi people. This variation looks to have been published \
 	fairly recently, and examining it shows several verses speaking on matters such as the new rise of the Aut'akh and Si'akh faiths."
 	icon_state = "book3"
 	item_state = "book3"
@@ -119,11 +119,11 @@
 	randomquip = file2list("ingame_manuals/skakh.txt")
 
 /obj/item/device/versebook/thakh
-	name = "\improper Sk'akh Legends"
-	desc = ""
-	desc_extended ""
+	name = "\improper collected Th'akh fables"
+	desc = "Th'akh is a decentralised religion, with thousands of variants across Moghes and beyond. This book is a collection of common ancient tales and fables, translated from an archaic form of Sinta'Azaziba into Basic."
+	desc_extended = "The tales of various Th'akh sects are numbered beyond count. This particular copy seems to be written by a shaman of the Court of Stars, and the names of their spirit-gods often crop up throughout the text."
 	icon_state = "holybook"
-	item_state = "holybook"
+	item_state = "book1"
 
 /obj/item/device/versebook/thakh/Initialize()
 	. = ..()
