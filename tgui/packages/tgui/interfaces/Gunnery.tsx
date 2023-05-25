@@ -76,7 +76,7 @@ export const GunneryWindow = (props, context) => {
               act('select_entrypoint', { entrypoint: value })
             }
           />
-          {data.z_levels && (
+          {data.z_levels ? (
             <Section>
               <Box bold>Deck Filter</Box>
               <Dropdown
@@ -86,8 +86,10 @@ export const GunneryWindow = (props, context) => {
                 onSelected={(value) => act('select_z', { z: value })}
               />
             </Section>
+          ) : (
+            ''
           )}
-          {data.mobile_platform && (
+          {data.mobile_platform ? (
             <Section>
               <Dropdown
                 options={platform_directions}
@@ -98,6 +100,8 @@ export const GunneryWindow = (props, context) => {
                 }
               />
             </Section>
+          ) : (
+            ''
           )}
         </Section>
         <Section collapsing title="Weaponry Control">

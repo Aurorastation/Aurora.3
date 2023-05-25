@@ -2,7 +2,7 @@ import { useBackend } from '../backend';
 import { BooleanLike } from '../../common/react';
 import { round } from '../../common/math';
 import { capitalizeAll } from '../../common/string';
-import { Section, Box, Button, BlockQuote, Dropdown } from '../components';
+import { Section, Box, Button, BlockQuote, Dropdown, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 type PDA = {
@@ -64,8 +64,11 @@ const FaxWindow = (props, context) => {
 
   return (
     <Section title="Fax Options">
-      <Box bold>Logged into: </Box>
-      <BlockQuote>{data.bossname} Bluespace Communication System </BlockQuote>
+      <LabeledList>
+        <LabeledList.Item label="Logged Into">
+          {data.bossname} Bluespace Communication System{' '}
+        </LabeledList.Item>
+      </LabeledList>
       {remaining_cooldown <= 0 ? (
         <SendWindow />
       ) : (
@@ -85,15 +88,18 @@ const SendWindow = (props, context) => {
 
   return (
     <Section>
-      <Box bold>Sending to: </Box>
-      <Dropdown
-        options={data.departments}
-        onSelected={(value) =>
-          act('select_destination', { select_destination: value })
-        }
-        width="100%"
-        displayText={data.destination}
-      />
+      <LabeledList>
+        <LabeledList.Item label="Sending To">
+          <Dropdown
+            options={data.departments}
+            onSelected={(value) =>
+              act('select_destination', { select_destination: value })
+            }
+            width="100%"
+            displayText={data.destination}
+          />
+        </LabeledList.Item>
+      </LabeledList>
       {data.paper ? (
         <PaperWindow />
       ) : (
@@ -108,8 +114,11 @@ const PaperWindow = (props, context) => {
 
   return (
     <Section>
-      <Box bold>Currently Sending:</Box>
-      <BlockQuote>{capitalizeAll(data.paper)}</BlockQuote>
+      <LabeledList>
+        <LabeledList.Item label="Currently Sending">
+          {capitalizeAll(data.paper)}
+        </LabeledList.Item>
+      </LabeledList>
       <Button icon="copy" content="Send" onClick={(value) => act('send')} />
       <Button icon="stop" content="Remove" onClick={(value) => act('remove')} />
     </Section>

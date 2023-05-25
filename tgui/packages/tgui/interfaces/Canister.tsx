@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Section, Box, ProgressBar, Knob, Button, BlockQuote } from '../components';
+import { Section, Box, ProgressBar, Knob, Button, LabeledList } from '../components';
 import { Window } from '../layouts';
 import { BooleanLike } from '../../common/react';
 
@@ -39,18 +39,15 @@ export const Canister = (props, context) => {
               />
             )
           }>
-          <Box>
-            <b>Tank Label:</b>
-          </Box>
-          <BlockQuote>{data.name}</BlockQuote>
-          <Box>
-            <b>Tank Pressure:</b>
-          </Box>
-          <BlockQuote>{data.tankPressure} kPa</BlockQuote>
-          <Box>
-            <b>Port Status:</b>
-          </Box>
-          <BlockQuote>{port_string}</BlockQuote>
+          <LabeledList>
+            <LabeledList.Item label="Tank Label">{data.name}</LabeledList.Item>
+            <LabeledList.Item label="Tank Pressure">
+              {data.tankPressure} kPa
+            </LabeledList.Item>
+            <LabeledList.Item label="Port Status">
+              {port_string}
+            </LabeledList.Item>
+          </LabeledList>
         </Section>
         <Section
           title="Holding Tank Status"
@@ -126,14 +123,14 @@ export const HoldingTankWindow = (props, context) => {
   const { act, data } = useBackend<CanisterData>(context);
   return (
     <Section>
-      <Box>
-        <b>Tank Label:</b>
-      </Box>
-      <BlockQuote>{data.holdingTank.name}</BlockQuote>
-      <Box>
-        <b>Tank Pressure:</b>
-      </Box>
-      <BlockQuote>{data.holdingTank.tankPressure} kPa</BlockQuote>
+      <LabeledList>
+        <LabeledList.Item label="Tank Label">
+          {data.holdingTank.name}
+        </LabeledList.Item>
+        <LabeledList.Item label="Tank Pressure">
+          {data.holdingTank.tankPressure} kPa
+        </LabeledList.Item>
+      </LabeledList>
     </Section>
   );
 };

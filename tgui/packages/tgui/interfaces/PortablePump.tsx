@@ -1,6 +1,6 @@
 import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
-import { Section, Box, ProgressBar, Button, Knob } from '../components';
+import { Section, Box, ProgressBar, Button, Knob, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 export type PumpData = {
@@ -47,31 +47,29 @@ export const PortablePump = (props, context) => {
               />
             </>
           }>
-          <Box>
-            <b>Tank Pressure: </b>
-            {data.tankPressure} kPa
-          </Box>
-          <Box>
-            <b>Port Status: </b>
-            {data.portConnected ? 'Connected ' : 'Disconnected'}
-          </Box>
-          <Box>
-            <b>Power Draw: </b>
-            {data.powerDraw} W
-          </Box>
-          <Box>
-            <b>Cell Charge: </b>
-          </Box>
-          <ProgressBar
-            ranges={{
-              good: [data.cellMaxCharge * 0.8, data.cellMaxCharge],
-              average: [data.cellMaxCharge * 0.4, data.cellMaxCharge * 0.8],
-              bad: [0, data.cellMaxCharge * 0.4],
-            }}
-            value={data.cellCharge}
-            minValue={0}
-            maxValue={data.cellMaxCharge}
-          />
+          <LabeledList>
+            <LabeledList.Item label="Tank Pressure">
+              {data.tankPressure} kPa
+            </LabeledList.Item>
+            <LabeledList.Item label="Port Status">
+              {data.portConnected ? 'Connected ' : 'Disconnected'}
+            </LabeledList.Item>
+            <LabeledList.Item label="Power Draw">
+              {data.powerDraw} W
+            </LabeledList.Item>
+            <LabeledList.Item label="Cell Charge">
+              <ProgressBar
+                ranges={{
+                  good: [data.cellMaxCharge * 0.8, data.cellMaxCharge],
+                  average: [data.cellMaxCharge * 0.4, data.cellMaxCharge * 0.8],
+                  bad: [0, data.cellMaxCharge * 0.4],
+                }}
+                value={data.cellCharge}
+                minValue={0}
+                maxValue={data.cellMaxCharge}
+              />
+            </LabeledList.Item>
+          </LabeledList>
         </Section>
         <Section
           title="Holding Tank Status"
@@ -124,14 +122,14 @@ export const HoldingTankWindow = (props, context) => {
   const { act, data } = useBackend<PumpData>(context);
   return (
     <Section>
-      <Box>
-        <b>Tank Label:</b>
-      </Box>
-      {data.holdingTank.name}
-      <Box>
-        <b>Tank Pressure:</b>
-      </Box>
-      {data.holdingTank.tankPressure} kPa
+      <LabeledList>
+        <LabeledList.Item label="Tank Label">
+          {data.holdingTank.name}
+        </LabeledList.Item>
+        <LabeledList.Item label="Tank Pressure">
+          {data.holdingTank.tankPressure} kPa
+        </LabeledList.Item>
+      </LabeledList>
     </Section>
   );
 };
