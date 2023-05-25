@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fix massive amounts of ZAS updates caused by exoplanets not building their atmos zones when generated."
