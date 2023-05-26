@@ -1,0 +1,10 @@
+author: kyres1
+
+delete-after: True
+
+changes:
+  - rscadd: "Added new roundstart sound effects for regions, like the Badlands and the Weeping Stars. Atmospheric!"
+  - rscadd: "Added the Weeping Stars region, functioning with a skybox and stargazer sprite."
+  - rscadd: "Added the placeholder regions of Coalition space, Light's Edge, Arusha."
+  - rscadd: "Added a Coalition menu button sprite set."
+  - tweak: "Resprited the Stargazer entirely."
