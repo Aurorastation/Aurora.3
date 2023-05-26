@@ -2135,8 +2135,8 @@
 		/obj/item/rig/hazard
 	)
 	problist = list(
-		/obj/item/clothing/suit/space/void/engineering = 4,
-		/obj/item/clothing/suit/space/void/mining = 4
+		/obj/item/clothing/suit/space/void/engineering = 3,
+		/obj/item/clothing/suit/space/void/mining = 3
 		/obj/item/clothing/suit/space/void/merc = 1
 		/obj/item/clothing/suit/space/void/freelancer = 1
 		/obj/item/rig/industrial = 2

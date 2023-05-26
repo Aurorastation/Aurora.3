@@ -52,7 +52,16 @@
 /area/ship/freebooter_ship/pod8
 	name = "Freebooter Pod Eight"
 
-/area/shuttle/Freebooter_shuttle
+/area/ship/freebooter_ship/thruster1
+	name = "Freebooter Starboard Thruster"
+
+/area/ship/freebooter_ship/thruster2
+	name = "Freebooter Port Thruster"
+
+/area/ship/freebooter_ship/engineering
+	name = "Freebooter Engineering"
+
+/area/shuttle/freebooter_shuttle
 	name = "Freebooter Shuttle"
 	icon_state = "shuttle2"
 
@@ -117,7 +126,7 @@
 	base_turf = /turf/space/transit/north
 
 //shuttle stuff
-/obj/effect/overmap/visitable/ship/landable/Freebooter_shuttle
+/obj/effect/overmap/visitable/ship/landable/freebooter_shuttle
 	name = "Freebooter Shuttle"
 	class = "ICV"
 	designation = "Vizsla"
@@ -132,15 +141,15 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/Freebooter_shuttle
+/obj/machinery/computer/shuttle_control/explore/freebooter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Freebooter Shuttle"
 	req_access = list(access_sol_ships)
 
-/datum/shuttle/autodock/overmap/Freebooter_shuttle
+/datum/shuttle/autodock/overmap/freebooter_shuttle
 	name = "Freebooter Shuttle"
 	move_time = 90
-	shuttle_area = list(/area/shuttle/Freebooter_shuttle)
+	shuttle_area = list(/area/shuttle/freebooter_shuttle)
 	current_location = "nav_hangar_freebooter"
 	landmark_transition = "nav_transit_freebooter_shuttle"
 	range = 1
@@ -148,15 +157,15 @@
 	logging_home_tag = "nav_hangar_freebooter"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/Freebooter_shuttle/hangar
+/obj/effect/shuttle_landmark/freebooter_shuttle/hangar
 	name = "Freebooter Shuttle Hangar"
 	landmark_tag = "nav_hangar_freebooter"
-	docking_controller = "Freebooter_shuttle_dock"
+	docking_controller = "freebooter_shuttle_dock"
 	base_area = /area/ship/freebooter_ship
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/shuttle_landmark/Freebooter_shuttle/transit
+/obj/effect/shuttle_landmark/freebooter_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_freebooter_shuttle"
 	base_turf = /turf/space/transit/north
