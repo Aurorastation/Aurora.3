@@ -471,19 +471,21 @@
 			if(istype(src, /obj/item/device/magnetic_lock/keypad))
 				add_overlay("overlay_keypad")
 
-
 /obj/item/device/magnetic_lock/keypad/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Maglock", "Maglock", 300, 100)
+		ui = new(user, src, "Maglock", "Maglock", 300, 250)
 		ui.open()
 
 /obj/item/device/magnetic_lock/keypad/attack_hand(var/mob/user)
-	. = ..()
-	if(. || !locked)
+	if(. = ..())
 		return
-
 	ui_interact(user)
+
+/obj/item/device/magnetic_lock/keypad/ui_data(mob/user)
+	var/list/data = list()
+	data["locked"] = locked
+	return data
 
 /obj/item/device/magnetic_lock/keypad/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	switch(action)
@@ -499,18 +501,18 @@
 				. = TRUE
 			else
 				playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-				to_chat(usr, SPAN_WARNING("\The [src] buzzes as you enter passcode."))
+				to_chat(usr, SPAN_WARNING("\The [src] buzzes!"))
 				return
 		if("set_passcode")
 			if(!locked)
 				passcode = lowertext(params["set_passcode"])
-				to_chat(usr, "New passcode has been set.")
+				to_chat(usr, SPAN_NOTICE("New passcode has been set."))
 				. = TRUE
 		if("lock")
 			if(!locked)
 				locked = !locked
 				playsound(src, 'sound/machines/ping.ogg', 30, 1)
-				to_chat(usr, "You have locked \the [src].")
+				to_chat(usr, SPAN_NOTICE("You have locked \the [src]."))
 				update_icon()
 				. = TRUE
 
