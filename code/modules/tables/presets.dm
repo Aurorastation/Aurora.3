@@ -12,11 +12,13 @@
 	. = ..()
 
 /obj/structure/table/standard
-	icon_state = "plain_preview"
+	icon = 'icons/obj/structure/tables/plain.dmi'
+	icon_state = "plastic_preview"
 	table_mat = DEFAULT_TABLE_MATERIAL
 
 /obj/structure/table/steel
-	icon_state = "plain_preview"
+	icon = 'icons/obj/structure/tables/steel.dmi'
+	icon_state = "steel_preview"
 	table_mat = DEFAULT_WALL_MATERIAL
 
 /obj/structure/table/stone
@@ -45,7 +47,8 @@
 	alpha = 77 // 0.3 * 255
 
 /obj/structure/table/wood
-	icon_state = "plain_preview"
+	icon = 'icons/obj/structure/tables/wood.dmi'
+	icon_state = "wood_preview"
 	table_mat = MATERIAL_WOOD
 
 /obj/structure/table/wood/gamblingtable
