@@ -472,54 +472,47 @@
 				add_overlay("overlay_keypad")
 
 
-/obj/item/device/magnetic_lock/keypad/attack_self(mob/user as mob)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+/obj/item/device/magnetic_lock/keypad/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		if(locked)
-			ui = new(user, src, "misc-maglock", 300, 100, "Maglock", list())
-		else
-			ui = new(user, src, "misc-maglock-config", 300, 100, "Maglock configuration", list("passcode" = passcode))
-
-	ui.open()
+		ui = new(user, src, "Maglock", "Maglock", 300, 100)
+		ui.open()
 
 /obj/item/device/magnetic_lock/keypad/attack_hand(var/mob/user)
 	. = ..()
 	if(. || !locked)
 		return
 
-	attack_self(user)
+	ui_interact(user)
 
-/obj/item/device/magnetic_lock/keypad/Topic(href, href_list)
-	var/datum/vueui/ui = href_list["vueui"]
-	if(!istype(ui))
-		return
-	if(href_list["passcode"])
-		if(lowertext(href_list["passcode"]) == passcode)
-			locked = !locked
-			playsound(src, 'sound/machines/ping.ogg', 30, 1)
-			var/msg = "buttons on \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
-			var/pos_adj = "[usr.name] presses "
-			var/fp_adj = "You press "
-			usr.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
-			update_icon()
-			ui.close()
-		else
-			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-			to_chat(usr, SPAN_WARNING("\The [src] buzzes as you enter passcode."))
-			return
-	if(href_list["set_passcode"])
-		if(!locked)
-			passcode = lowertext(href_list["set_passcode"])
-			ui.data["passcode"] = passcode
-			to_chat(usr, "New passcode has been set.")
-			ui.push_change()
-	if(href_list["lock"])
-		if(!locked)
-			locked = !locked
-			playsound(src, 'sound/machines/ping.ogg', 30, 1)
-			to_chat(usr, "You have locked \the [src].")
-			ui.close()
-			update_icon()
+/obj/item/device/magnetic_lock/keypad/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	switch(action)
+		if("passcode")
+			if(lowertext(params["passcode"]) == passcode)
+				locked = !locked
+				playsound(src, 'sound/machines/ping.ogg', 30, 1)
+				var/msg = "buttons on \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
+				var/pos_adj = "[usr.name] presses "
+				var/fp_adj = "You press "
+				usr.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
+				update_icon()
+				. = TRUE
+			else
+				playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
+				to_chat(usr, SPAN_WARNING("\The [src] buzzes as you enter passcode."))
+				return
+		if("set_passcode")
+			if(!locked)
+				passcode = lowertext(params["set_passcode"])
+				to_chat(usr, "New passcode has been set.")
+				. = TRUE
+		if("lock")
+			if(!locked)
+				locked = !locked
+				playsound(src, 'sound/machines/ping.ogg', 30, 1)
+				to_chat(usr, "You have locked \the [src].")
+				update_icon()
+				. = TRUE
 
 #undef STATUS_INACTIVE
 #undef STATUS_ACTIVE
