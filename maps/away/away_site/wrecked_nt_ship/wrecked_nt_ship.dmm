@@ -454,7 +454,7 @@
 	},
 /area/space)
 "jM" = (
-/turf/simulated/floor/ice,
+/turf/simulated/floor/airless/ice,
 /area/wrecked_nt_ship)
 "jN" = (
 /turf/simulated/floor/wood/airless{
@@ -776,7 +776,7 @@
 /area/wrecked_nt_ship)
 "qw" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/ice,
+/turf/simulated/floor/airless/ice,
 /area/wrecked_nt_ship)
 "qD" = (
 /obj/effect/decal/remains/human,
