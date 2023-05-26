@@ -365,6 +365,11 @@
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "ice"
 
+/turf/simulated/floor/airless/ice
+	name = "ice"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "ice"
+
 /turf/simulated/floor/snow
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'

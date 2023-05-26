@@ -4135,7 +4135,6 @@
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 1
 	},
-/obj/machinery/stargazer,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "dNi" = (
@@ -23501,6 +23500,7 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
+/obj/machinery/stargazer,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "taN" = (
