@@ -2,12 +2,13 @@
 	name = "Freebooter Ship"
 	description = "A long-range reconnaissance corvette design in use by the Solarian Navy, the Uhlan-class is a relatively costly and somewhat uncommon ship to be seen in the Alliance's fleets, and is typically reserved for more elite (or at least better equipped and trained) units. Designed to operate alone or as part of a small task force with minimal support in unfriendly space, it is most commonly seen assigned to probing, surveillance, harassment, and strike operations. \
 	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
-	suffixes = list("ships/sol_freebooter/Freebooter_ship.dmm")
+	suffixes = list("ships/freebooter/freebooter_ship.dmm")
 	sectors = list(SECTOR_BADLANDS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "freebooter_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freebooter_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/freebooter_ship
 	map = "Freebooter Ship"

@@ -37,7 +37,7 @@
 
 	use_overmap = TRUE
 	num_exoplanets = 2
-	overmap_size = 35
+	overmap_size = 2
 	overmap_event_areas = 34
 	planet_size = list(255,255)
 
