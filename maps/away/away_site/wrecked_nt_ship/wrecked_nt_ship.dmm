@@ -813,14 +813,6 @@
 	icon_state = "damaged2"
 	},
 /area/wrecked_nt_ship)
-"rx" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/item/stack/rods{
-	icon_state = "rods-1"
-	},
-/turf/template_noop,
-/area/space)
 "rA" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/airless{
@@ -1403,15 +1395,6 @@
 	icon_state = "damaged3"
 	},
 /area/wrecked_nt_ship)
-"FJ" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/item/stack/rods{
-	icon_state = "rods-1"
-	},
-/turf/template_noop,
-/area/space)
 "FP" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/template_noop,
@@ -31796,8 +31779,8 @@ Kn
 vx
 lO
 PQ
-FJ
-rx
+wf
+wf
 Kn
 Kn
 Kn
@@ -33851,7 +33834,7 @@ ab
 vx
 PQ
 tt
-rx
+wf
 Kn
 PA
 Kn
