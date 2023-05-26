@@ -106,44 +106,53 @@
 		to_chat(user, SPAN_WARNING("\The [src] is unsecured!"))
 		return FALSE
 
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if(!ui)
-		ui = new(user, src, "devices-assembly-proximity", 450, 360, capitalize_first_letters(name), state = deep_inventory_state)
-	ui.open()
+	ui_interact(user)
 
-/obj/item/device/assembly/prox_sensor/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		data = list()
+/obj/item/device/assembly/prox_sensor/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Proximity", "Proximity Sensor", 450, 360)
+		ui.open()
+
+/obj/item/device/assembly/prox_sensor/ui_data(mob/user)
+	var/list/data = list()
 
 	var/second = time % 60
 	var/minute = (time - second) / 60
 
-	VUEUI_SET_CHECK(data["timeractive"], timing, ., data)
-	VUEUI_SET_CHECK(data["minute"], minute, ., data)
-	VUEUI_SET_CHECK(data["second"], second, ., data)
-	VUEUI_SET_CHECK(data["scanning"], scanning, ., data)
-	VUEUI_SET_CHECK(data["range"], range, ., data)
+	data["timeractive"] = timing
+	data["minute"] = minute
+	data["second"] = second
+	data["scanning"] = scanning
+	data["range"] = range
 
-/obj/item/device/assembly/prox_sensor/Topic(href, href_list)
-	..()
+	return data
 
-	if(href_list["scanning"])
-		toggle_scan()
+/obj/item/device/assembly/prox_sensor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	if(href_list["time"])
-		timing = !timing
-		update_icon()
+	switch(action)
+		if("scanning")
+			toggle_scan()
+			. = TRUE
 
-	if(href_list["tp"])
-		var/tp = text2num(href_list["tp"])
-		time += tp
-		time = round(time)
-		time = clamp(time, 1, 600)
+		if("time")
+			timing = !timing
+			update_icon()
+			. = TRUE
 
-	if(href_list["range"])
-		var/r = text2num(href_list["range"])
-		range += r
-		range = clamp(range, 1, 5)
+		if("tp")
+			var/tp = text2num(params["tp"])
+			time += tp
+			time = round(time)
+			time = clamp(time, 1, 600)
+			. = TRUE
 
-	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
-	ui.check_for_change()
+		if("range")
+			var/r = text2num(params["range"])
+			range += r
+			range = clamp(range, 1, 5)
+			. = TRUE
+
