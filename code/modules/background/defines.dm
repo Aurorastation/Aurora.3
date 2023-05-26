@@ -121,6 +121,7 @@
 #define ACCENT_RURALDELVAHHI "Rural Delvahhi"
 #define ACCENT_NOMADDELVAHHI "Nomadic Delvahhi"
 #define ACCENT_OLDYASSA "Old Ya'ssa"
+#define ACCENT_NEWYASSA "New Ya'ssa"
 #define ACCENT_NORTHRASNRR "Northern Ras'nrr Siik'maas"
 #define ACCENT_DINAKK "Din'akk Mountains Siik'maas"
 #define ACCENT_HARRNRRI "Harr'nrri Siik'mas"
