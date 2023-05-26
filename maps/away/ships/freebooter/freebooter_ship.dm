@@ -7,7 +7,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "freebooter_ship"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/Freebooter_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freebooter_shuttle)
 
 /singleton/submap_archetype/freebooter_ship
 	map = "Freebooter Ship"

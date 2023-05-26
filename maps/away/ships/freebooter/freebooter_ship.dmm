@@ -2919,6 +2919,10 @@
 	},
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
+/obj/effect/ghostspawpoint{
+	identifier = "freebooter_crew_captain";
+	name = "igs - freebooter crew captain"
+	},
 /turf/simulated/floor{
 	icon_state = "dmg2"
 	},
@@ -3071,6 +3075,10 @@
 /obj/item/bedsheet/red,
 /obj/item/gamehelm/pink{
 	pixel_x = 10
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "freebooter_crew_captain";
+	name = "igs - freebooter crew captain"
 	},
 /turf/simulated/floor/carpet/magenta,
 /area/ship/freebooter_ship/pod6)
@@ -4886,6 +4894,10 @@
 /obj/item/bedsheet/syndie{
 	desc = "It has a syndicate emblem and it has an aura of anti-corporatism."
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "freebooter_crew_captain";
+	name = "igs - freebooter crew captain"
+	},
 /turf/simulated/floor{
 	icon_state = "dmg1"
 	},
@@ -4946,6 +4958,10 @@
 "ncc" = (
 /obj/structure/bed/stool/chair/sofa/left/black,
 /obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	identifier = "freebooter_crew_captain";
+	name = "igs - freebooter crew captain"
+	},
 /turf/simulated/floor/carpet/art,
 /area/ship/freebooter_ship/pod1)
 "neE" = (
@@ -7832,6 +7848,10 @@
 "tVf" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	identifier = "freebooter_crew_captain";
+	name = "igs - freebooter crew captain"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_ship/bridge)
 "tXx" = (
