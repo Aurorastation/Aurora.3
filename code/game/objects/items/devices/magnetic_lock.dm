@@ -478,7 +478,8 @@
 		ui.open()
 
 /obj/item/device/magnetic_lock/keypad/attack_hand(var/mob/user)
-	if(. = ..())
+	. = ..()
+	if(.)
 		return
 	ui_interact(user)
 
