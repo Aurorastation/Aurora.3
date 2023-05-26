@@ -1032,16 +1032,6 @@
 	reagents.add_reagent(/singleton/reagent/hyperzine, 1.5)
 	reagents.add_reagent(/singleton/reagent/synaptizine, 1.25)
 
-/obj/item/reagent_containers/food/snacks/burger/brain
-	name = "brainburger"
-	desc = "A strange looking burger. It looks almost sentient."
-	icon_state = "brainburger"
-	filling_color = "#F2B6EA"
-	center_of_mass = list("x"=15, "y"=11)
-	bitesize = 2
-
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 6, /singleton/reagent/alkysine = 6)
-
 /obj/item/reagent_containers/food/snacks/burger/ghost
 	name = "ghost burger"
 	desc = "Spooky! It doesn't look very filling."
@@ -2769,32 +2759,6 @@
 /obj/item/reagent_containers/food/snacks/cakeslice/carrot/filled
 	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/oculine = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 5, "sweetness" = 5, "carrot" = 5))
-	bitesize = 2
-
-/obj/item/reagent_containers/food/snacks/sliceable/cake/brain
-	name = "brain cake"
-	desc = "A squishy cake-thing."
-	icon_state = "braincake"
-	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/brain
-	slices_num = 5
-	filling_color = "#E6AEDB"
-	center_of_mass = list("x"=16, "y"=10)
-	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 25, /singleton/reagent/alkysine = 10)
-	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 10, "sweetness" = 10, "slime" = 15))
-	bitesize = 2
-
-/obj/item/reagent_containers/food/snacks/cakeslice/brain
-	name = "brain cake slice"
-	desc = "Lemme tell you something about prions. THEY'RE DELICIOUS."
-	icon_state = "braincakeslice"
-	trash = /obj/item/trash/plate
-	filling_color = "#E6AEDB"
-	bitesize = 2
-	center_of_mass = list("x"=16, "y"=12)
-
-/obj/item/reagent_containers/food/snacks/cakeslice/brain/filled
-	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/protein = 5, /singleton/reagent/alkysine = 2)
-	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 2, "sweetness" = 2, "slime" = 3))
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/sliceable/cake/cheese

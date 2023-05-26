@@ -11,7 +11,6 @@
 	var/list/sealed_levels = list()  // Z-levels that don't allow random transit at edge
 	var/list/restricted_levels = list()  // Z-levels that dont allow ghosts to randomly move around
 	var/list/empty_levels = null     // Empty Z-levels that may be used for various things (currently used by bluespace jump)
-	var/list/meteor_levels = list() //What z-levels the meteors can hit
 
 	var/list/map_levels              // Z-levels available to various consoles, such as the crew monitor. Defaults to station_levels if unset.
 
