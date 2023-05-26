@@ -2136,11 +2136,11 @@
 	)
 	problist = list(
 		/obj/item/clothing/suit/space/void/engineering = 3,
-		/obj/item/clothing/suit/space/void/mining = 3
-		/obj/item/clothing/suit/space/void/merc = 1
-		/obj/item/clothing/suit/space/void/freelancer = 1
-		/obj/item/rig/industrial = 2
-		/obj/item/rig/hazard = 1
+		/obj/item/clothing/suit/space/void/mining = 3,
+		/obj/item/clothing/suit/space/void/merc = 1,
+		/obj/item/clothing/suit/space/void/freelancer = 1,
+		/obj/item/rig/industrial = 2,
+		/obj/item/rig/hazard = 1,
 		/obj/item/rig/eva = 2
 	)
 	has_postspawn = TRUE
