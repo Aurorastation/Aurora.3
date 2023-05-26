@@ -48,6 +48,9 @@
 			to_chat(L, SPAN_WARNING("You climb out of \the [src]."))
 	..()
 
+/turf/simulated/lava/airless
+	initial_gas = null
+
 // Special asteroid variant that goes with lava better.
 /turf/unsimulated/floor/asteroid/basalt
 	name = "basalt"
@@ -89,6 +92,9 @@
 	ChangeTurf(baseturf)
 	new /obj/structure/lattice(src)
 
+/turf/unsimulated/floor/asteroid/basalt/air
+	initial_gas = list("oxygen" = MOLES_O2STANDARD, "nitrogen" = MOLES_N2STANDARD)
+
 /turf/unsimulated/floor/asteroid/ash
 	name = "ash"
 	icon_state = "ash"
@@ -112,3 +118,4 @@
 	base_icon_state = "rockyash"
 	base_icon = 'icons/turf/smooth/rocky_ash.dmi'
 	desc = "A fine grey ash. Seems to contain medium-sized rocks."
+
