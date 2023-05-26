@@ -83,7 +83,7 @@
 	noble heritage. Commoners consider New Ya'ssa to be pretentious. Pre-contact Ya'ssa speakers consider it a poorly made copy. This accent is also commonly used in the New Kingdom's \
 	entertainment sector."
 	tag_icon = "tajara_newyassa"
-	text_tag = "NYA"
+	text_tag = "NYS"
 
 /datum/accent/northrasnrr
 	name = ACCENT_NORTHRASNRR
