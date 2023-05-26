@@ -10,7 +10,7 @@
 	exclusive_generators = list(PLANET_TURF)
 	spawn_types = list(
 		PLANET_TURF = list(
-			/turf/simulated/lava = 1
+			/turf/simulated/lava/airless = 1
 		),
 		SMALL_FLORA = list(
 			/obj/structure/flora/rock/random = 1,

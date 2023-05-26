@@ -142,12 +142,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
-"cJ" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/item/material/shard,
-/turf/template_noop,
-/area/space)
 "cT" = (
 /obj/item/clothing/suit/caution,
 /turf/simulated/floor/tiled/steel/airless{
@@ -1314,12 +1308,6 @@
 /obj/item/wrench,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
-"Cz" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/structure/grille/broken,
-/turf/template_noop,
-/area/space)
 "CI" = (
 /obj/item/melee/vaurca/rock,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -2170,7 +2158,6 @@
 /area/wrecked_nt_ship)
 "WI" = (
 /obj/structure/lattice,
-/obj/structure/lattice,
 /obj/item/stack/rods{
 	icon_state = "rods-1"
 	},
@@ -2231,11 +2218,6 @@
 "XR" = (
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/steel/airless,
-/area/space)
-"XV" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/template_noop,
 /area/space)
 "Yb" = (
 /obj/effect/decal/remains/human,
@@ -31292,9 +31274,9 @@ ot
 qw
 jM
 jM
-XV
+Kh
 WI
-cJ
+tt
 ll
 ot
 Kh
@@ -31549,7 +31531,7 @@ ot
 jM
 jM
 vx
-Cz
+HB
 Kh
 Kh
 bO
@@ -34120,7 +34102,7 @@ ab
 WV
 Kn
 PQ
-rx
+wf
 ab
 ax
 ot
