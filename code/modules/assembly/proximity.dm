@@ -123,6 +123,7 @@
 	data["timeractive"] = timing
 	data["minute"] = minute
 	data["second"] = second
+	data["time"] = time
 	data["scanning"] = scanning
 	data["range"] = range
 
@@ -145,14 +146,11 @@
 
 		if("tp")
 			var/tp = text2num(params["tp"])
-			time += tp
-			time = round(time)
-			time = clamp(time, 1, 600)
+			time = clamp(tp, 1, 600)
 			. = TRUE
 
 		if("range")
 			var/r = text2num(params["range"])
-			range += r
-			range = clamp(range, 1, 5)
+			range = clamp(r, 1, 5)
 			. = TRUE
 
