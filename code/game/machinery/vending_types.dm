@@ -422,6 +422,8 @@
 		/obj/item/storage/box/fancy/cigarettes/pra = 6,
 		/obj/item/storage/box/fancy/cigarettes/dpra = 6,
 		/obj/item/storage/box/fancy/cigarettes/nka = 6,
+		/obj/item/storage/box/fancy/cigarettes/federation = 3,
+		/obj/item/storage/box/fancy/cigarettes/dyn = 3,
 		/obj/item/storage/chewables/rollable = 8,
 		/obj/item/storage/chewables/rollable/unathi = 6,
 		/obj/item/storage/chewables/rollable/fine = 5,
@@ -429,6 +431,8 @@
 		/obj/item/storage/chewables/tobacco/bad = 6,
 		/obj/item/storage/chewables/tobacco = 8,
 		/obj/item/storage/chewables/tobacco/fine = 5,
+		/obj/item/storage/chewables/tobacco/federation = 2,
+		/obj/item/storage/chewables/tobacco/dyn = 2,
 		/obj/item/storage/box/fancy/chewables/tobacco/nico = 3,
 		/obj/item/storage/cigfilters = 6,
 		/obj/item/storage/box/fancy/cigpaper = 6,
@@ -461,6 +465,8 @@
 		/obj/item/storage/box/fancy/cigarettes/pra = 79,
 		/obj/item/storage/box/fancy/cigarettes/dpra = 84,
 		/obj/item/storage/box/fancy/cigarettes/nka = 74,
+		/obj/item/storage/box/fancy/cigarettes/federation = 93,
+		/obj/item/storage/box/fancy/cigarettes/dyn = 84,
 		/obj/item/storage/chewables/rollable = 63,
 		/obj/item/storage/chewables/rollable/unathi = 65,
 		/obj/item/storage/chewables/rollable/fine = 69,
@@ -468,6 +474,8 @@
 		/obj/item/storage/chewables/tobacco/bad = 55,
 		/obj/item/storage/chewables/tobacco = 74,
 		/obj/item/storage/chewables/tobacco/fine = 86,
+		/obj/item/storage/chewables/tobacco/federation = 88,
+		/obj/item/storage/chewables/tobacco/dyn = 85,
 		/obj/item/storage/box/fancy/chewables/tobacco/nico = 91,
 		/obj/item/storage/box/fancy/matches = 12,
 		/obj/item/flame/lighter/random = 12,
@@ -730,6 +738,7 @@
 	icon_state = SEED_NOUN_SEEDS
 	vend_id = SEED_NOUN_SEEDS
 	products = list(
+		/obj/item/seeds/aghrasshseed = 3,
 		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
@@ -751,6 +760,7 @@
 		/obj/item/seeds/eggplantseed = 3,
 		/obj/item/seeds/eki = 3,
 		/obj/item/seeds/garlicseed = 3,
+		/obj/item/seeds/gukheseed = 3,
 		/obj/item/seeds/grapeseed = 3,
 		/obj/item/seeds/grassseed = 3,
 		/obj/item/seeds/greengrapeseed = 3,
@@ -777,8 +787,11 @@
 		/obj/item/seeds/reishimycelium = 3,
 		/obj/item/seeds/riceseed = 3,
 		/obj/item/seeds/richcoffeeseed = 3,
+		/obj/item/seeds/sarezhiseed = 3,
+		/obj/item/seeds/serkiflowerseed,
 		/obj/item/seeds/shandseed = 3,
 		/obj/item/seeds/soyaseed = 3,
+		/obj/item/seeds/sthberryseed = 3,
 		/obj/item/seeds/strawberryseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
@@ -792,6 +805,7 @@
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/wulumunushaseed = 2,
+		/obj/item/seeds/xuiziseed = 3,
 		/obj/item/seeds/ylpha = 3
 	)
 	contraband = list(
@@ -925,13 +939,16 @@
 		/obj/item/reagent_containers/cooking_container/skillet = 4,
 		/obj/item/reagent_containers/cooking_container/saucepan = 4,
 		/obj/item/reagent_containers/cooking_container/pot = 4,
-		/obj/item/reagent_containers/cooking_container/plate = 3,
-		/obj/item/reagent_containers/cooking_container/plate/bowl = 2,
+		/obj/item/reagent_containers/cooking_container/board = 3,
+		/obj/item/reagent_containers/cooking_container/board/bowl = 2,
 		/obj/item/reagent_containers/ladle = 4,
 		/obj/item/storage/toolbox/lunchbox/nt = 6,
 		/obj/item/reagent_containers/glass/rag = 8,
 		/obj/item/evidencebag/plasticbag = 20,
 		/obj/item/tray = 12,
+		/obj/item/tray/plate = 10,
+		/obj/item/reagent_containers/bowl = 10,
+		/obj/item/reagent_containers/bowl/plate = 10
 	)
 	contraband = list(
 		/obj/item/storage/toolbox/lunchbox/syndicate = 2
@@ -1362,3 +1379,31 @@
 	)
 	vend_delay = 15
 	idle_power_usage = 211 // Cold MREs...
+
+/obj/machinery/vending/overloaders
+	name = "GwokBuzz Vendor"
+	desc = "An entertainment software machine supplied by Gwok Software, a member of the Gwok Group."
+	desc_extended = "Previously the realm of amateur programmers and niche companies, the Gwok Group acquired and amalgamated a number of popular Port Verdant overloader brands in order to capitalize on the growing industry. Seeing untapped markets abroad, the corporation has begun exporting to nations with free IPC populations."
+	icon_state = "synth"
+	icon_vend = "synth-vend"
+	product_slogans = "GwokBuzz, to take the edge off!;Try our new Rainbow Essence flavour!;Safe and sanctioned by the authorities!"
+	vend_id = "overloaders"
+	products = list(
+		/obj/item/storage/overloader/classic = 5,
+		/obj/item/storage/overloader/tranquil = 5,
+		/obj/item/storage/overloader/rainbow = 5,
+		/obj/item/storage/overloader/screenshaker = 5
+	)
+	prices = list(
+		/obj/item/storage/overloader/classic = 200,
+		/obj/item/storage/overloader/tranquil = 200,
+		/obj/item/storage/overloader/rainbow = 200,
+		/obj/item/storage/overloader/screenshaker = 200
+	)
+	contraband = list(
+		/obj/item/storage/overloader/rainbow = 2
+	)
+	premium = list(
+		/obj/item/storage/overloader/jitterbug = 5
+	)
+	light_color = LIGHT_COLOR_CYAN

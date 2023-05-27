@@ -63,6 +63,27 @@
 	icon_state = "konyang_jacket_blue"
 	item_state = "konyang_jacket_blue"
 
+/obj/item/clothing/suit/storage/toggle/konyang/dbjacket
+	name = "double-breasted Konyanger jacket"
+	desc = "Styled after the latest fashion trends on Konyang, this hybrid faux-leather and polyester mesh jacket was built with the planet’s humid climate in mind. This one has a pale beige color."
+	desc_extended = "Only recently entering the larger Coalition scene, Konyanger fashion has taken the frontier by storm, owing to its unique blend of durability, waterproofing, \
+	and breathability. This innovation in clothing was only accomplished due to Konyanger fashion brands utilizing the fabrics and textiles unique to their planet."
+	icon = 'icons/clothing/suits/konyang_double_breasted_jacket.dmi'
+	icon_state = "konyang_coat_pale"
+	item_state = "konyang_coat_pale"
+	heat_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	max_heat_protection_temperature = 313 // Provides heat protection up to 313 Kelvin (~40 C)
+
+/obj/item/clothing/suit/storage/toggle/konyang/dbjacket/black
+	desc = "Styled after the latest fashion trends on Konyang, this hybrid faux-leather and polyester mesh jacket was built with the planet’s humid climate in mind. This one has a deep black color."
+	icon_state = "konyang_coat_black"
+	item_state = "konyang_coat_black"
+
+/obj/item/clothing/suit/storage/toggle/konyang/dbjacket/blue
+	desc = "Styled after the latest fashion trends on Konyang, this hybrid faux-leather and polyester mesh jacket was built with the planet’s humid climate in mind. This one has an irisdescent blue color."
+	icon_state = "konyang_coat_iridescent"
+	item_state = "konyang_coat_iridescent"
+
 /obj/item/clothing/head/konyang
 	name = "gat"
 	desc = "A traditional hat worn on Konyang and originating on Earth."

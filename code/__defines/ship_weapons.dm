@@ -18,6 +18,7 @@
 #define SHIP_AMMO_CAN_HIT_PLANETS    4
 
 #define SHIP_AMMO_IMPACT_HE "high explosive"
+#define SHIP_AMMO_IMPACT_PROBE "sensor probe"
 #define SHIP_AMMO_IMPACT_FMJ "full metal jacket"
 #define SHIP_AMMO_IMPACT_AP "armour-piercing"
 #define SHIP_AMMO_IMPACT_LASER "laser"

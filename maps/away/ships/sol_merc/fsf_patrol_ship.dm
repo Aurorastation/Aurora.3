@@ -25,10 +25,17 @@
 /obj/effect/overmap/visitable/ship/fsf_patrol_ship
 	name = "FSF Corvette"
 	class = "FSFV"
-	desc = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew."
+	desc = "A small corvette manufactured for the Solarian Navy by Einstein Engines, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew."
 	icon_state = "corvette"
 	moving_state = "corvette_moving"
 	colors = list("#9dc04c", "#52c24c")
+	scanimage = "corvette.png"
+	designer = "Solarian Navy, Tiscareno y Volante Shipbuilding modifications"
+	volume = "41 meters length, 39 meters beam/width, 17 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Dual extruding fore and starboard-mounted medium caliber ballistic armament, fore obscured flight craft bay"
+	sizeclass = "Montevideo-class Corvette"
+	shiptype = "Military patrol and combat utility"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000

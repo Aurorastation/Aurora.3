@@ -129,6 +129,11 @@
 	build_path = /obj/machinery/computer/slot_machine
 	origin_tech = list(TECH_DATA = 2)
 
+/obj/item/circuitboard/ship/navigation
+	name = T_BOARD("Navigation Console")
+	origin_tech = list(TECH_ENGINEERING = 2)
+	build_path = /obj/machinery/computer/ship/navigation
+
 /obj/item/circuitboard/ship/helm
 	name = T_BOARD("Helm Control Console")
 	origin_tech = list(TECH_ENGINEERING = 3)

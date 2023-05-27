@@ -1782,9 +1782,6 @@
 /obj/effect/decal/cleanable/vomit,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/flag/elyra/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/crew)
 "rO" = (
@@ -2594,9 +2591,7 @@
 /area/crashed_elyran_tanker/tanks)
 "Am" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/sign/flag/elyra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/elyra/large/north,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
@@ -2942,9 +2937,7 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/flag/elyra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/elyra/large/south,
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/crew)
 "CP" = (
@@ -3618,9 +3611,6 @@
 /area/crashed_elyran_tanker/engineering)
 "Km" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/sign/flag/elyra/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
 "Kp" = (
@@ -4921,9 +4911,6 @@
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
 "Wn" = (
-/obj/structure/sign/flag/elyra/right{
-	pixel_y = 32
-	},
 /obj/item/trash/match{
 	pixel_y = 6;
 	pixel_x = -13
@@ -5380,9 +5367,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/generic,
-/obj/structure/sign/flag/elyra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/elyra/large/north,
 /obj/item/trash/cigbutt{
 	pixel_x = 3;
 	pixel_y = -8

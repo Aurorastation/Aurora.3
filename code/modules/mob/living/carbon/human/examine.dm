@@ -224,6 +224,9 @@
 
 	if(HAS_FLAG(mutations, mSmallsize))
 		msg += "[get_pronoun("He")] [get_pronoun("is")] small halfling!\n"
+	//height
+	if(height)
+		msg += "[SPAN_NOTICE("[assembleHeightString(user)]")]\n"
 
 	//buckled_to
 	if(buckled_to)
@@ -242,12 +245,12 @@
 		msg += "<span class='warning'><B>[get_pronoun("He")] [get_pronoun("has")] engorged veins, which appear a vibrant red!</B></span>\n"
 
 	var/distance = get_dist(user,src)
-	if(istype(user, /mob/abstract/observer) || user.stat == 2) // ghosts can see anything
+	if(istype(user, /mob/abstract/observer) || user.stat == DEAD) // ghosts can see anything
 		distance = 1
 
-	if(src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
+	if((src.stat || (status_flags & FAKEDEATH)) && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
 		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")]n't responding to anything around [get_pronoun("him")] and seems to be unconscious.</span>\n"
-		if((stat == DEAD || is_asystole() || src.losebreath) && distance <= 3 || (status_flags & FAKEDEATH))
+		if(distance <= 3 && ((stat == DEAD || is_asystole() || src.losebreath) || (status_flags & FAKEDEATH)))
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("does")] not appear to be breathing.</span>\n"
 
 	else if (src.stat)
@@ -456,3 +459,61 @@
 
 	var/output_text = color_map[supplied_color] || "fluid"
 	return output_text
+
+/mob/living/carbon/human/assembleHeightString(mob/examiner)
+	var/heightString = ""
+	var/descriptor
+	if(height == HEIGHT_NOT_USED)
+		return heightString
+
+	// Compare to Species Average
+	if(species.species_height != HEIGHT_NOT_USED)
+		switch(height - species.species_height)
+			if(-999 to -100)
+				descriptor = "miniscule"
+			if(-99 to -50)
+				descriptor = "tiny"
+			if(-49 to -11)
+				descriptor = "small"
+			if(-10 to 10)
+				descriptor = "about average height"
+			if(11 to 50)
+				descriptor = "tall"
+			if(51 to 100)
+				descriptor = "huge"
+			else
+				descriptor = "gargantuan"
+		heightString += "[get_pronoun("He")] look[get_pronoun("end")] [descriptor]"
+		if(!species.hide_name)
+			heightString += " for a [species.name]"
+
+
+	if(examiner.height == HEIGHT_NOT_USED)
+		return heightString
+
+	switch(height - examiner.height)
+		if(-999 to -100)
+			descriptor = "absolutely tiny compared to"
+		if(-99 to -51)
+			descriptor = "much smaller than"
+		if(-50 to -21)
+			descriptor = "significantly shorter than"
+		if(-20 to -11)
+			descriptor = "shorter than"
+		if(-10 to -6)
+			descriptor = "slightly shorter than"
+		if(-5 to 5)
+			descriptor = "around the same height as"
+		if(6 to 10)
+			descriptor = "slightly taller than"
+		if(11 to 20)
+			descriptor = "taller than"
+		if(21 to 50)
+			descriptor = "significantly taller than"
+		if(51 to 100)
+			descriptor = "much larger than"
+		else
+			descriptor = "to tower over"
+	if(heightString)
+		return heightString += ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
+	return "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."

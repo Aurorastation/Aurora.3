@@ -236,7 +236,7 @@
 			f_name = "some "
 		else
 			f_name = "a "
-		if(blood_color != "#030303")
+		if(blood_color != COLOR_IPC_BLOOD && blood_color != COLOR_OIL)
 			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
 		else
 			f_name += "oil-stained [name][infix]."
@@ -672,3 +672,6 @@
 
 /atom/proc/handle_middle_mouse_click(var/mob/user)
 	return FALSE
+
+/atom/proc/handle_pointed_at(var/mob/pointer)
+	return

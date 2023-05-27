@@ -2,7 +2,7 @@
 	name = "Casino"
 	description = "A casino ship!"
 	suffixes = list("ships/casino/casino.dmm")
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA, ALL_COALITION_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "awaysite_casino"
@@ -20,6 +20,9 @@
 	icon_state = "generic"
 	moving_state = "generic_moving"
 	colors = list("#c3c7eb", "#a0a8ec")
+	volume = "57 meters length, 35 meters beam/width, 16 meters vertical height"
+	sizeclass = "Passenger Liner"
+	shiptype = "Long-distance freight and leisure transit"
 	vessel_mass = 15000
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECOND

@@ -130,6 +130,7 @@
 			VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], G.desc, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["cant_spawn"], cant_spawn, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["can_edit"], G.can_edit(user), ., data)
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["can_jump_to"], G.can_jump_to(user), ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["enabled"], G.enabled, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["count"], G.count, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["spawnatoms"], length(G.spawn_atoms), ., data)
@@ -165,6 +166,15 @@
 			return
 		log_and_message_admins("joined as GhostRole: [S.name]", M)
 		SSvueui.check_uis_for_change(src) //Make sure to update all the UIs so the count is updated
+	if(href_list["jump_to"])
+		var/spawner_id = href_list["jump_to"]
+		var/datum/ghostspawner/human/spawner = spawners[spawner_id]
+		var/mob/abstract/observer/observer = usr
+		if(spawner && istype(observer) && spawner.can_jump_to(observer))
+			var/atom/turf = spawner.select_spawnlocation(FALSE)
+			if(isturf(turf))
+				observer.on_mob_jump()
+				observer.forceMove(turf)
 	if(href_list["enable"])
 		var/datum/ghostspawner/S = spawners[href_list["enable"]]
 		if(!S)

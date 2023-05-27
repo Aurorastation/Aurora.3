@@ -527,7 +527,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/brandy
 	name = "Admiral Cindy's brandy"
-	desc = "Cheap knock off for Silverport cognac; Getmore's attempt to ride off the cognac fad of the 2420s."
+	desc = "Cheap knock off for Cytherean cognac; Getmore's attempt to ride off the cognac fad of the 2420s."
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "brandybottle"
 	center_of_mass = list("x" = 15,"y" = 8)
@@ -563,7 +563,7 @@
 	icon_state = "messa_mead"
 	center_of_mass = list("x" = 16,"y" = 5)
 	desc_extended = "A fermented alcoholic drink made from earthen-root juice and Messa's tears leaves. It has a relatively low alcohol content and characteristic honey flavor. \
-	Messa's Mead is one of the most popular alcoholic drinks in Adhomai; it is consumed both during celebrations and daily meals. Any proper Adhomian bar will have at least a keg or \
+	Messa's Mead is one of the most popular alcoholic drinks on Adhomai; it is consumed both during celebrations and daily meals. Any proper Adhomian bar will have at least a keg or \
 	some bottles of the mead."
 	reagents_to_add = list(/singleton/reagent/alcohol/messa_mead = 100)
 

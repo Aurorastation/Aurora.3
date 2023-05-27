@@ -13,7 +13,7 @@
 	var/icon/icon_state
 
 /datum/data/vending_product/New(var/path, var/name = null, var/amount = 1, var/price = 0, var/color = null, var/category = CAT_NORMAL)
-	..()
+	. = ..()
 
 	product_path = path
 	var/atom/A = new path(null)
@@ -33,6 +33,7 @@
 		product_icon = S.update_appearance(TRUE)
 	else
 		product_icon = new /icon(A.icon, A.icon_state)
+
 	icon_state = product_icon
 	QDEL_NULL(A)
 
@@ -44,7 +45,7 @@
 	desc = "A generic vending machine."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "generic"
-	layer = 2.9
+	layer = 2.99
 	anchored = 1
 	density = 1
 	clicksound = /singleton/sound_category/button_sound

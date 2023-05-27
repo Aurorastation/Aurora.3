@@ -1,5 +1,8 @@
 /atom/movable
 	layer = 3
+	glide_size = 6
+	animate_movement = SLIDE_STEPS
+
 	var/last_move = null
 	var/anchored = 0
 	var/movable_flags
@@ -42,11 +45,14 @@
 	..()*/
 
 /atom/movable/Destroy()
-	if (important_recursive_contents && (important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS] || important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))
+	if (HAS_SPATIAL_GRID_CONTENTS(src))
 		SSspatial_grid.force_remove_from_cell(src)
 
 	LAZYCLEARLIST(contained_mobs)
 	LAZYCLEARLIST(important_recursive_contents)
+
+	moved_event.unregister_all_movement(loc, src)
+
 	. = ..()
 
 	for(var/atom/movable/AM in contents)
@@ -436,7 +442,7 @@
 
 	var/turf/our_turf = get_turf(src)
 	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
-		SSspatial_grid.exit_cell(src, our_turf)
+		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
 	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
 		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
 
@@ -502,7 +508,7 @@
 /atom/movable/proc/clear_from_target_grid()
 	var/turf/our_turf = get_turf(src)
 	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
-		SSspatial_grid.exit_cell(src, our_turf)
+		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_AI_TARGETS)
 	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
 		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
 

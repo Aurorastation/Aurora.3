@@ -281,6 +281,7 @@
 	icon_screen = "nav"
 	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
+	circuit = /obj/item/circuitboard/ship/navigation
 
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!connected)

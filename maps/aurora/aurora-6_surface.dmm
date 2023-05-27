@@ -2908,12 +2908,7 @@
 	name = "north bump";
 	pixel_y = 24
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "cmT" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -3350,12 +3345,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "cHp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3917,12 +3907,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "dkX" = (
 /obj/machinery/door/firedoor,
@@ -5341,12 +5326,7 @@
 	pressure_checks_default = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "eHq" = (
 /obj/effect/floor_decal/corner/red{
@@ -5572,12 +5552,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "eRk" = (
 /obj/machinery/telecomms/server/presets/common,
@@ -6077,12 +6052,7 @@
 	name = "SERVER ROOM";
 	pixel_y = 32
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "foh" = (
 /obj/structure/grille,
@@ -8342,12 +8312,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "hlx" = (
 /obj/structure/window/reinforced,
@@ -12816,12 +12781,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "ljj" = (
 /turf/simulated/open/airless,
@@ -12905,12 +12865,7 @@
 	name = "SERVER ROOM";
 	pixel_y = 32
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "loo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -14980,12 +14935,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "nbA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -18242,12 +18192,7 @@
 	pump_direction = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "pKM" = (
 /obj/structure/grille,
@@ -19364,12 +19309,7 @@
 /area/tcommsat/entrance)
 "qJW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "qJZ" = (
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -19532,12 +19472,7 @@
 	pixel_x = 8;
 	pixel_y = 25
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "qTD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -22022,12 +21957,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "sTR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -23178,12 +23108,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "tMF" = (
 /turf/simulated/wall/shuttle/unique/research{
@@ -23698,12 +23623,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "ujs" = (
 /obj/structure/cable{
@@ -25940,12 +25860,7 @@
 /area/hydroponics/garden)
 "wiv" = (
 /obj/machinery/firealarm/north,
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "wkD" = (
 /obj/structure/grille,
@@ -27379,12 +27294,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "xvJ" = (
 /obj/structure/cable/green{
@@ -27524,12 +27434,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "xBr" = (
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/tcommsat/chamber)
 "xBt" = (
 /obj/structure/cable/green{

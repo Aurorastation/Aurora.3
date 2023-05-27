@@ -140,12 +140,12 @@
 	banners["banner, Traverse"] = /obj/item/flag/traverse
 	banners["banner, NanoTrasen"] = /obj/item/flag/nanotrasen
 	banners["banner, Eridani Fed"] = /obj/item/flag/eridani
-	banners["banner, Sedantis"] = /obj/item/flag/vaurca
+	banners["banner, Sedantis"] = /obj/item/flag/sedantis
 	banners["banner, People's Republic of Adhomai"] = /obj/item/flag/pra
 	banners["banner, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra
 	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
 	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
-	banners["banner, Dominian Diona"] = /obj/item/flag/diona
+	banners["banner, CT-EUM"] = /obj/item/flag/cteum
 	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
 	banners["banner, Hephaestus Industries"] = /obj/item/flag/heph
 	banners["banner, Idris Incorporated"] = /obj/item/flag/idris
@@ -157,6 +157,11 @@
 	banners["banner, Vysoka"] = /obj/item/flag/vysoka
 	banners["banner, Konyang"] = /obj/item/flag/konyang
 	banners["banner, Red Coalition"] = /obj/item/flag/red_coalition
+	banners["banner, Private Military Contracting Group"] = /obj/item/flag/pmcg
+	banners["banner, United Syndicates of Himeo"] = /obj/item/flag/himeo
+	banners["banner, Republic of Assunzione"] = /obj/item/flag/assunzione
+	banners["banner, New Gibson"] = /obj/item/flag/newgibson
+	banners["banner, Visegrad"] = /obj/item/flag/visegrad
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -192,7 +197,7 @@
 	flags["flag, Traverse"] = /obj/item/flag/traverse/l
 	flags["flag, NanoTrasen"] = /obj/item/flag/nanotrasen/l
 	flags["flag, Eridani Fed"] = /obj/item/flag/eridani/l
-	flags["flag, Sedantis"] = /obj/item/flag/vaurca/l
+	flags["flag, Sedantis"] = /obj/item/flag/sedantis/l
 	flags["flag, People's Republic of Adhomai"] = /obj/item/flag/pra/l
 	flags["flag, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra/l
 	flags["flag, New Kingdom of Adhomai"] = /obj/item/flag/nka/l
@@ -208,6 +213,9 @@
 	flags["flag, Vysoka"] = /obj/item/flag/vysoka/l
 	flags["flag, Konyang"] = /obj/item/flag/konyang/l
 	flags["flag, Red Coalition"] = /obj/item/flag/red_coalition/l
+	flags["flag, Private Military Contracting Group"] = /obj/item/flag/pmcg/l
+	flags["flag, United Syndicates of Himeo"] = /obj/item/flag/himeo/l
+	flags["flag, Republic of Assunzione"] = /obj/item/flag/assunzione/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel

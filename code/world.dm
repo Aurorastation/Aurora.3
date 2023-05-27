@@ -56,7 +56,7 @@ var/global/datum/global_init/init = new ()
 	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
 	maxx = WORLD_MIN_SIZE	// So that we don't get map-window-popin at boot. DMMS will expand this.
 	maxy = WORLD_MIN_SIZE
-	fps = 20
+	fps = 30
 
 #define RECOMMENDED_VERSION 510
 /world/New()
@@ -86,7 +86,16 @@ var/global/datum/global_init/init = new ()
 	. = ..()
 
 #ifdef UNIT_TEST
-	log_unit_test("Unit Tests Enabled.  This will destroy the world when testing is complete.")
+	#if defined(MANUAL_UNIT_TEST)
+
+	world.log << "[ascii_green] *** NOTICE *** [ascii_reset] Unit Tests Enabled.  This will destroy the world when testing is complete."
+
+	#else
+
+	world.log << "::notice::Unit Tests Enabled.  This will destroy the world when testing is complete."
+
+	#endif
+
 	load_unit_test_changes()
 #endif
 
