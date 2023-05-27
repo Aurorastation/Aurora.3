@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Hostile mobs (and hulks) can now break unreinforced tables and full window frames."
