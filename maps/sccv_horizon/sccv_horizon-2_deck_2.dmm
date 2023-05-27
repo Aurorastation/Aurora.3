@@ -17992,8 +17992,8 @@
 	id = "bar_shutter";
 	name = "Desk Shutters";
 	pixel_x = 25;
-	req_access = list(25);
-	pixel_y = 25
+	pixel_y = 25;
+	req_access = list(25)
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
@@ -27408,6 +27408,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
 "nkK" = (
@@ -44483,12 +44484,12 @@
 	},
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
-	pixel_y = 3;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 3
 	},
 /obj/item/bananapeel{
-	pixel_y = 1;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 1
 	},
 /turf/simulated/floor/carpet,
 /area/horizon/bar/backroom)
@@ -49472,8 +49473,8 @@
 	id = "bar_shutter";
 	name = "Desk Shutters";
 	pixel_x = 25;
-	req_access = list(25);
-	pixel_y = -24
+	pixel_y = -24;
+	req_access = list(25)
 	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
