@@ -69,8 +69,6 @@
 			toggle_scan()
 			time = 10
 
-	SSvueui.check_uis_for_change(src)
-
 /obj/item/device/assembly/prox_sensor/dropped()
 	spawn(0)
 		sense()
@@ -117,12 +115,7 @@
 /obj/item/device/assembly/prox_sensor/ui_data(mob/user)
 	var/list/data = list()
 
-	var/second = time % 60
-	var/minute = (time - second) / 60
-
 	data["timeractive"] = timing
-	data["minute"] = minute
-	data["second"] = second
 	data["time"] = time
 	data["scanning"] = scanning
 	data["range"] = range

@@ -3,15 +3,13 @@ import { useBackend } from '../backend';
 import { Button, NumberInput, Section, LabeledList } from '../components';
 import { Window } from '../layouts';
 
-export type ProximityData = {
+export type TimerData = {
   timeractive: BooleanLike;
-  scanning: BooleanLike;
-  range: number;
   time: number;
 };
 
-export const Proximity = (props, context) => {
-  const { act, data } = useBackend<ProximityData>(context);
+export const Timer = (props, context) => {
+  const { act, data } = useBackend<TimerData>(context);
 
   return (
     <Window resizable>
@@ -34,27 +32,7 @@ export const Proximity = (props, context) => {
                 unit="s"
                 value={data.time}
                 format={(value) => Math.round(value)}
-                onChange={(e, value) => act('tp', { tp: value })}
-              />
-            </LabeledList.Item>
-          </LabeledList>
-        </Section>
-        <Section title="Settings">
-          <LabeledList>
-            <LabeledList.Item label="Scanning">
-              <Button
-                content={data.scanning ? 'Armed' : 'Not Armed'}
-                color={data.scanning ? 'good' : ''}
-                icon="wifi"
-                onClick={() => act('scanning')}
-              />
-            </LabeledList.Item>
-            <LabeledList.Item label="Range">
-              <NumberInput
-                minValue={1}
-                maxValue={5}
-                value={data.range}
-                onDrag={(e, value) => act('range', { range: value })}
+                onDrag={(e, value) => act('tp', { tp: value })}
               />
             </LabeledList.Item>
           </LabeledList>
