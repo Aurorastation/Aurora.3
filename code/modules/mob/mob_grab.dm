@@ -49,6 +49,7 @@
 	abstract = 1
 	item_state = "nothing"
 	w_class = ITEMSIZE_HUGE
+	throw_range = 5
 
 	drop_sound = null
 	pickup_sound = null

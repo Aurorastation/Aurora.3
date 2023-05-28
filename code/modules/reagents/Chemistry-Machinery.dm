@@ -470,17 +470,23 @@
 		if("eject")
 			eject()
 		if ("detach")
-			detach()
+			detach(usr)
 	src.updateUsrDialog()
 	return 1
 
-/obj/machinery/reagentgrinder/proc/detach()
+/obj/machinery/reagentgrinder/proc/detach(var/mob/user)
+	if(!beaker)
+		return
 
-	if (usr.stat != 0)
+	if(use_check_and_message(user))
 		return
-	if (!beaker)
-		return
-	beaker.forceMove(get_turf(src))
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!H.put_in_active_hand(beaker))
+			beaker.forceMove(get_turf(src))
+	else
+		beaker.forceMove(get_turf(src))
 	beaker = null
 	update_icon()
 

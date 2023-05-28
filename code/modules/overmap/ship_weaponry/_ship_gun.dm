@@ -334,6 +334,14 @@
 	var/list/names_to_guns = list()
 	var/list/names_to_entries = list()
 
+/obj/machinery/computer/ship/targeting/cockpit
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "left"
+	icon_screen = "targeting"
+	icon_keyboard = null
+	circuit = null
+
 /obj/machinery/computer/ship/targeting/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD

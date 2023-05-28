@@ -17,7 +17,7 @@
 	return splittext(file2text(filename), seperator)
 
 // Slower then list2text (replaced with jointext), but correctly processes associative lists.
-proc/tg_list2text(list/list, glue=",")
+/proc/tg_list2text(list/list, glue=",")
 	if (!istype(list) || !list.len)
 		return
 	var/output

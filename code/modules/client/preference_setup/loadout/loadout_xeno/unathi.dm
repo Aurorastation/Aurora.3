@@ -25,14 +25,28 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/suit/unathi_mantle_heph
-	display_name = "hephaestus guild mantle"
-	description = "A deep green mantle, reserved for the guildsmen of Hephaestus Industries"
+/datum/gear/suit/unathi_mantle_guild
+	display_name = "guild mantle selection"
+	description = "A selection of hide mantles, each showing affiliation with one of the guilds of Moghes."
 	path = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/unathi_mantle_guild/New()
+	..()
+	var/list/guildmantles = list()
+	guildmantles["hephaestus guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+	guildmantles["merchants' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/merchant
+	guildmantles["miners' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/miner
+	guildmantles["junzi electric guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/junzi
+	guildmantles["bards' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/bard
+	guildmantles["house of medicine guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/med
+	guildmantles["construction coalition guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/construction
+	guildmantles["hearts of industry guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/union
+	guildmantles["fighters' lodge guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/fighter
+	gear_tweaks += new /datum/gear_tweak/path(guildmantles)
 
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe"
@@ -110,6 +124,23 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/religion/unathi_book
+	display_name = "unathi religious texts"
+	path = /obj/item/device/versebook/skakh
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/religion/unathi_book/New()
+	..()
+	var/list/unathi_book = list()
+	unathi_book["Sk'akh Legends"] = /obj/item/device/versebook/skakh
+	unathi_book["assorted Th'akh fables"] = /obj/item/device/versebook/thakh
+	unathi_book["Reflections on the Aut'akh Faith"] = /obj/item/device/versebook/autakh
+	unathi_book["Writings of Judizah Si'akh"] = /obj/item/device/versebook/siakh
+	gear_tweaks += new /datum/gear_tweak/path(unathi_book)
 
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic"
