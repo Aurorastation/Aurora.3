@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a summoning stone to the Technomancer assistance category. You can give this to anyone to grant them a core and an initiate's catalogue, effectively making them a mini-technomancer."
-  - rscadd: "Added a Bracelet Core, a wrist mounted variant of the technomancer manipulation core."
