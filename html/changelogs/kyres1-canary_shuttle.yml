@@ -1,0 +1,9 @@
+author: kyres1
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a new shuttle, the Canary. It's a scout shuttle devoted to very small compliments that allows bridge crew, and a couple friends at most, to explore the sector with little risk."
+  - rscadd: "Added a variety of new SCC-centric shuttle pieces to be used for SCC shuttles, both on the Horizon and off."
+  - tweak: "Moved the Intrepid's Francisca rotary gun to the new Canary shuttle."
+  - rscdel: "Removed the ammo loader mech from the Intrepid cockpit."
