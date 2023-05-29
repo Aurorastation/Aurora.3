@@ -1425,7 +1425,6 @@
 #include "code\modules\background\origins\origins\diona\biesel.dm"
 #include "code\modules\background\origins\origins\diona\coalition.dm"
 #include "code\modules\background\origins\origins\diona\deep_space.dm"
-#include "code\modules\background\origins\origins\diona\dominia.dm"
 #include "code\modules\background\origins\origins\diona\eridani.dm"
 #include "code\modules\background\origins\origins\diona\eum.dm"
 #include "code\modules\background\origins\origins\diona\moghes.dm"
