@@ -97,7 +97,7 @@ obj/machinery/air_sensor/Destroy()
 	var/datum/radio_frequency/radio_connection
 	circuit = /obj/item/circuitboard/air_management
 
-obj/machinery/computer/general_air_control/Destroy()
+/obj/machinery/computer/general_air_control/Destroy()
 	if(SSradio)
 		SSradio.remove_object(src, frequency)
 	return ..()
@@ -108,10 +108,11 @@ obj/machinery/computer/general_air_control/Destroy()
 	for(var/id_tag in sensors)
 		var/long_name = sensors[id_tag]
 		var/list/sdata = sensor_information[id_tag]
-		LAZYINITLIST(data["sensors"][id_tag])
-		data["sensors"][id_tag]["name"] = long_name
+		data["sensors"] += list("id_tag" = id_tag, "name" = long_name)
+		data["sensors"]["datapoints"] = list()
 		for(var/datapoint in list("pressure", "temperature", GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN))
-			data["sensors"][id_tag][datapoint] = sdata[datapoint]
+			data["sensors"]["datapoints"] += list("datapoint" = datapoint, "data" = sdata[datapoint])
+	return data
 
 /obj/machinery/computer/general_air_control/attack_hand(mob/user)
 	ui_interact(user)
@@ -163,7 +164,7 @@ obj/machinery/computer/general_air_control/Destroy()
 
 /obj/machinery/computer/general_air_control/large_tank_control/ui_data(mob/user)
 	. = ..()
-	var/list/data = list()
+	var/list/data = .
 	data["control"] = "tank"
 	data["maxrate"] = max_input_flow_setting
 	data["maxpressure"] = max_pressure_setting
@@ -178,7 +179,7 @@ obj/machinery/computer/general_air_control/Destroy()
 		data["output"]["power"] = output_info["power"]
 		data["output"]["pressure"] = output_info["internal"]
 		data["output"]["setpressure"] = default_pressure_setting
-
+	return data
 
 /obj/machinery/computer/general_air_control/large_tank_control/receive_signal(datum/signal/signal)
 	if(!signal || signal.encryption) return
