@@ -162,6 +162,12 @@
 	banners["banner, Republic of Assunzione"] = /obj/item/flag/assunzione
 	banners["banner, New Gibson"] = /obj/item/flag/newgibson
 	banners["banner, Visegrad"] = /obj/item/flag/visegrad
+	banners["banner, Union of Port Antillia"] = /obj/item/flag/portantillia
+	banners["banner, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette
+	banners["banner, Mictlan"] = /obj/item/flag/mictlan
+	banners["banner, Hive Zo'ra"] = /obj/item/flag/zora
+	banners["banner, Hive K'lax"] = /obj/item/flag/klax
+	banners["banner, Hive C'thur"] = /obj/item/flag/cthur
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -216,6 +222,12 @@
 	flags["flag, Private Military Contracting Group"] = /obj/item/flag/pmcg/l
 	flags["flag, United Syndicates of Himeo"] = /obj/item/flag/himeo/l
 	flags["flag, Republic of Assunzione"] = /obj/item/flag/assunzione/l
+	flags["flag, Union of Port Antillia"] = /obj/item/flag/portantillia
+	flags["flag, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/l
+	flags["flag, Mictlan"] = /obj/item/flag/mictlan/l
+	flags["flag, Hive Zo'ra"] = /obj/item/flag/zora/l
+	flags["flag, Hive K'lax"] = /obj/item/flag/klax/l
+	flags["flag, Hive C'thur"] = /obj/item/flag/cthur/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel

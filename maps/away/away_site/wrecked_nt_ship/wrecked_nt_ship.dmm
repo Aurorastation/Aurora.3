@@ -142,12 +142,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
-"cJ" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/item/material/shard,
-/turf/template_noop,
-/area/space)
 "cT" = (
 /obj/item/clothing/suit/caution,
 /turf/simulated/floor/tiled/steel/airless{
@@ -454,7 +448,7 @@
 	},
 /area/space)
 "jM" = (
-/turf/simulated/floor/ice,
+/turf/simulated/floor/airless/ice,
 /area/wrecked_nt_ship)
 "jN" = (
 /turf/simulated/floor/wood/airless{
@@ -776,7 +770,7 @@
 /area/wrecked_nt_ship)
 "qw" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/ice,
+/turf/simulated/floor/airless/ice,
 /area/wrecked_nt_ship)
 "qD" = (
 /obj/effect/decal/remains/human,
@@ -819,14 +813,6 @@
 	icon_state = "damaged2"
 	},
 /area/wrecked_nt_ship)
-"rx" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/item/stack/rods{
-	icon_state = "rods-1"
-	},
-/turf/template_noop,
-/area/space)
 "rA" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/airless{
@@ -1314,12 +1300,6 @@
 /obj/item/wrench,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
-"Cz" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/structure/grille/broken,
-/turf/template_noop,
-/area/space)
 "CI" = (
 /obj/item/melee/vaurca/rock,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -1415,15 +1395,6 @@
 	icon_state = "damaged3"
 	},
 /area/wrecked_nt_ship)
-"FJ" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/item/stack/rods{
-	icon_state = "rods-1"
-	},
-/turf/template_noop,
-/area/space)
 "FP" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/template_noop,
@@ -2170,7 +2141,6 @@
 /area/wrecked_nt_ship)
 "WI" = (
 /obj/structure/lattice,
-/obj/structure/lattice,
 /obj/item/stack/rods{
 	icon_state = "rods-1"
 	},
@@ -2231,11 +2201,6 @@
 "XR" = (
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/steel/airless,
-/area/space)
-"XV" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/template_noop,
 /area/space)
 "Yb" = (
 /obj/effect/decal/remains/human,
@@ -31292,9 +31257,9 @@ ot
 qw
 jM
 jM
-XV
+Kh
 WI
-cJ
+tt
 ll
 ot
 Kh
@@ -31549,7 +31514,7 @@ ot
 jM
 jM
 vx
-Cz
+HB
 Kh
 Kh
 bO
@@ -31814,8 +31779,8 @@ Kn
 vx
 lO
 PQ
-FJ
-rx
+wf
+wf
 Kn
 Kn
 Kn
@@ -33869,7 +33834,7 @@ ab
 vx
 PQ
 tt
-rx
+wf
 Kn
 PA
 Kn
@@ -34120,7 +34085,7 @@ ab
 WV
 Kn
 PQ
-rx
+wf
 ab
 ax
 ot

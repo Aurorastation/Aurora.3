@@ -342,14 +342,19 @@ var/list/slot_equipment_priority = list( \
 	if(!item)
 		return FALSE
 
+	var/throw_range = item.throw_range
+	var/itemsize
+
 	if(istype(item, /obj/item/grab))
 		var/obj/item/grab/G = item
 		item = G.throw_held() //throw the person instead of the grab
 		if(ismob(item) && G.state >= GRAB_NECK)
+			var/mob/M = item
+			throw_range = round(throw_range * (src.mob_size/M.mob_size))
+			itemsize = round(M.mob_size/4)
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
-				var/mob/M = item
 				if(is_pacified())
 					to_chat(src, "<span class='notice'>You gently let go of [M].</span>")
 					src.remove_from_mob(item)
@@ -365,6 +370,10 @@ var/list/slot_equipment_priority = list( \
 			qdel(G)
 		else
 			return FALSE
+	
+	else if(istype(item, /obj/item))
+		var/obj/item/I = item
+		itemsize = I.w_class
 
 	if(!item)
 		return FALSE //Grab processing has a chance of returning null
@@ -422,8 +431,9 @@ var/list/slot_equipment_priority = list( \
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))
-			src.inertia_dir = get_dir(target, src)
-			step(src, inertia_dir)
+			if(prob((itemsize * itemsize * 20) * MOB_MEDIUM/src.mob_size)) // 20% chance with a tiny item, 40% with small, guaranteed above
+				src.inertia_dir = get_dir(target, src)
+				step(src, inertia_dir)
 		if(istype(item,/obj/item))
 			var/obj/item/W = item
 			W.randpixel_xy()
@@ -433,7 +443,7 @@ var/list/slot_equipment_priority = list( \
 		// Animate the mob throwing.
 		animate_throw()
 
-		item.throw_at(target, item.throw_range, item.throw_speed, src)
+		item.throw_at(target, throw_range, item.throw_speed, src)
 
 		return TRUE
 

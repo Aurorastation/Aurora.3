@@ -8,6 +8,10 @@ var/global/list/radial_menus = list()
 	layer = HUD_LAYER
 	var/datum/radial_menu/parent
 
+/obj/screen/radial/Destroy()
+	qdel(parent)
+	return ..()
+
 /obj/screen/radial/slice
 	icon_state = "radial_slice"
 	var/choice

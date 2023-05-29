@@ -9,7 +9,8 @@
 	anchored = TRUE
 	density = TRUE
 	climbable = TRUE
-	smooth = SMOOTH_MORE
+	smooth = SMOOTH_TRUE
+	breakable = TRUE
 	can_be_unanchored = TRUE
 	canSmoothWith = list(
 		/turf/simulated/wall,
