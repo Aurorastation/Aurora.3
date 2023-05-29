@@ -95,6 +95,7 @@ obj/machinery/air_sensor/Destroy()
 
 	var/list/sensor_information = list()
 	var/datum/radio_frequency/radio_connection
+	var/ui_type = "AtmosControl"
 	circuit = /obj/item/circuitboard/air_management
 
 /obj/machinery/computer/general_air_control/Destroy()
@@ -108,10 +109,19 @@ obj/machinery/air_sensor/Destroy()
 	for(var/id_tag in sensors)
 		var/long_name = sensors[id_tag]
 		var/list/sdata = sensor_information[id_tag]
-		data["sensors"] += list("id_tag" = id_tag, "name" = long_name)
-		data["sensors"]["datapoints"] = list()
+		var/list/sensor_data = list("id_tag" = id_tag, "name" = long_name)
+		sensor_data["datapoints"] = list()
 		for(var/datapoint in list("pressure", "temperature", GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN))
-			data["sensors"]["datapoints"] += list("datapoint" = datapoint, "data" = sdata[datapoint])
+			var/unit
+			if(datapoint == "pressure")
+				unit = "kPa"
+			else if(datapoint == "temperature")
+				unit = "K"
+			else
+				unit = "%"
+			sensor_data["datapoints"] += list(list("datapoint" = datapoint, "data" = sdata[datapoint], "unit" = unit))
+		data["sensors"] += list(sensor_data)
+		sensor_data = list()
 	return data
 
 /obj/machinery/computer/general_air_control/attack_hand(mob/user)
@@ -120,7 +130,7 @@ obj/machinery/air_sensor/Destroy()
 /obj/machinery/computer/general_air_control/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AtmosControl", "Atmospherics Control", 460, 470)
+		ui = new(user, src, ui_type, "Atmospherics Control", 460, 470)
 		ui.open()
 
 /obj/machinery/computer/general_air_control/receive_signal(datum/signal/signal)
@@ -142,7 +152,7 @@ obj/machinery/air_sensor/Destroy()
 
 
 /obj/machinery/computer/general_air_control/large_tank_control
-
+	ui_type = "AtmosControlTank"
 	frequency = 1441
 	var/input_tag
 	var/output_tag
@@ -165,7 +175,6 @@ obj/machinery/air_sensor/Destroy()
 /obj/machinery/computer/general_air_control/large_tank_control/ui_data(mob/user)
 	. = ..()
 	var/list/data = .
-	data["control"] = "tank"
 	data["maxrate"] = max_input_flow_setting
 	data["maxpressure"] = max_pressure_setting
 	if(input_info)
@@ -239,10 +248,11 @@ obj/machinery/air_sensor/Destroy()
 				. = TRUE
 
 	signal.data["sigtype"] = "command"
-	radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+	INVOKE_ASYNC(radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA))
 
 /obj/machinery/computer/general_air_control/supermatter_core
 	icon = 'icons/obj/modular_console.dmi'
+	ui_type = "AtmosControlSupermatter"
 
 	frequency = 1438
 	var/input_tag
@@ -259,8 +269,7 @@ obj/machinery/air_sensor/Destroy()
 
 /obj/machinery/computer/general_air_control/supermatter_core/ui_data(mob/user)
 	. = ..()
-	var/list/data = list()
-	data["control"] = "supermatter"
+	var/list/data = .
 	data["maxrate"] = max_input_flow_setting
 	data["maxpressure"] = max_pressure_setting
 	if(input_info)
@@ -274,6 +283,7 @@ obj/machinery/air_sensor/Destroy()
 		data["output"]["power"] = output_info["power"]
 		data["output"]["pressure"] = output_info["external"]
 		data["output"]["setpressure"] = default_pressure_setting
+	return data
 
 /obj/machinery/computer/general_air_control/supermatter_core/receive_signal(datum/signal/signal)
 	if(!signal || signal.encryption) return
@@ -339,6 +349,7 @@ obj/machinery/air_sensor/Destroy()
 	icon_screen = "alert:0"
 	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
+	ui_type = "AtmosControlInjector"
 
 	var/device_tag
 	var/list/device_info
@@ -379,13 +390,14 @@ obj/machinery/air_sensor/Destroy()
 	..()
 
 /obj/machinery/computer/general_air_control/fuel_injection/ui_data(mob/user)
-	var/list/data = list()
-	data["control"] = "injector"
+	. = ..()
+	var/list/data = .
 	if(device_info)
 		LAZYINITLIST(data["device"])
 		data["device"]["power"] = device_info["power"]
 		data["device"]["rate"] = device_info["volume_rate"]
 		data["device"]["automation"] = automation
+	return data
 
 /obj/machinery/computer/general_air_control/fuel_injection/receive_signal(datum/signal/signal)
 	if(!signal || signal.encryption) return

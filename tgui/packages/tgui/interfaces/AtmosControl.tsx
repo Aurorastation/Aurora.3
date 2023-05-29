@@ -1,10 +1,9 @@
 import { useBackend } from '../backend';
-import { Section } from '../components';
-import { Window } from '../layouts';
+import { Section, Box, LabeledList } from '../components';
+import { capitalize } from '../../common/string';
 
 export type AtmosData = {
   sensors: Sensor[];
-  control: string;
   maxrate: number;
   maxpressure: number;
 };
@@ -18,16 +17,38 @@ type Sensor = {
 type Datapoint = {
   datapoint: string;
   data: string;
+  unit: string;
 };
 
 export const AtmosControl = (props, context) => {
   const { act, data } = useBackend<AtmosData>(context);
-
   return (
-    <Window resizable>
-      <Window.Content scrollable>
-        <Section title="Title" />
-      </Window.Content>
-    </Window>
+    <Section title="Sensor Data">
+      {data.sensors.length ? <SensorData /> : 'No sensors connected.'}
+    </Section>
+  );
+};
+
+export const SensorData = (props, context) => {
+  const { act, data } = useBackend<AtmosData>(context);
+  return (
+    <Section>
+      {data.sensors.map((sensor) => (
+        <Box bold key={sensor}>
+          {sensor.name}
+          {sensor.datapoints.map((datapoint) => (
+            <LabeledList key={datapoint}>
+              {datapoint.data !== null ? (
+                <LabeledList.Item label={capitalize(datapoint.datapoint)}>
+                  {datapoint.data} {datapoint.unit}
+                </LabeledList.Item>
+              ) : (
+                ''
+              )}
+            </LabeledList>
+          ))}
+        </Box>
+      ))}
+    </Section>
   );
 };
