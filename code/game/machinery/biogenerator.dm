@@ -75,6 +75,21 @@
 	object = /obj/item/reagent_containers/food/snacks/spreads
 	cost = 80
 
+/singleton/biorecipe/food/lard
+	name = "Lard"
+	object = /obj/item/reagent_containers/food/snacks/spreads/lard
+	cost = 80
+
+/singleton/biorecipe/food/egg
+	name = "Chicken Egg"
+	object = /obj/item/reagent_containers/food/snacks/egg
+	cost = 30
+
+/singleton/biorecipe/food/tunneler_egg
+	name = "Ice Tunneler Egg"
+	object = /obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
+	cost = 30
+
 /singleton/biorecipe/food/enzyme
 	name = "Universal Enzyme (50u)"
 	object = /obj/item/reagent_containers/food/condiment/enzyme
