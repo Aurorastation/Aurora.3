@@ -1755,6 +1755,48 @@
 /obj/structure/sign/flag/mictlan/large/west/New()
 	..(loc, WEST)
 
+
+// New Hai Phong
+
+/obj/item/flag/nhp
+	name = "\improper New Hai Phong flag"
+	desc = "The flag of New Hai Phong."
+	flag_path = "newhaiphong"
+	flag_structure = /obj/structure/sign/flag/nhp
+
+/obj/structure/sign/flag/nhp
+	name = "\improper New Hai Phong flag"
+	desc = "The flag of New Hai Phong."
+	flag_path = "newhaiphong"
+	icon_state = "newhaiphong"
+	flag_item = /obj/item/flag/nhp
+
+/obj/structure/sign/flag/nhp/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/nhp/l
+	name = "large New Hai Phong flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/nhp/large
+
+/obj/structure/sign/flag/nhp/large
+	icon_state = "newhaiphong_l"
+	flag_path = "newhaiphong"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/nhp/l
+
+/obj/structure/sign/flag/nhp/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/nhp/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/nhp/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/nhp/large/west/New()
+	..(loc, WEST)
+
 // Hive Zo'ra
 
 /obj/item/flag/zora
