@@ -2006,7 +2006,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/freebooter_ship/pod4)
+/area/ship/freebooter_ship)
 "etF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/firealarm/west,
@@ -3523,7 +3523,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 2
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/freebooter_ship/gunnery)
 "iQg" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3853,7 +3853,7 @@
 /obj/structure/railing/mapped,
 /obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/freebooter_ship)
 "kaR" = (
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
@@ -4112,7 +4112,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, pod three"
 	},
-/turf/space,
+/turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "kyk" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -7726,6 +7726,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/gunnery)
+"sxw" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship/gunnery)
 "sxU" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air,
@@ -8236,7 +8240,7 @@
 /obj/structure/railing/mapped,
 /obj/machinery/shipsensors/weak,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/freebooter_ship)
 "tPv" = (
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
@@ -9420,7 +9424,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/freebooter_ship/gunnery)
 "wxS" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -9473,7 +9477,7 @@
 	name = "starboard, pod four"
 	},
 /turf/simulated/floor,
-/area/ship/freebooter_ship/pod4)
+/area/ship/freebooter_ship)
 "wIJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -38493,7 +38497,7 @@ xhE
 tQn
 rjL
 tQn
-tQn
+sxw
 www
 iOV
 xRX
@@ -38750,8 +38754,8 @@ pEN
 tQn
 tQn
 tQn
-tQn
-tQn
+sxw
+sxw
 iOV
 xRX
 xRX
