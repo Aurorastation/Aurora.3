@@ -7911,6 +7911,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "fFj" = (
@@ -17157,6 +17160,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "mhb" = (
@@ -18490,7 +18496,6 @@
 	pixel_y = 12;
 	tag_door = "canary_out"
 	},
-/obj/machinery/suit_storage_unit/standard_unit,
 /obj/item/device/gps/stationary/sccv_canary{
 	pixel_x = 23;
 	pixel_y = -9
@@ -18507,6 +18512,20 @@
 	pixel_x = -23;
 	pixel_y = 4
 	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/westleft{
+	name = "Research Voidsuit Storage Rack Access";
+	req_access = list(47)
+	},
+/obj/structure/table/rack,
+/obj/item/rig/eva,
+/obj/item/rig/eva,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "ncq" = (
@@ -26726,6 +26745,7 @@
 	c_tag = "Canary - Main Compartment";
 	dir = 1
 	},
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "sWq" = (
