@@ -285,6 +285,12 @@
 	else
 		return ..() //Pistolwhippin'
 
+/obj/item/gun/proc/get_appropriate_delay()
+	var/fire_time = burst > 1 ? ((burst -1) * burst_delay) : fire_delay
+	var/appropriate_delay = burst > 1 ? burst_delay : fire_delay
+	var/shoot_time = max(fire_time, appropriate_delay)
+	return shoot_time
+
 /obj/item/gun/proc/fire_checks(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(!user || !target)
 		return FALSE
@@ -311,7 +317,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] is not ready to fire again!"))
 		return FALSE
 
-	var/shoot_time = max((burst - 1) * burst_delay, burst_delay)
+	var/shoot_time = get_appropriate_delay()
 	user.setClickCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
 
@@ -361,8 +367,6 @@
 
 	update_held_icon()
 
-	user.setClickCooldown(max(burst_delay+1, fire_delay))
-
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)
 	if(!target)
@@ -371,7 +375,7 @@
 	if(world.time < next_fire_time)
 		return FALSE
 
-	var/shoot_time = (burst - 1)* burst_delay
+	var/shoot_time = get_appropriate_delay()
 	next_fire_time = world.time + shoot_time
 
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
