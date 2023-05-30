@@ -240,6 +240,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
+"atI" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship)
 "avE" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/tiled/dark,
@@ -3795,6 +3801,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
+"jZY" = (
+/obj/structure/railing/mapped,
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/airless,
+/area/space)
 "kaR" = (
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
@@ -3973,6 +3984,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod5)
+"kti" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship)
 "kui" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
@@ -4039,7 +4059,7 @@
 /area/ship/freebooter_ship/bridge)
 "kwe" = (
 /obj/machinery/ammunition_loader/francisca{
-	weapon_id = "SSMD Francisca Rotary Gun"
+	weapon_id = "Freebooter Francisca Rotary Gun"
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, pod three"
@@ -4502,7 +4522,7 @@
 "loq" = (
 /obj/structure/grille/broken,
 /obj/structure/blocker/steel,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
 "lpe" = (
 /obj/machinery/bodyscanner{
@@ -7115,7 +7135,8 @@
 "rjL" = (
 /obj/machinery/ship_weapon/blaster{
 	pixel_y = -195;
-	pixel_x = -24
+	pixel_x = -24;
+	weapon_id = "Freebooter Ship Blaster"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor,
@@ -7455,6 +7476,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71;
 	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
@@ -8071,7 +8095,7 @@
 "tAn" = (
 /obj/structure/grille,
 /obj/structure/barricade/wooden,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
 "tDp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8129,7 +8153,7 @@
 /area/ship/freebooter_ship/engineering)
 "tMA" = (
 /obj/structure/grille,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
 "tOu" = (
 /obj/structure/railing/mapped,
@@ -8143,6 +8167,11 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
+"tPr" = (
+/obj/structure/railing/mapped,
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/airless,
+/area/space)
 "tPv" = (
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
@@ -8442,13 +8471,16 @@
 	dir = 1;
 	icon_state = "1-2"
 	},
+/obj/structure/fuel_port/phoron{
+	pixel_x = -32
+	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "uFc" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 6
+/obj/structure/railing/mapped{
+	dir = 1
 	},
+/obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
 "uGz" = (
@@ -8967,7 +8999,7 @@
 /obj/machinery/ship_weapon/francisca{
 	pixel_x = -64;
 	pixel_y = -162;
-	weapon_id = "SSMD Francisca Rotary Gun"
+	weapon_id = "Freebooter Francisca Rotary Gun"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
@@ -9039,7 +9071,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster1)
 "wdp" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/shipsensors/weak,
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
 "wdL" = (
@@ -9218,7 +9256,7 @@
 "wCo" = (
 /obj/structure/grille/broken,
 /obj/structure/blocker,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
 "wGc" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
@@ -9488,7 +9526,9 @@
 	},
 /area/ship/freebooter_ship/foyer)
 "xhE" = (
-/obj/machinery/ammunition_loader/blaster,
+/obj/machinery/ammunition_loader/blaster{
+	weapon_id = "Freebooter Ship Blaster"
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/gunnery)
 "xtX" = (
@@ -9524,6 +9564,11 @@
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
@@ -44681,7 +44726,7 @@ pSD
 sQA
 qNZ
 ydf
-xRX
+tPr
 xRX
 xRX
 tMA
@@ -44888,7 +44933,7 @@ xRX
 fGM
 iUd
 vdX
-vdX
+atI
 wdp
 aEB
 pob
@@ -44938,7 +44983,7 @@ csG
 wIJ
 tVf
 ydf
-xRX
+jZY
 xRX
 xRX
 tMA
@@ -45145,7 +45190,7 @@ xRX
 fGM
 lkK
 hZH
-hZH
+kti
 uFc
 aSb
 aSb
