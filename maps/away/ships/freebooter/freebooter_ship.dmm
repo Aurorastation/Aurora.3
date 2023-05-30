@@ -479,6 +479,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/pod7)
+"aKq" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/wall/shuttle/space_ship/cardinal{
+	color = "#E14644"
+	},
+/area/shuttle/freebooter_shuttle)
 "aKs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -1607,6 +1615,13 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
+"dBR" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor,
+/area/shuttle/freebooter_shuttle)
 "dDa" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
@@ -7540,6 +7555,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/freebooter_shuttle)
 "rYv" = (
@@ -9040,6 +9058,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
+"vCg" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/wall/shuttle/space_ship/cardinal{
+	color = "#E14644"
+	},
+/area/shuttle/freebooter_shuttle)
 "vDk" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/power/portgen/basic/fusion,
@@ -9454,11 +9480,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
-	},
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 24;
-	req_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_ship/bridge)
@@ -44080,7 +44101,7 @@ aSb
 sBA
 aSb
 aSb
-sBA
+aKq
 fjW
 lKV
 edN
@@ -45106,7 +45127,7 @@ iUd
 vdX
 atI
 wdp
-aEB
+dBR
 pob
 nRY
 nxF
@@ -46136,7 +46157,7 @@ aSb
 sBA
 aSb
 aSb
-sBA
+vCg
 iTc
 lKV
 kEe
