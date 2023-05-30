@@ -772,7 +772,7 @@
 		if(recoil_wielded)
 			recoil = usr.lying_is_intentional ? (recoil_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : recoil_wielded
 		if(accuracy_wielded)
-			accuracy = recoil = usr.lying_is_intentional ? (accuracy_wielded * LYING_DOWN_ACCURACY_STAT_MULTIPLIER) : accuracy_wielded
+			accuracy = usr.lying_is_intentional ? (accuracy_wielded * LYING_DOWN_ACCURACY_STAT_MULTIPLIER) : accuracy_wielded
 	else
 		if(fire_delay_wielded)
 			fire_delay = initial(fire_delay)
