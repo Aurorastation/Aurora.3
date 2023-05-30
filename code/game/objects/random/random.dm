@@ -2132,7 +2132,9 @@
 		/obj/item/clothing/suit/space/void/freelancer = /obj/item/clothing/head/helmet/space/void/freelancer,
 		/obj/item/rig/industrial,
 		/obj/item/rig/eva,
-		/obj/item/rig/hazard
+		/obj/item/rig/hazard,
+		/obj/item/clothing/suit/space/syndicate/black/red = /obj/item/clothing/head/helmet/space/syndicate/black/red,
+		/obj/item/clothing/suit/space/syndicate/black = /obj/item/clothing/head/helmet/space/syndicate/black
 	)
 	problist = list(
 		/obj/item/clothing/suit/space/void/engineering = 3,
@@ -2141,6 +2143,8 @@
 		/obj/item/clothing/suit/space/void/freelancer = 1,
 		/obj/item/rig/industrial = 2,
 		/obj/item/rig/hazard = 1,
-		/obj/item/rig/eva = 2
+		/obj/item/rig/eva = 2,
+		/obj/item/clothing/suit/space/syndicate/black = 1,
+		/obj/item/clothing/suit/space/syndicate/black/red = 1
 	)
 	has_postspawn = TRUE

@@ -2781,6 +2781,16 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/engineering)
+"gIY" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/random/voidsuit/freebooter,
+/obj/item/tank/jetpack/oxygen,
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_ship/foyer)
 "gLO" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 1
@@ -3671,6 +3681,16 @@
 	pixel_y = 17
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
+/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
+/obj/item/storage/pill_bottle/happy,
+/obj/item/reagent_containers/pill/happy{
+	pixel_x = 5
+	},
+/obj/item/reagent_containers/pill/happy{
+	pixel_x = -8;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/pod7)
 "jED" = (
@@ -4447,6 +4467,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/random/voidsuit/freebooter,
+/obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "lgr" = (
@@ -4638,6 +4659,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/item/tank/jetpack/carbondioxide,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "lzu" = (
@@ -5061,6 +5083,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/item/reagent_containers/inhaler/space_drugs{
+	pixel_x = -5
+	},
+/obj/item/reagent_containers/inhaler/space_drugs,
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/pod7)
 "mGn" = (
@@ -6158,6 +6184,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/random/voidsuit/freebooter,
+/obj/item/tank/jetpack/carbondioxide,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "pfE" = (
@@ -6710,6 +6737,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
+/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
+/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod5)
 "qkA" = (
@@ -7288,6 +7318,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/random/voidsuit/freebooter,
+/obj/item/tank/jetpack/carbondioxide,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "rvC" = (
@@ -9064,7 +9095,9 @@
 	desc = "A display for module #3. This one describes the connected module as: Hephaestus Cargo Module 5.1";
 	pixel_x = 32
 	},
-/obj/machinery/suit_cycler/syndicate,
+/obj/machinery/suit_cycler/syndicate{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "vOL" = (
@@ -42514,7 +42547,7 @@ mvP
 ruW
 lwO
 lfB
-pfg
+gIY
 pfg
 aGy
 ajb

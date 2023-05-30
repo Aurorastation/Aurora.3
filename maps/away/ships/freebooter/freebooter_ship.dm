@@ -1,19 +1,16 @@
 /datum/map_template/ruin/away_site/freebooter_ship
 	name = "Freebooter Ship"
-	description = "A long-range reconnaissance corvette design in use by the Solarian Navy, the Uhlan-class is a relatively costly and somewhat uncommon ship to be seen in the Alliance's fleets, and is typically reserved for more elite (or at least better equipped and trained) units. Designed to operate alone or as part of a small task force with minimal support in unfriendly space, it is most commonly seen assigned to probing, surveillance, harassment, and strike operations. \
-	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
+	description = "One of the most common sights in the Orion Spur, even outside of human space, is the Hephaestus-produced Ox-class freighter. Designed to haul significant amounts of cargo on well-charted routes between civilized systems, the Ox-class is the backbone of many interstellar markets outside of the United Syndicates of Himeo. Repurposed Ox-class freighters are often used by pirates throughout the Spur thanks to their large size and ease of maintenance – and modification."
 	suffixes = list("ships/freebooter/freebooter_ship.dmm")
-	sectors = list(SECTOR_BADLANDS)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ, SECTOR_SRANDMARR, ALL_COALITION_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "freebooter_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freebooter_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/freebooter_ship
 	map = "Freebooter Ship"
-	descriptor = "A long-range reconnaissance corvette design in use by the Solarian Navy, the Uhlan-class is a relatively costly and somewhat uncommon ship to be seen in the Alliance's fleets, and is typically reserved for more elite (or at least better equipped and trained) units. Designed to operate alone or as part of a small task force with minimal support in unfriendly space, it is most commonly seen assigned to probing, surveillance, harassment, and strike operations. \
-	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
+	descriptor = "One of the most common sights in the Orion Spur, even outside of human space, is the Hephaestus-produced Ox-class freighter. Designed to haul significant amounts of cargo on well-charted routes between civilized systems, the Ox-class is the backbone of many interstellar markets outside of the United Syndicates of Himeo. Repurposed Ox-class freighters are often used by pirates throughout the Spur thanks to their large size and ease of maintenance – and modification."
 
 //areas
 /area/ship/freebooter_ship
@@ -71,18 +68,17 @@
 /obj/effect/overmap/visitable/ship/freebooter_ship
 	name = "Freebooter Ship"
 	class = "ICV"
-	desc = "A long-range reconnaissance corvette design in use by the Solarian Navy, the Uhlan-class is a relatively costly and somewhat uncommon ship to be seen in the Alliance's fleets, and is typically reserved for more elite (or at least better equipped and trained) units. Designed to operate alone or as part of a small task force with minimal support in unfriendly space, it is most commonly seen assigned to probing, surveillance, harassment, and strike operations. \
-	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
+	desc = "One of the most common sights in the Orion Spur, even outside of human space, is the Hephaestus-produced Ox-class freighter. Designed to haul significant amounts of cargo on well-charted routes between civilized systems, the Ox-class is the backbone of many interstellar markets outside of the United Syndicates of Himeo. Repurposed Ox-class freighters are often used by pirates throughout the Spur thanks to their large size and ease of maintenance – and modification."
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
 	colors = list("#c3c7eb", "#a0a8ec")
-	scanimage = "corvette.png"
+	scanimage = "tramp_freighter.png"
 	designer = "Hephaestus Industries"
 	volume = "41 meters length, 43 meters beam/width, 19 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
-	weapons = "Dual extruding fore caliber ballistic armament, fore obscured flight craft bay"
-	sizeclass = "Change This"
-	shiptype = "Change This"
+	weapons = "Duel improvised weapon arrays, port landing pad"
+	sizeclass = "Ox-class Modular Freighter"
+	shiptype = "Multi-purpose freight"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -100,11 +96,11 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/freebooter_ship/New()
-	designation = "[pick("Asparuh", "Magyar", "Hussar", "Black Army", "Hunyadi", "Piast", "Hussite", "Tepes", "Komondor", "Turul", "Vistula", "Sikorski", "Mihai", "Blue Army", "Strzyga", "Leszy", "Danube", "Sokoly", "Patriotism", "Duty", "Loyalty", "Florian Geyer", "Pilsudski", "Chopin", "Levski", "Valkyrie", "Tresckow", "Olbricht", "Dubcek", "Kossuth", "Nagy", "Clausewitz", "Poniatowski", "Orzel", "Turul", "Skanderbeg", "Ordog", "Perun", "Poroniec", "Klobuk", "Cavalryman", "Szalai's Own", "Upior", "Szalai's Pride", "Kuvasz", "Fellegvar", "Nowa Bratislawa", "Zbior", "Stadter", "Homesteader", "Premyslid", "Bohemia", "Discipline", "Cavalryman", "Order", "Law", "Tenacity", "Diligence", "Valiant", "Konik", "Victory", "Triumph", "Vanguard", "Jager", "Grenadier", "Honor Guard", "Visegrad", "Nil", "Warsaw", "Budapest", "Prague", "Sofia", "Bucharest", "Home Army", "Kasimir", "Veles", "Blyskawica", "Kubus")]"
+	designation = "[pick("Peaceful", "Charming", "Jackal", "Friendly", "Boar", "One and Done", "Nothing Suspicious", "Death Valley", "Scan Again", "Pickpocket", "Dashing Rogue", "Port Authority", "Customs Patrol Ship", "Pay Transit Tolls Here", "Immigration Inspector", "For Hire", "Ex-Military", "Eat Shit", "Fuck Off", "Big Brother", "Wrong Turn", "Claim Jumper", "Davy Jones", "Thenardier", "Killer Queen", "Gunpowder", "Dynamite", "Phoron Collection Service", "We Never Liked Working Anyway", "The Orphanage", "Undertaker", "Flip and Burn", "Emphasis on Independent", "Widowmaker", "Irregular", "Ned Kelly", "Pay Your Union Dues Here", "We Support You!", "Jean Valjean", "Not Pirates", "Let's Be Friends!", "Alms For The Poor", "REAL KILLERS", "A Single Grain Of Sand", "What's It Matter To You?", "IFF Broken", "Or Something", "Nitroglycerin", "The Ghost of Christmas Present", "God's With Us So You Better Back Off Pal", "Faster Than You", "our shift key is broken", "It Is What It Is", "Bases Loaded", "We Support Law Enforcement", "Cash-Rich, Credit-Poor", "Cunning", "We Never Liked Beauchamp Anyway", "Civilian Ship", "We Didn't Start The Fire, Honest!", "Arson", "Jaywalking", "Bail Bondsmen", "Bail Jumper", "On Parole", "Don't Tell My Probation Officer", "Quit Your Bitching", "And The Then Or Thank You", "Sensor Glitch", "Not My Problem", "Mind Your Business", "Private Vessel Of The Dread Pirate King With His Entire Fleet And Crew In Tow So Back Off", "Daisy", "Sally", "Jane", "Pretty Little Thing", "We Like To Party", "No Squares Here")]"
 	..()
 
 /obj/effect/overmap/visitable/ship/freebooter_ship/get_skybox_representation()
-	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "corvette")
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "tramp_freighter")
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
@@ -130,8 +126,8 @@
 /obj/effect/overmap/visitable/ship/landable/freebooter_shuttle
 	name = "Freebooter Shuttle"
 	class = "ICV"
-	designation = "Vizsla"
-	desc = "A modestly sized shuttle design used by the Solarian armed forces, the Destrier is well-armored but somewhat slow, and was explicitly designed to be as survivable as possible for operations during combat. Notably features a fast-deployment exosuit catapult."
+	designation = "Sheep's Clothing"
+	desc = "The Plough-class tender is an utterly unremarkable engineering vessel, manufactured by Hephaestus and commonly seen attached to Ox-class ships. Scarcely capable of much except short-distance cargo hauling and loading."
 	shuttle = "Freebooter Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
@@ -145,7 +141,6 @@
 /obj/machinery/computer/shuttle_control/explore/freebooter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Freebooter Shuttle"
-	req_access = list(access_sol_ships)
 
 /datum/shuttle/autodock/overmap/freebooter_shuttle
 	name = "Freebooter Shuttle"
