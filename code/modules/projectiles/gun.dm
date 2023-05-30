@@ -200,6 +200,7 @@
 	if(new_mode)
 		playsound(user, safetyoff_sound, 25)
 		to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
+		update_firing_delays()
 	for(var/M in message_mobs)
 		to_chat(M, SPAN_NOTICE("[user] has set \the [src] to [new_mode.name]."))
 
@@ -286,7 +287,7 @@
 		return ..() //Pistolwhippin'
 
 /obj/item/gun/proc/get_appropriate_delay()
-	var/fire_time = burst > 1 ? ((burst -1) * burst_delay) : fire_delay
+	var/fire_time = burst > 1 ? ((burst - 1) * burst_delay) : fire_delay
 	var/appropriate_delay = burst > 1 ? burst_delay : fire_delay
 	var/shoot_time = max(fire_time, appropriate_delay)
 	return shoot_time
@@ -367,7 +368,9 @@
 
 	update_held_icon()
 
-	user.setClickCooldown(get_appropriate_delay())
+	// Custom formula here because otherwise you can fire bursts within the burst.
+	var/shoot_time = burst > 1 ? burst_delay + 1 : fire_delay
+	user.setClickCooldown(shoot_time)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)
@@ -420,7 +423,7 @@
 			target = targloc
 
 	//update timing
-	next_fire_time = world.time + fire_delay
+	next_fire_time = world.time + shoot_time
 
 	accuracy = initial(accuracy)	//Reset the gun's accuracy
 
@@ -740,12 +743,8 @@
 
 /obj/item/gun/proc/unwield()
 	wielded = FALSE
-	if(fire_delay_wielded)
-		fire_delay = initial(fire_delay)
-	if(recoil_wielded)
-		recoil = initial(recoil)
-	if(accuracy_wielded)
-		accuracy = initial(accuracy)
+	update_firing_delays()
+
 	if(unwield_sound)
 		playsound(src.loc, unwield_sound, 50, 1)
 
@@ -754,17 +753,29 @@
 
 /obj/item/gun/proc/wield()
 	wielded = TRUE
-	if(fire_delay_wielded)
-		fire_delay = fire_delay_wielded
-	if(recoil_wielded)
-		recoil = recoil_wielded
-	if(accuracy_wielded)
-		accuracy = accuracy_wielded
+	update_firing_delays()
+
 	if(wield_sound)
 		playsound(src.loc, wield_sound, 50, 1)
 
 	update_icon()
 	update_held_icon()
+
+/obj/item/gun/proc/update_firing_delays()
+	if(wielded)
+		if(fire_delay_wielded)
+			fire_delay = fire_delay_wielded
+		if(recoil_wielded)
+			recoil = recoil_wielded
+		if(accuracy_wielded)
+			accuracy = accuracy_wielded
+	else
+		if(fire_delay_wielded)
+			fire_delay = initial(fire_delay)
+		if(recoil_wielded)
+			recoil = initial(recoil)
+		if(accuracy_wielded)
+			accuracy = initial(accuracy)
 
 /obj/item/gun/mob_can_equip(M as mob, slot, disable_warning, ignore_blocked)
 	//Cannot equip wielded items.
