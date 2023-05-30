@@ -35,13 +35,6 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger
 
-/singleton/recipe/brainburger
-	items = list(
-		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/organ/internal/brain
-	)
-	result = /obj/item/reagent_containers/food/snacks/burger/brain
-
 /singleton/recipe/xenoburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,

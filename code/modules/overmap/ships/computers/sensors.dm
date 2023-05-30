@@ -18,6 +18,14 @@
 	var/datum/weakref/sensor_ref
 	var/list/last_scan
 
+/obj/machinery/computer/ship/sensors/cockpit
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "left_wide"
+	icon_screen = "sensors"
+	icon_keyboard = null
+	circuit = null
+
 /obj/machinery/computer/ship/sensors/Destroy()
 	QDEL_NULL(sound_token)
 	sensors = null
@@ -494,6 +502,10 @@
 	max_range = 14
 	deep_scan_range = 6
 	deep_scan_sensor_name = "High-Power Sensor Array"
+
+/obj/machinery/shipsensors/strong/scc_shuttle //Exclusively for the Horizon scout shuttle.
+	icon_state = "sensors"
+	icon = 'icons/obj/spaceship/scc/shuttle_sensors.dmi'
 
 /obj/machinery/shipsensors/strong/venator
 	name = "venator-class quantum sensor array"

@@ -28,3 +28,37 @@
 	cost = 350
 	obj_path = /obj/item/antag_spawner/technomancer_apprentice/golem
 	one_use_only = TRUE
+
+/datum/technomancer/assistance/summoning_stone
+	name = "Summoning Stone"
+	desc = "A summoning stone is a small bluespace stone that's intra-dimensionally linked to a Core Bracelet, a miniaturized version of a manipulation core. \
+	Upon crushing the crystal in one's hand, the bracelet will appear on their wrist and a catalog in their hand. You can give this to anyone you deem worthy to bring them into the fold. \
+	NOTE: The agent will in no way have their free will modified, they can do whatever they wish with their power."
+	cost = 150
+	obj_path = /obj/item/summoning_stone
+
+/obj/item/summoning_stone
+	name = "small bluespace crystal"
+	desc = "A smaller variant of the bluespace crystal. This one probably isn't big enough to teleport you around."
+	icon = 'icons/obj/telescience.dmi'
+	icon_state = "bluespace_crystal_small"
+
+/obj/item/summoning_stone/attack_self(mob/living/carbon/human/user)
+	if(!ishuman(user) || !user.mind)
+		return
+	// since this gives us a catalogue with more points than it costs, prevent the antag from farming points by using this
+	if(technomancers.is_technomancer(user.mind))
+		to_chat(user, SPAN_WARNING("You're already in the fold, you can't use this!"))
+		return
+	var/turf/user_turf = get_turf(user)
+	user.drop_from_inventory(src, user_turf)
+	user.visible_message(SPAN_DANGER("<b>[user]</b> crushes \the [src] in their hand with a shower of sparks! A small bracelet appears on their wrist, and a catalog flies into their hand."), SPAN_DANGER("You crush \the [src] in your hand with a shower of sparks! A small bracelet appears on your wrist, and a catalog flies into your hand."))
+	spark(user_turf, 4, alldirs)
+	if(user.wrists)
+		user.drop_from_inventory(user.wrists, get_turf(user_turf))
+	var/obj/item/technomancer_core/bracelet/bracelet = new(user_turf)
+	user.equip_to_slot_if_possible(bracelet, slot_wrists, assisted_equip = TRUE)
+	var/obj/item/technomancer_catalog/initiate/catalog = new(user_turf)
+	catalog.owner = user
+	user.put_in_active_hand(catalog)
+	qdel(src)

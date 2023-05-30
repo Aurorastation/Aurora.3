@@ -46,6 +46,7 @@
 	guildmantles["construction coalition guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/construction
 	guildmantles["hearts of industry guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/union
 	guildmantles["fighters' lodge guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/fighter
+	guildmantles["fishing league mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/fisher
 	gear_tweaks += new /datum/gear_tweak/path(guildmantles)
 
 /datum/gear/suit/unathi_robe
@@ -124,6 +125,23 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/religion/unathi_book
+	display_name = "unathi religious texts"
+	path = /obj/item/device/versebook/skakh
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/religion/unathi_book/New()
+	..()
+	var/list/unathi_book = list()
+	unathi_book["Sk'akh Legends"] = /obj/item/device/versebook/skakh
+	unathi_book["assorted Th'akh fables"] = /obj/item/device/versebook/thakh
+	unathi_book["Reflections on the Aut'akh Faith"] = /obj/item/device/versebook/autakh
+	unathi_book["Writings of Judizah Si'akh"] = /obj/item/device/versebook/siakh
+	gear_tweaks += new /datum/gear_tweak/path(unathi_book)
 
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic"

@@ -4135,7 +4135,6 @@
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 1
 	},
-/obj/machinery/stargazer,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "dNi" = (
@@ -12052,34 +12051,26 @@
 /area/crew_quarters/captain)
 "jOB" = (
 /obj/structure/table/rack,
-/obj/item/clothing/accessory/armband/sec,
-/obj/item/clothing/accessory/armband/sec,
-/obj/item/clothing/accessory/armband/sec,
-/obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/head/helmet/security/generic,
-/obj/item/clothing/head/helmet/security/generic,
-/obj/item/clothing/head/helmet/security/generic,
-/obj/item/clothing/accessory/arm_guard/generic,
-/obj/item/clothing/accessory/arm_guard/generic,
-/obj/item/clothing/accessory/arm_guard/generic,
-/obj/item/clothing/accessory/leg_guard/generic,
-/obj/item/clothing/accessory/leg_guard/generic,
-/obj/item/clothing/accessory/leg_guard/generic,
+/obj/item/clothing/accessory/leg_guard/scc,
+/obj/item/clothing/accessory/leg_guard/scc,
+/obj/item/clothing/accessory/leg_guard/scc,
+/obj/item/clothing/accessory/arm_guard/scc,
+/obj/item/clothing/accessory/arm_guard/scc,
+/obj/item/clothing/accessory/arm_guard/scc,
+/obj/item/clothing/suit/armor/carrier/scc,
+/obj/item/clothing/suit/armor/carrier/scc,
+/obj/item/clothing/suit/armor/carrier/scc,
+/obj/item/clothing/head/helmet/security/scc,
+/obj/item/clothing/head/helmet/security/scc,
+/obj/item/clothing/head/helmet/security/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
 /obj/item/clothing/head/leader_headband,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/camera/motion{
-	c_tag = "Deck 3 - Crew Armoury Starboard";
-	dir = 4;
-	network = list("Command","Security")
-	},
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "jOC" = (
@@ -14879,26 +14870,26 @@
 /area/crew_quarters/lounge)
 "lSZ" = (
 /obj/structure/table/rack,
-/obj/item/clothing/accessory/armband/sec,
-/obj/item/clothing/accessory/armband/sec,
-/obj/item/clothing/accessory/armband/sec,
-/obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/head/helmet/security/generic,
-/obj/item/clothing/head/helmet/security/generic,
-/obj/item/clothing/head/helmet/security/generic,
-/obj/item/clothing/accessory/arm_guard/generic,
-/obj/item/clothing/accessory/arm_guard/generic,
-/obj/item/clothing/accessory/arm_guard/generic,
-/obj/item/clothing/accessory/leg_guard/generic,
-/obj/item/clothing/accessory/leg_guard/generic,
-/obj/item/clothing/accessory/leg_guard/generic,
-/obj/item/clothing/head/leader_headband,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/clothing/accessory/leg_guard/scc,
+/obj/item/clothing/accessory/leg_guard/scc,
+/obj/item/clothing/accessory/leg_guard/scc,
+/obj/item/clothing/accessory/arm_guard/scc,
+/obj/item/clothing/accessory/arm_guard/scc,
+/obj/item/clothing/accessory/arm_guard/scc,
+/obj/item/clothing/suit/armor/carrier/scc,
+/obj/item/clothing/suit/armor/carrier/scc,
+/obj/item/clothing/suit/armor/carrier/scc,
+/obj/item/clothing/head/helmet/security/scc,
+/obj/item/clothing/head/helmet/security/scc,
+/obj/item/clothing/head/helmet/security/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/head/leader_headband,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "lTQ" = (
@@ -23501,6 +23492,7 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
+/obj/machinery/stargazer,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "taN" = (

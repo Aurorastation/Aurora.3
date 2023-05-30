@@ -139,6 +139,9 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/intrepid
 	network = list(NETWORK_INTREPID)
 
+/obj/machinery/camera/network/canary
+	network = list(NETWORK_CANARY)
+
 // AUTONAME
 /obj/machinery/camera/autoname
 	var/number = 0 //camera number in area

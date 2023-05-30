@@ -20,7 +20,8 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/generate_atmosphere()
 	..()
-	atmosphere.remove_ratio(0.9)
+	atmosphere.temperature = T20C + rand(220, 800)
+	atmosphere.update_values()
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/get_surface_color()
 	return "#575d5e"
