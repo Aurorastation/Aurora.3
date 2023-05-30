@@ -367,6 +367,8 @@
 
 	update_held_icon()
 
+	user.setClickCooldown(get_appropriate_delay())
+
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)
 	if(!target)
