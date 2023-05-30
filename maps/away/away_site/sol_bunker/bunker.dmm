@@ -2,10 +2,7 @@
 "aj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "aC" = (
 /obj/structure/table/reinforced,
@@ -22,10 +19,7 @@
 /obj/item/bedsheet/blue,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "bK" = (
 /obj/structure/grille,
@@ -41,10 +35,7 @@
 "cn" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "cv" = (
 /obj/structure/grille,
@@ -139,10 +130,7 @@
 /area/derelict)
 "hE" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "hS" = (
 /obj/machinery/door/airlock/centcom{
@@ -160,16 +148,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "iU" = (
 /obj/effect/decal/cleanable/spiderling_remains,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
-"jr" = (
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "jC" = (
@@ -260,10 +242,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "lu" = (
 /obj/structure/curtain/open/shower,
@@ -313,10 +292,7 @@
 "mM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/door_assembly,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "mP" = (
 /obj/structure/table/wood,
@@ -327,10 +303,7 @@
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "nx" = (
 /obj/structure/table/wood,
@@ -361,10 +334,7 @@
 /obj/structure/door_assembly{
 	anchored = 1
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "oZ" = (
 /turf/simulated/floor/tiled,
@@ -442,10 +412,7 @@
 /obj/structure/sign/poster{
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "sI" = (
 /obj/structure/grille,
@@ -472,10 +439,7 @@
 /obj/machinery/light{
 	brightness_color = "#FA8282"
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "tz" = (
 /obj/effect/decal/cleanable/dirt,
@@ -521,10 +485,7 @@
 "un" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "us" = (
 /obj/structure/grille,
@@ -559,10 +520,7 @@
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "uQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -635,10 +593,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "Bl" = (
 /obj/structure/toilet,
@@ -675,10 +630,7 @@
 "CD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/sol/marine,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "DF" = (
 /obj/random/junk,
@@ -691,10 +643,7 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "Em" = (
 /obj/structure/toilet,
@@ -774,10 +723,7 @@
 	dir = 1;
 	status = 2
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "GX" = (
 /obj/effect/decal/cleanable/dirt,
@@ -849,10 +795,7 @@
 /obj/machinery/light{
 	brightness_color = "#FA8282"
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "KL" = (
 /obj/structure/boulder,
@@ -919,10 +862,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "Oh" = (
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "Oi" = (
 /obj/effect/decal/cleanable/mucus,
@@ -971,10 +911,7 @@
 /obj/structure/bed/padded,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "QX" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -1032,10 +969,7 @@
 /obj/effect/decal/cleanable/dirt{
 	layer = 3.1
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "SI" = (
 /obj/machinery/door/airlock/vault/bolted,
@@ -1099,10 +1033,7 @@
 /obj/structure/sign/flag/sol{
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "WE" = (
 /obj/structure/grille,
@@ -1184,9 +1115,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/derelict)
-"ZG" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
 
 (1,1,1) = {"
 YV
@@ -29331,13 +29259,13 @@ YV
 YV
 YV
 YV
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 YV
 YV
 YV
@@ -29587,16 +29515,16 @@ YV
 YV
 YV
 YV
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
 YV
 YV
 YV
@@ -29844,19 +29772,19 @@ zM
 YV
 YV
 YV
-ZG
+Yp
 zM
 zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 YV
 YV
 YV
@@ -30108,11 +30036,11 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
 zM
 zM
 YV
@@ -30340,7 +30268,7 @@ YV
 YV
 YV
 YV
-ZG
+Yp
 YV
 zM
 zM
@@ -30367,8 +30295,8 @@ zM
 zM
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -30596,8 +30524,8 @@ YV
 YV
 YV
 YV
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -30625,7 +30553,7 @@ zM
 zM
 zM
 zM
-ZG
+Yp
 zM
 zM
 zM
@@ -30852,8 +30780,8 @@ YV
 YV
 YV
 YV
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -30882,8 +30810,8 @@ zM
 zM
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -31106,9 +31034,9 @@ YV
 YV
 YV
 YV
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -31119,8 +31047,8 @@ zM
 zM
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -31139,9 +31067,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -31362,8 +31290,8 @@ YV
 YV
 YV
 YV
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -31375,7 +31303,7 @@ zM
 zM
 zM
 zM
-ZG
+Yp
 Gy
 Va
 Uq
@@ -31396,9 +31324,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -31618,12 +31546,12 @@ YV
 YV
 YV
 YV
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -31631,10 +31559,10 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
 Lu
 xW
 nR
@@ -31653,9 +31581,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -31873,25 +31801,25 @@ YV
 YV
 YV
 YV
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 Lu
 xU
 xU
@@ -31910,9 +31838,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -32131,23 +32059,23 @@ YV
 YV
 YV
 YV
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 Gy
-ZG
+Yp
 Vs
 Uq
 Uq
@@ -32167,9 +32095,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -32390,21 +32318,21 @@ YV
 YV
 YV
 YV
-ZG
+Yp
 YV
-ZG
+Yp
 zM
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 Yp
 Uq
 Uq
@@ -32424,9 +32352,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -32652,16 +32580,16 @@ YV
 YV
 zM
 zM
-ZG
+Yp
 zM
 zM
 zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 Uq
 Uq
 gd
@@ -32681,9 +32609,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -32916,8 +32844,8 @@ zM
 zM
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 Uq
 Uq
 gd
@@ -34975,7 +34903,7 @@ pV
 vN
 Jc
 Ce
-jr
+gd
 Mf
 gd
 WG
@@ -36021,8 +35949,8 @@ zM
 zM
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -36278,8 +36206,8 @@ zM
 zM
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -36535,8 +36463,8 @@ zM
 zM
 zM
 KL
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -36788,12 +36716,12 @@ KG
 Uq
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 KL
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -37043,13 +36971,13 @@ hE
 Oh
 hE
 Uq
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -37301,12 +37229,12 @@ lp
 lp
 Uq
 zM
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -37559,8 +37487,8 @@ sN
 Uq
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM

@@ -117,6 +117,12 @@
 	path = /obj/item/clothing/shoes/konyang
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/shoes/vysoka
+	display_name = "gurmori hide boots"
+	description = "A pair of hide boots produced from the mantle of a Vysokan Gurmori."
+	path = /obj/item/clothing/shoes/gurmori
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 /datum/gear/shoes/circuitry
 	display_name = "boots, circuitry (empty)"
 	path = /obj/item/clothing/shoes/circuitry

@@ -9,6 +9,5 @@
 	flags = TURF_REMOVE_SHOVEL|TURF_REMOVE_WELDER
 
 /turf/simulated/floor/diona/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB

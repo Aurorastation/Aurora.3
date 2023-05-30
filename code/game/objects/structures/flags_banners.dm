@@ -30,7 +30,7 @@
 	var/icon/rolled_outline
 	var/unmovable = FALSE
 
-/obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy)
+/obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy, var/icon_file)
 	. = ..()
 	dir = newdir
 	if(!deploy)
@@ -46,7 +46,7 @@
 	if(linked_flag_path)
 		icon_state = "[linked_flag_path]_r"
 		ripped_outline_state = "flag_ripped_r"
-		flag_icon = new(icon, icon_state, dir)
+		flag_icon = new(icon_file, icon_state, dir)
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag_r", dir)
 		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
 		icon = flag_icon
@@ -57,8 +57,8 @@
 		flag_icon = new(icon, icon_state, dir)
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag_l", dir)
 		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
+		var/obj/structure/sign/flag/F2 = new(loc, dir, linked_flag_path = flag_path, icon_file = icon)
 		icon = flag_icon
-		var/obj/structure/sign/flag/F2 = new(loc, dir, linked_flag_path = flag_path)
 		linked_flag = F2
 		switch(F2.dir)
 			if(NORTH)
@@ -499,6 +499,7 @@
 	name = "\improper Co-operative Territories of Epsilon Ursae Minoris Flag"
 	desc = "The flag of the CT-EUM."
 	icon_state = "cteum"
+	flag_path = "cteum"
 	flag_item = /obj/item/flag/cteum
 
 // Nanotrasen.
@@ -1288,7 +1289,7 @@
 	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
 	desc_extended = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
 	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
-	these variant flags before the League's reunification. The black and brown represent the plant itself, while the red-and-gold sun represents that the people of the plant are still alive and burning with a desire to never again fall."
+	these variant flags before the League's reunification. The black and brown represent the planet itself, while the red-and-gold sun represents that the people of the planet are still alive and burning with a desire to never again fall."
 	flag_path = "gadpathur"
 	flag_structure = /obj/structure/sign/flag/gadpathur
 
@@ -1298,7 +1299,7 @@
 	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
 	desc_extended = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
 	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
-	these variant flags before the League's reunification. The black and brown represent the plant itself, while the red-and-gold sun represents that the people of the plant are still alive and burning with a desire to never again fall."
+	these variant flags before the League's reunification. The black and brown represent the planet itself, while the red-and-gold sun represents that the people of the planet are still alive and burning with a desire to never again fall."
 	flag_path = "gadpathur"
 	icon_state = "gadpathur"
 	flag_item = /obj/item/flag/gadpathur
@@ -1630,3 +1631,249 @@
 	desc = "The flag of New Gibson."
 	flag_path = "newgibson"
 	flag_structure = /obj/structure/sign/flag/newgibson
+
+// Port Antillia
+
+/obj/item/flag/portantillia
+	name = "\improper Union of Port Antillia flag"
+	desc = "The flag of the Union of Port Antillia."
+	flag_path = "portantillia"
+	flag_structure = /obj/structure/sign/flag/portantillia
+
+/obj/structure/sign/flag/portantillia
+	name = "\improper Union of Port Antillia flag"
+	desc = "The flag of the Union of Port Antillia."
+	flag_path = "portantillia"
+	icon_state = "portantillia"
+	flag_item = /obj/item/flag/portantillia
+
+/obj/structure/sign/flag/portantillia/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/portantillia/l
+	name = "large Union of Port Antillia flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/portantillia/large
+
+/obj/structure/sign/flag/portantillia/large
+	icon_state = "portantillia_l"
+	flag_path = "portantillia"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/portantillia/l
+
+/obj/structure/sign/flag/portantillia/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/portantillia/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/portantillia/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/portantillia/large/west/New()
+	..(loc, WEST)
+
+// San Colette
+
+/obj/item/flag/sancolette
+	name = "\improper Sovereign Solarian Republic of San Colette flag"
+	desc = "The flag of the Sovereign Solarian Republic of San Colette."
+	flag_path = "sancolette"
+	flag_structure = /obj/structure/sign/flag/sancolette
+
+/obj/structure/sign/flag/sancolette
+	name = "\improper Sovereign Solarian Republic of San Colette flag"
+	desc = "The flag of the Sovereign Solarian Republic of San Colette."
+	flag_path = "sancolette"
+	icon_state = "sancolette"
+	flag_item = /obj/item/flag/sancolette
+
+/obj/structure/sign/flag/sancolette/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/sancolette/l
+	name = "large Sovereign Solarian Republic of San Colette flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/sancolette/large
+
+/obj/structure/sign/flag/sancolette/large
+	icon_state = "sancolette_l"
+	flag_path = "sancolette"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/sancolette/l
+
+/obj/structure/sign/flag/sancolette/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/sancolette/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/sancolette/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/sancolette/large/west/New()
+	..(loc, WEST)
+
+// Mictlan
+
+/obj/item/flag/mictlan
+	name = "\improper Mictlan flag"
+	desc = "The flag of Mictlan."
+	flag_path = "mictlan"
+	flag_structure = /obj/structure/sign/flag/mictlan
+
+/obj/structure/sign/flag/mictlan
+	name = "\improper Mictlan flag"
+	desc = "The flag of Mictlan."
+	flag_path = "mictlan"
+	icon_state = "mictlan"
+	flag_item = /obj/item/flag/mictlan
+
+/obj/structure/sign/flag/mictlan/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/mictlan/l
+	name = "large Mictlan flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/mictlan/large
+
+/obj/structure/sign/flag/mictlan/large
+	icon_state = "mictlan_l"
+	flag_path = "mictlan"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/mictlan/l
+
+/obj/structure/sign/flag/mictlan/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/mictlan/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/mictlan/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/mictlan/large/west/New()
+	..(loc, WEST)
+
+// Hive Zo'ra
+
+/obj/item/flag/zora
+	name = "\improper Hive Zo'ra flag"
+	desc = "The flag of Hive Zo'ra."
+	flag_path = "zora"
+	flag_structure = /obj/structure/sign/flag/zora
+
+/obj/structure/sign/flag/zora
+	name = "\improper Hive Zo'ra flag"
+	desc = "The flag of Hive Zo'ra."
+	flag_path = "zora"
+	icon_state = "zora"
+	flag_item = /obj/item/flag/zora
+
+/obj/structure/sign/flag/zora/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/zora/l
+	name = "large Hive Zo'ra flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/zora/large
+
+/obj/structure/sign/flag/zora/large
+	icon_state = "zora_l"
+	flag_path = "zora"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/zora/l
+
+/obj/structure/sign/flag/zora/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/zora/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/zora/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/zora/large/west/New()
+	..(loc, WEST)
+
+// Hive K'lax
+
+/obj/item/flag/klax
+	name = "\improper Hive K'lax flag"
+	desc = "The flag of Hive K'lax."
+	flag_path = "klax"
+	flag_structure = /obj/structure/sign/flag/klax
+
+/obj/structure/sign/flag/klax
+	name = "\improper Hive K'lax flag"
+	desc = "The flag of Hive K'lax."
+	flag_path = "klax"
+	icon_state = "klax"
+	flag_item = /obj/item/flag/klax
+
+/obj/structure/sign/flag/klax/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/klax/l
+	name = "large Hive K'lax flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/klax/large
+
+/obj/structure/sign/flag/klax/large
+	icon_state = "klax_l"
+	flag_path = "klax"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/klax/l
+
+/obj/structure/sign/flag/klax/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/klax/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/klax/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/klax/large/west/New()
+	..(loc, WEST)
+
+// Hive C'thur
+
+/obj/item/flag/cthur
+	name = "\improper Hive C'thur flag"
+	desc = "The flag of Hive C'thur."
+	flag_path = "cthur"
+	flag_structure = /obj/structure/sign/flag/cthur
+
+/obj/structure/sign/flag/cthur
+	name = "\improper Hive C'thur flag"
+	desc = "The flag of Hive C'thur."
+	flag_path = "cthur"
+	icon_state = "cthur"
+	flag_item = /obj/item/flag/cthur
+
+/obj/structure/sign/flag/cthur/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/cthur/l
+	name = "large Hive C'thur flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/cthur/large
+
+/obj/structure/sign/flag/cthur/large
+	icon_state = "cthur_l"
+	flag_path = "cthur"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/cthur/l
+
+/obj/structure/sign/flag/cthur/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/cthur/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/cthur/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/cthur/large/west/New()
+	..(loc, WEST)
