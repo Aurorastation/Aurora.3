@@ -2005,7 +2005,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
 "etF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -9476,7 +9476,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, pod four"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
 "wIJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
