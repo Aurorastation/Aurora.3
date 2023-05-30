@@ -900,6 +900,8 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
+/obj/item/clothing/gloves/yellow,
+/obj/item/device/multitool,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
 "buA" = (
@@ -1227,6 +1229,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/item/flame/lighter/zippo,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "cgU" = (
@@ -2640,6 +2643,12 @@
 /area/ship/freebooter_ship/pod1)
 "gqj" = (
 /obj/structure/table/steel,
+/obj/machinery/button/remote/blast_door{
+	pixel_y = -2;
+	pixel_x = -5;
+	id = "junker_gun";
+	name = "bridge blast door-control"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_ship/gunnery)
 "grk" = (
@@ -3515,7 +3524,8 @@
 /area/ship/freebooter_ship/gunnery)
 "iOV" = (
 /obj/machinery/door/blast/regular/open{
-	dir = 2
+	dir = 2;
+	id = "junker_gun"
 	},
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/gunnery)
@@ -4107,7 +4117,7 @@
 	name = "starboard, pod three"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/pod3)
+/area/ship/freebooter_ship)
 "kyk" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
