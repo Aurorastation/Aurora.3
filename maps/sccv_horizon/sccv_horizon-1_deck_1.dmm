@@ -18520,7 +18520,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/westleft{
-	name = "Research Voidsuit Storage Rack Access";
+	name = "EVA Suit Storage Rack Access";
 	req_access = list(47)
 	},
 /obj/structure/table/rack,
