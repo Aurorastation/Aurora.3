@@ -113,7 +113,6 @@
 /area/ship/freebooter_ship/pod3)
 "ajO" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
 /obj/item/material/shard{
 	pixel_x = 5;
 	pixel_y = 7
@@ -2623,11 +2622,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod5)
-"goI" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/ship/freebooter_ship)
 "gpH" = (
 /obj/effect/decal/fake_object{
 	desc = "Used for watching various sources of entertainment, it appears to have been 'jailbroken'. This one while idle flips through four or five scenic nature vistas.";
@@ -9200,7 +9194,7 @@
 /obj/machinery/ship_weapon/francisca{
 	pixel_x = -64;
 	pixel_y = -162;
-	weapon_id = "Freebooter Francisca Rotary Gun"
+	weapon_id = "Freebooter Francisca Rotary Gun"s
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
@@ -38185,7 +38179,7 @@ xRX
 xRX
 xRX
 fGM
-goI
+fGM
 xRX
 xRX
 eIb
@@ -40028,7 +40022,7 @@ hIE
 eUq
 xRX
 xRX
-goI
+fGM
 xRX
 imE
 imE
@@ -41056,7 +41050,7 @@ eUq
 fGM
 fGM
 fGM
-goI
+fGM
 fGM
 fGM
 fGM
@@ -43626,7 +43620,7 @@ tRo
 fGM
 fGM
 vDD
-goI
+fGM
 fGM
 vDD
 fGM
@@ -44654,7 +44648,7 @@ ieZ
 tRo
 xRX
 xRX
-goI
+fGM
 xRX
 ydf
 ydf
