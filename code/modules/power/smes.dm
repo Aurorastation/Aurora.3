@@ -43,7 +43,7 @@
 
 	var/output_attempt = 0 			// 1 = attempting to output, 0 = not attempting to output
 	var/outputting = 0 				// 1 = actually outputting, 0 = not outputting
-	var/output_level = 150000		// amount of power the SMES attempts to output
+	var/output_level = 140000		// amount of power the SMES attempts to output
 	var/output_level_max = 200000	// cap on output_level
 	var/output_used = 0				// amount of power actually outputted. may be less than output_level if the powernet returns excess power
 
