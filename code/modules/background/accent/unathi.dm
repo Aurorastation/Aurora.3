@@ -106,3 +106,11 @@
 	one in which Sinta speaking it speak loudly, and clearly. Accentuations sometimes demand that a Sinta nearly roars, and insistence on originally quieter sounds leads to more guttural tones here and there. In a discussion between Unathi of all places, the Ha'zanan are the most likely ones to get heard over anyone else, for better or for worse."
 	tag_icon = "unathi_pirate"
 	text_tag = "HAZ"
+
+/datum/accent/torn_cities
+	name = ACCENT_TORN
+	description = "The accent of the Kopesk States, now the Torn Cities, is one that has traditionally grown from the guttural intonations and physical gestures of Sinta'Azaziba. Where the Kopesk accent differentiates itself, however, is in its clarity and volume, as the fierce sermons of the Storm \
+	Heralds were often given during thunderstorms and required truly impressive volme prior to the invention of speakers. The accent has also become known as an intellectual one, due to the historically high standards of education in the Kopesk States. When the idea of a scholar comes to mind, the accent of the \
+	Torn Cities is one of the first that any Sinta would think of."
+	tag_icon = "unathi_torn"
+	text_tag = "TRN"
