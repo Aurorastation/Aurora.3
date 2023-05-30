@@ -1325,40 +1325,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
-"dk" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/storage/primary)
-"dl" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
-"dm" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/storage/primary)
-"dn" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/storage/primary)
-"do" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/storage/primary)
-"dp" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "dq" = (
 /obj/effect/landmark{
 	name = "tdome1"
@@ -1368,19 +1334,6 @@
 "dr" = (
 /obj/machinery/door/airlock,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
-"ds" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/storage/primary)
-"du" = (
-/obj/effect/landmark/force_spawnpoint,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "dv" = (
@@ -1519,6 +1472,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering)
+"lw" = (
+/obj/effect/landmark{
+	name = "Observer-Start"
+	},
+/turf/simulated/floor/exoplanet/grass,
+/area/storage/primary)
 "mn" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1561,15 +1520,6 @@
 /obj/effect/overmap/visitable/ship/runtime,
 /turf/simulated/floor/tiled,
 /area/bridge)
-"pM" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/landmark{
-	name = "RevenantRift"
-	},
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "pX" = (
 /obj/structure/cable{
 	d1 = 16;
@@ -1608,6 +1558,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
+"uZ" = (
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/storage/primary)
 "vm" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -1676,6 +1629,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"Ed" = (
+/mob/living/simple_animal/aquatic/fish,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/storage/primary)
 "Eu" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
@@ -1685,6 +1642,9 @@
 /obj/machinery/shipsensors,
 /turf/template_noop,
 /area/engineering)
+"Fr" = (
+/turf/simulated/floor/exoplanet/grass,
+/area/storage/primary)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/recharge_station,
@@ -1698,13 +1658,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"Gr" = (
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Chief Engineer";
-	name = "force spawnpoint (CE)"
-	},
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "HB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -1755,10 +1708,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"KE" = (
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "Ly" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9325,16 +9274,16 @@ cx
 bB
 bB
 cP
-cZ
-cZ
-dk
-dc
-dn
-ds
-cZ
-dk
-dc
-dn
+Fr
+Fr
+Fr
+Fr
+Fr
+Fr
+Fr
+Fr
+Fr
+Fr
 cZ
 cZ
 cP
@@ -9582,16 +9531,16 @@ cx
 bB
 bB
 cP
-KE
-da
-dl
-dc
-do
-du
-du
-dl
-dc
-do
+Fr
+Fr
+uZ
+uZ
+Fr
+Fr
+Fr
+uZ
+Fr
+Fr
 da
 dz
 cP
@@ -9839,16 +9788,16 @@ cx
 bB
 bB
 cP
-da
-da
-dl
-dc
-do
-du
-du
-dl
-dc
-do
+Fr
+uZ
+uZ
+uZ
+uZ
+uZ
+Fr
+Fr
+Fr
+Fr
 da
 dA
 cP
@@ -10096,16 +10045,16 @@ cx
 bB
 bB
 cS
-da
-da
-dl
-dc
-do
-du
-du
-dl
-dc
-do
+Fr
+uZ
+uZ
+Ed
+uZ
+Fr
+Fr
+uZ
+Fr
+Fr
 da
 dz
 cP
@@ -10353,16 +10302,16 @@ cx
 bB
 bB
 cS
-da
-Gr
-dl
-dc
-pM
-du
-du
-dl
-dc
-do
+Fr
+uZ
+uZ
+uZ
+Fr
+Fr
+uZ
+uZ
+Fr
+Fr
 da
 dz
 cP
@@ -10610,16 +10559,16 @@ Ly
 bB
 bB
 cS
-da
-da
-dl
-dc
-do
-du
-du
-dl
-dc
-do
+Fr
+Fr
+uZ
+Fr
+lw
+Fr
+uZ
+Ed
+uZ
+Fr
 da
 dB
 cP
@@ -10867,16 +10816,16 @@ cD
 bv
 bv
 bv
-da
-da
-dl
-dc
-do
-du
-du
-dl
-dc
-do
+Fr
+uZ
+uZ
+uZ
+Fr
+Fr
+uZ
+uZ
+uZ
+Fr
 da
 dC
 cP
@@ -11124,16 +11073,16 @@ cE
 cF
 cG
 bv
-da
-da
-dl
-dc
-do
-du
-du
-dl
-dc
-do
+Fr
+Ed
+uZ
+uZ
+Fr
+Ed
+uZ
+uZ
+uZ
+Fr
 da
 dD
 cP
@@ -11381,16 +11330,16 @@ ci
 ci
 cH
 bv
-db
-db
-dm
-dc
-dp
-db
-db
-dm
-dc
-dp
+Fr
+uZ
+uZ
+uZ
+uZ
+uZ
+uZ
+uZ
+Fr
+Fr
 db
 db
 cP
@@ -11638,16 +11587,16 @@ ci
 ci
 cI
 bv
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
+Fr
+uZ
+uZ
+Fr
+Fr
+Fr
+Fr
+Fr
+Fr
+Fr
 dc
 dc
 cP
@@ -11895,16 +11844,16 @@ ci
 ci
 cJ
 bv
-dc
-dh
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
+Fr
+Fr
+Fr
+Fr
+Fr
+Fr
+Fr
+Fr
+Fr
+Fr
 dh
 dc
 cP

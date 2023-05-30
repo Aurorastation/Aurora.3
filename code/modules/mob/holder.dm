@@ -628,3 +628,13 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "schlorrgo_fat"
 	item_state = "schlorrgo_fat"
 	w_class = ITEMSIZE_LARGE
+
+/obj/item/holder/fish
+	attack_verb = list("fished", "disrespected", "smacked", "smackereled")
+	icon = 'icons/mob/npc/fish.dmi'
+	icon_state = "fish"
+	item_state = "fish"
+	hitsound = 'sound/effects/snap.ogg'
+	force = 6.0//Being hit with an entire fish typically hurts
+	throwforce = 6.0//Having an entire fish thrown at you also hurts
+	throw_speed = 1//Because it's cinematic
