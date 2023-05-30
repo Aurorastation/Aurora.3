@@ -23,7 +23,7 @@
 
 /obj/item/projectile/ship_ammo/blaster
 	name = "blaster charge"
-	icon_state = "heavy"
+	icon_state = "blaster"
 	damage = 10000
 	armor_penetration = 1000
 	penetrating = 1
