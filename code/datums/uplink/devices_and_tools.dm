@@ -218,4 +218,4 @@
 	name = "25 Liquid-Bags"
 	desc = "Use these bags to set up some barricades. Does not come with barbed wire included."
 	item_cost = 2
-	path = /obj/item/stack/liquidbags
+	path = /obj/item/stack/liquidbags/half_full

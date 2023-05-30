@@ -241,7 +241,7 @@
 		to_chat(src, SPAN_WARNING("You broke your gaze."))
 
 // Targeted teleportation, must be to a low-light tile.
-/mob/living/carbon/human/proc/vampire_veilstep(var/turf/T in turfs)
+/mob/living/carbon/human/proc/vampire_veilstep(var/turf/T in world)
 	set category = "Vampire"
 	set name = "Veil Step (20)"
 	set desc = "For a moment, move through the Veil and emerge at a shadow of your choice."

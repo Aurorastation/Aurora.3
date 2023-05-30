@@ -33,7 +33,7 @@
 	if(usr)
 		if (usr.client)
 			if(usr.client.holder)
-				to_chat(M, "\bold You hear a voice in your head... \italic [msg]")
+				to_chat(M, "<b>You hear a voice in your head... <i>[msg]</i></b>")
 
 	log_admin("SubtlePM: [key_name(usr)] -> [key_name(M)] : [msg]",admin_key=key_name(usr),ckey=key_name(M))
 	message_admins("<span class='notice'><b>SubtleMessage: [key_name_admin(usr)] -> [key_name_admin(M)] : [msg]</b></span>", 1)
@@ -157,7 +157,7 @@
 	feedback_add_details("admin_verb","GOD") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
-proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
+/proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 	if(automute)
 		if(!config.automute_on)	return
 	else
@@ -231,7 +231,7 @@ Allow admins to set players to be able to respawn/bypass 30 min wait, without th
 Ccomp's first proc.
 */
 
-proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
+/proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 	// what = 1, return ghosts ass list.
 	// what = 2, return mob list
 

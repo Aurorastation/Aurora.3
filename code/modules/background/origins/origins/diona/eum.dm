@@ -2,7 +2,14 @@
 	name = "Epsilon Ursae Minoris"
 	desc = "Epsilon Ursea Minoris, generally referred to as EUM, is a habitable world home to multiple Dionae civilizations and clusters. While not the homeworld of the species, EUM is the largest-known world to have been colonized exclusively by Dionae without contact or help from outside species, being home to the Dionae for thousands of years prior to discovery. Since first contact was made with the Nralakk Federation in 2390 the planet has become semi-unified under the Co-operative Territories of Epsilon Ursae Minoris, or the CT-EUM. Despite this the nations that make up the CT-EUM are still largely distinct from one another, hosting their own distinct cultures and societies."
 	possible_origins = list(
-		/singleton/origin_item/origin/eum
+		/singleton/origin_item/origin/eum,
+		/singleton/origin_item/origin/united,
+		/singleton/origin_item/origin/gleaners,
+		/singleton/origin_item/origin/nraldaaq,
+		/singleton/origin_item/origin/mada,
+		/singleton/origin_item/origin/ekane,
+		/singleton/origin_item/origin/eumstation,
+		/singleton/origin_item/origin/eumminor
 	)
 
 /singleton/origin_item/origin/eum

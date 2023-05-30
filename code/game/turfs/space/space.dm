@@ -38,8 +38,6 @@
 	for(var/atom/movable/AM as mob|obj in src)
 		src.Entered(AM, AM.loc)
 
-	turfs += src
-
 	if (isStationLevel(z))
 		station_turfs += src
 
@@ -212,8 +210,8 @@
 					A.loc.Entered(A)
 	return
 
-/turf/space/ChangeTurf(var/turf/N, var/tell_universe=TRUE, var/force_lighting_update = FALSE, keep_air = FALSE)
-	return ..(N, tell_universe, TRUE, keep_air)
+/turf/space/ChangeTurf(turf/N, tell_universe=TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE, keep_air = FALSE)
+	return ..()
 
 /turf/space/is_open()
 	return TRUE

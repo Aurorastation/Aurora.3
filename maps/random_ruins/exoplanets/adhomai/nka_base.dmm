@@ -68,9 +68,6 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/blue,
-/obj/structure/sign/flag/nka/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -117,6 +114,14 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"ji" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
 "jN" = (
 /obj/structure/table/rack,
 /obj/item/shovel,
@@ -151,9 +156,6 @@
 	},
 /area/nka_base)
 "mb" = (
-/obj/structure/sign/flag/nka/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -337,6 +339,22 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"vl" = (
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = 9
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
+"vs" = (
+/obj/structure/table/wood,
+/obj/item/saddle,
+/obj/item/saddle,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/nka_base)
 "vQ" = (
 /obj/structure/closet/secure_closet/cabinet{
 	req_access = list(213);
@@ -622,9 +640,6 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug,
 /obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/obj/structure/sign/flag/nka/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -689,9 +704,7 @@
 	},
 /area/nka_base)
 "Qx" = (
-/obj/structure/sign/flag/nka/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/nka/large/south,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -745,9 +758,7 @@
 "Up" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/obj/structure/sign/flag/nka/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/nka/large/north,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -829,9 +840,20 @@
 	},
 /area/nka_base)
 "Yr" = (
-/obj/structure/sign/flag/nka/left{
-	pixel_y = 32
+/obj/structure/sign/flag/nka/large/north,
+/turf/simulated/floor/wood{
+	temperature = 268.15
 	},
+/area/nka_base)
+"Yv" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/vehicle/bike/climber,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -971,6 +993,7 @@ vi
 DL
 DL
 DL
+CO
 EK
 EK
 EK
@@ -998,8 +1021,7 @@ EK
 EK
 EK
 EK
-EK
-EK
+CO
 "}
 (5,1,1) = {"
 DL
@@ -1209,10 +1231,10 @@ gU
 DL
 DL
 DL
-gU
+CO
 EK
 EK
-EK
+CO
 DL
 DL
 DL
@@ -1438,7 +1460,7 @@ EP
 EP
 DL
 DL
-DL
+yx
 DL
 DL
 gU
@@ -1471,9 +1493,9 @@ DL
 EP
 EP
 DL
-DL
-DL
-DL
+mB
+mB
+Yv
 DL
 gU
 "}
@@ -1505,9 +1527,9 @@ DL
 EP
 EP
 DL
-DL
-DL
-DL
+mB
+mB
+Yv
 DL
 gU
 "}
@@ -1539,9 +1561,9 @@ DL
 EP
 EP
 DL
-DL
-DL
-pV
+vl
+mB
+Yv
 DL
 gU
 "}
@@ -1573,9 +1595,9 @@ DL
 EP
 EP
 DL
-DL
-DL
-DL
+vs
+mB
+Yv
 DL
 gU
 "}
@@ -1608,7 +1630,7 @@ EP
 EP
 DL
 DL
-DL
+ji
 DL
 DL
 gU
@@ -1821,6 +1843,7 @@ gU
 DL
 pV
 DL
+CO
 EK
 EK
 EK
@@ -1848,8 +1871,7 @@ EK
 EK
 EK
 EK
-EK
-EK
+CO
 "}
 (30,1,1) = {"
 DL

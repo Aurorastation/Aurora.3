@@ -6,10 +6,9 @@
 	geology = "Extreme, surface-apparent tectonic activity. Unreadable high-energy geothermal readings. Surface traversal demands caution"
 	weather = "Global sub-atmospheric volcanic ambient weather system. Exercise extreme caution with unpredictable volcanic eruption"
 	surfacewater = "Majority superheated methane, silicon and metallic substances, 7% liquid surface area."
-	planetary_area = /area/exoplanet/barren
+	planetary_area = /area/exoplanet/lava
 	rock_colors = list(COLOR_DARK_GRAY)
-	possible_themes = list(/datum/exoplanet_theme/mountains)
-	map_generators = list(/datum/random_map/noise/exoplanet/lava, /datum/random_map/noise/ore)
+	possible_themes = list(/datum/exoplanet_theme/volcanic)
 	features_budget = 4
 	surface_color = "#cf1020"
 	water_color = null
@@ -21,23 +20,8 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/generate_atmosphere()
 	..()
-	atmosphere.remove_ratio(0.9)
+	atmosphere.temperature = T20C + rand(220, 800)
+	atmosphere.update_values()
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/get_surface_color()
 	return "#575d5e"
-
-/datum/random_map/noise/exoplanet/lava
-	descriptor = "lava exoplanet"
-	smoothing_iterations = 4
-	land_type = /turf/unsimulated/floor/asteroid/basalt
-	water_type = /turf/simulated/lava
-	water_level_min = 3
-	water_level_max = 5
-	flora_prob = 0
-	flora_diversity = 0
-	fauna_prob = 0
-
-/area/exoplanet/lava
-	name = "\improper Planetary surface"
-	ambience = AMBIENCE_LAVA
-	base_turf = /turf/unsimulated/floor/asteroid/basalt
