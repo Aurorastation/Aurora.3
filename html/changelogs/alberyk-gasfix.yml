@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "Grass planets and derivatives no longer have a chlorine atmosphere."
