@@ -1,0 +1,6 @@
+author: io-util
+
+delete-after: True
+
+changes:
+  - bugfix: "Cyborgs are no longer invisible when they get created by Players."
