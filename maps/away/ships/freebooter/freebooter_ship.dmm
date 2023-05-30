@@ -740,6 +740,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/civgun,
 /obj/item/melee/energy/sword/knife,
+/obj/item/clothing/suit/armor/material/makeshift,
+/obj/item/clothing/head/hardhat/first_responder,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "bdI" = (
@@ -2735,6 +2737,10 @@
 /obj/item/material/knife/tacknife,
 /obj/item/material/knife/trench,
 /obj/item/material/knife/butterfly,
+/obj/item/clothing/suit/armor/material/makeshift/plasteel,
+/obj/item/clothing/suit/armor/material/makeshift/trenchcoat,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/helmet/bucket,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod4)
 "gBh" = (
@@ -2762,6 +2768,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 8
 	},
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "gIJ" = (
@@ -3364,6 +3374,9 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod2)
 "ivW" = (
@@ -4992,6 +5005,8 @@
 /obj/item/material/knife/bayonet,
 /obj/item/material/knife/bayonet,
 /obj/item/material/knife/butterfly/switchblade,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/head/helmet/security/generic,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod4)
 "mCb" = (
@@ -5786,6 +5801,7 @@
 /obj/random/civgun/rifle,
 /obj/random/civgun/rifle,
 /obj/item/grenade/frag,
+/obj/item/device/flashlight/maglight,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod4)
 "osl" = (
@@ -8331,6 +8347,14 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/item/material/hatchet/machete/deluxe,
+/obj/item/clothing/accessory/holster/utility/machete,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_ship/bridge)
 "ufC" = (
@@ -8749,6 +8773,119 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod1)
+"vhp" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/closet/cabinet,
+/obj/item/clothing/head/cowboy,
+/obj/item/clothing/shoes/cowboy,
+/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/under/syndicate/tacticool,
+/obj/item/clothing/under/pants/tacticool,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/elyran_fatigues,
+/obj/item/clothing/under/dominia/fleet,
+/obj/item/clothing/under/dominia/fleet/armsman,
+/obj/item/clothing/head/dominia/fleet,
+/obj/item/clothing/head/dominia/fleet/armsman,
+/obj/item/clothing/under/pants/jeans,
+/obj/item/clothing/under/pants/youngfolksjeans,
+/obj/item/clothing/under/pants/jeansblack,
+/obj/item/clothing/head/beanie/random,
+/obj/item/clothing/head/beanie/random,
+/obj/item/clothing/head/headbando/random,
+/obj/item/clothing/head/headbando/random,
+/obj/item/clothing/head/beret/colorable/random,
+/obj/item/clothing/head/bandana/colorable/random,
+/obj/item/clothing/head/bandana/colorable/random,
+/obj/item/clothing/head/softcap/colorable/random,
+/obj/item/clothing/head/softcap/colorable/random,
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
+/obj/item/clothing/suit/storage/toggle/trench/colorable/random,
+/obj/item/clothing/suit/storage/toggle/trench/colorable/random,
+/obj/random/bandana,
+/obj/random/belt,
+/obj/random/colored_jumpsuit,
+/obj/random/colored_jumpsuit,
+/obj/random/colored_jumpsuit,
+/obj/random/hoodie,
+/obj/random/hoodie,
+/obj/random/suit,
+/obj/random/suit,
+/obj/random/softcap,
+/obj/random/gloves,
+/obj/random/gloves,
+/obj/item/clothing/suit/storage/toggle/trench/colorable/random,
+/obj/item/clothing/suit/storage/toggle/trench,
+/obj/item/clothing/under/uniform/gadpathur,
+/obj/item/clothing/head/gadpathur,
+/obj/item/clothing/head/sidecap/pmcg,
+/obj/item/clothing/head/sidecap/zavod,
+/obj/item/clothing/under/pmc_modsuit,
+/obj/item/clothing/under/rank/security/zavod,
+/obj/item/clothing/shoes/hitops/red,
+/obj/item/clothing/shoes/hitops/black,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/clothing/under/syndicate,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
+/obj/item/clothing/suit/storage/toggle/dominia/bomber,
+/obj/item/clothing/suit/storage/toggle/bomber,
+/obj/item/clothing/head/ushanka/dominia,
+/obj/item/clothing/gloves/black_leather,
+/obj/item/clothing/gloves/black_leather,
+/obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/suit/storage/leathercoat,
+/obj/item/clothing/suit/storage/toggle/leather_jacket,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/green,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white,
+/obj/item/clothing/head/softcap/tcfl,
+/obj/item/clothing/head/softcap/tcfl,
+/obj/item/clothing/head/beret/legion,
+/obj/item/clothing/head/beret/legion/field,
+/obj/item/clothing/suit/storage/legion,
+/obj/item/clothing/suit/storage/legion,
+/obj/item/clothing/under/legion,
+/obj/item/clothing/under/legion,
+/obj/item/clothing/suit/storage/vest/legion,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/white_vest,
+/obj/item/clothing/accessory/storage/white_vest,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/storage/pouches/white,
+/obj/item/clothing/accessory/storage/pouches/white,
+/obj/item/clothing/accessory/holster/armpit/brown,
+/obj/item/clothing/accessory/holster/hip/brown,
+/obj/item/clothing/accessory/holster/thigh/brown,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/armpit,
+/turf/simulated/floor,
+/area/ship/freebooter_ship/pod2)
 "vhv" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -8837,6 +8974,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/bridge)
 "vxN" = (
@@ -39303,7 +39441,7 @@ cLC
 xRX
 qiz
 uaE
-uaE
+vhp
 knE
 aEq
 irX
