@@ -18520,11 +18520,12 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/westleft{
-	name = "EVA Suit Storage Rack Access";
-	req_access = list(47)
+	name = "EVA Suit Storage Rack Access"
 	},
 /obj/structure/table/rack,
-/obj/item/rig/eva,
+/obj/item/rig/eva{
+	pixel_x = -5
+	},
 /obj/item/rig/eva,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
