@@ -3296,6 +3296,8 @@
 #include "maps\away\away_site\crashed_elyran_tanker\crashed_elyran_tanker.dm"
 #include "maps\away\away_site\first_aurora\first_aurora.dm"
 #include "maps\away\away_site\hivebot_hub\hivebot_hub.dm"
+#include "maps\away\away_site\lar_maria\lar_maria.dm"
+#include "maps\away\away_site\lar_maria\lar_maria_areas.dm"
 #include "maps\away\away_site\magshield\magshield.dm"
 #include "maps\away\away_site\magshield\magshield_areas.dm"
 #include "maps\away\away_site\overgrown_mining_station\overgrown_mining_station.dm"
