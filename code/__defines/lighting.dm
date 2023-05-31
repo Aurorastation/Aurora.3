@@ -95,6 +95,8 @@
 #define LIGHT_COLOR_EMERGENCY_SOFT    "#FA8282" //A softer emergency red, used for small bulbs. rgb(250, 130, 130)
 #define LIGHT_COLOUR_WHITE            "#FEFEFE" // Clinical white light bulbs
 #define LIGHT_COLOUR_WARM             "#FFFEE0" // Warm yellowish light bulbs
+#define LIGHT_COLOR_DECAYED			  "#fabd6d" // Amberish decayed light bulbs
+#define LIGHT_COLOR_DYING			  "#fa826d" // Reddish decayed light bulbs
 
 #define LIGHT_STANDARD_COLORS list(LIGHT_COLOUR_WHITE, LIGHT_COLOUR_WARM, LIGHT_COLOR_HALOGEN) // List of standard light colors used for randomized lighting and selectable printed lights.
 
