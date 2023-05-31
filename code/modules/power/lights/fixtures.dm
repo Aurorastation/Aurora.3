@@ -72,7 +72,7 @@
 // the smaller bulb light fixture
 
 /obj/machinery/light/small
-	icon_state = "bulb1"
+	icon_state = "bulb_empty"
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness_range = 5

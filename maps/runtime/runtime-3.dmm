@@ -87,6 +87,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"ef" = (
+/obj/machinery/light/small,
+/turf/simulated/floor,
+/area/construction/supplyshuttle)
 "eX" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/construction/qmaint)
@@ -155,6 +159,9 @@
 	pixel_y = 22;
 	dir = 4;
 	pixel_x = -13
+	},
+/obj/machinery/light/small{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
@@ -278,6 +285,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"kb" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/antag/mercenary)
 "ku" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -299,6 +312,13 @@
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/wood/coloured/birch,
 /area/construction/storage)
+"lJ" = (
+/obj/structure/table/steel,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/hallway)
 "mH" = (
 /obj/structure/grille/over/large,
 /obj/structure/window/full/reinforced/shuttle/black,
@@ -374,6 +394,12 @@
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
+"oX" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/antag/mercenary)
 "pi" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/grille/over,
@@ -412,13 +438,11 @@
 /turf/simulated/floor/wood/coloured/mahogany,
 /area/construction/solars)
 "sm" = (
-/obj/machinery/light{
-	brightness_range = 16;
-	dir = 8;
-	must_start_working = 1
+/obj/machinery/light/small{
+	dir = 8
 	},
-/turf/simulated/floor,
-/area/construction/supplyshuttle)
+/turf/simulated/floor/tiled,
+/area/construction/hallway)
 "sr" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -498,6 +522,13 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood/coloured/birch,
 /area/construction/storage)
+"uZ" = (
+/obj/structure/table/rack,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/construction/qmaint)
 "vv" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -587,6 +618,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/construction/solars)
+"xH" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/construction/supplyshuttle)
 "yd" = (
 /turf/simulated/floor/tiled/dark,
 /area/construction/solarscontrol)
@@ -806,8 +843,8 @@
 /turf/simulated/floor,
 /area/construction/qmaint)
 "HJ" = (
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/light/small{
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
@@ -926,6 +963,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/construction/qmaint)
+"MW" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/construction/hallway)
 "Nw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1188,11 +1231,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/light{
-	brightness_range = 16;
-	dir = 8;
-	must_start_working = 1
-	},
 /turf/simulated/floor,
 /area/construction/hallway)
 "Xd" = (
@@ -1201,6 +1239,9 @@
 /area/construction/supplyshuttle)
 "Yi" = (
 /obj/machinery/atmospherics/binary/pump/on,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/construction/hallway)
 "YH" = (
@@ -25376,10 +25417,10 @@ Um
 YH
 YH
 hf
+GT
 HJ
 GT
-GT
-GT
+HJ
 GT
 hf
 PO
@@ -25643,7 +25684,7 @@ tX
 ka
 ZT
 ZC
-nV
+MW
 WG
 bD
 Yi
@@ -26149,7 +26190,7 @@ YH
 hf
 tJ
 SW
-tJ
+uZ
 tJ
 Hs
 hf
@@ -27428,7 +27469,7 @@ tl
 tl
 jU
 Ci
-sm
+Di
 Iz
 Di
 Vr
@@ -27685,9 +27726,9 @@ tl
 tl
 tl
 Ci
-Di
+xH
 kQ
-Di
+ef
 Vr
 yd
 jD
@@ -27957,7 +27998,7 @@ jp
 jp
 Vr
 ZT
-vv
+sm
 ZT
 gH
 wG
@@ -28470,7 +28511,7 @@ yd
 Cv
 yd
 Vr
-PO
+lJ
 PO
 PO
 PO
@@ -30013,7 +30054,7 @@ cJ
 JH
 cJ
 wq
-PK
+kb
 PK
 PK
 PK
@@ -30527,7 +30568,7 @@ cJ
 Bd
 cJ
 wq
-PK
+oX
 PK
 PK
 PK
@@ -31555,7 +31596,7 @@ IO
 Bd
 IO
 wq
-PK
+kb
 PK
 PK
 PK
@@ -32069,7 +32110,7 @@ IO
 Bd
 IO
 wq
-PK
+oX
 PK
 PK
 PK
@@ -33097,7 +33138,7 @@ CJ
 Bd
 CJ
 wq
-PK
+kb
 PK
 PK
 PK
@@ -33611,7 +33652,7 @@ CJ
 Bd
 CJ
 wq
-PK
+oX
 PK
 PK
 PK
@@ -34639,7 +34680,7 @@ tY
 Bd
 tY
 wq
-PK
+kb
 PK
 PK
 PK
@@ -35153,7 +35194,7 @@ tY
 Bd
 tY
 wq
-PK
+oX
 PK
 PK
 PK
@@ -36181,7 +36222,7 @@ Km
 Bd
 Km
 wq
-PK
+kb
 PK
 PK
 PK
@@ -36695,7 +36736,7 @@ Km
 Bd
 Km
 wq
-PK
+oX
 PK
 PK
 PK
