@@ -1027,6 +1027,7 @@
 	name = MATERIAL_SHUTTLE
 	display_name = "plastitanium alloy"
 	stack_type = null
+	icon_reinf = null
 	icon_base = "shuttle"
 	integrity = 1200
 	melting_point = 6000       // Hull plating.

@@ -175,6 +175,12 @@
 	taking sides in the power struggles of the nobility."
 	worn_overlay = "fighterslodge"
 
+/obj/item/clothing/accessory/poncho/unathimantle/fisher
+	name = "fishing league mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the grey-brown of the Fishing League. These mantles are reserved for full-fledged guildsmen, as a sign of \
+	their position in the guild."
+	desc_extended = "The largest guild within the Hegemony, the Fishing League is a behemoth of food production, churning out tons of foodstuffs a day. While local villages and nobles have their own food production centers, mainly aquaculture farms which run outside of the aegis of the Fishing League, the vast majority of food produced within the Hegemony is produced by the Fishing League, whether it be on Ouerea or Moghes. However, due to the post-contact war environment of Moghes, no matter how much the fishing league produces, it will never be enough to feed the remaining population."
+	worn_overlay = "fishingleague"
 
 /obj/item/clothing/accessory/poncho/rockstone
 	name = "rockstone cape"
