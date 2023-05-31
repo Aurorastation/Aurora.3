@@ -7030,7 +7030,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "dwb" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Starboard Wing"
 	},
 /obj/structure/cable/green{
@@ -9935,7 +9935,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "eYp" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Port Wing"
 	},
 /obj/structure/cable/green{
@@ -11641,7 +11641,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "fLU" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Research"
 	},
 /obj/structure/cable{
@@ -26703,7 +26703,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "mVR" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Medical"
 	},
 /obj/structure/cable{
@@ -37019,7 +37019,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
 "sbO" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Engineering Main"
 	},
 /obj/structure/cable,
