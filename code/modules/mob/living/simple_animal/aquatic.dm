@@ -25,12 +25,13 @@
 /mob/living/simple_animal/aquatic/Move(newloc)
 	if(is_type_in_list(newloc, suitable_turf_types))
 		alpha = 95//Becomes transparent because it's underwater
-		icon_state = "fish"
+		icon_state = "[icon_state]"
 		return ..()//Proceed as normal.
 
-/mob/living/simple_animal/aquatic/process()
+/mob/living/simple_animal/aquatic/Life()
 	var/turf/T = get_turf(src)
-	if (!T || (is_type_in_list(suitable_turf_types)))
+	if (!(is_type_in_list(T,suitable_turf_types)))
 		alpha = 255//Becomes a solid color because it is revealed
-		icon_state = "fish_rest"
+		icon_state = "[icon_state]_rest"
+		..()
 
