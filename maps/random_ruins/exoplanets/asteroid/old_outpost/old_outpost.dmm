@@ -56,8 +56,7 @@
 /area/outpost/mining_main/eva)
 "bX" = (
 /obj/machinery/door/airlock/glass_mining{
-	name = "Mining Station Bridge";
-	req_access = list(48)
+	name = "Mining Station Bridge"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -162,6 +161,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
+/obj/item/material/shard,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "dv" = (
@@ -184,8 +184,8 @@
 /area/outpost/mining_main/refinery)
 "dM" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_north)
 "dR" = (
@@ -231,8 +231,7 @@
 /area/outpost/mining_west)
 "eq" = (
 /obj/machinery/door/window/westright{
-	name = "Production Area";
-	req_access = list(48)
+	name = "Production Area"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -369,6 +368,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "hd" = (
@@ -471,6 +471,11 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/west_hall)
 "hN" = (
@@ -644,8 +649,7 @@
 /area/outpost/mining_main/refinery)
 "kJ" = (
 /obj/machinery/door/airlock/glass{
-	name = "Crew Area";
-	req_access = list(48)
+	name = "Crew Area"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/blue{
@@ -665,6 +669,18 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/refinery)
+"kQ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/outpost/mining_west)
 "la" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/blue{
@@ -892,6 +908,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/item/material/shard,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "nS" = (
@@ -909,16 +926,9 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "nY" = (
-/obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
 	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -927,12 +937,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/grille/broken,
+/obj/item/material/shard,
+/obj/item/stack/rods,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "ox" = (
 /obj/machinery/door/airlock/glass_mining{
-	name = "Mining Station Bridge";
-	req_access = list(48)
+	name = "Mining Station Bridge"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1001,6 +1013,7 @@
 	output_level = 150000
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/maintenance)
 "pA" = (
@@ -1122,14 +1135,12 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "qu" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/grille/broken,
+/obj/item/stack/rods,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/dorms)
 "qS" = (
@@ -1306,6 +1317,15 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
+"tK" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/grille/broken,
+/obj/item/stack/rods,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/dorms)
 "tN" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/external{
@@ -1385,12 +1405,12 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
+/obj/structure/grille/broken,
+/obj/item/stack/rods,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "uJ" = (
@@ -1467,6 +1487,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
 "vl" = (
@@ -1509,6 +1530,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "we" = (
@@ -1524,12 +1546,12 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
 "wh" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Mining Station Maintenance";
-	req_access = list(48)
+	name = "Mining Station Maintenance"
 	},
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -1624,9 +1646,6 @@
 /area/outpost/mining_west)
 "xE" = (
 /obj/item/reagent_containers/food/snacks/grown/mushroom/libertycap,
-/obj/machinery/light/colored/decayed{
-	dir = 8
-	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -1652,6 +1671,10 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light_switch{
+	pixel_x = 25;
+	pixel_y = -9
+	},
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
 "xS" = (
@@ -1683,10 +1706,9 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
 "ya" = (
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/outpost/mining_north)
+/obj/item/material/shard,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_west)
 "yb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -1838,8 +1860,17 @@
 	dir = 5
 	},
 /obj/item/clothing/shoes/slippers,
+/obj/machinery/light_switch{
+	pixel_x = 25;
+	pixel_y = -9
+	},
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
+"Ac" = (
+/obj/item/material/shard,
+/obj/item/stack/rods,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "Ag" = (
 /obj/machinery/alarm{
 	pixel_y = 24
@@ -1956,8 +1987,8 @@
 /area/outpost/mining_main/refinery)
 "BD" = (
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_north)
 "BE" = (
@@ -1985,8 +2016,7 @@
 /area/outpost/mining_north)
 "Co" = (
 /obj/machinery/door/airlock/glass_mining{
-	name = "Mining Station EVA";
-	req_access = list(54)
+	name = "Mining Station EVA"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2015,17 +2045,14 @@
 	},
 /area/outpost/mining_main)
 "CL" = (
-/obj/machinery/light/colored/decayed{
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/mining_north)
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
+/obj/item/stack/rods,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_west)
 "CR" = (
 /obj/machinery/door/window/westleft{
-	name = "Production Area";
-	req_access = list(48)
+	name = "Production Area"
 	},
 /obj/structure/cable/blue{
 	d1 = 4;
@@ -2068,9 +2095,13 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "Dd" = (
-/obj/machinery/computer/shuttle_control/mining,
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/mining,
+/obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled,
-/area/outpost/mining_main/refinery)
+/area/outpost/mining_main/eva)
 "Dk" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'MOVING PARTS'.";
@@ -2235,6 +2266,8 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
+/obj/item/stack/rods,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
 "FZ" = (
@@ -2290,7 +2323,6 @@
 "Hy" = (
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
-/obj/machinery/light/colored/decayed,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -2330,12 +2362,12 @@
 	icon_state = "0-2"
 	},
 /obj/random/junk,
+/obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "HS" = (
 /obj/machinery/door/airlock/mining{
-	name = "Mining Station Storage";
-	req_access = list(48)
+	name = "Mining Station Storage"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2350,6 +2382,7 @@
 	pixel_x = 5
 	},
 /obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
 "HU" = (
@@ -2370,14 +2403,17 @@
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
 "HY" = (
-/obj/item/reagent_containers/food/snacks/grown/mushroom/libertycap,
-/obj/machinery/light/colored/decayed{
+/obj/structure/grille,
+/obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/area/outpost/mining_north)
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/medbay)
 "Ik" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2517,8 +2553,7 @@
 	icon_state = "door_locked";
 	id_tag = "mining_outpost_outer";
 	locked = 1;
-	name = "Mining Dock Airlock";
-	req_access = list(13)
+	name = "Mining Dock Airlock"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
@@ -2529,8 +2564,7 @@
 /area/outpost/mining_main/dorms)
 "Ki" = (
 /obj/machinery/door/airlock/glass_mining{
-	name = "Mining Station Bridge";
-	req_access = list(48)
+	name = "Mining Station Bridge"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2563,8 +2597,12 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/west_hall)
 "KS" = (
-/obj/structure/closet/secure_closet/miner,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/closet,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "KU" = (
@@ -2645,6 +2683,13 @@
 /obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
+"LD" = (
+/obj/structure/closet,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_west)
 "LK" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -2723,8 +2768,8 @@
 /obj/structure/disposaloutlet{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_north)
 "MI" = (
@@ -2816,7 +2861,9 @@
 /turf/simulated/wall,
 /area/outpost/mining_main)
 "Ob" = (
-/obj/structure/closet/secure_closet/miner,
+/obj/structure/closet,
+/obj/random/loot,
+/obj/random/loot,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "Oh" = (
@@ -2835,8 +2882,7 @@
 	icon_state = "door_locked";
 	id_tag = "mining_outpost_inner";
 	locked = 1;
-	name = "Mining Dock Airlock";
-	req_access = list(13)
+	name = "Mining Dock Airlock"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2921,8 +2967,18 @@
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/mining,
+/obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
+"Pt" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/item/storage/box/dynamite,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_main)
 "Px" = (
 /obj/item/storage/belt/utility,
 /obj/item/pickaxe,
@@ -2970,8 +3026,7 @@
 	icon_state = "door_locked";
 	id_tag = "mining_east_outer";
 	locked = 1;
-	name = "Mining External Access";
-	req_access = list(10,13)
+	name = "Mining External Access"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
@@ -3010,6 +3065,11 @@
 "Rq" = (
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
+"Ru" = (
+/obj/structure/ore_box,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_west)
 "Ry" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -3038,10 +3098,6 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "RP" = (
-/obj/machinery/light_switch{
-	pixel_x = 25;
-	pixel_y = -9
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -3061,6 +3117,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "RX" = (
@@ -3112,6 +3169,11 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light_construct/small{
 	dir = 4
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/obj/machinery/light_switch{
+	pixel_x = 25;
+	pixel_y = -9
 	},
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
@@ -3304,6 +3366,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/item/material/shard,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "VG" = (
@@ -4029,7 +4092,7 @@ NO
 NO
 NO
 NO
-CL
+BX
 BX
 NO
 NO
@@ -4068,8 +4131,8 @@ NO
 NO
 NO
 Hy
-HY
-ya
+xE
+BX
 MA
 dM
 dM
@@ -4271,8 +4334,8 @@ le
 kJ
 GY
 xS
-hx
-uX
+CL
+HY
 yt
 zV
 rB
@@ -4306,8 +4369,8 @@ cg
 xX
 cg
 vg
-eC
-Rq
+tK
+ya
 eP
 hx
 rB
@@ -4417,7 +4480,7 @@ NO
 NO
 NO
 nc
-zm
+Ru
 zm
 zm
 nc
@@ -4493,7 +4556,7 @@ NO
 NO
 NO
 jN
-Ob
+LD
 YJ
 hx
 nc
@@ -4576,7 +4639,7 @@ nc
 AM
 ng
 Vr
-qS
+kQ
 nb
 gc
 qS
@@ -5479,7 +5542,7 @@ NO
 NO
 NO
 NX
-XD
+Pt
 NN
 CG
 NO
@@ -5526,7 +5589,7 @@ cQ
 gU
 ns
 nF
-cQ
+LK
 sZ
 sZ
 cQ
@@ -5571,7 +5634,7 @@ sX
 fy
 IF
 VU
-Dd
+Tn
 Tn
 Bf
 Tn
@@ -5649,8 +5712,8 @@ Ye
 Ap
 Ye
 EJ
-VU
-Ry
+Ac
+hu
 NN
 NO
 NO
@@ -5710,7 +5773,7 @@ NO
 km
 Lk
 NC
-Pn
+Dd
 SV
 vV
 Nn
