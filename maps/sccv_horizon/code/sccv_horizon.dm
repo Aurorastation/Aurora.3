@@ -36,12 +36,12 @@
 	command_spawn_message = "Welcome to the SCCV Horizon!"
 
 	use_overmap = TRUE
-	num_exoplanets = 10
+	num_exoplanets = 2
 	overmap_size = 35
 	overmap_event_areas = 34
 	planet_size = list(255,255)
 
-	away_site_budget = 30
+	away_site_budget = 2
 	away_ship_budget = 2
 	away_variance = 1
 
