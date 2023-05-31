@@ -22,58 +22,47 @@
 	info = {"
 			<center><b><font color='green'>Zeng-Hu Pharmaceuticals</font></b></center>
 			<center><b><font color='red'><small>CONFIDENTIAL USE ONLY</small></font></b></center>
-			<i>We received the latest batch of subjects this evening. Evening? Is it even evening? The schedule out here is so fucked in terms of sleep-cycles I forget to even check what time it is sometimes. I'm pretty sure it's evening anyway. Anyway, point is, we got the greimorians, and thus far they seem like perfect subjects for our work.</i>
+			<i>We received the latest batch of test subjects this evening,. Evening? Is it even evening? The schedule out here is so fucked in terms of sleep-cycles I forget to even check what time it is sometimes. I'm pretty sure it's evening anyway. Anyway, point is, we got the greimorians straight from Greima's orbit, and thus far they seem like perfect subjects for our work.</i>
 			"}
 
 /obj/item/paper/lar_maria/note_2
 	name = "paper note"
 	info = {"<center><b><font color='green'>Zeng-Hu Pharmaceuticals</font></b></center>
 			<center><font color='red'><small>CONFIDENTIAL USE ONLY</small></font></center>
-			<i>I can't believe it, the type 8 Serum seems to actually have a regenerative effect on the subjects. We actually cut one's arm open during the test and ten minutes later, it had clotted. Fifteen and it was healing, and within two hours it was nothing but a fading scar. This is insanity, and the worst part is, we can't even determine HOW it does it yet. All these samples of the goo and not a damn clue how it works, it's infuriating! I'm going to try some additional tests with this stuff. I've heard it's got all kinds of uses, fuel enhancer, condiment, so on and so forth, even with this minty taste, but we'll see. There's got to be some rhyme or reason to this damned stuff.</i>
+			<i>The Greiomrians have shown fascinating behavior patterns since their arrival. They exhibit an affinity for the crystalized phoron present in their enclosure. Our initial experiments aim to discover why that is so. If Greima still had its phoron atmosphere and its crystals, that would make things much easier. It would seem the Elyrans are the only ones in the galaxy who haven't faced disaster due to this preciarously volatile yet valuable resource. Further observation and controlled studies are required to ascertain the full extent of these interactions.</i>
 			"}
 
 /obj/item/paper/lar_maria/note_3
 	name = "paper note"
 	info = {"<center><b><font color='green'>Zeng-Hu Pharmaceuticals</font></b></center>
 			<center><font color='red'><small>CONFIDENTIAL USE ONLY</small></font></center>
-			<i>The samples of Type 8 we've got are almost out, but it seems like we're actually onto something major here. We'll need to get more sent over asap. This stuff may well be the key to immortality. We cut off one of the test subject's arms and they just put it back on and it healed in an hour or so to the point it was working fine. It's nothing short of miraculous.</i>
+			<i>Specimen B, a larger and more aggressive Greimorian, has proven to be a challenge in containment. It displayed heightened intelligence and an uncanny ability to adapt to its environment. We suspect that it has developed a rudimentary form of problem-solving capability. The specimen's physical characteristics have also undergone significant changes, with its dermal pigmentation shifting to a darker hue. Preliminary data suggests a possible correlation between increased aggression and the shift in pigmentation. Additional precautions are being implemented to ensure the safety of the personnel.</i>
 			"}
 
 /obj/item/paper/lar_maria/note_4
 	name = "paper note"
 	info = {"<center><b><font color='green'>Zeng-Hu Pharmaceuticals</font></b></center>
 			<center><font color='red'><small>CONFIDENTIAL USE ONLY</small></font></center>
-			<i>Tedd, don't get into the cells with the Type 8 subjects anymore, something's off about them the last couple days. They haven't been moving right, and they seem distracted nearly constantly, and not in a normal way. They also look like they're turning kinda... green? One of the other guys says it's probably just a virus or something reacting with it, but I don't know, something seems off.</i>
+			<i>Specimen C has presented an alarming development. It has displayed an ability to emit a highly paralytic toxin from specialized glands located within its limbs. Initial contact with this toxin has resulted in severe muscle spasms and temporary paralysis in the affected subjects. The toxin appears to be a defensive mechanism employed by the Greimorian, possibly to immobilize prey or deter potential threats. The potency of this toxin indicates a significant escalation in the danger posed by these creatures. Additional safety measures and enhanced containment protocols are being implemented.</i>
 			"}
 
 /obj/item/paper/lar_maria/note_5
 	name = "paper note"
 	info = {"<center><b><font color='green'>Zeng-Hu Pharmaceuticals</font></b></center>
 			<center><font color='red'><small>CONFIDENTIAL USE ONLY</small></font></center>
-			This is a reminder to all facility staff, while we may be doing important work for the good of humanity here, our methods are not necessarily one hundred percent legal under SCG law, and as such you are NOT permitted, as outlined in your contract, to discuss the nature of your work, nor any other related information, with anyone not directly involved with the project without express permission of your facility director. This includes family, friends, local or galactic news outlets and bluenet chat forums.
+			This is a reminder to all facility staff, while we may be doing important work for the good of humanity here, you are NOT permitted, as outlined in your contract, to discuss the nature of your work, nor any other related information, with anyone not directly involved with the project without express permission of your facility director. This includes family, friends, local or galactic news outlets and extranet chat forums.
 			"}
 
 /obj/item/paper/lar_maria/note_6
 	name = "paper note"
 	info = {"<center><b><font color='green'>Zeng-Hu Pharmaceuticals</font></b></center>
 			<center><font color='red'><small>CONFIDENTIAL USE ONLY</small></font></center>
-			Due to the recent incident in the labs involving Type 8 test subject #12 and #33, all research personnel are to refrain from interacting directly with the research subjects involved in serum type 8 testing without the presence of armed guards and full Biohazard protective measures in place.
+			Specimen D  broke free from its containment chamber, leading to a series of catastrophic events within the station. Its aggression and predatory instincts have reached unparalleled levels. Attempts to subdue the creature were met with violent resistance, resulting in casualties among the research team. No deaths, thankfully. The Greimorian's dermal pigmentation has further deepened, and it appears to be a warrior caste of some sort. Armed security will be present at all times from now on and we're revising our containment protocols.
 			"}
 
 /obj/item/paper/lar_maria/note_7
 	name = "paper note"
 	info = {"<center><b><font color='green'>Zeng-Hu Pharmaceuticals</font></b></center>
 			<center><font color='red'><small>CONFIDENTIAL USE ONLY</small></font></center>
-			<i>Can we get some more diversity in test subjects? I know we're mostly working off SCG undesirables, but martians and frontier colonists aren't exactly the most varied bunch. We could majorly benefit from having some Skrell test subjects, for example. Oooh, or one of those GAS things Xynergy's got a monopoly on.</i>
+			<i>Can we get some more diversity in test subjects? We could majorly benefit from having some Vaurca, for example. Shame that would be exceptionally difficult to do considering the secrecy of this project.</i>
 			"}
-
-/obj/item/paper/lar_maria/note_8
-	name = "paper note"
-	info = {"<center><b><font color='green'>Zeng-Hu Pharmaceuticals</font></b></center>
-			<center><font color='red'><small>CONFIDENTIAL USE ONLY</small></font></center>
-			<i>On a related note, can we get some more female subjects? There's been some discussion about gender related differences in reactions to some of the chemicals we're working on. Testosterone and shit affecting chemical balances or something, I'm not sure, point is, variety.</i>
-			"}
-
-/obj/item/paper/lar_maria/note_9
-	name = "paper note"
-	info = "<i><font color='blue'>can we get some fresh carp sometime? Or freshish? Or frozen? I just really want carp, ok? I'm willing to pay for it if so.</font></i>"
