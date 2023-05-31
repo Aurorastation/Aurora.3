@@ -156,10 +156,6 @@
 	name = "Station Intercom (General)";
 	pixel_y = -29
 	},
-/obj/machinery/camera/network/mining{
-	c_tag = "Mining Outpost Medical";
-	dir = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/medbay)
 "do" = (
@@ -204,7 +200,7 @@
 	id = "mining_internal";
 	name = "mining conveyor"
 	},
-/obj/machinery/light{
+/obj/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/machinery/camera/network/mining{
@@ -260,7 +256,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/dorms)
 "eF" = (
-/obj/machinery/light{
+/obj/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -341,7 +337,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "gh" = (
-/obj/machinery/light,
+/obj/machinery/light/colored/decayed,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 9
 	},
@@ -737,10 +733,6 @@
 	dir = 9
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/machinery/camera/network/mining{
-	c_tag = "Mining Outpost Maintenance";
-	dir = 8
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/maintenance)
@@ -1017,7 +1009,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/light/small{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1064,7 +1056,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/machinery/light/colored/dying,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/west_hall)
 "pZ" = (
@@ -1176,7 +1168,7 @@
 	layer = 4;
 	pixel_y = 32
 	},
-/obj/machinery/light/small{
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1218,13 +1210,14 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "rH" = (
-/obj/machinery/camera/network/mining{
-	c_tag = "Mining Outpost Storage Room";
-	dir = 1
+/obj/machinery/light/small/emergency{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/outpost/mining_west)
+/area/outpost/mining_main/dorms)
 "rR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/blue{
@@ -1238,9 +1231,8 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "sy" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+/obj/machinery/light/colored/decayed{
+	dir = 8
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -1328,7 +1320,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "tR" = (
-/obj/machinery/light/small{
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/machinery/alarm{
@@ -1482,15 +1474,15 @@
 	dir = 4;
 	pixel_x = -22
 	},
-/obj/machinery/light/small{
-	dir = 8
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/terminal{
 	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/maintenance)
@@ -1632,12 +1624,15 @@
 /area/outpost/mining_west)
 "xE" = (
 /obj/item/reagent_containers/food/snacks/grown/mushroom/libertycap,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_north)
 "xM" = (
-/obj/machinery/light/small{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/machinery/button/remote/airlock{
@@ -1745,7 +1740,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
 "yP" = (
-/obj/machinery/light/small{
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -1922,9 +1917,6 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_west)
 "AM" = (
-/obj/machinery/camera/network/mining{
-	c_tag = "Mining Outpost Crew Area Hallway"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
@@ -2022,6 +2014,14 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main)
+"CL" = (
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_north)
 "CR" = (
 /obj/machinery/door/window/westleft{
 	name = "Production Area";
@@ -2197,7 +2197,7 @@
 /area/outpost/mining_west)
 "FI" = (
 /obj/machinery/recharge_station,
-/obj/machinery/light/small{
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -2290,6 +2290,7 @@
 "Hy" = (
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
+/obj/machinery/light/colored/decayed,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -2369,24 +2370,14 @@
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
 "HY" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
+/obj/item/reagent_containers/food/snacks/grown/mushroom/libertycap,
+/obj/machinery/light/colored/decayed{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 8
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/machinery/camera/network/mining{
-	c_tag = "Mining Outpost Airlock West";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_west)
+/area/outpost/mining_north)
 "Ik" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2447,7 +2438,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/machinery/light/colored/decayed,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/west_hall)
@@ -2681,10 +2672,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
-	},
-/obj/machinery/camera/network/mining{
-	c_tag = "Mining Outpost Crew Area";
-	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -3066,7 +3053,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "RR" = (
-/obj/machinery/light,
+/obj/machinery/light/colored/dying,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "RV" = (
@@ -3090,9 +3077,8 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
 "Si" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+/obj/machinery/light/colored/dying{
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -3107,9 +3093,6 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "Sw" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
 /obj/machinery/button/remote/airlock{
 	id = "miningdorm2";
 	name = "Door Bolt Control";
@@ -3127,6 +3110,9 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light_construct/small{
+	dir = 4
+	},
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
 "SL" = (
@@ -3169,9 +3155,8 @@
 	dir = 4;
 	pixel_x = -23
 	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+/obj/machinery/light/colored/decayed{
+	dir = 8
 	},
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining Outpost EVA";
@@ -3233,6 +3218,9 @@
 /obj/structure/toilet{
 	dir = 4
 	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/outpost/mining_west)
 "TE" = (
@@ -3265,7 +3253,7 @@
 	},
 /area/outpost/mining_main)
 "Ur" = (
-/obj/machinery/light/small{
+/obj/machinery/light_construct/small{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3319,7 +3307,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "VG" = (
-/obj/machinery/light/small{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/machinery/airlock_sensor{
@@ -3485,9 +3473,8 @@
 /turf/simulated/wall/r_wall,
 /area/outpost/mining_main/refinery)
 "Yx" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+/obj/machinery/light/colored/decayed{
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -4042,7 +4029,7 @@ NO
 NO
 NO
 NO
-BX
+CL
 BX
 NO
 NO
@@ -4081,7 +4068,7 @@ NO
 NO
 NO
 Hy
-xE
+HY
 ya
 MA
 dM
@@ -4349,7 +4336,7 @@ NO
 cg
 Sh
 UB
-Ur
+rH
 Ka
 FY
 Ka
@@ -4508,7 +4495,7 @@ NO
 jN
 Ob
 YJ
-rH
+hx
 nc
 Cx
 eP
@@ -4592,7 +4579,7 @@ Vr
 qS
 nb
 gc
-HY
+qS
 NN
 NN
 CG
