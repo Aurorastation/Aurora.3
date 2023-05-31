@@ -80,15 +80,15 @@
 	object = /obj/item/reagent_containers/food/snacks/spreads/lard
 	cost = 80
 
-/singleton/biorecipe/food/egg
-	name = "Chicken Egg"
-	object = /obj/item/reagent_containers/food/snacks/egg
-	cost = 30
+/singleton/biorecipe/food/egg_carton
+	name = "Chicken Egg Carton"
+	object = /obj/item/storage/box/fancy/egg_box
+	cost = 300
 
-/singleton/biorecipe/food/tunneler_egg
-	name = "Ice Tunneler Egg"
-	object = /obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
-	cost = 30
+/singleton/biorecipe/food/tunneler_egg_carton
+	name = "Ice Tunneler Egg Carton"
+	object = /obj/item/storage/box/fancy/egg_box/tunneler
+	cost = 300
 
 /singleton/biorecipe/food/enzyme
 	name = "Universal Enzyme (50u)"

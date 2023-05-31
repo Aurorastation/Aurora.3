@@ -38,4 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Allows the biogenerator to create chicken eggs, tunneler eggs and lard."
+  - rscadd: "Created a new egg carton variant for ice tunneler eggs."
+  - rscadd: "Allows the biogenerator to create chicken and ice tunneler egg cartons and lard."
+  - tweak: "Allows ice tunneler eggs to be stored in the egg carton."
