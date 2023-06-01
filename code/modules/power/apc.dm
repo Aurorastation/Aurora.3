@@ -553,7 +553,6 @@
 				//to_chat(user, "You remove the power cell.")
 				charging = CHARGING_OFF
 				update_icon()
-				SSvueui.check_uis_for_change(src)
 				return
 	else if	(istype(W, /obj/item/cell) && opened != COVER_CLOSED)	// trying to put a cell inside
 		if(cell)
@@ -573,7 +572,6 @@
 			SPAN_NOTICE("You insert \the [cell]."))
 		chargecount = 0
 		update_icon()
-		SSvueui.check_uis_for_change(src)
 	else if	(W.isscrewdriver())	// haxing
 		if(opened != COVER_CLOSED)
 			if (cell)
@@ -614,7 +612,6 @@
 			if(allowed(usr) && !isWireCut(APC_WIRE_IDSCAN))
 				locked = !locked
 				to_chat(user, "You [ locked ? "lock" : "unlock"] the APC interface.")
-				SSvueui.check_uis_for_change(src)
 				update_icon()
 			else
 				to_chat(user, SPAN_WARNING("Access denied."))
@@ -747,7 +744,6 @@
 							emagged = FALSE
 						if(infected)
 							infected = FALSE
-						SSvueui.check_uis_for_change(src)
 			else
 				to_chat(user, SPAN_NOTICE("There has been a connection issue."))
 				return
@@ -807,7 +803,6 @@
 			to_chat(user, SPAN_NOTICE("You hack the charging slot. The next IPC that charges from this APC will be hacked and slaved to you."))
 			infected = TRUE
 			hacker = user
-			SSvueui.check_uis_for_change(src)
 	if(!(emagged || hacker))		// trying to unlock with an emag card
 		if(opened != COVER_CLOSED)
 			to_chat(user, "You must close the cover to swipe an ID card.")
@@ -823,7 +818,6 @@
 					locked = FALSE
 					to_chat(user, SPAN_NOTICE("You hack the APC interface open."))
 					update_icon()
-					SSvueui.check_uis_for_change(src)
 				else
 					to_chat(user, SPAN_WARNING("You fail to [ locked ? "unlock" : "lock"] the APC interface."))
 				return TRUE
@@ -907,7 +901,6 @@
 								 SPAN_NOTICE("You remove the power cell."))
 			charging = CHARGING_ON
 			update_icon()
-			SSvueui.check_uis_for_change(src)
 		return
 	if(stat & (BROKEN|MAINT))
 		return
@@ -966,7 +959,6 @@
 		area.power_equip = FALSE
 		area.power_environ = FALSE
 	area.power_change()
-	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/power/apc/proc/isWireCut(var/wireIndex)
 	return wires.IsIndexCut(wireIndex)
