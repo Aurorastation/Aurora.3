@@ -222,7 +222,7 @@
 	flags["flag, Private Military Contracting Group"] = /obj/item/flag/pmcg/l
 	flags["flag, United Syndicates of Himeo"] = /obj/item/flag/himeo/l
 	flags["flag, Republic of Assunzione"] = /obj/item/flag/assunzione/l
-	flags["flag, Union of Port Antillia"] = /obj/item/flag/portantillia
+	flags["flag, Union of Port Antillia"] = /obj/item/flag/portantillia/l
 	flags["flag, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/l
 	flags["flag, Mictlan"] = /obj/item/flag/mictlan/l
 	flags["flag, Hive Zo'ra"] = /obj/item/flag/zora/l
