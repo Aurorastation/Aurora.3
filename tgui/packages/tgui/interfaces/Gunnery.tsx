@@ -145,7 +145,7 @@ export const GunneryWindow = (props, context) => {
 export const Gunnery = (props, context) => {
   const { act, data } = useBackend<GunneryData>(context);
   return (
-    <Window resizable>
+    <Window resizable theme="zavodskoi">
       <Window.Content scrollable>
         <Section title="Ajax Targeting Console">
           <Button
