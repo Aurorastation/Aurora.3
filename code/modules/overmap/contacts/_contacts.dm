@@ -103,7 +103,6 @@
 		owner = null
 
 	// Remove the effect opacity and null the effect
-	effect.opacity = 0
 	effect = null
 
 	QDEL_NULL_LIST(images)
