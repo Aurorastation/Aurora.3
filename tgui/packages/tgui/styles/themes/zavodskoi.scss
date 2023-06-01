@@ -2,12 +2,12 @@
 @use 'sass:meta';
 
 @use '../colors.scss' with (
-  $primary: #080101,
+  $primary: #000000,
   $fg-map-keys: (),
   $bg-map-keys: (),
 );
 @use '../base.scss' with (
-  $color-bg: #550202,
+  $color-bg: #350404,
   $color-bg-grad-spread: 6%,
 );
 
@@ -53,7 +53,7 @@
   @include meta.load-css('../layouts/Window.scss');
   @include meta.load-css(
     '../layouts/TitleBar.scss',
-    $with: ('background-color': #910101)
+    $with: ('background-color': #350303)
   );
 
   .Layout__content {
