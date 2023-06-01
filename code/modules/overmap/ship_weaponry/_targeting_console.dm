@@ -31,7 +31,7 @@
 /obj/machinery/computer/ship/targeting/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Gunnery", "Ajax Targeting Console", 400, 650)
+		ui = new(user, src, "Gunnery", "Ajax Targeting Console", 400, 525)
 		ui.open()
 
 /obj/machinery/computer/ship/targeting/ui_data(mob/user)

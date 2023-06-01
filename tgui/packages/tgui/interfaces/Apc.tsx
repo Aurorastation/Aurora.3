@@ -128,8 +128,8 @@ export const APCWindow = (props, context) => {
                     color={data.charge_mode ? 'good' : ''}
                     onClick={() => act('cmode')}
                   />
-                  <Box color={ChargeClass(data.charging_status)}>
-                    {ChargeStatus(data.charging_status)}
+                  <Box as="span" color={ChargeClass(data.charging_status)}>
+                    [{ChargeStatus(data.charging_status)}]
                   </Box>
                 </Box>
               )}
@@ -223,7 +223,7 @@ export const APCWindow = (props, context) => {
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      {data.silicon_user ?
+      {data.silicon_user ? (
         <Section title="System Overrides">
           <Button
             content="Overload Lighting Circuit"
@@ -231,9 +231,9 @@ export const APCWindow = (props, context) => {
             onClick={() => act('overload')}
           />
         </Section>
-      :
-    ""}
-
+      ) : (
+        ''
+      )}
     </Section>
   );
 };

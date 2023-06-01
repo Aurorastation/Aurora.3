@@ -1,7 +1,7 @@
 import { BooleanLike } from 'common/react';
 import { capitalizeAll } from '../../common/string';
 import { useBackend } from '../backend';
-import { Button, Section, Box, BlockQuote } from '../components';
+import { Button, Section, Box, LabeledList } from '../components';
 import { Dropdown } from '../components/Dropdown';
 import { Window } from '../layouts';
 
@@ -60,12 +60,15 @@ export const GunneryWindow = (props, context) => {
     return (
       <Section>
         <Section collapsing title="Lock-On Information">
-          <Box bold>Target:</Box>
-          <BlockQuote>{target_name}</BlockQuote>
-          <Box bold>Type: </Box>{' '}
-          <BlockQuote>{data.targeting.shiptype}</BlockQuote>
-          <Box bold>Distance: </Box>{' '}
-          <BlockQuote>{data.targeting.distance} click(s)</BlockQuote>
+          <LabeledList>
+            <LabeledList.Item label="Target">{target_name}</LabeledList.Item>
+            <LabeledList.Item label="Type">
+              {data.targeting.shiptype}
+            </LabeledList.Item>
+            <LabeledList.Item label="Distance">
+              {data.targeting.distance} click(s)
+            </LabeledList.Item>
+          </LabeledList>
         </Section>
         <Section collapsing title="Targeting Calibration">
           <Dropdown
@@ -113,14 +116,18 @@ export const GunneryWindow = (props, context) => {
           />
           {data.cannon && (
             <Section>
-              <Box bold>Type:</Box>
-              <BlockQuote>{cannon_name}</BlockQuote>
-              <Box bold>Caliber:</Box>
-              <BlockQuote>{cannon_caliber}</BlockQuote>
-              <Box bold>Loaded:</Box>
-              <BlockQuote>{data.cannon.ammunition}</BlockQuote>
-              <Box bold>Ammunition Type:</Box>
-              <BlockQuote>{data.cannon.ammunition_type}</BlockQuote>
+              <LabeledList>
+                <LabeledList.Item label="Type">{cannon_name}</LabeledList.Item>
+                <LabeledList.Item label="Caliber">
+                  {cannon_caliber}
+                </LabeledList.Item>
+                <LabeledList.Item label="Loaded">
+                  {data.cannon.ammunition}
+                </LabeledList.Item>
+                <LabeledList.Item label="Ammunition Type">
+                  {data.cannon.ammunition_type}
+                </LabeledList.Item>
+              </LabeledList>
               <Button
                 color="red"
                 icon="exclamation-triangle"
@@ -147,8 +154,8 @@ export const Gunnery = (props, context) => {
             content="View Targeting Grid"
             onClick={() => act('viewing')}
           />
+          <GunneryWindow />
         </Section>
-        <GunneryWindow />
       </Window.Content>
     </Window>
   );
