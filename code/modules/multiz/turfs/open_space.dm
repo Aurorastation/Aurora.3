@@ -139,8 +139,7 @@
 		LAZYREMOVE(climbers, climber)
 
 /turf/simulated/open/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 	icon_state = "opendebug_airless"
 
@@ -153,8 +152,7 @@
 	name = "hole"
 
 /turf/simulated/open/chasm/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 	icon_state = "debug_airless"
 

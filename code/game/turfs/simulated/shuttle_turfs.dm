@@ -413,11 +413,43 @@
 	icon_state = "6,2"
 
 //scc shuttle pieces
-
 /turf/simulated/wall/shuttle/unique/scc
 	name = "shuttle hull"
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
+	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi'
 	icon_state = "c1"
+
+/obj/structure/shuttle_part/scc
+	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi'
+	icon_state = "c1"
+
+/obj/structure/window/shuttle/unique/scc
+	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi'
+	icon_state = "c1"
+
+/turf/simulated/wall/shuttle/unique/scc/scout
+	name = "jester-type shuttle hull"
+	desc = "The hull and reinforcement of a Jester-type corporate skiff. The phoron-purple colored bands indicate this, in bold text as the SCCV Canary."
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
+	icon_state = "4,1"
+
+/obj/structure/shuttle_part/scc/scout
+	name = "jester-type shuttle hull"
+	desc = "The hull and reinforcement of a Jester-type corporate skiff. The phoron-purple colored bands indicate this, in bold text as the SCCV Canary."
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/scc/scout
+	name = "jester-type shuttle hull"
+	desc = "The hull and reinforcement of a Jester-type corporate skiff. This particular piece looks fragile and frames a cockpit viewport."
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/scc/scout/over
+	name = "jester-type shuttle cockpit"
+	desc = "The strong glass face of a Jester-type shuttle cockpit."
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/cockpit_windows.dmi'
+	icon_state = "4,1"
+	layer = ABOVE_ALL_MOB_LAYER
 
 //--Floors--//
 
@@ -458,8 +490,7 @@
 	initial_flooring = /singleton/flooring/shuttle/dark_blue
 
 /turf/simulated/floor/shuttle/dark_blue/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/shuttle/advanced
 	icon_state = "advanced_plating"
@@ -475,16 +506,14 @@
 	footstep_sound = /singleton/sound_category/sand_footstep
 
 /turf/simulated/floor/shuttle/skrell/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/shuttle/skrell/blue
 	icon_state = "skrell_blue"
 	initial_flooring = /singleton/flooring/shuttle/skrell/blue
 
 /turf/simulated/floor/shuttle/skrell/blue/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/shuttle/skrell/ramp
 	name = "footramp"
@@ -503,8 +532,7 @@
 	icon_state = "roof_white"
 	smooth = SMOOTH_DIAGONAL|SMOOTH_TRUE
 	smooth_underlays = TRUE
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	roof_type = null
 	permit_ao = 0
 	canSmoothWith = list(

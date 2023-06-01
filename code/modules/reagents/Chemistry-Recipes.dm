@@ -1228,7 +1228,6 @@
 	/obj/item/reagent_containers/food/snacks/bananabreadslice,
 	/obj/item/reagent_containers/food/snacks/tofubreadslice,
 	/obj/item/reagent_containers/food/snacks/cakeslice/carrot,
-	/obj/item/reagent_containers/food/snacks/cakeslice/brain,
 	/obj/item/reagent_containers/food/snacks/cakeslice/cheese,
 	/obj/item/reagent_containers/food/snacks/cakeslice/plain,
 	/obj/item/reagent_containers/food/snacks/cakeslice/orange,

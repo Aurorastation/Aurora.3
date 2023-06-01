@@ -831,3 +831,12 @@
 	. = list()
 	for (var/string in L)
 		. += capitalize(string)
+
+// Transforms a list of lists (of lists) into a single flat list.
+/proc/flatten_list(var/list/L)
+	. = list()
+	for(var/M in L)
+		if(!islist(M))
+			. += M
+		else
+			. += flatten_list(M)

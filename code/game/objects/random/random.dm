@@ -833,6 +833,19 @@
 		/obj/item/clothing/accessory/storage/bayonet
 	)
 
+/obj/random/melee/highvalue
+	name = "random high value melee weapon"
+	desc = "This is a random high value melee weapon."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "baton"
+	spawnlist = list(
+		/obj/item/melee/energy/sword,
+		/obj/item/melee/energy/glaive,
+		/obj/item/melee/chainsword,
+		/obj/item/melee/hammer,
+		/obj/item/melee/hammer/powered
+	)
+
 /obj/random/coin
 	name = "random coin"
 	desc = "This is a random coin."
@@ -1315,6 +1328,24 @@
 	problist = list(
 	/obj/item/storage/secure/briefcase/money = 1,
 	/obj/item/stack/material/phoron/full = 0.1
+	)
+
+/obj/random/highvalue/safe
+	name = "random corporate safe high valuable item"
+	desc = "This is a random corporate safe high valuable item."
+	icon = 'icons/obj/coins.dmi'
+	icon_state = "coin_diamond_heads"
+	problist = list(
+		/obj/item/device/personal_shield = 0.4,
+		/obj/random/safe_rig = 0.4,
+		/obj/item/clothing/glasses/thermal = 0.3,
+		/obj/item/storage/toolbox/infiltration = 0.3,
+		/obj/random/melee/highvalue = 0.3,
+		/obj/item/gun/energy/disruptorpistol/magnum = 0.3,
+		/obj/item/gun/projectile/shotgun/pump/combat = 0.2,
+		/obj/item/gun/energy/lawgiver = 0.1,
+		/obj/item/gun/projectile/automatic/terminator = 0.1,
+		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.1
 	)
 
 /obj/random/junk

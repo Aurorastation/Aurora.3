@@ -1887,6 +1887,9 @@
 		// No heart, no pulse
 		return "0"
 
+	if(status_flags & FAKEDEATH)
+		return "0"
+
 	var/bpm = get_pulse_as_number()
 	if(bpm >= PULSE_MAX_BPM)
 		return method ? ">[PULSE_MAX_BPM]" : "extremely weak and fast, patient's artery feels like a thread"

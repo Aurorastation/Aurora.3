@@ -154,7 +154,7 @@ var/list/preferences_datums = list()
 
 	// SPAAAACE
 	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
-	var/clientfps = 0
+	var/clientfps = 40
 	var/floating_chat_color
 	var/speech_bubble_type = "normal"
 
