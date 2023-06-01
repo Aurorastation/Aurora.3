@@ -4739,6 +4739,12 @@
 "lHL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/generic,
+/obj/structure/table/rack,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "lJH" = (
