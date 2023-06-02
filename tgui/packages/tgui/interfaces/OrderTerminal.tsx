@@ -5,7 +5,7 @@ import { Window } from '../layouts';
 
 export type TerminalData = {
   items: Item[];
-  buying: Item[];
+  buying: ItemBuy[];
   new_item: string;
   new_price: number;
   sum: number;
@@ -18,11 +18,16 @@ type Item = {
   price: number;
 };
 
+type ItemBuy = {
+  name: string;
+  amount: number;
+};
+
 export const OrderTerminal = (props, context) => {
   const { act, data } = useBackend<TerminalData>(context);
 
   return (
-    <Window resizable>
+    <Window resizable theme="idris">
       <Window.Content scrollable>
         <Section
           title="Ordering"
@@ -34,8 +39,8 @@ export const OrderTerminal = (props, context) => {
               onClick={() => act('locking')}
             />
           }>
-          {data.items.length < 1 ? 'No items available.' : <ItemWindow />}
           {data.editmode ? <AddItems /> : ''}
+          {data.items.length < 1 ? 'No items available.' : <ItemWindow />}
         </Section>
       </Window.Content>
     </Window>
@@ -50,10 +55,10 @@ export const ItemWindow = (props, context) => {
       <LabeledList>
         {data.items.map((item) => (
           <LabeledList.Item key={item.name} label={item.name}>
-            {item.price}cr &nbsp;
+            {item.price}电 &nbsp;
             <Button
-              as="span"
               content="Buy"
+              icon="calendar"
               onClick={(e, value) =>
                 act('buy', { buying: item.name, amount: 1 })
               }
@@ -61,7 +66,25 @@ export const ItemWindow = (props, context) => {
           </LabeledList.Item>
         ))}
       </LabeledList>
-      <Section title="Cart">
+      <Section
+        title="Cart"
+        buttons={
+          <>
+            {' '}
+            <Button
+              content="Clear"
+              icon="trash"
+              color="bad"
+              onClick={() => act('clear')}
+            />
+            <Button
+              content="Confirm"
+              icon="check"
+              color={data.sum ? 'good' : ''}
+              onClick={() => act('confirm')}
+            />
+          </>
+        }>
         {data.buying.length < 1 ? (
           'Your shopping cart is empty.'
         ) : (
@@ -99,10 +122,16 @@ export const CartWindow = (props, context) => {
       <LabeledList>
         {data.buying.map((item) => (
           <LabeledList.Item key={item.name} label={item.name}>
-            {item.price}
+            x{item.amount}&nbsp;
+            <Button
+              content="Remove"
+              icon="times"
+              onClick={() => act('removal', { removal: item.name })}
+            />
           </LabeledList.Item>
         ))}
       </LabeledList>
+      {data.sum ? 'Please swipe your ID to pay.' : ''}
     </Section>
   );
 };

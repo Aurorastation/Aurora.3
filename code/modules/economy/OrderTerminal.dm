@@ -102,10 +102,7 @@
 				ticket += "<br><b>Customer:</b> [I.registered_name]"
 				receipt += "<br><b>Customer:</b> [I.registered_name]"
 				print_receipt()
-				sum = 0
-				receipt = ""
-				ticket = ""
-				to_chat(src.loc, SPAN_NOTICE("Transaction completed, please return to the home screen."))
+				clear_order()
 
 /obj/machinery/orderterminal/ui_data(mob/user)
 	var/list/data = list()
@@ -142,15 +139,24 @@
 			. = TRUE
 
 		if("buy")
+			for(var/list/L in buying)
+				if(L["name"] == params["buying"])
+					L["amount"]++
+					return TRUE
 			buying += list(list("name" = params["buying"], "amount" = params["amount"]))
 			. = TRUE
 
 		if("removal")
-			buying -= params["removal"]
+			for(var/list/L in buying)
+				if(L["name"] == params["removal"])
+					if(L["amount"] > 1)
+						L["amount"]--
+					else
+						buying -= L
 			. = TRUE
 
 		if("clear")
-			buying.Cut()
+			clear_order()
 			. = TRUE
 
 		if("set_new_price")
@@ -164,20 +170,16 @@
 			receipt += "<center><font size=\"4\"><b>Idris Food Terminal Receipt</b></font></br><img src = idrislogo.png></center><hr>"
 			ticket += "<center><font size=\"4\"><b>Idris Food Terminal Ticket</b></font></br><img src = idrislogo.png></center><hr>"
 			for(var/list/bought_item in buying)
-				sum += items_to_price[bought_item["name"]]
-				receipt += "<b>[name]</b>: [bought_item["name"]] x [bought_item["amount"]]c: [items_to_price[bought_item["name"]] * bought_item["amount"]]c<br>"
-				ticket += "<b>[name]</b>: [buying["name"]]<br>"
-			receipt += "<hr><b>Total:</b> [sum]c"
-			ticket += "<hr><b>Total:</b> [sum]c"
-			sum = sum
-			. = TRUE
+				var/item_name = bought_item["name"]
+				var/item_amount = bought_item["amount"]
+				var/item_price = items_to_price[item_name]
+				sum += item_price
 
-		if("return")
-			sum = 0
-			receipt = ""
-			ticket = ""
-			unlocking = FALSE
-			confirmorder = FALSE
+				receipt += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]电 each<br>"
+				ticket += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]电 each<br>"
+			receipt += "<hr><b>Total:</b> [sum]电"
+			ticket += "<hr><b>Total:</b> [sum]电"
+			sum = sum
 			. = TRUE
 
 		if("locking")
@@ -188,3 +190,11 @@
 				editmode = !editmode
 				to_chat(usr, SPAN_NOTICE("Device [editmode ? "un" : ""]locked."))
 			. = TRUE
+
+/obj/machinery/orderterminal/clear_order()
+	buying.Cut()
+	sum = 0
+	receipt = ""
+	ticket = ""
+	unlocking = FALSE
+	confirmorder = FALSE
