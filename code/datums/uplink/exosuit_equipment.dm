@@ -5,7 +5,7 @@
 
 /datum/uplink_item/item/exosuit_equipment/mounted_gun
 	name = "Mounted Electrolaser Carbine"
-	desc = "A dual fire mode electrolaser system connected to the exosuit's targetting system."
+	desc = "A dual fire mode electrolaser system connected to the exosuit's targeting system."
 	item_cost = 2
 	path = /obj/item/mecha_equipment/mounted_system/combat/taser
 
