@@ -228,6 +228,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
+"alP" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "3,10"
+	},
+/area/template_noop)
 "amz" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -645,6 +650,12 @@
 /obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
+"aCM" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "aDj" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/door/firedoor,
@@ -815,6 +826,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"aHB" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "15,22";
+	opacity = 1;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "aHY" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -1547,6 +1566,14 @@
 	dir = 4
 	},
 /area/maintenance/research_port)
+"bgW" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "14,12";
+	density = 0;
+	outside_part = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "bhi" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1589,6 +1616,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"bjm" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "16,11"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "bkV" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
@@ -1771,6 +1804,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
+"brR" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "9,12"
+	},
+/area/template_noop)
 "brT" = (
 /obj/machinery/light/small,
 /obj/structure/table/standard{
@@ -1890,6 +1928,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/storage/eva)
+"bvD" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "2,10"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "bvL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2231,6 +2275,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
+"bEN" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "2,18"
+	},
+/area/template_noop)
 "bFd" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2270,6 +2319,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
+"bFM" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "10,0";
+	density = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "bGf" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
@@ -2568,6 +2624,11 @@
 	icon_state = "3,10"
 	},
 /area/shuttle/canary)
+"bPT" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "8,7"
+	},
+/area/template_noop)
 "bQb" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -2695,6 +2756,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
+"bVo" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "3,22";
+	opacity = 1;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"bVU" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "2,12"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "bVV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -2702,6 +2777,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/teleporter)
+"bWz" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "6,24"
+	},
+/area/template_noop)
 "bWE" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 9
@@ -3043,6 +3123,13 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/horizon/exterior)
+"cmX" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/iff_beacon/horizon/shuttle{
+	pixel_y = -15
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "cnb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4021,6 +4108,10 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"cVZ" = (
+/obj/machinery/computer/shuttle_control/explore/intrepid,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "cWa" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4114,6 +4205,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"cZe" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,23"
+	},
+/area/template_noop)
 "cZi" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4285,6 +4381,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"dhJ" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "15,26";
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "dhX" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -4710,6 +4813,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"dyG" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "12,23"
+	},
+/area/template_noop)
 "dzg" = (
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/machinery/door/window/westright,
@@ -4939,6 +5047,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
+"dIb" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "4,11";
+	density = 0;
+	outside_part = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "dIp" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
@@ -5009,6 +5125,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
+"dJY" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "8,4";
+	density = 0;
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "1,2";
+	density = 0
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "dKn" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/pink/diagonal,
@@ -5069,6 +5200,11 @@
 "dKY" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmos)
+"dLe" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "15,10"
+	},
+/area/template_noop)
 "dLh" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -5111,6 +5247,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
+"dLs" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "4,7";
+	density = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "dLt" = (
 /obj/machinery/ammunition_loader/francisca{
 	weapon_id = "Francisca Rotary Gun"
@@ -5123,6 +5266,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
+"dLP" = (
+/obj/machinery/door/window/westleft,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "dMa" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -5215,6 +5362,12 @@
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
+"dRx" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "17,22"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "dSD" = (
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/intrepid/cargo_bay)
@@ -5336,6 +5489,17 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
+"dZw" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "1,13";
+	density = 0;
+	pixel_x = -32;
+	outside_part = 0
+	},
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "2,13"
+	},
+/area/template_noop)
 "dZB" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
@@ -5405,6 +5569,12 @@
 /obj/structure/closet/toolcloset,
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/crew_compartment)
+"ebk" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "8,1"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "ebu" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -5608,6 +5778,11 @@
 	temperature = 278.15
 	},
 /area/medical/morgue/lower)
+"egr" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "3,13"
+	},
+/area/template_noop)
 "ehD" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5748,6 +5923,11 @@
 /obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"epb" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,7"
+	},
+/area/template_noop)
 "epn" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -5901,6 +6081,17 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/hangar/operations)
+"euL" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "15,12";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/tall{
+	icon_state = "short2_top";
+	layer = 3
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "evd" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -5926,6 +6117,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"evr" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "4,12";
+	density = 0;
+	outside_part = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "evA" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -6304,6 +6503,12 @@
 /obj/machinery/drone_fabricator,
 /turf/simulated/floor/greengrid/nitrogen,
 /area/engineering/drone_fabrication)
+"eHK" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "3,26"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "eHZ" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -6723,6 +6928,11 @@
 /obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"eWB" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,17"
+	},
+/area/template_noop)
 "eWJ" = (
 /obj/item/device/radio/intercom{
 	pixel_y = 25
@@ -6871,6 +7081,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial)
+"eZW" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "13,3"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "eZY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -7092,6 +7308,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"fgJ" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "7,5";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "0,3"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "fgW" = (
 /obj/machinery/artifact_analyser,
 /obj/effect/floor_decal/spline/plain{
@@ -7166,6 +7392,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
+"fjA" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "6,7"
+	},
+/area/template_noop)
 "fjS" = (
 /obj/structure/ladder/up{
 	pixel_y = 13
@@ -7200,6 +7431,16 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
+"flh" = (
+/obj/structure/fuel_port/phoron/scc{
+	pixel_y = 23;
+	pixel_x = 5
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "flw" = (
 /obj/machinery/light{
 	dir = 1
@@ -7236,6 +7477,14 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
+"fmo" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "fmL" = (
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 1
@@ -7277,6 +7526,11 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
+"foc" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,13"
+	},
+/area/template_noop)
 "fox" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -7361,6 +7615,16 @@
 /obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/dark/full,
 /area/outpost/mining_main/refinery)
+"fry" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "11,5";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "4,3"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "fsf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7726,6 +7990,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
+"fGD" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "fHn" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -7782,6 +8050,15 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
+"fIw" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "13,8"
+	},
+/area/template_noop)
+"fIy" = (
+/obj/machinery/door/window/eastright,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "fIC" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
@@ -7897,6 +8174,23 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hangar/intrepid/interstitial)
+"fNt" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "12,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/structure/shuttle_part/scc/scout{
+	icon_state = "nozzle";
+	outside_part = 0;
+	opacity = 1;
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
+	layer = 2.4;
+	name = "pathfinder class shuttle hull";
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid."
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "fOC" = (
 /obj/structure/tank_wall/hydrogen{
 	icon_state = "h8"
@@ -8404,6 +8698,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
+"gbZ" = (
+/obj/structure/window/shuttle/unique/scc/tall,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "gcZ" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
@@ -8438,6 +8736,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"gdB" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,9"
+	},
+/area/template_noop)
 "gdJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
@@ -8666,6 +8969,11 @@
 "gkM" = (
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/escape_pod/pod1)
+"gkN" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,17"
+	},
+/area/template_noop)
 "glb" = (
 /obj/structure/railing/mapped,
 /obj/structure/sign/emergency/evacuation{
@@ -8674,6 +8982,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
+"gmo" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "1,20"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "gmL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -9192,6 +9506,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
+"gBD" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "15,24";
+	opacity = 1
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "gCe" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -9394,6 +9715,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/custodial/disposals)
+"gJM" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "1,19"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "gJN" = (
 /obj/structure/table/steel,
 /obj/machinery/light{
@@ -9435,6 +9762,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
+"gMb" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,23"
+	},
+/area/template_noop)
 "gMp" = (
 /obj/effect/shuttle_landmark/lift/morgue_bottom,
 /turf/simulated/floor/plating,
@@ -9485,6 +9817,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"gOd" = (
+/obj/machinery/door/airlock/command,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "gOe" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -9579,6 +9915,21 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hangar/intrepid)
+"gSU" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "10,4";
+	density = 0;
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "3,2";
+	density = 0
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "gTi" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 6
@@ -9805,6 +10156,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
 /area/hangar/auxiliary)
+"hcq" = (
+/obj/structure/bed/stool/chair/office/bridge,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "hcC" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -9835,6 +10190,11 @@
 "hdi" = (
 /turf/simulated/wall,
 /area/security/checkpoint)
+"hdl" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,22"
+	},
+/area/template_noop)
 "hdK" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -9981,6 +10341,18 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
+"hhb" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "16,13"
+	},
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "17,13";
+	density = 0;
+	pixel_x = 32;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "hhv" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -10212,6 +10584,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
+"hqo" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "7,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "hqC" = (
 /obj/structure/stairs/west,
 /obj/structure/railing/mapped,
@@ -10460,6 +10838,15 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
+"hAl" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "13,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/machinery/atmospherics/unary/engine/scc_shuttle,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "hAU" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
@@ -11111,6 +11498,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
+"iaD" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,24"
+	},
+/area/template_noop)
 "ibi" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -11342,6 +11734,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
+"ihP" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "12,8"
+	},
+/area/template_noop)
 "iiM" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -11407,6 +11804,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"ilY" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,23"
+	},
+/area/template_noop)
+"imc" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "16,16"
+	},
+/area/template_noop)
+"inf" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "12,24"
+	},
+/area/template_noop)
+"inM" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,25"
+	},
+/area/template_noop)
 "iog" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -11456,6 +11873,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
+"ipK" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "2,20"
+	},
+/area/template_noop)
 "ipW" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -11648,6 +12070,14 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
+"iAP" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "7,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "iAX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/large_stock_marker,
@@ -11894,6 +12324,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
+"iKx" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "12,5";
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "iKD" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 8
@@ -11943,6 +12380,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
+"iLX" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "0,21";
+	density = 0;
+	pixel_x = -32;
+	outside_part = 0
+	},
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "1,21"
+	},
+/area/template_noop)
 "iMg" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -11960,6 +12408,23 @@
 /obj/effect/floor_decal/spline/plain/cee,
 /turf/simulated/floor/carpet/rubber,
 /area/teleporter)
+"iMt" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "6,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/structure/shuttle_part/scc/scout{
+	icon_state = "nozzle";
+	outside_part = 0;
+	opacity = 1;
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
+	layer = 2.4;
+	name = "pathfinder class shuttle hull";
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid."
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "iMY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -12077,6 +12542,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
+"iQL" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "10,2"
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "3,0";
+	density = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "iQM" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 4
@@ -12119,6 +12594,15 @@
 "iSc" = (
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/maintenance/research_port)
+"iSn" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "5,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/machinery/atmospherics/unary/engine/scc_shuttle,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "iSu" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -12393,6 +12877,12 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
+"jew" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "5,5"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "jeF" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 1
@@ -12544,6 +13034,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
+"jni" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,10"
+	},
+/area/template_noop)
 "jnS" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -12595,6 +13090,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
+"jpl" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "5,4"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"jpo" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "16,9"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "jpI" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
@@ -12730,6 +13237,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
+"jtK" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "15,17"
+	},
+/area/template_noop)
 "jue" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -12991,6 +13503,11 @@
 	dir = 8
 	},
 /area/maintenance/research_port)
+"jAw" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "3,20"
+	},
+/area/template_noop)
 "jAy" = (
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "1,4"
@@ -13411,6 +13928,17 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
+"jRq" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "3,12";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/tall{
+	icon_state = "short1_top";
+	layer = 3
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "jRx" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -13493,6 +14021,14 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"jTX" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "14,11";
+	density = 0;
+	outside_part = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "jUl" = (
 /obj/machinery/conveyor{
 	dir = 10;
@@ -13659,6 +14195,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"kaM" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "9,0"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "kbo" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -13718,6 +14260,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod/pod4)
+"kcW" = (
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "kdE" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -13748,6 +14293,16 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/canary)
+"ker" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "16,19"
+	},
+/area/template_noop)
+"keA" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,10"
+	},
+/area/template_noop)
 "keQ" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Atmospherics Control 3"
@@ -13768,6 +14323,11 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
+"kga" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "9,11"
+	},
+/area/template_noop)
 "kgC" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -13871,6 +14431,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
+"kmo" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "18,21";
+	density = 0;
+	pixel_x = 32;
+	outside_part = 0
+	},
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "17,21"
+	},
+/area/template_noop)
 "kmS" = (
 /obj/structure/disposalpipe/junction{
 	dir = 1
@@ -13921,6 +14492,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"knw" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "16,12"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "koi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -14098,6 +14675,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
+"ksN" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "2,25";
+	density = 0;
+	pixel_x = -32;
+	outside_part = 0
+	},
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "3,25"
+	},
+/area/template_noop)
 "ksR" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -14213,6 +14801,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"kyK" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "9,2";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "2,0"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "kzi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -14585,6 +15183,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"kHF" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "7,6";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "0,4"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "kHT" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -14868,6 +15476,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
+"kTh" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "12,7"
+	},
+/area/template_noop)
 "kTC" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -14961,6 +15574,16 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"kVM" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "8,13"
+	},
+/area/template_noop)
+"kVX" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,17"
+	},
+/area/template_noop)
 "kWb" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -15048,9 +15671,6 @@
 /area/horizon/exterior)
 "laL" = (
 /obj/effect/floor_decal/corner/blue/full,
-/obj/machinery/computer/shuttle_control/explore/intrepid{
-	dir = 1
-	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/cockpit)
 "laX" = (
@@ -15069,6 +15689,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
+"lbc" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "8,0";
+	density = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "lbr" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -15430,6 +16057,11 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/rnd/test_range)
+"lqO" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,19"
+	},
+/area/template_noop)
 "lrd" = (
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
@@ -15516,6 +16148,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"luZ" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,24"
+	},
+/area/template_noop)
 "lvq" = (
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -15571,6 +16208,12 @@
 	dir = 4
 	},
 /area/maintenance/research_port)
+"lyH" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "2,11"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "lyU" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -15639,6 +16282,11 @@
 /obj/item/folder/purple,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"lBV" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "6,8"
+	},
+/area/template_noop)
 "lCv" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/research_port)
@@ -16058,6 +16706,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/teleporter)
+"lQN" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "9,13"
+	},
+/area/template_noop)
 "lQQ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -16319,6 +16972,14 @@
 /obj/machinery/bluespace_beacon,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"lWy" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,22"
+	},
+/area/template_noop)
+"lWV" = (
+/turf/simulated/floor/plating,
+/area/template_noop)
 "lXa" = (
 /obj/structure/cable,
 /obj/machinery/power/terminal{
@@ -16395,6 +17056,11 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/canary)
+"maM" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,13"
+	},
+/area/template_noop)
 "mbp" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -16913,6 +17579,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"mvO" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,20"
+	},
+/area/template_noop)
 "mwo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -17088,6 +17759,11 @@
 	name = "thruster mount"
 	},
 /area/shuttle/intrepid/engine_compartment)
+"mCJ" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,22"
+	},
+/area/template_noop)
 "mDd" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -17138,6 +17814,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenoarch_atrium)
+"mFo" = (
+/obj/machinery/door/airlock/glass_command{
+	name = "Intrepid Crew Area"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "mFu" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -17191,6 +17873,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
+"mIX" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "14,7";
+	density = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "mJk" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -17440,6 +18129,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"mQC" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,9"
+	},
+/area/template_noop)
 "mRc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -17849,6 +18543,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
+"ncq" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "2,16"
+	},
+/area/template_noop)
 "ncC" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -18159,6 +18858,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
+"nmW" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "13,17"
+	},
+/area/template_noop)
 "nnh" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 1441;
@@ -18251,6 +18955,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
+"nrz" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "17,20"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "nrK" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -18536,6 +19246,11 @@
 	},
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
+"nBh" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,23"
+	},
+/area/template_noop)
 "nBA" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -18672,6 +19387,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"nJB" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,16"
+	},
+/area/template_noop)
 "nKB" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'WARNING: EQUIPMENT RADIOACTIVE DURING OPERATION'.";
@@ -18735,6 +19455,13 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
+"nME" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "3,23";
+	opacity = 1
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "nMJ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -18810,6 +19537,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/outpost/mining_main/refinery)
+"nOb" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "2,22";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/machinery/atmospherics/unary/engine/scc_shuttle,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "nOi" = (
 /obj/machinery/seed_storage/garden,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -18901,6 +19637,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
+"nQT" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "12,4";
+	layer = 2.97;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "nRy" = (
 /turf/simulated/wall,
 /area/horizon/hydroponics/lower)
@@ -19039,6 +19783,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"nVZ" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "3,11"
+	},
+/area/template_noop)
 "nWf" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -19307,6 +20056,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"oea" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "13,7"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "oek" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -19317,6 +20072,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"oeq" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "6,6";
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "ofh" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -19381,6 +20143,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
+"ois" = (
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "1,3";
+	density = 0
+	},
+/obj/structure/bed/stool/chair/office/bridge{
+	dir = 8
+	},
+/obj/machinery/computer/ship/sensors/cockpit{
+	pixel_x = -22;
+	layer = 3;
+	pixel_y = 7
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "oiS" = (
 /turf/simulated/floor/greengrid/nitrogen,
 /area/engineering/drone_fabrication)
@@ -19605,6 +20385,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
+"ouI" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,10"
+	},
+/area/template_noop)
 "ovb" = (
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/corner/brown/full{
@@ -19653,6 +20438,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
+"owM" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "11,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "owP" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/disposalpipe/segment,
@@ -19966,6 +20757,16 @@
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod1)
+"oKJ" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "8,2"
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "1,0";
+	density = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "oLd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -20000,6 +20801,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
+"oMU" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,18"
+	},
+/area/template_noop)
 "oNp" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -20079,6 +20885,13 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
+"oSi" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "9,1";
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "oSv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -20180,6 +20993,13 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
+"oXW" = (
+/obj/machinery/shipsensors/weak/scc_shuttle{
+	pixel_y = -15
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "oYc" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
@@ -20308,6 +21128,14 @@
 "pbJ" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod4)
+"pbX" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "6,4";
+	layer = 2.97;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "pbY" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
@@ -20387,6 +21215,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
+"pfa" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,9"
+	},
+/area/template_noop)
 "pfb" = (
 /obj/vehicle/train/cargo/trolley,
 /obj/effect/floor_decal/corner/brown{
@@ -20452,6 +21285,19 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/airless,
 /area/hangar/operations)
+"phg" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "8,3";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "1,1"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "phs" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -20652,6 +21498,13 @@
 /obj/structure/window/shuttle/scc,
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod/pod3)
+"poM" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "12,6";
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "poO" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -20702,6 +21555,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"ppS" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "3,16"
+	},
+/area/template_noop)
 "pqh" = (
 /obj/machinery/power/apc/low{
 	name = "south bump";
@@ -20743,6 +21601,11 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
+"pru" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "2,17"
+	},
+/area/template_noop)
 "psd" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/machinery/light/small{
@@ -21055,6 +21918,15 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"pBV" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "16,22";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/machinery/atmospherics/unary/engine/scc_shuttle,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "pCs" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -21068,6 +21940,12 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"pCx" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "16,10"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "pCD" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -21175,6 +22053,17 @@
 /obj/structure/stairs/west,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
+"pGP" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "16,25";
+	density = 0;
+	pixel_x = 32;
+	outside_part = 0
+	},
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "15,25"
+	},
+/area/template_noop)
 "pHy" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/loading/grey,
@@ -21227,6 +22116,23 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
+"pIR" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "4,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/structure/shuttle_part/scc/scout{
+	icon_state = "nozzle";
+	outside_part = 0;
+	opacity = 1;
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
+	layer = 2.4;
+	name = "pathfinder class shuttle hull";
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid."
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "pJm" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
@@ -21483,6 +22389,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
+"pTd" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "9,3";
+	density = 0;
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	density = 0
+	},
+/obj/machinery/computer/ship/helm/cockpit{
+	layer = 3.1
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "pTj" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -22089,6 +23012,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"qmJ" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "15,11"
+	},
+/area/template_noop)
+"qnb" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "16,17"
+	},
+/area/template_noop)
 "qnr" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -22316,6 +23249,12 @@
 	dir = 1
 	},
 /area/maintenance/research_port)
+"qui" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "17,19"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "quA" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -22381,6 +23320,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
+"qwt" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "15,23";
+	opacity = 1
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "qwK" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Hangar"
@@ -22487,6 +23433,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
+"qAj" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "13,13"
+	},
+/area/template_noop)
 "qAI" = (
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/effect/floor_decal/corner/blue{
@@ -23108,6 +24059,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
+"qYI" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "9,10"
+	},
+/area/template_noop)
 "qZc" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/purple{
 	dir = 8
@@ -23369,6 +24325,12 @@
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
+"rkl" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "14,8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "rkQ" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -23478,6 +24440,13 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
+"rnM" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "ros" = (
 /obj/structure/table/standard,
 /obj/random/tech_supply,
@@ -23548,6 +24517,11 @@
 /obj/structure/janitorialcart,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
+"rqa" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,24"
+	},
+/area/template_noop)
 "rqf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
@@ -23628,6 +24602,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"rrS" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "6,5";
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "rrX" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -23906,6 +24887,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"rCK" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "2,19"
+	},
+/area/template_noop)
 "rDi" = (
 /obj/effect/shuttle_landmark/horizon/deckone/aft,
 /turf/template_noop,
@@ -23986,6 +24972,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
+"rHv" = (
+/obj/structure/window/shuttle/unique/scc/tall{
+	icon_state = "long1-2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "rHK" = (
 /turf/simulated/floor/plating,
 /area/turbolift/primary/deck_1)
@@ -24026,6 +25018,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/operations)
+"rJU" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "rJZ" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -24052,6 +25050,17 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/airless,
 /area/hangar/operations)
+"rLd" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "11,3";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "4,1";
+	density = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "rLm" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning{
@@ -24334,6 +25343,11 @@
 "rUd" = (
 /turf/simulated/wall/r_wall,
 /area/turret_protected/ai)
+"rUH" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,8"
+	},
+/area/template_noop)
 "rUU" = (
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Morgue Port";
@@ -24653,6 +25667,11 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
+"sib" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,22"
+	},
+/area/template_noop)
 "siF" = (
 /obj/structure/tank_wall/hydrogen{
 	density = 0;
@@ -24870,6 +25889,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"ssg" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,8"
+	},
+/area/template_noop)
 "sta" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /obj/machinery/meter,
@@ -25008,6 +26032,13 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
+"svJ" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "1,22";
+	opacity = 1
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "svZ" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -25721,6 +26752,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
+"sWq" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "13,5"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "sWr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -25952,6 +26989,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
+"tfA" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "10,7"
+	},
+/area/template_noop)
 "tfB" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -26333,6 +27375,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
+"tsR" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "10,1"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "ttc" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -26357,6 +27405,11 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
+"tuA" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "16,20"
+	},
+/area/template_noop)
 "tuL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -26364,6 +27417,14 @@
 "tuP" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/storage/lower)
+"tuZ" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1385;
+	icon_state = "door_locked";
+	id_tag = "intrepid_shuttle_cargo_in"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "tvn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -26388,6 +27449,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
+"twC" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "2,9"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "twQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
@@ -26794,6 +27861,11 @@
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /turf/simulated/floor/wood,
 /area/hangar/auxiliary)
+"tKf" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,20"
+	},
+/area/template_noop)
 "tKi" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -26809,6 +27881,11 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
+"tLo" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "15,13"
+	},
+/area/template_noop)
 "tLq" = (
 /obj/effect/floor_decal/corner_wide/purple/full{
 	dir = 4
@@ -27105,6 +28182,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"tVf" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "6,20"
+	},
+/area/template_noop)
 "tVI" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -27285,6 +28367,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
+"uab" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "5,7"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "uaD" = (
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "7,3"
@@ -27367,6 +28455,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
+"udv" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "5,13"
+	},
+/area/template_noop)
 "udC" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
@@ -28237,6 +29330,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
+"uKn" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "13,4"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "uKu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -28360,6 +29459,11 @@
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"uRe" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "6,23"
+	},
+/area/template_noop)
 "uRl" = (
 /obj/item/modular_computer/console/preset/ai{
 	dir = 1
@@ -28411,6 +29515,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
+"uSU" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "7,3";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "0,1";
+	density = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "uSZ" = (
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -28451,6 +29566,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
+"uUx" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "6,16"
+	},
+/area/template_noop)
 "uUP" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -28650,6 +29770,11 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
+"vab" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,16"
+	},
+/area/template_noop)
 "vai" = (
 /obj/machinery/power/apc/low{
 	dir = 1;
@@ -29289,6 +30414,11 @@
 	icon_state = "2,6"
 	},
 /area/shuttle/canary)
+"vvK" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,25"
+	},
+/area/template_noop)
 "vxw" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -29322,6 +30452,12 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
+"vyI" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "5,3"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "vyK" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 5
@@ -29334,6 +30470,24 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"vBb" = (
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "3,3";
+	density = 0
+	},
+/obj/structure/bed/stool/chair/office/bridge{
+	dir = 4
+	},
+/obj/machinery/computer/ship/engines/cockpit{
+	pixel_x = 24;
+	layer = 3;
+	pixel_y = 7
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "vBr" = (
 /obj/structure/tank_wall/hydrogen{
 	density = 0;
@@ -29524,6 +30678,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
+"vID" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "4,8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "vIF" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi';
@@ -29601,6 +30761,16 @@
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
+"vKl" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "11,6";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "4,4"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "vKy" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -29884,6 +31054,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
+"vWD" = (
+/obj/structure/window/shuttle/unique/scc/tall{
+	icon_state = "long2-2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "vWL" = (
 /obj/structure/tank_wall/hydrogen{
 	icon_state = "h9"
@@ -30744,6 +31920,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
+"wzA" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,24"
+	},
+/area/template_noop)
 "wAk" = (
 /obj/machinery/door/window/westright{
 	name = "Xenoarchaeology Platform Access";
@@ -30782,6 +31963,13 @@
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"wCW" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "3,24";
+	opacity = 1
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "wEQ" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -30796,6 +31984,17 @@
 "wEY" = (
 /turf/space/dynamic,
 /area/horizon/exterior)
+"wFb" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "11,4";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "4,2";
+	density = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "wFw" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -30814,6 +32013,9 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
+"wFB" = (
+/turf/simulated/wall/shuttle/unique/scc/research,
+/area/template_noop)
 "wGa" = (
 /obj/machinery/iff_beacon/horizon,
 /obj/structure/railing/mapped,
@@ -30889,6 +32091,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"wIU" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "5,8"
+	},
+/area/template_noop)
 "wJg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
@@ -31016,6 +32223,11 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/substation/security)
+"wOI" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "16,18"
+	},
+/area/template_noop)
 "wOP" = (
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 1
@@ -31903,6 +33115,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"xnF" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "10,3";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "3,1"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "xnS" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 4
@@ -32039,6 +33264,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
+"xqv" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "11,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "xqE" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -32134,6 +33367,23 @@
 "xtK" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenoarch_atrium)
+"xtM" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "14,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/structure/shuttle_part/scc/scout{
+	icon_state = "nozzle";
+	outside_part = 0;
+	opacity = 1;
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
+	layer = 2.4;
+	name = "pathfinder class shuttle hull";
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid."
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "xtY" = (
 /obj/machinery/button/remote/blast_door{
 	id = "portpropulsionexterior";
@@ -32256,6 +33506,11 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
+"xAb" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,13"
+	},
+/area/template_noop)
 "xAf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -32694,6 +33949,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"xNV" = (
+/obj/structure/window/shuttle/unique/scc/tall{
+	icon_state = "long2-1"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "xOb" = (
 /obj/machinery/camera/network/first_deck{
 	c_tag = "First Deck - Hangar 4";
@@ -32951,6 +34212,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering/lower)
+"xWD" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,7"
+	},
+/area/template_noop)
 "xWJ" = (
 /obj/machinery/computer/drone_control{
 	dir = 4
@@ -33219,6 +34485,16 @@
 	},
 /turf/simulated/wall,
 /area/outpost/mining_main/refinery)
+"ykn" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "7,4";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "0,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "ykR" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
@@ -61606,35 +62882,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -61809,35 +63085,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+lWV
+lWV
+lWV
+lWV
+svJ
+iLX
+gmo
+gJM
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -62012,35 +63288,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+lWV
+lWV
+lWV
+lWV
+nOb
+lWV
+ipK
+rCK
+bEN
+pru
+ncq
+rHv
+gbZ
+dZw
+bVU
+lyH
+bvD
+twC
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -62215,35 +63491,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+eHK
+ksN
+wCW
+nME
+bVo
+fIy
+jAw
+kcW
+kcW
+kcW
+ppS
+kcW
+kcW
+egr
+jRq
+nVZ
+alP
+fmo
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -62418,35 +63694,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+pIR
+lWV
+luZ
+ilY
+lWy
+kcW
+tKf
+kcW
+kcW
+kcW
+vab
+kcW
+kcW
+foc
+evr
+dIb
+jni
+gdB
+vID
+dLs
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -62621,35 +63897,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+iSn
+lWV
+lWV
+lWV
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+udv
+kcW
+kcW
+kcW
+kcW
+wIU
+uab
+lWV
+jew
+jpl
+vyI
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -62824,35 +64100,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+iMt
+lWV
+bWz
+uRe
+kcW
+kcW
+tVf
+kcW
+kcW
+kcW
+uUx
+kcW
+kcW
+gOd
+kcW
+kcW
+kcW
+kcW
+lBV
+fjA
+oeq
+rrS
+pbX
+cmX
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -63027,35 +64303,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+iAP
+vvK
+wzA
+cZe
+sib
+kcW
+mvO
+lqO
+oMU
+kVX
+nJB
+kcW
+kcW
+xAb
+kcW
+kcW
+ouI
+mQC
+ssg
+epb
+kHF
+fgJ
+ykn
+uSU
+hqo
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -63230,35 +64506,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+lWV
+tuZ
+lWV
+lWV
+tuZ
+kcW
+kcW
+kcW
+kcW
+fGD
+kcW
+kcW
+kcW
+kVM
+kcW
+kcW
+wFB
+kcW
+kcW
+bPT
+flh
+ois
+dJY
+phg
+oKJ
+ebk
+lbc
+lWV
 eSV
 eSV
 eSV
@@ -63433,35 +64709,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+lWV
+tuZ
+lWV
+lWV
+tuZ
+kcW
+kcW
+kcW
+kcW
+fGD
+kcW
+kcW
+kcW
+lQN
+brR
+kga
+qYI
+kcW
+kcW
+mFo
+kcW
+cVZ
+hcq
+pTd
+kyK
+oSi
+kaM
+lWV
 eSV
 eSV
 eSV
@@ -63636,35 +64912,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+lWV
+tuZ
+lWV
+lWV
+tuZ
+kcW
+kcW
+kcW
+kcW
+fGD
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+tfA
+rJU
+vBb
+gSU
+xnF
+iQL
+tsR
+bFM
+lWV
 eSV
 eSV
 eSV
@@ -63839,35 +65115,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+xqv
+inM
+iaD
+nBh
+hdl
+kcW
+kcW
+kcW
+kcW
+eWB
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+rUH
+xWD
+vKl
+fry
+wFb
+rLd
+owM
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -64042,35 +65318,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+fNt
+lWV
+inf
+dyG
+kcW
+kcW
+kcW
+kcW
+kcW
+mFo
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+kcW
+ihP
+kTh
+poM
+iKx
+nQT
+oXW
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -64245,35 +65521,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+hAl
+lWV
+lWV
+lWV
+kcW
+kcW
+kcW
+kcW
+kcW
+nmW
+kcW
+kcW
+kcW
+qAj
+kcW
+kcW
+kcW
+kcW
+fIw
+oea
+lWV
+sWq
+uKn
+eZW
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -64448,35 +65724,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+xtM
+lWV
+rqa
+gMb
+mCJ
+kcW
+kcW
+kcW
+kcW
+gkN
+kcW
+kcW
+kcW
+maM
+bgW
+jTX
+keA
+pfa
+rkl
+mIX
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -64651,35 +65927,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+dhJ
+pGP
+gBD
+qwt
+aHB
+dLP
+aCM
+kcW
+kcW
+jtK
+kcW
+kcW
+kcW
+tLo
+euL
+qmJ
+dLe
+rnM
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -64854,35 +66130,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+lWV
+lWV
+lWV
+lWV
+pBV
+lWV
+tuA
+ker
+wOI
+qnb
+imc
+vWD
+xNV
+hhb
+knw
+bjm
+pCx
+jpo
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -65057,35 +66333,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+lWV
+lWV
+lWV
+lWV
+dRx
+kmo
+nrz
+qui
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -65260,35 +66536,35 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
 eSV
 eSV
 eSV
@@ -66281,30 +67557,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+ifJ
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
+gYd
+kzH
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
 eSV
 eSV
 eSV
@@ -66484,30 +67760,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+aUk
+iRC
+iRC
+iRC
+iRC
+iRC
+iRC
+iRC
+iRC
+iRC
+aqO
+aEw
+aEw
+aEw
+ifw
+ewy
+nyz
+iRC
+iRC
+iRC
+iRC
+iRC
+iRC
+iRC
 eSV
 eSV
 eSV
@@ -66687,30 +67963,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+aUk
+iRC
+iRC
+xjL
+xjL
+xjL
+aEw
+aEw
+aEw
+aEw
+dwt
+aEw
+teq
+aEw
+eyW
+xlX
+jUm
+bhi
+iRC
+iRC
+iRC
+iRC
+iRC
+iRC
 eSV
 eSV
 eSV
@@ -66890,30 +68166,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+aUk
+iRC
+iRC
+bJr
+eYN
+rsY
+aEw
+pZv
+joi
+aEw
+lRu
+rKh
+nZx
+aEw
+hfm
+jyn
+aLc
+mSf
+iRC
+iRC
+iRC
+iRC
+iRC
+iRC
 eSV
 eSV
 eSV
@@ -67093,30 +68369,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+aUk
+iRC
+iRC
+xjL
+gGb
+wZl
+aEw
+dZT
+iau
+aEw
+cAU
+nGN
+lFU
+aEw
+cpn
+cpn
+aEw
+aIP
+ock
+ock
+con
+con
+iRC
+iRC
 eSV
 eSV
 eSV
@@ -67296,30 +68572,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+dJm
+jgf
+dFQ
+jEt
+ylr
+pXu
+fAh
+qxk
+pAv
+hQr
+riI
+ovh
+kDY
+edO
+tdy
+umg
+lkH
+tfR
+qtp
+ncP
+dKn
+con
+iRC
+iRC
 eSV
 eSV
 eSV
@@ -67499,30 +68775,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+wuD
+aUk
+uKX
+vIF
+xjL
+xjL
+xjL
+dSD
+dSD
+dSD
+dSD
+dSD
+ccr
+xrp
+uSd
+oxX
+aEw
+eWJ
+cIp
+cND
+uVF
+con
+iRC
+iRC
 eSV
 eSV
 eSV
@@ -67702,30 +68978,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+hId
+oFN
+aRG
+xjL
+jXW
+kki
+xjL
+mwR
+dVS
+elI
+psd
+dQP
+wjU
+xrp
+hhv
+hBV
+aEw
+vrz
+qmi
+duz
+ock
+con
+con
+iRC
 eSV
 eSV
 eSV
@@ -67905,30 +69181,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+uOO
+dhi
+pvn
+xvk
+gDj
+dir
+pTp
+wnV
+nQH
+nQH
+brI
+hqg
+rRE
+xrp
+spQ
+dnR
+nyl
+liI
+kqZ
+kqZ
+qTC
+laL
+obJ
+iRC
 eSV
 eSV
 eSV
@@ -68108,30 +69384,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+iZk
+dhi
+ayq
+xvk
+gDj
+yib
+xqo
+nxj
+kWb
+kWb
+njr
+rsz
+exg
+unD
+rHi
+blW
+vYi
+kDt
+myR
+eLa
+qAI
+fEM
+con
+iRC
 eSV
 eSV
 eSV
@@ -68311,30 +69587,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+hId
+ifJ
+clM
+clM
+hdY
+gpR
+clM
+gTl
+csz
+qjt
+tNo
+ohO
+tBX
+xrp
+mJn
+vMd
+aEw
+kEg
+cjK
+ula
+ock
+con
+con
+iRC
 eSV
 eSV
 eSV
@@ -68514,30 +69790,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+wuD
+aUk
+gpy
+mBJ
+clM
+clM
+clM
+dSD
+dSD
+dSD
+dSD
+dSD
+xpT
+sex
+ksy
+mlL
+xPX
+aFx
+uSZ
+uSZ
+gwA
+con
+iRC
+iRC
 eSV
 eSV
 eSV
@@ -68717,30 +69993,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+aEn
+blb
+xVM
+tiJ
+wvY
+xOs
+hZr
+gAi
+nUc
+gfb
+qeY
+qWV
+jwo
+nwF
+uSd
+nwF
+aEw
+dnX
+cfY
+yfK
+oYc
+con
+iRC
+iRC
 eSV
 eSV
 eSV
@@ -68920,30 +70196,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+aUk
+iRC
+iRC
+clM
+pmR
+ghP
+fTb
+tWc
+lXC
+clM
+pCD
+jQQ
+iwX
+kxl
+wGn
+lvI
+aEw
+jWI
+wjM
+uUr
+tZF
+kAX
+iLE
+iRC
 eSV
 eSV
 eSV
@@ -69123,30 +70399,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+aUk
+iRC
+iRC
+kMG
+ggY
+eVn
+dzg
+fQU
+vfk
+clM
+eeD
+hXw
+aMg
+eJu
+eaS
+tZm
+aEw
+ock
+ock
+ock
+ock
+con
+wGa
+iRC
 eSV
 eSV
 eSV
@@ -69326,30 +70602,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+aUk
+iRC
+iRC
+clM
+clM
+clM
+clM
+clM
+pkw
+clM
+aEw
+aEw
+fAj
+vqV
+eaS
+sRX
+aEw
+adv
+mZD
+mXg
+iRC
+iRC
+iRC
+iRC
 eSV
 eSV
 eSV
@@ -69529,30 +70805,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+oFN
+uRt
+uRt
+uRt
+uRt
+uRt
+uRt
+jgf
+eKr
+iRC
+iRC
+aEw
+rmT
+aEw
+aEw
+aEw
+aEw
+ukE
+iRC
+iRC
+iRC
+iRC
+iRC
+iRC
 eSV
 eSV
 eSV
@@ -69732,30 +71008,30 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+wuD
+ctI
+ctI
+ctI
+ctI
+ctI
+wuD
+oFN
+cnb
+uRt
+uRt
+uRt
+uRt
+uRt
+uRt
+uRt
+uRt
+uRt
+uRt
+uRt
+uRt
+uRt
+uRt
+uRt
 eSV
 eSV
 eSV
