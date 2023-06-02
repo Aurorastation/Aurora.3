@@ -93,6 +93,11 @@
 		ui = new(user, src, "Tank", ui_x=400, ui_y=180)
 		ui.open()
 
+/obj/item/tank/ui_host(mob/user)
+	. = ..()
+	if(istype(loc,/obj/item/device/transfer_valve))
+		return loc
+
 /obj/item/tank/ui_data(mob/user)
 	var/mob/living/carbon/location = null
 
