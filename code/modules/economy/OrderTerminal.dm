@@ -191,7 +191,7 @@
 				to_chat(usr, SPAN_NOTICE("Device [editmode ? "un" : ""]locked."))
 			. = TRUE
 
-/obj/machinery/orderterminal/clear_order()
+/obj/machinery/orderterminal/proc/clear_order()
 	buying.Cut()
 	sum = 0
 	receipt = ""

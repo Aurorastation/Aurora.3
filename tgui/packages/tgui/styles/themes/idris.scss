@@ -3,6 +3,7 @@
 
 @use '../colors.scss' with (
   $primary: #FFFFFF,
+  $bad: #AD2727,
   $fg-map-keys: (),
   $bg-map-keys: (),
 );
@@ -19,11 +20,11 @@
   @include meta.load-css(
     '../components/Button.scss',
     $with: (
-      'color-default': #3a6f6f,
+      'color-default': #297676,
       'color-disabled': #363636,
       'color-selected': #ffffff,
       'color-caution': #be6209,
-      'color-danger': #910101
+      'color-danger': #ad2727
     )
   );
   @include meta.load-css(
