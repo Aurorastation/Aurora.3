@@ -33,10 +33,10 @@
 	ui_interact(user)
 
 /obj/item/ore_detector/ui_interact(mob/user, datum/tgui/ui)
-  ui = SStgui.try_update_ui(user, src, ui)
-  if(!ui)
-    ui = new(user, src, "OreDetector")
-    ui.open()
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "OreDetector", ui_x=400, ui_y=420)
+		ui.open()
 
 /obj/item/ore_detector/ui_data(mob/user)
 	if(!length(ore_names))

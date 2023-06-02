@@ -38,7 +38,7 @@ export const OreDetector = (props, context) => {
             <LabeledList.Item label="Status" buttons={
                 <Button icon="power-off"
                 disabled={!(data.search_ores.length)}
-                onClick={() => act('toggle')} //ToDo: Only enable if ores have been selected
+                onClick={() => act('toggle')}
               />}>
               {get_status()}
             </LabeledList.Item>
