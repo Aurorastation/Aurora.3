@@ -731,8 +731,8 @@
 	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
 	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
 	nation they were fighting for the Democratic People's Republic of Adhomai."
-	icon_state = "dpra"
 	flag_path = "dpra"
+	icon_state = "dpra"
 	flag_item = /obj/item/flag/dpra
 
 /obj/structure/sign/flag/dpra/unmovable
@@ -782,8 +782,8 @@
 	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
 	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
 	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
-	icon_state = "pra"
 	flag_path = "pra"
+	icon_state = "pra"
 	flag_item = /obj/item/flag/pra
 
 /obj/structure/sign/flag/pra/unmovable
@@ -833,8 +833,8 @@
 	Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable \
 	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
 	ancient nobles and Republicans, and create a new noble dynasty."
-	icon_state = "nka"
 	flag_path = "nka"
+	icon_state = "nka"
 	flag_item = /obj/item/flag/nka
 
 /obj/structure/sign/flag/nka/unmovable
@@ -1081,8 +1081,8 @@
 /obj/structure/sign/flag/diona
 	name = "\improper Imperial Diona standard"
 	desc = "A green Dominian standard which represents the Dionae within the Empire."
-	icon_state = "diona"
 	flag_path = "diona"
+	icon_state = "diona"
 	flag_item = /obj/item/flag/diona
 
 /obj/item/flag/strelitz
