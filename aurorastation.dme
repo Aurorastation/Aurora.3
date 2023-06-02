@@ -121,6 +121,7 @@
 #include "code\_helpers\overlay.dm"
 #include "code\_helpers\overmap.dm"
 #include "code\_helpers\sanitize_values.dm"
+#include "code\_helpers\smart_token_bucket.dm"
 #include "code\_helpers\spatial_info.dm"
 #include "code\_helpers\spawn_sync.dm"
 #include "code\_helpers\stack_trace.dm"
