@@ -42,7 +42,7 @@ export const Tank = (props, context) => {
               {data.maskConnected ? 'CONNECTED' : 'NOT CONNECTED'}
             </LabeledList.Item>
             <LabeledList.Item label="Mask Release Valve" buttons={
-                <Button icon="power-off"
+              <Button icon="power-off"
                 disabled={!(data.maskConnected)}
                 onClick={() => act('toggleReleaseValve')}
               />}>
