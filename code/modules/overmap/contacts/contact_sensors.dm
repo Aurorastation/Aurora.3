@@ -40,6 +40,8 @@
 /obj/machinery/computer/ship/sensors/process()
 	..()
 
+	update_sound()
+
 	if(!linked)
 		return
 

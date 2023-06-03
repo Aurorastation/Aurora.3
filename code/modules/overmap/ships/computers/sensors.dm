@@ -11,10 +11,15 @@
 	var/contact_details = null
 	var/contact_name = null
 
+	var/working_sound = 'sound/machines/sensors/ping.ogg'
+	var/datum/sound_token/sound_token
+	var/sound_id
+
 	var/datum/weakref/sensor_ref
 	var/list/last_scan
 
 /obj/machinery/computer/ship/sensors/Destroy()
+	QDEL_NULL(sound_token)
 	sensors = null
 	identification = null
 	return ..()
@@ -39,6 +44,24 @@
 		if(linked.check_ownership(IB))
 			identification = IB
 			break
+
+/obj/machinery/computer/ship/sensors
+	var/sensor_sound_volume = 15
+
+/obj/machinery/computer/ship/sensors/proc/update_sound()
+	if(!working_sound)
+		return
+	if(!sound_id)
+		sound_id = "[type]_[sequential_id(/obj/machinery/computer/ship/sensors)]"
+
+	var/obj/machinery/shipsensors/sensors = get_sensors()
+	if(linked && sensors?.use_power && !(sensors.stat & NOPOWER))
+		var/volume = sensor_sound_volume
+		if(!sound_token)
+			sound_token = sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10, sound_type = ASFX_CONSOLE_AMBIENCE)
+		sound_token.SetVolume(volume)
+	else if(sound_token)
+		QDEL_NULL(sound_token)
 
 /obj/machinery/computer/ship/sensors/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!linked)
