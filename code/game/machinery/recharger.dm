@@ -65,7 +65,7 @@
 				charging = null
 				update_icon()
 			else
-				to_chat(user, SPAN_DANGER("Your gripper cannot hold \the [charging].</span>"))
+				to_chat(user, SPAN_DANGER("Your gripper cannot hold \the [charging].")
 		return TRUE
 
 	if(!G.dropsafety())
@@ -77,11 +77,11 @@
 				to_chat(user, SPAN_WARNING("\The [G][G.charge_failure_message]"))
 			return TRUE
 		if(charging)
-			to_chat(user, SPAN_WARNING("\A [charging] is already charging here.</span>"))
+			to_chat(user, SPAN_WARNING("\A [charging] is already charging here."))
 			return TRUE
 		// Checks to make sure he's not in space doing it, and that the area got proper power.
 		if(!powered())
-			to_chat(user, SPAN_WARNING("\The [name] blinks red as you try to insert the item!</span>"))
+			to_chat(user, SPAN_WARNING("\The [name] blinks red as you try to insert the item!"))
 			return TRUE
 
 		user.drop_from_inventory(G,src)
