@@ -65,7 +65,7 @@
 				charging = null
 				update_icon()
 			else
-				to_chat(user, SPAN_DANGER("Your gripper cannot hold \the [charging].")
+				to_chat(user, SPAN_DANGER("Your gripper cannot hold \the [charging]."))
 		return TRUE
 
 	if(!G.dropsafety())
