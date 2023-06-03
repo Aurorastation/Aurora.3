@@ -34,7 +34,10 @@
 	. = ..()
 	dir = newdir
 	if(!flag_path)
-		flag_path = item_flag_path
+		if(item_flag_path) // redundancy
+			flag_path = item_flag_path
+		else
+			flag_path = icon_state
 	if(!deploy)
 		switch(dir)
 			if(NORTH)
