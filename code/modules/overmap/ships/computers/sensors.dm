@@ -11,15 +11,10 @@
 	var/contact_details = null
 	var/contact_name = null
 
-	var/working_sound = 'sound/machines/sensors/dradis.ogg'
-	var/datum/sound_token/sound_token
-	var/sound_id
-
 	var/datum/weakref/sensor_ref
 	var/list/last_scan
 
 /obj/machinery/computer/ship/sensors/Destroy()
-	QDEL_NULL(sound_token)
 	sensors = null
 	identification = null
 	return ..()
@@ -44,21 +39,6 @@
 		if(linked.check_ownership(IB))
 			identification = IB
 			break
-
-/obj/machinery/computer/ship/sensors/proc/update_sound()
-	if(!working_sound)
-		return
-	if(!sound_id)
-		sound_id = "[type]_[sequential_id(/obj/machinery/computer/ship/sensors)]"
-
-	var/obj/machinery/shipsensors/sensors = get_sensors()
-	if(linked && sensors?.use_power && !(sensors.stat & NOPOWER))
-		var/volume = 10
-		if(!sound_token)
-			sound_token = sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10)
-		sound_token.SetVolume(volume)
-	else if(sound_token)
-		QDEL_NULL(sound_token)
 
 /obj/machinery/computer/ship/sensors/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!linked)
@@ -126,7 +106,7 @@
 			var/bearing = round(90 - Atan2(O.x - linked.x, O.y - linked.y),5)
 			if(bearing < 0)
 				bearing += 360
-			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing)))
+			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing, "can_datalink"=(!(O in connected.datalinked)))))
 		if(length(contacts))
 			data["contacts"] = contacts
 
@@ -296,7 +276,7 @@
 	if (href_list["remove_datalink"])
 		var/obj/effect/overmap/visitable/O = locate(href_list["remove_datalink"])
 		for(var/obj/machinery/computer/ship/sensors/rescinder_sensor_console in src.connected.consoles)	// Get sensor console from the rescinder
-			rescinder_sensor_console.datalink_remove_ship_datalink(O)
+			rescinder_sensor_console.datalink_remove_ship_datalink(O, TRUE)
 			return TOPIC_HANDLED
 
 	if (href_list["play_message"])
