@@ -129,7 +129,7 @@
 	if(power_use && brightness_level)
 		to_chat(user, SPAN_NOTICE("\The [src] is set to [brightness_level]."))
 		if(cell)
-			to_chat(user, SPAN_NOTICE("\The [src] has a \the [cell] attached."))
+			to_chat(user, SPAN_NOTICE("\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining."))
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(always_on)
@@ -393,7 +393,6 @@
 		)
 	force = 10
 	attack_verb = list("bludgeoned, bashed, whacked")
-	w_class = ITEMSIZE_SMALL
 	matter = list(MATERIAL_STEEL = 200,MATERIAL_GLASS = 100)
 	flashlight_power = 1
 	brightness_on = 4
