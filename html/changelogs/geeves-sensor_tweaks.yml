@@ -8,3 +8,4 @@ changes:
   - tweak: "Ships no longer lose their datalink unless the sensors get destroyed."
   - tweak: "The contact list no longer shows the datalink button for ships you're already linked to."
   - rscadd: "Shuttles now automatically datalink to their mothership."
+  - rscadd: "Docked shuttles' sensors now work."
