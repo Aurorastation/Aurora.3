@@ -49,7 +49,7 @@
 /datum/uplink_item/item/ninja_modules/chem_injector
 	name = "Chemical Injector"
 	desc = "A chemical injector that allows the user to inject themselves with medical chemicals."
-	item_cost = 1
+	telecrystal_cost = 1
 	path = /obj/item/rig_module/chem_dispenser
 
 /datum/uplink_item/item/ninja_modules/EMP_Shield
