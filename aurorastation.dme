@@ -3441,6 +3441,7 @@
 #include "maps\random_ruins\exoplanets\adhomai\psis_outpost.dm"
 #include "maps\random_ruins\exoplanets\asteroid\asteroid.dm"
 #include "maps\random_ruins\exoplanets\asteroid\mystery_ship\mystery_ship_areas.dm"
+#include "maps\random_ruins\exoplanets\asteroid\old_outpost\old_outpost.dm"
 #include "maps\random_ruins\exoplanets\crashed_pod\crashed_pod.dm"
 #include "maps\random_ruins\exoplanets\desert\desert.dm"
 #include "maps\random_ruins\exoplanets\grove\grove.dm"
