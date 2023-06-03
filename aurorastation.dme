@@ -971,6 +971,7 @@
 #include "code\game\objects\items\devices\lighting\hull_beacon.dm"
 #include "code\game\objects\items\devices\lighting\lamp.dm"
 #include "code\game\objects\items\devices\lighting\marshalling_wand.dm"
+#include "code\game\objects\items\devices\lighting\signal_flare.dm"
 #include "code\game\objects\items\devices\lighting\survival.dm"
 #include "code\game\objects\items\devices\PDA\radio.dm"
 #include "code\game\objects\items\devices\radio\_radio_defines.dm"

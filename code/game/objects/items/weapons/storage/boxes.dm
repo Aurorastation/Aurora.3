@@ -1134,13 +1134,23 @@
 /obj/item/storage/box/flares
 	name = "flares box"
 	desc = "A box full of flares."
+	icon_state = "flarebox"
 	foldable = FALSE
-	max_storage_space = 4
+	illustration = null
+	max_storage_space = 6
 	can_hold = list(
 		/obj/item/device/flashlight/flare
 	)
 	starts_with = list(
-		/obj/item/device/flashlight/flare = 4
+		/obj/item/device/flashlight/flare = 6
+	)
+
+/obj/item/storage/box/flares/signal
+	name = "signal flares box"
+	desc = "A box full of signal flares."
+	icon_state = "signalflarebox"
+	starts_with = list(
+		/obj/item/device/flashlight/flare/signal = 6
 	)
 
 // Magnetic Locks

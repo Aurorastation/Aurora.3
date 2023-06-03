@@ -37,6 +37,9 @@
 	 */
 	var/list/important_recursive_contents
 
+	/// Text that plays when you try to move an anchored atom, or one where you're too small to move it
+	var/budge_text = "It won't budge!"
+
 // We don't really need this, and apparently defining it slows down GC.
 /*/atom/movable/Del()
 	if(!QDELING(src) && loc)

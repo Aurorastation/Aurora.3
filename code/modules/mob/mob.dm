@@ -787,7 +787,7 @@
 
 	if (AM.anchored)
 		if(!AM.buckled_to)
-			to_chat(src, "<span class='warning'>It won't budge!</span>")
+			to_chat(src, SPAN_WARNING(AM.budge_text))
 		else
 			start_pulling(AM.buckled_to) //Pull the thing they're buckled to instead.
 		return
@@ -796,15 +796,15 @@
 	if(ismob(AM))
 		M = AM
 		if(!can_pull_mobs || !can_pull_size)
-			to_chat(src, "<span class='warning'>It won't budge!</span>")
+			to_chat(src, SPAN_WARNING(AM.budge_text))
 			return
 
 		if((mob_size < M.mob_size) && (can_pull_mobs != MOB_PULL_LARGER))
-			to_chat(src, "<span class='warning'>It won't budge!</span>")
+			to_chat(src, SPAN_WARNING(AM.budge_text))
 			return
 
 		if((mob_size == M.mob_size) && (can_pull_mobs == MOB_PULL_SMALLER))
-			to_chat(src, "<span class='warning'>It won't budge!</span>")
+			to_chat(src, SPAN_WARNING(AM.budge_text))
 			return
 
 		if(length(M.grabbed_by))
@@ -823,7 +823,7 @@
 	else if(isobj(AM))
 		var/obj/I = AM
 		if(!can_pull_size || can_pull_size < I.w_class)
-			to_chat(src, "<span class='warning'>It won't budge!</span>")
+			to_chat(src, SPAN_WARNING(AM.budge_text))
 			return
 
 	if(pulling)

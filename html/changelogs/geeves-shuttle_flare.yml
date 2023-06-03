@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added signal flares, flares that can create landing zones for shuttles. Pull the cord and throw it on the ground to activate."

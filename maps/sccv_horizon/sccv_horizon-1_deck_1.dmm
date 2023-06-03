@@ -41,12 +41,27 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/head/helmet/pilot/scc{
+	pixel_x = 4;
 	pixel_y = 8
 	},
 /obj/item/clothing/head/helmet/pilot/scc{
+	pixel_x = 4;
 	pixel_y = 3
 	},
 /obj/item/clothing/head/helmet/pilot/scc{
+	pixel_x = 4;
+	pixel_y = -3
+	},
+/obj/item/storage/box/flares/signal{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/item/storage/box/flares/signal{
+	pixel_x = -8;
+	pixel_y = 3
+	},
+/obj/item/storage/box/flares/signal{
+	pixel_x = -8;
 	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark,
@@ -318,10 +333,10 @@
 	pixel_y = 32
 	},
 /obj/machinery/computer/general_air_control/large_tank_control{
+	max_pressure_setting = 5000;
 	name = "Carbon Dioxide - Fuel Bay";
 	output_tag = "CO2_out_fuelbay";
-	sensors = list("co2_sensor"="Tank");
-	max_pressure_setting = 5000
+	sensors = list("co2_sensor"="Tank")
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -522,8 +537,8 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	id_tag = "intrepid_shuttle_cargo_pump_out_external";
 	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_pump_out_external";
 	layer = 2.8
 	},
 /turf/simulated/floor/plating,
@@ -602,8 +617,8 @@
 /area/engineering/atmos)
 "aBK" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "1,12";
 	density = 0;
+	icon_state = "1,12";
 	layer = 9
 	},
 /turf/simulated/floor/plating,
@@ -1084,12 +1099,12 @@
 "aRG" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
+	dir = 4;
 	frequency = 1385;
 	master_tag = "intrepid_shuttle_cargo";
 	name = "exterior access button";
 	pixel_x = 8;
-	pixel_y = -5;
-	dir = 4
+	pixel_y = -5
 	},
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/intrepid/atmos_compartment)
@@ -1552,11 +1567,11 @@
 	dir = 4
 	},
 /obj/machinery/airlock_sensor/airlock_exterior{
+	dir = 8;
 	frequency = 1385;
 	id_tag = "intrepid_shuttle_west_exterior_sensor";
 	pixel_x = -42;
-	pixel_y = 30;
-	dir = 8
+	pixel_y = 30
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1564,8 +1579,8 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	id_tag = "intrepid_shuttle_west_pump_out_external";
 	frequency = 1385;
+	id_tag = "intrepid_shuttle_west_pump_out_external";
 	layer = 2.8
 	},
 /turf/simulated/floor/plating,
@@ -2308,13 +2323,13 @@
 	pixel_x = -6
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 8;
 	frequency = 1386;
 	id_tag = "canary";
 	name = "\improper Canary docking port controller";
 	pixel_x = 22;
 	pixel_y = -19;
-	tag_door = "canary_out";
-	dir = 8
+	tag_door = "canary_out"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
@@ -3277,18 +3292,18 @@
 /area/engineering/atmos/propulsion)
 "cvz" = (
 /obj/machinery/computer/ship/helm/cockpit{
-	pixel_y = -18;
-	layer = 3.1
+	layer = 3.1;
+	pixel_y = -18
 	},
 /obj/machinery/light/spot,
 /obj/structure/bed/stool/chair/cockpit,
 /obj/machinery/computer/shuttle_control/explore/canary{
-	pixel_x = 25;
-	layer = 3
+	layer = 3;
+	pixel_x = 25
 	},
 /obj/machinery/computer/ship/sensors/cockpit{
-	pixel_x = -25;
-	layer = 3
+	layer = 3;
+	pixel_x = -25
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/canary)
@@ -3353,11 +3368,11 @@
 	outside_part = 0
 	},
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "nozzle";
-	outside_part = 0;
-	opacity = 1;
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
-	layer = 2.4
+	icon_state = "nozzle";
+	layer = 2.4;
+	opacity = 1;
+	outside_part = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/reinforced{
@@ -3892,9 +3907,9 @@
 /area/maintenance/engineering)
 "cSo" = (
 /obj/machinery/atmospherics/binary/pump/fuel{
+	max_pressure_setting = 5000;
 	name = "Phoron Pump";
-	req_one_access = list(26,29,31,48,67,24,47);
-	max_pressure_setting = 5000
+	req_one_access = list(26,29,31,48,67,24,47)
 	},
 /obj/effect/floor_decal/corner/black/full,
 /obj/effect/floor_decal/industrial/warning{
@@ -4341,8 +4356,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	pixel_x = -28;
-	dir = 4
+	dir = 4;
+	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
@@ -5489,12 +5504,12 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
+	dir = 4;
 	frequency = 1385;
 	master_tag = "intrepid_shuttle_west";
 	name = "interior access button";
 	pixel_x = -24;
-	pixel_y = -5;
-	dir = 4
+	pixel_y = -5
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -5504,10 +5519,10 @@
 	},
 /obj/machinery/airlock_sensor/airlock_interior{
 	dir = 4;
-	pixel_x = -23;
-	pixel_y = 5;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_west_interior_sensor";
-	frequency = 1385
+	pixel_x = -23;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
@@ -5947,12 +5962,12 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
+	dir = 8;
 	frequency = 1385;
 	master_tag = "intrepid_shuttle_west";
 	name = "exterior access button";
 	pixel_x = -9;
-	pixel_y = -23;
-	dir = 8
+	pixel_y = -23
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 8
@@ -6049,6 +6064,7 @@
 	c_tag = "Intrepid - Airlock Starboard"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
+	cycle_to_external_air = 1;
 	frequency = 1385;
 	id_tag = "intrepid_shuttle_west";
 	layer = 3.3;
@@ -6059,15 +6075,14 @@
 	tag_exterior_door = "intrepid_shuttle_west_out";
 	tag_exterior_sensor = "intrepid_shuttle_west_exterior_sensor";
 	tag_interior_door = "intrepid_shuttle_west_in";
-	cycle_to_external_air = 1;
 	tag_interior_sensor = "intrepid_shuttle_west_interior_sensor"
 	},
 /obj/structure/bed/handrail,
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	id_tag = "intrepid_shuttle_west_pump_out_internal";
 	frequency = 1385;
+	id_tag = "intrepid_shuttle_west_pump_out_internal";
 	layer = 2.8
 	},
 /turf/simulated/floor/plating,
@@ -8747,6 +8762,8 @@
 "gpR" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
+	cycle_to_external_air = 1;
+	dir = 8;
 	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo";
 	layer = 3.3;
@@ -8757,8 +8774,6 @@
 	tag_exterior_door = "intrepid_shuttle_cargo_out";
 	tag_exterior_sensor = "intrepid_shuttle_cargo_exterior_sensor";
 	tag_interior_door = "intrepid_shuttle_cargo_in";
-	dir = 8;
-	cycle_to_external_air = 1;
 	tag_interior_sensor = "intrepid_shuttle_cargo_interior_sensor"
 	},
 /obj/structure/bed/handrail{
@@ -8895,8 +8910,8 @@
 /obj/machinery/button/remote/blast_door{
 	id = "canary_hangar";
 	name = "Canary Hangar Control";
-	pixel_y = 22;
-	pixel_x = 21
+	pixel_x = 21;
+	pixel_y = 22
 	},
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical{
@@ -10104,8 +10119,8 @@
 /area/storage/eva)
 "hmD" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "7,11";
 	density = 0;
+	icon_state = "7,11";
 	layer = 9
 	},
 /turf/simulated/floor/plating,
@@ -10813,8 +10828,8 @@
 /area/engineering/atmos)
 "hPZ" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "1,11";
 	density = 0;
+	icon_state = "1,11";
 	layer = 9
 	},
 /turf/simulated/floor/plating,
@@ -11303,9 +11318,9 @@
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/door/window/brigdoor/northright{
+	name = "Fuel Access";
 	req_access = null;
-	req_one_access = list(26,29,31,48,67,24,47);
-	name = "Fuel Access"
+	req_one_access = list(26,29,31,48,67,24,47)
 	},
 /obj/machinery/camera/network/first_deck{
 	c_tag = "First Deck - Hangar Fuel Bay";
@@ -12597,11 +12612,11 @@
 /area/medical/morgue/lower)
 "jpI" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 8;
 	frequency = 1441;
 	id = "ph_in";
 	name = "phoron injector";
-	use_power = 1;
-	dir = 8
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
@@ -12907,10 +12922,10 @@
 /area/turret_protected/ai)
 "jyn" = (
 /obj/machinery/airlock_sensor{
+	dir = 1;
 	frequency = 1385;
 	id_tag = "intrepid_shuttle_west_sensor";
-	pixel_y = -23;
-	dir = 1
+	pixel_y = -23
 	},
 /obj/structure/bed/handrail{
 	dir = 1
@@ -13254,8 +13269,8 @@
 	},
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "2,8";
-	outside_part = 0;
-	opacity = 1
+	opacity = 1;
+	outside_part = 0
 	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
@@ -13743,8 +13758,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/camera/network/canary{
-	dir = 4;
-	c_tag = "Canary - Aft External"
+	c_tag = "Canary - Aft External";
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/canary)
@@ -13828,11 +13843,11 @@
 "kki" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/airlock_sensor{
+	dir = 4;
 	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_sensor";
 	pixel_x = -24;
-	pixel_y = -6;
-	dir = 4
+	pixel_y = -6
 	},
 /obj/structure/bed/handrail{
 	dir = 4
@@ -13843,8 +13858,8 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4;
-	id_tag = "intrepid_shuttle_cargo_pump";
 	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_pump";
 	layer = 2.8
 	},
 /turf/simulated/floor/plating,
@@ -14073,16 +14088,16 @@
 /area/hangar/intrepid)
 "krG" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "2,2";
 	density = 0;
+	icon_state = "2,2";
 	outside_part = 0
 	},
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/francisca/compact{
+	layer = 3;
 	pixel_x = -40;
 	pixel_y = -64;
-	layer = 3;
 	weapon_id = "Francisca Rotary Gun"
 	},
 /turf/simulated/floor/reinforced,
@@ -14785,13 +14800,13 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
+	dir = 1;
 	frequency = 1380;
 	master_tag = "mining_shuttle_controller";
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = 10;
-	req_one_access = list(31,48,67);
-	dir = 1
+	req_one_access = list(31,48,67)
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -15063,9 +15078,9 @@
 /obj/structure/table/rack{
 	density = 0;
 	icon_state = "rack_small";
+	name = "storage rack";
 	pixel_x = 22;
-	pixel_y = -2;
-	name = "storage rack"
+	pixel_y = -2
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -16378,8 +16393,8 @@
 /area/operations/storage)
 "maq" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "6,2";
 	density = 0;
+	icon_state = "6,2";
 	outside_part = 0
 	},
 /obj/machinery/iff_beacon/horizon/shuttle,
@@ -16390,8 +16405,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/binary/pump/fuel{
-	name = "Fuel Tank to Thrusters";
-	dir = 1
+	dir = 1;
+	name = "Fuel Tank to Thrusters"
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/canary)
@@ -16462,35 +16477,35 @@
 /obj/structure/window/shuttle/unique/scc/scout,
 /obj/structure/window/shuttle/unique/scc/scout/over,
 /obj/structure/window/shuttle/unique/scc/scout{
-	icon_state = "3,1";
-	pixel_x = -32;
-	density = 0
-	},
-/obj/structure/window/shuttle/unique/scc/scout{
-	icon_state = "5,1";
-	pixel_x = 32;
-	density = 0
-	},
-/obj/structure/shuttle_part/scc/scout{
-	icon_state = "3,0";
 	density = 0;
-	pixel_y = -32;
+	icon_state = "3,1";
 	pixel_x = -32
 	},
-/obj/structure/shuttle_part/scc/scout{
-	icon_state = "5,0";
+/obj/structure/window/shuttle/unique/scc/scout{
 	density = 0;
+	icon_state = "5,1";
+	pixel_x = 32
+	},
+/obj/structure/shuttle_part/scc/scout{
+	density = 0;
+	icon_state = "3,0";
+	pixel_x = -32;
+	pixel_y = -32
+	},
+/obj/structure/shuttle_part/scc/scout{
+	density = 0;
+	icon_state = "5,0";
 	pixel_x = 32;
 	pixel_y = -32
 	},
 /obj/structure/window/shuttle/unique/scc/scout/over{
-	icon_state = "5,1";
 	density = 0;
+	icon_state = "5,1";
 	pixel_x = 32
 	},
 /obj/structure/window/shuttle/unique/scc/scout/over{
-	icon_state = "3,1";
 	density = 0;
+	icon_state = "3,1";
 	pixel_x = -32
 	},
 /obj/effect/landmark/entry_point/fore{
@@ -16956,10 +16971,10 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/machinery/airlock_sensor/airlock_interior{
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_interior_sensor";
-	pixel_y = 23;
 	pixel_x = -3;
-	frequency = 1385
+	pixel_y = 23
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
@@ -17206,8 +17221,8 @@
 /area/shuttle/intrepid/crew_compartment)
 "mJD" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "6,11";
 	density = 0;
+	icon_state = "6,11";
 	layer = 9;
 	outside_part = 0
 	},
@@ -17519,8 +17534,8 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	id_tag = "intrepid_shuttle_west_pump_out_external";
 	frequency = 1385;
+	id_tag = "intrepid_shuttle_west_pump_out_external";
 	layer = 2.8
 	},
 /turf/simulated/floor/plating,
@@ -17822,13 +17837,13 @@
 /area/operations/loading)
 "nax" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 8;
 	frequency = 1386;
 	id_tag = "canary";
 	name = "port docking controller";
 	pixel_x = 22;
 	pixel_y = 12;
-	tag_door = "canary_out";
-	dir = 8
+	tag_door = "canary_out"
 	},
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/item/device/gps/stationary/sccv_canary{
@@ -17844,8 +17859,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/machinery/meter{
 	name = "Fuel Reserve";
-	pixel_y = 4;
-	pixel_x = -23
+	pixel_x = -23;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
@@ -17892,8 +17907,8 @@
 /area/shuttle/intrepid/cockpit)
 "ndI" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "2,12";
 	density = 0;
+	icon_state = "2,12";
 	layer = 9
 	},
 /turf/simulated/floor/plating,
@@ -18161,9 +18176,9 @@
 /area/engineering/storage/lower)
 "nnh" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	dir = 4;
 	frequency = 1441;
-	id_tag = "h_out";
-	dir = 4
+	id_tag = "h_out"
 	},
 /turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
@@ -19393,8 +19408,8 @@
 /area/shuttle/canary)
 "oji" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "7,12";
 	density = 0;
+	icon_state = "7,12";
 	layer = 9
 	},
 /turf/simulated/floor/plating,
@@ -20027,8 +20042,8 @@
 "oPw" = (
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "6,8";
-	outside_part = 0;
-	opacity = 1
+	opacity = 1;
+	outside_part = 0
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
@@ -20479,12 +20494,12 @@
 	},
 /obj/machinery/vending/wallmed1{
 	pixel_x = -42;
-	req_access = null;
-	pixel_y = 27
+	pixel_y = 27;
+	req_access = null
 	},
 /obj/structure/fuel_port/phoron/scc{
-	pixel_y = 27;
-	pixel_x = -26
+	pixel_x = -26;
+	pixel_y = 27
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -20810,18 +20825,18 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/airlock_sensor/airlock_exterior{
+	dir = 4;
 	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_exterior_sensor";
 	pixel_x = -23;
-	dir = 4;
 	pixel_y = 5
 	},
 /obj/structure/bed/handrail{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	id_tag = "intrepid_shuttle_cargo_pump_out_external";
 	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_pump_out_external";
 	layer = 2.8
 	},
 /turf/simulated/floor/plating,
@@ -22784,14 +22799,14 @@
 	dir = 1
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 1;
 	frequency = 1380;
 	id_tag = "mining_shuttle_dock";
 	name = "\improper Spark docking port controller";
 	pixel_x = 6;
 	pixel_y = -25;
 	req_one_access = list(31,48,67);
-	tag_door = "mining_shuttle_dock_doors";
-	dir = 1
+	tag_door = "mining_shuttle_dock_doors"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -22922,8 +22937,8 @@
 /area/hangar/auxiliary)
 "qSi" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "6,12";
 	density = 0;
+	icon_state = "6,12";
 	layer = 9
 	},
 /turf/simulated/floor/plating,
@@ -24459,6 +24474,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
+/obj/item/storage/box/flares/signal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "rZu" = (
@@ -24737,13 +24753,14 @@
 	dir = 4
 	},
 /obj/machinery/airlock_sensor{
+	dir = 8;
 	frequency = 1380;
 	id_tag = "mining_shuttle_sensor";
 	pixel_x = 25;
-	pixel_y = -7;
-	dir = 8
+	pixel_y = -7
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
 	frequency = 1380;
 	id_tag = "mining_shuttle_controller";
 	pixel_x = 25;
@@ -24753,7 +24770,6 @@
 	tag_chamber_sensor = "mining_shuttle_sensor";
 	tag_exterior_door = "mining_shuttle_external";
 	tag_interior_door = "mining_shuttle_internal";
-	dir = 8;
 	tag_interior_sensor = "mining_shuttle_interior_sensor"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -25524,8 +25540,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "2,9";
-	outside_part = 0;
-	opacity = 1
+	opacity = 1;
+	outside_part = 0
 	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
@@ -25708,16 +25724,16 @@
 	pixel_x = 22
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 13;
-	pixel_x = 28
+	pixel_x = 28;
+	pixel_y = 13
 	},
 /obj/item/crowbar/red,
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
 /obj/machinery/camera/network/canary{
-	dir = 1;
-	c_tag = "Canary - Main Compartment"
+	c_tag = "Canary - Main Compartment";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
@@ -26628,8 +26644,8 @@
 	dir = 8
 	},
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "2,3";
 	density = 0;
+	icon_state = "2,3";
 	outside_part = 0
 	},
 /obj/structure/ship_weapon_dummy,
@@ -27552,11 +27568,11 @@
 	outside_part = 0
 	},
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "nozzle";
-	outside_part = 0;
-	opacity = 1;
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
-	layer = 2.4
+	icon_state = "nozzle";
+	layer = 2.4;
+	opacity = 1;
+	outside_part = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/reinforced{
@@ -28044,9 +28060,9 @@
 	icon_state = "4,2"
 	},
 /obj/structure/window/shuttle/unique/scc/scout/over{
+	density = 0;
 	icon_state = "4,3";
 	layer = 6.1;
-	density = 0;
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
@@ -28383,8 +28399,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "6,9";
-	outside_part = 0;
-	opacity = 1
+	opacity = 1;
+	outside_part = 0
 	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
@@ -28454,13 +28470,13 @@
 "uUP" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
+	dir = 8;
 	frequency = 1380;
 	master_tag = "mining_shuttle_controller";
 	name = "interior access button";
 	pixel_x = 23;
 	pixel_y = -20;
-	req_one_access = list(31,48,67);
-	dir = 8
+	req_one_access = list(31,48,67)
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -28499,6 +28515,7 @@
 "uVF" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/structure/table/steel,
+/obj/item/storage/box/flares/signal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "uVL" = (
@@ -28598,10 +28615,10 @@
 	},
 /obj/machinery/computer/general_air_control/large_tank_control{
 	input_tag = null;
+	max_pressure_setting = 1000;
 	name = "Phoron Supply - Fuel Bay";
 	output_tag = "Ph_out_FuelBay";
-	sensors = list("ph_sensor"="Tank");
-	max_pressure_setting = 1000
+	sensors = list("ph_sensor"="Tank")
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -29407,8 +29424,8 @@
 /area/hangar/intrepid/interstitial)
 "vDu" = (
 /obj/structure/shuttle_part/scc/scout{
-	icon_state = "2,11";
 	density = 0;
+	icon_state = "2,11";
 	layer = 9;
 	outside_part = 0
 	},
@@ -31073,13 +31090,13 @@
 /area/hangar/intrepid)
 "wPX" = (
 /obj/machinery/computer/ship/targeting/cockpit{
-	pixel_x = -25;
-	layer = 3
+	layer = 3;
+	pixel_x = -25
 	},
 /obj/structure/bed/stool/chair/cockpit,
 /obj/machinery/computer/ship/engines/cockpit{
-	pixel_x = 26;
-	layer = 3
+	layer = 3;
+	pixel_x = 26
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/canary)
@@ -31610,10 +31627,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/airlock_sensor/airlock_interior{
 	dir = 8;
-	pixel_y = 23;
-	pixel_x = 22;
+	frequency = 1380;
 	id_tag = "mining_shuttle_interior_sensor";
-	frequency = 1380
+	pixel_x = 22;
+	pixel_y = 23
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -31807,8 +31824,8 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	id_tag = "intrepid_shuttle_west_pump_out_internal";
 	frequency = 1385;
+	id_tag = "intrepid_shuttle_west_pump_out_internal";
 	layer = 2.8
 	},
 /turf/simulated/floor/plating,
@@ -31868,6 +31885,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/item/storage/box/flares/signal,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "xmV" = (
@@ -32352,13 +32370,13 @@
 "xEb" = (
 /obj/machinery/atmospherics/omni/mixer{
 	active_power_usage = 7500;
+	tag_east = 1;
+	tag_east_con = 0.0;
 	tag_north = 1;
 	tag_north_con = 0.8;
 	tag_south = 1;
 	tag_south_con = 0.2;
-	tag_west = 2;
-	tag_east = 1;
-	tag_east_con = 0.0
+	tag_west = 2
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,

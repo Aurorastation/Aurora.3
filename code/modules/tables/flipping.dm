@@ -22,7 +22,7 @@
 		return
 
 	if(flipped < 0 || !flip(get_cardinal_dir(usr,src)))
-		to_chat(usr, "<span class='notice'>It won't budge.</span>")
+		to_chat(usr, SPAN_WARNING(budge_text))
 		return
 
 	usr.visible_message(SPAN_WARNING("[usr] flips \the [src]!"), intent_message = THUNK_SOUND)
@@ -65,7 +65,7 @@
 		return
 
 	if (!unflipping_check())
-		to_chat(usr, "<span class='notice'>It won't budge.</span>")
+		to_chat(usr, SPAN_WARNING(budge_text))
 		return
 	unflip()
 
