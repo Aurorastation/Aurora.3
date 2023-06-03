@@ -90,4 +90,4 @@
 	name = "Martial Arts"
 
 /datum/uplink_category/bioweapons
-	name = "Chemical, Biological & Radiological Weaponary"
+	name = "Chemical, Biological & Radiological Weaponry"

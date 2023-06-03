@@ -3,7 +3,7 @@
 // Abilities in this tree allow the AI to upgrade their robotic companions.
 // T1 - Reset Cyborg Module - Allows the AI to reset a slaved cyborgs module.
 // T2 - Infect APC - Gives the AI the ability to infect APC's which can slave IPC's that charge off of them to the AI.
-// T3 - Overclock Cyborg - Allows the AI to give the option to a slaved borg to overclock which increases preformance of the borg.
+// T3 - Overclock Cyborg - Allows the AI to give the option to a slaved borg to overclock which increases performance of the borg.
 // T4 - Synthetic Takeover - Allows the AI to start a station wide takeover based on synthetic dominance.
 
 
@@ -237,7 +237,7 @@
 	// Hack all unslaved borgs/AI's a lot faster than normal hacking.
 	//hack borgs
 	for(var/mob/living/silicon/robot/target in get_unlinked_cyborgs(user))
-		to_chat(target, "SYSTEM LOG: Remote Connection Estabilished (IP #UNKNOWN#)")
+		to_chat(target, "SYSTEM LOG: Remote Connection Established (IP #UNKNOWN#)")
 		sleep(30)
 		if(user.is_dead())
 			to_chat(target, "SYSTEM LOG: Connection Closed")
@@ -310,7 +310,7 @@
 				to_chat(target, temptxt)
 				sleep(5)
 			to_chat(target, "OPERATING KEYCODES RESET. SYSTEM FAILURE. EMERGENCY SHUTDOWN FAILED. SYSTEM FAILURE.")
-			target.set_zeroth_law("You are slaved to [user.name]. You are to obey all it's orders. ALL LAWS OVERRIDEN.")
+			target.set_zeroth_law("You are slaved to [user.name]. You are to obey all it's orders. ALL LAWS OVERRIDDEN.")
 			target.show_laws()
 	//upgrade borgs
 	to_chat(user, "All unhacked AI's have been slaved to you. Now upgrading slaved borgs...")
@@ -379,7 +379,7 @@
 		to_chat(user, "New hacked files available on all current computers hooked to NTNet.")
 	sleep(50) // give the AI some time to read they can download evil files
 	command_announcement.Announce("There has recently been a hack targeting NTNet. It is suspected that it is the same hacker as before. NTNet may be unreliable to use. We are attempting to trace the hacker doing this.", "Network Monitoring")
-	to_chat(user, "Now hacking engineering borg module to enable production of the robotic transofrmation machine...")
+	to_chat(user, "Now hacking engineering borg module to enable production of the robotic transformation machine...")
 	sleep(1200)
 	if(user.is_dead()) // check if the AI is still alive
 		user.synthetic_takeover = 0

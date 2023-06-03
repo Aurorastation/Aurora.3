@@ -114,7 +114,7 @@
 
 /obj/item/bone_dart
 	name = "bone dart"
-	desc = "A sharp piece of bone shapped as small dart."
+	desc = "A sharp piece of bone in the shape of a small dart."
 	icon = 'icons/obj/changeling.dmi'
 	icon_state = "bone_dart"
 	item_state = "bolt"
