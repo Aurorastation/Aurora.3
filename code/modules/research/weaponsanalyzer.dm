@@ -136,9 +136,8 @@
 		gun_overlay.pixel_y += 8
 		add_overlay(gun_overlay)
 
-/obj/machinery/weapons_analyzer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	if(!data)
-		. = data = list()
+/obj/machinery/weapons_analyzer/ui_data(mob/user)
+	var/list/data = list()
 
 	data["has_inserted"] = item ? TRUE : FALSE
 
@@ -251,16 +250,19 @@
 			data["base_reflectchance"] = E_item.base_reflectchance
 			data["base_block_chance"] = E_item.base_block_chance
 			data["shield_power"] = E_item.shield_power
+	return data
 
-/obj/machinery/weapons_analyzer/ui_interact(mob/user)
+/obj/machinery/weapons_analyzer/ui_interact(mob/user, var/datum/tgui/ui)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	var/height = item ? 600: 300
 	var/width = item ? 500 : 300
 	if(istype(item, /obj/item/gun/energy/laser/prototype) || istype(item, /obj/item/device/laser_assembly))
 		width = 600
 
-	if (!ui)
-		ui = new(user, src, "wanalyzer-analyzer", width, height, capitalize(name))
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "WeaponsAnalyzer", "Weapons Analyzer", width, height)
+		ui.open()
 
 	if(item)
 		var/icon/Icon_used = new /icon(item.icon, item.icon_state)
