@@ -45,9 +45,6 @@
 			identification = IB
 			break
 
-/obj/machinery/computer/ship/sensors
-	var/sensor_sound_volume = 15
-
 /obj/machinery/computer/ship/sensors/proc/update_sound()
 	if(!working_sound)
 		return
@@ -56,7 +53,7 @@
 
 	var/obj/machinery/shipsensors/sensors = get_sensors()
 	if(linked && sensors?.use_power && !(sensors.stat & NOPOWER))
-		var/volume = sensor_sound_volume
+		var/volume = 15
 		if(!sound_token)
 			sound_token = sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10, sound_type = ASFX_CONSOLE_AMBIENCE)
 		sound_token.SetVolume(volume)
