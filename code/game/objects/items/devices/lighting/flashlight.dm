@@ -52,7 +52,7 @@
 	if(power_use && cell_type)
 		if(starts_with_cell)
 			cell = new cell_type(src)
-		brightness_levels = list("low" = 0.0625, "medium" = 0.125, "high" = 0.25)
+		brightness_levels = list("low" = 1/32, "medium" = 1/16, "high" = 1/8) // ~26 minutes at high power with a device cell.
 		power_usage = (brightness_levels[brightness_level] / efficiency_modifier)
 	else
 		verbs -= /obj/item/device/flashlight/verb/toggle_brightness
@@ -143,7 +143,7 @@
 			return 0
 
 	if(!isturf(user.loc))
-		to_chat(user, SPAN_NOTICE("You cannot turn the light on while in this [user.loc].")) //To prevent some lighting anomalities.
+		to_chat(user, SPAN_NOTICE("You cannot turn the light on while in this [user.loc].")) //To prevent some lighting anomalies.
 		return 0
 
 	playsound(src.loc, toggle_sound, 60, 1)
@@ -258,6 +258,9 @@
 	else
 		return ..()
 
+/obj/item/device/flashlight/AltClick()
+	toggle_brightness()
+
 /obj/item/device/flashlight/proc/inspect_vision(obj/item/organ/vision, mob/living/user)
 	var/mob/living/carbon/human/H = vision.owner
 
@@ -317,6 +320,7 @@
 	item_state = ""
 	flags = CONDUCT
 	brightness_on = 2
+	efficiency_modifier = 2
 	w_class = ITEMSIZE_TINY
 
 /obj/item/device/flashlight/heavy
@@ -337,6 +341,7 @@
 	item_state = "maglight"
 	force = 10
 	brightness_on = 5
+	efficiency_modifier = 0.8
 	w_class = ITEMSIZE_NORMAL
 	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
@@ -391,7 +396,6 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
 		)
-	force = 10
 	attack_verb = list("bludgeoned, bashed, whacked")
 	matter = list(MATERIAL_STEEL = 200,MATERIAL_GLASS = 100)
 	flashlight_power = 1
