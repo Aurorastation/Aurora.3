@@ -288,7 +288,7 @@
 	if (!connected || !connected.occupant)
 		return
 	if (connected.occupant.name != connected.last_occupant_name || !broken_desc)
-		var/ldesc = pick("shows symptoms of rupture.", "ruptured", "extensive damage detected")
+		var/ldesc = pick("shows symptoms of rupture", "ruptured", "extensive damage detected")
 		broken_desc = ldesc
 		connected.last_occupant_name = connected.occupant.name
 
@@ -476,7 +476,7 @@
 	for (var/organ_name in H.species.has_organ)
 		if (!locate(species_organs[organ_name]) in H.internal_organs)
 			missingOrgans += organ_name
-	return english_list(missingOrgans)
+	return capitalize(english_list(missingOrgans))
 
 /obj/machinery/body_scanconsole/proc/get_external_wound_data(var/mob/living/carbon/human/H)
 	// Limbs.
@@ -533,7 +533,7 @@
 		if(length(wounds) || brute_damage != "None" || burn_damage != "None")
 			has_external_injuries = TRUE
 
-		data["wounds"] = english_list(wounds, "None")
+		data["wounds"] = capitalize(english_list(wounds, "None"))
 		organs += list(data)
 
 	return organs
@@ -696,48 +696,40 @@
 	dat += "</tr>"
 
 	for(var/obj/item/organ/external/e in occ["external_organs"])
-		var/AN = ""
-		var/open = ""
-		var/infected = ""
-		var/imp = ""
-		var/bled = ""
-		var/robot = ""
-		var/splint = ""
-		var/internal_bleeding = ""
-		var/severed_tendon = ""
-		var/lung_ruptured = ""
-		var/dislocated = ""
+		var/list/wounds = list()
 
 		dat += "<tr>"
 
 		if(e.status & ORGAN_ARTERY_CUT)
-			internal_bleeding = "Arterial bleeding."
+			wounds += "arterial bleeding"
 		if(e.tendon_status() & TENDON_CUT)
-			severed_tendon = "Severed tendon."
+			wounds += "severed tendon"
 		if(istype(e, /obj/item/organ/external/chest) && occ["lung_ruptured"])
-			lung_ruptured = "Lung ruptured."
+			wounds += "lung ruptured"
 		if(e.status & ORGAN_SPLINTED)
-			splint = "Splinted."
+			wounds += "splinted"
 		if(ORGAN_IS_DISLOCATED(e))
-			dislocated = "Dislocated."
+			wounds += "dislocated"
 		if(e.status & ORGAN_BLEEDING)
-			bled = "Bleeding."
+			wounds += "bleeding"
 		if(e.status & ORGAN_BROKEN)
-			AN = "[e.broken_description]."
+			wounds += "[e.broken_description]"
 		if(e.status & ORGAN_ROBOT)
-			robot = "Prosthetic."
+			wounds += "prosthetic"
 		if(e.open)
-			open = "Open."
+			wounds += "open"
 
 		var/infection = get_infection_level(e.germ_level)
 		if (infection != "")
-			infected = "[infection] infection"
-		if(e.rejecting)
-			infected += " (being rejected)"
+			var/infected = "[infection] infection"
+			if(e.rejecting)
+				infected += " (being rejected)"
+			wounds += infection
 
 		if (e.implants.len)
 			var/unknown_body = 0
 			var/list/organic = list()
+			var/imp
 			for(var/I in e.implants)
 				if(is_type_in_list(I,known_implants))
 					imp += "[I] implanted:"
@@ -749,12 +741,12 @@
 				imp += "Unknown body present:"
 			var/friends = length(organic)
 			if(friends)
-				imp += friends > 1 ? "Multiple abnormal organic bodies present:" : "Abnormal organic body present:"
-
-		if(!AN && !open && !infected && !imp)
-			AN = "None:"
+				imp += friends > 1 ? "multiple abnormal organic bodies present" : "abnormal organic body present"
+				wounds += imp
+		if(!length(wounds))
+			wounds += "none"
 		if(!e.is_stump())
-			dat += "<td>[e.name]</td><td>[get_severity(e.burn_dam, TRUE)]</td><td>[get_severity(e.brute_dam, TRUE)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
+			dat += "<td>[e.name]</td><td>[get_severity(e.burn_dam, TRUE)]</td><td>[get_severity(e.brute_dam, TRUE)]</td><td>[capitalize(english_list(wounds))]</td>"
 		else
 			dat += "<td>[e.name]</td><td>-</td><td>-</td><td>Not [e.is_stump() ? "Found" : "Attached Completely"]</td>"
 		dat += "</tr>"
