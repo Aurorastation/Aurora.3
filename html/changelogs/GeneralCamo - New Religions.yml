@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - rscadd: "Added Vysokan Stolitism, Confucianism, and Sikhism."
   - rscdel: "Removed Hinduism from the Vysoka background."
+  - tweak: "Updated Vysoka's description to reflect current lore name and requirements."

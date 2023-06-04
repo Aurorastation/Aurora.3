@@ -34,9 +34,9 @@
 	origin_traits_descriptions = list("are more acclimatised to the cold.", "are more sensitive to bright lights")
 
 /singleton/origin_item/origin/vysoka
-	name = "Vysoka"
-	desc = "The agricultural center of the Coalition of Colonies, Vysoka is generally conservative and often seen as heavily traditional by the broader Coalition. Most Vysokans live in rural environments, and few cities can be found across the planet's surface. Vysoka is also home to large semi-nomadic communities known as \"Hosts,\" that are not connected with any particular community or city. Religion and spiritualism are important aspects of Vysokan life, particularly for its rural population."
-	important_information = "Vysoka's remoteness and relatively undeveloped status has made it a planet with little outside immigration. Due to these factors, <b>characters born on Vysoka will have names and appearances consistent with Central Asia and the Warsaw Pact, the original colonists of the planet.</b> Only native Vysokans may take the Vysokan accent. This is enforceable by server moderators and admins."
+	name = "Free System of Vysoka"
+	desc = "The agricultural center of the Coalition of Colonies, the Free System of Vysoka is generally conservative and often seen as heavily traditional by the broader Coalition. Most Vysokans live in rural environments, and few cities can be found across the planet's surface. Vysoka is also home to large semi-nomadic communities known as \"Hosts,\" that are not connected with any particular community or city. Religion and spiritualism are important aspects of Vysokan life, particularly for its rural population."
+	important_information = "Vysoka's remoteness and relatively undeveloped status has made it a planet with little outside immigration. Due to these factors, <b>characters born on Vysoka will have names and appearances consistent with people from Central Asia, Siberia, and Eastern Europe, the original colonists of the planet.</b> Only native Vysokans may take the Vysokan accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_VYSOKA)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = list(RELIGION_NONE, RELIGION_STOLITISM, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER)
