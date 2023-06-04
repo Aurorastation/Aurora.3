@@ -1003,7 +1003,7 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "ponytail"
 
-/datum/sprite/accessory/hair/ponytail7_notie
+/datum/sprite_accessory/hair/ponytail7_notie
 	name = "Ponytail 7, No Tie"
 	icon_state = "hair_ponytail7_notie"
 	length = 2
