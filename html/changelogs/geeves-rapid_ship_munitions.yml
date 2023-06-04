@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Overmap projectiles no longer need to be scanned to be visible."
