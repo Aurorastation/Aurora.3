@@ -126,9 +126,21 @@
 	storage_slots = 12
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/egg,
-		/obj/item/reagent_containers/food/snacks/boiledegg
+		/obj/item/reagent_containers/food/snacks/boiledegg,
+		/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
 		)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/egg = 12)
+	foldable = /obj/item/stack/material/cardboard
+
+/obj/item/storage/box/fancy/egg_box/tunneler
+	name = "ice tunneler egg carton"
+	desc = "A carton of ice tunneler eggs."
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers,
+		/obj/item/reagent_containers/food/snacks/boiledegg,
+		/obj/item/reagent_containers/food/snacks/egg
+		)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers = 12)
 	foldable = /obj/item/stack/material/cardboard
 
 /*
@@ -391,6 +403,9 @@
 	icon_state = "Fpacket"
 	item_state = "Fpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/rugged
+
+/obj/item/storage/box/fancy/cigarettes/cigar/prank
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/cigar/prank
 
 /*
  * Vial Box

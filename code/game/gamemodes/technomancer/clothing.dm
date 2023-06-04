@@ -62,7 +62,7 @@
 
 /obj/item/clothing/head/technomancer/apprentice
 	name = "apprentice's hat"
-	desc = "It's a somewhat silly looking blue pointed hat.  This one has a silver colored metalic feather strapped to it."
+	desc = "It's a somewhat silly looking blue pointed hat.  This one has a silver colored metallic feather strapped to it."
 	icon_state = "apprentice_hat"
 	item_state = "apprentice_hat"
 	icon = 'icons/obj/clothing/technomancer.dmi'
@@ -70,7 +70,7 @@
 
 /obj/item/clothing/head/technomancer/master
 	name = "master's hat"
-	desc = "It's a somewhat silly looking blue pointed hat.  This one has a gold colored metalic feather strapped to it."
+	desc = "It's a somewhat silly looking blue pointed hat.  This one has a gold colored metallic feather strapped to it."
 	icon_state = "technomancer_hat"
 	item_state = "technomancer_hat"
 	icon = 'icons/obj/clothing/technomancer.dmi'

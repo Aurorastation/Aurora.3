@@ -107,6 +107,81 @@
 	Unathi, however, this mantle is a badge of betrayal - a sign of alien influence and infiltration."
 	worn_overlay = "hephguild"
 
+/obj/item/clothing/accessory/poncho/unathimantle/merchant
+	name = "merchants' guild mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the purple colors of the Merchants' Guild. These mantles are reserved for full-fledged guildsmen, as a sign of \
+	their position in the guild."
+	desc_extended = "In the modern day, the Merchants' Guild is one of the largest guilds in the Hegemony - access to new and alien markets has produced great wealth for the guild, \
+	and its guildsmen can be seen trading all across the Orion Spur."
+	worn_overlay = "merchantsguild"
+
+/obj/item/clothing/accessory/poncho/unathimantle/miner
+	name = "miners' guild mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the burnt orange of the Miners' Guild. These mantles are reserved for full-fledged guildsmen, as a sign of \
+	their position in the guild."
+	desc_extended = "The Miners' Guild is a powerful one still, though the expansion of Hephaestus mining operations into the Hegemony has harmed the monopoly they once held over their \
+	industry. For now, however, the Unathi guild and the alien megacorporation have managed to coexist."
+	worn_overlay = "minersguild"
+
+/obj/item/clothing/accessory/poncho/unathimantle/junzi
+	name = "junzi electric guild mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the electric blue of the Junzi Electric Guild. These mantles are reserved for full-fledged guildsmen, as a sign of \
+	their position in the guild."
+	desc_extended = "For centuries, Junzi Electric has been responsible for the Hegemony's power industry. It is the oldest guild in existence within the Hegemony, with origins dating back \
+	to the Unathi discovery of electricity. In the modern age, a vast majority of the Hegemony's power generation is still maintained by guildsmen of Junzi Electric."
+	worn_overlay = "junzielectric"
+
+/obj/item/clothing/accessory/poncho/unathimantle/bard
+	name = "bards' guild mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the vibrant green of the Bards' Guild, also known as the Keepers of Heirlooms. \
+	These mantles are reserved for full-fledged guildsmen as a sign of their position in the guild."
+	desc_extended = "The Keepers of Heirlooms operate a majority of the Hegemony's entertainment industry - nearly all news, television and film across the Hegemony can be traced back \
+	to this ancient and illustrious guild. Outside of the Hegemony, they are mainly known for their operation of Sinta Articles, the largest news outlet of the Hegemony."
+	worn_overlay = "bardsguild"
+
+/obj/item/clothing/accessory/poncho/unathimantle/med
+	name = "house of medicine mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the clean white of the House of Medicine. These mantles are reserved for full-fledged guildsmen, as a sign of \
+	their position in the guild."
+	desc_extended = "The House of Medicine oversees the Skalamar University of Medicine, one of the oldest educational institutions on Moghes. To be a guildsman of the House is equivalent \
+	to a medical doctorate within human nations. In recent years, the House has come into conflict with the K'lax Hive, as their gene-clinics pose a threat to the guild's monopoly over \
+	the medical industry."
+	worn_overlay = "houseofmedicine"
+
+/obj/item/clothing/accessory/poncho/unathimantle/construction
+	name = "construction coalition mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the warm yellow of the Construction Coalition. These mantles are reserved for full-fledged guildsmen, as a sign of \
+	their position in the guild."
+	desc_extended = "The Construction Coalition is a unique guild, operating far more democratically than others. It originated as a loose federation of local construction guilds, and \
+	this new and unique model was only recently approved by Hegemon Not'zar. Many of the castles of the nobility and the great cities of Moghes were constructed and are still maintained by \
+	guildsmen of the Coalition's constituents."
+	worn_overlay = "constructioncoalition"
+
+/obj/item/clothing/accessory/poncho/unathimantle/union
+	name = "hearts of industry mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the tan colors of the Hearts of Industry. These mantles are reserved for full-fledged guildsmen, as a sign of \
+	their position in the guild."
+	desc_extended = "A new movement, and one rapidly gaining influence in the Southlands of Moghes, the Hearts of Industry resemble a workers' union more than a traditional guild. \
+	Their membership has grown in the factories and docks of Jaz'zirt, and they have often clashed with the local nobility on matters of workers' rights. While membership in the Hearts \
+	is not illegal, the organisation's growing power threatens the status quo, and their meetings have often been brutally struck down by Overlord Miazso."
+	worn_overlay = "heartofindustry"
+
+/obj/item/clothing/accessory/poncho/unathimantle/fighter
+	name = "fighters' lodge mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the blood red of the Fighters' Lodge. These mantles are reserved for full-fledged guildsmen, as a sign of \
+	their position in the guild."
+	desc_extended = "The Fighters' Lodge was created in the years following the Contact War, inspired by human private military contractors. As such, it has an unusual structure for an Unathi guild, \
+	resembling a human corporation more than the traditional guilds of Moghes. The Fighters' Lodge mainly takes jobs as security for merchants, with their charter preventing them from \
+	taking sides in the power struggles of the nobility."
+	worn_overlay = "fighterslodge"
+
+/obj/item/clothing/accessory/poncho/unathimantle/fisher
+	name = "fishing league mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the grey-brown of the Fishing League. These mantles are reserved for full-fledged guildsmen, as a sign of \
+	their position in the guild."
+	desc_extended = "The largest guild within the Hegemony, the Fishing League is a behemoth of food production, churning out tons of foodstuffs a day. While local villages and nobles have their own food production centers, mainly aquaculture farms which run outside of the aegis of the Fishing League, the vast majority of food produced within the Hegemony is produced by the Fishing League, whether it be on Ouerea or Moghes. However, due to the post-contact war environment of Moghes, no matter how much the fishing league produces, it will never be enough to feed the remaining population."
+	worn_overlay = "fishingleague"
+
 /obj/item/clothing/accessory/poncho/rockstone
 	name = "rockstone cape"
 	desc = "A cape seen exclusively on nobility. The chain is adorned with precious, multi-color stones, hence its name."

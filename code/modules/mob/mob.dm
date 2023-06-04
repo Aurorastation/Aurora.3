@@ -415,6 +415,8 @@
 		var/atom/movable/M = A
 		M.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
 		addtimer(CALLBACK(M, TYPE_PROC_REF(/atom/movable, remove_filter), "pointglow"), 2 SECONDS)
+	A.handle_pointed_at(src)
+	SEND_SIGNAL(src, COMSIG_MOB_POINT, A)
 	return TRUE
 
 /mob/proc/end_pointing_effect()
@@ -1518,6 +1520,40 @@
 		return
 	var/obj/screen/zone_sel/selector = mob.zone_sel
 	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))
+
+/mob/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
+	..()
+	if(assembleHeightString(user))
+		to_chat(user, SPAN_NOTICE(assembleHeightString(user)))
+
+//Height String for examine - Runs on the mob being examined.
+/mob/proc/assembleHeightString(mob/examiner)
+	var/heightString = null
+	var/descriptor
+	if(height == HEIGHT_NOT_USED)
+		return heightString
+
+	if(examiner.height == HEIGHT_NOT_USED)
+		return heightString
+
+	switch(height - examiner.height)
+		if(-999 to -100)
+			descriptor = "absolutely tiny compared to"
+		if(-99 to -50)
+			descriptor = "much smaller than"
+		if(-49 to -11)
+			descriptor = "shorter than"
+		if(-10 to 10)
+			descriptor = "about the same height as"
+		if(11 to 50)
+			descriptor = "taller than"
+		if(51 to 100)
+			descriptor = "much larger than"
+		else
+			descriptor = "to tower over"
+	if(heightString)
+		return heightString + ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
+	return "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."
 
 /mob/proc/get_speech_bubble_state_modifier()
 	return "normal"

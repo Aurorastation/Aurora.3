@@ -30,6 +30,12 @@
 		/obj/item/clothing/accessory/storage/modular_pouch
 	)
 
+/obj/item/clothing/suit/armor/carrier/scc
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate/scc,
+		/obj/item/clothing/accessory/storage/modular_pouch
+	)
+
 /obj/item/clothing/suit/armor/carrier/riot
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/riot,
@@ -111,6 +117,12 @@
 	desc = "A light-weight kevlar armor plate in drab black colors. A galactic favourite of Zavodskoi fans."
 	icon_state = "plate_generic"
 	item_state = "plate_generic"
+
+/obj/item/clothing/accessory/armor_plate/scc
+	name = "scc armor plate"
+	desc = "A light-weight kevlar armor plate in SCC corporate colors. Often issued to untrained personnel, to help with identification."
+	icon_state = "plate_blue"
+	item_state = "plate_scc"
 
 /obj/item/clothing/accessory/armor_plate/hos
 	name = "commander armor plate"
@@ -242,6 +254,12 @@
 	contained_sprite = TRUE
 	icon_state = "helm_sec"
 	item_state = "helm_sec"
+
+/obj/item/clothing/head/helmet/security/scc
+	name = "scc helmet"
+	desc = "A helmet in SCC colors. Often issued to untrained personnel."
+	icon_state = "helm_scc"
+	item_state = "helm_scc"
 
 /obj/item/clothing/head/helmet/security/generic
 	name = "standard helmet"

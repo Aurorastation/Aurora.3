@@ -3,8 +3,8 @@
 		animate(pain, alpha = target, time = 15, easing = ELASTIC_EASING)
 		animate(pain, alpha = 0, time = 20)
 
-mob/var/last_pain_message = ""
-mob/var/next_pain_time = 0
+/mob/var/last_pain_message = ""
+/mob/var/next_pain_time = 0
 
 // message is the custom message to be displayed
 // power decides how much painkillers will stop the message

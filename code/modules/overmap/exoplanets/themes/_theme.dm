@@ -341,7 +341,11 @@
 	if(!length(ore_seeds))
 		return
 
-	for(var/turf/simulated/mineral/M in block(locate(min_x, min_y, z_to_check), locate(max_x, max_y, z_to_check)))
+	for(var/turf/simulated/S in block(locate(min_x, min_y, z_to_check), locate(max_x, max_y, z_to_check)))
+		if(!istype(S))
+			continue
+		S.update_air_properties()
+		var/turf/simulated/mineral/M = S
 		if(!istype(M) || M.mineral)
 			continue
 		var/coord_to_str = (world.maxx * M.y) + M.x

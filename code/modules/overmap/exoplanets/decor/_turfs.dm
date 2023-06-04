@@ -18,8 +18,10 @@
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 		if(istype(E))
 			if(E.atmosphere)
+				initial_gas = E.atmosphere.gas.Copy()
 				temperature = E.atmosphere.temperature
 			else
+				initial_gas = list()
 				temperature = T0C
 			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
 			set_light(MINIMUM_USEFUL_LIGHT_RANGE, E.lightlevel, COLOR_WHITE)

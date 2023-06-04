@@ -1342,11 +1342,7 @@
 	pump_direction = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced{
-	name = "vacuum floor";
-	nitrogen = 0.01;
-	oxygen = 0.01
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "adr" = (
 /obj/structure/grille,
@@ -1757,11 +1753,7 @@
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/reinforced{
-	name = "vacuum floor";
-	nitrogen = 0.01;
-	oxygen = 0.01
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "aeg" = (
 /obj/machinery/door/firedoor,
@@ -2019,11 +2011,7 @@
 	pixel_y = 1;
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced{
-	name = "vacuum floor";
-	nitrogen = 0.01;
-	oxygen = 0.01
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "aeQ" = (
 /obj/machinery/door/firedoor,
@@ -26712,14 +26700,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
 	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "dyi" = (
@@ -27229,7 +27210,7 @@
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_gym)
 "ejX" = (
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony/warden)
 "emk" = (
