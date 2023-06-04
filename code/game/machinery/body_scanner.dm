@@ -278,7 +278,7 @@
 	if (!connected || !connected.occupant)
 		return
 	if (connected.occupant.name != connected.last_occupant_name || !collapse_desc)
-		var/ldesc = pick("Shows symptoms of collapse.", "Collapsed.", "Pneumothorax detected.")
+		var/ldesc = pick("shows symptoms of collapse", "dollapsed", "pneumothorax detected")
 		collapse_desc = ldesc
 		connected.last_occupant_name = connected.occupant.name
 
@@ -288,7 +288,7 @@
 	if (!connected || !connected.occupant)
 		return
 	if (connected.occupant.name != connected.last_occupant_name || !broken_desc)
-		var/ldesc = pick("Shows symptoms of rupture.", "Ruptured.", "Extensive damage detected.")
+		var/ldesc = pick("shows symptoms of rupture.", "ruptured", "extensive damage detected")
 		broken_desc = ldesc
 		connected.last_occupant_name = connected.occupant.name
 
@@ -334,7 +334,7 @@
 /obj/machinery/body_scanconsole/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "BodyScanner", capitalize(name), 1200, 800)
+		ui = new(user, src, "BodyScanner", "Zeng-Hu Pharmaceuticals Body Scanner", 1200, 800)
 		ui.open()
 
 /obj/machinery/body_scanconsole/ui_data(mob/user)
@@ -437,7 +437,7 @@
 		data["dexalin_amount"] = REAGENT_VOLUME(R, /singleton/reagent/dexalin)
 		data["dermaline_amount"] = REAGENT_VOLUME(R, /singleton/reagent/dermaline)
 		data["thetamycin_amount"] = REAGENT_VOLUME(R, /singleton/reagent/thetamycin)
-		data["other_amount"] = R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"] + data["thetaAmt"])
+		data["other_amount"] = R.total_volume - (data["inaprovaline_amount"] + data["soporific_amount"] + data["bicaridine_amount"] + data["dexalin_amount"] + data["dermaline_amount"] + data["thetamycin_amount"])
 		has_internal_injuries = FALSE
 		has_external_injuries = FALSE
 		data["bodyparts"] = get_external_wound_data(occupant)
@@ -492,48 +492,48 @@
 		var/list/wounds = list()
 
 		if (O.status & ORGAN_ROBOT)
-			wounds += "Appears to be composed of inorganic material."
+			wounds += "appears to be composed of inorganic material"
 		if (O.status & ORGAN_ARTERY_CUT)
-			wounds += "Severed [O.artery_name]."
+			wounds += "severed [O.artery_name]"
 		if (O.tendon_status() & TENDON_CUT)
-			wounds += "Severed [O.tendon.name]."
+			wounds += "severed [O.tendon.name]"
 		if (O.status & ORGAN_SPLINTED)
-			wounds += "Splinted."
+			wounds += "splinted"
 		if (O.status & ORGAN_BLEEDING)
-			wounds += "Bleeding."
+			wounds += "bleeding"
 		if(ORGAN_IS_DISLOCATED(O))
-			wounds += "Dislocated."
+			wounds += "dislocated"
 		if (O.status & ORGAN_BROKEN)
-			wounds += "[O.broken_description]."
+			wounds += "[O.broken_description]"
 		if (O.open)
-			wounds += "Has an open wound."
+			wounds += "has an open wound"
 		if (O.germ_level)
 			var/level = get_infection_level(O.germ_level)
 			if (level && level != "")
-				wounds += "Shows symptoms of \a [level] infection."
+				wounds += "shows symptoms of \a [level] infection"
 		if (O.rejecting)
-			wounds += "Shows symptoms indicating limb rejection."
+			wounds += "shows symptoms indicating limb rejection"
 
 		if (O.implants.len)
 			var/unk = 0
 			var/list/organic = list()
 			for (var/atom/movable/I in O.implants)
 				if(is_type_in_list(I, known_implants))
-					wounds += "\a [I.name] is installed."
+					wounds += "\a [I.name] is installed"
 				else if(istype(I, /obj/effect/spider))
 					organic += I
 				else
 					unk += 1
 			if (unk)
-				wounds += "Has an abnormal mass present."
+				wounds += "has an abnormal mass present"
 			var/friends = length(organic)
 			if(friends)
-				wounds += friends > 1 ? "Multiple abnormal organic bodies present." : "Abnormal organic body present."
+				wounds += friends > 1 ? "multiple abnormal organic bodies present" : "abnormal organic body present"
 
 		if(length(wounds) || brute_damage != "None" || burn_damage != "None")
 			has_external_injuries = TRUE
 
-		data["wounds"] = english_list(wounds)
+		data["wounds"] = english_list(wounds, "None")
 		organs += list(data)
 
 	return organs
@@ -562,33 +562,32 @@
 			else if(L.is_bruised())
 				wounds += get_collapsed_lung_desc()
 			if(L.rescued)
-				wounds += "Has a small puncture wound."
+				wounds += "has a small puncture wound"
 
 		if(O.status & ORGAN_DEAD)
-			wounds += "Necrotic and decaying."
+			wounds += "necrotic and decaying"
 
 		if(istype(O, H.species.vision_organ))
 			if(H.sdisabilities & BLIND)
-				wounds += "Appears to have cataracts."
+				wounds += "appears to have cataracts"
 			else if(H.disabilities & NEARSIGHTED)
-				wounds += "Appears to have misaligned retinas."
+				wounds += "appears to have misaligned retinas"
 
 		if(O.germ_level)
 			var/level = get_infection_level(O.germ_level)
 			if (level && level != "")
-				wounds += "Shows symptoms of \a [level] infection."
+				wounds += "shows symptoms of \a [level] infection"
 
 		if(O.rejecting)
-			wounds += "Shows symptoms of organ rejection."
+			wounds += "shows symptoms of organ rejection"
 
 		if(O.get_scarring_level() > 0.01)
-			wounds += "[O.get_scarring_results()]."
+			wounds += "[O.get_scarring_results()]"
 
 		if(length(wounds) || internal_damage != "None")
 			has_internal_injuries = TRUE
 
-		data["hasWounds"] = !!length(wounds)
-		data["wounds"] = wounds
+		data["wounds"] = english_list(wounds, "None")
 
 		organs += list(data)
 	return organs
@@ -646,7 +645,7 @@
 		"borer_present" = H.has_brain_worms(),
 		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/inaprovaline),
 		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dexalin),
-		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/soporific),
+		"soporific_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/soporific),
 		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/bicaridine),
 		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dermaline),
 		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/thetamycin),
@@ -682,7 +681,7 @@
 		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
 
 	dat += text("Inaprovaline: [] units<BR>", occ["inaprovaline_amount"])
-	dat += text("Soporific: [] units<BR>", occ["stoxin_amount"])
+	dat += text("Soporific: [] units<BR>", occ["soporific_amount"])
 	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 20  ? "black" : "red"]'>"), occ["dermaline_amount"])
 	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 20  ? "black" : "red"]'>"), occ["bicaridine_amount"])
 	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 20  ? "black" : "red"]'>"), occ["dexalin_amount"])
