@@ -675,3 +675,29 @@
 
 /atom/proc/handle_pointed_at(var/mob/pointer)
 	return
+
+/atom/proc/create_bullethole(obj/item/projectile/Proj)
+	var/p_x = Proj.p_x + rand(-6, 6)
+	var/p_y = Proj.p_y + rand(-6, 6)
+	var/obj/effect/overlay/bmark/bullet_mark = new(src)
+
+	bullet_mark.pixel_x = p_x
+	bullet_mark.pixel_y = p_y
+
+	//Offset correction
+	bullet_mark.pixel_x--
+	bullet_mark.pixel_y--
+
+	if(Proj.damage_flags & DAMAGE_FLAG_BULLET)
+		bullet_mark.icon_state = "dent"
+	else if(Proj.damage_flags & DAMAGE_FLAG_LASER)
+		bullet_mark.name = "scorch mark"
+		if(Proj.damage >= 20)
+			bullet_mark.icon_state = "scorch"
+			bullet_mark.set_dir(pick(NORTH,SOUTH,EAST,WEST)) // Pick random scorch design
+		else
+			bullet_mark.icon_state = "light_scorch"
+	
+/atom/proc/clear_bulletholes()
+	for(var/obj/effect/overlay/bmark/bullet_mark in src)
+		qdel(bullet_mark)

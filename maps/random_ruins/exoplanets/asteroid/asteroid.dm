@@ -158,3 +158,14 @@
 
 	planet_types = PLANET_ASTEROID
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK|RUIN_HOSTILE
+
+/datum/map_template/ruin/exoplanet/abandoned_outpost
+	name = "Abandoned Mining Outpost"
+	id = "miningoutpost"
+	description = "A long-abandoned mining outpost."
+
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_WEEPING_STARS)
+	suffixes = list("asteroid/old_outpost/old_outpost.dmm")
+
+	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_CRYSTAL|PLANET_LAVA
+	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING

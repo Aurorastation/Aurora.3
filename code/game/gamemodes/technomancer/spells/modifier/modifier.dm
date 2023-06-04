@@ -34,7 +34,7 @@
 	qdel(src)
 	return TRUE
 
-// Technomancer specific subtype which keeps track of spell power and gets targeted specificially by Dispel.
+// Technomancer specific subtype which keeps track of spell power and gets targeted specifically by Dispel.
 /datum/modifier/technomancer
 	var/on_created_text
 	var/on_expired_text

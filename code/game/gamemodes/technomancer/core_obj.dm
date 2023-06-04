@@ -24,14 +24,16 @@
 		"default"			= "technomancer_core",
 		)
 
-	// Some spell-specific variables go here, since spells themselves are temporary.  Cores are more long term and more accessable than
+	// Some spell-specific variables go here, since spells themselves are temporary.  Cores are more long term and more accessible than
 	// mind datums.  It may also allow creative players to try to pull off a 'soul jar' scenario.
 	var/list/summoned_mobs = list()	// Maintained horribly with maintain_summon_list().
 	var/list/wards_in_use = list()	// Wards don't count against the cap for other summons.
 	var/max_summons = 10			// Maximum allowed summoned entities.  Some cores will have different caps.
 
 	var/never_remove = FALSE		// whether it can ever be removed
+	var/simple_operation = FALSE	// whether anyone can use this core
 
+	var/can_chameleon = TRUE
 	var/global/list/chameleon_options
 
 /obj/item/technomancer_core/Initialize()
@@ -41,10 +43,11 @@
 		verbs += /obj/item/technomancer_core/proc/toggle_lock
 	else
 		canremove = FALSE
-	if(!chameleon_options)
+	if(can_chameleon && !chameleon_options)
 		var/list/blocked = list(/obj/item/storage/backpack/satchel/leather/withwallet) + typesof(/obj/item/technomancer_core)
 		chameleon_options = list("Reset")
 		chameleon_options += generate_chameleon_choices(/obj/item/storage/backpack, blocked)
+		verbs += /obj/item/technomancer_core/proc/change_appearance
 
 /obj/item/technomancer_core/Destroy()
 	dismiss_all_summons()
@@ -69,11 +72,8 @@
 
 // 'pay_energy' is too vague of a name for a proc at the mob level.
 /mob/proc/technomancer_pay_energy(amount)
-	return FALSE
-
-/mob/living/carbon/human/technomancer_pay_energy(amount)
-	if(istype(back, /obj/item/technomancer_core))
-		var/obj/item/technomancer_core/TC = back
+	var/obj/item/technomancer_core/TC = get_technomancer_core()
+	if(TC)
 		return TC.pay_energy(amount)
 	return FALSE
 
@@ -144,7 +144,7 @@
 		wards_in_use -= ward
 		qdel(ward)
 
-/obj/item/technomancer_core/verb/change_appearance(picked in chameleon_options)
+/obj/item/technomancer_core/proc/change_appearance(picked in chameleon_options)
 	set name = "Change Core Appearance"
 	set category = "Chameleon Items"
 	set src in usr
@@ -202,8 +202,8 @@
 /mob/living/carbon/human/Stat()
 	. = ..()
 
-	if(. && istype(back,/obj/item/technomancer_core))
-		var/obj/item/technomancer_core/core = back
+	var/obj/item/technomancer_core/core = get_technomancer_core()
+	if(core)
 		setup_technomancer_stat(core)
 
 /mob/living/carbon/human/proc/setup_technomancer_stat(var/obj/item/technomancer_core/core)
@@ -249,8 +249,9 @@
 
 /mob/living/carbon/human/proc/wiz_energy_update_hud()
 	if(client && hud_used)
-		if(istype(back, /obj/item/technomancer_core)) //I reckon there's a better way of doing this.
-			var/obj/item/technomancer_core/core = back
+		//I reckon there's a better way of doing this.
+		var/obj/item/technomancer_core/core = get_technomancer_core()
+		if(core)
 			energy_display.set_invisibility(0)
 			instability_display.set_invisibility(0)
 			var/ratio = core.energy / core.max_energy
@@ -386,6 +387,22 @@
 	instability_modifier = 0.75
 	never_remove = TRUE
 
+/obj/item/technomancer_core/bracelet
+	name = "bracelet core"
+	desc = "A bewilderingly complex 'black box' that allows the wearer to accomplish amazing feats.  This variant is miniaturized and made to be simple to use, even though the internals are... nearly impossible to decipher."
+	icon_state = "bracelet_core"
+	item_state = "bracelet_core"
+	contained_sprite = TRUE
+	w_class = ITEMSIZE_SMALL
+	slot_flags = SLOT_WRISTS
+	energy = 5000
+	max_energy = 5000
+	regen_rate = 50 // 100 seconds to full
+	instability_modifier = 0.6
+	energy_cost_modifier = 0.6
+	spell_power_modifier = 0.6
+	can_chameleon = FALSE
+	simple_operation = TRUE
 
 /obj/item/technomancer_core/proc/toggle_lock()
 	set name = "Toggle Core Lock"
