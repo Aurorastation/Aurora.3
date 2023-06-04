@@ -1,4 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ad" = (
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = 18
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "ag" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -105,6 +112,10 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/construction/qmaint)
+"fj" = (
+/obj/item/modular_computer/console/preset/security/hos,
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "fq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -176,6 +187,12 @@
 	},
 /turf/simulated/floor/wood/coloured/bamboo,
 /area/construction/storage)
+"gP" = (
+/obj/item/modular_computer/console/preset/security/hos{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "gQ" = (
 /obj/machinery/door/airlock/generic/service,
 /turf/simulated/floor/wood/coloured/birch,
@@ -572,6 +589,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"wB" = (
+/obj/machinery/light{
+	brightness_range = 16;
+	dir = 8;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "wD" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -767,6 +792,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/construction/qmaint)
+"DN" = (
+/obj/item/modular_computer/console/preset/security/hos{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "EA" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/construction/solarscontrol)
@@ -848,6 +879,12 @@
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
+"Iw" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Ix" = (
 /obj/structure/table/wood,
 /obj/machinery/light{
@@ -895,6 +932,10 @@
 	},
 /turf/simulated/floor,
 /area/antag/mercenary)
+"Kb" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Km" = (
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/antag/mercenary)
@@ -922,6 +963,12 @@
 /obj/structure/bed/stool/chair/padded/red,
 /turf/simulated/floor/tiled/dark,
 /area/antag/mercenary)
+"Lb" = (
+/obj/item/modular_computer/console/preset/security/hos{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Lz" = (
 /obj/machinery/camera/network{
 	pixel_y = 18
@@ -969,6 +1016,9 @@
 	},
 /turf/simulated/floor,
 /area/construction/hallway)
+"Na" = (
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Nw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1168,6 +1218,10 @@
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
+"Ts" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Tx" = (
 /turf/simulated/wall,
 /area/construction/storage)
@@ -1208,7 +1262,7 @@
 /area/construction/solarscontrol)
 "VE" = (
 /obj/machinery/power/apc{
-	pixel_y = 18;
+	pixel_y = 14;
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1219,6 +1273,14 @@
 	},
 /turf/simulated/floor/wood/coloured/bamboo,
 /area/construction/storage)
+"Wo" = (
+/obj/machinery/light{
+	brightness_range = 16;
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "WB" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -29525,15 +29587,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
 pz
 pz
 pz
@@ -29782,15 +29844,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Na
+wB
+Na
+Na
+Na
+wB
+Na
+Uv
 pz
 pz
 cJ
@@ -30039,15 +30101,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Iw
+Na
+Na
+gP
+Na
+Na
+Kb
+Uv
 pz
 pz
 cJ
@@ -30296,15 +30358,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Ts
+Na
+Na
+Na
+Na
+Na
+Na
+Uv
 pz
 pz
 cJ
@@ -30553,15 +30615,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Na
+fj
+Na
+Na
+Na
+DN
+Na
+Uv
 pz
 pz
 cJ
@@ -30810,15 +30872,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+ad
+Na
+Na
+Na
+Na
+Na
+Na
+Uv
 pz
 pz
 cJ
@@ -31067,15 +31129,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Iw
+Na
+Na
+Lb
+Na
+Na
+Kb
+Uv
 pz
 pz
 pz
@@ -31324,15 +31386,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Na
+Wo
+Na
+Na
+Na
+Wo
+Na
+Uv
 pz
 pz
 IO
@@ -31581,15 +31643,15 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
 pz
 pz
 IO
