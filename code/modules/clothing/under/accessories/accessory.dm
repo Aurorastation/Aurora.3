@@ -42,7 +42,7 @@
 		inv_overlay = image(icon = I, icon_state = tmp_icon_state, dir = SOUTH)
 	if(color)
 		inv_overlay.color = color
-	if(build_from_parts)
+	if(build_from_parts && overlay_in_inventory)
 		inv_overlay.cut_overlays()
 		inv_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
