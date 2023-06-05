@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - rscadd: "Added a selection of (colourable) pronoun pins to the pins selection in the loadout."
   - tweak: "Renamed 'pin tag (colorable)' in the loadout to 'pins selection', and made it a list. If you were using the name pin before, you may need to reselect it."
+  - backend: "Added a var to accessories to allow some more customisation with colourable overlays. Allows deciding if the overlay should apply to the item it's attached to or not."
