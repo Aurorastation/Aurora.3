@@ -1476,6 +1476,8 @@
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
+	speech_bubble_type = species.possible_speech_bubble_types[1]
+
 	fill_out_culture_data()
 
 	if(change_hair)

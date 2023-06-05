@@ -23,6 +23,8 @@
 	var/list/whitelist
 	var/list/blacklist
 
+	var/list/culture_map = list()
+	var/list/origin_map = list()
 	var/list/culture_restrictions = list()
 	var/list/origin_restrictions = list()
 
@@ -43,169 +45,179 @@
 	origin_restrictions = culture_restriction
 	generate_data(check_whitelist, whitelist, blacklist)
 
-/datum/vueui_module/appearance_changer/Topic(ref, href_list, var/datum/ui_state/state = ui_state)
-	if(..())
-		return 1
+/datum/vueui_module/appearance_changer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
 	var/mob/living/carbon/human/owner = target_human.resolve()
 	if(!istype(owner))
 		return FALSE
 
-	if(href_list["race"])
-		if(can_change(APPEARANCE_RACE) && (href_list["race"] in valid_species))
-			if(owner.change_species(href_list["race"]))
+	switch(action)
+		if("race")
+			if(can_change(APPEARANCE_RACE) && (params["race"] in valid_species))
+				if(owner.change_species(params["race"]))
+					clear_and_generate_data()
+					. = TRUE
+		if("gender")
+			if(can_change(APPEARANCE_GENDER))
+				if(owner.change_gender(params["gender"]))
+					clear_and_generate_data()
+					. = TRUE
+		if("pronouns")
+			if(can_change(APPEARANCE_GENDER))
+				owner.pronouns = params["pronouns"]
 				clear_and_generate_data()
-				return 1
-	if(href_list["gender"])
-		if(can_change(APPEARANCE_GENDER))
-			if(owner.change_gender(href_list["gender"]))
-				clear_and_generate_data()
-				return 1
-	if(href_list["pronouns"])
-		if(can_change(APPEARANCE_GENDER))
-			owner.pronouns = href_list["pronouns"]
-			clear_and_generate_data()
-			return 1
-	if(href_list["skin_tone"])
-		if(can_change_skin_tone())
-			var/new_s_tone = input(usr, "Choose your character's skin-tone:\n(Light 30 - 220 Dark)", "Skin Tone", -owner.s_tone + 35) as num|null
-			if(isnum(new_s_tone))
-				new_s_tone = 35 - max(min( round(new_s_tone), 220),30)
-				return owner.change_skin_tone(new_s_tone)
-	if(href_list["skin_color"])
-		if(can_change_skin_color())
-			var/new_skin = input(usr, "Choose your character's skin colour: ", "Skin Color", rgb(owner.r_skin, owner.g_skin, owner.b_skin)) as color|null
-			if(new_skin)
-				var/r_skin = hex2num(copytext(new_skin, 2, 4))
-				var/g_skin = hex2num(copytext(new_skin, 4, 6))
-				var/b_skin = hex2num(copytext(new_skin, 6, 8))
-				if(owner.change_skin_color(r_skin, g_skin, b_skin))
+				. = TRUE
+		if("skin_tone")
+			if(can_change_skin_tone())
+				var/new_s_tone = input(usr, "Choose your character's skin-tone:\n(Light 30 - 220 Dark)", "Skin Tone", -owner.s_tone + 35) as num|null
+				if(isnum(new_s_tone))
+					new_s_tone = 35 - max(min( round(new_s_tone), 220),30)
+					. = owner.change_skin_tone(new_s_tone)
+		if("skin_color")
+			if(can_change_skin_color())
+				var/new_skin = input(usr, "Choose your character's skin colour: ", "Skin Color", rgb(owner.r_skin, owner.g_skin, owner.b_skin)) as color|null
+				if(new_skin)
+					var/r_skin = hex2num(copytext(new_skin, 2, 4))
+					var/g_skin = hex2num(copytext(new_skin, 4, 6))
+					var/b_skin = hex2num(copytext(new_skin, 6, 8))
+					if(owner.change_skin_color(r_skin, g_skin, b_skin))
+						update_dna()
+						. = TRUE
+		if("skin_preset")
+			if(can_change_skin_preset())
+				var/new_preset = input(usr, "Choose your character's body color preset:", "Character Preference", rgb(owner.r_skin, owner.g_skin, owner.b_skin)) as null|anything in owner.species.character_color_presets
+				if(new_preset)
+					new_preset = owner.species.character_color_presets[new_preset]
+					var/r_skin = GetRedPart(new_preset)
+					var/g_skin = GetGreenPart(new_preset)
+					var/b_skin = GetBluePart(new_preset)
+					if(owner.change_skin_color(r_skin, g_skin, b_skin))
+						update_dna()
+						. = TRUE
+		if("hair")
+			if(can_change(APPEARANCE_HAIR) && (params["hair"] in valid_hairstyles))
+				if(owner.change_hair(params["hair"]))
 					update_dna()
-					return 1
-	if(href_list["skin_preset"])
-		if(can_change_skin_preset())
-			var/new_preset = input(usr, "Choose your character's body color preset:", "Character Preference", rgb(owner.r_skin, owner.g_skin, owner.b_skin)) as null|anything in owner.species.character_color_presets
-			if(new_preset)
-				new_preset = owner.species.character_color_presets[new_preset]
-				var/r_skin = GetRedPart(new_preset)
-				var/g_skin = GetGreenPart(new_preset)
-				var/b_skin = GetBluePart(new_preset)
-				if(owner.change_skin_color(r_skin, g_skin, b_skin))
+					. = TRUE
+		if("hair_color")
+			if(can_change(APPEARANCE_HAIR_COLOR))
+				var/new_hair = input("Please select hair color.", "Hair Color", rgb(owner.r_hair, owner.g_hair, owner.b_hair)) as color|null
+				if(new_hair)
+					var/r_hair = hex2num(copytext(new_hair, 2, 4))
+					var/g_hair = hex2num(copytext(new_hair, 4, 6))
+					var/b_hair = hex2num(copytext(new_hair, 6, 8))
+					if(owner.change_hair_color(r_hair, g_hair, b_hair))
+						update_dna()
+						. = TRUE
+		if("facial_hair")
+			if(can_change(APPEARANCE_FACIAL_HAIR) && (params["facial_hair"] in valid_facial_hairstyles))
+				if(owner.change_facial_hair(params["facial_hair"]))
 					update_dna()
-					return 1
-	if(href_list["hair"])
-		if(can_change(APPEARANCE_HAIR) && (href_list["hair"] in valid_hairstyles))
-			if(owner.change_hair(href_list["hair"]))
-				update_dna()
-				return 1
-	if(href_list["hair_color"])
-		if(can_change(APPEARANCE_HAIR_COLOR))
-			var/new_hair = input("Please select hair color.", "Hair Color", rgb(owner.r_hair, owner.g_hair, owner.b_hair)) as color|null
-			if(new_hair)
-				var/r_hair = hex2num(copytext(new_hair, 2, 4))
-				var/g_hair = hex2num(copytext(new_hair, 4, 6))
-				var/b_hair = hex2num(copytext(new_hair, 6, 8))
-				if(owner.change_hair_color(r_hair, g_hair, b_hair))
-					update_dna()
-					return 1
-	if(href_list["facial_hair"])
-		if(can_change(APPEARANCE_FACIAL_HAIR) && (href_list["facial_hair"] in valid_facial_hairstyles))
-			if(owner.change_facial_hair(href_list["facial_hair"]))
-				update_dna()
-				return 1
-	if(href_list["facial_hair_color"])
-		if(can_change(APPEARANCE_FACIAL_HAIR_COLOR))
-			var/new_facial = input("Please select facial hair color.", "Facial Hair Color", rgb(owner.r_facial, owner.g_facial, owner.b_facial)) as color|null
-			if(new_facial)
-				var/r_facial = hex2num(copytext(new_facial, 2, 4))
-				var/g_facial = hex2num(copytext(new_facial, 4, 6))
-				var/b_facial = hex2num(copytext(new_facial, 6, 8))
-				if(owner.change_facial_hair_color(r_facial, g_facial, b_facial))
-					update_dna()
-					return 1
-	if(href_list["eye_color"])
-		if(can_change(APPEARANCE_EYE_COLOR))
-			var/new_eyes = input("Please select eye color.", "Eye Color", rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)) as color|null
-			if(new_eyes)
-				var/r_eyes = hex2num(copytext(new_eyes, 2, 4))
-				var/g_eyes = hex2num(copytext(new_eyes, 4, 6))
-				var/b_eyes = hex2num(copytext(new_eyes, 6, 8))
-				if(owner.change_eye_color(r_eyes, g_eyes, b_eyes))
-					update_dna()
-					return 1
-	if(href_list["culture"])
-		if(can_change(APPEARANCE_CULTURE))
-			var/new_culture_id = href_list["culture"]
-			if(new_culture_id in valid_cultures)
-				var/singleton/origin_item/culture/new_culture = valid_cultures[new_culture_id]
-				owner.culture = new_culture
-				owner.culture.on_apply(owner)
-				if(!(owner.origin in new_culture.possible_origins))
-					owner.origin = GET_SINGLETON(pick(new_culture.possible_origins))
-				clear_and_generate_data()
-			return 1
-	if(href_list["origin"])
-		if(can_change(APPEARANCE_CULTURE))
-			var/new_origin_id = href_list["origin"]
-			if(new_origin_id in valid_origins)
-				var/singleton/origin_item/origin/new_origin = valid_origins[new_origin_id]
-				owner.origin = new_origin
-				owner.origin.on_apply(owner)
-				if(!(owner.accent in new_origin.possible_accents))
-					owner.accent = new_origin.possible_accents[1]
-				if(!(owner.religion in new_origin.possible_religions))
-					owner.religion = new_origin.possible_religions[1]
-				if(!(owner.citizenship in new_origin.possible_religions))
-					owner.citizenship = new_origin.possible_citizenships[1]
-				clear_and_generate_data()
-			return 1
-	if(href_list["citizenship"])
-		if(can_change(APPEARANCE_CULTURE))
-			var/new_citizenship = href_list["citizenship"]
-			if(new_citizenship in valid_citizenships)
-				owner.citizenship = new_citizenship
-				clear_and_generate_data()
-			return 1
-	if(href_list["accent"])
-		if(can_change(APPEARANCE_CULTURE))
-			if(owner.set_accent(href_list["accent"]))
-				clear_and_generate_data()
-			return 1
-	if(href_list["language"])
-		if(can_change(APPEARANCE_LANGUAGE) && (href_list["language"] in valid_languages))
-			if(owner.add_or_remove_language(href_list["language"]))
-				clear_and_generate_data()
-			return 1
+					. = TRUE
+		if("facial_hair_color")
+			if(can_change(APPEARANCE_FACIAL_HAIR_COLOR))
+				var/new_facial = input("Please select facial hair color.", "Facial Hair Color", rgb(owner.r_facial, owner.g_facial, owner.b_facial)) as color|null
+				if(new_facial)
+					var/r_facial = hex2num(copytext(new_facial, 2, 4))
+					var/g_facial = hex2num(copytext(new_facial, 4, 6))
+					var/b_facial = hex2num(copytext(new_facial, 6, 8))
+					if(owner.change_facial_hair_color(r_facial, g_facial, b_facial))
+						update_dna()
+						. = TRUE
+		if("eye_color")
+			if(can_change(APPEARANCE_EYE_COLOR))
+				var/new_eyes = input("Please select eye color.", "Eye Color", rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)) as color|null
+				if(new_eyes)
+					var/r_eyes = hex2num(copytext(new_eyes, 2, 4))
+					var/g_eyes = hex2num(copytext(new_eyes, 4, 6))
+					var/b_eyes = hex2num(copytext(new_eyes, 6, 8))
+					if(owner.change_eye_color(r_eyes, g_eyes, b_eyes))
+						update_dna()
+						. = TRUE
+		if("culture")
+			if(can_change(APPEARANCE_CULTURE))
+				var/new_culture_id = params["culture"]
+				if(new_culture_id in valid_cultures)
+					var/singleton/origin_item/culture/new_culture = culture_map[new_culture_id]
+					owner.culture = new_culture
+					owner.culture.on_apply(owner)
+					if(!(owner.origin in new_culture.possible_origins))
+						owner.origin = GET_SINGLETON(pick(new_culture.possible_origins))
+					clear_and_generate_data()
+				. = TRUE
+		if("origin")
+			if(can_change(APPEARANCE_CULTURE))
+				var/new_origin_id = params["origin"]
+				if(new_origin_id in valid_origins)
+					var/singleton/origin_item/origin/new_origin = origin_map[new_origin_id]
+					owner.origin = new_origin
+					owner.origin.on_apply(owner)
+					if(!(owner.accent in new_origin.possible_accents))
+						owner.accent = new_origin.possible_accents[1]
+					if(!(owner.religion in new_origin.possible_religions))
+						owner.religion = new_origin.possible_religions[1]
+					if(!(owner.citizenship in new_origin.possible_religions))
+						owner.citizenship = new_origin.possible_citizenships[1]
+					clear_and_generate_data()
+				. = TRUE
+		if("citizenship")
+			if(can_change(APPEARANCE_CULTURE))
+				var/new_citizenship = params["citizenship"]
+				if(new_citizenship in valid_citizenships)
+					owner.citizenship = new_citizenship
+					clear_and_generate_data()
+				. = TRUE
+		if("accent")
+			if(can_change(APPEARANCE_CULTURE))
+				if(owner.set_accent(params["accent"]))
+					clear_and_generate_data()
+				. = TRUE
+		if("language")
+			if(can_change(APPEARANCE_LANGUAGE) && (params["language"] in valid_languages))
+				if(owner.add_or_remove_language(params["language"]))
+					clear_and_generate_data()
+				. = TRUE
+		if("speech_bubble")
+			if(can_change(APPEARANCE_RACE) && (params["speech_bubble"] in owner.species.possible_speech_bubble_types))
+				owner.speech_bubble_type = params["speech_bubble"]
+				. = TRUE
 
-	return 0
-
-/datum/vueui_module/appearance_changer/ui_interact(var/mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+/datum/vueui_module/appearance_changer/ui_interact(var/mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "misc-appearancechanger", 800, 450, name, state = ui_state, set_state_object = state_object)
-	ui.open()
+		ui = new(user, src, "AppearanceChanger", "Appearance Changer", 800, 450)
+		ui.open()
 
-/datum/vueui_module/appearance_changer/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		data = list()
+/datum/vueui_module/appearance_changer/ui_state(mob/user)
+	return always_state
+
+/datum/vueui_module/appearance_changer/ui_status(mob/user, datum/ui_state/state)
+	return UI_INTERACTIVE
+
+/datum/vueui_module/appearance_changer/ui_data(mob/user)
+	var/list/data = list()
 
 	var/mob/living/carbon/human/owner = target_human.resolve()
 	if(!istype(owner))
 		to_chat(user, SPAN_WARNING("We couldn't find you, closing."))
-		ui.close()
+		SStgui.close_uis(src)
 		return
 
 	data["owner_species"] = owner.species.name
 	data["change_race"] = can_change(APPEARANCE_RACE)
 	data["valid_species"] = valid_species
+	data["valid_speech_bubbles"] = owner.species.possible_speech_bubble_types
+	data["owner_speech_bubble"] = owner.speech_bubble_type
 
 	data["owner_gender"] = owner.gender
 	data["owner_pronouns"] = owner.pronouns
 	data["change_gender"] = can_change(APPEARANCE_GENDER)
-	data["valid_gender"] = valid_genders
+	data["valid_genders"] = valid_genders
 	data["valid_pronouns"] = valid_pronouns
 
-	
 	data["change_culture"] = can_change(APPEARANCE_CULTURE)
 	data["owner_culture"] = owner.culture.name
 	data["valid_cultures"] = valid_cultures
@@ -313,20 +325,23 @@
 			if(length(culture_restrictions))
 				if(!(CI.type in culture_restrictions))
 					continue
-			valid_cultures[CI.name] = CI
+			valid_cultures += CI.name
+			culture_map[CI.name] = CI
 		if(length(culture_restrictions))
 			for(var/culture in culture_restrictions)
 				var/singleton/origin_item/culture/CL = GET_SINGLETON(culture)
 				for(var/origin in CL.possible_origins)
 					var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
-					valid_origins[OI.name] = OI
+					valid_origins += OI.name
+					origin_map[OI.name] = OI
 		var/singleton/origin_item/culture/OC = owner.culture
 		for(var/origin in OC.possible_origins)
 			var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
 			if(length(origin_restrictions))
 				if(!(OI.type in origin_restrictions))
 					continue
-			valid_origins[OI.name] = OI
+			valid_origins += OI.name
+			origin_map[OI.name] = OI
 		valid_citizenships = owner.origin.possible_citizenships
 		valid_accents = owner.origin.possible_accents
 	if(!length(valid_languages))
