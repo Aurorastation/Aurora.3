@@ -119,7 +119,7 @@
 
 /mob/living/carbon/human/proc/get_blood_oxygenation()
 	var/blood_volume = get_blood_circulation()
-	if(is_asystole()) // Heart is missing or isn't beating and we're not breathing (hardcrit)
+	if(is_asystole() || (status_flags & FAKEDEATH)) // Heart is missing or isn't beating and we're not breathing (hardcrit)
 		return min(blood_volume, BLOOD_VOLUME_SURVIVE)
 
 	if(!need_breathe())
@@ -176,7 +176,7 @@
 	vessel.add_reagent(/singleton/reagent/blood, amount, REAGENT_DATA(donor, /singleton/reagent/blood), temperature = species?.body_temperature)
 	..()
 
-proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
+/proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 	if(!donor || !receiver) return 0
 
 	if(donor_species && receiver_species)

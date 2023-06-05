@@ -6,7 +6,7 @@
 	density = TRUE
 	layer = ABOVE_ALL_MOB_LAYER
 	pixel_x = -32
-	pixel_y = -32
+	pixel_y = -24
 	var/image/star_system_image
 
 /obj/machinery/stargazer/Initialize(mapload, d, populate_components)

@@ -20,10 +20,10 @@
 
 	if(queue_neighbors)
 		queue_smooth_neighbors(src)
-	else
+	else if(smooth && !(smooth & SMOOTH_QUEUED)) // we check here because proc overhead
 		queue_smooth(src)
 
-	if (current_map.use_overmap && istype(loc, /area/exoplanet))
+	if (current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 		if (istype(E) && istype(E.theme))
 			E.theme.on_turf_generation(src, E.planetary_area)
@@ -34,7 +34,7 @@
 
 //Creates a new turf.
 // N is the type of the turf.
-/turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, var/ignore_override)
+/turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	if (!N)
 		return
 
@@ -117,7 +117,7 @@
 
 	W.decals = old_decals
 
-	W.post_change()
+	W.post_change(!mapload)
 
 	. = W
 

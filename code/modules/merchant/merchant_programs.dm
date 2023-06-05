@@ -254,3 +254,7 @@
 /datum/computer_file/program/merchant/nka
 	required_access_run = list(access_nka)
 	required_access_download = list(access_nka)
+
+/datum/computer_file/program/merchant/guild
+	required_access_run = list(access_merchants_guild)
+	required_access_download = list(access_merchants_guild)

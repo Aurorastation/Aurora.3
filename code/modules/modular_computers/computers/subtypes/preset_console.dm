@@ -180,6 +180,9 @@
 /obj/item/modular_computer/console/preset/merchant/nka
 	_app_preset_type = /datum/modular_computer_app_presets/merchant/nka
 
+/obj/item/modular_computer/console/preset/merchant/guild
+	_app_preset_type = /datum/modular_computer_app_presets/merchant/guild
+
 // AI
 /obj/item/modular_computer/console/preset/ai
 	_app_preset_type = /datum/modular_computer_app_presets/ai

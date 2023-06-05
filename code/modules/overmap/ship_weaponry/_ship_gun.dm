@@ -319,4 +319,13 @@
 	is_barrel = TRUE
 
 // ^^
-// Cardinal variants of the "ship weapon barrel dummy" intentionally left out since ship guns only face south and thus only fire south.
+//Cardinal variants of the "ship weapon barrel dummy" intentionally left out since ship guns only face south and thus only fire south.
+
+/obj/machinery/computer/ship/targeting/cockpit
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "left"
+	icon_screen = "targeting"
+	icon_keyboard = null
+	circuit = null
+

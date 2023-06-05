@@ -25,7 +25,7 @@
 	if(opacity && .)
 		updateVisibility(src)
 
-/turf/ChangeTurf()
+/turf/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	. = ..()
 	if(.)
 		updateVisibility(src, FALSE)

@@ -261,7 +261,7 @@
 			TEST_FAIL("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
 
 	next_turf:
-		for(var/turf/T in turfs)
+		for(var/turf/T in world)
 			for(var/dir in cardinal)
 				var/list/connect_types = list(1 = 0, 2 = 0, 3 = 0)
 				for(var/obj/machinery/atmospherics/pipe in T)

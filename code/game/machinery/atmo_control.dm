@@ -78,7 +78,7 @@
 	. = ..()
 	set_frequency(frequency)
 
-obj/machinery/air_sensor/Destroy()
+/obj/machinery/air_sensor/Destroy()
 	if(SSradio)
 		SSradio.remove_object(src,frequency)
 	return ..()

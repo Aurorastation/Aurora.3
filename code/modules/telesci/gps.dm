@@ -374,4 +374,12 @@ var/list/GPS_list = list()
 	gps_prefix = "COM"
 	compass_color = "#193A7A"
 	gpstag = "INTREPID"
+
+/obj/item/device/gps/stationary/sccv_canary
+	name = "static GPS (SCCV Canary)"
+	desc = "A static global positioning system helpful for finding your way back to the SCCV Canary."
+	icon_state = "gps-com"
+	gps_prefix = "COM"
+	compass_color = "#57c5e0"
+	gpstag = "CANARY"
 /********** Static GPS End **********/

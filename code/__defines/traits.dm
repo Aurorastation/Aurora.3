@@ -145,6 +145,9 @@
 /// This mob should never close UI even if it doesn't have a client
 #define TRAIT_PRESERVE_UI_WITHOUT_CLIENT "preserve_ui_without_client"
 
+/// when mobs are viewing something via a computer, currently used for the helm computer
+#define TRAIT_COMPUTER_VIEW "computer_view"
+
 // IPC OVERLOADER OVERDOSE STATES
 #define TRAIT_SOURCE_OVERLOADER "overloader"
 #define TRAIT_OVERLOADER_OD_INITIAL "overloader_od_initial"

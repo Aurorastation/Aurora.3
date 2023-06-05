@@ -917,11 +917,8 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/janitor)
 "eJp" = (
-/obj/structure/sign/flag/vysoka/right{
-	pixel_y = 32
-	},
 /obj/item/clothing/accessory/flagpatch/vysoka,
-/obj/item/clothing/head/softcap/vysoka,
+/obj/item/clothing/head/vysoka,
 /obj/structure/table/wood,
 /obj/item/clothing/accessory/badge/passcard/coalition,
 /turf/simulated/floor/carpet/red,
@@ -1378,9 +1375,6 @@
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/structure/sign/flag/coalition/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
 "gWX" = (
@@ -1608,10 +1602,7 @@
 /area/ship/ranger_corvette/medbay)
 "ieN" = (
 /obj/structure/table/steel,
-/obj/structure/sign/flag/gadpathur/left{
-	dir = 4;
-	pixel_x = 32
-	},
+/obj/structure/sign/flag/gadpathur/large/east,
 /obj/item/clothing/accessory/flagpatch/gadpathur,
 /obj/item/clothing/accessory/dogtags/gadpathur,
 /obj/effect/floor_decal/spline/plain{
@@ -2696,7 +2687,7 @@
 	pixel_x = -3;
 	pixel_y = 1
 	},
-/obj/structure/sign/flag/coalition/left{
+/obj/structure/sign/flag/coalition/large/south{
 	pixel_y = -32
 	},
 /obj/machinery/light{
@@ -3131,9 +3122,6 @@
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "pOf" = (
-/obj/structure/sign/flag/coalition/right{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
@@ -3716,10 +3704,6 @@
 /area/ship/ranger_corvette/foyer)
 "stJ" = (
 /obj/structure/table/steel,
-/obj/structure/sign/flag/gadpathur/right{
-	dir = 4;
-	pixel_x = 32
-	},
 /obj/item/shovel/gadpathur,
 /obj/item/device/versebook/gadpathur,
 /obj/machinery/light{
@@ -4338,9 +4322,7 @@
 /area/ship/ranger_corvette/bathroom)
 "umS" = (
 /obj/structure/bed,
-/obj/structure/sign/flag/vysoka/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/vysoka/large/north,
 /obj/item/photo{
 	desc = "Pictured is someone standing beside a Gurmori infront of rolling hills."
 	},
@@ -4962,9 +4944,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "wYR" = (
-/obj/structure/sign/flag/coalition/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/coalition/large/north,
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)

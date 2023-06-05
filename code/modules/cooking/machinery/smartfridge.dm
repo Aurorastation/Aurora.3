@@ -114,6 +114,7 @@
 	icon_state = "smartfridge_food"
 	icon_on = "smartfridge_food"
 	icon_off = "smartfridge_food-off"
+	opacity = FALSE
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 
 /obj/machinery/smartfridge/seeds

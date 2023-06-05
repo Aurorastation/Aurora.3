@@ -53,6 +53,7 @@
 
 // /mob signals
 #define COMSIG_MOB_FACEDIR "mob_facedir"
+#define COMSIG_MOB_POINT "mob_point"
 
 // /obj signals
 /// when a hood is unequipped

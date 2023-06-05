@@ -738,6 +738,7 @@
 	icon_state = SEED_NOUN_SEEDS
 	vend_id = SEED_NOUN_SEEDS
 	products = list(
+		/obj/item/seeds/aghrasshseed = 3,
 		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
@@ -759,6 +760,7 @@
 		/obj/item/seeds/eggplantseed = 3,
 		/obj/item/seeds/eki = 3,
 		/obj/item/seeds/garlicseed = 3,
+		/obj/item/seeds/gukheseed = 3,
 		/obj/item/seeds/grapeseed = 3,
 		/obj/item/seeds/grassseed = 3,
 		/obj/item/seeds/greengrapeseed = 3,
@@ -785,8 +787,11 @@
 		/obj/item/seeds/reishimycelium = 3,
 		/obj/item/seeds/riceseed = 3,
 		/obj/item/seeds/richcoffeeseed = 3,
+		/obj/item/seeds/sarezhiseed = 3,
+		/obj/item/seeds/serkiflowerseed,
 		/obj/item/seeds/shandseed = 3,
 		/obj/item/seeds/soyaseed = 3,
+		/obj/item/seeds/sthberryseed = 3,
 		/obj/item/seeds/strawberryseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
@@ -800,6 +805,7 @@
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/wulumunushaseed = 2,
+		/obj/item/seeds/xuiziseed = 3,
 		/obj/item/seeds/ylpha = 3
 	)
 	contraband = list(
