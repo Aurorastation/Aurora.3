@@ -41,7 +41,7 @@
 	tag_icon = "dionae_wastesong"
 	text_tag = "WES"
 	
-/Skrell influenced Accents
+//Skrell influenced Accents
 /datum/accent/wavesong
 	name = ACCENT_WAVESONG
 	description = "A variant of Rootsong originating from Diona born on Skrellian worlds, Wavesong is considered the general accent for Dionae hailing from the Nralakk Federation. While it shares many similarities with Rootsong, Wavesong sets itself apart by having a lower pitch and more drawn-out tempo in comparison. While not considered mandatory, many Dionae living in the Federation will adopt the accent due to it being generally more favored by the Federation, often granting those with the accent a higher social credit score."
