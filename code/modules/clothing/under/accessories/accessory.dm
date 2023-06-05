@@ -1287,10 +1287,6 @@
 
 /obj/item/clothing/accessory/pronoun/hehim
 	name = "he/him pronouns pin"
-	desc = "A pin denoting the wearer's pronouns: any/all."
-
-/obj/item/clothing/accessory/pronoun/hehim
-	name = "he/him pronouns pin"
 	desc = "A pin denoting the wearer's pronouns: he/him."
 
 /obj/item/clothing/accessory/pronoun/hethey
