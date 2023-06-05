@@ -1,7 +1,7 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
 import { capitalize } from '../../common/string';
-import { Button, Collapsible, Section } from '../components';
+import { Button, Collapsible, NumberInput, Section } from '../components';
 import { Window } from '../layouts';
 
 export type ChangerData = {
@@ -10,6 +10,9 @@ export type ChangerData = {
   valid_species: string[];
   owner_speech_bubble: string;
   valid_speech_bubbles: string[];
+  height_max: number;
+  height_min: number;
+  owner_height: number;
 
   owner_gender: string;
   owner_pronouns: string;
@@ -54,12 +57,16 @@ export const AppearanceChanger = (props, context) => {
   return (
     <Window resizable>
       <Window.Content scrollable>
-        {data.change_race && <SpeciesWindow />}
-        {data.change_gender && <GenderWindow />}
-        {data.change_culture && <CultureWindow />}
-        {data.change_language && <LanguagesWindow />}
+        {data.change_race ? <SpeciesWindow /> : ''}
+        {data.change_gender ? <GenderWindow /> : ''}
+        {data.change_culture ? <CultureWindow /> : ''}
+        {data.change_language ? <LanguagesWindow /> : ''}
         <ColorsWindow />
-        {data.change_hair && data.valid_hair_styles.length && <HairWindow />}
+        {data.change_hair && data.valid_hair_styles.length ? (
+          <HairWindow />
+        ) : (
+          ''
+        )}
       </Window.Content>
     </Window>
   );
@@ -80,14 +87,29 @@ export const SpeciesWindow = (props, context) => {
           />
         ))}
       </Collapsible>
-      {data.valid_speech_bubbles.length ? data.valid_speech_bubbles.map((new_speech_bubble) => (
-      <Button
-        key={new_speech_bubble}
-        content={capitalize(new_speech_bubble)}
-        selected={data.owner_speech_bubble === new_speech_bubble}
-        onClick={() => act('speech_bubble', { speech_bubble: new_speech_bubble })}
-      />
-      )) : ""}
+      <Section title="Speech Bubble Type">
+        {data.valid_speech_bubbles.length
+          ? data.valid_speech_bubbles.map((new_speech_bubble) => (
+            <Button
+              key={new_speech_bubble}
+              content={capitalize(new_speech_bubble)}
+              selected={data.owner_speech_bubble === new_speech_bubble}
+              onClick={() =>
+                act('speech_bubble', { speech_bubble: new_speech_bubble })
+              }
+            />
+          ))
+          : ''}
+      </Section>
+      <Section title="Height">
+        <NumberInput
+          value={data.owner_height}
+          maxValue={data.height_max}
+          minValue={data.height_min}
+          unit="cm"
+          onDrag={(e, value) => act('set_height', { height: value })}
+        />
+      </Section>
     </Section>
   );
 };

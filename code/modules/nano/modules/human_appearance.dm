@@ -184,6 +184,8 @@
 			if(can_change(APPEARANCE_RACE) && (params["speech_bubble"] in owner.species.possible_speech_bubble_types))
 				owner.speech_bubble_type = params["speech_bubble"]
 				. = TRUE
+		if("set_height")
+			owner.height = clamp(params["height"], owner.species.height_min, owner.species.height_max)
 
 /datum/vueui_module/appearance_changer/ui_interact(var/mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -211,6 +213,9 @@
 	data["valid_species"] = valid_species
 	data["valid_speech_bubbles"] = owner.species.possible_speech_bubble_types
 	data["owner_speech_bubble"] = owner.speech_bubble_type
+	data["height_max"] = owner.species.height_max
+	data["height_min"] = owner.species.height_min
+	data["owner_height"] = owner.height
 
 	data["owner_gender"] = owner.gender
 	data["owner_pronouns"] = owner.pronouns
