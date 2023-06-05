@@ -25,10 +25,17 @@
 	src.content = content
 
 
-#define STB_MODE_FIXEDTTL BITFLAG(1) //All tokens have the same lifetime
-#define STB_MODE_VARIABLETTL BITFLAG(2) //Each token can specify a different lifetime
+///All tokens have the same lifetime, set on the bucket
+#define STB_MODE_FIXEDTTL BITFLAG(1)
+///Each token can specify a different lifetime
+#define STB_MODE_VARIABLETTL BITFLAG(2)
+///Used to indicate that each token must expire on its own timer, rather than wait for the next operation on the bucket or the last token to expire to do something
+#define STB_FLAG_LEAKYBUCKET BITFLAG(1)
 
-#define STB_FLAG_LEAKYBUCKET BITFLAG(1) //Used to indicate that each token must expire on its own, rather than wait for the next operation on the bucket to do something
+/// TRUE if the bucket is operating in fixed TTL mode
+#define STB_IS_FIXEDTTL_MODE (HAS_FLAG(src.mode, STB_MODE_FIXEDTTL))
+/// TRUE if the bucket is a leaky bucket
+#define STB_IS_LEAKYBUCKET (HAS_FLAG(src.flags, STB_FLAG_LEAKYBUCKET))
 
 /datum/smart_token_bucket
 	///The content inside the bucket, a list of bucket_tokens
@@ -68,27 +75,23 @@
  * * flags - Fine tuning flags for the bucket behaviour, see STB_FLAG_* defines
  * * tokens_lifetime - The lifetime of the tokens, only used if mode = STB_MODE_FIXEDTTL
  */
-/datum/smart_token_bucket/New(var/mode = STB_MODE_FIXEDTTL, var/flags = null, var/tokens_lifetime)
+/datum/smart_token_bucket/New(var/mode = STB_MODE_FIXEDTTL, var/flags, var/tokens_lifetime)
 
 	if(isnull(mode))
 		crash_with("You must specify a mode.")
-
-	if((mode & STB_MODE_FIXEDTTL) && !tokens_lifetime)
-		crash_with("Trying to initialize a smart token bucket in fixed TTL mode, without specifying the time.")
-	else if((mode & STB_MODE_FIXEDTTL))
-		src.tokens_lifetime = tokens_lifetime
-
 	src.mode = mode
 	src.flags = flags
+
+	if(STB_IS_FIXEDTTL_MODE)
+		if(!tokens_lifetime)
+			crash_with("Trying to initialize a smart token bucket in fixed TTL mode, without specifying the time.")
+		else
+			src.tokens_lifetime = tokens_lifetime
+
 
 
 /// Inserts TOKEN into the binary tree of the bucket
 #define STB_BTREE_INSERT(TOKEN) BINARY_INSERT(TOKEN, src.content, /datum/bucket_token, TOKEN, expire_time, COMPARE_KEY)
-
-/// TRUE if the bucket is operating in fixed TTL mode
-#define STB_IS_FIXEDTTL_MODE (src.mode & STB_MODE_FIXEDTTL)
-/// TRUE if the bucket is a leaky bucket
-#define STB_IS_LEAKYBUCKET (src.flags & STB_FLAG_LEAKYBUCKET)
 
 /// Register a callback timer for the expiration of tokens, in non-leakybucket operation
 #define STB_REGISTER_EXPIRATION_TIMER(TOKEN, WAITTIME) (src.next_expiration_callback = addtimer(CALLBACK(src, PROC_REF(Expire), TOKEN), WAITTIME, TIMER_UNIQUE|TIMER_STOPPABLE))
@@ -110,6 +113,9 @@
 		\
 		STB_CALL_LOWWATERMARK(expiring_token);\
 		src.content.Remove(expiring_token);\
+		if((!STB_IS_LEAKYBUCKET) && !src.next_expiration_callback){\
+			STB_REGISTER_EXPIRATION_TIMER((src.content[src.content.len]), (src.content[(src.content.len)].expire_time - STB_REALTIMESOURCE));\
+		}\
 	}\
 
 
@@ -122,12 +128,42 @@
 	};
 
 
+// /datum/smart_token_bucket/proc/PeekExpired()
+
+// 	if(STB_IS_LEAKYBUCKET)
+// 		crash_with("The bucket is working as leaky bucket, looking for expired tokens when they get popped as soon as they expire makes no sense.")
+
+// 	for(var/datum/bucket_token/token as anything in src.content)
+
+// 		//If we have reached the area where expire_time is greater than our current time, no point in searching anymore
+// 		if(token.expire_time > STB_REALTIMESOURCE)
+// 			return FALSE
+
+// 		//If the expire time is lower than our current time, the token has expired, return it
+// 		if(token.expire_time <= STB_REALTIMESOURCE)
+// 			return token
+
+#define STB_PEEKEXPIRED(RET)\
+	##RET = null;\
+	for(var/datum/bucket_token/expiredtoken as anything in src.content){\
+		if(expiredtoken.expire_time > STB_REALTIMESOURCE){\
+			##RET = FALSE;\
+			break;\
+		}\
+		else{\
+			##RET = expiredtoken;\
+			break;\
+		}\
+	}\
+
+
 #define STB_ONDEMANDPROCESS\
 	do {\
-		var/datum/bucket_token/token = PeekExpired(); \
+		var/datum/bucket_token/token; \
+		STB_PEEKEXPIRED(token);\
 		while(token && (token.expire_time <= STB_REALTIMESOURCE)){\
 			STB_EXPIRE(token);\
-			token = PeekExpired();\
+			STB_PEEKEXPIRED(token);\
 		}\
 		if(!STB_IS_LEAKYBUCKET){\
 			if(src.content.len && !src.next_expiration){\
@@ -261,7 +297,7 @@
 		else
 			STB_ONDEMANDPROCESS
 
-			if(token_content.expire_time >= src.next_expiration)
+			if(!src.next_expiration)
 				STB_PURGE_EXPIRATION_TIMER
 
 				src.next_expiration = token_content.expire_time
@@ -271,7 +307,7 @@
 
 	//If we are in fixedTTL, it is guaranteed that every new token will expire after the ones already present, so we can skip the btree search and just append it
 	//otherwise, we have to use the btree search to insert it at the correct position of the tree
-	if(!STB_IS_FIXEDTTL_MODE)
+	if(!(STB_IS_FIXEDTTL_MODE))
 		STB_BTREE_INSERT(token_content)
 	else
 		src.content += token_content
@@ -375,7 +411,7 @@
 
 /obj/teardropbucket/New(loc, ...)
 	. = ..()
-	stb = new(mode = STB_MODE_FIXEDTTL, flags = null)
+	stb = new(mode = STB_MODE_FIXEDTTL, flags = null, tokens_lifetime = (60 SECONDS))
 	stb.tokens_lifetime = 60 SECONDS
 	stb.low_watermark = 2
 	stb.low_watermark_call = PROC_REF(LowWatermark)
@@ -393,23 +429,53 @@
 
 /obj/teardropbucket/proc/Benchmark(var/tears = 1000)
 
-	stb.tokens_lifetime = 1 SECONDS
+	var/modes = list("FixedTTL" = STB_MODE_FIXEDTTL, "VariableTTL" = STB_MODE_VARIABLETTL)
+	var/flags = list("none" = null, "LeakyBucket" = STB_FLAG_LEAKYBUCKET)
 
-	rustg_time_reset("fff")
-	rustg_time_milliseconds("fff")
+	for(var/mode in modes)
+		for(var/flag in flags)
 
-	for(var/i=0, i<tears, i++)
-		stb.Insert(i)
 
-	to_world("Inserting [tears] tears took [rustg_time_milliseconds("fff")]")
+			if(HAS_FLAG(modes[mode], STB_MODE_FIXEDTTL))
+				stb = new(mode = modes[mode], flags = flags[flag], tokens_lifetime = (1 SECONDS))
+			else
+				stb = new(mode = modes[mode], flags = flags[flag])
 
-	rustg_time_reset("fff")
-	rustg_time_milliseconds("fff")
+			rustg_time_reset("fff")
+			rustg_time_milliseconds("fff")
 
-	while(stb.content.len)
-		stb.OnDemandProcess()
-	to_world("The expiration of [tears] tears took [rustg_time_milliseconds("fff")]")
-	rustg_time_reset("fff")
+			for(var/i=0, i<tears, i++)
+				if(HAS_FLAG(modes[mode], STB_MODE_FIXEDTTL))
+					stb.Insert(i)
+				else
+					stb.Insert(i, (STB_REALTIMESOURCE + 1 SECONDS))
+
+			to_world("Inserting [tears] tears took [rustg_time_milliseconds("fff")] ms, mode [mode] flags [flag]")
+
+			rustg_time_reset("expiration")
+			rustg_time_milliseconds("expiration")
+
+
+			var/sleeptime = 0
+			var/OnDemandProcessingTime = 0
+			while(stb.content.len)
+				if(NOT_FLAG(flags[flag], STB_FLAG_LEAKYBUCKET))
+					rustg_time_reset("OnDemandProcessingTime")
+					rustg_time_milliseconds("OnDemandProcessingTime")
+					stb.OnDemandProcess()
+					OnDemandProcessingTime += rustg_time_milliseconds("OnDemandProcessingTime")
+
+				rustg_time_reset("waiting")
+				rustg_time_milliseconds("waiting")
+				sleep(1)
+				sleeptime += rustg_time_milliseconds("waiting")
+
+			var/expirationTime = NOT_FLAG(flags[flag], STB_FLAG_LEAKYBUCKET) ? OnDemandProcessingTime : (rustg_time_milliseconds("fff")) - sleeptime
+
+			to_world("The expiration of [tears] tears took [expirationTime] ms, mode [mode] flags [flag]")
+			rustg_time_reset("expiration")
+
+			ASSERT(!stb.content.len)
 
 /obj/teardropbucket/verb/PopTear()
 	to_chat(usr, "[stb.Pop()?.content]")
