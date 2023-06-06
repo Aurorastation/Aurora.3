@@ -108,19 +108,18 @@
 
 /obj/machinery/sleeper/attack_hand(var/mob/user)
 	if(..())
-		return 1
+		return TRUE
 
 	ui_interact(user)
 
-/obj/machinery/sleeper/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+/obj/machinery/sleeper/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "medical-sleeper", 1200, 800, "Sleeper")
-		ui.auto_update_content = TRUE
-	ui.open()
+		ui = new(user, src, "Sleeper", "Sleeper", 1200, 800)
+		ui.open()
 
-/obj/machinery/sleeper/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = list()
+/obj/machinery/sleeper/ui_data(mob/user)
+	var/list/data = list()
 	data["power"] = stat & (NOPOWER|BROKEN) ? FALSE : TRUE
 
 	if(occupant)
@@ -180,36 +179,42 @@
 
 	return data
 
-// #TODO-MERGE: Reimport Nanako's bucklesleeperBS
-/obj/machinery/sleeper/Topic(href, href_list)
-	if(..())
-		return 1
+/obj/machinery/sleeper/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
 	if(usr == occupant)
-		to_chat(usr, "<span class='warning'>You can't reach the controls from the inside.</span>")
-		return
+		to_chat(usr, SPAN_WARNING("You can't reach the controls from the inside."))
+		return FALSE
 
 	add_fingerprint(usr)
 
-	if(href_list["eject"])
-		go_out()
-	if(href_list["beaker"])
-		remove_beaker()
-	if(href_list["filter"])
-		if(filtering != text2num(href_list["filter"]))
+	switch(action)
+		if("eject")
+			go_out()
+			. = TRUE
+		if("beaker")
+			remove_beaker()
+			. = TRUE
+		if("filter")
 			toggle_filter()
-	if(href_list["pump"])
-		if(pump != text2num(href_list["pump"]))
+			. = TRUE
+		if("pump")
 			toggle_pump()
-	if(href_list["chemical"] && href_list["amount"])
-		if(occupant?.stat != DEAD)
-			if(text2path(href_list["chemical"]) in available_chemicals)
-				inject_chemical(usr, text2path(href_list["chemical"]), text2num(href_list["amount"]))
-	if(href_list["stasis"])
-		var/nstasis = text2num(href_list["stasis"])
-		if(stasis != nstasis && (nstasis in stasis_settings))
-			stasis = text2num(href_list["stasis"])
-			change_power_consumption(parts_power_usage + (stasis_power * (stasis-1)), POWER_USE_ACTIVE)
+			. = TRUE
+		if("chemical")
+			if(occupant?.stat != DEAD)
+				var/chemical = text2path(params["chemical"])
+				if(chemical in available_chemicals)
+					inject_chemical(usr, chemical, text2num(params["amount"]))
+					. = TRUE
+		if(href_list["stasis"])
+			var/nstasis = text2num(params["stasis"])
+			if(stasis != nstasis && (nstasis in stasis_settings))
+				stasis = text2num(params["stasis"])
+				change_power_consumption(parts_power_usage + (stasis_power * (stasis-1)), POWER_USE_ACTIVE)
+				. = TRUE
 
 	return TRUE
 

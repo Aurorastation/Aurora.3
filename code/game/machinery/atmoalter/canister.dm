@@ -356,7 +356,6 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/ui_data(mob/user)
 	var/list/data = list()
 
-	// this is the data which will be sent to the ui
 	data["name"] = name
 	data["canLabel"] = can_label
 	data["portConnected"] = !!connected_port
