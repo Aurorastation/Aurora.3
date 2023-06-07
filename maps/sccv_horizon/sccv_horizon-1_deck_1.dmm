@@ -4527,6 +4527,14 @@
 	pixel_y = 4;
 	pixel_x = -8
 	},
+/obj/item/reagent_containers/glass/rag{
+	pixel_y = 11;
+	pixel_x = 26
+	},
+/obj/item/reagent_containers/glass/rag{
+	pixel_y = 5;
+	pixel_x = 26
+	},
 /turf/simulated/floor/lino/grey,
 /area/shuttle/intrepid/crew_compartment)
 "dob" = (
@@ -13984,10 +13992,6 @@
 	layer = 2.6
 	},
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/glass/rag{
-	pixel_y = 11;
-	pixel_x = 28
-	},
 /obj/item/material/kitchen/utensil/knife/plastic{
 	pixel_x = 9
 	},
