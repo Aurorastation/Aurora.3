@@ -33,7 +33,7 @@
 	name = ACCENT_SANDSONG
 	description = "Found exclusively in Dionae hailing from the Unathi-Dominated world of Moghes, Sandsong is a distinct variation of Rootsong notable for having its tempo much more drawn out, with tones of higher pitches especially having a much more exaggerated sound. Dionae speaking with the Sandsong accent will typically hold certain speech patterns held by Unathi such as hissing out their S’s and difficulties pronouncing the letter X. "
 	tag_icon = "dionae_sandsong"
-	text_tag = "SNS"
+	text_tag = "SDS"
 	
 /datum/accent/wastesong
 	name = ACCENT_WASTESONG
@@ -52,7 +52,7 @@
 	name = ACCENT_SUNKENSONG
 	description = "Sunkensong is a variant of Voidsong that is common for space-borne Dionae hailing from regions surrounding the Tri-Qyu Nebula. Known for it's lighter pitch and tone, along with it's consistent, even pacing for words, the accent is prevalent amongst Nralakk Federation Diona that originate from wild, voidbound gestalts. Dionae with Sunkensong may attempt to mimic Skrell accents in an attempt to replicate the more popular Starsong, with mixed results."
 	tag_icon = "dionae_sunkensong"
-	text_tag = "SUS"
+	text_tag = "SNS"
 
 /datum/accent/starsong
 	name = ACCENT_STARSONG
