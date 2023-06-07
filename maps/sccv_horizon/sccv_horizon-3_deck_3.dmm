@@ -7300,7 +7300,7 @@
 	dir = 9
 	},
 /obj/machinery/light,
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Deck 3 Telecommunications";
 	charge = 5e+006;
 	input_attempt = 1;
@@ -11076,7 +11076,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "jbg" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Deck 3 Civilian"
 	},
 /obj/structure/cable{
@@ -17121,7 +17121,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "nJT" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Shield Substation";
 	charge = 1e+007;
 	cur_coils = 6;
@@ -19223,7 +19223,7 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/changing)
 "pxf" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Deck 3 Command"
 	},
 /obj/structure/cable,
