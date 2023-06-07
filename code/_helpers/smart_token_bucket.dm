@@ -11,16 +11,23 @@
 	var/expire_time = null
 
 	///The callback to invoke when this token expires
-	var/datum/callback/callback = null
+	var/callback = null
 
-/datum/bucket_token/New(var/content, var/expiration)
+/**
+ * Creates a new bucket_token
+ *
+ * * content - The content of the token, can be anything really
+ * * expiration - The time at which the token expires, NOT A WAITING, A TIME
+ * * callback - The callback to invoke when the token expires
+ */
+/datum/bucket_token/New(var/content, var/expiration, var/callback)
 
 	if(expiration < STB_REALTIMESOURCE)
 		crash_with("The expiration time of the token is in the past, this is not allowed.")
 
 	src.time = STB_REALTIMESOURCE
-	if(!isnull(expiration) && isnum(expiration))
-		src.expire_time = expiration
+	src.expire_time = expiration
+	src.callback = callback
 
 	src.content = content
 
@@ -66,6 +73,9 @@
 	///The function to call below low_watermark, use PROC_REF() or equivalent to reference it at assignment
 	var/low_watermark_call = null
 
+	///If an ondemand run is in progress, internal only
+	var/OnDemandInProgress = FALSE
+
 
 
 /**
@@ -91,10 +101,12 @@
 
 
 /// Inserts TOKEN into the binary tree of the bucket
-#define STB_BTREE_INSERT(TOKEN) BINARY_INSERT(TOKEN, src.content, /datum/bucket_token, TOKEN, expire_time, COMPARE_KEY)
+#define STB_BTREE_INSERT(TOKEN) BINARY_INSERT(TOKEN, src.content, /datum/bucket_token, ##TOKEN, expire_time, COMPARE_KEY)
 
-/// Register a callback timer for the expiration of tokens, in non-leakybucket operation
-#define STB_REGISTER_EXPIRATION_TIMER(TOKEN, WAITTIME) (src.next_expiration_callback = addtimer(CALLBACK(src, PROC_REF(Expire), TOKEN), WAITTIME, TIMER_UNIQUE|TIMER_STOPPABLE))
+/// Register a callback timer for the expiration of tokens, ONLY in non-leakybucket operation
+#define STB_REGISTER_EXPIRATION_TIMER(TOKEN, WAITTIME)\
+	src.next_expiration = ##TOKEN.expire_time;\
+	src.next_expiration_callback = addtimer(CALLBACK(src, PROC_REF(ExpireCallbackTimer), ##TOKEN), max(##WAITTIME, 0), TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /// Checks if the low watermark function needs to be called, and if so calls it with CONTENT as a parameter
 #define STB_CALL_LOWWATERMARK(CONTENT)\
@@ -104,21 +116,6 @@
 		}\
 	}
 
-
-#define STB_EXPIRE(expiring_token)\
-	if((expiring_token in src.content)){\
-		if(expiring_token.callback && istype(expiring_token.callback, /datum/callback/)){\
-			expiring_token.callback.Invoke(expiring_token.content);\
-		}\
-		\
-		STB_CALL_LOWWATERMARK(expiring_token);\
-		src.content.Remove(expiring_token);\
-		if((!STB_IS_LEAKYBUCKET) && !src.next_expiration_callback){\
-			STB_REGISTER_EXPIRATION_TIMER((src.content[src.content.len]), (src.content[(src.content.len)].expire_time - STB_REALTIMESOURCE));\
-		}\
-	}\
-
-
 /// Removes the timer for the expiration of a token and nulls the bucket's next_expiration, in non-leakybucket mode
 #define STB_PURGE_EXPIRATION_TIMER\
 	if(src.next_expiration_callback){\
@@ -127,90 +124,122 @@
 		src.next_expiration_callback = null;\
 	};
 
-
-// /datum/smart_token_bucket/proc/PeekExpired()
-
-// 	if(STB_IS_LEAKYBUCKET)
-// 		crash_with("The bucket is working as leaky bucket, looking for expired tokens when they get popped as soon as they expire makes no sense.")
-
-// 	for(var/datum/bucket_token/token as anything in src.content)
-
-// 		//If we have reached the area where expire_time is greater than our current time, no point in searching anymore
-// 		if(token.expire_time > STB_REALTIMESOURCE)
-// 			return FALSE
-
-// 		//If the expire time is lower than our current time, the token has expired, return it
-// 		if(token.expire_time <= STB_REALTIMESOURCE)
-// 			return token
-
-#define STB_PEEKEXPIRED(RET)\
-	##RET = null;\
-	for(var/datum/bucket_token/expiredtoken as anything in src.content){\
-		if(expiredtoken.expire_time > STB_REALTIMESOURCE){\
-			##RET = FALSE;\
-			break;\
+#define STB_REARMCALLBACK\
+	if((!STB_IS_LEAKYBUCKET)){\
+		if(src.content.len){\
+			STB_REGISTER_EXPIRATION_TIMER((src.content[src.content.len]), (src.content[(src.content.len)].expire_time - STB_REALTIMESOURCE));\
 		}\
 		else{\
-			##RET = expiredtoken;\
-			break;\
+			STB_PURGE_EXPIRATION_TIMER;\
 		}\
 	}\
 
-
-#define STB_ONDEMANDPROCESS\
-	do {\
-		var/datum/bucket_token/token; \
-		STB_PEEKEXPIRED(token);\
-		while(token && (token.expire_time <= STB_REALTIMESOURCE)){\
-			STB_EXPIRE(token);\
-			STB_PEEKEXPIRED(token);\
+/**
+ * Expires a token
+ *
+ * * expiring_token - The token to expire
+ * * SKIP_REMOVE - If to skip the removal from the bucket content, to batch the removal in a single .Cut(), which is more efficient
+ * * SKIP_CHECK - Skips the check to confirm that the token is in the list
+ */
+#define STB_EXPIRE(expiring_token, SKIP_REMOVE, SKIP_CHECK)\
+	if(SKIP_CHECK || (##expiring_token in src.content)){\
+		if(##expiring_token.callback){\
+			call(##expiring_token.callback)(##expiring_token);\
 		}\
-		if(!STB_IS_LEAKYBUCKET){\
-			if(src.content.len && !src.next_expiration){\
-				src.next_expiration = src.content[src.content.len].expire_time;\
+		\
+		STB_CALL_LOWWATERMARK(##expiring_token);\
+		if(!##SKIP_REMOVE){\
+			src.content.Remove(##expiring_token);\
+		}\
+	}
+
+
+
+// #define STB_PEEKEXPIRED(RET)\
+// 	##RET = null;\
+// 	for(var/datum/bucket_token/expiredtoken as anything in src.content){\
+// 		if(expiredtoken.expire_time > STB_REALTIMESOURCE){\
+// 			##RET = FALSE;\
+// 			break;\
+// 		}\
+// 		else{\
+// 			##RET = expiredtoken;\
+// 			break;\
+// 		}\
+// 	}\
+
+
+#define STB_ONDEMANDPROCESS(LIST)\
+	do {\
+		if(!src.OnDemandInProgress){\
+			src.OnDemandInProgress = TRUE;\
+			var/counter = 0;\
+			for(var/datum/bucket_token/token in LIST){\
+				if(token.expire_time <= STB_REALTIMESOURCE){\
+					STB_EXPIRE(token, TRUE, TRUE);\
+					counter += 1;\
+				}\
+				else{\
+					break;\
+				}\
 			}\
+			if(counter){\
+				##LIST?.Cut(1,counter);\
+			}\
+			if(!STB_IS_LEAKYBUCKET){\
+				if(##LIST?.len && !src.next_expiration){\
+					src.next_expiration = ##LIST[##LIST?.len].expire_time;\
+				}\
+			}\
+			src.OnDemandInProgress = FALSE;\
 		}\
 	} while(FALSE)
 
 /// Runs the ondemand processing to find and expire the tokens in fixed TTL mode
-#define STB_RUN_ONDEMAND_PROCESS\
+#define STB_RUN_ONDEMAND_PROCESS(LIST)\
 	if(!STB_IS_LEAKYBUCKET){\
-		STB_ONDEMANDPROCESS;\
+		STB_ONDEMANDPROCESS(##LIST);\
 	};
 
 
-#define STB_PEEKAT(INDEX)\
-	if(!(STB_IS_LEAKYBUCKET)){\
-		STB_RUN_ONDEMAND_PROCESS;\
-	}\
-	return src.content?[INDEX]
+// #define STB_PEEKAT(INDEX)\
+// 	if(INDEX <= src.content.len){\
+// 		if(!(STB_IS_LEAKYBUCKET)){\
+// 			STB_RUN_ONDEMAND_PROCESS;\
+// 		}\
+// 		return src.content[INDEX];\
+// 	}\
+// 	else {\
+// 		return null;\
+// 	}
 
 
-#define STB_POPAT(INDEX)\
-	do {\
-		if(!STB_IS_LEAKYBUCKET){\
-			STB_ONDEMANDPROCESS;\
-			if(INDEX == src.content.len){\
-				STB_PURGE_EXPIRATION_TIMER;\
-				if((src.content.len)-1){\
-					src.next_expiration = src.content[src.content.len-1].expire_time;\
-					STB_REGISTER_EXPIRATION_TIMER(src.content[(src.content.len-1)], (src.content[(src.content.len-1)].expire_time - STB_REALTIMESOURCE));\
-				}\
-			}\
-		}\
-		var/popped = src.content?[INDEX];\
-		if(!popped){\
-			return FALSE;\
-		}\
-		src.content.Remove(popped);\
-		if(STB_IS_FIXEDTTL_MODE){\
-			if(!src.content.len){\
-				STB_PURGE_EXPIRATION_TIMER;\
-			}\
-		}\
-		STB_CALL_LOWWATERMARK(popped);\
-		return popped;\
-	} while (FALSE)
+// #define STB_POPAT(INDEX)\
+// 	do {\
+// 		if(INDEX <= src.content.len){\
+// 			if(!STB_IS_LEAKYBUCKET){\
+// 				STB_ONDEMANDPROCESS;\
+// 				if(INDEX == src.content.len){\
+// 					STB_PURGE_EXPIRATION_TIMER;\
+// 					if((src.content.len)-1){\
+// 						STB_REGISTER_EXPIRATION_TIMER(src.content[(src.content.len-1)], (src.content[(src.content.len-1)].expire_time - STB_REALTIMESOURCE));\
+// 					}\
+// 				}\
+// 			}\
+// 			var/popped = src.content[INDEX];\
+// 			src.content.Remove(popped);\
+// 			if(STB_IS_FIXEDTTL_MODE){\
+// 				if(!src.content.len){\
+// 					STB_PURGE_EXPIRATION_TIMER;\
+// 				}\
+// 			}\
+// 			STB_CALL_LOWWATERMARK(popped);\
+// 			return popped;\
+// 		}\
+// 		else {\
+// 			return null;\
+// 		}\
+// 	} while (FALSE)
 
 
 /**
@@ -218,10 +247,13 @@
  *
  * * token_content - The content that you want to put in the token, or a token
  * * token_expire_time - The expire time of a token, only valid in Variable TTL mode AND if token_content is not a token itself
+ * * callback - The callback to call when the token expired
  *
  * Returns TRUE if the token was added, FALSE in case it's full at or above bucket_size
  */
-/datum/smart_token_bucket/proc/Insert(var/datum/bucket_token/token_content, var/token_expire_time = null)
+/datum/smart_token_bucket/proc/Insert(var/datum/bucket_token/token_content, var/token_expire_time = null, var/callback)
+
+	var/cachedlist = src.content
 
 	/*
 	 * Guards
@@ -244,9 +276,9 @@
 	if(!istype(token_content, /datum/bucket_token))
 		var/datum/bucket_token/newtoken
 		if(STB_IS_FIXEDTTL_MODE)
-			newtoken = new(content = token_content, expiration = (STB_REALTIMESOURCE + tokens_lifetime))
+			newtoken = new(content = token_content, expiration = (STB_REALTIMESOURCE + tokens_lifetime), callback = callback)
 		else
-			newtoken = new(content = token_content, expiration = token_expire_time)
+			newtoken = new(content = token_content, expiration = token_expire_time, callback = callback)
 		token_content = newtoken
 
 
@@ -272,13 +304,11 @@
 
 		//Not a leaky bucket, we only care to process when something is added, removed, or the longest timer expires
 		else
-			STB_ONDEMANDPROCESS
+			STB_ONDEMANDPROCESS(cachedlist)
 
-			if(token_content.expire_time >= src.next_expiration)
+			if(!src.next_expiration)
 
 				STB_PURGE_EXPIRATION_TIMER
-
-				src.next_expiration = token_content.expire_time
 
 				STB_REGISTER_EXPIRATION_TIMER(token_content, tokens_lifetime)
 
@@ -295,12 +325,11 @@
 
 		//Not leaky bucket, this is where we cry
 		else
-			STB_ONDEMANDPROCESS
+			STB_ONDEMANDPROCESS(cachedlist)
 
 			if(!src.next_expiration)
-				STB_PURGE_EXPIRATION_TIMER
 
-				src.next_expiration = token_content.expire_time
+				STB_PURGE_EXPIRATION_TIMER
 
 				STB_REGISTER_EXPIRATION_TIMER(token_content, (token_content.expire_time - STB_REALTIMESOURCE))
 
@@ -316,13 +345,20 @@
 
 
 /**
- * Called by a callback to expire a token, generally not supposed to be called directly
+ * Called by a callback timer, not supposed to be called directly
+ */
+/datum/smart_token_bucket/proc/ExpireCallbackTimer(var/datum/bucket_token/expiring_token)
+	STB_EXPIRE(expiring_token, FALSE, FALSE)
+	STB_REARMCALLBACK
+
+/**
+ * Expires a token
  *
  * * expiring_token - The token to expire
  * * skip_on_demand_process - Skips the call to OnDemandProcess()
  */
 /datum/smart_token_bucket/proc/Expire(var/datum/bucket_token/expiring_token, var/skip_on_demand_process = FALSE)
-	STB_EXPIRE(expiring_token)
+	STB_EXPIRE(expiring_token, FALSE, FALSE)
 	if(!skip_on_demand_process)
 		STB_RUN_ONDEMAND_PROCESS
 
@@ -356,7 +392,14 @@
  * * index - The position in the bucket to peek at
  */
 /datum/smart_token_bucket/proc/PeekAt(var/index)
-	STB_PEEKAT(index)
+	if(index <= src.content.len)
+		if(!(STB_IS_LEAKYBUCKET))
+			STB_RUN_ONDEMAND_PROCESS
+
+		return src.content[index]
+
+	else
+		return null
 
 /**
  * Returns the first valid token in the bucket, or null if theres nothing.
@@ -364,7 +407,7 @@
  * Does not remove the element.
  */
 /datum/smart_token_bucket/proc/Peek()
-	STB_PEEKAT(1)
+	return PeekAt(1)
 
 
 /**
@@ -375,20 +418,38 @@
  * * index - The position in the bucket to pop a token from
  */
 /datum/smart_token_bucket/proc/PopAt(var/index)
-	STB_POPAT(index)
+	if(index <= src.content.len)
+		if(!STB_IS_LEAKYBUCKET)
+			STB_ONDEMANDPROCESS(src.content)
+			if(index == src.content.len)
+				STB_PURGE_EXPIRATION_TIMER
+				if((src.content.len)-1)
+					STB_REGISTER_EXPIRATION_TIMER(src.content[(src.content.len-1)], (src.content[(src.content.len-1)].expire_time - STB_REALTIMESOURCE))
+
+		var/popped = src.content[index]
+		src.content.Remove(popped)
+		if(STB_IS_FIXEDTTL_MODE)
+			if(!src.content.len)
+				STB_PURGE_EXPIRATION_TIMER
+
+		STB_CALL_LOWWATERMARK(popped)
+		return popped
+
+	else
+		return null
 
 /**
  * Pops the oldest (non expired) token from the bucket and returns it, removing it from the bucket
  */
 /datum/smart_token_bucket/proc/Pop()
-	STB_POPAT(1)
+	PopAt(1)
 
 
 /**
  * The maintenance function, called at operations on the bucket when the bucket is not operating in leaky bucket mode
  */
 /datum/smart_token_bucket/proc/OnDemandProcess()
-	STB_ONDEMANDPROCESS
+	STB_ONDEMANDPROCESS(src.content)
 
 
 
@@ -402,7 +463,7 @@
 #undef STB_ONDEMANDPROCESS
 #undef STB_RUN_ONDEMAND_PROCESS
 #undef STB_PEEKAT
-#undef STB_POPAT
+// #undef STB_POPAT
 
 
 /obj/teardropbucket
@@ -437,7 +498,7 @@
 
 
 			if(HAS_FLAG(modes[mode], STB_MODE_FIXEDTTL))
-				stb = new(mode = modes[mode], flags = flags[flag], tokens_lifetime = (1 SECONDS))
+				stb = new(mode = modes[mode], flags = flags[flag], tokens_lifetime = (10 SECONDS))
 			else
 				stb = new(mode = modes[mode], flags = flags[flag])
 
@@ -446,9 +507,9 @@
 
 			for(var/i=0, i<tears, i++)
 				if(HAS_FLAG(modes[mode], STB_MODE_FIXEDTTL))
-					stb.Insert(i)
+					stb.Insert(token_content = i, callback = PROC_REF(TokenExpired))
 				else
-					stb.Insert(i, (STB_REALTIMESOURCE + 1 SECONDS))
+					stb.Insert(token_content = i, token_expire_time = (STB_REALTIMESOURCE + 1 SECONDS), callback = PROC_REF(TokenExpired))
 
 			to_world("Inserting [tears] tears took [rustg_time_milliseconds("fff")] ms, mode [mode] flags [flag]")
 
@@ -499,3 +560,6 @@
 /obj/teardropbucket/proc/HighWatermark()
 	return FALSE
 	//to_world("High watermark triggered")
+
+/obj/teardropbucket/proc/TokenExpired(var/datum/bucket_token)
+	return TRUE
