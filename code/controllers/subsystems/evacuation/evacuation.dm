@@ -14,7 +14,7 @@ var/datum/evacuation_controller/evacuation_controller
 	var/deny
 	var/recall
 	var/auto_recall_time
-	var/evacuation_type = "transfer"
+	var/evacuation_type = TRANSFER_CREW
 
 	var/evac_prep_delay =   10 MINUTES
 	var/evac_launch_delay =  3 MINUTES
@@ -70,7 +70,7 @@ var/datum/evacuation_controller/evacuation_controller
 		evac_prep_delay_multiplier = SSticker.mode.shuttle_delay
 
 	var/additional_delay
-	if(_evac_type == "emergency")
+	if(_evac_type == TRANSFER_EMERGENCY)
 		additional_delay = emergency_prep_additional_delay
 	else if(autotransfer)
 		additional_delay = autotransfer_prep_additional_delay
@@ -88,7 +88,7 @@ var/datum/evacuation_controller/evacuation_controller
 
 	state = EVAC_PREPPING
 	switch(evacuation_type)
-		if("emergency")
+		if(TRANSFER_EMERGENCY)
 			for(var/area/A in all_areas)
 				if(istype(A, /area/hallway))
 					A.readyalert()
@@ -117,7 +117,7 @@ var/datum/evacuation_controller/evacuation_controller
 	auto_recall_time =  null
 
 	switch(evacuation_type)
-		if("emergency")
+		if(TRANSFER_EMERGENCY)
 			evac_recalled.Announce(current_map.emergency_shuttle_recall_message, new_sound = 'sound/AI/emergency_shuttle_recall_message.ogg')
 			for(var/area/A in all_areas)
 				if(istype(A, /area/hallway))
@@ -135,7 +135,7 @@ var/datum/evacuation_controller/evacuation_controller
 	var/estimated_time = round(get_eta()/60,1)
 
 	switch(evacuation_type)
-		if("emergency")
+		if(TRANSFER_EMERGENCY)
 			evac_waiting.Announce(replacetext(current_map.emergency_shuttle_docked_message, "%ETA%", "[estimated_time] minute\s"), new_sound = sound('sound/AI/emergency_shuttle_docked.ogg'))
 		if("jump")
 			priority_announcement.Announce(replacetext(replacetext(current_map.bluespace_docked_message, "%dock%", "[current_map.dock_name]"), "%ETA%", "[estimated_time] minute\s"), new_sound = sound('sound/AI/bluespace_jump_docked.ogg'))
@@ -149,7 +149,7 @@ var/datum/evacuation_controller/evacuation_controller
 	state = EVAC_IN_TRANSIT
 
 	switch(evacuation_type)
-		if("emergency")
+		if(TRANSFER_EMERGENCY)
 			priority_announcement.Announce(replacetext(replacetext(current_map.emergency_shuttle_leaving_dock, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"), new_sound = sound('sound/AI/emergency_shuttle_leaving_dock.ogg'))
 		if("jump")
 			priority_announcement.Announce(replacetext(replacetext(current_map.bluespace_leaving_dock, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"), new_sound = sound('sound/AI/bluespace_jump_leaving.ogg'))

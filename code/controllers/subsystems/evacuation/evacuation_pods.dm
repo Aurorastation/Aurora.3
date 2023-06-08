@@ -26,7 +26,7 @@
 /datum/evacuation_controller/starship/finish_preparing_evac()
 	. = ..()
 	// Arm the escape pods.
-	if (evacuation_type == "emergency")
+	if (evacuation_type == TRANSFER_EMERGENCY)
 		for (var/datum/shuttle/autodock/ferry/escape_pod/pod in escape_pods)
 			if (pod.arming_controller)
 				pod.arming_controller.arm()
@@ -63,7 +63,7 @@
 		return list(evacuation_options[EVAC_OPT_BLUESPACE_JUMP], evacuation_options[EVAC_OPT_ABANDON_SHIP])
 	if (is_evacuating())
 		switch(evacuation_type)
-			if ("emergency")
+			if (TRANSFER_EMERGENCY)
 				return list(evacuation_options[EVAC_OPT_CANCEL_ABANDON_SHIP])
 			if("jump")
 				return list(evacuation_options[EVAC_OPT_CANCEL_BLUESPACE_JUMP])

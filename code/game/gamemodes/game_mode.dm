@@ -389,7 +389,7 @@ var/global/list/additional_antag_types = list()
 
 	var/text = ""
 	var/escape_text
-	if (evacuation_controller.evacuation_type == "emergency")
+	if (evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 		escape_text = "escaped"
 	else
 		escape_text = "transfered"

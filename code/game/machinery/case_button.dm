@@ -105,18 +105,18 @@
 	button_type = "button_case_emergencyshuttle"
 	case = 2
 	button = 4
-	var/evacuation_type = "emergency"
+	var/evacuation_type = TRANSFER_EMERGENCY
 
 /obj/machinery/case_button/shuttle/AltClick(var/mob/user)
-	if(evacuation_type == "emergency")
+	if(evacuation_type == TRANSFER_EMERGENCY)
 		evacuation_type = "jump"
 	else
-		evacuation_type = "emergency"
+		evacuation_type = TRANSFER_EMERGENCY
 
 /obj/machinery/case_button/shuttle/examine(mob/user)
 	..(user)
 	switch(evacuation_type)
-		if("emergency")
+		if(TRANSFER_EMERGENCY)
 			to_chat(user, "The button is set to start an emergency evacuation.")
 		if("jump")
 			to_chat(user, "The button is set to start a bluespace jump.")

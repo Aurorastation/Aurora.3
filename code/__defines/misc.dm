@@ -507,3 +507,8 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define RAD_LEVEL_VERY_HIGH 100
 
 #define RADIATION_THRESHOLD_CUTOFF 0.1	// Radiation will not affect a tile when below this value.
+
+//Transfer Types
+#define TRANSFER_EMERGENCY "emergency transfer"
+#define TRANSFER_JUMP "bluespace jump"
+#define TRANSFER_CREW "crew transfer"

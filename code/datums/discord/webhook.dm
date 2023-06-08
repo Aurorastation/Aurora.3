@@ -69,7 +69,7 @@ var/list/global_webhooks = list()
 	set background = 1
 
 	var/escape_text
-	if (evacuation_controller.evacuation_type == "emergency")
+	if (evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 		escape_text = "escaped"
 	else
 		escape_text = "transfered"

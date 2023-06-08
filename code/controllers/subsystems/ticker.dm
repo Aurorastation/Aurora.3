@@ -235,7 +235,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
 				var/area/playerArea = get_area(playerTurf)
-				if(evacuation_controller.round_over() && evacuation_controller.evacuation_type == "emergency")
+				if(evacuation_controller.round_over() && evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 					if(isStationLevel(playerTurf.z) && is_station_area(playerArea))
 						to_chat(Player, SPAN_GOOD(SPAN_BOLD("You managed to survive the events on [station_name()] as [Player.real_name].")))
 					else
