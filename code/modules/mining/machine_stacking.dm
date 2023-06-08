@@ -3,7 +3,7 @@
 /obj/machinery/mineral/stacking_unit_console
 	name = "stacking machine console"
 	desc = "This console allows you to set the max stack size for the stacking machine, as well as letting you eject stacks manually."
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "production_console"
 	density = FALSE
 	anchored = TRUE

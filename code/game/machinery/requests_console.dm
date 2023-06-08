@@ -26,7 +26,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console
 	name = "requests console"
 	desc = "A console intended to send requests to different departments on the station."
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "req_comp"
 	component_types = list(
 			/obj/item/circuitboard/requestconsole,

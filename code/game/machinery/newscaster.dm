@@ -7,7 +7,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 /obj/machinery/newscaster
 	name = "newscaster"
 	desc = "A standard newsfeed handler for use on commercial space stations. All the news you absolutely have no use for, in one place!"
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "newscaster"
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall

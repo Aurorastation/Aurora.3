@@ -29,7 +29,8 @@
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/dark,
 		/obj/structure/shuttle_part/dark,
-		/obj/structure/window_frame/shuttle
+		/obj/structure/window_frame/shuttle,
+		/obj/machinery/door/airlock
 	)
 
 /turf/simulated/wall/shuttle/dark/cardinal/merc
@@ -96,7 +97,8 @@
 		/turf/simulated/wall,
 		/turf/simulated/wall/r_wall,
 		/turf/simulated/wall/shuttle/scc_space_ship,
-		/obj/structure/window/shuttle/scc_space_ship
+		/obj/structure/window/shuttle/scc_space_ship,
+		/obj/machinery/door/airlock
 	)
 
 /obj/structure/shuttle_part/scc_space_ship

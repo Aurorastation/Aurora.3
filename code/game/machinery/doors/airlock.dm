@@ -267,12 +267,6 @@
 	door_color = "#353c4b"
 	stripe_color = "#ffc443"
 
-/obj/machinery/door/airlock/generic/military
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#364664"
-	stripe_color = "#ff4343"
-	door_frame_color = "#613e3e"
-
 /obj/machinery/door/airlock/generic/command_glass
 	icon_state = "preview_glass"
 	paintable = AIRLOCK_PAINTABLE_MAIN
@@ -295,6 +289,9 @@
 	door_color = "#4d4d4d"
 	stripe_color = "#a88029"
 
+/obj/machinery/door/airlock/generic/maintenance/external//for connecting to the horizons hull, duh
+	door_frame_color = "#81838b"//Meant to connect to external scc spaceship walls like the horizon hull
+
 /obj/machinery/door/airlock/generic/service
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#6f8751"
@@ -304,6 +301,66 @@
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#6f8751"
 	glass = 1
+
+/obj/machinery/door/airlock/generic/khaki
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#364664"
+	stripe_color = "#ff4343"
+	door_frame_color = "#8d8078"
+
+/obj/machinery/door/airlock/generic/merc
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#534663"
+	stripe_color = "#fac826"
+	door_frame_color = "#8b7d86"
+
+/obj/machinery/door/airlock/generic/red
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#364664"
+	door_frame_color = "#c24f4f"
+
+/obj/machinery/door/airlock/generic/purple
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#596170"
+	door_frame_color = "#7846b1"
+
+/obj/machinery/door/airlock/generic/blue
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#63584a"
+	door_frame_color = "#6176a1"
+
+/obj/machinery/door/airlock/generic/external//External airlocks start here
+	name = "External Airlock"
+	icon = 'icons/obj/doors/basic/single/external/door.dmi'
+	icon_state = "preview_external"
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_frame_color = "#81838b"//Meant to connect to external scc spaceship walls like the horizon hull
+	door_color = "#813c3c"
+	stripe_color = "#ffffff"//base file is already colored
+	hashatch = FALSE
+	insecure = 0
+	assembly_type = /obj/structure/door_assembly/door_assembly_ext
+	fill_file = 'icons/obj/doors/basic/single/external/fill_steel.dmi'
+	color_file = 'icons/obj/doors/basic/single/external/color.dmi'
+	frame_color_file = 'icons/obj/doors/basic/single/external/frame_color.dmi'
+	color_fill_file = 'icons/obj/doors/basic/single/external/fill_color.dmi'
+	stripe_file = 'icons/obj/doors/basic/single/external/stripe.dmi'
+	stripe_fill_file = 'icons/obj/doors/basic/single/external/stripe.dmi'
+
+/obj/machinery/door/airlock/generic/external/khaki
+	door_frame_color = "#ac8b78"
+
+/obj/machinery/door/airlock/generic/external/merc
+	door_frame_color = "#8b7d86"
+
+/obj/machinery/door/airlock/generic/external/red
+	door_frame_color = "#c24f4f"
+
+/obj/machinery/door/airlock/generic/external/blue
+	door_frame_color = "#6176a1"
+
+/obj/machinery/door/airlock/generic/external/purple
+	door_frame_color = "#7846b1"
 
 /obj/machinery/door/airlock/service // Service Airlock
 	icon = 'icons/obj/doors/doorser.dmi'
@@ -1098,10 +1155,10 @@ About the new airlock wires panel:
 
 	add_overlay(frame_color_overlay)
 	add_overlay(filling_overlay)
-	add_overlay(stripe_overlay)
-	add_overlay(stripe_filling_overlay)
 	add_overlay(color_overlay)
 	add_overlay(panel_overlay)
+	add_overlay(stripe_overlay)
+	add_overlay(stripe_filling_overlay)
 	add_overlay(weld_overlay)
 	add_overlay(brace_overlay)
 	add_overlay(lights_overlay)

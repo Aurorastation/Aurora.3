@@ -1,7 +1,7 @@
 /obj/machinery/ringer
 	name = "ringer terminal"
 	desc = "A ringer terminal, PDAs can be linked to it."
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "bell"
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
@@ -125,7 +125,7 @@
 /obj/machinery/ringer_button
 	name = "ringer button"
 	desc = "Use this to get someone's attention, or to annoy them."
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "ringer"
 	anchored = TRUE
 	var/id = ""
