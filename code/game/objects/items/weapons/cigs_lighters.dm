@@ -848,8 +848,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "\improper San Colette Zippo lighter"
 	desc = "A tricolor zippo lighter depicting the flag of San Colette."
 	desc_extended = "Among Solarian nations, it's popular to carry a lighter depicting the flag of the Sol Alliance as a proclaimation of \
-	one's patriotism. After gaining their independence as the Sovereign Solarian Republic of San Colette, this tradition continued on with \
-	the Colettish, now opting to pridefully bare their own tricolor flag instead."
+	one's patriotism. After being recognised as the Sovereign Solarian Republic of San Colette, this tradition continued on with the Colettish, \
+	now opting to pridefully bare their own tricolor flag instead."
 	icon_state = "sancolettezippo"
 	item_state = "sancolettezippo"
 
