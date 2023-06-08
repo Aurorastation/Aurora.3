@@ -34,8 +34,6 @@
 	/// Allow these cans/glasses/condiment bottles but forbid ACTUAL food.
 	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment)
 
-
-
 /obj/machinery/chemical_dispenser/Initialize()
 	. = ..()
 	if(spawn_cartridges)
