@@ -38,7 +38,7 @@
 	name = "Fully Loaded Combat Medical Belt"
 	item_cost = 3
 	path = /obj/item/storage/belt/medical/first_responder/combat/full
-	desc = "A fully loaded medical belt even Zeng-Hu's top First Responders would be dying to wear. It contains liquid medicines and a hypospray. Combat hypo sold seperately."
+	desc = "A fully loaded medical belt even Zeng-Hu's top First Responders would be dying to wear. It contains liquid medicines and a hypospray. Combat hypo sold separately."
 
 /datum/uplink_item/item/medical/stimulants
 	name = "Box of Combat Stimulants"

@@ -142,6 +142,7 @@
 #define ACCENT_BROKEN_NOBLE "Broken Coalition Noble"
 #define ACCENT_UNATHI_SPACER "Spacer"
 #define ACCENT_HAZANA "Hazana"
+#define ACCENT_TORN "Torn Cities"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 #define ACCENT_HOMEWORLD "Qerrbalak"
