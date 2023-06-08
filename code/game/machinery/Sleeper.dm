@@ -125,14 +125,14 @@
 	if(occupant)
 		data["occupant"] = TRUE
 		data["stat"] = occupant.stat
-		data["stasis"] = stasis == 1 ? "Inactive" : stasis
+		data["stasis"] = stasis
 		data["species"] = occupant.get_species()
 		data["brain_activity"] = occupant.get_brain_result()
 		data["blood_pressure"] = occupant.get_blood_pressure()
 		data["blood_pressure_level"] = occupant.get_blood_pressure_alert()
 		data["blood_o2"] = occupant.get_blood_oxygenation()
-		data["bloodreagents"] = FALSE
-		var/list/list/blood_reagents
+		data["bloodreagents"] = list()
+		var/list/blood_reagents = list()
 		for(var/_R in occupant.reagents.reagent_volumes)
 			var/list/blood_reagent = list()
 			var/singleton/reagent/R = GET_SINGLETON(_R)
@@ -142,7 +142,7 @@
 		if(LAZYLEN(blood_reagents))
 			data["bloodreagents"] = blood_reagents.Copy()
 		data["hasstomach"] = FALSE
-		data["stomachreagents"] = FALSE
+		data["stomachreagents"] = list()
 		var/obj/item/organ/internal/stomach/S = occupant.internal_organs_by_name[BP_STOMACH]
 		if(S)
 			data["hasstomach"] = TRUE
@@ -209,9 +209,9 @@
 				if(chemical in available_chemicals)
 					inject_chemical(usr, chemical, text2num(params["amount"]))
 					. = TRUE
-		if(href_list["stasis"])
+		if("stasis")
 			var/nstasis = text2num(params["stasis"])
-			if(stasis != nstasis && (nstasis in stasis_settings))
+			if(stasis != nstasis)
 				stasis = text2num(params["stasis"])
 				change_power_consumption(parts_power_usage + (stasis_power * (stasis-1)), POWER_USE_ACTIVE)
 				. = TRUE

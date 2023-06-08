@@ -108,6 +108,9 @@ export const ScannerWindow = (props, context) => {
               <LabeledList.Item label="Species">
                 {data.species}
               </LabeledList.Item>
+              <LabeledList.Item label="Pulse" color={progressClass(data.brain_activity)}>
+                {data.pulse}
+              </LabeledList.Item>
               <LabeledList.Item
                 label="Brain Activity"
                 color={progressClass(data.brain_activity)}>
@@ -141,7 +144,7 @@ export const ScannerWindow = (props, context) => {
                 </LabeledList.Item>
                 <LabeledList.Item
                   label="Blood Oxygenation"
-                  color={progressClass(data.brain_activity)}>
+                  color={progressClass(data.blood_o2)}>
                   {Math.round(data.blood_o2)}%
                 </LabeledList.Item>
                 <LabeledList.Item
@@ -215,7 +218,7 @@ export const ScannerWindow = (props, context) => {
                 />
                 <Button
                   content="Eject Occupant"
-                  icon="times"
+                  icon="person-booth"
                   onClick={() => act('eject')}
                 />
               </>
