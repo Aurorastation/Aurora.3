@@ -26,7 +26,7 @@
 	/// Amount dispensed.
 	var/amount = 30
 	/// Preset amounts to dispense.
-	var/list/preset_dispense_amounts = list(5, 10, 20, 30, 40)
+	var/list/preset_dispense_amounts = list(5, 10, 15, 20, 30, 40)
 	/// If the user can select the amount to dispense.
 	var/can_select_dispense_amount = TRUE
 	/// For containers we don't want people to shove into the chem machine. Like buckets.
