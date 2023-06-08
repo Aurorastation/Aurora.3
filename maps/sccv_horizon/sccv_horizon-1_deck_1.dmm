@@ -8622,6 +8622,11 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "intrepid_bay_outer";
+	name = "Intrepid Shutter"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "fZX" = (
@@ -12020,13 +12025,13 @@
 	frequency = 1385;
 	master_tag = "intrepid_shuttle_cargo";
 	name = "interior access button";
-	pixel_x = -7;
+	pixel_x = -10;
 	pixel_y = 20
 	},
 /obj/machinery/airlock_sensor/airlock_interior{
 	id_tag = "intrepid_shuttle_cargo_interior_sensor";
 	pixel_y = 25;
-	pixel_x = -7;
+	pixel_x = -10;
 	frequency = 1385
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
@@ -12034,7 +12039,6 @@
 	id_tag = "intrepid_shuttle_cargo";
 	layer = 3.3;
 	master_tag = "intrepid_shuttle";
-	pixel_x = 4;
 	tag_airpump = "intrepid_shuttle_cargo_pump";
 	tag_chamber_sensor = "intrepid_shuttle_cargo_sensor";
 	tag_exterior_door = "intrepid_shuttle_cargo_out";
@@ -12043,6 +12047,12 @@
 	cycle_to_external_air = 1;
 	tag_interior_sensor = "intrepid_shuttle_cargo_interior_sensor";
 	pixel_y = 22
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "intrepid_bay_outer";
+	name = "inner cargo hold blast doors";
+	pixel_x = 10;
+	pixel_y = 25
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
@@ -14700,6 +14710,11 @@
 	dir = 8;
 	cycle_to_external_air = 1;
 	tag_interior_sensor = "intrepid_shuttle_cargo_interior_sensor"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "intrepid_bay_outer";
+	name = "Intrepid Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
@@ -19019,6 +19034,11 @@
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "intrepid_bay_outer";
+	name = "Intrepid Shutter"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "nvV" = (
