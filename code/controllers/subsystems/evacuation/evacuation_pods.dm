@@ -44,7 +44,7 @@
 					pod.launch(src)
 
 			priority_announcement.Announce(replacetext(replacetext(current_map.emergency_shuttle_leaving_dock, "%dock_name%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
-		if("jump")
+		if(TRANSFER_JUMP)
 			// Bluespace Jump
 			priority_announcement.Announce(replacetext(replacetext(current_map.bluespace_leaving_dock, "%dock_name%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 			SetUniversalState(/datum/universal_state/bluespace_jump, arguments=list(current_map.station_levels))
@@ -53,7 +53,7 @@
 
 /datum/evacuation_controller/starship/finish_evacuation()
 	..()
-	if(evacuation_type == "jump") //bluespace jump
+	if(evacuation_type == TRANSFER_JUMP) //bluespace jump
 		SetUniversalState(/datum/universal_state) //clear jump state
 
 /datum/evacuation_controller/starship/available_evac_options()
@@ -65,7 +65,7 @@
 		switch(evacuation_type)
 			if (TRANSFER_EMERGENCY)
 				return list(evacuation_options[EVAC_OPT_CANCEL_ABANDON_SHIP])
-			if("jump")
+			if(TRANSFER_JUMP)
 				return list(evacuation_options[EVAC_OPT_CANCEL_BLUESPACE_JUMP])
 			if("transfer")
 				return list(evacuation_options[EVAC_OPT_CANCEL_CREW_TRANSFER])

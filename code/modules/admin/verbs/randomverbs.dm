@@ -907,7 +907,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if(input("The evacuation will just be cancelled if you call it. Call anyway?") in list("Confirm", "Cancel") != "Confirm")
 			return
 
-	var/choice = input("Is this an emergency evacuation, bluespace jump or a crew transfer?") in list(TRANSFER_EMERGENCY, "transfer", "jump")
+	var/choice = input("Is this an emergency evacuation, bluespace jump or a crew transfer?") in list(TRANSFER_EMERGENCY, "transfer", TRANSFER_JUMP)
 	evacuation_controller.call_evacuation(usr, choice)
 
 

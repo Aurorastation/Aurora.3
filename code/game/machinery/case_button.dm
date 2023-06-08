@@ -109,7 +109,7 @@
 
 /obj/machinery/case_button/shuttle/AltClick(var/mob/user)
 	if(evacuation_type == TRANSFER_EMERGENCY)
-		evacuation_type = "jump"
+		evacuation_type = TRANSFER_JUMP
 	else
 		evacuation_type = TRANSFER_EMERGENCY
 
@@ -118,7 +118,7 @@
 	switch(evacuation_type)
 		if(TRANSFER_EMERGENCY)
 			to_chat(user, "The button is set to start an emergency evacuation.")
-		if("jump")
+		if(TRANSFER_JUMP)
 			to_chat(user, "The button is set to start a bluespace jump.")
 
 /obj/machinery/case_button/shuttle/activate(mob/user)
