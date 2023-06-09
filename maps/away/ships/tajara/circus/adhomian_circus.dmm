@@ -460,7 +460,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/engine/port)
 "cfP" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -716,7 +716,7 @@
 "dsF" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_alc/full,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -840,7 +840,7 @@
 /area/adhomian_circus/fortune)
 "edV" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -1039,7 +1039,7 @@
 /obj/item/reagent_containers/food/snacks/dirt_roast,
 /obj/item/reagent_containers/food/snacks/dirt_roast,
 /obj/item/reagent_containers/food/snacks/dirt_roast,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -1179,7 +1179,7 @@
 	name = "Food Stand";
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -1250,7 +1250,7 @@
 /turf/simulated/floor/airless,
 /area/shuttle/adhomian_circus_shuttle)
 "gly" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -1334,7 +1334,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -1459,7 +1459,7 @@
 	identifier = "adhomian_circus_crew";
 	name = "igs - adhomian_circus_crew"
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -1578,7 +1578,7 @@
 "ixs" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -1955,7 +1955,7 @@
 "kwR" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/rag,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -1970,7 +1970,7 @@
 /area/adhomian_circus/engine)
 "kFJ" = (
 /obj/machinery/vending/dinnerware,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -1999,7 +1999,7 @@
 /obj/machinery/vending/boozeomat{
 	req_access = null
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -2390,7 +2390,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -2487,7 +2487,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -2665,7 +2665,7 @@
 /area/adhomian_circus/tamer)
 "nxH" = (
 /obj/structure/reagent_dispensers/keg/mead,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -2844,7 +2844,7 @@
 /obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
 /obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
 /obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -3450,7 +3450,7 @@
 /obj/item/reagent_containers/food/snacks/avah,
 /obj/item/reagent_containers/food/snacks/avah,
 /obj/item/reagent_containers/food/snacks/avah,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -4231,7 +4231,7 @@
 	},
 /area/adhomian_circus/port)
 "wpr" = (
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
@@ -4374,7 +4374,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)

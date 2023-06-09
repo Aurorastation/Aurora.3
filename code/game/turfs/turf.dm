@@ -392,7 +392,10 @@ var/const/enterloopsanity = 100
 			T.dirt = 0
 			if(istype(src, /turf/simulated/floor))
 				var/turf/simulated/floor/F = src
-				F.color = F.flooring.color
+				if(F.flooring)
+					F.color = F.flooring.color
+				else
+					F.color = null
 			else
 				T.color = null
 		for(var/obj/effect/O in src)

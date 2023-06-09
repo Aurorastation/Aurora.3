@@ -38,7 +38,7 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "ajL" = (
 /obj/machinery/ship_weapon/francisca{
@@ -494,7 +494,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/firealarm/east,
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "bgV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -897,7 +897,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "cIY" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1031,7 +1031,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "dbU" = (
 /obj/machinery/door/firedoor/noid,
@@ -2194,7 +2194,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/ssmd_corvette/starboardfoyer)
 "fDY" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -2403,7 +2403,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "fZM" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -2523,7 +2523,7 @@
 	pixel_y = 32;
 	req_one_access = null
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "gsa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2631,7 +2631,7 @@
 	pixel_x = -7;
 	pixel_y = 22
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "gHC" = (
 /obj/structure/closet,
@@ -2863,7 +2863,7 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "hAs" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -3147,7 +3147,7 @@
 /obj/machinery/light/colored/blue{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "irX" = (
 /obj/effect/floor_decal/corner/orange{
@@ -3451,7 +3451,7 @@
 	pixel_x = -7
 	},
 /obj/machinery/light/colored/blue,
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "jgr" = (
 /obj/effect/shuttle_landmark/automatic,
@@ -3602,7 +3602,7 @@
 "jTb" = (
 /obj/structure/flora/ausbushes/grassybush,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/ssmd_corvette/starboardfoyer)
 "jTo" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -4605,7 +4605,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "mNu" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -4670,7 +4670,7 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "nam" = (
 /obj/structure/cable{
@@ -4692,7 +4692,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/ssmd_corvette/starboardfoyer)
 "ncs" = (
 /obj/effect/landmark/entry_point/port{
@@ -5163,7 +5163,7 @@
 	name = "Captain's Cabin Observation Lockdown";
 	pixel_x = -32
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "oBX" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -5193,7 +5193,7 @@
 	name = "Captain's Cabin";
 	req_access = list(203)
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "oJJ" = (
 /obj/structure/cable,
@@ -5409,7 +5409,7 @@
 /obj/machinery/light/colored/blue{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "pDZ" = (
 /obj/structure/bed/stool/padded/black{
@@ -5671,7 +5671,7 @@
 	pixel_x = 32;
 	req_one_access = null
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "qGx" = (
 /obj/structure/cable{
@@ -5714,7 +5714,7 @@
 /obj/machinery/light/colored/blue{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "qNt" = (
 /obj/structure/cable,
@@ -6032,7 +6032,7 @@
 /area/ship/ssmd_corvette/starboardfoyer)
 "rVS" = (
 /obj/structure/bed/stool/chair,
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "scT" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -6127,7 +6127,7 @@
 	name = "Captain's Ready Room";
 	req_access = list(203)
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "sri" = (
 /obj/machinery/door/firedoor/noid,
@@ -6434,7 +6434,7 @@
 /obj/item/trash/can{
 	pixel_x = 5
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "txY" = (
 /obj/structure/cable{
@@ -7121,7 +7121,7 @@
 	name = "Telescreen";
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "vwF" = (
 /obj/structure/closet/crate/bin{
@@ -7212,7 +7212,7 @@
 "vRd" = (
 /obj/structure/table/wood,
 /obj/item/board,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "vTv" = (
 /obj/effect/floor_decal/corner/orange/full{
@@ -7279,7 +7279,7 @@
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/grauwolf)
 "waK" = (
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "waW" = (
 /turf/simulated/floor/tiled/dark,
@@ -7304,7 +7304,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/ssmd_corvette/starboardfoyer)
 "wcT" = (
 /obj/structure/cable{
@@ -7317,7 +7317,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "weP" = (
 /obj/structure/cable{
@@ -7667,7 +7667,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "xbs" = (
 /obj/structure/cable{
@@ -7926,7 +7926,7 @@
 	name = "Captain's Bedroom";
 	req_access = list(203)
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "xOk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,

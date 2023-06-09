@@ -13,7 +13,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/mahogany,
+/turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
 "aj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -86,7 +86,7 @@
 	dir = 8;
 	must_start_working = 1
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "bD" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
@@ -116,7 +116,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "dN" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -179,7 +179,7 @@
 	pixel_y = 18;
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "fV" = (
 /obj/structure/cable{
@@ -187,7 +187,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
 "gi" = (
 /obj/machinery/alarm{
@@ -242,7 +242,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
 "gP" = (
 /obj/item/modular_computer/console/preset/security/hos{
@@ -252,14 +252,14 @@
 /area/construction/solars)
 "gQ" = (
 /obj/machinery/door/airlock/generic/service,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "he" = (
 /obj/machinery/camera/network{
 	dir = 8;
 	pixel_x = 13
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "hf" = (
 /turf/simulated/wall,
@@ -279,7 +279,7 @@
 /area/construction/solars)
 "hA" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "hQ" = (
 /turf/simulated/wall,
@@ -293,7 +293,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "ip" = (
 /obj/machinery/light{
@@ -308,7 +308,7 @@
 /area/construction/hallway)
 "it" = (
 /obj/machinery/door/airlock/generic/maintenance,
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood/bamboo,
 /area/construction/qmaint)
 "iO" = (
 /obj/structure/cable{
@@ -362,7 +362,7 @@
 /area/construction/qmaint)
 "jU" = (
 /obj/machinery/firealarm/south,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "ka" = (
 /obj/structure/cable{
@@ -408,7 +408,7 @@
 /area/construction/qmaint)
 "kY" = (
 /obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "lB" = (
 /obj/machinery/light/small{
@@ -499,7 +499,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
 "oM" = (
 /obj/machinery/requests_console{
@@ -577,7 +577,7 @@
 	dir = 8;
 	pixel_x = -10
 	},
-/turf/simulated/floor/wood/coloured/mahogany,
+/turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
 "qx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -610,7 +610,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "st" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -637,7 +637,7 @@
 /turf/simulated/floor/tiled/full,
 /area/construction/solars)
 "tl" = (
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "tE" = (
 /obj/structure/cable{
@@ -661,7 +661,7 @@
 	icon_state = "1-4";
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
 "tX" = (
 /obj/structure/cable{
@@ -682,11 +682,11 @@
 /turf/simulated/floor,
 /area/template_noop)
 "um" = (
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "uq" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "uZ" = (
 /obj/structure/table/rack,
@@ -710,7 +710,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "wo" = (
 /obj/machinery/door/airlock/generic/blue,
@@ -752,7 +752,7 @@
 	dir = 8;
 	must_start_working = 1
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "wG" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
@@ -853,7 +853,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood/bamboo,
 /area/construction/qmaint)
 "zO" = (
 /obj/structure/grille/over/large,
@@ -875,7 +875,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "AR" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -898,7 +898,7 @@
 /area/antag/mercenary)
 "Bv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "By" = (
 /obj/structure/cable{
@@ -927,7 +927,7 @@
 /area/antag/mercenary)
 "Cr" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "Cv" = (
 /obj/machinery/light{
@@ -964,7 +964,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "Dg" = (
 /obj/structure/cable{
@@ -1050,11 +1050,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/turf/simulated/floor/wood/coloured/mahogany,
+/turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
 "GP" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
 "GT" = (
 /turf/simulated/floor,
@@ -1098,7 +1098,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "Iz" = (
 /obj/structure/cable{
@@ -1132,7 +1132,7 @@
 	pixel_y = 18;
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "JF" = (
 /obj/machinery/ringer_button,
@@ -1155,7 +1155,7 @@
 /obj/machinery/door/airlock/generic/service_glass{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "Ky" = (
 /obj/structure/cable{
@@ -1200,7 +1200,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "Mj" = (
 /obj/structure/cable{
@@ -1225,7 +1225,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "MI" = (
 /obj/machinery/light{
@@ -1294,7 +1294,7 @@
 	dir = 4;
 	must_start_working = 1
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "Pu" = (
 /obj/effect/landmark{
@@ -1327,7 +1327,7 @@
 	dir = 8;
 	pixel_x = -6
 	},
-/turf/simulated/floor/wood/coloured/mahogany,
+/turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
 "Qj" = (
 /obj/structure/lattice/catwalk,
@@ -1377,7 +1377,7 @@
 	dir = 4;
 	must_start_working = 1
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "QF" = (
 /obj/machinery/light{
@@ -1403,7 +1403,7 @@
 	dir = 8;
 	pixel_x = 13
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "QW" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -1427,7 +1427,7 @@
 	dir = 4;
 	must_start_working = 1
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "Ry" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -1503,7 +1503,7 @@
 	dir = 4;
 	pixel_x = -13
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
 "Un" = (
 /obj/structure/cable{
@@ -1562,7 +1562,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
 "Wo" = (
 /obj/machinery/light{
@@ -1611,7 +1611,7 @@
 /turf/simulated/floor,
 /area/construction/hallway)
 "YH" = (
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
 "YN" = (
 /obj/machinery/camera/network{
@@ -1661,7 +1661,7 @@
 	locked = 0;
 	pixel_y = -6
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "ZP" = (
 /obj/structure/cable{

@@ -1701,7 +1701,7 @@
 /area/rnd/xenoarch_atrium)
 "bpl" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "bpI" = (
 /obj/structure/cable{
@@ -4619,7 +4619,7 @@
 "dtb" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "dtN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5135,7 +5135,7 @@
 	dir = 4
 	},
 /mob/living/simple_animal/chicken,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "dNa" = (
 /obj/machinery/light,
@@ -5283,7 +5283,7 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/plain,
 /mob/living/simple_animal/chicken,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "dWC" = (
 /obj/effect/shuttle_landmark/lift/cargo_bottom,
@@ -6892,7 +6892,7 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "fbc" = (
 /obj/structure/cable/green{
@@ -7842,7 +7842,7 @@
 	},
 /obj/structure/flora/ausbushes/ywflowers,
 /mob/living/simple_animal/chicken,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "fKD" = (
 /obj/structure/cable/green{
@@ -8303,7 +8303,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "fXF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -9623,7 +9623,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/stairwell/bridge)
 "gUl" = (
 /obj/structure/cable{
@@ -18441,7 +18441,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "nyp" = (
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "nyz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -20059,7 +20059,7 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hallway/primary/aft)
 "oQZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -22108,7 +22108,7 @@
 	dir = 1
 	},
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hallway/primary/aft)
 "qog" = (
 /obj/effect/landmark/entry_point/fore{
@@ -22695,7 +22695,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "qIT" = (
 /obj/machinery/vending/coffee,
@@ -24239,7 +24239,7 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "rRq" = (
 /obj/structure/table/standard,
@@ -30334,7 +30334,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "wlh" = (
 /obj/machinery/conveyor{
