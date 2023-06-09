@@ -1,4 +1,4 @@
-/datum/vueui_module/appearance_changer
+/datum/tgui_module/appearance_changer
 	var/name = "Appearance Changer"
 	var/flags = APPEARANCE_ALL_HAIR
 
@@ -28,7 +28,7 @@
 	var/list/culture_restrictions = list()
 	var/list/origin_restrictions = list()
 
-/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/list/culture_restriction = list(), var/list/origin_restriction = list(), var/datum/ui_state/set_ui_state = always_state, var/datum/set_state_object = null, var/update_id)
+/datum/tgui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/list/culture_restriction = list(), var/list/origin_restriction = list(), var/datum/ui_state/set_ui_state = always_state, var/datum/set_state_object = null, var/update_id)
 	..()
 	ui_state = set_ui_state
 	state_object = set_state_object
@@ -45,7 +45,7 @@
 	origin_restrictions = culture_restriction
 	generate_data(check_whitelist, whitelist, blacklist)
 
-/datum/vueui_module/appearance_changer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/tgui_module/appearance_changer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -187,19 +187,13 @@
 		if("set_height")
 			owner.height = clamp(params["height"], owner.species.height_min, owner.species.height_max)
 
-/datum/vueui_module/appearance_changer/ui_interact(var/mob/user, var/datum/tgui/ui)
+/datum/tgui_module/appearance_changer/ui_interact(var/mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "AppearanceChanger", "Appearance Changer", 800, 450)
 		ui.open()
 
-/datum/vueui_module/appearance_changer/ui_state(mob/user)
-	return always_state
-
-/datum/vueui_module/appearance_changer/ui_status(mob/user, datum/ui_state/state)
-	return UI_INTERACTIVE
-
-/datum/vueui_module/appearance_changer/ui_data(mob/user)
+/datum/tgui_module/appearance_changer/ui_data(mob/user)
 	var/list/data = list()
 
 	var/mob/living/carbon/human/owner = target_human.resolve()
@@ -258,7 +252,7 @@
 
 	return data
 
-/datum/vueui_module/appearance_changer/vueui_on_close(var/datum/vueui/ui)
+/datum/tgui_module/appearance_changer/vueui_on_close(var/datum/vueui/ui)
 	if(change_id)
 		var/mob/living/carbon/human/owner = target_human.resolve()
 		var/obj/item/card/id/I = target_id.resolve()
@@ -266,38 +260,38 @@
 			return FALSE
 		owner.set_id_info(I)
 
-/datum/vueui_module/appearance_changer/proc/update_dna()
+/datum/tgui_module/appearance_changer/proc/update_dna()
 	var/mob/living/carbon/human/owner = target_human.resolve()
 	if(!istype(owner))
 		return FALSE
 	if(owner && (flags & APPEARANCE_UPDATE_DNA))
 		owner.update_dna()
 
-/datum/vueui_module/appearance_changer/proc/can_change(var/flag)
+/datum/tgui_module/appearance_changer/proc/can_change(var/flag)
 	var/mob/living/carbon/human/owner = target_human.resolve()
 	if(!istype(owner))
 		return FALSE
 	return owner && (flags & flag)
 
-/datum/vueui_module/appearance_changer/proc/can_change_skin_tone()
+/datum/tgui_module/appearance_changer/proc/can_change_skin_tone()
 	var/mob/living/carbon/human/owner = target_human.resolve()
 	if(!istype(owner))
 		return FALSE
 	return owner && (flags & APPEARANCE_SKIN) && owner.species.appearance_flags & HAS_SKIN_TONE
 
-/datum/vueui_module/appearance_changer/proc/can_change_skin_color()
+/datum/tgui_module/appearance_changer/proc/can_change_skin_color()
 	var/mob/living/carbon/human/owner = target_human.resolve()
 	if(!istype(owner))
 		return FALSE
 	return owner && (flags & APPEARANCE_SKIN) && owner.species.appearance_flags & HAS_SKIN_COLOR
 
-/datum/vueui_module/appearance_changer/proc/can_change_skin_preset()
+/datum/tgui_module/appearance_changer/proc/can_change_skin_preset()
 	var/mob/living/carbon/human/owner = target_human.resolve()
 	if(!istype(owner))
 		return FALSE
 	return owner && (flags & APPEARANCE_SKIN) && owner.species.appearance_flags & HAS_SKIN_PRESET
 
-/datum/vueui_module/appearance_changer/proc/clear_and_generate_data()
+/datum/tgui_module/appearance_changer/proc/clear_and_generate_data()
 	// Making the assumption that the available species remain constant
 	valid_genders = list()
 	valid_pronouns = list()
@@ -310,7 +304,7 @@
 	valid_languages = list()
 	generate_data()
 
-/datum/vueui_module/appearance_changer/proc/generate_data()
+/datum/tgui_module/appearance_changer/proc/generate_data()
 	var/mob/living/carbon/human/owner = target_human.resolve()
 	if(!istype(owner))
 		return FALSE

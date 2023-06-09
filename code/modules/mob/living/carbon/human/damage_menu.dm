@@ -1,16 +1,16 @@
 // the damage menu is a menu which you can use to damage human mobs
 // it's accessible via the drop down list when you VV a human mob
 
-/datum/vueui_module/damage_menu
+/datum/tgui_module/damage_menu
 	var/datum/weakref/target_human
 
-/datum/vueui_module/damage_menu/New(var/datum/weakref/target, var/mob/user)
+/datum/tgui_module/damage_menu/New(var/datum/weakref/target, var/mob/user)
 	var/mob/living/carbon/human/H = target.resolve()
 	if(istype(H))
 		target_human = target
 	ui_interact(user)
 
-/datum/vueui_module/damage_menu/ui_interact(mob/user)
+/datum/tgui_module/damage_menu/ui_interact(mob/user)
 	if(!user.client.holder)
 		return
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -26,7 +26,7 @@
 		ui.header = "minimal"
 	ui.open()
 
-/datum/vueui_module/damage_menu/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+/datum/tgui_module/damage_menu/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
 		data = list()
 	if(!user.client.holder)
@@ -49,7 +49,7 @@
 
 	return data
 
-/datum/vueui_module/damage_menu/Topic(href, href_list)
+/datum/tgui_module/damage_menu/Topic(href, href_list)
 	if(!check_rights(R_ADMIN))
 		return
 

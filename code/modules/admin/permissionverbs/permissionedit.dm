@@ -5,12 +5,12 @@
 	if(!check_rights(R_PERMISSIONS))
 		return
 
-	var/static/datum/vueui_module/permissions_panel/global_permissions_panel = new()
+	var/static/datum/tgui_module/permissions_panel/global_permissions_panel = new()
 	global_permissions_panel.ui_interact(usr)
 
-/datum/vueui_module/permissions_panel
+/datum/tgui_module/permissions_panel
 
-/datum/vueui_module/permissions_panel/ui_interact(mob/user)
+/datum/tgui_module/permissions_panel/ui_interact(mob/user)
 	if (!check_rights(R_PERMISSIONS))
 		return
 
@@ -22,7 +22,7 @@
 
 	ui.open()
 
-/datum/vueui_module/permissions_panel/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+/datum/tgui_module/permissions_panel/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	data = list()
 	var/list/admins = list()
 
@@ -43,7 +43,7 @@
 
 	return data
 
-/datum/vueui_module/permissions_panel/Topic(href, href_list)
+/datum/tgui_module/permissions_panel/Topic(href, href_list)
 	if (!check_rights(R_PERMISSIONS))
 		log_and_message_admins("attempted to edit the admin permissions without sufficient rights.")
 		return
@@ -79,7 +79,7 @@
 
 		ui.push_change(new_data.Copy())
 
-/datum/vueui_module/permissions_panel/proc/_remove_admin(admin_ckey, datum/admins/D)
+/datum/tgui_module/permissions_panel/proc/_remove_admin(admin_ckey, datum/admins/D)
 	PRIVATE_PROC(TRUE)
 
 	admin_datums -= admin_ckey
@@ -88,7 +88,7 @@
 	log_and_message_admins("removed [admin_ckey] from the admins list.")
 	log_admin_rank_modification(admin_ckey, "Removed")
 
-/datum/vueui_module/permissions_panel/proc/_edit_rank(admin_ckey, datum/admins/D)
+/datum/tgui_module/permissions_panel/proc/_edit_rank(admin_ckey, datum/admins/D)
 	PRIVATE_PROC(TRUE)
 
 	var/new_rank
@@ -133,7 +133,7 @@
 	log_and_message_admins("edited the admin rank of [admin_ckey] to [new_rank]")
 	log_admin_rank_modification(admin_ckey, new_rank)
 
-/datum/vueui_module/permissions_panel/proc/_edit_rights(datum/admins/D, admin_ckey)
+/datum/tgui_module/permissions_panel/proc/_edit_rights(datum/admins/D, admin_ckey)
 	PRIVATE_PROC(TRUE)
 
 	if (!D)
@@ -152,7 +152,7 @@
 	log_and_message_admins("toggled the [new_permission] permission of [admin_ckey]")
 	log_admin_permission_modification(admin_ckey, permissionlist[new_permission])
 
-/datum/vueui_module/permissions_panel/proc/_get_admin_ckey()
+/datum/tgui_module/permissions_panel/proc/_get_admin_ckey()
 	PRIVATE_PROC(TRUE)
 
 	var/new_ckey = ckey(input(usr, "New admin's ckey", "Admin ckey", null) as text|null)
@@ -165,7 +165,7 @@
 
 	return new_ckey
 
-/datum/vueui_module/permissions_panel/proc/log_admin_rank_modification(admin_ckey, new_rank)
+/datum/tgui_module/permissions_panel/proc/log_admin_rank_modification(admin_ckey, new_rank)
 	if (config.admin_legacy_system)
 		return
 
@@ -207,7 +207,7 @@
 		insert_query.Execute(list("ckey" = admin_ckey))
 		to_chat(usr, SPAN_NOTICE("Admin removed."))
 
-/datum/vueui_module/permissions_panel/proc/log_admin_permission_modification(admin_ckey, new_permission)
+/datum/tgui_module/permissions_panel/proc/log_admin_permission_modification(admin_ckey, new_permission)
 	if (config.admin_legacy_system)
 		return
 

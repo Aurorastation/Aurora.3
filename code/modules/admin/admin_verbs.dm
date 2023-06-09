@@ -606,7 +606,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Player Panel"
 	set category = "Admin"
 	if(holder)
-		var/static/datum/vueui_module/player_panel/global_player_panel = new()
+		var/static/datum/tgui_module/player_panel/global_player_panel = new()
 		global_player_panel.ui_interact(usr)
 	feedback_add_details("admin_verb","PPM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
@@ -1059,7 +1059,7 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Fun"
 
 	if(H)
-		new /datum/vueui_module/damage_menu(WEAKREF(H), usr)
+		new /datum/tgui_module/damage_menu(WEAKREF(H), usr)
 
 /client/proc/man_up(mob/T as mob in mob_list)
 	set category = "Fun"

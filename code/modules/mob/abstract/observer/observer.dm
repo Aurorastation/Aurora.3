@@ -418,7 +418,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Follow" // "Haunt"
 	set desc = "Follow and haunt a mob."
 
-	var/datum/vueui_module/ghost_menu/GM = new /datum/vueui_module/ghost_menu(usr)
+	var/datum/tgui_module/ghost_menu/GM = new /datum/tgui_module/ghost_menu(usr)
 	GM.ui_interact(usr)
 
 // This is the ghost's follow verb with an argument

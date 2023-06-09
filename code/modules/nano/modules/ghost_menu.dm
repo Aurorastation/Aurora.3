@@ -1,10 +1,10 @@
-/datum/vueui_module/ghost_menu/ui_interact(var/mob/user)
+/datum/tgui_module/ghost_menu/ui_interact(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
 		ui = new(user, src, "misc-ghostmenu", 800, 450, "Ghost Menu", state = always_state)
 	ui.open()
 
-/datum/vueui_module/ghost_menu/Topic(ref, href_list)
+/datum/tgui_module/ghost_menu/Topic(ref, href_list)
 	if(..())
 		return TRUE
 
@@ -17,7 +17,7 @@
 
 	return FALSE
 
-/datum/vueui_module/ghost_menu/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+/datum/tgui_module/ghost_menu/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
 		data = list()
 
@@ -62,7 +62,7 @@
 	data["ghosts"] = ghosts
 	return data
 
-/datum/vueui_module/ghost_menu/proc/sort_categories(var/list/menu_info)
+/datum/tgui_module/ghost_menu/proc/sort_categories(var/list/menu_info)
 	var/static/list/ordered_categories = list("Alive", "Dead", "Observer", "NPCs", "Dead NPCs")
 	var/list/sorted_menu_info = list()
 

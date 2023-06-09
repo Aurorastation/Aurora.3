@@ -23,9 +23,15 @@
 	else
 		alert("The game hasn't started yet!")
 
-/datum/vueui_module/player_panel
+/datum/tgui_module/ui_state(mob/user)
+	return always_state
 
-/datum/vueui_module/player_panel/ui_interact(mob/user)
+/datum/tgui_module/ui_status(mob/user, datum/ui_state/state)
+	return UI_INTERACTIVE
+
+/datum/tgui_module/player_panel
+
+/datum/tgui_module/player_panel/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
 		ui = new(user, src, "admin-player-panel", 800, 600, "Modern player panel", state = staff_state)
@@ -34,7 +40,7 @@
 
 	ui.open()
 
-/datum/vueui_module/player_panel/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+/datum/tgui_module/player_panel/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
 		. = data = list()
 	var/isMod = check_rights(R_MOD|R_ADMIN, 0, user)
@@ -89,7 +95,7 @@
 		else
 			VUEUI_SET_CHECK(data["players"][ref]["age"], FALSE, ., data)
 
-/datum/vueui_module/player_panel/proc/GetMobRealName(var/mob/M)
+/datum/tgui_module/player_panel/proc/GetMobRealName(var/mob/M)
 	if(isAI(M))
 		return "AI"
 	if(isrobot(M))

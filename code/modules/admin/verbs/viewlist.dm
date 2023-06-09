@@ -2,17 +2,17 @@
 	if(!check_rights(R_VAREDIT|R_DEV))	return
 
 	if(istype(L))
-		new /datum/vueui_module/list_viewer(L, usr)
+		new /datum/tgui_module/list_viewer(L, usr)
 
-/datum/vueui_module/list_viewer
+/datum/tgui_module/list_viewer
 	var/list/viewed_list
 
-/datum/vueui_module/list_viewer/New(var/list/L, mob/user)
+/datum/tgui_module/list_viewer/New(var/list/L, mob/user)
 	if(istype(L))
 		viewed_list = L
 	ui_interact(user)
 
-/datum/vueui_module/list_viewer/ui_interact(mob/user, var/datum/tgui/ui)
+/datum/tgui_module/list_viewer/ui_interact(mob/user, var/datum/tgui/ui)
 	if(!check_rights(R_VAREDIT|R_DEV|R_MOD))
 		return
 
@@ -21,13 +21,7 @@
 		ui = new(user, src, "ListViewer", "Extended List Viewer", 800, 600)
 		ui.open()
 
-/datum/vueui_module/list_viewer/ui_state(mob/user)
-	return always_state
-
-/datum/vueui_module/list_viewer/ui_status(mob/user, datum/ui_state/state)
-	return UI_INTERACTIVE
-
-/datum/vueui_module/list_viewer/ui_data(mob/user)
+/datum/tgui_module/list_viewer/ui_data(mob/user)
 	var/list/data = list()
 
 	if(!user.client.holder)
