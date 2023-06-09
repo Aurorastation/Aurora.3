@@ -88,7 +88,6 @@
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
 	footstep_sound = /singleton/sound_category/water_footstep
-	var/reagent_type = /singleton/reagent/water
 
 /turf/simulated/floor/exoplanet/water/shallow/attackby(obj/item/O, var/mob/living/user)
 	var/obj/item/reagent_containers/RG = O

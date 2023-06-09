@@ -29,7 +29,7 @@
 	icon_state = "grove_grass[rand(1,2)]"
 
 /turf/simulated/floor/exoplanet/grass/stalk
-	icon = 'icons/turf/total_floors.dmi'
+	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass_stalk"
 	color = null
 	has_edge_icon = null

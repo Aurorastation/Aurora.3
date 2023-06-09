@@ -139,8 +139,7 @@
 	flags = TURF_REMOVE_SHOVEL|TURF_REMOVE_WELDER
 
 /turf/simulated/floor/diona/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 
 //Tiles
@@ -392,7 +391,7 @@
 
 /turf/simulated/floor/airless/ice
 	name = "ice"
-	icon = 'icons/turf/snow.dmi'
+	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "ice"
 
 /turf/simulated/floor/snow
