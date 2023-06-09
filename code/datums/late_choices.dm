@@ -68,7 +68,7 @@
 			if (evacuation_controller.evacuation_type == TRANSFER_EMERGENCY) // Emergency shuttle is past the point of no recall
 				shuttle_status = "evac"
 			else // Crew transfer initiated
-				shuttle_status = "transfer"
+				shuttle_status = TRANSFER_CREW
 	data["shuttle_status"] = shuttle_status
 
 	var/unique_role_available = FALSE

@@ -48,7 +48,7 @@
 			// Bluespace Jump
 			priority_announcement.Announce(replacetext(replacetext(current_map.bluespace_leaving_dock, "%dock_name%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 			SetUniversalState(/datum/universal_state/bluespace_jump, arguments=list(current_map.station_levels))
-		if("transfer")
+		if(TRANSFER_CREW)
 			priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_leaving_dock, "%dock_name%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 
 /datum/evacuation_controller/starship/finish_evacuation()
@@ -67,7 +67,7 @@
 				return list(evacuation_options[EVAC_OPT_CANCEL_ABANDON_SHIP])
 			if(TRANSFER_JUMP)
 				return list(evacuation_options[EVAC_OPT_CANCEL_BLUESPACE_JUMP])
-			if("transfer")
+			if(TRANSFER_CREW)
 				return list(evacuation_options[EVAC_OPT_CANCEL_CREW_TRANSFER])
 
 /datum/evacuation_option/abandon_ship

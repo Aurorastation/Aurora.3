@@ -399,7 +399,7 @@ Command action procs
 	return FALSE
 
 //Returns 1 if called 0 if not
-/proc/call_shuttle_proc(var/mob/user, var/_evac_type = "transfer")
+/proc/call_shuttle_proc(var/mob/user, var/_evac_type = TRANSFER_CREW)
 	if((!(ROUND_IS_STARTED) || !evacuation_controller))
 		return FALSE
 
@@ -438,7 +438,7 @@ Command action procs
 		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_called_message)))
 		return
 
-	. = evacuation_controller.call_evacuation(null, _evac_type = "transfer", autotransfer = TRUE)
+	. = evacuation_controller.call_evacuation(null, _evac_type = TRANSFER_CREW, autotransfer = TRUE)
 
 	//delay events in case of an autotransfer
 	if(.)
