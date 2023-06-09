@@ -311,6 +311,7 @@
  */
 /datum/smart_token_bucket/proc/ExpireCallbackTimer(var/datum/bucket_token/expiring_token)
 	STB_COMMIT_INSERTIONLIST
+	STB_RUN_ONDEMAND_PROCESS
 	STB_EXPIRE(expiring_token, FALSE, FALSE)
 	STB_REARMCALLBACK
 
@@ -322,9 +323,9 @@
  */
 /datum/smart_token_bucket/proc/Expire(var/datum/bucket_token/expiring_token, var/skip_on_demand_process = FALSE)
 	STB_COMMIT_INSERTIONLIST
-	STB_EXPIRE(expiring_token, FALSE, FALSE)
 	if(!skip_on_demand_process)
-		STB_RUN_ONDEMAND_PROCESS
+		STB_ONDEMANDPROCESS(src.content)
+	STB_EXPIRE(expiring_token, FALSE, FALSE)
 
 
 /**
@@ -444,6 +445,9 @@
 	var/expiration_count = 0
 	var/high_watermark_count = 0
 	var/low_watermark_count = 0
+	var/total_expired_amount = 0
+	var/list/inserted_token_contents = list()
+	var/list/expired_token_contents = list()
 
 /obj/teardropbucket/New(loc, ...)
 	. = ..()
@@ -486,11 +490,15 @@
 			rustg_time_reset("fff")
 			rustg_time_milliseconds("fff")
 
+			var/expected_total_expired_amount = 0
 			for(var/i=0, i<tears, i++)
 				if(HAS_FLAG(modes[mode], STB_MODE_FIXEDTTL))
 					stb.Insert(token_content = i, callback = CALLBACK(src, PROC_REF(TokenExpired)))
 				else
 					stb.Insert(token_content = i, token_expire_time = (STB_REALTIMESOURCE + tokens_lifetime), callback = CALLBACK(src, PROC_REF(TokenExpired)))
+
+				expected_total_expired_amount += i
+				src.inserted_token_contents.Add(i)
 
 
 
@@ -525,6 +533,12 @@
 
 			ASSERT(!stb.insertion_list_index)
 			ASSERT(!stb.content.len)
+
+			//Check that we have received back the tokens in the order of expiration, aka how we added them
+			for(var/i in 1 to src.inserted_token_contents.len)
+				ASSERT((src.inserted_token_contents[i]) == (src.expired_token_contents[i]))
+
+			ASSERT(expected_total_expired_amount == src.total_expired_amount) //This pretty much guarantees that we have always returned the correct token
 			ASSERT((src.stb.content.len + src.expiration_count) == tears) //The sum of expirations and what is in the bucket must be equal to what we added, unless we shat something up
 
 			var/expirationTime = NOT_FLAG(flags[flag], STB_FLAG_LEAKYBUCKET) ? OnDemandProcessingTime : (rustg_time_milliseconds("fff")) - sleeptime
@@ -542,8 +556,11 @@
 			ASSERT(low_watermark == src.low_watermark_count)
 			src.low_watermark_count = 0
 
-			//Reset counters
+			//Reset vars
 			src.expiration_count = 0
+			src.total_expired_amount = 0
+			src.inserted_token_contents = list()
+			src.expired_token_contents = list()
 
 
 /obj/teardropbucket/verb/PopTear()
@@ -561,7 +578,7 @@
 /obj/teardropbucket/verb/PeekExpiredTear()
 	to_chat(usr, "[stb.PeekExpired()?.content]")
 
-/obj/teardropbucket/proc/LowWatermark(var/datum/bucket_token)
+/obj/teardropbucket/proc/LowWatermark(var/datum/bucket_token/bucket_token)
 	src.low_watermark_count += 1
 	return FALSE
 	//to_world("Low watermark triggered")
@@ -571,6 +588,8 @@
 	return FALSE
 	//to_world("High watermark triggered")
 
-/obj/teardropbucket/proc/TokenExpired(var/datum/bucket_token)
+/obj/teardropbucket/proc/TokenExpired(var/datum/bucket_token/bucket_token)
 	src.expiration_count += 1
+	src.total_expired_amount += bucket_token.content
+	src.expired_token_contents.Add(bucket_token.content)
 	return TRUE
