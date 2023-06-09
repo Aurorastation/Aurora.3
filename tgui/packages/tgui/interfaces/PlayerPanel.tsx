@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
-import { Box, Button, Divider, LabeledList, Section, Table } from '../components';
+import { useBackend, useLocalState } from '../backend';
+import { Input, Box, Button, Divider, LabeledList, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 export type PanelData = {
@@ -25,12 +25,33 @@ type Player = {
 export const PlayerPanel = (props, context) => {
   const { act, data } = useBackend<PanelData>(context);
 
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``
+  );
+
   return (
     <Window resizable theme="admin">
       <Window.Content scrollable>
-        <Section title="Players">
+        <Section
+          title="Players"
+          buttons={(
+            <Input
+              autoFocus
+              autoSelect
+              placeholder="Search by ckey, name, or assignment"
+              width="40vw"
+              maxLength={512}
+              onInput={(e, value) => {
+                setSearchTerm(value);
+              }}
+              value={searchTerm}
+            />
+          )}
+        >
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Name</Table.Cell>
               <Table.Cell>Assignment</Table.Cell>
               <Table.Cell>Key</Table.Cell>
@@ -38,7 +59,17 @@ export const PlayerPanel = (props, context) => {
               {data.is_mod && <Table.Cell>Antag</Table.Cell>}
               <Table.Cell textAlign="right">Actions</Table.Cell>
             </Table.Row>
-            {data.players.map((player) => (
+            {data.players.filter(player =>
+              player.key?.toLowerCase()
+              .indexOf(searchTerm.toLowerCase()) > -1 ||
+              player.name?.toLowerCase()
+              .indexOf(searchTerm.toLowerCase()) > -1 ||
+              player.real_name?.toLowerCase()
+              .indexOf(searchTerm.toLowerCase()) > -1 ||
+              player.assigment?.toLowerCase()
+              .indexOf(searchTerm.toLowerCase()) > -1
+            )
+            .map((player) => (
               <Table.Row>
                 <Table.Cell>
                   {player.name === player.real_name || player.assigment === 'NA'
