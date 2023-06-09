@@ -363,7 +363,7 @@
 "qX" = (
 /obj/structure/diona/bulb,
 /obj/structure/sign/flag/hegemony{
-	step_y = 32
+	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/exterior/west)
@@ -472,7 +472,7 @@
 /area/ship/diona_rokz_ship/bridge)
 "vx" = (
 /obj/structure/sign/flag/hegemony/large{
-	step_y = 32
+	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/bridge)
@@ -1267,7 +1267,7 @@
 /area/ship/diona_rokz_ship/engine)
 "VO" = (
 /obj/structure/sign/flag/hegemony{
-	step_y = 32
+	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/exterior/south)
