@@ -178,9 +178,6 @@
 /area/ship/diona_rokz_ship/engine)
 "ie" = (
 /obj/structure/table/diona,
-/obj/structure/sign/flag/hegemony/left{
-	pixel_y = 32
-	},
 /obj/item/shield/buckler,
 /obj/item/shield/buckler,
 /obj/item/shield/buckler,
@@ -328,12 +325,6 @@
 /obj/structure/diona/bulb,
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
-"pr" = (
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = 32
-	},
-/turf/simulated/floor/diona/airless,
-/area/ship/diona_rokz_ship/bridge)
 "pw" = (
 /obj/structure/simple_door/iron{
 	name = "armory"
@@ -372,7 +363,7 @@
 "qX" = (
 /obj/structure/diona/bulb,
 /obj/structure/sign/flag/hegemony{
-	pixel_y = 32
+	step_y = 32
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/exterior/west)
@@ -480,8 +471,8 @@
 	},
 /area/ship/diona_rokz_ship/bridge)
 "vx" = (
-/obj/structure/sign/flag/hegemony/left{
-	pixel_y = 32
+/obj/structure/sign/flag/hegemony/large{
+	step_y = 32
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/bridge)
@@ -622,6 +613,9 @@
 /area/ship/diona_rokz_ship/exterior/south)
 "AB" = (
 /obj/item/material/twohanded/pike/flag/hegemony,
+/obj/structure/sign/flag/hegemony{
+	pixel_y = 32
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/bridge)
 "AM" = (
@@ -914,9 +908,6 @@
 /obj/structure/table/diona,
 /obj/item/projectile/beam/pistol/hegemony,
 /obj/structure/diona/bulb,
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/bridge)
 "LH" = (
@@ -1276,7 +1267,7 @@
 /area/ship/diona_rokz_ship/engine)
 "VO" = (
 /obj/structure/sign/flag/hegemony{
-	pixel_y = 32
+	step_y = 32
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/exterior/south)
@@ -31249,7 +31240,7 @@ kB
 kB
 kB
 Th
-pr
+eO
 eO
 rV
 FD
