@@ -207,6 +207,17 @@
 	for(var/obj/O in src)
 		O.hide(0)
 
+/turf/simulated/open/examine(mob/user, distance, infix, suffix)
+	if(..(user, 2))
+		var/depth = 1
+		for(var/T = GetBelow(src); isopenspace(T); T = GetBelow(T))
+			depth += 1
+		to_chat(user, "It is about [depth] level\s deep.")
+
+
+/turf/simulated/open/is_open()
+	return TRUE
+
 /turf/simulated/open/update_icon(mapload)
 	update_mimic(!mapload)
 

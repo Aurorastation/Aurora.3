@@ -64,7 +64,7 @@
 /area/engineering/atmos)
 "aao" = (
 /obj/machinery/artifact_harvester,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/bluegrid,
@@ -893,7 +893,7 @@
 /area/outpost/engineering/power)
 "aci" = (
 /obj/machinery/artifact_harvester,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/bluegrid,
@@ -1124,10 +1124,10 @@
 /area/engineering/storage_sublevel)
 "acN" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/bluegrid,
@@ -1196,10 +1196,10 @@
 /area/engineering/atmos)
 "adc" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/bluegrid,
@@ -1383,9 +1383,8 @@
 /area/engineering/atmos)
 "adw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/obj/effect/floor_decal/corner/green{
-	dir = 8;
-	icon_state = "corner_white_full"
+/obj/effect/floor_decal/corner/green/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -2043,7 +2042,7 @@
 "aeT" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -2556,17 +2555,17 @@
 /area/rnd/isolation_b)
 "agn" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/bluegrid,
 /area/rnd/isolation_b)
 "ago" = (
 /obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/bluegrid,
@@ -4964,7 +4963,7 @@
 /area/rnd/xenoarch_atrium)
 "alq" = (
 /obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /obj/structure/window/reinforced{
@@ -5750,7 +5749,7 @@
 /area/rnd/xenobiology)
 "amJ" = (
 /obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/bluegrid,
@@ -10637,10 +10636,10 @@
 /area/rnd/xenoarch_atrium)
 "atV" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/greengrid,
@@ -10787,7 +10786,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/machinery/alarm{
 	dir = 1;
@@ -11525,7 +11524,7 @@
 	pixel_y = 28
 	},
 /obj/structure/flora/ausbushes/genericbush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "avj" = (
 /obj/machinery/alarm{
@@ -11848,10 +11847,10 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "avN" = (
@@ -18346,7 +18345,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_hallway)
 "aLr" = (
 /obj/structure/window/reinforced{
@@ -18357,7 +18356,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_hallway)
 "aLs" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -18373,7 +18372,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_hallway)
 "aLv" = (
 /obj/structure/window/reinforced,
@@ -18384,7 +18383,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_hallway)
 "aLy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -18667,17 +18666,17 @@
 /area/medical/medbay4)
 "aMo" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "aMq" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "aMs" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "aMt" = (
 /obj/machinery/door/firedoor,
@@ -19116,10 +19115,10 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "aNq" = (
-/turf/simulated/floor/beach/sand/alt,
+/turf/simulated/floor/beach/sand,
 /area/medical/patient_wing_picnic)
 "aNt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -19472,7 +19471,7 @@
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "aOi" = (
 /obj/machinery/door/firedoor/multi_tile{
@@ -19751,7 +19750,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "aOV" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -20030,7 +20029,7 @@
 	},
 /obj/structure/flora/ausbushes/stalkybush,
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "aPL" = (
 /obj/effect/decal/cleanable/blood,
@@ -20255,10 +20254,7 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 22
 	},
-/turf/simulated/floor/tiled{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/medical)
 "aQm" = (
 /obj/structure/closet/emcloset,
@@ -20579,7 +20575,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "aQX" = (
 /obj/machinery/light{
@@ -20589,7 +20585,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "aQZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -22083,10 +22079,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
 "aVp" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "aVt" = (
@@ -25973,7 +25969,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "ceW" = (
 /obj/structure/disposalpipe/segment{
@@ -26167,7 +26163,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "cze" = (
 /obj/structure/sign/securearea{
@@ -26735,7 +26731,7 @@
 "dGd" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/ausbushes/reedbush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "dGF" = (
 /obj/structure/bed,
@@ -27341,7 +27337,7 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "eCm" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/beach/water/pool,
 /area/medical/patient_wing_gym)
 "eCz" = (
@@ -27615,7 +27611,7 @@
 /area/maintenance/medsublevel)
 "fdV" = (
 /obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/beach/sand/alt,
+/turf/simulated/floor/beach/sand,
 /area/medical/patient_wing_picnic)
 "fez" = (
 /obj/random/junk,
@@ -28016,7 +28012,7 @@
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/xenobotany,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -28693,7 +28689,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "hyS" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -28799,7 +28795,7 @@
 /area/outpost/engineering/hallway)
 "hHy" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/beach/sand/alt,
+/turf/simulated/floor/beach/sand,
 /area/medical/patient_wing_picnic)
 "hHI" = (
 /obj/machinery/button/switch/crematorium{
@@ -30267,10 +30263,10 @@
 /area/outpost/engineering/power)
 "ljj" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/bluegrid,
@@ -30524,7 +30520,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "lXj" = (
 /obj/structure/cable/green{
@@ -30789,7 +30785,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "mtn" = (
 /obj/structure/window/reinforced,
@@ -31379,7 +31375,7 @@
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/xenobotany,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -32020,7 +32016,7 @@
 	pixel_y = 26
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "owq" = (
 /turf/unsimulated/chasm_mask,
@@ -32788,7 +32784,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "qjw" = (
 /obj/structure/bed/stool/chair{
@@ -36562,7 +36558,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
 "xLk" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/beach/water/pool,
@@ -36673,7 +36669,7 @@
 /area/maintenance/medsublevel_port)
 "xUC" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
 "xUD" = (
 /obj/effect/floor_decal/corner/lime{
@@ -36733,10 +36729,10 @@
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "xZp" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/beach/water/pool,

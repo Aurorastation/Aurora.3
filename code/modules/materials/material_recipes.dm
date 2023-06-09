@@ -49,7 +49,7 @@
 	recipes += new /datum/stack_recipe_list("construction recipes",
 		list(
 			new /datum/stack_recipe("regular floor tile", /obj/item/stack/tile/floor, 1, 4, 20),
-			new /datum/stack_recipe("full regular floor tile", /obj/item/stack/tile/floor/full, 1, 4, 20),
+			new /datum/stack_recipe("full regular floor tile", /obj/item/stack/tile/mono, 1, 4, 20),
 			new /datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60),
 			new /datum/stack_recipe("steel barricade", /obj/structure/barricade/metal, BUILD_AMT, time = 10 SECONDS, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("barbed wire", /obj/item/stack/barbed_wire, 1, 2, 20),
@@ -284,8 +284,7 @@
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
-			new /datum/stack_recipe("light marble floor tile", /obj/item/stack/tile/marble, 1, 4, 20),
-			new /datum/stack_recipe("dark marble floor tile", /obj/item/stack/tile/marble/dark, 1, 4, 20)
+			new /datum/stack_recipe("marble floor tile", /obj/item/stack/tile/marble, 1, 4, 20),
 		))
 
 /material/leather/generate_recipes()

@@ -268,7 +268,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -388,10 +388,10 @@
 /turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship)
 "bfg" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/light{
@@ -534,7 +534,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "bOZ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/ramp,
@@ -876,7 +876,7 @@
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "dDt" = (
 /obj/structure/inflatable/door,
-/turf/simulated/floor/tiled/old_white{
+/turf/simulated/floor/tiled/white{
 	broken = 2
 	},
 /area/ship/sfa_patrol_ship)
@@ -1710,7 +1710,7 @@
 "gvT" = (
 /obj/structure/table/steel,
 /obj/item/storage/slide_projector,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2200,13 +2200,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "iIT" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/structure/table/rack,
@@ -2740,7 +2740,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "kMV" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2786,10 +2786,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/medbay)
 "ldz" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
@@ -3438,7 +3438,7 @@
 /area/shuttle/sfa_shuttle)
 "obG" = (
 /obj/machinery/hologram/holopad/long_range,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4233,10 +4233,10 @@
 /obj/machinery/conveyor{
 	name = "running machine"
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -4903,7 +4903,7 @@
 /turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "vmq" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -4923,13 +4923,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "vtl" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/machinery/light/small/emergency{
@@ -4987,7 +4987,7 @@
 /area/ship/sfa_patrol_ship)
 "vEW" = (
 /obj/structure/inflatable,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship)
 "vGd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5123,7 +5123,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship)
 "woR" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor,

@@ -17,11 +17,8 @@
 
 	var/list/decals = list(
 		"quarter-turf" =      list("path" = /obj/effect/floor_decal/corner, "precise" = 1, "coloured" = 1),
+		"wide quarter-turf" = list("path" = /obj/effect/floor_decal/corner_wide, "precise" = 1, "coloured" = 1),
 		"full quarter-turf" = list("path" = /obj/effect/floor_decal/corner_full, "precise" = 1, "coloured" = 1),
-		"light corner" = list("path" = /obj/effect/floor_decal/corner/light, "precise" = 1, "coloured" = 1),
-		"full light corner" = list("path" = /obj/effect/floor_decal/corner/light/full, "precise" = 1, "coloured" = 1),
-		"light, wide corner" = list("path" = /obj/effect/floor_decal/corner_wide/light, "precise" = 1, "coloured" = 1),
-		"full, light, wide corner" = list("path" = /obj/effect/floor_decal/corner_wide/light/full, "precise" = 1, "coloured" = 1),
 		"hazard stripes" =    list("path" = /obj/effect/floor_decal/industrial/warning),
 		"corner, hazard" =    list("path" = /obj/effect/floor_decal/industrial/warning/corner),
 		"hatched marking" =   list("path" = /obj/effect/floor_decal/industrial/hatch, "coloured" = 1),
@@ -112,8 +109,12 @@
 		to_chat(user, "<span class='warning'>\The [src] can only be used on station flooring.</span>")
 		return
 
-	if(!F.flooring || !F.flooring.can_paint || F.broken || F.burnt)
-		to_chat(user, "<span class='warning'>\The [src] cannot paint broken or missing tiles.</span>")
+	if(!F.flooring.can_paint)
+		to_chat(user, SPAN_WARNING("\The [src] cannot paint this type of flooring."))
+		return
+
+	if(!F.flooring || F.broken || F.burnt)
+		to_chat(user, SPAN_WARNING("\The [src] cannot paint damaged or missing tiles."))
 		return
 
 	var/list/decal_data = decals[decal]

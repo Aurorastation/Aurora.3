@@ -392,7 +392,7 @@
 	protectiveness = 10 // 33%
 	icon_base = "solid"
 	icon_reinf = "reinf_over"
-	icon_colour = COLOR_STEEL
+	icon_colour = COLOR_GRAY40
 	golem = SPECIES_GOLEM_STEEL
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'

@@ -197,7 +197,7 @@
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine1)
 "aYE" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -316,7 +316,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "btv" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/railing/mapped,
 /obj/structure/table/rack,
 /obj/item/hoist_kit,
@@ -596,7 +596,7 @@
 /obj/item/clothing/mask/gas/alt{
 	pixel_x = 10
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/item/bedsheet/operation_manager{
@@ -929,7 +929,7 @@
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -971,7 +971,7 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1268,7 +1268,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
 "gqU" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /obj/machinery/door/firedoor/noid,
@@ -1414,7 +1414,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/gunnery)
 "hbk" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/railing/mapped,
 /obj/structure/table/standard,
 /obj/item/clothing/suit/storage/hazardvest,
@@ -1605,7 +1605,7 @@
 /obj/structure/sign/flag/gadpathur/large/east,
 /obj/item/clothing/accessory/flagpatch/gadpathur,
 /obj/item/clothing/accessory/dogtags/gadpathur,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1792,10 +1792,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "jmW" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1811,7 +1811,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "jrY" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /obj/structure/railing/mapped,
@@ -2239,7 +2239,7 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/structure/table/steel,
@@ -2641,10 +2641,10 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2809,7 +2809,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/ranger_shuttle)
 "oKe" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3180,10 +3180,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "qcP" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/ramp,
@@ -3277,10 +3277,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "qyq" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3463,7 +3463,7 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 10
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3874,10 +3874,10 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/ranger_shuttle)
 "teP" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
@@ -4121,14 +4121,14 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/overmap/visitable/ship/ranger_corvette,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "tGV" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4632,7 +4632,7 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/structure/closet/crate/bin{

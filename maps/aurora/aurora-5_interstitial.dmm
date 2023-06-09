@@ -197,7 +197,7 @@
 "ax" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -267,8 +267,7 @@
 	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -281,8 +280,7 @@
 "aK" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/yellow{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -294,7 +292,7 @@
 "aL" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/sign/vacuum{
 	pixel_x = -32
@@ -303,8 +301,7 @@
 /area/maintenance/interstitial_main)
 "aM" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -315,8 +312,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -375,8 +371,7 @@
 /area/maintenance/interstitial_main)
 "aW" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -552,14 +547,13 @@
 /obj/machinery/door/window/eastright,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/bridge_elevator)
 "bm" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 1;
-	icon_state = "corner_white"
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -596,7 +590,7 @@
 "bq" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/machinery/alarm{
 	dir = 8;
@@ -660,8 +654,7 @@
 	},
 /obj/machinery/door/window/eastright,
 /obj/effect/floor_decal/corner/yellow{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/bridge_elevator)
@@ -689,8 +682,7 @@
 /area/maintenance/bridge_elevator)
 "bA" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -817,8 +809,7 @@
 /area/maintenance/bridge_elevator)
 "bJ" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 8;
-	icon_state = "corner_white"
+	dir = 8
 	},
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -834,7 +825,7 @@
 "bL" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/cable/green,
 /obj/machinery/power/apc{
@@ -6502,8 +6493,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/yellow{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -6835,8 +6825,7 @@
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -7188,8 +7177,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 4;
-	icon_state = "corner_white"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -7766,8 +7754,7 @@
 /area/quartermaster/storage)
 "En" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -8153,8 +8140,7 @@
 /area/mine/unexplored)
 "Gv" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -8167,8 +8153,7 @@
 /area/maintenance/interstitial_construction_site/office)
 "Gz" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -8596,8 +8581,7 @@
 /area/quartermaster/storage)
 "IP" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /obj/structure/sign/vacuum{
 	pixel_x = -32
@@ -8627,8 +8611,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/yellow{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -8753,8 +8736,7 @@
 	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 28
@@ -8796,7 +8778,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -9321,8 +9303,7 @@
 /area/medical/upperlevel)
 "Lr" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
@@ -9602,8 +9583,7 @@
 /area/maintenance/engineering_ladder)
 "Mv" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /obj/machinery/alarm{
 	dir = 8;
@@ -9839,8 +9819,7 @@
 /area/maintenance/interstitial_cargo)
 "NJ" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -9933,8 +9912,7 @@
 	icon_state = "1-4"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 1;
-	icon_state = "corner_white"
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -10016,8 +9994,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /obj/machinery/alarm{
 	dir = 1;
@@ -10340,7 +10317,7 @@
 "QN" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
@@ -11270,8 +11247,7 @@
 	icon_state = "2-8"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -11429,7 +11405,7 @@
 	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
-	icon_state = "corner_white_full"
+	icon_state = "preview_threethirds"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -11519,8 +11495,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)

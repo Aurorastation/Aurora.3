@@ -657,7 +657,7 @@
 /obj/machinery/photocopier/faxmachine{
 	department = "Chief Medical Officer's Office"
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/fancybrown,
@@ -1228,7 +1228,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
 "fXG" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/machinery/alarm{
@@ -1383,7 +1383,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/surgery)
 "gMG" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1550,7 +1550,7 @@
 "hGK" = (
 /obj/structure/table/steel,
 /obj/item/folder/white,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/fancybrown,
@@ -1573,7 +1573,7 @@
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp,
 /obj/item/storage/slide_projector,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/fancybrown,
@@ -1803,7 +1803,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
 "jIP" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
@@ -1975,7 +1975,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
 "lfg" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/machinery/light{
@@ -2095,7 +2095,7 @@
 	pixel_y = 6
 	},
 /obj/item/pen,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/fancybrown,
@@ -2546,7 +2546,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/medical)
 "pdi" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/machinery/alarm{
@@ -2558,7 +2558,7 @@
 /area/ship/iac_rescue_ship/coord)
 "pfz" = (
 /obj/structure/closet/walllocker/emerglocker/west,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/bed/roller,
 /obj/machinery/iv_drip{
 	pixel_x = 7
@@ -2765,7 +2765,7 @@
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/ship/iac_rescue_ship/coord)
 "qHm" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/machinery/light{
@@ -3063,7 +3063,7 @@
 	},
 /obj/structure/table/steel,
 /obj/item/storage/bag/inflatable,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
@@ -3249,10 +3249,10 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
 "tGD" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/ramp,

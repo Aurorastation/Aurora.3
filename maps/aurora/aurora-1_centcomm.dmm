@@ -515,7 +515,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/media/jukebox,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "aaW" = (
 /obj/structure/table/rack,
@@ -549,7 +549,7 @@
 	pixel_x = 4;
 	pixel_y = -2
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "aba" = (
 /obj/machinery/papershredder,
@@ -621,7 +621,7 @@
 	name = "Lounge";
 	req_access = list(110)
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "abk" = (
 /obj/item/stack/medical/ointment,
@@ -957,7 +957,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "acp" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/chapel{
@@ -966,20 +966,20 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "acq" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/chapel,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "acr" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "acs" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/chapel{
@@ -988,7 +988,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "act" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/chapel{
@@ -1001,7 +1001,7 @@
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_picnicarea)
 "acv" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
@@ -1967,7 +1967,7 @@
 /turf/simulated/floor/holofloor/lino,
 /area/holodeck/source_meetinghall)
 "afN" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/lino,
@@ -2417,10 +2417,10 @@
 /obj/structure/window/basic{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "ahE" = (
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "ahI" = (
 /obj/machinery/light{
@@ -2506,7 +2506,7 @@
 /area/template_noop)
 "aiv" = (
 /obj/effect/decal/cleanable/cobweb,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -2515,7 +2515,7 @@
 	},
 /area/antag/raider)
 "aiw" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "aix" = (
@@ -3786,7 +3786,7 @@
 	pixel_x = 1;
 	pixel_y = 6
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -3877,7 +3877,7 @@
 	layer = 4.1;
 	name = "adjusted railing"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -4365,7 +4365,7 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/coffeemaster/full,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "aDJ" = (
@@ -5351,7 +5351,7 @@
 	pixel_y = 29
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "aJH" = (
@@ -5516,7 +5516,7 @@
 	anchored = 1;
 	pixel_y = 2
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -5742,7 +5742,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -5920,7 +5920,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/vending/coffee/free{
@@ -6456,7 +6456,7 @@
 	},
 /area/shuttle/mercenary)
 "aQH" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/door/window/northleft{
 	name = "cockpit";
 	req_access = list(150)
@@ -7379,7 +7379,7 @@
 	pixel_y = 26
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bdI" = (
@@ -7435,7 +7435,7 @@
 	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "bex" = (
@@ -7732,7 +7732,7 @@
 	stat = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "bkm" = (
@@ -7850,7 +7850,7 @@
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "bpF" = (
@@ -8017,7 +8017,7 @@
 /area/antag/burglar)
 "buU" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -8062,7 +8062,7 @@
 /area/shuttle/skipjack)
 "bwY" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 8
 	},
@@ -8134,7 +8134,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor/plating,
 /area/antag/burglar)
 "bzb" = (
@@ -8292,7 +8292,7 @@
 	stat = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "bDy" = (
@@ -8482,7 +8482,7 @@
 "bJv" = (
 /obj/machinery/door/airlock/glass,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "bJH" = (
@@ -8490,7 +8490,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "bJW" = (
@@ -8601,7 +8601,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8656,7 +8656,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "bQP" = (
 /turf/unsimulated/wall/darkshuttlewall,
@@ -8782,7 +8782,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "bUC" = (
 /obj/item/device/radio/intercom{
@@ -9220,7 +9220,7 @@
 	stat = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "clg" = (
@@ -9280,7 +9280,7 @@
 	},
 /obj/structure/sign/flag/nanotrasen/large/north,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "coi" = (
@@ -9430,7 +9430,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "crk" = (
@@ -9597,7 +9597,7 @@
 "cAr" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "cAL" = (
 /obj/effect/floor_decal/corner/red{
@@ -9657,7 +9657,7 @@
 "cCN" = (
 /obj/machinery/smartfridge/stocked,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "cCQ" = (
@@ -9808,7 +9808,7 @@
 	req_access = null
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "cIl" = (
@@ -9893,7 +9893,7 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "cKC" = (
@@ -9942,7 +9942,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "cLT" = (
@@ -10059,7 +10059,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "cOn" = (
@@ -10151,7 +10151,7 @@
 	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "cRg" = (
@@ -10500,7 +10500,7 @@
 	pixel_x = 12;
 	pixel_y = -10
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/shuttle/arrival)
 "cZW" = (
 /turf/simulated/wall/shuttle/unique/distress{
@@ -10700,7 +10700,7 @@
 "deb" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "deN" = (
@@ -10918,7 +10918,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "dnd" = (
@@ -10996,7 +10996,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "dpM" = (
@@ -11047,7 +11047,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "drc" = (
 /obj/structure/shuttle_part/cargo{
@@ -11270,7 +11270,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "dDI" = (
@@ -11322,7 +11322,7 @@
 /obj/item/reagent_containers/food/drinks/milk,
 /obj/item/reagent_containers/food/drinks/milk,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "dGq" = (
@@ -11355,7 +11355,7 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "dHX" = (
@@ -11500,7 +11500,7 @@
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "dJn" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -11738,7 +11738,7 @@
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "dQv" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -11783,7 +11783,7 @@
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "dTp" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -11862,7 +11862,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "dUW" = (
@@ -12108,7 +12108,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -12246,7 +12246,7 @@
 /obj/item/material/ashtray,
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "efo" = (
@@ -12661,7 +12661,7 @@
 	can_buckle = 0;
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "evC" = (
 /obj/structure/table/stone/marble,
@@ -12669,7 +12669,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "evM" = (
@@ -12755,7 +12755,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -12797,7 +12797,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "ezR" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /obj/structure/table/stone/marble,
@@ -12810,7 +12810,7 @@
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "eAt" = (
 /obj/machinery/light{
@@ -12831,7 +12831,7 @@
 	pixel_y = 27
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "eBz" = (
@@ -12890,7 +12890,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "eDB" = (
 /turf/simulated/wall/shuttle/unique/cargo{
@@ -13027,12 +13027,12 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "eHl" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 4
 	},
@@ -13420,7 +13420,7 @@
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "eUi" = (
@@ -13428,7 +13428,7 @@
 	density = 0
 	},
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "eUW" = (
 /obj/structure/table/rack,
@@ -14014,7 +14014,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/clothing/gloves/yellow,
@@ -14052,7 +14052,7 @@
 	layer = 4.1;
 	opacity = 0
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor,
@@ -14196,7 +14196,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "fuy" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "rampbottom"
 	},
@@ -14699,7 +14699,7 @@
 	pixel_y = 27
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "fKq" = (
@@ -14800,7 +14800,7 @@
 	pixel_y = -11
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "fNk" = (
@@ -14936,14 +14936,11 @@
 	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "fRx" = (
-/turf/unsimulated/floor{
-	icon_state = "elevatorshaft";
-	name = "elevator machinery"
-	},
+/turf/unsimulated/floor/elevatorshaft,
 /area/centcom/legion)
 "fSi" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -15192,7 +15189,7 @@
 	name = "igs - OdinBartender"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "fXq" = (
@@ -15307,7 +15304,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -15444,7 +15441,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "gfu" = (
 /obj/structure/table/stone/marble,
@@ -15452,7 +15449,7 @@
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "gfT" = (
@@ -15564,7 +15561,7 @@
 	pixel_y = 32
 	},
 /obj/structure/table/wood,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "gjN" = (
 /turf/simulated/floor/beach/sand{
@@ -15718,7 +15715,7 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "gnF" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -15921,7 +15918,7 @@
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "gty" = (
@@ -16018,7 +16015,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -16175,7 +16172,7 @@
 /area/antag/mercenary)
 "gyU" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/reinforced,
 /area/shuttle/administration)
 "gzj" = (
@@ -16194,7 +16191,7 @@
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
 "gzU" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/unsimulated/floor,
@@ -16239,7 +16236,7 @@
 	pixel_x = 9;
 	pixel_y = 1
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -16329,7 +16326,7 @@
 /area/shuttle/mercenary)
 "gEz" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/sign/poster{
 	pixel_x = -32
 	},
@@ -16376,7 +16373,7 @@
 /area/shuttle/legion)
 "gFC" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "gGr" = (
@@ -16461,7 +16458,7 @@
 /turf/space/transit/bluespace/south,
 /area/template_noop)
 "gJO" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -16477,7 +16474,7 @@
 /area/shuttle/syndicate_elite)
 "gKq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/vending/dinnerware{
 	random_itemcount = 1
 	},
@@ -16538,7 +16535,7 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "gMf" = (
 /obj/item/clothing/glasses/sunglasses/sechud/tactical{
@@ -17173,7 +17170,7 @@
 /area/merchant_station)
 "gZG" = (
 /obj/machinery/door/window/westleft,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "gZQ" = (
 /obj/structure/railing/mapped{
@@ -17289,7 +17286,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -17531,7 +17528,7 @@
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "hmN" = (
@@ -17764,7 +17761,7 @@
 /obj/structure/window/basic{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "hxw" = (
 /obj/machinery/light{
@@ -17802,7 +17799,7 @@
 /area/centcom/evac)
 "hyq" = (
 /obj/structure/bed/stool/chair/padded/brown,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "hyv" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -17831,7 +17828,7 @@
 "hAx" = (
 /obj/item/material/ashtray/bronze,
 /obj/structure/table/wood,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "hAC" = (
 /turf/simulated/floor/beach/sand{
@@ -17884,7 +17881,7 @@
 /obj/machinery/vending/cigarette/merchant{
 	pixel_x = 2
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/merchant_station)
 "hCk" = (
 /obj/effect/decal/cleanable/dirt,
@@ -17951,7 +17948,7 @@
 	},
 /area/centcom/spawning)
 "hDN" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor,
@@ -17966,7 +17963,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "hEz" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -18144,7 +18141,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/evac)
 "hOa" = (
 /obj/structure/table/wood,
@@ -18660,7 +18657,7 @@
 	icon_state = "tree2"
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "ieM" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -18872,7 +18869,7 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "ikz" = (
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "ikG" = (
@@ -19066,7 +19063,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "iqJ" = (
@@ -19284,7 +19281,7 @@
 	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ivL" = (
@@ -19459,7 +19456,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "iCJ" = (
 /obj/structure/shuttle_part/distress{
@@ -19489,7 +19486,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "iEv" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -19522,7 +19519,7 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "iED" = (
@@ -19613,7 +19610,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
 "iIg" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -19776,7 +19773,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -20040,7 +20037,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/administration)
 "iSu" = (
@@ -20064,7 +20061,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "iTm" = (
@@ -20311,7 +20308,7 @@
 	name = "Kitchen Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "jcG" = (
@@ -20503,7 +20500,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -20542,7 +20539,7 @@
 	name = "AI Core Door";
 	req_access = list(109)
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/circuit.dmi';
 	icon_state = "bcircuit"
@@ -20560,7 +20557,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -20615,7 +20612,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "jrq" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "rampbottom"
 	},
@@ -20693,7 +20690,7 @@
 	name = "Bar Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "jvz" = (
@@ -20825,7 +20822,7 @@
 	icon_state = "tree5"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "jBi" = (
 /obj/structure/sign/flag/nanotrasen/large/north,
@@ -21119,7 +21116,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -21309,7 +21306,7 @@
 /area/shuttle/transport1)
 "jSp" = (
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "jSH" = (
 /obj/machinery/computer/robotics,
@@ -21433,7 +21430,7 @@
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/holding)
 "jXb" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/unsimulated/floor,
@@ -21668,7 +21665,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/closet/crate/freezer/rations,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
@@ -21684,7 +21681,7 @@
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "kdz" = (
 /obj/structure/shuttle_part/transfer{
@@ -21797,7 +21794,7 @@
 "kgi" = (
 /obj/structure/table/stone/marble,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "kgq" = (
@@ -21952,7 +21949,7 @@
 /area/centcom/shared_dream)
 "kme" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "kmj" = (
 /obj/effect/decal/fake_object{
@@ -22004,7 +22001,7 @@
 	},
 /area/antag/raider)
 "knO" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -22022,7 +22019,7 @@
 	},
 /area/centcom/holding)
 "kop" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -22048,8 +22045,8 @@
 	},
 /area/centcom/specops)
 "kpU" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /turf/unsimulated/floor,
@@ -22725,7 +22722,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "kOI" = (
 /obj/structure/railing/mapped{
@@ -23171,7 +23168,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "ldy" = (
@@ -23379,7 +23376,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -23480,7 +23477,7 @@
 	pixel_y = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "loa" = (
@@ -23563,7 +23560,7 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "lqo" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/merchant_station/warehouse)
 "lqt" = (
@@ -23678,7 +23675,7 @@
 	pixel_x = -6;
 	pixel_y = 5
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -23925,7 +23922,7 @@
 	},
 /area/centcom/holding)
 "lEG" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/turretid{
 	check_arrest = 0;
 	check_records = 0;
@@ -24237,7 +24234,7 @@
 /area/centcom/legion/hangar5)
 "lMz" = (
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "lNi" = (
@@ -24317,7 +24314,7 @@
 	pixel_x = 4;
 	pixel_y = 22
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen{
@@ -24555,8 +24552,8 @@
 	layer = 5;
 	name = "adjusted window"
 	},
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -24569,7 +24566,7 @@
 	anchored = 1;
 	pixel_y = 2
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -24981,7 +24978,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "mjw" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -25306,7 +25303,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "mrJ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -25825,7 +25822,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "mLI" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor,
@@ -26199,7 +26196,7 @@
 "mWz" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "mYp" = (
 /obj/structure/shuttle_part/distress{
@@ -26492,7 +26489,7 @@
 /turf/unsimulated/floor/plating,
 /area/supply/dock)
 "nhx" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /obj/structure/table/stone/marble,
@@ -26643,7 +26640,7 @@
 	name = "Romanovich Cloud, Tau Ceti"
 	})
 "nli" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -26888,7 +26885,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
 "nux" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/unsimulated/floor,
@@ -26969,7 +26966,7 @@
 /area/antag/raider)
 "nwx" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -27085,7 +27082,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -27345,7 +27342,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "nFu" = (
 /turf/simulated/wall/shuttle/unique/distress{
@@ -27464,7 +27461,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/evac)
 "nLo" = (
 /obj/item/material/ashtray/bronze{
@@ -27568,7 +27565,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "nMl" = (
@@ -27690,7 +27687,7 @@
 	icon_state = "tree3"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "nQl" = (
 /obj/structure/window/shuttle/unique/merchant{
@@ -27969,7 +27966,7 @@
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "nXL" = (
 /obj/effect/decal/fake_object/light_source/invisible,
@@ -28146,7 +28143,7 @@
 	name = "Bar Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "obP" = (
@@ -28725,7 +28722,7 @@
 	},
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "oBu" = (
 /obj/effect/floor_decal/corner/blue{
@@ -28874,7 +28871,7 @@
 	},
 /area/centcom/legion)
 "oHw" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /turf/unsimulated/floor,
@@ -28982,7 +28979,7 @@
 	},
 /area/centcom/ferry)
 "oNt" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -29138,7 +29135,7 @@
 	name = "adjusted railing"
 	},
 /obj/structure/table/steel,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -29178,7 +29175,7 @@
 /area/centcom/specops)
 "oRK" = (
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "oRM" = (
 /obj/structure/shuttle_part/hapt{
@@ -29214,7 +29211,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = 3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "oUr" = (
 /obj/structure/table/rack,
@@ -29334,7 +29331,7 @@
 	layer = 6;
 	name = "adjusted railing"
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -29374,7 +29371,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/administration)
 "oZm" = (
@@ -29556,7 +29553,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = 3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "pjc" = (
 /obj/machinery/door/blast/regular{
@@ -29649,7 +29646,7 @@
 /turf/unsimulated/floor,
 /area/antag/loner)
 "plz" = (
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "plM" = (
 /obj/structure/shuttle_part/transfer{
@@ -29698,7 +29695,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "pmR" = (
@@ -29837,7 +29834,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "psm" = (
@@ -30228,7 +30225,7 @@
 	layer = 6;
 	name = "adjusted railing"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -30259,7 +30256,7 @@
 	layer = 6;
 	name = "adjusted railing"
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/unsimulated/floor{
@@ -30880,7 +30877,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
 "pWU" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -30927,7 +30924,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "pZw" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -31017,7 +31014,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "qdi" = (
@@ -31485,7 +31482,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/table/standard,
@@ -31531,7 +31528,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/sleeper{
 	dir = 8
 	},
@@ -31623,7 +31620,7 @@
 "qBY" = (
 /obj/structure/flora/tree/jungle,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "qCl" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
@@ -31757,7 +31754,7 @@
 	icon_state = "leftsecure";
 	name = "Tram Boarding"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
 "qHx" = (
@@ -32283,7 +32280,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "rch" = (
 /turf/simulated/wall/shuttle/dark/corner/underlay{
@@ -32533,7 +32530,7 @@
 	name = "Bar Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "rkF" = (
@@ -32583,7 +32580,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "rmo" = (
 /obj/structure/shuttle_part/ert{
@@ -32914,7 +32911,7 @@
 	},
 /area/centcom/holding)
 "rAZ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/machinery/door/window/westright,
@@ -33076,7 +33073,7 @@
 	icon_state = "plant-28";
 	pixel_x = -3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/shuttle/arrival)
 "rGt" = (
 /turf/simulated/wall/shuttle/unique/transfer{
@@ -33148,7 +33145,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "rKw" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -33376,7 +33373,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "rRP" = (
@@ -34105,7 +34102,7 @@
 /area/centcom/control)
 "stK" = (
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "stO" = (
@@ -34144,7 +34141,7 @@
 /obj/machinery/cryopod{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -34216,7 +34213,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "sxB" = (
 /turf/unsimulated/wall/fakepdoor{
@@ -34264,8 +34261,8 @@
 	layer = 5;
 	name = "adjusted window"
 	},
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -34315,7 +34312,7 @@
 "szR" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "sAP" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -34431,7 +34428,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/evac)
 "sEk" = (
 /obj/structure/table/standard,
@@ -34467,7 +34464,7 @@
 	icon_state = "rightsecure";
 	name = "Tram Boarding"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
 "sFL" = (
@@ -34605,7 +34602,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "sLn" = (
@@ -34626,7 +34623,7 @@
 /turf/unsimulated/floor,
 /area/antag/loner)
 "sLO" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -34989,7 +34986,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "tbN" = (
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -35001,7 +34998,7 @@
 	can_buckle = 0;
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "tbP" = (
 /obj/machinery/light{
@@ -35341,7 +35338,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/spawning)
 "tnJ" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -35497,7 +35494,7 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "tsH" = (
@@ -35723,7 +35720,7 @@
 "tAC" = (
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "tBa" = (
 /obj/structure/sign/directions/security{
@@ -36194,7 +36191,7 @@
 	},
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "tPw" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -36324,7 +36321,7 @@
 /area/antag/burglar)
 "tUf" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/table/standard,
@@ -36410,7 +36407,7 @@
 /area/tdome/tdomeobserve)
 "tXP" = (
 /obj/structure/table/skrell,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "tYj" = (
 /turf/unsimulated/wall/fakeairlock{
@@ -36589,7 +36586,7 @@
 	name = "igs - OdinChef"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ugm" = (
@@ -37026,7 +37023,7 @@
 	icon_state = "tree4"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "urN" = (
 /obj/structure/closet/crate/freezer/rations,
@@ -37128,7 +37125,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -37167,7 +37164,7 @@
 "uCS" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "uDo" = (
 /obj/structure/shuttle_part/mercenary{
@@ -37269,7 +37266,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "uGw" = (
@@ -37286,7 +37283,7 @@
 	},
 /area/centcom/spawning)
 "uGA" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -37352,7 +37349,7 @@
 	},
 /area/shuttle/administration)
 "uJv" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "ramptop"
 	},
@@ -37541,7 +37538,7 @@
 /turf/space/dynamic,
 /area/antag/raider)
 "uOx" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -37704,7 +37701,7 @@
 /area/shuttle/mercenary)
 "uSm" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "uSv" = (
 /turf/unsimulated/floor,
@@ -38171,7 +38168,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
@@ -39256,7 +39253,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/bar)
 "vVC" = (
 /turf/unsimulated/floor{
@@ -39428,7 +39425,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "rampbottom"
 	},
@@ -39481,7 +39478,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -39585,7 +39582,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -39608,7 +39605,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = -3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "wgf" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -39689,7 +39686,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "wgU" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -39771,7 +39768,7 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "wlj" = (
@@ -40133,7 +40130,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
 	icon_state = "rampbottom"
 	},
@@ -40141,7 +40138,7 @@
 "wrY" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "wsd" = (
 /obj/structure/table/rack,
@@ -40668,7 +40665,7 @@
 /obj/machinery/cryopod{
 	dir = 2
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -40994,7 +40991,7 @@
 	name = "operation map";
 	pixel_y = 31
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -41023,7 +41020,7 @@
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "wSa" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -41045,7 +41042,7 @@
 /turf/simulated/floor,
 /area/tdome/tdome2)
 "wTE" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -41072,7 +41069,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "wUa" = (
 /obj/structure/window/shuttle/unique/transfer{
@@ -41468,7 +41465,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = -3
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/holding)
 "xeH" = (
 /obj/structure/table/reinforced/wood,
@@ -41720,7 +41717,7 @@
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "xmf" = (
@@ -42218,7 +42215,7 @@
 /turf/unsimulated/floor/plating,
 /area/antag/loner)
 "xzb" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -42425,7 +42422,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/bed/roller,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -42502,7 +42499,7 @@
 /area/shuttle/mercenary)
 "xJL" = (
 /obj/machinery/recharge_station,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -42615,7 +42612,7 @@
 /obj/item/flame/lighter/zippo,
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/antag/raider)
 "xMD" = (
@@ -42976,7 +42973,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "xXZ" = (
@@ -43042,8 +43039,8 @@
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/checkpoint/aft)
 "yaV" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/machinery/light{
@@ -43125,7 +43122,7 @@
 	can_buckle = 0;
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "yfl" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -43161,7 +43158,7 @@
 	name = "Bar Shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "lino_grey"
+	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
 "ygd" = (

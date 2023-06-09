@@ -194,10 +194,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "agC" = (
 /obj/structure/railing/mapped,
@@ -1034,7 +1031,7 @@
 	pixel_x = -32
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "aLD" = (
@@ -1413,7 +1410,7 @@
 	},
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
@@ -1551,7 +1548,7 @@
 /area/cruise/custodial_p)
 "beW" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -2678,7 +2675,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "cby" = (
@@ -3217,7 +3214,7 @@
 "cyK" = (
 /obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "czu" = (
@@ -4746,7 +4743,7 @@
 /area/cruise/e_supplies)
 "dJt" = (
 /obj/item/device/flashlight/lamp/stage,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/structure/railing/mapped,
@@ -4819,10 +4816,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "dOv" = (
 /obj/structure/bed/stool/chair/folding{
@@ -5131,10 +5125,7 @@
 	light_range = 6;
 	name = "rusty lamp"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "ehP" = (
 /obj/structure/railing/mapped{
@@ -5638,7 +5629,7 @@
 /area/cruise/aft_p)
 "ezk" = (
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "ezH" = (
@@ -7098,7 +7089,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -7230,7 +7221,7 @@
 /area/cruise/aft_s)
 "fKU" = (
 /mob/living/simple_animal/cow,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "fLj" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -7368,7 +7359,7 @@
 /area/cruise/arcade)
 "fRt" = (
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "fRP" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -8032,7 +8023,7 @@
 	pixel_y = -1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "gnC" = (
@@ -8298,7 +8289,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "gwg" = (
 /turf/simulated/floor/tiled/ramp{
@@ -8484,7 +8475,7 @@
 "gFr" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "gGz" = (
 /obj/effect/floor_decal/corner/lime{
@@ -8507,7 +8498,7 @@
 "gHd" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/machinery/light,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "gHs" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -8677,7 +8668,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "gMC" = (
@@ -8770,7 +8761,7 @@
 /area/cruise/security)
 "gPT" = (
 /obj/item/device/flashlight/lamp/stage,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -9265,7 +9256,7 @@
 "hof" = (
 /obj/structure/closet/firecloset/full,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "hog" = (
@@ -9914,7 +9905,7 @@
 /area/cruise/beach_bar)
 "hRx" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "hRI" = (
 /turf/simulated/floor/tiled/ramp{
@@ -10144,10 +10135,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "icI" = (
 /obj/structure/undies_wardrobe,
@@ -10224,7 +10212,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "ieV" = (
@@ -10323,7 +10311,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "ijb" = (
@@ -11019,7 +11007,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "iLE" = (
@@ -11357,7 +11345,7 @@
 	pixel_y = 28
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "iXb" = (
@@ -11736,7 +11724,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "jlw" = (
@@ -12224,10 +12212,7 @@
 /area/cruise/fore)
 "jKN" = (
 /obj/structure/table/rack,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "jMg" = (
 /obj/structure/flora/rock/pile{
@@ -12725,7 +12710,7 @@
 /area/cruise/jungle)
 "kiP" = (
 /obj/item/clothing/head/sunflower_crown,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -13260,7 +13245,7 @@
 /area/cruise/tcomms_sat)
 "kBc" = (
 /obj/structure/flora/grass/jungle,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/main_bar/aft)
@@ -13542,10 +13527,7 @@
 	pixel_x = -24
 	},
 /obj/machinery/light/small,
-/turf/unsimulated/floor{
-	icon_state = "elevatorshaft";
-	name = "elevator machinery"
-	},
+/turf/unsimulated/floor/elevatorshaft,
 /area/cruise/arcade)
 "kOu" = (
 /obj/item/clothing/under/rank/scc/executive,
@@ -13770,10 +13752,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "kWz" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -13800,10 +13779,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "kYt" = (
 /obj/structure/bed/roller,
@@ -14620,7 +14596,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "lDd" = (
@@ -14715,10 +14691,7 @@
 	light_range = 6;
 	name = "rusty lamp"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "lFn" = (
 /obj/machinery/power/emitter{
@@ -15058,7 +15031,7 @@
 	name = "Main Bar Suite Entry"
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "lQO" = (
@@ -15156,10 +15129,7 @@
 	light_range = 6;
 	name = "rusty lamp"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "lWi" = (
 /obj/machinery/door/window/westright,
@@ -15360,7 +15330,7 @@
 /area/cruise/security)
 "mfb" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "mfQ" = (
 /obj/machinery/stargazer,
@@ -15418,7 +15388,7 @@
 	},
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "mhT" = (
@@ -15612,7 +15582,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "mpp" = (
@@ -16427,7 +16397,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "mUE" = (
@@ -16512,7 +16482,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "mXl" = (
@@ -16785,13 +16755,13 @@
 /area/cruise/centerline)
 "nlB" = (
 /obj/item/clothing/head/lavender_crown,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
 "nlF" = (
 /obj/structure/sink/puddle,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "nlR" = (
 /obj/machinery/door/airlock/hatch{
@@ -17848,10 +17818,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "oeh" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -18626,7 +18593,7 @@
 	},
 /area/cruise/main_bar/aft)
 "oNq" = (
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "oNG" = (
 /obj/structure/table/standard,
@@ -18664,10 +18631,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "oOc" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -19023,7 +18987,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "pbJ" = (
@@ -19385,10 +19349,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "pqj" = (
 /obj/structure/window/reinforced{
@@ -19418,7 +19379,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "pqU" = (
@@ -19647,7 +19608,7 @@
 "pzR" = (
 /obj/structure/flora/grass/jungle/b,
 /obj/machinery/light/small,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/main_bar/aft)
@@ -19806,7 +19767,7 @@
 	},
 /area/cruise/beach_cave)
 "pGs" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -19889,7 +19850,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "pOG" = (
@@ -20251,7 +20212,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "qdK" = (
@@ -20361,10 +20322,7 @@
 	},
 /area/cruise/beach)
 "qjQ" = (
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "qkr" = (
 /obj/structure/table/wood,
@@ -20441,7 +20399,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = 3
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/medical)
@@ -20832,7 +20790,7 @@
 	},
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
@@ -20977,7 +20935,7 @@
 /area/cruise/jungle)
 "qLY" = (
 /obj/item/clothing/head/poppy_crown,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -21195,7 +21153,7 @@
 	},
 /area/cruise/aft_s)
 "qVv" = (
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/medical)
@@ -21850,7 +21808,7 @@
 "rzl" = (
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "rzJ" = (
@@ -21950,7 +21908,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "rFd" = (
@@ -21999,7 +21957,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "rGt" = (
@@ -22273,7 +22231,7 @@
 	pixel_x = -5
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "rSC" = (
@@ -22635,10 +22593,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "shq" = (
 /obj/effect/decal/fake_object{
@@ -22838,10 +22793,7 @@
 	},
 /area/cruise/e_supplies)
 "srw" = (
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "sry" = (
 /obj/effect/floor_decal/industrial/loading{
@@ -23001,7 +22953,7 @@
 /obj/structure/table/wood,
 /obj/random/lavalamp,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "sCx" = (
@@ -23156,7 +23108,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
@@ -23445,7 +23397,7 @@
 "sTR" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "sTV" = (
@@ -24051,7 +24003,7 @@
 	},
 /area/cruise/centerline)
 "tpr" = (
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -24075,7 +24027,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
@@ -24142,7 +24094,7 @@
 /area/cruise/beach)
 "tsP" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "tth" = (
 /obj/structure/window/reinforced{
@@ -24750,7 +24702,7 @@
 /area/template_noop)
 "tPq" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/medical)
@@ -24765,10 +24717,7 @@
 /area/cruise/centerline)
 "tQI" = (
 /obj/item/banhammer,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "tQK" = (
 /obj/structure/lattice/catwalk,
@@ -25311,7 +25260,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "uhg" = (
@@ -25917,7 +25866,7 @@
 	opacity = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "uEN" = (
@@ -26496,10 +26445,7 @@
 /area/cruise/central)
 "vdP" = (
 /obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "vdS" = (
 /obj/structure/flora/grass/jungle{
@@ -26891,7 +26837,7 @@
 "vxo" = (
 /obj/machinery/hologram/holopad,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "vxO" = (
@@ -27187,7 +27133,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/medical)
@@ -27535,7 +27481,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "wbo" = (
@@ -27548,7 +27494,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = 3
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -27750,10 +27696,7 @@
 /area/cruise/beach)
 "whY" = (
 /obj/item/beach_ball,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "whZ" = (
 /obj/effect/landmark/force_spawnpoint{
@@ -28006,7 +27949,7 @@
 /area/cruise/escort)
 "wuO" = (
 /obj/structure/flora/grass/jungle,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/medical)
@@ -28342,7 +28285,7 @@
 "wJF" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "wJJ" = (
@@ -28436,7 +28379,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
@@ -28602,7 +28545,7 @@
 /area/cruise/centerline)
 "wTR" = (
 /obj/structure/flora/grass/jungle,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -28964,7 +28907,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "xjM" = (
@@ -29155,10 +29098,7 @@
 	light_range = 6;
 	name = "rusty lamp"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "xqc" = (
 /obj/structure/barricade/plasteel/wired{
@@ -29304,7 +29244,7 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
