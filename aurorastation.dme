@@ -75,6 +75,7 @@
 #include "code\__defines\ship_weapons.dm"
 #include "code\__defines\shuttle.dm"
 #include "code\__defines\singletons.dm"
+#include "code\__defines\smart_token_bucket.dm"
 #include "code\__defines\space_sectors.dm"
 #include "code\__defines\spaceman_dmm.dm"
 #include "code\__defines\spatial_gridmap.dm"
