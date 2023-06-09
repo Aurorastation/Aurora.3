@@ -84,7 +84,9 @@
 /area/ship/diona_serz_ship/bridge)
 "dp" = (
 /obj/structure/bed/handrail,
-/obj/structure/sign/flag/hegemony/large/north,
+/obj/structure/sign/flag/hegemony/large{
+	step_y = 32
+	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_serz_ship_shuttle)
 "dG" = (
@@ -174,6 +176,14 @@
 	},
 /turf/simulated/wall/diona,
 /area/ship/diona_serz_ship/engine)
+"hP" = (
+/obj/structure/closet/crate/loot,
+/obj/structure/diona/bulb,
+/obj/structure/sign/flag/hegemony{
+	step_y = 32
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/warehouse)
 "ie" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -319,11 +329,11 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/armory)
 "nA" = (
-/obj/structure/sign/flag/hegemony{
-	pixel_y = 32
-	},
 /mob/living/simple_animal/carp/baby{
 	faction = "neutral"
+	},
+/obj/structure/sign/flag/hegemony{
+	step_y = 32
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/hall)
@@ -425,7 +435,9 @@
 	icon_broken = "computer_diona";
 	icon_state = "computer_diona"
 	},
-/obj/structure/sign/flag/hegemony/large/north,
+/obj/structure/sign/flag/hegemony/large{
+	step_y = 32
+	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_serz_ship_shuttle)
 "rm" = (
@@ -498,6 +510,13 @@
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/armory)
+"vc" = (
+/obj/item/trap/animal/large,
+/obj/structure/sign/flag/hegemony{
+	step_y = 32
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/armory)
 "vl" = (
 /obj/structure/table/diona,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -518,7 +537,7 @@
 /area/ship/diona_serz_ship/bridge)
 "vS" = (
 /obj/structure/sign/flag/hegemony{
-	pixel_y = 32
+	step_y = 32
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/bridge)
@@ -573,7 +592,6 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/bridge)
 "zl" = (
-/obj/structure/sign/flag/hegemony,
 /obj/structure/diona/bulb,
 /turf/simulated/wall/diona,
 /area/ship/diona_serz_ship/engine)
@@ -860,7 +878,9 @@
 /area/ship/diona_serz_ship/armory)
 "KJ" = (
 /obj/structure/bed/handrail,
-/obj/structure/sign/flag/hegemony/large/north,
+/obj/structure/sign/flag/hegemony/large{
+	step_y = 32
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/dock)
 "KX" = (
@@ -1213,7 +1233,7 @@
 /area/ship/diona_serz_ship/hall)
 "Wi" = (
 /obj/structure/sign/flag/hegemony{
-	pixel_y = 32
+	step_y = 32
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/hall)
@@ -1269,6 +1289,12 @@
 "YS" = (
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/warehouse)
+"YU" = (
+/obj/structure/sign/flag/hegemony{
+	step_y = -32
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/engine)
 "Zw" = (
 /obj/structure/diona/bulb,
 /obj/structure/bed/handrail,
@@ -35049,7 +35075,7 @@ KE
 KE
 KE
 KE
-Cw
+vc
 Cw
 Cw
 Cw
@@ -37638,7 +37664,7 @@ Wg
 Sa
 LE
 Sa
-Sa
+YU
 zl
 ie
 BK
@@ -40190,7 +40216,7 @@ ru
 ru
 ru
 ru
-lX
+hP
 Ry
 lX
 Ry
