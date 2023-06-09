@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "PEAC rounds no longer penetrate the target if you directly clicked it."
-  - tweak: "Projectiles can no longer miss exosuits."
-  - rscadd: "Added two new types of PEAC rounds, high-explosive and fragmentation. Removed one of the AP rounds from the locker, added one HE round, and added three FRAG rounds."
-  - tweak: "Tweaked the PEAC pickup and drop sounds to be more meaty."
