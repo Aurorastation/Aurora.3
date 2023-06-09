@@ -1211,7 +1211,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "Px" = (
-/obj/structure/bed/stool/chair/sofa/corner/orange,
+/obj/structure/bed/stool/chair/sofa/corner/concave/orange,
 /turf/simulated/floor/carpet,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "PN" = (

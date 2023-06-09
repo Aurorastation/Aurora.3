@@ -17791,7 +17791,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "iDE" = (
-/obj/structure/bed/stool/chair/sofa/corner/orange,
+/obj/structure/bed/stool/chair/sofa/corner/concave/orange,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -20279,7 +20279,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "jKd" = (
-/obj/structure/bed/stool/chair/sofa/corner/brown{
+/obj/structure/bed/stool/chair/sofa/corner/concave/brown{
 	dir = 1
 	},
 /obj/machinery/newscaster{
@@ -20712,7 +20712,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "jUG" = (
-/obj/structure/bed/stool/chair/sofa/corner/red{
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/red,
@@ -46691,7 +46691,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
 "wKa" = (
-/obj/structure/bed/stool/chair/sofa/corner/red{
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/red,

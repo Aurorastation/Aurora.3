@@ -7787,7 +7787,7 @@
 	},
 /area/city/mendell)
 "RW" = (
-/obj/structure/bed/stool/chair/sofa/corner{
+/obj/structure/bed/stool/chair/sofa/corner/concave{
 	dir = 4
 	},
 /obj/machinery/light/small{
