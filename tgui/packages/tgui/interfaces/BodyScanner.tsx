@@ -76,7 +76,7 @@ export const InvalidWindow = (props, context) => {
   const { act, data } = useBackend<ScannerData>(context);
 
   return (
-    <BlockQuote color="bad">
+    <BlockQuote>
       {data.nocons
         ? 'No scanner bed detected.'
         : !data.occupied
@@ -108,7 +108,9 @@ export const ScannerWindow = (props, context) => {
               <LabeledList.Item label="Species">
                 {data.species}
               </LabeledList.Item>
-              <LabeledList.Item label="Pulse" color={progressClass(data.brain_activity)}>
+              <LabeledList.Item
+                label="Pulse"
+                color={progressClass(data.brain_activity)}>
                 {data.pulse}
               </LabeledList.Item>
               <LabeledList.Item

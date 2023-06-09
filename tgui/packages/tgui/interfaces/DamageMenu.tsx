@@ -27,47 +27,47 @@ export const DamageMenu = (props, context) => {
             </Table.Row>
             {data.limbs.map((limb) =>
               limb.present ? (
-                <>
+                <Table.Row>
                   <Table.Cell key={limb.name}>{limb.name}</Table.Cell>
                   <Table.Cell>
                     <Button
                       content="Brute"
                       onClick={() =>
-                        act('brute', { target: 'limb', name: limb.name })
+                        act('limb', { action: 'brute', name: limb.name })
                       }
                     />
                     <Button
                       content="Burn"
                       onClick={() =>
-                        act('burn', { target: 'limb', name: limb.name })
+                        act('limb', { action: 'burn', name: limb.name })
                       }
                     />
                     <Button
                       content="Infection"
                       onClick={() =>
-                        act('infection', { target: 'limb', name: limb.name })
+                        act('limb', { action: 'infection', name: limb.name })
                       }
                     />
                     <Button
                       content="Shatter"
                       onClick={() =>
-                        act('shatter', { target: 'limb', name: limb.name })
+                        act('limb', { action: 'shatter', name: limb.name })
                       }
                     />
                     <Button
                       content="Arterial"
                       onClick={() =>
-                        act('arterial', { target: 'limb', name: limb.name })
+                        act('limb', { action: 'arterial', name: limb.name })
                       }
                     />
                     <Button
                       content="Sever"
                       onClick={() =>
-                        act('sever', { target: 'limb', name: limb.name })
+                        act('limb', { action: 'sever', name: limb.name })
                       }
                     />
                   </Table.Cell>
-                </>
+                </Table.Row>
               ) : (
                 ''
               )
@@ -82,41 +82,41 @@ export const DamageMenu = (props, context) => {
             </Table.Row>
             {data.organs.map((organ) =>
               organ.present ? (
-                <>
+                <Table.Row>
                   <Table.Cell key={organ.name}>{organ.name}</Table.Cell>
                   <Table.Cell>
                     <Button
                       content="Damage"
                       onClick={() =>
-                        act('damage', { target: 'organ', name: organ.name })
+                        act('organ', { action: 'damage', name: organ.name })
                       }
                     />
                     <Button
                       content="Infection"
                       onClick={() =>
-                        act('infection', { target: 'organ', name: organ.name })
+                        act('organ', { action: 'infection', name: organ.name })
                       }
                     />
                     <Button
                       content="Bruise"
                       onClick={() =>
-                        act('bruise', { target: 'organ', name: organ.name })
+                        act('organ', { action: 'bruise', name: organ.name })
                       }
                     />
                     <Button
                       content="Break"
                       onClick={() =>
-                        act('break', { target: 'organ', name: organ.name })
+                        act('organ', { action: 'break', name: organ.name })
                       }
                     />
                     <Button
                       content="Remove"
                       onClick={() =>
-                        act('remove', { target: 'organ', name: organ.name })
+                        act('organ', { action: 'remove', name: organ.name })
                       }
                     />
                   </Table.Cell>
-                </>
+                </Table.Row>
               ) : (
                 ''
               )
