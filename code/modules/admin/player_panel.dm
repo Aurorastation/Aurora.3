@@ -31,56 +31,57 @@
 
 /datum/tgui_module/player_panel
 
-/datum/tgui_module/player_panel/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+/datum/tgui_module/player_panel/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "admin-player-panel", 800, 600, "Modern player panel", state = staff_state)
-		ui.header = "minimal"
-		ui.auto_update_content = TRUE
+		ui = new(user, src, "PlayerPanel", "Player Panel", 800, 600)
+		ui.open()
 
-	ui.open()
-
-/datum/tgui_module/player_panel/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		. = data = list()
+/datum/tgui_module/player_panel/ui_data(mob/user)
+	var/list/data = list()
 	var/isMod = check_rights(R_MOD|R_ADMIN, 0, user)
-	VUEUI_SET_CHECK(data["holder_ref"], "\ref[user.client.holder]", ., data)
-	VUEUI_SET_CHECK(data["ismod"], isMod, ., data)
-
+	data["holder_ref"] = "\ref[user.client.holder]"
+	data["is_mod"] = isMod
 
 	var/list/mobs = sortmobs()
 
-	LAZYINITLIST(data["players"])
-	if(LAZYLEN(data["players"]) != mobs.len)
-		data["players"] = list()
+	data["players"] = list()
+
 	for(var/mob/M in mobs)
 		var/ref = "\ref[M]"
-		LAZYINITLIST(data["players"][ref])
+		var/list/player = list()
+		player["ckey"] = TRUE
 		if(!M.ckey)
-			data["players"][ref] = FALSE
+			player["ckey"] = FALSE
 			continue
-		LAZYINITLIST(data["players"][ref])
-		VUEUI_SET_CHECK(data["players"][ref]["ref"], ref, ., data)
-		VUEUI_SET_CHECK(data["players"][ref]["name"], M.name, ., data)
+
+		player["ref"] = ref
+		player["name"] = M.name
 		var/real_name = GetMobRealName(M)
-		VUEUI_SET_CHECK(data["players"][ref]["real_name"], real_name, ., data)
-		if(istype(M,/mob/living/carbon/human))
+		player["real_name"] = real_name
+
+		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H.mind?.assigned_role)
-				VUEUI_SET_CHECK(data["players"][ref]["assigment"], H.mind.assigned_role, ., data)
+				player["assigment"] = H.mind.assigned_role
 		else
-			VUEUI_SET_CHECK(data["players"][ref]["assigment"], "NA", ., data)
-		VUEUI_SET_CHECK(data["players"][ref]["key"], M.key, ., data)
+			player["assigment"] = "NA"
+
+		player["key"] = M.key
+
 		if(isMod)
-			VUEUI_SET_CHECK(data["players"][ref]["ip"], M.lastKnownIP, ., data)
+			player["ip"] = M.lastKnownIP
 		else
-			VUEUI_SET_CHECK(data["players"][ref]["ip"], FALSE, ., data)
-		VUEUI_SET_CHECK(data["players"][ref]["connected"], !!M.client, ., data)
+			player["ip"] = FALSE
+
+		player["connected"] = !!M.client
+
 		if(isMod)
 			var/special_char = is_special_character(M)
-			VUEUI_SET_CHECK(data["players"][ref]["antag"], special_char, ., data)
+			player["antag"] = special_char
 		else
-			VUEUI_SET_CHECK(data["players"][ref]["antag"], -1, ., data)
+			player["antag"] = -1
+
 		if(isMod && (M.client?.player_age || M.player_age))
 			var/age = "Requires database"
 			if(M.client?.player_age)
@@ -91,9 +92,99 @@
 				age = "NA"
 			if(age == "Requires database")
 				age = "NA"
-			VUEUI_SET_CHECK(data["players"][ref]["age"], age, ., data)
+			player["age"] = age
 		else
-			VUEUI_SET_CHECK(data["players"][ref]["age"], FALSE, ., data)
+			player["age"] = FALSE
+
+		data["players"] += list(player)
+	return data
+
+/datum/tgui_module/player_panel/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	var/client/C = usr.client
+	if(!C || !C.holder)
+		return
+
+	switch(action)
+		if("show_player_panel")
+			var/mob/M = locate(params["show_player_panel"])
+			C.holder.show_player_panel(M)
+			. = TRUE
+
+		if("private_message")
+			var/client/messagee = locate(params["private_message"])
+			var/datum/ticket/ticket = locate(params["ticket"])
+
+			if (!isnull(ticket) && !istype(ticket))
+				return
+
+			if(ismob(messagee)) 		//Old stuff can feed-in mobs instead of clients
+				var/mob/M = messagee
+				messagee = M.client
+
+			C.cmd_admin_pm(messagee, null, ticket)
+			. = TRUE
+
+		if("subtle_message")
+			if(!check_rights(R_MOD,0) && !check_rights(R_ADMIN))
+				return
+
+			var/mob/M = locate(params["subtle_message"])
+			C.cmd_admin_subtle_message(M)
+			. = TRUE
+
+		if("view_variables")
+			C.debug_variables(locate(params["view_variables"]))
+			. = TRUE
+
+		if("notes")
+			var/ckey = params["ckey"]
+			if(!ckey)
+				var/mob/M = locate(params["mob"])
+				if(ismob(M))
+					ckey = M.ckey
+
+			C.holder.show_player_info(ckey)
+			. = TRUE
+
+		if("traitor_panel")
+			if(!check_rights(R_ADMIN|R_MOD))
+				return
+
+			if(!ROUND_IS_STARTED)
+				alert("The game hasn't started yet!")
+				return
+
+			var/mob/M = locate(params["traitor_panel"])
+			if(!ismob(M))
+				to_chat(usr, SPAN_WARNING("This can only be used on mobs."))
+				return
+			C.holder.show_traitor_panel(M)
+			. = TRUE
+
+		if("jump_to")
+			if(!check_rights(R_MOD|R_ADMIN))
+				return
+
+			var/mob/M = locate(params["jump_to"])
+
+			if(!isobserver(usr))
+				C.admin_ghost()
+			sleep(2)
+			C.jumptomob(M)
+			. = TRUE
+
+		if("wind")
+			var/mob/M = locate(params["wind"])
+			if(!ismob(M))
+				to_chat(usr, SPAN_WARNING("This can only be used on mobs."))
+				return
+
+			C.holder.paralyze_mob(M)
+			. = TRUE
 
 /datum/tgui_module/player_panel/proc/GetMobRealName(var/mob/M)
 	if(isAI(M))
