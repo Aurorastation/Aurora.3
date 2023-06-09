@@ -239,7 +239,6 @@
 	held_item = null
 	desc = "A heavy set of belts and buckles, completed by a hinging arm mechanism that surrounds the occupant. Perfect for flying shuttles."
 	icon = 'icons/obj/spaceship/cockpit_chair.dmi'
-	override_material_color = TRUE
 
 /obj/structure/bed/stool/chair/cockpit/CanPass(atom/movable/mover, turf/target, height, air_group)
     return TRUE
@@ -348,5 +347,4 @@
 	buckle_dir = FALSE
 	buckle_lying = FALSE
 	can_dismantle = FALSE
-	override_material_color = TRUE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
