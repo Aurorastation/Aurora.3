@@ -1,6 +1,7 @@
 #define MODKIT_HELMET 1
 #define MODKIT_SUIT 2
-#define MODKIT_FULL 3
+#define MODKIT_RIG 3
+#define MODKIT_FULL 4
 
 /obj/item/device/modkit
 	name = "voidsuit modification kit"
@@ -11,7 +12,8 @@
 
 	var/list/permitted_types = list(
 		/obj/item/clothing/head/helmet/space/void,
-		/obj/item/clothing/suit/space/void
+		/obj/item/clothing/suit/space/void,
+		/obj/item/rig
 		)
 
 /obj/item/device/modkit/afterattack(obj/O, mob/user as mob, proximity)
@@ -60,6 +62,8 @@
 		parts &= ~MODKIT_HELMET
 	if (istype(I, /obj/item/clothing/suit))
 		parts &= ~MODKIT_SUIT
+	if (istype(I, /obj/item/rig))
+		parts &= ~MODKIT_RIG
 
 	if(!parts)
 		user.drop_from_inventory(src,O)
@@ -91,7 +95,9 @@
 		/obj/item/clothing/head/helmet/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering/himeo,
 
 		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/suit/space/void/atmos/himeo,
-		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/himeo
+		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/himeo,
+
+		/obj/item/rig/industrial = /obj/item/rig/industrial/himeo
 	)
 	var/parts = MODKIT_FULL
 
@@ -248,7 +254,7 @@
 		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/sfa,
 		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/sfa
 	)
-	
+
 /obj/item/voidsuit_modkit/dominianvoid
 	name = "dominian voidsman's voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Dominian prejoroub combat suit into its voidsman counterpart. Practical!"
@@ -295,7 +301,7 @@
 	name = "sfa modkit box"
 	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."
 	starts_with = list(/obj/item/voidsuit_modkit/sfa = 4)
-	
+
 /obj/item/storage/box/dominianvoid
 	name = "dominian voidsman's modkit box"
 	desc = "Contains modkits to convert Dominian voidsuits into a voidsman's variant."
