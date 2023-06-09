@@ -32,4 +32,3 @@ delete-after: True
 
 changes:
   - rscadd: "Added a Himeo variant of the mining rig."
-  - tweak: "Adjusted the behavior of the modkit slightly."
