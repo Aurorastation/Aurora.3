@@ -137,7 +137,7 @@
 			parts &= ~MODKIT_HELMET
 		if (istype(W, /obj/item/clothing/suit))
 			parts &= ~MODKIT_SUIT
-		if (istype(W, /obj/item/rig))
+		if (istype(W, /obj/item/rig_assembly/industrial/himeo))
 			parts &= ~MODKIT_RIG
 
 		qdel(W)
