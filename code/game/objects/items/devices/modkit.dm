@@ -125,18 +125,6 @@
 			to_chat(user, SPAN_NOTICE("Remove any accessories, helmets, magboots, or oxygen tanks before attempting to convert this voidsuit."))
 			return
 
-//	var/hardsuit_product = suit_options[W.type]
-//	if(!hardsuit_product)
-//		for(var/thing in suit_options)
-//			if(suit_options[thing] == W.type)
-//				hardsuit_product = thing
-//				reconverting = TRUE
-//				break
-//	if(hardsuit_product)
-//		if(istype(W, /obj/item/rig/industrial) && installed_modules != list(""))
-//			to_chat(user, SPAN_NOTICE("Remove any modules or oxygen tanks before attempting to convert this hardsuit."))
-//			return
-
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/P = new voidsuit_product(get_turf(W))
 
