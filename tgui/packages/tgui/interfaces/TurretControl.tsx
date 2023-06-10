@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { BlockQuote, Button, LabeledList, Section } from '../components';
+import { Button, LabeledList, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export type TurretData = {
@@ -31,14 +31,14 @@ export const TurretControl = (props, context) => {
   const { act, data } = useBackend<TurretData>(context);
 
   return (
-    <Window resizable theme="zavodskoi">
+    <Window resizable>
       <Window.Content scrollable>
         <Section title="Group Controls">
-          <BlockQuote>
+          <NoticeBox>
             {data.locked
               ? 'Behaviour controls are locked.'
               : 'Behaviour controls are unlocked.'}
-          </BlockQuote>
+          </NoticeBox>
           <ControlWindow />
         </Section>
         <Section title="Individual Controls">
@@ -58,6 +58,7 @@ export const ControlWindow = (props, context) => {
         <Button
           content={data.enabled ? 'Enabled' : 'Disabled'}
           color={data.enabled ? 'bad' : 'good'}
+          disabled={data.locked}
           onClick={() =>
             act('command', {
               turret_ref: 'this',
@@ -71,6 +72,7 @@ export const ControlWindow = (props, context) => {
         <Button
           content={data.lethal ? 'On' : 'Off'}
           color={data.lethal ? 'bad' : 'average'}
+          disabled={data.locked}
           onClick={() =>
             act('command', {
               turret_ref: 'this',
@@ -85,6 +87,7 @@ export const ControlWindow = (props, context) => {
           <Button
             content={setting.value ? 'On' : 'Off'}
             selected={setting.value}
+            disabled={data.locked}
             onClick={() =>
               act('command', {
                 turret_ref: 'this',
@@ -109,6 +112,7 @@ export const TurretsWindow = (props, context) => {
           <Button
             content={turret.enabled ? 'Enabled' : 'Disabled'}
             color={turret.enabled ? 'bad' : 'good'}
+            disabled={data.locked}
             onClick={() =>
               act('command', {
                 turret_ref: turret.ref,
@@ -122,6 +126,7 @@ export const TurretsWindow = (props, context) => {
           <Button
             content={turret.lethal ? 'On' : 'Off'}
             color={turret.lethal ? 'bad' : 'average'}
+            disabled={data.locked}
             onClick={() =>
               act('command', {
                 turret_ref: turret.ref,
@@ -136,6 +141,7 @@ export const TurretsWindow = (props, context) => {
             <Button
               content={setting.value ? 'On' : 'Off'}
               selected={setting.value}
+              disabled={data.locked}
               onClick={() =>
                 act('command', {
                   turret_ref: turret.ref,
