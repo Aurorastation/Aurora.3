@@ -10,20 +10,18 @@
 
 /datum/tgui_module/permissions_panel
 
-/datum/tgui_module/permissions_panel/ui_interact(mob/user)
+/datum/tgui_module/permissions_panel/ui_interact(mob/user, var/datum/tgui/ui)
 	if (!check_rights(R_PERMISSIONS))
 		return
 
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "admin-permissions-panel", 800, 600, "Permissions panel", state = admin_state)
-		ui.header = "minimal"
-		ui.data = vueui_data_change(list(), user, ui)
-
+		ui = new(user, src, "PermissionsPanel", "Permissions Panel", 800, 600)
+		ui.open()
 	ui.open()
 
-/datum/tgui_module/permissions_panel/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = list()
+/datum/tgui_module/permissions_panel/ui_data(mob/user)
+	var/list/data = list()
 	var/list/admins = list()
 
 	for (var/admin_ckey in admin_datums)
@@ -43,13 +41,13 @@
 
 	return data
 
-/datum/tgui_module/permissions_panel/Topic(href, href_list)
+/datum/tgui_module/permissions_panel/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
 	if (!check_rights(R_PERMISSIONS))
 		log_and_message_admins("attempted to edit the admin permissions without sufficient rights.")
 		return
 
-	var/admin_ckey = ckey(href_list["ckey"])
-	var/action = href_list["action"]
+	var/admin_ckey = ckey(params["ckey"])
 	var/datum/admins/D = admin_datums[admin_ckey]
 
 	if (action != "add" && (!admin_ckey || !D))
@@ -70,14 +68,7 @@
 	else if (action == "rights")
 		_edit_rights(admin_ckey, D)
 
-	var/list/new_data = vueui_data_change()
-
-	for (var/U in SSvueui.get_open_uis(src))
-		var/datum/vueui/ui = U
-		if (ui.status <= STATUS_DISABLED)
-			continue
-
-		ui.push_change(new_data.Copy())
+	SStgui.update_uis(src)
 
 /datum/tgui_module/permissions_panel/proc/_remove_admin(admin_ckey, datum/admins/D)
 	PRIVATE_PROC(TRUE)
