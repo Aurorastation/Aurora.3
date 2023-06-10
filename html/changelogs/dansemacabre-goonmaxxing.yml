@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a gun locker with some basic gear for defending the bridge to the BC prep room. BCs cannot unlock it, only heads of staff. Also adds some coifs to the crew armory."
+  - rscadd: "Added a gun locker with some basic gear for defending the bridge to the bridge itself. BCs cannot unlock it, only heads of staff. Also adds some coifs to the crew armory."
