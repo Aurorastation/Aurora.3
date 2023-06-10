@@ -121,9 +121,9 @@
 	name = "himean industrial suit control module"
 	suit_type = "himean industrial hardsuit"
 	desc = "A variant of the industrial suit used by the United Syndicates of Himeo."
-	desc_extended = "A little too clunky, a little too slow; the Type-86 'Cicada' industrial hardsuit was released about a decade too late to be competitive. \
+	desc_extended = "A little too clunky, a little too slow; the Type-86 \"Cicada\" industrial hardsuit was released about a decade too late to be competitive. \
 	Still, it enjoys modest popularity among those dissatisfied with the limits of the Type-76 'Fish Fur', such as Guard sappers or asteroid miners." //nonfunctional at the moment?
-
+	icon_supported_species_tags = list("")
 	icon = 'icons/clothing/rig/himeo_industrial.dmi'
 	icon_state = "himeo_rig"
 	species_restricted = list(BODYTYPE_HUMAN)

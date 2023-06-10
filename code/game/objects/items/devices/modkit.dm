@@ -1,7 +1,7 @@
 #define MODKIT_HELMET 1
 #define MODKIT_SUIT 2
 #define MODKIT_RIG 3
-#define MODKIT_FULL 4
+#define MODKIT_FULL 6
 
 /obj/item/device/modkit
 	name = "voidsuit modification kit"
@@ -13,7 +13,7 @@
 	var/list/permitted_types = list(
 		/obj/item/clothing/head/helmet/space/void,
 		/obj/item/clothing/suit/space/void,
-		/obj/item/rig
+		/obj/item/rig_assembly
 		)
 
 /obj/item/device/modkit/afterattack(obj/O, mob/user as mob, proximity)
@@ -71,10 +71,10 @@
 
 /obj/item/device/modkit/examine(mob/user)
 	..(user)
-	to_chat(user, "It looks as though it modifies hardsuits to fit [target_species] users.")
+	to_chat(user, "It looks as though it modifies voidsuits to fit [target_species] users.")
 
 /obj/item/device/modkit/tajaran
-	name = "tajaran hardsuit modification kit"
+	name = "tajaran voidsuit modification kit"
 	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user. This one looks like it's meant for tajara."
 	target_species = BODYTYPE_TAJARA
 
@@ -97,7 +97,8 @@
 		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/suit/space/void/atmos/himeo,
 		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/himeo,
 
-		/obj/item/rig/industrial = /obj/item/rig/industrial/himeo
+		/obj/item/rig_assembly/industrial = /obj/item/rig_assembly/industrial/himeo
+
 	)
 	var/parts = MODKIT_FULL
 
@@ -124,6 +125,18 @@
 			to_chat(user, SPAN_NOTICE("Remove any accessories, helmets, magboots, or oxygen tanks before attempting to convert this voidsuit."))
 			return
 
+//	var/hardsuit_product = suit_options[W.type]
+//	if(!hardsuit_product)
+//		for(var/thing in suit_options)
+//			if(suit_options[thing] == W.type)
+//				hardsuit_product = thing
+//				reconverting = TRUE
+//				break
+//	if(hardsuit_product)
+//		if(istype(W, /obj/item/rig/industrial) && installed_modules != list(""))
+//			to_chat(user, SPAN_NOTICE("Remove any modules or oxygen tanks before attempting to convert this hardsuit."))
+//			return
+
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/P = new voidsuit_product(get_turf(W))
 
@@ -136,6 +149,8 @@
 			parts &= ~MODKIT_HELMET
 		if (istype(W, /obj/item/clothing/suit))
 			parts &= ~MODKIT_SUIT
+		if (istype(W, /obj/item/rig))
+			parts &= ~MODKIT_RIG
 
 		qdel(W)
 
@@ -153,6 +168,7 @@
 	desc_extended = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
 	for use by miners originating from the planet. Most of these suits are assembled in Cannington and painstakingly optimized on-site by their\
 	individual operator leading to a large trail of red tape as NanoTrasen is forced to inspect these suits to ensure their safety."
+
 
 /obj/item/voidsuit_modkit/himeo/tajara
 	name = "tajaran himeo voidsuit kit"
