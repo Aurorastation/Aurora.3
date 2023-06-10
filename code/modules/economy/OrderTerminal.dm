@@ -17,7 +17,6 @@
 
 	var/sum = 0
 	var/editmode = FALSE // Permits the menu to be changed
-	var/unlocking = FALSE // Checks if the machine is waiting for an id to unlock it
 	var/confirmorder = FALSE // Waits for an id to confirm an order
 	var/receipt = ""
 	var/ticket = ""
@@ -136,6 +135,7 @@
 				to_chat(usr, SPAN_NOTICE("You don't have access to use this option."))
 				return FALSE
 			items -= params["remove"]
+			items_to_price -= params["remove"]
 			. = TRUE
 
 		if("buy")
@@ -177,8 +177,8 @@
 				var/item_price = items_to_price[item_name]
 				sum += item_price
 
-				receipt += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]电 each<br>"
-				ticket += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]电 each<br>"
+				receipt += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]cr each<br>"
+				ticket += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]cr each<br>"
 			receipt += "<hr><b>Total:</b> [sum]电"
 			ticket += "<hr><b>Total:</b> [sum]电"
 			sum = sum
@@ -198,5 +198,4 @@
 	sum = 0
 	receipt = ""
 	ticket = ""
-	unlocking = FALSE
 	confirmorder = FALSE
