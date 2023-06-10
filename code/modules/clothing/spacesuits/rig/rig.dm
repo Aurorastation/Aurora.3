@@ -102,8 +102,7 @@
 	var/list/species_restricted = list(BODYTYPE_HUMAN,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 
 /obj/item/rig/examine()
-	to_chat(usr, "This is [icon2html(src, usr)][src.name].")
-	to_chat(usr, "[src.desc]")
+	. = ..()
 	if(wearer)
 		for(var/obj/item/piece in list(helmet,gloves,chest,boots))
 			if(!piece || piece.loc != wearer)

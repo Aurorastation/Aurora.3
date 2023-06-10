@@ -7,6 +7,9 @@
 /obj/item/clothing/head/helmet/space/rig/industrial/himeo
 	light_overlay = "helmet_light_himeo"
 
+/obj/item/clothing/suit/space/rig/industrial/himeo
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
 /obj/item/clothing/head/helmet/space/rig/ce
 	camera = /obj/machinery/camera/network/engineering
 
@@ -129,6 +132,7 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial/himeo
+	chest_type = /obj/item/clothing/suit/space/rig/industrial/himeo
 
 /obj/item/rig/eva
 	name = "EVA suit control module"
