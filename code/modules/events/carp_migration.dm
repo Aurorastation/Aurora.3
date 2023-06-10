@@ -135,3 +135,15 @@
 /datum/event/carp_migration/overmap/setup()
 	announceWhen = 1
 	despawn_turfs = typecacheof(despawn_turfs)
+
+/datum/event/carp_migration/overmap/announce()
+	if(affecting_shuttle)
+		send_sensor_message("Entering carp habitat.")
+		return
+	return ..()
+
+/datum/event/carp_migration/overmap/announce_end(var/faked)
+	if(affecting_shuttle)
+		send_sensor_message("Exiting carp habitat.")
+		return
+	return ..()

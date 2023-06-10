@@ -72,11 +72,7 @@
 			continue
 		var/datum/event_meta/EM = new(hazard.difficulty, "Overmap event - [hazard.name]", event_type, add_to_queue = FALSE, is_one_shot = TRUE)
 		var/datum/event/E = new event_type(EM)
-		E.startWhen = 0
-		E.endWhen = INFINITY
-		E.affecting_z = ship.map_z
-		if("victim" in E.vars)//for meteors and other overmap events that uses ships//might need a better solution
-			E.vars["victim"] = ship
+		E.setup_for_overmap(ship, hazard)
 		LAZYADD(ship_events[ship], E)
 
 /singleton/overmap_event_handler/proc/stop_hazard(var/obj/effect/overmap/visitable/ship/ship, var/obj/effect/overmap/event/hazard)
@@ -266,7 +262,7 @@
 
 /obj/effect/overmap/event/electric
 	name = "electrical storm"
-	events = list(/datum/event/electrical_storm)
+	events = list(/datum/event/electrical_storm/overmap)
 	event_icon_states = list("electrical1", "electrical2")
 	difficulty = EVENT_LEVEL_MAJOR
 	can_be_destroyed = FALSE
@@ -280,7 +276,7 @@
 
 /obj/effect/overmap/event/ion
 	name = "ion cloud"
-	events = list(/datum/event/ionstorm)
+	events = list(/datum/event/ionstorm/overmap)
 	event_icon_states = list("ion1", "ion2", "ion3", "ion4")
 	difficulty = EVENT_LEVEL_MAJOR
 	can_be_destroyed = FALSE
@@ -299,7 +295,7 @@
 
 /obj/effect/overmap/event/gravity
 	name = "dark matter influx"
-	events = list(/datum/event/gravity)
+	events = list(/datum/event/gravity/overmap)
 	can_be_destroyed = FALSE
 
 //These now are basically only used to spawn hazards. Will be useful when we need to spawn group of moving hazards

@@ -15,7 +15,6 @@
 	return res
 
 /datum/event/electrical_storm/announce()
-	..()
 	for (var/zlevel in affecting_z)
 		if(zlevel in current_map.station_levels)
 			switch(severity)
@@ -65,9 +64,21 @@
 		if(prob((0.2 * severity) - 0.2))
 			T.set_broken()
 
-/datum/event/electrical_storm/end()
-	..()
+/datum/event/electrical_storm/announce_end()
 	for (var/zlevel in affecting_z)
 		if(zlevel in current_map.station_levels)
 			command_announcement.Announce("The [location_name()] has cleared the electrical storm. Please repair any electrical overloads.", "Electrical Storm Alert", zlevels = affecting_z)
 			break
+
+
+/datum/event/electrical_storm/overmap/announce_start()
+	if(affecting_shuttle)
+		send_sensor_message("Entering electrical storm.")
+		return
+	return ..()
+
+/datum/event/electrical_storm/overmap/announce_end(var/faked)
+	if(affecting_shuttle)
+		send_sensor_message("Exiting electrical storm.")
+		return
+	return ..()

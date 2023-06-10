@@ -18,3 +18,16 @@
 		var/obj/machinery/gravity_generator/main/B = A
 		if(B.z in affecting_z)
 			B.eventshutofftoggle()
+
+
+/datum/event/gravity/overmap/announce()
+	if(affecting_shuttle)
+		send_sensor_message("Entering dark matter influx.")
+		return
+	return ..()
+
+/datum/event/gravity/overmap/announce_end(var/faked)
+	if(affecting_shuttle)
+		send_sensor_message("Exiting dark matter influx.")
+		return
+	return ..()

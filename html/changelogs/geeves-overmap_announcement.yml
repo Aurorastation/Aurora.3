@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Shuttles flying through overmap events now get a sensor console message about it."

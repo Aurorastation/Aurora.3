@@ -101,8 +101,20 @@
 			if(prob(botEmagChance))
 				bot.emag_act(1)
 
-/datum/event/ionstorm/end(var/faked)
-	..()
+/datum/event/ionstorm/announce_end(var/faked)
 	spawn(rand(5000,8000))
 		if(prob(50))
 			ion_storm_announcement()
+
+
+/datum/event/ionstorm/overmap/announce_start()
+	if(affecting_shuttle)
+		send_sensor_message("Entering ion cloud.")
+		return
+	return ..()
+
+/datum/event/ionstorm/overmap/announce_end(var/faked)
+	if(affecting_shuttle)
+		send_sensor_message("Exiting ion cloud.")
+		return
+	return ..()

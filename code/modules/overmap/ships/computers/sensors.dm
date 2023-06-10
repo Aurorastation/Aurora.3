@@ -68,6 +68,11 @@
 	else if(sound_token)
 		QDEL_NULL(sound_token)
 
+/obj/machinery/computer/ship/sensors/proc/display_message(var/message)
+	if(!HAS_FLAG(stat, NOPOWER))
+		playsound(src, 'sound/machines/triplebeep.ogg', 50)
+		visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"[message]\"</i>"))
+
 /obj/machinery/computer/ship/sensors/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!linked)
 		display_reconnect_dialog(user, "sensors")

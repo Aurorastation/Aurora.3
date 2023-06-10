@@ -90,6 +90,8 @@
 	//used for events that run secondary announcements, like releasing maint access.
 
 	var/has_skybox_image = FALSE
+	var/obj/effect/overmap/visitable/ship/affected_ship
+	var/affecting_shuttle = FALSE
 
 /datum/event/nothing
 	no_fake = 1
@@ -107,12 +109,18 @@
 /datum/event/proc/start()
 	if(has_skybox_image)
 		SSskybox.rebuild_skyboxes(affecting_z)
-	return
+	announce_start()
 
 //Called when the tick is equal to the announceWhen variable.
 //Allows you to announce before starting or vice versa.
 //Only called once.
 /datum/event/proc/announce()
+	return
+
+/datum/event/proc/announce_start()
+	return
+
+/datum/event/proc/announce_end(var/faked)
 	return
 
 //Called on or after the tick counter is equal to startWhen.
@@ -129,8 +137,8 @@
 //For example: if(activeFor == myOwnVariable + 30) doStuff()
 //Only called once.
 //faked indicates this is a false alarm. Used to prevent announcements and other things from happening during false alarms.
-/datum/event/proc/end()
-	return
+/datum/event/proc/end(var/faked)
+	announce_end(faked)
 
 //Returns the latest point of event processing.
 /datum/event/proc/lastProcessAt()
@@ -212,3 +220,14 @@
 
 /datum/event/proc/get_skybox_image()
 	return
+
+/datum/event/proc/setup_for_overmap(var/obj/effect/overmap/visitable/ship/ship, var/obj/effect/overmap/event/hazard)
+	startWhen = 0
+	endWhen = INFINITY
+	affecting_z = ship.map_z
+	affected_ship = ship
+	affecting_shuttle = istype(ship, /obj/effect/overmap/visitable/ship/landable)
+
+/datum/event/proc/send_sensor_message(var/message)
+	for(var/obj/machinery/computer/ship/sensors/console in affected_ship.consoles)
+		console.display_message(message)
