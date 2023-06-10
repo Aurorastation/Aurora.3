@@ -24,12 +24,12 @@ export const PermissionsPanel = (props, context) => {
           {data.forumuserui_enabled ? (
             <Box color="red">
               Modifications done will not last beyond this round! Use the WI if
-              you want permanent changes!
+              you want permanent changes! &nbsp;
             </Box>
           ) : (
             ''
           )}
-          &nbsp;
+
           <Table>
             <Table.Row>
               <Table.Cell>
@@ -43,19 +43,19 @@ export const PermissionsPanel = (props, context) => {
                 <Table.Cell>
                   <Button
                     content={admin.ckey}
-                    onClick={() => act('remove', { ckey : admin.ckey })}
+                    onClick={() => act('remove', { ckey: admin.ckey })}
                   />
                 </Table.Cell>
                 <Table.Cell>
                   <Button
                     content={admin.rank}
-                    onClick={() => act('rank', { ckey : admin.ckey })}
+                    onClick={() => act('rank', { ckey: admin.ckey })}
                   />
                 </Table.Cell>
                 <Table.Cell>
                   <Button
                     content={admin.rights}
-                    onClick={() => act('rights', { ckey : admin.ckey })}
+                    onClick={() => act('rights', { ckey: admin.ckey })}
                   />
                 </Table.Cell>
               </Table.Row>
