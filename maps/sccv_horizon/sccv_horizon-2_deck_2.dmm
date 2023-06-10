@@ -18256,7 +18256,7 @@
 	},
 /obj/item/device/destTagger,
 /obj/item/paper_scanner,
-/obj/item/device/nanoquikpay{
+/obj/item/device/quikpay{
 	destinationact = "Operations"
 	},
 /turf/simulated/floor/tiled,
@@ -22255,7 +22255,7 @@
 "kPz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/chefcloset,
-/obj/item/device/nanoquikpay,
+/obj/item/device/quikpay,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/tiled/white,
@@ -29578,7 +29578,7 @@
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
-/obj/item/device/nanoquikpay,
+/obj/item/device/quikpay,
 /obj/item/storage/box/fancy/matches,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25

@@ -1,7 +1,7 @@
 /obj/machinery/orderterminal
 	name = "Idris Ordering Terminal"
 	desc = "An ordering terminal designed by Idris for quicker expedition."
-	desc_info = "To edit the menu, select 'Toggle Lock' and swipe with an id with either kitchen or bar access. Afterwards click 'Toggle Lock' again to exit editting mode.\nAll credits from the machine will automatically go to the civilian account."
+	desc_info = "To edit the menu, select 'Toggle Lock' while wearing an ID with kitchen access. \nAll credits from the machine will automatically go to the civilian account."
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "kitchenterminal"
 	anchored = 1
@@ -125,7 +125,7 @@
 	switch(action)
 		if("add")
 			if(!editmode)
-				to_chat(src, SPAN_NOTICE("You don't have access to use this option."))
+				to_chat(usr, SPAN_NOTICE("You don't have access to use this option."))
 				return FALSE
 			items += list(list("name" = new_item, "price" = new_price))
 			items_to_price[new_item] = new_price
@@ -133,7 +133,7 @@
 
 		if("remove")
 			if(!editmode)
-				to_chat(src, SPAN_NOTICE("You don't have access to use this option."))
+				to_chat(usr, SPAN_NOTICE("You don't have access to use this option."))
 				return FALSE
 			items -= params["remove"]
 			. = TRUE
@@ -161,9 +161,11 @@
 
 		if("set_new_price")
 			new_price = params["set_new_price"]
+			. = TRUE
 
 		if("set_new_item")
 			new_item = params["set_new_item"]
+			. = TRUE
 
 		if("confirm")
 			confirmorder = TRUE

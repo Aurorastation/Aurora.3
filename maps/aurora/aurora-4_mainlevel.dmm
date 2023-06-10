@@ -48249,7 +48249,7 @@
 	network = list("Service")
 	},
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/nanoquikpay,
+/obj/item/device/quikpay,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -51507,7 +51507,7 @@
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
-/obj/item/device/nanoquikpay,
+/obj/item/device/quikpay,
 /obj/item/storage/box/fancy/matches,
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/storage/box/fancy/candle_box,
@@ -71205,7 +71205,7 @@
 	},
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/laceup,
-/obj/item/device/nanoquikpay{
+/obj/item/device/quikpay{
 	pixel_y = 8
 	},
 /obj/item/clothing/gloves/latex/nitrile/tajara,

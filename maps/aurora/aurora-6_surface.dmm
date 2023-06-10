@@ -20778,7 +20778,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/item/device/nanoquikpay,
+/obj/item/device/quikpay,
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "rRi" = (
