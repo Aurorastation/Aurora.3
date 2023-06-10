@@ -10,7 +10,7 @@
 	name = "Nralakk Federation Grown"
 	desc = "Dionae who were grown in and largely influenced by the Nralakk Federation. As a result of the Federation's good treatment and acceptance of Dionae, Dionae grown within the Federation have close to if not the best quality of life within the entire Spur, although may still face some difficulties with certain aspects of Skrellian society such as anything utilizing Nlom or the Wake due to Dionae's immunity to all things psionic."
 	important_information = "<b>Note that this origin is not for Dionae originating from Xrim as they have their own origins and culture.</b>"
-	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
+	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG, ACCENT_WAVESONG, ACCENT_STARSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_KSSHR, RELIGION_SHRKH, RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
 
@@ -18,7 +18,7 @@
 	name = "Wildborn"
 	desc = "Dionae who were originally considered wild Dionae before being uplifted and integrated somewhere in the Nralakk Federation. Dionae grown within the Federation have close to if not the best quality of life within the entire Spur, although may still face some difficulties with certain aspects of Skrellian society such as anything utilizing Nlom or the Wake due to Dionae's immunity to all things psionic."
 	important_information = "The Nralakk Federation actively attempts to uplift and integrate all Dionae they find within their borders, thus resulting in a fairly large population of formerly wild Dionae within the Federation. <b>It is important to note that this option does not include Dionae who originally were from EUM or Xrim before they were discovered.</b>"
-	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
+	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG, ACCENT_SUNKENSONG, ACCENT_STARSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_KSSHR, RELIGION_SHRKH, RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
 
