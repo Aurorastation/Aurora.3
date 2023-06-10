@@ -63187,7 +63187,6 @@
 /area/maintenance/vault)
 "kAL" = (
 /obj/structure/table/wood,
-/obj/item/board,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "kAV" = (

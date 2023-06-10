@@ -24863,9 +24863,6 @@
 /area/hallway/primary/central_two)
 "mdB" = (
 /obj/structure/table/reinforced,
-/obj/item/board{
-	pixel_y = 4
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "mdR" = (
@@ -43058,10 +43055,6 @@
 	pixel_x = -15
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/item/board,
-/obj/item/board{
-	pixel_y = 4
-	},
 /obj/item/storage/pill_bottle/dice/tajara{
 	pixel_x = 8
 	},
