@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
-import { Button, Section } from '../components';
+import { useBackend, useLocalState } from '../backend';
+import { Button, Input, Section } from '../components';
 import { Window } from '../layouts';
 
 export type HolopadData = {
@@ -18,6 +18,12 @@ type Pad = {
 
 export const Holopad = (props, context) => {
   const { act, data } = useBackend<HolopadData>(context);
+
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``
+  );
 
   return (
     <Window resizable>
@@ -42,6 +48,17 @@ export const Holopad = (props, context) => {
               ) : (
                 ''
               )}
+              <Input
+                autoFocus
+                autoSelect
+                placeholder="Search by holopad name"
+                width="40vw"
+                maxLength={512}
+                onInput={(e, value) => {
+                  setSearchTerm(value);
+                }}
+                value={searchTerm}
+              />
             </>
           }>
           {data.holopad_list.length ? (
@@ -58,17 +75,27 @@ export const Holopad = (props, context) => {
 export const HolopadList = (props, context) => {
   const { act, data } = useBackend<HolopadData>(context);
 
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``
+  );
+
   return (
     <Section>
-      {data.holopad_list.map((holopad) => (
-        <Button
-          key={holopad.id}
-          content={holopad.id}
-          disabled={holopad.busy}
-          tooltip={holopad.busy && 'This holopad is busy.'}
-          onClick={() => act('call_holopad', { call_holopad: holopad.ref })}
-        />
-      ))}
+      {data.holopad_list
+        .filter(
+          (pad) => pad.id?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+        )
+        .map((holopad) => (
+          <Button
+            key={holopad.id}
+            content={holopad.id}
+            disabled={holopad.busy}
+            tooltip={holopad.busy && 'This holopad is busy.'}
+            onClick={() => act('call_holopad', { call_holopad: holopad.ref })}
+          />
+        ))}
     </Section>
   );
 };

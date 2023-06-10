@@ -957,7 +957,7 @@ var/global/enabled_spooking = 0
 
 ////////////////////////////////////////////////////////////////////////////////////////////////ADMIN HELPER PROCS
 
-/proc/is_special_character(mob/M as mob) // returns 1 for specail characters and 2 for heroes of gamemode
+/proc/is_special_character(var/mob/M) // returns 1 for specail characters and 2 for heroes of gamemode
 	if(!SSticker.mode)
 		return 0
 	if (!istype(M))
