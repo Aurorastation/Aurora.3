@@ -152,7 +152,8 @@
 				sleep(10)
 
 			TEST_ASSERT((expected_total_expired_amount == (src.total_expired_amount + low_popped_token.content + high_popped_token.content)), "Not every token\
-			was expired, or some tokens were expired more than once") //This means we have expired everything
+			was expired, or some tokens were expired more than once - expected_total_expired_amount: [expected_total_expired_amount], total_expired_amount: [total_expired_amount]\
+			, low_popped_token: [low_popped_token.content], high_popped_token: [high_popped_token.content]") //This means we have expired everything
 
 			//Reset vars
 			src.expiration_count = 0
