@@ -16,4 +16,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 /.atom-build.json
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
 .vs/
