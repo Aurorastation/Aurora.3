@@ -71,7 +71,7 @@
 				TEST_ASSERT((!isnull(token.content)), "There is a null token in the bucket, but we have not added it")
 
 			//Wait and process until all the tokens are expired
-			while(src.stb.insertion_list_index || stb.content.len)
+			while(src.stb.insertion_list_index || src.stb.content.len)
 				if(NOT_FLAG(flags[flag], STB_FLAG_LEAKYBUCKET))
 					stb.OnDemandProcess()
 				sleep(1)
@@ -148,7 +148,7 @@
 			TEST_ASSERT((high_popped_token.content == (tears-1)), "The wrong token was returned on high peeking")
 
 			//Wait and process until all the tokens are expired
-			while(src.stb.insertion_list_index || stb.content.len)
+			while(src.stb2.insertion_list_index || src.stb2.content.len)
 				sleep(10)
 
 			TEST_ASSERT((expected_total_expired_amount == (src.total_expired_amount + low_popped_token.content + high_popped_token.content)), "Not every token\
