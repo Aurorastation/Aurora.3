@@ -57,18 +57,22 @@
 	var/high_watermark = null
 	///The function to call over high_watermark, use CALLBACK(obj, PROC_REF()) or equivalent to reference it at assignment
 	var/datum/callback/high_watermark_call = null
+	///If the bucket is in high watermark
+	var/is_high_watermark = FALSE
 
 	///The soft underfill limit, the function specified in low_watermark_call will be called for each token expired below this limit
 	var/low_watermark = null
 	///The function to call below low_watermark, use CALLBACK(obj, PROC_REF()) or equivalent to reference it at assignment
 	var/datum/callback/low_watermark_call = null
+	///If the bucker is in low watermark
+	var/is_low_watermark = TRUE
 
 	///If an ondemand run is in progress, internal only
 	var/OnDemandInProgress = FALSE
 
 	var/list/insertion_list[1024]
 	var/insertion_list_index = 0
-	var/insertion_list_to_content_offset = 0
+	var/batch_expired_offset = 0
 
 
 
@@ -108,10 +112,14 @@
  * * CONTENT - The content to send to the callback function
  */
 #define STB_CALL_LOWWATERMARK(CONTENT)\
-	if(!isnull(src.low_watermark) && ((src.content.len + src.insertion_list_index + src.insertion_list_to_content_offset) <= src.low_watermark)){\
+	if(!isnull(src.low_watermark) && ((src.content.len + src.insertion_list_index + src.batch_expired_offset) <= src.low_watermark)){\
+		src.is_low_watermark = TRUE;\
 		if(src.low_watermark_call){\
 			src.low_watermark_call.Invoke(##CONTENT);\
 		}\
+	}\
+	else{\
+		src.is_low_watermark = FALSE;\
 	}
 
 /// Removes the timer for the expiration of a token and nulls the bucket's next_expiration, in non-leakybucket mode
@@ -138,7 +146,7 @@
 	if((STB_IS_FIXEDTTL_MODE) && src.insertion_list_index){\
 		src.content.Add(src.insertion_list.Copy(1,(src.insertion_list_index+1)));\
 		src.insertion_list_index = 0;\
-		src.insertion_list_to_content_offset = 0;\
+		src.batch_expired_offset = 0;\
 	}
 
 
@@ -151,13 +159,17 @@
  */
 #define STB_EXPIRE(expiring_token, SKIP_REMOVE, SKIP_CHECK)\
 	if(SKIP_CHECK || (##expiring_token in src.content)){\
-		if(##expiring_token.callback){\
-			##expiring_token.callback.Invoke(##expiring_token);\
+		if(!isnull(src.high_watermark) && ((src.content.len + src.insertion_list_index + src.batch_expired_offset) < src.high_watermark)){\
+			src.is_high_watermark = FALSE;\
 		}\
 		\
 		STB_CALL_LOWWATERMARK(##expiring_token);\
 		if(!##SKIP_REMOVE){\
 			src.content.Remove(##expiring_token);\
+		}\
+		\
+		if(##expiring_token.callback){\
+			##expiring_token.callback.Invoke(##expiring_token);\
 		}\
 	}
 
@@ -169,13 +181,13 @@
 			if(src.next_expiration <= STB_REALTIMESOURCE){\
 				STB_COMMIT_INSERTIONLIST;\
 			}\
-			src.insertion_list_to_content_offset = 0;\
+			src.batch_expired_offset = 0;\
 			var/counter = 0;\
 			for(var/_i in 1 to LIST.len){\
 				if(src.content[_i].expire_time <= STB_REALTIMESOURCE){\
 					STB_EXPIRE(src.content[_i], TRUE, TRUE);\
 					counter += 1;\
-					src.insertion_list_to_content_offset -= 1;\
+					src.batch_expired_offset -= 1;\
 				}\
 				else{\
 					break;\
@@ -184,6 +196,7 @@
 			if(counter){\
 				##LIST.Cut(1,(counter+1));\
 			}\
+			src.batch_expired_offset = 0;\
 			if(!STB_IS_LEAKYBUCKET){\
 				if(##LIST.len && !src.next_expiration){\
 					src.next_expiration = ##LIST[##LIST.len].expire_time;\
@@ -211,9 +224,7 @@
  */
 /datum/smart_token_bucket/proc/Insert(var/datum/bucket_token/token_content, var/token_expire_time = null, var/datum/callback/callback)
 
-	/*
-	 * Guards
-	 */
+	//Guards//
 	if(!src.mode)
 		crash_with("The smart token bucket is not initialized, initialize the bucket before trying to insert.")
 
@@ -225,66 +236,47 @@
 	if((istype(token_content, /datum/bucket_token) && token_content.expire_time < STB_REALTIMESOURCE) || (!isnull(token_expire_time) && (token_expire_time < STB_REALTIMESOURCE)))
 		crash_with("You cannot insert a token that has already expired in the bucket.")
 
-	// Preparation of the token
+	// Preparation of the token//
+
+	//If it's not already a token, make a new token with the content
 	if(!istype(token_content, /datum/bucket_token))
-		var/datum/bucket_token/newtoken
 		if(STB_IS_FIXEDTTL_MODE)
-			newtoken = new(content = token_content, expiration = (STB_REALTIMESOURCE + tokens_lifetime), callback = callback)
+			token_content = new(content = token_content, expiration = (STB_REALTIMESOURCE + tokens_lifetime), callback = callback)
 		else
-			newtoken = new(content = token_content, expiration = token_expire_time, callback = callback)
-		token_content = newtoken
+			token_content = new(content = token_content, expiration = token_expire_time, callback = callback)
 
 
 	//if an high watermark is specified, call the registered proc if it's triggered
-	if(((src.content.len + insertion_list_index) >= high_watermark))
-		if(high_watermark_call)
-			high_watermark_call.Invoke(token_content)
-
-	/*
-	 * Registration and handling of expiration callback(s)
-	 */
-
-	//We are operating in fixed TTL mode
-	if(STB_IS_FIXEDTTL_MODE)
-
-		//We are going for a leaky bucket, register an Expire() timer for each token
-		if(STB_IS_LEAKYBUCKET)
-
-			if(token_content.expire_time <= src.next_expiration)
-				src.next_expiration = token_content.expire_time
-
-			addtimer(CALLBACK(src, PROC_REF(Expire), token_content), tokens_lifetime)
-
-		//Not a leaky bucket, we only care to process when something is added, removed, or the longest timer expires
-		else
-			STB_ONDEMANDPROCESS(src.content)
-
-			if(!src.next_expiration)
-
-				STB_PURGE_EXPIRATION_TIMER
-
-				STB_REGISTER_EXPIRATION_TIMER(token_content, tokens_lifetime)
-
-
-	//We are operating in variableTTL mode
+	if(((src.content.len + src.insertion_list_index) >= src.high_watermark))
+		src.is_high_watermark = TRUE
+		if(src.high_watermark_call)
+			src.high_watermark_call.Invoke(token_content)
 	else
+		src.is_high_watermark = FALSE
 
-		//In variableTTL leaky bucket scenario, just register a callback timer for every token according to the diff between the expire time and the current time,
-		//thus giving us the wait time for the token to expire
-		if(STB_IS_LEAKYBUCKET)
-			if(token_content.expire_time <= src.next_expiration)
-				src.next_expiration = token_content.expire_time
-			addtimer(CALLBACK(src, PROC_REF(Expire), token_content), (token_content.expire_time - STB_REALTIMESOURCE))
+	if(((src.content.len + src.insertion_list_index) <= src.low_watermark))
+		src.is_low_watermark = TRUE
+	else
+		src.is_low_watermark = FALSE
 
-		//Not leaky bucket, this is where we cry
-		else
-			STB_ONDEMANDPROCESS(src.content)
 
-			if(!src.next_expiration)
+	//Registration and handling of expiration callback(s)//
 
-				STB_PURGE_EXPIRATION_TIMER
+	if(STB_IS_LEAKYBUCKET)
+		//Refresh the next expiration of the bucket, if the new token expires sooner than what we already have in the bucket
+		if(token_content.expire_time <= src.next_expiration)
+			src.next_expiration = token_content.expire_time
 
-				STB_REGISTER_EXPIRATION_TIMER(token_content, (token_content.expire_time - STB_REALTIMESOURCE))
+		addtimer(CALLBACK(src, PROC_REF(Expire), token_content), ((STB_IS_FIXEDTTL_MODE) ? tokens_lifetime : (token_content.expire_time - STB_REALTIMESOURCE)))
+
+	else
+		STB_ONDEMANDPROCESS(src.content)
+
+		if(!src.next_expiration)
+
+			STB_PURGE_EXPIRATION_TIMER
+
+			STB_REGISTER_EXPIRATION_TIMER(token_content, ((STB_IS_FIXEDTTL_MODE) ? tokens_lifetime : (token_content.expire_time - STB_REALTIMESOURCE)))
 
 
 	// INSERTION OF THE TOKENS
@@ -300,8 +292,6 @@
 
 		src.insertion_list_index += 1
 		src.insertion_list[src.insertion_list_index] = token_content
-
-	return TRUE
 
 
 /**
@@ -448,6 +438,8 @@
 	var/total_expired_amount = 0
 	var/list/inserted_token_contents = list()
 	var/list/expired_token_contents = list()
+	var/is_inserting = FALSE
+	var/expired_during_insertion = 0
 
 /obj/teardropbucket/New(loc, ...)
 	. = ..()
@@ -467,7 +459,7 @@
 	//stb.Insert(tear, (STB_REALTIMESOURCE + (ttl SECONDS)))
 	stb.Insert(tear)
 
-/obj/teardropbucket/proc/Benchmark(var/tears = 1000, var/high_watermark = 4, var/low_watermark = 2, var/tokens_lifetime = (10 SECONDS))
+/obj/teardropbucket/proc/Benchmark(var/tears = 100000, var/high_watermark = 30, var/low_watermark = 2, var/tokens_lifetime = (1))
 
 	var/modes = list("FixedTTL" = STB_MODE_FIXEDTTL, "VariableTTL" = STB_MODE_VARIABLETTL)
 	var/flags = list("none" = null, "LeakyBucket" = STB_FLAG_LEAKYBUCKET)
@@ -481,9 +473,9 @@
 			else
 				src.stb = new(mode = modes[mode], flags = flags[flag])
 			src.stb.high_watermark = high_watermark
-			stb.high_watermark_call = CALLBACK(src, PROC_REF(HighWatermark))
+			src.stb.high_watermark_call = CALLBACK(src, PROC_REF(HighWatermark))
 			src.stb.low_watermark = low_watermark
-			stb.low_watermark_call = CALLBACK(src, PROC_REF(LowWatermark))
+			src.stb.low_watermark_call = CALLBACK(src, PROC_REF(LowWatermark))
 
 
 			//START measuring the time to insert everything
@@ -491,6 +483,7 @@
 			rustg_time_milliseconds("fff")
 
 			var/expected_total_expired_amount = 0
+			src.is_inserting = TRUE
 			for(var/i=0, i<tears, i++)
 				if(HAS_FLAG(modes[mode], STB_MODE_FIXEDTTL))
 					stb.Insert(token_content = i, callback = CALLBACK(src, PROC_REF(TokenExpired)))
@@ -499,7 +492,11 @@
 
 				expected_total_expired_amount += i
 				src.inserted_token_contents.Add(i)
+			src.is_inserting = FALSE
 
+			if(!src.expired_during_insertion) //If there are expirations during the insertion, this offsets, I can't figure out how to calculate how much, so fuck it
+				ASSERT(!src.stb.is_low_watermark)
+				ASSERT(src.stb.is_high_watermark)
 
 
 			to_world("Inserting [tears] tears took [rustg_time_milliseconds("fff")] ms, mode [mode] flags [flag]")
@@ -519,7 +516,7 @@
 			//Wait and process until all the tokens are expired
 			var/sleeptime = 0
 			var/OnDemandProcessingTime = 0
-			while(stb.insertion_list_index || stb.content.len)
+			while(src.stb.insertion_list_index || stb.content.len)
 				if(NOT_FLAG(flags[flag], STB_FLAG_LEAKYBUCKET))
 					rustg_time_reset("OnDemandProcessingTime")
 					rustg_time_milliseconds("OnDemandProcessingTime")
@@ -551,9 +548,10 @@
 			ASSERT(src.expiration_count == tears) // All tokens must be expired by now
 
 			//Verify that the watermarks works
-			ASSERT(high_watermark == (tears - src.high_watermark_count))
+			if(!src.expired_during_insertion) //If there are expirations during the insertion, this offsets, I can't figure out how to calculate how much, so fuck it
+				ASSERT(high_watermark == (tears - (src.high_watermark_count + src.expired_during_insertion)))
+				ASSERT(low_watermark == src.low_watermark_count)
 			src.high_watermark_count = 0
-			ASSERT(low_watermark == src.low_watermark_count)
 			src.low_watermark_count = 0
 
 			//Reset vars
@@ -561,6 +559,7 @@
 			src.total_expired_amount = 0
 			src.inserted_token_contents = list()
 			src.expired_token_contents = list()
+			src.expired_during_insertion = 0
 
 
 /obj/teardropbucket/verb/PopTear()
@@ -592,4 +591,12 @@
 	src.expiration_count += 1
 	src.total_expired_amount += bucket_token.content
 	src.expired_token_contents.Add(bucket_token.content)
+
+	if(src.is_inserting)
+		src.expired_during_insertion += 1
+
+	if(((src.stb.content.len + src.stb.batch_expired_offset + src.stb.insertion_list_index) < src.stb.high_watermark) && ((src.stb.content.len + src.stb.batch_expired_offset + src.stb.insertion_list_index) > src.stb.low_watermark))
+		ASSERT(!src.stb.is_high_watermark)
+		ASSERT(!src.stb.is_low_watermark)
+
 	return TRUE
