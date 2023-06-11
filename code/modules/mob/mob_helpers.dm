@@ -333,6 +333,9 @@ var/list/global/organ_rel_size = list(
 		if(point_blank)
 			return zone //Point blank shots don't miss.
 
+	return target.calculate_zone_with_miss_chance(zone, miss_chance_mod)
+
+/mob/proc/calculate_zone_with_miss_chance(var/zone, var/miss_chance_mod)
 	var/miss_chance = 10
 	if (zone in base_miss_chance)
 		miss_chance = base_miss_chance[zone]
@@ -343,6 +346,15 @@ var/list/global/organ_rel_size = list(
 		return pick(base_miss_chance)
 	return zone
 
+// never a chance to miss, but you might not hit what you want to hit
+/mob/living/heavy_vehicle/calculate_zone_with_miss_chance(zone, miss_chance_mod)
+	var/miss_chance = 10
+	if(zone in base_miss_chance)
+		miss_chance = base_miss_chance[zone]
+	miss_chance = max(miss_chance + miss_chance_mod, 0)
+	if(prob(miss_chance))
+		return pick(base_miss_chance)
+	return zone
 
 /proc/stars(n, pr)
 	if (pr == null)

@@ -367,7 +367,7 @@
 	},
 /area/engineering/atmos/propulsion)
 "arn" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Service"
 	},
 /obj/structure/cable,
@@ -3418,7 +3418,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "cyS" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Hangar"
 	},
 /obj/structure/cable,
@@ -5635,7 +5635,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "ejL" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Engineering Lower Deck"
 	},
 /obj/structure/cable/green,
@@ -11028,7 +11028,7 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "hXX" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Xenoarchaeology"
 	},
 /obj/structure/cable{
@@ -11878,7 +11878,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint)
 "iJR" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Operations"
 	},
 /obj/structure/cable/green{
@@ -20576,7 +20576,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/canary)
 "pkG" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Security"
 	},
 /obj/structure/cable,
