@@ -180,8 +180,8 @@
 			src.content.Remove(##expiring_token);\
 		}\
 		\
-		if(##expiring_token.callback){\
-			##expiring_token.callback.Invoke(##expiring_token);\
+		if(##expiring_token?.callback){\
+			##expiring_token?.callback?.Invoke(##expiring_token);\
 		}\
 	}
 
@@ -202,7 +202,7 @@
 			src.batch_expired_offset = 0;\
 			var/counter = 0;\
 			for(var/_i in 1 to LIST.len){\
-				if(src.content[_i].expire_time <= STB_REALTIMESOURCE){\
+				if(src.content[_i]?.expire_time <= STB_REALTIMESOURCE){\
 					STB_EXPIRE(src.content[_i], TRUE, TRUE);\
 					counter += 1;\
 					src.batch_expired_offset -= 1;\
@@ -217,7 +217,7 @@
 			src.batch_expired_offset = 0;\
 			if(!STB_IS_LEAKYBUCKET){\
 				if(##LIST.len && !src.next_expiration){\
-					src.next_expiration = ##LIST[##LIST.len].expire_time;\
+					src.next_expiration = ##LIST[##LIST.len]?.expire_time;\
 				}\
 			}\
 			src.OnDemandInProgress = FALSE;\
