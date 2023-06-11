@@ -2,7 +2,7 @@
 @use 'sass:meta';
 
 @use '../colors.scss' with (
-  $primary: #000000,
+  $primary: #490b0b,
   $fg-map-keys: (),
   $bg-map-keys: (),
 );
@@ -21,9 +21,9 @@
     $with: (
       'color-default': colors.$primary,
       'color-disabled': #363636,
-      'color-selected': #9d0808,
+      'color-selected': #1c5f24,
       'color-caution': #be6209,
-      'color-danger': #9a9d00
+      'color-danger': #be0f0f
     )
   );
   @include meta.load-css(
