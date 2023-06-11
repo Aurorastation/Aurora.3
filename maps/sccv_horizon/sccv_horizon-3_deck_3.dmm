@@ -7176,6 +7176,12 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/accessory/goon_coif,
+/obj/item/clothing/accessory/goon_coif,
+/obj/item/clothing/accessory/goon_coif,
+/obj/item/clothing/accessory/goon_coif,
+/obj/item/clothing/accessory/goon_coif,
+/obj/item/clothing/accessory/goon_coif,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "fVL" = (
@@ -15107,7 +15113,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/structure/table/reinforced,
+/obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "mcf" = (
@@ -15755,12 +15761,12 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/structure/closet/emcloset,
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Crewman Lockeroom";
 	dir = 1
 	},
 /obj/machinery/firealarm/south,
+/obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
@@ -26781,7 +26787,20 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/obj/machinery/photocopier,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(60);
+	name = "Bridge Defense Equipment"
+	},
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/head/helmet/security/generic,
+/obj/item/clothing/head/helmet/security/generic,
+/obj/item/clothing/head/helmet/security/generic,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "vDv" = (
