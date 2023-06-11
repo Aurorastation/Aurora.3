@@ -146,7 +146,7 @@
 #define STB_REARMCALLBACK\
 	if((!STB_IS_LEAKYBUCKET)){\
 		if(src.content.len){\
-			STB_REGISTER_EXPIRATION_TIMER((src.content[src.content.len]), (src.content[(src.content.len)].expire_time - STB_REALTIMESOURCE));\
+			STB_REGISTER_EXPIRATION_TIMER((src.content[src.content.len]), (src.content[(src.content.len)]:expire_time - STB_REALTIMESOURCE));\
 		}\
 		else{\
 			STB_PURGE_EXPIRATION_TIMER;\
