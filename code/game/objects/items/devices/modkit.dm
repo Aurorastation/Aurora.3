@@ -179,8 +179,8 @@
 /obj/item/voidsuit_modkit/srf
 	name = "srf voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
-	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
 	or else it will be deleted."
 	w_class = ITEMSIZE_SMALL
 	suit_options = list(
@@ -203,8 +203,8 @@
 /obj/item/voidsuit_modkit/fsf
 	name = "fsf voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
-	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
 	or else it will be deleted."
 	w_class = ITEMSIZE_SMALL
 	suit_options = list(
@@ -215,8 +215,8 @@
 /obj/item/voidsuit_modkit/ssmd
 	name = "ssmd voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
-	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
 	or else it will be deleted."
 	w_class = ITEMSIZE_SMALL
 	suit_options = list(
@@ -227,8 +227,8 @@
 /obj/item/voidsuit_modkit/spg
 	name = "spg voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
-	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
 	or else it will be deleted."
 	w_class = ITEMSIZE_SMALL
 	suit_options = list(
@@ -239,8 +239,8 @@
 /obj/item/voidsuit_modkit/mrsp
 	name = "mrsp voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
-	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
 	or else it will be deleted."
 	w_class = ITEMSIZE_SMALL
 	suit_options = list(
@@ -251,8 +251,8 @@
 /obj/item/voidsuit_modkit/sfa
 	name = "sfa voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
-	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
 	or else it will be deleted."
 	w_class = ITEMSIZE_SMALL
 	suit_options = list(
@@ -263,8 +263,8 @@
 /obj/item/voidsuit_modkit/dominianvoid
 	name = "dominian voidsman's voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Dominian prejoroub combat suit into its voidsman counterpart. Practical!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item\
-	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
 	or else it will be deleted."
 	w_class = ITEMSIZE_SMALL
 	suit_options = list(
