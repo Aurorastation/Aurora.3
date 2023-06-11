@@ -176,19 +176,7 @@
 		}\
 		\
 		STB_CALL_LOWWATERMARK(##expiring_token);\
-		if(!##SKIP_REMOVE){\
-			src.content.Remove(##expiring_token);\
-		}\
-	}
-
-#define STB_EXPIRE2(expiring_token, SKIP_REMOVE, SKIP_CHECK)\
-	if(SKIP_CHECK || (##expiring_token in src.content)){\
-		if(!isnull(src.high_watermark) && ((src.content.len + src.insertion_list_index + src.batch_expired_offset) < src.high_watermark)){\
-			src.is_high_watermark = FALSE;\
-		}\
-		\
-		STB_CALL_LOWWATERMARK(##expiring_token);\
-		if(!##SKIP_REMOVE){\
+		if(UNLINT(!##SKIP_REMOVE)){\
 			src.content.Remove(##expiring_token);\
 		}\
 		\
