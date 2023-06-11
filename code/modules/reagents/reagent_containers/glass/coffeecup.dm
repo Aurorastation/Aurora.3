@@ -83,6 +83,16 @@
 	desc = "A purple coffee cup emblazoned with the flag of the Nralakk Federation."
 	icon_state = "coffeecup_jarg"
 
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sancolette
+	name = "\improper San Colette coffee cup"
+	desc = "A tricolor coffee cup bearing the flag of San Colette."
+	icon_state = "coffeecup_sancolette"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/europa
+	name = "\improper Europa coffee cup"
+	desc = "A tricolor coffee cup bearing the flag of Europa."
+	icon_state = "coffeecup_europa"
+
 // Organisations
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt
 	name = "\improper NT coffee cup"

@@ -1050,20 +1050,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/secure)
 "aya" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Anti-Materiel)"
-	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
-/obj/item/ammo_casing/peac,
-/obj/item/ammo_casing/peac,
-/obj/item/ammo_casing/peac,
-/obj/item/gun/projectile/peac,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/structure/closet/secure_closet/guncabinet/peac,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "ayc" = (
