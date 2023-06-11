@@ -8608,15 +8608,16 @@
 	master_tag = "intrepid_shuttle_cargo";
 	name = "exterior access button";
 	pixel_x = -22;
-	pixel_y = -5;
-	dir = 4
+	pixel_y = 2;
+	dir = 4;
+	layer = 3.1
 	},
 /obj/machinery/airlock_sensor/airlock_exterior{
 	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_exterior_sensor";
 	pixel_x = -21;
 	dir = 4;
-	pixel_y = 5
+	pixel_y = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/bed/handrail{
@@ -8626,6 +8627,22 @@
 	dir = 2;
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo";
+	layer = 3.3;
+	master_tag = "intrepid_shuttle";
+	pixel_x = -22;
+	tag_airpump = "intrepid_shuttle_cargo_pump";
+	tag_chamber_sensor = "intrepid_shuttle_cargo_sensor";
+	tag_exterior_door = "intrepid_shuttle_cargo_out";
+	tag_exterior_sensor = "intrepid_shuttle_cargo_exterior_sensor";
+	tag_interior_door = "intrepid_shuttle_cargo_in";
+	dir = 4;
+	cycle_to_external_air = 1;
+	tag_interior_sensor = "intrepid_shuttle_cargo_interior_sensor";
+	pixel_y = -8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
@@ -13340,6 +13357,11 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
+/obj/item/device/radio/intercom{
+	dir = 1;
+	pixel_y = -16;
+	pixel_x = 7
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "jyH" = (
@@ -14696,25 +14718,14 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo";
-	layer = 3.3;
-	master_tag = "intrepid_shuttle";
-	pixel_x = 24;
-	tag_airpump = "intrepid_shuttle_cargo_pump";
-	tag_chamber_sensor = "intrepid_shuttle_cargo_sensor";
-	tag_exterior_door = "intrepid_shuttle_cargo_out";
-	tag_exterior_sensor = "intrepid_shuttle_cargo_exterior_sensor";
-	tag_interior_door = "intrepid_shuttle_cargo_in";
-	dir = 8;
-	cycle_to_external_air = 1;
-	tag_interior_sensor = "intrepid_shuttle_cargo_interior_sensor"
-	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 18
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
@@ -16120,6 +16131,10 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/device/radio/intercom{
+	pixel_y = 21;
+	pixel_x = 7
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
 "lyU" = (
@@ -17283,6 +17298,11 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
+/obj/item/device/radio/intercom{
+	dir = 1;
+	pixel_y = -16;
+	pixel_x = -11
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "mmh" = (
@@ -21196,9 +21216,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -22948,6 +22965,10 @@
 "qmi" = (
 /obj/machinery/light/small{
 	dir = 4
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 18
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/shuttle/intrepid/quarters)
@@ -33219,22 +33240,24 @@
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
 "xqo" = (
-/obj/machinery/light/small/red{
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	id_tag = "intrepid_shuttle_cargo_pump";
 	frequency = 1385;
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 18
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "xqv" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "11,26";
 	opacity = 1;
-	outside_part = 0
+	outside_part = 0;
+	layer = 2.91
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
