@@ -208,6 +208,7 @@
 		window_material = SSmaterials.get_material_by_name(init_material_window)
 		if (!window_color)
 			window_color = window_material.icon_colour
+		opacity = FALSE
 	update_icon()
 
 /obj/machinery/door/airlock/Destroy()

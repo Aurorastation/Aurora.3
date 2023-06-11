@@ -572,7 +572,7 @@
 	icon_state = "map_window"
 	health = 500
 	maxhealth = 500
-	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
+	smooth = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/window/shuttle/scc_space_ship,
 		/turf/simulated/wall/shuttle/scc_space_ship
