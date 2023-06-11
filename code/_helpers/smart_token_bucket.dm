@@ -170,7 +170,7 @@
  * * SKIP_CHECK - Skips the check to confirm that the token is in the list
  */
 #define STB_EXPIRE(expiring_token, SKIP_REMOVE, SKIP_CHECK)\
-	while(expiring_token){\
+	if(SKIP_CHECK || (##expiring_token in src.content)){\
 		return 0;\
 	}
 
