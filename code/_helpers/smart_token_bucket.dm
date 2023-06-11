@@ -170,6 +170,11 @@
  * * SKIP_CHECK - Skips the check to confirm that the token is in the list
  */
 #define STB_EXPIRE(expiring_token, SKIP_REMOVE, SKIP_CHECK)\
+	while(expiring_token){\
+		return 0;\
+	}
+
+#define STB_EXPIRE2(expiring_token, SKIP_REMOVE, SKIP_CHECK)\
 	if(SKIP_CHECK || (##expiring_token in src.content)){\
 		if(!isnull(src.high_watermark) && ((src.content.len + src.insertion_list_index + src.batch_expired_offset) < src.high_watermark)){\
 			src.is_high_watermark = FALSE;\
@@ -406,7 +411,7 @@
 			if(!STB_IS_LEAKYBUCKET)
 				STB_PURGE_EXPIRATION_TIMER
 				if((src.content.len)-1)
-					STB_REGISTER_EXPIRATION_TIMER(src.content[(src.content.len-1)], (src.content[(src.content.len-1)].expire_time - STB_REALTIMESOURCE))
+					STB_REGISTER_EXPIRATION_TIMER(src.content[(src.content.len-1)], (src.content[(src.content.len-1)]:expire_time - STB_REALTIMESOURCE))
 
 		var/popped = src.content[index]
 		src.content.Remove(popped)
