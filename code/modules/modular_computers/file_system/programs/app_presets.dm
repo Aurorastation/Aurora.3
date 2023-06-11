@@ -583,8 +583,7 @@
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/nttransfer(comp),
-		new /datum/computer_file/program/camera_monitor/hacked(comp),
-		new /datum/computer_file/program/signaler(comp)
+		new /datum/computer_file/program/camera_monitor/hacked(comp)
 	)
 	return _prg_list
 
