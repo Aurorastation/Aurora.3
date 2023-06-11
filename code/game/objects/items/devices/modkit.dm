@@ -153,17 +153,16 @@
 	icon_state = "himeo_kit"
 	item_state = "himeo_kit"
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit."
-	desc_extended = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
-	for use by miners originating from the planet. Most of these suits are assembled in Cannington and painstakingly optimized on-site by their\
-	individual operator leading to a large trail of red tape as NanoTrasen is forced to inspect these suits to ensure their safety."
+	desc_extended = "Despite the vast amounts of supplementary paperwork involved, the Stellar Corporate Conglomerate continues to import specialty industrialwear through an Orion Express subsidiary to \
+	boost morale among Himean staff. With success in the previous Type-76 'Fish Fur' program, the Chainlink has also authorized a number of Type-86 'Cicada' industrial hardsuits for use \
+	on a number of installations, such as the Horizon."
+	desc_info = "In order to convert a voidsuit, simply click on voidsuit or helmet with this item. The same process can be used to convert the voidsuit back into a regular voidsuit, or \
+	to turn an industrial hardsuit assembly into a Himeo variant. Make sure not to have a helmet or tank in the suit, or else it will be deleted."
 
 
 /obj/item/voidsuit_modkit/himeo/tajara
 	name = "tajaran himeo voidsuit kit"
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit fitted for Tajara."
-	desc_extended = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
-	for use by miners and engineers originating from the planet. Most of these suits are assembled in Cannington and painstakingly optimized on-site by their\
-	individual operator leading to a large trail of red tape as NanoTrasen is forced to inspect these suits to ensure their safety."
 	suit_options = list(
 		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/suit/space/void/mining/himeo/tajara,
 		/obj/item/clothing/head/helmet/space/void/mining = /obj/item/clothing/head/helmet/space/void/mining/himeo/tajara,
@@ -172,7 +171,9 @@
 		/obj/item/clothing/head/helmet/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering/himeo/tajara,
 
 		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/suit/space/void/atmos/himeo/tajara,
-		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/himeo/tajara
+		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/himeo/tajara,
+
+		/obj/item/rig_assembly/industrial = /obj/item/rig_assembly/industrial/himeo
 	)
 
 /obj/item/voidsuit_modkit/srf

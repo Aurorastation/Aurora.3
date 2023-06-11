@@ -8,7 +8,7 @@
 	light_overlay = "helmet_light_himeo"
 
 /obj/item/clothing/suit/space/rig/industrial/himeo
-	flags_inv = HIDEEARS|BLOCKHEADHAIR
+	flags_inv = HIDEEARS|BLOCKHEADHAIR|HIDETAIL
 
 /obj/item/clothing/head/helmet/space/rig/ce
 	camera = /obj/machinery/camera/network/engineering
@@ -126,10 +126,10 @@
 	desc = "A variant of the industrial suit used by the United Syndicates of Himeo."
 	desc_extended = "A little too clunky, a little too slow; the Type-86 \"Cicada\" industrial hardsuit was released about a decade too late to be competitive. \
 	Still, it enjoys modest popularity among those dissatisfied with the limits of the Type-76 'Fish Fur', such as Guard sappers or asteroid miners."
-	icon_supported_species_tags = list("")
+	icon_supported_species_tags = list("taj")
 	icon = 'icons/clothing/rig/himeo_industrial.dmi'
 	icon_state = "himeo_rig"
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_TAJARA)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial/himeo
 	chest_type = /obj/item/clothing/suit/space/rig/industrial/himeo
