@@ -171,7 +171,10 @@
  */
 #define STB_EXPIRE(expiring_token, SKIP_REMOVE, SKIP_CHECK)\
 	if(SKIP_CHECK || (##expiring_token in src.content)){\
-		return 0;\
+		if(!isnull(src.high_watermark) && ((src.content.len + src.insertion_list_index + src.batch_expired_offset) < src.high_watermark)){\
+			src.is_high_watermark = FALSE;\
+		}\
+		\
 	}
 
 #define STB_EXPIRE2(expiring_token, SKIP_REMOVE, SKIP_CHECK)\
