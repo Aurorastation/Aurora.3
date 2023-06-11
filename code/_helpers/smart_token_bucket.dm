@@ -115,7 +115,7 @@
 
 /// Register a callback timer for the expiration of tokens, ONLY in non-leakybucket operation
 #define STB_REGISTER_EXPIRATION_TIMER(TOKEN, WAITTIME)\
-	src.next_expiration = ##TOKEN.expire_time;\
+	src.next_expiration = ##TOKEN:expire_time;\
 	src.next_expiration_callback = addtimer(CALLBACK(src, PROC_REF(ExpireCallbackTimer), ##TOKEN), max(##WAITTIME, 0), TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /**
