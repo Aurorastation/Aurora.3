@@ -176,6 +176,9 @@
 		}\
 		\
 		STB_CALL_LOWWATERMARK(##expiring_token);\
+		if(!##SKIP_REMOVE){\
+			src.content.Remove(##expiring_token);\
+		}\
 	}
 
 #define STB_EXPIRE2(expiring_token, SKIP_REMOVE, SKIP_CHECK)\
