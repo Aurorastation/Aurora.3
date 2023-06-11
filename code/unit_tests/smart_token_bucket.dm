@@ -147,7 +147,9 @@
 			TEST_ASSERT((high_peeked_token.content == (tears-1)), "The wrong token was returned on high peeking")
 			TEST_ASSERT((high_popped_token.content == (tears-1)), "The wrong token was returned on high peeking")
 
-			sleep(tokens_lifetime + 5 SECONDS)
+			//Wait and process until all the tokens are expired
+			while(src.stb.insertion_list_index || stb.content.len)
+				sleep(10)
 
 			TEST_ASSERT((expected_total_expired_amount == (src.total_expired_amount + low_popped_token.content + high_popped_token.content)), "Not every token\
 			was expired, or some tokens were expired more than once") //This means we have expired everything
