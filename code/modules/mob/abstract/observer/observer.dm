@@ -965,7 +965,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
 		return
 
-	SSghostroles.vui_interact(src)
+	SSghostroles.ui_interact(usr)
 
 /mob/abstract/observer/verb/submitpai()
 	set category = "Ghost"

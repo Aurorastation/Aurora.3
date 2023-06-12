@@ -108,7 +108,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(!ROUND_IS_STARTED)
 			to_chat(usr, SPAN_WARNING("The round hasn't started yet!"))
 			return
-		SSghostroles.vui_interact(src)
+		SSghostroles.ui_interact(usr)
 
 	if(href_list["SelectedJob"])
 

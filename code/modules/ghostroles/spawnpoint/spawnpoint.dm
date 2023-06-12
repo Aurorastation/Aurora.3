@@ -53,13 +53,13 @@
 	if(!ROUND_IS_STARTED)
 		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
 		return
-	SSghostroles.vui_interact(user,identifier)
+	SSghostroles.ui_interact(user)
 
 /obj/effect/ghostspawpoint/attack_hand(mob/user)
 	if(!ROUND_IS_STARTED)
 		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
 		return
-	SSghostroles.vui_interact(user,identifier)
+	SSghostroles.ui_interact(user)
 
 /obj/effect/ghostspawpoint/proc/is_available()
 	return TRUE
