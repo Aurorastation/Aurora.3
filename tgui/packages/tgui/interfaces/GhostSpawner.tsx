@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Divider, Input, LabeledList, Section, Table, Tabs } from '../components';
+import { Button, Input, Section, Table, Tabs } from '../components';
 import { Window } from '../layouts';
 
 export type SpawnerData = {
@@ -56,7 +56,10 @@ export const GhostSpawner = (props, context) => {
               All
             </Tabs.Tab>
             {data.categories.map((cat) => (
-              <Tabs.Tab selected={tab === cat} onClick={() => setTab(cat)}>
+              <Tabs.Tab
+                key={cat}
+                selected={tab === cat}
+                onClick={() => setTab(cat)}>
                 {cat}
               </Tabs.Tab>
             ))}
