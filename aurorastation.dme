@@ -2539,7 +2539,6 @@
 #include "code\modules\modular_computers\file_system\programs\games\arcade.dm"
 #include "code\modules\modular_computers\file_system\programs\games\sudoku\helpers.dm"
 #include "code\modules\modular_computers\file_system\programs\games\sudoku\sudoku.dm"
-#include "code\modules\modular_computers\file_system\programs\generic\atmosphere.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\manifest.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\news_browser.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\ntnrc_client.dm"

@@ -641,7 +641,7 @@
 
 		"rads" = H.total_radiation,
 		"paralysis" = H.paralysis,
-		"bodytemp" = H.bodytemperature,
+		"bodytemp" = H.bodytemperature - T0C,
 		"borer_present" = H.has_brain_worms(),
 		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/inaprovaline),
 		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dexalin),

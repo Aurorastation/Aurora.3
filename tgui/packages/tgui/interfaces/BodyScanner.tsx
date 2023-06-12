@@ -134,7 +134,7 @@ export const ScannerWindow = (props, context) => {
                   : 'No paralysis detected.'}
               </LabeledList.Item>
               <LabeledList.Item label="Body Temperature">
-                {data.bodytemp}
+                {data.bodytemp}°C
               </LabeledList.Item>
             </LabeledList>
             <Section title="Blood Status" fill:true>
@@ -269,7 +269,7 @@ export const OrganWindow = (props, context) => {
         <Table.Cell>Wounds</Table.Cell>
         <Table.Cell>Location</Table.Cell>
       </Table.Row>
-      {data.organs.map((organ) => (
+      {data.organs.sort().map((organ) => (
         <Table.Row key={organ.name}>
           <Table.Cell>{organ.name}</Table.Cell>
           <Table.Cell color={damageLabel(organ.damage)}>
@@ -294,7 +294,7 @@ export const ExternalOrganWindow = (props, context) => {
         <Table.Cell>Burn</Table.Cell>
         <Table.Cell>Wounds</Table.Cell>
       </Table.Row>
-      {data.bodyparts.map((organ) => (
+      {data.bodyparts.sort().map((organ) => (
         <Table.Row key={organ.name}>
           <Table.Cell>{organ.name}</Table.Cell>
           <Table.Cell color={damageLabel(organ.brute_damage)}>

@@ -23,10 +23,10 @@ type Output = {
   setpressure: number;
 };
 
-export const SupermatterControl = (props, context) => {
+export const AtmosControlSupermatter = (props, context) => {
   const { act, data } = useBackend<TankData>(context);
   return (
-    <Window resizable>
+    <Window resizable theme="hephaestus">
       <Window.Content scrollable>
         <Section>
           <AtmosControl />
@@ -61,7 +61,7 @@ export const InputWindow = (props, context) => {
       <LabeledList.Item label="Input">
         <Button
           content={data.input.power ? 'Injecting' : 'On Hold'}
-          color={data.input.power ? 'good' : ''}
+          selected={data.input.power}
           icon="power-off"
           onClick={() => act('in_toggle_injector')}
         />
@@ -90,7 +90,7 @@ export const OutputWindow = (props, context) => {
         <LabeledList.Item label="Core Outpump">
           <Button
             content={data.output.power ? 'Open' : 'Closed'}
-            color={data.output.power ? 'good' : ''}
+            selected={data.output.power}
             icon="power-off"
             onClick={() => act('out_toggle_power')}
           />
