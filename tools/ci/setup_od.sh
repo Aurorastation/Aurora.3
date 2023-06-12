@@ -6,3 +6,4 @@ cd OpenDream
 git submodule update --init --recursive
 dotnet restore
 dotnet build -c Release
+cd ..
