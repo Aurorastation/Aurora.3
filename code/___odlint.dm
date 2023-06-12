@@ -1,32 +1,32 @@
 #ifndef SPACEMAN_DMM
 #ifdef OPENDREAM
 
-#pragma FileAlreadyIncluded error
-#pragma MissingIncludedFile error
-#pragma MisplacedDirective error
-#pragma UndefineMissingDirective error
-#pragma DefinedMissingParen error
-#pragma ErrorDirective error
-#pragma WarningDirective error
-#pragma MiscapitalizedDirective error
+UNLINT(#pragma FileAlreadyIncluded error)
+UNLINT(#pragma MissingIncludedFile error)
+UNLINT(#pragma MisplacedDirective error)
+UNLINT(#pragma UndefineMissingDirective error)
+UNLINT(#pragma DefinedMissingParen error)
+UNLINT(#pragma ErrorDirective error)
+UNLINT(#pragma WarningDirective error)
+UNLINT(#pragma MiscapitalizedDirective error)
 
 //2000-2999
-#pragma SoftReservedKeyword error
-#pragma DuplicateVariable error
-#pragma DuplicateProcDefinition error
-#pragma TooManyArguments error
-#pragma PointlessParentCall error
-#pragma PointlessBuiltinCall error
-#pragma SuspiciousMatrixCall error
-#pragma MalformedRange error
-#pragma InvalidRange error
-#pragma InvalidSetStatement error
-#pragma InvalidOverride error
-#pragma DanglingVarType error
-#pragma MissingInterpolatedExpression error
+UNLINT(#pragma SoftReservedKeyword error)
+UNLINT(#pragma DuplicateVariable error)
+UNLINT(#pragma DuplicateProcDefinition error)
+UNLINT(#pragma TooManyArguments error)
+UNLINT(#pragma PointlessParentCall error)
+UNLINT(#pragma PointlessBuiltinCall error)
+UNLINT(#pragma SuspiciousMatrixCall error)
+UNLINT(#pragma MalformedRange error)
+UNLINT(#pragma InvalidRange error)
+UNLINT(#pragma InvalidSetStatement error)
+UNLINT(#pragma InvalidOverride error)
+UNLINT(#pragma DanglingVarType error)
+UNLINT(#pragma MissingInterpolatedExpression error)
 
 //3000-3999
-#pragma EmptyBlock error
+UNLINT(#pragma EmptyBlock error)
 
 #endif
 #endif
