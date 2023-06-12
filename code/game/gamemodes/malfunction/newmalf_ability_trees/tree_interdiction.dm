@@ -160,7 +160,7 @@
 	if(hacked_num >= config.hacked_drones_limit)
 		to_chat(user, SPAN_WARNING("ERROR: maximum active hacked drones limit reached. Report: [hacked_num] drones hacked out of [config.hacked_drones_limit] maximum possible."))
 		return
-		
+
 	if(!ability_prechecks(user, price) || !ability_pay(user, price))
 		return
 	var/mob/living/silicon/robot/drone/D = pick(drone_list)

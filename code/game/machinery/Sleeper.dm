@@ -238,7 +238,7 @@
 			return TRUE
 
 		if(!istype(L))
-			to_chat(user, "<span class='warning'>\The machine won't accept that.</span>")
+			to_chat(user, "<span class='warning'>The machine won't accept that.</span>")
 			return TRUE
 
 		if(display_loading_message)

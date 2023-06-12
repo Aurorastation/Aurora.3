@@ -47,7 +47,7 @@
 		to_chat(user, SPAN_WARNING("\The [O] must be safely placed on the ground for modification."))
 		return
 
-	playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
+	playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 
 	user.visible_message(
 		SPAN_NOTICE("\The [user] opens \the [src] and modifies \the [O]."),
@@ -248,7 +248,7 @@
 		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/sfa,
 		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/sfa
 	)
-	
+
 /obj/item/voidsuit_modkit/dominianvoid
 	name = "dominian voidsman's voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Dominian prejoroub combat suit into its voidsman counterpart. Practical!"
@@ -295,7 +295,7 @@
 	name = "sfa modkit box"
 	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."
 	starts_with = list(/obj/item/voidsuit_modkit/sfa = 4)
-	
+
 /obj/item/storage/box/dominianvoid
 	name = "dominian voidsman's modkit box"
 	desc = "Contains modkits to convert Dominian voidsuits into a voidsman's variant."

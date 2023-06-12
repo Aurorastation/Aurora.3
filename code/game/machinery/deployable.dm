@@ -322,7 +322,7 @@ for reference:
 		qdel(src)
 
 /obj/item/deployable_kit/proc/assemble_kit(mob/user)
-	playsound(src.loc, 'sound/items/screwdriver.ogg', 25, 1)
+	playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
 	var/atom/A = new kit_product(user.loc)
 	user.visible_message(SPAN_NOTICE("[user] assembles \a [A]."), SPAN_NOTICE("You assemble \a [A]."))
 	A.add_fingerprint(user)

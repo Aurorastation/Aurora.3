@@ -168,7 +168,7 @@
 			else if(istype(W, /obj/item/airlock_electronics) && W:icon_state != "door_electronics_smoked")
 				var/obj/item/airlock_electronics/EL = W
 				if(!EL.is_installed)
-					playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
+					playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 					user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
 					EL.is_installed = 1
 					if(do_after(user, 40))

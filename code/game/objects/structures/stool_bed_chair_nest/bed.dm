@@ -199,7 +199,7 @@
 		else
 			anchored = TRUE
 			to_chat(user, "You fasten \the [src] to the floor.")
-		playsound(src, 'sound/items/screwdriver.ogg', 100, 1)
+		playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
 
 	else if(istype(W, /obj/item/grab))
 		var/obj/item/grab/G = W

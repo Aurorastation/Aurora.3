@@ -7,7 +7,7 @@
 
 /obj/machinery/door/airlock
 	name = "Airlock"
-	icon = 'icons/obj/doors/Doorint.dmi'
+	icon = 'icons/obj/doors/doorint.dmi'
 	icon_state = "door_closed"
 	power_channel = ENVIRON
 	hatch_colour = "#7d7d7d"
@@ -54,8 +54,8 @@
 	var/open_sound_unpowered = 'sound/machines/airlock_open_force.ogg'
 	var/close_sound_unpowered = 'sound/machines/airlock_close_force.ogg'
 
-	var/bolts_dropping = 'sound/machines/boltsdown.ogg'
-	var/bolts_rising = 'sound/machines/boltsup.ogg'
+	var/bolts_dropping = 'sound/machines/BoltsDown.ogg'
+	var/bolts_rising = 'sound/machines/BoltsUp.ogg'
 
 	hashatch = TRUE
 
@@ -184,7 +184,7 @@
 	hatch_colour = "#caa638"
 
 /obj/machinery/door/airlock/medical
-	icon = 'icons/obj/doors/Doormed.dmi'
+	icon = 'icons/obj/doors/doormed.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_med
 	hatch_colour = "#d2d2d2"
 
@@ -206,13 +206,13 @@
 	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
 
 /obj/machinery/door/airlock/science
-	icon = 'icons/obj/doors/Doorsci.dmi'
+	icon = 'icons/obj/doors/doorsci.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_science
 	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/glass_science
 	name = "Glass Airlocks"
-	icon = 'icons/obj/doors/Doorsciglass.dmi'
+	icon = 'icons/obj/doors/doorsciglass.dmi'
 	opacity = FALSE
 	assembly_type = /obj/structure/door_assembly/door_assembly_science
 	glass = 1
@@ -431,7 +431,7 @@
 
 /obj/machinery/door/airlock/glass_medical
 	name = "Glass Airlock"
-	icon = 'icons/obj/doors/Doormedglass.dmi'
+	icon = 'icons/obj/doors/doormedglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
@@ -456,13 +456,13 @@
 
 /obj/machinery/door/airlock/research
 	name = "Airlock"
-	icon = 'icons/obj/doors/Doorresearch.dmi'
+	icon = 'icons/obj/doors/doorresearch.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_research
 	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/glass_research
 	name = "Glass Airlock"
-	icon = 'icons/obj/doors/Doorresearchglass.dmi'
+	icon = 'icons/obj/doors/doorresearchglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
@@ -1039,12 +1039,12 @@ About the new airlock wires panel:
 			to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 			return
 		cut_verb = "cutting"
-		cut_sound = 'sound/items/welder.ogg'
+		cut_sound = 'sound/items/Welder.ogg'
 		cut_delay *= 1.5/WT.toolspeed
 		cutting = TRUE
 	else if(istype(tool,/obj/item/gun/energy/plasmacutter))
 		cut_verb = "cutting"
-		cut_sound = 'sound/items/welder.ogg'
+		cut_sound = 'sound/items/Welder.ogg'
 		cut_delay *= 1
 		cutting = TRUE
 	else if(istype(tool,/obj/item/melee/energy/blade) || istype(tool,/obj/item/melee/energy/sword))
@@ -1299,7 +1299,7 @@ About the new airlock wires panel:
 				SPAN_NOTICE("You begin welding [src] [welded ? "open" : "shut"]."),
 				"You hear a welding torch on metal."
 			)
-			playsound(src, 'sound/items/welder.ogg', 50, 1)
+			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, PROC_REF(is_open), src.density)))
 				return TRUE
 			if(!WT.use(0,user))
