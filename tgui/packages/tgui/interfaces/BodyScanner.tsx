@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { BlockQuote, Button, LabeledList, Section, Table } from '../components';
+import { BlockQuote, Box, Button, LabeledList, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 export type ScannerData = {
@@ -220,16 +220,17 @@ export const ScannerWindow = (props, context) => {
                 />
                 <Button
                   content="Eject Occupant"
+                  color="red"
                   icon="person-booth"
                   onClick={() => act('eject')}
                 />
               </>
             }>
             <LabeledList>
-              {data.missing_organs !== 'nothing' ? (
-                <MissingOrgans />
-              ) : (
+              {data.missing_organs === 'Nothing' ? (
                 <BlockQuote>No organs missing.</BlockQuote>
+              ) : (
+                <MissingOrgans />
               )}
             </LabeledList>
             <Section title="Internal Organ Status">
@@ -312,7 +313,14 @@ export const ExternalOrganWindow = (props, context) => {
 export const MissingOrgans = (props, context) => {
   const { act, data } = useBackend<ScannerData>(context);
 
-  return 'stuff';
+  return (
+    <BlockQuote>
+      Missing organs:{' '}
+      <Box as="span" color="red">
+        {data.missing_organs}
+      </Box>
+    </BlockQuote>
+  );
 };
 
 export const TraumaInfo = (props, context) => {

@@ -8,7 +8,7 @@
   $bg-map-keys: (),
 );
 @use '../base.scss' with (
-  $color-bg: #40006D,
+  $color-bg: #1f1527,
   $color-bg-grad-spread: 6%,
 );
 
@@ -20,7 +20,7 @@
   @include meta.load-css(
     '../components/Button.scss',
     $with: (
-      'color-default': #a681c1,
+      'color-default': #47354f,
       'color-disabled': #363636,
       'color-selected': #ffffff,
       'color-caution': #be6209,
@@ -54,7 +54,7 @@
   @include meta.load-css('../layouts/Window.scss');
   @include meta.load-css(
     '../layouts/TitleBar.scss',
-    $with: ('background-color': #52186b)
+    $with: ('background-color': #121014)
   );
 
   .Layout__content {
