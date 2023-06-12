@@ -1,11 +1,7 @@
 #!/bin/bash
 set -eo pipefail
 
-startdir=$(pwd)
-
 git clone https://github.com/OpenDreamProject/OpenDream.git ../OpenDream
-cd ../OpenDream
-git submodule update --init --recursive
+git -C ../OpenDream submodule update --init --recursive
 dotnet restore
-dotnet build -c Release --property WarningLevel=1
-cd startdir
+dotnet build ..\OpenDream.sln -c Release --property WarningLevel=1
