@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Divider, Input, LabeledList, NumberInput, Section, Table, Tabs } from '../components';
+import { Box, Button, Input, LabeledList, NumberInput, Section, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type DatabaseData = {
@@ -55,7 +55,6 @@ export const AccountDatabase = (props, context) => {
             )}
           </LabeledList>
         </Section>
-        <Divider />
         {data.id_card ? <AccountWindow /> : ''}
       </NtosWindow.Content>
     </NtosWindow>
