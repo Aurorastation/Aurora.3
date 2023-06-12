@@ -91,8 +91,6 @@
 			if(conv.password)
 				if(conv.password == password)
 					conv.cl_join(src)
-				else
-					// How do I alert of password invalid?
 			else
 				conv.cl_join(src)
 	if(href_list["leave"])

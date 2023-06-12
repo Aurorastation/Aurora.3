@@ -218,7 +218,6 @@
 					src.malfunction()
 					return
 				return
-		else
 	return
 
 /obj/machinery/vending/emag_act(var/remaining_charges, var/mob/user)

@@ -226,7 +226,6 @@
 				//SN src = null
 				qdel(src)
 				return
-		else
 	return
 
 /obj/machinery/bodyscanner/proc/check_species()
@@ -249,7 +248,6 @@
 				//SN src = null
 				qdel(src)
 				return
-		else
 	return
 
 /obj/machinery/body_scanconsole

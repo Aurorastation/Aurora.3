@@ -163,7 +163,7 @@
 			if (prob(5))
 				qdel(src)
 				return
-		else
+
 	return
 
 /obj/item/verb/move_to_top(obj/item/I in range(1))

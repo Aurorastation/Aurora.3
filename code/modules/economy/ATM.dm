@@ -307,8 +307,8 @@ log transactions
 						authenticated_account = SSeconomy.attempt_account_access(text2num(href_list["account_num"]), tried_pin, potential_account.security_level)
 					if (3) // Security level two
 						if (held_card)
-							if (text2num(href_list["account_num"]) != held_card.associated_account_number)
-							else authenticated_account = SSeconomy.attempt_account_access(tried_account_num, tried_pin, potential_account.security_level)
+							if (text2num(href_list["account_num"]) == held_card.associated_account_number)
+								authenticated_account = SSeconomy.attempt_account_access(tried_account_num, tried_pin, potential_account.security_level)
 						else to_chat(usr, "<span class='warning'>Account card not found.</span>")
 				if (!authenticated_account)
 					number_incorrect_tries++

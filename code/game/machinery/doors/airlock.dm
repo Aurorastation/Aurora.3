@@ -1333,8 +1333,7 @@ About the new airlock wires panel:
 		return TRUE
 	else if(!repairing && C.iscrowbar())
 		if(istype(C, /obj/item/melee/arm_blade))
-			if(!arePowerSystemsOn()) //if this check isn't done and empty, the armblade will never be used to hit the airlock
-			else if(!(stat & BROKEN))
+			if(arePowerSystemsOn() &&!(stat & BROKEN))
 				..()
 				return
 		if(p_open && !operating && welded)

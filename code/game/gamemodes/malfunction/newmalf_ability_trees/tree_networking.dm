@@ -143,7 +143,6 @@
 		var/resp = alert(usr, "Would you like it to appear as if CCIAMS made the report?",,"Yes","No")
 		if (resp == "Yes")
 			reportbody += "\n\n- CCIAMS, [commstation_name()]"
-		else
 
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")

@@ -208,7 +208,6 @@ Class Procs:
 			if (prob(25))
 				qdel(src)
 				return
-		else
 	return
 
 /proc/is_operable(var/obj/machinery/M, var/mob/user)
