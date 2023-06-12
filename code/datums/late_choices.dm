@@ -1,6 +1,6 @@
 // This datum holds the late choices UI for a new player
 /datum/late_choices
-	var/datum/vueui/ui = null
+	var/datum/tgui/ui
 	var/update_icon_on_next_open = TRUE
 	var/mob/abstract/new_player/NP
 
@@ -15,28 +15,27 @@
 	QDEL_NULL(ui)
 	return ..()
 
-/datum/late_choices/CanUseTopic(var/mob/user, var/datum/ui_state/state = default_state) // this is needed because VueUI closes otherwise
-	if(isnewplayer(user))
-		return STATUS_INTERACTIVE
-	return ..()
+/datum/late_choices/ui_state(mob/user)
+	return new_player_state
 
-/datum/late_choices/Topic(href, href_list)
+/datum/late_choices/ui_status(mob/user, datum/ui_state/state)
+	return isnewplayer(user) ? UI_INTERACTIVE : UI_CLOSE
+
+/datum/late_choices/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 	// proxy Topic calls back to the user
-	NP.Topic(href, href_list)
+	NP.Topic(action, params)
 
 /datum/late_choices/proc/ui_open()
-	if(!istype(ui))
-		ui = new(NP, src, "late-choices", 330, 720, "Late-Join Choices")
-		ui.header = "minimal"
-		ui.auto_update_content = TRUE
+	ui = SStgui.try_update_ui(NP, src, ui)
+	if(!ui)
+		ui = new(NP, src, "LateJoin", "Late Join Choices", 330, 720)
+		ui.open()
 
 	if (update_icon_on_next_open)
 		do_update_character_icon(FALSE)
-
-	ui.open()
-
-/datum/late_choices/proc/ui_refresh()
-	ui.check_for_change()
 
 /datum/late_choices/proc/update_character_icon()
 	if(ui.status > STATUS_CLOSE)
@@ -47,15 +46,15 @@
 /datum/late_choices/proc/do_update_character_icon(var/send)
 	update_icon_on_next_open = FALSE
 	var/mob/mannequin = NP.client.prefs.update_mannequin()
-	ui.add_asset("character", getFlatIcon(mannequin, SOUTH))
+	var/datum/asset/spritesheet/S = new()
+	S.name = "character-[NP.key]"
+	S.Insert("character", getFlatIcon(mannequin, SOUTH))
+	S.register()
 	if(send)
-		ui.send_asset("character")
-		ui.push_change(null)
+		ui.send_asset(S)
 
-/datum/late_choices/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data || list()
-
+/datum/late_choices/ui_data(mob/user)
+	var/list/data = list()
 	data["round_duration"] = get_round_duration_formatted()
 	data["alert_level"] = capitalize(get_security_level())
 	data["character_name"] = user.client.prefs.real_name
@@ -101,14 +100,15 @@
 					jobs_by_department[department] += job // add them to their departments
 
 	data["jobs_available"] = jobs_available
-	LAZYINITLIST(data["jobs_list"])
+	data["jobs_list"] = list()
 	for(var/department in jobs_by_department)
-		LAZYINITLIST(data["jobs_list"][department])
 		for(var/datum/job/job in jobs_by_department[department])
-			LAZYINITLIST(data["jobs_list"][department][job.title])
-			data["jobs_list"][department][job.title]["title"] = job.title
-			data["jobs_list"][department][job.title]["head"] = job.departments[department] & JOBROLE_SUPERVISOR
-			data["jobs_list"][department][job.title]["total_positions"] = job.get_total_positions()
-			data["jobs_list"][department][job.title]["current_positions"] = job.current_positions
+			data["jobs_list"] += list(list(
+				"title" = job.title,
+				"department" = department,
+				"head" = job.departments[department] & JOBROLE_SUPERVISOR,
+				"total_positions" = job.get_total_positions(),
+				"current_positions" = job.current_positions
+			))
 
 	return data

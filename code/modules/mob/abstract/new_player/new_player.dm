@@ -310,7 +310,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(!istype(late_choices_ui))
 		late_choices_ui = new(src)
 	else // if the UI exists force refresh it
-		late_choices_ui.ui_refresh()
+		SStgui.update_uis(late_choices_ui)
 	late_choices_ui.ui_open()
 
 /mob/abstract/new_player/proc/create_character()
