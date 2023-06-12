@@ -5,14 +5,14 @@
 	var/mob/living/silicon/ai/user = src
 	// Setup Variables
 	malfunctioning = 1
-	research = new/datum/malf_research()
+	research = /datum/malf_research
 	research.owner = src
 	hacked_apcs = list()
 	recalc_cpu()
 
-	verbs += new/datum/game_mode/malfunction/verb/ai_select_hardware()
-	verbs += new/datum/game_mode/malfunction/verb/ai_select_research()
-	verbs += new/datum/game_mode/malfunction/verb/ai_help()
+	verbs += /datum/game_mode/malfunction/verb/ai_select_hardware
+	verbs += /datum/game_mode/malfunction/verb/ai_select_research
+	verbs += /datum/game_mode/malfunction/verb/ai_help
 
 	// And greet user with some OOC info.
 	to_chat(user, "You are malfunctioning, you do not have to follow any laws.")

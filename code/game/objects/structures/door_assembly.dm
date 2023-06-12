@@ -258,7 +258,7 @@
 			to_chat(user, SPAN_WARNING("\The [src]'s wires cannot be reached, take out the electronics first."))
 			return
 
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("<b>[user]</b> starts cutting the wires from the airlock assembly.", SPAN_NOTICE("You start cutting the wires from airlock assembly."))
 
 		if(W.use_tool(src, user, 40, volume = 50))

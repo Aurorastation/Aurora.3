@@ -188,7 +188,7 @@
 			to_chat(user, "\The [src] has no padding to remove.")
 			return
 		to_chat(user, "You remove the padding from \the [src].")
-		playsound(src, 'sound/items/wirecutter.ogg', 100, 1)
+		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 		painted_colour = null
 		remove_padding()
 

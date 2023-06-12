@@ -18,7 +18,7 @@
 		client.screen += vampire.blood_hud
 		client.screen += vampire.frenzy_hud
 
-	verbs += new /datum/antagonist/vampire/proc/vampire_help
+	verbs += /datum/antagonist/vampire/proc/vampire_help
 
 	for(var/datum/power/vampire/P in vampirepowers)
 		if(!(P in vampire.purchased_powers))

@@ -150,7 +150,7 @@
 
 			//Removing wire from the assembly. Step 5 undone.
 			if(W.iswirecutter() && !src.electronics)
-				playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 				user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
 				if(W.use_tool(src, user, 40, volume = 50))

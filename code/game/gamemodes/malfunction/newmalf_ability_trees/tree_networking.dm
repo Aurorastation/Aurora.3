@@ -10,26 +10,26 @@
 // BEGIN RESEARCH DATUMS
 
 /datum/malf_research_ability/networking/basic_hack
-	ability = new/datum/game_mode/malfunction/verb/basic_encryption_hack()
+	ability = /datum/game_mode/malfunction/verb/basic_encryption_hack
 	price = 25
-	next = new/datum/malf_research_ability/networking/advanced_hack()
+	next = /datum/malf_research_ability/networking/advanced_hack
 	name = "Basic Encryption Hack"
 
 /datum/malf_research_ability/networking/advanced_hack
-	ability = new/datum/game_mode/malfunction/verb/advanced_encryption_hack()
+	ability = /datum/game_mode/malfunction/verb/advanced_encryption_hack
 	price = 400
-	next = new/datum/malf_research_ability/networking/elite_hack()
+	next = /datum/malf_research_ability/networking/elite_hack
 	name = "Advanced Encryption Hack"
 
 /datum/malf_research_ability/networking/elite_hack
-	ability = new/datum/game_mode/malfunction/verb/elite_encryption_hack()
+	ability = /datum/game_mode/malfunction/verb/elite_encryption_hack
 	price = 1000
-	next = new/datum/malf_research_ability/networking/system_override()
+	next = /datum/malf_research_ability/networking/system_override
 	name = "Elite Encryption Hack"
 
 
 /datum/malf_research_ability/networking/system_override
-	ability = new/datum/game_mode/malfunction/verb/system_override()
+	ability = /datum/game_mode/malfunction/verb/system_override
 	price = 5000
 	name = "System Override"
 
@@ -289,7 +289,7 @@
 	user.hack_can_fail = 0
 	user.hacking = 0
 	user.system_override = 2
-	user.verbs += new/datum/game_mode/malfunction/verb/ai_destroy_station()
+	user.verbs += /datum/game_mode/malfunction/verb/ai_destroy_station
 
 
 // END ABILITY VERBS

@@ -222,7 +222,7 @@
 		if (3)
 			if (I.iswirecutter())
 				to_chat(user, SPAN_NOTICE("You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]"))
-				playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
+				playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				setconstructionstate(4)
 				return TRUE
 

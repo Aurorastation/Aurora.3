@@ -99,7 +99,7 @@
 /obj/structure/grille/attackby(obj/item/W, mob/user)
 	if(W.iswirecutter())
 		if(!shock(user, 100))
-			playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
+			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
 			qdel(src)
 	else if(istype(W, /obj/item/gun/energy/plasmacutter))

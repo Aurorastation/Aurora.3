@@ -232,7 +232,7 @@
 				visible_message("<span class='notice'> [user] has deactivated [src]!</span>")
 			else
 				visible_message("<span class='notice'> [src] clicks and shuts down. </span>")
-			playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = "[initial(icon_state)]1"
 			add_hiddenprint(user)
 		else
@@ -240,7 +240,7 @@
 				visible_message("<span class='notice'> [user] has reactivated [src]!</span>")
 			else
 				visible_message("<span class='notice'> [src] clicks and reactivates itself. </span>")
-			playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = initial(icon_state)
 			add_hiddenprint(user)
 
