@@ -1,6 +1,6 @@
 
 /obj/machinery/gibber
-	name = "automatic butchery machine"
+	name = "autobutcher"
 	desc = "A machine that processes cadavers in a matter of moments. Very, very messy."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "grinder"
