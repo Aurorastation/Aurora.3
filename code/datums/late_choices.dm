@@ -1,7 +1,8 @@
 // This datum holds the late choices UI for a new player
 /datum/late_choices
-	var/datum/tgui/ui
 	var/update_icon_on_next_open = TRUE
+	var/datum/tgui/our_ui
+	var/icon/character_image
 	var/mob/abstract/new_player/NP
 
 /datum/late_choices/New(var/mob/abstract/new_player/NP)
@@ -11,8 +12,8 @@
 
 /datum/late_choices/Destroy(force)
 	NP.late_choices_ui = null
-	ui.close()
-	QDEL_NULL(ui)
+	our_ui.close()
+	QDEL_NULL(our_ui)
 	return ..()
 
 /datum/late_choices/ui_state(mob/user)
@@ -28,30 +29,28 @@
 	// proxy Topic calls back to the user
 	NP.Topic(action, params)
 
-/datum/late_choices/proc/ui_open()
+/datum/late_choices/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(NP, src, ui)
 	if(!ui)
 		ui = new(NP, src, "LateJoin", "Late Join Choices", 330, 720)
+		if(!character_image)
+			do_update_character_icon()
 		ui.open()
+		our_ui = ui
 
 	if (update_icon_on_next_open)
-		do_update_character_icon(FALSE)
+		do_update_character_icon()
 
 /datum/late_choices/proc/update_character_icon()
-	if(ui.status > STATUS_CLOSE)
-		do_update_character_icon(TRUE)
+	if(our_ui.status < UI_INTERACTIVE)
+		do_update_character_icon()
 	else
 		update_icon_on_next_open = TRUE
 
-/datum/late_choices/proc/do_update_character_icon(var/send)
+/datum/late_choices/proc/do_update_character_icon()
 	update_icon_on_next_open = FALSE
 	var/mob/mannequin = NP.client.prefs.update_mannequin()
-	var/datum/asset/spritesheet/S = new()
-	S.name = "character-[NP.key]"
-	S.Insert("character", getFlatIcon(mannequin, SOUTH))
-	S.register()
-	if(send)
-		ui.send_asset(S)
+	character_image = getFlatIcon(mannequin, SOUTH)
 
 /datum/late_choices/ui_data(mob/user)
 	var/list/data = list()
@@ -69,6 +68,7 @@
 			else // Crew transfer initiated
 				shuttle_status = "transfer"
 	data["shuttle_status"] = shuttle_status
+	data["character_image"] = icon2base64(character_image)
 
 	var/unique_role_available = FALSE
 	for(var/ghost_role in SSghostroles.spawners)
@@ -101,8 +101,10 @@
 
 	data["jobs_available"] = jobs_available
 	data["jobs_list"] = list()
+	data["departments"] = list()
 	for(var/department in jobs_by_department)
 		for(var/datum/job/job in jobs_by_department[department])
+			data["departments"] |= department
 			data["jobs_list"] += list(list(
 				"title" = job.title,
 				"department" = department,

@@ -118,6 +118,14 @@ export const PlayerPanel = (props, context) => {
                         }
                       />
                       <Button
+                        content="VV"
+                        onClick={() =>
+                          act('view_variables', {
+                            view_variables: player.ref,
+                          })
+                        }
+                      />
+                      <Button
                         content="SM"
                         onClick={() =>
                           act('subtle_message', { subtle_message: player.ref })
