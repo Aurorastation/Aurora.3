@@ -114,15 +114,16 @@ There are several things that need to be remembered:
 #define L_EAR_LAYER           27
 #define R_EAR_LAYER           28
 #define FACEMASK_LAYER        29
-#define HEAD_LAYER            30
-#define COLLAR_LAYER          31
-#define HANDCUFF_LAYER        32
-#define LEGCUFF_LAYER         33
-#define L_HAND_LAYER          34
-#define R_HAND_LAYER          35
-#define WRISTS_LAYER          36
-#define FIRE_LAYER_UPPER      37
-#define TOTAL_LAYERS          37
+#define HEAD_LAYER			  30	
+#define GLASSES_LAYER_OVER    31
+#define COLLAR_LAYER          32
+#define HANDCUFF_LAYER        33
+#define LEGCUFF_LAYER         34
+#define L_HAND_LAYER          35
+#define R_HAND_LAYER          36
+#define WRISTS_LAYER          37
+#define FIRE_LAYER_UPPER      38
+#define TOTAL_LAYERS          38
 ////////////////////////////
 
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
@@ -732,13 +733,13 @@ There are several things that need to be remembered:
 
 		if(normal_layer)
 			overlays_raw[GLASSES_LAYER] = glasses_overlay
-			overlays_raw[GLASSES_LAYER_ALT] = null
+			overlays_raw[GLASSES_LAYER_OVER] = null
 		else
 			overlays_raw[GLASSES_LAYER] = null
-			overlays_raw[GLASSES_LAYER_ALT] = glasses_overlay
+			overlays_raw[GLASSES_LAYER_OVER] = glasses_overlay
 	else
 		overlays_raw[GLASSES_LAYER] = null
-		overlays_raw[GLASSES_LAYER_ALT] = null
+		overlays_raw[GLASSES_LAYER_OVER] = null
 
 	if(update_icons)
 		update_icon()
