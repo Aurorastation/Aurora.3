@@ -81,11 +81,6 @@
 	book_name = "Luceian Book of Scripture and Prayers"
 	book_sprite = "luce2"
 
-/datum/religion/confucianism
-	name = RELIGION_CONFUCIANISM
-	description = "Variously described as a tradition, a philosophy, a religion, or a way of life, Confucianism developed from the teachings of the Chinese philosopher Confucius."
-	book_name = "\the Five Classics"
-
 /datum/religion/sikhism
 	name = RELIGION_SIKHISM
 	description = "Originating in the northern Indian subcontinent, Sikhism is a religion and philosophy that developed from the teachings of Guru Nanak, and the nine Gurus who succeeded him. \

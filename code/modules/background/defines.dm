@@ -38,7 +38,6 @@
 #define RELIGION_TAOISM "Taoism"
 #define RELIGION_LUCEISM "Luceism"
 #define RELIGION_SIKHISM "Sikhism"
-#define RELIGION_CONFUCIANISM "Confucianism"
 #define RELIGION_STOLITISM "Vysokan Stolitism"
 
 #define RELIGION_THAKH "Th'akh"
