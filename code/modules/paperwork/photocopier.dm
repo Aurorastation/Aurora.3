@@ -111,7 +111,7 @@
 			to_chat(user, SPAN_NOTICE("You insert \the [O] into \the [src]."))
 			flick(insert_anim, src)
 			playsound(loc, 'sound/bureaucracy/scan.ogg', 75, 1)
-			SSvueui.check_uis_for_change(src)
+			SStgui.update_uis(src)
 		else
 			to_chat(user, SPAN_NOTICE("There is already something in \the [src]."))
 	else if(istype(O, /obj/item/device/toner))
@@ -123,7 +123,7 @@
 			toner = min(toner + T.toner_amount, max_toner)
 			user.drop_from_inventory(O,get_turf(src))
 			qdel(O)
-			SSvueui.check_uis_for_change(src)
+			SStgui.update_uis(src)
 		else
 			to_chat(user, SPAN_NOTICE("This cartridge is not yet ready for replacement! Use up the rest of the toner."))
 			flick("photocopier_notoner", src)

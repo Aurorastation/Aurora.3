@@ -312,11 +312,11 @@
 /obj/item/modular_computer/proc/update_uis()
 	if(active_program) //Should we update program ui or computer ui?
 		SSnanoui.update_uis(active_program)
-		SSvueui.check_uis_for_change(active_program)
+		SStgui.update_uis(active_program)
 		if(active_program.NM)
 			SSnanoui.update_uis(active_program.NM)
 	else
-		SSvueui.check_uis_for_change(src)
+		SStgui.update_uis(active_program)
 		SSnanoui.update_uis(src)
 
 /obj/item/modular_computer/proc/check_update_ui_need()

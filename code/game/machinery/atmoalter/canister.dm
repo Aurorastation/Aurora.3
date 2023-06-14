@@ -337,7 +337,7 @@ update_flag
 	..()
 
 	update_icon()
-	SSvueui.check_uis_for_change(src) // Update all VueUIs attached to src
+	SStgui.update_uis(src)
 
 /obj/machinery/portable_atmospherics/canister/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))

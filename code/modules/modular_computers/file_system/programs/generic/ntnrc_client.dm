@@ -9,6 +9,7 @@
 	program_type = PROGRAM_TYPE_ALL
 	network_destination = "NTRC server"
 	color = LIGHT_COLOR_GREEN
+	tgui_id = "ChatClient"
 
 	var/datum/ntnet_user/my_user
 	var/datum/ntnet_conversation/focused_conv
@@ -122,7 +123,8 @@
 				var/ref = text_ref(channel)
 				var/can_interact = channel.can_interact(src)
 				var/can_manage = channel.can_manage(src)
-				data["channels"][ref] = list(
+				var/list/our_channel = list(
+					"ref" = ref,
 					"title" = channel.get_title(src),
 					"direct" = channel.direct,
 					"password" = !!channel.password,
@@ -131,17 +133,18 @@
 					"focused" = (focused_conv == channel)
 				)
 				if(can_interact)
-					data["channels"][ref]["msg"] = channel.messages
-					data["channels"][ref]["users"] = list()
+					our_channel["msg"] = channel.messages
+					our_channel["users"] = list()
 					for(var/datum/ntnet_user/U in channel.users)
 						var/uref = text_ref(U)
-						data["channels"][ref]["users"][uref] = U.username
+						our_channel["users"] += list(list("ref" = uref, "username" = U.username))
+				data["channels"] += list(our_channel)
 
 		data["users"] = list()
 		for(var/u in ntnet_global.chat_users)
 			var/datum/ntnet_user/ntnet_user = u
 			if(ntnet_user != my_user)
-				data["users"][text_ref(ntnet_user)] = ntnet_user.username
+				data["users"] += list(list("ref" = text_ref(ntnet_user), "username" = ntnet_user.username))
 
 	return data
 
@@ -163,47 +166,34 @@
 		else
 			new_ringtone = sanitize(new_ringtone, 20)
 			ringtone = new_ringtone
-			computer.update_static_data_for_all_viewers()
+			update_static_data_for_all_viewers()
 
-/datum/computer_file/program/chat_client/Topic(href, href_list)
-	if(..())
-		return TRUE
-
-	if(href_list["ringtone"])
-		var/newRingtone = href_list["ringtone"]
-		var/obj/item/device/uplink/hidden/H = computer.hidden_uplink
-		if(istype(H) && H.check_trigger(usr, lowertext(newRingtone), lowertext(H.pda_code)))
-			to_chat(usr, SPAN_NOTICE("\The [computer] softly beeps."))
-			syndi_auth = TRUE
-			SSvueui.close_uis(src)
-		else
-			newRingtone = sanitize(newRingtone, 20)
-			ringtone = newRingtone
-			SSvueui.check_uis_for_change(src)
-
-	if(href_list["mute_message"])
+	if(action == "mute_message")
 		message_mute = !message_mute
-		SSvueui.check_uis_for_change(src)
+		update_static_data_for_all_viewers()
 
 	// User only commands
 	if(!istype(my_user))
 		return
+
 	// Following actions require signal
 	if(!get_signal(NTNET_COMMUNICATION))
 		to_chat(usr, FONT_SMALL(SPAN_WARNING("\The [src] displays, \"NETWORK ERROR - Unable to connect to NTNet. Please retry. If problem persists, contact your system administrator.\".")))
 		return
 
-	if(href_list["send"])
+	if(action == "send")
 		var/mob/living/user = usr
-		var/datum/ntnet_conversation/conv = locate(href_list["send"]["target"])
-		var/message = href_list["send"]["message"]
+		var/datum/ntnet_conversation/conv = locate(params["target"])
+		var/message = params["message"]
 		if(istype(conv) && message)
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
-	if(href_list["focus"])
+		update_static_data_for_all_viewers()
+
+	if(action == "focus")
 		var/mob/living/user = usr
-		var/datum/ntnet_conversation/conv = locate(href_list["focus"])
+		var/datum/ntnet_conversation/conv = locate(params["focus"])
 		if(istype(conv))
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
@@ -212,63 +202,77 @@
 			else
 				focused_conv = conv
 				computer.become_hearing_sensitive()
-		SSvueui.check_uis_for_change(src)
-	if(href_list["join"])
-		var/datum/ntnet_conversation/conv = locate(href_list["join"]["target"])
-		var/password = href_list["join"]["password"]
+		update_static_data_for_all_viewers()
+
+	if(action == "join")
+		var/datum/ntnet_conversation/conv = locate(params["target"])
+		var/password = params["password"]
 		if(istype(conv))
 			if(conv.password)
 				if(conv.password == password)
 					conv.cl_join(src)
 				else
-					// How do I alert of password invalid?
+					to_chat(usr, SPAN_WARNING("Invalid password!"))
 			else
 				conv.cl_join(src)
-	if(href_list["leave"])
-		var/datum/ntnet_conversation/conv = locate(href_list["leave"])
+		update_static_data_for_all_viewers()
+
+	if(action == "leave")
+		var/datum/ntnet_conversation/conv = locate(params["leave"])
 		if(istype(conv))
 			conv.cl_leave(src)
-		SSvueui.check_uis_for_change(src)
-	if(href_list["kick"])
-		var/datum/ntnet_conversation/conv = locate(href_list["kick"]["target"])
-		var/datum/ntnet_user/tUser = locate(href_list["kick"]["user"])
+		update_static_data_for_all_viewers()
+
+	if(action == "kick")
+		var/datum/ntnet_conversation/conv = locate(params["target"])
+		var/datum/ntnet_user/tUser = locate(params["user"])
 		if(istype(conv) && istype(tUser))
 			conv.cl_kick(src, tUser)
-	if(href_list["set_password"])
-		var/datum/ntnet_conversation/conv = locate(href_list["set_password"]["target"])
-		var/password = href_list["set_password"]["password"]
+
+	if(action == "set_password")
+		var/datum/ntnet_conversation/conv = locate(params["target"])
+		var/password = params["password"]
 		if(istype(conv))
 			conv.cl_set_password(src, password)
-	if(href_list["change_title"])
-		var/datum/ntnet_conversation/conv = locate(href_list["change_title"]["target"])
-		var/newTitle = href_list["change_title"]["title"]
+
+	if(action == "change_title")
+		var/datum/ntnet_conversation/conv = locate(params["target"])
+		var/newTitle = params["title"]
 		if(istype(conv))
 			conv.cl_change_title(src, newTitle)
-	if(href_list["new_channel"])
-		ntnet_global.begin_conversation(src, sanitize(href_list["new_channel"]))
-	if(href_list["delete"])
-		var/datum/ntnet_conversation/conv = locate(href_list["delete"])
+		update_static_data_for_all_viewers()
+
+	if(action == "new_channel")
+		ntnet_global.begin_conversation(src, sanitize(params["new_channel"]))
+		update_static_data_for_all_viewers()
+
+	if(action == "delete")
+		var/datum/ntnet_conversation/conv = locate(params["delete"])
 		if(istype(conv) && conv.can_manage(src))
 			ntnet_global.chat_channels.Remove(conv)
 			qdel(conv)
-		SSvueui.check_uis_for_change(src)
-	if(href_list["direct"])
-		var/datum/ntnet_user/tUser = locate(href_list["direct"])
-		ntnet_global.begin_direct(src, tUser)
+		update_static_data_for_all_viewers()
 
-	if(href_list["toggleadmin"])
+	if(action == "direct")
+		var/datum/ntnet_user/tUser = locate(params["direct"])
+		ntnet_global.begin_direct(src, tUser)
+		update_static_data_for_all_viewers()
+
+	if(action == "toggleadmin")
 		if(netadmin_mode)
 			netadmin_mode = FALSE
 		else
 			var/mob/living/user = usr
 			if(can_run(user, TRUE, access_network))
 				netadmin_mode = TRUE
-		SSvueui.check_uis_for_change(src)
-	if(href_list["Reply"])
+		update_static_data_for_all_viewers()
+
+	if(action == "Reply")
 		var/mob/living/user = usr
-		var/datum/ntnet_conversation/conv = locate(href_list["Reply"])
+		var/datum/ntnet_conversation/conv = locate(params["Reply"])
 		var/message = input(user, "Enter message or leave blank to cancel: ")
 		if(istype(conv) && message)
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
+			update_static_data_for_all_viewers()

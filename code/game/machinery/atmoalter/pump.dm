@@ -61,7 +61,7 @@
 
 	target_pressure = rand(0,1300)
 	update_icon()
-	SSvueui.check_uis_for_change(src)
+	SStgui.update_uis(src)
 
 	..(severity)
 
@@ -113,7 +113,7 @@
 			update_icon()
 
 	src.updateDialog()
-	SSvueui.check_uis_for_change(src)
+	SStgui.update_uis(src)
 
 /obj/machinery/portable_atmospherics/powered/pump/return_air()
 	return air_contents

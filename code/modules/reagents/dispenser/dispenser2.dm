@@ -73,7 +73,7 @@
 
 	cartridges[C.label] = C
 	sortTim(cartridges, GLOBAL_PROC_REF(cmp_text_asc))
-	SSvueui.check_uis_for_change(src)
+	SStgui.update_uis(src)
 
 /obj/machinery/chemical_dispenser/proc/remove_cartridge(label)
 	. = cartridges[label]
