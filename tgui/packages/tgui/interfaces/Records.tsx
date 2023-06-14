@@ -1,13 +1,17 @@
 import { capitalize } from '../../common/string';
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section, Stack, Tabs } from '../components';
+import { Box, Button, Input, LabeledList, NoticeBox, Section, Stack, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
+import { Dropdown } from '../components/Dropdown';
 
 export type RecordsData = {
   activeview: string;
   editingvalue: string;
-  choices: string[];
+  physical_status_options: string[];
+  criminal_status_options: string[];
+  mental_status_options: string[];
+  medical_options: string[];
 
   authenticated: BooleanLike;
   canprint: BooleanLike;
@@ -31,6 +35,33 @@ type Record = {
   has_notes: string;
   blood: string;
   dna: string;
+  physical_status: string;
+  mental_status: string;
+  species: string;
+  citizenship: string;
+  religion: string;
+  employer: string;
+  notes: string;
+  security: Security;
+  medical: Medical;
+  ccia_notes: string;
+  ccia_actions: string[];
+};
+
+type Security = {
+  notes: string;
+  criminal: string;
+  crimes: string;
+  incidents: string[];
+};
+
+type Medical = {
+  notes: string;
+  disabilities: string;
+  allergies: string;
+  diseases: string;
+  blood_type: string;
+  blood_dna: string;
 };
 
 type RecordLocked = {
@@ -49,10 +80,10 @@ export const Records = (props, context) => {
           title="Records"
           buttons={
             <Button
-              content="Login"
+              content={data.authenticated ? 'Logout' : 'Login'}
               icon="exclamation"
-              color="green"
-              onClick={() => act('login')}
+              color={data.authenticated ? 'red' : 'green'}
+              onClick={() => act(data.authenticated ? 'logout' : 'login')}
             />
           }>
           {!data.authenticated ? (
@@ -94,27 +125,35 @@ export const RecordsView = (props, context) => {
           ''
         )}
         {data.active ? (
-          data.available_types & 1 ? (
-            <Tabs.Tab
-              selected={recordTab === 'General'}
-              onClick={() => setRecordTab('General')}>
-              General
-            </Tabs.Tab>
-          ) : data.available_types & 4 ? (
-            <Tabs.Tab
-              selected={recordTab === 'Security'}
-              onClick={() => setRecordTab('Security')}>
-              Security
-            </Tabs.Tab>
-          ) : data.available_types & 2 ? (
-            <Tabs.Tab
-              selected={recordTab === 'Medical'}
-              onClick={() => setRecordTab('Medical')}>
-              Medical
-            </Tabs.Tab>
-          ) : (
-            ''
-          )
+          <>
+            {data.available_types & 1 ? (
+              <Tabs.Tab
+                selected={recordTab === 'General'}
+                onClick={() => setRecordTab('General')}>
+                General - #{data.active.id}
+              </Tabs.Tab>
+            ) : (
+              ''
+            )}{' '}
+            {data.available_types & 4 ? (
+              <Tabs.Tab
+                selected={recordTab === 'Security'}
+                onClick={() => setRecordTab('Security')}>
+                Security - #{data.active.id}
+              </Tabs.Tab>
+            ) : (
+              ''
+            )}{' '}
+            {data.available_types & 2 ? (
+              <Tabs.Tab
+                selected={recordTab === 'Medical'}
+                onClick={() => setRecordTab('Medical')}>
+                Medical - #{data.active.id}
+              </Tabs.Tab>
+            ) : (
+              ''
+            )}
+          </>
         ) : (
           ''
         )}
@@ -148,12 +187,72 @@ export const ListAllRecords = (props, context) => {
   );
 };
 
+// Omega shitcode ahead but this is my like 56th UI and I don't give a fuck anymore.
 export const ListActive = (props, context) => {
   const { act, data } = useBackend<RecordsData>(context);
   const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+  const [editingPhysStatus, setEditingPhysStatus] = useLocalState(
+    context,
+    'editingPhysStatus',
+    0
+  );
+  const [editingMentalStatus, setEditingMentalStatus] = useLocalState(
+    context,
+    'editingMentalStatus',
+    0
+  );
+  const [editingFingerprint, setEditingFingerprint] = useLocalState(
+    context,
+    'editingFingerprint',
+    0
+  );
+  const [editingCriminalStatus, setEditingCriminalStatus] = useLocalState(
+    context,
+    'editingCriminalStatus',
+    0
+  );
+  const [editingSpecies, setEditingSpecies] = useLocalState(
+    context,
+    'editingSpecies',
+    0
+  );
+  const [editingCitizenship, setEditingCitizenship] = useLocalState(
+    context,
+    'editingCitizenship',
+    0
+  );
+  const [editingReligion, setEditingReligion] = useLocalState(
+    context,
+    'editingReligion',
+    0
+  );
+  const [editingEmployer, setEditingEmployer] = useLocalState(
+    context,
+    'editingEmployer',
+    0
+  );
+  const [editingDisabilities, setEditingDisabilities] = useLocalState(
+    context,
+    'editingDisabilities',
+    0
+  );
+  const [editingAllergies, setEditingAllergies] = useLocalState(
+    context,
+    'editingAllergies',
+    0
+  );
+  const [editingDisease, setEditingDisease] = useLocalState(
+    context,
+    'editingDisease',
+    0
+  );
 
   return (
-    <Section>
+    <Section
+      title={data.active.name}
+      buttons={
+        <Button content="Print" icon="print" onClick={() => act('print')} />
+      }>
       <Box
         as="img"
         m={0}
@@ -182,8 +281,396 @@ export const ListActive = (props, context) => {
           {capitalize(data.active.sex)}
         </LabeledList.Item>
         <LabeledList.Item label="Rank">{data.active.rank}</LabeledList.Item>
-        <LabeledList.Item label="Physical Status"></LabeledList.Item>
+        <LabeledList.Item label="Physical Status">
+          {data.editable & 1 || data.editable & 2 ? (
+            <Box>
+              {editingPhysStatus ? (
+                <Dropdown
+                  options={data.physical_status_options}
+                  displayText={data.active.physical_status}
+                  selected={data.active.physical_status}
+                  onSelected={(v) =>
+                    act('editrecord', {
+                      key: 'physical_status',
+                      value: v,
+                    })
+                  }
+                />
+              ) : (
+                <Box>
+                  {data.active.physical_status}&nbsp;
+                  <Button
+                    icon="pencil-ruler"
+                    onClick={() => setEditingPhysStatus(1)}
+                  />
+                </Box>
+              )}
+            </Box>
+          ) : (
+            data.active.physical_status
+          )}
+        </LabeledList.Item>
+        <LabeledList.Item label="Mental Status">
+          {data.editable & 1 || data.editable & 2 ? (
+            <Box>
+              {editingMentalStatus ? (
+                <Dropdown
+                  options={data.mental_status_options}
+                  displayText={data.active.mental_status}
+                  selected={data.active.mental_status}
+                  onSelected={(v) =>
+                    act('editrecord', {
+                      key: 'mental_status',
+                      value: v,
+                    })
+                  }
+                />
+              ) : (
+                <Box>
+                  {data.active.mental_status}&nbsp;
+                  <Button
+                    icon="pencil-ruler"
+                    onClick={() => setEditingMentalStatus(1)}
+                  />
+                </Box>
+              )}
+            </Box>
+          ) : (
+            data.active.mental_status
+          )}
+        </LabeledList.Item>
+        {data.active.security ? (
+          <LabeledList.Item label="Criminal Status">
+            {data.editable & 4 ? (
+              <Box>
+                {editingCriminalStatus ? (
+                  <Dropdown
+                    options={data.criminal_status_options}
+                    displayText={data.active.security.criminal}
+                    selected={data.active.security.criminal}
+                    onSelected={(v) =>
+                      act('editrecord', {
+                        record_type: 'security',
+                        key: 'criminal',
+                        value: v,
+                      })
+                    }
+                  />
+                ) : (
+                  <Box>
+                    {data.active.security.criminal}&nbsp;
+                    <Button
+                      icon="pencil-ruler"
+                      onClick={() => setEditingCriminalStatus(1)}
+                    />
+                  </Box>
+                )}
+              </Box>
+            ) : (
+              data.active.security.criminal
+            )}
+          </LabeledList.Item>
+        ) : (
+          ''
+        )}
+        <LabeledList.Item label="Fingerprint">
+          {data.editable & 1 ? (
+            <Box>
+              {editingFingerprint ? (
+                <Input
+                  placeholder={data.active.fingerprint}
+                  width="100%"
+                  onInput={(e, v) =>
+                    act('editrecord', {
+                      key: 'fingerprint',
+                      value: v,
+                    })
+                  }
+                />
+              ) : (
+                <Box>
+                  {data.active.fingerprint}&nbsp;
+                  <Button
+                    icon="pencil-ruler"
+                    onClick={() => setEditingFingerprint(1)}
+                  />
+                </Box>
+              )}
+            </Box>
+          ) : (
+            data.active.fingerprint
+          )}
+        </LabeledList.Item>
+        {data.active.medical && recordTab === 'Medical' ? (
+          <>
+            <LabeledList.Item label="Disabilities">
+              {data.editable & 2 ? (
+                <Box>
+                  {editingDisabilities ? (
+                    <Input
+                      placeholder={data.active.medical.disabilities}
+                      width="100%"
+                      onInput={(e, v) =>
+                        act('editrecord', {
+                          record_type: 'medical',
+                          key: 'fingerprint',
+                          value: v,
+                        })
+                      }
+                    />
+                  ) : (
+                    <Box>
+                      {data.active.medical.disabilities}&nbsp;
+                      <Button
+                        icon="pencil-ruler"
+                        onClick={() => setEditingDisabilities(1)}
+                      />
+                    </Box>
+                  )}
+                </Box>
+              ) : (
+                data.active.medical.disabilities
+              )}
+            </LabeledList.Item>
+            <LabeledList.Item label="Allergies">
+              {data.editable & 2 ? (
+                <Box>
+                  {editingAllergies ? (
+                    <Input
+                      placeholder={data.active.medical.allergies}
+                      width="100%"
+                      onInput={(e, v) =>
+                        act('editrecord', {
+                          record_type: 'medical',
+                          key: 'allergies',
+                          value: v,
+                        })
+                      }
+                    />
+                  ) : (
+                    <Box>
+                      {data.active.medical.allergies}&nbsp;
+                      <Button
+                        icon="pencil-ruler"
+                        onClick={() => setEditingAllergies(1)}
+                      />
+                    </Box>
+                  )}
+                </Box>
+              ) : (
+                data.active.medical.allergies
+              )}
+            </LabeledList.Item>
+            <LabeledList.Item label="Disease">
+              {data.editable & 2 ? (
+                <Box>
+                  {editingDisease ? (
+                    <Input
+                      placeholder={data.active.medical.diseases}
+                      width="100%"
+                      onInput={(e, v) =>
+                        act('editrecord', {
+                          record_type: 'medical',
+                          key: 'diseases',
+                          value: v,
+                        })
+                      }
+                    />
+                  ) : (
+                    <Box>
+                      {data.active.medical.diseases}&nbsp;
+                      <Button
+                        icon="pencil-ruler"
+                        onClick={() => setEditingDisease(1)}
+                      />
+                    </Box>
+                  )}
+                </Box>
+              ) : (
+                data.active.medical.diseases
+              )}
+            </LabeledList.Item>
+          </>
+        ) : (
+          ''
+        )}
+        {data.available_types & 1 && recordTab === 'General' ? (
+          <>
+            <LabeledList.Item label="Species">
+              {data.editable & 1 ? (
+                <Box>
+                  {editingSpecies ? (
+                    <Input
+                      placeholder={data.active.species}
+                      width="100%"
+                      onInput={(e, v) =>
+                        act('editrecord', {
+                          key: 'species',
+                          value: v,
+                        })
+                      }
+                    />
+                  ) : (
+                    <Box>
+                      {data.active.species}&nbsp;
+                      <Button
+                        icon="pencil-ruler"
+                        onClick={() => setEditingSpecies(1)}
+                      />
+                    </Box>
+                  )}
+                </Box>
+              ) : (
+                data.active.species
+              )}
+            </LabeledList.Item>
+            <LabeledList.Item label="Citizenship">
+              {data.editable & 1 ? (
+                <Box>
+                  {editingCitizenship ? (
+                    <Input
+                      placeholder={data.active.citizenship}
+                      width="100%"
+                      onInput={(e, v) =>
+                        act('editrecord', {
+                          key: 'citizenship',
+                          value: v,
+                        })
+                      }
+                    />
+                  ) : (
+                    <Box>
+                      {data.active.citizenship}&nbsp;
+                      <Button
+                        icon="pencil-ruler"
+                        onClick={() => setEditingCitizenship(1)}
+                      />
+                    </Box>
+                  )}
+                </Box>
+              ) : (
+                data.active.citizenship
+              )}
+            </LabeledList.Item>
+            <LabeledList.Item label="Religion">
+              {data.editable & 1 ? (
+                <Box>
+                  {editingReligion ? (
+                    <Input
+                      placeholder={data.active.religion}
+                      width="100%"
+                      onInput={(e, v) =>
+                        act('editrecord', {
+                          key: 'religion',
+                          value: v,
+                        })
+                      }
+                    />
+                  ) : (
+                    <Box>
+                      {data.active.religion}&nbsp;
+                      <Button
+                        icon="pencil-ruler"
+                        onClick={() => setEditingReligion(1)}
+                      />
+                    </Box>
+                  )}
+                </Box>
+              ) : (
+                data.active.religion
+              )}
+            </LabeledList.Item>
+            <LabeledList.Item label="Employer">
+              {data.editable & 1 ? (
+                <Box>
+                  {editingEmployer ? (
+                    <Input
+                      placeholder={data.active.employer}
+                      width="100%"
+                      onInput={(e, v) =>
+                        act('editrecord', {
+                          key: 'employer',
+                          value: v,
+                        })
+                      }
+                    />
+                  ) : (
+                    <Box>
+                      {data.active.employer}&nbsp;
+                      <Button
+                        icon="pencil-ruler"
+                        onClick={() => setEditingEmployer(1)}
+                      />
+                    </Box>
+                  )}
+                </Box>
+              ) : (
+                data.active.employer
+              )}
+            </LabeledList.Item>
+          </>
+        ) : (
+          ''
+        )}
       </LabeledList>
+      {recordTab === 'General' ? (
+        <Section title="Employment Records">
+          {data.active.notes.split('\n').map((line) => (
+            <Box key={line}>{line}</Box>
+          ))}
+        </Section>
+      ) : recordTab === 'Security' ? (
+        <Section title="Security Records">
+          {data.active.security.notes.split('\n').map((line) => (
+            <Box key={line}>{line}</Box>
+          ))}
+        </Section>
+      ) : recordTab === 'Medical' ? (
+        <Section title="Medical Records">
+          {data.active.medical.notes.split('\n').map((line) => (
+            <Box key={line}>{line}</Box>
+          ))}
+        </Section>
+      ) : (
+        ''
+      )}
+
+      {recordTab === 'Security' ? (
+        <>
+          <Section title="Incidents">
+            {data.active.security.incidents &&
+            data.active.security.incidents.length
+              ? data.active.security.incidents.map((line) => (
+                <Box key={line}>{line}</Box>
+              ))
+              : 'No incidents on record.'}
+          </Section>
+          <Section title="Crimes">{data.active.security.crimes}</Section>
+        </>
+      ) : (
+        ''
+      )}
+
+      {data.active.ccia_notes ? (
+        <Section title="CCIA Notes">
+          {data.active.ccia_notes.split('\n').map((line) => (
+            <Box key={line}>{line}</Box>
+          ))}
+        </Section>
+      ) : (
+        ''
+      )}
+      {data.active.ccia_actions ? (
+        <Section title="CCIA Actions">
+          {data.active.ccia_actions.length
+            ? data.active.ccia_actions.map((line) => (
+              <Box key={line}>{line}</Box>
+            ))
+            : 'No CCIA actions on record.'}
+        </Section>
+      ) : (
+        ''
+      )}
     </Section>
   );
 };

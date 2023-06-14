@@ -21,7 +21,6 @@
 	var/datum/record/general/active
 	var/datum/record/virus/active_virus
 	var/listener/record/rconsole/listener
-	var/isEditing = FALSE
 	var/authenticated = FALSE
 	var/default_screen = "general"
 	var/record_prefix = ""
@@ -29,9 +28,7 @@
 		"physical_status" = list("Active", "*Deceased*", "*SSD*", "*Missing*", "Physically Unfit", "Disabled"),
 		"criminal_status" = list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released"),
 		"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*"),
-		"medical" = list(
-			"blood_type" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+")
-		)
+		"medical" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+")
 	)
 
 /datum/computer_file/program/records/medical
@@ -99,8 +96,7 @@
 	var/list/data = list(
 		"activeview" = "list",
 		"defaultview" = default_screen,
-		"editingvalue" = "",
-		"choices" = typechoices
+		"editingvalue" = ""
 	)
 
 	var/headerdata = get_header_data(data["_PC"])
@@ -113,6 +109,10 @@
 
 	data["available_types"] = records_type
 	data["editable"] = edit_type
+	data["physical_status_options"] = typechoices["physical_status"]
+	data["criminal_status_options"] = typechoices["criminal_status"]
+	data["mental_status_options"] = typechoices["mental_status"]
+	data["medical_options"] = typechoices["medical"]
 	data["allrecords"] = list()
 	data["allrecords_locked"] = list()
 	data["record_viruses"] = list()
@@ -134,8 +134,11 @@
 				"citizenship" = R.citizenship,
 				"religion" = R.religion,
 				"employer" = R.employer,
+				"notes" = R.notes,
 				"blood" = R.medical ? R.medical.blood_type : null,
-				"dna" = R.medical ? R.medical.blood_dna : null
+				"dna" = R.medical ? R.medical.blood_dna : null,
+				"ccia_notes" = R.ccia_record,
+				"ccia_actions" = R.ccia_actions,
 			))
 
 		if(records_type & RECORD_LOCKED)
@@ -161,10 +164,6 @@
 			var/returned = active.Listify(1, excluded, data["active"])
 			if(returned)
 				data["active"] = returned
-		else
-			if(data["activeview"] in list("general", "medical", "security"))
-				data["activeview"] = "list"
-			data["active"] = null
 	else
 		data["active"] = null
 	return data
@@ -200,26 +199,27 @@
 				active = SSrecords.find_record("id", params["setactive_locked"], RECORD_GENERAL | RECORD_LOCKED)
 				. = TRUE
 
+		//Key is the variable we want to edit. Value is what we set it to.
 		if("editrecord")
-			var/list/key = params["editrecord"]["key"]
-			var/value = sanitize(params["editrecord"]["value"], encode = 0, extra = 0)
-			if(key.len >= 2 && canEdit(key))
-				if(isnum(obj_query_get(null, src, null, key)))
+			var/datum/record/record_to_edit = active
+			var/key = params["key"]
+			var/value = sanitize(params["value"], encode = 0, extra = 0)
+			var/record_type = params["record_type"]
+			if(record_type)
+				record_to_edit = active.vars[record_type]
+			if(canEdit(key))
+				if(isnum(record_to_edit.vars[key]))
 					value = text2num(value)
-				isEditing = TRUE
-				obj_query_set(null, src, value, null, key)
-				SSrecords.onModify(vars[key[1]])
-				isEditing = FALSE
+				record_to_edit.vars[key] = value
+				SSrecords.onModify(active)
 				. = TRUE
 
 		if("deleterecord")
-			if(canEdit(list("active", "name")))
+			if(canEdit("name"))
 				var/confirm = alert("Are you sure you want to delete this record?", "Confirm Deletion", "No", "Yes")
 				if(confirm == "Yes")
-					isEditing = TRUE
 					SSrecords.remove_record(active)
 					active = null
-					isEditing = FALSE
 				. = TRUE
 
 		if("newrecord")
@@ -228,67 +228,36 @@
 				SSrecords.add_record(active)
 				. = TRUE
 
-		if("addtorecord")
-			var/list/key = params["addtorecord"]["key"]
-			var/value = sanitize(params["addtorecord"]["value"], encode = 0, extra = 0)
-			if(key.len >= 2 && canEdit(key))
-				isEditing = TRUE
-				obj_query_set(null, src, obj_query_get(null, src, null, key) + value, null, key)
-				SSrecords.onModify(vars[key[1]])
-				isEditing = FALSE
-				. = TRUE
-
-		if("removefromrecord")
-			var/list/key = params["removefromrecord"]["key"]
-			var/value = sanitize(params["removefromrecord"]["value"], encode = 0, extra = 0)
-			if(key.len >= 2 && canEdit(key))
-				isEditing = TRUE
-				obj_query_set(null, src, obj_query_get(null, src, null, key) - value, null, key)
-				SSrecords.onModify(vars[key[1]])
-				isEditing = FALSE
-				. = TRUE
-
 		if("print")
-			if(!(params["print"] in list("active", "active_virus")))
-				return
-			var/datum/record/R = vars[params["print"]]
-			if(computer?.nano_printer && R)
-				var/excluded = list()
-				if(params["print"] == "active")
-					if(!(records_type & RECORD_GENERAL))
-						excluded += active.advanced_fields
-					if(!(records_type & RECORD_SECURITY))
-						excluded += "security"
-					if(!(records_type & RECORD_MEDICAL))
-						excluded += "medical"
-				var/out = R.Printify(excluded)
-				computer.nano_printer.print_text(out, "[record_prefix]Record ([R.name])")
+			var/list/excluded = list()
+			if(computer?.nano_printer && active)
+				if(!(records_type & RECORD_GENERAL))
+					excluded += active.advanced_fields
+				if(!(records_type & RECORD_SECURITY))
+					excluded += "security"
+				if(!(records_type & RECORD_MEDICAL))
+					excluded += "medical"
+				var/out = active.Printify(excluded)
+				computer.nano_printer.print_text(out, "[record_prefix]Record ([active.name])")
 				. = TRUE
 
-/datum/computer_file/program/records/proc/canEdit(list/key)
-	if(!(key[1] in list("active", "active_virus")))
-		return FALSE
-	if(vars[key[1]] == null)
-		return FALSE
-	if(key[1] == "active_virus" && !(edit_type & RECORD_VIRUS))
-		return FALSE
-	if(key[1] == "active")
-		switch(key[2])
-			if("security")
-				if(!(edit_type & RECORD_SECURITY))
-					return FALSE
-			if("physical_status")
-				if(!((edit_type & RECORD_MEDICAL) || (edit_type & RECORD_GENERAL)))
-					return FALSE
-			if("mental_status")
-				if(!((edit_type & RECORD_MEDICAL) || (edit_type & RECORD_GENERAL)))
-					return FALSE
-			if("medical")
-				if(!(edit_type & RECORD_MEDICAL))
-					return FALSE
-			else
-				if(key.len == 2 && !(edit_type & RECORD_GENERAL))
-					return FALSE
+/datum/computer_file/program/records/proc/canEdit(key)
+	switch(key)
+		if("security")
+			if(!(edit_type & RECORD_SECURITY))
+				return FALSE
+		if("physical_status")
+			if(!((edit_type & RECORD_MEDICAL) || (edit_type & RECORD_GENERAL)))
+				return FALSE
+		if("mental_status")
+			if(!((edit_type & RECORD_MEDICAL) || (edit_type & RECORD_GENERAL)))
+				return FALSE
+		if("medical")
+			if(!(edit_type & RECORD_MEDICAL))
+				return FALSE
+		else
+			if(!(edit_type & RECORD_GENERAL))
+				return FALSE
 	return TRUE
 
 /*
@@ -298,7 +267,7 @@
 /listener/record/rconsole/on_delete(var/datum/record/r)
 	. = FALSE
 	var/datum/computer_file/program/records/t = target
-	if(istype(t) && !t.isEditing)
+	if(istype(t))
 		if(t.active == r)
 			t.active = null
 			. = TRUE
@@ -310,6 +279,6 @@
 
 /listener/record/rconsole/on_modify(var/datum/record/r)
 	var/datum/computer_file/program/records/t = target
-	if(istype(t) && !t.isEditing)
+	if(istype(t))
 		if(t.active == r || t.active_virus == r)
 			SStgui.update_uis(t)
