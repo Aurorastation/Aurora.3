@@ -54,7 +54,7 @@
 	fast_pulse = 60 // Default 90
 	v_fast_pulse = 80// Default 120
 	max_pulse = 100// Default 160
-	body_temperature = T0C + 24
+	body_temperature = null // Cold-blooded
 
 	rarity_value = 3
 	break_cuffs = TRUE
