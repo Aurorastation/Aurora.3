@@ -88,7 +88,7 @@
 	fast_pulse = 70 // Default 90
 	v_fast_pulse = 90 // Default 120
 	max_pulse = 130 // Default 160
-	body_temperature = T0C + 27
+	body_temperature = null // Cold-blooded
 
 	default_h_style = "Headtails"
 
