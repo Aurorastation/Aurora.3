@@ -20,6 +20,11 @@
 	var/message_mute = FALSE
 	var/syndi_auth = FALSE
 
+/datum/computer_file/program/chat_client/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
+	if(ui)
+		ui.autoupdate = FALSE
+
 /datum/computer_file/program/chat_client/Destroy()
 	return ..()
 
@@ -105,7 +110,8 @@
 		ntnet_global.chat_clients.Remove(src)
 	computer.update_static_data_for_all_viewers()
 
-/datum/computer_file/program/chat_client/ui_static_data(mob/user)
+/datum/computer_file/program/chat_client/ui_data(mob/user)
+	. = ..()
 	var/list/data = list()
 	data["service"] = service_state > PROGRAM_STATE_KILLED
 	data["registered"] = istype(my_user)
@@ -115,6 +121,10 @@
 	data["can_netadmin_mode"] = can_run(user, FALSE, access_network)
 	data["message_mute"] = message_mute
 
+	return data
+
+/datum/computer_file/program/chat_client/ui_static_data(mob/user)
+	var/list/data = list()
 	if(istype(my_user) && get_signal(NTNET_COMMUNICATION) && (service_state > PROGRAM_STATE_KILLED))
 		data["channels"] = list()
 		for(var/c in ntnet_global.chat_channels)
@@ -145,16 +155,11 @@
 			var/datum/ntnet_user/ntnet_user = u
 			if(ntnet_user != my_user)
 				data["users"] += list(list("ref" = text_ref(ntnet_user), "username" = ntnet_user.username))
-
-	return data
-
-/datum/computer_file/program/chat_client/ui_data(mob/user)
-	var/list/data = list()
 	return data
 
 /datum/computer_file/program/chat_client/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
-		return TRUE
+		return
 
 	if(action == "ringtone")
 		var/new_ringtone = params["ringtone"]
@@ -166,11 +171,11 @@
 		else
 			new_ringtone = sanitize(new_ringtone, 20)
 			ringtone = new_ringtone
-			update_static_data_for_all_viewers()
+			. = TRUE
 
 	if(action == "mute_message")
 		message_mute = !message_mute
-		update_static_data_for_all_viewers()
+		. = TRUE
 
 	// User only commands
 	if(!istype(my_user))
@@ -202,7 +207,7 @@
 			else
 				focused_conv = conv
 				computer.become_hearing_sensitive()
-		update_static_data_for_all_viewers()
+		. = TRUE
 
 	if(action == "join")
 		var/datum/ntnet_conversation/conv = locate(params["target"])
@@ -266,6 +271,7 @@
 			if(can_run(user, TRUE, access_network))
 				netadmin_mode = TRUE
 		update_static_data_for_all_viewers()
+		. = TRUE
 
 	if(action == "Reply")
 		var/mob/living/user = usr
@@ -275,4 +281,3 @@
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
-			update_static_data_for_all_viewers()
