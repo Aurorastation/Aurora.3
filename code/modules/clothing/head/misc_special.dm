@@ -118,43 +118,6 @@
 		src.icon_state = "cake0"
 		src.item_state = "cake0"
 	return
-
-
-/*
- * Ushanka
- */
-/obj/item/clothing/head/ushanka
-	name = "ushanka"
-	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way."
-	icon_state = "ushanka"
-	flags_inv = HIDEEARS
-	var/earsup = 0
-
-/obj/item/clothing/head/ushanka/grey
-	name = "grey ushanka"
-	desc = "Perfect for winter in Siberia, da?"
-	icon_state = "greyushanka"
-
-/obj/item/clothing/head/ushanka/nyakas
-	name = "visegradi nyakas"
-	desc = "A type of flap hat that is extremely popular on Visegrad. It is designed to keep one's head and neck dry, and the flap can be pinned to the sides of the hat when not needed."
-	contained_sprite = TRUE
-	icon = 'icons/obj/item/clothing/head/nyakas.dmi'
-	icon_state = "nyakas"
-	item_state = "nyakas"
-	
-/obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
-	src.earsup = !src.earsup
-	if(src.earsup)
-		icon_state = "[icon_state]_up"
-		item_state = "[item_state]_up"
-		to_chat(user, "You raise the ear flaps on the hat.")
-	else
-		src.icon_state = initial(icon_state)
-		item_state = initial(item_state)
-		to_chat(user, "You lower the ear flaps on the hat.")
-	update_clothing_icon()
-
 /*
  * Pumpkin head
  */

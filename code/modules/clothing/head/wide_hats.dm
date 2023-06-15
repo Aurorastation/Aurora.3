@@ -11,10 +11,10 @@
 	worn_overlay = "over"
 
 /obj/item/clothing/head/wide_hat/pointed
-    icon_state = "pointed_large"
-    item_state = "pointed_large
+	icon_state = "pointed_large"
+	item_state = "pointed_large"
 
-/obj/item/clothing/head/wide_hat/pointed/large
+/obj/item/clothing/head/wide_hat/pointed/alt
 	build_from_parts = TRUE
 	worn_overlay = "band"
 
@@ -33,15 +33,19 @@
 
 /obj/item/clothing/head/bucket
 	name = "bucket hat"
-    desc = "A basic, circular hat with a modest brim."
+	desc = "A basic, circular hat with a modest brim."
 	icon = 'icons/obj/item/clothing/head/bucket_hat.dmi'
 	contained_sprite = TRUE
 	icon_state = "buckethat"
 	item_state = "buckethat"
 
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi'
+		)
+
 /obj/item/clothing/head/bucket/boonie
 	name = "boonie hat"
-    desc = "A floppy boonie hat with an attached string."
+	desc = "A floppy boonie hat with an attached string."
 	icon_state = "boonie"
 	item_state = "boonie"
 	build_from_parts = TRUE
@@ -54,3 +58,26 @@
 /obj/item/clothing/head/bucket/boonie/blue
 	icon_state = "blue_boonie"
 	item_state = "blue_boonie"
+
+/obj/item/clothing/head/fedora
+	name = "fedora"
+	icon_state = "fedora"
+	desc = "A sharp, stylish hat."
+	icon = 'icons/obj/item/clothing/head/bucket_hat.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/fedora/grey
+	name = "grey fedora"
+
+/obj/item/clothing/head/fedora/grey/Initialize()
+	. = ..()
+	color = "#5d6363"
+
+/obj/item/clothing/head/top_hat
+	name = "top hat"
+	icon_state = "tophat"
+	desc = "A top hat worn by only the most prestigious hat collectors."
+	icon = 'icons/obj/item/clothing/head/top_hat.dmi'
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "over"

@@ -1,14 +1,23 @@
 /obj/item/clothing/head/ushanka
 	name = "ushanka"
 	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way."
-    icon = 'icons/obj/item/clothing/head/ushanka.dmi'
-    icon_state = "ushanka"
-    item_state = "ushanka"
+	icon = 'icons/obj/item/clothing/head/ushanka.dmi'
+	icon_state = "ushanka"
+	item_state = "ushanka"
+	contained_sprite = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "over"
-	color = "#816341"
 	flags_inv = HIDEEARS
 	var/earsup = 0
+
+/obj/item/clothing/head/ushanka/nyakas
+	name = "visegradi nyakas"
+	desc = "A type of flap hat that is extremely popular on Visegrad. It is designed to keep one's head and neck dry, and the flap can be pinned to the sides of the hat when not needed."
+	contained_sprite = TRUE
+	build_from_parts = FALSE
+	icon = 'icons/obj/item/clothing/head/nyakas.dmi'
+	icon_state = "nyakas"
+	item_state = "nyakas"
 
 /obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
 	src.earsup = !src.earsup
@@ -21,7 +30,7 @@
 	update_clothing_icon()
 
 /obj/item/clothing/head/ushanka/grey
-	name = "ushanka"
+	name = "grey ushanka"
 
 /obj/item/clothing/head/ushanka/grey/Initialize()
 	. = ..()

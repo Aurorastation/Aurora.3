@@ -33,7 +33,7 @@
 	)
 
 	head = list(/obj/item/clothing/head/fedora/grey,
-				/obj/item/clothing/head/buckethat,
+				/obj/item/clothing/head/bucket,
 				/obj/item/clothing/head/that,
 				/obj/item/clothing/head/tajaran/fur,
 				/obj/item/clothing/head/bandana/red,
