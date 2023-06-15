@@ -131,6 +131,9 @@
 /area/maintenance/substation/hangar
 	name = "Hangar Substation"
 
+/area/hangar/canary
+	name = "Canary Hangar"
+
 //Operations
 
 /area/operations
@@ -292,6 +295,9 @@
 /area/shuttle/intrepid/rotary
 	name = "Intrepid Armament"
 
+/area/shuttle/canary
+	name = "Canary"
+	requires_power = TRUE
 //
 // SCCV Horizon Areas
 //

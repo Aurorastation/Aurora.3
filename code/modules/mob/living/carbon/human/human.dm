@@ -35,6 +35,8 @@
 			mind.name = real_name
 		if(get_hearing_sensitivity())
 			verbs += /mob/living/carbon/human/proc/listening_close
+		if(!height)
+			height = species.species_height
 
 	// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
 	if(max_nutrition > 0)
@@ -971,6 +973,10 @@
 
 	if(stomach.ingested.total_volume)
 		stomach.ingested.trans_to_obj(splat, min(15, stomach.ingested.total_volume))
+	for(var/obj/item/organ/internal/parasite/P in src.internal_organs)
+		if(P)
+			if(P.egg && (P.stage == P.max_stage))
+				splat.reagents.add_reagent(P.egg, 2)
 	handle_additional_vomit_reagents(splat)
 	splat.update_icon()
 
@@ -981,6 +987,10 @@
 	set waitfor = 0
 
 	if(!check_has_mouth() || isSynthetic() || !timevomit || !level || stat == DEAD || lastpuke)
+		return
+
+	if(chem_effects[CE_ANTIEMETIC])
+		to_chat(src, SPAN_WARNING("You feel a very brief wave of nausea, but it quickly disapparates."))
 		return
 
 	if(deliberate)
@@ -1363,7 +1373,7 @@
 	if(usr == src)
 		self = 1
 
-	if (src.species.flags & NO_BLOOD)
+	if ((src.species.flags & NO_BLOOD) || (status_flags & FAKEDEATH))
 		to_chat(usr, SPAN_WARNING(self ? "You have no pulse." : "[src] has no pulse!"))
 		return
 
@@ -1875,6 +1885,9 @@
 	var/obj/item/organ/internal/heart/heart_organ = internal_organs_by_name[BP_HEART]
 	if(!heart_organ)
 		// No heart, no pulse
+		return "0"
+
+	if(status_flags & FAKEDEATH)
 		return "0"
 
 	var/bpm = get_pulse_as_number()

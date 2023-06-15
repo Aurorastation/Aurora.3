@@ -9,7 +9,7 @@
  */
 
 
-obj/structure/windoor_assembly
+/obj/structure/windoor_assembly
 	name = "windoor assembly"
 	icon = 'icons/obj/doors/windoor.dmi'
 	icon_state = "l_windoor_assembly01"
@@ -40,7 +40,7 @@ obj/structure/windoor_assembly
 
 	update_nearby_tiles(need_rebuild=1)
 
-obj/structure/windoor_assembly/Destroy()
+/obj/structure/windoor_assembly/Destroy()
 	density = 0
 	update_nearby_tiles()
 	return ..()
