@@ -1,5 +1,5 @@
 import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
+import { useBackend, useLocalState, useSharedState } from '../backend';
 import { Box, Button, Input, Section, Stack, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
@@ -35,7 +35,7 @@ type User = {
 
 export const ChatClient = (props, context) => {
   const { act, data } = useBackend<ChatData>(context);
-  let [active, setActive] = useLocalState<Channel | null>(
+  let [active, setActive] = useSharedState<Channel | null>(
     context,
     'active',
     null
@@ -106,7 +106,7 @@ export const Users = (props, context) => {
     `searchTerm`,
     ``
   );
-  let [active, setActive] = useLocalState<Channel | null>(
+  let [active, setActive] = useSharedState<Channel | null>(
     context,
     'active',
     null
@@ -147,7 +147,7 @@ export const AllUsers = (props, context) => {
     `searchTerm`,
     ``
   );
-  let [active, setActive] = useLocalState<Channel | null>(
+  let [active, setActive] = useSharedState<Channel | null>(
     context,
     'active',
     null
@@ -329,7 +329,7 @@ export const ChannelsWindow = (props, context) => {
     `channelSearchTerm`,
     ``
   );
-  let [active, setActive] = useLocalState<Channel | null>(
+  let [active, setActive] = useSharedState<Channel | null>(
     context,
     'active',
     null

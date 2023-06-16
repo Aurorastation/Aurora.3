@@ -194,7 +194,8 @@
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
-		update_static_data_for_all_viewers()
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
 
 	if(action == "focus")
 		var/mob/living/user = usr
@@ -220,48 +221,56 @@
 					to_chat(usr, SPAN_WARNING("Invalid password!"))
 			else
 				conv.cl_join(src)
-		update_static_data_for_all_viewers()
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
 
 	if(action == "leave")
 		var/datum/ntnet_conversation/conv = locate(params["leave"])
 		if(istype(conv))
 			conv.cl_leave(src)
-		update_static_data_for_all_viewers()
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
 
 	if(action == "kick")
 		var/datum/ntnet_conversation/conv = locate(params["target"])
 		var/datum/ntnet_user/tUser = locate(params["user"])
 		if(istype(conv) && istype(tUser))
 			conv.cl_kick(src, tUser)
+			. = TRUE
 
 	if(action == "set_password")
 		var/datum/ntnet_conversation/conv = locate(params["target"])
 		var/password = params["password"]
 		if(istype(conv))
 			conv.cl_set_password(src, password)
+			. = TRUE
 
 	if(action == "change_title")
 		var/datum/ntnet_conversation/conv = locate(params["target"])
 		var/newTitle = params["title"]
 		if(istype(conv))
 			conv.cl_change_title(src, newTitle)
-		update_static_data_for_all_viewers()
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
 
 	if(action == "new_channel")
 		ntnet_global.begin_conversation(src, sanitize(params["new_channel"]))
-		update_static_data_for_all_viewers()
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
 
 	if(action == "delete")
 		var/datum/ntnet_conversation/conv = locate(params["delete"])
 		if(istype(conv) && conv.can_manage(src))
 			ntnet_global.chat_channels.Remove(conv)
 			qdel(conv)
-		update_static_data_for_all_viewers()
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
 
 	if(action == "direct")
 		var/datum/ntnet_user/tUser = locate(params["direct"])
 		ntnet_global.begin_direct(src, tUser)
-		update_static_data_for_all_viewers()
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
 
 	if(action == "toggleadmin")
 		if(netadmin_mode)
@@ -270,12 +279,17 @@
 			var/mob/living/user = usr
 			if(can_run(user, TRUE, access_network))
 				netadmin_mode = TRUE
-		update_static_data_for_all_viewers()
+		computer.update_static_data_for_all_viewers()
 		. = TRUE
 
-	if(action == "Reply")
+/datum/computer_file/program/chat_client/Topic(href, href_list)
+	. = ..()
+	if(.)
+		return TRUE
+
+	if(href == "Reply")
 		var/mob/living/user = usr
-		var/datum/ntnet_conversation/conv = locate(params["Reply"])
+		var/datum/ntnet_conversation/conv = locate(href_list["Reply"])
 		var/message = input(user, "Enter message or leave blank to cancel: ")
 		if(istype(conv) && message)
 			if(ishuman(user))

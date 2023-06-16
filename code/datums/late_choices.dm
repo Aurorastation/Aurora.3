@@ -12,7 +12,7 @@
 
 /datum/late_choices/Destroy(force)
 	NP.late_choices_ui = null
-	our_ui.close()
+	our_ui?.close()
 	QDEL_NULL(our_ui)
 	return ..()
 
