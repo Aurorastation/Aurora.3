@@ -3,7 +3,7 @@
 	name = SECTOR_COALITION
 	description = "The Coalition of Colonies is an independent, space-faring nation formed of once-Solarian colonies residing in the frontier. Population estimates range from 85 to 110 billion, with an accurate census being nearly impossible due to the decentralized government of the Coalition. Founded in a revolt against the governance of the Association of Sovereign Solarian Nations, or the Sol Alliance, it won its independence in the prolonged Interstellar War. The Coalition is one of the most diverse entities in known space culturally, socially, and politically."
 	skybox_icon = "weeping_stars"//the region that covers most of the coalition, presumably
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert)
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert, /obj/effect/overmap/visitable/sector/exoplanet/ocean)
 //	cargo_price_coef = TBD
 	starlight_color = "#615bff"
 	starlight_power = 2
@@ -16,7 +16,7 @@
 	name = SECTOR_WEEPING_STARS
 	description = "The region most devastated by the Interstellar War, the majority of the Weeping Stars has yet to recover from the damage it suffered during the War and much of it remains underdeveloped and sparsely inhabited. During the hegemonic era of the Solarian Alliance, when the Alliance stretched from Sol to the edge of known space, this region was known as the Inner Solarian Frontier and was intended to serve as a highly-developed region for humanity to thrive in. Massive amounts of funds were used to build an infrastructure which was still incomplete when war broke out in 2277, and the shattered ruins of long-lost Solarian hegemonic era structures and projects are present throughout the region."
 	skybox_icon = "weeping_stars"
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert)
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert, /obj/effect/overmap/visitable/sector/exoplanet/ocean)
 	cargo_price_coef = list("nt" = 1.2, "hpi" = 0.8, "zhu" = 0.8, "een" = 1.2, "get" = 1.2, "arz" = 1.2, "blm" = 1.2, "iac" = 1.2, "zsc" = 0.8, "vfc" = 1.2, "bis" = 0.8, "xmg" = 0.8, "npi" = 0.8)
 	starlight_color = "#615bff"
 	starlight_power = 2

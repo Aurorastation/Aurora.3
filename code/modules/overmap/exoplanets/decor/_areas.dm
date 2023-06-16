@@ -51,3 +51,7 @@
 /area/exoplanet/snow
 	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/snow
+
+/area/exoplanet/ocean
+	name = "\improper Shallow Sea Surface"
+	base_turf = /turf/simulated/floor/exoplanet/water/shallow/ocean

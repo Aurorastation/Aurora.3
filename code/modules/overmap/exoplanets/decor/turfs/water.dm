@@ -21,3 +21,8 @@
 		user.visible_message("<span class='notice'>[user] fills \the [RG] from \the [src].</span>","<span class='notice'>You fill \the [RG] from \the [src].</span>")
 	else
 		return ..()
+
+/turf/simulated/floor/exoplanet/water/shallow/ocean
+	icon_state = "unsmooth"
+	icon = 'icons/turf/flooring/exoplanet/ocean.dmi'
+	smooth = SMOOTH_TRUE | SMOOTH_BORDER

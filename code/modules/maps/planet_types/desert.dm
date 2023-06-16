@@ -21,7 +21,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/desert/generate_atmosphere()
 	..()
 	if(atmosphere)
-		var/limit = 1000
+		var/limit = 320//hot as hell but not enough to melt you to death in seconds
 		if(habitability_class <= HABITABILITY_OKAY)
 			var/datum/species/human/H = /datum/species/human
 			limit = initial(H.heat_level_1) - rand(1,10)
