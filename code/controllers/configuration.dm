@@ -261,6 +261,9 @@ var/list/gamemode_cache = list()
 	var/ipintel_save_bad = 1
 	var/ipintel_domain = "check.getipintel.net"
 
+	// BYOND Tracy
+	var/enable_byond_tracy = 0
+
 	// Access control/Panic bunker settings.
 	var/access_deny_new_players = 0
 	var/access_deny_new_accounts = -1
@@ -873,6 +876,9 @@ var/list/gamemode_cache = list()
 					ipintel_save_good = text2num(value)
 				if("ipintel_save_bad")
 					ipintel_save_bad = text2num(value)
+
+				if("enable_byond_tracy")
+					enable_byond_tracy = 1
 
 				if("access_deny_new_accounts")
 					access_deny_new_accounts = text2num(value) >= 0 ? text2num(value) : -1
