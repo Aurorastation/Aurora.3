@@ -1,43 +1,154 @@
-/datum/admins/proc/check_antagonists()
-	if (SSticker.current_state >= GAME_STATE_PLAYING)
-		var/dat = ""
-		dat += "Current Game Mode: <b>[SSticker.mode.name]</b><br>"
-		dat += "Round Duration: [get_round_duration_formatted()]<br>"
-		dat += "<b>Evacuation</b><br>"
-		if (evacuation_controller.is_idle())
-			dat += "<vui-button :params=\"{ call_shuttle: 1 }\">Call Evacuation</vui-button><br>"
-		else
-			var/timeleft = evacuation_controller.get_eta()
-			if (evacuation_controller.waiting_to_leave())
-				dat += "ETA: [(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]<BR>"
-				dat += "<a href='?src=\ref[src];call_shuttle=2'>Send Back</a><br>"
-
-		dat += "<vui-button :params=\"{ delay_round_end: 1 }\">[SSticker.delay_end ? "End Round Normally" : "Delay Round End"]</vui-button><br>"
-		dat += "<hr>"
-		for(var/antag_type in all_antag_types)
-			var/datum/antagonist/A = all_antag_types[antag_type]
-			dat += A.get_check_antag_output(src)
-
-		var/datum/vueui/ui = new(usr, src, "?<div>[dat]</div>", 400, 500, "Round Status", list(), staff_state)
-		ui.open()
-	else
-		alert("The game hasn't started yet!")
-
 /datum/tgui_module/ui_state(mob/user)
 	return always_state
 
 /datum/tgui_module/ui_status(mob/user, datum/ui_state/state)
 	return UI_INTERACTIVE
 
-/datum/tgui_module/player_panel
+/datum/tgui_module/admin/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-/datum/tgui_module/player_panel/ui_interact(mob/user, var/datum/tgui/ui)
+	var/client/C = usr.client
+	if(!C || !C.holder)
+		return
+
+	switch(action)
+		if("private_message")
+			var/client/messagee = locate(params["private_message"])
+			var/datum/ticket/ticket = locate(params["ticket"])
+
+			if (!isnull(ticket) && !istype(ticket))
+				return
+
+			if(ismob(messagee)) 		//Old stuff can feed-in mobs instead of clients
+				var/mob/M = messagee
+				messagee = M.client
+
+			C.cmd_admin_pm(messagee, null, ticket)
+			. = TRUE
+
+		if("traitor_panel")
+			if(!check_rights(R_ADMIN|R_MOD))
+				return
+
+			if(!ROUND_IS_STARTED)
+				alert("The game hasn't started yet!")
+				return
+
+			var/mob/M = locate(params["traitor_panel"])
+			if(!ismob(M))
+				to_chat(usr, SPAN_WARNING("This can only be used on mobs."))
+				return
+			C.holder.show_traitor_panel(M)
+			. = TRUE
+
+		if("jump_to")
+			if(!check_rights(R_MOD|R_ADMIN))
+				return
+
+			var/mob/M = locate(params["jump_to"])
+
+			if(!isobserver(usr))
+				C.admin_ghost()
+			sleep(2)
+			C.jumptomob(M)
+			. = TRUE
+
+		if("show_player_panel")
+			var/mob/M = locate(params["show_player_panel"])
+			C.holder.show_player_panel(M)
+			. = TRUE
+
+/datum/tgui_module/admin/check_antagonists
+
+/datum/tgui_module/admin/check_antagonists/ui_interact(mob/user, datum/tgui/ui)
+	if (!SSticker || SSticker.current_state < GAME_STATE_PLAYING)
+		alert(user, "The game hasn't started yet!")
+		return
+
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "RoundStatus", "Round Status", 400, 500)
+		ui.open()
+
+/datum/tgui_module/admin/check_antagonists/ui_data(mob/user)
+	var/list/data = list()
+	data["gamemode"] = SSticker.mode.name
+	data["round_duration"] = get_round_duration_formatted()
+	data["evacuation_is_idle"] = evacuation_controller.is_idle()
+	data["time_left"] = evacuation_controller.get_eta()
+	data["waiting_to_leave"] = evacuation_controller.waiting_to_leave()
+	data["round_delayed"] = SSticker.delay_end
+	data["antagonists"] = list()
+	data["antagonist_types"] = list()
+	for(var/antag_type in all_antag_types)
+		var/datum/antagonist/A = all_antag_types[antag_type]
+		for(var/datum/mind/mind in A.current_antagonists)
+			var/mob/M = mind.current
+			data["antagonists"] += list(list(
+				"role" = A.role_text_plural,
+				"name" = M ? M.real_name : null,
+				"stat" = M ? M.stat : null,
+				"ref" = ref(M)
+			))
+			data["antagonist_types"] |= A.role_text_plural
+		if(A.flags & ANTAG_HAS_NUKE)
+			data["nuke_disks"] = list()
+			for(var/obj/item/disk/nuclear/N in nuke_disks)
+				var/turf/T = get_turf(N)
+				var/location_name
+				if(ismob(N.loc))
+					var/mob/L = N.loc
+					location_name = L.real_name
+				else
+					location_name = N.loc ? N.loc.name : null
+				data["nuke_disks"] += list(list(
+					"location_name" = location_name,
+					"x" = T.x,
+					"y" = T.y,
+					"z" = T.z,
+				))
+	return data
+
+/datum/tgui_module/admin/check_antagonists/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	var/client/C = usr.client
+	if(!C || !C.holder)
+		return
+
+	switch(action)
+		if("call_shuttle")
+			if(!check_rights(R_ADMIN))
+				return
+			switch(params["call_shuttle"])
+				if("1")
+					if (evacuation_controller.call_evacuation(usr, TRUE))
+						log_admin("[key_name(usr)] called an evacuation.")
+						message_admins("[key_name_admin(usr)] called an evacuation.", 1)
+						. = TRUE
+
+				if("2")
+					if (evacuation_controller.call_evacuation(usr, TRUE))
+						log_admin("[key_name(usr)] called an evacuation.")
+						message_admins("[key_name_admin(usr)] called an evacuation.", 1)
+					else if (evacuation_controller.cancel_evacuation())
+						log_admin("[key_name(usr)] cancelled an evacuation.")
+						message_admins("[key_name_admin(usr)] cancelled an evacuation.", 1)
+						. = TRUE
+
+/datum/tgui_module/admin/player_panel
+
+/datum/tgui_module/admin/player_panel/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "PlayerPanel", "Player Panel", 800, 600)
 		ui.open()
 
-/datum/tgui_module/player_panel/ui_data(mob/user)
+/datum/tgui_module/admin/player_panel/ui_data(mob/user)
 	var/list/data = list()
 	var/isMod = check_rights(R_MOD|R_ADMIN, 0, user)
 	data["holder_ref"] = "\ref[user.client.holder]"
@@ -99,7 +210,7 @@
 		data["players"] += list(player)
 	return data
 
-/datum/tgui_module/player_panel/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/tgui_module/admin/player_panel/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -109,25 +220,6 @@
 		return
 
 	switch(action)
-		if("show_player_panel")
-			var/mob/M = locate(params["show_player_panel"])
-			C.holder.show_player_panel(M)
-			. = TRUE
-
-		if("private_message")
-			var/client/messagee = locate(params["private_message"])
-			var/datum/ticket/ticket = locate(params["ticket"])
-
-			if (!isnull(ticket) && !istype(ticket))
-				return
-
-			if(ismob(messagee)) 		//Old stuff can feed-in mobs instead of clients
-				var/mob/M = messagee
-				messagee = M.client
-
-			C.cmd_admin_pm(messagee, null, ticket)
-			. = TRUE
-
 		if("subtle_message")
 			if(!check_rights(R_MOD,0) && !check_rights(R_ADMIN))
 				return
@@ -150,33 +242,6 @@
 			C.holder.show_player_info(ckey)
 			. = TRUE
 
-		if("traitor_panel")
-			if(!check_rights(R_ADMIN|R_MOD))
-				return
-
-			if(!ROUND_IS_STARTED)
-				alert("The game hasn't started yet!")
-				return
-
-			var/mob/M = locate(params["traitor_panel"])
-			if(!ismob(M))
-				to_chat(usr, SPAN_WARNING("This can only be used on mobs."))
-				return
-			C.holder.show_traitor_panel(M)
-			. = TRUE
-
-		if("jump_to")
-			if(!check_rights(R_MOD|R_ADMIN))
-				return
-
-			var/mob/M = locate(params["jump_to"])
-
-			if(!isobserver(usr))
-				C.admin_ghost()
-			sleep(2)
-			C.jumptomob(M)
-			. = TRUE
-
 		if("wind")
 			var/mob/M = locate(params["wind"])
 			if(!ismob(M))
@@ -186,7 +251,7 @@
 			C.holder.paralyze_mob(M)
 			. = TRUE
 
-/datum/tgui_module/player_panel/proc/GetMobRealName(var/mob/M)
+/datum/tgui_module/admin/player_panel/proc/GetMobRealName(var/mob/M)
 	if(isAI(M))
 		return "AI"
 	if(isrobot(M))

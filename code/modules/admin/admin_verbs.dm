@@ -606,7 +606,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Player Panel"
 	set category = "Admin"
 	if(holder)
-		var/static/datum/tgui_module/player_panel/global_player_panel = new()
+		var/static/datum/tgui_module/admin/player_panel/global_player_panel = new()
 		global_player_panel.ui_interact(usr)
 	feedback_add_details("admin_verb","PPM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
@@ -616,8 +616,8 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Check Antagonists"
 	set category = "Admin"
 	if(holder)
-		holder.check_antagonists()
-		log_admin("[key_name(usr)] checked antagonists.",ckey=key_name(usr))	//for tsar~
+		var/static/datum/tgui_module/admin/check_antagonists/global_check_antags = new()
+		global_check_antags.ui_interact(usr)
 	feedback_add_details("admin_verb","CHA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 

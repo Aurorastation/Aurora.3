@@ -7,7 +7,7 @@
 
 	var/datum/weakref/target_human
 	var/datum/weakref/target_id //Mostly for ghostroles and plastic surgery machines. If there is an ID, update it when we close the UI to ensure the correct info is imprinted.
-	var/change_id = FALSE //Prevents runtimes in vueui_on_close if target_id is null
+	var/change_id = FALSE //Prevents runtimes if target_id is null
 	var/list/valid_species = list()
 	var/list/valid_genders = list()
 	var/list/valid_pronouns = list()
@@ -252,7 +252,8 @@
 
 	return data
 
-/datum/tgui_module/appearance_changer/vueui_on_close(var/datum/vueui/ui)
+/datum/tgui_module/appearance_changer/ui_close(mob/user)
+	. = ..()
 	if(change_id)
 		var/mob/living/carbon/human/owner = target_human.resolve()
 		var/obj/item/card/id/I = target_id.resolve()

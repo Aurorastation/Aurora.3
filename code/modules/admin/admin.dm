@@ -600,8 +600,8 @@ var/global/enabled_spooking = 0
 		else
 			dat+="Please report this on GitHub, along with what you did to make this appear."
 
-	send_theme_resources(usr)
-	usr << browse(enable_ui_theme(usr, dat), "window=admincaster_main;size=400x600")
+
+	usr << browse(dat, "window=admincaster_main;size=400x600")
 	onclose(usr, "admincaster_main")
 
 
