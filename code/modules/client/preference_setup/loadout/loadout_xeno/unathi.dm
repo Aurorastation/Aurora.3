@@ -21,7 +21,7 @@
 	path = /obj/item/clothing/accessory/poncho/unathimantle/forest
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
@@ -195,6 +195,7 @@
 /datum/gear/augment/autakh_engineering
 	display_name = "engineering grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	path = /obj/item/organ/external/hand/right/autakh/tool
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
@@ -205,6 +206,7 @@
 /datum/gear/augment/autakh_mining
 	display_name = "mining grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
@@ -215,6 +217,7 @@
 /datum/gear/augment/autakh_medical
 	display_name = "medical grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	path = /obj/item/organ/external/hand/right/autakh/medical
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
@@ -225,6 +228,7 @@
 /datum/gear/augment/autakh_security
 	display_name = "security grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	path = /obj/item/organ/external/hand/right/autakh/security
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
@@ -311,6 +315,7 @@
 	display_name = "soul anchor"
 	description = "A rune inscribed mirror or piece of glass placed behind the eyes. Believed to \
 	be the 'Window to the Soul' and house the concentrated spirit of an individual."
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	path = /obj/item/organ/internal/anchor
 	cost = 0
 	whitelisted = list(SPECIES_UNATHI)
@@ -354,7 +359,7 @@
 	display_name = "shaman staff"
 	path = /obj/item/cane/shaman
 	sort_category = "Xenowear - Unathi"
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/torn_cities)
 	whitelisted = list(SPECIES_UNATHI)
 
 /datum/gear/suit/maxtlatl
@@ -363,7 +368,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain")
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/torn_cities)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -371,7 +376,7 @@
 	display_name = "Thakhist wristguards"
 	path = /obj/item/clothing/wrists/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/torn_cities)
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
@@ -380,7 +385,7 @@
 	display_name = "Thakhist headgear"
 	path = /obj/item/clothing/head/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper)
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
@@ -390,7 +395,7 @@
 	path = /obj/item/clothing/accessory/poncho/rockstone
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
 
@@ -398,7 +403,7 @@
 	display_name = "jeweled bracers"
 	path = /obj/item/clothing/wrists/unathi/jeweled
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -415,6 +420,6 @@
 	path = /obj/item/clothing/suit/unathi/jokfar
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
