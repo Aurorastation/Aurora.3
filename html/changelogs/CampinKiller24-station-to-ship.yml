@@ -1,0 +1,6 @@
+author: CampinKiller24
+
+delete-after: True
+
+changes:
+  - rscadd: "Changed station to ship in announcements/sentencing consoles."
