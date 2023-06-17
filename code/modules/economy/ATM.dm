@@ -242,7 +242,9 @@ log transactions
 				dat += "</form>"
 
 
-		user << browse(dat,"window=atm;size=550x650")
+		var/datum/browser/atm_win = new(user, "atm", "ATM", 550, 650)
+		atm_win.set_content(dat)
+		atm_win.open()
 	else
 		user << browse(null,"window=atm")
 
