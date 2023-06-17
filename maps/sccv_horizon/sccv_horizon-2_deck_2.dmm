@@ -15906,6 +15906,12 @@
 /obj/effect/floor_decal/corner/black/full{
 	dir = 8
 	},
+/obj/machinery/button/switch/windowtint{
+	dir = 4;
+	id = "polarized_deck2_workshop";
+	pixel_x = -25;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "hEF" = (
@@ -28091,10 +28097,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
-"nCG" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/tiled/dark/full,
-/area/operations/lower/machinist)
 "nCJ" = (
 /obj/machinery/firealarm/west,
 /obj/structure/bed/stool/chair/padded/brown{
@@ -74139,12 +74141,12 @@ vpk
 ulB
 kXY
 rnA
-nCG
+bUN
 qsv
 env
 ncx
 ygL
-nCG
+bUN
 vyd
 gGI
 mNn
@@ -74341,12 +74343,12 @@ rLw
 jTQ
 dCK
 rnA
-nCG
+bUN
 sGG
 luY
 ncx
 heg
-nCG
+bUN
 xhg
 mzL
 ayF
@@ -74543,12 +74545,12 @@ rZU
 ulB
 kXY
 rnA
-nCG
+bUN
 ntg
 ncx
 ncx
 dlT
-nCG
+bUN
 gma
 bhJ
 xZy
