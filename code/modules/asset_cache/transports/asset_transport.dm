@@ -8,7 +8,7 @@
 	/// Don't mutate the filename of assets when sending via browse_rsc.
 	/// This is to make it easier to debug issues with assets, and allow server operators to bypass issues that make it to production.
 	/// If turning this on fixes asset issues, something isn't using get_asset_url and the asset isn't marked legacy, fix one of those.
-	var/dont_mutate_filenames = FALSE
+	var/dont_mutate_filenames = TRUE
 
 /// Called when the transport is loaded by the config controller, not called on the default transport unless it gets loaded by a config change.
 /datum/asset_transport/proc/Load()
