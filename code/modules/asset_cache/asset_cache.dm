@@ -149,31 +149,179 @@ var/list/asset_datums = list()
 /datum/asset/spritesheet
 	_abstract = /datum/asset/spritesheet
 	var/name
+	/// List of arguments to pass into queuedInsert
+	/// Exists so we can queue icon insertion, mostly for stuff like preferences
+	var/list/to_generate = list()
 	var/list/sizes = list()		// "32x32" -> list(10, icon/normal, icon/stripped)
 	var/list/sprites = list()	// "foo_bar" -> list("32x32", 5)
+	var/list/cached_spritesheets_needed
+	var/generating_cache = FALSE
 	var/verify = FALSE
+	var/fully_generated = FALSE
+	/// If this asset should be fully loaded on new
+	/// Defaults to false so we can process this stuff nicely
+	var/load_immediately = TRUE
 
 /datum/asset/spritesheet/register()
 	if(!name)
 		CRASH("spritesheet [type] cannot register without a name")
-	ensure_stripped()
 
-	var/res_name = "spritesheet_[name].css"
-	var/fname = "data/spritesheets/[res_name]"
-	dll_call(RUST_G, "file_write", generate_css(), fname)
-	SSassets.transport.register_asset(res_name, file(fname))
+	if (!should_refresh() && read_from_cache())
+		fully_generated = TRUE
+		return
+
+	// If it's cached, may as well load it now, while the loading is cheap
+	if(cross_round_cachable)
+		load_immediately = TRUE
+
+	create_spritesheets()
+	if(should_load_immediately())
+		realize_spritesheets(yield = FALSE)
 
 	for(var/size_id in sizes)
 		var/size = sizes[size_id]
 		SSassets.transport.register_asset("[name]_[size_id].png", size[SPRSZ_STRIPPED])
 
-/datum/asset/spritesheet/send(client/C)
-	if(!name)
+/datum/asset/spritesheet/send(client/client)
+	if (!name)
 		return
+
+	if (!should_refresh())
+		return send_from_cache(client)
+
 	var/all = list("spritesheet_[name].css")
 	for(var/size_id in sizes)
 		all += "[name]_[size_id].png"
-	. = SSassets.transport.send_assets(C, all)
+	. = SSassets.transport.send_assets(client, all)
+
+/datum/asset/spritesheet/proc/realize_spritesheets(yield)
+	if(fully_generated)
+		return
+	while(length(to_generate))
+		var/list/stored_args = to_generate[to_generate.len]
+		to_generate.len--
+		queuedInsert(arglist(stored_args))
+		if(yield && TICK_CHECK)
+			return
+
+	ensure_stripped()
+	for(var/size_id in sizes)
+		var/size = sizes[size_id]
+		SSassets.transport.register_asset("[name]_[size_id].png", size[SPRSZ_STRIPPED])
+	var/res_name = "spritesheet_[name].css"
+	var/fname = "data/spritesheets/[res_name]"
+	fdel(fname)
+	text2file(generate_css(), fname)
+	SSassets.transport.register_asset(res_name, fcopy_rsc(fname))
+	fdel(fname)
+
+	if (cross_round_cachable)
+		write_to_cache()
+	fully_generated = TRUE
+
+/// Returns the URL to put in the background:url of the CSS asset
+/datum/asset/spritesheet/proc/get_background_url(asset)
+	if (generating_cache)
+		return "%[asset]%"
+	else
+		return SSassets.transport.get_asset_url(asset)
+
+/datum/asset/spritesheet/proc/create_spritesheets()
+	return
+
+/datum/asset/spritesheet/proc/send_from_cache(client/client)
+	if (isnull(cached_spritesheets_needed))
+		stack_trace("cached_spritesheets_needed was null when sending assets from [type] from cache")
+		cached_spritesheets_needed = list()
+
+	return SSassets.transport.send_assets(client, cached_spritesheets_needed + "spritesheet_[name].css")
+
+/datum/asset/spritesheet/proc/write_to_cache()
+	for (var/size_id in sizes)
+		fcopy(SSassets.cache["[name]_[size_id].png"].resource, "[ASSET_CROSS_ROUND_CACHE_DIRECTORY]/spritesheet.[name]_[size_id].png")
+
+	generating_cache = TRUE
+	var/mock_css = generate_css()
+	generating_cache = FALSE
+
+	rustg_file_write(mock_css, "[ASSET_CROSS_ROUND_CACHE_DIRECTORY]/spritesheet.[name].css")
+
+/datum/asset/spritesheet/get_url_mappings()
+	if (!name)
+		return
+
+	if (!should_refresh())
+		return get_cached_url_mappings()
+
+	. = list("spritesheet_[name].css" = SSassets.transport.get_asset_url("spritesheet_[name].css"))
+	for(var/size_id in sizes)
+		.["[name]_[size_id].png"] = SSassets.transport.get_asset_url("[name]_[size_id].png")
+
+/datum/asset/spritesheet/proc/get_cached_url_mappings()
+	var/list/mappings = list()
+	mappings["spritesheet_[name].css"] = SSassets.transport.get_asset_url("spritesheet_[name].css")
+
+	for (var/asset_name in cached_spritesheets_needed)
+		mappings[asset_name] = SSassets.transport.get_asset_url(asset_name)
+
+	return mappings
+
+/datum/asset/spritesheet/proc/read_from_cache()
+	var/replaced_css = file2text("[ASSET_CROSS_ROUND_CACHE_DIRECTORY]/spritesheet.[name].css")
+
+	var/regex/find_background_urls = regex(@"background:url\('%(.+?)%'\)", "g")
+	while (find_background_urls.Find(replaced_css))
+		var/asset_id = find_background_urls.group[1]
+		var/asset_cache_item = SSassets.transport.register_asset(asset_id, "[ASSET_CROSS_ROUND_CACHE_DIRECTORY]/spritesheet.[asset_id]")
+		var/asset_url = SSassets.transport.get_asset_url(asset_cache_item = asset_cache_item)
+		replaced_css = replacetext(replaced_css, find_background_urls.match, "background:url('[asset_url]')")
+		LAZYADD(cached_spritesheets_needed, asset_id)
+
+	var/replaced_css_filename = "data/spritesheets/spritesheet_[name].css"
+	rustg_file_write(replaced_css, replaced_css_filename)
+	SSassets.transport.register_asset("spritesheet_[name].css", replaced_css_filename)
+
+	fdel(replaced_css_filename)
+
+	return TRUE
+
+// LEMON NOTE
+// A GOON CODER SAYS BAD ICON ERRORS CAN BE THROWN BY THE "ICON CACHE"
+// APPARENTLY IT MAKES ICONS IMMUTABLE
+// LOOK INTO USING THE MUTABLE APPEARANCE PATTERN HERE
+/datum/asset/spritesheet/proc/queuedInsert(sprite_name, icon/I, icon_state="", dir=SOUTH, frame=1, moving=FALSE)
+	I = icon(I, icon_state=icon_state, dir=dir, frame=frame, moving=moving)
+	if (!I || !length(icon_states(I)))  // that direction or state doesn't exist
+		return
+	//any sprite modifications we want to do (aka, coloring a greyscaled asset)
+	I = ModifyInserted(I)
+	var/size_id = "[I.Width()]x[I.Height()]"
+	var/size = sizes[size_id]
+
+	if (sprites[sprite_name])
+		CRASH("duplicate sprite \"[sprite_name]\" in sheet [name] ([type])")
+
+	if (size)
+		var/position = size[SPRSZ_COUNT]++
+		var/icon/sheet = size[SPRSZ_ICON]
+		var/icon/sheet_copy = icon(sheet)
+		size[SPRSZ_STRIPPED] = null
+		sheet_copy.Insert(I, icon_state=sprite_name)
+		size[SPRSZ_ICON] = sheet_copy
+
+		sprites[sprite_name] = list(size_id, position)
+	else
+		sizes[size_id] = size = list(1, I, null)
+		sprites[sprite_name] = list(size_id, 0)
+
+/**
+ * A simple proc handing the Icon for you to modify before it gets turned into an asset.
+ *
+ * Arguments:
+ * * I: icon being turned into an asset
+ */
+/datum/asset/spritesheet/proc/ModifyInserted(icon/pre_asset)
+	return pre_asset
 
 /datum/asset/spritesheet/proc/ensure_stripped(sizes_to_strip = sizes)
 	for(var/size_id in sizes_to_strip)
@@ -194,7 +342,7 @@ var/list/asset_datums = list()
 	for (var/size_id in sizes)
 		var/size = sizes[size_id]
 		var/icon/tiny = size[SPRSZ_ICON]
-		out += ".[name][size_id]{display:inline-block;width:[tiny.Width()]px;height:[tiny.Height()]px;background:url('[name]_[size_id].png') no-repeat;}"
+		out += ".[name][size_id]{display:inline-block;width:[tiny.Width()]px;height:[tiny.Height()]px;background:url('[get_background_url("[name]_[size_id].png")]') no-repeat;}"
 
 	for (var/sprite_id in sprites)
 		var/sprite = sprites[sprite_id]
@@ -212,28 +360,15 @@ var/list/asset_datums = list()
 
 	return out.Join("\n")
 
+/datum/asset/spritesheet/proc/should_load_immediately()
+	return TRUE
+
+
 /datum/asset/spritesheet/proc/Insert(sprite_name, icon/I, icon_state="", dir=SOUTH, frame=1, moving=FALSE, icon/forced=FALSE)
-	if (sprites[sprite_name])
-		return
-
-	if(!forced)
-		I = icon(I, icon_state=icon_state, dir=dir, frame=frame, moving=moving)
+	if(should_load_immediately())
+		queuedInsert(sprite_name, I, icon_state, dir, frame, moving)
 	else
-		I = forced
-	if (!I || !length(icon_states(I)))  // that direction or state doesn't exist
-		return
-	var/size_id = "[I.Width()]x[I.Height()]"
-	var/size = sizes[size_id]
-
-	if (size)
-		var/position = size[SPRSZ_COUNT]++
-		var/icon/sheet = size[SPRSZ_ICON]
-		size[SPRSZ_STRIPPED] = null
-		sheet.Insert(I, icon_state=sprite_name)
-		sprites[sprite_name] = list(size_id, position)
-	else
-		sizes[size_id] = size = list(1, I, null)
-		sprites[sprite_name] = list(size_id, 0)
+		to_generate += list(args.Copy())
 
 /datum/asset/spritesheet/proc/InsertAll(prefix, icon/I, list/directions)
 	if (length(prefix))
@@ -505,7 +640,7 @@ var/list/asset_datums = list()
 /datum/asset/spritesheet/vending
 	name = "vending"
 
-/datum/asset/spritesheet/vending/register()
+/datum/asset/spritesheet/vending/create_spritesheets()
 	var/vending_products = list()
 	for(var/obj/machinery/vending/vendor as anything in typesof(/obj/machinery/vending))
 		vendor = new vendor()
@@ -561,7 +696,6 @@ var/list/asset_datums = list()
 				Insert(imgid, I)
 
 		qdel(item)
-	return ..()
 
 /datum/asset/spritesheet/chem_master
 	name = "chemmaster"

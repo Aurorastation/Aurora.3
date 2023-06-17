@@ -27,6 +27,7 @@ import './styles/themes/wizard.scss';
 import './styles/themes/admin.scss';
 import './styles/themes/zavodskoi.scss';
 import './styles/themes/idris.scss';
+import './styles/themes/nanotrasen.scss';
 import './styles/themes/zenghu.scss';
 import './styles/themes/hephaestus.scss';
 import './styles/themes/sol.scss';

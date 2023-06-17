@@ -6,6 +6,7 @@
 	idle_power_usage = 100
 	density = TRUE
 	anchored = TRUE
+	manufacturer = "zenghu"
 
 	obj_flags = OBJ_FLAG_ROTATABLE
 
@@ -19,8 +20,6 @@
 	var/obj/item/reagent_containers/container
 	/// Name of the dispenser on the UI.
 	var/ui_title = "Chemical Dispenser"
-	/// Used for UI theme.
-	var/manufacturer = "zenghu"
 	/// If set to FALSE, will only accept beakers.
 	var/accept_drinking = FALSE
 	/// Amount dispensed.
