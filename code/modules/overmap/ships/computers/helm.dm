@@ -125,8 +125,9 @@
 		data["autopilot"] = autopilot
 		data["manual_control"] = viewing_overmap(user)
 		data["canburn"] = connected.can_burn()
+		data["canturn"] = connected.can_turn()
 		data["cancombatroll"] = connected.can_combat_roll()
-		data["cancombatturn"] = connected.can_turn()
+		data["cancombatturn"] = connected.can_combat_turn()
 		data["accellimit"] = accellimit*1000
 
 		var/speed = round(connected.get_speed()*1000, 0.01)
@@ -267,6 +268,14 @@
 			if(connected.can_turn())
 				connected.turn_ship(ndir)
 				addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), min(connected.vessel_mass / 10, 1) SECONDS + 1)
+
+		if (href_list["combat_turn"])
+			var/ndir = text2num(href_list["combat_turn"])
+			if(ishuman(usr))
+				var/mob/living/carbon/human/H = usr
+				if(do_after(H, 1 SECOND) && connected.can_combat_turn())
+					visible_message(SPAN_DANGER("[H] twists the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
+					connected.combat_turn(ndir)
 
 		if (href_list["brake"])
 			connected.decelerate()

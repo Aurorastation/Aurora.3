@@ -57,14 +57,18 @@
 			{{:helper.link('', '', { 'move' : 1 }, 'disabled', null)}}
 		</div>
 		<div class='item'>
-			{{:helper.link('', 'arrowstop-1-w', {'turn' : 8}, data.cancombatturn ? null : 'disabled', null)}}
+			{{:helper.link('', 'arrowstop-1-w', {'turn' : 8}, data.canturn ? null : 'disabled', null)}}
 			{{:helper.link('', 'circle-close', { 'brake' : 1 }, data.canburn ? null : 'disabled', null)}}
-			{{:helper.link('', 'arrowstop-1-e', {'turn' : 4}, data.cancombatturn ? null : 'disabled', null)}}
+			{{:helper.link('', 'arrowstop-1-e', {'turn' : 4}, data.canturn ? null : 'disabled', null)}}
 		</div>
 		<div class='item'>
 			<div class="itemLabel">
 				Maneuvers
 			</div><br>
+			<div class="itemContent">
+				{{:helper.link('', 'arrowstop-1-w', {'combat_turn' : 8}, data.cancombatturn ? null : 'disabled', null)}}
+				{{:helper.link('', 'arrowstop-1-e', {'combat_turn' : 4}, data.cancombatturn ? null : 'disabled', null)}}
+			</div>
 			<div class="itemContent">
 				{{:helper.link('', 'arrowreturnthick-1-w', {'roll' : 8}, data.cancombatroll ? null : 'disabled', null)}}
 				{{:helper.link('', 'arrowreturnthick-1-e', {'roll' : 4}, data.cancombatroll ? null : 'disabled', null)}}
