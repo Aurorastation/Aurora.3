@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Ships and shuttles can now only move forward and turn left and right. Additionally, the direction the ship faces is no longer locked to the direction it's going."

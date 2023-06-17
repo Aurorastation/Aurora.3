@@ -42,7 +42,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	var/burn_delay = 1 SECOND           // how often ship can do burns
 	var/fore_dir = NORTH                // what dir ship flies towards for purpose of moving stars effect procs
 	var/last_combat_roll = 0
-	var/last_combat_turn = 0
+	var/last_turn = 0
 
 	var/list/engines = list()
 	var/engines_state = 0 //global on/off toggle for all engines
@@ -209,7 +209,6 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	pixel_y = position[2] * (world.icon_size/2)
 	if(!is_still())
 		icon_state = moving_state
-		dir = get_heading()
 	else
 		icon_state = initial(icon_state)
 	for(var/obj/machinery/computer/ship/machine in consoles)
@@ -281,11 +280,11 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		return TRUE
 	return FALSE
 
-/obj/effect/overmap/visitable/ship/proc/can_combat_turn()
+/obj/effect/overmap/visitable/ship/proc/can_turn()
 	if(!can_burn())
 		return FALSE
-	var/cooldown = min(vessel_mass / 200, 20) SECONDS //max 20s for horizon
-	if(world.time >= (last_combat_turn + cooldown))
+	var/cooldown = min(vessel_mass / 10, 1) SECONDS //max 1s for horizon
+	if(world.time >= (last_turn + cooldown))
 		return TRUE
 	return FALSE
 
@@ -306,39 +305,12 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 			sound_to(L, sound('sound/effects/combatroll.ogg'))
 	last_combat_roll = world.time
 
-/obj/effect/overmap/visitable/ship/proc/combat_turn(var/new_dir)
+/obj/effect/overmap/visitable/ship/proc/turn_ship(var/new_dir)
 	burn()
-	var/angle = -45
-	if(new_dir == WEST)
-		angle = 45
-	var/direction = turn(dir, angle)
-	accelerate(direction, 1000)
-	if(direction & EAST)
-		speed[1] = abs(speed[1])
-	else if(direction & WEST)
-		if(speed[1] > 0)
-			speed[1] = -speed[1]
-	else
-		speed[1] = 0
-	if(direction & NORTH)
-		speed[2] = abs(speed[2])
-	else if(direction & SOUTH)
-		if(speed[2] > 0)
-			speed[2] = -speed[2]
-	else
-		speed[2] = 0
+	var/angle = new_dir == WEST ? 45 : -45
+	dir = turn(dir, angle)
 	update_icon()
-	for(var/mob/living/L in living_mob_list)
-		if(L.z in map_z)
-			if(!gravity_generator?.on && !L.anchored)
-				to_chat(L, SPAN_DANGER("The ship rapidly turns beneath you!"))
-				if(!L.buckled_to)
-					L.Weaken(3)
-			else
-				to_chat(L, SPAN_WARNING("The ship turns beneath you, but the artificial gravity keeps you on your feet."))
-			shake_camera(L, 1 SECOND, 2)
-			L.playsound_simple(soundin = 'sound/machines/thruster.ogg', volume = 50)
-	last_combat_turn = world.time
+	last_turn = world.time
 
 /obj/effect/overmap/visitable/ship/signal_hit(var/list/hit_data)
 	for(var/obj/machinery/computer/ship/targeting/TR in consoles)
