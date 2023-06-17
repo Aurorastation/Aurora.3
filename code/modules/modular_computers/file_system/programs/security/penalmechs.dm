@@ -109,8 +109,6 @@
 				to_chat(M, SPAN_WARNING("Remote Penal Monitoring: [message]"))
 				return TRUE
 
-
-// ToDo - Move this set of camera procs to a general datum when more VueUI programs need cameras
 /datum/computer_file/program/penal_mechs/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
 	//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
 	if(isAI(user))

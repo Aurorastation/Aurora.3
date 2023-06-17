@@ -11,7 +11,6 @@
 	available_on_ntnet = TRUE
 	tgui_id = "ChemCodex"
 
-// Gathers data for ui. This is not great vueui example, all data sent from server is static.
 /datum/computer_file/program/chemistry_codex/ui_data(mob/user)
 	var/list/data = list()
 	// Gather data for computer header

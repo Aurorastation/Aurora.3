@@ -268,11 +268,11 @@
 			if(prob(usr.confused * 5))
 				ndir = turn(ndir, pick(45, -45))
 			connected.relaymove(usr, ndir, accellimit)
-			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1) // remove when turning into vueui
+			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1)
 
 		if (href_list["brake"])
 			connected.decelerate()
-			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1) // remove when turning into vueui
+			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1)
 
 		if (href_list["apilot"])
 			autopilot = !autopilot

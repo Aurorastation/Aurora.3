@@ -34,14 +34,6 @@ var/list/localhost_addresses = list(
 			..()
 		return
 
-	if(href_list["vueuiclose"])
-		var/datum/vueui/ui = locate(href_list["src"])
-		if(istype(ui))
-			ui.close()
-		else // UI is an orphan, close it directly.
-			src << browse(null, "window=vueui[href_list["src"]]")
-		return
-
 	// Tgui Topic middleware
 	if(tgui_Topic(href_list))
 		return

@@ -34,11 +34,6 @@
 /code/__defines/organs.dm @NonQueueingMatt
 /code/modules/organs/ @NonQueueingMatt
 
-# VueUI, it would be @Karolis2011 but no repo write access
-/code/modules/vueui/ @NonQueueingMatt
-/vueui/ @NonQueueingMatt
-/code/__defines/vueui.dm @NonQueueingMatt
-
 # Tools, often binary in nature, let arrow and alb know
 /tools/ @Arrow768 @Alberyk
 

@@ -619,13 +619,6 @@ var/list/asset_datums = list()
 		"changelog.js" = 'html/changelog.js'
 	)
 
-/datum/asset/simple/vueui
-	legacy = TRUE
-	assets = list(
-		"vueui.js" = 'vueui/dist/app.js',
-		"vueui.css" = 'vueui/dist/app.css'
-	)
-
 /datum/asset/spritesheet/goonchat
 	name = "chat"
 

@@ -374,7 +374,7 @@ var/list/ai_verbs_default = list(
 			Recall the channel list at any time by calling <code>Radio-Settings</code> under <em>AI Commands</em>.\
 		</p>\
 		"
-	usr << browse(enable_ui_theme(usr, dat), "window=aihelp,size=520x700")
+	usr << browse(dat, "window=aihelp,size=520x700")
 
 /mob/living/silicon/ai/proc/pick_icon()
 	set category = "AI Commands"

@@ -513,7 +513,6 @@
 	else
 		ui_interact(user)
 
-// VueUI implementation of vending machines.
 /obj/machinery/vending/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)

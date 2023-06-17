@@ -65,7 +65,6 @@
 		"UI_style_alpha" = pref.UI_style_alpha,
 		"UI_style_color" = pref.UI_style_color,
 		"UI_style" = pref.UI_style,
-		"html_UI_style" = pref.html_UI_style,
 		"tgui_fancy" = pref.tgui_fancy,
 		"tgui_lock" = pref.tgui_lock,
 		"ooccolor" = pref.ooccolor,
@@ -78,7 +77,6 @@
 	pref.UI_style_color = sanitize_hexcolor(pref.UI_style_color, initial(pref.UI_style_color))
 	pref.UI_style_alpha = sanitize_integer(text2num(pref.UI_style_alpha), 0, 255, initial(pref.UI_style_alpha))
 	pref.clientfps = sanitize_integer(text2num(pref.clientfps), 0, 1000, initial(pref.clientfps))
-	pref.html_UI_style       = sanitize_inlist(pref.html_UI_style, SStheming.available_html_themes, initial(pref.html_UI_style))
 	pref.tgui_fancy		= sanitize_bool(pref.tgui_fancy, TRUE)
 	pref.tgui_lock		= sanitize_bool(pref.tgui_lock, FALSE)
 	pref.ooccolor       = sanitize_hexcolor(pref.ooccolor, initial(pref.ooccolor))
@@ -121,12 +119,6 @@
 		var/UI_style_alpha_new = input(user, "Select UI alpha (transparency) level, between 50 and 255.", "Global Preference", pref.UI_style_alpha) as num|null
 		if(isnull(UI_style_alpha_new) || (UI_style_alpha_new < 50 || UI_style_alpha_new > 255) || !CanUseTopic(user)) return TOPIC_NOACTION
 		pref.UI_style_alpha = UI_style_alpha_new
-		return TOPIC_REFRESH
-
-	else if(href_list["select_html"])
-		var/html_style_new = input(user, "Choose HTML UI style.", "Global Preference", pref.html_UI_style) as null|anything in SStheming.available_html_themes
-		if(isnull(html_style_new) || !CanUseTopic(user)) return TOPIC_NOACTION
-		pref.html_UI_style = html_style_new
 		return TOPIC_REFRESH
 
 	else if(href_list["select_tguif"])
