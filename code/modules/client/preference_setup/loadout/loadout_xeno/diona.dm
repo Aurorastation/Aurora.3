@@ -25,7 +25,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_NO_SELECTION
-	
+
 /datum/gear/suit/diona/eternal/blood
 	display_name = "red mesh weave robes"
 	description = "A set of red mesh weave robes worn almost exclusively by priests of the Blood Eternal faith."
@@ -43,7 +43,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/narrows)
-	
+
 /datum/gear/uniform/diona/dionatunic
 	display_name = "floral tunic"
 	description = "A tunic made up of several colorful fabrics and adorned with seemingly still-living vines and flowers, typically worn by those hailing from the Mada on EUM."
@@ -51,7 +51,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	
+
 /datum/gear/suit/eumponcho
 	display_name = "dionae poncho"
 	description = "A poncho made of some sort of mesh weave material adorned by a piece of colored fabric wrapped around it, sometimes worn by citizens of the CT-EUM, with the fabric around the poncho indicating which nation they belong to."
@@ -76,7 +76,7 @@
 	path = /obj/item/clothing/accessory/poncho/shouldercape
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim) 
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
 
 /datum/gear/accessory/capes/diona/New()
 	..()
@@ -92,14 +92,14 @@
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim) 
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
 
 /datum/gear/accessory/weishii/diona
 	display_name = "dionae weishii robe"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim) 
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
 
 /datum/gear/skrell_projector/diona
 	display_name = "dionae nralakk projector"
@@ -114,15 +114,15 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_NO_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim) 
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
 
 /datum/gear/colonist_deck/diona // Intentionally separate from homeworld_deck, so that both can be chosen. -Lly
 	display_name = "dionae qweipaqui colonist deck"
 	path = /obj/item/deck/tarot/nonnralakk
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim) 
-	
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
+
 /datum/gear/accessory/skrell_passport/diona
 	display_name = "dionae nralakk federation passport"
 	path = /obj/item/clothing/accessory/badge/passport/nralakk
@@ -131,8 +131,8 @@
 	sort_category = "Xenowear - Diona"
 	cost = 0
 	flags = GEAR_NO_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim) 
-	
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
+
 /datum/gear/accessory/diona/skrell_passport/check_species_whitelist(mob/living/carbon/human/H)
 	var/static/list/species_list = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	if(H.species.name in species_list)
@@ -152,8 +152,8 @@
 	path = /obj/item/clothing/under/skrell/nralakk
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim) 
-	
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
+
 /datum/gear/uniform/work/diona/New()
 	..()
 	var/list/outfit = list()
@@ -185,7 +185,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim) 
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
 
 /datum/gear/suit/jacket/diona/New()
 	..()
@@ -218,7 +218,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim) 
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
 
 /datum/gear/accessory/diona/poncho/New()
 	..()
@@ -235,7 +235,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim) 
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
 
 /datum/gear/accessory/diona/workcloak/New()
 	..()
@@ -256,7 +256,7 @@
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
-	
+
 /datum/gear/suit/sash/diona
 	display_name = "dionae gyazo belt"
 	path = /obj/item/clothing/accessory/unathi
@@ -292,7 +292,7 @@
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
-	
+
 /datum/gear/suit/unathi_robe/kilt/diona
 	display_name = "dionae wasteland kilt"
 	path = /obj/item/clothing/suit/unathi/robe/kilt
@@ -305,14 +305,30 @@
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
-	
+
 /datum/gear/head/sinta_ronin/diona
 	display_name = "dionae straw hat"
 	path = /obj/item/clothing/head/unathi
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
-	
+
+/datum/gear/head/sinta_ronin/diona/New()
+	..()
+	var/list/sinta_ronin = list()
+	sinta_ronin["straw hat"] = /obj/item/clothing/head/unathi
+	sinta_ronin["dark straw hat"] = /obj/item/clothing/head/unathi/dark
+	sinta_ronin["decorated straw hat, red"] = /obj/item/clothing/head/unathi/deco
+	sinta_ronin["decorated straw hat, green"] = /obj/item/clothing/head/unathi/deco/green
+	sinta_ronin["decorated straw hat, blue"] = /obj/item/clothing/head/unathi/deco/blue
+	sinta_ronin["decorated straw hat, orange"] = /obj/item/clothing/head/unathi/deco/orange
+	sinta_ronin["decorated dark straw hat, red"] = /obj/item/clothing/head/unathi/deco/dark
+	sinta_ronin["decorated dark straw hat, green"] = /obj/item/clothing/head/unathi/deco/dark/green
+	sinta_ronin["decorated dark straw hat, blue"] = /obj/item/clothing/head/unathi/deco/dark/blue
+	sinta_ronin["decorated dark straw hat, orange"] = /obj/item/clothing/head/unathi/deco/dark/orange
+	gear_tweaks += new /datum/gear_tweak/path(sinta_ronin)
+
+
 /datum/gear/suit/robe_coat/diona
 	display_name = "dionae tzirzi robe"
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
@@ -320,7 +336,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
-	
+
 /datum/gear/eyes/wasteland_goggles/diona
 	display_name = "dionae wasteland goggles"
 	path = /obj/item/clothing/glasses/safety/goggles/wasteland
@@ -333,4 +349,38 @@
 	path = /obj/item/clothing/under/unathi/zozo
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
+
+
+/datum/gear/suit/unathi_mantle_guild/diona
+	display_name = "guild mantle selection"
+	description = "A selection of hide mantles, each showing affiliation with one of the guilds of Moghes."
+	path = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/unathi_mantle_guild/diona/New()
+	..()
+	var/list/guildmantles = list()
+	guildmantles["hephaestus guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+	guildmantles["merchants' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/merchant
+	guildmantles["miners' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/miner
+	guildmantles["junzi electric guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/junzi
+	guildmantles["bards' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/bard
+	guildmantles["house of medicine guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/med
+	guildmantles["construction coalition guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/construction
+	guildmantles["hearts of industry guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/union
+	guildmantles["fighters' lodge guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/fighter
+	guildmantles["fishing league mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/fisher
+	gear_tweaks += new /datum/gear_tweak/path(guildmantles)
+
+/datum/gear/religion/unathi_book/diona
+	display_name = "assorted Th'akh fables"
+	path = /obj/item/device/versebook/thakh
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_DESC_SELECTION
