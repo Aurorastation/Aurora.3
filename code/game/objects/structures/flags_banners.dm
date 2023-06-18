@@ -68,7 +68,7 @@
 		switch(F2.dir)
 			if(NORTH)
 				F2.pixel_x = 32
-				F2.pixel_x = 32
+				F2.pixel_y = 32
 			if(SOUTH)
 				F2.pixel_x = 32
 				F2.pixel_y = -32
