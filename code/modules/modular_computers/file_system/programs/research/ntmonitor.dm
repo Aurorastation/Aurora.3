@@ -12,9 +12,9 @@
 	color = LIGHT_COLOR_GREEN
 
 	available_on_ntnet = TRUE
-	nanomodule_path = /datum/nano_module/computer_ntnetmonitor
+	tgui_id = "NTMonitor"
 
-/datum/computer_file/program/ntnetmonitor/ui_interact(mob/user, datum/tgui/ui)
+/datum/computer_file/program/ntnetmonitor/ui_data(mob/user)
 	if(!ntnet_global)
 		return
 	var/list/data = initial_data()
@@ -37,19 +37,17 @@
 
 /datum/computer_file/program/ntnetmonitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(.)
-		return TRUE
+		return
 
 	switch(action)
 		if("resetIDS")
 			. = TRUE
 			if(ntnet_global)
 				ntnet_global.resetIDS()
-			return TRUE
 		if("toggleIDS")
 			. = TRUE
 			if(ntnet_global)
 				ntnet_global.toggleIDS()
-			return TRUE
 		if("purgelogs")
 			. = TRUE
 			if(ntnet_global)
@@ -63,5 +61,5 @@
 		if("toggle_function")
 			. = TRUE
 			if(!ntnet_global)
-				return TRUE
+				return FALSE
 			ntnet_global.toggle_function(params["toggle_function"])
