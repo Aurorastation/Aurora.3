@@ -27,6 +27,8 @@
 	var/silent = FALSE
 	/// Name of the TGUI Interface
 	var/tgui_id
+	/// Theme of this TGUI interface
+	var/tgui_theme = "scc"
 
 	// TO BE DEPRECATED:
 	var/datum/nano_module/NM								// If the program uses NanoModule, put it here and it will be automagically opened. Otherwise implement ui_interact.
