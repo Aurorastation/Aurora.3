@@ -1221,7 +1221,7 @@
 /area/template_noop)
 "zK" = (
 /mob/living/simple_animal/hostile/carp,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/template_noop,
 /area/template_noop)
 "zM" = (
 /obj/machinery/light/small/emergency,
