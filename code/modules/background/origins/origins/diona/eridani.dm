@@ -10,7 +10,7 @@
 	name = "Slum Grown"
 	desc = "Dionae who were originally grown in and influenced by the slums of Eridani, most often in the underbelly of Oran."
 	important_information = "These Dionae tend to be significantly influenced by Eridanian Dregs, generally taking on some of their mannerisms and vocabulary."
-	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
+	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
 
@@ -18,6 +18,6 @@
 	name = "Sunlight Grown"
 	desc = "Dionae who were originally grown in and influenced by the Eridani Federation in a more positive environment, most often on Akhet."
 	important_information = "These Dionae tend to be significantly influenced by Eridanian Suits, generally taking on some of their mannerisms and vocabulary."
-	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
+	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)

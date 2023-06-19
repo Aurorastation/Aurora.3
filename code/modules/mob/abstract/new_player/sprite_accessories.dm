@@ -1003,6 +1003,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "ponytail"
 
+/datum/sprite_accessory/hair/ponytail7_notie
+	name = "Ponytail 7, No Tie"
+	icon_state = "hair_ponytail7_notie"
+	length = 2
+	chatname = "ponytail"
+
 /datum/sprite_accessory/hair/ponytail8
 	name = "Ponytail 8"
 	icon_state = "hair_ponytail8"
@@ -1033,6 +1039,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "short ponytail"
 
+/datum/sprite_accessory/hair/ponytail_short3_notie
+	name = "Ponytail, Short 3, No Tie"
+	icon_state = "hair_ponytail_short3_notie"
+	length = 2
+	chatname = "short ponytail"
+
 /datum/sprite_accessory/hair/ponytail_short4
 	name = "Ponytail, Short 4"
 	icon_state = "hair_ponytail_short4"
@@ -1045,9 +1057,21 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "short ponytail"
 
+/datum/sprite_accessory/hair/ponytail_short5_alt
+	name = "Ponytail, Short 5, Alt"
+	icon_state = "hair_ponytail_short5_alt"
+	length = 2
+	chatname = "short ponytail"
+
 /datum/sprite_accessory/hair/ponytail_fringetail
 	name = "Ponytail, Fringetail"
 	icon_state = "hair_ponytail_fringetail"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/ponytail_fringetail_notie
+	name = "Ponytail, Fringetail, No Tie"
+	icon_state = "hair_ponytail_fringetail_notie"
 	length = 2
 	chatname = "ponytail"
 
@@ -1057,9 +1081,21 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "ponytail"
 
+/datum/sprite_accessory/hair/ponytail_high_notie
+	name = "Ponytail, High, No Tie"
+	icon_state = "hair_ponytail_high_notie"
+	length = 2
+	chatname = "ponytail"
+
 /datum/sprite_accessory/hair/ponytail_side
 	name = "Ponytail, Side"
 	icon_state = "hair_ponytail_side"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/ponytail_side_notie
+	name = "Ponytail, Side, No Tie"
+	icon_state = "hair_ponytail_side_notie"
 	length = 2
 	chatname = "ponytail"
 
@@ -1069,15 +1105,33 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "ponytail"
 
+/datum/sprite_accessory/hair/ponytail_side2_notie
+	name = "Ponytail, Side 2, No Tie"
+	icon_state = "hair_ponytail_side2_notie"
+	length = 2
+	chatname = "ponytail"
+
 /datum/sprite_accessory/hair/ponytail_side3
 	name = "Ponytail, Side 3"
 	icon_state = "hair_ponytail_side3"
 	length = 2
 	chatname = "ponytail"
 
+/datum/sprite_accessory/hair/ponytail_side3_notie
+	name = "Ponytail, Side 3, No Tie"
+	icon_state = "hair_ponytail_side3_notie"
+	length = 2
+	chatname = "ponytail"
+
 /datum/sprite_accessory/hair/ponytail_side4
 	name = "Ponytail, Side 4"
 	icon_state = "hair_ponytail_side4"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/ponytail_side4_notie
+	name = "Ponytail, Side 4, No Tie"
+	icon_state = "hair_ponytail_side4_notie"
 	length = 2
 	chatname = "ponytail"
 
@@ -1099,9 +1153,21 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "ponytail"
 
+/datum/sprite_accessory/hair/ponytail_zieglertail_notie
+	name = "Ponytail, Zieglertail, No Tie"
+	icon_state = "hair_ponytail_ziegler_notie"
+	length = 2
+	chatname = "ponytail"
+
 /datum/sprite_accessory/hair/bunlarge2
 	name = "Bun, Large 2"
 	icon_state = "hair_bun_large2"
+	length = 2
+	chatname = "large bun"
+
+/datum/sprite_accessory/hair/bunlarge2_notie
+	name = "Bun, Large 2, No Tie"
+	icon_state = "hair_bun_large2_notie"
 	length = 2
 	chatname = "large bun"
 

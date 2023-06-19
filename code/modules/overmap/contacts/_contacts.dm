@@ -74,7 +74,7 @@
 	if(pinged)
 		return
 	pinged = TRUE
-	effect.opacity = 1
+	effect.opacity = initial(effect.opacity)
 	show()
 	animate(marker, alpha=255, 0.5 SECOND, 1, LINEAR_EASING)
 	addtimer(CALLBACK(src, PROC_REF(unping)), 1 SECOND)
