@@ -613,7 +613,7 @@
 	. = shorted ? STATUS_DISABLED : STATUS_INTERACTIVE
 
 	if(. == STATUS_INTERACTIVE)
-		var/extra_href = QDELETED(state) ? list() : state.href_list(usr)
+		var/extra_href = QDELETED(state) ? list() : state.href_list(user ? user : usr)
 		// Prevent remote users from altering RCON settings unless they already have access
 		if(href_list["rcon"] && extra_href["remote_connection"] && !extra_href["remote_access"])
 			. = STATUS_UPDATE

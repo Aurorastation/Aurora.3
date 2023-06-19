@@ -68,131 +68,92 @@
 /datum/computer_file/program/atmos_control
 	filename = "atmoscontrol"
 	filedesc = "Atmosphere Control"
-	nanomodule_path = /datum/nano_module/atmos_control
 	program_icon_state = "atmos_control"
 	program_key_icon_state = "cyan_key"
 	extended_desc = "This program allows remote control of air alarms around the station. This program can not be run on tablet computers."
-	required_access_run = access_atmospherics
-	required_access_download = access_ce
+	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
+	required_access_run =  list(access_atmospherics)
+	required_access_download = list(access_atmospherics)
 	requires_ntnet = TRUE
 	network_destination = "atmospheric control system"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_STATIONBOUND
 	size = 17
 	color = LIGHT_COLOR_CYAN
+	tgui_id = "AtmosAlarmControl"
 	tgui_theme = "hephaestus"
 
-/datum/computer_file/program/rcon_console
-	filename = "rcon"
-	filedesc = "RCON Remote Control"
-	program_icon_state = "power_monitor"
-	program_key_icon_state = "yellow_key"
-	extended_desc = "This program allows remote control of power distribution systems around the station. This program can not be run on tablet computers."
-	required_access_run = access_engine
-	required_access_download = access_ce
-	requires_ntnet = TRUE
-	network_destination = "RCON remote control system"
-	requires_ntnet_feature = NTNET_SYSTEMCONTROL
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_STATIONBOUND
-	size = 19
-	color = LIGHT_COLOR_YELLOW
-	tgui_id = "RCON"
-	tgui_theme = "hephaestus"
-	ui_auto_update = FALSE
+	var/list/monitored_alarms = list()
 
-/datum/computer_file/program/rcon_console/ui_static_data(mob/user)
-	var/list/data = initial_data()
+/datum/computer_file/program/atmos_control/New(obj/item/modular_computer/comp, var/list/new_access, monitored_alarm_ids)
+	..()
 
-	var/list/smeslist = list()
-	for(var/obj/machinery/power/smes/buildable/SMES in SSmachinery.rcon_smes_units)
-		smeslist.Add(list(list(
-		"charge" = round(SMES.Percentage()),
-		"input_set" = SMES.input_attempt,
-		"input_val" = round(SMES.input_level),
-		"output_set" = SMES.output_attempt,
-		"output_val" = round(SMES.output_level),
-		"input_level_max" = SMES.input_level_max,
-		"output_level_max" = SMES.output_level_max,
-		"output_load" = round(SMES.output_used),
-		"RCON_tag" = SMES.RCon_tag
-		)))
+	if(islist(new_access) && length(new_access))
+		required_access_run = new_access
 
-	data["smes_info"] = smeslist
-	// BREAKER DATA (simplified view)
-	var/list/breakerlist = list()
-	for(var/obj/machinery/power/breakerbox/BR in SSmachinery.rcon_breaker_units)
-		breakerlist.Add(list(list(
-		"RCON_tag" = BR.RCon_tag,
-		"enabled" = BR.on,
-		"update_locked" = BR.update_locked,
-		)))
-	data["breaker_info"] = breakerlist
+	if(monitored_alarm_ids)
+		for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
+			if(alarm.alarm_id && (alarm.alarm_id in monitored_alarm_ids) && AreConnectedZLevels(computer.z, alarm.z))
+				monitored_alarms += alarm
+	else
+		if(!monitored_alarms && SSticker.current_state == GAME_STATE_PLAYING)
+			for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
+				if(AreConnectedZLevels(computer.z, alarm.z))
+					monitored_alarms += alarm
+		// machines may not yet be ordered at this point
+		sortTim(monitored_alarms, GLOBAL_PROC_REF(cmp_alarm), FALSE)
 
-	return data
-
-/datum/computer_file/program/rcon_console/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/computer_file/program/atmos_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return
 
-	switch(action)
-		if("smes_in_toggle")
-			var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(params["smes_in_toggle"])
-			if(SMES)
-				SMES.toggle_input()
-				computer.update_static_data_for_all_viewers()
-				. = TRUE
+	if(action == "alarm")
+		var/obj/machinery/alarm/alarm = locate(params["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
+		if(alarm)
+			var/datum/ui_state/TS = generate_state(alarm)
+			alarm.ui_interact(usr, state = TS) //what the fuck?
+		return TRUE
 
-		if("smes_out_toggle")
-			var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(params["smes_out_toggle"])
-			if(SMES)
-				SMES.toggle_output()
-				computer.update_static_data_for_all_viewers()
-				. = TRUE
+/datum/computer_file/program/atmos_control/ui_data(mob/user)
+	var/list/data = initial_data()
 
-		if("smes_in_set")
-			var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(params["smes_in_set"])
-			if(SMES)
-				SMES.set_input(params["value"])
-				computer.update_static_data_for_all_viewers()
-				. = TRUE
+	var/alarms = list()
+	for(var/obj/machinery/alarm/alarm in monitored_alarms)
+		alarms += list(list(
+			"name" = sanitize(alarm.name),
+			"ref"= "\ref[alarm]",
+			"danger" = max(alarm.danger_level, alarm.alarm_area.atmosalm)
+		))
+	data["alarms"] = alarms
 
-		if("smes_out_set")
-			var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(params["smes_out_set"])
-			if(SMES)
-				SMES.set_output(params["value"])
-				computer.update_static_data_for_all_viewers()
-				. = TRUE
+	return data
 
-		if("smes_in_max")
-			var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(params["smes_in_max"])
-			if(SMES)
-				SMES.set_input(SMES.input_level_max)
-				computer.update_static_data_for_all_viewers()
-				. = TRUE
+/datum/computer_file/program/atmos_control/proc/generate_state(air_alarm)
+	var/datum/ui_state/air_alarm/state = new()
+	state.atmos_control = src
+	state.air_alarm = air_alarm
+	return state
 
-		if("smes_out_max")
-			var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(params["smes_out_max"])
-			if(SMES)
-				SMES.set_output(SMES.output_level_max)
-				computer.update_static_data_for_all_viewers()
-				. = TRUE
+/datum/ui_state/air_alarm
+	var/datum/computer_file/program/atmos_control/atmos_control
+	var/obj/machinery/alarm/air_alarm
 
-		if("toggle_breaker")
-			var/obj/machinery/power/breakerbox/toggle = SSmachinery.rcon_breaker_units_by_tag[params["toggle_breaker"]]
-			if(toggle)
-				if(toggle.update_locked)
-					to_chat(usr, SPAN_WARNING("The breaker box was recently toggled. Please wait before toggling it again."))
-				else
-					toggle.auto_toggle()
-					computer.update_static_data_for_all_viewers()
-					. = TRUE
+/datum/ui_state/air_alarm/can_use_topic(var/src_object, var/mob/user)
+	var/obj/item/card/id/I = user.GetIdCard()
+	if(has_access(req_one_access = atmos_control.required_access_run, accesses = I.GetAccess()))
+		return STATUS_INTERACTIVE
+	return STATUS_UPDATE
 
-/datum/computer_file/program/rcon_console/proc/GetSMESByTag(var/tag)
-	if(!tag)
-		return
+/datum/ui_state/air_alarm/href_list(var/mob/user)
+	var/list/extra_href = list()
+	extra_href["remote_connection"] = TRUE
+	extra_href["remote_access"] = can_access(user)
 
-	return SSmachinery.rcon_smes_units_by_tag[tag]
+	return extra_href
 
+/datum/ui_state/air_alarm/proc/can_access(var/mob/user)
+	var/obj/item/card/id/I = user.GetIdCard()
+	return user && (isAI(user) || has_access(req_one_access = atmos_control.required_access_run, accesses = I.GetAccess()) || atmos_control.computer_emagged || air_alarm.rcon_setting == RCON_YES || (air_alarm.alarm_area.atmosalm && air_alarm.rcon_setting == RCON_AUTO))
 
 // Night-Mode Toggle for CE
 /datum/computer_file/program/lighting_control

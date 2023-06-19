@@ -23372,14 +23372,6 @@
 	dir = 9
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/computer/atmoscontrol/laptop{
-	monitored_alarm_ids = list("1601");
-	name = "Hazardous Specimens Atmospheric Controls";
-	pixel_x = 1;
-	pixel_y = 4;
-	req_access = null;
-	req_one_access = list(55,24,11)
-	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "lss" = (
