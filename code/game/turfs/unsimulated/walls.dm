@@ -39,7 +39,7 @@
 
 /turf/unsimulated/wall/steel
 	icon = 'icons/turf/smooth/composite_solid_color.dmi'
-	icon_state = "map_steel"
+	icon_state = "map_gunmetal"//the best approximation of the ingame gunmetal blended wall sprite for example
 	desc = "It's a wall. It appears to be composed of a highly durable alloy and plated with steel."
 	color = "#666666"
 	smooth = SMOOTH_TRUE
