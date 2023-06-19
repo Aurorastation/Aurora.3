@@ -30,9 +30,14 @@
 	var/icon/rolled_outline
 	var/unmovable = FALSE
 
-/obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy, var/icon_file)
+/obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy, var/icon_file, var/item_flag_path)
 	. = ..()
 	dir = newdir
+	if(!flag_path)
+		if(item_flag_path) // redundancy
+			flag_path = item_flag_path
+		else
+			flag_path = icon_state
 	if(!deploy)
 		switch(dir)
 			if(NORTH)
@@ -112,7 +117,7 @@
 	if(isfloor(user.loc))
 		user.visible_message(SPAN_NOTICE("\The [user] deploys \the [src] on \the [get_turf(loc)]."), SPAN_NOTICE("You deploy \the [src] on \the [get_turf(loc)]."))
 		user.drop_from_inventory(src)
-		new flag_structure(user.loc, user.dir, deploy = TRUE)
+		new flag_structure(user.loc, user.dir, deploy = TRUE, item_flag_path = flag_path)
 		qdel(src)
 
 /obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent)
@@ -133,7 +138,7 @@
 
 	user.visible_message(SPAN_NOTICE("\The [user] fastens \the [src] to \the [A]."), SPAN_NOTICE("You fasten \the [src] to \the [A]."))
 	user.drop_from_inventory(src)
-	new flag_structure(user.loc, placement_dir)
+	new flag_structure(user.loc, placement_dir, item_flag_path = flag_path)
 	qdel(src)
 
 
@@ -715,21 +720,21 @@
 /obj/item/flag/dpra
 	name = "\improper Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
-	flag_path = "dpra"
 	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
 	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
 	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
 	nation they were fighting for the Democratic People's Republic of Adhomai."
+	flag_path = "dpra"
 	flag_structure = /obj/structure/sign/flag/dpra
 
 /obj/structure/sign/flag/dpra
 	name = "\improper Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
-	flag_path = "dpra"
 	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
 	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
 	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
 	nation they were fighting for the Democratic People's Republic of Adhomai."
+	flag_path = "dpra"
 	icon_state = "dpra"
 	flag_item = /obj/item/flag/dpra
 
@@ -775,12 +780,12 @@
 /obj/structure/sign/flag/pra
 	name = "\improper People's Republic of Adhomai flag"
 	desc = "The tajaran flag of the People's Republic of Adhomai."
-	flag_path = "pra"
 	desc_extended = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
 	government of Adhomai. It claims to be the true keeper of Al'mari's legacy. However, the PRA can be described as a Hadiist branch of Al'mari's revolutionary ideology - that means \
 	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
 	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
 	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
+	flag_path = "pra"
 	icon_state = "pra"
 	flag_item = /obj/item/flag/pra
 
@@ -826,12 +831,12 @@
 /obj/structure/sign/flag/nka
 	name = "\improper New Kingdom of Adhomai flag"
 	desc = "The blue flag of the New Kingdom of Adhomai."
-	flag_path = "nka"
 	desc_extended = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
 	Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. \
 	Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable \
 	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
 	ancient nobles and Republicans, and create a new noble dynasty."
+	flag_path = "nka"
 	icon_state = "nka"
 	flag_item = /obj/item/flag/nka
 
@@ -1079,6 +1084,7 @@
 /obj/structure/sign/flag/diona
 	name = "\improper Imperial Diona standard"
 	desc = "A green Dominian standard which represents the Dionae within the Empire."
+	flag_path = "diona"
 	icon_state = "diona"
 	flag_item = /obj/item/flag/diona
 
@@ -1094,6 +1100,7 @@
 	desc = "A red-and-dark standard with a gold trim that represents House Strelitz, one of the great houses of the Empire of Dominia. \
 	They are known for their military service and emphasis on personal bravery."
 	icon_state = "strelitz"
+	flag_path = "strelitz"
 	flag_item = /obj/item/flag/strelitz
 
 /obj/item/flag/volvalaad
@@ -1107,6 +1114,7 @@
 	name = "\improper House Volvalaad standard"
 	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
 	They are known for their reformist ideals and scientific prowess."
+	flag_path = "volvalaad"
 	icon_state = "volvalaad"
 	flag_item = /obj/item/flag/volvalaad
 
@@ -1121,6 +1129,7 @@
 	name = "\improper House Kazhkz standard"
 	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
 	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
+	flag_path = "kazhkz"
 	icon_state = "kazkhz"
 	flag_item = /obj/item/flag/kazhkz
 
@@ -1135,6 +1144,7 @@
 	name = "\improper House Caladius standard"
 	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
 	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
+	flag_path = "caladius"
 	icon_state = "caladius"
 	flag_item = /obj/item/flag/caladius
 
@@ -1149,6 +1159,7 @@
 	name = "\improper House Zhao standard"
 	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of  the Empire of Dominia,\
 	known for its naval officers and patronage of the Dominian shipbuilding and naval industries."
+	flag_path = "zhao"
 	icon_state = "zhao"
 	flag_item = /obj/item/flag/zhao
 
@@ -1631,3 +1642,291 @@
 	desc = "The flag of New Gibson."
 	flag_path = "newgibson"
 	flag_structure = /obj/structure/sign/flag/newgibson
+
+// Port Antillia
+
+/obj/item/flag/portantillia
+	name = "\improper Union of Port Antillia flag"
+	desc = "The flag of the Union of Port Antillia."
+	flag_path = "portantillia"
+	flag_structure = /obj/structure/sign/flag/portantillia
+
+/obj/structure/sign/flag/portantillia
+	name = "\improper Union of Port Antillia flag"
+	desc = "The flag of the Union of Port Antillia."
+	flag_path = "portantillia"
+	icon_state = "portantillia"
+	flag_item = /obj/item/flag/portantillia
+
+/obj/structure/sign/flag/portantillia/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/portantillia/l
+	name = "large Union of Port Antillia flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/portantillia/large
+
+/obj/structure/sign/flag/portantillia/large
+	icon_state = "portantillia_l"
+	flag_path = "portantillia"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/portantillia/l
+
+/obj/structure/sign/flag/portantillia/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/portantillia/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/portantillia/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/portantillia/large/west/New()
+	..(loc, WEST)
+
+// San Colette
+
+/obj/item/flag/sancolette
+	name = "\improper Sovereign Solarian Republic of San Colette flag"
+	desc = "The flag of the Sovereign Solarian Republic of San Colette."
+	flag_path = "sancolette"
+	flag_structure = /obj/structure/sign/flag/sancolette
+
+/obj/structure/sign/flag/sancolette
+	name = "\improper Sovereign Solarian Republic of San Colette flag"
+	desc = "The flag of the Sovereign Solarian Republic of San Colette."
+	flag_path = "sancolette"
+	icon_state = "sancolette"
+	flag_item = /obj/item/flag/sancolette
+
+/obj/structure/sign/flag/sancolette/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/sancolette/l
+	name = "large Sovereign Solarian Republic of San Colette flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/sancolette/large
+
+/obj/structure/sign/flag/sancolette/large
+	icon_state = "sancolette_l"
+	flag_path = "sancolette"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/sancolette/l
+
+/obj/structure/sign/flag/sancolette/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/sancolette/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/sancolette/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/sancolette/large/west/New()
+	..(loc, WEST)
+
+// Mictlan
+
+/obj/item/flag/mictlan
+	name = "\improper Mictlan flag"
+	desc = "The flag of Mictlan."
+	flag_path = "mictlan"
+	flag_structure = /obj/structure/sign/flag/mictlan
+
+/obj/structure/sign/flag/mictlan
+	name = "\improper Mictlan flag"
+	desc = "The flag of Mictlan."
+	flag_path = "mictlan"
+	icon_state = "mictlan"
+	flag_item = /obj/item/flag/mictlan
+
+/obj/structure/sign/flag/mictlan/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/mictlan/l
+	name = "large Mictlan flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/mictlan/large
+
+/obj/structure/sign/flag/mictlan/large
+	icon_state = "mictlan_l"
+	flag_path = "mictlan"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/mictlan/l
+
+/obj/structure/sign/flag/mictlan/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/mictlan/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/mictlan/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/mictlan/large/west/New()
+	..(loc, WEST)
+
+
+// New Hai Phong
+
+/obj/item/flag/nhp
+	name = "\improper New Hai Phong flag"
+	desc = "The flag of New Hai Phong."
+	flag_path = "newhaiphong"
+	flag_structure = /obj/structure/sign/flag/nhp
+
+/obj/structure/sign/flag/nhp
+	name = "\improper New Hai Phong flag"
+	desc = "The flag of New Hai Phong."
+	flag_path = "newhaiphong"
+	icon_state = "newhaiphong"
+	flag_item = /obj/item/flag/nhp
+
+/obj/structure/sign/flag/nhp/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/nhp/l
+	name = "large New Hai Phong flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/nhp/large
+
+/obj/structure/sign/flag/nhp/large
+	icon_state = "newhaiphong_l"
+	flag_path = "newhaiphong"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/nhp/l
+
+/obj/structure/sign/flag/nhp/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/nhp/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/nhp/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/nhp/large/west/New()
+	..(loc, WEST)
+
+// Hive Zo'ra
+
+/obj/item/flag/zora
+	name = "\improper Hive Zo'ra flag"
+	desc = "The flag of Hive Zo'ra."
+	flag_path = "zora"
+	flag_structure = /obj/structure/sign/flag/zora
+
+/obj/structure/sign/flag/zora
+	name = "\improper Hive Zo'ra flag"
+	desc = "The flag of Hive Zo'ra."
+	flag_path = "zora"
+	icon_state = "zora"
+	flag_item = /obj/item/flag/zora
+
+/obj/structure/sign/flag/zora/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/zora/l
+	name = "large Hive Zo'ra flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/zora/large
+
+/obj/structure/sign/flag/zora/large
+	icon_state = "zora_l"
+	flag_path = "zora"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/zora/l
+
+/obj/structure/sign/flag/zora/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/zora/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/zora/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/zora/large/west/New()
+	..(loc, WEST)
+
+// Hive K'lax
+
+/obj/item/flag/klax
+	name = "\improper Hive K'lax flag"
+	desc = "The flag of Hive K'lax."
+	flag_path = "klax"
+	flag_structure = /obj/structure/sign/flag/klax
+
+/obj/structure/sign/flag/klax
+	name = "\improper Hive K'lax flag"
+	desc = "The flag of Hive K'lax."
+	flag_path = "klax"
+	icon_state = "klax"
+	flag_item = /obj/item/flag/klax
+
+/obj/structure/sign/flag/klax/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/klax/l
+	name = "large Hive K'lax flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/klax/large
+
+/obj/structure/sign/flag/klax/large
+	icon_state = "klax_l"
+	flag_path = "klax"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/klax/l
+
+/obj/structure/sign/flag/klax/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/klax/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/klax/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/klax/large/west/New()
+	..(loc, WEST)
+
+// Hive C'thur
+
+/obj/item/flag/cthur
+	name = "\improper Hive C'thur flag"
+	desc = "The flag of Hive C'thur."
+	flag_path = "cthur"
+	flag_structure = /obj/structure/sign/flag/cthur
+
+/obj/structure/sign/flag/cthur
+	name = "\improper Hive C'thur flag"
+	desc = "The flag of Hive C'thur."
+	flag_path = "cthur"
+	icon_state = "cthur"
+	flag_item = /obj/item/flag/cthur
+
+/obj/structure/sign/flag/cthur/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/cthur/l
+	name = "large Hive C'thur flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/cthur/large
+
+/obj/structure/sign/flag/cthur/large
+	icon_state = "cthur_l"
+	flag_path = "cthur"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/cthur/l
+
+/obj/structure/sign/flag/cthur/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/cthur/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/cthur/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/cthur/large/west/New()
+	..(loc, WEST)

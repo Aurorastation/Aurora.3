@@ -461,7 +461,7 @@
 	return output_text
 
 /mob/living/carbon/human/assembleHeightString(mob/examiner)
-	var/list/heightString = list()
+	var/heightString = ""
 	var/descriptor
 	if(height == HEIGHT_NOT_USED)
 		return heightString

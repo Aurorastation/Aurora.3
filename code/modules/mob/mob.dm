@@ -415,6 +415,8 @@
 		var/atom/movable/M = A
 		M.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
 		addtimer(CALLBACK(M, TYPE_PROC_REF(/atom/movable, remove_filter), "pointglow"), 2 SECONDS)
+	A.handle_pointed_at(src)
+	SEND_SIGNAL(src, COMSIG_MOB_POINT, A)
 	return TRUE
 
 /mob/proc/end_pointing_effect()

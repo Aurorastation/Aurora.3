@@ -1525,12 +1525,7 @@
 	icon_state = "map_vent_out";
 	use_power = 1
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "adh" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2178,20 +2173,10 @@
 	dir = 8
 	},
 /obj/machinery/r_n_d/server/advanced/core,
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "aes" = (
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "aet" = (
 /obj/item/material/shard{
@@ -2906,12 +2891,7 @@
 	pump_direction = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "afH" = (
 /obj/structure/cable/green{
@@ -18696,12 +18676,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "aGI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -18901,12 +18876,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "aHa" = (
 /obj/structure/grille,

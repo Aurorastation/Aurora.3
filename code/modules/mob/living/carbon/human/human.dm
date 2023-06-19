@@ -1373,7 +1373,7 @@
 	if(usr == src)
 		self = 1
 
-	if (src.species.flags & NO_BLOOD)
+	if ((src.species.flags & NO_BLOOD) || (status_flags & FAKEDEATH))
 		to_chat(usr, SPAN_WARNING(self ? "You have no pulse." : "[src] has no pulse!"))
 		return
 
@@ -1885,6 +1885,9 @@
 	var/obj/item/organ/internal/heart/heart_organ = internal_organs_by_name[BP_HEART]
 	if(!heart_organ)
 		// No heart, no pulse
+		return "0"
+
+	if(status_flags & FAKEDEATH)
 		return "0"
 
 	var/bpm = get_pulse_as_number()

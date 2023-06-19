@@ -54,7 +54,7 @@ var/global/datum/repository/crew/crew_repository = new()
 						if(H.should_have_organ(BP_HEART))
 							var/obj/item/organ/internal/heart/O = H.internal_organs_by_name[BP_HEART]
 							if (!O || !BP_IS_ROBOTIC(O)) // Don't make medical freak out over prosthetic hearts
-								crewmemberData["tpulse"] = H.pulse()
+								crewmemberData["tpulse"] = H.status_flags & FAKEDEATH ? 0 : H.pulse()
 								crewmemberData["pulse"] = H.get_pulse(GETPULSE_TOOL)
 					else
 						if(isipc(H) && H.internal_organs_by_name[BP_IPCTAG]) // Don't make untagged IPCs obvious

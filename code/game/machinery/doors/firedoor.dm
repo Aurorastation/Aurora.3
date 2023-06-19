@@ -86,7 +86,7 @@
 			if(locate(src.type) in T)
 				door_directions |= direction
 
-			if(T.oxygen <= 0)
+			if(T.initial_gas == null)
 				noair_directions |= direction
 
 			if(get_area(src.loc) != get_area(T))
