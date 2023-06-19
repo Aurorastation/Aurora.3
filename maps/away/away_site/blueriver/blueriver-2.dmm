@@ -156,7 +156,8 @@
 	icon = 'icons/obj/machinery/research.dmi';
 	icon_state = "server";
 	name = "broken down R&D server";
-	desc = "A server which used to house a back-up of all ship research. It can be used to restore lost data, or to act as another point of retrieval. Looks like it's too far gone for that though."
+	desc = "A server which used to house a back-up of all ship research. It can be used to restore lost data, or to act as another point of retrieval. Looks like it's too far gone for that though.";
+	density = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
