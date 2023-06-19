@@ -9,7 +9,7 @@ import { computeBoxClassName, computeBoxProps } from '../components/Box';
 import { addScrollableNode, removeScrollableNode } from '../events';
 
 export const Layout = (props) => {
-  const { className, theme = 'nanotrasen', children, ...rest } = props;
+  const { className, theme = 'scc', children, ...rest } = props;
   return (
     <div className={'theme-' + theme}>
       <div

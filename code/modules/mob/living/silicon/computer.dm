@@ -31,7 +31,6 @@
 /mob/living/silicon/proc/init_subsystems()
 	alarm_monitor 	= new(src)
 	law_manager 	= new(src)
-	rcon 			= new(src)
 
 	if(computer_path)
 		computer = new computer_path(src)

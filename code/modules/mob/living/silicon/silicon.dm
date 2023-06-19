@@ -37,7 +37,6 @@
 	// Internal Computer
 	var/datum/nano_module/alarm_monitor/all/alarm_monitor
 	var/datum/nano_module/law_manager/law_manager
-	var/datum/nano_module/rcon/rcon
 	var/obj/item/modular_computer/silicon/computer
 	var/list/silicon_subsystems = list(
 		/mob/living/silicon/proc/subsystem_alarm_monitor,
@@ -78,7 +77,6 @@
 /mob/living/silicon/Destroy()
 	silicon_mob_list -= src
 	QDEL_NULL(computer)
-	QDEL_NULL(rcon)
 	QDEL_NULL(alarm_monitor)
 	QDEL_NULL(law_manager)
 	QDEL_NULL(computer)

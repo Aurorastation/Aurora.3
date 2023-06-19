@@ -9803,9 +9803,6 @@
 /turf/unsimulated/wall/fakepdoor,
 /area/centcom/specops)
 "kNJ" = (
-/obj/item/circuitboard/rcon_console{
-	name = "circuit board (Ticket Kiosk Console)"
-	},
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},

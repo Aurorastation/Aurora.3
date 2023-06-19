@@ -11,6 +11,7 @@
 	if(!ui)
 		if(active_program)
 			ui = new(user, src, active_program.tgui_id, active_program.filedesc)
+			ui.autoupdate = active_program.ui_auto_update
 		else
 			ui = new(user, src, "NTOSMain")
 		ui.open()
@@ -19,6 +20,7 @@
 	var/old_open_ui = ui.interface
 	if(active_program)
 		ui.interface = active_program.tgui_id
+		ui.autoupdate = active_program.ui_auto_update
 		ui.title = active_program.filedesc
 	else
 		ui.interface = "NTOSMain"
