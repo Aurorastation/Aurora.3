@@ -69,7 +69,7 @@
 	desc = "A very experimental kinetic accelerator energy converter. Not much is known about this thing, other than it kicks like a mule and stings like an e-sword."
 	icon_state = "barrel05"
 	damage_increase = 30
-	firedelay_increase = 1 SECONDS
+	firedelay_increase = 2 SECONDS
 	range_increase = 7
 	recoil_increase = 10
 	cost_increase = 10
