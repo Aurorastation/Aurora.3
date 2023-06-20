@@ -125,9 +125,10 @@
 	screen_loc = ui_ai_state_laws
 
 /obj/screen/ai/state_laws/Click()
-	if (isAI(usr))
+	if(isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		AI.subsystem_law_manager()
+		AI.computer.ui_interact(usr)
+		AI.computer.run_program("lawmanager")
 
 /obj/screen/ai/take_image
 	name = "Take Image"

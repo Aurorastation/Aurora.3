@@ -47,7 +47,6 @@ var/list/admin_verbs_admin = list(
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/check_ai_laws,			//shows AI and borg laws,
 	/client/proc/rename_silicon,		//properly renames silicons,
-	/client/proc/manage_silicon_laws,	// Allows viewing and editing silicon laws. ,
 	/client/proc/check_antagonists,
 	/client/proc/dsay,					/*talk in deadchat using our ckey/fakekey*/
 	/client/proc/toggleprayers,			/*toggles prayers on/off*/
@@ -282,7 +281,6 @@ var/list/admin_verbs_hideable = list(
 	/datum/admins/proc/toggleoocdead,
 	/datum/admins/proc/toggledsay,
 	/client/proc/rename_silicon,
-	/client/proc/manage_silicon_laws,
 	/client/proc/cmd_admin_direct_narrate,
 	/client/proc/cmd_admin_local_narrate,
 	/client/proc/cmd_admin_world_narrate,
@@ -838,20 +836,6 @@ var/list/admin_verbs_cciaa = list(
 		log_and_message_admins("has renamed the silicon '[S.real_name]' to '[new_name]'")
 		S.SetName(new_name)
 	feedback_add_details("admin_verb","RAI") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/manage_silicon_laws()
-	set name = "Manage Silicon Laws"
-	set category = "Admin"
-
-	if(!check_rights(R_ADMIN)) return
-
-	var/mob/living/silicon/S = input("Select silicon.", "Manage Silicon Laws") as null|anything in silicon_mob_list
-	if(!S) return
-
-	var/datum/nano_module/law_manager/L = new(S)
-	L.ui_interact(usr, state = admin_state)
-	log_and_message_admins("has opened [S]'s law manager.")
-	feedback_add_details("admin_verb","MSL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/change_human_appearance_admin()
 	set name = "Change Mob Appearance - Admin"

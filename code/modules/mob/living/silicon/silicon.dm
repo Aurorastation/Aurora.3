@@ -36,11 +36,9 @@
 
 	// Internal Computer
 	var/datum/nano_module/alarm_monitor/all/alarm_monitor
-	var/datum/nano_module/law_manager/law_manager
 	var/obj/item/modular_computer/silicon/computer
 	var/list/silicon_subsystems = list(
 		/mob/living/silicon/proc/subsystem_alarm_monitor,
-		/mob/living/silicon/proc/subsystem_law_manager,
 		/mob/living/silicon/proc/computer_interact,
 		/mob/living/silicon/proc/silicon_mimic_accent
 	)
@@ -78,7 +76,6 @@
 	silicon_mob_list -= src
 	QDEL_NULL(computer)
 	QDEL_NULL(alarm_monitor)
-	QDEL_NULL(law_manager)
 	QDEL_NULL(computer)
 	QDEL_NULL(id_card)
 	QDEL_NULL(common_radio)

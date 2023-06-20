@@ -16,7 +16,6 @@
 /mob/living/silicon/ai
 	silicon_subsystems = list(
 		/mob/living/silicon/proc/subsystem_alarm_monitor,
-		/mob/living/silicon/proc/subsystem_law_manager,
 		/mob/living/silicon/proc/computer_interact,
 		/mob/living/silicon/proc/silicon_mimic_accent
 	)
@@ -24,13 +23,11 @@
 /mob/living/silicon/robot/combat
 	register_alarms = 0
 	silicon_subsystems = list(
-		/mob/living/silicon/proc/subsystem_law_manager,
 		/mob/living/silicon/proc/silicon_mimic_accent
 	)
 
 /mob/living/silicon/proc/init_subsystems()
 	alarm_monitor 	= new(src)
-	law_manager 	= new(src)
 
 	if(computer_path)
 		computer = new computer_path(src)
@@ -69,11 +66,3 @@
 
 	alarm_monitor.ui_interact(usr, state = self_state)
 
-/****************
-*	Law Manager	*
-****************/
-/mob/living/silicon/proc/subsystem_law_manager()
-	set name = "Law Manager"
-	set category = "Subsystems"
-
-	law_manager.ui_interact(usr, state = conscious_state)
