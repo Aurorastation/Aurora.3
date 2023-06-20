@@ -846,6 +846,7 @@
 	c_tag = "Medical - First Responder Room"
 	},
 /obj/structure/closet/secure_closet/medical_fr,
+/obj/item/defibrillator/compact/loaded,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "auo" = (
@@ -48537,6 +48538,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/medical_fr,
+/obj/item/defibrillator/compact/loaded,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "xBU" = (
