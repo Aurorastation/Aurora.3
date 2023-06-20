@@ -89,25 +89,25 @@
 	if(!slot_check())
 		to_chat(user, SPAN_WARNING("You need to equip [src] before taking out [paddles]."))
 	else
-		if(!usr.put_in_hands(paddles)) //Detach the paddles into the user's hands
+		if(!usr.put_in_active_hand(paddles)) //Detach the paddles into the user's hands
 			to_chat(user, SPAN_WARNING("You need a free hand to hold the paddles!"))
 		update_icon() //success
 
 /obj/item/defibrillator/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
-	if(ismob(loc))
+	if(ismob(loc) && slot_flags)
 		var/mob/M = src.loc
 		if(use_check_and_message(M))
 			return
 		if(!M.unEquip(src))
 			return
 		add_fingerprint(usr)
-		M.put_in_any_hand_if_possible(src)
+		M.put_in_active_hand(src)
 	else
 		if(ishuman(usr))
 			var/mob/living/carbon/human/H = usr
 			if(Adjacent(H))
-				if(!H.put_in_hands(paddles))
+				if(!H.put_in_active_hand(paddles))
 					to_chat(H, SPAN_WARNING("You need a free hand to take out the paddles!"))
 
 /obj/item/defibrillator/attackby(obj/item/W, mob/user, params)
@@ -153,7 +153,9 @@
 
 /obj/item/defibrillator/dropped(mob/user)
 	..()
-	reattach_paddles() //paddles attached to a base unit should never exist outside of their base unit or the mob equipping the base unit
+	if(slot_flags)
+		//Paddles attached to an equippable base unit should never exist outside of their base unit or the mob equipping the base unit.
+		reattach_paddles()
 
 /obj/item/defibrillator/proc/reattach_paddles()
 	if(!paddles)
