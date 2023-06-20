@@ -91,16 +91,20 @@
 	if(islist(new_access) && length(new_access))
 		required_access_run = new_access
 
-	if(monitored_alarm_ids)
-		for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
-			if(alarm.alarm_id && (alarm.alarm_id in monitored_alarm_ids) && AreConnectedZLevels(computer.z, alarm.z))
-				monitored_alarms += alarm
-	else
-		for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
-			if(AreConnectedZLevels(computer.z, alarm.z))
-				monitored_alarms += alarm
+	get_alarms(monitored_alarm_ids)
 	// machines may not yet be ordered at this point
 	sortTim(monitored_alarms, GLOBAL_PROC_REF(cmp_name_asc), FALSE)
+
+/datum/computer_file/program/atmos_control/proc/get_alarms(var/list/monitored_alarm_ids)
+	if(computer)
+		if(monitored_alarm_ids)
+			for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
+				if(alarm.alarm_id && (alarm.alarm_id in monitored_alarm_ids) && AreConnectedZLevels(computer.z, alarm.z))
+					monitored_alarms += alarm
+		else
+			for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
+				if(AreConnectedZLevels(computer.z, alarm.z))
+					monitored_alarms += alarm
 
 /datum/computer_file/program/atmos_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
@@ -115,6 +119,10 @@
 
 /datum/computer_file/program/atmos_control/ui_data(mob/user)
 	var/list/data = initial_data()
+
+	/// It is possible that a program may have a null computer at roundstart... somehow.
+	if(!length(monitored_alarms))
+		get_alarms()
 
 	var/alarms = list()
 	for(var/obj/machinery/alarm/alarm in monitored_alarms)
