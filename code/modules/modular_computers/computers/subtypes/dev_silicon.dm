@@ -55,6 +55,8 @@
 	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))
 	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
 	hard_drive.store_file(new /datum/computer_file/program/chat_client(src))
+	hard_drive.store_file(new /datum/computer_file/program/atmos_control(src))
+	hard_drive.store_file(new /datum/computer_file/program/rcon_console(src))
 	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))
 	addtimer(CALLBACK(src, PROC_REF(register_chat)), 1 SECOND)
 
