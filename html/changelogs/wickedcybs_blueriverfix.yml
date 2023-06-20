@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "The blue river away site doesn't have an actual R&D server anymore."
+  - maptweak: "The blue river away site shuttle can refill atmosphere now if for some reason you power it."
