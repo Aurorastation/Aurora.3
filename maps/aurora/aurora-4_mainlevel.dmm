@@ -10384,7 +10384,6 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "atx" = (
-/obj/machinery/computer/power_monitor,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -33221,10 +33220,6 @@
 /obj/structure/table/rack{
 	dir = 8;
 	layer = 2.9
-	},
-/obj/item/circuitboard/powermonitor{
-	pixel_x = -2;
-	pixel_y = 2
 	},
 /obj/item/circuitboard/security/engineering,
 /obj/item/circuitboard/atmos_alert{

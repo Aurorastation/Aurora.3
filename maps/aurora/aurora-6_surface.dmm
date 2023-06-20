@@ -13863,9 +13863,6 @@
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "mev" = (
-/obj/machinery/computer/power_monitor{
-	name = "telecoms power monitoring"
-	},
 /obj/machinery/power/sensor{
 	long_range = 1;
 	name = "Powernet Sensor - Telecommunications Grid";

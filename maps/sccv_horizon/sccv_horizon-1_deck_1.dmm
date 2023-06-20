@@ -30939,9 +30939,6 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
 "wLA" = (
-/obj/item/circuitboard/powermonitor{
-	pixel_y = 8
-	},
 /obj/item/circuitboard/security/engineering{
 	pixel_y = 4
 	},

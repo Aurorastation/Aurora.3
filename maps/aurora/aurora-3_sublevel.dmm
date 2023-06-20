@@ -35957,7 +35957,6 @@
 /area/maintenance/medsublevel)
 "wHR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/computer/power_monitor,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "wIo" = (

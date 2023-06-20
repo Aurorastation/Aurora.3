@@ -64,10 +64,6 @@
 	build_path = /obj/machinery/power/solar_control
 	origin_tech = list(TECH_DATA = 2, TECH_POWER = 2)
 
-/obj/item/circuitboard/powermonitor
-	name = T_BOARD("power monitoring console")
-	build_path = /obj/machinery/computer/power_monitor
-
 /obj/item/circuitboard/olddoor
 	name = T_BOARD("DoorMex")
 	build_path = /obj/machinery/computer/pod/old

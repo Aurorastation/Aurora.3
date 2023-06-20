@@ -61,10 +61,6 @@
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/circuitboard/drone_control
 
-/datum/design/circuit/computer/powermonitor
-	name = "Power Monitoring Console"
-	build_path = /obj/item/circuitboard/powermonitor
-
 /datum/design/circuit/computer/solarcontrol
 	name = "Solar Control Console"
 	build_path = /obj/item/circuitboard/solar_control
