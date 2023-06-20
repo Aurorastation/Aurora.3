@@ -85,7 +85,7 @@
 
 	var/list/monitored_alarms = list()
 
-/datum/computer_file/program/atmos_control/New(obj/item/modular_computer/comp, var/list/new_access, monitored_alarm_ids)
+/datum/computer_file/program/atmos_control/New(obj/item/modular_computer/comp, var/list/new_access, var/list/monitored_alarm_ids)
 	..()
 
 	if(islist(new_access) && length(new_access))
@@ -96,12 +96,11 @@
 			if(alarm.alarm_id && (alarm.alarm_id in monitored_alarm_ids) && AreConnectedZLevels(computer.z, alarm.z))
 				monitored_alarms += alarm
 	else
-		if(!monitored_alarms && SSticker.current_state == GAME_STATE_PLAYING)
-			for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
-				if(AreConnectedZLevels(computer.z, alarm.z))
-					monitored_alarms += alarm
-		// machines may not yet be ordered at this point
-		sortTim(monitored_alarms, GLOBAL_PROC_REF(cmp_alarm), FALSE)
+		for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
+			if(AreConnectedZLevels(computer.z, alarm.z))
+				monitored_alarms += alarm
+	// machines may not yet be ordered at this point
+	sortTim(monitored_alarms, GLOBAL_PROC_REF(cmp_name_asc), FALSE)
 
 /datum/computer_file/program/atmos_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
