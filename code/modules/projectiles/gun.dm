@@ -488,7 +488,6 @@
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
-	//default point blank multiplier
 	if(!ismob(target))
 		return
 
