@@ -140,8 +140,10 @@
 		playsound(loc, 'sound/effects/snort.ogg', 50, 1)
 
 		if(reagents)
-			reagents.trans_to_mob(user, amount_per_transfer_from_this, CHEM_BLOOD)
-
+			var/contained = reagentlist()
+			var/temp = reagents.get_temperature()
+			var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_BREATHE, bypass_checks = TRUE)
+			admin_inject_log(user, H, src, contained, temp, trans)
 		if(!reagents.total_volume)
 			qdel(src)
 		return TRUE
