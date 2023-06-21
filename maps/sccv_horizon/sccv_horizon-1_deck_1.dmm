@@ -1965,6 +1965,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering/auxillary)
 "bxo" = (
@@ -3521,8 +3522,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "cBC" = (
-/obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "cBF" = (
@@ -9551,7 +9555,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "gNs" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -14935,6 +14938,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/closet/crate/bin,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "kRx" = (
@@ -30947,6 +30952,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering/auxillary)
 "wCx" = (
@@ -32911,8 +32917,6 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "xPc" = (
-/obj/structure/closet/crate/bin,
-/obj/random/loot,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -42660,8 +42664,8 @@ eSV
 eSV
 eSV
 noz
-paL
-fif
+cBC
+hIf
 hTk
 hTk
 hTk
@@ -42864,7 +42868,7 @@ eHZ
 hTk
 hTk
 gNs
-cBC
+fif
 eiZ
 hTk
 hTk
