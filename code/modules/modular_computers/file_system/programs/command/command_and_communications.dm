@@ -9,7 +9,6 @@
 	filedesc = "Command and Communications Program"
 	program_icon_state = "comm"
 	program_key_icon_state = "lightblue_key"
-	nanomodule_path = /datum/nano_module/program/comm
 	extended_desc = "Used to command and control the station. Can relay long-range communications."
 	required_access_run = access_heads
 	required_access_download = access_heads
@@ -17,26 +16,11 @@
 	size = 12
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	network_destination = "station long-range communication array"
+	color = LIGHT_COLOR_BLUE
+	tgui_id = "CommandCommunications"
 	var/datum/comm_message_listener/message_core
 	var/intercept = FALSE
 	var/can_call_shuttle = FALSE //If calling the shuttle should be available from this console
-	color = LIGHT_COLOR_BLUE
-
-/datum/computer_file/program/comm/New(obj/item/modular_computer/comp, intercept_printing = FALSE, shuttle_call = FALSE)
-	..()
-	intercept = intercept_printing
-	can_call_shuttle = shuttle_call
-	message_core = new
-
-/datum/computer_file/program/comm/clone()
-	var/datum/computer_file/program/comm/temp = ..()
-	temp.message_core.messages = null
-	temp.message_core.messages = message_core.messages.Copy()
-	return temp
-
-/datum/nano_module/program/comm
-	name = "Command and communications program"
-	available_to_ai = TRUE
 	var/current_status = STATE_DEFAULT
 	var/msg_line1 = ""
 	var/msg_line2 = ""
@@ -46,29 +30,30 @@
 	var/current_viewing_message_id = 0
 	var/current_viewing_message = null
 
-/datum/nano_module/program/comm/New()
+/datum/computer_file/program/comm/New(obj/item/modular_computer/comp, intercept_printing = FALSE, shuttle_call = FALSE)
 	..()
+	intercept = intercept_printing
+	can_call_shuttle = shuttle_call
+	message_core = new
 	crew_announcement.newscast = TRUE
 
-/datum/nano_module/program/comm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/ui_state/state = default_state)
-	var/list/data = host.initial_data()
+/datum/computer_file/program/comm/clone()
+	var/datum/computer_file/program/comm/temp = ..()
+	temp.message_core.messages = null
+	temp.message_core.messages = message_core.messages.Copy()
+	return temp
 
-	if(program)
-		data["emagged"] = program.computer_emagged
-		data["net_comms"] = !!program.get_signal(NTNET_COMMUNICATION) //Double !! is needed to get 1 or 0 answer
-		data["net_syscont"] = !!program.get_signal(NTNET_SYSTEMCONTROL)
-		var/datum/computer_file/program/comm/P = program
-		data["message_printing_intercepts"] = P.intercept
-		if(program.computer)
-			data["have_printer"] = !!program.computer.nano_printer
-		else
-			data["have_printer"] = FALSE
+/datum/computer_file/program/comm/ui_data(mob/user)
+	var/list/data = initial_data()
+
+	data["emagged"] = computer_emagged
+	data["net_comms"] = !!get_signal(NTNET_COMMUNICATION) //Double !! is needed to get 1 or 0 answer
+	data["net_syscont"] = !!get_signal(NTNET_SYSTEMCONTROL)
+	data["message_printing_intercepts"] = intercept
+	if(computer)
+		data["have_printer"] = !!computer.nano_printer
 	else
-		data["emagged"] = FALSE
-		data["net_comms"] = TRUE
-		data["net_syscont"] = TRUE
 		data["have_printer"] = FALSE
-		data["message_printing_intercepts"] = FALSE
 
 	data["can_call_shuttle"] = can_call_shuttle()
 	data["message_line1"] = msg_line1
@@ -103,50 +88,36 @@
 			option["option_target"] = EO.option_target
 			option["needs_syscontrol"] = EO.needs_syscontrol
 			option["silicon_allowed"] = EO.silicon_allowed
-			processed_evac_options[++processed_evac_options.len] = option
+			processed_evac_options += list(option)
 	data["evac_options"] = processed_evac_options
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "communication.tmpl", name, 550, 420, state = state)
-		ui.auto_update_layout = TRUE
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
-/datum/nano_module/program/comm/proc/is_authenticated(var/mob/user)
-	if(program)
-		return program.can_run(user)
-	return TRUE
+/datum/computer_file/program/comm/proc/is_authenticated(var/mob/user)
+	return can_run(user)
 
-/datum/nano_module/program/comm/proc/obtain_message_listener()
-	if(program)
-		var/datum/computer_file/program/comm/P = program
-		return P.message_core
+/datum/computer_file/program/comm/proc/obtain_message_listener()
 	return global_message_listener
 
-/datum/nano_module/program/comm/proc/can_call_shuttle()
-	if(program)
-		var/datum/computer_file/program/comm/P = program
-		return P.can_call_shuttle
-	else
-		return FALSE
+/datum/computer_file/program/comm/proc/can_call_shuttle()
+	return can_call_shuttle
 
-/datum/nano_module/program/comm/proc/set_announcement_cooldown(var/cooldown)
+/datum/computer_file/program/comm/proc/set_announcement_cooldown(var/cooldown)
 	announcement_cooldown = cooldown
 
-/datum/nano_module/program/comm/proc/set_centcomm_message_cooldown(var/cooldown)
+/datum/computer_file/program/comm/proc/set_centcomm_message_cooldown(var/cooldown)
 	centcomm_message_cooldown = cooldown
 
-/datum/nano_module/program/comm/Topic(href, href_list)
+/datum/computer_file/program/comm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
-		return TRUE
+		return
 	var/mob/user = usr
-	var/ntn_comm = !!program.get_signal(NTNET_COMMUNICATION)
-	var/ntn_cont = !!program.get_signal(NTNET_SYSTEMCONTROL)
+	var/ntn_comm = !!get_signal(NTNET_COMMUNICATION)
+	var/ntn_cont = !!get_signal(NTNET_SYSTEMCONTROL)
 	var/datum/comm_message_listener/l = obtain_message_listener()
-	switch(href_list["action"])
+	switch(action)
 		if("sw_menu")
-			current_status = text2num(href_list["target"])
+			current_status = text2num(params["target"])
 		if("emergencymaint")
 			if(is_authenticated(user) && !issilicon(user))
 				if(maint_all_access)
@@ -169,37 +140,33 @@
 					SSnanoui.update_uis(src)
 					return
 				var/input = input(usr, "Please write a message to announce to the station crew.", "Priority Announcement") as null|message
-				if(!input || !can_still_topic())
-					SSnanoui.update_uis(src)
-					return
-				var/was_hearing = HAS_TRAIT(program.computer, TRAIT_HEARING_SENSITIVE)
+				if(!input || computer.use_check_and_message(usr))
+					return FALSE
+				var/was_hearing = HAS_TRAIT(computer, TRAIT_HEARING_SENSITIVE)
 				if(!was_hearing)
-					program.computer.become_hearing_sensitive()
+					computer.become_hearing_sensitive()
 				usr.say(input)
 				if(!was_hearing)
-					program.computer.lose_hearing_sensitivity()
-				var/affected_zlevels = GetConnectedZlevels(GET_Z(program.computer))
-				crew_announcement.Announce(program.computer.registered_message, zlevels = affected_zlevels)
+					computer.lose_hearing_sensitivity()
+				var/affected_zlevels = GetConnectedZlevels(GET_Z(computer))
+				crew_announcement.Announce(computer.registered_message, zlevels = affected_zlevels)
 				set_announcement_cooldown(TRUE)
 				addtimer(CALLBACK(src, PROC_REF(set_announcement_cooldown), FALSE), 600) //One minute cooldown
 		if("message")
-			if(href_list["target"] == "emagged")
-				if(program)
-					if(is_authenticated(user) && program.computer_emagged && !issilicon(usr) && ntn_comm)
-						if(centcomm_message_cooldown)
-							to_chat(usr, SPAN_WARNING("Arrays recycling. Please stand by."))
-							SSnanoui.update_uis(src)
-							return
-						var/input = sanitize(input(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination. Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
-						if(!input || !can_still_topic())
-							SSnanoui.update_uis(src)
-							return
-						Syndicate_announce(input, usr)
-						to_chat(usr, SPAN_NOTICE("Message successfully transmitted."))
-						log_say("[key_name(usr)] has sent a message to the syndicate: [input]", ckey = key_name(usr))
-						centcomm_message_cooldown = TRUE
-						addtimer(CALLBACK(src, PROC_REF(set_centcomm_message_cooldown), FALSE), 300) // thirty second cooldown
-			else if(href_list["target"] == "regular")
+			if(params["target"] == "emagged")
+				if(is_authenticated(user) && computer_emagged && !issilicon(usr) && ntn_comm)
+					if(centcomm_message_cooldown)
+						to_chat(usr, SPAN_WARNING("Arrays recycling. Please stand by."))
+						return TRUE
+					var/input = sanitize(input(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination. Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
+					if(!input || computer.use_check_and_message(usr))
+						return FALSE
+					Syndicate_announce(input, usr)
+					to_chat(usr, SPAN_NOTICE("Message successfully transmitted."))
+					log_say("[key_name(usr)] has sent a message to the syndicate: [input]", ckey = key_name(usr))
+					centcomm_message_cooldown = TRUE
+					addtimer(CALLBACK(src, PROC_REF(set_centcomm_message_cooldown), FALSE), 300) // thirty second cooldown
+			else if(params["target"] == "regular")
 				if(is_authenticated(user) && !issilicon(usr) && ntn_comm)
 					if(centcomm_message_cooldown)
 						to_chat(usr, SPAN_WARNING("Arrays recycling. Please stand by."))
@@ -210,8 +177,7 @@
 						SSnanoui.update_uis(src)
 						return
 					var/input = sanitize(input("Please choose a message to transmit to [current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
-					if(!input || !can_still_topic())
-						SSnanoui.update_uis(src)
+					if(!input || computer.use_check_and_message(usr))
 						return
 					Centcomm_announce(input, usr)
 					to_chat(usr, SPAN_NOTICE("Message successfully transmitted."))
@@ -220,39 +186,39 @@
 					addtimer(CALLBACK(src, PROC_REF(set_centcomm_message_cooldown), FALSE), 300) // thirty second cooldown
 		if("evac")
 			if(is_authenticated(user))
-				var/datum/evacuation_option/selected_evac_option = evacuation_controller.evacuation_options[href_list["target"]]
+				var/datum/evacuation_option/selected_evac_option = evacuation_controller.evacuation_options[params["target"]]
 				if (isnull(selected_evac_option) || !istype(selected_evac_option))
 					return
 				if (!selected_evac_option.silicon_allowed && issilicon(user))
 					return
 				if (selected_evac_option.needs_syscontrol && !ntn_cont)
 					return
-				var/confirm = alert("Are you sure you want to [selected_evac_option.option_desc]?", name, "No", "Yes")
-				if (confirm == "Yes" && can_still_topic())
+				var/confirm = alert("Are you sure you want to [selected_evac_option.option_desc]?", filedesc, "No", "Yes")
+				if (confirm == "Yes" && !computer.use_check_and_message(usr))
 					evacuation_controller.handle_evac_option(selected_evac_option.option_target, user)
 		if("setstatus")
 			if(is_authenticated(user) && ntn_cont)
-				switch(href_list["target"])
+				switch(params["target"])
 					if("line1")
 						var/linput = reject_bad_text(sanitize(input("Line 1", "Enter Message Text", msg_line1) as text|null, 40), 40)
-						if(can_still_topic())
+						if(!computer.use_check_and_message(usr))
 							msg_line1 = linput
 					if("line2")
 						var/linput = reject_bad_text(sanitize(input("Line 2", "Enter Message Text", msg_line2) as text|null, 40), 40)
-						if(can_still_topic())
+						if(!computer.use_check_and_message(usr))
 							msg_line2 = linput
 					if("message")
 						post_display_status("message", msg_line1, msg_line2)
 					if("alert")
-						post_display_status("alert", href_list["alert"])
+						post_display_status("alert", params["alert"])
 					else
-						post_display_status(href_list["target"])
+						post_display_status(params["target"])
 
 		if("setalert")
 			if(is_authenticated(user) && (!issilicon(usr) || isAI(usr)) && ntn_cont && ntn_comm)
-				var/current_level = text2num(href_list["target"])
-				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", name, "No", "Yes")
-				if(confirm == "Yes" && can_still_topic())
+				var/current_level = text2num(params["target"])
+				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", filedesc, "No", "Yes")
+				if(confirm == "Yes" && !computer.use_check_and_message(usr))
 					var/old_level = security_level
 					if(!current_level)
 						current_level = SEC_LEVEL_GREEN
@@ -276,7 +242,7 @@
 			current_status = STATE_DEFAULT
 		if("viewmessage")
 			if(is_authenticated(user) && ntn_comm)
-				current_viewing_message_id = text2num(href_list["target"])
+				current_viewing_message_id = text2num(params["target"])
 				for(var/list/m in l.messages)
 					if(m["id"] == current_viewing_message_id)
 						current_viewing_message = m
@@ -287,18 +253,17 @@
 			current_status = STATE_MESSAGELIST
 		if("printmessage")
 			if(is_authenticated(user) && ntn_comm)
-				if(program && program.computer && program.computer.nano_printer)
-					if(!program.computer.nano_printer.print_text(current_viewing_message["contents"],current_viewing_message["title"]))
+				if(computer && computer.nano_printer)
+					if(!computer.nano_printer.print_text(current_viewing_message["contents"],current_viewing_message["title"]))
 						to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 					else
-						program.computer.visible_message(SPAN_NOTICE("\The [program.computer] prints out paper."))
+						computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
 		if("toggleintercept")
 			if(is_authenticated(user) && ntn_comm)
-				if(program?.computer?.nano_printer)
-					var/datum/computer_file/program/comm/P = program
-					P.intercept = !P.intercept
+				if(computer?.nano_printer)
+					intercept = !intercept
 
-	SSnanoui.update_uis(src)
+	return TRUE
 
 #undef STATE_DEFAULT
 #undef STATE_MESSAGELIST
