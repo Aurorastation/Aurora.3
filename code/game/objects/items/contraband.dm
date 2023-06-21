@@ -105,7 +105,7 @@
 		to_chat(user, SPAN_NOTICE("There's about [reagents.total_volume] unit\s here."))
 
 /obj/item/reagent_containers/powder/Initialize()
-	..()
+	. = ..()
 	get_appearance()
 
 /obj/item/reagent_containers/powder/proc/get_appearance()
