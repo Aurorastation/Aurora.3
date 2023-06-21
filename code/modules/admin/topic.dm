@@ -7,7 +7,7 @@
 		return
 
 	if(SSticker.mode && SSticker.mode.check_antagonists_topic(href, href_list))
-		var/static/datum/tgui_module/admin/check_antagonists/global_check_antags = new()
+		var/static/datum/tgui_module/moderator/shared/check_antagonists/global_check_antags = new()
 		global_check_antags.ui_interact(usr)
 		return
 
@@ -683,7 +683,7 @@
 		C.jumptomob(M)
 
 	else if(href_list["check_antagonist"])
-		var/static/datum/tgui_module/admin/check_antagonists/global_check_antags = new()
+		var/static/datum/tgui_module/moderator/shared/check_antagonists/global_check_antags = new()
 		global_check_antags.ui_interact(usr)
 
 	else if(href_list["adminplayerobservecoodjump"])

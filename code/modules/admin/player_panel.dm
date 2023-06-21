@@ -1,10 +1,4 @@
-/datum/tgui_module/ui_state(mob/user)
-	return always_state
-
-/datum/tgui_module/ui_status(mob/user, datum/ui_state/state)
-	return UI_INTERACTIVE
-
-/datum/tgui_module/admin/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/tgui_module/moderator/shared_actions/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -60,9 +54,9 @@
 			C.holder.show_player_panel(M)
 			. = TRUE
 
-/datum/tgui_module/admin/check_antagonists
+/datum/tgui_module/moderator/shared/check_antagonists
 
-/datum/tgui_module/admin/check_antagonists/ui_interact(mob/user, datum/tgui/ui)
+/datum/tgui_module/moderator/shared/check_antagonists/ui_interact(mob/user, datum/tgui/ui)
 	if (!SSticker || SSticker.current_state < GAME_STATE_PLAYING)
 		alert(user, "The game hasn't started yet!")
 		return
@@ -72,7 +66,7 @@
 		ui = new(user, src, "RoundStatus", "Round Status", 400, 500)
 		ui.open()
 
-/datum/tgui_module/admin/check_antagonists/ui_data(mob/user)
+/datum/tgui_module/moderator/shared/check_antagonists/ui_data(mob/user)
 	var/list/data = list()
 	data["gamemode"] = SSticker.mode.name
 	data["round_duration"] = get_round_duration_formatted()
@@ -111,7 +105,7 @@
 				))
 	return data
 
-/datum/tgui_module/admin/check_antagonists/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/tgui_module/moderator/shared/check_antagonists/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -140,15 +134,15 @@
 						message_admins("[key_name_admin(usr)] cancelled an evacuation.", 1)
 						. = TRUE
 
-/datum/tgui_module/admin/player_panel
+/datum/tgui_module/moderator/shared/player_panel
 
-/datum/tgui_module/admin/player_panel/ui_interact(mob/user, var/datum/tgui/ui)
+/datum/tgui_module/moderator/shared/player_panel/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "PlayerPanel", "Player Panel", 800, 600)
 		ui.open()
 
-/datum/tgui_module/admin/player_panel/ui_data(mob/user)
+/datum/tgui_module/moderator/shared/player_panel/ui_data(mob/user)
 	var/list/data = list()
 	var/isMod = check_rights(R_MOD|R_ADMIN, 0, user)
 	data["holder_ref"] = "\ref[user.client.holder]"
@@ -210,7 +204,7 @@
 		data["players"] += list(player)
 	return data
 
-/datum/tgui_module/admin/player_panel/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/tgui_module/moderator/shared/player_panel/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -251,7 +245,7 @@
 			C.holder.paralyze_mob(M)
 			. = TRUE
 
-/datum/tgui_module/admin/player_panel/proc/GetMobRealName(var/mob/M)
+/datum/tgui_module/moderator/shared/player_panel/proc/GetMobRealName(var/mob/M)
 	if(isAI(M))
 		return "AI"
 	if(isrobot(M))

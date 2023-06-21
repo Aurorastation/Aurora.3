@@ -1,13 +1,6 @@
-/datum/computer_file/program/law_manager
-	filename = "lawmanager"
-	filedesc = "Law Manager"
-	extended_desc = "Manage your laws from this program."
-	usage_flags = PROGRAM_SILICON_ROBOT|PROGRAM_SILICON_AI
-	requires_ntnet = FALSE
-	tgui_id = "LawManager"
-	tgui_theme = "ntos_terminal"
-	ui_auto_update = FALSE
-
+/// This is really ugly copypaste, but we are seriously at the point where I don't give a fuck anymore.
+/// Well, it's not the worst copypaste since this and the computer program need to be separate anyway, but it's still ugly.
+/datum/tgui_module/admin/law_manager
 	var/ion_law	= "IonLaw"
 	var/zeroth_law = "ZerothLaw"
 	var/inherent_law = "InherentLaw"
@@ -20,7 +13,7 @@
 	var/global/list/datum/ai_laws/player_laws
 	var/mob/living/silicon/owner = null
 
-/datum/computer_file/program/law_manager/New(obj/item/modular_computer/comp, var/mob/living/silicon/S)
+/datum/tgui_module/admin/law_manager/New(var/mob/living/silicon/S)
 	..()
 	owner = S
 
@@ -35,7 +28,14 @@
 			if(laws.selectable)
 				player_laws += laws
 
-/datum/computer_file/program/law_manager/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/tgui_module/admin/law_manager/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "LawManager", "Law Manager (Admin)")
+		ui.autoupdate = FALSE
+		ui.open()
+
+/datum/tgui_module/admin/law_manager/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return
 
@@ -78,31 +78,31 @@
 
 		if("change_zeroth_law")
 			var/new_law = sanitize(input("Enter new law Zero. Leaving the field blank will cancel the edit.", "Edit Law", zeroth_law))
-			if(new_law && new_law != zeroth_law && !computer.use_check_and_message(usr))
+			if(new_law && new_law != zeroth_law && state.can_use_topic(src, usr))
 				zeroth_law = new_law
 			return TRUE
 
 		if("change_ion_law")
 			var/new_law = sanitize(input("Enter new ion law. Leaving the field blank will cancel the edit.", "Edit Law", ion_law))
-			if(new_law && new_law != ion_law && !computer.use_check_and_message(usr))
+			if(new_law && new_law != ion_law && state.can_use_topic(src, usr))
 				ion_law = new_law
 			return TRUE
 
 		if("change_inherent_law")
 			var/new_law = sanitize(input("Enter new inherent law. Leaving the field blank will cancel the edit.", "Edit Law", inherent_law))
-			if(new_law && new_law != inherent_law && !computer.use_check_and_message(usr))
+			if(new_law && new_law != inherent_law && state.can_use_topic(src, usr))
 				inherent_law = new_law
 			return TRUE
 
 		if("change_supplied_law")
 			var/new_law = sanitize(input("Enter new supplied law. Leaving the field blank will cancel the edit.", "Edit Law", supplied_law))
-			if(new_law && new_law != supplied_law && !computer.use_check_and_message(usr))
+			if(new_law && new_law != supplied_law && state.can_use_topic(src, usr))
 				supplied_law = new_law
 			return TRUE
 
 		if("change_supplied_law_position")
 			var/new_position = input(usr, "Enter new supplied law position between 1 and [MAX_SUPPLIED_LAW_NUMBER], inclusive. Inherent laws at the same index as a supplied law will not be stated.", "Law Position", supplied_law_position) as num|null
-			if(isnum(new_position) && !computer.use_check_and_message(usr))
+			if(isnum(new_position) && state.can_use_topic(src, usr))
 				supplied_law_position = Clamp(new_position, 1, MAX_SUPPLIED_LAW_NUMBER)
 			return TRUE
 
@@ -111,7 +111,7 @@
 				var/datum/ai_law/AL = locate(params["edit_law"]) in owner.laws.all_laws()
 				if(AL)
 					var/new_law = sanitize(input(usr, "Enter new law. Leaving the field blank will cancel the edit.", "Edit Law", AL.law))
-					if(new_law && new_law != AL.law && is_malf(usr) && !computer.use_check_and_message(usr))
+					if(new_law && new_law != AL.law && is_malf(usr) && state.can_use_topic(src, usr))
 						log_and_message_admins("has changed a law of [owner] from '[AL.law]' to '[new_law]'")
 						AL.law = new_law
 				return TRUE
@@ -154,7 +154,7 @@
 				to_chat(usr, "<span class='notice'>Laws displayed.</span>")
 			return TRUE
 
-/datum/computer_file/program/law_manager/ui_data(mob/user)
+/datum/tgui_module/admin/law_manager/ui_data(mob/user)
 	var/list/data = list()
 	owner.lawsync()
 
@@ -176,30 +176,23 @@
 	data["isAdmin"] = is_admin(user)
 	data["view"] = current_view
 
-	data["channel"] = owner.law_channel
-
-
-	return data
-
-/datum/computer_file/program/law_manager/ui_static_data(mob/user)
-	var/list/data = list()
-
 	var/channels = list()
 	for (var/ch_name in owner.law_channels())
 		channels += list(list("channel" = ch_name))
+	data["channel"] = owner.law_channel
 	data["channels"] = channels
 	data["law_sets"] = package_multiple_laws(data["isAdmin"] ? admin_laws : player_laws)
 
 	return data
 
-/datum/computer_file/program/law_manager/proc/package_laws(var/list/data, var/field, var/list/datum/ai_law/laws)
+/datum/tgui_module/admin/law_manager/proc/package_laws(var/list/data, var/field, var/list/datum/ai_law/laws)
 	var/list/packaged_laws = list()
 	for(var/datum/ai_law/AL in laws)
 		packaged_laws += list(list("law" = AL.law, "index" = AL.get_index(), "state" = owner.laws.get_state_law(AL), "ref" = "\ref[AL]"))
 	data[field] = packaged_laws
 	data["has_[field]"] = packaged_laws.len
 
-/datum/computer_file/program/law_manager/proc/package_multiple_laws(var/list/datum/ai_laws/laws)
+/datum/tgui_module/admin/law_manager/proc/package_multiple_laws(var/list/datum/ai_laws/laws)
 	var/list/law_sets = list()
 	for(var/datum/ai_laws/ALs in laws)
 		var/packaged_laws = list()
@@ -211,16 +204,10 @@
 
 	return law_sets
 
-/datum/computer_file/program/law_manager/proc/is_malf(var/mob/user)
+/datum/tgui_module/admin/law_manager/proc/is_malf(var/mob/user)
 	return (is_admin(user) && !owner.is_slaved()) || owner.is_malf_or_traitor()
 
-/mob/living/silicon/proc/is_slaved()
-	return FALSE
-
-/mob/living/silicon/robot/is_slaved()
-	return law_update && connected_ai ? sanitize(connected_ai.name) : null
-
-/datum/computer_file/program/law_manager/proc/sync_laws(var/mob/living/silicon/ai/AI)
+/datum/tgui_module/admin/law_manager/proc/sync_laws(var/mob/living/silicon/ai/AI)
 	if(!AI)
 		return
 	for(var/mob/living/silicon/robot/R in AI.connected_robots)
