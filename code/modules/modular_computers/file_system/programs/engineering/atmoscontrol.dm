@@ -36,7 +36,8 @@
 					monitored_alarms += alarm
 		else
 			for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
-				if(AreConnectedZLevels(computer.z, alarm.z))
+				var/turf/T = get_turf(computer) /// The computer of a silicon has null Z, so...
+				if(AreConnectedZLevels(T.z, alarm.z))
 					monitored_alarms += alarm
 
 /datum/computer_file/program/atmos_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
