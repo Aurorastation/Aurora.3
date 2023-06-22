@@ -25,7 +25,7 @@
         "dependsOn": [
             "dreamchecker"
         ]
-		}
+		},
 		{
 			"type": "shell",
 			"command": "bin/tgui-build",
