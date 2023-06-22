@@ -88,7 +88,7 @@
 	enable()
 
 /datum/controller/subsystem/zcopy/stat_entry(msg)
-		..("Mx: [json_encode(zlev_maximums)]\
+	msg = "Mx: [json_encode(zlev_maximums)]\
 			Queues: \
 			Turfs [queued_turfs.len - (qt_idex - 1)] \
 			Overlays [queued_overlays.len - (qo_idex - 1)]\
@@ -98,7 +98,8 @@
 			Skips: \
 			Turfs [multiqueue_skips_turf] \
 			Objects [multiqueue_skips_object]\
-		")
+		"
+	return ..()
 
 /datum/controller/subsystem/zcopy/Initialize(timeofday)
 	calculate_zstack_limits()

@@ -33,8 +33,8 @@
 		all_ert_teams += ert
 
 /datum/controller/subsystem/distress/stat_entry(msg)
-	var/out = "CC:[can_call_ert]"
-	..(out)
+	msg = "CC:[can_call_ert]"
+	return ..()
 
 /datum/controller/subsystem/distress/proc/pick_random_team()
 	var/list/datum/responseteam/possible_teams = list()

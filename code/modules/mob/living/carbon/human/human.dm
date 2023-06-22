@@ -192,7 +192,7 @@
 	return 0
 
 /mob/living/carbon/human/get_status_tab_items()
-	..()
+	. = ..()
 	. += "Intent: [a_intent]"
 	. += "Move Mode: [m_intent]"
 	if(is_diona() && DS)

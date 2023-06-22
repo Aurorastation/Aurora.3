@@ -197,7 +197,7 @@ a.popt {
 .motd {
   color: #a4bad6;
   font-family: Verdana, sans-serif;
-  white-space: "normal";
+  white-space: 'normal';
 }
 .motd h1,
 .motd h2,
@@ -334,7 +334,7 @@ em {
 
 /* Radio: Misc */
 .deadsay {
-  color: #530fad;
+  color: #9269c7;
 }
 .radio {
   color: #008000;
@@ -348,44 +348,44 @@ em {
 
 /* Radio Channels */
 .comradio {
-  color: #193a7a;
+  color: #5b8deb;
 }
 .syndradio {
-  color: #6d3f40;
+  color: #ac6667;
 }
 .centradio {
-  color: #5c5c8a;
+  color: #7272a7;
 }
 .airadio {
-  color: #ff00ff;
+  color: #ec00ec;
 }
 .entradio {
-  color: #bd893c;
+  color: #cfcfcf;
 }
 .hailradio {
-  color: #7331c4;
+  color: #8b4cd8;
 }
 .shipradio {
   color: #738465;
 }
 
 .secradio {
-  color: #a30000;
+  color: #e21111;
 }
 .engradio {
-  color: #a66300;
+  color: #cc7b01;
 }
 .medradio {
-  color: #0a5c47;
+  color: #0f7e62;
 }
 .sciradio {
-  color: #993399;
+  color: #c03bc0;
 }
 .supradio {
-  color: #5f4519;
+  color: #c09141;
 }
 .srvradio {
-  color: #6eaa2c;
+  color: #7fc732;
 }
 
 /* Miscellaneous */
@@ -419,25 +419,34 @@ h2.alert {
 }
 
 .danger {
-  color: #ff0000;
+  color: #c51e1e;
   font-weight: bold;
 }
 .warning {
-  color: #ff0000;
+  color: #c51e1e;
   font-style: italic;
 }
 .boldannounce {
-  color: #ff0000;
+  color: #c51e1e;
   font-weight: bold;
 }
 .rose {
   color: #ff5050;
 }
 .info {
-  color: #0000cc;
+  color: #6685f5;
 }
 .notice {
-  color: #000099;
+  color: #6685f5;
+}
+.rose {
+  color: #ff5050;
+}
+.info {
+  color: #6685f5;
+}
+.notice {
+  color: #6685f5;
 }
 .alium {
   color: #00ff00;

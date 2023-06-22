@@ -55,7 +55,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		msg += "n/a|"
 	else
 		msg += "TGR:[round((totalgcs/(totaldels+totalgcs))*100, 0.01)]%"
-	..(msg)
+	return ..()
 
 /datum/controller/subsystem/garbage_collector/fire()
 	HandleToBeQueued()

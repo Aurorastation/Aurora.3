@@ -14,7 +14,8 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 	NEW_SS_GLOBAL(SSnightlight)
 
 /datum/controller/subsystem/nightlight/stat_entry(msg)
-	..("A:[isactive] T:[worldtime2hours()] D:[disable_type]")
+	msg = "A:[isactive] T:[worldtime2hours()] D:[disable_type]"
+	return ..()
 
 /datum/controller/subsystem/nightlight/Recover()
 	src.isactive = SSnightlight.isactive

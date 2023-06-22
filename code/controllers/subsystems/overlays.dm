@@ -16,7 +16,8 @@ var/datum/controller/subsystem/overlays/SSoverlays
 	var/initialized = FALSE
 
 /datum/controller/subsystem/overlays/stat_entry(msg)
-	..("Ov:[processing.len - (idex - 1)]")
+	msg = "Ov:[processing.len - (idex - 1)]"
+	return ..()
 
 /datum/controller/subsystem/overlays/New()
 	NEW_SS_GLOBAL(SSoverlays)

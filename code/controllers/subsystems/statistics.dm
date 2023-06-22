@@ -289,4 +289,5 @@
 	S.increment_value(key)
 
 /datum/controller/subsystem/statistics/stat_entry(msg)
-	..("Kicked: [kicked_clients]")
+	msg = "Kicked: [kicked_clients]"
+	return ..()

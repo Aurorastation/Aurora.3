@@ -34,12 +34,13 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 			"Map: [current_map.name]",
 			"Round ID: [game_id ? game_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Current Date", "[game_year]-[current_month]-[current_day]",
+			"Current Date: [game_year]-[current_month]-[current_day]",
 			"Round Time: [get_round_duration_formatted()]",
 			"Station Time: [worldtime2text()]",
-			"Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never",
-			"[eta_status]"
+			"Last Transfer Vote: [SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never"]"
 		)
+		if(eta_status)
+			global_data += eta_status
 
 		src.currentrun = clients.Copy()
 		mc_data = null
@@ -60,7 +61,7 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 		else
 			target.stat_panel.send_message("update_split_admin_tabs", FALSE) //todomatt: this was splitadmintabs
 
-			if(!("MC" in target.panel_tabs) || !("Tickets" in target.panel_tabs))
+			if(!("MC" in target.panel_tabs))
 				target.stat_panel.send_message("add_admin_tabs")
 
 			if(target.stat_tab == "MC" && ((num_fires % mc_wait == 0)))
@@ -68,9 +69,6 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 
 		if(target.mob)
 			var/mob/target_mob = target.mob
-
-			// Handle the action panels of the stat panel
-
 			// Handle the examined turf of the stat panel, if it's been long enough, or if we've generated new images for it
 			var/turf/listed_turf = target_mob?.listed_turf
 			if(listed_turf && num_fires % default_wait == 0)
@@ -90,9 +88,11 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 	))
 
 /datum/controller/subsystem/statpanels/proc/set_MC_tab(client/target)
+	var/turf/eye_turf = get_turf(target.eye)
+	var/coord_entry = COORD(eye_turf)
 	if(!mc_data)
 		generate_mc_data()
-	target.stat_panel.send_message("update_mc", list(mc_data = mc_data))
+	target.stat_panel.send_message("update_mc", list(mc_data = mc_data, "coord_entry" = coord_entry))
 
 /datum/controller/subsystem/statpanels/proc/set_turf_examine_tab(client/target, mob/target_mob)
 	var/list/overrides = list()
@@ -168,7 +168,7 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 		list("Failsafe Controller:", Failsafe.stat_entry(), text_ref(Failsafe)),
 		list("","")
 	)
-	for(var/datum/controller/subsystem/sub_system as anything in Master.subsystems)
+	for(var/datum/controller/subsystem/sub_system in Master.subsystems)
 		mc_data[++mc_data.len] = list("\[[sub_system.state_letter()]][sub_system.name]", sub_system.stat_entry(), text_ref(sub_system))
 	mc_data[++mc_data.len] = list("Camera Net", "Cameras: [cameranet.cameras.len] | Chunks: [cameranet.chunks.len]", text_ref(cameranet))
 

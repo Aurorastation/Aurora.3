@@ -63,7 +63,8 @@
 	mtl_incorporeal = typecacheof(mtl_incorporeal)
 
 /datum/controller/subsystem/mobs/stat_entry(msg)
-	..("P:[mob_list.len]")
+	msg = "P:[mob_list.len]"
+	return ..()
 
 /datum/controller/subsystem/mobs/fire(resumed = 0)
 	if (!resumed)

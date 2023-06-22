@@ -175,7 +175,8 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 		overmap_halted ? ship_effect.halt() : ship_effect.unhalt()
 
 /datum/controller/subsystem/shuttle/stat_entry(msg)
-	..("Shuttles:[shuttles.len], Ships:[ships.len], L:[registered_shuttle_landmarks.len][overmap_halted ? ", HALT" : ""]")
+	msg = "Shuttles:[shuttles.len], Ships:[ships.len], L:[registered_shuttle_landmarks.len][overmap_halted ? ", HALT" : ""]"
+	return ..()
 
 /datum/controller/subsystem/shuttle/proc/ship_by_type(type)
 	for (var/obj/effect/overmap/visitable/ship/ship in ships)

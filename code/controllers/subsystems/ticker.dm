@@ -87,7 +87,8 @@ var/datum/controller/subsystem/ticker/SSticker
 			state = "FIN"
 		else
 			state = "UNK"
-	..("State: [state]")
+	msg = "State: [state]"
+	return ..()
 
 /datum/controller/subsystem/ticker/Recover()
 	// Copy stuff over so we don't lose any state.

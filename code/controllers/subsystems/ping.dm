@@ -9,7 +9,8 @@
 	var/list/currentrun = list()
 
 /datum/controller/subsystem/ping/stat_entry(msg)
-	..("P:[clients.len]")
+	msg = "P:[clients.len]"
+	return ..()
 
 /datum/controller/subsystem/ping/fire(resumed = FALSE)
 	// Prepare the new batch of clients
