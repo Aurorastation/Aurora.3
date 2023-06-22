@@ -34,7 +34,6 @@
 /singleton/origin_item/origin/serz
 	name = "Serz Voidtamer"
 	desc = "One of two competing voidtamer clans found operating near Moghes. Due to their history interacting Unathi, both clans tend to be fairly influenced by Unathi culture and religion, although do still a distinct identity from one another."
-	important_information = "This option is for both Dionae who were originally grown in the Wastes and Wild Dionae who somehow managed to find their way to Moghes and the Wastes."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG, ACCENT_CRIMSONSONG, ACCENT_SANDSONG, ACCENT_WASTESONG)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_OTHER)
