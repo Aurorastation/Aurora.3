@@ -65,7 +65,12 @@ export const PistonManagement = (props, context) => {
         />
       </LabeledList.Item>
       <LabeledList.Item label="Activate">
-        <Button content="Start" icon="cog" onClick={() => act('crush')} />
+        <Button
+          content="Start"
+          selected={data.extending}
+          icon="cog"
+          onClick={() => act('crush')}
+        />
         <Button
           content="Abort"
           color="red"
@@ -89,8 +94,8 @@ export const PistonMonitoring = (props, context) => {
         </LabeledList.Item>
         {data.status_pistons.map((piston) => (
           <LabeledList.Item
-            label={'Piston' + piston.piston}
-            key={piston.piston}>
+            key={piston.piston}
+            label={'Piston' + piston.piston}>
             <ProgressBar
               ranges={{
                 good: [75, 100],

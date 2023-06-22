@@ -489,6 +489,10 @@
 	return data
 
 /obj/item/device/magnetic_lock/keypad/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
 	switch(action)
 		if("passcode")
 			if(lowertext(params["passcode"]) == passcode)

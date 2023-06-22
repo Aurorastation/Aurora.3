@@ -176,6 +176,5 @@
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/stoxin       = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/polysomnine  = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/glass/bottle/antitoxin    = TRADER_THIS_TYPE,
-		/obj/item/device/handheld_medical                      = TRADER_THIS_TYPE
+		/obj/item/reagent_containers/glass/bottle/antitoxin    = TRADER_THIS_TYPE
 	)

@@ -20,13 +20,14 @@
 	var/user_tracking_id = 0 //Tracking id of the user
 	var/user_tracking_code = 0 //Tracking Code of the user
 
-/datum/nano_module/program/civilian/cargoorder/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/ui_state/state = default_state)
+/datum/nano_module/program/civilian/cargoorder/ui_data(mob/user)
+	. = ..()
 	//Check if a cargo order exists. If not create a new one
 	if(!co)
 		var/datum/cargo_order/crord = new
 		co = crord
 
-	var/list/data = host.initial_data()
+	var/list/data = initial_data()
 
 	//Pass the ID Data
 	data["username"] = GetNameAndAssignmentFromId(user.GetIdCard())
@@ -74,13 +75,7 @@
 	data["handling_fee"] = SScargo.get_handlingfee()
 	data["crate_fee"] = SScargo.get_cratefee()
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "cargo_order.tmpl", name, 500, 600, state = state)
-		ui.auto_update_layout = TRUE
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(TRUE)
+	return data
 
 /datum/nano_module/program/civilian/cargoorder/Topic(href, href_list)
 	if(..())

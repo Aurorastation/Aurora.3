@@ -49,7 +49,7 @@
 			else
 				hardware_data[v] = H.vars[v]
 		if(hardware_data.len)
-			data["hardware"].Add(list(hardware_data))
+			data["hardware"] += list(hardware_data)
 
 	return data
 

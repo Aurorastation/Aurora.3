@@ -19,8 +19,9 @@
 	var/list/order_details = list() //Order Details for the order
 	var/list/shipment_details = list() //Shipment Details for a selected shipment
 
-/datum/nano_module/program/civilian/cargocontrol/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
-	var/list/data = host.initial_data()
+/datum/nano_module/program/civilian/cargocontrol/ui_data(mob/user)
+	. = ..()
+	var/list/data = initial_data()
 	var/obj/item/modular_computer/console = program.computer
 
 	post_signal("supply")
@@ -97,13 +98,7 @@
 	else
 		data["shuttle_available"] = 0
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "cargo_control.tmpl", name, 850, 600, state = state)
-		ui.auto_update_layout = TRUE
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(TRUE)
+	return data
 
 /datum/nano_module/program/civilian/cargocontrol/Topic(href, href_list)
 	if(..())

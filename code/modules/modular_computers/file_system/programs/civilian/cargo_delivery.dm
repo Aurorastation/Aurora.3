@@ -19,8 +19,9 @@
 	var/datum/cargo_order/co
 	var/mod_mode = TRUE //If it can be used to pay for orders
 
-/datum/nano_module/program/civilian/cargodelivery/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/ui_state/state = default_state)
-	var/list/data = host.initial_data()
+/datum/nano_module/program/civilian/cargodelivery/ui_data(mob/user)
+	. = ..()
+	var/list/data = initial_data()
 
 	if(program && program.computer)
 		data["have_id_slot"] = !!program.computer.card_slot
@@ -48,14 +49,7 @@
 	//Pass the status message along
 	data["status_message"] = status_message
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "cargo_delivery.tmpl", name, 500, 600, state = state)
-		ui.auto_update_layout = TRUE
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(TRUE)
-
+	return data
 
 /datum/nano_module/program/civilian/cargodelivery/Topic(href, href_list)
 	if(..())

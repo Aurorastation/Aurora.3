@@ -54,7 +54,7 @@
 	if(!spawnpoints[P.identifier])
 		spawnpoints[P.identifier] = list()
 
-	spawnpoints[P.identifier].Add(P)
+	spawnpoints[P.identifier] += P
 	//Only update the status if the round is started. During initialization that´s taken care of at the end of init.
 	if(ROUND_IS_STARTED)
 		update_spawnpoint_status(P)
@@ -86,7 +86,7 @@
 		update_spawnpoint_status(P)
 
 /datum/controller/subsystem/ghostroles/proc/remove_spawnpoints(var/obj/effect/ghostspawpoint/G)
-	spawnpoints[G.identifier].Remove(G)
+	spawnpoints[G.identifier] -= G
 	return
 
 //Returns the turf where the spawnpoint is located and updates the spawner to be used
