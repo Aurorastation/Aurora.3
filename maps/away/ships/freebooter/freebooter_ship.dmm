@@ -247,6 +247,10 @@
 /area/ship/freebooter_ship)
 "avE" = (
 /obj/structure/closet/cabinet,
+/obj/item/paper{
+	name = "old captain's note";
+	info = "Don't forget - all of the crew's clothing is now in the cargo pod!"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
 "awG" = (
@@ -980,6 +984,10 @@
 	name = "lattice"
 	},
 /obj/structure/closet/cabinet,
+/obj/item/paper{
+	name = "old captain's note";
+	info = "Don't forget - all of the crew's clothing is now in the cargo pod!"
+	},
 /turf/simulated/floor{
 	icon_state = "dmg1"
 	},
@@ -3606,6 +3614,10 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
+	},
+/obj/machinery/power/apc{
+	pixel_y = -24;
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
@@ -6979,6 +6991,10 @@
 	name = "lattice"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/item/paper{
+	name = "old captain's note";
+	info = "Don't forget - all of the crew's clothing is now in the cargo pod!"
+	},
 /turf/simulated/floor{
 	icon_state = "dmg2"
 	},
@@ -8418,6 +8434,10 @@
 /obj/random/spacecash,
 /obj/item/material/hatchet/machete/deluxe,
 /obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/paper{
+	name = "old captain's note";
+	info = "Don't forget - all of the crew's clothing is now in the cargo pod!"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_ship/bridge)
 "ufC" = (
@@ -8569,7 +8589,7 @@
 	},
 /obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor/airless,
-/area/ship/freebooter_ship)
+/area/shuttle/freebooter_shuttle)
 "uGz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9290,7 +9310,7 @@
 	},
 /obj/machinery/shipsensors/weak,
 /turf/simulated/floor/airless,
-/area/ship/freebooter_ship)
+/area/shuttle/freebooter_shuttle)
 "wdL" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -9885,6 +9905,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/thruster2)
 "xLr" = (

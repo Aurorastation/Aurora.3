@@ -22,10 +22,16 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
 
 <div class="item">
 	<div class="itemLabel">
-		<b>Tele-Crystals</b>:
+		<b>Telecrystals</b>:
 	</div>
 	<div class="itemContent">
-		{{:data.crystals}}
+		{{:data.telecrystals}}
+	</div>
+	<div class="itemLabel">
+		<b>Bluecrystals</b>:
+	</div>
+	<div class="itemContent">
+		{{:data.bluecrystals}}
 	</div>
 </div>
 
@@ -38,15 +44,20 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
 	{{/for}}
 {{else data.menu == 1}}
     <H2><span class="white">Request items:</span></H2>
-    <span class="white"><i>Each item costs a number of tele-crystals as indicated by the number following their name.</i></span>
-	
+    <span class="white"><i>Each item costs a number of telecrystals or bluecrystals as indicated by the numbers following their name.</i></span><br>
+    <span class="white"><b>Note that when buying items, bluecrystals are prioritised over telecrystals.</b></span>
 	{{for data.items}}
 		<div class="item">
-			{{:helper.link(value.name, 'gear', {'buy_item' : value.ref}, value.can_buy ? null : 'disabled')}} 
-			- <span class="white">{{:value.cost}} TC</span> 	
-			{{if value.left <= 10}}
-				- <span class="white">{{:value.left}} left in the uplink</span> 
-            {{/if}}
+			{{:helper.link(value.name, 'gear', {'buy_item' : value.ref}, value.can_buy ? null : 'disabled')}}
+      {{if value.bc_cost}}
+        - {{:value.bc_cost}} BC
+      {{/if}}
+      {{if value.tc_cost}}
+        - {{:value.tc_cost}} TC
+      {{/if}}
+ 			{{if value.left <= 10}}
+				- <span class="white">{{:value.left}} left in the uplink</span>
+      {{/if}}
 		</div>
 		<div class="item">
 			{{:value.description}}
