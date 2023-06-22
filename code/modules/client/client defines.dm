@@ -46,9 +46,6 @@
 
 	var/is_initialized = FALSE // Used to track whether the client has been initialized with InitClient.
 
-	// Goonchat chat output of the client.
-	var/datum/chatOutput/chatOutput
-
 // Other
 	var/datum/preferences/prefs
 	var/datum/tooltip/tooltips

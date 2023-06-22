@@ -1209,9 +1209,8 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 			if(hearer && hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
 				return {"<a href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'>([a.text_tag])</a>"}
 			else
-				var/final_icon = a.tag_icon
-				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
-				return {"<span onclick="window.location.href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'">[S.icon_tag(final_icon)]</span>"}
+				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/chat)
+				return S.icon_tag("accent-[used_accent]")
 
 /mob/assign_player(var/mob/user)
 	ckey = user.ckey

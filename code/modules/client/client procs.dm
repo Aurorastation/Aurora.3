@@ -104,7 +104,6 @@ var/list/localhost_addresses = list(
 		if("usr")		hsrc = mob
 		if("prefs")		return prefs.process_link(usr,href_list)
 		if("vars")		return view_var_Topic(href,href_list,hsrc)
-		if("chat")		return chatOutput.Topic(href, href_list)
 
 	switch(href_list["action"])
 		if("openLink")
@@ -359,8 +358,8 @@ var/list/localhost_addresses = list(
 			del(src)
 			return 0
 
-	if(!chatOutput)
-		chatOutput = new(src)
+	// Instantiate tgui panel
+	tgui_panel = new(src, "browseroutput")
 
 	if(IsGuestKey(key) && config.external_auth)
 		src.authed = FALSE
