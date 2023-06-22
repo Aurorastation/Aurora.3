@@ -39,7 +39,7 @@
 
 /datum/law/high_severity/terrorism
 	name = "i305 - Terrorist Acts"
-	desc = "To engage in maliciously destructive actions, which seriously threaten the crew or station."
+	desc = "To engage in maliciously destructive actions, which seriously threaten the crew or ship."
 	id = "i305"
 
 	min_brig_time = 90
