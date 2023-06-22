@@ -29,6 +29,13 @@
 /obj/structure/table/rack/no_cargo
 	no_cargo = TRUE
 
+/obj/structure/table/rack/clothing
+	name = "clothing rack"
+	desc = "A mighty rack, suitable for grabbing and pushing. It's quite mobile."
+	icon = 'icons/obj/structure/urban/tailoring.dmi'
+	icon_state = "clothes_rack"
+	anchored = FALSE
+
 /obj/structure/table/rack/holorack/dismantle(obj/item/wrench/W, mob/user)
 	to_chat(user, SPAN_WARNING("You cannot dismantle \the [src]."))
 	return

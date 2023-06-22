@@ -1,3 +1,11 @@
+/obj/effect/decal/curb
+	icon = 'icons/obj/structure/urban/road_edges.dmi'
+	icon_state = "curb"
+	layer = 2
+
+/obj/effect/decal/curb/corner
+	icon_state = "curb_corner"
+
 /obj/effect/decal/road_marking
 	icon = 'icons/obj/decals/street/road_markings.dmi'
 	icon_state = "line"
@@ -6,8 +14,20 @@
 /obj/effect/decal/road_marking/center
 	icon_state = "center-line"
 
+/obj/effect/decal/road_marking/no_pass
+	icon_state = "no_pass"
+
 /obj/effect/decal/road_marking/crosswalk
 	icon_state = "pedestrian"
+
+/obj/effect/decal/road_marking/turn_right
+	icon_state = "turn_right"
+
+/obj/effect/decal/road_marking/turn_left
+	icon_state = "turn_left"
+
+/obj/effect/decal/road_marking/fork
+	icon_state = "fork"
 
 /obj/effect/decal/exterior_stairs
 	icon = 'icons/obj/structure/urban/ledges.dmi'

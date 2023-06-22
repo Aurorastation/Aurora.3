@@ -13,7 +13,7 @@
 	icon_state = "shadow"
 	layer = ON_TURF_LAYER
 
-/obj/structure/flora/tree/konyang/Initialize(mapload)
+/obj/structure/flora/tree/konyang/spring/Initialize(mapload)
 	. = ..()
 	cut_overlays()
 	overlays += /obj/effect/overlay/konyang_tree
