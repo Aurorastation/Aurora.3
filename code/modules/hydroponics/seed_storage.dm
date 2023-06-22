@@ -39,6 +39,7 @@
 	name = "Garden seed storage"
 	scanner = list("stats")
 	starting_seeds = list(
+		/obj/item/seeds/aghrasshseed = 3,
 		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
@@ -63,6 +64,7 @@
 		/obj/item/seeds/grapeseed = 3,
 		/obj/item/seeds/grassseed = 3,
 		/obj/item/seeds/guamiseed = 2,
+		/obj/item/seeds/gukheseed = 3,
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/limeseed = 3,
 		/obj/item/seeds/mossseed = 2,
@@ -84,9 +86,12 @@
 		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/riceseed = 3,
 		/obj/item/seeds/richcoffeeseed = 3,
+		/obj/item/seeds/sarezhiseed = 3,
 		/obj/item/seeds/seaweed = 3,
+		/obj/item/seeds/serkiflowerseed = 1,
 		/obj/item/seeds/shandseed = 2,
 		/obj/item/seeds/soyaseed = 3,
+		/obj/item/seeds/sthberryseed = 3,
 		/obj/item/seeds/strawberryseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sugartree = 2,
@@ -100,6 +105,7 @@
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/wulumunushaseed = 2,
+		/obj/item/seeds/xuiziseed = 3,
 		/obj/item/seeds/ylpha = 2,
 		/obj/item/seeds/clam = 15,
 		/obj/item/seeds/barnacle = 15,
@@ -113,6 +119,7 @@
 	name = "Xenobotany seed storage"
 	scanner = list("stats", "produce", "soil", "temperature", "light")
 	starting_seeds = list(
+		/obj/item/seeds/aghrasshseed = 3,
 		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/amanitamycelium = 2,
@@ -137,6 +144,7 @@
 		/obj/item/seeds/glowshroom = 2,
 		/obj/item/seeds/grapeseed = 3,
 		/obj/item/seeds/grassseed = 3,
+		/obj/item/seeds/gukheseed = 3,
 		/obj/item/seeds/koisspore = 3,
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/libertymycelium = 2,
@@ -158,7 +166,10 @@
 		/obj/item/seeds/reishimycelium = 2,
 		/obj/item/seeds/riceseed = 3,
 		/obj/item/seeds/richcoffeeseed = 3,
+		/obj/item/seeds/sarezhiseed = 3,
+		/obj/item/seeds/serkiflowerseed,
 		/obj/item/seeds/soyaseed = 3,
+		/obj/item/seeds/sthberryseed = 3,
 		/obj/item/seeds/strawberryseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
@@ -173,6 +184,7 @@
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/wulumunushaseed = 3,
+		/obj/item/seeds/xuiziseed = 3,
 		/obj/item/seeds/dynseed = 3,
 		/obj/item/seeds/fjylozyn = 3,
 		/obj/item/seeds/chickpeas = 3
