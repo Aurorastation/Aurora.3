@@ -12,7 +12,7 @@
 	desc = "Water, dense with algae and lustrous greenery. It maintains an almost glowing sea-blue sheen nonetheless."
 	icon_state = "unsmooth"
 	base_icon_state = "unsmooth"
-	icon = 'icons/turf/flooring/exoplanet/konyang_deep_water.dmi'
+	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_deep_water.dmi'
 	smooth = SMOOTH_TRUE
 
 /turf/simulated/floor/exoplanet/water/shallow
@@ -35,6 +35,6 @@
 	desc = "Water, dense with algae and lustrous greenery. It maintains an almost glowing sea-blue sheen nonetheless."
 	icon_state = "unsmooth"
 	base_icon_state = "unsmooth"
-	icon = 'icons/turf/flooring/exoplanet/konyang_smooth.dmi'
+	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_smooth_water.dmi'
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	canSmoothWith = list(/turf/simulated/floor/exoplanet/water/shallow/konyang, /turf/simulated/floor/exoplanet/water/konyang)

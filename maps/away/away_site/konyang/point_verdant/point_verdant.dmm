@@ -12,6 +12,13 @@
 /obj/structure/bed/stool/wood,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outer)
+"aw" = (
+/obj/structure/utility_pole/power/central,
+/obj/effect/overlay/overhead_line/end{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
 "aH" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/moss_dumplings{
@@ -23,6 +30,9 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outer)
+"bh" = (
+/turf/simulated/floor/sidewalk/detail,
+/area/point_verdant)
 "bu" = (
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -37,12 +47,26 @@
 /obj/structure/flora/rock/konyang/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"cJ" = (
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/point_verdant)
+"cL" = (
+/obj/structure/flora/tree/konyang,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/point_verdant)
+"cY" = (
+/turf/simulated/floor/concrete,
+/area/point_verdant)
 "cZ" = (
 /obj/structure/konyang_cliff{
 	icon_state = "corner_west"
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"dN" = (
+/obj/structure/flora/tree/konyang/blossom,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/point_verdant)
 "dP" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -53,9 +77,32 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outer)
+"fa" = (
+/obj/structure/flora/tree/konyang/blossom,
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant)
 "fk" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"fm" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff1-bottom";
+	layer = 2.1
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
+"fu" = (
+/obj/structure/konyang_cliff{
+	layer = 2.1
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
+"fw" = (
+/obj/structure/ledge{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "gn" = (
 /obj/structure/konyang_cliff,
 /obj/effect/decal/fake_object{
@@ -70,12 +117,28 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"gC" = (
+/obj/structure/konyang_cliff{
+	icon_state = "corner_east"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
+"gM" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "hG" = (
 /obj/structure/konyang_cliff{
 	icon_state = "corner_west"
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"hH" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
 "ii" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
@@ -90,6 +153,18 @@
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"iH" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/obj/structure/ledge{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant)
+"iL" = (
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "iW" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west"
@@ -193,6 +268,12 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"kI" = (
+/obj/effect/decal/exterior_stairs/right{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
 "kQ" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top2"
@@ -209,6 +290,12 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"le" = (
+/obj/structure/ledge{
+	dir = 5
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "lN" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
@@ -259,6 +346,13 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"nk" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/point_verdant)
+"ny" = (
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/point_verdant)
 "nL" = (
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/outer)
@@ -278,6 +372,29 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"oC" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-east"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant)
+"pe" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/point_verdant)
+"ph" = (
+/obj/structure/konyang_cliff{
+	layer = 2.1
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant)
+"pj" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/road_marking/center,
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "pm" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/box,
@@ -331,8 +448,27 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"qa" = (
+/obj/structure/railing/rope{
+	dir = 8
+	},
+/obj/structure/railing/rope/post{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant)
 "rf" = (
 /turf/unsimulated/mineral,
+/area/point_verdant)
+"rn" = (
+/obj/effect/overlay/overhead_line{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/paved,
+/area/point_verdant)
+"ro" = (
+/obj/structure/automobile_filler,
+/turf/simulated/floor/asphalt,
 /area/point_verdant)
 "sb" = (
 /obj/structure/konyang_cliff{
@@ -354,6 +490,18 @@
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"sK" = (
+/obj/effect/decal/road_marking/crosswalk{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"sY" = (
+/obj/structure/konyang_cliff{
+	icon_state = "botcorner_east"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
 "ti" = (
 /obj/structure/konyang_cliff,
 /obj/effect/decal/fake_object{
@@ -367,10 +515,32 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"tG" = (
+/obj/structure/flora/tree/konyang/fall,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/point_verdant)
+"tX" = (
+/obj/structure/railing/rope/post{
+	dir = 1
+	},
+/obj/structure/railing/rope{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant)
 "uc" = (
 /obj/structure/flora/rock/konyang/water,
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/outer)
+"uf" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "uj" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
@@ -415,6 +585,32 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"vj" = (
+/obj/effect/decal/road_marking/center,
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"vs" = (
+/obj/structure/railing/rope/post{
+	dir = 8;
+	layer = 3.02
+	},
+/obj/structure/railing/rope{
+	dir = 8
+	},
+/obj/structure/railing/rope/post{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant)
+"vu" = (
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "vz" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
@@ -452,6 +648,23 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"vL" = (
+/obj/effect/decal/exterior_stairs/left,
+/turf/simulated/floor/sidewalk/paved,
+/area/point_verdant)
+"vT" = (
+/obj/effect/decal/road_marking/center,
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"wb" = (
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "wf" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -460,6 +673,22 @@
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"wL" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
+"wR" = (
+/obj/structure/flora/tree/konyang/fall,
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant)
+"wX" = (
+/obj/structure/konyang_cliff{
+	icon_state = "corner_west"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
 "wY" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -529,22 +758,46 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"xu" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/concrete,
+/area/point_verdant)
 "xw" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom"
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"yf" = (
+/turf/simulated/floor/sidewalk/paved,
+/area/point_verdant)
+"yh" = (
+/obj/structure/utility_pole/street/crosswalk,
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
 "ys" = (
 /obj/structure/konyang_cliff{
 	icon_state = "botcorner_west"
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"yA" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "zg" = (
 /obj/structure/flora/tree/konyang,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"zp" = (
+/obj/structure/utility_pole/street/on,
+/obj/structure/ledge{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/paved,
+/area/point_verdant)
 "zF" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -607,16 +860,39 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"AA" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"AM" = (
+/obj/effect/decal/exterior_stairs/center,
+/turf/simulated/floor/sidewalk/paved,
+/area/point_verdant)
 "AS" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff1-bottom"
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"AT" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "AU" = (
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"Bz" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant)
 "BI" = (
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -651,9 +927,59 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"BT" = (
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"Ce" = (
+/obj/structure/lattice/catwalk/indoor/planks/stairs{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
+"Cg" = (
+/obj/effect/decal/road_marking/crosswalk,
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"Cz" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/obj/structure/railing/rope/post{
+	dir = 8;
+	layer = 3.02
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"CV" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"CY" = (
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/point_verdant)
+"De" = (
+/obj/effect/decal/exterior_stairs/right{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "Dx" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outer)
+"Dz" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
+"DW" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "EF" = (
 /obj/effect/decal/fake_object{
 	desc = "A soft cotton cloth strewn across the floor. Cozy.";
@@ -722,10 +1048,51 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"Fr" = (
+/obj/structure/flora/tree/konyang,
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant)
+"Fs" = (
+/obj/structure/ledge/corner{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"FR" = (
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_east"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
+"FU" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/paved,
+/area/point_verdant)
+"GE" = (
+/obj/effect/overlay/overhead_line{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
 "GF" = (
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"GY" = (
+/obj/effect/decal/exterior_stairs/center,
+/obj/structure/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/paved,
+/area/point_verdant)
+"Hb" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant)
 "Hz" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
@@ -749,6 +1116,13 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"HD" = (
+/obj/structure/railing/rope/post{
+	dir = 8;
+	layer = 3.02
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
 "HP" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top2"
@@ -759,6 +1133,9 @@
 /obj/structure/flora/tree/konyang,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outer)
+"HX" = (
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
 "Ia" = (
 /obj/effect/floor_decal/konyang_flowers,
 /obj/effect/decal/fake_object{
@@ -782,12 +1159,26 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"IJ" = (
+/obj/structure/railing/rope/post{
+	dir = 1
+	},
+/obj/structure/railing/rope{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/concrete,
+/area/point_verdant)
 "IR" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"IZ" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/sidewalk/paved,
+/area/point_verdant)
 "Ja" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west"
@@ -842,12 +1233,23 @@
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outer)
+"Jy" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant)
 "JF" = (
 /obj/structure/konyang_cliff{
 	icon_state = "botcorner_east"
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"JM" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
 "Ke" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2"
@@ -860,6 +1262,16 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"Kp" = (
+/obj/effect/decal/fake_object{
+	dir = 4;
+	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
+	icon_state = "bench";
+	layer = 2.4;
+	name = "bench"
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant)
 "Kt" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
@@ -873,10 +1285,43 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"KC" = (
+/obj/effect/decal/road_marking/crosswalk{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "KE" = (
 /obj/structure/konyang_cliff,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"KG" = (
+/obj/effect/decal/road_marking/center,
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"KH" = (
+/obj/structure/utility_pole/street/on,
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"KM" = (
+/obj/effect/decal/exterior_stairs/left{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"KT" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/obj/structure/closet/crate/bin/urban,
+/turf/simulated/floor/sidewalk/paved,
+/area/point_verdant)
+"Lz" = (
+/obj/structure/utility_pole/street/on{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "LN" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
@@ -907,18 +1352,56 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outer)
+"Md" = (
+/obj/structure/railing/rope/post,
+/obj/structure/railing/rope,
+/obj/structure/railing/rope/post{
+	dir = 1
+	},
+/obj/structure/railing/rope{
+	dir = 8
+	},
+/obj/structure/railing/rope/post{
+	dir = 8;
+	layer = 3.02
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant)
+"Mq" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/obj/structure/closet/crate/bin/urban/dumpster,
+/turf/simulated/floor/sidewalk/paved,
+/area/point_verdant)
 "MF" = (
 /obj/structure/konyang_cliff{
 	icon_state = "botcorner_west"
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"Na" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"Nc" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant)
 "Ng" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff1-bottom"
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"Nh" = (
+/obj/structure/ledge{
+	dir = 9
+	},
+/turf/simulated/floor/sidewalk/paved,
+/area/point_verdant)
 "Nk" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -929,12 +1412,28 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outer)
+"Nq" = (
+/obj/effect/decal/exterior_stairs/right,
+/turf/simulated/floor/sidewalk/paved,
+/area/point_verdant)
 "Nw" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top2"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outer)
+"NC" = (
+/obj/structure/utility_pole/power{
+	dir = 8
+	},
+/obj/effect/overlay/overhead_line/end{
+	dir = 8
+	},
+/obj/effect/overlay/overhead_line/end{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/detail,
+/area/point_verdant)
 "NS" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
@@ -950,18 +1449,64 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"Od" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff1-bottom";
+	layer = 2.1
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant)
+"Oi" = (
+/obj/effect/decal/road_marking,
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "OM" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"OU" = (
+/obj/structure/utility_pole/power{
+	dir = 8
+	},
+/obj/effect/overlay/overhead_line/end{
+	dir = 8
+	},
+/obj/effect/overlay/overhead_line/end{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
 "Pf" = (
 /obj/structure/konyang_cliff{
 	icon_state = "botcorner_east"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outer)
+"PF" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/obj/structure/utility_pole/street/on,
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"PG" = (
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_west"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
+"PI" = (
+/obj/effect/overlay/overhead_line{
+	dir = 4
+	},
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/road_marking/center,
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "PM" = (
 /obj/effect/floor_decal/konyang_flowers,
 /obj/effect/decal/fake_object{
@@ -994,6 +1539,49 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"QD" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"QX" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"Rd" = (
+/obj/structure/ledge{
+	dir = 10
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"Rp" = (
+/obj/structure/ledge,
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"RN" = (
+/obj/structure/railing/rope/post,
+/obj/structure/railing/rope,
+/turf/simulated/floor/concrete,
+/area/point_verdant)
+"Sf" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-east"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
+"SC" = (
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"TB" = (
+/obj/effect/decal/exterior_stairs/left{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
 "TL" = (
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_west"
@@ -1003,6 +1591,12 @@
 "Ue" = (
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"Uw" = (
+/obj/effect/decal/exterior_stairs/center{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
 "UE" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff1-bottom"
@@ -1019,12 +1613,90 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outer)
+"UO" = (
+/obj/structure/ledge{
+	dir = 9
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"Vf" = (
+/obj/structure/automobile_filler,
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"Vj" = (
+/obj/effect/overlay/overhead_line{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"VQ" = (
+/obj/structure/ledge{
+	dir = 5
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"VS" = (
+/obj/effect/decal/road_marking/crosswalk{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"WE" = (
+/obj/effect/decal/exterior_stairs/left{
+	dir = 8
+	},
+/obj/structure/ledge,
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"WG" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
+"Xp" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top2"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
+"Xy" = (
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/obj/effect/decal/road_marking,
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"XL" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/road_marking/center,
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"YW" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-west"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
 "Za" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"Zi" = (
+/obj/structure/automobile{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
+"Zq" = (
+/obj/structure/konyang_cliff{
+	icon_state = "botcorner_west"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
 "Zu" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
@@ -1043,6 +1715,12 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outer)
+"ZH" = (
+/obj/effect/decal/exterior_stairs/center{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "ZX" = (
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_west"
@@ -13351,19 +14029,19 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+oC
+oC
+oC
+oC
+oC
+oC
+oC
+oC
+oC
+oC
+oC
+oC
+oC
 Al
 Al
 Al
@@ -13519,34 +14197,34 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+BT
+BT
+BT
+vL
+vL
+yf
+yf
+yf
+yf
+yf
+Na
+WG
+WG
+WG
+Na
+yf
+yf
 Al
 Al
 Al
@@ -13701,34 +14379,34 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+BT
+BT
+BT
+AM
+AM
+yf
+yf
+yf
+yf
+yf
+Na
+WG
+WG
+WG
+Na
+yf
+yf
 Al
 Al
 Al
@@ -13883,34 +14561,34 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+yf
+BT
+QX
+QX
+Nq
+Nq
+yf
+yf
+yf
+yf
+yf
+Na
+WG
+WG
+WG
+Na
+yf
+yf
 Al
 Al
 Al
@@ -14051,47 +14729,47 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+BT
+BT
+BT
+BT
+BT
+BT
+iL
+iL
+uf
+iL
+iL
+BT
+BT
+BT
+yf
+yf
+yf
+yf
+yf
+rn
+yf
+yf
+yf
+yf
+yf
+BT
+FU
+Hb
+Dz
+HX
+Ce
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+wL
 Al
 Al
 Al
@@ -14233,47 +14911,47 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+BT
+BT
+BT
+BT
+BT
+bh
+iL
+iL
+uf
+iL
+iL
+BT
+BT
+BT
+yf
+yf
+yf
+yf
+yf
+rn
+yf
+yf
+yf
+yf
+yf
+BT
+zp
+ph
+fm
+HX
+hH
+hH
+hH
+hH
+HX
+HX
+CY
+CY
+CY
+HX
+Xp
 Al
 Al
 Al
@@ -14415,47 +15093,47 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+BT
+BT
+BT
+BT
+BT
+KH
+iL
+iL
+uf
+iL
+Lz
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+GE
+BT
+BT
+BT
+BT
+BT
+Nh
+yf
+Hb
+Dz
+HX
+hH
+hH
+hH
+hH
+HX
+CY
+CY
+CY
+CY
+HX
+Xp
 Al
 Al
 Al
@@ -14597,47 +15275,47 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+BT
+BT
+BT
+BT
+BT
+BT
+Cg
+Cg
+uf
+Cg
+Cg
+bh
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+GE
+BT
+BT
+BT
+BT
+BT
+Mq
+yf
+ph
+fm
+HX
+HX
+HX
+HX
+HX
+HX
+CY
+CY
+CY
+CY
+HX
+wL
 Al
 Al
 Al
@@ -14779,47 +15457,47 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+BT
+bh
+BT
+BT
+yh
+bh
+iL
+iL
+uf
+gM
+gM
+BT
+BT
+BT
+BT
+BT
+bh
+BT
+BT
+OU
+bh
+BT
+BT
+BT
+BT
+KT
+yf
+Hb
+Dz
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+Xp
 Al
 Al
 Al
@@ -14961,47 +15639,47 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+iL
+wb
+iL
+iL
+VS
+DW
+iL
+iL
+iL
+iL
+iL
+iL
+sK
+iL
+iL
+wb
+iL
+iL
+iL
+Vj
+iL
+iL
+iL
+iL
+wb
+iL
+iL
+iL
+iL
+iL
+wb
+iL
+iL
+iL
+iL
+wb
+iL
+iL
+iL
+iL
+wb
 Al
 Al
 Al
@@ -15143,47 +15821,47 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+iL
+iL
+iL
+iL
+VS
+DW
+iL
+iL
+iL
+iL
+iL
+iL
+sK
+iL
+iL
+iL
+iL
+iL
+iL
+Vj
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
 Al
 Al
 Al
@@ -15325,47 +16003,47 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+vj
+vj
+vj
+vj
+vj
+vj
+iL
+iL
+iL
+iL
+KG
+vT
+pj
+pj
+pj
+pj
+pj
+pj
+pj
+PI
+pj
+pj
+pj
+pj
+pj
+pj
+pj
+pj
+pj
+pj
+pj
+pj
+pj
+pj
+XL
+pj
+pj
+pj
+XL
+pj
+pj
 Al
 Al
 Al
@@ -15507,47 +16185,47 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+iL
+iL
+iL
+iL
+VS
+iL
+iL
+iL
+iL
+iL
+iL
+Oi
+sK
+iL
+iL
+iL
+iL
+iL
+iL
+Vj
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+QD
+iL
+QD
+iL
+iL
+iL
 Al
 Al
 Al
@@ -15689,47 +16367,47 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+iL
+vu
+iL
+iL
+VS
+iL
+iL
+iL
+iL
+iL
+iL
+Oi
+sK
+iL
+iL
+vu
+iL
+iL
+iL
+Vj
+iL
+iL
+iL
+iL
+vu
+iL
+iL
+iL
+iL
+iL
+vu
+iL
+iL
+iL
+iL
+vu
+iL
+iL
+iL
+iL
+vu
 Al
 Al
 Al
@@ -15871,51 +16549,51 @@ Al
 Al
 Al
 Al
+BT
+bh
+BT
+BT
+BT
+bh
+yA
+yA
+AT
+iL
+iL
+yh
+bh
+BT
+BT
+BT
+bh
+BT
+BT
+NC
+BT
+BT
+BT
+iL
+iL
+iL
+Zi
+iL
+iL
+iL
+iL
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+Jy
+Hb
+Dz
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+wL
+yf
 Al
 Al
 Al
@@ -16053,51 +16731,51 @@ Al
 Al
 Al
 Al
+BT
+BT
+BT
+BT
+BT
+BT
+KC
+KC
+Xy
+KC
+KC
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+GE
+BT
+BT
+BT
+iL
+iL
+iL
+ro
+iL
+iL
+iL
+iL
 Al
 Al
+ph
+Od
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+Xp
+yf
 Al
 Al
 Al
@@ -16235,51 +16913,51 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+BT
+BT
+BT
+BT
+BT
+KH
+iL
+iL
+AT
+iL
+Lz
+bh
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+GE
+BT
+BT
+BT
+BT
+BT
+BT
+Vf
+BT
+BT
+BT
+BT
+HD
+Nc
+Hb
+Bz
+Jy
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+Xp
+yf
 Al
 Al
 Al
@@ -16417,51 +17095,51 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+BT
+BT
+BT
+BT
+BT
+bh
+iL
+iL
+AT
+iL
+iL
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+GE
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+HD
+Nc
+ph
+Od
+Jy
+HX
+PG
+YW
+YW
+YW
+wX
+Zq
+wL
+IZ
 Al
 Al
 Al
@@ -16599,51 +17277,51 @@ Al
 Al
 Al
 Al
+BT
+BT
+BT
+BT
+BT
+BT
+iL
+iL
+AT
+iL
+iL
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+BT
+aw
+BT
+BT
+QX
+QX
+Fs
+BT
+BT
+BT
+BT
+BT
+SC
+HD
+Nc
+Hb
+Bz
 Al
+HX
+wL
 Al
+Jy
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+fu
+fm
+wL
+yf
 Al
 Al
 Al
@@ -16803,29 +17481,29 @@ Al
 Al
 Al
 Al
+tX
+Md
+PF
+UO
+De
+ZH
+KM
+fw
+Rd
+HD
+Nc
+ph
+fm
+HX
+HX
+wL
+wR
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+Jy
+fu
+fm
+Xp
+yf
 Al
 Al
 Al
@@ -16947,6 +17625,14 @@ Al
 Al
 Al
 Al
+Jy
+Al
+Al
+Al
+Al
+Al
+Al
+Fr
 Al
 Al
 Al
@@ -16977,37 +17663,29 @@ Al
 Al
 Al
 Al
+cY
+RN
+CV
+AA
+iL
+iL
+iL
+iL
+Rp
+HD
+Nc
+Hb
+Dz
+HX
+HX
+wL
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+Jy
+fu
+fm
+Xp
+yf
 Al
 Al
 Al
@@ -17167,29 +17845,29 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+cY
+RN
+CV
+AA
+WG
+WG
+WG
+WG
+Rp
+HD
+Nc
+Hb
+Dz
+HX
+HX
+FR
+Sf
+Sf
+Sf
+gC
+sY
+wL
+yf
 Al
 Al
 Al
@@ -17309,6 +17987,8 @@ Al
 Al
 Al
 Al
+Fr
+Jy
 Al
 Al
 Al
@@ -17316,9 +17996,11 @@ Al
 Al
 Al
 Al
+Jy
 Al
 Al
 Al
+Fr
 Al
 Al
 Al
@@ -17345,38 +18027,34 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+cY
+RN
+CV
+le
+JM
+JM
+JM
+JM
+WE
+HD
+Nc
+ph
+fm
+HX
+CY
+HX
+HX
+HX
+HX
+HX
+HX
+wL
+IZ
+BT
+BT
+BT
+BT
+BT
 Al
 Al
 Al
@@ -17488,14 +18166,17 @@ Al
 Al
 Al
 Al
+Jy
 Al
 Al
 Al
 Al
 Al
 Al
+Fr
 Al
 Al
+Jy
 Al
 Al
 Al
@@ -17528,37 +18209,34 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+cY
+RN
+VQ
+QX
+QX
+BT
+BT
+BT
+BT
+HD
+Nc
+Hb
+Dz
+HX
+CY
+CY
+CY
+CY
+CY
+CY
+CY
+Xp
+yf
+BT
+BT
+BT
+BT
+BT
 Al
 Al
 Al
@@ -17667,8 +18345,10 @@ Al
 Al
 Al
 Al
+Fr
 Al
 Al
+Jy
 Al
 Al
 Al
@@ -17678,8 +18358,10 @@ Al
 Al
 Al
 Al
+Jy
 Al
 Al
+Jy
 Al
 Al
 Al
@@ -17709,38 +18391,34 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+Kp
+cY
+qa
+vs
+vL
+BT
+BT
+BT
+BT
+HD
+Nc
+ph
+fm
+HX
+CY
+CY
+CY
+CY
+CY
+CY
+HX
+Xp
+yf
+BT
+BT
+BT
+BT
+BT
 Al
 Al
 Al
@@ -17869,6 +18547,7 @@ Al
 Al
 Al
 Al
+Jy
 Al
 Al
 Al
@@ -17894,35 +18573,34 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+cY
+cY
+cY
+cY
+GY
+QX
+QX
+QX
+QX
+Cz
+iH
+ph
+fm
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+wL
+yf
+TB
+Uw
+Uw
+kI
+BT
 Al
 Al
 Al
@@ -18033,20 +18711,25 @@ Al
 Al
 Al
 Al
+Fr
 Al
 Al
 Al
 Al
+Jy
 Al
 Al
 Al
 Al
 Al
+fa
 Al
 Al
 Al
 Al
+wR
 Al
+Jy
 Al
 Al
 Al
@@ -18072,39 +18755,34 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+cY
+cY
+cY
+cY
+tX
+tX
+tX
+tX
+tX
+tX
+tX
+tX
+IJ
+tX
+tX
+tX
+tX
+tX
+tX
+tX
+tX
+tX
+vs
+cY
+cY
+cY
+cY
+CV
 Al
 Al
 Al
@@ -18233,6 +18911,7 @@ Al
 Al
 Al
 Al
+Jy
 Al
 Al
 Al
@@ -18258,35 +18937,34 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+xu
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+CV
 Al
 Al
 Al
@@ -18397,12 +19075,16 @@ Al
 Al
 Al
 Al
+ny
+ny
 Al
 Al
 Al
 Al
+Jy
 Al
 Al
+wR
 Al
 Al
 Al
@@ -18437,38 +19119,34 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+xu
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+cY
+CV
 Al
 Al
 Al
@@ -18577,28 +19255,28 @@ Al
 Al
 Al
 Al
+ny
+nk
+ny
+ny
+ny
+ny
+fa
+Al
+Jy
 Al
 Al
 Al
 Al
 Al
 Al
+Jy
 Al
 Al
+fa
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+wR
 Al
 Al
 Al
@@ -18759,21 +19437,21 @@ Al
 Al
 Al
 Al
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+nk
+ny
+nk
+ny
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+wR
 Al
 Al
 Al
@@ -18938,29 +19616,29 @@ Al
 Al
 Al
 Al
+ny
+ny
+ny
+ny
+ny
+cJ
+cJ
+cJ
+cJ
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+Jy
 Al
 Al
 Al
@@ -19120,29 +19798,29 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+ny
+cL
+ny
+cJ
+cJ
+cJ
+cJ
+pe
+cJ
+cJ
+tG
+cJ
+cJ
+cJ
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+Jy
 Al
 Al
 Al
@@ -19302,28 +19980,28 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+ny
+ny
+ny
+cJ
+cJ
+cJ
+cJ
+pe
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+pe
+cJ
+ny
+ny
+ny
+ny
 Al
 Al
 Al
@@ -19483,31 +20161,31 @@ Al
 Al
 Al
 Al
+ny
+ny
+ny
+ny
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+pe
+cJ
+cJ
+cJ
+cJ
+cJ
+ny
+ny
+ny
+ny
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+Jy
 Al
 Al
 Al
@@ -19664,29 +20342,29 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+ny
+nk
+ny
+ny
+ny
+cJ
+cJ
+cJ
+tG
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+tG
+cJ
+cJ
+cJ
+ny
+ny
+ny
 Al
 Al
 Al
@@ -19846,29 +20524,29 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+ny
+ny
+ny
+nk
+ny
+ny
+ny
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+ny
+nk
+ny
+ny
+ny
+ny
 Al
 Al
 Al
@@ -20029,28 +20707,28 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+ny
+ny
+nk
+ny
+ny
+ny
+cJ
+cJ
+pe
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+nk
+nk
+ny
+ny
+Jy
 Al
 Al
 Al
@@ -20212,30 +20890,30 @@ Al
 Al
 Al
 Al
+ny
+ny
+ny
+ny
+ny
+nk
+ny
+nk
+ny
+ny
+dN
+ny
+Jy
 Al
 Al
 Al
+Jy
+Jy
+Al
+Jy
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+fa
 Al
 Al
 Al
@@ -20398,17 +21076,17 @@ Al
 Al
 Al
 Al
+ny
+nk
+ny
+ny
+ny
+ny
+ny
+ny
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+fa
 Al
 Al
 Al
@@ -20578,6 +21256,11 @@ Al
 Al
 Al
 Al
+Fr
+Al
+Al
+Al
+Jy
 Al
 Al
 Al
@@ -20587,12 +21270,7 @@ Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
+Jy
 Al
 Al
 Al
@@ -20766,24 +21444,24 @@ Al
 Al
 Al
 Al
+Jy
 Al
 Al
 Al
 Al
 Al
+Jy
 Al
 Al
 Al
 Al
+fa
+Al
+Jy
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
+Fr
 Al
 Al
 Al
@@ -20944,18 +21622,18 @@ Al
 Al
 Al
 Al
+Fr
 Al
 Al
 Al
+Jy
 Al
 Al
 Al
+Jy
 Al
-Al
-Al
-Al
-Al
-Al
+Jy
+Jy
 Al
 Al
 Al
@@ -21129,15 +21807,15 @@ Al
 Al
 Al
 Al
+Jy
+Al
+Al
+fa
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
+Jy
+Jy
 Al
 Al
 Al
@@ -21305,6 +21983,7 @@ Al
 Al
 Al
 Al
+Jy
 Al
 Al
 Al
@@ -21316,17 +21995,16 @@ Al
 Al
 Al
 Al
+Fr
+Jy
+Jy
 Al
 Al
 Al
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
+Fr
+Fr
 Al
 Al
 Al
@@ -21496,7 +22174,7 @@ Al
 Al
 Al
 Al
-Al
+Jy
 Al
 Al
 Al
@@ -21669,23 +22347,23 @@ Al
 Al
 Al
 Al
+Jy
+Al
+Al
+Al
+Fr
 Al
 Al
 Al
 Al
+Jy
 Al
 Al
 Al
+Jy
 Al
 Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+Fr
 Al
 Al
 Al
@@ -21859,7 +22537,7 @@ Al
 Al
 Al
 Al
-Al
+Fr
 Al
 Al
 Al
@@ -22219,7 +22897,7 @@ Al
 Al
 Al
 Al
-Al
+Jy
 Al
 Al
 Al

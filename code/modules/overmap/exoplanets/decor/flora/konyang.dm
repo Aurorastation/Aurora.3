@@ -2,14 +2,14 @@
 /obj/structure/flora/tree/konyang
 	name = "jungle beet tree"
 	desc = "A squat tree resembling an overgrown beet, this is known for its extremely strong roots and low center of mass - making it able to survive harsh Konyanger seasonal weather."
-	icon = 'icons/obj/flora/konyang/trees.dmi'
+	icon = 'icons/obj/flora/konyang/beet_tree.dmi'
 	layer = 9
-	icon_state = "beet_tree_example"
+	icon_state = "tree_example"
 	pixel_x = -32
 	stumptype = /obj/structure/flora/stump
 
-/obj/effect/overlay/konyang_tree
-	icon = 'icons/obj/flora/konyang/trees.dmi'
+/obj/effect/overlay/konyang_tree//shadow underlay
+	icon = 'icons/obj/flora/konyang/beet_tree.dmi'
 	icon_state = "shadow"
 	layer = ON_TURF_LAYER
 
@@ -19,6 +19,38 @@
 	overlays += /obj/effect/overlay/konyang_tree
 	icon_state = "beet_tree[rand(1, 3)]"
 	return
+
+/obj/structure/flora/tree/konyang/blossom
+	desc = "A blossoming beet tree, its green canopy is beginning to take a lilac coloration as its leaves reach the end of their seasonal maturity."
+	icon_state = "blossom_beet_tree_example"
+
+/obj/structure/flora/tree/konyang/blossom/Initialize(mapload)
+	. = ..()
+	cut_overlays()
+	overlays += /obj/effect/overlay/konyang_tree
+	icon_state = "blossom_beet_tree[rand(1, 3)]"
+	return
+
+/obj/structure/flora/tree/konyang/fall
+	desc = "A marvelous example of a jungle beet tree shedding its leaves. It takes on a deep pink tone, while its leaves slowly crumple and drift into the wind."
+	icon_state = "fall_beet_tree_example"
+
+/obj/structure/flora/tree/konyang/fall/Initialize(mapload)
+	. = ..()
+	cut_overlays()
+	overlays += /obj/effect/overlay/konyang_tree
+	icon_state = "fall_beet_tree[rand(1, 3)]"
+	return
+
+/obj/effect/decal/cleanable/generic/beet_tree_petals
+	name = "beet tree petals"
+	desc = "A wild assortment of loose petals from a beet tree, more akin to the shedding of flowers in appearance."
+	icon = 'icons/obj/flora/konyang/clutter.dmi'
+	icon_state = "petals"
+
+/obj/effect/decal/cleanable/generic/beet_tree_petals/New()
+	..()
+	icon_state = "petals[rand(1, 6)]"
 //cliff faces
 
 /obj/structure/konyang_cliff

@@ -33,6 +33,41 @@
 	. = ..()
 	update_icon()
 
+/obj/structure/railing/rope
+	name = "wooden rope"
+	desc = "A simple rope tied off to protect against careless trespass."
+	icon = 'icons/obj/structure/urban/wood.dmi'
+	icon_state = "rope-railing"
+	color = null
+	anchored = TRUE
+	can_be_unanchored = FALSE
+	layer = 3.01
+
+/obj/structure/railing/rope/Initialize()
+	. = ..()
+	color = null
+
+/obj/structure/railing/rope/post
+	name = "wooden rope post"
+	desc = "A simple pole driven into something, for tying ropes onto."
+	icon_state = "post"
+	density = FALSE
+	layer = OBJ_LAYER
+
+/obj/structure/railing/chainlink_fence
+	name = "chainlink industrial fencing"
+	desc = "A tall, imposing metal fence. Not to be confused with the slightly more popular Chainlink of recent years."
+	icon = 'icons/obj/structure/industrial/fencing_tall.dmi'
+	icon_state = "fence"
+	color = null
+	anchored = TRUE
+	can_be_unanchored = FALSE
+	layer = 3.01
+
+/obj/structure/railing/chainlink_fence/Initialize()
+	. = ..()
+	color = null
+
 /obj/structure/railing/New(var/newloc, var/material_key = DEFAULT_WALL_MATERIAL)
 	material = material_key // Converted to datum in initialize().
 	..(newloc)
