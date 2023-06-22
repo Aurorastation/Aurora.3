@@ -23337,7 +23337,7 @@
 "lrh" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/loot,
-/obj/structure/closet/crate,
+/obj/structure/closet,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "lrD" = (
@@ -34399,6 +34399,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"qNX" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/closet,
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard)
 "qOt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/firedoor,
@@ -56958,7 +56964,7 @@ qgN
 ojK
 iAB
 oIL
-uLC
+qNX
 fsf
 oAL
 tGP
