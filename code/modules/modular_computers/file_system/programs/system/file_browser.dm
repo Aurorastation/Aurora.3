@@ -118,9 +118,9 @@
 			RHDD.remove_file(file)
 
 		if("PRG_closefile")
+			. = TRUE
 			open_file = null
 			error = null
-			SStgui.update_uis(src)
 
 		if("PRG_clone")
 			. = TRUE
