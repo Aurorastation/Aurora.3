@@ -34,7 +34,6 @@
 	if(download_progress >= loaded_article.size)
 		downloading = FALSE
 		requires_ntnet = FALSE // Turn off NTNet requirement as we already loaded the file into local memory.
-	SSnanoui.update_uis(NM)
 
 /datum/computer_file/program/newsbrowser/kill_program()
 	..()
@@ -57,19 +56,23 @@
 		data["download_maxprogress"] = loaded_article.size
 		data["download_rate"] = download_netspeed
 	else										// Viewing list of articles
-		var/list/all_articles = list()
-		for(var/datum/computer_file/data/news_article/F in ntnet_global.available_news)
-			if(!show_archived && F.archived)
-				continue
-			all_articles.Add(list(list(
-				"name" = F.filename,
-				"size" = F.size,
-				"uid" = F.uid,
-				"archived" = F.archived
-			)))
-		data["all_articles"] = all_articles
 		data["showing_archived"] = show_archived
 
+	return data
+
+/datum/computer_file/program/newsbrowser/ui_static_data(mob/user)
+	var/list/data = list()
+	var/list/all_articles = list()
+	for(var/datum/computer_file/data/news_article/F in ntnet_global.available_news)
+		if(!show_archived && F.archived)
+			continue
+		all_articles.Add(list(list(
+			"name" = F.filename,
+			"size" = F.size,
+			"uid" = F.uid,
+			"archived" = F.archived
+		)))
+	data["all_articles"] = all_articles
 	return data
 
 /datum/computer_file/program/newsbrowser/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -116,3 +119,4 @@
 		if("PRG_toggle_archived")
 			. = TRUE
 			show_archived = !show_archived
+			computer.update_static_data_for_all_viewers()
