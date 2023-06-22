@@ -74,7 +74,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	pregame()
 	restart_timeout = config.restart_timeout
 
-/datum/controller/subsystem/ticker/stat_entry()
+/datum/controller/subsystem/ticker/stat_entry(msg)
 	var/state = ""
 	switch (current_state)
 		if (GAME_STATE_PREGAME)

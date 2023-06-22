@@ -1210,7 +1210,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 				return {"<a href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'>([a.text_tag])</a>"}
 			else
 				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/chat)
-				return S.icon_tag("accent-[used_accent]")
+				return S.icon_tag("accent-[a.tag_icon]")
 
 /mob/assign_player(var/mob/user)
 	ckey = user.ckey

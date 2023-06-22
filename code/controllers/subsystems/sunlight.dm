@@ -15,7 +15,7 @@
 /datum/controller/subsystem/sunlight/New()
 	NEW_SS_GLOBAL(SSsunlight)
 
-/datum/controller/subsystem/sunlight/stat_entry()
+/datum/controller/subsystem/sunlight/stat_entry(msg)
 	..("A:[config.sun_accuracy] LP:[light_points.len] Z:[config.sun_target_z]")
 
 /datum/controller/subsystem/sunlight/Initialize()

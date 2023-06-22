@@ -234,7 +234,7 @@ if(Datum.isprocessing) {\
 			queue.Cut(i)
 			return
 
-/datum/controller/subsystem/machinery/stat_entry()
+/datum/controller/subsystem/machinery/stat_entry(msg)
 	..({"\n\
 		Queues: \
 		Pipes [pipenets.len] \

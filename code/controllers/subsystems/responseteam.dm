@@ -32,7 +32,7 @@
 			available_teams += ert
 		all_ert_teams += ert
 
-/datum/controller/subsystem/distress/stat_entry()
+/datum/controller/subsystem/distress/stat_entry(msg)
 	var/out = "CC:[can_call_ert]"
 	..(out)
 

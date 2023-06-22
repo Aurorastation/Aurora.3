@@ -16,7 +16,7 @@ var/datum/controller/subsystem/orbit/SSorbit
 /datum/controller/subsystem/orbit/Recover()
 	src.processing = SSorbit.processing
 
-/datum/controller/subsystem/orbit/stat_entry()
+/datum/controller/subsystem/orbit/stat_entry(msg)
 	..("P:[processing.len]")
 
 

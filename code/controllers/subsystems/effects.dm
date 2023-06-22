@@ -69,7 +69,7 @@ var/datum/controller/subsystem/effects/SSeffects
 		if (MC_TICK_CHECK)
 			return
 
-/datum/controller/subsystem/effects/stat_entry()
+/datum/controller/subsystem/effects/stat_entry(msg)
 	..("E:[effect_systems.len] V:[visuals.len]")
 
 /datum/controller/subsystem/effects/Recover()

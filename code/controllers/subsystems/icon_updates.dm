@@ -6,13 +6,13 @@
 	flags = SS_TICKER
 	priority = SS_PRIORITY_ICON_UPDATE
 	init_order = SS_INIT_ICON_UPDATE
-	
+
 	var/list/queue = list()
 
 /datum/controller/subsystem/icon/New()
 	NEW_SS_GLOBAL(SSicon_update)
 
-/datum/controller/subsystem/icon/stat_entry()
+/datum/controller/subsystem/icon/stat_entry(msg)
 	..("QU:[queue.len]")
 
 /datum/controller/subsystem/icon/Initialize()

@@ -8,7 +8,7 @@
 
 	var/list/currentrun = list()
 
-/datum/controller/subsystem/ping/stat_entry()
+/datum/controller/subsystem/ping/stat_entry(msg)
 	..("P:[clients.len]")
 
 /datum/controller/subsystem/ping/fire(resumed = FALSE)

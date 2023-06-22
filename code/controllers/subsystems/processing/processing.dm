@@ -13,7 +13,7 @@ var/datum/controller/subsystem/processing/SSprocessing
 /datum/controller/subsystem/processing/New()
 	NEW_SS_GLOBAL(SSprocessing)
 
-/datum/controller/subsystem/processing/stat_entry()
+/datum/controller/subsystem/processing/stat_entry(msg)
 	..("[stat_tag]:[processing.len]")
 
 /datum/controller/subsystem/processing/fire(resumed = 0)

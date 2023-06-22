@@ -1,7 +1,7 @@
 macro "borghotkeymode"
 	elem
 		name = "TAB"
-		command = ".winset \"mainwindow.macro=borgmacro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5\""
+		command = ".winset \"mainwindow.macro=borgmacro hotkey_toggle.is-checked=false input.focus=true \""
 	elem
 		name = "CENTER+REP"
 		command = ".center"
@@ -222,7 +222,7 @@ macro "borghotkeymode"
 macro "macro"
 	elem
 		name = "TAB"
-		command = ".winset \"mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.background-color=#F0F0F0\""
+		command = ".winset \"mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true \""
 	elem
 		name = "CENTER+REP"
 		command = ".center"
@@ -392,7 +392,7 @@ macro "macro"
 macro "hotkeymode"
 	elem
 		name = "TAB"
-		command = ".winset \"mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5\""
+		command = ".winset \"mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true \""
 	elem
 		name = "CENTER+REP"
 		command = ".center"
@@ -909,36 +909,6 @@ menu "menu"
 		name = "&Resizing"
 		command = ""
 		saved-params = "is-checked"
-	elem
-		name = "Enable &vertical splitter"
-		command = ".winset \"mainwindow.mainvsplit.show-splitter true\" "
-		category = "&Resizing"
-		is-checked = true
-		can-check = true
-		group = "splitter_vertical"
-		saved-params = "is-checked"
-	elem
-		name = "Disable &vertical splitter"
-		command = ".winset \"mainwindow.mainvsplit.show-splitter false\" "
-		category = "&Resizing"
-		can-check = true
-		group = "splitter_vertical"
-		saved-params = "is-checked"
-	elem
-		name = "Enable &horizontal splitter"
-		command = ".winset \"rpane.rpanewindow.show-splitter true;\" "
-		category = "&Resizing"
-		is-checked = true
-		can-check = true
-		group = "splitter_horizontal"
-		saved-params = "is-checked"
-	elem
-		name = "Disable &horizontal splitter"
-		command = ".winset \"rpane.rpanewindow.show-splitter false;\" "
-		category = "&Resizing"
-		can-check = true
-		group = "splitter_horizontal"
-		saved-params = "is-checked"
 
 window "mapwindow"
 	elem "mapwindow"
@@ -966,24 +936,6 @@ window "mapwindow"
 		saved-params = "icon-size"
 		on-show = ".winset\"mainwindow.mainvsplit.left=mapwindow\""
 		on-hide = ".winset\"mainwindow.mainvsplit.left=\""
-
-window "statwindow"
-	elem "statwindow"
-		type = MAIN
-		pos = 281,0
-		size = 640x480
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		saved-params = "pos;size;is-minimized;is-maximized"
-		is-pane = true
-	elem "statbrowser"
-		type = BROWSER
-		pos = 0,0
-		size = 640x480
-		anchor1 = 0,0
-		anchor2 = 100,100
-		is-visible = false
-		saved-params = ""
 
 window "mainwindow"
 	elem "mainwindow"
@@ -1020,7 +972,7 @@ window "mainwindow"
 		background-color = none
 		saved-params = ""
 		text = "Hotkey Toggle"
-		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5 : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.background-color=#F0F0F0\""
+		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true\""
 		is-flat = true
 		button-type = pushbox
 	elem "mainvsplit"
@@ -1041,7 +993,6 @@ window "mainwindow"
 		anchor2 = 100,100
 		font-family = "Calibri Light"
 		font-size = 12
-		background-color = #d0e6e3
 		is-default = true
 		saved-params = "command"
 	elem "saybutton"
@@ -1050,7 +1001,6 @@ window "mainwindow"
 		size = 40x20
 		anchor1 = 100,100
 		anchor2 = none
-		background-color = #8cd0cd
 		saved-params = "is-checked"
 		text = "Chat"
 		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\""
@@ -1085,11 +1035,11 @@ window "outputwindow"
 	elem "browseroutput"
 		type = BROWSER
 		pos = 0,0
-		size = 640x456
+		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
+		background-color = #ffffff
 		is-visible = false
-		is-disabled = true
 		saved-params = ""
 	elem "output"
 		type = OUTPUT
@@ -1101,24 +1051,22 @@ window "outputwindow"
 		saved-params = ""
 
 window "rpane"
-	elem "rpane"
+	elem "infowindow"
 		type = MAIN
 		pos = 281,0
 		size = 640x480
-		anchor1 = none
-		anchor2 = none
-		background-color = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
-		outer-size = 654x494
-	elem "rpanewindow"
+	elem "info"
 		type = CHILD
-		pos = 0,0
-		size = 638x474
+		pos = 0,30
+		size = 640x445
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = none
 		saved-params = "splitter"
+		left = "statwindow"
 		right = "outputwindow"
 		is-vert = false
 	elem "rulesb"
@@ -1196,33 +1144,24 @@ window "rpane"
 		saved-params = "is-checked"
 		text = "Discord"
 		command = "open_discord"
-	elem "textb"
-		type = BUTTON
+
+window "statwindow"
+	elem "statwindow"
+		type = MAIN
+		pos = 281,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "pos;size;is-minimized;is-maximized"
+		is-pane = true
+	elem "statbrowser"
+		type = BROWSER
 		pos = 0,0
-		size = 60x16
-		anchor1 = none
-		anchor2 = none
-		background-color = none
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
 		is-visible = false
-		saved-params = "is-checked"
-		text = "Text"
-		command = ".winset \"rpanewindow.left=;\""
-		is-checked = true
-		group = "rpanemode"
-		button-type = pushbox
-	elem "infob"
-		type = BUTTON
-		pos = 64,0
-		size = 60x16
-		anchor1 = none
-		anchor2 = none
-		background-color = none
-		is-visible = false
-		saved-params = "is-checked"
-		text = "Info"
-		command = ".winset \"rpanewindow.left=infowindow\""
-		group = "rpanemode"
-		button-type = pushbox
+		saved-params = ""
 
 window "preferences_window"
 	elem "preferences_window"
@@ -1287,15 +1226,16 @@ window "infowindow"
 		can-resize = false
 		is-pane = true
 	elem "info"
-		type = CHILD
-		pos = 0,30
-		size = 640x445
+		type = INFO
+		pos = 0,0
+		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
-		saved-params = "splitter"
-		left = "statwindow"
-		right = "outputwindow"
-		is-vert = false
+		is-default = true
+		right-click = true
+		saved-params = ""
+		highlight-color = #00aa00
+		on-show = ".winset\"rpane.infob.is-visible=true;rpane.browseb.is-visible=true?rpane.infob.pos=130,0:rpane.infob.pos=65,0 rpane.textb.is-visible=true rpane.infob.is-checked=true rpane.rpanewindow.pos=0,30 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=infowindow\""
 
 window "text_editor"
 	elem "text_editor"

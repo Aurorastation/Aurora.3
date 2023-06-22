@@ -257,11 +257,6 @@ function tab_change(tab) {
 		draw_verbs(tab);
 	} else if (tab == "Debug Stat Panel") {
 		draw_debug();
-	} else if (tab == "Tickets") {
-		draw_tickets();
-		draw_interviews();
-	} else if (tab == "SDQL2") {
-		draw_sdql2();
 	} else if (tab == turfname) {
 		draw_listedturf();
 	} else {
@@ -390,33 +385,6 @@ function draw_mc() {
 		table.appendChild(tr);
 	}
 	document.getElementById("statcontent").appendChild(table);
-}
-
-function remove_tickets() {
-	if (tickets) {
-		tickets = [];
-		removePermanentTab("Tickets");
-		if (current_tab == "Tickets")
-			tab_change("Status");
-	}
-	checkStatusTab();
-}
-
-function remove_sdql2() {
-	if (sdql2) {
-		sdql2 = [];
-		removePermanentTab("SDQL2");
-		if (current_tab == "SDQL2")
-			tab_change("Status");
-	}
-	checkStatusTab();
-}
-
-function remove_interviews() {
-	if (tickets) {
-		tickets = [];
-	}
-	checkStatusTab();
 }
 
 function iconError(e) {
@@ -931,22 +899,12 @@ Byond.subscribeTo('create_listedturf', function (TN) {
 
 Byond.subscribeTo('remove_admin_tabs', function () {
 	remove_mc();
-	remove_tickets();
-	remove_sdql2();
-	remove_interviews();
 });
 
 Byond.subscribeTo('update_listedturf', function (TC) {
 	turfcontents = TC;
 	if (current_tab == turfname) {
 		draw_listedturf();
-	}
-});
-
-Byond.subscribeTo('update_interviews', function (I) {
-	interviewManager = I;
-	if (current_tab == "Tickets") {
-		draw_interviews();
 	}
 });
 
@@ -966,34 +924,10 @@ Byond.subscribeTo('update_split_admin_tabs', function (status) {
 
 Byond.subscribeTo('add_admin_tabs', function () {
 	addPermanentTab("MC");
-	addPermanentTab("Tickets");
 });
 
-Byond.subscribeTo('update_sdql2', function (S) {
-	sdql2 = S;
-	if (sdql2.length > 0 && !verb_tabs.includes("SDQL2")) {
-		verb_tabs.push("SDQL2");
-		addPermanentTab("SDQL2");
-	}
-	if (current_tab == "SDQL2") {
-		draw_sdql2();
-	}
-});
-
-Byond.subscribeTo('update_tickets', function (T) {
-	tickets = T;
-	if (!verb_tabs.includes("Tickets")) {
-		verb_tabs.push("Tickets");
-		addPermanentTab("Tickets");
-	}
-	if (current_tab == "Tickets") {
-		draw_tickets();
-	}
-});
 
 Byond.subscribeTo('remove_listedturf', remove_listedturf);
-
-Byond.subscribeTo('remove_sdql2', remove_sdql2);
 
 Byond.subscribeTo('remove_mc', remove_mc);
 

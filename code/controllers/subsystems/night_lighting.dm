@@ -13,7 +13,7 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 /datum/controller/subsystem/nightlight/New()
 	NEW_SS_GLOBAL(SSnightlight)
 
-/datum/controller/subsystem/nightlight/stat_entry()
+/datum/controller/subsystem/nightlight/stat_entry(msg)
 	..("A:[isactive] T:[worldtime2hours()] D:[disable_type]")
 
 /datum/controller/subsystem/nightlight/Recover()

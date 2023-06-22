@@ -24,7 +24,7 @@
 /datum/controller/subsystem/plants/New()
 	NEW_SS_GLOBAL(SSplants)
 
-/datum/controller/subsystem/plants/stat_entry()
+/datum/controller/subsystem/plants/stat_entry(msg)
 	..("P:[processing.len]")
 
 /datum/controller/subsystem/plants/Initialize(timeofday)
