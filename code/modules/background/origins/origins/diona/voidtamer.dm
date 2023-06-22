@@ -4,6 +4,8 @@
 	possible_origins = list(
 		/singleton/origin_item/origin/emporium,
 		/singleton/origin_item/origin/comets,
+		/singleton/origin_item/origin/rokz,
+		/singleton/origin_item/origin/serz,
 	)
 
 /singleton/origin_item/origin/emporium
