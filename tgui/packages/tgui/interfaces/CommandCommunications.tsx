@@ -1,8 +1,8 @@
 import { BooleanLike } from '../../common/react';
-import { decodeHtmlEntities } from '../../common/string';
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Collapsible, Input, Section, Stack } from '../components';
 import { NtosWindow } from '../layouts';
+import { sanitizeText } from '../sanitize';
 
 export type CommsData = {
   emagged: BooleanLike;
@@ -268,6 +268,7 @@ export const MessageList = (props, context) => {
     'viewingMessage',
     null
   );
+
   return viewingMessage ? (
     data.messages
       .filter((message) => message.id === viewingMessage)
@@ -302,8 +303,10 @@ export const MessageList = (props, context) => {
               />
             </>
           }>
-          <Box style={{ 'white-space': 'pre-line' }} />
-          {decodeHtmlEntities(message.contents)}
+          <Box
+            style={{ 'white-space': 'pre-line' }}
+            dangerouslySetInnerHTML={processMessage(message.contents)}
+          />
         </Section>
       ))
   ) : (
@@ -319,4 +322,9 @@ export const MessageList = (props, context) => {
       </Section>
     </Section>
   );
+};
+
+const processMessage = (value) => {
+  const contentHtml = { __html: sanitizeText(value) };
+  return contentHtml;
 };
