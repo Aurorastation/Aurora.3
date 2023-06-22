@@ -5,13 +5,13 @@
 		/singleton/origin_item/origin/emporium,
 		/singleton/origin_item/origin/comets,
 		/singleton/origin_item/origin/rokz,
-		/singleton/origin_item/origin/serz,
+		/singleton/origin_item/origin/serz
 	)
 
 /singleton/origin_item/origin/emporium
 	name = "Emporium Voidtamer"
 	desc = "The largest of the Voidtamers, The Emporium is a highly mobile cluster known for selling living space fauna in exchange for credits and blood throughout Biesel and CoC space, however, more recently have begun to venture into the CRZ looking for customers. "
-  important_information = "Dionae from this cluster tend to come in every form and mind type, although primarily will still be cyclops forms. Dionae from voidtamer groups tend to be highly knowledgeable on spacefauna-related subjects due to their previous work."
+	important_information = "Dionae from this cluster tend to come in every form and mind type, although primarily will still be cyclops forms. Dionae from voidtamer groups tend to be highly knowledgeable on spacefauna-related subjects due to their previous work."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_CRIMSONSONG, ACCENT_IRONSONG)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
