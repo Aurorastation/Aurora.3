@@ -4483,7 +4483,6 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/closet/crate,
 /obj/random/loot,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -4491,6 +4490,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/structure/closet,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "doE" = (
@@ -5230,6 +5230,7 @@
 "dPJ" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/structure/trash_pile,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "dQH" = (
@@ -11222,14 +11223,6 @@
 /obj/machinery/bluespace_beacon,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
-"icm" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/trash_pile,
-/turf/simulated/floor/plating,
-/area/maintenance/operations)
 "idq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -17750,6 +17743,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "mVo" = (
@@ -19176,8 +19172,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/closet/crate/bin,
 /obj/random/loot,
+/obj/structure/closet,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "nXR" = (
@@ -26592,8 +26588,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/structure/closet/crate/bin,
 /obj/random/loot,
+/obj/structure/closet,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "txT" = (
@@ -27562,6 +27558,10 @@
 /obj/random/loot,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "cobweb1"
+	},
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
@@ -30557,6 +30557,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "wnc" = (
@@ -30779,12 +30780,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "wtB" = (
-/obj/structure/closet/crate/bin,
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/structure/closet,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/deck1)
 "wtV" = (
@@ -44082,7 +44083,7 @@ eSV
 eSV
 hTk
 wmS
-sTw
+fif
 fif
 wVV
 qBU
@@ -46937,7 +46938,7 @@ fDD
 fDD
 lIg
 ueg
-icm
+vqU
 vqU
 gvZ
 rpj
