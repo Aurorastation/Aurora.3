@@ -72,6 +72,11 @@ type RecordLocked = {
 
 export const Records = (props, context) => {
   const { act, data } = useBackend<RecordsData>(context);
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``
+  );
 
   return (
     <NtosWindow resizable>
@@ -79,12 +84,25 @@ export const Records = (props, context) => {
         <Section
           title="Records"
           buttons={
-            <Button
-              content={data.authenticated ? 'Logout' : 'Login'}
-              icon="exclamation"
-              color={data.authenticated ? 'red' : 'green'}
-              onClick={() => act(data.authenticated ? 'logout' : 'login')}
-            />
+            <>
+              <Input
+                autoFocus
+                autoSelect
+                placeholder="Search by name or DNA"
+                width="40vw"
+                maxLength={512}
+                onInput={(e, value) => {
+                  setSearchTerm(value);
+                }}
+                value={searchTerm}
+              />
+              <Button
+                content={data.authenticated ? 'Logout' : 'Login'}
+                icon="exclamation"
+                color={data.authenticated ? 'red' : 'green'}
+                onClick={() => act(data.authenticated ? 'logout' : 'login')}
+              />
+            </>
           }>
           {!data.authenticated ? (
             <NoticeBox color="white">
@@ -167,21 +185,33 @@ export const RecordsView = (props, context) => {
 export const ListAllRecords = (props, context) => {
   const { act, data } = useBackend<RecordsData>(context);
   const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``
+  );
 
   return (
     <Section>
       <Stack vertical>
-        {data.allrecords.map((record) => (
-          <Stack.Item key={record.name}>
-            <Button
-              content={
-                record.id + ': ' + record.name + ' (' + record.rank + ')'
-              }
-              icon={record.has_notes ? 'align-justify' : ''}
-              onClick={() => act('setactive', { setactive: record.id })}
-            />
-          </Stack.Item>
-        ))}
+        {data.allrecords
+          .filter(
+            (record) =>
+              record.name.toLowerCase().indexOf(searchTerm) > -1 ||
+              record.fingerprint.toLowerCase().indexOf(searchTerm) > -1 ||
+              record.dna.toLowerCase().indexOf(searchTerm) > -1
+          )
+          .map((record) => (
+            <Stack.Item key={record.name}>
+              <Button
+                content={
+                  record.id + ': ' + record.name + ' (' + record.rank + ')'
+                }
+                icon={record.has_notes ? 'align-justify' : ''}
+                onClick={() => act('setactive', { setactive: record.id })}
+              />
+            </Stack.Item>
+          ))}
       </Stack>
     </Section>
   );
@@ -191,60 +221,63 @@ export const ListAllRecords = (props, context) => {
 export const ListActive = (props, context) => {
   const { act, data } = useBackend<RecordsData>(context);
   const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
-  const [editingPhysStatus, setEditingPhysStatus] = useLocalState(
+  const [editingPhysStatus, setEditingPhysStatus] = useLocalState<boolean>(
     context,
     'editingPhysStatus',
-    0
+    false
   );
-  const [editingMentalStatus, setEditingMentalStatus] = useLocalState(
+  const [editingMentalStatus, setEditingMentalStatus] = useLocalState<boolean>(
     context,
     'editingMentalStatus',
-    0
+    false
   );
-  const [editingFingerprint, setEditingFingerprint] = useLocalState(
+  const [editingFingerprint, setEditingFingerprint] = useLocalState<boolean>(
     context,
     'editingFingerprint',
-    0
+    false
   );
-  const [editingCriminalStatus, setEditingCriminalStatus] = useLocalState(
-    context,
-    'editingCriminalStatus',
-    0
-  );
-  const [editingSpecies, setEditingSpecies] = useLocalState(
+  const [editingCriminalStatus, setEditingCriminalStatus] =
+    useLocalState<boolean>(context, 'editingCriminalStatus', false);
+  const [editingSpecies, setEditingSpecies] = useLocalState<boolean>(
     context,
     'editingSpecies',
-    0
+    false
   );
-  const [editingCitizenship, setEditingCitizenship] = useLocalState(
+  const [editingCitizenship, setEditingCitizenship] = useLocalState<boolean>(
     context,
     'editingCitizenship',
-    0
+    false
   );
-  const [editingReligion, setEditingReligion] = useLocalState(
+  const [editingReligion, setEditingReligion] = useLocalState<boolean>(
     context,
     'editingReligion',
-    0
+    false
   );
-  const [editingEmployer, setEditingEmployer] = useLocalState(
+  const [editingEmployer, setEditingEmployer] = useLocalState<boolean>(
     context,
     'editingEmployer',
-    0
+    false
   );
-  const [editingDisabilities, setEditingDisabilities] = useLocalState(
+  const [editingDNA, setEditingDNA] = useLocalState<boolean>(
+    context,
+    'editingDNA',
+    false
+  );
+
+  const [editingDisabilities, setEditingDisabilities] = useLocalState<boolean>(
     context,
     'editingDisabilities',
-    0
+    false
   );
-  const [editingAllergies, setEditingAllergies] = useLocalState(
+  const [editingAllergies, setEditingAllergies] = useLocalState<boolean>(
     context,
     'editingAllergies',
-    0
+    false
   );
-  const [editingDisease, setEditingDisease] = useLocalState(
+  const [editingDisease, setEditingDisease] = useLocalState<boolean>(
     context,
     'editingDisease',
-    0
+    false
   );
 
   return (
@@ -301,7 +334,7 @@ export const ListActive = (props, context) => {
                   {data.active.physical_status}&nbsp;
                   <Button
                     icon="pencil-ruler"
-                    onClick={() => setEditingPhysStatus(1)}
+                    onClick={() => setEditingPhysStatus(true)}
                   />
                 </Box>
               )}
@@ -330,7 +363,7 @@ export const ListActive = (props, context) => {
                   {data.active.mental_status}&nbsp;
                   <Button
                     icon="pencil-ruler"
-                    onClick={() => setEditingMentalStatus(1)}
+                    onClick={() => setEditingMentalStatus(true)}
                   />
                 </Box>
               )}
@@ -361,7 +394,7 @@ export const ListActive = (props, context) => {
                     {data.active.security.criminal}&nbsp;
                     <Button
                       icon="pencil-ruler"
-                      onClick={() => setEditingCriminalStatus(1)}
+                      onClick={() => setEditingCriminalStatus(true)}
                     />
                   </Box>
                 )}
@@ -392,7 +425,7 @@ export const ListActive = (props, context) => {
                   {data.active.fingerprint}&nbsp;
                   <Button
                     icon="pencil-ruler"
-                    onClick={() => setEditingFingerprint(1)}
+                    onClick={() => setEditingFingerprint(true)}
                   />
                 </Box>
               )}
@@ -403,6 +436,35 @@ export const ListActive = (props, context) => {
         </LabeledList.Item>
         {data.active.medical && recordTab === 'Medical' ? (
           <>
+            <LabeledList.Item label="DNA">
+              {data.editable & 2 ? (
+                <Box>
+                  {editingDNA ? (
+                    <Input
+                      placeholder={data.active.medical.blood_dna}
+                      width="100%"
+                      onInput={(e, v) =>
+                        act('editrecord', {
+                          record_type: 'medical',
+                          key: 'blood_dna',
+                          value: v,
+                        })
+                      }
+                    />
+                  ) : (
+                    <Box>
+                      {data.active.medical.blood_dna}&nbsp;
+                      <Button
+                        icon="pencil-ruler"
+                        onClick={() => setEditingDNA(true)}
+                      />
+                    </Box>
+                  )}
+                </Box>
+              ) : (
+                data.active.medical.blood_dna
+              )}
+            </LabeledList.Item>
             <LabeledList.Item label="Disabilities">
               {data.editable & 2 ? (
                 <Box>
@@ -423,7 +485,7 @@ export const ListActive = (props, context) => {
                       {data.active.medical.disabilities}&nbsp;
                       <Button
                         icon="pencil-ruler"
-                        onClick={() => setEditingDisabilities(1)}
+                        onClick={() => setEditingDisabilities(true)}
                       />
                     </Box>
                   )}
@@ -452,7 +514,7 @@ export const ListActive = (props, context) => {
                       {data.active.medical.allergies}&nbsp;
                       <Button
                         icon="pencil-ruler"
-                        onClick={() => setEditingAllergies(1)}
+                        onClick={() => setEditingAllergies(true)}
                       />
                     </Box>
                   )}
@@ -481,7 +543,7 @@ export const ListActive = (props, context) => {
                       {data.active.medical.diseases}&nbsp;
                       <Button
                         icon="pencil-ruler"
-                        onClick={() => setEditingDisease(1)}
+                        onClick={() => setEditingDisease(true)}
                       />
                     </Box>
                   )}
@@ -515,7 +577,7 @@ export const ListActive = (props, context) => {
                       {data.active.species}&nbsp;
                       <Button
                         icon="pencil-ruler"
-                        onClick={() => setEditingSpecies(1)}
+                        onClick={() => setEditingSpecies(true)}
                       />
                     </Box>
                   )}
@@ -543,7 +605,7 @@ export const ListActive = (props, context) => {
                       {data.active.citizenship}&nbsp;
                       <Button
                         icon="pencil-ruler"
-                        onClick={() => setEditingCitizenship(1)}
+                        onClick={() => setEditingCitizenship(true)}
                       />
                     </Box>
                   )}
@@ -571,7 +633,7 @@ export const ListActive = (props, context) => {
                       {data.active.religion}&nbsp;
                       <Button
                         icon="pencil-ruler"
-                        onClick={() => setEditingReligion(1)}
+                        onClick={() => setEditingReligion(true)}
                       />
                     </Box>
                   )}
@@ -599,7 +661,7 @@ export const ListActive = (props, context) => {
                       {data.active.employer}&nbsp;
                       <Button
                         icon="pencil-ruler"
-                        onClick={() => setEditingEmployer(1)}
+                        onClick={() => setEditingEmployer(true)}
                       />
                     </Box>
                   )}
