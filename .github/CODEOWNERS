@@ -34,6 +34,11 @@
 /code/__defines/organs.dm @NonQueueingMatt
 /code/modules/organs/ @NonQueueingMatt
 
+# UIs. Wildkins or Matt.
+/tgui/ @JohnWildkins
+code/__defines/tgui.dm @JohnWildkins
+code/modules/tgui @JohnWildkins
+
 # Tools, often binary in nature, let arrow and alb know
 /tools/ @Arrow768 @Alberyk
 
