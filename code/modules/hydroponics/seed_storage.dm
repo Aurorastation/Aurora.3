@@ -357,7 +357,7 @@
 		if (loaded)
 			user.visible_message(SPAN_NOTICE("[user] puts the seeds from \the [O.name] into \the [src]."), SPAN_NOTICE("You put the seeds from \the [O.name] into \the [src]."))
 		else
-			to_chat(user, SPAN_WARNING("There are no seeds in \the [O.name].</span>"))
+			to_chat(user, SPAN_WARNING("There are no seeds in \the [O.name]."))
 		return
 	else if(O.iswrench())
 		playsound(loc, O.usesound, 50, 1)
