@@ -27,31 +27,28 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	QDEL_NULL(late_choices_ui)
 	return ..()
 
-/mob/abstract/new_player/Stat()
-	..()
+/mob/abstract/new_player/get_status_tab_items()
+	. = ..()
 
-	if(statpanel("Lobby"))
-		stat("Game ID:", game_id)
+	if(!istype(SSticker))
+		return
 
-		if(!istype(SSticker))
-			return
+	if(SSticker.hide_mode == ROUNDTYPE_SECRET)
+		. += "Game Mode: Secret"
+	else if (SSticker.hide_mode == ROUNDTYPE_MIXED_SECRET)
+		. += "Game Mode: Mixed Secret"
+	else
+		. += "Game Mode: [master_mode]" // Old setting for showing the game mode
 
-		if(SSticker.hide_mode == ROUNDTYPE_SECRET)
-			stat("Game Mode:", "Secret")
-		else if (SSticker.hide_mode == ROUNDTYPE_MIXED_SECRET)
-			stat("Game Mode:", "Mixed Secret")
-		else
-			stat("Game Mode:", "[master_mode]") // Old setting for showing the game mode
-
-		if(SSticker.current_state == GAME_STATE_PREGAME)
-			stat("Time To Start:", "[SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
-			stat("Players: [length(player_list)]", "Players Ready: [SSticker.total_players_ready]")
-			if(LAZYLEN(SSticker.ready_player_jobs))
-				for(var/dept in SSticker.ready_player_jobs)
-					if(LAZYLEN(SSticker.ready_player_jobs[dept]))
-						stat(uppertext(dept), null)
-					for(var/char in SSticker.ready_player_jobs[dept])
-						stat("[copytext_char(char, 1, 18)]", "[SSticker.ready_player_jobs[dept][char]]")
+	if(SSticker.current_state == GAME_STATE_PREGAME)
+		. += "Time To Start: [SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]"
+		. += "Players: [length(player_list)]: Players Ready: [SSticker.total_players_ready]"
+		if(LAZYLEN(SSticker.ready_player_jobs))
+			for(var/dept in SSticker.ready_player_jobs)
+				if(LAZYLEN(SSticker.ready_player_jobs[dept]))
+					. += "[uppertext(dept)]"
+				for(var/char in SSticker.ready_player_jobs[dept])
+					. += "[copytext_char(char, 1, 18)]: [SSticker.ready_player_jobs[dept][char]]"
 
 /mob/abstract/new_player/Topic(href, href_list[])
 	if(!client)	return 0

@@ -578,7 +578,7 @@
 		stat(null, text("Access type: [module.all_access ? "all access" : "role specific"]"))
 
 // update the status screen display
-/mob/living/silicon/robot/Stat()
+/mob/living/silicon/robot/get_status_tab_items()
 	..()
 	if(statpanel("Status"))
 		show_cell_power()

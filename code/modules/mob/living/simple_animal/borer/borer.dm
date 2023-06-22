@@ -100,7 +100,7 @@
 	if(chem_hud)
 		chem_hud.maptext = SMALL_FONTS(7, chemicals)
 
-/mob/living/simple_animal/borer/Stat()
+/mob/living/simple_animal/borer/get_status_tab_items()
 	..()
 	statpanel("Status")
 

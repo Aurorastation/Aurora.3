@@ -108,14 +108,6 @@
 /mob/living/silicon/ai/proc/hardware_integrity()
 	return (health / maxHealth) * 100
 
-// Shows capacitor charge and hardware integrity information to the AI in Status tab.
-/mob/living/silicon/ai/show_system_integrity()
-	if(!src.stat)
-		stat("Hardware integrity", "[hardware_integrity()]%")
-		stat("Internal capacitor", "[backup_capacitor()]%")
-	else
-		stat("Systems nonfunctional")
-
 // Shows AI Malfunction related information to the AI.
 /mob/living/silicon/ai/show_malf_ai()
 	if(src.is_malf())

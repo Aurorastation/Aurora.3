@@ -226,22 +226,21 @@
 /mob/living/carbon/slime/Allow_Spacemove()
 	return TRUE
 
-/mob/living/carbon/slime/Stat()
+/mob/living/carbon/slime/get_status_tab_items()
 	..()
 
-	statpanel("Status")
-	stat(null, "Health: [round((health / maxHealth) * 100)]%")
-	stat(null, "Intent: [a_intent]")
+	. += "Health: [round((health / maxHealth) * 100)]%"
+	. += "Intent: [a_intent]"
 
 	if(client.statpanel == "Status")
-		stat(null, "Nutrition: [nutrition]/[get_max_nutrition()]")
+		. += "Nutrition: [nutrition]/[get_max_nutrition()]"
 		if(amount_grown >= 5)
 			if(is_adult)
-				stat(null, "You can reproduce!")
+				. += "Status: You can reproduce!"
 			else
-				stat(null, "You can evolve!")
+				. += "Status: You can evolve!"
 
-		stat(null,"Power Level: [powerlevel]")
+		. += "Power Level: [powerlevel]"
 
 /mob/living/carbon/slime/adjustFireLoss(amount)
 	..(-abs(amount)) // Heals them

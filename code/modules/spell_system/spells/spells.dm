@@ -14,7 +14,7 @@
 			spell_master.toggle_open(1)
 			client.screen -= spell_master
 
-/mob/Stat()
+/mob/get_status_tab_items()
 	. = ..()
 	if(. && LAZYLEN(spell_list))
 		for(var/spell/S in spell_list)

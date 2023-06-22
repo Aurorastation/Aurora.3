@@ -36,13 +36,13 @@
 	else
 		health = maxHealth - getBruteLoss() - getFireLoss()
 
-/mob/living/silicon/pai/Stat()
+/mob/living/silicon/pai/get_status_tab_items()
 	..()
 
 	if(istype(card.loc, /mob/living/bot))
 		var/mob/living/bot/B = card.loc
-		stat(null, "Piloting: [B.name]")
-		stat(null, "Bot Status: [B.on ? "Active" : "Inactive"]")
+		stat("Piloting", "[B.name]")
+		stat("Bot Status", ": [B.on ? "Active" : "Inactive"]")
 		stat(null, "Maintenance Hatch: [B.open ? "Open" : "Closed"]")
 		stat(null, "Maintenance Lock: [B.locked ? "Locked" : "Unlocked"]")
 		if(B.emagged)

@@ -53,6 +53,7 @@
 #define SS_PRIORITY_MOB         40	// Mob Life().
 #define SS_PRIORITY_AIR         40	// ZAS processing.
 #define SS_PRIORITY_CHAT        30  // Chat
+#define SS_PRIORITY_STATPANELS  25  // Statpanels.
 #define SS_PRIORITY_LIGHTING    25	// Queued lighting engine updates.
 #define SS_PRIORITY_MACHINERY   25	// Machinery + powernet ticks.
 #define SS_PRIORITY_NANOUI      25	// UI updates.

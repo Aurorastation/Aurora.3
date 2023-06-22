@@ -221,7 +221,7 @@
 		stat(null, "Communications system reboot in -[(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]")
 
 
-/mob/living/silicon/pai/Stat()
+/mob/living/silicon/pai/get_status_tab_items()
 	..()
 	statpanel("Status")
 	if (src.client.statpanel == "Status")

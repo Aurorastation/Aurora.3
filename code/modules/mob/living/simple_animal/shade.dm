@@ -135,7 +135,7 @@
 	. = ..()
 	set_light(3, 1, l_color = LIGHT_COLOR_CYAN)
 
-/mob/living/simple_animal/shade/bluespace/Stat()
+/mob/living/simple_animal/shade/bluespace/get_status_tab_items()
 	..()
 
 	if(statpanel("Status"))

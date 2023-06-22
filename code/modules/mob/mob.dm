@@ -813,73 +813,6 @@
 	for(var/mob/M in viewers())
 		M.see(message)
 
-/mob/Stat()
-	..()
-	. = (is_client_active(10 MINUTES))
-
-	if(.)
-		if(statpanel("Status") && SSticker.current_state != GAME_STATE_PREGAME)
-			stat("Game ID", game_id)
-			stat("Map", current_map.full_name)
-			stat("Current Space Sector", SSatlas.current_sector.name)
-			var/current_month = text2num(time2text(world.realtime, "MM"))
-			var/current_day = text2num(time2text(world.realtime, "DD"))
-			stat("Current Date", "[game_year]-[current_month]-[current_day]")
-			stat("Station Time", worldtime2text())
-			stat("Round Duration", get_round_duration_formatted())
-			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
-
-		if(client.holder)
-			if(statpanel("Status"))
-				stat("Location:", "([x], [y], [z]) [loc]")
-				if (LAZYLEN(client.holder.watched_processes))
-					for (var/datum/controller/ctrl in client.holder.watched_processes)
-						if (!ctrl)
-							LAZYREMOVE(client.holder.watched_processes, ctrl)
-						else
-							ctrl.stat_entry()
-
-			if(statpanel("MC"))
-				stat("CPU:", world.cpu)
-				stat("Tick Usage:", world.tick_usage)
-				stat("Instances:", num2text(world.contents.len, 7))
-				if (config.fastboot)
-					stat(null, "FASTBOOT ENABLED")
-				if(Master)
-					Master.stat_entry()
-				else
-					stat("Master Controller:", "ERROR")
-				if(Failsafe)
-					Failsafe.stat_entry()
-				else
-					stat("Failsafe Controller:", "ERROR")
-				if (Master)
-					stat(null, "- Subsystems -")
-					var/amt = 0
-					for(var/datum/controller/subsystem/SS in Master.subsystems)
-						if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
-							continue
-						if(amt >= 70)
-							break
-						amt++
-						SS.stat_entry()
-
-		if(listed_turf && client)
-			if(!TurfAdjacent(listed_turf))
-				listed_turf = null
-			else
-				if(statpanel("Turf"))
-					stat("Turf:", listed_turf)
-					for(var/atom/A in listed_turf)
-						if(!A.mouse_opacity)
-							continue
-						if(A.invisibility > see_invisible)
-							continue
-						if(is_type_in_typecache(A, shouldnt_see))
-							continue
-						stat(A)
-
-
 // facing verbs
 /mob/proc/canface()
 	if(!canmove)						return 0
@@ -1485,3 +1418,8 @@
 
 /mob/proc/get_speech_bubble_state_modifier()
 	return "normal"
+
+/// Adds this list to the output to the stat browser
+/mob/proc/get_status_tab_items()
+	. = list("") //we want to offset unique stuff from standard stuff
+	SEND_SIGNAL(src, COMSIG_MOB_GET_STATUS_TAB_ITEMS, .)
