@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledControls, LabeledList, Section } from '../components';
+import { Box, Button, LabeledControls, LabeledList, ProgressBar, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type ArcadeData = {
@@ -36,7 +36,6 @@ export const GameOverWindow = (props, context) => {
         Game over!
       </Box>
       <Box>{data.information}</Box>
-      <Box>You were brutally slain by {data.enemy_name}!</Box>
       <Button
         content="New Game"
         icon="newspaper"
@@ -55,17 +54,58 @@ export const GameWindow = (props, context) => {
       <Section title="Player">
         <LabeledList>
           <LabeledList.Item label="Health">
-            {data.player_health}
+            <ProgressBar
+              ranges={{
+                good: [30, Infinity],
+                average: [15, 30],
+                bad: [0, 15],
+              }}
+              width={3}
+              value={data.player_health}>
+              <Box textAlign="left">{data.player_health}</Box>
+            </ProgressBar>
           </LabeledList.Item>
-          <LabeledList.Item label="Mana">{data.player_mana}</LabeledList.Item>
+          <LabeledList.Item label="Mana">
+            <ProgressBar
+              ranges={{
+                blue: [15, Infinity],
+                average: [8, 15],
+                bad: [0, 8],
+              }}
+              width={3}
+              value={data.player_mana}>
+              <Box textAlign="left">{data.player_mana}</Box>
+            </ProgressBar>
+          </LabeledList.Item>
         </LabeledList>
       </Section>
       <Section title={data.enemy_name}>
         <LabeledList>
           <LabeledList.Item label="Health">
-            {data.enemy_health}
+            <ProgressBar
+              ranges={{
+                good: [30, Infinity],
+                average: [15, 30],
+                bad: [0, 15],
+              }}
+              width={3}
+              value={data.enemy_health}>
+              <Box textAlign="left">{data.enemy_health}</Box>
+            </ProgressBar>
           </LabeledList.Item>
-          <LabeledList.Item label="Mana">{data.enemy_mana}</LabeledList.Item>
+          <LabeledList.Item label="Mana">
+            {' '}
+            <ProgressBar
+              ranges={{
+                blue: [15, Infinity],
+                average: [8, 15],
+                bad: [0, 8],
+              }}
+              width={3}
+              value={data.enemy_mana}>
+              <Box textAlign="left">{data.enemy_mana}</Box>
+            </ProgressBar>
+          </LabeledList.Item>
         </LabeledList>
       </Section>
       <Section title="Controls">
