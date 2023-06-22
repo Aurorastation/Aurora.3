@@ -1,6 +1,7 @@
 import { BooleanLike } from '../../common/react';
+import { decodeHtmlEntities } from '../../common/string';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Section, Stack } from '../components';
+import { Box, Button, Collapsible, Input, Section, Stack } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CommsData = {
@@ -26,12 +27,18 @@ export type CommsData = {
   def_SEC_LEVEL_BLUE: number;
   def_SEC_LEVEL_GREEN: number;
 
-  messages: string[];
+  messages: Message[];
   message_deletion_allowed: BooleanLike;
   message_current_id: number;
   message_current: string;
 
   evac_options: EvacOption[];
+};
+
+type Message = {
+  id: number;
+  title: string;
+  contents: string;
 };
 
 type EvacOption = {
@@ -48,8 +55,20 @@ export const CommandCommunications = (props, context) => {
     `choosingAlert`,
     false
   );
+
+  const [firstLine, setFirstLine] = useLocalState<string>(
+    context,
+    `firstLine`,
+    ''
+  );
+  const [secondLine, setSecondLine] = useLocalState<string>(
+    context,
+    `secondLine`,
+    ''
+  );
+
   return (
-    <NtosWindow resizable width={550} height={420}>
+    <NtosWindow resizable width={600} height={500}>
       <NtosWindow.Content scrollable>
         <Section title="Communications Options">
           <Stack vertical>
@@ -154,10 +173,150 @@ export const CommandCommunications = (props, context) => {
             </Stack.Item>
           </Stack>
         </Section>
-        <Section title="Status Display Settings" buttons={<Button content="Clear" onClick={() => act('setstatus', { target : blank})} />}>
-            
+        <Collapsible content="Status Display Settings">
+          <Section
+            title="Status Display Settings"
+            buttons={
+              <Button
+                content="Clear"
+                icon="trash"
+                onClick={() => act('setstatus', { target: 'blank' })}
+              />
+            }>
+            <Button
+              content="Ship Time"
+              icon="clock"
+              onClick={() => act('setstatus', { target: 'time' })}
+            />
+            <Button
+              content="ETA"
+              icon="door-open"
+              onClick={() => act('setstatus', { target: 'shuttle' })}
+            />
+            <Section
+              title="Custom Message"
+              buttons={
+                <Button
+                  content="Set"
+                  icon="check"
+                  onClick={() =>
+                    act('setstatus', {
+                      target: 'message',
+                      line1: firstLine,
+                      line2: secondLine,
+                    })
+                  }
+                />
+              }>
+              <Input
+                value={firstLine}
+                placeholder="First line"
+                width={20}
+                onInput={(e, v) => setFirstLine(v)}
+              />
+              <Input
+                value={secondLine}
+                placeholder="Second line"
+                width={20}
+                onInput={(e, v) => setSecondLine(v)}
+              />
+            </Section>
+            <Section title="Alerts">
+              <Button
+                content="Red Alert"
+                icon="traffic-light"
+                color="red"
+                onClick={() =>
+                  act('setstatus', { target: 'alert', alert: 'redalert' })
+                }
+              />
+              <Button
+                content="Lockdown"
+                icon="lock"
+                color="average"
+                onClick={() =>
+                  act('setstatus', { target: 'alert', alert: 'lockdown' })
+                }
+              />
+              <Button
+                content="Biohazard"
+                icon="biohazard"
+                color="yellow"
+                onClick={() =>
+                  act('setstatus', { target: 'alert', alert: 'biohazard' })
+                }
+              />
+            </Section>
+          </Section>
+        </Collapsible>
+        <Section title="Message List">
+          {data.messages && data.messages.length ? (
+            <MessageList />
+          ) : (
+            'There are no messages.'
+          )}
         </Section>
       </NtosWindow.Content>
     </NtosWindow>
+  );
+};
+
+export const MessageList = (props, context) => {
+  const { act, data } = useBackend<CommsData>(context);
+  const [viewingMessage, setViewingMessage] = useLocalState<number | null>(
+    context,
+    'viewingMessage',
+    null
+  );
+  return viewingMessage ? (
+    data.messages
+      .filter((message) => message.id === viewingMessage)
+      .map((message) => (
+        <Section
+          title={message.title}
+          key={message.id}
+          buttons={
+            <>
+              <Button
+                content="Back"
+                icon="arrow-alt-circle-left"
+                onClick={() => setViewingMessage(null)}
+              />
+              <Button
+                content="Print"
+                icon="print"
+                disabled={!data.have_printer}
+                onClick={() =>
+                  act('printmessage', {
+                    contents: message.contents,
+                    title: message.title,
+                  })
+                }
+              />
+              <Button
+                content="Delete"
+                color="red"
+                icon="trash"
+                disabled={!data.message_deletion_allowed}
+                onClick={() => act('delmessage', { messageid: message.id })}
+              />
+            </>
+          }>
+          <Box style={{ 'white-space': 'pre-line' }} />
+          {decodeHtmlEntities(message.contents)}
+        </Section>
+      ))
+  ) : (
+    <Section>
+      <Section>
+        {data.messages.map((message) => (
+          <Button
+            key={message.id}
+            content={message.title}
+            onClick={() => setViewingMessage(message.id)}
+          />
+        ))}
+      </Section>
+    </Section>
   );
 };

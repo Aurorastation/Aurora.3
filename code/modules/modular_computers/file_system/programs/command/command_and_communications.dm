@@ -1,9 +1,3 @@
-#define STATE_DEFAULT	1
-#define STATE_MESSAGELIST	2
-#define STATE_VIEWMESSAGE	3
-#define STATE_STATUSDISPLAY	4
-#define STATE_ALERT_LEVEL	5
-
 /datum/computer_file/program/comm
 	filename = "comm"
 	filedesc = "Command and Communications Program"
@@ -18,17 +12,13 @@
 	network_destination = "station long-range communication array"
 	color = LIGHT_COLOR_BLUE
 	tgui_id = "CommandCommunications"
+	ui_auto_update = FALSE
 	var/datum/comm_message_listener/message_core
 	var/intercept = FALSE
 	var/can_call_shuttle = FALSE //If calling the shuttle should be available from this console
-	var/current_status = STATE_DEFAULT
-	var/msg_line1 = ""
-	var/msg_line2 = ""
 	var/centcomm_message_cooldown = 0
 	var/announcement_cooldown = 0
 	var/datum/announcement/priority/crew_announcement = new
-	var/current_viewing_message_id = 0
-	var/current_viewing_message = null
 
 /datum/computer_file/program/comm/New(obj/item/modular_computer/comp, intercept_printing = FALSE, shuttle_call = FALSE)
 	..()
@@ -56,9 +46,6 @@
 		data["have_printer"] = FALSE
 
 	data["can_call_shuttle"] = can_call_shuttle()
-	data["message_line1"] = msg_line1
-	data["message_line2"] = msg_line2
-	data["state"] = current_status
 	data["isAI"] = issilicon(usr)
 	data["authenticated"] = is_authenticated(user)
 	data["boss_short"] = current_map.boss_short
@@ -74,9 +61,6 @@
 	var/datum/comm_message_listener/l = obtain_message_listener()
 	data["messages"] = l.messages
 	data["message_deletion_allowed"] = l != global_message_listener
-	data["message_current_id"] = current_viewing_message_id
-	if(current_viewing_message)
-		data["message_current"] = current_viewing_message
 
 	var/list/processed_evac_options = list()
 	if(!isnull(evacuation_controller))
@@ -116,8 +100,6 @@
 	var/ntn_cont = !!get_signal(NTNET_SYSTEMCONTROL)
 	var/datum/comm_message_listener/l = obtain_message_listener()
 	switch(action)
-		if("sw_menu")
-			current_status = text2num(params["target"])
 		if("emergencymaint")
 			if(is_authenticated(user) && !issilicon(user))
 				if(maint_all_access)
@@ -137,7 +119,6 @@
 					crew_announcement.announcer = "Unknown"
 				if(announcement_cooldown)
 					to_chat(usr, "Please allow at least one minute to pass between announcements")
-					SSnanoui.update_uis(src)
 					return
 				var/input = input(usr, "Please write a message to announce to the station crew.", "Priority Announcement") as null|message
 				if(!input || computer.use_check_and_message(usr))
@@ -170,11 +151,9 @@
 				if(is_authenticated(user) && !issilicon(usr) && ntn_comm)
 					if(centcomm_message_cooldown)
 						to_chat(usr, SPAN_WARNING("Arrays recycling. Please stand by."))
-						SSnanoui.update_uis(src)
 						return
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
 						to_chat(usr, SPAN_WARNING("No Emergency Bluespace Relay detected. Unable to transmit message."))
-						SSnanoui.update_uis(src)
 						return
 					var/input = sanitize(input("Please choose a message to transmit to [current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
 					if(!input || computer.use_check_and_message(usr))
@@ -199,16 +178,8 @@
 		if("setstatus")
 			if(is_authenticated(user) && ntn_cont)
 				switch(params["target"])
-					if("line1")
-						var/linput = reject_bad_text(sanitize(input("Line 1", "Enter Message Text", msg_line1) as text|null, 40), 40)
-						if(!computer.use_check_and_message(usr))
-							msg_line1 = linput
-					if("line2")
-						var/linput = reject_bad_text(sanitize(input("Line 2", "Enter Message Text", msg_line2) as text|null, 40), 40)
-						if(!computer.use_check_and_message(usr))
-							msg_line2 = linput
 					if("message")
-						post_display_status("message", msg_line1, msg_line2)
+						post_display_status("message", params["line1"], params["line2"])
 					if("alert")
 						post_display_status("alert", params["alert"])
 					else
@@ -239,22 +210,13 @@
 								feedback_inc("alert_comms_yellow",1)
 			else
 				to_chat(usr, SPAN_WARNING("You press the button, but a red light flashes and nothing happens.")) //This should never happen
-			current_status = STATE_DEFAULT
-		if("viewmessage")
-			if(is_authenticated(user) && ntn_comm)
-				current_viewing_message_id = text2num(params["target"])
-				for(var/list/m in l.messages)
-					if(m["id"] == current_viewing_message_id)
-						current_viewing_message = m
-				current_status = STATE_VIEWMESSAGE
 		if("delmessage")
 			if(is_authenticated(user) && ntn_comm && l != global_message_listener)
-				l.Remove(current_viewing_message)
-			current_status = STATE_MESSAGELIST
+				l.Remove(params["messageid"])
 		if("printmessage")
 			if(is_authenticated(user) && ntn_comm)
 				if(computer && computer.nano_printer)
-					if(!computer.nano_printer.print_text(current_viewing_message["contents"],current_viewing_message["title"]))
+					if(!computer.nano_printer.print_text(params["contents"], params["title"]))
 						to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 					else
 						computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
@@ -264,12 +226,6 @@
 					intercept = !intercept
 
 	return TRUE
-
-#undef STATE_DEFAULT
-#undef STATE_MESSAGELIST
-#undef STATE_VIEWMESSAGE
-#undef STATE_STATUSDISPLAY
-#undef STATE_ALERT_LEVEL
 
 /*
 General message handling stuff
