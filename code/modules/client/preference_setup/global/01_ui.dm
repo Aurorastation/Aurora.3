@@ -6,7 +6,6 @@
 	S["UI_style"]       >> pref.UI_style
 	S["UI_style_color"] >> pref.UI_style_color
 	S["UI_style_alpha"] >> pref.UI_style_alpha
-	S["html_UI_style"]  >> pref.html_UI_style
 	S["tgui_fancy"]		>> pref.tgui_fancy
 	S["tgui_lock"]		<< pref.tgui_lock
 	S["ooccolor"]       >> pref.ooccolor
@@ -16,7 +15,6 @@
 	S["UI_style"]       << pref.UI_style
 	S["UI_style_color"] << pref.UI_style_color
 	S["UI_style_alpha"] << pref.UI_style_alpha
-	S["html_UI_style"]  << pref.html_UI_style
 	S["tgui_fancy"]		<< pref.tgui_fancy
 	S["tgui_lock"]		<< pref.tgui_lock
 	S["ooccolor"]       << pref.ooccolor
@@ -29,7 +27,6 @@
 				"UI_style",
 				"UI_style_color",
 				"UI_style_alpha",
-				"html_UI_style",
 				"tgui_fancy",
 				"tgui_lock",
 				"ooccolor",
@@ -49,7 +46,6 @@
 			"UI_style",
 			"UI_style_color",
 			"UI_style_alpha",
-			"html_UI_style",
 			"tgui_fancy",
 			"tgui_lock",
 			"ooccolor",
@@ -89,7 +85,6 @@
 	dat += "-Color: <a href='?src=\ref[src];select_color=1'><b>[pref.UI_style_color]</b></a> [HTML_RECT(pref.UI_style_color)] - <a href='?src=\ref[src];reset=ui'>reset</a><br>"
 	dat += "-Alpha(transparency): <a href='?src=\ref[src];select_alpha=1'><b>[pref.UI_style_alpha]</b></a> - <a href='?src=\ref[src];reset=alpha'>reset</a><br>"
 	dat += "<b>Tooltip Style:</b> <a href='?src=\ref[src];select_tooltip_style=1'><b>[pref.tooltip_style]</b></a><br>"
-	dat += "<b>HTML UI Style:</b> <a href='?src=\ref[src];select_html=1'><b>[pref.html_UI_style]</b></a><br>"
 	dat += "<b>TGUI Fancy:</b> <a href='?src=\ref[src];select_tguif=1'><b>[pref.tgui_fancy ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>TGUI Lock:</b> <a href='?src=\ref[src];select_tguil=1'><b>[pref.tgui_lock ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>FPS:</b> <a href='?src=\ref[src];select_fps=1'><b>[pref.clientfps]</b></a> - <a href='?src=\ref[src];reset=fps'>reset</a><br>"

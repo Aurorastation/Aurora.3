@@ -26,7 +26,6 @@ var/list/preferences_datums = list()
 	var/sfx_toggles = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
-	var/html_UI_style = "Nano"
 	var/tgui_fancy = TRUE
 	var/tgui_lock = FALSE
 	//Style for popup tooltips
