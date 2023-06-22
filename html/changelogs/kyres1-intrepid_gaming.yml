@@ -1,9 +1,0 @@
-author: kyres1
-
-delete-after: True
-
-changes:
-  - rscadd: "Completely upgrades and adds a new hull sprite for the Intrepid shuttle."
-  - rscadd: "Added a bunk bed subtype that functions like a bed, but is a bunk, on a bed."
-  - rscadd: "Added a cool oven subtype that is small and holds two trays instead of five."
-  - tweak: "Changed the entire layout of the Intrepid while retaining its features and attempting to add more."
