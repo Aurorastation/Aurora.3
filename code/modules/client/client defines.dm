@@ -78,5 +78,7 @@
 
 	/// list of all tabs
 	var/list/panel_tabs = list()
+	/// list of tabs containing spells and abilities
+	var/list/spell_tabs = list()
 	///Our object window datum. It stores info about and handles behavior for the object tab
 	var/datum/object_window_info/obj_window

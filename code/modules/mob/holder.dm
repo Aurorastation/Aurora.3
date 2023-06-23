@@ -117,6 +117,7 @@ var/list/holder_mob_icon_cache = list()
 		M.attackby(W,user)
 
 /obj/item/holder/dropped(mob/user)
+	. = ..()
 
 	///When an object is put into a container, drop fires twice.
 	//once with it on the floor, and then once in the container

@@ -16,7 +16,7 @@
 /obj/effect/decal/cleanable/crayon{
 	icon = 'icons/effects/crayondecal.dmi';
 	icon_state = "rights";
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15

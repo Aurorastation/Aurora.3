@@ -402,6 +402,7 @@
 	set name = "Toggle Core Lock"
 	set category = "Object"
 	set desc = "Toggles the locking mechanism on your manipulation core."
+	set src in usr
 
 	canremove = !canremove
 	to_chat(usr, "<span class='notice'>You [canremove ? "de" : ""]activate the locking mechanism on \the [src].</span>")

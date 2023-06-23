@@ -36,7 +36,7 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
 			"Current Date: [game_year]-[current_month]-[current_day]",
 			"Round Time: [get_round_duration_formatted()]",
-			"Station Time: [worldtime2text()]",
+			"Ship Time: [worldtime2text()]",
 			"Last Transfer Vote: [SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never"]"
 		)
 		if(eta_status)
@@ -69,6 +69,18 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 
 		if(target.mob)
 			var/mob/target_mob = target.mob
+			var/update_actions = FALSE
+			// We're on a spell tab, update the tab so we can see cooldowns progressing and such
+			if(target.stat_tab in target.spell_tabs)
+				update_actions = TRUE
+
+			// We're not on a spell tab per se, but we have something fitting.
+			if(!length(target.spell_tabs) && locate(/obj/item/rig) in target_mob.contents)
+				update_actions = TRUE
+
+			if(update_actions && num_fires % default_wait == 0)
+				set_action_tabs(target, target_mob)
+
 			// Handle the examined turf of the stat panel, if it's been long enough, or if we've generated new images for it
 			var/turf/listed_turf = target_mob?.listed_turf
 			if(listed_turf && num_fires % default_wait == 0)
@@ -93,6 +105,16 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 	if(!mc_data)
 		generate_mc_data()
 	target.stat_panel.send_message("update_mc", list(mc_data = mc_data, "coord_entry" = coord_entry))
+
+/// Set up the various action tabs.
+/datum/controller/subsystem/statpanels/proc/set_action_tabs	(client/target, mob/target_mob)
+	var/list/actions = target_mob.get_actions_for_statpanel()
+	target.spell_tabs.Cut()
+
+	for(var/action_data in actions)
+		target.spell_tabs |= action_data[1]
+
+	target.stat_panel.send_message("update_spells", list(spell_tabs = target.spell_tabs, actions = actions))
 
 /datum/controller/subsystem/statpanels/proc/set_turf_examine_tab(client/target, mob/target_mob)
 	var/list/overrides = list()

@@ -508,3 +508,12 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define RAD_LEVEL_VERY_HIGH 100
 
 #define RADIATION_THRESHOLD_CUTOFF 0.1	// Radiation will not affect a tile when below this value.
+
+// Defines for formatting cooldown actions for the stat panel.
+/// The stat panel the action is displayed in.
+#define PANEL_DISPLAY_PANEL "panel"
+/// The status shown in the stat panel.
+/// Can be stuff like "ready", "on cooldown", "active", "charges", "charge cost", etc.
+#define PANEL_DISPLAY_STATUS "status"
+/// The name shown in the stat panel.
+#define PANEL_DISPLAY_NAME "name"

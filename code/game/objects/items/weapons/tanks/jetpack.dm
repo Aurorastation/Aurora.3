@@ -53,6 +53,7 @@
 /obj/item/tank/jetpack/verb/toggle_rockets()
 	set name = "Toggle Jetpack Stabilization"
 	set category = "Object"
+	set src in usr
 
 	toggle_rockets_stabilization(usr)
 
@@ -65,6 +66,7 @@
 /obj/item/tank/jetpack/verb/toggle()
 	set name = "Toggle Jetpack"
 	set category = "Object"
+	set src in usr
 
 	toggle_jetpack(usr)
 
@@ -157,6 +159,7 @@
 /obj/item/tank/jetpack/carbondioxide/synthetic/verb/toggle_synthetic_jetpack()
 	set name = "Toggle Jetpack"
 	set category = "Robot Commands"
+	set src in usr
 
 	on = !on
 	if(on)
@@ -171,6 +174,7 @@
 /obj/item/tank/jetpack/carbondioxide/synthetic/verb/toggle_stabilizer()
 	set name = "Toggle Jetpack Stabilization"
 	set category = "Robot Commands"
+	set src in usr
 
 	stabilization_on = !stabilization_on
 	to_chat(usr, SPAN_NOTICE("You toggle the stabilization [stabilization_on ? "on" : "off"]."))

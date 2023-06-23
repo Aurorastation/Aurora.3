@@ -619,7 +619,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		icon = 'icons/effects/station_explosion.dmi';
 		icon_state = "station_intact";
 		layer = CINEMA_LAYER;
-		mouse_opacity = 0;
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT;
 		screen_loc = "1,0"
 	}
 

@@ -88,6 +88,7 @@
 /obj/item/device/taperecorder/verb/record()
 	set name = "Start Recording"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
@@ -137,6 +138,7 @@
 /obj/item/device/taperecorder/verb/clear_memory()
 	set name = "Clear Memory"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
@@ -158,6 +160,7 @@
 /obj/item/device/taperecorder/verb/playback_memory()
 	set name = "Playback Memory"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
@@ -208,6 +211,7 @@
 /obj/item/device/taperecorder/verb/print_transcript()
 	set name = "Print Transcript"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
@@ -240,6 +244,7 @@
 /obj/item/device/taperecorder/verb/eject_usb()
 	set name = "Eject Portable Storage"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return

@@ -212,12 +212,6 @@
 	if(IC && IC.cell)
 		. += "Battery charge: [IC.get_charge()]/[IC.cell.maxcharge]"
 
-	if(back && istype(back,/obj/item/rig))
-		var/obj/item/rig/suit = back
-		var/cell_status = "ERROR"
-		if(suit.cell) cell_status = "[suit.cell.charge]/[suit.cell.maxcharge]"
-		. += "Suit Charge: [cell_status]"
-
 	if(mind)
 		var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 		if(vampire)
