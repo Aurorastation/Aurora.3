@@ -11,7 +11,7 @@
 	var/contact_details = null
 	var/contact_name = null
 
-	var/working_sound = 'sound/machines/sensors/dradis.ogg'
+	var/working_sound = 'sound/machines/sensors/ping.ogg'
 	var/datum/sound_token/sound_token
 	var/sound_id
 
@@ -61,9 +61,9 @@
 
 	var/obj/machinery/shipsensors/sensors = get_sensors()
 	if(linked && sensors?.use_power && !(sensors.stat & NOPOWER))
-		var/volume = 10
+		var/volume = 15
 		if(!sound_token)
-			sound_token = sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10)
+			sound_token = sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10, sound_type = ASFX_CONSOLE_AMBIENCE)
 		sound_token.SetVolume(volume)
 	else if(sound_token)
 		QDEL_NULL(sound_token)
@@ -134,7 +134,7 @@
 			var/bearing = round(90 - Atan2(O.x - linked.x, O.y - linked.y),5)
 			if(bearing < 0)
 				bearing += 360
-			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing)))
+			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing, "can_datalink"=(!(O in connected.datalinked)))))
 		if(length(contacts))
 			data["contacts"] = contacts
 
@@ -304,7 +304,7 @@
 	if (href_list["remove_datalink"])
 		var/obj/effect/overmap/visitable/O = locate(href_list["remove_datalink"])
 		for(var/obj/machinery/computer/ship/sensors/rescinder_sensor_console in src.connected.consoles)	// Get sensor console from the rescinder
-			rescinder_sensor_console.datalink_remove_ship_datalink(O)
+			rescinder_sensor_console.datalink_remove_ship_datalink(O, TRUE)
 			return TOPIC_HANDLED
 
 	if (href_list["play_message"])
@@ -495,6 +495,10 @@
 	max_range = 7
 	desc = "Miniturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
 	deep_scan_range = 0
+
+/obj/machinery/shipsensors/weak/scc_shuttle
+	icon_state = "sensors"
+	icon = 'icons/obj/spaceship/scc/helm_pieces.dmi'
 
 /obj/machinery/shipsensors/strong
 	desc = "An upgrade to the standard ship-mounted sensor array, this beast has massive cooling systems running beneath it, allowing it to run hotter for much longer. Can only run in vacuum to protect delicate quantum BS elements."
