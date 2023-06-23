@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Increased the overmap range for holopads to six tiles (up from four), for radios to three tiles (up from two)."
