@@ -58,7 +58,7 @@
 		return 0
 
 	if(player.current && faction_verb)
-		player.current.verbs -= faction_verb
+		remove_verb(player.current.client, faction_verb)
 
 	if(player in current_antagonists)
 		log_antagonist_remove()
