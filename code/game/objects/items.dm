@@ -349,6 +349,8 @@
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
 		return
+	if(QDELING(user))
+		return
 	var/list/verbs_to_remove = list()
 	for(var/v in verbs)
 		var/verbstring = "[v]"
