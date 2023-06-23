@@ -89,16 +89,6 @@
 	if (isAI(usr))
 		SSrecords.open_manifest_tgui(usr)
 
-/obj/screen/ai/alerts
-	name = "Show Alerts"
-	icon_state = "alerts"
-	screen_loc = ui_ai_alerts
-
-/obj/screen/ai/alerts/Click()
-	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.subsystem_alarm_monitor()
-
 /obj/screen/ai/announcement
 	name = "Announcement"
 	icon_state = "announcement"

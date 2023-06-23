@@ -15,8 +15,6 @@
 
 /mob/living/silicon/ai
 	silicon_subsystems = list(
-		/mob/living/silicon/proc/subsystem_alarm_monitor,
-		/mob/living/silicon/proc/computer_interact,
 		/mob/living/silicon/proc/silicon_mimic_accent
 	)
 
@@ -27,8 +25,6 @@
 	)
 
 /mob/living/silicon/proc/init_subsystems()
-	alarm_monitor 	= new(src)
-
 	if(computer_path)
 		computer = new computer_path(src)
 
@@ -56,13 +52,4 @@
 		to_chat(usr, SPAN_WARNING("You don't have a local computer to interface with!"))
 		return
 	parent_computer.attack_self(src)
-
-/********************
-*	Alarm Monitor	*
-********************/
-/mob/living/silicon/proc/subsystem_alarm_monitor()
-	set name = "Alarm Monitor"
-	set category = "Subsystems"
-
-	alarm_monitor.ui_interact(usr, state = self_state)
 

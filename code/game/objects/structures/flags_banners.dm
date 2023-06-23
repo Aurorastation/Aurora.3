@@ -1811,6 +1811,47 @@
 
 /obj/structure/sign/flag/nhp/large/west/New()
 	..(loc, WEST)
+	
+// Silversun
+
+/obj/item/flag/silversun
+	name = "\improper Silversun flag"
+	desc = "The flag of Silversun."
+	flag_path = "silversun"
+	flag_structure = /obj/structure/sign/flag/silversun
+
+/obj/structure/sign/flag/silversun
+	name = "\improper Silversun flag"
+	desc = "The flag of Silversun."
+	flag_path = "silversun"
+	icon_state = "silversun"
+	flag_item = /obj/item/flag/silversun
+
+/obj/structure/sign/flag/silversun/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/silversun/l
+	name = "large Silversun flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/silversun/large
+
+/obj/structure/sign/flag/silversun/large
+	icon_state = "silversun_l"
+	flag_path = "silversun"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/silversun/l
+
+/obj/structure/sign/flag/silversun/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/silversun/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/silversun/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/silversun/large/west/New()
+	..(loc, WEST)
 
 // Hive Zo'ra
 

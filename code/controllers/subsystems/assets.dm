@@ -11,6 +11,8 @@
 
 /datum/controller/subsystem/assets/New()
 	NEW_SS_GLOBAL(SSassets)
+
+/datum/controller/subsystem/assets/Initialize()
 	var/newtransporttype = /datum/asset_transport
 	switch (config.asset_transport)
 		if ("webroot")
@@ -22,9 +24,9 @@
 	var/datum/asset_transport/newtransport = new newtransporttype ()
 	if (newtransport.validate_config())
 		transport = newtransport
+
 	transport.Load()
 
-/datum/controller/subsystem/assets/Initialize()
 	for(var/type in typesof(/datum/asset))
 		var/datum/asset/A = type
 		if (type != initial(A._abstract))

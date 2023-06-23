@@ -512,8 +512,6 @@ var/list/ai_verbs_default = list(
 		src << browse(null, t1)
 	if (href_list["switchcamera"])
 		switchCamera(locate(href_list["switchcamera"])) in cameranet.cameras
-	if (href_list["showalerts"])
-		subsystem_alarm_monitor()
 	//Carn: holopad requests
 	if (href_list["jumptoholopad"])
 		var/obj/machinery/hologram/holopad/H = locate(href_list["jumptoholopad"])

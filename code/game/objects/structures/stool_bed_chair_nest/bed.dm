@@ -326,6 +326,25 @@
 /obj/structure/bed/padded/New(var/newloc)
 	..(newloc, MATERIAL_PLASTIC, MATERIAL_CLOTH)
 
+/obj/structure/bed/padded/bunk
+	pixel_y = 16
+	var/sleeby_shift = 16
+
+/obj/structure/bed/padded/bunk/post_buckle(atom/movable/MA)
+	. = ..()
+	if(MA == buckled)
+		if(istype(MA, /mob/living))
+			var/mob/living/M = MA
+			M.old_y = sleeby_shift
+		buckled.pixel_y = sleeby_shift
+		update_icon()
+	else
+		if(istype(MA, /mob/living))
+			var/mob/living/M = MA
+			M.old_y = 0
+		MA.pixel_y = 0
+		update_icon()
+
 /obj/structure/bed/aqua
 	name = "aquabed"
 	icon_state = "aquabed"

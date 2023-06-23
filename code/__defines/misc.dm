@@ -71,18 +71,19 @@
 
 // ASFX and SFX Toggles
 // (ASFX = Ambient Sound Effects; SFX = Sound Effects)
-#define ASFX_AMBIENCE	1
-#define ASFX_FOOTSTEPS	2
-#define ASFX_VOTE		4
-#define ASFX_VOX		8
-#define ASFX_DROPSOUND	16
-#define ASFX_ARCADE		32
-#define ASFX_RADIO		64
-#define ASFX_INSTRUMENT 128
-#define ASFX_HUM 256
-#define ASFX_MUSIC 512
+#define ASFX_AMBIENCE			BITFLAG(0)
+#define ASFX_FOOTSTEPS			BITFLAG(1)
+#define ASFX_VOTE				BITFLAG(2)
+#define ASFX_VOX				BITFLAG(3)
+#define ASFX_DROPSOUND			BITFLAG(4)
+#define ASFX_ARCADE				BITFLAG(5)
+#define ASFX_RADIO				BITFLAG(6)
+#define ASFX_INSTRUMENT			BITFLAG(7)
+#define ASFX_HUM 				BITFLAG(8)
+#define ASFX_MUSIC				BITFLAG(9)
+#define ASFX_CONSOLE_AMBIENCE	BITFLAG(10)
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE | ASFX_FOOTSTEPS | ASFX_VOTE | ASFX_VOX | ASFX_DROPSOUND | ASFX_ARCADE | ASFX_RADIO | ASFX_INSTRUMENT | ASFX_HUM | ASFX_MUSIC)
+#define ASFX_DEFAULT (ASFX_AMBIENCE | ASFX_FOOTSTEPS | ASFX_VOTE | ASFX_VOX | ASFX_DROPSOUND | ASFX_ARCADE | ASFX_RADIO | ASFX_INSTRUMENT | ASFX_HUM | ASFX_MUSIC | ASFX_CONSOLE_AMBIENCE)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line reading the pulse.

@@ -10,6 +10,7 @@
 	sharp = TRUE
 	edge = TRUE
 	anchored = TRUE
+	armor_penetration = 20
 	throwforce = 0 //Just to be on the safe side
 	throw_range = 0
 	throw_speed = 0

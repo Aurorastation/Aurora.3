@@ -41204,7 +41204,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "uiq" = (
-/obj/machinery/computer/station_alert/security,
 /obj/machinery/button/remote/airlock{
 	desc = "A remote control switch for the brig foyer.";
 	id = "BrigFoyer";
@@ -41227,6 +41226,7 @@
 	pixel_x = 7;
 	pixel_y = 35
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/tiled,
 /area/horizon/security/office)
 "uiH" = (
@@ -43596,13 +43596,13 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/computer/station_alert/engineering{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/modular_computer/console/preset/engineering{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "vsb" = (

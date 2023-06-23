@@ -31441,7 +31441,6 @@
 /area/maintenance/medsublevel_port)
 "ntd" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/computer/station_alert,
 /obj/machinery/ringer{
 	department = "Engineering";
 	id = "engie_ringer";
@@ -35879,7 +35878,6 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "wuX" = (
-/obj/machinery/computer/station_alert,
 /turf/simulated/floor/tiled,
 /area/engineering/backup_SMES)
 "wve" = (

@@ -467,7 +467,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	icon_state = "holopad0_lr"
 	icon_state_suffix = "_lr"
 	long_range = TRUE
-	max_overmap_call_range = 4
+	max_overmap_call_range = 6
 
 /obj/machinery/hologram/holopad/long_range/get_holopad_id()
 	holopad_id = ""
