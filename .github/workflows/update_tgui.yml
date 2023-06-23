@@ -1,0 +1,25 @@
+name: "Build TGUI"
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update-tgui:
+    concurrency: tgui
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Update TGUI
+      run: |
+        tools/bootstrap/node tools/build/build.js tgui
+    - name: Commit
+      run: |
+        git pull origin master
+        git config --local user.email "action@github.com"
+        git config --local user.name "AuroraBuildBot"
+        git add --force tgui/public/*
+        git commit -m "Automatic TGUI compile [ci skip]" -a || true
+    - name: "Push"
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.BOT_TOKEN_AURORA || secrets.GITHUB_TOKEN }}
