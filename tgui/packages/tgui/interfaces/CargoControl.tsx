@@ -194,7 +194,9 @@ export const CargoControl = (props, context) => {
                 {data.order_details.reason}
               </LabeledList.Item>
               <LabeledList.Item label="Authorised By">
-                {data.order_details.authorized_by}
+                {data.order_details.authorized_by
+                  ? data.order_details.authorized_by
+                  : 'Unauthorised'}
               </LabeledList.Item>
               <LabeledList.Item label="Price">
                 {data.order_details.price} 电
@@ -212,13 +214,19 @@ export const CargoControl = (props, context) => {
                 {data.order_details.time_submitted}
               </LabeledList.Item>
               <LabeledList.Item label="Approved At">
-                {data.order_details.time_approved}
+                {data.order_details.time_approved
+                  ? data.order_details.time_approved
+                  : 'Unapproved'}
               </LabeledList.Item>
               <LabeledList.Item label="Paid At">
-                {data.order_details.time_paid}
+                {data.order_details.time_paid
+                  ? data.order_details.time_paid
+                  : 'Unpaid'}
               </LabeledList.Item>
               <LabeledList.Item label="Shipped At">
-                {data.order_details.time_shipped}
+                {data.order_details.time_shipped
+                  ? data.order_details.time_shipped
+                  : 'Unshipped'}
               </LabeledList.Item>
               <LabeledList.Item label="Payment Status">
                 {data.order_details.status_payment}
@@ -238,7 +246,7 @@ export const CargoControl = (props, context) => {
                   <Table.Row key={item.name}>
                     <Table.Cell>{item.name}</Table.Cell>
                     <Table.Cell>{item.supplier_name}</Table.Cell>
-                    <Table.Cell>{item.shipment_cost}</Table.Cell>
+                    <Table.Cell>{item.price} 电</Table.Cell>
                   </Table.Row>
                 ))}
               </Table>
