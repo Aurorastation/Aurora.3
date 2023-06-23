@@ -5,5 +5,4 @@
 	name = "chat"
 
 /datum/asset/spritesheet/chat/create_spritesheets()
-	InsertAll("emoji", EMOJI_SET)
 	InsertAll("accent", 'icons/accent_tags.dmi')
