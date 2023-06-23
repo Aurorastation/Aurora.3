@@ -320,11 +320,39 @@
 	desc = "A simple strip of fabric attached to a vest or helmet typically used to denote the wearer's \
 	organization or nationality."
 	icon = 'icons/clothing/kit/modular_armor_accessories.dmi'
-	icon_state = "flagpatch_colorable"
-	item_state = "flagpatch_colorable"
+	icon_state = "flagpatch"
+	item_state = "flagpatch"
+	var/shading_state = "flagpatch"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_GENERIC
 	flippable = FALSE
+
+/obj/item/clothing/accessory/flagpatch/Initialize()
+	. = ..()
+	var/icon/shading_icon
+	var/icon/flagpatch_icon = new(icon, icon_state)
+	if(shading_state)
+		shading_icon = new(icon, shading_state)
+		flagpatch_icon.Blend(shading_icon, ICON_MULTIPLY)
+		add_overlay(flagpatch_icon)
+
+/obj/item/clothing/accessory/flagpatch/rectangular
+	shading_state = null
+
+/obj/item/clothing/accessory/flagpatch/triangular
+	icon_state = "flagpatch_triangular"
+	item_state = "flagpatch_triangular"
+	shading_state = null
+
+/obj/item/clothing/accessory/flagpatch/circular
+	icon_state = "flagpatch_circular"
+	item_state = "flagpatch_circular"
+	shading_state = null
+
+/obj/item/clothing/accessory/flagpatch/square
+	icon_state = "flagpatch_square"
+	item_state = "flagpatch_square"
+	shading_state = null
 
 /obj/item/clothing/accessory/flagpatch/biesel
 	name = "republic of biesel flagpatch"
@@ -440,6 +468,7 @@
 	holographic patches made of hardlight to make their affiliation clear no matter the conditions."
 	icon_state = "flagpatch_elyra"
 	item_state = "flagpatch_elyra"
+	shading_state = "flagpatch_triangular"
 
 /obj/item/clothing/accessory/flagpatch/konyang
 	name = "konyang flagpatch"
