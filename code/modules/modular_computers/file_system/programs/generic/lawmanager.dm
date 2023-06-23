@@ -24,17 +24,6 @@
 	..()
 	owner = S
 
-	if(!admin_laws)
-		admin_laws = new()
-		player_laws = new()
-
-		init_subtypes(/datum/ai_laws, admin_laws)
-		sortTim(admin_laws, GLOBAL_PROC_REF(cmp_name_asc))
-
-		for(var/datum/ai_laws/laws in admin_laws)
-			if(laws.selectable)
-				player_laws += laws
-
 /datum/computer_file/program/law_manager/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return
@@ -156,6 +145,18 @@
 
 /datum/computer_file/program/law_manager/ui_data(mob/user)
 	var/list/data = list()
+
+	if(!admin_laws)
+		admin_laws = new()
+		player_laws = new()
+
+		init_subtypes(/datum/ai_laws, admin_laws)
+		sortTim(admin_laws, GLOBAL_PROC_REF(cmp_name_asc))
+
+		for(var/datum/ai_laws/laws in admin_laws)
+			if(laws.selectable)
+				player_laws += laws
+
 	owner.lawsync()
 
 	data["ion_law_nr"] = ionnum()
