@@ -829,7 +829,7 @@ Byond.subscribeTo('init_verbs', function (payload) {
 
 Byond.subscribeTo('update_stat', function (payload) {
 	status_tab_parts = [];
-  var parsed = payload.global_data;
+	var parsed = payload.global_data;
 
 	for (var i = 0; i < parsed.length; i++) if (parsed[i] != null) status_tab_parts.push(parsed[i]);
 
