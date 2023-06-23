@@ -47,7 +47,6 @@ export const setClientTheme = (name) => {
       'outputwindow.background-color': 'none',
       'outputwindow.text-color': '#000000',
       'mainwindow.background-color': 'none',
-      'split.background-color': 'none',
       // Buttons
       'changelog.background-color': 'none',
       'changelog.text-color': '#000000',
@@ -95,7 +94,6 @@ export const setClientTheme = (name) => {
       'outputwindow.background-color': COLOR_DARK_BG,
       'outputwindow.text-color': COLOR_DARK_TEXT,
       'mainwindow.background-color': COLOR_DARK_BG,
-      'split.background-color': COLOR_DARK_BG,
       // Buttons
       'changelog.background-color': '#494949',
       'changelog.text-color': COLOR_DARK_TEXT,
