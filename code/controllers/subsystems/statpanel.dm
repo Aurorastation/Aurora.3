@@ -59,7 +59,8 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 		if(!target.holder)
 			target.stat_panel.send_message("remove_admin_tabs")
 		else
-			target.stat_panel.send_message("update_split_admin_tabs", FALSE) //todomatt: this was splitadmintabs
+			/// This should be implemented eventually, but for now we don't need it - Aurora admins are used to suffering.
+			target.stat_panel.send_message("update_split_admin_tabs", FALSE)
 
 			if(!("MC" in target.panel_tabs))
 				target.stat_panel.send_message("add_admin_tabs")

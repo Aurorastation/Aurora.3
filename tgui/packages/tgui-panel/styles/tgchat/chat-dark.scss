@@ -208,6 +208,9 @@ a.popt {
   color: #a4bad6;
   text-decoration: underline;
 }
+.alert {
+  color: #d82020;
+}
 .motd a,
 .motd a:link,
 .motd a:visited,
@@ -263,6 +266,56 @@ em {
 .log_message {
   color: #386aff;
   font-weight: bold;
+}
+
+/* CHAT TAGS */
+.tag {
+  color: #fff;
+  border-radius: 15px;
+  font-size: 80%;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.ooc_tag {
+  background-color: #3c5dc0;
+}
+.looc_tag {
+  color: #000;
+  background-color: #46b2b2;
+}
+.adminlooc_tag {
+  color: #000;
+  background-color: #3bae6e;
+}
+.dev_tag {
+  background-color: #2c7731;
+}
+.admin_tag {
+  background-color: #9611d4;
+}
+.mod_tag {
+  background-color: #663a0e;
+}
+.dead_tag {
+  background-color: #9269c7;
+}
+.pmin_tag {
+  background-color: #ff0000;
+}
+.pmout_tag {
+  background-color: #ff0000;
+}
+.pmoutalt_tag {
+  background-color: #b54a4a;
+}
+.pmother_tag {
+  background-color: #498db6;
+}
+.help_tag {
+  background-color: #ff0000;
+}
+.aooc_tag {
+  background-color: #920000;
 }
 
 /* OOC */
@@ -343,9 +396,8 @@ em {
   color: #ff00ff;
 } /* when all other department colors fail */
 .newscaster {
-  color: #750000;
+  color: #b43c3c;
 }
-
 /* Radio Channels */
 .comradio {
   color: #5b8deb;
@@ -394,10 +446,6 @@ em {
 }
 .alert {
   color: #ff0000;
-}
-h1.alert,
-h2.alert {
-  color: #000080;
 }
 
 .emote {
