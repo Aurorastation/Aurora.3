@@ -347,6 +347,8 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 /obj/item/proc/remove_item_verbs(mob/user)
+	if(ismech(user)) //very snowflake, but necessary due to how mechs work
+		return
 	var/list/verbs_to_remove = list()
 	for(var/v in verbs)
 		var/verbstring = "[v]"
