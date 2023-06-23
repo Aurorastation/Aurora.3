@@ -37,7 +37,6 @@
 	// Internal Computer
 	var/obj/item/modular_computer/silicon/computer
 	var/list/silicon_subsystems = list(
-		/mob/living/silicon/proc/subsystem_alarm_monitor,
 		/mob/living/silicon/proc/computer_interact,
 		/mob/living/silicon/proc/silicon_mimic_accent
 	)
