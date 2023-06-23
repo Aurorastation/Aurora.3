@@ -66,6 +66,12 @@
 	shuttle_moved_event.register(shuttle_datum, src, PROC_REF(on_shuttle_jump))
 	on_landing(landmark, shuttle_datum.current_location) // We "land" at round start to properly place ourselves on the overmap.
 
+	var/obj/effect/overmap/visitable/mothership = map_sectors["[shuttle_datum.current_location.z]"]
+	if(mothership)
+		for(var/obj/machinery/computer/ship/sensors/sensor_console in consoles)
+			sensor_console.datalink_add_ship_datalink(mothership)
+			break
+
 /obj/effect/shuttle_landmark/ship
 	name = "Open Space"
 	landmark_tag = "ship"
