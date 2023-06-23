@@ -242,7 +242,7 @@ export const Payment = (props, context) => {
       }>
       <LabeledList>
         <LabeledList.Item label="Price">
-          {data.order_details.price}
+          {data.order_details.price} 电
         </LabeledList.Item>
         <LabeledList.Item label="Customer">
           {data.order_details.ordered_by}
