@@ -136,10 +136,8 @@
 	set_light(3, 1, l_color = LIGHT_COLOR_CYAN)
 
 /mob/living/simple_animal/shade/bluespace/get_status_tab_items()
-	..()
-
-	if(statpanel("Status"))
-		stat(null, "Strength of Echoes: [message_countdown]")
+	. = ..()
+	. +=  "Strength of Echoes: [message_countdown]"
 
 /mob/living/simple_animal/shade/bluespace/updatehealth()
 	if(!possessive)

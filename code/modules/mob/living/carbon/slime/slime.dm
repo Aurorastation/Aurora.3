@@ -227,7 +227,7 @@
 	return TRUE
 
 /mob/living/carbon/slime/get_status_tab_items()
-	..()
+	. = ..()
 
 	. += "Health: [round((health / maxHealth) * 100)]%"
 	. += "Intent: [a_intent]"
@@ -236,9 +236,9 @@
 		. += "Nutrition: [nutrition]/[get_max_nutrition()]"
 		if(amount_grown >= 5)
 			if(is_adult)
-				. += "Status: You can reproduce!"
+				. += "You can reproduce!"
 			else
-				. += "Status: You can evolve!"
+				. += "You can evolve!"
 
 		. += "Power Level: [powerlevel]"
 

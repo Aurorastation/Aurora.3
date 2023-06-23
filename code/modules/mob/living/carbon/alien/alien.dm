@@ -41,7 +41,7 @@
 	return
 
 /mob/living/carbon/alien/get_status_tab_items()
-	..()
+	. = ..()
 	. += "Progress: [amount_grown]/[max_grown]"
 
 /mob/living/carbon/alien/restrained()

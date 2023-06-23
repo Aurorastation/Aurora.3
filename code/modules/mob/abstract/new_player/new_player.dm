@@ -42,7 +42,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	if(SSticker.current_state == GAME_STATE_PREGAME)
 		. += "Time To Start: [SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]"
-		. += "Players: [length(player_list)]: Players Ready: [SSticker.total_players_ready]"
+		. += "Players: [length(player_list)]"
+		. += "Players Ready: [SSticker.total_players_ready]"
 		if(LAZYLEN(SSticker.ready_player_jobs))
 			for(var/dept in SSticker.ready_player_jobs)
 				if(LAZYLEN(SSticker.ready_player_jobs[dept]))

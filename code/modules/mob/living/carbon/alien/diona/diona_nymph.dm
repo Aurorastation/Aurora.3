@@ -261,7 +261,7 @@
 	. = ..()
 	. += "Biomass: [nutrition]/[evolve_nutrition]"
 	if(nutrition > evolve_nutrition)
-		. += "Progress: You have enough biomass to grow!"
+		. += "You have enough biomass to grow!"
 
 //Overriding this function from /mob/living/carbon/alien/life.dm
 /mob/living/carbon/alien/diona/handle_regular_status_updates()

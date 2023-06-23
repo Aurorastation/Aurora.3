@@ -683,11 +683,11 @@
 		walk_to(src, movement_target, 0, DS2TICKS(seek_move_delay))
 
 /mob/living/simple_animal/get_status_tab_items()
-	..()
+	. = ..()
 
-	if(statpanel("Status") && show_stat_health)
-		stat(null, "Health: [round((health / maxHealth) * 100)]%")
-		stat(null, "Nutrition: [nutrition]/[max_nutrition]")
+	if(show_stat_health)
+		. += "Health: [round((health / maxHealth) * 100)]%"
+		. += "Nutrition: [nutrition]/[max_nutrition]"
 
 /mob/living/simple_animal/updatehealth()
 	..()
