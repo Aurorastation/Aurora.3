@@ -11,7 +11,7 @@
 	idle_power_usage = 0
 	active_power_usage = 0
 	produces_heat = FALSE
-	overmap_range = 2
+	overmap_range = 3
 
 	var/away_aio = FALSE
 	var/list/recent_broadcasts
