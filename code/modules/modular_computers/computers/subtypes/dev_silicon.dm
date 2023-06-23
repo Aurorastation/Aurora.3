@@ -55,6 +55,7 @@
 	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))
 	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
 	hard_drive.store_file(new /datum/computer_file/program/chat_client(src))
+	hard_drive.store_file(new /datum/computer_file/program/alarm_monitor/all(src))
 	hard_drive.store_file(new /datum/computer_file/program/atmos_control(src))
 	hard_drive.store_file(new /datum/computer_file/program/rcon_console(src))
 	hard_drive.store_file(new /datum/computer_file/program/law_manager(src, computer_host))
@@ -69,4 +70,5 @@
 /obj/item/modular_computer/silicon/robot/drone/install_default_programs()
 	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))
 	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
+	hard_drive.store_file(new /datum/computer_file/program/alarm_monitor/all(src))
 	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))

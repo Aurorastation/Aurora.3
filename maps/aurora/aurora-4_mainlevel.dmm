@@ -15617,7 +15617,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aCa" = (
-/obj/machinery/computer/station_alert/engineering,
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
@@ -23660,7 +23659,6 @@
 /area/security/brig/control_room)
 "aPc" = (
 /obj/machinery/firealarm/south,
-/obj/machinery/computer/station_alert/security,
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aPd" = (
@@ -25582,7 +25580,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aSg" = (
-/obj/machinery/computer/station_alert/engineering,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},

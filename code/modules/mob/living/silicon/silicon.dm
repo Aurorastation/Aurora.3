@@ -35,7 +35,6 @@
 	var/list/datum/alarm/queued_alarms = new()
 
 	// Internal Computer
-	var/datum/nano_module/alarm_monitor/all/alarm_monitor
 	var/obj/item/modular_computer/silicon/computer
 	var/list/silicon_subsystems = list(
 		/mob/living/silicon/proc/subsystem_alarm_monitor,
@@ -75,7 +74,6 @@
 /mob/living/silicon/Destroy()
 	silicon_mob_list -= src
 	QDEL_NULL(computer)
-	QDEL_NULL(alarm_monitor)
 	QDEL_NULL(computer)
 	QDEL_NULL(id_card)
 	QDEL_NULL(common_radio)

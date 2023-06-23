@@ -927,10 +927,6 @@
 	if(usr != src)
 		return TRUE
 
-	if(href_list["showalerts"])
-		subsystem_alarm_monitor()
-		return TRUE
-
 	if(href_list["mod"])
 		var/obj/item/O = locate(href_list["mod"])
 		if(istype(O) && (O.loc == src))

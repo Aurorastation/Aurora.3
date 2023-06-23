@@ -35,7 +35,7 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/power_monitor(comp),
-		new /datum/computer_file/program/alarm_monitor(comp),
+		new /datum/computer_file/program/alarm_monitor/engineering(comp),
 		new /datum/computer_file/program/atmos_control(comp),
 		new /datum/computer_file/program/rcon_console(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
@@ -58,7 +58,7 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/power_monitor(comp),
-		new /datum/computer_file/program/alarm_monitor(comp),
+		new /datum/computer_file/program/alarm_monitor/engineering(comp),
 		new /datum/computer_file/program/atmos_control(comp),
 		new /datum/computer_file/program/rcon_console(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
@@ -83,7 +83,7 @@
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
 		new /datum/computer_file/program/power_monitor(comp),
-		new /datum/computer_file/program/alarm_monitor(comp),
+		new /datum/computer_file/program/alarm_monitor/engineering(comp),
 		new /datum/computer_file/program/atmos_control(comp),
 		new /datum/computer_file/program/rcon_console(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
@@ -285,7 +285,7 @@
 		new /datum/computer_file/program/penal_mechs(comp),
 		new /datum/computer_file/program/civilian/cargocontrol(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
-		new /datum/computer_file/program/alarm_monitor(comp),
+		new /datum/computer_file/program/alarm_monitor/all(comp),
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/records/medical(comp),
 		new /datum/computer_file/program/records/security(comp)
@@ -337,6 +337,7 @@
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/alarm_monitor/security(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/digitalwarrant(comp),
@@ -358,6 +359,7 @@
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/alarm_monitor/security(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/comm(comp),
@@ -382,6 +384,7 @@
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/alarm_monitor/security(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/digitalwarrant(comp),
 		new /datum/computer_file/program/records/security(comp),
@@ -402,6 +405,7 @@
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/alarm_monitor/security(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
 		new /datum/computer_file/program/camera_monitor(comp),
@@ -558,7 +562,7 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
-		new /datum/computer_file/program/alarm_monitor(comp)
+		new /datum/computer_file/program/alarm_monitor/engineering(comp)
 	)
 	return _prg_list
 
@@ -591,7 +595,7 @@
 		new /datum/computer_file/program/camera_monitor/hacked(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
 		new /datum/computer_file/program/suit_sensors(comp),
-		new /datum/computer_file/program/alarm_monitor(comp),
+		new /datum/computer_file/program/alarm_monitor/all(comp),
 		new /datum/computer_file/program/lighting_control(comp),
 		new /datum/computer_file/program/aidiag(comp),
 		new /datum/computer_file/program/records(comp)
