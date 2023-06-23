@@ -1,0 +1,30 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "type": "shell",
+        "command": "tools/dreamchecker/dreamchecker",
+        "windows": {
+          "command": ".\\tools\\dreamchecker\\dreamchecker.bat \".\\tools\\dreamchecker\\dreamchecker.exe\"",
+          "echo": "false"
+        },
+        "group": "build",
+        "label": "dreamchecker"
+      },
+      {
+        "type": "dreammaker",
+        "dme": "aurorastation.dme",
+        "problemMatcher": [
+          "$dreammaker"
+        ],
+        "group": "build",
+        "label": "dm: build - aurorastation.dme",
+        "dependsOrder": "sequence",
+        "dependsOn": [
+            "dreamchecker"
+        ]
+      }
+    ]
+}
