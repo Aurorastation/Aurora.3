@@ -77,8 +77,8 @@ var/datum/antagonist/vampire/vamp = null
 			remove_verb(player.current, P.verbpath)
 	else
 		// something went wrong when removing the antag status, readd them
-		user.client.screen += vampire.blood_hud
-		user.client.screen += vampire.frenzy_hud
+		player.current.client.screen += vampire.blood_hud
+		player.current.client.screen += vampire.frenzy_hud
 
 /datum/antagonist/vampire/handle_latelogin(var/mob/user)
 	var/datum/mind/M = user.mind

@@ -504,22 +504,20 @@ var/list/admin_verbs_cciaa = list(
 		if(holder.rights & R_CCIAA)			add_verb(src, admin_verbs_cciaa)
 
 /client/proc/remove_admin_verbs()
-	remove_verb(src,
-		admin_verbs_default,
-		/client/proc/togglebuildmodeself,
-		admin_verbs_admin,
-		admin_verbs_ban,
-		admin_verbs_fun,
-		admin_verbs_server,
-		admin_verbs_debug,
-		admin_verbs_possess,
-		admin_verbs_permissions,
-		/client/proc/stealth,
-		admin_verbs_rejuv,
-		admin_verbs_sounds,
-		admin_verbs_spawn,
-		debug_verbs
-		)
+	remove_verb(src, admin_verbs_default)
+	remove_verb(src, /client/proc/togglebuildmodeself)
+	remove_verb(src, admin_verbs_admin)
+	remove_verb(src, admin_verbs_ban)
+	remove_verb(src, admin_verbs_fun)
+	remove_verb(src, admin_verbs_server)
+	remove_verb(src, admin_verbs_debug)
+	remove_verb(src, admin_verbs_possess)
+	remove_verb(src, admin_verbs_permissions)
+	remove_verb(src, /client/proc/stealth)
+	remove_verb(src, admin_verbs_rejuv)
+	remove_verb(src, admin_verbs_sounds)
+	remove_verb(src, admin_verbs_spawn)
+	remove_verb(src, debug_verbs)
 	add_aooc_if_necessary()
 
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs

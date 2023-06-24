@@ -284,6 +284,59 @@ em {
   font-weight: bold;
 }
 
+/* CHAT TAGS */
+.tag {
+  color: #fff;
+  border-radius: 15px;
+  font-size: 80%;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.ooc_tag {
+  background-color: #3c5dc0;
+}
+.looc_tag {
+  color: #000;
+  background-color: #46b2b2;
+}
+.adminlooc_tag {
+  color: #000;
+  background-color: #3bae6e;
+}
+.dev_tag {
+  background-color: #2c7731;
+}
+.admin_tag {
+  background-color: #9611d4;
+}
+.ccia_tag {
+  background: #22a9b4;
+}
+.mod_tag {
+  background-color: #663a0e;
+}
+.dead_tag {
+  background-color: #9269c7;
+}
+.pmin_tag {
+  background-color: #ff0000;
+}
+.pmout_tag {
+  background-color: #ff0000;
+}
+.pmoutalt_tag {
+  background-color: #b54a4a;
+}
+.pmother_tag {
+  background-color: #498db6;
+}
+.help_tag {
+  background-color: #ff0000;
+}
+.aooc_tag {
+  background-color: #920000;
+}
+
 /* OOC */
 .ooc {
   font-weight: bold;

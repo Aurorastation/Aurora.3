@@ -170,7 +170,7 @@ var/list/debug_verbs = list (
 
 /client/proc/enable_debug_verbs()
 	set category = "Debug"
-	set name = "Debug verbs"
+	set name = "Debug Verbs"
 
 	if(!check_rights(R_DEBUG|R_DEV)) return
 
