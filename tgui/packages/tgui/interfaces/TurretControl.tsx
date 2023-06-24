@@ -57,7 +57,7 @@ export const ControlWindow = (props, context) => {
       <LabeledList.Item label="Turret Status">
         <Button
           content={data.enabled ? 'Enabled' : 'Disabled'}
-          color={data.enabled ? 'bad' : 'good'}
+          color={data.enabled ? 'bad' : ''}
           disabled={data.locked}
           onClick={() =>
             act('command', {
