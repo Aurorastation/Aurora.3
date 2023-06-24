@@ -1,7 +1,0 @@
-author: io-util
-
-delete-after: True
-
-changes:
-  - backend: "Use para-byond-tracy instead of byond-tracy which saves .utracy files to the disk to view later."
-  - admin: "Modified the Start-Tracy-Profiler adminverb, it is now aware of whether tracy is already running or not."
