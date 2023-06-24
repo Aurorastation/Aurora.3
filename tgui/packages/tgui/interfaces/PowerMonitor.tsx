@@ -100,7 +100,7 @@ export const SensorMonitoring = (props, context) => {
       </LabeledList>
       <Section title="Sensor Readings">
         <Table>
-          <Table.Row>
+          <Table.Row header>
             <Table.Cell>APC Name</Table.Cell>
             <Table.Cell>Equipment</Table.Cell>
             <Table.Cell>Lighting</Table.Cell>

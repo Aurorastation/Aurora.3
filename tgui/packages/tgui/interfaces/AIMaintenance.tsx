@@ -103,7 +103,7 @@ export const MaintenanceWindow = (props, context) => {
         }>
         {data.ai_laws && data.ai_laws.length ? (
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Index</Table.Cell>
               <Table.Cell>Law</Table.Cell>
             </Table.Row>

@@ -223,6 +223,14 @@
 		pct += delta
 		winset(src, "mainwindow.mainvsplit", "splitter=[pct]")
 
+/client/verb/refresh_tgui()
+	set name = "Refresh TGUI"
+	set category = "OOC"
+
+	for(var/window_id in tgui_windows)
+		var/datum/tgui_window/window = tgui_windows[window_id]
+		window.reinitialize()
+
 /client/verb/fix_stat_panel()
 	set name = "Fix Stat Panel"
 	set hidden = TRUE

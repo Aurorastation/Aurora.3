@@ -54,7 +54,7 @@ export const OccupantStatus = (props, context) => {
 
   return (
     <Table>
-      <Table.Row>
+      <Table.Row header>
         <Table.Cell>
           <Section
             fill:false

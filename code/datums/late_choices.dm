@@ -30,9 +30,9 @@
 	NP.Topic(action, params)
 
 /datum/late_choices/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(NP, src, ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(NP, src, "LateJoin", "Late Join Choices", 330, 720)
+		ui = new(user, src, "LateJoin", "Late Join Choices", 330, 720)
 		if(!character_image)
 			do_update_character_icon()
 		ui.open()
@@ -40,6 +40,10 @@
 
 	if (update_icon_on_next_open)
 		do_update_character_icon()
+
+/datum/late_choices/ui_close(mob/user)
+	. = ..()
+	our_ui = null
 
 /datum/late_choices/proc/update_character_icon()
 	if(our_ui.status < UI_INTERACTIVE)

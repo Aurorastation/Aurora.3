@@ -65,7 +65,7 @@ export const GhostSpawner = (props, context) => {
             ))}
           </Tabs>
           <Table preserveWhitespace>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Name</Table.Cell>
               <Table.Cell>Description</Table.Cell>
               <Table.Cell>Available Slots</Table.Cell>

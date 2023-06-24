@@ -1,4 +1,4 @@
-/datum/tgui_module/moderator/shared_actions/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/tgui_module/moderator/shared/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

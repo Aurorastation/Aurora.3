@@ -21,7 +21,7 @@ export const DamageMenu = (props, context) => {
       <Window.Content scrollable>
         <Section title="Limbs">
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Name</Table.Cell>
               <Table.Cell>Action</Table.Cell>
             </Table.Row>
@@ -76,7 +76,7 @@ export const DamageMenu = (props, context) => {
         </Section>
         <Section title="Organs">
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Name</Table.Cell>
               <Table.Cell>Action</Table.Cell>
             </Table.Row>

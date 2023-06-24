@@ -59,7 +59,7 @@ export const TeleporterPad = (props, context) => {
       </Section>
       <Section title="Teleporter Beacons">
         <Table>
-          <Table.Row>
+          <Table.Row header>
             <Table.Cell>Name</Table.Cell>
             <Table.Cell>Action</Table.Cell>
           </Table.Row>
@@ -83,7 +83,7 @@ export const TeleporterPad = (props, context) => {
       </Section>
       <Section title="Tracking Implants">
         <Table>
-          <Table.Row>
+          <Table.Row header>
             <Table.Cell>Name</Table.Cell>
             <Table.Cell>Action</Table.Cell>
           </Table.Row>
@@ -115,7 +115,7 @@ export const FindPad = (props, context) => {
   return (
     <Section title="Nearby Teleporter Pads">
       <Table>
-        <Table.Row>
+        <Table.Row header>
           <Table.Cell>Pad</Table.Cell>
           <Table.Cell>Action</Table.Cell>
         </Table.Row>

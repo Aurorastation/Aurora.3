@@ -62,7 +62,7 @@ export const ShowFiles = (props, context) => {
         />
       }>
       <Table>
-        <Table.Row>
+        <Table.Row header>
           <Table.Cell>Name</Table.Cell>
           <Table.Cell>Type</Table.Cell>
           <Table.Cell>Size</Table.Cell>
@@ -112,7 +112,7 @@ export const ShowFiles = (props, context) => {
       {data.usbconnected && data.usbfiles.length && (
         <Section title="USB Files">
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Name</Table.Cell>
               <Table.Cell>Type</Table.Cell>
               <Table.Cell>Size</Table.Cell>

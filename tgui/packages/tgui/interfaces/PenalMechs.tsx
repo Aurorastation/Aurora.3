@@ -33,7 +33,7 @@ export const PenalMechs = (props, context) => {
       <NtosWindow.Content scrollable>
         <Section title="Remote Penal Mechs">
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Pilot</Table.Cell>
               <Table.Cell>Mech Type</Table.Cell>
               <Table.Cell>Location</Table.Cell>
@@ -88,7 +88,7 @@ export const PenalMechs = (props, context) => {
         </Section>
         <Section title="Remote Penal Cyborgs">
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Pilot</Table.Cell>
               <Table.Cell>Robot Type</Table.Cell>
               <Table.Cell>Location</Table.Cell>

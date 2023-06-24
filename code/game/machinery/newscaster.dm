@@ -427,8 +427,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat += "<B>ERROR: Newscaster unit cannot access main news server!</B></BR>"
 				dat += "<BR><A href='?src=\ref[src];setScreen=[0]'>ATTEMPT RESET</A>"
 
-
-		human_or_robot_user << browse(dat, "window=newscaster_main;size=600x900")
+		var/datum/browser/newscaster_main = new(user, "newscaster_main", "Newscaster", 450, 500)
+		newscaster_main.set_content(dat)
+		newscaster_main.open()
 		onclose(human_or_robot_user, "newscaster_main")
 
 /obj/machinery/newscaster/Topic(href, href_list)

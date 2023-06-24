@@ -104,14 +104,17 @@
 
 	switch(action)
 		if("power")
-			update_use_power(!use_power)
+			update_use_power(use_power ? POWER_USE_OFF : POWER_USE_ACTIVE)
 			update_icon()
+			. = TRUE
 		if("temp")
 			var/amount = text2num(params["temp"])
 			set_temperature = between(0, amount, 1000)
+			. = TRUE
 		if("setPower") //setting power to 0 is redundant anyways
 			var/new_setting = between(0, text2num(params["setPower"]), 100)
 			set_power_level(new_setting)
+			. = TRUE
 
 	add_fingerprint(usr)
 

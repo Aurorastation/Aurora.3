@@ -37,7 +37,7 @@ export const Janitor = (props, context) => {
             ))}
           </Tabs>
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>ID</Table.Cell>
               <Table.Cell>Location</Table.Cell>
               <Table.Cell>Direction</Table.Cell>
