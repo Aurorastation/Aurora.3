@@ -302,9 +302,9 @@
 /stat_rig_module/Click()
 	if(CanUse())
 		var/list/href_list = list(
-							"interact_module" = module.holder.installed_modules.Find(module),
-							"module_mode" = module_mode
-							)
+			"interact_module" = module.holder.installed_modules.Find(module),
+			"module_mode" = module_mode
+			)
 		AddHref(href_list)
 		module.holder.Topic(usr, href_list)
 

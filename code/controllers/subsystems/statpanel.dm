@@ -37,6 +37,7 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 			"Current Date: [game_year]-[current_month]-[current_day]",
 			"Round Time: [get_round_duration_formatted()]",
 			"Ship Time: [worldtime2text()]",
+			"Current Space Sector: [SSatlas.current_sector.name]",
 			"Last Transfer Vote: [SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never"]"
 		)
 		if(eta_status)
