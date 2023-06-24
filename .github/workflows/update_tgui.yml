@@ -3,12 +3,22 @@ on:
   push:
     branches:
       - master
+    paths:
+      - tgui/**
 
 jobs:
   update-tgui:
     concurrency: tgui
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
+    - name: Restore Yarn cache
+      uses: actions/cache@v3
+      with:
+        path: tgui/.yarn/cache
+        key: ${{ runner.os }}-yarn-${{ hashFiles('tgui/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
     - name: Update TGUI
       run: |
         tools/bootstrap/node tools/build/build.js tgui
