@@ -124,6 +124,8 @@ export const NTOSConfig = (props, context) => {
                 minValue={0}
                 maxValue={max_message_range}
                 value={message_range}
+                step={1}
+                stepPixelSize={30}
                 onChange={(_, value) =>
                   act('audmessage', { 'new_range': value })
                 }
@@ -134,6 +136,8 @@ export const NTOSConfig = (props, context) => {
                 <Slider
                   minValue={0}
                   maxValue={10}
+                  step={1}
+                  stepPixelSize={30}
                   value={brightness}
                   onChange={(_, value) =>
                     act('brightness', { 'new_brightness': value })

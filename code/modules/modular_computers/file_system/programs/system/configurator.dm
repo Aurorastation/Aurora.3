@@ -36,7 +36,6 @@
 	data["disk_used"] = computer.hard_drive.used_capacity
 	data["card_slot"] = !!computer.card_slot
 	data["registered"] = computer.registered_id ? computer.registered_id.registered_name : ""
-	data["battery"] = computer.battery_module ? list("rating" = computer.battery_module.battery_rating, "percent" = computer.battery_module.battery.percent()) : null
 
 	data["max_message_range"] = initial(computer.message_output_range) + 3
 
@@ -59,10 +58,7 @@
 	data["power_usage"] = computer.last_power_usage * (CELLRATE / 2)
 	data["message_range"] = computer.message_output_range
 
-	data["battery"] = list()
-	if(computer.battery_module)
-		data["battery"]["rating"] = computer.battery_module.battery.maxcharge
-		data["battery"]["percent"] = round(computer.battery_module.battery.percent())
+	data["battery"] = computer.battery_module ? list("rating" = computer.battery_module.battery_rating, "percent" = computer.battery_module.battery.percent()) : null
 
 	if(computer.flashlight)
 		var/brightness = Clamp(0, round(computer.flashlight.power, 0.1) * 10, 10)
