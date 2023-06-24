@@ -1083,7 +1083,7 @@
 	if(R)
 		R.UnlinkSelf()
 		to_chat(R, SPAN_NOTICE("Buffers flushed and reset. Camera system shutdown. All systems operational."))
-		src.verbs -= /mob/living/silicon/robot/proc/ResetSecurityCodes
+		remove_verb(src, /mob/living/silicon/robot/proc/ResetSecurityCodes)
 
 /mob/living/silicon/robot/proc/SetLockdown(var/state = TRUE)
 	// They stay locked down if their wire is cut.
@@ -1112,7 +1112,7 @@
 		return
 
 	if(icon_selected)
-		verbs -= /mob/living/silicon/robot/proc/choose_icon
+		remove_verb(src, /mob/living/silicon/robot/proc/choose_icon)
 		return
 
 	if(length(module_sprites) == 1 || !client)
@@ -1142,7 +1142,7 @@
 	setup_icon_cache()
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 10, TRUE)
 	spark(get_turf(src), 5, alldirs)
-	verbs -= /mob/living/silicon/robot/proc/choose_icon
+	remove_verb(src, /mob/living/silicon/robot/proc/choose_icon)
 	to_chat(src, SPAN_NOTICE("Your icon has been set. You now require a module reset to change it."))
 
 
@@ -1159,12 +1159,12 @@
 	return sensor_mode == MED_HUD
 
 /mob/living/silicon/robot/proc/add_robot_verbs()
-	src.verbs |= robot_verbs_default
-	src.verbs |= silicon_subsystems
+	add_verb(src, robot_verbs_default)
+	add_verb(src, silicon_subsystems)
 
 /mob/living/silicon/robot/proc/remove_robot_verbs()
-	src.verbs -= robot_verbs_default
-	src.verbs -= silicon_subsystems
+	remove_verb(src, robot_verbs_default)
+	remove_verb(src, silicon_subsystems)
 
 // Uses power from cyborg's cell. Returns 1 on success or 0 on failure.
 // Properly converts using CELLRATE now! Amount is in Joules.

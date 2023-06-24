@@ -5,8 +5,9 @@
  * Arguments:
  * * target - Who the verb is being added to, client or mob typepath
  * * verb - typepath to a verb, or a list of verbs, supports lists of lists
+ * * callback - callback to optionally execute
  */
-/proc/add_verb(client/target, verb_or_list_to_add)
+/proc/add_verb(client/target, verb_or_list_to_add, datum/callback/callback)
 	if(!target)
 		CRASH("add_verb called without a target")
 	var/mob/mob_target = null
@@ -16,6 +17,9 @@
 		target = mob_target.client
 	else if(!istype(target, /client))
 		CRASH("add_verb called on a non-mob and non-client")
+	if(callback)
+		if(!callback.Invoke())
+			return
 	var/list/verbs_list = list()
 	if(!islist(verb_or_list_to_add))
 		verbs_list += verb_or_list_to_add

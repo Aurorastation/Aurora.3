@@ -161,7 +161,7 @@
 	seek_move_delay = (1 / seek_speed) * 10	//number of ds between moves
 	turns_since_scan = rand(min_scan_interval, max_scan_interval)//Randomise this at the start so animals don't sync up
 	health = maxHealth
-	verbs -= /mob/verb/observe
+	remove_verb(src, /mob/verb/observe)
 	health = maxHealth
 	if (mob_size)
 		update_nutrition_stats()

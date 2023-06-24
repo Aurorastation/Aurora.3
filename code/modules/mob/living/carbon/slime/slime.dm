@@ -72,7 +72,7 @@
 /mob/living/carbon/slime/Initialize(mapload, colour = "grey")
 	. = ..()
 
-	verbs += /mob/living/proc/ventcrawl
+	add_verb(src, /mob/living/proc/ventcrawl)
 
 	add_language(LANGUAGE_TCB)
 	set_default_language(all_languages[LANGUAGE_TCB])

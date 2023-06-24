@@ -483,28 +483,28 @@ var/list/admin_verbs_cciaa = list(
 
 /client/proc/add_admin_verbs()
 	if(holder)
-		verbs += admin_verbs_default
-		if(holder.rights & R_BUILDMODE)		verbs += /client/proc/togglebuildmodeself
-		if(holder.rights & R_ADMIN)			verbs += admin_verbs_admin
-		if(holder.rights & R_BAN)			verbs += admin_verbs_ban
-		if(holder.rights & R_FUN)			verbs += admin_verbs_fun
-		if(holder.rights & R_SERVER)		verbs += admin_verbs_server
+		add_verb(src, admin_verbs_default)
+		if(holder.rights & R_BUILDMODE)		add_verb(src, /client/proc/togglebuildmodeself)
+		if(holder.rights & R_ADMIN)			add_verb(src, admin_verbs_admin)
+		if(holder.rights & R_BAN)			add_verb(src, admin_verbs_ban)
+		if(holder.rights & R_FUN)			add_verb(src, admin_verbs_fun)
+		if(holder.rights & R_SERVER)		add_verb(src, admin_verbs_server)
 		if(holder.rights & R_DEBUG)
-			verbs += admin_verbs_debug
+			add_verb(src, admin_verbs_debug)
 			if(config.debugparanoid && !(holder.rights & R_ADMIN))
-				verbs.Remove(admin_verbs_paranoid_debug)			//Right now it's just callproc but we can easily add others later on.
-		if(holder.rights & R_POSSESS)		verbs += admin_verbs_possess
-		if(holder.rights & R_PERMISSIONS)	verbs += admin_verbs_permissions
-		if(holder.rights & R_STEALTH)		verbs += /client/proc/stealth
-		if(holder.rights & R_REJUVINATE)	verbs += admin_verbs_rejuv
-		if(holder.rights & R_SOUNDS)		verbs += admin_verbs_sounds
-		if(holder.rights & R_SPAWN)			verbs += admin_verbs_spawn
-		if(holder.rights & R_MOD)			verbs += admin_verbs_mod
-		if(holder.rights & R_DEV)			verbs += admin_verbs_dev
-		if(holder.rights & R_CCIAA)			verbs += admin_verbs_cciaa
+				remove_verb(src, admin_verbs_paranoid_debug)			//Right now it's just callproc but we can easily add others later on.
+		if(holder.rights & R_POSSESS)		add_verb(src, admin_verbs_possess)
+		if(holder.rights & R_PERMISSIONS)	add_verb(src, admin_verbs_permissions)
+		if(holder.rights & R_STEALTH)		add_verb(src, /client/proc/stealth)
+		if(holder.rights & R_REJUVINATE)	add_verb(src, admin_verbs_rejuv)
+		if(holder.rights & R_SOUNDS)		add_verb(src, admin_verbs_sounds)
+		if(holder.rights & R_SPAWN)			add_verb(src, admin_verbs_spawn)
+		if(holder.rights & R_MOD)			add_verb(src, admin_verbs_mod)
+		if(holder.rights & R_DEV)			add_verb(src, admin_verbs_dev)
+		if(holder.rights & R_CCIAA)			add_verb(src, admin_verbs_cciaa)
 
 /client/proc/remove_admin_verbs()
-	verbs.Remove(
+	remove_verb(src,
 		admin_verbs_default,
 		/client/proc/togglebuildmodeself,
 		admin_verbs_admin,
@@ -526,12 +526,11 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Adminverbs - Hide Most"
 	set category = "Admin"
 
-	verbs.Remove(/client/proc/hide_most_verbs, admin_verbs_hideable)
-	verbs += /client/proc/show_verbs
+	remove_verb(src, admin_verbs_hideable)
+	add_verb(src, /client/proc/show_verbs)
 
 	to_chat(src, "<span class='interface'>Most of your adminverbs have been hidden.</span>")
 	feedback_add_details("admin_verb","HMV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	init_verbs()
 	return
 
 /client/proc/hide_verbs()
@@ -539,22 +538,20 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Admin"
 
 	remove_admin_verbs()
-	verbs += /client/proc/show_verbs
+	add_verb(src, /client/proc/show_verbs)
 
 	to_chat(src, "<span class='interface'>Almost all of your adminverbs have been hidden.</span>")
 	feedback_add_details("admin_verb","TAVVH") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	init_verbs()
 	return
 
 /client/proc/show_verbs()
 	set name = "Adminverbs - Show"
 	set category = "Admin"
 
-	verbs -= /client/proc/show_verbs
+	remove_verb(src, /client/proc/show_verbs)
 	add_admin_verbs()
 
 	to_chat(src, "<span class='interface'>All of your adminverbs are now visible.</span>")
-	init_verbs()
 	feedback_add_details("admin_verb","TAVVS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/admin_ghost()
@@ -772,7 +769,7 @@ var/list/admin_verbs_cciaa = list(
 		log_admin("[src] re-admined themself.",admin_key=key_name(src))
 		message_admins("[src] re-admined themself.", 1)
 		to_chat(src, "<span class='interface'>You now have the keys to control the galaxy, or at least a small space ship</span>")
-		verbs -= /client/proc/readmin_self
+		remove_verb(src, /client/proc/readmin_self)
 
 /client/proc/deadmin_self()
 	set name = "De-admin self"
@@ -785,7 +782,7 @@ var/list/admin_verbs_cciaa = list(
 			message_admins("[src] deadmined themself.", 1)
 			deadmin()
 			to_chat(src, "<span class='interface'>You are now a normal player.</span>")
-			verbs |= /client/proc/readmin_self
+			add_verb(src, /client/proc/readmin_self)
 	feedback_add_details("admin_verb","DAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_aooc()
@@ -798,10 +795,10 @@ var/list/admin_verbs_cciaa = list(
 	if(holder)
 		if (toggle_aooc_holder_check() == FALSE)
 			to_chat(src, "<span class='notice'>AOOC is now muted.</span>")
-			verbs -= /client/proc/aooc
+			remove_verb(src, /client/proc/aooc)
 		else
 			to_chat(src, "<span class='notice'>AOOC is now unmuted.</span>")
-			verbs |= /client/proc/aooc
+			add_verb(src, /client/proc/aooc)
 
 	feedback_add_details("admin_verb","TAOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

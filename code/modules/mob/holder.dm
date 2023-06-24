@@ -205,7 +205,7 @@ var/list/holder_mob_icon_cache = list()
 		to_chat(grabber, "<span class='warning'>Your hand is full!</span>")
 		return
 
-	src.verbs += /mob/living/proc/get_holder_location//This has to be before we move the mob into the holder
+	add_verb(src,  /mob/living/proc/get_holder_location) //This has to be before we move the mob into the holder
 
 	spawn(2)
 		var/obj/item/holder/H = new holder_type(loc)

@@ -34,7 +34,7 @@
 		if(mind)
 			mind.name = real_name
 		if(get_hearing_sensitivity())
-			verbs += /mob/living/carbon/human/proc/listening_close
+			add_verb(src, /mob/living/carbon/human/proc/listening_close)
 		if(!height)
 			height = species.species_height
 
@@ -1029,7 +1029,7 @@
 		return
 
 	if(NOT_FLAG(mutations, mMorph))
-		src.verbs -= /mob/living/carbon/human/proc/morph
+		remove_verb(src, /mob/living/carbon/human/proc/morph)
 		return
 
 	var/new_facial = input("Please select facial hair color.", "Character Generation",rgb(r_facial,g_facial,b_facial)) as color
@@ -1110,7 +1110,7 @@
 		return
 
 	if(NOT_FLAG(mutations, mRemotetalk))
-		src.verbs -= /mob/living/carbon/human/proc/remotesay
+		remove_verb(src, /mob/living/carbon/human/proc/remotesay)
 		return
 	var/list/creatures = list()
 	for(var/hh in human_mob_list)
@@ -1144,7 +1144,7 @@
 	if(NOT_FLAG(mutations, mRemote))
 		remoteview_target = null
 		reset_view(0)
-		src.verbs -= /mob/living/carbon/human/proc/remoteobserve
+		remove_verb(src, /mob/living/carbon/human/proc/remoteobserve)
 		return
 
 	if(client.eye != client.mob)
@@ -1284,7 +1284,7 @@
 			blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
 		hand_blood_color = H.species?.blood_color
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
-	verbs += /mob/living/carbon/human/proc/bloody_doodle
+	add_verb(src, /mob/living/carbon/human/proc/bloody_doodle)
 	return TRUE //we applied blood to the item
 
 /mob/living/carbon/human/proc/get_full_print()
@@ -1509,7 +1509,7 @@
 		return 0 //something is terribly wrong
 
 	if (!bloody_hands)
-		verbs -= /mob/living/carbon/human/proc/bloody_doodle
+		remove_verb(src, /mob/living/carbon/human/proc/bloody_doodle)
 
 	if (src.gloves)
 		to_chat(src, SPAN_WARNING("Your [src.gloves] are getting in the way."))

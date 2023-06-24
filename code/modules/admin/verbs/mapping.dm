@@ -174,9 +174,8 @@ var/list/debug_verbs = list (
 
 	if(!check_rights(R_DEBUG|R_DEV)) return
 
-	verbs += debug_verbs
+	add_verb(src, debug_verbs)
 
-	init_verbs()
 	feedback_add_details("admin_verb","mDV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/hide_debug_verbs()
@@ -185,7 +184,7 @@ var/list/debug_verbs = list (
 
 	if(!check_rights(R_DEBUG|R_DEV)) return
 
-	verbs -= debug_verbs
+	remove_verb(src, debug_verbs)
 
 	init_verbs()
 	feedback_add_details("admin_verb","hDV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

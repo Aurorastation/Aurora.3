@@ -43,7 +43,7 @@
 	sight |= SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
 	see_invisible = SEE_INVISIBLE_OBSERVER
 	see_in_dark = 100
-	verbs += /mob/abstract/observer/proc/dead_tele
+	add_verb(src, /mob/abstract/observer/proc/dead_tele)
 
 	set_stat(DEAD)
 
@@ -238,7 +238,7 @@ Works together with spawning an observer, noted above.
 		ghost.initialise_postkey(should_set_timer)
 		if(ghost.client)
 			if(!ghost.client.holder && !config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
-				ghost.verbs -= /mob/abstract/observer/verb/toggle_antagHUD	// Poor guys, don't know what they are missing!
+				remove_verb(ghost, /mob/abstract/observer/verb/toggle_antagHUD)	// Poor guys, don't know what they are missing!
 		return ghost
 
 /*
@@ -371,7 +371,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!istype(usr, /mob/abstract/observer))
 		to_chat(usr, "Not when you're not dead!")
 		return
-	usr.verbs -= /mob/abstract/observer/proc/dead_tele
+	remove_verb(usr, /mob/abstract/observer/proc/dead_tele)
 	ADD_VERB_IN(usr, 30, /mob/abstract/observer/proc/dead_tele)
 	var/area/thearea = ghostteleportlocs[A]
 	if(!thearea)	return
@@ -721,9 +721,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	is_manifest = 0
 	if(!is_manifest)
 		is_manifest = 1
-		verbs += /mob/abstract/observer/proc/toggle_visibility_verb
-		verbs += /mob/abstract/observer/proc/ghost_whisper
-		verbs += /mob/abstract/observer/proc/move_item
+		add_verb(src,  /mob/abstract/observer/proc/toggle_visibility_verb)
+		add_verb(src, /mob/abstract/observer/proc/ghost_whisper)
+		add_verb(src,  /mob/abstract/observer/proc/move_item)
 
 	if(src.invisibility != 0)
 		user.visible_message( \

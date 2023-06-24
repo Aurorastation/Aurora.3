@@ -131,7 +131,7 @@
 	M.vr_mob = target
 	target.ckey = new_ckey
 	M.ckey = "@[new_ckey]"
-	target.verbs += /mob/proc/body_return
+	add_verb(target, /mob/proc/body_return)
 
 	target.get_vr_name(M)
 	M.swap_languages(target)

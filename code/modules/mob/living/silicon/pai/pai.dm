@@ -183,11 +183,11 @@
 	add_language(LANGUAGE_SIGN, 0)
 	set_custom_sprite()
 
-	verbs += /mob/living/silicon/pai/proc/choose_chassis
-	verbs += /mob/living/silicon/pai/proc/choose_verbs
-	verbs += /mob/living/silicon/proc/computer_interact
-	verbs += /mob/living/silicon/pai/proc/personal_computer_interact
-	verbs += /mob/living/silicon/proc/silicon_mimic_accent
+	add_verb(src, /mob/living/silicon/pai/proc/choose_chassis)
+	add_verb(src, /mob/living/silicon/pai/proc/choose_verbs)
+	add_verb(src, /mob/living/silicon/proc/computer_interact)
+	add_verb(src, /mob/living/silicon/pai/proc/personal_computer_interact)
+	add_verb(src, /mob/living/silicon/proc/silicon_mimic_accent)
 
 	. = ..()
 
@@ -379,8 +379,8 @@
 	holder_type = pai_holder_types[choice]
 	chassis = icon_state
 
-	verbs -= /mob/living/silicon/pai/proc/choose_chassis
-	verbs += /mob/living/proc/hide
+	remove_verb(src, /mob/living/silicon/pai/proc/choose_chassis)
+	add_verb(src, /mob/living/proc/hide)
 
 /mob/living/silicon/pai/verb/get_onmob_location()
 	set category = "pAI Commands"
@@ -405,7 +405,7 @@
 	speak_exclamation = sayverbs[(sayverbs.len>1 ? 2 : sayverbs.len)]
 	speak_query = sayverbs[(sayverbs.len>2 ? 3 : sayverbs.len)]
 
-	verbs -= /mob/living/silicon/pai/proc/choose_verbs
+	remove_verb(src, /mob/living/silicon/pai/proc/choose_verbs)
 
 /mob/living/silicon/pai/lay_down()
 	set name = "Rest"
