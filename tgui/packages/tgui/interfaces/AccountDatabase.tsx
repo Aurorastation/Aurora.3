@@ -92,7 +92,7 @@ export const AccountWindow = (props, context) => {
       {tab === 'All Accounts' ? (
         <>
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Number</Table.Cell>
               <Table.Cell>Name</Table.Cell>
             </Table.Row>
@@ -280,7 +280,7 @@ export const SpecificAccount = (props, context) => {
         </LabeledList>
         <Section title="Transactions">
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Timestamp</Table.Cell>
               <Table.Cell>Target</Table.Cell>
               <Table.Cell>Reason</Table.Cell>

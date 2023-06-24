@@ -94,7 +94,7 @@ export const AllWarrants = (props, context) => {
         }>
         {data.allwarrants && data.allwarrants.length ? (
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Name</Table.Cell>
               <Table.Cell>Charges</Table.Cell>
               <Table.Cell>Authorised By</Table.Cell>
@@ -123,7 +123,7 @@ export const AllWarrants = (props, context) => {
       <Section title="Search Warrants">
         {data.allwarrants && data.allwarrants.length ? (
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Name</Table.Cell>
               <Table.Cell>Charges</Table.Cell>
               <Table.Cell>Authorised By</Table.Cell>

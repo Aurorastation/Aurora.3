@@ -512,8 +512,11 @@ var/list/preferences_datums = list()
 	dat += "<a href='?src=\ref[src];close_load_dialog=1'>Close</a><br>"
 	dat += "</center></tt>"
 
-	user << browse(dat, "window=saves;size=300x390")
-
+	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
+	load_diag.width = 300
+	load_diag.height = 390
+	load_diag.set_content(dat)
+	load_diag.open()
 
 /datum/preferences/proc/open_load_dialog_file(mob/user)
 	var/dat = "<tt><center>"
@@ -533,10 +536,12 @@ var/list/preferences_datums = list()
 	dat += "<hr>"
 	dat += "</center></tt>"
 
-	user << browse(dat, "window=saves;size=300x390")
+	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
+	load_diag.set_content(dat)
+	load_diag.open()
 
 /datum/preferences/proc/close_load_dialog(mob/user)
-	user << browse(null, "window=saves")
+	user << browse(null, "window=load_diag")
 
 // Logs a character to the database. For statistics.
 /datum/preferences/proc/log_character(var/mob/living/carbon/human/H)

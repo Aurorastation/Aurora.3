@@ -36,7 +36,7 @@ export const NTMonitor = (props, context) => {
         </Section>
         <Section title="Firewall Configuration">
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Protocol</Table.Cell>
               <Table.Cell>Status</Table.Cell>
             </Table.Row>

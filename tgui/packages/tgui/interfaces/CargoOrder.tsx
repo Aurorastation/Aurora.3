@@ -198,7 +198,7 @@ export const ShowDetails = (props, context) => {
   return (
     <Section title="Details">
       <Table>
-        <Table.Row>
+        <Table.Row header>
           <Table.Cell>Name</Table.Cell>
           <Table.Cell>Supplier</Table.Cell>
           <Table.Cell>Price</Table.Cell>

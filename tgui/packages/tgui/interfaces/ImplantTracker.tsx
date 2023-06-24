@@ -27,7 +27,7 @@ export const ImplantTracker = (props, context) => {
       <NtosWindow.Content scrollable>
         <Section title="Chemical Implants">
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Implanted User</Table.Cell>
               <Table.Cell>Remaining Chemical Units</Table.Cell>
               <Table.Cell>Options</Table.Cell>
@@ -61,7 +61,7 @@ export const ImplantTracker = (props, context) => {
         </Section>
         <Section title="Tracking Implants">
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Tracking ID</Table.Cell>
               <Table.Cell>Current Area</Table.Cell>
               <Table.Cell>Options</Table.Cell>

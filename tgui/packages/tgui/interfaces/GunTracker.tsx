@@ -21,7 +21,7 @@ export const GunTracker = (props, context) => {
       <NtosWindow.Content scrollable>
         <Section title="Detected Firearms">
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>User</Table.Cell>
               <Table.Cell>Firearm</Table.Cell>
               <Table.Cell>Setting</Table.Cell>

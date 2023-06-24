@@ -46,7 +46,7 @@ export const SeedStorage = (props, context) => {
             />
           }>
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Name</Table.Cell>
               <Table.Cell>Variety</Table.Cell>
               {data.scan_stats && (

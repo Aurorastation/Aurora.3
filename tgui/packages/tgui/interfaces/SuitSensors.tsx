@@ -35,7 +35,7 @@ export const SuitSensors = (props, context) => {
       <NtosWindow.Content scrollable>
         <Section title="Suit Sensors">
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Name</Table.Cell>
               <Table.Cell>Pulse or Charge</Table.Cell>
               <Table.Cell>Blood Pressure</Table.Cell>

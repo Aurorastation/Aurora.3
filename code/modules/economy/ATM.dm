@@ -17,7 +17,6 @@
 	var/machine_id = ""
 	var/obj/item/card/held_card
 	var/editing_security_level = 0
-	var/view_screen = NO_SCREEN
 
 /obj/machinery/atm/Initialize()
 	. = ..()

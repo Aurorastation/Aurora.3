@@ -123,7 +123,7 @@ export const AddLaws = (props, context) => {
   return (
     <Section title="Add Laws">
       <Table>
-        <Table.Row>
+        <Table.Row header>
           <Table.Cell>Type</Table.Cell>
           <Table.Cell>Law</Table.Cell>
           <Table.Cell>Index</Table.Cell>
@@ -185,7 +185,7 @@ export const Ionlaws = (props, context) => {
   return (
     <Section title={data.ion_law_nr + ' Laws'}>
       <Table>
-        <Table.Row>
+        <Table.Row header>
           <Table.Cell>Index</Table.Cell>
           <Table.Cell>Law</Table.Cell>
           <Table.Cell>State</Table.Cell>
@@ -243,7 +243,7 @@ export const InherentLaws = (props, context) => {
   return (
     <Section title="Inherent Laws">
       <Table>
-        <Table.Row>
+        <Table.Row header>
           <Table.Cell>Index</Table.Cell>
           <Table.Cell>Law</Table.Cell>
           <Table.Cell>State</Table.Cell>
@@ -341,7 +341,7 @@ export const SuppliedLaws = (props, context) => {
   return (
     <Section title="Supplied Laws">
       <Table>
-        <Table.Row>
+        <Table.Row header>
           <Table.Cell>Index</Table.Cell>
           <Table.Cell>Law</Table.Cell>
           <Table.Cell>State</Table.Cell>
@@ -442,7 +442,7 @@ export const LawSets = (props, context) => {
             }>
             <Box>{set.header}</Box>
             <Table>
-              <Table.Row>
+              <Table.Row header>
                 <Table.Cell>Index</Table.Cell>
                 <Table.Cell>Law</Table.Cell>
               </Table.Row>

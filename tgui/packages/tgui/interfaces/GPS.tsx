@@ -54,7 +54,7 @@ export const GPS = (props, context) => {
         </Section>
         <Section title="Tracking">
           <Table>
-            <Table.Row>
+            <Table.Row header>
               <Table.Cell>Tag</Table.Cell>
               <Table.Cell>Location</Table.Cell>
               <Table.Cell>Area</Table.Cell>
