@@ -1,7 +1,7 @@
 /datum/controller/subsystem/ping
 	name = "Ping"
 	priority = SS_PRIORITY_PING
-	init_order = SS_INIT_MISC
+	init_order = SS_INIT_MISC_FIRST
 	wait = 4 SECONDS
 	flags = SS_NO_INIT
 	runlevels = RUNLEVEL_LOBBY | RUNLEVEL_SETUP | RUNLEVEL_GAME | RUNLEVEL_POSTGAME

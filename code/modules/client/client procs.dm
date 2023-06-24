@@ -379,6 +379,17 @@ var/list/localhost_addresses = list(
 		src.InitPrefs()
 		mob.LateLogin()
 
+
+	tgui_panel.initialize()
+
+	// Initialize stat panel
+	stat_panel.initialize(
+		inline_html = file("html/statbrowser.html"),
+		inline_js = file("html/statbrowser.js"),
+		inline_css = file("html/statbrowser.css"),
+	)
+
+
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]

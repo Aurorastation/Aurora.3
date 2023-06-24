@@ -103,12 +103,4 @@
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
 
-	client.tgui_panel.initialize()
-
-	// Initialize stat panel
-	client.stat_panel.initialize(
-		inline_html = file("html/statbrowser.html"),
-		inline_js = file("html/statbrowser.js"),
-		inline_css = file("html/statbrowser.css"),
-	)
 	addtimer(CALLBACK(client, TYPE_PROC_REF(/client, check_panel_loaded)), 30 SECONDS)
