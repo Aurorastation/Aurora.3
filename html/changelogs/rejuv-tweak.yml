@@ -3,4 +3,4 @@ author: kermit
 delete-after: True
 
 changes:
-  - admin: "Rejuvinations clear more effects caused by reagents (ie. intoxication stat causing a liver death loop)."
+  - admin: "Rejuvenations clear more effects caused by reagents (ie. intoxication stat causing a liver death loop)."
