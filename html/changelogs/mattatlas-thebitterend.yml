@@ -40,3 +40,5 @@ delete-after: True
 changes:
   - experiment: "Goonchat has been replaced with TGChat. New features include custom tabs to filter different chat messages, and better string highlighting!"
   - experiment: "Normal statpanels have been replaced with a TGUI version."
+  - bugfix: "Fixed some bugs regarding antag status removal. Verbs should no longer persist after having vampire or ling status removed, same with languages. HUD elements should also properly be removed now."
+  - rscadd: "Added a tag for CCIA say, after a couple of years."

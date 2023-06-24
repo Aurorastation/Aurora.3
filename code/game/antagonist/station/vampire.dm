@@ -70,6 +70,7 @@ var/datum/antagonist/vampire/vamp = null
 	if(player.current.client)
 		player.current.client.screen -= vampire.blood_hud
 		player.current.client.screen -= vampire.frenzy_hud
+		player.current.client.screen -= vampire.blood_suck_hud
 	. = ..()
 	if(.)
 		remove_verb(player.current, /datum/antagonist/vampire/proc/vampire_help)
@@ -79,6 +80,7 @@ var/datum/antagonist/vampire/vamp = null
 		// something went wrong when removing the antag status, readd them
 		player.current.client.screen += vampire.blood_hud
 		player.current.client.screen += vampire.frenzy_hud
+		player.current.client.screen += vampire.blood_suck_hud
 
 /datum/antagonist/vampire/handle_latelogin(var/mob/user)
 	var/datum/mind/M = user.mind
