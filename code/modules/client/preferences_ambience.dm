@@ -24,6 +24,7 @@
 	set desc = "Toggle the SFX preferences tab"
 
 	verbs ^= sfx_toggles
+	init_verbs()
 	return
 
 // Ambience Toggle

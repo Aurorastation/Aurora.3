@@ -531,6 +531,7 @@ var/list/admin_verbs_cciaa = list(
 
 	to_chat(src, "<span class='interface'>Most of your adminverbs have been hidden.</span>")
 	feedback_add_details("admin_verb","HMV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	init_verbs()
 	return
 
 /client/proc/hide_verbs()
@@ -542,6 +543,7 @@ var/list/admin_verbs_cciaa = list(
 
 	to_chat(src, "<span class='interface'>Almost all of your adminverbs have been hidden.</span>")
 	feedback_add_details("admin_verb","TAVVH") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	init_verbs()
 	return
 
 /client/proc/show_verbs()
@@ -552,11 +554,8 @@ var/list/admin_verbs_cciaa = list(
 	add_admin_verbs()
 
 	to_chat(src, "<span class='interface'>All of your adminverbs are now visible.</span>")
+	init_verbs()
 	feedback_add_details("admin_verb","TAVVS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-
-
-
 
 /client/proc/admin_ghost()
 	set category = "Admin"
