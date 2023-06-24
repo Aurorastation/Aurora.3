@@ -26,7 +26,7 @@
 	desc = "A mountainous region of Moroz that is technically under Imperial control, Fisanduh has long been a zone of conflict between the Dominian military and the remains of the Confederated States of Fisanduh, the democratic state that once controlled the region. Fisanduh has been devastated by decades of war and insurgency, with stretches of land rendered uninhabitable by artillery exchanges during the War of Moroz and an economy stuck in freefall."
 	possible_accents = list(ACCENT_FISANDUH)
 	possible_citizenships = list(CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_SOL)
-	possible_religions = list(RELIGION_MOROZ, RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SHINTO, RELIGION_SIKHISM, RELIGION_CONFUCIANISM, RELIGION_OTHER)
+	possible_religions = list(RELIGION_MOROZ, RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SHINTO, RELIGION_SIKHISM, RELIGION_OTHER)
 	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
 	origin_traits_descriptions = list("are more acclimatised to the cold.")
 
@@ -59,6 +59,6 @@
 	important_information = "This origin is for the purposes of playing Edict Breakers that have fled the Empire of Dominia's justice. It is <b>NOT</b> an excuse to play a character with a Dominian accent that is totally divorced from the Empire."
 	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_NOVIJADRAN, ACCENT_DOMINIA_FRONTIER, ACCENT_DOMINIA_LYODII)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_MOROZ, RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SHINTO, RELIGION_SIKHISM, RELIGION_CONFUCIANISM, RELIGION_OTHER)
+	possible_religions = list(RELIGION_MOROZ, RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SHINTO, RELIGION_SIKHISM, RELIGION_OTHER)
 	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE) //they're all Morozi anyway
 	origin_traits_descriptions = list("are more acclimatised to the cold.")
