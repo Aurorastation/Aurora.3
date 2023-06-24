@@ -19,6 +19,7 @@
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
 	colors = list("#c2c1ac", "#1b4720")
+	scanimage = "unathi_diona_freighter.png"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -43,6 +44,12 @@
 /obj/effect/overmap/visitable/ship/tarwa/New()
 	designation = "[pick("Silent Sentinel", "Symbiosis", "Flying Dead", "Immortal", "Blood for Blood", "Unnatural Compatibility", "Barkscale", "Boneclaw", "Watcher in the Dark")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/tarwa/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "unathi_diona_freighter")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/tarwa_ship
 	base_turf = /turf/space/dynamic
