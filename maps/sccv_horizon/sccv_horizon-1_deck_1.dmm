@@ -5805,6 +5805,9 @@
 "eiZ" = (
 /obj/structure/closet,
 /obj/random/loot,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "ejL" = (
@@ -15904,7 +15907,13 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/deck1)
 "lkB" = (
-)
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/deck1)
 "lkH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/shuttle/unique/scc/research{
