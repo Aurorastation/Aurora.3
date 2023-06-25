@@ -92,7 +92,7 @@
 		if(custom_name)
 			to_chat(user,"[custom_name] is written crudely in pen across the side, covering up the offical designation.")
 		else
-			to_chat(user,"The offical designation \"[official_name]\" is etched neatly on the side.")
+			to_chat(user,"The official designation \"[official_name]\" is etched neatly on the side.")
 
 	if(installed_cell)
 		to_chat(user, "It has <b>[get_ammo()]</b> shots remaining.")

@@ -17,7 +17,7 @@
 	load_offset_x = 0
 	mob_offset_y = 10
 
-	var/vueui_template = "trainengine"
+	var/tgui_template = "TrainEngine"
 
 	var/car_limit = 3		//how many cars an engine can pull before performance degrades
 	active_engines = 1
@@ -68,48 +68,47 @@
 		return
 	..()
 
-/obj/vehicle/train/cargo/engine/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-
+/obj/vehicle/train/cargo/engine/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "vehicles-[vueui_template]", 600, 400, capitalize_first_letters(initial(name)))
-		ui.auto_update_content = TRUE
+		ui = new(user, src, tgui_template, capitalize_first_letters(initial(name)), 600, 400)
+		ui.open()
 
-	ui.open()
-
-/obj/vehicle/train/cargo/engine/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	if(!length(data))
-		data = list()
-
+/obj/vehicle/train/cargo/engine/ui_data(mob/user)
+	var/list/data = list()
 	data["is_on"] = on
 	data["has_key"] = !!key
 	data["has_cell"] = !!cell
 	if(cell)
-		data["cell_charge"] = cell.charge
-		data["cell_max_charge"] = cell.maxcharge
+		data["cell_charge"] = cell.percent()
 	data["is_towing"] = !!tow
 	if(tow)
 		data["tow"] = tow.name
 
 	return data
 
-/obj/vehicle/train/cargo/engine/Topic(href, href_list, state)
+/obj/vehicle/train/cargo/engine/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
-		return TRUE
+		return
 
 	if(load && load != usr)
 		to_chat(usr, SPAN_WARNING("You can't interact with \the [src] while its in use."))
-		return TRUE
+		return
 
-	if(href_list["toggle_engine"])
-		turn_on(usr)
-	if(href_list["key"])
-		remove_key(usr)
-	if(href_list["unlatch"])
-		if(tow)
-			tow.unattach(usr)
-	SSvueui.check_uis_for_change(src)
+	switch(action)
+		if("toggle_engine")
+			turn_on(usr)
+			. = TRUE
+
+		if("key")
+			remove_key(usr)
+			. = TRUE
+
+		if("unlatch")
+			if(tow)
+				tow.unattach(usr)
+				. = TRUE
 
 /obj/vehicle/train/cargo/engine/Move(var/turf/destination)
 	if(on && cell.charge < charge_use)

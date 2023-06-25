@@ -235,17 +235,16 @@
 			locate(T.x + field_radius, T.y - field_radius + 1, max(connected_levels))\
 			)
 
-/obj/machinery/shield_gen/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "machinery-shields-shield", 480, 400, "Shield Generator")
+/obj/machinery/shield_gen/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ShieldGenerator", "Shield Generator", 480, 400)
 		ui.open()
-		ui.auto_update_content = TRUE
 
-/obj/machinery/shield_gen/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = ..() || list()
+/obj/machinery/shield_gen/ui_data(mob/user)
+	var/list/data = list()
 
-	data["owned_capacitor"] = owned_capacitor
+	data["owned_capacitor"] = !!owned_capacitor
 	data["active"] = active
 	data["time_since_fail"] = time_since_fail
 	data["multi_unlocked"] = multi_unlocked
@@ -263,28 +262,28 @@
 
 	return data
 
-/obj/machinery/shield_gen/Topic(href, href_list)
-	var/datum/vueui/ui = href_list["vueui"]
-	if(!istype(ui))
+/obj/machinery/shield_gen/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
 
-	if(href_list["toggle"])
-		toggle()
+	switch(action)
+		if("toggle")
+			toggle()
 
-	if(href_list["multiz"])
-		multiz = !multiz
+		if("multiz")
+			multiz = !multiz
 
-	if (href_list["size_set"])
-		field_radius = between(1, text2num(href_list["size_set"]), max_field_radius)
+		if ("size_set")
+			field_radius = between(1, text2num(params["size_set"]), max_field_radius)
 
-	if (href_list["charge_set"])
-		strengthen_rate = (between(1, text2num(href_list["charge_set"]), (max_strengthen_rate * 10)) / 10)
+		if ("charge_set")
+			strengthen_rate = (between(1, text2num(params["charge_set"]), (max_strengthen_rate * 10)) / 10)
 
-	if (href_list["field_set"])
-		target_field_strength = between(1, text2num(href_list["field_set"]), 10)
+		if ("field_set")
+			target_field_strength = between(1, text2num(params["field_set"]), 10)
 
-	src.add_fingerprint(usr)
-	return 1
+	add_fingerprint(usr)
 
 /obj/machinery/shield_gen/proc/getzabove(var/turf/location)
 	var/connected = list()

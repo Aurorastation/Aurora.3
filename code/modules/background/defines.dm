@@ -37,6 +37,8 @@
 #define RELIGION_SCARAB "Scarab Folk Beliefs"
 #define RELIGION_TAOISM "Taoism"
 #define RELIGION_LUCEISM "Luceism"
+#define RELIGION_SIKHISM "Sikhism"
+#define RELIGION_STOLITISM "Vysokan Stolitism"
 
 #define RELIGION_THAKH "Th'akh"
 #define RELIGION_SKAKH "Sk'akh"

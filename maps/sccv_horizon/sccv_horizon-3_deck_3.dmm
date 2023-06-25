@@ -2587,9 +2587,6 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
-/obj/machinery/computer/station_alert/engineering{
-	dir = 1
-	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "cjo" = (
@@ -28267,9 +28264,6 @@
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
-	},
-/obj/machinery/computer/station_alert/all{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
