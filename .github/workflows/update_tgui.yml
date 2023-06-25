@@ -1,5 +1,6 @@
 name: "Build TGUI"
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
