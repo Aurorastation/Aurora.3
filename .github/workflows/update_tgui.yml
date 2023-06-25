@@ -19,6 +19,9 @@ jobs:
 
     - name: Checkout Repository
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.BOT_TOKEN_AURORA }}
 
     - name: Restore Yarn cache
       uses: actions/cache@v3
@@ -28,7 +31,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-build-
           ${{ runner.os }}-
-  
+
     - name: Update TGUI
       run: |
         chmod +x tools/bootstrap/node
