@@ -24,7 +24,7 @@
 #define SECTOR_WEEPING_STARS		"Weeping Stars"//Generic sector
 #define SECTOR_ARUSHA				"Arusha"//Generic sector
 #define SECTOR_LIBERTYS_CRADLE		"Liberty's Cradle"//Generic sector
-#define SECTOR_BURZSIA						"Burzsia" //Burzsia I and II are here
+#define SECTOR_BURZSIA				"Burzsia" //Burzsia I and II are here
 #define ALL_COALITION_SECTORS	list(SECTOR_COALITION, SECTOR_WEEPING_STARS, SECTOR_LIBERTYS_CRADLE, SECTOR_ARUSHA, SECTOR_BURZSIA)
 
 //Light's edge, which should have unique properties all around
