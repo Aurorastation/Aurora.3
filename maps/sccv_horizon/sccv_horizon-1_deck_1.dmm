@@ -18523,10 +18523,10 @@
 	name = "EVA Suit Storage Rack Access"
 	},
 /obj/structure/table/rack,
-/obj/item/rig/eva{
+/obj/item/rig/eva/pilot/equipped,
+/obj/item/rig/eva/pilot/equipped{
 	pixel_x = -5
 	},
-/obj/item/rig/eva,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "ncq" = (
