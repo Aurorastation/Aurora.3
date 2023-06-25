@@ -80,6 +80,23 @@
 
 	. = ..()
 
+/obj/item/reagent_containers/pill/attackby(obj/item/W, mob/user)
+	if(is_sharp(W) || istype(W, /obj/item/card/id))
+		var/obj/item/reagent_containers/powder/J = new /obj/item/reagent_containers/powder(loc)
+		user.visible_message(
+			SPAN_WARNING("\The [user] gently cuts up \the [src] with \a [W]!"),
+			SPAN_NOTICE("You gently cut up \the [src] with \the [W]."),
+			SPAN_WARNING("You hear quiet grinding.")
+		)
+		playsound(loc, 'sound/effects/chop.ogg', 50, 1)
+
+		if(reagents)
+			reagents.trans_to_obj(J, reagents.total_volume)
+		J.get_appearance()
+		qdel(src)
+
+	return ..()
+
 ////////////////////////////////////////////////////////////////////////////////
 /// Pills. END
 ////////////////////////////////////////////////////////////////////////////////

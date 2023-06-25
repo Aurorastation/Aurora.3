@@ -108,7 +108,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(!ROUND_IS_STARTED)
 			to_chat(usr, SPAN_WARNING("The round hasn't started yet!"))
 			return
-		SSghostroles.vui_interact(src)
+		SSghostroles.ui_interact(usr)
 
 	if(href_list["SelectedJob"])
 
@@ -310,8 +310,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(!istype(late_choices_ui))
 		late_choices_ui = new(src)
 	else // if the UI exists force refresh it
-		late_choices_ui.ui_refresh()
-	late_choices_ui.ui_open()
+		SStgui.update_uis(late_choices_ui)
+	late_choices_ui.ui_interact(src)
 
 /mob/abstract/new_player/proc/create_character()
 	spawning = 1
@@ -382,7 +382,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	return new_character
 
 /mob/abstract/new_player/proc/ViewManifest()
-	SSrecords.open_manifest_vueui(src)
+	SSrecords.open_manifest_tgui(src)
 
 /mob/abstract/new_player/Move()
 	return TRUE

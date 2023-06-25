@@ -10,6 +10,20 @@
 /datum/computer_file/program/update_layout()
 	return TRUE
 
+/datum/computer_file/program/ui_interact(mob/user, datum/tgui/ui)
+	return computer.ui_interact(user, ui)
+
+// We want to pass along any update requests to the computer, since the computer handles UI interaction, not us
+/datum/computer_file/program/update_static_data(mob/user, datum/tgui/ui)
+	. = ..()
+	if(computer)
+		computer.update_static_data(user, ui)
+
+/datum/computer_file/program/update_static_data_for_all_viewers()
+	. = ..()
+	if(computer)
+		computer.update_static_data_for_all_viewers()
+
 /datum/nano_module/program
 	available_to_ai = FALSE
 	var/datum/computer_file/program/program	// Program-Based computer program that runs this nano module. Defaults to null.

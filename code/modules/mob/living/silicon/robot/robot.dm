@@ -415,7 +415,7 @@
 /mob/living/silicon/robot/verb/cmd_station_manifest()
 	set category = "Robot Commands"
 	set name = "Show Crew Manifest"
-	SSrecords.open_manifest_vueui(usr)
+	SSrecords.open_manifest_tgui(usr)
 
 /mob/living/silicon/robot/proc/self_diagnosis()
 	if(!is_component_functioning("diagnosis unit"))
@@ -925,10 +925,6 @@
 	if(..())
 		return TRUE
 	if(usr != src)
-		return TRUE
-
-	if(href_list["showalerts"])
-		subsystem_alarm_monitor()
 		return TRUE
 
 	if(href_list["mod"])

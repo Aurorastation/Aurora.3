@@ -374,7 +374,7 @@ var/list/ai_verbs_default = list(
 			Recall the channel list at any time by calling <code>Radio-Settings</code> under <em>AI Commands</em>.\
 		</p>\
 		"
-	usr << browse(enable_ui_theme(usr, dat), "window=aihelp,size=520x700")
+	usr << browse(dat, "window=aihelp,size=520x700")
 
 /mob/living/silicon/ai/proc/pick_icon()
 	set category = "AI Commands"
@@ -391,7 +391,7 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/proc/ai_roster()
 	set category = "AI Commands"
 	set name = "Show Crew Manifest"
-	SSrecords.open_manifest_vueui(usr)
+	SSrecords.open_manifest_tgui(usr)
 
 //AI Examine code
 /mob/living/silicon/ai/proc/ai_examine(atom/A as mob|obj|turf in view(src.eyeobj))
@@ -512,8 +512,6 @@ var/list/ai_verbs_default = list(
 		src << browse(null, t1)
 	if (href_list["switchcamera"])
 		switchCamera(locate(href_list["switchcamera"])) in cameranet.cameras
-	if (href_list["showalerts"])
-		subsystem_alarm_monitor()
 	//Carn: holopad requests
 	if (href_list["jumptoholopad"])
 		var/obj/machinery/hologram/holopad/H = locate(href_list["jumptoholopad"])

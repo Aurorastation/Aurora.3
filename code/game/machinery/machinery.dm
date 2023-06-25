@@ -121,6 +121,10 @@ Class Procs:
 	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
 	var/obj/effect/overmap/visitable/linked // overmap sector the machine is linked to
 
+	/// Manufacturer of this machine. Used for TGUI themes, when you have a base type and subtypes with different themes (like the coffee machine).
+	/// Pass the manufacturer in ui_data and then use it in the UI.
+	var/manufacturer = null
+
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	. = ..()
 	if(d)

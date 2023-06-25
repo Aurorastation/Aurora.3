@@ -65,6 +65,17 @@
 	src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 4) // Music plays on channel 4.
 	to_chat(src, SPAN_INFO("You will [(prefs.sfx_toggles & ASFX_MUSIC) ? "now" : "no longer"] hear music (such as from jukeboxes)."))
 
+/client/verb/toggle_asfx_console()
+	set name = "Toggle Console Ambience SFX"
+	set category = "Preferences"
+	set desc = "Toggles hearing ambient sound effects from consoles"
+
+	prefs.sfx_toggles ^= ASFX_CONSOLE_AMBIENCE
+	prefs.save_preferences()
+	if(prefs.sfx_toggles & ASFX_CONSOLE_AMBIENCE)
+		to_chat(src, SPAN_INFO("You will now hear ambient sounds from consoles."))
+	else
+		to_chat(src, SPAN_INFO("You will no longer hear ambient sounds from consoles."))
 //
 // SFX Toggles
 //

@@ -418,7 +418,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Follow" // "Haunt"
 	set desc = "Follow and haunt a mob."
 
-	var/datum/vueui_module/ghost_menu/GM = new /datum/vueui_module/ghost_menu(usr)
+	var/datum/tgui_module/ghost_menu/GM = new /datum/tgui_module/ghost_menu(usr)
 	GM.ui_interact(usr)
 
 // This is the ghost's follow verb with an argument
@@ -622,7 +622,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/observer/verb/view_manifest()
 	set name = "Show Crew Manifest"
 	set category = "Ghost"
-	SSrecords.open_manifest_vueui(usr)
+	SSrecords.open_manifest_tgui(usr)
 
 //This is called when a ghost is drag clicked to something.
 /mob/abstract/observer/MouseDrop(atom/over)
@@ -965,7 +965,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
 		return
 
-	SSghostroles.vui_interact(src)
+	SSghostroles.ui_interact(usr)
 
 /mob/abstract/observer/verb/submitpai()
 	set category = "Ghost"

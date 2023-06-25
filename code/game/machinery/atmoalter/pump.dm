@@ -61,7 +61,7 @@
 
 	target_pressure = rand(0,1300)
 	update_icon()
-	SSvueui.check_uis_for_change(src)
+	SStgui.update_uis(src)
 
 	..(severity)
 
@@ -113,7 +113,7 @@
 			update_icon()
 
 	src.updateDialog()
-	SSvueui.check_uis_for_change(src)
+	SStgui.update_uis(src)
 
 /obj/machinery/portable_atmospherics/powered/pump/return_air()
 	return air_contents
@@ -130,8 +130,8 @@
 /obj/machinery/portable_atmospherics/powered/pump/attack_hand(var/mob/user)
 	ui_interact(user)
 
-/obj/machinery/portable_atmospherics/powered/pump/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = ..() || list()
+/obj/machinery/portable_atmospherics/powered/pump/ui_data(mob/user)
+	var/list/data = list()
 	data["portConnected"] = connected_port ? 1 : 0
 	data["tankPressure"] = round(air_contents.return_pressure() > 0 ? air_contents.return_pressure() : 0)
 	data["targetpressure"] = round(target_pressure)
@@ -148,31 +148,32 @@
 		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0))
 	return data
 
-/obj/machinery/portable_atmospherics/powered/pump/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "machinery-atmospherics-portpump", 480, 410, "Portable Pump")
+/obj/machinery/portable_atmospherics/powered/pump/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "PortablePump", "Portable Pump", 480, 450)
 		ui.open()
 
-/obj/machinery/portable_atmospherics/powered/pump/Topic(href, href_list)
-	if(..())
-		return 1
+/obj/machinery/portable_atmospherics/powered/pump/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	if(href_list["power"])
-		on = !on
-		. = 1
-	if(href_list["direction"])
-		direction_out = !direction_out
-		. = 1
-	if (href_list["remove_tank"])
-		if(holding)
-			holding.forceMove(loc)
-			holding = null
-		. = 1
-	if (href_list["pressure_set"])
-		target_pressure = between(pressuremin, text2num(href_list["pressure_set"]), pressuremax)
-		. = 1
+	switch(action)
+		if("power")
+			on = !on
+			. = TRUE
+		if("direction")
+			direction_out = !direction_out
+			. = TRUE
+		if ("remove_tank")
+			if(holding)
+				holding.forceMove(loc)
+				holding = null
+			. = TRUE
+		if ("pressure_set")
+			target_pressure = between(pressuremin, text2num(params["pressure_set"]), pressuremax)
+			. = TRUE
 
 	if(.)
 		update_icon()
-		SSvueui.check_uis_for_change(src)

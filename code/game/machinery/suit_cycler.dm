@@ -368,8 +368,8 @@
 	if(panel_open)
 		wires.Interact(user)
 
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=suit_cycler")
+
+	user << browse(dat, "window=suit_cycler")
 	onclose(user, "suit_cycler")
 	return
 
