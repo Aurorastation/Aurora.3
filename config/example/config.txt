@@ -507,6 +507,13 @@ LOG_GELF_ENABLED 0
 ## Domain name to query (leave commented out for the default, only needed if you pay getipintel.net for more querys)
 #IPINTEL_DOMAIN check.getipintel.net
 
+### BYOND Tracy:
+### Uncomment this option to enable profiling with byond-tracy. Admins and Developers have the ability to use the appropriate debug verb
+### to start the profiler in the middle of the round even if this option is uncommented, otherwise tracy will start on /world/New().
+### Warning: Do not uncomment this configuration option unless you know what you are doing and need it. It will create a gigabyte-large file
+### everytime you start the server, which will grow as the server continues to run.
+#ENABLE_BYOND_TRACY
+
 ### ACCESS CONTROL:
 ### This allows you to adjust various parametres by which potentially malicious users can by identified.
 ### Note that none of these are 100% accurate, and should only be used in cases where a "panic bunker" is warranted.
