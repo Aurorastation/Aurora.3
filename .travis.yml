@@ -22,7 +22,6 @@ cache:
   directories:
     - $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}
     - $HOME/flyway-${FLYWAY_BUILD}
-    - vueui/dist
     - $HOME/rust_g-${RUST_G_VERSION}
 
 addons:
@@ -72,8 +71,6 @@ jobs:
         - pip install --user -r ./tools/requirements.txt
         - pip install --user PyYaml -q
         - pip install --user beautifulsoup4 -q
-        - chmod +x ./vueui/install
-        - ./vueui/install
         - chmod +x ./scripts/install-spaceman-dmm.sh
         - ./scripts/install-spaceman-dmm.sh dreamchecker
         - chmod +x ./scripts/rust_g.sh
@@ -84,9 +81,6 @@ jobs:
         - (! grep -E "<\s*span\s+class\s*=\s*('[^'>]+|[^'>]+')\s*>" **/*.dm)
         - (! grep -r --include=\*.dm '#define UIDEBUG' ./)
         - (! grep -r --include=\*.dm 'to_chat(.*,\s*link(' ./)
-        - (cd vueui && (npm run lint | tee lint.log))
-        - grep "No lint errors found!" vueui/lint.log
-        - (cd vueui && npm run build)
         - (num=`grep -E '\\\\(red|blue|green|black|b|i[^mc])' **/*.dm | wc -l`; echo "$num escapes (expecting ${MACRO_COUNT} or less)"; [ $num -eq ${MACRO_COUNT} ])
         - (num=`grep -EIr '\\\\(he|him|his|she|hers|He|His|She|himself|herself)\b' code | wc -l`; echo "$num gender-based escapes (expecting ${GENDER_COUNT} or less)"; [ $num -eq ${GENDER_COUNT} ])
         - (num=`grep -r --include \*.dm -oh to_world\( . | wc -w`; echo "$num to_worlds (expecting ${TO_WORLD_COUNT})"; [ $num -eq ${TO_WORLD_COUNT} ])

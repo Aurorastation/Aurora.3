@@ -87,17 +87,7 @@
 
 /obj/screen/ai/crew_manifest/Click()
 	if (isAI(usr))
-		SSrecords.open_manifest_vueui(usr)
-
-/obj/screen/ai/alerts
-	name = "Show Alerts"
-	icon_state = "alerts"
-	screen_loc = ui_ai_alerts
-
-/obj/screen/ai/alerts/Click()
-	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.subsystem_alarm_monitor()
+		SSrecords.open_manifest_tgui(usr)
 
 /obj/screen/ai/announcement
 	name = "Announcement"
@@ -125,9 +115,10 @@
 	screen_loc = ui_ai_state_laws
 
 /obj/screen/ai/state_laws/Click()
-	if (isAI(usr))
+	if(isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		AI.subsystem_law_manager()
+		AI.computer.ui_interact(usr)
+		AI.computer.run_program("lawmanager")
 
 /obj/screen/ai/take_image
 	name = "Take Image"

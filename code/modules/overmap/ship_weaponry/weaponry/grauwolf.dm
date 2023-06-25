@@ -39,7 +39,7 @@
 
 /obj/item/projectile/ship_ammo/grauwolf/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
-	if(ammo.impact_type == SHIP_AMMO_IMPACT_HE)
+	if(ammo && ammo.impact_type == SHIP_AMMO_IMPACT_HE)
 		explosion(target, 0, 2, 4)
 	else
 		explosion(target, 0, 1, 2)

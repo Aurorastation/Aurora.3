@@ -13681,11 +13681,6 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/machinery/computer/atmoscontrol/laptop{
-	monitored_alarm_ids = list("1501","1502","1503","1504");
-	name = "Isolation Atmospheric Controls";
-	req_one_access = list(7,11,24,47)
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "jHp" = (
@@ -32127,9 +32122,6 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
 "wLA" = (
-/obj/item/circuitboard/powermonitor{
-	pixel_y = 8
-	},
 /obj/item/circuitboard/security/engineering{
 	pixel_y = 4
 	},
