@@ -1,17 +1,17 @@
 //burzsia
 /obj/effect/overmap/visitable/sector/exoplanet/burzsia
-	name = "Burzsia"
-	desc = "The Tajaran homeworld. Adhomai is a cold and icy world, suffering from almost perpetual snowfall and extremely low temperatures."
-	icon_state = "globe2"
-	color = "#b5dfeb"
+	name = "Burzsia I"
+	desc = "An important Hephaestus Industries mining planet. Burzsia is inhospitable, toxic and dangerous to life."
+	icon_state = "globe1"
+	color = "#b7410e"
 	planetary_area = /area/exoplanet/barren/burzsia
 	scanimage = "adhomai.png"
-	massvolume = "0.86/0.98"
-	surfacegravity = "0.80"
-	charted = "Tajaran homeworld, charted 2418CE, NanoTrasen Corporation"
-	geology = "Minimal tectonic heat, miniscule geothermal signature overall"
-	weather = "Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable"
-	surfacewater = "Majority frozen, 78% surface water. Significant tidal forces from natural satellite"
+	massvolume = "4.24/2.33"
+	surfacegravity = "4.14"
+	charted = "Charted 2199CE, Solarian Alliance"
+	geology = "Extreme volcanic activity with surface minerals in abundance"
+	weather = "Tidally locked day/night split, extreme weather conditions with a toxic atmosphere and lightning storms"
+	surfacewater = "No presence of water. Large bodies of liquid ammonia and molten metal"
 	rock_colors = list(COLOR_DARK_BROWN)
 	plant_colors = null
 	possible_themes = list(/datum/exoplanet_theme/barren)
@@ -50,3 +50,12 @@
 	else
 		lightlevel = 0
 	..()
+
+/obj/effect/overmap/visitable/sector/exoplanet/burzsia/generate_planet_image()
+	skybox_image = image('icons/skybox/lore_planets.dmi', "burzsia")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsia
+	name = "Burzsia II"
+	generated_name = FALSE
