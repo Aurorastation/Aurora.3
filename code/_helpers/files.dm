@@ -28,7 +28,7 @@
 /client/proc/getFiles()
 	for(var/file in args)
 		//send_rsc(src, file, null)
-		src << browse_rsc(file, null)
+		to_target(src, browse_rsc(file, null))
 
 /client/proc/browse_files(root="data/logs/", max_iterations=10, list/valid_extensions=list(".txt",".log",".htm", ".json"))
 	var/path = root
