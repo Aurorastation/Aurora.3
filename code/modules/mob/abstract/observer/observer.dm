@@ -235,10 +235,10 @@ Works together with spawning an observer, noted above.
 
 		ghost.ckey = ckey
 		ghost.initialise_postkey(should_set_timer)
-		ghost.client?.init_verbs()
 		if(ghost.client)
 			if(!ghost.client.holder && !config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
 				remove_verb(ghost, /mob/abstract/observer/verb/toggle_antagHUD)	// Poor guys, don't know what they are missing!
+			ghost.client.init_verbs()
 		return ghost
 
 /*

@@ -543,6 +543,7 @@
 	M.key = key
 	if(M.mind)
 		M.mind.reset()
+	M.client.init_verbs()
 	return
 
 /client/verb/changes()
