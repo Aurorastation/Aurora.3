@@ -442,13 +442,13 @@
 		to_chat(user, SPAN_WARNING("They are missing that body part!"))
 		return
 
-	//no need to spend time carefully placing the paddles, we're just trying to shock them
-	user.visible_message(SPAN_DANGER("\The [user] slaps [src] onto [H]'s [affecting.name]."), SPAN_DANGER("You overcharge [src] and slap them onto [H]'s [affecting.name]."))
-
-	//Just stop at awkwardly slapping electrodes on people if the safety is enabled
 	if(safety)
 		to_chat(user, SPAN_WARNING("You can't do that while the safety is enabled."))
 		return
+
+	//no need to spend time carefully placing the paddles, we're just trying to shock them
+	user.visible_message(SPAN_DANGER("\The [user] slaps [src] onto [H]'s [affecting.name]."), SPAN_DANGER("You overcharge [src] and slap them onto [H]'s [affecting.name]."))
+
 
 	playsound(get_turf(src), 'sound/machines/defib_charge.ogg', 50, 0)
 	audible_message(SPAN_WARNING("\The [src] lets out a steadily rising hum..."))
