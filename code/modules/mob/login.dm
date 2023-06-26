@@ -86,9 +86,9 @@
 
 	//set macro to normal incase it was overriden (like cyborg currently does)
 	if(client.prefs.toggles_secondary & HOTKEY_DEFAULT)
-		winset(src, null, "mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.background-color=#D3B5B5")
+		winset(src, null, "mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true")
 	else
-		winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5")
+		winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true")
 	MOB_STOP_THINKING(src)
 
 	clear_important_client_contents(client)
