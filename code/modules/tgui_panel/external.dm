@@ -17,7 +17,7 @@
 	nuke_chat()
 
 	// Failed to fix, using tgalert as fallback
-	action = input(src, "Did that work?", "", "Yes", "No, switch to old ui")
+	action = input(src, "Did that work?", "", "Yes") in list("Yes", "No, switch to old ui")
 	if (action == "No, switch to old ui")
 		winset(src, "output", "on-show=&is-disabled=0&is-visible=1")
 		winset(src, "browseroutput", "is-disabled=1;is-visible=0")
