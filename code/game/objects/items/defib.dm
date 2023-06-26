@@ -565,8 +565,8 @@
 	cooldowntime = (4 SECONDS)
 	chargetime = (1 SECOND)
 	chargecost = 150
-	safety = 0
-	wielded = 1
+	safety = FALSE
+	wielded = TRUE
 
 /obj/item/shockpaddles/rig/check_charge(charge_amt)
 	if(istype(src.loc, /obj/item/rig_module/device/defib))
