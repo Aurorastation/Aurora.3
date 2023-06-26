@@ -1286,6 +1286,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
 	req_one_access = list(12,19)
 	},
@@ -4501,6 +4502,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 22
+	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "edN" = (
@@ -5238,6 +5243,9 @@
 "eDD" = (
 /obj/structure/bed/stool/padded/black,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "eDN" = (
@@ -8998,6 +9006,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
 	req_one_access = list(5,12)
 	},
@@ -10870,6 +10879,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
 	req_one_access = list(12)
 	},
@@ -13488,9 +13498,6 @@
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "kTP" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
 /obj/structure/closet,
 /obj/random/loot,
 /obj/random/junk,
@@ -15945,6 +15952,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_one_access = list(12)
 	},
@@ -19169,6 +19177,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
 	req_one_access = list(12,63)
 	},
@@ -19331,6 +19340,7 @@
 /area/horizon/hallway/deck_three/primary/port)
 "pAt" = (
 /obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_one_access = list(12)
 	},
@@ -22606,6 +22616,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
 	req_one_access = list(5,12)
 	},
@@ -22973,6 +22984,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_one_access = list(12)
 	},
@@ -23671,6 +23683,7 @@
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "tfE" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
 	req_one_access = list(5,12)
 	},
@@ -28105,15 +28118,16 @@
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "wFq" = (
-/obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5,12)
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(5,12)
+	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "wFE" = (
@@ -28327,9 +28341,12 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/full,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_one_access = list(12)
+	},
+/turf/simulated/floor,
 /area/maintenance/security_starboard)
 "wLL" = (
 /obj/structure/bed/stool/chair/plastic{

@@ -2726,6 +2726,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(12)
 	},
@@ -2924,6 +2925,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
@@ -8533,10 +8535,11 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "elz" = (
 /obj/structure/cable{
@@ -9790,6 +9793,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
@@ -12319,16 +12323,10 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "gds" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "gdM" = (
 /obj/structure/reagent_dispensers/water_cooler,
@@ -13127,6 +13125,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
@@ -15732,9 +15731,10 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "hCe" = (
 /obj/machinery/camera/network/reactor{
@@ -18647,7 +18647,7 @@
 "iYf" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "iYn" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -19640,6 +19640,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
+"juk" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/far)
 "juH" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -22453,10 +22459,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance{
-	name = "Security Maintenance";
-	req_access = list(63)
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 8;
@@ -22467,6 +22469,11 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance{
+	name = "Security Maintenance";
+	req_access = list(63)
+	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/security_starboard)
 "kUz" = (
@@ -24637,7 +24644,7 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "lZu" = (
 /obj/structure/sign/nosmoking_2{
@@ -25067,6 +25074,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
@@ -25919,7 +25927,6 @@
 /area/maintenance/wing/starboard/far)
 "mFl" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance_hatch,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -25933,7 +25940,9 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance_hatch,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "mFs" = (
 /obj/machinery/door/airlock/glass,
@@ -27684,6 +27693,7 @@
 /area/engineering/locker_room)
 "nqs" = (
 /obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -33491,9 +33501,10 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "qsj" = (
 /obj/machinery/camera/network/research{
@@ -35343,6 +35354,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(12)
 	},
@@ -48152,12 +48164,11 @@
 /turf/simulated/floor/tiled/full,
 /area/engineering/engine_waste)
 "xqo" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
+/obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
+/area/maintenance/wing/starboard/far)
 "xqE" = (
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
@@ -56553,13 +56564,13 @@ pcG
 vcH
 oyP
 qNd
-lXo
+xqo
 uOq
 uOq
 uOq
 uOq
 uOq
-lXo
+xqo
 dyg
 uOq
 glt
@@ -56754,10 +56765,10 @@ kHx
 vcH
 vcH
 dEz
-lXo
+xqo
 dEz
 dEz
-lXo
+xqo
 dEz
 dEz
 dEz
@@ -57358,7 +57369,7 @@ oIL
 fcF
 fsf
 fsf
-lXo
+xqo
 uOq
 ofR
 vaL
@@ -57764,7 +57775,7 @@ fsf
 qdY
 dEz
 dEz
-lXo
+xqo
 dEz
 dEz
 uOq
@@ -58166,7 +58177,7 @@ ojL
 wnA
 fsf
 fsf
-lXo
+juk
 pYU
 uOq
 idy
@@ -84429,8 +84440,8 @@ vEh
 xPm
 iZt
 gds
-xqo
-iJv
+ueH
+ueH
 ueH
 fuu
 lBd
@@ -84631,7 +84642,7 @@ pvx
 xPm
 iZt
 fuu
-pVs
+iJv
 mIN
 aPN
 aPN
