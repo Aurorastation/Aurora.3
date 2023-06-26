@@ -14,6 +14,11 @@
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/civilian/eva
 
+/datum/design/circuit/hardsuit/eva/pilot
+	name = "pilot suit central circuit Board"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/circuitboard/rig_assembly/civilian/eva/pilot
+
 /datum/design/circuit/hardsuit/ce
 	name = "Advanced Voidsuit Central Circuit Board"
 	req_tech = list(TECH_DATA = 4)
