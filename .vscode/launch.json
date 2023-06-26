@@ -4,18 +4,20 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
 	"configurations": [
-		{
+		{ // Builds with CBT and launches DreamSeeker.
 			"type": "byond",
 			"request": "launch",
-			"name": "Launch with build",
-			"preLaunchTask": "dm: build - aurorastation.dme",
+			"name": "Launch DreamSeeker",
+			"preLaunchTask": "Build All",
 			"dmb": "${workspaceFolder}/${command:CurrentDMB}"
 		},
-		{
+		{ // Builds with CBT and starts the server with DreamDaemon.
 			"type": "byond",
 			"request": "launch",
-			"name": "Launch WITHOUT BUILD",
+			"name": "Launch DreamDaemon",
+			"preLaunchTask": "Build All",
 			"dmb": "${workspaceFolder}/${command:CurrentDMB}",
+			"dreamDaemon": true
 		}
 	]
 }
