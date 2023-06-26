@@ -3,7 +3,7 @@
 	id = "point_verdant"
 	description = "WIP"
 	sectors = list(SECTOR_TAU_CETI)
-	suffixes = list("away_site/konyang/point_verdant/point_verdant.dmm")
+	suffixes = list("away_site/konyang/point_verdant/point_verdant-1.dmm","away_site/konyang/point_verdant/point_verdant-2.dmm","away_site/konyang/point_verdant/point_verdant-3.dmm")
 	spawn_weight = 1
 	spawn_cost = 1
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
@@ -19,7 +19,9 @@
 
 	initial_generic_waypoints = list(
 		"nav_point_verdant_1",
-		"nav_point_verdant_2"
+		"nav_point_verdant_2",
+		"nav_point_verdant_3",
+		"nav_point_verdant_4"
 	)
 
 /obj/effect/shuttle_landmark/point_verdant/nav1
@@ -29,3 +31,11 @@
 /obj/effect/shuttle_landmark/point_verdant/nav2
 	name = "Point Verdant Navpoint #2"
 	landmark_tag = "nav_point_verdant_2"
+
+/obj/effect/shuttle_landmark/point_verdant/nav3
+	name = "Point Verdant Spaceport Pad A"
+	landmark_tag = "nav_point_verdant_3"
+
+/obj/effect/shuttle_landmark/point_verdant/nav4
+	name = "Point Verdant Spaceport Pad B"
+	landmark_tag = "nav_point_verdant_4"
