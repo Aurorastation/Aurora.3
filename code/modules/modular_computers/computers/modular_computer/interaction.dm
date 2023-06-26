@@ -200,6 +200,7 @@
 // On-click handling. Turns on the computer if it's off and opens the GUI.
 /obj/item/modular_computer/attack_self(mob/user)
 	if(enabled && screen_on)
+		user.set_machine(src)
 		ui_interact(user)
 	else if(!enabled && screen_on)
 		turn_on(user)

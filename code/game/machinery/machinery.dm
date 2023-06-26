@@ -549,3 +549,9 @@ Class Procs:
 		return
 	else
 		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
+
+/obj/machinery/ui_status(mob/user, datum/ui_state/state)
+	. = ..()
+	if(. < UI_INTERACTIVE)
+		if(user.machine)
+			user.unset_machine()

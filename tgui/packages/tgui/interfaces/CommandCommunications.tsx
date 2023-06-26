@@ -270,45 +270,47 @@ export const MessageList = (props, context) => {
   );
 
   return viewingMessage ? (
-    data.messages
-      .filter((message) => message.id === viewingMessage)
-      .map((message) => (
-        <Section
-          title={message.title}
-          key={message.id}
-          buttons={
-            <>
-              <Button
-                content="Back"
-                icon="arrow-alt-circle-left"
-                onClick={() => setViewingMessage(null)}
-              />
-              <Button
-                content="Print"
-                icon="print"
-                disabled={!data.have_printer}
-                onClick={() =>
-                  act('printmessage', {
-                    contents: message.contents,
-                    title: message.title,
-                  })
-                }
-              />
-              <Button
-                content="Delete"
-                color="red"
-                icon="trash"
-                disabled={!data.message_deletion_allowed}
-                onClick={() => act('delmessage', { messageid: message.id })}
-              />
-            </>
-          }>
-          <Box
-            style={{ 'white-space': 'pre-line' }}
-            dangerouslySetInnerHTML={processMessage(message.contents)}
-          />
-        </Section>
-      ))
+    <Section>
+      {data.messages
+        .filter((message) => message.id === viewingMessage)
+        .map((message) => (
+          <Section
+            title={message.title}
+            key={message.id}
+            buttons={
+              <>
+                <Button
+                  content="Back"
+                  icon="arrow-alt-circle-left"
+                  onClick={() => setViewingMessage(null)}
+                />
+                <Button
+                  content="Print"
+                  icon="print"
+                  disabled={!data.have_printer}
+                  onClick={() =>
+                    act('printmessage', {
+                      contents: message.contents,
+                      title: message.title,
+                    })
+                  }
+                />
+                <Button
+                  content="Delete"
+                  color="red"
+                  icon="trash"
+                  disabled={!data.message_deletion_allowed}
+                  onClick={() => act('delmessage', { messageid: message.id })}
+                />
+              </>
+            }>
+            <Box
+              style={{ 'white-space': 'pre-line' }}
+              dangerouslySetInnerHTML={processMessage(message.contents)}
+            />
+          </Section>
+        ))}
+    </Section>
   ) : (
     <Section>
       <Section>

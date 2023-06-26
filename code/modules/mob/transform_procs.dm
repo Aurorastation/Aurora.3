@@ -143,6 +143,8 @@
 	O.add_ai_verbs()
 
 	O.rename_self("ai",1)
+
+	O.client.init_verbs()
 	spawn(0)	// Mobs still instantly del themselves, thus we need to spawn or O will never be returned
 		qdel(src)
 	return O
@@ -194,6 +196,8 @@
 
 	callHook("borgify", list(O))
 	O.Namepick()
+	if(O.client)
+		O.client.init_verbs()
 
 	spawn(0)	// Mobs still instantly del themselves, thus we need to spawn or O will never be returned
 		qdel(src)

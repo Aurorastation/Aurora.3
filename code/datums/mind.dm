@@ -112,6 +112,7 @@
 		new_character.make_vampire()
 	if(active)
 		new_character.key = key		//now transfer the key to link the client to our new body
+	
 
 /datum/mind/proc/store_memory(new_text)
 	. = length(memory + new_text)

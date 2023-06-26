@@ -1291,3 +1291,6 @@
 		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
 	else
 		to_chat(src, SPAN_NOTICE("You are not injured enough to succumb to death!"))
+
+/mob/living/silicon/robot/GetIdCard()
+	return id_card

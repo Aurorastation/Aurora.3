@@ -1,4 +1,4 @@
-/**
+f/**
  * Copyright (c) 2020 Aleksej Komarov
  * SPDX-License-Identifier: MIT
  */
@@ -216,6 +216,7 @@ a.popt {
 .motd {
   color: #a4bad6;
   font-family: Verdana, sans-serif;
+  white-space: 'normal';
 }
 .motd h1,
 .motd h2,
@@ -223,11 +224,8 @@ a.popt {
 .motd h4,
 .motd h5,
 .motd h6 {
-  color: #a4bad6;
+  color: #638500;
   text-decoration: underline;
-}
-.vote {
-  color: #9933ff;
 }
 .motd a,
 .motd a:link,
@@ -268,9 +266,9 @@ h3,
 h4,
 h5,
 h6 {
-  color: #a4bad6;
+  color: #0000ff;
   font-family: Georgia, Verdana, sans-serif;
-  margin-bottom: 20%;
+  line-height: 10%;
 }
 
 em {
@@ -467,6 +465,9 @@ em {
 .alert {
   color: #ff0000;
 }
+.vote {
+  color: #6c18c0;
+}
 h1.alert,
 h2.alert {
   color: #000080;
@@ -536,6 +537,18 @@ h2.alert {
 .vaurca {
   color: #9e9e39;
 }
+.vaurca_zora {
+  color: #9e3939;
+}
+.vaurca_cthur {
+  color: #39719e;
+}
+.vaurca_klax {
+  color: #399e4a;
+}
+.vaurca_liidra {
+  color: #b350b3;
+}
 .soghun {
   color: #228b22;
 }
@@ -558,7 +571,7 @@ h2.alert {
   font-family: Georgia, Verdana, sans-serif;
 }
 .yassa {
-  color: #400987;
+  color: #801fff;
 }
 .delvahhi {
   color: #5e2612;
@@ -567,6 +580,10 @@ h2.alert {
 .siiktau {
   color: #a52a2a;
 }
+.revenant {
+  color: #215a5c;
+  font-style: italic;
+}
 .freespeak {
   color: #ff4500;
   font-family: 'Trebuchet MS', cursive, sans-serif;
@@ -574,6 +591,11 @@ h2.alert {
 .tradeband {
   color: #5c16c6;
   font-family: Georgia, Verdana, sans-serif;
+}
+
+.singing {
+  font-family: 'Trebuchet MS', cursive, sans-serif;
+  font-style: italic;
 }
 
 .interface {

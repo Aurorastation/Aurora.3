@@ -69,7 +69,14 @@ export const SuitSensors = (props, context) => {
                 </Table.Cell>
                 <Table.Cell>
                   {crewmember.stype > 2
-                    ? crewmember.x + ', ' + crewmember.y + ', ' + crewmember.z
+                    ? crewmember.area +
+                    ' (' +
+                    crewmember.x +
+                    ', ' +
+                    crewmember.y +
+                    ', ' +
+                    crewmember.z +
+                    ')'
                     : 'N/A'}
                 </Table.Cell>
                 {data.isAI ? (
