@@ -108,6 +108,7 @@
 	QDEL_IN(effect, 10)
 	H.forceMove(ling)
 	H.status_flags |= GODMODE
+	ling.client.init_verbs()
 
 	feedback_add_details("changeling_powers", "LF")
 	return TRUE
@@ -511,6 +512,7 @@
 	M.forceMove(ling) //move inside the new dude to hide him.
 	ling.occupant = M
 	M.status_flags |= GODMODE //dont want him to die or breathe or do ANYTHING
+	ling.client.init_verbs()
 
 // Chiropteran Screech
 /mob/proc/resonant_shriek()

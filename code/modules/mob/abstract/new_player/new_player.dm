@@ -376,6 +376,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	new_character.key = key		//Manually transfer the key to log them in
 
+	new_character.client.init_verbs()
+
 	return new_character
 
 /mob/abstract/new_player/proc/ViewManifest()

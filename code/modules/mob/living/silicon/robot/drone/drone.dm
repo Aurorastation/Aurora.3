@@ -528,6 +528,7 @@
 	to_chat(src, "<b>Systems rebooted</b>. Loading base pattern maintenance protocol... <b>loaded</b>.")
 	full_law_reset()
 	welcome_drone()
+	client.init_verbs()
 
 /mob/living/silicon/robot/drone/proc/welcome_drone()
 	to_chat(src, SPAN_NOTICE("<b>You are a maintenance drone, a tiny-brained robotic repair machine</b>."))

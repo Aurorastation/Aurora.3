@@ -543,6 +543,7 @@
 	M.key = key
 	if(M.mind)
 		M.mind.reset()
+	M.client.init_verbs()
 	return
 
 /client/verb/changes()
@@ -551,7 +552,9 @@
 	var/datum/asset/changelog = get_asset_datum(/datum/asset/simple/changelog)
 	changelog.send(src)
 
-	src << browse('html/changelog.html', "window=changes;size=675x650")
+	var/datum/browser/changelog_win = new(src, "changes", "Changelog", 675, 650)
+	changelog_win.set_content('html/changelog.html')
+	changelog_win.open()
 	if(prefs.lastchangelog != changelog_hash)
 		prefs.lastchangelog = changelog_hash
 		prefs.save_preferences()
