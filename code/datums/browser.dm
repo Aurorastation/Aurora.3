@@ -107,7 +107,7 @@
 	if (width && height)
 		window_size = "size=[width]x[height];"
 	if (stylesheets.len)
-		SSassets.transport.send_assets(user.client, stylesheets)
+		SSassets.transport.send_assets(isclient(user) ? user : user.client, stylesheets)
 	if (scripts.len)
 		SSassets.transport.send_assets(user.client, scripts)
 	user << browse(get_content(), "window=[window_id];[window_size][window_options]")
