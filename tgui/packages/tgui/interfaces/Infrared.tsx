@@ -6,7 +6,7 @@ import { Window } from '../layouts';
 export type InfraredData = {
   active: BooleanLike;
   visible: BooleanLike;
-}
+};
 
 export const Infrared = (props, context) => {
   const { act, data } = useBackend<InfraredData>(context);
@@ -15,12 +15,12 @@ export const Infrared = (props, context) => {
     <Window resizable>
       <Window.Content scrollable>
         <Button
-          content={data.active ? "Active" : "Inactive"}
+          content={data.active ? 'Active' : 'Inactive'}
           checked={data.active}
           onClick={() => act('state')}
         />
         <Button.Checkbox
-          content={data.visible ? "Visible" : "Invisible"}
+          content={data.visible ? 'Visible' : 'Invisible'}
           checked={data.visible}
           onClick={() => act('visible')}
         />
