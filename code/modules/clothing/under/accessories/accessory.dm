@@ -434,6 +434,7 @@
 /obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
 	set name = "Toggle Tail Coverage"
 	set category = "Object"
+	set src in usr
 
 	if(allow_tail_hiding)
 		flags_inv ^= HIDETAIL

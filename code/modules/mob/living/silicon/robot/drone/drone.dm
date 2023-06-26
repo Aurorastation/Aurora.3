@@ -254,7 +254,7 @@
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
 
-	verbs |= /mob/living/proc/hide
+	add_verb(src, /mob/living/proc/hide)
 	remove_language(LANGUAGE_ROBOT)
 	add_language(LANGUAGE_ROBOT, FALSE)
 	add_language(LANGUAGE_DRONE, TRUE)
@@ -273,7 +273,7 @@
 		var/datum/robot_component/C = components[V]
 		C.max_damage = 10
 
-	verbs -= /mob/living/silicon/robot/verb/Namepick
+	remove_verb(src, /mob/living/silicon/robot/verb/Namepick)
 	density = FALSE
 
 /mob/living/silicon/robot/drone/init()
@@ -567,10 +567,10 @@
 	..()
 
 /mob/living/silicon/robot/drone/add_robot_verbs()
-	src.verbs |= silicon_subsystems
+	add_verb(src, silicon_subsystems)
 
 /mob/living/silicon/robot/drone/remove_robot_verbs()
-	src.verbs -= silicon_subsystems
+	remove_verb(src, silicon_subsystems)
 
 /mob/living/silicon/robot/drone/self_destruct()
 	gib()

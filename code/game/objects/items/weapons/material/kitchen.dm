@@ -84,6 +84,8 @@
 /obj/item/material/kitchen/utensil/verb/bite_size()
 	set name = "Change bite size"
 	set category = "Object"
+	set src in usr
+
 	var/nsize = input("Bite Size","Pick the amount of reagents to pick up.") as null|anything in bite_sizes
 	if(nsize)
 		transfer_amt = nsize

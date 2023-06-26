@@ -55,6 +55,7 @@
  */
 /mob/proc/LateLogin()
 	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
 
 	player_list |= src
 	update_Login_details()
@@ -102,4 +103,4 @@
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
 
-	client.chatOutput.start()
+	addtimer(CALLBACK(client, TYPE_PROC_REF(/client, check_panel_loaded)), 30 SECONDS)

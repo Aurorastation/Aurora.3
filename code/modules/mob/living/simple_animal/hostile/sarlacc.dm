@@ -13,7 +13,7 @@
 	desc = "Hop in, the gastrointestinal juices are just fine."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = null
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	throwforce = 0
 	anchored = 1
 	deployed = 1

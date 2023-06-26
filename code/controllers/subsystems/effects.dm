@@ -65,12 +65,13 @@ var/datum/controller/subsystem/effects/SSeffects
 			if (EFFECT_DESTROY)
 				STOP_VISUAL(V)
 				qdel(V)
-		
+
 		if (MC_TICK_CHECK)
 			return
 
-/datum/controller/subsystem/effects/stat_entry()
-	..("E:[effect_systems.len] V:[visuals.len]")
+/datum/controller/subsystem/effects/stat_entry(msg)
+	msg = "E:[effect_systems.len] V:[visuals.len]"
+	return ..()
 
 /datum/controller/subsystem/effects/Recover()
 	if (istype(SSeffects))

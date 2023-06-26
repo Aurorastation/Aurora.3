@@ -314,8 +314,8 @@
 // This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
 #define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref || (D:weakref = new/datum/weakref(D))) : null)
 
-#define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(the_atom, TYPE_PROC_REF(/atom, add_verb), verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
-#define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(the_atom, TYPE_PROC_REF(/atom, add_verb), verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+#define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+#define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 
 // Maploader bounds indices
 #define MAP_MINX 1
@@ -509,3 +509,12 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define RAD_LEVEL_VERY_HIGH 100
 
 #define RADIATION_THRESHOLD_CUTOFF 0.1	// Radiation will not affect a tile when below this value.
+
+// Defines for formatting cooldown actions for the stat panel.
+/// The stat panel the action is displayed in.
+#define PANEL_DISPLAY_PANEL "panel"
+/// The status shown in the stat panel.
+/// Can be stuff like "ready", "on cooldown", "active", "charges", "charge cost", etc.
+#define PANEL_DISPLAY_STATUS "status"
+/// The name shown in the stat panel.
+#define PANEL_DISPLAY_NAME "name"

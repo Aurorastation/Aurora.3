@@ -434,7 +434,7 @@
 /datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
-			H.verbs -= verb_path
+			remove_verb(H, verb_path)
 
 	if(inherent_spells)
 		for(var/spell_path in inherent_spells)
@@ -446,7 +446,7 @@
 /datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
-			H.verbs |= verb_path
+			add_verb(H, verb_path)
 
 	if(inherent_spells)
 		for(var/spell_path in inherent_spells)
