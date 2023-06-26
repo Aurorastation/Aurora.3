@@ -1206,6 +1206,9 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "aVU" = (
@@ -3890,18 +3893,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
-"cOB" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/storage/eva)
 "cPq" = (
 /obj/effect/shuttle_landmark/horizon/deckone/starboard_propulsion,
 /turf/template_noop,
@@ -4516,14 +4507,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
-"dlY" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/ramp,
-/area/maintenance/research_port)
 "dmS" = (
 /turf/simulated/wall/r_wall,
 /area/teleporter)
@@ -8380,6 +8363,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "fTJ" = (
@@ -16147,6 +16131,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "lxQ" = (
@@ -16496,6 +16483,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"lKV" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "lKY" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -18923,16 +18920,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
-"noD" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "noH" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 4
@@ -19644,6 +19631,18 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/outpost/mining_main/refinery)
+"nOa" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/storage/eva)
 "nOb" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "2,22";
@@ -24851,6 +24850,14 @@
 /obj/item/material/shard,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"rzf" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/ramp,
+/area/maintenance/research_port)
 "rzQ" = (
 /obj/machinery/floodlight,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -58495,7 +58502,7 @@ bao
 riL
 uFo
 iMY
-dlY
+rzf
 nsE
 aNR
 wRE
@@ -59110,7 +59117,7 @@ aNR
 wRE
 lNJ
 wnc
-cOB
+nOa
 iTq
 rqB
 wRE
@@ -59516,7 +59523,7 @@ idq
 baq
 baq
 fIg
-noD
+lKV
 jCf
 sFd
 bOv
