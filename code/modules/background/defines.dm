@@ -37,6 +37,8 @@
 #define RELIGION_SCARAB "Scarab Folk Beliefs"
 #define RELIGION_TAOISM "Taoism"
 #define RELIGION_LUCEISM "Luceism"
+#define RELIGION_SIKHISM "Sikhism"
+#define RELIGION_STOLITISM "Vysokan Stolitism"
 
 #define RELIGION_THAKH "Th'akh"
 #define RELIGION_SKAKH "Sk'akh"
@@ -121,6 +123,7 @@
 #define ACCENT_RURALDELVAHHI "Rural Delvahhi"
 #define ACCENT_NOMADDELVAHHI "Nomadic Delvahhi"
 #define ACCENT_OLDYASSA "Old Ya'ssa"
+#define ACCENT_NEWYASSA "New Ya'ssa"
 #define ACCENT_NORTHRASNRR "Northern Ras'nrr Siik'maas"
 #define ACCENT_DINAKK "Din'akk Mountains Siik'maas"
 #define ACCENT_HARRNRRI "Harr'nrri Siik'mas"
@@ -141,6 +144,7 @@
 #define ACCENT_BROKEN_NOBLE "Broken Coalition Noble"
 #define ACCENT_UNATHI_SPACER "Spacer"
 #define ACCENT_HAZANA "Hazana"
+#define ACCENT_TORN "Torn Cities"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 #define ACCENT_HOMEWORLD "Qerrbalak"
@@ -159,6 +163,14 @@
 #define ACCENT_ROOTSONG "Rootsong"
 #define ACCENT_VOIDSONG "Voidsong"
 #define ACCENT_ANCIENTSONG "Ancientsong"
+#define ACCENT_CRIMSONSONG "Crimsonsong"
+#define ACCENT_IRONSONG "Ironsong"
+#define ACCENT_SANDSONG "Sandsong"
+#define ACCENT_WASTESONG "Wastesong"
+#define ACCENT_WAVESONG "Wavesong"
+#define ACCENT_SUNKENSONG "Sunkensong"
+#define ACCENT_STARSONG "Starsong"
+
 
 #define ACCENT_TTS "Text-to-Speech"
 

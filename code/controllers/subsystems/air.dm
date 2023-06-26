@@ -121,13 +121,9 @@ Class Procs:
 	next_fire = world.time + wait
 	can_fire = TRUE
 
-/datum/controller/subsystem/air/stat_entry()
-	var/out = "TtU:[tiles_to_update.len] "
-	out += "ZtU:[zones_to_update.len] "
-	out += "AFZ:[active_fire_zones.len] "
-	out += "AH:[active_hotspots.len] "
-	out += "AE:[active_edges.len]"
-	..(out)
+/datum/controller/subsystem/air/stat_entry(msg)
+	msg = "TtU:[tiles_to_update.len] ZtU:[zones_to_update.len] AFZ:[active_fire_zones.len] AH:[active_hotspots.len] AE:[active_edges.len]"
+	return msg
 
 /datum/controller/subsystem/air/New()
 	NEW_SS_GLOBAL(SSair)
@@ -426,14 +422,15 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		return edge
 
 /datum/controller/subsystem/air/proc/has_same_air(turf/A, turf/B)
-	if(A.oxygen != B.oxygen)
+	if(A.initial_gas && !B.initial_gas)
 		return 0
-	if(A.nitrogen != B.nitrogen)
+	if(B.initial_gas && !A.initial_gas)
 		return 0
-	if(A.phoron != B.phoron)
-		return 0
-	if(A.carbon_dioxide != B.carbon_dioxide)
-		return 0
+	for(var/g in A.initial_gas)
+		if(!(g in B.initial_gas))
+			return 0
+		if(A.initial_gas[g] != B.initial_gas[g])
+			return 0
 	if(A.temperature != B.temperature)
 		return 0
 	return 1

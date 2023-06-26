@@ -29,7 +29,7 @@
 	if(num)
 		return SStrade.traders[num]
 
-/datum/nano_module/program/merchant/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/merchant/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
 	var/list/data = host.initial_data()
 	var/show_trade = 0
 	var/hailed = 0
@@ -254,3 +254,7 @@
 /datum/computer_file/program/merchant/nka
 	required_access_run = list(access_nka)
 	required_access_download = list(access_nka)
+
+/datum/computer_file/program/merchant/guild
+	required_access_run = list(access_merchants_guild)
+	required_access_download = list(access_merchants_guild)

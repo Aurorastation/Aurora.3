@@ -25,7 +25,7 @@
 		..()
 
 /obj/effect/temporary_effect/destabilize
-	name = "destablizing disturbance"
+	name = "destabilizing disturbance"
 	desc = "This can't be good..."
 	icon_state = "blueshatter"
 	time_to_die = null
@@ -47,7 +47,7 @@
 		sleep(5)
 		for(var/mob/living/L in range(src, instability_range) )
 			var/radius = max(get_dist(L, src), 1)
-			// Being farther away lessens the amount of instabity received.
+			// Being farther away lessens the amount of instability received.
 			var/outgoing_instability = instability_power * ( 1 / (radius**2) )
 			L.receive_radiated_instability(outgoing_instability)
 		pulses_remaining--

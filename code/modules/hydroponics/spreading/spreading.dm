@@ -47,7 +47,7 @@
 	layer = 3
 	flags = PROXMOVE
 	pass_flags = PASSTABLE
-	mouse_opacity = 2
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 
 	var/health = 10
 	var/max_health = 100
@@ -284,7 +284,7 @@
 			if (prob(5))
 				die_off()
 				return
-		else
+
 	return
 
 /obj/effect/plant/proc/check_health()

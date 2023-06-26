@@ -310,11 +310,10 @@ var/list/VVdynamic_lock = list(
 			mod_list(variable, O, original_name, objectvar)
 
 		if("restore to default")
-			new_var = initial(variable)
 			if(assoc)
-				L[assoc_key] = new_var
+				L[assoc_key] = variable
 			else
-				L[L.Find(variable)] = new_var
+				L[L.Find(variable)] = variable
 
 		if("edit referenced object")
 			modify_variables(variable)

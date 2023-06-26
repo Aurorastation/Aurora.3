@@ -69,6 +69,10 @@
 	can_change_class = FALSE
 	can_change_name = FALSE
 
+/obj/machinery/iff_beacon/horizon/shuttle
+	icon = 'icons/obj/spaceship/scc/helm_pieces.dmi'
+	icon_state = "iff"
+
 /obj/machinery/iff_beacon/name_change
 	can_change_name = TRUE
 	can_change_class = FALSE

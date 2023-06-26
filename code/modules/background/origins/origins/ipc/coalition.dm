@@ -50,4 +50,4 @@
 	important_information = "Due to local laws on Vysoka, Shells are exceedingly rare, with the only ones existing on the planet being those owned by Idris Incorporated."
 	possible_accents = list(ACCENT_SOL, ACCENT_COC, ACCENT_NCF, ACCENT_VYSOKA, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_NONE)
-	possible_religions = list(RELIGION_NONE, RELIGION_OTHER)
+	possible_religions = list(RELIGION_NONE, RELIGION_STOLITISM, RELIGION_OTHER)

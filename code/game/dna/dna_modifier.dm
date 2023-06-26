@@ -200,7 +200,6 @@
 				//SN src = null
 				qdel(src)
 				return
-		else
 	return
 
 /obj/machinery/computer/scan_consolenew
@@ -253,7 +252,6 @@
 				//SN src = null
 				qdel(src)
 				return
-		else
 	return
 
 /obj/machinery/computer/scan_consolenew/New()

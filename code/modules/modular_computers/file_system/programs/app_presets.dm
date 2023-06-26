@@ -35,7 +35,7 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/power_monitor(comp),
-		new /datum/computer_file/program/alarm_monitor(comp),
+		new /datum/computer_file/program/alarm_monitor/engineering(comp),
 		new /datum/computer_file/program/atmos_control(comp),
 		new /datum/computer_file/program/rcon_console(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
@@ -58,7 +58,7 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/power_monitor(comp),
-		new /datum/computer_file/program/alarm_monitor(comp),
+		new /datum/computer_file/program/alarm_monitor/engineering(comp),
 		new /datum/computer_file/program/atmos_control(comp),
 		new /datum/computer_file/program/rcon_console(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
@@ -82,9 +82,8 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
-		new /datum/computer_file/program/game/sudoku(comp),
 		new /datum/computer_file/program/power_monitor(comp),
-		new /datum/computer_file/program/alarm_monitor(comp),
+		new /datum/computer_file/program/alarm_monitor/engineering(comp),
 		new /datum/computer_file/program/atmos_control(comp),
 		new /datum/computer_file/program/rcon_console(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
@@ -286,7 +285,7 @@
 		new /datum/computer_file/program/penal_mechs(comp),
 		new /datum/computer_file/program/civilian/cargocontrol(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
-		new /datum/computer_file/program/alarm_monitor(comp),
+		new /datum/computer_file/program/alarm_monitor/all(comp),
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/records/medical(comp),
 		new /datum/computer_file/program/records/security(comp)
@@ -334,11 +333,11 @@
 /datum/modular_computer_app_presets/security/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
 		new /datum/computer_file/program/ntnetdownload(comp),
-		new /datum/computer_file/program/nttransfer(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/alarm_monitor/security(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/digitalwarrant(comp),
@@ -356,11 +355,11 @@
 
 /datum/modular_computer_app_presets/security/armory/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/nttransfer(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/alarm_monitor/security(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/comm(comp),
@@ -381,11 +380,11 @@
 /datum/modular_computer_app_presets/security/investigations/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
 		new /datum/computer_file/program/ntnetdownload(comp),
-		new /datum/computer_file/program/nttransfer(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/alarm_monitor/security(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/digitalwarrant(comp),
 		new /datum/computer_file/program/records/security(comp),
@@ -402,11 +401,11 @@
 /datum/modular_computer_app_presets/security/hos/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
 		new /datum/computer_file/program/ntnetdownload(comp),
-		new /datum/computer_file/program/nttransfer(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/alarm_monitor/security(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
 		new /datum/computer_file/program/camera_monitor(comp),
@@ -431,8 +430,7 @@
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
-		new /datum/computer_file/program/game/arcade(comp),
-		new /datum/computer_file/program/game/sudoku(comp)
+		new /datum/computer_file/program/game/arcade(comp)
 	)
 	return _prg_list
 
@@ -451,8 +449,7 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/civilian/janitor(comp),
-		new /datum/computer_file/program/game/arcade(comp),
-		new /datum/computer_file/program/game/sudoku(comp)
+		new /datum/computer_file/program/game/arcade(comp)
 	)
 	return _prg_list
 
@@ -546,7 +543,6 @@
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/chat_client(comp),
-		new /datum/computer_file/program/game/sudoku(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/records/employment(comp)
 	)
@@ -566,7 +562,7 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
-		new /datum/computer_file/program/alarm_monitor(comp)
+		new /datum/computer_file/program/alarm_monitor/engineering(comp)
 	)
 	return _prg_list
 
@@ -582,9 +578,7 @@
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
-		new /datum/computer_file/program/nttransfer(comp),
-		new /datum/computer_file/program/camera_monitor/hacked(comp),
-		new /datum/computer_file/program/signaler(comp)
+		new /datum/computer_file/program/camera_monitor/hacked(comp)
 	)
 	return _prg_list
 
@@ -601,7 +595,7 @@
 		new /datum/computer_file/program/camera_monitor/hacked(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
 		new /datum/computer_file/program/suit_sensors(comp),
-		new /datum/computer_file/program/alarm_monitor(comp),
+		new /datum/computer_file/program/alarm_monitor/all(comp),
 		new /datum/computer_file/program/lighting_control(comp),
 		new /datum/computer_file/program/aidiag(comp),
 		new /datum/computer_file/program/records(comp)
@@ -643,6 +637,16 @@
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/merchant/nka(comp)
+	)
+	return _prg_list
+
+/datum/modular_computer_app_presets/merchant/guild/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/merchant/guild(comp)
 	)
 	return _prg_list
 

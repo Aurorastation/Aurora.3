@@ -456,8 +456,8 @@
 	else
 		dat += "<br><span class='warning'>[faction.get_selection_error(pref, user)]</span>"
 	dat += "</center>"
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat.Join()), "window=factionpreview;size=750x450")
+
+	user << browse(dat.Join(), "window=factionpreview;size=750x450")
 
 /datum/category_item/player_setup_item/occupation/proc/validate_and_set_faction(selected_faction)
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]

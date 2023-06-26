@@ -12,9 +12,6 @@
 
 	var/lightlevel = 0 //This default makes turfs not generate light. Adjust to have exoplanents be lit.
 	var/night = TRUE
-	var/daycycle //How often do we change day and night
-	var/daycolumn = 0 //Which column's light needs to be updated next?
-	var/daycycle_column_delay = 10 SECONDS
 
 // Fluff, specifically for celestial objects.
 	var/massvolume = "0.95~/1.1"							//Should use biesels as measurement as opposed to earths
@@ -121,7 +118,6 @@
 	generate_features()
 	generate_landing(2)
 	update_biome()
-	generate_daycycle()
 	generate_planet_image()
 	START_PROCESSING(SSprocessing, src)
 
@@ -184,23 +180,6 @@
 			daddy.group_multiplier = Z.air.group_multiplier
 			Z.air.equalize(daddy)
 
-	if(daycycle)
-		if(tick % round(daycycle / wait) == 0)
-			night = !night
-			daycolumn = 1
-		if(daycolumn && tick % round(daycycle_column_delay / wait) == 0)
-			update_daynight()
-
-/obj/effect/overmap/visitable/sector/exoplanet/proc/update_daynight()
-	var/light = 0.1
-	if(!night)
-		light = lightlevel
-	for(var/turf/simulated/floor/exoplanet/T in block(locate(daycolumn,1,min(map_z)),locate(daycolumn,maxy,max(map_z))))
-		T.set_light(light, 0.1, 2)
-	daycolumn++
-	if(daycolumn > maxx)
-		daycolumn = 0
-
 /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(var/mob/M)
 	animals -= M
 	death_event.unregister(M, src)
@@ -240,14 +219,6 @@
 	for(var/mob/living/simple_animal/A as anything in animals)
 		adapt_animal(A)
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/generate_daycycle()
-	if(lightlevel)
-		night = FALSE //we start with a day if we have light.
-
-		//When you set daycycle ensure that the minimum is larger than [maxx * daycycle_column_delay].
-		//Otherwise the right side of the exoplanet can get stuck in a forever day.
-		daycycle = rand(10 MINUTES, 40 MINUTES)
-
 /obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_seed(var/datum/seed/S)
 	S.set_trait(TRAIT_IDEAL_HEAT,          atmosphere.temperature + rand(-5,5),800,70)
 	S.set_trait(TRAIT_HEAT_TOLERANCE,      S.get_trait(TRAIT_HEAT_TOLERANCE) + rand(-5,5),800,70)
@@ -270,7 +241,7 @@
 	else
 		A.name = "alien creature"
 		A.real_name = "alien creature"
-		A.verbs |= /mob/living/simple_animal/proc/name_species
+		add_verb(A, /mob/living/simple_animal/proc/name_species)
 		if(istype(A, /mob/living/simple_animal/hostile))
 			var/mob/living/simple_animal/hostile/AH = A
 			AH.tolerated_types = mobs_to_tolerate.Copy()
@@ -305,7 +276,7 @@
 		if(istype(A,species_type))
 			A.name = newname
 			A.real_name = newname
-			A.verbs -= /mob/living/simple_animal/proc/name_species
+			remove_verb(A, /mob/living/simple_animal/proc/name_species)
 	return TRUE
 
 //This tries to generate "num" landing spots on the map.

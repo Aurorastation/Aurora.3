@@ -200,6 +200,7 @@
 	if(new_mode)
 		playsound(user, safetyoff_sound, 25)
 		to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
+		update_firing_delays()
 	for(var/M in message_mobs)
 		to_chat(M, SPAN_NOTICE("[user] has set \the [src] to [new_mode.name]."))
 
@@ -285,6 +286,12 @@
 	else
 		return ..() //Pistolwhippin'
 
+/obj/item/gun/proc/get_appropriate_delay()
+	var/fire_time = burst > 1 ? ((burst - 1) * burst_delay) : fire_delay
+	var/appropriate_delay = burst > 1 ? burst_delay : fire_delay
+	var/shoot_time = max(fire_time, appropriate_delay)
+	return shoot_time
+
 /obj/item/gun/proc/fire_checks(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(!user || !target)
 		return FALSE
@@ -311,7 +318,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] is not ready to fire again!"))
 		return FALSE
 
-	var/shoot_time = max((burst - 1) * burst_delay, burst_delay)
+	var/shoot_time = get_appropriate_delay()
 	user.setClickCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
 
@@ -361,7 +368,9 @@
 
 	update_held_icon()
 
-	user.setClickCooldown(max(burst_delay+1, fire_delay))
+	// Custom formula here because otherwise you can fire bursts within the burst.
+	var/shoot_time = burst > 1 ? burst_delay + 1 : fire_delay
+	user.setClickCooldown(shoot_time)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)
@@ -371,7 +380,7 @@
 	if(world.time < next_fire_time)
 		return FALSE
 
-	var/shoot_time = (burst - 1)* burst_delay
+	var/shoot_time = get_appropriate_delay()
 	next_fire_time = world.time + shoot_time
 
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -414,7 +423,7 @@
 			target = targloc
 
 	//update timing
-	next_fire_time = world.time + fire_delay
+	next_fire_time = world.time + shoot_time
 
 	accuracy = initial(accuracy)	//Reset the gun's accuracy
 
@@ -479,20 +488,21 @@
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
-	//default point blank multiplier
-	var/damage_mult = 1.3
+	if(!ismob(target))
+		return
+
+	var/mob/M = target
+	var/damage_mult = 1
+	if(M.incapacitated(INCAPACITATION_ALL))
+		damage_mult = 1.3
 
 	//determine multiplier due to the target being grabbed
-	if(ismob(target))
-		var/mob/M = target
-		if(M.grabbed_by.len)
-			var/grabstate = 0
-			for(var/obj/item/grab/G in M.grabbed_by)
-				grabstate = max(grabstate, G.state)
-			if(grabstate >= GRAB_NECK)
-				damage_mult = 2.5
-			else if(grabstate >= GRAB_AGGRESSIVE)
-				damage_mult = 1.5
+	if(M.grabbed_by.len)
+		var/grabstate = 0
+		for(var/obj/item/grab/G in M.grabbed_by)
+			grabstate = max(grabstate, G.state)
+		if(grabstate >= GRAB_NECK)
+			damage_mult = 2.5
 	P.damage *= damage_mult
 	P.point_blank = TRUE
 
@@ -734,12 +744,8 @@
 
 /obj/item/gun/proc/unwield()
 	wielded = FALSE
-	if(fire_delay_wielded)
-		fire_delay = initial(fire_delay)
-	if(recoil_wielded)
-		recoil = initial(recoil)
-	if(accuracy_wielded)
-		accuracy = initial(accuracy)
+	update_firing_delays()
+
 	if(unwield_sound)
 		playsound(src.loc, unwield_sound, 50, 1)
 
@@ -748,17 +754,29 @@
 
 /obj/item/gun/proc/wield()
 	wielded = TRUE
-	if(fire_delay_wielded)
-		fire_delay = fire_delay_wielded
-	if(recoil_wielded)
-		recoil = recoil_wielded
-	if(accuracy_wielded)
-		accuracy = accuracy_wielded
+	update_firing_delays()
+
 	if(wield_sound)
 		playsound(src.loc, wield_sound, 50, 1)
 
 	update_icon()
 	update_held_icon()
+
+/obj/item/gun/proc/update_firing_delays()
+	if(wielded)
+		if(fire_delay_wielded)
+			fire_delay = fire_delay_wielded
+		if(recoil_wielded)
+			recoil = recoil_wielded
+		if(accuracy_wielded)
+			accuracy = accuracy_wielded
+	else
+		if(fire_delay_wielded)
+			fire_delay = initial(fire_delay)
+		if(recoil_wielded)
+			recoil = initial(recoil)
+		if(accuracy_wielded)
+			accuracy = initial(accuracy)
 
 /obj/item/gun/mob_can_equip(M as mob, slot, disable_warning, ignore_blocked)
 	//Cannot equip wielded items.
@@ -821,6 +839,7 @@
 		qdel(src)
 
 /obj/item/offhand/dropped(mob/living/user)
+	. = ..()
 	if(user)
 		var/obj/item/gun/O = user.get_inactive_hand()
 		if(istype(O))
