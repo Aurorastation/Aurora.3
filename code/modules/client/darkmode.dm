@@ -27,7 +27,7 @@ Thanks to spacemaniac and mcdonald for help with the JS side of this.
 	winset(src, "rpanewindow", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
 	winset(src, "rpanewindow", "text-color = [COLOR_DARKMODE_TEXT];text-color = #000000")
 	winset(src, "mainwindow", "background-color = [COLOR_DARKMODE_DARKBACKGROUND];background-color = none")
-	winset(src, "split", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
+	winset(src, "mainvsplit", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
 	winset(src, "mainvsplit", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
 	//Buttons
 	winset(src, "textb", "background-color = #494949;background-color = none")
@@ -86,7 +86,7 @@ Thanks to spacemaniac and mcdonald for help with the JS side of this.
 	winset(src, "rpanewindow", "background-color = none;background-color = [COLOR_DARKMODE_BACKGROUND]")
 	winset(src, "rpanewindow", "text-color = #000000;text-color = [COLOR_DARKMODE_TEXT]")
 	winset(src, "mainwindow", "background-color = none;background-color = [COLOR_DARKMODE_BACKGROUND]")
-	winset(src, "split", "background-color = none;background-color = [COLOR_DARKMODE_BACKGROUND]")
+	winset(src, "mainvsplit", "background-color = none;background-color = [COLOR_DARKMODE_BACKGROUND]")
 	winset(src, "mainvsplit", "background-color = none;background-color = [COLOR_DARKMODE_BACKGROUND]")
 	//Buttons
 	winset(src, "textb", "background-color = none;background-color = #494949")

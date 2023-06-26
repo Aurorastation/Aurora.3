@@ -398,6 +398,7 @@
 		devour(affecting, assailant)
 
 /obj/item/grab/dropped()
+	. = ..()
 	loc = null
 	if(!destroying)
 		qdel(src)

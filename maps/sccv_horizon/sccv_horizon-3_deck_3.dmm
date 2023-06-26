@@ -2590,7 +2590,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
-/obj/machinery/computer/station_alert/engineering{
+/obj/item/modular_computer/console/preset/engineering{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -28221,7 +28221,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/machinery/computer/station_alert/all{
+/obj/item/modular_computer/console/preset/command{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,

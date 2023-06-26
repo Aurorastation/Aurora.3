@@ -91,8 +91,8 @@ var/datum/antagonist/traitor/traitors
 			var/mob/living/silicon/robot/R = traitor_mob
 			R.overclock_available = TRUE
 			R.emagged = TRUE
-			R.verbs += /mob/living/silicon/robot/proc/ResetSecurityCodes
-			R.verbs += /mob/living/silicon/robot/proc/toggle_overclock
+			add_verb(R, /mob/living/silicon/robot/proc/ResetSecurityCodes)
+			add_verb(R, /mob/living/silicon/robot/proc/toggle_overclock)
 		return 1
 
 	if(!..())

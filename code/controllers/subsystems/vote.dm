@@ -38,7 +38,7 @@ var/datum/controller/subsystem/vote/SSvote
 
 		if(((started_time + config.vote_period - world.time)) < 0)
 			result()
-			SSvueui.close_uis(src)
+			SStgui.close_uis(src)
 			reset()
 
 	if (get_round_duration() >= next_transfer_time - 600)
@@ -64,7 +64,7 @@ var/datum/controller/subsystem/vote/SSvote
 	choices.Cut()
 	voted.Cut()
 	current_votes.Cut()
-	SSvueui.check_uis_for_change(src)
+	SStgui.update_uis(src)
 
 /datum/controller/subsystem/vote/proc/get_result()
 	//get the highest number of votes
@@ -297,9 +297,9 @@ var/datum/controller/subsystem/vote/SSvote
 			text += "\n[sanitizeSafe(question)]"
 
 		log_vote(text)
-		to_world("<span class='vote'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</span>")
 		for(var/cc in clients)
 			var/client/C = cc
+			to_chat(C, "<span class='vote'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</span>")
 			if(C.prefs.sfx_toggles & ASFX_VOTE) //Personal mute
 				switch(vote_type)
 					if("crew_transfer")
@@ -311,7 +311,7 @@ var/datum/controller/subsystem/vote/SSvote
 		if(mode == "gamemode" && round_progressing)
 			round_progressing = 0
 			to_world("<span class='warning'><b>Round start has been delayed.</b></span>")
-		SSvueui.check_uis_for_change(src)
+		SStgui.update_uis(src)
 		return 1
 	return 0
 
@@ -320,28 +320,51 @@ var/datum/controller/subsystem/vote/SSvote
 		display_name = name
 	choices[name] = list("name" = display_name, "extra" = extra_text, "votes" = 0)
 
-/datum/controller/subsystem/vote/Topic(href, list/href_list = list(), hsrc)
-	if(!usr || !usr.client)
-		return	//not necessary but meh...just in-case somebody does something stupid
-	if(href_list["open"])
-		OpenVotingUI(usr)
-	var/isstaff = usr.client.holder && (usr.client.holder.rights & (R_ADMIN|R_MOD))
+/datum/controller/subsystem/vote/ui_state(mob/user)
+    return always_state
 
-	switch(href_list["action"])
+/datum/controller/subsystem/vote/ui_status(mob/user, datum/ui_state/state)
+    return UI_INTERACTIVE
+
+/datum/controller/subsystem/vote/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "Voting", "Voting", 400, 500)
+		ui.open()
+
+/datum/controller/subsystem/vote/Topic(href, href_list)
+	. = ..()
+	if(href_list["open"])
+		SSvote.ui_interact(usr)
+		return TRUE
+
+/datum/controller/subsystem/vote/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	. = TRUE
+	var/isstaff = ui.user.client.holder && (ui.user.client.holder.rights & (R_ADMIN|R_MOD))
+
+	switch(action)
 		if("cancel")
 			if(isstaff)
 				reset()
+				return TRUE
 		if("toggle_restart")
 			if(isstaff)
 				config.allow_vote_restart = !config.allow_vote_restart
-				SSvueui.check_uis_for_change(src)
+				SStgui.update_uis(src)
+				return TRUE
 		if("toggle_gamemode")
 			if(isstaff)
 				config.allow_vote_mode = !config.allow_vote_mode
-				SSvueui.check_uis_for_change(src)
+				SStgui.update_uis(src)
+				return TRUE
 		if("restart")
 			if(isstaff)
-				initiate_vote("restart",usr.key)
+				initiate_vote("restart", ui.user.key)
+				return TRUE
 			else if (config.allow_vote_restart)
 				var/admin_number_present = 0
 				var/admin_number_afk = 0
@@ -356,64 +379,64 @@ var/datum/controller/subsystem/vote/SSvote
 							sound_to(X, 'sound/effects/adminhelp.ogg')
 
 				if ((admin_number_present - admin_number_afk) <= 0)
-					initiate_vote("restart", usr.key)
+					initiate_vote("restart", ui.user.key)
+					return TRUE
 				else
 					log_and_message_admins("tried to start a restart vote.", usr, null)
-					to_chat(usr, "<span class='notice'><b>There are active admins around! You cannot start a restart vote due to this.</b></span>")
+					to_chat(ui.user, "<span class='notice'><b>There are active admins around! You cannot start a restart vote due to this.</b></span>")
 		if("gamemode")
 			if(config.allow_vote_mode || isstaff)
-				initiate_vote("gamemode",usr.key)
+				initiate_vote("gamemode", ui.user.key)
+				return TRUE
 		if("crew_transfer")
 			if(config.allow_vote_restart || isstaff)
-				initiate_vote("crew_transfer",usr.key)
+				initiate_vote("crew_transfer", ui.user.key)
+				return TRUE
 		if("add_antagonist")
 			if(!antag_add_failed && config.allow_extra_antags)
-				initiate_vote("add_antagonist",usr.key)
+				initiate_vote("add_antagonist", ui.user.key)
+				return TRUE
 		if("custom")
 			if(isstaff)
-				initiate_vote("custom",usr.key)
+				initiate_vote("custom", ui.user.key)
+				return TRUE
 		if("vote")
-			var/t = href_list["vote"]
-			if(t) // It starts from 1, so there's no problem
-				if(submit_vote(usr.ckey, t))
-					SSvueui.check_uis_for_change(src)
+			var/list/T = params["vote"]
+			var/our_vote = T["choice"]
+			if(our_vote)
+				if(submit_vote(ui.user.ckey, our_vote))
+					SStgui.update_uis(src)
+			return TRUE
 
-/datum/controller/subsystem/vote/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		. = list("choices" = list(), "mode" = 0, "voted" = 0)
-	data = . || data
+/datum/controller/subsystem/vote/ui_data(mob/user)
+	var/list/data = list()
 	if(choices.len != LAZYLEN(data["choices"]))
 		data["choices"] = list()
 	for(var/choice in choices)
-		VUEUI_SET_IFNOTSET(data["choices"][choice], deepCopyList(choices[choice]), ., data)
-		VUEUI_SET_CHECK(data["choices"][choice]["votes"], choices[choice]["votes"], ., data) // Only votes trigger data update
+		data["choices"] += list(list(
+			"choice" = choice,
+			"votes" = choices[choice]["votes"],
+			"extra" = choices[choice]["extra"]
+		))
 
-	VUEUI_SET_CHECK(data["mode"], mode, ., data)
-	VUEUI_SET_CHECK(data["voted"], current_votes[user.ckey], ., data)
-	VUEUI_SET_CHECK(data["endtime"], started_time + config.vote_period, ., data)
-	VUEUI_SET_CHECK(data["allow_vote_restart"], config.allow_vote_restart, ., data)
-	VUEUI_SET_CHECK(data["allow_vote_mode"], config.allow_vote_mode, ., data)
-	VUEUI_SET_CHECK(data["allow_extra_antags"], (!antag_add_failed && config.allow_extra_antags), ., data)
+	data["mode"] = mode
+	data["voted"] = current_votes[user.ckey]
+	data["endtime"] = started_time + config.vote_period
+	data["allow_vote_restart"] = config.allow_vote_restart
+	data["allow_vote_mode"] = config.allow_vote_mode
+	data["allow_extra_antags"] = (!antag_add_failed && config.allow_extra_antags)
 
 	if(!question)
-		VUEUI_SET_CHECK(data["question"], capitalize(mode), ., data)
+		data["question"] = capitalize(mode)
 	else
-		VUEUI_SET_CHECK(data["question"], question, ., data)
-	VUEUI_SET_CHECK(data["isstaff"], (user.client.holder && (user.client.holder.rights & (R_ADMIN|R_MOD))), ., data)
+		data["question"] = question
+	data["is_staff"] = user.client.holder && (user.client.holder.rights & (R_ADMIN|R_MOD))
 	var/slevel = get_security_level()
-	VUEUI_SET_CHECK(data["is_code_red"], (slevel == "red" || slevel == "delta"), ., data)
-
-
-
-/datum/controller/subsystem/vote/proc/OpenVotingUI(var/mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, SSvote, "misc-voting", 400, 500, "Voting panel", state = interactive_state)
-		ui.header = "minimal"
-	ui.open()
+	data["is_code_red"] = (slevel == "red" || slevel == "delta")
+	return data
 
 /mob/verb/vote()
 	set category = "OOC"
 	set name = "Vote"
 
-	SSvote.OpenVotingUI(src)
+	SSvote.ui_interact(src)

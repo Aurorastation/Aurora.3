@@ -12,16 +12,12 @@
 	color = LIGHT_COLOR_GREEN
 
 	available_on_ntnet = TRUE
-	nanomodule_path = /datum/nano_module/computer_ntnetmonitor
+	tgui_id = "NTMonitor"
 
-/datum/nano_module/computer_ntnetmonitor
-	name = "NTNet Diagnostics and Monitoring"
-	available_to_ai = TRUE
-
-/datum/nano_module/computer_ntnetmonitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/computer_file/program/ntnetmonitor/ui_data(mob/user)
 	if(!ntnet_global)
 		return
-	var/list/data = host.initial_data()
+	var/list/data = initial_data()
 
 	data["ntnetstatus"] = ntnet_global.check_function()
 	data["ntnetrelays"] = ntnet_global.relays.len
@@ -37,41 +33,33 @@
 	data["ntnetmessages"] = ntnet_global.messages
 	data["ntnetmaxlogs"] = ntnet_global.setting_maxlogcount
 
+	return data
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "ntnet_monitor.tmpl", "NTNet Diagnostics and Monitoring Tool", 575, 700, state = state)
-		if(host.update_layout())
-			ui.auto_update_layout = TRUE
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
-
-/datum/nano_module/computer_ntnetmonitor/Topic(href, href_list)
+/datum/computer_file/program/ntnetmonitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
-		return TRUE
-	if(href_list["resetIDS"])
-		. = TRUE
-		if(ntnet_global)
-			ntnet_global.resetIDS()
-		return TRUE
-	if(href_list["toggleIDS"])
-		. = TRUE
-		if(ntnet_global)
-			ntnet_global.toggleIDS()
-		return TRUE
-	if(href_list["purgelogs"])
-		. = TRUE
-		if(ntnet_global)
-			ntnet_global.purge_logs()
-	if(href_list["updatemaxlogs"])
-		. = TRUE
-		var/mob/user = usr
-		var/logcount = text2num(input(user,"Enter amount of logs to keep in memory ([MIN_NTNET_LOGS]-[MAX_NTNET_LOGS]):"))
-		if(ntnet_global)
-			ntnet_global.update_max_log_count(logcount)
-	if(href_list["toggle_function"])
-		. = TRUE
-		if(!ntnet_global)
-			return TRUE
-		ntnet_global.toggle_function(href_list["toggle_function"])
+		return
+
+	switch(action)
+		if("resetIDS")
+			. = TRUE
+			if(ntnet_global)
+				ntnet_global.resetIDS()
+		if("toggleIDS")
+			. = TRUE
+			if(ntnet_global)
+				ntnet_global.toggleIDS()
+		if("purgelogs")
+			. = TRUE
+			if(ntnet_global)
+				ntnet_global.purge_logs()
+		if("updatemaxlogs")
+			. = TRUE
+			var/mob/user = usr
+			var/logcount = text2num(input(user,"Enter amount of logs to keep in memory ([MIN_NTNET_LOGS]-[MAX_NTNET_LOGS]):"))
+			if(ntnet_global)
+				ntnet_global.update_max_log_count(logcount)
+		if("toggle_function")
+			. = TRUE
+			if(!ntnet_global)
+				return FALSE
+			ntnet_global.toggle_function(params["toggle_function"])

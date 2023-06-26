@@ -47,7 +47,7 @@
 	layer = 3
 	flags = PROXMOVE
 	pass_flags = PASSTABLE
-	mouse_opacity = 2
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 
 	var/health = 10
 	var/max_health = 100

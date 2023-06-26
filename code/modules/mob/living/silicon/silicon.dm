@@ -35,13 +35,8 @@
 	var/list/datum/alarm/queued_alarms = new()
 
 	// Internal Computer
-	var/datum/nano_module/alarm_monitor/all/alarm_monitor
-	var/datum/nano_module/law_manager/law_manager
-	var/datum/nano_module/rcon/rcon
 	var/obj/item/modular_computer/silicon/computer
 	var/list/silicon_subsystems = list(
-		/mob/living/silicon/proc/subsystem_alarm_monitor,
-		/mob/living/silicon/proc/subsystem_law_manager,
 		/mob/living/silicon/proc/computer_interact,
 		/mob/living/silicon/proc/silicon_mimic_accent
 	)
@@ -78,9 +73,6 @@
 /mob/living/silicon/Destroy()
 	silicon_mob_list -= src
 	QDEL_NULL(computer)
-	QDEL_NULL(rcon)
-	QDEL_NULL(alarm_monitor)
-	QDEL_NULL(law_manager)
 	QDEL_NULL(computer)
 	QDEL_NULL(id_card)
 	QDEL_NULL(common_radio)
@@ -164,14 +156,6 @@
 	if(bot.connected_ai == ai)
 		return TRUE
 	return FALSE
-
-// this function shows the health of the AI in the Status panel
-/mob/living/silicon/proc/show_system_integrity()
-	if(!stat)
-		stat(null, text("System Integrity: [round((health/maxHealth)*100)]%"))
-	else
-		stat(null, text("Systems Non-functional"))
-
 // This is a pure virtual function, it should be overwritten by all subclasses
 /mob/living/silicon/proc/show_malf_ai()
 	return FALSE
@@ -184,12 +168,13 @@
 			stat(null, eta_status)
 
 // This adds the basic clock, shuttle recall timer, and malf_ai info to all silicon lifeforms
-/mob/living/silicon/Stat()
-	if(statpanel("Status"))
-		show_emergency_shuttle_eta()
-		show_system_integrity()
+/mob/living/silicon/get_status_tab_items()
+	. = ..()
+	if(!stat)
+		. += "System Integrity: [round((health/maxHealth)*100)]%"
+	else
+		. += "System Integrity: NON-FUNCTIONAL"
 		show_malf_ai()
-	..()
 
 //can't inject synths
 /mob/living/silicon/can_inject(mob/user, error_msg)

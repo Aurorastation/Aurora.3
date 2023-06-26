@@ -98,6 +98,7 @@
 	user.drop_from_inventory(src)
 
 /obj/item/pen/crayon/augment/dropped()
+	. = ..()
 	loc = null
 	qdel(src)
 
