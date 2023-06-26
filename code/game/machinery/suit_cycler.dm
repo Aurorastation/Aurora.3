@@ -368,10 +368,9 @@
 	if(panel_open)
 		wires.Interact(user)
 
-
-	user << browse(dat, "window=suit_cycler")
-	onclose(user, "suit_cycler")
-	return
+	var/datum/browser/suit_cycler = new(user, "suit_cycler", "Suit Cycler", 450, 500)
+	suit_cycler.set_content(dat)
+	suit_cycler.open()
 
 /obj/machinery/suit_cycler/Topic(href, href_list)
 	if(!Adjacent(usr) && !issilicon(usr))

@@ -121,10 +121,6 @@
 	data["can_netadmin_mode"] = can_run(user, FALSE, access_network)
 	data["message_mute"] = message_mute
 
-	return data
-
-/datum/computer_file/program/chat_client/ui_static_data(mob/user)
-	var/list/data = list()
 	if(istype(my_user) && get_signal(NTNET_COMMUNICATION) && (service_state > PROGRAM_STATE_KILLED))
 		data["channels"] = list()
 		for(var/c in ntnet_global.chat_channels)
@@ -155,6 +151,7 @@
 			var/datum/ntnet_user/ntnet_user = u
 			if(ntnet_user != my_user)
 				data["users"] += list(list("ref" = text_ref(ntnet_user), "username" = ntnet_user.username))
+
 	return data
 
 /datum/computer_file/program/chat_client/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)

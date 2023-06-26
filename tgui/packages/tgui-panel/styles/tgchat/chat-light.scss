@@ -224,7 +224,7 @@ a.popt {
 .motd h4,
 .motd h5,
 .motd h6 {
-  color: #a4bad6;
+  color: #638500;
   text-decoration: underline;
 }
 .vote {
@@ -261,6 +261,17 @@ a.popt {
 /* OUTPUT COLORS */
 .highlight {
   background: yellow;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #0000ff;
+  font-family: Georgia, Verdana, sans-serif;
+  line-height: 10%;
 }
 
 em {
