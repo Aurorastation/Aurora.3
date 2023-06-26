@@ -49,7 +49,7 @@
 		to_chat(user, SPAN_WARNING("\The [O] must be safely placed on the ground for modification."))
 		return
 
-	playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
+	playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 
 	user.visible_message(
 		SPAN_NOTICE("\The [user] opens \the [src] and modifies \the [O]."),

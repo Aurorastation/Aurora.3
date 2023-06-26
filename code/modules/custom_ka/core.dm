@@ -433,7 +433,7 @@
 			installed_cell.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
 		return TRUE
 	else if(istype(I,/obj/item/custom_ka_upgrade/barrels))
 		if(!installed_cell)
@@ -447,7 +447,7 @@
 			installed_barrel.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
 		return TRUE
 	else if(istype(I,/obj/item/custom_ka_upgrade/upgrade_chips))
 		if(!installed_cell || !installed_barrel)
@@ -465,7 +465,7 @@
 			installed_upgrade_chip.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
 		return TRUE
 
 	if(installed_cell)

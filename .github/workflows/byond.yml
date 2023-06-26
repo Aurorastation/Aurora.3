@@ -29,16 +29,19 @@ jobs:
           pip install --user -r ./tools/requirements.txt
           chmod +x ./scripts/code_check.sh && ./scripts/code_check.sh $PWD
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
+          bash tools/ci/setup_od.sh
       - name: Code checks
         run: |
           awk -f tools/indentation.awk **/*.dm
-          python3 tools/TagMatcher/tag-matcher.py ../..
           python3 tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
           python3 tools/mapmerge2/travis_mapcheck.py
           echo "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml" | md5sum -c -
       - name: Run dreamchecker
         id: runDreamchecker
         run: ~/dreamchecker > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
+      - name: Run OpenDream Lint
+        id: runOpenDreamLint
+        run: bash tools/ci/run_od.sh
       - name: Annotate Lints
         if: failure() && steps.runDreamchecker.outcome == 'failure'
         uses: yogstation13/DreamAnnotate@v2
