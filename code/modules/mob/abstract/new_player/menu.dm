@@ -330,6 +330,7 @@
 		remove_verb(observer, /mob/abstract/observer/verb/toggle_antagHUD)
 	observer.ckey = ckey
 	observer.initialise_postkey()
+	observer.client.init_verbs()
 	qdel(src)
 
 /mob/abstract/new_player/proc/show_lore_summary()

@@ -35,7 +35,7 @@ export const SensorData = (props, context) => {
     <Section>
       {data.sensors.map((sensor) => (
         <Box bold key={sensor}>
-          {sensor.name}
+          {sensor.name}, ({sensor.id_tag})
           {sensor.datapoints.map((datapoint) => (
             <LabeledList key={datapoint}>
               {datapoint.data !== null ? (

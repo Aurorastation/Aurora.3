@@ -8,6 +8,9 @@
 		audible_message(SPAN_WARNING("\The [src] beeps three times, its screen displaying, \"DISK ERROR!\"."))
 		return // No HDD, No HDD files list or no stored files. Something is very broken.
 
+	if(user)
+		user.set_machine(src)
+
 	if(!ui)
 		if(active_program)
 			ui = new(user, src, active_program.tgui_id, active_program.filedesc)

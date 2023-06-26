@@ -120,6 +120,8 @@
 	addtimer(CALLBACK(src, PROC_REF(bst_post_spawn), bst), 5)
 	addtimer(CALLBACK(src, PROC_REF(bst_spawn_cooldown)), 5 SECONDS)
 
+	bst.client.init_verbs()
+
 	log_debug("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
 
 	feedback_add_details("admin_verb","BST")

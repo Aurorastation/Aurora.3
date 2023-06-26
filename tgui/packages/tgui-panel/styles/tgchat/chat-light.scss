@@ -1,4 +1,4 @@
-/**
+f/**
  * Copyright (c) 2020 Aleksej Komarov
  * SPDX-License-Identifier: MIT
  */
@@ -216,6 +216,7 @@ a.popt {
 .motd {
   color: #a4bad6;
   font-family: Verdana, sans-serif;
+  white-space: 'normal';
 }
 .motd h1,
 .motd h2,
@@ -260,17 +261,6 @@ a.popt {
 /* OUTPUT COLORS */
 .highlight {
   background: yellow;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #a4bad6;
-  font-family: Georgia, Verdana, sans-serif;
-  margin-bottom: 20%;
 }
 
 em {
@@ -467,9 +457,18 @@ em {
 .alert {
   color: #ff0000;
 }
+
 h1.alert,
 h2.alert {
-  color: #000080;
+  color: #a4bad6;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  color: #a4bad6;
+  font-family: Georgia, Verdana, sans-serif;
 }
 
 .emote {
