@@ -4,16 +4,6 @@
     "version": "2.0.0",
     "tasks": [
       {
-        "type": "shell",
-        "command": "tools/dreamchecker/dreamchecker",
-        "windows": {
-          "command": ".\\tools\\dreamchecker\\dreamchecker.bat \".\\tools\\dreamchecker\\dreamchecker.exe\"",
-          "echo": "false"
-        },
-        "group": "build",
-        "label": "dreamchecker"
-      },
-      {
         "type": "process",
         "command": "tools/build/build",
         "windows": {
@@ -33,8 +23,18 @@
             "kind": "build",
             "isDefault": true
         },
-        "dependsOn": "dm: reparse",
+        "dependsOn": ["dm: reparse", "dreamchecker"],
         "label": "Build All"
+      },
+      {
+        "type": "shell",
+        "command": "tools/dreamchecker/dreamchecker",
+        "windows": {
+          "command": ".\\tools\\dreamchecker\\dreamchecker.bat \".\\tools\\dreamchecker\\dreamchecker.exe\"",
+          "echo": "false"
+        },
+        "group": "build",
+        "label": "dreamchecker"
       },
       {
         "type": "dreammaker",
