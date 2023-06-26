@@ -34,10 +34,10 @@ export const SensorData = (props, context) => {
   return (
     <Section>
       {data.sensors.map((sensor) => (
-        <Box bold key={sensor}>
-          {sensor.name}, ({sensor.id_tag})
+        <Box bold key={sensor.id_tag}>
+          {sensor.name} ({sensor.id_tag})
           {sensor.datapoints.map((datapoint) => (
-            <LabeledList key={datapoint}>
+            <LabeledList key={datapoint.datapoint}>
               {datapoint.data !== null ? (
                 <LabeledList.Item label={capitalize(datapoint.datapoint)}>
                   {datapoint.data} {datapoint.unit}

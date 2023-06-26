@@ -105,54 +105,58 @@ export const ControlWindow = (props, context) => {
 export const TurretsWindow = (props, context) => {
   const { act, data } = useBackend<TurretData>(context);
 
-  return data.turrets.map((turret) => (
-    <Section title={turret.name} key={turret.name}>
-      <LabeledList>
-        <LabeledList.Item label="Turret Status">
-          <Button
-            content={turret.enabled ? 'Enabled' : 'Disabled'}
-            color={turret.enabled ? 'bad' : 'good'}
-            disabled={data.locked}
-            onClick={() =>
-              act('command', {
-                turret_ref: turret.ref,
-                value: !turret.enabled,
-                command: 'enable',
-              })
-            }
-          />
-        </LabeledList.Item>
-        <LabeledList.Item label="Lethal Mode">
-          <Button
-            content={turret.lethal ? 'On' : 'Off'}
-            color={turret.lethal ? 'bad' : 'average'}
-            disabled={data.locked}
-            onClick={() =>
-              act('command', {
-                turret_ref: turret.ref,
-                value: !turret.lethal,
-                command: 'lethal',
-              })
-            }
-          />
-        </LabeledList.Item>
-        {turret.settings.map((setting) => (
-          <LabeledList.Item label={setting.category} key={setting.category}>
-            <Button
-              content={setting.value ? 'On' : 'Off'}
-              selected={setting.value}
-              disabled={data.locked}
-              onClick={() =>
-                act('command', {
-                  turret_ref: turret.ref,
-                  value: !setting.value,
-                  command: setting.variable_name,
-                })
-              }
-            />
-          </LabeledList.Item>
-        ))}
-      </LabeledList>
+  return (
+    <Section>
+      {data.turrets.map((turret) => (
+        <Section title={turret.name} key={turret.name}>
+          <LabeledList>
+            <LabeledList.Item label="Turret Status">
+              <Button
+                content={turret.enabled ? 'Enabled' : 'Disabled'}
+                color={turret.enabled ? 'bad' : 'good'}
+                disabled={data.locked}
+                onClick={() =>
+                  act('command', {
+                    turret_ref: turret.ref,
+                    value: !turret.enabled,
+                    command: 'enable',
+                  })
+                }
+              />
+            </LabeledList.Item>
+            <LabeledList.Item label="Lethal Mode">
+              <Button
+                content={turret.lethal ? 'On' : 'Off'}
+                color={turret.lethal ? 'bad' : 'average'}
+                disabled={data.locked}
+                onClick={() =>
+                  act('command', {
+                    turret_ref: turret.ref,
+                    value: !turret.lethal,
+                    command: 'lethal',
+                  })
+                }
+              />
+            </LabeledList.Item>
+            {turret.settings.map((setting) => (
+              <LabeledList.Item label={setting.category} key={setting.category}>
+                <Button
+                  content={setting.value ? 'On' : 'Off'}
+                  selected={setting.value}
+                  disabled={data.locked}
+                  onClick={() =>
+                    act('command', {
+                      turret_ref: turret.ref,
+                      value: !setting.value,
+                      command: setting.variable_name,
+                    })
+                  }
+                />
+              </LabeledList.Item>
+            ))}
+          </LabeledList>
+        </Section>
+      ))}
     </Section>
-  ));
+  );
 };
