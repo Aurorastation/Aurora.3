@@ -839,6 +839,7 @@
 		qdel(src)
 
 /obj/item/offhand/dropped(mob/living/user)
+	. = ..()
 	if(user)
 		var/obj/item/gun/O = user.get_inactive_hand()
 		if(istype(O))

@@ -17,14 +17,19 @@
 	/client/proc/toggle_instrumentsounds
 )
 
+/client/var/has_sfx_verbs = FALSE
 // ASFX Tab Toggle
 /client/verb/toggle_asfx_tab()
 	set name = "Toggle SFX Preferences Tab"
 	set category = "Preferences"
 	set desc = "Toggle the SFX preferences tab"
 
-	verbs ^= sfx_toggles
-	return
+	if(!has_sfx_verbs)
+		add_verb(src, sfx_toggles)
+		has_sfx_verbs = TRUE
+	else
+		remove_verb(src, sfx_toggles)
+		has_sfx_verbs = FALSE
 
 // Ambience Toggle
 /client/verb/toggle_asfx()

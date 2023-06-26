@@ -186,12 +186,16 @@
 /datum/controller/subsystem/records/ui_status(mob/user, datum/ui_state/state)
 	return (isnewplayer(user) || isobserver(user) || issilicon(user)) ? UI_INTERACTIVE : UI_CLOSE
 
-/datum/controller/subsystem/records/Topic(href, href_list)
-	if(href_list["action"] == "follow") // from manifest.vue
+/datum/controller/subsystem/records/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	if(action == "follow")
 		var/mob/abstract/observer/O = usr
 		if(istype(O))
-			for(var/mob/living/M in player_list)
-				if(istype(M) && M.real_name == href_list["name"])
+			for(var/mob/living/M in human_mob_list)
+				if(istype(M) && M.real_name == params["name"])
 					O.ManualFollow(M)
 					break
 	. = ..()
@@ -199,6 +203,7 @@
 /datum/controller/subsystem/records/ui_static_data(mob/user)
 	var/list/data = list()
 	data["manifest"] = SSrecords.get_manifest_list()
+	data["allow_follow"] = isobserver(usr)
 	return data
 
 /datum/controller/subsystem/records/proc/open_manifest_tgui(mob/user, datum/tgui/ui)

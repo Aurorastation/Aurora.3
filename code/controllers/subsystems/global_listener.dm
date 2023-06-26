@@ -12,8 +12,9 @@ var/datum/controller/subsystem/listener/SSlistener
 /datum/controller/subsystem/listener/Recover()
 	listeners = SSlistener.listeners
 
-/datum/controller/subsystem/listener/stat_entry()
-	..("L:[listeners.len]")
+/datum/controller/subsystem/listener/stat_entry(msg)
+	msg = "L:[listeners.len]"
+	return ..()
 
 /datum/controller/subsystem/listener/proc/register(listener/L)
 	LAZYINITLIST(listeners[L.channel])
@@ -22,7 +23,7 @@ var/datum/controller/subsystem/listener/SSlistener
 /datum/controller/subsystem/listener/proc/unregister(listener/L)
 	if (listeners[L.channel])
 		listeners[L.channel] -= L
-	
+
 	if (!LAZYLEN(listeners[L.channel]))
 		listeners -= L.channel
 

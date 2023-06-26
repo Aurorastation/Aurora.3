@@ -260,7 +260,7 @@
 	name = "ship weapon dummy"
 	icon = 'icons/obj/machinery/ship_guns/ship_weapon_dummy.dmi'
 	icon_state = "dummy"
-	mouse_opacity = 2
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	layer = OBJ_LAYER+0.1 //Higher than the gun itself.
 	anchored = TRUE
 	density = TRUE

@@ -2,7 +2,7 @@
 	name = "mineral vein"
 	icon = 'icons/obj/mining.dmi'
 	desc = "Shiny."
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	density = 0
 	anchored = 1
 	var/ore_key

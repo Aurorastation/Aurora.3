@@ -32,7 +32,7 @@ export const Apc = (props, context) => {
   const { act, data } = useBackend<APCData>(context);
 
   return (
-    <Window resizable>
+    <Window resizable theme="hephaestus">
       <Window.Content scrollable>
         {data.fail_time > 0 ? <FailWindow /> : <APCWindow />}
       </Window.Content>

@@ -147,7 +147,7 @@
 		return
 
 	if(!iscarbon(loc))
-		verbs -= /mob/living/carbon/alien/diona/proc/split
+		remove_verb(src, /mob/living/carbon/alien/diona/proc/split)
 		return
 
 	var/r = alert(src, "Splitting will remove you from your gestalt and deposit you on the ground, allowing you continue alone. If you had any stored biomass before you joined the gestalt, you will not get it back. Are you sure you wish to split?", "Confirm Split", "I am ready to leave.", "I'll stick around.")

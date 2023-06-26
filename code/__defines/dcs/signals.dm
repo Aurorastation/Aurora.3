@@ -54,6 +54,12 @@
 // /mob signals
 #define COMSIG_MOB_FACEDIR "mob_facedir"
 #define COMSIG_MOB_POINT "mob_point"
+///from base of /mob/Login(): ()
+#define COMSIG_MOB_LOGIN "mob_login"
+///from base of /mob/Logout(): ()
+#define COMSIG_MOB_LOGOUT "mob_logout"
+/// from mob/get_status_tab_items(): (list/items)
+#define COMSIG_MOB_GET_STATUS_TAB_ITEMS "mob_get_status_tab_items"
 
 // /obj signals
 /// when a hood is unequipped

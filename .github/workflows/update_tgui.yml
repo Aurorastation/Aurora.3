@@ -19,6 +19,8 @@ jobs:
 
     - name: Checkout Repository
       uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.BOT_TOKEN_AURORA }}
 
     - name: Restore Yarn cache
       uses: actions/cache@v3
@@ -28,7 +30,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-build-
           ${{ runner.os }}-
-  
+
     - name: Update TGUI
       run: |
         chmod +x tools/bootstrap/node
@@ -45,4 +47,4 @@ jobs:
     - name: Push
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.BOT_TOKEN_AURORA || secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.BOT_TOKEN_AURORA }}
