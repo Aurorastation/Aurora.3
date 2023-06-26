@@ -5,8 +5,8 @@ import { BooleanLike } from '../../common/react';
 
 export type ScannerData = {
   enabled: BooleanLike;
-  search_ores: String[];
-  ore_names: String[];
+  search_ores: string[];
+  ore_names: string[];
 };
 
 export const OreDetector = (props, context) => {
