@@ -68,3 +68,20 @@
 	icon_state = "door_closed"
 	name = "Airlock"
 	desc = "It opens and closes."
+
+/turf/unsimulated/wall/plank//To test the appearance of the map this comes with. remember to remove this
+	icon = 'icons/turf/wood_wall_testing.dmi'
+	icon_state = "end"
+	name = "wooden plank wall"
+
+/turf/unsimulated/wall/plank/line
+	icon_state = "line"
+
+/turf/unsimulated/wall/plank/corner
+	icon_state = "corner"
+
+/turf/unsimulated/wall/plank/cross
+	icon_state = "cross"
+
+/turf/unsimulated/wall/plank/tee
+	icon_state = "tee"

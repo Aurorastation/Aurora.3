@@ -150,6 +150,7 @@
 	climbable = TRUE
 	layer = OBJ_LAYER
 	anchored = TRUE
+	layer = 3.01
 
 //smoothing these things would suck so here you go. i have no idea why you would want these buildable. map them manually
 /obj/structure/road_barrier/bot_in
@@ -179,6 +180,7 @@
 	name = "chainlink industrial fencing"
 	desc = "A tall, imposing metal fence. Not to be confused with the slightly more popular Chainlink of recent years."
 	icon = 'icons/obj/structure/industrial/fencing_tall.dmi'
+	density = TRUE
 	icon_state = "fence"
 	color = null
 	anchored = TRUE
@@ -195,3 +197,34 @@
 	if(get_dir(loc, target) == dir)
 		return !density
 	return TRUE
+
+/obj/structure/rope_railing
+	name = "wooden rope"
+	desc = "A simple rope tied off to protect against careless trespass."
+	icon = 'icons/obj/structure/urban/wood.dmi'
+	icon_state = "rope-railing"
+	density = TRUE
+	color = null
+	anchored = TRUE
+	can_be_unanchored = FALSE
+	layer = 3.01
+
+/obj/structure/rope_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(istype(mover,/obj/item/projectile))
+		return TRUE
+	if(!istype(mover) || mover.checkpass(PASSRAILING))
+		return TRUE
+	if(mover.throwing)
+		return TRUE
+	if(get_dir(loc, target) == dir)
+		return !density
+	return TRUE
+
+/obj/structure/rope_post
+	name = "wooden rope post"
+	desc = "A simple pole driven into something, for tying ropes onto."
+	icon = 'icons/obj/structure/urban/wood.dmi'
+	icon_state = "post"
+	density = FALSE
+	layer = OBJ_LAYER
+	layer = 3
