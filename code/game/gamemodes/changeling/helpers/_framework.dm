@@ -67,8 +67,8 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(!mind.antag_datums[MODE_CHANGELING])
 		mind.antag_datums[MODE_CHANGELING] = new /datum/changeling(gender)
 
-	verbs += /datum/changeling/proc/EvolutionMenu
-	add_language("Changeling")
+	add_verb(src, /datum/changeling/proc/EvolutionMenu)
+	add_language(LANGUAGE_CHANGELING)
 
 	var/lesser_form = !ishuman(src)
 
@@ -88,7 +88,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		if(P.isVerb)
 			if(lesser_form && !P.allowduringlesserform)	continue
 			if(!(P in src.verbs))
-				src.verbs += P.verbpath
+				add_verb(src, P.verbpath)
 
 	for(var/language in languages)
 		changeling.absorbed_languages |= language
@@ -110,7 +110,8 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		return
 	for(var/datum/power/changeling/P in changeling.purchasedpowers)
 		if(P.isVerb)
-			verbs -= P.verbpath
+			remove_verb(src, P.verbpath)
+	remove_language(LANGUAGE_CHANGELING)
 
 
 //Helper proc. Does all the checks and stuff for us to avoid copypasta
@@ -145,7 +146,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	for(var/language in updated_languages)
 		languages += language
 	//This isn't strictly necessary but just to be safe...
-	add_language("Changeling")
+	add_language(LANGUAGE_CHANGELING)
 	return
 
 //DNA related datums

@@ -1,10 +1,11 @@
 import { BooleanLike } from '../../../common/react';
 import { useBackend } from '../../backend';
-import { Icon, Section, Table, Tooltip } from '../../components';
+import { Button, Icon, Section, Table, Tooltip } from '../../components';
 import { TableCell, TableRow } from '../../components/Table';
 
 type ManifestData = {
   manifest: { department: Crew[] };
+  allow_follow: BooleanLike;
 };
 
 type Crew = {
@@ -17,6 +18,7 @@ type Crew = {
 export const Manifest = (props, context) => {
   const { act, data } = useBackend<ManifestData>(context);
   const manifest = data.manifest || {};
+  const allow_follow = data.allow_follow;
   return (
     <Section>
       {Object.keys(manifest).length === 0 && 'There are no crew active.'}
@@ -49,6 +51,20 @@ export const Manifest = (props, context) => {
                         />
                       </Tooltip>
                     </TableCell>
+                    {allow_follow ? (
+                      <TableCell textAlign="right">
+                        <Tooltip content="Follow mob">
+                          <Button
+                            content="F"
+                            onClick={() =>
+                              act('follow', { name: crewmate.name })
+                            }
+                          />
+                        </Tooltip>
+                      </TableCell>
+                    ) : (
+                      ''
+                    )}
                   </TableRow>
                 );
               })}

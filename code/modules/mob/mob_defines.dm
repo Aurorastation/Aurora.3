@@ -228,6 +228,7 @@
 	var/mob/teleop = null
 
 	var/turf/listed_turf = null  	//the current turf being examined in the stat panel
+	var/list/item_verbs = list()
 	var/list/shouldnt_see = list()	//typecache of objects that this mob shouldn't see in the stat panel. this silliness is needed because of AI alt+click and cult blood runes
 
 	var/list/active_genes=list()

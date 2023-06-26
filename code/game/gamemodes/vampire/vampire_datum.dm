@@ -33,7 +33,7 @@
 	purchased_powers += power
 
 	if (power.isVerb && power.verbpath)
-		vampire.current.verbs += power.verbpath
+		add_verb(vampire.current, power.verbpath)
 	if(announce)
 		to_chat(vampire.current, SPAN_NOTICE("------------------"))
 		to_chat(vampire.current, SPAN_NOTICE("<b>You have unlocked a new power:</b> [power.name]."))

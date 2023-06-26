@@ -18,7 +18,7 @@
 	icon_state = "logo"
 	anchored = 1
 	density = 0
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 #define CELLS 8
 #define CELLSIZE (world.icon_size/CELLS)

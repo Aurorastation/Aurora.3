@@ -131,13 +131,6 @@ var/list/asset_datums = list()
 	for(var/type in children)
 		var/datum/asset/A = get_asset_datum(type)
 		. += A.get_url_mappings()
-/datum/asset/group/goonchat
-	children = list(
-		/datum/asset/simple/jquery,
-		/datum/asset/simple/goonchat,
-		/datum/asset/simple/namespaced/fontawesome,
-		/datum/asset/spritesheet/goonchat
-	)
 
 // spritesheet implementation
 #define SPR_SIZE 1
@@ -461,21 +454,6 @@ var/list/asset_datums = list()
 		"faction_SCC.png" = 'html/images/factions/scclogo.png'
 	)
 
-/datum/asset/simple/jquery
-	legacy = TRUE
-	assets = list(
-		"jquery.min.js"            = 'code/modules/goonchat/browserassets/js/jquery.min.js',
-	)
-
-/datum/asset/simple/goonchat
-	legacy = TRUE
-	assets = list(
-		"json2.min.js"             = 'code/modules/goonchat/browserassets/js/json2.min.js',
-		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
-		"browserOutput.css"	       = 'code/modules/goonchat/browserassets/css/browserOutput.css',
-		"browserOutput_white.css"  = 'code/modules/goonchat/browserassets/css/browserOutput_white.css'
-	)
-
 /datum/asset/simple/namespaced/fontawesome
 	legacy = TRUE
 	assets = list(
@@ -625,17 +603,6 @@ var/list/asset_datums = list()
 		"changelog.js" = 'html/changelog.js'
 	)
 
-/datum/asset/spritesheet/goonchat
-	name = "chat"
-
-/datum/asset/spritesheet/goonchat/register()
-	var/icon/I = icon('icons/accent_tags.dmi')
-	for(var/path in subtypesof(/datum/accent))
-		var/datum/accent/A = new path
-		if(A.tag_icon)
-			Insert(A.tag_icon, I, A.tag_icon)
-	..()
-
 /datum/asset/spritesheet/vending
 	name = "vending"
 
@@ -708,6 +675,11 @@ var/list/asset_datums = list()
 	for (var/sprite in bottle_sprites)
 		Insert(sprite, icon('icons/obj/chemical.dmi', sprite))
 	return ..()
+
+/datum/asset/spritesheet/accents
+	name = "accents"
+
+/datum/asset/spritesheet/accents/
 
 /// Namespace'ed assets (for static css and html files)
 /// When sent over a cdn transport, all assets in the same asset datum will exist in the same folder, as their plain names.

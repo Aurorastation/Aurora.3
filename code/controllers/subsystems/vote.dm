@@ -297,9 +297,9 @@ var/datum/controller/subsystem/vote/SSvote
 			text += "\n[sanitizeSafe(question)]"
 
 		log_vote(text)
-		to_world("<span class='vote'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</span>")
 		for(var/cc in clients)
 			var/client/C = cc
+			to_chat(C, "<span class='vote'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</span>")
 			if(C.prefs.sfx_toggles & ASFX_VOTE) //Personal mute
 				switch(vote_type)
 					if("crew_transfer")

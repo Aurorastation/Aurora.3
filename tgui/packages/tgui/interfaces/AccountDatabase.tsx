@@ -116,7 +116,7 @@ export const AccountWindow = (props, context) => {
             {make_new_acc ? (
               <>
                 <Input
-                  placeholder="Insert new name"
+                  placeholder="Insert name"
                   value={new_name}
                   onInput={(e, value) => setNewName(value)}
                 />

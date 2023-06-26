@@ -10,9 +10,9 @@
 	hacked_apcs = list()
 	recalc_cpu()
 
-	verbs += /datum/game_mode/malfunction/verb/ai_select_hardware
-	verbs += /datum/game_mode/malfunction/verb/ai_select_research
-	verbs += /datum/game_mode/malfunction/verb/ai_help
+	add_verb(src, /datum/game_mode/malfunction/verb/ai_select_hardware)
+	add_verb(src, /datum/game_mode/malfunction/verb/ai_select_research)
+	add_verb(src, /datum/game_mode/malfunction/verb/ai_help)
 
 	// And greet user with some OOC info.
 	to_chat(user, "You are malfunctioning, you do not have to follow any laws.")
@@ -107,14 +107,6 @@
 // Returns percentage of AI's remaining hardware integrity (maxhealth - (bruteloss + fireloss))
 /mob/living/silicon/ai/proc/hardware_integrity()
 	return (health / maxHealth) * 100
-
-// Shows capacitor charge and hardware integrity information to the AI in Status tab.
-/mob/living/silicon/ai/show_system_integrity()
-	if(!src.stat)
-		stat("Hardware integrity", "[hardware_integrity()]%")
-		stat("Internal capacitor", "[backup_capacitor()]%")
-	else
-		stat("Systems nonfunctional")
 
 // Shows AI Malfunction related information to the AI.
 /mob/living/silicon/ai/show_malf_ai()

@@ -4,7 +4,7 @@
 		icon_state = "blank"
 		anchored = 1
 		layer = 99
-		mouse_opacity = 0
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		unacidable = 1//Just to be sure.
 
 /obj/effect/beam

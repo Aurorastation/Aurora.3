@@ -93,9 +93,9 @@
 /datum/antagonist/changeling/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
 	. = ..()
 	if(.)
-		player.current.verbs -= /datum/changeling/proc/EvolutionMenu
+		remove_verb(player.current, /datum/changeling/proc/EvolutionMenu)
 		for(var/datum/power/changeling/P in powerinstances)
-			player.current.verbs -= P.verbpath
+			remove_verb(player.current, P.verbpath)
 
 /datum/antagonist/changeling/is_obvious_antag(datum/mind/player)
 	if(istype(player.current, /mob/living/simple_animal/hostile/lesser_changeling))

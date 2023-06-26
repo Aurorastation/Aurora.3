@@ -14,6 +14,7 @@
 	set name = "Set Hailer Message"
 	set category = "Object"
 	set desc = "Alter the message shouted by your hailer."
+	set src in usr
 
 	if(!isnull(insults))
 		to_chat(usr, "The hailer is fried. The tiny input screen just shows a waving ASCII penis.")

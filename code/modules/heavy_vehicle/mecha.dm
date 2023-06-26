@@ -316,8 +316,8 @@
 	dummy = new dummy_type(get_turf(src))
 	dummy.real_name = "Remote-Bot"
 	dummy.name = dummy.real_name
-	dummy.verbs -= /mob/living/proc/ventcrawl
-	dummy.verbs -= /mob/living/proc/hide
+	remove_verb(dummy, /mob/living/proc/ventcrawl)
+	remove_verb(dummy, /mob/living/proc/hide)
 	if(dummy_colour)
 		dummy.color = dummy_colour
 	enter(dummy, TRUE)

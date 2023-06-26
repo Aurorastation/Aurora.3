@@ -121,13 +121,9 @@ Class Procs:
 	next_fire = world.time + wait
 	can_fire = TRUE
 
-/datum/controller/subsystem/air/stat_entry()
-	var/out = "TtU:[tiles_to_update.len] "
-	out += "ZtU:[zones_to_update.len] "
-	out += "AFZ:[active_fire_zones.len] "
-	out += "AH:[active_hotspots.len] "
-	out += "AE:[active_edges.len]"
-	..(out)
+/datum/controller/subsystem/air/stat_entry(msg)
+	msg = "TtU:[tiles_to_update.len] ZtU:[zones_to_update.len] AFZ:[active_fire_zones.len] AH:[active_hotspots.len] AE:[active_edges.len]"
+	return msg
 
 /datum/controller/subsystem/air/New()
 	NEW_SS_GLOBAL(SSair)
