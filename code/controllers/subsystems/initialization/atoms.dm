@@ -98,25 +98,24 @@ var/datum/controller/subsystem/atoms/SSatoms
 	if(start_tick != world.time)
 		BadInitializeCalls[the_type] |= BAD_INIT_SLEPT
 
-	switch(result)
-		if(INITIALIZE_HINT_NORMAL)
-			// Pass
-		if(INITIALIZE_HINT_LATELOAD)
-			if(arguments[1])	//mapload
-				late_loaders += A
-			else
-				A.LateInitialize()
-		if(INITIALIZE_HINT_QDEL)
-			qdel(A)
-			return TRUE
-		if(INITIALIZE_HINT_LATEQDEL)
-			if(arguments[1])	//mapload
-				late_qdel += A
-			else
+	if(result !=INITIALIZE_HINT_NORMAL)
+		switch(result)
+			if(INITIALIZE_HINT_LATELOAD)
+				if(arguments[1])	//mapload
+					late_loaders += A
+				else
+					A.LateInitialize()
+			if(INITIALIZE_HINT_QDEL)
 				qdel(A)
 				return TRUE
-		else
-			BadInitializeCalls[the_type] |= BAD_INIT_NO_HINT
+			if(INITIALIZE_HINT_LATEQDEL)
+				if(arguments[1])	//mapload
+					late_qdel += A
+				else
+					qdel(A)
+					return TRUE
+			else
+				BadInitializeCalls[the_type] |= BAD_INIT_NO_HINT
 
 	if(!A)	//possible harddel
 		return TRUE

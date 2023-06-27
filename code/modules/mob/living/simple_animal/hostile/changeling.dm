@@ -186,7 +186,7 @@
 
 /mob/living/simple_animal/hostile/lesser_changeling/Initialize()
 	. = ..()
-	verbs += /mob/living/proc/ventcrawl
+	add_verb(src, /mob/living/proc/ventcrawl)
 
 /mob/living/simple_animal/hostile/lesser_changeling/mind_initialize()
 	..()

@@ -16,9 +16,9 @@ var/datum/controller/subsystem/orbit/SSorbit
 /datum/controller/subsystem/orbit/Recover()
 	src.processing = SSorbit.processing
 
-/datum/controller/subsystem/orbit/stat_entry()
-	..("P:[processing.len]")
-
+/datum/controller/subsystem/orbit/stat_entry(msg)
+	msg = "P:[processing.len]"
+	return ..()
 
 /datum/controller/subsystem/orbit/fire(resumed = 0)
 	if (!resumed)

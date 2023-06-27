@@ -43,6 +43,7 @@
 	//Mining resources (for the large drills).
 	var/has_resources
 	var/list/resources
+	var/image/resource_indicator
 
 	// Plating data.
 	var/base_name = "plating"
@@ -117,6 +118,8 @@
 
 	if (z_flags & ZM_MIMIC_BELOW)
 		cleanup_zmimic()
+
+	resource_indicator = null
 
 	..()
 	return QDEL_HINT_IWILLGC

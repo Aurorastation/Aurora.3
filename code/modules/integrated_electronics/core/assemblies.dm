@@ -1,6 +1,3 @@
-#define IC_COMPONENTS_BASE 25
-#define IC_COMPLEXITY_BASE 75
-
 /obj/item/device/electronic_assembly
 	name = "electronic assembly"
 	desc = "It's a case, for building small electronics with."

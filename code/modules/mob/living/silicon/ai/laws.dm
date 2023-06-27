@@ -26,4 +26,5 @@
 /mob/living/silicon/ai/proc/ai_checklaws()
 	set category = "AI Commands"
 	set name = "State Laws"
-	subsystem_law_manager()
+	computer.ui_interact(usr)
+	computer.run_program("lawmanager")

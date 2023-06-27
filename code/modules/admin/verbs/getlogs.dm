@@ -32,7 +32,7 @@
 		to_chat(src, "<span class='warning'>Error: giveruntimelog(): Client not found.</span>")
 		return
 
-	target.verbs |= /client/proc/getruntimelog
+	add_verb(target, /client/proc/getruntimelog)
 	to_chat(target, "<span class='warning'>You have been granted access to runtime logs. Please use them responsibly or risk being banned.</span>")
 	return
 

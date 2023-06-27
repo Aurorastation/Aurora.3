@@ -8,6 +8,7 @@
 	hitsound = 'sound/weapons/psisword.ogg'
 
 /obj/item/psychic_power/psiblade/dropped(var/mob/living/user)
+	. = ..()
 	playsound(loc, 'sound/effects/psi/power_fail.ogg', 30, 1)
 	QDEL_IN(src, 1)
 

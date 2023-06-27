@@ -422,6 +422,7 @@
 		"LOOC" = "looc",
 		"ALOOC" = "adminlooc",
 		"DEV" = "dev",
+		"CCIA" = "ccia",
 		"ADMIN" = "admin",
 		"MOD" = "mod",
 		"DEAD" = "dead",

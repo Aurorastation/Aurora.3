@@ -451,7 +451,7 @@
 		"<span class='warning'>[user] begins cutting cable restrains on zipper of [src].</span>",
 		"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>"
 		)
-		playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
+		playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
 			return TRUE
 		zipped = !zipped
