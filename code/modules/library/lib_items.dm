@@ -83,7 +83,7 @@
 					b.forceMove(get_turf(src))
 				qdel(src)
 			return
-		else
+
 	return
 
 /obj/structure/bookcase/update_icon()

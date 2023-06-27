@@ -445,7 +445,7 @@
 	..()
 
 /obj/item/device/paicard/dropped(mob/user)
-
+	. = ..()
 	///When an object is put into a container, drop fires twice.
 	//once with it on the floor, and then once in the container
 	//We only care about the second one

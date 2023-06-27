@@ -81,6 +81,7 @@
 	return ..()
 
 /obj/item/material/twohanded/dropped(mob/user as mob)
+	. = ..()
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
 		var/obj/item/material/twohanded/O = user.get_inactive_hand()
@@ -585,6 +586,7 @@
 /obj/item/material/twohanded/pike/flag/verb/plant()
 	set name = "Plant Flag"
 	set category = "Object"
+	set src in usr
 
 	if(ishuman(usr))
 		var/mob/living/user = usr

@@ -194,7 +194,7 @@
 
 	admin_attacker_log_many_victims(src, victims, "used glare to stun", "was stunned by [key_name(src)] using glare", "used glare to stun")
 
-	verbs -= /mob/living/carbon/human/proc/vampire_glare
+	remove_verb(src,/mob/living/carbon/human/proc/vampire_glare)
 	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/vampire_glare, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Targeted stun ability, moderate duration.
@@ -235,7 +235,7 @@
 		vampire.use_blood(10)
 		admin_attack_log(src, T, "used hypnotise to stun [key_name(T)]", "was stunned by [key_name(src)] using hypnotise", "used hypnotise on")
 
-		verbs -= /mob/living/carbon/human/proc/vampire_hypnotise
+		remove_verb(src, /mob/living/carbon/human/proc/vampire_hypnotise)
 		ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_hypnotise, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 	else
 		to_chat(src, SPAN_WARNING("You broke your gaze."))
@@ -281,7 +281,7 @@
 	log_and_message_admins("activated veil step.")
 
 	vampire.use_blood(20)
-	verbs -= /mob/living/carbon/human/proc/vampire_veilstep
+	remove_verb(src, /mob/living/carbon/human/proc/vampire_veilstep)
 	ADD_VERB_IN_IF(src, 300, /mob/living/carbon/human/proc/vampire_veilstep, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Summons bats.
@@ -325,7 +325,7 @@
 	log_and_message_admins("summoned bats.")
 
 	vampire.use_blood(60)
-	verbs -= /mob/living/carbon/human/proc/vampire_bats
+	remove_verb(src, /mob/living/carbon/human/proc/vampire_bats)
 	ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_bats, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Chiropteran Screech
@@ -384,7 +384,7 @@
 	else
 		log_and_message_admins("used chiropteran screech.")
 
-	verbs -= /mob/living/carbon/human/proc/vampire_screech
+	remove_verb(src, /mob/living/carbon/human/proc/vampire_screech)
 	ADD_VERB_IN_IF(src, 3600, /mob/living/carbon/human/proc/vampire_screech, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Enables the vampire to be untouchable and walk through walls and other solid things.
@@ -748,7 +748,7 @@
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
 
 	vampire.use_blood(150)
-	verbs -= /mob/living/carbon/human/proc/vampire_enthrall
+	remove_verb(src, /mob/living/carbon/human/proc/vampire_enthrall)
 	ADD_VERB_IN_IF(src, 2800, /mob/living/carbon/human/proc/vampire_enthrall, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Makes the vampire appear 'friendlier' to others.
@@ -1009,5 +1009,5 @@
 	G.icon_state = "grabbed1"
 	G.synch()
 
-	verbs -= /mob/living/carbon/human/proc/grapple
+	remove_verb(src, /mob/living/carbon/human/proc/grapple)
 	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/grapple, CALLBACK(src, PROC_REF(finish_vamp_timeout), VAMP_FRENZIED))

@@ -7911,6 +7911,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "fFj" = (
@@ -13681,11 +13684,6 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/machinery/computer/atmoscontrol/laptop{
-	monitored_alarm_ids = list("1501","1502","1503","1504");
-	name = "Isolation Atmospheric Controls";
-	req_one_access = list(7,11,24,47)
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "jHp" = (
@@ -17157,6 +17155,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "mhb" = (
@@ -18490,7 +18491,6 @@
 	pixel_y = 12;
 	tag_door = "canary_out"
 	},
-/obj/machinery/suit_storage_unit/standard_unit,
 /obj/item/device/gps/stationary/sccv_canary{
 	pixel_x = 23;
 	pixel_y = -9
@@ -18506,6 +18506,21 @@
 	name = "Fuel Reserve";
 	pixel_x = -23;
 	pixel_y = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/westleft{
+	name = "EVA Suit Storage Rack Access"
+	},
+/obj/structure/table/rack,
+/obj/item/rig/eva/pilot/equipped,
+/obj/item/rig/eva/pilot/equipped{
+	pixel_x = -5
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
@@ -26726,6 +26741,7 @@
 	c_tag = "Canary - Main Compartment";
 	dir = 1
 	},
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "sWq" = (
@@ -32127,9 +32143,6 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
 "wLA" = (
-/obj/item/circuitboard/powermonitor{
-	pixel_y = 8
-	},
 /obj/item/circuitboard/security/engineering{
 	pixel_y = 4
 	},

@@ -62,7 +62,7 @@
 	icon_state = "generic"
 	layer = LIGHTING_LAYER - 1
 	appearance_flags = RESET_COLOR
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/effect/gas_overlay/Initialize()
 	. = ..()

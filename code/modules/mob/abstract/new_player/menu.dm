@@ -327,9 +327,10 @@
 	observer.real_name = client.prefs.real_name
 	observer.name = observer.real_name
 	if(!client.holder && !config.antag_hud_allowed)
-		observer.verbs -= /mob/abstract/observer/verb/toggle_antagHUD
+		remove_verb(observer, /mob/abstract/observer/verb/toggle_antagHUD)
 	observer.ckey = ckey
 	observer.initialise_postkey()
+	observer.client.init_verbs()
 	qdel(src)
 
 /mob/abstract/new_player/proc/show_lore_summary()
