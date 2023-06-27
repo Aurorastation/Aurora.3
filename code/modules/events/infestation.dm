@@ -128,3 +128,11 @@
 
 /datum/event/infestation/announce()
 	command_announcement.Announce("[chosen_scan_type] indicate that [chosen_mob] [chosen_verb] [chosen_area]. Clear them out before this starts to affect productivity.", event_name, new_sound = 'sound/AI/vermin.ogg', zlevels = affecting_z)
+
+
+#undef INFESTATION_RATS
+#undef INFESTATION_LIZARDS
+#undef INFESTATION_SPACE_BATS
+#undef INFESTATION_SPIDERLINGS
+#undef INFESTATION_HIVEBOTS
+#undef INFESTATION_SLIMES
