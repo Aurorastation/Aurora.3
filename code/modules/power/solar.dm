@@ -1,6 +1,3 @@
-#define SOLAR_MAX_DIST 40
-#define SOLARGENRATE 1500
-
 /obj/machinery/power/solar
 	name = "solar panel"
 	desc = "A solar electrical generator."
@@ -384,7 +381,7 @@
 
 /obj/machinery/power/solar_control/attackby(var/obj/I, user as mob)
 	if(I.isscrewdriver())
-		playsound(src.loc, 'sound/items/screwdriver.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20))
 			if (src.stat & BROKEN)
 				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")

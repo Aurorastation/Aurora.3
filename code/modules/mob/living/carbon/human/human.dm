@@ -1220,6 +1220,7 @@
 				if(H.brainmob.real_name == src.real_name)
 					if(H.brainmob.mind)
 						H.brainmob.mind.transfer_to(src)
+						H.brainmob.client.init_verbs()
 						qdel(H)
 
 	losebreath = 0

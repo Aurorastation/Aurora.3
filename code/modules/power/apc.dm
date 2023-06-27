@@ -681,7 +681,7 @@
 		user.visible_message(SPAN_WARNING("[user.name] welds [src]."), \
 							"You start welding the APC frame...", \
 							"You hear welding.")
-		playsound(loc, 'sound/items/welder.ogg', 50, 1)
+		playsound(loc, 'sound/items/Welder.ogg', 50, 1)
 		if(W.use_tool(src, user, 50, volume = 50))
 			if(!src || !WT.use(3, user))
 				return
@@ -765,7 +765,7 @@
 			if (WT.get_fuel() <1)
 				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 				return
-			playsound(loc, 'sound/items/welder.ogg', 50, 1)
+			playsound(loc, 'sound/items/Welder.ogg', 50, 1)
 			if(W.use_tool(src, user, 10, volume = 50))
 				if(!src || !WT.use(1, user))
 					return

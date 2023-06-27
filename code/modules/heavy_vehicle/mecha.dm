@@ -57,9 +57,6 @@
 	var/obj/item/mech_component/sensors/head
 	var/obj/item/mech_component/chassis/body
 
-	// Invisible components.
-	var/datum/effect/effect/system/spark_spread/sparks
-
 	// Equipment tracking vars.
 	var/obj/item/mecha_equipment/selected_system
 	var/selected_hardpoint

@@ -1,12 +1,3 @@
-#define NO_THOUGHT 1	//Hallucinated thoughts will not occur on this hallucination's end()
-#define NO_EMOTE 2		//User will not emote to others when this hallucination ends
-#define HEARING_DEPENDENT 4	//deaf characters will not experience this hallucination
-
-//Power Defines
-#define HAL_POWER_LOW 30
-#define HAL_POWER_MED 50
-#define HAL_POWER_HIGH 70
-
 /datum/hallucination
 	var/mob/living/carbon/holder	//Who is hallucinating?
 	var/allow_duplicates = TRUE		//This is set to false for hallucinations with long durations or ones we do not want repeated for a time

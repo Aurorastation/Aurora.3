@@ -1,7 +1,3 @@
-#define NO_HUD  0
-#define SEC_HUD 1
-#define MED_HUD 2
-
 /mob/living/silicon
 	// Speaking
 	gender = NEUTER

@@ -97,7 +97,7 @@ export const ScannerWindow = (props, context) => {
     <Table>
       <Table.Row>
         <Table.Cell>
-          <Section fill={0} title="Patient Status" scrollable>
+          <Section fill={false} title="Patient Status" scrollable>
             <LabeledList>
               <LabeledList.Item label="Name">{data.name}</LabeledList.Item>
               <LabeledList.Item

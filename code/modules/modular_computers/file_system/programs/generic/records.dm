@@ -246,6 +246,12 @@
 		if("security")
 			if(!(edit_type & RECORD_SECURITY))
 				return FALSE
+		if("fingerprint")
+			if(!(edit_type & RECORD_SECURITY))
+				return FALSE
+		if("criminal")
+			if(!(edit_type & RECORD_SECURITY))
+				return FALSE
 		if("physical_status")
 			if(!((edit_type & RECORD_MEDICAL) || (edit_type & RECORD_GENERAL)))
 				return FALSE
@@ -254,6 +260,24 @@
 				return FALSE
 		if("medical")
 			if(!(edit_type & RECORD_MEDICAL))
+				return FALSE
+		if("diseases")
+			if(!(edit_type & RECORD_MEDICAL))
+				return FALSE
+		if("allergies")
+			if(!(edit_type & RECORD_MEDICAL))
+				return FALSE
+		if("blood_dna")
+			if(!(edit_type & RECORD_MEDICAL) || (edit_type & RECORD_SECURITY))
+				return FALSE
+		if("species")
+			if(!(edit_type & RECORD_MEDICAL) || (edit_type & RECORD_SECURITY))
+				return FALSE
+		if("citizenship")
+			if(!(edit_type & RECORD_SECURITY) || (edit_type & RECORD_GENERAL))
+				return FALSE
+		if("religion")
+			if(!(edit_type & RECORD_SECURITY) || (edit_type & RECORD_GENERAL))
 				return FALSE
 		else
 			if(!(edit_type & RECORD_GENERAL))

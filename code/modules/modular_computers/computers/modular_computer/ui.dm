@@ -183,3 +183,9 @@
 		. = TRUE
 
 	update_icon()
+
+/obj/item/modular_computer/ui_status(mob/user, datum/ui_state/state)
+	. = ..()
+	if(. < UI_INTERACTIVE)
+		if(user.machine)
+			user.unset_machine()

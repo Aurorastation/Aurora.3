@@ -54,8 +54,8 @@ export const PlayerPanel = (props, context) => {
               <Table.Cell>Name</Table.Cell>
               <Table.Cell>Assignment</Table.Cell>
               <Table.Cell>Key</Table.Cell>
-              {data.is_mod && <Table.Cell>Age</Table.Cell>}
-              {data.is_mod && <Table.Cell>Antag</Table.Cell>}
+              {data.is_mod ? <Table.Cell>Age</Table.Cell> : ''}
+              {data.is_mod ? <Table.Cell>Antag</Table.Cell> : ''}
               <Table.Cell textAlign="right">Actions</Table.Cell>
             </Table.Row>
             {data.players
@@ -86,7 +86,7 @@ export const PlayerPanel = (props, context) => {
                       : player.assigment}
                   </Table.Cell>
                   <Table.Cell>
-                    {!data.is_mod ? '' : player.key}
+                    {player.key}
                     {!player.connected ? ' (DC)' : ''}
                   </Table.Cell>
                   <Table.Cell>{data.is_mod ? player.age : ''}</Table.Cell>

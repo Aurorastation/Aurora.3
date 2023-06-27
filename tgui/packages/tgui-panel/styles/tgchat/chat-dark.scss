@@ -335,10 +335,13 @@ em {
 }
 
 .ooc .everyone {
-  color: #002eb8;
+  color: #3c5dc0;
 }
 .ooc .looc {
   color: #6699cc;
+}
+.ooc .adminlooc {
+  color: #3bbf6e;
 }
 .ooc .elevated {
   color: #2e78d9;
@@ -347,10 +350,13 @@ em {
   color: #184880;
 }
 .ooc .developer {
-  color: #1b521f;
+  color: #2c7731;
 }
 .ooc .admin {
   color: #b82e00;
+}
+.aooc {
+  color: #d1021e;
 }
 
 /* Admin: Private Messages */

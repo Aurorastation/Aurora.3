@@ -43,24 +43,21 @@ export const Janitor = (props, context) => {
               <Table.Cell>Direction</Table.Cell>
               <Table.Cell>Status</Table.Cell>
             </Table.Row>
-            {data.supplies.map((supply) => (
-              supply.supply_type === tab && (
-                <Table.Row key={supply.name}>
-                  <Table.Cell>
-                    {supply.name} (#{supply.key})
-                  </Table.Cell>
-                  <Table.Cell>
-                    ({supply.x}, {supply.y})
-                  </Table.Cell>
-                  <Table.Cell>
-                    {supply.dir}
-                  </Table.Cell>
-                  <Table.Cell>
-                    {supply.status}
-                  </Table.Cell>
-                </Table.Row>
-              )
-            ))}
+            {data.supplies.map(
+              (supply) =>
+                supply.supply_type === tab && (
+                  <Table.Row key={supply.name}>
+                    <Table.Cell>
+                      {supply.name} (#{supply.key})
+                    </Table.Cell>
+                    <Table.Cell>
+                      ({supply.x}, {supply.y})
+                    </Table.Cell>
+                    <Table.Cell>{supply.dir}</Table.Cell>
+                    <Table.Cell>{supply.status}</Table.Cell>
+                  </Table.Row>
+                )
+            )}
             <Table.Row>
               User Location: ({data.user_x}, {data.user_y})
             </Table.Row>

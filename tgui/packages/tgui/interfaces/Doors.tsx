@@ -1,4 +1,4 @@
-import { BooleanLike } from 'common/react';
+import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
 import { Section, ProgressBar, Button, Box } from '../components';
 import { Window } from '../layouts';
@@ -76,7 +76,9 @@ export const Doors = (props, context) => {
                 ? data.wtime
                 : data.backup_power_lost_until
             }
-            minValue={data.backup_power_lost_until ? data.backup_power_lost_at : 1}
+            minValue={
+              data.backup_power_lost_until ? data.backup_power_lost_at : 1
+            }
             maxValue={data.backup_power_lost_until}>
             {get_power_status_message(data.backup_power_lost_until, data.wtime)}
           </ProgressBar>
@@ -126,7 +128,9 @@ export const Doors = (props, context) => {
         </Section>
         <Section title="Commands">
           <Box>
-            <b>Bolts: </b>
+            <Box as="span" bold>
+              Bolts:{' '}
+            </Box>
             <Button
               content="Raised"
               disabled={data.isAi && !data.isAdmin && data.aiCanBolt}
@@ -151,7 +155,9 @@ export const Doors = (props, context) => {
             />
           </Box>
           <Box>
-            <b>IDScan: </b>
+            <Box as="span" bold>
+              IDScan:{' '}
+            </Box>
             <Button
               content="On"
               color={data.idscan && 'good'}
@@ -164,7 +170,9 @@ export const Doors = (props, context) => {
             />
           </Box>
           <Box>
-            <b>Bolt Lights: </b>
+            <Box as="span" bold>
+              Bolt Lights:{' '}
+            </Box>
             <Button
               content="On"
               color={data.lights && 'good'}
@@ -177,7 +185,9 @@ export const Doors = (props, context) => {
             />
           </Box>
           <Box>
-            <b>Safeties: </b>
+            <Box as="span" bold>
+              Safeties:{' '}
+            </Box>
             <Button
               content="Nominal"
               color={data.safeties && 'good'}
@@ -190,7 +200,9 @@ export const Doors = (props, context) => {
             />
           </Box>
           <Box>
-            <b>Timing: </b>
+            <Box as="span" bold>
+              Timing:{' '}
+            </Box>
             <Button
               content="Nominal"
               color={data.timing && 'good'}
@@ -203,7 +215,9 @@ export const Doors = (props, context) => {
             />
           </Box>
           <Box>
-            <b>Door State: </b>
+            <Box as="span" bold>
+              Door State:{' '}
+            </Box>
             <Button
               content="Open"
               color={data.open && 'good'}

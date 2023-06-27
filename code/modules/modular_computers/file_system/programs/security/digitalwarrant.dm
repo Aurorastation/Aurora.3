@@ -46,7 +46,7 @@
 	switch(action)
 		if("sw_menu")
 			active_warrant = null
-			. = TRUE
+			SStgui.update_uis(computer)
 
 		if("editwarrant")
 			for(var/datum/record/warrant/W in SSrecords.warrants)
@@ -56,8 +56,8 @@
 			. = TRUE
 
 		if("back")
-			. = TRUE
 			active_warrant = null
+			SStgui.update_uis(computer)
 
 	// The following actions will only be possible if the user has an ID with security access equipped. This is in line with modular computer framework's authentication methods,
 	// which also use RFID scanning to allow or disallow access to some functions. Anyone can view warrants, editing requires ID.
@@ -96,14 +96,14 @@
 				active_warrant = W
 
 		if("savewarrant")
-			. = TRUE
 			SSrecords.update_record(active_warrant)
 			active_warrant = null
+			SStgui.update_uis(computer)
 
 		if("deletewarrant")
-			. = TRUE
 			SSrecords.remove_record(active_warrant)
 			active_warrant = null
+			SStgui.update_uis(computer)
 
 		if("editwarrantname")
 			. = TRUE

@@ -414,7 +414,7 @@
 				screwed = FALSE
 		else if(!screwed && wrenched)
 			to_chat(user,  SPAN_NOTICE("You start to screw the \the [src] to the floor..."))
-			playsound(src, 'sound/items/welder.ogg', 80, 1)
+			playsound(src, 'sound/items/Welder.ogg', 80, 1)
 			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
 				to_chat(user,  SPAN_NOTICE("You screw \the [src]!"))
 				playsound(loc, W.usesound, 50, 1)
