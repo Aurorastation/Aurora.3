@@ -311,3 +311,9 @@
 	name = "dominian voidsman's modkit box"
 	desc = "Contains modkits to convert Dominian voidsuits into a voidsman's variant."
 	starts_with = list(/obj/item/voidsuit_modkit/dominianvoid = 4)
+
+
+#undef MODKIT_HELMET
+#undef MODKIT_SUIT
+#undef MODKIT_RIG
+#undef MODKIT_FULL

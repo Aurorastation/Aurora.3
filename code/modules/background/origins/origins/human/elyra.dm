@@ -1,5 +1,3 @@
-#define RELIGIONS_ELYRA list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_SHINTO, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER)
-
 /singleton/origin_item/culture/elyran
 	name = "Serene Republic of Elyra"
 	desc = "A rich and prosperous nation, the Serene Republic of Elyra is one of the few locations in the Orion Spur where phoron can be found. This phoron has made the Republic extremely wealthy and has given them a technological edge over much of the Spur. Highly-controlled customs and harsh immigration requirements have kept much of Elyra isolated from the broader Spur, and have led to the growth of a large population of \"Non-Citizen Persons,\" that reside in the Republic. Recent attacks by the Lii'dra Hive of the vaurca have led to the Republic becoming increasingly militarized."
