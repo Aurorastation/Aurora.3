@@ -17,7 +17,7 @@
 	var/icon_selected = 0		//If icon selection has been completed yet
 	var/spawn_sound = 'sound/voice/liveagain.ogg'
 	var/pitch_toggle = TRUE
-	var/datum/effect/effect/system/ion_trail_follow/ion_trail
+	var/datum/effect_system/ion_trail/ion_trail
 	var/datum/effect_system/sparks/spark_system
 
 	// Wiring
@@ -1294,3 +1294,5 @@
 
 /mob/living/silicon/robot/GetIdCard()
 	return id_card
+
+#undef CYBORG_POWER_USAGE_MULTIPLIER

@@ -475,7 +475,7 @@
 					thing.forceMove(body)
 					body.cell = thing
 					to_chat(user, "<span class='notice'>You install \the [body.cell] into \the [src].</span>")
-					playsound(user.loc, 'sound/items/screwdriver.ogg', 50, 1)
+					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 					visible_message("<span class='notice'>\The [user] installs \the [body.cell] into \the [src].</span>")
 				return
 			else if(istype(thing, /obj/item/device/robotanalyzer))

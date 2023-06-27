@@ -1,9 +1,3 @@
-#define ALL_SPELLS "All"
-#define OFFENSIVE_SPELLS "Offensive"
-#define DEFENSIVE_SPELLS "Defensive"
-#define UTILITY_SPELLS "Utility"
-#define SUPPORT_SPELLS "Support"
-
 var/list/all_technomancer_spells = typesof(/datum/technomancer/spell) - /datum/technomancer/spell
 var/list/all_technomancer_equipment = typesof(/datum/technomancer/equipment) - /datum/technomancer/equipment
 var/list/all_technomancer_consumables = typesof(/datum/technomancer/consumable) - /datum/technomancer/consumable

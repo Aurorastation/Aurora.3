@@ -138,7 +138,7 @@
 	else if(O.iswirecutter())
 		user.drop_from_inventory(O,get_turf(src))
 		to_chat(user, "<span class='notice'>You detach the wire from the [name].</span>")
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		new /obj/item/stack/cable_coil(user.loc, 5)
 		new /obj/item/stack/material/glass(user.loc)
 		use(1)

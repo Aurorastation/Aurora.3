@@ -284,7 +284,7 @@
 			if (prob(5))
 				die_off()
 				return
-		else
+
 	return
 
 /obj/effect/plant/proc/check_health()
@@ -293,3 +293,7 @@
 
 /obj/effect/plant/proc/is_mature()
 	return (health >= (max_health/3) && world.time > mature_time)
+
+
+#undef DEFAULT_SEED
+#undef VINE_GROWTH_STAGES
