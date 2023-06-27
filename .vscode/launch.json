@@ -9,7 +9,7 @@
 			"request": "launch",
 			"name": "Launch DreamSeeker",
 			"preLaunchTask": "Build All",
-      "postDebugTask": "dreamchecker",
+			"postDebugTask": "dreamchecker",
 			"dmb": "${workspaceFolder}/${command:CurrentDMB}"
 		},
 		{ // Builds with CBT and starts the server with DreamDaemon.
@@ -17,7 +17,7 @@
 			"request": "launch",
 			"name": "Launch DreamDaemon",
 			"preLaunchTask": "Build All",
-      "postDebugTask": "dreamchecker",
+			"postDebugTask": "dreamchecker",
 			"dmb": "${workspaceFolder}/${command:CurrentDMB}",
 			"dreamDaemon": true
 		}
