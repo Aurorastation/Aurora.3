@@ -60,3 +60,55 @@
 		GRASSES = list(ALWAYS_GEN),
 		WILDLIFE = list(POISSON_SAMPLE, 10)
 	)
+
+/singleton/biome/konyang
+	turf_type = /turf/simulated/floor/exoplanet/konyang
+	generators = list(
+		LARGE_FLORA = list(POISSON_SAMPLE, 7),
+		SMALL_FLORA = list(POISSON_SAMPLE, 4),
+		GRASSES = list(BATCHED_NOISE, 0.1, 360, 4)
+	)
+	spawn_types = list(
+		LARGE_FLORA = list(
+			/obj/structure/flora/tree/konyang/spring = 3
+		),
+		SMALL_FLORA = list(
+			/obj/structure/flora/bush/konyang_reeds = 5,
+			/obj/structure/flora/rock/konyang = 3,
+			/obj/structure/flora/rock/konyang/moss = 1
+		),
+		GRASSES = list(
+			/obj/effect/floor_decal/konyang_flowers = 3
+		)
+	)
+	exclusive_generators = list(LARGE_FLORA, SMALL_FLORA)
+
+/singleton/biome/konyang/clearing
+	turf_type = /turf/simulated/floor/exoplanet/konyang
+	generators = list(
+		SMALL_FLORA = list(POISSON_SAMPLE, 4),
+		GRASSES = list(BATCHED_NOISE, 0.1, 360, 4)
+	)
+	spawn_types = list(
+		SMALL_FLORA = list(
+			/obj/structure/flora/bush/konyang_reeds = 2
+		),
+		GRASSES = list(
+			/obj/effect/floor_decal/konyang_flowers = 2
+		)
+	)
+
+/singleton/biome/konyang/water
+	turf_type = /turf/simulated/floor/exoplanet/water/shallow/konyang
+	generators = list(
+		SMALL_FLORA = list(POISSON_SAMPLE, 4),
+		GRASSES = list(BATCHED_NOISE, 0.1, 360, 5)
+	)
+	spawn_types = list(
+		SMALL_FLORA = list(
+			/obj/structure/flora/rock/konyang/water = 2
+		),
+		GRASSES = list(
+			/obj/structure/flora/bush/konyang_reeds/water = 4
+		)
+	)

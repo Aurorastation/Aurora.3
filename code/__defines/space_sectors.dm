@@ -24,7 +24,8 @@
 #define SECTOR_WEEPING_STARS		"Weeping Stars"//Generic sector
 #define SECTOR_ARUSHA				"Arusha"//Generic sector
 #define SECTOR_LIBERTYS_CRADLE		"Liberty's Cradle"//Generic sector
-#define ALL_COALITION_SECTORS	list(SECTOR_COALITION, SECTOR_WEEPING_STARS, SECTOR_LIBERTYS_CRADLE, SECTOR_ARUSHA)
+#define SECTOR_HANEUNIM				"Haneunim"//Haneunim and its gravity well, Konyang is found here
+#define ALL_COALITION_SECTORS	list(SECTOR_COALITION, SECTOR_WEEPING_STARS, SECTOR_LIBERTYS_CRADLE, SECTOR_ARUSHA, SECTOR_HANEUNIM)
 
 //Light's edge, which should have unique properties all around
 #define SECTOR_LIGHTS_EDGE			"Light's Edge"//For the area of Light's Edge that is somewhat inhabited

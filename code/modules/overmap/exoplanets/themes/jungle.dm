@@ -34,3 +34,25 @@
 		BIOME_SEMIARID = 0.6,
 		BIOME_SUBHUMID = 1.0
 	)
+
+/datum/exoplanet_theme/konyang
+	name = "Konyang"
+	surface_turfs = list(
+		/turf/simulated/mineral
+	)
+	mountain_threshold = 0.1
+	possible_biomes = list(
+		BIOME_COOL = list(
+			BIOME_ARID = /singleton/biome/konyang/water,
+			BIOME_SEMIARID = /singleton/biome/konyang/clearing,
+			BIOME_SUBHUMID = /singleton/biome/konyang
+		)
+	)
+
+	heat_levels = list(
+		BIOME_COOL = 0.3
+	)
+
+	humidity_levels = list(
+		BIOME_COOL = 0.4
+	)

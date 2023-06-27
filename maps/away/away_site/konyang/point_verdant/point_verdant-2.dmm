@@ -981,6 +981,12 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant)
+"pv" = (
+/obj/effect/landmark/map_data{
+	height = 2
+	},
+/turf/unsimulated/mineral,
+/area/point_verdant)
 "pE" = (
 /obj/effect/decal/exterior_stairs/left{
 	dir = 8
@@ -3695,7 +3701,7 @@ rf
 rf
 rf
 rf
-rf
+pv
 "}
 (2,1,1) = {"
 rf

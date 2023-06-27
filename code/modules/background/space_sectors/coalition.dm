@@ -42,3 +42,16 @@
 	starlight_color = "#962d96"
 	starlight_power = 2
 	starlight_range = 4
+
+/datum/space_sector/haneunim
+	name = SECTOR_HANEUNIM
+	description = "TBD."
+	skybox_icon = "weeping_stars"//placeholder
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/konyang)
+//	cargo_price_coef = TBD
+	starlight_color = "#615bff"//placeholder
+	starlight_power = 2//placeholder
+	starlight_range = 4//placeholder
+	sector_welcome_message = 'sound/AI/welcome_weeping.ogg'//placeholder
+	sector_hud_menu = 'icons/misc/hudmenu/coalition_hud.dmi'
+	sector_hud_arrow = "menu_arrow"

@@ -1,8 +1,8 @@
 /datum/map_template/ruin/away_site/point_verdant
 	name = "Konyang - Point Verdant Spaceport"
 	id = "point_verdant"
-	description = "WIP"
-	sectors = list(SECTOR_TAU_CETI)
+	description = "A landing zone designated by local authorities within an SCC-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
+	sectors = list(SECTOR_HANEUNIM)
 	suffixes = list("away_site/konyang/point_verdant/point_verdant-1.dmm","away_site/konyang/point_verdant/point_verdant-2.dmm","away_site/konyang/point_verdant/point_verdant-3.dmm")
 	spawn_weight = 1
 	spawn_cost = 1
@@ -10,12 +10,14 @@
 
 /singleton/submap_archetype/point_verdant
 	map = "point_verdant"
-	descriptor = "WIP"
+	descriptor = "A landing zone within Point Verdant city limits."
 
 /obj/effect/overmap/visitable/sector/point_verdant
 	name = "Konyang - Point Verdant Spaceport"
-	desc = "WIP for point verdant landing site."
+	desc = "A landing zone designated by local authorities within an SCC-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
 	icon_state = "object"
+	layer = 3
+	scanimage = "konyang_point_verdant.png"
 
 	initial_generic_waypoints = list(
 		"nav_point_verdant_1",

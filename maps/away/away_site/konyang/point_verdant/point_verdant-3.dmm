@@ -1,4 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"nw" = (
+/obj/effect/landmark/map_data{
+	height = 3
+	},
+/turf/unsimulated/mineral,
+/area/point_verdant/outer)
 "rf" = (
 /turf/unsimulated/mineral,
 /area/point_verdant/outer)
@@ -186,7 +192,7 @@ rf
 rf
 rf
 rf
-rf
+nw
 "}
 (2,1,1) = {"
 rf
