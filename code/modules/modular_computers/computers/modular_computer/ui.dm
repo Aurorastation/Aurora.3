@@ -78,7 +78,7 @@
 	for(var/datum/computer_file/program/P in hard_drive.stored_files)
 		if(P.program_hidden())
 			continue
-		if(!(P.program_type & PROGRAM_SERVICE))
+		if(!istype(P, /datum/computer_file/program/scanner))
 			data["programs"] += list(list(
 				"filename" = P.filename,
 				"desc" = P.filedesc,
