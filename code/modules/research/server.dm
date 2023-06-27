@@ -225,12 +225,12 @@
 	if(href_list["main"])
 		screen = 0
 
-	else if(href_list["access"] || href_list["data"] || href_list["transfer"])
+	else if(href_list["access"] || href_list["data"] || href_list[TRANSFER_CREW])
 		temp_server = null
 		consoles = list()
 		servers = list()
 		for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
-			if(S.server_id == text2num(href_list["access"]) || S.server_id == text2num(href_list["data"]) || S.server_id == text2num(href_list["transfer"]))
+			if(S.server_id == text2num(href_list["access"]) || S.server_id == text2num(href_list["data"]) || S.server_id == text2num(href_list[TRANSFER_CREW]))
 				temp_server = S
 				break
 		if(href_list["access"])
@@ -240,7 +240,7 @@
 					consoles += C
 		else if(href_list["data"])
 			screen = 2
-		else if(href_list["transfer"])
+		else if(href_list[TRANSFER_CREW])
 			screen = 3
 			for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
 				if(S == src)
