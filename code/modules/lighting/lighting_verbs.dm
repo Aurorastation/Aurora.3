@@ -15,7 +15,7 @@ var/list/admin_verbs_lighting = list(
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	to_chat(src, SPAN_NOTICE("Lighting debug verbs have been shown."))
-	verbs += admin_verbs_lighting
+	add_verb(src, admin_verbs_lighting)
 
 /client/proc/lighting_hide_verbs()
 	set category = "Lighting"
@@ -25,7 +25,7 @@ var/list/admin_verbs_lighting = list(
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	to_chat(src, SPAN_NOTICE("Lighting debug verbs have been hidden."))
-	verbs -= admin_verbs_lighting
+	remove_verb(src, admin_verbs_lighting)
 
 /client/proc/lighting_flush()
 	set category = "Lighting"

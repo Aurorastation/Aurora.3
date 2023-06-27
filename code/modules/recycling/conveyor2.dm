@@ -350,3 +350,5 @@
 	var/obj/machinery/conveyor_switch/NC = new/obj/machinery/conveyor_switch(A, id)
 	transfer_fingerprints_to(NC)
 	qdel(src)
+
+#undef MAX_CONVEYOR_ITEMS_MOVE

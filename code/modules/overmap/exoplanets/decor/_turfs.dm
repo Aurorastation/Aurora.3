@@ -117,7 +117,7 @@
 
 	//Need to put a mouse-opaque overlay there to prevent people turning/shooting towards ACTUAL location of vis_content things
 	var/obj/effect/overlay/O = new(src)
-	O.mouse_opacity = 2
+	O.mouse_opacity = MOUSE_OPACITY_OPAQUE
 	O.name = "distant terrain"
 	O.desc = "You need to come over there to take a better look."
 

@@ -54,7 +54,6 @@
 				for(var/x in verbs)
 					verbs -= x
 				set_broken()
-		else
 	return
 
 /obj/machinery/computer/bullet_act(var/obj/item/projectile/Proj)

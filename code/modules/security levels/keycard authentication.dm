@@ -85,8 +85,8 @@
 		dat += "Please swipe your card to authorize the following event: <b>[event]</b>"
 		dat += "<p><A href='?src=\ref[src];reset=1'>Back</A>"
 
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=keycard_auth;size=500x350")
+
+	user << browse(dat, "window=keycard_auth;size=500x350")
 	return
 
 

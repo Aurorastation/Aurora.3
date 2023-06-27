@@ -320,3 +320,10 @@
 		new /obj/effect/gibspawner/generic(T)
 		explosion(T, -1, 0, 2)
 		qdel(src)
+
+#undef EGG_SCHLORRGO
+#undef BABY_SCHLORRGO
+#undef NORMAL_SCHLORRGO
+#undef FAT_SCHLORRGO
+#undef WIDE_SCHLORRGO
+#undef COLOSSAL_SCHLORRGO
