@@ -208,8 +208,8 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(access_journalist, access_maint_tunnels)
-	minimal_access = list(access_journalist, access_maint_tunnels)
+	access = list(access_journalist)
+	minimal_access = list(access_journalist)
 	alt_titles = list("Freelance Journalist")
 	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
 	title_accesses = list("Corporate Reporter" = list(access_medical, access_sec_doors, access_research, access_engine))
