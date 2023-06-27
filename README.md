@@ -49,7 +49,7 @@ You are now ready to develop for/using the Aurorastation codebase.
 
 If you intend to submit changes to us, please **create a new branch, do not edit the master branch**, you can do so in VSC by bringing up the command palette with CTRL+SHIFT+P and run the command "Git: Create Branch From", select the master branch, give a name for the new one and then hit enter.
 
-You can then perform changed, commit to said branch, publish it and create a Pull Request (PR) to our repository, to have it evaluated and eventually included in our master branch.
+You can then perform changes, commit to said branch, publish it and create a Pull Request (PR) to our repository, to have it evaluated and eventually included in our master branch.
 
 To update your master branch when ours is updated, simply go to your fork, click the "Sync fork" ribbon and then "Update Branch".
 
