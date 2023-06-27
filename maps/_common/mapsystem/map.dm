@@ -52,6 +52,10 @@
 	var/emergency_shuttle_leaving_dock
 	var/emergency_shuttle_recall_message
 	var/emergency_shuttle_called_message
+	var/bluespace_docked_message
+	var/bluespace_leaving_dock
+	var/bluespace_called_message
+	var/bluespace_recall_message
 
 	var/evac_controller_type = /datum/evacuation_controller
 

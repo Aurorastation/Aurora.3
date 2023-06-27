@@ -441,7 +441,7 @@ var/list/ai_verbs_default = list(
 		return
 
 	if(confirm == "Yes")
-		call_shuttle_proc(src)
+		call_shuttle_proc(src, TRANSFER_EMERGENCY)
 
 	post_display_status("shuttle")
 
