@@ -91,7 +91,7 @@ export const ChatClient = (props, context) => {
               )}
             </>
           }>
-          {data.users.length ? <Users /> : 'There are no users.'}
+          {data.users && data.users.length ? <Users /> : 'There are no users.'}
           {!active ? <ChannelsWindow /> : ''}
         </Section>
       </NtosWindow.Content>
