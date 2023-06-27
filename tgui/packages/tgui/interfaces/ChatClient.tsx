@@ -269,8 +269,9 @@ export const Chat = (props, context) => {
           />
         </>
       }>
-      {active && data.msg &&
-         data.msg.map((message) => (
+      {active &&
+        data.msg &&
+        data.msg.map((message) => (
           <Box
             key={message}
             preserveWhitespace
