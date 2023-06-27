@@ -5,6 +5,9 @@
 	footstep_sound = /singleton/sound_category/grass_footstep
 	does_footprint = FALSE
 
+/turf/simulated/floor/exoplanet/konyang/no_edge
+	has_edge_icon = FALSE
+
 /obj/effect/konyang_foam
 	name = "coastal sea foam"
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi'

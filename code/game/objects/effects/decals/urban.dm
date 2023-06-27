@@ -11,11 +11,17 @@
 	icon_state = "line"
 	layer = 2
 
+/obj/effect/decal/road_marking/thin
+	icon_state = "line_thin"
+
 /obj/effect/decal/road_marking/center
 	icon_state = "center-line"
 
 /obj/effect/decal/road_marking/no_pass
 	icon_state = "no_pass"
+
+/obj/effect/decal/road_marking/no_park
+	icon_state = "no_park"
 
 /obj/effect/decal/road_marking/crosswalk
 	icon_state = "pedestrian"
@@ -28,6 +34,16 @@
 
 /obj/effect/decal/road_marking/fork
 	icon_state = "fork"
+
+/obj/effect/decal/road_marking/reflector
+	icon_state = "reflector"
+
+/obj/effect/decal/road_marking/incline
+	icon_state = "incline_line"
+	layer = 2.01
+
+/obj/effect/decal/road_marking/incline/center
+	icon_state = "incline_center-line"
 
 /obj/effect/decal/exterior_stairs
 	icon = 'icons/obj/structure/urban/ledges.dmi'

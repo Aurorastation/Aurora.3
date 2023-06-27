@@ -55,6 +55,29 @@
 	desc = "A sign which warns of an approaching turn to the left. Is anything left?"
 	icon_state = "left"
 
+/obj/structure/road_sign/street
+	name = "street sign"
+	desc = "A green, wide street sign with words telling you that you are indeed on a street."
+	icon_state = "street_big"
+
+/obj/structure/stairs/urban
+	icon = 'icons/obj/structure/urban/ledges.dmi'
+	icon_state = "stairs-single"
+	layer = 1.99
+	opacity = 1
+
+/obj/structure/stairs/urban/road_ramp
+	name = "inclined asphalt ramp"
+	desc = "A solid asphalt ramp to allow your vehicle to traverse inclines with ease."
+	icon_state = "road-ramp-center"
+	layer = 2
+
+/obj/structure/stairs/urban/road_ramp/right
+	icon_state = "road-ramp-right"
+
+/obj/structure/stairs/urban/road_ramp/left
+	icon_state = "road-ramp-left"
+
 /obj/structure/closet/crate/bin/urban
 	name = "tall garbage can"
 	desc = "Garbage day!"
