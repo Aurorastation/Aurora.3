@@ -47,3 +47,4 @@ changes:
   - bugfix: "Ghost spawner filters now work properly. They didn't work at all before..."
   - bugfix: "You can now print all account data from the account database."
   - bugfix: "Set default language verb now actually works."
+  - bugfix: "Fixed warrant assistant UI not updating when going back."
