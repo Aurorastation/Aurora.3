@@ -15183,7 +15183,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/computer/station_alert,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "fWO" = (
@@ -22664,9 +22663,6 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "kNJ" = (
-/obj/item/circuitboard/rcon_console{
-	name = "circuit board (Ticket Kiosk Console)"
-	},
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},

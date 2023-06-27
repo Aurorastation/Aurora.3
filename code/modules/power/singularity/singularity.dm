@@ -1,4 +1,4 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
+#define I_SINGULO "singulo"
 
 /obj/singularity/
 	name = "gravitational singularity"
@@ -510,3 +510,5 @@
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
 	if(destination)
 		forceMove(destination)
+
+#undef I_SINGULO

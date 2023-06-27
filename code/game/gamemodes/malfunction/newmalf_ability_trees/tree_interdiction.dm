@@ -10,33 +10,33 @@
 // BEGIN RESEARCH DATUMS
 
 /datum/malf_research_ability/interdiction/recall_shuttle
-	ability = new/datum/game_mode/malfunction/verb/recall_shuttle()
+	ability = /datum/game_mode/malfunction/verb/recall_shuttle
 	price = 75
-	next = new/datum/malf_research_ability/interdiction/unlock_cyborg()
+	next = /datum/malf_research_ability/interdiction/unlock_cyborg
 	name = "Recall Shuttle"
 
 
 /datum/malf_research_ability/interdiction/unlock_cyborg
-	ability = new/datum/game_mode/malfunction/verb/unlock_cyborg()
+	ability = /datum/game_mode/malfunction/verb/unlock_cyborg
 	price = 1200
-	next = new/datum/malf_research_ability/interdiction/hack_drone()
+	next = /datum/malf_research_ability/interdiction/hack_drone
 	name = "Unlock Cyborg"
 
 /datum/malf_research_ability/interdiction/hack_drone
-	ability = new/datum/game_mode/malfunction/verb/hack_drone()
+	ability = /datum/game_mode/malfunction/verb/hack_drone
 	price = 2500
-	next = new/datum/malf_research_ability/interdiction/hack_cyborg()
+	next = /datum/malf_research_ability/interdiction/hack_cyborg
 	name = "Hack maintenance drone"
 
 /datum/malf_research_ability/interdiction/hack_cyborg
-	ability = new/datum/game_mode/malfunction/verb/hack_cyborg()
+	ability = /datum/game_mode/malfunction/verb/hack_cyborg
 	price = 3000
-	next = new/datum/malf_research_ability/interdiction/hack_ai()
+	next = /datum/malf_research_ability/interdiction/hack_ai
 	name = "Hack Cyborg"
 
 
 /datum/malf_research_ability/interdiction/hack_ai
-	ability = new/datum/game_mode/malfunction/verb/hack_ai()
+	ability = /datum/game_mode/malfunction/verb/hack_ai
 	price = 7500
 	name = "Hack AI"
 
@@ -160,7 +160,7 @@
 	if(hacked_num >= config.hacked_drones_limit)
 		to_chat(user, SPAN_WARNING("ERROR: maximum active hacked drones limit reached. Report: [hacked_num] drones hacked out of [config.hacked_drones_limit] maximum possible."))
 		return
-		
+
 	if(!ability_prechecks(user, price) || !ability_pay(user, price))
 		return
 	var/mob/living/silicon/robot/drone/D = pick(drone_list)

@@ -194,7 +194,7 @@
 		dislocated = 2
 	else
 		dislocated = 1
-	owner.verbs |= /mob/living/carbon/human/proc/undislocate
+	add_verb(owner, /mob/living/carbon/human/proc/undislocate)
 	if(children && children.len)
 		for(var/obj/item/organ/external/child in children)
 			child.dislocate()
@@ -213,7 +213,7 @@
 		for(var/obj/item/organ/external/limb in owner.organs)
 			if(limb.dislocated == 2)
 				return
-		owner.verbs -= /mob/living/carbon/human/proc/undislocate
+		remove_verb(owner, /mob/living/carbon/human/proc/undislocate)
 
 /obj/item/organ/external/update_health()
 	damage = min(max_damage, (brute_dam + burn_dam))
@@ -405,7 +405,7 @@
 				var/blunt_eligible = FALSE
 				var/maim_bonus = 0
 				var/dam_flags = 0
-				
+
 				if(isitem(used_weapon))
 					var/obj/item/W = used_weapon
 					dam_flags = W.damage_flags()
@@ -1096,7 +1096,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	playsound(src.loc, /singleton/sound_category/fracture_sound, 100, 1, -2)
 	status |= ORGAN_BROKEN
-	broken_description = pick("Broken","Fracture","Hairline Fracture")
+	broken_description = pick("broken", "fracture", "hairline fracture")
 	perma_injury = brute_dam
 
 	// Fractures have a chance of getting you out of restraints
@@ -1224,7 +1224,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.visible_message("<span class='danger'>\The [W] sticks in [owner]'s wound!</span>", "<span class='danger'>\The [W] sticks in your wound!</span>")
 	implants += W
 	owner.embedded_flag = 1
-	owner.verbs += /mob/proc/yank_out_object
+	add_verb(owner, /mob/proc/yank_out_object)
 	W.add_blood(owner)
 	if(ismob(W.loc))
 		var/mob/living/H = W.loc

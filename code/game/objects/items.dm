@@ -163,7 +163,7 @@
 			if (prob(5))
 				qdel(src)
 				return
-		else
+
 	return
 
 /obj/item/verb/move_to_top(obj/item/I in range(1))
@@ -330,7 +330,7 @@
 				else if(hitsound)
 					playsound(hit_atom, hitsound, volume, TRUE, -1)
 				else
-					playsound(hit_atom, 'sound/weapons/genhit.ogg', volume, TRUE, -1)
+					playsound(hit_atom, 'sound/weapons/Genhit.ogg', volume, TRUE, -1)
 			else
 				playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
 	else
@@ -340,9 +340,26 @@
 //Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
 //It is called after loc is set, so if placed in a container its loc will be that container.
 /obj/item/proc/dropped(var/mob/user)
+	SHOULD_CALL_PARENT(TRUE)
+	remove_item_verbs(user)
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
+
+/obj/item/proc/remove_item_verbs(mob/user)
+	if(ismech(user)) //very snowflake, but necessary due to how mechs work
+		return
+	if(QDELING(user))
+		return
+	var/list/verbs_to_remove = list()
+	for(var/v in verbs)
+		var/verbstring = "[v]"
+		if(length(user.item_verbs[verbstring]) == 1)
+			if(user.item_verbs[verbstring][1] == src)
+				verbs_to_remove += v
+		LAZYREMOVE(user.item_verbs[verbstring], src)
+	remove_verb(user, verbs_to_remove)
+
 
 // Called whenever an object is moved around inside the mob's contents.
 // Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
@@ -378,6 +395,7 @@
 // slot uses the slot_X defines found in setup.dm
 // for items that can be placed in multiple slots
 /obj/item/proc/equipped(var/mob/user, var/slot)
+	SHOULD_CALL_PARENT(TRUE)
 	layer = SCREEN_LAYER+0.01
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
@@ -389,7 +407,16 @@
 			playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
 		else
 			playsound(src, drop_sound, DROP_SOUND_VOLUME)
-	return
+	if(item_action_slot_check(user, slot))
+		add_verb(user, verbs)
+		for(var/v in verbs)
+			LAZYDISTINCTADD(user.item_verbs["[v]"], src)
+	else
+		remove_item_verbs(user)
+
+//sometimes we only want to grant the item's action if it's equipped in a specific slot.
+/obj/item/proc/item_action_slot_check(mob/user, slot)
+	return TRUE
 
 //Defines which slots correspond to which slot flags
 var/list/global/slot_flags_enumeration = list(

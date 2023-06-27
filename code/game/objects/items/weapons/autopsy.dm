@@ -66,9 +66,9 @@
 			chemtraces += V
 
 /obj/item/autopsy_scanner/verb/print_data()
-	set category = "Object"
-	set src in view(usr, 1)
 	set name = "Print Data"
+	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return

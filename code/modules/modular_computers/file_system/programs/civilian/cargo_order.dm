@@ -8,10 +8,9 @@
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 	usage_flags = PROGRAM_ALL
-	nanomodule_path = /datum/nano_module/program/civilian/cargoorder
+	tgui_id = "CargoOrder"
+	ui_auto_update = FALSE
 
-/datum/nano_module/program/civilian/cargoorder
-	name = "Cargo Order"
 	var/page = "main" //main - Main Menu, order - Order Page, item_details - Item Details Page, tracking - Tracking Page
 	var/selected_category = "" // Category that is currently selected
 	var/selected_item = "" // Path of the currently selected item
@@ -20,13 +19,12 @@
 	var/user_tracking_id = 0 //Tracking id of the user
 	var/user_tracking_code = 0 //Tracking Code of the user
 
-/datum/nano_module/program/civilian/cargoorder/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/topic_state/state = default_state)
-	//Check if a cargo order exists. If not create a new one
+/datum/computer_file/program/civilian/cargoorder/ui_data(mob/user)	//Check if a cargo order exists. If not create a new one
 	if(!co)
 		var/datum/cargo_order/crord = new
 		co = crord
 
-	var/list/data = host.initial_data()
+	var/list/data = initial_data()
 
 	//Pass the ID Data
 	data["username"] = GetNameAndAssignmentFromId(user.GetIdCard())
@@ -74,99 +72,89 @@
 	data["handling_fee"] = SScargo.get_handlingfee()
 	data["crate_fee"] = SScargo.get_cratefee()
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "cargo_order.tmpl", name, 500, 600, state = state)
-		ui.auto_update_layout = TRUE
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(TRUE)
+	return data
 
-/datum/nano_module/program/civilian/cargoorder/Topic(href, href_list)
-	if(..())
-		return TRUE
+/datum/computer_file/program/civilian/cargoorder/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
 	var/obj/item/card/id/I = usr.GetIdCard()
 
-	//Send the order to cargo
-	if(href_list["submit_order"])
-		if(!co.items.len)
-			return TRUE //Only submit the order if there are items in it
+	switch(action)
+		//Send the order to cargo
+		if("submit_order")
+			if(!co.items.len)
+				return TRUE //Only submit the order if there are items in it
 
-		if(!I)
-			status_message = "Unable to submit order. ID could not be located."
+			if(!I)
+				status_message = "Unable to submit order. ID could not be located."
+				return TRUE
+
+			var/reason = sanitize(input(usr, "Reason:", "Why do you require this item?", "") as null|text)
+			if(!reason)
+				status_message = "Unable to submit order. No reason supplied."
+				return TRUE
+
+			co.set_submitted(GetNameAndAssignmentFromId(I), usr.character_id, reason)
+			status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking code: [co.get_tracking_code()]"
+			//TODO: Print a list with the order data
+			co = null
 			return TRUE
 
-		var/reason = sanitize(input(usr, "Reason:", "Why do you require this item?", "") as null|text)
-		if(!reason)
-			status_message = "Unable to submit order. No reason supplied."
-			return TRUE
-
-		co.set_submitted(GetNameAndAssignmentFromId(I), usr.character_id, reason)
-		status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking code: [co.get_tracking_code()]"
-		//TODO: Print a list with the order data
-		co = null
-		return TRUE
-
-	//Add item to the order list
-	if(href_list["add_item"])
-		var/datum/cargo_order_item/coi = new
-		var/datum/cargo_item/ci = SScargo.cargo_items[href_list["add_item"]]
-		if(ci)
-			coi.ci = ci
-			coi.calculate_price()
-			if(coi.price > 0)
-				status_message = co.add_item(coi)
+		//Add item to the order list
+		if("add_item")
+			var/datum/cargo_order_item/coi = new
+			var/datum/cargo_item/ci = SScargo.cargo_items[params["add_item"]]
+			if(ci)
+				coi.ci = ci
+				coi.calculate_price()
+				if(coi.price > 0)
+					status_message = co.add_item(coi)
+				else
+					status_message = "Unable to add item [text2num(params["add_item"])] - Internal Error 601."
+					log_debug("Cargo Order: Warning - Attempted to order item [coi.ci.name] with invalid purchase price")
+					qdel(coi)
 			else
-				status_message = "Unable to add item [text2num(href_list["add_item"])] - Internal Error 601."
-				log_debug("Cargo Order: Warning - Attempted to order item [coi.ci.name] with invalid purchase price")
+				status_message = "Unable to locate item in sales database - Internal Error 602."
+				log_debug("Cargo Order: Warning - Attempted to order item with non-existant id: [params["add_item"]]")
 				qdel(coi)
-		else
-			status_message = "Unable to locate item in sales database - Internal Error 602."
-			log_debug("Cargo Order: Warning - Attempted to order item with non-existant id: [href_list["add_item"]]")
-			qdel(coi)
+			return TRUE
 
-		//Reset page to main page - TODO: Maybe add a way to disable jumping back to the main page - Commented out for now
-		//page = "main"
-		//selected_item = ""
-		return TRUE
+		//Remove item from the order list
+		if("remove_item")
+			status_message = co.remove_item(text2num(params["remove_item"]))
+			return TRUE
 
-	//Remove item from the order list
-	if(href_list["remove_item"])
-		status_message = co.remove_item(text2num(href_list["remove_item"]))
-		return TRUE
+		//Clear the items in the order list
+		if("clear_order")
+			status_message = "Order Cleared"
+			qdel(co)
+			co = new
+			return TRUE
 
-	//Clear the items in the order list
-	if(href_list["clear_order"])
-		status_message = "Order Cleared"
-		qdel(co)
-		co = new
-		return TRUE
+		if("page")
+			page = params["page"]
+			return TRUE
 
-	//Change the selected page
-	if(href_list["item_details"])
-		page = "item_details"
-		selected_item = href_list["item_details"]
-		return TRUE
-	if(href_list["page"])
-		page = href_list["page"]
-		return TRUE
-	//Tracking Stuff
-	if(href_list["trackingid"])
-		var/trackingid = text2num(sanitize(input(usr, "Order ID:", "ID of the Order that you want to track", "") as null|text))
-		if(trackingid)
-			user_tracking_id = trackingid
-		return TRUE
-	if(href_list["trackingcode"])
-		var/trackingcode = text2num(sanitize(input(usr, "Tracking Code:", "Tracking Code of the Order that you want to track", "") as null|text))
-		if(trackingcode)
-			user_tracking_code = trackingcode
-		return TRUE
-	//Change the displayed item category
-	if(href_list["select_category"])
-		selected_category = href_list["select_category"]
-		return TRUE
+		//Tracking Stuff
+		if("trackingid")
+			var/trackingid = text2num(sanitize(input(usr, "Order ID:", "ID of the Order that you want to track", "") as null|text))
+			if(trackingid)
+				user_tracking_id = trackingid
+			return TRUE
 
-	if(href_list["clear_message"])
-		status_message = null
-		return TRUE
+		if("trackingcode")
+			var/trackingcode = text2num(sanitize(input(usr, "Tracking Code:", "Tracking Code of the Order that you want to track", "") as null|text))
+			if(trackingcode)
+				user_tracking_code = trackingcode
+			return TRUE
+
+		//Change the displayed item category
+		if("select_category")
+			selected_category = params["select_category"]
+			return TRUE
+
+		if("clear_message")
+			status_message = null
+			return TRUE

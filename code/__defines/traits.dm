@@ -142,6 +142,9 @@
 /// lets mobs that traditionally don't hallucinate, hallucinate
 #define TRAIT_BYPASS_HALLUCINATION_RESTRICTION "bypassing_hallucination_restriction"
 
+/// This mob should never close UI even if it doesn't have a client
+#define TRAIT_PRESERVE_UI_WITHOUT_CLIENT "preserve_ui_without_client"
+
 /// when mobs are viewing something via a computer, currently used for the helm computer
 #define TRAIT_COMPUTER_VIEW "computer_view"
 

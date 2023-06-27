@@ -1,7 +1,3 @@
-#define RELIGIONS_BIESEL list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER, RELIGION_TRINARY)
-#define CITIZENSHIPS_BIESEL list(CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION)
-
-
 /singleton/origin_item/culture/biesellite
     name = "Biesellite"
     desc = "Relatively new compared to other cultures across the Orion Spur, the Biesellite culture was forged from the fire borne by its independence. Since its inception, it has continued to evolve, especially with the recent expansion of the Republic of Biesel into the Solarian Alliance's Outer Ring after its abandonment during the collapse. Despite its recent acquisition, the Corporate Reconstruction Zone as it is now known has begun adjusting and blending their own cultures into the Biesellite way of life, those not bending the knee and aligning are often bastions of insurgency and unrest."

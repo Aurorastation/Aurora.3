@@ -1,0 +1,63 @@
+@use 'sass:color';
+@use 'sass:meta';
+
+@use '../colors.scss' with (
+  $primary: #FFFFFF,
+  $bad: #AD2727,
+  $fg-map-keys: (),
+  $bg-map-keys: (),
+);
+@use '../base.scss' with (
+  $color-bg: #092437,
+  $color-bg-grad-spread: 6%,
+);
+
+.theme-nanotrasen {
+  // Atomic classes
+  @include meta.load-css('../atomic/color.scss');
+
+  // Components
+  @include meta.load-css(
+    '../components/Button.scss',
+    $with: (
+      'color-default': #093452,
+      'color-disabled': #363636,
+      'color-selected': #ffffff,
+      'color-caution': #be6209,
+      'color-danger': #ad2727
+    )
+  );
+  @include meta.load-css(
+    '../components/Input.scss',
+    $with: ('border-color': #ffffff)
+  );
+  @include meta.load-css(
+    '../components/NoticeBox.scss',
+    $with: ('background-color': #06243a)
+  );
+  @include meta.load-css(
+    '../components/NumberInput.scss',
+    $with: ('border-color': #ffffff)
+  );
+  @include meta.load-css(
+    '../components/ProgressBar.scss',
+    $with: ('background-color': rgba(0, 0, 0, 0.5))
+  );
+  @include meta.load-css('../components/Section.scss');
+  @include meta.load-css(
+    '../components/Tooltip.scss',
+    $with: ('background-color': #182935)
+  );
+
+  // Layouts
+  @include meta.load-css('../layouts/Layout.scss');
+  @include meta.load-css('../layouts/Window.scss');
+  @include meta.load-css(
+    '../layouts/TitleBar.scss',
+    $with: ('background-color': #051520)
+  );
+
+  .Layout__content {
+    background-image: url('../../assets/bg-nanotrasen.svg');
+  }
+}

@@ -235,11 +235,12 @@
 		if("whisper")
 			whisper(message, speaking, is_singing)
 			return TRUE
-		else if(message_mode)
-			var/obj/item/device/radio/R = get_radio()
-			if(R)
-				used_radios += R
-				R.talk_into(src, message, message_mode, verb, speaking)
+		else
+			if(message_mode)
+				var/obj/item/device/radio/R = get_radio()
+				if(R)
+					used_radios += R
+					R.talk_into(src, message, message_mode, verb, speaking)
 
 /mob/living/carbon/human/handle_speech_sound()
 	var/list/returns = ..()
