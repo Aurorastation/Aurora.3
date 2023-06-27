@@ -5,7 +5,7 @@
 	set name = "Set Default Language"
 	set category = "IC"
 
-	var/datum/language/L = input(src, "Choose a language.", "Set Default Language") as null|anything in languages
+	var/datum/language/language = input(src, "Choose a language.", "Set Default Language") as null|anything in languages
 	if(language)
 		to_chat(src, "<span class='notice'>You will now speak [language] if you do not specify a language when speaking.</span>")
 	else
