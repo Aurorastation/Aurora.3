@@ -46,6 +46,7 @@ export const FollowMenu = (props, context) => {
             <Section title={category} key={category}>
               <Collapsible open={1}>
                 {data.ghosts &&
+                  data.ghosts.length &&
                   data.ghosts
                     .filter(
                       (ghost) =>
