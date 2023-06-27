@@ -46,9 +46,6 @@
 
 	var/is_initialized = FALSE // Used to track whether the client has been initialized with InitClient.
 
-	// Goonchat chat output of the client.
-	var/datum/chatOutput/chatOutput
-
 // Other
 	var/datum/preferences/prefs
 	var/datum/tooltip/tooltips
@@ -75,3 +72,13 @@
 	/// Last asset send job id.
 	var/last_asset_job = 0
 	var/last_completed_asset_job = 0
+
+	/// our current tab
+	var/stat_tab
+
+	/// list of all tabs
+	var/list/panel_tabs = list()
+	/// list of tabs containing spells and abilities
+	var/list/spell_tabs = list()
+	///Our object window datum. It stores info about and handles behavior for the object tab
+	var/datum/object_window_info/obj_window

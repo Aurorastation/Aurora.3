@@ -234,8 +234,8 @@ if(Datum.isprocessing) {\
 			queue.Cut(i)
 			return
 
-/datum/controller/subsystem/machinery/stat_entry()
-	..({"\n\
+/datum/controller/subsystem/machinery/stat_entry(msg)
+	msg = {"\n\
 		Queues: \
 		Pipes [pipenets.len] \
 		Machines [processing.len] \
@@ -247,7 +247,8 @@ if(Datum.isprocessing) {\
 		Networks [round(cost_powernets, 1)] \
 		Objects [round(cost_power_objects, 1)]\n\
 		Overall [round(cost ? processing.len / cost : 0, 0.1)]
-	"})
+	"}
+	return ..()
 
 /datum/controller/subsystem/machinery/ExplosionStart()
 	suspend()

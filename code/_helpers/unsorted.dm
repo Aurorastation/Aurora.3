@@ -961,7 +961,7 @@ var/list/wall_items = typecacheof(list(
 // Returns a variable type as string, optionally with some details:
 // Objects (datums) get their type, paths get the type name, scalars show length (text) and value (numbers), lists show length.
 // Also attempts some detection of otherwise undetectable types using ref IDs
-var/global/known_proc = new /proc/get_type_ref_bytes
+var/global/known_proc = /proc/get_type_ref_bytes
 /proc/get_debug_type(var/V, var/details = TRUE, var/print_numbers = TRUE, var/path_names = TRUE, var/text_lengths = TRUE, var/list_lengths = TRUE, var/show_useless_subtypes = TRUE)
 	// scalars / basic types
 	if(isnull(V))

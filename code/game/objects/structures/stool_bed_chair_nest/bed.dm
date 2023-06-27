@@ -188,7 +188,7 @@
 			to_chat(user, "\The [src] has no padding to remove.")
 			return
 		to_chat(user, "You remove the padding from \the [src].")
-		playsound(src, 'sound/items/wirecutter.ogg', 100, 1)
+		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 		painted_colour = null
 		remove_padding()
 
@@ -199,7 +199,7 @@
 		else
 			anchored = TRUE
 			to_chat(user, "You fasten \the [src] to the floor.")
-		playsound(src, 'sound/items/screwdriver.ogg', 100, 1)
+		playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
 
 	else if(istype(W, /obj/item/grab))
 		var/obj/item/grab/G = W

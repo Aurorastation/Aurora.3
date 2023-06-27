@@ -315,3 +315,5 @@
 	//if there's no power, receive the signal but just don't do anything. This allows airlocks to continue to work normally once power is restored
 	if(arePowerSystemsOn())
 		INVOKE_ASYNC(src, PROC_REF(execute_current_command))
+
+#undef AIRLOCK_CONTROL_RANGE

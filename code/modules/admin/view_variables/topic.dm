@@ -406,7 +406,7 @@
 				possibleverbs += typesof(/mob/living/silicon/proc,/mob/living/silicon/robot/proc,/mob/living/silicon/robot/verb)
 			if(/mob/living/silicon/ai)
 				possibleverbs += typesof(/mob/living/silicon/proc,/mob/living/silicon/ai/proc,/mob/living/silicon/ai/verb)
-		possibleverbs -= H.verbs
+		remove_verb(H, H.verbs)
 		possibleverbs += "Cancel" 								// ...And one for the bottom
 
 		var/verb = input("Select a verb!", "Verbs",null) as anything in possibleverbs
@@ -416,7 +416,7 @@
 		if(!verb || verb == "Cancel")
 			return
 		else
-			H.verbs += verb
+			add_verb(H, verb)
 
 	else if(href_list["remverb"])
 		if(!check_rights(R_DEBUG|R_DEV))      return
@@ -433,7 +433,7 @@
 		if(!verb)
 			return
 		else
-			H.verbs -= verb
+			remove_verb(H, verb)
 
 	else if(href_list["addorgan"])
 		if(!check_rights(R_SPAWN))	return

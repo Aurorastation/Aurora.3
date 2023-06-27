@@ -212,7 +212,6 @@ Class Procs:
 			if (prob(25))
 				qdel(src)
 				return
-		else
 	return
 
 /proc/is_operable(var/obj/machinery/M, var/mob/user)
@@ -550,3 +549,9 @@ Class Procs:
 		return
 	else
 		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
+
+/obj/machinery/ui_status(mob/user, datum/ui_state/state)
+	. = ..()
+	if(. < UI_INTERACTIVE)
+		if(user.machine)
+			user.unset_machine()

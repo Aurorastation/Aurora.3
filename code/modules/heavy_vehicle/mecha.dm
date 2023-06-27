@@ -57,9 +57,6 @@
 	var/obj/item/mech_component/sensors/head
 	var/obj/item/mech_component/chassis/body
 
-	// Invisible components.
-	var/datum/effect/effect/system/spark_spread/sparks
-
 	// Equipment tracking vars.
 	var/obj/item/mecha_equipment/selected_system
 	var/selected_hardpoint
@@ -319,8 +316,8 @@
 	dummy = new dummy_type(get_turf(src))
 	dummy.real_name = "Remote-Bot"
 	dummy.name = dummy.real_name
-	dummy.verbs -= /mob/living/proc/ventcrawl
-	dummy.verbs -= /mob/living/proc/hide
+	remove_verb(dummy, /mob/living/proc/ventcrawl)
+	remove_verb(dummy, /mob/living/proc/hide)
 	if(dummy_colour)
 		dummy.color = dummy_colour
 	enter(dummy, TRUE)

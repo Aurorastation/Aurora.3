@@ -536,7 +536,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		appearance = AI.holo_icon.appearance
 	else
 		appearance = A.appearance
-	mouse_opacity = 0 //So you can't click on it.
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT //So you can't click on it.
 	dir = A.dir
 	color = long_range ? rgb(225, 173, 125) : rgb(125, 180, 225)
 	alpha = 100

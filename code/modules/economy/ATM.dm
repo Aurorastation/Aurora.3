@@ -237,8 +237,8 @@
 					authenticated_account = SSeconomy.attempt_account_access(text2num(params["account_num"]), tried_pin, potential_account.security_level)
 				if (3) // Security level two
 					if (held_card)
-						if (text2num(params["account_num"]) != held_card.associated_account_number)
-						else authenticated_account = SSeconomy.attempt_account_access(tried_account_num, tried_pin, potential_account.security_level)
+						if (text2num(params["account_num"]) == held_card.associated_account_number)
+							authenticated_account = SSeconomy.attempt_account_access(tried_account_num, tried_pin, potential_account.security_level)
 					else to_chat(usr, SPAN_WARNING("Account not found."))
 			if (!authenticated_account)
 				number_incorrect_tries++

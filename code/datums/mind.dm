@@ -89,7 +89,7 @@
 	if(current)					//remove ourself from our old body's mind variable
 		if(changeling)
 			current.remove_changeling_powers()
-			current.verbs -= /datum/changeling/proc/EvolutionMenu
+			remove_verb(current, /datum/changeling/proc/EvolutionMenu)
 		if(vampire)
 			current.remove_vampire_powers()
 		current.mind = null
@@ -112,6 +112,7 @@
 		new_character.make_vampire()
 	if(active)
 		new_character.key = key		//now transfer the key to link the client to our new body
+	
 
 /datum/mind/proc/store_memory(new_text)
 	. = length(memory + new_text)
@@ -373,7 +374,7 @@
 				to_chat(H, "<span class='danger'><font size =3>You somehow have become the recipient of a loyalty transplant, and it just activated!</font></span>")
 				H.implant_loyalty(H, override = TRUE)
 				log_admin("[key_name_admin(usr)] has loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
-			else
+
 	else if (href_list["silicon"])
 		BITSET(current.hud_updateflag, SPECIALROLE_HUD)
 		switch(href_list["silicon"])

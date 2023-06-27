@@ -230,3 +230,9 @@
 	for(var/window_id in tgui_windows)
 		var/datum/tgui_window/window = tgui_windows[window_id]
 		window.reinitialize()
+
+/client/verb/fix_stat_panel()
+	set name = "Fix-Stat-Panel"
+	set hidden = TRUE
+
+	init_verbs()

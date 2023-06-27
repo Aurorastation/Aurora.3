@@ -283,3 +283,12 @@
 	if(rats.len >= RAT_KING_LEVEL)
 		return 1
 	return 0
+
+
+#undef RAT_MAYOR_LEVEL
+#undef RAT_BARON_LEVEL
+#undef RAT_DUKE_LEVEL
+#undef RAT_KING_LEVEL
+#undef RAT_EMPEROR_LEVEL
+#undef RAT_SAVIOR_LEVEL
+#undef RAT_GOD_LEVEL

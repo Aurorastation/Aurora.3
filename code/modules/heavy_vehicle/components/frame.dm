@@ -169,7 +169,7 @@
 		// We're all done. Finalize the mech and pass the frame to the new system.
 		var/mob/living/heavy_vehicle/M = new(get_turf(src), src)
 		visible_message("\The [user] finishes off \the [M].")
-		playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
+		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 
 		arms = null
 		legs = null
