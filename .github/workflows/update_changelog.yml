@@ -18,11 +18,11 @@ jobs:
       with:
         token: ${{ secrets.BOT_TOKEN_AURORA }}
 
-    - name: Update TGUI
+    - name: Update Changelogs
       run: |
-        tools/bootstrap/python tools/GenerateChangelog/ss13_genchangelog.py /html/changelog.html /html/changelogs
+        tools/bootstrap/python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs
 
-    - name: Commit TGUI
+    - name: Commit Changelogs
       run: |
         git pull origin master
         git config --local user.email "action@github.com"
