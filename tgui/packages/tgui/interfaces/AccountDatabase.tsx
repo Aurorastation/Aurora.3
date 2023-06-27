@@ -144,13 +144,13 @@ export const AccountWindow = (props, context) => {
           </Section>
         </>
       ) : (
-        <SpecificAccount />
+        <SpecificAccountData />
       )}
     </Section>
   );
 };
 
-export const SpecificAccount = (props, context) => {
+export const SpecificAccountData = (props, context) => {
   const { act, data } = useBackend<DatabaseData>(context);
   const [active, setActive] = useLocalState(context, 'active', 'none');
   const [tab, setTab] = useLocalState(context, 'tab', 'All Accounts');
@@ -171,138 +171,150 @@ export const SpecificAccount = (props, context) => {
     0
   );
 
-  return data.accounts.map((account) =>
-    account.account_number === active ? (
-      <Section
-        title="Account Details"
-        buttons={
-          <>
-            <Button
-              content={account.suspended ? 'Unsuspend' : 'Suspend'}
-              icon="exclamation-circle"
-              color="red"
-              onClick={() =>
-                act('suspend', { account: account.account_number })
-              }
-            />
-            <Button
-              content="Revoke Payroll"
-              disabled={account.account_number === data.station_account_number}
-              icon="minus"
-              color="average"
-              onClick={() =>
-                act('revoke_payroll', { account: account.account_number })
-              }
-            />
-            <Button
-              content="Print"
-              icon="print"
-              onClick={() => act('print', { print: account.account_number })}
-            />
-          </>
-        }>
-        <LabeledList>
-          <LabeledList.Item label="Number">
-            {account.account_number}
-          </LabeledList.Item>
-          <LabeledList.Item label="Holder">{account.owner}</LabeledList.Item>
-          <LabeledList.Item label="Balance">{account.money}电</LabeledList.Item>
-          <LabeledList.Item label="Status">
-            <Box as="span" color={account.suspended ? 'red' : 'good'}>
-              {account.suspended ? 'Suspended' : 'Active'}
-            </Box>
-          </LabeledList.Item>
-          {data.access_level === 2 ? (
-            <LabeledList.Item label="Fund Adjustment">
-              {!adding_funds ? (
+  return (
+    <Section>
+      {data.accounts.map((account) =>
+        account.account_number === active ? (
+          <Section
+            title="Account Details"
+            buttons={
+              <>
                 <Button
-                  content="Add"
-                  color="good"
-                  icon="plus"
-                  onClick={() => setAdding(1)}
+                  content={account.suspended ? 'Unsuspend' : 'Suspend'}
+                  icon="exclamation-circle"
+                  color="red"
+                  onClick={() =>
+                    act('suspend', { account: account.account_number })
+                  }
                 />
-              ) : (
-                <>
-                  <NumberInput
-                    value={funds_to_add}
-                    unit="电"
-                    minValue={0}
-                    maxValue={10000}
-                    onDrag={(e, value) => setFundsToAdd(value)}
-                  />
-                  <Button
-                    content="Add"
-                    color="good"
-                    icon="plus"
-                    onClick={() =>
-                      act('add_funds', {
-                        account: account.account_number,
-                        amount: funds_to_add,
-                      })
-                    }
-                  />
-                </>
-              )}
-              &nbsp;
-              {!adding_funds ? (
                 <Button
-                  content="Remove"
-                  color="bad"
+                  content="Revoke Payroll"
+                  disabled={
+                    account.account_number === data.station_account_number
+                  }
                   icon="minus"
-                  onClick={() => setRemoving(1)}
+                  color="average"
+                  onClick={() =>
+                    act('revoke_payroll', { account: account.account_number })
+                  }
                 />
+                <Button
+                  content="Print"
+                  icon="print"
+                  onClick={() =>
+                    act('print', { print: account.account_number })
+                  }
+                />
+              </>
+            }>
+            <LabeledList>
+              <LabeledList.Item label="Number">
+                {account.account_number}
+              </LabeledList.Item>
+              <LabeledList.Item label="Holder">
+                {account.owner}
+              </LabeledList.Item>
+              <LabeledList.Item label="Balance">
+                {account.money}电
+              </LabeledList.Item>
+              <LabeledList.Item label="Status">
+                <Box as="span" color={account.suspended ? 'red' : 'good'}>
+                  {account.suspended ? 'Suspended' : 'Active'}
+                </Box>
+              </LabeledList.Item>
+              {data.access_level === 2 ? (
+                <LabeledList.Item label="Fund Adjustment">
+                  {!adding_funds ? (
+                    <Button
+                      content="Add"
+                      color="good"
+                      icon="plus"
+                      onClick={() => setAdding(1)}
+                    />
+                  ) : (
+                    <>
+                      <NumberInput
+                        value={funds_to_add}
+                        unit="电"
+                        minValue={0}
+                        maxValue={10000}
+                        onDrag={(e, value) => setFundsToAdd(value)}
+                      />
+                      <Button
+                        content="Add"
+                        color="good"
+                        icon="plus"
+                        onClick={() =>
+                          act('add_funds', {
+                            account: account.account_number,
+                            amount: funds_to_add,
+                          })
+                        }
+                      />
+                    </>
+                  )}
+                  &nbsp;
+                  {!adding_funds ? (
+                    <Button
+                      content="Remove"
+                      color="bad"
+                      icon="minus"
+                      onClick={() => setRemoving(1)}
+                    />
+                  ) : (
+                    <>
+                      <NumberInput
+                        value={funds_to_remove}
+                        unit="电"
+                        minValue={0}
+                        maxValue={10000}
+                        onDrag={(e, value) => setFundsToRemove(value)}
+                      />
+                      <Button
+                        content="Remove"
+                        color="bad"
+                        icon="minus"
+                        onClick={() =>
+                          act('remove_funds', {
+                            account: account.account_number,
+                            amount: funds_to_add,
+                          })
+                        }
+                      />
+                    </>
+                  )}
+                </LabeledList.Item>
               ) : (
-                <>
-                  <NumberInput
-                    value={funds_to_remove}
-                    unit="电"
-                    minValue={0}
-                    maxValue={10000}
-                    onDrag={(e, value) => setFundsToRemove(value)}
-                  />
-                  <Button
-                    content="Remove"
-                    color="bad"
-                    icon="minus"
-                    onClick={() =>
-                      act('remove_funds', {
-                        account: account.account_number,
-                        amount: funds_to_add,
-                      })
-                    }
-                  />
-                </>
+                ''
               )}
-            </LabeledList.Item>
-          ) : (
-            ''
-          )}
-        </LabeledList>
-        <Section title="Transactions">
-          <Table>
-            <Table.Row header>
-              <Table.Cell>Timestamp</Table.Cell>
-              <Table.Cell>Target</Table.Cell>
-              <Table.Cell>Reason</Table.Cell>
-              <Table.Cell>Value</Table.Cell>
-              <Table.Cell>Terminal</Table.Cell>
-            </Table.Row>
-            {account.transactions.map((transaction) => (
-              <Table.Row key={transaction.ref}>
-                <Table.Cell>
-                  {transaction.date + ', ' + transaction.time}
-                </Table.Cell>
-                <Table.Cell>{transaction.target_name}</Table.Cell>
-                <Table.Cell>{transaction.purpose}</Table.Cell>
-                <Table.Cell>{transaction.amount}电</Table.Cell>
-                <Table.Cell>{transaction.source_terminal}</Table.Cell>
-              </Table.Row>
-            ))}
-          </Table>
-        </Section>
-      </Section>
-    ) : (
-      ''
-    )
+            </LabeledList>
+            <Section title="Transactions">
+              <Table>
+                <Table.Row header>
+                  <Table.Cell>Timestamp</Table.Cell>
+                  <Table.Cell>Target</Table.Cell>
+                  <Table.Cell>Reason</Table.Cell>
+                  <Table.Cell>Value</Table.Cell>
+                  <Table.Cell>Terminal</Table.Cell>
+                </Table.Row>
+                {account.transactions.map((transaction) => (
+                  <Table.Row key={transaction.ref}>
+                    <Table.Cell>
+                      {transaction.date + ', ' + transaction.time}
+                    </Table.Cell>
+                    <Table.Cell>{transaction.target_name}</Table.Cell>
+                    <Table.Cell>{transaction.purpose}</Table.Cell>
+                    <Table.Cell>{transaction.amount}电</Table.Cell>
+                    <Table.Cell>{transaction.source_terminal}</Table.Cell>
+                  </Table.Row>
+                ))}
+              </Table>
+            </Section>
+          </Section>
+        ) : (
+          ''
+        )
+      )}
+    </Section>
   );
 };

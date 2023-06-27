@@ -347,6 +347,7 @@
 	update_icon(1)
 	if(is_in_cycler)
 		initiator.loc.update_icon()
+	SSstatpanels.set_action_tabs(initiator.client, initiator)
 
 /obj/item/rig/proc/update_component_sealed()
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
@@ -768,6 +769,7 @@
 
 /obj/item/rig/dropped(var/mob/user)
 	..()
+	SSstatpanels.set_action_tabs(user.client, user)
 	null_wearer(user)
 
 

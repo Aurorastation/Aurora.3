@@ -567,7 +567,15 @@ export const OverviewShipments = (props, context) => {
 export const Bounties = (props, context) => {
   const { act, data } = useBackend<CargoData>(context);
   return (
-    <Section title="Operations Bounties">
+    <Section
+      title="Operations Bounties"
+      buttons={
+        <Button
+          content="Print"
+          icon="Print"
+          onClick={() => act('bounty_print')}
+        />
+      }>
       <Table>
         <Table.Row header>
           <Table.Cell>Name</Table.Cell>

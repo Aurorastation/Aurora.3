@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # Common code for the frontend interface of map tools
 import sys
 import os
@@ -94,26 +93,26 @@ def process(settings, verb, *, modify=True, backup=None):
         return
 
     if modify:
-        print("Maps WILL{} be converted to tgm.".format('' if settings.tgm else ' NOT'))
+        print(f"Maps WILL{'' if settings.tgm else ' NOT'} be converted to tgm.")
         if backup:
             print("Backups will be created with a \".before\" extension.")
         else:
             print("Warning: backups are NOT being taken.")
 
-    print("\nWill {} these maps:".format(verb))
+    print(f"\nWill {verb} these maps:")
     for path_str in maps:
         print(pretty_path(settings, path_str))
 
     try:
-        confirm = input("\nPress Enter to {}...\n".format(verb))
+        confirm = input(f"\nPress Enter to {verb}...\n")
     except KeyboardInterrupt:
         confirm = "^C"
     if confirm != "":
-        print("\nAborted.")
+        print(f"\nAborted.")
         return
 
     for path_str in maps:
-        print(" - {}".format(pretty_path(settings, path_str)))
+        print(f' - {pretty_path(settings, path_str)}')
 
         if backup:
             shutil.copyfile(path_str, path_str + ".before")
@@ -121,7 +120,7 @@ def process(settings, verb, *, modify=True, backup=None):
         try:
             yield path_str
         except Exception as e:
-            print("Error: {}".format(e))
+            print(f"Error: {e}")
         else:
             print("Succeeded.")
 

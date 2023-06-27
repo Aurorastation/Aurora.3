@@ -12,7 +12,7 @@
 	invisibility = INVISIBILITY_OBSERVER
 	simulated = FALSE
 	var/can_reenter_corpse
-	var/datum/hud/living/carbon/hud = null // hud
+	var/datum/hud/hud = null // hud
 	var/bootime = 0
 	var/started_as_observer //This variable is set to 1 when you enter the game as an observer.
 							//If you died in the game and are a ghsot - this will remain as null.
@@ -235,10 +235,10 @@ Works together with spawning an observer, noted above.
 
 		ghost.ckey = ckey
 		ghost.initialise_postkey(should_set_timer)
-		ghost.client?.init_verbs()
 		if(ghost.client)
 			if(!ghost.client.holder && !config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
 				remove_verb(ghost, /mob/abstract/observer/verb/toggle_antagHUD)	// Poor guys, don't know what they are missing!
+			ghost.client.init_verbs()
 		return ghost
 
 /*

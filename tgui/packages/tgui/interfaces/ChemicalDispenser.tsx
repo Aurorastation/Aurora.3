@@ -61,7 +61,14 @@ export const ChemicalDispenser = (props, context) => {
           {data.chemicals ? <ChemTable /> : 'No chemicals detected.'}
         </Section>
         <Section
-          title="Container Display"
+          title={
+            'Container Display' + data.is_beaker_loaded &&
+            ' (' +
+              data.beaker_current_volume +
+              '/' +
+              data.beaker_max_volume +
+              'u)'
+          }
           buttons={
             data.is_beaker_loaded ? (
               <Button

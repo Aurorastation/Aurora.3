@@ -77,7 +77,7 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 				update_actions = TRUE
 
 			// We're not on a spell tab per se, but we have something fitting.
-			if(!length(target.spell_tabs) && locate(/obj/item/rig) in target_mob.contents)
+			if(!length(target.spell_tabs) && istype(target_mob.back, /obj/item/rig))
 				update_actions = TRUE
 
 			if(update_actions && num_fires % default_wait == 0)
@@ -109,7 +109,7 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 	target.stat_panel.send_message("update_mc", list(mc_data = mc_data, "coord_entry" = coord_entry))
 
 /// Set up the various action tabs.
-/datum/controller/subsystem/statpanels/proc/set_action_tabs	(client/target, mob/target_mob)
+/datum/controller/subsystem/statpanels/proc/set_action_tabs(client/target, mob/target_mob)
 	var/list/actions = target_mob.get_actions_for_statpanel()
 	target.spell_tabs.Cut()
 
