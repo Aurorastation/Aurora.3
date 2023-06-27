@@ -98,32 +98,16 @@
 
 
 /obj/machinery/case_button/shuttle
-	name = "\improper Emergency Shuttle Button"
+	name = "\improper Bluespace Jump Button"
 	desc = "A button in a case protected with a forcefield."
-	desc_info = "- ALT-click to toggle between an emergency evacuation and a bluespace jump."
 	icon_state = "c2"
 	button_type = "button_case_emergencyshuttle"
 	case = 2
 	button = 4
-	var/evacuation_type = TRANSFER_EMERGENCY
-
-/obj/machinery/case_button/shuttle/AltClick(var/mob/user)
-	if(evacuation_type == TRANSFER_EMERGENCY)
-		evacuation_type = TRANSFER_JUMP
-	else
-		evacuation_type = TRANSFER_EMERGENCY
-
-/obj/machinery/case_button/shuttle/examine(mob/user)
-	..(user)
-	switch(evacuation_type)
-		if(TRANSFER_EMERGENCY)
-			to_chat(user, "The button is set to start an emergency evacuation.")
-		if(TRANSFER_JUMP)
-			to_chat(user, "The button is set to start a bluespace jump.")
 
 /obj/machinery/case_button/shuttle/activate(mob/user)
 	..()
-	return call_shuttle_proc(user, evacuation_type)
+	return call_shuttle_proc(user, TRANSFER_JUMP)
 
 /obj/machinery/case_button/shuttle/deactivate(mob/user)
 	..()
