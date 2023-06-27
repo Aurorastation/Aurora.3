@@ -387,6 +387,12 @@
 	. = ..()
 	color = get_random_colour(lower = 150)
 
+/obj/item/clothing/suit/storage/toggle/trench/colorable/alt
+	build_from_parts = TRUE
+	overlay = "belt"
+	icon_state = "trench_colorable2"
+	item_state = "trench_colorable2"
+
 /obj/item/clothing/suit/storage/toggle/highvis
 	name = "high visibility jacket"
 	desc = "A loose-fitting, high visibility jacket to help crew be recognizable in high traffic areas with large industrial equipment."
