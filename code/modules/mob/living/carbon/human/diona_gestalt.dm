@@ -253,7 +253,7 @@
 	M.gestalt = src
 	add_verb(M, /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt)
 	add_verb(M, /mob/living/carbon/alien/diona/proc/switch_to_gestalt)
-	add_verb(src, /mob/living/carbon/human/proc/switch_to_nymph)
+	add_verb(M, /mob/living/carbon/human/proc/switch_to_nymph)
 	M.detached = TRUE
 	M.update_verbs(TRUE)
 	M.languages = languages.Copy()

@@ -143,11 +143,11 @@
 					"focused" = (focused_conv == channel)
 				)
 				if(can_interact)
-					our_channel["msg"] = channel.messages
 					our_channel["users"] = list()
 					for(var/datum/ntnet_user/U in channel.users)
 						var/uref = text_ref(U)
 						our_channel["users"] += list(list("ref" = uref, "username" = U.username))
+				data["msg"] = channel.messages
 				data["channels"] += list(our_channel)
 
 		data["users"] = list()

@@ -59,6 +59,8 @@
 			if(!category)
 				category = "Alive"
 		var/special_char = is_special_character(M)
+		if(!name)
+			continue
 
 		ghosts += list(list("name" = name, "ref" = ref(M), "category" = category, "special_character" = special_char))
 		categories |= category
