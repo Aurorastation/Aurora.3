@@ -12,6 +12,7 @@ export type ChatData = {
   can_netadmin_mode: BooleanLike;
   message_mute: BooleanLike;
 
+  msg: string[];
   channels: Channel[];
   users: User[];
 };
@@ -24,7 +25,6 @@ type Channel = {
   can_interact: BooleanLike;
   can_manage: BooleanLike;
   focused: BooleanLike;
-  msg: string[];
   users: User[];
 };
 
@@ -91,7 +91,7 @@ export const ChatClient = (props, context) => {
               )}
             </>
           }>
-          {data.users.length ? <Users /> : 'There are no users.'}
+          {data.users && data.users.length ? <Users /> : 'There are no users.'}
           {!active ? <ChannelsWindow /> : ''}
         </Section>
       </NtosWindow.Content>
@@ -270,7 +270,8 @@ export const Chat = (props, context) => {
         </>
       }>
       {active &&
-        active.msg.map((message) => (
+        data.msg &&
+        data.msg.map((message) => (
           <Box
             key={message}
             preserveWhitespace
