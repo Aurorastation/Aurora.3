@@ -33,10 +33,9 @@ jobs:
 
     - name: Update TGUI
       run: |
-        chmod +x tools/bootstrap/node
         tools/bootstrap/node tools/build/build.js tgui 
 
-    - name: Commit
+    - name: Commit TGUI
       run: |
         git pull origin master
         git config --local user.email "action@github.com"

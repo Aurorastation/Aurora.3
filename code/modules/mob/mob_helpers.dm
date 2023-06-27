@@ -1210,7 +1210,8 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 				return {"<a href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'>([a.text_tag])</a>"}
 			else
 				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/chat)
-				return S.icon_tag("accent-[a.tag_icon]")
+				var/final_icon = "accent-[a.tag_icon]"
+				return {"<span onclick="window.location.href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'">[S.icon_tag(final_icon)]</span>"}
 
 /mob/assign_player(var/mob/user)
 	ckey = user.ckey

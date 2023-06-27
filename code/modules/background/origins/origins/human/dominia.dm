@@ -1,5 +1,3 @@
-#define CITIZENSHIPS_DOMINIA list(CITIZENSHIP_DOMINIA, CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
-
 /singleton/origin_item/culture/dominia
 	name = "Empire of Dominia"
 	desc = "The Empire of Dominia (often simply referred to as \"the Empire\") is an autocratic monarchy that is heavily influenced by its state religion, the Moroz Holy Tribunal, which is often regarded as an offshoot of old Earth faiths. Imperial society is sharply divided between Morozians, which are themselves divided between noble Primaries and commoner Secondaries, and Ma'zals, which make up the population of its conquered worlds. Militaristic and expansionist, the Empire has been increasingly brought into conflict with its neighbors: the Serene Republic of Elyra and Coalition of Colonies. Dominians are often stereotyped as militant, religious, and egotistical."

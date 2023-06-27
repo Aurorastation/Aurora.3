@@ -1294,3 +1294,5 @@
 
 /mob/living/silicon/robot/GetIdCard()
 	return id_card
+
+#undef CYBORG_POWER_USAGE_MULTIPLIER
