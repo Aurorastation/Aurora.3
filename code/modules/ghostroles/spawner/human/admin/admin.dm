@@ -3,7 +3,7 @@
 
 //Add the ability to despawn
 /datum/ghostspawner/human/admin/post_spawn(mob/user)
-	user.client.verbs += /client/proc/despawn
+	add_verb(user.client, /client/proc/despawn)
 	return ..()
 
 /datum/ghostspawner/human/admin/checkpointsec
@@ -168,7 +168,7 @@
 	var/mob/M = mob
 	M.mind.special_role = null
 	M.ghostize(1)
-	verbs -= /client/proc/despawn
+	remove_verb(src, /client/proc/despawn)
 	qdel(M)
 
 

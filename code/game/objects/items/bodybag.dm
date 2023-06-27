@@ -90,7 +90,7 @@
 		return TRUE
 	else if(W.iswirecutter())
 		to_chat(user, "You cut the tag off the bodybag.")
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		src.name = "body bag"
 		LAZYREMOVE(overlays, image(icon, "bodybag_label"))
 		return TRUE

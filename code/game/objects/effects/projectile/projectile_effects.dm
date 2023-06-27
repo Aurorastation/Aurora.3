@@ -8,7 +8,7 @@
 	light_power = 1
 	light_range = 2
 	light_color = "#00ffff"
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	appearance_flags = 0
 
 /obj/effect/projectile/singularity_pull()

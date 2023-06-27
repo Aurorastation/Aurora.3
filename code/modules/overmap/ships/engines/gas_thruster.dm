@@ -76,6 +76,9 @@
 	var/exhaust_offset = 1 // for engines that are longer
 	var/exhaust_width = 1 //for engines that are wider
 
+/obj/machinery/atmospherics/unary/engine/scc_shuttle
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi'
+
 /obj/machinery/atmospherics/unary/engine/scc_ship_engine
 	name = "ship thruster"
 	icon = 'icons/atmos/scc_ship_engine.dmi'

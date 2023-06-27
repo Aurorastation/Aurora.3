@@ -72,6 +72,7 @@
 /obj/item/clothing/head/helmet/pilot/verb/visor_toggled()
 	set name = "Toggle Visor"
 	set category = "Object"
+	set src in usr
 
 	var/mob/living/carbon/human/user = usr
 	if(!istype(user))
@@ -125,7 +126,7 @@
 	if(V)
 		ship_overlay.appearance = V.appearance
 		ship_overlay.dir = V.dir
-		ship_overlay.mouse_opacity = 0
+		ship_overlay.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	else
 		ship_overlay.icon = null
 		ship_overlay.icon_state = null
@@ -141,6 +142,12 @@
 	else
 		hud_overlay.screen_loc = initial(screen_loc)
 	hud_overlay.maptext = SMALL_FONTS(7, "<center>[text]</center>")
+
+/obj/item/clothing/head/helmet/pilot/scc
+	name = "conglomerate flight helmet"
+	desc = "A pilot helmet with the deep colors of the Stellar Corporate Conglomerate. The highlight is a navy blue, and the mounted visor a striking, opaque cyan. The visor feeds its wearer in-flight information via an integrated heads-up display."
+	icon_state = "scc_pilot"
+	item_state = "scc_pilot"
 
 /obj/item/clothing/head/helmet/pilot/legion
 	name = "foreign legion flight helmet"

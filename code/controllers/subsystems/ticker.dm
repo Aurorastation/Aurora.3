@@ -74,7 +74,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	pregame()
 	restart_timeout = config.restart_timeout
 
-/datum/controller/subsystem/ticker/stat_entry()
+/datum/controller/subsystem/ticker/stat_entry(msg)
 	var/state = ""
 	switch (current_state)
 		if (GAME_STATE_PREGAME)
@@ -87,7 +87,8 @@ var/datum/controller/subsystem/ticker/SSticker
 			state = "FIN"
 		else
 			state = "UNK"
-	..("State: [state]")
+	msg = "State: [state]"
+	return ..()
 
 /datum/controller/subsystem/ticker/Recover()
 	// Copy stuff over so we don't lose any state.
@@ -618,7 +619,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		icon = 'icons/effects/station_explosion.dmi';
 		icon_state = "station_intact";
 		layer = CINEMA_LAYER;
-		mouse_opacity = 0;
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT;
 		screen_loc = "1,0"
 	}
 

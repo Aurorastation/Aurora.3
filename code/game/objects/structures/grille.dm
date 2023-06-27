@@ -99,7 +99,7 @@
 /obj/structure/grille/attackby(obj/item/W, mob/user)
 	if(W.iswirecutter())
 		if(!shock(user, 100))
-			playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
+			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
 			qdel(src)
 	else if(istype(W, /obj/item/gun/energy/plasmacutter))
@@ -112,7 +112,7 @@
 		qdel(src)
 	else if((W.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
-			playsound(loc, 'sound/items/screwdriver.ogg', 100, 1)
+			playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "fastens" : "unfastens"] the grille.</span>", \
 								 "<span class='notice'>You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor.</span>")
