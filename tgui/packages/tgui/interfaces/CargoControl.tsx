@@ -569,7 +569,7 @@ export const Bounties = (props, context) => {
   return (
     <Section
       title="Operations Bounties"
-      button={
+      buttons={
         <Button
           content="Print"
           icon="Print"

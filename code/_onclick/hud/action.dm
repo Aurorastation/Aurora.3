@@ -255,3 +255,15 @@
 #undef AB_WEST_OFFSET
 #undef AB_NORTH_OFFSET
 #undef AB_MAX_COLUMNS
+
+#undef AB_ITEM
+#undef AB_SPELL
+#undef AB_INNATE
+#undef AB_GENERIC
+#undef AB_ITEM_USE_ICON
+
+#undef AB_CHECK_RESTRAINED
+#undef AB_CHECK_STUNNED
+#undef AB_CHECK_LYING
+#undef AB_CHECK_ALIVE
+#undef AB_CHECK_INSIDE 
