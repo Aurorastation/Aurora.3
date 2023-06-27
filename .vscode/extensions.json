@@ -1,0 +1,19 @@
+{
+    "recommendations": [
+      "ss13.byond",
+      "gbasood.byond-dm-language-support",
+      "platymuus.dm-langclient",
+      "anturk.dmi-editor",
+      "eamodio.gitlens",
+      "github.vscode-github-actions",
+      "github.vscode-pull-request-github",
+      "stylemistake.auto-comment-blocks",
+      "dbaeumer.vscode-eslint",
+      "vscode.typescript-language-features",
+      "redhat.vscode-yaml",
+      "visualstudioexptteam.vscodeintellicode",
+      "esbenp.prettier-vscode",
+      "rome.rome",
+      "editorconfig.editorconfig"
+    ]
+}
