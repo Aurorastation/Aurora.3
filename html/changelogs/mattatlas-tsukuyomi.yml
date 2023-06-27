@@ -48,3 +48,4 @@ changes:
   - bugfix: "You can now print all account data from the account database."
   - bugfix: "Set default language verb now actually works."
   - bugfix: "Fixed warrant assistant UI not updating when going back."
+  - bugfix: "Fixed Dionae not getting a switch to nymph verb when detaching one."
