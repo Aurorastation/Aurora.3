@@ -299,7 +299,6 @@
 			var/reported = FALSE
 			for(var/datum/alarm/A in alarms)
 				if(alarms[A] == 1)
-					alarm_raised = TRUE
 					if(!reported)
 						reported = TRUE
 						to_chat(src, SPAN_WARNING("--- [AH.category] Detected ---"))
