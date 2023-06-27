@@ -1369,7 +1369,14 @@
 
 	if(!self)
 		usr.visible_message(SPAN_NOTICE("[usr] kneels down, puts [usr.get_pronoun("his")] hand on [src]'s wrist and begins counting their pulse."),\
-		"You begin counting [src]'s pulse")
+		SPAN_NOTICE("You begin counting [src]'s pulse."))
+		if(timeofdeath && !(species.flags & NO_BLOOD) && !(species.flags & NO_ARTERIES))
+			if(world.time < timeofdeath + 3 MINUTES)
+				to_chat(usr, SPAN_NOTICE("The body is still warm to the touch."))
+			else if(world.time < timeofdeath + 10 MINUTES)
+				to_chat(usr, SPAN_WARNING("The body is lukewarm to the touch."))
+			else
+				to_chat(usr, SPAN_DANGER("The body is cold to the touch."))
 	else
 		usr.visible_message(SPAN_NOTICE("[usr] begins counting their pulse."),\
 		"You begin counting your pulse.")

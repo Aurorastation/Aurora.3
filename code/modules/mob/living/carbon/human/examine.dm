@@ -25,7 +25,14 @@
 			to_chat(user, SPAN_WARNING("[src] is missing that limb!"))
 
 	else if(src.stat && !(src.species.flags & NO_BLOOD))
-		user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
+		user.visible_message("<b>[user]</b> checks [src]'s pulse.", SPAN_NOTICE("You check [src]'s pulse."))
+		if(timeofdeath && !(species.flags & NO_BLOOD) && !(species.flags & NO_ARTERIES))
+			if(world.time < timeofdeath + 3 MINUTES)
+				to_chat(user, SPAN_NOTICE("The body is still warm to the touch."))
+			else if(world.time < timeofdeath + 10 MINUTES)
+				to_chat(user, SPAN_WARNING("The body is lukewarm to the touch."))
+			else
+				to_chat(user, SPAN_DANGER("The body is cold to the touch."))
 		if(do_mob(user, src, 15))
 			if(pulse() == PULSE_NONE || (status_flags & FAKEDEATH))
 				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] no pulse.</span>")
