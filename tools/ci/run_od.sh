@@ -1,3 +1,3 @@
 #!/bin/bash
 set -eo pipefail
-dotnet ../OpenDream/DMCompiler/bin/Release/net7.0/DMCompiler.dll --suppress-unimplemented aurorastation.dme
+dotnet $HOME/OpenDream/DMCompiler/bin/Release/net7.0/DMCompiler.dll --suppress-unimplemented aurorastation.dme
