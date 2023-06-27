@@ -209,7 +209,7 @@
 	)
 
 	access = list(access_journalist, access_maint_tunnels)
-	minimal_access = list(access_journalist, access_maint_tunnels)
+	minimal_access = list(access_journalist)
 	alt_titles = list("Freelance Journalist")
 	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
 	title_accesses = list("Corporate Reporter (NT)" = list(access_medical, access_sec_doors, access_research, access_engine), "Corporate Reporter (Idris)" = list(access_medical, access_sec_doors, access_research, access_engine))
