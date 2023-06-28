@@ -56,8 +56,8 @@
 				var/mob/abstract/observer/O = user
 				if(O.antagHUD && player_is_antag(M.mind))
 					category = M.mind.special_role
-			if(!category)
-				category = "Alive"
+		if(!category)
+			category = "Alive"
 		var/special_char = is_special_character(M)
 		if(!name)
 			continue
