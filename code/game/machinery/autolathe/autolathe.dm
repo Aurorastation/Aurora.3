@@ -260,7 +260,7 @@
 	updateUsrDialog()
 
 /obj/machinery/autolathe/update_icon()
-	icon_state = (panel_open ? "autolathe_t" : "autolathe")
+	icon_state = (panel_open ? "autolathe_panel" : "autolathe")
 
 //Updates overall lathe storage size.
 /obj/machinery/autolathe/RefreshParts()
