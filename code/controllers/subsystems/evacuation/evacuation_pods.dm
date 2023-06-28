@@ -123,18 +123,18 @@
 	silicon_allowed = TRUE
 
 /datum/evacuation_option/crew_transfer/execute(mob/user)
-	if (!evacuation_controller)
+	if(!evacuation_controller)
 		return
-	if (evacuation_controller.deny)
+	if(evacuation_controller.deny)
 		to_chat(user, "Unable to initiate crew transfer preparation.")
 		return
-	if (evacuation_controller.is_on_cooldown())
+	if(evacuation_controller.is_on_cooldown())
 		to_chat(user, evacuation_controller.get_cooldown_message())
 		return
-	if (evacuation_controller.is_evacuating())
+	if(evacuation_controller.is_evacuating())
 		to_chat(user, "Crew transfer preparation already in progress.")
 		return
-	if (evacuation_controller.call_evacuation(user, 0))
+	if(evacuation_controller.call_evacuation(user, 0))
 		log_and_message_admins("[user? key_name(user) : "Autotransfer"] has initiated crew transfer preparation.")
 
 /datum/evacuation_option/cancel_abandon_ship
