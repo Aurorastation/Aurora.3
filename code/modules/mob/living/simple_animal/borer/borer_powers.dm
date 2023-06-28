@@ -175,11 +175,11 @@
 	H.add_language(LANGUAGE_BORER_HIVEMIND)
 
 	if(host.stat == DEAD)
-		H.verbs |= /mob/living/carbon/human/proc/jumpstart
+		add_verb(H, /mob/living/carbon/human/proc/jumpstart)
 
-	H.verbs |= /mob/living/carbon/human/proc/psychic_whisper
-	H.verbs |= /mob/living/carbon/human/proc/tackle
-	H.verbs |= /mob/living/carbon/proc/spawn_larvae
+	add_verb(H, /mob/living/carbon/human/proc/psychic_whisper)
+	add_verb(H, /mob/living/carbon/human/proc/tackle)
+	add_verb(H, /mob/living/carbon/proc/spawn_larvae)
 
 	if(H.client)
 		H.ghostize(FALSE)
@@ -355,9 +355,9 @@
 
 	controlling = TRUE
 
-	host.verbs += /mob/living/carbon/proc/release_control
-	host.verbs += /mob/living/carbon/proc/punish_host
-	host.verbs += /mob/living/carbon/proc/spawn_larvae
+	add_verb(host, /mob/living/carbon/proc/release_control)
+	add_verb(host, /mob/living/carbon/proc/punish_host)
+	add_verb(host, /mob/living/carbon/proc/spawn_larvae)
 
 /mob/living/carbon/human/proc/jumpstart()
 	set category = "Abilities"
@@ -368,7 +368,7 @@
 		to_chat(usr, SPAN_WARNING("Your host is already alive."))
 		return
 
-	verbs -= /mob/living/carbon/human/proc/jumpstart
+	remove_verb(src, /mob/living/carbon/human/proc/jumpstart)
 	visible_message(SPAN_WARNING("With a hideous, rattling moan, [src] shudders back to life!"))
 
 	rejuvenate()
@@ -388,9 +388,9 @@
 
 		B.detach()
 
-		verbs -= /mob/living/carbon/proc/release_control
-		verbs -= /mob/living/carbon/proc/punish_host
-		verbs -= /mob/living/carbon/proc/spawn_larvae
+		remove_verb(src, /mob/living/carbon/proc/release_control)
+		remove_verb(src, /mob/living/carbon/proc/punish_host)
+		remove_verb(src,  /mob/living/carbon/proc/spawn_larvae)
 
 	else
 		to_chat(src, SPAN_DANGER("Something has gone terribly wrong, as your host's brain does not seem to contain you. Make a GitHub report and ahelp to get out."))

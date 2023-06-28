@@ -55,3 +55,6 @@
 
 #define STICKYBAN_DB_CACHE_TIME (10 SECONDS)
 #define STICKYBAN_ROGUE_CHECK_TIME 5
+
+#define ADMIN_JMP(src) "(<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)"
+#define COORD(src) "[src ? src.Admin_Coordinates_Readable() : "nonexistent location"]"

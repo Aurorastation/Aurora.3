@@ -723,6 +723,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	thrower.drop_from_inventory(src)
 
 /obj/item/flame/lighter/zippo/augment/dropped()
+	. = ..()
 	loc = null
 	qdel(src)
 

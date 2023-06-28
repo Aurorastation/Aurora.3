@@ -1,8 +1,3 @@
-#define EVIDENCE_TYPE_BLOOD "Blood"
-#define EVIDENCE_TYPE_GSR "Gunshot Residue"
-#define EVIDENCE_TYPE_SALIVA "Saliva"
-#define EVIDENCE_TYPE_ADDITIONAL "Additional"
-
 /obj/item/forensics/swab
 	name = "swab kit"
 	desc = "A sterilized cotton swab and vial used to take forensic samples."

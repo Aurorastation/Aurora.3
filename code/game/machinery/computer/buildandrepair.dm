@@ -84,7 +84,7 @@
 				return TRUE
 		if(3)
 			if(P.iswirecutter())
-				playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the cables.</span>")
 				src.state = 2
 				src.icon_state = "2"

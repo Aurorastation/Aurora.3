@@ -34,12 +34,8 @@ var/list/localhost_addresses = list(
 			..()
 		return
 
-	if(href_list["vueuiclose"])
-		var/datum/vueui/ui = locate(href_list["src"])
-		if(istype(ui))
-			ui.close()
-		else // UI is an orphan, close it directly.
-			src << browse(null, "window=vueui[href_list["src"]]")
+	// Tgui Topic middleware
+	if(tgui_Topic(href_list))
 		return
 
 	// asset_cache
@@ -108,7 +104,6 @@ var/list/localhost_addresses = list(
 		if("usr")		hsrc = mob
 		if("prefs")		return prefs.process_link(usr,href_list)
 		if("vars")		return view_var_Topic(href,href_list,hsrc)
-		if("chat")		return chatOutput.Topic(href, href_list)
 
 	switch(href_list["action"])
 		if("openLink")
@@ -349,6 +344,9 @@ var/list/localhost_addresses = list(
 
 	clients += src
 	directory[ckey] = src
+	connection_time = world.time
+	connection_realtime = world.realtime
+	connection_timeofday = world.timeofday
 
 	if (LAZYLEN(config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
@@ -360,8 +358,12 @@ var/list/localhost_addresses = list(
 			del(src)
 			return 0
 
-	if(!chatOutput)
-		chatOutput = new(src)
+	// Instantiate tgui panel
+	tgui_panel = new(src, "browseroutput")
+	// Instantiate stat panel
+	stat_panel = new(src, "statbrowser")
+
+	stat_panel.subscribe(src, PROC_REF(on_stat_panel_message))
 
 	if(IsGuestKey(key) && config.external_auth)
 		src.authed = FALSE
@@ -376,6 +378,17 @@ var/list/localhost_addresses = list(
 		src.InitClient()
 		src.InitPrefs()
 		mob.LateLogin()
+
+
+	tgui_panel.initialize()
+
+	// Initialize stat panel
+	stat_panel.initialize(
+		inline_html = file("html/statbrowser.html"),
+		inline_js = file("html/statbrowser.js"),
+		inline_css = file("html/statbrowser.css"),
+	)
+
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
@@ -474,7 +487,6 @@ var/list/localhost_addresses = list(
 	staff -= src
 	directory -= ckey
 	clients -= src
-	SSassets.handle_disconnect(src)
 	return ..()
 
 
@@ -573,7 +585,8 @@ var/list/localhost_addresses = list(
 	if(inactivity > duration)	return inactivity
 	return 0
 
-//send resources to the client. It's here in its own proc so we can move it around easiliy if need be
+/// Send resources to the client.
+/// Sends both game resources and browser assets.
 /client/proc/send_resources()
 #if (PRELOAD_RSC == 0)
 	var/static/next_external_rsc = 0
@@ -583,7 +596,14 @@ var/list/localhost_addresses = list(
 		preload_rsc = external_rsc_urls[next_external_rsc]
 #endif
 
-	SSassets.handle_connect(src)
+	spawn (10) //removing this spawn causes all clients to not get verbs. (this can't be addtimer because these assets may be needed before the mc inits)
+		//load info on what assets the client has
+		src << browse('code/modules/asset_cache/validate_assets.html', "window=asset_cache_browser")
+
+		//Precache the client with all other assets slowly, so as to not block other browse() calls
+		if (config.asset_simple_preload)
+			addtimer(CALLBACK(SSassets.transport, TYPE_PROC_REF(/datum/asset_transport, send_assets_slow), src, SSassets.transport.preload), 5 SECONDS)
+
 
 /mob/proc/MayRespawn()
 	return 0
@@ -764,17 +784,6 @@ var/list/localhost_addresses = list(
 		else
 			CRASH("Age check regex failed for [src.ckey]")
 
-// Byond seemingly calls stat, each tick.
-// Calling things each tick can get expensive real quick.
-// So we slow this down a little.
-// See: http://www.byond.com/docs/ref/info.html#/client/proc/Stat
-/client/Stat()
-	. = ..()
-	if (holder)
-		sleep(1)
-	else
-		stoplag(5)
-
 /client/MouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
 	. = ..()
 
@@ -825,3 +834,45 @@ var/list/localhost_addresses = list(
 
 /obj/screen/click_catcher/is_auto_clickable()
 	return TRUE
+
+/**
+ * Handles incoming messages from the stat-panel TGUI.
+ */
+/client/proc/on_stat_panel_message(type, payload)
+	switch(type)
+		if("Update-Verbs")
+			init_verbs()
+		if("Remove-Tabs")
+			panel_tabs -= payload["tab"]
+		if("Send-Tabs")
+			panel_tabs |= payload["tab"]
+		if("Reset-Tabs")
+			panel_tabs = list()
+		if("Set-Tab")
+			stat_tab = payload["tab"]
+			SSstatpanels.immediate_send_stat_data(src)
+
+/// compiles a full list of verbs and sends it to the browser
+/client/proc/init_verbs()
+	var/list/verblist = list()
+	var/list/verbstoprocess = verbs.Copy()
+	if(mob)
+		verbstoprocess += mob.verbs
+		for(var/atom/movable/thing as anything in mob.contents)
+			verbstoprocess += thing.verbs
+	panel_tabs.Cut() // panel_tabs get reset in init_verbs on JS side anyway
+	for(var/procpath/verb_to_init as anything in verbstoprocess)
+		if(!verb_to_init)
+			continue
+		if(verb_to_init.hidden)
+			continue
+		if(!istext(verb_to_init.category))
+			continue
+		panel_tabs |= verb_to_init.category
+		verblist[++verblist.len] = list(verb_to_init.category, verb_to_init.name)
+	src.stat_panel.send_message("init_verbs", list(panel_tabs = panel_tabs, verblist = verblist))
+
+/client/proc/check_panel_loaded()
+	if(stat_panel.is_ready())
+		return
+	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='?src=[ref(src)];reload_statbrowser=1'>here</a> to reload the panel "))

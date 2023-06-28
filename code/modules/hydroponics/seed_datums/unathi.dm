@@ -94,7 +94,7 @@
 	set_trait(TRAIT_PLANT_ICON,"tree")
 
 /obj/item/seeds/aghrasshseed
-	seed_type = "aghrassh tree"
+	seed_type = "aghrassh"
 
 /datum/seed/sthberry
 	name = "S'th berry"

@@ -63,7 +63,7 @@
 	interact_offline = TRUE
 	display_loading_message = FALSE
 
-/obj/machinery/sleeper/mounted/ui_interact(mob/user, var/datum/topic_state/state = mech_state)
+/obj/machinery/sleeper/mounted/ui_interact(mob/user, var/datum/ui_state/state = mech_state)
 	. = ..()
 
 /obj/machinery/sleeper/mounted/ui_host()

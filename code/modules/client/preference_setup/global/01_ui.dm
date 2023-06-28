@@ -6,7 +6,8 @@
 	S["UI_style"]       >> pref.UI_style
 	S["UI_style_color"] >> pref.UI_style_color
 	S["UI_style_alpha"] >> pref.UI_style_alpha
-	S["html_UI_style"]  >> pref.html_UI_style
+	S["tgui_fancy"]		>> pref.tgui_fancy
+	S["tgui_lock"]		<< pref.tgui_lock
 	S["ooccolor"]       >> pref.ooccolor
 	S["clientfps"]			>> pref.clientfps
 
@@ -14,7 +15,8 @@
 	S["UI_style"]       << pref.UI_style
 	S["UI_style_color"] << pref.UI_style_color
 	S["UI_style_alpha"] << pref.UI_style_alpha
-	S["html_UI_style"]  << pref.html_UI_style
+	S["tgui_fancy"]		<< pref.tgui_fancy
+	S["tgui_lock"]		<< pref.tgui_lock
 	S["ooccolor"]       << pref.ooccolor
 	S["clientfps"]			<< pref.clientfps
 
@@ -25,7 +27,8 @@
 				"UI_style",
 				"UI_style_color",
 				"UI_style_alpha",
-				"html_UI_style",
+				"tgui_fancy",
+				"tgui_lock",
 				"ooccolor",
 				"clientfps",
 				"tooltip_style"
@@ -43,7 +46,8 @@
 			"UI_style",
 			"UI_style_color",
 			"UI_style_alpha",
-			"html_UI_style",
+			"tgui_fancy",
+			"tgui_lock",
 			"ooccolor",
 			"clientfps",
 			"tooltip_style",
@@ -57,7 +61,8 @@
 		"UI_style_alpha" = pref.UI_style_alpha,
 		"UI_style_color" = pref.UI_style_color,
 		"UI_style" = pref.UI_style,
-		"html_UI_style" = pref.html_UI_style,
+		"tgui_fancy" = pref.tgui_fancy,
+		"tgui_lock" = pref.tgui_lock,
 		"ooccolor" = pref.ooccolor,
 		"clientfps" = pref.clientfps,
 		"tooltip_style" = pref.tooltip_style
@@ -68,7 +73,8 @@
 	pref.UI_style_color = sanitize_hexcolor(pref.UI_style_color, initial(pref.UI_style_color))
 	pref.UI_style_alpha = sanitize_integer(text2num(pref.UI_style_alpha), 0, 255, initial(pref.UI_style_alpha))
 	pref.clientfps = sanitize_integer(text2num(pref.clientfps), 0, 1000, initial(pref.clientfps))
-	pref.html_UI_style       = sanitize_inlist(pref.html_UI_style, SStheming.available_html_themes, initial(pref.html_UI_style))
+	pref.tgui_fancy		= sanitize_bool(pref.tgui_fancy, TRUE)
+	pref.tgui_lock		= sanitize_bool(pref.tgui_lock, FALSE)
 	pref.ooccolor       = sanitize_hexcolor(pref.ooccolor, initial(pref.ooccolor))
 
 /datum/category_item/player_setup_item/player_global/ui/content(mob/user)
@@ -79,7 +85,8 @@
 	dat += "-Color: <a href='?src=\ref[src];select_color=1'><b>[pref.UI_style_color]</b></a> [HTML_RECT(pref.UI_style_color)] - <a href='?src=\ref[src];reset=ui'>reset</a><br>"
 	dat += "-Alpha(transparency): <a href='?src=\ref[src];select_alpha=1'><b>[pref.UI_style_alpha]</b></a> - <a href='?src=\ref[src];reset=alpha'>reset</a><br>"
 	dat += "<b>Tooltip Style:</b> <a href='?src=\ref[src];select_tooltip_style=1'><b>[pref.tooltip_style]</b></a><br>"
-	dat += "<b>HTML UI Style:</b> <a href='?src=\ref[src];select_html=1'><b>[pref.html_UI_style]</b></a><br>"
+	dat += "<b>TGUI Fancy:</b> <a href='?src=\ref[src];select_tguif=1'><b>[pref.tgui_fancy ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>TGUI Lock:</b> <a href='?src=\ref[src];select_tguil=1'><b>[pref.tgui_lock ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>FPS:</b> <a href='?src=\ref[src];select_fps=1'><b>[pref.clientfps]</b></a> - <a href='?src=\ref[src];reset=fps'>reset</a><br>"
 	if(can_select_ooc_color(user))
 		dat += "<b>OOC Color:</b> "
@@ -109,10 +116,12 @@
 		pref.UI_style_alpha = UI_style_alpha_new
 		return TOPIC_REFRESH
 
-	else if(href_list["select_html"])
-		var/html_style_new = input(user, "Choose HTML UI style.", "Global Preference", pref.html_UI_style) as null|anything in SStheming.available_html_themes
-		if(isnull(html_style_new) || !CanUseTopic(user)) return TOPIC_NOACTION
-		pref.html_UI_style = html_style_new
+	else if(href_list["select_tguif"])
+		pref.tgui_fancy = !pref.tgui_fancy
+		return TOPIC_REFRESH
+
+	else if(href_list["select_tguil"])
+		pref.tgui_lock = !pref.tgui_lock
 		return TOPIC_REFRESH
 
 	else if(href_list["select_ooc_color"])

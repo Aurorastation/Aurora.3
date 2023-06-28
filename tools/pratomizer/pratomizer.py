@@ -138,7 +138,7 @@ def generate_changelog_file(repo: Repo, prname: str):
 
     with open(os.getcwd() + '\\html\\changelogs\\example.yml', 'r', encoding='ascii')\
       as source_file:
-        with open(os.getcwd() + f'\\html\\changelogs\\{username}-{prname}', 'w', encoding='ascii')\
+        with open(os.getcwd() + f'\\html\\changelogs\\{username}-{prname}.yml', 'w', encoding='ascii')\
           as destination_file:
 
             changelog_content = source_file.read()
