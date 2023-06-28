@@ -45,7 +45,7 @@ export const Sleeper = (props, context) => {
           <Table>
             <BlockQuote>No occupant detected.</BlockQuote>
             <Button
-              content={data.beaker < 0 ? 'No Beaker Installed' : 'Eject Beaker'}
+              content={data.beaker < 0 ? 'No Beaker' : 'Eject Beaker'}
               icon="medkit"
               color="red"
               disabled={data.beaker < 0}
