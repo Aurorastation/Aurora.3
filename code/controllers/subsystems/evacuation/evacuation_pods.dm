@@ -167,7 +167,7 @@
 	silicon_allowed = FALSE
 
 /datum/evacuation_option/cancel_crew_transfer/execute(mob/user)
-	if (evacuation_controller && evacuation_controller.cancel_evacuation())
+	if(evacuation_controller && evacuation_controller.cancel_evacuation())
 		log_and_message_admins("[key_name(user)] has cancelled the crew transfer.")
 
 /obj/screen/fullscreen/bluespace_overlay
