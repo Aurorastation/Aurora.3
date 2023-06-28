@@ -1485,6 +1485,8 @@
 
 	species.set_default_tail(src)
 
+	client.init_verbs()
+
 	if(species)
 		return 1
 	else

@@ -46,6 +46,7 @@
 		if(assigned_antagonist.get_antag_radio())
 			module.channels[assigned_antagonist.get_antag_radio()] = TRUE
 			radio.recalculateChannels()
+	client.init_verbs()
 	say("Boot sequence complete!")
 	return src
 
