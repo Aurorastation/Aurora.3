@@ -98,7 +98,7 @@
 
 
 /obj/machinery/case_button/shuttle
-	name = "\improper Bluespace Jump Button"
+	name = "bluespace jump button"
 	desc = "A button in a case protected with a forcefield."
 	icon_state = "c2"
 	button_type = "button_case_emergencyshuttle"
