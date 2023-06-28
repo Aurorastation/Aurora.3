@@ -518,3 +518,8 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define PANEL_DISPLAY_STATUS "status"
 /// The name shown in the stat panel.
 #define PANEL_DISPLAY_NAME "name"
+
+//Transfer Types
+#define TRANSFER_EMERGENCY "emergency transfer"
+#define TRANSFER_JUMP "bluespace jump"
+#define TRANSFER_CREW "crew transfer"
