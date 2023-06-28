@@ -199,9 +199,9 @@
 			error += major_dist
 		if(!step) // going off the edge of the map makes get_step return null, don't let things go off the edge
 			break
-		if(dist_travelled > 100 && world.time > (admin_warning_given + 5 SECONDS))
-			message_admins(SPAN_DANGER("[src] is travelling at [speed] speed and will likely cause the server to hang! Thrower: [thrower] \
-			| Loc: [step] | Steps: [dist_travelled] | <a href='?_src_=vars;Vars=\ref[src]'>\[VV\]</a>"))
+		if(dist_travelled > 200 && world.time > (admin_warning_given + 5 SECONDS))
+			message_admins("[src] is travelling at [speed] speed and will likely cause the server to hang! Thrower: [thrower] \
+			| Loc: [step] | Steps: [dist_travelled] | <a href='?_src_=vars;Vars=\ref[src]'>\[VV\]</a>")
 			admin_warning_given = world.time
 		src.Move(step)
 		hit_check(speed, target)
