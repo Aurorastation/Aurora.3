@@ -82,7 +82,7 @@ export const StartVoteWindow = (props, context) => {
       <Box>
         <Button
           content="Crew Transfer"
-          disabled={data.allow_vote_restart}
+          disabled={!data.allow_vote_restart}
           tooltip="Disallowed on Code Red or above."
           onClick={(value) => act('crew_transfer')}
         />
@@ -90,7 +90,7 @@ export const StartVoteWindow = (props, context) => {
       <Box>
         <Button
           content="Toggle Restart / Crew Transfer Voting"
-          disabled={!data.is_staff || !data.allow_vote_restart}
+          disabled={!data.is_staff}
           onClick={(value) => act('toggle_restart')}
         />
       </Box>

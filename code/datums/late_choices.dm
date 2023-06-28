@@ -46,7 +46,7 @@
 	our_ui = null
 
 /datum/late_choices/proc/update_character_icon()
-	if(our_ui.status < UI_INTERACTIVE)
+	if(our_ui && our_ui.status < UI_INTERACTIVE)
 		do_update_character_icon()
 	else
 		update_icon_on_next_open = TRUE
@@ -67,10 +67,10 @@
 		if(evacuation_controller.has_evacuated()) //Shuttle is going to centcomm, not recalled
 			shuttle_status = "post-evac"
 		if(evacuation_controller.is_evacuating())
-			if (evacuation_controller.emergency_evacuation) // Emergency shuttle is past the point of no recall
+			if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY) // Emergency shuttle is past the point of no recall
 				shuttle_status = "evac"
 			else // Crew transfer initiated
-				shuttle_status = "transfer"
+				shuttle_status = TRANSFER_CREW
 	data["shuttle_status"] = shuttle_status
 	data["character_image"] = icon2base64(character_image)
 

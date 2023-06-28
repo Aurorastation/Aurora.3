@@ -1485,10 +1485,13 @@
 
 	species.set_default_tail(src)
 
+	if(client)
+		client.init_verbs()
+
 	if(species)
-		return 1
+		return TRUE
 	else
-		return 0
+		return FALSE
 
 
 /mob/living/carbon/human/proc/fill_out_culture_data()

@@ -3,6 +3,7 @@
 #define CITIZENSHIP_SOL "Sol Alliance"
 #define CITIZENSHIP_COALITION "Coalition of Colonies"
 #define CITIZENSHIP_ELYRA "Republic of Elyra"
+#define CITIZENSHIP_ELYRA_NCP "Elyran Non-Citizen Person"
 #define CITIZENSHIP_ERIDANI "Eridani Federation"
 #define CITIZENSHIP_DOMINIA "Empire of Dominia"
 
