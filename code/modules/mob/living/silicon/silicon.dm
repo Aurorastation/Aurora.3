@@ -1,7 +1,3 @@
-#define NO_HUD  0
-#define SEC_HUD 1
-#define MED_HUD 2
-
 /mob/living/silicon
 	// Speaking
 	gender = NEUTER
@@ -298,13 +294,11 @@
 	if(next_alarm_notice && (world.time > next_alarm_notice))
 		next_alarm_notice = 0
 
-		var/alarm_raised = FALSE
 		for(var/datum/alarm_handler/AH in queued_alarms)
 			var/list/alarms = queued_alarms[AH]
 			var/reported = FALSE
 			for(var/datum/alarm/A in alarms)
 				if(alarms[A] == 1)
-					alarm_raised = TRUE
 					if(!reported)
 						reported = TRUE
 						to_chat(src, SPAN_WARNING("--- [AH.category] Detected ---"))
@@ -319,9 +313,6 @@
 						reported = TRUE
 						to_chat(src, SPAN_NOTICE("--- [AH.category] Cleared ---"))
 					to_chat(src, "\The [A.alarm_name()].")
-
-		if(alarm_raised)
-			to_chat(src, "<A HREF=?src=\ref[src];showalerts=1>\[Show Alerts\]</A>")
 
 		for(var/datum/alarm_handler/AH in queued_alarms)
 			var/list/alarms = queued_alarms[AH]

@@ -9,9 +9,6 @@
 # and will create a standard virtualenv in which to install `requirements.txt`.
 set -e
 
-#Define Version
-PYTHON_VERSION=3.7.9
-
 # Convenience variables
 Bootstrap="$(dirname "$0")"
 Sdk="$(dirname "$Bootstrap")"
@@ -21,6 +18,7 @@ if [ "$TG_BOOTSTRAP_CACHE" ]; then
 fi
 OldPWD="$PWD"
 cd "$Bootstrap/../.."
+. ./dependencies.sh  # sets PYTHON_VERSION
 cd "$OldPWD"
 PythonVersion="$PYTHON_VERSION"
 PythonDir="$Cache/python-$PythonVersion"

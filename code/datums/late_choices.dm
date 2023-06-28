@@ -46,7 +46,7 @@
 	our_ui = null
 
 /datum/late_choices/proc/update_character_icon()
-	if(our_ui.status < UI_INTERACTIVE)
+	if(our_ui && our_ui.status < UI_INTERACTIVE)
 		do_update_character_icon()
 	else
 		update_icon_on_next_open = TRUE

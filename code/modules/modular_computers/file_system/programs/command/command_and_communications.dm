@@ -247,7 +247,7 @@ var/last_message_id = 0
 	for (var/datum/comm_message_listener/l in comm_message_listeners)
 		l.Add(message)
 
-	for (var/obj/item/modular_computer/computer in get_listeners_by_type(LISTENER_MODULAR_COMPUTER, /obj/item/modular_computer))
+	for (var/obj/item/modular_computer/computer in get_listeners_by_type("modular_computers", /obj/item/modular_computer))
 		if(computer?.working && !!computer.nano_printer && computer.hard_drive?.stored_files.len)
 			var/datum/computer_file/program/comm/C = locate(/datum/computer_file/program/comm) in computer.hard_drive.stored_files
 			if(C?.intercept)

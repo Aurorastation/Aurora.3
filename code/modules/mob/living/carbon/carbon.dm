@@ -50,6 +50,7 @@
 	if(istype(R))
 		R.clear_reagents()
 	breathing.clear_reagents()
+	intoxication = 0
 	..()
 
 /mob/living/carbon/Move(NewLoc, direct)
