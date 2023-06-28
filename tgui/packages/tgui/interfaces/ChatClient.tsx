@@ -126,7 +126,7 @@ export const Users = (props, context) => {
             ))}
         </Tabs>
       </Section>
-      {data.active ? <Chat /> : <AllUsers />}
+      {data.active && data.active.can_interact ? <Chat /> : <AllUsers />}
     </Section>
   );
 };

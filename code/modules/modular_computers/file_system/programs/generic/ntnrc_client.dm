@@ -121,7 +121,7 @@
 	data["netadmin_mode"] = netadmin_mode
 	data["can_netadmin_mode"] = can_run(user, FALSE, access_network)
 	data["message_mute"] = message_mute
-	if(active)
+	if(active && active.can_interact(src))
 		var/ref = text_ref(active)
 		var/can_interact = active.can_interact(src)
 		var/can_manage = active.can_manage(src)
@@ -260,6 +260,8 @@
 		var/datum/ntnet_conversation/conv = locate(params["leave"])
 		if(istype(conv))
 			conv.cl_leave(src)
+		if(active)
+			active = null
 		computer.update_static_data_for_all_viewers()
 		. = TRUE
 
