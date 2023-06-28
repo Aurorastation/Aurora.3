@@ -172,10 +172,10 @@
 	if(materials[M.material.name] + M.perunit <= res_max_amount)
 		if(M.amount >= 1)
 			var/count = 0
-			var/icon/load = icon(icon, "fab-load")
+			var/icon/load = icon(icon, "load")
 			load.Blend(M.material.icon_colour,ICON_MULTIPLY)
 			add_overlay(load)
-			CUT_OVERLAY_IN(load, 8)
+			CUT_OVERLAY_IN(load, 6)
 
 			while(materials[M.material.name] + M.perunit <= res_max_amount && M.amount >= 1)
 				materials[M.material.name] += M.perunit
