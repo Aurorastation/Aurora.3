@@ -1,0 +1,7 @@
+author: Alberyk, MattAtlas
+
+delete-after: True
+
+changes:
+  - rscadd: "Shift changes now replaces the bluespace jump for crew transfer. The crew can now call an emergency evacuation using the keycard authentication."
+  - rscadd: "Added a new AI vox."
