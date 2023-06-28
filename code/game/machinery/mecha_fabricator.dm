@@ -1,7 +1,7 @@
 /obj/machinery/mecha_part_fabricator
 	name = "mechatronic fabricator"
 	desc = "A general purpose fabricator that can be used to fabricate robotic equipment."
-	icon = 'icons/obj/robotics.dmi'
+	icon = 'icons/obj/machinery/robotics.dmi'
 	icon_state = "fab-base"
 	density = TRUE
 	anchored = TRUE
