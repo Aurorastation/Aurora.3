@@ -283,6 +283,21 @@
 	flag_path = "sol"
 	flag_item = /obj/item/flag/sol
 
+/obj/item/flag/sol/old
+	name = "old Sol Alliance flag"
+	desc = "The flag of the pre-Interstellar War Solarian Alliance, once flown from Earth to the human frontier."
+	desc_extended = "The flag of the pre-Interstellar War Alliance of Sovereign Solarian Nations, the single largest state in the Spur's history. The three stars represented the Northern, Central, and Southern Solarian Frontiers."
+	flag_path = "sol_old"
+	flag_structure = /obj/structure/sign/flag/sol/old
+
+/obj/structure/sign/flag/sol/old
+	name = "old Sol Alliance flag"
+	desc = "The flag of the pre-Interstellar War Solarian Alliance, once flown from Earth to the human frontier."
+	desc_extended = "The flag of the pre-Interstellar War Alliance of Sovereign Solarian Nations, the single largest state in the Spur's history. The three stars represented the Northern, Central, and Southern Solarian Frontiers."
+	icon_state = "sol_old"
+	flag_path = "sol_old"
+	flag_item = /obj/item/flag/sol/old
+
 /obj/item/flag/sol/l
 	name = "large Sol Alliance flag"
 	flag_size = TRUE
@@ -304,6 +319,29 @@
 	..(loc, EAST)
 
 /obj/structure/sign/flag/sol/large/west/New()
+	..(loc, WEST)
+
+/obj/item/flag/sol/old/l
+	name = "large old Sol Alliance flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/sol/old/large
+
+/obj/structure/sign/flag/sol/old/large
+	icon_state = "sol_old_l"
+	flag_path = "sol_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/sol/old/l
+
+/obj/structure/sign/flag/sol/old/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/sol/old/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/sol/old/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/sol/old/large/west/New()
 	..(loc, WEST)
 
 // Dominia
@@ -1811,7 +1849,7 @@
 
 /obj/structure/sign/flag/nhp/large/west/New()
 	..(loc, WEST)
-	
+
 // Silversun
 
 /obj/item/flag/silversun
