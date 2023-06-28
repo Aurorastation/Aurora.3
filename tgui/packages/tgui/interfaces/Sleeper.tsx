@@ -183,7 +183,7 @@ export const OccupantStatus = (props, context) => {
               buttons={
                 <Button
                   content={
-                    data.beaker < 0 ? 'No Beaker Installed' : 'Eject Beaker'
+                    data.beaker < 0 ? 'No Beaker' : 'Eject Beaker'
                   }
                   icon="medkit"
                   color="red"
