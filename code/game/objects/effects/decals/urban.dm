@@ -2,6 +2,7 @@
 	icon = 'icons/obj/structure/urban/road_edges.dmi'
 	icon_state = "curb"
 	layer = 2
+	mouse_opacity = 0
 
 /obj/effect/decal/curb/corner
 	icon_state = "curb_corner"
@@ -10,6 +11,7 @@
 	icon = 'icons/obj/decals/street/road_markings.dmi'
 	icon_state = "line"
 	layer = 2
+	mouse_opacity = 0
 
 /obj/effect/decal/road_marking/thin
 	icon_state = "line_thin"

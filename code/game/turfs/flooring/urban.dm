@@ -18,6 +18,20 @@
 	name = "paved tiles"
 	icon_state = "brick-paver"
 
+/turf/simulated/floor/sidewalk/flat
+	name = "flat paved tiles"
+	icon_state = "flat"
+
+/turf/simulated/floor/sidewalk/flat/Initialize(mapload)
+	icon_state = "flat[rand(0,3)]"
+
+/turf/simulated/floor/sidewalk/blocks
+	name = "blocked sidewalk tiles"
+	icon_state = "blocks"
+
+/turf/simulated/floor/sidewalk/blocks/Initialize(mapload)
+	icon_state = "blocks[rand(0,3)]"
+
 /obj/structure/ledge
 	name = "tall ledge"
 	desc = "A tall ledge that seems difficult to surpass. You'd need some effort to get over this!"

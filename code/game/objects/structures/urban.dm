@@ -63,14 +63,14 @@
 /obj/structure/stairs/urban
 	icon = 'icons/obj/structure/urban/ledges.dmi'
 	icon_state = "stairs-single"
-	layer = 1.99
+	layer = 2.01
 	opacity = 1
 
 /obj/structure/stairs/urban/road_ramp
 	name = "inclined asphalt ramp"
 	desc = "A solid asphalt ramp to allow your vehicle to traverse inclines with ease."
 	icon_state = "road-ramp-center"
-	layer = 2
+	layer = 2.02
 
 /obj/structure/stairs/urban/road_ramp/right
 	icon_state = "road-ramp-right"
@@ -149,7 +149,7 @@
 	density = TRUE
 	throwpass = TRUE
 	climbable = TRUE
-	layer = OBJ_LAYER
+	layer = 4.01
 	anchored = TRUE
 
 /obj/structure/rod_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -163,6 +163,16 @@
 		return !density
 	return TRUE
 
+/obj/structure/dam
+	name = "concrete dam"
+	desc = "A hulking mass of concrete meant to hold in a large reservoir of water from passing downwards."
+	icon = 'icons/obj/structure/urban/blockers.dmi'
+	icon_state = "dam1"
+	density = TRUE
+	throwpass = TRUE
+	anchored = TRUE
+	layer = 4.01
+
 /obj/structure/road_barrier
 	name = "roadway barrier"
 	desc = "A set of expendable plates meant to deflect the impact of vehicles, lest they intend to go into more dangerous areas off the road."
@@ -171,9 +181,8 @@
 	density = TRUE
 	throwpass = TRUE
 	climbable = TRUE
-	layer = OBJ_LAYER
 	anchored = TRUE
-	layer = 3.01
+	layer = 4.01
 
 //smoothing these things would suck so here you go. i have no idea why you would want these buildable. map them manually
 /obj/structure/road_barrier/bot_in
@@ -198,6 +207,15 @@
 	if(get_dir(loc, target) == dir)
 		return !density
 	return TRUE
+
+/obj/structure/statue
+	name = "statue of Neopolymus"
+	desc = "A statue of Neopolymus, an IPC brought to fame in Tau Ceti as the first to be held to trial for the murder of a Human. A heated debate continues today as to the validity and bias of the court as the positronic ultimately met a memory wipe, followed by deconstruction."
+	icon = 'icons/obj/structure/urban/statues.dmi'
+	icon_state = "neopolymus"
+	density = TRUE
+	anchored = TRUE
+	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/structure/chainlink_fence
 	name = "chainlink industrial fencing"
