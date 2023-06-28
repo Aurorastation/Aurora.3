@@ -26,7 +26,7 @@
 /datum/evacuation_controller/starship/finish_preparing_evac()
 	. = ..()
 	// Arm the escape pods.
-	if (evacuation_type == TRANSFER_EMERGENCY)
+	if(evacuation_type == TRANSFER_EMERGENCY)
 		for (var/datum/shuttle/autodock/ferry/escape_pod/pod in escape_pods)
 			if (pod.arming_controller)
 				pod.arming_controller.arm()
