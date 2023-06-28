@@ -63,7 +63,7 @@
 		return list(evacuation_options[EVAC_OPT_BLUESPACE_JUMP], evacuation_options[EVAC_OPT_ABANDON_SHIP])
 	if (is_evacuating())
 		switch(evacuation_type)
-			if (TRANSFER_EMERGENCY)
+			if(TRANSFER_EMERGENCY)
 				return list(evacuation_options[EVAC_OPT_CANCEL_ABANDON_SHIP])
 			if(TRANSFER_JUMP)
 				return list(evacuation_options[EVAC_OPT_CANCEL_BLUESPACE_JUMP])
