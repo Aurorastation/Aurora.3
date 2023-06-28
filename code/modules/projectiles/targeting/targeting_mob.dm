@@ -5,6 +5,7 @@
 	set name = "Toggle Gun Mode"
 	set desc = "Begin or stop aiming."
 	set category = "IC"
+
 	if(isliving(src))
 		var/mob/living/M = src
 		if(!M.aiming)
