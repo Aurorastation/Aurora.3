@@ -21,6 +21,7 @@
 	set name = "Spin cylinder"
 	set desc = "Fun when you're bored out of your skull."
 	set category = "Object"
+	set src in usr
 
 	chamber_offset = 0
 	usr.visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", "<span class='warning'>You spin the cylinder of \the [src]!</span>", "<span class='notice'>You hear something metallic spin and click.</span>")
@@ -105,6 +106,7 @@
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Click to rename your gun. If you're the detective."
+	set src in usr
 
 	var/mob/M = usr
 	if(!M.mind)	return 0
@@ -226,6 +228,7 @@
 	set name = "Spin cylinder"
 	set desc = "Fun when you're bored out of your skull."
 	set category = "Object"
+	set src in usr
 
 	chamber_offset = 0
 	visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", \

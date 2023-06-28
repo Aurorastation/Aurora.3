@@ -231,6 +231,7 @@
 	set category = "Object"
 	set name = "Discard"
 	set desc = "Place a card from your hand in front of you."
+	set src in usr
 
 	draw_card(usr)
 
