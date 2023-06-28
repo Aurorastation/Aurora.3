@@ -182,9 +182,7 @@ export const OccupantStatus = (props, context) => {
               title="Dialysis"
               buttons={
                 <Button
-                  content={
-                    data.beaker < 0 ? 'No Beaker' : 'Eject Beaker'
-                  }
+                  content={data.beaker < 0 ? 'No Beaker' : 'Eject Beaker'}
                   icon="medkit"
                   color="red"
                   disabled={data.beaker < 0}
