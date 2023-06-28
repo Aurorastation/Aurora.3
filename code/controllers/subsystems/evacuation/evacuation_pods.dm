@@ -36,10 +36,10 @@
 	state = EVAC_IN_TRANSIT
 
 	switch(evacuation_type)
-		if ("evacuation")
+		if("evacuation")
 			// Abandon Ship
-			for (var/datum/shuttle/autodock/ferry/escape_pod/pod in escape_pods) // Launch the pods!
-				if (!pod.arming_controller || pod.arming_controller.armed)
+			for(var/datum/shuttle/autodock/ferry/escape_pod/pod in escape_pods) // Launch the pods!
+				if(!pod.arming_controller || pod.arming_controller.armed)
 					pod.move_time = (evac_transit_delay/10)
 					pod.launch(src)
 
