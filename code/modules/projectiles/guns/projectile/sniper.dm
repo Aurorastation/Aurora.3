@@ -86,7 +86,7 @@
 /obj/item/gun/projectile/heavysniper/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(!has_scope)
 		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a scope!"))
@@ -219,7 +219,7 @@
 /obj/item/gun/projectile/dragunov/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)
@@ -269,7 +269,7 @@
 /obj/item/gun/projectile/automatic/rifle/w556/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)
