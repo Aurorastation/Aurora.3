@@ -1,19 +1,20 @@
 //Weapons and items used exclusively by the Vaurcae, typically only for event shenanigans, and possibly random finds in the future. All items here should have
 //"Vaurca" in the item path at some point, so they can be easily spawned in-game.
 
-/obj/item/clothing/mask/breath/vaurca
+/obj/item/clothing/mask/gas/vaurca
 	desc = "A Vaurcae mandible garment with an attached gas filter and air-tube."
 	name = "mandible garment"
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_garment"
 	item_state = "m_garment"
+	filtered_gases = list(GAS_NITROGEN, GAS_N2O, GAS_CHLORINE, GAS_ALIEN)
 	contained_sprite = 1
 
-/obj/item/clothing/mask/breath/vaurca/adjust_mask(mob/user)
+/obj/item/clothing/mask/gas/vaurca/adjust_mask(mob/user)
 	to_chat(user, "This mask is too tight to adjust.")
 	return
 
-/obj/item/clothing/mask/breath/vaurca/filter
+/obj/item/clothing/mask/gas/vaurca/filter
 	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
 	name = "filter port"
 	icon_state = "filterport"

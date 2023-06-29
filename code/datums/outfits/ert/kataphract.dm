@@ -43,7 +43,7 @@
 
 	uniform = /obj/item/clothing/under/vaurca
 	head = /obj/item/clothing/head/helmet/unathi/klax
-	mask = /obj/item/clothing/mask/breath/vaurca/filter
+	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/armor/unathi/klax
 	suit_store = /obj/item/gun/launcher/grenade
 	shoes = /obj/item/clothing/shoes/vaurca
