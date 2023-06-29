@@ -187,62 +187,6 @@
 			qdel(areas)
 	..()
 
-	/*
-		Savefile format:
-		map
-		  id
-		  x		// size, not coords
-		  y
-		  z
-		  areas	// list of areas, not including default
-		  [each z; 1 to depth]
-		    [each y; 1 to height]
-		      [each x; 1 to width]
-		        type	// of turf
-		        AREA    // if non-default; saved as a number (index into areas list)
-		        vars    // all other changed vars
-	 */
-/swapmap/Write(savefile/S)
-	var/x
-	var/y
-	var/z
-	var/n
-	var/list/areas
-	var/area/defarea=locate(world.area)
-	if(!defarea) defarea=new world.area
-	areas=list()
-	for(var/turf/T in block(locate(x1,y1,z1),locate(x2,y2,z2)))
-		areas[T.loc]=null
-	for(n in areas)	// quickly eliminate associations for smaller storage
-		areas-=n
-		areas+=n
-	areas-=defarea
-	InitializeSwapMaps()
-	locked=1
-	S["id"] << id
-	S["z"] << z2-z1+1
-	S["y"] << y2-y1+1
-	S["x"] << x2-x1+1
-	S["areas"] << areas
-	for(n in 1 to areas.len) areas[areas[n]]=n
-	var/oldcd=S.cd
-	for(z=z1,z<=z2,++z)
-		S.cd="[z-z1+1]"
-		for(y=y1,y<=y2,++y)
-			S.cd="[y-y1+1]"
-			for(x=x1,x<=x2,++x)
-				S.cd="[x-x1+1]"
-				var/turf/T=locate(x,y,z)
-				S["type"] << T.type
-				if(T.loc!=defarea) S["AREA"] << areas[T.loc]
-				T.Write(S)
-				S.cd=".."
-			S.cd=".."
-		sleep()
-		S.cd=oldcd
-	locked=0
-	qdel(areas)
-
 /swapmap/Read(savefile/S,_id,turf/locorner)
 	var/x
 	var/y
@@ -452,28 +396,6 @@
 */
 /swapmap/proc/BuildInTurfs(list/turfs,item)
 		for(var/T in turfs) new item(T)
-
-/atom/Write(savefile/S)
-	for(var/V in vars-"x"-"y"-"z"-"contents"-"icon"-"overlays"-"underlays")
-		if(issaved(vars[V]))
-			if(vars[V]!=initial(vars[V])) S[V]<<vars[V]
-			else S.dir.Remove(V)
-	if(icon!=initial(icon))
-		if(swapmaps_iconcache && swapmaps_iconcache[icon])
-			S["icon"]<<swapmaps_iconcache[icon]
-		else S["icon"]<<icon
-	// do not save mobs with keys; do save other mobs
-	var/mob/M
-	for(M in src) if(M.key) break
-	if(overlays.len) S["overlays"]<<overlays
-	if(underlays.len) S["underlays"]<<underlays
-	if(contents.len && !isarea(src))
-		var/list/l=contents
-		if(M)
-			l=l.Copy()
-			for(M in src) if(M.key) l-=M
-		if(l.len) S["contents"]<<l
-		if(l!=contents) qdel(l)
 
 /atom/Read(savefile/S)
 	var/list/l

@@ -17,7 +17,7 @@
 	icon_state = "floor_beacon" // If anyone wants to make better sprite, feel free to do so without asking me.
 
 	var/name_tag = "#UNKN#" // ID tag displayed in list of powernet sensors. Each sensor should have it's own tag!
-	var/long_range = 0		// If 1, sensor reading will show on all computers, regardless of Zlevel
+	var/long_range = FALSE		// If TRUE, sensor readings will show regardless of the zlevel being connected.
 
 // Proc: New()
 // Parameters: None
@@ -160,8 +160,8 @@
 			APC_entry["s_lighting"] = S[A.lighting+1]
 			APC_entry["s_environment"] = S[A.environ+1]
 			// Cell Status
-			APC_entry["cell_charge"] = A.cell ? round(A.cell.percent()) : "NO CELL"
-			APC_entry["cell_status"] = A.cell ? chg[A.charging+1] : "N"
+			APC_entry["cell_charge"] = A.cell ? round(A.cell.percent()) : 0
+			APC_entry["cell_status"] = A.cell ? chg[A.charging+1] : 0
 			// Other info
 			APC_entry["total_load"] = reading_to_text(A.lastused_total)
 			// Hopefully removes those goddamn \improper s which are screwing up the UI

@@ -576,13 +576,12 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	if(!skip_ticks)
 		skip_ticks = 1
 
-/datum/controller/master/stat_entry()
-	if(!statclick)
-		statclick = new/obj/effect/statclick/debug(null, "Initializing...", src)
-
-	stat("Byond:", "(FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%)) (Internal Tick Usage: [round(MAPTICK_LAST_TICK_USAGE,0.1)]%)")
-	stat("Master Controller:", statclick.update("(TickRate:[Master.processing]) (Iteration:[Master.iteration]) (TickLimit: [round(CURRENT_TICKLIMIT, 0.1)])"))
-
+/datum/controller/master/stat_entry(msg)
+	msg = "(FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)] \
+		([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%)) \
+		(Internal Tick Usage: [round(MAPTICK_LAST_TICK_USAGE,0.1)]%) (TickRate:[Master.processing]) \
+		(Iteration:[Master.iteration]) (TickLimit: [round(CURRENT_TICKLIMIT, 0.1)])"
+	return msg
 
 /datum/controller/master/ExplosionStart()
 	for (var/thing in subsystems)

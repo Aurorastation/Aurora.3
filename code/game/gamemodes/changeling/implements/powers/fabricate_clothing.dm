@@ -68,6 +68,7 @@
 	canremove = 0 //Since this is essentially flesh impersonating clothes, tearing someone's skin off as if it were clothing isn't possible.
 
 /obj/item/clothing/under/chameleon/changeling/dropped(mob/user)
+	. = ..()
 	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
@@ -93,6 +94,7 @@
 	canremove = 0
 
 /obj/item/clothing/head/chameleon/changeling/dropped(mob/user)
+	. = ..()
 	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
@@ -117,6 +119,7 @@
 	canremove = 0
 
 /obj/item/clothing/suit/chameleon/changeling/dropped(mob/user)
+	. = ..()
 	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
@@ -141,6 +144,7 @@
 	canremove = 0
 
 /obj/item/clothing/shoes/chameleon/changeling/dropped(mob/user)
+	. = ..()
 	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
@@ -165,6 +169,7 @@
 	canremove = 0
 
 /obj/item/clothing/backpack/chameleon/changeling/dropped(mob/user)
+	. = ..()
 	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
@@ -192,6 +197,7 @@
 	canremove = 0
 
 /obj/item/clothing/gloves/chameleon/changeling/dropped(mob/user)
+	. = ..()
 	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
@@ -217,6 +223,7 @@
 	canremove = 0
 
 /obj/item/clothing/mask/chameleon/changeling/dropped(mob/user)
+	. = ..()
 	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
@@ -241,6 +248,7 @@
 	canremove = 0
 
 /obj/item/clothing/glasses/chameleon/changeling/dropped(mob/user)
+	. = ..()
 	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
@@ -266,6 +274,7 @@
 	canremove = 0
 
 /obj/item/clothing/storage/belt/chameleon/changeling/dropped(mob/user)
+	. = ..()
 	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
@@ -300,6 +309,7 @@
 	access = null
 
 /obj/item/card/id/syndicate/changeling/dropped(mob/user)
+	. = ..()
 	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)

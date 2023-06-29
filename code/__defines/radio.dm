@@ -165,3 +165,5 @@ var/list/DEPT_FREQS_ASSOC = list(
 #define JAMMER_OFF -1
 #define JAMMER_ALL 1 // affects ALL wireless streams
 #define JAMMER_SYNTHETIC 2 // affects only synthetic wireless connections (attack_ai)
+
+#define DEFAULT_LAW_CHANNEL "Main Frequency"

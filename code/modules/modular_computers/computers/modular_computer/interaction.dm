@@ -200,6 +200,7 @@
 // On-click handling. Turns on the computer if it's off and opens the GUI.
 /obj/item/modular_computer/attack_self(mob/user)
 	if(enabled && screen_on)
+		user.set_machine(src)
 		ui_interact(user)
 	else if(!enabled && screen_on)
 		turn_on(user)
@@ -215,7 +216,7 @@
 		if(!hard_drive)
 			to_chat(user, SPAN_WARNING("You cannot reset a device that has no hard drive."))
 			return TRUE
-		enrolled = 0
+		enrolled = DEVICE_UNSET
 		hard_drive.reset_drive()
 		audible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> pings, <span class='notice'>\"Enrollment status reset! Have a NanoTrasen day.\"</span>")
 		return TRUE
@@ -288,7 +289,7 @@
 			return TRUE
 
 		to_chat(user, SPAN_NOTICE("You begin repairing the damage to \the [src]..."))
-		playsound(get_turf(src), 'sound/items/welder.ogg', 100, 1)
+		playsound(get_turf(src), 'sound/items/Welder.ogg', 100, 1)
 		if(WT.use(round(damage / 75)) && do_after(user, damage / 10))
 			damage = 0
 			to_chat(user, SPAN_NOTICE("You fully repair \the [src]."))
