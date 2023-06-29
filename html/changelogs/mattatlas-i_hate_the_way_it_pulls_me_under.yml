@@ -41,3 +41,4 @@ changes:
   - bugfix: "Common radio is a lighter colour once again."
   - bugfix: "Fixed the toggle hair coverage verb."
   - bugfix: "Fixed using defibs on surgery surfaces."
+  - bugfix: "Fixed the set ambition verb."
