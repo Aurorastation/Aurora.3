@@ -45,8 +45,8 @@ var/list/localhost_addresses = list(
 		//because we skip the limiter, we have to make sure this is a valid arrival and not somebody tricking us
 		//	into letting append to a list without limit.
 		if (job && job <= last_asset_job && !(job in completed_asset_jobs))
-			completed_asset_jobs += job
-			return
+			if (!asset_cache_confirm_arrival(href_list["asset_cache_confirm_arrival"]))
+				return
 
 	if (href_list["EMERG"] && href_list["EMERG"] == "action")
 		if (!info_sent)
