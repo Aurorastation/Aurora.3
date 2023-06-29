@@ -155,10 +155,12 @@
 		if ("solid")
 			wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 		if ("stone")
-			wall_icon = 'icons/turf/smooth/composite_stone.dmi'
+			wall_icon = 'icons/turf/smooth/material/brick_weathered.dmi'
 			multipart_reinf_icon = 'icons/turf/smooth/composite_stone_reinf.dmi'
 		if ("metal")
 			wall_icon = 'icons/turf/smooth/composite_metal.dmi'
+		if ("wood")
+			wall_icon = 'icons/turf/smooth/material/plank.dmi'
 		if ("cult")
 			wall_icon = 'icons/turf/smooth/cult_wall.dmi'
 			skip_blend = TRUE
@@ -353,7 +355,7 @@
 	stack_type = /obj/item/stack/material/sandstone
 	icon_base = "stone"
 	icon_reinf = "reinf_stone"
-	icon_colour = "#D9C179"
+	icon_colour = "#d9c179"
 	shard_type = SHARD_STONE_PIECE
 	weight = 22
 	hardness = 55
@@ -700,7 +702,7 @@
 	stack_type = /obj/item/stack/material/wood // why wouldn't it have a stacktype seriously guys why
 	icon_colour = "#824B28"
 	integrity = 50
-	icon_base = "metal"
+	icon_base = "wood"
 	explosion_resistance = 2
 	shard_type = SHARD_SPLINTER
 	shard_can_repair = 0 // you can't weld splinters back into planks
