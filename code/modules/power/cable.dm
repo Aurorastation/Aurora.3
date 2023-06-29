@@ -669,6 +669,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/item/stack/cable_coil/verb/make_restraint()
 	set name = "Make Cable Restraints"
 	set category = "Object"
+	set src in usr
 
 	if(ishuman(usr) && !usr.restrained() && !usr.stat && !usr.paralysis && ! usr.stunned)
 		if(!isturf(usr.loc))
@@ -697,6 +698,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/item/stack/cable_coil/cyborg/verb/set_colour()
 	set name = "Change Colour"
 	set category = "Object"
+	set src in usr
 
 	choose_cable_color(usr)
 
@@ -994,6 +996,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/item/stack/cable_coil/verb/make_noose()
 	set name = "Make Noose"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return

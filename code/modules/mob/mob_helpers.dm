@@ -1216,6 +1216,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 /mob/assign_player(var/mob/user)
 	ckey = user.ckey
 	resting = FALSE // ghosting sets resting to true
+	client.init_verbs()
 	return src
 
 /mob/proc/get_standard_pixel_x()

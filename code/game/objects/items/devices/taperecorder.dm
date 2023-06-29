@@ -115,6 +115,7 @@
 /obj/item/device/taperecorder/verb/stop()
 	set name = "Stop Recording"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
