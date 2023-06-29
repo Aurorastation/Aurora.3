@@ -41,12 +41,10 @@ var/list/localhost_addresses = list(
 	// asset_cache
 	if(href_list["asset_cache_confirm_arrival"])
 		//to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
-		var/job = text2num(href_list["asset_cache_confirm_arrival"])
 		//because we skip the limiter, we have to make sure this is a valid arrival and not somebody tricking us
 		//	into letting append to a list without limit.
-		if (job && job <= last_asset_job && !(job in completed_asset_jobs))
-			if (!asset_cache_confirm_arrival(href_list["asset_cache_confirm_arrival"]))
-				return
+		if (!asset_cache_confirm_arrival(href_list["asset_cache_confirm_arrival"]))
+			return
 
 	if (href_list["EMERG"] && href_list["EMERG"] == "action")
 		if (!info_sent)
