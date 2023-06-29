@@ -39,5 +39,5 @@
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	canSmoothWith = list(/turf/simulated/floor/exoplanet/water/shallow/konyang, /turf/simulated/floor/exoplanet/water/konyang)
 
-/turf/simulated/floor/exoplanet/water/shallow/konyang
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth
 	smooth = SMOOTH_FALSE

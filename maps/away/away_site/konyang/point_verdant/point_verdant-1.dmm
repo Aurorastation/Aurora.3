@@ -3,7 +3,7 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/outer)
 "rf" = (
-/turf/unsimulated/mineral,
+/turf/unsimulated/mineral/konyang,
 /area/point_verdant/outer)
 "vs" = (
 /turf/simulated/floor/exoplanet/konyang,

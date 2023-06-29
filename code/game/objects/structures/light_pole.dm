@@ -36,7 +36,6 @@
 	icon_state = "junction"
 	layer = 9
 	anchored = TRUE
-	density = TRUE
 
 /obj/structure/utility_pole/street
 	desc = "A tall light source. This one seems to be off."
@@ -47,6 +46,10 @@
 	icon = 'icons/obj/structure/urban/poles.dmi'
 	icon_state = "street_light"
 	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+
+/obj/effect/overlay/street_light/classic
+	icon_state = "classic_lamp_light"
+	density = 1
 
 /obj/structure/utility_pole/street/on
 	desc = "A tall light source. This one shines brightly."
@@ -59,6 +62,22 @@
 	. = ..()
 	cut_overlays()
 	overlays += /obj/effect/overlay/street_light
+	return
+
+/obj/structure/utility_pole/street/classic
+	icon_state = "classic_lamp"
+
+/obj/structure/utility_pole/street/classic/on
+	desc = "A tall light source. This one shines brightly."
+	light_wedge = LIGHT_OMNI
+	light_color = LIGHT_COLOR_TUNGSTEN
+	light_range = 8
+	light_power = 1.9
+
+/obj/structure/utility_pole/street/classic/on/Initialize(mapload)
+	. = ..()
+	cut_overlays()
+	overlays += /obj/effect/overlay/street_light/classic
 	return
 
 /obj/effect/overlay/street_light/crosswalk

@@ -73,7 +73,7 @@
 /obj/effect/landmark/map_data{
 	height = 3
 	},
-/turf/unsimulated/mineral,
+/turf/unsimulated/mineral/konyang,
 /area/point_verdant/outer)
 "oa" = (
 /obj/structure/rod_railing,
@@ -93,7 +93,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outer)
 "rf" = (
-/turf/unsimulated/mineral,
+/turf/unsimulated/mineral/konyang,
 /area/point_verdant/outer)
 "tP" = (
 /obj/structure/chainlink_fence,
@@ -206,13 +206,6 @@
 "OG" = (
 /obj/effect/decal/exterior_stairs/right,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
-"Pw" = (
-/obj/structure/chainlink_fence{
-	layer = 9.1;
-	dir = 1
-	},
-/turf/simulated/floor/concrete,
 /area/point_verdant/outer)
 "PA" = (
 /obj/structure/chainlink_fence{
@@ -14592,8 +14585,8 @@ tR
 tR
 tR
 tR
-DC
-xr
+tR
+DD
 rf
 bD
 Cw
@@ -14773,9 +14766,9 @@ PP
 PP
 PP
 yx
+PP
+PP
 ZH
-Pw
-xr
 rf
 bD
 Cw
@@ -14955,9 +14948,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -15137,9 +15130,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -15319,9 +15312,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -15501,9 +15494,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 CT
-Pw
-xr
 rf
 bD
 Cw
@@ -15683,9 +15676,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -15865,9 +15858,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -16047,9 +16040,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -16229,9 +16222,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -16411,9 +16404,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -16593,9 +16586,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 CT
-Pw
-xr
 rf
 bD
 Cw
@@ -16775,9 +16768,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -16957,9 +16950,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -17139,9 +17132,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -17321,9 +17314,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -17503,9 +17496,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -17685,9 +17678,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 CT
-Pw
-xr
 rf
 bD
 Cw
@@ -17867,9 +17860,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -18049,9 +18042,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -18231,9 +18224,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -18413,9 +18406,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -18595,9 +18588,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -18777,9 +18770,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 CT
-Pw
-xr
 rf
 bD
 Cw
@@ -18959,9 +18952,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -19141,9 +19134,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -19323,9 +19316,9 @@ hL
 hL
 hL
 hL
+hL
+hL
 wZ
-Pw
-xr
 rf
 bD
 Cw
@@ -19505,9 +19498,9 @@ Ym
 Ym
 Ym
 ew
+Ym
+Ym
 NI
-Pw
-xr
 rf
 bD
 Cw
@@ -19688,8 +19681,8 @@ EF
 EF
 EF
 EF
-DC
-xr
+EF
+PA
 rf
 bD
 Cw

@@ -12,7 +12,7 @@
 	cut_overlays()
 	name = "[pick("deluxe Shibata Sport automotive","beat-up Poplar Auto Group automotive","weathered Shibata Sport automotive","beat-up Langenfeld automotive","deluxe Langenfeld automotive","weathered Langenfeld automotive")]"
 	desc = "A [name] vehicle of working condition."
-	icon_state = "car[rand(1, 2)]"
+	icon_state = "car[rand(1, 10)]"
 	return
 
 /obj/structure/automobile/police
@@ -208,14 +208,14 @@
 		return !density
 	return TRUE
 
-/obj/structure/statue
-	name = "statue of Neopolymus"
-	desc = "A statue of Neopolymus, an IPC brought to fame in Tau Ceti as the first to be held to trial for the murder of a Human. A heated debate continues today as to the validity and bias of the court as the positronic ultimately met a memory wipe, followed by deconstruction."
-	icon = 'icons/obj/structure/urban/statues.dmi'
-	icon_state = "neopolymus"
-	density = TRUE
-	anchored = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+/obj/structure/road_barrier/CheckExit(var/atom/movable/O, var/turf/target)
+	if(istype(O) && CanPass(O, target))
+		return TRUE
+	if(get_dir(O.loc, target) == dir)
+		if(!density)
+			return TRUE
+		return FALSE
+	return TRUE
 
 /obj/structure/chainlink_fence
 	name = "chainlink industrial fencing"
@@ -237,6 +237,15 @@
 		return TRUE
 	if(get_dir(loc, target) == dir)
 		return !density
+	return TRUE
+
+/obj/structure/chainlink_fence/CheckExit(var/atom/movable/O, var/turf/target)
+	if(istype(O) && CanPass(O, target))
+		return TRUE
+	if(get_dir(O.loc, target) == dir)
+		if(!density)
+			return TRUE
+		return FALSE
 	return TRUE
 
 /obj/structure/rope_railing
@@ -261,6 +270,15 @@
 		return !density
 	return TRUE
 
+/obj/structure/rope_railing/CheckExit(var/atom/movable/O, var/turf/target)
+	if(istype(O) && CanPass(O, target))
+		return TRUE
+	if(get_dir(O.loc, target) == dir)
+		if(!density)
+			return TRUE
+		return FALSE
+	return TRUE
+
 /obj/structure/rope_post
 	name = "wooden rope post"
 	desc = "A simple pole driven into something, for tying ropes onto."
@@ -269,3 +287,12 @@
 	density = FALSE
 	layer = OBJ_LAYER
 	layer = 3
+
+/obj/structure/statue
+	name = "statue of Neopolymus"
+	desc = "A statue of Neopolymus, an IPC brought to fame in Tau Ceti as the first to be held to trial for the murder of a Human. A heated debate continues today as to the validity and bias of the court as the positronic ultimately met a memory wipe, followed by deconstruction."
+	icon = 'icons/obj/structure/urban/statues.dmi'
+	icon_state = "neopolymus"
+	density = TRUE
+	anchored = TRUE
+	layer = ABOVE_ALL_MOB_LAYER
