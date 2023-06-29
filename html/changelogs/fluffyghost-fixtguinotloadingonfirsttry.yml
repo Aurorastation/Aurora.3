@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Fixed TGUI not loading new panels on first try, because the caching confirmation system was not correctly flagging them as received assets."
+  - bugfix: "Added some remaining pieces of code that were not ported over for the Topic function."
