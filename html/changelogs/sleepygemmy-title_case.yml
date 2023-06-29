@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - spellcheck: "Changes \"Follow mob\" to \"Follow Mob\" in the crew manifest observer-specific follow button."
