@@ -731,7 +731,7 @@
 	pixel_y = 21
 	},
 /obj/structure/bed/stool/chair/sofa/left/red,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/crew_compartment)
 "aFA" = (
 /obj/machinery/door/blast/regular{
@@ -836,7 +836,7 @@
 	pixel_x = -7;
 	pixel_y = 3
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/quarters)
 "aJA" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3891,7 +3891,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/crew_compartment)
 "cPE" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
@@ -4527,7 +4527,7 @@
 	pixel_x = 26;
 	pixel_y = 5
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/crew_compartment)
 "dob" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5377,7 +5377,7 @@
 /obj/machinery/computer/ship/navigation{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/quarters)
 "dTe" = (
 /obj/structure/railing/mapped,
@@ -10368,7 +10368,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/crew_compartment)
 "hkW" = (
 /obj/machinery/door/airlock/external{
@@ -14046,7 +14046,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/crew_compartment)
 "jWJ" = (
 /obj/structure/railing/mapped,
@@ -14986,7 +14986,7 @@
 	pixel_y = 24
 	},
 /obj/structure/bed/stool/chair/sofa/right/red,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/crew_compartment)
 "kEk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -18175,7 +18175,7 @@
 	pixel_x = 1;
 	pixel_y = 6
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/quarters)
 "mSk" = (
 /obj/effect/floor_decal/corner/green{
@@ -19968,7 +19968,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/quarters)
 "ocp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -23227,7 +23227,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/quarters)
 "qtO" = (
 /obj/structure/cable{
@@ -26996,7 +26996,7 @@
 /obj/item/tank/emergency_oxygen,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/quarters)
 "tgR" = (
 /turf/simulated/floor/tiled,
@@ -31412,7 +31412,7 @@
 	name = "sink";
 	pixel_x = 21
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/crew_compartment)
 "wjU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -31930,7 +31930,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/shuttle/intrepid/crew_compartment)
 "wCf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
