@@ -2,6 +2,7 @@ import { BooleanLike } from '../../../common/react';
 import { useBackend } from '../../backend';
 import { Button, Icon, Section, Table, Tooltip } from '../../components';
 import { TableCell, TableRow } from '../../components/Table';
+import { Window } from '../../layouts';
 
 type ManifestData = {
   manifest: { department: Crew[] };
@@ -20,58 +21,78 @@ export const Manifest = (props, context) => {
   const manifest = data.manifest || {};
   const allow_follow = data.allow_follow;
   return (
-    <Section>
-      {Object.keys(manifest).length === 0 && 'There are no crew active.'}
-      {Object.keys(manifest).map((dept) => {
-        const deptCrew = manifest[dept];
-        return (
-          <Section
-            key={dept}
-            title={dept}
-            textAlign="center"
-            className={'border-dept-' + dept.toLowerCase()}>
-            <Table>
-              {deptCrew.map((crewmate) => {
-                return (
-                  <TableRow key={crewmate.name} bold={crewmate.head}>
-                    <TableCell width="50%" overflow="hidden">
-                      {crewmate.name}
-                    </TableCell>
-                    <TableCell width="50%" overflow="hidden">
-                      {crewmate.rank}
-                    </TableCell>
-                    <TableCell textAlign="right">
-                      <Tooltip content={crewmate.active}>
-                        <Icon
-                          name="circle"
-                          className={
-                            'manifest-indicator-' +
-                            crewmate.active.toLowerCase()
-                          }
-                        />
-                      </Tooltip>
-                    </TableCell>
-                    {allow_follow ? (
-                      <TableCell textAlign="right">
-                        <Tooltip content="Follow Mob">
-                          <Button
-                            content="F"
-                            onClick={() =>
-                              act('follow', { name: crewmate.name })
-                            }
-                          />
-                        </Tooltip>
-                      </TableCell>
-                    ) : (
-                      ''
-                    )}
-                  </TableRow>
-                );
-              })}
-            </Table>
-          </Section>
-        );
-      })}
-    </Section>
+    <Window width={500} height={700}>
+      <Window.Content scrollable>
+        <Section>
+          {Object.keys(manifest).length === 0 && 'There are no crew active.'}
+          {Object.keys(manifest).map((dept) => {
+            const deptCrew = manifest[dept];
+            return (
+              <Section
+                key={dept}
+                title={dept}
+                textAlign="center"
+                className={'border-dept-' + dept.toLowerCase()}>
+                <Table>
+                  {deptCrew.map((crewmate) => {
+                    return (
+                      <TableRow
+                        key={crewmate.name}
+                        bold={crewmate.head}
+                        overflow="hidden">
+                        <TableCell
+                          width="50%"
+                          textAlign="center"
+                          pt="10px"
+                          nowrap>
+                          {crewmate.name}
+                        </TableCell>
+                        <TableCell
+                          width="45%"
+                          textAlign="right"
+                          pr="2%"
+                          pt="10px"
+                          nowrap>
+                          {crewmate.rank}
+                        </TableCell>
+                        <TableCell
+                          textAlign="right"
+                          width="5%"
+                          pr="3%"
+                          pt="10px">
+                          <Tooltip content={crewmate.active}>
+                            <Icon
+                              name="circle"
+                              className={
+                                'manifest-indicator-' +
+                                crewmate.active.toLowerCase()
+                              }
+                            />
+                          </Tooltip>
+                        </TableCell>
+                        {allow_follow ? (
+                          <TableCell textAlign="right">
+                            <Tooltip content="Follow Mob">
+                              <Button
+                                content="F"
+                                onClick={() =>
+                                  act('follow', { name: crewmate.name })
+                                }
+                              />
+                            </Tooltip>
+                          </TableCell>
+                        ) : (
+                          ''
+                        )}
+                      </TableRow>
+                    );
+                  })}
+                </Table>
+              </Section>
+            );
+          })}
+        </Section>
+      </Window.Content>
+    </Window>
   );
 };
