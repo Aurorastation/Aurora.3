@@ -1304,18 +1304,18 @@ About the new airlock wires panel:
 	else if(isAdmin || issilicon(user)) // controls for silicons, "stealthy" antag silicons and "stealthy" admins
 		if(!arePowerSystemsOn()) // cannot queue actions or "speak" from unpowered doors
 			to_chat(user, SPAN_WARNING("The door is unpowered - Cannot [activate ? "drop" : "raise"] bolts."))
-		else if(!aiBolting)
+		else if(!ai_bolting)
 			to_chat(user, SPAN_WARNING("The door is configured not to allow remote bolt operation."))
-		else if(!isnull(aiActionTimer))
+		else if(!isnull(ai_action_timer))
 			to_chat(user, SPAN_WARNING("An action is already queued. Please wait for it to complete."))
 		else if(activate)
-			to_chat(user, SPAN_NOTICE("The door bolts should drop in [aiBoltingDelay] seconds."))
-			audible_message("[icon2html(icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in <strong>[aiBoltingDelay] seconds</strong>.\"</span>")
-			aiActionTimer = addtimer(CALLBACK(src, PROC_REF(lock)), aiBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
+			to_chat(user, SPAN_NOTICE("The door bolts should drop in [ai_bolting_delay] seconds."))
+			audible_message("[icon2html(icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in <strong>[ai_bolting_delay] seconds</strong>.\"</span>")
+			ai_action_timer = addtimer(CALLBACK(src, PROC_REF(lock)), ai_bolting_delay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 		else
-			to_chat(user, SPAN_NOTICE("The door bolts should raise in [aiUnBoltingDelay] seconds."))
-			audible_message("[icon2html(icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[aiUnBoltingDelay] seconds</strong>.\"</span>")
-			aiActionTimer = addtimer(CALLBACK(src, PROC_REF(unlock)), aiUnBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
+			to_chat(user, SPAN_NOTICE("The door bolts should raise in [ai_unbolt_delay] seconds."))
+			audible_message("[icon2html(icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[ai_unbolt_delay] seconds</strong>.\"</span>")
+			ai_action_timer = addtimer(CALLBACK(src, PROC_REF(unlock)), ai_unbolt_delay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 	else // everyone else
 		if(activate)
 			if(lock())
