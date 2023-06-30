@@ -32,7 +32,8 @@ export const Manifest = (props, context) => {
                 key={dept}
                 title={dept}
                 textAlign="center"
-                className={'border-dept-' + dept.toLowerCase()}>
+                className={'border-dept-' + dept.toLowerCase()}
+                backgroundColor="rgba(10, 10, 10, 0.75)">
                 <Table>
                   {deptCrew.map((crewmate) => {
                     return (
