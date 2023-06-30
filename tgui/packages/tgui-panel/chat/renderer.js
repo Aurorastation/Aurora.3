@@ -470,7 +470,7 @@ class ChatRenderer {
     }
   }
 
-  pruneMessages() {
+  pruneMessagesTo(max_visible_messages, max_persisted_messages) {
     if (!this.isReady()) {
       return;
     }
@@ -483,7 +483,7 @@ class ChatRenderer {
     // Visible messages
     {
       const messages = this.visibleMessages;
-      const fromIndex = Math.max(0, messages.length - MAX_VISIBLE_MESSAGES);
+      const fromIndex = Math.max(0, messages.length - max_visible_messages);
       if (fromIndex > 0) {
         this.visibleMessages = messages.slice(fromIndex);
         for (let i = 0; i < fromIndex; i++) {
@@ -504,13 +504,17 @@ class ChatRenderer {
     {
       const fromIndex = Math.max(
         0,
-        this.messages.length - MAX_PERSISTED_MESSAGES
+        this.messages.length - max_persisted_messages
       );
       if (fromIndex > 0) {
         this.messages = this.messages.slice(fromIndex);
         logger.log(`pruned ${fromIndex} stored messages`);
       }
     }
+  }
+
+  pruneMessages() {
+    this.pruneMessagesTo(MAX_VISIBLE_MESSAGES, MAX_PERSISTED_MESSAGES);
   }
 
   rebuildChat() {
@@ -584,6 +588,10 @@ class ChatRenderer {
       .replace(/[-:]/g, '')
       .replace('T', '-');
     window.navigator.msSaveBlob(blob, `ss13-chatlog-${timestamp}.html`);
+  }
+
+  clear() {
+    this.pruneMessagesTo(0, 0);
   }
 }
 

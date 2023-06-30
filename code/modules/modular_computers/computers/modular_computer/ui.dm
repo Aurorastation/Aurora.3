@@ -85,7 +85,7 @@
 				"autorun" = istype(autorun) && (autorun.stored_data == P.filename),
 				"running" = (P in idle_threads)
 			))
-		else
+		if(P.program_type & PROGRAM_SERVICE)
 			data["services"] += list(list(
 				"filename" = P.filename,
 				"desc" = P.filedesc,

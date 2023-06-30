@@ -108,6 +108,7 @@
 		/obj/item/spell/mend_organs,
 		/obj/item/spell/modifier/mend_life,
 		/obj/item/spell/modifier/mend_synthetic,
+		/obj/item/defibrillator,
 		/obj/item/grab
 		)
 	// Check for multi-surgery drifting.
