@@ -81,7 +81,7 @@
 /obj/structure/closet/crate/bin/urban
 	name = "tall garbage can"
 	desc = "Garbage day!"
-	icon = 'icons/obj/structure/urban/waste.dmi'
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "bin"
 
 /obj/structure/closet/crate/bin/urban/compact
@@ -98,7 +98,7 @@
 /obj/structure/manhole
 	name = "sewer access manhole"
 	desc = "Probably a bad idea to open this."
-	icon = 'icons/obj/structure/urban/waste.dmi'
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "manhole_closed"
 	var/open = 0
 
@@ -109,13 +109,33 @@
 	if(!open)
 		visible_message("<span class='warning'>A horrid smell erupts from the abyss of the manhole, not one any soul should inhale. Some mistakes were made.</span>")
 		icon_state = "manhole_open"
+		desc = "This looks pretty dangerous, stinks horribly, and doesn't have a ladder inside. Watch out!"
 		open = 1
+		var/turf/turf = loc
+		turf.is_hole = TRUE
 		return
 	if(open)
 		visible_message("<span class='warning'>The manhole clunks and seals back into place, safely burying our problems underground for someone else later.</span>")
 		icon_state = "manhole_closed"
+		desc = "It looks recently opened and sloppily closed."
 		open = 0
+		var/turf/turf = loc
+		turf.is_hole = FALSE
 		return
+
+/obj/structure/hydrant
+	name = "water line hydrant"
+	desc = "An emergency water hydrant for emergency watering of things."
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
+	icon_state = "hydrant"
+	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/parking_meter
+	name = "parking meter"
+	desc = "A parking meter that seems to be turned off."
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
+	icon_state = "parking"
+	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/structure/shipping_container
 	name = "freight container"

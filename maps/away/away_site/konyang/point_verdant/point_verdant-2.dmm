@@ -32,7 +32,7 @@
 	layer = 9.1;
 	dir = 1
 	},
-/turf/simulated/floor/sidewalk,
+/turf/simulated/floor/sidewalk/flat,
 /area/point_verdant)
 "an" = (
 /obj/structure/ledge,
@@ -438,6 +438,12 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant)
+"eR" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
 "eT" = (
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -804,6 +810,10 @@
 /obj/structure/road_barrier,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant)
+"iF" = (
+/obj/structure/hydrant,
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
 "iH" = (
 /obj/structure/ledge{
 	dir = 4
@@ -874,6 +884,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
+"jh" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/obj/effect/decal/curb,
+/obj/structure/closet/crate/bin/urban/dumpster,
+/turf/simulated/floor/asphalt,
 /area/point_verdant)
 "jj" = (
 /obj/structure/road_sign/yield{
@@ -1222,6 +1241,16 @@
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/point_verdant)
+"nn" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "np" = (
 /turf/unsimulated/wall/plank{
 	dir = 1
@@ -1277,6 +1306,7 @@
 /area/point_verdant)
 "nB" = (
 /obj/structure/manhole,
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/asphalt,
 /area/point_verdant)
 "nG" = (
@@ -1682,6 +1712,15 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant)
+"sa" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/obj/effect/decal/curb,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/asphalt,
+/area/point_verdant)
 "sb" = (
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -1710,6 +1749,12 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant)
+"st" = (
+/obj/effect/decal/exterior_stairs/right{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant)
 "su" = (
 /turf/simulated/floor/concrete/square,
 /area/point_verdant)
@@ -1720,6 +1765,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant)
+"sA" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/flat,
 /area/point_verdant)
 "sJ" = (
 /obj/effect/decal/curb{
@@ -1791,6 +1843,16 @@
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant)
+"tB" = (
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_x = 5
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"tC" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant)
 "tD" = (
 /obj/structure/konyang_cliff{
@@ -2175,6 +2237,18 @@
 /obj/structure/flora/tree/konyang/fall,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant)
+"wU" = (
+/obj/structure/rod_railing{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"wW" = (
+/obj/structure/rod_railing{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant)
 "wX" = (
 /obj/structure/konyang_cliff{
 	icon_state = "corner_west"
@@ -2439,6 +2513,10 @@
 	pixel_y = -3
 	},
 /turf/simulated/floor/exoplanet/konyang/pink,
+/area/point_verdant)
+"yU" = (
+/obj/structure/hydrant,
+/turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant)
 "yZ" = (
 /turf/simulated/floor/wood/coloured/ebony,
@@ -2902,6 +2980,7 @@
 /obj/effect/decal/curb{
 	dir = 10
 	},
+/obj/structure/closet/crate/bin/urban,
 /turf/simulated/floor/asphalt,
 /area/point_verdant)
 "DP" = (
@@ -2923,7 +3002,7 @@
 /obj/effect/decal/exterior_stairs/left{
 	dir = 8
 	},
-/turf/simulated/floor/sidewalk,
+/turf/simulated/floor/sidewalk/flat,
 /area/point_verdant)
 "Ei" = (
 /obj/structure/shipping_container{
@@ -2985,6 +3064,10 @@
 "EH" = (
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/konyang/pink,
+/area/point_verdant)
+"EK" = (
+/obj/structure/parking_meter,
+/turf/simulated/floor/sidewalk,
 /area/point_verdant)
 "EN" = (
 /obj/effect/decal/curb/corner,
@@ -3059,6 +3142,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant)
+"Fv" = (
+/obj/effect/decal/curb,
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/asphalt,
 /area/point_verdant)
 "Fz" = (
 /obj/structure/rope_post,
@@ -3200,6 +3291,13 @@
 /obj/effect/floor_decal/konyang_flowers,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
+/area/point_verdant)
+"Hm" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/obj/structure/utility_pole/street/classic/on{
+	pixel_x = 11
+	},
+/turf/simulated/floor/sidewalk,
 /area/point_verdant)
 "Hp" = (
 /obj/structure/rod_railing{
@@ -3633,6 +3731,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant)
+"LE" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/concrete,
+/area/point_verdant)
 "LG" = (
 /obj/structure/dam{
 	icon_state = "dam3"
@@ -3799,6 +3901,7 @@
 /obj/structure/ledge{
 	dir = 9
 	},
+/obj/structure/hydrant,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant)
 "Nk" = (
@@ -3879,6 +3982,13 @@
 	},
 /obj/structure/rod_railing,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant)
+"NM" = (
+/obj/structure/parking_meter{
+	dir = 8;
+	pixel_x = -17
+	},
+/turf/simulated/floor/sidewalk,
 /area/point_verdant)
 "NS" = (
 /obj/structure/rod_railing{
@@ -4016,6 +4126,16 @@
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant)
+"Pa" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
 "Pg" = (
 /obj/structure/statue,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
@@ -4136,6 +4256,12 @@
 /obj/structure/flora/tree/konyang/fall,
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/point_verdant)
+"Rf" = (
+/obj/structure/rod_railing{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant)
 "Rp" = (
 /obj/structure/ledge,
 /obj/structure/rope_post,
@@ -4168,6 +4294,12 @@
 "RD" = (
 /obj/structure/flora/tree/konyang/fall,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
+/area/point_verdant)
+"RE" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/flat,
 /area/point_verdant)
 "RJ" = (
 /obj/structure/flora/rock/konyang/moss,
@@ -4400,6 +4532,22 @@
 	},
 /obj/structure/utility_pole/street/on{
 	dir = 1
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant)
+"Ua" = (
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"Ub" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/obj/structure/rod_railing{
+	dir = 4
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant)
@@ -9857,7 +10005,7 @@ KC
 iL
 Cg
 qk
-Ir
+yU
 Ir
 IH
 zm
@@ -10943,7 +11091,7 @@ nt
 nt
 Ca
 BT
-BT
+iF
 LN
 iL
 uf
@@ -11465,7 +11613,7 @@ BT
 BT
 BT
 ve
-iL
+nB
 iL
 YL
 pY
@@ -11636,7 +11784,7 @@ BT
 BT
 BT
 BT
-BT
+iF
 LN
 iL
 BH
@@ -11656,7 +11804,7 @@ BT
 BT
 BT
 BT
-BT
+iF
 ve
 iL
 Wf
@@ -11837,7 +11985,7 @@ nt
 nt
 nt
 Md
-BT
+EK
 ix
 pm
 iL
@@ -12029,10 +12177,10 @@ BT
 BT
 BT
 eb
+NM
 BT
 BT
-BT
-BT
+NM
 BT
 BT
 ux
@@ -12216,7 +12364,7 @@ nt
 nt
 Md
 BT
-BT
+EK
 YV
 pm
 iL
@@ -12383,7 +12531,7 @@ hx
 hx
 hx
 lD
-BT
+EK
 dc
 iL
 iL
@@ -12580,7 +12728,7 @@ IS
 IS
 lD
 BT
-BT
+EK
 Fl
 iL
 iL
@@ -12929,7 +13077,7 @@ hx
 hx
 hx
 lD
-BT
+EK
 dc
 iL
 iL
@@ -13475,7 +13623,7 @@ hx
 hx
 hx
 lD
-BT
+EK
 dc
 iL
 iL
@@ -14021,7 +14169,7 @@ hx
 hx
 hx
 lD
-BT
+EK
 dc
 iL
 iL
@@ -14037,7 +14185,7 @@ IS
 IS
 lD
 BT
-bh
+iF
 LN
 iL
 uf
@@ -14554,7 +14702,7 @@ iL
 uf
 gM
 wm
-BT
+iF
 BT
 BT
 BT
@@ -14594,7 +14742,7 @@ Ir
 Ir
 Ir
 Ir
-bh
+Ir
 Ir
 Ir
 Ir
@@ -15635,7 +15783,7 @@ iW
 Uq
 ve
 Ja
-BT
+iF
 BT
 BT
 BT
@@ -17495,7 +17643,7 @@ BT
 BT
 BT
 BT
-bh
+iF
 LN
 iL
 Xy
@@ -18572,7 +18720,7 @@ BT
 BT
 BT
 BT
-BT
+EK
 dc
 iL
 iL
@@ -19118,7 +19266,7 @@ Cs
 Cs
 Cs
 lD
-BT
+EK
 dc
 iL
 iL
@@ -19664,7 +19812,7 @@ Cs
 Cs
 Cs
 lD
-BT
+EK
 dc
 iL
 iL
@@ -19830,7 +19978,7 @@ Ij
 Ij
 lD
 BT
-KJ
+Fv
 lD
 vJ
 vJ
@@ -20183,7 +20331,7 @@ HX
 HX
 HX
 wL
-zI
+sa
 Ja
 HD
 nt
@@ -20365,17 +20513,17 @@ HX
 HX
 HX
 wL
-zI
+jh
 Ja
 BT
 BT
+Db
 BT
 BT
 BT
 BT
 BT
-BT
-BT
+Hm
 KJ
 HD
 nt
@@ -20551,10 +20699,10 @@ DM
 Yk
 pY
 pY
+nn
 pY
 pY
-pY
-pY
+nn
 pY
 pY
 pY
@@ -20568,7 +20716,7 @@ pY
 pY
 pY
 pY
-pY
+nn
 pY
 pY
 pY
@@ -20729,35 +20877,35 @@ HX
 lN
 HX
 MV
-Db
-BT
-BT
-BT
-BT
-BT
+Pa
+eR
+iS
+iS
 cY
 cY
 cY
 cY
-BT
-BT
 cY
 cY
 cY
 cY
-BT
-BT
+LE
+cY
+cY
+LE
 cY
 cY
 cY
 cY
-BT
-BT
-BT
-BT
-BT
-BT
-bh
+LE
+cY
+pJ
+nt
+nt
+nt
+nt
+Md
+iF
 ve
 iL
 iL
@@ -20913,32 +21061,32 @@ HX
 DC
 Db
 BT
-BT
-BT
-BT
-BT
+cY
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
 cY
 cY
-cY
-cY
-BT
-BT
-cY
-cY
-cY
-cY
-BT
-BT
-cY
-cY
-cY
-cY
-BT
-BT
-BT
-BT
-BT
-BT
+lD
+Cs
+Cs
+Cs
+Cs
+lD
 BT
 iI
 cC
@@ -21095,32 +21243,32 @@ HX
 MV
 Db
 BT
-BT
-BT
-BT
-BT
+cY
+Wq
+RD
+Wq
+Wq
+Wq
+Wq
+Wq
+RD
+Wq
+Wq
+Wq
+Wq
+Wq
+RD
+Wq
+Wq
+Wq
 cY
 cY
-cY
-cY
-BT
-BT
-cY
-cY
-cY
-cY
-BT
-BT
-cY
-cY
-cY
-cY
-BT
-BT
-BT
-BT
-BT
-BT
+lD
+Cs
+Cs
+Cs
+Cs
+lD
 BT
 BT
 BT
@@ -21277,43 +21425,43 @@ HX
 wL
 Db
 BT
-BT
-BT
-BT
-BT
+cY
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+RD
+Wq
+tC
+Wq
+Wq
+Wq
+RD
 cY
 cY
-cY
-cY
-BT
-BT
-cY
-cY
-cY
-cY
-BT
-BT
-cY
-cY
-cY
-cY
+lD
+Cs
+Cs
+Cs
+Cs
+HD
+nt
+Md
 BT
 BT
 BT
 BT
 BT
+NM
 BT
 BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+NM
 BT
 BT
 BT
@@ -21458,35 +21606,35 @@ HX
 HX
 wL
 Db
-BT
-BT
-BT
-BT
-BT
+IZ
+cY
+Wq
+Wq
+Wq
+RD
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+Wq
+tC
+Wq
+Wq
+Wq
 cY
 cY
-cY
-cY
-BT
-BT
-cY
-cY
-cY
-cY
-BT
-BT
-cY
-cY
-cY
-cY
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+lD
+Cs
+Cs
+Cs
+Cs
+Cs
+Cs
+lD
 BT
 BT
 BT
@@ -21641,37 +21789,37 @@ HX
 wL
 Db
 BT
-BT
-BT
-BT
-BT
 cY
 cY
 cY
 cY
-BT
-BT
+cY
+cY
+LE
+cY
+LE
 cY
 cY
 cY
+LE
 cY
-BT
-BT
+LE
+LE
 cY
 cY
 cY
-cY
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+LE
+lD
+Cs
+Cs
+Cs
+Cs
+Cs
+Cs
+lD
+TB
+Uw
+kI
 BT
 BT
 BT
@@ -21824,6 +21972,11 @@ TJ
 Db
 BT
 BT
+Ua
+BT
+BT
+BT
+IZ
 BT
 Qa
 BT
@@ -21836,32 +21989,27 @@ BT
 BT
 BT
 BT
-BT
-Qa
-BT
-BT
-BT
-BT
-BT
-Qa
-BT
-BT
-BT
-BT
-BT
-Qa
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+tB
+Ua
+HD
+nt
+nt
+nt
+nt
+nt
+nt
+Ca
+od
+od
+pJ
+nt
+nt
+nt
+nt
+nt
+nt
+nt
+Md
 BT
 Ir
 LN
@@ -22033,17 +22181,17 @@ eh
 eh
 eh
 xD
-Db
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+sA
+od
+lD
+Cs
+Cs
+Cs
+Cs
+Cs
+Cs
+Cs
+lD
 BT
 Ir
 LN
@@ -22215,17 +22363,17 @@ ZZ
 ZZ
 ZZ
 wL
-Db
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+sA
+od
+lD
+Cs
+Cs
+Cs
+Cs
+Cs
+Cs
+Cs
+lD
 BT
 Ir
 LN
@@ -22397,19 +22545,19 @@ aH
 ZZ
 ZZ
 DC
-Db
+sA
+od
+lD
+Cs
+Cs
+Cs
+Cs
+Cs
+Cs
+Cs
+lD
 BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-Ir
+yU
 LN
 iL
 Xy
@@ -22579,17 +22727,17 @@ aH
 ZZ
 ZZ
 wL
-Db
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+sA
+od
+lD
+Cs
+Cs
+Cs
+Cs
+Cs
+Cs
+Cs
+lD
 BT
 Ir
 LN
@@ -22761,17 +22909,17 @@ CY
 HX
 HX
 wL
-Db
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+sA
+od
+HD
+nt
+Md
+Cs
+Cs
+Cs
+Cs
+Cs
+lD
 BT
 Ir
 LN
@@ -22943,17 +23091,17 @@ cQ
 ZZ
 ZZ
 wL
-Db
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+sA
+od
+od
+od
+lD
+Cs
+Cs
+Cs
+Cs
+Cs
+lD
 BT
 bV
 LN
@@ -23125,17 +23273,17 @@ eT
 ZZ
 ZZ
 wL
-Db
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+sA
+od
+od
+od
+lD
+Cs
+Cs
+Cs
+Cs
+Cs
+lD
 BT
 Ir
 LN
@@ -23307,17 +23455,17 @@ ZZ
 ZZ
 ZZ
 TJ
-Db
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+sA
+od
+od
+od
+lD
+Cs
+Cs
+Cs
+Cs
+Cs
+lD
 BT
 Ir
 LN
@@ -23490,16 +23638,16 @@ ko
 ko
 MV
 al
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+od
+od
+od
+lD
+Cs
+Cs
+Cs
+Cs
+Cs
+lD
 BT
 Ir
 LN
@@ -23671,17 +23819,17 @@ iS
 iS
 iS
 eg
-CV
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+RE
+od
+od
+od
+lD
+Cs
+Cs
+Cs
+Cs
+Cs
+lD
 BT
 Ir
 LN
@@ -23854,16 +24002,16 @@ cY
 cY
 vq
 Ec
-Uw
-kI
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+ZB
+st
+od
+lD
+Cs
+Cs
+Cs
+Cs
+Cs
+lD
 BT
 Ir
 LN
@@ -24038,14 +24186,14 @@ cY
 cY
 cY
 HE
-CV
-BT
-BT
-BT
-BT
-BT
-BT
-BT
+RE
+HD
+nt
+nt
+nt
+nt
+nt
+Ca
 BT
 Ir
 LN
@@ -24220,13 +24368,13 @@ cY
 cY
 cY
 vq
-CV
-BT
-BT
-BT
-BT
-BT
-BT
+RE
+od
+od
+od
+od
+od
+od
 BT
 BT
 bV
@@ -24402,16 +24550,16 @@ vz
 vz
 vz
 Hp
-CV
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-BT
-Ir
+Ub
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+wU
+wU
+wW
 LN
 iL
 Xy

@@ -11,7 +11,7 @@
 	color = "#6e632f"
 
 /turf/unsimulated/mineral/konyang
-	color = "#4c5c30"
+	color = "#555f44"
 
 // This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
 var/list/mineral_can_smooth_with = list(

@@ -41,3 +41,8 @@
 
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth
 	smooth = SMOOTH_FALSE
+
+/turf/simulated/floor/exoplanet/water/shallow/sewage//What horror.
+	name = "putrid sewage"
+	desc = "This is utterly vile."
+	color = "#9ea844"//Ew

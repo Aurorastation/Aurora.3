@@ -16,7 +16,6 @@
 	name = "Konyang - Point Verdant Spaceport"
 	desc = "A landing zone designated by local authorities within an SCC-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
 	icon_state = "object"
-	layer = 3
 	scanimage = "konyang_point_verdant.png"
 
 	initial_generic_waypoints = list(

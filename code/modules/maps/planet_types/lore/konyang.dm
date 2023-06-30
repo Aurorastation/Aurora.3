@@ -20,7 +20,7 @@
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = null
-	place_near_main = list(1, 1)
+	place_near_main = list(0, 0)
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_habitability()
 	return HABITABILITY_IDEAL
