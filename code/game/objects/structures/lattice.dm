@@ -64,7 +64,7 @@
 		var/obj/item/stack/rods/R = C
 		if (R.use(2))
 			to_chat(user, "<span class='notice'>Constructing catwalk ...</span>")
-			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice/catwalk(src.loc)
 			qdel(src)
 		return

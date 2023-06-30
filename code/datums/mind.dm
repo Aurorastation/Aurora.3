@@ -89,13 +89,13 @@
 	if(current)					//remove ourself from our old body's mind variable
 		if(changeling)
 			current.remove_changeling_powers()
-			current.verbs -= /datum/changeling/proc/EvolutionMenu
+			remove_verb(current, /datum/changeling/proc/EvolutionMenu)
 		if(vampire)
 			current.remove_vampire_powers()
 		current.mind = null
 
-		SSnanoui.user_transferred(current, new_character) // transfer active NanoUI instances to new user
-		SSvueui.user_transferred(current, new_character)
+		SSnanoui.user_transferred(current, new_character)
+		SStgui.on_transfer(current, new_character)
 		if(current.client && ticket_panels[current.client])
 			var/datum/ticket_panel/tp = ticket_panels[current.client]
 			tp.ticket_panel_window.user = new_character
@@ -112,6 +112,7 @@
 		new_character.make_vampire()
 	if(active)
 		new_character.key = key		//now transfer the key to link the client to our new body
+	
 
 /datum/mind/proc/store_memory(new_text)
 	. = length(memory + new_text)
@@ -373,7 +374,7 @@
 				to_chat(H, "<span class='danger'><font size =3>You somehow have become the recipient of a loyalty transplant, and it just activated!</font></span>")
 				H.implant_loyalty(H, override = TRUE)
 				log_admin("[key_name_admin(usr)] has loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
-			else
+
 	else if (href_list["silicon"])
 		BITSET(current.hud_updateflag, SPECIALROLE_HUD)
 		switch(href_list["silicon"])
@@ -427,11 +428,12 @@
 					var/obj/item/device/uplink/hidden/suplink = find_syndicate_uplink()
 					var/crystals
 					if (suplink)
-						crystals = suplink.uses
-					crystals = input("Amount of telecrystals for [key]","Operative uplink", crystals) as null|num
+						crystals = suplink.telecrystals + suplink.bluecrystals
+					crystals = input("Amount of telecrystals and bluecrystals for [key]","Operative uplink", crystals) as null|num
 					if (!isnull(crystals))
 						if (suplink)
-							suplink.uses = crystals
+							suplink.telecrystals = crystals
+							suplink.bluecrystals = crystals
 
 	else if (href_list["obj_announce"])
 		var/obj_count = 1

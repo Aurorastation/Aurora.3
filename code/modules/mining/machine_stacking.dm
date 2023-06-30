@@ -63,7 +63,7 @@
 	add_fingerprint(user)
 	ui_interact(user)
 
-/obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = default_state)
+/obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/ui_state/state = default_state)
 	if(!setup_machine(user))
 		return
 

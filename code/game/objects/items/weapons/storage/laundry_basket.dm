@@ -85,6 +85,6 @@
 	equip_sound = null
 
 /obj/item/storage/laundry_basket/offhand/dropped(mob/user as mob)
+	. = ..()
 	user.drop_from_inventory(linked)
-	return
 

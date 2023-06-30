@@ -131,9 +131,7 @@
 	var/vtext = ""
 	var/debug_type = get_debug_type(value, FALSE)
 	var/extra = list()
-	if(isnull(value))
-		// get_debug_type displays this
-	else if(istext(value))
+	if(istext(value))
 		debug_type = null // it's kinda annoying here; we can tell the type by the quotes
 		vtext = "\"[html_encode(value)]\""
 	else if(isicon(value))

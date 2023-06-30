@@ -277,7 +277,7 @@
 			var/choice = input("What component would you like to remove?") as null|anything in list(helmet,boots,tank,cooler)
 			if(!choice) return
 
-			playsound(src, 'sound/items/screwdriver.ogg', 50, 1)
+			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 			if(choice == tank)	//No, a switch doesn't work here. Sorry. ~Techhead
 				to_chat(user, "You pop \the [tank] out of \the [src]'s storage compartment.")
 				tank.forceMove(get_turf(src))

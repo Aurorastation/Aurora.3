@@ -1,6 +1,3 @@
-#define CITIZENSHIPS_NRALAKK list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM)
-#define RELIGIONS_NRALAKK list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
-
 /singleton/origin_item/culture/federation
 	name = "Federation Skrell"
 	desc = "The Nralakk Federation was first formed in 900 CE to unite the Skrell diaspora on Qerrbalak and its initial colonies, and formed again in 2245 CE with the disappearance of Glorsh-Omega. The Federation throughout the centuries has always had the main goal of uplifting the Skrell species as a whole, resulting in a culture that places importance on family, success, and working as a collective for the betterment of Skrellkind."

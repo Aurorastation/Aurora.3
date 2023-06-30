@@ -68,6 +68,12 @@ var/list/global_webhooks = list()
 /proc/post_webhook_event(var/tag, var/list/data)
 	set background = 1
 
+	var/escape_text
+	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
+		escape_text = "escaped"
+	else
+		escape_text = "transfered"
+
 	if (!global_webhooks.len)
 		return
 	var/OutData = list()
@@ -109,7 +115,7 @@ var/list/global_webhooks = list()
 			emb["description"] += data["antags"]
 			if(data["survivours"] > 0)
 				emb["description"] += "There [data["survivours"]>1 ? "were **[data["survivours"]] survivors**" : "was **one survivor**"]"
-				emb["description"] += " ([data["escaped"]>0 ? data["escaped"] : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "transferred"]) and **[data["ghosts"]] ghosts**."
+				emb["description"] += " ([data["escaped"]>0 ? data["escaped"] : "none"] [escape_text]) and **[data["ghosts"]] ghosts**."
 			else
 				emb["description"] += "There were **no survivors** ([data["ghosts"]] ghosts)."
 			OutData["embeds"] = list(emb)

@@ -255,7 +255,7 @@
 /obj/item/gun/energy/laser/prototype/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(zoomdevicename)
 		if(wielded)
@@ -295,6 +295,7 @@
 	set name = "Name Prototype"
 	set category = "Object"
 	set desc = "Name your invention so that its glory might be eternal"
+	set src in usr
 
 	var/mob/M = usr
 	if(!M.mind)
@@ -312,6 +313,7 @@
 	set name = "Describe Prototype"
 	set category = "Object"
 	set desc = "Describe your invention so that its glory might be eternal"
+	set src in usr
 
 	var/mob/M = usr
 	if(!M.mind)

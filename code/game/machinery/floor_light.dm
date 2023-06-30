@@ -28,7 +28,7 @@ var/list/floor_light_cache = list()
 	if(W.isscrewdriver())
 		anchored = !anchored
 		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
-		playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		return TRUE
 	else if(W.iswelder() && (damaged || (stat & BROKEN)))
 		var/obj/item/weldingtool/WT = W

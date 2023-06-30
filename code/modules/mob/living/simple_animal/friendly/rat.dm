@@ -91,8 +91,8 @@
 	. = ..()
 
 	nutrition = rand(max_nutrition*0.25, max_nutrition*0.75)
-	verbs += /mob/living/proc/ventcrawl
-	verbs += /mob/living/proc/hide
+	add_verb(src, /mob/living/proc/ventcrawl)
+	add_verb(src, /mob/living/proc/hide)
 
 	if(name == initial(name))
 		name = "[name] ([rand(1, 1000)])"

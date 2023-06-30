@@ -4336,6 +4336,10 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Glorp"
 	icon_state = "glorp"
 
+/datum/sprite_accessory/facial_hair/diona_eye/snout
+	name = "Snout"
+	icon_state = "snout"
+
 /datum/sprite_accessory/facial_hair/tuux_whiskers
 	icon = 'icons/mob/human_face/skrell_beards.dmi'
 	name = "Tuux Tentacle Whiskers"
@@ -6071,6 +6075,10 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/marking/diona_leaves/bug_eyes/stump
 	name = "Stump"
 	icon_state = "stump"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/snout
+	name = "Snout"
+	icon_state = "snout"
 
 /datum/sprite_accessory/marking/diona_leaves/pbody
 	name = "P-Body"

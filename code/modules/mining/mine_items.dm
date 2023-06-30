@@ -78,6 +78,7 @@
 	return ..()
 
 /obj/item/pickaxe/dropped(mob/user)
+	. = ..()
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
 		var/obj/item/pickaxe/O = user.get_inactive_hand()
@@ -1048,7 +1049,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "shield2"
 	layer = 5
 	anchored = TRUE
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/resonance_damage = 20
 	var/creator
 	var/obj/item/resonator/res
@@ -1207,7 +1208,7 @@ var/list/total_extraction_beacons = list()
 		user.visible_message(SPAN_NOTICE("\The [user] begins sculpting."), SPAN_NOTICE("You begin sculpting."))
 
 		if(prob(25))
-			playsound(loc, 'sound/items/screwdriver.ogg', 20, TRUE)
+			playsound(loc, 'sound/items/Screwdriver.ogg', 20, TRUE)
 		else
 			playsound(loc, /singleton/sound_category/pickaxe_sound, 20, TRUE)
 

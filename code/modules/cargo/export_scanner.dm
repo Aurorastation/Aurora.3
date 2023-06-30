@@ -7,7 +7,6 @@
 	item_flags = NOBLUDGEON
 	w_class = ITEMSIZE_SMALL
 	siemens_coefficient = 1
-	var/obj/machinery/computer/cargo/cargo_console = null
 
 /obj/item/export_scanner/afterattack(obj/O, mob/user, proximity)
 	. = ..()

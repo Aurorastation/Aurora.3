@@ -303,6 +303,7 @@
 	usr.drop_from_inventory(src)
 
 /obj/item/combitool/robotic/dropped()
+	. = ..()
 	loc = null
 	qdel(src)
 
@@ -328,6 +329,7 @@
 	usr.drop_from_inventory(src)
 
 /obj/item/pickaxe/drill/integrated/dropped()
+	. = ..()
 	loc = null
 	qdel(src)
 

@@ -407,6 +407,21 @@ var/list/mineral_can_smooth_with = list(
 		visible_message(SPAN_NOTICE("An old dusty crate was buried within!"))
 		new /obj/structure/closet/crate/secure/loot(src)
 
+/turf/simulated/mineral/ChangeTurf(N, tell_universe, force_lighting_update, ignore_override, mapload)
+	var/old_has_resources = has_resources
+	var/list/old_resources = resources
+	var/image/old_resource_indicator = resource_indicator
+
+	var/turf/new_turf = ..()
+
+	new_turf.has_resources = old_has_resources
+	new_turf.resources = old_resources
+	new_turf.resource_indicator = old_resource_indicator
+	if(new_turf.resource_indicator)
+		new_turf.add_overlay(new_turf.resource_indicator)
+
+	return new_turf
+
 /turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F)
 	//with skill and luck, players can cleanly extract finds
 	//otherwise, they come out inside a chunk of rock
@@ -695,7 +710,7 @@ var/list/asteroid_floor_smooth = list(
 		var/obj/item/stack/rods/R = W
 		if(R.use(1))
 			to_chat(user, SPAN_NOTICE("Constructing support lattice..."))
-			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
 
@@ -706,7 +721,7 @@ var/list/asteroid_floor_smooth = list(
 			if(S.get_amount() < 1)
 				return
 			qdel(L)
-			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, TRUE)
 			S.use(1)
 			ChangeTurf(/turf/simulated/floor/airless)
 			return

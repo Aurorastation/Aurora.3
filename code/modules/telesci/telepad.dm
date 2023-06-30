@@ -78,7 +78,7 @@
 			to_chat(user, "<span class='caution'>You screw in the telepad's tracking beacon.</span>")
 			stage = 0
 	if(W.iswelder() && stage == 1)
-		playsound(src, 'sound/items/welder.ogg', 50, 1)
+		playsound(src, 'sound/items/Welder.ogg', 50, 1)
 		to_chat(user, "<span class='caution'>You disassemble the telepad.</span>")
 		new /obj/item/stack/material/steel(get_turf(src))
 		new /obj/item/stack/material/glass(get_turf(src))

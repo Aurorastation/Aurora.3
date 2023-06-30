@@ -21,8 +21,8 @@
 
 	var/list/categories = list()
 	var/category = null
-	var/manufacturer = null
 	var/sync_message = ""
+	var/limb_manufacturer
 
 	component_types = list(
 		/obj/item/circuitboard/mechfab,
@@ -36,7 +36,7 @@
 	. = ..()
 
 	files = new /datum/research(src) //Setup the research data holder.
-	manufacturer = basic_robolimb.company
+	limb_manufacturer = basic_robolimb.company
 	update_categories()
 
 /obj/machinery/mecha_part_fabricator/process()
@@ -105,7 +105,7 @@
 			var/datum/robolimb/R = fabricator_robolimbs[A]
 			T += list(list("id" = A, "company" = R.company))
 		data["manufacturers"] = T
-		data["manufacturer"] = manufacturer
+		data["manufacturer"] = limb_manufacturer
 	data["materials"] = get_materials()
 	data["maxres"] = res_max_amount
 	data["sync"] = sync_message
@@ -136,7 +136,7 @@
 
 	if(href_list["manufacturer"])
 		if(href_list["manufacturer"] in fabricator_robolimbs)
-			manufacturer = href_list["manufacturer"]
+			limb_manufacturer = href_list["manufacturer"]
 
 	if(href_list["eject"])
 		eject_materials(href_list["eject"], text2num(href_list["amount"]))

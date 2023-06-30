@@ -3619,6 +3619,7 @@
 	pixel_y = -24;
 	req_access = null
 	},
+/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "jgM" = (
@@ -3932,6 +3933,9 @@
 	name = "lattice"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod4)
 "kfJ" = (
@@ -6505,6 +6509,9 @@
 /area/ship/freebooter_ship/gunnery)
 "pEW" = (
 /obj/effect/decal/cleanable/blood,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "pHN" = (
@@ -8589,7 +8596,7 @@
 	},
 /obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor/airless,
-/area/ship/freebooter_ship)
+/area/shuttle/freebooter_shuttle)
 "uGz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9310,7 +9317,7 @@
 	},
 /obj/machinery/shipsensors/weak,
 /turf/simulated/floor/airless,
-/area/ship/freebooter_ship)
+/area/shuttle/freebooter_shuttle)
 "wdL" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -9831,7 +9838,9 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/cobweb2,
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "xBh" = (

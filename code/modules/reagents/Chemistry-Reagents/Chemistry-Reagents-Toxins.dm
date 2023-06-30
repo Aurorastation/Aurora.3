@@ -613,6 +613,7 @@
 		M.mind.transfer_to(new_mob)
 	else
 		new_mob.key = M.key
+	new_mob.client.init_verbs()
 	qdel(M)
 
 /singleton/reagent/toxin/nanites
