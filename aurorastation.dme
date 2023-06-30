@@ -8,11 +8,11 @@
 // END_FILE_DIR
 // BEGIN_PREFERENCES
 #define DEBUG
-// END_PREFERENCES
-// BEGIN_INCLUDE
 #ifdef OPENDREAM
 #include "code\___odlint.dm"
 #endif
+// END_PREFERENCES
+// BEGIN_INCLUDE
 #include "code\global.dm"
 #include "code\hub.dm"
 #include "code\names.dm"
