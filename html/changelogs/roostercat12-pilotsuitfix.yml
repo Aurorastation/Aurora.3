@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Edited the pilot hardsuit's description and gave it the ability to have any module installed. Also made it slow you down if unpowered and gave it a 0.5 siemens coefficient."
+  - tweak: "Edited the pilot hardsuit's description and gave it the ability to have any module installed. Also changed its slow rate while unpowered and changed view restriction while powering to 0"
 
