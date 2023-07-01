@@ -53,7 +53,7 @@ export const Manifest = (props, context) => {
                     </TableCell>
                     {allow_follow ? (
                       <TableCell textAlign="right">
-                        <Tooltip content="Follow mob">
+                        <Tooltip content="Follow Mob">
                           <Button
                             content="F"
                             onClick={() =>
