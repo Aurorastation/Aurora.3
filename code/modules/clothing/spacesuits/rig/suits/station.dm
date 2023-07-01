@@ -201,7 +201,7 @@
 		rad = ARMOR_RAD_SHIELDED
 	)
 	offline_slowdown = 2
-	offline_vision_restriction = 0
+	offline_vision_restriction = TINT_NONE
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	
