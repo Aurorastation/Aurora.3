@@ -187,7 +187,7 @@
 /obj/item/rig/eva/pilot
 	name = "pilot suit control module"
 	suit_type = "Pilot hardsuit"
-	desc = "A light hardsuit issued to SCC pilots, known as the wyvern hardsuit. It features light armor designed to protect the wearer from flak and shrapnel."
+	desc = "A light hardsuit issued to SCC pilots, known as the Wyvern hardsuit. It features light armor designed to protect the wearer from flak and shrapnel, as well as integrated maneuvering jets and an improved airflow system."
 	icon = 'icons/clothing/rig/pilotsuit.dmi'
 	icon_state = "pilot_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
@@ -200,6 +200,14 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
 	)
+	slowdown = 0
+	offline_slowdown = 2
+	offline_vision_restriction = 0
+	siemens_coefficient = 0.5
+
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_UTILITY
 
 /obj/item/rig/eva/pilot/equipped
 
