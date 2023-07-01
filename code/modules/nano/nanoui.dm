@@ -55,7 +55,7 @@ nanoui is used to open and update nano browser uis
 	// Relationship between a master interface and its children. Used in update_status
 	var/datum/nanoui/master_ui
 	var/list/datum/nanoui/children = list()
-	var/datum/topic_state/state = null
+	var/datum/ui_state/state = null
 
  /**
   * Create a new nanoui instance.
@@ -71,7 +71,7 @@ nanoui is used to open and update nano browser uis
   *
   * @return /nanoui new nanoui object
   */
-/datum/nanoui/New(nuser, nsrc_object, nui_key, ntemplate_filename, ntitle = 0, nwidth = 0, nheight = 0, var/atom/nref = null, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = default_state)
+/datum/nanoui/New(nuser, nsrc_object, nui_key, ntemplate_filename, ntitle = 0, nwidth = 0, nheight = 0, var/atom/nref = null, var/datum/nanoui/master_ui = null, var/datum/ui_state/state = default_state)
 	user = nuser
 	src_object = nsrc_object
 	ui_key = nui_key
@@ -95,6 +95,11 @@ nanoui is used to open and update nano browser uis
 		ref = nref
 
 	add_common_assets()
+
+	var/datum/asset/assets = get_asset_datum(/datum/asset/nanoui)
+	assets.send(user, assets)
+
+
 
  /**
   * Use this proc to add assets which are common to (and required by) all nano uis

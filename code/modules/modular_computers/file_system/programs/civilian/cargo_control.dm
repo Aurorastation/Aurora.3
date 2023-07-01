@@ -10,18 +10,15 @@
 	required_access_download = access_hop
 	required_access_run = access_cargo
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_TELESCREEN
-	nanomodule_path = /datum/nano_module/program/civilian/cargocontrol
+	tgui_id = "CargoControl"
 
-/datum/nano_module/program/civilian/cargocontrol
-	name = "Cargo Control"
 	var/page = "overview_main" //overview_main - Main Menu, overview_submitted - Submitted Order Overview, overview_approved - Approved Order Overview, settings - Settings, details - order details, bounties - centcom bounties
 	var/status_message //A status message that can be displayed
 	var/list/order_details = list() //Order Details for the order
 	var/list/shipment_details = list() //Shipment Details for a selected shipment
 
-/datum/nano_module/program/civilian/cargocontrol/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-	var/list/data = host.initial_data()
-	var/obj/item/modular_computer/console = program.computer
+/datum/computer_file/program/civilian/cargocontrol/ui_data(mob/user)
+	var/list/data = initial_data()
 
 	post_signal("supply")
 
@@ -62,7 +59,7 @@
 	if(page == "overview_delivered")
 		data["order_list"] = delivered_orders
 
-	if(page == "order_details")
+	if(length(order_details))
 		data["order_details"] = order_details
 
 	if(page == "overview_shipments")
@@ -75,10 +72,7 @@
 	data["handling_fee"] = SScargo.get_handlingfee()
 	data["bounties"] = SScargo.get_bounty_list()
 
-	if(console)
-		data["have_printer"] = !!console.nano_printer
-	else
-		data["have_printer"] = FALSE
+	data["have_printer"] = !!computer.nano_printer
 
 	//Shuttle Stuff
 	var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
@@ -97,163 +91,154 @@
 	else
 		data["shuttle_available"] = 0
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "cargo_control.tmpl", name, 850, 600, state = state)
-		ui.auto_update_layout = TRUE
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(TRUE)
+	return data
 
-/datum/nano_module/program/civilian/cargocontrol/Topic(href, href_list)
-	if(..())
+/datum/computer_file/program/civilian/cargocontrol/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return TRUE
 
 	var/obj/item/card/id/I = usr.GetIdCard()
 
 	var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
-	var/obj/item/modular_computer/console = program.computer
 	if (!shuttle)
 		log_debug("## ERROR: Eek. The supply/shuttle datum is missing somehow.")
 		return
-	if(..())
-		return TRUE
 
-	//Page switch between main, submitted, approved and settings
-	if(href_list["page"])
-		switch(href_list["page"])
-			if("overview_main")
-				page = "overview_main" //Main overview page with links to the different sub overview pages - submitted, approved, shipped
-			if("overview_submitted")
-				page = "overview_submitted" //Overview page listing the orders that have been submitted with options to view them, approve them and reject them
-			if("overview_approved")
-				page = "overview_approved" //Overview page listing the current shuttle price and time as well as orders that have been approved, with options to view the details
-			if("overview_shipped")
-				page = "overview_shipped" //Overview page listing the orders that have been shipped to the station but not delivered
-			if("overview_delivered")
-				page = "overview_delivered" //Overview page listing the orders that have been delivered
-			if("order_details")
-				page = "order_details" //Details page for a specific order - Lists the contents of the orde with the suppliers, prices and required access levels
-				//Fetch the order details and store it for the order. No need to fetch it again every 2 seconds
-				var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(href_list["order_details"]))
-				order_details = co.get_list()
-			if("overview_shipments") //Overview of the shipments to / from the station
-				page = "overview_shipments"
-			if("shipment_details") //Details of a Shipment to / from the station
-				page = "shipment_details"
-			if("settings")
-				page = "settings" //Settings page that allows to tweak various settings such as the cargo handling fee
-			if("bounties")
-				page = "bounties" //Page listing the currently available centcom bounties
-			else
-				page = "overview_main" //fall back to overview_main if a unknown page has been supplied
-		return TRUE
-
-	//Approve a order
-	if(href_list["order_approve"])
-		var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(href_list["order_approve"]))
-		if(co)
-			var/message = co.set_approved(GetNameAndAssignmentFromId(I), usr.character_id)
-			if(message)
-				status_message = message
-		return TRUE
-
-	//Reject a order
-	if(href_list["order_reject"])
-		var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(href_list["order_reject"]))
-		if(co)
-			var/message = co.set_rejected()
-			if(message)
-				status_message = message
-		return TRUE
-
-	//Send shuttle
-	if(href_list["shuttle_send"])
-		var/message = SScargo.shuttle_call(GetNameAndAssignmentFromId(I))
-		if(message)
-			status_message = message
-		return TRUE
-
-	//Cancel shuttle
-	if(href_list["shuttle_cancel"])
-		var/message = SScargo.shuttle_cancel()
-		if(message)
-			status_message = message
-		return TRUE
-
-	//Force shuttle
-	if(href_list["shuttle_force"])
-		var/message = SScargo.shuttle_force()
-		if(message)
-			status_message = message
-		return TRUE
-
-	//Clear Status Message
-	if(href_list["clear_message"])
-		status_message = null
-		return TRUE
-
-	//Change the handling fee
-	if(href_list["handling_fee"])
-		var/handling_fee = sanitize(input(usr, "Handling Fee:", "Set the new handling fee?", SScargo.get_handlingfee()) as null|text)
-		status_message = SScargo.set_handlingfee(text2num(handling_fee))
-		return TRUE
-
-	//Claim a bounty
-	if(href_list["claim_bounty"])
-		for(var/datum/bounty/b in SScargo.bounties_list)
-			if(b.name == href_list["claim_bounty"])
-				if(b.claim())
-					status_message = "Bounty for [b.name] claimed successfully"
+	switch(action)
+		//Page switch between main, submitted, approved and settings
+		if("page")
+			switch(params["page"])
+				if("overview_main")
+					page = "overview_main" //Main overview page with links to the different sub overview pages - submitted, approved, shipped
+				if("overview_submitted")
+					page = "overview_submitted" //Overview page listing the orders that have been submitted with options to view them, approve them and reject them
+				if("overview_approved")
+					page = "overview_approved" //Overview page listing the current shuttle price and time as well as orders that have been approved, with options to view the details
+				if("overview_shipped")
+					page = "overview_shipped" //Overview page listing the orders that have been shipped to the station but not delivered
+				if("overview_delivered")
+					page = "overview_delivered" //Overview page listing the orders that have been delivered
+				if("overview_shipments") //Overview of the shipments to / from the station
+					page = "overview_shipments"
+				if("settings")
+					page = "settings" //Settings page that allows to tweak various settings such as the cargo handling fee
+				if("bounties")
+					page = "bounties" //Page listing the currently available centcom bounties
 				else
-					status_message = "Could not claim Bounty for [b.name]"
-				return
+					page = "overview_main" //fall back to overview_main if a unknown page has been supplied
+			return TRUE
 
-	//Print functions
-	if(href_list["order_print"])
-		//Get the order
-		var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(href_list["order_print"]))
-		if(co && console && console.nano_printer)
-			if(!console.nano_printer.print_text(co.get_report_invoice(),"Order Invoice #[co.order_id]"))
-				to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
-				return
-			else
-				console.visible_message(SPAN_NOTICE("\The [console] prints out paper."))
-	if(href_list["shipment_print"])
-		var/datum/cargo_shipment/cs = SScargo.get_shipment_by_id(text2num(href_list["shipment_print"]))
-		if(cs?.completed && console?.nano_printer)
-			var/obj/item/paper/P = console.nano_printer.print_text(cs.get_invoice(),"Shipment Invoice #[cs.shipment_num]")
-			if(!P)
-				to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
-				return
-			else
-				//stamp the paper
-				var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-				stampoverlay.icon_state = "paper_stamp-cent"
-				if(!P.stamped)
-					P.stamped = new
-				P.stamped += /obj/item/stamp
-				P.add_overlay(stampoverlay)
-				P.stamps += "<HR><i>This paper has been stamped by the Shipping Server.</i>"
-				console.visible_message(SPAN_NOTICE("\The [console] prints out paper."))
-	if(href_list["bounty_print"])
-		if(console && console.nano_printer)
-			var/text = "<h2>SCC Cargo Bounties</h2></br>"
-			for(var/datum/bounty/B in SScargo.bounties_list)
-				if(B.claimed)
-					continue
-				text += "<h3>[B.name]</h3>"
-				text += "<font size = \"1\">[B.description]</font>"
-				text += "<ul><li>Reward: [B.reward_string()]</li>"
-				text += "<li>Completed: [B.completion_string()]</li></ul>"
-			if(!console.nano_printer.print_text(text,"paper - Bounties"))
-				to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
-				return
-			else
-				console.visible_message(SPAN_NOTICE("\The [console] prints out paper."))
+		//Approve a order
+		if("order_approve")
+			var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(params["order_approve"]))
+			if(co)
+				var/message = co.set_approved(GetNameAndAssignmentFromId(I), usr.character_id)
+				if(message)
+					status_message = message
+			return TRUE
 
+		//Reject a order
+		if("order_reject")
+			var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(params["order_reject"]))
+			if(co)
+				var/message = co.set_rejected()
+				if(message)
+					status_message = message
+			return TRUE
 
-/datum/nano_module/program/civilian/cargocontrol/proc/post_signal(var/command) //Old code right here - Used to send a refresh command to the status screens incargo
+		//Send shuttle
+		if("shuttle_send")
+			var/message = SScargo.shuttle_call(GetNameAndAssignmentFromId(I))
+			if(message)
+				status_message = message
+			return TRUE
+
+		//Cancel shuttle
+		if("shuttle_cancel")
+			var/message = SScargo.shuttle_cancel()
+			if(message)
+				status_message = message
+			return TRUE
+
+		//Force shuttle
+		if("shuttle_force")
+			var/message = SScargo.shuttle_force()
+			if(message)
+				status_message = message
+			return TRUE
+
+		//Clear Status Message
+		if("clear_message")
+			status_message = null
+			return TRUE
+
+		//Change the handling fee
+		if("handling_fee")
+			var/handling_fee = sanitize(input(usr, "Handling Fee:", "Set the new handling fee?", SScargo.get_handlingfee()) as null|text)
+			status_message = SScargo.set_handlingfee(text2num(handling_fee))
+			return TRUE
+
+		//Claim a bounty
+		if("claim_bounty")
+			for(var/datum/bounty/b in SScargo.bounties_list)
+				if(b.name == params["claim_bounty"])
+					if(b.claim())
+						status_message = "Bounty for [b.name] claimed successfully"
+						return TRUE
+					else
+						status_message = "Could not claim Bounty for [b.name]"
+					return
+
+		if("order_details")
+			var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(params["order_details"]))
+			order_details = co.get_list()
+			return TRUE
+
+		//Print functions
+		if("order_print")
+			//Get the order
+			var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(params["order_print"]))
+			if(co && computer.nano_printer)
+				if(!computer.nano_printer.print_text(co.get_report_invoice(),"Order Invoice #[co.order_id]"))
+					to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
+					return
+				else
+					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+		if("shipment_print")
+			var/datum/cargo_shipment/cs = SScargo.get_shipment_by_id(text2num(params["shipment_print"]))
+			if(cs?.completed && computer?.nano_printer)
+				var/obj/item/paper/P = computer.nano_printer.print_text(cs.get_invoice(),"Shipment Invoice #[cs.shipment_num]")
+				if(!P)
+					to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
+					return
+				else
+					//stamp the paper
+					var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+					stampoverlay.icon_state = "paper_stamp-cent"
+					if(!P.stamped)
+						P.stamped = new
+					P.stamped += /obj/item/stamp
+					P.add_overlay(stampoverlay)
+					P.stamps += "<HR><i>This paper has been stamped by the Shipping Server.</i>"
+					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+		if("bounty_print")
+			if(computer && computer.nano_printer)
+				var/text = "<h2>SCC Cargo Bounties</h2></br>"
+				for(var/datum/bounty/B in SScargo.bounties_list)
+					if(B.claimed)
+						continue
+					text += "<h3>[B.name]</h3>"
+					text += "<font size = \"1\">[B.description]</font>"
+					text += "<ul><li>Reward: [B.reward_string()]</li>"
+					text += "<li>Completed: [B.completion_string()]</li></ul>"
+				if(!computer.nano_printer.print_text(text,"paper - Bounties"))
+					to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
+					return
+				else
+					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+
+/datum/computer_file/program/civilian/cargocontrol/proc/post_signal(var/command) //Old code right here - Used to send a refresh command to the status screens incargo
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(1435)
 
 	if(!frequency)

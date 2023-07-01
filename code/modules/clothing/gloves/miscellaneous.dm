@@ -332,7 +332,7 @@
 		return
 
 /obj/item/clothing/gloves/ballistic/verb/unload_shells()
-	set name = "Unload Ballistic Gauntlet "
+	set name = "Unload Ballistic Gauntlet"
 	set desc = "Unload the shells from the gauntlet's mounted gun."
 	set category = "Object"
 	set src in usr

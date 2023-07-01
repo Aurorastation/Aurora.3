@@ -107,6 +107,10 @@
 					attached_satchel.insert_into_storage(ore)
 	else if(istype(get_turf(src), /turf/simulated/floor))
 		var/turf/simulated/floor/T = get_turf(src)
+		var/turf/below_turf = GetBelow(T)
+		if(below_turf && !istype(below_turf.loc, /area/mine) && !istype(below_turf.loc, /area/exoplanet) && !istype(below_turf.loc, /area/template_noop))
+			system_error("Potential station breach below.")
+			return
 		T.ex_act(2.0)
 
 	//Dig out the tasty ores.
@@ -116,6 +120,8 @@
 		while(length(resource_field) && !harvesting.resources)
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
+			harvesting.cut_overlay(harvesting.resource_indicator)
+			QDEL_NULL(harvesting.resource_indicator)
 			resource_field -= harvesting
 			if(length(resource_field))
 				harvesting = pick(resource_field)
@@ -161,6 +167,8 @@
 		if(!found_resource)
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
+			harvesting.cut_overlay(harvesting.resource_indicator)
+			QDEL_NULL(harvesting.resource_indicator)
 			resource_field -= harvesting
 	else
 		active = FALSE
@@ -576,3 +584,7 @@
 	connected.supports -= src
 	connected.check_supports()
 	connected = null
+
+#undef DRILL_LIGHT_IDLE
+#undef DRILL_LIGHT_WARNING
+#undef DRILL_LIGHT_ACTIVE

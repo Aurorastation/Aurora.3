@@ -430,6 +430,7 @@
 
 
 /obj/item/melee/energy/blade/dropped()
+	. = ..()
 	QDEL_IN(src, 1)
 
 /obj/item/melee/energy/blade/process()

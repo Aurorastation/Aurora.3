@@ -9,7 +9,7 @@
 	battery_module.charge_to_full()
 
 /obj/item/modular_computer/handheld/wristbound/preset/cheap/generic
-	enrolled = 0
+	enrolled = DEVICE_UNSET
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/install_default_hardware()
 	..()
@@ -27,7 +27,7 @@
 	enrolled = DEVICE_COMPANY
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/generic
-	enrolled = 0
+	enrolled = DEVICE_UNSET
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian

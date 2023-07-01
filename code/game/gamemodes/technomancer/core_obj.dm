@@ -199,23 +199,17 @@
 /obj/spellbutton/DblClick()
 	return Click()
 
-/mob/living/carbon/human/Stat()
+/mob/living/carbon/human/get_status_tab_items()
 	. = ..()
 
 	var/obj/item/technomancer_core/core = get_technomancer_core()
 	if(core)
-		setup_technomancer_stat(core)
-
-/mob/living/carbon/human/proc/setup_technomancer_stat(var/obj/item/technomancer_core/core)
-	if(core && statpanel("Spell Core"))
 		var/charge_status = "[core.energy]/[core.max_energy] ([round( (core.energy / core.max_energy) * 100)]%) \
 		([round(core.energy_delta)]/s)"
 		var/instability_delta = instability - last_instability
 		var/instability_status = "[src.instability] ([round(instability_delta, 0.1)]/s)"
-		stat("Core charge", charge_status)
-		stat("User instability", instability_status)
-		for(var/obj/spellbutton/button in core.spells)
-			stat(button)
+		. += "Core Charge: [charge_status]"
+		. += "User instability: [instability_status]"
 
 /obj/item/technomancer_core/proc/add_spell(var/path, var/new_name, var/ability_icon_state)
 	if(!path || !ispath(path))
@@ -408,6 +402,7 @@
 	set name = "Toggle Core Lock"
 	set category = "Object"
 	set desc = "Toggles the locking mechanism on your manipulation core."
+	set src in usr
 
 	canremove = !canremove
 	to_chat(usr, "<span class='notice'>You [canremove ? "de" : ""]activate the locking mechanism on \the [src].</span>")

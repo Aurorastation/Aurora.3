@@ -125,7 +125,7 @@ var/static/list/scarySounds = list(
 	'sound/effects/glass_break1.ogg',
 	'sound/effects/glass_break2.ogg',
 	'sound/effects/glass_break3.ogg',
-	'sound/items/welder.ogg',
+	'sound/items/Welder.ogg',
 	'sound/items/welder_pry.ogg',
 	'sound/machines/airlock.ogg',
 

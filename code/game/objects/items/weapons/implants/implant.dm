@@ -741,3 +741,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 			if (prob(25))
 				qdel(src)
 	return
+
+
+#undef MALFUNCTION_TEMPORARY
+#undef MALFUNCTION_PERMANENT
