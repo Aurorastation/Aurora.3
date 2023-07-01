@@ -112,6 +112,8 @@ var/global/ntnrc_uid = 0
 /datum/ntnet_conversation/proc/cl_join(var/datum/computer_file/program/chat_client/Cl)
 	if(!istype(Cl) || !can_see(Cl) || direct)
 		return
+	if(Cl.my_user in users)
+		return
 	var/datum/ntnet_message/join/msg = new(Cl)
 	Cl.my_user.channels.Add(src)
 	users.Add(Cl.my_user)
