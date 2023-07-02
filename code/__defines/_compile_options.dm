@@ -5,7 +5,7 @@
 //#define ENABLE_SUNLIGHT
 
 // We want to use external resources. Kthx.
-#define PRELOAD_RSC 2
+#define PRELOAD_RSC 0
 
 #ifndef PRELOAD_RSC             //set to:
 #define PRELOAD_RSC 2           //  0 to allow using external resources or on-demand behaviour;
