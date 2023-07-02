@@ -183,8 +183,6 @@
 		minor_dir = dx
 		minor_dist = dist_x
 
-	var/admin_warning_given = 0
-
 	while(src && target && src.throwing && istype(src.loc, /turf) \
 		  && ((abs(target.x - src.x)+abs(target.y - src.y) > 0 && dist_travelled < range) \
 		  	   || (a && a.has_gravity == 0) \
@@ -199,10 +197,6 @@
 			error += major_dist
 		if(!step) // going off the edge of the map makes get_step return null, don't let things go off the edge
 			break
-		if(dist_travelled > 200 && world.time > (admin_warning_given + 5 SECONDS))
-			message_admins("[src] is travelling at [speed] speed and will likely cause the server to hang! Thrower: [thrower] \
-			| Loc: [step] | Steps: [dist_travelled] | Throwing: [throwing] | <a href='?_src_=vars;Vars=\ref[src]'>\[VV\]</a>")
-			admin_warning_given = world.time
 		src.Move(step)
 		hit_check(speed, target)
 		dist_travelled++

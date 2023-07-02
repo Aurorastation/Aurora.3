@@ -134,7 +134,6 @@
 	if(closing)
 		return
 	closing = TRUE
-	log_debug("TGUI closing: [title] | User: [user] | Status: [status] | Refreshing: [refreshing] | Autoupdate: [autoupdate] | Src Object: [src_object]")
 	// If we don't have window_id, open proc did not have the opportunity
 	// to finish, therefore it's safe to skip this whole block.
 	if(window)
