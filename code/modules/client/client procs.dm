@@ -29,15 +29,6 @@ var/list/localhost_addresses = list(
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
-	if(!authed)
-		if(href_list["authaction"] in list("guest", "forums")) // Protection
-			..()
-		return
-
-	// Tgui Topic middleware
-	if(tgui_Topic(href_list))
-		return
-
 	// asset_cache
 	var/asset_cache_job
 	if(href_list["asset_cache_confirm_arrival"])
@@ -56,6 +47,15 @@ var/list/localhost_addresses = list(
 
 	if (href_list["asset_cache_preload_data"])
 		asset_cache_preload_data(href_list["asset_cache_preload_data"])
+		return
+
+	if(!authed)
+		if(href_list["authaction"] in list("guest", "forums")) // Protection
+			..()
+		return
+
+	// Tgui Topic middleware
+	if(tgui_Topic(href_list))
 		return
 
 	if(href_list["reload_tguipanel"])
