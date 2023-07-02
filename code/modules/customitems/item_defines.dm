@@ -1324,17 +1324,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "godard_cape"
 	contained_sprite = TRUE
 
-/obj/item/flame/lighter/zippo/fluff/sezrak_zippo //Imperial 16th Zippo - Sezrak Han'san - captaingecko
-	name = "imperial 16th zippo"
-	desc = "A zippo lighter given by the Empire of Dominia to the men of the 16th Regiment of the Imperial Army, also known as the \"Suicide Regiments\", that would manage to survive more \
-	than a dozen deployments. The Imperial 16th is a regiment deployed by Dominia during battles that cannot be lost, their men ensuring victories through the use of unusual and highly \
-	dangerous tactics, resulting in extremely high losses during almost all of its engagements."
-	icon = 'icons/obj/custom_items/sezrak_zippo.dmi'
-	icon_override = 'icons/obj/custom_items/sezrak_zippo.dmi'
-	icon_state = "sezrak_zippo"
-	item_state = "sezrak_zippo"
-	contained_sprite = TRUE
-
 
 /obj/item/clothing/glasses/spiffygogs/fluff/andersen_goggles //Red Goggles - Adam Andersen - cybercide
 	name = "red goggles"
