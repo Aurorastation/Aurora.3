@@ -255,7 +255,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/konyang_reeds/water,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "cG" = (
 /obj/structure/ledge{
@@ -609,7 +609,7 @@
 /obj/structure/ledge{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "gT" = (
 /obj/structure/ledge{
@@ -747,7 +747,7 @@
 /obj/structure/ledge/quarter{
 	dir = 5
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "ib" = (
 /obj/structure/dam{
@@ -835,6 +835,15 @@
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant)
+"iK" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/obj/structure/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "iL" = (
 /turf/simulated/floor/asphalt,
@@ -1222,7 +1231,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/konyang_reeds/water,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "mX" = (
 /obj/effect/decal/curb/corner{
@@ -1381,6 +1390,10 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant)
+"oy" = (
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "oA" = (
 /obj/structure/konyang_cliff{
@@ -1606,7 +1619,7 @@
 /obj/structure/ledge{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "qT" = (
 /obj/effect/decal/exterior_stairs/right{
@@ -1622,7 +1635,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "rf" = (
 /turf/unsimulated/mineral/konyang,
@@ -1655,7 +1668,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_east"
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "rt" = (
 /obj/effect/decal/road_marking/crosswalk{
@@ -1705,6 +1718,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/konyang/pink,
+/area/point_verdant)
+"rT" = (
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "rU" = (
 /obj/structure/road_barrier/bot_in{
@@ -1833,7 +1849,7 @@
 /obj/structure/ledge{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "ty" = (
 /obj/structure/ledge{
@@ -2116,13 +2132,20 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant)
-"vI" = (
-/obj/structure/flora/bush/konyang_reeds/water,
-/obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+"vF" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
 	},
-/turf/simulated/floor/exoplanet/water/konyang,
+/obj/structure/utility_pole/street/on{
+	layer = 9.2
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant)
+"vI" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "vJ" = (
 /turf/simulated/floor/wood/coloured/birch,
@@ -2368,7 +2391,19 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant)
+"xG" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/obj/structure/ledge{
+	dir = 4
+	},
+/obj/structure/utility_pole/street/on{
+	layer = 9.2
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "xI" = (
 /obj/structure/automobile/random{
@@ -2396,7 +2431,7 @@
 	name = "imposing rod railing";
 	layer = 9.1
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "yb" = (
 /obj/structure/automobile/random{
@@ -2595,7 +2630,7 @@
 	},
 /obj/structure/road_barrier/bot_end,
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "zI" = (
 /obj/structure/chainlink_fence{
@@ -2691,7 +2726,7 @@
 	dir = 8
 	},
 /obj/structure/flora/rock/konyang/water,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "AU" = (
 /obj/effect/decal/road_marking,
@@ -2790,7 +2825,7 @@
 	dir = 1
 	},
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "BX" = (
 /obj/effect/decal/road_marking/thin,
@@ -2825,7 +2860,7 @@
 /obj/structure/lattice/catwalk/indoor/planks/stairs{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "Cg" = (
 /obj/effect/decal/road_marking/crosswalk,
@@ -2849,7 +2884,7 @@
 /obj/structure/ledge{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "Cp" = (
 /obj/effect/decal/road_marking/center{
@@ -2882,6 +2917,13 @@
 /obj/structure/rope_railing,
 /turf/simulated/floor/asphalt,
 /area/point_verdant)
+"CS" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant)
 "CV" = (
 /obj/structure/ledge{
 	dir = 1
@@ -2912,6 +2954,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/konyang/no_edge,
+/area/point_verdant)
+"Di" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "Dn" = (
 /obj/structure/ledge,
@@ -3019,7 +3067,7 @@
 	},
 /obj/structure/road_barrier/bot_end,
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "En" = (
 /obj/effect/decal/road_marking{
@@ -3221,6 +3269,13 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant)
+"Gv" = (
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant)
 "Gy" = (
 /obj/structure/rope_railing{
 	dir = 4
@@ -3241,7 +3296,7 @@
 	dir = 4
 	},
 /obj/structure/flora/rock/konyang/water,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "GI" = (
 /obj/effect/decal/curb/corner,
@@ -3398,7 +3453,7 @@
 "HV" = (
 /obj/structure/road_barrier,
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "HX" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -4102,6 +4157,10 @@
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/point_verdant)
+"ON" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant)
 "OR" = (
 /obj/effect/decal/curb,
 /turf/simulated/floor/concrete,
@@ -4261,6 +4320,16 @@
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/flat,
+/area/point_verdant)
+"Ri" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff1-bottom";
+	layer = 2.1
+	},
+/obj/structure/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "Rp" = (
 /obj/structure/ledge,
@@ -4456,6 +4525,12 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant)
+"Tt" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant)
 "Tv" = (
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -4622,7 +4697,7 @@
 /obj/structure/ledge{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "Vj" = (
 /obj/effect/decal/road_marking{
@@ -4812,7 +4887,7 @@
 /obj/structure/ledge{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "Xy" = (
 /obj/effect/decal/road_marking/center{
@@ -4862,6 +4937,12 @@
 "Ym" = (
 /obj/effect/decal/curb/corner,
 /turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"YD" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "YL" = (
 /obj/effect/decal/curb/corner{
@@ -4922,7 +5003,7 @@
 /obj/structure/ledge/quarter/corner{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "ZB" = (
 /obj/effect/decal/exterior_stairs/center{
@@ -6760,7 +6841,7 @@ HX
 HX
 HX
 HX
-wL
+YD
 rf
 rf
 rf
@@ -6942,7 +7023,7 @@ HX
 HX
 HX
 HX
-wL
+YD
 rf
 rf
 rf
@@ -7124,7 +7205,7 @@ HX
 HX
 HX
 HX
-wL
+YD
 rf
 rf
 rf
@@ -7306,7 +7387,7 @@ HX
 HX
 HX
 HX
-wL
+YD
 rf
 rf
 rf
@@ -7488,7 +7569,7 @@ HX
 HX
 ZZ
 HX
-wL
+YD
 rf
 rf
 rf
@@ -7670,7 +7751,7 @@ HX
 HX
 ZZ
 HX
-wL
+YD
 rf
 rf
 rf
@@ -7852,7 +7933,7 @@ HX
 HX
 HX
 HX
-wL
+YD
 rf
 rf
 rf
@@ -8034,7 +8115,7 @@ HX
 HX
 HX
 HX
-wL
+YD
 rf
 rf
 rf
@@ -8216,7 +8297,7 @@ CY
 CY
 HX
 HX
-wL
+YD
 rf
 rf
 rf
@@ -8398,7 +8479,7 @@ CY
 CY
 HX
 HX
-wL
+YD
 rf
 rf
 rf
@@ -8580,7 +8661,7 @@ CY
 CY
 CY
 HX
-wL
+YD
 rf
 rf
 rf
@@ -8762,7 +8843,7 @@ CY
 CY
 CY
 HX
-wL
+YD
 rf
 rf
 rf
@@ -8944,7 +9025,7 @@ CY
 CY
 CY
 HX
-wL
+YD
 rf
 rf
 rf
@@ -9125,8 +9206,8 @@ CY
 CY
 CY
 CY
-CY
-xL
+HX
+YD
 rf
 rf
 rf
@@ -9307,8 +9388,8 @@ CY
 CY
 CY
 CY
-CY
-xL
+HX
+YD
 rf
 rf
 rf
@@ -9489,8 +9570,8 @@ CY
 CY
 CY
 CY
-CY
-xL
+HX
+YD
 rf
 rf
 rf
@@ -9672,7 +9753,7 @@ CY
 CY
 aH
 HX
-xL
+YD
 rf
 rf
 rf
@@ -9780,7 +9861,7 @@ CY
 HX
 HX
 aH
-vI
+xM
 bh
 Of
 LN
@@ -9803,10 +9884,10 @@ Wi
 Mr
 tD
 Co
-ko
-kQ
-ko
-MV
+vI
+CS
+vI
+iK
 lD
 vJ
 vJ
@@ -9854,7 +9935,7 @@ tV
 HX
 HX
 HX
-wL
+YD
 rf
 rf
 rf
@@ -9962,7 +10043,7 @@ CY
 HX
 CY
 aH
-vI
+xM
 BT
 PN
 LN
@@ -10036,7 +10117,7 @@ tV
 HX
 HX
 HX
-wL
+YD
 rf
 rf
 rf
@@ -10144,7 +10225,7 @@ HX
 HX
 CY
 DK
-vI
+xM
 BT
 iz
 LN
@@ -10218,7 +10299,7 @@ ZZ
 HX
 HX
 HX
-wL
+YD
 rf
 rf
 rf
@@ -10326,7 +10407,7 @@ ZZ
 CY
 CY
 tV
-cy
+Gv
 BT
 iz
 LN
@@ -10400,7 +10481,7 @@ ZZ
 HX
 HX
 ZZ
-wL
+YD
 rf
 rf
 rf
@@ -10508,7 +10589,7 @@ aH
 CY
 CY
 aH
-vI
+xM
 BT
 iz
 LN
@@ -10582,7 +10663,7 @@ ZZ
 HX
 HX
 ZZ
-wL
+YD
 rf
 rf
 rf
@@ -10690,7 +10771,7 @@ aH
 CY
 CY
 aH
-vI
+xM
 BT
 iz
 LN
@@ -10764,7 +10845,7 @@ HX
 HX
 ZZ
 HX
-wL
+YD
 rf
 rf
 rf
@@ -11063,10 +11144,10 @@ BH
 iL
 ij
 ur
-Dz
-HX
-ZZ
-ZZ
+Di
+rT
+ON
+ON
 ZZ
 HX
 yr
@@ -11128,7 +11209,7 @@ CY
 CY
 HX
 HX
-Tv
+oy
 BT
 BT
 LN
@@ -11300,7 +11381,7 @@ iL
 iL
 Fq
 vq
-Na
+Tt
 ZZ
 ZZ
 HX
@@ -11310,7 +11391,7 @@ DK
 CY
 CY
 HX
-Tv
+oy
 bh
 BT
 LN
@@ -11492,7 +11573,7 @@ CY
 CY
 CY
 HX
-Tv
+oy
 BT
 Of
 LN
@@ -11667,14 +11748,14 @@ fk
 fk
 fk
 Jv
-Na
+Tt
 HX
 aH
 CY
 CY
 CY
 HX
-Tv
+oy
 BT
 PN
 LN
@@ -11849,14 +11930,14 @@ cY
 cY
 cY
 vq
-Na
+Tt
 HX
 HX
 aH
 CY
 CY
 HX
-Tv
+oy
 BT
 iz
 LN
@@ -12031,14 +12112,14 @@ jU
 cY
 cY
 vq
-Na
+Tt
 HX
 HX
 HX
 ZZ
 aH
 HX
-Tv
+oy
 BT
 XQ
 LN
@@ -12213,14 +12294,14 @@ LX
 cY
 cY
 vq
-Na
+Tt
 HX
 lN
 HX
 ZZ
 ZZ
 HX
-Tv
+oy
 BT
 iz
 LN
@@ -12395,14 +12476,14 @@ ZD
 WG
 WG
 Ru
-Na
+Tt
 ZZ
 HX
 CY
 aH
 CY
 HX
-Tv
+oy
 BT
 iz
 LN
@@ -12584,7 +12665,7 @@ CY
 aH
 CY
 HX
-Tv
+oy
 BT
 PN
 LN
@@ -12766,7 +12847,7 @@ CY
 aH
 CY
 HX
-Tv
+oy
 BT
 iz
 LN
@@ -12948,7 +13029,7 @@ CY
 CY
 CY
 HX
-Tv
+oy
 bh
 iz
 LN
@@ -13130,7 +13211,7 @@ CY
 CY
 CY
 HX
-Tv
+oy
 BT
 iz
 LN
@@ -13305,14 +13386,14 @@ cy
 WG
 WG
 Ru
-Na
+Tt
 HX
 HX
 CY
 CY
 HX
 HX
-Tv
+oy
 BT
 iz
 LN
@@ -13487,14 +13568,14 @@ IX
 cY
 cY
 vq
-Na
+Tt
 HX
 HX
 CY
 CY
 lN
 HX
-Tv
+oy
 BT
 PN
 LN
@@ -13669,14 +13750,14 @@ cY
 cY
 cY
 vq
-Na
+Tt
 HX
 HX
 HX
 HX
 HX
 HX
-Tv
+oy
 BT
 XQ
 LN
@@ -13851,14 +13932,14 @@ vz
 vz
 vz
 SL
-Na
+Tt
 HX
 HX
 HX
 HX
 HX
 HX
-Tv
+oy
 BT
 iz
 LN
@@ -14040,7 +14121,7 @@ HX
 HX
 HX
 HX
-Tv
+oy
 BT
 iz
 LN
@@ -14222,7 +14303,7 @@ aH
 ZZ
 HX
 HX
-Tv
+oy
 BT
 iz
 LN
@@ -14488,24 +14569,24 @@ BT
 BT
 VP
 ur
-Dz
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
+Di
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
 ra
 BT
 BT
@@ -14573,19 +14654,19 @@ Mq
 BT
 MF
 Dx
-ko
-ko
-ko
-ko
-ko
-ko
-kQ
-kQ
-kQ
-ko
+vI
+vI
+vI
+vI
+vI
+vI
+CS
+CS
+CS
+vI
 GF
-ko
-HX
+vI
+rT
 HV
 BT
 iz
@@ -15945,23 +16026,23 @@ BT
 RU
 ur
 Dz
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
-HX
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
+rT
 zH
 ve
 Ja
@@ -17854,15 +17935,15 @@ QX
 WD
 iH
 MF
-Dx
+Ri
 gO
-ko
-ko
-ko
-ko
+vI
+vI
+vI
+vI
 qO
-ko
-ko
+vI
+vI
 tw
 QX
 TB
@@ -22362,7 +22443,7 @@ CY
 ZZ
 ZZ
 ZZ
-wL
+YD
 sA
 od
 lD
@@ -22544,7 +22625,7 @@ CY
 aH
 ZZ
 ZZ
-DC
+vF
 sA
 od
 lD
@@ -22726,7 +22807,7 @@ tV
 aH
 ZZ
 ZZ
-wL
+YD
 sA
 od
 lD
@@ -22908,7 +22989,7 @@ CY
 CY
 HX
 HX
-wL
+YD
 sA
 od
 HD
@@ -23090,7 +23171,7 @@ aH
 cQ
 ZZ
 ZZ
-wL
+YD
 sA
 od
 od
@@ -23272,7 +23353,7 @@ aH
 eT
 ZZ
 ZZ
-wL
+YD
 sA
 od
 od
@@ -23454,7 +23535,7 @@ CY
 ZZ
 ZZ
 ZZ
-TJ
+xG
 sA
 od
 od
@@ -23588,55 +23669,55 @@ od
 od
 wx
 Mr
-Dx
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-MV
+Ri
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+vI
+iK
 al
 od
 od

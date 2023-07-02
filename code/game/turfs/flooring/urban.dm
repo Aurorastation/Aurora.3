@@ -23,14 +23,14 @@
 	icon_state = "flat"
 
 /turf/simulated/floor/sidewalk/flat/Initialize(mapload)
-	icon_state = "flat[rand(0,3)]"
+	icon_state = "flat[rand(1,3)]"
 
 /turf/simulated/floor/sidewalk/blocks
 	name = "blocked sidewalk tiles"
 	icon_state = "blocks"
 
 /turf/simulated/floor/sidewalk/blocks/Initialize(mapload)
-	icon_state = "blocks[rand(0,3)]"
+	icon_state = "blocks[rand(1,3)]"
 
 /obj/structure/ledge
 	name = "tall ledge"

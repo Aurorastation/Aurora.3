@@ -183,6 +183,15 @@
 		return !density
 	return TRUE
 
+/obj/structure/rod_railing/CheckExit(var/atom/movable/O, var/turf/target)
+	if(istype(O) && CanPass(O, target))
+		return TRUE
+	if(get_dir(O.loc, target) == dir)
+		if(!density)
+			return TRUE
+		return FALSE
+	return TRUE
+
 /obj/structure/dam
 	name = "concrete dam"
 	desc = "A hulking mass of concrete meant to hold in a large reservoir of water from passing downwards."
