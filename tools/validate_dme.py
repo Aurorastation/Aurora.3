@@ -12,7 +12,7 @@ FORBID_INCLUDE = [
 
     #Files included by code\__linters.dm, not to evaluate in this check
     'code/___linters/spaceman_dmm.dm',
-    'code/___linters/odlint.dm'
+    'code/___linters/odlint.dm',
 
     # Included by tgs/includes.dm
     r'code/modules/tgs/**/*.dm',
