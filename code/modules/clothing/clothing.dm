@@ -559,6 +559,7 @@
 /obj/item/clothing/head/proc/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object"
+	set src in usr
 
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
