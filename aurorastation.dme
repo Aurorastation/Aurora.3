@@ -8,11 +8,9 @@
 // END_FILE_DIR
 // BEGIN_PREFERENCES
 #define DEBUG
-#ifdef OPENDREAM
-#include "code\___odlint.dm"
-#endif
 // END_PREFERENCES
 // BEGIN_INCLUDE
+#include "code\__linters.dm"
 #include "code\global.dm"
 #include "code\hub.dm"
 #include "code\names.dm"
@@ -99,7 +97,6 @@
 #include "code\__defines\smart_token_bucket.dm"
 #include "code\__defines\solar.dm"
 #include "code\__defines\space_sectors.dm"
-#include "code\__defines\spaceman_dmm.dm"
 #include "code\__defines\spatial_gridmap.dm"
 #include "code\__defines\species.dm"
 #include "code\__defines\species_languages.dm"
