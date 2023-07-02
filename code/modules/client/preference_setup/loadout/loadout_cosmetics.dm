@@ -1,7 +1,8 @@
 /datum/gear/cosmetic
 	display_name = "handheld mirror"
 	path = /obj/item/mirror
-	sort_category = "Cosmetics" 
+	sort_category = "Cosmetics"
+	slot = slot_in_backpack
 
 /datum/gear/cosmetic/haircomb
 	display_name = "comb"
@@ -34,4 +35,45 @@
 	lipsticks["lipstick, teal"] = /obj/item/lipstick/teal
 
 	gear_tweaks += new /datum/gear_tweak/path(lipsticks)
+	gear_tweaks += list(gear_tweak_lipstick_application)
 
+/datum/gear/cosmetic/lipstick_colorable // not a subtype because we dont want the path gear_tweaks
+	display_name = "colorable lipstick"
+	path = /obj/item/lipstick/custom
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/cosmetic/lipstick_colorable/New()
+	..()
+	gear_tweaks += list(gear_tweak_lipstick_color)
+	gear_tweaks += list(gear_tweak_lipstick_application)
+
+var/datum/gear_tweak/color/lipstick/gear_tweak_lipstick_color = new()
+
+/datum/gear_tweak/color/lipstick/get_contents(var/metadata)
+	return "Lipstick Color: <font color='[metadata]'>&#9899;</font>"
+
+/datum/gear_tweak/color/lipstick/tweak_item(var/obj/item/lipstick/lipstick, var/metadata, var/mob/living/carbon/human/H)
+	lipstick.lipstick_color = metadata
+	lipstick.update_icon()
+
+
+var/datum/gear_tweak/lipstick_application/gear_tweak_lipstick_application = new()
+
+/datum/gear_tweak/lipstick_application/get_contents(var/metadata)
+	return "Lipstick Applied: [metadata]"
+
+/datum/gear_tweak/lipstick_application/get_default()
+	return "No"
+
+/datum/gear_tweak/lipstick_application/get_random()
+	return "No"
+
+/datum/gear_tweak/lipstick_application/get_metadata(var/user, var/metadata, var/title = "Character Preference")
+	var/selected_lipstick = input(user, "Do you want your character to start with lipstick applied?", title, metadata) as null|anything in list("Yes", "No")
+	if(selected_lipstick)
+		return selected_lipstick
+
+/datum/gear_tweak/lipstick_application/tweak_item(var/obj/item/lipstick/lipstick, var/metadata, var/mob/living/carbon/human/H)
+	if(metadata == "Yes")
+		H.lipstick_color = lipstick.lipstick_color
+		H.update_body()
