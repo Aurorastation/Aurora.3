@@ -117,6 +117,13 @@
 	opacity = FALSE
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 
+/obj/machinery/smartfridge/foodheater/buffet
+	name = "buffet trays"
+	icon = 'icons/obj/structure/urban/restaurant.dmi'
+	icon_state = "buffet"
+	icon_on = "buffet[rand(1, 4)]"
+	icon_off = "buffet"
+
 /obj/machinery/smartfridge/seeds
 	name = "\improper MegaSeed Storage"
 	desc = "When you need seeds fast!"

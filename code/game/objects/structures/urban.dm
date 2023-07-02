@@ -137,6 +137,13 @@
 	icon_state = "parking"
 	layer = ABOVE_ALL_MOB_LAYER
 
+/obj/structure/dressing_divider
+	name = "wardrobe dressing divider"
+	desc = "A divider for an environment where you're probably swapping clothes, made with your privacy in mind."
+	icon = 'icons/obj/structure/urban/tailoring.dmi'
+	icon_state = "divider1"
+	layer = ABOVE_ALL_MOB_LAYER
+
 /obj/structure/shipping_container
 	name = "freight container"
 	desc = "A hulking industrial shipping container, bound for who knows where."
