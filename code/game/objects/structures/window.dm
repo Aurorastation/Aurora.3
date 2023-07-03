@@ -7,7 +7,8 @@
 /obj/structure/window
 	name = "glass pane"
 	desc = "A glass pane."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/obj/structure/window/window_panes.dmi'
+	icon_state = "pane"
 	density = TRUE
 	w_class = ITEMSIZE_NORMAL
 	layer = 3.2 // Just above doors.

@@ -144,6 +144,16 @@
 /obj/machinery/door/airlock/generic/external/khaki,
 /turf/simulated/floor,
 /area/antag/mercenary)
+"dX" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "ef" = (
 /obj/machinery/light/small,
 /turf/simulated/floor,
@@ -200,8 +210,11 @@
 /turf/simulated/floor/tiled/full,
 /area/construction/qmaint)
 "fj" = (
+/obj/structure/window{
+	dir = 1
+	},
 /obj/item/modular_computer/console/preset/security/hos,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/reinforced,
 /area/construction/solars)
 "fq" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -268,6 +281,10 @@
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
+"gy" = (
+/obj/machinery/door/window/northright,
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "gB" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -299,10 +316,11 @@
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
 "gP" = (
-/obj/item/modular_computer/console/preset/security/hos{
-	dir = 4
+/obj/structure/window{
+	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/window,
+/turf/simulated/floor/reinforced,
 /area/construction/solars)
 "gQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -343,6 +361,10 @@
 	dir = 8;
 	must_start_working = 1
 	},
+/obj/item/device/radio/intercom{
+	dir = 1;
+	pixel_y = 20
+	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "hA" = (
@@ -356,6 +378,13 @@
 /area/construction/hallway)
 "hQ" = (
 /turf/simulated/wall,
+/area/construction/solars)
+"hR" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/construction/solars)
 "hZ" = (
 /obj/machinery/power/apc{
@@ -387,6 +416,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood/bamboo,
 /area/construction/qmaint)
+"iv" = (
+/obj/item/modular_computer/console/preset/security/hos{
+	dir = 4
+	},
+/obj/structure/window{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "iD" = (
 /obj/structure/cable{
 	d2 = 2;
@@ -488,6 +526,13 @@
 /obj/machinery/door/airlock/generic/external,
 /turf/simulated/floor,
 /area/construction/qmaint)
+"kN" = (
+/obj/structure/window{
+	dir = 8
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "kQ" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -532,6 +577,15 @@
 /obj/structure/window_frame/shuttle/red,
 /turf/simulated/floor,
 /area/antag/mercenary)
+"mP" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "mW" = (
 /obj/structure/table/wood,
 /obj/item/pen{
@@ -557,6 +611,9 @@
 "np" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/grille/over,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/construction/solarscontrol)
 "nA" = (
@@ -585,6 +642,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"nT" = (
+/obj/structure/window{
+	dir = 4
+	},
+/obj/machinery/door/window/southright,
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "nV" = (
 /turf/simulated/floor,
 /area/construction/hallway)
@@ -613,6 +677,15 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
+"oF" = (
+/obj/item/modular_computer/console/preset/security/hos{
+	dir = 8
+	},
+/obj/structure/window{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "oI" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -713,6 +786,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"qG" = (
+/obj/structure/window{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "qV" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor,
@@ -723,6 +802,16 @@
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
+"rD" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "sm" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -896,6 +985,13 @@
 	},
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
+"wE" = (
+/obj/structure/window{
+	dir = 4
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "wG" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/grille/over/large,
@@ -907,6 +1003,12 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
+"wY" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "xj" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1063,6 +1165,14 @@
 	},
 /turf/simulated/floor,
 /area/antag/mercenary)
+"AS" = (
+/obj/structure/window{
+	dir = 8
+	},
+/obj/structure/window,
+/obj/structure/table/steel,
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "AV" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1094,6 +1204,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"Bn" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Bv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood/birch,
@@ -1107,6 +1224,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"BI" = (
+/obj/item/modular_computer/console/preset/security/hos{
+	dir = 1
+	},
+/obj/structure/window,
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "Cg" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1173,6 +1297,12 @@
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
+"CZ" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "Da" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -1214,11 +1344,15 @@
 /turf/simulated/floor/tiled/full,
 /area/construction/qmaint)
 "DN" = (
-/obj/item/modular_computer/console/preset/security/hos{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/reinforced,
 /area/construction/solars)
+"DT" = (
+/obj/machinery/atm{
+	dir = 1;
+	pixel_y = 20
+	},
+/turf/simulated/floor/tiled/dark,
+/area/construction/solarscontrol)
 "Ez" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -1270,6 +1404,13 @@
 	dir = 6
 	},
 /turf/simulated/floor/wood/mahogany,
+/area/construction/solars)
+"GO" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/construction/solars)
 "GP" = (
 /obj/machinery/light,
@@ -1373,6 +1514,12 @@
 	},
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
+"JE" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "JF" = (
 /obj/machinery/ringer_button,
 /turf/simulated/floor/tiled,
@@ -1433,9 +1580,32 @@
 /turf/simulated/floor,
 /area/antag/mercenary)
 "Lb" = (
-/obj/item/modular_computer/console/preset/security/hos{
+/obj/structure/window{
+	dir = 1
+	},
+/obj/structure/window{
+	dir = 4
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
+"Ld" = (
+/obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
+"Ll" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/structure/grille/over,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/full,
+/area/construction/solarscontrol)
+"Lu" = (
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "Lz" = (
@@ -1484,6 +1654,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/construction/qmaint)
+"MP" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "MW" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -1530,6 +1706,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"NG" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "NM" = (
 /obj/structure/grille/over/large,
 /obj/structure/window/full/reinforced/shuttle,
@@ -1595,6 +1778,15 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/wood/mahogany,
+/area/construction/solars)
+"Qf" = (
+/obj/machinery/door/window/northleft,
+/obj/machinery/light{
+	brightness_range = 16;
+	dir = 8;
+	must_start_working = 1
+	},
+/turf/simulated/floor/reinforced,
 /area/construction/solars)
 "Qj" = (
 /obj/structure/lattice/catwalk,
@@ -1689,6 +1881,24 @@
 /obj/structure/grille/over/large,
 /turf/simulated/floor/tiled/full,
 /area/construction/storage)
+"Rf" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
+"Rg" = (
+/obj/machinery/light{
+	brightness_range = 16;
+	dir = 4;
+	must_start_working = 1
+	},
+/obj/machinery/atm{
+	dir = 1;
+	pixel_y = 20
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Rj" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -1727,6 +1937,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/construction/qmaint)
+"RU" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Sa" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1742,6 +1959,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"SN" = (
+/obj/machinery/door/airlock/generic/external{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "SV" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -1832,6 +2055,10 @@
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
+"UX" = (
+/obj/machinery/door/window/southleft,
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "Vd" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/grille/over,
@@ -1852,6 +2079,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/construction/solarscontrol)
+"VG" = (
+/obj/structure/window,
+/obj/structure/table/steel,
+/turf/simulated/floor/reinforced,
+/area/construction/solars)
 "Wk" = (
 /obj/machinery/requests_console{
 	dir = 1;
@@ -28415,7 +28647,7 @@ ef
 Vr
 yd
 jD
-np
+Ll
 ZT
 vv
 Vr
@@ -28672,7 +28904,7 @@ xo
 ox
 cC
 WB
-np
+Ll
 ZT
 ZT
 Us
@@ -28929,7 +29161,7 @@ Di
 Vr
 yd
 yd
-np
+Ll
 np
 np
 Vr
@@ -29184,7 +29416,7 @@ bg
 Di
 Xd
 Vr
-yd
+DT
 Cv
 yd
 yd
@@ -29943,14 +30175,14 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
 pz
 pz
 pz
@@ -30198,16 +30430,16 @@ pz
 pz
 pz
 pz
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
 pz
+pz
+Uv
+wB
+Na
+Na
+wB
+Na
+Na
+Uv
 pz
 pz
 pz
@@ -30447,24 +30679,24 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
+Uv
+Uv
+Uv
 pz
 pz
 pz
 pz
 Uv
-Na
-wB
-Na
-Na
-Na
-wB
-Na
 Uv
-pz
+Uv
+Uv
+kN
+iv
+kN
+AS
+Na
+Kb
+Uv
 pz
 pz
 pz
@@ -30704,24 +30936,24 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
+Uv
+Na
+Uv
 pz
 pz
 pz
 pz
 Uv
-Iw
+Ts
+Na
+Qf
+DN
+JE
+DN
+VG
 Na
 Na
-gP
-Na
-Na
-Kb
 Uv
-pz
 pz
 pz
 pz
@@ -30961,24 +31193,24 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
+Uv
+Iw
+Uv
 pz
 pz
 pz
 pz
 Uv
-Ts
+Iw
 Na
-Na
-Na
-Na
+gy
+DN
+DN
+DN
+BI
 Na
 Na
 Uv
-pz
 pz
 pz
 pz
@@ -31218,24 +31450,24 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
+Uv
+SN
+Uv
 pz
 pz
 pz
 pz
 Uv
+Na
 Na
 fj
-Na
-Na
-Na
 DN
+CZ
+DN
+UX
+Na
 Na
 Uv
-pz
 pz
 pz
 pz
@@ -31476,8 +31708,7 @@ pz
 pz
 pz
 pz
-pz
-pz
+gP
 pz
 pz
 pz
@@ -31486,13 +31717,14 @@ pz
 Uv
 ad
 Na
+Lb
+wE
+oF
+qG
+nT
 Na
-Na
-Na
-Na
-Na
+Kb
 Uv
-pz
 pz
 pz
 pz
@@ -31733,8 +31965,7 @@ pz
 pz
 pz
 pz
-pz
-pz
+gP
 pz
 pz
 pz
@@ -31744,12 +31975,13 @@ Uv
 Iw
 Na
 Na
-Lb
 Na
 Na
-Kb
+Na
+Na
+Na
+Na
 Uv
-pz
 pz
 pz
 pz
@@ -31990,8 +32222,7 @@ pz
 pz
 pz
 pz
-pz
-pz
+gP
 pz
 pz
 pz
@@ -31999,14 +32230,15 @@ pz
 pz
 Uv
 Na
-Wo
-Na
-Na
 Na
 Wo
+Na
+Na
+Na
+Wo
+Na
 Na
 Uv
-pz
 pz
 pz
 pz
@@ -32247,13 +32479,12 @@ pz
 pz
 pz
 pz
+gP
 pz
 pz
 pz
 pz
 pz
-pz
-pz
 Uv
 Uv
 Uv
@@ -32263,7 +32494,8 @@ Uv
 Uv
 Uv
 Uv
-pz
+Uv
+Uv
 pz
 pz
 pz
@@ -32503,9 +32735,9 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
+Uv
+SN
+Uv
 pz
 pz
 pz
@@ -32760,9 +32992,9 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
+Uv
+Iw
+Uv
 pz
 pz
 pz
@@ -33017,9 +33249,9 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
+Uv
+Na
+Uv
 pz
 pz
 pz
@@ -33274,9 +33506,9 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
+Uv
+Uv
+Uv
 pz
 pz
 pz
@@ -33539,7 +33771,7 @@ pz
 pz
 pz
 hQ
-Wo
+Rg
 Na
 Na
 hQ
@@ -35596,18 +35828,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
 pz
 pz
 pz
@@ -35853,18 +36085,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Uv
 pz
 pz
 pz
@@ -36110,18 +36342,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Uv
 pz
 pz
 pz
@@ -36367,18 +36599,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+MP
+MP
+GO
+Na
+Na
+dX
+Na
+Ld
+NG
+Na
+Uv
 pz
 pz
 pz
@@ -36624,18 +36856,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Na
+Na
+Lu
+Na
+Na
+Bn
+Na
+Rf
+Lu
+Na
+Uv
 pz
 pz
 pz
@@ -36881,18 +37113,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Na
+Na
+Lu
+Na
+Na
+Bn
+Na
+Rf
+Lu
+Na
+Uv
 pz
 pz
 pz
@@ -37138,18 +37370,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Na
+Na
+Lu
+Na
+Na
+Bn
+Na
+Rf
+Lu
+Na
+Uv
 pz
 pz
 pz
@@ -37395,18 +37627,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+wY
+wY
+hR
+Na
+Na
+rD
+Na
+mP
+hR
+Na
+Uv
 pz
 pz
 pz
@@ -37652,18 +37884,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Uv
 pz
 pz
 pz
@@ -37909,18 +38141,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Lu
+MP
+MP
+MP
+MP
+MP
+MP
+MP
+GO
+Na
+Uv
 pz
 pz
 pz
@@ -38166,18 +38398,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Lu
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Lu
+Na
+Uv
 pz
 pz
 pz
@@ -38423,18 +38655,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Lu
+wY
+wY
+wY
+wY
+wY
+wY
+wY
+RU
+Na
+Uv
 pz
 pz
 pz
@@ -38680,18 +38912,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Na
+Uv
 pz
 pz
 pz
@@ -38937,18 +39169,18 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
 pz
 pz
 pz

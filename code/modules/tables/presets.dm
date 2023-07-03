@@ -31,19 +31,22 @@
 	table_mat = MATERIAL_MARBLE
 
 /obj/structure/table/reinforced
+	icon = 'icons/obj/structure/tables/plain.dmi'
 	icon_state = "reinf_preview"
 	table_mat = DEFAULT_TABLE_MATERIAL
 	table_reinf = DEFAULT_WALL_MATERIAL
 
 /obj/structure/table/reinforced/steel
-	icon_state = "reinf_preview"
+	icon = 'icons/obj/structure/tables/steel.dmi'
 	table_mat = DEFAULT_WALL_MATERIAL
 
 /obj/structure/table/reinforced/wood
+	icon = 'icons/obj/structure/tables/wood.dmi'
 	table_mat = MATERIAL_WOOD
 	table_reinf = MATERIAL_WOOD
 
 /obj/structure/table/reinforced/glass
+	icon = 'icons/obj/structure/tables/glass.dmi'
 	table_mat = MATERIAL_GLASS_REINFORCED
 	table_reinf = MATERIAL_GLASS_REINFORCED
 	alpha = 77 // 0.3 * 255
@@ -58,7 +61,8 @@
 	carpeted = 1
 
 /obj/structure/table/glass
-	icon_state = "plain_preview"
+	icon = 'icons/obj/structure/tables/glass.dmi'
+	icon_state = "glass_preview"
 	table_mat = MATERIAL_GLASS
 	alpha = 77 // 0.3 * 255
 

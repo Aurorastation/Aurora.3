@@ -4,7 +4,7 @@
 	desc_info = "You can deconstruct this by welding it, and then wrenching the girder.<br>\
 	You can build a wall by using metal sheets and making a girder, then adding more material."
 	icon = 'icons/turf/smooth/composite_solid_color.dmi'
-	icon_state = "map_gunmetal"//the best approximation of the ingame gunmetal blended wall sprite for example
+	icon_state = "map_readable"
 	opacity = TRUE
 	density = TRUE
 	blocks_air = TRUE

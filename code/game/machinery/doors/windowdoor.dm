@@ -1,7 +1,7 @@
 /obj/machinery/door/window
 	name = "interior door"
 	desc = "A strong door."
-	icon = 'icons/obj/doors/windoor.dmi'
+	icon = 'icons/obj/structure/window/window_panes.dmi'
 	icon_state = "left"
 	var/base_state = "left"
 	min_force = 4
@@ -215,7 +215,7 @@
 
 /obj/machinery/door/window/brigdoor
 	name = "secure door"
-	icon = 'icons/obj/doors/windoor.dmi'
+	icon = 'icons/obj/structure/window/window_panes.dmi'
 	icon_state = "leftsecure"
 	base_state = "leftsecure"
 	req_access = list(access_security)
