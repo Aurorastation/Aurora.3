@@ -908,6 +908,61 @@
 /obj/structure/sign/flag/nka/large/west/New()
 	..(loc, WEST)
 
+// FTC
+
+/obj/item/flag/ftc
+	name = "\improper Free Tajaran Council flag"
+	desc = "The red and black flag of the Free Tajaran Council, the largest tajaran community in Himeo."
+	flag_path = "ftc"
+	desc_extended = "The Free Tajaran Council began as a rebel faction in the Duchy of Shungsta during the First Revolution. Born among oppressed peasants and factory workers, \
+	the movement advocated for the total abolishment of the existing governments in favor of local democratic councils. The Free Council became a serious contender for power in Northern Ras'nrr after Volin Kar'etrink - a young Hharar worker known to be a firebrand - was elected its leader. \
+	Due to its innate hostility to all other Adhomian Civil War factions, the Free Tajaran Council was unable to secure any significant territory outside of Northern Ras'nrr. The Council's forces were quickly defeated by the Hadiist forces when they invaded the region in 2427. \
+	Assisted off-world by the intervention of NanoTrasen, the surviving tajara travelled through Coalition of Colonies territory until reaching Himeo. Posing as refugees from the ongoing civil war, they were granted asylum and a degree of autonomy. \
+	Through the cooperation with Himeo, the Free Council prospered and grew in numbers. Despite all the prosperity however, Volin Kar'etrink is very old; little time is left for him in this world. \
+	The Free Tajaran Council now stands at a crossroads: a choice must be made concerning their future. In their struggle to influence the tajara, the nations on Adhomai have taken notice of the sizable community in Himeo. \
+	The Council is now a battleground for another proxy war between the Adhomian nations, who each sponsor different opposing factions within the community to gain their eventual support."
+	flag_structure = /obj/structure/sign/flag/ftc
+
+/obj/structure/sign/flag/ftc
+	name = "\improper Free Tajaran Council flag"
+	desc = "The red and black flag of the Free Tajaran Council, the largest tajaran community in Himeo."
+	desc_extended = "The Free Tajaran Council began as a rebel faction in the Duchy of Shungsta during the First Revolution. Born among oppressed peasants and factory workers, \
+	the movement advocated for the total abolishment of the existing governments in favor of local democratic councils. The Free Council became a serious contender for power in Northern Ras'nrr after Volin Kar'etrink - a young Hharar worker known to be a firebrand - was elected its leader. \
+	Due to its innate hostility to all other Adhomian Civil War factions, the Free Tajaran Council was unable to secure any significant territory outside of Northern Ras'nrr. The Council's forces were quickly defeated by the Hadiist forces when they invaded the region in 2427. \
+	Assisted off-world by the intervention of NanoTrasen, the surviving tajara travelled through Coalition of Colonies territory until reaching Himeo. Posing as refugees from the ongoing civil war, they were granted asylum and a degree of autonomy. \
+	Through the cooperation with Himeo, the Free Council prospered and grew in numbers. Despite all the prosperity however, Volin Kar'etrink is very old; little time is left for him in this world. \
+	The Free Tajaran Council now stands at a crossroads: a choice must be made concerning their future. In their struggle to influence the tajara, the nations on Adhomai have taken notice of the sizable community in Himeo. \
+	The Council is now a battleground for another proxy war between the Adhomian nations, who each sponsor different opposing factions within the community to gain their eventual support."
+	flag_path = "ftc"
+	icon_state = "ftc"
+	flag_item = /obj/item/flag/ftc
+
+/obj/structure/sign/flag/ftc/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/ftc/l
+	name = "large Free Tajaran Council flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ftc/large
+
+/obj/structure/sign/flag/ftc/large
+	icon_state = "ftc_l"
+	flag_path = "ftc"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ftc/l
+
+/obj/structure/sign/flag/ftc/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/ftc/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/ftc/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/ftc/large/west/New()
+	..(loc, WEST)
+
 // Hephaestus
 
 /obj/item/flag/heph
