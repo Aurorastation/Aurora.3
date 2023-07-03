@@ -377,13 +377,22 @@ var/list/localhost_addresses = list(
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
 			del(src)
 			return 0
-
-	// Instantiate tgui panel
-	tgui_panel = new(src, "browseroutput")
 	// Instantiate stat panel
 	stat_panel = new(src, "statbrowser")
-
 	stat_panel.subscribe(src, PROC_REF(on_stat_panel_message))
+	// Instantiate tgui panel
+	tgui_panel = new(src, "browseroutput")
+
+	// Initialize stat panel
+	stat_panel.initialize(
+		inline_html = file("html/statbrowser.html"),
+		inline_js = file("html/statbrowser.js"),
+		inline_css = file("html/statbrowser.css"),
+	)
+	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
+
+	// Initialize tgui panel
+	tgui_panel.initialize()
 
 	if(IsGuestKey(key) && config.external_auth)
 		src.authed = FALSE
@@ -398,17 +407,6 @@ var/list/localhost_addresses = list(
 		src.InitClient()
 		src.InitPrefs()
 		mob.LateLogin()
-
-	spawn(0)
-		tgui_panel.initialize()
-
-		// Initialize stat panel
-		stat_panel.initialize(
-			inline_html = file("html/statbrowser.html"),
-			inline_js = file("html/statbrowser.js"),
-			inline_css = file("html/statbrowser.css"),
-		)
-
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
