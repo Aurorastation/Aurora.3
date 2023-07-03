@@ -397,6 +397,9 @@ var/list/localhost_addresses = list(
 		src.InitPrefs()
 		mob.LateLogin()
 
+	/// This spawn is the only thing keeping the stat panels and chat working. By removing this spawn, there will be black screens when loading the game.
+	/// It seems to be affected by the order of statpanel init: if it happens before send_resources(), then the statpanels won't load, but the game won't
+	/// blackscreen.
 	spawn(0)
 		// Initialize stat panel
 		stat_panel.initialize(
