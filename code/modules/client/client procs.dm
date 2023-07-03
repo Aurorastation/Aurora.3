@@ -383,17 +383,6 @@ var/list/localhost_addresses = list(
 	// Instantiate tgui panel
 	tgui_panel = new(src, "browseroutput")
 
-	// Initialize stat panel
-	stat_panel.initialize(
-		inline_html = file("html/statbrowser.html"),
-		inline_js = file("html/statbrowser.js"),
-		inline_css = file("html/statbrowser.css"),
-	)
-	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
-
-	// Initialize tgui panel
-	tgui_panel.initialize()
-
 	if(IsGuestKey(key) && config.external_auth)
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
@@ -407,6 +396,18 @@ var/list/localhost_addresses = list(
 		src.InitClient()
 		src.InitPrefs()
 		mob.LateLogin()
+
+	spawn(0)
+		// Initialize stat panel
+		stat_panel.initialize(
+			inline_html = file("html/statbrowser.html"),
+			inline_js = file("html/statbrowser.js"),
+			inline_css = file("html/statbrowser.css"),
+		)
+		addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
+
+	// Initialize tgui panel
+	tgui_panel.initialize()
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)

@@ -146,3 +146,5 @@
 #define JOBROLE_DEFAULT 0                    // This is the default "job role", no special meaning.
 #define JOBROLE_SUPERVISOR (1 << 0)          // Indicates that the job is a supervisory position, i.e a head of department.
 #define SIMPLEDEPT(dept) list(dept = JOBROLE_DEFAULT)
+
+#define ASSET_CROSS_ROUND_CACHE_DIRECTORY "tmp/assets"
