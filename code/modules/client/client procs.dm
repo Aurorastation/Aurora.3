@@ -399,15 +399,15 @@ var/list/localhost_addresses = list(
 		src.InitPrefs()
 		mob.LateLogin()
 
+	spawn(0)
+		tgui_panel.initialize()
 
-	tgui_panel.initialize()
-
-	// Initialize stat panel
-	stat_panel.initialize(
-		inline_html = file("html/statbrowser.html"),
-		inline_js = file("html/statbrowser.js"),
-		inline_css = file("html/statbrowser.css"),
-	)
+		// Initialize stat panel
+		stat_panel.initialize(
+			inline_html = file("html/statbrowser.html"),
+			inline_js = file("html/statbrowser.js"),
+			inline_css = file("html/statbrowser.css"),
+		)
 
 
 /client/proc/InitPrefs()
