@@ -51,6 +51,7 @@
 #define SS_PRIORITY_TICKER     100	// Gameticker.
 //#define SS_PRIORITY_DEFAULT   50	// This is defined somewhere else.
 #define SS_PRIORITY_MOB         40	// Mob Life().
+#define SS_PRIORITY_ASSET		40  // Asset loading subsystem - not to be confused with SSassets.
 #define SS_PRIORITY_AIR         40	// ZAS processing.
 #define SS_PRIORITY_CHAT        30  // Chat
 #define SS_PRIORITY_STATPANELS  25  // Statpanels.
