@@ -73,19 +73,19 @@ jobs:
           bash tools/ci/check_grep.sh $PWD
       - name: Check Validate DME
         run: |
-          tools/bootstrap/python tools/validate_dme.py <aurorastation.dme
+          python tools/validate_dme.py <aurorastation.dme
       - name: Check Tgui
         run: |
           tools/build/build --ci lint tgui-test
       - name: Check Defines
         run: |
-          tools/bootstrap/python -m define_sanity.check
+          python -m define_sanity.check
       - name: Check Icons
         run: |
-          tools/bootstrap/python -m dmi.test
+          python -m dmi.test
       - name: Check DMM-Test
         run: |
-          tools/bootstrap/python -m mapmerge2.dmm_test
+          python -m mapmerge2.dmm_test
       - name: Check Indentation
         run: |
           awk -f tools/indentation.awk **/*.dm
