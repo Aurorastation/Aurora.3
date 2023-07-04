@@ -112,7 +112,7 @@
 
 		//Defibrillator stuffs
 		/obj/item/defibrillator,
-		/obj/item/shockpaddles/,
+		/obj/item/shockpaddles,
 
 		)
 	// Check for multi-surgery drifting.
