@@ -41,8 +41,13 @@ export class Input extends Component {
     };
     this.handleBlur = (e) => {
       const { editing } = this.state;
+      const { onChange } = this.props;
+      const { strict } = this.props;
       if (editing) {
         this.setEditing(false);
+        if (onChange && !strict) {
+          onChange(e, e.target.value);
+        }
       }
     };
     this.handleKeyDown = (e) => {
@@ -122,6 +127,7 @@ export class Input extends Component {
       value,
       maxLength,
       placeholder,
+      strict,
       ...boxProps
     } = props;
     // Box props
