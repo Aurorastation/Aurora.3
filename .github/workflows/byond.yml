@@ -51,7 +51,7 @@ jobs:
       - name: Restore Python Cache
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.7.9'
           cache: 'pip'
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -142,24 +142,28 @@ jobs:
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway
-      - name: Install BYOND
+      - name: Prepare OS Environtment
         run: |
           source dependencies.sh
           sudo dpkg --add-architecture i386
           sudo apt-get update
-          sudo apt-get install -y gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
+      - name: Install OS Packages
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
+          version: 1.0
+      - name: Install BYOND
+        run: |
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
       - name: Install Flyway
         run: |
-          source dependencies.sh
           tools/ci/install_flyway.sh
       - name: Migrate database
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
-          source dependencies.sh
           $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game"
       - name: Build
         run: |
