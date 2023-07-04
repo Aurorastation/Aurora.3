@@ -58,7 +58,7 @@ jobs:
         with:
           cache-dependency-path: tgui/yarn.lock
           node-version: 14.16.1
-          cache: 'npm'
+          cache: 'yarn'
       - name: Install Python Packages
         run: |
           pip install -r tools/requirements.txt
