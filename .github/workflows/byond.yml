@@ -48,13 +48,19 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       # Install Dependencies
+      - name: Install Python Packages
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+      - run: |
+          tools/bootstrap/python -c ''
       - name: Install Tools
         run: |
           pip3 install setuptools
           bash tools/ci/install_node.sh
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           bash tools/ci/install_od.sh
-          tools/bootstrap/python -c ''
       - name: Check Filedirs
         run: |
           bash tools/ci/check_filedirs.sh aurorastation.dme
