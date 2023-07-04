@@ -154,6 +154,7 @@ jobs:
           version: 1.0
       - name: Install BYOND
         run: |
+          source dependencies.sh
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
