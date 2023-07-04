@@ -48,13 +48,14 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       # Install Dependencies
-      - name: Install Python Packages
+      - name: Restore Python Cache
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
           cache: 'pip'
-      - run: |
-          tools/bootstrap/python -c ''
+      - name: Python Packages
+        run: |
+          pip install -r tools/requirements.txt
       - name: Install Tools
         run: |
           pip3 install setuptools
