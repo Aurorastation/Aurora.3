@@ -8,6 +8,7 @@ then
   if [ -a "$HOME/OpenDream/OpenDream.sln" ];
   then
     echo "OpenDream is already compiled."
+    exit
   else
     echo "OpenDream is not compiled, compiling it now..."
     git -C $HOME/OpenDream fetch origin
