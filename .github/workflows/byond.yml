@@ -154,7 +154,7 @@ jobs:
           version: 1.0
       - name: Install OS Packages (Native)
         run: |
-          apt-get install libssl-dev:i386
+          sudo apt-get install libssl-dev:i386
       - name: Install BYOND
         run: |
           source dependencies.sh
