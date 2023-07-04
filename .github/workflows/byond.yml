@@ -53,13 +53,17 @@ jobs:
         with:
           python-version: '3.9'
           cache: 'pip'
-      - name: Python Packages
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14.16.1
+          cache: 'npm'
+      - name: Install Python Packages
         run: |
           pip install -r tools/requirements.txt
       - name: Install Tools
         run: |
           pip3 install setuptools
-          bash tools/ci/install_node.sh
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           bash tools/ci/install_od.sh
       - name: Check Filedirs
@@ -73,19 +77,19 @@ jobs:
           bash tools/ci/check_grep.sh $PWD
       - name: Check Validate DME
         run: |
-          python tools/validate_dme.py <aurorastation.dme
+          tools/bootstrap/python tools/validate_dme.py <aurorastation.dme
       - name: Check Tgui
         run: |
           tools/build/build --ci lint tgui-test
       - name: Check Defines
         run: |
-          python -m define_sanity.check
+          tools/bootstrap/python -m define_sanity.check
       - name: Check Icons
         run: |
-          python -m dmi.test
+          tools/bootstrap/python -m dmi.test
       - name: Check DMM-Test
         run: |
-          python -m mapmerge2.dmm_test
+          tools/bootstrap/python -m mapmerge2.dmm_test
       - name: Check Indentation
         run: |
           awk -f tools/indentation.awk **/*.dm
