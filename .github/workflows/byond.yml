@@ -159,6 +159,7 @@ jobs:
           bash tools/ci/install_rust_g.sh
       - name: Install Flyway
         run: |
+          source dependencies.sh
           tools/ci/install_flyway.sh
       - name: Migrate database
         env:
