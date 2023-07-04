@@ -5,7 +5,7 @@ if [ -d "$HOME/OpenDream/" ];
 then
   echo "Using cached OpenDream directory."
 
-  if [ -a "$HOME/OpenDream/OpenDream.sln"]
+  if [ -a "$HOME/OpenDream/OpenDream.sln" ];
   then
     echo "OpenDream is already compiled."
   else

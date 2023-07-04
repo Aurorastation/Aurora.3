@@ -37,7 +37,7 @@ jobs:
       - name: Restore OpenDream cache
         uses: actions/cache@v3
         with:
-          path: ~/OpenDream
+          path: ~/OpenDream/*
           key: ${{ runner.os }}-opendream
       - name: Restore Yarn cache
         uses: actions/cache@v3
