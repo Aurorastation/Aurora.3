@@ -321,7 +321,7 @@
 	if(.)
 		return TRUE
 
-	if(href == "Reply")
+	if(href_list["Reply"])
 		var/mob/living/user = usr
 		var/datum/ntnet_conversation/conv = locate(href_list["Reply"])
 		var/message = input(user, "Enter message or leave blank to cancel: ")

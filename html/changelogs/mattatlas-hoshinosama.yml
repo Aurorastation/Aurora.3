@@ -47,3 +47,4 @@ changes:
   - bugfix: "Ship guns can now actually fire on hazards."
   - bugfix: "Fixed printing prosthetic limbs of different types."
   - bugfix: "Fixed some tajara languages having a darker colour."
+  - bugfix: "Fixed replying to a PDA message through the chat link not working."
