@@ -3,7 +3,7 @@ set -eo pipefail
 
 if [ -d "$HOME/OpenDream/" ];
 then
-  echo "Using cached OpenDream directory."
+  echo "Using cached OpenDream  directory."
 
   if [ -a "$HOME/OpenDream/OpenDream.sln" ];
   then
