@@ -150,7 +150,7 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libc6:i386
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
           version: 1.0
       - name: Install OS Packages (Native)
         run: |
