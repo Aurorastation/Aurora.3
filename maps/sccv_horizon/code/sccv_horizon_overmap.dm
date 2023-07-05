@@ -126,6 +126,12 @@
 	name = "\improper Spark control console"
 	shuttle_tag = "Spark"
 	req_access = list(access_mining)
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "right"
+	icon_screen = "blue"
+	icon_keyboard = null
+	circuit = null
 
 /obj/effect/overmap/visitable/ship/landable/canary
 	name = "Canary"
