@@ -187,6 +187,7 @@
 /mob/living/simple_animal/hostile/lesser_changeling/Initialize()
 	. = ..()
 	add_verb(src, /mob/living/proc/ventcrawl)
+	add_verb(src, /mob/living/simple_animal/hostile/lesser_changeling/verb/untransform)
 
 /mob/living/simple_animal/hostile/lesser_changeling/mind_initialize()
 	..()
@@ -200,6 +201,7 @@
 			occupant.status_flags &= ~GODMODE
 			if(mind)
 				mind.transfer_to(occupant)
+				occupant.client.init_verbs()
 
 		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
 		gibs(src.loc)
@@ -228,6 +230,7 @@
 		occupant.status_flags &= ~GODMODE
 		if(mind)
 			mind.transfer_to(occupant)
+		occupant.client.init_verbs()
 		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
 		gibs(src.loc)
 		qdel(src)
