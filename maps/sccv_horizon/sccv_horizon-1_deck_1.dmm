@@ -24393,6 +24393,13 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
+"rnF" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/ladder/up{
+	pixel_y = 10
+	},
+/turf/space/dynamic,
+/area/template_noop)
 "rnM" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/portables_connector/fuel{
@@ -49646,7 +49653,7 @@ pgW
 pgW
 suw
 jEx
-kVe
+rnF
 kVe
 eSV
 eSV
