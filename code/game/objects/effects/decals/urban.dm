@@ -42,7 +42,7 @@
 
 /obj/effect/decal/road_marking/incline
 	icon_state = "incline_line"
-	layer = 2.01
+	layer = 2.03
 
 /obj/effect/decal/road_marking/incline/center
 	icon_state = "incline_center-line"

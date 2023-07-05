@@ -121,8 +121,11 @@
 	name = "buffet trays"
 	icon = 'icons/obj/structure/urban/restaurant.dmi'
 	icon_state = "buffet"
-	icon_on = "buffet[rand(1, 4)]"
 	icon_off = "buffet"
+
+/obj/machinery/smartfridge/foodheater/buffet/Initialize()
+	. = ..()
+	icon_on = "buffet[rand(1, 4)]"
 
 /obj/machinery/smartfridge/seeds
 	name = "\improper MegaSeed Storage"
