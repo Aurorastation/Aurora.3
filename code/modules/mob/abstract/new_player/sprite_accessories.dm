@@ -247,6 +247,11 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_bobcurl2"
 	chatname = "curls"
 
+/datum/sprite_accessory/hair/bookish
+	name = "Bookish"
+	icon_state = "hair_bookish"
+	chatname = "short hair"
+
 /datum/sprite_accessory/hair/bowl
 	name = "Bowl"
 	icon_state = "hair_bowlcut"
@@ -389,6 +394,12 @@ Follow by example and make good judgement based on length which list to include 
 	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 	chatname = "unbuzzed hair"
 
+/datum/sprite_accessory/hair/chop
+	name = "Chop"
+	icon_state = "hair_chop"
+	length = 1
+	chatname = "short hair"
+
 /datum/sprite_accessory/hair/chrono
 	name = "Chrono"
 	icon_state = "hair_chrono"
@@ -399,6 +410,7 @@ Follow by example and make good judgement based on length which list to include 
 	name = "CIA"
 	icon_state = "hair_cia"
 	chatname = "short hair"
+
 
 /datum/sprite_accessory/hair/coffeehouse
 	name = "Coffee House Cut"
@@ -686,6 +698,11 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_jade"
 	length = 2
 	chatname = "messy hair"
+
+/datum/sprite_accessory/hair/jaeger
+	name = "Jaeger"
+	icon_state = "hair_jaeger"
+	chatname = "short hair"
 
 /datum/sprite_accessory/hair/jensen
 	name = "Jensen Hair"  // Removing Videogame References
