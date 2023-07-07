@@ -1,6 +1,3 @@
-#define FORWARD -1
-#define BACKWARD 1
-
 /datum/construction
 	var/list/steps
 	var/atom/holder

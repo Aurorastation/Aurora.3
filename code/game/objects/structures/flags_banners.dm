@@ -38,7 +38,7 @@
 			flag_path = item_flag_path
 		else
 			flag_path = icon_state
-	if(!deploy)
+	if(deploy)
 		switch(dir)
 			if(NORTH)
 				pixel_y = 32
@@ -68,12 +68,16 @@
 		switch(F2.dir)
 			if(NORTH)
 				F2.pixel_x = 32
+				F2.pixel_y = 32
 			if(SOUTH)
 				F2.pixel_x = 32
+				F2.pixel_y = -32
 			if(EAST)
 				F2.pixel_y = -32
+				F2.pixel_x = 32
 			if(WEST)
 				F2.pixel_y = 32
+				F2.pixel_x = -32
 		F2.linked_flag = src
 		F2.name = name
 		F2.desc = desc
@@ -138,7 +142,7 @@
 
 	user.visible_message(SPAN_NOTICE("\The [user] fastens \the [src] to \the [A]."), SPAN_NOTICE("You fasten \the [src] to \the [A]."))
 	user.drop_from_inventory(src)
-	new flag_structure(user.loc, placement_dir, item_flag_path = flag_path)
+	new flag_structure(user.loc, placement_dir, deploy = TRUE, item_flag_path = flag_path)
 	qdel(src)
 
 
@@ -279,6 +283,21 @@
 	flag_path = "sol"
 	flag_item = /obj/item/flag/sol
 
+/obj/item/flag/sol/old
+	name = "old Sol Alliance flag"
+	desc = "The flag of the pre-Interstellar War Solarian Alliance, once flown from Earth to the human frontier."
+	desc_extended = "The flag of the pre-Interstellar War Alliance of Sovereign Solarian Nations, the single largest state in the Spur's history. The three stars represented the Northern, Central, and Southern Solarian Frontiers."
+	flag_path = "sol_old"
+	flag_structure = /obj/structure/sign/flag/sol/old
+
+/obj/structure/sign/flag/sol/old
+	name = "old Sol Alliance flag"
+	desc = "The flag of the pre-Interstellar War Solarian Alliance, once flown from Earth to the human frontier."
+	desc_extended = "The flag of the pre-Interstellar War Alliance of Sovereign Solarian Nations, the single largest state in the Spur's history. The three stars represented the Northern, Central, and Southern Solarian Frontiers."
+	icon_state = "sol_old"
+	flag_path = "sol_old"
+	flag_item = /obj/item/flag/sol/old
+
 /obj/item/flag/sol/l
 	name = "large Sol Alliance flag"
 	flag_size = TRUE
@@ -300,6 +319,29 @@
 	..(loc, EAST)
 
 /obj/structure/sign/flag/sol/large/west/New()
+	..(loc, WEST)
+
+/obj/item/flag/sol/old/l
+	name = "large old Sol Alliance flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/sol/old/large
+
+/obj/structure/sign/flag/sol/old/large
+	icon_state = "sol_old_l"
+	flag_path = "sol_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/sol/old/l
+
+/obj/structure/sign/flag/sol/old/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/sol/old/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/sol/old/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/sol/old/large/west/New()
 	..(loc, WEST)
 
 // Dominia
@@ -1764,6 +1806,89 @@
 	..(loc, EAST)
 
 /obj/structure/sign/flag/mictlan/large/west/New()
+	..(loc, WEST)
+
+
+// New Hai Phong
+
+/obj/item/flag/nhp
+	name = "\improper New Hai Phong flag"
+	desc = "The flag of New Hai Phong."
+	flag_path = "newhaiphong"
+	flag_structure = /obj/structure/sign/flag/nhp
+
+/obj/structure/sign/flag/nhp
+	name = "\improper New Hai Phong flag"
+	desc = "The flag of New Hai Phong."
+	flag_path = "newhaiphong"
+	icon_state = "newhaiphong"
+	flag_item = /obj/item/flag/nhp
+
+/obj/structure/sign/flag/nhp/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/nhp/l
+	name = "large New Hai Phong flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/nhp/large
+
+/obj/structure/sign/flag/nhp/large
+	icon_state = "newhaiphong_l"
+	flag_path = "newhaiphong"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/nhp/l
+
+/obj/structure/sign/flag/nhp/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/nhp/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/nhp/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/nhp/large/west/New()
+	..(loc, WEST)
+
+// Silversun
+
+/obj/item/flag/silversun
+	name = "\improper Silversun flag"
+	desc = "The flag of Silversun."
+	flag_path = "silversun"
+	flag_structure = /obj/structure/sign/flag/silversun
+
+/obj/structure/sign/flag/silversun
+	name = "\improper Silversun flag"
+	desc = "The flag of Silversun."
+	flag_path = "silversun"
+	icon_state = "silversun"
+	flag_item = /obj/item/flag/silversun
+
+/obj/structure/sign/flag/silversun/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/silversun/l
+	name = "large Silversun flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/silversun/large
+
+/obj/structure/sign/flag/silversun/large
+	icon_state = "silversun_l"
+	flag_path = "silversun"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/silversun/l
+
+/obj/structure/sign/flag/silversun/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/silversun/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/silversun/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/silversun/large/west/New()
 	..(loc, WEST)
 
 // Hive Zo'ra

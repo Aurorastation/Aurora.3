@@ -440,3 +440,6 @@
 
 	else if(closest_structure)
 		closest_structure.tesla_act(power, melt)
+
+#undef TESLA_DEFAULT_POWER
+#undef TESLA_MINI_POWER

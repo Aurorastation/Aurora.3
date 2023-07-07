@@ -74,7 +74,7 @@
 				icon_state = "bulb-construct-stage1"
 		new /obj/item/stack/cable_coil(get_turf(src), 1, "red")
 		user.visible_message(SPAN_NOTICE("\The [user] removes the wiring from \the [src]."), SPAN_NOTICE("You remove the wiring from [src]."), SPAN_WARNING("You hear something being cut."))
-		playsound(get_turf(src), 'sound/items/wirecutter.ogg', 100, TRUE)
+		playsound(get_turf(src), 'sound/items/Wirecutter.ogg', 100, TRUE)
 		return
 
 	if(W.iscoil())

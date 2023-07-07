@@ -136,8 +136,9 @@ var/datum/controller/subsystem/atlas/SSatlas
 		)
 	)
 
-/datum/controller/subsystem/atlas/stat_entry()
-	..("W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[z_levels]")
+/datum/controller/subsystem/atlas/stat_entry(msg)
+	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[z_levels]"
+	return ..()
 
 /datum/controller/subsystem/atlas/New()
 	NEW_SS_GLOBAL(SSatlas)

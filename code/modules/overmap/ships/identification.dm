@@ -70,7 +70,7 @@
 	can_change_name = FALSE
 
 /obj/machinery/iff_beacon/horizon/shuttle
-	icon = 'icons/obj/spaceship/scc/iff.dmi'
+	icon = 'icons/obj/spaceship/scc/helm_pieces.dmi'
 	icon_state = "iff"
 
 /obj/machinery/iff_beacon/name_change

@@ -146,16 +146,11 @@
 	exclusive_screen = FALSE
 	ui_size = 60
 
-/obj/machinery/vending/boozeomat/ui_interact(mob/user, var/datum/topic_state/state = default_state)
-	user.set_machine(src)
-
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if(!ui)
-		ui = new(user, src, "machinery-vending", 900, 600, capitalize(name), state=state)
-
-	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
-
-	ui.open(v_asset)
+/obj/machinery/vending/boozeomat/ui_data(mob/user)
+	var/list/data = ..()
+	data["width_override"] = 900
+	data["height_override"] = 600
+	return data
 
 /obj/machinery/vending/boozeomat/merchant
 	// boozeomat variant used on the merchant station
@@ -342,15 +337,15 @@
 		/obj/item/reagent_containers/food/snacks/seaweed = 20
 	)
 	light_color = COLOR_BABY_BLUE
-
+	manufacturer = "nanotrasen"
 
 /obj/machinery/vending/cola
-	name = "Robust Softdrinks"
-	desc = "A softdrink vendor provided by Robust Industries, LLC."
+	name = "Idris Re-Fresh"
+	desc = "A soft drink vendor provided by an Idris subsidiary."
 	icon_state = "cola_machine"
 	icon_vend = "cola_machine-vend"
-	product_slogans = "Robust Softdrinks: More robust than a toolbox to the head!"
-	product_ads = "Refreshing!;Hope you're thirsty!;Over 1 million drinks sold!;Thirsty? Why not cola?;Please, have a drink!;Drink up!;The best drinks in space."
+	product_slogans = "Idris Re-Fresh: the more expensive the place, the more of us you'll seee!"
+	product_ads = "Refreshing!;Hope you're thirsty!;Thirsty? Why not cola?;Please, have a drink!;Drink up!;The best drinks in space."
 	vend_id = "cola"
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
@@ -406,7 +401,7 @@
 	light_color = COLOR_GUNMETAL
 
 /obj/machinery/vending/cigarette
-	name = "Cigarette machine" //OCD had to be uppercase to look nice with the new formating
+	name = "cigarette machine" //OCD had to be uppercase to look nice with the new formating
 	desc = "If you want to get cancer, might as well do it in style!"
 	product_slogans = "Space cigs taste good like a cigarette should.;I'd rather toolbox than switch.;Smoke!;Don't believe the reports - smoke today!"
 	product_ads = "Probably not bad for you!;Don't believe the scientists!;It's good for you!;Don't quit, buy more!;Smoke!;Nicotine heaven.;Best cigarettes since 2150.;Award-winning cigs."
@@ -557,7 +552,7 @@
 	random_itemcount = 0
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
-
+	manufacturer = "zenghu"
 
 //This one's from bay12
 /obj/machinery/vending/phoronresearch
@@ -587,6 +582,7 @@
 	restock_items = 1
 	random_itemcount = 0
 	light_color = COLOR_BLUE_GRAY
+	manufacturer = "scc"
 
 
 /obj/machinery/vending/wallmed1
@@ -620,6 +616,7 @@
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	manufacturer = "zenghu"
 
 /obj/machinery/vending/wallmed2
 	name = "\improper NanoMed Mini"
@@ -651,6 +648,7 @@
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	manufacturer = "zenghu"
 
 /obj/machinery/vending/security
 	name = "SecTech"
@@ -689,7 +687,7 @@
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 	exclusive_screen = FALSE
-
+	manufacturer = "zavodskoi"
 
 /obj/machinery/vending/hydronutrients
 	name = "NutriMax"
@@ -1041,6 +1039,7 @@
 	)
 	restock_items = 1
 	light_color = COLOR_GOLD
+	manufacturer = "hephaestus"
 
 /obj/machinery/vending/engivend
 	name = "Engi-Vend"
@@ -1071,6 +1070,7 @@
 	restock_items = 1
 	random_itemcount = 0
 	light_color = COLOR_GOLD
+	manufacturer = "hephaestus"
 
 /obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
 	name = "Tactical Express"
@@ -1096,6 +1096,7 @@
 	)
 	random_itemcount = 0
 	light_color = COLOR_BROWN
+	manufacturer = "zavodskoi"
 
 /obj/machinery/vending/tacticool/ert //Slightly more !FUN!
 	name = "Nanosecurity Plus"
@@ -1125,6 +1126,7 @@
 		/obj/item/shield/riot/tact = 2
 	)
 	random_itemcount = 0
+	manufacturer = "zavodskoi"
 
 //This one's from bay12
 /obj/machinery/vending/engineering
@@ -1171,6 +1173,7 @@
 	)
 	restock_items = 1
 	light_color = COLOR_GOLD
+	manufacturer = "hephaestus"
 
 //This one's from bay12
 /obj/machinery/vending/robotics
@@ -1208,6 +1211,7 @@
 	restock_items = 1
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
+	manufacturer = "hephaestus"
 
 /obj/machinery/vending/zora
 	name = "Zo'ra Soda"

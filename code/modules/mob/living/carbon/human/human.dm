@@ -34,7 +34,7 @@
 		if(mind)
 			mind.name = real_name
 		if(get_hearing_sensitivity())
-			verbs += /mob/living/carbon/human/proc/listening_close
+			add_verb(src, /mob/living/carbon/human/proc/listening_close)
 		if(!height)
 			height = species.species_height
 
@@ -191,47 +191,36 @@
 		return nutrition + stomach.ingested.total_volume
 	return 0
 
-/mob/living/carbon/human/Stat()
-	..()
-	if(statpanel("Status"))
-		stat("Intent:", "[a_intent]")
-		stat("Move Mode:", "[m_intent]")
-		if(evacuation_controller)
-			var/eta_status = evacuation_controller.get_status_panel_eta()
-			if(eta_status)
-				stat(null, eta_status)
-		if(is_diona() && DS)
-			stat("Biomass:", "[round(nutrition)] / [max_nutrition]")
-			stat("Energy:", "[round(DS.stored_energy)] / [round(DS.max_energy)]")
-			if(DS.regen_limb)
-				stat("Regeneration Progress:", " [round(DS.regen_limb_progress)] / [LIMB_REGROW_REQUIREMENT]")
-		if (internal)
-			if (!internal.air_contents)
-				qdel(internal)
-			else
-				stat("Internal Atmosphere Info", internal.name)
-				stat("Tank Pressure", internal.air_contents.return_pressure())
-				stat("Distribution Pressure", internal.distribute_pressure)
+/mob/living/carbon/human/get_status_tab_items()
+	. = ..()
+	. += "Intent: [a_intent]"
+	. += "Move Mode: [m_intent]"
+	if(is_diona() && DS)
+		. += "Biomass: [round(nutrition)] / [max_nutrition]"
+		. += "Energy: [round(DS.stored_energy)] / [round(DS.max_energy)]"
+		if(DS.regen_limb)
+			. += "Regeneration Progress: [round(DS.regen_limb_progress)] / [LIMB_REGROW_REQUIREMENT]"
+	if (internal)
+		if (!internal.air_contents)
+			qdel(internal)
+		else
+			. += "Internal Atmosphere Info: [internal.name]"
+			. += "Tank Pressure: [internal.air_contents.return_pressure()]"
+			. += "Distribution Pressure: [internal.distribute_pressure]"
 
-		var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
-		if(IC && IC.cell)
-			stat("Battery charge:", "[IC.get_charge()]/[IC.cell.maxcharge]")
+	var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
+	if(IC && IC.cell)
+		. += "Battery charge: [IC.get_charge()]/[IC.cell.maxcharge]"
 
-		if(back && istype(back,/obj/item/rig))
-			var/obj/item/rig/suit = back
-			var/cell_status = "ERROR"
-			if(suit.cell) cell_status = "[suit.cell.charge]/[suit.cell.maxcharge]"
-			stat(null, "Suit charge: [cell_status]")
-
-		if(mind)
-			var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
-			if(vampire)
-				stat("Usable Blood", vampire.blood_usable)
-				stat("Total Blood", vampire.blood_total)
-			var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
-			if(changeling)
-				stat("Chemical Storage", changeling.chem_charges)
-				stat("Genetic Damage Time", changeling.geneticdamage)
+	if(mind)
+		var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+		if(vampire)
+			. += "Usable Blood [vampire.blood_usable]"
+			. += "Total Blood [vampire.blood_total]"
+		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+		if(changeling)
+			. += "Chemical Storage: [changeling.chem_charges]"
+			. += "Genetic Damage Time: [changeling.geneticdamage]"
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
@@ -1040,7 +1029,7 @@
 		return
 
 	if(NOT_FLAG(mutations, mMorph))
-		src.verbs -= /mob/living/carbon/human/proc/morph
+		remove_verb(src, /mob/living/carbon/human/proc/morph)
 		return
 
 	var/new_facial = input("Please select facial hair color.", "Character Generation",rgb(r_facial,g_facial,b_facial)) as color
@@ -1121,7 +1110,7 @@
 		return
 
 	if(NOT_FLAG(mutations, mRemotetalk))
-		src.verbs -= /mob/living/carbon/human/proc/remotesay
+		remove_verb(src, /mob/living/carbon/human/proc/remotesay)
 		return
 	var/list/creatures = list()
 	for(var/hh in human_mob_list)
@@ -1155,7 +1144,7 @@
 	if(NOT_FLAG(mutations, mRemote))
 		remoteview_target = null
 		reset_view(0)
-		src.verbs -= /mob/living/carbon/human/proc/remoteobserve
+		remove_verb(src, /mob/living/carbon/human/proc/remoteobserve)
 		return
 
 	if(client.eye != client.mob)
@@ -1231,6 +1220,7 @@
 				if(H.brainmob.real_name == src.real_name)
 					if(H.brainmob.mind)
 						H.brainmob.mind.transfer_to(src)
+						H.brainmob.client.init_verbs()
 						qdel(H)
 
 	losebreath = 0
@@ -1295,7 +1285,7 @@
 			blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
 		hand_blood_color = H.species?.blood_color
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
-	verbs += /mob/living/carbon/human/proc/bloody_doodle
+	add_verb(src, /mob/living/carbon/human/proc/bloody_doodle)
 	return TRUE //we applied blood to the item
 
 /mob/living/carbon/human/proc/get_full_print()
@@ -1373,7 +1363,7 @@
 	if(usr == src)
 		self = 1
 
-	if (src.species.flags & NO_BLOOD)
+	if ((src.species.flags & NO_BLOOD) || (status_flags & FAKEDEATH))
 		to_chat(usr, SPAN_WARNING(self ? "You have no pulse." : "[src] has no pulse!"))
 		return
 
@@ -1486,6 +1476,8 @@
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
+	speech_bubble_type = species.possible_speech_bubble_types[1]
+
 	fill_out_culture_data()
 
 	if(change_hair)
@@ -1493,10 +1485,13 @@
 
 	species.set_default_tail(src)
 
+	if(client)
+		client.init_verbs()
+
 	if(species)
-		return 1
+		return TRUE
 	else
-		return 0
+		return FALSE
 
 
 /mob/living/carbon/human/proc/fill_out_culture_data()
@@ -1518,7 +1513,7 @@
 		return 0 //something is terribly wrong
 
 	if (!bloody_hands)
-		verbs -= /mob/living/carbon/human/proc/bloody_doodle
+		remove_verb(src, /mob/living/carbon/human/proc/bloody_doodle)
 
 	if (src.gloves)
 		to_chat(src, SPAN_WARNING("Your [src.gloves] are getting in the way."))

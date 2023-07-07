@@ -92,7 +92,7 @@
 		if(custom_name)
 			to_chat(user,"[custom_name] is written crudely in pen across the side, covering up the offical designation.")
 		else
-			to_chat(user,"The offical designation \"[official_name]\" is etched neatly on the side.")
+			to_chat(user,"The official designation \"[official_name]\" is etched neatly on the side.")
 
 	if(installed_cell)
 		to_chat(user, "It has <b>[get_ammo()]</b> shots remaining.")
@@ -433,7 +433,7 @@
 			installed_cell.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
 		return TRUE
 	else if(istype(I,/obj/item/custom_ka_upgrade/barrels))
 		if(!installed_cell)
@@ -447,7 +447,7 @@
 			installed_barrel.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
 		return TRUE
 	else if(istype(I,/obj/item/custom_ka_upgrade/upgrade_chips))
 		if(!installed_cell || !installed_barrel)
@@ -465,7 +465,7 @@
 			installed_upgrade_chip.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
 		return TRUE
 
 	if(installed_cell)

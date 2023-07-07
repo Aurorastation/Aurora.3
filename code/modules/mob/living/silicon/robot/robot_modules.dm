@@ -174,10 +174,10 @@ var/global/list/robot_modules = list(
 	added_networks.Cut()
 
 /obj/item/robot_module/proc/add_subsystems(var/mob/living/silicon/robot/R)
-	R.verbs |= subsystems
+	add_verb(R, subsystems)
 
 /obj/item/robot_module/proc/remove_subsystems(var/mob/living/silicon/robot/R)
-	R.verbs -= subsystems
+	remove_verb(R, subsystems)
 
 /obj/item/robot_module/proc/apply_status_flags(var/mob/living/silicon/robot/R)
 	if(!can_be_pushed)
@@ -647,7 +647,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/gripper/paperwork(src)
 	modules += new /obj/item/device/hand_labeler(src)
 	modules += new /obj/item/tape_roll(src) //allows it to place flyers
-	modules += new /obj/item/device/nanoquikpay(src)
+	modules += new /obj/item/device/quikpay(src)
 	modules += new /obj/item/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
@@ -692,7 +692,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/stamp(src)
 	modules += new /obj/item/stamp/denied(src)
 	modules += new /obj/item/tape_roll(src) //allows it to place flyers
-	modules += new /obj/item/device/nanoquikpay(src)
+	modules += new /obj/item/device/quikpay(src)
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/taperoll/police(src)
 	modules += new /obj/item/paper_scanner(src) //TODO: Add functionality to allow for scanned paperwork to show up in internal computer

@@ -8684,7 +8684,6 @@
 	c_tag = "Medical - Patient Wing Library";
 	dir = 1
 	},
-/obj/item/board,
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
 "aqG" = (
@@ -14241,11 +14240,6 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/machinery/computer/atmoscontrol/laptop{
-	monitored_alarm_ids = list("1501","1502","1503","1504");
-	name = "Isolation Atmospheric Controls";
-	req_one_access = list(7,11,24,47)
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "aCq" = (
@@ -19596,10 +19590,6 @@
 /area/rnd/xenobiology)
 "aOy" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/atmoscontrol/laptop{
-	monitored_alarm_ids = list("xenobio_alpha","xenobio_bravo","xenobio_charlie","xenobio_delta","xenobio_echo","xenobio_foxtrot","xenobio_golf","xenobio_hotel");
-	req_one_access = list(47,24,11)
-	},
 /obj/effect/floor_decal/corner/white{
 	dir = 1
 	},
@@ -31451,7 +31441,6 @@
 /area/maintenance/medsublevel_port)
 "ntd" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/computer/station_alert,
 /obj/machinery/ringer{
 	department = "Engineering";
 	id = "engie_ringer";
@@ -33546,13 +33535,6 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/machinery/computer/atmoscontrol/laptop{
-	monitored_alarm_ids = list("1601");
-	name = "Hazardous Specimens Atmospheric Controls";
-	pixel_x = -2;
-	req_access = null;
-	req_one_access = list(55,24,11)
-	},
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 6
 	},
@@ -35896,7 +35878,6 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "wuX" = (
-/obj/machinery/computer/station_alert,
 /turf/simulated/floor/tiled,
 /area/engineering/backup_SMES)
 "wve" = (
@@ -35974,7 +35955,6 @@
 /area/maintenance/medsublevel)
 "wHR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/computer/power_monitor,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "wIo" = (

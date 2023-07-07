@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="209.02083mm"
+   height="277.8125mm"
+   viewBox="0 0 209.02083 277.8125"
+   opacity=".33"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)"
+   sodipodi:docname="zavod-bg.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="797.71458"
+     inkscape:cy="336.80247"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="true"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
+     inkscape:window-x="2552"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:snap-grids="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid847"
+       originx="0"
+       originy="-2.6458333" />
+    <sodipodi:guide
+       position="52.916666,238.125"
+       orientation="-0.78549168,-0.61887222"
+       id="guide851" />
+    <sodipodi:guide
+       position="116.41667,142.875"
+       orientation="0.78549168,0.61887221"
+       id="guide853" />
+    <sodipodi:guide
+       position="209.02083,150.8125"
+       orientation="0,-1"
+       id="guide855" />
+    <sodipodi:guide
+       position="127,142.875"
+       orientation="0,-1"
+       id="guide857" />
+    <sodipodi:guide
+       position="116.41667,2.5659685e-07"
+       orientation="0.64278761,-0.76604444"
+       id="guide859"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="116.41667,2.5659685e-07"
+       orientation="-0.78549168,-0.61887222"
+       id="guide861" />
+    <sodipodi:guide
+       position="116.41666,4.2565968e-06"
+       orientation="-0.6332378,-0.77395729"
+       id="guide863" />
+    <sodipodi:guide
+       position="66.292823,41.010416"
+       orientation="-0.8784279,0.4778749"
+       id="guide865" />
+    <sodipodi:guide
+       position="82.020833,27.78125"
+       orientation="-0.8776576,0.47928816"
+       id="guide869" />
+    <sodipodi:guide
+       position="89.958333,21.647726"
+       orientation="-0.8776576,0.47928817"
+       id="guide871" />
+    <sodipodi:guide
+       position="0,230.1875"
+       orientation="0,-1"
+       id="guide873" />
+    <sodipodi:guide
+       position="0,209.02084"
+       orientation="0,-1"
+       id="guide875" />
+    <sodipodi:guide
+       position="0,201.08333"
+       orientation="0,-1"
+       id="guide877" />
+    <sodipodi:guide
+       position="0,238.125"
+       orientation="0,-1"
+       id="guide879" />
+    <sodipodi:guide
+       position="58.208332,47.625"
+       orientation="-0.87765759,0.47928817"
+       id="guide881" />
+    <sodipodi:guide
+       position="0,201.08334"
+       orientation="1,0"
+       id="guide889" />
+    <sodipodi:guide
+       position="209.02083,142.875"
+       orientation="1,0"
+       id="guide891" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>atteria</dc:title>
+          </cc:Agent>
+        </dc:creator>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-2.6458333)">
+    <path
+       style="fill-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 0,2.6458333 V 42.333333 h 52.916666 l 68.791664,87.312497 h 87.3125 V 2.6458333 Z"
+       id="path849" />
+    <path
+       style="fill-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 0,50.27083 H 47.625005 L 64.301766,71.437489 H 0 Z"
+       id="path887" />
+    <path
+       style="fill-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 0,79.374999 H 70.555561 L 112.7593,132.94129 58.208333,232.83333 0,185.20833 Z"
+       id="path893" />
+    <path
+       style="fill-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 121.70833,137.58333 h 23.16511 L 82.157016,252.42771 66.292824,239.44791 Z"
+       id="path895" />
+    <path
+       style="fill-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 89.958332,258.8106 26.458338,21.64773 92.60416,-77.70412 v -65.17088 h -52.86037 z"
+       id="path897" />
+  </g>
+</svg>

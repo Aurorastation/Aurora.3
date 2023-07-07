@@ -133,7 +133,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/computer/shuttle_control/Topic(href_list, href_list)
+/obj/machinery/computer/shuttle_control/Topic(href, href_list)
 	..()
 	handle_topic_href(SSshuttle.shuttles[shuttle_tag], href_list, usr)
 

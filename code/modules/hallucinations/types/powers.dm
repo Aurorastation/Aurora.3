@@ -38,11 +38,11 @@
 /datum/hallucination/mindread/proc/mind_give()
 	to_chat(holder, SPAN_NOTICE(FONT_LARGE("<B>You have developed a psionic gift!</B>")))
 	to_chat(holder, SPAN_NOTICE("You can feel your mind surging with power! Check the abilities tab to use your new power!"))
-	holder.verbs += /mob/living/carbon/proc/fakemindread
+	add_verb(holder, /mob/living/carbon/proc/fakemindread)
 
 /datum/hallucination/mindread/end()
 	if(holder)
-		holder.verbs -= /mob/living/carbon/proc/fakemindread
+		remove_verb(holder, /mob/living/carbon/proc/fakemindread)
 		to_chat(holder, SPAN_NOTICE("<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
 	..()
 
@@ -125,11 +125,11 @@
 /datum/hallucination/telepathy/proc/tele_give()
 	to_chat(holder, SPAN_NOTICE(FONT_LARGE("<B>You have developed a psionic gift!</B>")))
 	to_chat(holder, SPAN_NOTICE("You can feel your mind surging with power! Check the abilities tab to use your new power!"))
-	holder.verbs += /mob/living/carbon/proc/faketelepathy
+	add_verb(holder, /mob/living/carbon/proc/faketelepathy)
 
 /datum/hallucination/telepathy/end()
 	if(holder)
-		holder.verbs -= /mob/living/carbon/proc/faketelepathy
+		remove_verb(holder, /mob/living/carbon/proc/faketelepathy)
 		to_chat(holder, SPAN_NOTICE("<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
 	..()
 

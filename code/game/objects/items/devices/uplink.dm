@@ -7,27 +7,41 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 */
 
 /obj/item/device/uplink
-	var/welcome = "Welcome, Operative"	// Welcoming menu message
-	var/uses 							// Numbers of crystals
-	var/list/ItemsCategory				// List of categories with lists of items
-	var/list/ItemsReference				// List of references with an associated item
-	var/list/nanoui_items				// List of items for NanoUI use
-	var/nanoui_menu = 0					// The current menu we are in
-	var/list/nanoui_data = new 			// Additional data for NanoUI use
-
-	var/list/purchase_log = new			// Assoc list of item to times bought; shared/referenced by child uplinks
+	/// Welcoming menu message.
+	var/welcome = "Welcome, Operative"
+	/// Number of telecrystals.
+	var/telecrystals
+	/// Number of bluecrystals.
+	var/bluecrystals
+	/// Counter of used telecrystals.
+	var/used_telecrystals = 0
+	/// Counter of used bluecrystals.
+	var/used_bluecrystals = 0
+	/// List of categories with lists of items.
+	var/list/ItemsCategory
+	/// List of references with an associated item.
+	var/list/ItemsReference
+	/// List of items for NanoUI use.
+	var/list/nanoui_items
+	/// The current menu we are in.
+	var/nanoui_menu = 0
+	/// Additional data for NanoUI use.
+	var/list/nanoui_data = list()
+	// Assoc list of item to times bought; shared/referenced by child uplinks
+	var/list/purchase_log = list()
+	/// Mind of the uplink's owner.
 	var/datum/mind/uplink_owner = null
-	var/used_TC = 0
 
 /obj/item/device/uplink/ui_host()
 	return loc
 
-/obj/item/device/uplink/New(var/location, var/datum/mind/owner, var/telecrystals = DEFAULT_TELECRYSTAL_AMOUNT)
-	..()
+/obj/item/device/uplink/Initialize(var/mapload, var/datum/mind/owner, var/new_telecrystals = DEFAULT_TELECRYSTAL_AMOUNT, var/new_bluecrystals = DEFAULT_BLUECRYSTAL_AMOUNT)
+	. = ..()
 	src.uplink_owner = owner
 	purchase_log = list()
 	world_uplinks += src
-	uses = telecrystals
+	telecrystals = new_telecrystals
+	bluecrystals = new_bluecrystals
 
 /obj/item/device/uplink/Destroy()
 	world_uplinks -= src
@@ -57,7 +71,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 // The hidden uplink MUST be inside an obj/item's contents.
 /obj/item/device/uplink/hidden/New()
 	spawn(2)
-		if(!istype(src.loc, /obj/item))
+		if(!istype(loc, /obj/item))
 			qdel(src)
 	..()
 	nanoui_data = list()
@@ -90,7 +104,8 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	var/data[0]
 
 	data["welcome"] = welcome
-	data["crystals"] = uses
+	data["telecrystals"] = telecrystals
+	data["bluecrystals"] = bluecrystals
 	data["menu"] = nanoui_menu
 	data += nanoui_data
 
@@ -158,12 +173,15 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		var/items[0]
 		for(var/datum/uplink_item/item in category.items)
 			if(item.can_view(src))
-				var/cost = item.cost(uses)
+				var/tc_cost = item.telecrystal_cost(telecrystals)
+				var/bc_cost = item.bluecrystal_cost(bluecrystals)
+				var/can_buy = item.can_buy_telecrystals(src) || item.can_buy_bluecrystals(src)
 				items[++items.len] = list(
 					"name" = item.name,
 					"description" = replacetext(item.description(), "\n", "<br>"),
-					"can_buy" = item.can_buy(src),
-					"cost" = cost,
+					"can_buy" = can_buy,
+					"tc_cost" = tc_cost,
+					"bc_cost" = bc_cost,
 					"left" = item.items_left(src),
 					"ref" = "\ref[item]"
 				)
@@ -341,7 +359,8 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 /obj/item/device/radio/headset/uplink/New(var/loc, var/mind)
 	..()
 	hidden_uplink = new(src, mind)
-	hidden_uplink.uses = DEFAULT_TELECRYSTAL_AMOUNT
+	hidden_uplink.telecrystals = DEFAULT_TELECRYSTAL_AMOUNT
+	hidden_uplink.bluecrystals = DEFAULT_BLUECRYSTAL_AMOUNT
 
 /*
  * A simple device for accessing the SQL based contract database
@@ -355,10 +374,11 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	flags = CONDUCT
 	w_class = ITEMSIZE_SMALL
 
-/obj/item/device/contract_uplink/New(var/loc, var/mind)
-	..()
+/obj/item/device/contract_uplink/Initialize(var/mapload, var/mind)
+	. = ..()
 	hidden_uplink = new(src, mind)
-	hidden_uplink.uses = 0
+	hidden_uplink.telecrystals = 0
+	hidden_uplink.bluecrystals = 0
 	hidden_uplink.nanoui_menu = 3
 
 /obj/item/device/contract_uplink/attack_self(mob/user as mob)
@@ -398,15 +418,22 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	icon_state = "radio"
 	flags = CONDUCT
 	w_class = ITEMSIZE_SMALL
-	var/starting_telecrystals // how much telecrystals the uplink should spawn with, defaults to default amount if not set
+	 // Amount of starting telecrystals. Defaults to default amount if not set.
+	var/starting_telecrystals
+	/// Amount of starting bluecrystals, used to buy support/medical/gimmick items. Defaults to default amount if not set.
+	var/starting_bluecrystals
 
 /obj/item/device/special_uplink/New(var/loc, var/mind)
 	..()
 	hidden_uplink = new(src, mind)
 	if(!starting_telecrystals)
-		hidden_uplink.uses = DEFAULT_TELECRYSTAL_AMOUNT
+		hidden_uplink.telecrystals = DEFAULT_TELECRYSTAL_AMOUNT
 	else
-		hidden_uplink.uses = starting_telecrystals
+		hidden_uplink.telecrystals = starting_telecrystals
+	if(!starting_bluecrystals)
+		hidden_uplink.bluecrystals = DEFAULT_BLUECRYSTAL_AMOUNT
+	else
+		hidden_uplink.bluecrystals = DEFAULT_BLUECRYSTAL_AMOUNT
 	hidden_uplink.nanoui_menu = 1
 
 /obj/item/device/special_uplink/attack_self(mob/user as mob)

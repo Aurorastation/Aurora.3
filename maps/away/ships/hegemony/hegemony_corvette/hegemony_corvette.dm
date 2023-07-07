@@ -19,7 +19,7 @@
 	icon_state = "foundation"
 	moving_state = "foundation-moving"
 	colors = list("#e38222", "#f0ba3e")
-	scanimage = "unathi_corvette.png"
+	scanimage = "hegemony_corvette.png"
 	designer = "Hephaestus Industries, Izweski Hegemonic Naval Guilds"
 	volume = "75 meters length, 35 meters beam/width, 21 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
@@ -44,6 +44,12 @@
 /obj/effect/overmap/visitable/ship/hegemony_corvette/New()
 	designation = "[pick("Three Heads' Chosen", "Revenge for Gakal'zaal", "Child of Chanterel", "Horns of the Hegemon", "Hide of Steel", "Battle-Talon", "Roaming Warrior", "Abiding Victory", "Scorched Scales", "Wildfire of Moghes", "Travakh Unending", "Blessed By The Spirits", "Blackened Tail", "Legend Foretold", "Molten Claws", "Unfading River", "Emberstorm")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/hegemony_corvette/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "hegemony_corvette")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/hegemony_corvette
 	base_turf = /turf/space/dynamic

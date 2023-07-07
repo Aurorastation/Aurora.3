@@ -86,7 +86,7 @@
 				if (brain)
 					to_chat(user, "Get that brain out of there first")
 				else
-					playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
+					playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 					to_chat(user, "<span class='notice'>You remove the cables.</span>")
 					state = 2
 					icon_state = "2"

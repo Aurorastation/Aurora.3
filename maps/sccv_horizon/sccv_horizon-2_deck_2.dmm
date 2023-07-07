@@ -846,6 +846,7 @@
 	c_tag = "Medical - First Responder Room"
 	},
 /obj/structure/closet/secure_closet/medical_fr,
+/obj/item/defibrillator/compact/loaded,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "auo" = (
@@ -1050,20 +1051,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/secure)
 "aya" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Anti-Materiel)"
-	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
-/obj/item/ammo_casing/peac,
-/obj/item/ammo_casing/peac,
-/obj/item/ammo_casing/peac,
-/obj/item/gun/projectile/peac,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/structure/closet/secure_closet/guncabinet/peac,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "ayc" = (
@@ -15912,6 +15907,12 @@
 /obj/effect/floor_decal/corner/black/full{
 	dir = 8
 	},
+/obj/machinery/button/switch/windowtint{
+	dir = 4;
+	id = "polarized_deck2_workshop";
+	pixel_x = -25;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "hEF" = (
@@ -18256,7 +18257,7 @@
 	},
 /obj/item/device/destTagger,
 /obj/item/paper_scanner,
-/obj/item/device/nanoquikpay{
+/obj/item/device/quikpay{
 	destinationact = "Operations"
 	},
 /turf/simulated/floor/tiled,
@@ -22255,7 +22256,7 @@
 "kPz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/chefcloset,
-/obj/item/device/nanoquikpay,
+/obj/item/device/quikpay,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/tiled/white,
@@ -23372,14 +23373,6 @@
 	dir = 9
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/computer/atmoscontrol/laptop{
-	monitored_alarm_ids = list("1601");
-	name = "Hazardous Specimens Atmospheric Controls";
-	pixel_x = 1;
-	pixel_y = 4;
-	req_access = null;
-	req_one_access = list(55,24,11)
-	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "lss" = (
@@ -24863,9 +24856,6 @@
 /area/hallway/primary/central_two)
 "mdB" = (
 /obj/structure/table/reinforced,
-/obj/item/board{
-	pixel_y = 4
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "mdR" = (
@@ -28097,10 +28087,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
-"nCG" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/tiled/dark/full,
-/area/operations/lower/machinist)
 "nCJ" = (
 /obj/machinery/firealarm/west,
 /obj/structure/bed/stool/chair/padded/brown{
@@ -29578,7 +29564,7 @@
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
-/obj/item/device/nanoquikpay,
+/obj/item/device/quikpay,
 /obj/item/storage/box/fancy/matches,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
@@ -41221,7 +41207,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "uiq" = (
-/obj/machinery/computer/station_alert/security,
 /obj/machinery/button/remote/airlock{
 	desc = "A remote control switch for the brig foyer.";
 	id = "BrigFoyer";
@@ -41244,6 +41229,7 @@
 	pixel_x = 7;
 	pixel_y = 35
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/tiled,
 /area/horizon/security/office)
 "uiH" = (
@@ -43058,10 +43044,6 @@
 	pixel_x = -15
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/item/board,
-/obj/item/board{
-	pixel_y = 4
-	},
 /obj/item/storage/pill_bottle/dice/tajara{
 	pixel_x = 8
 	},
@@ -43617,13 +43599,13 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/computer/station_alert/engineering{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/modular_computer/console/preset/engineering{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "vsb" = (
@@ -48543,6 +48525,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/medical_fr,
+/obj/item/defibrillator/compact/loaded,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "xBU" = (
@@ -74145,12 +74128,12 @@ vpk
 ulB
 kXY
 rnA
-nCG
+bUN
 qsv
 env
 ncx
 ygL
-nCG
+bUN
 vyd
 gGI
 mNn
@@ -74347,12 +74330,12 @@ rLw
 jTQ
 dCK
 rnA
-nCG
+bUN
 sGG
 luY
 ncx
 heg
-nCG
+bUN
 xhg
 mzL
 ayF
@@ -74549,12 +74532,12 @@ rZU
 ulB
 kXY
 rnA
-nCG
+bUN
 ntg
 ncx
 ncx
 dlT
-nCG
+bUN
 gma
 bhJ
 xZy

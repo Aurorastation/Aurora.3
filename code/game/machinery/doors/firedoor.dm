@@ -274,7 +274,7 @@
 				SPAN_NOTICE("You begin welding [src] [blocked ? "open" : "shut"]."),
 				SPAN_ITALIC("You hear a welding torch on metal.")
 			)
-			playsound(src, 'sound/items/welder.ogg', 50, 1)
+			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, PROC_REF(is_open), src.density)))
 				return
 			if(!WT.use(0,user))
@@ -545,3 +545,10 @@
 		if(istype(destination)) SSair.tiles_to_update += destination
 		return 1
 */
+
+
+#undef FIREDOOR_MAX_PRESSURE_DIFF
+#undef FIREDOOR_MAX_TEMP
+#undef FIREDOOR_MIN_TEMP
+#undef FIREDOOR_ALERT_HOT
+#undef FIREDOOR_ALERT_COLD

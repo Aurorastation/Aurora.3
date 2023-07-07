@@ -22,7 +22,7 @@
 	icon_state = "watch_gold"
 	item_state = "watch_gold"
 
-/obj/item/clothing/wrists/watch/holo 
+/obj/item/clothing/wrists/watch/holo
 	desc = "It's a GaussIo ZeitMeister with a holographic screen."
 	desc_extended = "The latest Elyran technology!"
 	icon_state = "watch_holo"
@@ -77,7 +77,7 @@
 /obj/item/clothing/wrists/watch/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> [screwed ? "unscrews" : "screws"] the cover of the [src] [screwed ? "open" : "closed"]."), SPAN_NOTICE("You [screwed ? "unscrews" : "screws"] the cover of the [src] [screwed ? "open" : "closed"]."))
-		playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		screwed = !screwed
 		return
 	if(wired)

@@ -475,7 +475,7 @@
 	animate(src, pixel_y = starting_pixel_y + 4, time = 2)
 	animate(src, pixel_y = starting_pixel_y, time = 2)
 
-	if(!do_after(H, 3, FALSE)) //Chest compressions are fast, need to wait for the loading bar to do mouth to mouth
+	if(!do_after(H, 8, FALSE)) //Chest compressions are fast, need to wait for the loading bar to do mouth to mouth
 		to_chat(H, SPAN_NOTICE("You stop performing [cpr_mode] on \the [src]."))
 		cpr = FALSE //If it cancelled, cancel it. Simple.
 

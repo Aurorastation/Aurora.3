@@ -64,6 +64,7 @@
 #define MODE_GOLEM "golem"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 20
+#define DEFAULT_BLUECRYSTAL_AMOUNT 15
 
 // Defines (NOT FLAGS) for making secret, random, and mixed secret less snowflake-string
 // and number dependant.
