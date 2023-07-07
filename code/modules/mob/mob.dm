@@ -259,7 +259,7 @@
 			AM.show_message("[get_accent_icon(null, src)] [self_message]", 2, deaf_message, 1)
 			continue
 
-		AM.show_message("[get_accent_icon(null, src)] [message]", 2, deaf_message, 1)
+		AM.show_message("[get_accent_icon(null, ismob(AM) ? AM : src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
