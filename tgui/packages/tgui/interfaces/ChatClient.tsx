@@ -1,5 +1,5 @@
 import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState, useSharedState } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Input, Section, Stack, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
@@ -12,6 +12,7 @@ export type ChatData = {
   can_netadmin_mode: BooleanLike;
   message_mute: BooleanLike;
 
+  active: Channel;
   msg: string[];
   channels: Channel[];
   users: User[];
@@ -35,11 +36,6 @@ type User = {
 
 export const ChatClient = (props, context) => {
   const { act, data } = useBackend<ChatData>(context);
-  let [active, setActive] = useSharedState<Channel | null>(
-    context,
-    'active',
-    null
-  );
   const [editingRingtone, setEditingRingtone] = useLocalState(
     context,
     'editingRingtone',
@@ -92,7 +88,7 @@ export const ChatClient = (props, context) => {
             </>
           }>
           {data.users && data.users.length ? <Users /> : 'There are no users.'}
-          {!active ? <ChannelsWindow /> : ''}
+          {!data.active ? <ChannelsWindow /> : ''}
         </Section>
       </NtosWindow.Content>
     </NtosWindow>
@@ -106,11 +102,6 @@ export const Users = (props, context) => {
     `searchTerm`,
     ``
   );
-  let [active, setActive] = useSharedState<Channel | null>(
-    context,
-    'active',
-    null
-  );
 
   return (
     <Section>
@@ -118,8 +109,8 @@ export const Users = (props, context) => {
         <Tabs>
           <Tabs.Tab
             height="20%"
-            selected={!active}
-            onClick={() => setActive(null)}>
+            selected={!data.active}
+            onClick={() => act('set_active', { set_active: null })}>
             All
           </Tabs.Tab>
           {data.channels
@@ -128,14 +119,14 @@ export const Users = (props, context) => {
               <Tabs.Tab
                 height="10%"
                 key={channel.ref}
-                selected={active && active.ref === channel.ref}
-                onClick={() => setActive(channel)}>
+                selected={data.active && data.active.ref === channel.ref}
+                onClick={() => act('set_active', { set_active: channel.ref })}>
                 {channel.title}
               </Tabs.Tab>
             ))}
         </Tabs>
       </Section>
-      {active ? <Chat /> : <AllUsers />}
+      {data.active && data.active.can_interact ? <Chat /> : <AllUsers />}
     </Section>
   );
 };
@@ -146,11 +137,6 @@ export const AllUsers = (props, context) => {
     context,
     `searchTerm`,
     ``
-  );
-  let [active, setActive] = useSharedState<Channel | null>(
-    context,
-    'active',
-    null
   );
 
   return (
@@ -197,17 +183,16 @@ export const Chat = (props, context) => {
     ``
   );
   const [title, setTitle] = useLocalState<string>(context, `title`, ``);
-  let [active] = useLocalState<Channel | null>(context, 'active', null);
 
   return (
     <Section
       title="Conversation"
       buttons={
         <>
-          {active && active.can_manage && !active.direct ? (
+          {data.active && data.active.can_manage && !data.active.direct ? (
             <>
               <Button
-                key={active.ref}
+                key={data.active.ref}
                 content={password ? 'Close Menu' : 'Set Password'}
                 onClick={() => setPassword(password ? '' : 'New Password')}
               />
@@ -219,7 +204,7 @@ export const Chat = (props, context) => {
                   onChange={(e, v) =>
                     act('set_password', {
                       password: password,
-                      target: active ? active.ref : '',
+                      target: data.active ? data.active.ref : '',
                     })
                   }
                 />
@@ -227,7 +212,7 @@ export const Chat = (props, context) => {
                 ''
               )}
               <Button
-                key={active.ref}
+                key={data.active.ref}
                 content={title ? 'Close Menu' : 'Set Title'}
                 onClick={() => setTitle(title ? '' : 'New Title')}
               />
@@ -239,7 +224,7 @@ export const Chat = (props, context) => {
                   onChange={(e, v) =>
                     act('change_title', {
                       title: title,
-                      target: active ? active.ref : '',
+                      target: data.active ? data.active.ref : '',
                     })
                   }
                 />
@@ -250,7 +235,7 @@ export const Chat = (props, context) => {
                 content="Delete"
                 color="red"
                 onClick={() =>
-                  act('delete', { delete: active ? active.ref : '' })
+                  act('delete', { delete: data.active ? data.active.ref : '' })
                 }
               />
             </>
@@ -259,17 +244,21 @@ export const Chat = (props, context) => {
           )}
           <Button
             content="Leave"
-            disabled={active && active.direct}
-            onClick={() => act('leave', { leave: active ? active.ref : '' })}
+            disabled={data.active && data.active.direct}
+            onClick={() =>
+              act('leave', { leave: data.active ? data.active.ref : '' })
+            }
           />
           <Button
             content="Enable STT"
-            selected={active && active.focused}
-            onClick={() => act('focus', { focus: active ? active.ref : '' })}
+            selected={data.active && data.active.focused}
+            onClick={() =>
+              act('focus', { focus: data.active ? data.active.ref : '' })
+            }
           />
         </>
       }>
-      {active &&
+      {data.active &&
         data.msg &&
         data.msg.map((message) => (
           <Box
@@ -286,30 +275,32 @@ export const Chat = (props, context) => {
           value={newMessage}
           placeholder="Type your message. Press enter to send."
           width="100%"
+          selfClear
+          strict
           onInput={(e, v) => setNewMessage(v)}
           onChange={(e, v) =>
             act('send', {
               message: newMessage,
-              target: active ? active.ref : '',
+              target: data.active ? data.active.ref : '',
             })
           }
         />
       </Box>
       <Box py={2}>
         <Table>
-          {active &&
-            !active.direct &&
-            active.users.map((user) => (
+          {data.active &&
+            !data.active.direct &&
+            data.active.users.map((user) => (
               <Table.Row key={user.ref}>
                 <Table.Cell>{user.username}</Table.Cell>
                 <Table.Cell>
                   <Button
                     content="Kick"
                     icon="user"
-                    disabled={active && !active.can_manage}
+                    disabled={data.active && !data.active.can_manage}
                     onClick={() =>
                       act('kick', {
-                        target: active ? active.ref : '',
+                        target: data.active ? data.active.ref : '',
                         user: user.ref,
                       })
                     }
@@ -329,11 +320,6 @@ export const ChannelsWindow = (props, context) => {
     context,
     `channelSearchTerm`,
     ``
-  );
-  let [active, setActive] = useSharedState<Channel | null>(
-    context,
-    'active',
-    null
   );
   const [channelName, setChannelName] = useLocalState(
     context,

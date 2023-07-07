@@ -42,7 +42,16 @@ export const Sleeper = (props, context) => {
         {data.occupant ? (
           <OccupantStatus />
         ) : (
-          <BlockQuote>No occupant detected.</BlockQuote>
+          <Table>
+            <BlockQuote>No occupant detected.</BlockQuote>
+            <Button
+              content={data.beaker < 0 ? 'No Beaker' : 'Eject Beaker'}
+              icon="medkit"
+              color="red"
+              disabled={data.beaker < 0}
+              onClick={() => act('beaker')}
+            />
+          </Table>
         )}
       </Window.Content>
     </Window>
@@ -173,9 +182,10 @@ export const OccupantStatus = (props, context) => {
               title="Dialysis"
               buttons={
                 <Button
-                  content="Eject Beaker"
+                  content={data.beaker < 0 ? 'No Beaker' : 'Eject Beaker'}
                   icon="medkit"
                   color="red"
+                  disabled={data.beaker < 0}
                   onClick={() => act('beaker')}
                 />
               }>

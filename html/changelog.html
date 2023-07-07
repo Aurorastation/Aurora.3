@@ -35,7 +35,109 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">06 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed verbs-only panels disappearing when an item is dropped.</li>
+			</ul>
+
+			<h2 class="date">05 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Reordered the inclusion of the linters (OpenDream / SpacemanDMM) pragmas/defines, to avoid native tools nuking it to have them be defined at the very beginning.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the look up/down verbs not working. Note that you can&#x27;t use them if you have a UI opened.</li>
+				<li class="bugfix">Fixes bodyscanner temperature readouts, and makes the body scan console light purple.</li>
+			</ul>
+
+			<h2 class="date">04 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="security">Sanitized a console input to prevent href injections.</li>
+				<li class="bugfix">Fixed defibrillators not working correctly on a bed/stretcher.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed ling lesser form transformation not updating your verbs.</li>
+				<li class="bugfix">Fixed ling shred equipment verbs not working.</li>
+				<li class="bugfix">Fixed aghost clickdrag not resetting verbs.</li>
+				<li class="bugfix">Fixed a leftover asset debug line.</li>
+				<li class="bugfix">Fixed some cyborg runtimes.</li>
+				<li class="bugfix">Lesser form lings can now actually transform back at will.</li>
+				<li class="bugfix">Ship guns can now actually fire on hazards.</li>
+				<li class="bugfix">Fixed printing prosthetic limbs of different types.</li>
+				<li class="bugfix">Fixed some tajara languages having a darker colour.</li>
+				<li class="bugfix">Fixed replying to a PDA message through the chat link not working.</li>
+				<li class="bugfix">Deselecting the input box in PDA messaging no longer sends a message.</li>
+				<li class="bugfix">Fixes the manifest on the PDA not having a header. Again.</li>
+			</ul>
+
+			<h2 class="date">03 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Now builds and returns a (partial) statpanel info and lobby during server init.</li>
+				<li class="tweak">Made the manifest UI bigger and the table elements a little better aligned.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the black screen bug, hopefully.</li>
+				<li class="bugfix">Fixes the manifest on the PDA not having a header, and also being too small.</li>
+			</ul>
+
+			<h2 class="date">02 July 2023</h2>
+			<h3 class="author">Butterrobber202 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">K&#x27;ois has been set to not require water or biomass, as the lore intended.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Fix OpenDream cache restore handling, that is preventing the CI from running successfully.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added colorable lipsticks, as well as letting you apply lipstick on-spawn via the loadout.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added an Old Sol Alliance flag, representing the pre-Interstellar War Sol Alliance.</li>
+				<li class="maptweak">Added an old Sol Alliance flag to the Sensor Relay.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a potential server killing bug.</li>
+			</ul>
+
+			<h2 class="date">30 June 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed TGUI not loading new panels on first try, because the caching confirmation system was not correctly flagging them as received assets.</li>
+				<li class="bugfix">Added some remaining pieces of code that were not ported over for the Topic function.</li>
+			</ul>
+
 			<h2 class="date">29 June 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Clear chat button.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Readded the ability to eject beakers from sleepers when nobody is inside them.</li>
+				<li class="bugfix">The eject beaker button now updates depending on if the beaker is installed or not.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed cargo control not having a &#x27;claim bounty&#x27; button.</li>
+				<li class="bugfix">Fixed the cargo control having a typo&#x27;d icon for the print bounties button.</li>
+				<li class="bugfix">Fixed a paper-related runtime.</li>
+				<li class="bugfix">The chat client should now work properly, with self-clearing input and messages displaying correctly. Hopefully.</li>
+				<li class="bugfix">Fixed services not showing up in the NTOS main menu.</li>
+				<li class="bugfix">Common radio is a lighter colour once again.</li>
+				<li class="bugfix">Fixed the toggle hair coverage verb.</li>
+				<li class="bugfix">Fixed using defibs on surgery surfaces.</li>
+				<li class="bugfix">Fixed the set ambition verb.</li>
+			</ul>
 			<h3 class="author">SleepyGemmy updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="spellcheck">Changes &quot;Follow mob&quot; to &quot;Follow Mob&quot; in the crew manifest observer-specific follow button.</li>

@@ -377,6 +377,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/carp/baby/verb/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object"
+	set src in usr
 
 	flags_inv ^= BLOCKHEADHAIR
 	to_chat(usr, SPAN_NOTICE("\The [src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))

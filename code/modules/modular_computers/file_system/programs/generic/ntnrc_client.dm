@@ -13,6 +13,7 @@
 
 	var/datum/ntnet_user/my_user
 	var/datum/ntnet_conversation/focused_conv
+	var/datum/ntnet_conversation/active
 
 	var/netadmin_mode = FALSE		// Administrator mode (invisible to other users + bypasses passwords)
 	var/set_offline = FALSE			// appear "invisible"
@@ -120,6 +121,29 @@
 	data["netadmin_mode"] = netadmin_mode
 	data["can_netadmin_mode"] = can_run(user, FALSE, access_network)
 	data["message_mute"] = message_mute
+	if(active && active.can_interact(src))
+		var/ref = text_ref(active)
+		var/can_interact = active.can_interact(src)
+		var/can_manage = active.can_manage(src)
+		var/list/our_channel = list(
+			"ref" = ref,
+			"title" = active.get_title(src),
+			"direct" = active.direct,
+			"password" = !!active.password,
+			"can_interact" = can_interact,
+			"can_manage" = can_manage,
+			"focused" = (focused_conv == active)
+		)
+		if(can_interact)
+			our_channel["users"] = list()
+			for(var/datum/ntnet_user/U in active.users)
+				var/uref = text_ref(U)
+				our_channel["users"] += list(list("ref" = uref, "username" = U.username))
+		data["active"] = our_channel
+		data["msg"] = active.messages
+	else
+		data["active"] = null
+		data["msg"] = null
 
 	return data
 
@@ -147,7 +171,6 @@
 					for(var/datum/ntnet_user/U in channel.users)
 						var/uref = text_ref(U)
 						our_channel["users"] += list(list("ref" = uref, "username" = U.username))
-				data["msg"] = channel.messages
 				data["channels"] += list(our_channel)
 
 		data["users"] = list()
@@ -194,7 +217,6 @@
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
-		computer.update_static_data_for_all_viewers()
 		. = TRUE
 
 	if(action == "focus")
@@ -224,10 +246,22 @@
 		computer.update_static_data_for_all_viewers()
 		. = TRUE
 
+	if(action == "set_active")
+		if(isnull(params["set_active"]))
+			active = null
+			. = TRUE
+		else
+			var/datum/ntnet_conversation/conv = locate(params["set_active"])
+			if(istype(conv))
+				active = conv
+				. = TRUE
+
 	if(action == "leave")
 		var/datum/ntnet_conversation/conv = locate(params["leave"])
 		if(istype(conv))
 			conv.cl_leave(src)
+		if(active)
+			active = null
 		computer.update_static_data_for_all_viewers()
 		. = TRUE
 
@@ -287,7 +321,7 @@
 	if(.)
 		return TRUE
 
-	if(href == "Reply")
+	if(href_list["Reply"])
 		var/mob/living/user = usr
 		var/datum/ntnet_conversation/conv = locate(href_list["Reply"])
 		var/message = input(user, "Enter message or leave blank to cancel: ")

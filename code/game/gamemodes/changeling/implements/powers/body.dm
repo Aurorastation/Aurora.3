@@ -31,6 +31,8 @@
 	remove_verb(src, /mob/proc/changeling_transform)
 	ADD_VERB_IN(src, 10, /mob/proc/changeling_transform)
 
+	client.init_verbs()
+
 	changeling_update_languages(changeling.absorbed_languages)
 
 	feedback_add_details("changeling_powers", "TR")
