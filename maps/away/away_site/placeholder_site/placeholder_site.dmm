@@ -89,15 +89,6 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/marble/dark,
 /area/placeholder_site)
-"bL" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
 "bV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -113,25 +104,6 @@
 /area/placeholder_site/living_quarters)
 "cf" = (
 /turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
-"cm" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/placeholder_site/hangar)
-"co" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
-"cF" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
 /area/placeholder_site/hangar)
 "cO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -155,12 +127,6 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
 /area/placeholder_site)
-"cY" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
 "dc" = (
 /obj/machinery/light/spot{
 	dir = 1
@@ -209,21 +175,6 @@
 /area/placeholder_site/living_quarters)
 "dO" = (
 /obj/structure/table/wood,
-/obj/effect/decal/fake_object{
-	anchored = 0;
-	name = "wise skull";
-	desc = "A wise, hollow skull. A figure of great benevolence among spacemen.";
-	icon = 'icons/mob/human_races/r_skeleton.dmi';
-	icon_state = "head";
-	pixel_y = -8;
-	dir = 4
-	},
-/obj/item/reagent_containers/food/condiment{
-	pixel_x = -5;
-	pixel_y = -13;
-	name = "garnish container";
-	desc = "An average condiment container with a snail logo imprinted on the front. It looks old and terrible, but somehow endearing."
-	},
 /obj/item/flame/candle{
 	pixel_x = -8;
 	pixel_y = 7
@@ -253,12 +204,6 @@
 /obj/item/stack/material/wood/full,
 /turf/simulated/floor/carpet/rubber,
 /area/placeholder_site/reactor)
-"eq" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/placeholder_site/hangar)
 "eB" = (
 /turf/template_noop,
 /area/space)
@@ -324,12 +269,6 @@
 "fq" = (
 /turf/simulated/floor/tiled,
 /area/placeholder_site)
-"ft" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
 "fy" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -397,12 +336,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
-"hb" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/placeholder_site/hangar)
 "hk" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -427,12 +360,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/placeholder_site/reactor)
-"hJ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/turf/simulated/floor/plating,
-/area/placeholder_site/hangar)
 "ia" = (
 /obj/item/flame/lighter{
 	pixel_x = -10;
@@ -470,12 +397,6 @@
 /obj/item/device/multitool,
 /turf/simulated/floor/tiled/dark/full,
 /area/placeholder_site)
-"iB" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/placeholder_site/hangar)
 "iG" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -933,15 +854,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/placeholder_site)
-"qJ" = (
-/obj/structure/table/wood,
-/obj/item/toy/plushie/kitten{
-	pixel_x = -20;
-	name = "albert";
-	desc = "An adorable and loyal cat, this one seems to have some blood on it. Something tells you it wants more. Who are you to refuse?"
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site)
 "qX" = (
 /obj/structure/table/stone/marble,
 /obj/item/material/knife{
@@ -1059,16 +971,6 @@
 /obj/item/toy/aurora,
 /turf/simulated/floor/marble/dark,
 /area/placeholder_site)
-"sD" = (
-/obj/effect/floor_decal/corner/light,
-/obj/effect/floor_decal/corner/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
 "sG" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1093,13 +995,6 @@
 "sZ" = (
 /turf/simulated/wall,
 /area/placeholder_site/hangar)
-"tl" = (
-/obj/effect/floor_decal/corner/light,
-/obj/effect/floor_decal/corner/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
 "tm" = (
 /obj/structure/sink/kitchen{
 	pixel_y = 20
@@ -1122,6 +1017,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/placeholder_site/living_quarters)
+"tw" = (
+/obj/effect/shuttle_landmark/placeholder_site/nav3,
+/turf/simulated/floor/plating,
+/area/placeholder_site/hangar)
 "ty" = (
 /obj/item/reagent_containers/food/condiment{
 	name = "garnish container";
@@ -1133,15 +1032,6 @@
 /area/placeholder_site)
 "tH" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
-"tR" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 6
-	},
 /turf/simulated/floor/tiled,
 /area/placeholder_site/hangar)
 "uf" = (
@@ -1212,12 +1102,6 @@
 /obj/effect/shuttle_landmark/placeholder_site/nav1,
 /turf/template_noop,
 /area/space)
-"vn" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
 "vA" = (
 /obj/machinery/alarm{
 	pixel_x = null;
@@ -1273,12 +1157,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/placeholder_site)
-"wO" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
 "xf" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/structure/cable/green{
@@ -1329,13 +1207,6 @@
 /area/placeholder_site)
 "yp" = (
 /obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
-"yr" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/light,
 /turf/simulated/floor/tiled,
 /area/placeholder_site/hangar)
 "yu" = (
@@ -1549,15 +1420,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/placeholder_site/reactor)
-"Db" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
 "Dc" = (
 /obj/item/toy/plushie/herring_gull,
 /obj/effect/decal/cleanable/dirt,
@@ -1726,12 +1588,6 @@
 /obj/item/storage/firstaid/regular,
 /turf/simulated/floor/carpet/purple,
 /area/placeholder_site/living_quarters)
-"FY" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
 "Gg" = (
 /obj/machinery/light{
 	dir = 4
@@ -1761,17 +1617,6 @@
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
 /area/placeholder_site/reactor)
-"Gw" = (
-/obj/machinery/computer/ship/sensors,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/purple,
-/area/placeholder_site/living_quarters)
-"GB" = (
-/obj/effect/floor_decal/corner/light,
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
 "GP" = (
 /turf/simulated/floor/tiled/white,
 /area/placeholder_site/living_quarters)
@@ -1940,10 +1785,6 @@
 /area/placeholder_site/reactor)
 "Km" = (
 /obj/structure/table/wood,
-/obj/item/arrow{
-	name = "rusted arrow";
-	desc = "An arrow with an aging edge that retains its razor-sharp head nonetheless."
-	},
 /turf/simulated/floor/tiled,
 /area/placeholder_site)
 "Ko" = (
@@ -2023,14 +1864,9 @@
 /turf/simulated/floor/airless,
 /area/space)
 "Lp" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
+/obj/structure/cable,
+/turf/simulated/floor/plating,
+/area/placeholder_site/reactor)
 "Ly" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass,
@@ -2072,15 +1908,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/placeholder_site/hangar)
-"Mc" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
 "Me" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2095,12 +1922,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/placeholder_site)
-"Mi" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
 "Mk" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
@@ -2194,6 +2015,10 @@
 "NF" = (
 /turf/simulated/floor/airless,
 /area/placeholder_site)
+"NG" = (
+/obj/effect/shuttle_landmark/placeholder_site/nav_intrepid,
+/turf/simulated/floor/plating,
+/area/placeholder_site/hangar)
 "NM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2241,19 +2066,6 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled,
 /area/placeholder_site)
-"Ox" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
-"OP" = (
-/obj/effect/shuttle_landmark/placeholder_site/nav3,
-/turf/simulated/floor/plating,
-/area/placeholder_site/hangar)
 "Pc" = (
 /obj/structure/table/rack/fancy_table,
 /obj/item/arrow{
@@ -2386,12 +2198,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/placeholder_site/living_quarters)
-"Sm" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/placeholder_site/hangar)
 "Sq" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -2627,10 +2433,6 @@
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /turf/simulated/floor/tiled,
 /area/placeholder_site)
-"Wv" = (
-/obj/effect/shuttle_landmark/placeholder_site/nav_intrepid,
-/turf/simulated/floor/plating,
-/area/placeholder_site/hangar)
 "WH" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -29072,7 +28874,7 @@ eB
 eB
 sZ
 cf
-GB
+cf
 cf
 DV
 Zn
@@ -29328,9 +29130,9 @@ eB
 eB
 eB
 sZ
-Mi
-Mi
-sD
+cf
+cf
+cf
 DV
 Zn
 Zn
@@ -29586,8 +29388,8 @@ eB
 eB
 sZ
 cf
-GB
-vn
+cf
+cf
 DV
 Zn
 Zn
@@ -30099,9 +29901,9 @@ eB
 eB
 eB
 sZ
-Lp
-Mi
-Db
+cf
+cf
+cf
 DV
 Zn
 Zn
@@ -30356,9 +30158,9 @@ eB
 eB
 eB
 sZ
-vn
 cf
-wO
+cf
+cf
 DV
 Zn
 Zn
@@ -30613,9 +30415,9 @@ eB
 eB
 eB
 sZ
-ft
-tR
-ft
+cf
+cf
+cf
 DV
 Zn
 Zn
@@ -30870,9 +30672,9 @@ eB
 eB
 eB
 sZ
-Mi
-Mi
-co
+cf
+cf
+cf
 DV
 Zn
 Zn
@@ -31127,7 +30929,7 @@ eB
 eB
 eB
 sZ
-FY
+cf
 cf
 cf
 DV
@@ -31384,9 +31186,9 @@ eB
 eB
 eB
 sZ
-bL
-ft
-ft
+cf
+cf
+cf
 DV
 Zn
 Zn
@@ -31641,9 +31443,9 @@ eB
 eB
 eB
 sZ
-Mi
-Mi
-Mi
+cf
+cf
+cf
 DV
 Zn
 Zn
@@ -31898,9 +31700,9 @@ eB
 eB
 eB
 sZ
-sD
-tl
-Mi
+cf
+cf
+cf
 DV
 Zn
 Zn
@@ -31917,8 +31719,8 @@ Zn
 Zn
 Zn
 Zn
+NG
 Zn
-Wv
 Zn
 Zn
 Zn
@@ -32155,9 +31957,9 @@ BG
 BG
 BG
 sZ
-Mi
-Mi
-Mi
+cf
+cf
+cf
 DV
 Zn
 Zn
@@ -32412,9 +32214,9 @@ AM
 AM
 BG
 sZ
-Sm
-cY
-cY
+cf
+cf
+cf
 DV
 Zn
 Zn
@@ -32669,9 +32471,9 @@ LP
 AM
 BG
 sZ
-Mi
-Mi
-Mi
+cf
+cf
+cf
 DV
 Zn
 Zn
@@ -32926,8 +32728,8 @@ BI
 AM
 BG
 sZ
-sD
-Mc
+cf
+cf
 cf
 DV
 Zn
@@ -33183,9 +32985,9 @@ Pm
 AM
 BG
 sZ
-FY
 cf
-GB
+cf
+cf
 DV
 Zn
 Zn
@@ -33440,9 +33242,9 @@ eJ
 AM
 BG
 sZ
-bL
-ft
-yr
+cf
+cf
+cf
 DV
 Zn
 Zn
@@ -33697,9 +33499,9 @@ AM
 AM
 BG
 sZ
-Mi
-Mi
-Mi
+cf
+cf
+cf
 DV
 Zn
 Zn
@@ -33954,9 +33756,9 @@ BG
 BG
 BG
 sZ
-tl
-Mi
-Ox
+dc
+cf
+cf
 DV
 Zn
 Zn
@@ -34211,7 +34013,7 @@ BG
 eB
 eB
 sZ
-dc
+cf
 cf
 cf
 DV
@@ -34469,7 +34271,7 @@ eB
 eB
 sZ
 cf
-GB
+cf
 cf
 DV
 Zn
@@ -34716,7 +34518,7 @@ TO
 fq
 fq
 fq
-qJ
+Km
 LO
 NM
 LO
@@ -34725,9 +34527,9 @@ BG
 eB
 eB
 sZ
-Mi
-Mi
-sD
+cf
+cf
+cf
 DV
 Zn
 Zn
@@ -34983,8 +34785,8 @@ eB
 eB
 sZ
 cf
-GB
-vn
+cf
+cf
 DV
 Zn
 Zn
@@ -35218,7 +35020,7 @@ gU
 Nt
 jJ
 Ys
-mm
+Lp
 lY
 oA
 kH
@@ -36815,11 +36617,11 @@ sZ
 sZ
 sZ
 sZ
-eB
-eB
-eB
-eB
-eB
+sZ
+sZ
+sZ
+sZ
+sZ
 eB
 eB
 eB
@@ -37041,7 +36843,7 @@ Ne
 sZ
 Xp
 cf
-cF
+Td
 zq
 SJ
 SJ
@@ -37070,13 +36872,13 @@ SJ
 zq
 SJ
 SJ
-eq
+SJ
+SJ
+zq
+SJ
+SJ
+ZO
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -37298,7 +37100,7 @@ UV
 sZ
 yp
 cf
-hb
+LZ
 Zn
 Zn
 Zn
@@ -37327,13 +37129,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -37555,7 +37357,7 @@ UV
 sZ
 cf
 cf
-hb
+LZ
 Zn
 Zn
 Zn
@@ -37584,13 +37386,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -37804,7 +37606,7 @@ tq
 Sl
 ig
 mT
-Gw
+fP
 bV
 md
 ai
@@ -37812,7 +37614,7 @@ Oo
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -37841,13 +37643,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -38069,7 +37871,7 @@ Dy
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -38098,13 +37900,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -38326,7 +38128,7 @@ Oo
 sZ
 dc
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -38355,13 +38157,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -38583,7 +38385,7 @@ fP
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -38612,13 +38414,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -38840,7 +38642,7 @@ xS
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -38869,13 +38671,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -39097,7 +38899,7 @@ mL
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -39126,13 +38928,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -39354,7 +39156,7 @@ pn
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -39383,13 +39185,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -39611,7 +39413,7 @@ nm
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -39640,13 +39442,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -39868,7 +39670,7 @@ Dy
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -39897,13 +39699,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -40125,7 +39927,7 @@ eB
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -40154,13 +39956,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -40382,7 +40184,7 @@ eB
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -40411,13 +40213,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -40639,7 +40441,23 @@ eB
 sZ
 cf
 cf
-hb
+DV
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+tw
 Zn
 Zn
 Zn
@@ -40657,24 +40475,8 @@ Zn
 Zn
 Zn
 Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-cm
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -40896,20 +40698,7 @@ eB
 sZ
 cf
 cf
-hb
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-OP
+DV
 Zn
 Zn
 Zn
@@ -40925,13 +40714,26 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -41153,7 +40955,7 @@ eB
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -41182,13 +40984,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -41410,7 +41212,7 @@ eB
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -41439,13 +41241,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -41667,7 +41469,7 @@ eB
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -41696,13 +41498,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -41924,7 +41726,7 @@ eB
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -41953,13 +41755,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -42181,7 +41983,7 @@ eB
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -42210,13 +42012,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -42438,7 +42240,7 @@ eB
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -42467,13 +42269,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -42695,7 +42497,7 @@ eB
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -42724,13 +42526,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -42952,7 +42754,7 @@ eB
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -42981,13 +42783,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -43209,7 +43011,7 @@ eB
 sZ
 dc
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -43238,13 +43040,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -43466,7 +43268,7 @@ eB
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -43495,13 +43297,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -43723,7 +43525,7 @@ eB
 sZ
 cf
 cf
-hb
+DV
 Zn
 Zn
 Zn
@@ -43752,13 +43554,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -43980,7 +43782,7 @@ eB
 sZ
 cf
 cf
-hb
+LZ
 Zn
 Zn
 Zn
@@ -44009,13 +43811,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -44237,7 +44039,7 @@ eB
 sZ
 cf
 cf
-hb
+LZ
 Zn
 Zn
 Zn
@@ -44266,13 +44068,13 @@ Zn
 Zn
 Zn
 Zn
-cm
+Zn
+Zn
+Zn
+Zn
+Zn
+Qj
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -44494,7 +44296,7 @@ eB
 sZ
 cf
 cf
-iB
+TT
 RC
 rx
 rx
@@ -44523,13 +44325,13 @@ rx
 RC
 rx
 rx
-hJ
+rx
+rx
+RC
+rx
+rx
+Yb
 sZ
-eB
-eB
-eB
-eB
-eB
 eB
 eB
 eB
@@ -44782,11 +44584,11 @@ sZ
 sZ
 sZ
 sZ
-eB
-eB
-eB
-eB
-eB
+sZ
+sZ
+sZ
+sZ
+sZ
 eB
 eB
 eB

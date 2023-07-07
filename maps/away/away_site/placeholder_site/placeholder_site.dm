@@ -10,13 +10,10 @@
 	suffixes = list("away_site/placeholder_site/placeholder_site.dmm")//Self explanatory. Should link to the map with root folder included!
 
 //Uncomment this (remove the double slashes at the start) to assign the sectors it can spawn within to in a list
-//	sectors = list(SECTOR_WEEPING_STARS, SECTOR_TAU_CETI)//You can find the sectors available for this in code\__defines\space_sectors.dm
+	sectors = list(SECTOR_WEEPING_STARS, SECTOR_TAU_CETI)//You can find the sectors available for this in code\__defines\space_sectors.dm
 
 //Uncomment this to forcibly spawn your away site to test it! Remove this completely once you're done testing!
-//	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
-
-//Uncomment this to place the site adjacent to the Horizon and its original spawn location. Remove this completely once you're done testing!
-//	place_near_main = list(1, 1)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/placeholder_site//Arbitrary duplicates of the above name/desc
 	map = "placeholder away site"
@@ -64,7 +61,11 @@
 /obj/effect/shuttle_landmark/placeholder_site/nav3
 	name = "Open Hangar Beacon"
 	landmark_tag = "nav_placeholder_site_3"
+	base_area = /area/placeholder_site/hangar
+	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/placeholder_site/nav_intrepid//For the restricted Intrepid navpoint
 	name = "Special Hangar Beacon"
 	landmark_tag = "nav_placeholder_site_intrepid"
+	base_area = /area/placeholder_site/hangar
+	base_turf = /turf/simulated/floor/plating
