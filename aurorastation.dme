@@ -3340,6 +3340,7 @@
 #include "maps\away\away_site\overgrown_mining_station\overgrown_mining_station.dm"
 #include "maps\away\away_site\placeholder_site\placeholder_site.dm"
 #include "maps\away\away_site\placeholder_site\placeholder_site_areas.dm"
+#include "maps\away\away_site\placeholder_site\placeholder_site_ghostroles.dm"
 #include "maps\away\away_site\racers\racers.dm"
 #include "maps\away\away_site\romanovich\grand_romanovich.dm"
 #include "maps\away\away_site\romanovich\grand_romanovich_ghostroles.dm"

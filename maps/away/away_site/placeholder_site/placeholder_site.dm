@@ -8,10 +8,15 @@
 	spawn_cost = 1//Typically set to 1. Adjusting this changes the parameters and chance of this site spawning
 	spawn_weight = 1//Default set to 1. Adjusting this changes the parameters and chance of this site spawning
 	suffixes = list("away_site/placeholder_site/placeholder_site.dmm")//Self explanatory. Should link to the map with root folder included!
-	sectors = list(SECTOR_WEEPING_STARS)//You can find the sectors available for this in code\__defines\space_sectors.dm
 
-//Uncomment this (remove the double slashes at the start) to forcibly spawn your away site to test it!
+//Uncomment this (remove the double slashes at the start) to assign the sectors it can spawn within to in a list
+//	sectors = list(SECTOR_WEEPING_STARS, SECTOR_TAU_CETI)//You can find the sectors available for this in code\__defines\space_sectors.dm
+
+//Uncomment this to forcibly spawn your away site to test it! Remove this completely once you're done testing!
 //	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
+//Uncomment this to place the site adjacent to the Horizon and its original spawn location. Remove this completely once you're done testing!
+//	place_near_main = list(1, 1)
 
 /singleton/submap_archetype/placeholder_site//Arbitrary duplicates of the above name/desc
 	map = "placeholder away site"
@@ -19,9 +24,22 @@
 
 /obj/effect/overmap/visitable/sector/placeholder_site//This is the actual overmap object that spawns at roundstart, given your map loads
 	name = "free-floating navigation beacon"//This and desc is visible ingame when the object is scanned by any scanner
-	desc = "Sensor array detects an arctic planet with a small vessel on the planet's surface. Scans further indicate strange energy emissions from below the planet's surface."
+	desc = "A placeholder away site for new contributors to use. This description is quite visible on scans."
 	in_space = 0//Setting this to TRUE, or 1, will make people who are floating freely in EVA potentially run into this away site. Usually not a good idea to turn on
-	icon_state = "object"//Can be anything that fits
+	icon_state = "object"//Can be anything that fits. Don't use generic objects for scannable ships and stations, instead use overmap_stationary.dmi for reference
+
+//If you're feeling like detailing the site more as a detailed or developed station or facility for example, uncomment the below vars and mess with them as you see fit!
+//These will affect how scans of your site appear on sensor readouts, printed and on computers
+
+//	static_vessel = TRUE
+//	generic_object = FALSE
+//	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+//	icon_state = "outpost"
+//	color = "#c2c0b8"
+//	designer = "A sad developer"
+//	volume = "51 meters length, 35 meters beam/width, 12 meters vertical height"
+//	weapons = "Two obscured flight craft bays"
+//	sizeclass = "Contributor support and gamer fuel depot"
 
 //Waypoints to be used for landing areas. Any compatible overmap shuttle that fits in the landing zones can land here if they're in range.
 	initial_generic_waypoints = list(
@@ -32,7 +50,7 @@
 
 //Restricted waypoints let important shuttles like the Intrepid land specifically in designated zones. The first tag here (labeled Intrepid) will follow the shuttle tag itself and prevent other shuttles from landing besides it
 	initial_restricted_waypoints = list(
-		"Intrepid" = list("nav_placeholder_site_intrepid"),
+		"Intrepid" = list("nav_placeholder_site_intrepid")
 	)
 
 /obj/effect/shuttle_landmark/placeholder_site/nav1
