@@ -12,10 +12,23 @@
 	name = "coastal sea foam"
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi'
 	icon_state = "foam"
-	layer = ON_TURF_LAYER
+	layer = 3
 	opacity = FALSE
 	anchored = TRUE
 	mouse_opacity = FALSE
+
+/obj/effect/konyang_waterfall
+	name = "waterfall"
+	icon = 'icons/turf/flooring/exoplanet/konyang.dmi'
+	icon_state = "waterfall_top"
+	layer = 5
+	opacity = FALSE
+	anchored = TRUE
+	mouse_opacity = FALSE
+
+/obj/effect/konyang_waterfall/mist
+	icon_state = "mist_center"
+	layer = 5.1
 
 /turf/simulated/floor/exoplanet/konyang/wilting//manually mapped. To be surrounded by normal grass
 	name = "wilting mossy grass"
