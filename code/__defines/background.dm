@@ -92,6 +92,7 @@
 #define ACCENT_DOMINIA_FRONTIER "Imperial Frontier"
 #define ACCENT_DOMINIA_NOVIJADRAN "Novi Jadranic"
 #define ACCENT_DOMINIA_LYODII "Lyodii"
+#define ACCENT_DOMINIA_SUNREACH "Sun Reach"
 #define ACCENT_JUPITER "Jovian"
 #define ACCENT_CALLISTO "Callistean"
 #define ACCENT_EUROPA "Europan"
