@@ -12,12 +12,13 @@
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 	required_access_run = list(access_merchant)
 	required_access_download = list(access_merchant)
-	var/obj/machinery/merchant_pad/pad = null
+	tgui_id = "Merchant"
+	var/obj/machinery/merchant_pad/pad
 	var/current_merchant = 0
 	var/show_trades = 0
 	var/hailed_merchant = 0
-	var/last_comms = null
-	var/temp = null
+	var/last_comms
+	var/temp
 	var/bank = 0 //A straight up money till
 
 /datum/nano_module/program/merchant
@@ -29,8 +30,8 @@
 	if(num)
 		return SStrade.traders[num]
 
-/datum/nano_module/program/merchant/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
-	var/list/data = host.initial_data()
+/datum/nano_module/program/merchant/ui_data(mob/user)
+	var/list/data = initial_data()
 	var/show_trade = 0
 	var/hailed = 0
 	var/datum/trader/T
@@ -55,12 +56,7 @@
 				for(var/i in 1 to T.trading_items.len)
 					trades += T.print_trading_items(i)
 			data["trades"] = trades
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "merchant.tmpl", "Merchant List", 575, 700, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /datum/computer_file/program/merchant/proc/connect_pad()
 	for(var/obj/machinery/merchant_pad/P in orange(1,get_turf(computer)))
@@ -162,42 +158,42 @@
 	bank = 0
 	B.update_icon()
 
-/datum/computer_file/program/merchant/Topic(href, href_list)
+/datum/computer_file/program/merchant/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
-		return 1
+		return
 	var/mob/user = usr
 	if(href_list["PRG_connect_pad"])
-		. = 1
+		. = TRUE
 		connect_pad()
 	if(href_list["PRG_continue"])
-		. = 1
+		. = TRUE
 		temp = null
 	if(href_list["PRG_transfer_to_bank"])
-		. = 1
+		. = TRUE
 		transfer_to_bank()
 	if(href_list["PRG_get_money"])
-		. = 1
+		. = TRUE
 		get_money()
 	if(href_list["PRG_main_menu"])
-		. = 1
+		. = TRUE
 		current_merchant = 0
 	if(href_list["PRG_merchant_list"])
 		if(SStrade.traders.len == 0)
-			. = 0
+			. = TRUE
 			temp = "Cannot find any traders within broadcasting range."
 		else
-			. = 1
+			. = TRUE
 			current_merchant = 1
 			hailed_merchant = 0
 			last_comms = null
 	if(href_list["PRG_test_fire"])
-		. = 1
+		. = TRUE
 		if(test_fire())
 			temp = "Test Fire Successful"
 		else
 			temp = "Test Fire Unsuccessful"
 	if(href_list["PRG_scroll"])
-		. = 1
+		. = TRUE
 		var/scrolled = 0
 		switch(href_list["PRG_scroll"])
 			if("right")
@@ -213,42 +209,42 @@
 		var/datum/trader/T = get_merchant(current_merchant)
 		if(!T.can_hail())
 			last_comms = T.get_response("hail_deny", "No, I'm not speaking with you.")
-			. = 1
+			. = TRUE
 		else
 			if(href_list["PRG_hail"])
-				. = 1
+				. = TRUE
 				last_comms = T.hail(user)
 				show_trades = 0
 				hailed_merchant = 1
 			if(href_list["PRG_show_trades"])
-				. = 1
+				. = TRUE
 				show_trades = !show_trades
 			if(href_list["PRG_insult"])
-				. = 1
+				. = TRUE
 				last_comms = T.insult()
 			if(href_list["PRG_compliment"])
-				. = 1
+				. = TRUE
 				last_comms = T.compliment()
 			if(href_list["PRG_offer_item"])
-				. = 1
+				. = TRUE
 				offer_item(T,text2num(href_list["PRG_offer_item"]) + 1)
 			if(href_list["PRG_how_much_do_you_want"])
-				. = 1
+				. = TRUE
 				last_comms = T.how_much_do_you_want(text2num(href_list["PRG_how_much_do_you_want"]) + 1)
 			if(href_list["PRG_offer_money_for_item"])
-				. = 1
+				. = TRUE
 				offer_money(T, text2num(href_list["PRG_offer_money_for_item"])+1)
 			if (href_list["PRG_bulk_money_for_item"])
-				. = 1
+				. = TRUE
 				bulk_offer(T, text2num(href_list["PRG_bulk_money_for_item"])+1)
 			if(href_list["PRG_what_do_you_want"])
-				. = 1
+				. = TRUE
 				last_comms = T.what_do_you_want()
 			if(href_list["PRG_sell_items"])
-				. = 1
+				. = TRUE
 				sell_items(T)
 			if(href_list["PRG_bribe"])
-				. = 1
+				. = TRUE
 				bribe(T, text2num(href_list["PRG_bribe"]))
 
 /datum/computer_file/program/merchant/nka
