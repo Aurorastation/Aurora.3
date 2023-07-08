@@ -40,5 +40,5 @@ delete-after: True
 changes:
   - rscadd: "Added jylara as a snack machine vendor item, as well as a recipe to create it by mixing four dyn leaves."
   - rscadd: "Added Skrell versions of beer and wine."
-  - rstweak: "Added pre-existing and newly added Skrell foods as lunchbox options."
+  - tweak: "Added pre-existing and newly added Skrell foods as lunchbox options."
   - bugfix: "Fixed Fjylozyn and Wulumunusha seed packets not having proper sprites."
