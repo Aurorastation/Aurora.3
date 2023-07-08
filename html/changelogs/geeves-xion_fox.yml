@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Lowered the weight of ship ammunition so that Xion frames, vaurca workers, and non-Coeus Diona can lift them without mechanical assistance."
