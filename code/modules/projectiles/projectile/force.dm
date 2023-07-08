@@ -2,7 +2,7 @@
 	name = "force bolt"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bluespace"
-	damage = 40
+	damage = 160
 	check_armor = "energy"
 	embed = 1
 

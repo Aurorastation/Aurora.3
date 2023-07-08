@@ -9,7 +9,7 @@
 /obj/item/projectile/energy/flash
 	name = "chemical shell"
 	icon_state = "bullet"
-	damage = 5
+	damage = 20
 	agony = 10
 	range = 15 //if the shell hasn't hit anything after travelling this far it just explodes.
 	var/flash_range = 0
@@ -38,7 +38,7 @@
 
 //blinds people like the flash round, but can also be used for temporary illumination
 /obj/item/projectile/energy/flash/flare
-	damage = 10
+	damage = 40
 	flash_range = 1
 	brightness = 9 //similar to a flare
 	light_duration = 200
@@ -46,7 +46,7 @@
 /obj/item/projectile/energy/electrode
 	name = "electrode"
 	icon_state = "spark"
-	damage = 2 //Flavor.
+	damage = 8
 	damage_type = DAMAGE_BURN
 	agony = 40
 	eyeblur = 1
@@ -54,41 +54,41 @@
 
 /obj/item/projectile/energy/electrode/stunshot
 	name = "stunshot"
-	damage = 5
+	damage = 10
 	agony = 80
 
 /obj/item/projectile/energy/declone
 	name = "decloner beam"
 	icon_state = "declone"
-	damage = 20
+	damage = 60
 	damage_type = DAMAGE_CLONE
 	irradiate = 40
 
 /obj/item/projectile/energy/dart
 	name = "dart"
 	icon_state = "toxin"
-	damage = 5
+	damage = 20
 	damage_type = DAMAGE_TOXIN
 	weaken = 5
 
 /obj/item/projectile/energy/bolt
 	name = "bolt"
 	icon_state = "cbbolt"
-	damage = 1
+	damage = 4
 	damage_type = DAMAGE_BURN
 	agony = 45
 	stutter = 10
 
 /obj/item/projectile/energy/bolt/large
 	name = "largebolt"
-	damage = 2
+	damage = 8
 	damage_type = DAMAGE_BURN
 	agony = 60
 
 /obj/item/projectile/energy/neurotoxin
 	name = "neuro"
 	icon_state = "neurotoxin"
-	damage = 5
+	damage = 20
 	damage_type = DAMAGE_TOXIN
 	weaken = 5
 
@@ -102,7 +102,7 @@
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bfg"
 	check_armor = "bomb"
-	damage = 60
+	damage = 240
 	damage_type = DAMAGE_BRUTE
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	range = 100
@@ -170,7 +170,7 @@
 /obj/item/projectile/energy/blaster
 	name = "blaster bolt"
 	icon_state = "heavybolt"
-	damage = 30
+	damage = 120
 	check_armor = "laser"
 	damage_type = DAMAGE_BURN
 	damage_flags = DAMAGE_FLAG_LASER
@@ -179,7 +179,7 @@
 	hit_effect = /obj/effect/temp_visual/blaster_effect
 
 /obj/item/projectile/energy/blaster/disruptor
-	damage = 20
+	damage = 80
 	pass_flags = PASSTABLE | PASSRAILING
 
 /obj/item/projectile/energy/blaster/disruptor/practice
@@ -190,7 +190,7 @@
 /obj/item/projectile/energy/disruptorstun
 	name = "disruptor bolt"
 	icon_state = "blue_laser"
-	damage = 1
+	damage = 4
 	agony = 40
 	speed = 0.4
 	damage_type = DAMAGE_BURN
@@ -204,11 +204,11 @@
 	eyeblur = 0
 
 /obj/item/projectile/energy/blaster/heavy
-	damage = 35
+	damage = 140
 	armor_penetration = 10
 
 /obj/item/projectile/energy/blaster/incendiary
 	icon_state = "laser"
-	damage = 35
+	damage = 140
 	armor_penetration = 60
 	incinerate = 15

@@ -3,7 +3,7 @@
 	icon_state = "laser"
 	ping_effect = "ping_s"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
-	damage = 30
+	damage = 120
 	damage_type = DAMAGE_BURN
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
 	check_armor = "laser"
@@ -19,12 +19,12 @@
 
 /obj/item/projectile/beam/practice
 	name = "laser"
-	damage = 5
+	damage = 20
 	damage_type = DAMAGE_PAIN
 	eyeblur = 0
 
 /obj/item/projectile/beam/pistol
-	damage = 25
+	damage = 100
 	armor_penetration = 5
 
 /obj/item/projectile/beam/pistol/scc
@@ -37,21 +37,21 @@
 /obj/item/projectile/beam/pistol/hegemony
 	icon = 'icons/obj/guns/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
-	damage = 30
+	damage = 120
 
 	muzzle_type = /obj/effect/projectile/muzzle/hegemony
 	tracer_type = /obj/effect/projectile/tracer/hegemony
 	impact_type = /obj/effect/projectile/impact/hegemony
 
 /obj/item/projectile/beam/midlaser
-	damage = 30
+	damage = 120
 	armor_penetration = 25
 
 /obj/item/projectile/beam/midlaser/skrell
 	armor_penetration = 0
 
 /obj/item/projectile/beam/midlaser/skrell/heavy
-	damage = 40
+	damage = 160
 	armor_penetration = 20
 
 /obj/item/projectile/beam/midlaser/hegemony
@@ -62,12 +62,12 @@
 
 
 /obj/item/projectile/beam/noctiluca
-	damage = 20
+	damage = 80
 	armor_penetration = 40
 
 /obj/item/projectile/beam/noctiluca/armor_piercing
 	name = "concentrated laser"
-	damage = 20
+	damage = 80
 	armor_penetration = 50
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
@@ -75,13 +75,13 @@
 	impact_type = /obj/effect/projectile/impact/laser/scc
 
 /obj/item/projectile/beam/midlaser/ice
-	damage = 25
+	damage = 100
 	armor_penetration = 10
 
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
-	damage = 45
+	damage = 180
 	armor_penetration = 25
 
 	muzzle_type = /obj/effect/projectile/muzzle/heavy_laser
@@ -89,13 +89,13 @@
 	impact_type = /obj/effect/projectile/impact/heavy_laser
 
 /obj/item/projectile/beam/heavylaser/mech
-	damage = 35
+	damage = 240
 	armor_penetration = 35
 
 /obj/item/projectile/beam/xray
 	name = "xray beam"
 	icon_state = "xray"
-	damage = 15
+	damage = 95
 	armor_penetration = 50
 
 	muzzle_type = /obj/effect/projectile/muzzle/xray
@@ -103,13 +103,13 @@
 	impact_type = /obj/effect/projectile/impact/xray
 
 /obj/item/projectile/beam/xray/mech
-	damage = 40
+	damage = 180
 	armor_penetration = 75
 
 /obj/item/projectile/beam/pulse
 	name = "pulse"
 	icon_state = "u_laser"
-	damage = 50
+	damage = 250
 	armor_penetration = 50
 
 	muzzle_type = /obj/effect/projectile/muzzle/pulse
@@ -117,7 +117,7 @@
 	impact_type = /obj/effect/projectile/impact/pulse
 
 /obj/item/projectile/beam/pulse/mech
-	damage = 45
+	damage = 345
 	armor_penetration = 40
 
 /obj/item/projectile/beam/pulse/on_hit(var/atom/target, var/blocked = 0)
@@ -189,7 +189,7 @@
 /obj/item/projectile/beam/sniper
 	name = "sniper beam"
 	icon_state = "xray"
-	damage = 50
+	damage = 250
 	armor_penetration = 20
 	stun = 3
 	weaken = 3
@@ -202,7 +202,7 @@
 /obj/item/projectile/beam/stun
 	name = "stun beam"
 	icon_state = "stun"
-	damage = 1
+	damage = 4
 	sharp = FALSE
 	eyeblur = 1
 	agony = 45
@@ -215,7 +215,7 @@
 /obj/item/projectile/beam/gatlinglaser
 	name = "diffused laser"
 	icon_state = "heavylaser"
-	damage = 20
+	damage = 80
 	armor_penetration = 35
 	no_attack_log = 1
 
@@ -226,7 +226,7 @@
 /obj/item/projectile/beam/mousegun
 	name = "electrical arc"
 	icon_state = "stun"
-	damage = 1
+	damage = 4
 	damage_type = DAMAGE_BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
@@ -277,7 +277,7 @@
 
 	nodamage = FALSE
 	damage_type = DAMAGE_BURN
-	damage = 15
+	damage = 60
 	agony = 30
 
 /obj/item/projectile/beam/mousegun/emag/mousepulse(turf/epicenter, range, log=0)
@@ -327,13 +327,13 @@
 	name = "diffuse laser"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
-	damage = 20
+	damage = 80
 	eyeblur = 4
 
 /obj/item/projectile/beam/megaglaive
 	name = "thermal lance"
 	icon_state = "gauss"
-	damage = 10
+	damage = 160
 	incinerate = 5
 	armor_penetration = 10
 	no_attack_log = 1
@@ -362,7 +362,7 @@
 /obj/item/projectile/beam/thermaldrill
 	name = "thermal drill"
 	icon_state = "gauss"
-	damage = 2
+	damage = 60
 	no_attack_log = TRUE
 
 	muzzle_type = /obj/effect/projectile/muzzle/solar
@@ -391,7 +391,7 @@
 	name = "energy bolt"
 	//For projectiles name is only shown in onhit messages, so its more of a layman's description
 	//of what the projectile looks like
-	damage = 3.5 //Very weak
+	damage = 15
 	accuracy = 4 //Guided by magic, unlikely to miss
 	eyeblur = 0 //Not bright or blinding
 	var/mob/living/ignore
@@ -411,7 +411,7 @@
 
 /obj/item/projectile/beam/cult/heavy
 	name = "glowing energy bolt"
-	damage = 10 //Stronger and better armor penetration, though still much weaker than a typical laser
+	damage = 60
 	armor_penetration = 10
 
 	muzzle_type = /obj/effect/projectile/muzzle/cult/heavy
@@ -439,7 +439,7 @@
 /obj/item/projectile/beam/tachyon
 	name = "particle beam"
 	icon_state = "xray"
-	damage = 25
+	damage = 140
 	armor_penetration = 65
 	penetrating = 1
 	maiming = 1
@@ -482,7 +482,7 @@
 	name = "freezing ray"
 	icon_state = "bluelaser"
 	pass_flags = PASSTABLE | PASSRAILING
-	damage = 15
+	damage = 60
 	damage_type = DAMAGE_BURN
 	check_armor = "energy"
 
@@ -505,7 +505,7 @@
 /obj/item/projectile/beam/stun/skrell
 	name = "particle stun beam"
 	icon_state = "beam_omni"
-	agony = 50
+	agony = 120
 
 	muzzle_type = /obj/effect/projectile/muzzle/disabler
 	tracer_type = /obj/effect/projectile/tracer/disabler

@@ -64,7 +64,7 @@
 /obj/item/projectile/bullet/gyro
 	name ="explosive bolt"
 	icon_state= "bolter"
-	damage = 50
+	damage = 200
 	check_armor = "bullet"
 	sharp = 1
 	edge = TRUE
@@ -76,7 +76,7 @@
 /obj/item/projectile/bullet/gyro/law
 	name ="high-ex round"
 	icon_state= "bolter"
-	damage = 15
+	damage = 95
 
 /obj/item/projectile/bullet/gyro/law/on_hit(var/atom/target, var/blocked = 0)
 	explosion(target, -1, 0, 2)
@@ -205,7 +205,7 @@
 /obj/item/projectile/bullet/trod
 	name ="tungsten rod"
 	icon_state= "gauss"
-	damage = 75
+	damage = 300
 	check_armor = "bomb"
 	sharp = 1
 	edge = TRUE
@@ -227,7 +227,7 @@
 	name ="armor-piercing shell"
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "shell"
-	damage = 90
+	damage = 280
 	armor_penetration = 80
 	penetrating = 1
 
@@ -249,7 +249,7 @@
 /obj/item/projectile/magic/fireball
 	name = "fireball"
 	icon_state = "fireball"
-	damage = 20
+	damage = 90
 	damage_type = DAMAGE_BURN
 
 /obj/item/projectile/magic/fireball/on_impact(var/atom/A)
@@ -276,7 +276,7 @@
 /obj/item/projectile/plasma
 	name = "plasma slug"
 	icon_state = "plasma_bolt"
-	damage = 20
+	damage = 125
 	damage_type = DAMAGE_BRUTE
 	damage_flags = DAMAGE_FLAG_LASER
 	check_armor = "energy"
@@ -286,7 +286,7 @@
 
 /obj/item/projectile/plasma/light
 	name = "plasma bolt"
-	damage = 15
+	damage = 80
 	armor_penetration = 60
 	incinerate = 8
 
@@ -307,14 +307,14 @@
 /obj/item/projectile/ice
 	name ="ice bolt"
 	icon_state= "icer_bolt"
-	damage = 15
+	damage = 60
 	damage_type = DAMAGE_BRUTE
 	check_armor = "energy"
 
 /obj/item/projectile/bonedart
 	name = "bone dart"
 	icon_state = "bonedart"
-	damage = 35
+	damage = 125
 	damage_type = DAMAGE_BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	nodamage = FALSE
@@ -325,6 +325,6 @@
 
 /obj/item/projectile/bonedart/ling
 	name = "bone dart"
-	damage = 10
+	damage = 40
 	armor_penetration = 10
 	check_armor = "bullet"

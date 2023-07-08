@@ -1,7 +1,7 @@
 /obj/item/projectile/bullet
 	name = "bullet"
 	icon_state = "bullet"
-	damage = 60
+	damage = 240
 	damage_type = DAMAGE_BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	nodamage = FALSE
@@ -66,7 +66,7 @@
 /obj/item/projectile/bullet/pellet
 	name = "shrapnel" //'shrapnel' sounds more dangerous (i.e. cooler) than 'pellet'
 	icon_state = "pellets"
-	damage = 20
+	damage = 80
 	var/pellets = 4			//number of pellets
 	var/range_step = 2		//projectile will lose a fragment each time it travels this distance. Can be a non-integer.
 	var/base_spread = 90	//lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
@@ -121,50 +121,50 @@
 /* short-casing projectiles, like the kind used in pistols or SMGs */
 
 /obj/item/projectile/bullet/pistol
-	damage = 25
+	damage = 100
 	armor_penetration = 10
 
 /obj/item/projectile/bullet/pistol/medium
-	damage = 30
+	damage = 120
 
 /obj/item/projectile/bullet/pistol/medium/ap
 	armor_penetration = 35
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/pistol/strong
-	damage = 45
+	damage = 180
 	armor_penetration = 20
 
 /obj/item/projectile/bullet/pistol/revolver
-	damage = 40
+	damage = 160
 	armor_penetration = 15
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
 	check_armor = "melee"
-	damage = 5
-	agony = 40
+	damage = 15
+	agony = 80
 	embed = 0
 
 /* shotgun projectiles */
 
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
-	damage = 55
+	damage = 180
 	armor_penetration = 5
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
 	check_armor = "melee"
-	damage = 10
-	agony = 60
+	damage = 30
+	agony = 120
 	embed = 0
 	sharp = 0
 
 /obj/item/projectile/bullet/shotgun/incendiary
 	name = "incendiary"
 	check_armor = "melee"
-	damage = 5
+	damage = 95
 	agony = 0
 	embed = 0
 	sharp = 0
@@ -172,9 +172,9 @@
 
 /obj/item/projectile/bullet/tracking
 	name = "tracking shot"
-	damage = 20
+	damage = 80
 	embed_chance = 60 // this thing was designed to embed, so it has a 80% base chance to embed (damage + this flat increase)
-	agony = 20
+	agony = 60
 	shrapnel_type = /obj/item/implant/tracking
 
 /obj/item/projectile/bullet/tracking/do_embed(obj/item/organ/external/organ)
@@ -190,7 +190,7 @@
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
 /obj/item/projectile/bullet/pellet/shotgun
 	name = "pellet"
-	damage = 25
+	damage = 65
 	pellets = 3
 	range_step = 1
 	spread_step = 10
@@ -203,32 +203,32 @@
 /* "Rifle" rounds */
 
 /obj/item/projectile/bullet/rifle
-	damage = 40
+	damage = 160
 	armor_penetration = 15
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a762
-	damage = 35
+	damage = 160
 	armor_penetration = 22
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a556
-	damage = 30
+	damage = 140
 	armor_penetration = 28
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a556/ap
-	damage = 25
+	damage = 140
 	armor_penetration = 45
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a556/polymer
-	damage = 25
+	damage = 145
 	armor_penetration = 34
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a145
-	damage = 80
+	damage = 280
 	stun = 3
 	weaken = 3
 	penetrating = 5
@@ -240,19 +240,19 @@
 	anti_materiel_potential = 2
 
 /obj/item/projectile/rifle/kumar_super
-	damage = 40
+	damage = 180
 	armor_penetration = 30
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/vintage
 	name = "vintage bullet"
-	damage = 50
+	damage = 150
 	weaken = 1
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/slugger
 	name = "slugger round"
-	damage = 60
+	damage = 220
 	weaken = 3
 	penetrating = 5
 	armor_penetration = 10
@@ -317,14 +317,14 @@
 /* Practice */
 
 /obj/item/projectile/bullet/pistol/practice
-	damage = 5
+	damage = 15
 
 /obj/item/projectile/bullet/rifle/a556/practice
-	damage = 5
+	damage = 15
 
 /obj/item/projectile/bullet/shotgun/practice
 	name = "practice"
-	damage = 5
+	damage = 15
 
 /obj/item/projectile/bullet/pistol/cap
 	name = "cap"
@@ -342,7 +342,7 @@
 	name = "flechette"
 	icon = 'icons/obj/terminator.dmi'
 	icon_state = "flechette_bullet"
-	damage = 40
+	damage = 160
 	damage_type = DAMAGE_BRUTE
 	check_armor = "bullet"
 	embed = 1
@@ -354,23 +354,23 @@
 /obj/item/projectile/bullet/flechette/explosive
 	shrapnel_type = /obj/item/material/shard/shrapnel/flechette
 	penetrating = 0
-	damage = 10
+	damage = 80
 
 /obj/item/projectile/bullet/gauss
 	name = "slug"
 	icon_state = "heavygauss"
-	damage = 40
+	damage = 160
 	armor_penetration = 20
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
 	embed = 0
 
 /obj/item/projectile/bullet/gauss/carbine
 	name = "compact slug"
-	damage = 20
+	damage = 80
 
 /obj/item/projectile/bullet/gauss/highex
 	name = "high-ex shell"
-	damage = 10
+	damage = 80
 	armor_penetration = 30
 
 /obj/item/projectile/bullet/gauss/highex/on_impact(var/atom/A)
@@ -388,14 +388,14 @@
 /obj/item/projectile/bullet/cannonball
 	name = "cannonball"
 	icon_state = "cannonball"
-	damage = 60
+	damage = 260
 	embed = 0
 	penetrating = 1
 	armor_penetration = 25
 	anti_materiel_potential = 2
 
 /obj/item/projectile/bullet/cannonball/explosive
-	damage = 50
+	damage = 150
 	penetrating = 0
 	armor_penetration = 5
 
@@ -422,16 +422,16 @@
 /obj/item/projectile/bullet/shard
 	name = "shard"
 	icon_state = "shard"
-	damage = 15
+	damage = 60
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 
 /obj/item/projectile/bullet/shard/heavy
-	damage = 30
+	damage = 120
 
 /obj/item/projectile/bullet/recoilless_rifle
 	name = "anti-tank warhead"
 	icon_state = "missile"
-	damage = 30
+	damage = 120
 	armor_penetration = 30
 	anti_materiel_potential = 4
 	embed = FALSE
@@ -445,7 +445,7 @@
 /obj/item/projectile/bullet/peac
 	name = "anti-tank missile"
 	icon_state = "peac"
-	damage = 25
+	damage = 250
 	armor_penetration = 35
 	anti_materiel_potential = 6
 	embed = FALSE
