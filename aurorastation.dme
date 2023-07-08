@@ -3326,6 +3326,8 @@
 #include "maps\aurora\code\aurora_shuttles.dm"
 #include "maps\aurora\code\aurora_unittest.dm"
 #include "maps\away\away_sites.dm"
+#include "maps\away\away_site\abandoned_industrial\abandoned_industrial_station.dm"
+#include "maps\away\away_site\abandoned_industrial\abandoned_industrial_station_areas.dm"
 #include "maps\away\away_site\abandoned_mining\cursed.dm"
 #include "maps\away\away_site\big_derelict\bigderelict.dm"
 #include "maps\away\away_site\blueriver\blueriver.dm"
