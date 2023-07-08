@@ -165,7 +165,7 @@
 
 /obj/item/surgery/fix_o_vein
 	name = "vascular recoupler"
-	desc = "An advanced automatic surgical instrument that operates with extreme finesse. It can quickly and safely repair and recouple ruptured blood vessels and ligaments using highly elaborate, biodegradeable microsutures. It can also be used for transplantations to attach organs to the body."
+	desc = "An advanced automatic surgical instrument that operates with extreme finesse. It can quickly and safely repair and recouple ruptured blood vessels and ligaments using highly elaborate, biodegradable microsutures. It can also be used for transplantations to attach organs to the body."
 	icon_state = "fixovein"
 	item_state = "fixovein"
 	force = 2
@@ -177,7 +177,7 @@
 
 /obj/item/surgery/bonesetter
 	name = "bone setter"
-	desc = "A pair of forceps with a screw. It's designed to manipulate bones and hold them together and is best paired with a bottle of bone gel."
+	desc = "A pair of forceps with a screw. It's designed to manipulate bones and hold them together, and is best paired with a bottle of bone gel for mending fractures."
 	icon_state = "bonesetter"
 	item_state = "bonesetter"
 	force = 8
