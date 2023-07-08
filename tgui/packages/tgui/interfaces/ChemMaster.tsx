@@ -1,24 +1,20 @@
 import { useBackend } from '../backend';
-import { Button, Section, Stack, Table, Flex } from '../components';
+import { Button, Section, Stack, Table, Flex, Box, Collapsible, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 export type DispenserData = {
-  blood: Blood;
+  machine_name: string;
   reagents_in_beaker: Reagent[];
   reagents_in_internal_storage: Reagent[];
   mode: number;
   loaded_beaker: boolean;
   loaded_pill_bottle: boolean;
-  // manufacturer: string;
-  // amount: number;
-  // preset_dispense_amounts: number[];
-  // can_select_dispense_amount: BooleanLike;
-  // accept_drinking: BooleanLike;
-  // is_beaker_loaded: BooleanLike;
-  // beaker_max_volume: number;
-  // beaker_current_volume: number;
-  // beaker_contents: Reagent[];
-  // chemicals: Chemical[];
+  bottle_icons: string[];
+  pill_icons: string[];
+  current_bottle_icon: string;
+  current_pill_icon: string;
+  analysis: Blood;
+  is_condimaster: boolean;
 };
 
 let modes = new Map<number, string>([
@@ -38,21 +34,25 @@ type Blood = {
   DNA: String;
 };
 
-type Chemical = {
-  label: string;
-  amount: number;
-};
-
 const ReagentFactory = (props, context) => {
   const { act, data } = useBackend<DispenserData>(context);
   const { reagents, quantities, clickOperation } = props;
 
   return (
     <Table>
-      {reagents?.length
+      {reagents?.length && !data.is_condimaster
         ? reagents.map((reagent) => (
           <Table.Row key={reagent.name}>
-            <Section title={reagent.name + ' (' + reagent.volume + ')'}>
+            <Section
+              title={reagent.name + ' (' + reagent.volume + ')'}
+              buttons={
+                reagent.name === 'Blood' && clickOperation === 'add' ? (
+                  <Button
+                    content="Analyze"
+                    onClick={() => act('analyze', { name: 'Blood' })}
+                  />
+                ) : null
+              }>
               {quantities.map((quantity) => (
                 <DispenseButton
                   key={quantity}
@@ -109,10 +109,10 @@ export const ChemMaster = (props, context) => {
   let dispensable_quantities = [1, 2, 5, 10, 15, 20, 30, 60, 'Custom', 'All'];
 
   return (
-    <Window title="ChemMaster 9000">
+    <Window title={data.machine_name} theme="zenghu">
       <Window.Content scrollable>
         <Section
-          title="ChemMaster 9000"
+          title={data.machine_name}
           buttons={
             <Stack fill>
               <Stack.Item>
@@ -122,19 +122,43 @@ export const ChemMaster = (props, context) => {
                   onClick={() => act('eject')}
                 />
               </Stack.Item>
-              <Stack.Item>
-                <Button
-                  content="Eject pill bottle"
-                  disabled={!data.loaded_pill_bottle}
-                  onClick={() => act('ejectp')}
-                />
-              </Stack.Item>
+              {!data.is_condimaster ? (
+                <Stack.Item>
+                  <Button
+                    content="Eject pill bottle"
+                    disabled={!data.loaded_pill_bottle}
+                    onClick={() => act('ejectp')}
+                  />
+                </Stack.Item>
+              ) : null}
             </Stack>
           }>
           <Table nowrap>
             <Table.Row>
               <Section title="Beaker content">
-                <Flex>
+                <Flex direction="column">
+                  {data.analysis?.name ? (
+                    <Flex.Item mb="30px">
+                      <LabeledList>
+                        <LabeledList.Item
+                          label="Name"
+                          buttons={
+                            <Button
+                              content="Close"
+                              onClick={() => act('analyze', { name: 'Close' })}
+                            />
+                          }>
+                          {data.analysis.name}
+                        </LabeledList.Item>
+                        <LabeledList.Item label="Type">
+                          {data.analysis.type}
+                        </LabeledList.Item>
+                        <LabeledList.Item label="DNA">
+                          {data.analysis.DNA}
+                        </LabeledList.Item>
+                      </LabeledList>
+                    </Flex.Item>
+                  ) : null}
                   <Flex.Item>
                     <ReagentFactory
                       reagents={data.reagents_in_beaker}
@@ -147,7 +171,7 @@ export const ChemMaster = (props, context) => {
             </Table.Row>
           </Table>
         </Section>
-        <Section title="ChemMaster Content">
+        <Section title={data.machine_name.split(' ')[0] + ' Content'}>
           <Stack vertical>
             <Stack.Item>
               <Flex fill>
@@ -169,16 +193,20 @@ export const ChemMaster = (props, context) => {
                       onClick={() => act('createbottle', {})}
                       disabled={!data.reagents_in_internal_storage.length}
                     />
-                    <Button
-                      content="Create Pill"
-                      onClick={() => act('createpill', {})}
-                      disabled={!data.reagents_in_internal_storage.length}
-                    />
-                    <Button
-                      content="Create Multiple Pill"
-                      onClick={() => act('createpill_multiple', {})}
-                      disabled={!data.reagents_in_internal_storage.length}
-                    />
+                    {!data.is_condimaster ? (
+                      <Button
+                        content="Create Pill"
+                        onClick={() => act('createpill', {})}
+                        disabled={!data.reagents_in_internal_storage.length}
+                      />
+                    ) : null}
+                    {!data.is_condimaster ? (
+                      <Button
+                        content="Create Multiple Pills"
+                        onClick={() => act('createpill_multiple', {})}
+                        disabled={!data.reagents_in_internal_storage.length}
+                      />
+                    ) : null}
                   </Section>
                 </Flex.Item>
               </Flex>
@@ -193,6 +221,82 @@ export const ChemMaster = (props, context) => {
               />
             </Stack.Item>
           </Stack>
+        </Section>
+        <Section title="Preferences">
+          <Collapsible title="Bottle type">
+            <Flex pt="10px" wrap="wrap" align="center">
+              {data.bottle_icons.map((icon) => (
+                <Flex.Item
+                  key={icon}
+                  m="4px"
+                  mt="10px"
+                  style={
+                    icon.split(' ')[1] === data.current_bottle_icon
+                      ? {
+                        border: '6px solid red',
+                        'border-top': '10px solid red',
+                      }
+                      : ''
+                  }>
+                  <Button
+                    tooltip={icon.split(' ')[1]}
+                    onClick={() =>
+                      act('bottle_sprite', {
+                        bottle_sprite: icon.split(' ')[1],
+                      })
+                    }>
+                    <Box
+                      as="img"
+                      key={icon}
+                      className={icon}
+                      style={{
+                        '-ms-interpolation-mode': 'bicubic',
+                        transform: 'scale(1.5)',
+                      }}
+                    />
+                  </Button>
+                </Flex.Item>
+              ))}
+            </Flex>
+          </Collapsible>
+          {!data.is_condimaster ? (
+            <Collapsible title="Pill type">
+              <Flex pt="10px" wrap="wrap">
+                {data.pill_icons.map((icon) => (
+                  <Flex.Item
+                    key={icon}
+                    m="4px"
+                    mt="10px"
+                    style={
+                      icon.split(' ')[1] === data.current_pill_icon
+                        ? {
+                          border: '6px solid red',
+                          'border-top': '10px solid red',
+                        }
+                        : ''
+                    }>
+                    <Button
+                      tooltip={icon.split(' ')[1]}
+                      onClick={() =>
+                        act('pill_sprite', {
+                          pill_sprite: icon.split(' ')[1],
+                        })
+                      }>
+                      <Box
+                        as="img"
+                        key={icon}
+                        className={icon}
+                        style={{
+                          '-ms-interpolation-mode': 'bicubic',
+                          transform: 'scale(1.5)',
+                        }}
+                      />
+                    </Button>
+                  </Flex.Item>
+                ))}
+              </Flex>
+            </Collapsible>
+          ) : null}
         </Section>
       </Window.Content>
     </Window>
