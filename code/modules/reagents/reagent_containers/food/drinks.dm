@@ -738,7 +738,6 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
 	icon_state = "jyalra"
 	item_state = "jyalra"
-	trash = /obj/item/trash/jyalra
 	drink_flags = UNIQUE_EMPTY_ICON
 	empty_icon_state = "jyalra_empty"
 	drop_sound = 'sound/items/drop/disk.ogg'
@@ -752,7 +751,6 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
 	icon_state = "jyalracheese"
 	item_state = "jyalracheese"
-	trash = /obj/item/trash/jyalra
 	drink_flags = UNIQUE_EMPTY_ICON
 	empty_icon_state = "jyalra_empty"
 	drop_sound = 'sound/items/drop/disk.ogg'
@@ -766,7 +764,6 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
 	icon_state = "jyalraapple"
 	item_state = "jyalraapple"
-	trash = /obj/item/trash/jyalra
 	drink_flags = UNIQUE_EMPTY_ICON
 	empty_icon_state = "jyalra_empty"
 	drop_sound = 'sound/items/drop/disk.ogg'
@@ -780,7 +777,6 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
 	icon_state = "jyalracherry"
 	item_state = "jyalracherry"
-	trash = /obj/item/trash/jyalra
 	drink_flags = UNIQUE_EMPTY_ICON
 	empty_icon_state = "jyalra_empty"
 	drop_sound = 'sound/items/drop/disk.ogg'
