@@ -89,7 +89,6 @@
 /obj/machinery/chem_master/ui_data(mob/user)
 	var/list/data = list()
 
-	var/list/blood = list()
 	var/list/reagents_in_internal_storage = list()
 	var/list/reagents_in_beaker = list()
 
