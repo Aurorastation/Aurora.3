@@ -27,7 +27,8 @@
 #define SS_INIT_ZCOPY      -1	// Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
 #define SS_INIT_XENOARCH   -2   // Xenoarch is this far below because it can infinite loop if placed in SS_INIT_MISC as it was before, due to some subsystems spawning stuff there.
 #define SS_INIT_LOBBY      -3	// Lobby timer starts here. The lobby timer won't actually start going down until the MC starts ticking, so you probably want this last
-#define SS_INIT_CHAT       -4	// To ensure chat remains smooth during init.
+#define SS_INIT_PING 	   -4	// Pinger for the clients
+#define SS_INIT_CHAT       -5	// To ensure chat remains smooth during init.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.

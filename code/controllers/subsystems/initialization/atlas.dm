@@ -8,6 +8,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 	name = "Atlas"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_MAPLOAD
+	init_stage = INITSTAGE_EARLY
 
 	var/list/known_maps = list()
 	var/dmm_suite/maploader
