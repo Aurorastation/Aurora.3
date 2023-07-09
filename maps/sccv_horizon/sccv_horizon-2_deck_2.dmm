@@ -3672,15 +3672,15 @@
 "bHs" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter"
-	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, hydroponics"
 	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
 "bHG" = (
@@ -16729,12 +16729,12 @@
 "idX" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter"
-	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
 "idZ" = (
@@ -34910,6 +34910,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
+"rbs" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hydroponics)
 "rbF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -44806,7 +44816,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine Core")
+	sensors = list("engine_sensor"="Engine  Core")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
@@ -45220,6 +45230,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
+"vZL" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter"
+	},
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hydroponics)
 "way" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -73958,11 +73984,11 @@ kUp
 wAm
 nTU
 sKo
-idX
+vZL
 idX
 sKo
 bHs
-idX
+rbs
 sKo
 uki
 keG
