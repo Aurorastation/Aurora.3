@@ -18,16 +18,25 @@
   //
   // Refer to https://code.visualstudio.com/docs/editor/userdefinedsnippets
 
-  "INVOKE_ASYNC": {
-    "prefix": ["INVOKE_ASYNC", "ASYNC"],
+  "FOR_IN_LIST": {
+    "prefix": "FOR_IN_LIST",
     "body": [
-      "INVOKE_ASYNC(${1|src,GLOBAL_PROC|}, ${2|PROC_REF(your_proc_name),GLOBAL_PROC_REF(your_proc_name),TYPE_PROC_REF(/object/type\\, your_proc_name)|}, ${3:VARPARAMS})"
-    ]
+      "for(var/${1:iterator} in ${2:list})",
+      "\t",
+  ]
   },
-  "addtimer": {
-    "prefix": ["addtimer", "TIMER"],
+  "FOR_INDEX": {
+    "prefix": "FOR_INDEX",
     "body": [
-      "addtimer(CALLBACK(${1|src,GLOBAL_PROC|}, ${2|PROC_REF(your_proc_name),GLOBAL_PROC_REF(your_proc_name),TYPE_PROC_REF(/object/type\\, your_proc_name)|}, ${3:VARPARAMS}), ${4} SECONDS)"
-    ]
-  }
+      "for(var/${1:index}, ${2:condition}, ${3:step})",
+      "\t",
+  ]
+  },
+  "FOR_IN_TO": {
+    "prefix": "FOR_IN_TO",
+    "body": [
+      "for(var/${1:count} in ${2:begin} to ${3:end})",
+      "\t",
+  ]
+  },
 }
