@@ -3023,10 +3023,6 @@
 	},
 /turf/simulated/wall,
 /area/horizon/bar)
-"bto" = (
-/obj/machinery/light/floor,
-/turf/simulated/wall/r_wall,
-/area/rnd/chemistry)
 "btv" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -33638,19 +33634,6 @@
 	},
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/garden)
-"quw" = (
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "RnDShutters";
-	name = "Research and Development";
-	opacity = 0
-	},
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/light/floor,
-/turf/simulated/floor/tiled/dark/full,
-/area/rnd/chemistry)
 "quD" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
@@ -44880,7 +44863,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine    Core")
+	sensors = list("engine_sensor"="Engine        Core")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
@@ -46674,7 +46657,6 @@
 	pixel_x = 8;
 	pixel_y = 10
 	},
-/obj/machinery/light/floor,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "wGT" = (
@@ -72588,7 +72570,7 @@ kfE
 rhC
 wXp
 ptV
-quw
+fjc
 xhg
 eNj
 ept
@@ -72790,7 +72772,7 @@ fjl
 uKB
 hDr
 hDr
-bto
+hDr
 uFc
 hcF
 ept
