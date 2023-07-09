@@ -38,4 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - maptweak: "Hydroponics' viewing shutters now start closed."
+  - maptweak: "Hydroponics' viewing shutters now start closed and deck one's shutters are linked to an actual button."
+  - bugfix: "Fixes a misplaced area and air alarm in deck one hydro's animal pen"
