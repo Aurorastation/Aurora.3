@@ -23182,7 +23182,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/item/tank/oxygen,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Operating Room 2";
 	dir = 8
@@ -28729,7 +28728,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
 "nWZ" = (
