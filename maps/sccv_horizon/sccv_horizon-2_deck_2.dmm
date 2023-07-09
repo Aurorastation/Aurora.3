@@ -39111,10 +39111,10 @@
 /area/hallway/engineering)
 "thL" = (
 /obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /turf/simulated/floor/carpet/rubber,
 /area/server)
 "thY" = (
