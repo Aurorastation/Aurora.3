@@ -59,7 +59,7 @@
 	name = "random tool"
 	desc = "This is a random tool"
 	icon = 'icons/obj/tools.dmi'
-	icon_state = "welder_off"
+	icon_state = "wrench"
 	spawnlist = list(
 		/obj/item/screwdriver,
 		/obj/item/wirecutters,
@@ -110,7 +110,7 @@
 /obj/random/toolbox
 	name = "random toolbox"
 	desc = "This is a random toolbox."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/toolbox.dmi'
 	icon_state = "red"
 	spawnlist = list(
 		/obj/item/storage/toolbox/mechanical = 3,
