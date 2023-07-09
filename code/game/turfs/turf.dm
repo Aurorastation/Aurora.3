@@ -55,6 +55,8 @@
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 

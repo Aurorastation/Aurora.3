@@ -130,6 +130,7 @@
 	icon_state = "bottle-1"
 
 /obj/item/docility_serum/Initialize() // Better than hardsprited in stuff.
+	. = ..()
 	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
 	filling.color = COLOR_PINK
 	add_overlay(filling)
@@ -173,6 +174,7 @@
 	icon_state = "bottle-1"
 
 /obj/item/advanced_docility_serum/Initialize() // Better than hardsprited in stuff.
+	. = ..()
 	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
 	filling.color = COLOR_PALE_PINK
 	add_overlay(filling)
@@ -216,6 +218,8 @@
 	icon_state = "bottle-1"
 
 /obj/item/slimesteroid/Initialize() // Better than hardsprited in stuff.
+	SHOULD_CALL_PARENT(FALSE)
+
 	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
 	filling.color = COLOR_GREEN
 	add_overlay(filling)
@@ -248,6 +252,8 @@
 	icon_state = "bottle-1"
 
 /obj/item/extract_enhancer/Initialize() // Better than hardsprited in stuff.
+	SHOULD_CALL_PARENT(FALSE)
+
 	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
 	filling.color = COLOR_BLUE
 	add_overlay(filling)

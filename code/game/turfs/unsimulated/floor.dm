@@ -39,6 +39,8 @@
 	return
 
 /turf/unsimulated/mask/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+
 	initialized = TRUE
 	return
 

@@ -198,6 +198,7 @@
 	active_power_usage = 0
 
 /obj/machinery/station_map/mobile/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
 	init_map()
 
 	initialized = TRUE

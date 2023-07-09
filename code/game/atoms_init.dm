@@ -21,6 +21,7 @@
 		created += src
 
 /atom/proc/Initialize(mapload, ...)
+	SHOULD_CALL_PARENT(TRUE)
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE

@@ -650,6 +650,8 @@
 	return ..(adjacencies, dir_mods)
 
 /obj/structure/window/full/Initialize(mapload, start_dir = null, constructed = 0)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if (!mapload && constructed)
 		state = 0
 

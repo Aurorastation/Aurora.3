@@ -28,6 +28,7 @@
 	var/corpseidicon = null //For setting it to be a gold, silver, centcomm etc ID
 
 /obj/effect/landmark/mobcorpse/Initialize()
+	. = ..()
 	createCorpse()
 
 	initialized = TRUE

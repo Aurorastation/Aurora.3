@@ -213,6 +213,8 @@
 			add_overlay(screen_overlays["intercom_l"])
 
 /obj/item/device/radio/intercom/broadcasting/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+
 	set_broadcasting(TRUE)
 
 	initialized = TRUE
