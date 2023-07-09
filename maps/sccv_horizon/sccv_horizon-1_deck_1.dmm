@@ -2459,9 +2459,6 @@
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"bLo" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/stairwell/bridge)
 "bLu" = (
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 9
@@ -3042,18 +3039,10 @@
 /turf/simulated/floor/plating,
 /area/turbolift/research/deck_1)
 "clG" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, d1 garden"
 	},
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "shutters_deck2_hydroponicswindows";
-	name = "Viewing Shutter"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hydroponics/lower)
 "clT" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -4668,17 +4657,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
-"drU" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter"
-	},
-/turf/simulated/floor/plating,
-/area/horizon/hydroponics/lower)
 "drX" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/critical{
@@ -8430,17 +8408,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
-"fUU" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "shutters_deck2_hydroponicswindows";
-	name = "Viewing Shutter"
-	},
-/turf/simulated/floor/plating,
-/area/horizon/hydroponics/lower)
 "fVh" = (
 /obj/item/modular_computer/console/preset/ai{
 	dir = 1
@@ -9901,7 +9868,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/grass/alt,
-/area/horizon/stairwell/bridge)
+/area/horizon/hydroponics/lower)
 "gUl" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -12388,7 +12355,7 @@
 	frequency = 1442;
 	input_tag = "port_prop_in";
 	output_tag = "port_prop_out";
-	sensors = list("port_prop_sensor"="Port Propulsion Sensor")
+	sensors = list("port_prop_sensor"="Port  Propulsion  Sensor")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
@@ -12697,7 +12664,7 @@
 	frequency = 1442;
 	input_tag = "starboard_prop_in";
 	output_tag = "starboard_prop_out";
-	sensors = list("starboard_prop_sensor"="Starboard Propulsion Sensor")
+	sensors = list("starboard_prop_sensor"="Starboard  Propulsion  Sensor")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion/starboard)
@@ -19456,7 +19423,7 @@
 	pixel_y = -8
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/horizon/stairwell/bridge)
+/area/horizon/hydroponics/lower)
 "nLL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -19512,7 +19479,7 @@
 /area/hallway/primary/aft)
 "nNd" = (
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/horizon/stairwell/bridge)
+/area/horizon/hydroponics/lower)
 "nNh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -26759,17 +26726,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
-"sWx" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "shutters_deck2_hydroponicswindows";
-	name = "Viewing Shutter"
-	},
-/turf/simulated/floor/plating,
-/area/horizon/stairwell/bridge)
 "sWB" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
@@ -26971,7 +26927,7 @@
 	pixel_x = -28
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/horizon/stairwell/bridge)
+/area/horizon/hydroponics/lower)
 "tfR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/closet/cabinet,
@@ -57219,9 +57175,9 @@ nRy
 fyR
 xyG
 mdL
-bLo
-bLo
-bLo
+mdL
+mdL
+mdL
 kVe
 eSV
 eSV
@@ -57424,7 +57380,7 @@ pAP
 dWw
 tfB
 nLh
-bLo
+mdL
 kVe
 eSV
 eSV
@@ -57627,7 +57583,7 @@ xtj
 faK
 gTU
 nNd
-sWx
+mdL
 kVe
 eSV
 eSV
@@ -58033,7 +57989,7 @@ utd
 wlf
 nyp
 dtb
-fUU
+mdL
 ctz
 eSV
 eSV
@@ -58435,9 +58391,9 @@ mdL
 mdL
 mdL
 mdL
-drU
-drU
-drU
+mdL
+mdL
+mdL
 mdL
 mdL
 ctz
