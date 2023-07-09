@@ -48,6 +48,8 @@
 
 	var/bulb_is_noisy = TRUE
 
+	var/fitting_has_empty_icon = FALSE
+
 	var/previous_stat
 	var/randomize_color = TRUE
 	var/default_color
@@ -62,16 +64,26 @@
 	base_state = "skrell"
 	icon_state = "skrell_empty"
 	supports_nightmode = FALSE
-	fitting= "skrell"
+	fitting = "skrell"
 	bulb_is_noisy = FALSE
 	light_type = /obj/item/light/tube
 	inserted_light = /obj/item/light/tube
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_PURPLE
 
+/obj/machinery/light/floor
+	name = "floor lighting fixture"
+	icon_state = "floortube"
+	base_state = "floortube"
+	fitting = "floortube"
+	desc = "A lighting fixture. This one is set into the floor."
+	layer = 2.5
+	fitting_has_empty_icon = TRUE
+
 // the smaller bulb light fixture
 
 /obj/machinery/light/small
+	name = "small light fixture"
 	icon_state = "bulb1"
 	base_state = "bulb"
 	fitting = "bulb"
@@ -83,6 +95,14 @@
 	inserted_light = /obj/item/light/bulb
 	supports_nightmode = FALSE
 	bulb_is_noisy = FALSE
+
+/obj/machinery/light/small/floor
+	name = "small floor lighting fixture"
+	icon_state = "floor_empty"
+	base_state = "floor"
+	fitting = "floorbulb"
+	desc = "A small lighting fixture. This one is set into the floor."
+	layer = 2.5
 
 /obj/machinery/light/small/emergency
 	brightness_range = 6
@@ -113,7 +133,7 @@
 	randomize_color = FALSE
 
 /obj/machinery/light/spot
-	name = "spotlight"
+	name = "spotlight fixture"
 	fitting = "large tube"
 	light_type = /obj/item/light/tube/large
 	inserted_light = /obj/item/light/tube/large
@@ -134,7 +154,17 @@
 	stat |= MAINT
 	. = ..()
 
+/obj/machinery/light/floor/built/Initialize()
+	status = LIGHT_EMPTY
+	stat |= MAINT
+	. = ..()
+
 /obj/machinery/light/small/built/Initialize()
+	status = LIGHT_EMPTY
+	stat |= MAINT
+	. = ..()
+
+/obj/machinery/light/small/floor/built/Initialize()
 	status = LIGHT_EMPTY
 	stat |= MAINT
 	. = ..()
@@ -152,7 +182,13 @@
 			if("tube")
 				if(prob(2))
 					broken(1)
+			if("floortube")
+				if(prob(2))
+					broken(1)
 			if("bulb")
+				if(prob(5))
+					broken(1)
+			if("floorbulb")
 				if(prob(5))
 					broken(1)
 
@@ -167,7 +203,12 @@
 
 /obj/machinery/light/update_icon()
 	cut_overlays()
-	icon_state = "[base_state]_empty"
+	if ((status == LIGHT_EMPTY) || !fitting_has_empty_icon) {
+		icon_state = "[base_state]_empty"
+	}
+	else {
+		icon_state = "[base_state]"
+	}
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
 			var/target_color

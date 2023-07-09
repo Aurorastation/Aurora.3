@@ -3024,11 +3024,9 @@
 /turf/simulated/wall,
 /area/horizon/bar)
 "bto" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/open,
-/area/hallway/primary/central_one)
+/obj/machinery/light/floor,
+/turf/simulated/wall/r_wall,
+/area/rnd/chemistry)
 "btv" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -15473,10 +15471,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "hvu" = (
-/obj/machinery/light,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/hallway/primary/central_one)
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/operations/office)
 "hvH" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -20222,6 +20224,15 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/tesla)
+"jIW" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/operations/office)
 "jIY" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -23489,14 +23500,23 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "lvH" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 5
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/effect/landmark/start{
+	name = "Hangar Technician"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light/floor{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/operations/office)
 "lvM" = (
 /turf/simulated/floor/wood,
 /area/horizon/bar)
@@ -25303,9 +25323,6 @@
 /area/horizon/security/equipment)
 "mqj" = (
 /obj/structure/closet/secure_closet/hangar_tech,
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -27034,6 +27051,13 @@
 "ncR" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/security/lobby)
+"ndk" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/light/floor,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "ndn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -33611,6 +33635,19 @@
 	},
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/garden)
+"quw" = (
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "RnDShutters";
+	name = "Research and Development";
+	opacity = 0
+	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/light/floor,
+/turf/simulated/floor/tiled/dark/full,
+/area/rnd/chemistry)
 "quD" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
@@ -34137,10 +34174,10 @@
 /area/maintenance/wing/starboard)
 "qFz" = (
 /obj/effect/floor_decal/corner/green{
-	dir = 10
+	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/light/floor{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -36801,6 +36838,13 @@
 "rVg" = (
 /turf/simulated/wall,
 /area/operations/office)
+"rVt" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/hallway/primary/central_one)
 "rVL" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -44821,7 +44865,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine Core")
+	sensors = list("engine_sensor"="Engine  Core")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
@@ -46615,6 +46659,7 @@
 	pixel_x = 8;
 	pixel_y = 10
 	},
+/obj/machinery/light/floor,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "wGT" = (
@@ -47577,6 +47622,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
+"xcS" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "xdl" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -61020,7 +61074,7 @@ gvB
 aqV
 hUP
 nTB
-kRZ
+jIW
 aoC
 kmc
 epw
@@ -61424,7 +61478,7 @@ qpB
 rju
 qpB
 iGE
-kRZ
+jIW
 rtF
 rew
 nZZ
@@ -61623,9 +61677,9 @@ qEQ
 rSG
 wmT
 pew
+hvu
 skq
-skq
-skq
+hvu
 qXx
 vwg
 rew
@@ -62427,7 +62481,7 @@ pMJ
 dcI
 hBJ
 gwv
-gwv
+lvH
 gwv
 rVV
 qSE
@@ -70099,7 +70153,7 @@ ayF
 wTb
 pyc
 mHG
-bto
+xQj
 mHG
 nEx
 hDd
@@ -70500,17 +70554,17 @@ vja
 qja
 ego
 ayF
-wTb
+rVt
 pyc
 mHG
 xQj
 mHG
 nEx
 xhg
-pdv
+ndk
 bJp
 siL
-xhg
+xcS
 nkF
 mCE
 xWr
@@ -70702,13 +70756,13 @@ ajN
 xEH
 sYl
 ayF
-hvu
+wTb
 plf
 hfq
 vbk
 hfq
 wdk
-lvH
+xhg
 pdv
 cMn
 wlg
@@ -70902,12 +70956,12 @@ nUN
 rUT
 gDw
 pyc
-bto
+xQj
 ayF
 aIj
 yea
 fEQ
-fEQ
+qFz
 fEQ
 fEQ
 tZV
@@ -71102,7 +71156,7 @@ iVp
 iVp
 nUN
 vcv
-lPO
+ndk
 bJp
 mHG
 cTn
@@ -71304,7 +71358,7 @@ iVp
 iVp
 nUN
 vcv
-qFz
+lPO
 luT
 vbk
 ayF
@@ -72519,7 +72573,7 @@ kfE
 rhC
 wXp
 ptV
-fjc
+quw
 xhg
 eNj
 ept
@@ -72721,7 +72775,7 @@ fjl
 uKB
 hDr
 hDr
-hDr
+bto
 uFc
 hcF
 ept
