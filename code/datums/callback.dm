@@ -14,7 +14,9 @@
 		arguments = args.Copy(3)
 
 /**
- * Runs an asynchronous function, setting the waitfor to zero
+ * Runs a function asynchronously, setting the waitfor to zero
+ *
+ * In case of sleeps, the parent proc (aka where you call this) will continue its processing while the called proc sleeps
  *
  * * thingtocall - The object whose function is to be called on, will be set as `src` in said function, or `GLOBAL_PROC` if the proc is a global one
  * * proctocall - The process to call, use `PROC_REF`, `TYPE_PROC_REF` or `GLOBAL_PROC_REF` according to your use case. Defines in code\__defines\byond_compat.dm
