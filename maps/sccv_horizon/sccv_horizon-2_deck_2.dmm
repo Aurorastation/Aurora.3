@@ -16610,9 +16610,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "iaW" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
@@ -16624,6 +16621,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/white{
 	dir = 6
+	},
+/obj/machinery/light/floor{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_one)
@@ -19699,6 +19699,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/white{
 	dir = 5
+	},
+/obj/machinery/light/floor{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_one)
@@ -34040,6 +34043,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
+"qCP" = (
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/fancy{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 10
+	},
+/obj/machinery/light/floor,
+/turf/simulated/floor/tiled/dark/full,
+/area/hallway/primary/central_one)
 "qCX" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -38058,9 +38073,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "sFf" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
@@ -38072,6 +38084,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/white{
 	dir = 9
+	},
+/obj/machinery/light/floor{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_one)
@@ -44865,7 +44880,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine  Core")
+	sensors = list("engine_sensor"="Engine    Core")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
@@ -72376,7 +72391,7 @@ xhg
 hcF
 pdv
 dPz
-gkM
+qCP
 oFp
 lTn
 ygu
