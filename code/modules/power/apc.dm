@@ -1365,7 +1365,7 @@
 			if (prob(chance))
 				L.stat &= ~POWEROFF
 				L.broken()
-				stoplag(1)
+				CHECK_TICK
 
 /obj/machinery/power/apc/proc/flicker_all()
 	var/offset = 0

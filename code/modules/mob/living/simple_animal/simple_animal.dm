@@ -179,7 +179,7 @@
 
 	if(simple_default_language)
 		add_language(simple_default_language)
-		set_default_language(all_languages[simple_default_language])
+		default_language = all_languages[simple_default_language]
 
 	if(dead_on_map)
 		death()

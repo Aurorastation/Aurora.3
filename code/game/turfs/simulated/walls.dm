@@ -120,7 +120,7 @@
 			plant.update_icon()
 			plant.pixel_x = 0
 			plant.pixel_y = 0
-		plant.update_neighbors()
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/effect/plant, update_neighbors))
 
 /turf/simulated/wall/ChangeTurf(var/newtype)
 	clear_plants()
@@ -206,7 +206,7 @@
 		else
 			O.forceMove(src)
 
-	clear_plants()
+	INVOKE_ASYNC(src, PROC_REF(clear_plants))
 	clear_bulletholes()
 	material = SSmaterials.get_material_by_name("placeholder")
 	reinf_material = null

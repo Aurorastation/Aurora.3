@@ -640,6 +640,7 @@
 
 	for(var/obj/machinery/light/L in range(7))
 		L.broken()
+		CHECK_TICK
 
 /mob/living/carbon/human/proc/create_darkness()
 	set category = "Abilities"

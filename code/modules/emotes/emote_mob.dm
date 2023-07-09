@@ -9,46 +9,19 @@
 	set category = "IC"
 	set desc = "Type in an emote message that will be received by mobs that can hear you."
 
-	custom_emote(m_type = AUDIBLE_MESSAGE)
+	custom_emote(m_type = AUDIBLE_MESSAGE, message = sanitize(input(src,"Choose an emote to display.") as text|null))
 
 /mob/verb/custom_visible_emote()
 	set name = "Visible Emote"
 	set category = "IC"
 	set desc = "Type in an emote message that will be received by mobs that can see you."
 
-	custom_emote(m_type = VISIBLE_MESSAGE)
+	custom_emote(m_type = VISIBLE_MESSAGE, message = sanitize(input(src,"Choose an emote to display.") as text|null))
 
 /mob/proc/emote(var/act, var/m_type, var/message)
 	// s-s-snowflake
 	if((src.stat == DEAD || src.status_flags & FAKEDEATH) && act != "deathgasp")
 		return
-	if(usr == src) //client-called emote
-		if (client && (client.prefs.muted & MUTE_IC))
-			to_chat(src, "<span class='warning'>You cannot send IC messages (muted).</span>")
-			return
-
-		if(act == "help")
-			to_chat(src,"<b>Usable emotes:</b> [english_list(usable_emotes)]")
-			return
-
-		if(!can_emote(m_type))
-			to_chat(src, "<span class='warning'>You cannot currently [m_type == AUDIBLE_MESSAGE ? "audibly" : "visually"] emote!</span>")
-			return
-
-		if(act == "me")
-			return custom_emote(m_type, message)
-
-		if(act == "custom")
-			if(!message)
-				message = sanitize(input("Enter an emote to display.") as text|null)
-			if(!message)
-				return
-			if (!m_type)
-				if(alert(src, "Is this an audible emote?", "Emote", "Yes", "No") == "No")
-					m_type = VISIBLE_MESSAGE
-				else
-					m_type = AUDIBLE_MESSAGE
-			return custom_emote(m_type, message)
 
 	var/splitpoint = findtext(act, " ")
 	if(splitpoint > 0)
@@ -76,6 +49,40 @@
 	for (var/obj/item/implant/I in src)
 		if (I.implanted)
 			I.trigger(act, src)
+
+
+/mob/proc/client_emote(var/act, var/m_type, var/message)
+	if((src.stat == DEAD || src.status_flags & FAKEDEATH) && act != "deathgasp")
+		return
+
+	if(usr == src) //client-called emote
+		if (client && (client.prefs.muted & MUTE_IC))
+			to_chat(src, "<span class='warning'>You cannot send IC messages (muted).</span>")
+			return
+
+		if(act == "help")
+			to_chat(src,"<b>Usable emotes:</b> [english_list(usable_emotes)]")
+			return
+
+		if(!can_emote(m_type))
+			to_chat(src, "<span class='warning'>You cannot currently [m_type == AUDIBLE_MESSAGE ? "audibly" : "visually"] emote!</span>")
+			return
+
+		if(act == "me")
+			return custom_emote(m_type, message)
+
+		if(act == "custom")
+			if(!message)
+				message = sanitize(input("Enter an emote to display.") as text|null)
+			if(!message)
+				return
+			if (!m_type)
+				if(alert(src, "Is this an audible emote?", "Emote", "Yes", "No") == "No")
+					m_type = VISIBLE_MESSAGE
+				else
+					m_type = AUDIBLE_MESSAGE
+			return custom_emote(m_type, message)
+	return emote(act)
 
 /mob/proc/format_emote(var/emoter = null, var/message = null)
 	var/pretext
@@ -138,16 +145,10 @@
 		to_chat(src, "You are unable to emote.")
 		return
 
-	var/input
 	if(!message)
-		input = sanitize(input(src,"Choose an emote to display.") as text|null)
-	else
-		input = message
-
-	if(input)
-		message = format_emote(src, input)
-	else
 		return
+
+	message = format_emote(src, message)
 
 	if (message)
 		log_emote("[name]/[key] : [message]")

@@ -247,7 +247,8 @@
 	pixel_y = DIR2PIXEL_Y(dir)
 
 	if(isContactLevel(z))
-		set_security_level(security_level ? get_security_level() : "green")
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(set_security_level), (security_level ? get_security_level() : "green"))
+
 	soundloop = new(src, FALSE)
 
 	var/area/A = get_area(src)
