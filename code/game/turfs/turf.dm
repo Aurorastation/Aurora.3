@@ -285,7 +285,7 @@ var/const/enterloopsanity = 100
 				break
 			objects++
 
-			if (oAM.simulated)
+			if (oAM.simulated && (oAM.flags & PROXMOVE))
 				AM.proximity_callback(oAM)
 
 /turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color="#A10808")
@@ -296,7 +296,6 @@ var/const/enterloopsanity = 100
 
 /atom/movable/proc/proximity_callback(atom/movable/AM)
 	set waitfor = FALSE
-	sleep(0)
 	HasProximity(AM, TRUE)
 	if (!QDELETED(AM) && !QDELETED(src) && (AM.flags & PROXMOVE))
 		AM.HasProximity(src, TRUE)

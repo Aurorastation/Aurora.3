@@ -1,0 +1,45 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.
+author: FluffyGhost
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - backend: "Added a spatial gridmap check LoS define, to be used inside spatial_info for often called procs (get_target_in_LOS for now, which is called very often, 455k times in 10 minutes)."
+  - backend: "Added a mob incapactitation check define, to be used inside mobs for often called procs (update_canmove, cannot_stand for now, which are called very often, 510k times in 10 minutes)."
+  - backend: "Added a check flag before calling proximity_callback for turf entered procs, which was calling it very often despite not being used in much of anything, 459k times in 10 minutes."
+  - backend: "Added an air alarm get_danger_level and get_overall_danger_level defines, to be used inside air alarm for often called procs (process and handle_heating for now, the former which is called very often, 1.1M times in 10 minutes)."
+  - backend: "Moved machine's process_all() inside the SSMachinery processing, 1.255M calls in 10 minutes."

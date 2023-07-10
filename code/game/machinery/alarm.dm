@@ -24,6 +24,56 @@
 #define MAX_TEMPERATURE 90
 #define MIN_TEMPERATURE -40
 
+/**
+ * Get the danger level of a zone
+ *
+ * * RETURN_VALUE - The variable to store the return value
+ * * current_value - The current value to check the danger-ness against
+ * * danger_levels - A list with the danger levels
+ */
+#define ALARM_GET_DANGER_LEVEL(RETURN_VALUE, current_value, danger_levels)\
+	if((current_value > danger_levels[4] && danger_levels[4] > 0) || current_value < danger_levels[1]){\
+		RETURN_VALUE = 2;\
+	}\
+	else if((current_value > danger_levels[3] && danger_levels[3] > 0) || current_value < danger_levels[2]){\
+		RETURN_VALUE = 1;\
+	}\
+	else{\
+		RETURN_VALUE = 0;\
+	}
+
+/**
+ * Get the overall danger level of the environment
+ *
+ * * RETURN_VALUE - The variable to store the return value
+ * * environment - A `/datum/gas_mixture` to perform the danger level calculation against
+ */
+#define ALARM_GET_OVERALL_DANGER_LEVEL(RETURN_VALUE, environment)\
+	do {\
+		var/partial_pressure = R_IDEAL_GAS_EQUATION*environment.temperature/environment.volume;\
+		var/other_moles = 0;\
+		for(var/g in trace_gas){\
+			other_moles += environment.gas[g];\
+		}\
+		ALARM_GET_DANGER_LEVEL(pressure_dangerlevel, environment.return_pressure(), TLV["pressure"]);\
+		ALARM_GET_DANGER_LEVEL(oxygen_dangerlevel, environment.gas[GAS_OXYGEN]*partial_pressure, TLV[GAS_OXYGEN]);\
+		ALARM_GET_DANGER_LEVEL(co2_dangerlevel, environment.gas[GAS_CO2]*partial_pressure, TLV[GAS_CO2]);\
+		ALARM_GET_DANGER_LEVEL(phoron_dangerlevel, environment.gas[GAS_PHORON]*partial_pressure, TLV[GAS_PHORON]);\
+		ALARM_GET_DANGER_LEVEL(hydrogen_dangerlevel, environment.gas[GAS_HYDROGEN]*partial_pressure, TLV[GAS_HYDROGEN]);\
+		ALARM_GET_DANGER_LEVEL(temperature_dangerlevel, environment.temperature, TLV["temperature"]);\
+		ALARM_GET_DANGER_LEVEL(other_dangerlevel, other_moles*partial_pressure, TLV["other"]);\
+		\
+		RETURN_VALUE = max(\
+		pressure_dangerlevel,\
+		oxygen_dangerlevel,\
+		co2_dangerlevel,\
+		phoron_dangerlevel,\
+		hydrogen_dangerlevel,\
+		other_dangerlevel,\
+		temperature_dangerlevel\
+		);\
+	} while (FALSE)
+
 //all air alarms in area are connected via magic
 /area
 	var/list/air_vent_names = list()
@@ -208,7 +258,7 @@
 
 	var/old_level = danger_level
 	var/old_pressurelevel = pressure_dangerlevel
-	danger_level = overall_danger_level(environment)
+	ALARM_GET_OVERALL_DANGER_LEVEL(danger_level, environment)
 
 	if (old_level != danger_level)
 		apply_danger_level(danger_level)
@@ -237,16 +287,19 @@
 	return
 
 /obj/machinery/alarm/proc/handle_heating_cooling(var/datum/gas_mixture/environment)
+	var/danger_level = null
+	ALARM_GET_DANGER_LEVEL(danger_level, target_temperature, TLV["temperature"])
+
 	if (!regulating_temperature)
 		//check for when we should start adjusting temperature
-		if(!get_danger_level(target_temperature, TLV["temperature"]) && abs(environment.temperature - target_temperature) > 2.0)
+		if(!danger_level && abs(environment.temperature - target_temperature) > 2.0)
 			update_use_power(POWER_USE_ACTIVE)
 			regulating_temperature = 1
 			visible_message("\The [src] clicks as it starts [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
 			"You hear a click and a faint electronic hum.")
 	else
 		//check for when we should stop adjusting temperature
-		if (get_danger_level(target_temperature, TLV["temperature"]) || abs(environment.temperature - target_temperature) <= 0.5)
+		if (danger_level || abs(environment.temperature - target_temperature) <= 0.5)
 			update_use_power(POWER_USE_IDLE)
 			regulating_temperature = 0
 			visible_message("\The [src] clicks quietly as it stops [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
@@ -280,31 +333,6 @@
 
 			environment.merge(gas)
 
-/obj/machinery/alarm/proc/overall_danger_level(var/datum/gas_mixture/environment)
-	var/partial_pressure = R_IDEAL_GAS_EQUATION*environment.temperature/environment.volume
-	var/environment_pressure = environment.return_pressure()
-
-	var/other_moles = 0
-	for(var/g in trace_gas)
-		other_moles += environment.gas[g] //this is only going to be used in a partial pressure calc, so we don't need to worry about group_multiplier here.
-
-	pressure_dangerlevel = get_danger_level(environment_pressure, TLV["pressure"])
-	oxygen_dangerlevel = get_danger_level(environment.gas[GAS_OXYGEN]*partial_pressure, TLV[GAS_OXYGEN])
-	co2_dangerlevel = get_danger_level(environment.gas[GAS_CO2]*partial_pressure, TLV[GAS_CO2])
-	phoron_dangerlevel = get_danger_level(environment.gas[GAS_PHORON]*partial_pressure, TLV[GAS_PHORON])
-	hydrogen_dangerlevel = get_danger_level(environment.gas[GAS_HYDROGEN]*partial_pressure, TLV[GAS_HYDROGEN])
-	temperature_dangerlevel = get_danger_level(environment.temperature, TLV["temperature"])
-	other_dangerlevel = get_danger_level(other_moles*partial_pressure, TLV["other"])
-
-	return max(
-		pressure_dangerlevel,
-		oxygen_dangerlevel,
-		co2_dangerlevel,
-		phoron_dangerlevel,
-		hydrogen_dangerlevel,
-		other_dangerlevel,
-		temperature_dangerlevel
-		)
 
 // Returns whether this air alarm thinks there is a breach, given the sensors that are available to it.
 /obj/machinery/alarm/proc/breach_detected()
@@ -324,13 +352,6 @@
 		if (!(mode == AALARM_MODE_PANIC || mode == AALARM_MODE_CYCLE))
 			return 1
 
-	return 0
-
-/obj/machinery/alarm/proc/get_danger_level(var/current_value, var/list/danger_levels)
-	if((current_value > danger_levels[4] && danger_levels[4] > 0) || current_value < danger_levels[1])
-		return 2
-	if((current_value > danger_levels[3] && danger_levels[3] > 0) || current_value < danger_levels[2])
-		return 1
 	return 0
 
 /obj/machinery/alarm/update_icon()
@@ -860,3 +881,21 @@ Just a object used in constructing air alarms
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 // Fire Alarms moved to firealarm.dm
+
+#undef AALARM_MODE_SCRUBBING
+#undef AALARM_MODE_REPLACEMENT
+#undef AALARM_MODE_PANIC
+#undef AALARM_MODE_CYCLE
+#undef AALARM_MODE_FILL
+#undef AALARM_MODE_OFF
+#undef AALARM_SCREEN_MAIN
+#undef AALARM_SCREEN_VENT
+#undef AALARM_SCREEN_SCRUB
+#undef AALARM_SCREEN_MODE
+#undef AALARM_SCREEN_SENSORS
+#undef AALARM_REPORT_TIMEOUT
+#undef MAX_TEMPERATURE
+#undef MIN_TEMPERATURE
+
+#undef ALARM_GET_DANGER_LEVEL
+#undef ALARM_GET_OVERALL_DANGER_LEVEL
