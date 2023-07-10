@@ -78,12 +78,13 @@
 	for(var/datum/computer_file/program/P in hard_drive.stored_files)
 		if(P.program_hidden())
 			continue
-		data["programs"] += list(list(
-			"filename" = P.filename,
-			"desc" = P.filedesc,
-			"autorun" = istype(autorun) && (autorun.stored_data == P.filename),
-			"running" = (P in idle_threads)
-		))
+		if(!istype(P, /datum/computer_file/program/scanner))
+			data["programs"] += list(list(
+				"filename" = P.filename,
+				"desc" = P.filedesc,
+				"autorun" = istype(autorun) && (autorun.stored_data == P.filename),
+				"running" = (P in idle_threads)
+			))
 		if(P.program_type & PROGRAM_SERVICE)
 			data["services"] += list(list(
 				"filename" = P.filename,

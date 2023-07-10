@@ -1,7 +1,3 @@
-#define RELIGIONS_COALITION list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY)
-#define RELIGIONS_COALITION_ALL list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_MOROZ)
-#define CITIZENSHIPS_COALITION list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
-
 /singleton/origin_item/culture/coalition
 	name = "Coalition of Colonies"
 	desc = "The Coalition of Colonies was born out of the fires of the Interstellar War, the bloodiest war humanity has seen since its dawn as a species. The majority of its citizens prize their freedom above all else, which has led to problems with governance for the Coalition: to this day, it remains a very decentralized and fragmented entity that can only be brought together as a unified front in moments of extreme crisis. But with the recent growth of the Republic of Biesel, retreat of the Solarian Alliance, and an increasingly militaristic Empire of Dominia, perhaps this matter shall change in the years to come."

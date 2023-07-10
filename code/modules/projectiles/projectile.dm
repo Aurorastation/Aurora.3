@@ -681,3 +681,5 @@
 /image/proc/flick_remove_overlay(var/atom/A)
 	if(A)
 		A.overlays.Remove(src)
+
+#undef MUZZLE_EFFECT_PIXEL_INCREMENT

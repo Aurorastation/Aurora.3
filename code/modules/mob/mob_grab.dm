@@ -1,7 +1,3 @@
-#define UPGRADE_COOLDOWN	40
-#define UPGRADE_KILL_TIMER	100
-
-
 //This is called from human_attackhand.dm before grabbing happens.
 //IT is called when grabber tries to grab this mob
 //Override this for special grab behaviour.

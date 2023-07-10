@@ -1,5 +1,3 @@
-#define LISTENER_MODULAR_COMPUTER "modular_computers"
-
 /obj/item/modular_computer/process()
 	if(!enabled) // The computer is turned off
 		last_power_usage = 0
@@ -95,7 +93,7 @@
 	if(looping_sound)
 		soundloop = new(src, enabled)
 	initial_name = name
-	listener = new(LISTENER_MODULAR_COMPUTER, src)
+	listener = new("modular_computers", src)
 
 /obj/item/modular_computer/Destroy()
 	kill_program(TRUE)

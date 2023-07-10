@@ -545,3 +545,10 @@
 		if(istype(destination)) SSair.tiles_to_update += destination
 		return 1
 */
+
+
+#undef FIREDOOR_MAX_PRESSURE_DIFF
+#undef FIREDOOR_MAX_TEMP
+#undef FIREDOOR_MIN_TEMP
+#undef FIREDOOR_ALERT_HOT
+#undef FIREDOOR_ALERT_COLD

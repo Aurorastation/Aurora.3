@@ -1,10 +1,3 @@
-#define DNA_BLOCK_SIZE 3
-
-// Buffer datatype flags.
-#define DNA2_BUF_UI 1
-#define DNA2_BUF_UE 2
-#define DNA2_BUF_SE 4
-
 //list("data" = null, "owner" = null, "label" = null, "type" = null, "ue" = 0),
 /datum/dna2/record
 	var/datum/dna/dna = null

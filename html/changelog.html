@@ -35,6 +35,271 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">10 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="admin">Updated the readme visible on our repo, to clarify how to build on the updated codebase, and that native building is no longer supported.</li>
+				<li class="admin">Added a new, tinyfied version on how to get a development environment up, for new contributors. By no means comprehensive.</li>
+			</ul>
+			<h3 class="author">Ramke updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Chems that check for minimum dose (i.e. mortaphenyl, perconol) now work if ingested.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Removed a lot of railings in maintenance to make it more maneuverable.</li>
+				<li class="maptweak">Added an abandoned maintenance room with engineering supplies at the deck one med maint.</li>
+				<li class="maptweak">Added more maintenance entrances and exits to deck three. Mainly affects security but there is also now a maintenance exit in the locker room.</li>
+				<li class="maptweak">Tweaked the layout of some maintenance rooms on every deck to make it easier to move around or hide.</li>
+				<li class="maptweak">A lot of the maintenance bins are now closets. Those don&#x27;t block movement once opened and can be used for various purposes.</li>
+				<li class="maptweak">Maintenance in general should be a lot more consistent in style throughout the ship rather than have drastic differences such as between areas like port deck one maint vs the rest of the ship.</li>
+			</ul>
+
+			<h2 class="date">08 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed AFK message during server init (and possibly other issues).</li>
+				<li class="backend">Aligned our Master Controller and Subsystems more towards TG&#x27;s implementation, so that they fire during the server initialization.</li>
+				<li class="backend">The use of dreamchecker was moved after the debug session is finished, to make better use of the Problems tab in visual studio code, minor tweak on the CBT (Common Build Tools).</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Lowered the weight of ship ammunition so that Xion frames, vaurca workers, and non-Coeus Diona can lift them without mechanical assistance.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a flag for the Free Tajaran Council.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes emotes not applying the hearer&#x27;s accent tag preference.</li>
+			</ul>
+
+			<h2 class="date">07 July 2023</h2>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Removes an RND server from an exoplanet ruin.</li>
+			</ul>
+
+			<h2 class="date">06 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed verbs-only panels disappearing when an item is dropped.</li>
+			</ul>
+
+			<h2 class="date">05 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Reordered the inclusion of the linters (OpenDream / SpacemanDMM) pragmas/defines, to avoid native tools nuking it to have them be defined at the very beginning.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the look up/down verbs not working. Note that you can&#x27;t use them if you have a UI opened.</li>
+				<li class="bugfix">Fixes bodyscanner temperature readouts, and makes the body scan console light purple.</li>
+			</ul>
+
+			<h2 class="date">04 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="security">Sanitized a console input to prevent href injections.</li>
+				<li class="bugfix">Fixed defibrillators not working correctly on a bed/stretcher.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed ling lesser form transformation not updating your verbs.</li>
+				<li class="bugfix">Fixed ling shred equipment verbs not working.</li>
+				<li class="bugfix">Fixed aghost clickdrag not resetting verbs.</li>
+				<li class="bugfix">Fixed a leftover asset debug line.</li>
+				<li class="bugfix">Fixed some cyborg runtimes.</li>
+				<li class="bugfix">Lesser form lings can now actually transform back at will.</li>
+				<li class="bugfix">Ship guns can now actually fire on hazards.</li>
+				<li class="bugfix">Fixed printing prosthetic limbs of different types.</li>
+				<li class="bugfix">Fixed some tajara languages having a darker colour.</li>
+				<li class="bugfix">Fixed replying to a PDA message through the chat link not working.</li>
+				<li class="bugfix">Deselecting the input box in PDA messaging no longer sends a message.</li>
+				<li class="bugfix">Fixes the manifest on the PDA not having a header. Again.</li>
+			</ul>
+
+			<h2 class="date">03 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Now builds and returns a (partial) statpanel info and lobby during server init.</li>
+				<li class="tweak">Made the manifest UI bigger and the table elements a little better aligned.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the black screen bug, hopefully.</li>
+				<li class="bugfix">Fixes the manifest on the PDA not having a header, and also being too small.</li>
+			</ul>
+
+			<h2 class="date">02 July 2023</h2>
+			<h3 class="author">Butterrobber202 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">K&#x27;ois has been set to not require water or biomass, as the lore intended.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Fix OpenDream cache restore handling, that is preventing the CI from running successfully.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added colorable lipsticks, as well as letting you apply lipstick on-spawn via the loadout.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added an Old Sol Alliance flag, representing the pre-Interstellar War Sol Alliance.</li>
+				<li class="maptweak">Added an old Sol Alliance flag to the Sensor Relay.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a potential server killing bug.</li>
+			</ul>
+
+			<h2 class="date">30 June 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed TGUI not loading new panels on first try, because the caching confirmation system was not correctly flagging them as received assets.</li>
+				<li class="bugfix">Added some remaining pieces of code that were not ported over for the Topic function.</li>
+			</ul>
+
+			<h2 class="date">29 June 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Clear chat button.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Readded the ability to eject beakers from sleepers when nobody is inside them.</li>
+				<li class="bugfix">The eject beaker button now updates depending on if the beaker is installed or not.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed cargo control not having a &#x27;claim bounty&#x27; button.</li>
+				<li class="bugfix">Fixed the cargo control having a typo&#x27;d icon for the print bounties button.</li>
+				<li class="bugfix">Fixed a paper-related runtime.</li>
+				<li class="bugfix">The chat client should now work properly, with self-clearing input and messages displaying correctly. Hopefully.</li>
+				<li class="bugfix">Fixed services not showing up in the NTOS main menu.</li>
+				<li class="bugfix">Common radio is a lighter colour once again.</li>
+				<li class="bugfix">Fixed the toggle hair coverage verb.</li>
+				<li class="bugfix">Fixed using defibs on surgery surfaces.</li>
+				<li class="bugfix">Fixed the set ambition verb.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">Changes &quot;Follow mob&quot; to &quot;Follow Mob&quot; in the crew manifest observer-specific follow button.</li>
+			</ul>
+
+			<h2 class="date">28 June 2023</h2>
+			<h3 class="author">Alberyk, MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Shift changes now replaces the bluespace jump for crew transfer. The crew can now call an emergency evacuation using the keycard authentication.</li>
+				<li class="rscadd">Added a new AI vox.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Resolved a runtime with wallrot announcement.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed scopes not working.</li>
+				<li class="bugfix">Tie Hair now works properly.</li>
+				<li class="bugfix">Fixed aghosting not giving you your verbs back.</li>
+				<li class="bugfix">Fixed joining mob spawners not giving you the right verbs.</li>
+				<li class="rscadd">Ported defibrillators from Bay while changing their sprites and functionality. Base defibs cannot be wielded and must be placed somewhere to be used - click and drag the defib to yourself to take out the paddles, then wield them. For compact defibrillators, simply equip them and then click them with an empty hand. To take them off, clickdrag to an empty hand.</li>
+				<li class="maptweak">Added one stationary defib in the medical prep room and two portable defibs in the FR lockers.</li>
+				<li class="balance">CPR has been substantially slowed down.</li>
+				<li class="bugfix">Fixes a bunch of broken verbs, like locking IPC antennae.</li>
+				<li class="bugfix">Fixes the debug log filter.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Machinist operation trays now come with bone gel.</li>
+			</ul>
+
+			<h2 class="date">27 June 2023</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Overhauls the Build/Test workflows.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Ghosts can again follow crew on the crew manifest.</li>
+				<li class="rscadd">Accent tags are again clickable, and show the accent&#x27;s description and name.</li>
+				<li class="rscadd">Chat storage namespacing.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Fixed atomizer changelog, which did not set the extension on the file.</li>
+				<li class="bugfix">Resolved a runtime with wallrot announcement.</li>
+				<li class="bugfix">The TGUI CI Linter does not like the use of var, turned it in a const declaration to make it happy.</li>
+				<li class="bugfix">Prettified storage.js to make the linter happy.</li>
+			</ul>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Added OpenDream as a linter in the CI, with all the pragmas active, to better help spot errors and bad coding styles.</li>
+				<li class="backend">Adjusted the CI to accomodate for OpenDream linting.</li>
+				<li class="refactor">Refactored all OpenDream found bad..</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed there not being a print bounties button.</li>
+				<li class="bugfix">Fixed the changelog not showing up.</li>
+				<li class="bugfix">Fixed most of the early bugs with TGUI.</li>
+				<li class="experiment">Goonchat has been replaced with TGChat. New features include custom tabs to filter different chat messages, and better string highlighting!</li>
+				<li class="experiment">Normal statpanels have been replaced with a TGUI version.</li>
+				<li class="bugfix">Fixed some bugs regarding antag status removal. Verbs should no longer persist after having vampire or ling status removed, same with languages. HUD elements should also properly be removed now.</li>
+				<li class="rscadd">Added a tag for CCIA say, after a couple of years.</li>
+				<li class="rscadd">Added an Elyran Non-Citizen Person citizenship option.</li>
+				<li class="bugfix">Chat client now updates properly.</li>
+				<li class="bugfix">Synth altclick/shiftclick to interact with machines like APCs and doors works properly.</li>
+				<li class="bugfix">Vampire verbs now return to the user properly.</li>
+				<li class="bugfix">Fixed not being able to vote for crew transfer for real.</li>
+				<li class="bugfix">Photocopiers now allow you to remove items.</li>
+				<li class="bugfix">Fixed services like the med analyzer not working.</li>
+				<li class="bugfix">Ghost spawner filters now work properly. They didn&#x27;t work at all before...</li>
+				<li class="bugfix">You can now print all account data from the account database.</li>
+				<li class="bugfix">Set default language verb now actually works.</li>
+				<li class="bugfix">Fixed warrant assistant UI not updating when going back.</li>
+				<li class="bugfix">Fixed Dionae not getting a switch to nymph verb when detaching one.</li>
+			</ul>
+			<h3 class="author">Niennab updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added template flags and banners for those looking to add flags to the codebase.</li>
+				<li class="tweak">Fixed a few stray pixels, sizes, and patterns on a number of flags and banners.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a Unathi-based snout to Dionae&#x27;s selectable hairstyles and body markings.</li>
+			</ul>
+			<h3 class="author">Snowy1237 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the Freebooter CIC and armory losing power.</li>
+			</ul>
+			<h3 class="author">TheDanseMacabre updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">The Canary now has two interior hand rails, two special SCC pilot hardsuits, and a box of inflatables.</li>
+			</ul>
+			<h3 class="author">Wildkins, MattAtlas, Arrow768, Atteria (Sprites, Assets) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="experiment">VueUI has been removed and substituted with TGUI.</li>
+				<li class="rscadd">Some UIs that were deemed clunky (such as the order terminal) have been remade and should now be much easier to use!</li>
+				<li class="rscadd">Added corporate themes for a lot of UIs. Enjoy purple medical.</li>
+				<li class="rscdel">Deleted some redundant or unused UIs such as the NTSL2 interpreter and some modular computer programs.</li>
+				<li class="rscdel">Stationary consoles like the alarm monitor consoles have been deleted and replaced with more modular computers.</li>
+			</ul>
+			<h3 class="author">atteria updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="soundadd">Reduced some sound clipping and excessive volume.</li>
+			</ul>
+			<h3 class="author">io-util updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Switches the vscode build task to /tg/&#x27;s cbt.</li>
+			</ul>
+			<h3 class="author">kermit updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="admin">Rejuvenations clear more effects caused by reagents (ie. intoxication stat causing a liver death loop).</li>
+			</ul>
+
 			<h2 class="date">25 June 2023</h2>
 			<h3 class="author">Epicgamer545 updated:</h3>
 			<ul class="changes bgimages16">

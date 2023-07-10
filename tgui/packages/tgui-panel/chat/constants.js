@@ -143,6 +143,7 @@ export const MESSAGE_TYPES = [
     type: MESSAGE_TYPE_DEBUG,
     name: 'Debug Log',
     description: 'DEBUG: SSPlanets subsystem Recover().',
+    selector: '.debug',
     admin: true,
   },
 ];

@@ -78,7 +78,7 @@ export const GhostSpawner = (props, context) => {
               )
               .map(
                 (spawner) =>
-                  (spawner.tags.indexOf(tab) || tab === 'All') && (
+                  (spawner.tags.indexOf(tab) > -1 || tab === 'All') && (
                     <Table.Row key={spawner.short_name}>
                       <Table.Cell>{spawner.name}</Table.Cell>
                       <Table.Cell>{spawner.desc}</Table.Cell>

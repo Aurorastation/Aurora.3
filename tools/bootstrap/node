@@ -8,10 +8,6 @@
 # Otherwise, this script requires a system `node` to be provided.
 set -e
 
-#Define Version
-NODE_VERSION=14
-NODE_VERSION_PRECISE=14.16.1
-
 # Convenience variables
 Bootstrap="$(dirname "$0")"
 Cache="$Bootstrap/.cache"
@@ -20,6 +16,7 @@ if [ "$TG_BOOTSTRAP_CACHE" ]; then
 fi
 OldPWD="$PWD"
 cd "$Bootstrap/../.."
+. ./dependencies.sh  # sets NODE_VERSION_PRECISE
 cd "$OldPWD"
 NodeVersion="$NODE_VERSION_PRECISE"
 NodeFullVersion="node-v$NodeVersion-win-x64"

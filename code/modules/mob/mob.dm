@@ -259,7 +259,7 @@
 			AM.show_message("[get_accent_icon(null, src)] [self_message]", 2, deaf_message, 1)
 			continue
 
-		AM.show_message("[get_accent_icon(null, src)] [message]", 2, deaf_message, 1)
+		AM.show_message("[get_accent_icon(null, ismob(AM) ? AM : src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -552,8 +552,8 @@
 	var/datum/asset/changelog = get_asset_datum(/datum/asset/simple/changelog)
 	changelog.send(src)
 
-	var/datum/browser/changelog_win = new(src, "changes", "Changelog", 675, 650)
-	changelog_win.set_content('html/changelog.html')
+	var/datum/browser/changelog_win = new(mob, "changes", "Changelog", 675, 650)
+	changelog_win.set_content(file2text('html/changelog.html'))
 	changelog_win.open()
 	if(prefs.lastchangelog != changelog_hash)
 		prefs.lastchangelog = changelog_hash

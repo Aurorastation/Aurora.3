@@ -74,7 +74,15 @@ export const AccountWindow = (props, context) => {
   const [new_funds, setNewFunds] = useLocalState(context, 'new_funds', 0);
 
   return (
-    <Section title="Idris Account Database">
+    <Section
+      title="Idris Account Database"
+      buttons={
+        <Button
+          content="Print All Data"
+          icon="print"
+          onClick={() => act('print')}
+        />
+      }>
       {active ? (
         <Tabs>
           <Tabs.Tab onClick={() => setTab('All Accounts')}>

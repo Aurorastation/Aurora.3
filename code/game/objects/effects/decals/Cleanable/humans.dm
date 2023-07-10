@@ -263,3 +263,5 @@
 /obj/effect/decal/cleanable/mucus/Initialize()
 	. = ..()
 	animate(src, color = "#000000", time = DRYING_TIME * 2, loop = 0, flags = ANIMATION_RELATIVE)
+
+#undef DRYING_TIME

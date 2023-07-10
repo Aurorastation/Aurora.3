@@ -1,6 +1,0 @@
-author: atteria
-
-delete-after: True
-
-changes:
-  - soundadd: "Reduced some sound clipping and excessive volume."

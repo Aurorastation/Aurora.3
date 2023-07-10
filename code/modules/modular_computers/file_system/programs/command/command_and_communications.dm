@@ -247,7 +247,7 @@ var/last_message_id = 0
 	for (var/datum/comm_message_listener/l in comm_message_listeners)
 		l.Add(message)
 
-	for (var/obj/item/modular_computer/computer in get_listeners_by_type(LISTENER_MODULAR_COMPUTER, /obj/item/modular_computer))
+	for (var/obj/item/modular_computer/computer in get_listeners_by_type("modular_computers", /obj/item/modular_computer))
 		if(computer?.working && !!computer.nano_printer && computer.hard_drive?.stored_files.len)
 			var/datum/computer_file/program/comm/C = locate(/datum/computer_file/program/comm) in computer.hard_drive.stored_files
 			if(C?.intercept)
@@ -320,7 +320,7 @@ Command action procs
 	return FALSE
 
 //Returns 1 if called 0 if not
-/proc/call_shuttle_proc(var/mob/user, var/emergency = FALSE)
+/proc/call_shuttle_proc(var/mob/user, var/_evac_type = TRANSFER_CREW)
 	if((!(ROUND_IS_STARTED) || !evacuation_controller))
 		return FALSE
 
@@ -343,7 +343,7 @@ Command action procs
 		to_chat(user, "An evacuation is already underway.")
 		return
 
-	if(evacuation_controller.call_evacuation(user, emergency))
+	if(evacuation_controller.call_evacuation(user, _evac_type))
 		log_and_message_admins("[user? key_name(user) : "Autotransfer"] has called a shuttle.")
 
 	return TRUE
@@ -359,7 +359,7 @@ Command action procs
 		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_called_message)))
 		return
 
-	. = evacuation_controller.call_evacuation(null, _emergency_evac = FALSE, autotransfer = TRUE)
+	. = evacuation_controller.call_evacuation(null, _evac_type = TRANSFER_CREW, autotransfer = TRUE)
 
 	//delay events in case of an autotransfer
 	if(.)

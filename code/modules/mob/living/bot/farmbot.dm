@@ -385,3 +385,10 @@
 
 /obj/item/farmbot_arm_assembly/attack_hand(mob/user)
 	return //it's a converted watertank, no you cannot pick it up and put it in your backpack
+
+
+#undef FARMBOT_COLLECT
+#undef FARMBOT_WATER
+#undef FARMBOT_UPROOT
+#undef FARMBOT_NUTRIMENT
+#undef FARMBOT_PESTKILL

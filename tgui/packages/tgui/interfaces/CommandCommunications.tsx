@@ -108,7 +108,7 @@ export const CommandCommunications = (props, context) => {
                 content="Change Alert Level"
                 icon="lightbulb"
                 selected={choosingAlert}
-                disabled={data.isAI || !data.net_comms || !data.net_syscont}
+                disabled={!data.net_comms || !data.net_syscont}
                 onClick={() => setChoosingAlert(!choosingAlert)}
               />
               {choosingAlert ? (

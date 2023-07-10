@@ -209,7 +209,7 @@
 /datum/controller/subsystem/records/proc/open_manifest_tgui(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "CrewManifest")
+		ui = new(user, src, "CrewManifest", "Crew Manifest")
 		ui.open()
 
 /datum/controller/subsystem/records/proc/get_manifest_text()

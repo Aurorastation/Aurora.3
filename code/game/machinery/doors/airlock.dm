@@ -930,45 +930,9 @@ About the new airlock wires panel:
 			if(!backup_power_lost_until)
 				src.loseBackupPower()
 		if("bolts")
-			if(isrobot(usr) && !Adjacent(usr))
-				to_chat(usr, SPAN_WARNING("Your frame does not allow long distance wireless bolt control, you will need be adjacent the door."))
-				return
-			if(src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) // cut wire is noop
-				to_chat(usr, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
-			else if(isAdmin || issilicon(usr)) // controls for silicons, "stealthy" antag silicons and "stealthy" admins
-				if(!src.arePowerSystemsOn()) // cannot queue actions or "speak" from unpowered doors
-					to_chat(usr, SPAN_WARNING("The door is unpowered - Cannot [activate ? "drop" : "raise"] bolts."))
-				else if(!aiBolting)
-					to_chat(usr, SPAN_WARNING("The door is configured not to allow remote bolt operation."))
-				else if(!isnull(src.aiActionTimer))
-					to_chat(usr, SPAN_WARNING("An action is already queued. Please wait for it to complete."))
-				else if(activate)
-					to_chat(usr, SPAN_NOTICE("The door bolts should drop in [src.aiBoltingDelay] seconds."))
-					src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in <strong>[src.aiBoltingDelay] seconds</strong>.\"</span>")
-					src.aiActionTimer = addtimer(CALLBACK(src, PROC_REF(lock)), src.aiBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
-				else
-					to_chat(usr, SPAN_NOTICE("The door bolts should raise in [src.aiUnBoltingDelay] seconds."))
-					src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[src.aiUnBoltingDelay] seconds</strong>.\"</span>")
-					src.aiActionTimer = addtimer(CALLBACK(src, PROC_REF(unlock)), src.aiUnBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
-			else // everyone else
-				if(activate)
-					if(src.lock())
-						to_chat(usr, SPAN_NOTICE("The door bolts have been dropped."))
-				else
-					if(src.unlock())
-						to_chat(usr, SPAN_NOTICE("The door bolts have been raised."))
+			bolts_interact(usr, activate, isAdmin, antag)
 		if("bolts_override")
-			if(isAdmin || (issilicon(usr) && antag)) // admin and silicon antag can override
-				if(!isAdmin && src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) // cut wire is noop, except for admins
-					to_chat(usr, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
-				else if(!isAdmin && !src.arePowerSystemsOn()) // door must be powered - display friendly message if not (admins can magically skip this)
-					to_chat(usr, SPAN_WARNING("The door is unpowered - Cannot [activate ? "drop" : "raise"] bolts."))
-				else if(activate)
-					if(src.lock())
-						to_chat(usr, SPAN_NOTICE("The door bolts have been dropped."))
-				else
-					if(src.unlock())
-						to_chat(usr, SPAN_NOTICE("The door bolts have been raised."))
+			bolts_override(usr, activate, antag)
 		if("electrify_temporary")
 			if(!isAdmin && issilicon(usr) && !antag)
 				to_chat(usr, SPAN_WARNING("Your programming prevents you from electrifying the door."))
@@ -980,18 +944,7 @@ About the new airlock wires panel:
 			else
 				electrify(-1 * activate, 1)
 		if("open")
-			if(src.welded)
-				to_chat(usr, SPAN_WARNING("The airlock has been welded shut!"))
-			else if(src.locked)
-				to_chat(usr, SPAN_WARNING("The door bolts are down!"))
-			else if(!src.arePowerSystemsOn() && issilicon(usr)) // AIs get a nice notice that the door is unpowered
-				to_chat(usr, SPAN_WARNING("The door is unpowered, its motors do not respond to your commands."))
-			else if(activate && density)
-				open()
-				if (isAI(usr))
-					SSfeedback.IncrementSimpleStat("AI_DOOR")
-			else if(!activate && !density)
-				close()
+			open_interact(usr, activate)
 		if("safeties")
 			if(!isAdmin && safe && issilicon(usr) && !antag)
 				to_chat(usr, SPAN_WARNING("Your programming prevents you from disabling the door safeties."))
@@ -1017,6 +970,62 @@ About the new airlock wires panel:
 				to_chat(usr, "The door bolt lights have been enabled.")
 	update_icon()
 	return TRUE
+
+/obj/machinery/door/airlock/proc/bolts_interact(var/mob/user, var/activate, var/isAdmin, var/antag)
+	if(isrobot(user) && !Adjacent(user))
+		to_chat(user, SPAN_WARNING("Your frame does not allow long distance wireless bolt control, you will need be adjacent the door."))
+		return
+	if(isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) // cut wire is noop
+		to_chat(user, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
+	else if(isAdmin || issilicon(user)) // controls for silicons, "stealthy" antag silicons and "stealthy" admins
+		if(!arePowerSystemsOn()) // cannot queue actions or "speak" from unpowered doors
+			to_chat(user, SPAN_WARNING("The door is unpowered - Cannot [activate ? "drop" : "raise"] bolts."))
+		else if(!aiBolting)
+			to_chat(user, SPAN_WARNING("The door is configured not to allow remote bolt operation."))
+		else if(!isnull(aiActionTimer))
+			to_chat(user, SPAN_WARNING("An action is already queued. Please wait for it to complete."))
+		else if(activate)
+			to_chat(user, SPAN_NOTICE("The door bolts should drop in [aiBoltingDelay] seconds."))
+			audible_message("[icon2html(icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in <strong>[aiBoltingDelay] seconds</strong>.\"</span>")
+			aiActionTimer = addtimer(CALLBACK(src, PROC_REF(lock)), aiBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
+		else
+			to_chat(user, SPAN_NOTICE("The door bolts should raise in [aiUnBoltingDelay] seconds."))
+			audible_message("[icon2html(icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[aiUnBoltingDelay] seconds</strong>.\"</span>")
+			aiActionTimer = addtimer(CALLBACK(src, PROC_REF(unlock)), aiUnBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
+	else // everyone else
+		if(activate)
+			if(lock())
+				to_chat(user, SPAN_NOTICE("The door bolts have been dropped."))
+		else
+			if(unlock())
+				to_chat(user, SPAN_NOTICE("The door bolts have been raised."))
+
+/obj/machinery/door/airlock/proc/bolts_override(var/mob/user, var/activate, var/isAdmin, var/antag)
+	if(isAdmin || (issilicon(user) && antag)) // admin and silicon antag can override
+		if(!isAdmin && src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) // cut wire is noop, except for admins
+			to_chat(user, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
+		else if(!isAdmin && !arePowerSystemsOn()) // door must be powered - display friendly message if not (admins can magically skip this)
+			to_chat(user, SPAN_WARNING("The door is unpowered - Cannot [activate ? "drop" : "raise"] bolts."))
+		else if(activate)
+			if(lock())
+				to_chat(user, SPAN_NOTICE("The door bolts have been dropped."))
+		else
+			if(unlock())
+				to_chat(user, SPAN_NOTICE("The door bolts have been raised."))
+
+/obj/machinery/door/airlock/proc/open_interact(var/mob/user, var/activate)
+	if(welded)
+		to_chat(usr, SPAN_WARNING("The airlock has been welded shut!"))
+	else if(locked)
+		to_chat(usr, SPAN_WARNING("The door bolts are down!"))
+	else if(!arePowerSystemsOn() && issilicon(usr)) // AIs get a nice notice that the door is unpowered
+		to_chat(usr, SPAN_WARNING("The door is unpowered, its motors do not respond to your commands."))
+	else if(activate && density)
+		open()
+		if (isAI(usr))
+			SSfeedback.IncrementSimpleStat("AI_DOOR")
+	else if(!activate && !density)
+		close()
 
 /obj/machinery/door/airlock/proc/hack(mob/user as mob)
 	if(src.aiHacking==0)
