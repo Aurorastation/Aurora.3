@@ -296,6 +296,7 @@ var/const/enterloopsanity = 100
 
 /atom/movable/proc/proximity_callback(atom/movable/AM)
 	set waitfor = FALSE
+	sleep(0)
 	HasProximity(AM, TRUE)
 	if (!QDELETED(AM) && !QDELETED(src) && (AM.flags & PROXMOVE))
 		AM.HasProximity(src, TRUE)
