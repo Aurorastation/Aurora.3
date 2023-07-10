@@ -28,7 +28,6 @@
 	if(camera)
 		camera.status = (head?.camera && head.camera.is_functional())
 
-
 	body.update_air(hatch_closed && use_air)
 
 	var/powered = FALSE
