@@ -29,15 +29,6 @@ var/list/localhost_addresses = list(
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
-	if(!authed)
-		if(href_list["authaction"] in list("guest", "forums")) // Protection
-			..()
-		return
-
-	// Tgui Topic middleware
-	if(tgui_Topic(href_list))
-		return
-
 	// asset_cache
 	var/asset_cache_job
 	if(href_list["asset_cache_confirm_arrival"])
@@ -56,6 +47,15 @@ var/list/localhost_addresses = list(
 
 	if (href_list["asset_cache_preload_data"])
 		asset_cache_preload_data(href_list["asset_cache_preload_data"])
+		return
+
+	if(!authed)
+		if(href_list["authaction"] in list("guest", "forums")) // Protection
+			..()
+		return
+
+	// Tgui Topic middleware
+	if(tgui_Topic(href_list))
 		return
 
 	if(href_list["reload_tguipanel"])
@@ -377,13 +377,11 @@ var/list/localhost_addresses = list(
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
 			del(src)
 			return 0
-
-	// Instantiate tgui panel
-	tgui_panel = new(src, "browseroutput")
 	// Instantiate stat panel
 	stat_panel = new(src, "statbrowser")
-
 	stat_panel.subscribe(src, PROC_REF(on_stat_panel_message))
+	// Instantiate tgui panel
+	tgui_panel = new(src, "browseroutput")
 
 	if(IsGuestKey(key) && config.external_auth)
 		src.authed = FALSE
@@ -399,16 +397,20 @@ var/list/localhost_addresses = list(
 		src.InitPrefs()
 		mob.LateLogin()
 
+	/// This spawn is the only thing keeping the stat panels and chat working. By removing this spawn, there will be black screens when loading the game.
+	/// It seems to be affected by the order of statpanel init: if it happens before send_resources(), then the statpanels won't load, but the game won't
+	/// blackscreen.
+	spawn(0)
+		// Initialize stat panel
+		stat_panel.initialize(
+			inline_html = file("html/statbrowser.html"),
+			inline_js = file("html/statbrowser.js"),
+			inline_css = file("html/statbrowser.css"),
+		)
+		addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
 
+	// Initialize tgui panel
 	tgui_panel.initialize()
-
-	// Initialize stat panel
-	stat_panel.initialize(
-		inline_html = file("html/statbrowser.html"),
-		inline_js = file("html/statbrowser.js"),
-		inline_css = file("html/statbrowser.css"),
-	)
-
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
@@ -482,12 +484,7 @@ var/list/localhost_addresses = list(
 		add_admin_verbs()
 
 	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
-	// (but turn them off first, since sometimes BYOND doesn't turn them on properly otherwise)
-	spawn(5) // And wait a half-second, since it sounds like you can do this too fast.
-		if(src)
-			winset(src, null, "command=\".configure graphics-hwmode off\"")
-			sleep(2) // wait a bit more, possibly fixes hardware mode not re-activating right
-			winset(src, null, "command=\".configure graphics-hwmode on\"")
+	winset(src, null, "command=\".configure graphics-hwmode on\"")
 
 	send_resources()
 
