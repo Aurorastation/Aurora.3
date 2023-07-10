@@ -120,7 +120,7 @@
 			if(wood)
 				wood.add_charge(4000)
 		else if(istype(W, /obj/item/pipe))
-			// This allows drones and engiborgs to clear pipe assemblies from floors.
+			continue // This allows drones and engiborgs to clear pipe assemblies from floors.
 		else if(istype(W, /obj/item/broken_bottle))
 			if(glass)
 				glass.add_charge(2000)

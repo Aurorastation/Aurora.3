@@ -11,7 +11,6 @@
 		new /obj/screen/ai/camera_track,
 		new /obj/screen/ai/camera_light,
 		new /obj/screen/ai/crew_manifest,
-		new /obj/screen/ai/alerts,
 		new /obj/screen/ai/announcement,
 		new /obj/screen/ai/call_shuttle,
 		new /obj/screen/ai/state_laws,

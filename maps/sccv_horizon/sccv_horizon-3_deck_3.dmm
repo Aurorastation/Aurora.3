@@ -1144,9 +1144,9 @@
 /area/horizon/security/meeting_room)
 "aQZ" = (
 /obj/machinery/atmospherics/binary/pump/on{
+	dir = 4;
 	name = "Distro to Airlock";
-	target_pressure = 200;
-	dir = 4
+	target_pressure = 200
 	},
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -2590,7 +2590,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
-/obj/machinery/computer/station_alert/engineering{
+/obj/item/modular_computer/console/preset/engineering{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -4928,8 +4928,8 @@
 	id = "deck2_medicaltoilet";
 	name = "Door Bolt Control";
 	pixel_x = -14;
-	specialfunctions = 4;
-	pixel_y = 33
+	pixel_y = 33;
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
@@ -7176,6 +7176,12 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/accessory/goon_coif,
+/obj/item/clothing/accessory/goon_coif,
+/obj/item/clothing/accessory/goon_coif,
+/obj/item/clothing/accessory/goon_coif,
+/obj/item/clothing/accessory/goon_coif,
+/obj/item/clothing/accessory/goon_coif,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "fVL" = (
@@ -7300,7 +7306,7 @@
 	dir = 9
 	},
 /obj/machinery/light,
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Deck 3 Telecommunications";
 	charge = 5e+006;
 	input_attempt = 1;
@@ -11076,7 +11082,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "jbg" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Deck 3 Civilian"
 	},
 /obj/structure/cable{
@@ -11135,8 +11141,8 @@
 /area/horizon/hallway/deck_three/primary/central)
 "jdC" = (
 /obj/item/device/flashlight/lamp/lava/red{
-	pixel_y = -2;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = -2
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -14566,13 +14572,13 @@
 	dir = 6
 	},
 /obj/item/device/radio/intercom{
-	pixel_y = 36;
+	dir = 2;
 	pixel_x = 32;
-	dir = 2
+	pixel_y = 36
 	},
 /obj/machinery/keycard_auth{
-	pixel_y = 26;
-	pixel_x = 26
+	pixel_x = 26;
+	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -15107,7 +15113,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/structure/table/reinforced,
+/obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "mcf" = (
@@ -15755,12 +15761,12 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/structure/closet/emcloset,
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Crewman Lockeroom";
 	dir = 1
 	},
 /obj/machinery/firealarm/south,
+/obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
@@ -16384,8 +16390,8 @@
 	icon_state = "4-8"
 	},
 /obj/item/device/radio/intercom{
-	pixel_y = -32;
-	dir = 1
+	dir = 1;
+	pixel_y = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -16578,8 +16584,8 @@
 	dir = 5
 	},
 /obj/item/paper_bin{
-	pixel_y = -1;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = -1
 	},
 /obj/item/pen{
 	pixel_x = -3;
@@ -16590,8 +16596,8 @@
 	},
 /obj/machinery/light/small{
 	dir = 1;
-	pixel_y = 0;
-	pixel_x = -11
+	pixel_x = -11;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -17121,7 +17127,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "nJT" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Shield Substation";
 	charge = 1e+007;
 	cur_coils = 6;
@@ -17909,8 +17915,8 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28;
-	req_one_access = list(24,11,55);
-	pixel_y = 0
+	pixel_y = 0;
+	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
@@ -19223,7 +19229,7 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/changing)
 "pxf" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Deck 3 Command"
 	},
 /obj/structure/cable,
@@ -21490,8 +21496,8 @@
 "rzs" = (
 /obj/structure/table/steel,
 /obj/random/smokable{
-	pixel_y = 4;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -22385,12 +22391,12 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/item/device/radio/intercom{
-	pixel_y = 36;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = 36
 	},
 /obj/machinery/keycard_auth{
-	pixel_y = 26;
-	pixel_x = -26
+	pixel_x = -26;
+	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -26045,8 +26051,8 @@
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/item/book/manual/wiki/security_space_law{
-	pixel_y = 2;
-	pixel_x = 1
+	pixel_x = 1;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -26781,7 +26787,20 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/obj/machinery/photocopier,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Bridge Defense Equipment";
+	req_access = list(60)
+	},
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/head/helmet/security/generic,
+/obj/item/clothing/head/helmet/security/generic,
+/obj/item/clothing/head/helmet/security/generic,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "vDv" = (
@@ -26944,6 +26963,7 @@
 /obj/item/device/gps/medical,
 /obj/item/device/gps/medical,
 /obj/item/device/gps/medical,
+/obj/item/defibrillator/loaded,
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
 "vLY" = (
@@ -27906,8 +27926,8 @@
 	},
 /obj/item/paper/fluff/bunker,
 /obj/structure/sign/emergency/evacuation/ladder{
-	pixel_y = 32;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = 32
 	},
 /turf/simulated/floor,
 /area/bridge/aibunker)
@@ -28201,7 +28221,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/machinery/computer/station_alert/all{
+/obj/item/modular_computer/console/preset/command{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -28453,10 +28473,10 @@
 /obj/machinery/button/remote/airlock{
 	id = "airlocks_bunker";
 	name = "Command Bunker Bolts";
-	req_access = list(19);
-	specialfunctions = 4;
+	pixel_x = 30;
 	pixel_y = -23;
-	pixel_x = 30
+	req_access = list(19);
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)

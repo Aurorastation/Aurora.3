@@ -89,6 +89,12 @@
 	name = "\improper Intrepid control console"
 	shuttle_tag = "Intrepid"
 	req_access = list(access_intrepid)
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "right"
+	icon_screen = "blue"
+	icon_keyboard = null
+	circuit = null
 
 /obj/effect/overmap/visitable/ship/landable/mining_shuttle
 	name = "Spark"

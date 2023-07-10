@@ -13,7 +13,7 @@
 
 /obj/item/device/kit/use(var/amt, var/mob/user)
 	uses -= amt
-	playsound(get_turf(user), 'sound/items/screwdriver.ogg', 50, 1)
+	playsound(get_turf(user), 'sound/items/Screwdriver.ogg', 50, 1)
 	if(uses<1)
 		user.drop_from_inventory(src,get_turf(src))
 		qdel(src)

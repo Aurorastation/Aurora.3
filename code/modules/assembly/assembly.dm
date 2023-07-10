@@ -110,3 +110,9 @@
 
 /obj/item/device/assembly/interact(mob/user)
 	return
+
+/obj/item/device/assembly/ui_host(mob/user)
+	. = ..()
+	// Sets the UI host to the transfer valve if its mounted on a transfer_valve
+	if(istype(loc,/obj/item/device/transfer_valve))
+		return loc

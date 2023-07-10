@@ -236,7 +236,8 @@
 			"target_area" = get_area(target),
 			"coordinates" = "[target.x], [target.y], [target.z]"
 		)
-		ammo.origin.signal_hit(hit_data)
+		if(ammo && ammo.origin)
+			ammo.origin.signal_hit(hit_data)
 	return ..()
 
 /obj/item/projectile/ship_ammo/proc/on_translate(var/turf/entry_turf, var/target_turf) //This proc is called when the projectile enters a new ship's overmap zlevel.

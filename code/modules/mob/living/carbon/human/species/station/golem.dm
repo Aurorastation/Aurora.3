@@ -816,7 +816,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	death_message = "collapses into a pile of flesh!"
 	death_message_range = 7
 
-	death_sound = 'sound/magic/disintegrate.ogg'
+	death_sound = 'sound/magic/Disintegrate.ogg'
 
 	golem_designation = "Flesh"
 

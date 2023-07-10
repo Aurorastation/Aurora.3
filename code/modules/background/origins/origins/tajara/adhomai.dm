@@ -1,6 +1,3 @@
-#define RELIGIONS_ADHOMAI list(RELIGION_TWINSUNS, RELIGION_MATAKE, RELIGION_RASKARA, RELIGION_NONE, RELIGION_OTHER)
-#define CITIZENSHIPS_ADHOMAI list(CITIZENSHIP_PRA, CITIZENSHIP_DPRA, CITIZENSHIP_NKA)
-
 /singleton/origin_item/culture/adhomian
 	name = "Adhomian"
 	desc = "Adhomai is the most important planet culturally for the Tajara species. Due to its relatively recent discovery, all Tajara have some kind of connection to the homeworld. Adhomai is currently divided between three competing nations. Besides the national divide, regional and ethnic divisions still exist."

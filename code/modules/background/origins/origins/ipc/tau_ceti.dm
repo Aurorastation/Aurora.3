@@ -1,5 +1,3 @@
-
-
 /singleton/origin_item/culture/ipc_tau_ceti
 	name = "Tau Ceti"
 	desc = "Tau Ceti serves as a hotbed for IPC and synthetics in general, with their treatment and status being a contentious issue within the Republic. On average, IPC within the system are programmed or exposed to influences that place value on their status as individuals and encourage them to seek freedom and citizenship in life. This focus on freedom is however carefully tailored by megacorporate influence, with many synthetics being directly owned or in indentured servitude."

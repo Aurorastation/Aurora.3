@@ -30,10 +30,15 @@
 	var/icon/rolled_outline
 	var/unmovable = FALSE
 
-/obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy, var/icon_file)
+/obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy, var/icon_file, var/item_flag_path)
 	. = ..()
 	dir = newdir
-	if(!deploy)
+	if(!flag_path)
+		if(item_flag_path) // redundancy
+			flag_path = item_flag_path
+		else
+			flag_path = icon_state
+	if(deploy)
 		switch(dir)
 			if(NORTH)
 				pixel_y = 32
@@ -63,12 +68,16 @@
 		switch(F2.dir)
 			if(NORTH)
 				F2.pixel_x = 32
+				F2.pixel_y = 32
 			if(SOUTH)
 				F2.pixel_x = 32
+				F2.pixel_y = -32
 			if(EAST)
 				F2.pixel_y = -32
+				F2.pixel_x = 32
 			if(WEST)
 				F2.pixel_y = 32
+				F2.pixel_x = -32
 		F2.linked_flag = src
 		F2.name = name
 		F2.desc = desc
@@ -112,7 +121,7 @@
 	if(isfloor(user.loc))
 		user.visible_message(SPAN_NOTICE("\The [user] deploys \the [src] on \the [get_turf(loc)]."), SPAN_NOTICE("You deploy \the [src] on \the [get_turf(loc)]."))
 		user.drop_from_inventory(src)
-		new flag_structure(user.loc, user.dir, deploy = TRUE)
+		new flag_structure(user.loc, user.dir, deploy = TRUE, item_flag_path = flag_path)
 		qdel(src)
 
 /obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent)
@@ -133,7 +142,7 @@
 
 	user.visible_message(SPAN_NOTICE("\The [user] fastens \the [src] to \the [A]."), SPAN_NOTICE("You fasten \the [src] to \the [A]."))
 	user.drop_from_inventory(src)
-	new flag_structure(user.loc, placement_dir)
+	new flag_structure(user.loc, placement_dir, deploy = TRUE, item_flag_path = flag_path)
 	qdel(src)
 
 
@@ -274,6 +283,21 @@
 	flag_path = "sol"
 	flag_item = /obj/item/flag/sol
 
+/obj/item/flag/sol/old
+	name = "old Sol Alliance flag"
+	desc = "The flag of the pre-Interstellar War Solarian Alliance, once flown from Earth to the human frontier."
+	desc_extended = "The flag of the pre-Interstellar War Alliance of Sovereign Solarian Nations, the single largest state in the Spur's history. The three stars represented the Northern, Central, and Southern Solarian Frontiers."
+	flag_path = "sol_old"
+	flag_structure = /obj/structure/sign/flag/sol/old
+
+/obj/structure/sign/flag/sol/old
+	name = "old Sol Alliance flag"
+	desc = "The flag of the pre-Interstellar War Solarian Alliance, once flown from Earth to the human frontier."
+	desc_extended = "The flag of the pre-Interstellar War Alliance of Sovereign Solarian Nations, the single largest state in the Spur's history. The three stars represented the Northern, Central, and Southern Solarian Frontiers."
+	icon_state = "sol_old"
+	flag_path = "sol_old"
+	flag_item = /obj/item/flag/sol/old
+
 /obj/item/flag/sol/l
 	name = "large Sol Alliance flag"
 	flag_size = TRUE
@@ -295,6 +319,29 @@
 	..(loc, EAST)
 
 /obj/structure/sign/flag/sol/large/west/New()
+	..(loc, WEST)
+
+/obj/item/flag/sol/old/l
+	name = "large old Sol Alliance flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/sol/old/large
+
+/obj/structure/sign/flag/sol/old/large
+	icon_state = "sol_old_l"
+	flag_path = "sol_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/sol/old/l
+
+/obj/structure/sign/flag/sol/old/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/sol/old/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/sol/old/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/sol/old/large/west/New()
 	..(loc, WEST)
 
 // Dominia
@@ -715,21 +762,21 @@
 /obj/item/flag/dpra
 	name = "\improper Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
-	flag_path = "dpra"
 	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
 	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
 	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
 	nation they were fighting for the Democratic People's Republic of Adhomai."
+	flag_path = "dpra"
 	flag_structure = /obj/structure/sign/flag/dpra
 
 /obj/structure/sign/flag/dpra
 	name = "\improper Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
-	flag_path = "dpra"
 	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
 	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
 	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
 	nation they were fighting for the Democratic People's Republic of Adhomai."
+	flag_path = "dpra"
 	icon_state = "dpra"
 	flag_item = /obj/item/flag/dpra
 
@@ -775,12 +822,12 @@
 /obj/structure/sign/flag/pra
 	name = "\improper People's Republic of Adhomai flag"
 	desc = "The tajaran flag of the People's Republic of Adhomai."
-	flag_path = "pra"
 	desc_extended = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
 	government of Adhomai. It claims to be the true keeper of Al'mari's legacy. However, the PRA can be described as a Hadiist branch of Al'mari's revolutionary ideology - that means \
 	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
 	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
 	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
+	flag_path = "pra"
 	icon_state = "pra"
 	flag_item = /obj/item/flag/pra
 
@@ -826,12 +873,12 @@
 /obj/structure/sign/flag/nka
 	name = "\improper New Kingdom of Adhomai flag"
 	desc = "The blue flag of the New Kingdom of Adhomai."
-	flag_path = "nka"
 	desc_extended = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
 	Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. \
 	Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable \
 	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
 	ancient nobles and Republicans, and create a new noble dynasty."
+	flag_path = "nka"
 	icon_state = "nka"
 	flag_item = /obj/item/flag/nka
 
@@ -1079,6 +1126,7 @@
 /obj/structure/sign/flag/diona
 	name = "\improper Imperial Diona standard"
 	desc = "A green Dominian standard which represents the Dionae within the Empire."
+	flag_path = "diona"
 	icon_state = "diona"
 	flag_item = /obj/item/flag/diona
 
@@ -1094,6 +1142,7 @@
 	desc = "A red-and-dark standard with a gold trim that represents House Strelitz, one of the great houses of the Empire of Dominia. \
 	They are known for their military service and emphasis on personal bravery."
 	icon_state = "strelitz"
+	flag_path = "strelitz"
 	flag_item = /obj/item/flag/strelitz
 
 /obj/item/flag/volvalaad
@@ -1107,6 +1156,7 @@
 	name = "\improper House Volvalaad standard"
 	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
 	They are known for their reformist ideals and scientific prowess."
+	flag_path = "volvalaad"
 	icon_state = "volvalaad"
 	flag_item = /obj/item/flag/volvalaad
 
@@ -1121,6 +1171,7 @@
 	name = "\improper House Kazhkz standard"
 	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
 	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
+	flag_path = "kazhkz"
 	icon_state = "kazkhz"
 	flag_item = /obj/item/flag/kazhkz
 
@@ -1135,6 +1186,7 @@
 	name = "\improper House Caladius standard"
 	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
 	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
+	flag_path = "caladius"
 	icon_state = "caladius"
 	flag_item = /obj/item/flag/caladius
 
@@ -1149,6 +1201,7 @@
 	name = "\improper House Zhao standard"
 	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of  the Empire of Dominia,\
 	known for its naval officers and patronage of the Dominian shipbuilding and naval industries."
+	flag_path = "zhao"
 	icon_state = "zhao"
 	flag_item = /obj/item/flag/zhao
 
@@ -1753,6 +1806,89 @@
 	..(loc, EAST)
 
 /obj/structure/sign/flag/mictlan/large/west/New()
+	..(loc, WEST)
+
+
+// New Hai Phong
+
+/obj/item/flag/nhp
+	name = "\improper New Hai Phong flag"
+	desc = "The flag of New Hai Phong."
+	flag_path = "newhaiphong"
+	flag_structure = /obj/structure/sign/flag/nhp
+
+/obj/structure/sign/flag/nhp
+	name = "\improper New Hai Phong flag"
+	desc = "The flag of New Hai Phong."
+	flag_path = "newhaiphong"
+	icon_state = "newhaiphong"
+	flag_item = /obj/item/flag/nhp
+
+/obj/structure/sign/flag/nhp/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/nhp/l
+	name = "large New Hai Phong flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/nhp/large
+
+/obj/structure/sign/flag/nhp/large
+	icon_state = "newhaiphong_l"
+	flag_path = "newhaiphong"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/nhp/l
+
+/obj/structure/sign/flag/nhp/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/nhp/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/nhp/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/nhp/large/west/New()
+	..(loc, WEST)
+
+// Silversun
+
+/obj/item/flag/silversun
+	name = "\improper Silversun flag"
+	desc = "The flag of Silversun."
+	flag_path = "silversun"
+	flag_structure = /obj/structure/sign/flag/silversun
+
+/obj/structure/sign/flag/silversun
+	name = "\improper Silversun flag"
+	desc = "The flag of Silversun."
+	flag_path = "silversun"
+	icon_state = "silversun"
+	flag_item = /obj/item/flag/silversun
+
+/obj/structure/sign/flag/silversun/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/silversun/l
+	name = "large Silversun flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/silversun/large
+
+/obj/structure/sign/flag/silversun/large
+	icon_state = "silversun_l"
+	flag_path = "silversun"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/silversun/l
+
+/obj/structure/sign/flag/silversun/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/silversun/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/silversun/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/silversun/large/west/New()
 	..(loc, WEST)
 
 // Hive Zo'ra

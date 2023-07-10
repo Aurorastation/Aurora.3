@@ -292,8 +292,8 @@
 	name = "Atmos Compartment"
 /area/shuttle/intrepid/cockpit
 	name = "Cockpit"
-/area/shuttle/intrepid/rotary
-	name = "Intrepid Armament"
+/area/shuttle/intrepid/quarters
+	name = "Intrepid Crew Quarters"
 
 /area/shuttle/canary
 	name = "Canary"

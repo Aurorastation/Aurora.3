@@ -30,6 +30,7 @@
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Rename your gun. If you're the detective."
+	set src in usr
 
 	var/mob/M = usr
 	if(!M.mind)	return 0
@@ -328,6 +329,7 @@
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Rename your gun."
+	set src in usr
 
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
 

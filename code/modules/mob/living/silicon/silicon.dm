@@ -1,7 +1,3 @@
-#define NO_HUD  0
-#define SEC_HUD 1
-#define MED_HUD 2
-
 /mob/living/silicon
 	// Speaking
 	gender = NEUTER
@@ -35,13 +31,8 @@
 	var/list/datum/alarm/queued_alarms = new()
 
 	// Internal Computer
-	var/datum/nano_module/alarm_monitor/all/alarm_monitor
-	var/datum/nano_module/law_manager/law_manager
-	var/datum/nano_module/rcon/rcon
 	var/obj/item/modular_computer/silicon/computer
 	var/list/silicon_subsystems = list(
-		/mob/living/silicon/proc/subsystem_alarm_monitor,
-		/mob/living/silicon/proc/subsystem_law_manager,
 		/mob/living/silicon/proc/computer_interact,
 		/mob/living/silicon/proc/silicon_mimic_accent
 	)
@@ -78,9 +69,6 @@
 /mob/living/silicon/Destroy()
 	silicon_mob_list -= src
 	QDEL_NULL(computer)
-	QDEL_NULL(rcon)
-	QDEL_NULL(alarm_monitor)
-	QDEL_NULL(law_manager)
 	QDEL_NULL(computer)
 	QDEL_NULL(id_card)
 	QDEL_NULL(common_radio)
@@ -124,7 +112,7 @@
 /mob/living/silicon/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
 	return	//immune
 
-/mob/living/silicon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, tesla_shock = FALSE, ground_zero)
+/mob/living/silicon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, var/def_zone = null, tesla_shock = FALSE, ground_zero)
 	if(istype(source, /obj/machinery/containment_field))
 		spark(loc, 5, alldirs)
 
@@ -164,14 +152,6 @@
 	if(bot.connected_ai == ai)
 		return TRUE
 	return FALSE
-
-// this function shows the health of the AI in the Status panel
-/mob/living/silicon/proc/show_system_integrity()
-	if(!stat)
-		stat(null, text("System Integrity: [round((health/maxHealth)*100)]%"))
-	else
-		stat(null, text("Systems Non-functional"))
-
 // This is a pure virtual function, it should be overwritten by all subclasses
 /mob/living/silicon/proc/show_malf_ai()
 	return FALSE
@@ -184,12 +164,13 @@
 			stat(null, eta_status)
 
 // This adds the basic clock, shuttle recall timer, and malf_ai info to all silicon lifeforms
-/mob/living/silicon/Stat()
-	if(statpanel("Status"))
-		show_emergency_shuttle_eta()
-		show_system_integrity()
+/mob/living/silicon/get_status_tab_items()
+	. = ..()
+	if(!stat)
+		. += "System Integrity: [round((health/maxHealth)*100)]%"
+	else
+		. += "System Integrity: NON-FUNCTIONAL"
 		show_malf_ai()
-	..()
 
 //can't inject synths
 /mob/living/silicon/can_inject(mob/user, error_msg)
@@ -313,13 +294,11 @@
 	if(next_alarm_notice && (world.time > next_alarm_notice))
 		next_alarm_notice = 0
 
-		var/alarm_raised = FALSE
 		for(var/datum/alarm_handler/AH in queued_alarms)
 			var/list/alarms = queued_alarms[AH]
 			var/reported = FALSE
 			for(var/datum/alarm/A in alarms)
 				if(alarms[A] == 1)
-					alarm_raised = TRUE
 					if(!reported)
 						reported = TRUE
 						to_chat(src, SPAN_WARNING("--- [AH.category] Detected ---"))
@@ -334,9 +313,6 @@
 						reported = TRUE
 						to_chat(src, SPAN_NOTICE("--- [AH.category] Cleared ---"))
 					to_chat(src, "\The [A.alarm_name()].")
-
-		if(alarm_raised)
-			to_chat(src, "<A HREF=?src=\ref[src];showalerts=1>\[Show Alerts\]</A>")
 
 		for(var/datum/alarm_handler/AH in queued_alarms)
 			var/list/alarms = queued_alarms[AH]
