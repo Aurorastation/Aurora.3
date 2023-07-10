@@ -43,6 +43,7 @@
 		for(var/step_counter in 1 to distance){\
 			source_turf = get_step_towards(source_turf, target_turf);\
 			if(source_turf == target_turf){\
+				RETURN_VALUE = TRUE;\
 				break;\
 			}\
 			if(IS_OPAQUE_TURF(source_turf)){\
@@ -50,5 +51,4 @@
 				break;\
 			}\
 		}\
-		RETURN_VALUE = TRUE;\
 	} while(FALSE)
