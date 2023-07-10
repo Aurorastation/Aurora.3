@@ -1952,12 +1952,6 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
-"aST" = (
-/obj/effect/floor_decal/spline/plain/cee{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/hallway/primary/central_one)
 "aSV" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -2353,18 +2347,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
-"ban" = (
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/fancy{
-	dir = 10
-	},
-/obj/effect/floor_decal/corner_wide/white{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/hallway/primary/central_one)
 "bax" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -5682,9 +5664,11 @@
 /turf/simulated/open,
 /area/hallway/primary/central_one)
 "cMs" = (
-/obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/fernybush,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
 /turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "cMF" = (
@@ -5878,11 +5862,12 @@
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "cQE" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "cQS" = (
 /turf/simulated/wall/r_wall,
@@ -7141,20 +7126,12 @@
 	},
 /area/hallway/primary/central_one)
 "dza" = (
-/obj/structure/closet/walllocker/medical{
-	pixel_y = -32
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
 	},
-/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
-/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
-/obj/item/stack/medical/ointment,
-/obj/item/stack/medical/ointment,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/bruise_pack,
-/obj/effect/floor_decal/industrial/outline/medical,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "dzc" = (
 /obj/structure/bed/stool/chair{
@@ -7231,6 +7208,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"dBe" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/simulated/floor/wood,
+/area/hallway/primary/central_one)
 "dBB" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -7764,12 +7756,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
-"dPz" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_one)
 "dPE" = (
 /obj/machinery/the_singularitygen/tesla,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -10975,13 +10961,11 @@
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/garden)
 "fwK" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "fwL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -11833,14 +11817,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/office)
-"fSg" = (
-/obj/effect/floor_decal/spline/plain/corner,
-/obj/effect/floor_decal/spline/fancy{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner_wide/white,
-/turf/simulated/floor/tiled/dark/full,
-/area/hallway/primary/central_one)
 "fSj" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -12710,17 +12686,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
-"gkM" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/fancy{
-	dir = 1
-	},
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner_wide/white{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/hallway/primary/central_one)
 "glt" = (
 /obj/structure/grille/broken,
 /obj/machinery/door/firedoor,
@@ -13370,16 +13335,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/turret_protected/ai_upload)
 "gyn" = (
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 8
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
 	},
-/obj/effect/floor_decal/spline/fancy{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner_wide/white{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "gyC" = (
 /obj/structure/disposalpipe/segment,
@@ -13545,13 +13504,12 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "gBk" = (
-/obj/machinery/newscaster{
-	pixel_y = 30
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "gBp" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -13565,11 +13523,10 @@
 /turf/simulated/floor/plating,
 /area/horizon/bar)
 "gBE" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "gBK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -13636,21 +13593,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
-"gDc" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/white{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/hallway/primary/central_one)
 "gDm" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -14937,10 +14879,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
-"hjG" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/bluegrid,
-/area/hallway/primary/central_one)
 "hjI" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
@@ -15096,21 +15034,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
-"hnY" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner_wide/white{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/hallway/primary/central_one)
 "hod" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
@@ -16607,24 +16530,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
-"iaW" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/white{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/hallway/primary/central_one)
 "ibx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -17686,11 +17591,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
-"iAW" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_one)
 "iBa" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
@@ -18525,17 +18425,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_eva)
 "iVQ" = (
-/obj/structure/table/wood,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/vending/cigarette,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "iWj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -18981,19 +18882,6 @@
 	dir = 8
 	},
 /area/maintenance/wing/starboard/far)
-"jgz" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/fancy,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/white{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/hallway/primary/central_one)
 "jgZ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
@@ -19688,17 +19576,7 @@
 /obj/effect/landmark{
 	name = "Observer-Start"
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/fancy,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/white{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "jvL" = (
 /obj/machinery/alarm{
@@ -20153,16 +20031,9 @@
 /turf/template_noop,
 /area/template_noop)
 "jHi" = (
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner_wide/white{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "jHp" = (
 /obj/effect/floor_decal/spline/plain,
@@ -20183,10 +20054,12 @@
 /turf/simulated/floor/plating,
 /area/horizon/bar)
 "jHX" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "jIf" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -23500,6 +23373,17 @@
 "lvM" = (
 /turf/simulated/floor/wood,
 /area/horizon/bar)
+"lwx" = (
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/grass/alt,
+/area/hallway/primary/central_one)
 "lwD" = (
 /turf/simulated/floor/carpet,
 /area/horizon/security/head_of_security)
@@ -24422,18 +24306,8 @@
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "lTn" = (
-/obj/machinery/stargazer,
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain/corner,
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/rubber,
+/obj/structure/flora/tree/jungle/small/patience,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "lTs" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -24893,12 +24767,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
-"meM" = (
-/obj/effect/floor_decal/spline/plain/cee{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/hallway/primary/central_one)
 "mfq" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -27008,6 +26876,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/lobby)
+"nbR" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/grass/alt,
+/area/hallway/primary/central_one)
 "nco" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/effect/landmark/entry_point/port{
@@ -27955,6 +27829,17 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
+"nzw" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/vending/coffee,
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
+/area/hallway/primary/central_one)
 "nAq" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -28112,6 +27997,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
+"nCO" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/grassybush,
+/turf/simulated/floor/grass/alt,
+/area/hallway/primary/central_one)
 "nCX" = (
 /obj/structure/bed/stool/chair/padded/red,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -29484,14 +29376,12 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "opp" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/machinery/computer/ship/navigation,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "opt" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -30179,12 +30069,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
-"oFp" = (
-/obj/effect/floor_decal/spline/plain/cee{
-	dir = 1
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/hallway/primary/central_one)
 "oFx" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
@@ -32473,9 +32357,11 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/starboard)
 "pQm" = (
-/obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/palebush,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
 /turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "pQq" = (
@@ -32730,12 +32616,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
 "pWR" = (
-/obj/machinery/vending/coffee,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "pXI" = (
 /obj/machinery/hologram/holopad,
@@ -33416,6 +33301,18 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
+"qps" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/newscaster{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "qpB" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -34740,10 +34637,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "qVu" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "qVw" = (
 /obj/structure/table/stone/marble,
@@ -38013,24 +37910,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
-"sFf" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner_wide/white{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/hallway/primary/central_one)
 "sFk" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/cable/green{
@@ -38162,6 +38041,13 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"sIJ" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "sIR" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -40120,13 +40006,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "tHk" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "tHl" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -40483,8 +40366,8 @@
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "tOW" = (
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "tPJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -43197,6 +43080,16 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room)
+"vdn" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/computer/ship/navigation{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/cee,
+/turf/simulated/floor/tiled/full,
+/area/hallway/primary/central_one)
 "vdy" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -43592,6 +43485,16 @@
 	c_tag = "Second Deck - Hallway 1";
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/structure/closet/walllocker/medical{
+	pixel_x = 32
+	},
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/ointment,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "vrf" = (
@@ -49520,12 +49423,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "xZw" = (
-/obj/machinery/vending/cigarette,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/genericbush,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "xZy" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -49947,8 +49853,7 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "ygu" = (
-/obj/effect/floor_decal/spline/plain/cee,
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_one)
 "ygw" = (
 /obj/effect/floor_decal/corner/green{
@@ -71513,12 +71418,12 @@ nJq
 bVf
 pjA
 pdv
-dex
+nzw
 iVQ
-ixR
+vdn
 rbe
 dex
-iVQ
+dBe
 ixR
 xhg
 aBn
@@ -71918,11 +71823,11 @@ mVO
 hcF
 ept
 opp
-fSg
-gDc
-iaW
-gDc
-ban
+ygu
+ygu
+ygu
+ygu
+ygu
 gBE
 uXq
 aBn
@@ -72120,11 +72025,11 @@ xhg
 hcF
 ept
 tHk
-gkM
-hjG
-meM
-hjG
-jgz
+ygu
+ygu
+ygu
+ygu
+ygu
 tOW
 uXq
 aBn
@@ -72321,14 +72226,14 @@ fjc
 xhg
 hcF
 pdv
-dPz
-gkM
-oFp
+tHk
+ygu
+ygu
 lTn
 ygu
 jvI
-iAW
-xhg
+tOW
+sIJ
 nBi
 hWE
 pWx
@@ -72524,11 +72429,11 @@ xhg
 eNj
 ept
 pWR
-gkM
-hjG
-aST
-hjG
-jgz
+ygu
+ygu
+ygu
+ygu
+ygu
 tOW
 uXq
 ljv
@@ -72727,11 +72632,11 @@ hcF
 ept
 xZw
 gyn
-hnY
-sFf
-hnY
+ygu
+ygu
+ygu
 jHi
-tOW
+lwx
 uXq
 eNj
 gDR
@@ -72930,8 +72835,8 @@ ept
 ayF
 gBk
 jHX
-jHX
-jHX
+nbR
+nCO
 dza
 ayF
 uXq
@@ -73129,7 +73034,7 @@ nRx
 gzF
 hcF
 wtj
-jWF
+qps
 jWF
 jWF
 fEQ

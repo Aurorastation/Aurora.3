@@ -1105,6 +1105,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
+"aOG" = (
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/bluegrid,
+/area/horizon/hallway/deck_three/primary/central)
 "aPq" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -3569,6 +3574,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
+"djF" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/horizon/hallway/deck_three/primary/central)
 "djG" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/undies_wardrobe{
@@ -8850,6 +8864,16 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
+"hjT" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/bluegrid,
+/area/horizon/hallway/deck_three/primary/central)
 "hll" = (
 /obj/effect/shuttle_landmark/skipjack_ship/third_deck,
 /turf/template_noop,
@@ -9194,6 +9218,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
+"hvh" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/bluegrid,
+/area/horizon/hallway/deck_three/primary/central)
 "hvK" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -10987,6 +11019,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
+"iVm" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/spline/plain/cee,
+/turf/simulated/floor/carpet/rubber,
+/area/horizon/hallway/deck_three/primary/central)
 "iVD" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
@@ -11950,6 +11987,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
+"jJK" = (
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/horizon/hallway/deck_three/primary/central)
 "jKd" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 8
@@ -20925,6 +20968,20 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/bluegrid,
 /area/bridge)
+"qYh" = (
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
+	},
+/obj/machinery/stargazer,
+/turf/simulated/floor/carpet/rubber,
+/area/horizon/hallway/deck_three/primary/central)
 "qYE" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -22932,6 +22989,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/washroom)
+"sun" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/bluegrid,
+/area/horizon/hallway/deck_three/primary/central)
 "svx" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -27417,6 +27481,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
+"waS" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/horizon/hallway/deck_three/primary/central)
 "waX" = (
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
@@ -51779,9 +51852,9 @@ tlL
 isT
 rNT
 rNT
-tlL
-tlL
-tlL
+rNT
+rNT
+rNT
 rNT
 rNT
 isT
@@ -51981,9 +52054,9 @@ tlL
 eEz
 rgd
 sQP
-lrF
-tlL
-ykD
+sun
+jJK
+aOG
 xgb
 dwG
 kwr
@@ -52183,9 +52256,9 @@ tlL
 eEz
 azf
 tcH
-lrF
-tlL
-ykD
+waS
+qYh
+iVm
 vFc
 vDR
 kwr
@@ -52385,9 +52458,9 @@ rNT
 hzS
 lcX
 lta
-cvQ
-rNT
-fZe
+hjT
+djF
+hvh
 hGl
 kbQ
 oZv
