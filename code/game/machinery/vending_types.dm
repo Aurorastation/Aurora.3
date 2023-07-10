@@ -195,6 +195,7 @@
 	random_itemcount = 1
 	req_access = list()
 	restock_items = 1
+	use_power = 0
 
 /obj/machinery/vending/assist
 	vend_id = "tools"
