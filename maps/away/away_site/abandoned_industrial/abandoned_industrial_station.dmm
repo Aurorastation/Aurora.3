@@ -259,9 +259,7 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
 	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
+/obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/tiled,
 /area/space)
 "cO" = (
@@ -709,6 +707,14 @@
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"gr" = (
+/obj/item/material/shard{
+	icon_state = "small";
+	pixel_x = -3;
+	pixel_y = 5
+	},
+/turf/simulated/floor/wood,
+/area/space)
 "gt" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
@@ -991,9 +997,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "iT" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
+/obj/structure/closet/crate/bin/filled,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled,
 /area/space)
@@ -1030,6 +1034,10 @@
 /area/space)
 "jl" = (
 /obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = 4;
+	pixel_x = -3
+	},
 /turf/simulated/floor/wood,
 /area/space)
 "jo" = (
@@ -1551,7 +1559,7 @@
 /area/space)
 "nR" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/smartfridge/secure{
+/obj/machinery/vending/boozeomat/abandoned{
 	opacity = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1701,8 +1709,13 @@
 /area/space)
 "pw" = (
 /obj/structure/closet/cabinet,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol{
+	pixel_y = 6;
+	pixel_x = 6
+	},
 /obj/item/reagent_containers/inhaler/space_drugs,
-/obj/item/clothing/accessory/badge/passport/coc,
+/obj/item/gun/projectile/automatic/rifle/sol,
 /turf/simulated/floor,
 /area/space)
 "py" = (
@@ -1786,9 +1799,7 @@
 /area/space)
 "qb" = (
 /obj/effect/floor_decal/corner/red/full,
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
+/obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/tiled,
 /area/space)
 "qe" = (
@@ -2045,6 +2056,13 @@
 	dir = 8
 	},
 /turf/template_noop,
+/area/space)
+"sD" = (
+/obj/random/junk{
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/turf/simulated/floor/wood,
 /area/space)
 "sE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2323,9 +2341,7 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "vd" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
+/obj/structure/closet/crate/bin/filled,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/space)
@@ -2476,6 +2492,14 @@
 /obj/effect/shuttle_landmark/abandoned_industrial_station/nav_east,
 /turf/template_noop,
 /area/space)
+"wv" = (
+/obj/item/material/shard{
+	icon_state = "medium";
+	pixel_x = 12;
+	pixel_y = 2
+	},
+/turf/simulated/floor/wood,
+/area/space)
 "wH" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -2619,17 +2643,20 @@
 /turf/simulated/floor,
 /area/space)
 "xS" = (
-/obj/item/ammo_magazine/mc9mm,
+/obj/structure/closet/cabinet,
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = -1
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_x = 6;
+	pixel_y = 6
+	},
 /obj/item/ammo_magazine/mc9mm{
 	pixel_y = 2;
 	pixel_x = 10
 	},
-/obj/item/ammo_magazine/mc9mm{
-	pixel_x = -9;
-	pixel_y = 6
-	},
-/obj/item/gun/projectile/pistol,
-/obj/structure/closet/cabinet,
+/obj/item/clothing/accessory/badge/passport/coc,
+/obj/item/gun/projectile/pistol/sol,
 /turf/simulated/floor,
 /area/space)
 "xT" = (
@@ -2705,6 +2732,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"yv" = (
+/obj/random/junk{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "yy" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/reagent_containers/blood/ripped,
@@ -2754,8 +2788,10 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "yP" = (
-/obj/machinery/smartfridge/secure,
-/turf/template_noop,
+/obj/random/junk{
+	pixel_x = -6
+	},
+/turf/simulated/floor/wood,
 /area/space)
 "yQ" = (
 /obj/structure/barricade/wooden{
@@ -2946,13 +2982,27 @@
 /turf/simulated/floor,
 /area/space)
 "Bg" = (
-/obj/machinery/vending/boozeomat/merchant,
-/turf/template_noop,
+/obj/random/junk{
+	pixel_x = -6
+	},
+/obj/item/broken_bottle{
+	pixel_x = 9;
+	pixel_y = -18
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Bh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor,
+/area/space)
+"Bl" = (
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 8;
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/turf/template_noop,
 /area/space)
 "Bn" = (
 /obj/structure/bed/padded,
@@ -3563,6 +3613,14 @@
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor,
 /area/space)
+"GP" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/bottle{
+	pixel_x = -5;
+	pixel_y = 10
+	},
+/turf/simulated/floor/wood,
+/area/space)
 "GU" = (
 /obj/machinery/atmospherics/valve{
 	dir = 4
@@ -3609,6 +3667,10 @@
 	pixel_x = 6;
 	pixel_y = 10
 	},
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = 1;
+	pixel_x = 7
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Hn" = (
@@ -3625,6 +3687,10 @@
 "Ht" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/item/reagent_containers/food/drinks/bottle{
+	pixel_x = 7;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Hx" = (
@@ -3670,9 +3736,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "HC" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
+/obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/wood/coloured/birch,
 /area/space)
 "HO" = (
@@ -3701,7 +3765,7 @@
 /area/space)
 "Ib" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/vending/boozeomat/merchant{
+/obj/machinery/smartfridge/foodheater/abandoned{
 	opacity = 1
 	},
 /turf/simulated/floor/tiled,
@@ -3993,6 +4057,10 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled,
+/area/space)
+"Ky" = (
+/obj/random/junk,
+/turf/simulated/floor,
 /area/space)
 "KC" = (
 /obj/machinery/door/window/northright,
@@ -4338,15 +4406,11 @@
 /turf/simulated/floor/airless,
 /area/space)
 "Oa" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
+/obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "Oe" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
+/obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Og" = (
@@ -4535,9 +4599,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "PJ" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
+/obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/wood,
 /area/space)
 "PN" = (
@@ -5107,6 +5169,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"Va" = (
+/obj/effect/floor_decal/industrial/outline/custodial,
+/obj/structure/closet/crate/trashcart,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/space)
 "Vb" = (
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/white,
@@ -5224,9 +5301,7 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "Wa" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
+/obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/tiled,
 /area/space)
 "Wd" = (
@@ -5442,6 +5517,13 @@
 /area/space)
 "Yq" = (
 /turf/simulated/floor,
+/area/space)
+"Yr" = (
+/obj/item/broken_bottle{
+	pixel_x = 9;
+	pixel_y = -3
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Ys" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -5688,6 +5770,22 @@
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
 	},
+/area/space)
+"ZU" = (
+/obj/structure/closet/crate/bin/filled,
+/obj/item/broken_bottle{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/item/broken_bottle{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/random/junk{
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/turf/simulated/floor/wood,
 /area/space)
 
 (1,1,1) = {"
@@ -25639,9 +25737,9 @@ Yq
 Yq
 Yq
 Yq
+Ky
 Yq
-Yq
-Yq
+zl
 Wh
 Wl
 Wl
@@ -28207,7 +28305,7 @@ rf
 rf
 rf
 Wh
-Yq
+Ky
 Wh
 DI
 eg
@@ -29232,7 +29330,7 @@ Ac
 bi
 Yq
 Yq
-Yq
+Ky
 Yq
 Wh
 Yq
@@ -30002,7 +30100,7 @@ Zi
 Wh
 pt
 Yq
-Yq
+Ky
 Wh
 Yq
 Yq
@@ -36425,7 +36523,7 @@ ER
 Hd
 wl
 Wh
-Dr
+yv
 Dr
 Bw
 Dr
@@ -36939,7 +37037,7 @@ Hd
 Hd
 eQ
 Wh
-cu
+Va
 ig
 Wh
 ht
@@ -38224,7 +38322,7 @@ Ms
 Oe
 Wh
 oh
-Hd
+gr
 lU
 Wh
 Dr
@@ -38479,7 +38577,7 @@ XL
 Ht
 GY
 GY
-Ms
+Bg
 Hd
 xs
 jl
@@ -38731,7 +38829,7 @@ aP
 aP
 Wh
 Vv
-Ms
+Yr
 XV
 ub
 Id
@@ -38994,7 +39092,7 @@ GY
 GY
 Qc
 Kb
-Hd
+sD
 Hd
 uc
 Wh
@@ -39252,9 +39350,9 @@ ZP
 AU
 Wh
 lU
-Hd
-Hd
-nR
+wv
+yP
+Ib
 DB
 Zt
 ZL
@@ -39508,10 +39606,10 @@ Ac
 Ac
 Wh
 Wh
-jl
-PJ
+GP
+ZU
 xf
-Ib
+nR
 Wh
 Wh
 mS
@@ -40537,8 +40635,8 @@ Zi
 Zi
 Wl
 Zi
+Bl
 Zi
-yP
 Zi
 Wl
 Zi
@@ -40795,7 +40893,7 @@ MK
 AZ
 Wl
 Wl
-Bg
+Zi
 Zi
 Wl
 Zi
@@ -41308,9 +41406,9 @@ Zi
 Qf
 AZ
 AZ
+AZ
+AZ
 ES
-Wl
-Wl
 Wl
 Wl
 Wl
@@ -41566,8 +41664,8 @@ Zi
 Wl
 Zi
 Zi
-Zi
-Wl
+AZ
+AZ
 Zi
 Zi
 Zi
