@@ -256,6 +256,7 @@
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
+	origin_restriction = list(/singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
 
 /datum/gear/suit/sash/diona
 	display_name = "dionae gyazo belt"
@@ -265,6 +266,7 @@
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
+	origin_restriction = list(/singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
 
 /datum/gear/suit/unathi_mantle/diona
 	display_name = "dionae peasant hide mantle selection"
@@ -276,6 +278,7 @@
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_COLOR_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
+	origin_restriction = list(/singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
 
 /datum/gear/suit/unathi_mantle/diona/New()
 	..()
@@ -292,13 +295,14 @@
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
+	origin_restriction = list(/singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
 
 /datum/gear/suit/unathi_robe/kilt/diona
 	display_name = "dionae wasteland kilt"
 	path = /obj/item/clothing/suit/unathi/robe/kilt
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	origin_restriction = list(/singleton/origin_item/origin/dionae_wasteland)
+	origin_restriction = list(/singleton/origin_item/origin/dionae_wasteland, /singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
 
 /datum/gear/uniform/unathi/diona
 	display_name = "dionae sinta tunic"
@@ -307,6 +311,7 @@
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
+	origin_restriction = list(/singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
 
 /datum/gear/head/sinta_ronin/diona
 	display_name = "dionae straw hat"
@@ -314,6 +319,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
+	origin_restriction = list(/singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
 
 /datum/gear/suit/robe_coat/diona
 	display_name = "dionae tzirzi robe"
@@ -322,12 +328,14 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
+	origin_restriction = list(/singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
 
 /datum/gear/eyes/wasteland_goggles/diona
 	display_name = "dionae wasteland goggles"
 	path = /obj/item/clothing/glasses/safety/goggles/wasteland
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
-	origin_restriction = list(/singleton/origin_item/origin/dionae_wasteland)
+	origin_restriction = list(/singleton/origin_item/origin/dionae_wasteland, /singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
+	origin_restriction = list()
 	sort_category = "Xenowear - Diona"
 
 /datum/gear/uniform/diona/zozo
@@ -336,3 +344,4 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes)
+	origin_restriction = list(/singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
