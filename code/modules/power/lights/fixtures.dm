@@ -3,13 +3,12 @@
 // consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/light)
 
 #define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
-#define LIGHT_BULB_TEMPERATURE 400 //K - used value for a 60W bulb
 // the standard tube light fixture
 /obj/machinery/light
 	name = "light fixture"
-	icon = 'icons/obj/lighting.dmi'
-	var/base_state = "tube"		// base description and icon_state
-	icon_state = "tube_empty"
+	icon = 'icons/obj/lights.dmi'
+	var/base_state = "tube"
+	icon_state = "tube_example"
 	desc = "A lighting fixture."
 	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
@@ -49,6 +48,7 @@
 	var/bulb_is_noisy = TRUE
 
 	var/fitting_has_empty_icon = FALSE
+	var/fitting_is_on_floor = FALSE
 
 	var/previous_stat
 	var/randomize_color = TRUE
@@ -73,18 +73,18 @@
 
 /obj/machinery/light/floor
 	name = "floor lighting fixture"
-	icon_state = "floortube"
+	icon_state = "floortube_example"
 	base_state = "floortube"
-	fitting = "floortube"
 	desc = "A lighting fixture. This one is set into the floor."
 	layer = 2.5
 	fitting_has_empty_icon = TRUE
+	fitting_is_on_floor = TRUE
 
 // the smaller bulb light fixture
 
 /obj/machinery/light/small
 	name = "small light fixture"
-	icon_state = "bulb1"
+	icon_state = "bulb_example"
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness_range = 5
@@ -98,11 +98,11 @@
 
 /obj/machinery/light/small/floor
 	name = "small floor lighting fixture"
-	icon_state = "floor_empty"
+	icon_state = "floor_example"
 	base_state = "floor"
-	fitting = "floorbulb"
 	desc = "A small lighting fixture. This one is set into the floor."
 	layer = 2.5
+	fitting_is_on_floor = TRUE
 
 /obj/machinery/light/small/emergency
 	brightness_range = 6
@@ -134,17 +134,15 @@
 
 /obj/machinery/light/spot
 	name = "spotlight fixture"
+	icon_state = "slight_example"
+	base_state = "slight"
+	desc = "An extremely powerful lighting fixture."
 	fitting = "large tube"
 	light_type = /obj/item/light/tube/large
 	inserted_light = /obj/item/light/tube/large
 	brightness_range = 12
 	brightness_power = 3.5
 	supports_nightmode = FALSE
-
-/obj/machinery/light/spot/weak
-	name = "low-intensity spotlight"
-	brightness_range = 12
-	brightness_power = 1.2
 
 /obj/machinery/light/built
 	start_with_cell = FALSE
@@ -169,6 +167,11 @@
 	stat |= MAINT
 	. = ..()
 
+/obj/machinery/light/spot/built/Initialize()
+	status = LIGHT_EMPTY
+	stat |= MAINT
+	. = ..()
+
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
@@ -182,14 +185,11 @@
 			if("tube")
 				if(prob(2))
 					broken(1)
-			if("floortube")
-				if(prob(2))
-					broken(1)
 			if("bulb")
 				if(prob(5))
 					broken(1)
-			if("floorbulb")
-				if(prob(5))
+			if("large tube")
+				if(prob(1))
 					broken(1)
 
 	if(randomize_color)
@@ -203,12 +203,11 @@
 
 /obj/machinery/light/update_icon()
 	cut_overlays()
-	if ((status == LIGHT_EMPTY) || !fitting_has_empty_icon) {
+	if ((status == LIGHT_EMPTY) || !fitting_has_empty_icon)
 		icon_state = "[base_state]_empty"
-	}
-	else {
+	else
 		icon_state = "[base_state]"
-	}
+	var/on = emergency_mode || !stat
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
 			var/target_color
@@ -217,11 +216,17 @@
 			else
 				target_color = brightness_color
 				if (supports_nightmode && nightmode && !stat)
-					target_color = BlendRGB("#d2d2d2", target_color, 0.25)
+					target_color = BlendRGB("#D2D2D2", target_color, 0.25)
 
-			var/on = emergency_mode || !stat
-
-			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state][on]", target_color))
+			if (on)
+				var/image/I = LIGHT_FIXTURE_CACHE(icon, "[base_state]_on", target_color)
+				if (!fitting_is_on_floor)
+					I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+				else
+					I.layer = layer
+				add_overlay(I)
+			else
+				add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))
 
 		if(LIGHT_BURNED)
 			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_burned", brightness_color))
@@ -441,6 +446,10 @@
 				if("bulb")
 					newlight = new /obj/machinery/light_construct/small(get_turf(src))
 					newlight.icon_state = "bulb-construct-stage2"
+
+				if("large tube")
+					newlight = new /obj/machinery/light_construct/spot(get_turf(src))
+					newlight.icon_state = "slight-construct-stage2"
 			newlight.dir = src.dir
 			newlight.stage = 2
 			newlight.fingerprints = src.fingerprints

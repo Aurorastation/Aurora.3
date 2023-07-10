@@ -38,4 +38,9 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Added floor variants of the small and tube lighting fixtures."
+  - rscadd: "The spotlight is now buildable."
+  - rscadd: "The spotlight and large tube light now has a distinct sprite."
+  - rscdel: "Removed the low-intensity spotlight. All instances have been replaced with standard spotlights."
+  - tweak: "Added new sprites for wall lights. (made by Gem)"
+  - tweak: "Lightbulbs (except in floor lights) now layer above darkness."
   - maptweak: "Added floor lights on decks 2 and 3, replacing most instances of wall lights on railings."

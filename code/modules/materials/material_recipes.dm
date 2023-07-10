@@ -60,6 +60,7 @@
 			new /datum/stack_recipe("machine blueprint", /obj/machinery/constructable_frame/machine_frame, 2, time = 25, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("light fixture frame", /obj/item/frame/light, 2),
 			new /datum/stack_recipe("small light fixture frame", /obj/item/frame/light/small, 1),
+			new /datum/stack_recipe("spotlight fixture frame", /obj/item/frame/light/spot, 3),
 			new /datum/stack_recipe("apc frame", /obj/item/frame/apc, 2),
 			new /datum/stack_recipe("air alarm frame", /obj/item/frame/air_alarm, 2),
 			new /datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2)

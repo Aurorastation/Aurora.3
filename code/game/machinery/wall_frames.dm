@@ -67,7 +67,7 @@
 /obj/item/frame/light
 	name = "light fixture frame"
 	desc = "Used for building lights."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'icons/obj/lights.dmi'
 	icon_state = "tube-construct-item"
 	build_machine_type = /obj/machinery/light_construct
 	reverse = 1
@@ -77,3 +77,9 @@
 	icon_state = "bulb-construct-item"
 	refund_amt = 1
 	build_machine_type = /obj/machinery/light_construct/small
+
+/obj/item/frame/light/spot
+	name = "spotlight fixture frame"
+	icon_state = "slight-construct-item"
+	refund_amt = 3
+	build_machine_type = /obj/machinery/light_construct/spot
