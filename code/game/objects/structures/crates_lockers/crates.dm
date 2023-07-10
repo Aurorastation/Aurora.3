@@ -338,6 +338,10 @@
 	desc = "A large bin."
 	icon_state = "largebin"
 
+/obj/structure/closet/crate/bin/filled/fill()
+	for(var/i=1,i<=6,i++)
+		new /obj/random/junk(src)
+
 /obj/structure/closet/crate/drop
 	name = "drop crate"
 	desc = "A large, sturdy crate meant for airdrops."
