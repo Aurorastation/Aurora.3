@@ -60,6 +60,13 @@
 	desc = "A green, wide street sign with words telling you that you are indeed on a street."
 	icon_state = "street_big"
 
+	var/street_name = null
+
+/obj/structure/road_sign/street/Initialize(mapload)
+	. = ..()
+	name = "[street_name]"
+	desc = "This sign indicates this crossing street is called [street_name]."
+
 /obj/structure/stairs/urban
 	icon = 'icons/obj/structure/urban/ledges.dmi'
 	icon_state = "stairs-single"

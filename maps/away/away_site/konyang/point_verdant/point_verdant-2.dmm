@@ -137,8 +137,13 @@
 /obj/structure/ledge{
 	dir = 4
 	},
-/obj/structure/road_barrier{
+/obj/structure/chainlink_fence{
 	dir = 4
+	},
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-west";
+	layer = 2.5;
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant)
@@ -250,11 +255,10 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "cG" = (
-/obj/structure/road_barrier{
+/obj/structure/road_barrier/top_end{
 	dir = 4
 	},
-/obj/structure/rod_railing,
-/turf/simulated/floor/sidewalk,
+/turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant)
 "cH" = (
 /obj/structure/konyang_cliff{
@@ -1075,7 +1079,12 @@
 "kU" = (
 /obj/structure/road_sign{
 	pixel_x = -12;
-	pixel_y = 24
+	pixel_y = 30
+	},
+/obj/structure/road_sign/street{
+	pixel_x = 15;
+	street_name = "Spaceport Avenue";
+	pixel_y = 30
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant)
@@ -1228,13 +1237,13 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant)
 "mN" = (
-/obj/structure/konyang_cliff{
-	icon_state = "cliff-top1"
-	},
-/obj/structure/road_barrier{
+/obj/structure/rod_railing,
+/obj/structure/chainlink_fence{
 	dir = 4
 	},
-/obj/structure/rod_railing,
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner5"
+	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "mP" = (
@@ -1382,9 +1391,6 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant)
 "ot" = (
-/obj/structure/road_barrier/bot_end{
-	dir = 4
-	},
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
 	layer = 9.1
@@ -1666,6 +1672,16 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant)
+"qJ" = (
+/obj/structure/hydrant{
+	pixel_x = -15
+	},
+/obj/structure/road_sign/pedestrian{
+	pixel_y = 30;
+	pixel_x = -16
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
 "qK" = (
 /obj/structure/lattice/catwalk/indoor/planks/stairs{
 	dir = 4
@@ -1763,10 +1779,12 @@
 /obj/structure/ledge{
 	dir = 4
 	},
-/obj/structure/road_barrier{
+/obj/structure/chainlink_fence{
 	dir = 4
 	},
-/obj/structure/konyang_cliff,
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner3"
+	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant)
 "rJ" = (
@@ -1823,6 +1841,23 @@
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/point_verdant)
+"sq" = (
+/obj/structure/hydrant{
+	pixel_x = 15
+	},
+/obj/structure/road_sign{
+	pixel_y = 30;
+	pixel_x = -10;
+	dir = 8
+	},
+/obj/structure/road_sign/street{
+	pixel_x = 1;
+	pixel_y = 30;
+	icon_state = "street_right";
+	street_name = "Spaceport Avenue"
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
 "st" = (
 /obj/effect/decal/exterior_stairs/left{
 	dir = 4;
@@ -1868,8 +1903,13 @@
 /obj/structure/ledge/quarter/corner{
 	dir = 8
 	},
-/obj/structure/road_barrier{
+/obj/structure/chainlink_fence{
 	dir = 4
+	},
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-west";
+	layer = 2.5;
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant)
@@ -2557,13 +2597,18 @@
 /area/point_verdant)
 "ym" = (
 /obj/structure/road_barrier/bot_in,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant)
 "yq" = (
 /obj/structure/utility_pole/street/traffic/inverted{
 	dir = 4;
 	pixel_y = -1;
 	pixel_x = 1
+	},
+/obj/structure/road_sign/street{
+	pixel_x = 3;
+	icon_state = "street_left";
+	street_name = "Spaceport Avenue"
 	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant)
@@ -2583,14 +2628,11 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant)
 "yt" = (
-/obj/structure/ledge{
-	dir = 4
+/obj/structure/utility_pole/street/on,
+/obj/structure/hydrant{
+	pixel_x = -15
 	},
-/obj/structure/road_barrier{
-	dir = 4
-	},
-/obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/sidewalk,
 /area/point_verdant)
 "yA" = (
 /obj/effect/decal/road_marking{
@@ -3337,13 +3379,10 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant)
 "FE" = (
-/obj/structure/ledge{
-	dir = 4
+/obj/structure/hydrant{
+	pixel_x = 15
 	},
-/obj/structure/road_barrier{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/sidewalk,
 /area/point_verdant)
 "FI" = (
 /obj/effect/decal/curb/corner,
@@ -3369,9 +3408,13 @@
 /obj/structure/ledge{
 	dir = 4
 	},
-/obj/effect/floor_decal/konyang_flowers,
-/obj/structure/road_barrier{
+/obj/structure/chainlink_fence{
 	dir = 4
+	},
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-west";
+	layer = 2.5;
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant)
@@ -3920,6 +3963,12 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant)
+"KF" = (
+/obj/structure/hydrant{
+	pixel_x = -15
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant)
 "KG" = (
 /obj/structure/ledge{
 	dir = 4
@@ -3959,6 +4008,12 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/bin/urban,
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"Le" = (
+/obj/structure/hydrant{
+	pixel_x = -14
+	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant)
 "Ly" = (
@@ -4189,12 +4244,11 @@
 /obj/structure/ledge{
 	dir = 4
 	},
-/obj/structure/road_barrier{
+/obj/structure/chainlink_fence{
 	dir = 4
 	},
 /obj/structure/konyang_cliff{
-	icon_state = "cliff1-bottom";
-	layer = 2.1
+	icon_state = "innercorner4"
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant)
@@ -4384,6 +4438,12 @@
 /obj/structure/utility_pole/street/traffic/inverted{
 	dir = 8;
 	pixel_y = 12
+	},
+/obj/structure/road_sign/street{
+	pixel_x = -11;
+	pixel_y = 28;
+	icon_state = "street_right";
+	street_name = "Spaceport Avenue"
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant)
@@ -4631,10 +4691,12 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant)
 "RR" = (
-/obj/structure/road_barrier{
-	dir = 4
+/obj/structure/road_sign/street{
+	pixel_x = 3;
+	icon_state = "street_left";
+	street_name = "Noella-Brookes Road"
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/sidewalk,
 /area/point_verdant)
 "RU" = (
 /obj/structure/chainlink_fence,
@@ -4676,8 +4738,11 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant)
 "So" = (
-/obj/structure/road_sign/turn/left{
-	pixel_x = -14;
+/obj/structure/road_sign/street{
+	pixel_x = -15;
+	icon_state = "street_left";
+	street_name = "Listor Bend Street";
+	pixel_y = -1;
 	layer = 9.1
 	},
 /turf/simulated/floor/sidewalk/detail,
@@ -5214,6 +5279,27 @@
 "Ym" = (
 /obj/effect/decal/curb/corner,
 /turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"Yy" = (
+/obj/structure/road_sign/street{
+	pixel_x = -12;
+	icon_state = "street_left";
+	street_name = "Spaceport Avenue"
+	},
+/obj/structure/road_sign{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant)
+"YA" = (
+/obj/structure/road_sign/street{
+	pixel_x = -15;
+	icon_state = "street_right";
+	street_name = "Listor Bend Street";
+	pixel_y = 30;
+	layer = 9.1
+	},
+/turf/simulated/floor/sidewalk/detail,
 /area/point_verdant)
 "YD" = (
 /obj/structure/konyang_cliff{
@@ -7332,7 +7418,7 @@ nt
 nt
 nt
 Md
-Al
+Ir
 Al
 Fs
 Oq
@@ -7514,7 +7600,7 @@ Ij
 Ij
 Ij
 lD
-Al
+Ir
 Al
 Fs
 Oq
@@ -7696,7 +7782,7 @@ Ij
 Ij
 Ij
 lD
-Al
+Ir
 Al
 Fs
 Al
@@ -7878,7 +7964,7 @@ Ij
 Ij
 Ij
 lD
-Al
+Ir
 Al
 Fs
 Al
@@ -8060,7 +8146,7 @@ Ij
 Ij
 Ij
 lD
-Al
+Ir
 Al
 Fs
 Oq
@@ -8242,7 +8328,7 @@ Ij
 Ij
 Ij
 lD
-Al
+Ir
 Al
 Fs
 Al
@@ -8424,7 +8510,7 @@ Ij
 Ij
 Ij
 lD
-Al
+Ir
 Al
 Fs
 Al
@@ -8606,7 +8692,7 @@ Ij
 Ij
 Ij
 lD
-Al
+Ir
 Al
 Fs
 Al
@@ -8788,7 +8874,7 @@ Ij
 Ij
 Ij
 lD
-Al
+Ir
 BP
 Fs
 Al
@@ -8950,8 +9036,8 @@ Ir
 BT
 BT
 BT
-wU
-wU
+BT
+BT
 lD
 Ij
 Ij
@@ -8970,7 +9056,7 @@ Ij
 Ij
 Ij
 lD
-Al
+Ir
 Al
 Fs
 Al
@@ -9131,9 +9217,9 @@ YN
 Ir
 BT
 BT
-yR
-Al
-Al
+BT
+BT
+BT
 HD
 nt
 nt
@@ -9152,7 +9238,7 @@ nt
 nt
 nt
 Ca
-Al
+Ir
 Al
 Fs
 qs
@@ -9304,37 +9390,37 @@ ot
 rF
 Nu
 bD
-yt
-FE
-FE
+Ga
+Ga
+Ga
 Ga
 sT
 mN
-py
-GE
-GE
+Ir
+Ir
+Ir
 cG
-RR
-RR
-RR
-RR
-RR
-RR
-RR
-RR
-RR
-RR
-RR
-RR
-RR
-RR
-RR
-RR
-RR
-RR
-RR
+py
+py
+py
+py
+py
+py
+py
+py
+py
+py
+py
+py
+py
+py
+py
+py
+py
+py
+py
 ym
-Al
+Ir
 BP
 Fs
 Al
@@ -10239,7 +10325,7 @@ Qv
 cK
 xc
 xc
-iL
+iY
 iL
 Hz
 iL
@@ -10387,7 +10473,7 @@ KC
 iL
 Cg
 qk
-yU
+KF
 Ir
 Ir
 Ir
@@ -10420,7 +10506,7 @@ BT
 BT
 BT
 BT
-ie
+yt
 LN
 iL
 Cp
@@ -11473,7 +11559,7 @@ od
 od
 od
 BT
-iF
+FE
 LN
 iL
 uf
@@ -12186,7 +12272,7 @@ BT
 BT
 BT
 BT
-iF
+Le
 ve
 iL
 Wf
@@ -15078,13 +15164,13 @@ BT
 BT
 BT
 BT
-BT
+RR
 ve
 iL
 uf
 gM
 wm
-iF
+sq
 BT
 BT
 BT
@@ -16165,20 +16251,20 @@ iL
 iL
 iL
 Ja
-iF
+qJ
 BT
 BT
 BT
 BT
 BT
 BT
-BT
+Yy
 uI
 yA
 BH
 iL
 Ja
-bh
+YA
 Ir
 Ir
 Ir
@@ -19113,7 +19199,7 @@ Ir
 Ir
 Ir
 Ir
-Ir
+pU
 Ir
 Ir
 Ir
