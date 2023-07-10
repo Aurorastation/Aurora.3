@@ -46,3 +46,19 @@
 /area/abandoned_industrial_station/medical
 	name = "Abandoned Industrial Station Medbay"
 	icon_state = "medbay"
+
+/area/abandoned_industrial_station/maint_central
+	name = "Abandoned Industrial Station Maint Central"
+	icon_state = "maintenance"
+
+/area/abandoned_industrial_station/maint_a1
+	name = "Abandoned Industrial Station Maint A1"
+	icon_state = "maintenance"
+
+/area/abandoned_industrial_station/maint_a2
+	name = "Abandoned Industrial Station Maint A2"
+	icon_state = "maintenance"
+
+/area/abandoned_industrial_station/bridge
+	name = "Abandoned Industrial Station Bridge"
+	icon_state = "bridge"
