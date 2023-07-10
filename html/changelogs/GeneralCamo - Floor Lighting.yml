@@ -37,7 +37,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added floor variants of the small and tube lighting fixtures."
+  - rscadd: "Added floor variants of the small and tube lighting fixtures. (Large floor light ported from CEV Eris, small floor light made by atteria)"
   - rscadd: "The spotlight is now buildable."
   - rscadd: "The spotlight and large tube light now has a distinct sprite."
   - rscdel: "Removed the low-intensity spotlight. All instances have been replaced with standard spotlights."
