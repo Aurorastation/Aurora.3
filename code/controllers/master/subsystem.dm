@@ -9,6 +9,9 @@
 
 	var/flags = 0			//see master_controller.dm in __defines. Most flags must be set on world start to take full effect. (You can also restart the mc to force them to process again)
 
+	/// Which stage does this subsystem init at. Earlier stages can fire while later stages init.
+	var/init_stage = INITSTAGE_MAIN
+
 	/// Levels of the game that the SS can fire. See __defines/subsystem_priority.dm
 	var/runlevels = RUNLEVELS_DEFAULT
 

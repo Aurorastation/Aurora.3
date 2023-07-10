@@ -1,10 +1,9 @@
 # Aurorastation
+![Aurora Logo](https://wiki.aurorastation.org/images/6/6b/Main_page_banner1.png)
 
 **[Website](https://aurorastation.org/)**
 
 **[Code](https://github.com/Aurorastation/Aurora.3)**
-
-[![Build Status](https://drone.wetskrell.org/api/badges/Aurorastation/Aurora.3/status.svg?branch=master)](https://drone.wetskrell.org/Aurorastation/Aurora.3)
 
 ---
 
@@ -24,25 +23,53 @@ The simplest way to obtain the code is using the github .zip feature.
 
 Click [here](https://github.com/Aurorastation/Aurora.3/archive/master.zip) to get the latest stable code as a .zip file, then unzip it to wherever you want.
 
-The more complicated and easier to update method is using git.  You'll need to download git or some client from [here](http://git-scm.com/).  When that's installed, right click in any folder and click on "Git Bash".  When that opens, type in:
+If you wish to develop for or using this codebase, please read the "Development" section.
 
-    git clone https://github.com/Aurorastation/Aurora.3.git
+### DEVELOPMENT
+To develop for or using this codebase, the following tools are recommended:
 
-(hint: hold down ctrl and press insert to paste into git bash)
+- An updated and supported Windows Operating System version. (It might be possible to successfully follow the same general steps in other OSes, but they are untested)
+- [BYOND](https://www.byond.com/download/), with an active account ([Register](https://secure.byond.com/Join) if you do not have one already)
+- [Git](https://git-scm.com/downloads)
+- [Visual Studio Code (VSC)](https://code.visualstudio.com/download)
+- A GitHub account
 
-This will take a while to download, but it provides an easier method for updating.
+Prepare the development environment:
+
+1. Create a fork of this repository. Once logged in Github and while viewing this repository, click the "Fork" ribbon, or simply click [here](https://github.com/Aurorastation/Aurora.3/fork), give it a name and follow the forking instructions
+1. Download and install BYOND, login into it
+1. Download and install Git and VSC
+1. Create a folder in which you wish to keep the repository files, preferably on an SSD, then right click → "Git Bash Here". A new command prompt should appear.
+1. Inside the fork you have created above, click the "Code" ribbon and copy the URL under the HTTPS section
+1. Run the command `git clone URL_FROM_ABOVE`, changing the "URL_FROM_ABOVE" text with the URL you have copied before, and let it run to completion
+1. Open VSC and select "Open Folder", select the newly created folder
+1. Accept the prompts, install the extensions that are suggested, login to those who asks you to, reboot VSC as requested/needed
+
+You are now ready to develop for or using the Aurorastation codebase.
+
+If you intend to submit changes to us, please **create a new branch, do not edit the master branch**, you can do so in VSC by bringing up the command palette with CTRL+SHIFT+P and run the command "Git: Create Branch From", select the master branch, give a name for the new one and then hit enter.
+
+You can then perform changes, commit them to said branch, push the changes to your fork, and then create a pull request on our repository, in order to have it evaluated and eventually merged into our master branch.
+
+To update your master branch when ours is updated, simply go to your fork, click the "Sync fork" ribbon and then "Update Branch".
+
+You can always [join us on our Discord server](https://discord.gg/0sYA49zHYGnKWM9p) for any questions.
 
 ### INSTALLATION
 
-First-time installation should be fairly straightforward.  First, you'll need BYOND installed.  You can get it from [here](http://www.byond.com/).
+This is a source code-only release, so the next step is to compile the server files.
 
-This is a sourcecode-only release, so the next step is to compile the server files.  Open aurorastation.dme by double-clicking it, open the Build menu, and click compile.  This'll take a little while, and if everything's done right you'll get a message like this:
+**Using BYOND tools natively is not supported**, you need to either:
+- Compile the server into a runnable binary using the build tools documented [here](tools/build/README.md).
+- Follow the instructions in the **Development** section. You can skip the creation of a GitHub account and the use of Git if you intend to manually update your server, but it's recommended not to.
 
-    saving aurorastation.dmb (DEBUG mode)
+Once you are inside VSC, with the codebase folder opened and all the extensions installed, simply hit CTRL+F5 (Run without debugging) to compile the source code. This might take a little, after which you should see DreamMaker and/or DreamSeeker popping up, and then the full client UI.
 
-    aurorastation.dmb - 0 errors, 0 warnings
+You can close DreamMaker.
 
-If you see any errors or warnings, something has gone wrong - possibly a corrupt download or the files extracted wrong, or a code issue on the main repo. Ask on the server Discord if you're completely lost.
+You will find the server file, aurorastation.**dmb**, inside the folder.
+
+If you see any errors or warnings, something has gone wrong - possibly a corrupt download or the files have been extracted wrong, or there may be a code issue on the main repo. Feel free to ask on [our Discord server](https://discord.gg/0sYA49zHYGnKWM9p) for help.
 
 Once that's done, open up the config folder.  You'll want to edit config.txt to set the probabilities for different gamemodes in Secret and to set your server location so that all your players don't get disconnected at the end of each round.  It's recommended you don't turn on the gamemodes with probability 0, as they have various issues and aren't currently being tested, so they may have unknown and bizarre bugs.
 
