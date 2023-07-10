@@ -35,14 +35,14 @@
 	var/turf/loc = get_turf(usr)
 	var/area/A = loc.loc
 	if (!istype(loc, /turf/simulated/floor))
-		to_chat(usr, "<span class='danger'>\The [src] Alarm cannot be placed on this spot.</span>")
+		to_chat(usr, SPAN_WARNING("\The [src] cannot be placed on this spot."))
 		return
 	if (istype(A, /area/space) || istype(A, /area/mine))
-		to_chat(usr, "<span class='danger'>\The [src] Alarm cannot be placed in this area.</span>")
+		to_chat(usr, SPAN_WARNING("\The [src] cannot be placed in this area."))
 		return
 
 	if(gotwallitem(loc, ndir))
-		to_chat(usr, "<span class='danger'>There's already an item on this wall!</span>")
+		to_chat(usr, SPAN_WARNING("There's already an item on this wall!"))
 		return
 
 	var/obj/machinery/M = new build_machine_type(loc, ndir, 1)

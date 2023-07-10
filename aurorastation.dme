@@ -748,6 +748,7 @@
 #include "code\game\machinery\firealarm.dm"
 #include "code\game\machinery\flasher.dm"
 #include "code\game\machinery\floodlight.dm"
+#include "code\game\machinery\floor_frames.dm"
 #include "code\game\machinery\floor_light.dm"
 #include "code\game\machinery\floorlayer.dm"
 #include "code\game\machinery\from_beyond.dm"
