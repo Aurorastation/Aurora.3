@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - bugfix: "Cryotubes, medicine, and other reagents should no longer heal prosthetic limbs."
