@@ -218,6 +218,8 @@
 		var/obj/item/organ/internal/I = internal
 		if(amount <= 0)
 			break
+		if(BP_IS_ROBOTIC(I))
+			continue //Chems won't help, you need surgery to fix robot organs
 		if(heal)
 			if(I.damage < amount)
 				amount -= I.damage
