@@ -461,6 +461,10 @@
 	name = "C'thur language processor"
 	augment_languages = list(LANGUAGE_SKRELLIAN)
 
+/obj/item/organ/internal/augment/language/zeng
+	name = "Zeng-Hu Nral'malic language processor"
+	augment_languages = list(LANGUAGE_SKRELLIAN)
+
 /obj/item/organ/internal/augment/gustatorial
 	name = "gustatorial centre"
 	action_button_name = "Activate Gustatorial Centre (tongue)"
