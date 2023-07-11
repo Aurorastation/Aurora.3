@@ -62,6 +62,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/cremeyvette = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/wine = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/whitewine = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/drambuie = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/melonliquor = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/gin = 5,
@@ -89,6 +90,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/messa_mead = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/small/ale = 6,
 		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 6,
+		/obj/item/reagent_containers/food/drinks/bottle/small/skrellbeerdyn = 15,
 		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice = 8,
 		/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/cola = 5,
@@ -305,7 +307,11 @@
 		/obj/item/reagent_containers/food/snacks/tuna = 2,
 		/obj/item/reagent_containers/food/snacks/ricetub = 2,
 		/obj/item/reagent_containers/food/snacks/riceball = 4,
-		/obj/item/reagent_containers/food/snacks/seaweed = 5
+		/obj/item/reagent_containers/food/snacks/seaweed = 5,
+		/obj/item/reagent_containers/food/drinks/jyalra = 5,
+		/obj/item/reagent_containers/food/drinks/jyalracheese = 5,
+		/obj/item/reagent_containers/food/drinks/jyalraapple = 5,
+		/obj/item/reagent_containers/food/drinks/jyalracherry = 5
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/snacks/syndicake = 6,
