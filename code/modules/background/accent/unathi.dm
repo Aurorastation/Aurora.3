@@ -114,19 +114,3 @@
 	Torn Cities is one of the first that any Sinta would think of."
 	tag_icon = "unathi_torn"
 	text_tag = "TRN"
-
-/datum/accent/zazalai_peasant
-	name = ACCENT_ZAZ_LOW
-	description = "The accent of the Zazalai Mountains is a rather monotone one. The Sinta of the region tend to speak slowly and with little expressed emotion, leading to a common \
-	joke that they speak like they have a mouthful of rocks. The particular dialect of Sinta'Unathi spoken in the region can often be hard to understand to outsiders, with some of the more isolated communities \
-	having developed dialects that are nearly distinct languages of their own, to the fascination of many Unathi linguists."
-	tag_icon = "unathi_zaz_peasant"
-	text_tag = "ZAZ"
-
-/datum/accent/zazalai_noble
-	name = ACCENT_ZAZ_HIGH
-	description = "The accent of the Zazalai Mountains nobility is generally clearer than that of the peasantry, though it carries the same slow and monotone sound to it. This accent is \
-	something of an artificial construction, having been widely influenced by the accent of the Izweski Heartlands nobility due to the historic ties between the two regions. To many, this accent is \
-	carefully crafted to give an air of civilised refinement in the harsh mountains of Zazalai."
-	tag_icon = "unathi_zaz_noble"
-	text_tag = "ZAZ"

@@ -778,22 +778,3 @@
 	icon_state = "whitewinebottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/whitewine = 100)
-
-/obj/item/reagent_containers/food/drinks/bottle/small/skrellbeerdyn
-	name = "Qel'Zvol Hospitality's Prestige beer"
-	desc = "This beer is made from fermented dyn leaves and mixed with various spices to give it a palatable flavour."
-	desc_extended = "Due to Skrell biology alcohol has a more noticeable effect compared to humans, resulting in alcoholic drinks in the Federation being very light. As a result, breweries in the Federation focus more on flavour profiles than being strong, and mixed drinks that combine flavours or textures are extremely popular."
-	icon_state = "skrellbeerdyn"
-	amount_per_transfer_from_this = 2
-	center_of_mass = list("x"=16, "y"=8)
-
-	reagents_to_add = list(/singleton/reagent/alcohol/small/skrellbeerdyn = 30)
-
-/obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha
-	name = "Federation's Finest ylpha wine"
-	desc = "A popular type of Skrell wine made from fermented ylpha berries. It's quite sweet and is usually consumed along with more savoury foods, or it can be served iced as an after-dinner digestif."
-	desc_extended = "Due to Skrell biology alcohol has a more noticeable effect compared to humans, resulting in alcoholic drinks in the Federation being very light. As a result, breweries in the Federation focus more on flavour profiles than being strong, and mixed drinks that combine flavours or textures are extremely popular."
-	icon_state = "skrellwineylpha"
-	center_of_mass = list("x"=16, "y"=8)
-
-	reagents_to_add = list(/singleton/reagent/alcohol/bottle/skrellwineylpha = 100)

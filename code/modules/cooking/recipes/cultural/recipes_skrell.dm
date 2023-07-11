@@ -86,9 +86,3 @@
 		/obj/item/organ/internal/liver/skrell/neaera
 	)
 	result = /obj/item/reagent_containers/food/snacks/gnaqmi
-
-/singleton/recipe/jyalrafresh
-	appliance = MIX
-	fruit = list("dyn leaf" = 4)
-	reagent_mix = RECIPE_REAGENT_REPLACE
-	result = /obj/item/reagent_containers/food/snacks/jyalrafresh
