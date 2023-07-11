@@ -4576,7 +4576,7 @@
 	color = "#cfb024"
 	description = "The closest thing you can get to breakfast in most of Neubach."
 	strength = 15
-	taste_description = "buttery beer"
+	taste_description = "slimy raw egg and beer"
 
 	glass_icon_state = "scrameggglass"
 	glass_name = "glass of SCRAMbled egg"
