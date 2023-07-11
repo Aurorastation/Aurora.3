@@ -4687,18 +4687,18 @@
 
 	glass_icon_state = "threefoldglass"
 	glass_name = "glass of threefold"
-	glass_desc = "Praise its holy name! Praise its holy hangover!"
+	glass_desc = "And She stood before Katarina in the guise of her very own squire, mortally wounded on her own pike, and she gurgled, 'Remedy affliction with temperance.'"
 
 /singleton/reagent/alcohol/godhead
 	name = "Godhead"
 	color = "#8f3bb1"
-	description = "And She came to Jarmila in the guise of a brewer-woman, and She said 'Know temptation and spit on its embers.'"
+	description = "And She whispered to Jarmila in the guise of a brewer-woman, and She said 'Know temptation and spit on its embers.'"
 	strength = 40
 	taste_description = "morozi winter, with all its hardships"
 
 	glass_icon_state = "godheadglass"
 	glass_name = "glass of godhead"
-	glass_desc = "And She came to Jarmila in the guise of a brewer-woman, and She said 'Know temptation and spit on its embers.'"
+	glass_desc = "And She whispered to Jarmila in the guise of a brewer-woman, and She said 'Know temptation and spit on its embers.'"
 
 /singleton/reagent/alcohol/tribunal
 	name = "Tribunal"
