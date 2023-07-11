@@ -577,7 +577,7 @@
 	if(use_check_and_message(usr))
 		return FALSE
 	if(!can_wear_under)
-		to_chat(usr, SPAN_NOTICE("[src] cannot be worn under your suit!"))
+		to_chat(usr, SPAN_NOTICE("[src] cannot be worn under your jacket!"))
 		return FALSE
 	
 	over_suit = !over_suit
