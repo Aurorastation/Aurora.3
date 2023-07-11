@@ -1,6 +1,7 @@
 /obj/machinery/autolathe
 	name = "autolathe"
 	desc = "A large device loaded with various item schematics. It uses a combination of steel and glass to fabricate items."
+	icon = 'icons/obj/machinery/autolathe.dmi'
 	icon_state = "autolathe"
 	density = TRUE
 	anchored = TRUE
@@ -235,7 +236,7 @@
 
 		if(does_flick)
 			//Fancy autolathe animation.
-			flick("autolathe_n", src)
+			add_overlay("process")
 
 		sleep(build_time)
 
@@ -253,12 +254,13 @@
 			var/obj/item/stack/S = I
 			S.amount = multiplier
 		build_item = null
+		cut_overlay("process")
 		I.update_icon()
 
 	updateUsrDialog()
 
 /obj/machinery/autolathe/update_icon()
-	icon_state = (panel_open ? "autolathe_t" : "autolathe")
+	icon_state = (panel_open ? "autolathe_panel" : "autolathe")
 
 //Updates overall lathe storage size.
 /obj/machinery/autolathe/RefreshParts()
@@ -336,7 +338,13 @@
 	else if(fill_status[FILL_INCOMPLETELY])
 		to_chat(user, SPAN_NOTICE("You fill \the [src] with [english_list(fill_status[FILL_INCOMPLETELY])] \the [eating]."))
 
-	flick("autolathe_o", src) // Plays metal insertion animation. Work out a good way to work out a fitting animation. ~Z
+	// Plays metal insertion animation.
+	var/obj/item/stack/material/sheet = O
+	var/icon/load = icon(icon, "load")
+	if(sheet)
+		load.Blend(sheet.material.icon_colour,ICON_MULTIPLY)
+	add_overlay(load)
+	CUT_OVERLAY_IN(load, 6)
 
 	if(istype(eating, /obj/item/stack))
 		var/obj/item/stack/stack = eating
