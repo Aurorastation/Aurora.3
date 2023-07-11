@@ -98,6 +98,7 @@
 		list("name" = "Diffracted Carbon Dioxide Laser", "type" = "carbon"),
 		list("name" = "Potassium Refrigerant Cloud", "type" = "potassium"),
 		list("name" = "Nitrogen Tracer Field", "type" = "nitrogen"),
+				list("name" = "Mercury Dispersion Wave", "type" = "mercury"),
 		list("name" = "Iron Wafer Conduction Field", "type" = "iron")
 	)
 
