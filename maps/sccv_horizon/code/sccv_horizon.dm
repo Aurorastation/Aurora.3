@@ -84,7 +84,7 @@
 	dust_contact_message = "The ship is now passing through a belt of space dust."
 	dust_end_message = "The ship has now passed through the belt of space dust."
 
-	radiation_detected_message = "High levels of radiation detected near the ship. Please evacuate into one of the shielded maintenance tunnels."
+	radiation_detected_message = "High levels of radiation detected near the ship. Please evacuate into one of the shielded maintenance tunnels." 
 	radiation_contact_message = "The ship has entered the radiation belt. Please remain in a sheltered area until we have passed the radiation belt."
 	radiation_end_message = "The ship has passed the radiation belt. Please allow for up to one minute while radiation levels dissipate, and report to medbay if you experience any unusual symptoms. Maintenance will lose all-access again shortly."
 
