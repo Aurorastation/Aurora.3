@@ -506,9 +506,8 @@
 
 	var/mob/living/carbon/human/H = wearer
 	if(ring && istype(H))
-		if(!H.equip_to_slot_if_possible(ring, slot_gloves))
-			ring.forceMove(get_turf(src))
-		src.ring = null
+		H.equip_to_slot(ring, slot_gloves)
+		ring = null
 	wearer = null
 
 /obj/item/clothing/gloves/dropped()
