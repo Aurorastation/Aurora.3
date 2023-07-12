@@ -1,6 +1,7 @@
 /obj/machinery/autolathe
 	name = "autolathe"
 	desc = "A large device loaded with various item schematics. It uses a combination of steel and glass to fabricate items."
+	icon = 'icons/obj/machinery/autolathe.dmi'
 	icon_state = "autolathe"
 	density = TRUE
 	anchored = TRUE
@@ -235,7 +236,7 @@
 
 		if(does_flick)
 			//Fancy autolathe animation.
-			flick("autolathe_n", src)
+			add_overlay("process")
 
 		sleep(build_time)
 
@@ -253,12 +254,13 @@
 			var/obj/item/stack/S = I
 			S.amount = multiplier
 		build_item = null
+		cut_overlay("process")
 		I.update_icon()
 
 	updateUsrDialog()
 
 /obj/machinery/autolathe/update_icon()
-	icon_state = (panel_open ? "autolathe_t" : "autolathe")
+	icon_state = (panel_open ? "autolathe_panel" : "autolathe")
 
 //Updates overall lathe storage size.
 /obj/machinery/autolathe/RefreshParts()
@@ -303,6 +305,7 @@
 	var/list/fill_status = list() // Used to determine message in cases of multiple materials.
 	var/total_used = 0     // Amount of material used.
 	var/mass_per_sheet = 0 // Amount of material constituting one sheet.
+	var/is_stack = FALSE //Affects the fill message
 
 	for(var/material in eating.matter)
 		if(isnull(stored_material[material]) || isnull(storage_capacity[material]))
@@ -316,6 +319,7 @@
 		//If it's a stack, we eat multiple sheets.
 		if(istype(eating, /obj/item/stack))
 			var/obj/item/stack/stack = eating
+			is_stack = TRUE
 			total_material *= stack.get_amount()
 
 		if(stored_material[material] + total_material > storage_capacity[material])
@@ -332,15 +336,22 @@
 		to_chat(user, SPAN_WARNING("\The [src] is full of [english_list(fill_status[NO_SPACE])]. Please remove some material in order to insert more."))
 		return
 	else if(fill_status[FILL_COMPLETELY])
-		to_chat(user, SPAN_NOTICE("You fill \the [src] to capacity with [english_list(fill_status[FILL_COMPLETELY])] with \the [eating]."))
+		to_chat(user, SPAN_NOTICE("You fill \the [src] to capacity with [english_list(fill_status[FILL_COMPLETELY])][is_stack ? "." : " from \the [eating]."]"))
 	else if(fill_status[FILL_INCOMPLETELY])
-		to_chat(user, SPAN_NOTICE("You fill \the [src] with [english_list(fill_status[FILL_INCOMPLETELY])] \the [eating]."))
+		to_chat(user, SPAN_NOTICE("You fill \the [src] with [english_list(fill_status[FILL_INCOMPLETELY])][is_stack ? "." : " from \the [eating]."]"))
 
-	flick("autolathe_o", src) // Plays metal insertion animation. Work out a good way to work out a fitting animation. ~Z
+	// Plays metal insertion animation.
+	if(istype(eating, /obj/item/stack/material))
+		var/obj/item/stack/material/sheet = eating
+		var/icon/load = icon(icon, "load")
+		load.Blend(sheet.material.icon_colour,ICON_MULTIPLY)
+		add_overlay(load)
+		CUT_OVERLAY_IN(load, 6)
 
 	if(istype(eating, /obj/item/stack))
 		var/obj/item/stack/stack = eating
-		stack.use(min(stack.get_amount(), total_used / mass_per_sheet)) // Prevent maths imprecision from leading to infinite resources
+		var/amount_needed = total_used / mass_per_sheet
+		stack.use(min(stack.get_amount(), (round(amount_needed) == amount_needed)? amount_needed : round(amount_needed) + 1)) // Prevent maths imprecision from leading to infinite resources
 	else
 		user.remove_from_mob(O)
 		qdel(O)
