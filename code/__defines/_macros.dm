@@ -4,7 +4,6 @@
 #define list_find(L, needle, LIMITS...) L.Find(needle, LIMITS)
 #define hex2num(hex) text2num(hex, 16)
 #define num2hex(num, pad) num2text(num, pad, 16)
-#ifdef EXPERIMENT_515_DONT_CACHE_REF
 
 /// Takes a datum as input, returns its ref string, or a cached version of it
 /// This allows us to cache \ref creation, which ensures it'll only ever happen once per datum, saving string tree time
