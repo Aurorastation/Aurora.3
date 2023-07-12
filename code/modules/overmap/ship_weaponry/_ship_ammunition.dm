@@ -25,7 +25,7 @@
 	var/obj/item/projectile/original_projectile
 	var/heading = SOUTH
 	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
-	var/mob_carry_size = MOB_LARGE //How large a mob has to be to carry the shell
+	var/mob_carry_size = 12 //How large a mob has to be to carry the shell
 	//Cookoff variables.
 	var/cookoff_devastation = 0
 	var/cookoff_heavy = 2

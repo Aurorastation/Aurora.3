@@ -6,6 +6,8 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 	init_order = SS_INIT_MISC_FIRST
 	priority = SS_PRIORITY_STATPANELS
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	init_stage = INITSTAGE_EARLY
+
 	var/list/currentrun = list()
 	var/list/global_data
 	var/list/mc_data
