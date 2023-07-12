@@ -1067,7 +1067,7 @@ var/list/total_extraction_beacons = list()
 		name = "strong resonance field"
 		resonance_damage = 60
 
-	addtimer(CALLBACK(src, PROC_REF(burst), loc), timetoburst)
+	addtimer(CALLBACK(src, PROC_REF(burst), loc), (timetoburst ? timetoburst : 1 SECONDS))
 
 /obj/effect/resonance/Destroy()
 	if(res)

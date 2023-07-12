@@ -31,7 +31,7 @@
 
 /obj/item/card/id/guest/Initialize(mapload, duration)
 	. = ..(mapload)
-	expiration_time = duration + world.time
+	expiration_time = (duration ? duration : 1 MINUTES) + world.time
 	addtimer(CALLBACK(src, PROC_REF(expire)), duration)
 
 /obj/item/card/id/guest/proc/expire()

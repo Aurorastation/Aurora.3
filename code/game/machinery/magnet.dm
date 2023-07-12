@@ -34,7 +34,7 @@
 	hide(!T.is_plating())
 	center = T
 
-	addtimer(CALLBACK(src, PROC_REF(magnetic_process)), 0, TIMER_UNIQUE)
+	INVOKE_ASYNC(src, PROC_REF(magnetic_process), TIMER_UNIQUE)
 
 /obj/machinery/magnetic_module/LateInitialize()
 	if(SSradio)
