@@ -1,5 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-changes:
-  - bugfix: "Drones can no longer decompile toy mechs, unspent ammo, or living borers, among other things."
-  - tweak: "Toy mechs now actually count as synthetic. Keep them away from EMPs."
