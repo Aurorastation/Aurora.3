@@ -26,6 +26,7 @@
 	new /obj/item/tank/anesthetic(src)
 	new /obj/item/tank/anesthetic(src)
 	new /obj/item/tank/anesthetic(src)
+	new /obj/item/tank/oxygen(src)
 	new /obj/item/clothing/mask/breath/medical(src)
 	new /obj/item/clothing/mask/breath/medical(src)
 	new /obj/item/clothing/mask/breath/medical(src)

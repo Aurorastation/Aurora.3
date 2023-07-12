@@ -653,6 +653,7 @@
 /area/horizon/bar/backroom
 	name = "Horizon - Bar - Backroom"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	flags = RAD_SHIELDED
 
 // Cafeteria
 /area/horizon/cafeteria

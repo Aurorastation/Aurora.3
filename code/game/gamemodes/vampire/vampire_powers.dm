@@ -618,7 +618,7 @@
 		var/list/damaged_organs = get_damaged_organs(TRUE, TRUE, FALSE)
 		if(length(damaged_organs))
 			// Heal an absurd amount, basically regenerate one organ.
-			heal_organ_damage(50, 50, FALSE)
+			heal_organ_damage(50, 50)
 			blood_used += 3
 
 		var/missing_blood = species.blood_volume - REAGENT_VOLUME(vessel, /singleton/reagent/blood)
