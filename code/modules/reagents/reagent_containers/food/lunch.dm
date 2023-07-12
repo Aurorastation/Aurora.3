@@ -17,7 +17,12 @@ var/list/lunchables_lunches_ = list(
 	/obj/item/reagent_containers/food/snacks/soup/earthenroot,
 	/obj/item/reagent_containers/food/snacks/redcurry,
 	/obj/item/reagent_containers/food/snacks/greencurry,
-	/obj/item/reagent_containers/food/snacks/yellowcurry
+	/obj/item/reagent_containers/food/snacks/yellowcurry,
+	/obj/item/reagent_containers/food/snacks/neaerakabob,
+	/obj/item/reagent_containers/food/snacks/soup/qilvo,
+	/obj/item/reagent_containers/food/snacks/soup/zantiri,
+	/obj/item/reagent_containers/food/snacks/xuqqil
+
 )
 
 var/list/lunchables_snacks_ = list(
@@ -53,7 +58,13 @@ var/list/lunchables_snacks_ = list(
 	/obj/item/reagent_containers/food/snacks/nathisnack,
 	/obj/item/reagent_containers/food/snacks/adhomian_can,
 	/obj/item/reagent_containers/food/snacks/adhomian_sausage,
-	/obj/item/reagent_containers/food/snacks/chocolatebar
+	/obj/item/reagent_containers/food/snacks/chocolatebar,
+	/obj/item/reagent_containers/food/drinks/jyalra,
+	/obj/item/reagent_containers/food/drinks/jyalracheese,
+	/obj/item/reagent_containers/food/drinks/jyalraapple,
+	/obj/item/reagent_containers/food/drinks/jyalracherry,
+	/obj/item/reagent_containers/food/snacks/gnaqmi,
+	/obj/item/reagent_containers/food/snacks/lortl
 )
 
 var/list/lunchables_drinks_ = list(

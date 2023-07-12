@@ -36,7 +36,7 @@
 	set_trait(TRAIT_POTENCY, 5)
 	set_trait(TRAIT_PRODUCT_ICON,"wumpafruit")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#61E2EC")
-	set_trait(TRAIT_PLANT_ICON,"wumpavines")
+	set_trait(TRAIT_PLANT_ICON,"wumpafruit")
 	set_trait(TRAIT_WATER_CONSUMPTION, 10)
 
 /obj/item/seeds/wulumunushaseed
@@ -155,7 +155,7 @@
 	set_trait(TRAIT_PRODUCT_ICON,"fjylozyn")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#990000")
 	set_trait(TRAIT_PLANT_COLOUR,"#993333")
-	set_trait(TRAIT_PLANT_ICON,"wumpavines")
+	set_trait(TRAIT_PLANT_ICON,"fjylozyn")
 	set_trait(TRAIT_YIELD, 6)
 	set_trait(TRAIT_BIOLUM,1)
 	set_trait(TRAIT_BIOLUM_COLOUR,"#990033")
