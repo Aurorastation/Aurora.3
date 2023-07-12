@@ -50,4 +50,5 @@ changes:
   - backend: "Now supports the TIMER_DELETE_ME flag."
   - bugfix: "Round() is now ROUNDUP() for the bucket position calculation, avoiding the insertion of some extremely short timers in the past."
   - bugfix: "Now prevents the deletion and reinsertion in buckets of timers that are spent already."
+  - bugfix: "Now prevents the insertion in buckets of timers that are marked as QDELETED."
   - bugfix: "Improved handling of some conditions with the timers, especially under a recovery event."
