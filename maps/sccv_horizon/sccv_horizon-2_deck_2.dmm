@@ -26842,7 +26842,6 @@
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload_foyer)
 "mYs" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Supermatter Reactor 4"
@@ -26853,6 +26852,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "mYx" = (
@@ -38258,8 +38258,8 @@
 /turf/simulated/wall,
 /area/horizon/crew_quarters/lounge/bar)
 "sLp" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "sLu" = (
@@ -39167,10 +39167,10 @@
 /area/hallway/engineering)
 "thL" = (
 /obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /turf/simulated/floor/carpet/rubber,
 /area/server)
 "thY" = (
