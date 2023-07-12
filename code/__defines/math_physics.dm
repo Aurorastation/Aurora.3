@@ -48,3 +48,5 @@
 
 #define SIMPLE_SIGN(X) ((X) < 0 ? -1 : 1)
 #define SIGN(X)        ((X) ? SIMPLE_SIGN(X) : 0)
+
+#define SHORT_REAL_LIMIT 16777216

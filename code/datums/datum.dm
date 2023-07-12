@@ -1,5 +1,5 @@
 /datum
-	var/tmp/list/active_timers
+	var/tmp/list/_active_timers
 	var/tmp/datum/weakref/weakref
 	var/tmp/isprocessing = 0
 	var/tmp/gcDestroyed //Time when this object was destroyed.
@@ -34,8 +34,8 @@
 	if(LAZYISIN(SSnanoui.open_uis, ui_key))
 		SSnanoui.close_uis(src)
 	tag = null
-	var/list/timers = active_timers
-	active_timers = null
+	var/list/timers = _active_timers
+	_active_timers = null
 	if (timers)
 		for (var/thing in timers)
 			var/datum/timedevent/timer = thing
