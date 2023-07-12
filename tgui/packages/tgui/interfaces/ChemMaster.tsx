@@ -109,7 +109,9 @@ export const ChemMaster = (props, context) => {
   let dispensable_quantities = [1, 2, 5, 10, 15, 20, 30, 60, 'Custom', 'All'];
 
   return (
-    <Window title={data.machine_name} theme="zenghu">
+    <Window
+      title={data.machine_name}
+      theme={data.is_condimaster ? 'idris' : 'zenghu'}>
       <Window.Content scrollable>
         <Section
           title={data.machine_name}
