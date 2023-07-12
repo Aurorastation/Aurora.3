@@ -73,7 +73,7 @@
 	if(!chance || prob(chance))
 		play(get_sound(starttime))
 	if(!timerid)
-		timerid = addtimer(CALLBACK(src, PROC_REF(sound_loop), world.time), mid_length, TIMER_STOPPABLE | TIMER_LOOP)
+		timerid = addtimer(CALLBACK(src, PROC_REF(sound_loop), world.time), (mid_length ? mid_length : 4 SECONDS), TIMER_STOPPABLE | TIMER_LOOP)
 
 /datum/looping_sound/proc/play(soundfile, volume_override)
 	var/list/atoms_cache = output_atoms
