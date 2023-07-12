@@ -25,8 +25,8 @@
 // Default implementation of clean-up code.
 // This should be overridden to remove all references pointing to the object being destroyed.
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
-/datum/proc/Destroy(force=FALSE)
-	SHOULD_CALL_PARENT(1)
+/datum/proc/Destroy(force=FALSE, ...)
+	SHOULD_CALL_PARENT(TRUE)
 
 	weakref = null
 	destroyed_event.raise_event(src)
@@ -34,12 +34,12 @@
 	if(LAZYISIN(SSnanoui.open_uis, ui_key))
 		SSnanoui.close_uis(src)
 	tag = null
-	var/list/timers = _active_timers
-	_active_timers = null
-	if (timers)
-		for (var/thing in timers)
-			var/datum/timedevent/timer = thing
-			if (timer.spent)
+
+	if(_active_timers)
+		var/list/timers = _active_timers
+		_active_timers = null
+		for(var/datum/timedevent/timer as anything in timers)
+			if (timer.spent && !(timer.flags & TIMER_DELETE_ME))
 				continue
 			qdel(timer)
 

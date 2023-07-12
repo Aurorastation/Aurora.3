@@ -39,3 +39,15 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - backend: "Attempted fix of some buckets in past, as seen in the CI."
+  - backend: "Ported TG's timer subsystem, realigning ours to upstream."
+  - backend: "Timers are now more diagnostic, tracking their source."
+  - backend: "Ported addtimer macro to accomplish line and filename for the timer source."
+  - backend: "Now supports multiple timer instances."
+  - backend: "Instead of computing the maximum timer ID every time (2**24), it is now a number directly."
+  - backend: "Now supports the TIMER_CLIENT_TIME flag, used to indicate that the timer to align the count to is client based, not server based."
+  - backend: "Now tries to avoid crashing in case of timer issues, via stack_trace."
+  - backend: "Now uses text_ref() for the hashlist, increasing entropy of the hashing function."
+  - backend: "Now supports the TIMER_DELETE_ME flag."
+  - bugfix: "Round() is now ROUNDUP() for the bucket position calculation, avoiding the insertion of some extremely short timers in the past."
+  - bugfix: "Now prevents the deletion and reinsertion in buckets of timers that are spent already."
+  - bugfix: "Improved handling of some conditions with the timers, especially under a recovery event."
