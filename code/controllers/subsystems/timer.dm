@@ -606,7 +606,7 @@ var/datum/controller/subsystem/timer/SStimer
 	// Generate hash if relevant for timed events with the TIMER_UNIQUE flag
 	var/hash
 	if (flags & TIMER_UNIQUE)
-		var/list/hashlist = list(callback.object, "(\ref[callback.object])", callback.delegate, flags & TIMER_CLIENT_TIME)
+		var/list/hashlist = list(callback.object, "([text_ref(callback.object)])", callback.delegate, flags & TIMER_CLIENT_TIME)
 		if(!(flags & TIMER_NO_HASH_WAIT))
 			hashlist += wait
 		hashlist += callback.arguments
