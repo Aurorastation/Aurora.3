@@ -84,7 +84,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
 "adv" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8;
 	must_start_working = 1
 	},
@@ -1213,7 +1213,7 @@
 /area/maintenance/research_port)
 "aVU" = (
 /obj/structure/reagent_dispensers/extinguisher,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/structure/extinguisher_cabinet{
@@ -2067,7 +2067,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -3207,7 +3207,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/machinery/firealarm/east,
@@ -3841,7 +3841,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4;
 	must_start_working = 1
 	},
@@ -3924,7 +3924,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/structure/sign/emergency/evacuation/pods{
@@ -3961,7 +3961,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -4320,7 +4320,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
@@ -5125,7 +5125,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
 "dJm" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4;
 	must_start_working = 1
 	},
@@ -5145,7 +5145,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8;
 	must_start_working = 1
 	},
@@ -9214,7 +9214,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -13896,7 +13896,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/machinery/alarm{
@@ -14158,7 +14158,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /obj/structure/sign/emergency/evacuation{
@@ -14896,7 +14896,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8;
 	must_start_working = 1
 	},
@@ -15936,7 +15936,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8;
 	must_start_working = 1
 	},
@@ -18144,7 +18144,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -18529,7 +18529,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -19943,7 +19943,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4;
 	must_start_working = 1
 	},
@@ -21389,7 +21389,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -21604,7 +21604,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4;
 	must_start_working = 1
 	},
@@ -26470,7 +26470,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "sKc" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -27405,7 +27405,7 @@
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
 "trW" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -27933,7 +27933,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "tJR" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/structure/sign/crush{
@@ -28317,7 +28317,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/green{
@@ -28824,7 +28824,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /obj/structure/sign/emergency/evacuation/pods{
@@ -31946,7 +31946,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenoarch_atrium)
 "wvY" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -32150,7 +32150,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/green{
@@ -32541,7 +32541,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -32795,7 +32795,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/green{
@@ -33695,7 +33695,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/plating,

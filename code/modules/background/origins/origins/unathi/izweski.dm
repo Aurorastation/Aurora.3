@@ -7,7 +7,9 @@
 		/singleton/origin_item/origin/tza_lower,
 		/singleton/origin_item/origin/tza_upper,
 		/singleton/origin_item/origin/southlands_lower,
-		/singleton/origin_item/origin/southlands_upper
+		/singleton/origin_item/origin/southlands_upper,
+		/singleton/origin_item/origin/zazalai_lower,
+		/singleton/origin_item/origin/zazalai_upper
 	)
 
 /singleton/origin_item/origin/izweski_lower
@@ -65,5 +67,28 @@
 	what will be the spark to set it off."
 	important_information = "Work and visitation visas should be mentioned in records as they are possible in any country where a peasant can get citizenship; almost all nobles shy away from getting citizenship abroad as it would be seen as betraying the Hegemon."
 	possible_accents = list(ACCENT_SOUTHLANDS_NOBLE)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI)
+	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_NONE)
+
+/singleton/origin_item/origin/zazalai_lower
+	name = "Zazalai Mountains Lower Castes"
+	desc = "Spanning nearly the entirety of Moghes, the Zazalai Mountains were the Hegemony's eastern border for centuries, and were reinforced as a mighty bulwark against any potential aggression. In the modern day, however, the only thing they guard \
+	against is the ever-spreading Wasteland. Much of the region has been rendered uninhabitable in the aftermath of the Contact War, and the cities and villages of the mountain range are gripped by famine, plagued by raiders and struggling with influxes of refugees from \
+	both the Wasteland, and the many communities of the mountain range left abandoned. The Sinta of this region are known for their skill as defenders, with every man of the range being obliged to undergo rigorous military training. With the Wasteland spreading further and further into \
+	the mountains, and more and more towns and cities being left uninhabitable, many of the cities of the region are not predicted to survive the decade. The Unathi of Zazalai are known for their strong sense of duty, often being described as being as unbreakable as the mountains they call their home."
+	important_information = "Should a peasant run away and stop paying tithes back home, especially if they have renounced their Izweski citizenship, they are at risk of having a bounty put on them or being found out and deported."
+	possible_accents = list(ACCENT_ZAZ_LOW)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_SIAKH, RELIGION_NONE)
+
+/singleton/origin_item/origin/zazalai_upper
+	name = "Zazalai Mountains Upper Castes"
+	desc = "Spanning nearly the entirety of Moghes, the Zazalai Mountains were the Hegemony's eastern border for centuries, and were reinforced as a mighty bulwark against any potential aggression. In the modern day, however, the only thing they guard \
+	against is the ever-spreading Wasteland. Much of the region has been rendered uninhabitable in the aftermath of the Contact War, and the cities and villages of the mountain range are gripped by famine, plagued by raiders and struggling with influxes of refugees from \
+	both the Wasteland, and the many communities of the mountain range left abandoned. The nobility of the Zazalai Mountains have had a historically prestigious role, acting as the foremost sentinels of the Hegemony against its enemies to the east. For many, adjusting to the \
+	modern age - where the mountains are considerably less important from a military point of view - has been difficult, and some have even abandoned their ancestral estates to seek gener pastures elsewhere. The Unathi of Zazalai are known for their strong sense of duty, often \
+	being described as being as unbreakable as the mountains they call their home."
+	important_information = "Work and visitation visas should be mentioned in records as they are possible in any country where a peasant can get citizenship; almost all nobles shy away from getting citizenship abroad as it would be seen as betraying the Hegemon."
+	possible_accents = list(ACCENT_ZAZ_HIGH)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_NONE)
