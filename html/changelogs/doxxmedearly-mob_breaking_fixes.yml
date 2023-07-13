@@ -1,6 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-changes:
-  - bugfix: "Simple mobs should no longer destroy closets and tables in one hit. They'll damage them as usual."
-  - tweak: "Some animals, like diyaabs and toy mechs, no longer randomly destroy their surroundings."
-  - tweak: "Some animals, like cavern dwellers and shantaks, are less likely to randomly damage their surroundings."
