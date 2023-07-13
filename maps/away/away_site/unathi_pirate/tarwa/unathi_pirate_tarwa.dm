@@ -40,6 +40,7 @@
 		"nav_tarwa3",
 		"nav_tarwa4"
 	)
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/tarwa/New()
 	designation = "[pick("Silent Sentinel", "Symbiosis", "Flying Dead", "Immortal", "Blood for Blood", "Unnatural Compatibility", "Barkscale", "Boneclaw", "Watcher in the Dark")]"
