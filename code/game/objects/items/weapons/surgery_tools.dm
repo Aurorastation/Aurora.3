@@ -103,23 +103,12 @@
 /*
  * Researchable Scalpels
  */
-/obj/item/surgery/scalpel/laser1
-	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks basic and could be improved."
-	icon_state = "scalpel_laser1"
-	damtype = "fire"
 
-/obj/item/surgery/scalpel/laser2
+/obj/item/surgery/scalpel/laser
 	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks somewhat advanced."
-	icon_state = "scalpel_laser2"
-	damtype = "fire"
-	force = 12
-
-/obj/item/surgery/scalpel/laser3
-	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks to be the pinnacle of precision energy cutlery!"
-	icon_state = "scalpel_laser3"
+	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field."
+	icon_state = "scalpel_laser"
+	origin_tech = list(TECH_BIO = 5, TECH_MATERIAL = 6, TECH_MAGNET = 4)
 	damtype = "fire"
 	force = 15
 
@@ -127,6 +116,7 @@
 	name = "incision management system"
 	desc = "A true extension of the surgeon's body, this marvel instantly and completely prepares an incision allowing for the immediate commencement of therapeutic steps."
 	icon_state = "scalpel_manager"
+	origin_tech = list(TECH_BIO = 6, TECH_MATERIAL = 6, TECH_MAGNET = 5, TECH_DATA = 5)
 	force = 7.5
 
 /*
@@ -237,9 +227,7 @@
 		/obj/item/surgery/hemostat = "tray_hemostat",
 		/obj/item/surgery/retractor = "tray_retractor",
 		/obj/item/surgery/scalpel = "tray_scalpel",
-		/obj/item/surgery/scalpel/laser1 = "tray_scalpel_laser1",
-		/obj/item/surgery/scalpel/laser2 = "tray_scalpel_laser2",
-		/obj/item/surgery/scalpel/laser3 = "tray_scalpel_laser3",
+		/obj/item/surgery/scalpel/laser = "tray_scalpel_laser",
 		/obj/item/surgery/scalpel/manager = "tray_scalpel_manager",
 		/obj/item/surgery/surgicaldrill = "tray_drill",
 		/obj/item/surgery/bone_gel = "tray_bone-gel",
