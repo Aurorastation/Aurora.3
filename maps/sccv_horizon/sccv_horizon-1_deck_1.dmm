@@ -12124,8 +12124,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "iDB" = (
-/obj/structure/dispenser/phoron,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
 "iDM" = (
@@ -27585,8 +27585,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "txT" = (
-/obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/dispenser,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "tyw" = (
