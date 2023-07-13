@@ -48,8 +48,22 @@
 
 //Restricted waypoints let important shuttles like the Intrepid land specifically in designated zones. The first tag here (labeled Intrepid) will follow the shuttle tag itself and prevent other shuttles from landing besides it
 	initial_restricted_waypoints = list(
-		"Intrepid" = list("nav_abandoned_industrial_station_intrepid")
+		"Intrepid" = list("nav_abandoned_industrial_station_intrepid"),
+		"Canary" = list("nav_abandoned_industrial_station_canary"),
+		"Spark" = list("nav_abandoned_industrial_station_spark")
 	)
+
+/obj/effect/shuttle_landmark/abandoned_industrial_station/nav_intrepid
+	name = "Intrepid Beacon"
+	landmark_tag = "nav_abandoned_industrial_station_intrepid"
+
+/obj/effect/shuttle_landmark/abandoned_industrial_station/nav_canary
+	name = "Canary Beacon"
+	landmark_tag = "nav_abandoned_industrial_station_canary"
+
+/obj/effect/shuttle_landmark/abandoned_industrial_station/nav_spark
+	name = "Spark Beacon"
+	landmark_tag = "nav_abandoned_industrial_station_spark"
 
 /obj/effect/shuttle_landmark/abandoned_industrial_station/nav_north
 	name = "North Beacon"//Visible ingame when landing a shuttle
@@ -67,8 +81,3 @@
 	name = "West Beacon"
 	landmark_tag = "nav_abandoned_industrial_station_west"
 
-/obj/effect/shuttle_landmark/abandoned_industrial_station/nav_intrepid//For the restricted Intrepid navpoint
-	name = "Intrepid Beacon"
-	landmark_tag = "nav_abandoned_industrial_station_intrepid"
-	//base_area = /area/placeholder_site/hangar
-	//base_turf = /turf/simulated/floor/airless/plating

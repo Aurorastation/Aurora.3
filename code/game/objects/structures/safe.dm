@@ -312,3 +312,7 @@ FLOOR SAFES
 	new /obj/random/highvalue/no_weapon(src)
 	new /obj/random/highvalue/no_weapon(src)
 	new /obj/random/highvalue/no_weapon(src)
+
+/obj/structure/safe/open
+	icon_state = "safe-open"
+	var/open = 1
