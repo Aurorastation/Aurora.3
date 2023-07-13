@@ -10085,11 +10085,11 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "fas" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
 	target_pressure = 15000
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "faB" = (
@@ -19841,11 +19841,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "jBj" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
 	target_pressure = 15000
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "jBq" = (
@@ -31428,15 +31428,15 @@
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "pmK" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4;
-	target_pressure = 15000
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -28
+	},
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4;
+	target_pressure = 15000
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -34215,16 +34215,16 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "qFY" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 8;
-	target_pressure = 15000
-	},
 /obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Supermatter Reactor 1";
 	dir = 1
 	},
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8;
+	target_pressure = 15000
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "qGp" = (
