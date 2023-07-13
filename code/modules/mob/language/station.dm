@@ -179,6 +179,17 @@
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
 	allow_accents = TRUE
 
+/datum/language/skrell/can_speak_special(mob/speaker)
+	if(!ishuman(speaker))
+		return FALSE
+	var/mob/living/carbon/human/H = speaker
+	var/obj/item/organ/internal/augment/language/zeng/aug = H.internal_organs_by_name[BP_AUG_LANGUAGE]
+	if(istype(aug))
+		to_chat(speaker, SPAN_WARNING("You are not capable of speaking Nral'malic!"))
+		return FALSE
+	else
+		return TRUE
+
 /datum/language/skrell/get_random_name()
 	var/new_name = ""
 	var/suff = ""
