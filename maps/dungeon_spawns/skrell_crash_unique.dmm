@@ -174,7 +174,7 @@
 /area/dungeon/skrell_ship)
 "aE" = (
 /obj/item/device/breath_analyzer,
-/obj/item/surgery/scalpel,
+/obj/item/surgery/scalpel/basic,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "aF" = (

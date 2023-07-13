@@ -12,8 +12,8 @@
 	can_infect = TRUE
 	blood_level = 1
 
-	min_duration = 50
-	max_duration = 60
+	min_duration = 5 SECONDS
+	max_duration = 6 SECONDS
 
 /singleton/surgery_step/glue_bone/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -48,8 +48,8 @@
 	WRENCH = 75		\
 	)
 
-	min_duration = 60
-	max_duration = 70
+	min_duration = 6 SECONDS
+	max_duration = 7 SECONDS
 
 /singleton/surgery_step/set_bone/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -88,8 +88,8 @@
 	WRENCH = 75		\
 	)
 
-	min_duration = 60
-	max_duration = 70
+	min_duration = 6 SECONDS
+	max_duration = 7 SECONDS
 
 /singleton/surgery_step/mend_skull/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -125,8 +125,8 @@
 	can_infect = TRUE
 	blood_level = 1
 
-	min_duration = 50
-	max_duration = 60
+	min_duration = 5 SECONDS
+	max_duration = 6 SECONDS
 
 /singleton/surgery_step/finish_bone/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

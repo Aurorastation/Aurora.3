@@ -1201,7 +1201,7 @@
 		/obj/item/device/assembly/prox_sensor = 3,
 		/obj/item/device/assembly/signaler = 3,
 		/obj/item/device/healthanalyzer = 3,
-		/obj/item/surgery/scalpel = 2,
+		/obj/item/surgery/scalpel/basic = 2,
 		/obj/item/surgery/circular_saw = 2,
 		/obj/item/screwdriver = 5,
 		/obj/item/crowbar = 5

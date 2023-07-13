@@ -1034,7 +1034,7 @@
 /area/outpost/engineering/power)
 "acC" = (
 /obj/structure/table/standard,
-/obj/item/surgery/scalpel,
+/obj/item/surgery/scalpel/basic,
 /obj/item/surgery/surgicaldrill,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -16047,7 +16047,7 @@
 "aGK" = (
 /obj/structure/table/standard,
 /obj/item/surgery/circular_saw,
-/obj/item/surgery/scalpel{
+/obj/item/surgery/scalpel/basic{
 	pixel_y = 8
 	},
 /obj/machinery/alarm{
@@ -36621,7 +36621,7 @@
 "xSj" = (
 /obj/structure/table/standard,
 /obj/item/autopsy_scanner,
-/obj/item/surgery/scalpel{
+/obj/item/surgery/scalpel/basic{
 	desc = "Cut, cut, and once more cut. This one is extra shiny!";
 	name = "shiny scalpel"
 	},

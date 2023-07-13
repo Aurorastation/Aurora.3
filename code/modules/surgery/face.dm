@@ -23,8 +23,8 @@
 	/obj/item/material/shard = 50
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 9 SECONDS
+	max_duration = 11 SECONDS
 
 /singleton/surgery_step/generic/cut_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_NORMAL
@@ -62,8 +62,8 @@
 	/obj/item/material/shard = 50
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 9 SECONDS
+	max_duration = 11 SECONDS
 
 /singleton/surgery_step/robotics/face/synthskin/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target.op_stage.face == FACE_NORMAL && target.get_species() == SPECIES_IPC_SHELL

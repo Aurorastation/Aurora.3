@@ -26,8 +26,8 @@
 	/obj/item/stack/medical/bruise_pack = 20
 	)
 
-	min_duration = 70
-	max_duration = 90
+	min_duration = 7 SECONDS
+	max_duration = 9 SECONDS
 
 /singleton/surgery_step/internal/fix_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -113,8 +113,8 @@
 	SCREWDRIVER = 70
 	)
 
-	min_duration = 70
-	max_duration = 90
+	min_duration = 7 SECONDS
+	max_duration = 9 SECONDS
 
 /singleton/surgery_step/internal/fix_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -183,8 +183,8 @@
 	/obj/item/material/shard = 50
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 9 SECONDS
+	max_duration = 11 SECONDS
 
 /singleton/surgery_step/internal/detach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -246,8 +246,8 @@
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
 
-	min_duration = 60
-	max_duration = 80
+	min_duration = 6 SECONDS
+	max_duration = 8 SECONDS
 
 /singleton/surgery_step/internal/remove_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -305,8 +305,8 @@
 	/obj/item/organ = 100
 	)
 
-	min_duration = 60
-	max_duration = 80
+	min_duration = 6 SECONDS
+	max_duration = 8 SECONDS
 
 /singleton/surgery_step/internal/replace_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -410,8 +410,8 @@
 	/obj/item/stack/cable_coil = 75
 	)
 
-	min_duration = 100
-	max_duration = 120
+	min_duration = 10 SECONDS
+	max_duration = 12 SECONDS
 
 /singleton/surgery_step/internal/attach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -464,8 +464,8 @@
 	/obj/item/pickaxe/ = 5
 	)
 
-	min_duration = 100
-	max_duration = 120
+	min_duration = 10 SECONDS
+	max_duration = 12 SECONDS
 
 /singleton/surgery_step/internal/prepare/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

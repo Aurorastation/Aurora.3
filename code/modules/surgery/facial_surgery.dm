@@ -145,8 +145,8 @@
 	/obj/item/material/shard = 50
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 9 SECONDS
+	max_duration = 11 SECONDS
 
 /singleton/surgery_step/robotics/face/synthskinopen/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target.op_stage.face == FACE_NORMAL && target.get_species() == SPECIES_IPC_SHELL
@@ -173,8 +173,8 @@
 	/obj/item/material/knife/tacknife = 75
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 9 SECONDS
+	max_duration = 11 SECONDS
 
 /singleton/surgery_step/robotics/face/prepare_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_CUT_OPEN
@@ -202,8 +202,8 @@
 	/obj/item/device/assembly/mousetrap = 10	//I don't know. Don't ask me. But I'm leaving it because hilarity.
 	)
 
-	min_duration = 40
-	max_duration = 90
+	min_duration = 4 SECONDS
+	max_duration = 9 SECONDS
 
 /singleton/surgery_step/robotics/face/alter_synthface/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_RETRACTED
@@ -247,8 +247,8 @@
 	/obj/item/weldingtool = 25
 	)
 
-	min_duration = 70
-	max_duration = 100
+	min_duration = 7 SECONDS
+	max_duration = 10 SECONDS
 
 /singleton/surgery_step/robotics/face/seal_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target.op_stage.face > FACE_NORMAL

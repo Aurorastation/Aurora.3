@@ -280,13 +280,7 @@ STOCK_ITEM_UNCOMMON(blade, 1.2)
 	new type(L)
 
 STOCK_ITEM_UNCOMMON(laserscalpel, 1.3)
-	var/list/lasers = list(
-		/obj/item/surgery/scalpel/laser1 = 3,
-		/obj/item/surgery/scalpel/laser2 = 2,
-		/obj/item/surgery/scalpel/laser3 = 1
-	)
-	var/type = pickweight(lasers)
-	new type(L)
+	new /obj/item/surgery/scalpel/laser(L)
 
 STOCK_ITEM_UNCOMMON(electropack, 1)
 	new /obj/item/device/radio/electropack(L)

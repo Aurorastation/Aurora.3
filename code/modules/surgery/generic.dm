@@ -53,7 +53,7 @@
 
 	if(istype(target) && !(target.species.flags & NO_BLOOD))
 		affected.status |= ORGAN_BLEEDING
-	playsound(target.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
+	playsound(target.loc, 'sound/items/Welder.ogg', 15, 1)
 
 	target.apply_damage(1, DAMAGE_BRUTE, target_zone, 0)
 	affected.clamp_organ()
@@ -65,6 +65,7 @@
 		SPAN_WARNING("Your hand slips as the blade sputters, searing a long gash in [target]'s [affected.name] with \the [tool]!"))
 	target.apply_damage(7.5, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(12.5, DAMAGE_BURN, target_zone, 0, tool)
+	playsound(target.loc, 'sound/weapons/bloodyslice.ogg', 50, 1)
 
 /singleton/surgery_step/generic/incision_manager
 	name = "Make Managed Incision"
@@ -96,6 +97,7 @@
 
 	if(istype(target) && !(target.species.flags & NO_BLOOD))
 		affected.status |= ORGAN_BLEEDING
+	playsound(target.loc, 'sound/weapons/circsawhit.ogg', 15, 1)
 
 	target.apply_damage(1, DAMAGE_BRUTE, target_zone, 0)
 	affected.clamp_organ()
@@ -107,11 +109,12 @@
 		SPAN_WARNING("Your hand jolts as the system sparks, ripping a gruesome hole in [target]'s [affected.name] with \the [tool]!"))
 	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(15, DAMAGE_BURN, target_zone, 0, tool)
+	playsound(target.loc, 'sound/weapons/bloodyslice.ogg', 50, 1)
 
 /singleton/surgery_step/generic/cut_open
 	name = "Make Incision"
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	/obj/item/surgery/scalpel/basic = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
@@ -152,6 +155,7 @@
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing open [target]'s [affected.name] in the wrong place with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, slicing open [target]'s [affected.name] in the wrong place with \the [tool]!"))
 	target.apply_damage(10, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	playsound(target.loc, 'sound/weapons/bloodyslice.ogg', 50, 1)
 
 /singleton/surgery_step/generic/cut_open_vaurca
 	name = "Cut Open Vaurca"
@@ -187,6 +191,7 @@
 
 	if(istype(target) && !(target.species.flags & NO_BLOOD))
 		affected.status |= ORGAN_BLEEDING
+	playsound(target.loc, 'sound/items/drill_use.ogg', 15, 1)
 
 	target.apply_damage(1, DAMAGE_BRUTE, target_zone, 0)
 

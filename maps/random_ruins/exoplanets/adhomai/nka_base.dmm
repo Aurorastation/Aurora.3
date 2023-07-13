@@ -323,7 +323,7 @@
 /area/nka_base)
 "vd" = (
 /obj/structure/table/standard,
-/obj/item/surgery/scalpel,
+/obj/item/surgery/scalpel/basic,
 /obj/item/surgery/retractor,
 /obj/item/flame/lighter/adhomai,
 /obj/effect/decal/cleanable/blood/drip,

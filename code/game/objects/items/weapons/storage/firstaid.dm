@@ -109,7 +109,7 @@
 		/obj/item/surgery/circular_saw = 1,
 		/obj/item/surgery/hemostat = 1,
 		/obj/item/surgery/retractor = 1,
-		/obj/item/surgery/scalpel = 1,
+		/obj/item/surgery/scalpel/basic = 1,
 		/obj/item/surgery/surgicaldrill = 1,
 		/obj/item/surgery/bone_gel = 1,
 		/obj/item/surgery/fix_o_vein = 1,

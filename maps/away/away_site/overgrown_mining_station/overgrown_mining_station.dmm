@@ -501,7 +501,7 @@
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "sF" = (
-/obj/item/surgery/scalpel,
+/obj/item/surgery/scalpel/basic,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "sQ" = (

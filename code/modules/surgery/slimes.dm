@@ -12,13 +12,13 @@
 /singleton/surgery_step/slime/cut_flesh
 	name = "Open Slime"
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	/obj/item/surgery/scalpel/basic = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
 
-	min_duration = 10
-	max_duration = 35
+	min_duration = 1 SECOND
+	max_duration = 3.5 SECONDS
 
 /singleton/surgery_step/slime/cut_flesh/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	return ..() && istype(target) && target.core_removal_stage == ORGAN_CLOSED
@@ -39,13 +39,13 @@
 /singleton/surgery_step/slime/cut_innards
 	name = "Cut Innards"
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	/obj/item/surgery/scalpel/basic = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
 
-	min_duration = 20
-	max_duration = 45
+	min_duration = 2 SECONDS
+	max_duration = 4.5 SECONDS
 
 /singleton/surgery_step/slime/cut_innards/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	return ..() && istype(target) && target.core_removal_stage == ORGAN_OPEN_INCISION
@@ -63,6 +63,31 @@
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, tearing [target]'s innards with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, tearing [target]'s innards with \the [tool]!"))
 
+/singleton/surgery_step/slime/laser_cut_flesh
+	name = "Make laser incision on slime"
+	allowed_tools = list(
+	/obj/item/surgery/scalpel/laser = 100
+	)
+
+	min_duration = 2.5 SECONDS
+	max_duration = 5 SECONDS
+
+/singleton/surgery_step/slime/laser_cut_flesh/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
+	return ..() && istype(target) && target.core_removal_stage == ORGAN_CLOSED
+
+/singleton/surgery_step/slime/laser_cut_flesh/begin_step(mob/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
+	user.visible_message("[user] starts slicing through to \the [target]'s silky innards with \the [tool].", \
+		"You start slicing through to \the [target]'s silky innards with \the [tool].")
+
+/singleton/surgery_step/slime/laser_cut_flesh/end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
+	user.visible_message(SPAN_NOTICE("[user] cuts [target]'s innards apart with \the [tool], exposing the cores."),	\
+		SPAN_NOTICE("You cut [target]'s innards apart with \the [tool], exposing the cores."))
+	target.core_removal_stage = ORGAN_OPEN_RETRACTED
+
+/singleton/surgery_step/slime/laser_cut_flesh/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, tearing [target]'s innards with \the [tool]!"), \
+		SPAN_WARNING("Your hand slips, tearing [target]'s innards with \the [tool]!"))
+
 /singleton/surgery_step/slime/saw_core
 	name = "Detach Core"
 	allowed_tools = list(
@@ -70,8 +95,8 @@
 	/obj/item/material/hatchet = 75
 	)
 
-	min_duration = 35
-	max_duration = 55
+	min_duration = 3.5 SECONDS
+	max_duration = 5.5 SECONDS
 
 /singleton/surgery_step/slime/saw_core/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	return ..() && (istype(target) && target.core_removal_stage == ORGAN_OPEN_RETRACTED && target.cores > 0) //This is being passed a human as target, unsure why.
@@ -94,3 +119,33 @@
 /singleton/surgery_step/slime/saw_core/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, causing [user.get_pronoun("him")] to miss the core!"), \
 		SPAN_WARNING("Your hand slips, causing you to miss the core!"))
+
+/singleton/surgery_step/slime/manage_core
+	name = "Detach Core Managed"
+	allowed_tools = list(
+	/obj/item/surgery/scalpel/manager = 100
+	)
+	min_duration = 4.5 SECONDS
+	max_duration = 6.5 SECONDS
+
+/singleton/surgery_step/slime/manage_core/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
+	return ..() && (istype(target) && target.core_removal_stage == ORGAN_CLOSED && target.cores > 0) //This is being passed a human as target, unsure why.
+
+/singleton/surgery_step/slime/manage_core/begin_step(mob/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
+	user.visible_message("[user] starts extracting \the [target]'s cores with \the [tool].", \
+		"You start extracting one of \the [target]'s cores with \the [tool].")
+
+/singleton/surgery_step/slime/manage_core/end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
+	target.cores--
+	user.visible_message(SPAN_NOTICE("[user] cuts out one of [target]'s cores with \the [tool]."),,	\
+		SPAN_NOTICE("You cut out one of \the [target]'s cores with \the [tool]. [target.cores] cores left."))
+
+	if(target.cores >= 0)
+		new target.coretype(target.loc)
+	if(target.cores < 0)
+		target.icon_state = "[target.colour] baby slime dead-nocore"
+
+
+/singleton/surgery_step/slime/manage_core/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, tearing [target]'s innards with \the [tool]!"), \
+		SPAN_WARNING("Your hand slips, tearing [target]'s innards with \the [tool]!"))

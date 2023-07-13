@@ -423,7 +423,7 @@
 /area/mine/unexplored)
 "aaZ" = (
 /obj/structure/table/standard,
-/obj/item/surgery/scalpel{
+/obj/item/surgery/scalpel/basic{
 	desc = "Cut, cut, and once more cut. This one looks a little rusty. Perhaps its best not to cut yourself with this!";
 	name = "rusty scalpel"
 	},

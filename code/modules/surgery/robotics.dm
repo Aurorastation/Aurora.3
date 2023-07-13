@@ -30,8 +30,8 @@
 		/obj/item/material/kitchen/utensil/knife = 50
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 9 SECONDS
+	max_duration = 11 SECONDS
 
 	requires_surgery_compatibility = FALSE
 
@@ -72,8 +72,8 @@
 		/obj/item/material/kitchen/utensil/knife = 50
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 9 SECONDS
+	max_duration = 11 SECONDS
 
 	requires_surgery_compatibility = FALSE
 
@@ -114,8 +114,8 @@
 		/obj/item/material/kitchen/utensil = 50
 	)
 
-	min_duration = 30
-	max_duration = 40
+	min_duration = 3 SECONDS
+	max_duration = 4 SECONDS
 
 /singleton/surgery_step/robotics/open_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -151,8 +151,8 @@
 		/obj/item/material/kitchen/utensil = 50
 	)
 
-	min_duration = 70
-	max_duration = 100
+	min_duration = 7 SECONDS
+	max_duration = 10 SECONDS
 
 /singleton/surgery_step/robotics/close_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -191,8 +191,8 @@
 		/obj/item/gun/energy/plasmacutter = 50
 	)
 
-	min_duration = 50
-	max_duration = 60
+	min_duration = 5 SECONDS
+	max_duration = 6 SECONDS
 
 /singleton/surgery_step/robotics/repair_brute/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -236,8 +236,8 @@
 		/obj/item/stack/cable_coil/cyborg = 100
 	)
 
-	min_duration = 50
-	max_duration = 60
+	min_duration = 5 SECONDS
+	max_duration = 6 SECONDS
 
 /singleton/surgery_step/robotics/repair_burn/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -279,8 +279,8 @@
 	/obj/item/device/multitool = 100
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 9 SECONDS
+	max_duration = 11 SECONDS
 
 /singleton/surgery_step/robotics/detach_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -329,8 +329,8 @@
 		SCREWDRIVER = 100
 	)
 
-	min_duration = 100
-	max_duration = 120
+	min_duration = 10 SECONDS
+	max_duration = 12 SECONDS
 
 	requires_surgery_compatibility = FALSE
 
@@ -380,8 +380,8 @@
 	/obj/item/device/mmi = 100
 	)
 
-	min_duration = 60
-	max_duration = 80
+	min_duration = 6 SECONDS
+	max_duration = 8 SECONDS
 
 /singleton/surgery_step/robotics/install_mmi/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

@@ -271,8 +271,8 @@
 	/obj/item/material/hatchet = 55
 	)
 
-	min_duration = 110
-	max_duration = 160
+	min_duration = 11 SECONDS
+	max_duration = 16 SECONDS
 
 /singleton/surgery_step/amputate/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

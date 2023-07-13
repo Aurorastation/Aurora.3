@@ -46852,7 +46852,7 @@
 /obj/item/autopsy_scanner{
 	pixel_x = -11
 	},
-/obj/item/surgery/scalpel,
+/obj/item/surgery/scalpel/basic,
 /obj/item/device/mass_spectrometer{
 	pixel_x = 10
 	},

@@ -342,7 +342,7 @@
 	},
 /area/exoplanet/adhomai)
 "vA" = (
-/obj/item/surgery/scalpel,
+/obj/item/surgery/scalpel/basic,
 /obj/structure/table/wood,
 /obj/item/reagent_containers/glass/bucket/wood{
 	pixel_x = -4;

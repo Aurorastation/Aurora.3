@@ -236,7 +236,7 @@
 
 /datum/autolathe/recipe/scalpel
 	name = "scalpel"
-	path = /obj/item/surgery/scalpel
+	path = /obj/item/surgery/scalpel/basic
 	category = "Medical"
 
 /datum/autolathe/recipe/circularsaw

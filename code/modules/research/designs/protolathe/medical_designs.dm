@@ -47,32 +47,18 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 7000)
 	build_path = /obj/item/stack/nanopaste
 
-/datum/design/item/medical/scalpel_laser1
-	name = "Basic Laser Scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks basic and could be improved."
-	req_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2, TECH_MAGNET = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500)
-	build_path = /obj/item/surgery/scalpel/laser1
-
-/datum/design/item/medical/scalpel_laser2
-	name = "Improved Laser Scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks somewhat advanced."
-	req_tech = list(TECH_BIO = 3, TECH_MATERIAL = 4, TECH_MAGNET = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 2500)
-	build_path = /obj/item/surgery/scalpel/laser2
-
-/datum/design/item/medical/scalpel_laser3
-	name = "Advanced Laser Scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks to be the pinnacle of precision energy cutlery!"
-	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 6, TECH_MAGNET = 5)
+/datum/design/item/medical/scalpel_laser
+	name = "Laser Scalpel"
+	desc = "An advanced scalpel augmented with a directed laser, for more precise cutting without blood entering the field."
+	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 5, TECH_MAGNET = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 2000, MATERIAL_GOLD = 1500)
-	build_path = /obj/item/surgery/scalpel/laser3
+	build_path = /obj/item/surgery/scalpel/laser
 
 /datum/design/item/medical/scalpel_manager
 	name = "Incision Management System"
 	desc = "A true extension of the surgeon's body, this marvel instantly and completely prepares an incision allowing for the immediate commencement of therapeutic steps."
-	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 7, TECH_MAGNET = 5, TECH_DATA = 4)
-	materials = list (DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 1500, MATERIAL_GOLD = 1500, MATERIAL_DIAMOND = 750)
+	req_tech = list(TECH_BIO = 6, TECH_MATERIAL = 7, TECH_MAGNET = 5, TECH_DATA = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 1500, MATERIAL_GOLD = 1500, MATERIAL_DIAMOND = 750)
 	build_path = /obj/item/surgery/scalpel/manager
 
 /datum/design/item/medical/inhaler

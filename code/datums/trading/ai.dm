@@ -162,7 +162,7 @@
 		/obj/item/surgery/hemostat                             = TRADER_THIS_TYPE,
 		/obj/item/surgery/cautery                              = TRADER_THIS_TYPE,
 		/obj/item/surgery/surgicaldrill                        = TRADER_THIS_TYPE,
-		/obj/item/surgery/scalpel                              = TRADER_ALL,
+		/obj/item/surgery/scalpel/basic                        = TRADER_ALL,
 		/obj/item/surgery/circular_saw                         = TRADER_THIS_TYPE,
 		/obj/item/surgery/bone_gel                             = TRADER_THIS_TYPE,
 		/obj/item/surgery/fix_o_vein                           = TRADER_THIS_TYPE,
