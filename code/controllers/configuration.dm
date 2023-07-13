@@ -446,6 +446,8 @@ var/list/gamemode_cache = list()
 	var/asset_simple_preload
 	var/asset_cdn_webroot = ""
 	var/asset_cdn_url = null
+	
+	var/canon_death = 0 //If canon deaths are enforced
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -1057,6 +1059,9 @@ var/list/gamemode_cache = list()
 					asset_cdn_webroot = (value[length(value)] != "/" ? (value + "/") : value)
 				if("asset_cdn_url")
 					asset_cdn_url = (value[length(value)] != "/" ? (value + "/") : value)
+
+				if("canon_death")
+					canon_death = TRUE
 
 				else
 					log_config("Unknown setting in configuration: '[name]'")

@@ -252,8 +252,11 @@
 	if(!establish_db_connection(dbcon))
 		log_game("SQL ERROR during death reporting. Failed to connect.")
 	else
-		var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_death (name, ckey, char_id, job, special, pod, tod, laname, lackey, gender, bruteloss, fireloss, brainloss, oxyloss, coord) VALUES \
-		(:name:, :ckey:, :char_id:, :job:, :special:, :pod:, :tod:, :laname:, :lackey:, :gender:, :bruteloss:, :fireloss:, :brainloss:, :oxyloss:, :coord:')")
+		//Prepare location data
+		var/turf/T = get_turf(H)
+
+		var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_death (name, ckey, char_id, job, special, pod, tod, laname, lackey, gender, bruteloss, fireloss, brainloss, oxyloss, loc_x, loc_y, loc_z) VALUES \
+		(:name:, :ckey:, :char_id:, :job:, :special:, :pod:, :tod:, :laname:, :lackey:, :gender:, :bruteloss:, :fireloss:, :brainloss:, :oxyloss:, :loc_x:, :loc_y:, :loc_z:)")
 		if(!query.Execute(list(
 			"name"=H.real_name,
 			"ckey"=H.ckey,
@@ -269,7 +272,9 @@
 			"fireloss"=H.getFireLoss(),
 			"brainloss"=H.getBrainLoss(),
 			"oxyloss"=H.getOxyLoss(),
-			"coord"="[H.x], [H.y], [H.z]")
+			"loc_x"=T.x,
+			"loc_y"=T.y,
+			"loc_z"=T.z)
 			))
 			var/err = query.ErrorMsg()
 			log_game("SQL ERROR during death reporting. Error : \[[err]\]\n")
