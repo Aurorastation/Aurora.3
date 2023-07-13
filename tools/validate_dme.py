@@ -8,8 +8,11 @@ reading = False
 FORBID_INCLUDE = [
     'code/__defines/unit_testing.dm',
     'code/unit_tests/_template.dm',
-    'code/___odlint.dm',
     'code/modules/multiz/disabled.dm',
+
+    #Files included by code\__linters.dm, not to evaluate in this check
+    'code/___linters/spaceman_dmm.dm',
+    'code/___linters/odlint.dm',
 
     # Included by tgs/includes.dm
     r'code/modules/tgs/**/*.dm',

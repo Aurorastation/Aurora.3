@@ -276,6 +276,7 @@ export const Chat = (props, context) => {
           placeholder="Type your message. Press enter to send."
           width="100%"
           selfClear
+          strict
           onInput={(e, v) => setNewMessage(v)}
           onChange={(e, v) =>
             act('send', {

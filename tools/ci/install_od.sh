@@ -8,7 +8,7 @@ then
   git -C $HOME/OpenDream fetch origin
   git -C $HOME/OpenDream reset --hard origin/master
 
-  git -C $HOME/OpenDream submodule update --remote
+  git -C $HOME/OpenDream submodule update --init --recursive
 
 
 else

@@ -1,10 +1,11 @@
 /datum/controller/subsystem/ping
 	name = "Ping"
 	priority = SS_PRIORITY_PING
-	init_order = SS_INIT_MISC_FIRST
+	init_order = SS_INIT_PING
 	wait = 4 SECONDS
 	flags = SS_NO_INIT
 	runlevels = RUNLEVEL_INIT | RUNLEVEL_LOBBY | RUNLEVEL_SETUP | RUNLEVEL_GAME | RUNLEVEL_POSTGAME
+	init_stage = INITSTAGE_EARLY
 
 	var/list/currentrun = list()
 

@@ -6,6 +6,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	wait = 2 SECONDS
 	flags = SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	init_stage = INITSTAGE_EARLY
 
 	var/collection_timeout = 3000// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
 	var/delslasttick = 0		// number of del()'s we've done this tick
