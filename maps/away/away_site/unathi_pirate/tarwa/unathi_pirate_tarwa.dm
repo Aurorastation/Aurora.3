@@ -18,7 +18,7 @@
 	class = "ICV"
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
-	colors = list("#c2c1ac", "#1b4720")
+	colors = list("#c2c1ac", "#1b7325")
 	scanimage = "unathi_diona_freighter.png"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
