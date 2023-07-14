@@ -72,8 +72,8 @@
 	displays_id = 0
 
 /obj/item/clothing/under/rank/fib
-	name = "\improper FIB agent uniform"
-	desc = "A formal uniform used by Federal Investigations Bureau agents."
+	name = "\improper BSSB agent uniform"
+	desc = "A formal uniform used by Biesel Security Services Bureau agents."
 	icon_state = "fib_uniform"
 	worn_state = "fib_uniform"
 

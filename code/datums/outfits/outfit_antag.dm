@@ -235,7 +235,6 @@
 		/obj/item/clothing/accessory/overalls/random,
 		/obj/item/clothing/suit/captunic/capjacket,
 		/obj/item/clothing/suit/ianshirt,
-		/obj/item/clothing/suit/storage/toggle/fib,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
 		/obj/item/clothing/suit/storage/hooded/wintercoat,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/red,

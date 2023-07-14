@@ -463,8 +463,8 @@ var/const/NO_EMAG_ACT = -50
     return ..(user, add_text, blind_add_text)
 
 /obj/item/card/id/ccia/fib
-	name = "\improper Federal Investigations Bureau identification card"
-	desc = "An ID straight from the Federal Investigations Bureau."
+	name = "\improper Biesel Security Services Bureau identification card"
+	desc = "An ID straight from the Biesel Security Services Bureau."
 	icon_state = "fib"
 
 /obj/item/card/id/ert

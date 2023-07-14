@@ -356,5 +356,5 @@
 	max_storage_space = 16
 
 /obj/item/storage/lockbox/cciaa/fib
-	name = "FIB agent briefcase"
+	name = "BSSB agent briefcase"
 	desc = "A smart looking ID locked briefcase."

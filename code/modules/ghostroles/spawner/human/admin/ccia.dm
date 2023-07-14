@@ -58,10 +58,6 @@
 
 	outfit = /datum/outfit/admin/scc
 
-	//take this block of code out once CCIA moves over to SCC proper
-	enabled = FALSE
-	req_perms_edit = R_ADMIN
-
 	assigned_role = "SCC Agent"
 	special_role = "SCC Agent"
 
@@ -80,7 +76,7 @@
 
 	enabled = FALSE
 	req_perms = null
-	req_perms_edit = R_ADMIN // change this to R_CCIAA when CCIA moves to SCC
+	req_perms_edit = R_CCIAA
 	max_count = 1
 
 	assigned_role = "SCC Bodyguard"
@@ -90,27 +86,27 @@
 	mob_name_pick_message = "Pick a name."
 
 /datum/ghostspawner/human/admin/corporate/fib
-	short_name = "fib"
-	name = "FIB Agent"
-	desc = "Investigate issues related to crimes under the jurisdiction of the Federal Investigations Bureau."
+	short_name = "bssb"
+	name = "BSSB Agent"
+	desc = "Investigate issues related to crimes under the jurisdiction of the Biesel Security Services Bureau."
 
-	outfit = /datum/outfit/admin/nt/fib
+	outfit = /datum/outfit/admin/nt/bssb
 	possible_species = list(SPECIES_HUMAN)
 
-	assigned_role = "FIB Agent"
-	special_role = "FIB Agent"
+	assigned_role = "BSSB Agent"
+	special_role = "BSSB Agent"
 
 	mob_name_prefix = "S/Agt. "
 	mob_name_pick_message = "Pick a name."
 
 /datum/ghostspawner/human/admin/corporate/fib/escort
-	short_name = "fibescort"
-	name = "FIB Escort"
-	desc = "Protect the agents of the Federal Investigations Bureau while on the field."
+	short_name = "bssbescort"
+	name = "BSSB Escort"
+	desc = "Protect the agents of the Biesel Security Services Bureau while on the field."
 
 	landmark_name = "CCIAEscort"
 
-	outfit = /datum/outfit/admin/nt/fib/guard
+	outfit = /datum/outfit/admin/nt/bssb/guard
 
 	enabled = FALSE
 
@@ -118,8 +114,8 @@
 	req_perms_edit = R_CCIAA
 	max_count = 1
 
-	assigned_role = "FIB Escort"
-	special_role = "FIB Escort"
+	assigned_role = "BSSB Escort"
+	special_role = "BSSB Escort"
 
 	mob_name_prefix = "Agt. "
 	mob_name_pick_message = "Pick a name."

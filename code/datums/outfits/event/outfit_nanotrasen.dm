@@ -192,8 +192,8 @@
 
 	id_access = "Death Commando"
 
-/datum/outfit/admin/nt/fib
-	name = "FIB Agent"
+/datum/outfit/admin/nt/bssb
+	name = "BSSB Agent"
 
 	uniform = /obj/item/clothing/under/rank/fib
 	suit = /obj/item/clothing/suit/storage/toggle/fib
@@ -216,8 +216,8 @@
 	id_icon = "fib"
 	id_access = "CCIA Agent"
 
-/datum/outfit/admin/nt/fib/guard
-	name = "FIB Escort"
+/datum/outfit/admin/nt/bssb/guard
+	name = "BSSB Escort"
 
 	suit = /obj/item/clothing/suit/armor/vest/fib
 	belt =/obj/item/storage/belt/security
