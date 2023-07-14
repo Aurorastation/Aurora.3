@@ -48,7 +48,7 @@ var/list/gamemode_cache = list()
 	"log_speech_indicators" = FALSE,	// Speech indicator
 	"log_tools" = FALSE,	// Tools
 	"log_manifest" = TRUE,	// Manifest
-	"log_asset" = FALSE					// log asset caching
+	"log_asset" = FALSE,	// log asset caching
 
 	//// SUBSYSTEMS ////
 

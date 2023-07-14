@@ -80,29 +80,29 @@ rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log
 #if defined(UNIT_TEST)
 #define WRITE_LOG(file, text) \
 SEND_TEXT(world.log, "\[[file]\]: [text]");\
-rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text]", "true")
 
 #elif DM_VERSION < 515
 #define WRITE_LOG(file, text)\
-rustg_log_write(LOGPATH(file), "[game_id] \[[__FILE__]:[__LINE__]\]: [text][log_end]", "true");\
+rustg_log_write(LOGPATH(file), "[game_id] \[[__FILE__]:[__LINE__]\]: [text]", "true");\
 \
 if(config?.all_logs_to_chat) { \
 	to_chat(world, "\[[file]\]: [text]");\
 }\
 \
 if(config?.condense_all_logs) {\
-	rustg_log_write(LOGPATH("condensed.log"), "[game_id] \[[__FILE__]:[__LINE__]\]: [text][log_end]", "true");\
+	rustg_log_write(LOGPATH("condensed.log"), "[game_id] \[[__FILE__]:[__LINE__]\]: [text]", "true");\
 }
 
 #else
 #define WRITE_LOG(file, text)\
-rustg_log_write(LOGPATH(file), "[game_id] [nameof(__PROC__)]: [text][log_end]", "true");\
+rustg_log_write(LOGPATH(file), "[game_id] [nameof(__PROC__)]: [text]", "true");\
 \
 if(config?.all_logs_to_chat) { \
 	to_chat(world, "\[[file]\]: [text]");\
 }\
 if(config?.condense_all_logs) {\
-	rustg_log_write(LOGPATH("condensed.log"), "[game_id] [nameof(__PROC__)]: [text][log_end]", "true");\
+	rustg_log_write(LOGPATH("condensed.log"), "[game_id] [nameof(__PROC__)]: [text]", "true");\
 }
 #endif
 
