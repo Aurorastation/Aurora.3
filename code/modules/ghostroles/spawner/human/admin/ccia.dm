@@ -91,7 +91,7 @@
 	desc = "Investigate issues related to crimes under the jurisdiction of the Biesel Security Services Bureau."
 
 	outfit = /datum/outfit/admin/nt/bssb
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 
 	assigned_role = "BSSB Agent"
 	special_role = "BSSB Agent"
@@ -107,6 +107,7 @@
 	landmark_name = "CCIAEscort"
 
 	outfit = /datum/outfit/admin/nt/bssb/guard
+	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
 	enabled = FALSE
 
