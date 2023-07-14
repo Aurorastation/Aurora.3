@@ -12,8 +12,11 @@
 	var/sizeclass = "Unknown"							//The class of the design if applicable. Not a prefix. Should be things like battlestations or corvettes
 	var/shiptype = "Unknown"							//The designated purpose of the design. Should briefly describe whether it's a combatant or study vessel for example
 
+	var/alignment = "Unknown"							//For landing sites. Allows the crew to know if they're landing somewhere bad or not
+
 	var/generic_object = TRUE //Used to give basic scan descriptions of every generic overmap object that excludes noteworthy locations, ships and exoplanets
 	var/static_vessel = FALSE //Used to expand scan details for visible space stations
+	var/landing_site = FALSE //Used for unique landing sites that occupy the same overmap tile as another - for example, the implementation of Point Verdant and Konyang
 
 	layer = OVERMAP_SECTOR_LAYER
 
@@ -48,6 +51,17 @@
 		. += "<br><small><b>Manufacturer:</b> [designer]"
 		. += "<br><b>Class Designation:</b> [sizeclass]"
 		. += "<br><b>Weapons Estimation:</b> [weapons]</small>"
+		. += "<hr>"
+		. += "<br><center><b>Native Database Notes</b></center>"
+		. += "<br><small>[desc]</small>"
+	if(landing_site == TRUE)
+		. += "<hr>"
+		. += "<br><center><large><b>Designated Landing Zone Details</b></large>"
+		. += "<br><large><b>[name]</b></large></center>"
+		. += "<hr>"
+		. += "<br><center><b>Native Database Specifications</b>"
+		. += "<br><img src = [scanimage]></center>"
+		. += "<br><small><b>Governing Body:</b> [alignment]"
 		. += "<hr>"
 		. += "<br><center><b>Native Database Notes</b></center>"
 		. += "<br><small>[desc]</small>"

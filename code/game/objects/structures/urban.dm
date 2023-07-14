@@ -339,3 +339,79 @@
 	density = TRUE
 	anchored = TRUE
 	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/sign/urban
+	name = "building sign"
+	desc = "A sign labeling the structure it finds itself on."
+	icon_state = "goldenplaque"
+
+/obj/structure/sign/urban/konyang
+	name = "convenience store sign"
+	desc = "A sign labeling the structure as a 24-7 MINI MART. Convenient!"
+	icon = 'icons/obj/structure/urban/konyang_signs.dmi'
+	icon_state = "shop_sign"
+
+/obj/structure/sign/urban/konyang/police
+	name = "police station sign"
+	desc = "A sign labeling the structure as a Konyang police department building."
+	icon_state = "police_sign"
+
+/obj/structure/sign/urban/konyang/robotics
+	name = "robotics clinic sign"
+	desc = "A sign labeling the structure as a robotics and clinical support building."
+	icon_state = "krc_sign"
+
+/obj/structure/sign/urban/konyang/bar
+	name = "club and bar sign"
+	desc = "A sign labeling the structure as the Resting Tiger nightclub and bar."
+	icon_state = "bar_sign"
+
+/obj/structure/sign/urban/konyang/arcade
+	name = "arcade sign"
+	desc = "A sign labeling the structure as a very cool arcade."
+	icon_state = "arcade_sign"
+
+/obj/structure/sign/urban/konyang/pharmacy
+	name = "pharmacy sign"
+	desc = "A sign labeling the structure as a Konyang health and supply pharmacy."
+	icon_state = "pharmacy_sign"
+
+/obj/structure/window/urban
+	icon = 'icons/obj/structure/urban/windows_tall.dmi'
+	icon_state = "wood"
+	basestate = "wood"
+	maxhealth = 60
+
+/obj/structure/window/urban/framed
+	icon_state = "wood_framed"
+	basestate = "wood_framed"
+
+/obj/machinery/door/urban
+	name = "wooden panel door"
+	desc = "A delicate wooden door with a pristine bronze knob."
+	icon = 'icons/obj/structure/urban/unique_simple_doors.dmi'
+	icon_state = "wood_closed"
+	pixel_x = -16
+	pixel_y = -16
+	var/base_icon = "wood"
+
+/obj/machinery/door/urban/update_icon()
+	if(density)
+		icon_state = "[base_icon]_closed"
+	else
+		icon_state = "[base_icon]_open"
+	return
+
+/obj/machinery/door/urban/proc/do_animate(animation)
+	switch(animation)
+		if("opening")
+			if(p_open)
+				flick("[base_icon]c0", src)
+			else
+				flick("[base_icon]c0", src)
+		if("closing")
+			if(p_open)
+				flick("[base_icon]c1", src)
+			else
+				flick("[base_icon]c1", src)
+	return
