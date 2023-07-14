@@ -8,6 +8,7 @@
 	climbable = TRUE
 	layer = LAYER_TABLE
 	throwpass = 1
+	breakable = TRUE
 	var/flipped = 0
 	var/maxhealth = 10
 	var/health = 10
@@ -197,6 +198,7 @@
 
 	reinforced = common_material_add(S, user, "reinforc")
 	if(reinforced)
+		breakable = FALSE
 		update_desc()
 		queue_icon_update()
 		update_material()
@@ -252,7 +254,8 @@
 	return null
 
 /obj/structure/table/proc/remove_reinforced(obj/item/screwdriver/S, mob/user)
-	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", 'sound/items/screwdriver.ogg')
+	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", 'sound/items/Screwdriver.ogg')
+	breakable = TRUE
 
 /obj/structure/table/proc/remove_material(obj/item/wrench/W, mob/user)
 	material = common_material_remove(user, material, 20, "plating", "bolts", W.usesound)

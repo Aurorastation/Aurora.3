@@ -427,8 +427,9 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	if (suspended)
 		wake()
 
-/datum/controller/subsystem/explosives/stat_entry()
-	..("P:[work_queue.len]")
+/datum/controller/subsystem/explosives/stat_entry(msg)
+	msg ="P:[work_queue.len]"
+	return ..()
 
 // The data datum for explosions.
 /datum/explosiondata

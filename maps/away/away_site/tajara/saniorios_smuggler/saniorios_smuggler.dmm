@@ -24,7 +24,7 @@
 /area/saniorios_smuggler)
 "bt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor{
 	temperature = 278.15
 	},

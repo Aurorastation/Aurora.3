@@ -1,6 +1,6 @@
 /datum/technomancer/spell/reflect
 	name = "Reflect"
-	desc = "Emits a protective shield fron your hand in front of you, which will reflect one attack back at the attacker."
+	desc = "Emits a protective shield from your hand in front of you, which will reflect one attack back at the attacker."
 	cost = 100
 	obj_path = /obj/item/spell/reflect
 	ability_icon_state = "tech_reflect"

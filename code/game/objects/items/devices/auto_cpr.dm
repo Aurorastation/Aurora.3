@@ -41,7 +41,7 @@
 
 /obj/item/auto_cpr/Initialize()
 	. = ..()
-	battery = new /obj/item/cell/device(src)
+	battery = new /obj/item/cell(src)
 	breath_mask = new /obj/item/clothing/mask/breath/medical(src)
 	tank = new /obj/item/tank/emergency_oxygen/engi(src)
 	update_icon()

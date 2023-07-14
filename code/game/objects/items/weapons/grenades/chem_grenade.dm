@@ -378,18 +378,18 @@
 	stage = 2
 	path = 1
 
-	Initialize()
-		. = ..()
-		var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
-		var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
+/obj/item/grenade/chem_grenade/monoammoniumphosphate/Initialize()
+	. = ..()
+	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 
-		B1.reagents.add_reagent(/singleton/reagent/surfactant, 40)
-		B1.reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
-		B2.reagents.add_reagent(/singleton/reagent/water, 40)
-		B2.reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
+	B1.reagents.add_reagent(/singleton/reagent/surfactant, 40)
+	B1.reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
+	B2.reagents.add_reagent(/singleton/reagent/water, 40)
+	B2.reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
 
-		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
-		beakers += B1
-		beakers += B2
-		icon_state = initial(icon_state) +"_locked"
+	beakers += B1
+	beakers += B2
+	icon_state = initial(icon_state) +"_locked"

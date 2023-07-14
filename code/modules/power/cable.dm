@@ -156,7 +156,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 		for(var/mob/O in viewers(src, null))
 			O.show_message(SPAN_WARNING("[user] cuts the cable."), 1)
-			playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
+			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 
 		if(d1 == 11 || d2 == 11)
 			var/turf/turf = GetBelow(src)
@@ -225,7 +225,7 @@ By design, d1 is the smallest direction and d2 is the highest
 				qdel(src)
 	return
 
-obj/structure/cable/proc/cableColor(var/colorC)
+/obj/structure/cable/proc/cableColor(var/colorC)
 	var/color_n = "#DD0000"
 	if(colorC)
 		color_n = colorC
@@ -605,7 +605,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			)
 			affecting.heal_damage(burn = 15, robo_repair = TRUE)
 			user.visible_message(SPAN_NOTICE("\The [user] [pick(repair_messages)] in [target]'s [affecting.name] with \the [src]."))
-			playsound(target, 'sound/items/wirecutter.ogg', 15)
+			playsound(target, 'sound/items/Wirecutter.ogg', 15)
 			repair_organ(user, target, affecting)
 		else
 			to_chat(user, SPAN_WARNING("You don't have enough cable for this!"))
@@ -669,6 +669,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 /obj/item/stack/cable_coil/verb/make_restraint()
 	set name = "Make Cable Restraints"
 	set category = "Object"
+	set src in usr
 
 	if(ishuman(usr) && !usr.restrained() && !usr.stat && !usr.paralysis && ! usr.stunned)
 		if(!isturf(usr.loc))
@@ -697,6 +698,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 /obj/item/stack/cable_coil/cyborg/verb/set_colour()
 	set name = "Change Colour"
 	set category = "Object"
+	set src in usr
 
 	choose_cable_color(usr)
 
@@ -994,6 +996,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 /obj/item/stack/cable_coil/verb/make_noose()
 	set name = "Make Noose"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
@@ -1043,7 +1046,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 /obj/structure/noose/attackby(obj/item/I, mob/user, params)
 	if(I.iswirecutter())
 		user.visible_message("<b>[user]</b> cuts \the [src].", SPAN_NOTICE("You cut \the [src]."))
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		if(istype(buckled, /mob/living))
 			var/mob/living/M = buckled
 			M.visible_message(SPAN_DANGER("[M] falls over and hits the ground!"),\

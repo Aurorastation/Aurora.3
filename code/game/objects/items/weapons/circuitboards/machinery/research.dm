@@ -2,7 +2,7 @@
 #error T_BOARD macro is not defined but we need it!
 #endif
 
-obj/item/circuitboard/rdserver
+/obj/item/circuitboard/rdserver
 	name = T_BOARD("R&D server")
 	build_path = /obj/machinery/r_n_d/server
 	board_type = "machine"
@@ -11,7 +11,7 @@ obj/item/circuitboard/rdserver
 							"/obj/item/stack/cable_coil" = 2,
 							"/obj/item/stock_parts/scanning_module" = 1)
 
-obj/item/circuitboard/rdtechprocessor
+/obj/item/circuitboard/rdtechprocessor
 	name = T_BOARD("R&D tech processor")
 	build_path = /obj/machinery/r_n_d/tech_processor
 	board_type = "machine"
@@ -84,7 +84,7 @@ obj/item/circuitboard/rdtechprocessor
 							"/obj/item/stack/cable_coil" = 1,
 							"/obj/item/stock_parts/console_screen" = 1)
 
-obj/item/circuitboard/ntnet_relay
+/obj/item/circuitboard/ntnet_relay
 	name = "Circuit board (NTNet Quantum Relay)"
 	build_path = /obj/machinery/ntnet_relay
 	board_type = "machine"

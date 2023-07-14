@@ -243,13 +243,13 @@
     key = "growl"
     emote_message_3p_target = "USER growls at TARGET."
     emote_message_3p = "USER growls."
-    emote_sound = 'sound/voice/Lizardgrowl.ogg'
+    emote_sound = 'sound/voice/lizardgrowl.ogg'
 
 /singleton/emote/audible/hiss/long
     key = "hiss2"
     emote_message_3p_target = "USER hisses loudly at TARGET!"
     emote_message_3p = "USER hisses loudly!"
-    emote_sound = 'sound/voice/lizardhiss2.ogg'
+    emote_sound = 'sound/voice/Lizardhiss2.ogg'
 
 /singleton/emote/audible/lizard_bellow
 	key = "bellow"

@@ -330,7 +330,6 @@
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "epH" = (
-/obj/structure/sign/flag/traverse/right,
 /turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "erL" = (
@@ -753,7 +752,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "gTr" = (
-/obj/structure/sign/flag/traverse/left,
+/obj/structure/sign/flag/traverse/large/north,
 /turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "gTw" = (

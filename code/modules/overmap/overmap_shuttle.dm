@@ -163,14 +163,17 @@
 
 /obj/structure/fuel_port/phoron // The best and most expensive fuel. Likely to be in the hands of corporate forces, though the well-off along with military forces throughout the Spur also have a good chance of using it.
 
+/obj/structure/fuel_port/phoron/scc
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi'
+
 /obj/structure/fuel_port/phoron/Initialize()
 	. = ..()
-	new /obj/item/tank/phoron/shuttle(src) 
+	new /obj/item/tank/phoron/shuttle(src)
 
 /obj/structure/fuel_port/hydrogen // The most common and serviceable fuel for a shuttle. It's not as good as phoron, but it will still get you places. It's also not scarce! Used by practically everyone.
 
 /obj/structure/fuel_port/hydrogen/Initialize()
 	. = ..()
-	new /obj/item/tank/hydrogen/shuttle(src) 
+	new /obj/item/tank/hydrogen/shuttle(src)
 
 #undef waypoint_sector

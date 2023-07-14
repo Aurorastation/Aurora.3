@@ -227,6 +227,6 @@
 		player.special_role = null
 
 		if (!check_rights(R_ADMIN|R_MOD|R_CCIAA, 0, player.current))
-			player.current.client.verbs -= /client/proc/aooc
+			remove_verb(player.current.client, /client/proc/aooc)
 	pending_antagonists.Cut()
 	candidates.Cut()

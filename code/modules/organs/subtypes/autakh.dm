@@ -180,7 +180,7 @@
 
 	owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as they focus ahead.")
 	take_damage(1)
-	zoom(owner,7,7, FALSE)
+	zoom(owner, 7, 7, FALSE, FALSE)
 
 /obj/item/organ/internal/augment/eye_flashlight
 	name = "eye flashlight"
@@ -303,6 +303,7 @@
 	usr.drop_from_inventory(src)
 
 /obj/item/combitool/robotic/dropped()
+	. = ..()
 	loc = null
 	qdel(src)
 
@@ -328,6 +329,7 @@
 	usr.drop_from_inventory(src)
 
 /obj/item/pickaxe/drill/integrated/dropped()
+	. = ..()
 	loc = null
 	qdel(src)
 

@@ -838,7 +838,7 @@
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
 /area/holodeck/source_chapel)
 "abY" = (
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_chapel)
 "abZ" = (
@@ -2669,9 +2669,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "akp" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
@@ -3897,14 +3895,7 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "avs" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -1;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 31;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor,
@@ -5676,7 +5667,7 @@
 	},
 /area/shuttle/arrival)
 "aMa" = (
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_battlemonsters)
 "aMf" = (
@@ -6430,7 +6421,7 @@
 	},
 /area/centcom/spawning)
 "aQm" = (
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -6613,7 +6604,7 @@
 /area/shuttle/arrival)
 "aTW" = (
 /obj/machinery/igniter,
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor,
 /area/tdome)
 "aTX" = (
@@ -8978,11 +8969,7 @@
 	pixel_x = 5;
 	pixel_y = 16
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "ccF" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -9291,9 +9278,7 @@
 	pixel_x = -2;
 	pixel_y = 7
 	},
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -10818,11 +10803,7 @@
 /obj/structure/ore_box{
 	icon_state = "orebox1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "dio" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -10964,11 +10945,7 @@
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "dob" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -13438,9 +13415,6 @@
 /area/centcom/legion/hangar5)
 "eUc" = (
 /obj/structure/table/reinforced/wood,
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_y = 30
-	},
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	pixel_x = -8;
 	pixel_y = 7
@@ -14104,11 +14078,7 @@
 	can_buckle = 0;
 	name = "dusty chair"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "fri" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -15213,7 +15183,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/computer/station_alert,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "fWO" = (
@@ -15788,7 +15757,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "goO" = (
@@ -18259,7 +18228,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1;
 	name = "adjusted spotlight";
 	pixel_x = -16
@@ -20858,15 +20827,9 @@
 /turf/simulated/floor/grass/alt,
 /area/centcom/shared_dream)
 "jBi" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 32;
-	pixel_y = 30
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -22700,9 +22663,6 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "kNJ" = (
-/obj/item/circuitboard/rcon_console{
-	name = "circuit board (Ticket Kiosk Console)"
-	},
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
@@ -25048,9 +25008,6 @@
 	},
 /area/tdome/tdomeadmin)
 "mkB" = (
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_y = 30
-	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
@@ -26287,11 +26244,7 @@
 	},
 /area/centcom/bar)
 "mZh" = (
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "mZj" = (
 /turf/unsimulated/mineral/asteroid,
@@ -26777,14 +26730,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "nmO" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -28032,11 +27978,7 @@
 	icon_state = "boulder1";
 	name = "rubble"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "nYo" = (
 /obj/structure/bed/stool/chair/office/bridge{
@@ -28632,14 +28574,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "ouV" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/item/deck/cards,
 /obj/structure/table/steel,
 /turf/unsimulated/floor{
@@ -28929,9 +28864,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
 	},
-/obj/structure/sign/flag/biesel/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -29066,9 +28999,6 @@
 /obj/item/reagent_containers/spray/cleaner,
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
-	},
-/obj/structure/sign/flag/biesel/right{
-	pixel_y = 32
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -30010,11 +29940,7 @@
 /area/centcom/bar)
 "pux" = (
 /obj/item/pickaxe,
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "puD" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -30668,9 +30594,7 @@
 /area/centcom/spawning)
 "pMW" = (
 /obj/vehicle/bike/speeder,
-/obj/structure/sign/flag/biesel/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "pNc" = (
@@ -30686,9 +30610,6 @@
 	dir = 4
 	},
 /obj/vehicle/bike/speeder,
-/obj/structure/sign/flag/biesel/right{
-	pixel_y = 32
-	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "pNG" = (
@@ -30871,11 +30792,7 @@
 	pixel_x = 11;
 	pixel_y = -6
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "pUh" = (
 /obj/structure/shuttle_part/merchant{
@@ -31654,14 +31571,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/sign/flag/biesel/right{
-	pixel_x = 16;
-	pixel_y = 29
-	},
-/obj/structure/sign/flag/biesel/left{
-	pixel_x = -16;
-	pixel_y = 29
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "qzj" = (
@@ -31807,11 +31717,7 @@
 	name = "beacon";
 	pixel_y = -2
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "qGr" = (
 /obj/structure/window/shuttle/unique/merchant{
@@ -36851,9 +36757,7 @@
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/structure/sign/flag/biesel/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 8;
@@ -36999,9 +36903,6 @@
 /obj/item/reagent_containers/food/snacks/nathisnack{
 	pixel_x = 5;
 	pixel_y = 12
-	},
-/obj/structure/sign/flag/biesel/right{
-	pixel_y = 32
 	},
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/condiment/shaker/salt{
@@ -38672,11 +38573,7 @@
 "vze" = (
 /obj/structure/table/steel,
 /obj/item/deck/cards,
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "vzG" = (
 /obj/machinery/vending/snack{
@@ -40996,7 +40893,7 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "wNC" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
@@ -41590,7 +41487,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "xfN" = (
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},

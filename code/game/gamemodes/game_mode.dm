@@ -388,12 +388,17 @@ var/global/list/additional_antag_types = list()
 				ghosts++
 
 	var/text = ""
+	var/escape_text
+	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
+		escape_text = "escaped"
+	else
+		escape_text = "transfered"
 	if(surviving_total > 0)
 		text += "<br>There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]"
-		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "bluespace jumped"]</b>) and <b>[ghosts] ghosts</b>.<br>"
+		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [escape_text]</b>) and <b>[ghosts] ghosts</b>.<br>"
 
 		discord_text += "There [surviving_total>1 ? "were **[surviving_total] survivors**" : "was **one survivor**"]"
-		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "bluespace jumped"]) and **[ghosts] ghosts**."
+		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [escape_text]) and **[ghosts] ghosts**."
 	else
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>)."
 
@@ -490,7 +495,7 @@ var/global/list/additional_antag_types = list()
 //////////////////////////
 //Reports player logouts//
 //////////////////////////
-proc/get_logout_report()
+/proc/get_logout_report()
 	var/msg = "<span class='notice'><b>Logout report</b>\n\n"
 	for(var/mob/living/L in mob_list)
 
@@ -532,7 +537,7 @@ proc/get_logout_report()
 	msg += "</span>" // close the span from right at the top
 	return msg
 
-proc/display_logout_report()
+/proc/display_logout_report()
 	var/logout_report = get_logout_report()
 	for(var/s in staff)
 		var/client/C = s
@@ -547,7 +552,7 @@ proc/display_logout_report()
 		return
 	to_chat(src,get_logout_report())
 
-proc/get_poor()
+/proc/get_poor()
 	var/list/characters = list()
 
 	for(var/mob/living/carbon/human/character in player_list)

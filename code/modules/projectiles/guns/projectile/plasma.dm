@@ -13,7 +13,7 @@
 	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
-	fire_delay = 8
+	fire_delay = ROF_HEAVY
 
 /obj/item/gun/projectile/plasma/update_icon()
 	..()
@@ -34,7 +34,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/plasma/light)
 	caliber = "plasma bolt"
 	fire_sound = 'sound/weapons/gunshot/bolter.ogg'
-	fire_delay = 6
+	fire_delay = ROF_RIFLE
 
 /obj/item/gun/energy/mountedplasma
 	name = "plasma cannon"
@@ -57,6 +57,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/plasma/light/pistol)
 	slot_flags = SLOT_BELT | SLOT_HOLSTER
 	accuracy = 1
+	fire_delay = ROF_INTERMEDIATE
 
 /obj/item/gun/projectile/plasma/bolter/pistol/update_icon()
 	..()

@@ -2,6 +2,7 @@
 	name = "ice"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "ice"
+	footprint_color = FALSE
 
 /turf/simulated/floor/exoplanet/ice/update_icon()
 	return

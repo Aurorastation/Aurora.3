@@ -131,3 +131,83 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
+
+/obj/item/clothing/suit/space/void/hegemony
+	name = "hegemony military voidsuit"
+	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. The standard spacefaring attire of the Izweski Hegemony Navy."
+	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
+	icon_override = 'icons/mob/species/unathi/suit.dmi'
+	icon_state = "hegemony-voidsuit"
+	item_state = "hegemony-voidsuit_item"
+
+	w_class = ITEMSIZE_NORMAL
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/material/sword,/obj/item/melee/hammer,/obj/item/melee/energy)
+	species_restricted = list(BODYTYPE_UNATHI)
+	refittable = FALSE
+
+/obj/item/clothing/head/helmet/space/void/hegemony
+	name = "hegemony military helmet"
+	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. Usually seen on soldiers of the Izweski Hegemony Navy."
+	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
+	icon_override = 'icons/mob/species/unathi/helmet.dmi'
+	icon_state = "hegemony-voidhelm"
+	item_state = "hegemony-voidhelm_item"
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+	light_overlay = "helmet_light_dual_low"
+	brightness_on = 6
+	species_restricted = list(BODYTYPE_UNATHI)
+	refittable = FALSE
+
+
+/obj/item/clothing/suit/space/void/hegemony/specialist
+	name = "hegemony specialist voidsuit"
+	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. This one bears a green insignia, marking the wearer as a specialist within the Izweski Navy."
+	icon_state = "hegemony-voidsuit-spec"
+	item_state = "hegemony-voidsuit-spec_item"
+
+/obj/item/clothing/head/helmet/space/void/hegemony/specialist
+	name = "hegemony specialist helmet"
+	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. This one bears a green insignia, marking the wearer as a specialist within the Izweski Navy."
+	icon_state = "hegemony-voidhelm-spec"
+	item_state = "hegemony-voidhelm-spec_item"
+
+/obj/item/clothing/suit/space/void/hegemony/captain
+	name = "hegemony captain's voidsuit"
+	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. This one bears a purple insignia, marking the wearer as a captain within the Izweski Navy."
+	icon_state = "hegemony-voidsuit-lead"
+	item_state = "hegemony-voidsuit-lead_item"
+
+/obj/item/clothing/head/helmet/space/void/hegemony/captain
+	name = "hegemony captain's helmet"
+	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. This one bears a purple insignia, marking the wearer as a captain within the Izweski Navy."
+	icon_state = "hegemony-voidhelm-lead"
+	item_state = "hegemony-voidhelm-lead_item"
+
+/obj/item/clothing/suit/space/void/hegemony/priest
+	name = "hegemony priest's voidsuit"
+	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. This one bears a white insignia, marking the wearer as a Sk'akh priest within the Izweski Navy."
+	icon_state = "hegemony-voidsuit-priest"
+	item_state = "hegemony-voidsuit-priest_item"
+
+/obj/item/clothing/head/helmet/space/void/hegemony/priest
+	name = "hegemony priest's helmet"
+	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. This one bears a purple insignia, marking the wearer as a Sk'akh priest within the Izweski Navy."
+	icon_state = "hegemony-voidhelm-priest"
+	item_state = "hegemony-voidhelm-priest_item"

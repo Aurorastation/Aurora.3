@@ -1,0 +1,49 @@
+name: "Build TGUI"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - 'tgui/**'
+
+jobs:
+  update-tgui:
+    concurrency: tgui
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Install Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14 
+
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.BOT_TOKEN_AURORA }}
+
+    - name: Restore Yarn cache
+      uses: actions/cache@v3
+      with:
+        path: tgui/.yarn/cache
+        key: ${{ runner.os }}-yarn-${{ hashFiles('tgui/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
+    - name: Update TGUI
+      run: |
+        tools/bootstrap/node tools/build/build.js tgui 
+
+    - name: Commit TGUI
+      run: |
+        git pull origin master
+        git config --local user.email "action@github.com"
+        git config --local user.name "AuroraBuildBot"
+        git add --force tgui/public/*
+        git commit -m "Automatic TGUI compile [ci skip]" -a || true
+
+    - name: Push
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.BOT_TOKEN_AURORA }}

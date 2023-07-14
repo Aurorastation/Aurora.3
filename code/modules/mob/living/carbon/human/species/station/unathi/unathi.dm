@@ -4,6 +4,9 @@
 	name_plural = "Unathi"
 	category_name = "Unathi"
 	bodytype = BODYTYPE_UNATHI
+	species_height = HEIGHT_CLASS_TALL
+	height_min = 175
+	height_max = 215
 	icobase = 'icons/mob/human_races/unathi/r_unathi.dmi'
 	deform = 'icons/mob/human_races/unathi/r_def_unathi.dmi'
 	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
@@ -122,6 +125,7 @@
 		/singleton/origin_item/culture/traditionalists,
 		/singleton/origin_item/culture/spaceborn,
 		/singleton/origin_item/culture/dominian_unathi,
+		/singleton/origin_item/culture/queendom,
 		/singleton/origin_item/culture/autakh
 	)
 

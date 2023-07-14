@@ -87,7 +87,7 @@
 	item_state = "thongsandal"
 	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
-obj/item/clothing/shoes/sandal/clogs
+/obj/item/clothing/shoes/sandal/clogs
 	name = "plastic clogs"
 	desc = "A pair of plastic clog shoes."
 	icon_state = "clogs"

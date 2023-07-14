@@ -6,6 +6,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	wait = 2 SECONDS
 	flags = SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	init_stage = INITSTAGE_EARLY
 
 	var/collection_timeout = 3000// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
 	var/delslasttick = 0		// number of del()'s we've done this tick
@@ -43,7 +44,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	NEW_SS_GLOBAL(SSgarbage)
 
 /datum/controller/subsystem/garbage_collector/stat_entry(msg)
-	msg += "W:[tobequeued.len]|Q:[queue.len]|D:[delslasttick]|G:[gcedlasttick]|"
+	msg = "W:[tobequeued.len]|Q:[queue.len]|D:[delslasttick]|G:[gcedlasttick]|"
 	msg += "GR:"
 	if (!(delslasttick+gcedlasttick))
 		msg += "n/a|"
@@ -55,7 +56,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		msg += "n/a|"
 	else
 		msg += "TGR:[round((totalgcs/(totaldels+totalgcs))*100, 0.01)]%"
-	..(msg)
+	return ..()
 
 /datum/controller/subsystem/garbage_collector/fire()
 	HandleToBeQueued()

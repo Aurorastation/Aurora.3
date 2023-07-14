@@ -120,6 +120,10 @@
 	addtimer(CALLBACK(src, PROC_REF(bst_post_spawn), bst), 5)
 	addtimer(CALLBACK(src, PROC_REF(bst_spawn_cooldown)), 5 SECONDS)
 
+	bst.client.init_verbs()
+
+	bst.client.init_verbs()
+
 	LOG_DEBUG("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
 
 	feedback_add_details("admin_verb","BST")
@@ -166,6 +170,7 @@
 	if(key)
 		if(client.holder && client.holder.original_mob)
 			client.holder.original_mob.key = key
+			client.init_verbs()
 		else
 			var/mob/abstract/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
 			ghost.key = key
@@ -173,6 +178,7 @@
 			ghost.name = "[ghost.key] BSTech"
 			ghost.real_name = "[ghost.key] BSTech"
 			ghost.voice_name = "[ghost.key] BSTech"
+			ghost.client.init_verbs()
 
 /mob/living/carbon/human/bst/proc/bsc() //because we all have our unrealistic snowflakes right?
 	if(set_species(SPECIES_TAJARA))

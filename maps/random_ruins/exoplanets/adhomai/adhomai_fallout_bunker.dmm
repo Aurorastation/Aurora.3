@@ -280,9 +280,7 @@
 "kH" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/bar/padded/red,
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -310,9 +308,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -343,7 +339,6 @@
 "mZ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/standard,
-/obj/item/board,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -425,9 +420,6 @@
 	},
 /area/adhomai_fallout_bunker)
 "ol" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
@@ -476,9 +468,6 @@
 "pF" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/bar/padded/red,
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -524,9 +513,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -554,9 +541,6 @@
 	},
 /area/adhomai_fallout_bunker)
 "rt" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /obj/machinery/light{
 	dir = 4;
 	status = 2
@@ -1221,9 +1205,7 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
@@ -1297,9 +1279,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "Qk" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
 	icon_state = "corner_white"
@@ -1316,9 +1296,6 @@
 /obj/item/clothing/mask/gas,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
-	},
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1358,9 +1335,6 @@
 /obj/item/gun/energy/rifle/icelance,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
-	},
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1450,9 +1424,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1523,9 +1494,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

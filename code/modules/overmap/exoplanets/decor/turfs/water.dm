@@ -1,3 +1,6 @@
+/turf/simulated/floor/exoplanet/water
+	does_footprint = FALSE
+
 /turf/simulated/floor/exoplanet/water/update_icon()
 	return
 

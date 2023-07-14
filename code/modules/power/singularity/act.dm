@@ -147,3 +147,5 @@
 *******************/
 /atom/proc/singuloCanEat()
 	return 1
+
+#undef I_SINGULO

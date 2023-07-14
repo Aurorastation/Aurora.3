@@ -8,6 +8,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 	name = "Atlas"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_MAPLOAD
+	init_stage = INITSTAGE_EARLY
 
 	var/list/known_maps = list()
 	var/dmm_suite/maploader
@@ -136,8 +137,9 @@ var/datum/controller/subsystem/atlas/SSatlas
 		)
 	)
 
-/datum/controller/subsystem/atlas/stat_entry()
-	..("W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[z_levels]")
+/datum/controller/subsystem/atlas/stat_entry(msg)
+	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[z_levels]"
+	return ..()
 
 /datum/controller/subsystem/atlas/New()
 	NEW_SS_GLOBAL(SSatlas)

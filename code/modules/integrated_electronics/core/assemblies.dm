@@ -1,6 +1,3 @@
-#define IC_COMPONENTS_BASE 25
-#define IC_COMPLEXITY_BASE 75
-
 /obj/item/device/electronic_assembly
 	name = "electronic assembly"
 	desc = "It's a case, for building small electronics with."
@@ -152,6 +149,7 @@
 	set name = "Rename Circuit"
 	set category = "Object"
 	set desc = "Rename your circuit, useful to stay organized."
+	set src in usr
 
 	var/mob/M = usr
 	if(!check_interactivity(M))

@@ -15,6 +15,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/generate_atmosphere()
 	..()
 	if(atmosphere)
+		atmosphere.remove_ratio(1)
 		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
 		atmosphere.update_values()
 
@@ -50,6 +51,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/generate_atmosphere()
 	..()
 	if(atmosphere)
+		atmosphere.remove_ratio(1)
 		atmosphere.adjust_gas(GAS_CHLORINE, MOLES_O2STANDARD)
 		atmosphere.temperature = T0C + 500
 		atmosphere.update_values()
@@ -65,7 +67,8 @@
 	icon_state = "globe1"
 	color = "#cf1020"
 	generated_name = FALSE
-	ruin_planet_type = PLANET_LAVA
+	ruin_planet_type = PLANET_LORE
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
 	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul/update_icon()
@@ -185,6 +188,9 @@
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_atmosphere()
 	..()
 	if(atmosphere)
+		atmosphere.remove_ratio(1)
+		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
+		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
 		if(landing_faction == "North Pole")
 			atmosphere.temperature = T0C - 40
 		else

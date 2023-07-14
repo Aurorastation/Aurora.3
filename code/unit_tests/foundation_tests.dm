@@ -1,14 +1,14 @@
 /*
 * Unit tests for built-in BYOND procs, to ensure overrides have not affected functionality.
 */
-datum/unit_test/foundation
+/datum/unit_test/foundation
 	name = "FOUNDATION template"
 	async = 0
 
-datum/unit_test/foundation/step_shall_return_true_on_success
+/datum/unit_test/foundation/step_shall_return_true_on_success
 	name = "FOUNDATION: step() shall return true on success"
 
-datum/unit_test/foundation/step_shall_return_true_on_success/start_test()
+/datum/unit_test/foundation/step_shall_return_true_on_success/start_test()
 	var/mob_step_result = TestStep(/mob)
 	var/obj_step_result = TestStep(/obj)
 
@@ -19,7 +19,7 @@ datum/unit_test/foundation/step_shall_return_true_on_success/start_test()
 
 	return 1
 
-datum/unit_test/foundation/proc/TestStep(type_to_test)
+/datum/unit_test/foundation/proc/TestStep(type_to_test)
 	var/turf/start = locate(71,155,1)
 	var/atom/movable/T = new type_to_test(start)
 

@@ -75,6 +75,8 @@
 	var/list/coffeecups = list()
 	coffeecups["plain coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup
 	coffeecups["sol coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol
+	coffeecups["San Colette coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sancolette
+	coffeecups["Europa coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/europa
 	coffeecups["dominian coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom
 	coffeecups["NKA coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nka
 	coffeecups["PRA coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra
@@ -140,10 +142,11 @@
 	banners["banner, Traverse"] = /obj/item/flag/traverse
 	banners["banner, NanoTrasen"] = /obj/item/flag/nanotrasen
 	banners["banner, Eridani Fed"] = /obj/item/flag/eridani
-	banners["banner, Sedantis"] = /obj/item/flag/vaurca
+	banners["banner, Sedantis"] = /obj/item/flag/sedantis
 	banners["banner, People's Republic of Adhomai"] = /obj/item/flag/pra
 	banners["banner, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra
 	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
+	banners["banner, Free Tajaran Council"] = /obj/item/flag/ftc
 	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
 	banners["banner, CT-EUM"] = /obj/item/flag/cteum
 	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
@@ -157,6 +160,19 @@
 	banners["banner, Vysoka"] = /obj/item/flag/vysoka
 	banners["banner, Konyang"] = /obj/item/flag/konyang
 	banners["banner, Red Coalition"] = /obj/item/flag/red_coalition
+	banners["banner, Private Military Contracting Group"] = /obj/item/flag/pmcg
+	banners["banner, United Syndicates of Himeo"] = /obj/item/flag/himeo
+	banners["banner, Republic of Assunzione"] = /obj/item/flag/assunzione
+	banners["banner, New Gibson"] = /obj/item/flag/newgibson
+	banners["banner, Visegrad"] = /obj/item/flag/visegrad
+	banners["banner, Union of Port Antillia"] = /obj/item/flag/portantillia
+	banners["banner, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette
+	banners["banner, Mictlan"] = /obj/item/flag/mictlan
+	banners["banner, New Hai Phong"] = /obj/item/flag/nhp
+	banners["banner, Silversun"] = /obj/item/flag/silversun
+	banners["banner, Hive Zo'ra"] = /obj/item/flag/zora
+	banners["banner, Hive K'lax"] = /obj/item/flag/klax
+	banners["banner, Hive C'thur"] = /obj/item/flag/cthur
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -192,10 +208,11 @@
 	flags["flag, Traverse"] = /obj/item/flag/traverse/l
 	flags["flag, NanoTrasen"] = /obj/item/flag/nanotrasen/l
 	flags["flag, Eridani Fed"] = /obj/item/flag/eridani/l
-	flags["flag, Sedantis"] = /obj/item/flag/vaurca/l
+	flags["flag, Sedantis"] = /obj/item/flag/sedantis/l
 	flags["flag, People's Republic of Adhomai"] = /obj/item/flag/pra/l
 	flags["flag, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra/l
 	flags["flag, New Kingdom of Adhomai"] = /obj/item/flag/nka/l
+	flags["flag, Free Tajaran Council"] = /obj/item/flag/ftc/l
 	flags["flag, Republic of Biesel"] = /obj/item/flag/biesel/l
 	flags["flag, Trinary Perfection"] = /obj/item/flag/trinaryperfection/l
 	flags["flag, Hephaestus Industries"] = /obj/item/flag/heph/l
@@ -208,6 +225,17 @@
 	flags["flag, Vysoka"] = /obj/item/flag/vysoka/l
 	flags["flag, Konyang"] = /obj/item/flag/konyang/l
 	flags["flag, Red Coalition"] = /obj/item/flag/red_coalition/l
+	flags["flag, Private Military Contracting Group"] = /obj/item/flag/pmcg/l
+	flags["flag, United Syndicates of Himeo"] = /obj/item/flag/himeo/l
+	flags["flag, Republic of Assunzione"] = /obj/item/flag/assunzione/l
+	flags["flag, Union of Port Antillia"] = /obj/item/flag/portantillia/l
+	flags["flag, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/l
+	flags["flag, Mictlan"] = /obj/item/flag/mictlan/l
+	flags["flag, New Hai Phong"] = /obj/item/flag/nhp/l
+	flags["flag, Silversun"] = /obj/item/flag/silversun/l
+	flags["flag, Hive Zo'ra"] = /obj/item/flag/zora/l
+	flags["flag, Hive K'lax"] = /obj/item/flag/klax/l
+	flags["flag, Hive C'thur"] = /obj/item/flag/cthur/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel

@@ -218,6 +218,8 @@
 		var/obj/item/organ/internal/I = internal
 		if(amount <= 0)
 			break
+		if(BP_IS_ROBOTIC(I))
+			continue //Chems won't help, you need surgery to fix robot organs
 		if(heal)
 			if(I.damage < amount)
 				amount -= I.damage
@@ -279,7 +281,7 @@
 //Heals ONE external organ, organ gets randomly selected from damaged ones.
 //It automatically updates damage overlays if necesary
 //It automatically updates health status
-/mob/living/carbon/human/heal_organ_damage(var/brute, var/burn, var/prosthetic = TRUE)
+/mob/living/carbon/human/heal_organ_damage(var/brute, var/burn, var/prosthetic = FALSE)
 	var/list/obj/item/organ/external/parts = get_damaged_organs(brute, burn, prosthetic)
 	if(!length(parts))
 		return

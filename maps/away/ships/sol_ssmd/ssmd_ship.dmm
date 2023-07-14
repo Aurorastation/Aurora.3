@@ -38,9 +38,6 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
-/obj/structure/sign/flag/sol/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/wood/coloured/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "ajL" = (
@@ -7214,7 +7211,6 @@
 /area/ship/ssmd_corvette/hangar)
 "vRd" = (
 /obj/structure/table/wood,
-/obj/item/board,
 /turf/simulated/floor/wood/coloured/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "vTv" = (
@@ -7665,9 +7661,7 @@
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
-/obj/structure/sign/flag/sol/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/sol/large/south,
 /obj/machinery/light{
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue

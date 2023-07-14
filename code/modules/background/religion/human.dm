@@ -80,3 +80,17 @@
 					houses of worship."
 	book_name = "Luceian Book of Scripture and Prayers"
 	book_sprite = "luce2"
+
+/datum/religion/sikhism
+	name = RELIGION_SIKHISM
+	description = "Originating in the northern Indian subcontinent, Sikhism is a religion and philosophy that developed from the teachings of Guru Nanak, and the nine Gurus who succeeded him. \
+					Someone who practices Sikhism is known as a Sikh."
+	book_name = "Guru Granth Sahib"
+	book_sprite = "guru"
+
+/datum/religion/stolitism
+	name = RELIGION_STOLITISM
+	description = "Vysokan shamanism, or Stolitism, originated from the diverse series of beliefs and traditions of Vysoka’s original colonists. Because of this, \
+					Stolitism is closely tied with local folklore and the planet as a whole - the majority of Vysokans are believers, but it has spread little elsewhere.\
+					Vysokan shamanism revolves around both the worship of one’s ancestors, who are believed to have all descended from a “Progenitor Spirit” that became \
+					the first man. After dying, the Progenitor’s soul, or Arihuin, was “sown” and split into new souls."

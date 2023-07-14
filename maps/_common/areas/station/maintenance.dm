@@ -109,6 +109,10 @@
 	name = "Engineering Maintenance"
 	icon_state = "maint_engineering"
 
+/area/maintenance/engineering/auxillary
+	name = "Auxillary Engineering Maintenance"
+	icon_state = "maint_engineering"
+
 /area/maintenance/sublevel
 	name = "Sub-level Maintenance"
 	icon_state = "maint_engineering"
@@ -298,30 +302,30 @@
 	base_turf = /turf/space
 	station_area = 1
 
-	auxport
-		name = "Roof Solar Array"
-		icon_state = "panelsA"
-		base_turf = /turf/space
+/area/solar/auxport
+	name = "Roof Solar Array"
+	icon_state = "panelsA"
+	base_turf = /turf/space
 
-	auxstarboard
-		name = "Fore Starboard Solar Array"
-		icon_state = "panelsA"
+/area/solar/auxstarboard
+	name = "Fore Starboard Solar Array"
+	icon_state = "panelsA"
 
-	fore
-		name = "Surface - Fore TComms Solar Array"
-		icon_state = "yellow"
+/area/solar/fore
+	name = "Surface - Fore TComms Solar Array"
+	icon_state = "yellow"
 
-	aft
-		name = "Aft Solar Array"
-		icon_state = "aft"
+/area/solar/aft
+	name = "Aft Solar Array"
+	icon_state = "aft"
 
-	starboard
-		name = "Surface - Aft TComms Solar Array"
-		icon_state = "panelsS"
+/area/solar/starboard
+	name = "Surface - Aft TComms Solar Array"
+	icon_state = "panelsS"
 
-	port
-		name = "Surface - Port TComms Solar Array"
-		icon_state = "panelsP"
+/area/solar/port
+	name = "Surface - Port TComms Solar Array"
+	icon_state = "panelsP"
 
 /area/maintenance/auxsolarport
 	name = "Solar Maintenance - Fore Port"

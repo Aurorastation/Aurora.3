@@ -37,7 +37,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 /datum/controller/subsystem/lighting/New()
 	NEW_SS_GLOBAL(SSlighting)
 
-/datum/controller/subsystem/lighting/stat_entry()
+/datum/controller/subsystem/lighting/stat_entry(msg)
 	var/list/out = list(
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
 		"IUR: [total_ss_updates ? round(total_instant_updates/(total_instant_updates+total_ss_updates)*100, 0.1) : "NaN"]%\n",
@@ -46,7 +46,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 		"\tP:{L:[light_queue.len - (lq_idex - 1)]|C:[corner_queue.len - (cq_idex - 1)]|O:[overlay_queue.len - (oq_idex - 1)]}\n",
 		"\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}\n"
 	)
-	..(out.Join())
+	msg = out.Join()
+	return ..()
 
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
 

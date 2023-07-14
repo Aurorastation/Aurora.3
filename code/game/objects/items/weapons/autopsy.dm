@@ -28,14 +28,14 @@
 	var/hits = 0
 	var/time_inflicted = 0
 
-	proc/copy()
-		var/datum/autopsy_data/W = new()
-		W.weapon = weapon
-		W.pretend_weapon = pretend_weapon
-		W.damage = damage
-		W.hits = hits
-		W.time_inflicted = time_inflicted
-		return W
+/datum/autopsy_data/proc/copy()
+	var/datum/autopsy_data/W = new()
+	W.weapon = weapon
+	W.pretend_weapon = pretend_weapon
+	W.damage = damage
+	W.hits = hits
+	W.time_inflicted = time_inflicted
+	return W
 
 /obj/item/autopsy_scanner/proc/add_data(var/obj/item/organ/external/O)
 	if(!O.autopsy_data.len && !O.trace_chemicals.len) return
@@ -66,9 +66,9 @@
 			chemtraces += V
 
 /obj/item/autopsy_scanner/verb/print_data()
-	set category = "Object"
-	set src in view(usr, 1)
 	set name = "Print Data"
+	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return

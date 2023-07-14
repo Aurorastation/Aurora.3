@@ -26,6 +26,9 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	// List of subsystems to process().
 	var/list/subsystems
 
+	/// Most recent init stage to complete init.
+	var/static/init_stage_completed
+
 	// Vars for keeping track of tick drift.
 	var/init_timeofday
 	var/init_time
@@ -155,18 +158,47 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	log_subsystem_mastercontroller("Initializing subsystems...")
 
 	initializing = TRUE
+	init_stage_completed = 0
+
+	var/mc_started = FALSE
+
+	var/start_timeofday = REALTIMEOFDAY
+	// Initialize subsystems.
+
+	var/list/stage_sorted_subsystems = new(INITSTAGE_MAX)
+	for (var/i in 1 to INITSTAGE_MAX)
+		stage_sorted_subsystems[i] = list()
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
 	sortTim(subsystems, GLOBAL_PROC_REF(cmp_subsystem_init))
 
-	var/start_timeofday = REALTIMEOFDAY
-	// Initialize subsystems.
+	for (var/datum/controller/subsystem/subsystem as anything in subsystems)
+		var/subsystem_init_stage = subsystem.init_stage
+		if (!isnum(subsystem_init_stage) || subsystem_init_stage < 1 || subsystem_init_stage > INITSTAGE_MAX || round(subsystem_init_stage) != subsystem_init_stage)
+			stack_trace("ERROR: MC: subsystem `[subsystem.type]` has invalid init_stage: `[subsystem_init_stage]`. Setting to `[INITSTAGE_MAX]`")
+			subsystem_init_stage = subsystem.init_stage = INITSTAGE_MAX
+		stage_sorted_subsystems[subsystem_init_stage] += subsystem
+
 	CURRENT_TICKLIMIT = TICK_LIMIT_MC_INIT
-	for (var/datum/controller/subsystem/SS in subsystems)
-		if (SS.flags & SS_NO_INIT)
-			continue
-		SS.StartInitialize(REALTIMEOFDAY)
-		CHECK_TICK
+
+	for(var/current_init_stage in 1 to INITSTAGE_MAX)
+		for (var/datum/controller/subsystem/SS in stage_sorted_subsystems[current_init_stage])
+			if (SS.flags & SS_NO_INIT)
+				continue
+			SS.StartInitialize(REALTIMEOFDAY)
+			CHECK_TICK
+
+		init_stage_completed = current_init_stage
+
+		if (!mc_started)
+			mc_started = TRUE
+			if (!current_runlevel)
+				SetRunLevel(1) // Intentionally not using the defines here because the MC doesn't care about them
+			// Loop.
+			Master.StartProcessing(0)
+
+
+
 	CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
@@ -195,7 +227,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	sleep(1)
 	initializations_finished_with_no_players_logged_in = initialized_tod < REALTIMEOFDAY - 10
 	// Loop.
-	Master.StartProcessing(0)
+	Master.StartProcessing(10)
 
 /datum/controller/master/proc/SetRunLevel(new_runlevel)
 	var/old_runlevel = current_runlevel
@@ -212,9 +244,17 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	set waitfor = 0
 	if(delay)
 		sleep(delay)
-	var/rtn = Loop()
-	if (rtn > 0 || processing < 0)
+	var/started_stage
+	var/rtn = -2
+
+	do
+		started_stage = init_stage_completed
+		rtn = Loop(started_stage)
+	while (rtn == MC_LOOP_RTN_NEWSTAGES && processing > 0 && started_stage < init_stage_completed)
+
+	if (rtn >= MC_LOOP_RTN_GRACEFUL_EXIT || processing < 0)
 		return //this was suppose to happen.
+
 	//loop ended, restart the mc
 	log_game("MC crashed or runtimed, restarting")
 	message_admins("MC crashed or runtimed, restarting")
@@ -225,7 +265,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		Failsafe.defcon = 2
 
 // Main loop.
-/datum/controller/master/proc/Loop()
+/datum/controller/master/proc/Loop(init_stage)
 	. = -1
 	//Prep the loop (most of this is because we want MC restarts to reset as much state as we can, and because
 	//	local vars rock
@@ -238,6 +278,8 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	for (var/thing in subsystems)
 		var/datum/controller/subsystem/SS = thing
 		if (SS.flags & SS_NO_FIRE)
+			continue
+		if (SS.init_stage > init_stage)
 			continue
 		SS.queued_time = 0
 		SS.queue_next = null
@@ -283,28 +325,35 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	while (1)
 		tickdrift = max(0, MC_AVERAGE_FAST(tickdrift, (((REALTIMEOFDAY - init_timeofday) - (world.time - init_time)) / world.tick_lag)))
 		var/starting_tick_usage = world.tick_usage
+
+		if (init_stage != init_stage_completed)
+			return MC_LOOP_RTN_NEWSTAGES
+
 		if (processing <= 0)
 			CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
-			sleep(10)
+			sleep(1 SECONDS)
 			continue
 
 		//Anti-tick-contention heuristics:
 		//if there are mutiple sleeping procs running before us hogging the cpu, we have to run later.
 		//	(because sleeps are processed in the order received, longer sleeps are more likely to run first)
-		if (starting_tick_usage > TICK_LIMIT_MC)
-			sleep_delta *= 2
-			CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING * 0.5
-			sleep(world.tick_lag * (processing * sleep_delta))
-			continue
+		if (init_stage == INITSTAGE_MAX)
+			if (starting_tick_usage > TICK_LIMIT_MC)
+				sleep_delta *= 2
+				CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING * 0.5
+				sleep(world.tick_lag * (processing * sleep_delta))
+				continue
 
-		//Byond resumed us late. assume it might have to do the same next tick
-		if (last_run + CEILING(world.tick_lag * (processing * sleep_delta), world.tick_lag) < world.time)
-			sleep_delta += 1
+			//Byond resumed us late. assume it might have to do the same next tick
+			if (last_run + CEILING(world.tick_lag * (processing * sleep_delta), world.tick_lag) < world.time)
+				sleep_delta += 1
 
-		sleep_delta = MC_AVERAGE_FAST(sleep_delta, 1) //decay sleep_delta
+			sleep_delta = MC_AVERAGE_FAST(sleep_delta, 1) //decay sleep_delta
 
-		if (starting_tick_usage > (TICK_LIMIT_MC*0.75)) //we ran 3/4 of the way into the tick
-			sleep_delta += 1
+			if (starting_tick_usage > (TICK_LIMIT_MC*0.75)) //we ran 3/4 of the way into the tick
+				sleep_delta += 1
+		else
+			sleep_delta = 1
 
 		// debug
 		if (make_runtime)
@@ -365,9 +414,12 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		if(skip_ticks)
 			skip_ticks--
 		src.sleep_delta = MC_AVERAGE_FAST(src.sleep_delta, sleep_delta)
-		CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
-		if (processing * sleep_delta <= world.tick_lag)
-			CURRENT_TICKLIMIT -= (TICK_LIMIT_RUNNING * 0.25) //reserve the tail 1/4 of the next tick for the mc if we plan on running next tick
+		if (init_stage != INITSTAGE_MAX)
+			CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING * 2
+		else
+			CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
+			if (processing * sleep_delta <= world.tick_lag)
+				CURRENT_TICKLIMIT -= (TICK_LIMIT_RUNNING * 0.25) //reserve the tail 1/4 of the next tick for the mc if we plan on running next tick
 
 		sleep(world.tick_lag * (processing * sleep_delta))
 
@@ -576,13 +628,12 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	if(!skip_ticks)
 		skip_ticks = 1
 
-/datum/controller/master/stat_entry()
-	if(!statclick)
-		statclick = new/obj/effect/statclick/debug(null, "Initializing...", src)
-
-	stat("Byond:", "(FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%)) (Internal Tick Usage: [round(MAPTICK_LAST_TICK_USAGE,0.1)]%)")
-	stat("Master Controller:", statclick.update("(TickRate:[Master.processing]) (Iteration:[Master.iteration]) (TickLimit: [round(CURRENT_TICKLIMIT, 0.1)])"))
-
+/datum/controller/master/stat_entry(msg)
+	msg = "(FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)] \
+		([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%)) \
+		(Internal Tick Usage: [round(MAPTICK_LAST_TICK_USAGE,0.1)]%) (TickRate:[Master.processing]) \
+		(Iteration:[Master.iteration]) (TickLimit: [round(CURRENT_TICKLIMIT, 0.1)])"
+	return msg
 
 /datum/controller/master/ExplosionStart()
 	for (var/thing in subsystems)

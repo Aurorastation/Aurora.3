@@ -121,6 +121,10 @@ Class Procs:
 	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
 	var/obj/effect/overmap/visitable/linked // overmap sector the machine is linked to
 
+	/// Manufacturer of this machine. Used for TGUI themes, when you have a base type and subtypes with different themes (like the coffee machine).
+	/// Pass the manufacturer in ui_data and then use it in the UI.
+	var/manufacturer = null
+
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	. = ..()
 	if(d)
@@ -208,7 +212,6 @@ Class Procs:
 			if (prob(25))
 				qdel(src)
 				return
-		else
 	return
 
 /proc/is_operable(var/obj/machinery/M, var/mob/user)
@@ -532,7 +535,7 @@ Class Procs:
 		if((. = .(candidate)))
 			return
 
-/obj/machinery/proc/on_user_login(mob/M)
+/obj/proc/on_user_login(mob/M)
 	return
 
 /obj/machinery/proc/set_emergency_state(var/new_security_level)
@@ -546,3 +549,9 @@ Class Procs:
 		return
 	else
 		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
+
+/obj/machinery/ui_status(mob/user, datum/ui_state/state)
+	. = ..()
+	if(. < UI_INTERACTIVE)
+		if(user.machine)
+			user.unset_machine()

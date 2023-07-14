@@ -56,7 +56,7 @@ var/global/datum/global_init/init = new ()
 	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
 	maxx = WORLD_MIN_SIZE	// So that we don't get map-window-popin at boot. DMMS will expand this.
 	maxy = WORLD_MIN_SIZE
-	fps = 20
+	fps = 30
 
 #define RECOMMENDED_VERSION 510
 /world/New()
@@ -225,14 +225,12 @@ var/list/world_api_rate_limit = list()
 	SSpersist_config.save_to_file("data/persistent_config.json")
 	Master.Shutdown()
 
-	var/datum/chatOutput/co
-	for(var/client/C in clients)
-		co = C.chatOutput
-		if(co)
-			co.ehjax_send(data = "roundrestart")
-
-	if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
-		for(var/client/C in clients)
+	for(var/thing in clients)
+		if(!thing)
+			continue
+		var/client/C = thing
+		C?.tgui_panel?.send_roundrestart()
+		if(config.server) //if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 			C << link("byond://[config.server]")
 
 	world.TgsReboot()

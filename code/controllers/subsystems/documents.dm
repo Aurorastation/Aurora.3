@@ -1,6 +1,3 @@
-#define SSDOCS_MEDIUM_PAPER "paper"
-#define SSDOCS_MEDIUM_FILE "file"
-
 var/datum/controller/subsystem/docs/SSdocs
 
 /datum/controller/subsystem/docs

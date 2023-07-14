@@ -5,7 +5,7 @@ var NanoTemplate = function () {
 
     var _templates = {};
     var _compiledTemplates = {};
-	
+
 	var _helpers = {};
 
     var init = function () {
@@ -109,12 +109,12 @@ var NanoTemplate = function () {
 		addHelper: function (helperName, helperFunction) {
 			if (!jQuery.isFunction(helperFunction)) {
 				alert('NanoTemplate.addHelper failed to add ' + helperName + ' as it is not a function.');
-				return;	
+				return;
 			}
-			
+
 			_helpers[helperName] = helperFunction;
 		},
-		addHelpers: function (helpers) {		
+		addHelpers: function (helpers) {
 			for (var helperName in helpers) {
 				if (!helpers.hasOwnProperty(helperName))
 				{
@@ -127,9 +127,9 @@ var NanoTemplate = function () {
 			if (helpers.hasOwnProperty(helperName))
 			{
 				delete _helpers[helperName];
-			}	
+			}
 		}
     }
 }();
- 
+
 
