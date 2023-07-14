@@ -1,0 +1,8 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Dead Greimorian bombardiers has its sprite now."
+  - bugfix: "Uplink earmuffs have their sprite again."
+  - bugfix: "Peanut seed packets has its sprite now."
+  - bugfix: "All dark variants of the Unathi straw hat have their sprites now."
+  - bugfix: "The cosmic cape has its sprite again."
