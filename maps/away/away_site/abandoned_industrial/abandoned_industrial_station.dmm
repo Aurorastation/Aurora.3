@@ -60,10 +60,7 @@
 /area/abandoned_industrial_station/operations)
 "ax" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor/noid{
-	hatchstate = 1;
-	icon_state = "door_closed"
-	},
+/obj/structure/firedoor_assembly,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/quarters)
 "ay" = (
@@ -581,6 +578,14 @@
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
+"cW" = (
+/obj/structure/closet,
+/obj/random/colored_jumpsuit,
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
+/obj/item/clothing/suit/storage/hooded/wintercoat/mars,
+/obj/random/gloves,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "cY" = (
 /obj/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor,
@@ -633,6 +638,19 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"dq" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 6;
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "ds" = (
 /obj/structure/lattice,
 /obj/item/stack/rods{
@@ -1388,6 +1406,13 @@
 	},
 /turf/simulated/floor,
 /area/abandoned_industrial_station/atmos)
+"hf" = (
+/obj/item/flame/lighter/random{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood,
+/area/abandoned_industrial_station/service)
 "hh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -1514,6 +1539,16 @@
 /obj/machinery/power/solar,
 /turf/simulated/floor/airless,
 /area/space)
+"hS" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/random/smokable{
+	pixel_x = 16;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/docks_a2)
 "hU" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
@@ -1732,6 +1767,13 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/quarters)
+"iX" = (
+/obj/structure/closet,
+/obj/random/colored_jumpsuit,
+/obj/item/clothing/suit/storage/leathercoat,
+/obj/item/clothing/head/softcap/colorable/random,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "iY" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor,
@@ -1789,6 +1831,10 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass{
 	pixel_y = 4;
 	pixel_x = -3
+	},
+/obj/random/smokable{
+	pixel_x = 16;
+	pixel_y = 1
 	},
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
@@ -1849,6 +1895,26 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
+"ju" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/obj/item/ammo_casing/pistol{
+	pixel_x = -3;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
+"jv" = (
+/obj/structure/barricade/wooden{
+	dir = 1;
+	pixel_y = 22
+	},
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "jw" = (
@@ -1969,6 +2035,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/ammo_casing/pistol/used{
+	pixel_x = 5;
+	pixel_y = -1
+	},
 /turf/simulated/floor,
 /area/abandoned_industrial_station/hallways)
 "ki" = (
@@ -2179,11 +2249,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
+"li" = (
+/obj/structure/closet,
+/obj/random/colored_jumpsuit,
+/obj/item/clothing/head/softcap/colorable/random,
+/obj/item/clothing/head/softcap/colorable/random,
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
+/obj/item/clothing/head/headbando/random,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "lj" = (
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
 /obj/item/cell/high{
-	pixel_y = 5
+	pixel_y = 5;
+	pixel_x = 12
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hangar)
@@ -2694,6 +2774,16 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_industrial_station/atmos)
+"nz" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/item/ammo_casing/shotgun/pellet/used{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "nA" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
@@ -2755,6 +2845,11 @@
 /obj/machinery/light/colored/decayed{
 	dir = 4
 	},
+/obj/item/ammo_casing/pistol{
+	pixel_x = -5;
+	pixel_y = 14
+	},
+/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "nR" = (
@@ -2913,6 +3008,14 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/atmos)
+"oy" = (
+/obj/structure/closet,
+/obj/random/colored_jumpsuit,
+/obj/item/clothing/head/softcap/colorable/random,
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
+/obj/random/gloves,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "oC" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -3579,7 +3682,13 @@
 /area/abandoned_industrial_station/medical)
 "rP" = (
 /obj/structure/table/steel,
-/obj/item/modular_computer/handheld/pda/engineering,
+/obj/item/modular_computer/handheld/pda/engineering{
+	pixel_x = 9
+	},
+/obj/item/flame/lighter/random{
+	pixel_x = -4;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
 "rQ" = (
@@ -3668,6 +3777,14 @@
 	},
 /turf/template_noop,
 /area/space)
+"sl" = (
+/obj/item/ammo_casing/pistol,
+/obj/item/ammo_casing/pistol{
+	pixel_x = 11;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "sm" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -3741,6 +3858,15 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/atmos)
+"sA" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "sB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
@@ -4062,6 +4188,7 @@
 /obj/effect/floor_decal/corner/light{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_industrial_station/quarters)
 "ub" = (
@@ -4115,6 +4242,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
+/obj/item/ammo_casing/pistol,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "ur" = (
@@ -4228,6 +4356,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hangar)
+"uT" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -10;
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "uU" = (
 /obj/machinery/light/colored/dying{
 	dir = 8
@@ -4414,6 +4549,10 @@
 	pixel_y = 13;
 	pixel_x = 2
 	},
+/obj/random/smokable{
+	pixel_x = 17;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
 "vP" = (
@@ -4537,6 +4676,13 @@
 	},
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_a1)
+"wx" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/item/ammo_casing/pistol,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "wz" = (
 /obj/structure/closet/crate/miningcart,
 /turf/simulated/floor,
@@ -4613,6 +4759,19 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/atmos)
+"wW" = (
+/obj/structure/closet,
+/obj/random/colored_jumpsuit,
+/obj/random/colored_jumpsuit,
+/obj/item/clothing/head/cowboy,
+/obj/item/clothing/shoes/cowboy,
+/obj/item/clothing/shoes/cowboy/classic,
+/obj/item/clothing/shoes/cowboy/snakeskin,
+/obj/random/melee,
+/obj/item/clothing/head/cowboy/wide,
+/obj/item/clothing/head/cowboy,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "wX" = (
 /obj/structure/closet,
 /obj/effect/floor_decal/industrial/outline/custodial,
@@ -5094,6 +5253,20 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/engineering)
+"zc" = (
+/obj/machinery/light/colored/dying{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -10;
+	pixel_y = 8
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 7;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "zd" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -5305,6 +5478,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/docks_a1)
+"Ao" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_y = 4;
+	pixel_x = 8
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "Ap" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor,
@@ -5352,6 +5532,11 @@
 /area/space)
 "Az" = (
 /obj/structure/closet,
+/obj/random/colored_jumpsuit,
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
+/obj/item/clothing/head/lobster_hat,
+/obj/item/clothing/head/softcap/red,
+/obj/item/clothing/suit/storage/hooded/wintercoat,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/quarters)
 "AA" = (
@@ -5464,6 +5649,10 @@
 /obj/structure/barricade/plasteel/wired,
 /obj/machinery/light/colored/dying{
 	dir = 8
+	},
+/obj/item/ammo_casing/pistol/used{
+	pixel_x = -6;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
@@ -5663,6 +5852,10 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 5;
+	pixel_y = 10
+	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "BQ" = (
@@ -5756,6 +5949,10 @@
 /obj/item/stack/tile/floor{
 	pixel_x = -5;
 	pixel_y = 11
+	},
+/obj/item/ammo_casing/pistol{
+	pixel_x = 11;
+	pixel_y = 8
 	},
 /turf/simulated/floor,
 /area/abandoned_industrial_station/hallways)
@@ -5938,6 +6135,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/atmos)
+"Dc" = (
+/obj/item/ammo_casing/pistol/used{
+	pixel_x = 5;
+	pixel_y = -6
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "Df" = (
 /turf/simulated/wall/r_wall,
 /area/abandoned_industrial_station/docks_a1)
@@ -6231,6 +6435,9 @@
 "EI" = (
 /obj/machinery/light/colored/dying,
 /obj/structure/closet/cabinet,
+/obj/random/mre,
+/obj/random/mre/dessert,
+/obj/random/glowstick,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/quarters)
 "EK" = (
@@ -6386,6 +6593,10 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_industrial_station/atmos)
+"FB" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "FD" = (
 /obj/structure/table/steel,
 /obj/item/stack/material/tritium{
@@ -6399,6 +6610,10 @@
 /area/abandoned_industrial_station/engineering)
 "FG" = (
 /obj/structure/table/standard,
+/obj/item/trash/broken_electronics{
+	pixel_x = 2;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_industrial_station/bridge)
 "FH" = (
@@ -6712,6 +6927,10 @@
 	pixel_x = 6;
 	pixel_y = 2
 	},
+/obj/random/smokable{
+	pixel_x = 16;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/hallways)
 "Ht" = (
@@ -6769,6 +6988,13 @@
 /obj/structure/closet/crate/bin/filled,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/wood/coloured/birch,
+/area/abandoned_industrial_station/quarters)
+"HE" = (
+/obj/structure/closet,
+/obj/random/colored_jumpsuit,
+/obj/item/clothing/head/softcap/colorable/random,
+/obj/item/clothing/head/hachimaki,
+/turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/quarters)
 "HF" = (
 /obj/item/clothing/suit/armor/carrier/generic{
@@ -6905,6 +7131,10 @@
 	pixel_x = 7
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/ammo_casing/pistol/used{
+	pixel_x = 9;
+	pixel_y = -6
+	},
 /turf/simulated/floor,
 /area/abandoned_industrial_station/hallways)
 "Ix" = (
@@ -7284,6 +7514,16 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_central)
+"JY" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/item/ammo_casing/pistol/used{
+	pixel_x = -3;
+	pixel_y = -6
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "Kb" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -7410,12 +7650,23 @@
 	dir = 9
 	},
 /obj/item/trap,
+/obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "Ky" = (
 /obj/random/junk,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_a1)
+"Kz" = (
+/obj/item/reagent_containers/food/drinks/bottle/vodka{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = 21;
+	pixel_y = 16
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "KA" = (
 /obj/structure/flora/pottedplant{
 	dead = 1;
@@ -7736,6 +7987,16 @@
 	},
 /turf/simulated/floor,
 /area/abandoned_industrial_station/operations)
+"Mg" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/item/ammo_casing/pistol/used{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "Mh" = (
 /obj/structure/closet/crate/tool,
 /obj/random/toolbox,
@@ -7833,6 +8094,13 @@
 /obj/random/tool,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/operations)
+"MA" = (
+/obj/item/flame/lighter/random{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "MB" = (
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/docks_a2)
@@ -7935,6 +8203,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/quarters)
+"Nm" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/firedoor_assembly,
+/turf/simulated/floor/tiled/full,
+/area/abandoned_industrial_station/docks_a1)
 "No" = (
 /obj/structure/reagent_dispensers/coolanttank{
 	pixel_x = 5
@@ -8096,6 +8369,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
+"NY" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 3;
+	pixel_y = 12
+	},
+/obj/machinery/door/airlock/silver{
+	name = "Lavatory"
+	},
+/turf/simulated/floor,
+/area/abandoned_industrial_station/quarters)
 "Oa" = (
 /obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/tiled/full,
@@ -8281,6 +8564,10 @@
 "OR" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/steel,
+/obj/item/bodybag{
+	pixel_x = 10;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/white,
 /area/abandoned_industrial_station/medical)
 "OS" = (
@@ -8462,6 +8749,16 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/atmos)
+"PU" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/item/ammo_casing/shotgun/pellet/used{
+	pixel_x = 3;
+	pixel_y = -7
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "PW" = (
 /obj/item/tank/oxygen,
 /turf/simulated/floor/tiled,
@@ -8689,6 +8986,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hangar)
+"Re" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -2;
+	pixel_y = 11
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 5;
+	pixel_y = 21
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "Rh" = (
 /turf/simulated/floor,
 /area/abandoned_industrial_station/engineering)
@@ -9036,6 +9344,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/operations)
+"SW" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 5;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "SX" = (
 /obj/structure/sign/vacuum{
 	pixel_y = 32;
@@ -9107,6 +9422,16 @@
 /obj/structure/closet/emcloset/offworlder,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/operations)
+"Tt" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/item/ammo_casing/pistol{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "Tu" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -9218,6 +9543,13 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/docks_a1)
+"Ud" = (
+/obj/item/ammo_casing/pistol/used{
+	pixel_x = 9;
+	pixel_y = -6
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "Ug" = (
 /obj/random/spacecash,
 /obj/random/spacecash,
@@ -9281,6 +9613,11 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/greengrid,
 /area/abandoned_industrial_station/engineering)
+"Uk" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/firedoor_assembly,
+/turf/simulated/floor/tiled/full,
+/area/abandoned_industrial_station/docks_a2)
 "Ul" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -9390,6 +9727,15 @@
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_industrial_station/medical)
+"Vc" = (
+/obj/structure/closet,
+/obj/random/colored_jumpsuit,
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
+/obj/item/clothing/head/helmet/pilot,
+/obj/item/clothing/suit/storage/hooded/wintercoat/konyang,
+/obj/random/beret,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "Vd" = (
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled,
@@ -9474,10 +9820,15 @@
 /turf/simulated/wall/r_wall,
 /area/abandoned_industrial_station/service)
 "VC" = (
-/obj/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
-/area/abandoned_industrial_station/hangar)
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -1;
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "VD" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -9584,6 +9935,16 @@
 /obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/quarters)
+"Wb" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -3;
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "Wc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -9841,6 +10202,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_industrial_station/bridge)
+"XG" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/noid{
+	hatchstate = 1;
+	icon_state = "door_closed"
+	},
+/turf/simulated/floor/tiled/full,
+/area/abandoned_industrial_station/docks_a1)
 "XH" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -9848,6 +10217,11 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
+/obj/item/ammo_casing/pistol/used{
+	pixel_x = -3;
+	pixel_y = -6
+	},
+/obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "XI" = (
@@ -9966,6 +10340,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/hangar)
+"Yi" = (
+/obj/structure/closet,
+/obj/random/colored_jumpsuit,
+/obj/item/clothing/head/softcap/colorable/random,
+/obj/item/clothing/suit/storage/medical_chest_rig,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "Yl" = (
 /obj/machinery/mineral/processing_unit{
 	dir = 8;
@@ -10084,6 +10465,10 @@
 /area/abandoned_industrial_station/maint_central)
 "YO" = (
 /obj/structure/table/standard,
+/obj/random/rig_module{
+	pixel_y = 3;
+	pixel_x = 10
+	},
 /obj/item/device/integrated_electronics/wirer{
 	pixel_x = -6
 	},
@@ -10146,6 +10531,17 @@
 	},
 /turf/simulated/floor,
 /area/abandoned_industrial_station/medical)
+"YX" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/machinery/light/colored/decayed,
+/obj/item/ammo_casing/pistol/used{
+	pixel_x = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "YZ" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -10153,6 +10549,9 @@
 /obj/random/tool{
 	pixel_y = 18;
 	pixel_x = 11
+	},
+/obj/random/safe_rig{
+	pixel_y = -16
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_industrial_station/hangar)
@@ -34752,8 +35151,8 @@ AN
 AN
 lv
 lv
-lv
-lv
+Nm
+XG
 Df
 Zi
 nc
@@ -38591,7 +38990,7 @@ Ae
 OA
 eO
 Xd
-eO
+Tt
 aP
 BG
 Cj
@@ -38847,16 +39246,16 @@ tX
 Ci
 rZ
 rZ
-rZ
-rZ
+Ud
+sl
 aP
 rT
 nP
 Nt
 rZ
 lL
-lL
-tL
+wx
+ju
 cb
 rZ
 rZ
@@ -41685,7 +42084,7 @@ Va
 ig
 VB
 Sk
-Hq
+YX
 nE
 QY
 nE
@@ -41941,7 +42340,7 @@ VB
 VB
 VB
 VB
-Ci
+Mg
 tA
 AN
 gf
@@ -42191,15 +42590,15 @@ eU
 gD
 kh
 Bb
-rZ
+Ao
 eO
 aP
 eO
-Xd
+dq
 Kv
-eO
+nz
 lf
-tA
+JY
 AN
 gf
 AN
@@ -42454,7 +42853,7 @@ aP
 tL
 rZ
 tL
-tL
+Wb
 rZ
 tA
 AN
@@ -42712,8 +43111,8 @@ VB
 Sm
 VB
 VB
-rZ
-ne
+Dc
+PU
 AN
 FR
 od
@@ -42969,7 +43368,7 @@ oh
 gr
 lU
 VB
-rZ
+FB
 ne
 AN
 AN
@@ -43229,7 +43628,7 @@ VB
 rt
 BP
 Mm
-fv
+VC
 yR
 fv
 PA
@@ -43488,7 +43887,7 @@ rZ
 Bv
 BS
 BS
-BS
+SW
 oD
 BC
 ui
@@ -43737,7 +44136,7 @@ GY
 Qc
 Kb
 sD
-Hd
+hf
 uc
 VB
 VB
@@ -44003,7 +44402,7 @@ ZL
 VB
 wT
 WV
-BS
+uT
 Nl
 ui
 Zi
@@ -44260,7 +44659,7 @@ mS
 VB
 sP
 sP
-Bx
+zc
 Nl
 sP
 Zi
@@ -44516,8 +44915,8 @@ xS
 TY
 VB
 tZ
-WV
-BS
+NY
+Re
 Nl
 sP
 Zi
@@ -44755,7 +45154,7 @@ ck
 sI
 Tj
 Eg
-rZ
+Kz
 GD
 Zi
 Zi
@@ -45012,7 +45411,7 @@ pd
 pu
 rZ
 Eg
-rZ
+MA
 GD
 Wl
 Wl
@@ -45524,9 +45923,9 @@ Em
 Em
 Em
 Em
-Ci
+sA
 Eg
-rZ
+jv
 GD
 Wl
 Wl
@@ -47054,7 +47453,7 @@ nF
 nF
 AJ
 nF
-VC
+aP
 rZ
 rZ
 rZ
@@ -47074,8 +47473,8 @@ Wl
 Zi
 sP
 gt
-Az
-Az
+Yi
+cW
 gt
 sP
 sP
@@ -47311,7 +47710,7 @@ bO
 sq
 EO
 sq
-VC
+aP
 QU
 rZ
 zX
@@ -47592,9 +47991,9 @@ BS
 pn
 Wa
 sP
-Az
+wW
 BS
-Az
+oy
 sP
 kk
 ga
@@ -48105,14 +48504,14 @@ Az
 BS
 WY
 sP
-Az
+li
 BS
 wr
 EI
 sP
 gt
-Az
-Az
+HE
+Vc
 gt
 sP
 Bx
@@ -48358,7 +48757,7 @@ Xa
 Xa
 Xa
 sP
-Az
+iX
 BS
 BS
 sP
@@ -57598,7 +57997,7 @@ kW
 kW
 kW
 QV
-Uw
+Uk
 kW
 su
 Ff
@@ -57846,7 +58245,7 @@ Zi
 aF
 WT
 go
-yj
+hS
 yj
 yj
 Uw
