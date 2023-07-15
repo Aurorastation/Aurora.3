@@ -1,10 +1,9 @@
 /datum/computer_file/program/merchant
 	filename = "mlist"
-	filedesc = "Merchant's List"
+	filedesc = "Orion Express Goods Trading"
 	extended_desc = "Allows communication and trade between passing vessels, even while jumping."
 	program_icon_state = "comm"
 	program_key_icon_state = "lightblue_key"
-	nanomodule_path = /datum/nano_module/program/merchant
 	requires_ntnet = 0
 	available_on_ntnet = 0
 	size = 12
@@ -21,30 +20,25 @@
 	var/temp
 	var/bank = 0 //A straight up money till
 
-/datum/nano_module/program/merchant
-	name = "Merchant's List"
-
 /datum/computer_file/program/merchant/proc/get_merchant(var/num)
 	if(num > SStrade.traders.len)
 		num = SStrade.traders.len
 	if(num)
 		return SStrade.traders[num]
 
-/datum/nano_module/program/merchant/ui_data(mob/user)
+/datum/computer_file/program/merchant/ui_data(mob/user)
 	var/list/data = initial_data()
 	var/show_trade = 0
 	var/hailed = 0
 	var/datum/trader/T
-	if(program)
-		var/datum/computer_file/program/merchant/P = program
-		data["temp"] = P.temp
-		data["mode"] = !!P.current_merchant
-		data["last_comms"] = P.last_comms
-		data["pad"] = !!P.pad
-		data["bank"] = P.bank
-		show_trade = P.show_trades
-		hailed = P.hailed_merchant
-		T = P.get_merchant(P.current_merchant)
+	data["temp"] = temp
+	data["mode"] = !!current_merchant
+	data["last_comms"] = last_comms
+	data["pad"] = !!pad
+	data["bank"] = bank
+	show_trade = show_trades
+	hailed = hailed_merchant
+	T = get_merchant(current_merchant)
 	data["mode"] = !!T
 	if(T)
 		data["traderName"] = T.name
@@ -56,6 +50,8 @@
 				for(var/i in 1 to T.trading_items.len)
 					trades += T.print_trading_items(i)
 			data["trades"] = trades
+		else
+			data["trades"] = null
 	return data
 
 /datum/computer_file/program/merchant/proc/connect_pad()
@@ -162,90 +158,91 @@
 	if(..())
 		return
 	var/mob/user = usr
-	if(href_list["PRG_connect_pad"])
-		. = TRUE
-		connect_pad()
-	if(href_list["PRG_continue"])
-		. = TRUE
-		temp = null
-	if(href_list["PRG_transfer_to_bank"])
-		. = TRUE
-		transfer_to_bank()
-	if(href_list["PRG_get_money"])
-		. = TRUE
-		get_money()
-	if(href_list["PRG_main_menu"])
-		. = TRUE
-		current_merchant = 0
-	if(href_list["PRG_merchant_list"])
-		if(SStrade.traders.len == 0)
+	switch(action)
+		if("PRG_connect_pad")
 			. = TRUE
-			temp = "Cannot find any traders within broadcasting range."
-		else
+			connect_pad()
+		if("PRG_continue")
 			. = TRUE
-			current_merchant = 1
-			hailed_merchant = 0
-			last_comms = null
-	if(href_list["PRG_test_fire"])
-		. = TRUE
-		if(test_fire())
-			temp = "Test Fire Successful"
-		else
-			temp = "Test Fire Unsuccessful"
-	if(href_list["PRG_scroll"])
-		. = TRUE
-		var/scrolled = 0
-		switch(href_list["PRG_scroll"])
-			if("right")
-				scrolled = 1
-			if("left")
-				scrolled = -1
-		var/new_merchant  = Clamp(current_merchant + scrolled, 1, SStrade.traders.len)
-		if(new_merchant != current_merchant)
-			hailed_merchant = 0
-			last_comms = null
-		current_merchant = new_merchant
+			temp = null
+		if("PRG_transfer_to_bank")
+			. = TRUE
+			transfer_to_bank()
+		if("PRG_get_money")
+			. = TRUE
+			get_money()
+		if("PRG_main_menu")
+			. = TRUE
+			current_merchant = 0
+		if("PRG_merchant_list")
+			if(SStrade.traders.len == 0)
+				. = TRUE
+				temp = "Cannot find any traders within broadcasting range."
+			else
+				. = TRUE
+				current_merchant = 1
+				hailed_merchant = 0
+				last_comms = null
+		if("PRG_test_fire")
+			. = TRUE
+			if(test_fire())
+				temp = "Test Fire Successful"
+			else
+				temp = "Test Fire Unsuccessful"
+		if("PRG_scroll")
+			. = TRUE
+			var/scrolled = 0
+			switch(params["PRG_scroll"])
+				if("right")
+					scrolled = 1
+				if("left")
+					scrolled = -1
+			var/new_merchant  = Clamp(current_merchant + scrolled, 1, SStrade.traders.len)
+			if(new_merchant != current_merchant)
+				hailed_merchant = 0
+				last_comms = null
+			current_merchant = new_merchant
 	if(current_merchant)
 		var/datum/trader/T = get_merchant(current_merchant)
 		if(!T.can_hail())
 			last_comms = T.get_response("hail_deny", "No, I'm not speaking with you.")
 			. = TRUE
 		else
-			if(href_list["PRG_hail"])
+			if(action == "PRG_hail")
 				. = TRUE
 				last_comms = T.hail(user)
 				show_trades = 0
 				hailed_merchant = 1
-			if(href_list["PRG_show_trades"])
+			if(action == "PRG_show_trades")
 				. = TRUE
 				show_trades = !show_trades
-			if(href_list["PRG_insult"])
+			if(action == "PRG_insult")
 				. = TRUE
 				last_comms = T.insult()
-			if(href_list["PRG_compliment"])
+			if(action == "PRG_compliment")
 				. = TRUE
 				last_comms = T.compliment()
-			if(href_list["PRG_offer_item"])
+			if(action == "PRG_offer_item")
 				. = TRUE
-				offer_item(T,text2num(href_list["PRG_offer_item"]) + 1)
-			if(href_list["PRG_how_much_do_you_want"])
+				offer_item(T,text2num(params["PRG_offer_item"]) + 1)
+			if(action == "PRG_how_much_do_you_want")
 				. = TRUE
-				last_comms = T.how_much_do_you_want(text2num(href_list["PRG_how_much_do_you_want"]) + 1)
-			if(href_list["PRG_offer_money_for_item"])
+				last_comms = T.how_much_do_you_want(text2num(params["PRG_how_much_do_you_want"]) + 1)
+			if(action == "PRG_offer_money_for_item")
 				. = TRUE
-				offer_money(T, text2num(href_list["PRG_offer_money_for_item"])+1)
-			if (href_list["PRG_bulk_money_for_item"])
+				offer_money(T, text2num(params["PRG_offer_money_for_item"])+1)
+			if (action == "PRG_bulk_money_for_item")
 				. = TRUE
-				bulk_offer(T, text2num(href_list["PRG_bulk_money_for_item"])+1)
-			if(href_list["PRG_what_do_you_want"])
+				bulk_offer(T, text2num(params["PRG_bulk_money_for_item"])+1)
+			if(action == "PRG_what_do_you_want")
 				. = TRUE
 				last_comms = T.what_do_you_want()
-			if(href_list["PRG_sell_items"])
+			if(action == "PRG_sell_items")
 				. = TRUE
 				sell_items(T)
-			if(href_list["PRG_bribe"])
+			if(action == "PRG_bribe")
 				. = TRUE
-				bribe(T, text2num(href_list["PRG_bribe"]))
+				bribe(T, text2num(params["PRG_bribe"]))
 
 /datum/computer_file/program/merchant/nka
 	required_access_run = list(access_nka)
