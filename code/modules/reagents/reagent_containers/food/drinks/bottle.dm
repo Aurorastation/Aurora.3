@@ -693,10 +693,10 @@
 			"Malta Sol Nebbiolo", "Ashkhaimi Gardens Shiraz", "Old Cairo 2375", "Artisan Empire 2354")
 
 /obj/item/reagent_containers/food/drinks/bottle/dominian_wine
-	name = "Jadrani Consecrated plum wine"
+	name = "Jadrani Consecrated geneboosted wine"
 	desc = "A bottle of artisanally-crafted, highly sought-after Dominian red wine. Sanctified and exported via House Caladius."
 	desc_extended = "The Dominian mastery of the genome does not stop with the mere human; flora and fauna, too, can be adjusted to better serve the needs of the Empire and Her chosen people. This \
-	wine, from grapes painstakingly modified for endurance(and for flavor), represents the Goddess in the Aspect of both the Artisan and the Scholar. Each bottle is inspected, tested, and blessed by a Priestess \
+	wine- the exact fruit juices used are a coveted secret- represents the Goddess in the Aspect of both the Artisan and the Scholar. Each bottle is inspected, tested, and blessed by a Priestess \
 	of the Moroz Holy Tribunal, then packaged and sold across the Empire and various- typically wealthy- foreign markets. The first hundred bottles of every season are given to the Goddess, as thanks for Her providence. \
 	The next thousand or so are sent directly to the Royal Family, as a favored gift to the royal court and their functionaries."
 	icon_state = "sacredwine"

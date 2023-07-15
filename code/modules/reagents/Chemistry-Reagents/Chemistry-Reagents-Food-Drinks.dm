@@ -2770,13 +2770,13 @@
 	glass_desc = "A very classy and expensive-looking drink."
 
 /singleton/reagent/alcohol/wine/dominian
-	name = "Domelkos Consecrated Red"
+	name = "Geneboosted Wine"
 	description = "A popular vintage among the Dominian elite. Worth every Imperial Pound."
 	strength = 10
 	taste_description = "expensive red wine, dates, and bittersweet chocolate"
 
 	glass_icon_state = "sacredwineglass"
-	glass_name = "glass of dominian wine"
+	glass_name = "glass of geneboosted wine"
 	glass_desc = "An imperiously classy drink. In Her name, so shall it be drunk!"
 
 /singleton/reagent/alcohol/wine/algae
@@ -2786,7 +2786,7 @@
 
 	glass_icon_state = "algaewineglass"
 	glass_name = "glass of algae wine"
-	glass_desc = "Smells like a hydroponic basin."
+	glass_desc = "Smells like a hydroponic basin. Not very classy."
 
 /singleton/reagent/alcohol/wine/valokki
 	name = "Valokki Wine"
