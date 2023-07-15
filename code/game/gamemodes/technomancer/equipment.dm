@@ -150,7 +150,7 @@
 	max_storage_space = 16
 
 /datum/technomancer/equipment/thermals
-	name = "Thermoncle"
+	name = "Thermonocle"
 	desc = "A fancy monocle with a thermal optics lens installed.  Allows you to see people across walls."
 	cost = 150
 	obj_path = /obj/item/clothing/glasses/thermal/plain/monocle

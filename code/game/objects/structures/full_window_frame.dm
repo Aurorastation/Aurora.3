@@ -115,7 +115,7 @@
 		if(!WT.isOn())
 			to_chat(user, SPAN_NOTICE("\The [WT] isn't turned on."))
 			return
-		playsound(src, 'sound/items/welder.ogg', 50, TRUE)
+		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
 		user.visible_message(
 			SPAN_WARNING("\The [user] starts welding \the [src] apart!"),
 			SPAN_NOTICE("You start welding \the [src] apart..."),

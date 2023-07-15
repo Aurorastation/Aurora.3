@@ -225,3 +225,11 @@
 		if(B.claimed)
 			++count
 	return count
+
+
+#undef BOUNTY_MIN
+#undef BOUNTY_MAX
+
+#undef BOUNTY_NUM_LOW
+#undef BOUNTY_NUM_MED
+#undef BOUNTY_NUM_HIGH

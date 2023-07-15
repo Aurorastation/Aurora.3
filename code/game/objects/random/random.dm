@@ -2121,3 +2121,30 @@
 		/obj/item/gun/projectile/deagle,
 		/obj/item/gun/custom_ka/frame01/illegal
 	)
+
+
+/obj/random/voidsuit/freebooter
+	name = "random freebooter voidsuit"
+	suitmap = list(
+		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering,
+		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/head/helmet/space/void/mining,
+		/obj/item/clothing/suit/space/void/merc = /obj/item/clothing/head/helmet/space/void/merc,
+		/obj/item/clothing/suit/space/void/freelancer = /obj/item/clothing/head/helmet/space/void/freelancer,
+		/obj/item/rig/industrial,
+		/obj/item/rig/eva,
+		/obj/item/rig/hazard,
+		/obj/item/clothing/suit/space/syndicate/black/red = /obj/item/clothing/head/helmet/space/syndicate/black/red,
+		/obj/item/clothing/suit/space/syndicate/black = /obj/item/clothing/head/helmet/space/syndicate/black
+	)
+	problist = list(
+		/obj/item/clothing/suit/space/void/engineering = 3,
+		/obj/item/clothing/suit/space/void/mining = 3,
+		/obj/item/clothing/suit/space/void/merc = 1,
+		/obj/item/clothing/suit/space/void/freelancer = 1,
+		/obj/item/rig/industrial = 2,
+		/obj/item/rig/hazard = 1,
+		/obj/item/rig/eva = 2,
+		/obj/item/clothing/suit/space/syndicate/black = 1,
+		/obj/item/clothing/suit/space/syndicate/black/red = 1
+	)
+	has_postspawn = TRUE

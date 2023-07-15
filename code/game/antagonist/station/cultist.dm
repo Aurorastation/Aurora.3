@@ -88,20 +88,20 @@ var/datum/antagonist/cultist/cult
 		if(player.current && !istype(player.current, /mob/living/simple_animal/construct))
 			player.current.add_language(LANGUAGE_CULT)
 			player.current.add_language(LANGUAGE_OCCULT)
-			player.current.verbs |= /datum/antagonist/cultist/proc/appraise_offering
-			player.current.verbs |= /datum/cultist/proc/memorize_rune
-			player.current.verbs |= /datum/cultist/proc/forget_rune
-			player.current.verbs |= /datum/cultist/proc/scribe_rune
+			add_verb(player.current, /datum/antagonist/cultist/proc/appraise_offering)
+			add_verb(player.current, /datum/cultist/proc/memorize_rune)
+			add_verb(player.current, /datum/cultist/proc/forget_rune)
+			add_verb(player.current, /datum/cultist/proc/scribe_rune)
 			player.antag_datums[MODE_CULTIST] = new /datum/cultist()
 
 
 /datum/antagonist/cultist/remove_antagonist(var/datum/mind/player)
 	. = ..()
 
-	player.current.verbs -= /datum/antagonist/cultist/proc/appraise_offering
-	player.current.verbs -= /datum/cultist/proc/memorize_rune
-	player.current.verbs -= /datum/cultist/proc/forget_rune
-	player.current.verbs -= /datum/cultist/proc/scribe_rune
+	remove_verb(player.current, /datum/antagonist/cultist/proc/appraise_offering)
+	remove_verb(player.current, /datum/cultist/proc/memorize_rune)
+	remove_verb(player.current, /datum/cultist/proc/forget_rune)
+	remove_verb(player.current, /datum/cultist/proc/scribe_rune)
 
 /datum/antagonist/cultist/can_become_antag(var/datum/mind/player, ignore_role = 1)
 	if(!..())

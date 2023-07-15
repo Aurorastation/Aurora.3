@@ -23,7 +23,7 @@
 			return TRUE
 		if(WT.use(0,user))
 			user.visible_message("<b>[user]</b> starts slicing \the [src] apart.", SPAN_NOTICE("You start slicing \the [src] apart."))
-			playsound(src, 'sound/items/welder.ogg', 100, 1)
+			playsound(src, 'sound/items/Welder.ogg', 100, 1)
 			var/slice_time = reinf_material ? 100 : 30
 			if(WT.use_tool(src, user, slice_time, volume = 50))
 				user.visible_message("<b>[user]</b> slices \the [src] apart.", SPAN_NOTICE("You slice \the [src] apart."))

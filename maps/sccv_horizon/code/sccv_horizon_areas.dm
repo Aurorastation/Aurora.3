@@ -292,8 +292,8 @@
 	name = "Atmos Compartment"
 /area/shuttle/intrepid/cockpit
 	name = "Cockpit"
-/area/shuttle/intrepid/rotary
-	name = "Intrepid Armament"
+/area/shuttle/intrepid/quarters
+	name = "Intrepid Crew Quarters"
 
 /area/shuttle/canary
 	name = "Canary"
@@ -653,6 +653,7 @@
 /area/horizon/bar/backroom
 	name = "Horizon - Bar - Backroom"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	flags = RAD_SHIELDED
 
 // Cafeteria
 /area/horizon/cafeteria

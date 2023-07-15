@@ -1,11 +1,7 @@
 /datum/gear/toy
-	display_name = "holo board game"
-	path = /obj/item/board
-	sort_category = "Toys"
-
-/datum/gear/toy/dice
 	display_name = "pack of dice"
 	path = /obj/item/storage/pill_bottle/dice
+	sort_category = "Toys"
 
 /datum/gear/toy/dicegaming
 	display_name = "pack of gaming dice"

@@ -23,7 +23,7 @@
 /obj/screen/text
 	icon = null
 	icon_state = null
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	screen_loc = "CENTER-7,CENTER-7"
 	maptext_height = 480
 	maptext_width = 480
@@ -202,7 +202,7 @@
 
 /obj/effect/overlay/zone_sel
 	icon = 'icons/mob/zone_sel.dmi'
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
 	layer = SCREEN_LAYER + 0.1

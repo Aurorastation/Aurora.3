@@ -53,13 +53,48 @@
 	if(!ROUND_IS_STARTED)
 		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
 		return
-	SSghostroles.vui_interact(user,identifier)
+	ui_interact(user)
 
 /obj/effect/ghostspawpoint/attack_hand(mob/user)
 	if(!ROUND_IS_STARTED)
 		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
 		return
-	SSghostroles.vui_interact(user,identifier)
+	ui_interact(user)
+
+/obj/effect/ghostspawpoint/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "GhostSpawner", "Ghost Spawner", 480, 500)
+		ui.open()
+
+/obj/effect/ghostspawpoint/ui_data(mob/user)
+	var/list/data = list()
+	var/datum/ghostspawner/G = SSghostroles.spawners[identifier]
+	if(!G)
+		return
+	data["spawners"] = list(list(
+		"short_name" = G.short_name,
+		"name" = G.name,
+		"desc" = G.desc,
+		"type" = G.type,
+		"cant_spawn" = G.cant_spawn(user),
+		"can_edit" = G.can_edit(user),
+		"can_jump_to" = G.can_jump_to(user),
+		"enabled" = G.enabled,
+		"count" = G.count,
+		"spawn_atoms" = length(G.spawn_atoms),
+		"max_count" = G.max_count,
+		"tags" = G.tags,
+		"spawnpoints" = G.spawnpoints
+	))
+	data["categories"] = G.tags
+	return data
+
+/obj/effect/ghostspawpoint/ui_state(mob/user)
+    return observer_state
+
+/obj/effect/ghostspawpoint/ui_status(mob/user, datum/ui_state/state)
+    return UI_INTERACTIVE
 
 /obj/effect/ghostspawpoint/proc/is_available()
 	return TRUE

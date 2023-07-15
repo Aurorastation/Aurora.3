@@ -11,7 +11,7 @@
 	max_hardware_size = 3
 	max_damage = 50
 	w_class = ITEMSIZE_NORMAL
-	enrolled = 2
+	enrolled = DEVICE_PRIVATE
 	var/mob/living/silicon/computer_host		// Thing that contains this computer. Used for silicon computers
 	looping_sound = FALSE
 
@@ -19,11 +19,11 @@
 	. = computer_host
 
 /obj/item/modular_computer/silicon/Initialize(mapload)
-	. = ..()
 	if(istype(loc, /mob/living/silicon))
 		computer_host = loc
 	else
-		return
+		return INITIALIZE_HINT_QDEL
+	. = ..()
 
 /obj/item/modular_computer/silicon/computer_use_power(power_usage)
 	// If we have host like AI, borg or pAI we handle there power
@@ -55,6 +55,10 @@
 	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))
 	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
 	hard_drive.store_file(new /datum/computer_file/program/chat_client(src))
+	hard_drive.store_file(new /datum/computer_file/program/alarm_monitor/all(src))
+	hard_drive.store_file(new /datum/computer_file/program/atmos_control(src))
+	hard_drive.store_file(new /datum/computer_file/program/rcon_console(src))
+	hard_drive.store_file(new /datum/computer_file/program/law_manager(src, computer_host))
 	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))
 	addtimer(CALLBACK(src, PROC_REF(register_chat)), 1 SECOND)
 
@@ -66,4 +70,5 @@
 /obj/item/modular_computer/silicon/robot/drone/install_default_programs()
 	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))
 	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
+	hard_drive.store_file(new /datum/computer_file/program/alarm_monitor/all(src))
 	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))

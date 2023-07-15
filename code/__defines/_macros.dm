@@ -157,3 +157,6 @@
 
 /// Decrease the size of L by 1 from the end. Is the old last entry index.
 #define LIST_DEC(L) ((L).len--)
+
+/// Radial input menu
+#define RADIAL_INPUT(user, choices) show_radial_menu(user, user, choices, tooltips = TRUE)
