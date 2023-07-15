@@ -52,5 +52,5 @@
 
 /obj/structure/closet/secure_closet/guncabinet/peac/fill()
 	new /obj/item/gun/projectile/peac(src)
-	for(var/i = 3)
+	for(var/i = 1 to 3)
 		new /obj/item/ammo_casing/peac(src)
