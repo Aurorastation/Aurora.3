@@ -38,7 +38,7 @@
 	var/epp_active = FALSE
 
 	var/list/mask_blacklist = list(
-		/obj/item/clothing/mask/breath/vaurca,
+		/obj/item/clothing/mask/gas/vaurca,
 		/obj/item/clothing/mask/breath/skrell,
 		/obj/item/clothing/mask/breath/lyodsuit,
 		/obj/item/clothing/mask/breath/infiltrator)
