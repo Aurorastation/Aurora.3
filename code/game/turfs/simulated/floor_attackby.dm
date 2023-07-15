@@ -130,6 +130,12 @@
 							visible_message("<span class='warning'>[user] has melted the plating's reinforcements! It should be possible to pry it off.</span>")
 							playsound(src, 'sound/items/Welder.ogg', 80, 1)
 					return
+
+	if(istype(C,/obj/item/floor_frame))
+		var/obj/item/floor_frame/F = C
+		F.try_build(src, user)
+		return
+
 	return ..()
 
 /turf/simulated/floor/proc/welder_melt()
