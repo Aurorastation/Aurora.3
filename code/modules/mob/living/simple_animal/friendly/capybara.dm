@@ -30,7 +30,7 @@
 			if(!stat && M)
 				icon_state = icon_living
 				var/list/responses = list(	"[src] looks content.",
-											"[src] is not disturbed in it's relaxation.",
+											"[src] is not disturbed in its relaxation.",
 											"[src] looks at you with a satisfied look.",
 											"[src] accepted it's fate to receive pets.")
 				to_chat(M, pick(responses))
