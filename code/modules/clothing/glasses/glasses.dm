@@ -147,7 +147,7 @@ BLIND     // can't see anything
 	name = "medical HUD aviators"
 	desc = "Modified aviator glasses with a toggled health HUD. Comes with bonus prescription overlay."
 	icon_state = "aviator_med"
-	off_state = "aviator_med_off"
+	item_state = "aviator_med"
 	action_button_name = "Toggle Mode"
 	toggleable = 1
 	activation_sound = 'sound/effects/pop.ogg'
@@ -160,11 +160,43 @@ BLIND     // can't see anything
 
 	attack_self(usr)
 
+/obj/item/clothing/glasses/hud/health/aviator/update_icon()
+	if(active)
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
+	else
+		icon_state = "[initial(icon_state)]_off"
+		item_state = "[initial(item_state)]_off"
+
+/obj/item/clothing/glasses/hud/health/aviator/pmc
+	name = "PMCG medical HUD aviators"
+	desc = "Sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
+	icon_state = "aviator_med_pmc"
+	item_state = "aviator_med_pmc"
+
+/obj/item/clothing/glasses/hud/health/aviator/pmc/alt
+	name = "EPMC medical HUD aviators"
+	desc = "Sunglasses in Eridani Private Military Contracting colours. They come with a blue-tinted HUD and a chrome finish."
+	icon_state = "aviator_med_pmc_alt"
+	item_state = "aviator_med_pmc_alt"
+
+/obj/item/clothing/glasses/hud/health/aviator/nt
+	name = "NanoTrasen medical HUD aviators"
+	desc = "Sunglasses in the colours of the NanoTrasen Corporation. They come with a blue-tinted HUD and a chrome finish."
+	icon_state = "aviator_med_nt"
+	item_state = "aviator_med_nt"
+
+/obj/item/clothing/glasses/hud/health/aviator/zeng
+	name = "Zeng-Hu medical HUD aviators"
+	desc = "Sunglasses in the colours of Zeng-Hu Pharmaceuticals. They come with a purple-tinted HUD and a chrome finish."
+	icon_state = "aviator_med_zeng"
+	item_state = "aviator_med_zeng"
+
 /obj/item/clothing/glasses/hud/health/aviator/visor
 	name = "medical HUD visor"
 	desc = "Modified visor glasses with a toggled health HUD. Comes with bonus prescription overlay."
 	icon_state = "visor_medhud"
-	off_state = "visor_medhud_off"
+	item_state = "visor_medhud"
 
 /obj/item/clothing/glasses/science
 	name = "science goggles"
@@ -751,7 +783,10 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDsunglasses"
 	desc = "Sunglasses in the colours of NanoTrasen security. They come with a blue-tinted HUD."
+	icon = 'icons/obj/item/clothing/eyes/sec_hud.dmi'
 	icon_state = "sunhud"
+	item_state = "sunhud"
+	contained_sprite = TRUE
 
 /obj/item/clothing/glasses/sunglasses/sechud/Initialize()
 	. = ..()
@@ -765,42 +800,51 @@ BLIND     // can't see anything
 	name = "fat HUDsunglasses"
 	desc = "Fat sunglasses in the colours of NanoTrasen security. They come with a blue-tinted HUD."
 	icon_state = "bigsunglasses_hud"
+	item_state = "bigsunglasses_hud"
 
 /obj/item/clothing/glasses/sunglasses/sechud/zavod
 	name = "Zavodskoi HUDsunglasses"
 	desc = "Sunglasses in the colours of Zavodskoi Interstellar. They come with a red-tinted HUD."
 	icon_state = "sunhud_zavod"
+	item_state = "sunhud_zavod"
 
 /obj/item/clothing/glasses/sunglasses/sechud/big/zavod
 	name = "fat Zavodskoi HUDsunglasses"
 	desc = "Fat sunglasses in the colours of Zavodskoi Interstellar. They come with a red-tinted HUD."
 	icon_state = "bigsunglasses_hud_zavod"
+	item_state = "bigsunglasses_hud_zavod"
 
 /obj/item/clothing/glasses/sunglasses/sechud/pmc
 	name = "PMCG HUDsunglasses"
 	desc = "Sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "sunhud_pmcg"
+	item_state = "sunhud_pmcg"
 
 /obj/item/clothing/glasses/sunglasses/sechud/pmc/alt
 	icon_state = "sunhud_pmcg_alt"
+	item_state = "sunhud_pmcg_alt"
 
 /obj/item/clothing/glasses/sunglasses/sechud/big/pmc
 	name = "fat PMCG HUDsunglasses"
 	desc = "Fat sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "bigsunglasses_hud_pmcg"
+	item_state = "bigsunglasses_hud_pmcg"
 
 /obj/item/clothing/glasses/sunglasses/sechud/big/pmc/alt
 	icon_state = "bigsunglasses_hud_pmcg_alt"
+	item_state = "bigsunglasses_hud_pmcg_alt"
 
 /obj/item/clothing/glasses/sunglasses/sechud/idris
 	name = "Idris HUDsunglasses"
 	desc = "Sunglasses in the colours of Idris Incorporated. They come with a teal-tinted HUD and a chrome finish."
 	icon_state = "sunhud_idris"
+	item_state = "sunhud_idris"
 
 /obj/item/clothing/glasses/sunglasses/sechud/big/idris
 	name = "fat Idris HUDsunglasses"
 	desc = "Fat sunglasses in the colours of Idris Incorporated. They come with a teal-tinted HUD and a chrome finish."
 	icon_state = "bigsunglasses_hud_idris"
+	item_state = "bigsunglasses_hud_idris"
 
 /obj/item/clothing/glasses/sunglasses/sechud/tactical
 	name = "tactical HUD"
@@ -821,8 +865,7 @@ BLIND     // can't see anything
 	desc = "NanoTrasen security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	flash_protection = FLASH_PROTECTION_NONE
 	icon_state = "aviator_sec"
-	off_state = "aviator_sec_off"
-	item_state_slots = list(slot_r_hand_str = "aviator_sec", slot_l_hand_str = "aviator_sec")
+	item_state = "aviator_sec"
 	action_button_name = "Toggle Mode"
 	var/on = TRUE
 	toggleable = TRUE
@@ -862,8 +905,10 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/update_icon()
 	if(on)
 		icon_state = initial(icon_state)
+		item_state = initial(item_state)
 	else
-		icon_state = off_state
+		icon_state = "[initial(icon_state)]_off"
+		item_state = "[initial(item_state)]_off"
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/verb/toggle()
 	set category = "Object"
@@ -876,30 +921,29 @@ BLIND     // can't see anything
 	name = "Zavodskoi HUD aviators"
 	desc = "Zavodskoi security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "aviator_sec_zavod"
-	off_state = "aviator_sec_zavod_off"
+	item_state = "aviator_sec_zavod"
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc
 	name = "PMCG HUD aviators"
 	desc = "PMCG security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "aviator_sec_pmcg"
-	off_state = "aviator_sec_pmcg_off"
+	item_state = "aviator_sec_pmcg"
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc/alt
 	icon_state = "aviator_sec_pmcg_alt"
-	off_state = "aviator_sec_pmcg_alt_off"
+	item_state = "aviator_sec_pmcg_alt"
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
 	name = "Idris HUD aviators"
 	desc = "Idris security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "aviator_sec_idris"
-	off_state = "aviator_sec_idris_off"
+	item_state = "aviator_sec_idris"
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	name = "security HUD visor"
 	desc = "NanoTrasen security visor glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "visor_sec"
-	off_state = "visor_sec_off"
-	item_state_slots = list(slot_r_hand_str = "visor_sec", slot_l_hand_str = "visor_sec")
+	item_state = "visor_sec"
 
 /obj/item/clothing/glasses/thermal
 	name = "optical thermal scanner"
