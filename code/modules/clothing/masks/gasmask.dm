@@ -11,7 +11,7 @@
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
 	var/gas_filter_strength = 1			//For gas mask filters
-	var/list/filtered_gases = list(GAS_PHORON, GAS_N2O)
+	var/list/filtered_gases = list(GAS_PHORON, GAS_N2O, GAS_CHLORINE, GAS_ALIEN)
 	armor = list(
 		bio = ARMOR_BIO_STRONG
 	)
