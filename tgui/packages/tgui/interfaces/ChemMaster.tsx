@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Section, Stack, Table, Flex, Box, Collapsible, LabeledList } from '../components';
+import { Button, Section, Stack, Table, Flex, Box, Collapsible, LabeledList, Divider } from '../components';
 import { Window } from '../layouts';
 
 export type DispenserData = {
@@ -52,7 +52,8 @@ const ReagentFactory = (props, context) => {
                     onClick={() => act('analyze', { name: 'Blood' })}
                   />
                 ) : null
-              }>
+              }
+              mt="-3px">
               {quantities.map((quantity) => (
                 <DispenseButton
                   key={quantity}
@@ -112,7 +113,7 @@ export const ChemMaster = (props, context) => {
     <Window
       title={data.machine_name}
       theme={data.is_condimaster ? 'idris' : 'zenghu'}>
-      <Window.Content scrollable>
+      <Window.Content scrollable fitted fontSize={0.95}>
         <Section
           title={data.machine_name}
           buttons={
@@ -173,6 +174,7 @@ export const ChemMaster = (props, context) => {
             </Table.Row>
           </Table>
         </Section>
+        <Divider />
         <Section title={data.machine_name.split(' ')[0] + ' Content'}>
           <Stack vertical>
             <Stack.Item>
@@ -224,6 +226,7 @@ export const ChemMaster = (props, context) => {
             </Stack.Item>
           </Stack>
         </Section>
+        <Divider />
         <Section title="Preferences">
           <Collapsible title="Bottle type">
             <Flex pt="10px" wrap="wrap" align="center">

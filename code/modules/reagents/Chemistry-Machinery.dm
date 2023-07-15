@@ -45,6 +45,8 @@
 				qdel(src)
 				return
 
+#define CHEMMASTER_BOTTLE_SOUND playsound(src, 'sound/items/pickup/bottle.ogg', 75, 1)
+
 /obj/machinery/chem_master/attackby(var/obj/item/B, mob/user)
 
 	if(istype(B, /obj/item/reagent_containers/glass))
@@ -60,6 +62,7 @@
 		to_chat(user, "You add the beaker to the machine!")
 		src.updateUsrDialog()
 		icon_state = "mixer1"
+		CHEMMASTER_BOTTLE_SOUND
 
 	else if(istype(B, /obj/item/storage/pill_bottle))
 		if(condi)
@@ -153,11 +156,17 @@
 
 	return data
 
+#define CHEMMASTER_DISPENSE_SOUND playsound(src, 'sound/machines/reagent_dispense.ogg', 75, 1)
+#define CHEMMASTER_CHANGESETTINGS_SOUND playsound(src, 'sound/machines/slide_change.ogg', 75, 1)
+#define CHEMMASTER_SWITCH_SOUND playsound(src, 'sound/machines/switch1.ogg', 75, 1)
+
 /obj/machinery/chem_master/ui_act(action, params)
 	. = ..()
 
 	if(.)
 		return
+
+	playsound(src, 'sound/machines/button3.ogg', 75, 1) //Buttons clicky
 
 	if(action == "ejectp")
 		if(loaded_pill_bottle)
@@ -185,8 +194,9 @@
 					analysis["DNA"] = Gdata["blood_DNA"]
 				else if(params["name"] == "Close")
 					analysis = list()
-
+			CHEMMASTER_SWITCH_SOUND
 			return TRUE
+
 		else if(action == "add")
 			if(params["amount"])
 				var/rtype = text2path(params["add"])
@@ -213,10 +223,12 @@
 				beaker = null
 				reagents.clear_reagents()
 				icon_state = "mixer0"
+			CHEMMASTER_BOTTLE_SOUND
 			return TRUE
 
 	if (action == "toggle")
 		mode = !mode
+		CHEMMASTER_CHANGESETTINGS_SOUND
 		return TRUE
 
 	else if(action == "createbottle")
@@ -233,6 +245,7 @@
 		else
 			var/obj/item/reagent_containers/food/condiment/P = new/obj/item/reagent_containers/food/condiment(get_turf(src))
 			reagents.trans_to_obj(P,50)
+		CHEMMASTER_BOTTLE_SOUND
 		return TRUE
 
 	else if (action == "createpill" || action == "createpill_multiple")
@@ -265,16 +278,24 @@
 			reagents.trans_to_obj(P,amount_per_pill)
 			if(src.loaded_pill_bottle)
 				loaded_pill_bottle.insert_into_storage(P)
+		CHEMMASTER_DISPENSE_SOUND
 		return TRUE
 
 	else if(action == "pill_sprite")
 		pillsprite = sanitizeSafe(params["pill_sprite"])
+		CHEMMASTER_CHANGESETTINGS_SOUND
 		return TRUE
 
 	else if(action == "bottle_sprite")
 		bottlesprite = sanitizeSafe(params["bottle_sprite"])
+		CHEMMASTER_CHANGESETTINGS_SOUND
 		return TRUE
 	return TRUE
+
+#undef CHEMMASTER_DISPENSE_SOUND
+#undef CHEMMASTER_CHANGESETTINGS_SOUND
+#undef CHEMMASTER_SWITCH_SOUND
+#undef CHEMMASTER_BOTTLE_SOUND
 
 
 /obj/machinery/chem_master/Topic(href, href_list)
