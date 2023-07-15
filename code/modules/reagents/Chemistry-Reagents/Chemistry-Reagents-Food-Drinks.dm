@@ -2816,6 +2816,7 @@
 	glass_icon_state = "tarasunglass"
 	glass_name = "glass of tarasun"
 	glass_desc = "An incredibly potent alcoholic beverage, distilled and fermented from tenelote milk."
+
 // Cocktails
 
 /singleton/reagent/alcohol/acid_spit
@@ -4708,8 +4709,9 @@
 	taste_description = "alcoholic rapture"
 
 	glass_icon_state = "tribunalglass"
-	glass_name = "carton of the tribunal"
-	glass_desc = "And so She said to Giovanna, 'Make merry, for there is always a bitter tomorrow!'."
+	glass_name = "rapturous sacrament of the threefold goddess"
+	glass_desc = "And Our Lady did come down from the mountain, and She was flanked in radiant and ever-burning cosmic fires. And She spoke with the Lady Caladius for what seemed an eternity, \
+	and the Lady Caladius did finally emerge. And we happy few were so blessed as to hear her- the Prophetess Giovanna- say, 'Drink today not as warriors, but as immortals.'."
 
 // Skrellian drinks
 //====================
