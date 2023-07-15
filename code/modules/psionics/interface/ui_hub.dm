@@ -36,7 +36,7 @@
 /obj/screen/psi/hub/Click(var/location, var/control, var/params)
 	var/list/click_params = params2list(params)
 	if(click_params["shift"])
-		owner.show_psi_assay(owner)
+		//owner.show_psi_assay(owner) todomatt
 		return
 
 	if(owner.psi.suppressed && owner.psi.stun)
@@ -46,7 +46,6 @@
 	owner.psi.suppressed = !owner.psi.suppressed
 	to_chat(owner, "<span class='notice'>You are <b>[owner.psi.suppressed ? "now suppressing" : "no longer suppressing"]</b> your psi-power.</span>")
 	if(owner.psi.suppressed)
-		owner.psi.cancel()
 		owner.psi.hide_auras()
 	else
 		sound_to(owner, sound('sound/effects/psi/power_unlock.ogg'))

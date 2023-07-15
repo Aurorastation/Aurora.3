@@ -1,11 +1,9 @@
-#define PSI_COERCION           "coercion"
-#define PSI_PSYCHOKINESIS      "psychokinesis"
-#define PSI_REDACTION          "redaction"
-#define PSI_ENERGISTICS        "energistics"
+#define PSI_RANK_DEAF         	0	// Psionically deaf.
+#define PSI_RANK_PERCEPTIVE     1	// Psionically perceptive.
+#define PSI_RANK_SENSITIVE      2	// Psionically sensitive.
+#define PSI_RANK_HARMONIOUS     3	// Psionically harmonious.
+#define PSI_RANK_APEX   		4	// Psionic apex.
 
-#define PSI_RANK_BLUNT         0
-#define PSI_RANK_LATENT        1
-#define PSI_RANK_OPERANT       2
-#define PSI_RANK_MASTER        3
-#define PSI_RANK_GRANDMASTER   4
-#define PSI_RANK_PARAMOUNT     5
+#define PSI_FLAG_CANON 1 // An ability that can be selected by a ship character.
+#define PSI_FLAG_EVENT 2 // An ability for events, not selectable by ship characters.
+

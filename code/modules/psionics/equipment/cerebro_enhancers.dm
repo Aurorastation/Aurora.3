@@ -14,10 +14,7 @@
 		)
 
 	var/operating = FALSE
-	var/list/boosted_faculties
-	var/boosted_rank = PSI_RANK_PARAMOUNT
-	var/unboosted_rank = PSI_RANK_MASTER
-	var/max_boosted_faculties = 3
+	var/boosted_rank = PSI_RANK_HARMONIOUS
 	var/boosted_psipower = 120
 
 /obj/item/clothing/head/helmet/space/psi_amp/lesser
@@ -26,51 +23,14 @@
 	flags_inv = 0
 	body_parts_covered = 0
 
-	max_boosted_faculties = 1
-	boosted_rank = PSI_RANK_MASTER
-	unboosted_rank = PSI_RANK_OPERANT
+	boosted_rank = PSI_RANK_HARMONIOUS
 	boosted_psipower = 50
 
 /obj/item/clothing/head/helmet/space/psi_amp/Initialize()
 	. = ..()
 	verbs += /obj/item/clothing/head/helmet/space/psi_amp/proc/integrate
 
-/obj/item/clothing/head/helmet/space/psi_amp/attack_self(var/mob/user)
-
-	if(operating)
-		return
-
-	if(!canremove)
-		deintegrate()
-		return
-
-	var/mob/living/carbon/human/H = loc
-	if(istype(H) && H.head == src)
-		integrate()
-		return
-
-	var/choice = input("Select a brainboard to install or remove.","Psionic Amplifier") as null|anything in SSpsi.faculties_by_name
-	if(!choice)
-		return
-
-	var/removed
-	var/slots_left = max_boosted_faculties - LAZYLEN(boosted_faculties)
-	var/datum/psionic_faculty/faculty = SSpsi.get_faculty(choice)
-	if(faculty.id in boosted_faculties)
-		LAZYREMOVE(boosted_faculties, faculty.id)
-		removed = TRUE
-	else
-		if(slots_left <= 0)
-			to_chat(user, SPAN_WARNING("There are no slots left to install brainboards into."))
-			return
-		LAZYADD(boosted_faculties, faculty.id)
-	UNSETEMPTY(boosted_faculties)
-
-	slots_left = max_boosted_faculties - LAZYLEN(boosted_faculties)
-	to_chat(user, SPAN_NOTICE("You [removed ? "remove" : "install"] the [choice] brainboard [removed ? "from" : "in"] \the [src]. There [slots_left!=1 ? "are" : "is"] [slots_left] slot\s left."))
-
 /obj/item/clothing/head/helmet/space/psi_amp/proc/deintegrate()
-
 	set name = "Remove Psi-Amp"
 	set desc = "Removes your psi-amp."
 	set category = "Abilities"
@@ -121,7 +81,6 @@
 			canremove = TRUE
 
 /obj/item/clothing/head/helmet/space/psi_amp/proc/integrate()
-
 	set name = "Integrate Psionic Amplifier"
 	set desc = "Enhance your brainpower."
 	set category = "Abilities"
@@ -131,10 +90,6 @@
 		return
 
 	if(!canremove)
-		return
-
-	if(LAZYLEN(boosted_faculties) < max_boosted_faculties)
-		to_chat(usr, SPAN_NOTICE("You still have [max_boosted_faculties - LAZYLEN(boosted_faculties)] facult[LAZYLEN(boosted_faculties) == 1 ? "y" : "ies"] to select. Use \the [src] in-hand to select them."))
 		return
 
 	var/mob/living/carbon/human/H = loc
@@ -149,11 +104,7 @@
 
 	sleep(80)
 
-	for(var/faculty in list(PSI_COERCION, PSI_PSYCHOKINESIS, PSI_REDACTION, PSI_ENERGISTICS))
-		if(faculty in boosted_faculties)
-			H.set_psi_rank(faculty, boosted_rank, take_larger = TRUE, temporary = TRUE)
-		else
-			H.set_psi_rank(faculty, unboosted_rank, take_larger = TRUE, temporary = TRUE)
+	H.set_psi_rank(boosted_rank, temporary = TRUE)
 	if(H.psi)
 		H.psi.max_stamina = boosted_psipower
 		H.psi.stamina = H.psi.max_stamina
@@ -165,5 +116,6 @@
 	operating = FALSE
 	action_button_name = "Remove Psionic Amplifier"
 	H.update_action_buttons()
+	H.client.init_verbs()
 
 	set_light(0.5, 0.1, 3, 2, l_color = "#880000")

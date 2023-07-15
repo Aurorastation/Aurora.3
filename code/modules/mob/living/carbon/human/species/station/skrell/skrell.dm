@@ -119,7 +119,7 @@
 
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
 	..()
-	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)
+	H.set_psi_rank(PSI_RANK_SENSITIVE)
 
 /datum/species/skrell/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
 	switch(action)

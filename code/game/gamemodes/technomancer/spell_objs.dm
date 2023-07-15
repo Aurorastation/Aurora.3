@@ -144,8 +144,7 @@
 		core = owner.get_technomancer_core()
 		if(!core)
 			to_chat(owner, "<span class='warning'>You need a Core to do that.</span>")
-			qdel(src)
-			return
+			return INITIALIZE_HINT_QDEL
 	update_icon()
 
 // Proc: Destroy()

@@ -101,24 +101,6 @@ var/global/enabled_spooking = 0
 	"}
 
 	body += "<br><br>"
-	body += "<b>Psionics:</b><br/>"
-	if(isliving(M))
-		var/mob/living/psyker = M
-		if(psyker.psi)
-			body += "<a href='?src=\ref[src];remove_psionics=\ref[psyker.psi]'>Remove psionics.</a><br/><br/>"
-			body += "<a href='?src=\ref[src];trigger_psi_latencies\ref[psyker.psi]'>Trigger latencies.</a><br/>"
-		body += "<table width = '100%'>"
-		for(var/faculty in list(PSI_COERCION, PSI_PSYCHOKINESIS, PSI_REDACTION, PSI_ENERGISTICS))
-			var/datum/psionic_faculty/faculty_decl = SSpsi.get_faculty(faculty)
-			var/faculty_rank = psyker.psi ? psyker.psi.get_rank(faculty) : 0
-			body += "<tr><td><b>[faculty_decl.name]</b></td>"
-			for(var/i = 1 to LAZYLEN(psychic_ranks_to_strings))
-				var/psi_title = psychic_ranks_to_strings[i]
-				if(i == faculty_rank)
-					psi_title = "<b>[psi_title]</b>"
-				body += "<td><a href='?src=\ref[psyker.mind];set_psi_faculty_rank=[i];set_psi_faculty=[faculty]'>[psi_title]</a></td>"
-			body += "</tr>"
-		body += "</table>"
 
 	if (M.client)
 		if(!istype(M, /mob/abstract/new_player))
