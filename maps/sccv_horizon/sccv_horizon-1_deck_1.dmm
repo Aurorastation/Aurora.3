@@ -84,7 +84,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
 "adv" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8;
 	must_start_working = 1
 	},
@@ -1213,7 +1213,7 @@
 /area/maintenance/research_port)
 "aVU" = (
 /obj/structure/reagent_dispensers/extinguisher,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/structure/extinguisher_cabinet{
@@ -2067,7 +2067,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -2470,9 +2470,6 @@
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"bLo" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/stairwell/bridge)
 "bLu" = (
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 9
@@ -3056,10 +3053,10 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, d1 garden"
 	},
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "shutters_deck2_hydroponicswindows";
-	name = "Viewing Shutter"
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics/lower)
@@ -3207,7 +3204,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/machinery/firealarm/east,
@@ -3841,7 +3838,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4;
 	must_start_working = 1
 	},
@@ -3924,7 +3921,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/structure/sign/emergency/evacuation/pods{
@@ -3961,7 +3958,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -4320,7 +4317,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
@@ -4709,10 +4706,10 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
+/obj/machinery/door/blast/shutters{
 	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter"
+	name = "Viewing Shutter";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics/lower)
@@ -5125,7 +5122,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
 "dJm" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4;
 	must_start_working = 1
 	},
@@ -5145,7 +5142,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8;
 	must_start_working = 1
 	},
@@ -8474,17 +8471,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
-"fUU" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "shutters_deck2_hydroponicswindows";
-	name = "Viewing Shutter"
-	},
-/turf/simulated/floor/plating,
-/area/horizon/hydroponics/lower)
 "fVh" = (
 /obj/item/modular_computer/console/preset/ai{
 	dir = 1
@@ -9214,7 +9200,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -9935,7 +9921,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/grass/alt,
-/area/horizon/stairwell/bridge)
+/area/horizon/hydroponics/lower)
 "gUl" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -12138,8 +12124,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "iDB" = (
-/obj/structure/dispenser/phoron,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
 "iDM" = (
@@ -12763,7 +12749,7 @@
 	frequency = 1442;
 	input_tag = "starboard_prop_in";
 	output_tag = "starboard_prop_out";
-	sensors = list("starboard_prop_sensor"="Starboard Propulsion Sensor")
+	sensors = list("starboard_prop_sensor"="Starboard  Propulsion  Sensor")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion/starboard)
@@ -13896,7 +13882,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/machinery/alarm{
@@ -14158,7 +14144,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /obj/structure/sign/emergency/evacuation{
@@ -14896,7 +14882,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8;
 	must_start_working = 1
 	},
@@ -15936,7 +15922,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8;
 	must_start_working = 1
 	},
@@ -18144,7 +18130,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -18529,7 +18515,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -19539,7 +19525,7 @@
 	pixel_y = -8
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/horizon/stairwell/bridge)
+/area/horizon/hydroponics/lower)
 "nLL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -19594,9 +19580,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/aft)
-"nNd" = (
-/turf/simulated/floor/exoplanet/water/shallow,
-/area/horizon/stairwell/bridge)
 "nNh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -19943,7 +19926,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4;
 	must_start_working = 1
 	},
@@ -21389,7 +21372,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -21604,7 +21587,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4;
 	must_start_working = 1
 	},
@@ -26470,7 +26453,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "sKc" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -26858,13 +26841,13 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "shutters_deck2_hydroponicswindows";
-	name = "Viewing Shutter"
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 2
 	},
 /turf/simulated/floor/plating,
-/area/horizon/stairwell/bridge)
+/area/horizon/hydroponics/lower)
 "sWB" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
@@ -27061,12 +27044,8 @@
 	},
 /area/shuttle/intrepid/cockpit)
 "tfB" = (
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
-	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/horizon/stairwell/bridge)
+/area/horizon/hydroponics/lower)
 "tfR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/closet/cabinet,
@@ -27405,7 +27384,7 @@
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
 "trW" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -27606,8 +27585,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "txT" = (
-/obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/dispenser,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "tyw" = (
@@ -27933,7 +27912,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "tJR" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/structure/sign/crush{
@@ -28317,7 +28296,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/green{
@@ -28824,7 +28803,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /obj/structure/sign/emergency/evacuation/pods{
@@ -31946,7 +31925,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenoarch_atrium)
 "wvY" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -32150,7 +32129,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/green{
@@ -32541,7 +32520,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -32795,7 +32774,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/green{
@@ -33695,7 +33674,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -57350,9 +57329,9 @@ nRy
 fyR
 xyG
 mdL
-bLo
-bLo
-bLo
+mdL
+mdL
+mdL
 kVe
 eSV
 eSV
@@ -57555,7 +57534,7 @@ pAP
 dWw
 tfB
 nLh
-bLo
+mdL
 kVe
 eSV
 eSV
@@ -57757,7 +57736,7 @@ jeF
 xtj
 faK
 gTU
-nNd
+tfB
 sWx
 kVe
 eSV
@@ -58164,7 +58143,7 @@ utd
 wlf
 nyp
 dtb
-fUU
+sWx
 ctz
 eSV
 eSV
