@@ -1,0 +1,7 @@
+author: kyres1
+
+delete-after: True
+
+changes:
+  - tweak: "Adjusted shuttle landing effects to look like a shadow approaching the landing zone."
+  - tweak: "Adjusted space transit effects to look a little more immediately visible, resembling bands rushing across the screen."
