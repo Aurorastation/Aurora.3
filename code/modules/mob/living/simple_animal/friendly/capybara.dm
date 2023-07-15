@@ -2,7 +2,7 @@
 	name = "capybara"
 	real_name = "capybara"
 	desc = "A brown capybara, or a \"coconut dog\", being relaxed as usual."
-	icon = 'icons/mob/npc/coconut_dog.dmi'
+	icon = 'icons/mob/npc/capybara.dmi'
 	icon_state = "coconut"
 	icon_living = "coconut"
 	icon_dead = "coconut_dead"
@@ -25,14 +25,14 @@
 
 /mob/living/simple_animal/capybara/attack_hand(mob/living/carbon/M as mob)
 	if(!stat && M.a_intent == I_HELP && icon_state != icon_dead)
-		M.visible_message("<span class='warning'>[M] pets [src].</span>","<span class='notice'>You eagerly pet [src].</span>")
+		M.visible_message(SPAN_WARNING("[M] pets [src]."), SPAN_NOTICE("You eagerly pet [src]."))
 		spawn(rand(20,50))
 			if(!stat && M)
 				icon_state = icon_living
 				var/list/responses = list(	"[src] looks content.",
-											"[src] is not disturbed in it's relaxation.",
+											"[src] is not disturbed in its relaxation.",
 											"[src] looks at you with a satisfied look.",
-											"[src] accepted it's fate to receive pets.")
+											"[src] accepted its fate to receive pets.")
 				to_chat(M, pick(responses))
 	else
 		..()
