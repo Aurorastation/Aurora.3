@@ -188,8 +188,11 @@ if(Datum.isprocessing) {\
 				machine.isprocessing = null
 			processing -= machine
 			continue
-		if (machine.process_all() == PROCESS_KILL)
-			processing -= machine
+		//process_all was moved here because of calls overhead for no benefits
+		if(HAS_FLAG(machine.processing_flags, MACHINERY_PROCESS_SELF))
+			if(machine.process() == PROCESS_KILL)
+				STOP_PROCESSING_MACHINE(machine, MACHINERY_PROCESS_SELF)
+				processing -= machine
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)

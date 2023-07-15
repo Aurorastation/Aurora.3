@@ -272,7 +272,7 @@
 		if(!console_overlay)
 			console_overlay = make_screen_overlay(icon, "body_scannerconsole-screen")
 		add_overlay(console_overlay)
-		set_light(1.4, 1, COLOR_RED)
+		set_light(1.4, 1, COLOR_PURPLE)
 
 /obj/machinery/body_scanconsole/proc/get_collapsed_lung_desc()
 	if (!connected || !connected.occupant)
@@ -430,7 +430,7 @@
 		data["toxLoss"] = get_severity(occupant.getToxLoss(), TRUE)
 
 		data["paralysis"] = occupant.paralysis
-		data["bodytemp"] = occupant.bodytemperature
+		data["bodytemp"] = round(occupant.bodytemperature - T0C)
 		data["inaprovaline_amount"] = REAGENT_VOLUME(R, /singleton/reagent/inaprovaline)
 		data["soporific_amount"] = REAGENT_VOLUME(R, /singleton/reagent/soporific)
 		data["bicaridine_amount"] = REAGENT_VOLUME(R, /singleton/reagent/bicaridine)
@@ -675,7 +675,7 @@
 	dat += text("[]\tRadiation Level %: []</font><br>", ("<font color='[occ["rads"] < 10  ? "blue" : "red"]'>"), occ["rads"])
 	dat += text("Genetic Tissue Damage: []<br>", occ["cloneloss"])
 	dat += text("Paralysis Summary %: [] ([] seconds left!)<br>", occ["paralysis"], round(occ["paralysis"] / 4))
-	dat += text("Body Temperature: [occ["bodytemp"]-T0C]&deg;C ([occ["bodytemp"]*1.8-459.67]&deg;F)<br><HR>")
+	dat += text("Body Temperature: [occ["bodytemp"] - T0C]&deg;C ([occ["bodytemp"]]&deg;K)<br><HR>")
 
 	if(occ["borer_present"])
 		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
