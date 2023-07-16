@@ -137,8 +137,8 @@
 	scanimage = "canary.png"
 	designer = "Hephaestus Industries, NanoTrasen"
 	volume = "14 meters length, 7 meters beam/width, 5 meters vertical height"
-	sizeclass = "Jester-type Scout Skiff"
 	weapons = "Extruding fore-mounted low-caliber ballistic rotary armament"
+	sizeclass = "Jester-type Scout Skiff"
 	shiptype = "Exploratory survey and scouting, high-speed target interception"
 	max_speed = 2/(1 SECONDS)
 	burn_delay = 1 SECONDS
