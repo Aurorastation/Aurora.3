@@ -4481,13 +4481,14 @@
 /area/horizon/security/brig)
 "bZD" = (
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/regular{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/storage/firstaid/regular,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 8
+	},
+/obj/item/storage/firstaid/adv{
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/adv{
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -5133,12 +5134,15 @@
 "cua" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/o2{
-	pixel_x = 5;
-	pixel_y = 5
+	pixel_y = 8;
+	pixel_x = -7
 	},
-/obj/item/storage/firstaid/o2,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_y = 3;
+	pixel_x = -7
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -18911,11 +18915,22 @@
 	dir = 6
 	},
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/adv{
+/obj/item/storage/box/syringes{
+	pixel_y = 15;
+	pixel_x = 5
+	},
+/obj/item/storage/box/syringes{
+	pixel_y = 15;
+	pixel_x = -4
+	},
+/obj/item/storage/box/bloodpacks{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/storage/firstaid/adv,
+/obj/item/storage/box/bloodpacks{
+	pixel_x = -4;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "jeY" = (
@@ -19867,15 +19882,26 @@
 "jBw" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/toxin{
-	pixel_x = 4;
-	pixel_y = 4
+	pixel_y = 8;
+	pixel_x = -14
 	},
-/obj/item/storage/firstaid/toxin,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_y = 3;
+	pixel_x = -14
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_y = 8;
+	pixel_x = 11
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_y = 3;
+	pixel_x = 11
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -21243,11 +21269,6 @@
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "kiJ" = (
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/fire{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/storage/firstaid/fire,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
 	},
@@ -21256,6 +21277,14 @@
 	dir = 8
 	},
 /obj/machinery/firealarm/east,
+/obj/item/storage/firstaid/regular{
+	pixel_y = 8;
+	pixel_x = -1
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_y = 3;
+	pixel_x = -1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "kiK" = (
@@ -44274,10 +44303,6 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
-/obj/item/storage/box/syringes{
-	pixel_x = -2;
-	pixel_y = 10
-	},
 /obj/item/bodybag/cryobag{
 	pixel_x = 13;
 	pixel_y = 10
@@ -44294,17 +44319,13 @@
 	pixel_x = 13;
 	pixel_y = 2
 	},
-/obj/item/storage/box/bloodpacks{
-	pixel_x = 1;
-	pixel_y = -1
-	},
-/obj/item/storage/box/syringes{
+/obj/item/reagent_containers/hypospray{
 	pixel_x = -2;
-	pixel_y = 7
+	pixel_y = 5
 	},
-/obj/item/storage/box/bloodpacks{
-	pixel_x = -5;
-	pixel_y = -1
+/obj/item/reagent_containers/hypospray{
+	pixel_x = -2;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
