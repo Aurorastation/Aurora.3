@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes:
+  - tweak: "Allows unarmed attacks on vines, with extra effectiveness for species with sharp attacks."
