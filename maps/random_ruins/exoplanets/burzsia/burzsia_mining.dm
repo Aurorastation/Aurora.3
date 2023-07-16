@@ -1,7 +1,7 @@
 /datum/map_template/ruin/exoplanet/burzsia_mining
 	name = "Hephaestus Burzsia Mining Outpost"
 	id = "burzsia_mining"
-	description = "A camp setup by Tajaran archeologists searching for clues of their planet's past."
+	description = "A mining outpost operated by Hephaestus Industries."
 
 	spawn_weight = 1
 	spawn_cost = 1
