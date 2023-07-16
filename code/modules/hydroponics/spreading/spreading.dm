@@ -273,7 +273,7 @@
 
 /obj/effect/plant/attack_hand(user)
 	if(!ishuman(user))
-		return 0
+		return FALSE
 	var/mob/living/carbon/human/H = user
 	playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
 	var/damage = H.default_attack.get_unarmed_damage() ? H.default_attack.get_unarmed_damage() : 1
