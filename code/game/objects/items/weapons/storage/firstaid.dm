@@ -138,7 +138,7 @@
 	)
 
 /obj/item/storage/firstaid/sleekstab
-	name = "slimline stabilisation kit"
+	name = "slimline stabilization kit"
 	desc = "A sleek and expensive looking medical kit containing a plethora of colorful autoinjectors. Read the labels!"
 	icon_state = "firstaid_multi"
 	item_state = "firstaid_multi"
