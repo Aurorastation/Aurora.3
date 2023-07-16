@@ -50,7 +50,7 @@
 	max_count = 3
 
 	outfit = /datum/outfit/admin/burzsia_miner
-	possible_species = list(SPECIES_HUMAN,SPECIES_IPC,SPECIES_IPC_G1, SPECIES_IPC_G2)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Hephaestus Burzsia Miner"
@@ -60,7 +60,7 @@
 /datum/outfit/admin/burzsia_miner
 	name = "Hephaestus Burzsia Miner"
 
-	id = /obj/item/card/id/mining
+	id = /obj/item/card/id/hephaestus
 	shoes = /obj/item/clothing/shoes/workboots
 
 	uniform = /obj/item/clothing/under/rank/miner/heph
@@ -83,7 +83,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/burzsia_miner/foreman
-	possible_species = list(SPECIES_HUMAN,SPECIES_IPC,SPECIES_IPC_G1, SPECIES_IPC_G2)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI)
 
 	assigned_role = "Hephaestus Burzsia Foreman"
 	special_role = "Hephaestus Burzsia Foreman"
