@@ -101,6 +101,22 @@ var/global/enabled_spooking = 0
 	"}
 
 	body += "<br><br>"
+	body += "<b>Psionics:</b><br/>"
+	if(isliving(M))
+		var/mob/living/psyker = M
+		if(psyker.psi)
+			body += "<a href='?src=\ref[src];remove_psionics=\ref[psyker.psi]'>Remove psionics.</a><br/><br/>"
+			body += "<a href='?src=\ref[src];trigger_psi_latencies\ref[psyker.psi]'>Trigger latencies.</a><br/>"
+		body += "<table width = '100%'>"
+		for(var/faculty in list(PSI_RANK_DEAF, PSI_RANK_PERCEPTIVE, PSI_RANK_SENSITIVE, PSI_RANK_HARMONIOUS, PSI_RANK_APEX))
+			var/faculty_rank = psyker.psi ? psyker.psi.get_rank() : 0
+			for(var/i = 1 to LAZYLEN(psychic_ranks_to_strings))
+				var/psi_title = psychic_ranks_to_strings[i]
+				if(i == faculty_rank)
+					psi_title = "<b>[psi_title]</b>"
+				body += "<td><a href='?src=\ref[psyker.mind];set_psi_rank=[i]>[psi_title]</a></td>"
+			body += "</tr>"
+		body += "</table>"
 
 	if (M.client)
 		if(!istype(M, /mob/abstract/new_player))
