@@ -1481,7 +1481,8 @@
 	dir = 1
 	},
 /obj/machinery/conveyor{
-	dir = 8
+	dir = 8;
+	id = "freebooter_1"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod3)
@@ -4221,6 +4222,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
 	},
+/obj/machinery/body_scanconsole,
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/bridge)
 "kBd" = (
@@ -5155,11 +5157,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/conveyor{
-	dir = 8
-	},
 /obj/structure/plasticflaps,
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/mineral/processing_unit{
+	dir = 8;
+	id = "processing_n"
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod3)
 "mLD" = (
@@ -5634,6 +5637,10 @@
 	color = "#E14644"
 	},
 /area/ship/freebooter_ship/pod4)
+"nWh" = (
+/obj/machinery/body_scanconsole,
+/turf/template_noop,
+/area/space)
 "nXu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
@@ -8818,7 +8825,9 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/conveyor_switch,
+/obj/machinery/conveyor_switch{
+	id = "freebooter_1"
+	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
@@ -9652,7 +9661,8 @@
 	layer = 2.71
 	},
 /obj/machinery/conveyor{
-	dir = 8
+	dir = 8;
+	id = "freebooter_1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
@@ -9683,6 +9693,9 @@
 /area/ship/freebooter_ship/pod1)
 "wZf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/mineral/stacking_machine{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod3)
 "wZX" = (
@@ -43407,7 +43420,7 @@ mGn
 wyp
 xRX
 xRX
-xRX
+nWh
 xRX
 fGM
 xRX
