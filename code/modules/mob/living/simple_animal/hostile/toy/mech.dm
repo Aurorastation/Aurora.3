@@ -19,6 +19,7 @@
 	speed = 2
 	mob_size = MOB_MINISCULE
 	tameable = FALSE
+	destroy_surroundings = FALSE
 
 	blood_overlay_icon = null
 
