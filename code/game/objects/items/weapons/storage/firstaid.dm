@@ -37,20 +37,18 @@
 
 /obj/item/storage/firstaid/fire/fill()
 	. = ..()
-	icon_state = pick("firefirstaid","firefirstaid2","firefirstaid3")
 
 /obj/item/storage/firstaid/toxin
 	name = "toxin first-aid"
 	desc = "Used to treat when you have a high amount of toxins in your body."
-	icon_state = "antitoxinfirstaid"
-	item_state = "antitoxinfirstaid"
+	icon_state = "antitoxfirstaid"
+	item_state = "antitoxfirstaid"
 	starts_with = list(
 		/obj/item/storage/box/fancy/med_pouch/toxin = 4
 	)
 
 /obj/item/storage/firstaid/toxin/fill()
 	. = ..()
-	icon_state = pick("antitoxfirstaid","antitoxfirstaid2","antitoxfirstaid3")
 
 /obj/item/storage/firstaid/o2
 	name = "oxygen deprivation kit"
@@ -63,7 +61,6 @@
 
 /obj/item/storage/firstaid/o2/fill()
 	. = ..()
-	icon_state = pick("o2firstaid","o2firstaid2","o2firstaid3")
 
 /obj/item/storage/firstaid/adv
 	name = "advanced first-aid kit"
@@ -80,7 +77,6 @@
 
 /obj/item/storage/firstaid/adv/fill()
 	. = ..()
-	icon_state = pick("advfirstaid","advfirstaid2","advfirstaid3")
 
 /obj/item/storage/firstaid/combat
 	name = "combat medical kit"
@@ -120,7 +116,6 @@
 /obj/item/storage/firstaid/surgery/fill()
 	. = ..()
 	make_exact_fit()
-	icon_state = pick("purplefirstaid","purplefirstaid2","purplefirstaid3")
 
 /obj/item/storage/firstaid/trauma
 	name = "trauma first-aid kit"
@@ -133,7 +128,6 @@
 
 /obj/item/storage/firstaid/trauma/fill()
 	..()
-	icon_state = pick("traumafirstaid","traumafirstaid2","traumafirstaid3")
 
 /obj/item/storage/firstaid/radiation
 	name = "radiation first-aid kit"
@@ -146,7 +140,6 @@
 
 /obj/item/storage/firstaid/radiation/Initialize()
 	. = ..()
-	icon_state = pick("radfirstaid","radfirstaid2","radfirstaid3")
 
 /obj/item/storage/firstaid/stab // Generic first aid kit for mappers that covers all bases.
 	name = "stabilisation first-aid"
