@@ -19,7 +19,7 @@
 	surface_color = "#b7410e"
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/burzsia_mining)
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/burzsia_mining, /datum/map_template/ruin/exoplanet/burzsia_dead_ipc)
 	place_near_main = list(2, 2)
 	var/bright_side = TRUE
 

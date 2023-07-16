@@ -169,6 +169,8 @@
 /obj/item/ore_detector,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/radio,
+/obj/item/stack/flag/yellow,
+/obj/item/stack/flag/yellow,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "fM" = (
@@ -560,6 +562,8 @@
 	dir = 4
 	},
 /obj/item/device/radio,
+/obj/item/stack/flag/yellow,
+/obj/item/stack/flag/yellow,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "pD" = (
@@ -911,6 +915,8 @@
 	dir = 8
 	},
 /obj/item/device/radio,
+/obj/item/stack/flag/yellow,
+/obj/item/stack/flag/yellow,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "zA" = (
@@ -1460,10 +1466,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "NC" = (
-/obj/structure/table/steel,
-/obj/item/stack/flag/yellow,
-/obj/item/stack/flag/yellow,
-/obj/item/stack/flag/yellow,
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window{
+	req_access = list(202)
+	},
+/obj/item/rig/industrial/equipped,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "NG" = (
@@ -1688,6 +1704,8 @@
 	icon_state = "map_scrubber_on"
 	},
 /obj/item/device/radio,
+/obj/item/stack/flag/yellow,
+/obj/item/stack/flag/yellow,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "TX" = (
