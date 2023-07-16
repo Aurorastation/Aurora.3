@@ -5863,3 +5863,14 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("spicy chickpeas" = 4))
 	bitesize = 2
 	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/jyalrafresh
+	name = "jyalra"
+	desc = "Dyn leaves peeled and mashed into a savoury puree."
+	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
+	icon_state = "jyalrafresh"
+	filling_color = "#321b85"
+	reagents_to_add = list(/singleton/reagent/nutriment = 10, /singleton/reagent/drink/dynjuice = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("dry mush" = 2, "something savoury" = 4))
+	bitesize = 2
+	trash = /obj/item/trash/plate

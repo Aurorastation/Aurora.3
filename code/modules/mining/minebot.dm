@@ -74,6 +74,8 @@
 	seeking_player = FALSE
 	welcome_drone()
 
+	client.init_verbs()
+
 	return src
 
 /mob/living/silicon/robot/drone/mining/welcome_drone()

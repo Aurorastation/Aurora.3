@@ -9,7 +9,9 @@
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "c" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/template_noop)
 "d" = (
 /obj/effect/decal/cleanable/blood/drip,
@@ -57,7 +59,8 @@
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/blood/drip,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/template_noop)
 "n" = (
 /obj/structure/grille,
@@ -70,7 +73,8 @@
 /area/template_noop)
 "o" = (
 /obj/effect/decal/cleanable/blood/drip,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/template_noop)
 "p" = (
 /obj/structure/grille,
@@ -131,7 +135,8 @@
 /mob/living/simple_animal/hostile/carp{
 	wander = 0
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/template_noop)
 "B" = (
 /obj/effect/landmark/clear,
@@ -172,14 +177,16 @@
 /area/template_noop)
 "H" = (
 /obj/random/loot,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/template_noop)
 "I" = (
 /turf/template_noop,
 /area/template_noop)
 "K" = (
 /obj/item/arrow/rod,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -196,7 +203,7 @@ a
 "}
 (2,1,1) = {"
 A
-B
+c
 B
 B
 a
@@ -207,8 +214,8 @@ a
 a
 "}
 (3,1,1) = {"
-c
-c
+B
+B
 B
 B
 t
@@ -219,7 +226,7 @@ a
 a
 "}
 (4,1,1) = {"
-c
+B
 H
 t
 t
@@ -231,8 +238,8 @@ a
 a
 "}
 (5,1,1) = {"
-c
-c
+B
+B
 y
 j
 G
@@ -244,7 +251,7 @@ a
 "}
 (6,1,1) = {"
 K
-c
+B
 z
 d
 D
@@ -268,7 +275,7 @@ a
 "}
 (8,1,1) = {"
 o
-c
+B
 t
 t
 t
@@ -279,7 +286,7 @@ t
 a
 "}
 (9,1,1) = {"
-c
+B
 o
 B
 B
@@ -291,7 +298,7 @@ t
 a
 "}
 (10,1,1) = {"
-c
+B
 o
 B
 B

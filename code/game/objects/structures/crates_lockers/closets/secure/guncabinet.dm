@@ -54,5 +54,3 @@
 	new /obj/item/gun/projectile/peac(src)
 	for(var/i = 1 to 3)
 		new /obj/item/ammo_casing/peac(src)
-	for(var/i = 1 to 2)
-		new /obj/item/ammo_casing/peac/shrapnel(src)

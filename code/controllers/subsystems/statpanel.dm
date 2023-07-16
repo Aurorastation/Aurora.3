@@ -6,6 +6,8 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 	init_order = SS_INIT_MISC_FIRST
 	priority = SS_PRIORITY_STATPANELS
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	init_stage = INITSTAGE_EARLY
+
 	var/list/currentrun = list()
 	var/list/global_data
 	var/list/mc_data
@@ -94,7 +96,16 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 
 /datum/controller/subsystem/statpanels/proc/set_status_tab(client/target)
 	if(!global_data)//statbrowser hasnt fired yet and we were called from immediate_send_stat_data()
-		return
+		var/list/preliminary_stats = list("The server is initializing...")
+		if(current_map?.name)
+			preliminary_stats.Add("Map: [current_map.name]")
+		if(game_id)
+			preliminary_stats.Add("Round ID: [game_id]")
+		if(world?.timeofday)
+			preliminary_stats.Add("Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]")
+		if(SSatlas?.current_sector?.name)
+			preliminary_stats.Add("Current Space Sector: [SSatlas.current_sector.name]")
+		target.stat_panel.send_message("update_stat", list(global_data = preliminary_stats, other_str = target.mob?.get_status_tab_items()))
 
 	target.stat_panel.send_message("update_stat", list(
 		global_data = global_data,

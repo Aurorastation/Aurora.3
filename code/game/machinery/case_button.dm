@@ -98,7 +98,7 @@
 
 
 /obj/machinery/case_button/shuttle
-	name = "\improper Emergency Shuttle Button"
+	name = "bluespace jump button"
 	desc = "A button in a case protected with a forcefield."
 	icon_state = "c2"
 	button_type = "button_case_emergencyshuttle"
@@ -107,7 +107,7 @@
 
 /obj/machinery/case_button/shuttle/activate(mob/user)
 	..()
-	return call_shuttle_proc(user, TRUE)
+	return call_shuttle_proc(user, TRANSFER_JUMP)
 
 /obj/machinery/case_button/shuttle/deactivate(mob/user)
 	..()

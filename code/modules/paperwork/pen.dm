@@ -263,6 +263,7 @@
 /obj/item/pen/chameleon/verb/set_colour()
 	set name = "Change Pen Colour"
 	set category = "Object"
+	set src in usr
 
 	var/list/possible_colours = list ("Yellow", "Green", "Pink", "Blue", "Orange", "Cyan", "Red", "Invisible", "Black")
 	var/selected_type = input("Pick new colour.", "Pen Colour", null, null) as null|anything in possible_colours
