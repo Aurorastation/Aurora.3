@@ -14,7 +14,7 @@
 
 /obj/item/storage/firstaid/empty
 	name = "empty first-aid kit"
-	desc = "It's an emergency medical kit for people who like wish soup."
+	desc = "It's a first-aid kit. Comes with nothing, so feel free to put your own stuff in it."
 
 /obj/item/storage/firstaid/regular
 	starts_with = list(
@@ -28,43 +28,34 @@
 
 /obj/item/storage/firstaid/fire
 	name = "fire first-aid kit"
-	desc = "It's an emergency medical kit for when the toxins lab <i>-spontaneously-</i> burns down."
+	desc = "An emergency medical kit for treating burn-related injuries, whether they be from fires, chemicals, lasers, cigarettes - you name it. Warranty void if used on synthetics."
 	icon_state = "firefirstaid"
 	item_state = "firefirstaid"
 	starts_with = list(
 		/obj/item/storage/box/fancy/med_pouch/burn = 4
 	)
 
-/obj/item/storage/firstaid/fire/fill()
-	. = ..()
-
 /obj/item/storage/firstaid/toxin
 	name = "toxin first-aid"
-	desc = "Used to treat when you have a high amount of toxins in your body."
+	desc = "An emergency medical kit for treating exposure to harmful toxins. Useful for phoron leaks, poisonings, or that one guy who accidentally ate k'ois."
 	icon_state = "antitoxfirstaid"
 	item_state = "antitoxfirstaid"
 	starts_with = list(
 		/obj/item/storage/box/fancy/med_pouch/toxin = 4
 	)
 
-/obj/item/storage/firstaid/toxin/fill()
-	. = ..()
-
 /obj/item/storage/firstaid/o2
 	name = "oxygen deprivation kit"
-	desc = "A box full of oxygen related goodies."
+	desc = "An emergency medical kit for treating oxygen deprivation. There's a label on the box that says to make sure to only apply the kit <i>after</i> you have left the oxygen-deprived area."
 	icon_state = "o2firstaid"
 	item_state = "o2firstaid"
 	starts_with = list(
 		/obj/item/storage/box/fancy/med_pouch/oxyloss = 4
 	)
 
-/obj/item/storage/firstaid/o2/fill()
-	. = ..()
-
 /obj/item/storage/firstaid/adv
 	name = "advanced first-aid kit"
-	desc = "Contains advanced medical treatments."
+	desc = "An advanced medical kit full of advanced medical things. The kits inside are more effective at treating injuries than your standard gauze-and-ointment."
 	icon_state = "advfirstaid"
 	item_state = "advfirstaid"
 	starts_with = list(
@@ -75,12 +66,9 @@
 		/obj/item/device/healthanalyzer = 1
 	)
 
-/obj/item/storage/firstaid/adv/fill()
-	. = ..()
-
 /obj/item/storage/firstaid/combat
 	name = "combat medical kit"
-	desc = "Contains advanced medical treatments."
+	desc = "A military-grade combat medical kit containing instant, rapidly-deliverable treatments for triage on the dangerous front line of a battle. Warranty void if used in a danger-free environment."
 	icon_state = "bezerk"
 	item_state = "bezerk"
 	starts_with = list(
@@ -96,7 +84,7 @@
 
 /obj/item/storage/firstaid/surgery
 	name = "surgery kit"
-	desc = "Contains tools for surgery. Has precise foam fitting for safe transport."
+	desc = "A sterile medical kit containing tools for surgery on-the-go. Even comes with a foam lining so your delicate instruments don't break in transit. How considerate."
 	icon_state = "purplefirstaid"
 	item_state = "purplefirstaid"
 	starts_with = list(
@@ -119,31 +107,26 @@
 
 /obj/item/storage/firstaid/trauma
 	name = "trauma first-aid kit"
-	desc = "It's an emergency medical kit for when people brought ballistic weapons to a laser fight."
+	desc = "An emergency medical kit for treating trauma-related injuries. Useful for injuries stemming from sharp sticks, blunt sticks, and toolboxes."
 	icon_state = "traumafirstaid"
 	item_state = "traumafirstaid"
 	starts_with = list(
 		/obj/item/storage/box/fancy/med_pouch/trauma = 4
 	)
 
-/obj/item/storage/firstaid/trauma/fill()
-	..()
 
 /obj/item/storage/firstaid/radiation
 	name = "radiation first-aid kit"
-	desc = "It's an emergency medical kit for when you try to hug the reactor."
+	desc = "An emergency medical kit for treating radiation exposure. Useful for people who say their mouth tastes like iron before vomiting blood, or for people who are too 'hardcore' to wear a radiation suit next to a supermatter reactor."
 	icon_state = "radfirstaid"
 	item_state = "radfirstaid"
 	starts_with = list(
 		/obj/item/storage/box/fancy/med_pouch/radiation = 4
 	)
 
-/obj/item/storage/firstaid/radiation/Initialize()
-	. = ..()
-
 /obj/item/storage/firstaid/stab // Generic first aid kit for mappers that covers all bases.
-	name = "stabilisation first-aid"
-	desc = "Stocked with medical pouches."
+	name = "stabilization first-aid"
+	desc = "A jack-of-all-trades medical kit containing a sampler platter of medical treatments. Useful for when someone is screwed up in more ways than you can count."
 	icon_state = "firstaid_multi"
 	starts_with = list(
 		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
@@ -155,8 +138,8 @@
 	)
 
 /obj/item/storage/firstaid/sleekstab
-	name = "Slimline stabilisation kit"
-	desc = "A sleek and expensive looking medical kit."
+	name = "slimline stabilisation kit"
+	desc = "A sleek and expensive looking medical kit containing a plethora of colorful autoinjectors. Read the labels!"
 	icon_state = "firstaid_multi"
 	item_state = "firstaid_multi"
 	w_class = ITEMSIZE_SMALL
@@ -174,7 +157,7 @@
 
 /obj/item/storage/firstaid/light // For pilot/expedition closets, which we don't have. Yet.
 	name = "light first-aid kit"
-	desc = "It's a small emergency medical kit."
+	desc = "It's a small emergency medical kit for when you have small emergency medical needs."
 	icon_state = "fak-light"
 	item_state = "advfirstaid"
 	storage_slots = 5
