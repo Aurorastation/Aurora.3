@@ -228,6 +228,7 @@
 	id = "coc_midship";
 	name = "blast door"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "aMB" = (
@@ -1173,11 +1174,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/janitor)
 "eJp" = (
-/obj/structure/sign/flag/vysoka/right{
-	pixel_y = 32
-	},
 /obj/item/clothing/accessory/flagpatch/vysoka,
-/obj/item/clothing/head/softcap/vysoka,
 /obj/structure/table/wood,
 /obj/item/clothing/accessory/badge/passcard/coalition,
 /turf/simulated/floor/carpet/red,
@@ -1772,9 +1769,6 @@
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/structure/sign/flag/coalition/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
 "gWX" = (
@@ -1963,6 +1957,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "hUx" = (
@@ -2032,10 +2027,6 @@
 /area/ship/ranger_corvette/medbay)
 "ieN" = (
 /obj/structure/table/steel,
-/obj/structure/sign/flag/gadpathur/left{
-	dir = 4;
-	pixel_x = 32
-	},
 /obj/item/clothing/accessory/flagpatch/gadpathur,
 /obj/item/clothing/accessory/dogtags/gadpathur,
 /obj/effect/floor_decal/spline/plain{
@@ -2169,6 +2160,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "iIr" = (
@@ -2537,6 +2529,7 @@
 /area/ship/ranger_corvette/canteen)
 "jYe" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/shuttle/ranger_shuttle)
 "jYf" = (
@@ -3375,9 +3368,6 @@
 	pixel_x = -3;
 	pixel_y = 1
 	},
-/obj/structure/sign/flag/coalition/left{
-	pixel_y = -32
-	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
@@ -3900,13 +3890,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
-"pOf" = (
-/obj/structure/sign/flag/coalition/right{
-	pixel_y = 32
-	},
-/obj/effect/floor_decal/corner_wide/blue/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/telecomms)
 "pPC" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/ship/ranger_corvette/engine2)
@@ -3976,6 +3959,7 @@
 	dir = 4;
 	id = "coc_aft"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "qcP" = (
@@ -4699,10 +4683,6 @@
 /area/ship/ranger_corvette/engine2)
 "stJ" = (
 /obj/structure/table/steel,
-/obj/structure/sign/flag/gadpathur/right{
-	dir = 4;
-	pixel_x = 32
-	},
 /obj/item/shovel/gadpathur,
 /obj/item/device/versebook/gadpathur,
 /obj/machinery/light{
@@ -4747,6 +4727,7 @@
 	name = "aft, engines"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/shuttle/ranger_shuttle)
 "sEf" = (
@@ -5425,9 +5406,6 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/ship/ranger_corvette/bathroom)
 "umS" = (
-/obj/structure/sign/flag/vysoka/left{
-	pixel_y = 32
-	},
 /obj/item/photo{
 	desc = "Pictured is someone standing beside a Gurmori infront of rolling hills."
 	},
@@ -6057,6 +6035,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "wri" = (
@@ -6226,13 +6205,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
-"wYR" = (
-/obj/structure/sign/flag/coalition/left{
-	pixel_y = 32
-	},
-/obj/effect/floor_decal/corner_wide/blue/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/telecomms)
 "wZf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6319,6 +6291,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "xnY" = (
@@ -37294,7 +37267,7 @@ vFS
 mcN
 oNK
 vFS
-wYR
+rQB
 pVf
 rQB
 tLA
@@ -37551,7 +37524,7 @@ lkY
 mzO
 dmm
 vFS
-pOf
+rQB
 uwG
 bbV
 rBK
