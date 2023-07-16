@@ -264,15 +264,34 @@
 	glass = 1
 
 /obj/machinery/door/airlock/generic/command
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#353c4b"
-	stripe_color = "#ffc443"
 
 /obj/machinery/door/airlock/generic/command_glass
 	icon_state = "preview_glass"
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#516487"
 	glass = 1
+
+/obj/machinery/door/airlock/generic/command_gold
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#475057"
+	stripe_color = "#ffc443"
+
+/obj/machinery/door/airlock/generic/security
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#2b4b68"
+	stripe_color = "#ff4343"
+
+/obj/machinery/door/airlock/generic/security_glass
+	icon_state = "preview_glass"
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#2b4b68"
+	glass = 1
+
+/obj/machinery/door/airlock/generic/security_gold
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#2b4b68"
+	stripe_color = "#ffc443"
 
 /obj/machinery/door/airlock/generic/engineering
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
@@ -284,6 +303,11 @@
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#caa638"
 	glass = 1
+
+/obj/machinery/door/airlock/generic/engineering_green
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#caa638"
+	stripe_color = "#62ff43"
 
 /obj/machinery/door/airlock/generic/maintenance
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
@@ -301,6 +325,17 @@
 	icon_state = "preview_glass"
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#6f8751"
+	glass = 1
+
+/obj/machinery/door/airlock/generic/research
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#d6c8ee"
+	stripe_color = "#e943ff"
+
+/obj/machinery/door/airlock/generic/research_glass
+	icon_state = "preview_glass"
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#d6c8ee"
 	glass = 1
 
 /obj/machinery/door/airlock/generic/khaki
@@ -329,6 +364,10 @@
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#63584a"
 	door_frame_color = "#6176a1"
+
+/obj/machinery/door/airlock/generic/freezer
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#b9b8b6"
 
 /obj/machinery/door/airlock/generic/external//External airlocks start here
 	name = "External Airlock"

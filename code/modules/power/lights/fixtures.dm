@@ -133,8 +133,7 @@
 
 /obj/machinery/light/spot
 	name = "spotlight fixture"
-	icon_state = "slight_example"
-	base_state = "slight"
+	icon_state = "tube_empty"
 	desc = "An extremely powerful lighting fixture."
 	fitting = "large tube"
 	light_type = /obj/item/light/tube/large
