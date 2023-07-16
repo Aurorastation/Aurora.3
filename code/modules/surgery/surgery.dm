@@ -108,7 +108,12 @@
 		/obj/item/spell/mend_organs,
 		/obj/item/spell/modifier/mend_life,
 		/obj/item/spell/modifier/mend_synthetic,
-		/obj/item/grab
+		/obj/item/grab,
+
+		//Defibrillator stuffs
+		/obj/item/defibrillator,
+		/obj/item/shockpaddles,
+
 		)
 	// Check for multi-surgery drifting.
 	var/zone = user.zone_sel.selecting

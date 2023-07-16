@@ -142,7 +142,7 @@
 	starts_with = list(/obj/item/reagent_containers/pill/parvosil = 3)
 
 /obj/item/storage/pill_bottle/assorted
-	name = "pill bottle (assorted)"
+	name = "bottle of assorted pills"
 	desc = "Commonly found on paramedics, these assorted pill bottles contain all the basics."
 	starts_with = list(
 		/obj/item/reagent_containers/pill/inaprovaline = 6,
@@ -155,6 +155,21 @@
 	)
 
 /obj/item/storage/pill_bottle/antidexafen
-	name = "pill bottle (cold medicine)"
+	name = "bottle of 15u Antidexafen pills"
 	desc = "All-in-one cold medicine. 15u dose per pill. Safe for babies like you!"
 	starts_with = list(/obj/item/reagent_containers/pill/antidexafen = 21)
+
+/obj/item/storage/pill_bottle/antiparasitic
+	name = "bottle of 5u Helmizole pills"
+	desc = "Contains pills used to treat parasitic infections caused by worms."
+	starts_with = list(/obj/item/reagent_containers/pill/antiparasitic = 8)
+
+/obj/item/storage/pill_bottle/asinodryl
+	name = "bottle of 10u Asinodryl pills"
+	desc = "Contains pills used to treat nausea and vomiting."
+	starts_with = list(/obj/item/reagent_containers/pill/asinodryl = 8)
+
+/obj/item/storage/pill_bottle/steramycin
+	name = "bottle of 5u Steramycin pills"
+	desc = "Contains prophylactic antibiotic pills."
+	starts_with = list(/obj/item/reagent_containers/pill/steramycin = 3)

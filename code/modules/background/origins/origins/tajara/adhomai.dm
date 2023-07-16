@@ -1,6 +1,3 @@
-#define RELIGIONS_ADHOMAI list(RELIGION_TWINSUNS, RELIGION_MATAKE, RELIGION_RASKARA, RELIGION_NONE, RELIGION_OTHER)
-#define CITIZENSHIPS_ADHOMAI list(CITIZENSHIP_PRA, CITIZENSHIP_DPRA, CITIZENSHIP_NKA)
-
 /singleton/origin_item/culture/adhomian
 	name = "Adhomian"
 	desc = "Adhomai is the most important planet culturally for the Tajara species. Due to its relatively recent discovery, all Tajara have some kind of connection to the homeworld. Adhomai is currently divided between three competing nations. Besides the national divide, regional and ethnic divisions still exist."
@@ -121,7 +118,7 @@
 /singleton/origin_item/origin/kaltir
 	name = "Old Kaltir"
 	desc = "Stretching from Nusinsk, up the imthus, and towards the northern borders of the New Kingdom are the lands referred to as Old Kaltir. As the name implies, these lands were ruled by the Azjuna line before the First Revolution and the collapse of the Kingdom of Kaltir. This is the homeland of the most loyal of the NKA. Previously devastated in the First Revolution and once again during the Second Revolution, Old Kaltir is steadily rebuilding itself post-armistice. Life in the villages continues on as always, but the trappings of modern corporate life slowly creep in thanks to increasing megacorporation presence in the New Kingdom."
-	possible_accents = list(ACCENT_HIGHHARRSIIK)
+	possible_accents = list(ACCENT_HIGHHARRSIIK, ACCENT_NEWYASSA)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
 
@@ -131,7 +128,7 @@
 /singleton/origin_item/origin/harrnrr
 	name = "Peninsula of Harr'nrr"
 	desc = "Settled in the very beginning of the Colonization Age and the Suns Wars, the Peninsula of Harr'nrr is a venerable section of the continent. Its largest city, Baltor, was the first settlement to be constructed on Harr'masir. During the Second Revolution, the population initially supported the Republic in its war effort. But the introduction of the PRA draft in 2458 led to mass protests in the cities and towns. When those protests were suppressed by the PSIS, support for other factions rose and the NKA and ALA began to compete for influence. Today, Baltor is a cultural centre of the NKA with its traditional artisans, artists, and filmographers gaining immense popularity across the nation. The Harr'nrri themselves are considered a more pacifistic and arts-inclined people, with a heavy emphasis on respect towards their fathers and faith."
-	possible_accents = list(ACCENT_HARRNRRI)
+	possible_accents = list(ACCENT_HARRNRRI, ACCENT_NEWYASSA)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
 

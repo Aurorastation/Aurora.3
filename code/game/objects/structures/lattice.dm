@@ -69,7 +69,7 @@
 		var/obj/item/stack/rods/R = C
 		if (R.use(2))
 			to_chat(user, "<span class='notice'>Constructing catwalk ...</span>")
-			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice/catwalk(src.loc)
 			qdel(src)
 		return
@@ -164,7 +164,7 @@
 		var/obj/item/weldingtool/WT = C
 		if(C.use_tool(src, user, 5, volume = 50) && WT.use(1, user))
 			to_chat(user, SPAN_NOTICE("You slice apart the [src] leaving nothing useful behind."))
-			playsound(src, 'sound/items/welder.ogg', 50, 1)
+			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			qdel(src)
 	else
 		..()

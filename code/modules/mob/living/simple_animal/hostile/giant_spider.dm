@@ -99,6 +99,36 @@
 	poison_per_bite = 2
 	move_to_delay = 5
 
+/mob/living/simple_animal/hostile/giant_spider/bombardier
+	name = "greimorian bombardier"
+	desc = "A disgusting crawling Greimorian. This one has vents that shoot out condensed capsaicin."
+	icon_state = "greimorian_bombardier"
+	icon_living = "greimorian_bombardier"
+	icon_dead = "greimorian_bombardier_dead"
+	maxHealth = 60
+	health = 60
+	melee_damage_lower = 5
+	melee_damage_upper = 10
+	armor_penetration = 5
+	ranged = TRUE
+	ranged_attack_range = 4
+	poison_type = /singleton/reagent/capsaicin/condensed
+	poison_per_bite = 2
+	move_to_delay = 5
+
+/mob/living/simple_animal/hostile/giant_spider/bombardier/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
+	if(target == start)
+		return
+
+	playsound(loc, 'sound/effects/spray2.ogg', 50, 1, -6)
+
+	var/turf/target_turf = get_turf(target)
+	var/obj/effect/effect/water/chempuff/pepperspray = new /obj/effect/effect/water/chempuff(get_turf(src))
+	pepperspray.create_reagents(15)
+	pepperspray.reagents.add_reagent(poison_type, 15)
+	pepperspray.set_color()
+	pepperspray.set_up(target_turf, 3, 5)
+
 /mob/living/simple_animal/hostile/giant_spider/Initialize(mapload, atom/parent)
 	get_light_and_color(parent)
 	. = ..()

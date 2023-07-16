@@ -718,6 +718,7 @@ BLIND     // can't see anything
 	usr.drop_from_inventory(src)
 
 /obj/item/clothing/glasses/aug/dropped()
+	. = ..()
 	loc = null
 	qdel(src)
 

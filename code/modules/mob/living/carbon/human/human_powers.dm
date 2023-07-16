@@ -6,7 +6,7 @@
 	set desc = "Style your hair."
 	set category = "IC"
 
-	if(use_check_and_message())
+	if(incapacitated())
 		return
 
 	if(h_style)

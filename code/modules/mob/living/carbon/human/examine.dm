@@ -1,6 +1,3 @@
-#define SEC_HUDTYPE "security"
-#define MED_HUDTYPE "medical"
-
 /mob/living/carbon/human/proc/get_covered_body_parts(var/thick)
 	var/skipbody = 0
 	for(var/obj/item/clothing/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
@@ -461,7 +458,7 @@
 	return output_text
 
 /mob/living/carbon/human/assembleHeightString(mob/examiner)
-	var/heightString = null
+	var/heightString = ""
 	var/descriptor
 	if(height == HEIGHT_NOT_USED)
 		return heightString
@@ -483,7 +480,9 @@
 				descriptor = "huge"
 			else
 				descriptor = "gargantuan"
-		heightString = "[get_pronoun("He")] look[get_pronoun("end")] [descriptor] for \a [species.name]"
+		heightString += "[get_pronoun("He")] look[get_pronoun("end")] [descriptor]"
+		if(!species.hide_name)
+			heightString += " for a [species.name]"
 
 
 	if(examiner.height == HEIGHT_NOT_USED)
@@ -501,7 +500,7 @@
 		if(-10 to -6)
 			descriptor = "slightly shorter than"
 		if(-5 to 5)
-			descriptor = "around about the same height"
+			descriptor = "around the same height as"
 		if(6 to 10)
 			descriptor = "slightly taller than"
 		if(11 to 20)
@@ -513,6 +512,5 @@
 		else
 			descriptor = "to tower over"
 	if(heightString)
-		return heightString + ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
+		return heightString += ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
 	return "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."
-

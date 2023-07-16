@@ -5,6 +5,7 @@
 
 /obj/item/paper
 	name = "paper"
+	desc = "A piece of paper."
 	gender = NEUTER
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
@@ -219,7 +220,7 @@
 			var/mob/living/carbon/human/H = M
 			if(H == user)
 				to_chat(user, SPAN_NOTICE("You wipe off the lipstick with [src]."))
-				H.lip_style = null
+				H.lipstick_color = null
 				H.update_body()
 			else
 				user.visible_message(SPAN_WARNING("[user] begins to wipe [H]'s lipstick off with \the [src]."), \
@@ -227,7 +228,7 @@
 				if(do_after(user, 10) && do_after(H, 10, 0))	//user needs to keep their active hand, H does not.
 					user.visible_message(SPAN_NOTICE("[user] wipes [H]'s lipstick off with \the [src]."), \
 										 SPAN_NOTICE("You wipe off [H]'s lipstick."))
-					H.lip_style = null
+					H.lipstick_color = null
 					H.update_body()
 
 /obj/item/paper/proc/addtofield(var/id, var/text, var/links = 0)
@@ -731,7 +732,7 @@
 		welding goggles.</li><li>Grasp the emergency welding tool firmly in your hands, turn it on, and start cutting a hole in the floor.</li><li>Wait for \
 		the newly created hole to cool.<li>Use the emergency crowbar to pry away the metal.</li><li>Deploy the emergency ladder.</li><li>Dispose of the used \
 		equipment, if necessary.</li></ol></font></font>"
-		
+
 // Used on the IAC ship, meant for distribution.
 /obj/item/paper/fluff/iac
 	name = "interstellar aid corps info pamphlet"

@@ -21,7 +21,7 @@
 	var/apc_powered = FALSE									// Set automatically. Whether the computer used APC power last tick.
 	var/base_active_power_usage = 50						// Power usage when the computer is open (screen is active) and can be interacted with. Remember hardware can use power too.
 	var/base_idle_power_usage = 5							// Power usage when the computer is idle and screen is off (currently only applies to laptops)
-	var/enrolled = 0										// Weather the computer is enrolled in the company device management or not. 0 - unconfigured 1 - enrolled (work device) 2 - unenrolled (private device)
+	var/enrolled = DEVICE_UNSET							// Weather the computer is enrolled in the company device management or not. 0 - unconfigured 1 - enrolled (work device) 2 - unenrolled (private device)
 	var/_app_preset_type									// Used for specifying the software preset of the console
 	var/ambience_last_played_time							// Last time sound was played
 	var/pAI_lock = FALSE									// Toggles whether pAI can interact with the modular computer while installed in it

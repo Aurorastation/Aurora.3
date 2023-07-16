@@ -4,7 +4,7 @@
 	regions of Moghes. The forest mantle is exclusively for nobility these days."
 	path = /obj/item/clothing/accessory/poncho/unathimantle
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
@@ -30,7 +30,7 @@
 	description = "A selection of hide mantles, each showing affiliation with one of the guilds of Moghes."
 	path = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
@@ -46,13 +46,14 @@
 	guildmantles["construction coalition guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/construction
 	guildmantles["hearts of industry guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/union
 	guildmantles["fighters' lodge guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/fighter
+	guildmantles["fishing league mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/fisher
 	gear_tweaks += new /datum/gear_tweak/path(guildmantles)
 
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe"
 	path = /obj/item/clothing/suit/unathi/robe
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -65,7 +66,7 @@
 	display_name = "tzirzi robe"
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/robe_coat/New()
@@ -125,10 +126,27 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/religion/unathi_book
+	display_name = "unathi religious texts"
+	path = /obj/item/device/versebook/skakh
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/religion/unathi_book/New()
+	..()
+	var/list/unathi_book = list()
+	unathi_book["Sk'akh Legends"] = /obj/item/device/versebook/skakh
+	unathi_book["assorted Th'akh fables"] = /obj/item/device/versebook/thakh
+	unathi_book["Reflections on the Aut'akh Faith"] = /obj/item/device/versebook/autakh
+	unathi_book["Writings of Judizah Si'akh"] = /obj/item/device/versebook/siakh
+	gear_tweaks += new /datum/gear_tweak/path(unathi_book)
+
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic"
 	path = /obj/item/clothing/under/unathi
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -255,7 +273,7 @@
 /datum/gear/uniform/unathi/zazali
 	display_name = "zazali garb"
 	path = /obj/item/clothing/under/unathi/zazali
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
 
@@ -268,7 +286,7 @@
 /datum/gear/uniform/unathi/zozo
 	display_name = "zozo top"
 	path = /obj/item/clothing/under/unathi/zozo
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/unathi/wrapping_head
@@ -388,7 +406,7 @@
 	display_name = "gyazo belt"
 	path = /obj/item/clothing/accessory/unathi
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 

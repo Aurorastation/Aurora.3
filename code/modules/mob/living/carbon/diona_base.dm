@@ -566,8 +566,8 @@ var/list/diona_banned_languages = list(
 				C.diona_handle_regeneration(C.DS, TRUE)
 			to_chat(C, SPAN_NOTICE("Your lost nymph merged back."))
 			C.add_nymph()
-			verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
-			C.verbs -= /mob/living/carbon/human/proc/switch_to_nymph
+			remove_verb(src, /mob/living/carbon/alien/diona/proc/switch_to_gestalt)
+			remove_verb(C, /mob/living/carbon/human/proc/switch_to_nymph)
 			C.DS.nym = null
 			detached = FALSE
 			src.forceMove(C)

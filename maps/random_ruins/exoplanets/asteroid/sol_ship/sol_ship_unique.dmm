@@ -278,13 +278,11 @@
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "zm" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/ramp{
-	oxygen = 0;
-	nitrogen = 0
+	initial_gas = null
 	},
 /area/template_noop)
 "Ah" = (
@@ -345,13 +343,11 @@
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "JP" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/ramp{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = null
 	},
 /area/template_noop)
 "Lc" = (

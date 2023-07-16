@@ -16,6 +16,14 @@
 	var/list/linked_helmets = list()
 	circuit = /obj/item/circuitboard/ship/helm
 
+/obj/machinery/computer/ship/helm/cockpit
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "main"
+	icon_screen = "helm"
+	icon_keyboard = null
+	circuit = null
+
 /obj/machinery/computer/ship/helm/Initialize()
 	. = ..()
 	get_known_sectors()
@@ -260,11 +268,11 @@
 			if(prob(usr.confused * 5))
 				ndir = turn(ndir, pick(45, -45))
 			connected.relaymove(usr, ndir, accellimit)
-			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1) // remove when turning into vueui
+			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1)
 
 		if (href_list["brake"])
 			connected.decelerate()
-			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1) // remove when turning into vueui
+			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1)
 
 		if (href_list["apilot"])
 			autopilot = !autopilot
@@ -282,6 +290,14 @@
 	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
 	circuit = /obj/item/circuitboard/ship/navigation
+
+/obj/machinery/computer/ship/navigation/cockpit
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "right"
+	icon_screen = "blue"
+	icon_keyboard = null
+	circuit = null
 
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!connected)

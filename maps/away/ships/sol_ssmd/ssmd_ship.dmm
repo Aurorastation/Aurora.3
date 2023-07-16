@@ -7211,7 +7211,6 @@
 /area/ship/ssmd_corvette/hangar)
 "vRd" = (
 /obj/structure/table/wood,
-/obj/item/board,
 /turf/simulated/floor/wood/coloured/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "vTv" = (

@@ -56,7 +56,7 @@
 	else
 		binoc_check = TRUE
 
-	if ((!client || client.eye == src || client.eye == loc || client.eye == z_eye) && binoc_check) // !client is so the unit tests function
+	if(((!client || client.eye == src || client.eye == loc || client.eye == z_eye) && binoc_check) || HAS_TRAIT(src, TRAIT_COMPUTER_VIEW)) // !client is so the unit tests function
 		if(istype(src.head, /obj/item/clothing/head))
 			add_clothing_protection(head)
 		if(istype(src.glasses, /obj/item/clothing/glasses))
@@ -412,9 +412,9 @@
 /mob/living/carbon/human/proc/set_tail_style(var/new_style)
 	tail_style = new_style
 	if(tail_style)
-		verbs |= /mob/living/carbon/human/proc/open_tail_storage
+		add_verb(src, /mob/living/carbon/human/proc/open_tail_storage)
 	else
-		verbs -= /mob/living/carbon/human/proc/open_tail_storage
+		remove_verb(src, /mob/living/carbon/human/proc/open_tail_storage)
 
 /mob/living/carbon/human/proc/get_tail_accessory()
 	var/obj/item/organ/external/groin/G = organs_by_name[BP_GROIN]

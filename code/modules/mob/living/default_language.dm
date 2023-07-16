@@ -1,10 +1,11 @@
 /mob/living
 	var/datum/language/default_language
 
-/mob/living/verb/set_default_language(language as null|anything in languages)
+/mob/living/verb/set_default_language()
 	set name = "Set Default Language"
 	set category = "IC"
 
+	var/datum/language/language = input(src, "Choose a language.", "Set Default Language") as null|anything in languages
 	if(language)
 		to_chat(src, "<span class='notice'>You will now speak [language] if you do not specify a language when speaking.</span>")
 	else

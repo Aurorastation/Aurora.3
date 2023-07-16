@@ -26,6 +26,8 @@
 /obj/item/watertank/verb/toggle_mister()
 	set name = "Toggle Mister"
 	set category = "Object"
+	set src in usr
+
 	var/mob/living/carbon/human/user
 	if(istype(usr,/mob/living/carbon/human))
 		user = usr

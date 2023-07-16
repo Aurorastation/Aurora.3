@@ -64,3 +64,5 @@
 		var/final_message = replacetext(destroy_message, "THE STRUCTURE", "\The [src]")
 		visible_message(SPAN_WARNING(final_message))
 		qdel(src)
+
+#undef NEST_RESIST_TIME

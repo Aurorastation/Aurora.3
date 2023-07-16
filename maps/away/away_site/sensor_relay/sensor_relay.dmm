@@ -41,6 +41,10 @@
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/carpet/green,
 /area/sensor_relay)
+"asw" = (
+/obj/structure/sign/flag/sol/old,
+/turf/simulated/wall,
+/area/sensor_relay)
 "azD" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -398,6 +402,7 @@
 /area/sensor_relay)
 "gDR" = (
 /obj/effect/map_effect/airlock/s_to_n/long/square/wide,
+/obj/structure/sign/flag/sol/old/large,
 /turf/simulated/wall,
 /area/sensor_relay)
 "gHM" = (
@@ -1139,6 +1144,19 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"sda" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/sensor_relay)
 "srM" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -33456,9 +33474,9 @@ uaH
 mkw
 aaO
 aaM
-pJZ
-hFM
-xVh
+asw
+qyb
+sda
 pJZ
 nJA
 nJA

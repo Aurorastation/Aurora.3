@@ -314,6 +314,7 @@
 	G.religion = G.origin.possible_religions[1]
 	G.preEquipOutfit(/datum/outfit/admin/golem, FALSE)
 	G.equipOutfit(/datum/outfit/admin/golem, FALSE)
+	G.client.init_verbs()
 	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
 
 	qdel(src)

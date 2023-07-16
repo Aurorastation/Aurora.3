@@ -414,7 +414,7 @@
 				screwed = FALSE
 		else if(!screwed && wrenched)
 			to_chat(user,  SPAN_NOTICE("You start to screw the \the [src] to the floor..."))
-			playsound(src, 'sound/items/welder.ogg', 80, 1)
+			playsound(src, 'sound/items/Welder.ogg', 80, 1)
 			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
 				to_chat(user,  SPAN_NOTICE("You screw \the [src]!"))
 				playsound(loc, W.usesound, 50, 1)
@@ -653,14 +653,13 @@
 			var/obj/O = A
 			O.hear_talk(M, text, verb, speaking)
 
-/obj/structure/closet/attack_generic(var/mob/user, var/damage, var/attack_message = "destroys", var/wallbreaker)
+/obj/structure/closet/attack_generic(var/mob/user, var/damage, var/attack_message = "attacks", var/wallbreaker)
 	if(!damage || !wallbreaker)
 		return
 	user.do_attack_animation(src)
-	visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"))
-	dump_contents()
-	QDEL_IN(src, 1)
-	return 1
+	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
+	damage(damage)
+	return TRUE
 
 /obj/structure/closet/proc/req_breakout()
 	if(!opened) //Door's open... wait, why are you in it's contents then?
