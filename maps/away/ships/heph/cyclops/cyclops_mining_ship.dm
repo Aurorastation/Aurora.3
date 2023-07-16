@@ -83,7 +83,7 @@
 	shuttle_area = list(/area/shuttle/cyclops_shuttle)
 	current_location = "nav_hangar_cyclops"
 	landmark_transition = "nav_transit_cyclops_shuttle"
-	dock_target = "cyclops_shuttle_dock"
+	dock_target = "cyclops_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_cyclops"

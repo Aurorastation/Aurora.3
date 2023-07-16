@@ -28,16 +28,13 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_x = -6;
-	pixel_y = 31;
-	tag_exterior_door = "cyclops_shuttle_out";
-	tag_interior_door = "cyclops_shuttle_in";
-	tag_chamber_sensor = "cyclops_shuttle_sensor";
-	tag_interior_sensor = "cyclops_shuttle_interior";
-	tag_airpump = "cyclops_shuttle_pump";
+/obj/machinery/embedded_controller/radio/docking_port_multi{
+	child_names_txt = "Cyclops Shuttle Airlock";
+	child_tags_txt = "cyclops_shuttle";
 	frequency = 1380;
-	id_tag = "cyclops_shuttle"
+	id_tag = "cyclops_shuttle";
+	pixel_y = 25;
+	pixel_x = -9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
@@ -108,14 +105,12 @@
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "bc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_in";
-	locked = 1;
-	tag = "cyclops_shuttle_in"
+	id_tag = "cyclops_shuttle_in"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "bd" = (
@@ -449,6 +444,15 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "cyclops_shuttle";
+	name = "interior access button";
+	pixel_x = -23;
+	pixel_y = 10;
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "eo" = (
@@ -624,23 +628,6 @@
 "gF" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "cyclops_shuttle";
-	name = "interior access button";
-	dir = 4;
-	pixel_x = -24;
-	pixel_y = 25;
-	tag = "cyclops_shuttle_in"
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "cyclops_shuttle_interior";
-	pixel_x = -23;
-	pixel_y = 38;
-	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -1312,22 +1299,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "pE" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 4;
-	id_tag = "cyclops_shuttle_pump";
-	frequency = 1380;
-	layer = 2.8
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "cyclops_shuttle_sensor";
-	pixel_x = 7;
-	pixel_y = 32
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1380;
+	id_tag = "cyclops_shuttle_pump"
+	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
 	frequency = 1380;
 	id_tag = "cyclops_shuttle";
@@ -1336,13 +1316,10 @@
 	tag_airpump = "cyclops_shuttle_pump";
 	tag_chamber_sensor = "cyclops_shuttle_sensor";
 	tag_exterior_door = "cyclops_shuttle_out";
-	tag_exterior_sensor = "cyclops_shuttle_ex_sensor";
+	tag_exterior_sensor = "cyclops_shuttle_exterior_sensor";
 	tag_interior_door = "cyclops_shuttle_in";
-	cycle_to_external_air = 1;
-	tag_interior_sensor = "cyclops_shuttle_interior";
-	pixel_y = 30;
-	pixel_x = -7;
-	tag = "cyclops_shuttle"
+	req_access = list(214);
+	pixel_y = 27
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
@@ -1705,33 +1682,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_in";
-	locked = 1;
-	tag = "cyclops_shuttle_in"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cyclops_shuttle_in"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
-"tU" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "cyclops_shuttle";
-	name = "exterior access button";
-	pixel_x = 24;
-	pixel_y = -8;
-	dir = 8;
-	tag = "cyclops_shuttle_out"
-	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor,
-/area/hephmining_ship/cyclops/cyclops_hangar)
 "ui" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2332,6 +2293,10 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/orange,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "Af" = (
@@ -2574,30 +2539,36 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "BC" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_out";
-	locked = 1;
-	tag = "cyclops_shuttle_out"
+	id_tag = "cyclops_shuttle_out"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "cyclops_shuttle";
+	name = "exterior access button";
+	pixel_y = -23;
+	req_access = list(214);
+	pixel_x = -8;
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "BH" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_out";
-	locked = 1;
-	tag = "cyclops_shuttle_out"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cyclops_shuttle_out"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
@@ -2933,6 +2904,10 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 30
+	},
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "EY" = (
@@ -3093,11 +3068,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
-	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 8;
-	pixel_x = 32
 	},
 /obj/machinery/power/apc{
 	dir = 1;
@@ -3441,16 +3411,6 @@
 	color = "#4c4324"
 	},
 /area/shuttle/cyclops_shuttle)
-"Km" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 8;
-	pixel_x = 32
-	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops/cyclops/bathroom)
 "Ko" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -3618,13 +3578,19 @@
 	},
 /area/hephmining_ship/cyclops/cyclops_vault)
 "MD" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 4;
-	id_tag = "cyclops_shuttle_pump";
-	frequency = 1380;
-	layer = 2.8
-	},
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1380;
+	id_tag = "cyclops_shuttle_pump"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "cyclops_shuttle_sensor";
+	req_access = list(214);
+	pixel_y = -25;
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "MV" = (
@@ -3925,7 +3891,7 @@
 	dir = 10
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "cyclops_shuttle_dock";
 	pixel_y = -28
 	},
@@ -4098,7 +4064,7 @@
 	},
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Anti-Piracy Locker";
-	req_access = null
+	req_access = list(216)
 	},
 /obj/item/gun/projectile/sec,
 /obj/item/gun/projectile/sec,
@@ -35382,7 +35348,7 @@ eF
 eF
 eF
 eF
-tU
+fV
 ui
 ZD
 fV
@@ -39254,7 +39220,7 @@ nN
 MB
 Ic
 ot
-Km
+fd
 Ig
 Ig
 CE
