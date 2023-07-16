@@ -140,9 +140,12 @@
 /obj/item/light/tube/large
 	w_class = ITEMSIZE_SMALL
 	name = "large light tube"
+	desc = "A replacement large light tube."
+	icon_state = "lstube_preset"
 	brightness_range = 15
 	brightness_power = 0.75
 	randomize_range = FALSE
+	lighttype = "stube"
 
 /obj/item/light/bulb
 	name = "light bulb"
@@ -189,14 +192,3 @@
 /obj/item/light/throw_impact(atom/hit_atom)
 	..()
 	shatter()
-
-/obj/item/light/bulb/fire
-	name = "fire bulb"
-	desc = "A replacement fire bulb."
-	icon_state = "flight"
-	item_state = "egg_red"
-	matter = list(MATERIAL_GLASS = 100)
-	brightness_range = 8
-	brightness_power = 0.45
-	randomize_range = FALSE
-	randomize_color = FALSE

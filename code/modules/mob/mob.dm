@@ -1,3 +1,7 @@
+#define UNBUCKLED 0
+#define PARTIALLY_BUCKLED 1
+#define FULLY_BUCKLED 2
+
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
 	mob_list -= src
 	dead_mob_list -= src
@@ -259,7 +263,7 @@
 			AM.show_message("[get_accent_icon(null, src)] [self_message]", 2, deaf_message, 1)
 			continue
 
-		AM.show_message("[get_accent_icon(null, src)] [message]", 2, deaf_message, 1)
+		AM.show_message("[get_accent_icon(null, ismob(AM) ? AM : src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -282,9 +286,6 @@
 /mob/proc/Life()
 	return
 
-#define UNBUCKLED 0
-#define PARTIALLY_BUCKLED 1
-#define FULLY_BUCKLED 2
 /mob/proc/buckled_to()
 	// Preliminary work for a future buckle rewrite,
 	// where one might be fully restrained (like an elecrical chair), or merely secured (shuttle chair, keeping you safe but not otherwise restrained from acting)
@@ -293,11 +294,12 @@
 	return restrained() ? FULLY_BUCKLED : PARTIALLY_BUCKLED
 
 /mob/proc/is_physically_disabled()
-	return incapacitated(INCAPACITATION_DISABLED)
+	return MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED)
 
 /mob/proc/cannot_stand()
-	return incapacitated(INCAPACITATION_KNOCKDOWN)
+	return MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
 
+// Inside this file, you should use MOB_IS_INCAPACITATED for performance reasons
 /mob/proc/incapacitated(var/incapacitation_flags = INCAPACITATION_DEFAULT)
 
 	if ((incapacitation_flags & INCAPACITATION_STUNNED) && stunned)
@@ -320,10 +322,6 @@
 			return 1
 
 	return 0
-
-#undef UNBUCKLED
-#undef PARTIALLY_BUCKLED
-#undef FULLY_BUCKLED
 
 /mob/proc/restrained()
 	return
@@ -865,8 +863,8 @@
 			canmove = 0
 			lying = 0
 		else
-			lying = incapacitated(INCAPACITATION_KNOCKDOWN)
-			canmove = !incapacitated(INCAPACITATION_KNOCKOUT)
+			lying = MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
+			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT)
 
 	if(lying)
 		density = 0
@@ -1433,3 +1431,7 @@
 /mob/proc/get_actions_for_statpanel()
 	var/list/data = list()
 	return data
+
+#undef UNBUCKLED
+#undef PARTIALLY_BUCKLED
+#undef FULLY_BUCKLED

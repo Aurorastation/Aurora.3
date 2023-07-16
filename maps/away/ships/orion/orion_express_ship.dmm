@@ -70,10 +70,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
-"ayD" = (
-/obj/structure/window/shuttle/scc,
-/turf/template_noop,
-/area/shuttle/orion_express_shuttle)
 "aDL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -35189,7 +35185,7 @@ xRX
 xRX
 xRX
 xRX
-ayD
+hvo
 qUy
 sTK
 oqT

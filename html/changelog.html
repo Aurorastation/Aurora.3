@@ -35,6 +35,285 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">15 July 2023</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Removes deprecated gas filters and mixers from the pipe dispenser, as the components were removed previously, and should not be available.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Moved machine&#x27;s process_all() inside the SSMachinery processing, shaving ~1.255M proc calls in 10 minutes.</li>
+				<li class="rscadd">Added a mob incapactitation check define, to be used inside mobs for often called procs (update_canmove, cannot_stand for now, which are called very often, 510k times in 10 minutes).</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The Merchant program now actually has an UI. Oops. It has also been renamed to Orion Express Goods Trading.</li>
+			</ul>
+			<h3 class="author">TheDanseMacabre updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Security no longer has any PEAC fragmentation ammo.</li>
+			</ul>
+
+			<h2 class="date">14 July 2023</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Dead Greimorian bombardiers has its sprite now.</li>
+				<li class="bugfix">Uplink earmuffs have their sprite again.</li>
+				<li class="bugfix">Peanut seed packets has its sprite now.</li>
+				<li class="bugfix">All dark variants of the Unathi straw hat have their sprites now.</li>
+				<li class="bugfix">The cosmic cape has its sprite again.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed some references not being dropped from the hostile mob AI, which leads to some harddels.</li>
+				<li class="bugfix">Fixed some references not being dropped from the sensor contacts, which leads to some harddels.</li>
+				<li class="bugfix">Fixed reference tracking, now works.</li>
+			</ul>
+
+			<h2 class="date">13 July 2023</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Simple mobs should no longer destroy closets and tables in one hit. They&#x27;ll damage them as usual.</li>
+				<li class="tweak">Some animals, like diyaabs and toy mechs, no longer randomly destroy their surroundings.</li>
+				<li class="tweak">Some animals, like cavern dwellers and shantaks, are less likely to randomly damage their surroundings.</li>
+				<li class="bugfix">You can no longer scrub the color out of wood floors with soap, no matter how hard you try.</li>
+				<li class="bugfix">Crafted locks have their sprite again.</li>
+			</ul>
+			<h3 class="author">OolongCow updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Hydroponics&#x27; viewing shutters now start closed and deck one&#x27;s shutters are linked to an actual button.</li>
+				<li class="bugfix">Fixes a misplaced area and air alarm in deck one hydro&#x27;s animal pen</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Vaurca masks now act as described in lore, filtering toxic gases in addition to working as a breath mask.</li>
+				<li class="tweak">Expands the list of harmful gases that can be filtered by gas masks to include chlorine and random gases.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The tank dispenser in EVA had its phoron tanks swapped to oxy tanks and the tank dispenser in Research&#x27;s tank storage area does have phoron tanks along with oxy tanks.</li>
+			</ul>
+			<h3 class="author">Yonnimer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a voidtamer origin and culture set for Dionae.</li>
+				<li class="rscadd">Adds a Mictlan origin for Dionae</li>
+			</ul>
+			<h3 class="author">nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Resprited all basic surgical tools as well as the surgical tray they rest on. They can now be clicked with a higher than 30% accuracy rate and look, subjectively, prettier than before.</li>
+				<li class="imageadd">Also resprited the basic and premium hyposprays to be up to modern standards. They, too, are now subjectively prettier.</li>
+				<li class="tweak">Changed descriptions of surgical tools and also renamed the FixOVein to the vascular recoupler.</li>
+			</ul>
+
+			<h2 class="date">12 July 2023</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Rings no longer fall to the floor when removing gloves that were worn over them.</li>
+				<li class="bugfix">Drone and robot grippers can no longer pick up anchored objects, such as intercoms.</li>
+				<li class="bugfix">Cryotubes, medicine, and other reagents should no longer heal prosthetic limbs.</li>
+				<li class="bugfix">Prosthetic internal organs can no longer be fixed with reagents such as clonexadone. They must be fixed via surgery.</li>
+				<li class="bugfix">Drones can no longer decompile toy mechs, unspent ammo, or living borers, among other things.</li>
+				<li class="tweak">Toy mechs now actually count as synthetic. Keep them away from EMPs.</li>
+				<li class="bugfix">Recycling an item in the autolathe now properly deletes it.</li>
+				<li class="bugfix">Fixed odd messages when loading the autolathe with sheets of material.</li>
+				<li class="bugfix">The autolathe no longer leaves you with fractions of steel or glass sheets after loading it.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Ported the ChemMaster from html UI to TGUI.</li>
+				<li class="backend">Added some code snippets to more conveniently code.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added floor variants of the small and tube lighting fixtures. (Large floor light ported from CEV Eris, small floor light made by atteria)</li>
+				<li class="rscadd">The spotlight is now buildable.</li>
+				<li class="rscadd">The spotlight and large tube light now has a distinct sprite.</li>
+				<li class="rscdel">Removed the low-intensity spotlight. All instances have been replaced with standard spotlights.</li>
+				<li class="tweak">Added new sprites for wall lights. (made by Gem)</li>
+				<li class="tweak">Lightbulbs (except in floor lights) now layer above darkness.</li>
+				<li class="maptweak">Added floor lights on decks 2 and 3, replacing most instances of wall lights on railings.</li>
+			</ul>
+			<h3 class="author">OolongCow updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Anesthetic closets now spawn with an oxygen tank on their list of contained objects instead of messily having them placed inside by mapping</li>
+				<li class="maptweak">Replaces the canisters of room temperature nitrogen in the supermatter room obviously meant as emergency coolant with pre-chilled variants</li>
+				<li class="maptweak">Replaces the binary pumps for filling the cold and hot loops of the supermatter with high power pumps.</li>
+				<li class="maptweak">The CMO&#x27;s office windows are now controllable by a separate, new button, and begin closed.</li>
+				<li class="maptweak">Replaces the research server room nitrogen can with a pre-chilled variant to save on headache medication for engineers</li>
+			</ul>
+
+			<h2 class="date">11 July 2023</h2>
+			<h3 class="author">OolongCow updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The Adhomian Circus&#x27;s shuttle now has a functioning SMES.</li>
+				<li class="bugfix">The Orion Express shuttle no longer loses a window after docking in certain positions.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds an origin and accent for the Zazalai Mountains.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Added radiation shielding to the bar backroom, for the safety of the crew&#x27;s favourite monkey.</li>
+			</ul>
+			<h3 class="author">WhatsUpBrotendo, Ryverstyx updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added jylara as a snack machine vendor item, as well as a recipe to create it by mixing four dyn leaves.</li>
+				<li class="rscadd">Added Skrell versions of beer and wine.</li>
+				<li class="tweak">Added pre-existing and newly added Skrell foods as lunchbox options.</li>
+				<li class="bugfix">Fixed Fjylozyn and Wulumunusha seed packets not having proper sprites.</li>
+			</ul>
+			<h3 class="author">crunchypretzels updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Restored the missing option on the suspension field generator.</li>
+			</ul>
+
+			<h2 class="date">10 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="admin">Updated the readme visible on our repo, to clarify how to build on the updated codebase, and that native building is no longer supported.</li>
+				<li class="admin">Added a new, tinyfied version on how to get a development environment up, for new contributors. By no means comprehensive.</li>
+				<li class="backend">Added vscode recommended extensions to work with our repo.</li>
+			</ul>
+			<h3 class="author">Ramke updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Chems that check for minimum dose (i.e. mortaphenyl, perconol) now work if ingested.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added an alternate recolorable trenchcoat to the loadout.</li>
+			</ul>
+			<h3 class="author">Snowy1237 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the IAC away ship to Coalition sectors</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Removed a lot of railings in maintenance to make it more maneuverable.</li>
+				<li class="maptweak">Added an abandoned maintenance room with engineering supplies at the deck one med maint.</li>
+				<li class="maptweak">Added more maintenance entrances and exits to deck three. Mainly affects security but there is also now a maintenance exit in the locker room.</li>
+				<li class="maptweak">Tweaked the layout of some maintenance rooms on every deck to make it easier to move around or hide.</li>
+				<li class="maptweak">A lot of the maintenance bins are now closets. Those don&#x27;t block movement once opened and can be used for various purposes.</li>
+				<li class="maptweak">Maintenance in general should be a lot more consistent in style throughout the ship rather than have drastic differences such as between areas like port deck one maint vs the rest of the ship.</li>
+			</ul>
+			<h3 class="author">atteria updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Resprited the mecha fabricator and autolathe.</li>
+			</ul>
+			<h3 class="author">crunchypretzels updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added three hairstyles: Chop, Bookish, and Jaeger. Thanks, Eris!</li>
+				<li class="tweak">Adjusted the shading on several shirts and bras to look less like nipples.</li>
+				<li class="tweak">Removed the extremely present headband from the double earphones, preventing significant drip loss.</li>
+			</ul>
+
+			<h2 class="date">08 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed AFK message during server init (and possibly other issues).</li>
+				<li class="backend">Aligned our Master Controller and Subsystems more towards TG&#x27;s implementation, so that they fire during the server initialization.</li>
+				<li class="backend">The use of dreamchecker was moved after the debug session is finished, to make better use of the Problems tab in visual studio code, minor tweak on the CBT (Common Build Tools).</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Lowered the weight of ship ammunition so that Xion frames, vaurca workers, and non-Coeus Diona can lift them without mechanical assistance.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a flag for the Free Tajaran Council.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes emotes not applying the hearer&#x27;s accent tag preference.</li>
+			</ul>
+
+			<h2 class="date">07 July 2023</h2>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Removes an RND server from an exoplanet ruin.</li>
+			</ul>
+
+			<h2 class="date">06 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed verbs-only panels disappearing when an item is dropped.</li>
+			</ul>
+
+			<h2 class="date">05 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Reordered the inclusion of the linters (OpenDream / SpacemanDMM) pragmas/defines, to avoid native tools nuking it to have them be defined at the very beginning.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the look up/down verbs not working. Note that you can&#x27;t use them if you have a UI opened.</li>
+				<li class="bugfix">Fixes bodyscanner temperature readouts, and makes the body scan console light purple.</li>
+			</ul>
+
+			<h2 class="date">04 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="security">Sanitized a console input to prevent href injections.</li>
+				<li class="bugfix">Fixed defibrillators not working correctly on a bed/stretcher.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed ling lesser form transformation not updating your verbs.</li>
+				<li class="bugfix">Fixed ling shred equipment verbs not working.</li>
+				<li class="bugfix">Fixed aghost clickdrag not resetting verbs.</li>
+				<li class="bugfix">Fixed a leftover asset debug line.</li>
+				<li class="bugfix">Fixed some cyborg runtimes.</li>
+				<li class="bugfix">Lesser form lings can now actually transform back at will.</li>
+				<li class="bugfix">Ship guns can now actually fire on hazards.</li>
+				<li class="bugfix">Fixed printing prosthetic limbs of different types.</li>
+				<li class="bugfix">Fixed some tajara languages having a darker colour.</li>
+				<li class="bugfix">Fixed replying to a PDA message through the chat link not working.</li>
+				<li class="bugfix">Deselecting the input box in PDA messaging no longer sends a message.</li>
+				<li class="bugfix">Fixes the manifest on the PDA not having a header. Again.</li>
+			</ul>
+
+			<h2 class="date">03 July 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Now builds and returns a (partial) statpanel info and lobby during server init.</li>
+				<li class="tweak">Made the manifest UI bigger and the table elements a little better aligned.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the black screen bug, hopefully.</li>
+				<li class="bugfix">Fixes the manifest on the PDA not having a header, and also being too small.</li>
+			</ul>
+
+			<h2 class="date">02 July 2023</h2>
+			<h3 class="author">Butterrobber202 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">K&#x27;ois has been set to not require water or biomass, as the lore intended.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Fix OpenDream cache restore handling, that is preventing the CI from running successfully.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added colorable lipsticks, as well as letting you apply lipstick on-spawn via the loadout.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added an Old Sol Alliance flag, representing the pre-Interstellar War Sol Alliance.</li>
+				<li class="maptweak">Added an old Sol Alliance flag to the Sensor Relay.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a potential server killing bug.</li>
+			</ul>
+
+			<h2 class="date">30 June 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed TGUI not loading new panels on first try, because the caching confirmation system was not correctly flagging them as received assets.</li>
+				<li class="bugfix">Added some remaining pieces of code that were not ported over for the Topic function.</li>
+			</ul>
+
 			<h2 class="date">29 June 2023</h2>
 			<h3 class="author">DreamySkrell updated:</h3>
 			<ul class="changes bgimages16">

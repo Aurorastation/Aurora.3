@@ -44,7 +44,8 @@
 		data["platform_directions"] = list("NORTH", "NORTHEAST", "EAST", "SOUTHEAST", "SOUTH", "SOUTHWEST", "WEST", "NORTHWEST")
 	if(linked.targeting)
 		for(var/obj/machinery/ship_weapon/SW in linked.ship_weapons)
-			data["guns"] += list(get_gun_data(SW))
+			if(!SW.special_firing_mechanism)
+				data["guns"] += list(get_gun_data(SW))
 		data["targeting"] = list(
 			"name" = linked.targeting.name,
 			"shiptype" = linked.targeting.shiptype,
@@ -112,7 +113,10 @@
 			if(!params["entrypoint"])
 				return
 			var/our_entrypoint = params["entrypoint"]
-			selected_entrypoint = names_to_entries[our_entrypoint]
+			if(our_entrypoint == SHIP_HAZARD_TARGET)
+				selected_entrypoint = our_entrypoint
+			else
+				selected_entrypoint = names_to_entries[our_entrypoint]
 			. = TRUE
 
 		if("select_gun")

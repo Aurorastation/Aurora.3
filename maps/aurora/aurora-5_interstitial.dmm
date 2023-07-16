@@ -6715,7 +6715,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site/zone_2)
 "xa" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "xi" = (

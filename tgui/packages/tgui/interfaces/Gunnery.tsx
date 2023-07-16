@@ -1,4 +1,4 @@
-import { BooleanLike } from 'common/react';
+import { BooleanLike } from '../../common/react';
 import { capitalizeAll } from '../../common/string';
 import { useBackend } from '../backend';
 import { Button, Section, Box, LabeledList } from '../components';
