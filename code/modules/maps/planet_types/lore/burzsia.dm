@@ -15,11 +15,11 @@
 	rock_colors = list(COLOR_DARK_BROWN)
 	plant_colors = null
 	possible_themes = list(/datum/exoplanet_theme/barren)
-	features_budget = 8
+	features_budget = 1
 	surface_color = "#b7410e"
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
-//	ruin_type_whitelist = list ()
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/burzsia_mining)
 	place_near_main = list(2, 2)
 	var/bright_side = TRUE
 
