@@ -1,7 +1,7 @@
 /// Generic attack logging
 /proc/_log_attack(text)
 	if (config.logsettings["log_attack"])
-		WRITE_LOG(config.world_attack_log, "ATTACK: [text]")
+		WRITE_LOG(config.logfiles["world_attack_log"], "ATTACK: [text]")
 
 /**
  * Log a combat message in the attack log
@@ -31,5 +31,5 @@
 
 	var/message = "[ssource] [what_done] [starget][postfix]"
 
-	WRITE_LOG(config.combat_log, message)
+	WRITE_LOG(config.logfiles["combat_log"], message)
 	SEND_TEXT(world.log, message)

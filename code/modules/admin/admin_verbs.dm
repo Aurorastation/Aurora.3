@@ -154,7 +154,6 @@ var/list/admin_verbs_server = list(
 	/datum/admins/proc/restart,
 	/datum/admins/proc/delay,
 	/datum/admins/proc/toggleaban,
-	/client/proc/toggle_log_hrefs,
 	/datum/admins/proc/immreboot,
 	/client/proc/everyone_random,
 	/datum/admins/proc/toggleAI,
@@ -313,7 +312,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/create_poll,
 	/client/proc/allow_stationbound_reset,
 	/client/proc/end_round,
-	/client/proc/toggle_log_hrefs,
 	/datum/admins/proc/immreboot,
 	/client/proc/cmd_dev_bst,
 	/client/proc/global_ao_regenerate,
@@ -805,18 +803,6 @@ var/list/admin_verbs_cciaa = list(
 			add_verb(src, /client/proc/aooc)
 
 	feedback_add_details("admin_verb","TAOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/toggle_log_hrefs()
-	set name = "Toggle href logging"
-	set category = "Server"
-	if(!holder)	return
-	if(config)
-		if(config.logsettings["log_hrefs"])
-			config.logsettings["log_hrefs"] = 0
-			to_chat(src, "<b>Stopped logging hrefs</b>")
-		else
-			config.logsettings["log_hrefs"] = 1
-			to_chat(src, "<b>Started logging hrefs</b>")
 
 /client/proc/check_ai_laws()
 	set name = "Check AI Laws"

@@ -60,64 +60,69 @@ var/list/gamemode_cache = list()
 	"log_subsystems_cargo" = TRUE, // Cargo
 	"log_subsystems_documents" = TRUE, // Documents
 	"log_subsystems_fail2topic" = TRUE, // Fail2Topic
-	"log_subsystems_mapfinalization" = TRUE, // Fail2Topic
+	"log_subsystems_mapfinalization" = TRUE, // Map Finalization
+	"log_subsystems_tgui" = TRUE, // TGUI
 
 	//// MODULES ////
 
 	"log_modules_ghostroles" = TRUE,	// Ghost Roles
 	"log_modules_customitems" = TRUE,	// Custom Items
 	"log_modules_exoplanets" = TRUE,	// Exoplanets
-	"log_modules_sectors" = TRUE,	// Exoplanets
+	"log_modules_sectors" = TRUE,	// Overmap Sectors
 	"world_modules_ruins_log" = TRUE,	// Ruins
 
 	)
 
 	// Files to send the logs to
-	var/world_asset_log = "world_asset.log"
-	var/config_error_log = "config_error.log"
-	var/filter_log = "filter.log"
-	var/lua_log = "lua.log"
-	var/world_map_error_log = "world_map_error.log"
-	var/perf_log = "perf.log"
-	var/world_qdel_log = "world_qdel.log"
-	var/query_debug_log = "query_debug.log"
-	var/world_runtime_log = "world_runtime.log"
-	var/sql_error_log = "sql_error.log"
-	var/world_game_log = "world_game.log"
-	var/world_job_debug_log = "world_job_debug.log"
-	var/signals_log = "signals.log"
-	var/world_suspicious_login_log = "world_suspicious_login.log"
-	var/world_uplink_log = "world_uplink.log"
-	var/world_attack_log = "world_attack.log"
-	var/combat_log = "combat.log"
-	var/world_pda_log = "world_pda.log"
-	var/world_telecomms_log = "world_telecomms.log"
-	var/world_speech_indicators_log = "world_speech_indicators.log"
-	var/world_tool_log = "world_tool.log"
-	var/garbage_collector_log = "garbage_collector.log"
-	var/harddel_log = "harddel.log"
-	var/world_paper_log = "world_paper.log"
-	var/world_manifest_log = "world_manifest.log"
+	var/list/logfiles = list(
+	"world_asset_log" = "world_asset.log",
+	"config_error_log" = "config_error.log",
+	"filter_log" = "filter.log",
+	"lua_log" = "lua.log",
+	"world_map_error_log" = "world_map_error.log",
+	"perf_log" = "perf.log",
+	"world_qdel_log" = "world_qdel.log",
+	"query_debug_log" = "query_debug.log",
+	"world_runtime_log" = "world_runtime.log",
+	"sql_error_log" = "sql_error.log",
+	"world_game_log" = "world_game.log",
+	"world_job_debug_log" = "world_job_debug.log",
+	"signals_log" = "signals.log",
+	"world_suspicious_login_log" = "world_suspicious_login.log",
+	"world_uplink_log" = "world_uplink.log",
+	"world_attack_log" = "world_attack.log",
+	"combat_log" = "combat.log",
+	"world_pda_log" = "world_pda.log",
+	"world_telecomms_log" = "world_telecomms.log",
+	"world_speech_indicators_log" = "world_speech_indicators.log",
+	"world_tool_log" = "world_tool.log",
+	"world_href_log" = "href.log",
+	"garbage_collector_log" = "garbage_collector.log",
+	"harddel_log" = "harddel.log",
+	"world_paper_log" = "world_paper.log",
+	"world_manifest_log" = "world_manifest.log",
 
 	//// SUBSYSTEMS ////
 
-	var/world_subsystems_log = "subsystems/world_subsystems.log"
-	var/world_subsystems_chemistry_log = "subsystems/chemistry.log"
-	var/world_subsystems_atlas_log = "subsystems/atlas.log"
-	var/world_subsystems_ghostroles_log = "subsystems/ghostroles.log"
-	var/world_subsystems_law_log = "subsystems/law.log"
-	var/world_subsystems_cargo_log = "subsystems/cargo.log"
-	var/world_subsystems_documents_log = "subsystems/documents.log"
-	var/world_subsystems_fail2topic_log = "subsystems/fail2topic.log"
-	var/world_subsystems_mapfinalization_log = "subsystems/mapfinalization.log"
+	"world_subsystems_log" = "subsystems/world_subsystems.log",
+	"world_subsystems_chemistry_log" = "subsystems/chemistry.log",
+	"world_subsystems_atlas_log" = "subsystems/atlas.log",
+	"world_subsystems_ghostroles_log" = "subsystems/ghostroles.log",
+	"world_subsystems_law_log" = "subsystems/law.log",
+	"world_subsystems_cargo_log" = "subsystems/cargo.log",
+	"world_subsystems_documents_log" = "subsystems/documents.log",
+	"world_subsystems_fail2topic_log" = "subsystems/fail2topic.log",
+	"world_subsystems_mapfinalization_log" = "subsystems/mapfinalization.log",
+	"world_subsystems_tgui" = "subsystems/tgui.log",
 
 	//// MODULES ////
 
-	var/world_modules_ghostroles_log = "modules/ghostroles.log"
-	var/world_modules_customitems_log = "modules/customitems.log"
-	var/world_modules_exoplanets_log = "modules/exoplanets.log"
-	var/world_modules_sectors_log = "modules/sectors.log"
-	var/world_modules_ruins_log = "modules/ruins.log"
+	"world_modules_ghostroles_log" = "modules/ghostroles.log",
+	"world_modules_customitems_log" = "modules/customitems.log",
+	"world_modules_exoplanets_log" = "modules/exoplanets.log",
+	"world_modules_sectors_log" = "modules/sectors.log",
+	"world_modules_ruins_log" = "modules/ruins.log",
+	)
 
 
 	/////// END LOGGING SETTINGS ///////
@@ -506,62 +511,11 @@ var/list/gamemode_cache = list()
 				if ("use_spreading_explosions")
 					use_spreading_explosions = 1
 
-				if ("log_ooc")
-					config.logsettings["log_ooc"] = 1
-
-				if ("log_access")
-					config.logsettings["log_access"] = 1
-
 				if ("sql_enabled")
 					config.sql_enabled = 1
 
-				if ("log_say")
-					config.logsettings["log_say"] = 1
-
 				if ("debug_paranoid")
 					config.debugparanoid = 1
-
-				if ("log_admin")
-					config.logsettings["log_admin"] = 1
-
-				if ("log_signaler")
-					config.logsettings["log_signaler"] = 1
-
-				if ("log_debug")
-					config.logsettings["log_debug"] = text2num(value)
-
-				if ("log_game")
-					config.logsettings["log_game"] = 1
-
-				if ("log_vote")
-					config.logsettings["log_vote"] = 1
-
-				if ("log_whisper")
-					config.logsettings["log_whisper"] = 1
-
-				if ("log_attack")
-					config.logsettings["log_attack"] = 1
-
-				if ("log_emote")
-					config.logsettings["log_emote"] = 1
-
-				if ("log_adminchat")
-					config.logsettings["log_adminchat"] = 1
-
-				if ("log_pda")
-					config.logsettings["log_pda"] = 1
-
-				if ("log_asset")
-					config.logsettings["log_asset"] = 1
-
-				if ("log_world_output")
-					config.logsettings["log_world_output"] = 1
-
-				if ("log_hrefs")
-					config.logsettings["log_hrefs"] = 1
-
-				if ("log_runtime")
-					config.logsettings["log_runtime"] = text2num(value)
 
 				if ("dungeon_chance")
 					config.dungeon_chance = text2num(value)
@@ -584,7 +538,7 @@ var/list/gamemode_cache = list()
 				if ("allow_admin_jump")
 					config.allow_admin_jump = 1
 
-				if("allow_admin_rev")
+				if ("allow_admin_rev")
 					config.allow_admin_rev = 1
 
 				if ("allow_admin_spawning")
@@ -626,7 +580,7 @@ var/list/gamemode_cache = list()
 				if ("respawn_delay")
 					config.respawn_delay = text2num(value)
 
-				if("hacked_drones_limit")
+				if ("hacked_drones_limit")
 					config.hacked_drones_limit = text2num(value)
 
 				if ("servername")
@@ -914,7 +868,6 @@ var/list/gamemode_cache = list()
 				if("aggressive_changelog")
 					config.aggressive_changelog = 1
 
-
 				if("sql_whitelists")
 					config.sql_whitelists = 1
 
@@ -970,12 +923,6 @@ var/list/gamemode_cache = list()
 
 				if("mc_ticklimit_init")
 					config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
-
-				if("log_gelf_enabled")
-					config.logsettings["log_gelf_enabled"] = text2num(value)
-
-				if("log_gelf_addr")
-					config.logsettings["log_gelf_addr"] = value
 
 				if("ipintel_email")
 					if (value != "ch@nge.me")
@@ -1202,6 +1149,18 @@ var/list/gamemode_cache = list()
 					discord_bot.alert_visibility = 1
 				else
 					log_config("Unknown setting in discord configuration: '[name]'")
+	load_logging_config()
+
+/datum/configuration/proc/save_logging_config()
+	rustg_file_write(json_encode(config.logsettings), "config/logging.json")
+	rustg_file_write(json_encode(config.logfiles), "config/logging_files.json")
+
+/datum/configuration/proc/load_logging_config()
+	try
+		src.logsettings = json_decode(rustg_file_read("config/logging.json"))
+		src.logfiles = json_decode(rustg_file_read("config/logging_files.json"))
+	catch(var/exception/e)
+		WARNING("Unable to read or restore log config from the configuration files. Exception: [json_encode(e)]")
 
 /datum/configuration/proc/pick_mode(mode_name)
 	// I wish I didn't have to instance the game modes in order to look up

@@ -3,5 +3,5 @@
 	LOG_GITHUB_DEBUG("CUSTOMITEMS: [text]")
 #else
 	if (config?.logsettings["log_modules_customitems"])
-		WRITE_LOG(config.world_modules_customitems_log, "CUSTOMITEMS: [text]")
+		WRITE_LOG(config.logfiles["world_modules_customitems_log"], "CUSTOMITEMS: [text]")
 #endif

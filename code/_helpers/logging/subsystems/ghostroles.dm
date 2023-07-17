@@ -3,7 +3,7 @@
 	LOG_GITHUB_DEBUG("SSGhostroles: [text]")
 #else
 	if (config?.logsettings["log_subsystems_ghostroles"])
-		WRITE_LOG(config.world_subsystems_ghostroles_log, "SSGhostroles: [text]")
+		WRITE_LOG(config.logfiles["world_subsystems_ghostroles_log"], "SSGhostroles: [text]")
 #endif
 
 /**
@@ -14,5 +14,5 @@
 	LOG_GITHUB_ERROR("SSGhostroles: [text]")
 #else
 	if (config?.logsettings["log_subsystems_ghostroles"])
-		WRITE_LOG(config.world_subsystems_ghostroles_log, "SSGhostroles: [text]")
+		WRITE_LOG(config.logfiles["world_subsystems_ghostroles_log"], "SSGhostroles: [text]")
 #endif

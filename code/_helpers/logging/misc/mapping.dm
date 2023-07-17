@@ -3,7 +3,7 @@
 #if defined(UNIT_TEST)
 	LOG_GITHUB_NOTICE("Mapping: [text]")
 #else
-	WRITE_LOG(config.world_map_error_log, "MAPPING: [text]")
+	WRITE_LOG(config.logfiles["world_map_error_log"], "MAPPING: [text]")
 	if(skip_world_log)
 		return
 	SEND_TEXT(world.log, "MAPPING: [text]")
@@ -14,7 +14,7 @@
 #if defined(UNIT_TEST)
 	LOG_GITHUB_ERROR("Mapping: [text]")
 #else
-	WRITE_LOG(config.world_map_error_log, "MAPPING: [text]")
+	WRITE_LOG(config.logfiles["world_map_error_log"], "MAPPING: [text]")
 	if(skip_world_log)
 		return
 	SEND_TEXT(world.log, "MAPPING: [text]")

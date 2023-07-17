@@ -40,8 +40,8 @@
 
 		if("hrefs")				//persistant logs and stuff
 			if(config && config.logsettings["log_hrefs"])
-				if(href_logfile)
-					src << browse(href_logfile,"window=investigate[subject];size=800x300")
+				if(config.logfiles["world_href_log"])
+					src << browse(config.logfiles["world_href_log"], "window=investigate[subject];size=800x300")
 				else
 					to_chat(src, "<span class='warning'>Error: admin_investigate: No href logfile found.</span>")
 					return

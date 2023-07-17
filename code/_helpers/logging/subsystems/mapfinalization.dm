@@ -3,7 +3,7 @@
 	LOG_GITHUB_NOTICE("SSMapfinalization: [text]")
 #else
 	if (config?.logsettings["log_subsystems_mapfinalization"])
-		WRITE_LOG(config.world_subsystems_mapfinalization_log, "SSMapfinalization: [text]")
+		WRITE_LOG(config.logfiles["world_subsystems_mapfinalization_log"], "SSMapfinalization: [text]")
 #endif
 
 /**
@@ -14,5 +14,5 @@
 	LOG_GITHUB_ERROR("SSMapfinalization: [text]")
 #else
 	if (config?.logsettings["log_subsystems_mapfinalization"])
-		WRITE_LOG(config.world_subsystems_mapfinalization_log, "SSMapfinalization: [text]")
+		WRITE_LOG(config.logfiles["world_subsystems_mapfinalization_log"], "SSMapfinalization: [text]")
 #endif

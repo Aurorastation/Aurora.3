@@ -3,5 +3,5 @@
 	LOG_GITHUB_NOTICE("Sectors: [text]")
 #else
 	if (config?.logsettings["log_modules_sectors"])
-		WRITE_LOG(config.world_modules_sectors_log, "Sectors: [text]")
+		WRITE_LOG(config.logfiles["world_modules_sectors_log"], "Sectors: [text]")
 #endif

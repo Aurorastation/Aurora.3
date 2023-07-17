@@ -4,30 +4,30 @@
 /proc/_log_admin(text)
 	admin_log.Add(text)
 	if (config.logsettings["log_admin"])
-		WRITE_LOG(config.world_game_log, "ADMIN: [text]")
+		WRITE_LOG(config.logfiles["world_game_log"], "ADMIN: [text]")
 
 /// Logging for admin actions on or with circuits
 /proc/log_admin_circuit(text)
 	admin_log.Add(text)
 	if(config.logsettings["log_admin"])
-		WRITE_LOG(config.world_game_log, "ADMIN: CIRCUIT: [text]")
+		WRITE_LOG(config.logfiles["world_game_log"], "ADMIN: CIRCUIT: [text]")
 
 /// General logging for admin actions
 /proc/log_admin_private(text)
 	admin_log.Add(text)
 	if (config.logsettings["log_admin"])
-		WRITE_LOG(config.world_game_log, "ADMINPRIVATE: [text]")
+		WRITE_LOG(config.logfiles["world_game_log"], "ADMINPRIVATE: [text]")
 
 /// Logging for AdminSay (ASAY) messages
 /proc/_log_adminsay(text)
 	admin_log.Add(text)
 	if (config.logsettings["log_adminchat"])
-		WRITE_LOG(config.world_game_log, "ADMINPRIVATE: ASAY: [text]")
+		WRITE_LOG(config.logfiles["world_game_log"], "ADMINPRIVATE: ASAY: [text]")
 
 /// Logging for DeachatSay (DSAY) messages
 /proc/log_dsay(text)
 	if (config.logsettings["log_adminchat"])
-		WRITE_LOG(config.world_game_log, "ADMIN: DSAY: [text]")
+		WRITE_LOG(config.logfiles["world_game_log"], "ADMIN: DSAY: [text]")
 
 /**
  * Writes to a special log file if the log_suspicious_login config flag is set,
@@ -38,6 +38,6 @@
  */
 /proc/log_suspicious_login(text, access_log_mirror = TRUE)
 	if (config.logsettings["log_suspicious_login"])
-		WRITE_LOG(config.world_suspicious_login_log, "SUSPICIOUS_ACCESS: [text]")
+		WRITE_LOG(config.logfiles["world_suspicious_login_log"], "SUSPICIOUS_ACCESS: [text]")
 	if(access_log_mirror)
 		log_access(text)
