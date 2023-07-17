@@ -1,0 +1,5 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Bridge crew once more has acccess to the command bunker via maintenance."
+  - bugfix: "The first aid kit in the Longbow room now actually contains medical supplies."

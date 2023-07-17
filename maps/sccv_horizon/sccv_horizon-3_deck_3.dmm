@@ -3070,7 +3070,6 @@
 /area/horizon/security/investigators_office)
 "cMt" = (
 /obj/structure/table/rack,
-/obj/item/storage/firstaid,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
@@ -3078,6 +3077,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/storage/firstaid/regular,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
 "cNg" = (
@@ -28453,7 +28453,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12)
+	req_one_access = list(12,19)
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
