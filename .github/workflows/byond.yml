@@ -56,7 +56,7 @@ jobs:
             ${{ runner.os }}-
       # Install Dependencies
       - name: "Set ENV variables"
-        run: sudo bash dependencies.sh
+        run: bash dependencies.sh
       - name: Restore Python Cache
         uses: actions/setup-python@v4
         with:
