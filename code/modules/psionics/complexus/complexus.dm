@@ -81,4 +81,8 @@
 		for(var/thing in manifested_items)
 			qdel(thing)
 		manifested_items.Cut()
+
+	if(owner.ability_master)
+		for(var/obj/screen/ability/obj_based/psionic/P in owner.ability_master)
+			owner.ability_master.remove_ability(P)
 	. = ..()

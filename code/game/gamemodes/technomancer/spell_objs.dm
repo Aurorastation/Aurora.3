@@ -20,6 +20,7 @@
 #define ASPECT_UNSTABLE		"unstable"	//Heavily RNG-based, causes instability to the victim.
 #define ASPECT_CHROMATIC	"chromatic"	//Used to combine with other spells.
 #define ASPECT_UNHOLY		"unholy"	//Involves the dead, blood, and most things against divine beings.
+#define ASPECT_PSIONIC      "psionics"  //Psionic power. Bypasses core checks.
 
 /obj/item/spell
 	name = "glowing particles"
@@ -32,8 +33,8 @@
 		)
 	throwforce = 0
 	force = 0
-	var/mob/living/carbon/human/owner = null
-	var/obj/item/technomancer_core/core = null
+	var/mob/living/carbon/human/owner
+	var/obj/item/technomancer_core/core
 	var/cast_methods = null			// Controls how the spell is casted.
 	var/aspect = null				// Used for combining spells.
 	var/toggled = 0					// Mainly used for overlays.
@@ -99,7 +100,7 @@
 // if they are able to pay, it is deducted automatically.
 /obj/item/spell/proc/pay_energy(var/amount)
 	if(!core)
-		return 0
+		return amount
 	return core.pay_energy(amount)
 
 // Proc: give_energy()
@@ -107,7 +108,7 @@
 // Description: Redirects the call to the core's give_energy().
 /obj/item/spell/proc/give_energy(var/amount)
 	if(!core)
-		return 0
+		return amount
 	return core.give_energy(amount)
 
 // Proc: adjust_instability()
@@ -140,7 +141,7 @@
 	. = ..()
 	if(isliving(loc))
 		owner = loc
-	if(owner)
+	if(owner && aspect != ASPECT_PSIONIC)
 		core = owner.get_technomancer_core()
 		if(!core)
 			to_chat(owner, "<span class='warning'>You need a Core to do that.</span>")
@@ -179,32 +180,37 @@
 // if it still can't find one.  It will also check if the core is being worn properly, and finally checks if the owner is a technomancer.
 /obj/item/spell/proc/run_checks()
 	if(!owner)
-		return 0
-	if(!core)
-		core = locate(/obj/item/technomancer_core) in owner
+		return FALSE
+	if(aspect != ASPECT_PSIONIC)
 		if(!core)
+			core = locate(/obj/item/technomancer_core) in owner
+			if(!core)
+				to_chat(owner, "<span class='danger'>You need to be wearing a core on your back or your wrists!</span>")
+				return FALSE
+		if(core.loc != owner || (owner.back != core && owner.wrists != core)) //Make sure the core's being worn.
 			to_chat(owner, "<span class='danger'>You need to be wearing a core on your back or your wrists!</span>")
-			return 0
-	if(core.loc != owner || (owner.back != core && owner.wrists != core)) //Make sure the core's being worn.
-		to_chat(owner, "<span class='danger'>You need to be wearing a core on your back or your wrists!</span>")
-		return 0
-	if(!core.simple_operation && !technomancers.is_technomancer(owner.mind)) //Now make sure the person using this is the actual antag.
-		to_chat(owner, "<span class='danger'>You can't seem to figure out how to make the machine work properly.</span>")
-		return 0
-	return 1
+			return FALSE
+		if(!core.simple_operation && !technomancers.is_technomancer(owner.mind)) //Now make sure the person using this is the actual antag.
+			to_chat(owner, "<span class='danger'>You can't seem to figure out how to make the machine work properly.</span>")
+			return FALSE
+	else
+		if(!owner.psi)
+			return FALSE
+	return TRUE
 
 // Proc: check_for_scepter()
 // Parameters: 0
 // Description: Terrible code to check if a scepter is in the offhand, returns 1 if yes.
 /obj/item/spell/proc/check_for_scepter()
-	if(!src || !owner) return 0
+	if(!src || !owner)
+		return FALSE
 	if(owner.r_hand == src)
 		if(istype(owner.l_hand, /obj/item/scepter))
-			return 1
+			return TRUE
 	else
 		if(istype(owner.r_hand, /obj/item/scepter))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 // Proc: get_other_hand()
 // Parameters: 1 (I - item being compared to determine what the offhand is)

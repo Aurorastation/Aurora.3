@@ -2873,6 +2873,8 @@
 #include "code\modules\projectiles\targeting\targeting_mob.dm"
 #include "code\modules\projectiles\targeting\targeting_overlay.dm"
 #include "code\modules\projectiles\targeting\targeting_triggers.dm"
+#include "code\modules\psionics\abilities\_ability.dm"
+#include "code\modules\psionics\abilities\commune.dm"
 #include "code\modules\psionics\complexus\complexus.dm"
 #include "code\modules\psionics\complexus\complexus_helpers.dm"
 #include "code\modules\psionics\complexus\complexus_latency.dm"

@@ -1,13 +1,27 @@
-/decl/psionic_power
+/singleton/psionic_power
 	/// Ability name.
 	var/name
 	/// Description of what the ability does.
 	var/desc
-	/// Spell object to spawn.
-	var/obj/item/spell/spell_to_spawn
+	/// Spell object to spawn. Must be a path.
+	var/spell_path
+	/// Spell icon state.
+	var/icon_state
 	/// Ability flags define who can pick an ability - ship characters, adminspawn characters, antags.
 	var/ability_flags
 	/// Minimum required rank to use an ability.
 	var/minimum_rank = PSI_RANK_SENSITIVE
 	/// Point shop cost.
 	var/point_cost = 1
+	/// Psionic complexus cost.
+	var/psi_cost = 0
+
+/// Called when a power is given to a mob.
+/singleton/psionic_power/proc/apply(var/mob/living/carbon/human/H)
+	if(H.ability_master)
+		var/obj/spellbutton/spell = new(H, spell_path, name, icon_state)
+		H.ability_master.add_psionic_ability(spell, icon_state)
+		return TRUE
+	else
+		log_debug("Psionic power [src.name] given to mob [H] without ability master!")
+		return FALSE

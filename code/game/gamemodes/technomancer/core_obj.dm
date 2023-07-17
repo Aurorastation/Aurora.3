@@ -178,17 +178,15 @@
 /obj/spellbutton
 	name = "generic spellbutton"
 	var/spellpath
-	var/obj/item/technomancer_core/core
 	var/ability_icon_state
 
-/obj/spellbutton/New(loc, var/path, var/new_name, var/new_icon_state)
+/obj/spellbutton/Initialize(mapload, var/path, var/new_name, var/new_icon_state)
+	. = ..()
 	if(!path || !ispath(path))
-		message_admins("ERROR: /obj/spellbutton/New() was not given a proper path!")
-		qdel(src)
+		message_admins("ERROR: /obj/spellbutton/Initialize() was not given a proper path!")
+		return INITIALIZE_HINT_QDEL
 	src.name = new_name
 	src.spellpath = path
-	src.loc = loc
-	src.core = loc
 	src.ability_icon_state = new_icon_state
 
 /obj/spellbutton/Click()
@@ -198,6 +196,13 @@
 
 /obj/spellbutton/DblClick()
 	return Click()
+/obj/spellbutton/technomancer
+	var/obj/item/technomancer_core/core
+
+/obj/spellbutton/tecnomancer/Initialize(mapload, var/path, var/new_name, var/new_icon_state)
+	. = ..()
+	src.loc = loc
+	src.core = loc
 
 /mob/living/carbon/human/get_status_tab_items()
 	. = ..()
@@ -216,7 +221,7 @@
 		message_admins("ERROR: /obj/item/technomancer_core/add_spell() was not given a proper path!  \
 		The path supplied was [path].")
 		return
-	var/obj/spellbutton/spell = new(src, path, new_name, ability_icon_state)
+	var/obj/spellbutton/technomancer/spell = new(src, path, new_name, ability_icon_state)
 	spells.Add(spell)
 	if(wearer)
 		wearer.ability_master.add_technomancer_ability(spell, ability_icon_state)

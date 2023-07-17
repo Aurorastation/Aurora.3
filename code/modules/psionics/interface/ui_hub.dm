@@ -36,7 +36,7 @@
 /obj/screen/psi/hub/Click(var/location, var/control, var/params)
 	var/list/click_params = params2list(params)
 	if(click_params["shift"])
-		//owner.show_psi_assay(owner) todomatt
+		ui_interact(owner)
 		return
 
 	if(owner.psi.suppressed && owner.psi.stun)
@@ -51,3 +51,32 @@
 		sound_to(owner, sound('sound/effects/psi/power_unlock.ogg'))
 		owner.psi.show_auras()
 	update_icon()
+
+/obj/screen/psi/hub/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "PsionicShop", "Psionic Point Shop", 400, 500)
+		ui.open()
+
+/obj/screen/psi/hub/ui_state(mob/user)
+    return conscious_state
+
+/obj/screen/psi/hub/ui_status(mob/user, datum/ui_state/state)
+    return UI_INTERACTIVE
+
+/obj/screen/psi/hub/ui_data(mob/user)
+	var/list/data = list()
+	data["available_psionics"] = list()
+	data["psi_rank"] = owner.psi.get_rank()
+	for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
+		if(owner.psi.get_rank() < P.minimum_rank)
+			continue
+		data["available_psionics"] += list(
+			list(
+				"name" = P.name,
+				"desc"  = P.desc,
+				"point_cost" = P.point_cost,
+				"minimum_rank" = P.minimum_rank
+			)
+		)
+	return data

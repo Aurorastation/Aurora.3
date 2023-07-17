@@ -283,13 +283,32 @@
 //////////////////////////////
 
 /obj/screen/ability/obj_based
-	var/obj/object = null
+	var/obj/object
 
 /obj/screen/ability/obj_based/activate()
 	if(object)
 		object.Click()
 
-// Technomancer
+/// Psionics.
+/obj/screen/ability/obj_based/psionic
+	icon_state = "nano_spell_base"
+	background_base_state = "nano"
+
+/obj/screen/movable/ability_master/proc/add_psionic_ability(var/obj/object_given, var/ability_icon_given)
+	if(!object_given)
+		message_admins("ERROR: add_psionic_ability() was not given an object in its arguments.")
+	if(get_ability_by_instance(object_given))
+		return // Duplicate
+	var/obj/screen/ability/obj_based/psionic/A = new /obj/screen/ability/obj_based/psionic()
+	A.ability_master = src
+	A.object = object_given
+	A.ability_icon_state = ability_icon_given
+	A.name = object_given.name
+	ability_objects.Add(A)
+	if(my_mob.client)
+		toggle_open(2) //forces the icons to refresh on screen
+
+/// Technomancer.
 /obj/screen/ability/obj_based/technomancer
 	icon_state = "wiz_spell_base"
 	background_base_state = "wiz"
