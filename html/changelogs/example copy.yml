@@ -38,6 +38,6 @@ delete-after: False
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Replaces the top holodeck with a physical green space and small pool."
-  - rscadd: "Adds athletic locker to the changing room."
-  - rscadd: "Adds small closet to D3 cafe containing non-alcoholic drink ingredients."
+  - maptweak: "Replaces the top holodeck with a physical green space and small pool."
+  - maptweak: "Adds a athletic locker to the changing room."
+  - maptweak: "Adds a small closet to the D3 cafe containing non-alcoholic drink ingredients."
