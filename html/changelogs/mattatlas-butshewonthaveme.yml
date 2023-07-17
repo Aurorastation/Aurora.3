@@ -38,5 +38,9 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Added a changelog editing system that should cause fewer conflicts and more accurate timestamps."
-  - bugfix: "Killed innocent kittens."
+  - bugfix: "Fixes chem dispenser chemical reading saying null/nullu when there's no beaker."
+  - bugfix: "Condimasters now read chemical amounts."
+  - bugfix: "Crusher buttons aren't inverted anymore."
+  - bugfix: "Fixes some radio types not falling under the 'radio' setting in tgchat."
+  - bugfix: "Augment deploy messages should no longer be wonky."
+  - bugfix: "pAI joining may have been fixed."
