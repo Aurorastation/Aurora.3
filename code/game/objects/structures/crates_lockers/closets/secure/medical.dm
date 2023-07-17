@@ -96,12 +96,14 @@
 	new /obj/item/device/flashlight/pen(src)
 	new /obj/item/clothing/accessory/stethoscope(src)
 	new /obj/item/storage/belt/medical/first_responder(src)
+	new /obj/item/storage/toolbox/mechanical
+	new /obj/item/storage/bag/inflatable
 	new /obj/item/device/gps/medical(src)
 	new /obj/item/reagent_containers/hypospray(src)
 	new /obj/item/taperoll/medical(src)
 	new /obj/item/device/radio/med(src)
 	new /obj/item/roller(src)
-	new /obj/item/crowbar/red(src)
+	new /obj/item/crowbar/rescue_axe(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/auto_cpr(src)
