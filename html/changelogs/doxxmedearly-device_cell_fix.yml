@@ -1,5 +1,5 @@
 author: Doxxmedearly
 delete-after: True
 changes:
-  - bugfix: "Basic device power cells now have 120J charge maximums. This allows them to be recharged, for some reason."
-  - bugfix: "Flashlights can be recharged again."
+  - bugfix: "Flashlights and basic device power cells can now be recharged properly."
+

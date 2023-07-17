@@ -26,7 +26,7 @@
 	force = 0
 	throw_speed = 5
 	throw_range = 7
-	maxcharge = 120
+	maxcharge = 100
 	matter = list(MATERIAL_STEEL = 70, MATERIAL_GLASS = 5)
 
 /obj/item/cell/device/high
