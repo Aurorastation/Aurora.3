@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Adds the ability to carry a rescue axe on the first responder belt. The description has been updated to reflect this."
+  - balance: "Removes the ability of medical belts to carry rescue axes. First responder belts retain this ability and have had their descriptions updated to reflect this fact."
