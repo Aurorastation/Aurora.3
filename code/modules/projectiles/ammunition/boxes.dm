@@ -572,7 +572,7 @@
 	max_ammo = 7
 	multiple_sprites = 1
 
-/obj/itetm/ammo_magazine/mg_turret
+/obj/item/ammo_magazine/mg_turret
 	name = "magazine box"
 	desc = "A large box made from sheet metal. Holds 100 rounds of destruction for the heavy machinegun turret."
 	icon_state =
