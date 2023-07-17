@@ -198,7 +198,6 @@
 		/obj/item/clothing/gloves/latex,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/clothing/glasses/hud/health,
-		/obj/item/crowbar,
 		/obj/item/device/flashlight,
 		/obj/item/extinguisher/mini,
 		/obj/item/device/radio,
@@ -238,8 +237,7 @@
 		/obj/item/extinguisher/mini,
 		/obj/item/device/radio,
 		/obj/item/taperoll/medical,
-		/obj/item/storage/box/fancy/med_pouch,
-		/obj/item/crowbar/rescue_axe
+		/obj/item/storage/box/fancy/med_pouch
 		)
 
 /obj/item/storage/belt/medical/first_responder/combat
