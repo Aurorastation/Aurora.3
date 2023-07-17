@@ -114,15 +114,15 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		A = locate(refID)
 		if (A && A.gcDestroyed == GCd_at_time) // So if something else coincidently gets the same ref, it's not deleted by mistake
 			#ifdef REFERENCE_TRACKING
-			if(reference_find_on_fail[text_ref(D)])
-				INVOKE_ASYNC(D, TYPE_PROC_REF(/datum, find_references))
+			if(reference_find_on_fail[text_ref(A)])
+				INVOKE_ASYNC(A, TYPE_PROC_REF(/datum, find_references))
 				ref_searching = TRUE
 			#ifdef GC_FAILURE_HARD_LOOKUP
 			else
-				INVOKE_ASYNC(D, TYPE_PROC_REF(/datum, find_references))
+				INVOKE_ASYNC(A, TYPE_PROC_REF(/datum, find_references))
 				ref_searching = TRUE
 			#endif
-			reference_find_on_fail -= text_ref(D)
+			reference_find_on_fail -= text_ref(A)
 			#endif
 
 			// Something's still referring to the qdel'd object.  Kill it.
@@ -138,7 +138,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 			++gcedlasttick
 			++totalgcs
 			#ifdef REFERENCE_TRACKING
-			reference_find_on_fail -= text_ref(D)
+			reference_find_on_fail -= text_ref(A)
 			#endif
 
 	if (idex > 1)

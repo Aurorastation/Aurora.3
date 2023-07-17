@@ -169,18 +169,18 @@ Class Procs:
 	if(signaler && Adjacent(user))
 		to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
 
-/obj/machinery/proc/process_all()
-	/* Uncomment this if/when you need component processing
-	if(processing_flags & MACHINERY_PROCESS_COMPONENTS)
-		for(var/thing in processing_parts)
-			var/obj/item/stock_parts/part = thing
-			if(part.machine_process(src) == PROCESS_KILL)
-				part.stop_processing() */
+// /obj/machinery/proc/process_all()
+// 	/* Uncomment this if/when you need component processing
+// 	if(processing_flags & MACHINERY_PROCESS_COMPONENTS)
+// 		for(var/thing in processing_parts)
+// 			var/obj/item/stock_parts/part = thing
+// 			if(part.machine_process(src) == PROCESS_KILL)
+// 				part.stop_processing() */
 
-	if((processing_flags & MACHINERY_PROCESS_SELF))
-		. = process()
-		if(. == PROCESS_KILL)
-			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+// 	if((processing_flags & MACHINERY_PROCESS_SELF))
+// 		. = process()
+// 		if(. == PROCESS_KILL)
+// 			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 /obj/machinery/process()
 	return PROCESS_KILL

@@ -35,6 +35,76 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">15 July 2023</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Removes deprecated gas filters and mixers from the pipe dispenser, as the components were removed previously, and should not be available.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Moved machine&#x27;s process_all() inside the SSMachinery processing, shaving ~1.255M proc calls in 10 minutes.</li>
+				<li class="rscadd">Added a mob incapactitation check define, to be used inside mobs for often called procs (update_canmove, cannot_stand for now, which are called very often, 510k times in 10 minutes).</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The Merchant program now actually has an UI. Oops. It has also been renamed to Orion Express Goods Trading.</li>
+			</ul>
+			<h3 class="author">TheDanseMacabre updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Security no longer has any PEAC fragmentation ammo.</li>
+			</ul>
+
+			<h2 class="date">14 July 2023</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Dead Greimorian bombardiers has its sprite now.</li>
+				<li class="bugfix">Uplink earmuffs have their sprite again.</li>
+				<li class="bugfix">Peanut seed packets has its sprite now.</li>
+				<li class="bugfix">All dark variants of the Unathi straw hat have their sprites now.</li>
+				<li class="bugfix">The cosmic cape has its sprite again.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed some references not being dropped from the hostile mob AI, which leads to some harddels.</li>
+				<li class="bugfix">Fixed some references not being dropped from the sensor contacts, which leads to some harddels.</li>
+				<li class="bugfix">Fixed reference tracking, now works.</li>
+			</ul>
+
+			<h2 class="date">13 July 2023</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Simple mobs should no longer destroy closets and tables in one hit. They&#x27;ll damage them as usual.</li>
+				<li class="tweak">Some animals, like diyaabs and toy mechs, no longer randomly destroy their surroundings.</li>
+				<li class="tweak">Some animals, like cavern dwellers and shantaks, are less likely to randomly damage their surroundings.</li>
+				<li class="bugfix">You can no longer scrub the color out of wood floors with soap, no matter how hard you try.</li>
+				<li class="bugfix">Crafted locks have their sprite again.</li>
+			</ul>
+			<h3 class="author">OolongCow updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Hydroponics&#x27; viewing shutters now start closed and deck one&#x27;s shutters are linked to an actual button.</li>
+				<li class="bugfix">Fixes a misplaced area and air alarm in deck one hydro&#x27;s animal pen</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Vaurca masks now act as described in lore, filtering toxic gases in addition to working as a breath mask.</li>
+				<li class="tweak">Expands the list of harmful gases that can be filtered by gas masks to include chlorine and random gases.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The tank dispenser in EVA had its phoron tanks swapped to oxy tanks and the tank dispenser in Research&#x27;s tank storage area does have phoron tanks along with oxy tanks.</li>
+			</ul>
+			<h3 class="author">Yonnimer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a voidtamer origin and culture set for Dionae.</li>
+				<li class="rscadd">Adds a Mictlan origin for Dionae</li>
+			</ul>
+			<h3 class="author">nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Resprited all basic surgical tools as well as the surgical tray they rest on. They can now be clicked with a higher than 30% accuracy rate and look, subjectively, prettier than before.</li>
+				<li class="imageadd">Also resprited the basic and premium hyposprays to be up to modern standards. They, too, are now subjectively prettier.</li>
+				<li class="tweak">Changed descriptions of surgical tools and also renamed the FixOVein to the vascular recoupler.</li>
+			</ul>
+
 			<h2 class="date">12 July 2023</h2>
 			<h3 class="author">Doxxmedearly updated:</h3>
 			<ul class="changes bgimages16">
@@ -67,6 +137,9 @@
 			<ul class="changes bgimages16">
 				<li class="tweak">Anesthetic closets now spawn with an oxygen tank on their list of contained objects instead of messily having them placed inside by mapping</li>
 				<li class="maptweak">Replaces the canisters of room temperature nitrogen in the supermatter room obviously meant as emergency coolant with pre-chilled variants</li>
+				<li class="maptweak">Replaces the binary pumps for filling the cold and hot loops of the supermatter with high power pumps.</li>
+				<li class="maptweak">The CMO&#x27;s office windows are now controllable by a separate, new button, and begin closed.</li>
+				<li class="maptweak">Replaces the research server room nitrogen can with a pre-chilled variant to save on headache medication for engineers</li>
 			</ul>
 
 			<h2 class="date">11 July 2023</h2>

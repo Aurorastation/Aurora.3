@@ -3668,15 +3668,15 @@
 "bHs" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter"
-	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, hydroponics"
 	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
 "bHG" = (
@@ -10085,11 +10085,11 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "fas" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
 	target_pressure = 15000
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "faB" = (
@@ -16723,12 +16723,12 @@
 "idX" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter"
-	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
 "idZ" = (
@@ -19841,11 +19841,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "jBj" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
 	target_pressure = 15000
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "jBq" = (
@@ -31428,15 +31428,15 @@
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "pmK" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4;
-	target_pressure = 15000
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -28
+	},
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4;
+	target_pressure = 15000
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -34215,16 +34215,16 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "qFY" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 8;
-	target_pressure = 15000
-	},
 /obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Supermatter Reactor 1";
 	dir = 1
 	},
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8;
+	target_pressure = 15000
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "qGp" = (
@@ -34969,6 +34969,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
+"rbs" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hydroponics)
 "rbF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -45275,6 +45285,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
+"vZL" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter"
+	},
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hydroponics)
 "way" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -74017,11 +74043,11 @@ kUp
 wAm
 nTU
 sKo
-idX
+vZL
 idX
 sKo
 bHs
-idX
+rbs
 sKo
 uki
 keG
