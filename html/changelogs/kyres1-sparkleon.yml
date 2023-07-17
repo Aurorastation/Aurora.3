@@ -1,7 +1,0 @@
-author: kyres1
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a new shuttle sprite for the SCCV Spark."
-  - tweak: "Remapped the Spark mining shuttle ground-up while trying to retain as many features as possible."
