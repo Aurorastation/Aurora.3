@@ -4978,7 +4978,6 @@
 	pixel_y = 28
 	},
 /obj/machinery/button/remote/airlock{
-	dir = 2;
 	id = "deck2_medicaltoilet";
 	name = "Door Bolt Control";
 	pixel_x = -14;
@@ -6854,7 +6853,6 @@
 "fHn" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -7189,15 +7187,13 @@
 	name = "representative door bolts";
 	pixel_x = -7;
 	pixel_y = 28;
-	req_access = null;
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/airlock{
 	id = "rep_office";
 	name = "representative door control";
 	pixel_x = -7;
-	pixel_y = 37;
-	req_access = null
+	pixel_y = 37
 	},
 /obj/machinery/light_switch{
 	pixel_x = 2;
@@ -14691,7 +14687,6 @@
 	dir = 6
 	},
 /obj/item/device/radio/intercom{
-	dir = 2;
 	pixel_x = 32;
 	pixel_y = 36
 	},
@@ -16723,16 +16718,14 @@
 	pixel_y = -1
 	},
 /obj/item/pen{
-	pixel_x = -3;
-	pixel_y = 0
+	pixel_x = -3
 	},
 /obj/machinery/newscaster/security_unit{
 	pixel_y = 30
 	},
 /obj/machinery/light/small{
 	dir = 1;
-	pixel_x = -11;
-	pixel_y = 0
+	pixel_x = -11
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -18050,7 +18043,6 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28;
-	pixel_y = 0;
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
@@ -20099,8 +20091,7 @@
 	id = "consular_office";
 	name = "consular door control";
 	pixel_x = -35;
-	pixel_y = 7;
-	req_access = null
+	pixel_y = 7
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 4;
@@ -20108,7 +20099,6 @@
 	name = "consular door bolts";
 	pixel_x = -35;
 	pixel_y = -7;
-	req_access = null;
 	specialfunctions = 4
 	},
 /obj/item/paper_scanner,
@@ -21104,7 +21094,6 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled,
@@ -24421,7 +24410,6 @@
 	id = "main_unit_2";
 	name = "Door Bolt Control";
 	pixel_y = 32;
-	req_access = null;
 	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -26014,7 +26002,6 @@
 /area/medical/smoking)
 "uQt" = (
 /obj/machinery/door/airlock/command{
-	id_tag = null;
 	name = "Direct Fire Artillery System";
 	req_one_access = list(75)
 	},
@@ -26156,7 +26143,6 @@
 	id = "main_unit_1";
 	name = "Door Bolt Control";
 	pixel_y = 32;
-	req_access = null;
 	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -26603,14 +26589,27 @@
 	},
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/structure/table/steel,
-/obj/machinery/chemical_dispenser/bar_soft{
-	pixel_y = 8
-	},
-/obj/item/storage/box/cups{
-	pixel_y = -8
-	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
+	pixel_x = 6;
+	pixel_y = -12
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
+	pixel_x = -6;
+	pixel_y = -12
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
+	pixel_x = 6;
+	pixel_y = -19
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
+	pixel_x = -6;
+	pixel_y = -19
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
@@ -27976,7 +27975,6 @@
 /area/horizon/hallway/deck_three/primary/central)
 "wqS" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
@@ -28031,7 +28029,6 @@
 "wtM" = (
 /obj/machinery/door/airlock/security{
 	name = "Evidence Storage";
-	req_access = null;
 	req_one_access = list(2,3,4)
 	},
 /obj/machinery/door/firedoor,
@@ -28285,7 +28282,6 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(11,24)
 	},
 /turf/simulated/floor,
@@ -28870,9 +28866,7 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced/steel,
-/obj/machinery/atmospherics/unary/vent_pump/aux{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/aux,
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
 "wYq" = (
