@@ -89,6 +89,7 @@
 	new /obj/item/clothing/glasses/hud/health(src)
 	new /obj/item/storage/backpack/medic(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig(src)
+	new /obj/item/clothing/accessory/storage/white_vest(src)
 	new /obj/item/clothing/under/rank/medical/first_responder(src)
 	new /obj/item/clothing/under/rank/medical/first_responder/zeng(src)
 	new /obj/item/clothing/under/rank/medical/first_responder/pmc(src)
@@ -96,8 +97,8 @@
 	new /obj/item/device/flashlight/pen(src)
 	new /obj/item/clothing/accessory/stethoscope(src)
 	new /obj/item/storage/belt/medical/first_responder(src)
-	new /obj/item/storage/toolbox/mechanical
-	new /obj/item/storage/bag/inflatable
+	new /obj/item/storage/toolbox/mechanical(src)
+	new /obj/item/storage/bag/inflatable(src)
 	new /obj/item/device/gps/medical(src)
 	new /obj/item/reagent_containers/hypospray(src)
 	new /obj/item/taperoll/medical(src)
