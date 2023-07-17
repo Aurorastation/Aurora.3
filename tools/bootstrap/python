@@ -78,6 +78,7 @@ fi
 if [ ! -f "$PythonDir/requirements.txt" ] || [ "$(b2sum < "$Sdk/requirements.txt")" != "$(b2sum < "$PythonDir/requirements.txt")" ]; then
 	echo "Updating dependencies..."
 	"$PythonExe" -m pip install -U wheel
+  "$PythonExe" -m pip install "Cython<3.0" "PyYAML==6.0.0" --no-build-isolation #Temporary workaround for https://github.com/yaml/pyyaml/issues/601
 	"$PythonExe" -m pip install -U pip -r "$Sdk/requirements.txt"
 	cp "$Sdk/requirements.txt" "$PythonDir/requirements.txt"
 	echo "---"

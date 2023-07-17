@@ -82,7 +82,12 @@ if (!(Test-Path "$PythonDir/Scripts/pip.exe")) {
 if (!(Test-Path "$PythonDir/requirements.txt") -or ((Get-FileHash "$Tools/requirements.txt").hash -ne (Get-FileHash "$PythonDir/requirements.txt").hash)) {
 	$host.ui.RawUI.WindowTitle = "Updating dependencies..."
 
-	& $PythonExe -m pip install -U pip -r "$Tools/requirements.txt"
+	& $PythonExe -m pip install -U pip
+
+  & $PythonExe -m pip install "Cython<3.0" "PyYAML==6.0.0" --no-build-isolation
+
+  & $PythonExe -m pip install -r "$Tools/requirements.txt"
+
 	if ($LASTEXITCODE -ne 0) {
 		exit $LASTEXITCODE
 	}
