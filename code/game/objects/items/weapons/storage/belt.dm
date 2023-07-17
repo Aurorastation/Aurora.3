@@ -208,9 +208,39 @@
 
 /obj/item/storage/belt/medical/first_responder
 	name = "first responder utility belt"
-	desc = "A sturdy black webbing belt with attached pouches."
+	desc = "A sturdy black webbing belt with attached pouches. There's a small hook for holding a rescue axe on the back."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
+	can_hold = list(
+		/obj/item/device/breath_analyzer,
+		/obj/item/device/healthanalyzer,
+		/obj/item/dnainjector,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle,
+		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/inhaler,
+		/obj/item/reagent_containers/personal_inhaler_cartridge,
+		/obj/item/personal_inhaler,
+		/obj/item/flame/lighter/zippo,
+		/obj/item/storage/box/fancy/cigarettes,
+		/obj/item/storage/pill_bottle,
+		/obj/item/stack/medical,
+		/obj/item/device/flashlight/pen,
+		/obj/item/clothing/mask/surgical,
+		/obj/item/clothing/head/surgery,
+		/obj/item/clothing/gloves/latex,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/clothing/glasses/hud/health,
+		/obj/item/crowbar,
+		/obj/item/device/flashlight,
+		/obj/item/extinguisher/mini,
+		/obj/item/device/radio,
+		/obj/item/taperoll/medical,
+		/obj/item/storage/box/fancy/med_pouch,
+		/obj/item/crowbar/rescue_axe
+		)
 
 /obj/item/storage/belt/medical/first_responder/combat
 	name = "tactical medical belt"
