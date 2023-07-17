@@ -146,7 +146,7 @@ Updated 09/10/2022 to include chatbar using Spookerton's SStyping system from Po
 /atom/movable/typing_indicator
 	icon = 'icons/mob/talk.dmi'
 	icon_state = "typing"
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	vis_flags = VIS_INHERIT_ID
 	var/atom/movable/master
 

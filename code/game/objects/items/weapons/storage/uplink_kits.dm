@@ -197,3 +197,23 @@
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/berserk = 2
 	)
+
+/obj/item/storage/box/syndie_kit/nerveworms
+	name = "nerve fluke kit"
+	desc = "Contains the eggs of a Nerve Fluke (non-lethal, incapacitating)."
+	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/nerveworm_eggs = 1, /obj/item/reagent_containers/syringe = 1, /obj/item/reagent_containers/pill/antiparasitic = 1, /obj/item/reagent_containers/pill/asinodryl = 1)
+
+/obj/item/storage/box/syndie_kit/heartworms
+	name = "heart fluke kit"
+	desc = "Contains the eggs of a Heart Fluke (lethal)."
+	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/heartworm_eggs = 1, /obj/item/reagent_containers/syringe = 1, /obj/item/reagent_containers/pill/antiparasitic = 1, /obj/item/reagent_containers/pill/asinodryl = 1)
+
+/obj/item/storage/box/syndie_kit/radsuit
+	name = "radiation suit kit"
+	desc = "Contains a radiation suit and geiger counter to protect you from radiation."
+	starts_with = list(/obj/item/clothing/head/radiation = 1, /obj/item/clothing/suit/radiation = 1, /obj/item/clothing/glasses/safety/goggles = 1, /obj/item/device/geiger = 1, /obj/item/reagent_containers/pill/hyronalin = 1)
+
+/obj/item/storage/box/syndie_kit/syringe_gun
+	name = "syringe gun kit"
+	desc = "Contains a syringe gun and the parts require to assemble a few darts."
+	starts_with = list(/obj/item/gun/launcher/syringe = 1, /obj/item/syringe_cartridge = 3, /obj/item/reagent_containers/syringe = 3)

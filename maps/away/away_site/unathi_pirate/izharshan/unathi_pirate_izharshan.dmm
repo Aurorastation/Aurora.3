@@ -857,6 +857,15 @@
 	dir = 4;
 	icon_state = "map"
 	},
+/obj/item/melee/energy/sword/pirate{
+	pixel_y = 1
+	},
+/obj/item/melee/energy/sword/pirate{
+	pixel_y = 1
+	},
+/obj/item/melee/energy/sword/pirate{
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "CO" = (
@@ -1505,10 +1514,15 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/gun/launcher/harpoon,
 /obj/item/clothing/gloves/ballistic,
-/obj/item/gun/energy/retro,
 /obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/projectile/pistol/super_heavy,
+/obj/item/ammo_magazine/super_heavy,
+/obj/item/gun/projectile/shotgun/pump/combat,
+/obj/random/civgun/rifle,
+/obj/random/civgun,
+/obj/random/civgun,
+/obj/random/civgun,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "XV" = (

@@ -33,9 +33,9 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/affecting = H.get_organ(zone)
-		to_chat(user, SPAN_CULT("An unexplicable force rips through your [affecting.name], tearing the sword from your grasp!"))
+		to_chat(user, SPAN_CULT("An inexplicable force rips through your [affecting.name], tearing the sword from your grasp!"))
 	else
-		to_chat(user, SPAN_CULT("An unexplicable force rips through you, tearing the sword from your grasp!"))
+		to_chat(user, SPAN_CULT("An inexplicable force rips through you, tearing the sword from your grasp!"))
 
 	//random amount of damage between half of the blade's force and the full force of the blade.
 	user.apply_damage(rand(force/2, force), DAMAGE_BRUTE, zone, 0, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)

@@ -29,8 +29,7 @@
 	name = "chasm mask"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "alienvault"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 
 

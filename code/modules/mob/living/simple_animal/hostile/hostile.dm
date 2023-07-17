@@ -6,6 +6,7 @@
 	var/attack_same = 0
 	var/ranged = 0
 	var/rapid = 0
+	var/ranged_attack_range = 6
 	var/projectiletype
 	var/projectilesound
 	var/casingtype
@@ -68,7 +69,7 @@
 	var/atom/T = null
 	var/target_range = INFINITY
 	for (var/atom/A in targets)
-		if(A == src)
+		if(A == src || QDELING(A)) //Avoid targeting ourself, and targets that are being GC'd
 			continue
 		if(ismob(A)) //Don't target mobs with keys that have logged out.
 			var/mob/M = A
@@ -119,7 +120,7 @@
 		target_mob = P.firer
 		change_stance(HOSTILE_STANCE_ATTACK)
 
-/mob/living/simple_animal/hostile/attackby(var/obj/item/O, var/mob/user)
+/mob/living/simple_animal/hostile/handle_attack_by(var/mob/user)
 	..()
 	if(target_mob != user)
 		target_mob = user
@@ -160,7 +161,7 @@
 		LoseTarget()
 	if(target_mob in targets)
 		if(ranged)
-			if(get_dist(src, target_mob) <= 6)
+			if(get_dist(src, target_mob) <= ranged_attack_range)
 				walk(src, 0) // We gotta stop moving if we are in range
 				OpenFire(target_mob)
 			else
@@ -373,9 +374,12 @@
 		return FALSE
 
 	if(prob(break_stuff_probability) || bypass_prob) //bypass_prob is used to make mob destroy things in the way to our target
-		for(var/dir in cardinal) // North, South, East, West
-			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
-			if(e && !e.invisibility && e.density)
+		for(var/card_dir in cardinal) // North, South, East, West
+			var/turf/target_turf = get_step(src, card_dir)
+
+			var/obj/found_obj = locate(/obj/effect/energy_field) in target_turf
+			if(found_obj && !found_obj.invisibility && found_obj.density)
+				var/obj/effect/energy_field/e = found_obj
 				e.Stress(rand(0.5, 1.5))
 				visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] [attacktext] \the [e]!"))
 				src.do_attack_animation(e)
@@ -384,16 +388,38 @@
 				hostile_last_attack = world.time
 				return TRUE
 
-			for(var/found_obj in get_step(src, dir))
-				var/obj/structure/S = found_obj
-				if(!is_type_in_list(S, list(/obj/structure/window, /obj/structure/closet, /obj/structure/table, /obj/structure/grille)))
+			found_obj = locate(/obj/structure/window) in target_turf
+			if(found_obj)
+				if(HAS_FLAG(found_obj.flags, ON_BORDER) && found_obj.dir != reverse_dir[card_dir])
 					continue
+				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
+				hostile_last_attack = world.time
+				return TRUE
 
-				if(istype(S, /obj/structure/window))
-					if(!istype(S, /obj/structure/window/full) && S.dir != reverse_dir[dir])
-						continue
+			found_obj = locate(/obj/structure/window_frame) in target_turf
+			if(found_obj)
+				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
+				hostile_last_attack = world.time
+				return TRUE
 
-				S.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
+			found_obj = locate(/obj/structure/closet) in target_turf
+			if(found_obj)
+				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
+				hostile_last_attack = world.time
+				return TRUE
+
+			found_obj = locate(/obj/structure/table) in target_turf
+			if(found_obj)
+				var/obj/structure/table/table = found_obj
+				if(!table.breakable)
+					continue
+				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
+				hostile_last_attack = world.time
+				return TRUE
+
+			found_obj = locate(/obj/structure/grille) in target_turf
+			if(found_obj)
+				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
 				hostile_last_attack = world.time
 				return TRUE
 

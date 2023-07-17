@@ -76,7 +76,7 @@
 		if(!C.prefs) //This is to avoid null.toggles runtime error while still initialyzing players preferences
 			return
 		if(C.prefs.toggles & CHAT_DEBUGLOGS)
-			to_chat(C, "DEBUG: [text]")
+			to_chat(C, "<span class='debug'>DEBUG: [text]</span>")
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = level, category = "DEBUG")
 
 /proc/log_game(text, level = SEVERITY_NOTICE, ckey = "", admin_key = "", ckey_target = "")
@@ -310,5 +310,45 @@
 	if(!istype(d))
 		return json_encode(d)
 	return d.get_log_info_line()
+
+/proc/log_href(text)
+	WRITE_LOG(href_logfile, "HREF: [text]")
+
+/**
+ * Appends a tgui-related log entry. All arguments are optional.
+ */
+/proc/log_tgui(user, message, context,
+		datum/tgui_window/window,
+		datum/src_object)
+	var/entry = ""
+	// Insert user info
+	if(!user)
+		entry += "<nobody>"
+	else if(istype(user, /mob))
+		var/mob/mob = user
+		entry += "[mob.ckey] (as [mob] at [mob.x],[mob.y],[mob.z])"
+	else if(istype(user, /client))
+		var/client/client = user
+		entry += "[client.ckey]"
+	// Insert context
+	if(context)
+		entry += " in [context]"
+	else if(window)
+		entry += " in [window.id]"
+	// Resolve src_object
+	if(!src_object && window?.locked_by)
+		src_object = window.locked_by.src_object
+	// Insert src_object info
+	if(src_object)
+		entry += "\nUsing: [src_object.type] [text_ref(src_object)]"
+	// Insert message
+	if(message)
+		entry += "\n[message]"
+	WRITE_LOG(diary, entry)
+
+/// Logging for loading and caching assets
+/proc/log_asset(text)
+	if(config.log_asset)
+		WRITE_LOG(diary, "ASSET: [text]")
 
 #undef WRITE_LOG

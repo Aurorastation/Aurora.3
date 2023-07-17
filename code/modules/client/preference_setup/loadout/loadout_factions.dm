@@ -146,7 +146,7 @@
 	path = /obj/item/clothing/under/rank/security/zavod/zavodsec
 	slot = slot_w_uniform
 	faction = "Zavodskoi Interstellar"
-	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet")
+	allowed_roles = list("Warden", "Investigator", "Security Officer", "Security Cadet")
 
 /datum/gear/faction/zavod_sec_uniforms/New()
 	..()

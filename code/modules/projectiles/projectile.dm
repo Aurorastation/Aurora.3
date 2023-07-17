@@ -8,7 +8,7 @@
 	unacidable = TRUE
 	anchored = TRUE				//There's a reason this is here, Mport. God fucking damn it -Agouri. Find&Fix by Pete. The reason this is here is to stop the curving of emitter shots.
 	pass_flags = PASSTABLE|PASSRAILING
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	animate_movement = 0	//Use SLIDE_STEPS in conjunction with legacy
 	var/projectile_type = /obj/item/projectile
 	var/ping_effect = "ping_b" //Effect displayed when a bullet hits a barricade. See atom/proc/bullet_ping.
@@ -681,3 +681,5 @@
 /image/proc/flick_remove_overlay(var/atom/A)
 	if(A)
 		A.overlays.Remove(src)
+
+#undef MUZZLE_EFFECT_PIXEL_INCREMENT

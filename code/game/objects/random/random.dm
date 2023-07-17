@@ -152,12 +152,24 @@
 		/obj/item/stack/medical/splint = 1,
 		/obj/item/bodybag = 2,
 		/obj/item/bodybag/cryobag = 1,
-		/obj/item/storage/pill_bottle/kelotane = 2,
-		/obj/item/storage/pill_bottle/bicaridine = 2,
-		/obj/item/storage/pill_bottle/antitox = 2,
+		/obj/item/auto_cpr = 1,
+		/obj/item/storage/pill_bottle/kelotane = 3,
+		/obj/item/storage/pill_bottle/bicaridine = 3,
+		/obj/item/storage/pill_bottle/antitox = 3,
 		/obj/item/storage/pill_bottle/mortaphenyl = 2,
-		/obj/item/reagent_containers/syringe/dylovene = 2,
-		/obj/item/reagent_containers/syringe/inaprovaline = 2,
+		/obj/item/storage/pill_bottle/antiparasitic = 1,
+		/obj/item/storage/pill_bottle/asinodryl = 1,
+		/obj/item/storage/pill_bottle/steramycin =1,
+		/obj/item/reagent_containers/syringe/dylovene = 3,
+		/obj/item/reagent_containers/syringe/inaprovaline = 3,
+		/obj/item/reagent_containers/syringe/antiparasitic = 1,
+		/obj/item/reagent_containers/syringe/antibiotic = 2,
+		/obj/item/reagent_containers/syringe/fluvectionem = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/hyronalin = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 1,
+		/obj/item/reagent_containers/inhaler/pneumalin = 1,
+		/obj/item/reagent_containers/inhaler/peridaxon = 1,
 		/obj/item/stack/nanopaste = 1
 	)
 
@@ -821,6 +833,19 @@
 		/obj/item/clothing/accessory/storage/bayonet
 	)
 
+/obj/random/melee/highvalue
+	name = "random high value melee weapon"
+	desc = "This is a random high value melee weapon."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "baton"
+	spawnlist = list(
+		/obj/item/melee/energy/sword,
+		/obj/item/melee/energy/glaive,
+		/obj/item/melee/chainsword,
+		/obj/item/melee/hammer,
+		/obj/item/melee/hammer/powered
+	)
+
 /obj/random/coin
 	name = "random coin"
 	desc = "This is a random coin."
@@ -1303,6 +1328,24 @@
 	problist = list(
 	/obj/item/storage/secure/briefcase/money = 1,
 	/obj/item/stack/material/phoron/full = 0.1
+	)
+
+/obj/random/highvalue/safe
+	name = "random corporate safe high valuable item"
+	desc = "This is a random corporate safe high valuable item."
+	icon = 'icons/obj/coins.dmi'
+	icon_state = "coin_diamond_heads"
+	problist = list(
+		/obj/item/device/personal_shield = 0.4,
+		/obj/random/safe_rig = 0.4,
+		/obj/item/clothing/glasses/thermal = 0.3,
+		/obj/item/storage/toolbox/infiltration = 0.3,
+		/obj/random/melee/highvalue = 0.3,
+		/obj/item/gun/energy/disruptorpistol/magnum = 0.3,
+		/obj/item/gun/projectile/shotgun/pump/combat = 0.2,
+		/obj/item/gun/energy/lawgiver = 0.1,
+		/obj/item/gun/projectile/automatic/terminator = 0.1,
+		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.1
 	)
 
 /obj/random/junk
@@ -2078,3 +2121,30 @@
 		/obj/item/gun/projectile/deagle,
 		/obj/item/gun/custom_ka/frame01/illegal
 	)
+
+
+/obj/random/voidsuit/freebooter
+	name = "random freebooter voidsuit"
+	suitmap = list(
+		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering,
+		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/head/helmet/space/void/mining,
+		/obj/item/clothing/suit/space/void/merc = /obj/item/clothing/head/helmet/space/void/merc,
+		/obj/item/clothing/suit/space/void/freelancer = /obj/item/clothing/head/helmet/space/void/freelancer,
+		/obj/item/rig/industrial,
+		/obj/item/rig/eva,
+		/obj/item/rig/hazard,
+		/obj/item/clothing/suit/space/syndicate/black/red = /obj/item/clothing/head/helmet/space/syndicate/black/red,
+		/obj/item/clothing/suit/space/syndicate/black = /obj/item/clothing/head/helmet/space/syndicate/black
+	)
+	problist = list(
+		/obj/item/clothing/suit/space/void/engineering = 3,
+		/obj/item/clothing/suit/space/void/mining = 3,
+		/obj/item/clothing/suit/space/void/merc = 1,
+		/obj/item/clothing/suit/space/void/freelancer = 1,
+		/obj/item/rig/industrial = 2,
+		/obj/item/rig/hazard = 1,
+		/obj/item/rig/eva = 2,
+		/obj/item/clothing/suit/space/syndicate/black = 1,
+		/obj/item/clothing/suit/space/syndicate/black/red = 1
+	)
+	has_postspawn = TRUE

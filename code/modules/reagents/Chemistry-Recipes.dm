@@ -389,6 +389,13 @@
 	required_reagents = list(/singleton/reagent/thetamycin = 2, /singleton/reagent/sterilizine = 1, /singleton/reagent/radium = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/antiparasitic
+	name = "Helmizole"
+	id = "helmizole"
+	result = /singleton/reagent/antiparasitic
+	required_reagents = list(/singleton/reagent/dylovene = 1, /singleton/reagent/fluvectionem = 1, /singleton/reagent/leporazine = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/cetahydramine
 	name = "Cetahydramine"
 	id = "cetahydramine"
@@ -1221,7 +1228,6 @@
 	/obj/item/reagent_containers/food/snacks/bananabreadslice,
 	/obj/item/reagent_containers/food/snacks/tofubreadslice,
 	/obj/item/reagent_containers/food/snacks/cakeslice/carrot,
-	/obj/item/reagent_containers/food/snacks/cakeslice/brain,
 	/obj/item/reagent_containers/food/snacks/cakeslice/cheese,
 	/obj/item/reagent_containers/food/snacks/cakeslice/plain,
 	/obj/item/reagent_containers/food/snacks/cakeslice/orange,

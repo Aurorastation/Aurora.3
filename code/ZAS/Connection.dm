@@ -149,3 +149,7 @@ Class Procs:
 		else
 			erase()
 			return
+
+#undef CONNECTION_DIRECT
+#undef CONNECTION_SPACE
+#undef CONNECTION_INVALID

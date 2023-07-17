@@ -26,6 +26,11 @@
 	icon_state = "legguards_generic"
 	item_state = "legguards_generic"
 
+/obj/item/clothing/accessory/leg_guard/scc
+	name = "scc leg guards"
+	icon_state = "legguards_scc"
+	item_state = "legguards_scc"
+
 /obj/item/clothing/accessory/leg_guard/ablative
 	name = "ablative leg guards"
 	desc = "These will protect your legs and feet from energy weapons."
@@ -134,6 +139,11 @@
 	name = "standard arm guards"
 	icon_state = "armguards_generic"
 	item_state = "armguards_generic"
+
+/obj/item/clothing/accessory/arm_guard/scc
+	name = "scc arm guards"
+	icon_state = "armguards_scc"
+	item_state = "armguards_scc"
 
 /obj/item/clothing/accessory/arm_guard/ablative
 	name = "ablative arm guards"

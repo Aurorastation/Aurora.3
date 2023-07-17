@@ -1,16 +1,3 @@
-#define HOLD_CASINGS	0 //do not do anything after firing. Manual action, like pump shotguns, or guns that want to define custom behaviour
-#define EJECT_CASINGS	1 //drop spent casings on the ground after firing
-#define CYCLE_CASINGS 	2 //experimental: cycle casings, like a revolver. Also works for multibarrelled guns
-#define DELETE_CASINGS	3 //deletes the casing, used in caseless ammunition guns or something
-#define ROF_SMG 2 //ROF stands for "RATE OF FIRE"
-#define ROF_PISTOL 3
-#define ROF_INTERMEDIATE 4
-#define ROF_RIFLE 5
-#define ROF_HEAVY 8
-#define ROF_SUPERHEAVY 12	
-#define ROF_UNWIELDY 16
-#define ROF_SPECIAL 40
-
 /obj/item/gun/projectile
 	name = "gun"
 	desc = "A gun that fires bullets."

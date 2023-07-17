@@ -577,7 +577,7 @@
 	return handle_item_insertion(W, null, user)
 
 /obj/item/storage/dropped(mob/user as mob)
-	return
+	return ..()
 
 /obj/item/storage/attack_hand(mob/user)
 	if(ishuman(user))
@@ -610,6 +610,7 @@
 /obj/item/storage/verb/toggle_gathering_mode()
 	set name = "Switch Gathering Method"
 	set category = "Object"
+	set src in usr
 
 	collection_mode = !collection_mode
 	switch (collection_mode)
@@ -622,6 +623,7 @@
 /obj/item/storage/verb/quick_empty()
 	set name = "Empty Contents"
 	set category = "Object"
+	set src in usr
 
 	if((!ishuman(usr) && (src.loc != usr)) || usr.stat || usr.restrained())
 		return
