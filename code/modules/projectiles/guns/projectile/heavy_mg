@@ -1,6 +1,6 @@
 /// GUN TURRETS /// Gun turrets are portable guns that need to be set up and can afterwards shoot.
 /obj/item/weapon/projectile/heavy_mg
-	name = "staionary machinegun"
+	name = "stationary machinegun"
 	desc = "basic heavy machinegun."
 	icon =
 	icon_state =
@@ -9,7 +9,7 @@
 	layer = ABOVE_OBJ_LAYER + 0.11
 	anchored = 1
 	density = 1
-	w_class = ITEM_SIZE_LARGE
+	w_class = ITEM_SIZE_
 	load_method = SINGLE_CASING
   handle_casings = EJECT_CASINGS
 	max_shells = 6000
@@ -20,7 +20,6 @@
 	burst=1
 	burst_delay=0.1
 	fire_delay=0.1
-
 	fire_sound = 'sound/weapons/gunshot/gunshot_saw.ogg'
 
 	firemodes = list(
@@ -38,7 +37,7 @@
 	..()
 	if(used_by_mob == user)
 		safety = !safety
-		playsound(user, 'sound/weapons/selector.ogg', 50, 1)
+		playsound(user, 'sound/weapons/mg_safety.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You toggle the safety [safety ? "on":"off"].</span>")
 
 /obj/item/weapon/projectile/heavy_mg/New(loc, var/direction)
@@ -87,14 +86,7 @@
 	if(istype(mover, /obj/item/projectile))
 		return 1
 	return 0
-/*
-/obj/item/weapon/gun/projectile/heavy_mg/AltClick(mob/user)
-	..()
-	if(used_by_mob == user)
-		safety = !safety
-		playsound(user, 'sound/weapons/selector.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>You toggle the safety [safety ? "on":"off"].</span>")
-*/
+
 /obj/item/weapon/projectile/heavy_mg/MouseDrop(over_object, src_location, over_location)
 	..()
 	if((over_object == usr && in_range(src, usr)) && !used_by_mob)
@@ -282,7 +274,7 @@
   w_class = ITEMSIZE_LARGE
 	icon_state =
   action_button_name = "Deploy the turret tripod."
-	need_type = /obj/item/weapon/gun/projectile/heavy_mg/m2
+	need_type = /obj/item/weapon/gun/projectile/heavy_mg/machine_gun_turret
 
 /obj/item/weapon/mg_disassembled
   name = "heavy machine gun"
@@ -293,6 +285,6 @@
 
 /obj/item/gun_shield
   name = "turret gun shield"
-  desc = "A thick metal shield with a small viewing port. To be mounted on a turret."
+  desc = "A thick metal shield with a small viewing port. To be mounted on a gun turret."
   icon_state =
   w_class = ITEMSIZE_NORMAL
