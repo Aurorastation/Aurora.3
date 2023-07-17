@@ -571,3 +571,15 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	max_ammo = 7
 	multiple_sprites = 1
+
+/obj/itetm/ammo_magazine/mg_turret
+	name = "magazine box"
+	desc = "A large box made from sheet metal. Holds 100 rounds of destruction for the heavy machinegun turret."
+	icon_state =
+	w_class = ITEMSIZE_LARGE
+	mag_type = MAGAZINE
+	caliber =
+	insert_sound =
+	ammo_type
+	max_ammo = 100
+	multiple_sprites = 1

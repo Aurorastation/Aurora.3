@@ -1,0 +1,28 @@
+/obj/item/gun/projectile/heavy_mg/
+  name = "heavy machine gun turret"
+	desc = "A tripod-mounted machine gun turret. Brutally simple, as it is effective for area denial."
+  desc_extended = "The "
+	icon_state =
+	load_method = MAGAZINE
+	caliber =
+	ammo_type = /obj/item/ammo_casing/mg_turret
+	max_shells = 0
+
+	allowed_magazines = /obj/itetm/ammo_magazine/mg_turret
+
+	burst = 1
+	burst_delay = 0.1
+	fire_delay = 0.1
+	fire_sound =
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=3, burst_accuracy=null, dispersion=null),
+		list(mode_name="short bursts", burst=3, fire_delay=4, burst_delay = 1, burst_accuracy=list(1,0,-1),       dispersion=list(0.3, 0.6, 0.6)),
+		list(mode_name="long bursts",   burst=5, fire_delay=4, burst_delay = 1, burst_accuracy=list(1,0,0,-1,-2), dispersion=list(0.3, 0.6, 0.6, 1.2, 1.5)),
+		)
+
+/obj/item/gun/projectile/heavy_mg/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state =
+	else
+		icon_state =

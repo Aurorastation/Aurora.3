@@ -428,3 +428,11 @@
 	caliber = ".599 Kumar Super"
 	projectile_type = /obj/item/projectile/bullet
 	max_stack = 5
+
+/obj/item/ammo_casing/mg_turret
+	name =
+	icon_state =
+	spent_icon =
+	caliber =
+	projectile_type = /obj/item/projectile/bullet
+	max_stack = 10
