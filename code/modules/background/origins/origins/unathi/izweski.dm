@@ -14,7 +14,8 @@
 
 /singleton/origin_item/origin/heartland_lower
 	name = "Izweski Heartland Lower Castes"
-	desc = ""
+	desc = "The peasantry of the Izweski Heartland are some of the more prosperous peasants throughout the Izweski Hegemony. They have access to the full conveniences of modern life, and as a consequence of this tend to be highly supportive \
+	and patriotic towards their nation and Hegemon. In recent years, the arrival of thousands of refugees from the Wasteland has placed the region under great strain, and many of the local peasantry resent the refugees for the impact on the local economy."
 	important_information = "Should one run away and stop paying tithes back home, especially if they have renounced their Izweski citizenship, they are at risk of having a bounty put on them or being found out and deported."
 	possible_accents = list(ACCENT_HEARTLAND_PEASANT)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
@@ -22,7 +23,8 @@
 
 /singleton/origin_item/origin/heartland_upper
 	name = "Izweski Heartland Upper Castes"
-	desc = ""
+	desc = "Wealth, glamor, and the seductive taste of power lie at the heart of nobility - but nowhere more than in the Izweski Heartland. The nobles of this land are the elte of the elite, known for their wealth, refinement and intrigue. Others may deride them as \
+	treacherous or dishonorable, but the nobles of the Heartland do not care. They stand near the top of the Hegemony, and each of them is constantly seeking advantage over their rivals."
 	important_information = "Work and visitation visas should be mentioned in records as they are possible in any country where a peasant can get citizenship; almost all nobles shy away from getting citizenship abroad as it would be seen as betraying the Hegemon."
 	possible_accents = list(ACCENT_HEARTLAND_NOBLE)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI)
