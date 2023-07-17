@@ -119,7 +119,7 @@
 	M.canremove = FALSE
 	M.item_flags |= NOMOVE
 	owner.equip_to_slot(M, aug_slot)
-	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [owner.organs_by_name[parent_organ]]."), SPAN_NOTICE("You deploy \the [M]!"))
+	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [loc]."), SPAN_NOTICE("You deploy \the [M]!"))
 
 /obj/item/organ/internal/augment/tool/combitool
 	name = "retractable combitool"
