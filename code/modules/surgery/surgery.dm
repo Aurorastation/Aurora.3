@@ -104,6 +104,7 @@
 		/obj/item/personal_inhaler,
 		/obj/item/clothing/accessory/stethoscope,
 		/obj/item/autopsy_scanner,
+		/obj/item/device/flashlight/pen,
 		/obj/item/spell/resurrect,
 		/obj/item/spell/mend_organs,
 		/obj/item/spell/modifier/mend_life,

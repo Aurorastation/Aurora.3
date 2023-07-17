@@ -117,7 +117,7 @@
 	num = Clamp(num,1,trading_items.len)
 	if(trading_items[num])
 		var/atom/movable/M = trading_items[num]
-		return "<b>[initial(M.name)]</b>"
+		return "[initial(M.name)]"
 
 /datum/trader/proc/get_item_value(var/trading_num)
 	if(!trading_items[trading_items[trading_num]])

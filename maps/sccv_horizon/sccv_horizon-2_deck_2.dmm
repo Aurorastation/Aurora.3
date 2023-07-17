@@ -968,7 +968,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3023,12 +3023,6 @@
 	},
 /turf/simulated/wall,
 /area/horizon/bar)
-"bto" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/open,
-/area/hallway/primary/central_one)
 "btv" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3674,15 +3668,15 @@
 "bHs" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter"
-	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, hydroponics"
 	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
 "bHG" = (
@@ -9536,7 +9530,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 9
 	},
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "eMT" = (
@@ -10091,11 +10085,11 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "fas" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
 	target_pressure = 15000
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "faB" = (
@@ -14589,7 +14583,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "hax" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /obj/structure/sign/electricshock/tesla{
@@ -15473,10 +15467,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "hvu" = (
-/obj/machinery/light,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/hallway/primary/central_one)
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/operations/office)
 "hvH" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -16608,9 +16606,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "iaW" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
@@ -16622,6 +16617,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/white{
 	dir = 6
+	},
+/obj/machinery/light/floor{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_one)
@@ -16725,12 +16723,12 @@
 "idX" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter"
-	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
 "idZ" = (
@@ -18297,7 +18295,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -19698,6 +19696,9 @@
 /obj/effect/floor_decal/corner_wide/white{
 	dir = 5
 	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_one)
 "jvL" = (
@@ -19840,11 +19841,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "jBj" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
 	target_pressure = 15000
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "jBq" = (
@@ -20222,6 +20223,15 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/tesla)
+"jIW" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/operations/office)
 "jIY" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -21752,7 +21762,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
 	},
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "kzr" = (
@@ -23191,7 +23201,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/item/tank/oxygen,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Operating Room 2";
 	dir = 8
@@ -23489,14 +23498,23 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "lvH" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 5
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/effect/landmark/start{
+	name = "Hangar Technician"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light/floor{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/operations/office)
 "lvM" = (
 /turf/simulated/floor/wood,
 /area/horizon/bar)
@@ -25303,9 +25321,6 @@
 /area/horizon/security/equipment)
 "mqj" = (
 /obj/structure/closet/secure_closet/hangar_tech,
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -26827,7 +26842,6 @@
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload_foyer)
 "mYs" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Supermatter Reactor 4"
@@ -26838,6 +26852,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "mYx" = (
@@ -27034,6 +27049,13 @@
 "ncR" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/security/lobby)
+"ndk" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/light/floor,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "ndn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -27947,7 +27969,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "nzn" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/structure/sign/electricshock/tesla{
@@ -28743,7 +28765,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
 "nWZ" = (
@@ -30833,7 +30854,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -31407,15 +31428,15 @@
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "pmK" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4;
-	target_pressure = 15000
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -28
+	},
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4;
+	target_pressure = 15000
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -31925,7 +31946,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/terminal,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/machinery/power/sensor{
@@ -32494,7 +32515,7 @@
 /obj/structure/cable/orange{
 	icon_state = "2-4"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -34003,6 +34024,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
+"qCP" = (
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/fancy{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 10
+	},
+/obj/machinery/light/floor,
+/turf/simulated/floor/tiled/dark/full,
+/area/hallway/primary/central_one)
 "qCX" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -34137,10 +34170,10 @@
 /area/maintenance/wing/starboard)
 "qFz" = (
 /obj/effect/floor_decal/corner/green{
-	dir = 10
+	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/light/floor{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -34182,16 +34215,16 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "qFY" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 8;
-	target_pressure = 15000
-	},
 /obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Supermatter Reactor 1";
 	dir = 1
 	},
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8;
+	target_pressure = 15000
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "qGp" = (
@@ -34936,6 +34969,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
+"rbs" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hydroponics)
 "rbF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -35077,7 +35120,7 @@
 /obj/structure/cable/orange{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -35329,7 +35372,7 @@
 /obj/structure/cable/orange{
 	icon_state = "2-8"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -36801,6 +36844,13 @@
 "rVg" = (
 /turf/simulated/wall,
 /area/operations/office)
+"rVt" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/hallway/primary/central_one)
 "rVL" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -38014,9 +38064,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "sFf" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
@@ -38028,6 +38075,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/white{
 	dir = 9
+	},
+/obj/machinery/light/floor{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_one)
@@ -38218,8 +38268,8 @@
 /turf/simulated/wall,
 /area/horizon/crew_quarters/lounge/bar)
 "sLp" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "sLu" = (
@@ -39127,10 +39177,10 @@
 /area/hallway/engineering)
 "thL" = (
 /obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /turf/simulated/floor/carpet/rubber,
 /area/server)
 "thY" = (
@@ -39756,7 +39806,7 @@
 /area/horizon/security/hallway)
 "tzw" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "tzF" = (
@@ -44821,7 +44871,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine Core")
+	sensors = list("engine_sensor"="Engine        Core")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
@@ -45235,6 +45285,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
+"vZL" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter"
+	},
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hydroponics)
 "way" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -47577,6 +47643,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
+"xcS" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "xdl" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -48747,7 +48822,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "xGT" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -61020,7 +61095,7 @@ gvB
 aqV
 hUP
 nTB
-kRZ
+jIW
 aoC
 kmc
 epw
@@ -61424,7 +61499,7 @@ qpB
 rju
 qpB
 iGE
-kRZ
+jIW
 rtF
 rew
 nZZ
@@ -61623,9 +61698,9 @@ qEQ
 rSG
 wmT
 pew
+hvu
 skq
-skq
-skq
+hvu
 qXx
 vwg
 rew
@@ -62427,7 +62502,7 @@ pMJ
 dcI
 hBJ
 gwv
-gwv
+lvH
 gwv
 rVV
 qSE
@@ -70099,7 +70174,7 @@ ayF
 wTb
 pyc
 mHG
-bto
+xQj
 mHG
 nEx
 hDd
@@ -70500,17 +70575,17 @@ vja
 qja
 ego
 ayF
-wTb
+rVt
 pyc
 mHG
 xQj
 mHG
 nEx
 xhg
-pdv
+ndk
 bJp
 siL
-xhg
+xcS
 nkF
 mCE
 xWr
@@ -70702,13 +70777,13 @@ ajN
 xEH
 sYl
 ayF
-hvu
+wTb
 plf
 hfq
 vbk
 hfq
 wdk
-lvH
+xhg
 pdv
 cMn
 wlg
@@ -70902,12 +70977,12 @@ nUN
 rUT
 gDw
 pyc
-bto
+xQj
 ayF
 aIj
 yea
 fEQ
-fEQ
+qFz
 fEQ
 fEQ
 tZV
@@ -71102,7 +71177,7 @@ iVp
 iVp
 nUN
 vcv
-lPO
+ndk
 bJp
 mHG
 cTn
@@ -71304,7 +71379,7 @@ iVp
 iVp
 nUN
 vcv
-qFz
+lPO
 luT
 vbk
 ayF
@@ -72322,7 +72397,7 @@ xhg
 hcF
 pdv
 dPz
-gkM
+qCP
 oFp
 lTn
 ygu
@@ -73968,11 +74043,11 @@ kUp
 wAm
 nTU
 sKo
-idX
+vZL
 idX
 sKo
 bHs
-idX
+rbs
 sKo
 uki
 keG

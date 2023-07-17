@@ -653,14 +653,13 @@
 			var/obj/O = A
 			O.hear_talk(M, text, verb, speaking)
 
-/obj/structure/closet/attack_generic(var/mob/user, var/damage, var/attack_message = "destroys", var/wallbreaker)
+/obj/structure/closet/attack_generic(var/mob/user, var/damage, var/attack_message = "attacks", var/wallbreaker)
 	if(!damage || !wallbreaker)
 		return
 	user.do_attack_animation(src)
-	visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"))
-	dump_contents()
-	QDEL_IN(src, 1)
-	return 1
+	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
+	damage(damage)
+	return TRUE
 
 /obj/structure/closet/proc/req_breakout()
 	if(!opened) //Door's open... wait, why are you in it's contents then?
