@@ -731,7 +731,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/inflatable/wall,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/airless,
 /area/abandoned_industrial_station/operations)
 "cD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3609,7 +3609,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/full/airless,
 /area/abandoned_industrial_station/operations)
 "ma" = (
 /obj/effect/floor_decal/industrial/outline/red,
@@ -4185,7 +4185,7 @@
 /obj/structure/closet/crate/tool,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/full/airless,
 /area/abandoned_industrial_station/operations)
 "nT" = (
 /obj/structure/bed/stool/chair{
@@ -4716,7 +4716,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/full/airless,
 /area/abandoned_industrial_station/operations)
 "pC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8174,6 +8174,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/engineering)
+"AF" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full/airless,
+/area/abandoned_industrial_station/operations)
 "AG" = (
 /obj/structure/inflatable/door,
 /turf/simulated/floor/tiled{
@@ -13013,6 +13018,10 @@
 	},
 /turf/simulated/floor/carpet,
 /area/abandoned_industrial_station/service)
+"Qr" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full/airless,
+/area/abandoned_industrial_station/operations)
 "Qu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
@@ -58763,7 +58772,7 @@ Zi
 HM
 Yp
 ab
-zV
+Qr
 HM
 Mx
 GA
@@ -59020,7 +59029,7 @@ Wl
 HM
 ab
 Vw
-zV
+Qr
 HM
 iY
 IB
@@ -59791,7 +59800,7 @@ pV
 qH
 ks
 Vl
-na
+AF
 sW
 FX
 wm
@@ -60048,7 +60057,7 @@ gj
 iE
 Ij
 Ij
-na
+AF
 Xe
 no
 pe
@@ -60304,7 +60313,7 @@ Zi
 Zi
 CD
 Mp
-na
+AF
 nS
 AA
 ZR
