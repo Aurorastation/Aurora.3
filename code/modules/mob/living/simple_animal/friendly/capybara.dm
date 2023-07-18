@@ -7,7 +7,7 @@
 	icon_living = "coconut"
 	icon_dead = "coconut_dead"
 	icon_rest = "coconut_rest"
-	can_nap = 1
+	can_nap = TRUE
 	speak = list("Squeek.", "Squeeeeeeeeek!")
 	speak_emote = list("squeeks", "grunts")
 	emote_hear = list("squeeks", "grunts", "yawns")
