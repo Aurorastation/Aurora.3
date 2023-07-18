@@ -567,6 +567,7 @@
 "ca" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/tiled/airless,
 /area/abandoned_industrial_station/operations)
 "cb" = (
@@ -991,6 +992,12 @@
 	},
 /turf/template_noop,
 /area/space)
+"dt" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/operations)
 "du" = (
 /obj/structure/table/steel,
 /obj/machinery/light/colored/decayed{
@@ -1913,6 +1920,17 @@
 /obj/structure/foamedmetal,
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/docks_a2)
+"gy" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/tiled/dark,
+/area/abandoned_industrial_station/hangar)
 "gC" = (
 /obj/structure/inflatable/door,
 /obj/random/dirt_75,
@@ -2167,7 +2185,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/structure/closet/crate/miningcart,
+/obj/structure/closet/crate/miningcart/ore,
 /obj/item/ore/glass,
 /obj/item/ore/glass,
 /obj/item/ore/glass,
@@ -2552,6 +2570,12 @@
 /obj/structure/ore_box,
 /turf/template_noop,
 /area/abandoned_industrial_station/operations)
+"iF" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/docks_a1)
 "iG" = (
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/door/firedoor/noid,
@@ -3416,7 +3440,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/ore_box,
+/obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_industrial_station/hangar)
 "lr" = (
@@ -3579,7 +3603,7 @@
 /area/abandoned_industrial_station/service)
 "lW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate/miningcart,
+/obj/structure/closet/crate/miningcart/ore,
 /obj/item/ore/coal,
 /obj/item/ore/coal,
 /obj/item/ore/coal,
@@ -3672,9 +3696,9 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/docks_a1)
 "mk" = (
-/obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hangar)
 "ml" = (
@@ -3710,7 +3734,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/structure/closet/crate/miningcart,
+/obj/structure/closet/crate/miningcart/ore,
 /obj/item/ore/gold,
 /obj/item/ore/gold,
 /obj/item/ore/gold,
@@ -4299,7 +4323,7 @@
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "oi" = (
-/obj/structure/closet/crate/miningcart,
+/obj/structure/closet/crate/miningcart/ore,
 /obj/item/ore/glass,
 /obj/item/ore/glass,
 /obj/item/ore/glass,
@@ -6233,6 +6257,15 @@
 	icon_state = "wood_broken2"
 	},
 /area/abandoned_industrial_station/service)
+"uq" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/tiled{
+	icon_state = "steel_burned0"
+	},
+/area/abandoned_industrial_station/hallways)
 "ur" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -6399,7 +6432,7 @@
 /area/abandoned_industrial_station/engineering)
 "uZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/miningcart,
+/obj/structure/closet/crate/miningcart/ore,
 /obj/item/ore/osmium,
 /obj/item/ore/osmium,
 /obj/item/ore/osmium,
@@ -6471,8 +6504,8 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
-/obj/structure/ore_box,
 /obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/hangar)
 "vn" = (
@@ -6667,7 +6700,7 @@
 "vP" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
-/obj/structure/closet/crate/miningcart,
+/obj/structure/closet/crate/miningcart/ore,
 /obj/item/stack/material/plasteel/full,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/plasteel/full,
@@ -6853,7 +6886,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "wz" = (
-/obj/structure/closet/crate/miningcart,
+/obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_a2)
 "wB" = (
@@ -6942,12 +6975,12 @@
 /area/abandoned_industrial_station/docks_a1)
 "wN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/ore_box,
 /obj/machinery/light/colored/dying{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/tiled{
 	icon_state = "steel_burned0"
 	},
@@ -8092,7 +8125,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/structure/closet/crate/miningcart,
+/obj/structure/closet/crate/miningcart/ore,
 /obj/item/ore/iron,
 /obj/item/ore/iron,
 /obj/item/ore/iron,
@@ -9991,6 +10024,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
+"Gx" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/tiled{
+	icon_state = "steel_burned0"
+	},
+/area/abandoned_industrial_station/hangar)
 "Gy" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
@@ -11644,10 +11684,10 @@
 /turf/simulated/floor,
 /area/abandoned_industrial_station/docks_a2)
 "LF" = (
-/obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/operations)
 "LG" = (
@@ -14205,8 +14245,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/ore_box,
 /obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/operations)
 "Um" = (
@@ -15466,7 +15506,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/miningcart,
+/obj/structure/closet/crate/miningcart/ore,
 /obj/item/ore/gold,
 /obj/item/ore/gold,
 /obj/item/ore/gold,
@@ -40069,7 +40109,7 @@ AN
 bT
 Rb
 dL
-dL
+iF
 Df
 Zi
 ob
@@ -45973,7 +46013,7 @@ Og
 wo
 fW
 Kq
-CF
+uq
 AN
 LD
 AN
@@ -53647,7 +53687,7 @@ qP
 NB
 NB
 yh
-NB
+gy
 Ya
 FV
 Ya
@@ -56215,7 +56255,7 @@ kI
 kI
 kI
 kI
-Mt
+Gx
 oN
 uZ
 kI
@@ -56474,7 +56514,7 @@ Zi
 kI
 Mt
 qq
-Mt
+Gx
 kI
 kI
 kI
@@ -57511,7 +57551,7 @@ GA
 iY
 HM
 fZ
-il
+dt
 zV
 zV
 yS
