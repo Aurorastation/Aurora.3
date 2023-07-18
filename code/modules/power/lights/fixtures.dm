@@ -112,6 +112,9 @@
 	brightness_color = LIGHT_COLOR_DYING
 	randomize_color = FALSE
 
+/obj/machinery/light/broken
+	status = LIGHT_BROKEN
+
 /obj/machinery/light/spot
 	name = "spotlight"
 	fitting = "large tube"
