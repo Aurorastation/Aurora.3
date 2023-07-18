@@ -8,6 +8,7 @@
 	suffixes = list("away_site/abandoned_industrial/abandoned_industrial_station.dmm")
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/abandoned_industrial_station//Arbitrary duplicates of the above name/desc
 	map = "abandoned industrial station"
@@ -34,26 +35,35 @@
 		"nav_abandoned_industrial_station_east",
 		"nav_abandoned_industrial_station_south",
 		"nav_abandoned_industrial_station_south_close",
-		"nav_abandoned_industrial_station_west"
+		"nav_abandoned_industrial_station_west",
+		"nav_abandoned_industrial_station_hangar_other"
 	)
 
 	initial_restricted_waypoints = list(
 		"Intrepid" = list("nav_abandoned_industrial_station_intrepid"),
-		"Canary" = list("nav_abandoned_industrial_station_canary"),
+		"Canary" = list("nav_abandoned_industrial_station_hangar_canary"),
 		"Spark" = list("nav_abandoned_industrial_station_spark")
 	)
 
 /obj/effect/shuttle_landmark/abandoned_industrial_station/nav_intrepid
-	name = "Intrepid Beacon"
+	name = "Docks A1 (Intrepid)"
 	landmark_tag = "nav_abandoned_industrial_station_intrepid"
 
-/obj/effect/shuttle_landmark/abandoned_industrial_station/nav_canary
-	name = "Canary Beacon"
-	landmark_tag = "nav_abandoned_industrial_station_canary"
-
 /obj/effect/shuttle_landmark/abandoned_industrial_station/nav_spark
-	name = "Spark Beacon"
+	name = "Docks A1 (Spark)"
 	landmark_tag = "nav_abandoned_industrial_station_spark"
+
+/obj/effect/shuttle_landmark/abandoned_industrial_station/nav_hangar_canary
+	name = "Hangar (Canary)"
+	landmark_tag = "nav_abandoned_industrial_station_hangar_canary"
+	base_area = /area/abandoned_industrial_station/hangar
+	base_turf = /turf/simulated/floor
+
+/obj/effect/shuttle_landmark/abandoned_industrial_station/nav_hangar_other
+	name = "Hangar"
+	landmark_tag = "nav_abandoned_industrial_station_hangar_other"
+	base_area = /area/abandoned_industrial_station/hangar
+	base_turf = /turf/simulated/floor
 
 /obj/effect/shuttle_landmark/abandoned_industrial_station/nav_north
 	name = "North Beacon"

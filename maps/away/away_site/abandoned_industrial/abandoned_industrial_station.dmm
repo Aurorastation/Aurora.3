@@ -9327,8 +9327,17 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
 "DY" = (
-/obj/effect/shuttle_landmark/abandoned_industrial_station/nav_canary,
-/turf/simulated/floor,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/abandoned_industrial_station/hangar)
 "DZ" = (
 /obj/structure/table/glass{
@@ -53627,7 +53636,7 @@ NB
 NB
 qP
 qP
-NB
+DY
 NB
 yh
 gy
@@ -54655,7 +54664,7 @@ VL
 VL
 VL
 aS
-DY
+aS
 aS
 aS
 aS
