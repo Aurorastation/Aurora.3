@@ -3,7 +3,7 @@
 	full_name = "SCCV Horizon"
 	path = "sccv_horizon"
 
-	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/vaurca.dmi')
+	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/vaurca.dmi', 'icons/misc/titlescreens/aurora/humans.dmi')
 	lobby_transitions = 10 SECONDS
 
 	station_levels = list(1, 2, 3)

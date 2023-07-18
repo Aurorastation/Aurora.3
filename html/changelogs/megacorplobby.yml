@@ -1,0 +1,5 @@
+author: Sparky_hotdog
+
+delete-after: True
+changes:
+  - rscadd: "Re-added the megacorp/human lobby screens to the lobby rotation. This change was sponsored by the SCC."
