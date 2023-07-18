@@ -19636,7 +19636,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/medical,
 /obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/large/radiation,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "juh" = (
