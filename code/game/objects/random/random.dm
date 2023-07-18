@@ -1411,6 +1411,17 @@
 
 	)
 
+/obj/random/dirt_75
+	name = "dirt 75%"
+	desc = "75% chance of spawning dirt, otherwise nothing."
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "dirt"
+	layer = ABOVE_CABLE_LAYER // just so it appears under structures in map editor
+	spawn_nothing_percentage = 25
+	spawnlist = list(
+		/obj/effect/decal/cleanable/dirt
+	)
+
 //Sometimes the chef will have spare oil in storage.
 //Sometimes they wont, and will need to order it from cargo
 //Variety is the spice of life!

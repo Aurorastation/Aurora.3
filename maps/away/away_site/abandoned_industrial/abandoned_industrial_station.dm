@@ -20,29 +20,28 @@
 	descriptor = "Abandoned Industrial Station."
 
 /obj/effect/overmap/visitable/sector/abandoned_industrial_station//This is the actual overmap object that spawns at roundstart, given your map loads
-	name = "Abandoned Industrial Station."//This and desc is visible ingame when the object is scanned by any scanner
-	desc = "Abandoned Industrial Station."
+	name = "Abandoned Industrial Station"//This and desc is visible ingame when the object is scanned by any scanner
+	desc = "Industrial station of unknown designation or origin. Scanners detect it to be mostly cold, likely no movement or life inside, although appears to be pressurized."
 	in_space = TRUE//Setting this to TRUE, or 1, will make people who are floating freely in EVA potentially run into this away site. Usually not a good idea to turn on
-	icon_state = "object"//Can be anything that fits. Don't use generic objects for scannable ships and stations, instead use overmap_stationary.dmi for reference
+	icon_state = "outpost"//Can be anything that fits. Don't use generic objects for scannable ships and stations, instead use overmap_stationary.dmi for reference
 
-//If you're feeling like detailing the site more as a detailed or developed station or facility for example, uncomment the below vars and mess with them as you see fit!
-//These will affect how scans of your site appear on sensor readouts, printed and on computers
-
-//	static_vessel = TRUE
-//	generic_object = FALSE
-//	icon = 'icons/obj/overmap/overmap_stationary.dmi'
-//	icon_state = "outpost"
-//	color = "#c2c0b8"
-//	designer = "A sad developer"
-//	volume = "51 meters length, 35 meters beam/width, 12 meters vertical height"
-//	weapons = "Two obscured flight craft bays"
-//	sizeclass = "Contributor support and gamer fuel depot"
+	static_vessel = TRUE
+	generic_object = FALSE
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "outpost"
+	color = "#bbb186"
+	designer = "Unknown"
+	volume = "78 meters length, 133 meters beam/width, 24 meters vertical height"
+	weapons = "Not apparent"
+	sizeclass = "Industrial Station"
 
 //Waypoints to be used for landing areas. Any compatible overmap shuttle that fits in the landing zones can land here if they're in range.
 	initial_generic_waypoints = list(
 		"nav_abandoned_industrial_station_north",
+		"nav_abandoned_industrial_station_north_close",
 		"nav_abandoned_industrial_station_east",
 		"nav_abandoned_industrial_station_south",
+		"nav_abandoned_industrial_station_south_close",
 		"nav_abandoned_industrial_station_west"
 	)
 
@@ -66,8 +65,12 @@
 	landmark_tag = "nav_abandoned_industrial_station_spark"
 
 /obj/effect/shuttle_landmark/abandoned_industrial_station/nav_north
-	name = "North Beacon"//Visible ingame when landing a shuttle
-	landmark_tag = "nav_abandoned_industrial_station_north"//Must match initial waypoints
+	name = "North Beacon"
+	landmark_tag = "nav_abandoned_industrial_station_north"
+
+/obj/effect/shuttle_landmark/abandoned_industrial_station/nav_north_close
+	name = "North Beacon (Close)"
+	landmark_tag = "nav_abandoned_industrial_station_north_close"
 
 /obj/effect/shuttle_landmark/abandoned_industrial_station/nav_east
 	name = "East Beacon"
@@ -76,6 +79,10 @@
 /obj/effect/shuttle_landmark/abandoned_industrial_station/nav_south
 	name = "South Beacon"
 	landmark_tag = "nav_abandoned_industrial_station_south"
+
+/obj/effect/shuttle_landmark/abandoned_industrial_station/nav_south_close
+	name = "South Beacon (Close)"
+	landmark_tag = "nav_abandoned_industrial_station_south_close"
 
 /obj/effect/shuttle_landmark/abandoned_industrial_station/nav_west
 	name = "West Beacon"
