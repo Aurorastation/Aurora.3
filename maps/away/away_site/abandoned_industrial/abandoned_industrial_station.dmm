@@ -8417,9 +8417,16 @@
 /obj/machinery/door/window/southright{
 	name = "Storage"
 	},
-/obj/structure/safe/open,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A huge chunk of metal with a dial embedded in it. This one appears to be broken into, the safey mechanisms drilled, and is completely empty inside. Someone's been here before.";
+	icon = 'icons/obj/safe.dmi';
+	icon_state = "safe-open";
+	name = "safe";
+	pixel_y = 6
+	},
 /turf/simulated/floor{
 	icon_state = "dmg1"
 	},
