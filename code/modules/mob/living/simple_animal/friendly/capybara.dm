@@ -11,7 +11,7 @@
 	speak = list("Squeek.", "Squeeeeeeeeek!")
 	speak_emote = list("squeeks", "grunts")
 	emote_hear = list("squeeks", "grunts", "yawns")
-	emote_see = list("vibes", "sniffs around", "looks around", "flops it's ears")
+	emote_see = list("vibes", "sniffs around", "looks around", "flops its ears")
 	speak_chance = 1
 	turns_per_move = 0.5
 	min_oxy = 16
