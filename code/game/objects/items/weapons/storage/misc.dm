@@ -223,3 +223,17 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/pure = 8)
 	icon_state = "roll_nico"
 	item_state = "Epacket"
+
+/obj/item/storage/chewables/rollable/oracle
+	name = "box of Vysokan plains oracle leaves"
+	desc = "This box gives a large list of potential sources for the oracle inside of it, reflecting the unstable and volatile state of Vysokan politics."
+	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_oracle = 8)
+	icon_state = "roll_oracle"
+	item_state = "Dpacket"
+
+/obj/item/storage/chewables/rollable/vedamor
+	name = "box of Velhalktai marathon oracle leaves"
+	desc = "Packaged by a major sponsor of the Velhalktai races, and exported by NanoTrasen, this box promises quality oracle grown directly in the city-state of Vedamor."
+	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_oracle/fine = 8)
+	icon_state = "roll_vedamor"
+	item_state = "Epacket"

@@ -16,6 +16,31 @@
 	desc = "Highly illegal drug. Bang - and your stress is gone."
 	starts_with = list(/obj/item/reagent_containers/pill/joy = 3)
 
+/obj/item/storage/pill_bottle/heroin
+	name = "bottle of Heroin pills"
+	desc = "Highly illegal drug. For quick pain removal."
+	starts_with = list(/obj/item/reagent_containers/pill/heroin = 3)
+
+/obj/item/storage/pill_bottle/cocaine
+	name = "bottle of Cocaine tablets"
+	desc = "Supposedly a highly illegal drug... yet the labeling on the bottle is suspiciously perfect..."
+	starts_with = list(/obj/item/reagent_containers/pill/cocaine = 5)
+
+/obj/item/storage/pill_bottle/contemplus
+	name = "bottle of Contemplus tablets"
+	desc = "A Yomi Genetics bottle clearly marked as 'for animal testing only.' You doubt this is followed often on Venus..."
+	starts_with = list(/obj/item/reagent_containers/pill/contemplus = 5)
+
+/obj/item/storage/pill_bottle/spotlight
+	name = "bottle of Spotlight tablets"
+	desc = "A Zavodskoi bottle with a conspicuous 'defective' stamp on it. You doubt this was actually defective."
+	starts_with = list(/obj/item/reagent_containers/pill/spotlight = 5)
+
+/obj/item/storage/pill_bottle/sparkle
+	name = "bottle of Sparkle tablets"
+	desc = "A Zeng-Hu bottle clearly marked as being for 'medical testing purposes only.' As if..."
+	starts_with = list(/obj/item/reagent_containers/pill/sparkle = 5)
+
 /obj/item/storage/pill_bottle/smart
 	name = "bottle of Smart pills"
 	desc = "Highly illegal drug. For exam season."
@@ -27,13 +52,13 @@
 
 /obj/item/reagent_containers/glass/beaker/vial/random/toxin
 	random_reagent_list = list(
-		list(/singleton/reagent/mindbreaker = 10, /singleton/reagent/space_drugs = 20)	= 3,
+		list(/singleton/reagent/drugs/mindbreaker = 10, /singleton/reagent/drugs/mms = 20)	= 3,
 		list(/singleton/reagent/mercury = 15)										= 3,
 		list(/singleton/reagent/toxin/carpotoxin = 15)								= 2,
-		list(/singleton/reagent/impedrezene = 15)									= 2,
+		list(/singleton/reagent/drugs/impedrezene = 15)									= 2,
 		list(/singleton/reagent/toxin/dextrotoxin = 10)								= 1,
 		list(/singleton/reagent/toxin/spectrocybin = 15)								= 1,
-		list(/singleton/reagent/joy = 10, /singleton/reagent/water = 20)					= 1,
+		list(/singleton/reagent/drugs/joy = 10, /singleton/reagent/water = 20)					= 1,
 		list(/singleton/reagent/toxin/berserk = 10)                                  = 1,
 		list(/singleton/reagent/ammonia = 15)										= 3)
 

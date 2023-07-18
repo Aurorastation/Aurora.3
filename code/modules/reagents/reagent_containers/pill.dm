@@ -243,19 +243,49 @@
 	name = "Happy Pill"
 	desc = "Happy happy joy joy!"
 	icon_state = "pill_happy"
-	reagents_to_add = list(/singleton/reagent/space_drugs = 15, /singleton/reagent/sugar = 15)
+	reagents_to_add = list(/singleton/reagent/drugs/mms = 15, /singleton/reagent/sugar = 15)
 
 /obj/item/reagent_containers/pill/zoom
 	name = "Zoom Pill"
 	desc = "Zoooom!"
 	icon_state = "pill18"
-	reagents_to_add = list(/singleton/reagent/impedrezene = 5, /singleton/reagent/synaptizine = 5, /singleton/reagent/hyperzine = 5)
+	reagents_to_add = list(/singleton/reagent/drugs/impedrezene = 5, /singleton/reagent/synaptizine = 5, /singleton/reagent/hyperzine = 5)
 
 /obj/item/reagent_containers/pill/joy
 	name = "Joy Pill"
 	desc = "Peace, at last."
 	icon_state = "pill8"
-	reagents_to_add = list(/singleton/reagent/joy = 5)
+	reagents_to_add = list(/singleton/reagent/drugs/joy = 5)
+
+/obj/item/reagent_containers/pill/heroin
+	name = "Heroin Pill"
+	desc = "The pain will pass..."
+	icon_state = "pill7"
+	reagents_to_add = list(/singleton/reagent/drugs/heroin = 5)
+
+/obj/item/reagent_containers/pill/cocaine
+	name = "Cocaine Tablet"
+	desc = "For those long nights out."
+	icon_state = "pill18"
+	reagents_to_add = list(/singleton/reagent/drugs/cocaine = 10)
+
+/obj/item/reagent_containers/pill/contemplus
+	name = "Contemplus Tablet"
+	desc = "For that essay that is due tomorrow."
+	icon_state = "pill19"
+	reagents_to_add = list(/singleton/reagent/drugs/cocaine/contemplus = 10)
+
+/obj/item/reagent_containers/pill/spotlight
+	name = "Spotlight Tablet"
+	desc = "For that acting audition today."
+	icon_state = "pill2"
+	reagents_to_add = list(/singleton/reagent/drugs/cocaine/spotlight = 10)
+
+/obj/item/reagent_containers/pill/sparkle
+	name = "Sparkle Tablet"
+	desc = "For those long nights out at the club."
+	icon_state = "pill20"
+	reagents_to_add = list(/singleton/reagent/drugs/cocaine/sparkle = 10)
 
 /obj/item/reagent_containers/pill/thetamycin
 	name = "15u Thetamycin Pill"
@@ -290,7 +320,7 @@
 	name = "5u Co'qnixq Wuxi Pill"
 	desc = "Used to treat dementia."
 	icon_state = "pill8"
-	reagents_to_add = list(/singleton/reagent/skrell_nootropic = 5)
+	reagents_to_add = list(/singleton/reagent/drugs/skrell_nootropic = 5)
 
 /obj/item/reagent_containers/pill/hyronalin
 	name = "7u Hyronalin"
