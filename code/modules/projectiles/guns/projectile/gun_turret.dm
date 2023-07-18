@@ -1,4 +1,6 @@
-/// GUN TURRETS /// Gun turrets are portable guns that need to be set up and can shoot afterwards.
+/// GUN TURRETS ///
+
+//Gun turrets are portable guns that need to be set up and can shoot afterwards. ~KingOfThePing
 /obj/item/weapon/projectile/gun_turret
 	name = "stationary machinegun"
 	desc = "You should not be seeing this"
@@ -17,14 +19,14 @@
 	slot_flags = 0 // They are too big to be carried in bags
 	ammo_type = /obj/item/ammo_casing/c9mm // Only for testing purposes
 
-	burst=1
-	burst_delay=0.1
-	fire_delay=0.1
+	burst= 1
+	burst_delay= 0.1
+	fire_delay 0.1
 	fire_sound = 'sound/weapons/gunshot/gunshot_saw.ogg'
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, burst_delay=0.1, fire_delay=0.1, burst_accuracy=list(0,-1), dispersion=list(0.0, 0.6, 1.0)),
-		list(mode_name="3-round bursts", burst=3, burst_delay=0.1, fire_delay=0.2, burst_accuracy=list(0,-1,-1), dispersion=list(0.0, 0.6, 1.0))
+		list(mode_name="3-round bursts", burst=3, burst_delay=0.1, fire_delay=0.2, burst_accuracy=list(0,-1,-1), dispersion=list(0.0, 0.6, 1.0)) // basic firemodes because not all turrets are rapid fire probably
 		)
 
 	var/user_old_x = 0
@@ -33,14 +35,14 @@
 	var/obj/item/weapon/mg_disassembled/disassembled = null
 	var/obj/item/weapon/tripod/tripod = null
 
-/obj/item/weapon/projectile/gun_turret/AltClick(mob/user)
+/obj/item/weapon/projectile/gun_turret/AltClick(mob/user) // Safety sound is different to hear it out
 	..()
 	if(used_by_mob == user)
 		safety = !safety
 		playsound(user, 'sound/weapons/mg_safety.ogg', 50, 1)
-		to_chat(user, SPAN_NOTICE("You toggle the safety [safety ? "on":"off"]".))
+		to_chat(user, "You toggle the safety [safety ? "on":"off"]".)
 
-/obj/item/weapon/projectile/gun_turret/New(loc, var/direction)
+/obj/item/weapon/projectile/gun_turret/New(loc, var/direction) // What direction?
 	..()
 	if(direction)
 		set_dir(direction)
@@ -68,12 +70,12 @@
 	..()
 
 
-/obj/item/weapon/projectile/gun_turret/Fire(atom/A ,mob/user)
+/obj/item/weapon/projectile/gun_turret/Fire(atom/A ,mob/user) // We shoot at something
 	if(A == src)
 		if(firemodes.len > 1)
 			var/datum/firemode/new_mode = switch_firemodes(user)
 			if(new_mode)
-				to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name].")
+				to_chat(user, "\The [src] is now set to [new_mode.name].")
 				return
 	if(check_direction(user, A))
 		return ..()
@@ -82,18 +84,18 @@
 		update_layer()
 		return
 
-/obj/item/weapon/projectile/gun_turret/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/item/weapon/projectile/gun_turret/CanPass(atom/movable/mover, turf/target, height=0, air_group=0) // Are we behind a barricade or equivalent?
 	if(istype(mover, /obj/item/projectile))
 		return 1
 	return 0
 
-/obj/item/weapon/projectile/gun_turret/MouseDrop(over_object, src_location, over_location)
+/obj/item/weapon/projectile/gun_turret/MouseDrop(over_object, src_location, over_location) // Reloading?
 	..()
 	if((over_object == usr && in_range(src, usr)) && !used_by_mob)
 		unload_ammo(usr, 0)
 		return
 
-/obj/item/weapon/projectile/gun_turret/attack_hand(mob/user)
+/obj/item/weapon/projectile/gun_turret/attack_hand(mob/user) // You need free hands to do this
 	var/grip_dir = reverse_direction(dir)
 	var/turf/T = get_step(src.loc, grip_dir)
 	if(user.loc == T)
@@ -106,7 +108,7 @@
 	else
 		to_chat(user, "\red You're too far from the handles.")
 
-/obj/item/weapon/projectile/gun_turret/proc/update_layer()
+/obj/item/weapon/projectile/gun_turret/proc/update_layer() // For the guns facing
 	if(dir == NORTH)
 		layer = initial(layer) + 0.1
 		plane = initial(plane)
@@ -126,7 +128,7 @@
 		plane = ABOVE_HUMAN_PLANE
 		*/
 
-/obj/item/weapon/projectile/gun_turret/proc/check_direction(mob/user, atom/A)
+/obj/item/weapon/projectile/gun_turret/proc/check_direction(mob/user, atom/A) // We have to rotate one by one, 180° is not allowed
 	if(get_turf(A) == src.loc)
 		return 0
 
@@ -159,7 +161,7 @@
 	if(/obj/structure/sandbag in src.loc.contents)
 		var/obj/structure/sandbag/S = locate(src.loc.contents)
 		if(direction == reverse_direction(S.dir))
-			to_chat(user, SPAN_NOTICE("You can't rotate it in that way!)
+			to_chat(user, "You can't rotate it in that way!")
 			return 0
 
 	src.set_dir(direction)
@@ -169,7 +171,7 @@
 
 	return 0
 
-/obj/item/weapon/projectile/gun_turret/proc/update_pixels(mob/user as mob)
+/obj/item/weapon/projectile/gun_turret/proc/update_pixels(mob/user as mob) // Getting on
 	var/diff_x = 0
 	var/diff_y = 0
 	if(dir == EAST)
@@ -182,10 +184,11 @@
 		diff_y = 16 + user_old_y
 	animate(user, pixel_x=diff_x, pixel_y=diff_y, 4, 1)
 
-/obj/item/weapon/projectile/gun_turret/proc/started_using(mob/user as mob, var/need_message = 1)
+/obj/item/weapon/projectile/gun_turret/proc/started_using(mob/user as mob, var/need_message = 1) // So we don't miss it in a busy moment
 	if(need_message)
-		user.visible_message SPAN_NOTICE("[user.name] handeled \the [src]."),
-							 SPAN_NOTICE("You handeled \the [src].)
+		user.visible_message
+			SPAN_NOTICE("[user.name] handeled \the [src]."),
+			SPAN_NOTICE("You handeled \the [src].")
 	used_by_mob = user
 	user.using_object = src
 	user.update_canmove()
@@ -195,10 +198,11 @@
 	user_old_y = user.pixel_y
 	update_pixels(user)
 
-/obj/item/weapon/gun/projectile/gun_turret/proc/stopped_using(mob/user as mob, var/need_message = 1)
+/obj/item/weapon/gun/projectile/gun_turret/proc/stopped_using(mob/user as mob, var/need_message = 1) // So we don't miss this either
 	if(need_message)
-		user.visible_message SPAN_NOTICE("[user.name] released \the [src].),
-							 SPAN_NOTICE("You released \the [src].)
+		user.visible_message
+			SPAN_NOTICE ("[user.name] released \the [src]."),
+			SPAN_NOTICE ("You released \the [src].")
 	used_by_mob = null
 	user.using_object = null
 	user.anchored = 0
@@ -211,7 +215,7 @@
 	user_old_y = 0
 	user.dir = old_dir // visual better
 
-/obj/item/weapon/projectile/gun_turret/proc/detach_tripod(var/mob/user)
+/obj/item/weapon/projectile/gun_turret/proc/detach_tripod(var/mob/user) // We make the tripod carryable again
 	if(!disassembled || !tripod || !ismob(user))
 		return
 
@@ -219,22 +223,22 @@
 	tripod.forceMove(T)
 	tripod.attach_to_turf(T, user, 0)
 	disassembled.forceMove(T)
-	playsound(src, 'sound/items/hw_weapon.ogg', 50, 1)
+	playsound(src, 'sound/weapons/gunshot/gunshot_saw.ogg', 50, 1)
 	user.put_in_hands(disassembled)
 	tripod = null
 	disassembled = null
 	qdel(src)
 
-/obj/item/weapon/projectile/gun_turret/verb/detach_from_tripod()
+/obj/item/weapon/projectile/gun_turret/verb/detach_from_tripod() // We detach the gun from the tripod
 	set name = "Detach from tripod"
 	set category = "Object"
 	set src in view(1)
 
 	if(ammo_magazine)
-		to_chat(usr, "You need to unload [name] first!")
+		to_chat(user, "You need to unload [name] first!")
 		return
 
-	detach_tripod(usr)
+	detach_tripod(user)
 
 
 /obj/item/gun/projectile/gun_turret/machine_gun_turret // The assembly itself
@@ -284,7 +288,7 @@ the MPM-3 excelled as the perfect emplacement weapon to secure outposts, convoys
 	w_class = ITEMSIZE_LARGE
 	icon_state =
 
-/obj/item/gun_shield
+/obj/item/gun_shield // Accessory like gun accessories
 	name = "turret gun shield"
 	desc = "A thick metal shield with a small viewing port. Intended to partially protect you, when it's mounted on a gun turret."
 	icon_state =
