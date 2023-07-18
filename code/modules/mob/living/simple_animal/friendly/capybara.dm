@@ -1,7 +1,7 @@
 /mob/living/simple_animal/capybara
 	name = "capybara"
 	real_name = "capybara"
-	desc = "A brown capybara, or a \"coconut dog\", being relaxed as usual."
+	desc = "A brown capybara, or a \"coconut dog\", relaxing as usual."
 	icon = 'icons/mob/npc/capybara.dmi'
 	icon_state = "coconut"
 	icon_living = "coconut"
