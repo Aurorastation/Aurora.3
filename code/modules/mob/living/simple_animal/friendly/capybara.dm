@@ -26,16 +26,7 @@
 /mob/living/simple_animal/capybara/attack_hand(mob/living/carbon/M as mob)
 	if(!stat && M.a_intent == I_HELP && icon_state != icon_dead)
 		M.visible_message(SPAN_WARNING("[M] pets [src]."), SPAN_NOTICE("You eagerly pet [src]."))
-		spawn(rand(20,50))
-			if(!stat && M)
-				icon_state = icon_living
-				var/list/responses = list(	"[src] looks content.",
-											"[src] is not disturbed in its relaxation.",
-											"[src] looks at you with a satisfied look.",
-											"[src] has accepted its fate to receive pets.")
-				to_chat(M, pick(responses))
-	else
-		..()
+		addtimer(CALLBACK(src, PROC_REF(pet_response)), rand(2 SECONDS, 5 SECONDS))
 
 /mob/living/simple_animal/capybara/examine(mob/user)
 	..()
