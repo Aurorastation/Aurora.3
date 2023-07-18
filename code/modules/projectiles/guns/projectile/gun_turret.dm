@@ -38,7 +38,7 @@
 	if(used_by_mob == user)
 		safety = !safety
 		playsound(user, 'sound/weapons/mg_safety.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>You toggle the safety [safety ? "on":"off"].</span>")
+		to_chat(user, SPAN_NOTICE("You toggle the safety [safety ? "on":"off"]".))
 
 /obj/item/weapon/projectile/gun_turret/New(loc, var/direction)
 	..()
@@ -73,7 +73,7 @@
 		if(firemodes.len > 1)
 			var/datum/firemode/new_mode = switch_firemodes(user)
 			if(new_mode)
-				to_chat(user, "<span class='notice'>\The [src] is now set to [new_mode.name].</span>")
+				to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name].")
 				return
 	if(check_direction(user, A))
 		return ..()
@@ -159,7 +159,7 @@
 	if(/obj/structure/sandbag in src.loc.contents)
 		var/obj/structure/sandbag/S = locate(src.loc.contents)
 		if(direction == reverse_direction(S.dir))
-			to_chat(user, "<span class='notice'>You can't rotate it in that way!</span>")
+			to_chat(user, SPAN_NOTICE("You can't rotate it in that way!)
 			return 0
 
 	src.set_dir(direction)
@@ -184,8 +184,8 @@
 
 /obj/item/weapon/projectile/gun_turret/proc/started_using(mob/user as mob, var/need_message = 1)
 	if(need_message)
-		user.visible_message("<span class='notice'>[user.name] handeled \the [src].</span>", \
-							 "<span class='notice'>You handeled \the [src].</span>")
+		user.visible_message SPAN_NOTICE("[user.name] handeled \the [src]."),
+							 SPAN_NOTICE("You handeled \the [src].)
 	used_by_mob = user
 	user.using_object = src
 	user.update_canmove()
@@ -197,8 +197,8 @@
 
 /obj/item/weapon/gun/projectile/gun_turret/proc/stopped_using(mob/user as mob, var/need_message = 1)
 	if(need_message)
-		user.visible_message("<span class='notice'>[user.name] released \the [src].</span>", \
-							 "<span class='notice'>You released \the [src].</span>")
+		user.visible_message SPAN_NOTICE("[user.name] released \the [src].),
+							 SPAN_NOTICE("You released \the [src].)
 	used_by_mob = null
 	user.using_object = null
 	user.anchored = 0
@@ -238,13 +238,13 @@
 
 
 /obj/item/gun/projectile/gun_turret/machine_gun_turret // The assembly itself
-  name = "heavy machine gun turret"
+	name = "heavy machine gun turret"
 	desc = "A tripod-mounted machine gun turret. Brutally simple, as it is effective for area denial. Has a clunky reload with big ammo boxes."
-  desc_extended = "Produced by the San Colette Interstellar Armaments Company (CAISC), the Colletish Armaments Multipurpose Machinegun Model 3 is a heavy piece of equipment, perfect for area denial and suppressive fire. Brutally simple, as it is effective \
+	desc_extended = "Produced by the San Colette Interstellar Armaments Company (CAISC), the Colletish Armaments Multipurpose Machinegun Model 3 is a heavy piece of equipment, perfect for area denial and suppressive fire. Brutally simple, as it is effective \
 the MPM-3 excelled as the perfect emplacement weapon to secure outposts, convoys and as a secondary vehicle armament, due to its easy maintenance and low jam probability. Chambered in 14.5mm to shred even your best protected enemy."
 	icon_state =
 	load_method = MAGAZINE
-	caliber =
+	caliber = "14.5mm"
 	ammo_type = /obj/item/ammo_casing/mg_turret
 	max_shells = 0
 	allowed_magazines = /obj/item/ammo_magazine/mg_turret
@@ -271,21 +271,21 @@ the MPM-3 excelled as the perfect emplacement weapon to secure outposts, convoys
 
 /obj/item/weapon/tripod
 	name = "machine gun turret tripod"
-  desc = "A very heavy metal tripod to mount a weapon on it. Needs a bit to be set up."
-  w_class = ITEMSIZE_LARGE
+	desc = "A very heavy metal tripod to mount a weapon on it. Needs a bit to be set up."
+	w_class = ITEMSIZE_LARGE
 	icon_state =
-  action_button_name = "Deploy the turret tripod."
+	action_button_name = "Deploy the turret tripod."
 	need_type = /obj/item/weapon/gun/projectile/gun_turret/machine_gun_turret
 
 /obj/item/weapon/mg_disassembled
-  name = "heavy machine gun"
-  desc = "The actual gun for the heavy machine gun turret. Very heavy and very bulky."
-  desc_extended =
-  w_class = ITEMSIZE_LARGE
-  icon_state =
+	name = "heavy machine gun"
+	desc = "The actual gun for the heavy machine gun turret. Very heavy and very bulky."
+	desc_extended =
+	w_class = ITEMSIZE_LARGE
+	icon_state =
 
 /obj/item/gun_shield
-  name = "turret gun shield"
-  desc = "A thick metal shield with a small viewing port. Intended to partially protect you, when it's mounted on a gun turret."
-  icon_state =
-  w_class = ITEMSIZE_NORMAL
+	name = "turret gun shield"
+	desc = "A thick metal shield with a small viewing port. Intended to partially protect you, when it's mounted on a gun turret."
+	icon_state =
+	w_class = ITEMSIZE_NORMAL
