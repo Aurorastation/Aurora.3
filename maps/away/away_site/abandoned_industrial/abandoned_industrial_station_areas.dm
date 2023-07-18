@@ -1,11 +1,6 @@
 /area/abandoned_industrial_station
 	name = "Abandoned Industrial Station"
 	icon_state = "bluenew"
-	//requires_power = TRUE
-	//dynamic_lighting = TRUE
-	//no_light_control = FALSE
-	//base_turf = /turf/space
-	//flags = HIDE_FROM_HOLOMAP
 
 /area/abandoned_industrial_station/hallways
 	name = "Abandoned Industrial Station Central Hallways"
