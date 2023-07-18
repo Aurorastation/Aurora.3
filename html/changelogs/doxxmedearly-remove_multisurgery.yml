@@ -4,3 +4,4 @@ changes:
   - bugfix: "You can no longer queue up multiple surgeries on a patient simultaneously. You must finish a surgical step before moving on to another. This does NOT affect multiple surgeons working on the same patient."
   - bugfix: "Doing surgery on surfaces other than an operating table now properly reduce the surgery success chance."
   - tweak: "Reduced surgery times across the board."
+  - tweak: "Laser scalpels are now slightly faster at making incisions than regular scalpels."
