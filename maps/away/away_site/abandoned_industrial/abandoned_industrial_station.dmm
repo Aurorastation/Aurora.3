@@ -6327,11 +6327,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_a2)
-"uP" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space)
 "uQ" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -47516,7 +47511,7 @@ Wl
 Wl
 Wl
 Wl
-uP
+Wl
 Zi
 Zi
 Zi
@@ -48033,7 +48028,7 @@ Wl
 Wl
 Wl
 Wl
-uP
+Wl
 Wl
 Wl
 Zi
@@ -49318,7 +49313,7 @@ Wl
 Wl
 Wl
 Zi
-uP
+Wl
 Wl
 Zi
 Zi
