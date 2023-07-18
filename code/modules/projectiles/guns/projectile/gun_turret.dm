@@ -1,7 +1,7 @@
 /// GUN TURRETS /// Gun turrets are portable guns that need to be set up and can shoot afterwards.
 /obj/item/weapon/projectile/gun_turret
 	name = "stationary machinegun"
-	desc = "basic heavy machinegun."
+	desc = "You should not be seeing this"
 	icon =
 	icon_state =
 	item_state =
