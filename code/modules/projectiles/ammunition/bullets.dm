@@ -429,8 +429,8 @@
 	projectile_type = /obj/item/projectile/bullet
 	max_stack = 5
 
-/obj/item/ammo_casing/mg_turret
-	name =
+/obj/item/ammo_casing/machine_gun_turret
+	name = "14.5mm casing"
 	icon_state =
 	spent_icon =
 	caliber = "14.5mm"

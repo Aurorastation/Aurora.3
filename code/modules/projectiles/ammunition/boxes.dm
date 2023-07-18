@@ -580,6 +580,6 @@
 	mag_type = MAGAZINE
 	caliber = "14.5mm"
 	insert_sound =
-	ammo_type =
+	ammo_type = /obj/item/ammo_casing/machine_gun_turret
 	max_ammo = 100
 	multiple_sprites = 1

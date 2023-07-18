@@ -1,5 +1,5 @@
-/// GUN TURRETS /// Gun turrets are portable guns that need to be set up and can afterwards shoot.
-/obj/item/weapon/projectile/heavy_mg
+/// GUN TURRETS /// Gun turrets are portable guns that need to be set up and can shoot afterwards.
+/obj/item/weapon/projectile/gun_turret
 	name = "stationary machinegun"
 	desc = "basic heavy machinegun."
 	icon =
@@ -33,14 +33,14 @@
 	var/obj/item/weapon/mg_disassembled/disassembled = null
 	var/obj/item/weapon/tripod/tripod = null
 
-/obj/item/weapon/projectile/heavy_mg/AltClick(mob/user)
+/obj/item/weapon/projectile/gun_turret/AltClick(mob/user)
 	..()
 	if(used_by_mob == user)
 		safety = !safety
 		playsound(user, 'sound/weapons/mg_safety.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You toggle the safety [safety ? "on":"off"].</span>")
 
-/obj/item/weapon/projectile/heavy_mg/New(loc, var/direction)
+/obj/item/weapon/projectile/gun_turret/New(loc, var/direction)
 	..()
 	if(direction)
 		set_dir(direction)
@@ -51,7 +51,7 @@
 
 	update_layer()
 
-/obj/item/weapon/projectile/heavy_mg/Destroy()
+/obj/item/weapon/projectile/gun_turret/Destroy()
 	if(used_by_mob)
 		stopped_using(used_by_mob, 0)
 
@@ -68,7 +68,7 @@
 	..()
 
 
-/obj/item/weapon/projectile/heavy_mg/Fire(atom/A ,mob/user)
+/obj/item/weapon/projectile/gun_turret/Fire(atom/A ,mob/user)
 	if(A == src)
 		if(firemodes.len > 1)
 			var/datum/firemode/new_mode = switch_firemodes(user)
@@ -82,18 +82,18 @@
 		update_layer()
 		return
 
-/obj/item/weapon/projectile/heavy_mg/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/item/weapon/projectile/gun_turret/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover, /obj/item/projectile))
 		return 1
 	return 0
 
-/obj/item/weapon/projectile/heavy_mg/MouseDrop(over_object, src_location, over_location)
+/obj/item/weapon/projectile/gun_turret/MouseDrop(over_object, src_location, over_location)
 	..()
 	if((over_object == usr && in_range(src, usr)) && !used_by_mob)
 		unload_ammo(usr, 0)
 		return
 
-/obj/item/weapon/projectile/heavy_mg/attack_hand(mob/user)
+/obj/item/weapon/projectile/gun_turret/attack_hand(mob/user)
 	var/grip_dir = reverse_direction(dir)
 	var/turf/T = get_step(src.loc, grip_dir)
 	if(user.loc == T)
@@ -106,7 +106,7 @@
 	else
 		to_chat(user, "\red You're too far from the handles.")
 
-/obj/item/weapon/projectile/heavy_mg/proc/update_layer()
+/obj/item/weapon/projectile/gun_turret/proc/update_layer()
 	if(dir == NORTH)
 		layer = initial(layer) + 0.1
 		plane = initial(plane)
@@ -126,7 +126,7 @@
 		plane = ABOVE_HUMAN_PLANE
 		*/
 
-/obj/item/weapon/projectile/heavy_mg/proc/check_direction(mob/user, atom/A)
+/obj/item/weapon/projectile/gun_turret/proc/check_direction(mob/user, atom/A)
 	if(get_turf(A) == src.loc)
 		return 0
 
@@ -136,7 +136,7 @@
 
 	return 1
 
-/obj/item/weapon/projectile/heavy_mg/proc/rotate_to(mob/user, atom/A)
+/obj/item/weapon/projectile/gun_turret/proc/rotate_to(mob/user, atom/A)
 	if(!A || !user.x || !user.y || !A.x || !A.y)
 		return
 	var/dx = A.x - user.x
@@ -169,7 +169,7 @@
 
 	return 0
 
-/obj/item/weapon/projectile/heavy_mg/proc/update_pixels(mob/user as mob)
+/obj/item/weapon/projectile/gun_turret/proc/update_pixels(mob/user as mob)
 	var/diff_x = 0
 	var/diff_y = 0
 	if(dir == EAST)
@@ -182,7 +182,7 @@
 		diff_y = 16 + user_old_y
 	animate(user, pixel_x=diff_x, pixel_y=diff_y, 4, 1)
 
-/obj/item/weapon/projectile/heavy_mg/proc/started_using(mob/user as mob, var/need_message = 1)
+/obj/item/weapon/projectile/gun_turret/proc/started_using(mob/user as mob, var/need_message = 1)
 	if(need_message)
 		user.visible_message("<span class='notice'>[user.name] handeled \the [src].</span>", \
 							 "<span class='notice'>You handeled \the [src].</span>")
@@ -195,7 +195,7 @@
 	user_old_y = user.pixel_y
 	update_pixels(user)
 
-/obj/item/weapon/gun/projectile/heavy_mg/proc/stopped_using(mob/user as mob, var/need_message = 1)
+/obj/item/weapon/gun/projectile/gun_turret/proc/stopped_using(mob/user as mob, var/need_message = 1)
 	if(need_message)
 		user.visible_message("<span class='notice'>[user.name] released \the [src].</span>", \
 							 "<span class='notice'>You released \the [src].</span>")
@@ -211,7 +211,7 @@
 	user_old_y = 0
 	user.dir = old_dir // visual better
 
-/obj/item/weapon/projectile/heavy_mg/proc/detach_tripod(var/mob/user)
+/obj/item/weapon/projectile/gun_turret/proc/detach_tripod(var/mob/user)
 	if(!disassembled || !tripod || !ismob(user))
 		return
 
@@ -225,7 +225,7 @@
 	disassembled = null
 	qdel(src)
 
-/obj/item/weapon/projectile/heavy_mg/verb/detach_from_tripod()
+/obj/item/weapon/projectile/gun_turret/verb/detach_from_tripod()
 	set name = "Detach from tripod"
 	set category = "Object"
 	set src in view(1)
@@ -237,10 +237,11 @@
 	detach_tripod(usr)
 
 
-/obj/item/gun/projectile/heavy_mg/machine_gun_turret // The assembly itself
+/obj/item/gun/projectile/gun_turret/machine_gun_turret // The assembly itself
   name = "heavy machine gun turret"
 	desc = "A tripod-mounted machine gun turret. Brutally simple, as it is effective for area denial. Has a clunky reload with big ammo boxes."
-  desc_extended =
+  desc_extended = "Produced by the San Colette Interstellar Armaments Company (CAISC), the Colletish Armaments Multipurpose Machinegun Model 3 is a heavy piece of equipment, perfect for area denial and suppressive fire. Brutally simple, as it is effective \
+the MPM-3 excelled as the perfect emplacement weapon to secure outposts, convoys and as a secondary vehicle armament, due to its easy maintenance and low jam probability. Chambered in 14.5mm to shred even your best protected enemy."
 	icon_state =
 	load_method = MAGAZINE
 	caliber =
@@ -259,7 +260,7 @@
     list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)) // All firemodes because it has no fire selector
 		)
 
-/obj/item/gun/projectile/heavy_mg/update_icon()
+/obj/item/gun/projectile/gun_turret/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state =
@@ -274,7 +275,7 @@
   w_class = ITEMSIZE_LARGE
 	icon_state =
   action_button_name = "Deploy the turret tripod."
-	need_type = /obj/item/weapon/gun/projectile/heavy_mg/machine_gun_turret
+	need_type = /obj/item/weapon/gun/projectile/gun_turret/machine_gun_turret
 
 /obj/item/weapon/mg_disassembled
   name = "heavy machine gun"
