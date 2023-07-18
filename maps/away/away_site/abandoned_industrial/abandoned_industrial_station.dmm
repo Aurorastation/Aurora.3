@@ -3338,11 +3338,10 @@
 "lb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
-/obj/machinery/light/spot/weak{
-	dir = 8;
-	must_start_working = 1
-	},
 /obj/random/dirt_75,
+/obj/machinery/light/broken{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/operations)
 "lc" = (
