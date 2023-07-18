@@ -33,12 +33,28 @@
 				else if(psionic_rank == PSI_RANK_HARMONIOUS)
 					aura_color = "#3333cc"
 
+	if(psionic_rank > PSI_RANK_SENSITIVE && last_psionic_rank < PSI_RANK_SENSITIVE)
+		switch(psionic_rank)
+			if(PSI_RANK_HARMONIOUS)
+				psi_points = PSI_POINTS_HARMONIOUS
+			if(PSI_RANK_APEX)
+				psi_points = PSI_POINTS_APEX
+		wipe_user_abilities()
+
+	if(last_psionic_rank > PSI_RANK_SENSITIVE && psionic_rank < PSI_RANK_HARMONIOUS)
+		psi_points = 0
+		wipe_user_abilities()
+
 	if(!announced && owner && owner.client && !QDELETED(src))
 		announced = TRUE
 		to_chat(owner, "<hr>")
 		to_chat(owner, SPAN_NOTICE("<font size = 3>You are <b>psionic</b>, touched by powers beyond understanding.</font>"))
 		to_chat(owner, SPAN_NOTICE("<b>Shift-left-click your Psi icon</b> on the bottom right to <b>view a summary of how to use them</b>, or <b>left click</b> it to <b>suppress or unsuppress</b> your psionics. Beware: overusing your gifts can have <b>deadly consequences</b>."))
 		to_chat(owner, "<hr>")
+
+/datum/psi_complexus/proc/wipe_user_abilities()
+	to_chat(owner, SPAN_DANGER("IMPLEMENT ABILITY WIPING YOU LAZY FUCK"))
+	return //todomatt
 
 /datum/psi_complexus/process()
 

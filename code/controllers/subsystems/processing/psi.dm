@@ -1,4 +1,4 @@
-var/global/list/psychic_ranks_to_strings = list("Psionically Deaf", "Psionically Sensitive", "Psionically Harmonious", "Psionic Apex")
+var/global/list/psychic_ranks_to_strings = list("Psionically Perceptive", "Psionically Sensitive", "Psionically Harmonious", "Psionic Apex")
 
 /var/datum/controller/subsystem/processing/psi/SSpsi
 

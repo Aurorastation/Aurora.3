@@ -3,18 +3,19 @@
 	var/announced = FALSE             // Whether or not we have been announced to our holder yet.
 	var/suppressed = TRUE             // Whether or not we are suppressing our psi powers.
 	var/use_psi_armor = TRUE         // Whether or not we should automatically deflect/block incoming damage.
-	var/rebuild_power_cache = TRUE    // Whether or not we need to rebuild our cache of psi powers.
 
 	var/cost_modifier = 1             // Multiplier for power use stamina costs.
 	var/stun = 0                      // Number of process ticks we are stunned for.
 	var/next_power_use = 0            // world.time minimum before next power use.
 	var/stamina = 50                  // Current psi pool.
 	var/max_stamina = 50              // Max psi pool.
+	var/psi_points = 0				  // Points spendable in the psi pointshop.
+	var/spent_psi_points = 0		  // Need to keep track of if someone has spent psi-points before for things like updating psi-rank.
 
 	var/psionic_rank
 	var/last_psionic_rank
 	var/list/manifested_items         // List of atoms manifested/maintained by psychic power.
-	var/next_latency_trigger = 0      // world.time minimum before a trigger can be attempted again.
+	var/list/psionic_powers = list()  // List of singleton abilities.
 	var/last_armor_check              // world.time of last armor check.
 	var/last_aura_size
 	var/last_aura_alpha

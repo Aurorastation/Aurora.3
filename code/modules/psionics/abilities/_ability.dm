@@ -13,14 +13,13 @@
 	var/minimum_rank = PSI_RANK_SENSITIVE
 	/// Point shop cost.
 	var/point_cost = 1
-	/// Psionic complexus cost.
-	var/psi_cost = 0
 
 /// Called when a power is given to a mob.
 /singleton/psionic_power/proc/apply(var/mob/living/carbon/human/H)
 	if(H.ability_master)
 		var/obj/spellbutton/spell = new(H, spell_path, name, icon_state)
-		H.ability_master.add_psionic_ability(spell, icon_state)
+		H.ability_master.add_psionic_ability(spell, icon_state, src)
+		H.psi.psionic_powers |= type
 		return TRUE
 	else
 		log_debug("Psionic power [src.name] given to mob [H] without ability master!")

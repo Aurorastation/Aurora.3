@@ -40,6 +40,7 @@
 	var/toggled = 0					// Mainly used for overlays.
 	var/cooldown = 0 				// If set, will add a cooldown overlay and adjust click delay.  Must be a multiple of 5 for overlays.
 	var/cast_sound = null			// Sound file played when this is used.
+	var/psi_cost = 0				// Psi complexus cost to use this spell.
 
 /obj/item/spell/examine(mob/user, distance) // Nothing on examine.
 	return
@@ -48,37 +49,61 @@
 // Parameters: 1 (user - the technomancer casting the spell)
 // Description: Override this for clicking the spell in your hands.
 /obj/item/spell/proc/on_use_cast(mob/user)
+	SHOULD_CALL_PARENT(TRUE)
+	if(aspect == ASPECT_PSIONIC)
+		if(!owner.psi.spend_power(psi_cost))
+			return FALSE
 	return
 
 // Proc: on_throw_cast()
 // Parameters: 1 (hit_atom - the atom hit by the spell object)
 // Description: Override this for throwing effects.
 /obj/item/spell/proc/on_throw_cast(atom/hit_atom)
+	SHOULD_CALL_PARENT(TRUE)
+	if(aspect == ASPECT_PSIONIC)
+		if(!owner.psi.spend_power(psi_cost))
+			return FALSE
 	return
 
 // Proc: on_ranged_cast()
 // Parameters: 2 (hit_atom - the atom clicked on by the user, user - the technomancer that clicked hit_atom)
 // Description: Override this for ranged effects.
-/obj/item/spell/proc/on_ranged_cast(atom/hit_atom, mob/user)
-	return
+/obj/item/spell/proc/on_ranged_cast(atom/hit_atom, mob/user, var/bypass_psi_check)
+	SHOULD_CALL_PARENT(TRUE)
+	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
+		if(!owner.psi.spend_power(psi_cost))
+			return FALSE
+	return TRUE
 
 // Proc: on_melee_cast()
 // Parameters: 3 (hit_atom - the atom clicked on by the user, user - the technomancer that clicked hit_atom, def_zone - unknown)
 // Description: Override this for effects that occur at melee range.
 /obj/item/spell/proc/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	if(aspect == ASPECT_PSIONIC)
+		if(!owner.psi.spend_power(psi_cost))
+			return FALSE
+	return TRUE
 
 // Proc: on_combine_cast()
 // Parameters: 2 (I - the item trying to merge with the spell, user - the technomancer who initiated the merge)
 // Description: Override this for combining spells, like Aspect spells.
 /obj/item/spell/proc/on_combine_cast(obj/item/I, mob/user)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	if(aspect == ASPECT_PSIONIC)
+		if(!owner.psi.spend_power(psi_cost))
+			return FALSE
+	return TRUE
 
 // Proc: on_innate_cast()
 // Parameters: 1 (user - the entity who is casting innately (without using hands).)
 // Description: Override this for casting without using hands (and as a result not using spell objects).
 /obj/item/spell/proc/on_innate_cast(mob/user)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	if(aspect == ASPECT_PSIONIC)
+		if(!owner.psi.spend_power(psi_cost))
+			return FALSE
+	return TRUE
 
 // Proc: on_scepter_use_cast()
 // Parameters: 1 (user - the holder of the Scepter that clicked.)
@@ -100,6 +125,8 @@
 // if they are able to pay, it is deducted automatically.
 /obj/item/spell/proc/pay_energy(var/amount)
 	if(!core)
+		if(aspect == ASPECT_PSIONIC)
+			return owner.psi.spend_power(amount)
 		return amount
 	return core.pay_energy(amount)
 
@@ -264,7 +291,11 @@
 		if(cast_methods & CAST_RANGED) //Try to use a ranged method if a melee one doesn't exist.
 			on_ranged_cast(target, user)
 	if(cooldown)
-		var/effective_cooldown = round(cooldown * core.cooldown_modifier, 5)
+		var/effective_cooldown
+		if(aspect == ASPECT_PSIONIC)
+			effective_cooldown = cooldown
+		else
+			effective_cooldown = round(cooldown * core.cooldown_modifier, 5)
 		user.setClickCooldown(effective_cooldown)
 		flick("cooldown_[effective_cooldown]",src)
 

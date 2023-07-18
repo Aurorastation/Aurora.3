@@ -2,7 +2,6 @@
 	name = "Commune"
 	desc = "Allows you to psionically commune with the target."
 	icon_state = "tech_audibledeception"
-	psi_cost = 15
 	spell_path = /obj/item/spell/commune
 
 /obj/item/spell/commune
@@ -12,6 +11,7 @@
 	cast_methods = CAST_RANGED|CAST_MELEE
 	aspect = ASPECT_PSIONIC
 	cooldown = 10
+	psi_cost = 15
 
 /obj/item/spell/commune/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	. = ..()

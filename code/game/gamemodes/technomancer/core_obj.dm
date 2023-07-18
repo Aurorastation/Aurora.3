@@ -199,7 +199,7 @@
 /obj/spellbutton/technomancer
 	var/obj/item/technomancer_core/core
 
-/obj/spellbutton/tecnomancer/Initialize(mapload, var/path, var/new_name, var/new_icon_state)
+/obj/spellbutton/technomancer/Initialize(mapload, var/path, var/new_name, var/new_icon_state)
 	. = ..()
 	src.loc = loc
 	src.core = loc

@@ -293,10 +293,17 @@
 /obj/screen/ability/obj_based/psionic
 	icon_state = "nano_spell_base"
 	background_base_state = "nano"
+	var/singleton/psionic_power/connected_power
 
-/obj/screen/movable/ability_master/proc/add_psionic_ability(var/obj/object_given, var/ability_icon_given)
+/obj/screen/ability/obj_based/psionic/Destroy()
+	connected_power = null
+	return ..()
+
+/obj/screen/movable/ability_master/proc/add_psionic_ability(var/obj/object_given, var/ability_icon_given, var/singleton/psionic_power/P)
 	if(!object_given)
 		message_admins("ERROR: add_psionic_ability() was not given an object in its arguments.")
+	if(!P)
+		message_admins("Psionic ability added without connected psionic power singleton!")
 	if(get_ability_by_instance(object_given))
 		return // Duplicate
 	var/obj/screen/ability/obj_based/psionic/A = new /obj/screen/ability/obj_based/psionic()

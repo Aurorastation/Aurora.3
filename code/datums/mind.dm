@@ -436,6 +436,9 @@
 		for(var/datum/objective/objective in objectives)
 			to_chat(current, "<B>Objective #[obj_count]</B>: [objective.explanation_text]")
 			obj_count++
+
+	else if(href_list["set_psi_rank"])
+		current.set_psi_rank(text2num(href_list["set_psi_rank"]))
 	edit_memory()
 
 /datum/mind/proc/find_syndicate_uplink()

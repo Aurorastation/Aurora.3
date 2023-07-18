@@ -67,7 +67,9 @@
 /obj/screen/psi/hub/ui_data(mob/user)
 	var/list/data = list()
 	data["available_psionics"] = list()
-	data["psi_rank"] = owner.psi.get_rank()
+	data["psi_rank"] = psychic_ranks_to_strings[owner.psi.get_rank()]
+	data["psi_points"] = owner.psi.psi_points
+	data["bought_powers"] = owner.psi.psionic_powers
 	for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
 		if(owner.psi.get_rank() < P.minimum_rank)
 			continue
@@ -76,7 +78,22 @@
 				"name" = P.name,
 				"desc"  = P.desc,
 				"point_cost" = P.point_cost,
-				"minimum_rank" = P.minimum_rank
+				"minimum_rank" = P.minimum_rank,
+				"path" = P.type
 			)
 		)
 	return data
+
+/obj/screen/psi/hub/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return TRUE
+
+	switch(action)
+		if("buy")
+			var/psionic_path = text2path(params["buy"])
+			if(ispath(psionic_path))
+				var/singleton/psionic_power/P = GET_SINGLETON(psionic_path)
+				P.apply(owner)
+				to_chat(owner, SPAN_NOTICE("You are now capable of using [P.name]."))
+				return TRUE

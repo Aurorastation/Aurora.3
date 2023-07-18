@@ -526,7 +526,7 @@
 		return
 
 	var/host_psi_rank = host.psi.get_rank()
-	var/next_rank = host_psi_rank > PSI_RANK_DEAF ? host_psi_rank + 1 : PSI_RANK_DEAF
+	var/next_rank = host_psi_rank < PSI_RANK_APEX ? host_psi_rank + 1 : PSI_RANK_APEX
 	host.psi.set_rank(next_rank)
 	host.psi.update(TRUE)
 	to_chat(src, SPAN_NOTICE("You successfully manage to upgrade your host to [psychic_ranks_to_strings[host.psi.get_rank()]]."))
