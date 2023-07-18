@@ -948,15 +948,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hangar)
-"eB" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 5
-	},
-/obj/machinery/light/colored/decayed{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/abandoned_industrial_station/hallways)
 "eC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -2107,11 +2098,10 @@
 /area/abandoned_industrial_station/bridge)
 "jO" = (
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	pixel_y = -24;
-	req_access = null
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/power/apc/empty{
+	pixel_y = -24
+	},
 /turf/simulated/floor,
 /area/abandoned_industrial_station/engineering)
 "jT" = (
@@ -5307,10 +5297,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/empty{
 	dir = 1;
-	pixel_y = 24;
-	req_access = null
+	pixel_y = 24
 	},
 /turf/simulated/floor,
 /area/abandoned_industrial_station/service)
@@ -7981,7 +7970,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/machinery/light/colored/dying{
+/obj/machinery/light/colored/decayed{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -8527,10 +8516,9 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/empty{
 	dir = 1;
-	pixel_y = 24;
-	req_access = null
+	pixel_y = 24
 	},
 /turf/simulated/floor,
 /area/abandoned_industrial_station/atmos)
@@ -37106,7 +37094,7 @@ Ov
 Dp
 tP
 AN
-Am
+sm
 rQ
 rQ
 Rb
@@ -40185,7 +40173,7 @@ Uo
 AY
 Pi
 fW
-eB
+Ci
 tA
 AN
 YQ
@@ -43770,7 +43758,7 @@ in
 eO
 eO
 lf
-fK
+rZ
 VB
 aU
 Pm
@@ -57905,7 +57893,7 @@ Wh
 nM
 nM
 nM
-qr
+ht
 MB
 MB
 kW
@@ -58676,7 +58664,7 @@ kW
 rl
 nM
 nM
-GR
+kW
 wC
 MB
 kW

@@ -315,4 +315,4 @@ FLOOR SAFES
 
 /obj/structure/safe/open
 	icon_state = "safe-open"
-	var/open = 1
+	open = 1
