@@ -578,8 +578,8 @@
 	icon_state =
 	w_class = ITEMSIZE_LARGE
 	mag_type = MAGAZINE
-	caliber =
+	caliber = "14.5mm"
 	insert_sound =
-	ammo_type
+	ammo_type =
 	max_ammo = 100
 	multiple_sprites = 1

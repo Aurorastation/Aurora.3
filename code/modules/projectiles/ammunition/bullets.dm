@@ -433,6 +433,6 @@
 	name =
 	icon_state =
 	spent_icon =
-	caliber =
+	caliber = "14.5mm"
 	projectile_type = /obj/item/projectile/bullet
 	max_stack = 10

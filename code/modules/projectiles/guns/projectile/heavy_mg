@@ -9,7 +9,7 @@
 	layer = ABOVE_OBJ_LAYER + 0.11
 	anchored = 1
 	density = 1
-	w_class = ITEM_SIZE_
+	w_class = ITEM_SIZE_IMMENSE
 	load_method = SINGLE_CASING
   handle_casings = EJECT_CASINGS
 	max_shells = 6000
@@ -285,6 +285,6 @@
 
 /obj/item/gun_shield
   name = "turret gun shield"
-  desc = "A thick metal shield with a small viewing port. To be mounted on a gun turret."
+  desc = "A thick metal shield with a small viewing port. Intended to partially protect you, when it's mounted on a gun turret."
   icon_state =
   w_class = ITEMSIZE_NORMAL
