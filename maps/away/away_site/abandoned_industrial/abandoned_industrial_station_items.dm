@@ -62,7 +62,26 @@
 		Just follow the pipes to turn on the valves and pumps, and fill a canister or whatever you're doing. Good luck. <br>\
 		<br>\
 		<br>\
-		Oh and btw watch out for Frantisek. They're shady and weird, pretty sure they're hiding something.<br>\
+		Oh and btw watch out for Frantisek. They're shady and weird, pretty sure they're hiding something. <br>\
 		I couldn't sleep last night, went to the kitchen, saw them putting something behind the booze cabinet there. <br>\
 		Weird shit. <br>\
+		"
+
+/obj/item/paper/abandoned_industrial_station/game_note
+	name = "Note"
+	desc = "A small handwritten note."
+	info = "\
+		Yo, my man. <br>\
+		Can't catch you lately, where you been? Hope you ain't took off like some others without saying a word. <br>\
+		If you still here, we been doing a card game lately, and you invited. <br>\
+		Big cash in it though, so bring whatever you got. Know you still got that gold watch you found last month. <br>\
+		<br>\
+		If you interested, we play every friday. Place is in maint tunnel between bridge and engineering. <br>\
+		We got like a poker table and booze and stuff. Some entertainment before this place falls apart. <br>\
+		<br>\
+		Don't tell Anna I told you, but we put the goodies in the trash cart. <br>\
+		If they see you touching that cart, your leg gonna get the ore stacker treatment, so that's a warning, yo. <br>\
+		<br>\
+		<br>\
+		~Jiri <br>\
 		"
