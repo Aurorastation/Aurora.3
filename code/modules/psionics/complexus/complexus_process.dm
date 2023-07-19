@@ -2,9 +2,8 @@
 	set waitfor = FALSE
 
 	if(force || last_psionic_rank != psionic_rank)
-		if(psionic_rank <= 1)
-			if(psionic_rank == 0)
-				qdel(src)
+		if(psionic_rank == 0)
+			qdel(src)
 			return
 		else
 			sound_to(owner, 'sound/effects/psi/power_unlock.ogg')

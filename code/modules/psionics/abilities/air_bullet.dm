@@ -15,22 +15,26 @@
 	spell_projectile = /obj/item/projectile/air_bullet
 	fire_sound = 'sound/weapons/wave.ogg'
 	cooldown = 5
-	psi_cost = 3
+	psi_cost = 0
 	var/bullets = 0
 	var/max_bullets = 6
 
 /obj/item/spell/projectile/air_bullet/on_use_cast(mob/user)
 	. = ..()
+	if(!isliving(user))
+		return
+	var/mob/living/L = user
 	if(bullets < max_bullets)
-		if(do_after(user, 0.5 SECONDS))
-			to_chat(user, SPAN_NOTICE("You compress some air bullets between your fingers."))
+		if(do_after(L, 0.5 SECONDS))
+			to_chat(L, SPAN_NOTICE("You compress some air bullets between your fingers."))
 			bullets = min(bullets + 2, 6)
 			maptext = SMALL_FONTS(7, bullets)
-			playsound(user, 'sound/weapons/unjam.ogg', 25)
+			playsound(L, 'sound/weapons/unjam.ogg', 25)
+			L.psi.spend_power(3)
 			if(bullets >= 6)
-				to_chat(user, SPAN_NOTICE("You finish compressing all the bullets you can hold."))
+				to_chat(L, SPAN_NOTICE("You finish compressing all the bullets you can hold."))
 				return
-			on_use_cast(user)
+			on_use_cast(L)
 
 /obj/item/spell/projectile/air_bullet/on_ranged_cast(atom/hit_atom, mob/living/user, atom/pb_target)
 	if(!bullets)

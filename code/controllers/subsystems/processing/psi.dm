@@ -1,4 +1,4 @@
-var/global/list/psychic_ranks_to_strings = list("Psionically Perceptive", "Psionically Sensitive", "Psionically Harmonious", "Psionic Apex")
+var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psionically Harmonious", "Psionic Apex")
 
 /var/datum/controller/subsystem/processing/psi/SSpsi
 
@@ -90,4 +90,4 @@ var/global/list/psychic_ranks_to_strings = list("Psionically Perceptive", "Psion
 		if(emotion in nlom_votes)
 			nlom_votes[emotion]++
 			to_chat(PC.owner, SPAN_NOTICE("You have transmitted your emotional state to the Nlom."))
-			PC |= nlom_voters
+			nlom_voters |= PC

@@ -1,5 +1,5 @@
-import { useBackend } from '../backend';
-import { BlockQuote, Box, Button, NoticeBox, Section } from '../components';
+import { useBackend, useLocalState } from '../backend';
+import { BlockQuote, Box, Button, Input, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export type PsiData = {
@@ -20,10 +20,30 @@ type Psionic = {
 export const PsionicShop = (props, context) => {
   const { act, data } = useBackend<PsiData>(context);
 
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``
+  );
+
   return (
     <Window resizable theme="wizard">
       <Window.Content scrollable>
-        <Section title="Psionic Point Shop">
+        <Section
+          title="Psionic Point Shop"
+          buttons={
+            <Input
+              autoFocus
+              autoSelect
+              placeholder="Search by name"
+              width="40vw"
+              maxLength={512}
+              onInput={(e, value) => {
+                setSearchTerm(value);
+              }}
+              value={searchTerm}
+            />
+          }>
           <Box fontSize={1.4}>
             You are{' '}
             <Box as="span" bold>
@@ -45,26 +65,36 @@ export const PsionicShop = (props, context) => {
 export const PsionicsList = (props, context) => {
   const { act, data } = useBackend<PsiData>(context);
 
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``
+  );
+
   return (
     <Section>
-      {data.available_psionics.map((psi) => (
-        <Section
-          key={psi.name + ' (' + psi.point_cost + ')'}
-          title={psi.name}
-          buttons={
-            <Button
-              content="Buy"
-              color="green"
-              disabled={
-                psi.point_cost > data.psi_points ||
-                data.bought_powers.includes(psi.path)
-              }
-              onClick={() => act('buy', { buy: psi.path })}
-            />
-          }>
-          <BlockQuote>{psi.desc}</BlockQuote>
-        </Section>
-      ))}
+      {data.available_psionics
+        .filter(
+          (psi) => psi.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+        )
+        .map((psi) => (
+          <Section
+            key={psi.name + ' (' + psi.point_cost + ')'}
+            title={psi.name}
+            buttons={
+              <Button
+                content="Buy"
+                color="green"
+                disabled={
+                  psi.point_cost > data.psi_points ||
+                  data.bought_powers.includes(psi.path)
+                }
+                onClick={() => act('buy', { buy: psi.path })}
+              />
+            }>
+            <BlockQuote>{psi.desc}</BlockQuote>
+          </Section>
+        ))}
     </Section>
   );
 };

@@ -107,7 +107,7 @@ var/global/enabled_spooking = 0
 		if(psyker.psi)
 			body += "<a href='?src=\ref[src];remove_psionics=\ref[psyker.psi]'>Remove psionics.</a><br/><br/>"
 		body += "<table width = '100%'>"
-		for(var/psi_rank in list(PSI_RANK_PERCEPTIVE, PSI_RANK_SENSITIVE, PSI_RANK_HARMONIOUS, PSI_RANK_APEX))
+		for(var/psi_rank in list(PSI_RANK_SENSITIVE, PSI_RANK_HARMONIOUS, PSI_RANK_APEX))
 			var/owner_rank = psyker.psi ? psyker.psi.get_rank() : 0
 			var/psi_title = psychic_ranks_to_strings[psi_rank]
 			if(psi_rank == owner_rank)

@@ -73,6 +73,10 @@
 	for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
 		if(owner.psi.get_rank() < P.minimum_rank)
 			continue
+		if(P.ability_flags & PSI_FLAG_FOUNDATIONAL)
+			continue
+		if(owner.psi.get_rank() < PSI_FLAG_APEX && P.ability_flags & PSI_FLAG_APEX)
+			continue
 		data["available_psionics"] += list(
 			list(
 				"name" = P.name,
