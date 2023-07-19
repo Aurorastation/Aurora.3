@@ -1,4 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-changes:
-  - bugfix: "IV drips, including rollerbed IVs, are limited to accepting bloodbags, beakers, and bottles as reagent containers. No more attaching food to IVs."
