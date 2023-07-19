@@ -53,23 +53,15 @@
 	icon_state = "bodybag"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
-	density = 0
-	storage_capacity = 30
+	density = FALSE
+	storage_capacity = 15
+	store_misc = FALSE
+	store_items = FALSE
 	var/item_path = /obj/item/bodybag
 	var/contains_body = FALSE
 	can_be_buckled = TRUE
 
 /obj/structure/closet/body_bag/content_info(mob/user, content_size)
-	if(!content_size && !contains_body)
-		to_chat(user, "\The [src] is empty.")
-	else if(storage_capacity > content_size*4)
-		to_chat(user, "\The [src] is barely filled.")
-	else if(storage_capacity > content_size*2)
-		to_chat(user, "\The [src] is less than half full.")
-	else if(storage_capacity > content_size)
-		to_chat(user, "\The [src] still has some free space.")
-	else
-		to_chat(user, "\The [src] is full.")
 	to_chat(user, "It [contains_body ? "contains" : "does not contain"] a body.")
 
 /obj/structure/closet/body_bag/attackby(var/obj/item/W, mob/user as mob)
