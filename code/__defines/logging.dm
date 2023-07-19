@@ -24,38 +24,38 @@
 #if defined(MANUAL_UNIT_TEST)
 #define LOG_GITHUB_DEBUG(text)\
 SEND_TEXT(world.log, "DEBUG: [text]");\
-rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+rustg_log_write(LOGPATH("condensed.log"), "[text][log_end]", "true")
 
 #define LOG_GITHUB_NOTICE(text)\
 SEND_TEXT(world.log, "NOTICE: [text] @@@ → [__FILE__]:[__LINE__]");\
-rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+rustg_log_write(LOGPATH("condensed.log"), "[text][log_end]", "true")
 
 #define LOG_GITHUB_WARNING(text)\
 SEND_TEXT(world.log, "WARNING: [text] @@@ → [__FILE__]:[__LINE__]");\
-rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+rustg_log_write(LOGPATH("condensed.log"), "[text][log_end]", "true")
 
 #define LOG_GITHUB_ERROR(text)\
 SEND_TEXT(world.log, "ERROR: [text] @@@ → [__FILE__]:[__LINE__]");\
-rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+rustg_log_write(LOGPATH("condensed.log"), "[text][log_end]", "true")
 
 
 
 #else
 #define LOG_GITHUB_DEBUG(text)\
 SEND_TEXT(world.log, "::debug::[text]");\
-rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+rustg_log_write(LOGPATH("condensed.log"), "[text][log_end]", "true")
 
 #define LOG_GITHUB_NOTICE(text)\
 SEND_TEXT(world.log, "::notice file=[__FILE__],line=[__LINE__]::[text]");\
-rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+rustg_log_write(LOGPATH("condensed.log"), "[text][log_end]", "true")
 
 #define LOG_GITHUB_WARNING(text)\
 SEND_TEXT(world.log, "::warning file=[__FILE__],line=[__LINE__]::[text]");\
-rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+rustg_log_write(LOGPATH("condensed.log"), "[text][log_end]", "true")
 
 #define LOG_GITHUB_ERROR(text)\
 SEND_TEXT(world.log, "::error file=[__FILE__],line=[__LINE__]::[text]");\
-rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log_end]", "true")
+rustg_log_write(LOGPATH("condensed.log"), "[text][log_end]", "true")
 
 #endif
 
@@ -80,29 +80,17 @@ rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text][log
 #if defined(UNIT_TEST)
 #define WRITE_LOG(file, text) \
 SEND_TEXT(world.log, "\[[file]\]: [text]");\
-rustg_log_write(LOGPATH("condensed.log"), "\[[__FILE__]:[__LINE__]\]: [text]", "true")
-
-#elif DM_VERSION < 515
-#define WRITE_LOG(file, text)\
-rustg_log_write(LOGPATH(file), "[game_id] \[[__FILE__]:[__LINE__]\]: [text]", "true");\
-\
-if(config?.all_logs_to_chat) { \
-	to_chat(world, "\[[file]\]: [text]");\
-}\
-\
-if(config?.condense_all_logs) {\
-	rustg_log_write(LOGPATH("condensed.log"), "[game_id] \[[__FILE__]:[__LINE__]\]: [text]", "true");\
-}
+rustg_log_write(LOGPATH("condensed.log"), "[text]", "true")
 
 #else
 #define WRITE_LOG(file, text)\
-rustg_log_write(LOGPATH(file), "[game_id] [nameof(__PROC__)]: [text]", "true");\
+rustg_log_write(LOGPATH(file), "[game_id] [text]", "true");\
 \
 if(config?.all_logs_to_chat) { \
 	to_chat(world, "\[[file]\]: [text]");\
 }\
 if(config?.condense_all_logs) {\
-	rustg_log_write(LOGPATH("condensed.log"), "[game_id] [nameof(__PROC__)]: [text]", "true");\
+	rustg_log_write(LOGPATH("condensed.log"), "[game_id] [text]", "true");\
 }
 #endif
 

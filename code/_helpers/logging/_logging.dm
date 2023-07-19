@@ -254,4 +254,4 @@
 		// Insert message
 		if(message)
 			entry += "\n[message]"
-		WRITE_LOG(config.logfiles["world_subsystems_tgui"], entry)
+		WRITE_LOG(config.logfiles["world_subsystems_tgui"], "TGUI: [entry]")
