@@ -1,0 +1,4 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "You can no longer duplicate signs by queueing up multiple dialogue boxes."
