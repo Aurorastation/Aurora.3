@@ -30,18 +30,15 @@
 	icon_state = "ore_scanner[active ? "-active" : ""]"
 
 /obj/item/ore_detector/attack_self(mob/user)
-	if(!length(search_ores))
-		to_chat(user, SPAN_WARNING("You haven't set an ore to search for yet!"))
-		return
-	active = !active
-	var/msg = "You [active ? "activate" : "deactivate"] \the [src]."
-	to_chat(user, SPAN_NOTICE(msg))
-	if(active)
-		activate(user)
-	else
-		deactivate()
+	ui_interact(user)
 
-/obj/item/ore_detector/AltClick(mob/user)
+/obj/item/ore_detector/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "OreDetector", ui_x=400, ui_y=420)
+		ui.open()
+
+/obj/item/ore_detector/ui_data(mob/user)
 	if(!length(ore_names))
 		ore_names = list()
 		for(var/ore_n in ore_data)
@@ -50,31 +47,32 @@
 			ore_names += ore_name
 		ore_names += MINOR_ARTIFACTS
 		ore_names += MAJOR_ARTIFACTS
-	if(loc == user)
-		var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-		if(!ui)
-			ui = new(user, src, "devices-oredetector", 320, 220, capitalize_first_letters(name))
-		ui.open()
-	else
-		return ..()
 
-/obj/item/ore_detector/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		data = list()
+	var/list/data = list()
+	data["ore_names"] = ore_names
+	data["search_ores"] = search_ores 
+	data["enabled"] = active
+	return data
 
-	VUEUI_SET_CHECK_LIST(data["ore_names"], ore_names, ., data)
-	VUEUI_SET_CHECK_LIST(data["selected_ores"], search_ores, ., data)
-
-/obj/item/ore_detector/Topic(href, href_list)
-	..()
-
-	if(href_list["chosen_ore"])
-		if(href_list["chosen_ore"] in search_ores)
-			search_ores -= href_list["chosen_ore"]
+/obj/item/ore_detector/ui_act(action,params)
+	. = ..()
+	if(.)
+		return
+	if(action=="toggle")
+		if(active)
+			deactivate()
 		else
-			search_ores += href_list["chosen_ore"]
-
-	SSvueui.check_uis_for_change(src)
+			activate(usr)
+		. = TRUE
+		update_icon()
+	if(action=="select_ore")
+		if(params["ore_name"] in search_ores)
+			search_ores -= params["ore_name"]
+		else
+			search_ores += params["ore_name"]
+		if(!length(search_ores))
+			deactivate()
+		. = TRUE
 
 /obj/item/ore_detector/process()
 	if(last_ping + ping_rate > world.time)
@@ -105,9 +103,11 @@
 		return
 	START_PROCESSING(SSprocessing, src)
 	our_user = WEAKREF(user)
+	active=TRUE
 	update_icon()
 
 /obj/item/ore_detector/proc/deactivate()
+	active=FALSE
 	STOP_PROCESSING(SSprocessing, src)
 	our_user = null
 	update_icon()

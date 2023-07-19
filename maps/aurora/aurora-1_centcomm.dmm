@@ -123,7 +123,7 @@
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -8969,11 +8969,7 @@
 	pixel_x = 5;
 	pixel_y = 16
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "ccF" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -9243,7 +9239,7 @@
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "cafeteria"
 	},
@@ -10807,11 +10803,7 @@
 /obj/structure/ore_box{
 	icon_state = "orebox1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "dio" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -10953,11 +10945,7 @@
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "dob" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -12464,7 +12452,7 @@
 /obj/item/storage/box/practiceshells,
 /obj/item/storage/box/trackingslugs,
 /obj/effect/decal/warning_stripes,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor,
 /area/antag/loner)
 "enU" = (
@@ -13732,10 +13720,10 @@
 "fdr" = (
 /obj/structure/table/wood,
 /obj/random/coin,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -14090,11 +14078,7 @@
 	can_buckle = 0;
 	name = "dusty chair"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "fri" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -15199,7 +15183,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/computer/station_alert,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "fWO" = (
@@ -18245,7 +18228,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1;
 	name = "adjusted spotlight";
 	pixel_x = -16
@@ -21941,8 +21924,8 @@
 /obj/structure/table/wood{
 	table_reinf = "wood"
 	},
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -22680,9 +22663,6 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "kNJ" = (
-/obj/item/circuitboard/rcon_console{
-	name = "circuit board (Ticket Kiosk Console)"
-	},
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
@@ -26264,11 +26244,7 @@
 	},
 /area/centcom/bar)
 "mZh" = (
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "mZj" = (
 /turf/unsimulated/mineral/asteroid,
@@ -28002,11 +27978,7 @@
 	icon_state = "boulder1";
 	name = "rubble"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "nYo" = (
 /obj/structure/bed/stool/chair/office/bridge{
@@ -29968,11 +29940,7 @@
 /area/centcom/bar)
 "pux" = (
 /obj/item/pickaxe,
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "puD" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -30824,11 +30792,7 @@
 	pixel_x = 11;
 	pixel_y = -6
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "pUh" = (
 /obj/structure/shuttle_part/merchant{
@@ -31753,11 +31717,7 @@
 	name = "beacon";
 	pixel_y = -2
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "qGr" = (
 /obj/structure/window/shuttle/unique/merchant{
@@ -33321,10 +33281,10 @@
 "rPi" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/handheld/pda/syndicate,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -36714,7 +36674,7 @@
 /area/centcom/specops)
 "ujT" = (
 /obj/structure/table/standard,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -36760,12 +36720,12 @@
 	pixel_y = 6
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -38613,11 +38573,7 @@
 "vze" = (
 /obj/structure/table/steel,
 /obj/item/deck/cards,
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "vzG" = (
 /obj/machinery/vending/snack{
@@ -40937,7 +40893,7 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "wNC" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},

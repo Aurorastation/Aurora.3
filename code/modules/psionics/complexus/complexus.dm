@@ -52,7 +52,7 @@
 	aura_image.alpha = 0
 	aura_image.pixel_x = -64
 	aura_image.pixel_y = -64
-	aura_image.mouse_opacity = 0
+	aura_image.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	aura_image.appearance_flags = 0
 	for(var/thing in SSpsi.processing)
 		var/datum/psi_complexus/psychic = thing

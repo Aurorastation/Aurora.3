@@ -2464,7 +2464,6 @@
 	icon_state = "tube1"
 	},
 /obj/structure/table/glass,
-/obj/item/board,
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_x = 30
 	},
@@ -4625,7 +4624,6 @@
 /area/racers)
 "wEw" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/board,
 /turf/simulated/floor/plating,
 /area/racers)
 "wGR" = (

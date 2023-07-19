@@ -7,21 +7,11 @@
 	size = 0
 
 	usage_flags = PROGRAM_SILICON_PAI
-
-/datum/computer_file/program/pai_directives/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-pai-directives", 450, 500, "pAI directives")
-	ui.open()
-
-/datum/computer_file/program/pai_directives/vueui_transfer(oldobj)
-	SSvueui.transfer_uis(oldobj, src, "mcomputer-pai-directives", 450, 500, "pAI directives")
-	return TRUE
+	tgui_id = "pAIDirectives"
 
 // Gaters data for ui
-/datum/computer_file/program/pai_directives/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data || list()
+/datum/computer_file/program/pai_directives/ui_data(mob/user)
+	var/list/data = list()
 	// Gather data for computer header
 	var/headerdata = get_header_data(data["_PC"])
 	if(headerdata)
@@ -35,13 +25,17 @@
 		return
 	var/mob/living/silicon/pai/host = true_computer.computer_host
 
-	VUEUI_SET_CHECK(data["master"], host.master, ., data)
-	VUEUI_SET_CHECK(data["dna"], host.master_dna, ., data)
-	VUEUI_SET_CHECK(data["prime"], host.pai_law0, ., data)
-	VUEUI_SET_CHECK(data["supplemental"], host.pai_laws, ., data)
+	data["master"] = host.master
+	data["dna"] = host.master_dna
+	data["prime"] = host.pai_law0
+	data["supplemental"] = host.pai_laws
 
-/datum/computer_file/program/pai_directives/Topic(href, href_list)
+	return data
+
+/datum/computer_file/program/pai_directives/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
+	if(.)
+		return
 
 	if(!istype(computer, /obj/item/modular_computer/silicon))
 		return
@@ -50,7 +44,7 @@
 		return
 	var/mob/living/silicon/pai/host = true_computer.computer_host
 
-	if(href_list["getdna"])
+	if(action == "getdna")
 		var/mob/living/M = host.loc
 		var/count = 0
 

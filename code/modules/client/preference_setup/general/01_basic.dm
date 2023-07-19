@@ -8,7 +8,7 @@
 	S["pronouns"]   >> pref.pronouns
 	S["age"]        >> pref.age
 	S["species"]    >> pref.species
-	S["height"]>> pref.height
+	S["height"]		>> pref.height
 	S["spawnpoint"] >> pref.spawnpoint
 	S["OOC_Notes"]  >> pref.metadata
 	S["floating_chat_color"] >> pref.floating_chat_color
@@ -24,7 +24,7 @@
 	S["pronouns"]   << pref.pronouns
 	S["age"]        << pref.age
 	S["species"]    << pref.species
-	S["height"]<< pref.height
+	S["height"]		<< pref.height
 	S["spawnpoint"] << pref.spawnpoint
 	S["OOC_Notes"]  << pref.metadata
 	S["floating_chat_color"] << pref.floating_chat_color

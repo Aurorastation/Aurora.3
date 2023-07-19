@@ -285,6 +285,7 @@
 	return ..()
 
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/dropped()
+	. = ..()
 	remove_mask()
 
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/on_slotmove()

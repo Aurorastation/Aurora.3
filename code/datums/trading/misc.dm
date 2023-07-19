@@ -205,7 +205,7 @@
 	name_language = LANGUAGE_VAURCA
 
 	possible_trading_items = list(
-		/obj/item/clothing/mask/breath/vaurca            = TRADER_THIS_TYPE,
+		/obj/item/clothing/mask/gas/vaurca            = TRADER_THIS_TYPE,
 		/obj/item/melee/energy/vaurca             = TRADER_THIS_TYPE,
 		/obj/item/vaurca/box                             = TRADER_THIS_TYPE,
 		/obj/item/melee/vaurca/rock               = TRADER_THIS_TYPE,

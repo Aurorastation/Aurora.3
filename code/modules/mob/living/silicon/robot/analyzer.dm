@@ -120,5 +120,6 @@
 	user.drop_from_inventory(src)
 
 /obj/item/device/robotanalyzer/augment/dropped()
+	. = ..()
 	loc = null
 	qdel(src)

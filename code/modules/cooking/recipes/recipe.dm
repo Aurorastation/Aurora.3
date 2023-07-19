@@ -268,8 +268,6 @@
 
 
 	switch(reagent_mix)
-		if (RECIPE_REAGENT_REPLACE)
-			//We do no transferring
 		if (RECIPE_REAGENT_SUM)
 			//Sum is easy, just shove the entire buffer into the result
 			buffer.trans_to_holder(holder, buffer.total_volume)

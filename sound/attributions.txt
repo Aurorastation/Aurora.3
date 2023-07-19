@@ -63,3 +63,7 @@ ATTRIBUTIONS SECTION START
 sound/machines/switch_chain.ogg - "Chain_switch_2.wav", licensed under CC-BY 3.0. Obtained and edited from https://freesound.org/people/DCElliott/sounds/386422/
 sound/machines/switch_flashlight.ogg - "Flashlight Switch", licensed under CC0. Obtained and edited from https://freesound.org/people/Kinoton/sounds/352092/
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/machines/sensors/ping.ogg - "archi_sonar_05.wav", licensed under CC0. Obtained and edited from https://freesound.org/people/ElanHickler/sounds/38704
+ATTRIBUTIONS SECTION END

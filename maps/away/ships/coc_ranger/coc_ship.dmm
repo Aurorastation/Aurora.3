@@ -918,7 +918,7 @@
 /area/ship/ranger_corvette/janitor)
 "eJp" = (
 /obj/item/clothing/accessory/flagpatch/vysoka,
-/obj/item/clothing/head/softcap/vysoka,
+/obj/item/clothing/head/vysoka,
 /obj/structure/table/wood,
 /obj/item/clothing/accessory/badge/passcard/coalition,
 /turf/simulated/floor/carpet/red,

@@ -15,6 +15,8 @@
 	var/generic_object = TRUE //Used to give basic scan descriptions of every generic overmap object that excludes noteworthy locations, ships and exoplanets
 	var/static_vessel = FALSE //Used to expand scan details for visible space stations
 
+	layer = OVERMAP_SECTOR_LAYER
+
 	var/list/map_z = list()
 
 	var/known = 0		//shows up on nav computers automatically

@@ -89,7 +89,7 @@
 	// Noise made when a simple door made of this material opens or closes.
 	var/dooropen_noise = 'sound/effects/stonedoor_openclose.ogg'
 	// Noise made when you hit structure made of this material.
-	var/hitsound = 'sound/weapons/genhit.ogg'
+	var/hitsound = 'sound/weapons/Genhit.ogg'
 	// Path to resulting stacktype. Todo remove need for this.
 	var/stack_type
 	// Wallrot crumble message.
@@ -1027,6 +1027,7 @@
 	name = MATERIAL_SHUTTLE
 	display_name = "plastitanium alloy"
 	stack_type = null
+	icon_reinf = null
 	icon_base = "shuttle"
 	integrity = 1200
 	melting_point = 6000       // Hull plating.

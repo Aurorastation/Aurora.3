@@ -1,5 +1,5 @@
-1. Download https://github.com/N3X15/ss13-vox and follow the instructions for setup.
-2. Open create.py, remove line 171 to 174 to get rid of post processing.
+1. Go to https://beta.elevenlabs.io/
+2. Make an account and select the Rachel voice.
 3. Generate lines as normal.
 4. Download Audacity. Set the project rate (hz) to 16000.
 5. Apply reverb, the settings are this: 
@@ -13,7 +13,5 @@
 	Dray gain (dB): -3
 	Stereo Width (%): 32
 	Wet only: no
-6. Apply amplify with -4.0
-7. In effects, change tempo speed to 15% higher.
-7. Export as .ogg at 10 quality.
-8. Done.
+6. Export as .ogg at 10 quality.
+7. Done.

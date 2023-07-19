@@ -149,3 +149,31 @@
 		/obj/item/reagent_containers/food/snacks/spreads/butter
 	)
 	result = /obj/item/reagent_containers/food/snacks/sintapudding
+
+/singleton/recipe/stokskewer
+	appliance = SKILLET
+	fruit = list("gukhe" = 1)
+	reagents = list(/singleton/reagent/spacespice = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
+		/obj/item/reagent_containers/food/snacks/rawcutlet
+	)
+	result = /obj/item/reagent_containers/food/snacks/stokkebab
+
+/singleton/recipe/gukhefish
+	appliance = SKILLET | SAUCEPAN
+	fruit = list("gukhe" = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/spacespice = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish
+	)
+	result = /obj/item/reagent_containers/food/snacks/gukhefish
+
+/singleton/recipe/aghrasshcake
+	appliance = OVEN
+	fruit = list("aghrassh nut" = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 3, /singleton/reagent/blackpepper = 3, /singleton/reagent/nutriment/coco = 3, /singleton/reagent/spacespice = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/egg
+	)
+	result = /obj/item/reagent_containers/food/snacks/aghrasshcake

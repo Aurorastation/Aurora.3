@@ -13,7 +13,7 @@
 /datum/design/hardsuitmodules/iss_module
 	name = "IIS Module"
 	desc = "An integrated intelligence system module suitable for most hardsuits."
-	req_tech = list(TECH_DATA = 4, TECH_MATERIAL = 3)
+	req_tech = list(TECH_DATA = 3, TECH_MATERIAL = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 7500)
 	build_path = /obj/item/rig_module/ai_container
 

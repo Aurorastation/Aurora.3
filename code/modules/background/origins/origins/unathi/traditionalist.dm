@@ -6,7 +6,8 @@
 		/singleton/origin_item/origin/trad_nobles,
 		/singleton/origin_item/origin/wastelander,
 		/singleton/origin_item/origin/broken_peasants,
-		/singleton/origin_item/origin/broken_nobles
+		/singleton/origin_item/origin/broken_nobles,
+		/singleton/origin_item/origin/torn_cities
 	)
 
 /singleton/origin_item/origin/trad_peasants //Do not make the joke. Do not make the joke. Do not m
@@ -43,9 +44,19 @@
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_SIAKH, RELIGION_NONE)
 
+/singleton/origin_item/origin/torn_cities
+	name = "Torn Cities"
+	desc = "The western coast of the Moghresian Sea holds what was once the Kopesk States - a powerful league of theocratic Th'akh city-states, venerating spirits of the ocean. After they aligned with the Traditionalists during the \
+	Contact War, the Kopesk States and their people have suffered greatly, their ancient shamans cast from power in favor of the newly-appointed Hegemonic governors. Now the region is known as the Torn Cities, as the region struggles to maintain its identity and survive \
+	against the encroaching Wasteland to the west and the increasingly overfished Moghresian Sea to the east. In recent years, however, a new figure has arisen - a mysterious prophet of Kopesk Th'akh, known to their followers as 'The Marine Messiah'. \
+	Time will tell if this wandering preacher marks a restoration for the old ways of the Kopesk States, or simply a dying spasm of the Torn Cities' culture."
+	possible_accents = list(ACCENT_TORN)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_religions = list(RELIGION_THAKH, RELIGION_NONE)
+
 /singleton/origin_item/origin/wastelander
 	name = "Wastelander"
 	desc = "The Wastelanders carved out a life for themselves amidst nuclear devastation. Si'akh managed to abuse the despair and pain of these Unathi to form a cult of personality for himself, as well as a new religion. Banditry remains common as new tribes and clans form in the desert wastes, but there is still hope. The Oasis Clans and some other settlements have made new towns and villages where life is starting to recuperate and find normalcy again. Still, every day is a struggle, and whenever there is an opportunity to flee offworld, it is taken eagerly."
 	possible_accents = list(ACCENT_WASTELAND)
-	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SIAKH, RELIGION_OTHER, RELIGION_NONE)

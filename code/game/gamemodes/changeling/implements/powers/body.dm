@@ -28,8 +28,10 @@
 
 	handle_changeling_transform(chosen_dna)
 
-	src.verbs -= /mob/proc/changeling_transform
+	remove_verb(src, /mob/proc/changeling_transform)
 	ADD_VERB_IN(src, 10, /mob/proc/changeling_transform)
+
+	client.init_verbs()
 
 	changeling_update_languages(changeling.absorbed_languages)
 
@@ -108,6 +110,7 @@
 	QDEL_IN(effect, 10)
 	H.forceMove(ling)
 	H.status_flags |= GODMODE
+	ling.client.init_verbs()
 
 	feedback_add_details("changeling_powers", "LF")
 	return TRUE
@@ -224,7 +227,7 @@
 			changeling.use_charges(20)
 
 			to_chat(C, "<span class='notice'><font size='5'>We are ready to rise. Use the <b>Revive</b> verb when you are ready.</font></span>")
-			C.verbs += /mob/proc/changeling_revive
+			add_verb(C, /mob/proc/changeling_revive)
 
 	feedback_add_details("changeling_powers", "FD")
 	return TRUE
@@ -244,7 +247,7 @@
 	C.make_changeling()
 	// sending display messages
 	to_chat(C, "<span class='notice'>We have regenerated fully.</span>")
-	C.verbs -= /mob/proc/changeling_revive
+	remove_verb(C, /mob/proc/changeling_revive)
 
 //Recover from stuns.
 /mob/proc/changeling_unstun()
@@ -268,7 +271,7 @@
 	C.reagents.add_reagent(/singleton/reagent/synaptizine, 5) //To counter oxycomorphine's side-effects.
 	C.update_canmove()
 
-	src.verbs -= /mob/proc/changeling_unstun
+	remove_verb(src, /mob/proc/changeling_unstun)
 	ADD_VERB_IN(src, 5, /mob/proc/changeling_unstun)
 	feedback_add_details("changeling_powers", "UNS")
 	return TRUE
@@ -295,7 +298,7 @@
 			changeling.use_charges(1)
 			sleep(40)
 
-	src.verbs -= /mob/proc/changeling_digitalcamo
+	remove_verb(src, /mob/proc/changeling_digitalcamo)
 	ADD_VERB_IN(src, 5, /mob/proc/changeling_digitalcamo)
 	feedback_add_details("changeling_powers", "CAM")
 	return TRUE
@@ -322,7 +325,7 @@
 				C.adjustCloneLoss(-10)
 				sleep(10)
 
-	src.verbs -= /mob/proc/changeling_rapidregen
+	remove_verb(src, /mob/proc/changeling_rapidregen)
 	ADD_VERB_IN(src, 5, /mob/proc/changeling_rapidregen)
 	feedback_add_details("changeling_powers", "RR")
 	return TRUE
@@ -511,6 +514,7 @@
 	M.forceMove(ling) //move inside the new dude to hide him.
 	ling.occupant = M
 	M.status_flags |= GODMODE //dont want him to die or breathe or do ANYTHING
+	ling.client.init_verbs()
 
 // Chiropteran Screech
 /mob/proc/resonant_shriek()
@@ -570,7 +574,7 @@
 	else
 		log_and_message_admins("used resonant shriek.")
 
-	verbs -= /mob/proc/resonant_shriek
+	remove_verb(src, /mob/proc/resonant_shriek)
 	ADD_VERB_IN(src, 3600, /mob/proc/resonant_shriek)
 
 /mob/proc/dissonant_shriek()
@@ -585,7 +589,7 @@
 	visible_message(SPAN_DANGER("<font size=4>[src] opens their mouth and a horrid, high-pitched noise comes out!</font>"))
 	log_and_message_admins("used dissonant shriek.")
 	empulse(get_turf(src), 2, 3)
-	verbs -= /mob/proc/dissonant_shriek
+	remove_verb(src, /mob/proc/dissonant_shriek)
 	ADD_VERB_IN(src, 3600, /mob/proc/dissonant_shriek)
 
 /mob/proc/changeling_thermals()
