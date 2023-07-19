@@ -66,10 +66,10 @@
 /datum/browser/proc/get_header()
 	var/file
 	for (file in stylesheets)
-		head_content += "<link rel='stylesheet' type='text/css' href='[file]'>"
+		head_content += "<link rel='stylesheet' type='text/css' href='[SSassets.transport.get_asset_url(file)]'>"
 
 	for (file in scripts)
-		head_content += "<script type='text/javascript' src='[file]'></script>"
+		head_content += "<script type='text/javascript' src='[SSassets.transport.get_asset_url(file)]'></script>"
 
 	var/title_attributes = "class='uiTitle'"
 	if (title_image)
