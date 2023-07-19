@@ -61,8 +61,7 @@
 	name = "Intrepid"
 	class = "SCCV"
 	designation = "Intrepid"
-	desc = "A standard-sized exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid, which actually uses \
-			a specially modified Pathfinder-class chassis fitted with a 40mm Francisca rotary gun."
+	desc = "A standard-sized exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid."
 	shuttle = "Intrepid"
 	icon_state = "intrepid"
 	moving_state = "intrepid_moving"
@@ -75,7 +74,6 @@
 	scanimage = "intrepid.png"
 	designer = "Hephaestus Industries"
 	volume = "21 meters length, 16 meters beam/width, 6 meters vertical height"
-	weapons = "Extruding fore-mounted low-caliber ballistic rotary armament"
 	sizeclass = "Pathfinder Exploration Shuttle"
 	shiptype = "Field expeditions and private research uses"
 
@@ -126,6 +124,12 @@
 	name = "\improper Spark control console"
 	shuttle_tag = "Spark"
 	req_access = list(access_mining)
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "right"
+	icon_screen = "blue"
+	icon_keyboard = null
+	circuit = null
 
 /obj/effect/overmap/visitable/ship/landable/canary
 	name = "Canary"
@@ -139,6 +143,7 @@
 	scanimage = "canary.png"
 	designer = "Hephaestus Industries, NanoTrasen"
 	volume = "14 meters length, 7 meters beam/width, 5 meters vertical height"
+	weapons = "Extruding fore-mounted low-caliber ballistic rotary armament"
 	sizeclass = "Jester-type Scout Skiff"
 	shiptype = "Exploratory survey and scouting, high-speed target interception"
 	max_speed = 2/(1 SECONDS)

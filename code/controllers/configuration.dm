@@ -1045,7 +1045,7 @@ var/list/gamemode_cache = list()
 				if("cache_assets")
 					cache_assets = text2num(value)
 				if("asset_transport")
-					asset_transport = (value in list("simple", "webroot") ? value : "simple")
+					asset_transport = value
 				if("asset_simple_preload")
 					asset_simple_preload = TRUE
 				if("asset_cdn_webroot")

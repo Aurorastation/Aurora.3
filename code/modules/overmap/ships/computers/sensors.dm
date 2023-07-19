@@ -73,7 +73,9 @@
 		display_reconnect_dialog(user, "sensors")
 		return
 
-	var/data[0]
+	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
+
+	var/data = list()
 
 	data["viewing"] = viewing_overmap(user)
 	data["muted"] = muted
