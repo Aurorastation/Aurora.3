@@ -402,7 +402,7 @@
 		icon_state = "[base_icon]_open"
 	return
 
-/obj/machinery/door/urban/proc/do_animate(animation)
+/obj/machinery/door/urban/do_animate(animation)
 	switch(animation)
 		if("opening")
 			if(p_open)
