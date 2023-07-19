@@ -108,6 +108,7 @@
 		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
+	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
 	paper_win.set_content(get_content(user, can_read(user, forceshow)))
 	paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
@@ -220,7 +221,7 @@
 			var/mob/living/carbon/human/H = M
 			if(H == user)
 				to_chat(user, SPAN_NOTICE("You wipe off the lipstick with [src]."))
-				H.lip_style = null
+				H.lipstick_color = null
 				H.update_body()
 			else
 				user.visible_message(SPAN_WARNING("[user] begins to wipe [H]'s lipstick off with \the [src]."), \
@@ -228,7 +229,7 @@
 				if(do_after(user, 10) && do_after(H, 10, 0))	//user needs to keep their active hand, H does not.
 					user.visible_message(SPAN_NOTICE("[user] wipes [H]'s lipstick off with \the [src]."), \
 										 SPAN_NOTICE("You wipe off [H]'s lipstick."))
-					H.lip_style = null
+					H.lipstick_color = null
 					H.update_body()
 
 /obj/item/paper/proc/addtofield(var/id, var/text, var/links = 0)

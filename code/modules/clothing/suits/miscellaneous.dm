@@ -387,6 +387,27 @@
 	. = ..()
 	color = get_random_colour(lower = 150)
 
+/obj/item/clothing/suit/storage/toggle/trench/colorable/alt
+	icon_state = "trench_colorable2"
+	item_state = "trench_colorable2"
+	var/additional_color = COLOR_GRAY
+
+/obj/item/clothing/suit/storage/toggle/trench/colorable/alt/update_icon()
+	cut_overlays()
+	var/image/belt = image(icon, null, "trench_colorable2_belt[opened ? "_open" : null]")
+	belt.appearance_flags = RESET_COLOR
+	belt.color = additional_color
+	add_overlay(belt)
+
+/obj/item/clothing/suit/storage/toggle/trench/colorable/alt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/belt = image(mob_icon, null, "trench_colorable2_belt[opened ? "_open" : null]")
+		belt.appearance_flags = RESET_COLOR
+		belt.color = additional_color
+		I.add_overlay(belt)
+	return I
+
 /obj/item/clothing/suit/storage/toggle/highvis
 	name = "high visibility jacket"
 	desc = "A loose-fitting, high visibility jacket to help crew be recognizable in high traffic areas with large industrial equipment."

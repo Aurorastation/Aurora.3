@@ -146,6 +146,8 @@
 #define ACCENT_UNATHI_SPACER "Spacer"
 #define ACCENT_HAZANA "Hazana"
 #define ACCENT_TORN "Torn Cities"
+#define ACCENT_ZAZ_LOW "Zazalai Mountains Peasant"
+#define ACCENT_ZAZ_HIGH "Zazalai Mountains Noble"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 #define ACCENT_HOMEWORLD "Qerrbalak"

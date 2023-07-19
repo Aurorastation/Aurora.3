@@ -69,7 +69,7 @@
 	var/atom/T = null
 	var/target_range = INFINITY
 	for (var/atom/A in targets)
-		if(A == src)
+		if(A == src || QDELING(A)) //Avoid targeting ourself, and targets that are being GC'd
 			continue
 		if(ismob(A)) //Don't target mobs with keys that have logged out.
 			var/mob/M = A

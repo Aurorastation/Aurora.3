@@ -1,20 +1,5 @@
-/*
-Asset cache quick users guide:
-
-Make a datum at the bottom of this file with your assets for your thing.
-The simple subsystem will most like be of use for most cases.
-Then call get_asset_datum() with the type of the datum you created and store the return
-Then call .send(client) on that stored return value.
-
-You can set verify to TRUE if you want send() to sleep until the client has the assets.
-*/
-
-
-// Amount of time(ds) MAX to send per asset, if this get exceeded we cancel the sleeping.
-// This is doubled for the first asset, then added per asset after
-#define ASSET_CACHE_SEND_TIMEOUT 7
-
-#define ASSET_CROSS_ROUND_CACHE_DIRECTORY "tmp/assets"
+//These datums are used to populate the asset cache, the proc "register()" does this.
+//Place any asset datums you create in asset_list_items.dm
 
 //all of our asset datums, used for referring to these later
 var/list/asset_datums = list()
@@ -164,12 +149,14 @@ var/list/asset_datums = list()
 		return
 
 	// If it's cached, may as well load it now, while the loading is cheap
-	if(cross_round_cachable)
+	if(config.cache_assets && cross_round_cachable)
 		load_immediately = TRUE
 
 	create_spritesheets()
 	if(should_load_immediately())
 		realize_spritesheets(yield = FALSE)
+	else
+		SSasset_loading.queue_asset(src)
 
 	for(var/size_id in sizes)
 		var/size = sizes[size_id]
@@ -208,9 +195,14 @@ var/list/asset_datums = list()
 	SSassets.transport.register_asset(res_name, fcopy_rsc(fname))
 	fdel(fname)
 
-	if (cross_round_cachable)
+	if (config.cache_assets && cross_round_cachable)
 		write_to_cache()
 	fully_generated = TRUE
+	// If we were ever in there, remove ourselves
+	SSasset_loading.dequeue_asset(src)
+
+/datum/asset/spritesheet/queued_generation()
+	realize_spritesheets(yield = TRUE)
 
 /// Returns the URL to put in the background:url of the CSS asset
 /datum/asset/spritesheet/proc/get_background_url(asset)
@@ -356,7 +348,6 @@ var/list/asset_datums = list()
 /datum/asset/spritesheet/proc/should_load_immediately()
 	return TRUE
 
-
 /datum/asset/spritesheet/proc/Insert(sprite_name, icon/I, icon_state="", dir=SOUTH, frame=1, moving=FALSE, icon/forced=FALSE)
 	if(should_load_immediately())
 		queuedInsert(sprite_name, I, icon_state, dir, frame, moving)
@@ -453,6 +444,7 @@ var/list/asset_datums = list()
 		"faction_Orion.png" = 'html/images/factions/orionlogo.png',
 		"faction_SCC.png" = 'html/images/factions/scclogo.png'
 	)
+	cross_round_cachable = TRUE
 
 /datum/asset/simple/namespaced/fontawesome
 	legacy = TRUE
@@ -464,6 +456,7 @@ var/list/asset_datums = list()
 		"v4shim.css"          = 'html/font-awesome/css/v4-shims.min.css'
 	)
 	parents = list("font-awesome.css" = 'html/font-awesome/css/all.min.css')
+	cross_round_cachable = TRUE
 
 /datum/asset/simple/namespaced/tgfont
 	assets = list(
@@ -488,6 +481,7 @@ var/list/asset_datums = list()
 
 /datum/asset/simple/paper
 	legacy = TRUE
+	keep_local_name = TRUE
 	assets = list(
 		"talisman.png" = 'html/images/talisman.png',
 		"barcode0.png" = 'html/images/barcode0.png',
@@ -595,6 +589,7 @@ var/list/asset_datums = list()
 		"kawkabmono.woff" = 'html/fonts/OFL/KawkabMono.woff',
 		"kaushanscript.woff" = 'html/fonts/OFL/KaushanScript.woff'
 	)
+	cross_round_cachable = TRUE
 
 /datum/asset/simple/changelog
 	legacy = TRUE
@@ -665,6 +660,7 @@ var/list/asset_datums = list()
 
 /datum/asset/spritesheet/chem_master
 	name = "chemmaster"
+	cross_round_cachable = FALSE
 	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4", "bottle-5", "bottle-6")
 	var/max_pill_sprite = 20
 
@@ -678,8 +674,7 @@ var/list/asset_datums = list()
 
 /datum/asset/spritesheet/accents
 	name = "accents"
-
-/datum/asset/spritesheet/accents/
+	cross_round_cachable = TRUE
 
 /// Namespace'ed assets (for static css and html files)
 /// When sent over a cdn transport, all assets in the same asset datum will exist in the same folder, as their plain names.
