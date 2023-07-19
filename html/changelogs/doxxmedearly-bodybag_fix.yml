@@ -1,4 +1,4 @@
 author: Doxxmedearly
 delete-after: True
 changes:
-  - bugfix: "Bodybags and Stasis bags can now only fit one person in them. They can also ONLY store bodies in them."
+  - bugfix: "Bodybags, stasis bags, and air bubbles can no longer hold multiple mobs."

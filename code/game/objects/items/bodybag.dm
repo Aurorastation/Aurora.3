@@ -54,14 +54,22 @@
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
 	density = FALSE
-	storage_capacity = 15
-	store_misc = FALSE
-	store_items = FALSE
+	storage_capacity = 30
 	var/item_path = /obj/item/bodybag
 	var/contains_body = FALSE
 	can_be_buckled = TRUE
 
 /obj/structure/closet/body_bag/content_info(mob/user, content_size)
+	if(!content_size && !contains_body)
+		to_chat(user, "\The [src] is empty.")
+	else if(storage_capacity > content_size*4)
+		to_chat(user, "\The [src] is barely filled.")
+	else if(storage_capacity > content_size*2)
+		to_chat(user, "\The [src] is less than half full.")
+	else if(storage_capacity > content_size)
+		to_chat(user, "\The [src] still has some free space.")
+	else
+		to_chat(user, "\The [src] is full.")
 	to_chat(user, "It [contains_body ? "contains" : "does not contain"] a body.")
 
 /obj/structure/closet/body_bag/attackby(var/obj/item/W, mob/user as mob)
@@ -87,8 +95,8 @@
 		LAZYREMOVE(overlays, image(icon, "bodybag_label"))
 		return TRUE
 
-/obj/structure/closet/body_bag/store_mobs(var/stored_units)
-	contains_body = ..()
+/obj/structure/closet/body_bag/store_mobs(var/stored_units, var/mob_limit)
+	contains_body = ..(stored_units, mob_limit = TRUE)
 	slowdown = 0
 	if(contains_body)
 		for(var/mob/living/M in contents)
