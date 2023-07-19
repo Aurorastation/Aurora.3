@@ -169,26 +169,26 @@ BLIND     // can't see anything
 		item_state = "[initial(item_state)]_off"
 
 /obj/item/clothing/glasses/hud/health/aviator/pmc
-	name = "PMCG medical HUD aviators"
-	desc = "Sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
+	name = "\improper PMCG medical HUD aviators"
+	desc = "Sunglasses in Private Military Contracting Group colours. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "aviator_med_pmc"
 	item_state = "aviator_med_pmc"
 
 /obj/item/clothing/glasses/hud/health/aviator/pmc/alt
-	name = "EPMC medical HUD aviators"
+	name = "\improper EPMC medical HUD aviators"
 	desc = "Sunglasses in Eridani Private Military Contracting colours. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "aviator_med_pmc_alt"
 	item_state = "aviator_med_pmc_alt"
 
 /obj/item/clothing/glasses/hud/health/aviator/nt
-	name = "NanoTrasen medical HUD aviators"
-	desc = "Sunglasses in the colours of the NanoTrasen Corporation. They come with a blue-tinted HUD and a chrome finish."
+	name = "\improper NanoTrasen medical HUD aviators"
+	desc = "Sunglasses in NanoTrasen colours. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "aviator_med_nt"
 	item_state = "aviator_med_nt"
 
 /obj/item/clothing/glasses/hud/health/aviator/zeng
-	name = "Zeng-Hu medical HUD aviators"
-	desc = "Sunglasses in the colours of Zeng-Hu Pharmaceuticals. They come with a purple-tinted HUD and a chrome finish."
+	name = "\improper Zeng-Hu medical HUD aviators"
+	desc = "Sunglasses in Zeng-Hu Pharmaceuticals colours. They come with a purple-tinted HUD and a chrome finish."
 	icon_state = "aviator_med_zeng"
 	item_state = "aviator_med_zeng"
 
@@ -804,7 +804,7 @@ BLIND     // can't see anything
 	item_state = "bigsunglasses_hud"
 
 /obj/item/clothing/glasses/sunglasses/sechud/zavod
-	name = "Zavodskoi HUDsunglasses"
+	name = "\improper Zavodskoi HUDsunglasses"
 	desc = "Sunglasses in the colours of Zavodskoi Interstellar. They come with a red-tinted HUD."
 	icon_state = "sunhud_zavod"
 	item_state = "sunhud_zavod"
@@ -816,8 +816,8 @@ BLIND     // can't see anything
 	item_state = "bigsunglasses_hud_zavod"
 
 /obj/item/clothing/glasses/sunglasses/sechud/pmc
-	name = "PMCG HUDsunglasses"
-	desc = "Sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
+	name = "\improper PMCG HUDsunglasses"
+	desc = "Sunglasses in Private Military Contracting Group colours. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "sunhud_pmcg"
 	item_state = "sunhud_pmcg"
 
@@ -827,7 +827,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/sunglasses/sechud/big/pmc
 	name = "fat PMCG HUDsunglasses"
-	desc = "Fat sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
+	desc = "Fat sunglasses in Private Military Contracting Group colours. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "bigsunglasses_hud_pmcg"
 	item_state = "bigsunglasses_hud_pmcg"
 
@@ -836,7 +836,7 @@ BLIND     // can't see anything
 	item_state = "bigsunglasses_hud_pmcg_alt"
 
 /obj/item/clothing/glasses/sunglasses/sechud/idris
-	name = "Idris HUDsunglasses"
+	name = "\improper Idris HUDsunglasses"
 	desc = "Sunglasses in the colours of Idris Incorporated. They come with a teal-tinted HUD and a chrome finish."
 	icon_state = "sunhud_idris"
 	item_state = "sunhud_idris"
@@ -919,13 +919,13 @@ BLIND     // can't see anything
 	attack_self(usr)
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/zavod
-	name = "Zavodskoi HUD aviators"
+	name = "\improper Zavodskoi HUD aviators"
 	desc = "Zavodskoi security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "aviator_sec_zavod"
 	item_state = "aviator_sec_zavod"
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc
-	name = "PMCG HUD aviators"
+	name = "\improper PMCG HUD aviators"
 	desc = "PMCG security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "aviator_sec_pmcg"
 	item_state = "aviator_sec_pmcg"
@@ -935,7 +935,7 @@ BLIND     // can't see anything
 	item_state = "aviator_sec_pmcg_alt"
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
-	name = "Idris HUD aviators"
+	name = "\improper Idris HUD aviators"
 	desc = "Idris security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "aviator_sec_idris"
 	item_state = "aviator_sec_idris"

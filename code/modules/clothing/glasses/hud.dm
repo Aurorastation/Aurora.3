@@ -29,26 +29,26 @@
 	return active
 
 /obj/item/clothing/glasses/hud/health/pmc
-	name = "PMCG health scanner HUD"
-	desc = "A heads-up display in the colours of the Private Military Contracting Group."
+	name = "\improper PMCG health scanner HUD"
+	desc = "A heads-up display in Private Military Contracting Group colours."
 	icon_state = "healthhud_pmc"
 	item_state = "healthhud_pmc"
 
 /obj/item/clothing/glasses/hud/health/pmc/alt
-	name = "EPMC health scanner HUD"
+	name = "\improper EPMC health scanner HUD"
 	desc = "A heads-up display in Eridani Private Military Contracting colours."
 	icon_state = "healthhud_pmc_alt"
 	item_state = "healthhud_pmc_alt"
 
 /obj/item/clothing/glasses/hud/health/nt
-	name = "NanoTrasen health scanner HUD"
-	desc = "A heads-up display in the colours of the NanoTrasen Corporation."
+	name = "\improper NanoTrasen health scanner HUD"
+	desc = "A heads-up display in NanoTrasen colours."
 	icon_state = "healthhud_nt"
 	item_state = "healthhud_nt"
 
 /obj/item/clothing/glasses/hud/health/zeng
-	name = "Zeng-Hu health scanner HUD"
-	desc = "A heads-up display in the colours of Zeng-Hu Pharmaceuticals."
+	name = "\improper Zeng-Hu health scanner HUD"
+	desc = "A heads-up display in Zeng-Hu Pharmaceuticals colours."
 	icon_state = "healthhud_zeng"
 	item_state = "healthhud_zeng"
 
@@ -84,26 +84,26 @@
 	return active
 
 /obj/item/clothing/glasses/hud/security/zavod
-	name = "Zavodskoi security HUD"
+	name = "\improper Zavodskoi security HUD"
 	desc = "A heads-up display in the colours of Zavodskoi Interstellar."
 	icon_state = "securityhud_zavod"
 	item_state = "securityhud_zavod"
 
 /obj/item/clothing/glasses/hud/security/pmc
-	name = "PMCG security HUD"
-	desc = "A heads-up display in the colours of the Private Military Contracting Group."
+	name = "\improper PMCG security HUD"
+	desc = "A heads-up display in Private Military Contracting Group colours."
 	icon_state = "securityhud_pmc"
 	item_state = "securityhud_pmc"
 
 /obj/item/clothing/glasses/hud/security/pmc/alt
-	name = "EPMC security HUD"
+	name = "\improper EPMC security HUD"
 	desc = "A heads-up display in Eridani Private Military Contractor colours."
 	icon_state = "securityhud_pmc_alt"
 	item_state = "securityhud_pmc_alt"
 
 /obj/item/clothing/glasses/hud/security/idris
-	name = "Idris security HUD"
-	desc = "A heads-up display in the colours of the Idris Incorporated."
+	name = "\improper Idris security HUD"
+	desc = "A heads-up display in Idris Incorporated colours."
 	icon_state = "securityhud_idris"
 	item_state = "securityhud_idris"
 
