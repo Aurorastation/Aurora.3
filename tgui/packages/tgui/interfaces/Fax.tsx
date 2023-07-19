@@ -36,6 +36,13 @@ export const Fax = (props, context) => {
             onClick={(value) => act('remove_id')}
           />
         </Section>
+        <Section title="Document">
+          {data.paper ? (
+          <PaperWindow />
+        ) : (
+          <Box>Please insert the document to send.</Box>
+        )}
+        </Section>
         {data.auth ? (
           <FaxWindow />
         ) : (
@@ -100,11 +107,6 @@ const SendWindow = (props, context) => {
           />
         </LabeledList.Item>
       </LabeledList>
-      {data.paper ? (
-        <PaperWindow />
-      ) : (
-        <Box>Please insert the document to send.</Box>
-      )}
     </Section>
   );
 };
@@ -119,7 +121,9 @@ const PaperWindow = (props, context) => {
           {capitalizeAll(data.paper)}
         </LabeledList.Item>
       </LabeledList>
-      <Button icon="copy" content="Send" onClick={(value) => act('send')} />
+      {data.auth ? (
+        <Button icon="copy" content="Send" onClick={(value) => act('send')} />
+      ) : ""}
       <Button icon="stop" content="Remove" onClick={(value) => act('remove')} />
     </Section>
   );
