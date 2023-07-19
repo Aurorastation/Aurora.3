@@ -1467,6 +1467,7 @@
 #include "code\modules\background\origins\origins\diona\narrows.dm"
 #include "code\modules\background\origins\origins\diona\nralakk.dm"
 #include "code\modules\background\origins\origins\diona\sol.dm"
+#include "code\modules\background\origins\origins\diona\voidtamer.dm"
 #include "code\modules\background\origins\origins\diona\xrim.dm"
 #include "code\modules\background\origins\origins\human\biesel.dm"
 #include "code\modules\background\origins\origins\human\coalition.dm"
