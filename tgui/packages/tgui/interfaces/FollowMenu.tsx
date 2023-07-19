@@ -44,7 +44,7 @@ export const FollowMenu = (props, context) => {
           }>
           {data.categories.sort().map((category) => (
             <Section title="" key={category}>
-              <Collapsible open={0} title={category}>
+              <Collapsible open={1} title={category}>
                 {data.ghosts &&
                   data.ghosts.length &&
                   data.ghosts
