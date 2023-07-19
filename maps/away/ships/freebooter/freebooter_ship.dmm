@@ -2377,6 +2377,7 @@
 	pixel_x = 7
 	},
 /obj/machinery/firealarm/east,
+/obj/item/rig/eva,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "fGM" = (
@@ -4222,7 +4223,6 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
 	},
-/obj/machinery/body_scanconsole,
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/bridge)
 "kBd" = (
@@ -4596,10 +4596,10 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
 "lpe" = (
-/obj/machinery/bodyscanner{
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/sleeper{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
 "lqh" = (
@@ -5159,10 +5159,6 @@
 	},
 /obj/structure/plasticflaps,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/mineral/processing_unit{
-	dir = 8;
-	id = "processing_n"
-	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod3)
 "mLD" = (
@@ -6622,7 +6618,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "pXP" = (
-/mob/living/heavy_vehicle/premade/miner,
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -9693,9 +9688,6 @@
 /area/ship/freebooter_ship/pod1)
 "wZf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/mineral/stacking_machine{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod3)
 "wZX" = (
