@@ -9676,7 +9676,8 @@
 	dir = 4;
 	req_access = null;
 	req_one_access = list(38,72);
-	shuttle_tag = "Agent Shuttle"
+	shuttle_tag = "SCC Shuttle";
+	can_rename_ship = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
