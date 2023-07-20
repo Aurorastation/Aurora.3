@@ -2,7 +2,7 @@
 	name = "frame"
 	desc = "Used for building machines."
 	icon = 'icons/obj/monitors.dmi'
-	icon_state = "fire_bitem"
+	icon_state = "firealarm"
 	flags = CONDUCT
 	var/build_machine_type
 	var/refund_amt = 2
