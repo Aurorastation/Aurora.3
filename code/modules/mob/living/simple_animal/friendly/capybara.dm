@@ -29,14 +29,14 @@
 			SPAN_WARNING("\The [M] pets \the [src]."),
 			SPAN_NOTICE("You eagerly pet \the [src].")
 		)
-		addtimer(CALLBACK(src, PROC_REF(pet_response)), rand(2 SECONDS, 5 SECONDS))
+		addtimer(CALLBACK(src, PROC_REF(PetResponse)), rand(2 SECONDS, 5 SECONDS))
 
 /mob/living/simple_animal/capybara/examine(mob/user)
 	..()
 	if(stat == DEAD)
 		to_chat(user, "How can someone kill such a friendly creature?")
 
-/mob/living/simple_animal/capybara/pet_response(mob/M)
+/mob/living/simple_animal/capybara/proc/PetResponse(mob/M)
 	if(!stat && M)
 		icon_state = icon_living
 		var/list/responses = list(
