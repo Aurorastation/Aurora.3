@@ -7,8 +7,8 @@
 	var/cost_modifier = 1             // Multiplier for power use stamina costs.
 	var/stun = 0                      // Number of process ticks we are stunned for.
 	var/next_power_use = 0            // world.time minimum before next power use.
-	var/stamina = 50                  // Current psi pool.
-	var/max_stamina = 50              // Max psi pool.
+	var/stamina = 100                 // Current psi pool.
+	var/max_stamina = 100             // Max psi pool.
 	var/psi_points = 0				  // Points spendable in the psi pointshop.
 	var/spent_psi_points = 0		  // Need to keep track of if someone has spent psi-points before for things like updating psi-rank.
 

@@ -17,13 +17,15 @@
 
 /obj/item/spell/commune/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	. = ..()
-	if(.)
-		commune(hit_atom, user)
+	if(!.)
+		return
+	commune(hit_atom, user)
 
 /obj/item/spell/commune/on_ranged_cast(atom/hit_atom, mob/user)
 	. = ..()
-	if(.)
-		commune(hit_atom, user)
+	if(!.)
+		return
+	commune(hit_atom, user)
 
 /obj/item/spell/commune/proc/commune(atom/hit_atom, mob/user)
 	if(!isliving(hit_atom))

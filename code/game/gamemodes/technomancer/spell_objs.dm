@@ -33,6 +33,7 @@
 		)
 	throwforce = 0
 	force = 0
+	flags = NOBLUDGEON
 	var/mob/living/carbon/human/owner
 	var/obj/item/technomancer_core/core
 	var/cast_methods = null			// Controls how the spell is casted.

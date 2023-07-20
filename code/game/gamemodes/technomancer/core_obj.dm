@@ -196,6 +196,7 @@
 
 /obj/spellbutton/DblClick()
 	return Click()
+
 /obj/spellbutton/technomancer
 	var/obj/item/technomancer_core/core
 

@@ -11,6 +11,3 @@
 	var/datum/psi_complexus/PC = parent
 	PC.armor_component = null
 	return ..()
-
-
-

@@ -15,6 +15,7 @@
 	psi_cost = 10
 
 /obj/item/spell/bubble/Destroy()
+	to_chat(owner, SPAN_NOTICE("Your bubble fades away."))
 	REMOVE_TRAIT(owner, TRAIT_NO_BREATHE, TRAIT_SOURCE_PSIONICS)
 	return ..()
 

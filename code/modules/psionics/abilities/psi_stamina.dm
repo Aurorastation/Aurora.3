@@ -17,10 +17,11 @@
 
 /obj/item/spell/psi_stamina/on_use_cast(mob/user)
 	. = ..()
-	if(.)
-		if(do_after(user, 1 SECOND))
-			to_chat(user, SPAN_NOTICE("You feel a bit more refreshed."))
-			owner.psi.stamina = min(owner.psi.max_stamina, owner.psi.stamina + rand(2,5))
-			if(owner.psi.stamina >= owner.psi.max_stamina)
-				to_chat(user, SPAN_NOTICE("You're ready to go again!"))
-				return TRUE
+	if(!.)
+		return
+	if(do_after(user, 1 SECOND))
+		to_chat(user, SPAN_NOTICE("You feel a bit more refreshed."))
+		owner.psi.stamina = min(owner.psi.max_stamina, owner.psi.stamina + rand(2,5))
+		if(owner.psi.stamina >= owner.psi.max_stamina)
+			to_chat(user, SPAN_NOTICE("You're ready to go again!"))
+			return TRUE
