@@ -55,4 +55,5 @@
 				if(PSI_RANK_APEX)
 					to_chat(user, SPAN_DANGER("Your psionic power is dwarfed by [target]. Just like a supernova in the night sky, their signature is absolutely brilliant \
 											beyond comprehension. This is the apex of psionic power, you are sure."))
-
+				if(PSI_RANK_LIMITLESS)
+					to_chat(user, SPAN_DANGER("A psionic power like this shouldn't be possible... what in the Stars is going on?"))

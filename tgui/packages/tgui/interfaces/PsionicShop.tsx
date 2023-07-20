@@ -51,7 +51,7 @@ export const PsionicShop = (props, context) => {
             </Box>
             .
           </Box>
-          {data.available_psionics.length ? (
+          {data.available_psionics && data.available_psionics.length ? (
             <PsionicsList />
           ) : (
             <NoticeBox>There are no psionics available.</NoticeBox>

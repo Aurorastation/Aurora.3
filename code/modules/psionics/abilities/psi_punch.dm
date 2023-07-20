@@ -11,7 +11,19 @@
 	icon_state = "generic"
 	cast_methods = CAST_MELEE
 	aspect = ASPECT_PSIONIC
-	force = 25
-	armor_penetration = 15
+	force = 20
+	armor_penetration = 20
 	cooldown = 0
-	psi_cost = 5
+	psi_cost = 3
+
+/obj/item/spell/punch/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
+	if(!isliving(hit_atom))
+		return
+	. = ..()
+	if(!.)
+		return
+	var/mob/living/M = hit_atom
+	if(prob(15))
+		M.throw_at(get_edge_target_turf(loc, loc.dir), 2, 7)
+		M.visible_message(SPAN_DANGER("[M] is floored by psychic energy!"), SPAN_DANGER("You are floored by psychic energy!"))
+		M.apply_effect(2, WEAKEN)

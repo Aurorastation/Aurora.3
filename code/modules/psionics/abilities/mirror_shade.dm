@@ -14,7 +14,7 @@
 	cast_methods = CAST_USE
 	aspect = ASPECT_PSIONIC
 	cooldown = 100
-	psi_cost = 30
+	psi_cost = 20
 
 /obj/item/spell/mirror_shade/on_use_cast(mob/user)
 	. = ..()

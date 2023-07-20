@@ -13,7 +13,7 @@
 	cast_methods = CAST_MELEE
 	aspect = ASPECT_PSIONIC
 	cooldown = 50
-	psi_cost = 50
+	psi_cost = 30
 
 /obj/item/spell/mend/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	. = ..()

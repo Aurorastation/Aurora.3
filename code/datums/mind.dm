@@ -440,6 +440,11 @@
 	else if(href_list["set_psi_rank"])
 		current.set_psi_rank(text2num(href_list["set_psi_rank"]))
 		return
+	else if(href_list["set_psi_rank_limitless"])
+		var/sure = input(usr, "Limitless is INTENTIONALLY STUPIDLY OVERPOWERED! YOU SHOULD NOT BE USING THIS WITHOUT KNOWING EXACTLY WHAT YOU'RE DOING!", "Don't Get A Staff Complaint") as anything in list("I know what I'm doing!", "Nevermind...")
+		if(sure == "I know what I'm doing!")
+			current.set_psi_rank(PSI_RANK_LIMITLESS)
+		return
 
 	edit_memory()
 

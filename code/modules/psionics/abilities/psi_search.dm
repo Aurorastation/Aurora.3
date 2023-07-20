@@ -31,7 +31,7 @@
 			if(GET_Z(H) == GET_Z(H) && H.can_commune())
 				level_humans |= H
 				if(H.psi)
-					if(H.psi.get_rank() == PSI_RANK_APEX)
+					if(H.psi.get_rank() >= PSI_RANK_APEX)
 						found_apex = TRUE
 		if(!length(level_humans))
 			to_chat(L, SPAN_WARNING("The Nlom is quiet and empty here."))

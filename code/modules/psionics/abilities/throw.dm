@@ -1,7 +1,6 @@
 /singleton/psionic_power/throw_item
 	name = "Throw"
-	desc = "Pulls the target straight towards the user, smashing windows along the way. If it can be held in your hands, \
-			it goes straight to your hand. Note that you can catch items you pull to yourself if you toggle throw mode before pulling an item."
+	desc = "Click this spell with an item to prepare it to be thrown, then use the spell to throw the item with lethal force."
 	icon_state = "wiz_mm"
 	point_cost = 3
 	ability_flags = PSI_FLAG_ANTAG

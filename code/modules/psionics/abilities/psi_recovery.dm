@@ -1,6 +1,6 @@
 /singleton/psionic_power/psi_recovery
 	name = "Psionic Recovery"
-	desc = "Activate in hand to"
+	desc = "Activate in hand to regenerate psi-stamina."
 	icon_state = "swarm_zeropoint"
 	point_cost = 0
 	ability_flags = PSI_FLAG_FOUNDATIONAL

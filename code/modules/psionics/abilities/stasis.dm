@@ -1,7 +1,7 @@
 /singleton/psionic_power/stasis
 	name = "Stasis"
 	desc = "Condenses the Nlom field around one person at a time. This immobilises them like an energy net and also applies stasis to them."
-	icon_state = "wiz_shield"
+	icon_state = "gen_ice"
 	point_cost = 2
 	ability_flags = PSI_FLAG_ANTAG
 	spell_path = /obj/item/spell/stasis
@@ -9,7 +9,7 @@
 /obj/item/spell/stasis
 	name = "stasis"
 	desc = "Almost as cool as the Mass Effect one."
-	icon_state = "shield"
+	icon_state = "overload"
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_PSIONIC
 	cooldown = 100
@@ -30,7 +30,7 @@
 	. = ..()
 	if(!.)
 		return
-	var/mob/living/L = M
+	var/mob/living/M = hit_atom
 	var/obj/effect/energy_net/EN = locate() in get_turf(M)
 	if(EN)
 		qdel(EN)
@@ -48,7 +48,7 @@
 /obj/effect/energy_net/stasis
 	name = "condensed nlom field"
 	desc = "A crystallized field of pure Nlom energy."
-	color = COLOR_LIGHT_CYAN
+	icon_state = "shield2"
 	health = 100
 
 /obj/effect/energy_net/stasis/process()

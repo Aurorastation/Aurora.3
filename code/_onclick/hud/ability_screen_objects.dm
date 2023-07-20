@@ -126,6 +126,10 @@
 	for(var/obj/screen/ability/A in ability_objects)
 		remove_ability(A)
 
+/obj/screen/movable/ability_master/proc/remove_all_psionic_abilities()
+	for(var/obj/screen/ability/obj_based/psionic/A in ability_objects)
+		remove_ability(A)
+
 /obj/screen/movable/ability_master/proc/get_ability_by_name(name_to_search)
 	for(var/obj/screen/ability/A in ability_objects)
 		if(A.name == name_to_search)
@@ -311,6 +315,7 @@
 	A.object = object_given
 	A.ability_icon_state = ability_icon_given
 	A.name = object_given.name
+	A.connected_power = P
 	ability_objects.Add(A)
 	if(my_mob.client)
 		toggle_open(2) //forces the icons to refresh on screen

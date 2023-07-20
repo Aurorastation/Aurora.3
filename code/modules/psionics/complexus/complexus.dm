@@ -22,6 +22,7 @@
 	var/last_aura_color
 	var/aura_color = "#ff0022"
 
+	var/datum/component/armor/psionic/armor_component
 	var/obj/screen/psi/hub/ui	      // Reference to the master psi UI object.
 	var/mob/living/owner              // Reference to our owner.
 	var/image/_aura_image             // Client image
@@ -68,6 +69,7 @@
 /datum/psi_complexus/Destroy()
 	destroy_aura_image(_aura_image)
 	SSpsi.all_psi_complexes -= src
+	QDEL_NULL(armor_component)
 	STOP_PROCESSING(SSpsi, src)
 	if(owner)
 		if(owner.ability_master)
