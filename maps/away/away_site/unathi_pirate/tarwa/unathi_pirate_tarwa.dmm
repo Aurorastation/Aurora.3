@@ -2396,6 +2396,9 @@
 	pixel_y = 25;
 	req_one_access = list(210)
 	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/unathi_pirate/captain,
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/captain,
 /turf/simulated/floor/carpet/orange,
 /area/tarwa_ship/captain)
 "JW" = (
@@ -2552,6 +2555,9 @@
 "Ly" = (
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/sink{
+	pixel_y = 25
 	},
 /turf/simulated/floor/lino,
 /area/tarwa_ship/canteen)
