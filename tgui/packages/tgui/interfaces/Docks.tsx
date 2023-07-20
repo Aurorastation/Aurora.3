@@ -11,7 +11,7 @@ type Dock = {
   shuttle: string;
 };
 
-let sortByNameFn = function(a: Dock, b: Dock): number {
+let sortByNameFn = function (a: Dock, b: Dock): number {
   if (a.name < b.name) {
     return -1;
   }
@@ -23,8 +23,12 @@ let sortByNameFn = function(a: Dock, b: Dock): number {
 
 export const Docks = (props, context) => {
   const { act, data } = useBackend<DocksData>(context);
-  const full_docks = data.docks.filter((d: Dock) => !!d.shuttle).sort(sortByNameFn);
-  const empty_docks = data.docks.filter((d: Dock) => !d.shuttle).sort(sortByNameFn);
+  const full_docks = data.docks
+    .filter((d: Dock) => !!d.shuttle)
+    .sort(sortByNameFn);
+  const empty_docks = data.docks
+    .filter((d: Dock) => !d.shuttle)
+    .sort(sortByNameFn);
 
   return (
     <NtosWindow resizable>
@@ -39,17 +43,13 @@ export const Docks = (props, context) => {
             {full_docks.map((dock) => (
               <Table.Row key={dock.name}>
                 <Table.Cell>{dock.name}</Table.Cell>
-                <Table.Cell>
-                  {dock.shuttle}
-                </Table.Cell>
+                <Table.Cell>{dock.shuttle}</Table.Cell>
               </Table.Row>
             ))}
             {empty_docks.map((dock) => (
               <Table.Row key={dock.name} color="gray">
                 <Table.Cell>{dock.name}</Table.Cell>
-                <Table.Cell>
-                  {dock.shuttle}
-                </Table.Cell>
+                <Table.Cell>{dock.shuttle}</Table.Cell>
               </Table.Row>
             ))}
           </Table>
