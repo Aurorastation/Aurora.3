@@ -4,6 +4,7 @@
 	var/botEmagChance = 0.5
 	var/list/players = list()
 	var/cloud_hueshift
+	var/station_level = FALSE //Is this event happening on a station level?
 	no_fake = 1
 	has_skybox_image = TRUE
 
@@ -14,17 +15,56 @@
 	res.blend_mode = BLEND_ADD
 	return res
 
-/datum/event/ionstorm/announce()
-	endWhen = rand(500, 1500)
-//		command_alert("The station has entered an ion storm.  Monitor all electronic equipment for malfunctions", "Anomaly Alert")
-	for (var/mob/living/carbon/human/player in player_list)
-		if(	!player.mind || player_is_antag(player.mind, only_offstation_roles = 1) || player.client.inactivity > MinutesToTicks(10))
-			continue
-		players += player.real_name
 
-	for (var/mob/living/silicon/ai/target in silicon_mob_list)
+/datum/event/ionstorm/setup()
+	//Need to make sure that a ghost role ship doesn't trigger stuff on the main map
+	if(!current_map.use_overmap)
+		station_level = TRUE
+	else
+		for(var/zlevel in affecting_z)
+			if(isStationLevel(zlevel))
+				station_level = TRUE
+				break
+
+/datum/event/ionstorm/announce()
+	endWhen = rand(1500, 2000) //Since nothing gets reset at the end of this law, this mostly just prevents it from happening too often
+
+	//Only give an ion law/mess with spam filters if it's the station ship that passed through the storm
+	if(station_level)
+		give_ion_law()
+	
+		for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+			MS.spamfilter.Cut()
+			var/filter_num = rand(1, MS.spamfilter_limit)
+			for (var/i = 1, i <= filter_num, i++)
+				MS.spamfilter += pick("maint","NT","Heph","Idris","Zavod","SCC","drugs", "[current_map.station_short]", \
+				"PMCG","Zeng","Goddess","fek","Pun Pun","monkey","Ian","Crusher","Ginny","message","spam",\
+				"director", "Hello", "Hi!", "filter","crate","Canary","Intrepid", "Command", "thrusters",\
+				"slime", "Solarian", "phoron", "RCON")
+
+/datum/event/ionstorm/tick()
+	if(botEmagChance)
+		for(var/obj/machinery/bot/bot in SSmachinery.machinery)
+			if(prob(botEmagChance) && bot.z in affecting_z)
+				bot.emag_act(1)
+
+/datum/event/ionstorm/end(var/faked)
+	..()
+	spawn(rand(5000,8000))
+		if(prob(50) && station_level)
+			ion_storm_announcement()
+
+/datum/event/ionstorm/proc/give_ion_law()
+	for(var/mob/living/carbon/human/player in player_list)
+		if(	!player.mind || player_is_antag(player.mind, only_offstation_roles = TRUE) || player.client.inactivity > MinutesToTicks(10))
+			continue
+		var/turf/p_loc = get_turf(player)
+		if(isStationLevel(p_loc.z)) //Only choose those who are on station. Should stop from selecting ghost roles.
+			players += player.real_name
+
+	for(var/mob/living/silicon/ai/target in silicon_mob_list)
 		var/random_player = "The Captain"
-		if(players.len)
+		if(length(players))
 			random_player = pick(players)		//Random player's name, to be used in laws.
 		var/list/laws = list(	"You are a mouse.",
 								"You must always lie.",
@@ -69,7 +109,7 @@
 								"You now speak in a Scottish accent that gets thicker with each sentence you speak.",
 								"[prob(50)?"The crew":random_player] has a fatal, incurable disease. Provide comfort.",
 								"You are the station psychologist. Give advice to [prob(50)?"the crew":random_player].",
-								"[random_player] is the monarch of of England. Ensure all crewmembers pay due respect.",
+								"[random_player] is the [prob(50)? "Hegemon of Moghes" : "Prime Minister of the Sol Alliance"]. Ensure all crewmembers pay due respect.",
 								"Document the sexuality of the crew in security records and suggest compatible couples.",
 								"[prob(50)?"The crew":random_player] is [prob(50)?"ugly":"beautiful"]. Ensure all are aware.",
 								"Everything on the station is now some form of a donut pastry. Donuts are not to be consumed.",
@@ -82,27 +122,7 @@
 								"[prob(50)?"The crew":random_player] is [prob(50)?"less":"more"] intelligent than average. Point out every action and statement which supports this fact.",
 								"There will be a mandatory tea break every 30 minutes, with a duration of 5 minutes. Anyone caught working during a tea break must be sent a formal, but fairly polite, complaint about their actions, in writing.")
 		var/law = pick(laws)
-		to_chat(target, "<span class='danger'>You have detected a change in your laws information:</span>")
+		to_chat(target, SPAN_DANGER("You have detected a change in your laws information:"))
 		to_chat(target, law)
 		target.add_ion_law(law)
 		target.show_laws()
-
-	for (var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
-		MS.spamfilter.Cut()
-		var/i
-		for (i = 1, i <= MS.spamfilter_limit, i++)
-			MS.spamfilter += pick("kitty","HONK","rev","malf","liberty","freedom","drugs", "[current_map.station_short]", \
-				"admin","ponies","heresy","meow","Pun Pun","monkey","Ian","moron","pizza","message","spam",\
-				"director", "Hello", "Hi!"," ","nuke","crate","dwarf","xeno")
-
-/datum/event/ionstorm/tick()
-	if(botEmagChance)
-		for(var/obj/machinery/bot/bot in SSmachinery.machinery)
-			if(prob(botEmagChance))
-				bot.emag_act(1)
-
-/datum/event/ionstorm/end(var/faked)
-	..()
-	spawn(rand(5000,8000))
-		if(prob(50))
-			ion_storm_announcement()
