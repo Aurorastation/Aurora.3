@@ -36,7 +36,7 @@
 	if(stat == DEAD)
 		to_chat(user, "How can someone kill such a friendly creature?")
 
-/mob/living/simple_animal/capybara/pet_response
+/mob/living/simple_animal/capybara/pet_response(mob/M)
 	if(!stat && M)
 		icon_state = icon_living
 		var/list/responses = list(
@@ -45,6 +45,6 @@
 			"\The [src] looks at you with a satisfied look.",
 			"\The [src] has accepted its fate to receive pets."
 			)
-	to_chat(M, pick(responses))
+		to_chat(M, pick(responses))
 	else
 		..()
