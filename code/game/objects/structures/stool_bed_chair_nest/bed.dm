@@ -372,6 +372,12 @@
 	var/obj/item/vitals_monitor/vitals
 	var/iv_attached = 0
 	var/iv_stand = TRUE
+	var/iv_transfer_rate = 4 //Same as max for regular IV drips
+	//Items that can be attached to an IV
+	var/list/accepted_containers = list(
+		/obj/item/reagent_containers/blood,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle)
 	var/patient_shift = 9 //How much are mobs moved up when they are buckled_to.
 	slowdown = 0
 
@@ -419,7 +425,7 @@
 		vitals.bed = src
 		update_icon()
 		return
-	if(iv_stand && !beaker && (istype(I, /obj/item/reagent_containers/glass/beaker) || istype(I, /obj/item/reagent_containers/blood)))
+	if(iv_stand && !beaker && is_type_in_list(I, accepted_containers))
 		if(!user.unEquip(I, target = src))
 			return
 		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
@@ -447,7 +453,7 @@
 		return
 
 	if(beaker.volume > 0)
-		beaker.reagents.trans_to_mob(buckled, beaker.amount_per_transfer_from_this, CHEM_BLOOD)
+		beaker.reagents.trans_to_mob(buckled, min(iv_transfer_rate, beaker.amount_per_transfer_from_this), CHEM_BLOOD)
 		update_icon()
 
 /obj/structure/bed/roller/proc/remove_beaker(mob/user)

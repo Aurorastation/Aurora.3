@@ -39,11 +39,13 @@
 	w_class = ITEMSIZE_HUGE
 	var/sign_state = ""
 
-/obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob) // Construction.
+/obj/item/sign/attackby(obj/item/tool, mob/user) // Construction.
 	if(tool.isscrewdriver() && isturf(user.loc))
 		var/direction = input("In which direction?", "Select direction.") in list("North", "East", "South", "West", "Cancel")
 		if(direction == "Cancel") return
-		var/obj/structure/sign/S = new(user.loc)
+		if(QDELETED(src)) //Prevents spawning multiple new signs with queued dialogues
+			return
+		var/obj/structure/sign/S = new(get_turf(user))
 		switch(direction)
 			if("North")
 				S.pixel_y = 32
