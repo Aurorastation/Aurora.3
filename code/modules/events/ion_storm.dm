@@ -45,7 +45,7 @@
 /datum/event/ionstorm/tick()
 	if(botEmagChance)
 		for(var/obj/machinery/bot/bot in SSmachinery.machinery)
-			if(prob(botEmagChance) && bot.z in affecting_z)
+			if(prob(botEmagChance) && (bot.z in affecting_z))
 				bot.emag_act(1)
 
 /datum/event/ionstorm/end(var/faked)
