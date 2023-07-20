@@ -41,7 +41,7 @@
 						SPAN_NOTICE("You lay your palms on [target]'s temples and begin tracing their Nlom signature..."))
 	if(do_mob(user, target, 4 SECONDS))
 		if(!target.psi)
-			to_chat(user, SPAN_NOTICE("[target] is psionically perceptive, but nothing more. [target.get_pronoun("he")] cannot manipulate the fabric that weaves \
+			to_chat(user, SPAN_NOTICE("[target] is psionically perceptive, but nothing more: [target.get_pronoun("he")] cannot manipulate the fabric that weaves \
 										this universe."))
 		if(target.psi)
 			switch(target.psi.get_rank())
