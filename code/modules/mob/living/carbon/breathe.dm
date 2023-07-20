@@ -28,7 +28,9 @@
 		return
 	if(changeling?.no_breathing)
 		return
-		
+	if(HAS_TRAIT(src, TRAIT_NO_BREATHE))
+		return
+
 	volume_needed *= (species?.breath_vol_mul || 1)
 
 	var/datum/gas_mixture/breath = null

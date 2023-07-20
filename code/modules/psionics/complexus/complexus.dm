@@ -73,8 +73,7 @@
 	STOP_PROCESSING(SSpsi, src)
 	if(owner)
 		if(owner.ability_master)
-			for(var/obj/screen/ability/obj_based/psionic/P in owner.ability_master)
-				owner.ability_master.remove_ability(P)
+			owner.ability_master.remove_all_psionic_abilities()
 		if(owner.client)
 			owner.client.screen -= ui
 			for(var/thing in SSpsi.all_aura_images)

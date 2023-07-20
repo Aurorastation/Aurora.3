@@ -349,6 +349,8 @@
 	var/datum/changeling/changeling = get_antag_datum(MODE_CHANGELING)
 	if(changeling?.space_adapted)
 		return TRUE
+	if(HAS_TRAIT(src, TRAIT_NO_BREATHE))
+		return TRUE
 	return FALSE
 
 /mob/living/carbon/human/get_cell()
