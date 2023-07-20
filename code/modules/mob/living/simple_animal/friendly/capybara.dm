@@ -30,6 +30,7 @@
 			SPAN_NOTICE("You eagerly pet \the [src].")
 		)
 		addtimer(CALLBACK(src, PROC_REF(PetResponse)), rand(2 SECONDS, 5 SECONDS))
+	..()
 
 /mob/living/simple_animal/capybara/examine(mob/user)
 	..()
@@ -46,5 +47,4 @@
 			"\The [src] has accepted its fate to receive pets."
 			)
 		to_chat(M, pick(responses))
-	else
-		..()
+	..()
