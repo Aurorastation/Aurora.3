@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section, Table } from '../components';
+import { Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type DocksData = {
@@ -11,15 +11,15 @@ type Dock = {
   shuttle: string;
 };
 
-function sortByNameFn(a: Dock, b: Dock): number {
-  if (a.name < b.name){
+let sortByNameFn = function(a: Dock, b: Dock): number {
+  if (a.name < b.name) {
     return -1;
   }
-  if (a.name > b.name){
+  if (a.name > b.name) {
     return 1;
   }
   return 0;
-}
+};
 
 export const Docks = (props, context) => {
   const { act, data } = useBackend<DocksData>(context);
@@ -35,9 +35,9 @@ export const Docks = (props, context) => {
               <Table.Cell>Port/Hangar</Table.Cell>
               <Table.Cell>Docked Craft</Table.Cell>
             </Table.Row>
-            <Table.Row></Table.Row>
+            <Table.Row />
             {full_docks.map((dock) => (
-              <Table.Row>
+              <Table.Row key={dock.name}>
                 <Table.Cell>{dock.name}</Table.Cell>
                 <Table.Cell>
                   {dock.shuttle}
@@ -45,7 +45,7 @@ export const Docks = (props, context) => {
               </Table.Row>
             ))}
             {empty_docks.map((dock) => (
-              <Table.Row color="gray">
+              <Table.Row key={dock.name} color="gray">
                 <Table.Cell>{dock.name}</Table.Cell>
                 <Table.Cell>
                   {dock.shuttle}
