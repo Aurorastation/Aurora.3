@@ -1,6 +1,6 @@
 /singleton/psionic_power/command
 	name = "Command"
-	desc = "Allows you to send a psionic command to a target. It must be one word. The suggestion ends when they finish the task, when a minute passes or \
+	desc = "Send a psionic command to a target. It must be one word. The suggestion ends when they finish the task, when a minute passes or \
 			when they take notable damage."
 	icon_state = "wiz_blink"
 	spell_path = /obj/item/spell/command
@@ -17,10 +17,14 @@
 
 /obj/item/spell/command/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	. = ..()
+	if(!.)
+		return
 	command(hit_atom, user)
 
 /obj/item/spell/command/on_ranged_cast(atom/hit_atom, mob/user)
 	. = ..()
+	if(!.)
+		return
 	command(hit_atom, user)
 
 /obj/item/spell/command/proc/command(atom/hit_atom, mob/user)

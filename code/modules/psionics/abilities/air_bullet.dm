@@ -4,6 +4,7 @@
 			fire them by clicking something."
 	icon_state = "tech_frostaura"
 	point_cost = 3
+	ability_flags = PSI_FLAG_ANTAG
 	spell_path = /obj/item/spell/projectile/air_bullet
 
 /obj/item/spell/projectile/air_bullet
@@ -21,6 +22,8 @@
 
 /obj/item/spell/projectile/air_bullet/on_use_cast(mob/user)
 	. = ..()
+	if(!.)
+		return
 	if(!isliving(user))
 		return
 	var/mob/living/L = user
@@ -50,4 +53,6 @@
 	icon_state = "plasma_bolt"
 	damage = 30
 	armor_penetration = 10
+	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
+	damage_flags = DAMAGE_FLAG_BULLET
 	damage_type = DAMAGE_BRUTE

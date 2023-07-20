@@ -17,6 +17,8 @@
 
 /obj/item/spell/psi_search/on_use_cast(mob/user)
 	. = ..()
+	if(!.)
+		return
 	if(!isliving(user))
 		return
 	var/mob/living/L = user

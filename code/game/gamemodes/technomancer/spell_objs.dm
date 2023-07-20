@@ -48,22 +48,22 @@
 // Proc: on_use_cast()
 // Parameters: 1 (user - the technomancer casting the spell)
 // Description: Override this for clicking the spell in your hands.
-/obj/item/spell/proc/on_use_cast(mob/user)
+/obj/item/spell/proc/on_use_cast(mob/user, var/bypass_psi_check)
 	SHOULD_CALL_PARENT(TRUE)
-	if(aspect == ASPECT_PSIONIC)
+	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
-	return
+	return TRUE
 
 // Proc: on_throw_cast()
 // Parameters: 1 (hit_atom - the atom hit by the spell object)
 // Description: Override this for throwing effects.
-/obj/item/spell/proc/on_throw_cast(atom/hit_atom)
+/obj/item/spell/proc/on_throw_cast(atom/hit_atom, var/bypass_psi_check)
 	SHOULD_CALL_PARENT(TRUE)
-	if(aspect == ASPECT_PSIONIC)
+	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
-	return
+	return TRUE
 
 // Proc: on_ranged_cast()
 // Parameters: 2 (hit_atom - the atom clicked on by the user, user - the technomancer that clicked hit_atom)

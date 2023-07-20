@@ -79,11 +79,12 @@ export const PsionicsList = (props, context) => {
         )
         .map((psi) => (
           <Section
-            key={psi.name + ' (' + psi.point_cost + ')'}
-            title={psi.name}
+            key={psi.name}
+            title={psi.name + ' (' + psi.point_cost + ')'}
             buttons={
               <Button
                 content="Buy"
+                icon="shopping-cart"
                 color="green"
                 disabled={
                   psi.point_cost > data.psi_points ||

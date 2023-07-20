@@ -17,6 +17,8 @@
 
 /obj/item/spell/psi_recovery/on_use_cast(mob/user)
 	. = ..()
+	if(!.)
+		return
 	if(!isliving(user))
 		return
 

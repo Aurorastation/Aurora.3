@@ -32,7 +32,7 @@
 				else if(psionic_rank == PSI_RANK_HARMONIOUS)
 					aura_color = "#3333cc"
 
-	if(psionic_rank > PSI_RANK_SENSITIVE && last_psionic_rank < PSI_RANK_SENSITIVE)
+	if(psionic_rank > PSI_RANK_SENSITIVE && last_psionic_rank < PSI_RANK_HARMONIOUS)
 		switch(psionic_rank)
 			if(PSI_RANK_HARMONIOUS)
 				psi_points = PSI_POINTS_HARMONIOUS
@@ -48,8 +48,12 @@
 		announced = TRUE
 		to_chat(owner, "<hr>")
 		to_chat(owner, SPAN_NOTICE("<font size = 3>You are <b>psionic</b>, touched by powers beyond understanding.</font>"))
-		to_chat(owner, SPAN_NOTICE("<b>Shift-left-click your Psi icon</b> on the bottom right to <b>view a summary of how to use them</b>, or <b>left click</b> it to <b>suppress or unsuppress</b> your psionics. Beware: overusing your gifts can have <b>deadly consequences</b>."))
+		to_chat(owner, SPAN_NOTICE("<b>Left click</b> your psi icon to <b>suppress or unsuppress</b> your psionics. <b>Shift click</b> it to open your Psionic Point Shop. Beware: overusing your gifts can have <b>deadly consequences</b>."))
 		to_chat(owner, "<hr>")
+		if(get_rank() >= PSI_RANK_SENSITIVE)
+			for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
+				if(P.ability_flags & PSI_FLAG_FOUNDATIONAL)
+					P.apply(owner)
 
 /datum/psi_complexus/proc/wipe_user_abilities()
 	to_chat(owner, SPAN_DANGER("IMPLEMENT ABILITY WIPING YOU LAZY FUCK"))

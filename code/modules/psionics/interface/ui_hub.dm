@@ -77,6 +77,8 @@
 			continue
 		if(owner.psi.get_rank() < PSI_FLAG_APEX && P.ability_flags & PSI_FLAG_APEX)
 			continue
+		if(owner.psi.get_rank() < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_EVENT))
+			return
 		data["available_psionics"] += list(
 			list(
 				"name" = P.name,

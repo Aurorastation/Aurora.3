@@ -29,7 +29,8 @@
 
 /obj/item/spell/projectile/proc/make_projectile(obj/item/projectile/projectile_type, mob/living/user)
 	var/obj/item/projectile/P = new projectile_type(get_turf(user))
-	P.damage = calculate_spell_power(P.damage)
+	if(aspect != ASPECT_PSIONIC)
+		P.damage = calculate_spell_power(P.damage)
 	return P
 
 /obj/item/spell/projectile/proc/set_up(atom/hit_atom, mob/living/user)

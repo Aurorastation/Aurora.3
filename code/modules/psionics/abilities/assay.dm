@@ -17,6 +17,8 @@
 
 /obj/item/spell/assay/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	. = ..()
+	if(!.)
+		return
 
 	if(!ishuman(hit_atom))
 		return

@@ -18,7 +18,9 @@
 	var/safe_mode = FALSE
 
 /obj/item/spell/read_mind/on_use_cast(mob/user)
-	. = ..()
+	. = ..(user, TRUE)
+	if(!.)
+		return
 	safe_mode = !safe_mode
 	if(safe_mode)
 		to_chat(user, SPAN_NOTICE("Your mind reading can now be resisted and will not incur brain damage."))
@@ -27,6 +29,8 @@
 
 /obj/item/spell/read_mind/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	. = ..()
+	if(!.)
+		return
 	read_mind(hit_atom, user)
 
 /obj/item/spell/read_mind/proc/read_mind(atom/hit_atom, mob/user)

@@ -64,16 +64,15 @@
 	owner = _owner
 	SSpsi.all_psi_complexes |= src
 	START_PROCESSING(SSpsi, src)
-	if(get_rank() >= PSI_RANK_SENSITIVE)
-		for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
-			if(P.ability_flags & PSI_FLAG_FOUNDATIONAL)
-				P.apply(_owner)
 
 /datum/psi_complexus/Destroy()
 	destroy_aura_image(_aura_image)
 	SSpsi.all_psi_complexes -= src
 	STOP_PROCESSING(SSpsi, src)
 	if(owner)
+		if(owner.ability_master)
+			for(var/obj/screen/ability/obj_based/psionic/P in owner.ability_master)
+				owner.ability_master.remove_ability(P)
 		if(owner.client)
 			owner.client.screen -= ui
 			for(var/thing in SSpsi.all_aura_images)
@@ -87,7 +86,4 @@
 			qdel(thing)
 		manifested_items.Cut()
 
-	if(owner.ability_master)
-		for(var/obj/screen/ability/obj_based/psionic/P in owner.ability_master)
-			owner.ability_master.remove_ability(P)
 	. = ..()

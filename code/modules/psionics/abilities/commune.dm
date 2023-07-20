@@ -1,7 +1,9 @@
 /singleton/psionic_power/commune
 	name = "Commune"
-	desc = "Allows you to psionically commune with the target."
+	desc = "Psionically commune with the target."
 	icon_state = "tech_audibledeception"
+	point_cost = 0
+	ability_flags = PSI_FLAG_FOUNDATIONAL
 	spell_path = /obj/item/spell/commune
 
 /obj/item/spell/commune
@@ -15,11 +17,13 @@
 
 /obj/item/spell/commune/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	. = ..()
-	commune(hit_atom, user)
+	if(.)
+		commune(hit_atom, user)
 
 /obj/item/spell/commune/on_ranged_cast(atom/hit_atom, mob/user)
 	. = ..()
-	commune(hit_atom, user)
+	if(.)
+		commune(hit_atom, user)
 
 /obj/item/spell/commune/proc/commune(atom/hit_atom, mob/user)
 	if(!isliving(hit_atom))

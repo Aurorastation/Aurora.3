@@ -439,6 +439,8 @@
 
 	else if(href_list["set_psi_rank"])
 		current.set_psi_rank(text2num(href_list["set_psi_rank"]))
+		return
+
 	edit_memory()
 
 /datum/mind/proc/find_syndicate_uplink()
