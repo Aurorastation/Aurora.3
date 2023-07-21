@@ -1,0 +1,4 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Bodybags, stasis bags, and air bubbles can no longer hold multiple mobs."
