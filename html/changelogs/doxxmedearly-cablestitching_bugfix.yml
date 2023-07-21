@@ -1,5 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-changes:
-  - bugfix: "Stitching wounds closed with cable coil works again."
-  - tweak: "Infection severity from cable coil stitching has been greatly reduced. Both the chance and severity of infection are lower if you sterilize the cable coil first."
