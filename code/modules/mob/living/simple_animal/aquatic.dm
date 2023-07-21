@@ -1,7 +1,7 @@
 //For things that swim and don't do much else.
 /mob/living/simple_animal/aquatic
 	name = "aquatic animal"
-	desc = "You shouldn't be seeing this."
+	desc = DESC_PARENT
 	icon = 'icons/mob/npc/fish.dmi'
 	icon_state = "fish"
 	item_state = "fish"
@@ -17,8 +17,6 @@
 	var/global/list/suitable_turf_types = list(
 		/turf/simulated/floor/beach/water,
 		/turf/simulated/floor/beach/coastline,
-		/turf/simulated/floor/holofloor/beach/water,
-		/turf/simulated/floor/holofloor/beach/coastline,
 		/turf/simulated/floor/exoplanet/water
 	)
 

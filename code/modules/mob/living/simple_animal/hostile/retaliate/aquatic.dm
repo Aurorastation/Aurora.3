@@ -1,7 +1,7 @@
 //For things that swim and don't do much else, but also bite!
 /mob/living/simple_animal/hostile/retaliate/aquatic
 	name = "aquatic animal"
-	desc = "You shouldn't be seeing this."
+	desc = DESC_PARENT
 	icon = 'icons/mob/npc/fish.dmi'
 	icon_state = "fish"
 	item_state = "fish"
@@ -17,8 +17,6 @@
 	var/global/list/suitable_turf_types = list(
 		/turf/simulated/floor/beach/water,
 		/turf/simulated/floor/beach/coastline,
-		/turf/simulated/floor/holofloor/beach/water,
-		/turf/simulated/floor/holofloor/beach/coastline,
 		/turf/simulated/floor/exoplanet/water
 	)
 
@@ -51,12 +49,7 @@
 	melee_damage_upper = 70
 	armor_penetration = 80
 
-/mob/living/simple_animal/hostile/retaliate/aquatic/thresher/attackby(obj/item/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/melee/baton))
-		user.gib()
-		user.visible_message(SPAN_DANGER("[user] was torn to shreds by a shark while attempting to attack with \the [O]!"))
-		return 1
-
+//Admin shark for admin fun because why not, not meant for normal gameplay
 /mob/living/simple_animal/hostile/retaliate/aquatic/thresher/deep_water
 	name = "large toothed aquatic creature"
 	desc = "A threatening-looking aquatic creature with a mouth full of densely-packed, razor sharp teeth. This one has grown to a substantial size."
@@ -65,3 +58,9 @@
 	melee_damage_lower = 50
 	melee_damage_upper = 90
 	armor_penetration = 100
+
+/mob/living/simple_animal/hostile/retaliate/aquatic/thresher/deep_water/attackby(obj/item/O as obj, mob/user as mob)
+	if(istype(O, /obj/item/melee/baton))
+		user.gib()
+		user.visible_message(SPAN_DANGER("[user] was torn to shreds by a shark while attempting to attack with \the [O]!"))
+		return 1
