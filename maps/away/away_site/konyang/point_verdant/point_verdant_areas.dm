@@ -24,6 +24,24 @@
 	name = "Point Verdant - Sewers"
 	sound_env = SEWER_PIPE
 
+//All walls and interior stuff uses this area, otherwise rain will appear over walls. suboptimal!
 /area/point_verdant/interior
 	name = "Point Verdant - Indoors"
 	sound_env = LARGE_SOFTFLOOR
+
+//Stuff for rainy areas below. WIP implementation
+/area/point_verdant/outdoors
+	name = "Point Verdant - Outdoors"
+
+/area/point_verdant/outdoors/Initialize()
+	. = ..()
+	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="splat","layer"=OBJ_LAYER-0.1))
+	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="rain","layer"=MOB_LAYER+0.1))
+
+/area/point_verdant/water
+	name = "Point Verdant - Open Water"
+
+/area/point_verdant/water/Initialize()
+	. = ..()
+	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="ripple","layer"=OBJ_LAYER-0.1))
+	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="rain","layer"=MOB_LAYER+0.1))

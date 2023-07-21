@@ -5,10 +5,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "aZ" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "be" = (
 /obj/structure/shipping_container{
 	icon_state = "blue2"
@@ -17,13 +17,13 @@
 	icon_state = "heph3"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "bm" = (
 /obj/effect/decal/road_marking/no_pass{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "bv" = (
 /obj/effect/decal/road_marking/no_pass{
 	dir = 4
@@ -32,7 +32,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "bB" = (
 /obj/effect/decal/road_marking/center{
 	dir = 8
@@ -45,12 +45,12 @@
 	},
 /obj/effect/decal/road_marking/no_pass,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "bM" = (
 /turf/unsimulated/wall/plank/corner{
 	dir = 4
 	},
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "cg" = (
 /obj/structure/shipping_container{
 	icon_state = "green2"
@@ -59,22 +59,22 @@
 	icon_state = "ee3"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "dH" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
 	layer = 9.1
 	},
 /turf/simulated/floor/sidewalk/blocks,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "dN" = (
 /obj/structure/rod_railing,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "dT" = (
 /obj/effect/decal/exterior_stairs/left,
 /turf/simulated/floor/sidewalk/blocks,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "ef" = (
 /obj/effect/decal/road_marking/center{
 	dir = 4
@@ -90,7 +90,7 @@
 	layer = 2.02
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "eR" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 1
@@ -99,59 +99,59 @@
 	layer = 2.02
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "gA" = (
 /obj/effect/decal/road_marking/incline{
 	pixel_y = -5
 	},
 /turf/simulated/floor/sidewalk/blocks,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "hG" = (
 /obj/structure/dam{
 	icon_state = "dam2";
 	opacity = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "hN" = (
 /turf/simulated/floor/exoplanet/water/konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "hQ" = (
 /obj/structure/shipping_container{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "iQ" = (
 /obj/structure/shipping_container{
 	icon_state = "green1"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "jy" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "jA" = (
 /obj/effect/decal/exterior_stairs/right{
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/blocks,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "jN" = (
 /obj/effect/decal/road_marking/no_pass{
 	dir = 4
 	},
 /obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "lc" = (
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "lt" = (
 /obj/effect/decal/road_marking/center{
 	dir = 4
@@ -163,17 +163,17 @@
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "lV" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "lW" = (
 /obj/effect/decal/curb{
 	dir = 5
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "md" = (
 /obj/structure/rod_railing,
 /obj/structure/stairs/urban{
@@ -181,7 +181,7 @@
 	icon_state = "stairs-right"
 	},
 /turf/simulated/floor/sidewalk/blocks,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "mn" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -190,19 +190,19 @@
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "nI" = (
 /obj/effect/decal/curb{
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "oa" = (
 /obj/structure/stairs/urban/road_ramp{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "oz" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/road_marking{
@@ -212,54 +212,54 @@
 	dir = 10
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "oJ" = (
 /obj/structure/ledge{
 	dir = 1
 	},
 /turf/simulated/floor/concrete,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "oK" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "py" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "pJ" = (
 /obj/structure/stairs/urban,
 /turf/simulated/floor/wood/coloured/walnut,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "qZ" = (
 /obj/effect/decal/curb{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "rf" = (
 /turf/unsimulated/mineral/konyang,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "rl" = (
 /obj/structure/dam{
 	icon_state = "dam5";
 	opacity = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "sq" = (
 /turf/unsimulated/wall/plank/corner{
 	dir = 1
 	},
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "su" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "tg" = (
 /turf/simulated/floor/wood/coloured/walnut,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "tl" = (
 /obj/structure/shipping_container{
 	icon_state = "green3"
@@ -268,7 +268,10 @@
 	icon_state = "heph3"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
+"tt" = (
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior)
 "tO" = (
 /obj/structure/shipping_container{
 	icon_state = "red1"
@@ -279,33 +282,33 @@
 	pixel_x = 8
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "uU" = (
 /obj/structure/dam{
 	icon_state = "dam3";
 	opacity = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "vs" = (
 /turf/simulated/floor/exoplanet/konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "vJ" = (
 /turf/unsimulated/wall/plank/corner,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "vO" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "vR" = (
 /obj/structure/dam{
 	icon_state = "dam6";
 	opacity = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "wX" = (
 /obj/structure/shipping_container{
 	icon_state = "blue2"
@@ -315,11 +318,11 @@
 	icon_state = "ee2"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "xg" = (
 /obj/structure/light_pole/r,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "xw" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -328,7 +331,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "xO" = (
 /obj/effect/decal/road_marking/center,
 /obj/effect/decal/road_marking/reflector,
@@ -336,14 +339,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "yr" = (
 /obj/structure/ladder/up,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "yv" = (
 /turf/simulated/floor/concrete,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "zq" = (
 /obj/effect/decal/road_marking/center{
 	dir = 4
@@ -358,17 +361,17 @@
 	layer = 2.02
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "As" = (
 /obj/structure/rod_railing,
 /turf/simulated/floor/sidewalk/blocks,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "AI" = (
 /obj/structure/dam{
 	icon_state = "dam7"
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "AS" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 8
@@ -381,7 +384,7 @@
 	layer = 2.02
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "AY" = (
 /obj/effect/decal/road_marking/center{
 	dir = 8
@@ -393,7 +396,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Bs" = (
 /obj/structure/shipping_container{
 	icon_state = "red3"
@@ -402,7 +405,7 @@
 	icon_state = "heph2"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "By" = (
 /obj/structure/shipping_container,
 /obj/effect/decal/curb,
@@ -413,7 +416,7 @@
 	icon_state = "heph3"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "CL" = (
 /obj/effect/decal/road_marking/no_pass{
 	dir = 4
@@ -422,11 +425,11 @@
 	dir = 10
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Db" = (
 /obj/structure/shipping_container,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Do" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -438,36 +441,36 @@
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "EA" = (
 /obj/effect/decal/road_marking/center,
 /obj/effect/decal/road_marking/reflector,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "ET" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
 /obj/structure/light_pole,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "EY" = (
 /obj/structure/ledge/quarter/corner{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Fe" = (
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "FR" = (
 /obj/structure/dam{
 	opacity = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "FS" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -479,7 +482,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "GH" = (
 /obj/effect/decal/road_marking/incline/center{
 	pixel_y = -17
@@ -488,11 +491,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "GP" = (
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "HN" = (
 /obj/structure/shipping_container{
 	icon_state = "blue3"
@@ -502,7 +505,7 @@
 	icon_state = "ee3"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Ii" = (
 /obj/effect/overlay/container_logo{
 	icon_state = "heph2"
@@ -511,45 +514,45 @@
 	icon_state = "red2"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Iv" = (
 /obj/structure/dam{
 	icon_state = "dam9";
 	opacity = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "IJ" = (
 /obj/structure/dam{
 	icon_state = "dam8";
 	opacity = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "IK" = (
 /obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Kp" = (
 /turf/unsimulated/wall/plank/corner{
 	dir = 8
 	},
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "LE" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "Mm" = (
 /obj/structure/shipping_container{
 	icon_state = "blue2"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Nk" = (
 /turf/unsimulated/wall/plank/line{
 	dir = 4
 	},
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "No" = (
 /obj/structure/shipping_container{
 	icon_state = "green2"
@@ -558,50 +561,50 @@
 	icon_state = "ee2"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "OC" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "OG" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "OW" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "Pf" = (
 /turf/unsimulated/mineral/konyang{
 	icon_state = "black"
 	},
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "Ps" = (
 /obj/effect/decal/curb{
 	dir = 6
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Qg" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "Qz" = (
 /obj/structure/ledge/quarter/corner{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "QV" = (
 /turf/simulated/floor/sidewalk/blocks,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Rb" = (
 /obj/structure/shipping_container{
 	icon_state = "blue2"
@@ -610,62 +613,62 @@
 	icon_state = "ee2"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Rv" = (
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "RD" = (
 /obj/structure/stairs/urban/road_ramp/left{
 	dir = 8;
 	pixel_y = 29
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "RF" = (
 /obj/effect/decal/exterior_stairs/left{
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/blocks,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "RV" = (
 /obj/structure/shipping_container{
 	icon_state = "green2"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Sx" = (
 /turf/simulated/floor/exoplanet/water/shallow/sewage,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "SQ" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "SV" = (
 /obj/structure/dam{
 	icon_state = "dam5"
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Te" = (
 /turf/unsimulated/wall/plank/line,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "Tf" = (
 /obj/effect/decal/exterior_stairs/right,
 /turf/simulated/floor/sidewalk/blocks,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Tg" = (
 /obj/structure/stairs/urban{
 	dir = 8;
 	icon_state = "stairs-left"
 	},
 /turf/simulated/floor/sidewalk/blocks,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Ts" = (
 /obj/structure/shipping_container{
 	icon_state = "red3"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "TE" = (
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -674,20 +677,20 @@
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Uy" = (
 /obj/structure/dam{
 	icon_state = "dam4";
 	opacity = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "UD" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/interior)
 "VR" = (
 /obj/structure/shipping_container{
 	icon_state = "blue3"
@@ -696,7 +699,7 @@
 	icon_state = "ee3"
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Wf" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -708,7 +711,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Wk" = (
 /obj/effect/decal/road_marking/incline{
 	pixel_y = 13
@@ -717,28 +720,28 @@
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Ww" = (
 /turf/simulated/floor/concrete/square,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Wx" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "XT" = (
 /obj/effect/decal/road_marking/no_park,
 /obj/effect/decal/curb{
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "YN" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 
 (1,1,1) = {"
 rf
@@ -7344,12 +7347,12 @@ rf
 rf
 rf
 rf
-Rv
-Rv
-Rv
-Rv
+tt
+tt
+tt
+tt
 su
-Rv
+tt
 LE
 SQ
 Sx
@@ -7526,12 +7529,12 @@ rf
 rf
 rf
 rf
-Rv
-Rv
-Rv
-Rv
-Rv
-Rv
+tt
+tt
+tt
+tt
+tt
+tt
 LE
 SQ
 Sx
@@ -7708,11 +7711,11 @@ rf
 rf
 rf
 rf
-Rv
-Rv
-Rv
-Rv
-Rv
+tt
+tt
+tt
+tt
+tt
 xg
 LE
 SQ
@@ -12453,8 +12456,8 @@ Sx
 Sx
 SQ
 jy
-Rv
-Rv
+tt
+tt
 rf
 rf
 rf
@@ -12635,8 +12638,8 @@ Sx
 Sx
 SQ
 jy
-Rv
-Rv
+tt
+tt
 rf
 rf
 rf
@@ -12817,8 +12820,8 @@ Sx
 Sx
 SQ
 OC
-Rv
-Rv
+tt
+tt
 rf
 rf
 rf
@@ -12999,8 +13002,8 @@ Sx
 Sx
 SQ
 jy
-Rv
-Rv
+tt
+tt
 rf
 rf
 rf
@@ -13181,8 +13184,8 @@ Sx
 Sx
 SQ
 jy
-Rv
-Rv
+tt
+tt
 rf
 rf
 rf

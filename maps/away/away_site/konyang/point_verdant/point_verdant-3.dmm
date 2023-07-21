@@ -11,19 +11,19 @@
 	layer = 9.1
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "bD" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/rod_railing,
 /turf/simulated/floor/plating,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "bE" = (
 /obj/structure/ledge{
 	dir = 1
 	},
 /obj/structure/utility_pole/street/on,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "ew" = (
 /obj/structure/ledge{
 	dir = 4
@@ -32,14 +32,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "fy" = (
 /turf/simulated/floor/wood/coloured/yew,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "gs" = (
 /obj/effect/decal/exterior_stairs/center,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "gS" = (
 /obj/structure/ledge,
 /obj/structure/utility_pole/street/on{
@@ -50,53 +50,53 @@
 	layer = 9.1
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "hL" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "iy" = (
 /obj/effect/shuttle_landmark/point_verdant/nav1,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "iC" = (
 /obj/effect/decal/exterior_stairs/left,
 /obj/effect/decal/exterior_stairs/center,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "kF" = (
 /obj/structure/rod_railing{
 	dir = 4
 	},
 /turf/simulated/floor/concrete,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "nf" = (
 /obj/structure/rod_railing,
 /turf/simulated/open,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "nw" = (
 /obj/effect/landmark/map_data{
 	height = 3
 	},
 /turf/unsimulated/mineral/konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "nX" = (
 /turf/unsimulated/wall/plank/corner,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "oa" = (
 /obj/structure/rod_railing,
 /turf/simulated/floor/concrete,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "pN" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "qa" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/rod_railing{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "qi" = (
 /obj/structure/ledge{
 	dir = 5
@@ -105,25 +105,25 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "qo" = (
 /turf/unsimulated/wall/plank/line{
 	dir = 4
 	},
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "rf" = (
 /turf/unsimulated/mineral/konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "tP" = (
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/concrete,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "tR" = (
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
 /turf/simulated/floor/concrete,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "vz" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -131,7 +131,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/concrete,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "wt" = (
 /obj/structure/ledge{
 	dir = 9
@@ -140,14 +140,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "wZ" = (
 /obj/structure/ledge,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "xr" = (
 /turf/simulated/floor/concrete/square,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "yx" = (
 /obj/structure/ledge{
 	dir = 8
@@ -156,51 +156,51 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Cw" = (
 /turf/simulated/open,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "CT" = (
 /obj/structure/ledge,
 /obj/structure/utility_pole/street/on{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "DC" = (
 /turf/simulated/floor/concrete,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "DD" = (
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
 /turf/simulated/floor/concrete/square,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "DF" = (
 /turf/unsimulated/wall/plank/line,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "DP" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/rod_railing{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "EF" = (
 /obj/structure/chainlink_fence{
 	dir = 8
 	},
 /turf/simulated/floor/concrete,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Fe" = (
 /turf/unsimulated/wall/plank/corner{
 	dir = 8
 	},
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "FM" = (
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/concrete/square,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "LG" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/rod_railing,
@@ -210,21 +210,21 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "MM" = (
 /obj/effect/shuttle_landmark/point_verdant/nav2,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "NI" = (
 /obj/structure/ledge{
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "NQ" = (
 /obj/effect/shuttle_landmark/point_verdant/nav3,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Ob" = (
 /obj/structure/ledge{
 	dir = 6
@@ -237,23 +237,23 @@
 	layer = 9.1
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "OG" = (
 /obj/effect/decal/exterior_stairs/right,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "PA" = (
 /obj/structure/chainlink_fence{
 	dir = 8
 	},
 /turf/simulated/floor/concrete/square,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "PP" = (
 /obj/structure/ledge{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "QK" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/rod_railing{
@@ -262,13 +262,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "RP" = (
 /obj/structure/ledge{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "SU" = (
 /obj/structure/ledge,
 /obj/structure/rod_railing{
@@ -276,39 +276,39 @@
 	layer = 9.1
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Tq" = (
 /turf/unsimulated/wall/plank/corner{
 	dir = 1
 	},
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "VS" = (
 /turf/unsimulated/wall/plank/corner{
 	dir = 4
 	},
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "VY" = (
 /obj/effect/decal/exterior_stairs/left,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "Ym" = (
 /obj/structure/ledge{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "ZH" = (
 /obj/structure/ledge{
 	dir = 10
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 "ZI" = (
 /obj/structure/rod_railing{
 	dir = 8
 	},
 /turf/simulated/floor/concrete,
-/area/point_verdant/outer)
+/area/point_verdant/outdoors)
 
 (1,1,1) = {"
 rf
