@@ -372,6 +372,7 @@
 	var/obj/item/vitals_monitor/vitals
 	var/iv_attached = 0
 	var/iv_stand = TRUE
+	var/iv_transfer_rate = 4 //Same as max for regular IV drips
 	//Items that can be attached to an IV
 	var/list/accepted_containers = list(
 		/obj/item/reagent_containers/blood,
@@ -452,7 +453,7 @@
 		return
 
 	if(beaker.volume > 0)
-		beaker.reagents.trans_to_mob(buckled, beaker.amount_per_transfer_from_this, CHEM_BLOOD)
+		beaker.reagents.trans_to_mob(buckled, min(iv_transfer_rate, beaker.amount_per_transfer_from_this), CHEM_BLOOD)
 		update_icon()
 
 /obj/structure/bed/roller/proc/remove_beaker(mob/user)
