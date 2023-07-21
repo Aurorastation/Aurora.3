@@ -6,6 +6,7 @@
 	icon_state = "hollow_purple"
 	point_cost = 0
 	ability_flags = PSI_FLAG_LIMITLESS
+	minimum_rank = PSI_FLAG_LIMITLESS
 	spell_path = /obj/item/spell/projectile/hollow_purple
 
 /obj/item/spell/projectile/hollow_purple

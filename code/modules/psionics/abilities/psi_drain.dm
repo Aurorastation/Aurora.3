@@ -4,6 +4,7 @@
 	icon_state = "gen_project"
 	point_cost = 0
 	ability_flags = PSI_FLAG_APEX
+	minimum_rank = PSI_RANK_APEX
 	spell_path = /obj/item/spell/psi_drain
 
 /obj/item/spell/psi_drain

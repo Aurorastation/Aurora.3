@@ -4,6 +4,7 @@
 	icon_state = "ling_berserk"
 	point_cost = 0
 	ability_flags = PSI_FLAG_APEX
+	minimum_rank = PSI_RANK_APEX
 	spell_path = /obj/item/spell/sunder
 
 /obj/item/spell/sunder

@@ -1,9 +1,9 @@
 /singleton/psionic_power/psi_suppression
 	name = "Psionic Suppression"
 	desc = "Hold in one of your hands to make yourself invisible to Psi-Search."
-	icon_state = "const_mend"
+	icon_state = "tech_shield"
 	point_cost = 1
-	ability_flags = PSI_FLAG_ANTAG
+	ability_flags = PSI_FLAG_CANON
 	spell_path = /obj/item/spell/psi_suppression
 
 /obj/item/spell/psi_suppression

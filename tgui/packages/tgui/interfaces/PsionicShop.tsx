@@ -51,6 +51,18 @@ export const PsionicShop = (props, context) => {
             </Box>
             .
           </Box>
+          {data.psi_points ? (
+            <Box>
+              You have{' '}
+              <Box as="span" bold>
+                {data.psi_points}
+              </Box>{' '}
+              points left.
+            </Box>
+          ) : (
+            ''
+          )}
+
           {data.available_psionics && data.available_psionics.length ? (
             <PsionicsList />
           ) : (

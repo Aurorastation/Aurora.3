@@ -4,6 +4,7 @@
 	icon_state = "tech_corona"
 	point_cost = 0
 	ability_flags = PSI_FLAG_APEX
+	minimum_rank = PSI_RANK_APEX
 	spell_path = /obj/item/spell/awaken
 
 /obj/item/spell/awaken

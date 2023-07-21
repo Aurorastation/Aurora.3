@@ -40,7 +40,9 @@
 				psi_points = PSI_POINTS_APEX
 			if(PSI_RANK_LIMITLESS)
 				psi_points = PSI_POINTS_LIMITLESS
-		wipe_user_abilities()
+		/// We had special abilities unique to our level, so get rid of 'em.
+		if(last_psionic_rank > PSI_RANK_HARMONIOUS)
+			wipe_user_abilities()
 
 	if(last_psionic_rank > PSI_RANK_SENSITIVE && psionic_rank < PSI_RANK_HARMONIOUS)
 		psi_points = 0

@@ -2,7 +2,6 @@
 	name = "Psionics"
 	sort_order = 7
 
-
 /datum/category_item/player_setup_item/general/psionics/load_character(var/savefile/S)
 	var/psionics_json
 	S["psionics"] >> psionics_json
@@ -36,7 +35,6 @@
 /datum/category_item/player_setup_item/general/psionics/gather_load_parameters()
 	return list("id" = pref.current_character)
 
-
 /datum/category_item/player_setup_item/general/psionics/gather_save_query()
 	return list(
 		"ss13_characters" = list(
@@ -59,13 +57,20 @@
 	)
 
 /datum/category_item/player_setup_item/general/psionics/sanitize_character(var/sql_load = 0)
+	if(istext(pref.psionics))
+		var/before = pref.psionics
+		try
+			pref.psionics = json_decode(pref.psionics)
+		catch (var/exception/e)
+			log_debug("PSIONICS: Caught [e]. Initial value: [before]")
+			pref.psionics = list()
 	for(var/S in pref.psionics)
 		var/singleton/psionic_power/P = GET_SINGLETON(text2path(S))
 		if(!istype(P))
 			pref.psionics -= S
 			continue
 		else
-			if(!(P.ability_flags & PSI_FLAG_FOUNDATIONAL))
+			if(!(P.ability_flags & PSI_FLAG_CANON))
 				pref.psionics -= S
 				continue
 
@@ -83,7 +88,7 @@
 		"<b>Psionics:</b><br>"
 	)
 	for(var/singleton/psionic_power/P in bought_psionic_powers)
-		dat += "- <b>[P.name]</b> <a href='?src=\ref[src];remove_psi_power=[P.type]'>-</a><br>"
+		dat += "- [P.name] <a href='?src=\ref[src];remove_psi_power=[P.type]'>-</a><br>"
 	dat += "<a href='?src=\ref[src];add_psi_power=1'>Add Psionic Power</a><br>"
 	. = dat.Join()
 
