@@ -94,3 +94,36 @@
 	name = "Einstein Engines Assets (Single)"
 	path = /obj/structure/closet/crate/secure/gear_loadout/einstein/single
 	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/izweski
+	name = "Izweski Hegemony Assets (Group)"
+	desc = "A crate containing gear for a group. The voidsuits are only usable by Unathi."
+	path = /obj/structure/closet/crate/secure/gear_loadout/hegemony
+
+/datum/uplink_item/item/gear_loadout/izweski_single
+	name = "Izweski Hegemony Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Unathi."
+	path = /obj/structure/closet/crate/secure/gear_loadout/hegemony/single
+	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/kataphract
+	name = "Kataphract Knight Assets (Group)"
+	desc = "A crate containing gear for a group. The voidsuits and hardsuit are only usable by Unathi."
+	path = /obj/structure/closet/crate/secure/gear_loadout/kataphract
+
+/datum/uplink_item/item/gear_loadout/kataphract_single
+	name = "Kataphract Knight Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Unathi."
+	path = /obj/structure/closet/crate/secure/gear_loadout/kataphract/single
+	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/izharshan
+	name = "Izharshan's Raiders Assets (Group)"
+	desc = "A crate containing gear for a group. The voidsuits are only usable by Unathi."
+	path = /obj/structure/closet/crate/secure/gear_loadout/izharshan
+
+/datum/uplink_item/item/gear_loadout/izharshan_single
+	name = "Izharshan's Raiders Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Unathi."
+	path = /obj/structure/closet/crate/secure/gear_loadout/izharshan/single
+	telecrystal_cost = 10
